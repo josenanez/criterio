@@ -8,79 +8,96 @@ Estado: **Agente PMO disponible** · Agente PM en construcción
 
 ---
 
-## Dónde se rompe una PMO
+## Qué atacamos
 
-No es que le falten plantillas. Tiene de sobra.
+No la falta de plantillas. De eso hay de sobra.
 
-Lo que le falta es que alguien lea junta la documentación que ya existe. Cuarenta proyectos, cada uno con su acta, su cronograma, sus minutas, sus correos y sus hojas de cálculo. Cada documento lo leyó alguien, una vez. Nadie los ha cruzado.
+Atacamos el hecho de que **nadie ha leído junta la documentación que ya existe**. Cuarenta proyectos, cada uno con su acta, su cronograma, sus minutas, sus correos y sus hojas de cálculo. Cada documento lo leyó alguien, una vez. Nadie los ha cruzado.
 
 Y en el cruce está lo que decide:
 
-- El hito cuya fecha pasó y no hay un solo documento que pruebe que se cumplió.
-- El proyecto que reporta verde y lleva cinco semanas sin producir un documento.
-- La minuta de la semana pasada que nombra a un patrocinador distinto del que dice el acta.
-- La dependencia que un plan declara y el plan del otro proyecto ignora.
-- El compromiso que alguien asumió en tres reuniones seguidas, con fecha nueva cada vez.
+- El hito cuya fecha pasó y **no hay un solo documento que pruebe que se cumplió**.
+- El proyecto que reporta verde y **lleva cinco semanas sin producir un documento**.
+- La minuta de la semana pasada que **nombra a un patrocinador distinto** del que dice el acta.
+- La dependencia que un plan declara y **el plan del otro proyecto ignora**.
+- El compromiso que alguien asumió en **tres reuniones seguidas, con fecha nueva cada vez**.
+- La replanificación que devolvió el semáforo a verde y **borró un año de atraso acumulado**.
 
-Ninguna de esas cosas aparece en un informe de avance, porque el informe de avance lo escribe quien está siendo evaluado.
+Nada de eso aparece en un informe de avance. El informe de avance lo escribe quien está siendo evaluado.
+
+Eso no es una sospecha: [Wellingtone](https://wellingtone.co.uk/publications/state-of-project-management-research/) encontró en 2026 que **un tercio de los proyectos no tiene línea base** y que la mitad de las organizaciones no tiene indicadores en tiempo real. Un tercio de los proyectos no tiene contra qué medirse.
+
+---
+
+## Qué vamos a mejorar
+
+Tres cosas concretas, y ninguna es "visibilidad".
+
+**Que la evidencia pese más que la declaración.** Hoy el estado de un proyecto es lo que dice quien lo gerencia. Lo vamos a convertir en una comparación entre lo declarado y lo que sustentan los documentos, con las dos columnas a la vista y la diferencia señalada.
+
+**Que el atraso no se pueda borrar.** Hoy una replanificación reemplaza la línea base anterior y el historial desaparece. Lo vamos a volver acumulativo: toda desviación se reporta contra la línea base original **y** contra la vigente, con el número de replanificaciones al lado.
+
+**Que la aritmética deje de ser una opinión.** Días de silencio, desviación, disponible real, proyección: todo eso se calcula en código, no se estima. Ningún número de un informe sale de una estimación.
+
+---
+
+## Esto es lo que hacemos
+
+Cada línea de esta tabla es **algo que el agente hace**, no algo que promete. Están escritas, se pueden leer en este repositorio, y se pueden correr hoy.
+
+| Lo que hace | Comando |
+|---|---|
+| Mira tus carpetas, hace cinco preguntas y produce un primer resultado sobre tus documentos | `/pmo-setup` |
+| Lee toda la documentación del portafolio y arma una ficha por proyecto, con cita y fecha en cada dato | `/portfolio-scan` |
+| Dice qué cambió desde la corrida anterior, qué se contradice, qué está en silencio y qué no tiene sustento | `/portfolio-report` |
+| Compara un proyecto contra su plan separando lo declarado de lo evidenciado | `/status-report` |
+| Arma el comité como un paquete de decisiones, no como un informe de avance | `/steering-pack` |
+| Levanta riesgos, supuestos, incidencias y dependencias — **incluidos los que se dijeron en una reunión y nadie registró** | `/raid-log` |
+| Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior | `/change-control` |
+| Cruza entregables contractuales contra evidencia de recibo y contra lo facturado | `/vendor-tracking` |
+| Muestra aprobado, comprometido, ejecutado y proyección — las cuatro, no dos | `/budget-tracking` |
+| Revisa el acta y dice qué falta y qué consecuencia tiene que falte | `/project-charter` |
+| Cierra contra el criterio de éxito que se pactó al inicio, con lecciones ancladas a hechos documentados | `/project-closure` |
+
+**Por qué esto es un compromiso y no una promesa:** cada comando está escrito como instrucciones legibles en [`plugins/criterio-pmo/`](../plugins/criterio-pmo/), bajo Apache 2.0. Se puede auditar antes de instalarlo, cambiar si no corresponde a cómo trabajas, y medir contra los criterios de aceptación que vienen con él.
+
+### Cuatro decisiones de diseño que se notan el primer día
+
+**La línea base es de solo agregar.** Cuando se replanifica, la anterior no se borra. Así es exactamente como se esconde el atraso: se replanifica, el semáforo vuelve a verde y nadie ve que el proyecto lleva un año corrido.
+
+**Las cuatro cifras del presupuesto, no dos.** Un proyecto con 40% ejecutado y 95% comprometido no tiene holgura: tiene el presupuesto agotado y todavía no se ha causado. Eso es invisible si se mira ejecutado contra aprobado, que es como se mira casi siempre.
+
+**El silencio se mide.** Días desde el último documento y desde la última reunión. Un proyecto sin documentación no está mal gestionado: está sin documentar, y ese es un hallazgo distinto que también hay que decir.
+
+**"No está dicho en ninguna parte" es una respuesta.** El agente no rellena vacíos con lo razonable. Los declara.
 
 ---
 
 ## Los dos agentes
 
-La capacidad tiene dos agentes porque la organización tiene dos roles, y necesitan cosas distintas.
+La capacidad tiene dos porque la organización tiene dos roles, y necesitan cosas distintas.
 
-### Agente PMO
+### Agente PMO — disponible
 
-Para el gerente de la PMO y sus analistas. **Cuarenta proyectos, barrido amplio, cadencia semanal o de comité.**
+Para el gerente de la PMO y sus analistas. **Cuarenta proyectos, barrido amplio, cadencia de comité.** Consolida, cruza dependencias entre proyectos, prepara el comité.
 
-Lee toda la documentación del portafolio, mantiene un registro por proyecto, y en cada corrida dice qué cambió. Consolida, cruza dependencias entre proyectos, prepara el comité.
-
-### Agente PM
+### Agente PM — en construcción
 
 Para cada gerente de proyecto, junior o senior. **Un proyecto, profundidad, cadencia diaria o por reunión.**
 
-Convierte transcripciones y minutas en decisiones y compromisos con doliente y fecha. Su función central no la hace ninguna herramienta que un gerente de proyecto use hoy: **el compromiso dicho y no cumplido.** Las reuniones están llenas de *"yo lo tengo para el viernes"* y nadie los registra. El agente los extrae y en cada corrida revisa cuáles vencieron sin evidencia.
+Su función central no la hace ninguna herramienta que un gerente de proyecto use hoy: **el compromiso dicho y no cumplido.** Las reuniones están llenas de *"yo lo tengo para el viernes"* y nadie los registra. El agente los extrae con doliente y fecha, y en cada corrida revisa cuáles vencieron sin evidencia.
 
 ### Cómo se relacionan
 
-El registro de proyecto es la interfaz entre los dos: el agente PM lo llena como subproducto de su trabajo diario, y el agente PMO deja de hacer ingeniería inversa sobre carpetas desordenadas.
+La ficha de proyecto es la interfaz: el agente PM la llena como subproducto de su trabajo diario, y el agente PMO deja de hacer ingeniería inversa sobre carpetas desordenadas.
 
-Con una regla que no se negocia: **el registro del PM es una declaración; el hallazgo del PMO es evidencia.** Se mantienen como dos fuentes distintas, y la diferencia entre ellas es la señal más valiosa del sistema. *"El gerente reporta el hito en verde; la última minuta dice que el proveedor no entregó"* es la conversación que hoy no se puede tener.
+Con una regla que no se negocia: **la ficha del PM es una declaración; el hallazgo del PMO es evidencia.** Se mantienen como dos fuentes distintas, y la diferencia entre ellas es la señal más valiosa del sistema. *"El gerente reporta el hito en verde; la última minuta dice que el proveedor no entregó"* es la conversación que hoy no se puede tener.
 
-Los estándares bajan de la PMO: umbrales, convenciones y esquema se publican en una carpeta compartida, y cada agente PM los lee y se verifica contra ellos antes de que la PMO mire nada. Funciona sobre un servidor de archivos corporativo, sin proyecto de integración.
+Los estándares bajan de la PMO: umbrales, convenciones y esquema se publican en una carpeta compartida, y cada agente PM se verifica contra ellos antes de que la PMO mire nada. Funciona sobre un servidor de archivos corporativo, sin proyecto de integración.
 
 ---
 
-## Qué hace hoy el Agente PMO
-
-Se instala, se le indica dónde viven los documentos, y trabaja con lo que haya. No exige que la carpeta esté ordenada.
-
-| Quiero… | Comando |
-|---|---|
-| Dejarlo listo y ver un primer resultado | `/pmo-setup` |
-| Que lea todo y arme el registro | `/portfolio-scan` |
-| El estado del portafolio | `/portfolio-report` |
-| El estado de un proyecto | `/status-report` |
-| Material para el comité | `/steering-pack` |
-| Riesgos, supuestos, incidencias y dependencias | `/raid-log` |
-| Evaluar un cambio de alcance, tiempo o costo | `/change-control` |
-| Proveedores: entregado contra facturado | `/vendor-tracking` |
-| Presupuesto | `/budget-tracking` |
-| Revisar o redactar el acta | `/project-charter` |
-| Cerrar un proyecto | `/project-closure` |
-
-### Lo que lo hace distinto de un generador de informes
-
-**La línea base es de solo agregar.** Cuando se replanifica, la anterior no se borra. Así es exactamente como se esconde el atraso: se replanifica, el semáforo vuelve a verde y nadie ve que el proyecto lleva un año corrido. Aquí toda desviación se reporta contra dos referencias —la original y la vigente— con el número de replanificaciones al lado.
-
-**Las cuatro cifras del presupuesto, no dos.** Aprobado, comprometido, ejecutado y proyección. Un proyecto con 40% ejecutado y 95% comprometido no tiene holgura: tiene el presupuesto agotado y todavía no se ha causado. Eso no se ve mirando ejecutado contra aprobado, que es como se mira casi siempre.
-
-**El silencio se mide.** Días desde el último documento y desde la última reunión. Un proyecto sin documentación no está mal gestionado: está sin documentar, y eso es un hallazgo distinto que también hay que decir.
-
-**No hay privilegio para el que reporta.** El estado que produce es una comparación entre lo declarado y lo evidenciado. Cuando ningún documento respalda lo declarado, el estado es *sin sustento* — que no es lo mismo que estar mal, y es el estado más común en una PMO real.
-
-### Cuándo habla
+## Cuándo habla
 
 Corre solo y solo levanta la voz cuando algo cruza un umbral:
 
@@ -94,7 +111,7 @@ Corre solo y solo levanta la voz cuando algo cruza un umbral:
 | Presupuesto | Ejecutado supera 90% de lo comprometido |
 | Cambio de gobierno | Siempre |
 
-Todos son configurables, y se cambian hablando, no editando archivos.
+Todos son configurables, y se cambian hablando, no editando archivos. **El silencio cuando no pasó nada es la característica, no la falla.**
 
 ---
 
@@ -105,7 +122,7 @@ Todos son configurables, y se cambian hablando, no editando archivos.
 Lo verificado hoy es la máquina, no el valor:
 
 ```
-python3 ../plugins/criterio-pmo/scripts/pmo.py selftest
+python3 plugins/criterio-pmo/scripts/pmo.py selftest
 ```
 
 Doce resultados conocidos, incluidos los casos que se equivocan solos: el atraso contra la línea base original frente a la vigente con una replanificación de por medio, y el presupuesto comprometido que se ve sano y no lo está.
@@ -116,9 +133,10 @@ Doce resultados conocidos, incluidos los casos que se equivocan solos: el atraso
 
 ```
 /plugin marketplace add josenanez-company/criterio
+/plugin install criterio-pmo@criterio
 /pmo-setup
 ```
 
-El comando de instalación mira tus carpetas, hace cinco preguntas y corre un primer barrido sobre **tres proyectos**, no sobre el portafolio completo, para que veas un resultado en minutos y no un mensaje de "listo, ya puedes empezar".
+El comando de instalación corre un primer barrido sobre **tres proyectos**, no sobre el portafolio completo, para que veas un resultado en minutos y no un mensaje de "listo, ya puedes empezar".
 
 Antes de instalar, lee el [descargo](../DISCLAIMER.es.md). Esto produce borradores de trabajo, no decisiones.
