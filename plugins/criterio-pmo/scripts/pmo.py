@@ -6,6 +6,8 @@ Subtracting days, projecting variance and adding committed against executed is
 arithmetic, and arithmetic belongs here, where it is deterministic and testable.
 
 Usage:
+    python3 pmo.py init     --state <dir>
+    python3 pmo.py config   --config <file>
     python3 pmo.py compute  --state <dir> [--config <file>] [--today YYYY-MM-DD]
     python3 pmo.py snapshot --state <dir> [--today YYYY-MM-DD]
     python3 pmo.py diff     --state <dir> [--against <snapshot.json>]
@@ -251,6 +253,68 @@ def compute(state: Path, today: dt.date, th: dict) -> dict:
     }
 
 
+# ---------------------------------------------------------------- init / config
+
+REQUIRED_CONFIG = ["role", "paths", "cycle", "report", "terms_accepted"]
+ROLES = ("pmo", "pm")
+
+
+def init(state: Path) -> dict:
+    """Create the state tree. Deterministic, so the model never has to."""
+    created = []
+    for sub in ("records", "snapshots", "reports"):
+        d = state / sub
+        if not d.exists():
+            d.mkdir(parents=True)
+            created.append(str(d))
+    log = state / "registro.log"
+    if not log.exists():
+        log.write_text("", encoding="utf-8")
+        created.append(str(log))
+    return {"state": str(state), "created": created,
+            "already_there": not created}
+
+
+def check_config(config: Path) -> dict:
+    """Validate a configuration and return the effective settings."""
+    problems = []
+    if not config.exists():
+        return {"ok": False, "problems": [f"{config} does not exist — run the setup command"]}
+    try:
+        cfg = json.loads(config.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        return {"ok": False, "problems": [f"invalid JSON: {e}"]}
+
+    for key in REQUIRED_CONFIG:
+        if key not in cfg:
+            problems.append(f"missing section '{key}'")
+
+    role = cfg.get("role")
+    if role and role not in ROLES:
+        problems.append(f"role '{role}' is not valid (pmo | pm)")
+
+    paths = cfg.get("paths", {})
+    for key in ("documents", "state"):
+        if not paths.get(key):
+            problems.append(f"paths.{key} is not set")
+        elif not Path(paths[key]).expanduser().exists():
+            problems.append(f"paths.{key} points at something that does not exist: {paths[key]}")
+
+    accepted = cfg.get("terms_accepted") or {}
+    if not accepted.get("version") or not accepted.get("date"):
+        problems.append("terms_accepted has no version or no date — the gate is not satisfied")
+
+    th = dict(DEFAULT_THRESHOLDS)
+    th.update(cfg.get("thresholds", {}))
+    unknown = set(cfg.get("thresholds", {})) - set(DEFAULT_THRESHOLDS)
+    for u in sorted(unknown):
+        problems.append(f"unknown threshold '{u}'")
+
+    return {"ok": not problems, "problems": problems, "role": role,
+            "effective_thresholds": th,
+            "paths": {k: str(Path(v).expanduser()) for k, v in paths.items() if v}}
+
+
 # ---------------------------------------------------------------- snapshot / diff
 
 def flatten(rec: dict) -> dict:
@@ -366,7 +430,7 @@ def load_thresholds(config: Path | None) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
-    ap.add_argument("action", choices=["compute", "snapshot", "diff", "selftest"])
+    ap.add_argument("action", choices=["init", "config", "compute", "snapshot", "diff", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--against", type=Path, default=None)
@@ -375,6 +439,19 @@ def main() -> int:
 
     if args.action == "selftest":
         return selftest()
+
+    if args.action == "config":
+        if not args.config:
+            ap.error("--config is required")
+        result = check_config(args.config)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        return 0 if result["ok"] else 1
+
+    if args.action == "init":
+        if not args.state:
+            ap.error("--state is required")
+        print(json.dumps(init(args.state), ensure_ascii=False, indent=2))
+        return 0
 
     if not args.state:
         ap.error("--state is required")

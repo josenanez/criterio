@@ -34,6 +34,7 @@ python3 scripts/pmo.py selftest
 
 | Comando | Qué hace |
 |---|---|
+| `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos. Nadie edita un archivo de configuración a mano |
 | `/portfolio-scan` | Lee la carpeta de documentación y produce o actualiza una ficha por proyecto. Puerta de entrada |
 | `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
 | `/status-report` | Estado de un proyecto, separando lo que el gerente declara de lo que sustentan los documentos |

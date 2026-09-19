@@ -1,93 +1,94 @@
 # Criterio
 
-**Plugins that read the documentation an organisation already has, and say what it actually shows.**
+**A marketplace of agents that accelerate organisational capabilities.**
 
-[Español](README.es.md) · [Terms of use](TERMS.md) · [Disclaimer](DISCLAIMER.md) · [Contributing](CONTRIBUTING.md)
+[Español](README.es.md) · [Terms](TERMS.md) · [Disclaimer](DISCLAIMER.md) · [Contributing](CONTRIBUTING.md)
 
----
-
-Most work tools help you produce another document. The problem in a real organisation is rarely a missing template: it is that nobody has read together the hundreds of documents that already exist.
-
-Criterio reads them, keeps a record of what it found with a citation for every data point, and on the next run says what changed.
-
-> **This produces working drafts, not decisions, and no professional has certified anything here.** Every output must be checked by someone qualified before it is acted on. Read [TERMS.md](TERMS.md) before installing. Using these plugins means accepting those terms.
+Apache 2.0 · Four clicks to install · Each agent produces its first result in fifteen minutes
 
 ---
 
-## What ships today
+## What it is
 
-| Plugin | State | What it does |
+An organisation does not move by departments: it moves by **capabilities**. The capability to govern a portfolio of projects. To close a month and know what the numbers say. To review a contract before signing it.
+
+Each of those has its own method, its own language and its own ways of failing. A generic assistant does not know what a baseline is, nor why rebaselining hides slippage, nor why a liability exclusion written in absolute terms does not hold.
+
+**Criterio is a marketplace of agents, one per capability.** You install them, configure them by talking, and roll them out to the team that does that work.
+
+---
+
+## The capabilities
+
+| Capability | Agents | State |
 |---|---|---|
-| `criterio-pmo` | **6 skills, 10 commands** | Project portfolio: reads a documentation folder, keeps a record per project, and reports what changed, what contradicts itself, what has gone silent and what no document supports |
-| `criterio-legal` | Declared, not built | Contract review under civil-law reasoning |
-| `criterio-finance` | Declared, not built | Monthly close and reporting |
+| **[PMO](capabilities/pmo.md)** — portfolio and project governance | PMO Agent · PM Agent | **PMO Agent available**, PM Agent under construction |
+| **CFO** — close, control and financial reporting | — | Declared |
+| **CLO** — contracts, compliance and legal risk | — | Declared |
 
----
-
-## How it works
-
-Two principles hold the whole thing up.
-
-**The model extracts; the script computes.** Reading a date off a page is reading. Subtracting days, projecting variance and adding committed against executed is arithmetic, and arithmetic belongs in code, where it is deterministic and testable.
-
-**Every data point carries its citation or declares that it is missing.** "Not stated anywhere" is a valid and expected finding. Without traceability nothing can be defended to a committee.
-
-The spine is a **record per subject** — for `criterio-pmo`, one per project — that every command reads and writes. No command reads raw documents on its own. That is what allows consolidating forty projects without re-reading them, computing instead of opining, and comparing one run against the last.
+The list is not closed. A capability joins when someone who practises it wants to build its agent.
 
 ---
 
 ## Installation
 
-Criterio is a plugin marketplace. You add it once and the plugins come with it.
-
-**Claude Cowork**
-
-1. Open **Customize** (bottom left)
-2. **Browse plugins** → **Personal** → **+**
-3. **Add marketplace from GitHub**
-4. Enter `josenanez-company/criterio`
+**Claude Cowork** — Customize → Browse plugins → Personal → **+** → Add marketplace from GitHub → `josenanez-company/criterio`
 
 **Claude Code**
 
 ```
-claude plugins marketplace add josenanez-company/criterio
+/plugin marketplace add josenanez-company/criterio
 ```
 
-On first run the plugin shows the terms and does not produce a full analysis until acceptance is recorded in your local file. That is deliberate: see [docs/acceptance.md](docs/acceptance.md).
+After installing, each agent has a setup command that looks at your folders, asks five questions and produces a first result on your own documents. **Nobody edits a configuration file by hand.**
 
 ---
 
-## Layout
+## What every agent shares
+
+This is not a collection of loose assistants. They are all built on the same four rules, and that is what makes their output survive a committee.
+
+**They separate what is declared from what is evidenced.** What someone asserts goes in one column; what the documents support goes in another. They are never merged, and the gap between them is usually the highest-value finding.
+
+**Nothing is overwritten.** A record keeps its history. When a new version silently replaces the previous one, what disappears is exactly what needed to be seen.
+
+**The model extracts; code computes.** Reading a date is reading. Subtracting, projecting and adding is arithmetic, and arithmetic lives in code, where it is deterministic and testable. No number in a report comes from the model's estimate.
+
+**Every data point carries its citation, or declares that it is missing.** *"Not stated anywhere"* is a valid and expected finding.
+
+**And they know when to stay quiet.** They run on their own and speak only when something crosses a threshold. An agent that reports every week whether or not there is news is ignored within a month.
+
+---
+
+## Evidence
+
+Each capability publishes the figures from its real runs: how many documents, how long it took, how many findings, and which of them nobody had seen. Together with the procedure for anyone to reproduce them.
+
+**What has not been measured is not invented.** The whole project rests on a statement carrying its source; an unbacked marketing figure would contradict the one thing that makes it trustworthy. Until a capability has real runs, its page says so.
+
+What can be verified today, by cloning the repository:
 
 ```
-criterio/
-├── .claude-plugin/
-│   └── marketplace.json     the marketplace manifest
-├── plugins/
-│   ├── criterio-pmo/        6 skills, 10 commands
-│   ├── criterio-legal/
-│   └── criterio-finance/
-├── tests/                   synthetic material and graders
-├── scripts/                 the validator
-└── docs/
-    └── decisions/           architecture decision records
+python3 plugins/criterio-pmo/scripts/pmo.py selftest    the arithmetic against 12 known results
+python3 scripts/validate_plugins.py                     marketplace structure and consistency
 ```
 
 ---
 
-## How to check that this works
+## Apache 2.0 — what we give and what we invite
 
-Every plugin carries its own `ACCEPTANCE.md`: what "working" means for it and the bar it must clear. Nothing is released until its own criteria pass over the synthetic material in `tests/`, and the result of that run is published with the release.
+**We give, in full and with no conditions,** each agent's method, its record schemas, the code that computes, its acceptance criteria and the way to measure them.
 
-```
-python3 scripts/validate_plugins.py
-```
+**What we invite**
 
----
+- Use it inside your organisation without asking, and adapt it to how you work.
+- Change the criteria: thresholds are configuration, not code.
+- **Build the capability you are missing.** If you practise a function that is not on the list, its agent should be written by someone who knows the work, not by someone who knows how to code. The format is in [CONTRIBUTING.md](CONTRIBUTING.md).
+- If you find it wrong, open an issue with the document that proves it. That is worth more than a star.
 
-## Licence
+**What we do not claim**
 
-Apache 2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+This produces working drafts, not decisions. Nothing here has been certified by anyone. The agents know what was written, not what was said outside the documents. Read the [disclaimer](DISCLAIMER.md) before installing: using it means accepting the [terms](TERMS.md).
 
 ---
 
