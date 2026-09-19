@@ -1,0 +1,62 @@
+---
+name: baseline-variance
+description: "Línea base de solo agregar y cálculo de desviación en tiempo y en costo: contra la línea base original y contra la vigente, presupuesto aprobado, comprometido, ejecutado y proyección. Úsalo al medir avance o atraso, al replanificar, al aprobar un cambio de fechas o de presupuesto, y al reportar cumplimiento de hitos. Baseline, variance, budget control."
+---
+
+# Línea base y desviación
+
+## La regla que sostiene todo
+
+**La línea base es de solo agregar.**
+
+Cuando cambia el plan, si se sobrescribe la línea base desaparece el historial de atraso. Así es exactamente como las organizaciones esconden el atraso: se replanifica, el semáforo vuelve a verde, y a nadie le queda rastro de que el proyecto llevaba ocho meses de retraso acumulado.
+
+Cada nueva línea base entra como registro nuevo, con su fecha, su motivo y el documento que la aprobó. Ninguna reemplaza a la anterior.
+
+## Dos desviaciones, siempre las dos
+
+Toda medición de avance se reporta contra dos referencias:
+
+- **Contra la línea base original** — cuánto se ha desviado el proyecto desde que se aprobó. Es el número que nadie quiere ver y el único que dice la verdad acumulada.
+- **Contra la línea base vigente** — cuánto se está desviando del plan actual. Es el número operativo, el que le sirve al gerente esta semana.
+
+Reportar solo la vigente es lo que hace que un proyecto con tres replanificaciones se vea sano. Reportar solo la original es injusto con un gerente que heredó el proyecto. Van las dos, una al lado de la otra, con el número de replanificaciones entre paréntesis.
+
+## Cómo se lee una replanificación
+
+Tres replanificaciones en un año no es un dato neutro: es un hallazgo. Se reporta el conteo, las fechas y el motivo declarado de cada una. Si alguna no tiene motivo documentado, eso también se dice.
+
+## Desviación en tiempo
+
+Se calcula sobre hitos, no sobre porcentajes de avance declarados. Un porcentaje lo declara el gerente; una fecha de hito la sustenta un documento.
+
+Para cada hito: fecha de línea base, fecha vigente, y si ya pasó, si hay evidencia de cumplimiento. Un hito cuya fecha pasó sin evidencia no está "en curso": está **vencido sin evidencia**, y así se nombra.
+
+## Desviación en costo
+
+Cuatro cifras, y ninguna se asume:
+
+| Cifra | Qué es |
+|---|---|
+| **Aprobado** | Lo que autorizó el comité o la instancia que corresponda |
+| **Comprometido** | Lo que ya está amarrado en contratos y órdenes, se haya pagado o no |
+| **Ejecutado** | Lo efectivamente causado o pagado |
+| **Proyección** | Lo que el proyecto declara que costará al cierre |
+
+Los errores frecuentes que hay que nombrar cuando aparezcan:
+
+- Reportar ejecutado contra aprobado ignorando el comprometido. Un proyecto con 40% ejecutado y 95% comprometido no tiene holgura; tiene el presupuesto agotado.
+- Tratar la proyección como un dato duro. Es una declaración: lleva su fuente y su fecha como cualquier otra.
+- Mezclar monedas. Si hay contratos en otra moneda, se dice, y no se convierte sin declarar la tasa y su fecha.
+
+## Lo que hace el script y lo que haces tú
+
+El script calcula: días de desviación, porcentajes, conteo de replanificaciones, saldos, proyecciones aritméticas. No se calcula a mano ni dentro del razonamiento.
+
+Tú interpretas: qué significa esa desviación, si el motivo declarado explica el atraso, si la replanificación fue un ajuste razonable o una forma de limpiar el semáforo.
+
+## Cuando no hay línea base
+
+Es el caso más común en una PMO real: el proyecto arrancó sin plan aprobado, o el plan existe pero nadie lo marcó como línea base.
+
+No se inventa una. Se reporta que **no hay línea base**, se nombra el documento más antiguo que declare fechas, y se ofrece tomarlo como línea base cero con la aprobación del gerente. Sin esa aprobación, el proyecto se reporta sin desviación medible, que es la verdad.

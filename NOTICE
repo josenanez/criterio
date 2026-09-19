@@ -1,0 +1,29 @@
+Criterio
+Copyright 2026 José Francisco Ñáñez
+
+Licensed under the Apache License, Version 2.0. See LICENSE.
+
+Estado de la obra
+-----------------
+
+El contenido de este repositorio es original. A la fecha, ningún archivo
+incorpora texto, código ni contenido de otra obra.
+
+`criterio-pmo` se escribió desde cero. No existe un plugin de oficina de
+proyectos aguas arriba del cual derivar.
+
+El formato de empaquetado —el manifiesto de marketplace, el manifiesto de
+plugin, y la estructura de skills y comandos— sigue las convenciones del
+sistema de plugins de Anthropic para Claude Code y Cowork. Son convenciones de
+formato, no contenido incorporado.
+
+Trabajo derivado previsto
+-------------------------
+
+`criterio-legal` y `criterio-finance` están declarados en el marketplace y
+todavía no tienen contenido. Cuando se construyan a partir de
+anthropics/knowledge-work-plugins (Apache 2.0), esta sección declarará los
+cambios respecto de la obra base, conforme a la sección 4(b) de la licencia.
+
+Este proyecto no está afiliado a Anthropic, ni cuenta con su respaldo o
+patrocinio.

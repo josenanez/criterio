@@ -1,0 +1,24 @@
+{
+  "name": "criterio-finance",
+  "version": "0.1.0",
+  "description": "Cierre mensual contra NIIF adoptadas localmente, facturación electrónica, retenciones y reportes al supervisor, por país y con cita a la norma.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "finanzas",
+    "finance",
+    "niif",
+    "ifrs",
+    "cierre-contable",
+    "month-end-close",
+    "facturacion-electronica",
+    "retenciones",
+    "dian",
+    "colombia",
+    "latam"
+  ],
+  "homepage": "https://josenanez.com",
+  "license": "Apache-2.0"
+}

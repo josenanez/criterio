@@ -1,0 +1,63 @@
+---
+description: Estado de un proyecto contra su plan, separando lo que el gerente declara de lo que sustentan los documentos
+argument-hint: "<código o nombre del proyecto>"
+---
+
+# /status-report — Estado de un proyecto
+
+> **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.
+> Abre declarando de qué ficha sale y de cuándo. Cierra con el pie: versión, ficha aplicada con su fecha, campos inciertos y enlace a los términos.
+
+## Invocación
+
+```
+/status-report PRY-014
+/status-report originación digital
+```
+
+## Flujo
+
+**1. Carga la ficha.** Si no existe, ofrece correr `/portfolio-scan` para ese proyecto. No improvises un estado leyendo documentos sueltos.
+
+**2. Separa declaración de evidencia.** Aplica **project-record**. Lo que el gerente afirma va en una columna; lo que sustentan los documentos, en otra. **Nunca las fusiones.**
+
+**3. Mide.** Aplica **baseline-variance**: desviación contra la línea base original y contra la vigente, con el número de replanificaciones. Hitos con su fecha de línea base, su fecha vigente y si hay evidencia de cumplimiento.
+
+**4. Revisa lo abierto.** Aplica **raid-taxonomy** y **commitment-tracking**: qué RAID sigue sin movimiento y qué compromisos vencieron sin evidencia.
+
+**5. Lee el silencio.** Días desde el último documento y desde la última reunión. Un proyecto que reporta verde y lleva cinco semanas sin un documento es el caso que este informe existe para mostrar.
+
+## Salida
+
+```markdown
+## [Proyecto] — estado al [fecha]
+
+**Declara el gerente:** [estado] · [avance]% · al [fecha de la declaración]
+**Sustento documental:** [sustentado | sin sustento | contradicho]
+**Último documento:** [fecha] · **Última reunión:** [fecha]
+
+### Contra el plan
+| | Línea base original | Vigente | Desviación |
+| Fecha de cierre | | | |
+| Presupuesto | | | |
+
+Replanificaciones: [N] — [fechas y motivos declarados]
+
+### Hitos
+| Hito | Base | Vigente | Estado | Evidencia |
+
+### Dónde no coincide
+[Lo declarado frente a lo que dicen los documentos, con las dos fuentes y fechas. Si coincide todo, se dice en una línea.]
+
+### Abierto
+**Riesgos e incidencias sin movimiento:** [lista con días]
+**Compromisos vencidos:** [quién, qué, desde cuándo]
+**Dependencias sin confirmar:** [de qué proyecto]
+
+### Sin dato
+[Campos en `not_found` que importan para juzgar este proyecto.]
+```
+
+## Después
+
+Si hay desviación por encima del umbral o riesgos que exceden la autoridad del gerente, ofrece preparar el punto de comité. Si el atraso viene de un cambio no formalizado, ofrece la solicitud de cambio.

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "criterio",
+  "version": "0.1.0",
+  "description": "Plugins de IA que razonan con la normativa de Suramérica y con el estado real de un portafolio. AI plugins that reason with South American law and with the real state of a project portfolio.",
+  "owner": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "plugins": [
+    {
+      "name": "criterio-pmo",
+      "description": "Oficina de proyectos: consolidación de portafolio, estado contra plan, RAID, control de cambios, proveedores, presupuesto, comité y cierre. Lee la documentación que ya existe y dice qué cambió, qué se contradice y qué lleva semanas en silencio.",
+      "source": "./plugins/criterio-pmo",
+      "category": "project-management"
+    },
+    {
+      "name": "criterio-legal",
+      "description": "Revisión de contratos y cumplimiento con criterio de derecho civil suramericano: exclusiones de responsabilidad, cláusula penal, agencia comercial, datos personales, firma electrónica y anticorrupción, por país y con cita a la norma.",
+      "source": "./plugins/criterio-legal",
+      "category": "legal"
+    },
+    {
+      "name": "criterio-finance",
+      "description": "Cierre mensual contra NIIF adoptadas localmente, facturación electrónica, retenciones y reportes al supervisor, por país y con cita a la norma.",
+      "source": "./plugins/criterio-finance",
+      "category": "finance"
+    }
+  ]
+}

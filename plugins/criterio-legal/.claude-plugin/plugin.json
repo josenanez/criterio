@@ -1,0 +1,24 @@
+{
+  "name": "criterio-legal",
+  "version": "0.1.0",
+  "description": "Revisión de contratos y cumplimiento con criterio de derecho civil suramericano: exclusiones de responsabilidad, cláusula penal, agencia comercial, datos personales, firma electrónica y anticorrupción, por país y con cita a la norma.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "legal",
+    "contratos",
+    "contracts",
+    "derecho-civil",
+    "datos-personales",
+    "habeas-data",
+    "firma-electronica",
+    "nda",
+    "anticorrupcion",
+    "colombia",
+    "latam"
+  ],
+  "homepage": "https://josenanez.com",
+  "license": "Apache-2.0"
+}

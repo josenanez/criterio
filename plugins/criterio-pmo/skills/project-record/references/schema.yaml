@@ -1,0 +1,109 @@
+# Esquema de la ficha de proyecto — Criterio PMO
+# Contrato de datos entre el agente PM y el agente PMO.
+#
+# Este archivo es la ESPECIFICACIÓN, en YAML por legibilidad.
+# Lo que se ALMACENA es JSON, en <estado>/records/<codigo>.json, con esta misma
+# forma. Es JSON y no YAML porque leer YAML exigiría instalar PyYAML en el
+# equipo del usuario, y scripts/pmo.py no tiene dependencias.
+# Cada campo se guarda como {value, source, source_date, state}.
+# state: found | not_found | ambiguous
+# Un campo ambiguo lleva además un bloque `conflict` con la fuente que discrepa.
+
+schema_version: "0.1"
+
+identity:
+  code:                 # identificador estable del proyecto, no cambia nunca
+  name:
+  aliases: []           # otros nombres con que aparece en los documentos
+  business_area:        # área o unidad dueña
+  sponsor:              # patrocinador
+  manager:              # gerente de proyecto
+  committee:            # a qué comité reporta
+  phase:                # etapa declarada
+
+declared:               # lo que AFIRMA el gerente de proyecto. Declaración, no evidencia.
+  status:               # verde | amarillo | rojo, tal como él lo reporta
+  progress_pct:
+  as_of:                # fecha de la declaración
+  source:
+
+plan:
+  start_date:
+  end_date:             # fecha vigente
+  baseline:             # append-only. Ver el skill baseline-variance.
+    - version: 1
+      approved_on:
+      start_date:
+      end_date:
+      reason:           # por qué se aprobó esta línea base
+      source:
+  milestones:
+    - name:
+      baseline_date:
+      current_date:
+      state:            # pending | met | missed | unknown
+      evidence:         # documento que prueba el cumplimiento, o vacío
+      source:
+  scope_summary:
+  exclusions:           # lo que el proyecto declaró que NO hace
+
+money:
+  currency:
+  approved:             # presupuesto aprobado
+  committed:            # comprometido en contratos y órdenes
+  executed:             # ejecutado
+  projection:           # proyección al cierre, si algún documento la declara
+
+vendors:
+  - name:
+    contract_ref:
+    deliverables:
+      - name:
+        due_date:
+        state:          # pending | delivered | accepted | late | unknown
+        evidence:
+    invoiced:
+    source:
+
+raid:                   # ver el skill raid-taxonomy
+  risks: []             # {what, probability, impact, owner, due_date, last_moved, source}
+  assumptions: []       # {what, verified, owner, source}
+  issues: []            # {what, since, owner, source}
+  dependencies:         # dependencias de OTROS proyectos, por código
+    - on_project:       # el `code` del otro proyecto — así se cruza el portafolio
+      what:
+      needed_by:
+      confirmed:        # false = declarada por este proyecto, no acordada con el otro
+      source:
+
+changes:                # solicitudes de cambio
+  - ref:
+    requested_on:
+    scope_impact:
+    time_impact:
+    cost_impact:
+    decision:           # approved | rejected | pending
+    decided_by:
+    source:
+
+commitments:            # ver el skill commitment-tracking
+  - who:
+    what:
+    due_date:
+    stated_on:
+    source:             # la minuta o transcripción donde se dijo
+    state:              # open | met | overdue | unknown
+
+activity:               # lo calcula el script a partir de los nombres de archivo
+  last_document_date:
+  last_meeting_date:
+  days_silent:
+
+meta:
+  record_updated:       # cuándo se actualizó esta ficha
+  documents_seen:       # ruta y hash de cada documento leído, para no releer
+    - path:
+      hash:
+      date:
+  fields_not_found: []  # lista de campos en not_found, para el informe
+  open_conflicts: []    # lista de campos en ambiguous

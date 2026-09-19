@@ -1,0 +1,60 @@
+---
+description: Presupuesto aprobado, comprometido, ejecutado y proyección, con la desviación contra la línea base original y la vigente
+argument-hint: "<código del proyecto> o 'portafolio' para el consolidado"
+---
+
+# /budget-tracking — Presupuesto
+
+> **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.
+> Abre declarando de qué documentos sale y de cuándo. Cierra con el pie de rigor.
+
+## Invocación
+
+```
+/budget-tracking PRY-014
+/budget-tracking portafolio
+```
+
+## Flujo
+
+**1. Las cuatro cifras, ninguna asumida.** Aplica **baseline-variance**: aprobado, comprometido, ejecutado, proyección. Cada una con su fuente y su fecha. Si una no está declarada en ningún documento, va `not_found` y el informe lo dice.
+
+**2. El error que hay que nombrar.** Reportar ejecutado contra aprobado ignorando el comprometido. Un proyecto con 40% ejecutado y 95% comprometido **no tiene holgura**: tiene el presupuesto agotado y todavía no se ha causado.
+
+**3. Trata la proyección como lo que es.** Una declaración, no un dato duro. Lleva fuente y fecha como cualquier otro campo, y si es más vieja que el último movimiento de presupuesto, se dice.
+
+**4. No mezcles monedas.** Si hay contratos en otra moneda, se reporta por separado. Si hay que convertir, se declara la tasa y su fecha. Nunca se convierte en silencio.
+
+**5. Cruza contra el avance.** Presupuesto ejecutado muy por encima del avance de hitos es la señal que este informe existe para dar. Y al revés: ejecución muy por debajo a mitad de proyecto suele ser trabajo hecho y no facturado, que aparecerá de golpe.
+
+## Salida
+
+```markdown
+## Presupuesto — [proyecto o portafolio] al [fecha]
+**Moneda:** [código] [si hay más de una, se listan por separado]
+
+| | Monto | % del aprobado | Fuente | Fecha |
+| Aprobado | | | | |
+| Comprometido | | | | |
+| Ejecutado | | | | |
+| Proyección al cierre | | | | |
+
+**Disponible real** (aprobado menos comprometido): [monto]
+
+### Contra la línea base
+| | Original | Vigente | Desviación |
+Replanificaciones de presupuesto: [N]
+
+### Ejecución frente a avance
+Ejecutado [X]% · Hitos cumplidos [Y] de [Z] · [lectura en una línea]
+
+### Alertas
+[Comprometido por encima del umbral, proyección que excede el aprobado, ejecución desalineada del avance.]
+
+### Sin dato
+[Cifras no declaradas en ningún documento.]
+```
+
+## Después
+
+Si la proyección excede el aprobado, ofrece preparar la solicitud de cambio. Si el comprometido está cerca del tope, ofrece el detalle por proveedor.
