@@ -12,9 +12,9 @@ no duplicar la rotación.
 
 Una hoja por agente:
 
-- [Agente PMO](pmo.md) — gobierno de portafolio
-- [Agente Project Manager](project-manager.md) — un proyecto
-- [Agente Product Manager](product-manager.md) — antes de que exista el proyecto
+- [**Plomada** · agente PMO](pmo.md) — gobierno de portafolio
+- [**Escuadra** · agente Project Manager](project-manager.md) — un proyecto
+- [**Compás** · agente Product Manager](product-manager.md) — antes de que exista el proyecto
 
 La forma de todo lo que estos agentes entregan —informes, proyección, piezas gráficas— está en
 [`docs/design.md`](../design.md): es el diseño del portal, y se mantiene igual aquí.
@@ -107,6 +107,28 @@ Cada fila de C lleva dos datos, y ninguno es un riesgo:
   organización), *información fuera de los documentos*, o *juicio sobre personas*.
 - **Qué le entrega al agente** — porque casi toda función de C produce el insumo de una función
   de A o de B. Es la parte que hace de esto un ciclo y no dos mundos separados.
+
+---
+
+## Cómo se llaman
+
+**La capacidad se llama PMO, CFO o CLO. El agente lleva el nombre de un instrumento.** Son
+dos cosas distintas y conviene no mezclarlas: la capacidad es la función de la organización,
+y el agente es quien la extiende.
+
+| Agente | Nombre | Por qué ese |
+|---|---|---|
+| PMO | **Plomada** | Cuelga quieta y dice si algo está derecho. No opina: muestra |
+| Project Manager | **Escuadra** | Verifica el ángulo de una pieza. Un proyecto, no el conjunto |
+| Product Manager | **Compás** | Mide antes de trazar. Trabaja antes de que exista el proyecto |
+
+Instrumentos de trazo y verificación, porque es exactamente lo que hacen y porque así los
+tres son hermanos evidentes. Un nombre que no estire a los hermanos obliga a rebautizar a
+todos en cuanto aparezca el segundo.
+
+**Los nombres no se traducen** —son propios— y **no son identificadores**: el plugin se
+sigue llamando `criterio-pmo`, los comandos y los skills no cambian. El nombre le da
+carácter a lo que la persona ve, no a lo que el código importa.
 
 ---
 

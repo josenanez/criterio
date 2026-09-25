@@ -1,6 +1,6 @@
-# Agente Project Manager
+# Escuadra · el agente Project Manager
 
-Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
+Verifica el ángulo de una pieza. Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
 
 Marco general, definición de las clases y de las columnas: [README](README.md).
 

@@ -1,6 +1,6 @@
-# Agente PMO
+# Plomada · el agente PMO
 
-Extiende a la **oficina de proyectos**: la función que responde por el conjunto de los
+Cuelga quieta y dice si algo está derecho. Extiende a la **oficina de proyectos**: la función que responde por el conjunto de los
 proyectos, no por uno.
 
 Esta hoja es la referencia completa de la capacidad: el flujo, las piezas que la componen y

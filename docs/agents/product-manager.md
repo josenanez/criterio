@@ -1,6 +1,6 @@
-# Agente Product Manager
+# Compás · el agente Product Manager
 
-Extiende al **gerente de producto**: la persona que define qué se va a construir, antes de que
+Mide antes de trazar. Extiende al **gerente de producto**: la persona que define qué se va a construir, antes de que
 exista un proyecto.
 
 Marco general, definición de las clases y de las columnas: [README](README.md).

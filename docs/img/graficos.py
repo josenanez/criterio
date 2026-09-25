@@ -121,6 +121,7 @@ T = {
         # ── familia ──
         'fam_ante': 'La familia PMO',
         'fam_tit': 'Tres agentes, un solo contrato de datos',
+        'n1': 'Plomada', 'n2': 'Escuadra', 'n3': 'Compás',
         'ag1': 'Agente PMO',
         'ag1_para': 'Para el gerente de la PMO y sus analistas',
         'ag1_desc': 'Cuarenta proyectos. Barrido amplio, cadencia de comité.',
@@ -181,6 +182,7 @@ T = {
         'sin_construir': 'Not built',
         'fam_ante': 'The PMO family',
         'fam_tit': 'Three agents, one data contract',
+        'n1': 'Plomada', 'n2': 'Escuadra', 'n3': 'Compás',
         'ag1': 'PMO agent',
         'ag1_para': 'For the PMO manager and their analysts',
         'ag1_desc': 'Forty projects. Broad sweep, committee cadence.',
@@ -315,24 +317,25 @@ def familia(t):
     # tres columnas
     col = (W - 2 * M - 2 * 36) // 3
     agentes = [
-        (t['ag1'], t['ag1_para'], t['ag1_desc'], t['disponible'], True, SKILLS_PMO),
-        (t['ag2'], t['ag2_para'], t['ag2_desc'], t['construccion'], False, SKILLS_PM),
-        (t['ag3'], t['ag3_para'], t['ag3_desc'], t['sin_construir'], False, SKILLS_PROD),
+        (t['n1'], t['ag1'], t['ag1_para'], t['ag1_desc'], t['disponible'], True, SKILLS_PMO),
+        (t['n2'], t['ag2'], t['ag2_para'], t['ag2_desc'], t['construccion'], False, SKILLS_PM),
+        (t['n3'], t['ag3'], t['ag3_para'], t['ag3_desc'], t['sin_construir'], False, SKILLS_PROD),
     ]
     TOP, ALTO = 238, 460
-    for i, (nombre, para, desc, estado, activo, propios) in enumerate(agentes):
+    for i, (nombre, rol, para, desc, estado, activo, propios) in enumerate(agentes):
         x = M + i * (col + 36)
         d.rounded_rectangle([(x, TOP), (x + col, TOP + ALTO)], radius=10,
                             fill=PANEL, outline=ORO if activo else FILETE, width=2)
         px = x + 28
         # la insignia va arriba a la derecha: ahí no puede chocar con nada que fluya
         insignia(d, (px, TOP + 26), estado, activo, derecha=x + col - 28)
-        d.text((px, TOP + 86), nombre, font=f(M6, 38), fill=ORO if activo else CREMA)
-        parrafo(d, (px, TOP + 142), para, f(R, 23), APAGADO, col - 56, 32)
-        parrafo(d, (px, TOP + 212), desc, f(R, 25), CREMA, col - 56, 34)
+        d.text((px, TOP + 78), nombre, font=f(M6, 44), fill=ORO if activo else CREMA)
+        d.text((px, TOP + 136), rol, font=f(R, 22), fill=APAGADO)
+        parrafo(d, (px, TOP + 180), para, f(R, 23), APAGADO, col - 56, 32)
+        parrafo(d, (px, TOP + 240), desc, f(R, 25), CREMA, col - 56, 34)
         if propios:
-            d.text((px, TOP + 300), t['propias'], font=f(M6, 19), fill=FILETE_FUERTE)
-            fin = etiquetas(d, px, TOP + 328, propios, col - 56)
+            d.text((px, TOP + 318), t['propias'], font=f(M6, 19), fill=FILETE_FUERTE)
+            fin = etiquetas(d, px, TOP + 346, propios, col - 56)
             assert fin < TOP + ALTO - 20, f'{nombre}: las etiquetas se salen de la tarjeta'
 
     # la banda de lo compartido

@@ -1,6 +1,6 @@
 # criterio-pmo
 
-**Un segundo cerebro para la oficina de proyectos.** Lee la documentación que tu PMO ya
+**Plomada, un segundo cerebro para la oficina de proyectos.** Lee la documentación que tu PMO ya
 tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
 
 [English](README.md) · Apache 2.0 · Se instala en cuatro clics · **El primer resultado sale
@@ -12,17 +12,20 @@ en quince minutos, sobre tus propios documentos**
 
 ![La familia PMO: tres agentes, un solo contrato de datos](../../docs/img/es/familia-pmo.png)
 
-La capacidad tiene más de un agente porque la organización tiene más de un rol. **El agente
-PMO está disponible hoy**; los otros dos vienen detrás y comparten el mismo contrato de
-datos.
+La capacidad tiene más de un agente porque la organización tiene más de un rol. Se llaman
+como instrumentos de trazo, porque es lo que hacen: **Plomada** cuelga quieta y dice si algo
+está derecho, **Escuadra** verifica el ángulo de una pieza, **Compás** mide antes de trazar.
 
-El **Agente PM** no va a las reuniones — el gerente va. Lo que hace es que el gerente llegue
+**Plomada está disponible hoy**; los otros dos vienen detrás y comparten el mismo contrato
+de datos.
+
+**Escuadra**, el agente del gerente de proyecto, no va a las reuniones — el gerente va. Lo que hace es que el gerente llegue
 con la semana preparada: la agenda armada antes, la minuta redactada después, el plan al día
 contra la evidencia y el informe listo salvo una línea. Su función central no la hace ninguna
 herramienta que un gerente use hoy: **el compromiso dicho y no cumplido.** Las reuniones están
 llenas de *«yo lo tengo para el viernes»* y nadie los registra.
 
-El **Agente de producto** trabaja antes de que exista el proyecto, y entrega el acta con la
+**Compás** trabaja antes de que exista el proyecto, y entrega el acta con la
 que el proyecto nace.
 
 ---

@@ -1,6 +1,6 @@
 # criterio-pmo
 
-**A second brain for the project management office.** It reads the documentation your PMO
+**Plomada, a second brain for the project management office.** It reads the documentation your PMO
 already has and says what changed, what contradicts itself, and what has been silent for
 weeks.
 
@@ -14,16 +14,19 @@ fifteen minutes, over your own documents**
 ![The PMO family: three agents, one data contract](../../docs/img/en/familia-pmo.png)
 
 The capability has more than one agent because the organisation has more than one role.
-**The PMO agent is available today**; the other two come behind it and share the same data
-contract.
+They are named after drawing instruments, because that is what they do: **Plomada** — a plumb
+line — hangs still and tells you whether something is straight, **Escuadra** — a set square —
+checks the angle of one piece, **Compás** — a pair of dividers — measures before you draw.
 
-The **PM agent** does not attend the meetings — the manager does. What it does is let the
+**Plomada is available today**; the other two come behind it and share the same data contract.
+
+**Escuadra**, the project manager's agent, does not attend the meetings — the manager does. What it does is let the
 manager arrive with the week prepared: the agenda built beforehand, the minutes drafted
 afterwards, the plan current against the evidence, and the report ready except for one line.
 Its central function is one no tool a project manager uses today performs: **the commitment
 said and not kept.** Meetings are full of *"I'll have it by Friday"* and nobody records them.
 
-The **product agent** works before the project exists, and delivers the charter the project
+**Compás** works before the project exists, and delivers the charter the project
 is born from.
 
 ---
