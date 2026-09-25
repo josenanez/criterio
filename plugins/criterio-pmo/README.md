@@ -62,7 +62,7 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 | `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
 | `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia |
 | `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |
-| `document-intake` | Qué documento hay que releer y cuál no, el renombrado, el borrado, y la cita que dejó de resolver |
+| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué, el renombrado, el borrado, y la cita que dejó de resolver |
 | `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable |
 | `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar |
 | `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado |

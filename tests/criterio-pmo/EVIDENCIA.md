@@ -1,42 +1,45 @@
 # Evidencia · criterio-pmo
 
-Corrida del **25 de septiembre de 2026** sobre material sintético. Fecha de corte de
+Última corrida: **25 de septiembre de 2026**, sobre material sintético. Fecha de corte de
 todas las comprobaciones: **2026-09-30**, fija a propósito.
 
-**Esto no es una corrida real.** Es material construido para contener las fallas que
-contiene una carpeta real, con las respuestas escritas a mano. Las cifras de corridas
-sobre documentación real no existen todavía, y hasta que existan no se inventan.
+**Esto no es una corrida real.** Es material construido para contener las fallas que contiene
+una carpeta real, con las respuestas escritas a mano. Las cifras de corridas sobre
+documentación real no existen todavía, y hasta que existan no se inventan.
 
-## Lo que se corrió
+## Lo que se corre, y qué verifica cada cosa
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest    24 resultados conocidos · sin errores
-python3 tests/criterio-pmo/generar.py                   26 documentos en 6 proyectos
-python3 tests/criterio-pmo/grade.py                     49 comprobaciones · sin errores
-python3 tests/coherencia.py                             coherente
-python3 scripts/validate_plugins.py                     clean
+python3 plugins/criterio-pmo/scripts/pmo.py selftest      30 resultados · la aritmética
+python3 plugins/criterio-pmo/scripts/texto.py --selftest  12 resultados · la conversión
+python3 tests/criterio-pmo/generar.py                     27 documentos en 6 proyectos
+python3 tests/criterio-pmo/grade.py                       69 comprobaciones
+python3 tests/coherencia.py                               documentación contra código
+python3 scripts/validate_plugins.py                       estructura del market
 ```
+
+Los seis en verde. Sin dependencias: librería estándar de Python 3.10 o superior.
 
 ## El portafolio sintético
 
 Seis proyectos de un banco, con la estructura de carpetas de una PMO real —
-`00-gobierno`, `10-plan`, `20-seguimiento`, `30-reuniones` — y nombres de archivo con
-fecha, que es la convención que el plugin espera.
+`00-gobierno`, `10-plan`, `20-seguimiento`, `30-reuniones` — y nombres de archivo con fecha.
 
 | Proyecto | Qué planta |
 |---|---|
-| **PRY-001** Originación digital | El caso central: declara verde en agosto y la evidencia no lo sostiene. Hito vencido sin evidencia, 19 días de silencio, 95,2% comprometido, patrocinador contradicho entre el acta y la minuta de septiembre, compromiso reprogramado tres veces, y una replanificación de 61 días contra 60 autorizados |
-| **PRY-002** Core de depósitos | Declara amarillo. Dos controles: el amarillo **no** dispara la alerta de brecha, y un hito cuya fecha de línea base ya pasó pero cuya fecha vigente es de diciembre **no** es un hito vencido |
-| **PRY-003** Migración a nube | Proveedores: un entregable vencido sin evidencia, dos dados por entregados sin acta de recibo, y facturación por 620 millones |
+| **PRY-001** Originación digital | El caso central: declara verde en agosto y la evidencia no lo sostiene. Hito vencido sin evidencia, 19 días de silencio, 95,2% comprometido, patrocinador contradicho entre el acta y la minuta, un compromiso prometido tres veces, y una replanificación de 61 días contra 60 autorizados |
+| **PRY-002** Core de depósitos | Declara amarillo. Tres controles: el amarillo **no** dispara la alerta de brecha; un hito cuya fecha de línea base pasó pero cuya fecha vigente es de diciembre **no** es un hito vencido; y un compromiso sin fecha que hasta hace poco desaparecía del informe |
+| **PRY-003** Migración a nube | Proveedores: un entregable vencido sin evidencia, dos dados por entregados sin acta de recibo, y 620 millones facturados contra 580 de entregables aceptados |
 | **PRY-004** Open Banking | El caso más común en una PMO real: sin plan aprobado, sin presupuesto, cinco meses en silencio, y aun así reportado en verde |
 | **PRY-005** Débito contactless | **Control negativo.** Todo en orden. Cero alertas |
 | **PRY-006** SARLAFT | Un cambio aprobado con impacto escrito en «tres meses», y un presupuesto aprobado que nunca incorporó los 180 millones que el comité autorizó |
 
 ## Lo que la corrida prueba
 
-**Las 14 señales se disparan cuando deben.** Cada una tiene al menos un caso plantado, y
-el grader compara el conjunto exacto: falla igual si falta una señal o si aparece una que
-no está declarada.
+**Las 17 señales se disparan cuando deben.** Cada una tiene al menos un caso plantado, y el
+grader compara el conjunto exacto: falla igual si falta una señal o si aparece una que no
+está declarada. Eso ya pasó — al agregar `commitment_rescheduled`, el grader falló porque la
+señal apareció sin estar declarada en las respuestas conocidas.
 
 **El control negativo pasa.** PRY-005 produce cero alertas. Es la comprobación más
 importante del conjunto: un agente que alerta sobre un proyecto sano es un generador de
@@ -51,58 +54,78 @@ ruido, y en un mes se silencia.
 **El umbral es un umbral.** La proyección de PRY-001 se pasa del aprobado un 3,2% y no
 dispara `variance_cost`; la de PRY-006 se pasa 17,3% y sí.
 
-**La documentación y el código dicen lo mismo.** Los 14 nombres técnicos citados en la
-documentación existen en `pmo.py`, todo umbral nombrado existe, los 11 comandos están
-documentados, y el número de resultados del selftest declarado en la documentación
-coincide con el real.
+**El índice de documentos distingue los cuatro casos.** Una prueba de mutación sobre una copia
+del corpus: un cambio real, un guardado que solo movió espacios, un renombrado y un borrado.
+El reguardado **no** entra en lo que hay que releer, el renombrado se detecta por contenido con
+su ruta vieja y su nueva, y las citas que dejaron de resolver salen con su proyecto y su campo.
+Es el caso que paga el diseño.
+
+**Los formatos de Office se leen sin instalar nada.** El selftest de `texto.py` construye un
+`.docx`, un `.xlsx` con cadenas compartidas y un `.pptx` mínimos y los vuelve a leer, y
+verifica que un `.msg` se declare ilegible **con la razón y con cómo arreglarlo**.
+
+**La documentación y el código dicen lo mismo.** Los nombres técnicos citados en la
+documentación existen en el código, todo umbral nombrado existe, los 15 comandos están
+listados en el README del plugin, y el número de resultados del selftest declarado en la
+documentación coincide con el real — eso último lo atrapó el verificador antes que yo.
 
 ## Lo que la corrida NO prueba
 
-**La extracción.** Todo lo anterior corre sobre las fichas de referencia de
-`expected/fichas/`, que están escritas a mano. Que un modelo leyendo `input/` produzca
-esas mismas fichas es la otra mitad, y necesita correr el plugin en una sesión:
+**La extracción de campos.** Todo lo anterior corre sobre las fichas de referencia de
+`expected/fichas/`, escritas a mano. Que un modelo leyendo `input/` produzca esas mismas
+fichas es la otra mitad, y necesita el plugin en una sesión:
 
 ```
 python3 tests/criterio-pmo/grade.py --fichas <las que produjo la corrida>
 ```
 
-**Documentación real.** Seis proyectos sintéticos no son cuarenta carpetas de un banco
-con quince años de historia, formatos mezclados y convenciones inconsistentes.
+Ese modo compara campo por campo y reporta tres cosas distintas: un valor equivocado, un
+campo inventado que la referencia no tiene, y un valor sin cita.
 
-**Los comandos.** Los once son instrucciones para un modelo. Lo verificado aquí es la
-aritmética que los alimenta y la coherencia de lo que prometen, no su salida.
+**Documentación real.** Seis proyectos sintéticos no son cuarenta carpetas de un banco con
+quince años de historia, formatos mezclados y convenciones inconsistentes.
 
-## Límites conocidos que esta corrida destapó
+**Los comandos.** Los quince son instrucciones para un modelo. Lo verificado aquí es la
+aritmética que los alimenta, la conversión que los precede, y la coherencia de lo que
+prometen — no su salida.
 
-**1 · Factura contra un entregable que no existe.** En PRY-003 Finanzas pregunta en la
-minuta por qué hay facturación de una migración que no ha empezado. El cálculo **no lo
-detecta**: `vendor_invoiced_without_delivery` solo se dispara cuando no hay ni un
-entregable aceptado, y aquí hay tres. Para detectarlo haría falta **monto por
-entregable**, que el esquema no tiene. Es una decisión de esquema, y es la primera que
-sale de una prueba y no de una conversación.
+## Límites conocidos
 
-**2 · Un compromiso sin fecha es invisible.** El skill de compromisos dice que uno sin
-fecha se registra con `due_date: no_declarada`. El cálculo lo ignora —correctamente, no
-puede estar vencido— pero tampoco lo cuenta, así que desaparece del informe. Un
-compromiso que nadie fechó es un hallazgo, no un vacío.
+**Cerrados desde la corrida anterior**
 
-**3 · `stated_on` está en el esquema y el cálculo no lo lee.** Es exactamente lo que
-falta para detectar el compromiso reprogramado tres veces. PRY-001 lo tiene plantado con
-su historial, y el cálculo solo ve que está vencido.
+| Límite | Cómo se cerró |
+|---|---|
+| Una factura contra un entregable que no empezó pasaba desapercibida | `amount` por entregable, y la señal `vendor_invoiced_over_accepted`. Es la pregunta que Finanzas hace en la minuta de PRY-003 |
+| Un compromiso sin fecha desaparecía del informe | `commitment_undated`. No puede estar vencido, y por eso mismo se cuenta aparte |
+| El compromiso reprogramado tres veces no se detectaba | `reschedules` en el esquema y `commitment_rescheduled` en el cálculo |
+| El hash de documentos solo existía en markdown | `pmo.py index`, con dos etapas y verificación de citas |
+| No se podía leer un `.docx`, un `.xlsx` ni un `.pptx` | `texto.py`, sin dependencias: son ZIP con XML adentro |
 
-**4 · Un cambio aprobado con impacto ilegible desaparece del control de replanificación.**
-En PRY-006 el impacto en «tres meses» no se puede leer, así que el cambio no suma a
-`approved_time_days` **ni** entra en `approved_without_new_baseline`. Solo aparece en la
-lista de ilegibles. El encadenamiento es correcto en cada paso y el resultado es que un
-cambio real queda fuera del control.
+**Abiertos**
 
-**5 · Siete claves de configuración que nadie lee.** `paths.standard`,
+**1 · Un cambio aprobado con impacto ilegible queda fuera del control de replanificación.**
+Si el impacto está escrito en meses, no suma a `approved_time_days` ni entra en
+`approved_without_new_baseline`. Solo aparece en la lista de ilegibles. Cada paso es correcto
+y el resultado es que un cambio real se pierde del control. **La mitigación es preguntar, no
+convertir**: un mes no tiene un número fijo de días.
+
+**2 · Siete claves de configuración que nadie lee.** `paths.standard`,
 `cycle.committee_next`, `cycle.report_lead_days`, `cycle.daily_sweep`, `report.language`,
 `report.recipients` y `confirmation.fields_per_run`. Son el zócalo de la cadencia, las
-notificaciones y el presupuesto de preguntas: está puesto y vacío.
+notificaciones y el presupuesto de preguntas: está puesto y vacío. El disparador ya existe
+—el índice de documentos— y falta quién lo invoca sin que alguien abra una sesión.
 
-**6 · El hash solo existe en markdown.** Es la regla que controla el costo de todo el
-sistema, y hoy se le pide al modelo que la ejecute por su cuenta.
+**3 · Un PDF escaneado sin capa de texto no se lee.** `pdftotext` devuelve vacío y el
+documento se declara ilegible, que es la conducta correcta y no la útil. Con OCR se vuelve
+legible y deja de ser determinístico: el texto pasa a ser una lectura probable, no el
+contenido. Si entra, entra marcado como tal.
+
+**4 · `.msg`, `.doc`, `.xls` y `.mpp` no se leen.** Cada uno se declara con la razón y con
+cómo guardarlo para que sí. En una PMO real hay carpetas enteras de `.msg`.
+
+**5 · `stated_on` sigue sin leerse.** El compromiso reprogramado ya se detecta por
+`reschedules`; el campo queda para cuando haga falta la fecha en que se dijo cada cosa y no
+solo la que se prometió.
 
 ## Reproducirlo
 
@@ -110,9 +133,8 @@ sistema, y hoy se le pide al modelo que la ejecute por su cuenta.
 git clone https://github.com/josenanez-company/criterio.git
 cd criterio
 python3 plugins/criterio-pmo/scripts/pmo.py selftest
+python3 plugins/criterio-pmo/scripts/texto.py --selftest
 python3 tests/criterio-pmo/generar.py
 python3 tests/criterio-pmo/grade.py
 python3 tests/coherencia.py
 ```
-
-Sin dependencias. Los cuatro corren con la librería estándar de Python 3.10 o superior.

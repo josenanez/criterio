@@ -24,16 +24,41 @@ python3 scripts/pmo.py index --state <estado> --docs <carpeta>
 documento no se toca y sus campos se conservan tal cual.
 
 **Etapa dos, el hash del texto normalizado.** Si los bytes cambiaron, se extrae el
-texto y se compara. **Un Word reguardado, un Excel que recalcula al abrirlo y un PDF
-reimpreso cambian el primero y no el segundo.** Eso no es un caso raro: en un banco
-pasa todos los días, y cada falso positivo ahí cuesta una relectura completa.
+texto y se compara. **Un documento que alguien abrió y guardó sin escribir nada cambia el
+primero y no el segundo**, porque en un `.docx` o un `.xlsx` el guardado mueve metadatos del
+ZIP, el orden de las partes y la cadena de cálculo. En un banco eso pasa todos los días, y
+cada falso positivo ahí cuesta una relectura completa.
+
+Con una precisión que conviene no exagerar: si una fórmula volátil recalculó a un valor
+distinto, **el texto sí cambió** y hay que releer — el número es otro. La etapa dos no
+ahorra relecturas de contenido nuevo; ahorra las de contenido idéntico.
 
 El índice los separa: `changed` es lo que hay que releer, `resaved_only` es lo que
 cambió de bytes y no de contenido. Solo el primero entra en `to_read`.
 
-Cuando el formato no se puede leer sin instalar nada, no hay etapa dos. **Eso se
-declara**, no se finge: el documento entra a releer por si acaso, y la salida dice por
-qué.
+## Qué se puede leer, y con qué
+
+La conversión vive en `scripts/texto.py` y produce Markdown en un caché. **El Markdown es
+un caché, no la fuente:** la cita de una ficha apunta siempre al documento original, porque
+es lo que una persona abre para verificar.
+
+| Formato | Cómo se lee | Dependencia |
+|---|---|---|
+| `.md` `.txt` `.csv` `.tsv` `.json` `.yaml` | Directo | ninguna |
+| `.docx` `.xlsx` `.pptx` | Son ZIP con XML adentro: `zipfile` y `xml.etree` | **ninguna** |
+| `.eml` | El parser de correo de la librería estándar | ninguna |
+| `.html` `.xml` | Se quitan las etiquetas | ninguna |
+| `.pdf` con capa de texto | `pdftotext`, de poppler | el binario |
+| `.pdf` escaneado | **No se lee.** Necesita OCR | — |
+| `.msg` `.doc` `.xls` `.mpp` | **No se leen.** Se dice cómo guardarlos para que sí | — |
+
+Que los formatos de Office se lean sin instalar nada no es un detalle: es lo que permite
+que la mitad de la carpeta de una PMO real entre sin un proyecto de integración.
+
+**Lo que no se puede leer se declara, con la razón y con la salida.** Un escaneo sin capa de
+texto no produce un campo vacío: produce un hallazgo que dice que ese documento nadie lo
+leyó, y por lo tanto que el dato que contenía no está. Fingir que un documento ilegible no
+existe es la peor forma del salto silencioso.
 
 ## Los cuatro estados de un documento
 
