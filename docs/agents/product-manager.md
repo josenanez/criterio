@@ -3,7 +3,7 @@
 Extiende al **gerente de producto**: la persona que define qué se va a construir, antes de que
 exista un proyecto.
 
-Marco general, clases y códigos de riesgo: [README](README.md).
+Marco general, definición de las clases y de las columnas: [README](README.md).
 
 | | |
 |---|---|
@@ -18,82 +18,106 @@ Marco general, clases y códigos de riesgo: [README](README.md).
 ## Por qué este agente no encaja todavía
 
 La espina de la ficha es `plan` + `baseline` + `money`. En investigación y definición **ninguno
-de los tres existe**, así que este agente no puede escribir en la ficha: trabaja antes.
+de los tres existe**, así que este agente no escribe en la ficha: trabaja antes, con su propio
+registro.
 
-Sus artefactos son otros — el problema, la evidencia de demanda, las hipótesis, la definición,
-los requerimientos, el criterio de decisión — y necesita su propio registro previo.
-
-**La costura con el agente Project Manager es el acta de constitución.** Es el momento en que
-un problema definido se vuelve plan con doliente, autoridad y criterio de éxito. Ya está en el
+**La costura con el agente Project Manager es el acta de constitución** — el momento en que un
+problema definido se vuelve plan con doliente, autoridad y criterio de éxito. Ya está en el
 plugin, en `governance-artifacts` y `/project-charter`: el traspaso no necesita inventar nada.
 
-Y el orden temporal completo, que es lo que hace de los tres un sistema:
-
-```
-Product Manager  ──acta──►  Project Manager  ──ficha──►  PMO
-   define                      ejecuta                    vigila el conjunto
-```
-
-El PMO no vigila proyectos sueltos: vigila **todos los proyectos que tienen producto**, y para
+Y el PMO no vigila proyectos sueltos: vigila **todos los proyectos que tienen producto**, y para
 eso necesita la dimensión `producto` en la ficha, que hoy no existe.
+
+---
+
+## El flujo
+
+```
+GERENTE DE PRODUCTO  (clase C)                 AGENTE PRODUCT  (clases A y B)
+──────────────────────────────────────────────────────────────────────────────────
+habla con el cliente
+lee lo que el cliente no dice
+   └─► entrevistas, notas, tickets ──────────►  sintetiza en temas, con la cita
+                                               de quién lo dijo
+                                          ┌──  contrasta la definición contra la
+                                          │    evidencia de demanda que existe
+   ◄──── qué se sostiene, qué no, ◄───────┘     marca los supuestos no verificados
+         qué no está dicho
+
+decide qué se construye
+pone el precio
+   └─► la decisión ──────────────────────────►  entra al registro de requerimientos
+                                               con estado, doliente y evidencia
+
+   ◄──── borrador de especificación ◄─────────  y el borrador del acta
+firma el acta de constitución
+   └─► acta ─────────────────────────────────►  nace la ficha · pasa al agente PM
+
+firma el go / no-go
+   └─► criterio de éxito y fecha ────────────►  referencia del cierre, meses después
+```
 
 ---
 
 ## A · Lo que haría, y hoy consume tiempo de alguien
 
-Ninguna está construida. Todas necesitan primero el registro de requerimiento.
+Ninguna está construida. Todas dependen primero del registro de requerimiento.
 
-| Función | Nota |
-|---|---|
-| Sintetizar entrevistas y retroalimentación en temas | Con la cita de quién lo dijo, nunca como conclusión propia |
-| Inventario de requerimientos con estado, doliente y evidencia | Es el registro que el esquema no tiene |
-| Trazabilidad requerimiento → decisión → entregable | Lo que permite responder *"qué falta"* como filtro y no como corrida de modelo |
-| Detectar requerimientos sin criterio de aceptación o sin doliente | Igual que un riesgo sin doliente: decoración |
-| Recopilar análisis competitivo de fuentes públicas | Recopila y cita; no concluye posicionamiento |
-| Consolidar las métricas del producto | Si están en un sistema, es lectura |
-| Borrador de la especificación a partir de lo decidido | Borrador |
-| Producir el acta de constitución del traspaso | La costura con el agente PM |
+| Función | Entra | Produce o mantiene | Estado |
+|---|---|---|---|
+| Sintetizar entrevistas y retroalimentación en temas | Entrevistas, notas, tickets, encuestas | Temas con la cita de quién lo dijo, nunca como conclusión propia | Falta |
+| Inventario de requerimientos | La definición y los documentos que la soportan | Un registro por requerimiento, con estado, doliente y evidencia | Falta |
+| Trazabilidad requerimiento → decisión → entregable | El registro y las fichas de los proyectos que lo ejecutan | La cadena completa, que vuelve *"qué falta"* un filtro y no una corrida de modelo | Falta |
+| Detectar requerimientos sin criterio de aceptación o sin doliente | El registro | La lista de vacíos; igual que un riesgo sin doliente, es decoración | Falta |
+| Recopilar análisis competitivo de fuentes públicas | Fuentes públicas | Recopilación citada. No concluye posicionamiento | Falta |
+| Consolidar las métricas del producto | El sistema donde viven | La serie al día, con su fuente y fecha | Falta |
+| Borrador de la especificación | Lo ya decidido y el registro de requerimientos | Borrador con criterios de aceptación y vacíos señalados | Falta |
+| Producir el borrador del acta de constitución | La definición cerrada | El acta que el gerente firma, y con la que nace la ficha | Falta |
 
-## B · Lo que haría porque hoy no se hace
+## B · Lo que haría, y hoy no se hace
 
-| Función | Nota |
-|---|---|
-| Contrastar la definición contra la evidencia de demanda que existe | *"¿Qué sustenta que esto se necesita?"* — la pregunta que casi nunca se hace |
-| Detectar contradicción entre lo que dice el negocio y lo que dicen los datos | Mismo mecanismo que declarado contra evidenciado |
-| Identificar los supuestos no verificados de la definición | El supuesto es el que más daño hace: falla y se vuelve incidencia sin pasar por riesgo |
-| Primer barrido de obligaciones normativas que toca el producto | Con cita a la norma y **sin opinar sobre cumplimiento** |
-| Estructurar el caso de negocio | La estructura y los vacíos; las cifras son del negocio |
-| Análisis de canibalización con datos internos | Barato si los datos están; imposible a mano |
+| Función | Entra | Produce o mantiene | Estado |
+|---|---|---|---|
+| Contrastar la definición contra la evidencia de demanda | La definición y todo lo que la organización tenga escrito sobre demanda | Qué se sostiene, con qué documento, y qué no está dicho en ninguna parte | Falta |
+| Detectar contradicción entre lo que dice el negocio y lo que dicen los datos | Documentos del negocio y las métricas | El conflicto con las dos fuentes y sus fechas | Falta |
+| Identificar los supuestos no verificados de la definición | La definición | Los supuestos declarados como tales, para validarlos o convertirlos en riesgo | Falta |
+| Primer barrido de obligaciones normativas que toca el producto | La definición y la norma aplicable | Las obligaciones citadas. **No opina sobre cumplimiento** | Falta |
+| Estructurar el caso de negocio | Lo que el negocio entregue | La estructura y los vacíos. Las cifras son del negocio | Falta |
+| Análisis de canibalización | Datos internos de los productos existentes | El solapamiento, con su fuente | Falta |
 
-La primera fila es la que traslada la tesis entera de Criterio aguas arriba: en un proyecto se
-contrasta el estado declarado contra la evidencia documental; en un producto se contrasta la
+La primera fila traslada la tesis de Criterio aguas arriba: en un proyecto se contrasta el
+**estado declarado** contra la evidencia documental; en un producto se contrasta la
 **definición** contra la evidencia de demanda. Es la misma comparación, un paso antes.
 
-## C · Lo que no hace
+## C · Lo que el agente no hace
 
-| Función | Riesgo | Por qué |
+Lista de acciones que el agente no ejecuta. No es una evaluación de riesgo ni pretende ser
+exhaustiva: **la responsabilidad de uso y ejecución es de la organización que lo despliega.**
+Ver [README](README.md#c--lo-que-el-agente-no-hace).
+
+| Función | Requiere | Qué le entrega al agente |
 |---|---|---|
-| Decidir qué se construye y qué no | **AUT** | Asignación de capital |
-| Hablar con el cliente | **INF** | La entrevista es el insumo, y es humana |
-| Leer lo que el cliente no dice | **INF** | Es el corazón del descubrimiento |
-| Definir precio y modelo de negocio | **AUT** | |
-| Juzgar deseabilidad: si esto va a gustar | **INF** | |
-| Go / no-go de lanzamiento | **AUT** | |
-| Retirar un producto | **AUT** | |
-| Asumir el riesgo regulatorio de una definición | **AUT** | Consecuencia legal |
-| Priorizar el backlog cuando hay conflicto de intereses | **AUT** + **INF** | |
+| Decidir qué se construye y qué no | Autoridad | La decisión: sin ella no hay acta, y sin acta no nace la ficha |
+| Hablar con el cliente | Información fuera de los documentos | La entrevista, que es el insumo de toda la síntesis |
+| Leer lo que el cliente no dice | Información fuera de los documentos | La definición |
+| Definir precio y modelo de negocio | Autoridad | El caso de negocio con sus cifras |
+| Juzgar deseabilidad: si esto va a gustar | Información fuera de los documentos | La priorización del registro |
+| Firmar el go / no-go de lanzamiento | Autoridad | La fecha y el criterio de éxito, que son la referencia del cierre |
+| Retirar un producto | Autoridad | El cierre del ciclo de vida |
+| Asumir el riesgo regulatorio de una definición | Autoridad | Las restricciones que el agente registra |
+| Priorizar el backlog cuando hay conflicto de intereses | Autoridad · información fuera de los documentos | El orden |
 
-Este es el agente con **la peor cobertura de información de los tres**, y conviene decirlo en
-voz alta. La verdad de un portafolio vive en documentos; la de un proyecto, en conversación
-que deja minuta; la de un producto, en clientes, mercado y juicio — de lo cual casi nada queda
-escrito antes de la decisión.
+Este es el agente con **la peor cobertura de información de los tres**, y conviene decirlo en voz
+alta. La verdad de un portafolio vive en documentos; la de un proyecto, en conversación que deja
+minuta; la de un producto, en clientes, mercado y juicio — de lo cual casi nada queda escrito
+antes de la decisión.
 
 ---
 
 ## Lo que sigue siendo del gerente de producto persona
 
-**Habla con el cliente, lee lo que el cliente no dice, juzga si algo va a gustar, decide qué
-se construye, pone el precio, y firma el go / no-go.** Nada de eso se toca.
+**Habla con el cliente, lee lo que el cliente no dice, juzga si algo va a gustar, decide qué se
+construye, pone el precio y firma el go / no-go.** Nada de eso se toca.
 
 Lo que cambia es que llega a esa decisión con la cadena de evidencia armada y los huecos
 señalados: qué de la definición está sustentado y por qué documento, qué supuestos no se han
@@ -101,8 +125,8 @@ verificado, dónde el negocio y los datos dicen cosas distintas, y qué obligaci
 toca lo que va a definir.
 
 Si una organización quitara al gerente de producto y dejara solo al agente, se rompe antes que
-en los otros dos casos: **no hay descubrimiento, y sin descubrimiento el agente no tiene nada
-que sintetizar.** Un agente de producto sin gerente de producto sintetiza el vacío.
+en los otros dos casos: **no hay descubrimiento, y sin descubrimiento no hay nada que
+sintetizar.** Un agente de producto sin gerente de producto sintetiza el vacío.
 
 ---
 

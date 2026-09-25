@@ -1,19 +1,23 @@
 # Las hojas de los agentes
 
-Documento de trabajo. Aquí queda escrito **qué hace cada agente, qué no hace, y qué sigue
-siendo de las personas.** Es la base para discutir el diseño antes de codificar, y la
-referencia contra la cual se ajustan la arquitectura y el esquema.
+Documento de trabajo. Aquí queda escrito **qué hace cada agente, qué no hace, qué entra y qué
+sale de cada función, y cómo interactúa con la persona responsable.** Es la base para discutir
+el diseño antes de codificar, y la referencia contra la cual se ajustan la arquitectura y el
+esquema.
 
 No es material de mercado. La versión pública de la capacidad vive en
-[`capabilities/pmo.es.md`](../../capabilities/pmo.es.md). Estas hojas están en español
-porque su uso es discutirlas; la pareja en inglés entra cuando el diseño se estabilice, no
-antes, para no duplicar la rotación.
+[`capabilities/pmo.es.md`](../../capabilities/pmo.es.md). Estas hojas están en español porque
+su uso es discutirlas; la pareja en inglés entra cuando el diseño se estabilice, no antes, para
+no duplicar la rotación.
 
 Una hoja por agente:
 
 - [Agente PMO](pmo.md) — gobierno de portafolio
 - [Agente Project Manager](project-manager.md) — un proyecto
 - [Agente Product Manager](product-manager.md) — antes de que exista el proyecto
+
+La forma de todo lo que estos agentes entregan —informes, proyección, piezas gráficas— está en
+[`docs/design.md`](../design.md): es el diseño del portal, y se mantiene igual aquí.
 
 ---
 
@@ -22,9 +26,9 @@ Una hoja por agente:
 Los tres agentes existen alrededor de un mismo objeto, y la elección carga todo el peso del
 diseño: **un proyecto tiene plan, y sin plan no hay contra qué comparar.**
 
-Toda la propuesta se sostiene en contrastar lo que alguien declara contra lo que sustentan
-los documentos. Esa comparación necesita una referencia aprobada. En un proceso o en un área
-no existe el *contra qué*; en un proyecto sí, y se llama línea base.
+Toda la propuesta se sostiene en contrastar lo que alguien declara contra lo que sustentan los
+documentos. Esa comparación necesita una referencia aprobada. En un proceso o en un área no
+existe el *contra qué*; en un proyecto sí, y se llama línea base.
 
 ---
 
@@ -44,69 +48,82 @@ Nada se habla con nada directamente. **La ficha de proyecto es el único contrat
 El Product Manager trabaja antes de que exista plan: no escribe en la ficha, **la crea**. Su
 entrega cierra con el acta de constitución, que es el certificado de nacimiento de la ficha.
 
-### Las cinco invariantes
+Y el orden temporal es lo que hace de los tres un sistema:
+
+```
+Product Manager  ──acta──►  Project Manager  ──ficha──►  PMO
+   define                      ejecuta                    vigila el conjunto
+```
+
+### Las seis invariantes
 
 1. **Los agentes no se hablan entre sí.** Se hablan por la ficha.
 2. **El servidor no escribe.**
 3. **La fuente puede cambiar; la ficha no.** Un adaptador nuevo llena los mismos campos.
 4. **Declarado y evidenciado nunca se fusionan**, venga de archivo o de base de datos.
 5. **El modelo extrae, el código calcula.**
+6. **Ningún agente escribe la declaración.** El estado declarado lo escribe una persona.
+
+La sexta es la más fácil de romper por conveniencia y la que se lleva el sistema entero si se
+rompe: si el agente declara, la comparación entre declaración y evidencia compara al sistema
+consigo mismo, y todo esto se vuelve un generador de informes bonitos. No es una recomendación
+de la documentación: es una restricción del camino de escritura, y falla si se intenta.
 
 ---
 
-## La frontera
+## Las tres clases
 
-El criterio que decide si algo es del agente o de la persona no es repetitivo contra
-creativo. Es este:
+Cada función de cada rol cae en una de tres. **El alcance construido de Criterio es A y B.**
 
-> **El agente puede producir cualquier cosa que sea una afirmación sobre lo que está
-> escrito. No puede producir nada que comprometa a una persona o a la institución.**
+### A — Lo que el agente hace, y hoy consume tiempo de alguien
 
-Sobre ese criterio, cada función de cada rol cae en una de tres clases:
+Trabajo que la organización ya ejecuta todas las semanas: leer, consolidar, cruzar, reportar.
+El agente no lo acelera, lo sustituye. Se reconoce por una prueba simple: **si nadie lo hace,
+alguien lo nota.**
 
-| Clase | Qué es |
-|---|---|
-| **A** | Repetitivo. Se hace hoy, consume tiempo, y el agente lo hace igual o mejor |
-| **B** | No repetitivo. Hoy **no se hace**, porque costaría días por proyecto. El agente lo vuelve barato |
-| **C** | No lo hace el agente, por riesgo |
+### B — Lo que el agente hace y hoy no se hace
 
-**El alcance declarado de Criterio es A y B.** La clase C no se construye, no se ofrece y no
-se insinúa.
+Trabajo que la organización no ejecuta, no por descuido sino porque costaría días por
+proyecto: el forense de catorce meses, la contradicción entre cuarenta carpetas, el supuesto
+que nadie verificó. Se reconoce por la prueba inversa: **si nadie lo hace, nadie lo nota.**
 
-La distinción entre A y B importa para entender el valor: la A ahorra tiempo en trabajo que
-ya se hace; la B produce cosas que hoy no existen en ninguna PMO —el forense de catorce
-meses, la contradicción entre cuarenta carpetas, el supuesto que nadie verificó—. La A la
-agradece el equipo; la B la compra un director.
+La distinción importa para entender el valor. La A ahorra tiempo en trabajo que ya se hace y la
+agradece el equipo. La B produce lo que hoy no existe en ninguna PMO, y la compra un director.
 
-### Los cuatro riesgos de la clase C
+### C — Lo que el agente no hace
 
-| Código | Riesgo |
-|---|---|
-| **AUT** | Autoridad. Compromete a la organización, y alguien tiene que responder |
-| **INF** | Información. Se decide con lo que no está en ningún documento |
-| **PER** | Personas. Es un juicio sobre alguien |
-| **SEÑ** | Señal. Si lo hace el agente, se destruye la comparación que sostiene el sistema |
+Un conjunto de acciones que el agente **no ejecuta**. Nada más.
 
-Los cuatro no son iguales en el tiempo. **INF puede encoger** si la organización deja más
-rastro escrito. **AUT no se mueve nunca.** Y **SEÑ es una restricción del diseño**, no una
-prudencia: tiene una sola fila en las tres hojas, y está en el Project Manager.
+Esta lista no evalúa riesgos ni exposición de nadie: describe el límite del agente. Quien
+instala Criterio acepta los [términos](../../TERMS.es.md) —la verificación es suya, §2; se
+entrega sin garantía ni responsabilidad, §5— y el [descargo](../../DISCLAIMER.es.md). La
+responsabilidad de uso y de ejecución es de la organización que lo despliega, y si en su
+contexto la clase C es más grande que esta lista, delimitarla y documentarla le corresponde a
+ella, con el descargo adicional que su gobierno interno exija.
+
+Cada fila de C lleva dos datos, y ninguno es un riesgo:
+
+- **Requiere** — por qué está fuera del alcance del agente: *autoridad* (compromete a la
+  organización), *información fuera de los documentos*, o *juicio sobre personas*.
+- **Qué le entrega al agente** — porque casi toda función de C produce el insumo de una función
+  de A o de B. Es la parte que hace de esto un ciclo y no dos mundos separados.
 
 ---
 
 ## Lo que sigue siendo de las personas
 
-Los tres roles siguen existiendo completos. Esto extiende capacidad; no sustituye función.
-Y el argumento no es de cortesía, es estructural:
+Los tres roles siguen existiendo completos. Esto extiende capacidad; no sustituye función. Y el
+argumento no es de cortesía, es estructural:
 
 > **El insumo de cada agente lo produce el trabajo no delegable de su persona.**
 
 El agente PM necesita que alguien dirija la reunión, porque de ahí sale la minuta que lo
 alimenta. El agente PMO necesita que alguien persiga lo que el informe pide, porque si nadie
-actúa el informe siguiente dice lo mismo. El agente de producto necesita que alguien hable
-con el cliente, porque no hay síntesis sin entrevista.
+actúa el informe siguiente dice lo mismo. El agente de producto necesita que alguien hable con
+el cliente, porque no hay síntesis sin entrevista.
 
 Quitar a la persona no deja al agente solo: lo deja sin comida. Cada hoja documenta qué se
-rompe primero si se intenta.
+rompe primero si se intenta, y en qué orden.
 
 ---
 
@@ -122,9 +139,9 @@ rompe primero si se intenta.
 
 ## Decisiones abiertas
 
-Las cuatro son de esquema, y las tres primeras se deciden **antes** de que el agente PM
-empiece a llenar fichas. Una ficha llena con el esquema equivocado es la migración que no
-queremos hacer.
+Las cuatro son de esquema, y las tres primeras se deciden **antes** de que el agente PM empiece
+a llenar fichas. Una ficha llena con el esquema equivocado es la migración que no queremos
+hacer.
 
 | Campo | Qué habilita | Si no está |
 |---|---|---|
@@ -133,7 +150,6 @@ queremos hacer.
 | `requerimiento` como registro | *"Qué requerimientos faltan"* como filtro instantáneo, y el traspaso Product → Project | Es siempre una corrida de modelo sobre documentos, cada vez |
 | `autoridad` del gerente | Que el control de cambios sepa si algo excede la facultad sin releer el acta | Se vuelve a derivar de los documentos en cada corrida |
 
-Sobre la base de datos hay una trampa que conviene dejar escrita: **lo que trae un PPM son
-más declaraciones, no evidencia.** El campo *"estado: verde"* de la herramienta corporativa
-es la afirmación del gerente con otra interfaz. La evidencia sigue viviendo en actas y
-minutas.
+Sobre la base de datos hay una trampa que conviene dejar escrita: **lo que trae un PPM son más
+declaraciones, no evidencia.** El campo *"estado: verde"* de la herramienta corporativa es la
+afirmación del gerente con otra interfaz. La evidencia sigue viviendo en actas y minutas.
