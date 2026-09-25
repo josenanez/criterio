@@ -15,8 +15,36 @@ Consolida las fichas y responde lo que el gerente de PMO no puede saber leyendo 
 ```
 /portfolio-report              formato configurado
 /portfolio-report ppt          material para presentar
-/portfolio-report html         para consultar y filtrar
+/portfolio-report html         las dos vistas, para consultar y para imprimir
 ```
+
+## Si el formato es `html`
+
+No lo escribas tú. El informe impreso lo arma un script, con el diseño del producto:
+
+```
+python3 scripts/informe.py --state <estado> --salida <carpeta> --config <archivo>
+```
+
+Produce **dos vistas que no se diferencian por detalle sino por autoridad**, y una
+página por proyecto:
+
+- `index.html` — **por campo**, con la cadena de evidencia completa. Para quien va a
+  actuar, que necesita poder abrir el documento del que salió cada dato.
+- `decisiones.html` — **por decisión**, para el patrocinador. Solo lo que excede la
+  facultad de quien gerencia, formulado como pregunta cerrada y con la consecuencia de
+  no decidir.
+
+La segunda no es la primera recortada: es otro objeto. A un patrocinador se le entrega
+la interna filtrada y hace lo que hacen los patrocinadores — se clava en un detalle y
+desvía el comité.
+
+**El PDF sale de imprimir el HTML**, que está construido para eso (`@media print`, modo
+claro, sin cortar tablas ni bloques a mitad de página). No hay un generador de PDF: una
+librería de PDF rompería la propiedad de que todo esto corre sin instalar nada.
+
+Después de correrlo, di dónde quedaron los archivos y cuál de las dos vistas va a cada
+audiencia. **No pegues el HTML en la conversación.**
 
 ## Flujo
 

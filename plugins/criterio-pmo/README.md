@@ -137,12 +137,14 @@ citation to the source document and its date in every field. No command reads ra
 its own. That is what allows consolidating forty projects without reading them again,
 **computing instead of opining**, and comparing one run against the previous one.
 
-Two scripts, which are the only things that do not opine. [`scripts/texto.py`](scripts/texto.py)
+Three scripts, which are the only things that do not opine. [`scripts/texto.py`](scripts/texto.py)
 turns the document into text: `.docx`, `.xlsx` and `.pptx` with the standard library — they
 are ZIP files with XML inside —, `.eml` with the email parser, and PDF with `pdftotext`. What
 cannot be read is declared with the reason. [`scripts/pmo.py`](scripts/pmo.py) does the
 arithmetic, and its `index` subcommand decides the cost of every run: two hashes per document,
-one to know whether extracting is worth it and another to know whether re-reading is.
+one to know whether extracting is worth it and another to know whether re-reading is. And
+[`scripts/informe.py`](scripts/informe.py) builds the printed report out of what the other two
+produced, without reading a single document again.
 
 ## The sixteen commands
 
@@ -200,6 +202,7 @@ as a constraint or as a risk, and does not opine on it.
 ```
 python3 scripts/pmo.py selftest          the arithmetic and the cadence
 python3 scripts/texto.py --selftest      document conversion
+python3 scripts/informe.py --selftest    the report: figures, agreement and naming
 ```
 
 Both run on the standard library, with nothing installed. Over synthetic material with known

@@ -66,7 +66,7 @@ mira, y eso ya pasó una vez con la lista de señales.
 | **El inventario** | Los 15 comandos y los 10 skills, con lo que hace cada uno | el [README del plugin](../../plugins/criterio-pmo/README.md), porque el plugin se distribuye solo y su README tiene que sostenerse solo |
 | **El diseño** | El flujo, las tres clases, qué es de las personas, qué falta | esta hoja |
 
-Y dos scripts, que son lo único que no opina:
+Y tres scripts, que son lo único que no opina:
 
 **`scripts/texto.py`** convierte el documento a Markdown para que se pueda leer barato y para
 que el hash del texto sea estable. **No extrae campos.** `.docx`, `.xlsx` y `.pptx` se leen
@@ -79,6 +79,21 @@ verificar.
 `diff`, `selftest` —. De esos, `index` es el que decide el costo de una corrida: dos hashes
 por documento, el de bytes para saber si vale extraer y el del texto para saber si vale
 releer, más la verificación de que toda cita siga resolviendo.
+
+**`scripts/informe.py`** arma el informe impreso a partir de lo que los otros dos ya
+produjeron: **no vuelve a leer un documento ni vuelve a calcular nada.** Emite dos vistas
+que **no se diferencian por detalle sino por autoridad** —`index.html` por campo con la
+cadena de evidencia completa, `decisiones.html` por decisión para el patrocinador— y una
+página por proyecto. Modo claro y `@media print` a propósito: **el PDF es el HTML
+impreso**, porque una librería de PDF rompería la propiedad de que todo esto corre sin
+instalar nada.
+
+Y una cosa que hace este script y no hacen los otros: **traduce el esquema al castellano
+de quien lee.** Un `plan.milestones[1].evidence` impreso tal cual no se ve mal, se ve
+técnico, y quien lo lee supone que así se dice. En el informe sale *«la evidencia del hito
+Motor de decisión certificado»*. Que ninguna ruta sobreviva sin traducir lo comprueba
+`informe.py --selftest`, y que ninguna señal nueva salga en inglés lo comprueba
+`tests/coherencia.py`.
 
 ---
 
@@ -155,15 +170,15 @@ primero, en este orden:
 
 ## Lo que falta
 
-**El informe.** Es lo único que el nivel C toca con las manos, y hoy no existe en la forma
-que la configuración promete: `report.format: html` está declarado y los comandos describen
-salida en markdown. Tiene que ser un **informe estructurado con el diseño base del producto**
-—el de [`docs/design.md`](../design.md), que es el del portal—, salir **por el servidor**, y
-además generarse en **PDF** para quien lo quiere adjunto. Con eso se leen también
-`report.language` y `report.recipients`, las dos claves que quedan sin leer del lado de la
-PMO.
+**El servidor.** Es la capacidad siguiente de esta familia y tiene su propio diseño. El
+informe ya existe como objeto —`scripts/informe.py`, con el diseño base del producto y
+listo para imprimir—; lo que falta es **cómo llega a quien no abre una carpeta**. Hoy son
+archivos en el disco de quien corrió el comando.
 
-**El servidor**, que es la capacidad siguiente de esta familia y tiene su propio diseño.
+**`report.language` y `report.recipients`**, las dos claves que quedan sin leer del lado de
+la PMO. El informe sale hoy solo en castellano y no sabe a quién va dirigido. La segunda no
+se resuelve sin el servidor: mandar correos desde el plugin es una facultad que este agente
+no va a tener.
 
 **OCR para el PDF escaneado.** Hoy un escaneo sin capa de texto se declara ilegible, que es
 la conducta correcta y no la útil. Cuando entre, entra marcado: con OCR el texto pasa a ser

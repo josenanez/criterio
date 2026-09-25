@@ -138,12 +138,14 @@ escriben, con la cita al documento fuente y a su fecha en cada campo. Ningún co
 documentos crudos por su cuenta. Eso permite consolidar cuarenta proyectos sin volver a
 leerlos, **calcular en vez de opinar**, y comparar una corrida contra la anterior.
 
-Dos scripts, que son lo único que no opina. [`scripts/texto.py`](scripts/texto.py) convierte
+Tres scripts, que son lo único que no opina. [`scripts/texto.py`](scripts/texto.py) convierte
 el documento a texto: `.docx`, `.xlsx` y `.pptx` con la librería estándar —son ZIP con XML
 adentro—, `.eml` con el parser de correo, y el PDF con `pdftotext`. Lo que no se puede leer
 se declara con la razón. [`scripts/pmo.py`](scripts/pmo.py) hace la aritmética, y su
 subcomando `index` decide el costo de cada corrida: dos hashes por documento, uno para saber
-si vale extraer y otro para saber si vale releer.
+si vale extraer y otro para saber si vale releer. Y
+[`scripts/informe.py`](scripts/informe.py) arma el informe impreso a partir de lo que los
+otros dos produjeron, sin volver a leer un solo documento.
 
 ## Los dieciséis comandos
 
@@ -201,6 +203,7 @@ la registra como restricción o como riesgo, y no opina sobre ella.
 ```
 python3 scripts/pmo.py selftest          la aritmética y la cadencia
 python3 scripts/texto.py --selftest      la conversión de documentos
+python3 scripts/informe.py --selftest    el informe: cifras, concordancia y nombres
 ```
 
 Los dos corren con la librería estándar, sin instalar nada. Sobre material sintético con

@@ -212,6 +212,24 @@ for t in sin_clave:
 if not sin_clave:
     decir(OK, f"los {len(en_codigo_th)} umbrales están documentados en portfolio-health")
 
+# El informe imprime el nombre de cada señal. Una señal nueva sin nombre en castellano
+# no rompe nada: sale la clave en inglés, en un informe que va a un comité. Por eso
+# también es dueño, y también se verifica.
+INFORME = PLUGIN / "scripts" / "informe.py"
+if INFORME.exists():
+    # Se importa en vez de leerse con una expresión regular: la tabla es un dato del
+    # programa, y leerla como texto falla en silencio el día que alguien pone dos
+    # entradas en un renglón.
+    sys.path.insert(0, str(INFORME.parent))
+    nombrados = set(__import__("informe").NOMBRES)
+    sin_nombre = sorted(x for x in en_codigo if x not in nombrados)
+    for x in sin_nombre:
+        decir(FALLA, f"`{x}` se calcula y el informe no sabe cómo decirlo en castellano")
+    if not sin_nombre:
+        decir(OK, f"las {len(en_codigo)} señales tienen nombre en el informe")
+else:
+    decir(FALLA, "falta plugins/criterio-pmo/scripts/informe.py")
+
 # El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja
 # solo por el market. No se duplica el chequeo aquí.

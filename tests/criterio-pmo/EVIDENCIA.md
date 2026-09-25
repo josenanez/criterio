@@ -10,15 +10,16 @@ documentación real no existen todavía, y hasta que existan no se inventan.
 ## Lo que se corre, y qué verifica cada cosa
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest      30 resultados · la aritmética
-python3 plugins/criterio-pmo/scripts/texto.py --selftest  12 resultados · la conversión
-python3 tests/criterio-pmo/generar.py                     27 documentos en 6 proyectos
-python3 tests/criterio-pmo/grade.py                       69 comprobaciones
-python3 tests/coherencia.py                               documentación contra código
-python3 scripts/validate_plugins.py                       estructura del market
+python3 plugins/criterio-pmo/scripts/pmo.py selftest       38 resultados · la aritmética
+python3 plugins/criterio-pmo/scripts/texto.py --selftest   12 resultados · la conversión
+python3 plugins/criterio-pmo/scripts/informe.py --selftest 15 resultados · el informe
+python3 tests/criterio-pmo/generar.py                      28 documentos en 6 proyectos
+python3 tests/criterio-pmo/grade.py                        69 comprobaciones
+python3 tests/coherencia.py                                documentación contra código
+python3 scripts/validate_plugins.py                        estructura del market
 ```
 
-Los seis en verde. Sin dependencias: librería estándar de Python 3.10 o superior.
+Los siete en verde. Sin dependencias: librería estándar de Python 3.10 o superior.
 
 ## El portafolio sintético
 
@@ -90,6 +91,33 @@ arreglar antes de subir el siguiente.
 
 Este documento registra **el escalón donde vamos**, no una aspiración. Hoy es el primero:
 seis proyectos, formatos de texto, convención de nombres respetada.
+
+## El informe, sobre el mismo portafolio
+
+`informe.py` corrido sobre las fichas de referencia al 2026-09-30 produce **8 páginas**:
+las dos vistas y una por proyecto. Los números que imprime no son suyos —los toma de
+`pmo.py compute`—, así que lo que esta corrida prueba es otra cosa: **que lo que sale se
+pueda leer sin conocer el esquema.**
+
+| Qué se comprobó | Resultado |
+|---|---|
+| Ninguna ruta de la ficha impresa en crudo | 14 campos vacíos en 5 proyectos, los 14 en castellano: *«la evidencia del hito Motor de decisión certificado»*, *«hasta dónde decide el gerente sin subir al comité»* |
+| Concordancia de número | `1 día`, no `1 días`. El selftest lo fija en singular, plural y negativo |
+| Cifras con la coma del lector y sin cola | `95,2%`, no `95.20%`. `78%`, no `78.0%` |
+| Ningún color del modo oscuro | Cero coincidencias de los siete tokens oscuros de la paleta en las 8 páginas |
+| La vista de decisiones no es la interna recortada | 6 puntos en 4 de 6 proyectos, contra 26 alertas de 16 señales distintas en 5 proyectos de la interna. Lo que no excede la facultad del gerente no sube |
+| El control negativo también en el informe | PRY-005: *«ninguna»* en las señales, y ningún punto de decisión |
+
+**Cómo se encontraron los errores que tenía.** Se renderizaron las páginas en un navegador
+y se miraron. Cuatro de los seis defectos —`1 días`, `6 punto(s)`, `78.0%`, y las rutas
+`plan.milestones[1].evidence` impresas tal cual— pasan todos los tests de aritmética sin
+problema, porque no son errores de cálculo. **Un informe correcto que se lee como un
+volcado de datos es un informe que el nivel C no va a abrir dos veces.**
+
+Los dos primeros ya no pueden volver: `informe.py --selftest` los fija. El tercero también.
+La cuarta clase —una señal nueva que salga con su nombre en inglés— la fija
+`tests/coherencia.py`, que importa la tabla de nombres y la compara con las señales que
+`pmo.py` calcula.
 
 ## Límites conocidos
 
