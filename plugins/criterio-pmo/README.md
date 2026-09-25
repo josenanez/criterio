@@ -104,11 +104,25 @@ is this family's additional capability.
 /pmo-server
 ```
 
-It raises a page with **two doors**, and the point is that they are not the same view
-trimmed down: the committee gets *what needs a decision*; whoever is going to act gets
-*the portfolio field by field, with the citation for every value*. The landing page also
-says how old the report is, which is the thing nobody knows when a PDF is forwarded to
-them.
+It raises **a portal with three sections**, which is what makes a team use it instead of
+asking you for the report:
+
+| | |
+|---|---|
+| **PMO reports** | How the portfolio is going: the greens the evidence does not support, what has been silent for weeks, who sponsors more than one thing. And separately, **what needs a decision from the committee** — not the same view trimmed down, a different object |
+| **Projects** | The list, and each one's report. Every project **links to the product it came from** |
+| **Products** | The list, and each one's report. Every product **links to the projects building it** |
+
+**The link runs both ways, and that is where the thing no other page can say lives.**
+Whoever arrives by the project wants to know what it is for. Whoever arrives by the
+product wants to know who is building it — and discovers, when it happens, that their
+product is built by projects reporting to **different committees**, so none of them is
+seeing it whole. A healthy project does not save it either: the product does not land
+until all of them land.
+
+The landing page also says how old the report is, which is the thing nobody knows when a
+PDF is forwarded to them. And if your configuration says whose project office this is,
+the portal carries that name on every page.
 
 And it has one more thing, which is what changes how it gets used: **whoever is looking
 can leave the agent a written question.** It does not answer on the spot — the agent is

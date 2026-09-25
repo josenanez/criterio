@@ -51,12 +51,27 @@ TOPE_PETICION = 16 * 1024          # una petición es un párrafo, no un adjunto
 # se parecen a comandos —`/decisiones` es una ruta, no un `/comando`— y el verificador
 # del repositorio necesita poder distinguirlas sin que nadie le escriba una excepción.
 RUTAS = {
-    '/': 'la portada: las dos vistas, la frescura y el formulario de peticiones',
+    '/': 'la portada: las tres secciones, la frescura y el formulario de peticiones',
+    '/pmo': 'cómo va el portafolio · el informe de la PMO',
     '/decisiones': 'lo que necesita una decisión · para el comité',
-    '/interna': 'el portafolio campo por campo · para quien va a actuar',
-    '/p/<codigo>': 'la página de un proyecto',
+    '/proyectos': 'el listado de proyectos',
+    '/p/<codigo>': 'el informe de un proyecto, con enlace a su producto',
+    '/productos': 'el listado de productos',
+    '/producto/<nombre>': 'el informe de un producto, con enlace a sus proyectos',
     '/estado.json': 'de cuándo es el informe y cuántas peticiones hay abiertas',
     '/peticion': 'POST · deja una pregunta escrita para el agente',
+}
+
+# Cada ruta amable apunta al archivo que `informe.py` escribió, y **redirige** en vez
+# de servirlo en su lugar. La razón: las páginas enlazan entre sí por nombre de
+# archivo, porque tienen que funcionar también abiertas desde el disco, comprimidas o
+# impresas — el servidor es una proyección, no el dueño. Si `/pmo` sirviera el archivo
+# sin redirigir, sus enlaces apuntarían a `/proyectos.html`, que desde `/pmo` no existe.
+ALIAS = {
+    '/pmo': 'index.html',
+    '/decisiones': 'decisiones.html',
+    '/proyectos': 'proyectos.html',
+    '/productos': 'productos.html',
 }
 ASUNTOS = {
     'revisar': 'Que revise un proyecto contra sus documentos',
@@ -158,9 +173,15 @@ def frescura(informe_dir: Path, estado: Path) -> dict:
             proximo = json.loads(cad.read_text(encoding='utf-8')).get('next_wake')
         except (json.JSONDecodeError, OSError):
             pass
-    paginas = sorted(p.stem for p in informe_dir.glob('PRY-*.html'))
+    # Qué hay publicado sale de los archivos, no de una lista aparte: si `informe.py`
+    # dejó de escribir una página, aquí se nota en vez de seguir prometiéndola.
+    paginas = sorted(p.stem for p in informe_dir.glob('*.html')
+                     if p.stem not in ('index', 'decisiones', 'proyectos', 'productos')
+                     and not p.stem.startswith('producto-'))
+    productos = sorted(p.stem[len('producto-'):] for p in informe_dir.glob('producto-*.html'))
     return {'informe_generado': generado, 'proxima_corrida': proximo,
-            'proyectos': paginas, 'peticiones_abiertas': len(pendientes(estado))}
+            'proyectos': paginas, 'productos': productos,
+            'peticiones_abiertas': len(pendientes(estado))}
 
 
 def edad(iso, ahora=None):
@@ -175,7 +196,7 @@ def edad(iso, ahora=None):
 
 # ---------------------------------------------------------------- las páginas
 
-def portada(fr: dict, hoy: str) -> str:
+def portada(fr: dict, hoy: str, org: str = '') -> str:
     dias = edad(fr.get('informe_generado'))
     if fr.get('informe_generado') is None:
         sello = ('<strong>Todavía no hay informe.</strong> Alguien tiene que correr '
@@ -198,27 +219,40 @@ def portada(fr: dict, hoy: str) -> str:
         cola = (f'<p class="aviso">Hay {informe.plural(abiertas, "petición sin responder", "peticiones sin responder")}. '
                 f'El agente las toma en su próxima corrida.</p>')
 
+    n_proy = len(fr.get('proyectos') or [])
+    n_prod = len(fr.get('productos') or [])
     opciones = ''.join(f'<option value="{k}">{e(v)}</option>' for k, v in ASUNTOS.items())
+
+    # Las tres secciones, en el orden en que alguien las necesita: cómo va todo,
+    # después el proyecto que le toca, después el producto que le importa.
+    puertas = [
+        ('Informes PMO', '/pmo', 'Cómo va el portafolio',
+         'Lo que solo se ve mirando todo junto: los verdes que la evidencia no sostiene, '
+         'lo que lleva semanas en silencio, quién patrocina más de una cosa.'),
+        ('Proyectos', '/proyectos',
+         informe.plural(n_proy, 'proyecto', 'proyectos') if n_proy else 'El listado',
+         'El listado, y el informe de cada uno: qué declara, qué dice la evidencia, y el '
+         'documento del que salió cada dato. Cada proyecto enlaza al producto que lo '
+         'originó.'),
+        ('Productos', '/productos',
+         informe.plural(n_prod, 'producto', 'productos') if n_prod else 'El listado',
+         'Un proyecto termina; un producto sobrevive a todos los proyectos que lo '
+         'construyeron. Aquí se ve el producto completo, incluso cuando lo construyen '
+         'proyectos que reportan a comités distintos.'),
+    ]
+    tarjetas = ''.join(f"""<a class="puerta" href="{ruta}">
+    <span class="q">{e(q)}</span><span class="t">{e(titulo)}</span>
+    <p class="d">{desc}</p></a>""" for q, ruta, titulo, desc in puertas)
+
     cuerpo = f"""<div class="portada">
-<span class="ante">Portafolio de proyectos</span>
-<h1>Qué dicen los documentos</h1>
+<span class="ante">{e(org) if org else 'Portafolio de proyectos'}</span>
+<h1>Oficina de proyectos</h1>
 <p class="pie-cab">{sello}</p>
 
-<div class="puertas">
-  <a class="puerta" href="/decisiones">
-    <span class="q">Para el comité</span>
-    <span class="t">Lo que necesita una decisión</span>
-    <p class="d">Solo lo que excede la facultad de quien gerencia cada proyecto, como
-    pregunta cerrada y con la consecuencia de no decidir. Si no hay nada que decidir,
-    lo dice.</p>
-  </a>
-  <a class="puerta" href="/interna">
-    <span class="q">Para quien va a actuar</span>
-    <span class="t">El portafolio, campo por campo</span>
-    <p class="d">Cada dato con la cita del documento del que salió y su fecha, para que
-    se pueda abrir y verificar. Una página por proyecto.</p>
-  </a>
-</div>
+<div class="puertas">{tarjetas}</div>
+<p class="aviso">El comité tiene su propia vista, que no es ninguna de estas tres recortada:
+<a href="/decisiones">lo que necesita una decisión</a>, como pregunta cerrada y con la
+consecuencia de no decidirlo.</p>
 
 <h2>Pedirle algo al agente</h2>
 <p>Esto no le contesta ahora: <strong>deja la pregunta escrita</strong> y el agente la
@@ -283,6 +317,7 @@ class Manejador(BaseHTTPRequestHandler):
     sys_version = ''
     informe_dir: Path = Path('.')
     estado: Path = Path('.')
+    organizacion: str = ''
     callado: bool = False
 
     # --- utilidades -----------------------------------------------------
@@ -324,20 +359,35 @@ class Manejador(BaseHTTPRequestHandler):
     def do_HEAD(self):
         self.do_GET()
 
+    def a(self, archivo):
+        """Redirige a un archivo del informe. Ver el comentario de ALIAS."""
+        if not SEGURO.match(archivo) or not (self.informe_dir / archivo).is_file():
+            self.html(404, error(404, 'Eso no está aquí', self.hoy()))
+            return
+        self.send_response(302)
+        self.send_header('Location', '/' + archivo)
+        self.send_header('Content-Length', '0')
+        self.end_headers()
+
     def do_GET(self):
         ruta = urllib.parse.urlparse(self.path).path.rstrip('/') or '/'
         if ruta == '/':
-            self.html(200, portada(frescura(self.informe_dir, self.estado), self.hoy()))
-        elif ruta == '/decisiones':
-            self.archivo('decisiones.html')
-        elif ruta == '/interna':
-            self.archivo('index.html')
+            self.html(200, portada(frescura(self.informe_dir, self.estado), self.hoy(),
+                                   self.organizacion))
+        elif ruta in ALIAS:
+            self.a(ALIAS[ruta])
         elif ruta.startswith('/p/'):
-            self.archivo(ruta[3:] + '.html')
+            self.a(ruta[3:] + '.html')
+        elif ruta.startswith('/producto/'):
+            self.a('producto-' + ruta[len('/producto/'):] + '.html')
         elif ruta == '/estado.json':
             cuerpo = json.dumps(frescura(self.informe_dir, self.estado),
                                 ensure_ascii=False, indent=2).encode('utf-8')
             self.responder(200, cuerpo, 'application/json; charset=utf-8')
+        elif ruta.endswith('.html'):
+            # Las páginas tal como `informe.py` las escribió. Es lo que los enlaces
+            # entre páginas usan, y `archivo` comprueba que no se salga de la carpeta.
+            self.archivo(ruta.lstrip('/'))
         else:
             self.html(404, error(404, 'Eso no está aquí', self.hoy()))
 
@@ -360,9 +410,10 @@ class Manejador(BaseHTTPRequestHandler):
         self.html(200, recibida(registro, self.hoy()))
 
 
-def arrancar(informe_dir: Path, estado: Path, host: str, puerto: int) -> int:
+def arrancar(informe_dir: Path, estado: Path, host: str, puerto: int, org: str = '') -> int:
     Manejador.informe_dir = informe_dir
     Manejador.estado = estado
+    Manejador.organizacion = org
     buzon(estado).mkdir(parents=True, exist_ok=True)
     fr = frescura(informe_dir, estado)
 
@@ -372,10 +423,14 @@ def arrancar(informe_dir: Path, estado: Path, host: str, puerto: int) -> int:
 
     with ThreadingHTTPServer((host, puerto), Manejador) as srv:
         real = srv.server_address[1]
-        print(f'Criterio PMO · sirviendo {informe_dir}')
-        print(f'  Portafolio      http://{host}:{real}/')
+        print(f'Criterio PMO · {org or "sirviendo"} {informe_dir}')
+        print(f'  Portada         http://{host}:{real}/')
+        print(f'  Informes PMO    http://{host}:{real}/pmo')
         print(f'  Comité          http://{host}:{real}/decisiones')
-        print(f'  Interna         http://{host}:{real}/interna')
+        print(f'  Proyectos       http://{host}:{real}/proyectos'
+              f'   ({len(fr["proyectos"])})')
+        print(f'  Productos       http://{host}:{real}/productos'
+              f'   ({len(fr["productos"])})')
         print(f'  Frescura        http://{host}:{real}/estado.json')
         if host not in ('127.0.0.1', 'localhost', '::1'):
             print()
@@ -412,13 +467,16 @@ def selftest() -> int:
     tmp = Path(tempfile.mkdtemp())
     inf, est = tmp / 'informe', tmp / 'estado'
     inf.mkdir(); (est / 'records').mkdir(parents=True)
-    (inf / 'index.html').write_text('<h1>interna</h1>', encoding='utf-8')
-    (inf / 'decisiones.html').write_text('<h1>decisiones</h1>', encoding='utf-8')
-    (inf / 'PRY-001.html').write_text('<h1>uno</h1>', encoding='utf-8')
+    for nombre, texto in (('index', 'pmo'), ('decisiones', 'decisiones'),
+                          ('proyectos', 'listado de proyectos'),
+                          ('productos', 'listado de productos'),
+                          ('PRY-001', 'uno'), ('producto-cuenta-transaccional', 'la cuenta')):
+        (inf / f'{nombre}.html').write_text(f'<h1>{texto}</h1>', encoding='utf-8')
     (est / 'records' / 'PRY-001.json').write_text('{"identity":{}}', encoding='utf-8')
     (tmp / 'secreto.txt').write_text('no debe salir', encoding='utf-8')
 
     Manejador.informe_dir, Manejador.estado, Manejador.callado = inf, est, True
+    Manejador.organizacion = 'Banco del Selftest'
     srv = ThreadingHTTPServer(('127.0.0.1', 0), Manejador)
     hilo = threading.Thread(target=srv.serve_forever, daemon=True); hilo.start()
     puerto = srv.server_address[1]
@@ -427,26 +485,61 @@ def selftest() -> int:
         c = http.client.HTTPConnection('127.0.0.1', puerto, timeout=5)
         cab = {'Content-Type': 'application/x-www-form-urlencoded'} if cuerpo else {}
         c.request(metodo, ruta, cuerpo, cab)
-        r = c.getresponse(); datos = r.read().decode('utf-8', 'replace'); c.close()
-        return r.status, datos
+        r = c.getresponse(); datos = r.read().decode('utf-8', 'replace')
+        destino = r.getheader('Location'); c.close()
+        return (r.status, datos, destino) if destino else (r.status, datos)
+
+    def seguir(ruta):
+        """Pide una ruta amable, sigue el 302 y devuelve lo que aterriza.
+
+        Comprueba las dos cosas a la vez: que redirija, y que el archivo al que
+        redirige exista. Una redirección a una página que no está es un 404 con
+        un rodeo.
+        """
+        r = pedir(ruta)
+        if len(r) != 3 or r[0] != 302:
+            return (r[0], f'no redirigió: {r[0]}')
+        cod, cuerpo = pedir(r[2])[:2]
+        return (cod, cuerpo.strip())
 
     try:
+        portada_html = pedir('/')[1]
         ok('la portada responde', pedir('/')[0], 200)
-        ok('la portada nombra las dos vistas',
-           all(x in pedir('/')[1] for x in ('/decisiones', '/interna')), True)
-        ok('la vista de comité se sirve', pedir('/decisiones')[1].strip(), '<h1>decisiones</h1>')
-        ok('la vista interna se sirve', pedir('/interna')[1].strip(), '<h1>interna</h1>')
-        ok('la página de un proyecto se sirve', pedir('/p/PRY-001')[1].strip(), '<h1>uno</h1>')
+        ok('la portada nombra las tres secciones',
+           all(x in portada_html for x in ('/pmo', '/proyectos', '/productos')), True)
+        ok('la portada dice de quién es', 'Banco del Selftest' in portada_html, True)
+
+        # Las rutas amables redirigen al archivo: ver el comentario de ALIAS.
+        ok('la sección PMO redirige a su archivo', seguir('/pmo'), (200, '<h1>pmo</h1>'))
+        ok('el comité redirige a su archivo', seguir('/decisiones'), (200, '<h1>decisiones</h1>'))
+        ok('el listado de proyectos redirige', seguir('/proyectos'),
+           (200, '<h1>listado de proyectos</h1>'))
+        ok('el listado de productos redirige', seguir('/productos'),
+           (200, '<h1>listado de productos</h1>'))
+        ok('un proyecto redirige', seguir('/p/PRY-001'), (200, '<h1>uno</h1>'))
+        ok('un producto redirige', seguir('/producto/cuenta-transaccional'),
+           (200, '<h1>la cuenta</h1>'))
+        ok('el archivo se sirve tal cual', pedir('/proyectos.html')[1].strip(),
+           '<h1>listado de proyectos</h1>')
+
+        # Que el menú del servidor y el de las páginas no se separen nunca.
+        ok('las secciones son las mismas que las de informe.py',
+           sorted(ALIAS[r] for r in ('/pmo', '/proyectos', '/productos')),
+           sorted(a for _, _, a in informe.SECCIONES))
 
         # Lo de arriba lo ve cualquiera. Esto no.
         ok('no se sale de la carpeta con ..', pedir('/p/../../secreto')[0], 404)
         ok('no se sale con una ruta absoluta', pedir('/p//etc/hostname')[0], 404)
         ok('no sirve un archivo que no es del informe', pedir('/p/secreto')[0], 404)
+        ok('ni pidiéndolo por su nombre de archivo', pedir('/../secreto.txt')[0], 404)
+        ok('un producto que no existe es 404', pedir('/producto/inventado')[0], 404)
         ok('una ruta inventada es 404', pedir('/administrar')[0], 404)
-        ok('no acepta POST en otra ruta', pedir('/interna', 'POST', 'x=1')[0], 404)
+        ok('no acepta POST en otra ruta', pedir('/pmo', 'POST', 'x=1')[0], 404)
 
         est_json = json.loads(pedir('/estado.json')[1])
         ok('la frescura dice qué proyectos hay', est_json['proyectos'], ['PRY-001'])
+        ok('la frescura dice qué productos hay', est_json['productos'],
+           ['cuenta-transaccional'])
         ok('la frescura dice de cuándo es el informe',
            est_json['informe_generado'] is not None, True)
 
@@ -472,8 +565,13 @@ def selftest() -> int:
         for r in RUTAS:
             if r == '/peticion':
                 continue
-            prueba = '/p/PRY-001' if r.startswith('/p/') else r
-            if pedir(prueba)[0] == 200:
+            prueba = r
+            if r.startswith('/p/'):
+                prueba = '/p/PRY-001'
+            elif r.startswith('/producto/'):
+                prueba = '/producto/cuenta-transaccional'
+            cod = pedir(prueba)[0]
+            if cod in (200, 302):
                 vivas.append(r)
         ok('todas las rutas declaradas responden', sorted(vivas),
            sorted(set(RUTAS) - {'/peticion'}))
@@ -496,6 +594,8 @@ def main() -> int:
     ap = argparse.ArgumentParser(description='Criterio PMO — el servidor del informe.')
     ap.add_argument('--informe', type=Path, help='carpeta que produjo informe.py')
     ap.add_argument('--estado', type=Path, help='carpeta de estado del agente')
+    ap.add_argument('--config', type=Path, default=None,
+                    help='para saber de quién es esta oficina de proyectos')
     ap.add_argument('--puerto', type=int, default=8787)
     ap.add_argument('--host', default=None,
                     help='por defecto 127.0.0.1; con --abierto, 0.0.0.0')
@@ -514,7 +614,8 @@ def main() -> int:
 
     host = args.host or ('0.0.0.0' if args.abierto else '127.0.0.1')
     try:
-        return arrancar(args.informe, args.estado, host, args.puerto)
+        return arrancar(args.informe, args.estado, host, args.puerto,
+                        informe.nombre_organizacion(args.config))
     except OSError as err:
         print(f'No se pudo levantar en {host}:{args.puerto} — {err}', file=sys.stderr)
         if getattr(err, 'errno', None) in (48, 98, 10048):

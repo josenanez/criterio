@@ -20,7 +20,7 @@
       "state": "found"
     },
     "product": {
-      "value": "Tarjeta débito",
+      "value": "Cuenta transaccional",
       "source": "PRY-005-debito-contactless/00-gobierno/2026-05-04-acta-constitucion.md",
       "source_date": "2026-05-04",
       "state": "found"
@@ -277,8 +277,8 @@
     "documents_seen": [
       {
         "path": "PRY-005-debito-contactless/00-gobierno/2026-05-04-acta-constitucion.md",
-        "hash": "9d597fb03ed1dfbcb00cfadb3db2714036ea434b1acd54b100f381844280a5bc",
-        "text_hash": "db848984eac1335dbd2cbbc2b3e59b6cd8fd9e905e7958cc66e7a35cbe95993e",
+        "hash": "f04cf2c55fe8c1c0b8e926232b2a929e6290fb7b576f02f4740f36a9b9b9a06a",
+        "text_hash": "34fa783e1a2a00e233fa32f2c9716b25b2a1879cba162c6b20992dd3e219e408",
         "date": "2026-05-04"
       },
       {

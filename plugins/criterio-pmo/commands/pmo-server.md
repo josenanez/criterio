@@ -37,18 +37,35 @@ Antes de levantar nada, confirma que hay informe. Si no lo hay, corre primero
 `/portfolio-report html`: el servidor no genera el informe, lo sirve.
 
 ```
-python3 scripts/servidor.py --informe <carpeta> --estado <estado>
+python3 scripts/servidor.py --informe <carpeta> --estado <estado> --config <archivo>
 ```
 
 Escucha en `127.0.0.1:8787`, **solo en ese equipo**. Imprime las tres direcciones y se
 para con Ctrl-C. Si el puerto está ocupado, `--puerto 8788`.
 
-Di cuál de las dos vistas le toca a quién:
+Di qué hay y a quién le sirve cada cosa. **El portal tiene tres secciones**, y esa
+estructura es lo que hace que un equipo lo use en vez de pedirte el informe:
 
-- `/` — la portada, con las dos puertas y el formulario de peticiones
-- `/decisiones` — **al patrocinador y al comité.** Lo que necesita una decisión
-- `/interna` — **a quien va a actuar.** El portafolio campo por campo, con las citas
-- `/estado.json` — de cuándo es el informe y cuántas peticiones hay abiertas
+| Ruta | Qué es | Para quién |
+|---|---|---|
+| `/` | La portada, con las tres secciones y el formulario de peticiones | Todos |
+| `/pmo` | **Cómo va el portafolio.** Lo que solo se ve mirando todo junto: los verdes que la evidencia no sostiene, lo que lleva semanas en silencio, quién patrocina más de una cosa | La PMO |
+| `/decisiones` | **Lo que necesita una decisión**, como pregunta cerrada y con la consecuencia de no decidirla | El comité y el patrocinador |
+| `/proyectos` | El listado, ordenado por lo que más pide atención | Todos |
+| `/p/<código>` | El informe de un proyecto. **Enlaza al producto que le dio origen** | Quien gerencia, y quien pregunta |
+| `/productos` | El listado de productos, y los proyectos que no dicen cuál construyen | Quien responde por un producto |
+| `/producto/<nombre>` | El informe de un producto. **Enlaza a los proyectos que lo construyen** | Quien responde por un producto |
+| `/estado.json` | De cuándo es el informe y cuántas peticiones hay abiertas | Un mecanismo, no una persona |
+
+**El enlace entre proyecto y producto va en los dos sentidos, y ahí está el valor de
+tener las tres secciones.** Quien entra por el proyecto quiere saber para qué es lo que
+está haciendo. Quien entra por el producto quiere saber quién lo está haciendo, y
+descubre —si es el caso— que lo construyen proyectos que reportan a comités distintos,
+de modo que ningún comité lo está viendo completo. Ese hallazgo no existe en ninguna
+otra página.
+
+Si la configuración tiene `organization.name`, el portal lleva el nombre de la
+organización en todas las páginas. Pásale `--config` para que lo lea.
 
 ## Que quede corriendo
 
@@ -56,7 +73,7 @@ Aquí no basta con dar la línea. **Di también qué hay que pedir**, porque si 
 llega a seguridad sin eso, vuelve sin nada.
 
 ```
-python3 scripts/servidor.py --informe <carpeta> --estado <estado> --abierto
+python3 scripts/servidor.py --informe <carpeta> --estado <estado> --config <archivo> --abierto
 ```
 
 `--abierto` hace que escuche fuera del equipo. El programa lo advierte al arrancar, y

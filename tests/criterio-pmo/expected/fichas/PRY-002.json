@@ -37,6 +37,12 @@
       "source_date": "2026-02-02",
       "state": "found"
     },
+    "product": {
+      "value": "Cuenta transaccional",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
+      "source_date": "2026-02-02",
+      "state": "found"
+    },
     "authority": {
       "value": "hasta 50.000.000 y sin cambios de alcance",
       "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
@@ -207,8 +213,8 @@
     "documents_seen": [
       {
         "path": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
-        "hash": "dd5f8613427c2d29b5de4f4563ee1e7207e710717fa1549f046d3e3aa575a0b1",
-        "text_hash": "98dd7a38ad8ab1ebb71b7424d1cc090a8620fae10445766e3de5e13c7d28054a",
+        "hash": "3bdb44bcdea49c17713c63e005748ee243cab5ba4d1be0ea8d5e5bb37ec19562",
+        "text_hash": "b793fa1b9a2c0260d16f6f18bf300effd3d8143cff5a5fab1b8a20a66cc71b6c",
         "date": "2026-02-02"
       },
       {

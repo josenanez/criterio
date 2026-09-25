@@ -105,10 +105,25 @@ capacidad adicional de esta familia.
 /pmo-server
 ```
 
-Levanta una página con **dos puertas**, y la gracia está en que no son la misma vista
-recortada: al comité le toca *lo que necesita una decisión*; a quien va a actuar le
-toca *el portafolio campo por campo, con la cita de cada dato*. La portada dice además
-de cuándo es el informe, que es lo que nadie sabe cuando le reenvían un PDF.
+Levanta **un portal con tres secciones**, que es lo que hace que un equipo lo use en
+vez de pedirte el informe:
+
+| | |
+|---|---|
+| **Informes PMO** | Cómo va el portafolio: los verdes que la evidencia no sostiene, lo que lleva semanas en silencio, quién patrocina más de una cosa. Y aparte, **lo que necesita una decisión del comité** — no es la misma vista recortada, es otro objeto |
+| **Proyectos** | El listado, y el informe de cada uno. Cada proyecto **enlaza al producto que le dio origen** |
+| **Productos** | El listado, y el informe de cada uno. Cada producto **enlaza a los proyectos que lo construyen** |
+
+**El enlace va en los dos sentidos, y ahí está lo que ninguna otra página puede
+decir.** Quien entra por el proyecto quiere saber para qué es lo que está haciendo.
+Quien entra por el producto quiere saber quién lo está haciendo — y descubre, cuando
+pasa, que su producto lo construyen proyectos que reportan a **comités distintos**, de
+modo que ninguno lo está viendo completo. Un proyecto sano tampoco lo salva: el
+producto no llega hasta que llegan todos.
+
+La portada dice además de cuándo es el informe, que es lo que nadie sabe cuando le
+reenvían un PDF. Y si tu configuración dice de quién es esta oficina de proyectos, el
+portal lleva ese nombre en todas las páginas.
 
 Y tiene una cosa más, que es la que cambia cómo se usa: **quien mira puede dejarle una
 pregunta escrita al agente.** No le contesta en el momento —el agente no está

@@ -30,7 +30,9 @@ import argparse
 import datetime as dt
 import html
 import json
+import re
 import sys
+import unicodedata
 from pathlib import Path
 
 # ---------------------------------------------------------------- la paleta
@@ -115,10 +117,26 @@ tr:last-child td{{border-bottom:none}}
   color:{APAGADO};font-size:.86rem}}
 .nav{{margin:0 0 30px;font-size:.92rem}}
 .nav a{{margin-right:18px}}
+.barra{{border-bottom:1px solid {FILETE};margin:-20px 0 34px;padding-bottom:14px;
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 26px}}
+.barra .casa{{font-size:.95rem;font-weight:600;color:{TINTA};border:none;
+  margin-right:8px}}
+.barra .casa span{{display:block;font-size:.7rem;letter-spacing:.14em;
+  text-transform:uppercase;color:{ORO};font-weight:600}}
+.barra nav{{display:flex;flex-wrap:wrap;gap:4px 22px;margin-left:auto}}
+.barra nav a{{border:none;color:{APAGADO};font-size:.95rem;padding:2px 0;
+  border-bottom:2px solid transparent}}
+.barra nav a:hover{{color:{TINTA}}}
+.barra nav a.aqui{{color:{TINTA};font-weight:600;border-bottom-color:{ORO}}}
+.migas{{font-size:.9rem;color:{APAGADO};margin:0 0 6px}}
+.migas a{{border:none}}
+.par{{display:flex;flex-wrap:wrap;gap:16px;margin:26px 0 0}}
+.par > *{{flex:1 1 300px}}
 @media print{{
   body{{background:#fff}}
   .hoja{{max-width:none;padding:0}}
-  .nav{{display:none}}
+  .nav,.barra nav{{display:none}}
+  .barra{{margin-top:0}}
   h2{{page-break-after:avoid}}
   .decision,.bloque,tr{{page-break-inside:avoid}}
   a{{border:none;color:{TINTA}}}
@@ -295,6 +313,14 @@ def con_cita(rec: dict, ruta: str, formato=str):
     return f'{e(formato(valor))}<span class="cita">{pie}{marca}</span>'
 
 
+# El orden de gravedad, para poder decir cuál es el peor de un grupo de proyectos.
+# Un producto está como está su peor proyecto, no como el promedio: no llega hasta
+# que llegan todos.
+STATUS_ORDEN = {'verde': 0, 'green': 0, 'amarillo': 1, 'yellow': 1, 'amber': 1,
+                'en riesgo': 1, 'at risk': 1, 'rojo': 2, 'red': 2}
+ESTADO_NOMBRE = {0: 'verde', 1: 'amarillo', 2: 'rojo'}
+
+
 def semaforo(valor):
     clase = {'verde': 'verde', 'green': 'verde', 'amarillo': 'amarillo', 'yellow': 'amarillo',
              'rojo': 'rojo', 'red': 'rojo'}.get(str(valor).lower(), 'nada')
@@ -315,6 +341,30 @@ def senales(alertas, proyecto=None):
     return ''.join(salida) or '<span class="vacio">ninguna</span>'
 
 
+# Las tres secciones del portal, en el orden en que se miran: primero cómo va el
+# portafolio, después el proyecto, después el producto. El archivo de cada una es el
+# dato: la barra y las rutas del servidor salen de aquí y no pueden separarse.
+SECCIONES = (
+    ('pmo', 'Informes PMO', 'index.html'),
+    ('proyectos', 'Proyectos', 'proyectos.html'),
+    ('productos', 'Productos', 'productos.html'),
+)
+
+
+def barra(seccion, org):
+    """La misma barra en todas las páginas. Sin esto son informes sueltos; con esto
+    es un sitio por el que alguien se mueve sin volver a preguntar el enlace."""
+    casa = (f'<a class="casa" href="index.html"><span>Oficina de proyectos</span>'
+            f'{e(org)}</a>' if org else
+            '<a class="casa" href="index.html"><span>Oficina de proyectos</span>'
+            'Portafolio</a>')
+    enlaces = ''.join(
+        '<a href="{}" class="{}">{}</a>'.format(
+            arch, 'aqui' if clave == seccion else '', e(nombre))
+        for clave, nombre, arch in SECCIONES)
+    return f'<div class="barra">{casa}<nav>{enlaces}</nav></div>'
+
+
 def pagina(titulo, cuerpo, hoy, nav=''):
     return f"""<!doctype html>
 <html lang="es"><head><meta charset="utf-8">
@@ -333,20 +383,30 @@ hallazgo válido. El agente sabe lo que se escribió, no lo que se habló fuera 
 
 # ---------------------------------------------------------------- las vistas
 
-def vista_interna(datos, fichas, hoy):
-    t = datos['totals']
-    filas = []
-    for p in sorted(datos['projects'], key=lambda x: (-len(x['alerts']), x['code'])):
-        rec = fichas.get(p['code'], {})
-        silencio = p.get('days_silent')
-        filas.append(f"""<tr>
-<td><a href="{e(p['code'])}.html"><strong>{e(p['code'])}</strong></a><br>{e(p.get('name'))}</td>
-<td>{semaforo(p.get('declared', {}).get('status'))}
-  <span class="cita">{e(p.get('declared', {}).get('source') or 'sin fuente')}</span></td>
-<td>{senales(p['alerts'])}</td>
-<td>{'—' if silencio is None else plural(silencio, 'día', 'días')}</td>
-</tr>""")
+def slug(texto):
+    """El nombre de archivo de un producto. Un producto se llama «Cuenta
+    transaccional», no `producto-3`: el archivo se lee en la barra del navegador y
+    alguien lo va a mandar por chat."""
+    limpio = unicodedata.normalize('NFKD', str(texto))
+    limpio = ''.join(c for c in limpio if not unicodedata.combining(c))
+    limpio = re.sub(r'[^a-zA-Z0-9]+', '-', limpio).strip('-').lower()
+    return limpio or 'sin-nombre'
 
+
+def archivo_producto(nombre):
+    return f'producto-{slug(nombre)}.html'
+
+
+def vista_pmo(datos, fichas, hoy, org):
+    """El informe de la PMO: cómo va el portafolio, no cuál proyecto abrir.
+
+    Lo que aquí aparece es lo que **no existe proyecto por proyecto**: los verdes
+    que la evidencia no sostiene, lo que se contradice entre documentos, y quién
+    está patrocinando más de una cosa a la vez. El listado de proyectos vive en su
+    propia página, porque leer un informe y navegar un portafolio son dos cosas
+    distintas y la misma tabla no sirve para las dos.
+    """
+    t = datos['totals']
     cifras = [
         (t['projects'], 'proyectos', False),
         (t['green_contradicted'], 'verdes que la evidencia no sostiene', t['green_contradicted'] > 0),
@@ -358,26 +418,139 @@ def vista_interna(datos, fichas, hoy):
         f'<div class="cifra{" mala" if mala else ""}"><span class="n">{n}</span>'
         f'<span class="q">{q}</span></div>' for n, q, mala in cifras)
 
-    productos = ''
-    if datos.get('products'):
-        p_filas = ''.join(
-            f"<tr><td><strong>{e(g['product'])}</strong></td>"
-            f"<td>{', '.join(e(c) for c in g['projects'])}</td>"
-            f"<td>{g['alerts']}</td></tr>" for g in datos['products'])
-        productos = f"""<h2>Por producto</h2>
-<p>Un proyecto termina; un producto sobrevive a todos los proyectos que lo construyeron.</p>
-<table><tr><th>Producto</th><th>Proyectos</th><th>Señales</th></tr>{p_filas}</table>"""
+    # Lo que solo se ve mirando el portafolio entero.
+    silenciosos = sorted((p for p in datos['projects'] if p.get('days_silent') is not None),
+                         key=lambda x: -x['days_silent'])[:5]
+    filas_sil = ''.join(
+        f"<tr><td><a href=\"{e(p['code'])}.html\">{e(p['code'])}</a> {e(p.get('name'))}</td>"
+        f"<td>{plural(p['days_silent'], 'día', 'días')}</td></tr>"
+        for p in silenciosos if p['days_silent'] > 0)
+    silencio = (f'<table><tr><th>Proyecto</th><th>Sin un documento nuevo desde hace</th></tr>'
+                f'{filas_sil}</table>' if filas_sil
+                else '<p class="vacio">Ninguno lleva días sin un documento nuevo.</p>')
 
-    cuerpo = f"""<span class="ante">Portafolio · vista interna</span>
-<h1>Qué dicen los documentos</h1>
-<p class="pie-cab">Al {e(datos['as_of'])} · cada dato con la cita del documento del que salió</p>
+    choques = {}
+    for p in datos['projects']:
+        rec = fichas.get(p['code'], {})
+        quien, _, _, _ = campo(rec, 'identity.sponsor')
+        if quien:
+            choques.setdefault(quien, []).append(p['code'])
+    repetidos = {k: v for k, v in choques.items() if len(v) > 1}
+    if repetidos:
+        filas_rep = ''.join(
+            f"<tr><td>{e(k)}</td><td>{', '.join(e(c) for c in sorted(v))}</td></tr>"
+            for k, v in sorted(repetidos.items()))
+        patrocinio = f"""<table><tr><th>Patrocinador</th><th>Proyectos</th></tr>{filas_rep}</table>
+<p class="pie-cab">No es un hallazgo por sí solo. Lo es cuando dos de ellos compiten por la
+misma fecha o el mismo equipo, y eso no está en la carpeta: lo sabe la persona.</p>"""
+    else:
+        patrocinio = '<p class="vacio">Nadie patrocina más de un proyecto.</p>'
+
+    sin_producto = [p for p in datos['projects'] if not p.get('product')]
+    resumen_prod = (
+        f"<p>{plural(len(datos.get('products') or []), 'producto declarado', 'productos declarados')}"
+        f" en el portafolio. "
+        + (f"<strong>{plural(len(sin_producto), 'proyecto no dice', 'proyectos no dicen')} "
+           f"qué producto construye</strong>, así que su avance no se ve desde el lado del "
+           f"producto: {', '.join(e(p['code']) for p in sin_producto)}."
+           if sin_producto else 'Todos los proyectos dicen qué producto construyen.')
+        + ' <a href="productos.html">Ver los productos</a></p>')
+
+    cuerpo = f"""<span class="ante">Informe PMO</span>
+<h1>Cómo va el portafolio</h1>
+<p class="pie-cab">Al {e(datos['as_of'])} · cada dato con la cita del documento del que salió ·
+<a href="decisiones.html">lo que necesita una decisión del comité</a></p>
 <div class="cifras">{tarjetas}</div>
-<h2>Los proyectos</h2>
-<table><tr><th>Proyecto</th><th>Declara</th><th>Lo que la evidencia dice</th><th>Silencio</th></tr>
-{''.join(filas)}</table>
-{productos}"""
-    return pagina('Portafolio · vista interna', cuerpo, hoy,
-                  '<div class="nav"><a href="decisiones.html">Ver la vista de decisiones →</a></div>')
+
+<h2>Lo que solo se ve mirando todo junto</h2>
+<h3>Proyectos en silencio</h3>
+<p class="pie-cab">Nadie escribió nada nuevo. No significa que no esté pasando nada;
+significa que no hay contra qué contrastar lo que se reporta.</p>
+{silencio}
+
+<h3>Quién patrocina más de un proyecto</h3>
+{patrocinio}
+
+<h2>Por producto</h2>
+<p>Un proyecto termina; un producto sobrevive a todos los proyectos que lo construyeron.</p>
+{resumen_prod}"""
+    return pagina('Informe PMO · el portafolio', cuerpo, hoy, barra('pmo', org))
+
+
+def vista_proyectos(datos, fichas, hoy, org):
+    """El listado. Una sola tabla, ordenada por lo que más pide atención."""
+    filas = []
+    for p in sorted(datos['projects'], key=lambda x: (-len(x['alerts']), x['code'])):
+        silencio = p.get('days_silent')
+        prod = p.get('product')
+        prod_html = (f'<a href="{archivo_producto(prod)}">{e(prod)}</a>' if prod
+                     else '<span class="vacio">no lo dice</span>')
+        filas.append(f"""<tr>
+<td><a href="{e(p['code'])}.html"><strong>{e(p['code'])}</strong></a><br>{e(p.get('name'))}</td>
+<td>{prod_html}</td>
+<td>{semaforo(p.get('declared', {}).get('status'))}
+  <span class="cita">{e(p.get('declared', {}).get('source') or 'sin fuente')}</span></td>
+<td>{senales(p['alerts'])}</td>
+<td>{'—' if silencio is None else plural(silencio, 'día', 'días')}</td>
+</tr>""")
+
+    cuerpo = f"""<span class="ante">Proyectos</span>
+<h1>{plural(len(datos['projects']), 'proyecto', 'proyectos')} en el portafolio</h1>
+<p class="pie-cab">Al {e(datos['as_of'])} · ordenados por lo que más pide atención, no por
+código · entra en cualquiera para ver de dónde sale cada dato</p>
+<table><tr><th>Proyecto</th><th>Producto</th><th>Declara</th>
+<th>Lo que la evidencia dice</th><th>Silencio</th></tr>
+{''.join(filas)}</table>"""
+    return pagina('Proyectos', cuerpo, hoy, barra('proyectos', org))
+
+
+def vista_productos(datos, fichas, hoy, org):
+    """El listado de productos, y los proyectos que no dicen a cuál pertenecen."""
+    filas = []
+    for g in datos.get('products') or []:
+        suyos = [p for p in datos['projects'] if p['code'] in g['projects']]
+        comites = sorted({(campo(fichas.get(p['code'], {}), 'identity.committee')[0] or '')
+                          for p in suyos} - {''})
+        peor = max((STATUS_ORDEN.get(str((p.get('declared') or {}).get('status')).lower(), -1)
+                    for p in suyos), default=-1)
+        # El semáforo declarado, solo, mentiría: un producto con 10 señales cuyo
+        # único proyecto se declara verde saldría en verde, que es exactamente lo
+        # que este portal existe para no hacer.
+        contradichos = [p['code'] for p in suyos
+                        if any(a['signal'] == 'declared_vs_evidence' for a in p['alerts'])]
+        marca = (f'<span class="cita"><strong>la evidencia no lo sostiene</strong> en '
+                 f'{", ".join(e(c) for c in contradichos)}</span>' if contradichos else '')
+        filas.append(f"""<tr>
+<td><a href="{archivo_producto(g['product'])}"><strong>{e(g['product'])}</strong></a></td>
+<td>{', '.join(f'<a href="{e(c)}.html">{e(c)}</a>' for c in g['projects'])}</td>
+<td>{e(' · '.join(comites)) or '<span class="vacio">no está dicho</span>'}
+  {'<span class="cita"><strong>más de un comité mira este producto</strong></span>' if len(comites) > 1 else ''}</td>
+<td>{semaforo(ESTADO_NOMBRE.get(peor))}{marca}</td>
+<td>{g['alerts']}</td>
+</tr>""")
+
+    sin = [p for p in datos['projects'] if not p.get('product')]
+    huerfanos = ''
+    if sin:
+        filas_h = ''.join(
+            f"<tr><td><a href=\"{e(p['code'])}.html\">{e(p['code'])}</a></td>"
+            f"<td>{e(p.get('name'))}</td></tr>" for p in sin)
+        huerfanos = f"""<h2>Proyectos que no dicen qué producto construyen</h2>
+<p>No es un error de ellos: <strong>hay proyectos que no construyen un producto</strong> —una
+migración de infraestructura, una obligación regulatoria—. Pero mientras no esté dicho, su
+avance no se ve desde el lado del producto, y nadie puede responder «¿cómo va la cuenta
+transaccional?» sin abrirlos uno por uno.</p>
+<table><tr><th>Proyecto</th><th>Nombre</th></tr>{filas_h}</table>"""
+
+    cuerpo = f"""<span class="ante">Productos</span>
+<h1>{plural(len(datos.get('products') or []), 'producto', 'productos')} en construcción</h1>
+<p class="pie-cab">Al {e(datos['as_of'])} · salen de lo que cada proyecto declara en su acta ·
+entra en cualquiera para ver qué lo construye</p>
+<table><tr><th>Producto</th><th>Lo construyen</th><th>Comité</th>
+<th>Lo peor que declaran</th><th>Señales</th></tr>
+{''.join(filas) or '<tr><td colspan="5" class="vacio">Ningún proyecto declara un producto.</td></tr>'}</table>
+{huerfanos}"""
+    return pagina('Productos', cuerpo, hoy, barra('productos', org))
 
 
 def con_cifra(p, senal):
@@ -403,7 +576,7 @@ def con_cifra(p, senal):
     return nombre
 
 
-def vista_decisiones(datos, fichas, hoy):
+def vista_decisiones(datos, fichas, hoy, org=None):
     """Por decisión, no por campo. Otro objeto, no la interna recortada."""
     decisiones = []
     con_punto = set()
@@ -469,18 +642,138 @@ comité.</p></div>"""
     alcance = (f"{plural(len(decisiones), 'punto', 'puntos')}, "
                f"en {len(con_punto)} de {plural(total, 'proyecto', 'proyectos')}"
                if decisiones else f"ningún punto, sobre {plural(total, 'proyecto', 'proyectos')}")
-    cuerpo = f"""<span class="ante">Comité · vista de decisiones</span>
+    cuerpo = f"""<p class="migas"><a href="index.html">Informes PMO</a> · Decisiones</p>
+<span class="ante">Comité · vista de decisiones</span>
 <h1>Lo que necesita una decisión</h1>
-<p class="pie-cab">Al {e(datos['as_of'])} · {alcance} · la cadena de evidencia
-completa está en la <a href="index.html">vista interna</a></p>
+<p class="pie-cab">Al {e(datos['as_of'])} · {alcance} · la cadena de evidencia completa está
+en <a href="index.html">el informe del portafolio</a> y en la página de cada proyecto</p>
 {bloques}"""
-    return pagina('Comité · decisiones', cuerpo, hoy,
-                  '<div class="nav"><a href="index.html">← Ver la vista interna</a></div>')
+    return pagina('Comité · decisiones', cuerpo, hoy, barra('pmo', org))
 
 
-def vista_proyecto(p, rec, hoy):
+def vista_producto(g, datos, fichas, hoy, org):
+    """El informe de un producto.
+
+    Un producto no tiene ficha propia y **no se le va a inventar una**. Todo lo que
+    aquí se dice sale de los proyectos que declararon construirlo, y se dice con esa
+    salvedad. Lo que un producto real tiene y esta carpeta no —adopción, ingreso,
+    incidencias en producción— no aparece, porque no está.
+
+    Lo que sí aporta, y no existe en ninguna otra página: que dos comités estén
+    mirando el mismo producto sin saberlo, y que el proyecto sano no lo salve si el
+    otro no llega.
+    """
+    suyos = [p for p in datos['projects'] if p['code'] in g['projects']]
+    suyos.sort(key=lambda x: (-len(x['alerts']), x['code']))
+
+    comites, patrocinadores = {}, {}
+    for p in suyos:
+        rec = fichas.get(p['code'], {})
+        for ruta, bolsa in (('identity.committee', comites), ('identity.sponsor', patrocinadores)):
+            v = campo(rec, ruta)[0]
+            if v:
+                bolsa.setdefault(v, []).append(p['code'])
+
+    # Cuándo aterriza: la más lejana de sus fechas de cierre, con quién la pone.
+    fechas = [(p.get('end_date'), p['code']) for p in suyos if p.get('end_date')]
+    fechas.sort()
+    sin_fecha = [p['code'] for p in suyos if not p.get('end_date')]
+    if fechas:
+        aterriza = e(fechas[-1][0])
+        pie_fecha = (f"Cuando cierre el último de sus proyectos. La fecha más lejana la "
+                     f"pone {e(fechas[-1][1])}")
+        if sin_fecha:
+            pie_fecha += f", y {', '.join(e(c) for c in sin_fecha)} no declara ninguna"
+    else:
+        aterriza = 'no se sabe'
+        pie_fecha = 'Ninguno de sus proyectos declara fecha de cierre'
+
+    # El dinero solo se suma si todos lo declaran. Media suma es un número falso.
+    aprobados = [(p['money'] or {}).get('approved') for p in suyos]
+    if aprobados and all(x is not None for x in aprobados):
+        dinero = plata(sum(aprobados))
+        pie_dinero = ('Suma de lo aprobado a cada proyecto. No es un presupuesto de '
+                      'producto: nadie aprobó esa cifra junta')
+    else:
+        faltan = [p['code'] for p, a in zip(suyos, aprobados) if a is None]
+        dinero = 'no se puede sumar'
+        pie_dinero = (f'{", ".join(e(c) for c in faltan)} no declara presupuesto, y media '
+                      f'suma es un número falso')
+
+    filas = ''.join(f"""<tr>
+<td><a href="{e(p['code'])}.html"><strong>{e(p['code'])}</strong></a><br>{e(p.get('name'))}</td>
+<td>{semaforo((p.get('declared') or {}).get('status'))}</td>
+<td>{con_cita(fichas.get(p['code'], {}), 'identity.committee')}</td>
+<td>{senales(p['alerts'], p)}</td>
+</tr>""" for p in suyos)
+
+    # El hallazgo propio de esta página.
+    hallazgos = []
+    if len(comites) > 1:
+        detalle = '; '.join(f'{e(k)} mira {", ".join(e(c) for c in v)}'
+                            for k, v in sorted(comites.items()))
+        hallazgos.append(
+            f'<h3>Ningún comité ve este producto completo</h3>'
+            f'<p>Lo construyen {plural(len(suyos), "proyecto", "proyectos")} que reportan a '
+            f'<strong>{plural(len(comites), "comité distinto", "comités distintos")}</strong>: '
+            f'{detalle}. Cada uno ve su proyecto y ninguno ve el producto, que es exactamente '
+            f'lo que esta página existe para mostrar.</p>')
+    if len(patrocinadores) > 1:
+        hallazgos.append(
+            f'<h3>Más de un patrocinador</h3><p>'
+            + '; '.join(f'<strong>{e(k)}</strong> responde por {", ".join(e(c) for c in v)}'
+                        for k, v in sorted(patrocinadores.items()))
+            + '. Si las dos partes no llegan, la pregunta de a quién se le escala el producto '
+              'no tiene una respuesta sola.</p>')
+
+    limpios = [p for p in suyos if not p['alerts']]
+    con_ruido = [p for p in suyos if p['alerts']]
+    if limpios and con_ruido:
+        hallazgos.append(
+            f'<h3>El proyecto sano no salva al producto</h3>'
+            f'<p>{", ".join(e(p["code"]) for p in limpios)} está limpio y '
+            f'{", ".join(e(p["code"]) for p in con_ruido)} no. '
+            f'<strong>El producto no llega hasta que llegan los dos</strong>, así que el estado '
+            f'del producto es el del peor, no el promedio de los dos.</p>')
+    if not hallazgos:
+        hallazgos.append(
+            '<h3>Nada que reportar de este producto</h3>'
+            '<p>Un solo proyecto lo construye, un solo comité lo mira, y la evidencia no '
+            'contradice lo que declara. Que no haya hallazgo es un resultado, no un vacío.</p>')
+
+    cuerpo = f"""<p class="migas"><a href="productos.html">Productos</a> · {e(g['product'])}</p>
+<span class="ante">Informe de producto</span>
+<h1>{e(g['product'])}</h1>
+<p class="pie-cab">Al {e(datos['as_of'])} · construido a partir de lo que declaran
+{plural(len(suyos), 'proyecto', 'proyectos')}</p>
+
+<div class="par">
+<div class="cifra"><span class="n">{aterriza}</span><span class="q">{pie_fecha}</span></div>
+<div class="cifra"><span class="n">{dinero}</span><span class="q">{pie_dinero}</span></div>
+</div>
+
+<h2>Lo que lo construye</h2>
+<table><tr><th>Proyecto</th><th>Declara</th><th>Reporta a</th>
+<th>Lo que la evidencia dice</th></tr>{filas}</table>
+
+<h2>Lo que se ve desde el producto y no desde el proyecto</h2>
+{''.join(hallazgos)}
+
+<div class="bloque info">
+<h3>Lo que esta página no puede decir</h3>
+<p>De este producto no hay <strong>adopción, ingreso, incidencias en producción ni
+satisfacción</strong>, porque nada de eso está en la carpeta de proyectos: son datos de
+operación y viven en otro sistema. Lo que hay aquí es <strong>cómo va lo que se está
+construyendo</strong>, que es una pregunta distinta y la única que estos documentos
+permiten responder.</p>
+</div>"""
+    return pagina(f"Producto · {g['product']}", cuerpo, hoy, barra('productos', org))
+
+
+def vista_proyecto(p, rec, hoy, org=None):
     d = p.get('declared', {})
     money = p.get('money', {})
+    prod = p.get('product')
 
     hitos = ''.join(
         f"<tr><td>{e(m.get('name'))}</td><td>{e(m.get('due'))}</td>"
@@ -501,7 +794,18 @@ def vista_proyecto(p, rec, hoy):
     vacios = (f'<ul>{vacios}</ul>' if vacios
               else '<p class="vacio">Nada de lo que la ficha espera quedó sin decir.</p>')
 
-    cuerpo = f"""<span class="ante">{e(p['code'])}</span>
+    # El enlace al producto que le dio origen. Es de ida y vuelta a propósito: quien
+    # entra por el proyecto quiere saber para qué es, y quien entra por el producto
+    # quiere saber quién lo está haciendo.
+    if prod:
+        origen = (f'<p class="migas"><a href="proyectos.html">Proyectos</a> · {e(p["code"])} · '
+                  f'construye <a href="{archivo_producto(prod)}">{e(prod)}</a></p>')
+    else:
+        origen = (f'<p class="migas"><a href="proyectos.html">Proyectos</a> · {e(p["code"])} · '
+                  f'<span class="vacio">no dice qué producto construye</span></p>')
+
+    cuerpo = f"""{origen}
+<span class="ante">{e(p['code'])}</span>
 <h1>{e(p.get('name') or p['code'])}</h1>
 <p class="pie-cab">Al {e(hoy)}</p>
 
@@ -555,11 +859,22 @@ def vista_proyecto(p, rec, hoy):
 <h2>Compromisos vencidos</h2>{comp}
 <h2>Lo que no está dicho en ninguna parte</h2>{vacios}"""
     return pagina(f"{p['code']} · {p.get('name') or ''}", cuerpo, hoy,
-                  '<div class="nav"><a href="index.html">← Portafolio</a> '
-                  '<a href="decisiones.html">Decisiones</a></div>')
+                  barra('proyectos', org))
 
 
 # ---------------------------------------------------------------- correr
+
+def nombre_organizacion(config: Path | None) -> str:
+    """De quién es esta oficina de proyectos. Sale de la configuración y no se
+    inventa: un portal que dice «Portafolio» a secas no es de nadie."""
+    if not config or not config.exists():
+        return ''
+    try:
+        cfg = json.loads(config.read_text(encoding='utf-8'))
+    except (json.JSONDecodeError, OSError):
+        return ''
+    return str((cfg.get('organization') or {}).get('name') or '').strip()
+
 
 def generar(state: Path, salida: Path, config: Path | None, hoy: dt.date) -> dict:
     sys.path.insert(0, str(Path(__file__).parent))
@@ -567,6 +882,7 @@ def generar(state: Path, salida: Path, config: Path | None, hoy: dt.date) -> dic
 
     th = pmo.load_thresholds(config)
     datos = pmo.compute(state, hoy, th)
+    org = nombre_organizacion(config)
     fichas = {}
     for f in sorted((state / 'records').glob('*.json')):
         rec = json.loads(f.read_text(encoding='utf-8'))
@@ -574,15 +890,24 @@ def generar(state: Path, salida: Path, config: Path | None, hoy: dt.date) -> dic
 
     salida.mkdir(parents=True, exist_ok=True)
     hoy_s = hoy.isoformat()
-    (salida / 'index.html').write_text(vista_interna(datos, fichas, hoy_s), encoding='utf-8')
-    (salida / 'decisiones.html').write_text(vista_decisiones(datos, fichas, hoy_s),
-                                            encoding='utf-8')
-    for p in datos['projects']:
-        (salida / f"{p['code']}.html").write_text(
-            vista_proyecto(p, fichas.get(p['code'], {}), hoy_s), encoding='utf-8')
+    escribir = lambda n, h: (salida / n).write_text(h, encoding='utf-8')
 
-    return {'paginas': 2 + len(datos['projects']), 'salida': str(salida),
-            'proyectos': len(datos['projects']),
+    escribir('index.html', vista_pmo(datos, fichas, hoy_s, org))
+    escribir('decisiones.html', vista_decisiones(datos, fichas, hoy_s, org))
+    escribir('proyectos.html', vista_proyectos(datos, fichas, hoy_s, org))
+    escribir('productos.html', vista_productos(datos, fichas, hoy_s, org))
+    for p in datos['projects']:
+        escribir(f"{p['code']}.html",
+                 vista_proyecto(p, fichas.get(p['code'], {}), hoy_s, org))
+    productos = datos.get('products') or []
+    for g in productos:
+        escribir(archivo_producto(g['product']), vista_producto(g, datos, fichas, hoy_s, org))
+
+    return {'paginas': 4 + len(datos['projects']) + len(productos), 'salida': str(salida),
+            'organizacion': org or None,
+            'proyectos': len(datos['projects']), 'productos': len(productos),
+            'proyectos_sin_producto': [p['code'] for p in datos['projects']
+                                       if not p.get('product')],
             'verdes_contradichos': datos['totals']['green_contradicted']}
 
 

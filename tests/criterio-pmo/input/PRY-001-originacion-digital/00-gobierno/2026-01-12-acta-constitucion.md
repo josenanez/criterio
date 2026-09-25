@@ -5,6 +5,7 @@
 **Patrocinador:** María Restrepo, VP de Operaciones
 **Gerente de proyecto:** Andrés Lozano
 **Comité:** Comité de Transformación Digital
+**Producto:** Crédito de consumo
 **Fecha de aprobación:** 12 de enero de 2026
 
 ## Objetivo del negocio

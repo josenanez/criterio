@@ -1,6 +1,9 @@
 {
   "version": "0.1",
   "role": "pmo",
+  "organization": {
+    "name": "Banco Ejemplo"
+  },
   "paths": {
     "documents": "~/PMO/proyectos",
     "state": "~/PMO/estado",

@@ -60,6 +60,7 @@ escribir(INPUT / "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-consti
 **Patrocinador:** María Restrepo, VP de Operaciones
 **Gerente de proyecto:** Andrés Lozano
 **Comité:** Comité de Transformación Digital
+**Producto:** Crédito de consumo
 **Fecha de aprobación:** 12 de enero de 2026
 
 ## Objetivo del negocio
@@ -212,6 +213,7 @@ escribir(INPUT / "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucio
 **Patrocinador:** Ricardo Salazar, CIO
 **Gerente de proyecto:** Luisa Cárdenas
 **Comité:** Comité de Tecnología
+**Producto:** Cuenta transaccional
 **Autoridad del gerente:** hasta 50.000.000 y sin cambios de alcance.
 
 ## Objetivo del negocio
@@ -420,6 +422,7 @@ escribir(INPUT / "PRY-005-debito-contactless/00-gobierno/2026-05-04-acta-constit
 **Patrocinador:** Sandra Gil, VP de Operaciones
 **Gerente de proyecto:** Paula Betancur
 **Comité:** Comité de Medios de Pago
+**Producto:** Cuenta transaccional
 **Autoridad del gerente:** hasta 40.000.000 y ajustes de cronograma menores a 15 días.
 
 ## Objetivo del negocio
@@ -701,6 +704,7 @@ FICHAS["PRY-002"] = {
         "sponsor": campo("Ricardo Salazar, CIO", "00-gobierno/2026-02-02-acta-constitucion.md", "2026-02-02"),
         "manager": campo("Luisa Cárdenas", "00-gobierno/2026-02-02-acta-constitucion.md", "2026-02-02"),
         "committee": campo("Comité de Tecnología", "00-gobierno/2026-02-02-acta-constitucion.md", "2026-02-02"),
+        "product": campo("Cuenta transaccional", "00-gobierno/2026-02-02-acta-constitucion.md", "2026-02-02"),
         "authority": campo("hasta 50.000.000 y sin cambios de alcance",
                            "00-gobierno/2026-02-02-acta-constitucion.md", "2026-02-02"),
     },
@@ -864,7 +868,7 @@ FICHAS["PRY-005"] = {
         "code": campo("PRY-005", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
         "name": campo("Débito contactless", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
         "business_area": campo("Medios de Pago", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
-        "product": campo("Tarjeta débito", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
+        "product": campo("Cuenta transaccional", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
         "sponsor": campo("Sandra Gil, VP de Operaciones",
                          "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
         "manager": campo("Paula Betancur", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),

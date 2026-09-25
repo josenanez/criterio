@@ -96,7 +96,8 @@ Motor de decisión certificado»*. Que ninguna ruta sobreviva sin traducir lo co
 `tests/coherencia.py`.
 
 **`scripts/servidor.py`** es cómo el informe llega a quien no abre una carpeta. Sirve
-las páginas que `informe.py` ya escribió, y **no calcula nada**: abrir la página no
+las páginas que `informe.py` ya escribió con **tres secciones** —informes de la PMO,
+proyectos, productos—, y **no calcula nada**: abrir la página no
 dispara ninguna lectura de documentos, y por eso dos personas ven lo mismo. Si
 calculara al vuelo tendría que leer documentos, y el portafolio dejaría de ser uno
 solo.
@@ -184,6 +185,36 @@ primero, en este orden:
    que está en el informe.
 
 ---
+
+## La estructura del portal, y por qué es esa
+
+Tres secciones, y el orden importa: **cómo va todo, después el proyecto, después el
+producto.** Es el orden en que alguien pregunta.
+
+| Sección | Responde | Y no responde |
+|---|---|---|
+| **Informes PMO** | ¿Cómo va el portafolio? Lo que solo se ve mirando todo junto: los verdes que la evidencia no sostiene, lo que lleva semanas en silencio, quién patrocina más de una cosa | Cuál proyecto abrir. Para eso está el listado |
+| **Proyectos** | ¿Cómo va este proyecto, y de dónde salió cada dato? | Para qué sirve lo que está construyendo. Para eso enlaza al producto |
+| **Productos** | ¿Cómo va este producto, y quién lo está construyendo? | Adopción, ingreso, incidencias. Nada de eso está en la carpeta, y la página lo dice |
+
+**El enlace entre proyecto y producto va en los dos sentidos**, y no es una comodidad
+de navegación: es lo que produce el único hallazgo que no existe en ninguna otra
+página. Cuando un producto lo construyen dos proyectos que reportan a comités
+distintos, **cada comité ve su proyecto y ninguno ve el producto**. Nadie puede
+detectarlo desde adentro de un proyecto, porque desde adentro de un proyecto no se ve
+el otro.
+
+De ahí salen las tres cosas que el informe de producto dice y el de proyecto no puede:
+que más de un comité lo mira, que más de un patrocinador responde por él —y entonces
+no hay una sola respuesta a quién se le escala—, y que **el proyecto sano no salva al
+producto**: no llega hasta que llegan los dos, así que su estado es el del peor y no
+el promedio.
+
+Lo que el portal **no hace** es inventarle al producto una ficha propia. Todo lo que
+dice sale de lo que los proyectos declararon en su acta, y se dice con esa salvedad.
+Un proyecto que no declara producto no es un error suyo —hay proyectos que no
+construyen un producto—, pero mientras no esté dicho su avance no se ve desde el lado
+del producto, y eso se reporta.
 
 ## Lo que falta
 

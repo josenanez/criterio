@@ -13,7 +13,7 @@ documentación real no existen todavía, y hasta que existan no se inventan.
 python3 plugins/criterio-pmo/scripts/pmo.py selftest       42 resultados · la aritmética
 python3 plugins/criterio-pmo/scripts/texto.py --selftest   12 resultados · la conversión
 python3 plugins/criterio-pmo/scripts/informe.py --selftest 15 resultados · el informe
-python3 plugins/criterio-pmo/scripts/servidor.py --selftest 21 resultados · el servidor
+python3 plugins/criterio-pmo/scripts/servidor.py --selftest 30 resultados · el portal
 python3 tests/criterio-pmo/generar.py                      28 documentos en 6 proyectos
 python3 tests/criterio-pmo/grade.py                        69 comprobaciones
 python3 tests/coherencia.py                                documentación contra código
@@ -33,7 +33,7 @@ Seis proyectos de un banco, con la estructura de carpetas de una PMO real —
 | **PRY-002** Core de depósitos | Declara amarillo. Tres controles: el amarillo **no** dispara la alerta de brecha; un hito cuya fecha de línea base pasó pero cuya fecha vigente es de diciembre **no** es un hito vencido; y un compromiso sin fecha que hasta hace poco desaparecía del informe |
 | **PRY-003** Migración a nube | Proveedores: un entregable vencido sin evidencia, dos dados por entregados sin acta de recibo, y 620 millones facturados contra 580 de entregables aceptados |
 | **PRY-004** Open Banking | El caso más común en una PMO real: sin plan aprobado, sin presupuesto, cinco meses en silencio, y aun así reportado en verde |
-| **PRY-005** Débito contactless | **Control negativo.** Todo en orden. Cero alertas |
+| **PRY-005** Débito contactless | **Control negativo.** Todo en orden. Cero alertas. Declara el mismo producto que PRY-002, para que el portafolio tenga un producto construido por dos proyectos que reportan a comités distintos |
 | **PRY-006** SARLAFT | Un cambio aprobado con impacto escrito en «tres meses», y un presupuesto aprobado que nunca incorporó los 180 millones que el comité autorizó |
 
 ## Lo que la corrida prueba
@@ -119,6 +119,43 @@ Los dos primeros ya no pueden volver: `informe.py --selftest` los fija. El terce
 La cuarta clase —una señal nueva que salga con su nombre en inglés— la fija
 `tests/coherencia.py`, que importa la tabla de nombres y la compara con las señales que
 `pmo.py` calcula.
+
+## El portal: proyectos, productos y la ida y vuelta
+
+El corpus tenía un defecto que solo se vio al construir la vista de producto: **las
+fichas de referencia declaraban `identity.product` con una cita a un acta que no lo
+decía en ninguna parte.** Es exactamente el error que todo este diseño existe para
+impedir —«no adivina»— sentado dentro del material de prueba. Una extracción correcta
+habría devuelto `not_found` y el grader la habría marcado mal.
+
+Corregido: el producto entra en las actas, que es donde una PMO lo declara, y la ficha
+lo cita de ahí.
+
+Con eso el portafolio sintético queda con el caso que la vista de producto existe para
+atrapar:
+
+| Qué se plantó | Qué prueba |
+|---|---|
+| **Cuenta transaccional**, construida por PRY-002 y PRY-005 | Un producto con dos proyectos. PRY-002 reporta al Comité de Tecnología y PRY-005 al de Medios de Pago: **ningún comité lo ve completo** |
+| Patrocinadores distintos en esos dos | No hay una sola respuesta a quién se le escala el producto |
+| PRY-005 limpio y PRY-002 con desviación | **El proyecto sano no salva al producto.** Su estado es el del peor, no el promedio |
+| **Crédito de consumo**, un solo proyecto | El caso simple: un comité, un patrocinador, y el informe de producto dice que no hay hallazgo propio. Que no haya hallazgo es un resultado |
+| PRY-003, PRY-004 y PRY-006 sin producto | Tres proyectos que no declaran producto. No es un error de ellos, y el portal lo reporta sin tratarlo como falta |
+
+**Un error que la aritmética no habría detectado.** El listado de productos mostraba
+«Crédito de consumo · verde» junto a «10 señales», porque tomaba el semáforo declarado
+del peor de sus proyectos. Correcto como cálculo, y exactamente la mentira que este
+portal existe para destapar. Ahora el semáforo va con la marca de que la evidencia no
+lo sostiene, y en qué proyecto.
+
+**Y otro que solo se ve mirando.** La portada del servidor ponía un enlace dentro de
+otro enlace. No es HTML válido: el navegador cierra la tarjeta donde empieza el de
+adentro, y la primera sección salía partida en dos cajas con media frase suelta
+debajo. Pasa cualquier prueba que mire el texto y ninguna que mire la página.
+
+Las doce páginas de una corrida sobre el corpus: las cuatro del portal —informe PMO,
+decisiones, listado de proyectos, listado de productos—, seis de proyecto y dos de
+producto.
 
 ## El servidor, y la frontera que no cruza
 

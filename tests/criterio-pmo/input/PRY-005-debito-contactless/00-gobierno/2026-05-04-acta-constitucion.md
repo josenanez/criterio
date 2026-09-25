@@ -5,6 +5,7 @@
 **Patrocinador:** Sandra Gil, VP de Operaciones
 **Gerente de proyecto:** Paula Betancur
 **Comité:** Comité de Medios de Pago
+**Producto:** Cuenta transaccional
 **Autoridad del gerente:** hasta 40.000.000 y ajustes de cronograma menores a 15 días.
 
 ## Objetivo del negocio

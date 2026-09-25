@@ -5,6 +5,7 @@
 **Patrocinador:** Ricardo Salazar, CIO
 **Gerente de proyecto:** Luisa Cárdenas
 **Comité:** Comité de Tecnología
+**Producto:** Cuenta transaccional
 **Autoridad del gerente:** hasta 50.000.000 y sin cambios de alcance.
 
 ## Objetivo del negocio
