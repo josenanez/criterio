@@ -38,7 +38,20 @@ Las herramientas de trabajo ayudan a producir un documento más. El problema nun
 
 Un tercio sin línea base significa que un tercio de los proyectos **no tiene contra qué medirse**. No es un problema de herramienta: es que nadie volvió a mirar.
 
-→ **[Agente PMO, disponible hoy](capabilities/pmo.es.md)**
+**Qué atacamos.** No la falta de plantillas: de eso hay de sobra. Atacamos que **nadie ha leído junta la documentación que ya existe.** Cada documento lo leyó alguien, una vez. Nadie los ha cruzado, y en el cruce está lo que decide:
+
+- El hito cuya fecha pasó y **no hay un solo documento que pruebe que se cumplió**.
+- El proyecto que reporta verde y **lleva cinco semanas sin producir un documento**.
+- La minuta de la semana pasada que **nombra a un patrocinador distinto** del que dice el acta.
+- La dependencia que un plan declara y **el plan del otro proyecto ignora**.
+- El compromiso que alguien asumió en **tres reuniones seguidas, con fecha nueva cada vez**.
+- La replanificación que devolvió el semáforo a verde y **borró un año de atraso acumulado**.
+
+Nada de eso aparece en un informe de avance. **El informe de avance lo escribe quien está siendo evaluado.**
+
+Dos decisiones que se notan el primer día. **Las cuatro cifras del presupuesto, no dos:** un proyecto con 40% ejecutado y 95% comprometido no tiene holgura, tiene el presupuesto agotado y todavía sin causar, y eso es invisible si se mira ejecutado contra aprobado. **El silencio se mide:** un proyecto sin documentación no está mal gestionado, está sin documentar, y ese es un hallazgo distinto que también hay que decir.
+
+→ **[Agente PMO, disponible hoy](plugins/criterio-pmo/README.md)** · el método, los comandos y los criterios de aceptación
 
 ---
 

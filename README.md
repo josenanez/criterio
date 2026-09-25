@@ -38,7 +38,20 @@ Work tools help you produce one more document. The problem was never a missing t
 
 A third with no baseline means a third of projects **have nothing to be measured against**. That is not a tooling problem: it is that nobody went back to look.
 
-→ **[PMO Agent, available today](capabilities/pmo.md)**
+**What we attack.** Not the lack of templates: there are plenty. We attack the fact that **nobody has read together the documentation that already exists.** Each document was read by someone, once. Nobody has cross-read them, and the crossing is what decides:
+
+- The milestone whose date passed with **not a single document proving it was met**.
+- The project reporting green that **has not produced a document in five weeks**.
+- Last week's minutes **naming a sponsor different** from the one in the charter.
+- The dependency one plan declares and **the other project's plan ignores**.
+- The commitment someone made in **three consecutive meetings, with a new date each time**.
+- The rebaseline that turned the light back to green and **erased a year of accumulated slippage**.
+
+None of that shows up in a status report. **The status report is written by the person being assessed.**
+
+Two decisions you notice on day one. **Four budget figures, not two:** a project at 40% executed and 95% committed has no headroom — its budget is spent and not yet incurred, and that is invisible if you look at executed against approved. **Silence is measured:** a project with no documentation is not badly run, it is undocumented, and that is a different finding that also has to be said.
+
+→ **[PMO Agent, available today](plugins/criterio-pmo/README.md)** · the method, the commands and the acceptance criteria
 
 ---
 

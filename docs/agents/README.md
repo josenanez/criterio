@@ -5,8 +5,8 @@ sale de cada función, y cómo interactúa con la persona responsable.** Es la b
 el diseño antes de codificar, y la referencia contra la cual se ajustan la arquitectura y el
 esquema.
 
-No es material de mercado. La versión pública de la capacidad vive en
-[`capabilities/pmo.es.md`](../../capabilities/pmo.es.md). Estas hojas están en español porque
+No es material de mercado. La promesa pública vive en el [README del market](../../README.es.md)
+y en el [README del plugin](../../plugins/criterio-pmo/README.md). Estas hojas están en español porque
 su uso es discutirlas; la pareja en inglés entra cuando el diseño se estabilice, no antes, para
 no duplicar la rotación.
 
@@ -121,7 +121,7 @@ cinco señales atrás y a prometer una que el código no emitía.
 | Los valores de los umbrales | `DEFAULT_THRESHOLDS` en `scripts/pmo.py` | Es lo que el código lee. Cualquier otra copia es una opinión |
 | Qué significa cada señal y cuándo merece alarma | el skill `portfolio-health` | Es lo que el modelo carga en tiempo de ejecución, y tiene que sostenerse solo |
 | El inventario de comandos y skills | el README del plugin | El plugin se distribuye por el market y su README viaja con él |
-| La promesa pública y las cifras de terceros | `capabilities/pmo.es.md` | Es la página que decide una instalación |
+| La promesa pública y las cifras de terceros | el README del market | Es la primera página que alguien abre, y la única que decide una instalación |
 | El diseño de cada agente | estas hojas | Clases, flujo, lo que es de las personas, lo que falta |
 | El resultado de las corridas | `tests/<plugin>/EVIDENCIA.md` | La evidencia vive con el material que la produjo |
 

@@ -21,8 +21,7 @@ RAIZ = Path(__file__).parent.parent
 PLUGIN = RAIZ / "plugins" / "criterio-pmo"
 PMO = PLUGIN / "scripts" / "pmo.py"
 
-DOCS = [RAIZ / "README.es.md", RAIZ / "README.md",
-        RAIZ / "capabilities" / "pmo.es.md", RAIZ / "capabilities" / "pmo.md"]
+DOCS = [RAIZ / "README.es.md", RAIZ / "README.md"]
 DOCS += sorted((RAIZ / "docs" / "agents").glob("*.md"))
 DOCS += sorted(PLUGIN.glob("*.md"))
 DOCS += sorted(PLUGIN.glob("skills/*/SKILL.md"))
@@ -151,19 +150,10 @@ for t in sin_clave:
 if not sin_clave:
     decir(OK, f"los {len(en_codigo_th)} umbrales están documentados en portfolio-health")
 
-# ── 6 · cada comando en la promesa pública ────────────────────────────────
-print("\nCada comando en la página pública")
-publica = (RAIZ / "capabilities" / "pmo.es.md").read_text(encoding="utf-8")
-sin_prometer = sorted(c for c in comandos if f"/{c}" not in publica)
-for c in sin_prometer:
-    decir(FALLA, f"/{c} existe y la página de la capacidad no lo promete")
-if not sin_prometer:
-    decir(OK, f"los {len(comandos)} comandos aparecen en capabilities/pmo.es.md")
+# El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
+# README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja
+# solo por el market. No se duplica el chequeo aquí.
 
-# El README del plugin lo verifica scripts/validate_plugins.py, que es del repo y
-# es más estricto. No se duplica el chequeo aquí.
-
-# ── 6 · lo que solo vive en markdown ──────────────────────────────────────
 print("\nReglas que la documentación afirma y el código no implementa")
 for nombre, patron, donde in [
     ("el hash de documentos", r"\bhash\b", "portfolio-scan.md y project-record"),
