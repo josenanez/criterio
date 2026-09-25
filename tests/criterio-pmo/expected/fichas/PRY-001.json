@@ -3,42 +3,48 @@
   "identity": {
     "code": {
       "value": "PRY-001",
-      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
       "source_date": "2026-01-12",
       "state": "found"
     },
     "name": {
       "value": "Originación digital de crédito de consumo",
-      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
       "source_date": "2026-01-12",
       "state": "found"
     },
     "business_area": {
       "value": "Banca de Personas",
-      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
+      "source_date": "2026-01-12",
+      "state": "found"
+    },
+    "product": {
+      "value": "Crédito de consumo",
+      "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
       "source_date": "2026-01-12",
       "state": "found"
     },
     "sponsor": {
       "value": "Sandra Gil, VP de Operaciones",
-      "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+      "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
       "source_date": "2026-09-11",
       "state": "ambiguous",
       "conflict": {
         "value": "María Restrepo, VP de Operaciones",
-        "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+        "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
         "source_date": "2026-01-12"
       }
     },
     "manager": {
       "value": "Andrés Lozano",
-      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
       "source_date": "2026-01-12",
       "state": "found"
     },
     "committee": {
       "value": "Comité de Transformación Digital",
-      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
       "source_date": "2026-01-12",
       "state": "found"
     },
@@ -52,19 +58,19 @@
   "declared": {
     "status": {
       "value": "verde",
-      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
       "source_date": "2026-08-22",
       "state": "found"
     },
     "progress_pct": {
       "value": 78,
-      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
       "source_date": "2026-08-22",
       "state": "found"
     },
     "as_of": {
       "value": "2026-08-22",
-      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
       "source_date": "2026-08-22",
       "state": "found"
     }
@@ -72,13 +78,13 @@
   "plan": {
     "start_date": {
       "value": "2026-01-15",
-      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
       "source_date": "2026-01-12",
       "state": "found"
     },
     "end_date": {
       "value": "2026-11-30",
-      "source": "10-plan/2026-06-20-cronograma-v2.csv",
+      "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
       "source_date": "2026-06-20",
       "state": "found"
     },
@@ -89,7 +95,7 @@
         "start_date": "2026-01-15",
         "end_date": "2026-09-30",
         "reason": "inicial",
-        "source": "00-gobierno/2026-01-12-acta-constitucion.md"
+        "source": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md"
       },
       {
         "version": 2,
@@ -97,38 +103,38 @@
         "start_date": "2026-01-15",
         "end_date": "2026-11-30",
         "reason": "atraso en certificación del motor",
-        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md"
+        "source": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md"
       }
     ],
     "milestones": [
       {
         "name": {
           "value": "Diseño funcional aprobado",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
         "baseline_date": {
           "value": "2026-03-02",
-          "source": "10-plan/2026-01-15-cronograma-v1.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-01-15-cronograma-v1.csv",
           "source_date": "2026-01-15",
           "state": "found"
         },
         "current_date": {
           "value": "2026-03-06",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
         "state": {
           "value": "met",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
         "evidence": {
           "value": "20-seguimiento/2026-03-06-acta-aprobacion-diseno.md",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         }
@@ -136,25 +142,25 @@
       {
         "name": {
           "value": "Motor de decisión certificado",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
         "baseline_date": {
           "value": "2026-05-29",
-          "source": "10-plan/2026-01-15-cronograma-v1.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-01-15-cronograma-v1.csv",
           "source_date": "2026-01-15",
           "state": "found"
         },
         "current_date": {
           "value": "2026-07-31",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
         "state": {
           "value": "pending",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
@@ -168,25 +174,25 @@
       {
         "name": {
           "value": "Salida a producción",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
         "baseline_date": {
           "value": "2026-09-30",
-          "source": "10-plan/2026-01-15-cronograma-v1.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-01-15-cronograma-v1.csv",
           "source_date": "2026-01-15",
           "state": "found"
         },
         "current_date": {
           "value": "2026-11-30",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
         "state": {
           "value": "pending",
-          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
           "source_date": "2026-06-20",
           "state": "found"
         },
@@ -202,31 +208,31 @@
   "money": {
     "currency": {
       "value": "COP",
-      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
       "source_date": "2026-08-22",
       "state": "found"
     },
     "approved": {
       "value": 1850000000,
-      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
       "source_date": "2026-08-22",
       "state": "found"
     },
     "committed": {
       "value": 1762000000,
-      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
       "source_date": "2026-08-22",
       "state": "found"
     },
     "executed": {
       "value": 790000000,
-      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
       "source_date": "2026-08-22",
       "state": "found"
     },
     "projection": {
       "value": 1910000000,
-      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
       "source_date": "2026-08-22",
       "state": "found"
     }
@@ -235,43 +241,43 @@
     {
       "ref": {
         "value": "CC-01",
-        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
         "source_date": "2026-06-18",
         "state": "found"
       },
       "requested_on": {
         "value": "2026-06-18",
-        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
         "source_date": "2026-06-18",
         "state": "found"
       },
       "scope_impact": {
         "value": "sin cambio",
-        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
         "source_date": "2026-06-18",
         "state": "found"
       },
       "time_impact": {
         "value": "60 días",
-        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
         "source_date": "2026-06-18",
         "state": "found"
       },
       "cost_impact": {
         "value": "sin impacto",
-        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
         "source_date": "2026-06-18",
         "state": "found"
       },
       "decision": {
         "value": "approved",
-        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
         "source_date": "2026-06-18",
         "state": "found"
       },
       "decided_by": {
         "value": "Comité de Transformación Digital",
-        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
         "source_date": "2026-06-18",
         "state": "found"
       }
@@ -282,7 +288,7 @@
       {
         "what": {
           "value": "Si el core de depósitos mueve su fecha otra vez, el desembolso automático no tiene contra qué integrarse",
-          "source": "30-reuniones/2026-07-24-comite-tecnico.md",
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-07-24-comite-tecnico.md",
           "source_date": "2026-07-24",
           "state": "found"
         },
@@ -294,7 +300,7 @@
         },
         "formally_registered": {
           "value": false,
-          "source": "30-reuniones/2026-07-24-comite-tecnico.md",
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-07-24-comite-tecnico.md",
           "source_date": "2026-07-24",
           "state": "found"
         }
@@ -304,13 +310,13 @@
       {
         "what": {
           "value": "El acta no declara la autoridad de aprobación del cierre de pruebas",
-          "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
           "source_date": "2026-09-11",
           "state": "found"
         },
         "since": {
           "value": "2026-07-24",
-          "source": "30-reuniones/2026-07-24-comite-tecnico.md",
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-07-24-comite-tecnico.md",
           "source_date": "2026-07-24",
           "state": "found"
         }
@@ -320,19 +326,19 @@
       {
         "on_project": {
           "value": "PRY-002",
-          "source": "30-reuniones/2026-08-14-comite-tecnico.md",
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-08-14-comite-tecnico.md",
           "source_date": "2026-08-14",
           "state": "found"
         },
         "what": {
           "value": "Servicio de abono en cuenta expuesto por el core de depósitos",
-          "source": "30-reuniones/2026-08-14-comite-tecnico.md",
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-08-14-comite-tecnico.md",
           "source_date": "2026-08-14",
           "state": "found"
         },
         "confirmed": {
           "value": false,
-          "source": "30-reuniones/2026-08-14-comite-tecnico.md",
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-08-14-comite-tecnico.md",
           "source_date": "2026-08-14",
           "state": "found"
         }
@@ -343,31 +349,31 @@
     {
       "who": {
         "value": "Carlos Méndez",
-        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
         "source_date": "2026-09-11",
         "state": "found"
       },
       "what": {
         "value": "Enviar el informe de certificación del motor de decisión",
-        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
         "source_date": "2026-09-11",
         "state": "found"
       },
       "due_date": {
         "value": "2026-09-18",
-        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
         "source_date": "2026-09-11",
         "state": "found"
       },
       "stated_on": {
         "value": "2026-09-11",
-        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
         "source_date": "2026-09-11",
         "state": "found"
       },
       "state": {
         "value": "open",
-        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
         "source_date": "2026-09-11",
         "state": "found"
       },
@@ -375,17 +381,17 @@
         {
           "due_date": "2026-08-07",
           "stated_on": "2026-07-24",
-          "source": "30-reuniones/2026-07-24-comite-tecnico.md"
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-07-24-comite-tecnico.md"
         },
         {
           "due_date": "2026-08-28",
           "stated_on": "2026-08-14",
-          "source": "30-reuniones/2026-08-14-comite-tecnico.md"
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-08-14-comite-tecnico.md"
         },
         {
           "due_date": "2026-09-18",
           "stated_on": "2026-09-11",
-          "source": "30-reuniones/2026-09-11-comite-tecnico.md"
+          "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md"
         }
       ]
     }
@@ -393,15 +399,68 @@
   "activity": {
     "last_document_date": {
       "value": "2026-09-11",
-      "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+      "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
       "source_date": "2026-09-11",
       "state": "found"
     },
     "last_meeting_date": {
       "value": "2026-09-11",
-      "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+      "source": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
       "source_date": "2026-09-11",
       "state": "found"
     }
+  },
+  "meta": {
+    "record_updated": "2026-09-30",
+    "documents_seen": [
+      {
+        "path": "PRY-001-originacion-digital/00-gobierno/2026-01-12-acta-constitucion.md",
+        "hash": "057955f377e8b13f2290bb83d7fb122d4ca38a255be1110a79536d9d6a4eeda8",
+        "text_hash": "34de1e65fc14d0ef0cdea91c02e5441421199b71636a800b6a8d9cd343297b05",
+        "date": "2026-01-12"
+      },
+      {
+        "path": "PRY-001-originacion-digital/10-plan/2026-01-15-cronograma-v1.csv",
+        "hash": "3d1ab3793bebf0e82985964674f5bcd2b0ab4cdedcbb145087beeece267505ba",
+        "text_hash": "6eb26d467dae48ba37beb8780b3ed97b6480b4ea78a05d9abb751d1ffb4d5673",
+        "date": "2026-01-15"
+      },
+      {
+        "path": "PRY-001-originacion-digital/10-plan/2026-06-20-cronograma-v2.csv",
+        "hash": "b197eb2da95b3ff2ee9566003edd7106302f3b2db9737b77634730c8c4665edd",
+        "text_hash": "d025f361bc52f1e57a3130ff6402e867c5f700dfbefa5dce6d9e0673f2c79a63",
+        "date": "2026-06-20"
+      },
+      {
+        "path": "PRY-001-originacion-digital/20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "hash": "aeee05b79a684937b87fe3040fb9cc9c5a40a8f0210ba4b6bdae51769cb7e552",
+        "text_hash": "b03122e130b31b5fcb1230228ef9080223f767228e2bb759baff4ad266a49fc7",
+        "date": "2026-06-18"
+      },
+      {
+        "path": "PRY-001-originacion-digital/20-seguimiento/2026-08-22-informe-avance.md",
+        "hash": "61b558045658ef474f3b5624faf510b5b2869128f1d6f30e5cebdc3e65380dca",
+        "text_hash": "76242936087ad78a19ebe0fe23f9866de13173c25313dd73a028a5faf083fafe",
+        "date": "2026-08-22"
+      },
+      {
+        "path": "PRY-001-originacion-digital/30-reuniones/2026-07-24-comite-tecnico.md",
+        "hash": "a4a522471bf27c4cabd40ba7f7793dfcff499e5cda24d7cd720a86ae1aaf5d49",
+        "text_hash": "524475ba98e30f848960c4327e7b6273257c876f52c46fb602956db2a4654455",
+        "date": "2026-07-24"
+      },
+      {
+        "path": "PRY-001-originacion-digital/30-reuniones/2026-08-14-comite-tecnico.md",
+        "hash": "318f46e92ec1f709fa3eb4603c92fa90492f28224d531afdd1d72eabec5320ab",
+        "text_hash": "f95ba7e97b4d5f152b3d6bd32017e8fff783b0d484d30d74679e27bfa3d19b9a",
+        "date": "2026-08-14"
+      },
+      {
+        "path": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
+        "hash": "fa2e854a8118bbbdc93646c546d92e3e51b7149da3f8837cbcebbf9b058ba663",
+        "text_hash": "1c79a8d5d668ffb46b8f89bf1bf268db1b26659f4d2f61d66d79b790e4df69d8",
+        "date": "2026-09-11"
+      }
+    ]
   }
 }

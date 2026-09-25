@@ -103,6 +103,82 @@ def calificar_aritmetica(fichas: Path) -> int:
     return fallas
 
 
+def correr_index(docs: Path) -> dict:
+    tmp = Path(tempfile.mkdtemp())
+    (tmp / "records").mkdir()
+    for f in sorted((EXPECTED / "fichas").glob("*.json")):
+        shutil.copy(f, tmp / "records" / f.name)
+    salida = subprocess.run(
+        [sys.executable, str(PMO), "index", "--state", str(tmp), "--docs", str(docs)],
+        capture_output=True, text=True, check=True)
+    shutil.rmtree(tmp)
+    return json.loads(salida.stdout)
+
+
+# Los cuatro casos que un índice de documentos tiene que distinguir. Si el corpus
+# cambia y alguno de estos archivos ya no existe, la prueba falla en voz alta en vez
+# de pasar sin probar nada.
+MUTACIONES = {
+    "cambiado": "PRY-001-originacion-digital/30-reuniones/2026-09-11-comite-tecnico.md",
+    "reguardado": "PRY-005-debito-contactless/20-seguimiento/2026-09-26-informe-avance.md",
+    "renombrado": "PRY-003-migracion-nube/20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
+    "borrado": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+}
+
+
+def calificar_indice() -> int:
+    """El índice de documentos: qué hay que releer y qué citas dejaron de resolver."""
+    fallas = 0
+    docs = RAIZ / "input"
+    total = sum(1 for x in docs.rglob("*") if x.is_file())
+
+    def comprobar(etiqueta, tiene, quiere):
+        nonlocal fallas
+        bien = tiene == quiere
+        fallas += 0 if bien else 1
+        print(f"   {OK if bien else FALLA} {etiqueta:38} {tiene!r}"
+              f"{'' if bien else f'  esperado {quiere!r}'}")
+
+    print("── sin cambios: no hay nada que releer")
+    d = correr_index(docs)
+    comprobar("documentos en disco", d["documents"], total)
+    comprobar("sin cambio", d["unchanged"], total)
+    comprobar("hay que releer", d["to_read"], 0)
+    comprobar("citas que no resuelven", len(d["source_missing"]), 0)
+
+    print("\n── con un cambio real, un reguardado, un renombrado y un borrado")
+    tmp = Path(tempfile.mkdtemp()) / "docs"
+    shutil.copytree(docs, tmp)
+    for etiqueta, rel in MUTACIONES.items():
+        if not (tmp / rel).exists():
+            print(f"   {FALLA} el corpus ya no tiene {rel}")
+            fallas += 1
+    (tmp / MUTACIONES["cambiado"]).open("a", encoding="utf-8").write(
+        "\nSe agrega que el proveedor pidió una prórroga adicional.\n")
+    (tmp / MUTACIONES["reguardado"]).open("a", encoding="utf-8").write("\n\n   \n")
+    renombrado = tmp / MUTACIONES["renombrado"]
+    renombrado.rename(renombrado.with_name(renombrado.stem + "-FIRMADA.md"))
+    (tmp / MUTACIONES["borrado"]).unlink()
+
+    d = correr_index(tmp)
+    comprobar("cambiados de verdad", len(d["changed"]), 1)
+    comprobar("solo reguardados", len(d["resaved_only"]), 1)
+    comprobar("renombrados", len(d["renamed"]), 1)
+    comprobar("borrados", len(d["deleted"]), 1)
+    comprobar("nuevos", len(d["new"]), 0)
+    comprobar("hay que releer", d["to_read"], 1)
+    comprobar("proyectos a recalcular", d["projects_to_recompute"],
+              ["PRY-001", "PRY-003", "PRY-006"])
+    rotas = {x["project"] for x in d["source_missing"]}
+    comprobar("proyectos con citas rotas", sorted(rotas), ["PRY-003", "PRY-006"])
+    shutil.rmtree(tmp.parent)
+
+    print("\n   El reguardado es el caso que paga el diseño: cambió el hash de bytes y")
+    print("   no el del texto, así que no entra en lo que hay que releer. Un Excel que")
+    print("   recalcula al abrirlo hace eso todos los días.")
+    return fallas
+
+
 def campos_planos(nodo, ruta=""):
     """Todo campo {value,...} de una ficha, con su ruta."""
     if isinstance(nodo, dict):
@@ -176,6 +252,9 @@ if __name__ == "__main__":
         fallas = calificar_extraccion(args.fichas)
     else:
         fallas = calificar_aritmetica(EXPECTED / "fichas")
+        print("\n" + "=" * 72)
+        print("Índice de documentos\n")
+        fallas += calificar_indice()
 
     print(f"\n{'sin errores' if not fallas else f'{fallas} FALLAS'}")
     sys.exit(0 if not fallas else 1)

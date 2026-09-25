@@ -3,37 +3,37 @@
   "identity": {
     "code": {
       "value": "PRY-004",
-      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source": "PRY-004-open-banking/00-gobierno/2025-02-14-memorando-inicio.md",
       "source_date": "2025-02-14",
       "state": "found"
     },
     "name": {
       "value": "Iniciativa de Open Banking",
-      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source": "PRY-004-open-banking/00-gobierno/2025-02-14-memorando-inicio.md",
       "source_date": "2025-02-14",
       "state": "found"
     },
     "business_area": {
       "value": "Arquitectura",
-      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source": "PRY-004-open-banking/00-gobierno/2025-02-14-memorando-inicio.md",
       "source_date": "2025-02-14",
       "state": "found"
     },
     "sponsor": {
       "value": "Ricardo Salazar, CIO",
-      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source": "PRY-004-open-banking/00-gobierno/2025-02-14-memorando-inicio.md",
       "source_date": "2025-02-14",
       "state": "found"
     },
     "manager": {
       "value": "Jorge Ruiz",
-      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source": "PRY-004-open-banking/00-gobierno/2025-02-14-memorando-inicio.md",
       "source_date": "2025-02-14",
       "state": "found"
     },
     "committee": {
       "value": "Comité de Tecnología",
-      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source": "PRY-004-open-banking/00-gobierno/2025-02-14-memorando-inicio.md",
       "source_date": "2025-02-14",
       "state": "found"
     },
@@ -47,13 +47,13 @@
   "declared": {
     "status": {
       "value": "verde",
-      "source": "20-seguimiento/2026-04-30-nota-avance.md",
+      "source": "PRY-004-open-banking/20-seguimiento/2026-04-30-nota-avance.md",
       "source_date": "2026-04-30",
       "state": "found"
     },
     "as_of": {
       "value": "2026-04-30",
-      "source": "20-seguimiento/2026-04-30-nota-avance.md",
+      "source": "PRY-004-open-banking/20-seguimiento/2026-04-30-nota-avance.md",
       "source_date": "2026-04-30",
       "state": "found"
     }
@@ -91,9 +91,26 @@
   "activity": {
     "last_document_date": {
       "value": "2026-04-30",
-      "source": "20-seguimiento/2026-04-30-nota-avance.md",
+      "source": "PRY-004-open-banking/20-seguimiento/2026-04-30-nota-avance.md",
       "source_date": "2026-04-30",
       "state": "found"
     }
+  },
+  "meta": {
+    "record_updated": "2026-09-30",
+    "documents_seen": [
+      {
+        "path": "PRY-004-open-banking/00-gobierno/2025-02-14-memorando-inicio.md",
+        "hash": "53c6a65fca572a949f420476604c183d4e909608581feaf264af81ecee4da280",
+        "text_hash": "0be9e1fa85c44a02b45420cd6fa204d8caf7700f33fb61f1e3fe5581e67c6de4",
+        "date": "2025-02-14"
+      },
+      {
+        "path": "PRY-004-open-banking/20-seguimiento/2026-04-30-nota-avance.md",
+        "hash": "6eede7948181772f21162b86ffa74e73efb77c4aa6defafa74743e1d9b002959",
+        "text_hash": "94aed3e0a0851c7b9b7a1126efbf5e659b3c6bbeba2fda952121388e380c5af9",
+        "date": "2026-04-30"
+      }
+    ]
   }
 }

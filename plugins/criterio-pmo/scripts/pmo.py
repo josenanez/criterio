@@ -8,6 +8,7 @@ arithmetic, and arithmetic belongs here, where it is deterministic and testable.
 Usage:
     python3 pmo.py init     --state <dir>
     python3 pmo.py config   --config <file>
+    python3 pmo.py index    --state <dir> --docs <dir>
     python3 pmo.py compute  --state <dir> [--config <file>] [--today YYYY-MM-DD]
     python3 pmo.py snapshot --state <dir> [--today YYYY-MM-DD]
     python3 pmo.py diff     --state <dir> [--against <snapshot.json>]
@@ -28,6 +29,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import hashlib
 import json
 import re
 import sys
@@ -41,7 +43,14 @@ DEFAULT_THRESHOLDS = {
     "stale_field_months": 12,
     "declaration_stale_days": 30,
     "rebaseline_tolerance_days": 0,
+    "reschedules_to_flag": 3,
 }
+
+# Lo que se puede leer como texto sin instalar nada. Para el resto, el hash de bytes
+# es lo único disponible, y un reguardado se ve como un cambio: se declara así en la
+# salida en vez de fingir precisión.
+TEXTO_PLANO = (".md", ".txt", ".csv", ".tsv", ".json", ".yaml", ".yml", ".html", ".xml")
+IGNORAR = (".DS_Store", "Thumbs.db")
 
 # Declared status, as the manager reports it. The rank only orders the
 # vocabulary so the code can ask "is this light green". It is not a severity
@@ -57,8 +66,9 @@ STATUS_RANK = {
 # mixing the two weakens the finding.
 EVIDENCE_SIGNALS = (
     "silent", "variance_time", "variance_cost", "milestone_overdue",
-    "commitment_overdue", "budget_committed", "vendor_deliverable_late",
-    "vendor_invoiced_without_delivery", "rebaseline_unauthorized",
+    "commitment_overdue", "commitment_rescheduled", "budget_committed",
+    "vendor_deliverable_late", "vendor_invoiced_without_delivery",
+    "vendor_invoiced_over_accepted", "rebaseline_unauthorized",
 )
 
 
@@ -101,6 +111,30 @@ def as_number(raw):
         return float(raw)
     except (TypeError, ValueError):
         return None
+
+
+def hash_bytes(ruta: Path) -> str:
+    h = hashlib.sha256()
+    with ruta.open("rb") as f:
+        for trozo in iter(lambda: f.read(65536), b""):
+            h.update(trozo)
+    return h.hexdigest()
+
+
+def hash_texto(ruta: Path):
+    """Hash del texto extraído, o None si el formato no se puede leer sin dependencias.
+
+    Existe por una razón económica: un Word reguardado o un Excel que recalcula al
+    abrirlo cambian el hash de bytes sin cambiar una palabra, y cada falso positivo
+    cuesta una relectura del documento, que es el único paso caro del sistema.
+    """
+    if ruta.suffix.lower() not in TEXTO_PLANO:
+        return None
+    try:
+        texto = ruta.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return None
+    return hashlib.sha256(" ".join(texto.split()).encode("utf-8")).hexdigest()
 
 
 def as_days(raw):
@@ -158,8 +192,12 @@ def walk_fields(node, path=""):
 # ---------------------------------------------------------------- compute
 
 def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
-    code = value(rec.get("identity", {}).get("code")) or "?"
-    out = {"code": code, "name": value(rec.get("identity", {}).get("name")), "alerts": []}
+    ident = rec.get("identity", {}) or {}
+    code = value(ident.get("code")) or "?"
+    out = {"code": code, "name": value(ident.get("name")),
+           "product": value(ident.get("product")),
+           "authority": value(ident.get("authority")),
+           "alerts": []}
 
     def alert(kind, detail):
         out["alerts"].append({"signal": kind, "detail": detail})
@@ -233,17 +271,37 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
             alert("variance_cost", {"pct": over, "projection": projection, "approved": approved})
 
     # --- commitments ---------------------------------------------------
-    late = []
+    late, sin_fecha, reprogramados = [], [], []
     for c in rec.get("commitments") or []:
         due = as_date(c.get("due_date"))
         st = value(c.get("state"))
-        if due and due < today and st in (None, "open", "unknown"):
-            late.append({"who": value(c.get("who")), "what": value(c.get("what")),
-                         "due": due.isoformat(), "days": (today - due).days,
-                         "source": source_of(c.get("what")) or value(c.get("source"))})
+        quien = value(c.get("who"))
+        que = value(c.get("what"))
+        fuente = source_of(c.get("what")) or value(c.get("source"))
+        if due is None:
+            # El skill registra un compromiso sin fecha como `no_declarada`. No puede
+            # estar vencido, y por eso mismo desaparecía del informe. Un compromiso
+            # que nadie fechó es un hallazgo, no un vacío.
+            sin_fecha.append({"who": quien, "what": que, "source": fuente})
+        elif due < today and st in (None, "open", "unknown"):
+            late.append({"who": quien, "what": que, "due": due.isoformat(),
+                         "days": (today - due).days, "source": fuente})
+        veces = len(c.get("reschedules") or [])
+        if veces >= th["reschedules_to_flag"]:
+            reprogramados.append({"who": quien, "what": que, "times": veces,
+                                  "dates": [value(r.get("due_date"))
+                                            for r in c.get("reschedules") or []]})
     out["commitments_overdue"] = late
+    out["commitments_undated"] = sin_fecha
+    out["commitments_rescheduled"] = reprogramados
     for c in late:
         alert("commitment_overdue", c)
+    for c in sin_fecha:
+        alert("commitment_undated", c)
+    for c in reprogramados:
+        # Reprogramado tres veces no es un problema de seguimiento: es un bloqueo
+        # que nadie ha nombrado, y es información distinta de tres vencidos.
+        alert("commitment_rescheduled", c)
 
     # --- vendors -------------------------------------------------------
     # The schema has carried vendor deliverables since 0.1 and nothing read
@@ -265,6 +323,14 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
                 vencidos.append({"what": value(dv.get("name")), "due": due.isoformat(),
                                  "days": (today - due).days, "state": st})
         facturado = as_number(v.get("invoiced"))
+        # Monto aceptado: solo suma lo que tiene monto declarado. Sin esto, una
+        # factura contra un entregable que nunca empezó pasa desapercibida mientras
+        # haya otros aceptados — el límite que destapó la corrida sintética.
+        montos = [as_number(dv.get("amount")) for dv in entregables]
+        con_monto = [m for m in montos if m is not None]
+        monto_aceptado = sum(
+            m for dv, m in zip(entregables, montos)
+            if m is not None and (value(dv.get("state")) or "") in ("delivered", "accepted"))
         fila = {
             "name": value(v.get("name")),
             "contract_ref": value(v.get("contract_ref")),
@@ -273,6 +339,8 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
             "late": vencidos,
             "accepted_without_evidence": sin_evidencia,
             "invoiced": facturado,
+            "amount_accepted": round(monto_aceptado, 2) if con_monto else None,
+            "amounts_declared": len(con_monto),
         }
         vendors.append(fila)
         for d in vencidos:
@@ -283,6 +351,12 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
             alert("vendor_invoiced_without_delivery",
                   {"vendor": fila["name"], "invoiced": facturado,
                    "deliverables": len(entregables)})
+        elif facturado and con_monto and facturado > monto_aceptado:
+            alert("vendor_invoiced_over_accepted",
+                  {"vendor": fila["name"], "invoiced": facturado,
+                   "accepted_amount": round(monto_aceptado, 2),
+                   "difference": round(facturado - monto_aceptado, 2),
+                   "amounts_declared": f"{len(con_monto)} de {len(entregables)}"})
     out["vendors"] = vendors
 
     # --- changes against the baseline ----------------------------------
@@ -345,6 +419,17 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     out["conflicts"] = conflicts
     out["fields_missing"] = missing
     out["fields_stale"] = stale
+
+    # De dónde viene cada dato. Un campo marcado `declaration` es la afirmación de
+    # alguien traída de otra herramienta; no es evidencia documental, y contarlo como
+    # tal es lo que rompería la comparación el día que se conecte un PPM.
+    procedencia = {"evidence": 0, "declaration": 0, "unmarked": 0}
+    for _, field in walk_fields(rec):
+        if field.get("value") is None:
+            continue
+        procedencia[field.get("source_kind") or "unmarked"] = \
+            procedencia.get(field.get("source_kind") or "unmarked", 0) + 1
+    out["sources"] = procedencia
     for c in conflicts:
         alert("contradiction", c)
 
@@ -407,10 +492,26 @@ def compute(state: Path, today: dt.date, th: dict) -> dict:
                                "confirmed": bool(value(d.get("confirmed")))})
         me["dependencies"] = broken
 
+    # La PMO no vigila proyectos sueltos: vigila los proyectos que tienen producto.
+    # Un producto vive varios proyectos y sobrevive a todos ellos.
+    productos = {}
+    for pr in projects:
+        nombre = pr.get("product")
+        if not nombre:
+            continue
+        g = productos.setdefault(nombre, {"product": nombre, "projects": [],
+                                          "alerts": 0, "signals": set()})
+        g["projects"].append(pr["code"])
+        g["alerts"] += len(pr["alerts"])
+        g["signals"].update(a["signal"] for a in pr["alerts"])
+    por_producto = [dict(g, signals=sorted(g["signals"]))
+                    for g in sorted(productos.values(), key=lambda x: x["product"])]
+
     return {
         "as_of": today.isoformat(),
         "thresholds": th,
         "projects": projects,
+        "products": por_producto,
         "totals": {
             "projects": len(projects),
             "with_alerts": sum(1 for p in projects if p["alerts"]),
@@ -422,11 +523,106 @@ def compute(state: Path, today: dt.date, th: dict) -> dict:
                 1 for p in projects
                 if any(a["signal"] == "declared_vs_evidence" for a in p["alerts"])
             ),
+            "products": len(por_producto),
+            "no_authority": sum(1 for p in projects if not p.get("authority")),
         },
     }
 
 
+# ---------------------------------------------------------------- index
+
+def index(docs: Path, state: Path) -> dict:
+    """Qué cambió en la carpeta, y qué citas dejaron de resolver.
+
+    Es la regla que controla el costo de todo el sistema: sin esto, cada corrida
+    vuelve a leer documentos que no cambiaron. Dos etapas — el hash de bytes decide
+    si vale la pena extraer, el hash del texto decide si vale la pena releer — y una
+    tercera verificación que no es de costo sino de integridad: toda cita de toda
+    ficha tiene que seguir apuntando a un archivo que existe. Una cita que dejó de
+    resolver es un hallazgo; en un diseño cuyo valor es la cita, es el peor de los
+    huecos silenciosos.
+    """
+    fichas = {}
+    for f in sorted((state / "records").glob("*.json")):
+        fichas[f.stem] = json.loads(f.read_text(encoding="utf-8"))
+
+    # lo que cada ficha dice haber leído, y qué proyectos toca cada documento
+    visto, de_quien = {}, {}
+    for codigo, rec in fichas.items():
+        for d in ((rec.get("meta") or {}).get("documents_seen") or []):
+            ruta = value(d.get("path"))
+            if not ruta:
+                continue
+            visto[ruta] = d
+            de_quien.setdefault(ruta, []).append(codigo)
+
+    nuevos, cambiados, solo_bytes, sin_cambio = [], [], [], 0
+    en_disco = {}
+    for ruta in sorted(docs.rglob("*")):
+        if not ruta.is_file() or ruta.name in IGNORAR or ruta.name.startswith("."):
+            continue
+        rel = str(ruta.relative_to(docs))
+        hb = hash_bytes(ruta)
+        en_disco[rel] = hb
+        antes = visto.get(rel)
+        if antes is None:
+            nuevos.append({"path": rel, "hash": hb})
+            continue
+        if value(antes.get("hash")) == hb:
+            sin_cambio += 1
+            continue
+        ht, ht_antes = hash_texto(ruta), value(antes.get("text_hash"))
+        fila = {"path": rel, "projects": de_quien.get(rel, []), "hash": hb}
+        if ht and ht_antes and ht == ht_antes:
+            solo_bytes.append(fila)          # reguardado: no hay que releer
+        else:
+            cambiados.append(fila)
+
+    # lo que la ficha dice haber leído y ya no está: borrado, o renombrado si otro
+    # archivo nuevo tiene exactamente el mismo contenido
+    por_hash_nuevo = {n["hash"]: n["path"] for n in nuevos}
+    borrados, renombrados = [], []
+    for ruta, d in sorted(visto.items()):
+        if ruta in en_disco:
+            continue
+        hb = value(d.get("hash"))
+        destino = por_hash_nuevo.get(hb)
+        fila = {"path": ruta, "projects": de_quien.get(ruta, [])}
+        if destino:
+            renombrados.append(dict(fila, now=destino))
+        else:
+            borrados.append(fila)
+    movidos = {r["now"] for r in renombrados}
+    nuevos = [n for n in nuevos if n["path"] not in movidos]
+
+    # integridad de las citas: todo `source` tiene que resolver
+    rotas = []
+    for codigo, rec in fichas.items():
+        for ruta_campo, campo in walk_fields(rec):
+            fuente = campo.get("source")
+            if fuente and fuente not in en_disco:
+                rotas.append({"project": codigo, "field": ruta_campo, "source": fuente})
+
+    tocados = sorted({c for f in cambiados for c in f["projects"]}
+                     | {c for f in renombrados for c in f["projects"]}
+                     | {c for f in borrados for c in f["projects"]})
+
+    return {
+        "documents": len(en_disco),
+        "unchanged": sin_cambio,
+        "new": nuevos,
+        "changed": cambiados,
+        "resaved_only": solo_bytes,
+        "renamed": renombrados,
+        "deleted": borrados,
+        "source_missing": rotas,
+        "projects_to_recompute": tocados,
+        "to_read": len(nuevos) + len(cambiados),
+    }
+
+
 # ---------------------------------------------------------------- init / config
+
 
 REQUIRED_CONFIG = ["role", "paths", "cycle", "report", "terms_accepted"]
 ROLES = ("pmo", "pm")
@@ -555,12 +751,22 @@ def selftest() -> int:
                  "state": {"value": "met"}, "evidence": {"value": "acta.md"}},
             ],
         },
-        "money": {"currency": {"value": "COP"}, "approved": {"value": 1000},
+        # `approved` viene importado de la herramienta de portafolio: es una
+        # declaración, no evidencia documental, y se marca como tal
+        "money": {"currency": {"value": "COP"},
+                  "approved": {"value": 1000, "source_kind": "declaration"},
                   "committed": {"value": 950}, "executed": {"value": 400},
                   "projection": {"value": 1200}},
         "commitments": [
             {"who": {"value": "Carlos"}, "what": {"value": "Propuesta"},
              "due_date": {"value": "2026-09-05"}, "state": {"value": "open"},
+             "source": {"value": "min.md"},
+             # prometido tres veces con fecha nueva cada vez: un bloqueo, no tres vencidos
+             "reschedules": [{"due_date": "2026-08-07"}, {"due_date": "2026-08-21"},
+                             {"due_date": "2026-09-05"}]},
+            # sin fecha: no puede estar vencido, y hasta ahora tampoco se contaba
+            {"who": {"value": "Diana"}, "what": {"value": "Revisar el alcance"},
+             "due_date": {"value": "no_declarada"}, "state": {"value": "open"},
              "source": {"value": "min.md"}},
         ],
         "activity": {"last_document_date": {"value": "2026-08-20"}},
@@ -577,9 +783,11 @@ def selftest() -> int:
              "invoiced": {"value": 500},
              "deliverables": [
                  {"name": {"value": "Módulo 1"}, "due_date": {"value": "2026-08-01"},
-                  "state": {"value": "pending"}, "evidence": {"value": None}},
+                  "amount": {"value": 300}, "state": {"value": "pending"},
+                  "evidence": {"value": None}},
                  {"name": {"value": "Módulo 2"}, "due_date": {"value": "2026-09-01"},
-                  "state": {"value": "accepted"}, "evidence": {"value": None}},
+                  "amount": {"value": 150}, "state": {"value": "accepted"},
+                  "evidence": {"value": None}},
              ]},
             {"name": {"value": "Proveedor B"}, "invoiced": {"value": 200},
              "deliverables": [
@@ -606,7 +814,15 @@ def selftest() -> int:
         ("% ejecutado", r["money"]["pct_executed"], 40.0),
         ("proyección sobre aprobado %", r["money"]["projection_over_pct"], 20.0),
         ("campos vencidos", len(r["fields_stale"]), 1),
+        # compromisos
+        ("compromisos sin fecha", len(r["commitments_undated"]), 1),
+        ("compromisos reprogramados", len(r["commitments_rescheduled"]), 1),
+        ("veces que se reprogramó", r["commitments_rescheduled"][0]["times"], 3),
+        # procedencia del dato
+        ("campos marcados como declaración", r["sources"]["declaration"], 1),
         # proveedores
+        ("monto aceptado del proveedor", r["vendors"][0]["amount_accepted"], 150.0),
+        ("entregables con monto", r["vendors"][0]["amounts_declared"], 2),
         ("entregables vencidos", len(r["vendors"][0]["late"]), 1),
         ("aceptados sin evidencia", len(r["vendors"][0]["accepted_without_evidence"]), 1),
         ("facturado sin entrega", r["vendors"][1]["invoiced"], 200.0),
@@ -618,16 +834,17 @@ def selftest() -> int:
         # declaración contra evidencia
         ("la declaración se entendió", r["declared"]["understood"], True),
         ("antigüedad de la declaración", r["declared"]["age_days"], 40),
-        ("señales que el verde no explica", len(r["declared"]["unaccounted_signals"]), 9),
+        ("señales que el verde no explica", len(r["declared"]["unaccounted_signals"]), 11),
         # lo que ve el diff: un campo sin `state` tiene que contarse igual
         ("campo con state visible al diff", "declared.status" in flatten(rec), True),
         ("campo sin state visible al diff", "money.approved" in flatten(rec), True),
         ("señales", kinds, ["budget_committed", "commitment_overdue",
+                            "commitment_rescheduled", "commitment_undated",
                             "declaration_stale", "declared_vs_evidence",
                             "milestone_overdue", "rebaseline_unauthorized",
                             "silent", "variance_cost", "variance_time",
                             "vendor_accepted_without_evidence",
-                            "vendor_deliverable_late",
+                            "vendor_deliverable_late", "vendor_invoiced_over_accepted",
                             "vendor_invoiced_without_delivery"]),
     ]
     ok = True
@@ -651,9 +868,12 @@ def load_thresholds(config: Path | None) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
-    ap.add_argument("action", choices=["init", "config", "compute", "snapshot", "diff", "selftest"])
+    ap.add_argument("action", choices=["init", "config", "index", "compute",
+                                       "snapshot", "diff", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
+    ap.add_argument("--docs", type=Path, default=None,
+                    help="carpeta de documentación, para `index`")
     ap.add_argument("--against", type=Path, default=None)
     ap.add_argument("--today", default=None)
     args = ap.parse_args()
@@ -678,7 +898,11 @@ def main() -> int:
         ap.error("--state is required")
     today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
 
-    if args.action == "compute":
+    if args.action == "index":
+        if not args.docs:
+            ap.error("--docs es obligatorio para index")
+        print(json.dumps(index(args.docs, args.state), ensure_ascii=False, indent=2))
+    elif args.action == "compute":
         print(json.dumps(compute(args.state, today, load_thresholds(args.config)),
                          ensure_ascii=False, indent=2))
     elif args.action == "snapshot":

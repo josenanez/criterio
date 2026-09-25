@@ -9,13 +9,36 @@
 # state: found | not_found | ambiguous
 # Un campo ambiguo lleva además un bloque `conflict` con la fuente que discrepa.
 
-schema_version: "0.1"
+schema_version: "0.2"
+
+# Cada campo se guarda como {value, source, source_date, state} y admite un quinto:
+#
+#   source_kind: evidence | declaration
+#
+# `evidence` es lo que sustenta un documento. `declaration` es lo que alguien afirma,
+# incluido lo que llega importado de una herramienta corporativa de portafolio: el
+# campo "estado: verde" de un PPM es la afirmacion del gerente con otra interfaz, no
+# evidencia. Sin marca se asume evidencia. Contar una declaracion como evidencia es
+# lo que rompe la comparacion el dia que se conecta una fuente de ese tipo.
+#
+# `source` es la ruta del documento RELATIVA A LA RAIZ DE DOCUMENTACION, no a la
+# carpeta del proyecto. Es lo que permite que `pmo.py index` cruce lo que hay en disco
+# contra lo que las fichas dicen haber leido con un solo join, y detecte una cita que
+# dejo de resolver.
 
 identity:
   code:                 # identificador estable del proyecto, no cambia nunca
   name:
   aliases: []           # otros nombres con que aparece en los documentos
   business_area:        # área o unidad dueña
+  product:              # el producto al que sirve, si sirve a uno. Un producto vive
+                        # varios proyectos y sobrevive a todos ellos: es la dimensión
+                        # con la que la PMO mira el conjunto por producto y no por
+                        # proyecto. Vacío es válido: no todo proyecto tiene producto.
+  authority:            # hasta qué monto y qué cambio de alcance puede decidir el
+                        # gerente sin subir a comité. Es el campo que falta en nueve
+                        # de cada diez actas, y sin él el control de cambios no puede
+                        # saber si algo excede la facultad sin releer el acta.
   sponsor:              # patrocinador
   manager:              # gerente de proyecto
   committee:            # a qué comité reporta
@@ -60,6 +83,9 @@ vendors:
     deliverables:
       - name:
         due_date:
+        amount:         # valor del entregable, si el contrato lo declara. Sin esto,
+                        # una factura contra un entregable que nunca empezo pasa
+                        # desapercibida mientras haya otros aceptados.
         state:          # pending | delivered | accepted | late | unknown
         evidence:
     invoiced:
@@ -89,10 +115,16 @@ changes:                # solicitudes de cambio
 commitments:            # ver el skill commitment-tracking
   - who:
     what:
-    due_date:
+    due_date:           # `no_declarada` cuando nadie la dijo. No puede estar vencido,
+                        # y por eso mismo se cuenta aparte: un compromiso que nadie
+                        # fecho es un hallazgo, no un vacio.
     stated_on:
     source:             # la minuta o transcripción donde se dijo
     state:              # open | met | overdue | unknown
+    reschedules:        # el mismo compromiso prometido de nuevo, con fecha nueva.
+      - due_date:       # Tres veces no son tres compromisos vencidos: es uno con
+        stated_on:      # historial, y un bloqueo que nadie ha nombrado.
+        source:
 
 activity:               # lo calcula el script a partir de los nombres de archivo
   last_document_date:
@@ -101,9 +133,13 @@ activity:               # lo calcula el script a partir de los nombres de archiv
 
 meta:
   record_updated:       # cuándo se actualizó esta ficha
-  documents_seen:       # ruta y hash de cada documento leído, para no releer
-    - path:
-      hash:
+  documents_seen:       # lo leído, para no releer. Lo cruza `pmo.py index`.
+    - path:             # relativa a la raíz de documentación
+      hash:             # de los bytes: decide si vale la pena extraer el texto
+      text_hash:        # del texto normalizado: decide si vale la pena releer.
+                        # Un Word reguardado o un Excel que recalcula al abrirlo
+                        # cambian el primero y no el segundo. Vacío cuando el formato
+                        # no se puede leer sin dependencias.
       date:
   fields_not_found: []  # lista de campos en not_found, para el informe
   open_conflicts: []    # lista de campos en ambiguous

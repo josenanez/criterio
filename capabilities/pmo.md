@@ -126,18 +126,18 @@ All configurable, and changed by talking, not by editing files. **Staying quiet 
 
 **There are no real runs yet.** When there are, they go here: how many documents, how many projects, how long it took, how many findings and which of them nobody had seen — with the procedure to reproduce them.
 
-What does exist is a run over **synthetic material with known answers**: six projects, twenty-six documents, built to contain the failures a real folder contains. All fourteen signals fire when they should, the healthy project produces no alert at all, and the set is scored by 49 checks. What that run proves, what it does not, and the six limits it surfaced are in [`tests/criterio-pmo/EVIDENCIA.md`](../tests/criterio-pmo/EVIDENCIA.md).
+What does exist is a run over **synthetic material with known answers**: six projects, twenty-six documents, built to contain the failures a real folder contains. All seventeen signals fire when they should, the healthy project produces no alert at all, and the set is scored by 69 checks. What that run proves, what it does not, and the six limits it surfaced are in [`tests/criterio-pmo/EVIDENCIA.md`](../tests/criterio-pmo/EVIDENCIA.md).
 
 What is verified today is the machine, not the value:
 
 ```
 python3 plugins/criterio-pmo/scripts/pmo.py selftest    the arithmetic
 python3 tests/criterio-pmo/generar.py                   the synthetic portfolio
-python3 tests/criterio-pmo/grade.py                     49 checks against the known answers
+python3 tests/criterio-pmo/grade.py                     69 checks against the known answers
 python3 tests/coherencia.py                             that the docs and the code say the same thing
 ```
 
-Twenty-four known results, including the cases that get themselves wrong: slippage against the original baseline versus the current one with a rebaseline in between, the committed budget that looks healthy and is not, the rebaseline that moved sixty-one days when the committee authorised thirty, and the green light that fails to account for nine signals.
+30 known results, including the cases that get themselves wrong: slippage against the original baseline versus the current one with a rebaseline in between, the committed budget that looks healthy and is not, the rebaseline that moved sixty-one days when the committee authorised thirty, and the green light that fails to account for nine signals.
 
 ---
 

@@ -3,43 +3,43 @@
   "identity": {
     "code": {
       "value": "PRY-002",
-      "source": "00-gobierno/2026-02-02-acta-constitucion.md",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
       "source_date": "2026-02-02",
       "state": "found"
     },
     "name": {
       "value": "Modernización del core de depósitos",
-      "source": "00-gobierno/2026-02-02-acta-constitucion.md",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
       "source_date": "2026-02-02",
       "state": "found"
     },
     "business_area": {
       "value": "Tecnología",
-      "source": "00-gobierno/2026-02-02-acta-constitucion.md",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
       "source_date": "2026-02-02",
       "state": "found"
     },
     "sponsor": {
       "value": "Ricardo Salazar, CIO",
-      "source": "00-gobierno/2026-02-02-acta-constitucion.md",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
       "source_date": "2026-02-02",
       "state": "found"
     },
     "manager": {
       "value": "Luisa Cárdenas",
-      "source": "00-gobierno/2026-02-02-acta-constitucion.md",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
       "source_date": "2026-02-02",
       "state": "found"
     },
     "committee": {
       "value": "Comité de Tecnología",
-      "source": "00-gobierno/2026-02-02-acta-constitucion.md",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
       "source_date": "2026-02-02",
       "state": "found"
     },
     "authority": {
       "value": "hasta 50.000.000 y sin cambios de alcance",
-      "source": "00-gobierno/2026-02-02-acta-constitucion.md",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
       "source_date": "2026-02-02",
       "state": "found"
     }
@@ -47,19 +47,19 @@
   "declared": {
     "status": {
       "value": "amarillo",
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
     },
     "progress_pct": {
       "value": 61,
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
     },
     "as_of": {
       "value": "2026-09-25",
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
     }
@@ -67,13 +67,13 @@
   "plan": {
     "start_date": {
       "value": "2026-03-01",
-      "source": "00-gobierno/2026-02-02-acta-constitucion.md",
+      "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
       "source_date": "2026-02-02",
       "state": "found"
     },
     "end_date": {
       "value": "2027-01-30",
-      "source": "10-plan/2026-08-28-cronograma-v2.csv",
+      "source": "PRY-002-core-depositos/10-plan/2026-08-28-cronograma-v2.csv",
       "source_date": "2026-08-28",
       "state": "found"
     },
@@ -84,32 +84,32 @@
         "start_date": "2026-03-01",
         "end_date": "2026-10-31",
         "reason": "inicial",
-        "source": "00-gobierno/2026-02-02-acta-constitucion.md"
+        "source": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md"
       }
     ],
     "milestones": [
       {
         "name": {
           "value": "Servicio de abono expuesto",
-          "source": "10-plan/2026-08-28-cronograma-v2.csv",
+          "source": "PRY-002-core-depositos/10-plan/2026-08-28-cronograma-v2.csv",
           "source_date": "2026-08-28",
           "state": "found"
         },
         "baseline_date": {
           "value": "2026-09-30",
-          "source": "10-plan/2026-08-28-cronograma-v2.csv",
+          "source": "PRY-002-core-depositos/10-plan/2026-08-28-cronograma-v2.csv",
           "source_date": "2026-08-28",
           "state": "found"
         },
         "current_date": {
           "value": "2026-12-18",
-          "source": "10-plan/2026-08-28-cronograma-v2.csv",
+          "source": "PRY-002-core-depositos/10-plan/2026-08-28-cronograma-v2.csv",
           "source_date": "2026-08-28",
           "state": "found"
         },
         "state": {
           "value": "pending",
-          "source": "10-plan/2026-08-28-cronograma-v2.csv",
+          "source": "PRY-002-core-depositos/10-plan/2026-08-28-cronograma-v2.csv",
           "source_date": "2026-08-28",
           "state": "found"
         },
@@ -125,41 +125,110 @@
   "money": {
     "currency": {
       "value": "COP",
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
     },
     "approved": {
       "value": 4200000000,
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
     },
     "committed": {
       "value": 2980000000,
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
     },
     "executed": {
       "value": 2410000000,
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
     },
     "projection": {
       "value": 4350000000,
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
     }
   },
+  "commitments": [
+    {
+      "who": {
+        "value": "Luisa Cárdenas",
+        "source": "PRY-002-core-depositos/30-reuniones/2026-09-18-comite-tecnico.md",
+        "source_date": "2026-09-18",
+        "state": "found"
+      },
+      "what": {
+        "value": "Coordinar con el proyecto de originación digital el cambio de fecha del abono",
+        "source": "PRY-002-core-depositos/30-reuniones/2026-09-18-comite-tecnico.md",
+        "source_date": "2026-09-18",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "no_declarada",
+        "source": "PRY-002-core-depositos/30-reuniones/2026-09-18-comite-tecnico.md",
+        "source_date": "2026-09-18",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-09-18",
+        "source": "PRY-002-core-depositos/30-reuniones/2026-09-18-comite-tecnico.md",
+        "source_date": "2026-09-18",
+        "state": "found"
+      },
+      "state": {
+        "value": "open",
+        "source": "PRY-002-core-depositos/30-reuniones/2026-09-18-comite-tecnico.md",
+        "source_date": "2026-09-18",
+        "state": "found"
+      }
+    }
+  ],
   "activity": {
     "last_document_date": {
       "value": "2026-09-25",
-      "source": "20-seguimiento/2026-09-25-informe-avance.md",
+      "source": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
       "source_date": "2026-09-25",
       "state": "found"
+    },
+    "last_meeting_date": {
+      "value": "2026-09-18",
+      "source": "PRY-002-core-depositos/30-reuniones/2026-09-18-comite-tecnico.md",
+      "source_date": "2026-09-18",
+      "state": "found"
     }
+  },
+  "meta": {
+    "record_updated": "2026-09-30",
+    "documents_seen": [
+      {
+        "path": "PRY-002-core-depositos/00-gobierno/2026-02-02-acta-constitucion.md",
+        "hash": "dd5f8613427c2d29b5de4f4563ee1e7207e710717fa1549f046d3e3aa575a0b1",
+        "text_hash": "98dd7a38ad8ab1ebb71b7424d1cc090a8620fae10445766e3de5e13c7d28054a",
+        "date": "2026-02-02"
+      },
+      {
+        "path": "PRY-002-core-depositos/10-plan/2026-08-28-cronograma-v2.csv",
+        "hash": "2f825c29418c29543d882acf78c7c9a91fe44bc07e76553e58cf731ef90c22f4",
+        "text_hash": "dc331bf9c34144da47b9cf8b72d4245e1beb871de0671fa2438ba6af95772389",
+        "date": "2026-08-28"
+      },
+      {
+        "path": "PRY-002-core-depositos/20-seguimiento/2026-09-25-informe-avance.md",
+        "hash": "c78e0f1bd1f47dfe8db9be6edbd67f8b151a8294e3fac7fe866fc8479fd7a7e8",
+        "text_hash": "6714c0d0f9d5ef446f9b155bf28b1245004fec0ebe17b698ebf84b3825368bce",
+        "date": "2026-09-25"
+      },
+      {
+        "path": "PRY-002-core-depositos/30-reuniones/2026-09-18-comite-tecnico.md",
+        "hash": "fe68161b81492b731c5324336861f943e361645346cd2037fe26f4ac652b55b7",
+        "text_hash": "4859e314876c2346ae48650a1963de2fb6f41fb15e7dff29e689f135f876789b",
+        "date": "2026-09-18"
+      }
+    ]
   }
 }

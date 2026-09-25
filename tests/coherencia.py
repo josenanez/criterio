@@ -36,12 +36,9 @@ fallas = 0
 # documentación sin entrar aquí sí falla, y ese es el punto — la lista obliga a declarar
 # el hueco en vez de dejarlo pasar.
 PENDIENTES = {
-    "source_kind": "decisión de esquema abierta · docs/agents/README.md",
-    "source_missing": "señal por construir · docs/agents/pmo.md",
-    "stated_on": ("campo del esquema que el cálculo no lee · es lo que falta para detectar "
-                  "el compromiso reprogramado · docs/agents/project-manager.md"),
-    "no_declarada": ("valor del esquema para un compromiso sin fecha · el cálculo lo ignora "
-                     "y no lo cuenta, así que un compromiso sin fecha es invisible"),
+    "stated_on": ("campo del esquema que el cálculo no lee. El compromiso reprogramado ya "
+                  "se detecta, por `reschedules`; `stated_on` queda para cuando haga falta "
+                  "la fecha en que se dijo cada cosa, no solo la que se prometió"),
     "fields_per_run": "presupuesto de preguntas declarado y no leído · portfolio-health",
 }
 

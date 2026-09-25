@@ -11,6 +11,7 @@
         "declaration_stale",
         "declared_vs_evidence",
         "milestone_overdue",
+        "commitment_rescheduled",
         "rebaseline_unauthorized",
         "silent",
         "variance_time"
@@ -22,6 +23,8 @@
         "slip_vs_current_days": 0,
         "milestones_overdue": 1,
         "commitments_overdue": 1,
+        "commitments_rescheduled": 1,
+        "commitments_undated": 0,
         "money.pct_committed": 95.2,
         "money.available_real": 88000000,
         "money.projection_over_pct": 3.2,
@@ -35,9 +38,12 @@
     "PRY-002": {
       "por_que": "Declara amarillo, y se movió mucho. El amarillo no dispara la alerta de brecha.",
       "senales": [
+        "commitment_undated",
         "variance_time"
       ],
       "valores": {
+        "commitments_undated": 1,
+        "commitments_overdue": 0,
         "days_silent": 5,
         "replans": 0,
         "slip_vs_original_days": 91,
@@ -51,16 +57,19 @@
       "senales": [
         "commitment_overdue",
         "vendor_accepted_without_evidence",
-        "vendor_deliverable_late"
+        "vendor_deliverable_late",
+        "vendor_invoiced_over_accepted"
       ],
       "valores": {
         "days_silent": 10,
         "commitments_overdue": 1,
         "vendors.0.late": 1,
         "vendors.0.accepted_without_evidence": 2,
-        "vendors.0.accepted": 3
+        "vendors.0.accepted": 3,
+        "vendors.0.amount_accepted": 580000000,
+        "vendors.0.amounts_declared": 4
       },
-      "comentario": "`vendor_invoiced_without_delivery` NO aparece: hay facturación y también hay entregables aceptados. La pregunta de Finanzas —factura contra una migración que no empezó— es un hallazgo que esta versión del cálculo no detecta, porque el esquema no tiene monto por entregable. Queda declarado como límite conocido, no como falla del grader."
+      "comentario": "`vendor_invoiced_without_delivery` NO aparece, y está bien: hay facturación y también entregables aceptados. Lo que sí aparece es `vendor_invoiced_over_accepted`, que es la pregunta que Finanzas hace en la minuta: se facturaron 620 millones contra 580 de entregables aceptados. Ese hallazgo no existía hasta que el esquema tuvo monto por entregable, y el monto entró porque esta misma prueba mostró el hueco."
     },
     "PRY-004": {
       "por_que": "El proyecto sin plan aprobado, que es el caso más común en una PMO real.",
@@ -113,6 +122,8 @@
   "totales": {
     "projects": 6,
     "no_baseline": 1,
-    "green_contradicted": 3
+    "green_contradicted": 3,
+    "products": 2,
+    "no_authority": 2
   }
 }

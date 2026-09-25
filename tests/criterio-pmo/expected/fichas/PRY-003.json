@@ -3,43 +3,43 @@
   "identity": {
     "code": {
       "value": "PRY-003",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     },
     "name": {
       "value": "Migración de cargas a nube",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     },
     "business_area": {
       "value": "Tecnología",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     },
     "sponsor": {
       "value": "Ricardo Salazar, CIO",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     },
     "manager": {
       "value": "Felipe Naranjo",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     },
     "committee": {
       "value": "Comité de Tecnología",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     },
     "authority": {
       "value": "hasta 80.000.000, sin cambios de alcance",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     }
@@ -47,19 +47,19 @@
   "declared": {
     "status": {
       "value": "amarillo",
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     },
     "progress_pct": {
       "value": 44,
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     },
     "as_of": {
       "value": "2026-09-20",
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     }
@@ -67,13 +67,13 @@
   "plan": {
     "start_date": {
       "value": "2026-03-16",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     },
     "end_date": {
       "value": "2026-12-18",
-      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
       "source_date": "2026-03-09",
       "state": "found"
     },
@@ -84,7 +84,7 @@
         "start_date": "2026-03-16",
         "end_date": "2026-12-18",
         "reason": "inicial",
-        "source": "00-gobierno/2026-03-09-acta-constitucion.md"
+        "source": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md"
       }
     ],
     "milestones": []
@@ -92,31 +92,31 @@
   "money": {
     "currency": {
       "value": "COP",
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     },
     "approved": {
       "value": 1400000000,
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     },
     "committed": {
       "value": 980000000,
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     },
     "executed": {
       "value": 640000000,
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     },
     "projection": {
       "value": 1420000000,
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     }
@@ -125,19 +125,19 @@
     {
       "name": {
         "value": "Nubetec S.A.S.",
-        "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+        "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
         "source_date": "2026-04-06",
         "state": "found"
       },
       "contract_ref": {
         "value": "OC-2214",
-        "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+        "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
         "source_date": "2026-04-06",
         "state": "found"
       },
       "invoiced": {
         "value": 620000000,
-        "source": "20-seguimiento/2026-09-20-informe-avance.md",
+        "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
         "source_date": "2026-09-20",
         "state": "found"
       },
@@ -145,25 +145,31 @@
         {
           "name": {
             "value": "Landing zone certificada",
-            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
             "source_date": "2026-04-06",
             "state": "found"
           },
           "due_date": {
             "value": "2026-05-29",
-            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "amount": {
+            "value": 200000000,
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
             "source_date": "2026-04-06",
             "state": "found"
           },
           "state": {
             "value": "accepted",
-            "source": "20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
+            "source": "PRY-003-migracion-nube/20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
             "source_date": "2026-06-05",
             "state": "found"
           },
           "evidence": {
             "value": "20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
-            "source": "20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
+            "source": "PRY-003-migracion-nube/20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
             "source_date": "2026-06-05",
             "state": "found"
           }
@@ -171,19 +177,25 @@
         {
           "name": {
             "value": "Migración de las primeras diez cargas",
-            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
             "source_date": "2026-04-06",
             "state": "found"
           },
           "due_date": {
             "value": "2026-07-31",
-            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "amount": {
+            "value": 300000000,
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
             "source_date": "2026-04-06",
             "state": "found"
           },
           "state": {
             "value": "delivered",
-            "source": "20-seguimiento/2026-09-20-informe-avance.md",
+            "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
             "source_date": "2026-09-20",
             "state": "found"
           },
@@ -197,19 +209,25 @@
         {
           "name": {
             "value": "Migración de las veinte cargas siguientes",
-            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
             "source_date": "2026-04-06",
             "state": "found"
           },
           "due_date": {
             "value": "2026-09-15",
-            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "amount": {
+            "value": 400000000,
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
             "source_date": "2026-04-06",
             "state": "found"
           },
           "state": {
             "value": "pending",
-            "source": "20-seguimiento/2026-09-20-informe-avance.md",
+            "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
             "source_date": "2026-09-20",
             "state": "found"
           },
@@ -223,19 +241,25 @@
         {
           "name": {
             "value": "Tablero de costos por carga",
-            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
             "source_date": "2026-04-06",
             "state": "found"
           },
           "due_date": {
             "value": "2026-08-29",
-            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "amount": {
+            "value": 80000000,
+            "source": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
             "source_date": "2026-04-06",
             "state": "found"
           },
           "state": {
             "value": "delivered",
-            "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+            "source": "PRY-003-migracion-nube/30-reuniones/2026-09-03-seguimiento-proveedor.md",
             "source_date": "2026-09-03",
             "state": "found"
           },
@@ -253,31 +277,31 @@
     {
       "who": {
         "value": "Paola Arias",
-        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source": "PRY-003-migracion-nube/30-reuniones/2026-09-03-seguimiento-proveedor.md",
         "source_date": "2026-09-03",
         "state": "found"
       },
       "what": {
         "value": "Entregar el cronograma de las veinte cargas siguientes",
-        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source": "PRY-003-migracion-nube/30-reuniones/2026-09-03-seguimiento-proveedor.md",
         "source_date": "2026-09-03",
         "state": "found"
       },
       "due_date": {
         "value": "2026-09-12",
-        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source": "PRY-003-migracion-nube/30-reuniones/2026-09-03-seguimiento-proveedor.md",
         "source_date": "2026-09-03",
         "state": "found"
       },
       "stated_on": {
         "value": "2026-09-03",
-        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source": "PRY-003-migracion-nube/30-reuniones/2026-09-03-seguimiento-proveedor.md",
         "source_date": "2026-09-03",
         "state": "found"
       },
       "state": {
         "value": "open",
-        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source": "PRY-003-migracion-nube/30-reuniones/2026-09-03-seguimiento-proveedor.md",
         "source_date": "2026-09-03",
         "state": "found"
       }
@@ -286,15 +310,50 @@
   "activity": {
     "last_document_date": {
       "value": "2026-09-20",
-      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
       "source_date": "2026-09-20",
       "state": "found"
     },
     "last_meeting_date": {
       "value": "2026-09-03",
-      "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+      "source": "PRY-003-migracion-nube/30-reuniones/2026-09-03-seguimiento-proveedor.md",
       "source_date": "2026-09-03",
       "state": "found"
     }
+  },
+  "meta": {
+    "record_updated": "2026-09-30",
+    "documents_seen": [
+      {
+        "path": "PRY-003-migracion-nube/00-gobierno/2026-03-09-acta-constitucion.md",
+        "hash": "9ee488f872f2057619f593cbc0502344c1f2cec6c5a2bb23611af8a92a05ca44",
+        "text_hash": "a289a321af733fc961e950e559a1d11fe639e250ebcbd3303549d061aa4c2932",
+        "date": "2026-03-09"
+      },
+      {
+        "path": "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214.md",
+        "hash": "26af8eb6eb4cfd30331c7523f5422cde765e85b55c74e366ff3e130064017e85",
+        "text_hash": "4fc4a68d949d8a2c95461071a270cbc343cf3cf31c3690d8fb06cf7ded8eff6b",
+        "date": "2026-04-06"
+      },
+      {
+        "path": "PRY-003-migracion-nube/20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
+        "hash": "bec341671fa1e8923dc3adf4e9714274e8f16e96c11faf000cc3c11b16b23fcf",
+        "text_hash": "011b4e478109520e4b6e93b91256ad29efa32c64c4518cc0a2e0ead422915b5a",
+        "date": "2026-06-05"
+      },
+      {
+        "path": "PRY-003-migracion-nube/20-seguimiento/2026-09-20-informe-avance.md",
+        "hash": "cbd9b24e3c48e38df27101f1fb4fcc5422915bb0d518804933e86cdb9b822e51",
+        "text_hash": "f9dccdb0e1367e0eff982e2eb254852419bd0f22d9870767e330a27e5d505ec3",
+        "date": "2026-09-20"
+      },
+      {
+        "path": "PRY-003-migracion-nube/30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "hash": "4cc3d52c40aa5515dccf039b785ead4e2a3295afce5788b9b77448412449d4e4",
+        "text_hash": "844673123b8f3b76c5479b6402e4ac4a55011f873ae43c2c713660d3f6339e37",
+        "date": "2026-09-03"
+      }
+    ]
   }
 }

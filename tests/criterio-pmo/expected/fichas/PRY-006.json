@@ -3,43 +3,43 @@
   "identity": {
     "code": {
       "value": "PRY-006",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     },
     "name": {
       "value": "Renovación del monitoreo SARLAFT",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     },
     "business_area": {
       "value": "Cumplimiento",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     },
     "sponsor": {
       "value": "Beatriz Ocampo, Oficial de Cumplimiento",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     },
     "manager": {
       "value": "Nicolás Ortega",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     },
     "committee": {
       "value": "Comité de Riesgos",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     },
     "authority": {
       "value": "hasta 25.000.000",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     }
@@ -47,19 +47,19 @@
   "declared": {
     "status": {
       "value": "verde",
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     },
     "progress_pct": {
       "value": 55,
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     },
     "as_of": {
       "value": "2026-08-12",
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     }
@@ -67,13 +67,13 @@
   "plan": {
     "start_date": {
       "value": "2026-02-02",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     },
     "end_date": {
       "value": "2026-10-30",
-      "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
       "source_date": "2026-01-26",
       "state": "found"
     },
@@ -84,7 +84,7 @@
         "start_date": "2026-02-02",
         "end_date": "2026-10-30",
         "reason": "inicial",
-        "source": "00-gobierno/2026-01-26-acta-constitucion.md"
+        "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md"
       }
     ],
     "milestones": []
@@ -92,31 +92,31 @@
   "money": {
     "currency": {
       "value": "COP",
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     },
     "approved": {
       "value": 1100000000,
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     },
     "committed": {
       "value": 700000000,
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     },
     "executed": {
       "value": 430000000,
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     },
     "projection": {
       "value": 1290000000,
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     }
@@ -125,43 +125,43 @@
     {
       "ref": {
         "value": "CC-07",
-        "source": "20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+        "source": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
         "source_date": "2026-07-08",
         "state": "found"
       },
       "requested_on": {
         "value": "2026-07-08",
-        "source": "20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+        "source": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
         "source_date": "2026-07-08",
         "state": "found"
       },
       "scope_impact": {
         "value": "se suman las tipologías de moneda extranjera",
-        "source": "20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+        "source": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
         "source_date": "2026-07-08",
         "state": "found"
       },
       "time_impact": {
         "value": "tres meses",
-        "source": "20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+        "source": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
         "source_date": "2026-07-08",
         "state": "found"
       },
       "cost_impact": {
         "value": "180.000.000 adicionales",
-        "source": "20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+        "source": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
         "source_date": "2026-07-08",
         "state": "found"
       },
       "decision": {
         "value": "approved",
-        "source": "20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+        "source": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
         "source_date": "2026-07-08",
         "state": "found"
       },
       "decided_by": {
         "value": "Comité de Riesgos",
-        "source": "20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+        "source": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
         "source_date": "2026-07-08",
         "state": "found"
       }
@@ -170,9 +170,32 @@
   "activity": {
     "last_document_date": {
       "value": "2026-08-12",
-      "source": "20-seguimiento/2026-08-12-informe-avance.md",
+      "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
     }
+  },
+  "meta": {
+    "record_updated": "2026-09-30",
+    "documents_seen": [
+      {
+        "path": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
+        "hash": "6037c31a9a76725ea5cf74229977ebd3831de90378bab6bc7867135fcc572f34",
+        "text_hash": "6e41488b4a781033759cc09d39e4ec4c99f4230f11e9878cc62d6ab5e4999a38",
+        "date": "2026-01-26"
+      },
+      {
+        "path": "PRY-006-sarlaft/20-seguimiento/2026-07-08-solicitud-cambio-cc-07.md",
+        "hash": "02823199db89574e0638daad6f04c91e7050d86fb54a9818d091049f7645ce81",
+        "text_hash": "5662562df75ce2fcf4dc7655b37f20b146514df156a9ac7c7eb066048fdb7068",
+        "date": "2026-07-08"
+      },
+      {
+        "path": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
+        "hash": "0f412e371c125a9158062bf5b0d8b5adddadad3353dd5922da2d276e15d89cd1",
+        "text_hash": "59e116a18a729e7c0c44f0c9f250590caf4e21926a4e95139a1583e392eb7f06",
+        "date": "2026-08-12"
+      }
+    ]
   }
 }

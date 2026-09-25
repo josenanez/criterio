@@ -126,18 +126,18 @@ Todos son configurables, y se cambian hablando, no editando archivos. **El silen
 
 **Todavía no hay corridas reales.** Cuando las haya, aquí van: cuántos documentos, cuántos proyectos, cuánto tomó, cuántos hallazgos y cuáles nadie había visto — con el procedimiento para reproducirlas.
 
-Lo que sí hay es una corrida sobre **material sintético con respuestas conocidas**: seis proyectos, veintiséis documentos, construidos para contener las fallas que contiene una carpeta real. Las catorce señales se disparan cuando deben, el proyecto sano no produce ni una alerta, y el conjunto se califica con 49 comprobaciones. Lo que esa corrida prueba, lo que no prueba, y los seis límites que destapó están en [`tests/criterio-pmo/EVIDENCIA.md`](../tests/criterio-pmo/EVIDENCIA.md).
+Lo que sí hay es una corrida sobre **material sintético con respuestas conocidas**: seis proyectos, veintiséis documentos, construidos para contener las fallas que contiene una carpeta real. Las diecisiete señales se disparan cuando deben, el proyecto sano no produce ni una alerta, y el conjunto se califica con 69 comprobaciones. Lo que esa corrida prueba, lo que no prueba, y los seis límites que destapó están en [`tests/criterio-pmo/EVIDENCIA.md`](../tests/criterio-pmo/EVIDENCIA.md).
 
 Lo verificado hoy es la máquina, no el valor:
 
 ```
 python3 plugins/criterio-pmo/scripts/pmo.py selftest    la aritmética
 python3 tests/criterio-pmo/generar.py                   el portafolio sintético
-python3 tests/criterio-pmo/grade.py                     49 comprobaciones contra las respuestas conocidas
+python3 tests/criterio-pmo/grade.py                     69 comprobaciones contra las respuestas conocidas
 python3 tests/coherencia.py                             que la documentación y el código digan lo mismo
 ```
 
-Veinticuatro resultados conocidos, incluidos los casos que se equivocan solos: el atraso contra la línea base original frente a la vigente con una replanificación de por medio, el presupuesto comprometido que se ve sano y no lo está, la replanificación que movió sesenta y un días cuando el comité autorizó treinta, y el verde que no explica nueve señales.
+30 resultados conocidos, incluidos los casos que se equivocan solos: el atraso contra la línea base original frente a la vigente con una replanificación de por medio, el presupuesto comprometido que se ve sano y no lo está, la replanificación que movió sesenta y un días cuando el comité autorizó treinta, y el verde que no explica nueve señales.
 
 ---
 

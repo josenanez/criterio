@@ -258,6 +258,18 @@ Aprobado 4.200.000.000. Comprometido 2.980.000.000. Ejecutado 2.410.000.000.
 Proyección al cierre 4.350.000.000.
 """)
 
+escribir(INPUT / "PRY-002-core-depositos/30-reuniones/2026-09-18-comite-tecnico.md", """
+# Comité técnico · Core de depósitos · 18 de septiembre de 2026
+
+**Asisten:** Luisa Cárdenas, Ricardo Salazar, Jorge Ruiz
+
+Se revisa el impacto de mover el servicio de abono a diciembre. Ricardo pide que se
+coordine con los proyectos que dependen de ese servicio.
+
+Luisa queda encargada de coordinar con el proyecto de originación digital. No se
+define fecha para esa coordinación.
+""")
+
 # ══════════════════════════════════════════════════════════════════════════
 # PRY-003 · Migración a nube
 # El proyecto de proveedores.
@@ -294,12 +306,12 @@ escribir(INPUT / "PRY-003-migracion-nube/00-gobierno/2026-04-06-contrato-oc-2214
 
 ## Entregables contractuales
 
-| Entregable | Fecha comprometida |
-|---|---|
-| Landing zone certificada | 2026-05-29 |
-| Migración de las primeras diez cargas | 2026-07-31 |
-| Migración de las veinte cargas siguientes | 2026-09-15 |
-| Tablero de costos por carga | 2026-08-29 |
+| Entregable | Fecha comprometida | Valor |
+|---|---|---|
+| Landing zone certificada | 2026-05-29 | 200.000.000 |
+| Migración de las primeras diez cargas | 2026-07-31 | 300.000.000 |
+| Migración de las veinte cargas siguientes | 2026-09-15 | 400.000.000 |
+| Tablero de costos por carga | 2026-08-29 | 80.000.000 |
 
 ## Facturación
 
@@ -561,6 +573,7 @@ FICHAS["PRY-001"] = {
         "name": campo("Originación digital de crédito de consumo",
                       "00-gobierno/2026-01-12-acta-constitucion.md", "2026-01-12"),
         "business_area": campo("Banca de Personas", "00-gobierno/2026-01-12-acta-constitucion.md", "2026-01-12"),
+        "product": campo("Crédito de consumo", "00-gobierno/2026-01-12-acta-constitucion.md", "2026-01-12"),
         # el acta dice María Restrepo; la minuta de septiembre dice Sandra Gil
         "sponsor": campo("Sandra Gil, VP de Operaciones",
                          "30-reuniones/2026-09-11-comite-tecnico.md", "2026-09-11", "ambiguous",
@@ -706,8 +719,20 @@ FICHAS["PRY-002"] = {
         "executed": campo(2410000000, "20-seguimiento/2026-09-25-informe-avance.md", "2026-09-25"),
         "projection": campo(4350000000, "20-seguimiento/2026-09-25-informe-avance.md", "2026-09-25"),
     },
+    "commitments": [
+        # sin fecha: el skill lo registra como `no_declarada`. No puede estar vencido,
+        # y hasta ahora tampoco se contaba.
+        {"who": campo("Luisa Cárdenas", "30-reuniones/2026-09-18-comite-tecnico.md", "2026-09-18"),
+         "what": campo("Coordinar con el proyecto de originación digital el cambio de fecha del abono",
+                       "30-reuniones/2026-09-18-comite-tecnico.md", "2026-09-18"),
+         "due_date": {"value": "no_declarada", "source": "30-reuniones/2026-09-18-comite-tecnico.md",
+                      "source_date": "2026-09-18", "state": "found"},
+         "stated_on": campo("2026-09-18", "30-reuniones/2026-09-18-comite-tecnico.md", "2026-09-18"),
+         "state": campo("open", "30-reuniones/2026-09-18-comite-tecnico.md", "2026-09-18")},
+    ],
     "activity": {
         "last_document_date": campo("2026-09-25", "20-seguimiento/2026-09-25-informe-avance.md", "2026-09-25"),
+        "last_meeting_date": campo("2026-09-18", "30-reuniones/2026-09-18-comite-tecnico.md", "2026-09-18"),
     },
 }
 
@@ -752,22 +777,26 @@ FICHAS["PRY-003"] = {
          "deliverables": [
              {"name": campo("Landing zone certificada", "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
               "due_date": campo("2026-05-29", "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
+              "amount": campo(200000000, "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
               "state": campo("accepted", "20-seguimiento/2026-06-05-acta-recibo-landing-zone.md", "2026-06-05"),
               "evidence": campo("20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
                                 "20-seguimiento/2026-06-05-acta-recibo-landing-zone.md", "2026-06-05")},
              {"name": campo("Migración de las primeras diez cargas",
                             "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
               "due_date": campo("2026-07-31", "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
+              "amount": campo(300000000, "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
               "state": campo("delivered", "20-seguimiento/2026-09-20-informe-avance.md", "2026-09-20"),
               "evidence": {"value": None, "source": None, "source_date": None, "state": "not_found"}},
              {"name": campo("Migración de las veinte cargas siguientes",
                             "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
               "due_date": campo("2026-09-15", "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
+              "amount": campo(400000000, "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
               "state": campo("pending", "20-seguimiento/2026-09-20-informe-avance.md", "2026-09-20"),
               "evidence": {"value": None, "source": None, "source_date": None, "state": "not_found"}},
              {"name": campo("Tablero de costos por carga",
                             "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
               "due_date": campo("2026-08-29", "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
+              "amount": campo(80000000, "00-gobierno/2026-04-06-contrato-oc-2214.md", "2026-04-06"),
               "state": campo("delivered", "30-reuniones/2026-09-03-seguimiento-proveedor.md", "2026-09-03"),
               "evidence": {"value": None, "source": None, "source_date": None, "state": "not_found"}},
          ]},
@@ -822,6 +851,7 @@ FICHAS["PRY-005"] = {
         "code": campo("PRY-005", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
         "name": campo("Débito contactless", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
         "business_area": campo("Medios de Pago", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
+        "product": campo("Tarjeta débito", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
         "sponsor": campo("Sandra Gil, VP de Operaciones",
                          "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
         "manager": campo("Paula Betancur", "00-gobierno/2026-05-04-acta-constitucion.md", "2026-05-04"),
@@ -949,7 +979,8 @@ HALLAZGOS = {
             "por_que": "Declara verde en agosto y la evidencia no lo sostiene. Es el caso central.",
             "senales": ["budget_committed", "commitment_overdue", "contradiction",
                         "declaration_stale", "declared_vs_evidence", "milestone_overdue",
-                        "rebaseline_unauthorized", "silent", "variance_time"],
+                        "commitment_rescheduled", "rebaseline_unauthorized", "silent",
+                        "variance_time"],
             "valores": {
                 "days_silent": 19,
                 "replans": 1,
@@ -957,6 +988,8 @@ HALLAZGOS = {
                 "slip_vs_current_days": 0,
                 "milestones_overdue": 1,
                 "commitments_overdue": 1,
+                "commitments_rescheduled": 1,
+                "commitments_undated": 0,
                 "money.pct_committed": 95.2,
                 "money.available_real": 88000000,
                 # la proyección se pasa del aprobado, pero solo 3,2%: bajo el umbral
@@ -972,8 +1005,10 @@ HALLAZGOS = {
         },
         "PRY-002": {
             "por_que": "Declara amarillo, y se movió mucho. El amarillo no dispara la alerta de brecha.",
-            "senales": ["variance_time"],
+            "senales": ["commitment_undated", "variance_time"],
             "valores": {
+                "commitments_undated": 1,
+                "commitments_overdue": 0,
                 "days_silent": 5,
                 "replans": 0,
                 "slip_vs_original_days": 91,
@@ -991,19 +1026,22 @@ HALLAZGOS = {
         "PRY-003": {
             "por_que": "El proyecto de proveedores.",
             "senales": ["commitment_overdue", "vendor_accepted_without_evidence",
-                        "vendor_deliverable_late"],
+                        "vendor_deliverable_late", "vendor_invoiced_over_accepted"],
             "valores": {
                 "days_silent": 10,
                 "commitments_overdue": 1,
                 "vendors.0.late": 1,
                 "vendors.0.accepted_without_evidence": 2,
                 "vendors.0.accepted": 3,
+                "vendors.0.amount_accepted": 580000000,
+                "vendors.0.amounts_declared": 4,
             },
-            "comentario": ("`vendor_invoiced_without_delivery` NO aparece: hay facturación y también "
-                           "hay entregables aceptados. La pregunta de Finanzas —factura contra una "
-                           "migración que no empezó— es un hallazgo que esta versión del cálculo no "
-                           "detecta, porque el esquema no tiene monto por entregable. Queda "
-                           "declarado como límite conocido, no como falla del grader."),
+            "comentario": ("`vendor_invoiced_without_delivery` NO aparece, y está bien: hay "
+                           "facturación y también entregables aceptados. Lo que sí aparece es "
+                           "`vendor_invoiced_over_accepted`, que es la pregunta que Finanzas hace "
+                           "en la minuta: se facturaron 620 millones contra 580 de entregables "
+                           "aceptados. Ese hallazgo no existía hasta que el esquema tuvo monto por "
+                           "entregable, y el monto entró porque esta misma prueba mostró el hueco."),
         },
         "PRY-004": {
             "por_que": "El proyecto sin plan aprobado, que es el caso más común en una PMO real.",
@@ -1058,16 +1096,92 @@ HALLAZGOS = {
         "projects": 6,
         "no_baseline": 1,
         "green_contradicted": 3,
+        "products": 2,
+        "no_authority": 2,
     },
 }
 
 # ══════════════════════════════════════════════════════════════════════════
+
+# ══════════════════════════════════════════════════════════════════════════
+# Las citas y el registro de documentos leídos
+#
+# Una cita tiene que ser resoluble desde la raíz de documentación, no desde la
+# carpeta del proyecto: es lo que permite que `index` cruce lo que hay en disco
+# contra lo que las fichas dicen haber leído, con un solo join. Aquí se le pone el
+# prefijo de la carpeta a cada `source`, y de ahí sale `meta.documents_seen` con el
+# hash de bytes y el hash del texto de cada documento citado.
+# ══════════════════════════════════════════════════════════════════════════
+
+CARPETAS = {
+    "PRY-001": "PRY-001-originacion-digital",
+    "PRY-002": "PRY-002-core-depositos",
+    "PRY-003": "PRY-003-migracion-nube",
+    "PRY-004": "PRY-004-open-banking",
+    "PRY-005": "PRY-005-debito-contactless",
+    "PRY-006": "PRY-006-sarlaft",
+}
+
+
+def prefijar(nodo, carpeta):
+    """Vuelve toda cita relativa a la raíz de documentación."""
+    if isinstance(nodo, dict):
+        for clave in ("source", "evidence"):
+            v = nodo.get(clave)
+            if isinstance(v, str) and v and not v.startswith(carpeta) and "/" in v:
+                nodo[clave] = f"{carpeta}/{v}"
+        for v in nodo.values():
+            prefijar(v, carpeta)
+    elif isinstance(nodo, list):
+        for v in nodo:
+            prefijar(v, carpeta)
+
+
+def documentos_leidos(ficha, carpeta):
+    """El registro de lo leído, con los dos hashes. Sale de las citas de la ficha."""
+    import importlib.util
+    ruta_pmo = RAIZ.parent.parent / "plugins" / "criterio-pmo" / "scripts" / "pmo.py"
+    spec = importlib.util.spec_from_file_location("pmo", ruta_pmo)
+    pmo = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(pmo)
+
+    citas = set()
+
+    def recoger(nodo):
+        if isinstance(nodo, dict):
+            v = nodo.get("source")
+            if isinstance(v, str) and v.startswith(carpeta):
+                citas.add(v)
+            for x in nodo.values():
+                recoger(x)
+        elif isinstance(nodo, list):
+            for x in nodo:
+                recoger(x)
+
+    recoger(ficha)
+    salida = []
+    for cita in sorted(citas):
+        archivo = INPUT / cita
+        if not archivo.exists():
+            continue
+        salida.append({
+            "path": cita,
+            "hash": pmo.hash_bytes(archivo),
+            "text_hash": pmo.hash_texto(archivo),
+            "date": archivo.name[:10] if archivo.name[:4].isdigit() else None,
+        })
+    return salida
+
 
 if __name__ == "__main__":
     for carpeta in (EXPECTED / "fichas",):
         if carpeta.exists():
             shutil.rmtree(carpeta)
     for codigo, ficha in FICHAS.items():
+        carpeta = CARPETAS[codigo]
+        prefijar(ficha, carpeta)
+        ficha["meta"] = {"record_updated": HOY,
+                         "documents_seen": documentos_leidos(ficha, carpeta)}
         escribir(EXPECTED / "fichas" / f"{codigo}.json",
                  json.dumps(ficha, ensure_ascii=False, indent=2))
     escribir(EXPECTED / "hallazgos.json", json.dumps(HALLAZGOS, ensure_ascii=False, indent=2))

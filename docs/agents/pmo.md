@@ -13,7 +13,7 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 | **No escribe** | La declaración de ningún gerente |
 | **Lee** | Todas las fichas |
 | **Estado** | Disponible. Clase A cerrada; la B a medias |
-| **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) — corrida sintética, 49 comprobaciones |
+| **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) — corrida sintética, 69 comprobaciones |
 
 ---
 
