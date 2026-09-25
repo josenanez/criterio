@@ -93,6 +93,57 @@ programador del sistema en Claude Code. **Y si no quieren corridas desatendidas*
 banco es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo
 que se pierde es que avise sin que nadie pregunte.
 
+## ¿Quieres que tu patrocinador vea esto sin pedírtelo?
+
+![El servidor: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
+
+Hasta aquí el informe son archivos en tu equipo. **Un patrocinador no abre una carpeta
+de archivos**: abre un enlace, o no abre nada. Para eso está el servidor, que es la
+capacidad adicional de esta familia.
+
+```
+/pmo-server
+```
+
+Levanta una página con **dos puertas**, y la gracia está en que no son la misma vista
+recortada: al comité le toca *lo que necesita una decisión*; a quien va a actuar le
+toca *el portafolio campo por campo, con la cita de cada dato*. La portada dice además
+de cuándo es el informe, que es lo que nadie sabe cuando le reenvían un PDF.
+
+Y tiene una cosa más, que es la que cambia cómo se usa: **quien mira puede dejarle una
+pregunta escrita al agente.** No le contesta en el momento —el agente no está
+corriendo— pero la pregunta queda en la cola, y la siguiente vez que Plomada despierta
+la atiende. *«Esto no coincide con lo que yo sé»* es la petición de más valor del
+sistema: es una persona diciéndote qué documento falta.
+
+### Qué hay que pedirle a tu organización
+
+Poco, y conviene tenerlo en una lista antes de ir a pedirlo:
+
+| Qué se pide | Por qué |
+|---|---|
+| Un equipo dentro de la red y un puerto | Es donde vive. **No necesita salir a internet** |
+| Publicarlo detrás del control de acceso que ya usan | Ver abajo |
+| Que ese equipo siga encendido | Si se apaga, el enlace deja de funcionar |
+
+Y lo que **no** hay que pedir, que suele ser la mitad de la conversación: no necesita
+base de datos, ni cuenta de servicio con permisos, ni salida a internet, ni tocar
+ninguna de tus carpetas de documentación.
+
+### Lo que el servidor no hace
+
+- **No calcula.** Sirve páginas que ya estaban escritas en disco. Abrir la página no
+  dispara ninguna lectura de documentos, y por eso dos personas ven exactamente lo
+  mismo.
+- **No escribe ninguna ficha.** Lo único que crea es la petición, en una carpeta suya.
+  El camino de escritura hacia el portafolio **no existe en ese programa**.
+- **No autentica a nadie, y es a propósito.** Un servidor de cien líneas sobre la
+  librería estándar no va a autenticar mejor que el proxy que tu organización ya
+  tiene, y prometer que sí sería exactamente lo que este plugin no hace. Por eso
+  escucha solo en tu equipo salvo que se lo digas, y cuando se lo dices, lo advierte.
+- **No manda nada.** No hay correo ni notificación. Si el informe tiene que llegar a un
+  buzón, hoy lo reenvía una persona.
+
 ## Qué queda configurado
 
 Lo escribe `/pmo-setup` a partir de lo que respondiste, en tu equipo y en un archivo tuyo:
@@ -147,12 +198,13 @@ si vale extraer y otro para saber si vale releer. Y
 [`scripts/informe.py`](scripts/informe.py) arma el informe impreso a partir de lo que los
 otros dos produjeron, sin volver a leer un solo documento.
 
-## Los dieciséis comandos
+## Los diecisiete comandos
 
 | Comando | Qué hace |
 |---|---|
 | `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
 | `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
+| `/pmo-server` | Expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
 | `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
 | `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
 | `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
@@ -204,9 +256,10 @@ la registra como restricción o como riesgo, y no opina sobre ella.
 python3 scripts/pmo.py selftest          la aritmética y la cadencia
 python3 scripts/texto.py --selftest      la conversión de documentos
 python3 scripts/informe.py --selftest    el informe: cifras, concordancia y nombres
+python3 scripts/servidor.py --selftest   el servidor: qué sirve y qué nunca toca
 ```
 
-Los dos corren con la librería estándar, sin instalar nada. Sobre material sintético con
+Los tres corren con la librería estándar, sin instalar nada. Sobre material sintético con
 respuestas conocidas hay un grader y el resultado de la última corrida, con lo que prueba y
 lo que no: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
 

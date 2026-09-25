@@ -131,7 +131,16 @@ for cmd in sorted(comandos):
 # Un comando no se documenta a sí mismo: su propio archivo sale de la búsqueda.
 # La primera versión no lo excluía y daba por documentado cualquier comando nuevo,
 # que es el falso negativo más caro que puede tener un verificador.
-faltantes = {m for m in re.findall(r"`/([a-z][a-z-]{3,30})`", todo)} - comandos
+# Las rutas del servidor se escriben igual que un comando —`/decisiones`— y no lo son.
+# Se importan de donde están declaradas, para que una ruta nueva no obligue a nadie a
+# escribir una excepción aquí, y un comando nuevo sí siga fallando.
+SRV = PLUGIN / "scripts" / "servidor.py"
+rutas = set()
+if SRV.exists():
+    sys.path.insert(0, str(SRV.parent))
+    rutas = {r.lstrip("/").split("/")[0] for r in __import__("servidor").RUTAS}
+
+faltantes = {m for m in re.findall(r"`/([a-z][a-z-]{3,30})`", todo)} - comandos - rutas
 for m in sorted(faltantes):
     decir(FALLA, f"la documentación promete /{m} y el comando no existe")
 

@@ -66,7 +66,7 @@ mira, y eso ya pasó una vez con la lista de señales.
 | **El inventario** | Los 15 comandos y los 10 skills, con lo que hace cada uno | el [README del plugin](../../plugins/criterio-pmo/README.md), porque el plugin se distribuye solo y su README tiene que sostenerse solo |
 | **El diseño** | El flujo, las tres clases, qué es de las personas, qué falta | esta hoja |
 
-Y tres scripts, que son lo único que no opina:
+Y cuatro scripts, que son lo único que no opina:
 
 **`scripts/texto.py`** convierte el documento a Markdown para que se pueda leer barato y para
 que el hash del texto sea estable. **No extrae campos.** `.docx`, `.xlsx` y `.pptx` se leen
@@ -94,6 +94,23 @@ técnico, y quien lo lee supone que así se dice. En el informe sale *«la evide
 Motor de decisión certificado»*. Que ninguna ruta sobreviva sin traducir lo comprueba
 `informe.py --selftest`, y que ninguna señal nueva salga en inglés lo comprueba
 `tests/coherencia.py`.
+
+**`scripts/servidor.py`** es cómo el informe llega a quien no abre una carpeta. Sirve
+las páginas que `informe.py` ya escribió, y **no calcula nada**: abrir la página no
+dispara ninguna lectura de documentos, y por eso dos personas ven lo mismo. Si
+calculara al vuelo tendría que leer documentos, y el portafolio dejaría de ser uno
+solo.
+
+Lo único que escribe es la **cola de peticiones**, en una carpeta suya. Alguien deja
+una pregunta y el agente la atiende al despertar. Esa cola es la única cosa que rompe
+el silencio de `/pmo-wake` sin ser aritmética de fechas, porque una persona preguntó.
+**El camino de escritura hacia la ficha no existe en ese archivo**, y el selftest lo
+comprueba: escribe una petición y verifica que la ficha no cambió.
+
+No autentica a nadie, a propósito. Un servidor de cien líneas sobre la librería
+estándar no va a autenticar mejor que el proxy que el banco ya tiene, y prometerlo
+sería lo que este plugin no hace. Escucha solo en el equipo salvo que se le diga lo
+contrario, y cuando se le dice, lo advierte.
 
 ---
 
@@ -170,15 +187,19 @@ primero, en este orden:
 
 ## Lo que falta
 
-**El servidor.** Es la capacidad siguiente de esta familia y tiene su propio diseño. El
-informe ya existe como objeto —`scripts/informe.py`, con el diseño base del producto y
-listo para imprimir—; lo que falta es **cómo llega a quien no abre una carpeta**. Hoy son
-archivos en el disco de quien corrió el comando.
+**`report.language`.** El informe sale hoy solo en castellano. Las piezas gráficas y
+los dos README ya están en los dos idiomas; el informe no, y esa es la asimetría que
+queda.
 
-**`report.language` y `report.recipients`**, las dos claves que quedan sin leer del lado de
-la PMO. El informe sale hoy solo en castellano y no sabe a quién va dirigido. La segunda no
-se resuelve sin el servidor: mandar correos desde el plugin es una facultad que este agente
-no va a tener.
+**`report.recipients`**, que el servidor deja a medias a propósito. Hoy el informe se
+puede *consultar* por enlace, y eso resuelve al patrocinador que entra a mirar. No
+resuelve que el informe *llegue* a un buzón sin que nadie lo reenvíe, y **eso no se va a
+resolver dándole correo al plugin**: mandar correos en nombre de alguien es una facultad
+que este agente no va a tener. Si tiene que llegar solo, lo manda un mecanismo de la
+organización leyendo `/estado.json`, no Plomada.
+
+**Autenticación en el servidor**, que está decidido que no la trae y conviene releerlo
+cada tanto por si la decisión deja de ser la correcta. Ver arriba.
 
 **OCR para el PDF escaneado.** Hoy un escaneo sin capa de texto se declara ilegible, que es
 la conducta correcta y no la útil. Cuando entre, entra marcado: con OCR el texto pasa a ser

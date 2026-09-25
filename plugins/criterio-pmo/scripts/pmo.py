@@ -630,6 +630,17 @@ def due(config: Path, state: Path, today: dt.date) -> dict:
         if vencido("confirmation", dias_conf):
             toca.append("confirmation")
 
+    # 4 · las peticiones que dejó alguien en el servidor
+    # No es cadencia: es una bandeja. Pero entra por aquí porque `due` es lo único
+    # que el agente mira al despertar, y una cola que nadie lee es peor que no
+    # tenerla — alguien preguntó y se quedó esperando.
+    abiertas = peticiones_abiertas(state)
+    if abiertas:
+        detalle["requests"] = {"open": len(abiertas),
+                               "oldest": abiertas[0].get("recibida"),
+                               "subjects": sorted({r.get("asunto") for r in abiertas})}
+        toca.append("requests")
+
     # cuándo hay que volver a mirar, si hoy no toca nada
     proximos = []
     if ciclo.get("daily_sweep"):
@@ -649,6 +660,35 @@ def due(config: Path, state: Path, today: dt.date) -> dict:
         "detail": detalle,
         "next_wake": min(futuros).isoformat() if futuros else None,
     }
+
+
+def peticiones_abiertas(state: Path) -> list:
+    """Las peticiones que el servidor dejó y nadie ha respondido, de la más vieja
+    a la más nueva. El agente no las escribe: solo las lee y las marca."""
+    carpeta = state / "peticiones"
+    if not carpeta.is_dir():
+        return []
+    salida = []
+    for f in sorted(carpeta.glob("*.json")):
+        try:
+            r = json.loads(f.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        if not r.get("respondida"):
+            r["_file"] = str(f)
+            salida.append(r)
+    return salida
+
+
+def responder_peticion(state: Path, ident: str, today: dt.date) -> dict:
+    """Marca una petición como respondida. Lo único que el agente le escribe."""
+    f = state / "peticiones" / f"{ident}.json"
+    if not f.exists():
+        raise SystemExit(f"no existe la petición {ident}")
+    r = json.loads(f.read_text(encoding="utf-8"))
+    r["respondida"] = today.isoformat()
+    f.write_text(json.dumps(r, ensure_ascii=False, indent=2), encoding="utf-8")
+    return r
 
 
 def ran(state: Path, que: str, today: dt.date) -> dict:
@@ -1020,6 +1060,19 @@ def _selftest_cadencia():
     vacio.write_text(json.dumps({"cycle": {}, "confirmation": {}}), encoding="utf-8")
     d4 = due(vacio, tmp, hoy)
 
+    # La cola del servidor. Una petición que nadie lee es peor que no tenerla:
+    # alguien preguntó y se quedó esperando. Por eso rompe el silencio.
+    (tmp / "peticiones").mkdir(exist_ok=True)
+    (tmp / "peticiones" / "p1.json").write_text(json.dumps(
+        {"id": "p1", "recibida": "2026-09-29T10:00:00+00:00", "asunto": "explicar",
+         "texto": "¿de dónde sale el verde?", "respondida": None}), encoding="utf-8")
+    (tmp / "peticiones" / "p0.json").write_text(json.dumps(
+        {"id": "p0", "recibida": "2026-09-20T10:00:00+00:00", "asunto": "revisar",
+         "texto": "ya contestada", "respondida": "2026-09-21"}), encoding="utf-8")
+    d5 = due(vacio, tmp, hoy)
+    responder_peticion(tmp, "p1", hoy)
+    d6 = due(vacio, tmp, hoy)
+
     salida = [
         ("cadencia · toca hoy", sorted(d1["due"]), ["confirmation", "report", "sweep"]),
         ("cadencia · el comité rueda", d1["detail"]["committee"]["next"], "2026-10-01"),
@@ -1029,6 +1082,10 @@ def _selftest_cadencia():
         ("cadencia · dos semanas después", sorted(d3["due"]), ["report", "sweep"]),
         ("cadencia · sin configurar, nada", d4["due"], []),
         ("cadencia · sin configurar, sin cita", d4["next_wake"], None),
+        ("cola · una petición abierta rompe el silencio", d5["due"], ["requests"]),
+        ("cola · dice cuántas y desde cuándo", d5["detail"]["requests"]["open"], 1),
+        ("cola · la respondida no cuenta", [r["id"] for r in peticiones_abiertas(tmp)], []),
+        ("cola · respondida, vuelve a callarse", d6["quiet"], True),
     ]
     shutil.rmtree(tmp)
     return salida
@@ -1047,13 +1104,16 @@ def load_thresholds(config: Path | None) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
     ap.add_argument("action", choices=["init", "config", "due", "ran", "index",
-                                       "compute", "snapshot", "diff", "selftest"])
+                                       "compute", "snapshot", "diff", "requests",
+                                       "answered", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
                     help="carpeta de documentación, para `index`")
     ap.add_argument("--what", default=None,
-                    help="qué se corrió: sweep | report | confirmation, para `ran`")
+                    help="qué se corrió: sweep | report | confirmation | requests, para `ran`")
+    ap.add_argument("--id", default=None,
+                    help="identificador de la petición, para `answered`")
     ap.add_argument("--against", type=Path, default=None)
     ap.add_argument("--today", default=None)
     args = ap.parse_args()
@@ -1084,6 +1144,13 @@ def main() -> int:
         if not args.what:
             ap.error("--what es obligatorio para ran")
         print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
+    elif args.action == "requests":
+        print(json.dumps(peticiones_abiertas(args.state), ensure_ascii=False, indent=2))
+    elif args.action == "answered":
+        if not args.id:
+            ap.error("--id es obligatorio para answered")
+        print(json.dumps(responder_peticion(args.state, args.id, today),
+                         ensure_ascii=False, indent=2))
     elif args.action == "index":
         if not args.docs:
             ap.error("--docs es obligatorio para index")

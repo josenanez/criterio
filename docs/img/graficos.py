@@ -168,6 +168,23 @@ T = {
                            'Agregar marketplace desde GitHub', 'josenanez-company/criterio'],
         'i_pasos_code': ['/plugin marketplace add josenanez-company/criterio', '/plugin install criterio-pmo@criterio'],
         'i_luego': 'Y después, una sola cosa:',
+        's_ante': 'El servidor',
+        's_tit': 'El informe, para quien no abre una carpeta',
+        's_dentro': ['Tus documentos', 'Plomada', 'El informe'],
+        's_dentro_sub': [
+            'Como estén, donde estén. El agente los lee; nadie más.',
+            'Calcula, y escribe la ficha de cada proyecto.',
+            'Páginas ya escritas en disco. Dos vistas y una por proyecto.'],
+        's_srv': 'El servidor',
+        's_srv_sub': 'Sirve lo que ya está escrito. No calcula nada al abrir la página.',
+        's_lee': 'solo lee',
+        's_lado_dentro': 'Donde el agente trabaja',
+        's_lado_fuera': 'Donde está la gente',
+        's_quien': ['El comité', 'Quien va a actuar'],
+        's_que': ['Lo que necesita una decisión.',
+                  'Campo por campo, con la cita de cada dato.'],
+        's_vuelta': 'Una petición, que el agente lee al despertar',
+        's_nota': 'No autentica a nadie, y es a propósito: se publica detrás del control de acceso que la organización ya tiene. Lo único que escribe es la petición, en su propia carpeta.',
     },
     'en': {
         'pmo_fn': 'Project management office',
@@ -229,6 +246,23 @@ T = {
                            'Add marketplace from GitHub', 'josenanez-company/criterio'],
         'i_pasos_code': ['/plugin marketplace add josenanez-company/criterio', '/plugin install criterio-pmo@criterio'],
         'i_luego': 'And then, one thing:',
+        's_ante': 'The server',
+        's_tit': 'The report, for whoever does not open a folder',
+        's_dentro': ['Your documents', 'Plomada', 'The report'],
+        's_dentro_sub': [
+            'However they are. Only the agent reads them.',
+            'Computes, and writes each project record.',
+            'Pages already on disk. Two views, one per project.'],
+        's_srv': 'The server',
+        's_srv_sub': 'Serves what is already written. It computes nothing.',
+        's_lee': 'reads only',
+        's_lado_dentro': 'Where the agent works',
+        's_lado_fuera': 'Where the people are',
+        's_quien': ['The committee', 'Whoever will act'],
+        's_que': ['What needs a decision.',
+                  'Field by field, with every citation.'],
+        's_vuelta': 'A request, read when the agent wakes',
+        's_nota': 'It authenticates nobody, and that is deliberate: it is published behind the access control the organisation already has. The only thing it writes is the request, in a folder of its own.',
     },
 }
 
@@ -503,6 +537,116 @@ def instalacion(t):
 
 # ══════════════════════════════════════════════════════════════════ salida
 
+# ══════════════════════════════════════════════ el servidor
+
+def servidor(t):
+    """Dónde está la frontera.
+
+    La pieza tiene un solo trabajo: que se vea que el servidor está del lado de
+    afuera, que lo único que cruza hacia adentro es una pregunta escrita, y que
+    nada vuelve a calcularse cuando alguien abre la página.
+
+    Las cajas no se dimensionan a ojo. `parrafo` devuelve dónde terminó el texto
+    y aquí se comprueba contra el borde: así un texto más largo en inglés falla al
+    generar la pieza y no en la página ya publicada.
+    """
+    W, H, M = 1680, 800, 72
+    img = Image.new('RGB', (W, H), NEGRO)
+    d = ImageDraw.Draw(img)
+    titulo(d, (M, 66), t['s_ante'], t['s_tit'], W - 2 * M, 46)
+
+    # Ritmo vertical declarado.
+    FILA, ALTO = 276, 190
+    FRONT, FRONT_FIN = FILA - 42, FILA + ALTO + 96
+    LADOS = FRONT_FIN + 20
+    VUELTA = FILA + ALTO + 72
+    PIE = 700
+
+    col, hueco = 230, 20
+    xs = [M + i * (col + hueco) for i in range(3)]
+    frontera = xs[2] + col + 48
+    x_srv = frontera + 48
+    col_srv = 250
+    x_aud = x_srv + col_srv + 36
+    col_aud = W - M - x_aud
+
+    def caja(x, ancho, top, alto, nombre, sub, acento=False):
+        d.rounded_rectangle([(x, top), (x + ancho, top + alto)], radius=10,
+                            fill=PANEL if acento else None,
+                            outline=ORO if acento else FILETE_FUERTE, width=2)
+        d.text((x + 20, top + 22), nombre, font=f(M5, 27), fill=ORO if acento else CREMA)
+        fin = parrafo(d, (x + 20, top + 68), sub, f(R, 20), APAGADO, ancho - 40, 28)
+        assert fin <= top + alto - 12, f'«{nombre}» se sale de su caja por {fin - top - alto}px'
+
+    for i, (nombre, sub) in enumerate(zip(t['s_dentro'], t['s_dentro_sub'])):
+        caja(xs[i], col, FILA, ALTO, nombre, sub)
+        if i < 2:
+            cx = xs[i] + col
+            d.line([(cx + 5, FILA + ALTO // 2), (cx + hueco - 5, FILA + ALTO // 2)],
+                   fill=FILETE_FUERTE, width=2)
+
+    caja(x_srv, col_srv, FILA, ALTO, t['s_srv'], t['s_srv_sub'], acento=True)
+
+    # la frontera, y lo que significa cada lado
+    for y in range(FRONT, FRONT_FIN, 16):
+        d.line([(frontera, y), (frontera, min(y + 9, FRONT_FIN))], fill=ORO, width=2)
+    fu = f(M6, 21)
+    for texto, x0, x1, color in ((t['s_lado_dentro'], M, frontera - 14, APAGADO),
+                                 (t['s_lado_fuera'], frontera + 14, W - M, ORO)):
+        an = d.textlength(texto, font=fu)
+        d.text(((x0 + x1) / 2 - an / 2, LADOS), texto, font=fu, fill=color)
+
+    # lo único que el servidor hace hacia adentro: leer el informe ya escrito
+    ymid = FILA + ALTO // 2
+    d.line([(xs[2] + col + 4, ymid), (x_srv - 4, ymid)], fill=ORO, width=2)
+    d.polygon([(xs[2] + col + 14, ymid - 7), (xs[2] + col + 14, ymid + 7),
+               (xs[2] + col + 2, ymid)], fill=ORO)
+    # El rótulo va encima de la flecha, no sobre ella: borrar un trozo de flecha
+    # para escribir dentro se comió la flecha entera la primera vez.
+    fu = f(R, 18)
+    an = d.textlength(t['s_lee'], font=fu)
+    hueco_srv = x_srv - (xs[2] + col)
+    assert an <= hueco_srv - 8, f'«{t["s_lee"]}» no cabe en el hueco por {an - hueco_srv + 8:.0f}px'
+    cx = (xs[2] + col + x_srv) / 2
+    # El recorte llega hasta 14px por encima de la flecha: despeja la frontera
+    # detrás del rótulo sin tocar la flecha, que va más abajo.
+    d.rectangle([(cx - an / 2 - 6, ymid - 36), (cx + an / 2 + 6, ymid - 12)], fill=NEGRO)
+    d.text((cx - an / 2, ymid - 32), t['s_lee'], font=fu, fill=ORO)
+
+    # las dos audiencias, y su texto comprobado contra el borde
+    ALTO_AUD = (ALTO - 20) // 2
+    for i, (quien, que) in enumerate(zip(t['s_quien'], t['s_que'])):
+        top = FILA + i * (ALTO_AUD + 20)
+        d.rounded_rectangle([(x_aud, top), (x_aud + col_aud, top + ALTO_AUD)],
+                            radius=10, outline=FILETE_FUERTE, width=2)
+        track(d, (x_aud + 20, top + 16), quien.upper(), f(M6, 17), ORO, 2.6)
+        fin = parrafo(d, (x_aud + 20, top + 44), que, f(R, 20), CREMA, col_aud - 40, 28)
+        assert fin <= top + ALTO_AUD - 10, f'«{quien}» se sale de su caja por {fin - top - ALTO_AUD}px'
+        d.line([(x_srv + col_srv + 6, top + ALTO_AUD // 2),
+                (x_aud - 6, top + ALTO_AUD // 2)], fill=FILETE_FUERTE, width=2)
+
+    # la petición: lo único que va hacia atrás, y no llega sola ni llega ahora
+    x_sale, x_entra = x_srv + 36, xs[1] + 40
+    d.line([(x_sale, FILA + ALTO + 6), (x_sale, VUELTA)], fill=APAGADO, width=2)
+    d.line([(x_entra, VUELTA), (x_sale, VUELTA)], fill=APAGADO, width=2)
+    d.line([(x_entra, FILA + ALTO + 16), (x_entra, VUELTA)], fill=APAGADO, width=2)
+    d.polygon([(x_entra - 6, FILA + ALTO + 18), (x_entra + 6, FILA + ALTO + 18),
+               (x_entra, FILA + ALTO + 5)], fill=APAGADO)
+    # El rótulo se alinea a la izquierda a propósito: centrado pisa la frontera,
+    # y borrar un trozo de la frontera para escribir encima deja un hueco que
+    # parece un error de dibujo.
+    fu = f(R, 20)
+    an = d.textlength(t['s_vuelta'], font=fu)
+    x0 = x_entra + 16
+    assert x0 + an < frontera - 20, 'el rótulo de la petición pisa la frontera'
+    d.rectangle([(x0 - 10, VUELTA - 14), (x0 + an + 10, VUELTA + 14)], fill=NEGRO)
+    d.text((x0, VUELTA - 12), t['s_vuelta'], font=fu, fill=APAGADO)
+
+    d.line([(M, PIE + 14), (M + 64, PIE + 14)], fill=ORO, width=3)
+    parrafo(d, (M + 84, PIE), t['s_nota'], f(M5, 24), APAGADO, W - 2 * M - 104, 33)
+    return img
+
+
 def guardar(img, idioma, nombre):
     carpeta = os.path.join(AQUI, idioma)
     os.makedirs(carpeta, exist_ok=True)
@@ -524,3 +668,4 @@ if __name__ == '__main__':
         guardar(funciona(t), idioma, 'como-funciona.png')
         guardar(cadencia(t), idioma, 'cadencia.png')
         guardar(instalacion(t), idioma, 'instalacion.png')
+        guardar(servidor(t), idioma, 'servidor.png')

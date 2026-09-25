@@ -10,16 +10,17 @@ documentación real no existen todavía, y hasta que existan no se inventan.
 ## Lo que se corre, y qué verifica cada cosa
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest       38 resultados · la aritmética
+python3 plugins/criterio-pmo/scripts/pmo.py selftest       42 resultados · la aritmética
 python3 plugins/criterio-pmo/scripts/texto.py --selftest   12 resultados · la conversión
 python3 plugins/criterio-pmo/scripts/informe.py --selftest 15 resultados · el informe
+python3 plugins/criterio-pmo/scripts/servidor.py --selftest 21 resultados · el servidor
 python3 tests/criterio-pmo/generar.py                      28 documentos en 6 proyectos
 python3 tests/criterio-pmo/grade.py                        69 comprobaciones
 python3 tests/coherencia.py                                documentación contra código
 python3 scripts/validate_plugins.py                        estructura del market
 ```
 
-Los siete en verde. Sin dependencias: librería estándar de Python 3.10 o superior.
+Los ocho en verde. Sin dependencias: librería estándar de Python 3.10 o superior.
 
 ## El portafolio sintético
 
@@ -118,6 +119,27 @@ Los dos primeros ya no pueden volver: `informe.py --selftest` los fija. El terce
 La cuarta clase —una señal nueva que salga con su nombre en inglés— la fija
 `tests/coherencia.py`, que importa la tabla de nombres y la compara con las señales que
 `pmo.py` calcula.
+
+## El servidor, y la frontera que no cruza
+
+Un servidor que expone un portafolio de proyectos tiene dos formas de fallar que no se
+ven mirando la pantalla: **servir un archivo que no es del informe**, y **tener un
+camino de escritura hacia la ficha**. Las dos se comprueban.
+
+| Qué se comprobó | Resultado |
+|---|---|
+| Las seis rutas declaradas responden | `RUTAS` es un dato del programa, no un `if` implícito. El selftest recorre la tabla y exige 200 en cada una: una ruta declarada y no servida sale en el README como una promesa que devuelve 404 |
+| No se sale de la carpeta del informe | `/p/../../secreto`, `/p//etc/hostname` y un archivo vecino que no es del informe: 404 los tres. Los nombres se filtran por forma **y** la ruta resuelta se comprueba contra la raíz |
+| No hay camino de escritura hacia la ficha | Se manda una petición y se compara la ficha byte a byte antes y después. Idéntica. Lo único que el programa escribe es el archivo de la petición, en `<estado>/peticiones/` |
+| Una petición enorme se rechaza y no entra | 413, y la cola sigue con las mismas que tenía |
+| Lo que escribe alguien se escapa | `<script>` en el campo del nombre no sale como etiqueta en la confirmación |
+| El POST solo existe en su ruta | `POST /interna` es 404 |
+| La corrida completa, de punta a punta | Informe sobre las fichas de referencia → servidor → petición de un patrocinador sobre PRY-003 → `pmo.py due` responde `["requests"]`, sin cadencia configurada. La ficha, intacta |
+
+**La cola es la única cosa que rompe el silencio sin ser aritmética de fechas.** Eso es
+deliberado y se comprueba en `pmo.py selftest`: una petición abierta hace que `due` deje
+de estar callado, una respondida lo devuelve al silencio, y la ya respondida nunca
+cuenta.
 
 ## Límites conocidos
 

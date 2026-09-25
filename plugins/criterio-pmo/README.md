@@ -92,6 +92,59 @@ operating system's scheduler in Claude Code. **And if they do not want unattende
 a bank that is a reasonable answer — the cadence still says what is due, run by hand. What is
 lost is being told without anyone asking.
 
+## Want your sponsor to see this without asking you for it?
+
+![The server: the report, for whoever does not open a folder](../../docs/img/en/servidor.png)
+
+Up to here the report is files on your machine. **A sponsor does not open a folder of
+files**: they open a link, or they open nothing. That is what the server is for, and it
+is this family's additional capability.
+
+```
+/pmo-server
+```
+
+It raises a page with **two doors**, and the point is that they are not the same view
+trimmed down: the committee gets *what needs a decision*; whoever is going to act gets
+*the portfolio field by field, with the citation for every value*. The landing page also
+says how old the report is, which is the thing nobody knows when a PDF is forwarded to
+them.
+
+And it has one more thing, which is what changes how it gets used: **whoever is looking
+can leave the agent a written question.** It does not answer on the spot — the agent is
+not running — but the question stays in the queue, and the next time Plomada wakes it
+handles it. *"This does not match what I know"* is the most valuable request in the
+system: it is a person telling you which document is missing.
+
+### What you have to ask your organisation for
+
+Little, and it helps to have the list before going to ask:
+
+| What is asked for | Why |
+|---|---|
+| A machine inside the network and a port | That is where it lives. **It does not need to reach the internet** |
+| Publishing it behind the access control they already use | See below |
+| That machine staying on | If it goes off, the link stops working |
+
+And what you do **not** have to ask for, which is usually half the conversation: no
+database, no service account with permissions, no internet access, and nothing touching
+any of your documentation folders.
+
+### What the server does not do
+
+- **It does not compute.** It serves pages that were already written to disk. Opening
+  the page triggers no document reading, which is why two people see exactly the same
+  thing.
+- **It does not write any record.** The only thing it creates is the request, in a
+  folder of its own. The write path to the portfolio **does not exist in that program**.
+- **It authenticates nobody, and that is deliberate.** A hundred-line server on the
+  standard library is not going to authenticate better than the proxy your organisation
+  already has, and promising it would is exactly what this plugin does not do. So it
+  listens only on your machine unless you tell it otherwise, and when you do, it warns
+  you.
+- **It sends nothing.** No email, no notification. If the report has to reach an inbox,
+  today a person forwards it.
+
 ## What ends up configured
 
 `/pmo-setup` writes it from your answers, on your machine and in a file of yours: where the
@@ -146,12 +199,13 @@ one to know whether extracting is worth it and another to know whether re-readin
 [`scripts/informe.py`](scripts/informe.py) builds the printed report out of what the other two
 produced, without reading a single document again.
 
-## The sixteen commands
+## The seventeen commands
 
 | Command | What it does |
 |---|---|
 | `/pmo-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
 | `/pmo-wake` | **What the clock invokes.** Looks at what is due today, does it, and stays quiet if nothing is |
+| `/pmo-server` | Exposes the report for whoever does not open a folder, and says what to ask the organisation for |
 | `/document-index` | Which documents actually changed, what has to be re-read, and which citations stopped resolving |
 | `/portfolio-scan` | Reads the folder and produces or updates one record per project. The way in |
 | `/portfolio-report` | Consolidated report: what changed, what contradicts itself, what is silent, what has no support |
@@ -203,9 +257,10 @@ as a constraint or as a risk, and does not opine on it.
 python3 scripts/pmo.py selftest          the arithmetic and the cadence
 python3 scripts/texto.py --selftest      document conversion
 python3 scripts/informe.py --selftest    the report: figures, agreement and naming
+python3 scripts/servidor.py --selftest   the server: what it serves and what it never touches
 ```
 
-Both run on the standard library, with nothing installed. Over synthetic material with known
+All three run on the standard library, with nothing installed. Over synthetic material with known
 answers there is a grader and the result of the last run, with what it proves and what it does
 not: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
 

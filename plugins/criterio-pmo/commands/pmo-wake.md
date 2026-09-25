@@ -55,7 +55,32 @@ por cuarenta, no responde nadie.
 Las preguntas se hacen una vez. Si la anterior no se respondió, **no la repitas**: reporta
 *«preguntada el 12, sin respuesta»*, que es un hallazgo por sí solo.
 
-**6. Deja constancia de lo que corriste.** Sin esto, mañana vuelve a tocar lo mismo:
+**6. Si toca `requests`** — alguien dejó una petición en el servidor. Esto **no es
+cadencia**: es la única cosa que rompe el silencio sin ser aritmética de fechas, y la
+razón es simple — una persona preguntó y está esperando.
+
+```
+python3 scripts/pmo.py requests --state <estado>
+```
+
+Atiéndelas **de la más vieja a la más nueva**. Cada una lleva su asunto, y el asunto
+dice qué hacer: *revisar* es `/health-check` sobre ese proyecto; *explicar* es rastrear
+el dato hasta su documento y citarlo; *corregir* es lo más valioso de todas — alguien
+está diciendo que la evidencia no cuenta toda la historia. Eso **no se escribe en la
+ficha**: se registra como hallazgo, con quién lo dijo y cuándo, y el documento que
+falta es la pregunta que queda abierta. Ningún agente escribe la declaración.
+
+Solo después de responderla, márcala. Una petición sin marcar vuelve a aparecer mañana,
+y eso es correcto:
+
+```
+python3 scripts/pmo.py answered --state <estado> --id <identificador>
+```
+
+Si no pudiste responder una, **déjala sin marcar y dilo**. Es mejor que vuelva a
+aparecer a que se pierda.
+
+**7. Deja constancia de lo que corriste.** Sin esto, mañana vuelve a tocar lo mismo:
 
 ```
 python3 scripts/pmo.py ran --state <estado> --what sweep
@@ -63,7 +88,7 @@ python3 scripts/pmo.py ran --state <estado> --what sweep
 
 Una llamada por cada cosa que hiciste. **Solo por las que hiciste de verdad.**
 
-**7. Cierra diciendo cuándo vuelves**, con la fecha de `next_wake`.
+**8. Cierra diciendo cuándo vuelves**, con la fecha de `next_wake`.
 
 ## Salida cuando no hay novedad
 
@@ -82,6 +107,9 @@ Eso es todo. Sin encabezados, sin tablas, sin resumen de lo que no pasó.
 
 ### Lo que cruzó un umbral
 [Solo lo que cruzó. Con el proyecto, la señal y la cita.]
+
+### Peticiones atendidas
+[Quién preguntó qué, y la respuesta. Ninguna si no había.]
 
 ### Preguntas
 [Máximo cinco, una por campo, con la fuente y la fecha del dato actual.]
