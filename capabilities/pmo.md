@@ -58,6 +58,10 @@ Every line in this table is **something the agent does**, not something it promi
 | Shows approved, committed, executed and projection — all four, not two | `/budget-tracking` |
 | Reviews the charter and says what is missing and what the gap costs | `/project-charter` |
 | Closes against the success criteria agreed at the start, with lessons anchored to documented facts | `/project-closure` |
+| Says which documents actually changed and what has to be re-read — and which citations stopped resolving | `/document-index` |
+| Diagnoses a project from zero, assuming nothing from its own progress report | `/health-check` |
+| Reconstructs what happened over fourteen months, and since when the declared status stopped holding | `/project-history` |
+| Shows the state of a product across every project that builds it | `/product-view` |
 
 **Why this is a commitment and not a promise:** every command is written as readable instructions in [`plugins/criterio-pmo/`](../plugins/criterio-pmo/), under Apache 2.0. You can audit it before installing, change it if it does not match how you work, and measure it against the acceptance criteria that ship with it.
 

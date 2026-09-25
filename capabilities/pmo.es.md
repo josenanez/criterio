@@ -58,6 +58,10 @@ Cada línea de esta tabla es **algo que el agente hace**, no algo que promete. E
 | Muestra aprobado, comprometido, ejecutado y proyección — las cuatro, no dos | `/budget-tracking` |
 | Revisa el acta y dice qué falta y qué consecuencia tiene que falte | `/project-charter` |
 | Cierra contra el criterio de éxito que se pactó al inicio, con lecciones ancladas a hechos documentados | `/project-closure` |
+| Dice qué documentos cambiaron de verdad y qué hay que releer — y cuáles citas dejaron de apuntar a algo | `/document-index` |
+| Diagnostica un proyecto desde cero, sin asumir nada de su informe de avance | `/health-check` |
+| Reconstruye qué pasó en catorce meses y desde cuándo lo declarado dejó de sostenerse | `/project-history` |
+| Muestra el estado de un producto a través de todos los proyectos que lo construyen | `/product-view` |
 
 **Por qué esto es un compromiso y no una promesa:** cada comando está escrito como instrucciones legibles en [`plugins/criterio-pmo/`](../plugins/criterio-pmo/), bajo Apache 2.0. Se puede auditar antes de instalarlo, cambiar si no corresponde a cómo trabajas, y medir contra los criterios de aceptación que vienen con él.
 

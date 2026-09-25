@@ -45,6 +45,10 @@ python3 scripts/pmo.py selftest
 | `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
 | `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
 | `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
+| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
+| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
+| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
+| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
 
 ## Skills
 
@@ -58,6 +62,10 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 | `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
 | `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia |
 | `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |
+| `document-intake` | Qué documento hay que releer y cuál no, el renombrado, el borrado, y la cita que dejó de resolver |
+| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable |
+| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar |
+| `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado |
 
 ## Sin contenido regulatorio
 

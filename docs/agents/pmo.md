@@ -61,11 +61,11 @@ siguiente dice lo mismo**, y en un mes se ignora.
 | Verificar que exista acta, línea base y doliente | Documentos de gobierno y la ficha | `has_baseline`, `fields_missing`, y la consecuencia concreta de cada vacío | Construido |
 | Seguir los compromisos del comité | Minutas y transcripciones de comité | Compromisos con doliente, fecha y fuente; los vencidos sin evidencia | Construido |
 | Las cuatro cifras del presupuesto | Aprobado, contratos y órdenes, ejecución, proyección declarada | Disponible real, % ejecutado, % comprometido, sobrecosto de la proyección | Construido |
-| Cruzar entregables de proveedor contra evidencia y facturación | Contratos, actas de recibo, facturación declarada | Entregables vencidos sin evidencia, aceptados sin documento, factura sin ningún entregable aceptado | **Construido con un límite probado** — la factura contra un entregable que no empezó no se detecta: haría falta monto por entregable. Ver evidencia, límite 1 |
+| Cruzar entregables de proveedor contra evidencia y facturación | Contratos, actas de recibo, facturación declarada, monto por entregable | Vencidos sin evidencia, aceptados sin documento, factura sin entrega, y factura por encima de lo aceptado | Construido · `/vendor-tracking`, `vendor-control` |
 | Detectar dependencias entre proyectos | Dependencias declaradas con el código del otro proyecto, y las fechas de cierre de todos | El cruce con la fecha vigente del otro proyecto y si fue confirmada o solo declarada | Construido |
 | Reconciliar la replanificación contra lo autorizado | Línea base de solo agregar y cambios aprobados con impacto en tiempo | Días que se movió, días autorizados, días que ningún documento autoriza | Construido |
-| Control documental y trazabilidad | El conjunto de archivos y `meta.documents_seen` con su hash | Qué releer, qué se conserva, y las citas que dejaron de resolver | **Parcial** — el hash solo existe en markdown; nada verifica que una cita siga resolviendo |
-| Verificar la autoridad declarada del gerente | El acta de constitución | El hallazgo cuando falta, con su consecuencia | **Parcial** — es prosa, no campo |
+| Control documental y trazabilidad | El conjunto de archivos y `meta.documents_seen` con sus dos hashes | Qué releer, qué se reguardó sin cambiar, qué se renombró o se borró, y las citas que dejaron de resolver | Construido · `/document-index`, `document-intake` |
+| Verificar la autoridad declarada del gerente | El acta de constitución | El hallazgo cuando falta, y el total `no_authority` del portafolio | Construido · `identity.authority` |
 
 ## B · Lo que hace, y hoy no se hace
 
@@ -74,8 +74,8 @@ siguiente dice lo mismo**, y en un mes se ignora.
 | Detectar contradicciones entre documentos | Dos o más documentos que hablan del mismo campo | Campo en `ambiguous` con las dos fuentes y sus fechas; alerta sin umbral | Construido |
 | Lecciones ancladas a hechos documentados | Criterio de éxito del acta y la historia documental del proyecto | Lecciones que nombran hecho, fecha y efecto | Construido |
 | Impacto de un cambio en el resto del portafolio | El cambio propuesto y las dependencias declaradas | Proyectos alcanzados y sus gerentes | **Parcial** — en prosa |
-| Health check de un proyecto contra evidencia | Toda la documentación del proyecto, sin ficha previa | Dictamen: qué se sostiene, qué no, qué no está dicho en ninguna parte | **Falta** — `/status-report` es estado de rutina, no auditoría |
-| Reconstruir el historial: qué pasó en catorce meses | Los documentos ordenados por fecha | Línea de tiempo de decisiones, replanificaciones y desviación acumulada | **Falta** |
+| Health check de un proyecto contra evidencia | Toda la documentación del proyecto, sin ficha previa | Dictamen: qué se sostiene, qué no, qué no está dicho en ninguna parte | Construido · `/health-check`, `project-diagnosis` |
+| Reconstruir el historial: qué pasó en catorce meses | Los documentos ordenados por fecha | Línea de tiempo, replanificaciones, atraso acumulado, y el punto donde la evidencia se separó de lo reportado | Construido · `/project-history`, `portfolio-history` |
 | Calibrar la declaración de cada gerente en el tiempo | Los snapshots de varias corridas | El patrón de la brecha por persona a lo largo del tiempo | **Falta**, y no puede ir primero: necesita historia |
 
 Las tres filas que faltan son el argumento comercial de la capacidad.
@@ -122,17 +122,16 @@ en este orden:
 
 ---
 
-## Lo que falta por construir, en orden
+## Lo que falta por construir
 
-1. **El hash del lado del código.** Es la regla que controla el costo de todo el sistema y hoy
-   vive en dos archivos markdown. Con dos etapas: hash de bytes para decidir si vale extraer,
-   hash del texto extraído para decidir si vale releer.
-2. **Verificación de citas.** Comparar el conjunto completo de archivos contra
-   `meta.documents_seen` para detectar borrados y renombrados. Una cita que dejó de resolver es
-   un hallazgo —`source_missing`—, no un hueco silencioso.
-3. **El health check**, como comando propio y distinto del estado de rutina.
-4. **El forense de un proyecto.**
-5. **La calibración por gerente**, si se decide construirla, y al final.
+La clase A está cerrada y de la B queda una sola fila: **la calibración por gerente**, que no
+puede ir antes porque necesita historia de corridas, y que está tan pendiente de decidirse como
+de construirse.
+
+Fuera de las clases, lo que sigue abierto no es método sino mecanismo: **las siete claves de
+configuración de cadencia y notificaciones** siguen declaradas y sin leer, y ahí vive la
+promesa de que el agente corre solo. El disparador ya existe —`/document-index` es el
+mecanismo—; lo que falta es quién lo invoca sin que alguien abra una sesión.
 
 ## Decisiones abiertas propias de esta hoja
 

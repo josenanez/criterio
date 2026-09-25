@@ -40,6 +40,8 @@ PENDIENTES = {
                   "se detecta, por `reschedules`; `stated_on` queda para cuando haga falta "
                   "la fecha en que se dijo cada cosa, no solo la que se prometió"),
     "fields_per_run": "presupuesto de preguntas declarado y no leído · portfolio-health",
+    "daily_sweep": ("clave de cadencia declarada y no leída. El mecanismo ya existe —el índice "
+                    "de documentos—; falta quién lo invoca sin que alguien abra una sesión"),
 }
 
 
@@ -127,7 +129,12 @@ for cmd in sorted(comandos):
         if ref.count("-") and ref not in skills and ref not in comandos:
             decir(FALLA, f"/{cmd} invoca **{ref}** y no existe como skill")
 
-huerfanos = [c for c in sorted(comandos) if f"/{c}" not in todo]
+# Un comando no se documenta a sí mismo: su propio archivo sale de la búsqueda.
+# La primera versión no lo excluía y daba por documentado cualquier comando nuevo,
+# que es el falso negativo más caro que puede tener un verificador.
+otros = "\n".join(cuerpo_doc for ruta, cuerpo_doc in texto_docs.items()
+                  if ruta.parent.name != "commands")
+huerfanos = [c for c in sorted(comandos) if f"/{c}" not in otros]
 for c in huerfanos:
     decir(FALLA, f"/{c} no está documentado en ninguna hoja ni capacidad")
 if not huerfanos:
