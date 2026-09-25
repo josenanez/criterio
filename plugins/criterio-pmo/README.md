@@ -28,6 +28,55 @@ siendo evaluado.**
 
 ---
 
+## La familia PMO
+
+La capacidad tiene más de un agente porque la organización tiene más de un rol, y cada
+uno necesita cosas distintas. Este plugin es el primero.
+
+### Agente PMO · disponible
+
+**Para el gerente de la PMO y sus analistas.** Cuarenta proyectos, barrido amplio, cadencia
+de comité. Consolida el portafolio, cruza las dependencias entre proyectos, prepara el
+comité, y dice cuáles de los que reportan verde no se sostienen.
+
+**Lo que sabe hacer:** leer una carpeta como esté y armar la ficha de cada proyecto con
+cita en cada dato · medir la desviación contra la línea base original y contra la vigente ·
+las cuatro cifras del presupuesto · seguir compromisos dichos en reuniones · cruzar
+entregables de proveedor contra evidencia de recibo y contra facturación · levantar
+riesgos, supuestos, incidencias y dependencias · diagnosticar un proyecto desde cero ·
+reconstruir qué pasó en catorce meses · preparar el comité como paquete de decisiones.
+
+### Agente PM · en construcción
+
+**Para cada gerente de proyecto, junior o senior.** Un proyecto, profundidad, cadencia
+diaria o por reunión. No va a las reuniones: el gerente va. Lo que hace es llegar con la
+semana preparada — la agenda armada antes, la minuta redactada después, el plan al día
+contra la evidencia y el informe listo salvo una línea.
+
+**Su función central no la hace ninguna herramienta que un gerente use hoy:** el compromiso
+dicho y no cumplido. Las reuniones están llenas de *«yo lo tengo para el viernes»* y nadie
+los registra. El agente los extrae con doliente y fecha, y en cada corrida revisa cuáles
+vencieron sin evidencia.
+
+### Agente de producto · sin construir
+
+**Para quien define qué se va a construir**, antes de que exista el proyecto. Contrasta la
+definición contra la evidencia de demanda que existe, y entrega el acta con la que nace el
+proyecto.
+
+### Cómo se relacionan
+
+La **ficha de proyecto** es la interfaz: el agente PM la llena como subproducto de su
+trabajo diario, y el agente PMO deja de hacer ingeniería inversa sobre carpetas
+desordenadas.
+
+Con una regla que no se negocia: **la ficha del PM es una declaración; el hallazgo del PMO
+es evidencia.** Se mantienen como dos fuentes distintas, y la diferencia entre ellas es la
+señal más valiosa del sistema. *«El gerente reporta el hito en verde; la última minuta dice
+que el proveedor no entregó»* es la conversación que hoy no se puede tener.
+
+---
+
 ## Instalar
 
 **Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar marketplace

@@ -8,6 +8,13 @@ Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer result
 
 ---
 
+| | | |
+|:--:|:--:|:--:|
+| [![PMO](docs/img/pmo.png)](plugins/criterio-pmo/README.md) | ![CFO](docs/img/cfo.png) | ![CLO](docs/img/clo.png) |
+| **[Ver la familia PMO →](plugins/criterio-pmo/README.md)** | Sin construir | Sin construir |
+
+---
+
 ## El problema no es que falten herramientas
 
 Una organización no se mueve por departamentos: se mueve por **capacidades**. La capacidad de gobernar un portafolio de proyectos. La de cerrar un mes y responder por los números. La de revisar un contrato antes de firmarlo.

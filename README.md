@@ -8,6 +8,13 @@ Apache 2.0 · Four clicks to install · Each agent produces its first result in 
 
 ---
 
+| | | |
+|:--:|:--:|:--:|
+| [![PMO](docs/img/pmo.png)](plugins/criterio-pmo/README.md) | ![CFO](docs/img/cfo.png) | ![CLO](docs/img/clo.png) |
+| **[See the PMO family →](plugins/criterio-pmo/README.md)** | Not built | Not built |
+
+---
+
 ## The problem was never a missing tool
 
 An organisation does not move by departments: it moves by **capabilities**. The capability to govern a portfolio of projects. To close a month and answer for the numbers. To review a contract before signing it.
