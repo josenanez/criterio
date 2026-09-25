@@ -135,6 +135,32 @@ faltantes = {m for m in re.findall(r"`/([a-z][a-z-]{3,30})`", todo)} - comandos
 for m in sorted(faltantes):
     decir(FALLA, f"la documentación promete /{m} y el comando no existe")
 
+# ── la política de valor, de docs/design.md ─────────────────────────────
+# Una pieza para nivel C dice cómo se instala, en cuánto da el primer resultado, y
+# qué nunca hace. Sin esas tres, no la leen: la confianza es la puerta y el tiempo
+# hasta el primer resultado es el argumento.
+print("\nLa política de valor en el README de cada plugin")
+EXIGIDO = {
+    "cómo se instala": ("## Instalar", "## Instalación", "## Install"),
+    "el primer resultado": ("primeros quince minutos", "primer resultado", "first result",
+                            "first fifteen minutes"),
+    "lo que nunca hace": ("Lo que nunca hace", "never does"),
+}
+for plugin in sorted(p for p in (RAIZ / "plugins").iterdir() if p.is_dir()):
+    readme = plugin / "README.md"
+    if not readme.exists():
+        continue
+    cuerpo = readme.read_text(encoding="utf-8")
+    if not (plugin / "commands").exists():
+        decir(NOTA, f"{plugin.name} · declarado y sin construir, no se le exige")
+        continue
+    faltan = [q for q, marcas in EXIGIDO.items() if not any(m in cuerpo for m in marcas)]
+    if faltan:
+        for q in faltan:
+            decir(FALLA, f"{plugin.name} · el README no dice {q}")
+    else:
+        decir(OK, f"{plugin.name} · instalación, primer resultado y lo que nunca hace")
+
 # ── 5 · cada señal documentada en su dueño ──────────────────────────────
 print("\nCada señal en su dueño")
 skill = (PLUGIN / "skills" / "portfolio-health" / "SKILL.md").read_text(encoding="utf-8")

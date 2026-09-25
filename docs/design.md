@@ -1,5 +1,56 @@
 # La forma de lo que Criterio entrega
 
+Dos cosas gobiernan cada pieza que sale de aquí: **para quién está escrita** y **cómo se ve**.
+La primera decide si alguien la lee. La segunda, si la reconoce.
+
+---
+
+## Para quién está escrita
+
+Todo lo que construimos se diseña para **nivel C y sus escalas**. No es una preferencia de
+tono: si no está diseñado así, no lo ven, y lo que no ven no les genera valor.
+
+Y «sus escalas» importa tanto como el nivel: la misma pieza tiene que responder a tres
+personas distintas. Si no podemos decir qué gana una de ellas, esa no lo adopta.
+
+| Quién | Qué gana, dicho en su lenguaje |
+|---|---|
+| **Nivel C** | La decisión que hoy no puede tomar, y qué le cuesta no tomarla |
+| **Dirección o VP** | Cuáles de sus proyectos no se sostienen, y qué necesita de él esta semana |
+| **Gerente o analista** | La semana preparada: la lectura hecha, el informe armado, el compromiso vencido con nombre y fecha |
+
+### Cómo se escribe una pieza, en orden
+
+1. **El problema en su lenguaje**, no la descripción de la solución. *«Nadie ha leído junta la
+   documentación que ya existe»* se entiende; *«consolidación de fichas con trazabilidad»* no.
+2. **Lo que cuesta hoy**, con cifra citada y fuente. Nunca una cifra nuestra inventada.
+3. **Cómo se instala**, en la primera pantalla. Una pieza que no dice cómo empezar no se
+   empieza.
+4. **El tiempo hasta el primer resultado**, sobre sus propios datos. Quince minutos con algo
+   real vale más que una lista de funciones.
+5. **Lo que nunca hace.** A este nivel la pregunta no es qué puede: es qué no va a pasar. La
+   confianza es la puerta, no la capacidad.
+6. **Y después, y separado por una línea visible, la mitad técnica.** El que decide tiene que
+   saber dónde dejar de leer; el que audita tiene que encontrarlo todo.
+
+### Lo que no se hace
+
+- **Nada de jerga interna en la primera mitad.** «Ficha», «skill», «aguas arriba», «esquema»
+  no significan nada fuera de este repositorio.
+- **No se abre comparando con otra herramienta.** A quien decide no le interesa qué plugin
+  existe o no existe: le interesa qué decisión gana.
+- **No se abre con una tabla de comandos.** Una tabla de comandos es el índice de un manual,
+  y un manual no vende una capacidad.
+- **No se promete lo que el insumo no permite.** Prometer capacidad o beneficios cuando los
+  datos no están en la carpeta quema la credibilidad de todo lo demás.
+
+Lo verifica `tests/coherencia.py`: el README de cada plugin tiene que traer su instalación,
+su tiempo hasta el primer resultado y su sección de lo que nunca hace. **Si falta una, falla.**
+
+---
+
+## Cómo se ve
+
 Toda pieza que se vea —el informe que produce un agente, la proyección en el servidor, un
 diagrama, una tarjeta social, una lámina— **usa el diseño de [josenanez.com](https://www.josenanez.com)**.
 No es decoración: es la misma marca, y cada pieza que sale de aquí la sostiene o la diluye.
