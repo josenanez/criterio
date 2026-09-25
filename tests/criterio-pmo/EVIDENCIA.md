@@ -69,25 +69,27 @@ documentación existen en el código, todo umbral nombrado existe, los 15 comand
 listados en el README del plugin, y el número de resultados del selftest declarado en la
 documentación coincide con el real — eso último lo atrapó el verificador antes que yo.
 
-## Lo que la corrida NO prueba
+## Lo que esta corrida no cubre, y cómo se cubre
 
 **La extracción de campos.** Todo lo anterior corre sobre las fichas de referencia de
 `expected/fichas/`, escritas a mano. Que un modelo leyendo `input/` produzca esas mismas
-fichas es la otra mitad, y necesita el plugin en una sesión:
+fichas se califica con el segundo modo del grader:
 
 ```
 python3 tests/criterio-pmo/grade.py --fichas <las que produjo la corrida>
 ```
 
-Ese modo compara campo por campo y reporta tres cosas distintas: un valor equivocado, un
-campo inventado que la referencia no tiene, y un valor sin cita.
+Compara campo por campo y reporta tres cosas distintas: un valor equivocado, un campo
+inventado que la referencia no tiene, y un valor sin cita.
 
-**Documentación real.** Seis proyectos sintéticos no son cuarenta carpetas de un banco con
-quince años de historia, formatos mezclados y convenciones inconsistentes.
+**Cómo se cubre: con pruebas progresivas.** No es un pendiente de construcción — es un
+programa. Corpus cada vez más parecidos a una carpeta real —más proyectos, más formatos,
+convenciones peores— y el plugin corriendo como lo correría alguien de afuera, instalándolo
+desde cero. Cada escalón deja su resultado aquí, y el escalón que falla dice qué hay que
+arreglar antes de subir el siguiente.
 
-**Los comandos.** Los quince son instrucciones para un modelo. Lo verificado aquí es la
-aritmética que los alimenta, la conversión que los precede, y la coherencia de lo que
-prometen — no su salida.
+Este documento registra **el escalón donde vamos**, no una aspiración. Hoy es el primero:
+seis proyectos, formatos de texto, convención de nombres respetada.
 
 ## Límites conocidos
 
@@ -126,6 +128,10 @@ cómo guardarlo para que sí. En una PMO real hay carpetas enteras de `.msg`.
 **5 · `stated_on` sigue sin leerse.** El compromiso reprogramado ya se detecta por
 `reschedules`; el campo queda para cuando haga falta la fecha en que se dijo cada cosa y no
 solo la que se prometió.
+
+**6 · El informe no existe en la forma configurada.** `report.format: html` está declarado y
+nada produce HTML. Es la capacidad siguiente: informe estructurado con el diseño base del
+producto, servido por el servidor, y en PDF para quien lo quiera adjunto.
 
 ## Reproducirlo
 

@@ -109,13 +109,12 @@ releer, más la verificación de que toda cita siga resolviendo.
 | Lecciones ancladas a hechos documentados | Criterio de éxito del acta y la historia documental | Lecciones que nombran hecho, fecha y efecto | Construido · `/project-closure` |
 | Borrador del paquete de decisión | Alertas escaladas y la autoridad declarada | La decisión formulada como pregunta cerrada, con opciones | Construido · `/steering-pack` |
 | Impacto de un cambio en el resto del portafolio | El cambio propuesto y las dependencias declaradas | Proyectos alcanzados y sus gerentes | **Parcial** — en prosa |
-| Calibrar la declaración de cada gerente en el tiempo | Los snapshots de varias corridas | El patrón de la brecha por persona | **Falta**, y no puede ir primero: necesita historia |
 
-**La calibración por gerente hay que tratarla con cuidado.** Es el subproducto natural de
-guardar corridas, y en manos equivocadas es una herramienta de evaluación de desempeño. El
-efecto de usarla así es predecible: nadie vuelve a declarar nada, y con eso desaparece la
-mitad de la comparación. Se construye como insumo de conversación con el gerente, o no se
-construye.
+**La calibración por gerente se descartó**, y conviene dejar escrito por qué para que no
+vuelva como buena idea. Es el subproducto natural de guardar corridas: con el tiempo se sabe,
+por persona, cuántas veces lo declarado se sostuvo. Su única aplicación natural es evaluar
+personas, y el día que se use para eso nadie vuelve a declarar nada — y sin declaración no hay
+contra qué contrastar la evidencia, que es todo el sistema. **No se construye.**
 
 ## C · Lo que el agente no hace
 
@@ -156,24 +155,30 @@ primero, en este orden:
 
 ## Lo que falta
 
-De las clases A y B queda **una fila**: la calibración por gerente, que necesita historia de
-corridas y está tan pendiente de decidirse como de construirse.
+**El informe.** Es lo único que el nivel C toca con las manos, y hoy no existe en la forma
+que la configuración promete: `report.format: html` está declarado y los comandos describen
+salida en markdown. Tiene que ser un **informe estructurado con el diseño base del producto**
+—el de [`docs/design.md`](../design.md), que es el del portal—, salir **por el servidor**, y
+además generarse en **PDF** para quien lo quiere adjunto. Con eso se leen también
+`report.language` y `report.recipients`, las dos claves que quedan sin leer del lado de la
+PMO.
 
-Fuera de las clases, lo que sigue abierto no es método sino **mecanismo**: las siete claves
-de configuración de cadencia y notificaciones —`paths.standard`, `cycle.committee_next`,
-`cycle.report_lead_days`, `cycle.daily_sweep`, `report.language`, `report.recipients`,
-`confirmation.fields_per_run`— siguen declaradas y sin leer. Ahí vive la promesa de que el
-agente corre solo: el disparador ya existe, `/document-index` es el mecanismo, y lo que falta
-es quién lo invoca sin que alguien abra una sesión.
+**El servidor**, que es la capacidad siguiente de esta familia y tiene su propio diseño.
 
-Y un límite que no se cierra con código: **un cambio aprobado cuyo impacto de tiempo está
-escrito en meses** no suma a los días autorizados ni aparece como cambio sin línea base. Solo
-sale en la lista de ilegibles. Cada paso es correcto y el cambio real queda fuera del
-control; la mitigación es preguntar, no convertir.
+**OCR para el PDF escaneado.** Hoy un escaneo sin capa de texto se declara ilegible, que es
+la conducta correcta y no la útil. Cuando entre, entra marcado: con OCR el texto pasa a ser
+una lectura probable y no el contenido.
+
+### Lo que NO falta, aunque lo parezca
+
+**Que la extracción esté calificada y que haya corridas sobre documentación real.** Eso no se
+resuelve construyendo: se cubre con **pruebas progresivas** — corpus cada vez más parecidos a
+una carpeta real, y el plugin corriendo como lo correría alguien de afuera. El grader ya tiene
+el modo que las califica campo por campo contra la referencia. Es un programa de pruebas, no
+un pendiente de construcción, y tratarlo como pendiente solo sirve para parecer incompleto.
 
 ## Decisiones abiertas propias de esta hoja
 
-- **Si la calibración por gerente se construye**, y con qué visibilidad.
 - **OCR para el PDF escaneado.** Hoy un escaneo sin capa de texto se declara ilegible, que es
   la conducta correcta y no la útil. Con OCR se vuelve legible y deja de ser determinístico:
   el texto pasa a ser una lectura probable, no el contenido. Si entra, entra marcado.
