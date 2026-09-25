@@ -104,25 +104,10 @@ is this family's additional capability.
 /pmo-server
 ```
 
-It raises **a portal with three sections**, which is what makes a team use it instead of
-asking you for the report:
-
-| | |
-|---|---|
-| **PMO reports** | How the portfolio is going: the greens the evidence does not support, what has been silent for weeks, who sponsors more than one thing. And separately, **what needs a decision from the committee** — not the same view trimmed down, a different object |
-| **Projects** | The list, and each one's report. Every project **links to the product it came from** |
-| **Products** | The list, and each one's report. Every product **links to the projects building it** |
-
-**The link runs both ways, and that is where the thing no other page can say lives.**
-Whoever arrives by the project wants to know what it is for. Whoever arrives by the
-product wants to know who is building it — and discovers, when it happens, that their
-product is built by projects reporting to **different committees**, so none of them is
-seeing it whole. A healthy project does not save it either: the product does not land
-until all of them land.
-
-The landing page also says how old the report is, which is the thing nobody knows when a
-PDF is forwarded to them. And if your configuration says whose project office this is,
-the portal carries that name on every page.
+It raises **a portal with three sections** — PMO reports, projects, products — and the
+link between project and product runs **both ways**. That is where the thing no other
+page can say lives: when a product is built by projects reporting to different
+committees, each committee sees its project and **none of them sees the product**.
 
 And it has one more thing, which is what changes how it gets used: **whoever is looking
 can leave the agent a written question.** It does not answer on the spot — the agent is
@@ -130,34 +115,11 @@ not running — but the question stays in the queue, and the next time Plomada w
 handles it. *"This does not match what I know"* is the most valuable request in the
 system: it is a person telling you which document is missing.
 
-### What you have to ask your organisation for
+**It authenticates nobody, and that is deliberate**: it is published behind the access
+control your organisation already has. It listens only on your machine unless you say
+otherwise.
 
-Little, and it helps to have the list before going to ask:
-
-| What is asked for | Why |
-|---|---|
-| A machine inside the network and a port | That is where it lives. **It does not need to reach the internet** |
-| Publishing it behind the access control they already use | See below |
-| That machine staying on | If it goes off, the link stops working |
-
-And what you do **not** have to ask for, which is usually half the conversation: no
-database, no service account with permissions, no internet access, and nothing touching
-any of your documentation folders.
-
-### What the server does not do
-
-- **It does not compute.** It serves pages that were already written to disk. Opening
-  the page triggers no document reading, which is why two people see exactly the same
-  thing.
-- **It does not write any record.** The only thing it creates is the request, in a
-  folder of its own. The write path to the portfolio **does not exist in that program**.
-- **It authenticates nobody, and that is deliberate.** A hundred-line server on the
-  standard library is not going to authenticate better than the proxy your organisation
-  already has, and promising it would is exactly what this plugin does not do. So it
-  listens only on your machine unless you tell it otherwise, and when you do, it warns
-  you.
-- **It sends nothing.** No email, no notification. If the report has to reach an inbox,
-  today a person forwards it.
+→ **[The server, with screenshots of every section and what to ask your organisation for](SERVER.md)**
 
 ## What ends up configured
 

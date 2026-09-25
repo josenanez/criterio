@@ -172,6 +172,60 @@ if (img / "es").exists() and (img / "en").exists():
     if not faltan:
         decir(OK, f"las {len(es)} piezas están en los dos idiomas")
 
+# ── cada página del plugin, en los dos idiomas ──────────────────────────
+# El plugin se distribuye solo y se enlaza desde los dos README raíz. Una página que
+# existe en un idioma y no en el otro es un enlace roto para la mitad de quien llega,
+# y ya pasó una vez: el README del plugin estuvo solo en castellano mientras el README
+# raíz en inglés lo enlazaba.
+print("\nCada página del plugin en los dos idiomas")
+for plugin in sorted((RAIZ / "plugins").iterdir()):
+    if not plugin.is_dir():
+        continue
+    # Mismo criterio que la política de valor: a un plugin declarado y sin construir
+    # no se le exige. Se le exigirá el día que tenga comandos.
+    if not (plugin / "commands").exists():
+        decir(NOTA, f"{plugin.name} · declarado y sin construir, no se le exige")
+        continue
+    paginas = {f.name[:-len(".es.md")] for f in plugin.glob("*.es.md")}
+    inglesas = {f.stem for f in plugin.glob("*.md") if not f.name.endswith(".es.md")}
+    # ACCEPTANCE no tiene pareja a propósito: es un documento de trabajo, no una
+    # página de producto. Si algún día la tiene, esta línea sobra.
+    inglesas -= {"ACCEPTANCE"}
+    huerfanas = sorted((paginas - inglesas) | (inglesas - paginas))
+    for x in huerfanas:
+        decir(FALLA, f"{plugin.name}/{x} existe en un idioma y no en el otro")
+    if not huerfanas and paginas:
+        decir(OK, f"{plugin.name} · {len(paginas)} páginas, las dos versiones de cada una")
+
+# ── las cifras que la documentación afirma sobre las pruebas ────────────
+# Un «treinta comprobaciones» escrito a mano envejece en la primera corrida que
+# agrega una. Se compara contra lo que el selftest realmente hace.
+print("\nLas cifras de las pruebas")
+NUMEROS = {"quince": 15, "veinte": 20, "veinticinco": 25, "treinta": 30,
+           "treinta y cinco": 35, "cuarenta": 40, "cuarenta y dos": 42,
+           "doce": 12, "trece": 13, "catorce": 14, "dieciséis": 16,
+           "fifteen": 15, "twenty": 20, "twenty-five": 25, "thirty": 30,
+           "thirty-five": 35, "forty": 40, "forty-two": 42, "twelve": 12}
+for script, paginas in (("servidor.py", ("SERVER.es.md", "SERVER.md")),):
+    fuente = (PLUGIN / "scripts" / script)
+    if not fuente.exists():
+        continue
+    reales = len(re.findall(r"^\s+ok\(", fuente.read_text(encoding="utf-8"), re.M))
+    for nombre in paginas:
+        doc = PLUGIN / nombre
+        if not doc.exists():
+            continue
+        texto = doc.read_text(encoding="utf-8")
+        dichos = set()
+        for m in re.finditer(r"\b([\w-]+(?: y \w+)?) (?:comprobaciones|checks)\b", texto, re.I):
+            crudo = m.group(1).lower()
+            dichos.add(NUMEROS.get(crudo, int(crudo) if crudo.isdigit() else None))
+        malos = sorted(str(d) for d in dichos if d is not None and d != reales)
+        if malos:
+            decir(FALLA, f"{nombre} dice {', '.join(malos)} comprobaciones y {script} hace {reales}")
+        elif dichos:
+            decir(OK, f"{nombre} · las {reales} comprobaciones que dice son las que hay")
+
 # ── la política de valor, de docs/design.md ─────────────────────────────
 # Una pieza para nivel C dice cómo se instala, en cuánto da el primer resultado, y
 # qué nunca hace. Sin esas tres, no la leen: la confianza es la puerta y el tiempo

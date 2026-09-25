@@ -105,25 +105,10 @@ capacidad adicional de esta familia.
 /pmo-server
 ```
 
-Levanta **un portal con tres secciones**, que es lo que hace que un equipo lo use en
-vez de pedirte el informe:
-
-| | |
-|---|---|
-| **Informes PMO** | Cómo va el portafolio: los verdes que la evidencia no sostiene, lo que lleva semanas en silencio, quién patrocina más de una cosa. Y aparte, **lo que necesita una decisión del comité** — no es la misma vista recortada, es otro objeto |
-| **Proyectos** | El listado, y el informe de cada uno. Cada proyecto **enlaza al producto que le dio origen** |
-| **Productos** | El listado, y el informe de cada uno. Cada producto **enlaza a los proyectos que lo construyen** |
-
-**El enlace va en los dos sentidos, y ahí está lo que ninguna otra página puede
-decir.** Quien entra por el proyecto quiere saber para qué es lo que está haciendo.
-Quien entra por el producto quiere saber quién lo está haciendo — y descubre, cuando
-pasa, que su producto lo construyen proyectos que reportan a **comités distintos**, de
-modo que ninguno lo está viendo completo. Un proyecto sano tampoco lo salva: el
-producto no llega hasta que llegan todos.
-
-La portada dice además de cuándo es el informe, que es lo que nadie sabe cuando le
-reenvían un PDF. Y si tu configuración dice de quién es esta oficina de proyectos, el
-portal lleva ese nombre en todas las páginas.
+Levanta **un portal con tres secciones** —informes de la PMO, proyectos, productos—, y
+el enlace entre proyecto y producto va **en los dos sentidos**. Ahí está lo que ninguna
+otra página puede decir: cuando un producto lo construyen proyectos que reportan a
+comités distintos, cada comité ve su proyecto y **ninguno ve el producto**.
 
 Y tiene una cosa más, que es la que cambia cómo se usa: **quien mira puede dejarle una
 pregunta escrita al agente.** No le contesta en el momento —el agente no está
@@ -131,33 +116,10 @@ corriendo— pero la pregunta queda en la cola, y la siguiente vez que Plomada d
 la atiende. *«Esto no coincide con lo que yo sé»* es la petición de más valor del
 sistema: es una persona diciéndote qué documento falta.
 
-### Qué hay que pedirle a tu organización
+**No autentica a nadie, y es a propósito**: se publica detrás del control de acceso que
+tu organización ya tiene. Escucha solo en tu equipo salvo que le digas lo contrario.
 
-Poco, y conviene tenerlo en una lista antes de ir a pedirlo:
-
-| Qué se pide | Por qué |
-|---|---|
-| Un equipo dentro de la red y un puerto | Es donde vive. **No necesita salir a internet** |
-| Publicarlo detrás del control de acceso que ya usan | Ver abajo |
-| Que ese equipo siga encendido | Si se apaga, el enlace deja de funcionar |
-
-Y lo que **no** hay que pedir, que suele ser la mitad de la conversación: no necesita
-base de datos, ni cuenta de servicio con permisos, ni salida a internet, ni tocar
-ninguna de tus carpetas de documentación.
-
-### Lo que el servidor no hace
-
-- **No calcula.** Sirve páginas que ya estaban escritas en disco. Abrir la página no
-  dispara ninguna lectura de documentos, y por eso dos personas ven exactamente lo
-  mismo.
-- **No escribe ninguna ficha.** Lo único que crea es la petición, en una carpeta suya.
-  El camino de escritura hacia el portafolio **no existe en ese programa**.
-- **No autentica a nadie, y es a propósito.** Un servidor de cien líneas sobre la
-  librería estándar no va a autenticar mejor que el proxy que tu organización ya
-  tiene, y prometer que sí sería exactamente lo que este plugin no hace. Por eso
-  escucha solo en tu equipo salvo que se lo digas, y cuando se lo dices, lo advierte.
-- **No manda nada.** No hay correo ni notificación. Si el informe tiene que llegar a un
-  buzón, hoy lo reenvía una persona.
+→ **[El servidor, con capturas de cada sección y qué pedirle a tu organización](SERVER.es.md)**
 
 ## Qué queda configurado
 
