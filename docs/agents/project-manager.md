@@ -11,6 +11,7 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 | **Escribe** | La ficha del proyecto — **excepto el estado declarado** |
 | **Lee** | Su propia ficha y el estándar que publica la PMO |
 | **Estado** | En construcción. El método existe; la superficie de comandos, no |
+| **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) |
 
 ---
 
@@ -66,7 +67,7 @@ comparación compara al sistema consigo mismo.
 | Mantener el expediente ordenado y trazable | La carpeta como esté | Cada dato con su ruta y su fecha; lo que no está, declarado | Construido |
 | Seguir los entregables del proveedor | Contrato, actas de recibo, facturación declarada | Vencidos sin evidencia, aceptados sin documento, factura sin entrega | Construido |
 | Ver si la replanificación se pasó de lo autorizado | Línea base de solo agregar y cambios aprobados | Días que se movió, días autorizados, días que nadie autorizó | Construido |
-| **Extraer y seguir los compromisos de cada reunión** | Minuta o transcripción | Compromisos con doliente, fecha y fuente; vencidos sin evidencia; sus reprogramaciones | **Falta el comando.** El skill está completo; hoy solo se llega por `/raid-log` o por un barrido de portafolio, que es cadencia de PMO |
+| **Extraer y seguir los compromisos de cada reunión** | Minuta o transcripción | Compromisos con doliente, fecha y fuente; vencidos sin evidencia; sus reprogramaciones | **Falta el comando**, y un límite probado: un compromiso sin fecha (`due_date: no_declarada`) el cálculo lo ignora y tampoco lo cuenta, así que desaparece del informe. El skill está completo; hoy solo se llega por `/raid-log` o por un barrido de portafolio, que es cadencia de PMO |
 | **Armar el informe de avance semanal** | Ficha, alertas y lo que cambió desde la corrida anterior | El informe completo salvo el estado declarado | **Parcial** — `/status-report` existe con forma y cadencia de comité |
 | **Armar la estructura de la reunión** | Alertas abiertas, compromisos vencidos, decisiones pendientes | Agenda con los puntos que necesitan a alguien, en orden | **Falta** |
 | **Redactar el acta de la reunión** | Transcripción o notas | Acta con acuerdos, compromisos y decisiones, cada uno atribuido | **Falta** |
@@ -79,7 +80,7 @@ comparación compara al sistema consigo mismo.
 | Borrador del cierre y de las lecciones | Criterio de éxito pactado y la historia documental | Entregado contra comprometido, desviación final, lecciones con hecho y fecha | Construido |
 | Evaluar el efecto real de un cambio en el cronograma y en otros proyectos | El cambio y las dependencias declaradas | Hitos alcanzados, proyectos afectados y sus gerentes | **Parcial** |
 | Preparar el escalamiento con la decisión formulada | El ítem que excede su autoridad | La decisión como pregunta cerrada, con opciones y consecuencia de no decidir | **Parcial** |
-| **Detectar el compromiso reprogramado tres veces** | Historial de compromisos del mismo doliente sobre lo mismo | Un compromiso con su historial de reprogramaciones, señalado como bloqueo | **Falta en código.** El skill lo describe; `compute` solo marca vencidos |
+| **Detectar el compromiso reprogramado tres veces** | Historial de compromisos del mismo doliente sobre lo mismo | Un compromiso con su historial de reprogramaciones, señalado como bloqueo | **Falta en código**, y la corrida lo confirma: `stated_on` está en el esquema, PRY-001 lo trae con su historial, y `compute` solo ve que está vencido |
 | **Primer borrador del plan y de la WBS** | El acta y proyectos análogos del portafolio | Borrador de WBS y cronograma, con los supuestos declarados | **Falta** |
 
 Tres veces reprogramado **no es un problema de seguimiento: es un bloqueo que nadie ha

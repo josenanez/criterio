@@ -41,6 +41,12 @@ Dos casos más que el script separa en vez de resolver por su cuenta:
 - Un cambio aprobado con impacto en tiempo y sin línea base nueva posterior sale en `approved_without_new_baseline`. La decisión existe y el plan no la refleja.
 - Un impacto escrito en meses —*"dos meses"*— queda en `time_impact_unreadable` y no entra en la suma. Un mes no tiene un número fijo de días, y un número inventado aquí contamina todo lo demás. Las semanas sí convierten.
 
+  Con una consecuencia que conviene tener presente al leer un informe, y que salió de la
+  corrida sintética: si el impacto no se pudo leer, el cambio no suma a
+  `approved_time_days` **ni** aparece en `approved_without_new_baseline`. Solo sale en la
+  lista de ilegibles. Cada paso es correcto y el resultado es que un cambio aprobado real
+  queda fuera del control de replanificación. Un impacto en meses hay que preguntarlo.
+
 ## Desviación en tiempo
 
 Se calcula sobre hitos, no sobre porcentajes de avance declarados. Un porcentaje lo declara el gerente; una fecha de hito la sustenta un documento.

@@ -1,0 +1,407 @@
+{
+  "schema_version": "0.1",
+  "identity": {
+    "code": {
+      "value": "PRY-001",
+      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source_date": "2026-01-12",
+      "state": "found"
+    },
+    "name": {
+      "value": "Originación digital de crédito de consumo",
+      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source_date": "2026-01-12",
+      "state": "found"
+    },
+    "business_area": {
+      "value": "Banca de Personas",
+      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source_date": "2026-01-12",
+      "state": "found"
+    },
+    "sponsor": {
+      "value": "Sandra Gil, VP de Operaciones",
+      "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+      "source_date": "2026-09-11",
+      "state": "ambiguous",
+      "conflict": {
+        "value": "María Restrepo, VP de Operaciones",
+        "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+        "source_date": "2026-01-12"
+      }
+    },
+    "manager": {
+      "value": "Andrés Lozano",
+      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source_date": "2026-01-12",
+      "state": "found"
+    },
+    "committee": {
+      "value": "Comité de Transformación Digital",
+      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source_date": "2026-01-12",
+      "state": "found"
+    },
+    "authority": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    }
+  },
+  "declared": {
+    "status": {
+      "value": "verde",
+      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source_date": "2026-08-22",
+      "state": "found"
+    },
+    "progress_pct": {
+      "value": 78,
+      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source_date": "2026-08-22",
+      "state": "found"
+    },
+    "as_of": {
+      "value": "2026-08-22",
+      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source_date": "2026-08-22",
+      "state": "found"
+    }
+  },
+  "plan": {
+    "start_date": {
+      "value": "2026-01-15",
+      "source": "00-gobierno/2026-01-12-acta-constitucion.md",
+      "source_date": "2026-01-12",
+      "state": "found"
+    },
+    "end_date": {
+      "value": "2026-11-30",
+      "source": "10-plan/2026-06-20-cronograma-v2.csv",
+      "source_date": "2026-06-20",
+      "state": "found"
+    },
+    "baseline": [
+      {
+        "version": 1,
+        "approved_on": "2026-01-12",
+        "start_date": "2026-01-15",
+        "end_date": "2026-09-30",
+        "reason": "inicial",
+        "source": "00-gobierno/2026-01-12-acta-constitucion.md"
+      },
+      {
+        "version": 2,
+        "approved_on": "2026-06-20",
+        "start_date": "2026-01-15",
+        "end_date": "2026-11-30",
+        "reason": "atraso en certificación del motor",
+        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md"
+      }
+    ],
+    "milestones": [
+      {
+        "name": {
+          "value": "Diseño funcional aprobado",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-03-02",
+          "source": "10-plan/2026-01-15-cronograma-v1.csv",
+          "source_date": "2026-01-15",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-03-06",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "state": {
+          "value": "met",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "evidence": {
+          "value": "20-seguimiento/2026-03-06-acta-aprobacion-diseno.md",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        }
+      },
+      {
+        "name": {
+          "value": "Motor de decisión certificado",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-05-29",
+          "source": "10-plan/2026-01-15-cronograma-v1.csv",
+          "source_date": "2026-01-15",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-07-31",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "state": {
+          "value": "pending",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "evidence": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        }
+      },
+      {
+        "name": {
+          "value": "Salida a producción",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-09-30",
+          "source": "10-plan/2026-01-15-cronograma-v1.csv",
+          "source_date": "2026-01-15",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-11-30",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "state": {
+          "value": "pending",
+          "source": "10-plan/2026-06-20-cronograma-v2.csv",
+          "source_date": "2026-06-20",
+          "state": "found"
+        },
+        "evidence": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        }
+      }
+    ]
+  },
+  "money": {
+    "currency": {
+      "value": "COP",
+      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source_date": "2026-08-22",
+      "state": "found"
+    },
+    "approved": {
+      "value": 1850000000,
+      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source_date": "2026-08-22",
+      "state": "found"
+    },
+    "committed": {
+      "value": 1762000000,
+      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source_date": "2026-08-22",
+      "state": "found"
+    },
+    "executed": {
+      "value": 790000000,
+      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source_date": "2026-08-22",
+      "state": "found"
+    },
+    "projection": {
+      "value": 1910000000,
+      "source": "20-seguimiento/2026-08-22-informe-avance.md",
+      "source_date": "2026-08-22",
+      "state": "found"
+    }
+  },
+  "changes": [
+    {
+      "ref": {
+        "value": "CC-01",
+        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source_date": "2026-06-18",
+        "state": "found"
+      },
+      "requested_on": {
+        "value": "2026-06-18",
+        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source_date": "2026-06-18",
+        "state": "found"
+      },
+      "scope_impact": {
+        "value": "sin cambio",
+        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source_date": "2026-06-18",
+        "state": "found"
+      },
+      "time_impact": {
+        "value": "60 días",
+        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source_date": "2026-06-18",
+        "state": "found"
+      },
+      "cost_impact": {
+        "value": "sin impacto",
+        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source_date": "2026-06-18",
+        "state": "found"
+      },
+      "decision": {
+        "value": "approved",
+        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source_date": "2026-06-18",
+        "state": "found"
+      },
+      "decided_by": {
+        "value": "Comité de Transformación Digital",
+        "source": "20-seguimiento/2026-06-18-solicitud-cambio-cc-01.md",
+        "source_date": "2026-06-18",
+        "state": "found"
+      }
+    }
+  ],
+  "raid": {
+    "risks": [
+      {
+        "what": {
+          "value": "Si el core de depósitos mueve su fecha otra vez, el desembolso automático no tiene contra qué integrarse",
+          "source": "30-reuniones/2026-07-24-comite-tecnico.md",
+          "source_date": "2026-07-24",
+          "state": "found"
+        },
+        "owner": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        },
+        "formally_registered": {
+          "value": false,
+          "source": "30-reuniones/2026-07-24-comite-tecnico.md",
+          "source_date": "2026-07-24",
+          "state": "found"
+        }
+      }
+    ],
+    "issues": [
+      {
+        "what": {
+          "value": "El acta no declara la autoridad de aprobación del cierre de pruebas",
+          "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+          "source_date": "2026-09-11",
+          "state": "found"
+        },
+        "since": {
+          "value": "2026-07-24",
+          "source": "30-reuniones/2026-07-24-comite-tecnico.md",
+          "source_date": "2026-07-24",
+          "state": "found"
+        }
+      }
+    ],
+    "dependencies": [
+      {
+        "on_project": {
+          "value": "PRY-002",
+          "source": "30-reuniones/2026-08-14-comite-tecnico.md",
+          "source_date": "2026-08-14",
+          "state": "found"
+        },
+        "what": {
+          "value": "Servicio de abono en cuenta expuesto por el core de depósitos",
+          "source": "30-reuniones/2026-08-14-comite-tecnico.md",
+          "source_date": "2026-08-14",
+          "state": "found"
+        },
+        "confirmed": {
+          "value": false,
+          "source": "30-reuniones/2026-08-14-comite-tecnico.md",
+          "source_date": "2026-08-14",
+          "state": "found"
+        }
+      }
+    ]
+  },
+  "commitments": [
+    {
+      "who": {
+        "value": "Carlos Méndez",
+        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source_date": "2026-09-11",
+        "state": "found"
+      },
+      "what": {
+        "value": "Enviar el informe de certificación del motor de decisión",
+        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source_date": "2026-09-11",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "2026-09-18",
+        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source_date": "2026-09-11",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-09-11",
+        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source_date": "2026-09-11",
+        "state": "found"
+      },
+      "state": {
+        "value": "open",
+        "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+        "source_date": "2026-09-11",
+        "state": "found"
+      },
+      "reschedules": [
+        {
+          "due_date": "2026-08-07",
+          "stated_on": "2026-07-24",
+          "source": "30-reuniones/2026-07-24-comite-tecnico.md"
+        },
+        {
+          "due_date": "2026-08-28",
+          "stated_on": "2026-08-14",
+          "source": "30-reuniones/2026-08-14-comite-tecnico.md"
+        },
+        {
+          "due_date": "2026-09-18",
+          "stated_on": "2026-09-11",
+          "source": "30-reuniones/2026-09-11-comite-tecnico.md"
+        }
+      ]
+    }
+  ],
+  "activity": {
+    "last_document_date": {
+      "value": "2026-09-11",
+      "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+      "source_date": "2026-09-11",
+      "state": "found"
+    },
+    "last_meeting_date": {
+      "value": "2026-09-11",
+      "source": "30-reuniones/2026-09-11-comite-tecnico.md",
+      "source_date": "2026-09-11",
+      "state": "found"
+    }
+  }
+}

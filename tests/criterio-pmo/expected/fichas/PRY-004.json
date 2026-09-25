@@ -1,0 +1,99 @@
+{
+  "schema_version": "0.1",
+  "identity": {
+    "code": {
+      "value": "PRY-004",
+      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source_date": "2025-02-14",
+      "state": "found"
+    },
+    "name": {
+      "value": "Iniciativa de Open Banking",
+      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source_date": "2025-02-14",
+      "state": "found"
+    },
+    "business_area": {
+      "value": "Arquitectura",
+      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source_date": "2025-02-14",
+      "state": "found"
+    },
+    "sponsor": {
+      "value": "Ricardo Salazar, CIO",
+      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source_date": "2025-02-14",
+      "state": "found"
+    },
+    "manager": {
+      "value": "Jorge Ruiz",
+      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source_date": "2025-02-14",
+      "state": "found"
+    },
+    "committee": {
+      "value": "Comité de Tecnología",
+      "source": "00-gobierno/2025-02-14-memorando-inicio.md",
+      "source_date": "2025-02-14",
+      "state": "found"
+    },
+    "authority": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    }
+  },
+  "declared": {
+    "status": {
+      "value": "verde",
+      "source": "20-seguimiento/2026-04-30-nota-avance.md",
+      "source_date": "2026-04-30",
+      "state": "found"
+    },
+    "as_of": {
+      "value": "2026-04-30",
+      "source": "20-seguimiento/2026-04-30-nota-avance.md",
+      "source_date": "2026-04-30",
+      "state": "found"
+    }
+  },
+  "plan": {
+    "start_date": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    },
+    "end_date": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    },
+    "baseline": [],
+    "milestones": []
+  },
+  "money": {
+    "currency": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    },
+    "approved": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    }
+  },
+  "activity": {
+    "last_document_date": {
+      "value": "2026-04-30",
+      "source": "20-seguimiento/2026-04-30-nota-avance.md",
+      "source_date": "2026-04-30",
+      "state": "found"
+    }
+  }
+}

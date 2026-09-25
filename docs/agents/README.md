@@ -135,6 +135,10 @@ rompe primero si se intenta, y en qué orden.
 | Project Manager | En construcción. El método existe, la superficie de comandos no |
 | Product Manager | Sin construir. Requiere primero el registro de requerimiento |
 
+La corrida que sostiene estos estados, con lo que prueba y lo que no, está en
+[`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md). La quinta decisión
+de la tabla siguiente salió de ahí y no de una conversación.
+
 ---
 
 ## Decisiones abiertas
@@ -149,6 +153,7 @@ hacer.
 | `producto` | La vista transversal del PMO sobre los proyectos que tienen producto | *"¿Cómo va el producto?"* no se responde desde cuarenta fichas de proyecto |
 | `requerimiento` como registro | *"Qué requerimientos faltan"* como filtro instantáneo, y el traspaso Product → Project | Es siempre una corrida de modelo sobre documentos, cada vez |
 | `autoridad` del gerente | Que el control de cambios sepa si algo excede la facultad sin releer el acta | Se vuelve a derivar de los documentos en cada corrida |
+| `monto` por entregable de proveedor | Detectar una factura contra un entregable que no empezó | Pasa desapercibida mientras haya otros entregables aceptados |
 
 Sobre la base de datos hay una trampa que conviene dejar escrita: **lo que trae un PPM son más
 declaraciones, no evidencia.** El campo *"estado: verde"* de la herramienta corporativa es la

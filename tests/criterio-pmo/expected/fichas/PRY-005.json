@@ -1,0 +1,269 @@
+{
+  "schema_version": "0.1",
+  "identity": {
+    "code": {
+      "value": "PRY-005",
+      "source": "00-gobierno/2026-05-04-acta-constitucion.md",
+      "source_date": "2026-05-04",
+      "state": "found"
+    },
+    "name": {
+      "value": "Débito contactless",
+      "source": "00-gobierno/2026-05-04-acta-constitucion.md",
+      "source_date": "2026-05-04",
+      "state": "found"
+    },
+    "business_area": {
+      "value": "Medios de Pago",
+      "source": "00-gobierno/2026-05-04-acta-constitucion.md",
+      "source_date": "2026-05-04",
+      "state": "found"
+    },
+    "sponsor": {
+      "value": "Sandra Gil, VP de Operaciones",
+      "source": "00-gobierno/2026-05-04-acta-constitucion.md",
+      "source_date": "2026-05-04",
+      "state": "found"
+    },
+    "manager": {
+      "value": "Paula Betancur",
+      "source": "00-gobierno/2026-05-04-acta-constitucion.md",
+      "source_date": "2026-05-04",
+      "state": "found"
+    },
+    "committee": {
+      "value": "Comité de Medios de Pago",
+      "source": "00-gobierno/2026-05-04-acta-constitucion.md",
+      "source_date": "2026-05-04",
+      "state": "found"
+    },
+    "authority": {
+      "value": "hasta 40.000.000 y ajustes de cronograma menores a 15 días",
+      "source": "00-gobierno/2026-05-04-acta-constitucion.md",
+      "source_date": "2026-05-04",
+      "state": "found"
+    }
+  },
+  "declared": {
+    "status": {
+      "value": "verde",
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    },
+    "progress_pct": {
+      "value": 72,
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    },
+    "as_of": {
+      "value": "2026-09-26",
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    }
+  },
+  "plan": {
+    "start_date": {
+      "value": "2026-05-11",
+      "source": "00-gobierno/2026-05-04-acta-constitucion.md",
+      "source_date": "2026-05-04",
+      "state": "found"
+    },
+    "end_date": {
+      "value": "2026-11-30",
+      "source": "10-plan/2026-05-11-cronograma-v1.csv",
+      "source_date": "2026-05-11",
+      "state": "found"
+    },
+    "baseline": [
+      {
+        "version": 1,
+        "approved_on": "2026-05-04",
+        "start_date": "2026-05-11",
+        "end_date": "2026-11-30",
+        "reason": "inicial",
+        "source": "00-gobierno/2026-05-04-acta-constitucion.md"
+      }
+    ],
+    "milestones": [
+      {
+        "name": {
+          "value": "Certificación con el esquema",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-07-31",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-07-24",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "state": {
+          "value": "met",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "evidence": {
+          "value": "20-seguimiento/2026-07-24-certificado-esquema.md",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        }
+      },
+      {
+        "name": {
+          "value": "Piloto en 50 comercios",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-09-11",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-09-11",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "state": {
+          "value": "met",
+          "source": "20-seguimiento/2026-09-11-acta-cierre-piloto.md",
+          "source_date": "2026-09-11",
+          "state": "found"
+        },
+        "evidence": {
+          "value": "20-seguimiento/2026-09-11-acta-cierre-piloto.md",
+          "source": "20-seguimiento/2026-09-11-acta-cierre-piloto.md",
+          "source_date": "2026-09-11",
+          "state": "found"
+        }
+      },
+      {
+        "name": {
+          "value": "Despliegue masivo",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-11-13",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-11-13",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "state": {
+          "value": "pending",
+          "source": "10-plan/2026-05-11-cronograma-v1.csv",
+          "source_date": "2026-05-11",
+          "state": "found"
+        },
+        "evidence": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        }
+      }
+    ]
+  },
+  "money": {
+    "currency": {
+      "value": "COP",
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    },
+    "approved": {
+      "value": 900000000,
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    },
+    "committed": {
+      "value": 540000000,
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    },
+    "executed": {
+      "value": 498000000,
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    },
+    "projection": {
+      "value": 880000000,
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    }
+  },
+  "commitments": [
+    {
+      "who": {
+        "value": "Iván Duarte",
+        "source": "30-reuniones/2026-09-24-seguimiento-semanal.md",
+        "source_date": "2026-09-24",
+        "state": "found"
+      },
+      "what": {
+        "value": "Entregar el plan de capacitación de la red de oficinas",
+        "source": "30-reuniones/2026-09-24-seguimiento-semanal.md",
+        "source_date": "2026-09-24",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "2026-10-15",
+        "source": "30-reuniones/2026-09-24-seguimiento-semanal.md",
+        "source_date": "2026-09-24",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-09-24",
+        "source": "30-reuniones/2026-09-24-seguimiento-semanal.md",
+        "source_date": "2026-09-24",
+        "state": "found"
+      },
+      "state": {
+        "value": "open",
+        "source": "30-reuniones/2026-09-24-seguimiento-semanal.md",
+        "source_date": "2026-09-24",
+        "state": "found"
+      }
+    }
+  ],
+  "activity": {
+    "last_document_date": {
+      "value": "2026-09-26",
+      "source": "20-seguimiento/2026-09-26-informe-avance.md",
+      "source_date": "2026-09-26",
+      "state": "found"
+    },
+    "last_meeting_date": {
+      "value": "2026-09-24",
+      "source": "30-reuniones/2026-09-24-seguimiento-semanal.md",
+      "source_date": "2026-09-24",
+      "state": "found"
+    }
+  }
+}

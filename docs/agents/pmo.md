@@ -13,6 +13,7 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 | **No escribe** | La declaración de ningún gerente |
 | **Lee** | Todas las fichas |
 | **Estado** | Disponible. Clase A cerrada; la B a medias |
+| **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) — corrida sintética, 49 comprobaciones |
 
 ---
 
@@ -60,7 +61,7 @@ siguiente dice lo mismo**, y en un mes se ignora.
 | Verificar que exista acta, línea base y doliente | Documentos de gobierno y la ficha | `has_baseline`, `fields_missing`, y la consecuencia concreta de cada vacío | Construido |
 | Seguir los compromisos del comité | Minutas y transcripciones de comité | Compromisos con doliente, fecha y fuente; los vencidos sin evidencia | Construido |
 | Las cuatro cifras del presupuesto | Aprobado, contratos y órdenes, ejecución, proyección declarada | Disponible real, % ejecutado, % comprometido, sobrecosto de la proyección | Construido |
-| Cruzar entregables de proveedor contra evidencia y facturación | Contratos, actas de recibo, facturación declarada | Entregables vencidos sin evidencia, aceptados sin documento, factura sin entrega | Construido |
+| Cruzar entregables de proveedor contra evidencia y facturación | Contratos, actas de recibo, facturación declarada | Entregables vencidos sin evidencia, aceptados sin documento, factura sin ningún entregable aceptado | **Construido con un límite probado** — la factura contra un entregable que no empezó no se detecta: haría falta monto por entregable. Ver evidencia, límite 1 |
 | Detectar dependencias entre proyectos | Dependencias declaradas con el código del otro proyecto, y las fechas de cierre de todos | El cruce con la fecha vigente del otro proyecto y si fue confirmada o solo declarada | Construido |
 | Reconciliar la replanificación contra lo autorizado | Línea base de solo agregar y cambios aprobados con impacto en tiempo | Días que se movió, días autorizados, días que ningún documento autoriza | Construido |
 | Control documental y trazabilidad | El conjunto de archivos y `meta.documents_seen` con su hash | Qué releer, qué se conserva, y las citas que dejaron de resolver | **Parcial** — el hash solo existe en markdown; nada verifica que una cita siga resolviendo |
@@ -136,6 +137,9 @@ en este orden:
 ## Decisiones abiertas propias de esta hoja
 
 - **`autoridad` como campo** en vez de prosa.
+- **Monto por entregable de proveedor.** Salió de la corrida sintética, no de una
+  conversación: sin él, una factura contra un entregable que nunca empezó pasa
+  desapercibida mientras haya otros aceptados.
 - **Si la calibración por gerente se construye**, y con qué visibilidad.
 - **Quién ve la brecha.** Resuelto en discusión: la brecha aparece como **evento** cuando un
   documento cambia, con una pregunta asociada — no como contador permanente visible al

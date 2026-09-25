@@ -1,0 +1,300 @@
+{
+  "schema_version": "0.1",
+  "identity": {
+    "code": {
+      "value": "PRY-003",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    },
+    "name": {
+      "value": "Migración de cargas a nube",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    },
+    "business_area": {
+      "value": "Tecnología",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    },
+    "sponsor": {
+      "value": "Ricardo Salazar, CIO",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    },
+    "manager": {
+      "value": "Felipe Naranjo",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    },
+    "committee": {
+      "value": "Comité de Tecnología",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    },
+    "authority": {
+      "value": "hasta 80.000.000, sin cambios de alcance",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    }
+  },
+  "declared": {
+    "status": {
+      "value": "amarillo",
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    },
+    "progress_pct": {
+      "value": 44,
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    },
+    "as_of": {
+      "value": "2026-09-20",
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    }
+  },
+  "plan": {
+    "start_date": {
+      "value": "2026-03-16",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    },
+    "end_date": {
+      "value": "2026-12-18",
+      "source": "00-gobierno/2026-03-09-acta-constitucion.md",
+      "source_date": "2026-03-09",
+      "state": "found"
+    },
+    "baseline": [
+      {
+        "version": 1,
+        "approved_on": "2026-03-09",
+        "start_date": "2026-03-16",
+        "end_date": "2026-12-18",
+        "reason": "inicial",
+        "source": "00-gobierno/2026-03-09-acta-constitucion.md"
+      }
+    ],
+    "milestones": []
+  },
+  "money": {
+    "currency": {
+      "value": "COP",
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    },
+    "approved": {
+      "value": 1400000000,
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    },
+    "committed": {
+      "value": 980000000,
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    },
+    "executed": {
+      "value": 640000000,
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    },
+    "projection": {
+      "value": 1420000000,
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    }
+  },
+  "vendors": [
+    {
+      "name": {
+        "value": "Nubetec S.A.S.",
+        "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+        "source_date": "2026-04-06",
+        "state": "found"
+      },
+      "contract_ref": {
+        "value": "OC-2214",
+        "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+        "source_date": "2026-04-06",
+        "state": "found"
+      },
+      "invoiced": {
+        "value": 620000000,
+        "source": "20-seguimiento/2026-09-20-informe-avance.md",
+        "source_date": "2026-09-20",
+        "state": "found"
+      },
+      "deliverables": [
+        {
+          "name": {
+            "value": "Landing zone certificada",
+            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "due_date": {
+            "value": "2026-05-29",
+            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "state": {
+            "value": "accepted",
+            "source": "20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
+            "source_date": "2026-06-05",
+            "state": "found"
+          },
+          "evidence": {
+            "value": "20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
+            "source": "20-seguimiento/2026-06-05-acta-recibo-landing-zone.md",
+            "source_date": "2026-06-05",
+            "state": "found"
+          }
+        },
+        {
+          "name": {
+            "value": "Migración de las primeras diez cargas",
+            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "due_date": {
+            "value": "2026-07-31",
+            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "state": {
+            "value": "delivered",
+            "source": "20-seguimiento/2026-09-20-informe-avance.md",
+            "source_date": "2026-09-20",
+            "state": "found"
+          },
+          "evidence": {
+            "value": null,
+            "source": null,
+            "source_date": null,
+            "state": "not_found"
+          }
+        },
+        {
+          "name": {
+            "value": "Migración de las veinte cargas siguientes",
+            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "due_date": {
+            "value": "2026-09-15",
+            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "state": {
+            "value": "pending",
+            "source": "20-seguimiento/2026-09-20-informe-avance.md",
+            "source_date": "2026-09-20",
+            "state": "found"
+          },
+          "evidence": {
+            "value": null,
+            "source": null,
+            "source_date": null,
+            "state": "not_found"
+          }
+        },
+        {
+          "name": {
+            "value": "Tablero de costos por carga",
+            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "due_date": {
+            "value": "2026-08-29",
+            "source": "00-gobierno/2026-04-06-contrato-oc-2214.md",
+            "source_date": "2026-04-06",
+            "state": "found"
+          },
+          "state": {
+            "value": "delivered",
+            "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+            "source_date": "2026-09-03",
+            "state": "found"
+          },
+          "evidence": {
+            "value": null,
+            "source": null,
+            "source_date": null,
+            "state": "not_found"
+          }
+        }
+      ]
+    }
+  ],
+  "commitments": [
+    {
+      "who": {
+        "value": "Paola Arias",
+        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source_date": "2026-09-03",
+        "state": "found"
+      },
+      "what": {
+        "value": "Entregar el cronograma de las veinte cargas siguientes",
+        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source_date": "2026-09-03",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "2026-09-12",
+        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source_date": "2026-09-03",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-09-03",
+        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source_date": "2026-09-03",
+        "state": "found"
+      },
+      "state": {
+        "value": "open",
+        "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+        "source_date": "2026-09-03",
+        "state": "found"
+      }
+    }
+  ],
+  "activity": {
+    "last_document_date": {
+      "value": "2026-09-20",
+      "source": "20-seguimiento/2026-09-20-informe-avance.md",
+      "source_date": "2026-09-20",
+      "state": "found"
+    },
+    "last_meeting_date": {
+      "value": "2026-09-03",
+      "source": "30-reuniones/2026-09-03-seguimiento-proveedor.md",
+      "source_date": "2026-09-03",
+      "state": "found"
+    }
+  }
+}

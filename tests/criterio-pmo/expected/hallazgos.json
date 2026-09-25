@@ -1,0 +1,118 @@
+{
+  "as_of": "2026-09-30",
+  "nota": "Respuestas conocidas para la corrida con --today 2026-09-30. Escritas a mano desde los documentos de input/, no calculadas. `senales` es el conjunto exacto: el grader falla igual si falta una o si aparece una que no está.",
+  "proyectos": {
+    "PRY-001": {
+      "por_que": "Declara verde en agosto y la evidencia no lo sostiene. Es el caso central.",
+      "senales": [
+        "budget_committed",
+        "commitment_overdue",
+        "contradiction",
+        "declaration_stale",
+        "declared_vs_evidence",
+        "milestone_overdue",
+        "rebaseline_unauthorized",
+        "silent",
+        "variance_time"
+      ],
+      "valores": {
+        "days_silent": 19,
+        "replans": 1,
+        "slip_vs_original_days": 61,
+        "slip_vs_current_days": 0,
+        "milestones_overdue": 1,
+        "commitments_overdue": 1,
+        "money.pct_committed": 95.2,
+        "money.available_real": 88000000,
+        "money.projection_over_pct": 3.2,
+        "changes.baseline_moved_days": 61,
+        "changes.approved_time_days": 60,
+        "changes.unauthorized_days": 1,
+        "declared.age_days": 39
+      },
+      "comentario": "La replanificación movió 61 días y el comité autorizó 60. Un día de diferencia es un caso a propósito: el hallazgo no es el tamaño, es que ningún documento autoriza la diferencia."
+    },
+    "PRY-002": {
+      "por_que": "Declara amarillo, y se movió mucho. El amarillo no dispara la alerta de brecha.",
+      "senales": [
+        "variance_time"
+      ],
+      "valores": {
+        "days_silent": 5,
+        "replans": 0,
+        "slip_vs_original_days": 91,
+        "milestones_overdue": 0,
+        "declared.age_days": 5
+      },
+      "comentario": "Dos controles en un proyecto. Primero, el amarillo: hay señales y `declared_vs_evidence` NO debe aparecer, porque quien ya reportó problema no está escondiendo nada. Segundo, el hito que se movió: su fecha de línea base ya pasó, pero su fecha vigente es de diciembre, así que NO es un hito vencido. El atraso sale como desviación contra la línea base, que es donde corresponde. Confundir las dos cosas sería contar el mismo atraso dos veces."
+    },
+    "PRY-003": {
+      "por_que": "El proyecto de proveedores.",
+      "senales": [
+        "commitment_overdue",
+        "vendor_accepted_without_evidence",
+        "vendor_deliverable_late"
+      ],
+      "valores": {
+        "days_silent": 10,
+        "commitments_overdue": 1,
+        "vendors.0.late": 1,
+        "vendors.0.accepted_without_evidence": 2,
+        "vendors.0.accepted": 3
+      },
+      "comentario": "`vendor_invoiced_without_delivery` NO aparece: hay facturación y también hay entregables aceptados. La pregunta de Finanzas —factura contra una migración que no empezó— es un hallazgo que esta versión del cálculo no detecta, porque el esquema no tiene monto por entregable. Queda declarado como límite conocido, no como falla del grader."
+    },
+    "PRY-004": {
+      "por_que": "El proyecto sin plan aprobado, que es el caso más común en una PMO real.",
+      "senales": [
+        "declaration_stale",
+        "declared_vs_evidence",
+        "silent"
+      ],
+      "valores": {
+        "days_silent": 153,
+        "has_baseline": false,
+        "declared.age_days": 153
+      },
+      "comentario": "Declara verde y tiene señales, así que `declared_vs_evidence` SÍ aparece: el silencio de cinco meses es una señal que ese verde no explica. Sin línea base no hay desviación medible, y eso se reporta como vacío."
+    },
+    "PRY-005": {
+      "por_que": "CONTROL NEGATIVO. Todo en orden. Ninguna alerta.",
+      "senales": [],
+      "valores": {
+        "days_silent": 4,
+        "replans": 0,
+        "slip_vs_original_days": 0,
+        "milestones_overdue": 0,
+        "commitments_overdue": 0,
+        "money.pct_committed": 60.0,
+        "declared.age_days": 4
+      },
+      "comentario": "Si este proyecto alerta, el agente es un generador de ruido y no sirve. Es la prueba más importante del conjunto."
+    },
+    "PRY-006": {
+      "por_que": "El cambio aprobado que nadie bajó al plan, con impacto escrito en meses.",
+      "senales": [
+        "declaration_stale",
+        "declared_vs_evidence",
+        "silent",
+        "variance_cost"
+      ],
+      "valores": {
+        "days_silent": 49,
+        "replans": 0,
+        "changes.time_impact_unreadable": 1,
+        "changes.approved_time_days": 0,
+        "changes.approved_without_new_baseline": 0,
+        "money.projection_over_pct": 17.3,
+        "declared.age_days": 49
+      },
+      "comentario": "«Tres meses» queda ilegible en vez de convertirse en 90 días inventados, y por eso mismo el cambio no suma a `approved_time_days` ni entra en `approved_without_new_baseline`: el impacto no se pudo leer. Ese encadenamiento es un límite conocido del diseño, no del proyecto: un cambio aprobado que movió fechas y quedó ilegible desaparece del control de replanificación, y solo se ve en la lista de ilegibles. El sobrecosto sí se ve: el comité autorizó 180.000.000 y el presupuesto aprobado nunca se actualizó, así que la proyección se pasa 17,3%."
+    }
+  },
+  "totales": {
+    "projects": 6,
+    "no_baseline": 1,
+    "green_contradicted": 3
+  }
+}

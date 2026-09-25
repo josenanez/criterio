@@ -8,11 +8,25 @@ Nothing here is real. No client document, no employer data, no personal data, an
 
 ```
 tests/
+├── coherencia.py        checks the documentation and the code say the same thing
 └── <plugin>/
-    ├── input/       the synthetic folder a command is pointed at
-    ├── expected/    the known answers
-    └── grade.py     scores a run against them
+    ├── generar.py       builds input/ and expected/ from one declarative source
+    ├── input/           the synthetic folder a command is pointed at
+    ├── expected/
+    │   ├── fichas/      the reference extraction: what a correct read of input/ produces
+    │   └── hallazgos.json   the known answers, written by hand
+    ├── grade.py         scores a run against them
+    └── EVIDENCIA.md     what was run, what it proves, what it does not
 ```
+
+`grade.py` has two modes. With no arguments it grades the **arithmetic**: it runs `compute`
+over the reference records and checks every planted finding appears, that none appears that
+was not declared, and that the numbers match. With `--fichas <dir>` it grades the
+**extraction**: it compares, field by field, the records a model produced from `input/`
+against the reference. The second mode needs the plugin running in a real session.
+
+The reference records live under `expected/`, not `input/`, on purpose: they are an answer,
+not an input.
 
 ## The bar
 

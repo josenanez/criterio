@@ -1,0 +1,6 @@
+hito,fecha_linea_base,fecha_vigente,estado,evidencia
+Diseño funcional aprobado,2026-03-02,2026-03-06,cumplido,20-seguimiento/2026-03-06-acta-aprobacion-diseno.md
+Ambiente integrado disponible,2026-03-31,2026-05-18,cumplido,20-seguimiento/2026-05-18-correo-ambiente.md
+Motor de decisión certificado,2026-05-29,2026-07-31,pendiente,
+Pruebas de aceptación cerradas,2026-08-14,2026-10-16,pendiente,
+Salida a producción,2026-09-30,2026-11-30,pendiente,
