@@ -135,6 +135,34 @@ faltantes = {m for m in re.findall(r"`/([a-z][a-z-]{3,30})`", todo)} - comandos
 for m in sorted(faltantes):
     decir(FALLA, f"la documentación promete /{m} y el comando no existe")
 
+# ── las imágenes que la documentación referencia ────────────────────────
+# Una imagen rota en GitHub se ve como un icono gris y no la nota nadie hasta que
+# alguien de afuera abre la página. Y con dos idiomas, la que se rompe es siempre
+# la que uno no mira.
+print("\nImágenes referenciadas")
+rotas, total = [], 0
+for md in sorted(list(RAIZ.glob("*.md")) + list(RAIZ.glob("plugins/*/*.md"))
+                 + list(RAIZ.glob("docs/**/*.md"))):
+    for ruta in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", md.read_text(encoding="utf-8")):
+        total += 1
+        if not (md.parent / ruta).resolve().exists():
+            rotas.append((md.relative_to(RAIZ), ruta))
+for md, ruta in rotas:
+    decir(FALLA, f"{md} referencia una imagen que no existe: {ruta}")
+if not rotas:
+    decir(OK, f"las {total} imágenes referenciadas existen")
+
+# y que las dos versiones de idioma tengan las mismas piezas
+img = RAIZ / "docs" / "img"
+if (img / "es").exists() and (img / "en").exists():
+    es = {p.name for p in (img / "es").glob("*.png")}
+    en = {p.name for p in (img / "en").glob("*.png")}
+    faltan = sorted((es - en) | (en - es))
+    for x in faltan:
+        decir(FALLA, f"la pieza {x} existe en un idioma y no en el otro")
+    if not faltan:
+        decir(OK, f"las {len(es)} piezas están en los dos idiomas")
+
 # ── la política de valor, de docs/design.md ─────────────────────────────
 # Una pieza para nivel C dice cómo se instala, en cuánto da el primer resultado, y
 # qué nunca hace. Sin esas tres, no la leen: la confianza es la puerta y el tiempo

@@ -8,6 +8,8 @@ arithmetic, and arithmetic belongs here, where it is deterministic and testable.
 Usage:
     python3 pmo.py init     --state <dir>
     python3 pmo.py config   --config <file>
+    python3 pmo.py due      --state <dir> --config <file>
+    python3 pmo.py ran      --state <dir> --what sweep
     python3 pmo.py index    --state <dir> --docs <dir>
     python3 pmo.py compute  --state <dir> [--config <file>] [--today YYYY-MM-DD]
     python3 pmo.py snapshot --state <dir> [--today YYYY-MM-DD]
@@ -541,7 +543,125 @@ def compute(state: Path, today: dt.date, th: dict) -> dict:
     }
 
 
+# ---------------------------------------------------------------- cadencia
+
+CADENCIAS = {"daily": 1, "weekly": 7, "biweekly": 14, "fortnightly": 14,
+             "monthly": 30, "quarterly": 91}
+
+
+def _cada(nombre) -> int:
+    return CADENCIAS.get(str(nombre or "").lower().strip(), 0)
+
+
+def proximo_comite(cfg_cycle: dict, today: dt.date):
+    """La próxima fecha de comité, rodando hacia adelante desde la declarada.
+
+    La organización declara una fecha y una cadencia. Si la fecha ya pasó —porque
+    nadie volvió a tocar la configuración, que es lo normal— se avanza en pasos de
+    la cadencia hasta alcanzar hoy. Preguntar por una fecha vencida no sirve de nada.
+    """
+    base = as_date(cfg_cycle.get("committee_next"))
+    paso = _cada(cfg_cycle.get("committee"))
+    if not base:
+        return None, paso
+    if paso <= 0:
+        return (base if base >= today else None), paso
+    while base < today:
+        base += dt.timedelta(days=paso)
+    return base, paso
+
+
+def due(config: Path, state: Path, today: dt.date) -> dict:
+    """Qué toca hoy, según la cadencia que la persona declaró.
+
+    Esto es lo que convierte esto en un agente y no en un comando: no espera a que
+    lo llamen. La decisión de si hoy toca algo es aritmética de fechas, así que vive
+    aquí y no en el criterio del modelo.
+
+    El registro de la última corrida vive en <estado>/cadencia.json. Sin él, "mensual"
+    no se puede calcular: no hay contra qué contar.
+    """
+    cfg = json.loads(config.read_text(encoding="utf-8")) if config and config.exists() else {}
+    ciclo = cfg.get("cycle", {}) or {}
+    confirmacion = cfg.get("confirmation", {}) or {}
+
+    registro_f = state / "cadencia.json"
+    registro = json.loads(registro_f.read_text(encoding="utf-8")) if registro_f.exists() else {}
+
+    def ultima(clave):
+        return as_date(registro.get(clave))
+
+    def vencido(clave, dias):
+        if dias <= 0:
+            return False
+        u = ultima(clave)
+        return True if u is None else (today - u).days >= dias
+
+    toca, detalle = [], {}
+
+    # 1 · el barrido: mirar qué cambió en la carpeta. Barato y a diario si se quiso.
+    if ciclo.get("daily_sweep"):
+        if vencido("sweep", 1):
+            toca.append("sweep")
+        detalle["sweep"] = {"every_days": 1, "last": registro.get("sweep")}
+
+    # 2 · el informe de comité, con su anticipación
+    fecha, paso = proximo_comite(ciclo, today)
+    anticipacion = int(ciclo.get("report_lead_days") or 0)
+    if fecha:
+        entrega = fecha - dt.timedelta(days=anticipacion)
+        detalle["committee"] = {
+            "next": fecha.isoformat(),
+            "days_away": (fecha - today).days,
+            "report_on": entrega.isoformat(),
+            "every_days": paso or None,
+        }
+        # se entrega el día que toca, y también si ese día ya pasó sin entregarse
+        u = ultima("report")
+        pendiente = today >= entrega and (u is None or u < entrega)
+        if pendiente:
+            toca.append("report")
+
+    # 3 · la confirmación periódica de los campos que envejecen peor
+    dias_conf = _cada(confirmacion.get("every"))
+    if dias_conf:
+        detalle["confirmation"] = {"every_days": dias_conf, "last": registro.get("confirmation"),
+                                   "fields_per_run": confirmacion.get("fields_per_run")}
+        if vencido("confirmation", dias_conf):
+            toca.append("confirmation")
+
+    # cuándo hay que volver a mirar, si hoy no toca nada
+    proximos = []
+    if ciclo.get("daily_sweep"):
+        u = ultima("sweep")
+        proximos.append(today + dt.timedelta(days=1) if u is None else u + dt.timedelta(days=1))
+    if fecha:
+        proximos.append(fecha - dt.timedelta(days=anticipacion))
+    if dias_conf:
+        u = ultima("confirmation")
+        proximos.append((u or today) + dt.timedelta(days=dias_conf))
+    futuros = [p for p in proximos if p > today]
+
+    return {
+        "today": today.isoformat(),
+        "due": toca,
+        "quiet": not toca,
+        "detail": detalle,
+        "next_wake": min(futuros).isoformat() if futuros else None,
+    }
+
+
+def ran(state: Path, que: str, today: dt.date) -> dict:
+    """Deja constancia de que algo se corrió hoy. Sin esto, `due` repite para siempre."""
+    f = state / "cadencia.json"
+    registro = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+    registro[que] = today.isoformat()
+    f.write_text(json.dumps(registro, ensure_ascii=False, indent=2), encoding="utf-8")
+    return registro
+
+
 # ---------------------------------------------------------------- index
+
 
 def index(docs: Path, state: Path) -> dict:
     """Qué cambió en la carpeta, y qué citas dejaron de resolver.
@@ -859,6 +979,8 @@ def selftest() -> int:
                             "vendor_deliverable_late", "vendor_invoiced_over_accepted",
                             "vendor_invoiced_without_delivery"]),
     ]
+    checks += _selftest_cadencia()
+
     ok = True
     for label, got, want in checks:
         good = got == want
@@ -866,6 +988,50 @@ def selftest() -> int:
         print(f"  {'OK ' if good else 'FALLA'} {label:32} {got!r}{'' if good else f'  esperado {want!r}'}")
     print("\nselftest:", "sin errores" if ok else "CON ERRORES")
     return 0 if ok else 1
+
+
+def _selftest_cadencia():
+    """La cadencia: qué toca hoy, y que deje de tocar cuando ya se corrió.
+
+    Corre sobre un directorio temporal porque necesita escribir el registro de la
+    última corrida. Sin ese registro, «mensual» no se puede calcular.
+    """
+    import shutil
+    import tempfile
+    tmp = Path(tempfile.mkdtemp())
+    (tmp / "records").mkdir()
+    cfg = tmp / "config.json"
+    # el comité se declaró en agosto y nadie volvió a tocar la configuración,
+    # que es exactamente lo que pasa en la vida real
+    cfg.write_text(json.dumps({
+        "cycle": {"committee": "biweekly", "committee_next": "2026-08-06",
+                  "report_lead_days": 2, "daily_sweep": True},
+        "confirmation": {"every": "monthly", "fields_per_run": 5},
+    }), encoding="utf-8")
+
+    hoy = dt.date(2026, 9, 30)
+    d1 = due(cfg, tmp, hoy)
+    for que in ("sweep", "report", "confirmation"):
+        ran(tmp, que, hoy)
+    d2 = due(cfg, tmp, hoy)
+    d3 = due(cfg, tmp, dt.date(2026, 10, 13))
+
+    vacio = tmp / "vacio.json"
+    vacio.write_text(json.dumps({"cycle": {}, "confirmation": {}}), encoding="utf-8")
+    d4 = due(vacio, tmp, hoy)
+
+    salida = [
+        ("cadencia · toca hoy", sorted(d1["due"]), ["confirmation", "report", "sweep"]),
+        ("cadencia · el comité rueda", d1["detail"]["committee"]["next"], "2026-10-01"),
+        ("cadencia · el informe se anticipa", d1["detail"]["committee"]["report_on"], "2026-09-29"),
+        ("cadencia · ya corrido, se calla", d2["quiet"], True),
+        ("cadencia · y dice cuándo vuelve", d2["next_wake"], "2026-10-01"),
+        ("cadencia · dos semanas después", sorted(d3["due"]), ["report", "sweep"]),
+        ("cadencia · sin configurar, nada", d4["due"], []),
+        ("cadencia · sin configurar, sin cita", d4["next_wake"], None),
+    ]
+    shutil.rmtree(tmp)
+    return salida
 
 
 # ---------------------------------------------------------------- cli
@@ -880,12 +1046,14 @@ def load_thresholds(config: Path | None) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
-    ap.add_argument("action", choices=["init", "config", "index", "compute",
-                                       "snapshot", "diff", "selftest"])
+    ap.add_argument("action", choices=["init", "config", "due", "ran", "index",
+                                       "compute", "snapshot", "diff", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
                     help="carpeta de documentación, para `index`")
+    ap.add_argument("--what", default=None,
+                    help="qué se corrió: sweep | report | confirmation, para `ran`")
     ap.add_argument("--against", type=Path, default=None)
     ap.add_argument("--today", default=None)
     args = ap.parse_args()
@@ -910,7 +1078,13 @@ def main() -> int:
         ap.error("--state is required")
     today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
 
-    if args.action == "index":
+    if args.action == "due":
+        print(json.dumps(due(args.config, args.state, today), ensure_ascii=False, indent=2))
+    elif args.action == "ran":
+        if not args.what:
+            ap.error("--what es obligatorio para ran")
+        print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
+    elif args.action == "index":
         if not args.docs:
             ap.error("--docs es obligatorio para index")
         print(json.dumps(index(args.docs, args.state), ensure_ascii=False, indent=2))

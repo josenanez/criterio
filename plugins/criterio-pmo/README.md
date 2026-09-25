@@ -3,99 +3,45 @@
 **Un segundo cerebro para la oficina de proyectos.** Lee la documentación que tu PMO ya
 tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
 
-Apache 2.0 · Se instala en cuatro clics · **El primer resultado sale en quince minutos, sobre
-tus propios documentos**
-
----
-
-## El problema no es que falten plantillas
-
-De eso hay de sobra. El problema es que **nadie ha leído junta la documentación que ya
-existe**: cuarenta proyectos, con sus actas, sus cronogramas, sus minutas, sus correos y sus
-hojas de cálculo. Cada documento lo leyó alguien, una vez. Nadie los ha cruzado.
-
-Y en el cruce está lo que decide:
-
-- El hito cuya fecha pasó y **no hay un solo documento que pruebe que se cumplió**.
-- El proyecto que reporta verde y **lleva cinco semanas sin producir un documento**.
-- La minuta de la semana pasada que **nombra a un patrocinador distinto** del que dice el acta.
-- La dependencia que un plan declara y **el plan del otro proyecto ignora**.
-- El compromiso que alguien asumió en **tres reuniones seguidas, con fecha nueva cada vez**.
-- La replanificación que devolvió el semáforo a verde y **borró un año de atraso acumulado**.
-
-Nada de eso aparece en un informe de avance. **El informe de avance lo escribe quien está
-siendo evaluado.**
+Apache 2.0 · Se instala en cuatro clics · **El primer resultado sale en quince minutos,
+sobre tus propios documentos**
 
 ---
 
 ## La familia PMO
 
-La capacidad tiene más de un agente porque la organización tiene más de un rol, y cada
-uno necesita cosas distintas. Este plugin es el primero.
+![La familia PMO: tres agentes, un solo contrato de datos](../../docs/img/es/familia-pmo.png)
 
-### Agente PMO · disponible
+La capacidad tiene más de un agente porque la organización tiene más de un rol. **El agente
+PMO está disponible hoy**; los otros dos vienen detrás y comparten el mismo contrato de
+datos.
 
-**Para el gerente de la PMO y sus analistas.** Cuarenta proyectos, barrido amplio, cadencia
-de comité. Consolida el portafolio, cruza las dependencias entre proyectos, prepara el
-comité, y dice cuáles de los que reportan verde no se sostienen.
+El **Agente PM** no va a las reuniones — el gerente va. Lo que hace es que el gerente llegue
+con la semana preparada: la agenda armada antes, la minuta redactada después, el plan al día
+contra la evidencia y el informe listo salvo una línea. Su función central no la hace ninguna
+herramienta que un gerente use hoy: **el compromiso dicho y no cumplido.** Las reuniones están
+llenas de *«yo lo tengo para el viernes»* y nadie los registra.
 
-**Lo que sabe hacer:** leer una carpeta como esté y armar la ficha de cada proyecto con
-cita en cada dato · medir la desviación contra la línea base original y contra la vigente ·
-las cuatro cifras del presupuesto · seguir compromisos dichos en reuniones · cruzar
-entregables de proveedor contra evidencia de recibo y contra facturación · levantar
-riesgos, supuestos, incidencias y dependencias · diagnosticar un proyecto desde cero ·
-reconstruir qué pasó en catorce meses · preparar el comité como paquete de decisiones.
-
-### Agente PM · en construcción
-
-**Para cada gerente de proyecto, junior o senior.** Un proyecto, profundidad, cadencia
-diaria o por reunión. No va a las reuniones: el gerente va. Lo que hace es llegar con la
-semana preparada — la agenda armada antes, la minuta redactada después, el plan al día
-contra la evidencia y el informe listo salvo una línea.
-
-**Su función central no la hace ninguna herramienta que un gerente use hoy:** el compromiso
-dicho y no cumplido. Las reuniones están llenas de *«yo lo tengo para el viernes»* y nadie
-los registra. El agente los extrae con doliente y fecha, y en cada corrida revisa cuáles
-vencieron sin evidencia.
-
-### Agente de producto · sin construir
-
-**Para quien define qué se va a construir**, antes de que exista el proyecto. Contrasta la
-definición contra la evidencia de demanda que existe, y entrega el acta con la que nace el
-proyecto.
-
-### Cómo se relacionan
-
-La **ficha de proyecto** es la interfaz: el agente PM la llena como subproducto de su
-trabajo diario, y el agente PMO deja de hacer ingeniería inversa sobre carpetas
-desordenadas.
-
-Con una regla que no se negocia: **la ficha del PM es una declaración; el hallazgo del PMO
-es evidencia.** Se mantienen como dos fuentes distintas, y la diferencia entre ellas es la
-señal más valiosa del sistema. *«El gerente reporta el hito en verde; la última minuta dice
-que el proveedor no entregó»* es la conversación que hoy no se puede tener.
+El **Agente de producto** trabaja antes de que exista el proyecto, y entrega el acta con la
+que el proyecto nace.
 
 ---
 
 ## Instalar
 
-**Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar marketplace
-desde GitHub → `josenanez-company/criterio` → instalar **criterio-pmo**.
+![Instalación: cuatro clics, o dos comandos](../../docs/img/es/instalacion.png)
 
 **Claude Code**
 
 ```
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-pmo@criterio
-```
-
-Y después, una sola cosa:
-
-```
 /pmo-setup
 ```
 
 ## Los primeros quince minutos
+
+![Los primeros quince minutos](../../docs/img/es/quince-minutos.png)
 
 No hay archivo de configuración que editar, ni plantilla que llenar, ni carpeta que ordenar
 antes de empezar. La configuración **es una conversación**, y termina con un resultado sobre
@@ -107,17 +53,48 @@ tus documentos.
 | **2 – 4 min** | **Mira antes de preguntar.** Le señalas la carpeta donde vive la documentación de proyectos, como esté. Lista lo que encontró: cuántos proyectos distingue, cuántos documentos, qué formatos, cuál es el más reciente, y cuáles no va a poder leer. Ahí sabes que está mirando tus cosas de verdad |
 | **4 – 8 min** | **Cinco preguntas.** Quién eres, cuándo se reúne tu comité, quién recibe el informe y en qué forma, y los términos. Una a la vez, cada una con una respuesta sugerida a partir de lo que ya vio. *«No sé»* es una respuesta válida |
 | **8 – 15 min** | **Un primer resultado.** Barre **tres proyectos**, no el portafolio completo, para que veas algo real en minutos: qué supo de cada uno, qué no está dicho en ninguna parte, y cualquier contradicción o compromiso vencido que haya aparecido de paso |
-| **Después** | **Tú decides la cadencia.** Corre solo y habla únicamente cuando algo cruza un umbral. Callarse cuando no pasó nada es la característica, no la falla |
 
 Al final te dice cuánto tomaría el portafolio completo, y qué le falta a tu carpeta para que
 el análisis sea mejor. Pero como hallazgo, no como requisito: **esto funciona con lo que
 haya.**
 
+---
+
+## El agente no espera a que lo llamen
+
+![La cadencia: se activa solo, y casi siempre se calla](../../docs/img/es/cadencia.png)
+
+Esta es la diferencia entre un comando y un agente. Un comando espera. **Este se programa y
+corre solo.**
+
+De las cinco preguntas del arranque sale una cadencia, y de la cadencia sale qué toca cada
+día. La decisión es aritmética de fechas, así que la toma el código y no el criterio del
+momento:
+
+```
+python3 scripts/pmo.py due --state <estado> --config <archivo>
+```
+
+Y `/pmo-wake` es el comando que el reloj invoca: mira qué toca, lo hace, y **si no toca nada
+no produce nada.** Callarse cuando no pasó nada no es una omisión — es la única razón por la
+que un agente que corre todos los días sigue instalado el mes siguiente.
+
+Tres cosas pueden tocar. El **barrido**, que mira qué cambió en la carpeta y solo recalcula
+los proyectos tocados. El **informe de comité**, que aterriza con la anticipación que
+configuraste para que alcances a reaccionar a lo que encuentre. Y la **confirmación**, cinco
+campos por corrida — los que envejecen peor: patrocinador, gerente, presupuesto aprobado,
+fecha de cierre y alcance.
+
+Ponerlo en un reloj es del lado de tu organización: una tarea programada en Cowork, o el
+programador del sistema en Claude Code. **Y si no quieren corridas desatendidas** —en un
+banco es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo
+que se pierde es que avise sin que nadie pregunte.
+
 ## Qué queda configurado
 
 Lo escribe `/pmo-setup` a partir de lo que respondiste, en tu equipo y en un archivo tuyo:
 dónde están los documentos, dónde vive el estado, tu cadencia de comité, la forma del
-informe, los umbrales que te hacen levantar la voz, y el registro de que aceptaste los
+informe, los umbrales que le hacen levantar la voz, y el registro de que aceptaste los
 términos, con tu nombre y la fecha.
 
 Todo eso se cambia **hablando**. Si quieres que el silencio se reporte a los diez días y no a
@@ -151,34 +128,26 @@ leer sin ejecutar nada**, y eso es deliberado.
 
 ## Cómo funciona
 
+![Cómo funciona: el modelo extrae, el código calcula](../../docs/img/es/como-funciona.png)
+
 La espina es la **ficha de proyecto**: un contrato de datos que todos los comandos leen y
 escriben, con la cita al documento fuente y a su fecha en cada campo. Ningún comando lee
-documentos crudos por su cuenta.
+documentos crudos por su cuenta. Eso permite consolidar cuarenta proyectos sin volver a
+leerlos, **calcular en vez de opinar**, y comparar una corrida contra la anterior.
 
-Eso permite tres cosas: consolidar cuarenta proyectos sin volver a leerlos, **calcular en vez
-de opinar**, y comparar una corrida contra la anterior para decir qué cambió.
+Dos scripts, que son lo único que no opina. [`scripts/texto.py`](scripts/texto.py) convierte
+el documento a texto: `.docx`, `.xlsx` y `.pptx` con la librería estándar —son ZIP con XML
+adentro—, `.eml` con el parser de correo, y el PDF con `pdftotext`. Lo que no se puede leer
+se declara con la razón. [`scripts/pmo.py`](scripts/pmo.py) hace la aritmética, y su
+subcomando `index` decide el costo de cada corrida: dos hashes por documento, uno para saber
+si vale extraer y otro para saber si vale releer.
 
-Dos principios que no se negocian:
-
-**El modelo extrae; el código calcula.** Leer una fecha es lectura. Restar días, proyectar
-desviación y sumar ejecutado contra comprometido es aritmética, y la aritmética vive en
-[`scripts/pmo.py`](scripts/pmo.py), sin dependencias.
-
-**Todo dato lleva su cita o declara que no está.** Sin trazabilidad no se defiende ante un
-comité.
-
-Y dos scripts, que son lo único que no opina. [`scripts/texto.py`](scripts/texto.py) convierte
-el documento a texto para leerlo barato: `.docx`, `.xlsx` y `.pptx` con la librería estándar
-—son ZIP con XML adentro—, `.eml` con el parser de correo, y el PDF con `pdftotext`. Lo que no
-se puede leer se declara con la razón. [`scripts/pmo.py`](scripts/pmo.py) hace la aritmética,
-y su subcomando `index` decide el costo de cada corrida: dos hashes por documento, uno para
-saber si vale extraer y otro para saber si vale releer.
-
-## Los quince comandos
+## Los dieciséis comandos
 
 | Comando | Qué hace |
 |---|---|
 | `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
+| `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
 | `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
 | `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
 | `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
@@ -227,7 +196,7 @@ la registra como restricción o como riesgo, y no opina sobre ella.
 ## Cómo se verifica
 
 ```
-python3 scripts/pmo.py selftest          la aritmética, contra sus resultados conocidos
+python3 scripts/pmo.py selftest          la aritmética y la cadencia
 python3 scripts/texto.py --selftest      la conversión de documentos
 ```
 

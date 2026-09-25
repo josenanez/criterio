@@ -10,7 +10,7 @@ Apache 2.0 · Four clicks to install · Each agent produces its first result in 
 
 | | | |
 |:--:|:--:|:--:|
-| [![PMO](docs/img/pmo.png)](plugins/criterio-pmo/README.md) | ![CFO](docs/img/cfo.png) | ![CLO](docs/img/clo.png) |
+| [![PMO](docs/img/en/pmo.png)](plugins/criterio-pmo/README.md) | ![CFO](docs/img/en/cfo.png) | ![CLO](docs/img/en/clo.png) |
 | **[See the PMO family →](plugins/criterio-pmo/README.md)** | Not built | Not built |
 
 ---
