@@ -85,7 +85,7 @@ Los campos que envejecen peor son cinco: patrocinador, gerente asignado, presupu
 
 Nadie reexpide el acta de constitución porque se fue el patrocinador. Aparece en un correo o en una minuta.
 
-Entonces cuando un documento reciente nombra a una persona distinta en un rol, **eso se levanta como evento**, no se sobrescribe en silencio. Cambio de patrocinador, de gerente o de composición del comité es hallazgo de portafolio aunque ningún cronograma se haya movido.
+Entonces cuando un documento reciente nombra a una persona distinta en un rol, **eso se levanta como evento**, no se sobrescribe en silencio: el campo queda `ambiguous` con las dos fuentes, igual que cualquier contradicción, y el cálculo lo separa como `governance_change` porque no es un defecto de la ficha. Cambio de patrocinador, de gerente o de composición del comité es hallazgo de portafolio aunque ningún cronograma se haya movido. Qué hace la señal está en `portfolio-health`.
 
 ## Lo que nunca se hace
 

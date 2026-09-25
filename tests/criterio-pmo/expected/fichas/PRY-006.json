@@ -72,10 +72,15 @@
       "state": "found"
     },
     "end_date": {
-      "value": "2026-10-30",
-      "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
-      "source_date": "2026-01-26",
-      "state": "found"
+      "value": "2027-01-31",
+      "source": "PRY-006-sarlaft/30-reuniones/2026-07-15-comite-riesgos.md",
+      "source_date": "2026-07-15",
+      "state": "ambiguous",
+      "conflict": {
+        "value": "2026-10-30",
+        "source": "PRY-006-sarlaft/00-gobierno/2026-01-26-acta-constitucion.md",
+        "source_date": "2026-01-26"
+      }
     },
     "baseline": [
       {
@@ -173,6 +178,12 @@
       "source": "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md",
       "source_date": "2026-08-12",
       "state": "found"
+    },
+    "last_meeting_date": {
+      "value": "2026-07-15",
+      "source": "PRY-006-sarlaft/30-reuniones/2026-07-15-comite-riesgos.md",
+      "source_date": "2026-07-15",
+      "state": "found"
     }
   },
   "meta": {
@@ -195,6 +206,12 @@
         "hash": "0f412e371c125a9158062bf5b0d8b5adddadad3353dd5922da2d276e15d89cd1",
         "text_hash": "59e116a18a729e7c0c44f0c9f250590caf4e21926a4e95139a1583e392eb7f06",
         "date": "2026-08-12"
+      },
+      {
+        "path": "PRY-006-sarlaft/30-reuniones/2026-07-15-comite-riesgos.md",
+        "hash": "d325d9e96732f0ff523dc370f529612c4b36897070f21ce520fe055d11870674",
+        "text_hash": "b90645a98bd776a1cff542a89e898c75679eff96a0272269f91c2a6ca16c9481",
+        "date": "2026-07-15"
       }
     ]
   }

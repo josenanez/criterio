@@ -15,7 +15,7 @@ qué hace cada una, las tres clases de función, y lo que falta. Marco general y
 | **No escribe** | La declaración de ningún gerente — sexta invariante |
 | **Lee** | Todas las fichas, y la carpeta de documentación |
 | **Estado** | Disponible. Clase A cerrada; de la B queda una fila |
-| **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) — corrida sintética, 69 comprobaciones |
+| **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) |
 
 ---
 
@@ -53,90 +53,32 @@ siguiente dice lo mismo**, y en un mes se ignora.
 
 ---
 
-## La subestructura: qué hace cada pieza
+## La subestructura
 
-Cuatro capas. De abajo hacia arriba: dos scripts que no opinan, diez skills que son el
-método, quince comandos que son la puerta, y diecisiete señales que son la salida.
+Cuatro capas, y **cada una tiene un solo dueño documental.** Aquí no se repite lo que vive
+en otro sitio: una tabla copiada es una tabla que se desactualiza en el documento que nadie
+mira, y eso ya pasó una vez con la lista de señales.
 
-### Los dos scripts
-
-Librería estándar, sin dependencias, auditables antes de instalar.
-
-| Script | Qué hace |
-|---|---|
-| `scripts/texto.py` | Convierte el documento a Markdown para que se pueda leer barato y para que el hash del texto sea estable. **No extrae campos.** `.docx`, `.xlsx` y `.pptx` se leen con la librería estándar porque son ZIP con XML adentro; `.eml` con el parser de correo; el PDF con `pdftotext` si está, y si no se declara |
-| `scripts/pmo.py` | La aritmética. El modelo extrae, esto calcula: `init`, `config`, `index`, `compute`, `snapshot`, `diff`, `selftest` |
-
-`pmo.py index` es el que decide el costo de una corrida: dos hashes por documento, el de
-bytes para saber si vale extraer y el del texto para saber si vale releer, más la
-verificación de que toda cita siga resolviendo.
-
-### Los diez skills
-
-Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten.
-
-| Skill | Qué encapsula |
-|---|---|
-| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, y qué hacer cuando dos documentos se contradicen. Es la espina: ningún comando lee documentos crudos por su cuenta |
-| `document-intake` | Qué documento hay que releer y cuál no, los cuatro estados de un documento, el renombrado, el borrado, y la cita que dejó de resolver |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, la replanificación contra lo que autorizó el comité, y las cuatro cifras del presupuesto |
-| `portfolio-health` | El semáforo declarado contra la evidencia calculada, los umbrales, las tres defensas contra el dato que dejó de ser cierto, y el orden del informe |
-| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, la valoración, el criterio de escalamiento, y los riesgos que se dijeron en una reunión y nadie registró |
-| `commitment-tracking` | Compromisos dichos en reuniones: qué es un compromiso, los cuatro estados, qué cuenta como evidencia de cumplimiento, y el que se repite con fecha nueva cada vez |
-| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno, quién decide qué, y qué falta cuando falta |
-| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable, y el preaviso que si vence renueva solo |
-| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee, los tres dictámenes, y cuándo la respuesta correcta es que la carpeta no permite diagnosticar |
-| `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado |
-
-### Los quince comandos
-
-| Comando | Qué hace | Skills que aplica |
+| Capa | Qué es | Dueño |
 |---|---|---|
-| `/pmo-setup` | Mira tus carpetas, hace cinco preguntas y produce un primer resultado sobre tres proyectos | todos, según lo que encuentre |
-| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer, y qué citas dejaron de resolver | `document-intake`, `project-record` |
-| `/portfolio-scan` | Lee la documentación y arma una ficha por proyecto, con cita y fecha en cada dato | `project-record`, `document-intake` |
-| `/portfolio-report` | Qué cambió desde la corrida anterior, qué se contradice, qué está en silencio y qué no tiene sustento | `portfolio-health`, `project-record` |
-| `/status-report` | Estado de un proyecto contra su plan, y las señales que su semáforo declarado no explica | `project-record`, `baseline-variance`, `raid-taxonomy`, `commitment-tracking` |
-| `/health-check` | Diagnostica un proyecto desde cero, sin asumir nada de su informe de avance | `project-diagnosis`, `governance-artifacts`, `baseline-variance` |
-| `/project-history` | Qué pasó en catorce meses, y desde cuándo lo declarado dejó de sostenerse | `portfolio-history`, `baseline-variance`, `commitment-tracking` |
-| `/steering-pack` | El comité como paquete de decisiones, no como informe de avance | `governance-artifacts`, `portfolio-health` |
-| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró | `raid-taxonomy`, `commitment-tracking` |
-| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior | `baseline-variance`, `governance-artifacts` |
-| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección — las cuatro, no dos | `baseline-variance` |
-| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra lo facturado | `vendor-control`, `commitment-tracking` |
-| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen | `portfolio-health`, `baseline-variance` |
-| `/project-charter` | Revisa el acta y dice qué falta y qué consecuencia tiene que falte | `governance-artifacts` |
-| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones ancladas a hechos | `governance-artifacts`, `portfolio-history` |
+| **Los valores** | Los ocho umbrales por defecto | `DEFAULT_THRESHOLDS` en [`scripts/pmo.py`](../../plugins/criterio-pmo/scripts/pmo.py) |
+| **El método** | Qué significa cada una de las 18 señales y cuándo merece alarma | el skill [`portfolio-health`](../../plugins/criterio-pmo/skills/portfolio-health/SKILL.md) |
+| **El inventario** | Los 15 comandos y los 10 skills, con lo que hace cada uno | el [README del plugin](../../plugins/criterio-pmo/README.md), porque el plugin se distribuye solo y su README tiene que sostenerse solo |
+| **El diseño** | El flujo, las tres clases, qué es de las personas, qué falta | esta hoja |
 
-Los quince verifican la aceptación de los términos antes de producir nada, y cierran con el
-pie que declara versión, fecha de la ficha y campos inciertos.
+Y dos scripts, que son lo único que no opina:
 
-### Las diecisiete señales
+**`scripts/texto.py`** convierte el documento a Markdown para que se pueda leer barato y para
+que el hash del texto sea estable. **No extrae campos.** `.docx`, `.xlsx` y `.pptx` se leen
+con la librería estándar porque son ZIP con XML adentro; `.eml` con el parser de correo; el
+PDF con `pdftotext` si está, y si no se declara. El Markdown es un caché: **la cita de una
+ficha apunta siempre al documento original**, porque es lo que una persona abre para
+verificar.
 
-Ocho umbrales las gobiernan, y todos son configuración.
-
-| Señal | Habla cuando | Umbral |
-|---|---|---|
-| `milestone_overdue` | La fecha pasó y no hay evidencia de cumplimiento | — |
-| `silent` | Días sin documento nuevo | `silent_days` 15 |
-| `variance_time` | Desviación en tiempo contra la línea base original | `variance_time_pct` 10 |
-| `variance_cost` | La proyección se pasa del aprobado | `variance_cost_pct` 10 |
-| `budget_committed` | Lo comprometido se acerca a lo aprobado | `committed_pct` 90 |
-| `commitment_overdue` | Pasó la fecha y no hay evidencia | — |
-| `commitment_undated` | Un compromiso que nadie fechó | — |
-| `commitment_rescheduled` | El mismo compromiso prometido de nuevo | `reschedules_to_flag` 3 |
-| `contradiction` | Dos documentos dicen cosas distintas del mismo campo | — |
-| `declared_vs_evidence` | Declara verde y hay una señal que ese verde no cubre | — |
-| `declaration_stale` | La declaración es vieja | `declaration_stale_days` 30 |
-| `rebaseline_unauthorized` | La línea base se movió más de lo autorizado | `rebaseline_tolerance_days` 0 |
-| `change_without_baseline` | Un cambio aprobado movió fechas y no dejó línea base nueva | — |
-| `vendor_deliverable_late` | Pasó la fecha, sin evidencia y sin declararse entregado | — |
-| `vendor_accepted_without_evidence` | Declarado entregado y sin documento que lo pruebe | — |
-| `vendor_invoiced_without_delivery` | Hay factura y ni un entregable aceptado | — |
-| `vendor_invoiced_over_accepted` | La factura supera la suma de lo aceptado | — |
-
-Un campo con más de `stale_field_months` 12 meses carga su antigüedad visible en el informe
-sin levantar alerta. **El silencio cuando no pasó nada es la característica, no la falla.**
+**`scripts/pmo.py`** es la aritmética — `init`, `config`, `index`, `compute`, `snapshot`,
+`diff`, `selftest` —. De esos, `index` es el que decide el costo de una corrida: dos hashes
+por documento, el de bytes para saber si vale extraer y el del texto para saber si vale
+releer, más la verificación de que toda cita siga resolviendo.
 
 ---
 

@@ -540,6 +540,19 @@ por requerimiento del supervisor.
 **Aprobada** por el Comité de Riesgos el 15 de julio de 2026.
 """)
 
+escribir(INPUT / "PRY-006-sarlaft/30-reuniones/2026-07-15-comite-riesgos.md", """
+# Comité de Riesgos · SARLAFT · 15 de julio de 2026
+
+**Asisten:** Beatriz Ocampo, Nicolás Ortega, Ricardo Salazar
+
+Se aprueba la solicitud de cambio CC-07 para incluir el monitoreo de operaciones en
+moneda extranjera.
+
+Se deja constancia de que con este cambio **la fecha de cierre pasa al 31 de enero de
+2027**. El cronograma se actualizará cuando el proveedor confirme las fechas de las
+nuevas tipologías.
+""")
+
 escribir(INPUT / "PRY-006-sarlaft/20-seguimiento/2026-08-12-informe-avance.md", """
 # Informe de avance · SARLAFT · agosto 2026
 
@@ -933,7 +946,13 @@ FICHAS["PRY-006"] = {
     },
     "plan": {
         "start_date": campo("2026-02-02", "00-gobierno/2026-01-26-acta-constitucion.md", "2026-01-26"),
-        "end_date": campo("2026-10-30", "00-gobierno/2026-01-26-acta-constitucion.md", "2026-01-26"),
+        # el comité dice 2027-01-31 y el acta dice 2026-10-30, y nadie actualizó el plan:
+        # el campo queda ambiguo con el valor del documento más reciente
+        "end_date": campo("2027-01-31", "30-reuniones/2026-07-15-comite-riesgos.md", "2026-07-15",
+                          "ambiguous",
+                          {"value": "2026-10-30",
+                           "source": "00-gobierno/2026-01-26-acta-constitucion.md",
+                           "source_date": "2026-01-26"}),
         "baseline": [
             {"version": 1, "approved_on": "2026-01-26", "start_date": "2026-02-02",
              "end_date": "2026-10-30", "reason": "inicial",
@@ -962,6 +981,7 @@ FICHAS["PRY-006"] = {
     ],
     "activity": {
         "last_document_date": campo("2026-08-12", "20-seguimiento/2026-08-12-informe-avance.md", "2026-08-12"),
+        "last_meeting_date": campo("2026-07-15", "30-reuniones/2026-07-15-comite-riesgos.md", "2026-07-15"),
     },
 }
 
@@ -977,10 +997,9 @@ HALLAZGOS = {
     "proyectos": {
         "PRY-001": {
             "por_que": "Declara verde en agosto y la evidencia no lo sostiene. Es el caso central.",
-            "senales": ["budget_committed", "commitment_overdue", "contradiction",
-                        "declaration_stale", "declared_vs_evidence", "milestone_overdue",
-                        "commitment_rescheduled", "rebaseline_unauthorized", "silent",
-                        "variance_time"],
+            "senales": ["budget_committed", "commitment_overdue", "declaration_stale", "declared_vs_evidence", "milestone_overdue",
+                        "commitment_rescheduled", "governance_change",
+                        "rebaseline_unauthorized", "silent", "variance_time"],
             "valores": {
                 "days_silent": 19,
                 "replans": 1,
@@ -1072,7 +1091,8 @@ HALLAZGOS = {
         },
         "PRY-006": {
             "por_que": "El cambio aprobado que nadie bajó al plan, con impacto escrito en meses.",
-            "senales": ["declaration_stale", "declared_vs_evidence", "silent", "variance_cost"],
+            "senales": ["contradiction", "declaration_stale", "declared_vs_evidence",
+                        "silent", "variance_cost", "variance_time"],
             "valores": {
                 "days_silent": 49,
                 "replans": 0,

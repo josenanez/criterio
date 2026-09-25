@@ -110,6 +110,28 @@ Cada fila de C lleva dos datos, y ninguno es un riesgo:
 
 ---
 
+## Un dueño por cosa
+
+No se duplica documentación. Una tabla copiada en tres documentos se desactualiza en el
+primero que nadie mire, y eso ya pasó: la lista de señales de la página pública llegó a estar
+cinco señales atrás y a prometer una que el código no emitía.
+
+| Cosa | Dueño | Por qué ahí |
+|---|---|---|
+| Los valores de los umbrales | `DEFAULT_THRESHOLDS` en `scripts/pmo.py` | Es lo que el código lee. Cualquier otra copia es una opinión |
+| Qué significa cada señal y cuándo merece alarma | el skill `portfolio-health` | Es lo que el modelo carga en tiempo de ejecución, y tiene que sostenerse solo |
+| El inventario de comandos y skills | el README del plugin | El plugin se distribuye por el market y su README viaja con él |
+| La promesa pública y las cifras de terceros | `capabilities/pmo.es.md` | Es la página que decide una instalación |
+| El diseño de cada agente | estas hojas | Clases, flujo, lo que es de las personas, lo que falta |
+| El resultado de las corridas | `tests/<plugin>/EVIDENCIA.md` | La evidencia vive con el material que la produjo |
+
+Lo verifican dos cosas, y ninguna es un humano acordándose: `scripts/validate_plugins.py`
+exige que el README del plugin liste cada comando, y `tests/coherencia.py` exige que cada
+señal que el código calcula esté documentada en su skill y que cada comando aparezca en la
+página pública. **Si algo se agrega y no se documenta en su dueño, falla.**
+
+---
+
 ## Lo que sigue siendo de las personas
 
 Los tres roles siguen existiendo completos. Esto extiende capacidad; no sustituye función. Y el
@@ -149,11 +171,11 @@ hacer.
 
 | Campo | Qué habilita | Si no está |
 |---|---|---|
-| `source_kind` — declaración o evidencia | Conectar una base de datos o un PPM sin contaminar la comparación | El día que entre el PPM del banco, sus *verdes* entran como evidencia y la tesis muere |
-| `producto` | La vista transversal del PMO sobre los proyectos que tienen producto | *"¿Cómo va el producto?"* no se responde desde cuarenta fichas de proyecto |
 | `requerimiento` como registro | *"Qué requerimientos faltan"* como filtro instantáneo, y el traspaso Product → Project | Es siempre una corrida de modelo sobre documentos, cada vez |
-| `autoridad` del gerente | Que el control de cambios sepa si algo excede la facultad sin releer el acta | Se vuelve a derivar de los documentos en cada corrida |
-| `monto` por entregable de proveedor | Detectar una factura contra un entregable que no empezó | Pasa desapercibida mientras haya otros entregables aceptados |
+
+Las otras cuatro que estaban aquí —`source_kind`, `producto`, `autoridad` y el monto por
+entregable— **ya se construyeron**, y por eso salen de la tabla en vez de quedarse como
+historia. El esquema va en 0.2. La que queda es de la hoja del Product Manager, no de la PMO.
 
 Sobre la base de datos hay una trampa que conviene dejar escrita: **lo que trae un PPM son más
 declaraciones, no evidencia.** El campo *"estado: verde"* de la herramienta corporativa es la

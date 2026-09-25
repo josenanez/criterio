@@ -25,26 +25,65 @@ Lo que aporta valor es **contrastar la declaración contra la evidencia** y deci
 
 Dos precisiones que evitan un hallazgo mal armado. La lista deja fuera las contradicciones entre documentos: son un defecto de la ficha, no del proyecto, y mezclarlas debilita el hallazgo. Y para el amarillo y el rojo la lista se calcula igual pero no se levanta alerta: quien ya reportó problema no está escondiendo nada.
 
-## Umbrales por defecto
+## Las dieciocho señales
 
-Son los valores que quedan en la mayoría de las instalaciones. Están calibrados para que el agente hable poco y cuando habla importe. Se cambian en `umbrales.yaml` del estándar.
+Este skill es el **único sitio** donde vive qué significa cada señal y cuándo merece alarma.
+No se repite en la página de la capacidad ni en las hojas de diseño: una lista copiada se
+desactualiza en el documento que nadie mira.
 
-| Señal | Habla cuando |
-|---|---|
-| Hito vencido | La fecha pasó y no hay evidencia de cumplimiento |
-| Proyecto en silencio | 15 días sin documento nuevo |
-| Desviación contra línea base | Supera 10% en tiempo o en costo |
-| Compromiso vencido | Pasó la fecha y no hay evidencia |
-| Contradicción entre documentos | Siempre — no lleva número |
-| Presupuesto | Ejecutado supera 90% de lo comprometido |
-| Cambio de gobierno | Siempre |
-| Declaración que la evidencia no explica | Declara verde y hay al menos una señal que ese verde no cubre — siempre |
-| Declaración vieja | La declaración tiene 30 días o más |
-| Entregable de proveedor vencido | Pasó la fecha, no hay evidencia y no se declaró entregado — siempre |
-| Facturado sin entrega | Hay factura declarada y ni un entregable aceptado — siempre |
-| Replanificación sin autorizar | La línea base se movió más días que los que autorizaron los cambios aprobados — tolerancia 0 días |
+Los **valores** por defecto no están aquí: están en `DEFAULT_THRESHOLDS` de `scripts/pmo.py`,
+que es lo que el código lee, y se cambian en la configuración local **hablando, no editando
+archivos**. Aquí va qué clave gobierna cada señal, para saber qué preguntar cuando alguien
+quiere moverla.
 
-**El silencio cuando no pasó nada es la característica, no la falla.** Un agente que reporta todos los lunes haya o no noticia se ignora en un mes.
+### Estado contra el plan
+
+| Señal | Habla cuando | Clave |
+|---|---|---|
+| `milestone_overdue` | La fecha del hito pasó y ningún documento prueba que se cumplió | — siempre |
+| `variance_time` | La desviación en tiempo contra la línea base **original** supera el porcentaje | `variance_time_pct` |
+| `variance_cost` | La proyección al cierre se pasa del aprobado por encima del porcentaje | `variance_cost_pct` |
+| `budget_committed` | Lo comprometido se acerca a lo aprobado. Un proyecto al 40% ejecutado y 95% comprometido no tiene holgura | `committed_pct` |
+| `rebaseline_unauthorized` | La línea base se movió más días de los que autorizaron los cambios aprobados. **Es un hueco documental, no una acusación** | `rebaseline_tolerance_days` |
+| `change_without_baseline` | Un cambio aprobado movió fechas y no dejó línea base nueva posterior | — siempre |
+
+### La declaración contra la evidencia
+
+| Señal | Habla cuando | Clave |
+|---|---|---|
+| `declared_vs_evidence` | El estado declarado es **verde** y hay al menos una señal que ese verde no cubre. Para amarillo y rojo la lista se calcula igual y no se levanta alerta: quien ya reportó problema no está escondiendo nada | — siempre |
+| `declaration_stale` | La declaración tiene demasiados días. Un verde de hace seis semanas no es un verde | `declaration_stale_days` |
+
+### El silencio y la calidad del registro
+
+| Señal | Habla cuando | Clave |
+|---|---|---|
+| `silent` | Días sin un documento nuevo. Un proyecto sin documentación no está mal gestionado: está sin documentar | `silent_days` |
+| `contradiction` | Dos documentos dicen cosas distintas del mismo campo. Se reporta **siempre**, con las dos fuentes y las dos fechas | — siempre |
+| `governance_change` | El conflicto está en el patrocinador, el gerente o el comité. **No es un defecto de la ficha: es un evento.** Nadie reexpide el acta porque se fue el patrocinador, y un proyecto con tres en dieciocho meses explica más que cualquier análisis de causa raíz | — siempre |
+
+Un campo cuya fuente tiene más meses que `stale_field_months` carga su antigüedad visible en
+el informe y **no** levanta alerta: es viejo, no es falso.
+
+### Compromisos
+
+| Señal | Habla cuando | Clave |
+|---|---|---|
+| `commitment_overdue` | Pasó la fecha prometida y no hay evidencia de cumplimiento | — siempre |
+| `commitment_undated` | Nadie le puso fecha. No puede estar vencido, y por eso mismo desaparecía del informe: **un compromiso que nadie fechó es un hallazgo, no un vacío** | — siempre |
+| `commitment_rescheduled` | El mismo compromiso se prometió de nuevo demasiadas veces. No son varios vencidos: es uno con historial, y un bloqueo que nadie nombró | `reschedules_to_flag` |
+
+### Proveedores
+
+| Señal | Habla cuando | Clave |
+|---|---|---|
+| `vendor_deliverable_late` | Pasó la fecha, no hay evidencia y nadie declaró la entrega | — siempre |
+| `vendor_accepted_without_evidence` | Está declarado entregado o aceptado y ningún documento lo prueba | — siempre |
+| `vendor_invoiced_without_delivery` | Hay facturación declarada y **ni un** entregable aceptado | — siempre |
+| `vendor_invoiced_over_accepted` | La facturación supera la suma de los montos de los entregables aceptados | — siempre |
+
+**El silencio cuando no pasó nada es la característica, no la falla.** Un agente que reporta
+todos los lunes haya o no noticia se ignora en un mes.
 
 ## Las tres defensas contra el dato viejo
 

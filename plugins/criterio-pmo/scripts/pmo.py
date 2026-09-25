@@ -61,6 +61,13 @@ STATUS_RANK = {
     "rojo": 2, "red": 2,
 }
 
+# Los roles de gobierno. Cuando uno de estos campos queda en conflicto, el hallazgo no
+# es un defecto de la ficha: es un cambio de gobierno. Nadie reexpide el acta de
+# constitución porque se fue el patrocinador — aparece en un correo o en una minuta —, y
+# un proyecto con tres patrocinadores en dieciocho meses explica más que cualquier
+# análisis de causa raíz. Por eso se reporta aparte de `contradiction`.
+GOVERNANCE_FIELDS = ("identity.sponsor", "identity.manager", "identity.committee")
+
 # The signals a status light is supposed to account for. `contradiction` is
 # deliberately out: it is a defect of the record, not of the project, and
 # mixing the two weakens the finding.
@@ -68,7 +75,7 @@ EVIDENCE_SIGNALS = (
     "silent", "variance_time", "variance_cost", "milestone_overdue",
     "commitment_overdue", "commitment_rescheduled", "budget_committed",
     "vendor_deliverable_late", "vendor_invoiced_without_delivery",
-    "vendor_invoiced_over_accepted", "rebaseline_unauthorized",
+    "vendor_invoiced_over_accepted", "rebaseline_unauthorized", "governance_change",
 )
 
 
@@ -416,7 +423,10 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
             months = (today.year - d.year) * 12 + (today.month - d.month)
             if months >= th["stale_field_months"]:
                 stale.append({"field": path, "source_date": d.isoformat(), "months": months})
+    gobierno = [c for c in conflicts if c["field"] in GOVERNANCE_FIELDS]
+    conflicts = [c for c in conflicts if c["field"] not in GOVERNANCE_FIELDS]
     out["conflicts"] = conflicts
+    out["governance_changes"] = gobierno
     out["fields_missing"] = missing
     out["fields_stale"] = stale
 
@@ -432,6 +442,8 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     out["sources"] = procedencia
     for c in conflicts:
         alert("contradiction", c)
+    for c in gobierno:
+        alert("governance_change", c)
 
     # --- declaration against evidence ----------------------------------
     # The thesis of the plugin, and until now the one thing it did not

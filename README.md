@@ -126,7 +126,7 @@ Each capability publishes the figures from its real runs: how many documents, ho
 What can be verified today, by cloning the repository:
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest    the arithmetic against 30 known results
+python3 plugins/criterio-pmo/scripts/pmo.py selftest    the arithmetic against its known results
 python3 scripts/validate_plugins.py                     marketplace structure and consistency
 ```
 

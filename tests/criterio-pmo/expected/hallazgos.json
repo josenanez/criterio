@@ -7,11 +7,11 @@
       "senales": [
         "budget_committed",
         "commitment_overdue",
-        "contradiction",
         "declaration_stale",
         "declared_vs_evidence",
         "milestone_overdue",
         "commitment_rescheduled",
+        "governance_change",
         "rebaseline_unauthorized",
         "silent",
         "variance_time"
@@ -102,10 +102,12 @@
     "PRY-006": {
       "por_que": "El cambio aprobado que nadie bajó al plan, con impacto escrito en meses.",
       "senales": [
+        "contradiction",
         "declaration_stale",
         "declared_vs_evidence",
         "silent",
-        "variance_cost"
+        "variance_cost",
+        "variance_time"
       ],
       "valores": {
         "days_silent": 49,

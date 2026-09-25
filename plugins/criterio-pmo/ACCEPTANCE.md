@@ -19,7 +19,7 @@ depend on how a model reads the folder stay open until the plugin runs in a sess
 - [x] A project whose reported status contradicts its own dates. — PRY-001 and PRY-004
 - [ ] A project with no identifiable owner. — the synthetic set has authority missing, not the owner; add a project without one
 - [x] A project with no update in the last quarter. — PRY-004, 153 days
-- [ ] Two documents that state different dates for the same milestone. — the set contradicts the sponsor, not a date; add the date case
+- [x] Two documents that state different dates for the same milestone. — PRY-006: the charter says October, the committee minute says January, and nobody updated the plan
 - [x] A dependency named in one plan and absent from the plan it depends on. — PRY-001 declares it of PRY-002, unconfirmed
 - [x] A project reporting green with at least one signal that green does not account for, listed by signal, and counted at portfolio level. — three of six
 - [x] A vendor deliverable past its date with no evidence of delivery. — PRY-003. The invoice case is **not** detected: it needs an amount per deliverable. See limit 1 of the evidence

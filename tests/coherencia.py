@@ -132,35 +132,36 @@ for cmd in sorted(comandos):
 # Un comando no se documenta a sí mismo: su propio archivo sale de la búsqueda.
 # La primera versión no lo excluía y daba por documentado cualquier comando nuevo,
 # que es el falso negativo más caro que puede tener un verificador.
-otros = "\n".join(cuerpo_doc for ruta, cuerpo_doc in texto_docs.items()
-                  if ruta.parent.name != "commands")
-huerfanos = [c for c in sorted(comandos) if f"/{c}" not in otros]
-for c in huerfanos:
-    decir(FALLA, f"/{c} no está documentado en ninguna hoja ni capacidad")
-if not huerfanos:
-    decir(OK, "todo comando aparece documentado")
-
-nombrados = set(re.findall(r"/([a-z][a-z-]{3,30})\b", todo)) & {f"{c}" for c in comandos}
 faltantes = {m for m in re.findall(r"`/([a-z][a-z-]{3,30})`", todo)} - comandos
 for m in sorted(faltantes):
     decir(FALLA, f"la documentación promete /{m} y el comando no existe")
 
-# ── 5 · el conteo del selftest ────────────────────────────────────────────
-print("\nSelftest")
-cuerpo = codigo.split("checks = [")[1].split("\n    ]")[0]
-n = len(re.findall(r'^        \("', cuerpo, re.M))
-decir(OK, f"{n} resultados conocidos en el selftest")
-declarados = []
-for ruta, cuerpo_doc in texto_docs.items():
-    for d in re.findall(r"(\d+) (?:resultados conocidos|known results)", cuerpo_doc):
-        declarados.append((ruta.relative_to(RAIZ), int(d)))
-for ruta, d in declarados:
-    if d != n:
-        decir(FALLA, f"{ruta} dice {d} resultados conocidos y hay {n}")
-if declarados and all(d == n for _, d in declarados):
-    decir(OK, f"el número correcto está declarado en {len(declarados)} documentos")
-elif not declarados:
-    decir(NOTA, "ningún documento declara cuántos resultados tiene el selftest")
+# ── 5 · cada señal documentada en su dueño ──────────────────────────────
+print("\nCada señal en su dueño")
+skill = (PLUGIN / "skills" / "portfolio-health" / "SKILL.md").read_text(encoding="utf-8")
+sin_documentar = sorted(x for x in en_codigo if x not in skill)
+for x in sin_documentar:
+    decir(FALLA, f"`{x}` se calcula y no está en el skill portfolio-health")
+if not sin_documentar:
+    decir(OK, f"las {len(en_codigo)} señales están documentadas en portfolio-health")
+
+sin_clave = sorted(t for t in en_codigo_th if t not in skill)
+for t in sin_clave:
+    decir(FALLA, f"el umbral `{t}` existe y el skill portfolio-health no dice qué señal gobierna")
+if not sin_clave:
+    decir(OK, f"los {len(en_codigo_th)} umbrales están documentados en portfolio-health")
+
+# ── 6 · cada comando en la promesa pública ────────────────────────────────
+print("\nCada comando en la página pública")
+publica = (RAIZ / "capabilities" / "pmo.es.md").read_text(encoding="utf-8")
+sin_prometer = sorted(c for c in comandos if f"/{c}" not in publica)
+for c in sin_prometer:
+    decir(FALLA, f"/{c} existe y la página de la capacidad no lo promete")
+if not sin_prometer:
+    decir(OK, f"los {len(comandos)} comandos aparecen en capabilities/pmo.es.md")
+
+# El README del plugin lo verifica scripts/validate_plugins.py, que es del repo y
+# es más estricto. No se duplica el chequeo aquí.
 
 # ── 6 · lo que solo vive en markdown ──────────────────────────────────────
 print("\nReglas que la documentación afirma y el código no implementa")

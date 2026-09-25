@@ -105,24 +105,20 @@ Los estándares bajan de la PMO: umbrales, convenciones y esquema se publican en
 
 ## Cuándo habla
 
-Corre solo y solo levanta la voz cuando algo cruza un umbral:
+Corre solo y **solo levanta la voz cuando algo cruza un umbral.** Dieciocho señales, y ocho
+umbrales que las gobiernan. Todos son configuración: se cambian hablando, no editando
+archivos.
 
-| Señal | Habla cuando |
-|---|---|
-| Hito vencido | La fecha pasó y no hay evidencia de cumplimiento |
-| Proyecto en silencio | 15 días sin documento nuevo |
-| Desviación contra línea base | Supera 10% en tiempo o en costo |
-| Compromiso vencido | Pasó la fecha y no hay evidencia |
-| Contradicción entre documentos | Siempre — no lleva número |
-| Presupuesto | Ejecutado supera 90% de lo comprometido |
-| Cambio de gobierno | Siempre |
-| Declaración que la evidencia no explica | Declara verde y hay al menos una señal que ese verde no cubre |
-| Declaración vieja | La declaración tiene 30 días o más |
-| Entregable de proveedor vencido | Pasó la fecha y no hay evidencia de entrega |
-| Facturado sin entrega | Hay factura declarada y ni un entregable aceptado |
-| Replanificación sin autorizar | La línea base se movió más días de los que autorizaron los cambios aprobados |
+Qué significa cada señal y cuándo merece alarma está en un solo sitio, y se puede leer antes
+de instalar nada: el skill [`portfolio-health`](../plugins/criterio-pmo/skills/portfolio-health/SKILL.md).
+Los valores por defecto están en el código, en `DEFAULT_THRESHOLDS` de
+[`pmo.py`](../plugins/criterio-pmo/scripts/pmo.py).
 
-Todos son configurables, y se cambian hablando, no editando archivos. **El silencio cuando no pasó nada es la característica, no la falla.**
+No se repiten aquí a propósito. Una lista de umbrales copiada en tres documentos se
+desactualiza en el primero que nadie mire, y esta página ya lo había hecho.
+
+**El silencio cuando no pasó nada es la característica, no la falla.** Un agente que reporta
+todas las semanas haya o no noticia se ignora en un mes.
 
 ---
 
@@ -130,18 +126,21 @@ Todos son configurables, y se cambian hablando, no editando archivos. **El silen
 
 **Todavía no hay corridas reales.** Cuando las haya, aquí van: cuántos documentos, cuántos proyectos, cuánto tomó, cuántos hallazgos y cuáles nadie había visto — con el procedimiento para reproducirlas.
 
-Lo que sí hay es una corrida sobre **material sintético con respuestas conocidas**: seis proyectos, veintiséis documentos, construidos para contener las fallas que contiene una carpeta real. Las diecisiete señales se disparan cuando deben, el proyecto sano no produce ni una alerta, y el conjunto se califica con 69 comprobaciones. Lo que esa corrida prueba, lo que no prueba, y los seis límites que destapó están en [`tests/criterio-pmo/EVIDENCIA.md`](../tests/criterio-pmo/EVIDENCIA.md).
+Lo que sí hay es una corrida sobre **material sintético con respuestas conocidas**, construido para contener las fallas que contiene una carpeta real: un proyecto que declara verde y no lo sostiene, uno sin plan aprobado, uno con proveedores que facturan sin acta de recibo, y uno sano. Cada señal tiene su caso, el proyecto sano no produce ni una alerta, y el grader falla igual si falta un hallazgo o si aparece uno que nadie declaró.
+
+Las cifras de esa corrida, lo que prueba, lo que no prueba y los límites que destapó están en [`tests/criterio-pmo/EVIDENCIA.md`](../tests/criterio-pmo/EVIDENCIA.md), que es donde viven y no se repiten.
 
 Lo verificado hoy es la máquina, no el valor:
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest    la aritmética
-python3 tests/criterio-pmo/generar.py                   el portafolio sintético
-python3 tests/criterio-pmo/grade.py                     69 comprobaciones contra las respuestas conocidas
-python3 tests/coherencia.py                             que la documentación y el código digan lo mismo
+python3 plugins/criterio-pmo/scripts/pmo.py selftest      la aritmética
+python3 plugins/criterio-pmo/scripts/texto.py --selftest  la conversión de documentos
+python3 tests/criterio-pmo/generar.py                     el portafolio sintético
+python3 tests/criterio-pmo/grade.py                       contra las respuestas conocidas
+python3 tests/coherencia.py                               que la documentación y el código digan lo mismo
 ```
 
-30 resultados conocidos, incluidos los casos que se equivocan solos: el atraso contra la línea base original frente a la vigente con una replanificación de por medio, el presupuesto comprometido que se ve sano y no lo está, la replanificación que movió sesenta y un días cuando el comité autorizó treinta, y el verde que no explica nueve señales.
+Cada corrida imprime cuántos resultados conocidos verificó. Están los casos que se equivocan solos: el atraso contra la línea base original frente a la vigente con una replanificación de por medio, el presupuesto comprometido que se ve sano y no lo está, la replanificación que movió sesenta y un días cuando el comité autorizó treinta, y el verde que no explica nueve señales.
 
 ---
 

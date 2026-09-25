@@ -126,7 +126,7 @@ Cada capacidad publica las cifras de sus corridas reales: cuántos documentos, c
 Lo que se puede verificar hoy, clonando el repositorio:
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest    la aritmética contra 30 resultados conocidos
+python3 plugins/criterio-pmo/scripts/pmo.py selftest    la aritmética contra sus resultados conocidos
 python3 scripts/validate_plugins.py                     estructura y consistencia del market
 ```
 

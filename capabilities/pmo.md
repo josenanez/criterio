@@ -105,24 +105,20 @@ Standards come down from the PMO: thresholds, conventions and the record schema 
 
 ## When it speaks
 
-It runs on its own and raises its voice only when something crosses a threshold:
+It runs on its own and **raises its voice only when something crosses a threshold.** Eighteen
+signals, and eight thresholds governing them. All of it is configuration: changed by talking,
+not by editing files.
 
-| Signal | Speaks when |
-|---|---|
-| Milestone overdue | The date passed and there is no evidence of completion |
-| Project silent | 15 days with no new document |
-| Variance against baseline | Above 10% in time or cost |
-| Commitment overdue | The date passed and there is no evidence |
-| Contradiction between documents | Always — no number attached |
-| Budget | Executed above 90% of committed |
-| Governance change | Always |
-| Declaration the evidence does not account for | Reports green and at least one signal is not covered by that green |
-| Stale declaration | The declaration is 30 days old or more |
-| Vendor deliverable overdue | The date passed and there is no evidence of delivery |
-| Invoiced without delivery | An invoice is declared and not one deliverable is accepted |
-| Unauthorised rebaseline | The baseline moved more days than the approved changes authorised |
+What each signal means and when it deserves an alarm lives in one place, and can be read
+before installing anything: the [`portfolio-health`](../plugins/criterio-pmo/skills/portfolio-health/SKILL.md)
+skill. The default values are in the code, in `DEFAULT_THRESHOLDS` in
+[`pmo.py`](../plugins/criterio-pmo/scripts/pmo.py).
 
-All configurable, and changed by talking, not by editing files. **Staying quiet when nothing happened is the feature, not the failure.**
+They are deliberately not repeated here. A list of thresholds copied into three documents
+goes stale in whichever one nobody looks at, and this page had already done it.
+
+**Staying quiet when nothing happened is the feature, not the failure.** An agent that
+reports every week whether or not there is news is ignored within a month.
 
 ---
 
@@ -130,18 +126,21 @@ All configurable, and changed by talking, not by editing files. **Staying quiet 
 
 **There are no real runs yet.** When there are, they go here: how many documents, how many projects, how long it took, how many findings and which of them nobody had seen — with the procedure to reproduce them.
 
-What does exist is a run over **synthetic material with known answers**: six projects, twenty-six documents, built to contain the failures a real folder contains. All seventeen signals fire when they should, the healthy project produces no alert at all, and the set is scored by 69 checks. What that run proves, what it does not, and the six limits it surfaced are in [`tests/criterio-pmo/EVIDENCIA.md`](../tests/criterio-pmo/EVIDENCIA.md).
+What does exist is a run over **synthetic material with known answers**, built to contain the failures a real folder contains: a project reporting green that its own evidence does not support, one with no approved plan, one whose vendor invoices without a receipt, and one that is sound. Every signal has its case, the sound project produces no alert at all, and the grader fails just as hard on a missing finding as on one nobody declared.
+
+The figures for that run, what it proves, what it does not, and the limits it surfaced are in [`tests/criterio-pmo/EVIDENCIA.md`](../tests/criterio-pmo/EVIDENCIA.md), which is where they live and are not repeated.
 
 What is verified today is the machine, not the value:
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest    the arithmetic
-python3 tests/criterio-pmo/generar.py                   the synthetic portfolio
-python3 tests/criterio-pmo/grade.py                     69 checks against the known answers
-python3 tests/coherencia.py                             that the docs and the code say the same thing
+python3 plugins/criterio-pmo/scripts/pmo.py selftest      the arithmetic
+python3 plugins/criterio-pmo/scripts/texto.py --selftest  document conversion
+python3 tests/criterio-pmo/generar.py                     the synthetic portfolio
+python3 tests/criterio-pmo/grade.py                       against the known answers
+python3 tests/coherencia.py                               that the docs and the code say the same thing
 ```
 
-30 known results, including the cases that get themselves wrong: slippage against the original baseline versus the current one with a rebaseline in between, the committed budget that looks healthy and is not, the rebaseline that moved sixty-one days when the committee authorised thirty, and the green light that fails to account for nine signals.
+Every run prints how many known results it verified. They include the cases that get themselves wrong: slippage against the original baseline versus the current one with a rebaseline in between, the committed budget that looks healthy and is not, the rebaseline that moved sixty-one days when the committee authorised thirty, and the green light that fails to account for nine signals.
 
 ---
 
