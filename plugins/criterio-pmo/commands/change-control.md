@@ -29,6 +29,8 @@ Un cambio que declara impacto en una sola dimensión casi siempre está mal eval
 
 **5. Si se aprueba, crea línea base nueva.** Registro nuevo con su fecha, su motivo y el documento que la aprobó. **La anterior no se toca.** El conteo de replanificaciones sube, y desde ahí toda desviación se reporta contra dos referencias.
 
+Y desde ahora se reconcilia: el script resta los días que la línea base se movió menos los días que autorizaron los cambios aprobados (`changes.baseline_moved_days`, `changes.approved_time_days`, `changes.unauthorized_days`). Si sobran días, `rebaseline_unauthorized` los nombra. No es una acusación: es que **ningún documento de la carpeta autoriza esa diferencia**, y eso es exactamente el hallazgo. Un cambio aprobado que movió fechas y no dejó línea base nueva sale en `approved_without_new_baseline`, y un impacto de tiempo escrito en meses queda en `time_impact_unreadable` en vez de convertirse en un número inventado.
+
 ## Salida
 
 ```markdown

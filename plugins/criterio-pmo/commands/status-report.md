@@ -21,6 +21,8 @@ argument-hint: "<código o nombre del proyecto>"
 
 **2. Separa declaración de evidencia.** Aplica **project-record**. Lo que el gerente afirma va en una columna; lo que sustentan los documentos, en otra. **Nunca las fusiones.**
 
+El script ya hizo la comparación: `declared.unaccounted_signals` trae las señales que el semáforo declarado no explica, y la alerta `declared_vs_evidence` aparece cuando el gerente reporta verde y hay evidencia que ese verde no cubre. **No la vuelvas a juzgar a ojo: cítala.** Si la declaración lleva más de un mes, `declaration_stale` lo dice y hay que decirlo también: un verde de hace seis semanas no es un verde.
+
 **3. Mide.** Aplica **baseline-variance**: desviación contra la línea base original y contra la vigente, con el número de replanificaciones. Hitos con su fecha de línea base, su fecha vigente y si hay evidencia de cumplimiento.
 
 **4. Revisa lo abierto.** Aplica **raid-taxonomy** y **commitment-tracking**: qué RAID sigue sin movimiento y qué compromisos vencieron sin evidencia.
@@ -34,6 +36,7 @@ argument-hint: "<código o nombre del proyecto>"
 
 **Declara el gerente:** [estado] · [avance]% · al [fecha de la declaración]
 **Sustento documental:** [sustentado | sin sustento | contradicho]
+**Lo que el semáforo no explica:** [señales de `declared.unaccounted_signals`, o «nada»]
 **Último documento:** [fecha] · **Última reunión:** [fecha]
 
 ### Contra el plan

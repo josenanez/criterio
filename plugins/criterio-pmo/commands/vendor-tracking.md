@@ -29,6 +29,8 @@ El hallazgo típico no es el fraude. Es un entregable aceptado sin evidencia de 
 
 **3. Cruza contra lo facturado**, si hay documentos que lo declaren. Dónde no cuadra, se nombra, con las dos fuentes.
 
+El cruce lo calcula el script, no el ojo: por cada proveedor de la ficha devuelve `late` (entregables con fecha pasada, sin evidencia y sin declarar entrega), `accepted_without_evidence` (declarados entregados o aceptados y sin un documento que lo pruebe), `accepted`, `deliverables` e `invoiced`. Y levanta `vendor_invoiced_without_delivery` cuando hay factura y ni un entregable aceptado. Tómalo de ahí y cita el documento de cada línea.
+
 **4. Revisa vencimientos y compromisos.** Aplica **commitment-tracking** sobre las reuniones con el proveedor: lo que prometió en comité es un compromiso como cualquier otro.
 
 **5. Mira el vencimiento del contrato.** Fecha de terminación, renovación automática y preaviso. Un contrato cuyo preaviso vence antes del cierre del proyecto es un hallazgo urgente, no administrativo.

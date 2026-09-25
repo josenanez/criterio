@@ -26,6 +26,21 @@ Reportar solo la vigente es lo que hace que un proyecto con tres replanificacion
 
 Tres replanificaciones en un año no es un dato neutro: es un hallazgo. Se reporta el conteo, las fechas y el motivo declarado de cada una. Si alguna no tiene motivo documentado, eso también se dice.
 
+## La replanificación contra lo que se autorizó
+
+Que la línea base no se sobrescriba conserva el historial. No prueba que la replanificación se haya quedado dentro de lo que el comité aprobó, y esa es una resta:
+
+**días que se movió la línea base** − **días que autorizaron los cambios aprobados** = **días que nadie autorizó**
+
+El script la hace y devuelve `changes.baseline_moved_days`, `changes.approved_time_days` y `changes.unauthorized_days`; si sobran días levanta `rebaseline_unauthorized`. Cuando no hay ni un cambio registrado y la línea base se movió, el resultado es el total del movimiento, que es justo el caso que hay que ver.
+
+Cómo se nombra importa. **No es que alguien haya movido fechas sin permiso: es que ningún documento de la carpeta autoriza esa diferencia.** La autorización puede haber existido en un comité que no dejó acta. Se reporta el hueco documental y se pregunta, no se acusa.
+
+Dos casos más que el script separa en vez de resolver por su cuenta:
+
+- Un cambio aprobado con impacto en tiempo y sin línea base nueva posterior sale en `approved_without_new_baseline`. La decisión existe y el plan no la refleja.
+- Un impacto escrito en meses —*"dos meses"*— queda en `time_impact_unreadable` y no entra en la suma. Un mes no tiene un número fijo de días, y un número inventado aquí contamina todo lo demás. Las semanas sí convierten.
+
 ## Desviación en tiempo
 
 Se calcula sobre hitos, no sobre porcentajes de avance declarados. Un porcentaje lo declara el gerente; una fecha de hito la sustenta un documento.

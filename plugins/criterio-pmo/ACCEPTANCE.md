@@ -15,6 +15,10 @@ Verified on a synthetic documentation folder in `tests/`, built to contain the f
 - [ ] A project with no update in the last quarter.
 - [ ] Two documents that state different dates for the same milestone.
 - [ ] A dependency named in one plan and absent from the plan it depends on.
+- [ ] A project reporting green with at least one signal that green does not account for, listed by signal, and counted at portfolio level.
+- [ ] A vendor deliverable past its date with no evidence of delivery, and an invoice declared against a vendor with no accepted deliverable.
+- [ ] A rebaseline that moved more days than the approved changes authorised, reported as a documentation gap and not as an accusation.
+- [ ] A change impact stated in months reported as unreadable rather than converted into a number.
 
 ## 3. Traceability
 

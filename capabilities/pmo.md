@@ -33,7 +33,7 @@ This is not a suspicion: [Wellingtone](https://wellingtone.co.uk/publications/st
 
 Three concrete things, and none of them is "visibility".
 
-**Evidence outweighs declaration.** Today a project's status is whatever the person running it says. We turn it into a comparison between what is declared and what the documents support, with both columns visible and the gap flagged.
+**Evidence outweighs declaration.** Today a project's status is whatever the person running it says. Here it is a comparison between what is declared and what the documents support, with both columns visible and the gap flagged — and the comparison is made by the code, not by judgement in the moment.
 
 **Slippage cannot be erased.** Today a rebaseline replaces the previous baseline and the history disappears. We make it cumulative: every variance is reported against the original baseline **and** the current one, with the number of rebaselines beside it.
 
@@ -50,7 +50,7 @@ Every line in this table is **something the agent does**, not something it promi
 | Looks at your folders, asks five questions and produces a first result on your documents | `/pmo-setup` |
 | Reads the portfolio's documentation and builds a record per project, with a citation and a date on every data point | `/portfolio-scan` |
 | Says what changed since the last run, what contradicts itself, what has gone silent and what no document supports | `/portfolio-report` |
-| Compares a project against its plan, separating what is declared from what is evidenced | `/status-report` |
+| Compares a project against its plan and names the signals the declared status does not account for | `/status-report` |
 | Builds the committee pack as a set of decisions, not as a status report | `/steering-pack` |
 | Raises risks, assumptions, issues and dependencies — **including the ones said in a meeting that nobody recorded** | `/raid-log` |
 | Assesses a change across scope, time and cost, and creates a new baseline without deleting the previous one | `/change-control` |
@@ -61,7 +61,9 @@ Every line in this table is **something the agent does**, not something it promi
 
 **Why this is a commitment and not a promise:** every command is written as readable instructions in [`plugins/criterio-pmo/`](../plugins/criterio-pmo/), under Apache 2.0. You can audit it before installing, change it if it does not match how you work, and measure it against the acceptance criteria that ship with it.
 
-### Four design decisions you notice on day one
+### Five design decisions you notice on day one
+
+**The status light is checked, not repeated.** The declared status is compared against the computed signals, and the ones it does not account for are listed. When a project reports green and there is evidence that green does not cover, the report says so, and the portfolio carries the figure: how many greens do not hold. A light that repeats what the manager declared already exists, and it is called the weekly report.
 
 **The baseline is append-only.** When a plan is rebaselined, the previous one is not deleted. That is exactly how slippage gets hidden: rebaseline, the light goes green, and nobody sees the project is a year late.
 
@@ -110,6 +112,11 @@ It runs on its own and raises its voice only when something crosses a threshold:
 | Contradiction between documents | Always — no number attached |
 | Budget | Executed above 90% of committed |
 | Governance change | Always |
+| Declaration the evidence does not account for | Reports green and at least one signal is not covered by that green |
+| Stale declaration | The declaration is 30 days old or more |
+| Vendor deliverable overdue | The date passed and there is no evidence of delivery |
+| Invoiced without delivery | An invoice is declared and not one deliverable is accepted |
+| Unauthorised rebaseline | The baseline moved more days than the approved changes authorised |
 
 All configurable, and changed by talking, not by editing files. **Staying quiet when nothing happened is the feature, not the failure.**
 
@@ -125,7 +132,7 @@ What is verified today is the machine, not the value:
 python3 plugins/criterio-pmo/scripts/pmo.py selftest
 ```
 
-Twelve known results, including the cases that get themselves wrong: slippage against the original baseline versus the current one with a rebaseline in between, and the committed budget that looks healthy and is not.
+Twenty-four known results, including the cases that get themselves wrong: slippage against the original baseline versus the current one with a rebaseline in between, the committed budget that looks healthy and is not, the rebaseline that moved sixty-one days when the committee authorised thirty, and the green light that fails to account for nine signals.
 
 ---
 

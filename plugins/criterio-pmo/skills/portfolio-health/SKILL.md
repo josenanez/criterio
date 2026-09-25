@@ -21,6 +21,10 @@ Lo que aporta valor es **contrastar la declaración contra la evidencia** y deci
 
 "Sin sustento" es el estado más común en una PMO real y el que más incomoda. Reportarlo tal cual es el trabajo.
 
+**Y ya no se juzga a ojo.** El script compara el semáforo declarado contra las señales que él mismo calculó, y devuelve en `declared.unaccounted_signals` las que ese semáforo no explica. Cuando el declarado es verde y esa lista no está vacía, levanta `declared_vs_evidence`. El total del portafolio lo trae `totals.green_contradicted`: **cuántos de los proyectos que reportan verde tienen evidencia que su luz ignora.** Es la primera cifra que debe recibir un comité.
+
+Dos precisiones que evitan un hallazgo mal armado. La lista deja fuera las contradicciones entre documentos: son un defecto de la ficha, no del proyecto, y mezclarlas debilita el hallazgo. Y para el amarillo y el rojo la lista se calcula igual pero no se levanta alerta: quien ya reportó problema no está escondiendo nada.
+
 ## Umbrales por defecto
 
 Son los valores que quedan en la mayoría de las instalaciones. Están calibrados para que el agente hable poco y cuando habla importe. Se cambian en `umbrales.yaml` del estándar.
@@ -34,6 +38,11 @@ Son los valores que quedan en la mayoría de las instalaciones. Están calibrado
 | Contradicción entre documentos | Siempre — no lleva número |
 | Presupuesto | Ejecutado supera 90% de lo comprometido |
 | Cambio de gobierno | Siempre |
+| Declaración que la evidencia no explica | Declara verde y hay al menos una señal que ese verde no cubre — siempre |
+| Declaración vieja | La declaración tiene 30 días o más |
+| Entregable de proveedor vencido | Pasó la fecha, no hay evidencia y no se declaró entregado — siempre |
+| Facturado sin entrega | Hay factura declarada y ni un entregable aceptado — siempre |
+| Replanificación sin autorizar | La línea base se movió más días que los que autorizaron los cambios aprobados — tolerancia 0 días |
 
 **El silencio cuando no pasó nada es la característica, no la falla.** Un agente que reporta todos los lunes haya o no noticia se ignora en un mes.
 
@@ -52,12 +61,14 @@ Si preguntas por cuarenta campos, no responde nadie. Si preguntas por cinco, los
 ## Qué se reporta del portafolio, y en qué orden
 
 1. **Lo que cambió desde la corrida anterior.** Es lo primero porque es lo único que el gerente no sabe ya.
-2. **Contradicciones abiertas.**
-3. **Hitos vencidos sin evidencia.**
-4. **Proyectos en silencio**, con cuántos días.
-5. **Dependencias cruzadas rotas**: un plan declara que depende de otro proyecto, y ese otro se movió.
-6. **Vacíos de información**: proyectos sin presupuesto declarado, sin doliente, sin fecha de cierre.
-7. **Lo que sigue igual**, en una línea. No se reexplica lo que no se movió.
+2. **Los verdes que la evidencia no sostiene**, con las señales que cada uno no explica. Van aquí y no al final porque es la razón de ser del informe.
+3. **Contradicciones abiertas.**
+4. **Hitos vencidos sin evidencia.**
+5. **Proyectos en silencio**, con cuántos días.
+6. **Dependencias cruzadas rotas**: un plan declara que depende de otro proyecto, y ese otro se movió.
+7. **Replanificaciones que ningún cambio aprobado autoriza**, con los días que sobran.
+8. **Vacíos de información**: proyectos sin presupuesto declarado, sin doliente, sin fecha de cierre.
+9. **Lo que sigue igual**, en una línea. No se reexplica lo que no se movió.
 
 ## Lo que este skill no hace
 

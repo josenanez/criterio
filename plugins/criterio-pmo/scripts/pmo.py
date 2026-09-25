@@ -29,6 +29,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -38,10 +39,27 @@ DEFAULT_THRESHOLDS = {
     "variance_cost_pct": 10,
     "committed_pct": 90,
     "stale_field_months": 12,
+    "declaration_stale_days": 30,
+    "rebaseline_tolerance_days": 0,
 }
 
-# Signals that always speak, with no number attached.
-ALWAYS = ("milestone_overdue", "commitment_overdue", "contradiction", "governance_change")
+# Declared status, as the manager reports it. The rank only orders the
+# vocabulary so the code can ask "is this light green". It is not a severity
+# score and nothing else is computed from it.
+STATUS_RANK = {
+    "verde": 0, "green": 0,
+    "amarillo": 1, "yellow": 1, "amber": 1, "en riesgo": 1, "at risk": 1,
+    "rojo": 2, "red": 2,
+}
+
+# The signals a status light is supposed to account for. `contradiction` is
+# deliberately out: it is a defect of the record, not of the project, and
+# mixing the two weakens the finding.
+EVIDENCE_SIGNALS = (
+    "silent", "variance_time", "variance_cost", "milestone_overdue",
+    "commitment_overdue", "budget_committed", "vendor_deliverable_late",
+    "vendor_invoiced_without_delivery", "rebaseline_unauthorized",
+)
 
 
 # ---------------------------------------------------------------- helpers
@@ -85,6 +103,32 @@ def as_number(raw):
         return None
 
 
+def as_days(raw):
+    """Days out of a field that may be a number or text like "30 días".
+
+    Weeks convert exactly. Months do not: a month is not a fixed number of
+    days, so it returns None and the caller reports the field as unreadable
+    instead of guessing.
+    """
+    raw = value(raw)
+    if raw in (None, ""):
+        return None
+    if isinstance(raw, bool):
+        return None
+    if isinstance(raw, (int, float)):
+        return int(raw)
+    text = str(raw).lower()
+    m = re.search(r"-?\d+", text)
+    if not m:
+        return None
+    n = int(m.group())
+    if "sem" in text or "week" in text:
+        return n * 7
+    if "mes" in text or "month" in text or "año" in text or "year" in text:
+        return None
+    return n
+
+
 def pct(part, whole):
     if part is None or not whole:
         return None
@@ -92,9 +136,16 @@ def pct(part, whole):
 
 
 def walk_fields(node, path=""):
-    """Yield (path, field) for every {value,...} object in the record."""
+    """Yield (path, field) for every {value,...} object in the record.
+
+    `state` is optional here, exactly as it is for value() and state_of().
+    Requiring it made every field written without one invisible: it dropped out
+    of the run-to-run diff, out of conflict detection and out of the staleness
+    check, without a word. A record that loses change detection because a key
+    was omitted is the silent skip this plugin exists to refuse.
+    """
     if isinstance(node, dict):
-        if "value" in node and "state" in node:
+        if "value" in node:
             yield path, node
             return
         for k, v in node.items():
@@ -194,6 +245,88 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     for c in late:
         alert("commitment_overdue", c)
 
+    # --- vendors -------------------------------------------------------
+    # The schema has carried vendor deliverables since 0.1 and nothing read
+    # them. Crossing what was promised against what has evidence of receipt,
+    # and both against what was invoiced, is comparison and subtraction.
+    vendors = []
+    for v in rec.get("vendors") or []:
+        entregables = v.get("deliverables") or []
+        vencidos, sin_evidencia, aceptados = [], [], 0
+        for dv in entregables:
+            due = as_date(dv.get("due_date"))
+            st = value(dv.get("state")) or "unknown"
+            ev = value(dv.get("evidence"))
+            if st in ("delivered", "accepted"):
+                aceptados += 1
+                if not ev:
+                    sin_evidencia.append({"what": value(dv.get("name")), "state": st})
+            elif due and due < today:
+                vencidos.append({"what": value(dv.get("name")), "due": due.isoformat(),
+                                 "days": (today - due).days, "state": st})
+        facturado = as_number(v.get("invoiced"))
+        fila = {
+            "name": value(v.get("name")),
+            "contract_ref": value(v.get("contract_ref")),
+            "deliverables": len(entregables),
+            "accepted": aceptados,
+            "late": vencidos,
+            "accepted_without_evidence": sin_evidencia,
+            "invoiced": facturado,
+        }
+        vendors.append(fila)
+        for d in vencidos:
+            alert("vendor_deliverable_late", dict(d, vendor=fila["name"]))
+        for d in sin_evidencia:
+            alert("vendor_accepted_without_evidence", dict(d, vendor=fila["name"]))
+        if facturado and entregables and aceptados == 0:
+            alert("vendor_invoiced_without_delivery",
+                  {"vendor": fila["name"], "invoiced": facturado,
+                   "deliverables": len(entregables)})
+    out["vendors"] = vendors
+
+    # --- changes against the baseline ----------------------------------
+    # An append-only baseline keeps the history. It does not by itself prove
+    # the replanning stayed inside what the committee approved, and that is a
+    # subtraction: days the baseline moved, minus days the approved changes
+    # authorised. No document authorising the difference is a finding, not an
+    # accusation — the agent says what the documents show.
+    cambios = rec.get("changes") or []
+    autorizados, ilegibles, sin_linea_base = 0, [], []
+    for ch in cambios:
+        if (value(ch.get("decision")) or "unknown").lower() != "approved":
+            continue
+        dias = as_days(ch.get("time_impact"))
+        if dias is None:
+            if value(ch.get("time_impact")) not in (None, ""):
+                ilegibles.append({"ref": value(ch.get("ref")),
+                                  "time_impact": value(ch.get("time_impact"))})
+            continue
+        autorizados += dias
+        pedido = as_date(ch.get("requested_on"))
+        posterior = [b for b in baselines[1:]
+                     if pedido and as_date(b.get("approved_on"))
+                     and as_date(b.get("approved_on")) >= pedido]
+        if dias and not posterior:
+            sin_linea_base.append({"ref": value(ch.get("ref")), "days": dias})
+
+    movido = (approved_end - original_end).days if approved_end and original_end else None
+    out["changes"] = {
+        "total": len(cambios),
+        "approved_time_days": autorizados,
+        "baseline_moved_days": movido,
+        "unauthorized_days": (movido - autorizados) if movido is not None else None,
+        "time_impact_unreadable": ilegibles,
+        "approved_without_new_baseline": sin_linea_base,
+    }
+    sin_autorizar = out["changes"]["unauthorized_days"]
+    if sin_autorizar is not None and sin_autorizar > th["rebaseline_tolerance_days"]:
+        alert("rebaseline_unauthorized", {"days": sin_autorizar, "moved": movido,
+                                          "authorized": autorizados,
+                                          "changes_seen": len(cambios)})
+    for c in sin_linea_base:
+        alert("change_without_baseline", c)
+
     # --- record quality -------------------------------------------------
     conflicts, missing, stale = [], [], []
     for path, field in walk_fields(rec):
@@ -214,6 +347,40 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     out["fields_stale"] = stale
     for c in conflicts:
         alert("contradiction", c)
+
+    # --- declaration against evidence ----------------------------------
+    # The thesis of the plugin, and until now the one thing it did not
+    # compute: what the manager asserts in one column, what the documents
+    # support in the other. No severity scale is invented here. The signals
+    # above are listed as they came out, and the light is only called out when
+    # it is green and there is something it does not account for.
+    declared = rec.get("declared", {}) or {}
+    dicho = value(declared.get("status"))
+    clave = str(dicho).strip().lower() if dicho else None
+    rango = STATUS_RANK.get(clave)
+    dicho_el = as_date(declared.get("as_of"))
+    sin_explicar = sorted({a["signal"] for a in out["alerts"]
+                           if a["signal"] in EVIDENCE_SIGNALS})
+
+    out["declared"] = {
+        "status": dicho,
+        "understood": rango is not None,
+        "progress_pct": as_number(declared.get("progress_pct")),
+        "as_of": dicho_el.isoformat() if dicho_el else None,
+        "age_days": (today - dicho_el).days if dicho_el else None,
+        "source": source_of(declared.get("status")) or value(declared.get("source")),
+        "unaccounted_signals": sin_explicar,
+    }
+
+    if rango == 0 and sin_explicar:
+        alert("declared_vs_evidence", {"declared": dicho,
+                                       "as_of": out["declared"]["as_of"],
+                                       "source": out["declared"]["source"],
+                                       "signals": sin_explicar})
+
+    edad = out["declared"]["age_days"]
+    if edad is not None and edad >= th["declaration_stale_days"]:
+        alert("declaration_stale", {"days": edad, "as_of": out["declared"]["as_of"]})
 
     return out
 
@@ -249,6 +416,12 @@ def compute(state: Path, today: dt.date, th: dict) -> dict:
             "with_alerts": sum(1 for p in projects if p["alerts"]),
             "alerts": sum(len(p["alerts"]) for p in projects),
             "no_baseline": sum(1 for p in projects if not p["has_baseline"]),
+            # the number a committee should be handed first: how many of the
+            # projects reporting green have evidence their light ignores
+            "green_contradicted": sum(
+                1 for p in projects
+                if any(a["signal"] == "declared_vs_evidence" for a in p["alerts"])
+            ),
         },
     }
 
@@ -370,8 +543,10 @@ def selftest() -> int:
             "start_date": {"value": "2026-01-01", "source": "p.md", "source_date": "2026-01-01", "state": "found"},
             "end_date": {"value": "2026-12-31", "source": "p3.md", "source_date": "2026-08-01", "state": "found"},
             "baseline": [
-                {"version": 1, "end_date": "2026-09-30", "reason": "inicial"},
-                {"version": 2, "end_date": "2026-11-30", "reason": "atraso proveedor"},
+                {"version": 1, "approved_on": "2026-01-01", "end_date": "2026-09-30",
+                 "reason": "inicial"},
+                {"version": 2, "approved_on": "2026-08-01", "end_date": "2026-11-30",
+                 "reason": "atraso proveedor"},
             ],
             "milestones": [
                 {"name": {"value": "Hito 1"}, "current_date": {"value": "2026-08-15"},
@@ -390,6 +565,31 @@ def selftest() -> int:
         ],
         "activity": {"last_document_date": {"value": "2026-08-20"}},
         "raid": {"dependencies": [{"on_project": {"value": "PRY-002"}, "confirmed": {"value": False}}]},
+        # el comité autorizó 30 días; la línea base se movió 61
+        "changes": [
+            {"ref": {"value": "CC-01"}, "requested_on": {"value": "2026-07-15"},
+             "time_impact": {"value": "30 días"}, "decision": {"value": "approved"}},
+            {"ref": {"value": "CC-02"}, "requested_on": {"value": "2026-07-20"},
+             "time_impact": {"value": "2 meses"}, "decision": {"value": "approved"}},
+        ],
+        "vendors": [
+            {"name": {"value": "Proveedor A"}, "contract_ref": {"value": "OC-77"},
+             "invoiced": {"value": 500},
+             "deliverables": [
+                 {"name": {"value": "Módulo 1"}, "due_date": {"value": "2026-08-01"},
+                  "state": {"value": "pending"}, "evidence": {"value": None}},
+                 {"name": {"value": "Módulo 2"}, "due_date": {"value": "2026-09-01"},
+                  "state": {"value": "accepted"}, "evidence": {"value": None}},
+             ]},
+            {"name": {"value": "Proveedor B"}, "invoiced": {"value": 200},
+             "deliverables": [
+                 {"name": {"value": "Soporte"}, "due_date": {"value": "2026-12-01"},
+                  "state": {"value": "pending"}, "evidence": {"value": None}},
+             ]},
+        ],
+        "declared": {"status": {"value": "verde", "source": "informe.md"},
+                     "progress_pct": {"value": 65},
+                     "as_of": {"value": "2026-08-10"}},
     }
     r = compute_record(rec, today, DEFAULT_THRESHOLDS)
     kinds = sorted({a["signal"] for a in r["alerts"]})
@@ -406,8 +606,29 @@ def selftest() -> int:
         ("% ejecutado", r["money"]["pct_executed"], 40.0),
         ("proyección sobre aprobado %", r["money"]["projection_over_pct"], 20.0),
         ("campos vencidos", len(r["fields_stale"]), 1),
+        # proveedores
+        ("entregables vencidos", len(r["vendors"][0]["late"]), 1),
+        ("aceptados sin evidencia", len(r["vendors"][0]["accepted_without_evidence"]), 1),
+        ("facturado sin entrega", r["vendors"][1]["invoiced"], 200.0),
+        # cambios contra línea base
+        ("la línea base se movió (días)", r["changes"]["baseline_moved_days"], 61),
+        ("días autorizados por el comité", r["changes"]["approved_time_days"], 30),
+        ("días sin autorización", r["changes"]["unauthorized_days"], 31),
+        ("impactos de tiempo ilegibles", len(r["changes"]["time_impact_unreadable"]), 1),
+        # declaración contra evidencia
+        ("la declaración se entendió", r["declared"]["understood"], True),
+        ("antigüedad de la declaración", r["declared"]["age_days"], 40),
+        ("señales que el verde no explica", len(r["declared"]["unaccounted_signals"]), 9),
+        # lo que ve el diff: un campo sin `state` tiene que contarse igual
+        ("campo con state visible al diff", "declared.status" in flatten(rec), True),
+        ("campo sin state visible al diff", "money.approved" in flatten(rec), True),
         ("señales", kinds, ["budget_committed", "commitment_overdue",
-                            "milestone_overdue", "silent", "variance_cost", "variance_time"]),
+                            "declaration_stale", "declared_vs_evidence",
+                            "milestone_overdue", "rebaseline_unauthorized",
+                            "silent", "variance_cost", "variance_time",
+                            "vendor_accepted_without_evidence",
+                            "vendor_deliverable_late",
+                            "vendor_invoiced_without_delivery"]),
     ]
     ok = True
     for label, got, want in checks:

@@ -33,7 +33,7 @@ Eso no es una sospecha: [Wellingtone](https://wellingtone.co.uk/publications/sta
 
 Tres cosas concretas, y ninguna es "visibilidad".
 
-**Que la evidencia pese más que la declaración.** Hoy el estado de un proyecto es lo que dice quien lo gerencia. Lo vamos a convertir en una comparación entre lo declarado y lo que sustentan los documentos, con las dos columnas a la vista y la diferencia señalada.
+**Que la evidencia pese más que la declaración.** Hoy el estado de un proyecto es lo que dice quien lo gerencia. Aquí es una comparación entre lo declarado y lo que sustentan los documentos, con las dos columnas a la vista y la diferencia señalada — y la comparación la hace el código, no el criterio del momento.
 
 **Que el atraso no se pueda borrar.** Hoy una replanificación reemplaza la línea base anterior y el historial desaparece. Lo vamos a volver acumulativo: toda desviación se reporta contra la línea base original **y** contra la vigente, con el número de replanificaciones al lado.
 
@@ -50,7 +50,7 @@ Cada línea de esta tabla es **algo que el agente hace**, no algo que promete. E
 | Mira tus carpetas, hace cinco preguntas y produce un primer resultado sobre tus documentos | `/pmo-setup` |
 | Lee toda la documentación del portafolio y arma una ficha por proyecto, con cita y fecha en cada dato | `/portfolio-scan` |
 | Dice qué cambió desde la corrida anterior, qué se contradice, qué está en silencio y qué no tiene sustento | `/portfolio-report` |
-| Compara un proyecto contra su plan separando lo declarado de lo evidenciado | `/status-report` |
+| Compara un proyecto contra su plan y nombra las señales que el semáforo declarado no explica | `/status-report` |
 | Arma el comité como un paquete de decisiones, no como un informe de avance | `/steering-pack` |
 | Levanta riesgos, supuestos, incidencias y dependencias — **incluidos los que se dijeron en una reunión y nadie registró** | `/raid-log` |
 | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior | `/change-control` |
@@ -61,7 +61,9 @@ Cada línea de esta tabla es **algo que el agente hace**, no algo que promete. E
 
 **Por qué esto es un compromiso y no una promesa:** cada comando está escrito como instrucciones legibles en [`plugins/criterio-pmo/`](../plugins/criterio-pmo/), bajo Apache 2.0. Se puede auditar antes de instalarlo, cambiar si no corresponde a cómo trabajas, y medir contra los criterios de aceptación que vienen con él.
 
-### Cuatro decisiones de diseño que se notan el primer día
+### Cinco decisiones de diseño que se notan el primer día
+
+**El semáforo se contrasta, no se repite.** El estado declarado se compara contra las señales calculadas, y las que ese estado no explica se listan. Cuando un proyecto reporta verde y hay evidencia que ese verde no cubre, el informe lo dice, y el portafolio trae la cifra: cuántos verdes no se sostienen. Un semáforo que repite lo que declaró el gerente ya existe y se llama el reporte semanal.
 
 **La línea base es de solo agregar.** Cuando se replanifica, la anterior no se borra. Así es exactamente como se esconde el atraso: se replanifica, el semáforo vuelve a verde y nadie ve que el proyecto lleva un año corrido.
 
@@ -110,6 +112,11 @@ Corre solo y solo levanta la voz cuando algo cruza un umbral:
 | Contradicción entre documentos | Siempre — no lleva número |
 | Presupuesto | Ejecutado supera 90% de lo comprometido |
 | Cambio de gobierno | Siempre |
+| Declaración que la evidencia no explica | Declara verde y hay al menos una señal que ese verde no cubre |
+| Declaración vieja | La declaración tiene 30 días o más |
+| Entregable de proveedor vencido | Pasó la fecha y no hay evidencia de entrega |
+| Facturado sin entrega | Hay factura declarada y ni un entregable aceptado |
+| Replanificación sin autorizar | La línea base se movió más días de los que autorizaron los cambios aprobados |
 
 Todos son configurables, y se cambian hablando, no editando archivos. **El silencio cuando no pasó nada es la característica, no la falla.**
 
@@ -125,7 +132,7 @@ Lo verificado hoy es la máquina, no el valor:
 python3 plugins/criterio-pmo/scripts/pmo.py selftest
 ```
 
-Doce resultados conocidos, incluidos los casos que se equivocan solos: el atraso contra la línea base original frente a la vigente con una replanificación de por medio, y el presupuesto comprometido que se ve sano y no lo está.
+Veinticuatro resultados conocidos, incluidos los casos que se equivocan solos: el atraso contra la línea base original frente a la vigente con una replanificación de por medio, el presupuesto comprometido que se ve sano y no lo está, la replanificación que movió sesenta y un días cuando el comité autorizó treinta, y el verde que no explica nueve señales.
 
 ---
 

@@ -53,8 +53,8 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 | Skill | Qué encapsula |
 |---|---|
 | `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen |
-| `portfolio-health` | Semáforo con evidencia, umbrales por defecto, y las tres defensas contra el dato que dejó de ser cierto |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, las cuatro cifras de presupuesto |
+| `portfolio-health` | El semáforo declarado contra la evidencia calculada, umbrales por defecto, y las tres defensas contra el dato que dejó de ser cierto |
+| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, la replanificación contra lo que autorizó el comité, las cuatro cifras de presupuesto |
 | `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
 | `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia |
 | `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |
