@@ -10,8 +10,8 @@ Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer result
 
 | | | |
 |:--:|:--:|:--:|
-| [![PMO](docs/img/es/pmo.png)](plugins/criterio-pmo/README.md) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) |
-| **[Ver la familia PMO →](plugins/criterio-pmo/README.md)** | Sin construir | Sin construir |
+| [![PMO](docs/img/es/pmo.png)](plugins/criterio-pmo/README.es.md) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) |
+| **[Ver la familia PMO →](plugins/criterio-pmo/README.es.md)** | Sin construir | Sin construir |
 
 ---
 
@@ -58,7 +58,7 @@ Nada de eso aparece en un informe de avance. **El informe de avance lo escribe q
 
 Dos decisiones que se notan el primer día. **Las cuatro cifras del presupuesto, no dos:** un proyecto con 40% ejecutado y 95% comprometido no tiene holgura, tiene el presupuesto agotado y todavía sin causar, y eso es invisible si se mira ejecutado contra aprobado. **El silencio se mide:** un proyecto sin documentación no está mal gestionado, está sin documentar, y ese es un hallazgo distinto que también hay que decir.
 
-→ **[Agente PMO, disponible hoy](plugins/criterio-pmo/README.md)** · el método, los comandos y los criterios de aceptación
+→ **[Agente PMO, disponible hoy](plugins/criterio-pmo/README.es.md)** · el método, los comandos y los criterios de aceptación
 
 ---
 

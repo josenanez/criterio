@@ -169,25 +169,33 @@ if (img / "es").exists() and (img / "en").exists():
 # hasta el primer resultado es el argumento.
 print("\nLa política de valor en el README de cada plugin")
 EXIGIDO = {
-    "cómo se instala": ("## Instalar", "## Instalación", "## Install"),
+    "cómo se instala": ("## Instalar", "## Instalación", "## Install"),  # noqa: E501
     "el primer resultado": ("primeros quince minutos", "primer resultado", "first result",
                             "first fifteen minutes"),
     "lo que nunca hace": ("Lo que nunca hace", "never does"),
 }
 for plugin in sorted(p for p in (RAIZ / "plugins").iterdir() if p.is_dir()):
-    readme = plugin / "README.md"
-    if not readme.exists():
-        continue
-    cuerpo = readme.read_text(encoding="utf-8")
     if not (plugin / "commands").exists():
         decir(NOTA, f"{plugin.name} · declarado y sin construir, no se le exige")
         continue
-    faltan = [q for q, marcas in EXIGIDO.items() if not any(m in cuerpo for m in marcas)]
-    if faltan:
+    # los dos idiomas, y cada uno tiene que cumplir la política por su cuenta
+    for nombre, idioma in (("README.md", "en"), ("README.es.md", "es")):
+        readme = plugin / nombre
+        if not readme.exists():
+            decir(FALLA, f"{plugin.name} · falta {nombre}")
+            continue
+        cuerpo = readme.read_text(encoding="utf-8")
+        faltan = [q for q, marcas in EXIGIDO.items() if not any(m in cuerpo for m in marcas)]
         for q in faltan:
-            decir(FALLA, f"{plugin.name} · el README no dice {q}")
-    else:
-        decir(OK, f"{plugin.name} · instalación, primer resultado y lo que nunca hace")
+            decir(FALLA, f"{plugin.name}/{nombre} · no dice {q}")
+        # y las imágenes de su propio idioma: una página en inglés con figuras en
+        # español es el error que nadie nota porque nadie relee la que no es la suya
+        otro = "es" if idioma == "en" else "en"
+        if f"docs/img/{otro}/" in cuerpo:
+            decir(FALLA, f"{plugin.name}/{nombre} · usa imágenes de docs/img/{otro}/")
+            faltan.append("idioma")
+        if not faltan:
+            decir(OK, f"{plugin.name}/{nombre} · completo y con sus propias imágenes")
 
 # ── 5 · cada señal documentada en su dueño ──────────────────────────────
 print("\nCada señal en su dueño")

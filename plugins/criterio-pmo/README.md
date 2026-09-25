@@ -1,35 +1,36 @@
 # criterio-pmo
 
-**Un segundo cerebro para la oficina de proyectos.** Lee la documentación que tu PMO ya
-tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
+**A second brain for the project management office.** It reads the documentation your PMO
+already has and says what changed, what contradicts itself, and what has been silent for
+weeks.
 
-Apache 2.0 · Se instala en cuatro clics · **El primer resultado sale en quince minutos,
-sobre tus propios documentos**
-
----
-
-## La familia PMO
-
-![La familia PMO: tres agentes, un solo contrato de datos](../../docs/img/es/familia-pmo.png)
-
-La capacidad tiene más de un agente porque la organización tiene más de un rol. **El agente
-PMO está disponible hoy**; los otros dos vienen detrás y comparten el mismo contrato de
-datos.
-
-El **Agente PM** no va a las reuniones — el gerente va. Lo que hace es que el gerente llegue
-con la semana preparada: la agenda armada antes, la minuta redactada después, el plan al día
-contra la evidencia y el informe listo salvo una línea. Su función central no la hace ninguna
-herramienta que un gerente use hoy: **el compromiso dicho y no cumplido.** Las reuniones están
-llenas de *«yo lo tengo para el viernes»* y nadie los registra.
-
-El **Agente de producto** trabaja antes de que exista el proyecto, y entrega el acta con la
-que el proyecto nace.
+[Español](README.es.md) · Apache 2.0 · Four clicks to install · **The first result lands in
+fifteen minutes, over your own documents**
 
 ---
 
-## Instalar
+## The PMO family
 
-![Instalación: cuatro clics, o dos comandos](../../docs/img/es/instalacion.png)
+![The PMO family: three agents, one data contract](../../docs/img/en/familia-pmo.png)
+
+The capability has more than one agent because the organisation has more than one role.
+**The PMO agent is available today**; the other two come behind it and share the same data
+contract.
+
+The **PM agent** does not attend the meetings — the manager does. What it does is let the
+manager arrive with the week prepared: the agenda built beforehand, the minutes drafted
+afterwards, the plan current against the evidence, and the report ready except for one line.
+Its central function is one no tool a project manager uses today performs: **the commitment
+said and not kept.** Meetings are full of *"I'll have it by Friday"* and nobody records them.
+
+The **product agent** works before the project exists, and delivers the charter the project
+is born from.
+
+---
+
+## Install
+
+![Installation: four clicks, or two commands](../../docs/img/en/instalacion.png)
 
 **Claude Code**
 
@@ -39,171 +40,169 @@ que el proyecto nace.
 /pmo-setup
 ```
 
-## Los primeros quince minutos
+## The first fifteen minutes
 
-![Los primeros quince minutos](../../docs/img/es/quince-minutos.png)
+![The first fifteen minutes](../../docs/img/en/quince-minutos.png)
 
-No hay archivo de configuración que editar, ni plantilla que llenar, ni carpeta que ordenar
-antes de empezar. La configuración **es una conversación**, y termina con un resultado sobre
-tus documentos.
+There is no configuration file to edit, no template to fill in, no folder to tidy before
+starting. Setting it up **is a conversation**, and it ends with a result over your documents.
 
 | | |
 |---|---|
-| **0 – 2 min** | **Instalar.** Dos comandos en Claude Code, o cuatro clics en Cowork |
-| **2 – 4 min** | **Mira antes de preguntar.** Le señalas la carpeta donde vive la documentación de proyectos, como esté. Lista lo que encontró: cuántos proyectos distingue, cuántos documentos, qué formatos, cuál es el más reciente, y cuáles no va a poder leer. Ahí sabes que está mirando tus cosas de verdad |
-| **4 – 8 min** | **Cinco preguntas.** Quién eres, cuándo se reúne tu comité, quién recibe el informe y en qué forma, y los términos. Una a la vez, cada una con una respuesta sugerida a partir de lo que ya vio. *«No sé»* es una respuesta válida |
-| **8 – 15 min** | **Un primer resultado.** Barre **tres proyectos**, no el portafolio completo, para que veas algo real en minutos: qué supo de cada uno, qué no está dicho en ninguna parte, y cualquier contradicción o compromiso vencido que haya aparecido de paso |
+| **0 – 2 min** | **Install.** Two commands in Claude Code, or four clicks in Cowork |
+| **2 – 4 min** | **It looks before it asks.** You point it at the folder where your project documentation lives, however it is. It lists what it found: how many projects it distinguishes, how many documents, which formats, which is the most recent, and which ones it will not be able to read. That is when you know it is actually looking at your things |
+| **4 – 8 min** | **Five questions.** Who you are, when your committee meets, who receives the report and in what form, and the terms. One at a time, each with a suggested answer drawn from what it already saw. *"I don't know"* is a valid answer |
+| **8 – 15 min** | **A first result.** It sweeps **three projects**, not the whole portfolio, so you see something real in minutes: what it knew about each one, what is not stated anywhere, and any contradiction or overdue commitment it found on the way |
 
-Al final te dice cuánto tomaría el portafolio completo, y qué le falta a tu carpeta para que
-el análisis sea mejor. Pero como hallazgo, no como requisito: **esto funciona con lo que
-haya.**
-
----
-
-## El agente no espera a que lo llamen
-
-![La cadencia: se activa solo, y casi siempre se calla](../../docs/img/es/cadencia.png)
-
-Esta es la diferencia entre un comando y un agente. Un comando espera. **Este se programa y
-corre solo.**
-
-De las cinco preguntas del arranque sale una cadencia, y de la cadencia sale qué toca cada
-día. La decisión es aritmética de fechas, así que la toma el código y no el criterio del
-momento:
-
-```
-python3 scripts/pmo.py due --state <estado> --config <archivo>
-```
-
-Y `/pmo-wake` es el comando que el reloj invoca: mira qué toca, lo hace, y **si no toca nada
-no produce nada.** Callarse cuando no pasó nada no es una omisión — es la única razón por la
-que un agente que corre todos los días sigue instalado el mes siguiente.
-
-Tres cosas pueden tocar. El **barrido**, que mira qué cambió en la carpeta y solo recalcula
-los proyectos tocados. El **informe de comité**, que aterriza con la anticipación que
-configuraste para que alcances a reaccionar a lo que encuentre. Y la **confirmación**, cinco
-campos por corrida — los que envejecen peor: patrocinador, gerente, presupuesto aprobado,
-fecha de cierre y alcance.
-
-Ponerlo en un reloj es del lado de tu organización: una tarea programada en Cowork, o el
-programador del sistema en Claude Code. **Y si no quieren corridas desatendidas** —en un
-banco es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo
-que se pierde es que avise sin que nadie pregunte.
-
-## Qué queda configurado
-
-Lo escribe `/pmo-setup` a partir de lo que respondiste, en tu equipo y en un archivo tuyo:
-dónde están los documentos, dónde vive el estado, tu cadencia de comité, la forma del
-informe, los umbrales que le hacen levantar la voz, y el registro de que aceptaste los
-términos, con tu nombre y la fecha.
-
-Todo eso se cambia **hablando**. Si quieres que el silencio se reporte a los diez días y no a
-los quince, se lo dices.
-
-## Lo que nunca hace
-
-Esto es lo que conviene tener claro antes de instalarlo, y no está en letra pequeña:
-
-- **No escribe en tus carpetas.** Lee tus documentos; los informes y las fichas van a una
-  carpeta de estado que tú eliges.
-- **No decide.** Produce borradores de trabajo. Formula la decisión como pregunta con sus
-  opciones; quién decide y asumiendo qué es de quien tiene la facultad.
-- **No declara el estado de un proyecto.** Eso lo hace el gerente. El agente le muestra
-  contra qué, y la diferencia entre las dos cosas es el hallazgo de más valor del sistema.
-- **No sabe lo que no está escrito.** No conoce lo que se habló en el pasillo ni lo que se
-  decidió en una llamada que nadie minutó. Todo hallazgo suyo es *«según los documentos»*, y
-  lo declara.
-- **No adivina.** Cada dato viene con la cita del documento de donde salió. *«No está dicho
-  en ninguna parte»* es una respuesta válida y esperada.
-
-Y una que sí hay que decir en voz alta: **tus documentos se procesan en la infraestructura de
-la plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo tus políticas
-antes de apuntarlo a material confidencial. Descargo completo en
-[DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
+At the end it tells you how long the full portfolio would take, and what your folder is
+missing for the analysis to be better. But as a finding, not a requirement: **this works with
+whatever is there.**
 
 ---
 
-De aquí para abajo es para quien quiera auditarlo antes de instalarlo. **Todo esto se puede
-leer sin ejecutar nada**, y eso es deliberado.
+## The agent does not wait to be called
 
-## Cómo funciona
+![The cadence: it wakes on its own, and almost always stays quiet](../../docs/img/en/cadencia.png)
 
-![Cómo funciona: el modelo extrae, el código calcula](../../docs/img/es/como-funciona.png)
+This is the difference between a command and an agent. A command waits. **This one is
+scheduled and runs on its own.**
 
-La espina es la **ficha de proyecto**: un contrato de datos que todos los comandos leen y
-escriben, con la cita al documento fuente y a su fecha en cada campo. Ningún comando lee
-documentos crudos por su cuenta. Eso permite consolidar cuarenta proyectos sin volver a
-leerlos, **calcular en vez de opinar**, y comparar una corrida contra la anterior.
-
-Dos scripts, que son lo único que no opina. [`scripts/texto.py`](scripts/texto.py) convierte
-el documento a texto: `.docx`, `.xlsx` y `.pptx` con la librería estándar —son ZIP con XML
-adentro—, `.eml` con el parser de correo, y el PDF con `pdftotext`. Lo que no se puede leer
-se declara con la razón. [`scripts/pmo.py`](scripts/pmo.py) hace la aritmética, y su
-subcomando `index` decide el costo de cada corrida: dos hashes por documento, uno para saber
-si vale extraer y otro para saber si vale releer.
-
-## Los dieciséis comandos
-
-| Comando | Qué hace |
-|---|---|
-| `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
-| `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
-| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
-| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
-| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
-| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica |
-| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
-| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
-| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
-| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
-| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior |
-| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
-| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
-| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
-| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
-| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
-
-## Los diez skills
-
-Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se
-pueden leer como se lee un manual.
-
-| Skill | Qué encapsula |
-|---|---|
-| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen |
-| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué, el renombrado, el borrado, y la cita que dejó de resolver |
-| `portfolio-health` | Las dieciocho señales con lo que significa cada una, los umbrales que las gobiernan, y las tres defensas contra el dato que dejó de ser cierto |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, la replanificación contra lo que autorizó el comité, las cuatro cifras del presupuesto |
-| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
-| `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez |
-| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |
-| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable |
-| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar |
-| `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado |
-
-## Fuera de alcance, y por qué
-
-**Capacidad y asignación de recursos**, y **materialización de beneficios**. No por poco
-importantes: porque los datos no están en la carpeta. Capacidad exige horas reales y
-beneficios exige medición posterior que casi ninguna organización tiene.
-
-Un skill que promete lo que el insumo no permite quema la credibilidad del plugin entero.
-
-**Sin contenido regulatorio.** La gestión de portafolio es método, no normativa: funciona
-igual en Bogotá que en Santiago. Si una obligación regulatoria toca un proyecto, este plugin
-la registra como restricción o como riesgo, y no opina sobre ella.
-
-## Cómo se verifica
+The five questions at setup produce a cadence, and the cadence produces what is due each day.
+The decision is date arithmetic, so the code makes it rather than judgement in the moment:
 
 ```
-python3 scripts/pmo.py selftest          la aritmética y la cadencia
-python3 scripts/texto.py --selftest      la conversión de documentos
+python3 scripts/pmo.py due --state <state> --config <file>
 ```
 
-Los dos corren con la librería estándar, sin instalar nada. Sobre material sintético con
-respuestas conocidas hay un grader y el resultado de la última corrida, con lo que prueba y
-lo que no: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
+And `/pmo-wake` is the command the clock invokes: it looks at what is due, does it, and **if
+nothing is due it produces nothing.** Staying quiet when nothing happened is not an omission —
+it is the only reason an agent that runs every day is still installed a month later.
 
-Criterios de aceptación en [ACCEPTANCE.md](ACCEPTANCE.md). El diseño de la capacidad, con lo
-que el agente no hace y lo que sigue siendo de las personas, en
-[`docs/agents/pmo.md`](../../docs/agents/pmo.md).
+Three things can be due. The **sweep**, which looks at what changed in the folder and only
+recomputes the projects it touched. The **committee report**, which lands with the lead time
+you configured so you can react to what it finds. And the **confirmation**, five fields per
+run — the ones that age worst: sponsor, manager, approved budget, committed end date and
+scope.
+
+Putting it on a clock is on your organisation's side: a scheduled task in Cowork, or the
+operating system's scheduler in Claude Code. **And if they do not want unattended runs** — in
+a bank that is a reasonable answer — the cadence still says what is due, run by hand. What is
+lost is being told without anyone asking.
+
+## What ends up configured
+
+`/pmo-setup` writes it from your answers, on your machine and in a file of yours: where the
+documents are, where the state lives, your committee cadence, the shape of the report, the
+thresholds that make it speak, and the record that you accepted the terms, with your name and
+the date.
+
+All of it is changed **by talking**. If you want silence reported at ten days instead of
+fifteen, you tell it.
+
+## What it never does
+
+This is what is worth being clear about before installing it, and it is not in small print:
+
+- **It does not write in your folders.** It reads your documents; reports and records go to a
+  state folder you choose.
+- **It does not decide.** It produces working drafts. It frames the decision as a question
+  with its options; who decides, and assuming what, belongs to whoever holds the authority.
+- **It does not declare a project's status.** The manager does. The agent shows them what
+  against, and the gap between the two is the most valuable finding in the system.
+- **It does not know what is not written.** It does not know what was said in the corridor or
+  decided in a call nobody minuted. Every finding of its own is *"according to the
+  documents"*, and it says so.
+- **It does not guess.** Every field carries the citation of the document it came from. *"Not
+  stated anywhere"* is a valid and expected answer.
+
+And one that has to be said out loud: **your documents are processed on the AI platform's
+infrastructure**, not only on your machine. Confirm that is admissible under your policies
+before pointing it at confidential material. Full disclaimer in
+[DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
+
+---
+
+From here down is for whoever wants to audit it before installing it. **All of this can be
+read without running anything**, and that is deliberate.
+
+## How it works
+
+![How it works: the model extracts, the code computes](../../docs/img/en/como-funciona.png)
+
+The spine is the **project record**: a data contract every command reads and writes, with the
+citation to the source document and its date in every field. No command reads raw documents on
+its own. That is what allows consolidating forty projects without reading them again,
+**computing instead of opining**, and comparing one run against the previous one.
+
+Two scripts, which are the only things that do not opine. [`scripts/texto.py`](scripts/texto.py)
+turns the document into text: `.docx`, `.xlsx` and `.pptx` with the standard library — they
+are ZIP files with XML inside —, `.eml` with the email parser, and PDF with `pdftotext`. What
+cannot be read is declared with the reason. [`scripts/pmo.py`](scripts/pmo.py) does the
+arithmetic, and its `index` subcommand decides the cost of every run: two hashes per document,
+one to know whether extracting is worth it and another to know whether re-reading is.
+
+## The sixteen commands
+
+| Command | What it does |
+|---|---|
+| `/pmo-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
+| `/pmo-wake` | **What the clock invokes.** Looks at what is due today, does it, and stays quiet if nothing is |
+| `/document-index` | Which documents actually changed, what has to be re-read, and which citations stopped resolving |
+| `/portfolio-scan` | Reads the folder and produces or updates one record per project. The way in |
+| `/portfolio-report` | Consolidated report: what changed, what contradicts itself, what is silent, what has no support |
+| `/status-report` | A project's status, and the signals its declared light does not account for |
+| `/health-check` | Diagnoses a project from zero against the evidence, assuming nothing from its own report |
+| `/project-history` | What happened in a project, with the timeline and since when the declared status stopped holding |
+| `/steering-pack` | Committee material as a package of decisions, not as a progress report |
+| `/raid-log` | Risks, assumptions, issues and dependencies, including the ones said aloud that nobody recorded |
+| `/change-control` | Assesses a change across scope, time and cost, and creates a new baseline without deleting the previous one |
+| `/budget-tracking` | Approved, committed, executed and projection, with variance against both baselines |
+| `/vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing |
+| `/product-view` | The state of a product across every project that builds it |
+| `/project-charter` | Reviews or drafts the charter, flagging what is missing and what the gap costs |
+| `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
+
+## The ten skills
+
+They load on their own when the topic appears. They are the knowledge the commands share, and
+they can be read the way a manual is read.
+
+| Skill | What it encapsulates |
+|---|---|
+| `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other |
+| `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what, renaming, deletion, and the citation that stopped resolving |
+| `portfolio-health` | The eighteen signals with what each one means, the thresholds that govern them, and the three defences against data that stopped being true |
+| `baseline-variance` | Append-only baseline, variance against the original and against the current one, the rebaseline against what the committee authorised, the four budget figures |
+| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria |
+| `commitment-tracking` | Commitments said in meetings: extraction, states, what counts as evidence, and the one repeated with a new date each time |
+| `governance-artifacts` | Charter, committee, change control and closure: what each contains and who decides what |
+| `vendor-control` | Contract against evidence of receipt against invoicing, with an amount per deliverable |
+| `project-diagnosis` | Diagnosis from zero: in what order you read, and when the answer is that it cannot be diagnosed |
+| `portfolio-history` | A project's history from its documents, and the point where the evidence separated from what was being reported |
+
+## Out of scope, and why
+
+**Capacity and resource allocation**, and **benefits realisation**. Not because they matter
+little: because the data is not in the folder. Capacity requires real hours and benefits
+require later measurement that almost no organisation has.
+
+A skill that promises what the input does not allow burns the credibility of the whole plugin.
+
+**No regulatory content.** Portfolio management is method, not regulation: it works the same
+in Bogotá as in Santiago. If a regulatory obligation touches a project, this plugin records it
+as a constraint or as a risk, and does not opine on it.
+
+## How it is verified
+
+```
+python3 scripts/pmo.py selftest          the arithmetic and the cadence
+python3 scripts/texto.py --selftest      document conversion
+```
+
+Both run on the standard library, with nothing installed. Over synthetic material with known
+answers there is a grader and the result of the last run, with what it proves and what it does
+not: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
+
+Acceptance criteria in [ACCEPTANCE.md](ACCEPTANCE.md). The design of the capability, with what
+the agent does not do and what remains the people's, in
+[`docs/agents/pmo.md`](../../docs/agents/pmo.md) — in Spanish, as working documents.
