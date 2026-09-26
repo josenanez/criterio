@@ -185,7 +185,19 @@ T = {
                   'Campo por campo, con la cita de cada dato.'],
         's_vuelta': 'Una petición, que el agente lee al despertar',
         's_nota': 'No autentica a nadie, y es a propósito: se publica detrás del control de acceso que la organización ya tiene. Lo único que escribe es la petición, en su propia carpeta.',
-    },
+        # ── cómo operan los tres ──
+        'fl_ante': 'CÓMO OPERAN LOS TRES',
+        'fl_tit': 'Ninguna flecha va de un agente a otro',
+        'fl_cajas': [('LA DEFINICIÓN', 'Alba', 'Antes de que exista el proyecto'), ('EL PROYECTO', 'Samuel', 'Un proyecto, cadencia de reunión'), ('EL PORTAFOLIO', 'Vera', 'Cuarenta proyectos, cadencia de comité'), ('EL EQUIPO', 'Rostrum', 'Quien no va a abrir una carpeta')],
+        'fl_peticion': 'la petición: revisar · explicar · corregir',
+        'fl_traza': '¿se está construyendo mi producto? · Alba lee la ficha del proyecto',
+        'fl_gente': 'Y LAS PERSONAS, QUE NO SE VAN',
+        'fl_personas': [('El gerente de producto', 'Habla con el cliente, decide qué se construye y firma el acta.'), ('El gerente de proyecto', 'Dirige la reunión, negocia, y declara el estado de su proyecto.'), ('El gerente de la PMO', 'Decide qué escala y persigue lo que el informe pide.')],
+        'fl_nota': 'Todo cruza por un documento. Dos agentes que se hablan directo son dos agentes que hay que desplegar juntos, y el insumo de cada uno lo produce el trabajo no delegable de su persona.',
+
+        'fl_cruza': [('el acta de constitución', 'y con ella nace la ficha del proyecto'),
+                     ('ficha-pm.json', 'publicada en la carpeta de gobierno del proyecto, y Vera la lee como lee todo lo demás'),
+                     ('el informe', 'en una dirección, para quien no va a abrir una carpeta')],    },
     'en': {
         'pmo_fn': 'Project management office',
         'pmo_fr': 'I read the documentation your PMO already has, and say what does not hold.',
@@ -263,7 +275,19 @@ T = {
                   'Field by field, with every citation.'],
         's_vuelta': 'A request, read when the agent wakes',
         's_nota': 'It authenticates nobody, and that is deliberate: it is published behind the access control the organisation already has. The only thing it writes is the request, in a folder of its own.',
-    },
+        # ── cómo operan los tres ──
+        'fl_ante': 'HOW THE THREE OPERATE',
+        'fl_tit': 'No arrow goes from one agent to another',
+        'fl_cajas': [('THE DEFINITION', 'Alba', 'Before the project exists'), ('THE PROJECT', 'Samuel', 'One project, meeting cadence'), ('THE PORTFOLIO', 'Vera', 'Forty projects, committee cadence'), ('THE TEAM', 'Rostrum', 'Whoever will not open a folder')],
+        'fl_peticion': 'the request: review · explain · correct',
+        'fl_traza': 'is my product being built? · Alba reads the project record',
+        'fl_gente': 'AND THE PEOPLE, WHO DO NOT LEAVE',
+        'fl_personas': [('The product manager', 'Talks to the customer, decides what gets built and signs the charter.'), ('The project manager', 'Runs the meeting, negotiates, and declares the project status.'), ('The PMO manager', 'Decides what escalates and chases what the report asks for.')],
+        'fl_nota': "Everything crosses through a document. Two agents talking directly are two agents you have to deploy together, and each one's input is produced by work its person cannot delegate.",
+
+        'fl_cruza': [('the project charter', "and with it the project's record is born"),
+                     ('ficha-pm.json', "published into the project's governance folder, where Vera reads it like any other document"),
+                     ('the report', 'at an address, for whoever will not open a folder')],    },
 }
 
 SKILLS_COMPARTIDOS = ['project-record', 'document-intake', 'baseline-variance',
@@ -651,6 +675,92 @@ def servidor(t):
     return img
 
 
+# ══════════════════════════════════════════════ cómo operan los tres
+
+
+def flujo(t):
+    """El orden temporal de los tres agentes, y lo que cruza entre ellos.
+
+    Lo que esta pieza tiene que dejar claro en tres segundos: **ninguna flecha va de un
+    agente a otro.** Todas pasan por un documento, y ese es el diseño entero. Por eso lo
+    que cruza va escrito al lado de la flecha, con su nombre real de archivo cuando lo
+    tiene.
+
+    Va en vertical y no en horizontal a propósito: «el acta de constitución» y
+    «publicada en la carpeta del proyecto» no caben en el hueco entre dos tarjetas, y la
+    primera versión de esta figura los escribió encima del nombre del agente siguiente.
+    En vertical el texto tiene todo el ancho que necesite.
+    """
+    W, H, M = 1680, 1560, 72
+    img = Image.new('RGB', (W, H), NEGRO)
+    d = ImageDraw.Draw(img)
+    titulo(d, (M, 66), t['fl_ante'], t['fl_tit'], W - 2 * M, 46)
+
+    CAJA, SALTO = 128, 124
+    ANCHO = 940            # la tarjeta; a la derecha quedan los lazos de vuelta
+    TOP = 246
+    ys = []
+    for i, (etapa, nombre, quien) in enumerate(t['fl_cajas']):
+        y = TOP + i * (CAJA + SALTO)
+        ys.append(y)
+        agente = i < 3
+        d.rounded_rectangle([(M, y), (M + ANCHO, y + CAJA)], radius=10,
+                            fill=PANEL if agente else None,
+                            outline=ORO if agente else FILETE_FUERTE, width=2)
+        track(d, (M + 26, y + 22), etapa, f(M6, 18), APAGADO, 2.4)
+        d.text((M + 26, y + 56), nombre, font=f(M5, 40), fill=ORO if agente else CREMA)
+        fin = parrafo(d, (M + 300, y + 62), quien, f(R, 22), APAGADO, ANCHO - 330, 30)
+        assert fin < y + CAJA - 8, f'{nombre}: el texto se sale de la tarjeta'
+
+        # la flecha hacia la siguiente, con lo que cruza escrito al lado
+        if i < len(t['fl_cajas']) - 1:
+            cx = M + 110
+            y0, y1 = y + CAJA + 12, y + CAJA + SALTO - 12
+            d.line([(cx, y0), (cx, y1)], fill=ORO, width=2)
+            p = 10
+            d.polygon([(cx, y1), (cx - p + 2, y1 - p), (cx + p - 2, y1 - p)], fill=ORO)
+            que, sub = t['fl_cruza'][i]
+            d.text((cx + 28, y0 + 6), que, font=f(M5, 24), fill=ORO)
+            fin = parrafo(d, (cx + 28, y0 + 40), sub, f(R, 20), APAGADO, ANCHO - 200, 27)
+            assert fin < y1 + 6, f'{que}: el texto del cruce se sale del salto'
+
+    # los dos lazos de vuelta, por la derecha. Cada uno sube de una caja a otra.
+    def lazo(desde, hasta, texto, carril):
+        x = M + ANCHO + carril
+        y0 = ys[desde] + CAJA // 2
+        y1 = ys[hasta] + CAJA // 2
+        d.line([(M + ANCHO + 6, y0), (x, y0)], fill=FILETE_FUERTE, width=2)
+        d.line([(x, y0), (x, y1)], fill=FILETE_FUERTE, width=2)
+        d.line([(x, y1), (M + ANCHO + 6, y1)], fill=FILETE_FUERTE, width=2)
+        p = 9
+        d.polygon([(M + ANCHO + 6, y1), (M + ANCHO + 6 + p, y1 - p + 2),
+                   (M + ANCHO + 6 + p, y1 + p - 2)], fill=FILETE_FUERTE)
+        fin = parrafo(d, (x + 20, min(y0, y1) + abs(y1 - y0) // 2 - 28), texto,
+                      f(R, 20), APAGADO, W - M - x - 28, 27)
+        assert fin < H - 380, 'el texto del lazo se sale de la figura'
+
+    lazo(3, 2, t['fl_peticion'], 60)
+    lazo(2, 0, t['fl_traza'], 150)
+
+    # la banda de las personas: cada agente se alimenta de trabajo no delegable
+    BY = ys[-1] + CAJA + 74
+    d.rounded_rectangle([(M, BY), (W - M, BY + 196)], radius=10, fill=PANEL,
+                        outline=FILETE_FUERTE, width=2)
+    track(d, (M + 28, BY + 24), t['fl_gente'], f(M6, 18), ORO, 2.4)
+    paso = (W - 2 * M - 56) // 3
+    for i, (quien, hace) in enumerate(t['fl_personas']):
+        x = M + 28 + i * paso
+        fin = parrafo(d, (x, BY + 106), hace, f(R, 20), APAGADO, paso - 34, 27)
+        d.text((x, BY + 64), quien, font=f(M5, 24), fill=CREMA)
+        assert fin < BY + 196 - 8, f'{quien}: el texto se sale de la banda'
+
+    d.line([(M, H - 92), (M + 64, H - 92)], fill=ORO, width=3)
+    fin = parrafo(d, (M + 84, H - 106), t['fl_nota'], f(M5, 23), APAGADO,
+                  W - 2 * M - 104, 31)
+    assert fin < H - 12, 'la nota se sale de la figura'
+    return img
+
+
 def guardar(img, idioma, nombre):
     carpeta = os.path.join(AQUI, idioma)
     os.makedirs(carpeta, exist_ok=True)
@@ -668,6 +778,7 @@ if __name__ == '__main__':
         guardar(emblema(t, 'CLO', t['clo_fn'], t['clo_fr'], t['declarada'], glifo_clo),
                 idioma, 'clo.png')
         guardar(familia(t), idioma, 'familia-pmo.png')
+        guardar(flujo(t), idioma, 'flujo.png')
         guardar(quince(t), idioma, 'quince-minutos.png')
         guardar(funciona(t), idioma, 'como-funciona.png')
         guardar(cadencia(t), idioma, 'cadencia.png')

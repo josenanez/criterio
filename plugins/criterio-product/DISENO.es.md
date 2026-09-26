@@ -7,7 +7,8 @@ medir.
 Extiende al **gerente de producto**: la persona que define qué se va a construir, antes de
 que exista un proyecto.
 
-Marco general, definición de las clases y de las columnas: [README](README.md).
+Marco general, definición de las clases y de las columnas:
+[`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).
 
 | | |
 |---|---|
@@ -103,7 +104,7 @@ La primera fila traslada la tesis de Criterio aguas arriba: en un proyecto se co
 
 Lista de acciones que el agente no ejecuta. No es una evaluación de riesgo ni pretende ser
 exhaustiva: **la responsabilidad de uso y ejecución es de la organización que lo despliega.**
-Ver [README](README.md#c--lo-que-el-agente-no-hace).
+Ver [FAMILIA.es.md](../criterio-pmo/FAMILIA.es.md#c--lo-que-el-agente-no-hace).
 
 | Función | Requiere | Qué le entrega al agente |
 |---|---|---|
@@ -155,6 +156,6 @@ sintetizar.** Un agente de producto sin gerente de producto sintetiza el vacío.
 Así que el estado honesto de este agente es **construido y verificado sobre corpus, no
 probado sobre documentación real** — la misma frase que aplica a los otros dos, y la que
 protege a quien instale esto. La razón por la que el tercer prerrequisito estaba escrito
-sigue en pie y está en [`docs/decisions/0005`](../decisions/0005-scope-pmo-only.md): definir
+sigue en pie y está en [`docs/decisions/0005`](../../docs/decisions/0005-scope-pmo-only.md): definir
 este agente antes de que hubiera algo medible habría diluido la única tesis que se puede
 probar. Hoy hay con qué medirlo, y lo que falta es una carpeta de verdad.

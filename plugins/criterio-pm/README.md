@@ -151,5 +151,7 @@ What that run proves and, in the same detail, **what it does not**, in
 [`tests/criterio-pm/EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md).
 
 The full design, with the three classes of function and what stays with the person, in
-[`docs/agents/project-manager.md`](../../docs/agents/project-manager.md) — both in
+[`DISENO.es.md`](DISENO.es.md), which ships with the plugin — in
 Spanish, as working documents.
+
+The three agents together, and how they meet, in [`FAMILIA.md`](../criterio-pmo/FAMILIA.md).

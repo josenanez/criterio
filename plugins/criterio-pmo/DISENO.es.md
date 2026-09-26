@@ -8,7 +8,7 @@ proyectos, no por uno.
 
 Esta hoja es la referencia completa de la capacidad: el flujo, las piezas que la componen y
 qué hace cada una, las tres clases de función, y lo que falta. Marco general y definiciones:
-[README](README.md).
+[FAMILIA.es.md](FAMILIA.es.md).
 
 | | |
 |---|---|

@@ -6,7 +6,8 @@ viernes.
 
 Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
 
-Marco general, definición de las clases y de las columnas: [README](README.md).
+Marco general, definición de las clases y de las columnas:
+[`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).
 
 | | |
 |---|---|
@@ -225,7 +226,7 @@ gerente.
 
 Lista de acciones que el agente no ejecuta. No es una evaluación de riesgo ni pretende ser
 exhaustiva: **la responsabilidad de uso y ejecución es de la organización que lo despliega.**
-Ver [README](README.md#c--lo-que-el-agente-no-hace).
+Ver [FAMILIA.es.md](../criterio-pmo/FAMILIA.es.md#c--lo-que-el-agente-no-hace).
 
 | Función | Requiere | Qué le entrega al agente |
 |---|---|---|

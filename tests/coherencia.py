@@ -28,8 +28,10 @@ PRODUCTO = PRODUCT / "scripts" / "producto.py"
 CONSTRUIDOS = sorted(d for d in (RAIZ / "plugins").iterdir()
                      if d.is_dir() and (d / "commands").exists())
 
+# Las hojas de diseño viven dentro de su plugin desde que dejaron docs/agents/: cada
+# agente viaja con la suya, y el enlace que su README promete resuelve también en el
+# equipo de quien instaló el plugin, no solo en GitHub.
 DOCS = [RAIZ / "README.es.md", RAIZ / "README.md"]
-DOCS += sorted((RAIZ / "docs" / "agents").glob("*.md"))
 for _p in CONSTRUIDOS:
     DOCS += sorted(_p.glob("*.md"))
     DOCS += sorted(_p.glob("skills/*/SKILL.md"))
@@ -215,7 +217,12 @@ for plugin in sorted((RAIZ / "plugins").iterdir()):
     inglesas = {f.stem for f in plugin.glob("*.md") if not f.name.endswith(".es.md")}
     # ACCEPTANCE no tiene pareja a propósito: es un documento de trabajo, no una
     # página de producto. Si algún día la tiene, esta línea sobra.
+    # ACCEPTANCE y DISENO no tienen pareja a propósito: son documentos de trabajo, no
+    # páginas de producto. El diseño se discute en castellano y la pareja en inglés
+    # duplicaría la rotación mientras el diseño todavía se mueve. FAMILIA sí la tiene:
+    # es la puerta de entrada de la familia, y esa sí se vende.
     inglesas -= {"ACCEPTANCE"}
+    paginas -= {"DISENO"}
     huerfanas = sorted((paginas - inglesas) | (inglesas - paginas))
     for x in huerfanas:
         decir(FALLA, f"{plugin.name}/{x} existe en un idioma y no en el otro")

@@ -1,23 +1,215 @@
-# Las hojas de los agentes
+# La familia PMO
 
-Documento de trabajo. Aquí queda escrito **qué hace cada agente, qué no hace, qué entra y qué
-sale de cada función, y cómo interactúa con la persona responsable.** Es la base para discutir
-el diseño antes de codificar, y la referencia contra la cual se ajustan la arquitectura y el
-esquema.
+**Qué hace cada agente, cómo operan los tres juntos, cómo se comporta cada uno y cómo se
+trabaja con él.** Esta es la página de la familia: lo que un director necesita antes de decidir
+si esto entra en su organización, y lo que un gerente necesita antes de instalarlo.
 
-No es material de mercado. La promesa pública vive en el [README del market](../../README.es.md)
-y en el [README del plugin](../../plugins/criterio-pmo/README.md). Estas hojas están en español porque
-su uso es discutirlas; la pareja en inglés entra cuando el diseño se estabilice, no antes, para
-no duplicar la rotación.
+[English](FAMILIA.md) · La promesa pública, con las cifras de terceros, está en el
+[README del market](../../README.es.md); el inventario de comandos y skills de cada plugin, en
+su propio README.
 
-Una hoja por agente:
+La hoja de diseño de cada agente —las tres clases de función, lo que falta por construir, las
+decisiones cerradas y las abiertas— viaja con su plugin y está en castellano, porque su uso es
+discutirla:
 
-- [**Vera** · agente PMO](pmo.md) — gobierno de portafolio
-- [**Samuel** · agente Project Manager](project-manager.md) — un proyecto
-- [**Alba** · agente Product Manager](product-manager.md) — antes de que exista el proyecto
+- [**Vera** · agente PMO](DISENO.es.md) — gobierno de portafolio
+- [**Samuel** · agente Project Manager](../criterio-pm/DISENO.es.md) — un proyecto
+- [**Alba** · agente Product Manager](../criterio-product/DISENO.es.md) — antes de que exista el proyecto
 
 La forma de todo lo que estos agentes entregan —informes, proyección, piezas gráficas— está en
-[`docs/design.md`](../design.md): es el diseño del portal, y se mantiene igual aquí.
+[`docs/design.md`](../../docs/design.md): es el diseño del portal, y se mantiene igual aquí.
+
+---
+
+## Qué hace cada agente
+
+Tres agentes y un servidor. Cada funcionalidad con el comando que la entrega: si no tiene
+comando, no existe, y esta tabla no promete nada que no se pueda correr.
+
+### Vera · el agente de la PMO — `criterio-pmo`
+
+| Funcionalidad | Comando |
+|---|---|
+| Dejar el agente listo sobre tus propias carpetas, en quince minutos | `/pmo-setup` |
+| Leer la documentación y producir una ficha por proyecto, con cita de cada dato | `/portfolio-scan` |
+| Decir qué documentos cambiaron de verdad y qué citas dejaron de resolver | `/document-index` |
+| El informe consolidado: qué cambió, qué se contradice, qué está en silencio | `/portfolio-report` |
+| El estado de un proyecto separando lo declarado de lo que sustentan los documentos | `/status-report` |
+| Diagnosticar un proyecto desde cero, sin creerle a su informe de avance | `/health-check` |
+| Reconstruir qué pasó, y cuándo la evidencia dejó de sostener lo reportado | `/project-history` |
+| El registro de riesgos, supuestos, incidencias y dependencias — incluidos los dichos y nunca registrados | `/raid-log` |
+| Las cuatro cifras del presupuesto y el disponible real | `/budget-tracking` |
+| Evaluar un cambio y dejar la línea base nueva sin borrar la anterior | `/change-control` |
+| Contrastar lo contratado contra lo recibido contra lo facturado | `/vendor-tracking` |
+| Revisar o redactar el acta de constitución, y qué consecuencia tiene lo que falte | `/project-charter` |
+| Cerrar contra el criterio de éxito pactado, con lecciones sustentables | `/project-closure` |
+| El material de comité: un paquete de decisiones, no un informe de avance | `/steering-pack` |
+| El estado de un producto a través de todos los proyectos que lo construyen | `/product-view` |
+| Publicar el informe donde el equipo lo lea, sin instalar nada | `/pmo-server` |
+| **Despertarse solo** y hacer lo que toque según la cadencia | `/pmo-wake` |
+
+### Samuel · el agente del gerente de proyecto — `criterio-pm`
+
+| Funcionalidad | Comando |
+|---|---|
+| Dejar el agente listo sobre tu proyecto, en diez minutos, leyendo tu última minuta | `/pm-setup` |
+| **Quién prometió qué y para cuándo**, con la cita de la reunión donde se dijo | `/pm-commitments` |
+| Lo vencido sin evidencia, y lo que se viene reprogramando reunión tras reunión | `/pm-commitments` |
+| La agenda con los puntos que necesitan a alguien en la sala, y lo que esa sala no puede mover | `/pm-agenda` |
+| El acta, separando compromiso, decisión, intención sin doliente y riesgo dicho al pasar | `/pm-minutes` |
+| El informe semanal completo **salvo el estado**, que lo declaras tú | `/pm-report` |
+| Publicar tu ficha donde la PMO la pueda leer | `/pm-publish` |
+| **Despertarse solo** alrededor de tu reunión: la agenda antes, el acta después | `/pm-wake` |
+
+### Alba · el agente del gerente de producto — `criterio-product`
+
+| Funcionalidad | Comando |
+|---|---|
+| Dejar el agente listo y contrastar la definición que ya tengas escrita, en diez minutos | `/product-setup` |
+| Entrevistas y tickets en temas **con la cita de quién lo dijo** | `/product-discovery` |
+| El tema que lleva meses dicho y nadie ha convertido en nada | `/product-discovery` |
+| El registro de requerimientos con sus vacíos: sin doliente, sin criterio, sin evidencia | `/product-requirements` |
+| **La definición contra la evidencia de demanda**, y qué no está dicho en ninguna parte | `/product-definition` |
+| Dónde el negocio declara un número y la métrica mide otro, con las dos fuentes | `/product-definition` |
+| Lo decidido que nadie está construyendo, y el proyecto cuya ficha dice otro producto | `/product-trace` |
+| El borrador de especificación con criterios verificables y los vacíos **señalados, no rellenados** | `/product-spec` |
+| El acta de constitución con la que nace la ficha del proyecto | `/product-charter` |
+| **Despertarse solo** y decir qué cruzó un umbral sin que nadie hiciera nada | `/product-wake` |
+
+### Rostrum · el servidor — dentro de `criterio-pmo`
+
+| Funcionalidad | Cómo |
+|---|---|
+| Publicar el informe del portafolio en una dirección que el equipo abra | `/pmo-server` |
+| Navegación por informes de PMO, proyectos y productos, con el enlace entre los dos | el portal |
+| Recibir una petición —*revisar, explicar, corregir*— y dejarla en la cola de Vera | el portal |
+| **No escribir nunca la ficha.** Es una restricción del código, verificada en cada corrida | por diseño |
+
+---
+
+## Cómo operan los tres
+
+![Cómo operan los tres agentes](../../docs/img/es/flujo.png)
+
+El orden temporal es lo que los hace un sistema y no tres herramientas:
+
+```
+    LA DEFINICIÓN            EL PROYECTO             EL PORTAFOLIO           EL EQUIPO
+       Alba                     Samuel                    Vera                Rostrum
+         │                         │                        │                     │
+         │──── el acta ──────────► │                        │                     │
+         │     nace la ficha       │                        │                     │
+         │                         │──── ficha-pm.json ───► │                     │
+         │                         │     publicada          │                     │
+         │                         │                        │──── el informe ───► │
+         │ ◄──── la ficha ─────────┴────────────────────────┘                     │
+         │       ¿se está construyendo mi producto?                               │
+         │                                                  │ ◄─── la petición ───┘
+         │                                                  │   revisar · explicar · corregir
+```
+
+**Dos ciclos cerrados, y ninguno pasa por una base de datos compartida.** El acta baja una
+vez, y con ella nace la ficha. La ficha del gerente sube publicada como un documento más del
+proyecto, y Vera la lee como lee todo lo demás. El informe sale al equipo, y del equipo vuelve
+una petición. Y el lazo de arriba: Alba lee las fichas de los proyectos para confirmar que el
+que dice estar construyendo su producto de verdad lo esté.
+
+Lo que **no** hay en ese dibujo es tan importante como lo que hay:
+
+- **Ninguna flecha entre dos agentes.** Todas pasan por un documento. Dos agentes que se
+  hablan directo son dos agentes que hay que desplegar juntos.
+- **Ninguna flecha de vuelta desde Rostrum a la ficha.** El servidor no escribe.
+- **Ninguna flecha que escriba el estado declarado.** Esa la escribe una persona, en los tres
+  sitios donde aparece.
+
+### Y las personas, en el mismo dibujo
+
+```
+   El gerente de producto      El gerente de proyecto      El gerente de la PMO
+   decide qué se construye     declara el estado           decide qué escala
+   y firma el acta             y dirige la reunión         y persigue lo que el informe pide
+         │                              │                           │
+         └──────── cada uno le da a su agente el insumo que ────────┘
+                   ningún agente puede producir solo
+```
+
+**El insumo de cada agente lo produce el trabajo no delegable de su persona.** Quitar a la
+persona no deja al agente solo: lo deja sin comida.
+
+---
+
+## Cómo se comporta cada uno, y cómo se trabaja con él
+
+Los tres comparten cinco conductas. No son estilo: son las que hacen que el resultado se pueda
+poner frente a un comité.
+
+1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
+   es un defecto, no un caso degradado.
+2. **«No está dicho en ninguna parte» es una respuesta válida**, y es la que más se usa al
+   principio.
+3. **Se callan cuando no hay nada.** Ninguno produce un informe para decir que no hay novedad.
+4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
+5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
+
+Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso sí conviene saberlo
+antes de instalarlos.
+
+### Con Vera se conversa poco y se lee mucho
+
+Vera trabaja sobre cuarenta carpetas. La conversación es corta —le dices qué proyecto, o
+ninguno— y lo que devuelve es largo: un informe que alguien va a llevar a un comité.
+
+**Cómo se trabaja con ella:** se corre `/pmo-setup` una vez, se le pone `/pmo-wake` a un
+reloj, y después se le pregunta por excepción — *«diagnostica PRY-014 desde cero»*,
+*«reconstruye qué pasó»*, *«arma el material del comité»*.
+
+**Lo que te va a pedir a ti:** confirmar cinco campos por corrida, nunca cuarenta. Si preguntas
+por cuarenta, no responde nadie. Y **actuar sobre lo que el informe pide**: si nadie actúa, el
+informe siguiente dice lo mismo, y eso no es un defecto del agente.
+
+**Lo que no le pidas:** que te diga en qué estado está un proyecto. Te dice qué declara su
+gerente y qué sostienen los documentos, y **la diferencia entre las dos cosas es el producto.**
+
+### Con Samuel se conversa todas las semanas
+
+Samuel trabaja sobre un proyecto y su ciclo es la reunión. La conversación es frecuente y
+corta, y casi siempre gira alrededor de un documento que acaba de aparecer.
+
+**Cómo se trabaja con él:** `/pm-setup` una vez; después, el día antes de la reunión
+`/pm-agenda`, el día después `/pm-minutes` con la transcripción o las notas, y una vez por
+semana `/pm-report`.
+
+**Lo que te va a pedir a ti:** la minuta. Es su insumo principal y sin ella se seca — un
+gerente que no guarda lo que la reunión deja escrito necesita saberlo el primer día, y
+`/pm-setup` se lo dice. Y **la declaración del estado**, que te pide siempre **después** de
+mostrarte la evidencia y nunca antes: si te propusiera un estado, tu declaración dejaría de ser
+información independiente.
+
+**Lo que no le pidas:** que persiga un compromiso vencido. Te da el nombre, la fecha y la cita;
+la llamada la haces tú, porque perseguir es una conversación.
+
+### Con Alba se conversa por temporadas
+
+Alba trabaja antes de que exista el proyecto, y ese trabajo no es semanal: viene por rachas
+—una ronda de entrevistas, un comité de producto, una definición que hay que cerrar— con
+semanas tranquilas en medio.
+
+**Cómo se trabaja con ella:** `/product-setup` una vez; `/product-discovery` cada vez que
+termina una ronda de entrevistas; `/product-definition` cuando la definición se va a cerrar o
+cuando alguien la va a discutir; `/product-charter` el día que se vuelve proyecto.
+
+**Lo que te va a pedir a ti:** hablar con el cliente. Es la parte del oficio que ningún agente
+va a tener, y sin ella no hay nada que sintetizar. Y **decidir**: lo que lleva sesenta días sin
+decidirse sigue sin decidirse cuando Alba termina; lo que cambia es que ahora tiene nombre,
+días y alguien a quien preguntarle.
+
+**Lo que no le pidas:** que te diga si algo va a gustar. Eso no está en ningún documento.
+
+### Con Rostrum no se conversa
+
+Es un servidor. Se levanta con `/pmo-server`, se abre una dirección, y ahí está el informe para
+quien no va a abrir una carpeta. Lo único que devuelve hacia adentro es una petición que
+alguien dejó, y esa la atiende Vera en su próxima corrida.
 
 ---
 
@@ -76,7 +268,7 @@ el mismo proyecto. La forma cómoda de resolverlo —una ficha y un dueño— ob
 en las dos direcciones: si manda el gerente, la PMO no puede leer por su cuenta cuando duda;
 si manda la PMO, entra en el camino crítico de setenta proyectos. Dos fichas quitan el
 problema en vez de arbitrarlo, y **lo que era un conflicto de escritura se vuelve la señal.**
-Ver [Samuel · las dos fichas](project-manager.md#las-dos-fichas).
+Ver [Samuel · las dos fichas](../criterio-pm/DISENO.es.md#las-dos-fichas).
 
 ---
 
@@ -218,7 +410,7 @@ modelo → ficha no se ha ejercitado.
 
 La corrida que sostiene estos estados, con lo que prueba y lo que no, está en las tres
 páginas de evidencia bajo [`tests/`](../../tests/) y, dibujada, en
-[`docs/pruebas.html`](../pruebas.html). La quinta decisión de la tabla siguiente salió de
+[`docs/pruebas.html`](../../docs/pruebas.html). La quinta decisión de la tabla siguiente salió de
 ahí y no de una conversación.
 
 ---

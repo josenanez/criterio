@@ -248,4 +248,6 @@ not: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
 
 Acceptance criteria in [ACCEPTANCE.md](ACCEPTANCE.md). The design of the capability, with what
 the agent does not do and what remains the people's, in
-[`docs/agents/pmo.md`](../../docs/agents/pmo.md) — in Spanish, as working documents.
+[`DISENO.es.md`](DISENO.es.md) — in Spanish, as a working document.
+
+The three agents together — what each does, how they operate, how you work with them — in [`FAMILIA.md`](FAMILIA.md).

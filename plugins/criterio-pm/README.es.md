@@ -150,4 +150,6 @@ Qué prueba esa corrida y, con el mismo detalle, **qué no**, en
 [`tests/criterio-pm/EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md).
 
 El diseño completo, con las tres clases de función y lo que sigue siendo de la persona,
-en [`docs/agents/project-manager.md`](../../docs/agents/project-manager.md).
+en [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
+
+Los tres agentes juntos, y cómo se encuentran, en [`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).

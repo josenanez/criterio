@@ -247,4 +247,6 @@ lo que no: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
 
 Criterios de aceptación en [ACCEPTANCE.md](ACCEPTANCE.md). El diseño de la capacidad, con lo
 que el agente no hace y lo que sigue siendo de las personas, en
-[`docs/agents/pmo.md`](../../docs/agents/pmo.md).
+[`DISENO.es.md`](DISENO.es.md).
+
+Los tres agentes juntos —qué hace cada uno, cómo operan, cómo se trabaja con ellos— en [`FAMILIA.es.md`](FAMILIA.es.md).

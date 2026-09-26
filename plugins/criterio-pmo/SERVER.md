@@ -54,7 +54,7 @@ that is declared rather than hidden.
 
 > **The pages are in Spanish today.** `report.language` is declared in the
 > configuration and not yet read — it is the open gap on this side of the plugin, and
-> it is written down in [`docs/agents/pmo.md`](../../docs/agents/pmo.md) rather than
+> it is written down in [`DISENO.es.md`](DISENO.es.md) rather than
 > quietly left out. The screenshots here come from the repository's
 > [synthetic corpus](../../tests/criterio-pmo/), as of 2026-09-30; "Banco del Ejemplo"
 > is test material.
