@@ -213,19 +213,21 @@ de la tabla siguiente salió de ahí y no de una conversación.
 
 ---
 
-## Decisiones abiertas
+## Decisiones de esquema, cerradas
 
-Las cuatro son de esquema, y las tres primeras se deciden **antes** de que el agente PM empiece
-a llenar fichas. Una ficha llena con el esquema equivocado es la migración que no queremos
-hacer.
+Aquí vivían cinco, todas de esquema y todas por decidir **antes** de que un agente empezara a
+llenar fichas: una ficha llena con el esquema equivocado es la migración que no queremos hacer.
 
-| Campo | Qué habilita | Si no está |
-|---|---|---|
-| `requerimiento` como registro | *"Qué requerimientos faltan"* como filtro instantáneo, y el traspaso Product → Project | Es siempre una corrida de modelo sobre documentos, cada vez |
+**Las cinco se construyeron** —`source_kind`, `producto`, `autoridad`, el monto por entregable
+y, la última, **`requerimiento` como registro**—, y por eso salen de la tabla en vez de quedarse
+como historia. El registro de requerimiento es el contrato de datos de Alba, vive en
+`criterio-product` con su propia aritmética, y es el que vuelve *«qué requerimientos faltan»* un
+filtro en vez de una corrida de modelo sobre documentos cada vez. El esquema va en 0.2.
 
-Las otras cuatro que estaban aquí —`source_kind`, `producto`, `autoridad` y el monto por
-entregable— **ya se construyeron**, y por eso salen de la tabla en vez de quedarse como
-historia. El esquema va en 0.2. La que queda es de la hoja del Product Manager, no de la PMO.
+Lo que queda abierto de verdad está en cada hoja: **cómo bajan los estándares de la PMO a N
+instalaciones** y **qué pasa cuando un gerente publica su ficha y no quiere** —las dos en la
+hoja del Project Manager—, y **el análisis de canibalización**, que necesita las métricas de más
+de un producto a la vista y hoy cada instalación mira el suyo.
 
 Sobre la base de datos hay una trampa que conviene dejar escrita: **lo que trae un PPM son más
 declaraciones, no evidencia.** El campo *"estado: verde"* de la herramienta corporativa es la
