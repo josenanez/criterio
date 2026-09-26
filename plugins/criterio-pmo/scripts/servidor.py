@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Criterio PMO — Atril, el servidor.
+"""Criterio PMO — Rostrum, el servidor.
 
     python3 servidor.py --informe <carpeta> --estado <estado> [--puerto 8787]
                         [--host 127.0.0.1] [--abierto] [--selftest]
@@ -7,7 +7,7 @@
 Sirve el informe que `informe.py` ya produjo, y recibe peticiones para el agente.
 Librería estándar, sin dependencias.
 
-**Atril no calcula nada y no escribe ninguna ficha.** Es una proyección: lo
+**Rostrum no calcula nada y no escribe ninguna ficha.** Es una proyección: lo
 que muestra ya estaba escrito en disco antes de que alguien abriera el navegador.
 Esa es la razón de que exista como pieza aparte y no como un modo del agente. Un
 servidor que calculara al vuelo tendría que leer documentos, y entonces dos
@@ -20,7 +20,7 @@ ficha no existe en este archivo.**
 
 ## Sobre el acceso
 
-**Atril no autentica a nadie, y es deliberado.** Un servidor de cien
+**Rostrum no autentica a nadie, y es deliberado.** Un servidor de cien
 líneas sobre la librería estándar no va a autenticar mejor que el proxy que el
 banco ya tiene, y prometer que sí es exactamente lo que este plugin no hace.
 
@@ -423,7 +423,7 @@ def arrancar(informe_dir: Path, estado: Path, host: str, puerto: int, org: str =
 
     with ThreadingHTTPServer((host, puerto), Manejador) as srv:
         real = srv.server_address[1]
-        print(f'Atril · Criterio PMO · {org or "sirviendo"} {informe_dir}')
+        print(f'Rostrum · Criterio PMO · {org or "sirviendo"} {informe_dir}')
         print(f'  Portada         http://{host}:{real}/')
         print(f'  Informes PMO    http://{host}:{real}/pmo')
         print(f'  Comité          http://{host}:{real}/decisiones')
@@ -591,7 +591,7 @@ def selftest() -> int:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description='Atril — el servidor del informe de Criterio PMO.')
+    ap = argparse.ArgumentParser(description='Rostrum — el servidor del informe de Criterio PMO.')
     ap.add_argument('--informe', type=Path, help='carpeta que produjo informe.py')
     ap.add_argument('--estado', type=Path, help='carpeta de estado del agente')
     ap.add_argument('--config', type=Path, default=None,

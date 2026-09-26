@@ -1,6 +1,6 @@
 # criterio-pm
 
-**Escuadra**, el agente del gerente de proyecto. Una instancia por proyecto.
+**Bevel**, el agente del gerente de proyecto. Una instancia por proyecto.
 
 [English](README.md) · Apache 2.0
 
@@ -25,9 +25,9 @@ nadie los registra.
 muestra contra qué, y la diferencia entre las dos cosas es el hallazgo de más valor del
 sistema.
 
-**Escribe su propia ficha, y no la de nadie más.** Escuadra y Plomada leen los mismos
-documentos y escriben dos fichas distintas que **nunca se fusionan**. Escuadra publica la
-suya en la carpeta de gobierno del proyecto, Plomada la lee como lee cualquier documento,
+**Escribe su propia ficha, y no la de nadie más.** Bevel y Plumb leen los mismos
+documentos y escriben dos fichas distintas que **nunca se fusionan**. Bevel publica la
+suya en la carpeta de gobierno del proyecto, Plumb la lee como lee cualquier documento,
 y **cuando las dos citan y no coinciden, alguien vio un papel que el otro no vio**. Esa
 es la señal.
 
@@ -55,7 +55,7 @@ ficha es el contrato de datos de toda la familia.
 |---|---|
 | `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen |
 | `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué |
-| `commitment-tracking` | **La función central de Escuadra.** Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez |
+| `commitment-tracking` | **La función central de Bevel.** Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez |
 | `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
 | `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, las cuatro cifras del presupuesto |
 | `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |

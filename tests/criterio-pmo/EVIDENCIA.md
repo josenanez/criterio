@@ -13,7 +13,7 @@ documentación real no existen todavía, y hasta que existan no se inventan.
 python3 plugins/criterio-pmo/scripts/pmo.py selftest       42 resultados · la aritmética
 python3 plugins/criterio-pmo/scripts/texto.py --selftest   12 resultados · la conversión
 python3 plugins/criterio-pmo/scripts/informe.py --selftest 15 resultados · el informe
-python3 plugins/criterio-pmo/scripts/servidor.py --selftest 30 resultados · Atril
+python3 plugins/criterio-pmo/scripts/servidor.py --selftest 30 resultados · Rostrum
 python3 tests/criterio-pmo/generar.py                      28 documentos en 6 proyectos
 python3 tests/criterio-pmo/grade.py                        69 comprobaciones
 python3 tests/coherencia.py                                documentación contra código
@@ -157,7 +157,7 @@ Las doce páginas de una corrida sobre el corpus: las cuatro del portal —infor
 decisiones, listado de proyectos, listado de productos—, seis de proyecto y dos de
 producto.
 
-## Atril, y la frontera que no cruza
+## Rostrum, y la frontera que no cruza
 
 Un servidor que expone un portafolio de proyectos tiene dos formas de fallar que no se
 ven mirando la pantalla: **servir un archivo que no es del informe**, y **tener un

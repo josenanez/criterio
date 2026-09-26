@@ -26,7 +26,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 FUENTE = RAIZ / "plugins" / "criterio-pmo" / "scripts"
 
 # Qué comparte cada plugin, y por qué. Lo que no está aquí no se comparte: el informe
-# de un proyecto no es el del portafolio recortado, y Atril es de la PMO.
+# de un proyecto no es el del portafolio recortado, y Rostrum es de la PMO.
 SCRIPTS = {
     "criterio-pm": {
         "pmo.py": "la aritmética; `compute` ya trabaja proyecto a proyecto",
@@ -42,7 +42,7 @@ SKILLS = {
     "criterio-pm": {
         "project-record": "la ficha: el contrato de datos de toda la familia",
         "document-intake": "qué documento hay que releer y cuál no",
-        "commitment-tracking": "la función central de Escuadra",
+        "commitment-tracking": "la función central de Bevel",
         "raid-taxonomy": "un riesgo es un riesgo lo mire quien lo mire",
         "baseline-variance": "la desviación se calcula igual en un proyecto que en cuarenta",
         "governance-artifacts": "acta, comité, control de cambios y cierre",

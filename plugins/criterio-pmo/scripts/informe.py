@@ -373,7 +373,7 @@ def pagina(titulo, cuerpo, hoy, nav=''):
 <title>{e(titulo)}</title><style>{CSS}</style></head>
 <body><div class="hoja">{nav}{cuerpo}
 <div class="pie">
-Producido por <strong>Plomada</strong>, el agente PMO de Criterio, el {e(hoy)}.
+Producido por <strong>Plumb</strong>, el agente PMO de Criterio, el {e(hoy)}.
 Esto es un <strong>borrador de trabajo, no una decisión</strong>: cada dato lleva la cita del
 documento del que salió para que se pueda verificar, y «no está dicho en ninguna parte» es un
 hallazgo válido. El agente sabe lo que se escribió, no lo que se habló fuera de los documentos.

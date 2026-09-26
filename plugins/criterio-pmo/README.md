@@ -1,6 +1,6 @@
 # criterio-pmo
 
-**Plomada, a second brain for the project management office.** It reads the documentation your PMO
+**Plumb, a second brain for the project management office.** It reads the documentation your PMO
 already has and says what changed, what contradicts itself, and what has been silent for
 weeks.
 
@@ -14,19 +14,20 @@ fifteen minutes, over your own documents**
 ![The PMO family: three agents, one data contract](../../docs/img/en/familia-pmo.png)
 
 The capability has more than one agent because the organisation has more than one role.
-They are named after drawing instruments, because that is what they do: **Plomada** — a plumb
-line — hangs still and tells you whether something is straight, **Escuadra** — a set square —
-checks the angle of one piece, **Compás** — a pair of dividers — measures before you draw.
+They are named after instruments that check against a reference, because that is what
+they do: **Plumb** hangs still against gravity and shows what is not straight, **Bevel**
+sets one angle and checks every piece against it, **Caliper** measures before anything is
+cut.
 
-**Plomada is available today**; the other two come behind it and share the same data contract.
+**Plumb is available today**; the other two come behind it and share the same data contract.
 
-**Escuadra**, the project manager's agent, does not attend the meetings — the manager does. What it does is let the
+**Bevel**, the project manager's agent, does not attend the meetings — the manager does. What it does is let the
 manager arrive with the week prepared: the agenda built beforehand, the minutes drafted
 afterwards, the plan current against the evidence, and the report ready except for one line.
 Its central function is one no tool a project manager uses today performs: **the commitment
 said and not kept.** Meetings are full of *"I'll have it by Friday"* and nobody records them.
 
-**Compás** works before the project exists, and delivers the charter the project
+**Caliper** works before the project exists, and delivers the charter the project
 is born from.
 
 ---
@@ -94,12 +95,12 @@ lost is being told without anyone asking.
 
 ## Want your sponsor to see this without asking you for it?
 
-![Atril: the report, for whoever does not open a folder](../../docs/img/en/servidor.png)
+![Rostrum: the report, for whoever does not open a folder](../../docs/img/en/servidor.png)
 
 Up to here the report is files on your machine. **A sponsor does not open a folder of
-files**: they open a link, or they open nothing. That is what **Atril** is for, this
-family's server. *Atril* is Spanish for a lectern: it does not measure or correct, it
-holds up what is already written at the height of whoever is going to read it.
+files**: they open a link, or they open nothing. That is what **Rostrum** is for, this
+family's server. A rostrum does not measure or correct: it holds up what is already
+written, at the height of whoever is going to read it.
 
 ```
 /pmo-server
@@ -112,7 +113,7 @@ committees, each committee sees its project and **none of them sees the product*
 
 And it has one more thing, which is what changes how it gets used: **whoever is looking
 can leave the agent a written question.** It does not answer on the spot — the agent is
-not running — but the question stays in the queue, and the next time Plomada wakes it
+not running — but the question stays in the queue, and the next time Plumb wakes it
 handles it. *"This does not match what I know"* is the most valuable request in the
 system: it is a person telling you which document is missing.
 
@@ -120,7 +121,7 @@ system: it is a person telling you which document is missing.
 control your organisation already has. It listens only on your machine unless you say
 otherwise.
 
-→ **[Atril, with screenshots of every section and what to ask your organisation for](SERVER.md)**
+→ **[Rostrum, with screenshots of every section and what to ask your organisation for](SERVER.md)**
 
 ## What ends up configured
 
@@ -182,7 +183,7 @@ produced, without reading a single document again.
 |---|---|
 | `/pmo-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
 | `/pmo-wake` | **What the clock invokes.** Looks at what is due today, does it, and stays quiet if nothing is |
-| `/pmo-server` | Raises **Atril**, the server: exposes the report for whoever does not open a folder, and says what to ask the organisation for |
+| `/pmo-server` | Raises **Rostrum**, the server: exposes the report for whoever does not open a folder, and says what to ask the organisation for |
 | `/document-index` | Which documents actually changed, what has to be re-read, and which citations stopped resolving |
 | `/portfolio-scan` | Reads the folder and produces or updates one record per project. The way in |
 | `/portfolio-report` | Consolidated report: what changed, what contradicts itself, what is silent, what has no support |

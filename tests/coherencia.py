@@ -42,7 +42,7 @@ PENDIENTES = {
     "daily_sweep": ("clave de cadencia declarada y no leída. El mecanismo ya existe —el índice "
                     "de documentos—; falta quién lo invoca sin que alguien abra una sesión"),
     "pm_vs_pmo": ("señal diseñada y no construida: el contraste entre la ficha que publica "
-                  "Escuadra y la lectura de Plomada sobre los mismos documentos. Espera a que "
+                  "Bevel y la lectura de Plumb sobre los mismos documentos. Espera a que "
                   "exista `criterio-pm` y a que haya una ficha publicada contra la cual "
                   "contrastar · docs/agents/project-manager.md"),
 }

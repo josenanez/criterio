@@ -1,6 +1,6 @@
-# Escuadra · el agente Project Manager
+# Bevel · el agente Project Manager
 
-Verifica el ángulo de una pieza. Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
+Fija un ángulo y verifica cada pieza contra él. Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
 
 Marco general, definición de las clases y de las columnas: [README](README.md).
 
@@ -60,25 +60,25 @@ comparación compara al sistema consigo mismo.
 
 ## Las dos fichas
 
-Escuadra y Plomada leen **los mismos documentos** y escriben **dos fichas distintas que
+Bevel y Plumb leen **los mismos documentos** y escriben **dos fichas distintas que
 nunca se fusionan.** Es la misma regla que ya gobierna declarado contra evidenciado,
 aplicada un nivel más arriba.
 
 | | Ficha del proyecto | Lectura de portafolio |
 |---|---|---|
-| **La escribe** | Escuadra, salvo `declared` | Plomada |
-| **Vive en** | El estado de Escuadra, en el equipo del gerente | El estado de Plomada |
+| **La escribe** | Bevel, salvo `declared` | Plumb |
+| **Vive en** | El estado de Bevel, en el equipo del gerente | El estado de Plumb |
 | **Profundidad** | Todo: compromisos de cada reunión, RAID, entregables por proveedor | Lo que un barrido de portafolio alcanza a leer |
 | **Cadencia** | Diaria o por reunión | Semanal o de comité |
 | **Para qué** | Que el gerente llegue con la semana preparada | Que la PMO vea el conjunto |
 
 ### Por qué dos y no una
 
-Una sola ficha con dos escritores es una carrera: el barrido de Plomada pasa el martes
-y sobreescribe lo que Escuadra puso el lunes, o al revés. La forma habitual de
+Una sola ficha con dos escritores es una carrera: el barrido de Plumb pasa el martes
+y sobreescribe lo que Bevel puso el lunes, o al revés. La forma habitual de
 resolverlo —un dueño, y el otro solo lee— obliga a elegir mal en las dos direcciones:
-si manda Escuadra, la PMO pierde la capacidad de leer un proyecto por su cuenta cuando
-duda del gerente; si manda Plomada, la PMO entra en el camino crítico de cada proyecto,
+si manda Bevel, la PMO pierde la capacidad de leer un proyecto por su cuenta cuando
+duda del gerente; si manda Plumb, la PMO entra en el camino crítico de cada proyecto,
 y con setenta proyectos eso es un cuello de botella.
 
 Dos fichas quitan el problema en vez de arbitrarlo. **Y lo que era un conflicto de
@@ -92,8 +92,8 @@ sistema: es información sobre la carpeta.
 | Lo que se observa | Qué significa |
 |---|---|
 | **Los dos citan, y no coinciden** | Leyeron documentos distintos. El que cita el más reciente vio algo que el otro no. Es el hallazgo de más valor, y apunta a un documento concreto |
-| **Escuadra lo tiene, Plomada no** | Diferencia de profundidad, no contradicción. Un compromiso dicho en una reunión no está al alcance de un barrido de portafolio. **No es hallazgo** |
-| **Plomada lo tiene, Escuadra no** | Sí es hallazgo: la PMO leyó un documento del proyecto que el gerente no está viendo |
+| **Bevel lo tiene, Plumb no** | Diferencia de profundidad, no contradicción. Un compromiso dicho en una reunión no está al alcance de un barrido de portafolio. **No es hallazgo** |
+| **Plumb lo tiene, Bevel no** | Sí es hallazgo: la PMO leyó un documento del proyecto que el gerente no está viendo |
 | **Coinciden** | El caso normal, y no se reporta. Un agente que celebra las coincidencias es ruido |
 
 La distinción de la segunda fila es la que hace que esto sirva. Sin ella, cada corrida
@@ -101,15 +101,15 @@ reportaría cien diferencias de alcance y nadie volvería a abrir el informe.
 
 ### Cómo se encuentran las dos fichas
 
-**Escuadra publica; Plomada lee.** Ninguno de los dos alcanza el estado del otro, y no
+**Bevel publica; Plumb lee.** Ninguno de los dos alcanza el estado del otro, y no
 hace falta: la ficha del proyecto se publica **como un documento más del proyecto**, en
-la carpeta de gobierno, y Plomada la lee como lee todo lo demás.
+la carpeta de gobierno, y Plumb la lee como lee todo lo demás.
 
 ```
 PRY-001-originacion-digital/
   00-gobierno/
     2026-01-12-acta-constitucion.md
-    ficha-pm.json          ← lo que Escuadra publica
+    ficha-pm.json          ← lo que Bevel publica
   10-plan/
   20-seguimiento/
   30-reuniones/
@@ -120,10 +120,10 @@ almacenamiento compartido, no hay consistencia distribuida entre N instancias, y
 cita de cualquier campo de esa ficha ya es una ruta válida como la de cualquier otro
 documento.
 
-**Publicar es un acto explícito, no un efecto.** Plomada promete no escribir en las
-carpetas de documentación, y Escuadra hereda esa promesa: escribe en su propio estado y
+**Publicar es un acto explícito, no un efecto.** Plumb promete no escribir en las
+carpetas de documentación, y Bevel hereda esa promesa: escribe en su propio estado y
 solo pone `ficha-pm.json` en la carpeta del proyecto cuando alguien corre el comando que
-lo publica, o cuando la cadencia configurada lo hace. Es el único archivo que Escuadra
+lo publica, o cuando la cadencia configurada lo hace. Es el único archivo que Bevel
 escribe fuera de su estado, y esa lista no crece sin decirlo aquí.
 
 ### Qué campos se contrastan
@@ -138,7 +138,7 @@ declared.status       declared.as_of
 ```
 
 Ocho campos, los que envejecen peor y los que una PMO usa para decidir. El contraste es
-aritmética sobre dos registros que Plomada ya tiene, así que **lo hace el código**, y
+aritmética sobre dos registros que Plumb ya tiene, así que **lo hace el código**, y
 produce una señal nueva: `pm_vs_pmo`.
 
 La señal dice qué campo, qué dijo cada uno, y **de qué documento y de qué fecha lo sacó
@@ -176,7 +176,7 @@ que este proyecto no acepta, así que:
 | `pmo.py` | fuente | copia | La aritmética es la misma; `compute` ya trabaja proyecto a proyecto y después agrega |
 | `texto.py` | fuente | copia | Leer un `.docx` es leer un `.docx` |
 | `informe.py` | fuente | **no** | El informe de un proyecto no es el del portafolio recortado |
-| `servidor.py` | fuente | **no** | Atril es de la PMO |
+| `servidor.py` | fuente | **no** | Rostrum es de la PMO |
 
 Que la copia sea literal y no un módulo compartido es a propósito: **un plugin instalado
 tiene que correr solo.** Un `import` a una ruta del otro plugin funciona en este
@@ -263,8 +263,8 @@ persona.** No por prudencia — por arquitectura.
 1. **El plugin `criterio-pm`** con los scripts copiados y la regla que los mantiene iguales.
    Sin eso no hay dónde poner lo demás.
 2. **El comando de compromisos.** Es la función central del agente y la única sin puerta propia.
-3. **Publicar la ficha**, que es lo que conecta a Escuadra con Plomada.
-4. **El contraste `pm_vs_pmo` en código**, del lado de Plomada, con sus dos citas.
+3. **Publicar la ficha**, que es lo que conecta a Bevel con Plumb.
+4. **El contraste `pm_vs_pmo` en código**, del lado de Plumb, con sus dos citas.
 5. **La estructura de la reunión.** Cierra el ciclo y es la de más apalancamiento.
 6. **El informe semanal**, con cadencia y forma de proyecto, no de comité.
 7. **El acta de la reunión.**
@@ -275,11 +275,11 @@ persona.** No por prudencia — por arquitectura.
 - **Dos fichas que nunca se fusionan**, y la diferencia entre ellas es la señal. Ver arriba.
 - **Dos plugins con los scripts en un solo sitio**, copiados por una regla que falla si se
   separan. Ver arriba.
-- **El registro de preguntas vive en el estado de Escuadra**, con la forma de un compromiso
+- **El registro de preguntas vive en el estado de Bevel**, con la forma de un compromiso
   —quién, qué, cuándo— porque es el mismo objeto. La regla que decide si esto sobrevive a
   setenta proyectos: **la misma pregunta no se hace dos veces.** Si nadie contestó, la corrida
   siguiente reporta *«preguntada el 12, sin respuesta»*, que es un hallazgo, en vez de volver
-  a preguntar. Es la misma mecánica que la cola de Atril, y se implementa con ella.
+  a preguntar. Es la misma mecánica que la cola de Rostrum, y se implementa con ella.
 
 ## Decisiones abiertas propias de esta hoja
 
@@ -289,7 +289,7 @@ persona.** No por prudencia — por arquitectura.
   es de solo lectura y versionada, caro si cada PM puede cambiar sus umbrales. **Con dos plugins
   la pregunta se vuelve más aguda**, porque ahora los umbrales pueden diferir por instalación y
   no solo por configuración.
-- **Qué pasa cuando Escuadra publica y el gerente no quiere.** Publicar la ficha expone al
+- **Qué pasa cuando Bevel publica y el gerente no quiere.** Publicar la ficha expone al
   proyecto a la lectura de la PMO con una profundidad que antes no tenía. Es deseable y también
   es político, y este diseño no decide por la organización: publicar es explícito, y quien lo
   corre sabe lo que hace.

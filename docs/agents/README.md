@@ -12,9 +12,9 @@ no duplicar la rotación.
 
 Una hoja por agente:
 
-- [**Plomada** · agente PMO](pmo.md) — gobierno de portafolio
-- [**Escuadra** · agente Project Manager](project-manager.md) — un proyecto
-- [**Compás** · agente Product Manager](product-manager.md) — antes de que exista el proyecto
+- [**Plumb** · agente PMO](pmo.md) — gobierno de portafolio
+- [**Bevel** · agente Project Manager](project-manager.md) — un proyecto
+- [**Caliper** · agente Product Manager](product-manager.md) — antes de que exista el proyecto
 
 La forma de todo lo que estos agentes entregan —informes, proyección, piezas gráficas— está en
 [`docs/design.md`](../design.md): es el diseño del portal, y se mantiene igual aquí.
@@ -58,7 +58,7 @@ Product Manager  ──acta──►  Project Manager  ──ficha──►  PMO
 ### Las siete invariantes
 
 1. **Los agentes no se hablan entre sí.** Se hablan por la ficha.
-2. **Atril, el servidor, no escribe.**
+2. **Rostrum, el servidor, no escribe.**
 3. **La fuente puede cambiar; la ficha no.** Un adaptador nuevo llena los mismos campos.
 4. **Declarado y evidenciado nunca se fusionan**, venga de archivo o de base de datos.
 5. **El modelo extrae, el código calcula.**
@@ -76,7 +76,7 @@ el mismo proyecto. La forma cómoda de resolverlo —una ficha y un dueño— ob
 en las dos direcciones: si manda el gerente, la PMO no puede leer por su cuenta cuando duda;
 si manda la PMO, entra en el camino crítico de setenta proyectos. Dos fichas quitan el
 problema en vez de arbitrarlo, y **lo que era un conflicto de escritura se vuelve la señal.**
-Ver [Escuadra · las dos fichas](project-manager.md#las-dos-fichas).
+Ver [Bevel · las dos fichas](project-manager.md#las-dos-fichas).
 
 ---
 
@@ -121,30 +121,34 @@ Cada fila de C lleva dos datos, y ninguno es un riesgo:
 
 ## Cómo se llaman
 
-**La capacidad se llama PMO, CFO o CLO. El agente lleva el nombre de un instrumento.** Son
-dos cosas distintas y conviene no mezclarlas: la capacidad es la función de la organización,
-y el agente es quien la extiende.
+**La capacidad se llama PMO, CFO o CLO. La pieza lleva el nombre de un instrumento que
+verifica contra una referencia.** Son dos cosas distintas y conviene no mezclarlas: la
+capacidad es la función de la organización, y la pieza es lo que la extiende.
 
-| Pieza | Nombre | Por qué ese |
-|---|---|---|
-| Agente PMO | **Plomada** | Cuelga quieta y dice si algo está derecho. No opina: muestra |
-| Agente Project Manager | **Escuadra** | Verifica el ángulo de una pieza. Un proyecto, no el conjunto |
-| Agente Product Manager | **Compás** | Mide antes de trazar. Trabaja antes de que exista el proyecto |
-| El servidor | **Atril** | Donde se pone lo que se va a leer delante de otros. Sostiene, no traza |
+| Pieza | Nombre | Verifica contra | Por qué ese |
+|---|---|---|---|
+| Agente PMO | **Plumb** | la gravedad | *Hangs still and shows what isn't straight.* Cuelga quieto y muestra lo que no está derecho. No opina |
+| Agente Project Manager | **Bevel** | un ángulo fijado | *Sets one angle and checks every piece against it.* Una falsa escuadra fija un ángulo y verifica cada pieza contra él: un proyecto, no el conjunto |
+| Agente Product Manager | **Caliper** | una medida | *Measures before anything is cut.* Mide antes de que se corte nada — trabaja antes de que exista el proyecto |
+| El servidor | **Rostrum** | — | *Holds up what is already written.* Sostiene lo que ya está escrito, donde otros puedan leerlo |
 
-Instrumentos de trazo y verificación, porque es exactamente lo que hacen y porque así los
-tres son hermanos evidentes. Un nombre que no estire a los hermanos obliga a rebautizar a
-todos en cuanto aparezca el segundo.
+**La regla, que es lo que hace que esto escale y no la lista:** el nombre sale del oficio
+que la capacidad extiende, y **tiene que poder terminar la frase «X verifica Y contra Z, y
+no opina»**. Si no la termina, está mal elegido. Los nombres de CFO y CLO se eligen cuando
+esas capacidades se construyan, con esta misma regla y con el instrumental de su oficio —
+no con el de la PMO, que no significa nada fuera de ella.
 
-**Atril es el único que no es un instrumento de medida, y es a propósito.** Los tres
-agentes tienen nombre porque toman decisiones sobre lo que leen; el servidor no toma
-ninguna. Un atril no mide, no corrige y no opina: sostiene lo que ya está escrito a la
-altura de quien lo va a leer. Si algún día el servidor calculara algo, el nombre dejaría
-de ser cierto — y eso es exactamente lo que se quiere que se note.
+**Rostrum es el único que no verifica nada, y es a propósito.** Los tres agentes tienen
+nombre porque toman decisiones sobre lo que leen; el servidor no toma ninguna. Una tribuna
+no mide, no corrige y no opina: sostiene lo que ya está escrito a la altura de quien lo va
+a leer. Si algún día el servidor calculara algo, el nombre dejaría de ser cierto — y eso es
+exactamente lo que se quiere que se note.
 
-**Los nombres no se traducen** —son propios— y **no son identificadores**: el plugin se
-sigue llamando `criterio-pmo`, los comandos y los skills no cambian. El nombre le da
-carácter a lo que la persona ve, no a lo que el código importa.
+**Los nombres están en inglés porque el producto se distribuye internacionalmente**, y son
+palabras cortas y concretas en vez de un panteón: un dios no puede terminar la frase de
+arriba. **No se traducen** —son propios— y **no son identificadores**: el plugin se sigue
+llamando `criterio-pmo`, los comandos y los skills no cambian. El nombre le da carácter a
+lo que la persona ve, no a lo que el código importa.
 
 ---
 
