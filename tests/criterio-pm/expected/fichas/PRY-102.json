@@ -1,0 +1,371 @@
+{
+  "identity": {
+    "code": {
+      "value": "PRY-102",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "name": {
+      "value": "Portal de proveedores",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "business_area": {
+      "value": "Compras",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "sponsor": {
+      "value": "Andrés Villamil, Director de Compras",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "manager": {
+      "value": "Paula Restrepo",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "committee": {
+      "value": "Comité de Compras",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "product": {
+      "value": "Portal de proveedores",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "authority": {
+      "value": "hasta 40.000.000 y ajustes de cronograma menores a 10 días",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    }
+  },
+  "declared": {
+    "status": {
+      "value": "verde",
+      "source": "PRY-102-portal-proveedores/20-seguimiento/2026-11-18-informe-avance.md",
+      "source_date": "2026-11-18",
+      "state": "found"
+    },
+    "progress_pct": {
+      "value": 31,
+      "source": "PRY-102-portal-proveedores/20-seguimiento/2026-11-18-informe-avance.md",
+      "source_date": "2026-11-18",
+      "state": "found"
+    },
+    "as_of": {
+      "value": "2026-11-18",
+      "source": "PRY-102-portal-proveedores/20-seguimiento/2026-11-18-informe-avance.md",
+      "source_date": "2026-11-18",
+      "state": "found"
+    }
+  },
+  "plan": {
+    "start_date": {
+      "value": "2026-09-08",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "end_date": {
+      "value": "2027-04-30",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "milestones": [
+      {
+        "name": {
+          "value": "Levantamiento de requisitos",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-10-30",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-10-30",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "state": {
+          "value": "met",
+          "source": "PRY-102-portal-proveedores/20-seguimiento/2026-10-30-recibo-requisitos.md",
+          "source_date": "2026-10-30",
+          "state": "found"
+        },
+        "evidence": {
+          "value": "Recibo del 30 de octubre",
+          "source": "PRY-102-portal-proveedores/20-seguimiento/2026-10-30-recibo-requisitos.md",
+          "source_date": "2026-10-30",
+          "state": "found"
+        }
+      },
+      {
+        "name": {
+          "value": "Prototipo validado con proveedores",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-12-18",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-12-18",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "state": {
+          "value": "pending",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "evidence": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        }
+      },
+      {
+        "name": {
+          "value": "Salida a producción",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2027-04-30",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2027-04-30",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "state": {
+          "value": "pending",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "evidence": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        }
+      }
+    ],
+    "baselines": [
+      {
+        "version": {
+          "value": "v1",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "end_date": {
+          "value": "2027-04-30",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        },
+        "approved_on": {
+          "value": "2026-09-08",
+          "source": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+          "source_date": "2026-09-08",
+          "state": "found"
+        }
+      }
+    ]
+  },
+  "money": {
+    "currency": {
+      "value": "COP",
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "approved": {
+      "value": 480000000,
+      "source": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+      "source_date": "2026-09-01",
+      "state": "found"
+    },
+    "committed": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    },
+    "executed": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    },
+    "projection": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    }
+  },
+  "commitments": [
+    {
+      "who": {
+        "value": "Iván Mora",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-10-23-comite-semanal.md",
+        "source_date": "2026-10-23",
+        "state": "found"
+      },
+      "what": {
+        "value": "Entregar el documento de requisitos consolidado",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-10-23-comite-semanal.md",
+        "source_date": "2026-10-23",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "2026-10-30",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-10-23-comite-semanal.md",
+        "source_date": "2026-10-23",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-10-23",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-10-23-comite-semanal.md",
+        "source_date": "2026-10-23",
+        "state": "found"
+      },
+      "state": {
+        "value": "met",
+        "source": "PRY-102-portal-proveedores/20-seguimiento/2026-10-30-recibo-requisitos.md",
+        "source_date": "2026-10-30",
+        "state": "found"
+      },
+      "evidence": {
+        "value": "Recibo del 30 de octubre",
+        "source": "PRY-102-portal-proveedores/20-seguimiento/2026-10-30-recibo-requisitos.md",
+        "source_date": "2026-10-30",
+        "state": "found"
+      }
+    },
+    {
+      "who": {
+        "value": "Iván Mora",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "what": {
+        "value": "Presentar el prototipo navegable",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "2026-12-18",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-11-13",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "state": {
+        "value": "open",
+        "source": "PRY-102-portal-proveedores/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "evidence": {
+        "value": null,
+        "source": null,
+        "source_date": null,
+        "state": "not_found"
+      }
+    }
+  ],
+  "raid": {
+    "risks": [],
+    "issues": [],
+    "dependencies": []
+  },
+  "vendors": [],
+  "changes": [],
+  "activity": {
+    "last_document_date": {
+      "value": "2026-11-18",
+      "source": "PRY-102-portal-proveedores/20-seguimiento/2026-11-18-informe-avance.md",
+      "source_date": "2026-11-18",
+      "state": "found"
+    }
+  },
+  "meta": {
+    "documents_seen": [
+      {
+        "path": "PRY-102-portal-proveedores/00-gobierno/2026-09-01-acta-constitucion.md",
+        "hash": "a81adf440230c0d5b040663fc49657c594ee2347e1456780b8b9c990eba5ee91",
+        "text_hash": "6fdcaafb72273778a8f5364af047a0730387ded9fe16ec5b05eaf13abb927d8c",
+        "date": "2026-09-01"
+      },
+      {
+        "path": "PRY-102-portal-proveedores/10-plan/2026-09-08-cronograma-v1.csv",
+        "hash": "2861bcc595e3ff950075444cfcbea42de04a0acebcbdce5b28a006c5d10b5614",
+        "text_hash": "49c151e119b9d0588085172e7f44543e23f6177f1e48713377bf2adb9f0b05ab",
+        "date": "2026-09-08"
+      },
+      {
+        "path": "PRY-102-portal-proveedores/20-seguimiento/2026-10-30-recibo-requisitos.md",
+        "hash": "fbd4fe6d9c46006e0cb28f37b460f67979ef4158a3d795e95f5930d7d2c22eca",
+        "text_hash": "543097efdbe1aec9367adb5a3a2e6ccfc5c2be33d3fb80cf62945e1178930207",
+        "date": "2026-10-30"
+      },
+      {
+        "path": "PRY-102-portal-proveedores/20-seguimiento/2026-11-18-informe-avance.md",
+        "hash": "341c58594e1bb845fdf98e73147b9d70e21384e30f3ff52bd4ad24d3b2fa0108",
+        "text_hash": "34c07c1c4cfa33411efb858410a69c17b1b865573d7a5eb14f6fa87cde7b27b5",
+        "date": "2026-11-18"
+      },
+      {
+        "path": "PRY-102-portal-proveedores/30-reuniones/2026-10-23-comite-semanal.md",
+        "hash": "225b6a47c6fbb7a0a1f0df0c90616c81eb269cddcd5c34e017ac81fe5ed25f1d",
+        "text_hash": "b3992fc65e4c40db14c59f02b00f9982efb1e0aeeea5ff16f48001734c178a89",
+        "date": "2026-10-23"
+      },
+      {
+        "path": "PRY-102-portal-proveedores/30-reuniones/2026-11-13-comite-semanal.md",
+        "hash": "57db97e494e1a7b981c18b7715afb3dd8b71b69b0e89729b2d1bfc1298edb3d6",
+        "text_hash": "599d9d93779c3492b0bbc22d6c201b6b5e14bde682506d0756a5bc2ea3ca64c3",
+        "date": "2026-11-13"
+      }
+    ]
+  }
+}

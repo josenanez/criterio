@@ -209,7 +209,7 @@ enterarse.
 | Borrador del cierre y de las lecciones | Criterio de éxito pactado y la historia documental | Entregado contra comprometido, desviación final, lecciones con hecho y fecha | Construido |
 | Evaluar el efecto real de un cambio en el cronograma y en otros proyectos | El cambio y las dependencias declaradas | Hitos alcanzados, proyectos afectados y sus gerentes | **Parcial** |
 | Preparar el escalamiento con la decisión formulada | El ítem que excede su autoridad | La decisión como pregunta cerrada, con opciones y consecuencia de no decidir | **Parcial** |
-| **Detectar el compromiso reprogramado tres veces** | Historial de compromisos del mismo doliente sobre lo mismo | Un compromiso con su historial de reprogramaciones, señalado como bloqueo | **Falta en código**, y la corrida lo confirma: `stated_on` está en el esquema, PRY-001 lo trae con su historial, y `compute` solo ve que está vencido |
+| **Detectar el compromiso reprogramado tres veces** | Historial de compromisos del mismo doliente sobre lo mismo | Un compromiso con su historial de reprogramaciones, señalado como bloqueo | **Construido.** `reschedules` en el esquema, `commitment_rescheduled` en el cálculo con su umbral, y la corrida lo verifica sobre PRY-001 |
 | **Primer borrador del plan y de la WBS** | El acta y proyectos análogos del portafolio | Borrador de WBS y cronograma, con los supuestos declarados | **Falta** |
 
 Tres veces reprogramado **no es un problema de seguimiento: es un bloqueo que nadie ha
@@ -268,7 +268,7 @@ persona.** No por prudencia — por arquitectura.
 5. **La estructura de la reunión.** Cierra el ciclo y es la de más apalancamiento.
 6. **El informe semanal**, con cadencia y forma de proyecto, no de comité.
 7. **El acta de la reunión.**
-8. **En código:** el compromiso reprogramado.
+8. *(construido: el compromiso reprogramado)*
 
 ## Decisiones cerradas
 

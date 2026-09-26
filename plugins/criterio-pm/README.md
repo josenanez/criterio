@@ -4,10 +4,16 @@
 
 [Español](README.es.md) · Apache 2.0
 
-**Status: under construction.** The design is settled, and the scripts and the eight
-skills it shares with `criterio-pmo` are already here and verified. **There are no commands
-yet**, so there is nothing to invoke — but the skills load on their own when the topic
-appears. Nothing is announced as finished until the acceptance criteria pass.
+**Status: under construction.** The design is settled; the scripts and the eight skills
+it shares with `criterio-pmo` are here and verified; and **the test corpus already runs**:
+two projects, seven sets of minutes, 19 checks, and a negative control that produces not a
+single finding. **There are no commands yet**, so there is nothing to invoke — but the
+skills load on their own when the topic appears. Nothing is announced as finished until the
+acceptance criteria pass.
+
+What that run proves and what it does **not**, in
+[`tests/criterio-pm/EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md) — in Spanish, as
+working documents.
 
 ## What it will do
 

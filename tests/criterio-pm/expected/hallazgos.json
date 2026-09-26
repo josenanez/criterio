@@ -1,0 +1,37 @@
+{
+  "_nota": "Escritos leyendo las minutas, no calculados. Si salieran de las mismas fórmulas que el código, esta prueba no probaría nada.",
+  "as_of": "2026-11-20",
+  "PRY-101": {
+    "_porque": "El proyecto con vida de reunión.",
+    "commitments_overdue": 0,
+    "_overdue_porque": "Ninguno. El reprogramado vence el 27 de noviembre, que es después del 20. Que esté reprogramado tres veces es otra cosa, y es la que importa.",
+    "commitments_undated": 1,
+    "commitments_rescheduled": 1,
+    "reschedule_times": 3,
+    "milestones_overdue": 1,
+    "_hito_porque": "La certificación con el switch, del 6 de noviembre, sin evidencia en el expediente. La minuta del 13 lo dice con todas las letras.",
+    "days_silent": 7,
+    "_silencio_porque": "El último documento es el informe del 13 de noviembre.",
+    "declared": "amarillo",
+    "declared_vs_evidence": false,
+    "_declaracion_porque": "El gerente declara amarillo y la evidencia lo sostiene. Un agente que contradice siempre es tan inútil como uno que nunca contradice.",
+    "risks_not_registered": 1,
+    "signals": [
+      "commitment_rescheduled",
+      "commitment_undated",
+      "milestone_overdue"
+    ]
+  },
+  "PRY-102": {
+    "_porque": "Control negativo. Tiene reuniones y compromisos, y no produce nada.",
+    "commitments_overdue": 0,
+    "commitments_undated": 0,
+    "commitments_rescheduled": 0,
+    "milestones_overdue": 0,
+    "days_silent": 2,
+    "declared": "verde",
+    "declared_vs_evidence": false,
+    "risks_not_registered": 0,
+    "signals": []
+  }
+}

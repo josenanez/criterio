@@ -1,0 +1,568 @@
+{
+  "identity": {
+    "code": {
+      "value": "PRY-101",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "name": {
+      "value": "Pasarela de pagos QR",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "business_area": {
+      "value": "Medios de Pago",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "sponsor": {
+      "value": "Marcela Ibáñez, VP de Medios de Pago",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "manager": {
+      "value": "Daniel Ospina",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "committee": {
+      "value": "Comité de Medios de Pago",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "product": {
+      "value": "Pagos QR",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "authority": {
+      "value": "hasta 60.000.000 y ajustes de cronograma menores a 10 días",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    }
+  },
+  "declared": {
+    "status": {
+      "value": "amarillo",
+      "source": "PRY-101-pasarela-qr/20-seguimiento/2026-11-13-informe-avance.md",
+      "source_date": "2026-11-13",
+      "state": "found"
+    },
+    "progress_pct": {
+      "value": 38,
+      "source": "PRY-101-pasarela-qr/20-seguimiento/2026-11-13-informe-avance.md",
+      "source_date": "2026-11-13",
+      "state": "found"
+    },
+    "as_of": {
+      "value": "2026-11-13",
+      "source": "PRY-101-pasarela-qr/20-seguimiento/2026-11-13-informe-avance.md",
+      "source_date": "2026-11-13",
+      "state": "found"
+    }
+  },
+  "plan": {
+    "start_date": {
+      "value": "2026-08-10",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "end_date": {
+      "value": "2027-02-27",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "milestones": [
+      {
+        "name": {
+          "value": "Diseño de la experiencia de cobro",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-09-18",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-09-18",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "state": {
+          "value": "met",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "evidence": {
+          "value": "Cerrado el 18 de septiembre",
+          "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+          "source_date": "2026-09-25",
+          "state": "found"
+        }
+      },
+      {
+        "name": {
+          "value": "Certificación con el switch interoperable",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2026-11-06",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2026-11-06",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "state": {
+          "value": "pending",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "evidence": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        }
+      },
+      {
+        "name": {
+          "value": "Piloto con veinte comercios",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2027-01-15",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2027-01-15",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "state": {
+          "value": "pending",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "evidence": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        }
+      },
+      {
+        "name": {
+          "value": "Salida a producción",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "baseline_date": {
+          "value": "2027-02-27",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "current_date": {
+          "value": "2027-02-27",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "state": {
+          "value": "pending",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "evidence": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        }
+      }
+    ],
+    "baselines": [
+      {
+        "version": {
+          "value": "v1",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "end_date": {
+          "value": "2027-02-27",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        },
+        "approved_on": {
+          "value": "2026-08-10",
+          "source": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+          "source_date": "2026-08-10",
+          "state": "found"
+        }
+      }
+    ]
+  },
+  "money": {
+    "currency": {
+      "value": "COP",
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "approved": {
+      "value": 1100000000,
+      "source": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+      "source_date": "2026-08-03",
+      "state": "found"
+    },
+    "committed": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    },
+    "executed": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    },
+    "projection": {
+      "value": null,
+      "source": null,
+      "source_date": null,
+      "state": "not_found"
+    }
+  },
+  "commitments": [
+    {
+      "who": {
+        "value": "Rubén Ferreira",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "source_date": "2026-09-25",
+        "state": "found"
+      },
+      "what": {
+        "value": "Entregar el documento de integración con el switch interoperable",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "source_date": "2026-09-25",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "2026-10-09",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "source_date": "2026-09-25",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-09-25",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "source_date": "2026-09-25",
+        "state": "found"
+      },
+      "state": {
+        "value": "met",
+        "source": "PRY-101-pasarela-qr/20-seguimiento/2026-10-09-recibo-documento-integracion.md",
+        "source_date": "2026-10-09",
+        "state": "found"
+      },
+      "evidence": {
+        "value": "Recibo del 9 de octubre",
+        "source": "PRY-101-pasarela-qr/20-seguimiento/2026-10-09-recibo-documento-integracion.md",
+        "source_date": "2026-10-09",
+        "state": "found"
+      }
+    },
+    {
+      "who": {
+        "value": "Lorena Pineda",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "source_date": "2026-09-25",
+        "state": "found"
+      },
+      "what": {
+        "value": "Levantar el inventario de comercios del piloto",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "source_date": "2026-09-25",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "2026-10-16",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "source_date": "2026-09-25",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-09-25",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "source_date": "2026-09-25",
+        "state": "found"
+      },
+      "state": {
+        "value": "met",
+        "source": "PRY-101-pasarela-qr/20-seguimiento/2026-10-16-recibo-inventario-comercios.md",
+        "source_date": "2026-10-16",
+        "state": "found"
+      },
+      "evidence": {
+        "value": "Recibo del 16 de octubre",
+        "source": "PRY-101-pasarela-qr/20-seguimiento/2026-10-16-recibo-inventario-comercios.md",
+        "source_date": "2026-10-16",
+        "state": "found"
+      }
+    },
+    {
+      "who": {
+        "value": "Rubén Ferreira",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "what": {
+        "value": "Entregar el plan de pruebas de certificación",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-09-comite-semanal.md",
+        "source_date": "2026-10-09",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "2026-11-27",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-11-13",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "state": {
+        "value": "open",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-11-13-comite-semanal.md",
+        "source_date": "2026-11-13",
+        "state": "found"
+      },
+      "evidence": {
+        "value": null,
+        "source": null,
+        "source_date": null,
+        "state": "not_found"
+      },
+      "reschedules": [
+        {
+          "due_date": {
+            "value": "2026-10-23",
+            "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-09-comite-semanal.md",
+            "source_date": "2026-10-09",
+            "state": "found"
+          },
+          "stated_on": {
+            "value": "2026-10-09",
+            "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-09-comite-semanal.md",
+            "source_date": "2026-10-09",
+            "state": "found"
+          }
+        },
+        {
+          "due_date": {
+            "value": "2026-10-30",
+            "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+            "source_date": "2026-10-16",
+            "state": "found"
+          },
+          "stated_on": {
+            "value": "2026-10-16",
+            "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+            "source_date": "2026-10-16",
+            "state": "found"
+          }
+        },
+        {
+          "due_date": {
+            "value": "2026-11-13",
+            "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-30-comite-semanal.md",
+            "source_date": "2026-10-30",
+            "state": "found"
+          },
+          "stated_on": {
+            "value": "2026-10-30",
+            "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-30-comite-semanal.md",
+            "source_date": "2026-10-30",
+            "state": "found"
+          }
+        }
+      ]
+    },
+    {
+      "who": {
+        "value": "Lorena Pineda",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+        "source_date": "2026-10-16",
+        "state": "found"
+      },
+      "what": {
+        "value": "Revisar con jurídico el contrato de afiliación de comercios",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+        "source_date": "2026-10-16",
+        "state": "found"
+      },
+      "due_date": {
+        "value": "no_declarada",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+        "source_date": "2026-10-16",
+        "state": "found"
+      },
+      "stated_on": {
+        "value": "2026-10-16",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+        "source_date": "2026-10-16",
+        "state": "found"
+      },
+      "state": {
+        "value": "open",
+        "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+        "source_date": "2026-10-16",
+        "state": "found"
+      },
+      "evidence": {
+        "value": null,
+        "source": null,
+        "source_date": null,
+        "state": "not_found"
+      }
+    }
+  ],
+  "raid": {
+    "risks": [
+      {
+        "what": {
+          "value": "El switch interoperable cambia su versión de certificación en enero; si el piloto corre después habría que certificar dos veces",
+          "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+          "source_date": "2026-10-16",
+          "state": "found"
+        },
+        "owner": {
+          "value": null,
+          "source": null,
+          "source_date": null,
+          "state": "not_found"
+        },
+        "formally_registered": {
+          "value": false,
+          "source": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+          "source_date": "2026-10-16",
+          "state": "found"
+        }
+      }
+    ],
+    "issues": [],
+    "dependencies": []
+  },
+  "vendors": [],
+  "changes": [],
+  "activity": {
+    "last_document_date": {
+      "value": "2026-11-13",
+      "source": "PRY-101-pasarela-qr/20-seguimiento/2026-11-13-informe-avance.md",
+      "source_date": "2026-11-13",
+      "state": "found"
+    }
+  },
+  "meta": {
+    "documents_seen": [
+      {
+        "path": "PRY-101-pasarela-qr/00-gobierno/2026-08-03-acta-constitucion.md",
+        "hash": "f44936ce5620c96620e463e65aa1d23e46cc5600fc09cfc06c75e90554c2d193",
+        "text_hash": "d7f1f85b8f465e8acf1a2e228a9472c6b66e34a394d57919c29cc80012bf452b",
+        "date": "2026-08-03"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/10-plan/2026-08-10-cronograma-v1.csv",
+        "hash": "2b66b38ec914e01358cea6285166542d6eea999a64c1ba763e32d2c1875de550",
+        "text_hash": "f6485915614bf0c5afbc7794f6be82a7d7f36d6403a3f9da26ca1d47a0684ab4",
+        "date": "2026-08-10"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/20-seguimiento/2026-10-09-recibo-documento-integracion.md",
+        "hash": "c1c7b88b873aef88fddf62b5d5e48a682b11817492e7ee8746cadb9014c9cd93",
+        "text_hash": "39cf1648a2d0d1e7d1f1c7885e776ccfb341420ac502f55a35b714beb73f1a76",
+        "date": "2026-10-09"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/20-seguimiento/2026-10-16-recibo-inventario-comercios.md",
+        "hash": "ec1a4ffb5522c0a8bcdfb16fb54f55fe1b902543d6645fcc6ddd4c6e445d2e09",
+        "text_hash": "a524a59893b514deebaf1afb3472001e64243ee170f3b9cc59cd99934a4242fa",
+        "date": "2026-10-16"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/20-seguimiento/2026-11-13-informe-avance.md",
+        "hash": "0e2f689e83323eb89d4788f30afbde4767bf47e5bff8555bc9abe0d7b2c37e7f",
+        "text_hash": "13619c48d51331f12fe4cf93e2c2ffb2ea23012e120f282bbb3f1174c21863ec",
+        "date": "2026-11-13"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/30-reuniones/2026-09-25-comite-semanal.md",
+        "hash": "efd1d33b293a653165305ca88ff1b8edaa7305a4c87d9e873d43e5e90a63b091",
+        "text_hash": "2875a43c572edd788f75f734eafcf813b48594298bcb931a3fdd2679428ea450",
+        "date": "2026-09-25"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/30-reuniones/2026-10-09-comite-semanal.md",
+        "hash": "259a8b858ce299be55889e12d2f13762c09f2cdbd11ea1d7f27259648f5c291d",
+        "text_hash": "dc9793ce35c9cf27043f630d4511da53a1013871de7d92403034c32a0fa8ab65",
+        "date": "2026-10-09"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/30-reuniones/2026-10-16-comite-semanal.md",
+        "hash": "ded50a7b9595b9ced7e0e5f755a991ae45af03e6bdf39c578349ba892592e469",
+        "text_hash": "f09c0b69c45afd2236ba6a97e5c01caea60cbc3f3ad0e3cf50df7aaf6da3bc47",
+        "date": "2026-10-16"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/30-reuniones/2026-10-30-comite-semanal.md",
+        "hash": "56f3ff243dea80d68d1b3fee8dbc149db9d9096d96671d1056c700230c8ea7b8",
+        "text_hash": "81ce0e3b7adf190135407ee65c0cdebbd0cce77110d21cb6bdb3a3d0198e5b5c",
+        "date": "2026-10-30"
+      },
+      {
+        "path": "PRY-101-pasarela-qr/30-reuniones/2026-11-13-comite-semanal.md",
+        "hash": "8096b774f81e2f4a2bf500e79129aabc5727de248e37bf4c146e66985ac9a964",
+        "text_hash": "9e566e2a1ca3ce7f9be8ed22d3fa6afc00bcdc49b059d14954f33bcd72a64766",
+        "date": "2026-11-13"
+      }
+    ]
+  }
+}

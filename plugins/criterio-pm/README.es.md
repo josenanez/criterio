@@ -4,10 +4,15 @@
 
 [English](README.md) · Apache 2.0
 
-**Estado: en construcción.** El diseño está cerrado, y los scripts y los ocho skills que
-comparte con `criterio-pmo` ya están aquí y verificados. **Todavía no hay comandos**, así
-que no hay nada que invocar — pero los skills se cargan solos cuando el tema aparece.
-Nada se anuncia como terminado hasta que pasen los criterios de aceptación.
+**Estado: en construcción.** El diseño está cerrado; los scripts y los ocho skills que
+comparte con `criterio-pmo` están aquí y verificados; y **el corpus de prueba ya corre**:
+dos proyectos, siete minutas, 19 comprobaciones y un control negativo que no produce ni un
+hallazgo. **Todavía no hay comandos**, así que no hay nada que invocar — pero los skills se
+cargan solos cuando el tema aparece. Nada se anuncia como terminado hasta que pasen los
+criterios de aceptación.
+
+Qué prueba esa corrida y qué **no**, en
+[`tests/criterio-pm/EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md).
 
 ## Qué va a hacer
 
