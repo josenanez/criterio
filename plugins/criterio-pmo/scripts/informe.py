@@ -158,6 +158,7 @@ NOMBRES = {
     'governance_change': 'cambio de gobierno',
     'declared_vs_evidence': 'la evidencia no explica el verde',
     'declaration_stale': 'declaración vieja',
+    'pm_vs_pmo': 'el gerente y la PMO no leyeron lo mismo',
     'rebaseline_unauthorized': 'replanificación sin autorizar',
     'change_without_baseline': 'cambio sin línea base',
     'vendor_deliverable_late': 'entregable de proveedor vencido',

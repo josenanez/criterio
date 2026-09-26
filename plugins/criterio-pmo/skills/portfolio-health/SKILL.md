@@ -53,6 +53,7 @@ quiere moverla.
 |---|---|---|
 | `declared_vs_evidence` | El estado declarado es **verde** y hay al menos una señal que ese verde no cubre. Para amarillo y rojo la lista se calcula igual y no se levanta alerta: quien ya reportó problema no está escondiendo nada | — siempre |
 | `declaration_stale` | La declaración tiene demasiados días. Un verde de hace seis semanas no es un verde | `declaration_stale_days` |
+| `pm_vs_pmo` | El gerente y la PMO leyeron los mismos documentos y no dijeron lo mismo. **Solo es hallazgo cuando los dos citan**: entonces uno vio un papel que el otro no vio, y la señal dice cuál y de qué fecha | — |
 
 ### El silencio y la calidad del registro
 
@@ -84,6 +85,34 @@ el informe y **no** levanta alerta: es viejo, no es falso.
 
 **El silencio cuando no pasó nada es la característica, no la falla.** Un agente que reporta
 todos los lunes haya o no noticia se ignora en un mes.
+
+
+### Sobre `pm_vs_pmo`, que es la única que compara dos fichas
+
+Las demás señales salen de una ficha contra los documentos. Esta sale de **dos fichas
+sobre los mismos documentos**: la que publica el agente del proyecto y la que escribe el
+del portafolio. Nunca se fusionan — séptima invariante — y **la diferencia entre las dos
+es lo que produce valor.**
+
+Se contrastan **ocho campos**, no todos: `identity.sponsor`, `identity.manager`,
+`identity.committee`, `identity.product`, `plan.end_date`, `money.approved`,
+`declared.status` y `declared.as_of`. Son los que los dos tienen por qué leer.
+
+Y hay cuatro formas de diferir, de las que **solo dos son hallazgo**:
+
+| Lo que se observa | Qué significa |
+|---|---|
+| **Los dos citan y no coinciden** | Leyeron documentos distintos. El que cita el más reciente vio algo que el otro no. Es el hallazgo de más valor, y apunta a un documento concreto |
+| **El gerente lo tiene y la PMO no** | **No es hallazgo.** Diferencia de profundidad: un compromiso dicho en una reunión no está al alcance de un barrido de portafolio |
+| **La PMO lo tiene y el gerente no** | Sí es hallazgo: la PMO leyó un documento del proyecto que el gerente no está viendo |
+| **Coinciden** | El caso normal, y no se reporta. Un agente que celebra las coincidencias es ruido |
+
+La segunda fila es la que hace que esto sirva. Sin ella, cada corrida reportaría cien
+diferencias de alcance y nadie volvería a abrir el informe.
+
+**Contrastar no es arbitrar.** La señal no dice quién tiene razón, dice quién cita lo más
+nuevo — y la mitad de las veces el que la tiene es el gerente, porque estuvo en la
+reunión donde cambió el patrocinador y el acta de constitución no se actualizó nunca.
 
 ## Las tres defensas contra el dato viejo
 

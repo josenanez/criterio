@@ -263,8 +263,8 @@ persona.** No por prudencia — por arquitectura.
 1. ~~El plugin `criterio-pm`~~ — **construido**, con la regla que mantiene iguales las copias.
 2. ~~El comando de compromisos~~ — **construido**: `/pm-commitments`, con `/pm-setup` delante.
 3. ~~Publicar la ficha~~ — **construido**: `/pm-publish`.
-4. **El contraste `pm_vs_pmo` en código**, del lado de Vera, con sus dos citas. Es lo único
-   que falta para que las dos fichas sirvan de algo, y es lo siguiente.
+4. ~~El contraste `pm_vs_pmo` en código~~ — **construido**, del lado de Vera, con sus dos
+   citas y con las cuatro formas de diferir distinguidas. Siete comprobaciones.
 5. **La estructura de la reunión.** Cierra el ciclo y es la de más apalancamiento.
 6. **El informe semanal**, con cadencia y forma de proyecto, no de comité.
 7. **El acta de la reunión.**

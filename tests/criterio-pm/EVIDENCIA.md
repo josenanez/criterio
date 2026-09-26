@@ -56,9 +56,11 @@ Conviene decirlo antes de que alguien lo suponga.
   ejercitado. `grade.py --fichas` existe para eso y todavía no se ha ejecutado.
 - **No hay comandos.** Samuel trae los ocho skills del método y la aritmética, y
   ninguna puerta propia. Lo que se prueba aquí es el cálculo, no el agente.
-- **La ficha publicada y el contraste `pm_vs_pmo` no existen.** Están diseñados en
-  [`docs/agents/project-manager.md`](../../docs/agents/project-manager.md) y
-  declarados como pendientes en `tests/coherencia.py`.
+- **La ficha publicada y el contraste `pm_vs_pmo` están construidos pero no corridos
+  de punta a punta.** `/pm-publish` escribe la ficha y `contrastar()` emite la señal con
+  sus dos citas — verificado con siete comprobaciones en `pmo.py selftest` y con una
+  corrida a mano sobre PRY-101. Lo que falta es que un agente de verdad publique y otro
+  de verdad lea.
 - **Ni agenda, ni acta, ni informe semanal.** Son las tres funciones que cierran el
   ciclo de la reunión y todavía no se han construido.
 

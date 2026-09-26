@@ -87,6 +87,32 @@ Nadie reexpide el acta de constitución porque se fue el patrocinador. Aparece e
 
 Entonces cuando un documento reciente nombra a una persona distinta en un rol, **eso se levanta como evento**, no se sobrescribe en silencio: el campo queda `ambiguous` con las dos fuentes, igual que cualquier contradicción, y el cálculo lo separa como `governance_change` porque no es un defecto de la ficha. Cambio de patrocinador, de gerente o de composición del comité es hallazgo de portafolio aunque ningún cronograma se haya movido. Qué hace la señal está en `portfolio-health`.
 
+
+## Cuando el proyecto tiene su propio agente
+
+Un proyecto gestionado con `criterio-pm` publica su ficha en la carpeta de gobierno,
+como **`ficha-pm.json`**. Es un documento más del proyecto y se lee como tal.
+
+**No la fusiones con la tuya.** Va entera en el campo `pm_record` de la ficha del
+portafolio, tal como la leíste, y las dos conviven:
+
+```json
+{
+  "identity": { "...": "tu lectura" },
+  "pm_record": { "identity": { "...": "lo que publicó el gerente" } }
+}
+```
+
+Es la séptima invariante —**una ficha, un escritor**— y la razón es que lo que sería un
+conflicto de escritura se vuelve la señal: el código contrasta ocho campos y emite
+`pm_vs_pmo` cuando los dos citan y no coinciden. **Tú no decides quién tiene razón**, y
+tampoco copias un dato de la ficha del gerente a la tuya para «corregirla»: tu ficha es
+tu lectura de los documentos, y si el gerente vio algo que tú no, el hallazgo es
+exactamente eso.
+
+Si no hay `ficha-pm.json`, `pm_record` no existe y no pasa nada. Es el caso normal.
+
+
 ## Lo que nunca se hace
 
 - Inventar un dato que no está en ningún documento.

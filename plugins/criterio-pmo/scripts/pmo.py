@@ -70,6 +70,15 @@ STATUS_RANK = {
 # análisis de causa raíz. Por eso se reporta aparte de `contradiction`.
 GOVERNANCE_FIELDS = ("identity.sponsor", "identity.manager", "identity.committee")
 
+# Los campos que el agente del proyecto y el del portafolio tienen **los dos** por qué
+# leer. Contrastar todo produciría una avalancha de diferencias de alcance —el agente
+# del proyecto lee minutas semana a semana y el de portafolio no— y nadie volvería a
+# abrir el informe. Son los que envejecen peor y los que una PMO usa para decidir.
+CAMPOS_CONTRASTADOS = (
+    "identity.sponsor", "identity.manager", "identity.committee", "identity.product",
+    "plan.end_date", "money.approved", "declared.status", "declared.as_of",
+)
+
 # The signals a status light is supposed to account for. `contradiction` is
 # deliberately out: it is a defect of the record, not of the project, and
 # mixing the two weakens the finding.
@@ -481,7 +490,112 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     if edad is not None and edad >= th["declaration_stale_days"]:
         alert("declaration_stale", {"days": edad, "as_of": out["declared"]["as_of"]})
 
+    # --- la ficha del gerente contra la lectura del portafolio ----------
+    # Séptima invariante: dos agentes leen los mismos documentos y escriben dos
+    # fichas que nunca se fusionan. Lo que era un conflicto de escritura es aquí
+    # la señal, y aquí solo hay aritmética sobre dos registros que ya existen.
+    for d in contrastar(rec, rec.get("pm_record"), today):
+        alert("pm_vs_pmo", d)
+
     return out
+
+
+def campo_en(rec, ruta):
+    """Baja por una ficha siguiendo «identity.sponsor» y devuelve el campo entero."""
+    nodo = rec
+    for parte in ruta.split("."):
+        if not isinstance(nodo, dict):
+            return None
+        nodo = nodo.get(parte)
+    return nodo
+
+
+def contrastar(pmo_rec: dict, pm_rec, today: dt.date) -> list:
+    """Dónde el gerente y la PMO no leyeron lo mismo.
+
+    **Solo es hallazgo cuando los dos citan y no coinciden**, porque entonces uno de
+    los dos vio un documento que el otro no vio, y la señal puede decir cuál y de qué
+    fecha. Las otras tres formas de diferir no son hallazgo, y distinguirlas es lo que
+    hace que esto sirva:
+
+    - El gerente lo tiene y la PMO no: **diferencia de profundidad.** Un compromiso
+      dicho en una reunión no está al alcance de un barrido de portafolio.
+    - La PMO lo tiene y el gerente no: sí es hallazgo — la PMO leyó un documento del
+      proyecto que el gerente no está viendo.
+    - Coinciden: el caso normal, y no se reporta. Un agente que celebra las
+      coincidencias es ruido.
+    """
+    if not isinstance(pm_rec, dict):
+        return []
+    fuera = []
+    for ruta in CAMPOS_CONTRASTADOS:
+        a, b = campo_en(pmo_rec, ruta), campo_en(pm_rec, ruta)
+        va, vb = value(a), value(b)
+        if vb is None and va is None:
+            continue
+        if vb is None:
+            continue                       # profundidad al revés: la PMO vio más
+        if va is None:
+            fuera.append({"field": ruta, "only": "pm", "pm": vb,
+                          "pm_source": source_of(b), "pm_date": source_of_date(b)})
+            continue
+        if str(va).strip() == str(vb).strip():
+            continue
+        fa, fb = source_of_date(a), source_of_date(b)
+        fuera.append({
+            "field": ruta,
+            "pmo": va, "pmo_source": source_of(a), "pmo_date": fa,
+            "pm": vb, "pm_source": source_of(b), "pm_date": fb,
+            # Cuál de los dos cita el documento más reciente. Es lo que convierte el
+            # hallazgo en accionable: no «no coinciden», sino «el gerente cita la
+            # minuta del 11 y la PMO el acta de enero».
+            "newer": ("pm" if fa and fb and fb > fa else
+                      "pmo" if fa and fb and fa > fb else None),
+        })
+    return fuera
+
+
+def source_of_date(field):
+    if isinstance(field, dict):
+        return field.get("source_date")
+    return None
+
+
+def _pruebas_contraste():
+    """Las cuatro formas de diferir, y solo dos son hallazgo."""
+    def c(v, fuente, fecha):
+        return {"value": v, "source": fuente, "source_date": fecha, "state": "found"}
+
+    hoy = dt.date(2026, 11, 20)
+    pmo = {"identity": {"sponsor": c("María Restrepo", "00-gobierno/acta.md", "2026-01-12"),
+                        "manager": c("Daniel Ospina", "00-gobierno/acta.md", "2026-01-12"),
+                        "product": {"value": None, "state": "not_found"}},
+           "plan": {"end_date": c("2027-02-27", "10-plan/crono.csv", "2026-08-10")}}
+    pm = {"identity": {"sponsor": c("Sandra Gil", "30-reuniones/2026-09-11.md", "2026-09-11"),
+                       "manager": c("Daniel Ospina", "00-gobierno/acta.md", "2026-01-12"),
+                       "product": c("Pagos QR", "00-gobierno/acta.md", "2026-01-12")},
+          "plan": {"end_date": c("2027-02-27", "10-plan/crono.csv", "2026-08-10")}}
+
+    d = contrastar(pmo, pm, hoy)
+    por_campo = {x["field"]: x for x in d}
+    solo_pm = por_campo.get("identity.product", {})
+    patro = por_campo.get("identity.sponsor", {})
+
+    # Lo que el gerente tiene y la PMO no, al revés: profundidad, no hallazgo.
+    hondo = contrastar({"identity": {"sponsor": c("X", "a.md", "2026-01-01")}},
+                       {"identity": {}}, hoy)
+
+    return [
+        ("contraste · solo lo que difiere", sorted(por_campo),
+         ["identity.product", "identity.sponsor"]),
+        ("contraste · coincidir no es hallazgo", "identity.manager" in por_campo, False),
+        ("contraste · quién cita lo más nuevo", patro.get("newer"), "pm"),
+        ("contraste · lleva las dos citas",
+         bool(patro.get("pmo_source") and patro.get("pm_source")), True),
+        ("contraste · lo que solo tiene el PM", solo_pm.get("only"), "pm"),
+        ("contraste · profundidad al revés no es hallazgo", hondo, []),
+        ("contraste · sin ficha del PM no hay señal", contrastar(pmo, None, hoy), []),
+    ]
 
 
 def compute(state: Path, today: dt.date, th: dict) -> dict:
@@ -1086,6 +1200,7 @@ def _selftest_cadencia():
         ("cola · dice cuántas y desde cuándo", d5["detail"]["requests"]["open"], 1),
         ("cola · la respondida no cuenta", [r["id"] for r in peticiones_abiertas(tmp)], []),
         ("cola · respondida, vuelve a callarse", d6["quiet"], True),
+    ] + _pruebas_contraste() + [
     ]
     shutil.rmtree(tmp)
     return salida
