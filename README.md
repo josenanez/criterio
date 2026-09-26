@@ -58,7 +58,16 @@ None of that shows up in a status report. **The status report is written by the 
 
 Two decisions you notice on day one. **Four budget figures, not two:** a project at 40% executed and 95% committed has no headroom — its budget is spent and not yet incurred, and that is invisible if you look at executed against approved. **Silence is measured:** a project with no documentation is not badly run, it is undocumented, and that is a different finding that also has to be said.
 
-→ **[PMO Agent, available today](plugins/criterio-pmo/README.md)** · the method, the commands and the acceptance criteria
+**The PMO family has more than one agent because the organisation has more than one role.** They carry people's names because they are capabilities that extend people, and each name's meaning points at what it does.
+
+| | | |
+|---|---|---|
+| **[Vera](plugins/criterio-pmo/README.md)** | PMO agent · **available** | *Verus*, the true. Says what the documents say, not what gets reported. 17 commands, 10 skills |
+| **[Samuel](plugins/criterio-pm/README.md)** | Project agent · **under construction** | "He who heard". Its central function is the commitment said and not kept. 3 commands, 8 skills |
+| **Alba** | Product agent · not built | Daybreak. Works before the project exists |
+| **[Rostrum](plugins/criterio-pmo/SERVER.md)** | The server · **available** | A lectern. Holds up what is already written, where the team can read it |
+
+Rostrum is the only one without a person's name, and that is deliberate: the agents decide about what they read, and the server decides nothing.
 
 ---
 
@@ -112,7 +121,8 @@ The list is not closed. **A capability joins when someone who practises it wants
 
 ```
 /plugin marketplace add josenanez-company/criterio
-/plugin install criterio-pmo@criterio
+/plugin install criterio-pmo@criterio     if you run the portfolio
+/plugin install criterio-pm@criterio      if you run a project
 ```
 
 After installing, each agent has a setup command that looks at your folders, asks five questions and produces a first result on your own documents. **Nobody edits a configuration file by hand.**
@@ -146,9 +156,12 @@ Each capability publishes the figures from its real runs: how many documents, ho
 What can be verified today, by cloning the repository:
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest    the arithmetic against its known results
-python3 scripts/validate_plugins.py                     marketplace structure and consistency
+python3 scripts/verificar.py
 ```
+
+One door, thirteen checks: the synthetic material, both plugins' arithmetic, the hand-written answers, and that the documentation says what the code does. **On the standard library, with nothing installed** — if any of this needed a dependency, the property that makes this repository auditable would be broken.
+
+What each run proves and, with the same candour, **what it does not**, in [`tests/criterio-pmo/EVIDENCIA.md`](tests/criterio-pmo/EVIDENCIA.md) and [`tests/criterio-pm/EVIDENCIA.md`](tests/criterio-pm/EVIDENCIA.md) — in Spanish, as working documents.
 
 ---
 

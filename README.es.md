@@ -58,7 +58,16 @@ Nada de eso aparece en un informe de avance. **El informe de avance lo escribe q
 
 Dos decisiones que se notan el primer día. **Las cuatro cifras del presupuesto, no dos:** un proyecto con 40% ejecutado y 95% comprometido no tiene holgura, tiene el presupuesto agotado y todavía sin causar, y eso es invisible si se mira ejecutado contra aprobado. **El silencio se mide:** un proyecto sin documentación no está mal gestionado, está sin documentar, y ese es un hallazgo distinto que también hay que decir.
 
-→ **[Agente PMO, disponible hoy](plugins/criterio-pmo/README.es.md)** · el método, los comandos y los criterios de aceptación
+**La familia PMO tiene más de un agente porque la organización tiene más de un rol.** Llevan nombre de persona porque son capacidades extendidas de personas, y el significado de cada nombre apunta a lo que hace.
+
+| | | |
+|---|---|---|
+| **[Vera](plugins/criterio-pmo/README.es.md)** | Agente PMO · **disponible** | *Verus*, lo verdadero. Dice lo que los documentos dicen, no lo que se reporta. 17 comandos, 10 skills |
+| **[Samuel](plugins/criterio-pm/README.es.md)** | Agente de proyecto · **en construcción** | «El que escuchó». Su función central es el compromiso dicho y no cumplido. 3 comandos, 8 skills |
+| **Alba** | Agente de producto · sin construir | El amanecer. Trabaja antes de que el proyecto exista |
+| **[Rostrum](plugins/criterio-pmo/SERVER.es.md)** | El servidor · **disponible** | Una tribuna. Sostiene lo que ya está escrito, donde el equipo puede leerlo |
+
+Rostrum es el único sin nombre de persona, y es a propósito: los agentes deciden sobre lo que leen, y el servidor no decide nada.
 
 ---
 
@@ -112,7 +121,8 @@ La lista no está cerrada. **Una capacidad entra cuando alguien que la ejerce qu
 
 ```
 /plugin marketplace add josenanez-company/criterio
-/plugin install criterio-pmo@criterio
+/plugin install criterio-pmo@criterio     si gestionas el portafolio
+/plugin install criterio-pm@criterio      si gestionas un proyecto
 ```
 
 Después de instalar, cada agente tiene un comando de instalación que mira tus carpetas, hace cinco preguntas y produce un primer resultado sobre tus propios documentos. **Nadie edita un archivo de configuración a mano.**
@@ -146,9 +156,12 @@ Cada capacidad publica las cifras de sus corridas reales: cuántos documentos, c
 Lo que se puede verificar hoy, clonando el repositorio:
 
 ```
-python3 plugins/criterio-pmo/scripts/pmo.py selftest    la aritmética contra sus resultados conocidos
-python3 scripts/validate_plugins.py                     estructura y consistencia del market
+python3 scripts/verificar.py
 ```
+
+Una sola puerta, trece comprobaciones: el material sintético, la aritmética de los dos plugins, las respuestas escritas a mano, y que la documentación diga lo que el código hace. **Con la librería estándar y sin instalar nada** — si algo de esto necesitara una dependencia, la propiedad que hace auditable a este repositorio se habría roto.
+
+El detalle de qué prueba cada corrida y, con la misma franqueza, **qué no**, en [`tests/criterio-pmo/EVIDENCIA.md`](tests/criterio-pmo/EVIDENCIA.md) y [`tests/criterio-pm/EVIDENCIA.md`](tests/criterio-pm/EVIDENCIA.md).
 
 ---
 

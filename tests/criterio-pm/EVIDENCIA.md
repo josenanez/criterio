@@ -7,6 +7,9 @@ Nada aquí es real. El corpus se construyó desde cero, como exige
 
 ## Lo que se corre
 
+**Una sola puerta:** `python3 scripts/verificar.py` corre todo lo de abajo y lo de
+`criterio-pmo`. Lo que sigue es el detalle.
+
 ```
 python3 tests/criterio-pm/generar.py    16 documentos en 2 proyectos, 7 minutas
 python3 tests/criterio-pm/grade.py      19 comprobaciones

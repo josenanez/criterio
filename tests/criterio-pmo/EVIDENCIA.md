@@ -9,6 +9,9 @@ documentación real no existen todavía, y hasta que existan no se inventan.
 
 ## Lo que se corre, y qué verifica cada cosa
 
+**Una sola puerta:** `python3 scripts/verificar.py` corre todo lo de abajo y lo de
+`criterio-pm`, y dice qué prueba cada cosa. Lo que sigue es el detalle.
+
 ```
 python3 plugins/criterio-pmo/scripts/pmo.py selftest       42 resultados · la aritmética
 python3 plugins/criterio-pmo/scripts/texto.py --selftest   12 resultados · la conversión

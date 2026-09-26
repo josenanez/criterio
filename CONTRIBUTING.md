@@ -42,7 +42,7 @@ And the shape that works: a concrete signal to look for in the material, what it
 
 ## Before opening the pull request
 
-- [ ] `python3 scripts/validate_plugins.py` passes with no errors.
+- [ ] **`python3 scripts/verificar.py` passes with no errors.** One door that runs everything: the synthetic material, both plugins' arithmetic, the hand-written answers, and that the documentation says what the code does.
 - [ ] A skill's name matches its directory; a command has `description` and `argument-hint`.
 - [ ] The plugin README lists whatever you added — the validator checks this.
 - [ ] Test material under `tests/` covers the new behaviour, and the grader catches it when it regresses.

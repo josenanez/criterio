@@ -42,7 +42,7 @@ Y la que sí funciona: una señal concreta que buscar en el material, qué signi
 
 ## Antes del pull request
 
-- [ ] `python3 scripts/validate_plugins.py` pasa sin errores.
+- [ ] **`python3 scripts/verificar.py` pasa sin errores.** Es una sola puerta y corre todo: el material sintético, la aritmética de los dos plugins, las respuestas escritas a mano, y que la documentación diga lo que el código hace.
 - [ ] El nombre del skill coincide con su directorio; el comando tiene `description` y `argument-hint`.
 - [ ] El README del plugin lista lo que agregó — el validador lo revisa.
 - [ ] Hay material de prueba en `tests/` que cubre el comportamiento nuevo, y el evaluador lo detecta cuando se rompe.
