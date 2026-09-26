@@ -164,6 +164,8 @@ Una sola puerta, trece comprobaciones: el material sintético, la aritmética de
 
 El detalle de qué prueba cada corrida y, con la misma franqueza, **qué no**, en [`tests/criterio-pmo/EVIDENCIA.md`](tests/criterio-pmo/EVIDENCIA.md) y [`tests/criterio-pm/EVIDENCIA.md`](tests/criterio-pm/EVIDENCIA.md).
 
+**Los resultados de la última corrida, por agente y en conjunto, con gráficas y con lo que todavía no se ha probado:** [`docs/pruebas.html`](docs/pruebas.html) — la genera `python3 scripts/resultados.py`, y sale de correr las puertas, no de escribirlas.
+
 ---
 
 ## Apache 2.0 — qué entregamos y a qué invitamos

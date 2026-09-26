@@ -64,6 +64,8 @@ PUERTAS = [
      "Que el marketplace y cada plugin estén completos"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/sincronizar.py"), "--check"],
      "Que las copias compartidas no se hayan separado"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/resultados.py"), "--selftest"],
+     "Que la página de resultados no deje una puerta sin dueño"),
 ]
 
 VERDE, ROJO, GRIS = "\033[32m", "\033[31m", "\033[90m"
