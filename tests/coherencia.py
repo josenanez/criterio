@@ -230,6 +230,25 @@ for script, paginas in (("servidor.py", ("SERVER.es.md", "SERVER.md")),):
         elif dichos:
             decir(OK, f"{nombre} · las {reales} comprobaciones que dice son las que hay")
 
+# ── los scripts que dos plugins comparten ───────────────────────────────
+# Una copia que se separó en silencio es peor que no tenerla: los dos plugins
+# calcularían distinto sobre los mismos documentos y nadie sabría cuál creerle.
+print("\nScripts compartidos entre plugins")
+SINC = RAIZ / "scripts" / "sincronizar.py"
+if SINC.exists():
+    import subprocess
+    r = subprocess.run([sys.executable, str(SINC), "--check"],
+                       capture_output=True, text=True)
+    for linea in r.stdout.splitlines():
+        if linea.strip().startswith("igual"):
+            decir(OK, linea.strip())
+        elif "FALLA" in linea:
+            decir(FALLA, linea.split("FALLA", 1)[1].strip())
+    if r.returncode and "FALLA" not in r.stdout:
+        decir(FALLA, "sincronizar.py --check falló sin decir por qué")
+else:
+    decir(NOTA, "no hay scripts compartidos todavía")
+
 # ── la política de valor, de docs/design.md ─────────────────────────────
 # Una pieza para nivel C dice cómo se instala, en cuánto da el primer resultado, y
 # qué nunca hace. Sin esas tres, no la leen: la confianza es la puerta y el tiempo

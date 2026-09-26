@@ -15,6 +15,12 @@
       "category": "project-management"
     },
     {
+      "name": "criterio-pm",
+      "description": "Gerencia de un proyecto: el compromiso dicho y no cumplido, el plan contra la evidencia, la agenda de la reunión antes y el acta después, y el informe semanal listo salvo el estado. Una instancia por proyecto. Declarado, en construcción.",
+      "source": "./plugins/criterio-pm",
+      "category": "project-management"
+    },
+    {
       "name": "criterio-legal",
       "description": "Revisión de contratos y cumplimiento con criterio de derecho civil suramericano: exclusiones de responsabilidad, cláusula penal, agencia comercial, datos personales, firma electrónica y anticorrupción, por país y con cita a la norma.",
       "source": "./plugins/criterio-legal",
