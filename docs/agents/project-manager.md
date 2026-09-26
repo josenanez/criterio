@@ -1,4 +1,4 @@
-# Bevel · el agente Project Manager
+# Samuel · el agente Project Manager
 
 Fija un ángulo y verifica cada pieza contra él. Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
 
@@ -60,25 +60,25 @@ comparación compara al sistema consigo mismo.
 
 ## Las dos fichas
 
-Bevel y Plumb leen **los mismos documentos** y escriben **dos fichas distintas que
+Samuel y Vera leen **los mismos documentos** y escriben **dos fichas distintas que
 nunca se fusionan.** Es la misma regla que ya gobierna declarado contra evidenciado,
 aplicada un nivel más arriba.
 
 | | Ficha del proyecto | Lectura de portafolio |
 |---|---|---|
-| **La escribe** | Bevel, salvo `declared` | Plumb |
-| **Vive en** | El estado de Bevel, en el equipo del gerente | El estado de Plumb |
+| **La escribe** | Samuel, salvo `declared` | Vera |
+| **Vive en** | El estado de Samuel, en el equipo del gerente | El estado de Vera |
 | **Profundidad** | Todo: compromisos de cada reunión, RAID, entregables por proveedor | Lo que un barrido de portafolio alcanza a leer |
 | **Cadencia** | Diaria o por reunión | Semanal o de comité |
 | **Para qué** | Que el gerente llegue con la semana preparada | Que la PMO vea el conjunto |
 
 ### Por qué dos y no una
 
-Una sola ficha con dos escritores es una carrera: el barrido de Plumb pasa el martes
-y sobreescribe lo que Bevel puso el lunes, o al revés. La forma habitual de
+Una sola ficha con dos escritores es una carrera: el barrido de Vera pasa el martes
+y sobreescribe lo que Samuel puso el lunes, o al revés. La forma habitual de
 resolverlo —un dueño, y el otro solo lee— obliga a elegir mal en las dos direcciones:
-si manda Bevel, la PMO pierde la capacidad de leer un proyecto por su cuenta cuando
-duda del gerente; si manda Plumb, la PMO entra en el camino crítico de cada proyecto,
+si manda Samuel, la PMO pierde la capacidad de leer un proyecto por su cuenta cuando
+duda del gerente; si manda Vera, la PMO entra en el camino crítico de cada proyecto,
 y con setenta proyectos eso es un cuello de botella.
 
 Dos fichas quitan el problema en vez de arbitrarlo. **Y lo que era un conflicto de
@@ -92,8 +92,8 @@ sistema: es información sobre la carpeta.
 | Lo que se observa | Qué significa |
 |---|---|
 | **Los dos citan, y no coinciden** | Leyeron documentos distintos. El que cita el más reciente vio algo que el otro no. Es el hallazgo de más valor, y apunta a un documento concreto |
-| **Bevel lo tiene, Plumb no** | Diferencia de profundidad, no contradicción. Un compromiso dicho en una reunión no está al alcance de un barrido de portafolio. **No es hallazgo** |
-| **Plumb lo tiene, Bevel no** | Sí es hallazgo: la PMO leyó un documento del proyecto que el gerente no está viendo |
+| **Samuel lo tiene, Vera no** | Diferencia de profundidad, no contradicción. Un compromiso dicho en una reunión no está al alcance de un barrido de portafolio. **No es hallazgo** |
+| **Vera lo tiene, Samuel no** | Sí es hallazgo: la PMO leyó un documento del proyecto que el gerente no está viendo |
 | **Coinciden** | El caso normal, y no se reporta. Un agente que celebra las coincidencias es ruido |
 
 La distinción de la segunda fila es la que hace que esto sirva. Sin ella, cada corrida
@@ -101,15 +101,15 @@ reportaría cien diferencias de alcance y nadie volvería a abrir el informe.
 
 ### Cómo se encuentran las dos fichas
 
-**Bevel publica; Plumb lee.** Ninguno de los dos alcanza el estado del otro, y no
+**Samuel publica; Vera lee.** Ninguno de los dos alcanza el estado del otro, y no
 hace falta: la ficha del proyecto se publica **como un documento más del proyecto**, en
-la carpeta de gobierno, y Plumb la lee como lee todo lo demás.
+la carpeta de gobierno, y Vera la lee como lee todo lo demás.
 
 ```
 PRY-001-originacion-digital/
   00-gobierno/
     2026-01-12-acta-constitucion.md
-    ficha-pm.json          ← lo que Bevel publica
+    ficha-pm.json          ← lo que Samuel publica
   10-plan/
   20-seguimiento/
   30-reuniones/
@@ -120,10 +120,10 @@ almacenamiento compartido, no hay consistencia distribuida entre N instancias, y
 cita de cualquier campo de esa ficha ya es una ruta válida como la de cualquier otro
 documento.
 
-**Publicar es un acto explícito, no un efecto.** Plumb promete no escribir en las
-carpetas de documentación, y Bevel hereda esa promesa: escribe en su propio estado y
+**Publicar es un acto explícito, no un efecto.** Vera promete no escribir en las
+carpetas de documentación, y Samuel hereda esa promesa: escribe en su propio estado y
 solo pone `ficha-pm.json` en la carpeta del proyecto cuando alguien corre el comando que
-lo publica, o cuando la cadencia configurada lo hace. Es el único archivo que Bevel
+lo publica, o cuando la cadencia configurada lo hace. Es el único archivo que Samuel
 escribe fuera de su estado, y esa lista no crece sin decirlo aquí.
 
 ### Qué campos se contrastan
@@ -138,7 +138,7 @@ declared.status       declared.as_of
 ```
 
 Ocho campos, los que envejecen peor y los que una PMO usa para decidir. El contraste es
-aritmética sobre dos registros que Plumb ya tiene, así que **lo hace el código**, y
+aritmética sobre dos registros que Vera ya tiene, así que **lo hace el código**, y
 produce una señal nueva: `pm_vs_pmo`.
 
 La señal dice qué campo, qué dijo cada uno, y **de qué documento y de qué fecha lo sacó
@@ -263,8 +263,8 @@ persona.** No por prudencia — por arquitectura.
 1. **El plugin `criterio-pm`** con los scripts copiados y la regla que los mantiene iguales.
    Sin eso no hay dónde poner lo demás.
 2. **El comando de compromisos.** Es la función central del agente y la única sin puerta propia.
-3. **Publicar la ficha**, que es lo que conecta a Bevel con Plumb.
-4. **El contraste `pm_vs_pmo` en código**, del lado de Plumb, con sus dos citas.
+3. **Publicar la ficha**, que es lo que conecta a Samuel con Vera.
+4. **El contraste `pm_vs_pmo` en código**, del lado de Vera, con sus dos citas.
 5. **La estructura de la reunión.** Cierra el ciclo y es la de más apalancamiento.
 6. **El informe semanal**, con cadencia y forma de proyecto, no de comité.
 7. **El acta de la reunión.**
@@ -275,7 +275,7 @@ persona.** No por prudencia — por arquitectura.
 - **Dos fichas que nunca se fusionan**, y la diferencia entre ellas es la señal. Ver arriba.
 - **Dos plugins con los scripts en un solo sitio**, copiados por una regla que falla si se
   separan. Ver arriba.
-- **El registro de preguntas vive en el estado de Bevel**, con la forma de un compromiso
+- **El registro de preguntas vive en el estado de Samuel**, con la forma de un compromiso
   —quién, qué, cuándo— porque es el mismo objeto. La regla que decide si esto sobrevive a
   setenta proyectos: **la misma pregunta no se hace dos veces.** Si nadie contestó, la corrida
   siguiente reporta *«preguntada el 12, sin respuesta»*, que es un hallazgo, en vez de volver
@@ -289,7 +289,7 @@ persona.** No por prudencia — por arquitectura.
   es de solo lectura y versionada, caro si cada PM puede cambiar sus umbrales. **Con dos plugins
   la pregunta se vuelve más aguda**, porque ahora los umbrales pueden diferir por instalación y
   no solo por configuración.
-- **Qué pasa cuando Bevel publica y el gerente no quiere.** Publicar la ficha expone al
+- **Qué pasa cuando Samuel publica y el gerente no quiere.** Publicar la ficha expone al
   proyecto a la lectura de la PMO con una profundidad que antes no tenía. Es deseable y también
   es político, y este diseño no decide por la organización: publicar es explícito, y quien lo
   corre sabe lo que hace.

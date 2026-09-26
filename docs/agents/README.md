@@ -12,9 +12,9 @@ no duplicar la rotación.
 
 Una hoja por agente:
 
-- [**Plumb** · agente PMO](pmo.md) — gobierno de portafolio
-- [**Bevel** · agente Project Manager](project-manager.md) — un proyecto
-- [**Caliper** · agente Product Manager](product-manager.md) — antes de que exista el proyecto
+- [**Vera** · agente PMO](pmo.md) — gobierno de portafolio
+- [**Samuel** · agente Project Manager](project-manager.md) — un proyecto
+- [**Alba** · agente Product Manager](product-manager.md) — antes de que exista el proyecto
 
 La forma de todo lo que estos agentes entregan —informes, proyección, piezas gráficas— está en
 [`docs/design.md`](../design.md): es el diseño del portal, y se mantiene igual aquí.
@@ -76,7 +76,7 @@ el mismo proyecto. La forma cómoda de resolverlo —una ficha y un dueño— ob
 en las dos direcciones: si manda el gerente, la PMO no puede leer por su cuenta cuando duda;
 si manda la PMO, entra en el camino crítico de setenta proyectos. Dos fichas quitan el
 problema en vez de arbitrarlo, y **lo que era un conflicto de escritura se vuelve la señal.**
-Ver [Bevel · las dos fichas](project-manager.md#las-dos-fichas).
+Ver [Samuel · las dos fichas](project-manager.md#las-dos-fichas).
 
 ---
 
@@ -121,34 +121,42 @@ Cada fila de C lleva dos datos, y ninguno es un riesgo:
 
 ## Cómo se llaman
 
-**La capacidad se llama PMO, CFO o CLO. La pieza lleva el nombre de un instrumento que
-verifica contra una referencia.** Son dos cosas distintas y conviene no mezclarlas: la
-capacidad es la función de la organización, y la pieza es lo que la extiende.
+**La capacidad se llama PMO, CFO o CLO. El agente lleva nombre de persona.** Son dos cosas
+distintas y conviene no mezclarlas: la capacidad es la función de la organización, y el
+agente es quien la extiende.
 
-| Pieza | Nombre | Verifica contra | Por qué ese |
+Que lleven nombre de persona no es un adorno: **son capacidades extendidas de personas
+reales**, y el producto entero se sostiene en que la persona sigue ahí. Un nombre propio
+dice eso sin tener que explicarlo.
+
+| Pieza | Nombre | De dónde viene | La frase |
 |---|---|---|---|
-| Agente PMO | **Plumb** | la gravedad | *Hangs still and shows what isn't straight.* Cuelga quieto y muestra lo que no está derecho. No opina |
-| Agente Project Manager | **Bevel** | un ángulo fijado | *Sets one angle and checks every piece against it.* Una falsa escuadra fija un ángulo y verifica cada pieza contra él: un proyecto, no el conjunto |
-| Agente Product Manager | **Caliper** | una medida | *Measures before anything is cut.* Mide antes de que se corte nada — trabaja antes de que exista el proyecto |
-| El servidor | **Rostrum** | — | *Holds up what is already written.* Sostiene lo que ya está escrito, donde otros puedan leerlo |
+| Agente PMO | **Vera** | latín *verus*, lo verdadero | *Vera dice lo que los documentos dicen, no lo que se reporta* |
+| Agente Project Manager | **Samuel** | «el que escuchó» | *Samuel oyó lo que se dijo en la reunión, y lo recuerda el viernes* |
+| Agente Product Manager | **Alba** | el amanecer, antes de que haya luz | *Alba trabaja antes de que el proyecto exista* |
+| El servidor | **Rostrum** | una tribuna | *Sostiene lo que ya está escrito, donde otros puedan leerlo* |
 
-**La regla, que es lo que hace que esto escale y no la lista:** el nombre sale del oficio
-que la capacidad extiende, y **tiene que poder terminar la frase «X verifica Y contra Z, y
-no opina»**. Si no la termina, está mal elegido. Los nombres de CFO y CLO se eligen cuando
-esas capacidades se construyan, con esta misma regla y con el instrumental de su oficio —
-no con el de la PMO, que no significa nada fuera de ella.
+**La regla, que es lo que hace que esto escale y no la lista:** el nombre de un agente es
+un nombre de persona **cuyo significado apunta al oficio que su familia extiende**, y tiene
+que poder terminar la frase «X hace esto, y no opina». Si no la termina, está mal elegido.
 
-**Rostrum es el único que no verifica nada, y es a propósito.** Los tres agentes tienen
-nombre porque toman decisiones sobre lo que leen; el servidor no toma ninguna. Una tribuna
-no mide, no corrige y no opina: sostiene lo que ya está escrito a la altura de quien lo va
-a leer. Si algún día el servidor calculara algo, el nombre dejaría de ser cierto — y eso es
-exactamente lo que se quiere que se note.
+Samuel es el que mejor lo muestra: la función central de ese agente es **el compromiso
+dicho y no cumplido**, y el nombre significa literalmente «el que escuchó».
 
-**Los nombres están en inglés porque el producto se distribuye internacionalmente**, y son
-palabras cortas y concretas en vez de un panteón: un dios no puede terminar la frase de
-arriba. **No se traducen** —son propios— y **no son identificadores**: el plugin se sigue
-llamando `criterio-pmo`, los comandos y los skills no cambian. El nombre le da carácter a
-lo que la persona ve, no a lo que el código importa.
+Las familias que vengan eligen con la misma regla y con las referencias de su propio
+gremio — **CFO** con Mateo, patrono de contadores y banqueros, o Luca por Pacioli; **CLO**
+con Ivo, patrono de los abogados. Quien pertenece al gremio reconoce la referencia sin que
+nadie se la explique, y quien no la reconoce solo ve un nombre, que también está bien.
+
+**El servidor es el único que no lleva nombre de persona, y es a propósito.** Los agentes
+lo llevan porque toman decisiones sobre lo que leen; el servidor no toma ninguna. Es
+infraestructura, y conserva nombre de objeto: una tribuna no mide, no corrige y no opina —
+sostiene lo que ya está escrito a la altura de quien lo va a leer. Si algún día calculara
+algo, el nombre dejaría de ser cierto, y eso es exactamente lo que se quiere que se note.
+
+**Los nombres no se traducen** —son propios— y **no son identificadores**: el plugin se
+sigue llamando `criterio-pmo`, los comandos y los skills no cambian. El nombre le da
+carácter a lo que la persona ve, no a lo que el código importa.
 
 ---
 

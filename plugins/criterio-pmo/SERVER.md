@@ -12,7 +12,7 @@ is called that — and if it ever computed anything, the name would stop being t
 
 ![Rostrum: the report, for whoever does not open a folder](../../docs/img/en/servidor.png)
 
-Plumb produces the report as files on your machine. That serves whoever ran it, and
+Vera produces the report as files on your machine. That serves whoever ran it, and
 nobody else. **A sponsor does not open a folder of files**: they open a link, or they
 open nothing.
 

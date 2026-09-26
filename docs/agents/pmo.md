@@ -1,4 +1,4 @@
-# Plumb · el agente PMO
+# Vera · el agente PMO
 
 Cuelga quieta y dice si algo está derecho. Extiende a la **oficina de proyectos**: la función que responde por el conjunto de los
 proyectos, no por uno.
@@ -218,21 +218,21 @@ del producto, y eso se reporta.
 
 ## Cuando el proyecto tiene su propio agente
 
-Un proyecto con **Bevel** instalada publica su ficha en la carpeta de gobierno, como
-`ficha-pm.json`. Plumb **la lee como lee cualquier otro documento** —no alcanza el
-estado de Bevel y no hace falta— y sigue escribiendo la suya.
+Un proyecto con **Samuel** instalada publica su ficha en la carpeta de gobierno, como
+`ficha-pm.json`. Vera **la lee como lee cualquier otro documento** —no alcanza el
+estado de Samuel y no hace falta— y sigue escribiendo la suya.
 
 Son dos fichas y no se fusionan nunca: la séptima invariante. Lo que produce valor es
 la diferencia entre las dos, porque los dos leyeron los mismos documentos. Cuando los
 dos citan y no coinciden, alguien vio un documento que el otro no vio, y la señal dice
 cuál y de qué fecha.
 
-Del lado de Plumb eso es una señal más —`pm_vs_pmo`, ocho campos contrastados— y por
+Del lado de Vera eso es una señal más —`pm_vs_pmo`, ocho campos contrastados— y por
 lo tanto aritmética: **el código la calcula**, con las dos citas. El diseño completo,
-incluidos los tres casos que **no** son hallazgo, vive en la hoja de Bevel, que es su
-dueña: [Bevel · las dos fichas](project-manager.md#las-dos-fichas).
+incluidos los tres casos que **no** son hallazgo, vive en la hoja de Samuel, que es su
+dueña: [Samuel · las dos fichas](project-manager.md#las-dos-fichas).
 
-Un proyecto sin Bevel no cambia en nada. La ficha de Plumb sigue siendo la única, y
+Un proyecto sin Samuel no cambia en nada. La ficha de Vera sigue siendo la única, y
 es el caso que hoy está construido y probado.
 
 ## Lo que falta
@@ -246,7 +246,7 @@ puede *consultar* por enlace, y eso resuelve al patrocinador que entra a mirar. 
 resuelve que el informe *llegue* a un buzón sin que nadie lo reenvíe, y **eso no se va a
 resolver dándole correo al plugin**: mandar correos en nombre de alguien es una facultad
 que este agente no va a tener. Si tiene que llegar solo, lo manda un mecanismo de la
-organización leyendo `/estado.json`, no Plumb.
+organización leyendo `/estado.json`, no Vera.
 
 **Autenticación en el servidor**, que está decidido que no la trae y conviene releerlo
 cada tanto por si la decisión deja de ser la correcta. Ver arriba.

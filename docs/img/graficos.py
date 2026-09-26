@@ -121,7 +121,7 @@ T = {
         # ── familia ──
         'fam_ante': 'La familia PMO',
         'fam_tit': 'Tres agentes, un solo contrato de datos',
-        'n1': 'Plumb', 'n2': 'Bevel', 'n3': 'Caliper',
+        'n1': 'Vera', 'n2': 'Samuel', 'n3': 'Alba',
         'ag1': 'Agente PMO',
         'ag1_para': 'Para el gerente de la PMO y sus analistas',
         'ag1_desc': 'Cuarenta proyectos. Barrido amplio, cadencia de comité.',
@@ -170,7 +170,7 @@ T = {
         'i_luego': 'Y después, una sola cosa:',
         's_ante': 'Rostrum · el servidor',
         's_tit': 'El informe, para quien no abre una carpeta',
-        's_dentro': ['Tus documentos', 'Plumb', 'El informe'],
+        's_dentro': ['Tus documentos', 'Vera', 'El informe'],
         's_dentro_sub': [
             'Como estén, donde estén. El agente los lee; nadie más.',
             'Calcula, y escribe la ficha de cada proyecto.',
@@ -199,7 +199,7 @@ T = {
         'sin_construir': 'Not built',
         'fam_ante': 'The PMO family',
         'fam_tit': 'Three agents, one data contract',
-        'n1': 'Plumb', 'n2': 'Bevel', 'n3': 'Caliper',
+        'n1': 'Vera', 'n2': 'Samuel', 'n3': 'Alba',
         'ag1': 'PMO agent',
         'ag1_para': 'For the PMO manager and their analysts',
         'ag1_desc': 'Forty projects. Broad sweep, committee cadence.',
@@ -248,7 +248,7 @@ T = {
         'i_luego': 'And then, one thing:',
         's_ante': 'Rostrum · the server',
         's_tit': 'The report, for whoever does not open a folder',
-        's_dentro': ['Your documents', 'Plumb', 'The report'],
+        's_dentro': ['Your documents', 'Vera', 'The report'],
         's_dentro_sub': [
             'However they are. Only the agent reads them.',
             'Computes, and writes each project record.',

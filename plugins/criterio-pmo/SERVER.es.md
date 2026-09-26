@@ -12,7 +12,7 @@ dejaría de ser cierto.
 
 ![Rostrum: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
 
-Plumb produce el informe como archivos en tu equipo. Eso le sirve a quien lo corrió,
+Vera produce el informe como archivos en tu equipo. Eso le sirve a quien lo corrió,
 y a nadie más. **Un patrocinador no abre una carpeta de archivos**: abre un enlace, o
 no abre nada.
 

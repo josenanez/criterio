@@ -1,4 +1,4 @@
-# Caliper · el agente Product Manager
+# Alba · el agente Product Manager
 
 Mide antes de trazar. Extiende al **gerente de producto**: la persona que define qué se va a construir, antes de que
 exista un proyecto.

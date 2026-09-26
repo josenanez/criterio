@@ -1,6 +1,6 @@
 # criterio-pmo
 
-**Plumb, un segundo cerebro para la oficina de proyectos.** Lee la documentación que tu PMO ya
+**Vera, un segundo cerebro para la oficina de proyectos.** Lee la documentación que tu PMO ya
 tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
 
 [English](README.md) · Apache 2.0 · Se instala en cuatro clics · **El primer resultado sale
@@ -12,21 +12,22 @@ en quince minutos, sobre tus propios documentos**
 
 ![La familia PMO: tres agentes, un solo contrato de datos](../../docs/img/es/familia-pmo.png)
 
-La capacidad tiene más de un agente porque la organización tiene más de un rol. Se llaman
-como instrumentos que verifican contra una referencia, porque es lo que hacen: **Plumb**
-cuelga quieto contra la gravedad y muestra lo que no está derecho, **Bevel** fija un ángulo
-y verifica cada pieza contra él, **Caliper** mide antes de que se corte nada.
+La capacidad tiene más de un agente porque la organización tiene más de un rol. Llevan nombre
+de persona porque **son capacidades extendidas de personas**, y el significado de cada
+nombre apunta a lo que hace: **Vera** —de *verus*, lo verdadero— dice lo que los documentos
+dicen y no lo que se reporta; **Samuel** —«el que escuchó»— recuerda el viernes lo que se
+dijo en la reunión; **Alba** trabaja antes de que amanezca el proyecto.
 
-**Plumb está disponible hoy**; los otros dos vienen detrás y comparten el mismo contrato
+**Vera está disponible hoy**; los otros dos vienen detrás y comparten el mismo contrato
 de datos.
 
-**Bevel**, el agente del gerente de proyecto, no va a las reuniones — el gerente va. Lo que hace es que el gerente llegue
+**Samuel**, el agente del gerente de proyecto, no va a las reuniones — el gerente va. Lo que hace es que el gerente llegue
 con la semana preparada: la agenda armada antes, la minuta redactada después, el plan al día
 contra la evidencia y el informe listo salvo una línea. Su función central no la hace ninguna
 herramienta que un gerente use hoy: **el compromiso dicho y no cumplido.** Las reuniones están
 llenas de *«yo lo tengo para el viernes»* y nadie los registra.
 
-**Caliper** trabaja antes de que exista el proyecto, y entrega el acta con la
+**Alba** trabaja antes de que exista el proyecto, y entrega el acta con la
 que el proyecto nace.
 
 ---
@@ -114,7 +115,7 @@ comités distintos, cada comité ve su proyecto y **ninguno ve el producto**.
 
 Y tiene una cosa más, que es la que cambia cómo se usa: **quien mira puede dejarle una
 pregunta escrita al agente.** No le contesta en el momento —el agente no está
-corriendo— pero la pregunta queda en la cola, y la siguiente vez que Plumb despierta
+corriendo— pero la pregunta queda en la cola, y la siguiente vez que Vera despierta
 la atiende. *«Esto no coincide con lo que yo sé»* es la petición de más valor del
 sistema: es una persona diciéndote qué documento falta.
 

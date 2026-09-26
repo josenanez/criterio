@@ -9,7 +9,7 @@ criterion written afterwards describes what was built, not what was needed.
    restriction, and the selftest attempts it and asserts it fails.
 2. **Every field carries its citation** — source document and date — or the state
    `not_found`. A field with a value and no source is a defect, not a degraded case.
-3. **Two records never merge.** Bevel's record and Plumb's reading of the same
+3. **Two records never merge.** Samuel's record and Vera's reading of the same
    project stay separate files with separate owners, and no command writes both.
 
 ## Publishing
@@ -17,7 +17,7 @@ criterion written afterwards describes what was built, not what was needed.
 4. **Publishing is explicit.** `ficha-pm.json` reaches the project's governance folder
    only when a command puts it there. No command writes anything else outside the
    agent's own state, and the test enumerates what was written.
-5. **A published record is a valid document**: Plumb reads it with its ordinary
+5. **A published record is a valid document**: Vera reads it with its ordinary
    document intake, and every citation in it resolves.
 
 ## Commitments

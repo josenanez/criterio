@@ -1,6 +1,6 @@
 # criterio-pm
 
-**Bevel**, the project manager's agent. One instance per project.
+**Samuel**, the project manager's agent. One instance per project.
 
 [Español](README.es.md) · Apache 2.0
 
@@ -25,9 +25,9 @@ records them.
 **The agent does not declare the project's status.** The manager does. The agent shows
 them what against, and the gap between the two is the most valuable finding in the system.
 
-**It writes its own record, and nobody else's.** Bevel and Plumb read the same
-documents and write two separate records that **never merge**. Bevel publishes its own
-into the project's governance folder, Plumb reads it like any other document, and **when
+**It writes its own record, and nobody else's.** Samuel and Vera read the same
+documents and write two separate records that **never merge**. Samuel publishes its own
+into the project's governance folder, Vera reads it like any other document, and **when
 the two both cite a source and disagree, one of them saw a paper the other did not.** That
 is the signal.
 
@@ -56,7 +56,7 @@ record is the whole family's data contract.
 |---|---|
 | `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other |
 | `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what |
-| `commitment-tracking` | **Bevel's central function.** Commitments said in meetings: extraction, states, what counts as evidence, and the one repeated with a new date each time |
+| `commitment-tracking` | **Samuel's central function.** Commitments said in meetings: extraction, states, what counts as evidence, and the one repeated with a new date each time |
 | `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria |
 | `baseline-variance` | Append-only baseline, variance against the original and against the current one, the four budget figures |
 | `governance-artifacts` | Charter, committee, change control and closure: what each contains and who decides what |

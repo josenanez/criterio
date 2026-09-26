@@ -1,6 +1,6 @@
 # criterio-pmo
 
-**Plumb, a second brain for the project management office.** It reads the documentation your PMO
+**Vera, a second brain for the project management office.** It reads the documentation your PMO
 already has and says what changed, what contradicts itself, and what has been silent for
 weeks.
 
@@ -14,20 +14,21 @@ fifteen minutes, over your own documents**
 ![The PMO family: three agents, one data contract](../../docs/img/en/familia-pmo.png)
 
 The capability has more than one agent because the organisation has more than one role.
-They are named after instruments that check against a reference, because that is what
-they do: **Plumb** hangs still against gravity and shows what is not straight, **Bevel**
-sets one angle and checks every piece against it, **Caliper** measures before anything is
-cut.
+They carry people's names because **they are capabilities that extend people**, and each
+name's meaning points at what it does: **Vera** — from *verus*, the true — says what the
+documents say rather than what gets reported; **Samuel** — "he who heard" — remembers on
+Friday what was said in the meeting; **Alba** — daybreak — works before the project
+dawns.
 
-**Plumb is available today**; the other two come behind it and share the same data contract.
+**Vera is available today**; the other two come behind it and share the same data contract.
 
-**Bevel**, the project manager's agent, does not attend the meetings — the manager does. What it does is let the
+**Samuel**, the project manager's agent, does not attend the meetings — the manager does. What it does is let the
 manager arrive with the week prepared: the agenda built beforehand, the minutes drafted
 afterwards, the plan current against the evidence, and the report ready except for one line.
 Its central function is one no tool a project manager uses today performs: **the commitment
 said and not kept.** Meetings are full of *"I'll have it by Friday"* and nobody records them.
 
-**Caliper** works before the project exists, and delivers the charter the project
+**Alba** works before the project exists, and delivers the charter the project
 is born from.
 
 ---
@@ -113,7 +114,7 @@ committees, each committee sees its project and **none of them sees the product*
 
 And it has one more thing, which is what changes how it gets used: **whoever is looking
 can leave the agent a written question.** It does not answer on the spot — the agent is
-not running — but the question stays in the queue, and the next time Plumb wakes it
+not running — but the question stays in the queue, and the next time Vera wakes it
 handles it. *"This does not match what I know"* is the most valuable request in the
 system: it is a person telling you which document is missing.
 

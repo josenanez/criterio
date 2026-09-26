@@ -42,7 +42,7 @@ SKILLS = {
     "criterio-pm": {
         "project-record": "la ficha: el contrato de datos de toda la familia",
         "document-intake": "qué documento hay que releer y cuál no",
-        "commitment-tracking": "la función central de Bevel",
+        "commitment-tracking": "la función central de Samuel",
         "raid-taxonomy": "un riesgo es un riesgo lo mire quien lo mire",
         "baseline-variance": "la desviación se calcula igual en un proyecto que en cuarenta",
         "governance-artifacts": "acta, comité, control de cambios y cierre",
