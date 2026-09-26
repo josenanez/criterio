@@ -16,7 +16,7 @@
     },
     {
       "name": "criterio-pm",
-      "description": "Gerencia de un proyecto: el compromiso dicho y no cumplido, el plan contra la evidencia, la agenda de la reunión antes y el acta después, y el informe semanal listo salvo el estado. Una instancia por proyecto. En construcción: trae los ocho skills del método, todavía sin comandos.",
+      "description": "Gerencia de un proyecto: el compromiso dicho y no cumplido, extraído de la minuta con doliente, fecha y fuente — y el que se viene reprogramando reunión tras reunión, que no es un problema de seguimiento sino un bloqueo que nadie ha nombrado. Una instancia por proyecto.",
       "source": "./plugins/criterio-pm",
       "category": "project-management"
     },

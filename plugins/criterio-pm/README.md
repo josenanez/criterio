@@ -1,79 +1,146 @@
 # criterio-pm
 
-**Samuel**, the project manager's agent. One instance per project.
+**Samuel remembers what was promised in your meeting.** You run the committee, negotiate
+and unblock. He arrives with the week prepared and with the list of what was said and
+not done.
 
-[Español](README.es.md) · Apache 2.0
+[Español](README.es.md) · Apache 2.0 · One instance per project
 
-**Status: under construction.** The design is settled; the scripts and the eight skills
-it shares with `criterio-pmo` are here and verified; and **the test corpus already runs**:
-two projects, seven sets of minutes, 19 checks, and a negative control that produces not a
-single finding. **There are no commands yet**, so there is nothing to invoke — but the
-skills load on their own when the topic appears. Nothing is announced as finished until the
-acceptance criteria pass.
+**Status: under construction.** Three commands, the eight skills of the method, and the
+arithmetic verified. The agenda, the minutes and the weekly report are missing. Nothing
+is announced as finished until the [acceptance criteria](ACCEPTANCE.md) pass.
 
-What that run proves and what it does **not**, in
-[`tests/criterio-pm/EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md) — in Spanish, as
-working documents.
+---
 
-## What it will do
+## Install
 
-The agent **does not attend the meeting** — the manager does. What it does is let the
-manager arrive with the week prepared: the agenda built beforehand, the minutes drafted
-afterwards, the plan current against the evidence, and the progress report ready except
-for one line.
+```
+/plugin marketplace add josenanez-company/criterio
+/plugin install criterio-pm@criterio
+/pm-setup
+```
 
-Its central function is one no tool a project manager uses today performs: **the
-commitment said and not kept.** Meetings are full of *"I'll have it by Friday"* and nobody
-records them.
+If you run the portfolio rather than a project, yours is
+[`criterio-pmo`](../criterio-pmo/README.md).
 
-## What is already decided
+## The first result
 
-**The agent does not declare the project's status.** The manager does. The agent shows
-them what against, and the gap between the two is the most valuable finding in the system.
+`/pm-setup` does not ask you to tidy anything up first. It looks at your project's
+folder, asks four questions — one at a time, each with a suggested answer — and **reads
+your latest minutes**. With that it shows you, in under ten minutes:
 
-**It writes its own record, and nobody else's.** Samuel and Vera read the same
-documents and write two separate records that **never merge**. Samuel publishes its own
-into the project's governance folder, Vera reads it like any other document, and **when
-the two both cite a source and disagree, one of them saw a paper the other did not.** That
-is the signal.
+- **Who promised what and by when**, with the citation of the minutes where it was said.
+- **What is overdue with no evidence** in the file.
+- **What was left undated** — *"we'll look at it next week"*. It cannot be overdue, and
+  **that is exactly why it disappears from every report.**
 
-**It is distributed separately from `criterio-pmo`**, with the arithmetic copied from there
-by a rule that fails if the two copies drift apart. A project manager does not need
-seventeen portfolio commands.
+Then it tells you what your folder is missing for this to get better. As a finding, not
+a requirement: **it works with whatever is there.**
 
-## Where the design is
+## The commitment said and not kept
 
-Complete, with the three classes of function, the flow, what stays with the person and
-what is left to build in order:
-[`docs/agents/project-manager.md`](../../docs/agents/project-manager.md) — in Spanish, as
-working documents.
+It is why Samuel exists, and **no tool you use today does it.**
 
-The family's frame, the seven invariants and the one-owner-per-thing rule:
-[`docs/agents/README.md`](../../docs/agents/README.md).
+Meetings are full of *"I'll have it by Friday"*. It is not in the plan, because it is not
+a schedule task. It is not in the minutes, because someone wrote those from memory two
+days later. It was said, and it was lost.
 
-## The eight skills it already ships
+`/pm-commitments` extracts it from the minutes with owner, date and source. And it does
+one more thing, which is what separates useful follow-up from a list that only grows:
+**the same person promising the same thing with a new date is a rescheduled commitment,
+not a new one.**
 
-They load on their own when the topic appears, so **installing it today does do
-something**: the method is there, even though no commands drive it yet. They are literal
-copies from `criterio-pmo`, because a risk is a risk whoever is looking at it, and the
-record is the whole family's data contract.
+> **Rubén** · Deliver the certification test plan
+> Promised for 27 November, and before that for the 13th, and before that for 30 October.
+> **Three times is not a follow-up problem: it is a block nobody has named.**
+
+Three loose entries are three overdue items chased separately. One entry with three
+reschedules is a conversation that has to happen.
+
+## What it never does
+
+- **It does not declare your project's status.** You do. Samuel shows you what against,
+  and the gap between the two is the most valuable finding in the system. Not a
+  recommendation: a restriction of the write path.
+- **It does not attend your meeting.** It works on what the meeting leaves written, and
+  produces what the meeting needs.
+- **It does not write in your documentation folder.** The only thing it can ever put
+  there is your record, and only when you run `/pm-publish`.
+- **It writes to nobody.** It produces the list; chasing a commitment is a conversation,
+  not an automated reminder.
+- **It does not mark as met what nobody documented.** *"Rubén says he delivered it"*
+  closes nothing: the receipt note closes it.
+- **It does not guess.** Every value carries the citation of the document it came from.
+  *"Not stated anywhere"* is a valid and expected answer.
+
+And one that has to be said out loud: **your documents are processed on the AI
+platform's infrastructure**, not only on your machine. Confirm that is admissible under
+your policies before pointing it at confidential material. Full disclaimer in
+[DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
+
+---
+
+## You and the PMO read the same documents
+
+Samuel writes your record. Vera, the PMO's agent, writes hers over the same documents.
+**They never merge**, and that is deliberate: the comfortable way out — one record and
+one owner — forces a bad choice in both directions.
+
+`/pm-publish` puts your record in the project's governance folder, and Vera reads it
+like any other document. **When both cite a source and disagree, one of them saw a paper
+the other did not** — and half the time the one who is right is you, because you were in
+the meeting where the sponsor changed and the charter was never updated.
+
+What you have and the PMO does not — every meeting's commitments — **is not a
+contradiction**: it is a difference of depth, and it is not reported as a finding.
+
+## The three commands
+
+| Command | What it does |
+|---|---|
+| `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your latest minutes |
+| `/pm-commitments` | Who promised what, what is overdue with no evidence, and what keeps being rescheduled meeting after meeting |
+| `/pm-publish` | Publishes your record where the PMO can read it |
+
+Three are missing, in this order: the **meeting's structure**, the **weekly report** with
+a project's cadence rather than a committee's, and the **minutes**.
+
+## The eight skills
+
+They load on their own when the topic appears. They are literal copies from
+`criterio-pmo`, because a risk is a risk whoever is looking at it and the record is the
+whole family's data contract.
 
 | Skill | What it encapsulates |
 |---|---|
-| `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other |
+| `project-record` | The record: schema, extraction, citation, field states, what to do when two documents contradict each other |
 | `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what |
-| `commitment-tracking` | **Samuel's central function.** Commitments said in meetings: extraction, states, what counts as evidence, and the one repeated with a new date each time |
+| `commitment-tracking` | **The central function.** Extraction, states, what counts as evidence, and the one repeated with a new date each time |
 | `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria |
-| `baseline-variance` | Append-only baseline, variance against the original and against the current one, the four budget figures |
+| `baseline-variance` | Append-only baseline, variance against the original and the current one, the four budget figures |
 | `governance-artifacts` | Charter, committee, change control and closure: what each contains and who decides what |
-| `vendor-control` | Contract against evidence of receipt against invoicing, with an amount per deliverable |
-| `project-diagnosis` | Diagnosis from zero: in what order you read, and when the answer is that it cannot be diagnosed |
+| `vendor-control` | Contract against evidence of receipt against invoicing |
+| `project-diagnosis` | Diagnosis from zero: in what order you read, and when it cannot be diagnosed |
 
-What it does **not** ship, by scope and not by accident: `portfolio-health` and
-`portfolio-history` only make sense looking at the whole, and a project manager does not
-look at the whole. That is what [`criterio-pmo`](../criterio-pmo/README.md) is for.
+It does not ship `portfolio-health` or `portfolio-history`: they only make sense looking
+at the whole, and a project manager does not look at the whole.
 
-## Acceptance criteria
+## How it is verified
 
+```
+python3 tests/criterio-pm/grade.py      19 checks over two projects
+python3 scripts/pmo.py selftest         the arithmetic
+python3 scripts/texto.py --selftest     document conversion
+```
 
-See [ACCEPTANCE.md](ACCEPTANCE.md). Nothing ships until they pass.
+On the standard library, with nothing installed. Over a synthetic corpus with answers
+written by hand from the minutes — **including a negative control**: a project with
+meetings and commitments that produces not a single finding. An agent that finds
+something there is a noise generator.
+
+What that run proves and, in the same detail, **what it does not**, in
+[`tests/criterio-pm/EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md).
+
+The full design, with the three classes of function and what stays with the person, in
+[`docs/agents/project-manager.md`](../../docs/agents/project-manager.md) — both in
+Spanish, as working documents.

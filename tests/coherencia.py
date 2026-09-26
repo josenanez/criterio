@@ -21,11 +21,17 @@ RAIZ = Path(__file__).parent.parent
 PLUGIN = RAIZ / "plugins" / "criterio-pmo"
 PMO = PLUGIN / "scripts" / "pmo.py"
 
+# Todos los plugins construidos, no solo criterio-pmo. Un comando de Samuel nombrado
+# en la documentación de Vera tiene que resolver igual: la familia se lee junta.
+CONSTRUIDOS = sorted(d for d in (RAIZ / "plugins").iterdir()
+                     if d.is_dir() and (d / "commands").exists())
+
 DOCS = [RAIZ / "README.es.md", RAIZ / "README.md"]
 DOCS += sorted((RAIZ / "docs" / "agents").glob("*.md"))
-DOCS += sorted(PLUGIN.glob("*.md"))
-DOCS += sorted(PLUGIN.glob("skills/*/SKILL.md"))
-DOCS += sorted(PLUGIN.glob("commands/*.md"))
+for _p in CONSTRUIDOS:
+    DOCS += sorted(_p.glob("*.md"))
+    DOCS += sorted(_p.glob("skills/*/SKILL.md"))
+    DOCS += sorted(_p.glob("commands/*.md"))
 
 OK, FALLA, NOTA = "OK   ", "FALLA", "nota "
 fallas = 0
@@ -122,15 +128,16 @@ else:
 
 # ── 4 · comandos y skills ─────────────────────────────────────────────────
 print("\nComandos y skills")
-skills = {p.parent.name for p in PLUGIN.glob("skills/*/SKILL.md")}
-comandos = {p.stem for p in PLUGIN.glob("commands/*.md")}
+skills = {s.parent.name for d in CONSTRUIDOS for s in d.glob("skills/*/SKILL.md")}
+comandos = {c.stem for d in CONSTRUIDOS for c in d.glob("commands/*.md")}
 decir(OK, f"{len(comandos)} comandos · {len(skills)} skills")
 
-for cmd in sorted(comandos):
-    cuerpo = (PLUGIN / "commands" / f"{cmd}.md").read_text(encoding="utf-8")
-    for ref in set(re.findall(r"\*\*([a-z][a-z-]{4,30})\*\*", cuerpo)):
-        if ref.count("-") and ref not in skills and ref not in comandos:
-            decir(FALLA, f"/{cmd} invoca **{ref}** y no existe como skill")
+for d in CONSTRUIDOS:
+    for archivo in sorted(d.glob("commands/*.md")):
+        cuerpo = archivo.read_text(encoding="utf-8")
+        for ref in set(re.findall(r"\*\*([a-z][a-z-]{4,30})\*\*", cuerpo)):
+            if ref.count("-") and ref not in skills and ref not in comandos:
+                decir(FALLA, f"/{archivo.stem} invoca **{ref}** y no existe como skill")
 
 # Un comando no se documenta a sí mismo: su propio archivo sale de la búsqueda.
 # La primera versión no lo excluía y daba por documentado cualquier comando nuevo,

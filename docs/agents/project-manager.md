@@ -12,7 +12,7 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 | **Escribe** | La ficha del proyecto — **excepto el estado declarado** |
 | **Publica** | `ficha-pm.json` en la carpeta de gobierno del proyecto, y nada más |
 | **Lee** | Su propia ficha y el estándar que publica la PMO |
-| **Estado** | En construcción. El método existe; la superficie de comandos, no |
+| **Estado** | En construcción. Tres comandos, ocho skills, corpus propio y 19 comprobaciones. Faltan agenda, acta e informe semanal |
 | **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) |
 
 ---
@@ -260,15 +260,18 @@ persona.** No por prudencia — por arquitectura.
 
 ## Lo que falta por construir, en orden
 
-1. **El plugin `criterio-pm`** con los scripts copiados y la regla que los mantiene iguales.
-   Sin eso no hay dónde poner lo demás.
-2. **El comando de compromisos.** Es la función central del agente y la única sin puerta propia.
-3. **Publicar la ficha**, que es lo que conecta a Samuel con Vera.
-4. **El contraste `pm_vs_pmo` en código**, del lado de Vera, con sus dos citas.
+1. ~~El plugin `criterio-pm`~~ — **construido**, con la regla que mantiene iguales las copias.
+2. ~~El comando de compromisos~~ — **construido**: `/pm-commitments`, con `/pm-setup` delante.
+3. ~~Publicar la ficha~~ — **construido**: `/pm-publish`.
+4. **El contraste `pm_vs_pmo` en código**, del lado de Vera, con sus dos citas. Es lo único
+   que falta para que las dos fichas sirvan de algo, y es lo siguiente.
 5. **La estructura de la reunión.** Cierra el ciclo y es la de más apalancamiento.
 6. **El informe semanal**, con cadencia y forma de proyecto, no de comité.
 7. **El acta de la reunión.**
-8. *(construido: el compromiso reprogramado)*
+
+Y una deuda de verificación que conviene tener a la vista: **la extracción nunca se ha
+corrido.** El corpus siembra el estado desde `expected/fichas/`, así que la cadena
+documento → modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso.
 
 ## Decisiones cerradas
 

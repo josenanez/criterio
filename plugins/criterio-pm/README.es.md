@@ -1,77 +1,144 @@
 # criterio-pm
 
-**Samuel**, el agente del gerente de proyecto. Una instancia por proyecto.
+**Samuel se acuerda de lo que se prometió en tu reunión.** Tú vas al comité, negocias y
+desbloqueas. Él llega con la semana lista y con la lista de lo que se dijo y no se hizo.
 
-[English](README.md) · Apache 2.0
+[English](README.md) · Apache 2.0 · Una instancia por proyecto
 
-**Estado: en construcción.** El diseño está cerrado; los scripts y los ocho skills que
-comparte con `criterio-pmo` están aquí y verificados; y **el corpus de prueba ya corre**:
-dos proyectos, siete minutas, 19 comprobaciones y un control negativo que no produce ni un
-hallazgo. **Todavía no hay comandos**, así que no hay nada que invocar — pero los skills se
-cargan solos cuando el tema aparece. Nada se anuncia como terminado hasta que pasen los
-criterios de aceptación.
+**Estado: en construcción.** Hay tres comandos, los ocho skills del método y la
+aritmética verificada. Faltan la agenda, el acta y el informe semanal. Nada se anuncia
+como terminado hasta que pasen los [criterios de aceptación](ACCEPTANCE.md).
 
-Qué prueba esa corrida y qué **no**, en
-[`tests/criterio-pm/EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md).
+---
 
-## Qué va a hacer
+## Instalación
 
-El agente **no va a la reunión** — el gerente va. Lo que hace es que el gerente llegue con
-la semana preparada: la agenda armada antes, el acta redactada después, el plan al día
-contra la evidencia, y el informe de avance listo salvo una línea.
+```
+/plugin marketplace add josenanez-company/criterio
+/plugin install criterio-pm@criterio
+/pm-setup
+```
 
-Su función central no la hace ninguna herramienta que un gerente use hoy: **el compromiso
-dicho y no cumplido.** Las reuniones están llenas de *«yo lo tengo para el viernes»* y
-nadie los registra.
+Si gestionas el portafolio y no un proyecto, lo tuyo es
+[`criterio-pmo`](../criterio-pmo/README.es.md).
 
-## Lo que ya está decidido
+## El primer resultado
 
-**El agente no declara el estado del proyecto.** Eso lo hace el gerente. El agente le
-muestra contra qué, y la diferencia entre las dos cosas es el hallazgo de más valor del
-sistema.
+`/pm-setup` no te pide que ordenes nada antes de empezar. Mira la carpeta de tu
+proyecto, hace cuatro preguntas —una a la vez, cada una con una respuesta sugerida— y
+**lee tu última minuta**. Con eso te muestra, en menos de diez minutos:
 
-**Escribe su propia ficha, y no la de nadie más.** Samuel y Vera leen los mismos
-documentos y escriben dos fichas distintas que **nunca se fusionan**. Samuel publica la
-suya en la carpeta de gobierno del proyecto, Vera la lee como lee cualquier documento,
-y **cuando las dos citan y no coinciden, alguien vio un papel que el otro no vio**. Esa
-es la señal.
+- **Quién prometió qué y para cuándo**, con la cita de la minuta donde se dijo.
+- **Qué venció sin evidencia** en el expediente.
+- **Qué quedó sin fecha** — *«lo vemos la otra semana»*. No puede estar vencido, y **por
+  eso mismo es el que desaparece de todos los informes.**
 
-**Se distribuye aparte de `criterio-pmo`**, con la aritmética copiada de ahí por una regla
-que falla si las dos copias se separan. Un gerente de proyecto no necesita diecisiete
-comandos de portafolio.
+Después te dice qué le falta a tu carpeta para que esto sea mejor. Como hallazgo, no
+como requisito: **funciona con lo que haya.**
 
-## Dónde está el diseño
+## El compromiso dicho y no cumplido
 
-Completo, con las tres clases de función, el flujo, lo que sigue siendo de la persona y
-lo que falta por construir en orden:
-[`docs/agents/project-manager.md`](../../docs/agents/project-manager.md).
+Es la razón por la que Samuel existe, y **ninguna herramienta que uses hoy lo hace.**
 
-El marco de la familia, las siete invariantes y la regla de un dueño por cosa:
-[`docs/agents/README.md`](../../docs/agents/README.md).
+Las reuniones están llenas de *«yo lo tengo para el viernes»*. No está en el plan,
+porque no es una tarea del cronograma. No está en el acta, porque el acta la escribió
+alguien de memoria dos días después. Está dicho, y se perdió.
 
-## Los ocho skills que ya trae
+`/pm-commitments` lo extrae de la minuta con doliente, fecha y fuente. Y hace algo más,
+que es lo que separa un seguimiento útil de una lista que crece: **el mismo doliente
+prometiendo lo mismo con fecha nueva es un compromiso reprogramado, no uno nuevo.**
 
-Se cargan solos cuando el tema aparece, así que **instalarlo hoy sí hace algo**: el
-método está, aunque todavía no haya comandos que lo pongan en marcha. Son copias
-literales de `criterio-pmo`, porque un riesgo es un riesgo lo mire quien lo mire y la
-ficha es el contrato de datos de toda la familia.
+> **Rubén** · Entregar el plan de pruebas de certificación
+> Prometido para el 27 de noviembre, y antes para el 13, y antes para el 30 de octubre.
+> **Tres veces no es un problema de seguimiento: es un bloqueo que nadie ha nombrado.**
+
+Tres entradas sueltas son tres vencidos que se persiguen por separado. Una entrada con
+tres reprogramaciones es una conversación que hay que tener.
+
+## Lo que nunca hace
+
+- **No declara el estado de tu proyecto.** Eso lo declaras tú. Samuel te muestra contra
+  qué, y la diferencia entre las dos cosas es el hallazgo de más valor del sistema. No
+  es una recomendación: es una restricción del camino de escritura.
+- **No va a tu reunión.** Trabaja sobre lo que la reunión deja escrito, y produce lo que
+  la reunión necesita.
+- **No escribe en tu carpeta de documentación.** Lo único que puede llegar a poner ahí
+  es tu ficha, y solo cuando corras `/pm-publish`.
+- **No le escribe a nadie.** Produce la lista; perseguir un compromiso es una
+  conversación, no un recordatorio automático.
+- **No marca cumplido lo que nadie documentó.** *«Rubén dice que lo entregó»* no cierra
+  nada: cierra el acta de recibo.
+- **No adivina.** Cada dato lleva la cita del documento de donde salió. *«No está dicho
+  en ninguna parte»* es una respuesta válida y esperada.
+
+Y una que hay que decir en voz alta: **tus documentos se procesan en la infraestructura
+de la plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo tus
+políticas antes de apuntarlo a material confidencial. Descargo completo en
+[DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
+
+---
+
+## Tú y la PMO leen los mismos documentos
+
+Samuel escribe tu ficha. Vera, el agente de la PMO, escribe la suya sobre los mismos
+documentos. **No se fusionan nunca**, y eso es deliberado: la forma cómoda de resolverlo
+—una ficha y un dueño— obliga a elegir mal en las dos direcciones.
+
+`/pm-publish` pone tu ficha en la carpeta de gobierno del proyecto, y Vera la lee como
+lee cualquier documento. **Cuando las dos citan y no coinciden, alguien vio un papel que
+el otro no vio** — y la mitad de las veces el que tiene razón eres tú, porque tú
+estuviste en la reunión donde cambió el patrocinador y el acta de constitución no se
+actualizó nunca.
+
+Lo que tú tienes y la PMO no —los compromisos de cada reunión— **no es una
+contradicción**: es diferencia de profundidad, y no se reporta como hallazgo.
+
+## Los tres comandos
+
+| Comando | Qué hace |
+|---|---|
+| `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
+| `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
+| `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
+
+Faltan tres, en este orden: la **estructura de la reunión**, el **informe semanal** con
+cadencia de proyecto y no de comité, y el **acta**.
+
+## Los ocho skills
+
+Se cargan solos cuando el tema aparece. Son copias literales de `criterio-pmo`, porque
+un riesgo es un riesgo lo mire quien lo mire y la ficha es el contrato de datos de toda
+la familia.
 
 | Skill | Qué encapsula |
 |---|---|
-| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen |
+| `project-record` | La ficha: esquema, extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen |
 | `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué |
-| `commitment-tracking` | **La función central de Samuel.** Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez |
+| `commitment-tracking` | **La función central.** Extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez |
 | `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, las cuatro cifras del presupuesto |
+| `baseline-variance` | Línea base de solo agregar, desviación contra la original y la vigente, las cuatro cifras del presupuesto |
 | `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |
-| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable |
-| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar |
+| `vendor-control` | Contrato contra evidencia de recibo contra facturación |
+| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo no se puede diagnosticar |
 
-Lo que **no** trae, por alcance y no por casualidad: `portfolio-health` y
-`portfolio-history` solo tienen sentido mirando el conjunto, y un gerente de proyecto no
-mira el conjunto. Para eso está [`criterio-pmo`](../criterio-pmo/README.es.md).
+No trae `portfolio-health` ni `portfolio-history`: solo tienen sentido mirando el
+conjunto, y un gerente de proyecto no mira el conjunto.
 
-## Criterios de aceptación
+## Cómo se verifica
 
+```
+python3 tests/criterio-pm/grade.py      19 comprobaciones sobre dos proyectos
+python3 scripts/pmo.py selftest         la aritmética
+python3 scripts/texto.py --selftest     la conversión de documentos
+```
 
-En [ACCEPTANCE.md](ACCEPTANCE.md). Nada se publica hasta que pasen.
+Con la librería estándar, sin instalar nada. Sobre un corpus sintético con respuestas
+escritas a mano leyendo las minutas — **incluido un control negativo**: un proyecto con
+reuniones y compromisos que no produce ni un hallazgo. Un agente que encuentra algo ahí
+es un generador de ruido.
+
+Qué prueba esa corrida y, con el mismo detalle, **qué no**, en
+[`tests/criterio-pm/EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md).
+
+El diseño completo, con las tres clases de función y lo que sigue siendo de la persona,
+en [`docs/agents/project-manager.md`](../../docs/agents/project-manager.md).
