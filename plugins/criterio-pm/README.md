@@ -4,9 +4,10 @@
 
 [Español](README.es.md) · Apache 2.0
 
-**Status: declared, under construction.** The design is settled and the scripts it shares
-with `criterio-pmo` are already here and verified. **There are no commands or skills yet**,
-so installing it today does nothing. Nothing ships until the acceptance criteria pass.
+**Status: under construction.** The design is settled, and the scripts and the eight
+skills it shares with `criterio-pmo` are already here and verified. **There are no commands
+yet**, so there is nothing to invoke — but the skills load on their own when the topic
+appears. Nothing is announced as finished until the acceptance criteria pass.
 
 ## What it will do
 
@@ -44,6 +45,29 @@ working documents.
 The family's frame, the seven invariants and the one-owner-per-thing rule:
 [`docs/agents/README.md`](../../docs/agents/README.md).
 
+## The eight skills it already ships
+
+They load on their own when the topic appears, so **installing it today does do
+something**: the method is there, even though no commands drive it yet. They are literal
+copies from `criterio-pmo`, because a risk is a risk whoever is looking at it, and the
+record is the whole family's data contract.
+
+| Skill | What it encapsulates |
+|---|---|
+| `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other |
+| `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what |
+| `commitment-tracking` | **Escuadra's central function.** Commitments said in meetings: extraction, states, what counts as evidence, and the one repeated with a new date each time |
+| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria |
+| `baseline-variance` | Append-only baseline, variance against the original and against the current one, the four budget figures |
+| `governance-artifacts` | Charter, committee, change control and closure: what each contains and who decides what |
+| `vendor-control` | Contract against evidence of receipt against invoicing, with an amount per deliverable |
+| `project-diagnosis` | Diagnosis from zero: in what order you read, and when the answer is that it cannot be diagnosed |
+
+What it does **not** ship, by scope and not by accident: `portfolio-health` and
+`portfolio-history` only make sense looking at the whole, and a project manager does not
+look at the whole. That is what [`criterio-pmo`](../criterio-pmo/README.md) is for.
+
 ## Acceptance criteria
+
 
 See [ACCEPTANCE.md](ACCEPTANCE.md). Nothing ships until they pass.

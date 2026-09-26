@@ -2,6 +2,7 @@
 name: project-record
 description: "La ficha de proyecto: el contrato de datos de Criterio. Define qué se sabe de un proyecto, cómo se extrae de la documentación que exista, cómo se cita, y cómo se declara lo que no está. Úsalo siempre que haya que leer documentación de proyectos, llenar o actualizar una ficha, consolidar portafolio, o cuando se hable de estado, avance, hitos, presupuesto o riesgos de un proyecto. Project record schema and extraction rules."
 ---
+<!-- COPIA · la fuente es plugins/criterio-pmo/skills/project-record/. La escribe scripts/sincronizar.py y no se edita aquí. -->
 
 # La ficha de proyecto
 

@@ -4,10 +4,10 @@
 
 [English](README.md) · Apache 2.0
 
-**Estado: declarado, en construcción.** El diseño está cerrado y los scripts que comparte
-con `criterio-pmo` ya están aquí y verificados. **Todavía no hay comandos ni skills**, así
-que instalarlo hoy no hace nada. Nada se publica hasta que pasen los criterios de
-aceptación.
+**Estado: en construcción.** El diseño está cerrado, y los scripts y los ocho skills que
+comparte con `criterio-pmo` ya están aquí y verificados. **Todavía no hay comandos**, así
+que no hay nada que invocar — pero los skills se cargan solos cuando el tema aparece.
+Nada se anuncia como terminado hasta que pasen los criterios de aceptación.
 
 ## Qué va a hacer
 
@@ -44,6 +44,29 @@ lo que falta por construir en orden:
 El marco de la familia, las siete invariantes y la regla de un dueño por cosa:
 [`docs/agents/README.md`](../../docs/agents/README.md).
 
+## Los ocho skills que ya trae
+
+Se cargan solos cuando el tema aparece, así que **instalarlo hoy sí hace algo**: el
+método está, aunque todavía no haya comandos que lo pongan en marcha. Son copias
+literales de `criterio-pmo`, porque un riesgo es un riesgo lo mire quien lo mire y la
+ficha es el contrato de datos de toda la familia.
+
+| Skill | Qué encapsula |
+|---|---|
+| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen |
+| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué |
+| `commitment-tracking` | **La función central de Escuadra.** Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez |
+| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
+| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, las cuatro cifras del presupuesto |
+| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |
+| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable |
+| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar |
+
+Lo que **no** trae, por alcance y no por casualidad: `portfolio-health` y
+`portfolio-history` solo tienen sentido mirando el conjunto, y un gerente de proyecto no
+mira el conjunto. Para eso está [`criterio-pmo`](../criterio-pmo/README.es.md).
+
 ## Criterios de aceptación
+
 
 En [ACCEPTANCE.md](ACCEPTANCE.md). Nada se publica hasta que pasen.

@@ -27,10 +27,27 @@ FUENTE = RAIZ / "plugins" / "criterio-pmo" / "scripts"
 
 # Qué comparte cada plugin, y por qué. Lo que no está aquí no se comparte: el informe
 # de un proyecto no es el del portafolio recortado, y Atril es de la PMO.
-COMPARTIDOS = {
+SCRIPTS = {
     "criterio-pm": {
         "pmo.py": "la aritmética; `compute` ya trabaja proyecto a proyecto",
         "texto.py": "leer un .docx es leer un .docx",
+    },
+}
+
+# Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
+# la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
+# por alcance, no por casualidad: `portfolio-health` y `portfolio-history` solo tienen
+# sentido mirando el conjunto, y un gerente de proyecto no mira el conjunto.
+SKILLS = {
+    "criterio-pm": {
+        "project-record": "la ficha: el contrato de datos de toda la familia",
+        "document-intake": "qué documento hay que releer y cuál no",
+        "commitment-tracking": "la función central de Escuadra",
+        "raid-taxonomy": "un riesgo es un riesgo lo mire quien lo mire",
+        "baseline-variance": "la desviación se calcula igual en un proyecto que en cuarenta",
+        "governance-artifacts": "acta, comité, control de cambios y cierre",
+        "vendor-control": "contrato contra recibo contra facturación",
+        "project-diagnosis": "el diagnóstico desde cero de un proyecto",
     },
 }
 
@@ -46,6 +63,12 @@ CABECERA = """# ─────────────────────�
 """
 
 
+# En markdown la marca va como comentario HTML: no se ve al leer el skill, se ve al
+# abrirlo para editarlo, que es exactamente cuando hace falta.
+MARCA_MD = ("<!-- COPIA · la fuente es plugins/criterio-pmo/skills/{nombre}/. "
+            "La escribe scripts/sincronizar.py y no se edita aquí. -->\n")
+
+
 def con_cabecera(texto: str, nombre: str) -> str:
     """La cabecera va después del shebang, si lo hay, para no romper el ejecutable."""
     marca = CABECERA.format(nombre=nombre)
@@ -55,40 +78,74 @@ def con_cabecera(texto: str, nombre: str) -> str:
     return marca + texto
 
 
+def con_marca_md(texto: str, nombre: str) -> str:
+    """Después del frontmatter, que tiene que seguir siendo lo primero del archivo."""
+    marca = MARCA_MD.format(nombre=nombre)
+    if texto.startswith("---\n"):
+        fin = texto.find("\n---\n", 4)
+        if fin != -1:
+            corte = fin + len("\n---\n")
+            return texto[:corte] + marca + texto[corte:]
+    return marca + texto
+
+
+def _comparar(copia: Path, esperado: str, etiqueta: str, porque: str,
+              escribir: bool, modo: int, estado: dict) -> None:
+    actual = copia.read_text(encoding="utf-8") if copia.exists() else None
+    if actual == esperado:
+        estado["iguales"] += 1
+        print(f"  igual   {etiqueta}   · {porque}")
+        return
+    if not escribir:
+        falta = "no existe" if actual is None else "difiere de la fuente"
+        estado["problemas"].append(f"{etiqueta} {falta}")
+        return
+    copia.parent.mkdir(parents=True, exist_ok=True)
+    copia.write_text(esperado, encoding="utf-8")
+    copia.chmod(modo)
+    estado["tocados"].append(etiqueta)
+    print(f"  copiado {etiqueta}   · {porque}")
+
+
 def revisar(escribir: bool) -> int:
-    problemas, tocados, iguales = [], [], 0
-    for plugin, archivos in sorted(COMPARTIDOS.items()):
-        destino = RAIZ / "plugins" / plugin / "scripts"
+    estado = {"problemas": [], "tocados": [], "iguales": 0}
+
+    for plugin, archivos in sorted(SCRIPTS.items()):
         for nombre, porque in sorted(archivos.items()):
             origen = FUENTE / nombre
             if not origen.exists():
-                problemas.append(f"falta la fuente {origen.relative_to(RAIZ)}")
+                estado["problemas"].append(f"falta la fuente {origen.relative_to(RAIZ)}")
                 continue
-            esperado = con_cabecera(origen.read_text(encoding="utf-8"), nombre)
-            copia = destino / nombre
-            actual = copia.read_text(encoding="utf-8") if copia.exists() else None
+            _comparar(RAIZ / "plugins" / plugin / "scripts" / nombre,
+                      con_cabecera(origen.read_text(encoding="utf-8"), nombre),
+                      f"{plugin}/scripts/{nombre}", porque, escribir,
+                      origen.stat().st_mode, estado)
 
-            if actual == esperado:
-                iguales += 1
-                print(f"  igual   {plugin}/{nombre}   · {porque}")
+    for plugin, skills in sorted(SKILLS.items()):
+        for nombre, porque in sorted(skills.items()):
+            carpeta = FUENTE.parent / "skills" / nombre
+            if not carpeta.is_dir():
+                estado["problemas"].append(f"falta el skill fuente {nombre}")
                 continue
-            if not escribir:
-                falta = "no existe" if actual is None else "difiere de la fuente"
-                problemas.append(f"{plugin}/scripts/{nombre} {falta}")
-                continue
-            destino.mkdir(parents=True, exist_ok=True)
-            copia.write_text(esperado, encoding="utf-8")
-            copia.chmod(origen.stat().st_mode)
-            tocados.append(f"{plugin}/{nombre}")
-            print(f"  copiado {plugin}/{nombre}   · {porque}")
+            # Un skill es una carpeta: SKILL.md y lo que cuelgue de él. Se copia entero,
+            # porque media copia es peor que ninguna.
+            for origen in sorted(x for x in carpeta.rglob("*") if x.is_file()):
+                rel = origen.relative_to(carpeta)
+                texto = origen.read_text(encoding="utf-8")
+                if origen.name == "SKILL.md":
+                    texto = con_marca_md(texto, nombre)
+                _comparar(RAIZ / "plugins" / plugin / "skills" / nombre / rel, texto,
+                          f"{plugin}/skills/{nombre}/{rel}", porque, escribir,
+                          origen.stat().st_mode, estado)
 
-    if problemas:
+    if estado["problemas"]:
         print()
-        for x in problemas:
+        for x in estado["problemas"]:
             print(f"  FALLA  {x}")
         print("\nCorre  python3 scripts/sincronizar.py  para ponerlas al día.")
         return 1
-    print(f"\n{iguales} al día" + (f", {len(tocados)} actualizadas" if tocados else ""))
+    n = len(estado["tocados"])
+    print(f"\n{estado['iguales']} al día" + (f", {n} actualizadas" if n else ""))
     return 0
 
 
