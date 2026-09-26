@@ -216,6 +216,25 @@ Un proyecto que no declara producto no es un error suyo —hay proyectos que no
 construyen un producto—, pero mientras no esté dicho su avance no se ve desde el lado
 del producto, y eso se reporta.
 
+## Cuando el proyecto tiene su propio agente
+
+Un proyecto con **Escuadra** instalada publica su ficha en la carpeta de gobierno, como
+`ficha-pm.json`. Plomada **la lee como lee cualquier otro documento** —no alcanza el
+estado de Escuadra y no hace falta— y sigue escribiendo la suya.
+
+Son dos fichas y no se fusionan nunca: la séptima invariante. Lo que produce valor es
+la diferencia entre las dos, porque los dos leyeron los mismos documentos. Cuando los
+dos citan y no coinciden, alguien vio un documento que el otro no vio, y la señal dice
+cuál y de qué fecha.
+
+Del lado de Plomada eso es una señal más —`pm_vs_pmo`, ocho campos contrastados— y por
+lo tanto aritmética: **el código la calcula**, con las dos citas. El diseño completo,
+incluidos los tres casos que **no** son hallazgo, vive en la hoja de Escuadra, que es su
+dueña: [Escuadra · las dos fichas](project-manager.md#las-dos-fichas).
+
+Un proyecto sin Escuadra no cambia en nada. La ficha de Plomada sigue siendo la única, y
+es el caso que hoy está construido y probado.
+
 ## Lo que falta
 
 **`report.language`.** El informe sale hoy solo en castellano. Las piezas gráficas y

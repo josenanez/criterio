@@ -8,7 +8,9 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 |---|---|
 | **Instancia** | Una por proyecto |
 | **Alcance** | Un proyecto. Profundidad, cadencia diaria o por reunión |
+| **Se distribuye** | Como `criterio-pm`, plugin aparte, con los scripts copiados de `criterio-pmo` |
 | **Escribe** | La ficha del proyecto — **excepto el estado declarado** |
+| **Publica** | `ficha-pm.json` en la carpeta de gobierno del proyecto, y nada más |
 | **Lee** | Su propia ficha y el estándar que publica la PMO |
 | **Estado** | En construcción. El método existe; la superficie de comandos, no |
 | **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) |
@@ -53,6 +55,133 @@ compromete una fecha
 **El agente PM no escribe `declared`.** Es la sexta invariante del diseño, no una
 recomendación: la persona declara, el agente le muestra contra qué. Si el agente declara, la
 comparación compara al sistema consigo mismo.
+
+---
+
+## Las dos fichas
+
+Escuadra y Plomada leen **los mismos documentos** y escriben **dos fichas distintas que
+nunca se fusionan.** Es la misma regla que ya gobierna declarado contra evidenciado,
+aplicada un nivel más arriba.
+
+| | Ficha del proyecto | Lectura de portafolio |
+|---|---|---|
+| **La escribe** | Escuadra, salvo `declared` | Plomada |
+| **Vive en** | El estado de Escuadra, en el equipo del gerente | El estado de Plomada |
+| **Profundidad** | Todo: compromisos de cada reunión, RAID, entregables por proveedor | Lo que un barrido de portafolio alcanza a leer |
+| **Cadencia** | Diaria o por reunión | Semanal o de comité |
+| **Para qué** | Que el gerente llegue con la semana preparada | Que la PMO vea el conjunto |
+
+### Por qué dos y no una
+
+Una sola ficha con dos escritores es una carrera: el barrido de Plomada pasa el martes
+y sobreescribe lo que Escuadra puso el lunes, o al revés. La forma habitual de
+resolverlo —un dueño, y el otro solo lee— obliga a elegir mal en las dos direcciones:
+si manda Escuadra, la PMO pierde la capacidad de leer un proyecto por su cuenta cuando
+duda del gerente; si manda Plomada, la PMO entra en el camino crítico de cada proyecto,
+y con setenta proyectos eso es un cuello de botella.
+
+Dos fichas quitan el problema en vez de arbitrarlo. **Y lo que era un conflicto de
+escritura se vuelve la señal.**
+
+### Lo que la diferencia significa
+
+Dos lectores, los mismos documentos, y distinto resultado. Eso no es un error del
+sistema: es información sobre la carpeta.
+
+| Lo que se observa | Qué significa |
+|---|---|
+| **Los dos citan, y no coinciden** | Leyeron documentos distintos. El que cita el más reciente vio algo que el otro no. Es el hallazgo de más valor, y apunta a un documento concreto |
+| **Escuadra lo tiene, Plomada no** | Diferencia de profundidad, no contradicción. Un compromiso dicho en una reunión no está al alcance de un barrido de portafolio. **No es hallazgo** |
+| **Plomada lo tiene, Escuadra no** | Sí es hallazgo: la PMO leyó un documento del proyecto que el gerente no está viendo |
+| **Coinciden** | El caso normal, y no se reporta. Un agente que celebra las coincidencias es ruido |
+
+La distinción de la segunda fila es la que hace que esto sirva. Sin ella, cada corrida
+reportaría cien diferencias de alcance y nadie volvería a abrir el informe.
+
+### Cómo se encuentran las dos fichas
+
+**Escuadra publica; Plomada lee.** Ninguno de los dos alcanza el estado del otro, y no
+hace falta: la ficha del proyecto se publica **como un documento más del proyecto**, en
+la carpeta de gobierno, y Plomada la lee como lee todo lo demás.
+
+```
+PRY-001-originacion-digital/
+  00-gobierno/
+    2026-01-12-acta-constitucion.md
+    ficha-pm.json          ← lo que Escuadra publica
+  10-plan/
+  20-seguimiento/
+  30-reuniones/
+```
+
+Eso resuelve de un golpe tres cosas que de otro modo habría que construir: no hay
+almacenamiento compartido, no hay consistencia distribuida entre N instancias, y la
+cita de cualquier campo de esa ficha ya es una ruta válida como la de cualquier otro
+documento.
+
+**Publicar es un acto explícito, no un efecto.** Plomada promete no escribir en las
+carpetas de documentación, y Escuadra hereda esa promesa: escribe en su propio estado y
+solo pone `ficha-pm.json` en la carpeta del proyecto cuando alguien corre el comando que
+lo publica, o cuando la cadencia configurada lo hace. Es el único archivo que Escuadra
+escribe fuera de su estado, y esa lista no crece sin decirlo aquí.
+
+### Qué campos se contrastan
+
+**Solo los que los dos tienen por qué leer.** Contrastar todo produciría la avalancha de
+diferencias de alcance que acabaría con el informe:
+
+```
+identity.sponsor      identity.manager      identity.committee
+identity.product      plan.end_date         money.approved
+declared.status       declared.as_of
+```
+
+Ocho campos, los que envejecen peor y los que una PMO usa para decidir. El contraste es
+aritmética sobre dos registros que Plomada ya tiene, así que **lo hace el código**, y
+produce una señal nueva: `pm_vs_pmo`.
+
+La señal dice qué campo, qué dijo cada uno, y **de qué documento y de qué fecha lo sacó
+cada uno**. Sin esas dos citas el hallazgo no sirve: *«el gerente y la PMO no coinciden
+en el patrocinador»* no le permite a nadie hacer nada, y *«el gerente cita la minuta del
+11 de septiembre y la PMO el acta de enero»* sí.
+
+---
+
+## Cómo se distribuye
+
+**Dos plugins.** `criterio-pmo` para la oficina de proyectos, `criterio-pm` para el
+gerente de un proyecto. Cada uno con su README hablándole a su audiencia, porque la
+política de valor no permite otra cosa: un gerente de proyecto que abre un README que
+empieza hablándole de portafolio no se reconoce, y no instala.
+
+Un solo plugin con `role: pmo | pm` era la alternativa barata, y se descartó por eso
+mismo. La configuración conserva el campo —sigue diciendo qué es esta instalación— pero
+ya no es lo que decide qué comandos existen.
+
+### Y los scripts, en un solo sitio
+
+La aritmética es la misma. Dos copias de `pmo.py` que se separan es exactamente la deuda
+que este proyecto no acepta, así que:
+
+- **La fuente vive en `plugins/criterio-pmo/scripts/`.** Ahí se edita, y en ningún otro
+  sitio.
+- **`criterio-pm/scripts/` recibe copias literales** de las que comparte, con una
+  cabecera que dice de dónde salieron y que no se editan ahí.
+- **`scripts/sincronizar.py` las copia**, y **`tests/coherencia.py` falla si difieren.**
+  Una copia que se separó en silencio es peor que no tenerla.
+
+| Script | `criterio-pmo` | `criterio-pm` | Por qué |
+|---|---|---|---|
+| `pmo.py` | fuente | copia | La aritmética es la misma; `compute` ya trabaja proyecto a proyecto y después agrega |
+| `texto.py` | fuente | copia | Leer un `.docx` es leer un `.docx` |
+| `informe.py` | fuente | **no** | El informe de un proyecto no es el del portafolio recortado |
+| `servidor.py` | fuente | **no** | Atril es de la PMO |
+
+Que la copia sea literal y no un módulo compartido es a propósito: **un plugin instalado
+tiene que correr solo.** Un `import` a una ruta del otro plugin funciona en este
+repositorio y falla en el equipo de quien lo instaló, que es el peor sitio para
+enterarse.
 
 ---
 
@@ -131,23 +260,36 @@ persona.** No por prudencia — por arquitectura.
 
 ## Lo que falta por construir, en orden
 
-1. **El comando de compromisos.** Es la función central del agente y la única sin puerta propia.
-2. **La estructura de la reunión.** Cierra el ciclo y es la de más apalancamiento.
-3. **El informe semanal**, con cadencia y forma de proyecto, no de comité.
-4. **El acta de la reunión.**
-5. **En código:** el compromiso reprogramado.
+1. **El plugin `criterio-pm`** con los scripts copiados y la regla que los mantiene iguales.
+   Sin eso no hay dónde poner lo demás.
+2. **El comando de compromisos.** Es la función central del agente y la única sin puerta propia.
+3. **Publicar la ficha**, que es lo que conecta a Escuadra con Plomada.
+4. **El contraste `pm_vs_pmo` en código**, del lado de Plomada, con sus dos citas.
+5. **La estructura de la reunión.** Cierra el ciclo y es la de más apalancamiento.
+6. **El informe semanal**, con cadencia y forma de proyecto, no de comité.
+7. **El acta de la reunión.**
+8. **En código:** el compromiso reprogramado.
+
+## Decisiones cerradas
+
+- **Dos fichas que nunca se fusionan**, y la diferencia entre ellas es la señal. Ver arriba.
+- **Dos plugins con los scripts en un solo sitio**, copiados por una regla que falla si se
+  separan. Ver arriba.
+- **El registro de preguntas vive en el estado de Escuadra**, con la forma de un compromiso
+  —quién, qué, cuándo— porque es el mismo objeto. La regla que decide si esto sobrevive a
+  setenta proyectos: **la misma pregunta no se hace dos veces.** Si nadie contestó, la corrida
+  siguiente reporta *«preguntada el 12, sin respuesta»*, que es un hallazgo, en vez de volver
+  a preguntar. Es la misma mecánica que la cola de Atril, y se implementa con ella.
 
 ## Decisiones abiertas propias de esta hoja
 
-- **Un plugin con dos roles, o dos plugins.** Hoy el repo asume lo primero —
-  `ROLES = ("pmo", "pm")` está en `check_config`— y no lo construye. Instalar como `pm` entrega
-  once comandos de portafolio, y la mayoría no aplica a un proyecto.
 - **Cómo bajan los estándares de la PMO.** `paths.standard` está declarado en la configuración y
   no lo lee ninguna línea de código. Con N instancias de agente PM, la versión del esquema y los
   umbrales se vuelven un problema de consistencia distribuida: barato si la carpeta del estándar
-  es de solo lectura y versionada, caro si cada PM puede cambiar sus umbrales.
-- **Dónde vive el registro de preguntas.** Una pregunta al gerente es el mismo objeto que un
-  compromiso —quién, qué, cuándo— y necesita estado y vencimiento. Con una regla que decide si
-  esto sobrevive a setenta proyectos: **la misma pregunta no se hace dos veces.** Si nadie
-  contestó, la corrida siguiente reporta *"preguntada el 12, sin respuesta"*, que es un hallazgo,
-  en vez de volver a preguntar.
+  es de solo lectura y versionada, caro si cada PM puede cambiar sus umbrales. **Con dos plugins
+  la pregunta se vuelve más aguda**, porque ahora los umbrales pueden diferir por instalación y
+  no solo por configuración.
+- **Qué pasa cuando Escuadra publica y el gerente no quiere.** Publicar la ficha expone al
+  proyecto a la lectura de la PMO con una profundidad que antes no tenía. Es deseable y también
+  es político, y este diseño no decide por la organización: publicar es explícito, y quien lo
+  corre sabe lo que hace.
