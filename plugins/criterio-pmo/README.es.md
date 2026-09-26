@@ -18,8 +18,10 @@ nombre apunta a lo que hace: **Vera** —de *verus*, lo verdadero— dice lo que
 dicen y no lo que se reporta; **Samuel** —«el que escuchó»— recuerda el viernes lo que se
 dijo en la reunión; **Alba** trabaja antes de que amanezca el proyecto.
 
-**Vera está disponible hoy**; los otros dos vienen detrás y comparten el mismo contrato
-de datos.
+**Los tres se instalan hoy**, cada uno con su propio plugin, y comparten el mismo contrato
+de datos. Los tres tienen también la misma deuda, y está escrita en su página: construidos y
+verificados sobre corpus sintético, **no probados todavía sobre la documentación real de una
+organización.**
 
 **Samuel**, el agente del gerente de proyecto, no va a las reuniones — el gerente va. Lo que hace es que el gerente llegue
 con la semana preparada: la agenda armada antes, la minuta redactada después, el plan al día

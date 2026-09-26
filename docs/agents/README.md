@@ -201,15 +201,25 @@ rompe primero si se intenta, y en qué orden.
 
 ## Estado
 
-| Agente | Estado |
-|---|---|
-| PMO | Disponible. La clase A está cerrada; falta la mitad de la B |
-| Project Manager | En construcción. El método existe, la superficie de comandos no |
-| Product Manager | Sin construir. Requiere primero el registro de requerimiento |
+**Los tres están construidos y se pueden instalar hoy**, y los tres tienen la misma deuda,
+que conviene no esconder: **verificados sobre corpus sintético, no probados sobre la
+documentación real de una organización.**
 
-La corrida que sostiene estos estados, con lo que prueba y lo que no, está en
-[`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md). La quinta decisión
-de la tabla siguiente salió de ahí y no de una conversación.
+| Agente | Se instala | Qué falta |
+|---|---|---|
+| Vera · PMO | `criterio-pmo` · 17 comandos, 10 skills | La mitad de la clase B |
+| Samuel · Project Manager | `criterio-pm` · 6 comandos, 8 skills | El primer borrador del plan y de la WBS |
+| Alba · Product Manager | `criterio-product` · 7 comandos, 12 skills | El análisis de canibalización |
+| Rostrum · el servidor | Dentro de `criterio-pmo` | — |
+
+Y una deuda que es de los tres a la vez: **la extracción nunca se ha corrido.** Los tres
+corpus siembran el estado desde sus respuestas de referencia, así que la cadena documento →
+modelo → ficha no se ha ejercitado.
+
+La corrida que sostiene estos estados, con lo que prueba y lo que no, está en las tres
+páginas de evidencia bajo [`tests/`](../../tests/) y, dibujada, en
+[`docs/pruebas.html`](../pruebas.html). La quinta decisión de la tabla siguiente salió de
+ahí y no de una conversación.
 
 ---
 

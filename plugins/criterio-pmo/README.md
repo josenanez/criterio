@@ -20,7 +20,10 @@ documents say rather than what gets reported; **Samuel** — "he who heard" — 
 Friday what was said in the meeting; **Alba** — daybreak — works before the project
 dawns.
 
-**Vera is available today**; the other two come behind it and share the same data contract.
+**All three install today**, each with its own plugin, and they share the same data
+contract. All three also carry the same debt, written on their own page: built and
+verified over a synthetic corpus, **not yet tested against a real organisation's
+documentation.**
 
 **Samuel**, the project manager's agent, does not attend the meetings — the manager does. What it does is let the
 manager arrive with the week prepared: the agenda built beforehand, the minutes drafted

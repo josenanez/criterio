@@ -270,7 +270,7 @@ SKILLS_COMPARTIDOS = ['project-record', 'document-intake', 'baseline-variance',
                       'governance-artifacts', 'raid-taxonomy']
 SKILLS_PMO = ['portfolio-health', 'project-diagnosis', 'portfolio-history', 'vendor-control']
 SKILLS_PM = ['commitment-tracking']
-SKILLS_PROD = []
+SKILLS_PROD = ['requirement-record', 'demand-evidence', 'product-health']
 
 
 # ══════════════════════════════════════════════════════════════════ emblemas
@@ -351,9 +351,13 @@ def familia(t):
     # tres columnas
     col = (W - 2 * M - 2 * 36) // 3
     agentes = [
+        # Los tres disponibles. La insignia dice qué se puede instalar hoy, no qué tan
+        # probado está: eso lo dice el estado de cada plugin y la página de pruebas, con
+        # la distinción que importa — construido y verificado sobre corpus, no probado
+        # sobre documentación real.
         (t['n1'], t['ag1'], t['ag1_para'], t['ag1_desc'], t['disponible'], True, SKILLS_PMO),
-        (t['n2'], t['ag2'], t['ag2_para'], t['ag2_desc'], t['construccion'], False, SKILLS_PM),
-        (t['n3'], t['ag3'], t['ag3_para'], t['ag3_desc'], t['sin_construir'], False, SKILLS_PROD),
+        (t['n2'], t['ag2'], t['ag2_para'], t['ag2_desc'], t['disponible'], True, SKILLS_PM),
+        (t['n3'], t['ag3'], t['ag3_para'], t['ag3_desc'], t['disponible'], True, SKILLS_PROD),
     ]
     TOP, ALTO = 238, 460
     for i, (nombre, rol, para, desc, estado, activo, propios) in enumerate(agentes):
