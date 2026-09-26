@@ -94,11 +94,12 @@ lost is being told without anyone asking.
 
 ## Want your sponsor to see this without asking you for it?
 
-![The server: the report, for whoever does not open a folder](../../docs/img/en/servidor.png)
+![Atril: the report, for whoever does not open a folder](../../docs/img/en/servidor.png)
 
 Up to here the report is files on your machine. **A sponsor does not open a folder of
-files**: they open a link, or they open nothing. That is what the server is for, and it
-is this family's additional capability.
+files**: they open a link, or they open nothing. That is what **Atril** is for, this
+family's server. *Atril* is Spanish for a lectern: it does not measure or correct, it
+holds up what is already written at the height of whoever is going to read it.
 
 ```
 /pmo-server
@@ -119,7 +120,7 @@ system: it is a person telling you which document is missing.
 control your organisation already has. It listens only on your machine unless you say
 otherwise.
 
-→ **[The server, with screenshots of every section and what to ask your organisation for](SERVER.md)**
+→ **[Atril, with screenshots of every section and what to ask your organisation for](SERVER.md)**
 
 ## What ends up configured
 
@@ -181,7 +182,7 @@ produced, without reading a single document again.
 |---|---|
 | `/pmo-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
 | `/pmo-wake` | **What the clock invokes.** Looks at what is due today, does it, and stays quiet if nothing is |
-| `/pmo-server` | Exposes the report for whoever does not open a folder, and says what to ask the organisation for |
+| `/pmo-server` | Raises **Atril**, the server: exposes the report for whoever does not open a folder, and says what to ask the organisation for |
 | `/document-index` | Which documents actually changed, what has to be re-read, and which citations stopped resolving |
 | `/portfolio-scan` | Reads the folder and produces or updates one record per project. The way in |
 | `/portfolio-report` | Consolidated report: what changed, what contradicts itself, what is silent, what has no support |

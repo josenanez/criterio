@@ -95,7 +95,7 @@ Motor de decisión certificado»*. Que ninguna ruta sobreviva sin traducir lo co
 `informe.py --selftest`, y que ninguna señal nueva salga en inglés lo comprueba
 `tests/coherencia.py`.
 
-**`scripts/servidor.py`** es cómo el informe llega a quien no abre una carpeta. Sirve
+**`scripts/servidor.py`** es **Atril**, cómo el informe llega a quien no abre una carpeta. Sirve
 las páginas que `informe.py` ya escribió con **tres secciones** —informes de la PMO,
 proyectos, productos—, y **no calcula nada**: abrir la página no
 dispara ninguna lectura de documentos, y por eso dos personas ven lo mismo. Si

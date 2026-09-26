@@ -1,24 +1,27 @@
-# El servidor de criterio-pmo
+# Atril · el servidor de criterio-pmo
 
 **El informe, para quien no abre una carpeta.**
+
+Un atril no mide, no corrige y no opina: **sostiene lo que ya está escrito, a la altura
+de quien lo va a leer.** Por eso se llama así — y si algún día calculara algo, el nombre
+dejaría de ser cierto.
 
 [English](SERVER.md) · vuelve al [README del plugin](README.es.md)
 
 ---
 
-![El servidor: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
+![Atril: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
 
 Plomada produce el informe como archivos en tu equipo. Eso le sirve a quien lo corrió,
 y a nadie más. **Un patrocinador no abre una carpeta de archivos**: abre un enlace, o
 no abre nada.
 
-El servidor convierte esos archivos en un portal que tu equipo puede consultar, y
-—esto es lo que cambia cómo se usa— **le deja dejarle preguntas escritas al agente**.
+**Atril** convierte esos archivos en un portal que tu equipo puede consultar, y —esto es
+lo que cambia cómo se usa— **le deja dejarle preguntas escritas al agente**.
 
 ## Levantarlo
 
-Primero el informe, después el servidor. El servidor **no genera** el informe: lo
-sirve.
+Primero el informe, después Atril. **Atril no genera el informe: lo sostiene.**
 
 ```
 /portfolio-report html
@@ -185,7 +188,7 @@ Suele ser la mitad de la conversación, así que conviene llevarlo escrito: no n
 base de datos, ni cuenta de servicio con permisos, ni certificado propio, ni salida a
 internet, ni tocar ninguna de tus carpetas de documentación.
 
-## Lo que el servidor nunca hace
+## Lo que Atril nunca hace
 
 - **No calcula.** Sirve páginas que ya estaban escritas en disco. Abrir la página no
   dispara ninguna lectura de documentos, y por eso dos personas ven exactamente lo

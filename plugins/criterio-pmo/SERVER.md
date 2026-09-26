@@ -1,24 +1,27 @@
-# The criterio-pmo server
+# Atril · the criterio-pmo server
 
 **The report, for whoever does not open a folder.**
+
+*Atril* is Spanish for a lectern. It does not measure, correct or opine: it **holds up
+what is already written, at the height of whoever is going to read it.** That is why it
+is called that — and if it ever computed anything, the name would stop being true.
 
 [Español](SERVER.es.md) · back to the [plugin README](README.md)
 
 ---
 
-![The server: the report, for whoever does not open a folder](../../docs/img/en/servidor.png)
+![Atril: the report, for whoever does not open a folder](../../docs/img/en/servidor.png)
 
 Plomada produces the report as files on your machine. That serves whoever ran it, and
 nobody else. **A sponsor does not open a folder of files**: they open a link, or they
 open nothing.
 
-The server turns those files into a portal your team can consult, and — this is what
+**Atril** turns those files into a portal your team can consult, and — this is what
 changes how it gets used — **it lets them leave the agent written questions.**
 
 ## Raising it
 
-The report first, the server second. The server **does not generate** the report: it
-serves it.
+The report first, Atril second. **Atril does not generate the report: it holds it up.**
 
 ```
 /portfolio-report html
@@ -189,7 +192,7 @@ Usually half the conversation, so it is worth carrying written down: no database
 service account with permissions, no certificate of its own, no internet access, and
 nothing touching any of your documentation folders.
 
-## What the server never does
+## What Atril never does
 
 - **It does not compute.** It serves pages already written to disk. Opening the page
   triggers no document reading, which is why two people see exactly the same thing. If

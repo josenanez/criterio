@@ -58,7 +58,7 @@ Product Manager  ──acta──►  Project Manager  ──ficha──►  PMO
 ### Las seis invariantes
 
 1. **Los agentes no se hablan entre sí.** Se hablan por la ficha.
-2. **El servidor no escribe.**
+2. **Atril, el servidor, no escribe.**
 3. **La fuente puede cambiar; la ficha no.** Un adaptador nuevo llena los mismos campos.
 4. **Declarado y evidenciado nunca se fusionan**, venga de archivo o de base de datos.
 5. **El modelo extrae, el código calcula.**
@@ -116,15 +116,22 @@ Cada fila de C lleva dos datos, y ninguno es un riesgo:
 dos cosas distintas y conviene no mezclarlas: la capacidad es la función de la organización,
 y el agente es quien la extiende.
 
-| Agente | Nombre | Por qué ese |
+| Pieza | Nombre | Por qué ese |
 |---|---|---|
-| PMO | **Plomada** | Cuelga quieta y dice si algo está derecho. No opina: muestra |
-| Project Manager | **Escuadra** | Verifica el ángulo de una pieza. Un proyecto, no el conjunto |
-| Product Manager | **Compás** | Mide antes de trazar. Trabaja antes de que exista el proyecto |
+| Agente PMO | **Plomada** | Cuelga quieta y dice si algo está derecho. No opina: muestra |
+| Agente Project Manager | **Escuadra** | Verifica el ángulo de una pieza. Un proyecto, no el conjunto |
+| Agente Product Manager | **Compás** | Mide antes de trazar. Trabaja antes de que exista el proyecto |
+| El servidor | **Atril** | Donde se pone lo que se va a leer delante de otros. Sostiene, no traza |
 
 Instrumentos de trazo y verificación, porque es exactamente lo que hacen y porque así los
 tres son hermanos evidentes. Un nombre que no estire a los hermanos obliga a rebautizar a
 todos en cuanto aparezca el segundo.
+
+**Atril es el único que no es un instrumento de medida, y es a propósito.** Los tres
+agentes tienen nombre porque toman decisiones sobre lo que leen; el servidor no toma
+ninguna. Un atril no mide, no corrige y no opina: sostiene lo que ya está escrito a la
+altura de quien lo va a leer. Si algún día el servidor calculara algo, el nombre dejaría
+de ser cierto — y eso es exactamente lo que se quiere que se note.
 
 **Los nombres no se traducen** —son propios— y **no son identificadores**: el plugin se
 sigue llamando `criterio-pmo`, los comandos y los skills no cambian. El nombre le da

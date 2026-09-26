@@ -1,9 +1,9 @@
 ---
-description: Levanta el servidor que expone el informe del portafolio, y dice qué hay que pedirle a la organización para publicarlo
+description: Levanta Atril, el servidor que expone el informe del portafolio, y dice qué hay que pedirle a la organización para publicarlo
 argument-hint: "[rato|servicio] o vacío para que se pregunte"
 ---
 
-# /pmo-server — El informe, para quien no abre una carpeta
+# /pmo-server — Atril, el informe para quien no abre una carpeta
 
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla.
 
@@ -127,7 +127,7 @@ Cuando se responda una, se marca, y solo entonces deja de aparecer:
 python3 scripts/pmo.py answered --state <estado> --id <identificador>
 ```
 
-## Lo que este servidor no hace
+## Lo que Atril no hace
 
 Dilo antes de que lo pregunten, no después:
 

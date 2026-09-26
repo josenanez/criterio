@@ -95,11 +95,12 @@ que se pierde es que avise sin que nadie pregunte.
 
 ## ¿Quieres que tu patrocinador vea esto sin pedírtelo?
 
-![El servidor: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
+![Atril: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
 
 Hasta aquí el informe son archivos en tu equipo. **Un patrocinador no abre una carpeta
-de archivos**: abre un enlace, o no abre nada. Para eso está el servidor, que es la
-capacidad adicional de esta familia.
+de archivos**: abre un enlace, o no abre nada. Para eso está **Atril**, el servidor de
+esta familia. Un atril no mide ni corrige: sostiene lo que ya está escrito, a la altura
+de quien lo va a leer.
 
 ```
 /pmo-server
@@ -119,7 +120,7 @@ sistema: es una persona diciéndote qué documento falta.
 **No autentica a nadie, y es a propósito**: se publica detrás del control de acceso que
 tu organización ya tiene. Escucha solo en tu equipo salvo que le digas lo contrario.
 
-→ **[El servidor, con capturas de cada sección y qué pedirle a tu organización](SERVER.es.md)**
+→ **[Atril, con capturas de cada sección y qué pedirle a tu organización](SERVER.es.md)**
 
 ## Qué queda configurado
 
@@ -181,7 +182,7 @@ otros dos produjeron, sin volver a leer un solo documento.
 |---|---|
 | `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
 | `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
-| `/pmo-server` | Expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
+| `/pmo-server` | Levanta **Atril**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
 | `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
 | `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
 | `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
