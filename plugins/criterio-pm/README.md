@@ -6,7 +6,7 @@ not done.
 
 [Español](README.es.md) · Apache 2.0 · One instance per project
 
-**Status: the six commands are built**, along with the eight skills of the method and the
+**Status: the seven commands are built**, along with the eight skills of the method and the
 arithmetic verified against a corpus with answers written by hand. **What has not been
 tested yet: extraction over a real organisation's documentation** — the corpus seeds the
 record, so the document → model → record chain has not been exercised. Nothing is announced
@@ -96,7 +96,7 @@ the meeting where the sponsor changed and the charter was never updated.
 What you have and the PMO does not — every meeting's commitments — **is not a
 contradiction**: it is a difference of depth, and it is not reported as a finding.
 
-## The six commands
+## The seven commands
 
 | Command | What it does |
 |---|---|
@@ -106,9 +106,11 @@ contradiction**: it is a difference of depth, and it is not reported as a findin
 | `/pm-commitments` | Who promised what, what is overdue with no evidence, and what keeps being rescheduled meeting after meeting |
 | `/pm-report` | The weekly report, complete **except for the status**, which you declare |
 | `/pm-publish` | Publishes your record where the PMO can read it |
+| `/pm-wake` | **The one you put on a clock.** Looks at what is due around your meeting, and stays quiet when nothing is |
 
 Three of them are one cycle, and that is why they exist: **whoever builds the agenda
-beforehand receives the minutes afterwards.** Without the agenda the meeting inherits last
+beforehand receives the minutes afterwards.** The seventh is of another kind: `/pm-wake` is
+what makes this an agent rather than a box of commands — it does not wait to be called. Without the agenda the meeting inherits last
 week's running order; without the minutes, what was said gets written from memory two days
 later and stops being evidence of anything.
 

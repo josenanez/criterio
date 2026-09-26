@@ -12,6 +12,12 @@
     "state": "~/productos/pagos-qr-estado",
     "fichas": "~/PMO/estado/records"
   },
+  "cycle": {
+    "review": "monthly",
+    "committee": "monthly",
+    "committee_next": "2026-12-03",
+    "report_lead_days": 2
+  },
   "thresholds": {
     "undecided_days": 60,
     "assumption_unverified_days": 30,

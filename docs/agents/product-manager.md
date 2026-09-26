@@ -13,10 +13,11 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 |---|---|
 | **Instancia** | Una por producto |
 | **Alcance** | El producto a lo largo de su vida, no un proyecto |
+| **Cadencia** | Semanal. Sus umbrales se miden en meses, y es el único de los tres cuyos hallazgos aparecen sin que nadie haga nada |
 | **Escribe** | Su propio registro previo. **Crea la ficha** con el acta de constitución |
 | **Lee** | Su registro, y las fichas de los proyectos que ejecutan su producto |
 | **Se distribuye** | Como `criterio-product`, plugin aparte, con `pmo.py` y `texto.py` copiados de `criterio-pmo` |
-| **Estado** | Los siete comandos construidos, doce skills, corpus propio y 28 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
+| **Estado** | Los ocho comandos construidos, doce skills, corpus propio y 28 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
 | **Evidencia** | [`tests/criterio-product/EVIDENCIA.md`](../../tests/criterio-product/EVIDENCIA.md) |
 
 ---
@@ -142,7 +143,7 @@ sintetizar.** Un agente de producto sin gerente de producto sintetiza el vacío.
 ## Los tres prerrequisitos, y cómo quedaron
 
 1. ~~**El registro de requerimiento**, la dependencia bloqueante~~ — **construido**, con su
-   aritmética aparte y 44 comprobaciones.
+   aritmética aparte y 52 comprobaciones.
 2. ~~**El campo `producto` en la ficha**~~ — **construido**, y hoy sirve en las dos
    direcciones: la PMO mira por producto, y Alba confirma contra él que el proyecto que dice
    ejecutar su producto sea de verdad el suyo.

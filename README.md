@@ -63,8 +63,8 @@ Two decisions you notice on day one. **Four budget figures, not two:** a project
 | | | |
 |---|---|---|
 | **[Vera](plugins/criterio-pmo/README.md)** | PMO agent · **available** | *Verus*, the true. Says what the documents say, not what gets reported. 17 commands, 10 skills |
-| **[Samuel](plugins/criterio-pm/README.md)** | Project agent · **available** | "He who heard". Its central function is the commitment said and not kept. 6 commands, 8 skills |
-| **[Alba](plugins/criterio-product/README.md)** | Product agent · **available** | Daybreak: the light there is before anything can be seen. Works before the project exists. 7 commands, 12 skills |
+| **[Samuel](plugins/criterio-pm/README.md)** | Project agent · **available** | "He who heard". Its central function is the commitment said and not kept. 7 commands, 8 skills |
+| **[Alba](plugins/criterio-product/README.md)** | Product agent · **available** | Daybreak: the light there is before anything can be seen. Works before the project exists. 8 commands, 12 skills |
 | **[Rostrum](plugins/criterio-pmo/SERVER.md)** | The server · **available** | A lectern. Holds up what is already written, where the team can read it |
 
 Rostrum is the only one without a person's name, and that is deliberate: the agents decide about what they read, and the server decides nothing.
@@ -127,6 +127,8 @@ The list is not closed. **A capability joins when someone who practises it wants
 ```
 
 After installing, each agent has a setup command that looks at your folders, asks five questions and produces a first result on your own documents. **Nobody edits a configuration file by hand.**
+
+**How often each one runs, what you have to tell it and which command goes on a clock:** [`docs/agents/README.md`](docs/agents/README.md#cómo-se-configura-y-cada-cuánto-corre-cada-uno). None of them schedules itself — all three ship the command a clock invokes, and the clock lives outside the plugin.
 
 ---
 

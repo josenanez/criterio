@@ -5,7 +5,7 @@ desbloqueas. Él llega con la semana lista y con la lista de lo que se dijo y no
 
 [English](README.md) · Apache 2.0 · Una instancia por proyecto
 
-**Estado: los seis comandos construidos**, los ocho skills del método y la aritmética
+**Estado: los siete comandos construidos**, los ocho skills del método y la aritmética
 verificada sobre un corpus con respuestas escritas a mano. **Lo que todavía no se ha
 probado: la extracción sobre la documentación real de una organización** — el corpus
 siembra la ficha, así que la cadena documento → modelo → ficha no se ha ejercitado. Nada se
@@ -95,7 +95,7 @@ actualizó nunca.
 Lo que tú tienes y la PMO no —los compromisos de cada reunión— **no es una
 contradicción**: es diferencia de profundidad, y no se reporta como hallazgo.
 
-## Los seis comandos
+## Los siete comandos
 
 | Comando | Qué hace |
 |---|---|
@@ -105,9 +105,11 @@ contradicción**: es diferencia de profundidad, y no se reporta como hallazgo.
 | `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
 | `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
 | `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
+| `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
 
 Tres de ellos son un ciclo, y por eso están: **el que arma la agenda antes recibe la minuta
-después.** Sin la agenda la reunión hereda el orden del día de la semana pasada; sin el
+después.** El séptimo es de otra clase: `/pm-wake` es lo que convierte esto en un agente y no
+en una caja de comandos — no espera a que lo llames. Sin la agenda la reunión hereda el orden del día de la semana pasada; sin el
 acta, lo que se dijo se escribe de memoria dos días más tarde y deja de ser evidencia de
 nada.
 

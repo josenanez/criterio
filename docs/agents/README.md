@@ -208,8 +208,8 @@ documentación real de una organización.**
 | Agente | Se instala | Qué falta |
 |---|---|---|
 | Vera · PMO | `criterio-pmo` · 17 comandos, 10 skills | La mitad de la clase B |
-| Samuel · Project Manager | `criterio-pm` · 6 comandos, 8 skills | El primer borrador del plan y de la WBS |
-| Alba · Product Manager | `criterio-product` · 7 comandos, 12 skills | El análisis de canibalización |
+| Samuel · Project Manager | `criterio-pm` · 7 comandos, 8 skills | El primer borrador del plan y de la WBS |
+| Alba · Product Manager | `criterio-product` · 8 comandos, 12 skills | El análisis de canibalización |
 | Rostrum · el servidor | Dentro de `criterio-pmo` | — |
 
 Y una deuda que es de los tres a la vez: **la extracción nunca se ha corrido.** Los tres
@@ -220,6 +220,76 @@ La corrida que sostiene estos estados, con lo que prueba y lo que no, está en l
 páginas de evidencia bajo [`tests/`](../../tests/) y, dibujada, en
 [`docs/pruebas.html`](../pruebas.html). La quinta decisión de la tabla siguiente salió de
 ahí y no de una conversación.
+
+---
+
+## Cómo se configura y cada cuánto corre cada uno
+
+Esta es la tabla que responde tres preguntas a la vez: **dónde se ve cada agente, qué le
+hace falta configurado, y cada cuánto tiene sentido que corra.**
+
+| | Vera | Samuel | Alba |
+|---|---|---|---|
+| **Se instala** | `criterio-pmo` | `criterio-pm` | `criterio-product` |
+| **Instancias** | Una por PMO | **Una por proyecto** | **Una por producto** |
+| **Se configura con** | `/pmo-setup` | `/pm-setup` | `/product-setup` |
+| **Cuánto tarda eso** | Quince minutos | Diez | Diez |
+| **Qué le tienes que decir** | Dónde está la documentación, cuándo es el comité, quién eres | Dónde está tu proyecto, cuándo es tu reunión, quién eres | Dónde está la definición, quién decide qué se construye, quién eres |
+| **Dónde queda** | Un archivo de la persona, escrito por el comando | Igual | Igual |
+| **El que se le pone a un reloj** | `/pmo-wake` | `/pm-wake` | `/product-wake` |
+| **Cadencia que tiene sentido** | Diaria si el barrido está activo; y el informe con su anticipación al comité | Diaria con barrido, o el día antes y el día después de la reunión | **Semanal alcanza** |
+| **Qué lo despierta además del reloj** | Una petición que alguien dejó en Rostrum | Una minuta nueva en la carpeta | Que algo cruzara un umbral solo |
+
+**Nadie edita un archivo de configuración a mano.** Es una regla de los tres comandos de
+instalación, no una cortesía: si para cambiar un umbral hay que abrir un JSON, el umbral se
+queda como vino y la configuración deja de describir a la organización. Se dice en la
+conversación y el comando lo reescribe.
+
+Cada plugin trae su `scripts/config.example.json` para ver la forma completa sin instalar
+nada.
+
+### Por qué las tres cadencias son distintas
+
+No es una preferencia: **cada agente mide contra otra cosa.**
+
+- **Vera** mide contra la carpeta. Un documento nuevo puede cambiar el estado de un
+  proyecto hoy, así que el barrido diario tiene sentido y el informe se entrega con
+  anticipación al comité — para que el gerente de la PMO alcance a reaccionar a lo que
+  encuentre, no para que se entere cuando ya está enviado.
+- **Samuel** mide contra la reunión. Su ciclo no es el calendario: es *antes de la reunión*
+  y *después de la reunión*, y por eso `/pm-wake` mira de qué lado estás antes de ofrecer
+  nada.
+- **Alba** mide contra el paso del tiempo, y eso cambia todo. Sus umbrales se cuentan en
+  meses, así que una corrida diaria sobre un registro que se mueve poco es ruido con
+  puntualidad. **Pero es la única de los tres cuyos hallazgos aparecen sin que nadie haga
+  nada**: el requerimiento que llevaba cincuenta y nueve días sin decidirse llega a
+  sesenta, y nadie va a abrir una sesión para preguntar si eso ya pasó.
+
+### Los tres se callan cuando no hay nada
+
+Es la regla que decide si un agente sigue instalado el mes siguiente. Los tres comandos de
+reloj devuelven `quiet` cuando no toca nada, y con `quiet` la salida es una línea: qué se
+revisó y cuándo vuelve.
+
+Un agente que produce un informe para decir que no hay novedad enseña a ignorarlo, y el día
+que sí hay novedad ya nadie lo abre.
+
+### Qué es lo que **no** está programado
+
+Conviene decirlo aquí y no en una nota al pie: **ninguno de los tres se programa solo.**
+Los tres traen el comando que un reloj invoca, y el reloj vive fuera del plugin — una tarea
+programada de Claude Cowork, o el programador del sistema operativo invocando Claude en
+modo no interactivo. Alguien tiene que ponerlo, una vez, y cada comando de reloj explica
+cómo.
+
+Y para que corra sin nadie delante hacen falta dos cosas que no dependen de este
+repositorio: **que la sesión pueda correr sin aprobar cada paso**, y **que la carpeta esté
+montada cuando el reloj dispare.**
+
+**Si la organización no quiere corridas desatendidas** —y en un banco es una respuesta
+razonable— los tres comandos sirven corridos a mano, y la cadencia sigue diciendo qué toca.
+Lo que se pierde es que avisen sin que nadie pregunte, que es justamente lo que más cuesta
+ver a mano.
 
 ---
 

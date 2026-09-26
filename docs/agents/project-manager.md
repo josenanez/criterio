@@ -12,11 +12,12 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 |---|---|
 | **Instancia** | Una por proyecto |
 | **Alcance** | Un proyecto. Profundidad, cadencia diaria o por reunión |
+| **Cadencia** | Gira alrededor de la reunión: la agenda antes, el acta después. `/pm-wake` mira de qué lado estás |
 | **Se distribuye** | Como `criterio-pm`, plugin aparte, con los scripts copiados de `criterio-pmo` |
 | **Escribe** | La ficha del proyecto — **excepto el estado declarado** |
 | **Publica** | `ficha-pm.json` en la carpeta de gobierno del proyecto, y nada más |
 | **Lee** | Su propia ficha y el estándar que publica la PMO |
-| **Estado** | Los seis comandos construidos, ocho skills, corpus propio y 19 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
+| **Estado** | Los siete comandos construidos, ocho skills, corpus propio y 19 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
 | **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) |
 
 ---

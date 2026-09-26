@@ -51,7 +51,8 @@ from pathlib import Path
 # lleva —mismo directorio—, nunca de la ruta del otro plugin: un plugin instalado
 # tiene que correr solo.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from pmo import as_date, as_number, pct, source_of, state_of, value  # noqa: E402
+from pmo import (as_date, as_number, _cada, pct, proximo_comite,  # noqa: E402
+                 source_of, state_of, value)
 
 DEFAULT_THRESHOLDS = {
     # Días que un requerimiento puede llevar propuesto sin que nadie lo decida. Pasado
@@ -393,6 +394,99 @@ def compute(state: Path, today: dt.date, th: dict, fichas: Path | None = None) -
     }
 
 
+# ------------------------------------------------------------- la cadencia
+
+# Las tres señales que aparecen **sin que nadie haga nada**: el calendario se mueve y el
+# hallazgo nace solo. Es lo propio de un registro de producto, y la razón por la que este
+# agente tiene que despertarse en vez de esperar a que lo llamen — nadie va a abrir una
+# sesión para preguntar si un supuesto de marzo ya lleva demasiado tiempo sin verificarse.
+SENALES_DE_TIEMPO = ("requirement_undecided", "assumption_unverified", "evidence_stale")
+
+
+def ran(state: Path, que: str, today: dt.date) -> dict:
+    """Deja constancia de que algo se corrió hoy. Sin esto, `due` repite para siempre."""
+    f = state / "cadencia.json"
+    registro = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+    registro[que] = today.isoformat()
+    f.write_text(json.dumps(registro, ensure_ascii=False, indent=2), encoding="utf-8")
+    return registro
+
+
+def due(config: Path, state: Path, today: dt.date, th: dict | None = None) -> dict:
+    """Qué toca hoy, según la cadencia que la persona declaró.
+
+    Esto es lo que convierte esto en un agente y no en un comando: no espera a que lo
+    llamen. La decisión de si hoy toca algo es aritmética de fechas, así que vive aquí y
+    no en el criterio del modelo.
+
+    La cadencia de un producto no es la de un proyecto. No hay reunión semanal contra la
+    que medir: hay una revisión del registro, un comité de producto cuando lo haya, y
+    **lo que cruzó un umbral desde la corrida anterior**, que es lo único que aparece sin
+    que nadie haga nada.
+    """
+    cfg = json.loads(config.read_text(encoding="utf-8")) if config and config.exists() else {}
+    ciclo = cfg.get("cycle", {}) or {}
+    th = th or load_thresholds(config)
+
+    registro_f = state / "cadencia.json"
+    registro = json.loads(registro_f.read_text(encoding="utf-8")) if registro_f.exists() else {}
+    toca, detalle = [], {}
+
+    def ultima(clave):
+        return as_date(registro.get(clave))
+
+    # 1 · la revisión del registro contra la carpeta
+    dias_rev = _cada(ciclo.get("review"))
+    if dias_rev:
+        u = ultima("review")
+        detalle["review"] = {"every_days": dias_rev, "last": registro.get("review")}
+        if u is None or (today - u).days >= dias_rev:
+            toca.append("review")
+
+    # 2 · el comité de producto, con su anticipación. La aritmética es la misma que la
+    # del comité de proyectos, así que se importa en vez de reescribirse.
+    fecha, paso = proximo_comite(ciclo, today)
+    anticipacion = int(ciclo.get("report_lead_days") or 0)
+    if fecha:
+        entrega = fecha - dt.timedelta(days=anticipacion)
+        detalle["committee"] = {"next": fecha.isoformat(),
+                                "days_away": (fecha - today).days,
+                                "report_on": entrega.isoformat(),
+                                "every_days": paso or None}
+        u = ultima("report")
+        if today >= entrega and (u is None or u < entrega):
+            toca.append("report")
+
+    # 3 · lo que cruzó un umbral desde la corrida anterior. No es cadencia: es lo que el
+    # paso del tiempo produjo solo. Se compara contra el último corte guardado, y si no
+    # hay corte anterior no se reporta nada — la primera corrida no «descubre» cosas que
+    # llevaban ahí desde siempre, las revisa.
+    carpeta = state / "snapshots"
+    previos = sorted(carpeta.glob("*.json")) if carpeta.is_dir() else []
+    if previos:
+        antes = json.loads(previos[-1].read_text(encoding="utf-8"))
+        vistas = {(a["signal"], a.get("id")) for a in antes.get("alerts", [])}
+        ahora = compute(state, today, th)
+        nuevas = [a for a in ahora["alerts"]
+                  if a["signal"] in SENALES_DE_TIEMPO and (a["signal"], a.get("id")) not in vistas]
+        if nuevas:
+            detalle["crossed"] = {"since": previos[-1].stem, "count": len(nuevas),
+                                  "signals": sorted({a["signal"] for a in nuevas})}
+            toca.append("crossed")
+
+    proximos = []
+    if dias_rev:
+        u = ultima("review")
+        proximos.append((u or today) + dt.timedelta(days=dias_rev))
+    if fecha:
+        proximos.append(fecha - dt.timedelta(days=anticipacion))
+    futuros = [p for p in proximos if p > today]
+
+    return {"today": today.isoformat(), "due": toca, "quiet": not toca,
+            "detail": detalle,
+            "next_wake": min(futuros).isoformat() if futuros else None}
+
+
 # ----------------------------------------------------------- estado en disco
 
 def init(state: Path) -> dict:
@@ -459,7 +553,7 @@ def check_config(config: Path) -> dict:
         cfg = json.loads(config.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
         return {"ok": False, "error": f"JSON inválido: {e}", "path": str(config)}
-    faltan = [c for c in ("product", "paths", "terms_accepted") if c not in cfg]
+    faltan = [c for c in ("product", "paths", "terms_accepted", "cycle") if c not in cfg]
     rutas = cfg.get("paths", {}) or {}
     faltan += [f"paths.{c}" for c in ("documents", "state") if c not in rutas]
     return {"ok": not faltan, "missing": faltan, "path": str(config),
@@ -686,10 +780,44 @@ def selftest() -> int:
         ok(not res["ok"] and "paths" in res["missing"], "dice qué falta, no solo que falta")
         cfg.write_text(json.dumps({"product": "PRD-QR", "terms_accepted": {"version": "1.0"},
                                    "paths": {"documents": "d", "state": "e"},
+                                   "cycle": {"review": "monthly", "committee": "monthly",
+                                             "committee_next": "2026-12-03",
+                                             "report_lead_days": 2},
                                    "thresholds": {"undecided_days": 30}}), encoding="utf-8")
         res = check_config(cfg)
         ok(res["ok"] and res["thresholds"]["undecided_days"] == 30,
            "y un umbral de la organización pisa el de por defecto")
+
+        print("\nLa cadencia")
+        d3 = due(cfg, estado, hoy)
+        ok("review" in d3["due"], "sin constancia de ninguna revisión, toca revisar")
+        ran(estado, "review", hoy)
+        d3 = due(cfg, estado, hoy)
+        ok("review" not in d3["due"], "y después de dejar constancia, ya no")
+        ok(due(cfg, estado, dt.date(2026, 12, 21))["due"].count("review") == 1,
+           "un mes después vuelve a tocar")
+        ok(due(cfg, estado, dt.date(2026, 12, 1))["due"].count("report") == 1,
+           "el informe de comité aterriza con su anticipación, no el día del comité")
+        ok(due(cfg, estado, hoy)["next_wake"] is not None,
+           "y si hoy no toca nada, dice cuándo vuelve")
+
+        print("\nLo que cruzó un umbral desde la corrida anterior")
+        # El corte ya guardado arriba tiene el estado de siempre. Un requerimiento nuevo
+        # que nace ya vencido es exactamente el caso: nadie hizo nada y el hallazgo está.
+        vacio = Path(tmp) / "limpio"
+        init(vacio)
+        (vacio / "producto.json").write_text(json.dumps(prod, ensure_ascii=False),
+                                             encoding="utf-8")
+        ok("crossed" not in due(cfg, vacio, hoy)["due"],
+           "sin corte anterior, la primera corrida no «descubre» nada: revisa")
+        snapshot(vacio, hoy)
+        (vacio / "requirements" / "REQ-900.json").write_text(json.dumps(
+            {**base, "id": "REQ-900", "state": "propuesto", "stated_on": "2026-01-05"},
+            ensure_ascii=False), encoding="utf-8")
+        d4 = due(cfg, vacio, hoy)
+        ok("crossed" in d4["due"], "con corte anterior, lo que cruzó desde entonces sí")
+        ok(d4["detail"]["crossed"]["signals"] == ["requirement_undecided"],
+           "y dice qué señal fue")
 
     print("\nEl inventario de señales")
     # Se leen los dos sitios donde nace una señal: el atajo `alert(...)` de cada
@@ -714,13 +842,15 @@ def selftest() -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Criterio Product — aritmética sobre el registro de requerimiento.")
-    ap.add_argument("action", choices=["init", "config", "compute", "snapshot", "diff",
-                                       "selftest"])
+    ap.add_argument("action", choices=["init", "config", "due", "ran", "compute",
+                                       "snapshot", "diff", "selftest"])
     ap.add_argument("--state", type=Path)
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--fichas", type=Path, default=None,
                     help="carpeta con las fichas de los proyectos, para confirmar las trazas")
     ap.add_argument("--against", type=Path, default=None)
+    ap.add_argument("--what", default=None,
+                    help="qué se corrió: review | report | crossed, para `ran`")
     ap.add_argument("--today", default=None)
     args = ap.parse_args()
 
@@ -741,7 +871,13 @@ def main() -> int:
         return 0
 
     today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
-    if args.action == "compute":
+    if args.action == "due":
+        print(json.dumps(due(args.config, args.state, today), ensure_ascii=False, indent=2))
+    elif args.action == "ran":
+        if not args.what:
+            ap.error("--what es obligatorio para ran")
+        print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
+    elif args.action == "compute":
         print(json.dumps(compute(args.state, today, load_thresholds(args.config), args.fichas),
                          ensure_ascii=False, indent=2))
     elif args.action == "snapshot":

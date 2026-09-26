@@ -1,0 +1,40 @@
+{
+  "version": "0.1",
+  "role": "pm",
+  "project": {
+    "code": "PRY-101",
+    "name": "Pasarela de pagos QR",
+    "manager": "Nombre Apellido"
+  },
+  "paths": {
+    "documents": "~/proyectos/PRY-101",
+    "state": "~/proyectos/PRY-101-estado",
+    "governance": "~/proyectos/PRY-101/00-gobierno",
+    "standard": "~/PMO/estandar"
+  },
+  "cycle": {
+    "committee": "weekly",
+    "committee_next": "2026-11-27",
+    "report_lead_days": 1,
+    "daily_sweep": true
+  },
+  "report": {
+    "format": "markdown",
+    "language": "es",
+    "recipients": []
+  },
+  "thresholds": {
+    "silent_days": 7,
+    "variance_time_pct": 10,
+    "variance_cost_pct": 10,
+    "committed_pct": 90,
+    "stale_field_months": 12,
+    "declaration_stale_days": 14,
+    "reschedules_to_flag": 3
+  },
+  "terms_accepted": {
+    "version": "1.0",
+    "date": "2026-09-19",
+    "by": "Nombre Apellido"
+  }
+}
