@@ -1,0 +1,56 @@
+{
+  "identity": {
+    "code": "PRD-NOMINA",
+    "name": {
+      "value": "Dispersión de nómina",
+      "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+      "source_date": "2026-08-12"
+    },
+    "manager": {
+      "value": "Julián Estrada",
+      "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+      "source_date": "2026-08-12"
+    },
+    "authority": {
+      "value": "Comité de producto",
+      "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+      "source_date": "2026-08-12"
+    }
+  },
+  "definition": {
+    "problem": {
+      "value": "la empresa no sabe qué pagos de nómina fallaron hasta que el empleado reclama",
+      "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+      "source_date": "2026-08-12"
+    },
+    "who": {
+      "value": "empresas de 20 a 300 empleados que pagan nómina por el portal",
+      "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+      "source_date": "2026-08-12"
+    },
+    "success": {
+      "value": "50.000 dispersiones mensuales al cierre del primer semestre",
+      "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+      "source_date": "2026-08-12"
+    },
+    "claims": [
+      {
+        "metric": "dispersiones_mensuales",
+        "declared": 50000,
+        "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+        "source_date": "2026-08-12"
+      }
+    ],
+    "assumptions": [
+      {
+        "value": "el archivo de nómina trae el número de cuenta del empleado",
+        "verified": true,
+        "stated_on": "2026-08-12",
+        "source": "00-definicion/2026-08-12-caso-de-negocio.md"
+      }
+    ]
+  },
+  "activity": {
+    "last_document_date": "2026-11-01"
+  }
+}

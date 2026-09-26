@@ -1,0 +1,13 @@
+{
+  "identity": {
+    "code": "PRY-101",
+    "name": {
+      "value": "Proyecto PRY-101",
+      "source": "acta"
+    },
+    "product": {
+      "value": "PRD-QR",
+      "source": "acta"
+    }
+  }
+}

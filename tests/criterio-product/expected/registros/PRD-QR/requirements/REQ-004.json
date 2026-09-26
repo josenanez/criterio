@@ -1,0 +1,38 @@
+{
+  "id": "REQ-004",
+  "title": {
+    "value": "Devolución parcial por el mismo QR",
+    "source": "10-descubrimiento/2026-05-02-notas-visita-comercios.md",
+    "source_date": "2026-05-02"
+  },
+  "product": "PRD-QR",
+  "state": "propuesto",
+  "stated_on": "2026-05-02",
+  "owner": {
+    "value": "Marcela Ruiz",
+    "kind": "person",
+    "source": "10-descubrimiento/2026-05-02-notas-visita-comercios.md"
+  },
+  "need": {
+    "value": "devolver una parte del pago sin usar efectivo",
+    "source": "10-descubrimiento/2026-05-02-notas-visita-comercios.md",
+    "source_date": "2026-05-02"
+  },
+  "acceptance": [],
+  "evidence": [
+    {
+      "value": "3 de 5 comercios visitados lo piden",
+      "source": "10-descubrimiento/2026-05-02-notas-visita-comercios.md",
+      "source_date": "2026-05-02"
+    }
+  ],
+  "assumptions": [
+    {
+      "value": "el comercio acepta devolver por el mismo canal en vez de en efectivo",
+      "verified": false,
+      "stated_on": "2026-05-02",
+      "source": "10-descubrimiento/2026-05-02-notas-visita-comercios.md"
+    }
+  ],
+  "traces": {}
+}

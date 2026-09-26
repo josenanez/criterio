@@ -64,7 +64,7 @@ Dos decisiones que se notan el primer día. **Las cuatro cifras del presupuesto,
 |---|---|---|
 | **[Vera](plugins/criterio-pmo/README.es.md)** | Agente PMO · **disponible** | *Verus*, lo verdadero. Dice lo que los documentos dicen, no lo que se reporta. 17 comandos, 10 skills |
 | **[Samuel](plugins/criterio-pm/README.es.md)** | Agente de proyecto · **disponible** | «El que escuchó». Su función central es el compromiso dicho y no cumplido. 6 comandos, 8 skills |
-| **Alba** | Agente de producto · sin construir | El amanecer. Trabaja antes de que el proyecto exista |
+| **[Alba](plugins/criterio-product/README.es.md)** | Agente de producto · **disponible** | El amanecer: la luz que hay antes de que se vea nada. Trabaja antes de que el proyecto exista. 7 comandos, 12 skills |
 | **[Rostrum](plugins/criterio-pmo/SERVER.es.md)** | El servidor · **disponible** | Una tribuna. Sostiene lo que ya está escrito, donde el equipo puede leerlo |
 
 Rostrum es el único sin nombre de persona, y es a propósito: los agentes deciden sobre lo que leen, y el servidor no decide nada.
@@ -123,6 +123,7 @@ La lista no está cerrada. **Una capacidad entra cuando alguien que la ejerce qu
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-pmo@criterio     si gestionas el portafolio
 /plugin install criterio-pm@criterio      si gestionas un proyecto
+/plugin install criterio-product@criterio si defines un producto
 ```
 
 Después de instalar, cada agente tiene un comando de instalación que mira tus carpetas, hace cinco preguntas y produce un primer resultado sobre tus propios documentos. **Nadie edita un archivo de configuración a mano.**

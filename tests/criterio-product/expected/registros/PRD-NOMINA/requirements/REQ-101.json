@@ -1,0 +1,46 @@
+{
+  "id": "REQ-101",
+  "title": {
+    "value": "Resultado por empleado en el momento de la dispersión",
+    "source": "10-descubrimiento/2026-08-22-entrevistas-empresas.md",
+    "source_date": "2026-08-22"
+  },
+  "product": "PRD-NOMINA",
+  "state": "aceptado",
+  "stated_on": "2026-08-22",
+  "owner": {
+    "value": "Julián Estrada",
+    "kind": "person",
+    "source": "30-decisiones/2026-10-15-comite-producto.md"
+  },
+  "need": {
+    "value": "saber cuál pago falló sin esperar el reclamo del empleado",
+    "source": "10-descubrimiento/2026-08-22-entrevistas-empresas.md",
+    "source_date": "2026-08-22"
+  },
+  "acceptance": [
+    {
+      "value": "el resultado por empleado se ve en la misma pantalla al terminar la dispersión",
+      "source": "30-decisiones/2026-10-15-comite-producto.md"
+    }
+  ],
+  "evidence": [
+    {
+      "value": "6 de 6 empresas lo piden",
+      "source": "10-descubrimiento/2026-08-22-entrevistas-empresas.md",
+      "source_date": "2026-08-22"
+    }
+  ],
+  "decision": {
+    "what": {
+      "value": "se aprueba construirlo",
+      "source": "30-decisiones/2026-10-15-comite-producto.md"
+    },
+    "who": "Comité de producto",
+    "on": "2026-10-15"
+  },
+  "traces": {
+    "project": "PRY-201",
+    "deliverables": []
+  }
+}

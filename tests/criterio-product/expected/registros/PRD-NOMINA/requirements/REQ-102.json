@@ -1,0 +1,41 @@
+{
+  "id": "REQ-102",
+  "title": {
+    "value": "Reintento del pago fallido sin recargar el archivo",
+    "source": "10-descubrimiento/2026-08-22-entrevistas-empresas.md",
+    "source_date": "2026-08-22"
+  },
+  "product": "PRD-NOMINA",
+  "state": "aceptado",
+  "stated_on": "2026-08-22",
+  "owner": {
+    "value": "Paula Mejía",
+    "kind": "person",
+    "source": "30-decisiones/2026-10-15-comite-producto.md"
+  },
+  "acceptance": [
+    {
+      "value": "se reintenta solo el registro fallido, sin volver a cargar el archivo",
+      "source": "30-decisiones/2026-10-15-comite-producto.md"
+    }
+  ],
+  "evidence": [
+    {
+      "value": "4 de 6 empresas lo piden",
+      "source": "10-descubrimiento/2026-08-22-entrevistas-empresas.md",
+      "source_date": "2026-08-22"
+    }
+  ],
+  "decision": {
+    "what": {
+      "value": "se aprueba construirlo",
+      "source": "30-decisiones/2026-10-15-comite-producto.md"
+    },
+    "who": "Comité de producto",
+    "on": "2026-10-15"
+  },
+  "traces": {
+    "project": "PRY-202",
+    "deliverables": []
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "identity": {
+    "code": "PRD-QR",
+    "name": {
+      "value": "Pagos QR",
+      "source": "00-definicion/2026-03-04-caso-de-negocio.md",
+      "source_date": "2026-03-04"
+    },
+    "manager": {
+      "value": "Marcela Ruiz",
+      "source": "00-definicion/2026-03-04-caso-de-negocio.md",
+      "source_date": "2026-03-04"
+    },
+    "authority": {
+      "value": "Comité de producto",
+      "source": "00-definicion/2026-03-04-caso-de-negocio.md",
+      "source_date": "2026-03-04"
+    }
+  },
+  "definition": {
+    "problem": {
+      "value": "el comercio no sabe si el pago entró hasta el extracto del día siguiente",
+      "source": "00-definicion/2026-03-04-caso-de-negocio.md",
+      "source_date": "2026-03-04"
+    },
+    "who": {
+      "value": "comercios con recaudo QR y sin punto de venta integrado",
+      "source": "00-definicion/2026-03-04-caso-de-negocio.md",
+      "source_date": "2026-03-04"
+    },
+    "success": {
+      "value": "250.000 transacciones mensuales y 1.200 comercios activos al cierre del primer año",
+      "source": "00-definicion/2026-03-04-caso-de-negocio.md",
+      "source_date": "2026-03-04"
+    },
+    "claims": [
+      {
+        "metric": "tx_mensuales",
+        "declared": 250000,
+        "source": "00-definicion/2026-03-04-caso-de-negocio.md",
+        "source_date": "2026-03-04"
+      },
+      {
+        "metric": "comercios_activos",
+        "declared": 1200,
+        "source": "00-definicion/2026-03-04-caso-de-negocio.md",
+        "source_date": "2026-03-04"
+      }
+    ],
+    "assumptions": [
+      {
+        "value": "el comercio tiene conexión de datos en el punto de venta al momento del pago",
+        "verified": false,
+        "stated_on": "2026-03-04",
+        "source": "00-definicion/2026-03-04-caso-de-negocio.md"
+      },
+      {
+        "value": "el switch interoperable responde en menos de 2 s",
+        "verified": true,
+        "stated_on": "2026-03-04",
+        "source": "00-definicion/2026-03-04-caso-de-negocio.md"
+      }
+    ]
+  },
+  "activity": {
+    "last_document_date": "2026-10-08"
+  }
+}

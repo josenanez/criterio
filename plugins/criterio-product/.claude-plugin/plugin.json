@@ -1,0 +1,24 @@
+{
+  "name": "criterio-product",
+  "version": "0.1.0",
+  "description": "Definición de producto antes de que exista el proyecto: el registro de requerimiento con su evidencia de demanda, la definición contrastada contra lo que la organización tiene escrito, los supuestos que nadie verificó, y el acta de constitución con la que nace la ficha del proyecto. Una instancia por producto.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "product-management",
+    "gestion-de-producto",
+    "gerente-de-producto",
+    "requerimientos",
+    "requirements",
+    "descubrimiento",
+    "discovery",
+    "evidencia-de-demanda",
+    "trazabilidad",
+    "acta-de-constitucion",
+    "especificacion"
+  ],
+  "homepage": "https://josenanez.com",
+  "license": "Apache-2.0"
+}

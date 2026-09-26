@@ -1,0 +1,26 @@
+{
+  "version": "0.1",
+  "role": "product",
+  "product": {
+    "code": "PRD-QR",
+    "name": "Pagos QR",
+    "manager": "Nombre Apellido",
+    "authority": "Comité de producto"
+  },
+  "paths": {
+    "documents": "~/productos/pagos-qr",
+    "state": "~/productos/pagos-qr-estado",
+    "fichas": "~/PMO/estado/records"
+  },
+  "thresholds": {
+    "undecided_days": 60,
+    "assumption_unverified_days": 30,
+    "evidence_stale_months": 12,
+    "claim_gap_pct": 20
+  },
+  "terms_accepted": {
+    "version": "1.0",
+    "date": "2026-09-19",
+    "by": "Nombre Apellido"
+  }
+}

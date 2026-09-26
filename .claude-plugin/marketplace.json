@@ -21,6 +21,12 @@
       "category": "project-management"
     },
     {
+      "name": "criterio-product",
+      "description": "Definición de producto antes de que exista el proyecto: qué de la definición sostiene la evidencia de demanda y qué se sostiene solo, el requerimiento que se decidió y nadie está construyendo, y el supuesto que nadie verificó. Una instancia por producto.",
+      "source": "./plugins/criterio-product",
+      "category": "product-management"
+    },
+    {
       "name": "criterio-legal",
       "description": "Revisión de contratos y cumplimiento con criterio de derecho civil suramericano: exclusiones de responsabilidad, cláusula penal, agencia comercial, datos personales, firma electrónica y anticorrupción, por país y con cita a la norma.",
       "source": "./plugins/criterio-legal",

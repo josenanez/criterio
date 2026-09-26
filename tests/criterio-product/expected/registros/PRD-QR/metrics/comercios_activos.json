@@ -1,0 +1,11 @@
+{
+  "metric": "comercios_activos",
+  "source": "20-metricas/2026-09-01-tablero-transaccional.md",
+  "definition": "comercios con al menos una transacción en el mes",
+  "series": [
+    {
+      "date": "2026-09-01",
+      "value": 1150
+    }
+  ]
+}

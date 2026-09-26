@@ -32,6 +32,15 @@ SCRIPTS = {
         "pmo.py": "la aritmética; `compute` ya trabaja proyecto a proyecto",
         "texto.py": "leer un .docx es leer un .docx",
     },
+    # Alba no calcula plan ni presupuesto —en definición no existen—, pero sí lee las
+    # fichas de los proyectos que ejecutan su producto, y el contrato de campo
+    # `{value, source, source_date, state}` es el mismo. `producto.py` lo importa de
+    # esta copia en vez de reescribirlo: dos definiciones del mismo campo que se
+    # separan es la deuda que este proyecto no acepta.
+    "criterio-product": {
+        "pmo.py": "el contrato de campo, y leer la ficha del proyecto que ejecuta el producto",
+        "texto.py": "una entrevista llega en .docx tanto como un acta",
+    },
 }
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
@@ -48,6 +57,15 @@ SKILLS = {
         "governance-artifacts": "acta, comité, control de cambios y cierre",
         "vendor-control": "contrato contra recibo contra facturación",
         "project-diagnosis": "el diagnóstico desde cero de un proyecto",
+    },
+    # Lo que Alba comparte es la costura con el resto de la familia: la ficha que nace
+    # con el acta, el acta misma, qué documento hay que releer, y la taxonomía a la que
+    # se muda un supuesto el día que nadie lo verifica.
+    "criterio-product": {
+        "project-record": "la ficha nace con el acta, y Alba es quien la crea",
+        "document-intake": "una entrevista es un documento, y también envejece",
+        "governance-artifacts": "el acta de constitución es la costura con el agente de proyecto",
+        "raid-taxonomy": "un supuesto que nadie verifica se vuelve un riesgo, y ahí se registra",
     },
 }
 

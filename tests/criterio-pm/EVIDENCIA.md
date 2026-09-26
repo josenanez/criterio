@@ -57,15 +57,18 @@ Conviene decirlo antes de que alguien lo suponga.
 - **La extracción nunca se ha corrido.** El estado se siembra copiando
   `expected/fichas/`, así que la cadena documento → modelo → ficha no se ha
   ejercitado. `grade.py --fichas` existe para eso y todavía no se ha ejecutado.
-- **No hay comandos.** Samuel trae los ocho skills del método y la aritmética, y
-  ninguna puerta propia. Lo que se prueba aquí es el cálculo, no el agente.
+- **Ningún comando se ha corrido con un agente de verdad.** Samuel trae seis, y están
+  verificados como estructura —existen, declaran, y no inventan skills—, que no es lo
+  mismo que haberlos ejercitado. Lo que se prueba aquí es el cálculo.
 - **La ficha publicada y el contraste `pm_vs_pmo` están construidos pero no corridos
   de punta a punta.** `/pm-publish` escribe la ficha y `contrastar()` emite la señal con
   sus dos citas — verificado con siete comprobaciones en `pmo.py selftest` y con una
   corrida a mano sobre PRY-101. Lo que falta es que un agente de verdad publique y otro
   de verdad lea.
-- **Ni agenda, ni acta, ni informe semanal.** Son las tres funciones que cierran el
-  ciclo de la reunión y todavía no se han construido.
+- **La agenda, el acta y el informe semanal no se califican con esto.** Los tres están
+  construidos —`/pm-agenda`, `/pm-minutes`, `/pm-report`— y lo que producen es redacción
+  sobre la minuta, que un grader determinista no mide. Lo que sí se verifica es la
+  aritmética de la que salen sus cifras.
 
 ## Reproducirlo
 

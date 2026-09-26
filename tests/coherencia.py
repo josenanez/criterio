@@ -20,6 +20,8 @@ from pathlib import Path
 RAIZ = Path(__file__).parent.parent
 PLUGIN = RAIZ / "plugins" / "criterio-pmo"
 PMO = PLUGIN / "scripts" / "pmo.py"
+PRODUCT = RAIZ / "plugins" / "criterio-product"
+PRODUCTO = PRODUCT / "scripts" / "producto.py"
 
 # Todos los plugins construidos, no solo criterio-pmo. Un comando de Samuel nombrado
 # en la documentación de Vera tiene que resolver igual: la familia se lee junta.
@@ -57,14 +59,30 @@ def decir(marca, texto):
     print(f"  {marca} {texto}")
 
 
+# «El código» son las dos capas de aritmética de la familia. Un requerimiento no tiene
+# línea base ni presupuesto, así que Alba calcula aparte — y un nombre suyo citado en la
+# documentación tiene que resolver igual que uno de Vera. Leer solo pmo.py dejaba a la
+# mitad de la familia sin verificar, que es el falso negativo que este archivo existe
+# para no tener.
 codigo = PMO.read_text(encoding="utf-8")
+if PRODUCTO.exists():
+    codigo += "\n" + PRODUCTO.read_text(encoding="utf-8")
 texto_docs = {d: d.read_text(encoding="utf-8") for d in DOCS if d.exists()}
 todo = "\n".join(texto_docs.values())
 
 # ── 1 · señales ───────────────────────────────────────────────────────────
 print("\nSeñales")
-en_codigo = set(re.findall(r'alert\("([a-z_]+)"', codigo))
-decir(OK, f"{len(en_codigo)} señales se calculan: {', '.join(sorted(en_codigo))}")
+# Las de Vera y las de Alba se cuentan aparte: cada familia tiene su dueño
+# documental, y mezclarlas haría que una señal de producto pareciera faltar en el
+# skill de portafolio.
+en_codigo = set(re.findall(r'alert\("([a-z_]+)"', PMO.read_text(encoding="utf-8")))
+decir(OK, f"{len(en_codigo)} señales de portafolio se calculan: {', '.join(sorted(en_codigo))}")
+en_producto = set()
+if PRODUCTO.exists():
+    fuente_prod = PRODUCTO.read_text(encoding="utf-8")
+    en_producto = (set(re.findall(r'alert\("([a-z_]+)"', fuente_prod))
+                   | set(re.findall(r'"signal": "([a-z_]+)"', fuente_prod)))
+    decir(OK, f"{len(en_producto)} señales de producto: {', '.join(sorted(en_producto))}")
 
 # Un nombre en backticks puede ser una señal, un campo de la salida o una clave del
 # esquema. Solo es una inconsistencia si no aparece en NINGUNA parte de pmo.py: si
@@ -213,13 +231,14 @@ NUMEROS = {"quince": 15, "veinte": 20, "veinticinco": 25, "treinta": 30,
            "doce": 12, "trece": 13, "catorce": 14, "dieciséis": 16,
            "fifteen": 15, "twenty": 20, "twenty-five": 25, "thirty": 30,
            "thirty-five": 35, "forty": 40, "forty-two": 42, "twelve": 12}
-for script, paginas in (("servidor.py", ("SERVER.es.md", "SERVER.md")),):
-    fuente = (PLUGIN / "scripts" / script)
+for duenio, script, paginas in ((PLUGIN, "servidor.py", ("SERVER.es.md", "SERVER.md")),
+                                (PRODUCT, "producto.py", ("README.es.md", "README.md"))):
+    fuente = (duenio / "scripts" / script)
     if not fuente.exists():
         continue
     reales = len(re.findall(r"^\s+ok\(", fuente.read_text(encoding="utf-8"), re.M))
     for nombre in paginas:
-        doc = PLUGIN / nombre
+        doc = duenio / nombre
         if not doc.exists():
             continue
         texto = doc.read_text(encoding="utf-8")
@@ -318,6 +337,29 @@ if INFORME.exists():
         decir(OK, f"las {len(en_codigo)} señales tienen nombre en el informe")
 else:
     decir(FALLA, "falta plugins/criterio-pmo/scripts/informe.py")
+
+# Mismo criterio del lado de Alba: su dueño documental es product-health, y una señal
+# que se calcula y no está ahí es una señal que nadie va a saber leer.
+if en_producto:
+    print("\nCada señal de producto en su dueño")
+    hoja = (PRODUCT / "skills" / "product-health" / "SKILL.md")
+    if not hoja.exists():
+        decir(FALLA, "falta el skill product-health, que es el dueño de las señales de producto")
+    else:
+        cuerpo = hoja.read_text(encoding="utf-8")
+        faltan_s = sorted(x for x in en_producto if x not in cuerpo)
+        for x in faltan_s:
+            decir(FALLA, f"`{x}` se calcula y no está en el skill product-health")
+        if not faltan_s:
+            decir(OK, f"las {len(en_producto)} señales están documentadas en product-health")
+        bloque_p = re.search(r"DEFAULT_THRESHOLDS = \{(.*?)\n\}",
+                             PRODUCTO.read_text(encoding="utf-8"), re.S).group(1)
+        umbrales_p = set(re.findall(r'"([a-z_]+)":', bloque_p))
+        faltan_u = sorted(u for u in umbrales_p if u not in cuerpo)
+        for u in faltan_u:
+            decir(FALLA, f"el umbral `{u}` existe y product-health no dice qué señal gobierna")
+        if not faltan_u:
+            decir(OK, f"los {len(umbrales_p)} umbrales están documentados en product-health")
 
 # El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja

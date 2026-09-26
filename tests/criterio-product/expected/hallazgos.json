@@ -1,0 +1,62 @@
+{
+  "as_of": "2026-11-20",
+  "PRD-QR": {
+    "_porque": "los diez hallazgos plantados, cada uno con su documento",
+    "requirements": 5,
+    "by_state": {
+      "aceptado": 3,
+      "propuesto": 1,
+      "descartado": 1
+    },
+    "decided": 3,
+    "with_evidence": 2,
+    "traced": 2,
+    "with_evidence_pct": 66.7,
+    "traced_pct": 66.7,
+    "unknown": [],
+    "por_senal": {
+      "requirement_without_owner": 2,
+      "requirement_without_acceptance": 1,
+      "requirement_accepted_without_evidence": 1,
+      "requirement_undecided": 1,
+      "requirement_untraced": 1,
+      "trace_not_confirmed": 1,
+      "decision_without_source": 1,
+      "assumption_unverified": 2,
+      "evidence_stale": 1,
+      "claim_vs_metric": 1
+    },
+    "claim_gap_pct": 28.0,
+    "trace_says": "PRD-ORIGINACION",
+    "evidence_stale_months": 17,
+    "undecided_days": 202,
+    "signals": [
+      "assumption_unverified",
+      "claim_vs_metric",
+      "decision_without_source",
+      "evidence_stale",
+      "requirement_accepted_without_evidence",
+      "requirement_undecided",
+      "requirement_untraced",
+      "requirement_without_acceptance",
+      "requirement_without_owner",
+      "trace_not_confirmed"
+    ]
+  },
+  "PRD-NOMINA": {
+    "_porque": "control negativo · definición, entrevistas, métricas y tres requerimientos, y ni un hallazgo",
+    "requirements": 3,
+    "by_state": {
+      "aceptado": 2,
+      "propuesto": 1
+    },
+    "decided": 2,
+    "with_evidence": 2,
+    "traced": 2,
+    "with_evidence_pct": 100.0,
+    "traced_pct": 100.0,
+    "unknown": [],
+    "por_senal": {},
+    "signals": []
+  }
+}

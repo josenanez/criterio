@@ -1,0 +1,25 @@
+{
+  "id": "REQ-103",
+  "title": {
+    "value": "Registro de quién autorizó el reintento",
+    "source": "30-decisiones/2026-10-15-comite-producto.md",
+    "source_date": "2026-10-15"
+  },
+  "product": "PRD-NOMINA",
+  "state": "propuesto",
+  "stated_on": "2026-11-05",
+  "owner": {
+    "value": "Paula Mejía",
+    "kind": "person",
+    "source": "30-decisiones/2026-10-15-comite-producto.md"
+  },
+  "evidence": [
+    {
+      "value": "1 de 6 empresas lo pide",
+      "source": "10-descubrimiento/2026-08-22-entrevistas-empresas.md",
+      "source_date": "2026-08-22"
+    }
+  ],
+  "acceptance": [],
+  "traces": {}
+}

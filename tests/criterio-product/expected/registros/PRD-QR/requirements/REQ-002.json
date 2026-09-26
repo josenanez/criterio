@@ -1,0 +1,32 @@
+{
+  "id": "REQ-002",
+  "title": {
+    "value": "Cobro recurrente para comercios de suscripción",
+    "source": "30-decisiones/2026-10-08-comite-producto.md",
+    "source_date": "2026-10-08"
+  },
+  "product": "PRD-QR",
+  "state": "aceptado",
+  "stated_on": "2026-10-08",
+  "owner": {
+    "value": "Marcela Ruiz",
+    "kind": "person",
+    "source": "30-decisiones/2026-10-08-comite-producto.md"
+  },
+  "acceptance": [
+    {
+      "value": "el cobro se ejecuta el mismo día del mes sin intervención",
+      "source": "30-decisiones/2026-10-08-comite-producto.md"
+    }
+  ],
+  "evidence": [],
+  "decision": {
+    "what": {
+      "value": "se aprueba construirlo",
+      "source": "30-decisiones/2026-10-08-comite-producto.md"
+    },
+    "who": "Comité de producto",
+    "on": "2026-10-08"
+  },
+  "traces": {}
+}

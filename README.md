@@ -64,7 +64,7 @@ Two decisions you notice on day one. **Four budget figures, not two:** a project
 |---|---|---|
 | **[Vera](plugins/criterio-pmo/README.md)** | PMO agent · **available** | *Verus*, the true. Says what the documents say, not what gets reported. 17 commands, 10 skills |
 | **[Samuel](plugins/criterio-pm/README.md)** | Project agent · **available** | "He who heard". Its central function is the commitment said and not kept. 6 commands, 8 skills |
-| **Alba** | Product agent · not built | Daybreak. Works before the project exists |
+| **[Alba](plugins/criterio-product/README.md)** | Product agent · **available** | Daybreak: the light there is before anything can be seen. Works before the project exists. 7 commands, 12 skills |
 | **[Rostrum](plugins/criterio-pmo/SERVER.md)** | The server · **available** | A lectern. Holds up what is already written, where the team can read it |
 
 Rostrum is the only one without a person's name, and that is deliberate: the agents decide about what they read, and the server decides nothing.
@@ -123,6 +123,7 @@ The list is not closed. **A capability joins when someone who practises it wants
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-pmo@criterio     if you run the portfolio
 /plugin install criterio-pm@criterio      if you run a project
+/plugin install criterio-product@criterio if you define a product
 ```
 
 After installing, each agent has a setup command that looks at your folders, asks five questions and produces a first result on your own documents. **Nobody edits a configuration file by hand.**

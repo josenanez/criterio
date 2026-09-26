@@ -1,0 +1,23 @@
+{
+  "metric": "tx_mensuales",
+  "source": "20-metricas/2026-09-01-tablero-transaccional.md",
+  "definition": "transacciones confirmadas del canal QR, sin reversiones",
+  "series": [
+    {
+      "date": "2026-06-01",
+      "value": 132000
+    },
+    {
+      "date": "2026-07-01",
+      "value": 141000
+    },
+    {
+      "date": "2026-08-01",
+      "value": 150000
+    },
+    {
+      "date": "2026-09-01",
+      "value": 180000
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "id": "REQ-003",
+  "title": {
+    "value": "Conciliación diaria automática contra el archivo del switch",
+    "source": "10-descubrimiento/2025-06-10-ticket-4471-conciliacion.md",
+    "source_date": "2025-06-10"
+  },
+  "product": "PRD-QR",
+  "state": "aceptado",
+  "stated_on": "2025-06-10",
+  "owner": {
+    "value": "Operaciones",
+    "kind": "area",
+    "source": "30-decisiones/2026-10-08-comite-producto.md"
+  },
+  "acceptance": [],
+  "evidence": [
+    {
+      "value": "ticket 4471 de Operaciones",
+      "source": "10-descubrimiento/2025-06-10-ticket-4471-conciliacion.md",
+      "source_date": "2025-06-10"
+    }
+  ],
+  "decision": {
+    "what": {
+      "value": "se aprueba construirlo",
+      "source": "30-decisiones/2026-10-08-comite-producto.md"
+    },
+    "who": "Comité de producto",
+    "on": "2026-10-08"
+  },
+  "traces": {
+    "project": "PRY-105",
+    "deliverables": []
+  }
+}

@@ -23,6 +23,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 PMO = RAIZ / "plugins" / "criterio-pmo" / "scripts"
 PM = RAIZ / "plugins" / "criterio-pm" / "scripts"
+PRODUCT = RAIZ / "plugins" / "criterio-product" / "scripts"
 
 # Cada puerta con lo que prueba. El texto no es decoración: es lo que le dice a quien
 # audita por qué esa puerta existe, y es lo primero que se queda viejo si alguien
@@ -32,6 +33,8 @@ PUERTAS = [
      "El portafolio sintético: seis proyectos, con un control negativo"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-pm/generar.py")],
      "Un proyecto visto desde adentro: dos proyectos, siete minutas"),
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-product/generar.py")],
+     "Lo que hay antes del proyecto: dos productos, con un control negativo"),
 
     ("código", [sys.executable, str(PMO / "pmo.py"), "selftest"],
      "La aritmética, la cadencia, la cola y el contraste entre las dos fichas"),
@@ -45,11 +48,15 @@ PUERTAS = [
      "La copia de la aritmética corre sola, sin tocar el otro plugin"),
     ("código", [sys.executable, str(PM / "texto.py"), "--selftest"],
      "La copia de la conversión, igual"),
+    ("código", [sys.executable, str(PRODUCT / "producto.py"), "selftest"],
+     "El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio"),
 
     ("respuestas", [sys.executable, str(RAIZ / "tests/criterio-pmo/grade.py")],
      "Vera contra respuestas escritas a mano, incluido el control negativo"),
     ("respuestas", [sys.executable, str(RAIZ / "tests/criterio-pm/grade.py")],
      "Samuel contra respuestas escritas leyendo las minutas"),
+    ("respuestas", [sys.executable, str(RAIZ / "tests/criterio-product/grade.py")],
+     "Alba contra respuestas escritas leyendo la definición y las entrevistas"),
 
     ("estructura", [sys.executable, str(RAIZ / "tests/coherencia.py")],
      "Que la documentación y el código digan lo mismo"),
@@ -114,8 +121,9 @@ def main() -> int:
             print(f"   {' '.join(str(x) for x in c[1:])}")
         return 1
     print(color(f"{total} puertas en verde", VERDE))
-    print("\nQué prueba cada corrida y qué no, en tests/criterio-pmo/EVIDENCIA.md y")
-    print("tests/criterio-pm/EVIDENCIA.md — incluido lo que todavía no se ha probado.")
+    print("\nQué prueba cada corrida y qué no, en tests/criterio-pmo/EVIDENCIA.md,")
+    print("tests/criterio-pm/EVIDENCIA.md y tests/criterio-product/EVIDENCIA.md —")
+    print("incluido lo que todavía no se ha probado.")
     return 0
 
 

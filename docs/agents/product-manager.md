@@ -15,15 +15,20 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 | **Alcance** | El producto a lo largo de su vida, no un proyecto |
 | **Escribe** | Su propio registro previo. **Crea la ficha** con el acta de constitución |
 | **Lee** | Su registro, y las fichas de los proyectos que ejecutan su producto |
-| **Estado** | Sin construir |
+| **Se distribuye** | Como `criterio-product`, plugin aparte, con `pmo.py` y `texto.py` copiados de `criterio-pmo` |
+| **Estado** | Los siete comandos construidos, doce skills, corpus propio y 28 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
+| **Evidencia** | [`tests/criterio-product/EVIDENCIA.md`](../../tests/criterio-product/EVIDENCIA.md) |
 
 ---
 
-## Por qué este agente no encaja todavía
+## Por qué no encaja en la ficha, y con qué trabaja entonces
 
 La espina de la ficha es `plan` + `baseline` + `money`. En investigación y definición **ninguno
 de los tres existe**, así que este agente no escribe en la ficha: trabaja antes, con su propio
-registro.
+registro — **el registro de requerimiento**, que es su contrato de datos y era la dependencia
+bloqueante de todo lo demás. Está construido, con su aritmética aparte en `producto.py`: diez
+señales, cuatro umbrales, y el contraste de la definición contra la evidencia de demanda, que
+es la tesis de Criterio un paso aguas arriba.
 
 **La costura con el agente Project Manager es el acta de constitución** — el momento en que un
 problema definido se vuelve plan con doliente, autoridad y criterio de éxito. Ya está en el
@@ -65,29 +70,29 @@ firma el go / no-go
 
 ## A · Lo que haría, y hoy consume tiempo de alguien
 
-Ninguna está construida. Todas dependen primero del registro de requerimiento.
+Todas dependían primero del registro de requerimiento, que hoy existe.
 
 | Función | Entra | Produce o mantiene | Estado |
 |---|---|---|---|
-| Sintetizar entrevistas y retroalimentación en temas | Entrevistas, notas, tickets, encuestas | Temas con la cita de quién lo dijo, nunca como conclusión propia | Falta |
-| Inventario de requerimientos | La definición y los documentos que la soportan | Un registro por requerimiento, con estado, doliente y evidencia | Falta |
-| Trazabilidad requerimiento → decisión → entregable | El registro y las fichas de los proyectos que lo ejecutan | La cadena completa, que vuelve *"qué falta"* un filtro y no una corrida de modelo | Falta |
-| Detectar requerimientos sin criterio de aceptación o sin doliente | El registro | La lista de vacíos; igual que un riesgo sin doliente, es decoración | Falta |
-| Recopilar análisis competitivo de fuentes públicas | Fuentes públicas | Recopilación citada. No concluye posicionamiento | Falta |
-| Consolidar las métricas del producto | El sistema donde viven | La serie al día, con su fuente y fecha | Falta |
-| Borrador de la especificación | Lo ya decidido y el registro de requerimientos | Borrador con criterios de aceptación y vacíos señalados | Falta |
-| Producir el borrador del acta de constitución | La definición cerrada | El acta que el gerente firma, y con la que nace la ficha | Falta |
+| Sintetizar entrevistas y retroalimentación en temas | Entrevistas, notas, tickets, encuestas | Temas con la cita de quién lo dijo, nunca como conclusión propia | **Construido**: `/product-discovery` |
+| Inventario de requerimientos | La definición y los documentos que la soportan | Un registro por requerimiento, con estado, doliente y evidencia | **Construido**: `/product-requirements`, sobre el registro |
+| Trazabilidad requerimiento → decisión → entregable | El registro y las fichas de los proyectos que lo ejecutan | La cadena completa, que vuelve *"qué falta"* un filtro y no una corrida de modelo | **Construido**: `/product-trace`, y confirma cada traza contra la ficha del proyecto |
+| Detectar requerimientos sin criterio de aceptación o sin doliente | El registro | La lista de vacíos; igual que un riesgo sin doliente, es decoración | **Construido**, en código: dos señales, y un área no cuenta como doliente |
+| Recopilar análisis competitivo de fuentes públicas | Fuentes públicas | Recopilación citada. No concluye posicionamiento | **Parcial**: entra como evidencia débil por `demand-evidence`, sin comando propio |
+| Consolidar las métricas del producto | El sistema donde viven | La serie al día, con su fuente y fecha | **Construido**: el skill `product-metrics` y la serie en el estado. No se conecta a ningún sistema |
+| Borrador de la especificación | Lo ya decidido y el registro de requerimientos | Borrador con criterios de aceptación y vacíos señalados | **Construido**: `/product-spec`, con la regla de señalar el vacío en vez de rellenarlo |
+| Producir el borrador del acta de constitución | La definición cerrada | El acta que el gerente firma, y con la que nace la ficha | **Construido**: `/product-charter`, y la ficha se crea después de la firma, nunca antes |
 
 ## B · Lo que haría, y hoy no se hace
 
 | Función | Entra | Produce o mantiene | Estado |
 |---|---|---|---|
-| Contrastar la definición contra la evidencia de demanda | La definición y todo lo que la organización tenga escrito sobre demanda | Qué se sostiene, con qué documento, y qué no está dicho en ninguna parte | Falta |
-| Detectar contradicción entre lo que dice el negocio y lo que dicen los datos | Documentos del negocio y las métricas | El conflicto con las dos fuentes y sus fechas | Falta |
-| Identificar los supuestos no verificados de la definición | La definición | Los supuestos declarados como tales, para validarlos o convertirlos en riesgo | Falta |
-| Primer barrido de obligaciones normativas que toca el producto | La definición y la norma aplicable | Las obligaciones citadas. **No opina sobre cumplimiento** | Falta |
-| Estructurar el caso de negocio | Lo que el negocio entregue | La estructura y los vacíos. Las cifras son del negocio | Falta |
-| Análisis de canibalización | Datos internos de los productos existentes | El solapamiento, con su fuente | Falta |
+| Contrastar la definición contra la evidencia de demanda | La definición y todo lo que la organización tenga escrito sobre demanda | Qué se sostiene, con qué documento, y qué no está dicho en ninguna parte | **Construido**: `/product-definition`. Es la función que justifica al agente |
+| Detectar contradicción entre lo que dice el negocio y lo que dicen los datos | Documentos del negocio y las métricas | El conflicto con las dos fuentes y sus fechas | **Construido**, en código: `claim_vs_metric`, con las dos fuentes, las dos fechas y la dirección |
+| Identificar los supuestos no verificados de la definición | La definición | Los supuestos declarados como tales, para validarlos o convertirlos en riesgo | **Construido**: `assumption_unverified` con su umbral, y la frontera a la que se vuelve riesgo |
+| Primer barrido de obligaciones normativas que toca el producto | La definición y la norma aplicable | Las obligaciones citadas. **No opina sobre cumplimiento** | **Construido**: el skill `regulatory-sweep`, dentro de `/product-definition` |
+| Estructurar el caso de negocio | Lo que el negocio entregue | La estructura y los vacíos. Las cifras son del negocio | **Parcial**: los vacíos de la definición salen en `unknown`; la estructura no tiene comando |
+| Análisis de canibalización | Datos internos de los productos existentes | El solapamiento, con su fuente | **Falta.** Necesita las métricas de más de un producto a la vista, y hoy cada instalación mira el suyo |
 
 La primera fila traslada la tesis de Criterio aguas arriba: en un proyecto se contrasta el
 **estado declarado** contra la evidencia documental; en un producto se contrasta la
@@ -134,13 +139,21 @@ sintetizar.** Un agente de producto sin gerente de producto sintetiza el vacío.
 
 ---
 
-## Antes de construir nada
+## Los tres prerrequisitos, y cómo quedaron
 
-1. **El registro de requerimiento**, que es la dependencia bloqueante.
-2. **El campo `producto` en la ficha**, para que el PMO pueda mirar por producto.
-3. **Que la ficha tenga dos escritores y el contrato haya aguantado** — es decir, que el agente
-   PM esté corriendo sobre documentación real.
+1. ~~**El registro de requerimiento**, la dependencia bloqueante~~ — **construido**, con su
+   aritmética aparte y 44 comprobaciones.
+2. ~~**El campo `producto` en la ficha**~~ — **construido**, y hoy sirve en las dos
+   direcciones: la PMO mira por producto, y Alba confirma contra él que el proyecto que dice
+   ejecutar su producto sea de verdad el suyo.
+3. **Que la ficha tenga dos escritores y el contrato haya aguantado.** El contrato existe y
+   aguantó en la prueba: Samuel publica, Vera lee, y el desacuerdo sale como `pm_vs_pmo` con
+   sus dos citas. **Lo que no ha pasado es que corra sobre documentación real de una
+   organización**, y eso no se puede construir desde aquí.
 
-El tercero no es una formalidad. Definir este agente antes diluye la única tesis que hoy es
-medible, y el proyecto ya pagó una vez el costo de abrir dos líneas a la vez: está escrito en
-[`docs/decisions/0005`](../decisions/0005-scope-pmo-only.md).
+Así que el estado honesto de este agente es **construido y verificado sobre corpus, no
+probado sobre documentación real** — la misma frase que aplica a los otros dos, y la que
+protege a quien instale esto. La razón por la que el tercer prerrequisito estaba escrito
+sigue en pie y está en [`docs/decisions/0005`](../decisions/0005-scope-pmo-only.md): definir
+este agente antes de que hubiera algo medible habría diluido la única tesis que se puede
+probar. Hoy hay con qué medirlo, y lo que falta es una carpeta de verdad.

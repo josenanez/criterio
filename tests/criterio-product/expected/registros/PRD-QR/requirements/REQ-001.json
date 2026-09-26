@@ -1,0 +1,46 @@
+{
+  "id": "REQ-001",
+  "title": {
+    "value": "Confirmar el pago sin llamar a la línea de atención",
+    "source": "10-descubrimiento/2026-09-01-entrevistas-comercios.md",
+    "source_date": "2026-09-01"
+  },
+  "product": "PRD-QR",
+  "state": "aceptado",
+  "stated_on": "2026-09-01",
+  "owner": {
+    "value": "Marcela Ruiz",
+    "kind": "person",
+    "source": "30-decisiones/2026-10-08-comite-producto.md"
+  },
+  "need": {
+    "value": "saber en el momento si la transacción entró",
+    "source": "10-descubrimiento/2026-09-01-entrevistas-comercios.md",
+    "source_date": "2026-09-01"
+  },
+  "acceptance": [
+    {
+      "value": "la confirmación llega al comercio en menos de 3 s en el percentil 95",
+      "source": "30-decisiones/2026-10-08-comite-producto.md"
+    }
+  ],
+  "evidence": [
+    {
+      "value": "6 de 8 comercios lo describen como su problema principal",
+      "source": "10-descubrimiento/2026-09-01-entrevistas-comercios.md",
+      "source_date": "2026-09-01"
+    }
+  ],
+  "decision": {
+    "what": {
+      "value": "se aprueba construirlo",
+      "source": "30-decisiones/2026-10-08-comite-producto.md"
+    },
+    "who": "Comité de producto",
+    "on": "2026-10-08"
+  },
+  "traces": {
+    "project": "PRY-101",
+    "deliverables": []
+  }
+}

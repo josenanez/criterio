@@ -1,0 +1,15 @@
+{
+  "metric": "dispersiones_mensuales",
+  "source": "20-metricas/2026-11-01-tablero-dispersiones.md",
+  "definition": "dispersiones procesadas del canal nómina, incluidas las fallidas",
+  "series": [
+    {
+      "date": "2026-09-01",
+      "value": 48000
+    },
+    {
+      "date": "2026-10-01",
+      "value": 52000
+    }
+  ]
+}

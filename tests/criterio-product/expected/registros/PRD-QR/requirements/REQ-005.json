@@ -1,0 +1,25 @@
+{
+  "id": "REQ-005",
+  "title": {
+    "value": "Pago con QR sin conexión",
+    "source": null,
+    "state": "not_found"
+  },
+  "product": "PRD-QR",
+  "state": "descartado",
+  "stated_on": "2026-04-15",
+  "owner": {
+    "value": "Julián Estrada",
+    "kind": "person",
+    "source": null,
+    "state": "not_found"
+  },
+  "acceptance": [],
+  "evidence": [],
+  "decision": {
+    "what": "no se hace",
+    "who": "Marcela Ruiz",
+    "on": "2026-06-30"
+  },
+  "traces": {}
+}
