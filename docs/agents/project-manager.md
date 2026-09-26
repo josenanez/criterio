@@ -1,6 +1,10 @@
 # Samuel · el agente Project Manager
 
-Fija un ángulo y verifica cada pieza contra él. Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
+**Samuel**, «el que escuchó». Su función central es el compromiso dicho y no cumplido, así
+que el nombre es literalmente la función: oyó lo que se dijo en la reunión, y lo recuerda el
+viernes.
+
+Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
 
 Marco general, definición de las clases y de las columnas: [README](README.md).
 
@@ -12,7 +16,7 @@ Marco general, definición de las clases y de las columnas: [README](README.md).
 | **Escribe** | La ficha del proyecto — **excepto el estado declarado** |
 | **Publica** | `ficha-pm.json` en la carpeta de gobierno del proyecto, y nada más |
 | **Lee** | Su propia ficha y el estándar que publica la PMO |
-| **Estado** | En construcción. Tres comandos, ocho skills, corpus propio y 19 comprobaciones. Faltan agenda, acta e informe semanal |
+| **Estado** | Los seis comandos construidos, ocho skills, corpus propio y 19 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
 | **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) |
 
 ---
@@ -196,10 +200,10 @@ enterarse.
 | Mantener el expediente ordenado y trazable | La carpeta como esté | Cada dato con su ruta y su fecha; lo que no está, declarado | Construido |
 | Seguir los entregables del proveedor | Contrato, actas de recibo, facturación declarada | Vencidos sin evidencia, aceptados sin documento, factura sin entrega | Construido |
 | Ver si la replanificación se pasó de lo autorizado | Línea base de solo agregar y cambios aprobados | Días que se movió, días autorizados, días que nadie autorizó | Construido |
-| **Extraer y seguir los compromisos de cada reunión** | Minuta o transcripción | Compromisos con doliente, fecha y fuente; vencidos sin evidencia; sus reprogramaciones | **Falta el comando**, y un límite probado: un compromiso sin fecha (`due_date: no_declarada`) el cálculo lo ignora y tampoco lo cuenta, así que desaparece del informe. El skill está completo; hoy solo se llega por `/raid-log` o por un barrido de portafolio, que es cadencia de PMO |
-| **Armar el informe de avance semanal** | Ficha, alertas y lo que cambió desde la corrida anterior | El informe completo salvo el estado declarado | **Parcial** — `/status-report` existe con forma y cadencia de comité |
-| **Armar la estructura de la reunión** | Alertas abiertas, compromisos vencidos, decisiones pendientes | Agenda con los puntos que necesitan a alguien, en orden | **Falta** |
-| **Redactar el acta de la reunión** | Transcripción o notas | Acta con acuerdos, compromisos y decisiones, cada uno atribuido | **Falta** |
+| **Extraer y seguir los compromisos de cada reunión** | Minuta o transcripción | Compromisos con doliente, fecha y fuente; vencidos sin evidencia; sus reprogramaciones | **Construido**: `/pm-commitments`. Y un límite que conviene tener escrito: un compromiso sin fecha (`due_date: no_declarada`) el cálculo lo ignora y tampoco lo cuenta, así que el comando lo cuenta aparte a mano — es la razón por la que la sección «sin fecha» es obligatoria en la salida |
+| **Armar el informe de avance semanal** | Ficha, alertas y lo que cambió desde la corrida anterior | El informe completo salvo el estado declarado | **Construido**: `/pm-report`, con cadencia de proyecto y con la declaración pedida después de mostrar la evidencia, nunca antes |
+| **Armar la estructura de la reunión** | Alertas abiertas, compromisos vencidos, decisiones pendientes | Agenda con los puntos que necesitan a alguien, en orden | **Construido**: `/pm-agenda`, con lo que esta reunión no puede mover declarado aparte |
+| **Redactar el acta de la reunión** | Transcripción o notas | Acta con acuerdos, compromisos y decisiones, cada uno atribuido | **Construido**: `/pm-minutes`, que separa compromiso, decisión, intención sin doliente y riesgo dicho al pasar |
 
 ## B · Lo que hace, y hoy no se hace
 
@@ -265,9 +269,12 @@ persona.** No por prudencia — por arquitectura.
 3. ~~Publicar la ficha~~ — **construido**: `/pm-publish`.
 4. ~~El contraste `pm_vs_pmo` en código~~ — **construido**, del lado de Vera, con sus dos
    citas y con las cuatro formas de diferir distinguidas. Siete comprobaciones.
-5. **La estructura de la reunión.** Cierra el ciclo y es la de más apalancamiento.
-6. **El informe semanal**, con cadencia y forma de proyecto, no de comité.
-7. **El acta de la reunión.**
+5. ~~La estructura de la reunión~~ — **construido**: `/pm-agenda`. Cierra el ciclo, y es la
+   de más apalancamiento: el que arma la agenda antes recibe la minuta después.
+6. ~~El informe semanal~~ — **construido**: `/pm-report`, con cadencia de proyecto.
+7. ~~El acta de la reunión~~ — **construido**: `/pm-minutes`.
+8. **El primer borrador del plan y de la WBS.** Es lo único de la tabla A y B que sigue sin
+   comando, y necesita proyectos análogos del portafolio, que es una lectura de Vera.
 
 Y una deuda de verificación que conviene tener a la vista: **la extracción nunca se ha
 corrido.** El corpus siembra el estado desde `expected/fichas/`, así que la cadena

@@ -5,9 +5,11 @@ desbloqueas. Él llega con la semana lista y con la lista de lo que se dijo y no
 
 [English](README.md) · Apache 2.0 · Una instancia por proyecto
 
-**Estado: en construcción.** Hay tres comandos, los ocho skills del método y la
-aritmética verificada. Faltan la agenda, el acta y el informe semanal. Nada se anuncia
-como terminado hasta que pasen los [criterios de aceptación](ACCEPTANCE.md).
+**Estado: los seis comandos construidos**, los ocho skills del método y la aritmética
+verificada sobre un corpus con respuestas escritas a mano. **Lo que todavía no se ha
+probado: la extracción sobre la documentación real de una organización** — el corpus
+siembra la ficha, así que la cadena documento → modelo → ficha no se ha ejercitado. Nada se
+anuncia como terminado hasta que pasen los [criterios de aceptación](ACCEPTANCE.md).
 
 ---
 
@@ -93,16 +95,21 @@ actualizó nunca.
 Lo que tú tienes y la PMO no —los compromisos de cada reunión— **no es una
 contradicción**: es diferencia de profundidad, y no se reporta como hallazgo.
 
-## Los tres comandos
+## Los seis comandos
 
 | Comando | Qué hace |
 |---|---|
 | `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
+| `/pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
+| `/pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
 | `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
+| `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
 | `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
 
-Faltan tres, en este orden: la **estructura de la reunión**, el **informe semanal** con
-cadencia de proyecto y no de comité, y el **acta**.
+Tres de ellos son un ciclo, y por eso están: **el que arma la agenda antes recibe la minuta
+después.** Sin la agenda la reunión hereda el orden del día de la semana pasada; sin el
+acta, lo que se dijo se escribe de memoria dos días más tarde y deja de ser evidencia de
+nada.
 
 ## Los ocho skills
 

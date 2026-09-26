@@ -1,7 +1,11 @@
 # Alba · el agente Product Manager
 
-Mide antes de trazar. Extiende al **gerente de producto**: la persona que define qué se va a construir, antes de que
-exista un proyecto.
+**Alba**, el amanecer: la luz que hay antes de que se vea nada. Trabaja antes de que el
+proyecto exista, cuando todavía no hay plan, ni línea base, ni presupuesto contra los que
+medir.
+
+Extiende al **gerente de producto**: la persona que define qué se va a construir, antes de
+que exista un proyecto.
 
 Marco general, definición de las clases y de las columnas: [README](README.md).
 

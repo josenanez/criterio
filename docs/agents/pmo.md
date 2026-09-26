@@ -1,6 +1,9 @@
 # Vera · el agente PMO
 
-Cuelga quieta y dice si algo está derecho. Extiende a la **oficina de proyectos**: la función que responde por el conjunto de los
+**Vera**, del latín *verus*: lo verdadero. Dice lo que los documentos dicen, no lo que se
+reporta — y cuando las dos cosas no coinciden, esa diferencia es el hallazgo.
+
+Extiende a la **oficina de proyectos**: la función que responde por el conjunto de los
 proyectos, no por uno.
 
 Esta hoja es la referencia completa de la capacidad: el flujo, las piezas que la componen y

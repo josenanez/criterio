@@ -6,9 +6,11 @@ not done.
 
 [Español](README.es.md) · Apache 2.0 · One instance per project
 
-**Status: under construction.** Three commands, the eight skills of the method, and the
-arithmetic verified. The agenda, the minutes and the weekly report are missing. Nothing
-is announced as finished until the [acceptance criteria](ACCEPTANCE.md) pass.
+**Status: the six commands are built**, along with the eight skills of the method and the
+arithmetic verified against a corpus with answers written by hand. **What has not been
+tested yet: extraction over a real organisation's documentation** — the corpus seeds the
+record, so the document → model → record chain has not been exercised. Nothing is announced
+as finished until the [acceptance criteria](ACCEPTANCE.md) pass.
 
 ---
 
@@ -94,16 +96,21 @@ the meeting where the sponsor changed and the charter was never updated.
 What you have and the PMO does not — every meeting's commitments — **is not a
 contradiction**: it is a difference of depth, and it is not reported as a finding.
 
-## The three commands
+## The six commands
 
 | Command | What it does |
 |---|---|
 | `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your latest minutes |
+| `/pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
+| `/pm-minutes` | The minutes from the transcript or the notes, with every item attributed to a person |
 | `/pm-commitments` | Who promised what, what is overdue with no evidence, and what keeps being rescheduled meeting after meeting |
+| `/pm-report` | The weekly report, complete **except for the status**, which you declare |
 | `/pm-publish` | Publishes your record where the PMO can read it |
 
-Three are missing, in this order: the **meeting's structure**, the **weekly report** with
-a project's cadence rather than a committee's, and the **minutes**.
+Three of them are one cycle, and that is why they exist: **whoever builds the agenda
+beforehand receives the minutes afterwards.** Without the agenda the meeting inherits last
+week's running order; without the minutes, what was said gets written from memory two days
+later and stops being evidence of anything.
 
 ## The eight skills
 
