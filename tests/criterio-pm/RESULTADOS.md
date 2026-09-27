@@ -2,7 +2,7 @@
 
 **el agente del gerente de proyecto** · plugin `criterio-pm`
 
-Corrida del 2026-09-27, sobre el commit `4af0e6c`, con cambios en el árbol todavía sin confirmar. **4 puertas · 97 comprobaciones · todas en verde.**
+Corrida del 2026-09-27, sobre el commit `24afc6a`, con cambios en el árbol todavía sin confirmar. **4 puertas · 97 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,10 +10,10 @@ Corrida del 2026-09-27, sobre el commit `4af0e6c`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-pm/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 43 ms | verde |
-| `criterio-pm/pmo.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 66 | 29 ms | verde |
+| `criterio-pm/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 39 ms | verde |
+| `criterio-pm/pmo.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 66 | 39 ms | verde |
 | `criterio-pm/texto.py` | La copia de la conversión, igual | 12 | 24 ms | verde |
-| `criterio-pm/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 42 ms | verde |
+| `criterio-pm/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 44 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -35,9 +35,9 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 
 | Puerta | Qué prueba | Comprob. | |
 |---|---|---:|---|
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 57 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 59 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
-| `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 14 | verde |
+| `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
 
-El conjunto de los tres agentes, con gráficas, en [`docs/pruebas.html`](../../docs/pruebas.html). Todo corre con la librería estándar y sin instalar nada.
+El conjunto de los tres agentes, en [`docs/pruebas.md`](../../docs/pruebas.md) — y con gráficas, para abrir en un navegador, en [`pruebas.html`](../../docs/pruebas.html). Todo corre con la librería estándar y sin instalar nada.

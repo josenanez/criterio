@@ -84,7 +84,7 @@ your policies before pointing it at confidential material. Full disclaimer in
 
 ## How you work with Samuel
 
-The family's three agents share five behaviours — a citation on every value, "not stated anywhere" as a valid answer, going quiet when there is no news, never declaring, and never writing to anybody. They live in the [marketplace README](../../README.md#what-every-agent-shares), which owns them, and are not repeated here.
+The family's three agents share five behaviours — a citation on every value, "not stated anywhere" as a valid answer, going quiet when there is no news, never declaring, and never writing to anybody. They live in the [`criterio-pmo` README](../criterio-pmo/README.md), the family's page, and are not repeated here.
 
 What changes between them is **the rhythm of the conversation**, and that is worth knowing before you install.
 

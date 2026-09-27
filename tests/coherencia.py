@@ -297,7 +297,7 @@ for fuente, cuenta, paginas in (
 print("\nLa cifra de skills de la familia")
 distintos = len(skills)
 for nombre in ("README.es.md", "README.md"):
-    pagina = RAIZ / nombre
+    pagina = PLUGIN / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
@@ -422,21 +422,42 @@ if en_producto:
         if not faltan_u:
             decir(OK, f"los {len(umbrales_p)} umbrales están documentados en product-health")
 
-# La familia vive en el README de la raíz, que es la página que GitHub abre solo y la
-# única que nadie tiene que descubrir. Ahí están los comandos de los tres agentes, no solo
-# los de Vera: es duplicación a propósito, y la duplicación que se acepta es la que se
+# La familia vive en el README de criterio-pmo. Ahí están los comandos de los tres
+# agentes, no solo los de Vera: es duplicación a propósito —quien llega a la página de la
+# familia quiere ver la familia entera— y la duplicación que se acepta es la que se
 # verifica.
-print("\nLa familia entera en la página de la raíz")
+print("\nLa familia entera en su página")
 for nombre in ("README.es.md", "README.md"):
-    pagina = RAIZ / nombre
+    pagina = PLUGIN / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
     faltan = sorted(c for c in comandos if f"`/{c}`" not in cuerpo)
     if faltan:
-        decir(FALLA, f"la raíz · {nombre} no lista {', '.join(faltan)}")
+        decir(FALLA, f"criterio-pmo/{nombre} no lista {', '.join(faltan)}")
     else:
-        decir(OK, f"la raíz · {nombre} · los {len(comandos)} comandos de los tres")
+        decir(OK, f"criterio-pmo/{nombre} · los {len(comandos)} comandos de los tres")
+
+# Y desde la página de la familia se tiene que poder llegar al análisis de pruebas de cada
+# agente, en markdown. Un resultado que solo existe en HTML no se ve en GitHub, y uno que no
+# está enlazado desde donde la gente llega es uno que nadie abre.
+print("\nEl análisis de pruebas de cada agente, alcanzable")
+for nombre in ("README.es.md", "README.md"):
+    pagina = PLUGIN / nombre
+    if not pagina.exists():
+        continue
+    cuerpo = pagina.read_text(encoding="utf-8")
+    faltan = []
+    for d in CONSTRUIDOS:
+        destino = RAIZ / "tests" / d.name / "RESULTADOS.md"
+        if not destino.exists():
+            faltan.append(f"{d.name} no tiene RESULTADOS.md")
+        elif f"tests/{d.name}/RESULTADOS.md" not in cuerpo:
+            faltan.append(f"{d.name} no está enlazado")
+    if faltan:
+        decir(FALLA, f"{nombre} · {', '.join(faltan)}")
+    else:
+        decir(OK, f"{nombre} · los {len(CONSTRUIDOS)} análisis de pruebas, en markdown")
 
 # El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja

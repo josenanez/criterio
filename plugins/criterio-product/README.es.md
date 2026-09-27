@@ -79,7 +79,7 @@ de apuntarlo a material confidencial. Descargo completo en
 
 ## Cómo se trabaja con Alba
 
-Los tres agentes de la familia comparten cinco conductas —la cita en cada dato, «no está dicho en ninguna parte» como respuesta válida, callarse cuando no hay novedad, no declarar, y no escribirle a nadie—. Están en el [README del marketplace](../../README.es.md#lo-que-comparten-todos-los-agentes), que es su dueño, y no se repiten aquí.
+Los tres agentes de la familia comparten cinco conductas —la cita en cada dato, «no está dicho en ninguna parte» como respuesta válida, callarse cuando no hay novedad, no declarar, y no escribirle a nadie—. Están en el [README de `criterio-pmo`](../criterio-pmo/README.es.md), que es la página de la familia, y no se repiten aquí.
 
 Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso sí conviene saberlo antes de instalar.
 

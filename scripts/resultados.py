@@ -35,6 +35,7 @@ sys.path.insert(0, str(RAIZ / "scripts"))
 from verificar import PUERTAS  # noqa: E402
 
 SALIDA = RAIZ / "docs" / "pruebas.html"
+SALIDA_MD = RAIZ / "docs" / "pruebas.md"
 
 # Quién responde por cada puerta. La clave es lo que identifica al comando; el orden
 # importa, porque se busca la primera que aparezca en la línea de comando completa.
@@ -466,14 +467,97 @@ def por_agente(filas: list, rapido: bool) -> list:
             marca = "verde" if f["ok"] else f"**{f['fallas']} EN ROJO**"
             p.append(f"| `{f['etiqueta']}` | {f['porque']} | {f['checks'] or '—'} | "
                      f"{marca} |")
-        p += ["", "El conjunto de los tres agentes, con gráficas, en "
-              "[`docs/pruebas.html`](../../docs/pruebas.html). Todo corre con la "
-              "librería estándar y sin instalar nada.", ""]
+        p += ["", "El conjunto de los tres agentes, en "
+              "[`docs/pruebas.md`](../../docs/pruebas.md) — y con gráficas, para abrir en "
+              "un navegador, en [`pruebas.html`](../../docs/pruebas.html). Todo corre con "
+              "la librería estándar y sin instalar nada.", ""]
 
         destino.parent.mkdir(parents=True, exist_ok=True)
         destino.write_text("\n".join(p), encoding="utf-8")
         escritos.append(destino)
     return escritos
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# El conjunto, en markdown
+#
+# La página con gráficas es HTML, y GitHub no la muestra: la sirve como código fuente.
+# Quien llega al repositorio desde un enlace no va a clonar nada para ver cómo salió una
+# corrida, así que el mismo contenido va también en markdown. La gráfica de barras se
+# dibuja con el carácter de bloque, que es lo único que un markdown puede dibujar sin
+# depender de nada.
+
+BLOQUE = "█"
+
+
+def barra_texto(valor: int, tope: int, ancho: int = 28) -> str:
+    return BLOQUE * max(1, round(ancho * valor / tope)) if tope else ""
+
+
+def pagina_md(filas: list, rapido: bool) -> str:
+    hoy = dt.date.today().isoformat()
+    commit, sucio = estado_git()
+    verdes = sum(1 for f in filas if f["ok"])
+    rojas = len(filas) - verdes
+    checks = sum(f["checks"] for f in filas)
+    ms = sum(f["ms"] for f in filas)
+    corpus = sum(1 for g, _, _ in PUERTAS if g == "material")
+    comandos = len(list((RAIZ / "plugins").glob("*/commands/*.md")))
+
+    por_quien = {q: [f for f in filas if f["quien"] == q] for q in ORDEN}
+    datos = [(q, sum(f["checks"] for f in por_quien[q]))
+             for q in ORDEN if por_quien.get(q)]
+    tope = max((v for _, v in datos), default=1)
+
+    p = ["# Qué se probó, y qué no", "",
+         "Esta página sale de una corrida, no de un resumen escrito a mano. Cada cifra viene "
+         "de ejecutar el mismo comando que corre `scripts/verificar.py` y contar las "
+         "comprobaciones que ese comando imprimió. Con la librería estándar y sin instalar "
+         "nada.", "",
+         f"Corrida del {hoy}, sobre el commit `{commit}`"
+         f"{', con cambios en el árbol todavía sin confirmar' if sucio else ''}"
+         f"{' (sin regenerar el material sintético)' if rapido else ''}.", "",
+         f"**{verdes} de {len(filas)} puertas en verde · {checks} comprobaciones · "
+         f"{corpus} corpus, cada uno con su control negativo · {ms / 1000:.1f} s la corrida "
+         f"entera.**", "",
+         "> La versión con gráficas, para abrir en un navegador, está en "
+         "[`pruebas.html`](pruebas.html). Esta es la misma corrida, legible en GitHub.", "",
+         "## En conjunto", "",
+         "Comprobaciones por dueño. Los tamaños no son comparables entre sí y no pretenden "
+         "serlo: lo que dice esta gráfica es dónde está puesta la verificación.", "",
+         "| Dueño | | Comprob. |", "|---|---|---:|"]
+    for quien, valor in datos:
+        p.append(f"| **{quien}** | `{barra_texto(valor, tope)}` | {valor} |")
+
+    for quien in ORDEN:
+        grupo = por_quien.get(quien)
+        if not grupo:
+            continue
+        rol, que = QUIEN[quien]
+        p += ["", f"## {quien} · {rol}", "", f"{que.replace('<i>', '*').replace('</i>', '*')}.",
+              "", "| Puerta | Qué prueba | Comprob. | Tiempo | |",
+              "|---|---|---:|---:|---|"]
+        for f in grupo:
+            marca = "verde" if f["ok"] else f"**{f['fallas']} EN ROJO**"
+            p.append(f"| `{f['etiqueta']}` | {f['porque']} | {f['checks'] or '—'} | "
+                     f"{f['ms']} ms | {marca} |")
+        plugin = PLUGIN_DE.get(quien)
+        if plugin:
+            p += ["", f"Su análisis propio, con qué material se usó y qué no cubre, en "
+                      f"[`tests/{plugin}/RESULTADOS.md`](../tests/{plugin}/RESULTADOS.md)."]
+
+    p += ["", "## Lo que esta corrida no cubre", "",
+          "Va aquí y no en un anexo. Una página de resultados que solo dice lo que pasó es "
+          "publicidad; lo que la vuelve auditable es lo que dice que todavía no se sabe.", ""]
+    for titulo, detalle in NO_PROBADO:
+        limpio = (detalle.format(comandos=comandos)
+                  .replace("<code>", "`").replace("</code>", "`")
+                  .replace("<b>", "**").replace("</b>", "**"))
+        p.append(f"- **{titulo}.** {limpio}")
+
+    p += ["", "---", "", "Reproducirlo: `python3 scripts/resultados.py`. El detalle de qué "
+          "prueba cada corpus y qué no, en las tres páginas de evidencia bajo `tests/`.", ""]
+    return "\n".join(p)
 
 
 # ---------------------------------------------------------------- selftest
@@ -520,6 +604,11 @@ def selftest() -> int:
        "la página es un documento completo")
     ok("Lo que esta corrida no cubre" in salida,
        "y lleva siempre lo que todavía no se sabe")
+    md = pagina_md(demo, True)
+    ok(md.startswith("# ") and "Lo que esta corrida no cubre" in md,
+       "y la versión en markdown, que es la que GitHub sí muestra")
+    ok("<code>" not in md and "<b>" not in md,
+       "sin etiquetas de HTML sueltas en el markdown")
     ok("{comandos}" not in salida, "y ningún hueco del texto se quedó sin rellenar")
     ok(etiqueta(["py", str(RAIZ / "plugins/criterio-pm/scripts/pmo.py"), "selftest"])
        == "criterio-pm/pmo.py selftest",
@@ -542,7 +631,8 @@ def main() -> int:
     filas = correr(args.rapido)
     SALIDA.parent.mkdir(parents=True, exist_ok=True)
     SALIDA.write_text(pagina(filas, args.rapido), encoding="utf-8")
-    escritos = por_agente(filas, args.rapido)
+    SALIDA_MD.write_text(pagina_md(filas, args.rapido), encoding="utf-8")
+    escritos = [SALIDA_MD] + por_agente(filas, args.rapido)
     rojas = [f for f in filas if not f["ok"]]
     print(f"\n{SALIDA.relative_to(RAIZ)} · {sum(f['checks'] for f in filas)} "
           f"comprobaciones en {len(filas)} puertas")
