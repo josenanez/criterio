@@ -84,17 +84,9 @@ your policies before pointing it at confidential material. Full disclaimer in
 
 ## How you work with Samuel
 
-The family's three agents share five behaviours. They are not style: they are what makes the
-output something you can put in front of a committee.
+The family's three agents share five behaviours — a citation on every value, "not stated anywhere" as a valid answer, going quiet when there is no news, never declaring, and never writing to anybody. They live in the [marketplace README](../../README.md#what-every-agent-shares), which owns them, and are not repeated here.
 
-1. **Every value carries the citation of the document it came from**, with its date. A value
-   with no source is a defect, not a degraded case.
-2. **"Not stated anywhere" is a valid answer**, and it is the most common one at the start.
-3. **They go quiet when there is nothing.** None produces a report to say there is no news.
-4. **None of them declares.** None writes a project's status or decides what gets built.
-5. **None of them writes to anybody.** They produce the list; chasing someone is a conversation.
-
-What changes between them is **the rhythm of the conversation**.
+What changes between them is **the rhythm of the conversation**, and that is worth knowing before you install.
 
 **With Samuel you talk every week.** He works over one project and his cycle is the meeting:
 the conversation is frequent and short, and it almost always turns on a document that has just

@@ -4,84 +4,22 @@
 already has and says what changed, what contradicts itself, and what has been silent for
 weeks.
 
-[Español](README.es.md) · Apache 2.0 · Four clicks to install · **The first result lands in
+[Español](README.es.md) · Apache 2.0 · One instance per PMO
+
+**Status: the seventeen commands are built**, along with the ten skills of the method and the
+arithmetic verified against a corpus with answers written by hand. **What has not been tested
+yet: extraction over a real organisation's documentation.** Nothing is announced as finished
+until the [acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
+
+It installs in four clicks, and **the first result comes out in fifteen minutes over your own
+documents.**
 fifteen minutes, over your own documents**
 
 ---
 
-## The PMO family
-
-![The PMO family: three agents, one data contract](../../docs/img/en/familia-pmo.png)
-
-The capability has more than one agent because the organisation has more than one role.
-They carry people's names because **they are capabilities that extend people**, and each
-name's meaning points at what it does: **Vera** — from *verus*, the true — says what the
-documents say rather than what gets reported; **Samuel** — "he who heard" — remembers on
-Friday what was said in the meeting; **Alba** — daybreak — works before the project
-dawns.
-
-**All three install today**, each with its own plugin, and they share the same data
-contract. All three also carry the same debt, written on their own page: built and
-verified over a synthetic corpus, **not yet tested against a real organisation's
-documentation.**
-
-**Samuel**, the project manager's agent, does not attend the meetings — the manager does. What it does is let the
-manager arrive with the week prepared: the agenda built beforehand, the minutes drafted
-afterwards, the plan current against the evidence, and the report ready except for one line.
-Its central function is one no tool a project manager uses today performs: **the commitment
-said and not kept.** Meetings are full of *"I'll have it by Friday"* and nobody records them.
-
-**Alba** works before the project exists, and delivers the charter the project
-is born from.
-
 ---
 
-## How the three operate
-
-![How the three agents operate](../../docs/img/en/flujo.png)
-
-The order in time is what makes them a system rather than three tools. **Two closed loops, and neither goes through a shared database.** The charter comes down once,
-and with it the record is born. The manager's record goes up published as one more document of
-the project, and Vera reads it like everything else. The report goes out to the team, and from
-the team a request comes back. And the loop at the top: Alba reads the project records to
-confirm that whoever claims to be building her product actually is.
-
-What is **not** in that picture matters as much as what is:
-
-- **No arrow between two agents.** Every one of them passes through a document. Two agents
-  talking directly are two agents you have to deploy together.
-- **No arrow back from Rostrum into the record.** The server does not write.
-- **No arrow that writes the declared status.** A person writes that, in all three places where
-  it appears.
-
-**And the people are in the same picture, at the bottom.** Each agent's input is produced by work its person cannot delegate.** Removing the person does
-not leave the agent alone: it leaves it without food.
-
-## Status
-
-**All three are built and can be installed today**, and all three carry the same debt, which is
-better not hidden: **verified over a synthetic corpus, not tested against a real organisation's
-documentation.**
-
-| Agent | Installs as | Its A and B tables |
-|---|---|---|
-| Vera · PMO | `criterio-pmo` · 17 commands, 10 skills | **No open rows** |
-| Samuel · Project Manager | `criterio-pm` · 9 commands, 8 skills | **No open rows** |
-| Alba · Product Manager | `criterio-product` · 11 commands, 12 skills | **No open rows** |
-| Rostrum · the server | Inside `criterio-pmo` | — |
-
-**None of the three design sheets has a row left in "missing" or "partial".** What remains
-is not construction.
-
-And one debt that belongs to all three at once: **extraction has never been run.** The three
-corpora seed the state from their reference answers, so the document → model → record chain has
-not been exercised.
-
-The run that supports these states, with what it proves and what it does not, is in the three
-evidence pages under [`tests/`](../../tests/) and, drawn, in
-[`docs/pruebas.html`](../../docs/pruebas.html).
-
-## Install
+## Installation
 
 ![Installation: four clicks, or two commands](../../docs/img/en/instalacion.png)
 
@@ -93,7 +31,7 @@ evidence pages under [`tests/`](../../tests/) and, drawn, in
 /pmo-setup
 ```
 
-## The first fifteen minutes
+## The first result
 
 ![The first fifteen minutes](../../docs/img/en/quince-minutos.png)
 
@@ -172,69 +110,6 @@ otherwise.
 
 → **[Rostrum, with screenshots of every section and what to ask your organisation for](SERVER.md)**
 
-## How each one is configured and how often it runs
-
-| | Vera | Samuel | Alba |
-|---|---|---|---|
-| **Installs as** | `criterio-pmo` | `criterio-pm` | `criterio-product` |
-| **Instances** | One per PMO | **One per project** | **One per product** |
-| **Configured with** | `/pmo-setup` | `/pm-setup` | `/product-setup` |
-| **How long that takes** | Fifteen minutes | Ten | Ten |
-| **What you have to tell it** | Where the documentation is, when the committee meets, who you are | Where your project is, when your meeting is, who you are | Where the definition is, who decides what gets built, who you are |
-| **Where it lands** | A file of the person's, written by the command | Same | Same |
-| **The one you put on a clock** | `/pmo-wake` | `/pm-wake` | `/product-wake` |
-| **Cadence that makes sense** | Daily if the sweep is on; and the report with its lead time before the committee | Daily with the sweep, or the day before and the day after the meeting | **Weekly is enough** |
-| **What wakes it besides the clock** | A request somebody left in Rostrum | New minutes in the folder | Something crossing a threshold on its own |
-
-**Nobody edits a configuration file by hand.** It is a rule of all three setup commands, not a
-courtesy: if changing a threshold means opening a JSON, the threshold stays as it shipped and
-the configuration stops describing the organisation. You say it in the conversation and the
-command rewrites it.
-
-Each plugin ships its `scripts/config.example.json` so you can see the full shape without
-installing anything.
-
-### Why the three cadences are different
-
-It is not a preference: **each agent measures against something else.**
-
-- **Vera** measures against the folder. A new document can change a project's state today, so a
-  daily sweep makes sense and the report is delivered ahead of the committee — so the PMO
-  manager has time to react to what it finds, not to learn about it once it has been sent.
-- **Samuel** measures against the meeting. His cycle is not the calendar: it is *before the
-  meeting* and *after the meeting*, which is why `/pm-wake` checks which side you are on before
-  offering anything.
-- **Alba** measures against the passing of time, and that changes everything. Her thresholds are
-  counted in months, so a daily run over a register that barely moves is noise with punctuality.
-  **But she is the only one of the three whose findings appear with nobody doing anything**: the
-  requirement that had gone fifty-nine days undecided reaches sixty, and nobody is going to open
-  a session to ask whether that has happened yet.
-
-### All three go quiet when there is nothing
-
-It is the rule that decides whether an agent is still installed a month later. The three clock
-commands return `quiet` when nothing is due, and with `quiet` the output is one line: what was
-reviewed and when it comes back.
-
-An agent that produces a report to say there is no news teaches you to ignore it, and the day
-there is news nobody opens it.
-
-### What is **not** scheduled
-
-Worth saying here and not in a footnote: **none of the three schedules itself.** All three ship
-the command a clock invokes, and the clock lives outside the plugin — a Claude Cowork scheduled
-task, or the operating system's scheduler invoking Claude non-interactively. Somebody has to
-set it up, once, and each clock command explains how.
-
-And for it to run with nobody watching, two things are needed that do not depend on this
-repository: **that the session can run without approving each step**, and **that the folder is
-mounted when the clock fires.**
-
-**If the organisation does not want unattended runs** — and in a bank that is a reasonable
-answer — all three commands work run by hand, and the cadence still says what is due. What is
-lost is that they warn you without anybody asking, which is exactly what is hardest to see by
-hand.
-
 ## What ends up configured
 
 `/pmo-setup` writes it from your answers, on your machine and in a file of yours: where the
@@ -244,35 +119,6 @@ the date.
 
 All of it is changed **by talking**. If you want silence reported at ten days instead of
 fifteen, you tell it.
-
-## How you work with Vera
-
-The family's three agents share five behaviours. They are not style: they are what makes the
-output something you can put in front of a committee.
-
-1. **Every value carries the citation of the document it came from**, with its date. A value
-   with no source is a defect, not a degraded case.
-2. **"Not stated anywhere" is a valid answer**, and it is the most common one at the start.
-3. **They go quiet when there is nothing.** None produces a report to say there is no news.
-4. **None of them declares.** None writes a project's status or decides what gets built.
-5. **None of them writes to anybody.** They produce the list; chasing someone is a conversation.
-
-What changes between them is **the rhythm of the conversation**, and that is worth knowing
-before you install.
-
-**With Vera you talk little and read a lot.** She works over forty folders: the conversation is
-short — you name a project, or none — and what comes back is long, a report somebody will take
-to a committee.
-
-**The rhythm:** `/pmo-setup` once, `/pmo-wake` on a clock, and after that you ask by exception
-— *"diagnose PRY-014 from zero"*, *"reconstruct what happened"*, *"build the committee pack"*.
-
-**What she will ask of you:** to confirm **five fields per run**, never forty — ask about forty
-and nobody answers. And **to act on what the report asks for**: if nobody acts, the next report
-says the same thing, and that is not a defect of the agent.
-
-**What not to ask her:** what state a project is in. She tells you what its manager declares
-and what the documents hold up, and **the difference between the two is the product.**
 
 ## What it never does
 
@@ -300,6 +146,30 @@ before pointing it at confidential material. Full disclaimer in
 From here down is for whoever wants to audit it before installing it. **All of this can be
 read without running anything**, and that is deliberate.
 
+## How you work with Vera
+
+The family's three agents share five behaviours — a citation on every value, "not stated
+anywhere" as a valid answer, going quiet when there is no news, never declaring, and never
+writing to anybody. They live in the [marketplace README](../../README.md#what-every-agent-shares), which owns them, and are not
+repeated here.
+
+What changes between them is **the rhythm of the conversation**, and that is worth knowing
+before you install.
+
+**With Vera you talk little and read a lot.** She works over forty folders: the conversation is
+short — you name a project, or none — and what comes back is long, a report somebody will take
+to a committee.
+
+**The rhythm:** `/pmo-setup` once, `/pmo-wake` on a clock, and after that you ask by exception
+— *"diagnose PRY-014 from zero"*, *"reconstruct what happened"*, *"build the committee pack"*.
+
+**What she will ask of you:** to confirm **five fields per run**, never forty — ask about forty
+and nobody answers. And **to act on what the report asks for**: if nobody acts, the next report
+says the same thing, and that is not a defect of the agent.
+
+**What not to ask her:** what state a project is in. She tells you what its manager declares
+and what the documents hold up, and **the difference between the two is the product.**
+
 ## How it works
 
 ![How it works: the model extracts, the code computes](../../docs/img/en/como-funciona.png)
@@ -318,57 +188,9 @@ one to know whether extracting is worth it and another to know whether re-readin
 [`scripts/informe.py`](scripts/informe.py) builds the printed report out of what the other two
 produced, without reading a single document again.
 
-## The three agents and the single contract
+## The seventeen commands
 
-Nothing talks to anything directly. **The project record is the only contract.**
-
-![The single contract: who writes the record and who only reads it](../../docs/img/en/contrato.png)
-
-The Product Manager works before a plan exists: it does not write into the record, **it creates
-it.** Its delivery closes with the charter, which is the record's birth certificate.
-
-### The seven invariants
-
-1. **The agents do not talk to each other.** They talk through the record.
-2. **Rostrum, the server, does not write.**
-3. **The source can change; the record cannot.** A new adapter fills the same fields.
-4. **Declared and evidenced never merge**, whether they came from a file or a database.
-5. **The model extracts, the code computes.**
-6. **No agent writes the declaration.** A person writes the declared status.
-7. **One record, one writer.** Two agents reading the same documents write two records, and
-   they never merge. The difference between them is the finding.
-
-The sixth is the easiest to break out of convenience and the one that takes the whole system
-with it: if the agent declares, the comparison between declaration and evidence compares the
-system against itself, and all of this becomes a generator of pretty reports. It is not a
-documentation recommendation: it is a restriction of the write path, and it fails if attempted.
-
-The seventh is the fourth one level up, and it appears the moment more than one agent looks at
-the same project. The comfortable way out — one record and one owner — forces a bad choice in
-both directions: if the manager owns it, the PMO cannot read for itself when it has doubts; if
-the PMO owns it, it enters the critical path of seventy projects. Two records remove the
-problem instead of arbitrating it, and **what was a write conflict becomes the signal.**
-
-## What still belongs to the people
-
-All three roles continue to exist in full. This extends capability; it does not replace
-function. And the argument is not politeness, it is structural:
-
-> **Each agent's input is produced by the non-delegable work of its person.**
-
-The PM agent needs somebody to run the meeting, because that is where the minutes it feeds on
-come from. The PMO agent needs somebody to chase what the report asks for, because if nobody
-acts the next report says the same thing. The product agent needs somebody to talk to the
-customer, because there is no synthesis without an interview.
-
-Removing the person does not leave the agent alone: it leaves it without food. Each design
-sheet documents what breaks first if you try, and in what order.
-
-## The three agents' commands
-
-Thirty-seven commands, and each one lives in its agent's plugin. This is the family's full list; the detail of each one is on its plugin's page.
-
-### Vera · `criterio-pmo` · seventeen
+Each one does a single thing and can be read in full before running it.
 
 | Command | What it does |
 |---|---|
@@ -390,38 +212,6 @@ Thirty-seven commands, and each one lives in its agent's plugin. This is the fam
 | `/project-charter` | Reviews or drafts the charter, flagging what is missing and what the gap costs |
 | `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
 
-### Samuel · [`criterio-pm`](../criterio-pm/README.md) · nine
-
-| Command | What it does |
-|---|---|
-| `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your latest minutes |
-| `/pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
-| `/pm-minutes` | The minutes from the transcript or the notes, with every item attributed to a person |
-| `/pm-commitments` | Who promised what, what is overdue with no evidence, and what keeps being rescheduled meeting after meeting |
-| `/pm-report` | The weekly report, complete **except for the status**, which you declare |
-| `/pm-publish` | Publishes your record where the PMO can read it |
-| `/pm-plan` | The first draft of the plan and the WBS from the charter, **committing no date** |
-| `/pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
-| `/pm-wake` | **The one you put on a clock.** Looks at what is due around your meeting, and stays quiet when nothing is |
-
-### Alba · [`criterio-product`](../criterio-product/README.md) · eleven
-
-| Command | What it does |
-|---|---|
-| `/product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have |
-| `/product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme said for months that nobody has turned into anything |
-| `/product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted with nobody having asked for it, and what nobody decides |
-| `/product-definition` | The definition against the evidence of demand, and where business and data disagree |
-| `/product-trace` | Requirement → decision → project → deliverable, and the two gaps above |
-| `/product-spec` | The specification draft with verifiable criteria and the gaps marked, not filled |
-| `/product-charter` | The charter: where the record is born and the writer changes hands |
-| `/product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them |
-| `/product-publish` | Publishes your record where the other products can read it |
-| `/product-overlap` | Where you overlap another product: the same metric counted twice, the same project, the same segment |
-| `/product-wake` | **The one you put on a clock.** What crossed a threshold with nobody doing anything |
-
-**The only one that is not an agent's** is `/pmo-server`: Vera runs it, and what it starts is Rostrum, which decides nothing.
-
 ## Vera's ten skills
 
 They load on their own when the topic appears. They are the knowledge the commands share, and
@@ -439,33 +229,6 @@ they can be read the way a manual is read.
 | `vendor-control` | Contract against evidence of receipt against invoicing, with an amount per deliverable | Its own · also in Samuel |
 | `project-diagnosis` | Diagnosis from zero: in what order you read, and when the answer is that it cannot be diagnosed | Its own · also in Samuel |
 | `portfolio-history` | A project's history from its documents, and the point where the evidence separated from what was being reported | Its own |
-
-## And the family's eighteen
-
-Eighteen distinct skills across the three agents. **What they share are literal copies, not an imported module**: an installed plugin has to run on its own, and an `import` into the other one's path works here and fails on the machine of whoever installed it.
-
-`scripts/sincronizar.py` copies them and `tests/coherencia.py` fails if they drift apart.
-
-| Skill | Vera | Samuel | Alba |
-|---|:--:|:--:|:--:|
-| `assumption-tracking` | · | · | ● |
-| `baseline-variance` | ● | ● | · |
-| `commitment-tracking` | ● | ● | · |
-| `demand-evidence` | · | · | ● |
-| `discovery-synthesis` | · | · | ● |
-| `document-intake` | ● | ● | ● |
-| `governance-artifacts` | ● | ● | ● |
-| `portfolio-health` | ● | · | · |
-| `portfolio-history` | ● | · | · |
-| `product-health` | · | · | ● |
-| `product-metrics` | · | · | ● |
-| `project-diagnosis` | ● | ● | · |
-| `project-record` | ● | ● | ● |
-| `raid-taxonomy` | ● | ● | ● |
-| `regulatory-sweep` | · | · | ● |
-| `requirement-record` | · | · | ● |
-| `specification-draft` | · | · | ● |
-| `vendor-control` | ● | ● | · |
 
 ## Out of scope, and why
 

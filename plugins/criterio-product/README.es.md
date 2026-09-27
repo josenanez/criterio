@@ -79,18 +79,9 @@ de apuntarlo a material confidencial. Descargo completo en
 
 ## Cómo se trabaja con Alba
 
-Los tres agentes de la familia comparten cinco conductas. No son estilo: son las que hacen que
-el resultado se pueda poner frente a un comité.
+Los tres agentes de la familia comparten cinco conductas —la cita en cada dato, «no está dicho en ninguna parte» como respuesta válida, callarse cuando no hay novedad, no declarar, y no escribirle a nadie—. Están en el [README del marketplace](../../README.es.md#lo-que-comparten-todos-los-agentes), que es su dueño, y no se repiten aquí.
 
-1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
-   es un defecto, no un caso degradado.
-2. **«No está dicho en ninguna parte» es una respuesta válida**, y es la que más se usa al
-   principio.
-3. **Se callan cuando no hay nada.** Ninguno produce un informe para decir que no hay novedad.
-4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
-5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
-
-Lo que cambia entre uno y otro es **el ritmo de la conversación**.
+Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso sí conviene saberlo antes de instalar.
 
 **Con Alba se conversa por temporadas.** Trabaja antes de que exista el proyecto, y ese trabajo
 no es semanal: viene por rachas —una ronda de entrevistas, un comité de producto, una

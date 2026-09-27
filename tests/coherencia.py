@@ -297,7 +297,7 @@ for fuente, cuenta, paginas in (
 print("\nLa cifra de skills de la familia")
 distintos = len(skills)
 for nombre in ("README.es.md", "README.md"):
-    pagina = PLUGIN / nombre
+    pagina = RAIZ / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
@@ -422,20 +422,21 @@ if en_producto:
         if not faltan_u:
             decir(OK, f"los {len(umbrales_p)} umbrales están documentados en product-health")
 
-# La página de la familia lista los comandos de los tres agentes, no solo los de Vera.
-# Es duplicación a propósito —quien llega al README de criterio-pmo quiere ver la familia
-# entera— y la duplicación que se acepta es la que se verifica.
-print("\nLa familia entera en su página")
+# La familia vive en el README de la raíz, que es la página que GitHub abre solo y la
+# única que nadie tiene que descubrir. Ahí están los comandos de los tres agentes, no solo
+# los de Vera: es duplicación a propósito, y la duplicación que se acepta es la que se
+# verifica.
+print("\nLa familia entera en la página de la raíz")
 for nombre in ("README.es.md", "README.md"):
-    pagina = PLUGIN / nombre
+    pagina = RAIZ / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
     faltan = sorted(c for c in comandos if f"`/{c}`" not in cuerpo)
     if faltan:
-        decir(FALLA, f"{nombre} no lista {', '.join(faltan)}")
+        decir(FALLA, f"la raíz · {nombre} no lista {', '.join(faltan)}")
     else:
-        decir(OK, f"{nombre} · los {len(comandos)} comandos de los tres agentes")
+        decir(OK, f"la raíz · {nombre} · los {len(comandos)} comandos de los tres")
 
 # El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja

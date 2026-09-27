@@ -2,7 +2,7 @@
 
 **el agente de la PMO y el servidor que publica su informe** · plugin `criterio-pmo`
 
-Corrida del 2026-09-27, sobre el commit `a0996a0`, con cambios en el árbol todavía sin confirmar. **6 puertas · 202 comprobaciones · todas en verde.**
+Corrida del 2026-09-27, sobre el commit `4af0e6c`, con cambios en el árbol todavía sin confirmar. **6 puertas · 202 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,12 +10,12 @@ Corrida del 2026-09-27, sobre el commit `a0996a0`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-pmo/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 54 ms | verde |
-| `criterio-pmo/pmo.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 66 | 22 ms | verde |
-| `criterio-pmo/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 12 | 19 ms | verde |
-| `criterio-pmo/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 15 | 16 ms | verde |
-| `criterio-pmo/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 30 | 36 ms | verde |
-| `criterio-pmo/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 189 ms | verde |
+| `criterio-pmo/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 60 ms | verde |
+| `criterio-pmo/pmo.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 66 | 23 ms | verde |
+| `criterio-pmo/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 12 | 21 ms | verde |
+| `criterio-pmo/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 15 | 18 ms | verde |
+| `criterio-pmo/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 30 | 548 ms | verde |
+| `criterio-pmo/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 220 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

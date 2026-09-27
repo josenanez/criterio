@@ -282,6 +282,29 @@ un pendiente de construcción, y tratarlo como pendiente solo sirve para parecer
 
 Lo que sigue gobierna a los tres agentes y no solo a Vera. Vive en esta hoja porque es **diseño**: se discute aquí y se decide aquí, y lo que la organización que instala necesita saber está en el README, no en este apartado.
 
+## Las siete invariantes
+
+1. **Los agentes no se hablan entre sí.** Se hablan por la ficha.
+2. **Rostrum, el servidor, no escribe.**
+3. **La fuente puede cambiar; la ficha no.** Un adaptador nuevo llena los mismos campos.
+4. **Declarado y evidenciado nunca se fusionan**, venga de archivo o de base de datos.
+5. **El modelo extrae, el código calcula.**
+6. **Ningún agente escribe la declaración.** El estado declarado lo escribe una persona.
+7. **Una ficha, un escritor.** Dos agentes que leen los mismos documentos escriben dos
+   fichas, y no se fusionan nunca. La diferencia entre las dos es el hallazgo.
+
+La sexta es la más fácil de romper por conveniencia y la que se lleva el sistema entero si se
+rompe: si el agente declara, la comparación entre declaración y evidencia compara al sistema
+consigo mismo, y todo esto se vuelve un generador de informes bonitos. No es una recomendación
+de la documentación: es una restricción del camino de escritura, y falla si se intenta.
+
+La séptima es la cuarta un nivel más arriba, y aparece en cuanto hay más de un agente sobre
+el mismo proyecto. La forma cómoda de resolverlo —una ficha y un dueño— obliga a elegir mal
+en las dos direcciones: si manda el gerente, la PMO no puede leer por su cuenta cuando duda;
+si manda la PMO, entra en el camino crítico de setenta proyectos. Dos fichas quitan el
+problema en vez de arbitrarlo, y **lo que era un conflicto de escritura se vuelve la señal.**
+Ver [Samuel · las dos fichas](../criterio-pm/DISENO.es.md#las-dos-fichas).
+
 ## La necesidad común: proyectos
 
 Los tres agentes existen alrededor de un mismo objeto, y la elección carga todo el peso del
