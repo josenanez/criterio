@@ -24,7 +24,7 @@ exercised outside synthetic material. Nothing is announced as finished until the
 
 If you run a project rather than a product, yours is
 [`criterio-pm`](../criterio-pm/README.md). If you run the portfolio,
-[`criterio-pmo`](../criterio-pmo/README.md).
+[Vera](../criterio-pmo/VERA.md).
 
 ## The first result
 
@@ -184,3 +184,5 @@ working document.
 The three agents together, how they operate and how they meet, in the [`criterio-pmo` README](../criterio-pmo/README.md).
 
 **How the last run went, generated from the run itself:** [`tests/criterio-product/RESULTADOS.md`](../../tests/criterio-product/RESULTADOS.md).
+
+And the family's own tests, in the [`criterio-pmo` README](../criterio-pmo/README.md#las-pruebas-de-la-familia).

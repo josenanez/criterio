@@ -23,7 +23,7 @@ as finished until the [acceptance criteria](DISENO.es.md#criterios-de-aceptació
 ```
 
 If you run the portfolio rather than a project, yours is
-[`criterio-pmo`](../criterio-pmo/README.md).
+[Vera](../criterio-pmo/VERA.md).
 
 ## The first result
 
@@ -182,3 +182,5 @@ Spanish, as working documents.
 The three agents together, how they operate and how they meet, in the [`criterio-pmo` README](../criterio-pmo/README.md).
 
 **How the last run went, generated from the run itself:** [`tests/criterio-pm/RESULTADOS.md`](../../tests/criterio-pm/RESULTADOS.md).
+
+And the family's own tests, in the [`criterio-pmo` README](../criterio-pmo/README.md#las-pruebas-de-la-familia).

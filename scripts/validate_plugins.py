@@ -188,17 +188,22 @@ def check_plugin(root: Path, name: str, market_version: str, f: Findings) -> dic
 
 
 def check_consistency(root: Path, plugins: list[dict], f: Findings) -> None:
+    # The plugin's pages, not only its README. A plugin that ships a family page and an
+    # agent page documents its commands across both, and that is still the plugin
+    # documenting itself — what must not happen is a command that appears nowhere.
     for p in plugins:
-        readme = root / "plugins" / p["name"] / "README.md"
-        if not readme.exists():
+        base = root / "plugins" / p["name"]
+        paginas = sorted(base.glob("*.md"))
+        if not paginas:
             continue
-        text = readme.read_text(encoding="utf-8")
+        texto = "\n".join(x.read_text(encoding="utf-8") for x in paginas)
+        donde = "/".join(x.name for x in paginas)
         for skill in p["skills"]:
-            if skill not in text:
-                f.error(f"{p['name']}/README.md", f"does not list the skill '{skill}'")
+            if skill not in texto:
+                f.error(f"{p['name']}", f"no page lists the skill '{skill}' ({donde})")
         for cmd in p["commands"]:
-            if cmd not in text:
-                f.error(f"{p['name']}/README.md", f"does not list the command '{cmd}'")
+            if cmd not in texto:
+                f.error(f"{p['name']}", f"no page lists the command '{cmd}' ({donde})")
 
     terms = root / "TERMS.md"
     acceptance = root / "docs" / "acceptance.md"

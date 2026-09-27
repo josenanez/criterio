@@ -422,21 +422,49 @@ if en_producto:
         if not faltan_u:
             decir(OK, f"los {len(umbrales_p)} umbrales están documentados en product-health")
 
-# La familia vive en el README de criterio-pmo. Ahí están los comandos de los tres
-# agentes, no solo los de Vera: es duplicación a propósito —quien llega a la página de la
-# familia quiere ver la familia entera— y la duplicación que se acepta es la que se
-# verifica.
-print("\nLa familia entera en su página")
-for nombre in ("README.es.md", "README.md"):
+# La página de la familia no repite los comandos de nadie: nombra a cada agente y lleva
+# a su página, que es donde está su detalle. Lo que se verifica es que desde la familia se
+# llegue a los cuatro —los tres agentes y el servidor—, porque una página de familia desde
+# la que no se puede navegar es un índice roto.
+print("\nDesde la familia se llega a cada agente")
+DESTINOS = {"es": ["VERA.es.md", "SERVER.es.md", "../criterio-pm/README.es.md",
+                   "../criterio-product/README.es.md"],
+            "en": ["VERA.md", "SERVER.md", "../criterio-pm/README.md",
+                   "../criterio-product/README.md"]}
+for nombre, idioma in (("README.es.md", "es"), ("README.md", "en")):
     pagina = PLUGIN / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
-    faltan = sorted(c for c in comandos if f"`/{c}`" not in cuerpo)
+    faltan = [d for d in DESTINOS[idioma] if f"]({d})" not in cuerpo]
+    for d in DESTINOS[idioma]:
+        destino = (PLUGIN / d).resolve()
+        if not destino.exists():
+            faltan.append(f"{d} no existe")
     if faltan:
-        decir(FALLA, f"criterio-pmo/{nombre} no lista {', '.join(faltan)}")
+        decir(FALLA, f"criterio-pmo/{nombre} no lleva a {', '.join(faltan)}")
     else:
-        decir(OK, f"criterio-pmo/{nombre} · los {len(comandos)} comandos de los tres")
+        decir(OK, f"criterio-pmo/{nombre} · lleva a los tres agentes y al servidor")
+
+# Y cada agente lista sus propios comandos en su propia página, porque esa página se lee
+# sola: alguien puede instalar un agente sin la familia.
+print("\nCada agente lista lo suyo en su página")
+PROPIAS = {"criterio-pmo": ["VERA.es.md", "VERA.md"],
+           "criterio-pm": ["README.es.md", "README.md"],
+           "criterio-product": ["README.es.md", "README.md"]}
+for d in CONSTRUIDOS:
+    suyos = sorted(c.stem for c in d.glob("commands/*.md"))
+    for nombre in PROPIAS.get(d.name, []):
+        pagina = d / nombre
+        if not pagina.exists():
+            decir(FALLA, f"{d.name}/{nombre} no existe")
+            continue
+        cuerpo = pagina.read_text(encoding="utf-8")
+        faltan = [c for c in suyos if f"`/{c}`" not in cuerpo]
+        if faltan:
+            decir(FALLA, f"{d.name}/{nombre} no lista {', '.join(faltan)}")
+        else:
+            decir(OK, f"{d.name}/{nombre} · sus {len(suyos)} comandos")
 
 # Y desde la página de la familia se tiene que poder llegar al análisis de pruebas de cada
 # agente, en markdown. Un resultado que solo existe en HTML no se ve en GitHub, y uno que no

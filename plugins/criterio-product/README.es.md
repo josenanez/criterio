@@ -24,7 +24,7 @@ los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
 
 Si gestionas un proyecto y no un producto, lo tuyo es
 [`criterio-pm`](../criterio-pm/README.es.md). Si gestionas el portafolio,
-[`criterio-pmo`](../criterio-pmo/README.es.md).
+[Vera](../criterio-pmo/VERA.es.md).
 
 ## El primer resultado
 
@@ -184,3 +184,5 @@ El diseño completo, con las tres clases de función y lo que sigue siendo de la
 Los tres agentes juntos, cómo operan y cómo se encuentran, en el [README de `criterio-pmo`](../criterio-pmo/README.es.md).
 
 **Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-product/RESULTADOS.md`](../../tests/criterio-product/RESULTADOS.md).
+
+Y las pruebas del conjunto de la familia, en el [README de `criterio-pmo`](../criterio-pmo/README.es.md#las-pruebas-de-la-familia).

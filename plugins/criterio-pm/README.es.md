@@ -22,7 +22,7 @@ anuncia como terminado hasta que pasen los [criterios de aceptación](DISENO.es.
 ```
 
 Si gestionas el portafolio y no un proyecto, lo tuyo es
-[`criterio-pmo`](../criterio-pmo/README.es.md).
+[Vera](../criterio-pmo/VERA.es.md).
 
 ## El primer resultado
 
@@ -180,3 +180,5 @@ en [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 Los tres agentes juntos, cómo operan y cómo se encuentran, en el [README de `criterio-pmo`](../criterio-pmo/README.es.md).
 
 **Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-pm/RESULTADOS.md`](../../tests/criterio-pm/RESULTADOS.md).
+
+Y las pruebas del conjunto de la familia, en el [README de `criterio-pmo`](../criterio-pmo/README.es.md#las-pruebas-de-la-familia).

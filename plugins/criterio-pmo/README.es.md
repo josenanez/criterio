@@ -1,10 +1,18 @@
-# criterio-pmo
+# criterio-pmo · la familia PMO
 
-**Vera, un segundo cerebro para la oficina de proyectos.** Lee la documentación que tu PMO ya
-tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
+**Tres agentes y un servidor, alrededor de un solo contrato de datos.** Cada uno extiende a una
+persona distinta de la cadena —quien define el producto, quien ejecuta el proyecto, quien vigila
+el portafolio— y ninguno habla con otro directamente: se hablan por la ficha del proyecto.
 
-[English](README.md) · Apache 2.0 · Se instala en cuatro clics · **El primer resultado sale
-en quince minutos, sobre tus propios documentos**
+[English](README.md) · Apache 2.0 · Los tres se instalan hoy
+
+**Esta es la página de la familia.** Explica qué es, quién la compone, cómo se instala, de qué
+responde cada agente y cómo se verifica el conjunto. **El detalle de cada agente está en su
+propia página**, y cada una se lee sola: se puede instalar un agente sin los otros.
+
+- **[Vera](VERA.es.md)** · el agente de la PMO — y **[Rostrum](SERVER.es.md)**, el servidor que publica su informe
+- **[Samuel](../criterio-pm/README.es.md)** · el agente del gerente de proyecto
+- **[Alba](../criterio-product/README.es.md)** · el agente del gerente de producto
 
 ---
 
@@ -55,22 +63,82 @@ Lo que **no** hay en ese dibujo es tan importante como lo que hay:
 **Y las personas están en el mismo dibujo, abajo.** El insumo de cada agente lo produce el trabajo no delegable de su persona.** Quitar a la
 persona no deja al agente solo: lo deja sin comida.
 
+## Los tres agentes y el único contrato
+
+Nada se habla con nada directamente. **La ficha de proyecto es el único contrato.**
+
+![El único contrato: quién escribe la ficha y quién solo la lee](../../docs/img/es/contrato.png)
+
+El Product Manager trabaja antes de que exista plan: no escribe en la ficha, **la crea**. Su
+entrega cierra con el acta de constitución, que es el certificado de nacimiento de la ficha.
+
+### Las siete invariantes
+
+1. **Los agentes no se hablan entre sí.** Se hablan por la ficha.
+2. **Rostrum, el servidor, no escribe.**
+3. **La fuente puede cambiar; la ficha no.** Un adaptador nuevo llena los mismos campos.
+4. **Declarado y evidenciado nunca se fusionan**, venga de archivo o de base de datos.
+5. **El modelo extrae, el código calcula.**
+6. **Ningún agente escribe la declaración.** El estado declarado lo escribe una persona.
+7. **Una ficha, un escritor.** Dos agentes que leen los mismos documentos escriben dos
+   fichas, y no se fusionan nunca. La diferencia entre las dos es el hallazgo.
+
+La sexta es la más fácil de romper por conveniencia y la que se lleva el sistema entero si se
+rompe: si el agente declara, la comparación entre declaración y evidencia compara al sistema
+consigo mismo, y todo esto se vuelve un generador de informes bonitos. No es una recomendación
+de la documentación: es una restricción del camino de escritura, y falla si se intenta.
+
+La séptima es la cuarta un nivel más arriba, y aparece en cuanto hay más de un agente sobre
+el mismo proyecto. La forma cómoda de resolverlo —una ficha y un dueño— obliga a elegir mal
+en las dos direcciones: si manda el gerente, la PMO no puede leer por su cuenta cuando duda;
+si manda la PMO, entra en el camino crítico de setenta proyectos. Dos fichas quitan el
+problema en vez de arbitrarlo, y **lo que era un conflicto de escritura se vuelve la señal.**
+Ver [Samuel · las dos fichas](../criterio-pm/DISENO.es.md#las-dos-fichas).
+
+## Lo que comparten los tres
+
+No es una colección de asistentes sueltos. Los tres se construyen sobre las mismas cinco
+conductas, y no son estilo: son las que hacen que su salida se pueda poner frente a un comité.
+
+1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
+   es un defecto, no un caso degradado.
+2. **«No está dicho en ninguna parte» es una respuesta válida**, y es la que más se usa al
+   principio.
+3. **Se callan cuando no hay nada.** Ninguno produce un informe para decir que no hay novedad.
+   Un agente que reporta todas las semanas haya o no noticia se ignora en un mes.
+4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
+5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
+
+Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso está en la página de
+cada uno.
+
+## Lo que sigue siendo de las personas
+
+Los tres roles siguen existiendo completos. Esto extiende capacidad; no sustituye función. Y el
+argumento no es de cortesía, es estructural:
+
+> **El insumo de cada agente lo produce el trabajo no delegable de su persona.**
+
+El agente PM necesita que alguien dirija la reunión, porque de ahí sale la minuta que lo
+alimenta. El agente PMO necesita que alguien persiga lo que el informe pide, porque si nadie
+actúa el informe siguiente dice lo mismo. El agente de producto necesita que alguien hable con
+el cliente, porque no hay síntesis sin entrevista.
+
+Quitar a la persona no deja al agente solo: lo deja sin comida. Cada hoja documenta qué se
+rompe primero si se intenta, y en qué orden.
+
 ## Estado
 
 **Los tres están construidos y se pueden instalar hoy**, y los tres tienen la misma deuda,
 que conviene no esconder: **verificados sobre corpus sintético, no probados sobre la
 documentación real de una organización.**
 
-| Agente | Se instala | Su página | Sus pruebas | Tablas A y B |
-|---|---|---|---|---|
-| **Vera** · PMO | `criterio-pmo` · 17 comandos, 10 skills | esta | [resultados](../../tests/criterio-pmo/RESULTADOS.md) · [qué prueban](../../tests/criterio-pmo/EVIDENCIA.md) | **sin filas abiertas** |
-| **Samuel** · proyecto | `criterio-pm` · 9 comandos, 8 skills | [ir](../criterio-pm/README.es.md) | [resultados](../../tests/criterio-pm/RESULTADOS.md) · [qué prueban](../../tests/criterio-pm/EVIDENCIA.md) | **sin filas abiertas** |
-| **Alba** · producto | `criterio-product` · 11 comandos, 12 skills | [ir](../criterio-product/README.es.md) | [resultados](../../tests/criterio-product/RESULTADOS.md) · [qué prueban](../../tests/criterio-product/EVIDENCIA.md) | **sin filas abiertas** |
-| **Rostrum** · el servidor | dentro de `criterio-pmo` | [SERVER.es.md](SERVER.es.md) | dentro de los de Vera | — |
-
-**Cada agente tiene su análisis de pruebas en markdown**, generado desde la corrida: qué
-puerta se corrió, qué prueba, cuántas comprobaciones, cuánto tardó, y —en el mismo archivo y
-no en un anexo— **qué no cubre**. Se leen en GitHub sin descargar nada.
+| Agente | Se instala | Tablas A y B de su diseño |
+|---|---|---|
+| **Vera** · PMO | `criterio-pmo` · 17 comandos, 10 skills | **sin filas abiertas** |
+| **Samuel** · proyecto | `criterio-pm` · 9 comandos, 8 skills | **sin filas abiertas** |
+| **Alba** · producto | `criterio-product` · 11 comandos, 12 skills | **sin filas abiertas** |
+| **Rostrum** · el servidor | dentro de `criterio-pmo` | — |
 
 **Ninguna de las tres hojas de diseño tiene ya una fila en «Falta» o en «Parcial».** Lo que
 sigue pendiente no es construcción.
@@ -85,68 +153,45 @@ páginas de evidencia bajo [`tests/`](../../tests/) y el conjunto en
 [`pruebas.html`](../../docs/pruebas.html). La quinta decisión de la tabla siguiente salió de
 ahí y no de una conversación.
 
-## Instalar
+## Instalar la familia
 
-![Instalación: cuatro clics, o dos comandos](../../docs/img/es/instalacion.png)
-
-**Claude Code**
+Cada agente es un plugin y se instala solo. **No hace falta instalar los tres**: se instala el
+que resuelve el rol que tienes.
 
 ```
 /plugin marketplace add josenanez-company/criterio
-/plugin install criterio-pmo@criterio
-/pmo-setup
+
+/plugin install criterio-pmo@criterio      si gestionas el portafolio
+/plugin install criterio-pm@criterio       si gestionas un proyecto
+/plugin install criterio-product@criterio  si defines un producto
 ```
 
-## Los primeros quince minutos
+**En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
+marketplace desde GitHub → `josenanez-company/criterio`.
 
-![Los primeros quince minutos](../../docs/img/es/quince-minutos.png)
+Después de instalar, cada agente tiene su propio comando de instalación que mira tus carpetas,
+hace unas pocas preguntas y produce un primer resultado sobre tus propios documentos. **Nadie
+edita un archivo de configuración a mano.**
 
-No hay archivo de configuración que editar, ni plantilla que llenar, ni carpeta que ordenar
-antes de empezar. La configuración **es una conversación**, y termina con un resultado sobre
-tus documentos.
+Y si instalas más de uno, se encuentran solos: **no hay nada que conectar.** Se hablan por la
+ficha, que es un documento en la carpeta del proyecto.
 
-| | |
-|---|---|
-| **0 – 2 min** | **Instalar.** Dos comandos en Claude Code, o cuatro clics en Cowork |
-| **2 – 4 min** | **Mira antes de preguntar.** Le señalas la carpeta donde vive la documentación de proyectos, como esté. Lista lo que encontró: cuántos proyectos distingue, cuántos documentos, qué formatos, cuál es el más reciente, y cuáles no va a poder leer. Ahí sabes que está mirando tus cosas de verdad |
-| **4 – 8 min** | **Cinco preguntas.** Quién eres, cuándo se reúne tu comité, quién recibe el informe y en qué forma, y los términos. Una a la vez, cada una con una respuesta sugerida a partir de lo que ya vio. *«No sé»* es una respuesta válida |
-| **8 – 15 min** | **Un primer resultado.** Barre **tres proyectos**, no el portafolio completo, para que veas algo real en minutos: qué supo de cada uno, qué no está dicho en ninguna parte, y cualquier contradicción o compromiso vencido que haya aparecido de paso |
+## De qué responde cada agente, y dónde está su detalle
 
-Al final te dice cuánto tomaría el portafolio completo, y qué le falta a tu carpeta para que
-el análisis sea mejor. Pero como hallazgo, no como requisito: **esto funciona con lo que
-haya.**
+Las cuatro piezas, con lo mismo para cada una: de qué responde, qué no hace, y dónde está todo
+su detalle. **Cada página de agente se lee sola** — alguien puede instalar uno sin los otros.
 
----
+| | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
+|---|---|---|---|---|
+| **Vera** · la PMO | El portafolio completo: consolidar, contrastar lo declarado contra la evidencia, y armar el material del comité | No declara el estado de ningún proyecto, y no prioriza la demanda | [VERA.es.md](VERA.es.md) · 17 comandos, 10 skills | [resultados](../../tests/criterio-pmo/RESULTADOS.md) |
+| **Samuel** · un proyecto | Lo que la reunión deja escrito: el compromiso dicho y no cumplido, el plan contra la evidencia, y el informe listo salvo una línea | No declara el estado de su proyecto, y no va a la reunión | [criterio-pm](../criterio-pm/README.es.md) · 9 comandos, 8 skills | [resultados](../../tests/criterio-pm/RESULTADOS.md) |
+| **Alba** · un producto | Lo que hay antes del proyecto: la definición contra la evidencia de demanda, el registro de requerimientos, y el acta con la que nace la ficha | No decide qué se construye, y no habla con el cliente | [criterio-product](../criterio-product/README.es.md) · 11 comandos, 12 skills | [resultados](../../tests/criterio-product/RESULTADOS.md) |
+| **Rostrum** · el servidor | Publicar el informe donde el equipo lo lea, y recibir la petición de quien no abre una carpeta | **No escribe nunca la ficha**, y no decide nada | [SERVER.es.md](SERVER.es.md) | dentro de las de Vera |
 
-## El agente no espera a que lo llamen
-
-![La cadencia: se activa solo, y casi siempre se calla](../../docs/img/es/cadencia.png)
-
-Esta es la diferencia entre un comando y un agente. Un comando espera. **Este se programa y
-corre solo.**
-
-De las cinco preguntas del arranque sale una cadencia, y de la cadencia sale qué toca cada
-día. La decisión es aritmética de fechas, así que la toma el código y no el criterio del
-momento:
-
-```
-python3 scripts/pmo.py due --state <estado> --config <archivo>
-```
-
-Y `/pmo-wake` es el comando que el reloj invoca: mira qué toca, lo hace, y **si no toca nada
-no produce nada.** Callarse cuando no pasó nada no es una omisión — es la única razón por la
-que un agente que corre todos los días sigue instalado el mes siguiente.
-
-Tres cosas pueden tocar. El **barrido**, que mira qué cambió en la carpeta y solo recalcula
-los proyectos tocados. El **informe de comité**, que aterriza con la anticipación que
-configuraste para que alcances a reaccionar a lo que encuentre. Y la **confirmación**, cinco
-campos por corrida — los que envejecen peor: patrocinador, gerente, presupuesto aprobado,
-fecha de cierre y alcance.
-
-Ponerlo en un reloj es del lado de tu organización: una tarea programada en Cowork, o el
-programador del sistema en Claude Code. **Y si no quieren corridas desatendidas** —en un
-banco es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo
-que se pierde es que avise sin que nadie pregunte.
+**La frontera es la misma para los tres y no es una recomendación: es una restricción del
+camino de escritura.** Ninguno escribe el estado declarado de un proyecto. Esa línea la escribe
+una persona, y sin ella la comparación entre lo declarado y lo evidenciado —que es de lo que
+vive todo esto— compararía al sistema consigo mismo.
 
 ## Cómo se configura y cada cuánto corre cada uno
 
@@ -216,245 +261,38 @@ razonable— los tres comandos sirven corridos a mano, y la cadencia sigue dicie
 Lo que se pierde es que avisen sin que nadie pregunte, que es justamente lo que más cuesta
 ver a mano.
 
-## ¿Quieres que tu patrocinador vea esto sin pedírtelo?
+## Las pruebas de la familia
 
-![Rostrum: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
-
-Hasta aquí el informe son archivos en tu equipo. **Un patrocinador no abre una carpeta
-de archivos**: abre un enlace, o no abre nada. Para eso está **Rostrum**, el servidor de
-esta familia. Una tribuna no mide ni corrige: sostiene lo que ya está escrito, a la
-altura de quien lo va a leer.
+**Una sola puerta corre todo lo que este repositorio verifica**, de los tres agentes a la vez:
 
 ```
-/pmo-server
+python3 scripts/verificar.py
 ```
 
-Levanta **un portal con tres secciones** —informes de la PMO, proyectos, productos—, y
-el enlace entre proyecto y producto va **en los dos sentidos**. Ahí está lo que ninguna
-otra página puede decir: cuando un producto lo construyen proyectos que reportan a
-comités distintos, cada comité ve su proyecto y **ninguno ve el producto**.
+Es el equivalente de una prueba integral: no verifica un agente, verifica **que la familia
+siga siendo una familia.** Lo propio de cada agente —su aritmética, su corpus, sus respuestas
+escritas a mano— lo responde su página; aquí se verifica lo que ninguno puede responder solo:
 
-Y tiene una cosa más, que es la que cambia cómo se usa: **quien mira puede dejarle una
-pregunta escrita al agente.** No le contesta en el momento —el agente no está
-corriendo— pero la pregunta queda en la cola, y la siguiente vez que Vera despierta
-la atiende. *«Esto no coincide con lo que yo sé»* es la petición de más valor del
-sistema: es una persona diciéndote qué documento falta.
-
-**No autentica a nadie, y es a propósito**: se publica detrás del control de acceso que
-tu organización ya tiene. Escucha solo en tu equipo salvo que le digas lo contrario.
-
-→ **[Rostrum, con capturas de cada sección y qué pedirle a tu organización](SERVER.es.md)**
-
-## Qué queda configurado
-
-Lo escribe `/pmo-setup` a partir de lo que respondiste, en tu equipo y en un archivo tuyo:
-dónde están los documentos, dónde vive el estado, tu cadencia de comité, la forma del
-informe, los umbrales que le hacen levantar la voz, y el registro de que aceptaste los
-términos, con tu nombre y la fecha.
-
-Todo eso se cambia **hablando**. Si quieres que el silencio se reporte a los diez días y no a
-los quince, se lo dices.
-
-## Cómo se trabaja con Vera
-
-Los tres agentes de la familia comparten cinco conductas. No son estilo: son las que hacen que
-el resultado se pueda poner frente a un comité.
-
-1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
-   es un defecto, no un caso degradado.
-2. **«No está dicho en ninguna parte» es una respuesta válida**, y es la que más se usa al
-   principio.
-3. **Se callan cuando no hay nada.** Ninguno produce un informe para decir que no hay novedad.
-4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
-5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
-
-Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo antes
-de instalar.
-
-**Con Vera se conversa poco y se lee mucho.** Trabaja sobre cuarenta carpetas: la conversación
-es corta —le dices qué proyecto, o ninguno— y lo que devuelve es largo, un informe que alguien
-va a llevar a un comité.
-
-**El ritmo:** `/pmo-setup` una vez, `/pmo-wake` en un reloj, y después se le pregunta por
-excepción — *«diagnostica PRY-014 desde cero»*, *«reconstruye qué pasó»*, *«arma el material
-del comité»*.
-
-**Lo que te va a pedir a ti:** confirmar **cinco campos por corrida**, nunca cuarenta — si
-preguntas por cuarenta no responde nadie. Y **actuar sobre lo que el informe pide**: si nadie
-actúa, el informe siguiente dice lo mismo, y eso no es un defecto del agente.
-
-**Lo que no le pidas:** que te diga en qué estado está un proyecto. Te dice qué declara su
-gerente y qué sostienen los documentos, y **la diferencia entre las dos cosas es el producto.**
-
-## Lo que nunca hace
-
-Esto es lo que conviene tener claro antes de instalarlo, y no está en letra pequeña:
-
-- **No escribe en tus carpetas.** Lee tus documentos; los informes y las fichas van a una
-  carpeta de estado que tú eliges.
-- **No decide.** Produce borradores de trabajo. Formula la decisión como pregunta con sus
-  opciones; quién decide y asumiendo qué es de quien tiene la facultad.
-- **No declara el estado de un proyecto.** Eso lo hace el gerente. El agente le muestra
-  contra qué, y la diferencia entre las dos cosas es el hallazgo de más valor del sistema.
-- **No sabe lo que no está escrito.** No conoce lo que se habló en el pasillo ni lo que se
-  decidió en una llamada que nadie minutó. Todo hallazgo suyo es *«según los documentos»*, y
-  lo declara.
-- **No adivina.** Cada dato viene con la cita del documento de donde salió. *«No está dicho
-  en ninguna parte»* es una respuesta válida y esperada.
-
-Y una que sí hay que decir en voz alta: **tus documentos se procesan en la infraestructura de
-la plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo tus políticas
-antes de apuntarlo a material confidencial. Descargo completo en
-[DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
-
----
-
-De aquí para abajo es para quien quiera auditarlo antes de instalarlo. **Todo esto se puede
-leer sin ejecutar nada**, y eso es deliberado.
-
-## Cómo funciona
-
-![Cómo funciona: el modelo extrae, el código calcula](../../docs/img/es/como-funciona.png)
-
-La espina es la **ficha de proyecto**: un contrato de datos que todos los comandos leen y
-escriben, con la cita al documento fuente y a su fecha en cada campo. Ningún comando lee
-documentos crudos por su cuenta. Eso permite consolidar cuarenta proyectos sin volver a
-leerlos, **calcular en vez de opinar**, y comparar una corrida contra la anterior.
-
-Tres scripts, que son lo único que no opina. [`scripts/texto.py`](scripts/texto.py) convierte
-el documento a texto: `.docx`, `.xlsx` y `.pptx` con la librería estándar —son ZIP con XML
-adentro—, `.eml` con el parser de correo, y el PDF con `pdftotext`. Lo que no se puede leer
-se declara con la razón. [`scripts/pmo.py`](scripts/pmo.py) hace la aritmética, y su
-subcomando `index` decide el costo de cada corrida: dos hashes por documento, uno para saber
-si vale extraer y otro para saber si vale releer. Y
-[`scripts/informe.py`](scripts/informe.py) arma el informe impreso a partir de lo que los
-otros dos produjeron, sin volver a leer un solo documento.
-
-## Los tres agentes y el único contrato
-
-Nada se habla con nada directamente. **La ficha de proyecto es el único contrato.**
-
-![El único contrato: quién escribe la ficha y quién solo la lee](../../docs/img/es/contrato.png)
-
-El Product Manager trabaja antes de que exista plan: no escribe en la ficha, **la crea**. Su
-entrega cierra con el acta de constitución, que es el certificado de nacimiento de la ficha.
-
-
-### Las siete invariantes
-
-1. **Los agentes no se hablan entre sí.** Se hablan por la ficha.
-2. **Rostrum, el servidor, no escribe.**
-3. **La fuente puede cambiar; la ficha no.** Un adaptador nuevo llena los mismos campos.
-4. **Declarado y evidenciado nunca se fusionan**, venga de archivo o de base de datos.
-5. **El modelo extrae, el código calcula.**
-6. **Ningún agente escribe la declaración.** El estado declarado lo escribe una persona.
-7. **Una ficha, un escritor.** Dos agentes que leen los mismos documentos escriben dos
-   fichas, y no se fusionan nunca. La diferencia entre las dos es el hallazgo.
-
-La sexta es la más fácil de romper por conveniencia y la que se lleva el sistema entero si se
-rompe: si el agente declara, la comparación entre declaración y evidencia compara al sistema
-consigo mismo, y todo esto se vuelve un generador de informes bonitos. No es una recomendación
-de la documentación: es una restricción del camino de escritura, y falla si se intenta.
-
-La séptima es la cuarta un nivel más arriba, y aparece en cuanto hay más de un agente sobre
-el mismo proyecto. La forma cómoda de resolverlo —una ficha y un dueño— obliga a elegir mal
-en las dos direcciones: si manda el gerente, la PMO no puede leer por su cuenta cuando duda;
-si manda la PMO, entra en el camino crítico de setenta proyectos. Dos fichas quitan el
-problema en vez de arbitrarlo, y **lo que era un conflicto de escritura se vuelve la señal.**
-Ver [Samuel · las dos fichas](../criterio-pm/DISENO.es.md#las-dos-fichas).
-
-## Lo que sigue siendo de las personas
-
-Los tres roles siguen existiendo completos. Esto extiende capacidad; no sustituye función. Y el
-argumento no es de cortesía, es estructural:
-
-> **El insumo de cada agente lo produce el trabajo no delegable de su persona.**
-
-El agente PM necesita que alguien dirija la reunión, porque de ahí sale la minuta que lo
-alimenta. El agente PMO necesita que alguien persiga lo que el informe pide, porque si nadie
-actúa el informe siguiente dice lo mismo. El agente de producto necesita que alguien hable con
-el cliente, porque no hay síntesis sin entrevista.
-
-Quitar a la persona no deja al agente solo: lo deja sin comida. Cada hoja documenta qué se
-rompe primero si se intenta, y en qué orden.
-
-## Los comandos de los tres agentes
-
-Treinta y siete comandos, y cada uno vive en el plugin de su agente. Esta es la lista completa de la familia; el detalle de cada uno, en la página de su plugin.
-
-### Vera · `criterio-pmo` · diecisiete
-
-| Comando | Qué hace |
+| Qué se verifica del conjunto | Por qué es de la familia y no de un agente |
 |---|---|
-| `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
-| `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
-| `/pmo-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
-| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
-| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
-| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
-| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica |
-| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
-| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
-| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
-| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
-| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior |
-| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
-| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
-| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
-| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
-| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
+| Que la documentación y el código digan lo mismo | Una señal que un agente calcula y su skill no explica rompe la promesa de todos |
+| Que el marketplace y cada plugin estén completos | Un plugin que se instala sin su README es un agente que llega mudo |
+| **Que las copias compartidas no se hayan separado** | Los tres comparten aritmética por copia, no por importación. Dos copias que se separan calculan distinto sobre los mismos documentos, y nadie sabría a cuál creerle |
+| Que cada agente tenga su análisis de pruebas y esté enlazado | Un resultado que nadie puede abrir es un resultado que no existe |
 
-### Samuel · [`criterio-pm`](../criterio-pm/README.es.md) · nueve
+**El resultado del conjunto, generado desde la corrida**, en
+[`docs/pruebas.md`](../../docs/pruebas.md) — y con gráficas, para abrir en un navegador, en
+[`pruebas.html`](../../docs/pruebas.html).
 
-| Comando | Qué hace |
-|---|---|
-| `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
-| `/pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
-| `/pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
-| `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
-| `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
-| `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
-| `/pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
-| `/pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
-| `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
+**Y el de cada agente, en su propia página**, porque cada uno responde por lo suyo:
+[Vera](../../tests/criterio-pmo/RESULTADOS.md) ·
+[Samuel](../../tests/criterio-pm/RESULTADOS.md) ·
+[Alba](../../tests/criterio-product/RESULTADOS.md).
 
-### Alba · [`criterio-product`](../criterio-product/README.es.md) · once
+Todo corre con la librería estándar y sin instalar nada. Qué prueba cada corpus y, con el mismo
+detalle, **qué no**, en las tres páginas de evidencia bajo [`tests/`](../../tests/).
 
-| Comando | Qué hace |
-|---|---|
-| `/product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas |
-| `/product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada |
-| `/product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide |
-| `/product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden |
-| `/product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba |
-| `/product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados |
-| `/product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos |
-| `/product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce |
-| `/product-publish` | Publica tu ficha donde los demás productos la puedan leer |
-| `/product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
-| `/product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
-
-**El único que no es de un agente** es `/pmo-server`: lo corre Vera, y lo que levanta es Rostrum, que no decide nada.
-
-## Los diez skills de Vera
-
-Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se
-pueden leer como se lee un manual.
-
-| Skill | Qué encapsula | De quién es |
-|---|---|---|
-| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen | Propia · también en Samuel y Alba |
-| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué, el renombrado, el borrado, y la cita que dejó de resolver | Propia · también en Samuel y Alba |
-| `portfolio-health` | Las diecinueve señales con lo que significa cada una, los umbrales que las gobiernan, y las tres defensas contra el dato que dejó de ser cierto | Propia |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, la replanificación contra lo que autorizó el comité, las cuatro cifras del presupuesto | Propia · también en Samuel |
-| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento | Propia · también en Samuel y Alba |
-| `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez | Propia · también en Samuel |
-| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué | Propia · también en Samuel y Alba |
-| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable | Propia · también en Samuel |
-| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar | Propia · también en Samuel |
-| `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado | Propia |
-
-## Y los dieciocho de la familia
+## Los dieciocho skills de la familia
 
 Dieciocho skills distintos entre los tres agentes. **Los que comparten son copias literales, no un módulo importado**: un plugin instalado tiene que correr solo, y un `import` a la ruta del otro funciona aquí y falla en el equipo de quien lo instaló.
 
@@ -481,33 +319,3 @@ Dieciocho skills distintos entre los tres agentes. **Los que comparten son copia
 | `specification-draft` | · | · | ● |
 | `vendor-control` | ● | ● | · |
 
-## Fuera de alcance, y por qué
-
-**Capacidad y asignación de recursos**, y **materialización de beneficios**. No por poco
-importantes: porque los datos no están en la carpeta. Capacidad exige horas reales y
-beneficios exige medición posterior que casi ninguna organización tiene.
-
-Un skill que promete lo que el insumo no permite quema la credibilidad del plugin entero.
-
-**Sin contenido regulatorio.** La gestión de portafolio es método, no normativa: funciona
-igual en Bogotá que en Santiago. Si una obligación regulatoria toca un proyecto, este plugin
-la registra como restricción o como riesgo, y no opina sobre ella.
-
-## Cómo se verifica
-
-```
-python3 scripts/pmo.py selftest          la aritmética y la cadencia
-python3 scripts/texto.py --selftest      la conversión de documentos
-python3 scripts/informe.py --selftest    el informe: cifras, concordancia y nombres
-python3 scripts/servidor.py --selftest   el servidor: qué sirve y qué nunca toca
-```
-
-Los tres corren con la librería estándar, sin instalar nada. Sobre material sintético con
-respuestas conocidas hay un grader y el resultado de la última corrida, con lo que prueba y
-lo que no: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
-
-Criterios de aceptación en [`DISENO.es.md`](DISENO.es.md#criterios-de-aceptación). El diseño de la capacidad, con lo
-que el agente no hace y lo que sigue siendo de las personas, en
-[`DISENO.es.md`](DISENO.es.md).
-
-**Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-pmo/RESULTADOS.md`](../../tests/criterio-pmo/RESULTADOS.md).

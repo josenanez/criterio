@@ -62,7 +62,7 @@ Dos decisiones que se notan el primer día. **Las cuatro cifras del presupuesto,
 
 | | | |
 |---|---|---|
-| **[Vera](plugins/criterio-pmo/README.es.md)** | Agente PMO · **disponible** | *Verus*, lo verdadero. Dice lo que los documentos dicen, no lo que se reporta. 17 comandos, 10 skills |
+| **[Vera](plugins/criterio-pmo/VERA.es.md)** | Agente PMO · **disponible** | *Verus*, lo verdadero. Dice lo que los documentos dicen, no lo que se reporta. 17 comandos, 10 skills |
 | **[Samuel](plugins/criterio-pm/README.es.md)** | Agente de proyecto · **disponible** | «El que escuchó». Su función central es el compromiso dicho y no cumplido. 9 comandos, 8 skills |
 | **[Alba](plugins/criterio-product/README.es.md)** | Agente de producto · **disponible** | El amanecer: la luz que hay antes de que se vea nada. Trabaja antes de que el proyecto exista. 11 comandos, 12 skills |
 | **[Rostrum](plugins/criterio-pmo/SERVER.es.md)** | El servidor · **disponible** | Una tribuna. Sostiene lo que ya está escrito, donde el equipo puede leerlo |
