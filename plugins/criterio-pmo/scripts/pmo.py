@@ -657,6 +657,142 @@ def compute(state: Path, today: dt.date, th: dict) -> dict:
     }
 
 
+def _grafo(records: dict) -> dict:
+    """Quién depende de quién, por código de proyecto.
+
+    En la ficha, `raid.dependencies[].on_project` dice *«yo dependo de ese»*. Para
+    propagar un cambio hace falta la flecha contraria: quién queda alcanzado si ese se
+    mueve. Se invierte una vez y se recorre.
+    """
+    de = {}
+    for rec in records.values():
+        mio = value((rec.get("identity") or {}).get("code"))
+        if not mio:
+            continue
+        for d in (rec.get("raid") or {}).get("dependencies") or []:
+            otro = value(d.get("on_project"))
+            if not otro:
+                continue
+            de.setdefault(otro, []).append({
+                "code": mio,
+                "what": value(d.get("what")),
+                "needed_by": value(d.get("needed_by")),
+                "confirmed": bool(value(d.get("confirmed"))),
+                "source": source_of(d.get("what")) or value(d.get("source")),
+            })
+    return de
+
+
+def impacto(state: Path, codigo: str, dias: int, today: dt.date) -> dict:
+    """A quién alcanza mover un proyecto, y quién no puede sostener su fecha.
+
+    Esto es lo que antes estaba solo en prosa: *«mira las dependencias»*. Mirarlas es
+    aritmética sobre dos campos que la ficha ya tiene, así que se calcula aquí.
+
+    Lo que **sí** se puede afirmar con lo que hay escrito:
+
+    - **A quién alcanza**, directa o indirectamente, y por qué camino.
+    - **Quién no puede sostener su fecha**: un proyecto que depende del que se movió y
+      cierra antes de la fecha nueva tiene un problema que todavía no sabe que tiene.
+    - **Qué dependencia nunca se confirmó** con el otro lado. Una dependencia declarada
+      y no acordada es la que se descubre el día que se incumple.
+
+    Lo que **no** se puede afirmar, y por eso no se inventa: cuántos días se mueve cada
+    uno. Eso necesita holgura por actividad, y una ficha de portafolio no la tiene. Decir
+    «se mueve 21 días» sin holgura es un número con aspecto de cálculo.
+    """
+    records = {}
+    for f in sorted((state / "records").glob("*.json")):
+        records[f.stem] = json.loads(f.read_text(encoding="utf-8"))
+
+    por_codigo = {}
+    for rec in records.values():
+        ident = rec.get("identity") or {}
+        c = value(ident.get("code"))
+        if c:
+            por_codigo[c] = rec
+
+    if codigo not in por_codigo:
+        return {"project": codigo, "found": False,
+                "note": "no hay ficha de ese proyecto en el estado"}
+
+    rec = por_codigo[codigo]
+    fin = as_date((rec.get("plan") or {}).get("end_date"))
+    nueva = fin + dt.timedelta(days=dias) if fin and dias else fin
+
+    de = _grafo(records)
+    alcanzados, vistos = [], {codigo}
+    # Anchura, no profundidad: el camino más corto hasta cada proyecto es el que
+    # explica mejor por qué quedó alcanzado. Y el conjunto `vistos` es lo que impide
+    # que un ciclo de dependencias —que existen— deje esto girando.
+    cola = [(codigo, [codigo])]
+    while cola:
+        actual, camino = cola.pop(0)
+        for hijo in de.get(actual, []):
+            c = hijo["code"]
+            if c in vistos:
+                continue
+            vistos.add(c)
+            otro = por_codigo.get(c) or {}
+            su_fin = as_date((otro.get("plan") or {}).get("end_date"))
+            fila = {
+                "code": c,
+                "manager": value((otro.get("identity") or {}).get("manager")),
+                "end_date": su_fin.isoformat() if su_fin else None,
+                "depends_on": actual,
+                "path": camino + [c],
+                "hops": len(camino),
+                "what": hijo["what"],
+                "needed_by": hijo["needed_by"],
+                "confirmed": hijo["confirmed"],
+                "source": hijo["source"],
+                # el hallazgo: cierra antes de que esté lo que espera
+                "cannot_hold_date": bool(nueva and su_fin and su_fin <= nueva),
+            }
+            if fila["cannot_hold_date"]:
+                fila["days_short"] = (nueva - su_fin).days
+            alcanzados.append(fila)
+            cola.append((c, camino + [c]))
+
+    alcanzados.sort(key=lambda x: (not x["cannot_hold_date"], x["hops"], x["code"]))
+
+    # Los hitos del proyecto que se mueve. Sin una red de actividades no se puede saber
+    # cuánto se mueve cada uno, así que no se dice: lo que sí se puede afirmar es **por
+    # cuáles pasa el cambio** — los que siguen abiertos y caen entre hoy y la fecha
+    # nueva son los que tienen que absorberlo, y son los que hay que volver a fechar.
+    hitos = []
+    for m in (rec.get("plan") or {}).get("milestones") or []:
+        cuando = as_date(m.get("current_date")) or as_date(m.get("baseline_date"))
+        if not cuando or value(m.get("state")) == "met" or value(m.get("evidence")):
+            continue
+        if nueva and today <= cuando <= nueva:
+            hitos.append({"name": value(m.get("name")), "date": cuando.isoformat(),
+                          "days_away": (cuando - today).days})
+    hitos.sort(key=lambda x: x["date"])
+    return {
+        "project": codigo,
+        "found": True,
+        "manager": value((rec.get("identity") or {}).get("manager")),
+        "end_date": fin.isoformat() if fin else None,
+        "moves_days": dias,
+        "new_end": nueva.isoformat() if nueva else None,
+        "reached": alcanzados,
+        "milestones_reached": hitos,
+        "totals": {
+            "reached": len(alcanzados),
+            "milestones_reached": len(hitos),
+            "direct": sum(1 for a in alcanzados if a["hops"] == 1),
+            "indirect": sum(1 for a in alcanzados if a["hops"] > 1),
+            "cannot_hold_date": sum(1 for a in alcanzados if a["cannot_hold_date"]),
+            "unconfirmed": sum(1 for a in alcanzados if not a["confirmed"]),
+            "managers": sorted({a["manager"] for a in alcanzados if a["manager"]}),
+        },
+        "note": ("Cuántos días se mueve cada uno no sale de aquí: eso necesita holgura "
+                 "por actividad, y la ficha de portafolio no la tiene. Los hitos que "
+                 "salen son por los que pasa el cambio, no los que se movieron."),
+    }
+
+
 # ---------------------------------------------------------------- cadencia
 
 CADENCIAS = {"daily": 1, "weekly": 7, "biweekly": 14, "fortnightly": 14,
@@ -1144,6 +1280,100 @@ def selftest() -> int:
     return 0 if ok else 1
 
 
+def _pruebas_impacto():
+    """A quién alcanza mover un proyecto, y quién no puede sostener su fecha."""
+    import shutil
+    import tempfile
+
+    def c(v, fuente="acta.md", fecha="2026-01-12"):
+        return {"value": v, "source": fuente, "source_date": fecha, "state": "found"}
+
+    def ficha(codigo, gerente, fin, depende_de=(), confirmada=True, hitos=()):
+        return {
+            "identity": {"code": c(codigo), "name": c(f"Proyecto {codigo}"),
+                         "manager": c(gerente)},
+            "plan": {"end_date": c(fin),
+                     "milestones": [{"name": c(n), "current_date": c(f),
+                                     "state": c(e)} for n, f, e in hitos]},
+            "raid": {"dependencies": [
+                {"on_project": c(x), "what": c("la interfaz"),
+                 "confirmed": c(confirmada)} for x in depende_de]},
+        }
+
+    hoy = dt.date(2026, 11, 20)
+    tmp = Path(tempfile.mkdtemp())
+    (tmp / "records").mkdir()
+
+    # A se mueve. B depende de A y cierra después; C depende de B y cierra ANTES de la
+    # fecha nueva de A, así que no puede sostener su fecha y nadie se lo ha dicho.
+    # D no depende de nadie: el control negativo del grafo.
+    # E depende de A con la dependencia sin confirmar.
+    fichas = [
+        ficha("PRY-A", "Ana", "2027-01-15", hitos=[
+            ("Certificación", "2026-12-10", "open"),      # entre hoy y la fecha nueva
+            ("Piloto", "2027-03-01", "open"),             # también
+            ("Cierre contable", "2027-06-30", "open"),    # después: no lo toca
+            ("Diseño", "2026-12-01", "met")]),            # cumplido: no cuenta
+        ficha("PRY-B", "Beto", "2027-06-30", ["PRY-A"]),
+        ficha("PRY-C", "Caro", "2027-02-01", ["PRY-B"]),
+        ficha("PRY-D", "Dani", "2027-09-01"),
+        ficha("PRY-E", "Eva", "2027-08-01", ["PRY-A"], confirmada=False),
+    ]
+    for f in fichas:
+        codigo = value(f["identity"]["code"])
+        (tmp / "records" / f"{codigo}.json").write_text(
+            json.dumps(f, ensure_ascii=False), encoding="utf-8")
+
+    r = impacto(tmp, "PRY-A", 60, hoy)
+    por = {x["code"]: x for x in r["reached"]}
+    ciclo_ok = True
+    try:
+        # un ciclo de dependencias existe en la vida real y no puede dejar esto girando
+        (tmp / "records" / "PRY-F.json").write_text(json.dumps(
+            ficha("PRY-F", "Fede", "2027-05-01", ["PRY-G"]), ensure_ascii=False),
+            encoding="utf-8")
+        (tmp / "records" / "PRY-G.json").write_text(json.dumps(
+            ficha("PRY-G", "Gabi", "2027-05-01", ["PRY-F"]), ensure_ascii=False),
+            encoding="utf-8")
+        impacto(tmp, "PRY-F", 10, hoy)
+    except RecursionError:
+        ciclo_ok = False
+
+    sin_ficha = impacto(tmp, "PRY-Z", 10, hoy)
+    shutil.rmtree(tmp)
+
+    return [
+        ("impacto · la fecha nueva es aritmética, no estimación",
+         r["new_end"], "2027-03-16"),
+        ("impacto · alcanza al que depende directo", "PRY-B" in por, True),
+        ("impacto · y al que depende de ese", "PRY-C" in por, True),
+        ("impacto · el que no depende de nadie no se toca", "PRY-D" in por, False),
+        ("impacto · dice por qué camino quedó alcanzado",
+         por["PRY-C"]["path"], ["PRY-A", "PRY-B", "PRY-C"]),
+        ("impacto · directos e indirectos se cuentan aparte",
+         (r["totals"]["direct"], r["totals"]["indirect"]), (2, 1)),
+        ("impacto · el que cierra antes de la fecha nueva no la puede sostener",
+         por["PRY-C"]["cannot_hold_date"], True),
+        ("impacto · y dice por cuántos días", por["PRY-C"]["days_short"], 43),
+        ("impacto · el que cierra después sí la sostiene",
+         por["PRY-B"]["cannot_hold_date"], False),
+        ("impacto · la dependencia declarada y no acordada se marca",
+         por["PRY-E"]["confirmed"], False),
+        ("impacto · y se cuenta, porque es la que se descubre incumplida",
+         r["totals"]["unconfirmed"], 1),
+        ("impacto · trae el gerente de cada uno, que es a quien hay que llamar",
+         r["totals"]["managers"], ["Beto", "Caro", "Eva"]),
+        ("impacto · lo que no puede sostener su fecha va primero",
+         r["reached"][0]["code"], "PRY-C"),
+        ("impacto · los hitos por los que pasa el cambio",
+         [h["name"] for h in r["milestones_reached"]], ["Certificación", "Piloto"]),
+        ("impacto · el hito cumplido no cuenta, y el de después tampoco",
+         r["totals"]["milestones_reached"], 2),
+        ("impacto · un ciclo de dependencias no lo deja girando", ciclo_ok, True),
+        ("impacto · sin ficha de ese proyecto, lo dice", sin_ficha["found"], False),
+    ]
+
+
 def _selftest_cadencia():
     """La cadencia: qué toca hoy, y que deje de tocar cuando ya se corrió.
 
@@ -1200,7 +1430,7 @@ def _selftest_cadencia():
         ("cola · dice cuántas y desde cuándo", d5["detail"]["requests"]["open"], 1),
         ("cola · la respondida no cuenta", [r["id"] for r in peticiones_abiertas(tmp)], []),
         ("cola · respondida, vuelve a callarse", d6["quiet"], True),
-    ] + _pruebas_contraste() + [
+    ] + _pruebas_contraste() + _pruebas_impacto() + [
     ]
     shutil.rmtree(tmp)
     return salida
@@ -1220,7 +1450,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
     ap.add_argument("action", choices=["init", "config", "due", "ran", "index",
                                        "compute", "snapshot", "diff", "requests",
-                                       "answered", "selftest"])
+                                       "answered", "impact", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
@@ -1229,6 +1459,10 @@ def main() -> int:
                     help="qué se corrió: sweep | report | confirmation | requests, para `ran`")
     ap.add_argument("--id", default=None,
                     help="identificador de la petición, para `answered`")
+    ap.add_argument("--code", default=None,
+                    help="código del proyecto que se mueve, para `impact`")
+    ap.add_argument("--days", type=int, default=0,
+                    help="días que se mueve, para `impact`")
     ap.add_argument("--against", type=Path, default=None)
     ap.add_argument("--today", default=None)
     args = ap.parse_args()
@@ -1259,6 +1493,11 @@ def main() -> int:
         if not args.what:
             ap.error("--what es obligatorio para ran")
         print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
+    elif args.action == "impact":
+        if not args.code:
+            ap.error("--code es obligatorio para impact")
+        print(json.dumps(impacto(args.state, args.code, args.days, today),
+                         ensure_ascii=False, indent=2))
     elif args.action == "requests":
         print(json.dumps(peticiones_abiertas(args.state), ensure_ascii=False, indent=2))
     elif args.action == "answered":

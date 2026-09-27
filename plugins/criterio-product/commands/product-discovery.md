@@ -59,7 +59,18 @@ existe un requerimiento que lo recoja:
 python3 scripts/producto.py compute --state <estado> --config <archivo>
 ```
 
-**5. Marca lo que es afirmación del entrevistado y no dato.** *«Perdemos como el 30% de las
+**5. Si entra material de fuentes públicas, entra citado y marcado como lo que es.**
+
+Reseñas del producto propio, lo que un competidor publica de su producto, un informe de
+mercado. Aplica **demand-evidence** y su jerarquía: **que un competidor lo tenga dice que
+alguien apostó, no que tu cliente lo quiera**, y un informe de otra geografía se cita
+diciendo de qué mercado habla.
+
+Se recopila y se cita. **No se concluye posicionamiento**, no se compara con tu producto y
+no se deriva una recomendación: eso es juicio de producto y necesita la estrategia, que no
+está en ningún documento.
+
+**6. Marca lo que es afirmación del entrevistado y no dato.** *«Perdemos como el 30% de las
 ventas»* es una cita. Si el producto va a apoyarse en ese número, aplica **product-metrics**:
 se busca la serie, o se declara que no existe.
 
@@ -84,6 +95,10 @@ se busca la serie, o se declara que no existe.
 
 ### Afirmaciones numéricas de los entrevistados
 | Lo que dijeron | Quién | ¿Hay serie que lo mida? |
+
+### De fuentes públicas
+| Qué | Fuente | De cuándo | Qué tan fuerte |
+[Recopilación citada. No concluye posicionamiento. Si no entró ninguna, se omite.]
 
 ### Evidencia nueva que contradice el registro
 | REQ | Decía | Dice la entrevista | Las dos fuentes |

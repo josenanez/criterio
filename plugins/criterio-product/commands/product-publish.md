@@ -1,0 +1,102 @@
+---
+description: Publica la ficha de tu producto donde los demás productos la puedan leer, con lo mínimo para cruzar y nada más
+argument-hint: "[carpeta de productos publicados] o vacío para la configurada"
+---
+
+# /product-publish — Publicar la ficha del producto
+
+> **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si
+> falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
+> aceptación explícita y ofrece guardarla.
+
+## Para qué existe
+
+Alba trabaja sobre **un** producto. Y hay una pregunta que un producto solo no puede
+responder: **¿nos estamos pisando con otro?**
+
+La respuesta cómoda sería una base de datos de productos. Este diseño no la tiene y no la
+va a tener, por la misma razón que no la tienen las dos fichas de un proyecto: cada
+producto deja un documento, los demás lo leen, **y no hay almacenamiento compartido ni
+consistencia distribuida que mantener.**
+
+```
+productos/
+  publicados/
+    PRD-QR.json           ← lo que este comando escribe
+    PRD-COBROS.json       ← lo que publicó el otro gerente de producto
+    PRD-TESORERIA.json
+```
+
+## Por qué es un comando y no pasa solo
+
+Publicar expone tu producto a la lectura de los demás con una profundidad que antes no
+tenía. Es deseable, y también es político: el día que dos productos comparten una métrica,
+alguien va a tener que explicar por qué el comité vio las dos cifras sumadas. **Este diseño
+no decide por tu organización — lo corres tú, sabiendo lo que haces.**
+
+## Qué lleva, y qué no
+
+Lo mínimo para poder cruzar:
+
+| Va | No va |
+|---|---|
+| Código, nombre y gerente del producto | Las entrevistas y sus citas |
+| A quién dice servir el producto | Los supuestos de la definición |
+| Las métricas que la definición afirma, con su fuente | Las series medidas |
+| Los proyectos que ejecutan sus requerimientos | El registro completo con su evidencia |
+| El id, título y estado de cada requerimiento | Los criterios de aceptación |
+
+**Lo que no hace falta para cruzar no se publica.** Un descubrimiento sin terminar, un
+requerimiento que todavía se está discutiendo o el nombre del cliente que se quejó no son
+asunto de los demás productos.
+
+## Flujo
+
+**1. Recalcula antes de publicar.** Una ficha vieja publicada es peor que ninguna: alguien
+la va a leer creyendo que es de hoy.
+
+```
+python3 scripts/producto.py publish --state <estado> --config <archivo>
+```
+
+**2. Di qué vas a publicar, antes de escribir nada.** Cuántos requerimientos van, cuántos
+proyectos, qué métricas afirma tu definición con qué cifra, y a qué segmento dice servir.
+**Eso último es lo que más se lee del otro lado.**
+
+**3. Escríbelo en la carpeta de productos publicados**, con el nombre `<código>.json`. Es
+el único sitio donde este comando escribe. Si la carpeta no existe, **pregunta antes de
+crearla**, y si no está configurada, dilo: sin un sitio común acordado esto no sirve, y
+acordarlo es una conversación de la organización, no un comando.
+
+**4. Confirma con la ruta exacta y la fecha.**
+
+## Lo que los demás van a poder ver, y conviene que sepas
+
+Con tu ficha publicada, cualquier otro gerente de producto puede correr `/product-overlap`
+y encontrar:
+
+- **Que su producto y el tuyo afirman la misma métrica.** Si los dos casos de negocio
+  cuentan las mismas transacciones, la suma que vio el comité no existe.
+- **Que el mismo proyecto ejecuta requerimientos de los dos.**
+- **Que los dos dicen servir al mismo segmento.**
+
+Ninguna de las tres es una acusación. La primera suele ser el hallazgo más caro de un
+portafolio de productos, y **casi siempre nadie lo hizo a propósito.**
+
+## Lo que este comando no hace
+
+- **No publica tu registro.** Ver la tabla de arriba.
+- **No avisa a nadie.** El otro gerente la encontrará cuando cruce; si necesitas que la
+  vean hoy, eso es una conversación.
+- **No lee las de los demás.** Eso es `/product-overlap`.
+- **No toca ningún otro archivo** de tu carpeta de documentación.
+
+## Salida
+
+```markdown
+Publiqué la ficha en `[ruta exacta]`, con corte al [fecha].
+
+**Lleva:** [N] requerimientos · [N] proyectos · [N] métricas afirmadas
+**Segmento declarado:** [a quién dice servir]
+**Métricas:** [nombre, cifra y de qué documento sale cada una]
+```

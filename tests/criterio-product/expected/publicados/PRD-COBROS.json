@@ -1,0 +1,32 @@
+{
+  "code": "PRD-COBROS",
+  "name": "Cobros recurrentes",
+  "manager": "Julián Estrada",
+  "as_of": "2026-11-20",
+  "who": "Comercios con recaudo QR y sin Punto de Venta integrado",
+  "claims": [
+    {
+      "metric": "tx_mensuales",
+      "declared": 90000,
+      "source": "00-definicion/2026-05-02-caso-de-negocio-cobros.md",
+      "source_date": "2026-05-02"
+    }
+  ],
+  "projects": [
+    "PRY-101"
+  ],
+  "requirements": [
+    {
+      "id": "REQ-501",
+      "title": "Cobro recurrente para comercios de suscripción",
+      "state": "aceptado",
+      "project": "PRY-101"
+    },
+    {
+      "id": "REQ-502",
+      "title": "Reintento del cobro rechazado",
+      "state": "propuesto",
+      "project": null
+    }
+  ]
+}

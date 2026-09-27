@@ -251,3 +251,5 @@ the agent does not do and what remains the people's, in
 [`DISENO.es.md`](DISENO.es.md) — in Spanish, as a working document.
 
 The three agents together — what each does, how they operate, how you work with them — in [`FAMILIA.md`](FAMILIA.md).
+
+**How the last run went, generated from the run itself:** [`tests/criterio-pmo/RESULTADOS.md`](../../tests/criterio-pmo/RESULTADOS.md).

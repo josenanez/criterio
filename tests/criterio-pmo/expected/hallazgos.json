@@ -127,5 +127,25 @@
     "green_contradicted": 3,
     "products": 2,
     "no_authority": 2
+  },
+  "impacto": {
+    "proyecto": "PRY-002",
+    "dias": 60,
+    "por_que": "PRY-001 declaró depender de PRY-002 y nunca lo confirmó. Si PRY-002 se corre dos meses, PRY-001 cierra 121 días antes de tener lo que espera, y eso no está escrito en ninguna parte.",
+    "fecha_nueva": "2027-03-31",
+    "alcanzados": 1,
+    "cuales": [
+      "PRY-001"
+    ],
+    "no_sostienen": 1,
+    "dias_corto": 121,
+    "gerentes": [
+      "Andrés Lozano"
+    ],
+    "confirmada": false,
+    "hitos": [
+      "Servicio de abono expuesto"
+    ],
+    "negativo": "PRY-003"
   }
 }

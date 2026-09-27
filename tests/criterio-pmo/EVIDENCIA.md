@@ -9,6 +9,9 @@ documentación real no existen todavía, y hasta que existan no se inventan.
 
 ## Lo que se corre, y qué verifica cada cosa
 
+**El resultado de la última corrida, generado**, en [`RESULTADOS.md`](RESULTADOS.md).
+Esta página dice qué prueba cada pieza del material; esa dice cómo salió la última vez.
+
 **Una sola puerta:** `python3 scripts/verificar.py` corre todo lo de abajo y lo de
 `criterio-pm`, y dice qué prueba cada cosa. Lo que sigue es el detalle.
 

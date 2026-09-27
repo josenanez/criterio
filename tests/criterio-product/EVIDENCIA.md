@@ -7,6 +7,9 @@ Nada aquí es real. El corpus se construyó desde cero, como exige
 
 ## Lo que se corre
 
+**El resultado de la última corrida, generado**, en [`RESULTADOS.md`](RESULTADOS.md).
+Esta página dice qué prueba cada pieza del material; esa dice cómo salió la última vez.
+
 **Una sola puerta:** `python3 scripts/verificar.py` corre todo lo de abajo y lo de los otros
 dos plugins. Lo que sigue es el detalle.
 

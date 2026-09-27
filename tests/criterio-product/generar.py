@@ -564,6 +564,63 @@ def fichas() -> None:
                          "product": {"value": producto, "source": "acta"}}})
 
 
+# ═══════════════════════ los productos que otros publicaron ══════════════════
+# Alba trabaja sobre un producto. La pregunta que un producto solo no puede responder
+# —¿nos estamos pisando con otro?— necesita que los demás hayan publicado, y eso es un
+# acto de otro gerente de producto, no un efecto. Aquí está lo que publicaron.
+#
+# PRD-COBROS existe por una razón concreta y no por simetría: **PRD-QR aceptó el cobro
+# recurrente (REQ-002), no le puso proyecto, y resulta que otro producto lo está
+# construyendo.** Ese es el caso real, el que nadie hizo a propósito, y el que solo
+# aparece cuando los dos registros se cruzan.
+
+PUBLICADOS = {
+    "PRD-COBROS": {
+        "code": "PRD-COBROS",
+        "name": "Cobros recurrentes",
+        "manager": "Julián Estrada",
+        "as_of": HOY,
+        # el mismo segmento, escrito por otra persona: mayúsculas y tildes distintas
+        "who": "Comercios con recaudo QR y sin Punto de Venta integrado",
+        # la misma métrica que PRD-QR afirma. Los dos casos de negocio cuentan las
+        # mismas transacciones, y el comité vio las dos cifras sumadas.
+        "claims": [{"metric": "tx_mensuales", "declared": 90000,
+                    "source": "00-definicion/2026-05-02-caso-de-negocio-cobros.md",
+                    "source_date": "2026-05-02"}],
+        "projects": ["PRY-101"],
+        "requirements": [
+            {"id": "REQ-501", "title": "Cobro recurrente para comercios de suscripción",
+             "state": "aceptado", "project": "PRY-101"},
+            {"id": "REQ-502", "title": "Reintento del cobro rechazado",
+             "state": "propuesto", "project": None},
+        ],
+    },
+    # El control negativo del cruce: un producto publicado que no se pisa con nada.
+    "PRD-NOMINA": {
+        "code": "PRD-NOMINA",
+        "name": "Dispersión de nómina",
+        "manager": "Julián Estrada",
+        "as_of": HOY,
+        "who": "empresas de 20 a 300 empleados que pagan nómina por el portal",
+        "claims": [{"metric": "dispersiones_mensuales", "declared": 50000,
+                    "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+                    "source_date": "2026-08-12"}],
+        "projects": ["PRY-201", "PRY-202"],
+        "requirements": [
+            {"id": "REQ-101", "title": "Resultado por empleado en el momento de la dispersión",
+             "state": "aceptado", "project": "PRY-201"},
+            {"id": "REQ-102", "title": "Reintento del pago fallido sin recargar el archivo",
+             "state": "aceptado", "project": "PRY-202"},
+        ],
+    },
+}
+
+
+def publicados() -> None:
+    for codigo, ficha in PUBLICADOS.items():
+        json_a(EXPECTED / "publicados" / f"{codigo}.json", ficha)
+
+
 # ══════════════════════════ las respuestas a mano ════════════════════════════
 # Escritas leyendo los documentos, no calculándolas. Si salieran de las mismas fórmulas que
 # el código, esto no probaría nada.
@@ -607,6 +664,34 @@ HALLAZGOS = {
             "trace_not_confirmed",
         ],
     },
+    # Dónde PRD-QR se pisa con lo que otros publicaron. Leído a mano:
+    # PRD-COBROS afirma `tx_mensuales` igual que PRD-QR —los dos casos de negocio
+    # cuentan las mismas transacciones—, construye en PRY-101 igual que REQ-001, y
+    # dice servir al mismo segmento escrito con otras mayúsculas. PRD-NOMINA no se
+    # pisa con nada, y está publicado para probar exactamente eso.
+    "solapamiento": {
+        "_porque": ("PRD-QR aceptó el cobro recurrente y no le puso proyecto; otro "
+                    "producto lo está construyendo, y los dos casos de negocio cuentan "
+                    "las mismas transacciones"),
+        "producto": "PRD-QR",
+        "lee": ["PRD-COBROS", "PRD-NOMINA"],
+        "metricas": 1,
+        "metrica": "tx_mensuales",
+        "mi_cifra": 250000,
+        "su_cifra": 90000,
+        "proyectos": 1,
+        "proyecto": "PRY-101",
+        "mis_req": ["REQ-001"],
+        "sus_req": ["REQ-501"],
+        "segmentos": 1,
+        "senales": 3,
+        "no_se_pisa_con": "PRD-NOMINA",
+        # el control negativo del cruce: PRD-NOMINA contra los mismos publicados.
+        # Lee uno y no dos: **un producto nunca se cruza consigo mismo**, y PRD-NOMINA
+        # está publicado. Que la cuenta baje a uno es parte de lo que se verifica.
+        "negativo": "PRD-NOMINA",
+        "negativo_lee": 1,
+    },
     "PRD-NOMINA": {
         "_porque": "control negativo · definición, entrevistas, métricas y tres "
                    "requerimientos, y ni un hallazgo",
@@ -634,6 +719,7 @@ def main() -> None:
         for r in reqs:
             json_a(base / "requirements" / f"{r['id']}.json", r)
     fichas()
+    publicados()
     json_a(EXPECTED / "hallazgos.json", HALLAZGOS)
 
     docs = len(list(INPUT.rglob("*.md")))

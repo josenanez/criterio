@@ -97,6 +97,10 @@ SENALES = (
     "assumption_unverified",
     "evidence_stale",
     "claim_vs_metric",
+    # No sale de `compute`: sale de cruzar este producto contra los que otros
+    # publicaron. Vive en la misma lista porque es una señal como las demás, y
+    # `product-health` tiene que explicarla igual.
+    "product_overlap",
 )
 
 
@@ -391,6 +395,126 @@ def compute(state: Path, today: dt.date, th: dict, fichas: Path | None = None) -
         "alerts": alertas,
         "by_signal": por_senal,
         "unknown": sin_dato,
+    }
+
+
+def _normalizar(texto) -> str:
+    """Para comparar segmentos escritos por dos personas distintas. No resuelve
+    sinónimos y no lo pretende: quita mayúsculas, tildes y puntuación, y ahí se detiene.
+    Lo que dos redacciones distintas del mismo segmento significan lo decide el modelo."""
+    import unicodedata
+    crudo = unicodedata.normalize("NFKD", str(texto or "").lower())
+    limpio = "".join(c for c in crudo if not unicodedata.combining(c))
+    return " ".join("".join(c if c.isalnum() else " " for c in limpio).split())
+
+
+def ficha_producto(state: Path, today: dt.date, th: dict) -> dict:
+    """Lo que un producto publica para que los demás lo lean.
+
+    Es la misma mecánica con la que el gerente de proyecto publica su ficha: **no hay
+    almacenamiento compartido y no hay consistencia distribuida.** Cada producto deja un
+    documento, y los demás lo leen como leen cualquier otro.
+
+    Lleva lo mínimo para poder cruzar y nada más: quién lo publica, a quién dice servir,
+    qué métricas afirma, y qué proyectos ejecutan sus requerimientos. Lo demás —las
+    entrevistas, los supuestos, el registro completo— es del producto y no se publica.
+    """
+    datos = compute(state, today, th)
+    return {
+        "code": datos["product"]["code"],
+        "name": datos["product"]["name"],
+        "manager": datos["product"]["manager"],
+        "as_of": datos["as_of"],
+        "who": datos["definition"]["who"],
+        "claims": [{"metric": c["metric"], "declared": c["declared"],
+                    "source": c["source"], "source_date": c["source_date"]}
+                   for c in datos["definition"]["claims"]],
+        "projects": sorted({r["project"] for r in datos["requirements"] if r.get("project")}),
+        "requirements": [{"id": r["id"], "title": r["title"], "state": r["state"],
+                          "project": r.get("project")} for r in datos["requirements"]],
+    }
+
+
+def solapamiento(state: Path, otros: Path | None, today: dt.date, th: dict) -> dict:
+    """Dónde este producto y otro se pisan.
+
+    Canibalización es una palabra grande para tres preguntas que se pueden responder con
+    aritmética sobre lo que cada producto publicó:
+
+    - **¿Dos productos afirman la misma métrica?** Entonces los dos casos de negocio
+      están contando las mismas transacciones, y la suma que vio el comité no existe.
+      Es el hallazgo más caro de los tres y el que nadie busca.
+    - **¿El mismo proyecto ejecuta requerimientos de dos productos?** Entonces uno de los
+      dos registros está mirando mal, o el proyecto está construyendo para dos dueños.
+    - **¿Dos productos dicen servir al mismo segmento?** No es un defecto por sí solo
+      —una organización puede tener dos productos para el mismo cliente a propósito—,
+      pero es la pregunta que alguien tiene que haber respondido.
+
+    Lo que **no** se calcula, porque no es aritmética: si dos requerimientos escritos con
+    palabras distintas son el mismo. Eso lo lee el modelo, con las dos listas a la vista.
+    """
+    mio = ficha_producto(state, today, th)
+    vecinos = []
+    if otros and otros.is_dir():
+        for f in sorted(otros.glob("*.json")):
+            try:
+                d = json.loads(f.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                continue
+            if d.get("code") and d["code"] != mio["code"]:
+                d["_file"] = f.name
+                vecinos.append(d)
+
+    metricas, proyectos, segmentos, alertas = [], [], [], []
+    mis_metricas = {c["metric"]: c for c in mio["claims"] if c.get("metric")}
+    mis_proyectos = set(mio["projects"])
+    mi_segmento = _normalizar(mio["who"])
+
+    for otro in vecinos:
+        for c in otro.get("claims") or []:
+            nombre = c.get("metric")
+            if nombre and nombre in mis_metricas:
+                fila = {"metric": nombre, "with": otro["code"],
+                        "mine": mis_metricas[nombre]["declared"],
+                        "mine_source": mis_metricas[nombre]["source"],
+                        "theirs": c.get("declared"), "theirs_source": c.get("source"),
+                        "file": otro["_file"]}
+                metricas.append(fila)
+                alertas.append({"signal": "product_overlap", "id": nombre,
+                                "detail": {**fila, "kind": "metric"}})
+
+        suyos = set(otro.get("projects") or [])
+        for p in sorted(mis_proyectos & suyos):
+            mios = [r["id"] for r in mio["requirements"] if r.get("project") == p]
+            de_el = [r["id"] for r in otro.get("requirements") or []
+                     if r.get("project") == p]
+            fila = {"project": p, "with": otro["code"], "mine": mios, "theirs": de_el,
+                    "file": otro["_file"]}
+            proyectos.append(fila)
+            alertas.append({"signal": "product_overlap", "id": p,
+                            "detail": {**fila, "kind": "project"}})
+
+        if mi_segmento and _normalizar(otro.get("who")) == mi_segmento:
+            fila = {"who": mio["who"], "with": otro["code"], "file": otro["_file"]}
+            segmentos.append(fila)
+            alertas.append({"signal": "product_overlap", "id": otro["code"],
+                            "detail": {**fila, "kind": "segment"}})
+
+    return {
+        "as_of": today.isoformat(),
+        "product": mio["code"],
+        "read": [o["code"] for o in vecinos],
+        "shared_metrics": metricas,
+        "shared_projects": proyectos,
+        "same_segment": segmentos,
+        "alerts": alertas,
+        "totals": {"others": len(vecinos), "metrics": len(metricas),
+                   "projects": len(proyectos), "segments": len(segmentos)},
+        "note": ("Si dos requerimientos escritos con palabras distintas son el mismo no "
+                 "se calcula aquí: eso se lee, con las dos listas a la vista."
+                 if vecinos else
+                 "No hay ningún otro producto publicado a la vista. Sin eso, "
+                 "canibalización no es una pregunta que se pueda responder."),
     }
 
 
@@ -819,6 +943,73 @@ def selftest() -> int:
         ok(d4["detail"]["crossed"]["signals"] == ["requirement_undecided"],
            "y dice qué señal fue")
 
+    print("\nDónde dos productos se pisan")
+    with tempfile.TemporaryDirectory() as tmp2:
+        uno = Path(tmp2) / "uno"
+        otros = Path(tmp2) / "publicados"
+        init(uno)
+        otros.mkdir()
+        # el segmento escrito como lo escribiría una persona, para poder probar que dos
+        # redacciones con distintas mayúsculas y tildes se reconocen como el mismo
+        mio = {**prod, "definition": {**prod["definition"],
+                                      "who": "comercios con recaudo QR y sin punto de venta integrado"}}
+        (uno / "producto.json").write_text(json.dumps(mio, ensure_ascii=False),
+                                           encoding="utf-8")
+        base2 = {"state": "aceptado", "acceptance": [{"value": "x"}],
+                 "evidence": [{"value": "e", "source_date": "2026-09-01"}],
+                 "owner": {"value": "Marcela Ruiz", "kind": "person"},
+                 "decision": {"what": {"value": "se hace", "source": "comite.md"}}}
+        (uno / "requirements" / "REQ-010.json").write_text(json.dumps(
+            {**base2, "id": "REQ-010", "traces": {"project": "PRY-101"}},
+            ensure_ascii=False), encoding="utf-8")
+
+        publicada = ficha_producto(uno, hoy, th)
+        ok(publicada["code"] == "PRD-QR" and publicada["projects"] == ["PRY-101"],
+           "lo que un producto publica lleva sus proyectos")
+        ok("assumptions" not in publicada and "evidence" not in str(publicada.get("who")),
+           "y no lleva el registro completo: lo que no hace falta para cruzar no se publica")
+
+        vacio = solapamiento(uno, otros, hoy, th)
+        ok(vacio["alerts"] == [] and vacio["totals"]["others"] == 0,
+           "sin otro producto publicado, canibalización no es una pregunta")
+
+        # el vecino: misma métrica, mismo proyecto y mismo segmento, escrito distinto
+        (otros / "PRD-COBROS.json").write_text(json.dumps({
+            "code": "PRD-COBROS", "name": "Cobros recurrentes", "manager": "Julián",
+            "who": "Comercios con recaudo QR y SIN punto de venta integrado",
+            "claims": [{"metric": "tx_mensuales", "declared": 90000,
+                        "source": "caso-cobros.md", "source_date": "2026-05-02"}],
+            "projects": ["PRY-101"],
+            "requirements": [{"id": "REQ-501", "title": "Cobro recurrente",
+                              "state": "aceptado", "project": "PRY-101"}],
+        }, ensure_ascii=False), encoding="utf-8")
+        # y un tercero que no se pisa con nada: el control negativo del cruce
+        (otros / "PRD-TESORERIA.json").write_text(json.dumps({
+            "code": "PRD-TESORERIA", "name": "Tesorería", "manager": "Ana",
+            "who": "Empresas grandes con mesa de dinero",
+            "claims": [{"metric": "saldos_medios", "declared": 10,
+                        "source": "caso-tes.md", "source_date": "2026-05-02"}],
+            "projects": ["PRY-900"], "requirements": [],
+        }, ensure_ascii=False), encoding="utf-8")
+
+        s = solapamiento(uno, otros, hoy, th)
+        clases = sorted({a["detail"]["kind"] for a in s["alerts"]})
+        ok(s["totals"]["others"] == 2, "lee todo lo publicado menos lo propio")
+        ok(clases == ["metric", "project", "segment"], "y encuentra las tres formas de pisarse")
+        m = next(x for x in s["shared_metrics"] if x["metric"] == "tx_mensuales")
+        ok((m["mine"], m["theirs"]) == (250000, 90000),
+           "la métrica compartida trae las dos cifras: la suma que vio el comité no existe")
+        ok(m["mine_source"] and m["theirs_source"],
+           "y las dos fuentes, que es lo que permite ir a ver")
+        pr = s["shared_projects"][0]
+        ok(pr["project"] == "PRY-101" and pr["mine"] == ["REQ-010"]
+           and pr["theirs"] == ["REQ-501"],
+           "el proyecto compartido dice qué requerimiento pone cada uno")
+        ok(len(s["same_segment"]) == 1,
+           "el mismo segmento escrito con otras mayúsculas y otras tildes es el mismo")
+        ok(all(a["detail"]["with"] != "PRD-TESORERIA" for a in s["alerts"]),
+           "y el producto que no se pisa con nada no produce ni una señal")
+
     print("\nEl inventario de señales")
     # Se leen los dos sitios donde nace una señal: el atajo `alert(...)` de cada
     # bloque, y el diccionario que `confirmar_trazas` arma a mano porque su alerta
@@ -843,9 +1034,12 @@ def main() -> int:
     ap = argparse.ArgumentParser(
         description="Criterio Product — aritmética sobre el registro de requerimiento.")
     ap.add_argument("action", choices=["init", "config", "due", "ran", "compute",
-                                       "snapshot", "diff", "selftest"])
+                                       "snapshot", "diff", "publish", "overlap",
+                                       "selftest"])
     ap.add_argument("--state", type=Path)
     ap.add_argument("--config", type=Path, default=None)
+    ap.add_argument("--otros", type=Path, default=None,
+                    help="carpeta con las fichas de producto que otros publicaron")
     ap.add_argument("--fichas", type=Path, default=None,
                     help="carpeta con las fichas de los proyectos, para confirmar las trazas")
     ap.add_argument("--against", type=Path, default=None)
@@ -871,7 +1065,14 @@ def main() -> int:
         return 0
 
     today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
-    if args.action == "due":
+    if args.action == "publish":
+        print(json.dumps(ficha_producto(args.state, today, load_thresholds(args.config)),
+                         ensure_ascii=False, indent=2))
+    elif args.action == "overlap":
+        print(json.dumps(solapamiento(args.state, args.otros, today,
+                                      load_thresholds(args.config)),
+                         ensure_ascii=False, indent=2))
+    elif args.action == "due":
         print(json.dumps(due(args.config, args.state, today), ensure_ascii=False, indent=2))
     elif args.action == "ran":
         if not args.what:

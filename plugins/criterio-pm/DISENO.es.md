@@ -18,7 +18,7 @@ Marco general, definición de las clases y de las columnas:
 | **Escribe** | La ficha del proyecto — **excepto el estado declarado** |
 | **Publica** | `ficha-pm.json` en la carpeta de gobierno del proyecto, y nada más |
 | **Lee** | Su propia ficha y el estándar que publica la PMO |
-| **Estado** | Los siete comandos construidos, ocho skills, corpus propio y 19 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
+| **Estado** | Los nueve comandos construidos, ocho skills, corpus propio y 19 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
 | **Evidencia** | [`tests/criterio-pmo/EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) |
 
 ---
@@ -213,10 +213,10 @@ enterarse.
 |---|---|---|---|
 | Revisar el acta de constitución y decir qué falta | El acta | Los campos ausentes con su consecuencia; sobre todo la autoridad del gerente | Construido |
 | Borrador del cierre y de las lecciones | Criterio de éxito pactado y la historia documental | Entregado contra comprometido, desviación final, lecciones con hecho y fecha | Construido |
-| Evaluar el efecto real de un cambio en el cronograma y en otros proyectos | El cambio y las dependencias declaradas | Hitos alcanzados, proyectos afectados y sus gerentes | **Parcial** |
-| Preparar el escalamiento con la decisión formulada | El ítem que excede su autoridad | La decisión como pregunta cerrada, con opciones y consecuencia de no decidir | **Parcial** |
+| Evaluar el efecto real de un cambio en el cronograma y en otros proyectos | El cambio y las dependencias declaradas | Los hitos propios por los que pasa el cambio, los proyectos alcanzados —directos e indirectos—, sus gerentes, y cuáles no pueden sostener su fecha | **Construido** · `pmo.py impact`, dentro de `/pm-escalate`. Lo que no dice, y no se inventa: cuántos días se mueve cada uno |
+| Preparar el escalamiento con la decisión formulada | El ítem que excede su autoridad | La decisión como pregunta cerrada, con opciones, recomendación, y la consecuencia de no decidir con fecha | **Construido** · `/pm-escalate`. Y si lo que traías no escala, lo dice en vez de armar el paquete |
 | **Detectar el compromiso reprogramado tres veces** | Historial de compromisos del mismo doliente sobre lo mismo | Un compromiso con su historial de reprogramaciones, señalado como bloqueo | **Construido.** `reschedules` en el esquema, `commitment_rescheduled` en el cálculo con su umbral, y la corrida lo verifica sobre PRY-001 |
-| **Primer borrador del plan y de la WBS** | El acta y proyectos análogos del portafolio | Borrador de WBS y cronograma, con los supuestos declarados | **Falta** |
+| **Primer borrador del plan y de la WBS** | El acta y proyectos análogos del portafolio | WBS por entregable, el orden por dependencia, los supuestos declarados como tales y los nodos sin definir **sin rellenar**. Las fechas van en blanco | **Construido** · `/pm-plan`. No compromete ninguna fecha: eso es autoridad |
 
 Tres veces reprogramado **no es un problema de seguimiento: es un bloqueo que nadie ha
 nombrado.** Es información distinta de tres compromisos vencidos, y es la que le sirve al
@@ -275,8 +275,13 @@ persona.** No por prudencia — por arquitectura.
    de más apalancamiento: el que arma la agenda antes recibe la minuta después.
 6. ~~El informe semanal~~ — **construido**: `/pm-report`, con cadencia de proyecto.
 7. ~~El acta de la reunión~~ — **construido**: `/pm-minutes`.
-8. **El primer borrador del plan y de la WBS.** Es lo único de la tabla A y B que sigue sin
-   comando, y necesita proyectos análogos del portafolio, que es una lectura de Vera.
+8. ~~El primer borrador del plan y de la WBS~~ — **construido**: `/pm-plan`, con los
+   proyectos análogos entrando como referencia citada y nunca como estimación.
+9. ~~El escalamiento con la decisión formulada~~ — **construido**: `/pm-escalate`, con el
+   efecto del cambio calculado en vez de descrito.
+
+**Las tablas A y B quedan sin filas abiertas.** Lo que sigue pendiente no es construcción:
+es que esto corra sobre la documentación real de una organización.
 
 Y una deuda de verificación que conviene tener a la vista: **la extracción nunca se ha
 corrido.** El corpus siembra el estado desde `expected/fichas/`, así que la cadena

@@ -5,7 +5,7 @@ desbloqueas. Él llega con la semana lista y con la lista de lo que se dijo y no
 
 [English](README.md) · Apache 2.0 · Una instancia por proyecto
 
-**Estado: los siete comandos construidos**, los ocho skills del método y la aritmética
+**Estado: los nueve comandos construidos**, los ocho skills del método y la aritmética
 verificada sobre un corpus con respuestas escritas a mano. **Lo que todavía no se ha
 probado: la extracción sobre la documentación real de una organización** — el corpus
 siembra la ficha, así que la cadena documento → modelo → ficha no se ha ejercitado. Nada se
@@ -95,7 +95,7 @@ actualizó nunca.
 Lo que tú tienes y la PMO no —los compromisos de cada reunión— **no es una
 contradicción**: es diferencia de profundidad, y no se reporta como hallazgo.
 
-## Los siete comandos
+## Los nueve comandos
 
 | Comando | Qué hace |
 |---|---|
@@ -105,6 +105,8 @@ contradicción**: es diferencia de profundidad, y no se reporta como hallazgo.
 | `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
 | `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
 | `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
+| `/pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
+| `/pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
 | `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
 
 Tres de ellos son un ciclo, y por eso están: **el que arma la agenda antes recibe la minuta
@@ -153,3 +155,5 @@ El diseño completo, con las tres clases de función y lo que sigue siendo de la
 en [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
 Los tres agentes juntos, y cómo se encuentran, en [`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).
+
+**Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-pm/RESULTADOS.md`](../../tests/criterio-pm/RESULTADOS.md).

@@ -18,7 +18,7 @@ Marco general, definición de las clases y de las columnas:
 | **Escribe** | Su propio registro previo. **Crea la ficha** con el acta de constitución |
 | **Lee** | Su registro, y las fichas de los proyectos que ejecutan su producto |
 | **Se distribuye** | Como `criterio-product`, plugin aparte, con `pmo.py` y `texto.py` copiados de `criterio-pmo` |
-| **Estado** | Los ocho comandos construidos, doce skills, corpus propio y 28 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
+| **Estado** | Los once comandos construidos, doce skills, corpus propio y 28 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
 | **Evidencia** | [`tests/criterio-product/EVIDENCIA.md`](../../tests/criterio-product/EVIDENCIA.md) |
 
 ---
@@ -80,7 +80,7 @@ Todas dependían primero del registro de requerimiento, que hoy existe.
 | Inventario de requerimientos | La definición y los documentos que la soportan | Un registro por requerimiento, con estado, doliente y evidencia | **Construido**: `/product-requirements`, sobre el registro |
 | Trazabilidad requerimiento → decisión → entregable | El registro y las fichas de los proyectos que lo ejecutan | La cadena completa, que vuelve *"qué falta"* un filtro y no una corrida de modelo | **Construido**: `/product-trace`, y confirma cada traza contra la ficha del proyecto |
 | Detectar requerimientos sin criterio de aceptación o sin doliente | El registro | La lista de vacíos; igual que un riesgo sin doliente, es decoración | **Construido**, en código: dos señales, y un área no cuenta como doliente |
-| Recopilar análisis competitivo de fuentes públicas | Fuentes públicas | Recopilación citada. No concluye posicionamiento | **Parcial**: entra como evidencia débil por `demand-evidence`, sin comando propio |
+| Recopilar análisis competitivo de fuentes públicas | Fuentes públicas | Recopilación citada, con su fecha y con qué tan fuerte es. No concluye posicionamiento | **Construido** · dentro de `/product-discovery`, porque una reseña pública es material de descubrimiento y no una categoría aparte |
 | Consolidar las métricas del producto | El sistema donde viven | La serie al día, con su fuente y fecha | **Construido**: el skill `product-metrics` y la serie en el estado. No se conecta a ningún sistema |
 | Borrador de la especificación | Lo ya decidido y el registro de requerimientos | Borrador con criterios de aceptación y vacíos señalados | **Construido**: `/product-spec`, con la regla de señalar el vacío en vez de rellenarlo |
 | Producir el borrador del acta de constitución | La definición cerrada | El acta que el gerente firma, y con la que nace la ficha | **Construido**: `/product-charter`, y la ficha se crea después de la firma, nunca antes |
@@ -93,8 +93,8 @@ Todas dependían primero del registro de requerimiento, que hoy existe.
 | Detectar contradicción entre lo que dice el negocio y lo que dicen los datos | Documentos del negocio y las métricas | El conflicto con las dos fuentes y sus fechas | **Construido**, en código: `claim_vs_metric`, con las dos fuentes, las dos fechas y la dirección |
 | Identificar los supuestos no verificados de la definición | La definición | Los supuestos declarados como tales, para validarlos o convertirlos en riesgo | **Construido**: `assumption_unverified` con su umbral, y la frontera a la que se vuelve riesgo |
 | Primer barrido de obligaciones normativas que toca el producto | La definición y la norma aplicable | Las obligaciones citadas. **No opina sobre cumplimiento** | **Construido**: el skill `regulatory-sweep`, dentro de `/product-definition` |
-| Estructurar el caso de negocio | Lo que el negocio entregue | La estructura y los vacíos. Las cifras son del negocio | **Parcial**: los vacíos de la definición salen en `unknown`; la estructura no tiene comando |
-| Análisis de canibalización | Datos internos de los productos existentes | El solapamiento, con su fuente | **Falta.** Necesita las métricas de más de un producto a la vista, y hoy cada instalación mira el suyo |
+| Estructurar el caso de negocio | Lo que el negocio entregue | La estructura, cada cifra con su fuente, las tres clases de cifra sin mezclar, y los vacíos con quién los produce | **Construido** · `/product-business-case`. No calcula retorno: con cifras supuestas eso es una opinión con dos decimales |
+| Análisis de canibalización | Lo que los demás productos publicaron | La métrica que dos casos de negocio cuentan dos veces, el proyecto con dos dueños, y el segmento repetido | **Construido** · `/product-publish` y `/product-overlap`. La instalación sigue mirando un producto: los demás **publican**, como el gerente de proyecto publica su ficha |
 
 La primera fila traslada la tesis de Criterio aguas arriba: en un proyecto se contrasta el
 **estado declarado** contra la evidencia documental; en un producto se contrasta la

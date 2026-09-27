@@ -1123,6 +1123,33 @@ HALLAZGOS = {
         "products": 2,
         "no_authority": 2,
     },
+    # Mover un proyecto y ver a quién alcanza. El portafolio tiene **una sola
+    # dependencia declarada**, y eso no es pobreza del corpus: es como aparecen de
+    # verdad en una carpeta —declaradas por un lado y por nadie más—. PRY-001 dice
+    # depender de PRY-002 y nunca lo confirmó con Luisa.
+    #
+    # Leído a mano de las fichas: PRY-002 cierra el 30 de enero de 2027; con 60 días
+    # más, el 31 de marzo. PRY-001 cierra el 30 de noviembre de 2026, que es **121
+    # días antes** de que esté lo que está esperando. Nadie se lo ha dicho.
+    "impacto": {
+        "proyecto": "PRY-002",
+        "dias": 60,
+        "por_que": ("PRY-001 declaró depender de PRY-002 y nunca lo confirmó. Si "
+                    "PRY-002 se corre dos meses, PRY-001 cierra 121 días antes de "
+                    "tener lo que espera, y eso no está escrito en ninguna parte."),
+        "fecha_nueva": "2027-03-31",
+        "alcanzados": 1,
+        "cuales": ["PRY-001"],
+        "no_sostienen": 1,
+        "dias_corto": 121,
+        "gerentes": ["Andrés Lozano"],
+        "confirmada": False,
+        # de los hitos de PRY-002, los abiertos que caen entre el corte y la fecha
+        # nueva. El cambio pasa por ellos; cuánto se mueve cada uno no se calcula.
+        "hitos": ["Servicio de abono expuesto"],
+        # control negativo: nadie declaró depender de PRY-003
+        "negativo": "PRY-003",
+    },
 }
 
 # ══════════════════════════════════════════════════════════════════════════

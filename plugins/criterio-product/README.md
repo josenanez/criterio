@@ -6,8 +6,8 @@ She arrives with the chain of evidence assembled and the gaps marked.
 
 [Español](README.es.md) · Apache 2.0 · One instance per product
 
-**Status: the eight commands are built**, along with twelve skills and the register's
-arithmetic verified by 52 checks. **What has not been tested yet: the register over a real
+**Status: the eleven commands are built**, along with twelve skills and the register's
+arithmetic verified by 62 checks. **What has not been tested yet: the register over a real
 product's documentation** — extraction from interviews and business cases has not been
 exercised outside synthetic material. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
@@ -104,7 +104,7 @@ owner, authority and a success criterion.
 if two agents wrote it, the disagreement between them would stop being a signal and become a
 race.
 
-## The eight commands
+## The eleven commands
 
 | Command | What it does |
 |---|---|
@@ -115,6 +115,9 @@ race.
 | `/product-trace` | Requirement → decision → project → deliverable, and the two gaps above |
 | `/product-spec` | The specification draft with verifiable criteria and the gaps marked, not filled |
 | `/product-charter` | The charter: where the record is born and the writer changes hands |
+| `/product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them |
+| `/product-publish` | Publishes your record where the other products can read it |
+| `/product-overlap` | Where you overlap another product: the same metric counted twice, the same project, the same segment |
 | `/product-wake` | **The one you put on a clock.** What crossed a threshold with nobody doing anything |
 
 ## The twelve skills
@@ -141,7 +144,7 @@ copies from `criterio-pmo`, because they are method and not role.
 
 ```
 python3 tests/criterio-product/grade.py    over two products, with a negative control
-python3 scripts/producto.py selftest      52 checks over the arithmetic
+python3 scripts/producto.py selftest      62 checks over the arithmetic
 ```
 
 On the standard library, with nothing installed. Over a synthetic corpus with answers written
@@ -157,3 +160,5 @@ The full design, with the three classes of function and what stays with the pers
 working document.
 
 The three agents together, and how they meet, in [`FAMILIA.md`](../criterio-pmo/FAMILIA.md).
+
+**How the last run went, generated from the run itself:** [`tests/criterio-product/RESULTADOS.md`](../../tests/criterio-product/RESULTADOS.md).

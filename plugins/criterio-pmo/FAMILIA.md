@@ -56,6 +56,8 @@ command it does not exist, and this table promises nothing you cannot run.
 | The minutes, separating commitment, decision, intention with no owner, and risk said in passing | `/pm-minutes` |
 | The weekly report, complete **except for the status**, which you declare | `/pm-report` |
 | Publish your record where the PMO can read it | `/pm-publish` |
+| The first draft of the plan and the WBS, **committing no date** | `/pm-plan` |
+| What exceeds your authority as a closed question, with who it reaches **computed** | `/pm-escalate` |
 | **Wake up on its own** around your meeting: the agenda before, the minutes after | `/pm-wake` |
 
 ### Alba · the product manager's agent — `criterio-product`
@@ -71,6 +73,9 @@ command it does not exist, and this table promises nothing you cannot run.
 | What was decided and nobody is building, and the project whose record names another product | `/product-trace` |
 | The specification draft with verifiable criteria and the gaps **marked, not filled** | `/product-spec` |
 | The charter with which the project's record is born | `/product-charter` |
+| The business case's structure with every figure cited, and the gaps with who produces them | `/product-business-case` |
+| Publish your record where the other products can read it | `/product-publish` |
+| **The same metric in two business cases**, the same project with two owners, the same segment | `/product-overlap` |
 | **Wake up on its own** and say what crossed a threshold with nobody doing anything | `/product-wake` |
 
 ### Rostrum · the server — inside `criterio-pmo`
@@ -387,12 +392,15 @@ sheet documents what breaks first if you try, and in what order.
 better not hidden: **verified over a synthetic corpus, not tested against a real organisation's
 documentation.**
 
-| Agent | Installs as | What is missing |
+| Agent | Installs as | Its A and B tables |
 |---|---|---|
-| Vera · PMO | `criterio-pmo` · 17 commands, 10 skills | Half of class B |
-| Samuel · Project Manager | `criterio-pm` · 7 commands, 8 skills | The first draft of the plan and the WBS |
-| Alba · Product Manager | `criterio-product` · 8 commands, 12 skills | The cannibalisation analysis |
+| Vera · PMO | `criterio-pmo` · 17 commands, 10 skills | **No open rows** |
+| Samuel · Project Manager | `criterio-pm` · 9 commands, 8 skills | **No open rows** |
+| Alba · Product Manager | `criterio-product` · 11 commands, 12 skills | **No open rows** |
 | Rostrum · the server | Inside `criterio-pmo` | — |
+
+**None of the three design sheets has a row left in "missing" or "partial".** What remains
+is not construction.
 
 And one debt that belongs to all three at once: **extraction has never been run.** The three
 corpora seed the state from their reference answers, so the document → model → record chain has

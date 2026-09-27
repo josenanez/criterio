@@ -43,6 +43,31 @@
       "trace_not_confirmed"
     ]
   },
+  "solapamiento": {
+    "_porque": "PRD-QR aceptó el cobro recurrente y no le puso proyecto; otro producto lo está construyendo, y los dos casos de negocio cuentan las mismas transacciones",
+    "producto": "PRD-QR",
+    "lee": [
+      "PRD-COBROS",
+      "PRD-NOMINA"
+    ],
+    "metricas": 1,
+    "metrica": "tx_mensuales",
+    "mi_cifra": 250000,
+    "su_cifra": 90000,
+    "proyectos": 1,
+    "proyecto": "PRY-101",
+    "mis_req": [
+      "REQ-001"
+    ],
+    "sus_req": [
+      "REQ-501"
+    ],
+    "segmentos": 1,
+    "senales": 3,
+    "no_se_pisa_con": "PRD-NOMINA",
+    "negativo": "PRD-NOMINA",
+    "negativo_lee": 1
+  },
   "PRD-NOMINA": {
     "_porque": "control negativo · definición, entrevistas, métricas y tres requerimientos, y ni un hallazgo",
     "requirements": 3,

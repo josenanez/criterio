@@ -144,7 +144,7 @@ contrario, y cuando se le dice, lo advierte.
 | Reconstruir el historial: qué pasó en catorce meses | Los documentos ordenados por fecha | Línea de tiempo, replanificaciones, atraso acumulado, y el punto de separación | Construido · `/project-history` |
 | Lecciones ancladas a hechos documentados | Criterio de éxito del acta y la historia documental | Lecciones que nombran hecho, fecha y efecto | Construido · `/project-closure` |
 | Borrador del paquete de decisión | Alertas escaladas y la autoridad declarada | La decisión formulada como pregunta cerrada, con opciones | Construido · `/steering-pack` |
-| Impacto de un cambio en el resto del portafolio | El cambio propuesto y las dependencias declaradas | Proyectos alcanzados y sus gerentes | **Parcial** — en prosa |
+| Impacto de un cambio en el resto del portafolio | El cambio propuesto y las dependencias declaradas | Proyectos alcanzados —directos e indirectos, con su camino—, sus gerentes, quién no puede sostener su fecha y por cuántos días, y qué dependencia nunca se confirmó | **Construido** · `pmo.py impact`, dentro de `/change-control`. Quince comprobaciones, incluido el ciclo de dependencias |
 
 **La calibración por gerente se descartó**, y conviene dejar escrito por qué para que no
 vuelva como buena idea. Es el subproducto natural de guardar corridas: con el tiempo se sabe,

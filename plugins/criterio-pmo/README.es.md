@@ -250,3 +250,5 @@ que el agente no hace y lo que sigue siendo de las personas, en
 [`DISENO.es.md`](DISENO.es.md).
 
 Los tres agentes juntos —qué hace cada uno, cómo operan, cómo se trabaja con ellos— en [`FAMILIA.es.md`](FAMILIA.es.md).
+
+**Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-pmo/RESULTADOS.md`](../../tests/criterio-pmo/RESULTADOS.md).

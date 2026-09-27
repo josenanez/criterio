@@ -6,8 +6,8 @@ llega con la cadena de evidencia armada y los huecos señalados.
 
 [English](README.md) · Apache 2.0 · Una instancia por producto
 
-**Estado: los ocho comandos construidos**, doce skills, y la aritmética del registro
-verificada con 52 comprobaciones. **Lo que todavía no se ha probado: el registro sobre la
+**Estado: los once comandos construidos**, doce skills, y la aritmética del registro
+verificada con 62 comprobaciones. **Lo que todavía no se ha probado: el registro sobre la
 documentación real de un producto** — la extracción desde entrevistas y casos de negocio no
 se ha ejercitado fuera de material sintético. Nada se anuncia como terminado hasta que pasen
 los [criterios de aceptación](ACCEPTANCE.md).
@@ -105,7 +105,7 @@ plan con doliente, autoridad y criterio de éxito.
 escribirla: si dos agentes la escribieran, el desacuerdo entre ellos dejaría de ser una señal
 y sería una carrera.
 
-## Los ocho comandos
+## Los once comandos
 
 | Comando | Qué hace |
 |---|---|
@@ -116,6 +116,9 @@ y sería una carrera.
 | `/product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba |
 | `/product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados |
 | `/product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos |
+| `/product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce |
+| `/product-publish` | Publica tu ficha donde los demás productos la puedan leer |
+| `/product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
 | `/product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
 
 ## Los doce skills
@@ -142,7 +145,7 @@ literales de `criterio-pmo`, porque son método y no rol.
 
 ```
 python3 tests/criterio-product/grade.py    sobre dos productos, con control negativo
-python3 scripts/producto.py selftest      52 comprobaciones sobre la aritmética
+python3 scripts/producto.py selftest      62 comprobaciones sobre la aritmética
 ```
 
 Con la librería estándar, sin instalar nada. Sobre un corpus sintético con respuestas escritas
@@ -157,3 +160,5 @@ El diseño completo, con las tres clases de función y lo que sigue siendo de la
 [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
 Los tres agentes juntos, y cómo se encuentran, en [`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).
+
+**Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-product/RESULTADOS.md`](../../tests/criterio-product/RESULTADOS.md).

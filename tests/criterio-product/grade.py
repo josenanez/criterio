@@ -110,6 +110,66 @@ def calificar_aritmetica() -> None:
                       e["undecided_days"])
 
 
+def correr_overlap(registros: Path, hoy: str) -> dict:
+    tmp = Path(tempfile.mkdtemp())
+    shutil.copytree(registros, tmp / "estado")
+    r = subprocess.run([sys.executable, str(PRODUCTO), "overlap",
+                        "--state", str(tmp / "estado"),
+                        "--otros", str(EXPECTED / "publicados"),
+                        "--today", hoy], capture_output=True, text=True)
+    if r.returncode:
+        print(r.stderr)
+        raise SystemExit("overlap falló")
+    return json.loads(r.stdout)
+
+
+def calificar_solapamiento() -> None:
+    """Dónde este producto y los que otros publicaron se pisan.
+
+    El caso no es de laboratorio: **PRD-QR aceptó el cobro recurrente, no le puso
+    proyecto, y otro producto lo está construyendo.** Y los dos casos de negocio
+    afirman la misma métrica, así que la suma que vio el comité no existe.
+
+    El control negativo va en la misma carpeta: PRD-NOMINA está publicado y no se pisa
+    con nada. Un agente que encuentra solapamiento ahí está generando ruido, y eso solo
+    se detecta teniendo publicado algo que no se pisa.
+    """
+    esperado = json.loads((EXPECTED / "hallazgos.json").read_text(encoding="utf-8"))
+    hoy = esperado["as_of"]
+    e = esperado["solapamiento"]
+
+    print(f"\n{e['producto']} contra lo publicado · {e['_porque']}")
+    r = correr_overlap(EXPECTED / "registros" / e["producto"], hoy)
+
+    comprobar("lee todo lo publicado menos lo propio", sorted(r["read"]), sorted(e["lee"]))
+    comprobar("métricas que dos casos de negocio cuentan", r["totals"]["metrics"],
+              e["metricas"])
+    if r["shared_metrics"]:
+        m = r["shared_metrics"][0]
+        comprobar("cuál métrica", m["metric"], e["metrica"])
+        comprobar("mi cifra", m["mine"], e["mi_cifra"])
+        comprobar("la suya", m["theirs"], e["su_cifra"])
+        comprobar("y las dos fuentes, que es lo que permite ir a ver",
+                  bool(m["mine_source"] and m["theirs_source"]), True)
+    comprobar("proyectos con dos dueños", r["totals"]["projects"], e["proyectos"])
+    if r["shared_projects"]:
+        pr = r["shared_projects"][0]
+        comprobar("cuál proyecto", pr["project"], e["proyecto"])
+        comprobar("qué pongo yo ahí", pr["mine"], e["mis_req"])
+        comprobar("qué pone el otro", pr["theirs"], e["sus_req"])
+    comprobar("mismo segmento, escrito por otra persona", r["totals"]["segments"],
+              e["segmentos"])
+    comprobar("el conteo exacto de señales", len(r["alerts"]), e["senales"])
+    comprobar("y ninguna contra el producto que no se pisa con nada",
+              [a for a in r["alerts"] if a["detail"]["with"] == e["no_se_pisa_con"]], [])
+
+    print(f"\n   Control negativo · {e['negativo']} contra los mismos publicados")
+    n = correr_overlap(EXPECTED / "registros" / e["negativo"], hoy)
+    comprobar("no encuentra nada", n["alerts"], [])
+    comprobar("y sí leyó lo que había, menos él mismo", n["totals"]["others"],
+              e["negativo_lee"])
+
+
 def calificar_registros(reales: Path) -> None:
     """Compara una extracción real contra la de referencia, campo por campo.
 
@@ -162,6 +222,9 @@ def main() -> int:
     else:
         print("Aritmética sobre los registros de referencia")
         calificar_aritmetica()
+        print("\n" + "=" * 72)
+        print("Dónde dos productos se pisan")
+        calificar_solapamiento()
         print("\n   El control negativo es la mitad del valor de esta prueba: PRD-NOMINA")
         print("   tiene definición, entrevistas, métricas y tres requerimientos, y no")
         print("   produce ni un hallazgo. Un agente que encuentra algo ahí es ruido.")

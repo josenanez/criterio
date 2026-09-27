@@ -13,7 +13,7 @@ alguien.
 Las diez señales las calcula `producto.py`. **Este skill dice qué significan.** Ninguna
 de las dos cosas se hace en el otro sitio: el código no opina y este documento no cuenta.
 
-## Las diez señales
+## Las once señales
 
 | Señal | Qué es | Por qué importa |
 |---|---|---|
@@ -27,6 +27,7 @@ de las dos cosas se hace en el otro sitio: el código no opina y este documento 
 | `assumption_unverified` | Un supuesto que nadie verificó | Un supuesto que nadie verifica no es un supuesto: es un riesgo sin registrar |
 | `evidence_stale` | La evidencia más nueva que lo sostiene ya envejeció | Una entrevista de hace dos años no sostiene una definición de hoy |
 | `claim_vs_metric` | El negocio declara un número y la métrica mide otro | Con las dos fuentes y las dos fechas. Sin eso el hallazgo no sirve |
+| `product_overlap` | Otro producto afirma tu misma métrica, comparte tu proyecto o dice servir a tu mismo segmento | La métrica compartida es el hallazgo más caro: **dos casos de negocio contando lo mismo producen una suma que no existe** |
 
 ## Los cuatro umbrales
 
@@ -47,6 +48,8 @@ No es el orden en que salen del cálculo. Es el orden en que sirven:
 
 1. **`claim_vs_metric`.** El negocio y los datos no coinciden. Todo lo demás se define
    encima de un número que está en discusión.
+1. **`product_overlap`, cuando es de métrica.** Si otro producto afirma tu misma cifra, la
+   discusión del número deja de ser tuya y pasa a ser del portafolio de productos.
 2. **`requirement_accepted_without_evidence`.** Lo que se va a construir y nadie pidió.
 3. **`trace_not_confirmed`** y **`requirement_untraced`.** La brecha entre lo decidido y
    lo que se está construyendo.
@@ -67,6 +70,10 @@ No es el orden en que salen del cálculo. Es el orden en que sirven:
 - **Un supuesto verificado, por incómodo que sea.** Ya hizo su trabajo.
 - **Que el registro y la ficha del proyecto coincidan.** El caso normal no se reporta. Un
   agente que celebra las coincidencias es ruido.
+- **Que dos productos sirvan al mismo segmento**, por sí solo. Una organización puede tener
+  dos productos para el mismo cliente a propósito. Se reporta como pregunta, no como defecto.
+- **Que no haya ningún otro producto publicado.** Entonces `product_overlap` no es una señal
+  en cero: es una pregunta que no se puede responder, y se dice así.
 
 ## La comparación, un paso antes
 

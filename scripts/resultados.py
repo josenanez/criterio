@@ -254,14 +254,27 @@ NO_PROBADO = [
 ]
 
 
+def estado_git() -> tuple:
+    """El commit sobre el que se corrió, y si el árbol tenía cambios sin confirmar.
+
+    Sin lo segundo, el archivo dice «sobre el commit X» y alguien va a creer que eso es
+    lo que hay en X. Casi siempre no lo es: se corre antes de confirmar, que es
+    precisamente cuando sirve correr.
+    """
+    commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=RAIZ,
+                            capture_output=True, text=True).stdout.strip() or "—"
+    sucio = bool(subprocess.run(["git", "status", "--porcelain"], cwd=RAIZ,
+                                capture_output=True, text=True).stdout.strip())
+    return commit, sucio
+
+
 def pagina(filas: list, rapido: bool) -> str:
     verdes = sum(1 for f in filas if f["ok"])
     rojas = len(filas) - verdes
     checks = sum(f["checks"] for f in filas)
     ms = sum(f["ms"] for f in filas)
     hoy = dt.date.today().isoformat()
-    commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=RAIZ,
-                            capture_output=True, text=True).stdout.strip() or "—"
+    commit, sucio = estado_git()
 
     # Los dos números que la página afirma sobre el repositorio y no sobre la corrida:
     # se cuentan del disco, no se escriben a mano. Un «treinta comandos» escrito aquí
@@ -327,13 +340,140 @@ def pagina(filas: list, rapido: bool) -> str:
         p.append(f'<li><b>{e(titulo)}.</b> {detalle.format(comandos=comandos)}</li>')
     p.append('</ul></div>')
 
-    p.append(f'<div class="pie"><p>Corrida del {hoy} · commit <code>{e(commit)}</code> · '
+    p.append(f'<div class="pie"><p>Corrida del {hoy} · commit <code>{e(commit)}</code>'
+             f'{" · con cambios sin confirmar" if sucio else ""} · '
              f'{"sin regenerar el material sintético" if rapido else "material sintético regenerado en esta corrida"}.</p>'
              f'<p>Reproducirlo: <code>python3 scripts/resultados.py</code>. El detalle de '
              f'qué prueba cada corpus y qué no, en las tres páginas de evidencia bajo '
              f'<code>tests/</code>.</p></div>')
     p.append('</div></body></html>')
     return "".join(p)
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# El resultado por agente
+#
+# La página combinada sirve para mirar el conjunto. Pero el que instala `criterio-pm`
+# no instala el conjunto: instala un agente, y lo que necesita saber es qué se probó de
+# **ese**. Por eso además de la página hay un archivo por agente, en markdown, dentro de
+# su carpeta de pruebas — markdown porque se lee en GitHub sin descargar nada.
+
+PLUGIN_DE = {
+    "Vera": "criterio-pmo",
+    "Rostrum": "criterio-pmo",
+    "Samuel": "criterio-pm",
+    "Alba": "criterio-product",
+}
+
+# Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
+# en un anexo: un resultado de pruebas que solo dice lo que pasó es publicidad.
+NO_CUBRE = {
+    "criterio-pmo": [
+        ("La extracción nunca se ha corrido",
+         "El estado se siembra copiando `expected/fichas/`, así que la cadena documento "
+         "→ modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso."),
+        ("Los diecisiete comandos no se han corrido con un agente de verdad",
+         "Están verificados como estructura —existen, declaran, y no invocan un skill "
+         "que no esté—, y eso no es lo mismo que haberlos ejercitado."),
+        ("Nada se ha corrido sobre la documentación real de una organización",
+         "Todo el material es sintético y construido desde cero."),
+    ],
+    "criterio-pm": [
+        ("La extracción nunca se ha corrido",
+         "El corpus siembra las fichas, así que la cadena documento → modelo → ficha no "
+         "se ha ejercitado. `grade.py --fichas` existe para eso."),
+        ("La agenda, el acta y el informe no se califican con esto",
+         "Lo que producen es redacción sobre la minuta, y un calificador determinista no "
+         "la mide. Lo que sí se verifica es la aritmética de la que salen sus cifras."),
+        ("La ficha publicada y su contraste no se han corrido de punta a punta",
+         "`/pm-publish` escribe y `contrastar()` emite la señal con sus dos citas, "
+         "verificado sobre fichas sintéticas. Falta que un agente de verdad publique y "
+         "otro de verdad lea."),
+    ],
+    "criterio-product": [
+        ("La extracción nunca se ha corrido",
+         "El corpus siembra los registros, así que la cadena documento → modelo → "
+         "registro no se ha ejercitado. `grade.py --registros` existe para eso."),
+        ("La síntesis de descubrimiento no se puede calificar con esto",
+         "Convertir ocho entrevistas en temas con sus citas es trabajo del modelo. Las "
+         "entrevistas del corpus llevan el conteo explícito —«6 de 8»— para que el día "
+         "que se califique haya contra qué."),
+        ("El barrido normativo no se prueba en ninguna parte",
+         "Su salida depende de conocimiento externo al repositorio, y su regla dura —*no "
+         "dice si cumple*— no se puede verificar con una aserción."),
+    ],
+}
+
+QUE_ES = {
+    "criterio-pmo": ("Vera y Rostrum", "el agente de la PMO y el servidor que publica su informe"),
+    "criterio-pm": ("Samuel", "el agente del gerente de proyecto"),
+    "criterio-product": ("Alba", "el agente del gerente de producto"),
+}
+
+
+def por_agente(filas: list, rapido: bool) -> list:
+    """Escribe un RESULTADOS.md por agente y devuelve las rutas."""
+    hoy = dt.date.today().isoformat()
+    commit, sucio = estado_git()
+    familia = [f for f in filas if f["quien"] == "La familia"]
+    escritos = []
+
+    for plugin, (nombre, que) in QUE_ES.items():
+        suyas = [f for f in filas if PLUGIN_DE.get(f["quien"]) == plugin]
+        if not suyas:
+            continue
+        checks = sum(f["checks"] for f in suyas)
+        rojas = [f for f in suyas if not f["ok"]]
+        destino = RAIZ / "tests" / plugin / "RESULTADOS.md"
+
+        p = [f"# Resultado de las pruebas · {nombre}", "",
+             f"**{que}** · plugin `{plugin}`", "",
+             f"Corrida del {hoy}, sobre el commit `{commit}`"
+             f"{', con cambios en el árbol todavía sin confirmar' if sucio else ''}"
+             f"{' (sin regenerar el material sintético)' if rapido else ''}. "
+             f"**{len(suyas)} puertas · {checks} comprobaciones · "
+             f"{'todas en verde' if not rojas else f'{len(rojas)} en rojo'}.**", "",
+             "> Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida "
+             "real. No se edita a mano: la corrida siguiente lo reemplaza.", "",
+             "## Lo que se corrió", "",
+             "| Puerta | Qué prueba | Comprob. | Tiempo | |",
+             "|---|---|---:|---:|---|"]
+        for f in suyas:
+            marca = "verde" if f["ok"] else f"**{f['fallas']} EN ROJO**"
+            p.append(f"| `{f['etiqueta']}` | {f['porque']} | {f['checks'] or '—'} | "
+                     f"{f['ms']} ms | {marca} |")
+
+        p += ["", "Una puerta sin comprobaciones no es una puerta vacía: **genera el "
+              "material sintético** o verifica una estructura completa, y falla entera "
+              "si algo no está.", "",
+              "## Lo que esta corrida no cubre", "",
+              "Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que "
+              "pasó es publicidad; lo que lo vuelve auditable es lo que dice que todavía "
+              "no se sabe.", ""]
+        for titulo, detalle in NO_CUBRE.get(plugin, []):
+            p.append(f"- **{titulo}.** {detalle}")
+
+        p += ["", "## Qué material se usó, y qué prueba cada pieza", "",
+              f"El detalle del corpus —qué planta cada proyecto o producto, por qué, y "
+              f"cuál es su control negativo— está en "
+              f"[`EVIDENCIA.md`](EVIDENCIA.md), que se escribe a mano y no se genera.", "",
+              "**El control negativo es la mitad del valor de estas pruebas.** Un agente "
+              "que encuentra hallazgos donde no los hay es un generador de ruido, y eso "
+              "no se detecta mirando solo los casos que sí fallan.", "",
+              "## Y lo que se verifica para toda la familia", "",
+              "| Puerta | Qué prueba | Comprob. | |", "|---|---|---:|---|"]
+        for f in familia:
+            marca = "verde" if f["ok"] else f"**{f['fallas']} EN ROJO**"
+            p.append(f"| `{f['etiqueta']}` | {f['porque']} | {f['checks'] or '—'} | "
+                     f"{marca} |")
+        p += ["", "El conjunto de los tres agentes, con gráficas, en "
+              "[`docs/pruebas.html`](../../docs/pruebas.html). Todo corre con la "
+              "librería estándar y sin instalar nada.", ""]
+
+        destino.parent.mkdir(parents=True, exist_ok=True)
+        destino.write_text("\n".join(p), encoding="utf-8")
+        escritos.append(destino)
+    return escritos
 
 
 # ---------------------------------------------------------------- selftest
@@ -364,6 +504,12 @@ def selftest() -> int:
     a = anillo(3, 0)
     ok('stroke-dasharray' in a and 'de 3 puertas' in a, "el anillo dice cuántas de cuántas")
     ok('&lt;b&gt;' in e("<b>"), "lo que entra a la página va escapado")
+
+    print("\nEl archivo por agente")
+    sin_plugin = sorted({q for q in ORDEN if q != "La familia" and q not in PLUGIN_DE})
+    ok(not sin_plugin, f"cada dueño sabe en qué plugin vive{' · falta ' + str(sin_plugin) if sin_plugin else ''}")
+    ok(set(NO_CUBRE) == set(QUE_ES),
+       "y cada plugin dice qué no cubre su corrida, que es la mitad del archivo")
 
     print("\nLa página con datos de mentira")
     demo = [{"grupo": "código", "cmd": PUERTAS[2][1], "porque": "prueba",
@@ -396,9 +542,12 @@ def main() -> int:
     filas = correr(args.rapido)
     SALIDA.parent.mkdir(parents=True, exist_ok=True)
     SALIDA.write_text(pagina(filas, args.rapido), encoding="utf-8")
+    escritos = por_agente(filas, args.rapido)
     rojas = [f for f in filas if not f["ok"]]
     print(f"\n{SALIDA.relative_to(RAIZ)} · {sum(f['checks'] for f in filas)} "
           f"comprobaciones en {len(filas)} puertas")
+    for e in escritos:
+        print(f"{e.relative_to(RAIZ)}")
     if rojas:
         print(f"{len(rojas)} en rojo, y la página lo dice")
         return 1

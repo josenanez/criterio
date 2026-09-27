@@ -23,7 +23,18 @@ argument-hint: "<código del proyecto> <qué se quiere cambiar>"
 
 Un cambio que declara impacto en una sola dimensión casi siempre está mal evaluado. Ampliar alcance sin mover fecha ni presupuesto significa que alguien lo va a absorber en calidad o en horas no pagadas, y eso se dice explícitamente.
 
-**3. Busca el efecto en el portafolio.** Si otro proyecto declaró una dependencia de este, el cambio lo alcanza. Se nombra ese proyecto y a su gerente.
+**3. Busca el efecto en el portafolio. No lo mires a ojo: cálculalo.**
+
+```
+python3 scripts/pmo.py impact --state <estado> --code <proyecto> --days <días que se mueve>
+```
+
+Recorre las dependencias declaradas y devuelve a quién alcanza el cambio —**directa e indirectamente**, con el camino por el que quedó alcanzado—, el gerente de cada uno, y las dos cosas que importan:
+
+- **Quién no puede sostener su fecha** (`cannot_hold_date`): un proyecto que depende de este y cierra antes de la fecha nueva tiene un problema que todavía no sabe que tiene, y `days_short` dice por cuántos días.
+- **Qué dependencia nunca se confirmó** con el otro lado. Una dependencia declarada y no acordada es la que se descubre el día que se incumple.
+
+**Lo que este cálculo no dice, y no hay que inventarlo: cuántos días se mueve cada uno.** Eso necesita holgura por actividad, y la ficha de portafolio no la tiene. Decir *«se mueve 21 días»* sin holgura es un número con aspecto de cálculo.
 
 **4. Determina quién decide.** Contra la autoridad declarada en el acta. Si el cambio excede esa autoridad, el paquete va a comité. Si no hay autoridad declarada, ese es el hallazgo de fondo.
 

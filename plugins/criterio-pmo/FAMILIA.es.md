@@ -59,6 +59,8 @@ comando, no existe, y esta tabla no promete nada que no se pueda correr.
 | El acta, separando compromiso, decisión, intención sin doliente y riesgo dicho al pasar | `/pm-minutes` |
 | El informe semanal completo **salvo el estado**, que lo declaras tú | `/pm-report` |
 | Publicar tu ficha donde la PMO la pueda leer | `/pm-publish` |
+| El primer borrador del plan y la WBS, **sin comprometer ninguna fecha** | `/pm-plan` |
+| Lo que excede tu autoridad como pregunta cerrada, con a quién alcanza **calculado** | `/pm-escalate` |
 | **Despertarse solo** alrededor de tu reunión: la agenda antes, el acta después | `/pm-wake` |
 
 ### Alba · el agente del gerente de producto — `criterio-product`
@@ -74,6 +76,9 @@ comando, no existe, y esta tabla no promete nada que no se pueda correr.
 | Lo decidido que nadie está construyendo, y el proyecto cuya ficha dice otro producto | `/product-trace` |
 | El borrador de especificación con criterios verificables y los vacíos **señalados, no rellenados** | `/product-spec` |
 | El acta de constitución con la que nace la ficha del proyecto | `/product-charter` |
+| La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce | `/product-business-case` |
+| Publicar tu ficha donde los demás productos la puedan leer | `/product-publish` |
+| **La misma métrica en dos casos de negocio**, el mismo proyecto con dos dueños, el mismo segmento | `/product-overlap` |
 | **Despertarse solo** y decir qué cruzó un umbral sin que nadie hiciera nada | `/product-wake` |
 
 ### Rostrum · el servidor — dentro de `criterio-pmo`
@@ -397,12 +402,15 @@ rompe primero si se intenta, y en qué orden.
 que conviene no esconder: **verificados sobre corpus sintético, no probados sobre la
 documentación real de una organización.**
 
-| Agente | Se instala | Qué falta |
+| Agente | Se instala | Sus tablas A y B |
 |---|---|---|
-| Vera · PMO | `criterio-pmo` · 17 comandos, 10 skills | La mitad de la clase B |
-| Samuel · Project Manager | `criterio-pm` · 7 comandos, 8 skills | El primer borrador del plan y de la WBS |
-| Alba · Product Manager | `criterio-product` · 8 comandos, 12 skills | El análisis de canibalización |
+| Vera · PMO | `criterio-pmo` · 17 comandos, 10 skills | **Sin filas abiertas** |
+| Samuel · Project Manager | `criterio-pm` · 9 comandos, 8 skills | **Sin filas abiertas** |
+| Alba · Product Manager | `criterio-product` · 11 comandos, 12 skills | **Sin filas abiertas** |
 | Rostrum · el servidor | Dentro de `criterio-pmo` | — |
+
+**Ninguna de las tres hojas de diseño tiene ya una fila en «Falta» o en «Parcial».** Lo que
+sigue pendiente no es construcción.
 
 Y una deuda que es de los tres a la vez: **la extracción nunca se ha corrido.** Los tres
 corpus siembran el estado desde sus respuestas de referencia, así que la cadena documento →

@@ -6,7 +6,7 @@ not done.
 
 [Español](README.es.md) · Apache 2.0 · One instance per project
 
-**Status: the seven commands are built**, along with the eight skills of the method and the
+**Status: the nine commands are built**, along with the eight skills of the method and the
 arithmetic verified against a corpus with answers written by hand. **What has not been
 tested yet: extraction over a real organisation's documentation** — the corpus seeds the
 record, so the document → model → record chain has not been exercised. Nothing is announced
@@ -96,7 +96,7 @@ the meeting where the sponsor changed and the charter was never updated.
 What you have and the PMO does not — every meeting's commitments — **is not a
 contradiction**: it is a difference of depth, and it is not reported as a finding.
 
-## The seven commands
+## The nine commands
 
 | Command | What it does |
 |---|---|
@@ -106,6 +106,8 @@ contradiction**: it is a difference of depth, and it is not reported as a findin
 | `/pm-commitments` | Who promised what, what is overdue with no evidence, and what keeps being rescheduled meeting after meeting |
 | `/pm-report` | The weekly report, complete **except for the status**, which you declare |
 | `/pm-publish` | Publishes your record where the PMO can read it |
+| `/pm-plan` | The first draft of the plan and the WBS from the charter, **committing no date** |
+| `/pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
 | `/pm-wake` | **The one you put on a clock.** Looks at what is due around your meeting, and stays quiet when nothing is |
 
 Three of them are one cycle, and that is why they exist: **whoever builds the agenda
@@ -155,3 +157,5 @@ The full design, with the three classes of function and what stays with the pers
 Spanish, as working documents.
 
 The three agents together, and how they meet, in [`FAMILIA.md`](../criterio-pmo/FAMILIA.md).
+
+**How the last run went, generated from the run itself:** [`tests/criterio-pm/RESULTADOS.md`](../../tests/criterio-pm/RESULTADOS.md).

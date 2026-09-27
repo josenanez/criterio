@@ -1,0 +1,33 @@
+{
+  "code": "PRD-NOMINA",
+  "name": "Dispersión de nómina",
+  "manager": "Julián Estrada",
+  "as_of": "2026-11-20",
+  "who": "empresas de 20 a 300 empleados que pagan nómina por el portal",
+  "claims": [
+    {
+      "metric": "dispersiones_mensuales",
+      "declared": 50000,
+      "source": "00-definicion/2026-08-12-caso-de-negocio.md",
+      "source_date": "2026-08-12"
+    }
+  ],
+  "projects": [
+    "PRY-201",
+    "PRY-202"
+  ],
+  "requirements": [
+    {
+      "id": "REQ-101",
+      "title": "Resultado por empleado en el momento de la dispersión",
+      "state": "aceptado",
+      "project": "PRY-201"
+    },
+    {
+      "id": "REQ-102",
+      "title": "Reintento del pago fallido sin recargar el archivo",
+      "state": "aceptado",
+      "project": "PRY-202"
+    }
+  ]
+}

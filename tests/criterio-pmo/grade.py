@@ -103,6 +103,69 @@ def calificar_aritmetica(fichas: Path) -> int:
     return fallas
 
 
+def correr_impacto(fichas: Path, codigo: str, dias: int, hoy: str) -> dict:
+    tmp = Path(tempfile.mkdtemp())
+    (tmp / "records").mkdir()
+    for f in sorted(fichas.glob("*.json")):
+        shutil.copy(f, tmp / "records" / f.name)
+    salida = subprocess.run(
+        [sys.executable, str(PMO), "impact", "--state", str(tmp), "--code", codigo,
+         "--days", str(dias), "--today", hoy],
+        capture_output=True, text=True, check=True)
+    shutil.rmtree(tmp)
+    return json.loads(salida.stdout)
+
+
+def calificar_impacto(fichas: Path) -> int:
+    """A quién alcanza mover un proyecto, sobre el portafolio sintético.
+
+    El corpus tiene **una sola dependencia declarada** y no es casual: PRY-001 dice
+    depender de PRY-002 y **nunca la confirmó con Luisa**. Es la forma en que las
+    dependencias aparecen de verdad en una carpeta — declaradas por un lado y por nadie
+    más—, y mover PRY-002 es la pregunta que nadie hace hasta que ya pasó.
+
+    El control negativo va en la misma corrida: mover un proyecto del que no depende
+    nadie no puede producir ni una fila.
+    """
+    esperado = json.loads((EXPECTED / "hallazgos.json").read_text(encoding="utf-8"))
+    hoy = esperado["as_of"]
+    caso = esperado["impacto"]
+    fallas = 0
+
+    def comprobar(etiqueta, tiene, quiere):
+        nonlocal fallas
+        if tiene == quiere:
+            print(f"   {OK} {etiqueta:54} {tiene}")
+        else:
+            print(f"   {FALLA} {etiqueta:54} {tiene!r} en vez de {quiere!r}")
+            fallas += 1
+
+    print(f"Mover {caso['proyecto']} {caso['dias']} días · corte {hoy}")
+    print(f"   {caso['por_que']}\n")
+    r = correr_impacto(fichas, caso["proyecto"], caso["dias"], hoy)
+
+    comprobar("la fecha nueva", r["new_end"], caso["fecha_nueva"])
+    comprobar("a cuántos alcanza", r["totals"]["reached"], caso["alcanzados"])
+    comprobar("cuáles", [x["code"] for x in r["reached"]], caso["cuales"])
+    comprobar("cuántos no pueden sostener su fecha",
+              r["totals"]["cannot_hold_date"], caso["no_sostienen"])
+    if r["reached"]:
+        primero = r["reached"][0]
+        comprobar("por cuántos días se queda corto el primero",
+                  primero.get("days_short"), caso["dias_corto"])
+        comprobar("a quién hay que llamar", r["totals"]["managers"], caso["gerentes"])
+        comprobar("la dependencia estaba confirmada", primero["confirmed"],
+                  caso["confirmada"])
+    comprobar("hitos del que se mueve por los que pasa el cambio",
+              [h["name"] for h in r["milestones_reached"]], caso["hitos"])
+
+    print(f"\n   Control negativo · mover {caso['negativo']}, del que no depende nadie")
+    n = correr_impacto(fichas, caso["negativo"], caso["dias"], hoy)
+    comprobar("no alcanza a ninguno", n["totals"]["reached"], 0)
+    comprobar("y no inventa gerentes a quienes llamar", n["totals"]["managers"], [])
+    return fallas
+
+
 def correr_index(docs: Path) -> dict:
     tmp = Path(tempfile.mkdtemp())
     (tmp / "records").mkdir()
@@ -252,6 +315,9 @@ if __name__ == "__main__":
         fallas = calificar_extraccion(args.fichas)
     else:
         fallas = calificar_aritmetica(EXPECTED / "fichas")
+        print("\n" + "=" * 72)
+        print("Impacto de mover un proyecto\n")
+        fallas += calificar_impacto(EXPECTED / "fichas")
         print("\n" + "=" * 72)
         print("Índice de documentos\n")
         fallas += calificar_indice()
