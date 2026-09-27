@@ -11,11 +11,47 @@ la extracción sobre la documentación real de una organización.** Nada se anun
 terminado hasta que pasen los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
 
 **Esta página se lee sola.** Vera funciona sin sus hermanos: si solo te interesa la oficina de
-proyectos, aquí está todo. La familia —cómo se encuentra con Samuel y con Alba— está en el
-[README de `criterio-pmo`](README.es.md), y **el servidor que publica su informe**, en
-[SERVER.es.md](SERVER.es.md).
+proyectos, aquí está todo, incluidas sus pruebas. La familia —cómo se encuentra con Samuel y
+con Alba— está en el [README de `criterio-pmo`](README.es.md), y **el servidor que publica su
+informe**, en [SERVER.es.md](SERVER.es.md).
 
 ---
+
+## El alcance
+
+| | |
+|---|---|
+| **A quién extiende** | Al gerente de la PMO y a sus analistas |
+| **Sobre qué trabaja** | **El portafolio completo.** Cuarenta proyectos, o setenta |
+| **Qué mira** | La carpeta de documentación de todos ellos, como esté |
+| **Cadencia** | Barrido diario si se configura, e informe con anticipación al comité |
+| **Instancias** | Una por PMO |
+
+**Lo que hace y nadie más hace:** contrastar lo que cada gerente declara contra lo que
+sustentan sus documentos, **en el conjunto y a la vez**. Un proyecto que reporta verde y
+lleva cinco semanas sin un documento no lo detecta nadie mirando ese proyecto: lo detecta
+quien mira los cuarenta con la misma vara.
+
+**Lo que puede responder que hoy nadie responde sin días de trabajo:** qué cambió desde la
+corrida anterior, qué se contradice entre dos documentos del mismo proyecto, qué lleva
+semanas en silencio, cuántos de los que reportan verde tienen evidencia que ese verde no
+explica, y a quién alcanza mover un proyecto.
+
+## Dónde se superpone con los otros dos, y dónde no
+
+La superposición es mínima **a propósito**: las tareas de Vera son generales y de gobierno,
+las de Samuel y Alba son específicas de su objeto. Donde dos pueden hacer lo mismo, lo que
+cambia es **la profundidad, la cadencia y quién responde**.
+
+| Lo que también toca otro | Quién más | Qué hace Vera, y qué no |
+|---|---|---|
+| **Los compromisos de una reunión** | Samuel | Vera los ve en el barrido del portafolio, con cadencia de comité. **El detalle minuta a minuta es de Samuel**, y si los dos están instalados, Vera no lo duplica: lee la ficha que él publica |
+| **El estado de un proyecto** | Samuel | Samuel lo declara con su gerente; Vera lo **contrasta** contra los documentos. Los dos hacen falta: **la diferencia entre lo que uno declara y lo que la otra encuentra es el hallazgo de más valor del sistema** |
+| **El acta de constitución** | Alba | Alba la redacta cuando el producto se vuelve proyecto; Vera la **revisa** cuando ya existe, y dice qué le falta y qué consecuencia tiene |
+| **El producto** | Alba | Alba mira su producto contra la demanda; Vera mira **todos los proyectos que lo construyen**, que es una pregunta de portafolio y no de producto |
+
+**Si solo instalas a Vera, no pierdes nada de lo anterior**: lo hace con la profundidad que
+un barrido de portafolio alcanza, y dice cuándo esa profundidad no alcanza.
 
 ## Instalación
 
@@ -28,6 +64,13 @@ proyectos, aquí está todo. La familia —cómo se encuentra con Samuel y con A
 /plugin install criterio-pmo@criterio
 /pmo-setup
 ```
+
+**En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
+marketplace desde GitHub → `josenanez-company/criterio`.
+
+Si gestionas un proyecto y no el portafolio, lo tuyo es
+[Samuel](../criterio-pm/README.es.md). Si defines un producto,
+[Alba](../criterio-product/README.es.md).
 
 ## El primer resultado
 
@@ -48,9 +91,32 @@ Al final te dice cuánto tomaría el portafolio completo, y qué le falta a tu c
 el análisis sea mejor. Pero como hallazgo, no como requisito: **esto funciona con lo que
 haya.**
 
----
+**Lo que queda configurado** lo escribe `/pmo-setup` a partir de lo que respondiste, en tu
+equipo y en un archivo tuyo: dónde están los documentos, dónde vive el estado, tu cadencia de
+comité, la forma del informe, los umbrales que le hacen levantar la voz, y el registro de que
+aceptaste los términos, con tu nombre y la fecha. Todo eso se cambia **hablando**: si quieres
+que el silencio se reporte a los diez días y no a los quince, se lo dices.
 
-## El agente no espera a que lo llamen
+## El hallazgo que nadie más produce
+
+Mover un proyecto tiene consecuencias en proyectos que no son suyos, y esa cuenta no la hace
+nadie porque exige mirar el grafo completo de dependencias del portafolio a la vez.
+
+> **PRY-002 se mueve 60 días.**
+> Alcanza a **PRY-001**, que depende de su entrega y **ya no alcanza a sostener su fecha de
+> cierre: le faltan 121 días.**
+> Nadie mirando PRY-002 lo habría visto, y el gerente de PRY-001 todavía no sabe que tiene
+> que enterarse.
+
+Ese caso sale del corpus sintético, con la respuesta escrita a mano **antes** de correr el
+cálculo. Es la clase de pregunta que solo se puede responder desde arriba: `/change-control`
+la calcula, y dice además a quién hay que avisarle y qué dependencias están sin confirmar.
+
+Y es la misma razón por la que Vera existe. Lo que hace no es leer mejor un proyecto —para eso
+está su gerente— sino **aplicarle la misma vara a los cuarenta**, todos los días, sin
+cansarse en el proyecto número treinta.
+
+## No espera a que lo llamen
 
 ![La cadencia: se activa solo, y casi siempre se calla](../../docs/img/es/cadencia.png)
 
@@ -80,44 +146,12 @@ programador del sistema en Claude Code. **Y si no quieren corridas desatendidas*
 banco es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo
 que se pierde es que avise sin que nadie pregunte.
 
-## ¿Quieres que tu patrocinador vea esto sin pedírtelo?
-
-![Rostrum: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
-
-Hasta aquí el informe son archivos en tu equipo. **Un patrocinador no abre una carpeta
-de archivos**: abre un enlace, o no abre nada. Para eso está **Rostrum**, el servidor de
-esta familia. Una tribuna no mide ni corrige: sostiene lo que ya está escrito, a la
-altura de quien lo va a leer.
-
-```
-/pmo-server
-```
-
-Levanta **un portal con tres secciones** —informes de la PMO, proyectos, productos—, y
-el enlace entre proyecto y producto va **en los dos sentidos**. Ahí está lo que ninguna
-otra página puede decir: cuando un producto lo construyen proyectos que reportan a
-comités distintos, cada comité ve su proyecto y **ninguno ve el producto**.
-
-Y tiene una cosa más, que es la que cambia cómo se usa: **quien mira puede dejarle una
-pregunta escrita al agente.** No le contesta en el momento —el agente no está
-corriendo— pero la pregunta queda en la cola, y la siguiente vez que Vera despierta
-la atiende. *«Esto no coincide con lo que yo sé»* es la petición de más valor del
-sistema: es una persona diciéndote qué documento falta.
-
-**No autentica a nadie, y es a propósito**: se publica detrás del control de acceso que
-tu organización ya tiene. Escucha solo en tu equipo salvo que le digas lo contrario.
-
-→ **[Rostrum, con capturas de cada sección y qué pedirle a tu organización](SERVER.es.md)**
-
-## Qué queda configurado
-
-Lo escribe `/pmo-setup` a partir de lo que respondiste, en tu equipo y en un archivo tuyo:
-dónde están los documentos, dónde vive el estado, tu cadencia de comité, la forma del
-informe, los umbrales que le hacen levantar la voz, y el registro de que aceptaste los
-términos, con tu nombre y la fecha.
-
-Todo eso se cambia **hablando**. Si quieres que el silencio se reporte a los diez días y no a
-los quince, se lo dices.
+**Y si quieres que tu patrocinador lo vea sin pedírtelo**, `/pmo-server` levanta **Rostrum**,
+el servidor de esta familia: un portal con tres secciones —informes de la PMO, proyectos y
+productos— donde quien mira puede además **dejarle una pregunta escrita al agente**, que
+queda en la cola y se atiende en la siguiente corrida. No autentica a nadie, y es a
+propósito: se publica detrás del control de acceso que tu organización ya tiene.
+→ **[Rostrum, con capturas de cada sección](SERVER.es.md)**
 
 ## Lo que nunca hace
 
@@ -135,6 +169,15 @@ Esto es lo que conviene tener claro antes de instalarlo, y no está en letra peq
 - **No adivina.** Cada dato viene con la cita del documento de donde salió. *«No está dicho
   en ninguna parte»* es una respuesta válida y esperada.
 
+**Y hay dos cosas que deliberadamente no están, aunque las pida un pliego: capacidad y
+asignación de recursos, y materialización de beneficios.** No por poco importantes: porque los
+datos no están en la carpeta. Capacidad exige horas reales y beneficios exige medición
+posterior que casi ninguna organización tiene. Un skill que promete lo que el insumo no
+permite quema la credibilidad del plugin entero. Tampoco trae contenido regulatorio: la
+gestión de portafolio es método, no normativa, y funciona igual en Bogotá que en Santiago. Si
+una obligación regulatoria toca un proyecto, la registra como restricción o como riesgo y no
+opina sobre ella.
+
 Y una que sí hay que decir en voz alta: **tus documentos se procesan en la infraestructura de
 la plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo tus políticas
 antes de apuntarlo a material confidencial. Descargo completo en
@@ -147,19 +190,14 @@ leer sin ejecutar nada**, y eso es deliberado.
 
 ## Cómo se trabaja con Vera
 
-Los tres agentes de la familia comparten cinco conductas. No son estilo: son las que hacen que
-el resultado se pueda poner frente a un comité.
+Los tres agentes comparten cinco conductas, y ninguna es estilo: son las que hacen que el
+resultado se pueda poner frente a un comité. **Cada dato lleva la cita** del documento y su
+fecha · **«no está dicho en ninguna parte» es una respuesta válida** · **se callan cuando no
+hay novedad** · **ninguno declara** · **ninguno le escribe a nadie**. Están explicadas en el
+[README de la familia](README.es.md#lo-que-comparten-los-tres).
 
-1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
-   es un defecto, no un caso degradado.
-2. **«No está dicho en ninguna parte» es una respuesta válida**, y es la que más se usa al
-   principio.
-3. **Se callan cuando no hay nada.** Ninguno produce un informe para decir que no hay novedad.
-4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
-5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
-
-Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo antes
-de instalar.
+Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo
+antes de instalar.
 
 **Con Vera se conversa poco y se lee mucho.** Trabaja sobre cuarenta carpetas: la conversación
 es corta —le dices qué proyecto, o ninguno— y lo que devuelve es largo, un informe que alguien
@@ -209,7 +247,7 @@ otros dos produjeron, sin volver a leer un solo documento.
 | `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
 | `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
 | `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
-| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior |
+| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, calcula a quién alcanza, y crea línea base nueva sin borrar la anterior |
 | `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
 | `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
 | `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
@@ -234,18 +272,6 @@ pueden leer como se lee un manual.
 | `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar | Propia · también en Samuel |
 | `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado | Propia |
 
-## Fuera de alcance, y por qué
-
-**Capacidad y asignación de recursos**, y **materialización de beneficios**. No por poco
-importantes: porque los datos no están en la carpeta. Capacidad exige horas reales y
-beneficios exige medición posterior que casi ninguna organización tiene.
-
-Un skill que promete lo que el insumo no permite quema la credibilidad del plugin entero.
-
-**Sin contenido regulatorio.** La gestión de portafolio es método, no normativa: funciona
-igual en Bogotá que en Santiago. Si una obligación regulatoria toca un proyecto, este plugin
-la registra como restricción o como riesgo, y no opina sobre ella.
-
 ## Cómo se verifica
 
 ```
@@ -255,17 +281,17 @@ python3 scripts/informe.py --selftest    el informe: cifras, concordancia y nomb
 python3 scripts/servidor.py --selftest   el servidor: qué sirve y qué nunca toca
 ```
 
-Los tres corren con la librería estándar, sin instalar nada. Sobre material sintético con
-respuestas conocidas hay un grader y el resultado de la última corrida, con lo que prueba y
-lo que no: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
+Con la librería estándar, sin instalar nada. Sobre un corpus sintético con respuestas escritas
+a mano leyendo los documentos — **incluido un control negativo**: un proyecto que no produce
+ni un hallazgo. Un agente que encuentra algo ahí es un generador de ruido.
 
-Criterios de aceptación en [`DISENO.es.md`](DISENO.es.md#criterios-de-aceptación). El diseño de la capacidad, con lo
-que el agente no hace y lo que sigue siendo de las personas, en
-[`DISENO.es.md`](DISENO.es.md).
+**Cómo salió la última corrida, generado desde la corrida misma:**
+[`tests/criterio-pmo/RESULTADOS.md`](../../tests/criterio-pmo/RESULTADOS.md). Qué prueba cada
+pieza del material y, con el mismo detalle, **qué no**, en
+[`EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md).
 
-**Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-pmo/RESULTADOS.md`](../../tests/criterio-pmo/RESULTADOS.md).
+El diseño completo, con los criterios de aceptación y lo que sigue siendo de las personas, en
+[`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
-
-**Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-pmo/RESULTADOS.md`](../../tests/criterio-pmo/RESULTADOS.md). Qué prueba cada pieza del material y qué no, en [`EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md).
-
-Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el [README de la familia](README.es.md#las-pruebas-de-la-familia).
+Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el
+[README de la familia](README.es.md#las-pruebas-de-la-familia).

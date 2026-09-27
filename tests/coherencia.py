@@ -491,6 +491,68 @@ for nombre in ("README.es.md", "README.md"):
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja
 # solo por el market. No se duplica el chequeo aquí.
 
+# ── las tres páginas de agente, con el mismo esqueleto ──────────────────
+# Era la queja, y tenía razón: las tres páginas se habían escrito en momentos distintos y
+# la tercera sección se llamaba distinto en cada una, así que no se podían comparar. Quien
+# entraba a dos de ellas no sabía si la diferencia era del agente o del redactor.
+#
+# El esqueleto es el mismo para los tres y abre por el alcance y la superposición, porque
+# la primera pregunta de quien llega es si esto es para él y qué se pisa con lo demás. Solo
+# tres títulos varían, y varían en lo que tienen que variar: el nombre del agente y el
+# número de comandos y de skills.
+print("\nLas tres páginas de agente, con el mismo esqueleto")
+import fnmatch
+
+ESQUELETO = {
+    "es": ["El alcance",
+           "Dónde se superpone con los otros dos, y dónde no",
+           "Instalación",
+           "El primer resultado",
+           "El hallazgo que nadie más produce",
+           "No espera a que lo llamen",
+           "Lo que nunca hace",
+           "Cómo se trabaja con *",
+           "Cómo funciona",
+           "Los * comandos",
+           "Los * skills",
+           "Cómo se verifica"],
+    "en": ["The scope",
+           "Where it overlaps with the other two, and where it does not",
+           "Installation",
+           "The first result",
+           "The finding nobody else produces",
+           "It does not wait to be called",
+           "What it never does",
+           "How you work with *",
+           "How it works",
+           "The * commands",
+           "The * skills",
+           "How it is verified"],
+}
+AGENTES = [(PLUGIN, "VERA.es.md", "VERA.md"),
+           (RAIZ / "plugins" / "criterio-pm", "README.es.md", "README.md"),
+           (PRODUCT, "README.es.md", "README.md")]
+for carpeta, es, en in AGENTES:
+    for nombre, idioma in ((es, "es"), (en, "en")):
+        pagina = carpeta / nombre
+        if not pagina.exists():
+            decir(FALLA, f"{carpeta.name}/{nombre} no existe")
+            continue
+        vistos = [l[3:].strip() for l in pagina.read_text(encoding="utf-8").splitlines()
+                  if l.startswith("## ")]
+        esperado = ESQUELETO[idioma]
+        if len(vistos) != len(esperado):
+            decir(FALLA, f"{carpeta.name}/{nombre} tiene {len(vistos)} secciones y el "
+                         f"esqueleto son {len(esperado)}")
+            continue
+        malas = [f"«{v}» donde va «{e}»"
+                 for v, e in zip(vistos, esperado) if not fnmatch.fnmatch(v, e)]
+        if malas:
+            decir(FALLA, f"{carpeta.name}/{nombre} · {'; '.join(malas)}")
+        else:
+            decir(OK, f"{carpeta.name}/{nombre} · las {len(esperado)} secciones, en orden")
+
+
 # ── las capturas del portal contra el código que las produjo ────────────
 # Era un cabo suelto declarado: «si cambia el diseño de las páginas, estas capturas
 # envejecen, y no hay nada que lo detecte solo». Ya pasó una vez —las capturas siguieron

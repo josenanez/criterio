@@ -217,3 +217,7 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 .DS_Store
+
+# La carpeta donde el escritorio deja los archivos que Claude entrega en el chat.
+# No es contenido del repositorio y no debe viajar en un commit.
+Claude outputs/
