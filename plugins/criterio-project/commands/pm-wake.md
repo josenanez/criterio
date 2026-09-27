@@ -1,0 +1,131 @@
+---
+description: Lo que toca hoy en tu proyecto según la cadencia de tu reunión — y si no toca nada, se calla
+argument-hint: "[AAAA-MM-DD para simular otro día]"
+---
+
+# /pm-wake — Lo que toca hoy
+
+> **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si
+> falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
+> aceptación explícita y ofrece guardarla.
+> Este es el comando que invoca el reloj, no la persona. Puede correr sin nadie mirando.
+
+## Para qué existe
+
+Un comando espera a que lo llamen. **Un agente no.**
+
+Y la cadencia de un proyecto no es la de un comité: **gira alrededor de la reunión.** La
+agenda tiene que estar antes, el acta después, y el informe con la anticipación que le
+sirva al gerente para reaccionar a lo que encuentre, no para enterarse cuando ya está
+enviado.
+
+**Si no toca nada, no produce nada.** Callarse cuando no pasó nada es la única razón por
+la que un agente que corre todos los días sigue instalado el mes siguiente.
+
+## Flujo
+
+**1. Pregunta qué toca.** La decisión es aritmética de fechas, así que no la tomes tú:
+
+```
+python3 scripts/portafolio.py due --state <estado> --config <archivo>
+```
+
+Devuelve `due` con lo que toca, `quiet` si no toca nada, y `next_wake`.
+
+**2. Si `quiet` es verdadero, termina aquí.** Una línea: qué revisaste y cuándo vuelves.
+
+**3. Si toca `sweep`** — el barrido diario de la carpeta. Aplica **document-intake**:
+
+```
+python3 scripts/portafolio.py index --state <estado> --docs <documentos>
+```
+
+**Lo que importa aquí no es lo mismo que en un portafolio.** En un proyecto el documento
+que aparece suele ser una minuta, y una minuta nueva significa compromisos nuevos: si el
+índice trae una, corre la extracción de **commitment-tracking** sobre ella. Si lo que
+cambió no es una minuta, recalcula y cállate si nada cruzó un umbral.
+
+**4. Si el comité está cerca, mira de qué lado de la reunión estás.** Es lo propio de este
+agente, y sale del `detail.committee` que devuelve `due`:
+
+- **Falta un día o menos** → la reunión es lo siguiente. Ofrece `/pm-agenda`, y ofrécela
+  una sola vez: si ya la armaste para esta reunión, no la vuelvas a proponer.
+- **La reunión ya pasó y no hay acta** → es lo que más se pierde y lo que más cuesta
+  después. Ofrece `/pm-minutes`, y **di qué necesitas**: la transcripción o las notas.
+  Sin insumo no se redacta un acta, y decirlo es parte del trabajo.
+- **Toca `report`** → `/pm-report`, con su anticipación. Ármalo completo **salvo el
+  estado**, y pídele la declaración al gerente **después** de mostrarle la evidencia.
+
+**5. Revisa lo que se venció solo.** Nadie hizo nada y el hallazgo está: compromisos que
+vencieron desde la corrida anterior, hitos vencidos sin evidencia, y los reprogramados que
+llegaron al umbral. Recalcula y reporta **solo lo que cruzó**, no el estado completo.
+
+**6. Mira si tu ficha publicada se quedó vieja.** Si `/pm-publish` corrió hace más de un
+ciclo de comité y la ficha cambió desde entonces, **la PMO está leyendo una foto vieja de
+tu proyecto.** Dilo y ofrece publicar. Es el único aviso de este comando que no es sobre
+tu proyecto sino sobre cómo te ven.
+
+**7. Deja constancia de lo que corriste.** Sin esto, mañana vuelve a tocar lo mismo:
+
+```
+python3 scripts/portafolio.py ran --state <estado> --what sweep
+```
+
+Una llamada por cada cosa que hiciste. **Solo por las que hiciste de verdad.**
+
+**8. Cierra diciendo cuándo vuelves**, con la fecha de `next_wake`.
+
+## Salida cuando no hay novedad
+
+```markdown
+Revisé la carpeta: [N] documentos, ninguno cambió. Nada venció. Vuelvo el [fecha].
+```
+
+Eso es todo. Sin encabezados y sin resumen de lo que no pasó.
+
+## Salida cuando sí hay
+
+```markdown
+## [proyecto] · [fecha]
+
+**Revisé:** [N] documentos · [N] cambiaron · [N] minutas nuevas
+
+### Lo que se venció solo
+[Compromisos, hitos y reprogramados que cruzaron desde la corrida anterior, con su cita.]
+
+### La reunión
+[De qué lado estás: la agenda que falta, o el acta que nadie escribió.]
+
+### Tu ficha publicada
+[Solo si se quedó vieja. De cuándo es y qué cambió desde entonces.]
+
+**Vuelvo el [fecha].**
+```
+
+## Lo que este comando no hace
+
+- **No le escribe a nadie.** Ni a los dolientes de los compromisos vencidos, ni al
+  patrocinador. Perseguir un compromiso es una conversación.
+- **No declara el estado**, ni siquiera corriendo solo y sin nadie a quien preguntarle. Si
+  toca informe y el gerente no está, el informe sale con esa línea en blanco y lo dice.
+- **No publica tu ficha solo.** Avisa que se quedó vieja; publicarla sigue siendo un acto
+  explícito tuyo.
+
+## Cómo se programa
+
+Esto no se programa solo: alguien tiene que ponerlo en un reloj, y ese reloj vive fuera del
+plugin.
+
+**Claude Cowork** — una tarea programada que invoque este comando con la cadencia que salió
+de `/pm-setup`. Con el barrido diario activo, diaria; si no, el día anterior a la reunión y
+el día después.
+
+**Claude Code** — el programador del sistema operativo invocando Claude en modo no
+interactivo con este comando. Da la línea exacta para su sistema y **di qué se necesita
+para que funcione sin nadie delante**: que la sesión pueda correr sin aprobar cada paso, y
+que la carpeta del proyecto esté montada cuando el reloj dispare.
+
+**Si la organización no quiere corridas desatendidas** —y en un banco es una respuesta
+razonable—, dilo sin discutir: este comando también sirve corrido a mano el lunes en la
+mañana, y la cadencia sigue diciendo qué toca. Lo que se pierde es que avise sin que nadie
+pregunte.

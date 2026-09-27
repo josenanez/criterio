@@ -15,7 +15,7 @@ Dos productos, y el segundo es la mitad del valor de la prueba:
   hallazgo.** Un agente que encuentra algo ahí es un generador de ruido, y eso no se detecta
   mirando solo los casos que sí fallan.
 
-Fecha de referencia: **2026-11-20**, la misma del corpus de criterio-pm, para que los dos
+Fecha de referencia: **2026-11-20**, la misma del corpus de criterio-project, para que los dos
 se puedan leer juntos.
 
 Regla que este generador respeta y que ya se rompió una vez en el otro corpus: **todo campo

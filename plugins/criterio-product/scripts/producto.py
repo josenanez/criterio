@@ -17,13 +17,13 @@ mide, es aritmética — y la aritmética va aquí, donde es determinista y se p
 
 Solo librería estándar.
 
-Por qué este script existe aparte de `pmo.py`: la espina de la ficha de un proyecto es
+Por qué este script existe aparte de `portafolio.py`: la espina de la ficha de un proyecto es
 `plan` + `baseline` + `money`, y en definición de producto **ninguno de los tres
 existe**. Un requerimiento no tiene línea base ni presupuesto: tiene evidencia de
 demanda, criterios de aceptación, y un proyecto que lo ejecuta o no lo ejecuta.
 
 Lo que sí comparte es el contrato de dato: **todo campo es un valor o
-`{value, source, source_date, state}`**, y eso se importa de `pmo.py`, que es la copia
+`{value, source, source_date, state}`**, y eso se importa de `portafolio.py`, que es la copia
 que este plugin lleva. Se importa y no se reescribe: dos definiciones del mismo campo
 que se separan es la deuda que este proyecto no acepta.
 
@@ -51,7 +51,7 @@ from pathlib import Path
 # lleva —mismo directorio—, nunca de la ruta del otro plugin: un plugin instalado
 # tiene que correr solo.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from pmo import (as_date, as_number, _cada, pct, proximo_comite,  # noqa: E402
+from portafolio import (as_date, as_number, _cada, pct, proximo_comite,  # noqa: E402
                  source_of, state_of, value)
 
 DEFAULT_THRESHOLDS = {

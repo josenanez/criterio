@@ -5,13 +5,13 @@
     python3 scripts/sincronizar.py            copia y dice qué cambió
     python3 scripts/sincronizar.py --check    no copia; falla si difieren
 
-`criterio-pmo` y `criterio-pm` comparten la aritmética. Dos copias que se separan es
+`criterio-portfolio` y `criterio-project` comparten la aritmética. Dos copias que se separan es
 exactamente la deuda que este proyecto no acepta, y la forma de no tenerla **no** es un
 módulo compartido: un plugin instalado tiene que correr solo, y un `import` a la ruta
 del otro plugin funciona en este repositorio y falla en el equipo de quien lo instaló,
 que es el peor sitio para enterarse.
 
-Así que se copia, y la copia se verifica. La fuente vive en `criterio-pmo/scripts/` y
+Así que se copia, y la copia se verifica. La fuente vive en `criterio-portfolio/scripts/` y
 ahí se edita; la copia lleva una cabecera que lo dice, y `--check` falla si alguien la
 editó en el sitio equivocado. Lo corre `tests/coherencia.py`, de modo que una copia
 separada rompe la misma puerta que todo lo demás.
@@ -23,13 +23,13 @@ import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-FUENTE = RAIZ / "plugins" / "criterio-pmo" / "scripts"
+FUENTE = RAIZ / "plugins" / "criterio-portfolio" / "scripts"
 
 # Qué comparte cada plugin, y por qué. Lo que no está aquí no se comparte: el informe
 # de un proyecto no es el del portafolio recortado, y Rostrum es de la PMO.
 SCRIPTS = {
-    "criterio-pm": {
-        "pmo.py": "la aritmética; `compute` ya trabaja proyecto a proyecto",
+    "criterio-project": {
+        "portafolio.py": "la aritmética; `compute` ya trabaja proyecto a proyecto",
         "texto.py": "leer un .docx es leer un .docx",
     },
     # Alba no calcula plan ni presupuesto —en definición no existen—, pero sí lee las
@@ -38,7 +38,7 @@ SCRIPTS = {
     # esta copia en vez de reescribirlo: dos definiciones del mismo campo que se
     # separan es la deuda que este proyecto no acepta.
     "criterio-product": {
-        "pmo.py": "el contrato de campo, y leer la ficha del proyecto que ejecuta el producto",
+        "portafolio.py": "el contrato de campo, y leer la ficha del proyecto que ejecuta el producto",
         "texto.py": "una entrevista llega en .docx tanto como un acta",
     },
 }
@@ -48,7 +48,7 @@ SCRIPTS = {
 # por alcance, no por casualidad: `portfolio-health` y `portfolio-history` solo tienen
 # sentido mirando el conjunto, y un gerente de proyecto no mira el conjunto.
 SKILLS = {
-    "criterio-pm": {
+    "criterio-project": {
         "project-record": "la ficha: el contrato de datos de toda la familia",
         "document-intake": "qué documento hay que releer y cuál no",
         "commitment-tracking": "la función central de Samuel",
@@ -72,7 +72,7 @@ SKILLS = {
 CABECERA = """# ─────────────────────────────────────────────────────────────────────────────
 # COPIA. No se edita aquí.
 #
-# La fuente es plugins/criterio-pmo/scripts/{nombre}. Este archivo lo escribe
+# La fuente es plugins/criterio-portfolio/scripts/{nombre}. Este archivo lo escribe
 # scripts/sincronizar.py, y tests/coherencia.py falla si las dos versiones se
 # separan. Se copia en vez de importarse porque un plugin instalado tiene que
 # correr solo: un import a la ruta del otro plugin funciona en el repositorio y
@@ -83,7 +83,7 @@ CABECERA = """# ─────────────────────�
 
 # En markdown la marca va como comentario HTML: no se ve al leer el skill, se ve al
 # abrirlo para editarlo, que es exactamente cuando hace falta.
-MARCA_MD = ("<!-- COPIA · la fuente es plugins/criterio-pmo/skills/{nombre}/. "
+MARCA_MD = ("<!-- COPIA · la fuente es plugins/criterio-portfolio/skills/{nombre}/. "
             "La escribe scripts/sincronizar.py y no se edita aquí. -->\n")
 
 

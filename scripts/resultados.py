@@ -42,13 +42,13 @@ SALIDA_MD = RAIZ / "docs" / "pruebas.md"
 # Una puerta cuyo comando no case con ninguna de estas rompe la corrida, y así es como
 # esta página se mantiene honesta cuando el repositorio crece.
 DUENIOS = [
-    ("criterio-pmo/scripts/servidor.py", "Rostrum"),
-    ("criterio-pmo/scripts/informe.py", "Vera"),
-    ("criterio-pmo/scripts/pmo.py", "Vera"),
-    ("criterio-pmo/scripts/texto.py", "Vera"),
-    ("tests/criterio-pmo/", "Vera"),
-    ("criterio-pm/scripts/", "Samuel"),
-    ("tests/criterio-pm/", "Samuel"),
+    ("criterio-portfolio/scripts/servidor.py", "Rostrum"),
+    ("criterio-portfolio/scripts/informe.py", "Vera"),
+    ("criterio-portfolio/scripts/portafolio.py", "Vera"),
+    ("criterio-portfolio/scripts/texto.py", "Vera"),
+    ("tests/criterio-portfolio/", "Vera"),
+    ("criterio-project/scripts/", "Samuel"),
+    ("tests/criterio-project/", "Samuel"),
     ("criterio-product/scripts/", "Alba"),
     ("tests/criterio-product/", "Alba"),
     ("tests/sintetico/", "La familia"),
@@ -105,7 +105,7 @@ def duenio(cmd: list) -> str:
 
 def etiqueta(cmd: list) -> str:
     """El nombre corto de la puerta. Los tres plugins tienen su carpeta `scripts/`, así
-    que `scripts/pmo.py` no distingue la copia de Samuel de la fuente de Vera: cuando el
+    que `scripts/portafolio.py` no distingue la copia de Samuel de la fuente de Vera: cuando el
     padre es `scripts`, manda el nombre del plugin."""
     p = Path(cmd[1])
     carpeta = p.parent.name
@@ -357,22 +357,22 @@ def pagina(filas: list, rapido: bool) -> str:
 # ─────────────────────────────────────────────────────────────────────────────
 # El resultado por agente
 #
-# La página combinada sirve para mirar el conjunto. Pero el que instala `criterio-pm`
+# La página combinada sirve para mirar el conjunto. Pero el que instala `criterio-project`
 # no instala el conjunto: instala un agente, y lo que necesita saber es qué se probó de
 # **ese**. Por eso además de la página hay un archivo por agente, en markdown, dentro de
 # su carpeta de pruebas — markdown porque se lee en GitHub sin descargar nada.
 
 PLUGIN_DE = {
-    "Vera": "criterio-pmo",
-    "Rostrum": "criterio-pmo",
-    "Samuel": "criterio-pm",
+    "Vera": "criterio-portfolio",
+    "Rostrum": "criterio-portfolio",
+    "Samuel": "criterio-project",
     "Alba": "criterio-product",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
 # en un anexo: un resultado de pruebas que solo dice lo que pasó es publicidad.
 NO_CUBRE = {
-    "criterio-pmo": [
+    "criterio-portfolio": [
         ("La extracción nunca se ha corrido",
          "El estado se siembra copiando `expected/fichas/`, así que la cadena documento "
          "→ modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso."),
@@ -382,7 +382,7 @@ NO_CUBRE = {
         ("Nada se ha corrido sobre la documentación real de una organización",
          "Todo el material es sintético y construido desde cero."),
     ],
-    "criterio-pm": [
+    "criterio-project": [
         ("La extracción nunca se ha corrido",
          "El corpus siembra las fichas, así que la cadena documento → modelo → ficha no "
          "se ha ejercitado. `grade.py --fichas` existe para eso."),
@@ -409,8 +409,8 @@ NO_CUBRE = {
 }
 
 QUE_ES = {
-    "criterio-pmo": ("Vera y Rostrum", "el agente de la PMO y el servidor que publica su informe"),
-    "criterio-pm": ("Samuel", "el agente del gerente de proyecto"),
+    "criterio-portfolio": ("Vera y Rostrum", "el agente de la PMO y el servidor que publica su informe"),
+    "criterio-project": ("Samuel", "el agente del gerente de proyecto"),
     "criterio-product": ("Alba", "el agente del gerente de producto"),
 }
 
@@ -613,8 +613,8 @@ def selftest() -> int:
     ok("<code>" not in md and "<b>" not in md,
        "sin etiquetas de HTML sueltas en el markdown")
     ok("{comandos}" not in salida, "y ningún hueco del texto se quedó sin rellenar")
-    ok(etiqueta(["py", str(RAIZ / "plugins/criterio-pm/scripts/pmo.py"), "selftest"])
-       == "criterio-pm/pmo.py selftest",
+    ok(etiqueta(["py", str(RAIZ / "plugins/criterio-project/scripts/portafolio.py"), "selftest"])
+       == "criterio-project/portafolio.py selftest",
        "la copia de Samuel no se confunde con la fuente de Vera")
 
     print(f"\n{'todo en verde' if not fallas else f'{len(fallas)} FALLAS'}")

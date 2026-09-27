@@ -1,7 +1,7 @@
 # Las capturas del portal
 
 Estas imágenes **no las dibujó nadie**: son el portal corriendo sobre el corpus
-sintético de [`tests/criterio-pmo/`](../../../tests/criterio-pmo/), con la fecha de
+sintético de [`tests/criterio-portfolio/`](../../../tests/criterio-portfolio/), con la fecha de
 referencia fija en `2026-09-30`. «Banco del Ejemplo» y los seis proyectos `PRY-00x` son
 material de prueba, no un cliente.
 
@@ -11,16 +11,16 @@ razón por la que se versionan las figuras de `docs/img/`.
 ## Cómo se reproducen
 
 ```
-python3 tests/criterio-pmo/generar.py
+python3 tests/criterio-portfolio/generar.py
 
 mkdir -p /tmp/estado/records
-cp tests/criterio-pmo/expected/fichas/*.json /tmp/estado/records/
+cp tests/criterio-portfolio/expected/fichas/*.json /tmp/estado/records/
 
-python3 plugins/criterio-pmo/scripts/informe.py \
+python3 plugins/criterio-portfolio/scripts/informe.py \
   --state /tmp/estado --salida /tmp/informe \
   --config <una configuración con organization.name> --today 2026-09-30
 
-python3 plugins/criterio-pmo/scripts/servidor.py \
+python3 plugins/criterio-portfolio/scripts/servidor.py \
   --informe /tmp/informe --estado /tmp/estado --config <la misma>
 ```
 

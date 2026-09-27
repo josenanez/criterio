@@ -70,7 +70,7 @@ Es la lista que nadie escribe y la que evita la discusión del tercer mes.
 firma es un proyecto que existe en el sistema y no en la organización.
 
 ```
-python3 scripts/pmo.py init --state <estado del proyecto>
+python3 scripts/portafolio.py init --state <estado del proyecto>
 ```
 
 Aplica **project-record** para el esquema. Lo que se llena desde el acta: identidad,
@@ -83,7 +83,7 @@ proyecto; lo declara su gerente. Es la restricción que sostiene el hallazgo de 
 todo el sistema, y empieza a valer desde el primer día de la ficha.
 
 **7. Di a quién le queda esto.** El proyecto necesita un gerente, y desde ese momento la ficha
-es suya. Nombra qué instala —`criterio-pm`— y qué corre primero: `/pm-setup`.
+es suya. Nombra qué instala —`criterio-project`— y qué corre primero: `/pm-setup`.
 
 ## Salida
 
@@ -131,7 +131,7 @@ es suya. Nombra qué instala —`criterio-pm`— y qué corre primero: `/pm-setu
 
 ## Después
 
-Di en una línea qué sigue, y para quién: el gerente del proyecto instala `criterio-pm` y corre
+Di en una línea qué sigue, y para quién: el gerente del proyecto instala `criterio-project` y corre
 `/pm-setup`; cuando publique su ficha con `/pm-publish`, `/product-trace` va a poder confirmar
 la traza contra ella, **y desde ahí Alba se entera de si su producto se está construyendo sin
 tener que preguntarle a nadie.**

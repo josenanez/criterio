@@ -14,7 +14,7 @@ synthetic material. Nothing is announced as finished until the
 
 **This page reads on its own.** Alba works without her siblings: if all you do is define
 products, everything is here, tests included. The family — how she meets Vera and Samuel — is in
-the [`criterio-pmo` README](../criterio-pmo/README.md).
+the [`criterio-portfolio` README](../criterio-portfolio/README.md).
 
 ---
 
@@ -66,8 +66,8 @@ granted.
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
 GitHub → `josenanez-company/criterio`.
 
-If you run a project and not a product, yours is [Samuel](../criterio-pm/README.md). If you run
-the portfolio, [Vera](../criterio-pmo/VERA.md).
+If you run a project and not a product, yours is [Samuel](../criterio-project/README.md). If you run
+the portfolio, [Vera](../criterio-portfolio/VERA.md).
 
 ## The first result
 
@@ -137,7 +137,7 @@ told without anyone asking.
 
 **And if you want the product committee to see it without asking you for it**, the family has a
 server that publishes it with a section for products, where whoever is looking can leave the
-agent a written question. → **[Rostrum](../criterio-pmo/SERVER.md)**
+agent a written question. → **[Rostrum](../criterio-portfolio/SERVER.md)**
 
 ## What it never does
 
@@ -174,7 +174,7 @@ The three agents share five behaviours, and none is style: they are what makes t
 something you can put in front of a committee. **Every value carries the citation** of its
 document and date · **«it is not stated anywhere» is a valid answer** · **they stay quiet when
 there is no news** · **none of them declares** · **none of them writes to anybody**. They are
-explained in the [family README](../criterio-pmo/README.md#what-the-three-share).
+explained in the [family README](../criterio-portfolio/README.md#what-the-three-share).
 
 What changes between one and another is **the rhythm of the conversation**, and that is worth
 knowing before installing.
@@ -215,7 +215,7 @@ Three scripts, which are the only thing that does not opine.
 [`scripts/producto.py`](scripts/producto.py) does Alba's own arithmetic: the eleven signals, the
 four thresholds, the cadence and the overlap between two products.
 [`scripts/texto.py`](scripts/texto.py) turns the document into text, and
-[`scripts/pmo.py`](scripts/pmo.py) contributes the part of the project record that Alba creates
+[`scripts/portafolio.py`](scripts/portafolio.py) contributes the part of the project record that Alba creates
 with the charter. **The last two are literal copies of Vera's, not imports**, because an
 installed plugin has to run on its own; in the repository, `scripts/sincronizar.py --check` fails
 if the copies have drifted apart.
@@ -239,7 +239,7 @@ if the copies have drifted apart.
 ## The twelve skills
 
 They load on their own when the subject comes up. Eight are product's own; four are literal
-copies from `criterio-pmo`, because they are method and not role.
+copies from `criterio-portfolio`, because they are method and not role.
 
 | Skill | What it encapsulates | Whose it is |
 |---|---|---|
@@ -277,4 +277,4 @@ The full design, with the acceptance criteria and what still belongs to the pers
 [`DISENO.es.md`](DISENO.es.md), which travels with the plugin.
 
 And the family's tests — what no agent can answer alone — in the
-[family README](../criterio-pmo/README.md#the-familys-tests).
+[family README](../criterio-portfolio/README.md#the-familys-tests).

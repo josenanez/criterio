@@ -18,12 +18,12 @@ import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).parent.parent
-PLUGIN = RAIZ / "plugins" / "criterio-pmo"
-PMO = PLUGIN / "scripts" / "pmo.py"
+PLUGIN = RAIZ / "plugins" / "criterio-portfolio"
+PMO = PLUGIN / "scripts" / "portafolio.py"
 PRODUCT = RAIZ / "plugins" / "criterio-product"
 PRODUCTO = PRODUCT / "scripts" / "producto.py"
 
-# Todos los plugins construidos, no solo criterio-pmo. Un comando de Samuel nombrado
+# Todos los plugins construidos, no solo criterio-portfolio. Un comando de Samuel nombrado
 # en la documentación de Vera tiene que resolver igual: la familia se lee junta.
 CONSTRUIDOS = sorted(d for d in (RAIZ / "plugins").iterdir()
                      if d.is_dir() and (d / "commands").exists())
@@ -63,7 +63,7 @@ def decir(marca, texto):
 
 # «El código» son las dos capas de aritmética de la familia. Un requerimiento no tiene
 # línea base ni presupuesto, así que Alba calcula aparte — y un nombre suyo citado en la
-# documentación tiene que resolver igual que uno de Vera. Leer solo pmo.py dejaba a la
+# documentación tiene que resolver igual que uno de Vera. Leer solo portafolio.py dejaba a la
 # mitad de la familia sin verificar, que es el falso negativo que este archivo existe
 # para no tener.
 codigo = PMO.read_text(encoding="utf-8")
@@ -87,7 +87,7 @@ if PRODUCTO.exists():
     decir(OK, f"{len(en_producto)} señales de producto: {', '.join(sorted(en_producto))}")
 
 # Un nombre en backticks puede ser una señal, un campo de la salida o una clave del
-# esquema. Solo es una inconsistencia si no aparece en NINGUNA parte de pmo.py: si
+# esquema. Solo es una inconsistencia si no aparece en NINGUNA parte de portafolio.py: si
 # está, el código lo sostiene, aunque no sea una alerta. Esa distinción importa —
 # `has_baseline` y `approved_without_new_baseline` son campos, no señales, y tratarlos
 # como señales inexistentes sería el verificador gritando lobo.
@@ -96,7 +96,7 @@ ausentes = sorted(s for s in citados if s not in codigo)
 inventados = [s for s in ausentes if s not in PENDIENTES]
 if inventados:
     for s in inventados:
-        decir(FALLA, f"la documentación nombra `{s}`, no aparece en pmo.py y no está "
+        decir(FALLA, f"la documentación nombra `{s}`, no aparece en portafolio.py y no está "
                      f"declarado como pendiente")
 else:
     decir(OK, f"los {len(citados) - len(ausentes)} nombres técnicos citados existen en el código")
@@ -397,7 +397,7 @@ if INFORME.exists():
     if not sin_nombre:
         decir(OK, f"las {len(en_codigo)} señales tienen nombre en el informe")
 else:
-    decir(FALLA, "falta plugins/criterio-pmo/scripts/informe.py")
+    decir(FALLA, "falta plugins/criterio-portfolio/scripts/informe.py")
 
 # Mismo criterio del lado de Alba: su dueño documental es product-health, y una señal
 # que se calcula y no está ahí es una señal que nadie va a saber leer.
@@ -427,9 +427,9 @@ if en_producto:
 # llegue a los cuatro —los tres agentes y el servidor—, porque una página de familia desde
 # la que no se puede navegar es un índice roto.
 print("\nDesde la familia se llega a cada agente")
-DESTINOS = {"es": ["VERA.es.md", "SERVER.es.md", "../criterio-pm/README.es.md",
+DESTINOS = {"es": ["VERA.es.md", "SERVER.es.md", "../criterio-project/README.es.md",
                    "../criterio-product/README.es.md"],
-            "en": ["VERA.md", "SERVER.md", "../criterio-pm/README.md",
+            "en": ["VERA.md", "SERVER.md", "../criterio-project/README.md",
                    "../criterio-product/README.md"]}
 for nombre, idioma in (("README.es.md", "es"), ("README.md", "en")):
     pagina = PLUGIN / nombre
@@ -442,15 +442,15 @@ for nombre, idioma in (("README.es.md", "es"), ("README.md", "en")):
         if not destino.exists():
             faltan.append(f"{d} no existe")
     if faltan:
-        decir(FALLA, f"criterio-pmo/{nombre} no lleva a {', '.join(faltan)}")
+        decir(FALLA, f"criterio-portfolio/{nombre} no lleva a {', '.join(faltan)}")
     else:
-        decir(OK, f"criterio-pmo/{nombre} · lleva a los tres agentes y al servidor")
+        decir(OK, f"criterio-portfolio/{nombre} · lleva a los tres agentes y al servidor")
 
 # Y cada agente lista sus propios comandos en su propia página, porque esa página se lee
 # sola: alguien puede instalar un agente sin la familia.
 print("\nCada agente lista lo suyo en su página")
-PROPIAS = {"criterio-pmo": ["VERA.es.md", "VERA.md"],
-           "criterio-pm": ["README.es.md", "README.md"],
+PROPIAS = {"criterio-portfolio": ["VERA.es.md", "VERA.md"],
+           "criterio-project": ["README.es.md", "README.md"],
            "criterio-product": ["README.es.md", "README.md"]}
 for d in CONSTRUIDOS:
     suyos = sorted(c.stem for c in d.glob("commands/*.md"))
@@ -530,7 +530,7 @@ ESQUELETO = {
            "How it is verified"],
 }
 AGENTES = [(PLUGIN, "VERA.es.md", "VERA.md"),
-           (RAIZ / "plugins" / "criterio-pm", "README.es.md", "README.md"),
+           (RAIZ / "plugins" / "criterio-project", "README.es.md", "README.md"),
            (PRODUCT, "README.es.md", "README.md")]
 for carpeta, es, en in AGENTES:
     for nombre, idioma in ((es, "es"), (en, "en")):
@@ -587,7 +587,7 @@ for nombre, patron, donde in [
     ("documents_seen", r"documents_seen", "el esquema y portfolio-scan.md"),
 ]:
     if re.search(patron, codigo):
-        decir(OK, f"{nombre} se implementa en pmo.py")
+        decir(OK, f"{nombre} se implementa en portafolio.py")
     else:
         decir(NOTA, f"{nombre} solo existe en markdown ({donde}); el modelo tendría que "
                     f"calcularlo por su cuenta")

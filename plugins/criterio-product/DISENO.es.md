@@ -8,7 +8,7 @@ Extiende al **gerente de producto**: la persona que define qué se va a construi
 que exista un proyecto.
 
 Marco general, definición de las clases y de las columnas:
-[la hoja de Vera](../criterio-pmo/DISENO.es.md#el-marco-de-la-familia).
+[la hoja de Vera](../criterio-portfolio/DISENO.es.md#el-marco-de-la-familia).
 
 | | |
 |---|---|
@@ -17,7 +17,7 @@ Marco general, definición de las clases y de las columnas:
 | **Cadencia** | Semanal. Sus umbrales se miden en meses, y es el único de los tres cuyos hallazgos aparecen sin que nadie haga nada |
 | **Escribe** | Su propio registro previo. **Crea la ficha** con el acta de constitución |
 | **Lee** | Su registro, y las fichas de los proyectos que ejecutan su producto |
-| **Se distribuye** | Como `criterio-product`, plugin aparte, con `pmo.py` y `texto.py` copiados de `criterio-pmo` |
+| **Se distribuye** | Como `criterio-product`, plugin aparte, con `portafolio.py` y `texto.py` copiados de `criterio-portfolio` |
 | **Estado** | Los once comandos construidos, doce skills, corpus propio y 28 comprobaciones. **La extracción sobre documentación real no se ha corrido** |
 | **Evidencia** | [`tests/criterio-product/EVIDENCIA.md`](../../tests/criterio-product/EVIDENCIA.md) |
 
@@ -104,7 +104,7 @@ La primera fila traslada la tesis de Criterio aguas arriba: en un proyecto se co
 
 Lista de acciones que el agente no ejecuta. No es una evaluación de riesgo ni pretende ser
 exhaustiva: **la responsabilidad de uso y ejecución es de la organización que lo despliega.**
-Ver [la hoja de Vera](../criterio-pmo/DISENO.es.md#el-marco-de-la-familia).
+Ver [la hoja de Vera](../criterio-portfolio/DISENO.es.md#el-marco-de-la-familia).
 
 | Función | Requiere | Qué le entrega al agente |
 |---|---|---|

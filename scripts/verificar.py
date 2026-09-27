@@ -21,17 +21,17 @@ import time
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-PMO = RAIZ / "plugins" / "criterio-pmo" / "scripts"
-PM = RAIZ / "plugins" / "criterio-pm" / "scripts"
+PMO = RAIZ / "plugins" / "criterio-portfolio" / "scripts"
+PM = RAIZ / "plugins" / "criterio-project" / "scripts"
 PRODUCT = RAIZ / "plugins" / "criterio-product" / "scripts"
 
 # Cada puerta con lo que prueba. El texto no es decoración: es lo que le dice a quien
 # audita por qué esa puerta existe, y es lo primero que se queda viejo si alguien
 # cambia lo que la puerta hace sin cambiar lo que dice.
 PUERTAS = [
-    ("material", [sys.executable, str(RAIZ / "tests/criterio-pmo/generar.py")],
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-portfolio/generar.py")],
      "El portafolio sintético: seis proyectos, con un control negativo"),
-    ("material", [sys.executable, str(RAIZ / "tests/criterio-pm/generar.py")],
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-project/generar.py")],
      "Un proyecto visto desde adentro: dos proyectos, siete minutas"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-product/generar.py")],
      "Lo que hay antes del proyecto: dos productos, con un control negativo"),
@@ -41,7 +41,7 @@ PUERTAS = [
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/disposiciones.py")],
      "Que el recorrido encuentre los mismos documentos sin importar cómo estén"),
 
-    ("código", [sys.executable, str(PMO / "pmo.py"), "selftest"],
+    ("código", [sys.executable, str(PMO / "portafolio.py"), "selftest"],
      "La aritmética, la cadencia, la cola y el contraste entre las dos fichas"),
     ("código", [sys.executable, str(PMO / "texto.py"), "--selftest"],
      "Leer .docx, .xlsx, .pptx y .eml sin dependencias"),
@@ -49,16 +49,16 @@ PUERTAS = [
      "El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo"),
     ("código", [sys.executable, str(PMO / "servidor.py"), "--selftest"],
      "Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha"),
-    ("código", [sys.executable, str(PM / "pmo.py"), "selftest"],
+    ("código", [sys.executable, str(PM / "portafolio.py"), "selftest"],
      "La copia de la aritmética corre sola, sin tocar el otro plugin"),
     ("código", [sys.executable, str(PM / "texto.py"), "--selftest"],
      "La copia de la conversión, igual"),
     ("código", [sys.executable, str(PRODUCT / "producto.py"), "selftest"],
      "El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio"),
 
-    ("respuestas", [sys.executable, str(RAIZ / "tests/criterio-pmo/grade.py")],
+    ("respuestas", [sys.executable, str(RAIZ / "tests/criterio-portfolio/grade.py")],
      "Vera contra respuestas escritas a mano, incluido el control negativo"),
-    ("respuestas", [sys.executable, str(RAIZ / "tests/criterio-pm/grade.py")],
+    ("respuestas", [sys.executable, str(RAIZ / "tests/criterio-project/grade.py")],
      "Samuel contra respuestas escritas leyendo las minutas"),
     ("respuestas", [sys.executable, str(RAIZ / "tests/criterio-product/grade.py")],
      "Alba contra respuestas escritas leyendo la definición y las entrevistas"),
@@ -128,8 +128,8 @@ def main() -> int:
             print(f"   {' '.join(str(x) for x in c[1:])}")
         return 1
     print(color(f"{total} puertas en verde", VERDE))
-    print("\nQué prueba cada corrida y qué no, en tests/criterio-pmo/EVIDENCIA.md,")
-    print("tests/criterio-pm/EVIDENCIA.md y tests/criterio-product/EVIDENCIA.md —")
+    print("\nQué prueba cada corrida y qué no, en tests/criterio-portfolio/EVIDENCIA.md,")
+    print("tests/criterio-project/EVIDENCIA.md y tests/criterio-product/EVIDENCIA.md —")
     print("incluido lo que todavía no se ha probado.")
     return 0
 

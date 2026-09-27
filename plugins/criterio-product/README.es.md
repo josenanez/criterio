@@ -14,7 +14,7 @@ los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
 
 **Esta página se lee sola.** Alba funciona sin sus hermanos: si solo defines productos, aquí
 está todo, incluidas sus pruebas. La familia —cómo se encuentra con Vera y con Samuel— está en
-el [README de `criterio-pmo`](../criterio-pmo/README.es.md).
+el [README de `criterio-portfolio`](../criterio-portfolio/README.es.md).
 
 ---
 
@@ -67,8 +67,8 @@ bueno.
 marketplace desde GitHub → `josenanez-company/criterio`.
 
 Si gestionas un proyecto y no un producto, lo tuyo es
-[Samuel](../criterio-pm/README.es.md). Si gestionas el portafolio,
-[Vera](../criterio-pmo/VERA.es.md).
+[Samuel](../criterio-project/README.es.md). Si gestionas el portafolio,
+[Vera](../criterio-portfolio/VERA.es.md).
 
 ## El primer resultado
 
@@ -138,7 +138,7 @@ pierde es que avise sin que nadie pregunte.
 
 **Y si quieres que el comité de producto lo vea sin pedírtelo**, la familia tiene un servidor
 que lo publica con una sección para productos, y quien mira puede dejarle una pregunta escrita
-al agente. → **[Rostrum](../criterio-pmo/SERVER.es.md)**
+al agente. → **[Rostrum](../criterio-portfolio/SERVER.es.md)**
 
 ## Lo que nunca hace
 
@@ -175,7 +175,7 @@ Los tres agentes comparten cinco conductas, y ninguna es estilo: son las que hac
 resultado se pueda poner frente a un comité. **Cada dato lleva la cita** del documento y su
 fecha · **«no está dicho en ninguna parte» es una respuesta válida** · **se callan cuando no
 hay novedad** · **ninguno declara** · **ninguno le escribe a nadie**. Están explicadas en el
-[README de la familia](../criterio-pmo/README.es.md#lo-que-comparten-los-tres).
+[README de la familia](../criterio-portfolio/README.es.md#lo-que-comparten-los-tres).
 
 Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo
 antes de instalar.
@@ -215,7 +215,7 @@ Y hay una costura con el proyecto, porque el objeto cambia de manos:
 Tres scripts, que son lo único que no opina. [`scripts/producto.py`](scripts/producto.py) hace
 la aritmética propia de Alba: las once señales, los cuatro umbrales, la cadencia y el
 solapamiento entre dos productos. [`scripts/texto.py`](scripts/texto.py) convierte el documento
-a texto, y [`scripts/pmo.py`](scripts/pmo.py) aporta la parte de la ficha de proyecto que Alba
+a texto, y [`scripts/portafolio.py`](scripts/portafolio.py) aporta la parte de la ficha de proyecto que Alba
 crea con el acta. **Los dos últimos son copias literales de los de Vera, no importaciones**,
 porque un plugin instalado tiene que correr solo; en el repositorio,
 `scripts/sincronizar.py --check` falla si las copias se separaron.
@@ -239,7 +239,7 @@ porque un plugin instalado tiene que correr solo; en el repositorio,
 ## Los doce skills
 
 Se cargan solos cuando el tema aparece. Ocho son propios de producto; cuatro son copias
-literales de `criterio-pmo`, porque son método y no rol.
+literales de `criterio-portfolio`, porque son método y no rol.
 
 | Skill | Qué encapsula | De quién es |
 |---|---|---|
@@ -277,4 +277,4 @@ El diseño completo, con los criterios de aceptación y lo que sigue siendo de l
 [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
 Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el
-[README de la familia](../criterio-pmo/README.es.md#las-pruebas-de-la-familia).
+[README de la familia](../criterio-portfolio/README.es.md#las-pruebas-de-la-familia).

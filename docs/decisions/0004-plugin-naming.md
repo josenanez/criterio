@@ -10,7 +10,7 @@ Skill names must also not collide with Anthropic's `legal` and `finance` plugins
 
 ## Decision
 
-`criterio-legal`, `criterio-finance`, `criterio-pmo`.
+`criterio-legal`, `criterio-finance`, `criterio-portfolio`.
 
 ## Alternatives discarded
 

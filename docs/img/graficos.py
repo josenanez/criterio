@@ -166,7 +166,7 @@ T = {
         'i_code': 'Claude Code',
         'i_pasos_cowork': ['Personalizar', 'Explorar plugins, Personal, y el botón +',
                            'Agregar marketplace desde GitHub', 'josenanez-company/criterio'],
-        'i_pasos_code': ['/plugin marketplace add josenanez-company/criterio', '/plugin install criterio-pmo@criterio'],
+        'i_pasos_code': ['/plugin marketplace add josenanez-company/criterio', '/plugin install criterio-portfolio@criterio'],
         'i_luego': 'Y después, una sola cosa:',
         's_ante': 'Rostrum · el servidor',
         's_tit': 'El informe, para quien no abre una carpeta',
@@ -268,7 +268,7 @@ T = {
         'i_code': 'Claude Code',
         'i_pasos_cowork': ['Customise', 'Explore plugins, Personal, then the + button',
                            'Add marketplace from GitHub', 'josenanez-company/criterio'],
-        'i_pasos_code': ['/plugin marketplace add josenanez-company/criterio', '/plugin install criterio-pmo@criterio'],
+        'i_pasos_code': ['/plugin marketplace add josenanez-company/criterio', '/plugin install criterio-portfolio@criterio'],
         'i_luego': 'And then, one thing:',
         's_ante': 'Rostrum · the server',
         's_tit': 'The report, for whoever does not open a folder',
@@ -583,7 +583,7 @@ def instalacion(t):
     d.line([(M, 596), (M + 64, 596)], fill=ORO, width=3)
     d.text((M + 84, 580), t['i_luego'], font=f(M5, 26), fill=APAGADO)
     d.text((M + 84 + d.textlength(t['i_luego'], font=f(M5, 26)) + 18, 578),
-           '/pmo-setup', font=f(M6, 30), fill=ORO)
+           '/portfolio-setup', font=f(M6, 30), fill=ORO)
     return img
 
 

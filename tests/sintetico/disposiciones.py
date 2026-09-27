@@ -33,11 +33,11 @@ import tempfile
 from pathlib import Path
 
 RAIZ = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(RAIZ / "plugins" / "criterio-pmo" / "scripts"))
+sys.path.insert(0, str(RAIZ / "plugins" / "criterio-portfolio" / "scripts"))
 sys.path.insert(0, str(Path(__file__).parent))
 
 import corpus  # noqa: E402
-import pmo  # noqa: E402
+import portafolio  # noqa: E402
 
 OK, FALLA = "ok   ", "FALLA"
 fallas = []
@@ -66,13 +66,13 @@ def declaracion(plugin: str):
 def encontrados(carpeta: Path) -> dict:
     """Lo que `index()` ve en una carpeta vacía de estado: todo es nuevo."""
     with tempfile.TemporaryDirectory() as estado:
-        d = pmo.index(carpeta, Path(estado))
+        d = portafolio.index(carpeta, Path(estado))
     return {f["path"]: f["hash"] for f in d["new"]}
 
 
 print(__doc__.strip().splitlines()[0])
 
-port = declaracion("criterio-pmo")
+port = declaracion("criterio-portfolio")
 print(f"\nEl corpus de Vera, leído como datos: {port.documentos} documentos en "
       f"{len(port.casos)} proyectos, sin tocar el disco")
 

@@ -10,8 +10,8 @@ Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer result
 
 | | | |
 |:--:|:--:|:--:|
-| [![PMO](docs/img/es/pmo.png)](plugins/criterio-pmo/README.es.md) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) |
-| **[Ver la familia PMO →](plugins/criterio-pmo/README.es.md)** | Sin construir | Sin construir |
+| [![PMO](docs/img/es/pmo.png)](plugins/criterio-portfolio/README.es.md) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) |
+| **[Ver la familia PMO →](plugins/criterio-portfolio/README.es.md)** | Sin construir | Sin construir |
 
 ---
 
@@ -62,10 +62,10 @@ Dos decisiones que se notan el primer día. **Las cuatro cifras del presupuesto,
 
 | | | |
 |---|---|---|
-| **[Vera](plugins/criterio-pmo/VERA.es.md)** | Agente PMO · **disponible** | *Verus*, lo verdadero. Dice lo que los documentos dicen, no lo que se reporta. 17 comandos, 10 skills |
-| **[Samuel](plugins/criterio-pm/README.es.md)** | Agente de proyecto · **disponible** | «El que escuchó». Su función central es el compromiso dicho y no cumplido. 9 comandos, 8 skills |
+| **[Vera](plugins/criterio-portfolio/VERA.es.md)** | Agente PMO · **disponible** | *Verus*, lo verdadero. Dice lo que los documentos dicen, no lo que se reporta. 17 comandos, 10 skills |
+| **[Samuel](plugins/criterio-project/README.es.md)** | Agente de proyecto · **disponible** | «El que escuchó». Su función central es el compromiso dicho y no cumplido. 9 comandos, 8 skills |
 | **[Alba](plugins/criterio-product/README.es.md)** | Agente de producto · **disponible** | El amanecer: la luz que hay antes de que se vea nada. Trabaja antes de que el proyecto exista. 11 comandos, 12 skills |
-| **[Rostrum](plugins/criterio-pmo/SERVER.es.md)** | El servidor · **disponible** | Una tribuna. Sostiene lo que ya está escrito, donde el equipo puede leerlo |
+| **[Rostrum](plugins/criterio-portfolio/SERVER.es.md)** | El servidor · **disponible** | Una tribuna. Sostiene lo que ya está escrito, donde el equipo puede leerlo |
 
 Rostrum es el único sin nombre de persona, y es a propósito: los agentes deciden sobre lo que leen, y el servidor no decide nada.
 
@@ -121,14 +121,14 @@ La lista no está cerrada. **Una capacidad entra cuando alguien que la ejerce qu
 
 ```
 /plugin marketplace add josenanez-company/criterio
-/plugin install criterio-pmo@criterio     si gestionas el portafolio
-/plugin install criterio-pm@criterio      si gestionas un proyecto
+/plugin install criterio-portfolio@criterio     si gestionas el portafolio
+/plugin install criterio-project@criterio      si gestionas un proyecto
 /plugin install criterio-product@criterio si defines un producto
 ```
 
 Después de instalar, cada agente tiene un comando de instalación que mira tus carpetas, hace cinco preguntas y produce un primer resultado sobre tus propios documentos. **Nadie edita un archivo de configuración a mano.**
 
-**Cada cuánto corre cada uno, qué le tienes que decir y qué comando se le pone a un reloj:** [`plugins/criterio-pmo/README.es.md`](plugins/criterio-pmo/README.es.md) — **la página de la familia**: cómo operan los tres juntos, cómo se trabaja con cada uno, y cada cuánto corre. Ninguno se programa solo — los tres traen el comando que un reloj invoca, y el reloj vive fuera del plugin.
+**Cada cuánto corre cada uno, qué le tienes que decir y qué comando se le pone a un reloj:** [`plugins/criterio-portfolio/README.es.md`](plugins/criterio-portfolio/README.es.md) — **la página de la familia**: cómo operan los tres juntos, cómo se trabaja con cada uno, y cada cuánto corre. Ninguno se programa solo — los tres traen el comando que un reloj invoca, y el reloj vive fuera del plugin.
 
 ---
 
@@ -164,7 +164,7 @@ python3 scripts/verificar.py
 
 Una sola puerta, trece comprobaciones: el material sintético, la aritmética de los dos plugins, las respuestas escritas a mano, y que la documentación diga lo que el código hace. **Con la librería estándar y sin instalar nada** — si algo de esto necesitara una dependencia, la propiedad que hace auditable a este repositorio se habría roto.
 
-El detalle de qué prueba cada corrida y, con la misma franqueza, **qué no**, en [`tests/criterio-pmo/EVIDENCIA.md`](tests/criterio-pmo/EVIDENCIA.md) y [`tests/criterio-pm/EVIDENCIA.md`](tests/criterio-pm/EVIDENCIA.md).
+El detalle de qué prueba cada corrida y, con la misma franqueza, **qué no**, en [`tests/criterio-portfolio/EVIDENCIA.md`](tests/criterio-portfolio/EVIDENCIA.md) y [`tests/criterio-project/EVIDENCIA.md`](tests/criterio-project/EVIDENCIA.md).
 
 **Los resultados de la última corrida, por agente y en conjunto, con gráficas y con lo que todavía no se ha probado:** [`docs/pruebas.md`](docs/pruebas.md) — la genera `python3 scripts/resultados.py`, y sale de correr las puertas, no de escribirlas.
 

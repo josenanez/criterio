@@ -1,0 +1,25 @@
+{
+  "name": "criterio-portfolio",
+  "version": "0.1.0",
+  "description": "Oficina de proyectos: consolidación de portafolio, estado contra plan, RAID, control de cambios, proveedores, presupuesto, comité y cierre. Lee la documentación que ya existe y dice qué cambió, qué se contradice y qué lleva semanas en silencio.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "pmo",
+    "portafolio",
+    "portfolio",
+    "gestion-de-proyectos",
+    "project-management",
+    "raid",
+    "comite",
+    "steering-committee",
+    "linea-base",
+    "control-de-cambios",
+    "presupuesto",
+    "proveedores"
+  ],
+  "homepage": "https://josenanez.com",
+  "license": "Apache-2.0"
+}

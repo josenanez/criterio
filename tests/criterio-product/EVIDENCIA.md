@@ -21,7 +21,7 @@ python3 scripts/sincronizar.py --check      que las copias no se hayan separado
 ```
 
 Con la librería estándar y sin instalar nada. La fecha de referencia es fija en
-**2026-11-20** —la misma del corpus de `criterio-pm`, para que los dos se puedan leer
+**2026-11-20** —la misma del corpus de `criterio-project`, para que los dos se puedan leer
 juntos—: una prueba que use la fecha de hoy cambia de respuesta cada semana.
 
 ## Por qué un corpus propio
@@ -59,7 +59,7 @@ demanda.**
 **Las respuestas se escribieron leyendo los documentos, no calculándolas.** Si salieran de
 las mismas fórmulas que el código, esto no probaría nada.
 
-Y una regla que este corpus respeta, y que el de `criterio-pmo` rompió una vez: **todo campo
+Y una regla que este corpus respeta, y que el de `criterio-portfolio` rompió una vez: **todo campo
 de un registro de referencia cita un documento que de verdad lo dice.** Un registro que cita
 un acta que nunca dijo eso es el error que este diseño existe para evitar, sentado dentro del
 material de prueba.

@@ -9,15 +9,15 @@
   },
   "plugins": [
     {
-      "name": "criterio-pmo",
+      "name": "criterio-portfolio",
       "description": "Oficina de proyectos: consolidación de portafolio, estado contra plan, RAID, control de cambios, proveedores, presupuesto, comité y cierre. Lee la documentación que ya existe y dice qué cambió, qué se contradice y qué lleva semanas en silencio.",
-      "source": "./plugins/criterio-pmo",
+      "source": "./plugins/criterio-portfolio",
       "category": "project-management"
     },
     {
-      "name": "criterio-pm",
+      "name": "criterio-project",
       "description": "Gerencia de un proyecto: el compromiso dicho y no cumplido, extraído de la minuta con doliente, fecha y fuente — y el que se viene reprogramando reunión tras reunión, que no es un problema de seguimiento sino un bloqueo que nadie ha nombrado. Una instancia por proyecto.",
-      "source": "./plugins/criterio-pm",
+      "source": "./plugins/criterio-project",
       "category": "project-management"
     },
     {

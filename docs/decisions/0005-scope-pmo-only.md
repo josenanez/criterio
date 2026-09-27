@@ -12,7 +12,7 @@ In practice the two lines competed for attention and made the scope illegible: e
 
 ## Decision
 
-**The scope is project management: `criterio-pmo`, and `criterio-pm` when it is built.**
+**The scope is project management: `criterio-portfolio`, and `criterio-project` when it is built.**
 
 The jurisdiction layer is removed from the repository: the country packages, their validator, their CI job, and the sections of the project documents that described how to contribute a country.
 

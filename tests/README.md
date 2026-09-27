@@ -67,6 +67,6 @@ not an input.
 
 A plugin is not released until the acceptance criteria at the end of its own `DISENO.es.md` pass over this material, and the result of that run is published with the release.
 
-For `criterio-pmo` the input is a project documentation folder built to contain the failures a real one contains: a milestone that passed with no evidence, a project that has been silent for weeks, minutes naming a sponsor different from the charter, a dependency one plan declares and the other ignores, a commitment promised three times.
+For `criterio-portfolio` the input is a project documentation folder built to contain the failures a real one contains: a milestone that passed with no evidence, a project that has been silent for weeks, minutes naming a sponsor different from the charter, a dependency one plan declares and the other ignores, a commitment promised three times.
 
 A grader that only checks the report was produced is not a grader. It checks that every planted finding was found, and that nothing was invented: a sample of statements is traced back to the document that supports them.
