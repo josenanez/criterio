@@ -129,17 +129,17 @@ contradicción**: es diferencia de profundidad, y no se reporta como hallazgo.
 
 ## Los nueve comandos
 
-| Comando | Qué hace |
-|---|---|
-| `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
-| `/pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
-| `/pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
-| `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
-| `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
-| `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
-| `/pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
-| `/pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
-| `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
+| Comando | Qué hace | De quién |
+|---|---|---|
+| `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta | Samuel |
+| `/pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover | Samuel |
+| `/pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona | Samuel |
+| `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión | Samuel |
+| `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú | Samuel |
+| `/pm-publish` | Publica tu ficha donde la PMO la puede leer | Samuel |
+| `/pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** | Samuel |
+| `/pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado | Samuel |
+| `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla | Samuel |
 
 Tres de ellos son un ciclo, y por eso están: **el que arma la agenda antes recibe la minuta
 después.** El séptimo es de otra clase: `/pm-wake` es lo que convierte esto en un agente y no
@@ -153,16 +153,16 @@ Se cargan solos cuando el tema aparece. Son copias literales de `criterio-pmo`, 
 un riesgo es un riesgo lo mire quien lo mire y la ficha es el contrato de datos de toda
 la familia.
 
-| Skill | Qué encapsula |
-|---|---|
-| `project-record` | La ficha: esquema, extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen |
-| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué |
-| `commitment-tracking` | **La función central.** Extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez |
-| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y la vigente, las cuatro cifras del presupuesto |
-| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |
-| `vendor-control` | Contrato contra evidencia de recibo contra facturación |
-| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo no se puede diagnosticar |
+| Skill | Qué encapsula | De quién es |
+|---|---|---|
+| `project-record` | La ficha: esquema, extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen | Copia de Vera · también en Alba |
+| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué | Copia de Vera · también en Alba |
+| `commitment-tracking` | **La función central.** Extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez | Copia de Vera |
+| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento | Copia de Vera · también en Alba |
+| `baseline-variance` | Línea base de solo agregar, desviación contra la original y la vigente, las cuatro cifras del presupuesto | Copia de Vera |
+| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué | Copia de Vera · también en Alba |
+| `vendor-control` | Contrato contra evidencia de recibo contra facturación | Copia de Vera |
+| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo no se puede diagnosticar | Copia de Vera |
 
 No trae `portfolio-health` ni `portfolio-history`: solo tienen sentido mirando el
 conjunto, y un gerente de proyecto no mira el conjunto.

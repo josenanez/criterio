@@ -129,17 +129,17 @@ contradiction**: it is a difference of depth, and it is not reported as a findin
 
 ## The nine commands
 
-| Command | What it does |
-|---|---|
-| `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your latest minutes |
-| `/pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
-| `/pm-minutes` | The minutes from the transcript or the notes, with every item attributed to a person |
-| `/pm-commitments` | Who promised what, what is overdue with no evidence, and what keeps being rescheduled meeting after meeting |
-| `/pm-report` | The weekly report, complete **except for the status**, which you declare |
-| `/pm-publish` | Publishes your record where the PMO can read it |
-| `/pm-plan` | The first draft of the plan and the WBS from the charter, **committing no date** |
-| `/pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
-| `/pm-wake` | **The one you put on a clock.** Looks at what is due around your meeting, and stays quiet when nothing is |
+| Command | What it does | Whose |
+|---|---|---|
+| `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your latest minutes | Samuel |
+| `/pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move | Samuel |
+| `/pm-minutes` | The minutes from the transcript or the notes, with every item attributed to a person | Samuel |
+| `/pm-commitments` | Who promised what, what is overdue with no evidence, and what keeps being rescheduled meeting after meeting | Samuel |
+| `/pm-report` | The weekly report, complete **except for the status**, which you declare | Samuel |
+| `/pm-publish` | Publishes your record where the PMO can read it | Samuel |
+| `/pm-plan` | The first draft of the plan and the WBS from the charter, **committing no date** | Samuel |
+| `/pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed | Samuel |
+| `/pm-wake` | **The one you put on a clock.** Looks at what is due around your meeting, and stays quiet when nothing is | Samuel |
 
 Three of them are one cycle, and that is why they exist: **whoever builds the agenda
 beforehand receives the minutes afterwards.** The seventh is of another kind: `/pm-wake` is
@@ -153,16 +153,16 @@ They load on their own when the topic appears. They are literal copies from
 `criterio-pmo`, because a risk is a risk whoever is looking at it and the record is the
 whole family's data contract.
 
-| Skill | What it encapsulates |
-|---|---|
-| `project-record` | The record: schema, extraction, citation, field states, what to do when two documents contradict each other |
-| `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what |
-| `commitment-tracking` | **The central function.** Extraction, states, what counts as evidence, and the one repeated with a new date each time |
-| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria |
-| `baseline-variance` | Append-only baseline, variance against the original and the current one, the four budget figures |
-| `governance-artifacts` | Charter, committee, change control and closure: what each contains and who decides what |
-| `vendor-control` | Contract against evidence of receipt against invoicing |
-| `project-diagnosis` | Diagnosis from zero: in what order you read, and when it cannot be diagnosed |
+| Skill | What it encapsulates | Whose it is |
+|---|---|---|
+| `project-record` | The record: schema, extraction, citation, field states, what to do when two documents contradict each other | Copied from Vera · also in Alba |
+| `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what | Copied from Vera · also in Alba |
+| `commitment-tracking` | **The central function.** Extraction, states, what counts as evidence, and the one repeated with a new date each time | Copied from Vera |
+| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria | Copied from Vera · also in Alba |
+| `baseline-variance` | Append-only baseline, variance against the original and the current one, the four budget figures | Copied from Vera |
+| `governance-artifacts` | Charter, committee, change control and closure: what each contains and who decides what | Copied from Vera · also in Alba |
+| `vendor-control` | Contract against evidence of receipt against invoicing | Copied from Vera |
+| `project-diagnosis` | Diagnosis from zero: in what order you read, and when it cannot be diagnosed | Copied from Vera |
 
 It does not ship `portfolio-health` or `portfolio-history`: they only make sense looking
 at the whole, and a project manager does not look at the whole.

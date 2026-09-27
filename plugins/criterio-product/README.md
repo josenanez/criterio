@@ -136,39 +136,39 @@ race.
 
 ## The eleven commands
 
-| Command | What it does |
-|---|---|
-| `/product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have |
-| `/product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme said for months that nobody has turned into anything |
-| `/product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted with nobody having asked for it, and what nobody decides |
-| `/product-definition` | The definition against the evidence of demand, and where business and data disagree |
-| `/product-trace` | Requirement → decision → project → deliverable, and the two gaps above |
-| `/product-spec` | The specification draft with verifiable criteria and the gaps marked, not filled |
-| `/product-charter` | The charter: where the record is born and the writer changes hands |
-| `/product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them |
-| `/product-publish` | Publishes your record where the other products can read it |
-| `/product-overlap` | Where you overlap another product: the same metric counted twice, the same project, the same segment |
-| `/product-wake` | **The one you put on a clock.** What crossed a threshold with nobody doing anything |
+| Command | What it does | Whose |
+|---|---|---|
+| `/product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have | Alba |
+| `/product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme said for months that nobody has turned into anything | Alba |
+| `/product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted with nobody having asked for it, and what nobody decides | Alba |
+| `/product-definition` | The definition against the evidence of demand, and where business and data disagree | Alba |
+| `/product-trace` | Requirement → decision → project → deliverable, and the two gaps above | Alba |
+| `/product-spec` | The specification draft with verifiable criteria and the gaps marked, not filled | Alba |
+| `/product-charter` | The charter: where the record is born and the writer changes hands | Alba |
+| `/product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them | Alba |
+| `/product-publish` | Publishes your record where the other products can read it | Alba |
+| `/product-overlap` | Where you overlap another product: the same metric counted twice, the same project, the same segment | Alba |
+| `/product-wake` | **The one you put on a clock.** What crossed a threshold with nobody doing anything | Alba |
 
 ## The twelve skills
 
 They load on their own when the topic appears. Eight are product's own; four are literal
 copies from `criterio-pmo`, because they are method and not role.
 
-| Skill | What it encapsulates |
-|---|---|
-| `requirement-record` | **Alba's data contract.** Schema, extraction, citation, the five states and what each one demands |
-| `product-health` | The ten signals, the four thresholds, the order they are read in and **which one is not a finding** |
-| `demand-evidence` | What counts as evidence that somebody asked for this, what does not though it looks like it, and how it ages |
-| `discovery-synthesis` | Interviews and tickets into themes with citations. A theme is a set of quotes, not a claim |
-| `assumption-tracking` | The assumption written so it can turn out false, and the day it becomes a registered risk |
-| `product-metrics` | The series with its source and its definition, and the contrast between declared and measured |
-| `specification-draft` | The verifiable acceptance criterion, and the rule of marking the gap instead of filling it |
-| `regulatory-sweep` | The obligations the definition touches, cited. **It does not opine on compliance** |
-| `project-record` | The project record: it is born with the charter, and Alba is the one who creates it |
-| `governance-artifacts` | What a charter contains and who decides what |
-| `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what |
-| `raid-taxonomy` | Where an assumption moves to the day nobody verifies it |
+| Skill | What it encapsulates | Whose it is |
+|---|---|---|
+| `requirement-record` | **Alba's data contract.** Schema, extraction, citation, the five states and what each one demands | Alba's own |
+| `product-health` | The eleven signals, the four thresholds, the order they are read in and **which one is not a finding** | Alba's own |
+| `demand-evidence` | What counts as evidence that somebody asked for this, what does not though it looks like it, and how it ages | Alba's own |
+| `discovery-synthesis` | Interviews and tickets into themes with citations. A theme is a set of quotes, not a claim | Alba's own |
+| `assumption-tracking` | The assumption written so it can turn out false, and the day it becomes a registered risk | Alba's own |
+| `product-metrics` | The series with its source and its definition, and the contrast between declared and measured | Alba's own |
+| `specification-draft` | The verifiable acceptance criterion, and the rule of marking the gap instead of filling it | Alba's own |
+| `regulatory-sweep` | The obligations the definition touches, cited. **It does not opine on compliance** | Alba's own |
+| `project-record` | The project record: it is born with the charter, and Alba is the one who creates it | Copied from Vera · also in Samuel |
+| `governance-artifacts` | What a charter contains and who decides what | Copied from Vera · also in Samuel |
+| `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what | Copied from Vera · also in Samuel |
+| `raid-taxonomy` | Where an assumption moves to the day nobody verifies it | Copied from Vera · also in Samuel |
 
 ## How it is verified
 

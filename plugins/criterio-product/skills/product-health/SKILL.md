@@ -10,7 +10,7 @@ se juzga contra otra cosa: la evidencia de que alguien pidió esto, el criterio 
 se va a saber si quedó bien, y si lo que se decidió construir lo está construyendo
 alguien.
 
-Las diez señales las calcula `producto.py`. **Este skill dice qué significan.** Ninguna
+Las once señales las calcula `producto.py`. **Este skill dice qué significan.** Ninguna
 de las dos cosas se hace en el otro sitio: el código no opina y este documento no cuenta.
 
 ## Las once señales

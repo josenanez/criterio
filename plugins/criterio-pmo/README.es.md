@@ -416,43 +416,43 @@ rompe primero si se intenta, y en qué orden.
 
 ## Los diecisiete comandos
 
-| Comando | Qué hace |
-|---|---|
-| `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
-| `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
-| `/pmo-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
-| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
-| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
-| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
-| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica |
-| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
-| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
-| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
-| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
-| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior |
-| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
-| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
-| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
-| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
-| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
+| Comando | Qué hace | De quién |
+|---|---|---|
+| `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos | Vera |
+| `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla | Vera |
+| `/pmo-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización | Vera · levanta a Rostrum |
+| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver | Vera |
+| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada | Vera |
+| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento | Vera |
+| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica | Vera |
+| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe | Vera |
+| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene | Vera |
+| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance | Vera |
+| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró | Vera |
+| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior | Vera |
+| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base | Vera |
+| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación | Vera |
+| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen | Vera |
+| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene | Vera |
+| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar | Vera |
 
 ## Los diez skills
 
 Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se
 pueden leer como se lee un manual.
 
-| Skill | Qué encapsula |
-|---|---|
-| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen |
-| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué, el renombrado, el borrado, y la cita que dejó de resolver |
-| `portfolio-health` | Las dieciocho señales con lo que significa cada una, los umbrales que las gobiernan, y las tres defensas contra el dato que dejó de ser cierto |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, la replanificación contra lo que autorizó el comité, las cuatro cifras del presupuesto |
-| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento |
-| `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez |
-| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué |
-| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable |
-| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar |
-| `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado |
+| Skill | Qué encapsula | De quién es |
+|---|---|---|
+| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen | Propia · también en Samuel y Alba |
+| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué, el renombrado, el borrado, y la cita que dejó de resolver | Propia · también en Samuel y Alba |
+| `portfolio-health` | Las diecinueve señales con lo que significa cada una, los umbrales que las gobiernan, y las tres defensas contra el dato que dejó de ser cierto | Propia |
+| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, la replanificación contra lo que autorizó el comité, las cuatro cifras del presupuesto | Propia · también en Samuel |
+| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento | Propia · también en Samuel y Alba |
+| `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez | Propia · también en Samuel |
+| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué | Propia · también en Samuel y Alba |
+| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable | Propia · también en Samuel |
+| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar | Propia · también en Samuel |
+| `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado | Propia |
 
 ## Fuera de alcance, y por qué
 

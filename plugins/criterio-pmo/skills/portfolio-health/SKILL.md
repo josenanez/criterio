@@ -25,7 +25,7 @@ Lo que aporta valor es **contrastar la declaración contra la evidencia** y deci
 
 Dos precisiones que evitan un hallazgo mal armado. La lista deja fuera las contradicciones entre documentos: son un defecto de la ficha, no del proyecto, y mezclarlas debilita el hallazgo. Y para el amarillo y el rojo la lista se calcula igual pero no se levanta alerta: quien ya reportó problema no está escondiendo nada.
 
-## Las dieciocho señales
+## Las diecinueve señales
 
 Este skill es el **único sitio** donde vive qué significa cada señal y cuándo merece alarma.
 No se repite en la página de la capacidad ni en las hojas de diseño: una lista copiada se

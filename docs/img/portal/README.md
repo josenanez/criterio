@@ -39,5 +39,22 @@ instalar nada, y un pipeline de capturas rompería esa propiedad por una comodid
 | `productos.png` | `productos.html` · el listado |
 | `producto.png` | `producto-cuenta-transaccional.html` · el informe de un producto |
 
-Si cambia el diseño de las páginas, estas capturas envejecen. No hay nada que lo
-detecte solo: **es un cabo suelto conocido**, y está escrito aquí para que se sepa.
+## Cómo se sabe que envejecieron
+
+Era un cabo suelto declarado: *«si cambia el diseño de las páginas, estas capturas
+envejecen, y no hay nada que lo detecte solo»*. **Ya pasó**: siguieron diciendo que el
+informe lo producía «Plomada» mucho después de que el agente se llamara Vera, y nadie lo
+notó hasta que alguien miró la imagen.
+
+Ahora [`captura.json`](captura.json) guarda la huella de `informe.py` y `servidor.py` del
+momento en que se tomaron, y `tests/coherencia.py` compara. Cuando difieren lo dice:
+
+```
+Las capturas del portal
+  nota  se tomaron con otra versión de informe.py · rehacerlas con docs/img/portal/README.md
+```
+
+**Es una nota y no una falla a propósito.** Volver a tomarlas necesita un navegador, y
+hacer que la puerta verde dependa de un navegador rompería la propiedad que hace auditable
+a este repositorio. Lo que se gana es que la podredumbre se vea, no que pare la corrida.
+Después de rehacerlas, hay que actualizar `captura.json` con las huellas nuevas.

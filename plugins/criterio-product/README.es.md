@@ -138,39 +138,39 @@ y sería una carrera.
 
 ## Los once comandos
 
-| Comando | Qué hace |
-|---|---|
-| `/product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas |
-| `/product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada |
-| `/product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide |
-| `/product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden |
-| `/product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba |
-| `/product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados |
-| `/product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos |
-| `/product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce |
-| `/product-publish` | Publica tu ficha donde los demás productos la puedan leer |
-| `/product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
-| `/product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
+| Comando | Qué hace | De quién |
+|---|---|---|
+| `/product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas | Alba |
+| `/product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada | Alba |
+| `/product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide | Alba |
+| `/product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden | Alba |
+| `/product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba | Alba |
+| `/product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados | Alba |
+| `/product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos | Alba |
+| `/product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce | Alba |
+| `/product-publish` | Publica tu ficha donde los demás productos la puedan leer | Alba |
+| `/product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento | Alba |
+| `/product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada | Alba |
 
 ## Los doce skills
 
 Se cargan solos cuando el tema aparece. Ocho son propios de producto; cuatro son copias
 literales de `criterio-pmo`, porque son método y no rol.
 
-| Skill | Qué encapsula |
-|---|---|
-| `requirement-record` | **El contrato de datos de Alba.** Esquema, extracción, citación, los cinco estados y qué exige cada uno |
-| `product-health` | Las diez señales, los cuatro umbrales, en qué orden se leen y **cuál no es hallazgo** |
-| `demand-evidence` | Qué cuenta como evidencia de que alguien pidió algo, qué no cuenta aunque lo parezca, y cómo envejece |
-| `discovery-synthesis` | Entrevistas y tickets en temas con la cita. Un tema es un conjunto de citas, no una afirmación |
-| `assumption-tracking` | El supuesto escrito de forma que puede resultar falso, y el día en que se vuelve riesgo registrado |
-| `product-metrics` | La serie con su fuente y su definición, y el contraste entre lo declarado y lo medido |
-| `specification-draft` | El criterio de aceptación verificable, y la regla de señalar el vacío en vez de rellenarlo |
-| `regulatory-sweep` | Las obligaciones que toca la definición, citadas. **No opina sobre cumplimiento** |
-| `project-record` | La ficha del proyecto: nace con el acta, y Alba es quien la crea |
-| `governance-artifacts` | Qué contiene un acta de constitución y quién decide qué |
-| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué |
-| `raid-taxonomy` | A dónde se muda un supuesto el día que nadie lo verifica |
+| Skill | Qué encapsula | De quién es |
+|---|---|---|
+| `requirement-record` | **El contrato de datos de Alba.** Esquema, extracción, citación, los cinco estados y qué exige cada uno | Propia de Alba |
+| `product-health` | Las once señales, los cuatro umbrales, en qué orden se leen y **cuál no es hallazgo** | Propia de Alba |
+| `demand-evidence` | Qué cuenta como evidencia de que alguien pidió algo, qué no cuenta aunque lo parezca, y cómo envejece | Propia de Alba |
+| `discovery-synthesis` | Entrevistas y tickets en temas con la cita. Un tema es un conjunto de citas, no una afirmación | Propia de Alba |
+| `assumption-tracking` | El supuesto escrito de forma que puede resultar falso, y el día en que se vuelve riesgo registrado | Propia de Alba |
+| `product-metrics` | La serie con su fuente y su definición, y el contraste entre lo declarado y lo medido | Propia de Alba |
+| `specification-draft` | El criterio de aceptación verificable, y la regla de señalar el vacío en vez de rellenarlo | Propia de Alba |
+| `regulatory-sweep` | Las obligaciones que toca la definición, citadas. **No opina sobre cumplimiento** | Propia de Alba |
+| `project-record` | La ficha del proyecto: nace con el acta, y Alba es quien la crea | Copia de Vera · también en Samuel |
+| `governance-artifacts` | Qué contiene un acta de constitución y quién decide qué | Copia de Vera · también en Samuel |
+| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué | Copia de Vera · también en Samuel |
+| `raid-taxonomy` | A dónde se muda un supuesto el día que nadie lo verifica | Copia de Vera · también en Samuel |
 
 ## Cómo se verifica
 

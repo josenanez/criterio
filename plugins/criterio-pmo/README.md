@@ -401,43 +401,43 @@ sheet documents what breaks first if you try, and in what order.
 
 ## The seventeen commands
 
-| Command | What it does |
-|---|---|
-| `/pmo-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
-| `/pmo-wake` | **What the clock invokes.** Looks at what is due today, does it, and stays quiet if nothing is |
-| `/pmo-server` | Raises **Rostrum**, the server: exposes the report for whoever does not open a folder, and says what to ask the organisation for |
-| `/document-index` | Which documents actually changed, what has to be re-read, and which citations stopped resolving |
-| `/portfolio-scan` | Reads the folder and produces or updates one record per project. The way in |
-| `/portfolio-report` | Consolidated report: what changed, what contradicts itself, what is silent, what has no support |
-| `/status-report` | A project's status, and the signals its declared light does not account for |
-| `/health-check` | Diagnoses a project from zero against the evidence, assuming nothing from its own report |
-| `/project-history` | What happened in a project, with the timeline and since when the declared status stopped holding |
-| `/steering-pack` | Committee material as a package of decisions, not as a progress report |
-| `/raid-log` | Risks, assumptions, issues and dependencies, including the ones said aloud that nobody recorded |
-| `/change-control` | Assesses a change across scope, time and cost, and creates a new baseline without deleting the previous one |
-| `/budget-tracking` | Approved, committed, executed and projection, with variance against both baselines |
-| `/vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing |
-| `/product-view` | The state of a product across every project that builds it |
-| `/project-charter` | Reviews or drafts the charter, flagging what is missing and what the gap costs |
-| `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
+| Command | What it does | Whose |
+|---|---|---|
+| `/pmo-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents | Vera |
+| `/pmo-wake` | **What the clock invokes.** Looks at what is due today, does it, and stays quiet if nothing is | Vera |
+| `/pmo-server` | Raises **Rostrum**, the server: exposes the report for whoever does not open a folder, and says what to ask the organisation for | Vera · starts Rostrum |
+| `/document-index` | Which documents actually changed, what has to be re-read, and which citations stopped resolving | Vera |
+| `/portfolio-scan` | Reads the folder and produces or updates one record per project. The way in | Vera |
+| `/portfolio-report` | Consolidated report: what changed, what contradicts itself, what is silent, what has no support | Vera |
+| `/status-report` | A project's status, and the signals its declared light does not account for | Vera |
+| `/health-check` | Diagnoses a project from zero against the evidence, assuming nothing from its own report | Vera |
+| `/project-history` | What happened in a project, with the timeline and since when the declared status stopped holding | Vera |
+| `/steering-pack` | Committee material as a package of decisions, not as a progress report | Vera |
+| `/raid-log` | Risks, assumptions, issues and dependencies, including the ones said aloud that nobody recorded | Vera |
+| `/change-control` | Assesses a change across scope, time and cost, and creates a new baseline without deleting the previous one | Vera |
+| `/budget-tracking` | Approved, committed, executed and projection, with variance against both baselines | Vera |
+| `/vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing | Vera |
+| `/product-view` | The state of a product across every project that builds it | Vera |
+| `/project-charter` | Reviews or drafts the charter, flagging what is missing and what the gap costs | Vera |
+| `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported | Vera |
 
 ## The ten skills
 
 They load on their own when the topic appears. They are the knowledge the commands share, and
 they can be read the way a manual is read.
 
-| Skill | What it encapsulates |
-|---|---|
-| `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other |
-| `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what, renaming, deletion, and the citation that stopped resolving |
-| `portfolio-health` | The eighteen signals with what each one means, the thresholds that govern them, and the three defences against data that stopped being true |
-| `baseline-variance` | Append-only baseline, variance against the original and against the current one, the rebaseline against what the committee authorised, the four budget figures |
-| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria |
-| `commitment-tracking` | Commitments said in meetings: extraction, states, what counts as evidence, and the one repeated with a new date each time |
-| `governance-artifacts` | Charter, committee, change control and closure: what each contains and who decides what |
-| `vendor-control` | Contract against evidence of receipt against invoicing, with an amount per deliverable |
-| `project-diagnosis` | Diagnosis from zero: in what order you read, and when the answer is that it cannot be diagnosed |
-| `portfolio-history` | A project's history from its documents, and the point where the evidence separated from what was being reported |
+| Skill | What it encapsulates | Whose it is |
+|---|---|---|
+| `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other | Its own · also in Samuel and Alba |
+| `document-intake` | Which document has to be re-read and which does not, which formats can be read and with what, renaming, deletion, and the citation that stopped resolving | Its own · also in Samuel and Alba |
+| `portfolio-health` | The nineteen signals with what each one means, the thresholds that govern them, and the three defences against data that stopped being true | Its own |
+| `baseline-variance` | Append-only baseline, variance against the original and against the current one, the rebaseline against what the committee authorised, the four budget figures | Its own · also in Samuel |
+| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria | Its own · also in Samuel and Alba |
+| `commitment-tracking` | Commitments said in meetings: extraction, states, what counts as evidence, and the one repeated with a new date each time | Its own · also in Samuel |
+| `governance-artifacts` | Charter, committee, change control and closure: what each contains and who decides what | Its own · also in Samuel and Alba |
+| `vendor-control` | Contract against evidence of receipt against invoicing, with an amount per deliverable | Its own · also in Samuel |
+| `project-diagnosis` | Diagnosis from zero: in what order you read, and when the answer is that it cannot be diagnosed | Its own · also in Samuel |
+| `portfolio-history` | A project's history from its documents, and the point where the evidence separated from what was being reported | Its own |
 
 ## Out of scope, and why
 

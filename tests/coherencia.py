@@ -235,7 +235,9 @@ for plugin in sorted((RAIZ / "plugins").iterdir()):
 # Un «treinta comprobaciones» escrito a mano envejece en la primera corrida que
 # agrega una. Se compara contra lo que el selftest realmente hace.
 print("\nLas cifras de las pruebas")
-NUMEROS = {"quince": 15, "veinte": 20, "veinticinco": 25, "treinta": 30,
+NUMEROS = {"diez": 10, "once": 11, "diecisiete": 17, "dieciocho": 18, "diecinueve": 19,
+           "ten": 10, "eleven": 11, "seventeen": 17, "eighteen": 18, "nineteen": 19,
+           "quince": 15, "veinte": 20, "veinticinco": 25, "treinta": 30,
            "treinta y cinco": 35, "cuarenta": 40, "cuarenta y dos": 42,
            "doce": 12, "trece": 13, "catorce": 14, "dieciséis": 16,
            "fifteen": 15, "twenty": 20, "twenty-five": 25, "thirty": 30,
@@ -260,6 +262,35 @@ for duenio, script, paginas in ((PLUGIN, "servidor.py", ("SERVER.es.md", "SERVER
             decir(FALLA, f"{nombre} dice {', '.join(malos)} comprobaciones y {script} hace {reales}")
         elif dichos:
             decir(OK, f"{nombre} · las {reales} comprobaciones que dice son las que hay")
+
+# La cifra de señales que un skill o un README afirma, contra las que el código emite.
+# Es la misma clase de defecto que la cifra de comprobaciones y se rompió igual: el skill
+# de Vera decía «las dieciocho señales» cuando ya eran diecinueve, y la documentación
+# pública repetía el número.
+print("\nLas cifras de señales")
+for fuente, cuenta, paginas in (
+    (PMO, len(en_codigo), [PLUGIN / "skills" / "portfolio-health" / "SKILL.md",
+                           PLUGIN / "README.es.md", PLUGIN / "README.md"]),
+    (PRODUCTO, len(en_producto), [PRODUCT / "skills" / "product-health" / "SKILL.md",
+                                  PRODUCT / "README.es.md", PRODUCT / "README.md"]),
+):
+    if not fuente.exists() or not cuenta:
+        continue
+    for doc in paginas:
+        if not doc.exists():
+            continue
+        cuerpo = doc.read_text(encoding="utf-8")
+        dichos = set()
+        for m in re.finditer(r"\b([\w-]+) (?:señales|signals)\b", cuerpo, re.I):
+            crudo = m.group(1).lower()
+            n = NUMEROS.get(crudo, int(crudo) if crudo.isdigit() else None)
+            if n is not None:
+                dichos.add(n)
+        malos = sorted(str(d) for d in dichos if d != cuenta)
+        if malos:
+            decir(FALLA, f"{doc.name} dice {', '.join(malos)} señales y el código emite {cuenta}")
+        elif dichos:
+            decir(OK, f"{doc.relative_to(RAIZ)} · las {cuenta} señales que dice son las que hay")
 
 # ── los scripts que dos plugins comparten ───────────────────────────────
 # Una copia que se separó en silencio es peor que no tenerla: los dos plugins
@@ -373,6 +404,34 @@ if en_producto:
 # El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja
 # solo por el market. No se duplica el chequeo aquí.
+
+# ── las capturas del portal contra el código que las produjo ────────────
+# Era un cabo suelto declarado: «si cambia el diseño de las páginas, estas capturas
+# envejecen, y no hay nada que lo detecte solo». Ya pasó una vez —las capturas siguieron
+# diciendo «Plomada» meses después del cambio de nombre—, así que ahora se detecta.
+#
+# Es `nota` y no `FALLA` a propósito: volver a tomarlas necesita un navegador, y hacer
+# que la puerta verde dependa de un navegador rompería la propiedad que hace auditable a
+# este repositorio. Lo que se gana es que la podredumbre se vea, no que pare la corrida.
+print("\nLas capturas del portal")
+SELLO = RAIZ / "docs" / "img" / "portal" / "captura.json"
+if SELLO.exists():
+    import hashlib
+    sello = json.loads(SELLO.read_text(encoding="utf-8"))
+    viejas = []
+    for nombre, firma in sello.get("tomadas_con", {}).items():
+        fuente = PLUGIN / "scripts" / nombre
+        if not fuente.exists():
+            viejas.append(f"{nombre} ya no existe")
+        elif hashlib.sha256(fuente.read_bytes()).hexdigest()[:16] != firma:
+            viejas.append(nombre)
+    if viejas:
+        decir(NOTA, f"se tomaron con otra versión de {', '.join(viejas)} · "
+                    f"rehacerlas con docs/img/portal/README.md")
+    else:
+        decir(OK, "se tomaron con el código que hay hoy")
+else:
+    decir(NOTA, "las capturas del portal no dicen con qué versión se tomaron")
 
 print("\nReglas que la documentación afirma y el código no implementa")
 for nombre, patron, donde in [
