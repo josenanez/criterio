@@ -2,7 +2,7 @@
 
 **el agente del gerente de proyecto** · plugin `criterio-pm`
 
-Corrida del 2026-09-27, sobre el commit `a8abd51`, con cambios en el árbol todavía sin confirmar. **4 puertas · 97 comprobaciones · todas en verde.**
+Corrida del 2026-09-27, sobre el commit `a0996a0`, con cambios en el árbol todavía sin confirmar. **4 puertas · 97 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,10 +10,10 @@ Corrida del 2026-09-27, sobre el commit `a8abd51`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-pm/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 38 ms | verde |
-| `criterio-pm/pmo.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 66 | 36 ms | verde |
-| `criterio-pm/texto.py` | La copia de la conversión, igual | 12 | 23 ms | verde |
-| `criterio-pm/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 36 ms | verde |
+| `criterio-pm/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 37 ms | verde |
+| `criterio-pm/pmo.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 66 | 21 ms | verde |
+| `criterio-pm/texto.py` | La copia de la conversión, igual | 12 | 18 ms | verde |
+| `criterio-pm/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 37 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -35,7 +35,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 
 | Puerta | Qué prueba | Comprob. | |
 |---|---|---:|---|
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 53 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 57 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 14 | verde |

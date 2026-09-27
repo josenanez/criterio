@@ -235,7 +235,7 @@ for plugin in sorted((RAIZ / "plugins").iterdir()):
 # Un «treinta comprobaciones» escrito a mano envejece en la primera corrida que
 # agrega una. Se compara contra lo que el selftest realmente hace.
 print("\nLas cifras de las pruebas")
-NUMEROS = {"diez": 10, "once": 11, "diecisiete": 17, "dieciocho": 18, "diecinueve": 19,
+NUMEROS = {"diez": 10, "once": 11, "dieciocho": 18, "eighteen": 18, "diecisiete": 17, "dieciocho": 18, "diecinueve": 19,
            "ten": 10, "eleven": 11, "seventeen": 17, "eighteen": 18, "nineteen": 19,
            "quince": 15, "veinte": 20, "veinticinco": 25, "treinta": 30,
            "treinta y cinco": 35, "cuarenta": 40, "cuarenta y dos": 42,
@@ -291,6 +291,27 @@ for fuente, cuenta, paginas in (
             decir(FALLA, f"{doc.name} dice {', '.join(malos)} señales y el código emite {cuenta}")
         elif dichos:
             decir(OK, f"{doc.relative_to(RAIZ)} · las {cuenta} señales que dice son las que hay")
+
+# La cifra de skills distintos que la página de la familia afirma. Misma clase de
+# defecto: se escribió «quince» sobre una tabla de dieciocho filas.
+print("\nLa cifra de skills de la familia")
+distintos = len(skills)
+for nombre in ("README.es.md", "README.md"):
+    pagina = PLUGIN / nombre
+    if not pagina.exists():
+        continue
+    cuerpo = pagina.read_text(encoding="utf-8")
+    dichos = set()
+    for m in re.finditer(r"\b([\w-]+) (?:skills distintos|distinct skills)\b", cuerpo, re.I):
+        crudo = m.group(1).lower()
+        n = NUMEROS.get(crudo, int(crudo) if crudo.isdigit() else None)
+        if n is not None:
+            dichos.add(n)
+    malos = sorted(str(x) for x in dichos if x != distintos)
+    if malos:
+        decir(FALLA, f"{nombre} dice {', '.join(malos)} skills distintos y hay {distintos}")
+    elif dichos:
+        decir(OK, f"{nombre} · los {distintos} skills distintos que dice son los que hay")
 
 # ── los scripts que dos plugins comparten ───────────────────────────────
 # Una copia que se separó en silencio es peor que no tenerla: los dos plugins
@@ -400,6 +421,21 @@ if en_producto:
             decir(FALLA, f"el umbral `{u}` existe y product-health no dice qué señal gobierna")
         if not faltan_u:
             decir(OK, f"los {len(umbrales_p)} umbrales están documentados en product-health")
+
+# La página de la familia lista los comandos de los tres agentes, no solo los de Vera.
+# Es duplicación a propósito —quien llega al README de criterio-pmo quiere ver la familia
+# entera— y la duplicación que se acepta es la que se verifica.
+print("\nLa familia entera en su página")
+for nombre in ("README.es.md", "README.md"):
+    pagina = PLUGIN / nombre
+    if not pagina.exists():
+        continue
+    cuerpo = pagina.read_text(encoding="utf-8")
+    faltan = sorted(c for c in comandos if f"`/{c}`" not in cuerpo)
+    if faltan:
+        decir(FALLA, f"{nombre} no lista {', '.join(faltan)}")
+    else:
+        decir(OK, f"{nombre} · los {len(comandos)} comandos de los tres agentes")
 
 # El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja

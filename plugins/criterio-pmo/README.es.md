@@ -38,24 +38,7 @@ que el proyecto nace.
 
 ![Cómo operan los tres agentes](../../docs/img/es/flujo.png)
 
-El orden temporal es lo que los hace un sistema y no tres herramientas:
-
-```
-    LA DEFINICIÓN            EL PROYECTO             EL PORTAFOLIO           EL EQUIPO
-       Alba                     Samuel                    Vera                Rostrum
-         │                         │                        │                     │
-         │──── el acta ──────────► │                        │                     │
-         │     nace la ficha       │                        │                     │
-         │                         │──── ficha-pm.json ───► │                     │
-         │                         │     publicada          │                     │
-         │                         │                        │──── el informe ───► │
-         │ ◄──── la ficha ─────────┴────────────────────────┘                     │
-         │       ¿se está construyendo mi producto?                               │
-         │                                                  │ ◄─── la petición ───┘
-         │                                                  │   revisar · explicar · corregir
-```
-
-**Dos ciclos cerrados, y ninguno pasa por una base de datos compartida.** El acta baja una
+El orden temporal es lo que los hace un sistema y no tres herramientas. **Dos ciclos cerrados, y ninguno pasa por una base de datos compartida.** El acta baja una
 vez, y con ella nace la ficha. La ficha del gerente sube publicada como un documento más del
 proyecto, y Vera la lee como lee todo lo demás. El informe sale al equipo, y del equipo vuelve
 una petición. Y el lazo de arriba: Alba lee las fichas de los proyectos para confirmar que el
@@ -69,18 +52,7 @@ Lo que **no** hay en ese dibujo es tan importante como lo que hay:
 - **Ninguna flecha que escriba el estado declarado.** Esa la escribe una persona, en los tres
   sitios donde aparece.
 
-### Y las personas, en el mismo dibujo
-
-```
-   El gerente de producto      El gerente de proyecto      El gerente de la PMO
-   decide qué se construye     declara el estado           decide qué escala
-   y firma el acta             y dirige la reunión         y persigue lo que el informe pide
-         │                              │                           │
-         └──────── cada uno le da a su agente el insumo que ────────┘
-                   ningún agente puede producir solo
-```
-
-**El insumo de cada agente lo produce el trabajo no delegable de su persona.** Quitar a la
+**Y las personas están en el mismo dibujo, abajo.** El insumo de cada agente lo produce el trabajo no delegable de su persona.** Quitar a la
 persona no deja al agente solo: lo deja sin comida.
 
 ## Estado
@@ -357,24 +329,11 @@ otros dos produjeron, sin volver a leer un solo documento.
 
 Nada se habla con nada directamente. **La ficha de proyecto es el único contrato.**
 
-```
-   archivos ─┐
-             ├──► extracción ──► FICHA ──► cálculo ──► proyección ──► servidor
-   base de   ┘                    ▲ ▲ ▲
-   datos                          │ │ └── PMO      escribe hallazgos, lee todas
-                                  │ └──── PM       escribe la ficha, lee la suya
-                                  └────── Product  la crea, con el acta
-```
+![El único contrato: quién escribe la ficha y quién solo la lee](../../docs/img/es/contrato.png)
 
 El Product Manager trabaja antes de que exista plan: no escribe en la ficha, **la crea**. Su
 entrega cierra con el acta de constitución, que es el certificado de nacimiento de la ficha.
 
-Y el orden temporal es lo que hace de los tres un sistema:
-
-```
-Product Manager  ──acta──►  Project Manager  ──ficha──►  PMO
-   define                      ejecuta                    vigila el conjunto
-```
 
 ### Las siete invariantes
 
@@ -414,29 +373,65 @@ el cliente, porque no hay síntesis sin entrevista.
 Quitar a la persona no deja al agente solo: lo deja sin comida. Cada hoja documenta qué se
 rompe primero si se intenta, y en qué orden.
 
-## Los diecisiete comandos
+## Los comandos de los tres agentes
 
-| Comando | Qué hace | De quién |
-|---|---|---|
-| `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos | Vera |
-| `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla | Vera |
-| `/pmo-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización | Vera · levanta a Rostrum |
-| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver | Vera |
-| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada | Vera |
-| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento | Vera |
-| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica | Vera |
-| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe | Vera |
-| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene | Vera |
-| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance | Vera |
-| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró | Vera |
-| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior | Vera |
-| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base | Vera |
-| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación | Vera |
-| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen | Vera |
-| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene | Vera |
-| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar | Vera |
+Treinta y siete comandos, y cada uno vive en el plugin de su agente. Esta es la lista completa de la familia; el detalle de cada uno, en la página de su plugin.
 
-## Los diez skills
+### Vera · `criterio-pmo` · diecisiete
+
+| Comando | Qué hace |
+|---|---|
+| `/pmo-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
+| `/pmo-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
+| `/pmo-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
+| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
+| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
+| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
+| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica |
+| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
+| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
+| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
+| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
+| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, y crea línea base nueva sin borrar la anterior |
+| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
+| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
+| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
+| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
+| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
+
+### Samuel · [`criterio-pm`](../criterio-pm/README.es.md) · nueve
+
+| Comando | Qué hace |
+|---|---|
+| `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
+| `/pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
+| `/pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
+| `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
+| `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
+| `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
+| `/pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
+| `/pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
+| `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
+
+### Alba · [`criterio-product`](../criterio-product/README.es.md) · once
+
+| Comando | Qué hace |
+|---|---|
+| `/product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas |
+| `/product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada |
+| `/product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide |
+| `/product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden |
+| `/product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba |
+| `/product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados |
+| `/product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos |
+| `/product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce |
+| `/product-publish` | Publica tu ficha donde los demás productos la puedan leer |
+| `/product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
+| `/product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
+
+**El único que no es de un agente** es `/pmo-server`: lo corre Vera, y lo que levanta es Rostrum, que no decide nada.
+
+## Los diez skills de Vera
 
 Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se
 pueden leer como se lee un manual.
@@ -453,6 +448,33 @@ pueden leer como se lee un manual.
 | `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable | Propia · también en Samuel |
 | `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar | Propia · también en Samuel |
 | `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado | Propia |
+
+## Y los dieciocho de la familia
+
+Dieciocho skills distintos entre los tres agentes. **Los que comparten son copias literales, no un módulo importado**: un plugin instalado tiene que correr solo, y un `import` a la ruta del otro funciona aquí y falla en el equipo de quien lo instaló.
+
+`scripts/sincronizar.py` las copia y `tests/coherencia.py` falla si se separan.
+
+| Skill | Vera | Samuel | Alba |
+|---|:--:|:--:|:--:|
+| `assumption-tracking` | · | · | ● |
+| `baseline-variance` | ● | ● | · |
+| `commitment-tracking` | ● | ● | · |
+| `demand-evidence` | · | · | ● |
+| `discovery-synthesis` | · | · | ● |
+| `document-intake` | ● | ● | ● |
+| `governance-artifacts` | ● | ● | ● |
+| `portfolio-health` | ● | · | · |
+| `portfolio-history` | ● | · | · |
+| `product-health` | · | · | ● |
+| `product-metrics` | · | · | ● |
+| `project-diagnosis` | ● | ● | · |
+| `project-record` | ● | ● | ● |
+| `raid-taxonomy` | ● | ● | ● |
+| `regulatory-sweep` | · | · | ● |
+| `requirement-record` | · | · | ● |
+| `specification-draft` | · | · | ● |
+| `vendor-control` | ● | ● | · |
 
 ## Fuera de alcance, y por qué
 

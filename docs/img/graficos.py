@@ -197,7 +197,19 @@ T = {
 
         'fl_cruza': [('el acta de constitución', 'y con ella nace la ficha del proyecto'),
                      ('ficha-pm.json', 'publicada en la carpeta de gobierno del proyecto, y Vera la lee como lee todo lo demás'),
-                     ('el informe', 'en una dirección, para quien no va a abrir una carpeta')],    },
+                     ('el informe', 'en una dirección, para quien no va a abrir una carpeta')],
+        # ── el único contrato ──
+        'ct_ante': 'EL ÚNICO CONTRATO',
+        'ct_tit': 'Nada se habla con nada directamente',
+        'ct_ficha': 'La ficha de proyecto',
+        'ct_ficha_sub': 'Cada dato con la cita del documento del que salió, y su fecha.',
+        'ct_escriben': [('Alba', 'La crea, con el acta de constitución'), ('Samuel', 'Escribe la ficha del proyecto, salvo el estado declarado'), ('Vera', 'Escribe su lectura de portafolio, y lee todas')],
+        'ct_lee': ('Rostrum', 'Publica el informe donde el equipo lo lea'),
+        'ct_solo_lee': 'solo lee',
+        'ct_orden': 'Y EL ORDEN EN EL TIEMPO',
+        'ct_tiempo': [('Alba', 'Define. Su entrega cierra con el acta, que es el certificado de nacimiento de la ficha.'), ('Samuel', 'Ejecuta. Un proyecto, con cadencia de reunión.'), ('Vera', 'Vigila el conjunto, con cadencia de comité.')],
+        'ct_nota': 'Ningún agente escribe el estado declarado: eso lo escribe una persona. Y la ficha del gerente y la lectura de la PMO no se fusionan nunca — la diferencia entre las dos es el hallazgo.',
+    },
     'en': {
         'pmo_fn': 'Project management office',
         'pmo_fr': 'I read the documentation your PMO already has, and say what does not hold.',
@@ -287,7 +299,19 @@ T = {
 
         'fl_cruza': [('the project charter', "and with it the project's record is born"),
                      ('ficha-pm.json', "published into the project's governance folder, where Vera reads it like any other document"),
-                     ('the report', 'at an address, for whoever will not open a folder')],    },
+                     ('the report', 'at an address, for whoever will not open a folder')],
+        # ── el único contrato ──
+        'ct_ante': 'THE SINGLE CONTRACT',
+        'ct_tit': 'Nothing talks to anything directly',
+        'ct_ficha': 'The project record',
+        'ct_ficha_sub': 'Every value with the citation of the document it came from, and its date.',
+        'ct_escriben': [('Alba', 'Creates it, with the project charter'), ('Samuel', "Writes the project's record, except the declared status"), ('Vera', 'Writes her portfolio reading, and reads all of them')],
+        'ct_lee': ('Rostrum', 'Publishes the report where the team will read it'),
+        'ct_solo_lee': 'reads only',
+        'ct_orden': 'AND THE ORDER IN TIME',
+        'ct_tiempo': [('Alba', "Defines. Her delivery closes with the charter, the record's birth certificate."), ('Samuel', 'Executes. One project, meeting cadence.'), ('Vera', 'Watches the whole, committee cadence.')],
+        'ct_nota': "No agent writes the declared status: a person writes that. And the manager's record and the PMO's reading never merge — the difference between them is the finding.",
+    },
 }
 
 SKILLS_COMPARTIDOS = ['project-record', 'document-intake', 'baseline-variance',
@@ -761,6 +785,99 @@ def flujo(t):
     return img
 
 
+# ══════════════════════════════════════════════ el único contrato
+
+
+def contrato(t):
+    """La ficha en el centro, y quién escribe y quién lee.
+
+    `como-funciona` ya muestra la tubería —documento, texto, ficha, aritmética, señal—.
+    Lo que esta pieza agrega es lo que aquella no dice: **quién puede escribir en la ficha
+    y quién solo la lee.** Por eso la ficha va al centro y no en una fila: lo que importa
+    aquí son las flechas, no el orden.
+    """
+    W, H, M = 1680, 1000, 72
+    img = Image.new('RGB', (W, H), NEGRO)
+    d = ImageDraw.Draw(img)
+    titulo(d, (M, 66), t['ct_ante'], t['ct_tit'], W - 2 * M, 46)
+
+    # la ficha, en el centro
+    FW, FH = 420, 200
+    fx = (W - FW) // 2
+    fy = 300
+    d.rounded_rectangle([(fx, fy), (fx + FW, fy + FH)], radius=12, fill=ORO_FONDO,
+                        outline=ORO, width=3)
+    fu = f(M5, 34)
+    an = d.textlength(t['ct_ficha'], font=fu)
+    d.text((fx + FW / 2 - an / 2, fy + 40), t['ct_ficha'], font=fu, fill=ORO)
+    fin = parrafo(d, (fx + 28, fy + 96), t['ct_ficha_sub'], f(R, 21), CREMA, FW - 56, 29)
+    assert fin < fy + FH - 10, 'la ficha: el texto se sale de la caja'
+
+    # los tres que escriben, a la izquierda
+    CW, CH, HUECO = 340, 116, 20
+    ALTO = 3 * CH + 2 * HUECO
+    y0 = fy + FH // 2 - ALTO // 2
+    for i, (quien, que) in enumerate(t['ct_escriben']):
+        y = y0 + i * (CH + HUECO)
+        d.rounded_rectangle([(M, y), (M + CW, y + CH)], radius=10, fill=PANEL,
+                            outline=ORO, width=2)
+        d.text((M + 24, y + 18), quien, font=f(M5, 28), fill=ORO)
+        fin = parrafo(d, (M + 24, y + 56), que, f(R, 19), APAGADO, CW - 48, 25)
+        assert fin < y + CH - 4, f'{quien}: el texto se sale de la caja'
+        # la flecha hasta la ficha
+        x0, x1 = M + CW + 10, fx - 12
+        cy = y + CH // 2
+        medio = (x0 + x1) / 2
+        d.line([(x0, cy), (medio, cy)], fill=ORO, width=2)
+        d.line([(medio, cy), (medio, fy + FH // 2)], fill=ORO, width=2)
+        d.line([(medio, fy + FH // 2), (x1, fy + FH // 2)], fill=ORO, width=2)
+        p = 9
+        d.polygon([(x1, fy + FH // 2), (x1 - p, fy + FH // 2 - p + 2),
+                   (x1 - p, fy + FH // 2 + p - 2)], fill=ORO)
+
+    # el que solo lee, a la derecha
+    rx = fx + FW + 150
+    ry = fy + FH // 2 - CH // 2
+    d.rounded_rectangle([(rx, ry), (rx + CW, ry + CH)], radius=10,
+                        outline=FILETE_FUERTE, width=2)
+    d.text((rx + 24, ry + 18), t['ct_lee'][0], font=f(M5, 28), fill=CREMA)
+    parrafo(d, (rx + 24, ry + 56), t['ct_lee'][1], f(R, 19), APAGADO, CW - 48, 25)
+    cy = fy + FH // 2
+    d.line([(fx + FW + 12, cy), (rx - 12, cy)], fill=FILETE_FUERTE, width=2)
+    p = 9
+    d.polygon([(rx - 12, cy), (rx - 12 - p, cy - p + 2), (rx - 12 - p, cy + p - 2)],
+              fill=FILETE_FUERTE)
+    fu2 = f(R, 19)
+    an2 = d.textlength(t['ct_solo_lee'], font=fu2)
+    d.text(((fx + FW + rx) / 2 - an2 / 2, cy - 30), t['ct_solo_lee'], font=fu2,
+           fill=FILETE_FUERTE)
+
+    # el orden en el tiempo, abajo
+    BY = fy + FH + 96
+    d.rounded_rectangle([(M, BY), (W - M, BY + 190)], radius=10, fill=PANEL,
+                        outline=FILETE_FUERTE, width=2)
+    track(d, (M + 28, BY + 24), t['ct_orden'], f(M6, 18), ORO, 2.4)
+    paso = (W - 2 * M - 56) // 3
+    for i, (quien, que) in enumerate(t['ct_tiempo']):
+        x = M + 28 + i * paso
+        d.text((x, BY + 62), quien, font=f(M5, 26), fill=CREMA)
+        fin = parrafo(d, (x, BY + 100), que, f(R, 19), APAGADO, paso - 80, 25)
+        assert fin < BY + 190 - 6, f'{quien}: el texto se sale de la banda'
+        if i < 2:
+            ax = x + paso - 52
+            ay = BY + 74
+            d.line([(ax, ay), (ax + 28, ay)], fill=ORO, width=2)
+            p = 8
+            d.polygon([(ax + 28, ay), (ax + 28 - p, ay - p + 2), (ax + 28 - p, ay + p - 2)],
+                      fill=ORO)
+
+    d.line([(M, H - 66), (M + 64, H - 66)], fill=ORO, width=3)
+    fin = parrafo(d, (M + 84, H - 80), t['ct_nota'], f(M5, 23), APAGADO,
+                  W - 2 * M - 104, 31)
+    assert fin < H - 8, 'la nota se sale de la figura'
+    return img
+
+
 def guardar(img, idioma, nombre):
     carpeta = os.path.join(AQUI, idioma)
     os.makedirs(carpeta, exist_ok=True)
@@ -779,6 +896,7 @@ if __name__ == '__main__':
                 idioma, 'clo.png')
         guardar(familia(t), idioma, 'familia-pmo.png')
         guardar(flujo(t), idioma, 'flujo.png')
+        guardar(contrato(t), idioma, 'contrato.png')
         guardar(quince(t), idioma, 'quince-minutos.png')
         guardar(funciona(t), idioma, 'como-funciona.png')
         guardar(cadencia(t), idioma, 'cadencia.png')

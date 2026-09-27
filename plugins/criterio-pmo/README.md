@@ -40,24 +40,7 @@ is born from.
 
 ![How the three agents operate](../../docs/img/en/flujo.png)
 
-The order in time is what makes them a system rather than three tools:
-
-```
-    THE DEFINITION           THE PROJECT             THE PORTFOLIO           THE TEAM
-       Alba                     Samuel                    Vera                Rostrum
-         │                         │                        │                     │
-         │──── the charter ──────► │                        │                     │
-         │     the record is born  │                        │                     │
-         │                         │──── ficha-pm.json ───► │                     │
-         │                         │     published          │                     │
-         │                         │                        │──── the report ───► │
-         │ ◄──── the record ───────┴────────────────────────┘                     │
-         │       is my product being built?                                       │
-         │                                                  │ ◄─── the request ───┘
-         │                                                  │   review · explain · correct
-```
-
-**Two closed loops, and neither goes through a shared database.** The charter comes down once,
+The order in time is what makes them a system rather than three tools. **Two closed loops, and neither goes through a shared database.** The charter comes down once,
 and with it the record is born. The manager's record goes up published as one more document of
 the project, and Vera reads it like everything else. The report goes out to the team, and from
 the team a request comes back. And the loop at the top: Alba reads the project records to
@@ -71,18 +54,7 @@ What is **not** in that picture matters as much as what is:
 - **No arrow that writes the declared status.** A person writes that, in all three places where
   it appears.
 
-### And the people, in the same picture
-
-```
-   The product manager         The project manager        The PMO manager
-   decides what gets built     declares the status        decides what escalates
-   and signs the charter       and runs the meeting       and chases what the report asks for
-         │                              │                           │
-         └──────── each one gives their agent the input ────────────┘
-                   no agent can produce on its own
-```
-
-**Each agent's input is produced by work its person cannot delegate.** Removing the person does
+**And the people are in the same picture, at the bottom.** Each agent's input is produced by work its person cannot delegate.** Removing the person does
 not leave the agent alone: it leaves it without food.
 
 ## Status
@@ -350,14 +322,7 @@ produced, without reading a single document again.
 
 Nothing talks to anything directly. **The project record is the only contract.**
 
-```
-   files ────┐
-             ├──► extraction ──► RECORD ──► computation ──► projection ──► server
-   database ─┘                    ▲ ▲ ▲
-                                  │ │ └── PMO      writes findings, reads all of them
-                                  │ └──── PM       writes the record, reads its own
-                                  └────── Product  creates it, with the charter
-```
+![The single contract: who writes the record and who only reads it](../../docs/img/en/contrato.png)
 
 The Product Manager works before a plan exists: it does not write into the record, **it creates
 it.** Its delivery closes with the charter, which is the record's birth certificate.
@@ -399,29 +364,65 @@ customer, because there is no synthesis without an interview.
 Removing the person does not leave the agent alone: it leaves it without food. Each design
 sheet documents what breaks first if you try, and in what order.
 
-## The seventeen commands
+## The three agents' commands
 
-| Command | What it does | Whose |
-|---|---|---|
-| `/pmo-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents | Vera |
-| `/pmo-wake` | **What the clock invokes.** Looks at what is due today, does it, and stays quiet if nothing is | Vera |
-| `/pmo-server` | Raises **Rostrum**, the server: exposes the report for whoever does not open a folder, and says what to ask the organisation for | Vera · starts Rostrum |
-| `/document-index` | Which documents actually changed, what has to be re-read, and which citations stopped resolving | Vera |
-| `/portfolio-scan` | Reads the folder and produces or updates one record per project. The way in | Vera |
-| `/portfolio-report` | Consolidated report: what changed, what contradicts itself, what is silent, what has no support | Vera |
-| `/status-report` | A project's status, and the signals its declared light does not account for | Vera |
-| `/health-check` | Diagnoses a project from zero against the evidence, assuming nothing from its own report | Vera |
-| `/project-history` | What happened in a project, with the timeline and since when the declared status stopped holding | Vera |
-| `/steering-pack` | Committee material as a package of decisions, not as a progress report | Vera |
-| `/raid-log` | Risks, assumptions, issues and dependencies, including the ones said aloud that nobody recorded | Vera |
-| `/change-control` | Assesses a change across scope, time and cost, and creates a new baseline without deleting the previous one | Vera |
-| `/budget-tracking` | Approved, committed, executed and projection, with variance against both baselines | Vera |
-| `/vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing | Vera |
-| `/product-view` | The state of a product across every project that builds it | Vera |
-| `/project-charter` | Reviews or drafts the charter, flagging what is missing and what the gap costs | Vera |
-| `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported | Vera |
+Thirty-seven commands, and each one lives in its agent's plugin. This is the family's full list; the detail of each one is on its plugin's page.
 
-## The ten skills
+### Vera · `criterio-pmo` · seventeen
+
+| Command | What it does |
+|---|---|
+| `/pmo-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
+| `/pmo-wake` | **What the clock invokes.** Looks at what is due today, does it, and stays quiet if nothing is |
+| `/pmo-server` | Raises **Rostrum**, the server: exposes the report for whoever does not open a folder, and says what to ask the organisation for |
+| `/document-index` | Which documents actually changed, what has to be re-read, and which citations stopped resolving |
+| `/portfolio-scan` | Reads the folder and produces or updates one record per project. The way in |
+| `/portfolio-report` | Consolidated report: what changed, what contradicts itself, what is silent, what has no support |
+| `/status-report` | A project's status, and the signals its declared light does not account for |
+| `/health-check` | Diagnoses a project from zero against the evidence, assuming nothing from its own report |
+| `/project-history` | What happened in a project, with the timeline and since when the declared status stopped holding |
+| `/steering-pack` | Committee material as a package of decisions, not as a progress report |
+| `/raid-log` | Risks, assumptions, issues and dependencies, including the ones said aloud that nobody recorded |
+| `/change-control` | Assesses a change across scope, time and cost, and creates a new baseline without deleting the previous one |
+| `/budget-tracking` | Approved, committed, executed and projection, with variance against both baselines |
+| `/vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing |
+| `/product-view` | The state of a product across every project that builds it |
+| `/project-charter` | Reviews or drafts the charter, flagging what is missing and what the gap costs |
+| `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
+
+### Samuel · [`criterio-pm`](../criterio-pm/README.md) · nine
+
+| Command | What it does |
+|---|---|
+| `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your latest minutes |
+| `/pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
+| `/pm-minutes` | The minutes from the transcript or the notes, with every item attributed to a person |
+| `/pm-commitments` | Who promised what, what is overdue with no evidence, and what keeps being rescheduled meeting after meeting |
+| `/pm-report` | The weekly report, complete **except for the status**, which you declare |
+| `/pm-publish` | Publishes your record where the PMO can read it |
+| `/pm-plan` | The first draft of the plan and the WBS from the charter, **committing no date** |
+| `/pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
+| `/pm-wake` | **The one you put on a clock.** Looks at what is due around your meeting, and stays quiet when nothing is |
+
+### Alba · [`criterio-product`](../criterio-product/README.md) · eleven
+
+| Command | What it does |
+|---|---|
+| `/product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have |
+| `/product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme said for months that nobody has turned into anything |
+| `/product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted with nobody having asked for it, and what nobody decides |
+| `/product-definition` | The definition against the evidence of demand, and where business and data disagree |
+| `/product-trace` | Requirement → decision → project → deliverable, and the two gaps above |
+| `/product-spec` | The specification draft with verifiable criteria and the gaps marked, not filled |
+| `/product-charter` | The charter: where the record is born and the writer changes hands |
+| `/product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them |
+| `/product-publish` | Publishes your record where the other products can read it |
+| `/product-overlap` | Where you overlap another product: the same metric counted twice, the same project, the same segment |
+| `/product-wake` | **The one you put on a clock.** What crossed a threshold with nobody doing anything |
+
+**The only one that is not an agent's** is `/pmo-server`: Vera runs it, and what it starts is Rostrum, which decides nothing.
+
+## Vera's ten skills
 
 They load on their own when the topic appears. They are the knowledge the commands share, and
 they can be read the way a manual is read.
@@ -439,6 +440,33 @@ they can be read the way a manual is read.
 | `project-diagnosis` | Diagnosis from zero: in what order you read, and when the answer is that it cannot be diagnosed | Its own · also in Samuel |
 | `portfolio-history` | A project's history from its documents, and the point where the evidence separated from what was being reported | Its own |
 
+## And the family's eighteen
+
+Eighteen distinct skills across the three agents. **What they share are literal copies, not an imported module**: an installed plugin has to run on its own, and an `import` into the other one's path works here and fails on the machine of whoever installed it.
+
+`scripts/sincronizar.py` copies them and `tests/coherencia.py` fails if they drift apart.
+
+| Skill | Vera | Samuel | Alba |
+|---|:--:|:--:|:--:|
+| `assumption-tracking` | · | · | ● |
+| `baseline-variance` | ● | ● | · |
+| `commitment-tracking` | ● | ● | · |
+| `demand-evidence` | · | · | ● |
+| `discovery-synthesis` | · | · | ● |
+| `document-intake` | ● | ● | ● |
+| `governance-artifacts` | ● | ● | ● |
+| `portfolio-health` | ● | · | · |
+| `portfolio-history` | ● | · | · |
+| `product-health` | · | · | ● |
+| `product-metrics` | · | · | ● |
+| `project-diagnosis` | ● | ● | · |
+| `project-record` | ● | ● | ● |
+| `raid-taxonomy` | ● | ● | ● |
+| `regulatory-sweep` | · | · | ● |
+| `requirement-record` | · | · | ● |
+| `specification-draft` | · | · | ● |
+| `vendor-control` | ● | ● | · |
+
 ## Out of scope, and why
 
 **Capacity and resource allocation**, and **benefits realisation**. Not because they matter
@@ -452,13 +480,6 @@ in Bogotá as in Santiago. If a regulatory obligation touches a project, this pl
 as a constraint or as a risk, and does not opine on it.
 
 ## How it is verified
-
-```
-python3 scripts/pmo.py selftest          the arithmetic and the cadence
-python3 scripts/texto.py --selftest      document conversion
-python3 scripts/informe.py --selftest    the report: figures, agreement and naming
-python3 scripts/servidor.py --selftest   the server: what it serves and what it never touches
-```
 
 All three run on the standard library, with nothing installed. Over synthetic material with known
 answers there is a grader and the result of the last run, with what it proves and what it does
