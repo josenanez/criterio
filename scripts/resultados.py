@@ -51,6 +51,7 @@ DUENIOS = [
     ("tests/criterio-pm/", "Samuel"),
     ("criterio-product/scripts/", "Alba"),
     ("tests/criterio-product/", "Alba"),
+    ("tests/sintetico/", "La familia"),
     ("tests/coherencia.py", "La familia"),
     ("scripts/validate_plugins.py", "La familia"),
     ("scripts/sincronizar.py", "La familia"),
@@ -69,8 +70,10 @@ QUIEN = {
                                "nombre de persona"),
     "La familia": ("Lo que los tres comparten", "Que la documentación y el código digan "
                                                 "lo mismo, que el marketplace esté "
-                                                "completo, y que las copias compartidas "
-                                                "no se hayan separado"),
+                                                "completo, que las copias compartidas no "
+                                                "se hayan separado, y que el recorrido "
+                                                "encuentre los documentos sin importar "
+                                                "cómo estén organizados"),
 }
 
 ORDEN = ["Vera", "Samuel", "Alba", "Rostrum", "La familia"]

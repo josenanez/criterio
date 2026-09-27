@@ -23,6 +23,7 @@ con las mismas fórmulas, la prueba no probaría nada.
 import json
 import os
 import shutil
+import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).parent
@@ -31,9 +32,28 @@ EXPECTED = RAIZ / "expected"
 HOY = "2026-09-30"
 
 
-def escribir(ruta: Path, texto: str):
-    ruta.parent.mkdir(parents=True, exist_ok=True)
-    ruta.write_text(texto.strip() + "\n", encoding="utf-8")
+sys.path.insert(0, str(Path(__file__).parent.parent / "sintetico"))
+import corpus  # noqa: E402  el motor: la estructura, las disposiciones y la escritura
+
+# El corpus no va a disco a medida que se declara: lo acumula el portafolio, y al final
+# `volcar()` lo escribe con la disposición que se le pida. Esa es la razón de ser del
+# motor — la misma declaración puede salir ordenada, plana, revuelta o sin carpetas, y
+# así se prueba que el descubrimiento no dependa de dónde quedaron los archivos.
+PORTAFOLIO = corpus.Portafolio(INPUT)
+
+
+def escribir(ruta, texto):
+    """Registra si es material de entrada; escribe de una si es una respuesta.
+
+    Las fichas y los hallazgos de `expected/` son respuestas, no insumo: esos sí se
+    escriben aquí mismo.
+    """
+    ruta = Path(ruta)
+    try:
+        relativa = ruta.relative_to(INPUT)
+    except ValueError:
+        return corpus.escribir_suelto(ruta, texto)
+    return PORTAFOLIO.escribir(relativa, texto)
 
 
 def campo(valor, fuente, fecha, estado="found", conflicto=None):
@@ -1225,6 +1245,7 @@ def documentos_leidos(ficha, carpeta):
 
 
 if __name__ == "__main__":
+    PORTAFOLIO.volcar()   # el árbol de input/, con la estructura de referencia
     for carpeta in (EXPECTED / "fichas",):
         if carpeta.exists():
             shutil.rmtree(carpeta)

@@ -36,6 +36,11 @@ PUERTAS = [
     ("material", [sys.executable, str(RAIZ / "tests/criterio-product/generar.py")],
      "Lo que hay antes del proyecto: dos productos, con un control negativo"),
 
+    ("material", [sys.executable, str(RAIZ / "tests/sintetico/corpus.py"), "--selftest"],
+     "El motor del material: la estructura de referencia y las cuatro disposiciones"),
+    ("material", [sys.executable, str(RAIZ / "tests/sintetico/disposiciones.py")],
+     "Que el recorrido encuentre los mismos documentos sin importar cómo estén"),
+
     ("código", [sys.executable, str(PMO / "pmo.py"), "selftest"],
      "La aritmética, la cadencia, la cola y el contraste entre las dos fichas"),
     ("código", [sys.executable, str(PMO / "texto.py"), "--selftest"],
