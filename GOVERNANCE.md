@@ -23,7 +23,7 @@ Each plugin is verified on its own terms. There is no single bar across the proj
 
 Every plugin carries, in its own folder:
 
-- `ACCEPTANCE.md` — what "working" means for this plugin, and the threshold it must hit.
+- `DISENO.es.md` — the agent's design sheet, and at its end what "working" means for this plugin and the threshold it must hit.
 - Synthetic material with known answers, under `tests/`.
 - A grader that scores a run against those answers.
 

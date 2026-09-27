@@ -10,7 +10,7 @@ not done.
 arithmetic verified against a corpus with answers written by hand. **What has not been
 tested yet: extraction over a real organisation's documentation** — the corpus seeds the
 record, so the document → model → record chain has not been exercised. Nothing is announced
-as finished until the [acceptance criteria](ACCEPTANCE.md) pass.
+as finished until the [acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
 
 ---
 
@@ -81,6 +81,37 @@ your policies before pointing it at confidential material. Full disclaimer in
 [DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
 
 ---
+
+## How you work with Samuel
+
+The family's three agents share five behaviours. They are not style: they are what makes the
+output something you can put in front of a committee.
+
+1. **Every value carries the citation of the document it came from**, with its date. A value
+   with no source is a defect, not a degraded case.
+2. **"Not stated anywhere" is a valid answer**, and it is the most common one at the start.
+3. **They go quiet when there is nothing.** None produces a report to say there is no news.
+4. **None of them declares.** None writes a project's status or decides what gets built.
+5. **None of them writes to anybody.** They produce the list; chasing someone is a conversation.
+
+What changes between them is **the rhythm of the conversation**.
+
+**With Samuel you talk every week.** He works over one project and his cycle is the meeting:
+the conversation is frequent and short, and it almost always turns on a document that has just
+appeared.
+
+**The rhythm:** `/pm-setup` once; then, the day before the meeting `/pm-agenda`, the day after
+`/pm-minutes` with the transcript or the notes, and once a week `/pm-report`. `/pm-wake` on a
+clock runs that calendar by itself.
+
+**What he will ask of you:** **the minutes.** They are his main input and without them he
+dries up — a manager who does not keep what the meeting leaves written needs to know that on
+day one, and `/pm-setup` says so. And **the status declaration**, which he always asks for
+**after** showing you the evidence and never before: if he proposed a status, your declaration
+would stop being independent information.
+
+**What not to ask him:** to chase an overdue commitment. He gives you the name, the date and
+the citation; you make the call, because chasing is a conversation.
 
 ## You and the PMO read the same documents
 
@@ -156,6 +187,6 @@ The full design, with the three classes of function and what stays with the pers
 [`DISENO.es.md`](DISENO.es.md), which ships with the plugin — in
 Spanish, as working documents.
 
-The three agents together, and how they meet, in [`FAMILIA.md`](../criterio-pmo/FAMILIA.md).
+The three agents together, how they operate and how they meet, in the [`criterio-pmo` README](../criterio-pmo/README.md).
 
 **How the last run went, generated from the run itself:** [`tests/criterio-pm/RESULTADOS.md`](../../tests/criterio-pm/RESULTADOS.md).

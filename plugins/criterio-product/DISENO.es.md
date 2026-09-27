@@ -8,7 +8,7 @@ Extiende al **gerente de producto**: la persona que define qué se va a construi
 que exista un proyecto.
 
 Marco general, definición de las clases y de las columnas:
-[`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).
+[la hoja de Vera](../criterio-pmo/DISENO.es.md#el-marco-de-la-familia).
 
 | | |
 |---|---|
@@ -104,7 +104,7 @@ La primera fila traslada la tesis de Criterio aguas arriba: en un proyecto se co
 
 Lista de acciones que el agente no ejecuta. No es una evaluación de riesgo ni pretende ser
 exhaustiva: **la responsabilidad de uso y ejecución es de la organización que lo despliega.**
-Ver [FAMILIA.es.md](../criterio-pmo/FAMILIA.es.md#c--lo-que-el-agente-no-hace).
+Ver [la hoja de Vera](../criterio-pmo/DISENO.es.md#el-marco-de-la-familia).
 
 | Función | Requiere | Qué le entrega al agente |
 |---|---|---|
@@ -159,3 +159,69 @@ protege a quien instale esto. La razón por la que el tercer prerrequisito estab
 sigue en pie y está en [`docs/decisions/0005`](../../docs/decisions/0005-scope-pmo-only.md): definir
 este agente antes de que hubiera algo medible habría diluido la única tesis que se puede
 probar. Hoy hay con qué medirlo, y lo que falta es una carpeta de verdad.
+
+---
+
+# Criterios de aceptación
+
+Nada se anuncia como terminado hasta que todos pasen. Están escritos antes que el código a
+propósito: un criterio escrito después describe lo que se construyó, no lo que hacía falta.
+
+La corrida que los sostiene, con lo que **no** cubre, está en
+[`EVIDENCIA.md`](../../tests/criterio-product/EVIDENCIA.md) y, generada desde la corrida misma,
+en [`RESULTADOS.md`](../../tests/criterio-product/RESULTADOS.md).
+
+## El registro
+
+1. **Todo campo lleva su cita** —documento fuente y fecha— o el estado `not_found`. Un campo con
+   valor y sin fuente es un defecto, no un caso degradado.
+2. **Un requerimiento dice el problema, no la solución.** Si lo escrito ya decide cómo, la
+   conversación de qué se necesita no se tuvo.
+3. **A un requerimiento propuesto no se le exige evidencia ni criterio de aceptación.** Nadie ha
+   dicho todavía que se hace. Exigírselo convierte el registro en un trámite, y la prueba
+   comprueba que **no** aparezca ninguna señal.
+4. **Los cinco estados son cerrados.** Un estado fuera del vocabulario se calcula como
+   `desconocido` y nunca se convierte en otro inventado.
+
+## La definición contra la evidencia
+
+5. **Cada afirmación de la definición cae en exactamente una de tres**: sostenida por evidencia,
+   sostenida por un supuesto declarado, o no está dicha en ninguna parte. La tercera se reporta,
+   no se omite.
+6. **Una contradicción lleva las dos fuentes y las dos fechas.** Una señal que nombra el
+   desacuerdo sin nombrar los dos documentos no se publica: no le permite a nadie hacer nada.
+7. **Una diferencia por debajo del umbral no se reporta.** Reportar imprecisión como
+   contradicción acaba con los lectores del informe, y la prueba comprueba que el caso callado
+   sea callado.
+
+## La costura con el proyecto
+
+8. **El agente nunca escribe `declared`**, ni siquiera en el momento en que crea la ficha. La
+   persona declara; el agente muestra contra qué.
+9. **Una ficha, un escritor.** Alba crea la ficha del proyecto con el acta firmada y no la
+   vuelve a escribir. La prueba enumera lo que se escribió.
+10. **Una traza se confirma contra la ficha del proyecto, nunca contra el registro propio.** Sin
+    carpeta de fichas a la vista, ninguna traza se reporta como confirmada — y eso se dice en la
+    salida en vez de darse por supuesto.
+11. **El acta es un borrador hasta que una persona la firma.** La ficha se crea después de la
+    firma, nunca antes.
+
+## El cruce entre productos
+
+12. **Publicar es explícito.** La ficha de producto llega a la carpeta común solo cuando un
+    comando la pone ahí, y lleva lo mínimo para cruzar: ni entrevistas, ni supuestos, ni el
+    registro completo.
+13. **Sin otro producto publicado, la canibalización no se reporta en cero: se dice que no se
+    puede responder.** Un cruce contra nada no es un cruce limpio.
+14. **El producto que no se pisa con nada no produce ni una señal**, y hay uno publicado en el
+    corpus precisamente para comprobarlo.
+
+## La evidencia
+
+15. **Un corpus sintético con respuestas conocidas**, incluido un control negativo: un producto
+    cuya definición, entrevistas y registro no producen ni un hallazgo. Un agente que reporta
+    sobre un producto sano es un generador de ruido.
+16. **Toda cifra de la documentación sale de una corrida**, y la corrida se reproduce desde el
+    repositorio con la librería estándar y sin instalar nada.
+17. **Los scripts copiados son idénticos byte a byte a su fuente**, y la comprobación que lo
+    demuestra corre en la misma puerta que todo lo demás.

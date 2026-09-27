@@ -10,7 +10,7 @@ llega con la cadena de evidencia armada y los huecos señalados.
 verificada con 62 comprobaciones. **Lo que todavía no se ha probado: el registro sobre la
 documentación real de un producto** — la extracción desde entrevistas y casos de negocio no
 se ha ejercitado fuera de material sintético. Nada se anuncia como terminado hasta que pasen
-los [criterios de aceptación](ACCEPTANCE.md).
+los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
 
 ---
 
@@ -76,6 +76,37 @@ de apuntarlo a material confidencial. Descargo completo en
 [DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
 
 ---
+
+## Cómo se trabaja con Alba
+
+Los tres agentes de la familia comparten cinco conductas. No son estilo: son las que hacen que
+el resultado se pueda poner frente a un comité.
+
+1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
+   es un defecto, no un caso degradado.
+2. **«No está dicho en ninguna parte» es una respuesta válida**, y es la que más se usa al
+   principio.
+3. **Se callan cuando no hay nada.** Ninguno produce un informe para decir que no hay novedad.
+4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
+5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
+
+Lo que cambia entre uno y otro es **el ritmo de la conversación**.
+
+**Con Alba se conversa por temporadas.** Trabaja antes de que exista el proyecto, y ese trabajo
+no es semanal: viene por rachas —una ronda de entrevistas, un comité de producto, una
+definición que hay que cerrar— con semanas tranquilas en medio.
+
+**El ritmo:** `/product-setup` una vez; `/product-discovery` cada vez que termina una ronda de
+entrevistas; `/product-definition` cuando la definición se va a cerrar o cuando alguien la va a
+discutir; `/product-charter` el día que se vuelve proyecto. `/product-wake` semanal avisa de lo
+que cruzó un umbral mientras nadie miraba.
+
+**Lo que te va a pedir a ti:** **hablar con el cliente.** Es la parte del oficio que ningún
+agente va a tener, y sin ella no hay nada que sintetizar. Y **decidir**: lo que lleva sesenta
+días sin decidirse sigue sin decidirse cuando Alba termina; lo que cambia es que ahora tiene
+nombre, días y alguien a quien preguntarle.
+
+**Lo que no le pidas:** que te diga si algo va a gustar. Eso no está en ningún documento.
 
 ## Lo decidido que nadie está construyendo
 
@@ -159,6 +190,6 @@ Qué prueba esa corrida y, con el mismo detalle, **qué no**, en
 El diseño completo, con las tres clases de función y lo que sigue siendo de la persona, en
 [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
-Los tres agentes juntos, y cómo se encuentran, en [`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).
+Los tres agentes juntos, cómo operan y cómo se encuentran, en el [README de `criterio-pmo`](../criterio-pmo/README.es.md).
 
 **Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-product/RESULTADOS.md`](../../tests/criterio-product/RESULTADOS.md).

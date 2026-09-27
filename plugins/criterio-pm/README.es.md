@@ -9,7 +9,7 @@ desbloqueas. Él llega con la semana lista y con la lista de lo que se dijo y no
 verificada sobre un corpus con respuestas escritas a mano. **Lo que todavía no se ha
 probado: la extracción sobre la documentación real de una organización** — el corpus
 siembra la ficha, así que la cadena documento → modelo → ficha no se ha ejercitado. Nada se
-anuncia como terminado hasta que pasen los [criterios de aceptación](ACCEPTANCE.md).
+anuncia como terminado hasta que pasen los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
 
 ---
 
@@ -79,6 +79,38 @@ políticas antes de apuntarlo a material confidencial. Descargo completo en
 [DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
 
 ---
+
+## Cómo se trabaja con Samuel
+
+Los tres agentes de la familia comparten cinco conductas. No son estilo: son las que hacen que
+el resultado se pueda poner frente a un comité.
+
+1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
+   es un defecto, no un caso degradado.
+2. **«No está dicho en ninguna parte» es una respuesta válida**, y es la que más se usa al
+   principio.
+3. **Se callan cuando no hay nada.** Ninguno produce un informe para decir que no hay novedad.
+4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
+5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
+
+Lo que cambia entre uno y otro es **el ritmo de la conversación**.
+
+**Con Samuel se conversa todas las semanas.** Trabaja sobre un proyecto y su ciclo es la
+reunión: la conversación es frecuente y corta, y casi siempre gira alrededor de un documento
+que acaba de aparecer.
+
+**El ritmo:** `/pm-setup` una vez; después, el día antes de la reunión `/pm-agenda`, el día
+después `/pm-minutes` con la transcripción o las notas, y una vez por semana `/pm-report`.
+`/pm-wake` en un reloj hace ese calendario solo.
+
+**Lo que te va a pedir a ti:** **la minuta.** Es su insumo principal y sin ella se seca — un
+gerente que no guarda lo que la reunión deja escrito necesita saberlo el primer día, y
+`/pm-setup` se lo dice. Y **la declaración del estado**, que te pide siempre **después** de
+mostrarte la evidencia y nunca antes: si te propusiera un estado, tu declaración dejaría de
+ser información independiente.
+
+**Lo que no le pidas:** que persiga un compromiso vencido. Te da el nombre, la fecha y la
+cita; la llamada la haces tú, porque perseguir es una conversación.
 
 ## Tú y la PMO leen los mismos documentos
 
@@ -154,6 +186,6 @@ Qué prueba esa corrida y, con el mismo detalle, **qué no**, en
 El diseño completo, con las tres clases de función y lo que sigue siendo de la persona,
 en [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
-Los tres agentes juntos, y cómo se encuentran, en [`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).
+Los tres agentes juntos, cómo operan y cómo se encuentran, en el [README de `criterio-pmo`](../criterio-pmo/README.es.md).
 
 **Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-pm/RESULTADOS.md`](../../tests/criterio-pm/RESULTADOS.md).

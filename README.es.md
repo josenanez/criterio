@@ -128,7 +128,7 @@ La lista no está cerrada. **Una capacidad entra cuando alguien que la ejerce qu
 
 Después de instalar, cada agente tiene un comando de instalación que mira tus carpetas, hace cinco preguntas y produce un primer resultado sobre tus propios documentos. **Nadie edita un archivo de configuración a mano.**
 
-**Cada cuánto corre cada uno, qué le tienes que decir y qué comando se le pone a un reloj:** [`FAMILIA.es.md`](plugins/criterio-pmo/FAMILIA.es.md) — **la página de la familia**: qué hace cada agente comando por comando, cómo operan los tres juntos, cómo se comporta cada uno y cada cuánto corre. Ninguno se programa solo — los tres traen el comando que un reloj invoca, y el reloj vive fuera del plugin.
+**Cada cuánto corre cada uno, qué le tienes que decir y qué comando se le pone a un reloj:** [`plugins/criterio-pmo/README.es.md`](plugins/criterio-pmo/README.es.md) — **la página de la familia**: cómo operan los tres juntos, cómo se trabaja con cada uno, y cada cuánto corre. Ninguno se programa solo — los tres traen el comando que un reloj invoca, y el reloj vive fuera del plugin.
 
 ---
 

@@ -7,7 +7,7 @@ viernes.
 Extiende al **gerente de proyecto**: la persona que responde por un proyecto.
 
 Marco general, definición de las clases y de las columnas:
-[`FAMILIA.es.md`](../criterio-pmo/FAMILIA.es.md).
+[la hoja de Vera](../criterio-pmo/DISENO.es.md#el-marco-de-la-familia).
 
 | | |
 |---|---|
@@ -226,7 +226,7 @@ gerente.
 
 Lista de acciones que el agente no ejecuta. No es una evaluación de riesgo ni pretende ser
 exhaustiva: **la responsabilidad de uso y ejecución es de la organización que lo despliega.**
-Ver [FAMILIA.es.md](../criterio-pmo/FAMILIA.es.md#c--lo-que-el-agente-no-hace).
+Ver [la hoja de Vera](../criterio-pmo/DISENO.es.md#el-marco-de-la-familia).
 
 | Función | Requiere | Qué le entrega al agente |
 |---|---|---|
@@ -310,3 +310,64 @@ documento → modelo → ficha no se ha ejercitado. `grade.py --fichas` existe p
   proyecto a la lectura de la PMO con una profundidad que antes no tenía. Es deseable y también
   es político, y este diseño no decide por la organización: publicar es explícito, y quien lo
   corre sabe lo que hace.
+
+---
+
+# Criterios de aceptación
+
+Nada se anuncia como terminado hasta que todos pasen. Están escritos antes que el código a
+propósito: un criterio escrito después describe lo que se construyó, no lo que hacía falta.
+
+La corrida que los sostiene, con lo que **no** cubre, está en
+[`EVIDENCIA.md`](../../tests/criterio-pm/EVIDENCIA.md) y, generada desde la corrida misma, en
+[`RESULTADOS.md`](../../tests/criterio-pm/RESULTADOS.md).
+
+## La ficha
+
+1. **El agente nunca escribe `declared`.** No es una regla de documentación: es una restricción
+   del camino de escritura, y el selftest lo intenta y comprueba que falle.
+2. **Todo campo lleva su cita** —documento fuente y fecha— o el estado `not_found`. Un campo con
+   valor y sin fuente es un defecto, no un caso degradado.
+3. **Dos fichas no se fusionan nunca.** La ficha de Samuel y la lectura que Vera hace del mismo
+   proyecto siguen siendo dos archivos con dos dueños, y ningún comando escribe las dos.
+
+## Publicar
+
+4. **Publicar es explícito.** `ficha-pm.json` llega a la carpeta de gobierno del proyecto solo
+   cuando un comando la pone ahí. Ningún comando escribe nada más fuera del estado del agente, y
+   la prueba enumera lo que se escribió.
+5. **Una ficha publicada es un documento válido**: Vera la lee con su lectura de documentos
+   normal, y cada cita que lleva resuelve.
+
+## Los compromisos
+
+6. **Un compromiso extraído de una minuta lleva quién, qué, para cuándo y la fuente.** Uno sin
+   fecha se cuenta aparte — no puede estar vencido, y no puede desaparecer del informe, que es
+   justamente la falla que esto existe para terminar.
+7. **El mismo compromiso reprogramado es uno con historial**, no tres. La tercera
+   reprogramación se reporta como bloqueo, no como tres vencidos.
+8. **La misma pregunta no se hace dos veces.** Si nadie contestó, la corrida siguiente reporta
+   *«preguntada el 12, sin respuesta»* —que es un hallazgo por sí solo— en vez de volver a
+   preguntar.
+
+## El cambio y el escalamiento
+
+9. **El efecto de un cambio se calcula, no se describe.** A quién alcanza, por qué camino,
+   quién no puede sostener su fecha y por cuántos días. **Y no se estima cuántos días se mueve
+   cada alcanzado**: eso necesita holgura por actividad y la ficha no la tiene.
+10. **El plan no compromete ninguna fecha.** El borrador propone estructura y orden; la fecha
+    la compromete el gerente, porque es un acto de autoridad.
+
+## La aritmética compartida
+
+11. **Los scripts copiados son idénticos byte a byte a su fuente**, y la comprobación que lo
+    demuestra corre en la misma puerta que todo lo demás.
+12. **Cada copia corre sola.** El plugin instalado no importa nada de la ruta del otro plugin.
+
+## La evidencia
+
+13. **Un corpus sintético con respuestas conocidas**, incluido un control negativo: un proyecto
+    cuyas reuniones no producen ni un hallazgo. Un agente que reporta sobre un proyecto sano es
+    un generador de ruido.
+14. **Toda cifra de la documentación sale de una corrida**, y la corrida se reproduce desde el
+    repositorio con la librería estándar y sin instalar nada.

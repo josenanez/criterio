@@ -34,6 +34,80 @@ que el proyecto nace.
 
 ---
 
+## Cómo operan los tres
+
+![Cómo operan los tres agentes](../../docs/img/es/flujo.png)
+
+El orden temporal es lo que los hace un sistema y no tres herramientas:
+
+```
+    LA DEFINICIÓN            EL PROYECTO             EL PORTAFOLIO           EL EQUIPO
+       Alba                     Samuel                    Vera                Rostrum
+         │                         │                        │                     │
+         │──── el acta ──────────► │                        │                     │
+         │     nace la ficha       │                        │                     │
+         │                         │──── ficha-pm.json ───► │                     │
+         │                         │     publicada          │                     │
+         │                         │                        │──── el informe ───► │
+         │ ◄──── la ficha ─────────┴────────────────────────┘                     │
+         │       ¿se está construyendo mi producto?                               │
+         │                                                  │ ◄─── la petición ───┘
+         │                                                  │   revisar · explicar · corregir
+```
+
+**Dos ciclos cerrados, y ninguno pasa por una base de datos compartida.** El acta baja una
+vez, y con ella nace la ficha. La ficha del gerente sube publicada como un documento más del
+proyecto, y Vera la lee como lee todo lo demás. El informe sale al equipo, y del equipo vuelve
+una petición. Y el lazo de arriba: Alba lee las fichas de los proyectos para confirmar que el
+que dice estar construyendo su producto de verdad lo esté.
+
+Lo que **no** hay en ese dibujo es tan importante como lo que hay:
+
+- **Ninguna flecha entre dos agentes.** Todas pasan por un documento. Dos agentes que se
+  hablan directo son dos agentes que hay que desplegar juntos.
+- **Ninguna flecha de vuelta desde Rostrum a la ficha.** El servidor no escribe.
+- **Ninguna flecha que escriba el estado declarado.** Esa la escribe una persona, en los tres
+  sitios donde aparece.
+
+### Y las personas, en el mismo dibujo
+
+```
+   El gerente de producto      El gerente de proyecto      El gerente de la PMO
+   decide qué se construye     declara el estado           decide qué escala
+   y firma el acta             y dirige la reunión         y persigue lo que el informe pide
+         │                              │                           │
+         └──────── cada uno le da a su agente el insumo que ────────┘
+                   ningún agente puede producir solo
+```
+
+**El insumo de cada agente lo produce el trabajo no delegable de su persona.** Quitar a la
+persona no deja al agente solo: lo deja sin comida.
+
+## Estado
+
+**Los tres están construidos y se pueden instalar hoy**, y los tres tienen la misma deuda,
+que conviene no esconder: **verificados sobre corpus sintético, no probados sobre la
+documentación real de una organización.**
+
+| Agente | Se instala | Sus tablas A y B |
+|---|---|---|
+| Vera · PMO | `criterio-pmo` · 17 comandos, 10 skills | **Sin filas abiertas** |
+| Samuel · Project Manager | `criterio-pm` · 9 comandos, 8 skills | **Sin filas abiertas** |
+| Alba · Product Manager | `criterio-product` · 11 comandos, 12 skills | **Sin filas abiertas** |
+| Rostrum · el servidor | Dentro de `criterio-pmo` | — |
+
+**Ninguna de las tres hojas de diseño tiene ya una fila en «Falta» o en «Parcial».** Lo que
+sigue pendiente no es construcción.
+
+Y una deuda que es de los tres a la vez: **la extracción nunca se ha corrido.** Los tres
+corpus siembran el estado desde sus respuestas de referencia, así que la cadena documento →
+modelo → ficha no se ha ejercitado.
+
+La corrida que sostiene estos estados, con lo que prueba y lo que no, está en las tres
+páginas de evidencia bajo [`tests/`](../../tests/) y, dibujada, en
+[`docs/pruebas.html`](../../docs/pruebas.html). La quinta decisión de la tabla siguiente salió de
+ahí y no de una conversación.
+
 ## Instalar
 
 ![Instalación: cuatro clics, o dos comandos](../../docs/img/es/instalacion.png)
@@ -97,6 +171,74 @@ programador del sistema en Claude Code. **Y si no quieren corridas desatendidas*
 banco es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo
 que se pierde es que avise sin que nadie pregunte.
 
+## Cómo se configura y cada cuánto corre cada uno
+
+Esta es la tabla que responde tres preguntas a la vez: **dónde se ve cada agente, qué le
+hace falta configurado, y cada cuánto tiene sentido que corra.**
+
+| | Vera | Samuel | Alba |
+|---|---|---|---|
+| **Se instala** | `criterio-pmo` | `criterio-pm` | `criterio-product` |
+| **Instancias** | Una por PMO | **Una por proyecto** | **Una por producto** |
+| **Se configura con** | `/pmo-setup` | `/pm-setup` | `/product-setup` |
+| **Cuánto tarda eso** | Quince minutos | Diez | Diez |
+| **Qué le tienes que decir** | Dónde está la documentación, cuándo es el comité, quién eres | Dónde está tu proyecto, cuándo es tu reunión, quién eres | Dónde está la definición, quién decide qué se construye, quién eres |
+| **Dónde queda** | Un archivo de la persona, escrito por el comando | Igual | Igual |
+| **El que se le pone a un reloj** | `/pmo-wake` | `/pm-wake` | `/product-wake` |
+| **Cadencia que tiene sentido** | Diaria si el barrido está activo; y el informe con su anticipación al comité | Diaria con barrido, o el día antes y el día después de la reunión | **Semanal alcanza** |
+| **Qué lo despierta además del reloj** | Una petición que alguien dejó en Rostrum | Una minuta nueva en la carpeta | Que algo cruzara un umbral solo |
+
+**Nadie edita un archivo de configuración a mano.** Es una regla de los tres comandos de
+instalación, no una cortesía: si para cambiar un umbral hay que abrir un JSON, el umbral se
+queda como vino y la configuración deja de describir a la organización. Se dice en la
+conversación y el comando lo reescribe.
+
+Cada plugin trae su `scripts/config.example.json` para ver la forma completa sin instalar
+nada.
+
+### Por qué las tres cadencias son distintas
+
+No es una preferencia: **cada agente mide contra otra cosa.**
+
+- **Vera** mide contra la carpeta. Un documento nuevo puede cambiar el estado de un
+  proyecto hoy, así que el barrido diario tiene sentido y el informe se entrega con
+  anticipación al comité — para que el gerente de la PMO alcance a reaccionar a lo que
+  encuentre, no para que se entere cuando ya está enviado.
+- **Samuel** mide contra la reunión. Su ciclo no es el calendario: es *antes de la reunión*
+  y *después de la reunión*, y por eso `/pm-wake` mira de qué lado estás antes de ofrecer
+  nada.
+- **Alba** mide contra el paso del tiempo, y eso cambia todo. Sus umbrales se cuentan en
+  meses, así que una corrida diaria sobre un registro que se mueve poco es ruido con
+  puntualidad. **Pero es la única de los tres cuyos hallazgos aparecen sin que nadie haga
+  nada**: el requerimiento que llevaba cincuenta y nueve días sin decidirse llega a
+  sesenta, y nadie va a abrir una sesión para preguntar si eso ya pasó.
+
+### Los tres se callan cuando no hay nada
+
+Es la regla que decide si un agente sigue instalado el mes siguiente. Los tres comandos de
+reloj devuelven `quiet` cuando no toca nada, y con `quiet` la salida es una línea: qué se
+revisó y cuándo vuelve.
+
+Un agente que produce un informe para decir que no hay novedad enseña a ignorarlo, y el día
+que sí hay novedad ya nadie lo abre.
+
+### Qué es lo que **no** está programado
+
+Conviene decirlo aquí y no en una nota al pie: **ninguno de los tres se programa solo.**
+Los tres traen el comando que un reloj invoca, y el reloj vive fuera del plugin — una tarea
+programada de Claude Cowork, o el programador del sistema operativo invocando Claude en
+modo no interactivo. Alguien tiene que ponerlo, una vez, y cada comando de reloj explica
+cómo.
+
+Y para que corra sin nadie delante hacen falta dos cosas que no dependen de este
+repositorio: **que la sesión pueda correr sin aprobar cada paso**, y **que la carpeta esté
+montada cuando el reloj dispare.**
+
+**Si la organización no quiere corridas desatendidas** —y en un banco es una respuesta
+razonable— los tres comandos sirven corridos a mano, y la cadencia sigue diciendo qué toca.
+Lo que se pierde es que avisen sin que nadie pregunte, que es justamente lo que más cuesta
+ver a mano.
+
 ## ¿Quieres que tu patrocinador vea esto sin pedírtelo?
 
 ![Rostrum: el informe, para quien no abre una carpeta](../../docs/img/es/servidor.png)
@@ -135,6 +277,37 @@ términos, con tu nombre y la fecha.
 
 Todo eso se cambia **hablando**. Si quieres que el silencio se reporte a los diez días y no a
 los quince, se lo dices.
+
+## Cómo se trabaja con Vera
+
+Los tres agentes de la familia comparten cinco conductas. No son estilo: son las que hacen que
+el resultado se pueda poner frente a un comité.
+
+1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
+   es un defecto, no un caso degradado.
+2. **«No está dicho en ninguna parte» es una respuesta válida**, y es la que más se usa al
+   principio.
+3. **Se callan cuando no hay nada.** Ninguno produce un informe para decir que no hay novedad.
+4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
+5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
+
+Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo antes
+de instalar.
+
+**Con Vera se conversa poco y se lee mucho.** Trabaja sobre cuarenta carpetas: la conversación
+es corta —le dices qué proyecto, o ninguno— y lo que devuelve es largo, un informe que alguien
+va a llevar a un comité.
+
+**El ritmo:** `/pmo-setup` una vez, `/pmo-wake` en un reloj, y después se le pregunta por
+excepción — *«diagnostica PRY-014 desde cero»*, *«reconstruye qué pasó»*, *«arma el material
+del comité»*.
+
+**Lo que te va a pedir a ti:** confirmar **cinco campos por corrida**, nunca cuarenta — si
+preguntas por cuarenta no responde nadie. Y **actuar sobre lo que el informe pide**: si nadie
+actúa, el informe siguiente dice lo mismo, y eso no es un defecto del agente.
+
+**Lo que no le pidas:** que te diga en qué estado está un proyecto. Te dice qué declara su
+gerente y qué sostienen los documentos, y **la diferencia entre las dos cosas es el producto.**
 
 ## Lo que nunca hace
 
@@ -179,6 +352,67 @@ subcomando `index` decide el costo de cada corrida: dos hashes por documento, un
 si vale extraer y otro para saber si vale releer. Y
 [`scripts/informe.py`](scripts/informe.py) arma el informe impreso a partir de lo que los
 otros dos produjeron, sin volver a leer un solo documento.
+
+## Los tres agentes y el único contrato
+
+Nada se habla con nada directamente. **La ficha de proyecto es el único contrato.**
+
+```
+   archivos ─┐
+             ├──► extracción ──► FICHA ──► cálculo ──► proyección ──► servidor
+   base de   ┘                    ▲ ▲ ▲
+   datos                          │ │ └── PMO      escribe hallazgos, lee todas
+                                  │ └──── PM       escribe la ficha, lee la suya
+                                  └────── Product  la crea, con el acta
+```
+
+El Product Manager trabaja antes de que exista plan: no escribe en la ficha, **la crea**. Su
+entrega cierra con el acta de constitución, que es el certificado de nacimiento de la ficha.
+
+Y el orden temporal es lo que hace de los tres un sistema:
+
+```
+Product Manager  ──acta──►  Project Manager  ──ficha──►  PMO
+   define                      ejecuta                    vigila el conjunto
+```
+
+### Las siete invariantes
+
+1. **Los agentes no se hablan entre sí.** Se hablan por la ficha.
+2. **Rostrum, el servidor, no escribe.**
+3. **La fuente puede cambiar; la ficha no.** Un adaptador nuevo llena los mismos campos.
+4. **Declarado y evidenciado nunca se fusionan**, venga de archivo o de base de datos.
+5. **El modelo extrae, el código calcula.**
+6. **Ningún agente escribe la declaración.** El estado declarado lo escribe una persona.
+7. **Una ficha, un escritor.** Dos agentes que leen los mismos documentos escriben dos
+   fichas, y no se fusionan nunca. La diferencia entre las dos es el hallazgo.
+
+La sexta es la más fácil de romper por conveniencia y la que se lleva el sistema entero si se
+rompe: si el agente declara, la comparación entre declaración y evidencia compara al sistema
+consigo mismo, y todo esto se vuelve un generador de informes bonitos. No es una recomendación
+de la documentación: es una restricción del camino de escritura, y falla si se intenta.
+
+La séptima es la cuarta un nivel más arriba, y aparece en cuanto hay más de un agente sobre
+el mismo proyecto. La forma cómoda de resolverlo —una ficha y un dueño— obliga a elegir mal
+en las dos direcciones: si manda el gerente, la PMO no puede leer por su cuenta cuando duda;
+si manda la PMO, entra en el camino crítico de setenta proyectos. Dos fichas quitan el
+problema en vez de arbitrarlo, y **lo que era un conflicto de escritura se vuelve la señal.**
+Ver [Samuel · las dos fichas](../criterio-pm/DISENO.es.md#las-dos-fichas).
+
+## Lo que sigue siendo de las personas
+
+Los tres roles siguen existiendo completos. Esto extiende capacidad; no sustituye función. Y el
+argumento no es de cortesía, es estructural:
+
+> **El insumo de cada agente lo produce el trabajo no delegable de su persona.**
+
+El agente PM necesita que alguien dirija la reunión, porque de ahí sale la minuta que lo
+alimenta. El agente PMO necesita que alguien persiga lo que el informe pide, porque si nadie
+actúa el informe siguiente dice lo mismo. El agente de producto necesita que alguien hable con
+el cliente, porque no hay síntesis sin entrevista.
+
+Quitar a la persona no deja al agente solo: lo deja sin comida. Cada hoja documenta qué se
+rompe primero si se intenta, y en qué orden.
 
 ## Los diecisiete comandos
 
@@ -245,10 +479,8 @@ Los tres corren con la librería estándar, sin instalar nada. Sobre material si
 respuestas conocidas hay un grader y el resultado de la última corrida, con lo que prueba y
 lo que no: [`tests/criterio-pmo/`](../../tests/criterio-pmo/).
 
-Criterios de aceptación en [ACCEPTANCE.md](ACCEPTANCE.md). El diseño de la capacidad, con lo
+Criterios de aceptación en [`DISENO.es.md`](DISENO.es.md#criterios-de-aceptación). El diseño de la capacidad, con lo
 que el agente no hace y lo que sigue siendo de las personas, en
 [`DISENO.es.md`](DISENO.es.md).
-
-Los tres agentes juntos —qué hace cada uno, cómo operan, cómo se trabaja con ellos— en [`FAMILIA.es.md`](FAMILIA.es.md).
 
 **Cómo salió la última corrida, generado desde la corrida misma:** [`tests/criterio-pmo/RESULTADOS.md`](../../tests/criterio-pmo/RESULTADOS.md).

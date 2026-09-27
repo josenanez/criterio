@@ -10,7 +10,7 @@ She arrives with the chain of evidence assembled and the gaps marked.
 arithmetic verified by 62 checks. **What has not been tested yet: the register over a real
 product's documentation** — extraction from interviews and business cases has not been
 exercised outside synthetic material. Nothing is announced as finished until the
-[acceptance criteria](ACCEPTANCE.md) pass.
+[acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
 
 ---
 
@@ -75,6 +75,36 @@ before pointing it at confidential material. Full disclaimer in
 [DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
 
 ---
+
+## How you work with Alba
+
+The family's three agents share five behaviours. They are not style: they are what makes the
+output something you can put in front of a committee.
+
+1. **Every value carries the citation of the document it came from**, with its date. A value
+   with no source is a defect, not a degraded case.
+2. **"Not stated anywhere" is a valid answer**, and it is the most common one at the start.
+3. **They go quiet when there is nothing.** None produces a report to say there is no news.
+4. **None of them declares.** None writes a project's status or decides what gets built.
+5. **None of them writes to anybody.** They produce the list; chasing someone is a conversation.
+
+What changes between them is **the rhythm of the conversation**.
+
+**With Alba you talk in seasons.** She works before the project exists, and that work is not
+weekly: it comes in bursts — a round of interviews, a product committee, a definition about to
+be closed — with quiet weeks between.
+
+**The rhythm:** `/product-setup` once; `/product-discovery` every time a round of interviews
+ends; `/product-definition` when the definition is about to close or somebody is about to argue
+with it; `/product-charter` the day it becomes a project. `/product-wake` weekly flags what
+crossed a threshold while nobody was looking.
+
+**What she will ask of you:** **to talk to the customer.** It is the part of the craft no agent
+will ever have, and without it there is nothing to synthesise. And **to decide**: what has gone
+sixty days undecided is still undecided when Alba finishes; what changes is that it now has a
+name, a number of days, and somebody to ask.
+
+**What not to ask her:** whether something will land well. That is in no document.
 
 ## What was decided and nobody is building
 
@@ -159,6 +189,6 @@ The full design, with the three classes of function and what stays with the pers
 [`DISENO.es.md`](DISENO.es.md), which ships with the plugin — in Spanish, as a
 working document.
 
-The three agents together, and how they meet, in [`FAMILIA.md`](../criterio-pmo/FAMILIA.md).
+The three agents together, how they operate and how they meet, in the [`criterio-pmo` README](../criterio-pmo/README.md).
 
 **How the last run went, generated from the run itself:** [`tests/criterio-product/RESULTADOS.md`](../../tests/criterio-product/RESULTADOS.md).

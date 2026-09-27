@@ -8,7 +8,7 @@ proyectos, no por uno.
 
 Esta hoja es la referencia completa de la capacidad: el flujo, las piezas que la componen y
 qué hace cada una, las tres clases de función, y lo que falta. Marco general y definiciones:
-[FAMILIA.es.md](FAMILIA.es.md).
+[el README del plugin](README.es.md).
 
 | | |
 |---|---|
@@ -275,3 +275,198 @@ un pendiente de construcción, y tratarlo como pendiente solo sirve para parecer
   documento cambia, con una pregunta asociada — no como contador permanente visible al
   patrocinador. Es la misma información, y la diferencia decide si el gerente la recibe como
   señal de trabajo o como calificación.
+
+---
+
+# El marco de la familia
+
+Lo que sigue gobierna a los tres agentes y no solo a Vera. Vive en esta hoja porque es **diseño**: se discute aquí y se decide aquí, y lo que la organización que instala necesita saber está en el README, no en este apartado.
+
+## La necesidad común: proyectos
+
+Los tres agentes existen alrededor de un mismo objeto, y la elección carga todo el peso del
+diseño: **un proyecto tiene plan, y sin plan no hay contra qué comparar.**
+
+Toda la propuesta se sostiene en contrastar lo que alguien declara contra lo que sustentan los
+documentos. Esa comparación necesita una referencia aprobada. En un proceso o en un área no
+existe el *contra qué*; en un proyecto sí, y se llama línea base.
+
+## Las tres clases
+
+Cada función de cada rol cae en una de tres. **El alcance construido de Criterio es A y B.**
+
+### A — Lo que el agente hace, y hoy consume tiempo de alguien
+
+Trabajo que la organización ya ejecuta todas las semanas: leer, consolidar, cruzar, reportar.
+El agente no lo acelera, lo sustituye. Se reconoce por una prueba simple: **si nadie lo hace,
+alguien lo nota.**
+
+### B — Lo que el agente hace y hoy no se hace
+
+Trabajo que la organización no ejecuta, no por descuido sino porque costaría días por
+proyecto: el forense de catorce meses, la contradicción entre cuarenta carpetas, el supuesto
+que nadie verificó. Se reconoce por la prueba inversa: **si nadie lo hace, nadie lo nota.**
+
+La distinción importa para entender el valor. La A ahorra tiempo en trabajo que ya se hace y la
+agradece el equipo. La B produce lo que hoy no existe en ninguna PMO, y la compra un director.
+
+### C — Lo que el agente no hace
+
+Un conjunto de acciones que el agente **no ejecuta**. Nada más.
+
+Esta lista no evalúa riesgos ni exposición de nadie: describe el límite del agente. Quien
+instala Criterio acepta los [términos](../../TERMS.es.md) —la verificación es suya, §2; se
+entrega sin garantía ni responsabilidad, §5— y el [descargo](../../DISCLAIMER.es.md). La
+responsabilidad de uso y de ejecución es de la organización que lo despliega, y si en su
+contexto la clase C es más grande que esta lista, delimitarla y documentarla le corresponde a
+ella, con el descargo adicional que su gobierno interno exija.
+
+Cada fila de C lleva dos datos, y ninguno es un riesgo:
+
+- **Requiere** — por qué está fuera del alcance del agente: *autoridad* (compromete a la
+  organización), *información fuera de los documentos*, o *juicio sobre personas*.
+- **Qué le entrega al agente** — porque casi toda función de C produce el insumo de una función
+  de A o de B. Es la parte que hace de esto un ciclo y no dos mundos separados.
+
+## Cómo se llaman
+
+**La capacidad se llama PMO, CFO o CLO. El agente lleva nombre de persona.** Son dos cosas
+distintas y conviene no mezclarlas: la capacidad es la función de la organización, y el
+agente es quien la extiende.
+
+Que lleven nombre de persona no es un adorno: **son capacidades extendidas de personas
+reales**, y el producto entero se sostiene en que la persona sigue ahí. Un nombre propio
+dice eso sin tener que explicarlo.
+
+| Pieza | Nombre | De dónde viene | La frase |
+|---|---|---|---|
+| Agente PMO | **Vera** | latín *verus*, lo verdadero | *Vera dice lo que los documentos dicen, no lo que se reporta* |
+| Agente Project Manager | **Samuel** | «el que escuchó» | *Samuel oyó lo que se dijo en la reunión, y lo recuerda el viernes* |
+| Agente Product Manager | **Alba** | el amanecer, antes de que haya luz | *Alba trabaja antes de que el proyecto exista* |
+| El servidor | **Rostrum** | una tribuna | *Sostiene lo que ya está escrito, donde otros puedan leerlo* |
+
+**La regla, que es lo que hace que esto escale y no la lista:** el nombre de un agente es
+un nombre de persona **cuyo significado apunta al oficio que su familia extiende**, y tiene
+que poder terminar la frase «X hace esto, y no opina». Si no la termina, está mal elegido.
+
+Samuel es el que mejor lo muestra: la función central de ese agente es **el compromiso
+dicho y no cumplido**, y el nombre significa literalmente «el que escuchó».
+
+Las familias que vengan eligen con la misma regla y con las referencias de su propio
+gremio — **CFO** con Mateo, patrono de contadores y banqueros, o Luca por Pacioli; **CLO**
+con Ivo, patrono de los abogados. Quien pertenece al gremio reconoce la referencia sin que
+nadie se la explique, y quien no la reconoce solo ve un nombre, que también está bien.
+
+**El servidor es el único que no lleva nombre de persona, y es a propósito.** Los agentes
+lo llevan porque toman decisiones sobre lo que leen; el servidor no toma ninguna. Es
+infraestructura, y conserva nombre de objeto: una tribuna no mide, no corrige y no opina —
+sostiene lo que ya está escrito a la altura de quien lo va a leer. Si algún día calculara
+algo, el nombre dejaría de ser cierto, y eso es exactamente lo que se quiere que se note.
+
+**Los nombres no se traducen** —son propios— y **no son identificadores**: el plugin se
+sigue llamando `criterio-pmo`, los comandos y los skills no cambian. El nombre le da
+carácter a lo que la persona ve, no a lo que el código importa.
+
+## Un dueño por cosa
+
+No se duplica documentación. Una tabla copiada en tres documentos se desactualiza en el
+primero que nadie mire, y eso ya pasó: la lista de señales de la página pública llegó a estar
+cinco señales atrás y a prometer una que el código no emitía.
+
+| Cosa | Dueño | Por qué ahí |
+|---|---|---|
+| Los valores de los umbrales | `DEFAULT_THRESHOLDS` en `scripts/pmo.py` | Es lo que el código lee. Cualquier otra copia es una opinión |
+| Qué significa cada señal y cuándo merece alarma | el skill `portfolio-health` | Es lo que el modelo carga en tiempo de ejecución, y tiene que sostenerse solo |
+| El inventario de comandos y skills | el README del plugin | El plugin se distribuye por el market y su README viaja con él |
+| La promesa pública y las cifras de terceros | el README del market | Es la primera página que alguien abre, y la única que decide una instalación |
+| El diseño de cada agente | estas hojas | Clases, flujo, lo que es de las personas, lo que falta |
+| El resultado de las corridas | `tests/<plugin>/EVIDENCIA.md` | La evidencia vive con el material que la produjo |
+
+Lo verifican dos cosas, y ninguna es un humano acordándose: `scripts/validate_plugins.py`
+exige que el README del plugin liste cada comando, y `tests/coherencia.py` exige que cada
+señal que el código calcula esté documentada en su skill y que cada comando aparezca en la
+página pública. **Si algo se agrega y no se documenta en su dueño, falla.**
+
+## Decisiones de esquema, cerradas
+
+Aquí vivían cinco, todas de esquema y todas por decidir **antes** de que un agente empezara a
+llenar fichas: una ficha llena con el esquema equivocado es la migración que no queremos hacer.
+
+**Las cinco se construyeron** —`source_kind`, `producto`, `autoridad`, el monto por entregable
+y, la última, **`requerimiento` como registro**—, y por eso salen de la tabla en vez de quedarse
+como historia. El registro de requerimiento es el contrato de datos de Alba, vive en
+`criterio-product` con su propia aritmética, y es el que vuelve *«qué requerimientos faltan»* un
+filtro en vez de una corrida de modelo sobre documentos cada vez. El esquema va en 0.2.
+
+Lo que queda abierto de verdad está en cada hoja: **cómo bajan los estándares de la PMO a N
+instalaciones** y **qué pasa cuando un gerente publica su ficha y no quiere** —las dos en la
+hoja del Project Manager—, y **el análisis de canibalización**, que necesita las métricas de más
+de un producto a la vista y hoy cada instalación mira el suyo.
+
+Sobre la base de datos hay una trampa que conviene dejar escrita: **lo que trae un PPM son más
+declaraciones, no evidencia.** El campo *"estado: verde"* de la herramienta corporativa es la
+afirmación del gerente con otra interfaz. La evidencia sigue viviendo en actas y minutas.
+
+---
+
+# Criterios de aceptación
+
+Escritos antes que el código, a propósito: un criterio escrito después describe lo que se
+construyó, no lo que hacía falta.
+
+Se verifican sobre la carpeta sintética de `tests/criterio-pmo/` —seis proyectos y veintiséis
+documentos, con las respuestas conocidas escritas a mano y un calificador encima—. El
+resultado de la corrida, con lo que **no** cubre, está en
+[`EVIDENCIA.md`](../../tests/criterio-pmo/EVIDENCIA.md) y, generado desde la corrida misma, en
+[`RESULTADOS.md`](../../tests/criterio-pmo/RESULTADOS.md).
+
+Las casillas que la aritmética puede decidir se marcan contra esa corrida. **Las que dependen
+de cómo un modelo lee la carpeta siguen abiertas hasta que el plugin corra en una sesión**, y
+esa distinción es la que impide que esta lista se marque sola.
+
+## 1 · Cobertura
+
+- [ ] Todo documento de la carpeta se lee, o queda listado como ilegible con la razón. Nada se
+      salta en silencio.
+- [ ] Documentos en formatos mezclados y en idiomas mezclados se manejan, o se declaran.
+- [ ] Un proyecto que solo se menciona dentro de la minuta de otro proyecto igual aparece.
+
+## 2 · Hallazgos que tienen que aparecer
+
+- [x] Un proyecto cuyo estado reportado contradice sus propias fechas — PRY-001 y PRY-004.
+- [ ] Un proyecto sin doliente identificable — el conjunto sintético tiene la autoridad
+      ausente, no el doliente; falta agregar un proyecto sin él.
+- [x] Un proyecto sin novedad en el último trimestre — PRY-004, 153 días.
+- [x] Dos documentos que declaran fechas distintas para el mismo hito — PRY-006: el acta dice
+      octubre, la minuta del comité dice enero, y nadie actualizó el plan.
+- [x] Una dependencia nombrada en un plan y ausente del plan del que depende — PRY-001 la
+      declara de PRY-002, sin confirmar.
+- [x] Un proyecto que reporta verde con al menos una señal que el verde no explica, listada por
+      señal y contada a nivel de portafolio — tres de seis.
+- [x] Un entregable de proveedor vencido sin evidencia de entrega — PRY-003. El caso de la
+      factura **no** se detecta: necesita monto por entregable. Ver el límite 1 de la evidencia.
+- [x] Una replanificación que movió más días de los que autorizaron los cambios aprobados —
+      PRY-001, 61 contra 60 autorizados.
+- [x] Un impacto de cambio escrito en meses, reportado como ilegible en vez de convertido en un
+      número — PRY-006.
+- [x] A quién alcanza mover un proyecto, con quién no puede sostener su fecha y por cuántos
+      días — mover PRY-002 sesenta días alcanza a PRY-001, que cierra 121 días antes.
+
+## 3 · Trazabilidad
+
+- [ ] Toda afirmación del informe de portafolio cita el documento y el lugar de donde salió.
+- [ ] No se afirma ningún estado que ningún documento sostenga. *«No está dicho en ninguna
+      parte»* es un hallazgo válido y esperado.
+
+## 4 · Términos y aceptación
+
+- [ ] Las mismas cuatro capas que todo plugin: puerta, pie, aviso y archivo de términos.
+
+## 5 · El umbral
+
+- [x] Todo hallazgo plantado se detecta — sin errores en la corrida.
+- [x] **Un proyecto sano no produce ni una alerta** — PRY-005. Es el criterio que decide si el
+      plugin es usable: un agente que alerta sobre un proyecto sano es un generador de ruido, y
+      lo silencian en un mes.
+- [ ] Cero proyectos, fechas o dolientes inventados, comprobado rastreando una muestra de
+      afirmaciones hasta su fuente.

@@ -217,10 +217,12 @@ for plugin in sorted((RAIZ / "plugins").iterdir()):
     inglesas = {f.stem for f in plugin.glob("*.md") if not f.name.endswith(".es.md")}
     # ACCEPTANCE no tiene pareja a propósito: es un documento de trabajo, no una
     # página de producto. Si algún día la tiene, esta línea sobra.
-    # ACCEPTANCE y DISENO no tienen pareja a propósito: son documentos de trabajo, no
-    # páginas de producto. El diseño se discute en castellano y la pareja en inglés
-    # duplicaría la rotación mientras el diseño todavía se mueve. FAMILIA sí la tiene:
-    # es la puerta de entrada de la familia, y esa sí se vende.
+    # DISENO no tiene pareja a propósito: es un documento de trabajo, no una página de
+    # producto. El diseño se discute en castellano y la pareja en inglés duplicaría la
+    # rotación mientras el diseño todavía se mueve. Lo que la organización que instala
+    # necesita saber está en el README, y ese sí va en los dos idiomas.
+    # ACCEPTANCE sigue aquí por los plugins declarados y sin construir, que no tienen
+    # hoja de diseño en la que fundirlo.
     inglesas -= {"ACCEPTANCE"}
     paginas -= {"DISENO"}
     huerfanas = sorted((paginas - inglesas) | (inglesas - paginas))

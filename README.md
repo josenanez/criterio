@@ -128,7 +128,7 @@ The list is not closed. **A capability joins when someone who practises it wants
 
 After installing, each agent has a setup command that looks at your folders, asks five questions and produces a first result on your own documents. **Nobody edits a configuration file by hand.**
 
-**How often each one runs, what you have to tell it and which command goes on a clock:** [`FAMILIA.md`](plugins/criterio-pmo/FAMILIA.md) — **the family's page**: what each agent does command by command, how the three operate together, how each behaves and how often it runs. None of them schedules itself — all three ship the command a clock invokes, and the clock lives outside the plugin.
+**How often each one runs, what you have to tell it and which command goes on a clock:** [`plugins/criterio-pmo/README.md`](plugins/criterio-pmo/README.md) — **the family's page**: how the three operate together, how you work with each one, and how often each runs. None of them schedules itself — all three ship the command a clock invokes, and the clock lives outside the plugin.
 
 ---
 
