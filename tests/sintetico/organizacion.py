@@ -819,7 +819,7 @@ def definicion_producto(x) -> str:
 
 ## Supuestos
 
-{chr(10).join(f"- **{s['que']}** · declarado el {s['desde']}" for s in x['supuestos'])}
+{chr(10).join(f"- **{s['que']}** · declarado el {s['desde']} · " + ("verificado" if s.get('verificado') else "sin verificar") for s in x['supuestos'])}
 
 ## Proyectos que lo construyen
 
@@ -885,7 +885,8 @@ def tablero(x) -> str:
 def comite_producto(x) -> str:
     filas = "\n".join(
         f"| {r['id']} | {r['que']} | {r['doliente']} | {r.get('criterio') or '—'} "
-        f"| {r.get('evidencia') or '—'} | {r['estado']} | {r['desde']} |"
+        f"| {r.get('evidencia') or '—'} | {r['estado']} | {r['desde']} "
+        f"| {r.get('proyecto') or '—'} |"
         for r in x['requerimientos'])
     return f"""
 # Comité de producto · {x['nombre']}
@@ -895,8 +896,8 @@ def comite_producto(x) -> str:
 
 ## Requerimientos revisados
 
-| ID | Requerimiento | Doliente | Criterio de aceptación | Quién lo pidió | Estado | Desde |
-|---|---|---|---|---|---|---|
+| ID | Requerimiento | Doliente | Criterio de aceptación | Quién lo pidió | Estado | Desde | Proyecto que lo ejecuta |
+|---|---|---|---|---|---|---|---|
 {filas}
 
 ## Decisiones

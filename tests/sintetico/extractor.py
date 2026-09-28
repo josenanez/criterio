@@ -21,6 +21,7 @@ import datetime as dt
 import io
 import json
 import re
+import shutil
 import sys
 from pathlib import Path
 
@@ -63,10 +64,16 @@ def vinetas(bloque: str):
 
 
 def filas(texto: str, cabecera: str):
-    """Las filas de la tabla markdown cuya cabecera empieza por `cabecera`."""
+    """Las filas de la tabla markdown cuya cabecera contiene `cabecera`.
+
+    La cabecera se reconoce **una sola vez**. Una fila de datos puede repetir la
+    palabra de la columna —«| REQ-1000 | Requerimiento de conciliación | …»— y si se
+    siguiera buscando cabecera, esa fila se descartaría por parecer un encabezado.
+    Es el defecto que dejó la extracción de requerimientos en cero sin fallar.
+    """
     out, dentro = [], False
     for l in texto.splitlines():
-        if l.startswith("|") and cabecera in l:
+        if not dentro and l.startswith("|") and cabecera in l:
             dentro = True
             continue
         if dentro:
@@ -383,9 +390,12 @@ def registro_producto(docs: list, raiz: Path) -> tuple:
     for s in vinetas(seccion(td, "Supuestos")):
         m = re.match(r"\*\*(.+?)\*\*\s*·\s*declarado el (\d{4}-\d{2}-\d{2})", s)
         if m:
+            # Si el documento no dice nada sobre la verificación, queda sin verificar:
+            # es lo que el documento dice, y no se rellena con lo razonable.
             prod["definition"]["assumptions"].append(
-                {"value": m.group(1), "verified": False, "stated_on": m.group(2),
-                 "source": rd})
+                {"value": m.group(1), "verified": "verificado" in s.lower()
+                 and "sin verificar" not in s.lower(),
+                 "stated_on": m.group(2), "source": rd})
     if caso:
         tc, fc, rc = caso.read_text(encoding="utf-8"), fecha_de(caso.name), rel[caso]
         for fila in filas(tc, "Métrica"):
@@ -412,6 +422,14 @@ def registro_producto(docs: list, raiz: Path) -> tuple:
                                    "source_date": m.group(2)})
         for fila in filas(tm, "Requerimiento"):
             rid, titulo, doliente, criterio, quien_pidio, estado, desde = fila[:7]
+            # La traza es del requerimiento, no del producto. Heredarle al requerimiento
+            # el primer proyecto de la definición hacía que `requirement_untraced` no
+            # pudiera sonar nunca en un producto que declarara algún proyecto: el
+            # hallazgo es justamente el requerimiento decidido que ningún proyecto
+            # recogió, y ese se pierde entre los que sí.
+            traza = fila[7].strip() if len(fila) > 7 else ""
+            if traza in ("—", "", "-"):
+                traza = None
             sin_doliente = doliente.lower().startswith("sin ")
             reqs.append({
                 "id": rid, "product": prod["identity"]["code"],
@@ -434,8 +452,7 @@ def registro_producto(docs: list, raiz: Path) -> tuple:
                              and e["value"].startswith(quien_pidio.split(",")[0])],
                 "decision": {"what": {"value": titulo, "source": rm},
                              "who": "Comité de producto", "on": fm},
-                "traces": {"project": proyectos[0] if proyectos else None,
-                           "deliverables": []},
+                "traces": {"project": traza, "deliverables": []},
             })
     return prod, reqs, metricas
 
@@ -446,6 +463,14 @@ if __name__ == "__main__":
     base = Path(sys.argv[1]).expanduser()
     proy_raiz = base / "documentos" / "proyectos"
     prod_raiz = base / "documentos" / "productos"
+
+    # La extracción se rehace completa, no se acumula. Un registro que sobrevive a una
+    # corrida anterior —un requerimiento que ya no está en ningún documento— sigue
+    # produciendo hallazgos, y en cinco días eso infla la cuenta sin que nada falle.
+    # Es el defecto que metió un `REQ-1542` fantasma en la primera calificación.
+    for viejo in (base / "estado" / "records", base / "estado-productos"):
+        if viejo.exists():
+            shutil.rmtree(viejo)
 
     destino = base / "estado" / "records"
     destino.mkdir(parents=True, exist_ok=True)

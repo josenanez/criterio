@@ -91,8 +91,14 @@ CAMPOS_CONTRASTADOS = (
 # The signals a status light is supposed to account for. `contradiction` is
 # deliberately out: it is a defect of the record, not of the project, and
 # mixing the two weakens the finding.
+# `milestone_met_without_evidence` pertenece a esta lista por la misma razón que
+# `milestone_overdue`: un hito cuya fecha pasó y que nadie probó es evidencia contra el
+# verde, y que alguien lo haya declarado cumplido no lo explica — lo empeora. Salió de
+# `milestone_overdue` al partirse en dos señales, y partir una señal sin traerla aquí
+# debilitó en silencio el contraste contra la declaración.
 EVIDENCE_SIGNALS = (
     "silent", "variance_time", "variance_cost", "milestone_overdue",
+    "milestone_met_without_evidence",
     "commitment_overdue", "commitment_rescheduled", "budget_committed",
     "vendor_deliverable_late", "vendor_invoiced_without_delivery",
     "vendor_invoiced_over_accepted", "rebaseline_unauthorized", "governance_change",
