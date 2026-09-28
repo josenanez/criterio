@@ -215,11 +215,12 @@ if __name__ == "__main__":
         errores.append(f"extractor: {r.stderr.strip()[:200]}")
 
     # ── cálculo
-    pf, ms1, err1 = hallazgos_portafolio(base / "estado")
+    pf, ms1, err1 = hallazgos_portafolio(base / "estado-referencia")
     tiempos["Cálculo · portafolio"] = ms1
     if err1:
         errores.append(f"portafolio compute: {err1}")
-    pd_, ms2, err2 = hallazgos_producto(base / "estado-productos", base / "estado" / "records")
+    pd_, ms2, err2 = hallazgos_producto(base / "estado-referencia-productos",
+                                       base / "estado-referencia" / "records")
     tiempos["Cálculo · productos"] = ms2
     if err2:
         errores.append(f"producto compute: {err2}")

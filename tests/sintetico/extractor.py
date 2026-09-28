@@ -15,6 +15,12 @@ material cambie.
 
 Es también la vara contra la que se puede medir después la extracción del modelo: la
 misma carpeta, las dos fichas, campo por campo.
+
+La extracción de referencia escribe en `estado-referencia/`, **nunca en `estado/`**. No es
+cosmético: `estado/` es de los agentes, y esta extracción borra y reescribe lo que
+encuentra. Apuntando las dos al mismo sitio, la ficha que califica `fiabilidad.py` es la
+que escribió este script encima de la del agente — y la séptima invariante del repositorio
+es que una ficha tiene un solo escritor. La prueba estaba rompiendo justo lo que verifica.
 """
 import csv
 import datetime as dt
@@ -468,11 +474,12 @@ if __name__ == "__main__":
     # corrida anterior —un requerimiento que ya no está en ningún documento— sigue
     # produciendo hallazgos, y en cinco días eso infla la cuenta sin que nada falle.
     # Es el defecto que metió un `REQ-1542` fantasma en la primera calificación.
-    for viejo in (base / "estado" / "records", base / "estado-productos"):
+    for viejo in (base / "estado-referencia" / "records",
+                  base / "estado-referencia-productos"):
         if viejo.exists():
             shutil.rmtree(viejo)
 
-    destino = base / "estado" / "records"
+    destino = base / "estado-referencia" / "records"
     destino.mkdir(parents=True, exist_ok=True)
     n = 0
     for clave, archivos in sorted(agrupar(proy_raiz, "PRY").items()):
@@ -484,7 +491,7 @@ if __name__ == "__main__":
         (destino / f"{codigo}.json").write_text(
             json.dumps(ficha, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         n += 1
-    print(f"proyectos  {n} fichas  →  estado/records/")
+    print(f"proyectos  {n} fichas  →  estado-referencia/records/")
 
     m = 0
     for clave, archivos in sorted(agrupar(prod_raiz, "PRD").items()):
@@ -492,7 +499,7 @@ if __name__ == "__main__":
         if not prod:
             continue
         codigo = prod["identity"]["code"]
-        d = base / "estado-productos" / codigo
+        d = base / "estado-referencia-productos" / codigo
         (d / "requirements").mkdir(parents=True, exist_ok=True)
         (d / "metrics").mkdir(parents=True, exist_ok=True)
         (d / "producto.json").write_text(
@@ -504,4 +511,4 @@ if __name__ == "__main__":
             (d / "metrics" / f"{x['metric']}.json").write_text(
                 json.dumps(x, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         m += 1
-    print(f"productos  {m} registros  →  estado-productos/<código>/")
+    print(f"productos  {m} registros  →  estado-referencia-productos/<código>/")
