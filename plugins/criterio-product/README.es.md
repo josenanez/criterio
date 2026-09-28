@@ -38,23 +38,6 @@ dicha en ninguna parte**, qué supuesto lleva meses sin verificarse, dónde el c
 afirma un número que la métrica no sostiene, y qué se decidió construir que **nadie está
 construyendo**.
 
-## Dónde se superpone con los otros dos, y dónde no
-
-La superposición es mínima **a propósito**: lo de Alba ocurre antes del proyecto, lo de
-Samuel durante, lo de Vera por encima. Donde dos pueden tocar lo mismo, lo que cambia es **el
-momento y quién responde**.
-
-| Lo que también toca otro | Quién más | Qué hace Alba, y qué no |
-|---|---|---|
-| **El acta de constitución** | Samuel · Vera | **Alba la redacta, y con ella nace la ficha del proyecto.** De ahí en adelante no la vuelve a escribir: una ficha, un escritor. Samuel la escribe desde entonces; Vera la lee |
-| **Los requerimientos** | Samuel | Alba lleva el registro **antes** de que haya proyecto y con su evidencia de demanda. Lo que entra al alcance de un proyecto ya es de Samuel |
-| **Las métricas del producto** | Vera | Alba las contrasta contra lo que el negocio **declara** en su caso de negocio. Vera mira el producto a través de **los proyectos que lo construyen**, que es otra pregunta |
-| **Saber si el producto se está construyendo** | Samuel | Alba no le pregunta a nadie: **lee la ficha que el proyecto publica** y confirma si de verdad ejecuta su producto. Cuando no coincide, lo reporta y no lo arregla |
-
-**Si solo instalas a Alba, no pierdes nada de tu producto.** Lo que no tendrás es la ficha del
-proyecto publicada para confirmar las trazas, y eso la página lo dice en vez de darlo por
-bueno.
-
 ## Instalación
 
 ```

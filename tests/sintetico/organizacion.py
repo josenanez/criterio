@@ -195,8 +195,25 @@ def cambio(p, fecha: str, numero: str, que: str, dias: int, costo: int,
 """
 
 
+def ficha_publicada(p, fecha: str, campos: dict) -> str:
+    """La ficha que el gerente publica con /pm-publish, como un documento más.
+
+    Va en JSON a propósito: es un contrato de datos, no una narración. Vera la lee sin
+    fusionarla con la suya — la séptima invariante— y la diferencia entre las dos es el
+    hallazgo.
+    """
+    def c(v, fuente):
+        return {"value": v, "source": fuente, "source_date": fecha, "state": "found"}
+    doc = {"schema_version": "0.1", "written_by": "criterio-project",
+           "published_on": fecha,
+           "identity": {k: c(v, campos["_fuente"]) for k, v in campos.items()
+                        if not k.startswith("_")}}
+    return json.dumps(doc, ensure_ascii=False, indent=2)
+
+
 def contrato(p, fecha: str, numero: str, proveedor: str, entregables) -> str:
-    filas = "\n".join(f"| {e[0]} | {e[1]} | {plata(e[2])} |" for e in entregables)
+    filas = "\n".join(f"| {e[0]} | {e[1]} | {plata(e[2])} | {e[3]} |"
+                      for e in entregables)
     return f"""
 # Contrato {numero} · {proveedor}
 
@@ -206,8 +223,8 @@ def contrato(p, fecha: str, numero: str, proveedor: str, entregables) -> str:
 
 ## Entregables contractuales
 
-| Entregable | Fecha comprometida | Monto COP |
-|---|---|---|
+| Entregable | Fecha comprometida | Monto COP | Estado |
+|---|---|---|---|
 {filas}
 
 ## Condición de pago
@@ -333,7 +350,7 @@ def proyectos(port: corpus.Portafolio) -> list:
         ("Motor de intereses", d(120), d(120), "cerrado"),
         ("Migración de ahorros", d(30), f(90), "en curso"),
         ("Cierre paralelo", f(60), f(180), "no iniciado"),
-        ("Salida a producción", f(300), f(360), "no iniciado")]))
+        ("Salida a producción", f(300), f(420), "no iniciado")]))
     c.seguimiento(d(10), "informe-avance.md", informe(
         p, "Amarillo", d(10), 54,
         ["La migración de ahorros se movió noventa días por la ventana regulatoria",
@@ -377,9 +394,11 @@ def proyectos(port: corpus.Portafolio) -> list:
     c.gobierno(p["aprobacion"], "acta-constitucion.md", acta(p))
     c.gobierno(d(300), "contrato-oc-4471.md", contrato(
         p, d(300), "OC-4471", "Nubia Cloud Services S.A.S.", [
-            ("Landing zone certificada", d(210), 1_800_000_000),
-            ("Migración de las primeras 20 aplicaciones", d(45), 2_400_000_000),
-            ("Migración de las 20 restantes", f(90), 2_000_000_000)]))
+            ("Landing zone certificada", d(210), 1_800_000_000, "recibido"),
+            ("Plan de reversión", d(150), 300_000_000, "recibido"),
+            ("Migración de las primeras 20 aplicaciones", d(45), 2_400_000_000,
+             "pendiente"),
+            ("Migración de las 20 restantes", f(90), 2_000_000_000, "pendiente")]))
     c.plan(d(305), "cronograma-v1.csv", cronograma(p, 1, [
         ("Landing zone", d(210), d(210), "cerrado"),
         ("Primeras 20 aplicaciones", d(45), d(45), "en curso"),
@@ -508,6 +527,13 @@ def proyectos(port: corpus.Portafolio) -> list:
         ("Motor de reglas", d(100), d(100), "cerrado"),
         ("Cola de alertas", d(20), f(25), "en curso"),
         ("Reporte al regulador", f(60), f(60), "no iniciado")]))
+    c.gobierno(d(240), "contrato-oc-5580.md", contrato(
+        p, d(240), "OC-5580", "Vigía Analítica S.A.S.", [
+            ("Modelo de segmentación de clientes", d(60), 480_000_000, "pendiente"),
+            ("Tablero de alertas", f(40), 520_000_000, "pendiente")]))
+    c.seguimiento(d(35), "factura-VA-118.md", factura(
+        p, d(35), "VA-118", "Vigía Analítica S.A.S.",
+        "Anticipo del modelo de segmentación", 240_000_000))
     c.seguimiento(d(45), "solicitud-cambio-cc-07.md", cambio(
         p, d(45), "CC-07",
         "Ampliar la cola de alertas para cubrir los canales digitales, que no estaban "
@@ -562,6 +588,13 @@ def proyectos(port: corpus.Portafolio) -> list:
         ["La billetera está en producción con QR interoperable",
          "La vinculación de comercios va por 34.000 de los 120.000 esperados",
          "El proyecto pasó al Comité de Medios de Pago"]))
+    # Samuel publica su ficha, y la escribe con lo que él vio en el comité: el
+    # patrocinador nuevo. El acta de constitución sigue diciendo el anterior.
+    c.gobierno(d(13), "ficha-proyecto.json", ficha_publicada(p, d(13), {
+        "_fuente": "30-reuniones/comite-medios-pago.md",
+        "code": "PRY-107", "sponsor": "Gustavo Neira, VP de Medios de Pago",
+        "manager": "Camilo Beltrán", "committee": "Comité de Medios de Pago",
+        "product": "PRD-QR"}))
     c.reunion(d(15), "comite-medios-pago.md", minuta(
         p, d(15),
         ["Gustavo Neira", "Camilo Beltrán", "Equipo de Canales"],
@@ -650,6 +683,11 @@ def proyectos(port: corpus.Portafolio) -> list:
     c.seguimiento(d(47), "acta-recibo-versionado.md", recibo(
         p, d(47), "Versionado y trazabilidad", p["gerente"],
         "Se verificó la traza de 500 decisiones contra su versión de modelo."))
+    c.seguimiento(d(70), "solicitud-cambio-cc-11.md", cambio(
+        p, d(70), "CC-11",
+        "Ampliar el versionado a los modelos de crédito hipotecario, que PRY-101 "
+        "consume desde este motor.", 30, 380_000_000,
+        "Autorizada por el Comité de Riesgos el " + d(64) + "."))
     c.seguimiento(d(5), "informe-avance.md", informe(
         p, "Amarillo", d(5), 71,
         ["Los dos hitos vencidos están cerrados con acta",
@@ -802,7 +840,7 @@ def tablero(x) -> str:
 def comite_producto(x) -> str:
     filas = "\n".join(
         f"| {r['id']} | {r['que']} | {r['doliente']} | {r.get('criterio') or '—'} "
-        f"| {r['estado']} | {r['desde']} |"
+        f"| {r.get('evidencia') or '—'} | {r['estado']} | {r['desde']} |"
         for r in x['requerimientos'])
     return f"""
 # Comité de producto · {x['nombre']}
@@ -812,8 +850,8 @@ def comite_producto(x) -> str:
 
 ## Requerimientos revisados
 
-| ID | Requerimiento | Doliente | Criterio de aceptación | Estado | Desde |
-|---|---|---|---|---|---|
+| ID | Requerimiento | Doliente | Criterio de aceptación | Quién lo pidió | Estado | Desde |
+|---|---|---|---|---|---|---|
 {filas}
 
 ## Decisiones
@@ -859,10 +897,12 @@ def productos(port: corpus.Portafolio) -> list:
              requerimientos=[
                  dict(id="REQ-201", que="QR interoperable con dos adquirentes",
                       criterio="dos adquirentes distintos liquidan una transacción de prueba",
+                      evidencia="Tienda La Esquina, Kennedy",
                       doliente="Camilo Beltrán", estado="aceptado", desde=d(180)),
                  dict(id="REQ-202", que="Liquidación mismo día para comercios con más "
                                         "de 200 transacciones al mes",
                       criterio="una transacción de un comercio con más de 200 al mes queda liquidada el mismo día",
+                      evidencia="Panadería El Trigal, Suba",
                       doliente="Camilo Beltrán", estado="propuesto", desde=d(95))],
              decisiones=["Se construye la liquidación a un día y se evalúa la del "
                          "mismo día con la evidencia de la ronda siguiente"],
@@ -905,9 +945,11 @@ def productos(port: corpus.Portafolio) -> list:
              requerimientos=[
                  dict(id="REQ-301", que="Validación del archivo antes de dispersar",
                       criterio="un archivo con un registro inválido se rechaza antes de dispersar, y dice cuál",
+                      evidencia="Distribuidora Andina",
                       doliente="Liliana Torres", estado="aceptado", desde=d(45)),
                  dict(id="REQ-302", que="Certificado de pago por empleado",
                       criterio="el certificado de un empleado se descarga desde la app de la empresa",
+                      evidencia="Textiles del Norte",
                       doliente="Liliana Torres", estado="aceptado", desde=d(45))],
              decisiones=["Se construyen los dos requerimientos en PRY-110, con la "
                          "evidencia de las entrevistas de hace 52 días"],
@@ -943,11 +985,14 @@ def productos(port: corpus.Portafolio) -> list:
              requerimientos=[
                  dict(id="REQ-401", que="Estado de la solicitud visible para el cliente",
                       criterio="el cliente ve el estado de su solicitud sin llamar a nadie",
+                      evidencia="Comprador, Chapinero",
                       doliente="Andrés Lozano", estado="aceptado", desde=d(200)),
                  dict(id="REQ-402", que="Validación de ingresos sin soporte físico",
                       criterio="una solicitud se aprueba sin un solo soporte en papel",
+                      evidencia="Comprador, Chapinero",
                       doliente="sin asignar", estado="aceptado", desde=d(200)),
                  dict(id="REQ-403", que="Firma electrónica de la promesa",
+                      evidencia="Comprador, Chapinero",
                       doliente="Andrés Lozano", estado="aceptado", desde=d(200))],
              decisiones=["Se priorizan los tres requerimientos para PRY-101"],
              planta=["**Requerimiento sin doliente**: REQ-402 está aceptado y no tiene "
@@ -983,12 +1028,15 @@ def productos(port: corpus.Portafolio) -> list:
              requerimientos=[
                  dict(id="REQ-501", que="Validación de existencia por cámara de comercio",
                       criterio="la existencia se valida contra cámara de comercio en menos de un minuto",
+                      evidencia="Ferretería industrial",
                       doliente="Natalia Ospina", estado="aceptado", desde=d(170)),
                  dict(id="REQ-502", que="Debida diligencia simplificada para riesgo bajo",
                       criterio="un cliente de riesgo bajo abre sin presencia del representante legal",
+                      evidencia="Ferretería industrial",
                       doliente="Cumplimiento", estado="propuesto", desde=d(150)),
                  dict(id="REQ-503", que="Activación el mismo día de la apertura",
                       criterio="la cuenta queda operativa el mismo día de la apertura",
+                      evidencia="Ferretería industrial",
                       doliente="Natalia Ospina", estado="propuesto", desde=d(140))],
              decisiones=["Se espera el concepto de Cumplimiento para decidir REQ-502"],
              planta=["**Dos requerimientos sin decidir**: REQ-502 lleva 150 días y "
@@ -1022,6 +1070,7 @@ def productos(port: corpus.Portafolio) -> list:
              requerimientos=[
                  dict(id="REQ-601", que="Tarjeta virtual disponible al aprobar",
                       criterio="la tarjeta virtual permite una compra en línea al minuto de aprobada",
+                      evidencia="Cliente, Medellín",
                       doliente="Paula Céspedes", estado="aceptado", desde=d(90)),
                  dict(id="REQ-602", que="Cupo ajustable por el cliente en la app",
                       criterio="el cliente sube y baja su cupo desde la app, dentro del rango aprobado",
@@ -1060,9 +1109,11 @@ def productos(port: corpus.Portafolio) -> list:
              requerimientos=[
                  dict(id="REQ-701", que="Recaudo unificado por QR y transferencia",
                       criterio="una venta por QR y una por transferencia salen en el mismo reporte",
+                      evidencia="Minimercado, Bosa",
                       doliente="Óscar Ramírez", estado="aceptado", desde=d(135)),
                  dict(id="REQ-702", que="Reporte de ventas del día",
                       criterio="el comercio ve el total del día antes de cerrar",
+                      evidencia="Minimercado, Bosa",
                       doliente="Óscar Ramírez", estado="aceptado", desde=d(135))],
              decisiones=["Se construye el recaudo unificado sobre PRY-107"],
              planta=["**Superposición de producto con PRD-QR**, en los tres ejes que "
@@ -1094,9 +1145,11 @@ def productos(port: corpus.Portafolio) -> list:
              requerimientos=[
                  dict(id="REQ-801", que="Prima diaria descontada del saldo",
                       criterio="la prima se descuenta a diario sin generar sobregiro",
+                      evidencia="Cliente, Soacha",
                       doliente="Diana Molina", estado="aceptado", desde=d(500)),
                  dict(id="REQ-802", que="Reclamación por la app",
                       criterio="una reclamación se radica por la app y recibe número de caso",
+                      evidencia="Cliente, Soacha",
                       doliente="Diana Molina", estado="propuesto", desde=d(500))],
              decisiones=["Se mantiene la definición a la espera de capacidad de "
                          "desarrollo"],
@@ -1130,12 +1183,15 @@ def productos(port: corpus.Portafolio) -> list:
              requerimientos=[
                  dict(id="REQ-901", que="Abono directo a cuenta del receptor",
                       criterio="la remesa queda abonada en cuenta sin paso por oficina",
+                      evidencia="Receptora, Pereira",
                       doliente="Felipe Arango", estado="aceptado", desde=d(105)),
                  dict(id="REQ-902", que="Tasa visible antes de aceptar la operación",
                       criterio="la tasa se muestra antes de que el receptor acepte",
+                      evidencia="Receptora, Pereira",
                       doliente="Felipe Arango", estado="aceptado", desde=d(105)),
                  dict(id="REQ-903", que="Apertura de cuenta dentro del flujo de cobro",
                       criterio="el receptor sin cuenta abre una dentro del mismo flujo de cobro",
+                      evidencia="Receptora, Pereira",
                       doliente="Felipe Arango", estado="aceptado", desde=d(105))],
              decisiones=["Se decide construir los tres requerimientos en el primer "
                          "trimestre disponible",

@@ -527,8 +527,17 @@ def solapamiento(state: Path, otros: Path | None, today: dt.date, th: dict) -> d
 SENALES_DE_TIEMPO = ("requirement_undecided", "assumption_unverified", "evidence_stale")
 
 
+# Lo único que `due` lee de la constancia. Ver la nota equivalente en portafolio.py:
+# un valor fuera de esta lista se guardaba igual, no lo leía nadie, y el agente creía
+# haber dejado constancia mientras `due` seguía diciendo que tocaba.
+CONSTANCIAS = ("review", "report", "crossed")
+
+
 def ran(state: Path, que: str, today: dt.date) -> dict:
     """Deja constancia de que algo se corrió hoy. Sin esto, `due` repite para siempre."""
+    if que not in CONSTANCIAS:
+        raise ValueError(f"cadencia desconocida: {que!r}. "
+                         f"Las que `due` lee son {', '.join(CONSTANCIAS)}")
     f = state / "cadencia.json"
     registro = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
     registro[que] = today.isoformat()

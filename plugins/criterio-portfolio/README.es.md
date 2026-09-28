@@ -37,22 +37,6 @@ corrida anterior, qué se contradice entre dos documentos del mismo proyecto, qu
 semanas en silencio, cuántos de los que reportan verde tienen evidencia que ese verde no
 explica, y a quién alcanza mover un proyecto.
 
-## Dónde se superpone con los otros dos, y dónde no
-
-La superposición es mínima **a propósito**: las tareas de Vera son generales y de gobierno,
-las de Samuel y Alba son específicas de su objeto. Donde dos pueden hacer lo mismo, lo que
-cambia es **la profundidad, la cadencia y quién responde**.
-
-| Lo que también toca otro | Quién más | Qué hace Vera, y qué no |
-|---|---|---|
-| **Los compromisos de una reunión** | Samuel | Vera los ve en el barrido del portafolio, con cadencia de comité. **El detalle minuta a minuta es de Samuel**, y si los dos están instalados, Vera no lo duplica: lee la ficha que él publica |
-| **El estado de un proyecto** | Samuel | Samuel lo declara con su gerente; Vera lo **contrasta** contra los documentos. Los dos hacen falta: **la diferencia entre lo que uno declara y lo que la otra encuentra es el hallazgo de más valor del sistema** |
-| **El acta de constitución** | Alba | Alba la redacta cuando el producto se vuelve proyecto; Vera la **revisa** cuando ya existe, y dice qué le falta y qué consecuencia tiene |
-| **El producto** | Alba | Alba mira su producto contra la demanda; Vera mira **todos los proyectos que lo construyen**, que es una pregunta de portafolio y no de producto |
-
-**Si solo instalas a Vera, no pierdes nada de lo anterior**: lo hace con la profundidad que
-un barrido de portafolio alcanza, y dice cuándo esa profundidad no alcanza.
-
 ## Instalación
 
 ![Instalación: cuatro clics, o dos comandos](../../docs/img/es/instalacion.png)

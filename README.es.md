@@ -330,52 +330,6 @@ páginas de evidencia bajo [`tests/`](tests/) y el conjunto en
 [`pruebas.html`](docs/pruebas.html). La quinta decisión de la tabla siguiente salió de
 ahí y no de una conversación.
 
-## Las capacidades que todavía no existen
-
-La familia de arriba cubre una capacidad: **el gobierno de portafolio, de proyecto y de producto.** Hay otras dos declaradas, con su problema medido y sin una línea de código. Van aquí por la misma razón por la que cada agente publica lo que no ha probado: **lo declarado y lo construido no se mezclan.**
-
-### CFO — cierre, control y reporte financiero
-
-**Qué es.** La función que cierra los libros y responde por lo que dicen. Sus componentes son el cierre y la consolidación, las conciliaciones, la contabilidad frente a la base fiscal, el reporte a supervisores y la preparación de auditoría.
-
-**Lo que cuesta hoy**
-
-| Cifra | Fuente |
-|---|---|
-| **18%** de los contadores comete errores a diario y **59%** varios al mes, por restricciones de capacidad | [Gartner, feb. 2024](https://www.gartner.com/en/newsroom/press-releases/2024-02-21-gartner-survey-shows-that-a-third-of-accountants-make-several-error-per-weeo-due-to-capacity-constraints) — 497 contadores, encuesta jul. 2023 |
-| Cierre anual: **10 días** los mejores, **18** la mediana, **35** los rezagados | [APQC, abr. 2026](https://www.apqc.org/resources/blog/how-streamline-annual-closing-process-and-speed-up-year-end-close) |
-| El cierre trimestral **empeoró**: 49% cerraba en seis días hábiles en 2019, 44% en 2023 | [Ventana Research / ISG, dic. 2023](https://research.isg-one.com/analyst-perspectives/research-reveals-the-importance-of-technology-in-shortening-the-close) |
-| Las horas de programa SOX subieron **32% en dos años**, a 15.580. El **45% de los controles sigue siendo totalmente manual** | [KPMG, *SOX Survey* 2025](https://kpmg.com/us/en/articles/2025/2025-kpmg-sox-survey.html) — ~150 profesionales |
-
-El dato que debería incomodar es el segundo: **el cierre no mejoró en cuatro años**, a pesar de todo lo que se gastó en tecnología.
-
-→ Agente CFO: capacidad declarada, sin construir
-
----
-
-### CLO — contratos, cumplimiento y riesgo legal
-
-**Qué es.** La función que responde por lo que la empresa firmó. Sus componentes son la revisión de contratos, el repositorio de lo firmado, el seguimiento de obligaciones y vencimientos, el cumplimiento normativo y las disputas.
-
-**Lo que cuesta hoy**
-
-| Cifra | Fuente |
-|---|---|
-| La mala gestión contractual erosiona en promedio **8,6% del valor del contrato** — los mejores 3%, los peores más de 20% | [World Commerce & Contracting con Deloitte, 2023](https://info.worldcc.com/roi) — 1.236 organizaciones |
-| Los equipos de contratación gastan **más del 40% de su tiempo y su presupuesto** en contratos de baja complejidad | [EY con Harvard Law School, 2021](https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf) — 1.000 profesionales, 22 países |
-| Una organización grande maneja **19.000 contratos al año**, y **90% tiene dificultad para encontrar los suyos** | EY / Harvard Law School, 2021 |
-| Solo el **27%** guarda todos sus contratos firmados en un único repositorio | [Sirion y World Commerce & Contracting, 2026](https://www.sirion.ai/press/trusted-contract-data-world-cc-research-report/) — 170 empresas |
-
-Una empresa que no encuentra sus propios contratos no puede saber qué firmó, ni qué vence, ni a qué se obligó.
-
-→ Agente CLO: capacidad declarada, sin construir
-
----
-
-La lista no está cerrada. **Una capacidad entra cuando alguien que la ejerce quiere construir su agente.**
-
----
-
 ## Apache 2.0 — qué entregamos y a qué invitamos
 
 **Entregamos completo y sin condiciones** el método de cada agente, el esquema de sus registros, el código que calcula, sus criterios de aceptación y la forma de medirlos.

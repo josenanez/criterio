@@ -325,52 +325,6 @@ evidence pages under [`tests/`](tests/) and the whole in
 [`docs/pruebas.md`](docs/pruebas.md) — with charts, for a browser, in
 [`pruebas.html`](docs/pruebas.html).
 
-## The capabilities that do not exist yet
-
-The family above covers one capability: **the governance of a portfolio, a project and a product.** Two more are declared, with their problem measured and not one line of code. They are here for the same reason every agent publishes what it has not proven: **what is declared and what is built do not mix.**
-
-### CFO — close, control and financial reporting
-
-**What it is.** The function that closes the books and answers for what they say. Its components are the close and consolidation, reconciliations, book-to-tax, reporting to supervisors and audit preparation.
-
-**What it costs today**
-
-| Figure | Source |
-|---|---|
-| **18%** of accountants make errors daily and **59%** several per month, due to capacity constraints | [Gartner, Feb 2024](https://www.gartner.com/en/newsroom/press-releases/2024-02-21-gartner-survey-shows-that-a-third-of-accountants-make-several-error-per-weeo-due-to-capacity-constraints) — 497 accountants, surveyed Jul 2023 |
-| Annual close: **10 days** for top performers, **18** at the median, **35** for laggards | [APQC, Apr 2026](https://www.apqc.org/resources/blog/how-streamline-annual-closing-process-and-speed-up-year-end-close) |
-| The quarterly close got **worse**: 49% closed within six business days in 2019, 44% in 2023 | [Ventana Research / ISG, Dec 2023](https://research.isg-one.com/analyst-perspectives/research-reveals-the-importance-of-technology-in-shortening-the-close) |
-| SOX programme hours rose **32% in two years**, to 15,580. **45% of controls remain fully manual** | [KPMG, *SOX Survey* 2025](https://kpmg.com/us/en/articles/2025/2025-kpmg-sox-survey.html) — ~150 professionals |
-
-The figure that should sting is the third: **the close did not improve in four years**, despite everything spent on technology.
-
-→ CFO Agent: capability declared, not built
-
----
-
-### CLO — contracts, compliance and legal risk
-
-**What it is.** The function that answers for what the company signed. Its components are contract review, the repository of what was executed, tracking obligations and expiries, regulatory compliance and disputes.
-
-**What it costs today**
-
-| Figure | Source |
-|---|---|
-| Poor contract management erodes an average of **8.6% of contract value** — 3% for the best, over 20% for the worst | [World Commerce & Contracting with Deloitte, 2023](https://info.worldcc.com/roi) — 1,236 organisations |
-| Contracting teams spend **over 40% of their time and budget** on low-complexity contracts | [EY with Harvard Law School, 2021](https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf) — 1,000 professionals, 22 countries |
-| A large organisation handles **19,000 contracts a year**, and **90% have difficulty locating their own** | EY / Harvard Law School, 2021 |
-| Only **27%** keep all their executed contracts in a single repository | [Sirion and World Commerce & Contracting, 2026](https://www.sirion.ai/press/trusted-contract-data-world-cc-research-report/) — 170 companies |
-
-A company that cannot find its own contracts cannot know what it signed, what expires, or what it committed to.
-
-→ CLO Agent: capability declared, not built
-
----
-
-The list is not closed. **A capability joins when someone who practises it wants to build its agent.**
-
----
-
 ## Apache 2.0 — what we give and what we invite
 
 **We give, in full and with no conditions,** each agent's method, its record schemas, the code that computes, its acceptance criteria and the way to measure them.

@@ -38,23 +38,6 @@ anywhere**, which assumption has gone months without being verified, where the b
 asserts a number the metric does not support, and what was decided to be built that **nobody is
 building**.
 
-## Where it overlaps with the other two, and where it does not
-
-The overlap is minimal **on purpose**: Alba's work happens before the project, Samuel's during
-it, Vera's above it. Where two of them can touch the same thing, what changes is **the moment and
-who answers for it**.
-
-| What another one also touches | Who else | What Alba does, and what she does not |
-|---|---|---|
-| **The project charter** | Samuel · Vera | **Alba writes it, and the project record is born with it.** From then on she never writes it again: one record, one writer. Samuel writes it from then on; Vera reads it |
-| **The requirements** | Samuel | Alba keeps the register **before** there is a project and with its evidence of demand. What enters a project's scope is already Samuel's |
-| **The product's metrics** | Vera | Alba contrasts them against what the business **declares** in its business case. Vera looks at the product through **the projects building it**, which is another question |
-| **Knowing whether the product is being built** | Samuel | Alba asks nobody: **she reads the record the project publishes** and confirms whether it really builds her product. When they do not match, she reports it and does not fix it |
-
-**If you install only Alba you lose nothing of your product.** What you will not have is the
-project's published record to confirm the traces, and the page says so instead of taking it for
-granted.
-
 ## Installation
 
 ```

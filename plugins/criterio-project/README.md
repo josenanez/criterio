@@ -37,28 +37,6 @@ citation from the minutes, what fell due with no evidence in the file, and **wha
 rescheduled meeting after meeting** — which is not a tracking problem, it is a blockage nobody
 has named.
 
-## Where it overlaps with the other two, and where it does not
-
-The overlap is minimal **on purpose**: Samuel's work is specific to his project, Vera's is
-general and about governance. Where both can look at the same thing, what changes is **the
-depth, the cadence and who answers for it**.
-
-| What another one also touches | Who else | What Samuel does, and what he does not |
-|---|---|---|
-| **The commitments** | Vera | Samuel extracts them **minute by minute**, with owner, date and citation. Vera sees them from afar, in her sweep. **The detail is Samuel's**, and it is not reported as a contradiction: it is a difference of depth |
-| **The project's status** | Vera | **Samuel produces the report; the manager declares the status.** Vera contrasts it against the documents. The difference between the two is the finding, which is why neither of them is redundant |
-| **The plan and the baseline** | Vera | Samuel keeps them current against the evidence, day by day. Vera looks at them when she sweeps, at committee cadence |
-| **The project charter** | Alba | Alba writes it and the record is born with it. **Samuel receives it**: his work starts where Alba's ends |
-
-Over the same documents, Samuel writes your record and Vera writes hers. **They never merge**,
-and that is deliberate: the convenient way out — one record and one owner — forces a bad choice in
-both directions. `/pm-publish` puts yours where the PMO reads it, and **when both cite and do not
-agree, somebody saw a paper the other did not** — half the time the one who is right is you,
-because you were in the meeting where the sponsor changed and the charter was never updated.
-
-**If you install only Samuel you lose nothing of your project.** What you lose is the view of
-the whole — how yours looks next to the other forty — which belongs to the PMO and not to you.
-
 ## Installation
 
 ```

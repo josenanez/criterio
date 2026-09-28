@@ -37,22 +37,6 @@ previous run, what contradicts what between two documents of the same project, w
 quiet for weeks, how many of those reporting green carry evidence that green does not explain,
 and who is reached when a project moves.
 
-## Where it overlaps with the other two, and where it does not
-
-The overlap is minimal **on purpose**: Vera's tasks are general and about governance, Samuel's
-and Alba's are specific to their object. Where two of them can do the same thing, what changes
-is **the depth, the cadence and who answers for it**.
-
-| What another one also touches | Who else | What Vera does, and what she does not |
-|---|---|---|
-| **A meeting's commitments** | Samuel | Vera sees them in the portfolio sweep, at committee cadence. **The minute-by-minute detail is Samuel's**, and if both are installed Vera does not duplicate it: she reads the record he publishes |
-| **A project's status** | Samuel | Samuel declares it with his manager; Vera **contrasts** it against the documents. Both are needed: **the difference between what one declares and what the other finds is the system's most valuable finding** |
-| **The project charter** | Alba | Alba writes it when the product becomes a project; Vera **reviews** it once it exists, and says what it is missing and what follows from that |
-| **The product** | Alba | Alba looks at her product against demand; Vera looks at **all the projects building it**, which is a portfolio question and not a product one |
-
-**If you install only Vera you lose none of the above**: she does it with the depth a portfolio
-sweep reaches, and says when that depth is not enough.
-
 ## Installation
 
 ![Installation: four clicks, or two commands](../../docs/img/en/instalacion.png)

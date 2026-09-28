@@ -38,29 +38,6 @@ cita de la minuta, qué venció sin evidencia en el expediente, y **qué se vien
 reunión tras reunión** — que no es un problema de seguimiento, es un bloqueo que nadie ha
 nombrado.
 
-## Dónde se superpone con los otros dos, y dónde no
-
-La superposición es mínima **a propósito**: lo de Samuel es específico de su proyecto, lo de
-Vera es general y de gobierno. Donde los dos pueden mirar lo mismo, lo que cambia es **la
-profundidad, la cadencia y quién responde**.
-
-| Lo que también toca otro | Quién más | Qué hace Samuel, y qué no |
-|---|---|---|
-| **Los compromisos** | Vera | Samuel los extrae **minuta a minuta**, con doliente, fecha y cita. Vera los ve de lejos, en su barrido. **El detalle es de Samuel**, y no se reporta como contradicción: es diferencia de profundidad |
-| **El estado del proyecto** | Vera | **Samuel produce el informe; el estado lo declara el gerente.** Vera lo contrasta contra los documentos. La diferencia entre los dos es el hallazgo, y por eso ninguno de los dos sobra |
-| **El plan y la línea base** | Vera | Samuel los mantiene al día contra la evidencia, día a día. Vera los mira cuando barre, con cadencia de comité |
-| **El acta de constitución** | Alba | Alba la redacta y con ella nace la ficha. **Samuel la recibe**: su trabajo empieza donde el de Alba termina |
-
-Sobre los mismos documentos, Samuel escribe tu ficha y Vera escribe la suya. **No se fusionan
-nunca**, y eso es deliberado: la forma cómoda de resolverlo —una ficha y un dueño— obliga a
-elegir mal en las dos direcciones. `/pm-publish` pone la tuya donde la PMO la lee, y **cuando
-las dos citan y no coinciden, alguien vio un papel que el otro no vio** — la mitad de las veces
-el que tiene razón eres tú, porque tú estuviste en la reunión donde cambió el patrocinador y el
-acta de constitución no se actualizó nunca.
-
-**Si solo instalas a Samuel, no pierdes nada de tu proyecto.** Lo que pierdes es la mirada de
-conjunto —cómo se ve el tuyo al lado de los otros cuarenta—, que es de la PMO y no tuya.
-
 ## Instalación
 
 ```

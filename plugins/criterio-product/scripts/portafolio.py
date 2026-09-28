@@ -607,7 +607,20 @@ def _pruebas_contraste():
     hondo = contrastar({"identity": {"sponsor": c("X", "a.md", "2026-01-01")}},
                        {"identity": {}}, hoy)
 
+    # una cadencia que nadie lee tiene que fallar, no guardarse en silencio
+    import tempfile as _tf
+    with _tf.TemporaryDirectory() as _d:
+        _e = Path(_d)
+        try:
+            ran(_e, "scan", dt.date(2026, 9, 28))
+            _rechaza = False
+        except ValueError:
+            _rechaza = True
+        _acepta = ran(_e, "sweep", dt.date(2026, 9, 28)).get("sweep") == "2026-09-28"
+
     return [
+        ("cadencia · un `--what` que nadie lee se rechaza", _rechaza, True),
+        ("cadencia · uno que `due` sí lee se guarda", _acepta, True),
         ("contraste · solo lo que difiere", sorted(por_campo),
          ["identity.product", "identity.sponsor"]),
         ("contraste · coincidir no es hallazgo", "identity.manager" in por_campo, False),
@@ -963,8 +976,18 @@ def responder_peticion(state: Path, ident: str, today: dt.date) -> dict:
     return r
 
 
+# Lo único que `due` lee de la constancia. Un valor fuera de esta lista se escribía
+# igual y no lo leía nadie: el agente creía haber dejado constancia, `due` seguía
+# diciendo que tocaba, y el error era silencioso — exactamente lo que el docstring de
+# `ran` dice que no puede pasar.
+CONSTANCIAS = ("sweep", "report", "confirmation")
+
+
 def ran(state: Path, que: str, today: dt.date) -> dict:
     """Deja constancia de que algo se corrió hoy. Sin esto, `due` repite para siempre."""
+    if que not in CONSTANCIAS:
+        raise ValueError(f"cadencia desconocida: {que!r}. "
+                         f"Las que `due` lee son {', '.join(CONSTANCIAS)}")
     f = state / "cadencia.json"
     registro = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
     registro[que] = today.isoformat()

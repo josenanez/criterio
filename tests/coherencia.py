@@ -549,16 +549,18 @@ else:
 # la tercera sección se llamaba distinto en cada una, así que no se podían comparar. Quien
 # entraba a dos de ellas no sabía si la diferencia era del agente o del redactor.
 #
-# El esqueleto es el mismo para los tres y abre por el alcance y la superposición, porque
-# la primera pregunta de quien llega es si esto es para él y qué se pisa con lo demás. Solo
-# tres títulos varían, y varían en lo que tienen que variar: el nombre del agente y el
-# número de comandos y de skills.
+# El esqueleto es el mismo para los tres y abre por el alcance, porque la primera pregunta
+# de quien llega es si esto es para él. Solo tres títulos varían, y varían en lo que tienen
+# que variar: el nombre del agente y el número de comandos y de skills.
+#
+# Hubo una segunda sección que declaraba dónde se superponía cada agente con los otros dos, y
+# se quitó: que dos roles hagan la misma tarea en momentos distintos no es una superposición
+# que haya que justificar, es la tarea. Explicarlo creaba el conflicto que pretendía evitar.
 print("\nLas tres páginas de agente, con el mismo esqueleto")
 import fnmatch
 
 ESQUELETO = {
     "es": ["El alcance",
-           "Dónde se superpone con los otros dos, y dónde no",
            "Instalación",
            "El primer resultado",
            "El hallazgo que nadie más produce",
@@ -570,7 +572,6 @@ ESQUELETO = {
            "Los * skills",
            "Cómo se verifica"],
     "en": ["The scope",
-           "Where it overlaps with the other two, and where it does not",
            "Installation",
            "The first result",
            "The finding nobody else produces",

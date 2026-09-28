@@ -204,6 +204,10 @@ def ficha_proyecto(carpeta: Path, raiz: Path) -> dict:
                                ev[0] if ev else rc, ev[1] if ev else fc),
                 "evidence": campo(ev[0], ev[0], ev[1]) if ev else vacio()})
         ficha["plan"]["milestones"] = hitos
+        if hitos:
+            # La fecha de cierre del plan es la del cronograma vigente; la del acta es
+            # el compromiso original, y la diferencia entre las dos es la desviación.
+            ficha["plan"]["end_date"] = hitos[-1]["current_date"]
         ficha["plan"]["baseline"].append({
             "version": len(ficha["plan"]["baseline"]) + 1, "approved_on": fc,
             "start_date": inicio, "end_date": hitos[-1]["current_date"]["value"]
@@ -248,21 +252,32 @@ def ficha_proyecto(carpeta: Path, raiz: Path) -> dict:
         entregables = []
         for fila in filas(tc, "Entregable"):
             ev = recibo_de(fila[0])
+            # El contrato declara el estado; el acta de recibo es la evidencia. Son
+            # dos cosas distintas y el cruce entre ellas es media aritmética de
+            # proveedores: «recibido» sin acta que lo sustente es un hallazgo.
+            declarado = (fila[3] if len(fila) > 3 else "").strip().lower()
+            estado = {"recibido": "accepted", "entregado": "delivered"}.get(
+                declarado, "pending")
             entregables.append({
                 "name": campo(fila[0], rc2, fc2),
                 "due_date": campo(fila[1], rc2, fc2),
                 "amount": campo(plata(fila[2]), rc2, fc2),
+                "state": campo(estado, rc2, fc2),
                 "evidence": campo(ev[0], ev[0], ev[1]) if ev else vacio()})
-        facturado = []
+        total, detalle = 0, []
         for fx in facturas:
             tf = fx.read_text(encoding="utf-8")
-            facturado.append({
+            monto = plata(negrita(tf, "Valor") or "")
+            total += monto or 0
+            detalle.append({
                 "concept": campo(negrita(tf, "Concepto"), rel[fx], fecha_de(fx.name)),
-                "amount": campo(plata(negrita(tf, "Valor") or ""), rel[fx],
-                                fecha_de(fx.name))})
+                "amount": campo(monto, rel[fx], fecha_de(fx.name))})
         ficha["vendors"] = [{"name": campo(negrita(tc, "Proveedor"), rc2, fc2),
-                             "contract": campo(rc2, rc2, fc2),
-                             "deliverables": entregables, "invoices": facturado}]
+                             "contract_ref": campo(
+                                 tc.splitlines()[0].split("·")[0].split()[-1], rc2, fc2),
+                             "deliverables": entregables,
+                             "invoiced": campo(total, rc2, fc2) if detalle else vacio(),
+                             "invoices": detalle}]
 
     # ── control de cambios sin línea base nueva
     if cambios:
@@ -270,11 +285,24 @@ def ficha_proyecto(carpeta: Path, raiz: Path) -> dict:
         for ch in cambios:
             tch = ch.read_text(encoding="utf-8")
             aut = seccion(tch, "Autorización")
+            import re as _re
+            m_dias = _re.search(r"\|\s*Tiempo\s*\|\s*([+-]?\d+)\s*días", tch)
+            aprobado = "Pendiente" not in aut
             ficha["changes"].append({
-                "id": campo(tch.splitlines()[0].split()[-1], rel[ch],
-                            fecha_de(ch.name)),
-                "authorized": vacio() if "Pendiente" in aut
-                else campo(aut, rel[ch], fecha_de(ch.name))})
+                "ref": campo(tch.splitlines()[0].split()[-1], rel[ch],
+                             fecha_de(ch.name)),
+                "decision": campo("approved" if aprobado else "pending",
+                                  rel[ch], fecha_de(ch.name)),
+                "time_impact": campo(int(m_dias.group(1)) if m_dias else None,
+                                     rel[ch], fecha_de(ch.name)),
+                "requested_on": campo(negrita(tch, "Fecha") or fecha_de(ch.name),
+                                      rel[ch], fecha_de(ch.name))})
+
+    # ── la ficha que el gerente publicó, si está
+    # No se fusiona con la de Vera: se guarda al lado, y el cálculo compara las dos.
+    publicada = next((p for p in docs if p.name.endswith("ficha-proyecto.json")), None)
+    if publicada:
+        ficha["pm_record"] = json.loads(publicada.read_text(encoding="utf-8"))
 
     # ── actividad
     todos = [(fecha_de(p.name), rel[p]) for p in docs if fecha_de(p.name)]
@@ -359,7 +387,7 @@ def registro_producto(carpeta: Path, raiz: Path) -> tuple:
                 evidencias.append({"value": m.group(1), "source": re_,
                                    "source_date": m.group(2)})
         for fila in filas(tm, "Requerimiento"):
-            rid, titulo, doliente, criterio, estado, desde = fila[:6]
+            rid, titulo, doliente, criterio, quien_pidio, estado, desde = fila[:7]
             sin_doliente = doliente.lower().startswith("sin ")
             reqs.append({
                 "id": rid, "product": prod["identity"]["code"],
@@ -374,7 +402,12 @@ def registro_producto(carpeta: Path, raiz: Path) -> tuple:
                 # que dice el documento. No se rellena con lo razonable.
                 "acceptance": ([] if criterio in ("—", "", None)
                                else [{"value": criterio, "source": rm}]),
-                "evidence": evidencias,
+                # Solo la evidencia que el comité cita para ESE requerimiento. Un
+                # aceptado sin nadie que lo haya pedido es una definición que se
+                # sostiene sola, y ese es el hallazgo.
+                "evidence": [e for e in evidencias
+                             if quien_pidio not in ("—", "", None)
+                             and e["value"].startswith(quien_pidio.split(",")[0])],
                 "decision": {"what": {"value": titulo, "source": rm},
                              "who": "Comité de producto", "on": fm},
                 "traces": {"project": proyectos[0] if proyectos else None,
