@@ -221,3 +221,9 @@ __marimo__/
 # La carpeta donde el escritorio deja los archivos que Claude entrega en el chat.
 # No es contenido del repositorio y no debe viajar en un commit.
 Claude outputs/
+
+# La organización sintética de las pruebas: material de una corrida. Pesa, y se
+# reconstruye con un comando. Vive aquí —y no en /tmp— porque las cinco corridas
+# tienen que encontrar el estado del día anterior, y una sesión nueva solo ve la
+# carpeta del repositorio.
+.pruebas/

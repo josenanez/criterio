@@ -1,7 +1,7 @@
 {
   "fecha": "2026-09-28",
   "dia": 5,
-  "commit": "482e604",
+  "commit": "a2fc413",
   "disposicion": "referencia",
   "casos": {
     "proyectos": 50,
@@ -16,9 +16,9 @@
     }
   },
   "tiempos": {
-    "Extracción · documentos a ficha": 67,
-    "Cálculo · portafolio": 29,
-    "Cálculo · productos": 1372
+    "Extracción · documentos a ficha": 865,
+    "Cálculo · portafolio": 41,
+    "Cálculo · productos": 2361
   },
   "totales": {
     "aciertos": 605,
@@ -836,16 +836,16 @@
       }
     },
     "por_senal": {
-      "requirement_undecided": {
-        "aciertos": 23,
+      "requirement_untraced": {
+        "aciertos": 242,
         "fp": 0,
         "fn": 0,
         "casos": [],
         "precision": 100.0,
         "cobertura": 100.0
       },
-      "requirement_untraced": {
-        "aciertos": 242,
+      "requirement_accepted_without_evidence": {
+        "aciertos": 32,
         "fp": 0,
         "fn": 0,
         "casos": [],
@@ -860,8 +860,8 @@
         "precision": 100.0,
         "cobertura": 100.0
       },
-      "requirement_accepted_without_evidence": {
-        "aciertos": 32,
+      "requirement_undecided": {
+        "aciertos": 23,
         "fp": 0,
         "fn": 0,
         "casos": [],

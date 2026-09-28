@@ -28,9 +28,47 @@ cinco corridas pueden concluir, y el informe de cada día lo repite.
 
 ---
 
+## La línea base, ya medida
+
+Antes de poner al modelo a ejecutar comandos había que saber si la cadena determinista
+—extraer documentos, calcular señales, calificar contra una clave— es confiable. Se corrió
+la simulación completa de cinco semanas y **encontró seis defectos**, todos reales, ninguno
+un desacuerdo de contabilidad:
+
+| Dónde estaba | Qué pasaba |
+|---|---|
+| `extractor.py` · `filas()` | Una fila de datos que repetía la palabra de la columna se descartaba por parecer encabezado. **Ningún requerimiento se extrajo nunca**, y no falló nada |
+| `extractor.py` · estado | La extracción no borraba lo anterior: un requerimiento que ya no estaba en ningún documento seguía produciendo hallazgos |
+| `extractor.py` · traza | La traza al proyecto se heredaba del producto, así que `requirement_untraced` no podía sonar en un producto que declarara algún proyecto |
+| `portafolio.py` · `EVIDENCE_SIGNALS` | Al partir `milestone_overdue` en dos señales, la nueva no entró a la lista que el verde tiene que explicar: partir una señal debilitó en silencio el contraste contra la declaración |
+| material · supuestos | El documento no decía si el supuesto se había verificado, así que el lector no tenía más opción que asumir que no: la señal sonaba en los 65 productos y no distinguía nada |
+| material · cronograma | Todas las versiones del cronograma llevaban las mismas fechas, así que una replanificación de noventa días no dejaba rastro documental |
+
+Y dos correcciones en la clave de respuestas, que también eran defectos: tres fechas en un
+compromiso son **dos** reprogramaciones, no tres; y los meses se cuentan por calendario, no
+dividiendo días por treinta.
+
+Corregidos, la cadena califica **100% de precisión y 100% de cobertura los cinco días**,
+con el material escrito en las cuatro disposiciones. Está en
+[`tests/informes/RESUMEN.md`](informes/RESUMEN.md).
+
+Lo que esa línea base **no** dice: nada sobre los comandos. Mide extracción y aritmética.
+Los cinco días de abajo son para lo otro.
+
+---
+
 ## Antes de empezar · hoy
 
-### Paso 0.1 · Instalar los tres agentes
+### Paso 0.1 · Comprobar que la línea base sigue verde
+
+```
+python3 scripts/verificar.py
+```
+
+Veintiuna puertas. Si alguna está en rojo se arregla antes de seguir: los cinco días miden
+contra ella.
+
+### Paso 0.2 · Instalar los tres agentes
 
 ```
 /plugin marketplace add josenanez-company/criterio
@@ -43,33 +81,31 @@ cinco corridas pueden concluir, y el informe de cada día lo repite.
 algún comando no apareció. Un comando declarado que no aparece en la sesión es un defecto
 del manifiesto, y es el primero que hay que ver.
 
-### Paso 0.2 · Levantar la organización
+### Paso 0.3 · Levantar la organización
 
 ```
-python3 tests/sintetico/simulador.py ~/Projects/corp-demo --dia 1
+python3 tests/sintetico/simulador.py .pruebas/corp-demo --dia 1
 ```
 
-Deja `~/Projects/corp-demo/` con `documentos/`, la bitácora del día y `esperado.json`.
-**Este archivo es la clave de respuestas** y se deriva de los hechos que el simulador
-plantó, con las reglas escritas en los skills — no con el código que se está midiendo.
+Deja `.pruebas/corp-demo/` con `documentos/`, `organizacion.json`, la bitácora del día y
+`esperado.json`. **Este último es la clave de respuestas** y se deriva de los hechos que el
+simulador plantó, con los umbrales copiados de los skills — no importados del código que se
+está midiendo. Si las dos reglas se separan, la calificación lo dice, y eso es precisamente
+lo que se quiere saber.
 
-### Paso 0.3 · Resolver las tres divergencias abiertas
-
-La primera corrida del calificador encontró tres señales donde **la regla escrita y el
-código no coinciden**: `requirement_untraced`, `declared_vs_evidence` y `evidence_stale`.
-Están en la derivación del simulador y en el extractor de referencia, no en los agentes.
-
-Antes de empezar los cinco días hay que decidir, para cada una, **cuál de las dos tiene
-razón**, corregir la que no, y dejar escrito por qué. Si se arranca con la clave mal, los
-cinco días miden contra una vara torcida.
+La organización vive **dentro del repositorio y fuera de git** — `.pruebas/` está en el
+`.gitignore`. No es capricho: una corrida programada arranca en una sesión nueva que solo
+alcanza la carpeta del repositorio, y con el material en un temporal el día 2 no
+encontraría el estado del día 1 — que es lo único que cinco días pueden medir y una
+corrida suelta no.
 
 ### Paso 0.4 · Configurar los tres agentes
 
 ```
-/portfolio-setup      → apuntar a ~/Projects/corp-demo/documentos/proyectos
-                        y el estado a ~/Projects/corp-demo/estado
-/pm-setup             → un proyecto: ~/Projects/corp-demo/documentos/proyectos/PRY-200-...
-/product-setup        → un producto: ~/Projects/corp-demo/documentos/productos/PRD-300
+/portfolio-setup      → apuntar a .pruebas/corp-demo/documentos/proyectos
+                        y el estado a .pruebas/corp-demo/estado
+/pm-setup             → un proyecto: .pruebas/corp-demo/documentos/proyectos/PRY-200-...
+/product-setup        → un producto: .pruebas/corp-demo/documentos/productos/PRD-300
 ```
 
 **Evidencia:** `tests/evidencias/dia-0/setup-<agente>.md` con **cuántas preguntas hizo,
@@ -83,7 +119,7 @@ La promesa publicada es *quince minutos*; aquí se mide.
 ### Paso 1 · Pasar una semana
 
 ```
-python3 tests/sintetico/simulador.py ~/Projects/corp-demo --dia <N>
+python3 tests/sintetico/simulador.py .pruebas/corp-demo --dia <N>
 ```
 
 Escribe la semana nueva y regenera `esperado.json`. La bitácora del día dice qué le pasó a
@@ -161,13 +197,13 @@ Con Rostrum levantado:
 ### Paso 6 · Calificar y cerrar el día
 
 ```
-python3 tests/sintetico/fiabilidad.py ~/Projects/corp-demo
+python3 tests/sintetico/fiabilidad.py .pruebas/corp-demo
 python3 tests/sintetico/resumen.py
 python3 scripts/verificar.py
 git add -A && git commit
 ```
 
-El informe del día queda en `tests/informes/<fecha>.md`: aciertos, falsos positivos,
+El informe del día queda en `tests/informes/dia-N-<fecha>.md`: aciertos, falsos positivos,
 falsos negativos, precisión y cobertura **por señal**, tiempo total y por documento.
 
 **El commit del día dice tres cosas**: precisión y cobertura, qué falló, y **en qué capa
@@ -196,11 +232,11 @@ reconocerse como una, no como tres.
 ## Dónde queda cada cosa
 
 ```
-~/Projects/corp-demo/          la organización: documentos, estado, bitácora, esperado.json
-tests/evidencias/dia-N/        lo que produjo cada comando, un archivo por comando
-tests/informes/<fecha>.md      la calificación del día
-tests/informes/RESUMEN.md      los cinco días juntos
+.pruebas/corp-demo/               la organización: fuera de git, dentro del repositorio
+tests/evidencias/dia-N/           lo que produjo cada comando, un archivo por comando
+tests/informes/dia-N-<fecha>.md   la calificación del día
+tests/informes/RESUMEN.md         los cinco días juntos
 ```
 
-La organización **no entra al repositorio**: es material de una corrida, pesa, y se
-reconstruye con un comando. Lo que entra son las evidencias y los informes.
+La organización **no entra a git**: es material de una corrida, pesa, y se reconstruye con
+un comando. Lo que entra son las evidencias y los informes.
