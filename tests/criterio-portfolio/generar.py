@@ -1021,8 +1021,11 @@ HALLAZGOS = {
     "proyectos": {
         "PRY-001": {
             "por_que": "Declara verde en agosto y la evidencia no lo sostiene. Es el caso central.",
+            # `progress_vs_plan`: declara 78% con uno de tres hitos cumplidos. Refuerza
+            # justo lo que este caso prueba — el verde que la evidencia no sostiene—, y
+            # es la señal que salió de correr el agente sobre cincuenta proyectos.
             "senales": ["budget_committed", "commitment_overdue", "declaration_stale", "declared_vs_evidence", "milestone_overdue",
-                        "commitment_rescheduled", "governance_change",
+                        "commitment_rescheduled", "governance_change", "progress_vs_plan",
                         "rebaseline_unauthorized", "silent", "variance_time"],
             "valores": {
                 "days_silent": 19,

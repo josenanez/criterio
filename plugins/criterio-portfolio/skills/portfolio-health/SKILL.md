@@ -25,7 +25,7 @@ Lo que aporta valor es **contrastar la declaración contra la evidencia** y deci
 
 Dos precisiones que evitan un hallazgo mal armado. La lista deja fuera las contradicciones entre documentos: son un defecto de la ficha, no del proyecto, y mezclarlas debilita el hallazgo. Y para el amarillo y el rojo la lista se calcula igual pero no se levanta alerta: quien ya reportó problema no está escondiendo nada.
 
-## Las veinte señales
+## Las veintiuna señales
 
 Este skill es el **único sitio** donde vive qué significa cada señal y cuándo merece alarma.
 No se repite en la página de la capacidad ni en las hojas de diseño: una lista copiada se
@@ -61,7 +61,8 @@ quiere moverla.
 | Señal | Habla cuando | Clave |
 |---|---|---|
 | `silent` | Días sin un documento nuevo. Un proyecto sin documentación no está mal gestionado: está sin documentar | `silent_days` |
-| `contradiction` | Dos documentos dicen cosas distintas del mismo campo. Se reporta **siempre**, con las dos fuentes y las dos fechas | — siempre |
+| `contradiction` | Dos documentos dicen cosas distintas **del mismo campo**. Se reporta **siempre**, con las dos fuentes y las dos fechas | — siempre |
+| `progress_vs_plan` | El avance que el gerente declara y el que sostiene su propio cronograma, cuando no pueden ser los dos ciertos. Pide al menos `progress_vs_plan_min_milestones` hitos: con uno, el plan solo sostiene 0% o 100% y cualquier cifra intermedia dispararía | `progress_vs_plan_points` |
 | `governance_change` | El conflicto está en el patrocinador, el gerente o el comité. **No es un defecto de la ficha: es un evento.** Nadie reexpide el acta porque se fue el patrocinador, y un proyecto con tres en dieciocho meses explica más que cualquier análisis de causa raíz | — siempre |
 
 Un campo cuya fuente tiene más meses que `stale_field_months` carga su antigüedad visible en
@@ -146,3 +147,25 @@ No calcula. La desviación, los días de silencio y las proyecciones salen del s
 No opina sobre si un proyecto debe continuar. Eso es decisión de comité, y el material para tomarla lo prepara `steering-pack`.
 
 No convierte un vacío en un juicio. Un proyecto sin documentación no está mal gestionado: está sin documentar, y eso es lo que se reporta.
+
+## Dos documentos que no pueden ser ciertos a la vez
+
+`contradiction` y `progress_vs_plan` se confunden y no son lo mismo. La diferencia decide
+en qué sección del informe va el hallazgo, y un informe que diga «sin contradicciones» y
+liste ocho incompatibilidades tres párrafos después no lo lee nadie dos veces.
+
+**`contradiction` es el mismo campo dicho distinto.** El acta nombra un patrocinador y la
+minuta de agosto nombra otro. Es un defecto del registro: alguien tiene el dato viejo.
+
+**`progress_vs_plan` son dos campos cuya combinación es imposible.** El cronograma marca
+los cinco hitos cerrados —incluida la salida a producción— y el informe declara 28% de
+avance. Ningún dato está viejo: los dos documentos se desmienten, y el proyecto no puede
+estar en los dos estados.
+
+La segunda es un defecto del proyecto, no del registro, y por eso **sí entra** en las
+señales que un semáforo verde tiene que explicar. La primera no: mezclarlas debilita el
+hallazgo.
+
+Y es aritmética —hitos cerrados sobre hitos totales contra el porcentaje declarado—, así
+que la calcula el script. Tú preguntas lo que el script no puede: cuál de los dos
+documentos está mal, que casi siempre es el cronograma que nadie mantuvo.

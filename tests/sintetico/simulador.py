@@ -42,7 +42,7 @@ HOY = dt.date.today()
 # cambia un umbral y este no, la prueba lo dice — que es justo lo que tiene que hacer.
 UMBRAL = {"silencio_dias": 15, "declaracion_vieja_dias": 30, "comprometido_pct": 90,
           "variacion_costo_pct": 10, "variacion_tiempo_pct": 10, "reprogramaciones": 3,
-          "replan_tolerancia_dias": 0, "supuesto_sin_verificar_dias": 30,
+          "avance_vs_plan_puntos": 25, "avance_vs_plan_hitos_min": 3, "replan_tolerancia_dias": 0, "supuesto_sin_verificar_dias": 30,
           "evidencia_vieja_meses": 12, "sin_decidir_dias": 60, "brecha_declarado_pct": 20}
 
 # Los estados en que alguien ya decidió que el requerimiento se hace. Son los que exigen
@@ -54,7 +54,8 @@ DECIDIDOS = ("aceptado", "en_construccion", "entregado")
 # calificación lo dice, y eso es precisamente lo que se quiere saber.
 SENALES_DE_EVIDENCIA = (
     "silent", "variance_time", "variance_cost", "milestone_overdue",
-    "milestone_met_without_evidence", "commitment_overdue", "commitment_rescheduled",
+    "milestone_met_without_evidence", "progress_vs_plan",
+    "commitment_overdue", "commitment_rescheduled",
     "budget_committed", "vendor_deliverable_late", "vendor_invoiced_without_delivery",
     "vendor_invoiced_over_accepted", "rebaseline_unauthorized", "governance_change",
 )
@@ -153,25 +154,24 @@ def f(base: dt.date, dias: int) -> str:
 # El estado de la organización: los hechos de cada caso
 # ══════════════════════════════════════════════════════════════════════════
 
-def avance(hitos: list, rnd, contradice: bool = False) -> int:
-    """El avance declarado, coherente con los hitos que el cronograma da por cerrados.
+def avance(hitos: list, rnd) -> int:
+    """El avance que el gerente declara. No el que su cronograma sostiene.
 
-    Era un aleatorio independiente, y salían proyectos con los cinco hitos cerrados
-    —incluida la salida a producción— declarando 28% de avance. Treinta y cuatro de
-    cincuenta. Lo encontró el propio agente leyendo el material, y tenía razón: es
-    material que no puede existir, y medir contra él no dice nada.
+    Hubo un intento de hacerlo coherente con los hitos cerrados, y era un error de
+    diseño: aplanaba el material. De treinta y cuatro proyectos con avance imposible
+    quedaban cuatro, y lo que se mide aquí es justamente **la capacidad de encontrarlos**.
+    Un proyecto real es caos: el cronograma no se mantiene, el informe se copia del mes
+    pasado, y el porcentaje lo pone quien lo reporta. Eso pasa todas las semanas en una
+    PMO de verdad, y no hay que quitarlo del material — hay que encontrarlo.
 
-    Un gerente redondea a su favor, así que el ruido va hacia arriba. Cuando
-    `contradice`, el avance se declara muy por debajo de lo que el cronograma sostiene:
-    eso **sí** existe en una PMO real —el cronograma no se mantuvo, o el informe no
-    refleja el estado— y es lo que `contradiction` tiene que encontrar.
+    Lo que sí tiene que estar bien es la clave de respuestas. `progress_vs_plan` es
+    aritmética —hitos cerrados contra porcentaje declarado—, así que la incoherencia queda
+    medida en vez de escondida: el material puede ser todo el desorden que quiera.
+
+    Va sesgado hacia el optimismo, que es el sesgo que existe: nadie declara menos avance
+    del que tiene.
     """
-    if not hitos:
-        return rnd.randint(20, 80)
-    base = round(100 * sum(1 for h in hitos if h["cerrado"]) / len(hitos))
-    if contradice:
-        return max(5, base - rnd.randint(35, 60))
-    return max(3, min(99, base + rnd.randint(-8, 12)))
+    return rnd.randint(20, 80)
 
 
 def nuevo_proyecto(rnd, i: int, hoy: dt.date) -> dict:
@@ -181,21 +181,12 @@ def nuevo_proyecto(rnd, i: int, hoy: dt.date) -> dict:
     duracion = rnd.randint(200, 600)
     presupuesto = rnd.choice([800, 1_200, 2_400, 3_300, 4_200, 6_800, 9_500, 18_000]) * 1_000_000
     n_hitos = {"completa": 5, "media": 4, "delgada": 3, "minima": 2}[prof]
-    quiere_contradecir = rnd.random() < 0.14
     hitos = []
     for h in range(n_hitos):
         cuando = -arranque + int(duracion * (h + 1) / (n_hitos + 0.5))
         hitos.append({"nombre": FASES[h % len(FASES)], "base": f(hoy, cuando),
                       "vigente": f(hoy, cuando), "cerrado": cuando < 0,
                       "recibo": None})
-    # La contradicción se planta solo donde se puede ver: hace falta un cronograma
-    # escrito y una mayoría de hitos cerrados. «Declara 5% con uno de cinco hitos
-    # cerrados» son quince puntos, y eso nadie lo reporta: una señal plantada que no se
-    # puede encontrar es un falso negativo esperando, y culpa al agente de algo mío.
-    cerrados = sum(1 for h in hitos if h["cerrado"])
-    contradice = (quiere_contradecir and PROFUNDIDAD[prof]["plan"]
-                  and hitos and cerrados / len(hitos) >= 0.6)
-
     return {
         "codigo": f"PRY-{200 + i}", "nombre": tema,
         "carpeta": f"PRY-{200 + i}-" + tema.lower().replace(" ", "-"),
@@ -208,9 +199,8 @@ def nuevo_proyecto(rnd, i: int, hoy: dt.date) -> dict:
         "ejecutado": int(presupuesto * rnd.uniform(0.15, 0.55)),
         "proyeccion": int(presupuesto * rnd.uniform(0.92, 1.05)),
         "hitos": hitos, "compromisos": [], "lineas_base": 1, "cambios": [],
-        "contradice": contradice,
         "declarado": {"estado": rnd.choice(["verde", "verde", "amarillo"]),
-                      "pct": avance(hitos, rnd, contradice),
+                      "pct": avance(hitos, rnd),
                       "fecha": f(hoy, -rnd.randint(2, 10))},
         "ultimo_doc": f(hoy, -rnd.randint(2, 10)), "silencioso": False,
         "docs": [], "semana": 0,
@@ -312,8 +302,8 @@ def semana_proyecto(rnd, p: dict, hoy: dt.date, dia: int):
     # envejece — que es una señal distinta de que el proyecto esté callado.
     if rnd.random() < 0.75:
         p["declarado"] = {"estado": rnd.choice(["verde", "verde", "amarillo", "rojo"]),
-                          "pct": max(p["declarado"]["pct"],
-                                     avance(p["hitos"], rnd, p.get("contradice"))),
+                          # El avance declarado sube, porque nadie reporta retroceso.
+                          "pct": min(99, p["declarado"]["pct"] + rnd.randint(1, 9)),
                           "fecha": f(hoy, -rnd.randint(0, 5))}
         eventos.append("informe de avance")
     p["ultimo_doc"] = f(hoy, -rnd.randint(0, 5))
@@ -404,6 +394,13 @@ def esperado_proyecto(p: dict, hoy: dt.date) -> list:
     # Las líneas base que el material deja escritas: la versión 1 el día de la
     # aprobación, y la versión vigente el día del último informe. Nada más existe en
     # papel, y contra eso se mide.
+    # El avance declarado contra el que sostiene el cronograma. El material es todo el
+    # desorden que quiera: mientras la clave lo calcule, queda medido.
+    if len(hitos) >= UMBRAL["avance_vs_plan_hitos_min"]:
+        sostiene = round(100 * sum(1 for h in hitos if h["cerrado"]) / len(hitos))
+        if abs(sostiene - p["declarado"]["pct"]) >= UMBRAL["avance_vs_plan_puntos"]:
+            s.append("progress_vs_plan")
+
     lineas = []
     if PROFUNDIDAD[p["profundidad"]]["plan"]:
         lineas.append(p["aprobacion"])
@@ -615,15 +612,12 @@ if __name__ == "__main__":
     esperado.update({x["codigo"]: esperado_producto(x, HOY) for x in estado["productos"]})
     corpus.escribir_suelto(destino / "esperado.json", json.dumps(
         {"generado": HOY.isoformat(), "dia": a.dia, "disposicion": disp,
-         "esperado": esperado, "controles": [],
-         # Lo que solo el modelo puede encontrar, aparte de lo que el script calcula.
-         # `contradiction` no sale de la aritmética: hay que leer el cronograma y el
-         # informe y ver que no pueden ser los dos ciertos. `fiabilidad.py` no lo
-         # califica —solo mide el script— y `contrastar.py` lo imprime para revisar si el
-         # agente lo encontró. Mezclarlos daría falsos negativos que no son del código.
-         "solo_modelo": {
-             "contradiction": sorted(x["codigo"] for x in estado["proyectos"]
-                                     if x.get("contradice"))}},
+         # `solo_modelo` queda para lo que el script no puede calcular y el agente sí
+         # tiene que encontrar. Hoy está vacío a propósito: `progress_vs_plan` se pasó a
+         # aritmética, y las dos que siguen siendo del modelo —`contradiction` y
+         # `governance_change`— todavía no tienen material plantado aquí. Están en el
+         # corpus de dieciocho casos, no en esta organización de ciento quince.
+         "esperado": esperado, "controles": [], "solo_modelo": {}},
         ensure_ascii=False, indent=1))
     corpus.escribir_suelto(destino / f"bitacora-dia-{a.dia}.md",
                            f"# Día {a.dia} · qué pasó\n\n"

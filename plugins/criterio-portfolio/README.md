@@ -72,7 +72,7 @@ and they read the way a manual reads.
 |---|---|---|
 | `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other | Own · also in Samuel and Alba |
 | `document-intake` | Which document has to be re-read and which not, which formats can be read and with what, renaming, deletion, and the citation that stopped resolving | Own · also in Samuel and Alba |
-| `portfolio-health` | The twenty signals with what each one means, the thresholds that govern them, and the three defences against the value that stopped being true | Own |
+| `portfolio-health` | The twenty-one signals with what each one means, the thresholds that govern them, and the three defences against the value that stopped being true | Own |
 | `baseline-variance` | Append-only baseline, variance against the original and against the current one, replanning against what the committee authorised, the budget's four figures | Own · also in Samuel |
 | `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria | Own · also in Samuel and Alba |
 | `commitment-tracking` | Commitments made in meetings: extraction, states, what counts as evidence, and the one that repeats with a new date every time | Own · also in Samuel |

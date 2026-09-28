@@ -40,6 +40,14 @@ from pathlib import Path
 DEFAULT_THRESHOLDS = {
     "silent_days": 15,
     "variance_time_pct": 10,
+    # Puntos de diferencia entre el avance que el gerente declara y el que sostiene su
+    # propio cronograma. Por debajo es redondeo; por encima, los dos documentos no
+    # pueden ser ciertos a la vez.
+    "progress_vs_plan_points": 25,
+    # Hitos mínimos para que la fracción pueda contradecir un porcentaje. Con uno solo, el
+    # plan únicamente sostiene 0% o 100%, así que cualquier cifra intermedia dispararía:
+    # sería un falso positivo garantizado en todo proyecto con pocos hitos.
+    "progress_vs_plan_min_milestones": 3,
     "variance_cost_pct": 10,
     "committed_pct": 90,
     "stale_field_months": 12,
@@ -89,7 +97,7 @@ CAMPOS_CONTRASTADOS = (
 # debilitó en silencio el contraste contra la declaración.
 EVIDENCE_SIGNALS = (
     "silent", "variance_time", "variance_cost", "milestone_overdue",
-    "milestone_met_without_evidence",
+    "milestone_met_without_evidence", "progress_vs_plan",
     "commitment_overdue", "commitment_rescheduled", "budget_committed",
     "vendor_deliverable_late", "vendor_invoiced_without_delivery",
     "vendor_invoiced_over_accepted", "rebaseline_unauthorized", "governance_change",
@@ -278,6 +286,30 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
         (sin_prueba if st == "met" else overdue).append(fila)
     out["milestones_overdue"] = overdue
     out["milestones_met_without_evidence"] = sin_prueba
+
+    # --- el avance declarado contra el cronograma del mismo proyecto ----
+    # `contradiction` es el mismo campo dicho distinto en dos documentos. Esto es otra
+    # cosa: dos campos distintos cuya combinación no puede ser cierta. Un proyecto con
+    # los cinco hitos marcados cerrados —incluida la salida a producción— declarando 28%
+    # de avance no tiene un dato desactualizado: tiene dos documentos que se desmienten.
+    #
+    # Salió de correr el agente sobre cincuenta proyectos: encontró los ocho casos y los
+    # puso en una sección inventada, porque con la definición anterior de `contradiction`
+    # no cabían en ninguna. El informe decía «sin contradicciones» y listaba ocho. Es
+    # aritmética, así que le corresponde al código y no a la lectura.
+    hitos = plan.get("milestones") or []
+    # `pct` ya es una función en este módulo; el avance declarado va con su propio nombre.
+    avance = as_number(declarado_pct(rec))
+    if len(hitos) >= th["progress_vs_plan_min_milestones"] and avance is not None:
+        cerrados = sum(1 for m in hitos if value(m.get("state")) == "met")
+        sostiene = round(100 * cerrados / len(hitos))
+        brecha = sostiene - avance
+        out["progress_vs_plan"] = {"declared_pct": avance, "plan_supports_pct": sostiene,
+                                   "milestones_met": cerrados, "milestones": len(hitos),
+                                   "gap_points": brecha}
+        if abs(brecha) >= th["progress_vs_plan_points"]:
+            alert("progress_vs_plan", dict(out["progress_vs_plan"],
+                                           direction="behind" if brecha > 0 else "ahead"))
     for m in overdue:
         alert("milestone_overdue", m)
     for m in sin_prueba:
@@ -517,6 +549,12 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
         alert("pm_vs_pmo", d)
 
     return out
+
+
+def declarado_pct(rec):
+    """El avance que el gerente declara, esté el campo donde esté en la ficha."""
+    d = rec.get("declared") or {}
+    return value(d.get("progress_pct"))
 
 
 def campo_en(rec, ruta):

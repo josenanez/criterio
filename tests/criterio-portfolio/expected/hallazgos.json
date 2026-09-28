@@ -12,6 +12,7 @@
         "milestone_overdue",
         "commitment_rescheduled",
         "governance_change",
+        "progress_vs_plan",
         "rebaseline_unauthorized",
         "silent",
         "variance_time"

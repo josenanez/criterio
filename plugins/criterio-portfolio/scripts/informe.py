@@ -146,6 +146,7 @@ tr:last-child td{{border-bottom:none}}
 # Señales que un informe muestra en rojo: son las que piden una acción.
 DURAS = {'declared_vs_evidence', 'rebaseline_unauthorized', 'milestone_overdue',
          'milestone_met_without_evidence',
+         'progress_vs_plan',
          'vendor_invoiced_over_accepted', 'vendor_invoiced_without_delivery',
          'commitment_rescheduled', 'change_without_baseline'}
 
@@ -154,6 +155,7 @@ NOMBRES = {
     'variance_cost': 'desviación en costo', 'budget_committed': 'presupuesto comprometido',
     'milestone_overdue': 'hito vencido sin evidencia',
     'milestone_met_without_evidence': 'hito declarado cerrado, sin evidencia',
+    'progress_vs_plan': 'el avance declarado y el cronograma no coinciden',
     'commitment_overdue': 'compromiso vencido', 'commitment_undated': 'compromiso sin fecha',
     'commitment_rescheduled': 'compromiso reprogramado',
     'contradiction': 'contradicción entre documentos',
