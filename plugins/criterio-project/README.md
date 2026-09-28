@@ -71,7 +71,7 @@ the whole — how yours looks next to the other forty — which belongs to the P
 GitHub → `josenanez-company/criterio`.
 
 If you run the portfolio and not a project, yours is
-[Vera](../criterio-portfolio/VERA.md). If you define a product,
+[Vera](../criterio-portfolio/README.md). If you define a product,
 [Alba](../criterio-product/README.md).
 
 ## The first result
@@ -175,7 +175,7 @@ The three agents share five behaviours, and none is style: they are what makes t
 something you can put in front of a committee. **Every value carries the citation** of its
 document and date · **«it is not stated anywhere» is a valid answer** · **they stay quiet when
 there is no news** · **none of them declares** · **none of them writes to anybody**. They are
-explained in the [family README](../criterio-portfolio/README.md#what-the-three-share).
+explained in the [family README](../../README.md#what-the-three-share).
 
 What changes between one and another is **the rhythm of the conversation**, and that is worth
 knowing before installing.
@@ -273,4 +273,4 @@ The full design, with the acceptance criteria and what still belongs to the pers
 [`DISENO.es.md`](DISENO.es.md), which travels with the plugin.
 
 And the family's tests — what no agent can answer alone — in the
-[family README](../criterio-portfolio/README.md#the-familys-tests).
+[family README](../../README.md#the-familys-tests).

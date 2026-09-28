@@ -156,7 +156,7 @@ contra qué contrastar la evidencia, que es todo el sistema. **No se construye.*
 
 Lista de acciones que el agente no ejecuta. No es una evaluación de riesgo ni pretende ser
 exhaustiva: **la responsabilidad de uso y ejecución es de la organización que lo despliega.**
-Ver [README](README.md#c--lo-que-el-agente-no-hace).
+Ver [Vera · lo que nunca hace](README.es.md#lo-que-nunca-hace).
 
 | Función | Requiere | Qué le entrega al agente |
 |---|---|---|
@@ -233,7 +233,7 @@ cuál y de qué fecha.
 Del lado de Vera eso es una señal más —`pm_vs_pmo`, ocho campos contrastados— y por
 lo tanto aritmética: **el código la calcula**, con las dos citas. El diseño completo,
 incluidos los tres casos que **no** son hallazgo, vive en la hoja de Samuel, que es su
-dueña: [Samuel · las dos fichas](project-manager.md#las-dos-fichas).
+dueña: [Samuel · las dos fichas](../criterio-project/DISENO.es.md#las-dos-fichas).
 
 Un proyecto sin Samuel no cambia en nada. La ficha de Vera sigue siendo la única, y
 es el caso que hoy está construido y probado.

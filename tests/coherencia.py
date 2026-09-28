@@ -427,29 +427,36 @@ if en_producto:
 # llegue a los cuatro —los tres agentes y el servidor—, porque una página de familia desde
 # la que no se puede navegar es un índice roto.
 print("\nDesde la familia se llega a cada agente")
-DESTINOS = {"es": ["VERA.es.md", "SERVER.es.md", "../criterio-project/README.es.md",
-                   "../criterio-product/README.es.md"],
-            "en": ["VERA.md", "SERVER.md", "../criterio-project/README.md",
-                   "../criterio-product/README.md"]}
+# La página de la familia es la del repositorio, no la de un agente. Era el error de
+# nivel que había: `criterio-portfolio` era el plugin de Vera y la familia a la vez, así
+# que para leer sobre la familia había que entrar a un agente.
+DESTINOS = {"es": ["plugins/criterio-portfolio/README.es.md",
+                   "plugins/criterio-portfolio/SERVER.es.md",
+                   "plugins/criterio-project/README.es.md",
+                   "plugins/criterio-product/README.es.md"],
+            "en": ["plugins/criterio-portfolio/README.md",
+                   "plugins/criterio-portfolio/SERVER.md",
+                   "plugins/criterio-project/README.md",
+                   "plugins/criterio-product/README.md"]}
 for nombre, idioma in (("README.es.md", "es"), ("README.md", "en")):
-    pagina = PLUGIN / nombre
+    pagina = RAIZ / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
     faltan = [d for d in DESTINOS[idioma] if f"]({d})" not in cuerpo]
     for d in DESTINOS[idioma]:
-        destino = (PLUGIN / d).resolve()
+        destino = (RAIZ / d).resolve()
         if not destino.exists():
             faltan.append(f"{d} no existe")
     if faltan:
-        decir(FALLA, f"criterio-portfolio/{nombre} no lleva a {', '.join(faltan)}")
+        decir(FALLA, f"{nombre} no lleva a {', '.join(faltan)}")
     else:
-        decir(OK, f"criterio-portfolio/{nombre} · lleva a los tres agentes y al servidor")
+        decir(OK, f"{nombre} · lleva a los tres agentes y al servidor")
 
 # Y cada agente lista sus propios comandos en su propia página, porque esa página se lee
 # sola: alguien puede instalar un agente sin la familia.
 print("\nCada agente lista lo suyo en su página")
-PROPIAS = {"criterio-portfolio": ["VERA.es.md", "VERA.md"],
+PROPIAS = {"criterio-portfolio": ["README.es.md", "README.md"],
            "criterio-project": ["README.es.md", "README.md"],
            "criterio-product": ["README.es.md", "README.md"]}
 for d in CONSTRUIDOS:
@@ -471,7 +478,7 @@ for d in CONSTRUIDOS:
 # está enlazado desde donde la gente llega es uno que nadie abre.
 print("\nEl análisis de pruebas de cada agente, alcanzable")
 for nombre in ("README.es.md", "README.md"):
-    pagina = PLUGIN / nombre
+    pagina = RAIZ / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
@@ -490,6 +497,52 @@ for nombre in ("README.es.md", "README.md"):
 # El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja
 # solo por el market. No se duplica el chequeo aquí.
+
+# ── que todo enlace interno resuelva ────────────────────────────────────
+# Se escribió a mano dos veces durante la reestructuración, y las dos veces encontró
+# algo. Un enlace roto en el README es lo primero que ve quien llega, y no lo atrapaba
+# ninguna puerta: el markdown no se compila, así que nada falla hasta que alguien hace
+# clic. Se verifica el archivo y también el ancla, porque mover una sección deja el
+# enlace apuntando a una página que existe y a un sitio que ya no.
+print("\nQue todo enlace interno resuelva")
+import unicodedata
+
+def _ancla(titulo: str) -> str:
+    t = titulo.strip().lower()
+    t = re.sub(r"[^\w\s-]", "", t, flags=re.UNICODE)
+    return re.sub(r"\s+", "-", t)
+
+
+rotos, revisados = [], 0
+for pagina in DOCS:
+    if not pagina.exists():
+        continue
+    cuerpo = pagina.read_text(encoding="utf-8")
+    for m in re.finditer(r"\[[^\]]*\]\(([^)\s]+)\)", cuerpo):
+        destino_txt = m.group(1)
+        if destino_txt.startswith(("http:", "https:", "mailto:", "#")):
+            continue
+        revisados += 1
+        archivo, _, anc = destino_txt.partition("#")
+        destino = (pagina.parent / archivo).resolve() if archivo else pagina
+        rel = pagina.relative_to(RAIZ)
+        if not destino.exists():
+            rotos.append(f"{rel} → {destino_txt} · no existe")
+            continue
+        if anc and destino.suffix == ".md":
+            anclas = {_ancla(l.lstrip("#")) for l in
+                      destino.read_text(encoding="utf-8").splitlines()
+                      if l.startswith("#")}
+            if anc not in anclas:
+                rotos.append(f"{rel} → {destino_txt} · el ancla no está")
+if rotos:
+    for r in rotos[:12]:
+        decir(FALLA, r)
+    if len(rotos) > 12:
+        decir(FALLA, f"y {len(rotos) - 12} más")
+else:
+    decir(OK, f"los {revisados} enlaces internos de la documentación resuelven")
+
 
 # ── las tres páginas de agente, con el mismo esqueleto ──────────────────
 # Era la queja, y tenía razón: las tres páginas se habían escrito en momentos distintos y
@@ -529,7 +582,7 @@ ESQUELETO = {
            "The * skills",
            "How it is verified"],
 }
-AGENTES = [(PLUGIN, "VERA.es.md", "VERA.md"),
+AGENTES = [(PLUGIN, "README.es.md", "README.md"),
            (RAIZ / "plugins" / "criterio-project", "README.es.md", "README.md"),
            (PRODUCT, "README.es.md", "README.md")]
 for carpeta, es, en in AGENTES:

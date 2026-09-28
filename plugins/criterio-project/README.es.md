@@ -73,7 +73,7 @@ conjunto —cómo se ve el tuyo al lado de los otros cuarenta—, que es de la P
 marketplace desde GitHub → `josenanez-company/criterio`.
 
 Si gestionas el portafolio y no un proyecto, lo tuyo es
-[Vera](../criterio-portfolio/VERA.es.md). Si defines un producto,
+[Vera](../criterio-portfolio/README.es.md). Si defines un producto,
 [Alba](../criterio-product/README.es.md).
 
 ## El primer resultado
@@ -176,7 +176,7 @@ Los tres agentes comparten cinco conductas, y ninguna es estilo: son las que hac
 resultado se pueda poner frente a un comité. **Cada dato lleva la cita** del documento y su
 fecha · **«no está dicho en ninguna parte» es una respuesta válida** · **se callan cuando no
 hay novedad** · **ninguno declara** · **ninguno le escribe a nadie**. Están explicadas en el
-[README de la familia](../criterio-portfolio/README.es.md#lo-que-comparten-los-tres).
+[README de la familia](../../README.es.md#lo-que-comparten-los-tres).
 
 Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo
 antes de instalar.
@@ -273,4 +273,4 @@ El diseño completo, con los criterios de aceptación y lo que sigue siendo de l
 [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
 Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el
-[README de la familia](../criterio-portfolio/README.es.md#las-pruebas-de-la-familia).
+[README de la familia](../../README.es.md#las-pruebas-de-la-familia).

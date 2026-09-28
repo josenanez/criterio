@@ -2,7 +2,7 @@
 
 **el agente de la PMO y el servidor que publica su informe** · plugin `criterio-portfolio`
 
-Corrida del 2026-09-27, sobre el commit `2c9f923`, con cambios en el árbol todavía sin confirmar. **6 puertas · 202 comprobaciones · todas en verde.**
+Corrida del 2026-09-28, sobre el commit `6976c9f`, con cambios en el árbol todavía sin confirmar. **6 puertas · 202 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -11,11 +11,11 @@ Corrida del 2026-09-27, sobre el commit `2c9f923`, con cambios en el árbol toda
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
 | `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 57 ms | verde |
-| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 66 | 20 ms | verde |
+| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 66 | 21 ms | verde |
 | `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 12 | 18 ms | verde |
 | `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 15 | 16 ms | verde |
-| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 30 | 560 ms | verde |
-| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 192 ms | verde |
+| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 30 | 552 ms | verde |
+| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 188 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -39,7 +39,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 |---|---|---:|---|
 | `sintetico/corpus.py` | El motor del material: la estructura de referencia y las cuatro disposiciones | 31 | verde |
 | `sintetico/disposiciones.py` | Que el recorrido encuentre los mismos documentos sin importar cómo estén | 16 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 68 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 69 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
