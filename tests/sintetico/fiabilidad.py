@@ -230,7 +230,8 @@ if __name__ == "__main__":
                          capture_output=True, text=True).stdout.strip() or "?"
 
     informe = {
-        "fecha": hoy, "commit": git, "disposicion": clave.get("disposicion", "?"),
+        "fecha": hoy, "dia": clave.get("dia"), "commit": git,
+        "disposicion": clave.get("disposicion", "?"),
         "casos": {"proyectos": len(pf), "productos": len(pd_)},
         "documentos": documentos(base / "documentos"),
         "tiempos": tiempos, "totales": totales(cal), "calificacion": cal,
@@ -238,11 +239,16 @@ if __name__ == "__main__":
         "errores": errores,
     }
 
+    # El nombre lleva el día de la simulación y no solo la fecha. Dos corridas de la
+    # misma jornada —el día 3 y el día 4 ensayados de seguido— se sobreescribían, y el
+    # resumen de cinco días se quedaba en uno sin que nada fallara.
+    dia = informe["dia"]
+    nombre = f"dia-{dia}-{hoy}" if dia else hoy
     salida = RAIZ / "tests" / "informes"
     salida.mkdir(parents=True, exist_ok=True)
-    (salida / f"{hoy}.json").write_text(
+    (salida / f"{nombre}.json").write_text(
         json.dumps(informe, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    (salida / f"{hoy}.md").write_text(pagina(informe) + "\n", encoding="utf-8")
+    (salida / f"{nombre}.md").write_text(pagina(informe) + "\n", encoding="utf-8")
 
     t = informe["totales"]
     print(f"{hoy} · disposición {informe['disposicion']} · "
@@ -252,7 +258,7 @@ if __name__ == "__main__":
           f"precisión {t['precision']}% · cobertura {t['cobertura']}%")
     for c, n in sorted(informe["controles"].items()):
         print(f"  control {c}: {'cero hallazgos' if not n else str(n) + ' HALLAZGOS'}")
-    print(f"  → tests/informes/{hoy}.md")
+    print(f"  → tests/informes/{nombre}.md")
     # Falla si un control negativo produjo algo o si hubo un error de ejecución: las
     # dos cosas invalidan la corrida entera, no solo una señal.
     sys.exit(1 if errores or any(informe["controles"].values()) else 0)

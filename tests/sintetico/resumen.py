@@ -28,14 +28,22 @@ def barra(pct, ancho=20):
 
 
 if __name__ == "__main__":
-    dias = []
-    for f in sorted(INFORMES.glob("*.json")):
+    # De cada día de simulación cuenta la corrida más reciente. Si el día 3 se repitió
+    # porque se corrigió algo, es la segunda la que dice cómo quedó; dejar las dos
+    # duplicaría el día y ensuciaría la mediana.
+    ultima = {}
+    for f in sorted(INFORMES.glob("*.json"), key=lambda x: x.stat().st_mtime):
         try:
-            dias.append(json.loads(f.read_text(encoding="utf-8")))
+            d = json.loads(f.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             continue
+        ultima[d.get("dia") or d["fecha"]] = d
+    dias = sorted(ultima.values(),
+                  key=lambda d: (d.get("dia") or 0, d["fecha"]))
     if not dias:
-        sys.exit("no hay corridas todavía en tests/informes/")
+        print("no hay corridas todavía en tests/informes/ — "
+              "corre tests/sintetico/fiabilidad.py primero")
+        sys.exit(0)
 
     p = ["# Resumen de las corridas", "",
          f"**{len(dias)} corrida(s)**, de la del {dias[0]['fecha']} a la del "
@@ -51,7 +59,7 @@ if __name__ == "__main__":
         ctrl = d.get("controles", {})
         marca = "✓" if not any(ctrl.values()) else "✗ " + ", ".join(
             c for c, n in ctrl.items() if n)
-        p.append(f"| {d['fecha']} | {d['disposicion']} | {d['documentos']['total']} | "
+        p.append(f"| {d.get('dia') or d['fecha']} | {d['disposicion']} | {d['documentos']['total']} | "
                  f"{ms / 1000:.1f} s | {t['aciertos']} | {t['falsos_positivos']} | "
                  f"{t['falsos_negativos']} | {t['precision']}% | {t['cobertura']}% | "
                  f"{marca} |")
