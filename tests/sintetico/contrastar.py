@@ -28,6 +28,8 @@ def cifras(org: Path) -> dict:
     luz = Counter(x["declarado"]["estado"] for x in p)
     return {
         "dia": estado["dia"],
+        "solo_modelo": json.loads(
+            (org / "esperado.json").read_text(encoding="utf-8")).get("solo_modelo", {}),
         "proyectos": len(p),
         "productos": len(estado["productos"]),
         "verde": luz["verde"], "amarillo": luz["amarillo"], "rojo": luz["rojo"],
@@ -71,6 +73,15 @@ if __name__ == "__main__":
         print(f"    {s:38} {n:>4}")
     print(f"\n  alertas de producto      {c['alertas_producto']} "
           f"(reparte entre los {c['productos']} productos)")
+
+    # ── lo que ningún script calcula
+    if any(c["solo_modelo"].values()):
+        print("\nSolo el modelo puede encontrar esto — el script no lo calcula")
+        for senal, casos in sorted(c["solo_modelo"].items()):
+            if casos:
+                print(f"  {senal:24} {len(casos)} · {', '.join(casos)}")
+        print("  Si el agente no los nombra, es un falso negativo del modelo, no del "
+              "código.\n  Si nombra otros, hay que mirar el material antes de culparlo.")
 
     # ── lo que el informe dijo, contra la clave
     dichos = {k: v for k, v in vars(a).items()
