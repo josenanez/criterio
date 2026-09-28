@@ -237,7 +237,7 @@ def nuevo_producto(rnd, i: int, hoy: dt.date) -> dict:
 # Una semana de trabajo encima de lo que ya había
 # ══════════════════════════════════════════════════════════════════════════
 
-def semana_proyecto(rnd, p: dict, hoy: dt.date, dia: int):
+def semana_proyecto(rnd, p: dict, hoy: dt.date, dia: int, todos: bool = False):
     """Lo que le pasa a un proyecto en una semana. Se sortea, con semilla del día."""
     p["semana"] = dia
     eventos = []
@@ -310,10 +310,13 @@ def semana_proyecto(rnd, p: dict, hoy: dt.date, dia: int):
     return eventos
 
 
-def semana_producto(rnd, x: dict, hoy: dt.date, dia: int):
+def semana_producto(rnd, x: dict, hoy: dt.date, dia: int, todos: bool = False):
     x["semana"] = dia
     eventos = []
-    if rnd.random() < 0.2:
+    # En `todos`, ningún producto se queda quieto: el silencio de una semana es realista
+    # y también lo es una semana en que todo se mueve, y esa segunda es la que estresa el
+    # índice de documentos —si nada quedó sin cambiar, hay que releerlo todo— y el diff.
+    if not todos and rnd.random() < 0.2:
         return ["sin movimiento"]
     if rnd.random() < 0.5:
         r = rnd.choice(x["requerimientos"])
@@ -346,6 +349,40 @@ def semana_producto(rnd, x: dict, hoy: dt.date, dia: int):
 # ══════════════════════════════════════════════════════════════════════════
 # Lo que cada agente debe encontrar, deducido de los hechos
 # ══════════════════════════════════════════════════════════════════════════
+
+def piso_proyecto(rnd, p: dict, hoy: dt.date) -> list:
+    """Lo mínimo que le pasa a un proyecto en una semana en que algo pasa.
+
+    Un informe de avance, que es lo que un gerente escribe sí o sí, y un compromiso
+    nuevo de la reunión. No se inventa nada distinto de lo que la semana normal ya hace:
+    se garantiza que ocurra.
+    """
+    p["declarado"] = {"estado": rnd.choice(["verde", "verde", "amarillo", "rojo"]),
+                      "pct": min(99, p["declarado"]["pct"] + rnd.randint(1, 9)),
+                      "fecha": f(hoy, -rnd.randint(0, 5))}
+    p["ultimo_doc"] = f(hoy, -rnd.randint(0, 5))
+    p["silencioso"] = False
+    eventos = ["informe de avance"]
+    if PROFUNDIDAD[p["profundidad"]]["minutas"]:
+        p["compromisos"].append({
+            "quien": rnd.choice(NOMBRES), "que": f"Entregar el punto {rnd.randint(1, 40)}",
+            "fechas": [f(hoy, rnd.randint(-20, 30))], "cumplido": False,
+            "dicho": f(hoy, -rnd.randint(0, 6))})
+        eventos.append("compromiso nuevo")
+    return eventos
+
+
+def piso_producto(rnd, x: dict, hoy: dt.date) -> list:
+    """Lo mínimo que le pasa a un producto: el comité revisa y queda un requerimiento más."""
+    n = len(x["requerimientos"])
+    x["requerimientos"].append({
+        "id": f"REQ-{3000 + n + x['semana'] * 11}", "estado": "aceptado",
+        "doliente": rnd.choice(NOMBRES), "criterio": rnd.random() < 0.8,
+        "evidencia": rnd.random() < 0.7,
+        "desde": f(hoy, -rnd.randint(1, 20)), "proyecto": None})
+    x["ultimo_doc"] = f(hoy, -rnd.randint(0, 6))
+    return ["requerimiento nuevo"]
+
 
 def esperado_proyecto(p: dict, hoy: dt.date) -> list:
     """Las señales que los hechos de este proyecto obligan.
@@ -580,6 +617,8 @@ if __name__ == "__main__":
     ap.add_argument("--proyectos", type=int, default=50)
     ap.add_argument("--productos", type=int, default=65)
     ap.add_argument("--disposicion", default=None)
+    ap.add_argument("--todos", action="store_true",
+                    help="que se mueva cada proyecto y cada producto, sin excepción")
     a = ap.parse_args()
 
     destino = Path(a.destino).expanduser()
@@ -599,10 +638,16 @@ if __name__ == "__main__":
         estado["dia"] = a.dia
         bitacora = []
         for p in estado["proyectos"]:
-            for e in semana_proyecto(rnd, p, HOY, a.dia):
+            movidos = semana_proyecto(rnd, p, HOY, a.dia, a.todos)
+            if a.todos and not [e for e in movidos if e != "sin movimiento"]:
+                movidos = piso_proyecto(rnd, p, HOY)
+            for e in movidos:
                 bitacora.append(f"{p['codigo']} · {e}")
         for x in estado["productos"]:
-            for e in semana_producto(rnd, x, HOY, a.dia):
+            movidos = semana_producto(rnd, x, HOY, a.dia, a.todos)
+            if a.todos and not [e for e in movidos if e != "sin movimiento"]:
+                movidos = piso_producto(rnd, x, HOY)
+            for e in movidos:
                 bitacora.append(f"{x['codigo']} · {e}")
 
     n1, n2 = escribir(estado, destino, HOY, disp)
