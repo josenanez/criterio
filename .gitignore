@@ -227,3 +227,9 @@ Claude outputs/
 # tienen que encontrar el estado del día anterior, y una sesión nueva solo ve la
 # carpeta del repositorio.
 .pruebas/
+
+# Estado local de Claude Code: qué marketplace agregó esta máquina y qué plugins
+# habilitó. Es de la máquina, no del proyecto. Versionarlo deja a quien clone con
+# plugins habilitados de un marketplace que no ha agregado.
+.claude/settings.json
+.claude/settings.local.json
