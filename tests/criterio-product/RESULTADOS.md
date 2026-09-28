@@ -2,7 +2,7 @@
 
 **el agente del gerente de producto** · plugin `criterio-product`
 
-Corrida del 2026-09-28, sobre el commit `163c794`, con cambios en el árbol todavía sin confirmar. **3 puertas · 105 comprobaciones · todas en verde.**
+Corrida del 2026-09-28, sobre el commit `741cb5e`, con cambios en el árbol todavía sin confirmar. **3 puertas · 105 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -11,8 +11,8 @@ Corrida del 2026-09-28, sobre el commit `163c794`, con cambios en el árbol toda
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
 | `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 37 ms | verde |
-| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 62 | 26 ms | verde |
-| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 112 ms | verde |
+| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 62 | 28 ms | verde |
+| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 123 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -23,6 +23,13 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 - **La extracción nunca se ha corrido.** El corpus siembra los registros, así que la cadena documento → modelo → registro no se ha ejercitado. `grade.py --registros` existe para eso.
 - **La síntesis de descubrimiento no se puede calificar con esto.** Convertir ocho entrevistas en temas con sus citas es trabajo del modelo. Las entrevistas del corpus llevan el conteo explícito —«6 de 8»— para que el día que se califique haya contra qué.
 - **El barrido normativo no se prueba en ninguna parte.** Su salida depende de conocimiento externo al repositorio, y su regla dura —*no dice si cumple*— no se puede verificar con una aserción.
+
+## Los comandos, corridos por un agente de verdad
+
+**0 de 11.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
+
+Ninguno todavía. La evidencia se registra con `tests/sintetico/evidencia.py`.
+
 
 ## Qué material se usó, y qué prueba cada pieza
 
@@ -38,7 +45,8 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `sintetico/disposiciones.py` | Que el recorrido encuentre los mismos documentos sin importar cómo estén | 16 | verde |
 | `sintetico/cobertura.py` | Que ninguna señal se quede sin disparar sin que esté declarado por qué | 3 | verde |
 | `sintetico/resumen.py` | El resumen de las corridas diarias: precisión, cobertura y qué se movió | — | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 71 | verde |
+| `sintetico/evidencia.py verificar` | Que el registro de comandos no prometa una evidencia que no está | 1 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 69 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |

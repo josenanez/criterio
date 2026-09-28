@@ -24,6 +24,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import html
+import json
 import re
 import subprocess
 import sys
@@ -371,14 +372,60 @@ PLUGIN_DE = {
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
 # en un anexo: un resultado de pruebas que solo dice lo que pasó es publicidad.
+def comandos_ejercitados(plugin: str) -> tuple:
+    """Cuántos comandos de este agente corrió un agente de verdad, según el registro.
+
+    Estaba escrito a mano —«los diecisiete comandos no se han corrido»— y siguió
+    diciéndolo el día en que se corrieron tres. Una página de resultados que no se puede
+    equivocar es la que se genera de lo que hay.
+    """
+    cmds = sorted(c.stem for c in (RAIZ / "plugins" / plugin / "commands").glob("*.md"))
+    reg = RAIZ / "tests" / "evidencias" / "registro.json"
+    filas = json.loads(reg.read_text(encoding="utf-8")) if reg.exists() else []
+    mios = [f for f in filas if f["comando"] in cmds]
+    corridos = {f["comando"] for f in mios}
+    return cmds, sorted(corridos), mios
+
+
+def bloque_comandos(plugin: str) -> list:
+    cmds, corridos, filas = comandos_ejercitados(plugin)
+    p = ["## Los comandos, corridos por un agente de verdad", "",
+         f"**{len(corridos)} de {len(cmds)}.** Un comando sin evidencia registrada no se "
+         f"probó: no se cuenta como aprobado y no se redondea. Los verificados como "
+         f"estructura —existen, declaran, y no invocan un skill que no esté— son otra "
+         f"cosa.", ""]
+    if not corridos:
+        p += ["Ninguno todavía. La evidencia se registra con "
+              "`tests/sintetico/evidencia.py`.", ""]
+        return p
+    p += ["| Comando | Días | Documentos | Hallazgos | Qué dejó ver |",
+          "|---|---|---:|---:|---|"]
+    for c in corridos:
+        de_el = [f for f in filas if f["comando"] == c]
+        dias = ", ".join(str(f["dia"]) for f in de_el)
+        docs = max((f["documentos"] or 0) for f in de_el) or "—"
+        hall = sum(f["hallazgos"] or 0 for f in de_el)
+        nota = next((f["nota"] for f in de_el if f.get("nota")), "—")
+        p.append(f"| [`/{plugin}:{c}`](../evidencias/dia-{de_el[0]['dia']}/{c}.md) "
+                 f"| {dias} | {docs} | {hall} | {nota} |")
+    p.append("")
+    faltan = [c for c in cmds if c not in corridos]
+    if faltan:
+        p += [f"**Sin evidencia todavía, y por eso sin probar:** "
+              + ", ".join(f"`{c}`" for c in faltan), ""]
+    mudas = [f["comando"] for f in filas if not f.get("no_supo")]
+    if mudas:
+        p += ["**Corridas en que el agente no dijo que algo no estuviera dicho:** "
+              + ", ".join(f"`{c}`" for c in sorted(set(mudas)))
+              + ". Sobre material con huecos plantados, eso es señal de que rellenó.", ""]
+    return p
+
+
 NO_CUBRE = {
     "criterio-portfolio": [
         ("La extracción nunca se ha corrido",
          "El estado se siembra copiando `expected/fichas/`, así que la cadena documento "
          "→ modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso."),
-        ("Los diecisiete comandos no se han corrido con un agente de verdad",
-         "Están verificados como estructura —existen, declaran, y no invocan un skill "
-         "que no esté—, y eso no es lo mismo que haberlos ejercitado."),
         ("Nada se ha corrido sobre la documentación real de una organización",
          "Todo el material es sintético y construido desde cero."),
     ],
@@ -390,9 +437,9 @@ NO_CUBRE = {
          "Lo que producen es redacción sobre la minuta, y un calificador determinista no "
          "la mide. Lo que sí se verifica es la aritmética de la que salen sus cifras."),
         ("La ficha publicada y su contraste no se han corrido de punta a punta",
-         "`/pm-publish` escribe y `contrastar()` emite la señal con sus dos citas, "
-         "verificado sobre fichas sintéticas. Falta que un agente de verdad publique y "
-         "otro de verdad lea."),
+         "`/criterio-project:pm-publish` escribe y `contrastar()` emite la señal con "
+         "sus dos citas, verificado sobre fichas sintéticas. Falta que un agente de "
+         "verdad publique y otro de verdad lea."),
     ],
     "criterio-product": [
         ("La extracción nunca se ha corrido",
@@ -456,6 +503,8 @@ def por_agente(filas: list, rapido: bool) -> list:
               "no se sabe.", ""]
         for titulo, detalle in NO_CUBRE.get(plugin, []):
             p.append(f"- **{titulo}.** {detalle}")
+
+        p += [""] + bloque_comandos(plugin)
 
         p += ["", "## Qué material se usó, y qué prueba cada pieza", "",
               f"El detalle del corpus —qué planta cada proyecto o producto, por qué, y "

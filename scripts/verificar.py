@@ -44,6 +44,8 @@ PUERTAS = [
      "Que ninguna señal se quede sin disparar sin que esté declarado por qué"),
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/resumen.py")],
      "El resumen de las corridas diarias: precisión, cobertura y qué se movió"),
+    ("material", [sys.executable, str(RAIZ / "tests/sintetico/evidencia.py"), "verificar"],
+     "Que el registro de comandos no prometa una evidencia que no está"),
 
     ("código", [sys.executable, str(PMO / "portafolio.py"), "selftest"],
      "La aritmética, la cadencia, la cola y el contraste entre las dos fichas"),

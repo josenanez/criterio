@@ -2,7 +2,7 @@
 
 **el agente de la PMO y el servidor que publica su informe** · plugin `criterio-portfolio`
 
-Corrida del 2026-09-28, sobre el commit `163c794`, con cambios en el árbol todavía sin confirmar. **6 puertas · 204 comprobaciones · todas en verde.**
+Corrida del 2026-09-28, sobre el commit `741cb5e`, con cambios en el árbol todavía sin confirmar. **6 puertas · 204 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,12 +10,12 @@ Corrida del 2026-09-28, sobre el commit `163c794`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 57 ms | verde |
-| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 68 | 21 ms | verde |
-| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 12 | 19 ms | verde |
-| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 15 | 16 ms | verde |
-| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 30 | 553 ms | verde |
-| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 192 ms | verde |
+| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 60 ms | verde |
+| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 68 | 23 ms | verde |
+| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 12 | 21 ms | verde |
+| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 15 | 18 ms | verde |
+| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 30 | 547 ms | verde |
+| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 211 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -24,8 +24,20 @@ Una puerta sin comprobaciones no es una puerta vacía: **genera el material sint
 Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es publicidad; lo que lo vuelve auditable es lo que dice que todavía no se sabe.
 
 - **La extracción nunca se ha corrido.** El estado se siembra copiando `expected/fichas/`, así que la cadena documento → modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso.
-- **Los diecisiete comandos no se han corrido con un agente de verdad.** Están verificados como estructura —existen, declaran, y no invocan un skill que no esté—, y eso no es lo mismo que haberlos ejercitado.
 - **Nada se ha corrido sobre la documentación real de una organización.** Todo el material es sintético y construido desde cero.
+
+## Los comandos, corridos por un agente de verdad
+
+**3 de 17.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
+
+| Comando | Días | Documentos | Hallazgos | Qué dejó ver |
+|---|---|---:|---:|---|
+| [`/criterio-portfolio:portfolio-report`](../evidencias/dia-1/portfolio-report.md) | 1 | 146 | 158 | 158 de 158 alertas, y 7 de 8 cifras exactas. El aprobado salió 1000x. De aquí salieron la regla de cifras y la señal progress_vs_plan. |
+| [`/criterio-portfolio:portfolio-scan`](../evidencias/dia-1/portfolio-scan.md) | 1 | 146 | 8 | Encontró por su cuenta la incompatibilidad cronograma/avance en 8 proyectos. De ahí salió la señal progress_vs_plan. |
+| [`/criterio-portfolio:portfolio-setup`](../evidencias/dia-1/portfolio-setup.md) | 1 | 146 | 0 | El paso destapó que los 37 comandos estaban documentados sin el prefijo del plugin: 226 referencias que no resolvían. |
+
+**Sin evidencia todavía, y por eso sin probar:** `budget-tracking`, `change-control`, `document-index`, `health-check`, `portfolio-server`, `portfolio-wake`, `product-view`, `project-charter`, `project-closure`, `project-history`, `raid-log`, `status-report`, `steering-pack`, `vendor-tracking`
+
 
 ## Qué material se usó, y qué prueba cada pieza
 
@@ -41,7 +53,8 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `sintetico/disposiciones.py` | Que el recorrido encuentre los mismos documentos sin importar cómo estén | 16 | verde |
 | `sintetico/cobertura.py` | Que ninguna señal se quede sin disparar sin que esté declarado por qué | 3 | verde |
 | `sintetico/resumen.py` | El resumen de las corridas diarias: precisión, cobertura y qué se movió | — | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 71 | verde |
+| `sintetico/evidencia.py verificar` | Que el registro de comandos no prometa una evidencia que no está | 1 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 69 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |

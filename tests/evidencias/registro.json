@@ -1,0 +1,38 @@
+[
+ {
+  "agente": "portfolio",
+  "comando": "portfolio-report",
+  "dia": 1,
+  "fecha": "2026-09-28",
+  "segundos": null,
+  "documentos": 146,
+  "hallazgos": 158,
+  "no_supo": "nombró tres vacíos de información en vez de rellenarlos: escalamiento en 50, producto en 21, línea base en 4",
+  "salida": "tests/evidencias/dia-1/portfolio-report.md",
+  "nota": "158 de 158 alertas, y 7 de 8 cifras exactas. El aprobado salió 1000x. De aquí salieron la regla de cifras y la señal progress_vs_plan."
+ },
+ {
+  "agente": "portfolio",
+  "comando": "portfolio-scan",
+  "dia": 1,
+  "fecha": "2026-09-28",
+  "segundos": null,
+  "documentos": 146,
+  "hallazgos": 8,
+  "no_supo": "reportó 0 discrepancias ficha vs documento y nombró la inconsistencia cruzada como hallazgo del material, no de la ficha",
+  "salida": "tests/evidencias/dia-1/portfolio-scan.md",
+  "nota": "Encontró por su cuenta la incompatibilidad cronograma/avance en 8 proyectos. De ahí salió la señal progress_vs_plan."
+ },
+ {
+  "agente": "portfolio",
+  "comando": "portfolio-setup",
+  "dia": 1,
+  "fecha": "2026-09-28",
+  "segundos": null,
+  "documentos": 146,
+  "hallazgos": 0,
+  "no_supo": "propuso el rol PMO a partir de lo que vio, sin preguntarlo",
+  "salida": "tests/evidencias/dia-1/portfolio-setup.md",
+  "nota": "El paso destapó que los 37 comandos estaban documentados sin el prefijo del plugin: 226 referencias que no resolvían."
+ }
+]

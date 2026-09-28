@@ -2,9 +2,9 @@
 
 Esta página sale de una corrida, no de un resumen escrito a mano. Cada cifra viene de ejecutar el mismo comando que corre `scripts/verificar.py` y contar las comprobaciones que ese comando imprimió. Con la librería estándar y sin instalar nada.
 
-Corrida del 2026-09-28, sobre el commit `163c794`, con cambios en el árbol todavía sin confirmar.
+Corrida del 2026-09-28, sobre el commit `741cb5e`, con cambios en el árbol todavía sin confirmar.
 
-**21 de 21 puertas en verde · 545 comprobaciones · 7 corpus, cada uno con su control negativo · 1.8 s la corrida entera.**
+**22 de 22 puertas en verde · 544 comprobaciones · 8 corpus, cada uno con su control negativo · 1.9 s la corrida entera.**
 
 > La versión con gráficas, para abrir en un navegador, está en [`pruebas.html`](pruebas.html). Esta es la misma corrida, legible en GitHub.
 
@@ -18,7 +18,7 @@ Comprobaciones por dueño. Los tamaños no son comparables entre sí y no preten
 | **Samuel** | `████████████████` | 99 |
 | **Alba** | `█████████████████` | 105 |
 | **Rostrum** | `█████` | 30 |
-| **La familia** | `██████████████████████` | 137 |
+| **La familia** | `██████████████████████` | 136 |
 
 ## Vera · Agente PMO
 
@@ -26,11 +26,11 @@ Del latín *verus*: lo verdadero. Dice lo que los documentos dicen, no lo que se
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 57 ms | verde |
-| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 68 | 21 ms | verde |
-| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 12 | 19 ms | verde |
-| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 15 | 16 ms | verde |
-| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 192 ms | verde |
+| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 60 ms | verde |
+| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 68 | 23 ms | verde |
+| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 12 | 21 ms | verde |
+| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 15 | 18 ms | verde |
+| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 211 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-portfolio/RESULTADOS.md`](../tests/criterio-portfolio/RESULTADOS.md).
 
@@ -40,10 +40,10 @@ Su análisis propio, con qué material se usó y qué no cubre, en [`tests/crite
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 42 ms | verde |
+| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 44 ms | verde |
 | `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 68 | 39 ms | verde |
-| `criterio-project/texto.py` | La copia de la conversión, igual | 12 | 24 ms | verde |
-| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 37 ms | verde |
+| `criterio-project/texto.py` | La copia de la conversión, igual | 12 | 25 ms | verde |
+| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 41 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-project/RESULTADOS.md`](../tests/criterio-project/RESULTADOS.md).
 
@@ -54,8 +54,8 @@ El amanecer: la luz que hay antes de que se vea nada. Trabaja antes de que exist
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
 | `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 37 ms | verde |
-| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 62 | 26 ms | verde |
-| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 112 ms | verde |
+| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 62 | 28 ms | verde |
+| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 123 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-product/RESULTADOS.md`](../tests/criterio-product/RESULTADOS.md).
 
@@ -65,7 +65,7 @@ Una tribuna. Sostiene lo que ya está escrito, donde el equipo puede leerlo. No 
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 30 | 553 ms | verde |
+| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 30 | 547 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-portfolio/RESULTADOS.md`](../tests/criterio-portfolio/RESULTADOS.md).
 
@@ -75,14 +75,15 @@ Que la documentación y el código digan lo mismo, que el marketplace esté comp
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `sintetico/corpus.py` | El motor del material: la estructura de referencia y las cuatro disposiciones | 31 | 11 ms | verde |
-| `sintetico/disposiciones.py` | Que el recorrido encuentre los mismos documentos sin importar cómo estén | 16 | 23 ms | verde |
-| `sintetico/cobertura.py` | Que ninguna señal se quede sin disparar sin que esté declarado por qué | 3 | 105 ms | verde |
-| `sintetico/resumen.py` | El resumen de las corridas diarias: precisión, cobertura y qué se movió | — | 13 ms | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 71 | 185 ms | verde |
-| `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | 44 ms | verde |
-| `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | 31 ms | verde |
-| `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | 172 ms | verde |
+| `sintetico/corpus.py` | El motor del material: la estructura de referencia y las cuatro disposiciones | 31 | 13 ms | verde |
+| `sintetico/disposiciones.py` | Que el recorrido encuentre los mismos documentos sin importar cómo estén | 16 | 25 ms | verde |
+| `sintetico/cobertura.py` | Que ninguna señal se quede sin disparar sin que esté declarado por qué | 3 | 111 ms | verde |
+| `sintetico/resumen.py` | El resumen de las corridas diarias: precisión, cobertura y qué se movió | — | 15 ms | verde |
+| `sintetico/evidencia.py verificar` | Que el registro de comandos no prometa una evidencia que no está | 1 | 19 ms | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 69 | 238 ms | verde |
+| `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | 50 ms | verde |
+| `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | 34 ms | verde |
+| `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | 183 ms | verde |
 
 ## Lo que esta corrida no cubre
 

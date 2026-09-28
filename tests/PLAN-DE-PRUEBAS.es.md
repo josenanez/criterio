@@ -166,10 +166,25 @@ acertó las 158 alertas, los 128 hitos sin evidencia y los 30 verdes contradicho
 el presupuesto aprobado mil veces mayor. La aritmética estaba bien; el agente la transcribió
 mal, y ninguna puerta podía verlo porque el script tenía razón.
 
-**Qué anotar en cada evidencia**, y es lo mismo para los tres agentes: el comando, cuánto
-tardó, cuántos documentos leyó, qué produjo, **cuántos hallazgos y de qué señal**, y —lo
-más importante— **qué dijo que no sabía**. Un comando que nunca dice *«no está dicho en
-ninguna parte»* sobre cincuenta proyectos está rellenando huecos.
+**Y cada corrida se registra**, o no existe:
+
+```
+python3 tests/sintetico/evidencia.py registrar --agente portfolio \
+  --comando portfolio-scan --dia 1 --segundos 95 --documentos 146 --hallazgos 8 \
+  --no-supo "qué dijo que no estaba dicho en ninguna parte" \
+  --nota "qué dejó ver esta corrida" \
+  --salida <archivo con lo que imprimió>
+```
+
+Guarda la salida tal cual en `tests/evidencias/dia-N/<comando>.md` —resumirla la anula— y
+la página de resultados de cada agente se regenera desde el registro. **Un comando sin
+entrada no se probó**: no se cuenta como aprobado, la página lo dice con ese nombre, y
+`python3 tests/sintetico/evidencia.py cobertura` dice cuántos van de los 37.
+
+Lo que el registro pide es exactamente lo que hay que mirar: cuánto tardó, cuántos
+documentos leyó, cuántos hallazgos, y —lo más importante— **qué dijo que no sabía**. Un
+comando que nunca dice *«no está dicho en ninguna parte»* sobre cincuenta proyectos está
+rellenando huecos, y el registro lo marca solo.
 
 ### Paso 3 · Los nueve comandos de Samuel
 
