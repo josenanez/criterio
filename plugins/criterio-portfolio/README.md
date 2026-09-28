@@ -17,7 +17,7 @@ in [SERVER.md](SERVER.md).
 
 ---
 
-## The scope
+## What it is
 
 | | |
 |---|---|
@@ -26,6 +26,8 @@ in [SERVER.md](SERVER.md).
 | **What it looks at** | The documentation folder of all of them, in whatever shape it is |
 | **Cadence** | A daily sweep if configured, and the report ahead of the committee |
 | **Instances** | One per PMO |
+
+## What it does
 
 **What it does that nobody else does:** contrasting what each manager declares against what
 their documents support, **across the whole set and at once**. A project reporting green with
@@ -37,7 +39,96 @@ previous run, what contradicts what between two documents of the same project, w
 quiet for weeks, how many of those reporting green carry evidence that green does not explain,
 and who is reached when a project moves.
 
-## Installation
+### The seventeen commands
+
+| Command | What it does |
+|---|---|
+| `/portfolio-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
+| `/portfolio-wake` | **What the clock invokes.** Looks at what is due today, does it, and if nothing is due it stays quiet |
+| `/portfolio-server` | Raises **Rostrum**, the server: exposes the report for whoever will not open a folder, and says what to ask the organisation for |
+| `/document-index` | Which documents really changed, what has to be re-read and which citations stopped resolving |
+| `/portfolio-scan` | Reads the folder and produces or updates one record per project. The front door |
+| `/portfolio-report` | Consolidated report: what changed, what contradicts what, what is quiet, what has no support |
+| `/status-report` | A project's status, and the signals its declared traffic light does not explain |
+| `/health-check` | Diagnoses a project from scratch against the evidence, assuming nothing from its report |
+| `/project-history` | What happened in a project, with the timeline and since when what was declared stopped holding |
+| `/steering-pack` | Committee material as a pack of decisions, not as a progress report |
+| `/raid-log` | Risks, assumptions, issues and dependencies, including the ones said and never recorded |
+| `/change-control` | Assesses a change in scope, time and cost, computes who it reaches, and creates a new baseline without erasing the previous one |
+| `/budget-tracking` | Approved, committed, spent and forecast, with variance against both baselines |
+| `/vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing |
+| `/product-view` | A product's state across all the projects building it |
+| `/project-charter` | Reviews or drafts the charter, pointing out what is missing and what follows from that |
+| `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
+
+### The ten skills
+
+They load on their own when the subject comes up. They are the knowledge the commands share,
+and they read the way a manual reads.
+
+| Skill | What it encapsulates | Whose it is |
+|---|---|---|
+| `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other | Own · also in Samuel and Alba |
+| `document-intake` | Which document has to be re-read and which not, which formats can be read and with what, renaming, deletion, and the citation that stopped resolving | Own · also in Samuel and Alba |
+| `portfolio-health` | The twenty signals with what each one means, the thresholds that govern them, and the three defences against the value that stopped being true | Own |
+| `baseline-variance` | Append-only baseline, variance against the original and against the current one, replanning against what the committee authorised, the budget's four figures | Own · also in Samuel |
+| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria | Own · also in Samuel and Alba |
+| `commitment-tracking` | Commitments made in meetings: extraction, states, what counts as evidence, and the one that repeats with a new date every time | Own · also in Samuel |
+| `governance-artifacts` | Charter, committee, change control and closure: what each one contains and who decides what | Own · also in Samuel and Alba |
+| `vendor-control` | Contract against evidence of receipt against invoicing, with an amount per deliverable | Own · also in Samuel |
+| `project-diagnosis` | The diagnosis from scratch: in what order things are read and when the answer is that it cannot be diagnosed | Own · also in Samuel |
+| `portfolio-history` | A project's history from its documents, and the point where the evidence parted from what was reported | Own |
+
+## What it is for
+
+Moving a project has consequences in projects that are not its own, and nobody does that sum
+because it takes looking at the portfolio's whole dependency graph at once.
+
+> **PRY-002 moves 60 days.**
+> It reaches **PRY-001**, which depends on its delivery and **can no longer hold its closing
+> date: it is 121 days short.**
+> Nobody looking at PRY-002 would have seen it, and PRY-001's manager does not yet know he has
+> to find out.
+
+That case comes from the synthetic corpus, with the answer written by hand **before** running
+the calculation. It is the kind of question that can only be answered from above:
+`/change-control` computes it, and also says who has to be told and which dependencies are
+unconfirmed.
+
+And it is the same reason Vera exists. What she does is not read one project better — its
+manager is there for that — but **apply the same yardstick to all forty**, every day, without
+tiring by project number thirty.
+
+### And what it is not for
+
+This is what is worth being clear about before installing it, and it is not in small print:
+
+- **It does not write in your folders.** It reads your documents; reports and records go to a
+  state folder you choose.
+- **It does not decide.** It produces working drafts. It frames the decision as a question with
+  its options; who decides, and on what assumption, belongs to whoever has the authority.
+- **It does not declare a project's status.** The manager does. The agent shows him what
+  against, and the difference between the two is the system's most valuable finding.
+- **It does not know what is not written.** It knows nothing of the corridor conversation or of
+  what was decided on a call nobody minuted. Every finding of its own is *«according to the
+  documents»*, and it says so.
+- **It does not guess.** Every value comes with the citation of the document it came from.
+  *«It is not stated anywhere»* is a valid and expected answer.
+
+**And two things are deliberately absent, even if a tender asks for them: capacity and resource
+allocation, and benefits realisation.** Not because they matter little: because the data is not
+in the folder. Capacity demands real hours and benefits demand later measurement that almost no
+organisation has. A skill that promises what the input does not allow burns the whole plugin's
+credibility. It carries no regulatory content either: portfolio management is method, not
+regulation, and works the same in Bogotá as in Santiago. If a regulatory obligation touches a
+project, it records it as a constraint or as a risk and does not opine on it.
+
+And one that does have to be said out loud: **your documents are processed on the AI platform's
+infrastructure**, not only on your machine. Confirm that this is admissible under your policies
+before pointing it at confidential material. Full disclaimer in
+[DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
+
+## Installing and configuring
 
 ![Installation: four clicks, or two commands](../../docs/img/en/instalacion.png)
 
@@ -56,7 +147,7 @@ If you run a project and not the portfolio, yours is
 [Samuel](../criterio-project/README.md). If you define a product,
 [Alba](../criterio-product/README.md).
 
-## The first result
+### The first result
 
 ![The first fifteen minutes](../../docs/img/en/quince-minutos.png)
 
@@ -80,27 +171,7 @@ of the report, the thresholds that make it raise its voice, and the record that 
 terms, with your name and the date. All of that is changed **by talking**: if you want silence
 reported at ten days instead of fifteen, you say so.
 
-## The finding nobody else produces
-
-Moving a project has consequences in projects that are not its own, and nobody does that sum
-because it takes looking at the portfolio's whole dependency graph at once.
-
-> **PRY-002 moves 60 days.**
-> It reaches **PRY-001**, which depends on its delivery and **can no longer hold its closing
-> date: it is 121 days short.**
-> Nobody looking at PRY-002 would have seen it, and PRY-001's manager does not yet know he has
-> to find out.
-
-That case comes from the synthetic corpus, with the answer written by hand **before** running
-the calculation. It is the kind of question that can only be answered from above:
-`/change-control` computes it, and also says who has to be told and which dependencies are
-unconfirmed.
-
-And it is the same reason Vera exists. What she does is not read one project better — its
-manager is there for that — but **apply the same yardstick to all forty**, every day, without
-tiring by project number thirty.
-
-## It does not wait to be called
+### How often it runs
 
 ![The cadence: it wakes on its own, and almost always stays quiet](../../docs/img/en/cadencia.png)
 
@@ -135,67 +206,20 @@ in the queue and is answered on the next run. It authenticates nobody, and that 
 it is published behind the access control your organisation already has.
 → **[Rostrum, with screenshots of each section](SERVER.md)**
 
-## What it never does
+## Working with the others
 
-This is what is worth being clear about before installing it, and it is not in small print:
+Vera works alone. If the other two are installed, **there is nothing to connect**: they
+meet through the project record, which is one more document in the folder.
 
-- **It does not write in your folders.** It reads your documents; reports and records go to a
-  state folder you choose.
-- **It does not decide.** It produces working drafts. It frames the decision as a question with
-  its options; who decides, and on what assumption, belongs to whoever has the authority.
-- **It does not declare a project's status.** The manager does. The agent shows him what
-  against, and the difference between the two is the system's most valuable finding.
-- **It does not know what is not written.** It knows nothing of the corridor conversation or of
-  what was decided on a call nobody minuted. Every finding of its own is *«according to the
-  documents»*, and it says so.
-- **It does not guess.** Every value comes with the citation of the document it came from.
-  *«It is not stated anywhere»* is a valid and expected answer.
+| With whom | What happens |
+|---|---|
+| **Samuel** | He publishes his project's record with `/pm-publish`, and Vera reads it the way she reads any document. **The two records never merge**, and when both cite and disagree, somebody saw a paper the other did not — with each source's date, so you know which is more recent |
+| **Alba** | She writes the project charter the record is born with. Vera receives it already written and reviews it against the evidence |
+| **Rostrum** | Publishes Vera's report where the team will read it, and returns the questions whoever looks at it leaves. **It never writes the record** |
 
-**And two things are deliberately absent, even if a tender asks for them: capacity and resource
-allocation, and benefits realisation.** Not because they matter little: because the data is not
-in the folder. Capacity demands real hours and benefits demand later measurement that almost no
-organisation has. A skill that promises what the input does not allow burns the whole plugin's
-credibility. It carries no regulatory content either: portfolio management is method, not
-regulation, and works the same in Bogotá as in Santiago. If a regulatory obligation touches a
-project, it records it as a constraint or as a risk and does not opine on it.
+## Tests
 
-And one that does have to be said out loud: **your documents are processed on the AI platform's
-infrastructure**, not only on your machine. Confirm that this is admissible under your policies
-before pointing it at confidential material. Full disclaimer in
-[DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
-
----
-
-From here down is for whoever wants to audit it before installing it. **All of this can be read
-without running anything**, and that is deliberate.
-
-## How you work with Vera
-
-The three agents share five behaviours, and none is style: they are what makes the result
-something you can put in front of a committee. **Every value carries the citation** of its
-document and date · **«it is not stated anywhere» is a valid answer** · **they stay quiet when
-there is no news** · **none of them declares** · **none of them writes to anybody**. They are
-explained in the [family README](../../README.md#what-the-three-share).
-
-What changes between one and another is **the rhythm of the conversation**, and that is worth
-knowing before installing.
-
-**With Vera you talk little and read a lot.** She works over forty folders: the conversation is
-short — you tell her which project, or none — and what comes back is long, a report somebody
-will take to a committee.
-
-**The rhythm:** `/portfolio-setup` once, `/portfolio-wake` on a clock, and after that you ask by exception
-— *«diagnose PRY-014 from scratch»*, *«reconstruct what happened»*, *«build the committee
-pack»*.
-
-**What it will ask of you:** confirming **five fields per run**, never forty — ask about forty
-and nobody answers. And **acting on what the report asks for**: if nobody acts, the next report
-says the same thing, and that is not a defect of the agent.
-
-**What not to ask it:** what status a project is in. It tells you what its manager declares and
-what the documents support, and **the difference between the two is the product.**
-
-## How it works
+### How it is built
 
 ![How it works: the model extracts, the code computes](../../docs/img/en/como-funciona.png)
 
@@ -213,47 +237,7 @@ extracting is worth it and another to know whether re-reading is. And
 [`scripts/informe.py`](scripts/informe.py) builds the printed report from what the other two
 produced, without reading a single document again.
 
-## The seventeen commands
-
-| Command | What it does |
-|---|---|
-| `/portfolio-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
-| `/portfolio-wake` | **What the clock invokes.** Looks at what is due today, does it, and if nothing is due it stays quiet |
-| `/portfolio-server` | Raises **Rostrum**, the server: exposes the report for whoever will not open a folder, and says what to ask the organisation for |
-| `/document-index` | Which documents really changed, what has to be re-read and which citations stopped resolving |
-| `/portfolio-scan` | Reads the folder and produces or updates one record per project. The front door |
-| `/portfolio-report` | Consolidated report: what changed, what contradicts what, what is quiet, what has no support |
-| `/status-report` | A project's status, and the signals its declared traffic light does not explain |
-| `/health-check` | Diagnoses a project from scratch against the evidence, assuming nothing from its report |
-| `/project-history` | What happened in a project, with the timeline and since when what was declared stopped holding |
-| `/steering-pack` | Committee material as a pack of decisions, not as a progress report |
-| `/raid-log` | Risks, assumptions, issues and dependencies, including the ones said and never recorded |
-| `/change-control` | Assesses a change in scope, time and cost, computes who it reaches, and creates a new baseline without erasing the previous one |
-| `/budget-tracking` | Approved, committed, spent and forecast, with variance against both baselines |
-| `/vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing |
-| `/product-view` | A product's state across all the projects building it |
-| `/project-charter` | Reviews or drafts the charter, pointing out what is missing and what follows from that |
-| `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
-
-## The ten skills
-
-They load on their own when the subject comes up. They are the knowledge the commands share,
-and they read the way a manual reads.
-
-| Skill | What it encapsulates | Whose it is |
-|---|---|---|
-| `project-record` | The record: schema, extraction rules, citation, field states, what to do when two documents contradict each other | Own · also in Samuel and Alba |
-| `document-intake` | Which document has to be re-read and which not, which formats can be read and with what, renaming, deletion, and the citation that stopped resolving | Own · also in Samuel and Alba |
-| `portfolio-health` | The twenty signals with what each one means, the thresholds that govern them, and the three defences against the value that stopped being true | Own |
-| `baseline-variance` | Append-only baseline, variance against the original and against the current one, replanning against what the committee authorised, the budget's four figures | Own · also in Samuel |
-| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria | Own · also in Samuel and Alba |
-| `commitment-tracking` | Commitments made in meetings: extraction, states, what counts as evidence, and the one that repeats with a new date every time | Own · also in Samuel |
-| `governance-artifacts` | Charter, committee, change control and closure: what each one contains and who decides what | Own · also in Samuel and Alba |
-| `vendor-control` | Contract against evidence of receipt against invoicing, with an amount per deliverable | Own · also in Samuel |
-| `project-diagnosis` | The diagnosis from scratch: in what order things are read and when the answer is that it cannot be diagnosed | Own · also in Samuel |
-| `portfolio-history` | A project's history from its documents, and the point where the evidence parted from what was reported | Own |
-
-## How it is verified
+### How it is verified
 
 ```
 python3 scripts/portafolio.py selftest          the arithmetic and the cadence
@@ -276,3 +260,4 @@ The full design, with the acceptance criteria and what still belongs to the peop
 
 And the family's tests — what no agent can answer alone — in the
 [family README](../../README.md#the-familys-tests).
+

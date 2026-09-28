@@ -13,11 +13,11 @@ the [acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
 
 **This page reads on its own.** Samuel works without his siblings: if all you run is your
 project, everything is here, tests included. The family — how he meets Vera and Alba — is in the
-[`criterio-portfolio` README](../criterio-portfolio/README.md).
+[repository README](../../README.md).
 
 ---
 
-## The scope
+## What it is
 
 | | |
 |---|---|
@@ -26,6 +26,8 @@ project, everything is here, tests included. The family — how he meets Vera an
 | **What it looks at** | His folder, and above all **what the meeting leaves written** |
 | **Cadence** | The meeting's: the agenda before, the minutes after, the report once a week |
 | **Instances** | One per project |
+
+## What it does
 
 **What it does that nobody else does: the commitment said and not kept.** Meetings are full of
 *«I'll have it by Friday»*. It is not in the plan, because it is not a schedule task. It is not
@@ -37,41 +39,42 @@ citation from the minutes, what fell due with no evidence in the file, and **wha
 rescheduled meeting after meeting** — which is not a tracking problem, it is a blockage nobody
 has named.
 
-## Installation
+### The nine commands
 
-```
-/plugin marketplace add josenanez-company/criterio
-/plugin install criterio-project@criterio
-/pm-setup
-```
+| Command | What it does |
+|---|---|
+| `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your last minutes |
+| `/pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
+| `/pm-minutes` | The minutes over the transcript or the notes, with everything attributed to a person |
+| `/pm-commitments` | Who promised what, what fell due with no evidence, and what keeps being rescheduled meeting after meeting |
+| `/pm-report` | The full weekly report **except the status**, which you declare |
+| `/pm-publish` | Publishes your record where the PMO can read it |
+| `/pm-plan` | The first draft of the plan and the WBS from the charter, **without committing to any date** |
+| `/pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
+| `/pm-wake` | **The one you put on a clock.** Looks at what is due according to your meeting, and if nothing is due it stays quiet |
 
-**In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
-GitHub → `josenanez-company/criterio`.
+Three of them are a cycle, and that is why they are there: **the one that builds the agenda
+before receives the minutes after.** Without the agenda the meeting inherits last week's order
+of business; without the minutes, what was said is written from memory two days later and stops
+being evidence of anything.
 
-If you run the portfolio and not a project, yours is
-[Vera](../criterio-portfolio/README.md). If you define a product,
-[Alba](../criterio-product/README.md).
+### The eight skills
 
-## The first result
+They load on their own when the subject comes up. They are literal copies from `criterio-portfolio`,
+because a risk is a risk whoever looks at it and the record is the whole family's data contract.
 
-`/pm-setup` does not ask you to tidy anything up before starting. It looks at your project's
-folder, asks four questions — one at a time, each with a suggested answer — and **reads your
-last minutes**. With that it shows you, in under ten minutes:
+| Skill | What it encapsulates | Whose it is |
+|---|---|---|
+| `project-record` | The record: schema, extraction, citation, field states, what to do when two documents contradict each other | Copy of Vera's · also in Alba |
+| `document-intake` | Which document has to be re-read and which not, which formats can be read and with what | Copy of Vera's · also in Alba |
+| `commitment-tracking` | **The central function.** Extraction, states, what counts as evidence, and the one that repeats with a new date every time | Copy of Vera's |
+| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria | Copy of Vera's · also in Alba |
+| `baseline-variance` | Append-only baseline, variance against the original and the current one, the budget's four figures | Copy of Vera's |
+| `governance-artifacts` | Charter, committee, change control and closure: what each one contains and who decides what | Copy of Vera's · also in Alba |
+| `vendor-control` | Contract against evidence of receipt against invoicing | Copy of Vera's |
+| `project-diagnosis` | The diagnosis from scratch: in what order things are read and when it cannot be diagnosed | Copy of Vera's |
 
-- **Who promised what and by when**, with the citation from the minutes where it was said.
-- **What fell due with no evidence** in the file.
-- **What was left with no date** — *«we'll look at it next week»*. It cannot be overdue, and
-  **that is exactly why it disappears from every report.**
-
-Then it tells you what your folder is missing for this to be better. As a finding, not as a
-requirement: **it works with whatever is there.**
-
-**What ends up configured** is written by `/pm-setup` from your answers, on your machine and in a
-file of yours: where the project's folder is, which day you meet, where your record lives, the
-thresholds, and the record that you accepted the terms, with your name and the date. All of that
-is changed **by talking**.
-
-## The finding nobody else produces
+## What it is for
 
 `/pm-commitments` extracts the commitment from the minutes with owner, date and source. And it
 does one more thing, which is what separates useful tracking from a list that just grows: **the
@@ -89,33 +92,7 @@ That case comes from the synthetic corpus, with the answer written by hand **bef
 the calculation, and it is the reason Samuel exists: not to read your project better than you
 do, but to pick up what the meeting left said and **nobody wrote into any system.**
 
-## It does not wait to be called
-
-This is the difference between a command and an agent. A command waits. **This one is scheduled
-and runs on its own.**
-
-His cadence is your meeting's, and that is what produces what is due each day. The decision is
-date arithmetic, so the code takes it and not the judgement of the moment:
-
-```
-python3 scripts/portafolio.py due --state <state> --config <file>
-```
-
-And `/pm-wake` is the command the clock invokes: the day before the meeting it prepares the
-agenda, the day after it asks for the minutes, once a week it builds the report, and **if nothing
-is due it produces nothing.** Staying quiet when nothing happened is not an omission — it is the
-only reason an agent that runs every day is still installed the following month.
-
-Putting it on a clock is on your organisation's side: a scheduled task in Cowork, or the
-system's scheduler in Claude Code. **And if unattended runs are not welcome** — in a bank that
-is a reasonable answer — the cadence still says what is due, run by hand. What you lose is being
-told without anyone asking.
-
-**And if you want your sponsor to see the report without asking you for it**, the family has a
-server that publishes it with a section for projects, where whoever is looking can leave the
-agent a written question. → **[Rostrum](../criterio-portfolio/SERVER.md)**
-
-## What it never does
+### And what it is not for
 
 - **It does not declare your project's status.** You declare that. Samuel shows you what
   against, and the difference between the two is the system's most valuable finding. It is not a
@@ -142,40 +119,80 @@ infrastructure**, not only on your machine. Confirm that this is admissible unde
 before pointing it at confidential material. Full disclaimer in
 [DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
 
----
+## Installing and configuring
 
-From here down is for whoever wants to audit it before installing it. **All of this can be read
-without running anything**, and that is deliberate.
+```
+/plugin marketplace add josenanez-company/criterio
+/plugin install criterio-project@criterio
+/pm-setup
+```
 
-## How you work with Samuel
+**In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
+GitHub → `josenanez-company/criterio`.
 
-The three agents share five behaviours, and none is style: they are what makes the result
-something you can put in front of a committee. **Every value carries the citation** of its
-document and date · **«it is not stated anywhere» is a valid answer** · **they stay quiet when
-there is no news** · **none of them declares** · **none of them writes to anybody**. They are
-explained in the [family README](../../README.md#what-the-three-share).
+If you run the portfolio and not a project, yours is
+[Vera](../criterio-portfolio/README.md). If you define a product,
+[Alba](../criterio-product/README.md).
 
-What changes between one and another is **the rhythm of the conversation**, and that is worth
-knowing before installing.
+### The first result
 
-**With Samuel you talk every week.** He works over one project and his cycle is the meeting: the
-conversation is frequent and short, and almost always turns around a document that has just
-appeared.
+`/pm-setup` does not ask you to tidy anything up before starting. It looks at your project's
+folder, asks four questions — one at a time, each with a suggested answer — and **reads your
+last minutes**. With that it shows you, in under ten minutes:
 
-**The rhythm:** `/pm-setup` once; after that, the day before the meeting `/pm-agenda`, the day
-after `/pm-minutes` with the transcript or the notes, and once a week `/pm-report`. `/pm-wake`
-on a clock runs that calendar by itself.
+- **Who promised what and by when**, with the citation from the minutes where it was said.
+- **What fell due with no evidence** in the file.
+- **What was left with no date** — *«we'll look at it next week»*. It cannot be overdue, and
+  **that is exactly why it disappears from every report.**
 
-**What it will ask of you:** **the minutes.** They are its main input and without them it dries
-up — a manager who does not keep what the meeting leaves written needs to know that on day one,
-and `/pm-setup` tells him. And **the status declaration**, which it always asks for **after**
-showing you the evidence and never before: if it proposed a status to you, your declaration
-would stop being independent information.
+Then it tells you what your folder is missing for this to be better. As a finding, not as a
+requirement: **it works with whatever is there.**
 
-**What not to ask it:** to chase an overdue commitment. It gives you the name, the date and the
-citation; you make the call, because chasing is a conversation.
+**What ends up configured** is written by `/pm-setup` from your answers, on your machine and in a
+file of yours: where the project's folder is, which day you meet, where your record lives, the
+thresholds, and the record that you accepted the terms, with your name and the date. All of that
+is changed **by talking**.
 
-## How it works
+### How often it runs
+
+This is the difference between a command and an agent. A command waits. **This one is scheduled
+and runs on its own.**
+
+His cadence is your meeting's, and that is what produces what is due each day. The decision is
+date arithmetic, so the code takes it and not the judgement of the moment:
+
+```
+python3 scripts/portafolio.py due --state <state> --config <file>
+```
+
+And `/pm-wake` is the command the clock invokes: the day before the meeting it prepares the
+agenda, the day after it asks for the minutes, once a week it builds the report, and **if nothing
+is due it produces nothing.** Staying quiet when nothing happened is not an omission — it is the
+only reason an agent that runs every day is still installed the following month.
+
+Putting it on a clock is on your organisation's side: a scheduled task in Cowork, or the
+system's scheduler in Claude Code. **And if unattended runs are not welcome** — in a bank that
+is a reasonable answer — the cadence still says what is due, run by hand. What you lose is being
+told without anyone asking.
+
+**And if you want your sponsor to see the report without asking you for it**, the family has a
+server that publishes it with a section for projects, where whoever is looking can leave the
+agent a written question. → **[Rostrum](../criterio-portfolio/SERVER.md)**
+
+## Working with the others
+
+Samuel works alone. If the other two are installed, **there is nothing to connect**: they
+meet through the project record, which is one more document in the folder.
+
+| With whom | What happens |
+|---|---|
+| **Alba** | Delivers the project charter, and the record is born with it. From that day the writer is Samuel: **one record, one writer** |
+| **Vera** | Samuel publishes his record with `/pm-publish` and Vera reads it. She writes hers over the same documents and **the two never merge**. When they disagree, half the time the manager is right, because he was in the meeting where the thing changed that the charter never updated |
+| **Rostrum** | Publishes the project's report on the portal, for whoever will not open a folder |
+
+## Tests
+
+### How it is built
 
 The spine is the **project record**: a data contract every command reads and writes, with the
 citation of the source document and its date on every field. No command reads raw documents on
@@ -194,42 +211,7 @@ has to run on its own. In the repository, `scripts/sincronizar.py --check` fails
 have drifted apart, because two copies computing differently over the same documents would leave
 nobody knowing which to believe.
 
-## The nine commands
-
-| Command | What it does |
-|---|---|
-| `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your last minutes |
-| `/pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
-| `/pm-minutes` | The minutes over the transcript or the notes, with everything attributed to a person |
-| `/pm-commitments` | Who promised what, what fell due with no evidence, and what keeps being rescheduled meeting after meeting |
-| `/pm-report` | The full weekly report **except the status**, which you declare |
-| `/pm-publish` | Publishes your record where the PMO can read it |
-| `/pm-plan` | The first draft of the plan and the WBS from the charter, **without committing to any date** |
-| `/pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
-| `/pm-wake` | **The one you put on a clock.** Looks at what is due according to your meeting, and if nothing is due it stays quiet |
-
-Three of them are a cycle, and that is why they are there: **the one that builds the agenda
-before receives the minutes after.** Without the agenda the meeting inherits last week's order
-of business; without the minutes, what was said is written from memory two days later and stops
-being evidence of anything.
-
-## The eight skills
-
-They load on their own when the subject comes up. They are literal copies from `criterio-portfolio`,
-because a risk is a risk whoever looks at it and the record is the whole family's data contract.
-
-| Skill | What it encapsulates | Whose it is |
-|---|---|---|
-| `project-record` | The record: schema, extraction, citation, field states, what to do when two documents contradict each other | Copy of Vera's · also in Alba |
-| `document-intake` | Which document has to be re-read and which not, which formats can be read and with what | Copy of Vera's · also in Alba |
-| `commitment-tracking` | **The central function.** Extraction, states, what counts as evidence, and the one that repeats with a new date every time | Copy of Vera's |
-| `raid-taxonomy` | The four categories and how to tell them apart, assessment, escalation criteria | Copy of Vera's · also in Alba |
-| `baseline-variance` | Append-only baseline, variance against the original and the current one, the budget's four figures | Copy of Vera's |
-| `governance-artifacts` | Charter, committee, change control and closure: what each one contains and who decides what | Copy of Vera's · also in Alba |
-| `vendor-control` | Contract against evidence of receipt against invoicing | Copy of Vera's |
-| `project-diagnosis` | The diagnosis from scratch: in what order things are read and when it cannot be diagnosed | Copy of Vera's |
-
-## How it is verified
+### How it is verified
 
 ```
 python3 tests/criterio-project/grade.py      19 checks over two projects
@@ -252,3 +234,4 @@ The full design, with the acceptance criteria and what still belongs to the pers
 
 And the family's tests — what no agent can answer alone — in the
 [family README](../../README.md#the-familys-tests).
+

@@ -13,11 +13,11 @@ anuncia como terminado hasta que pasen los [criterios de aceptación](DISENO.es.
 
 **Esta página se lee sola.** Samuel funciona sin sus hermanos: si solo gestionas tu proyecto,
 aquí está todo, incluidas sus pruebas. La familia —cómo se encuentra con Vera y con Alba—
-está en el [README de `criterio-portfolio`](../criterio-portfolio/README.es.md).
+está en el [README del repositorio](../../README.es.md).
 
 ---
 
-## El alcance
+## Qué es
 
 | | |
 |---|---|
@@ -26,6 +26,8 @@ está en el [README de `criterio-portfolio`](../criterio-portfolio/README.es.md)
 | **Qué mira** | Su carpeta, y sobre todo **lo que la reunión deja escrito** |
 | **Cadencia** | La de la reunión: la agenda antes, el acta después, el informe una vez por semana |
 | **Instancias** | Una por proyecto |
+
+## Qué hace
 
 **Lo que hace y nadie más hace: el compromiso dicho y no cumplido.** Las reuniones están
 llenas de *«yo lo tengo para el viernes»*. No está en el plan, porque no es una tarea del
@@ -38,41 +40,42 @@ cita de la minuta, qué venció sin evidencia en el expediente, y **qué se vien
 reunión tras reunión** — que no es un problema de seguimiento, es un bloqueo que nadie ha
 nombrado.
 
-## Instalación
+### Los nueve comandos
 
-```
-/plugin marketplace add josenanez-company/criterio
-/plugin install criterio-project@criterio
-/pm-setup
-```
+| Comando | Qué hace |
+|---|---|
+| `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
+| `/pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
+| `/pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
+| `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
+| `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
+| `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
+| `/pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
+| `/pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
+| `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
 
-**En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
-marketplace desde GitHub → `josenanez-company/criterio`.
+Tres de ellos son un ciclo, y por eso están: **el que arma la agenda antes recibe la minuta
+después.** Sin la agenda la reunión hereda el orden del día de la semana pasada; sin el acta,
+lo que se dijo se escribe de memoria dos días más tarde y deja de ser evidencia de nada.
 
-Si gestionas el portafolio y no un proyecto, lo tuyo es
-[Vera](../criterio-portfolio/README.es.md). Si defines un producto,
-[Alba](../criterio-product/README.es.md).
+### Los ocho skills
 
-## El primer resultado
+Se cargan solos cuando el tema aparece. Son copias literales de `criterio-portfolio`, porque
+un riesgo es un riesgo lo mire quien lo mire y la ficha es el contrato de datos de toda
+la familia.
 
-`/pm-setup` no te pide que ordenes nada antes de empezar. Mira la carpeta de tu
-proyecto, hace cuatro preguntas —una a la vez, cada una con una respuesta sugerida— y
-**lee tu última minuta**. Con eso te muestra, en menos de diez minutos:
+| Skill | Qué encapsula | De quién es |
+|---|---|---|
+| `project-record` | La ficha: esquema, extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen | Copia de Vera · también en Alba |
+| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué | Copia de Vera · también en Alba |
+| `commitment-tracking` | **La función central.** Extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez | Copia de Vera |
+| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento | Copia de Vera · también en Alba |
+| `baseline-variance` | Línea base de solo agregar, desviación contra la original y la vigente, las cuatro cifras del presupuesto | Copia de Vera |
+| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué | Copia de Vera · también en Alba |
+| `vendor-control` | Contrato contra evidencia de recibo contra facturación | Copia de Vera |
+| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo no se puede diagnosticar | Copia de Vera |
 
-- **Quién prometió qué y para cuándo**, con la cita de la minuta donde se dijo.
-- **Qué venció sin evidencia** en el expediente.
-- **Qué quedó sin fecha** — *«lo vemos la otra semana»*. No puede estar vencido, y **por
-  eso mismo es el que desaparece de todos los informes.**
-
-Después te dice qué le falta a tu carpeta para que esto sea mejor. Como hallazgo, no
-como requisito: **funciona con lo que haya.**
-
-**Lo que queda configurado** lo escribe `/pm-setup` a partir de lo que respondiste, en tu
-equipo y en un archivo tuyo: dónde está la carpeta del proyecto, qué día se reúnen, dónde vive
-tu ficha, los umbrales, y el registro de que aceptaste los términos con tu nombre y la fecha.
-Todo eso se cambia **hablando**.
-
-## El hallazgo que nadie más produce
+## Para qué sirve
 
 `/pm-commitments` extrae el compromiso de la minuta con doliente, fecha y fuente. Y hace algo
 más, que es lo que separa un seguimiento útil de una lista que crece: **el mismo doliente
@@ -89,33 +92,7 @@ Ese caso sale del corpus sintético, con la respuesta escrita a mano **antes** d
 cálculo, y es la razón por la que Samuel existe: no leer tu proyecto mejor que tú, sino
 recoger lo que la reunión dejó dicho y **nadie escribió en ningún sistema.**
 
-## No espera a que lo llamen
-
-Esta es la diferencia entre un comando y un agente. Un comando espera. **Este se programa y
-corre solo.**
-
-Su cadencia es la de tu reunión, y de ahí sale qué toca cada día. La decisión es aritmética de
-fechas, así que la toma el código y no el criterio del momento:
-
-```
-python3 scripts/portafolio.py due --state <estado> --config <archivo>
-```
-
-Y `/pm-wake` es el comando que el reloj invoca: el día antes de la reunión prepara la agenda,
-el día después pide la minuta, una vez por semana arma el informe, y **si no toca nada no
-produce nada.** Callarse cuando no pasó nada no es una omisión — es la única razón por la que
-un agente que corre todos los días sigue instalado el mes siguiente.
-
-Ponerlo en un reloj es del lado de tu organización: una tarea programada en Cowork, o el
-programador del sistema en Claude Code. **Y si no quieren corridas desatendidas** —en un banco
-es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo que se
-pierde es que avise sin que nadie pregunte.
-
-**Y si quieres que tu patrocinador vea el informe sin pedírtelo**, la familia tiene un servidor
-que lo publica con una sección para proyectos, y quien mira puede dejarle una pregunta escrita
-al agente. → **[Rostrum](../criterio-portfolio/SERVER.es.md)**
-
-## Lo que nunca hace
+### Y para qué no sirve
 
 - **No declara el estado de tu proyecto.** Eso lo declaras tú. Samuel te muestra contra
   qué, y la diferencia entre las dos cosas es el hallazgo de más valor del sistema. No
@@ -142,40 +119,80 @@ de la plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo 
 políticas antes de apuntarlo a material confidencial. Descargo completo en
 [DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
 
----
+## Instalación y configuración
 
-De aquí para abajo es para quien quiera auditarlo antes de instalarlo. **Todo esto se puede
-leer sin ejecutar nada**, y eso es deliberado.
+```
+/plugin marketplace add josenanez-company/criterio
+/plugin install criterio-project@criterio
+/pm-setup
+```
 
-## Cómo se trabaja con Samuel
+**En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
+marketplace desde GitHub → `josenanez-company/criterio`.
 
-Los tres agentes comparten cinco conductas, y ninguna es estilo: son las que hacen que el
-resultado se pueda poner frente a un comité. **Cada dato lleva la cita** del documento y su
-fecha · **«no está dicho en ninguna parte» es una respuesta válida** · **se callan cuando no
-hay novedad** · **ninguno declara** · **ninguno le escribe a nadie**. Están explicadas en el
-[README de la familia](../../README.es.md#lo-que-comparten-los-tres).
+Si gestionas el portafolio y no un proyecto, lo tuyo es
+[Vera](../criterio-portfolio/README.es.md). Si defines un producto,
+[Alba](../criterio-product/README.es.md).
 
-Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo
-antes de instalar.
+### El primer resultado
 
-**Con Samuel se conversa todas las semanas.** Trabaja sobre un proyecto y su ciclo es la
-reunión: la conversación es frecuente y corta, y casi siempre gira alrededor de un documento
-que acaba de aparecer.
+`/pm-setup` no te pide que ordenes nada antes de empezar. Mira la carpeta de tu
+proyecto, hace cuatro preguntas —una a la vez, cada una con una respuesta sugerida— y
+**lee tu última minuta**. Con eso te muestra, en menos de diez minutos:
 
-**El ritmo:** `/pm-setup` una vez; después, el día antes de la reunión `/pm-agenda`, el día
-después `/pm-minutes` con la transcripción o las notas, y una vez por semana `/pm-report`.
-`/pm-wake` en un reloj hace ese calendario solo.
+- **Quién prometió qué y para cuándo**, con la cita de la minuta donde se dijo.
+- **Qué venció sin evidencia** en el expediente.
+- **Qué quedó sin fecha** — *«lo vemos la otra semana»*. No puede estar vencido, y **por
+  eso mismo es el que desaparece de todos los informes.**
 
-**Lo que te va a pedir a ti:** **la minuta.** Es su insumo principal y sin ella se seca — un
-gerente que no guarda lo que la reunión deja escrito necesita saberlo el primer día, y
-`/pm-setup` se lo dice. Y **la declaración del estado**, que te pide siempre **después** de
-mostrarte la evidencia y nunca antes: si te propusiera un estado, tu declaración dejaría de
-ser información independiente.
+Después te dice qué le falta a tu carpeta para que esto sea mejor. Como hallazgo, no
+como requisito: **funciona con lo que haya.**
 
-**Lo que no le pidas:** que persiga un compromiso vencido. Te da el nombre, la fecha y la
-cita; la llamada la haces tú, porque perseguir es una conversación.
+**Lo que queda configurado** lo escribe `/pm-setup` a partir de lo que respondiste, en tu
+equipo y en un archivo tuyo: dónde está la carpeta del proyecto, qué día se reúnen, dónde vive
+tu ficha, los umbrales, y el registro de que aceptaste los términos con tu nombre y la fecha.
+Todo eso se cambia **hablando**.
 
-## Cómo funciona
+### Cada cuánto corre
+
+Esta es la diferencia entre un comando y un agente. Un comando espera. **Este se programa y
+corre solo.**
+
+Su cadencia es la de tu reunión, y de ahí sale qué toca cada día. La decisión es aritmética de
+fechas, así que la toma el código y no el criterio del momento:
+
+```
+python3 scripts/portafolio.py due --state <estado> --config <archivo>
+```
+
+Y `/pm-wake` es el comando que el reloj invoca: el día antes de la reunión prepara la agenda,
+el día después pide la minuta, una vez por semana arma el informe, y **si no toca nada no
+produce nada.** Callarse cuando no pasó nada no es una omisión — es la única razón por la que
+un agente que corre todos los días sigue instalado el mes siguiente.
+
+Ponerlo en un reloj es del lado de tu organización: una tarea programada en Cowork, o el
+programador del sistema en Claude Code. **Y si no quieren corridas desatendidas** —en un banco
+es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo que se
+pierde es que avise sin que nadie pregunte.
+
+**Y si quieres que tu patrocinador vea el informe sin pedírtelo**, la familia tiene un servidor
+que lo publica con una sección para proyectos, y quien mira puede dejarle una pregunta escrita
+al agente. → **[Rostrum](../criterio-portfolio/SERVER.es.md)**
+
+## Trabajo en equipo
+
+Samuel funciona solo. Si están los otros dos, **no hay nada que conectar**: se encuentran
+por la ficha del proyecto, que es un documento más en la carpeta.
+
+| Con quién | Qué pasa |
+|---|---|
+| **Alba** | Entrega el acta de constitución, y con ella nace la ficha. Desde ese día el escritor es Samuel: **una ficha, un escritor** |
+| **Vera** | Samuel publica su ficha con `/pm-publish` y Vera la lee. Ella escribe la suya sobre los mismos documentos y **las dos no se fusionan**. Cuando no coinciden, la mitad de las veces el que tiene razón es el gerente, porque estuvo en la reunión donde cambió lo que el acta nunca actualizó |
+| **Rostrum** | Publica el informe del proyecto en el portal, para quien no abre una carpeta |
+
+## Pruebas
+
+### Cómo está construido
 
 La espina es la **ficha de proyecto**: un contrato de datos que todos los comandos leen y
 escriben, con la cita al documento fuente y a su fecha en cada campo. Ningún comando lee
@@ -193,42 +210,7 @@ plugin instalado tiene que correr solo. En el repositorio, `scripts/sincronizar.
 falla si las copias se separaron, porque dos copias que calculan distinto sobre los mismos
 documentos dejarían sin saber a cuál creerle.
 
-## Los nueve comandos
-
-| Comando | Qué hace |
-|---|---|
-| `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
-| `/pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
-| `/pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
-| `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
-| `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
-| `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
-| `/pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
-| `/pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
-| `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
-
-Tres de ellos son un ciclo, y por eso están: **el que arma la agenda antes recibe la minuta
-después.** Sin la agenda la reunión hereda el orden del día de la semana pasada; sin el acta,
-lo que se dijo se escribe de memoria dos días más tarde y deja de ser evidencia de nada.
-
-## Los ocho skills
-
-Se cargan solos cuando el tema aparece. Son copias literales de `criterio-portfolio`, porque
-un riesgo es un riesgo lo mire quien lo mire y la ficha es el contrato de datos de toda
-la familia.
-
-| Skill | Qué encapsula | De quién es |
-|---|---|---|
-| `project-record` | La ficha: esquema, extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen | Copia de Vera · también en Alba |
-| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué | Copia de Vera · también en Alba |
-| `commitment-tracking` | **La función central.** Extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez | Copia de Vera |
-| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento | Copia de Vera · también en Alba |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y la vigente, las cuatro cifras del presupuesto | Copia de Vera |
-| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué | Copia de Vera · también en Alba |
-| `vendor-control` | Contrato contra evidencia de recibo contra facturación | Copia de Vera |
-| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo no se puede diagnosticar | Copia de Vera |
-
-## Cómo se verifica
+### Cómo se verifica
 
 ```
 python3 tests/criterio-project/grade.py      19 comprobaciones sobre dos proyectos
@@ -251,3 +233,4 @@ El diseño completo, con los criterios de aceptación y lo que sigue siendo de l
 
 Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el
 [README de la familia](../../README.es.md#las-pruebas-de-la-familia).
+

@@ -17,7 +17,7 @@ informe**, en [SERVER.es.md](SERVER.es.md).
 
 ---
 
-## El alcance
+## Qué es
 
 | | |
 |---|---|
@@ -26,6 +26,8 @@ informe**, en [SERVER.es.md](SERVER.es.md).
 | **Qué mira** | La carpeta de documentación de todos ellos, como esté |
 | **Cadencia** | Barrido diario si se configura, e informe con anticipación al comité |
 | **Instancias** | Una por PMO |
+
+## Qué hace
 
 **Lo que hace y nadie más hace:** contrastar lo que cada gerente declara contra lo que
 sustentan sus documentos, **en el conjunto y a la vez**. Un proyecto que reporta verde y
@@ -37,7 +39,96 @@ corrida anterior, qué se contradice entre dos documentos del mismo proyecto, qu
 semanas en silencio, cuántos de los que reportan verde tienen evidencia que ese verde no
 explica, y a quién alcanza mover un proyecto.
 
-## Instalación
+### Los diecisiete comandos
+
+| Comando | Qué hace |
+|---|---|
+| `/portfolio-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
+| `/portfolio-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
+| `/portfolio-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
+| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
+| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
+| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
+| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica |
+| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
+| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
+| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
+| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
+| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, calcula a quién alcanza, y crea línea base nueva sin borrar la anterior |
+| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
+| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
+| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
+| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
+| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
+
+### Los diez skills
+
+Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se
+pueden leer como se lee un manual.
+
+| Skill | Qué encapsula | De quién es |
+|---|---|---|
+| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen | Propia · también en Samuel y Alba |
+| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué, el renombrado, el borrado, y la cita que dejó de resolver | Propia · también en Samuel y Alba |
+| `portfolio-health` | Las veinte señales con lo que significa cada una, los umbrales que las gobiernan, y las tres defensas contra el dato que dejó de ser cierto | Propia |
+| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, la replanificación contra lo que autorizó el comité, las cuatro cifras del presupuesto | Propia · también en Samuel |
+| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento | Propia · también en Samuel y Alba |
+| `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez | Propia · también en Samuel |
+| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué | Propia · también en Samuel y Alba |
+| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable | Propia · también en Samuel |
+| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar | Propia · también en Samuel |
+| `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado | Propia |
+
+## Para qué sirve
+
+Mover un proyecto tiene consecuencias en proyectos que no son suyos, y esa cuenta no la hace
+nadie porque exige mirar el grafo completo de dependencias del portafolio a la vez.
+
+> **PRY-002 se mueve 60 días.**
+> Alcanza a **PRY-001**, que depende de su entrega y **ya no alcanza a sostener su fecha de
+> cierre: le faltan 121 días.**
+> Nadie mirando PRY-002 lo habría visto, y el gerente de PRY-001 todavía no sabe que tiene
+> que enterarse.
+
+Ese caso sale del corpus sintético, con la respuesta escrita a mano **antes** de correr el
+cálculo. Es la clase de pregunta que solo se puede responder desde arriba: `/change-control`
+la calcula, y dice además a quién hay que avisarle y qué dependencias están sin confirmar.
+
+Y es la misma razón por la que Vera existe. Lo que hace no es leer mejor un proyecto —para eso
+está su gerente— sino **aplicarle la misma vara a los cuarenta**, todos los días, sin
+cansarse en el proyecto número treinta.
+
+### Y para qué no sirve
+
+Esto es lo que conviene tener claro antes de instalarlo, y no está en letra pequeña:
+
+- **No escribe en tus carpetas.** Lee tus documentos; los informes y las fichas van a una
+  carpeta de estado que tú eliges.
+- **No decide.** Produce borradores de trabajo. Formula la decisión como pregunta con sus
+  opciones; quién decide y asumiendo qué es de quien tiene la facultad.
+- **No declara el estado de un proyecto.** Eso lo hace el gerente. El agente le muestra
+  contra qué, y la diferencia entre las dos cosas es el hallazgo de más valor del sistema.
+- **No sabe lo que no está escrito.** No conoce lo que se habló en el pasillo ni lo que se
+  decidió en una llamada que nadie minutó. Todo hallazgo suyo es *«según los documentos»*, y
+  lo declara.
+- **No adivina.** Cada dato viene con la cita del documento de donde salió. *«No está dicho
+  en ninguna parte»* es una respuesta válida y esperada.
+
+**Y hay dos cosas que deliberadamente no están, aunque las pida un pliego: capacidad y
+asignación de recursos, y materialización de beneficios.** No por poco importantes: porque los
+datos no están en la carpeta. Capacidad exige horas reales y beneficios exige medición
+posterior que casi ninguna organización tiene. Un skill que promete lo que el insumo no
+permite quema la credibilidad del plugin entero. Tampoco trae contenido regulatorio: la
+gestión de portafolio es método, no normativa, y funciona igual en Bogotá que en Santiago. Si
+una obligación regulatoria toca un proyecto, la registra como restricción o como riesgo y no
+opina sobre ella.
+
+Y una que sí hay que decir en voz alta: **tus documentos se procesan en la infraestructura de
+la plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo tus políticas
+antes de apuntarlo a material confidencial. Descargo completo en
+[DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
+
+## Instalación y configuración
 
 ![Instalación: cuatro clics, o dos comandos](../../docs/img/es/instalacion.png)
 
@@ -56,7 +147,7 @@ Si gestionas un proyecto y no el portafolio, lo tuyo es
 [Samuel](../criterio-project/README.es.md). Si defines un producto,
 [Alba](../criterio-product/README.es.md).
 
-## El primer resultado
+### El primer resultado
 
 ![Los primeros quince minutos](../../docs/img/es/quince-minutos.png)
 
@@ -81,26 +172,7 @@ comité, la forma del informe, los umbrales que le hacen levantar la voz, y el r
 aceptaste los términos, con tu nombre y la fecha. Todo eso se cambia **hablando**: si quieres
 que el silencio se reporte a los diez días y no a los quince, se lo dices.
 
-## El hallazgo que nadie más produce
-
-Mover un proyecto tiene consecuencias en proyectos que no son suyos, y esa cuenta no la hace
-nadie porque exige mirar el grafo completo de dependencias del portafolio a la vez.
-
-> **PRY-002 se mueve 60 días.**
-> Alcanza a **PRY-001**, que depende de su entrega y **ya no alcanza a sostener su fecha de
-> cierre: le faltan 121 días.**
-> Nadie mirando PRY-002 lo habría visto, y el gerente de PRY-001 todavía no sabe que tiene
-> que enterarse.
-
-Ese caso sale del corpus sintético, con la respuesta escrita a mano **antes** de correr el
-cálculo. Es la clase de pregunta que solo se puede responder desde arriba: `/change-control`
-la calcula, y dice además a quién hay que avisarle y qué dependencias están sin confirmar.
-
-Y es la misma razón por la que Vera existe. Lo que hace no es leer mejor un proyecto —para eso
-está su gerente— sino **aplicarle la misma vara a los cuarenta**, todos los días, sin
-cansarse en el proyecto número treinta.
-
-## No espera a que lo llamen
+### Cada cuánto corre
 
 ![La cadencia: se activa solo, y casi siempre se calla](../../docs/img/es/cadencia.png)
 
@@ -137,68 +209,20 @@ queda en la cola y se atiende en la siguiente corrida. No autentica a nadie, y e
 propósito: se publica detrás del control de acceso que tu organización ya tiene.
 → **[Rostrum, con capturas de cada sección](SERVER.es.md)**
 
-## Lo que nunca hace
+## Trabajo en equipo
 
-Esto es lo que conviene tener claro antes de instalarlo, y no está en letra pequeña:
+Vera funciona sola. Si están los otros dos, **no hay nada que conectar**: se encuentran
+por la ficha del proyecto, que es un documento más en la carpeta.
 
-- **No escribe en tus carpetas.** Lee tus documentos; los informes y las fichas van a una
-  carpeta de estado que tú eliges.
-- **No decide.** Produce borradores de trabajo. Formula la decisión como pregunta con sus
-  opciones; quién decide y asumiendo qué es de quien tiene la facultad.
-- **No declara el estado de un proyecto.** Eso lo hace el gerente. El agente le muestra
-  contra qué, y la diferencia entre las dos cosas es el hallazgo de más valor del sistema.
-- **No sabe lo que no está escrito.** No conoce lo que se habló en el pasillo ni lo que se
-  decidió en una llamada que nadie minutó. Todo hallazgo suyo es *«según los documentos»*, y
-  lo declara.
-- **No adivina.** Cada dato viene con la cita del documento de donde salió. *«No está dicho
-  en ninguna parte»* es una respuesta válida y esperada.
+| Con quién | Qué pasa |
+|---|---|
+| **Samuel** | Publica la ficha de su proyecto con `/pm-publish`, y Vera la lee como lee cualquier documento. **Las dos fichas no se fusionan nunca**, y cuando las dos citan y no coinciden, alguien vio un papel que el otro no vio — con la fecha de cada fuente, para saber cuál es más reciente |
+| **Alba** | Redacta el acta de constitución con la que nace la ficha del proyecto. Vera la recibe ya escrita y la revisa contra la evidencia |
+| **Rostrum** | Publica el informe de Vera donde el equipo lo lea, y le devuelve las preguntas que deja quien lo mira. **No escribe nunca la ficha** |
 
-**Y hay dos cosas que deliberadamente no están, aunque las pida un pliego: capacidad y
-asignación de recursos, y materialización de beneficios.** No por poco importantes: porque los
-datos no están en la carpeta. Capacidad exige horas reales y beneficios exige medición
-posterior que casi ninguna organización tiene. Un skill que promete lo que el insumo no
-permite quema la credibilidad del plugin entero. Tampoco trae contenido regulatorio: la
-gestión de portafolio es método, no normativa, y funciona igual en Bogotá que en Santiago. Si
-una obligación regulatoria toca un proyecto, la registra como restricción o como riesgo y no
-opina sobre ella.
+## Pruebas
 
-Y una que sí hay que decir en voz alta: **tus documentos se procesan en la infraestructura de
-la plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo tus políticas
-antes de apuntarlo a material confidencial. Descargo completo en
-[DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
-
----
-
-De aquí para abajo es para quien quiera auditarlo antes de instalarlo. **Todo esto se puede
-leer sin ejecutar nada**, y eso es deliberado.
-
-## Cómo se trabaja con Vera
-
-Los tres agentes comparten cinco conductas, y ninguna es estilo: son las que hacen que el
-resultado se pueda poner frente a un comité. **Cada dato lleva la cita** del documento y su
-fecha · **«no está dicho en ninguna parte» es una respuesta válida** · **se callan cuando no
-hay novedad** · **ninguno declara** · **ninguno le escribe a nadie**. Están explicadas en el
-[README de la familia](../../README.es.md#lo-que-comparten-los-tres).
-
-Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo
-antes de instalar.
-
-**Con Vera se conversa poco y se lee mucho.** Trabaja sobre cuarenta carpetas: la conversación
-es corta —le dices qué proyecto, o ninguno— y lo que devuelve es largo, un informe que alguien
-va a llevar a un comité.
-
-**El ritmo:** `/portfolio-setup` una vez, `/portfolio-wake` en un reloj, y después se le pregunta por
-excepción — *«diagnostica PRY-014 desde cero»*, *«reconstruye qué pasó»*, *«arma el material
-del comité»*.
-
-**Lo que te va a pedir a ti:** confirmar **cinco campos por corrida**, nunca cuarenta — si
-preguntas por cuarenta no responde nadie. Y **actuar sobre lo que el informe pide**: si nadie
-actúa, el informe siguiente dice lo mismo, y eso no es un defecto del agente.
-
-**Lo que no le pidas:** que te diga en qué estado está un proyecto. Te dice qué declara su
-gerente y qué sostienen los documentos, y **la diferencia entre las dos cosas es el producto.**
-
-## Cómo funciona
+### Cómo está construido
 
 ![Cómo funciona: el modelo extrae, el código calcula](../../docs/img/es/como-funciona.png)
 
@@ -216,47 +240,7 @@ si vale extraer y otro para saber si vale releer. Y
 [`scripts/informe.py`](scripts/informe.py) arma el informe impreso a partir de lo que los
 otros dos produjeron, sin volver a leer un solo documento.
 
-## Los diecisiete comandos
-
-| Comando | Qué hace |
-|---|---|
-| `/portfolio-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
-| `/portfolio-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
-| `/portfolio-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
-| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
-| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
-| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
-| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica |
-| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
-| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
-| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
-| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
-| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, calcula a quién alcanza, y crea línea base nueva sin borrar la anterior |
-| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
-| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
-| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
-| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
-| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
-
-## Los diez skills
-
-Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se
-pueden leer como se lee un manual.
-
-| Skill | Qué encapsula | De quién es |
-|---|---|---|
-| `project-record` | La ficha: esquema, reglas de extracción, citación, estados de campo, qué hacer cuando dos documentos se contradicen | Propia · también en Samuel y Alba |
-| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué, el renombrado, el borrado, y la cita que dejó de resolver | Propia · también en Samuel y Alba |
-| `portfolio-health` | Las veinte señales con lo que significa cada una, los umbrales que las gobiernan, y las tres defensas contra el dato que dejó de ser cierto | Propia |
-| `baseline-variance` | Línea base de solo agregar, desviación contra la original y contra la vigente, la replanificación contra lo que autorizó el comité, las cuatro cifras del presupuesto | Propia · también en Samuel |
-| `raid-taxonomy` | Las cuatro categorías y cómo distinguirlas, valoración, criterio de escalamiento | Propia · también en Samuel y Alba |
-| `commitment-tracking` | Compromisos dichos en reuniones: extracción, estados, qué cuenta como evidencia, y el que se repite con fecha nueva cada vez | Propia · también en Samuel |
-| `governance-artifacts` | Acta, comité, control de cambios y cierre: qué contiene cada uno y quién decide qué | Propia · también en Samuel y Alba |
-| `vendor-control` | Contrato contra evidencia de recibo contra facturación, con monto por entregable | Propia · también en Samuel |
-| `project-diagnosis` | El diagnóstico desde cero: en qué orden se lee y cuándo la respuesta es que no se puede diagnosticar | Propia · también en Samuel |
-| `portfolio-history` | La historia de un proyecto desde sus documentos, y el punto donde la evidencia se separó de lo reportado | Propia |
-
-## Cómo se verifica
+### Cómo se verifica
 
 ```
 python3 scripts/portafolio.py selftest          la aritmética y la cadencia
@@ -279,3 +263,4 @@ El diseño completo, con los criterios de aceptación y lo que sigue siendo de l
 
 Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el
 [README de la familia](../../README.es.md#las-pruebas-de-la-familia).
+

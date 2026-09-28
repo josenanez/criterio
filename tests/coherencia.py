@@ -341,7 +341,10 @@ EXIGIDO = {
     "cómo se instala": ("## Instalar", "## Instalación", "## Install"),  # noqa: E501
     "el primer resultado": ("primeros quince minutos", "primer resultado", "first result",
                             "first fifteen minutes"),
-    "lo que nunca hace": ("Lo que nunca hace", "never does"),
+    # La frontera puede estar como sección propia o como la segunda mitad de «para qué
+    # sirve». Lo que la política exige es que esté dicha, no dónde.
+    "lo que nunca hace": ("Lo que nunca hace", "never does",
+                          "para qué no sirve", "what it is not for"),
 }
 for plugin in sorted(p for p in (RAIZ / "plugins").iterdir() if p.is_dir()):
     if not (plugin / "commands").exists():
@@ -549,9 +552,13 @@ else:
 # la tercera sección se llamaba distinto en cada una, así que no se podían comparar. Quien
 # entraba a dos de ellas no sabía si la diferencia era del agente o del redactor.
 #
-# El esqueleto es el mismo para los tres y abre por el alcance, porque la primera pregunta
-# de quien llega es si esto es para él. Solo tres títulos varían, y varían en lo que tienen
-# que variar: el nombre del agente y el número de comandos y de skills.
+# Seis secciones, y las seis idénticas en las tres páginas: ya no varía ninguna. Están
+# cortadas por las preguntas de quien llega y en el orden en que las hace —qué es, qué
+# hace, para qué sirve, cómo se instala, cómo se lleva con los otros dos, y si está
+# probado— y no por cómo está hecho el software por dentro.
+#
+# Antes eran once, cortadas por el software, y aunque eran las mismas en las tres se
+# llenaban desigual: nada obligaba a que cada casilla pesara lo mismo.
 #
 # Hubo una segunda sección que declaraba dónde se superponía cada agente con los otros dos, y
 # se quitó: que dos roles hagan la misma tarea en momentos distintos no es una superposición
@@ -560,29 +567,12 @@ print("\nLas tres páginas de agente, con el mismo esqueleto")
 import fnmatch
 
 ESQUELETO = {
-    "es": ["El alcance",
-           "Instalación",
-           "El primer resultado",
-           "El hallazgo que nadie más produce",
-           "No espera a que lo llamen",
-           "Lo que nunca hace",
-           "Cómo se trabaja con *",
-           "Cómo funciona",
-           "Los * comandos",
-           "Los * skills",
-           "Cómo se verifica"],
-    "en": ["The scope",
-           "Installation",
-           "The first result",
-           "The finding nobody else produces",
-           "It does not wait to be called",
-           "What it never does",
-           "How you work with *",
-           "How it works",
-           "The * commands",
-           "The * skills",
-           "How it is verified"],
+    "es": ["Qué es", "Qué hace", "Para qué sirve", "Instalación y configuración",
+           "Trabajo en equipo", "Pruebas"],
+    "en": ["What it is", "What it does", "What it is for", "Installing and configuring",
+           "Working with the others", "Tests"],
 }
+
 AGENTES = [(PLUGIN, "README.es.md", "README.md"),
            (RAIZ / "plugins" / "criterio-project", "README.es.md", "README.md"),
            (PRODUCT, "README.es.md", "README.md")]

@@ -14,11 +14,11 @@ synthetic material. Nothing is announced as finished until the
 
 **This page reads on its own.** Alba works without her siblings: if all you do is define
 products, everything is here, tests included. The family — how she meets Vera and Samuel — is in
-the [`criterio-portfolio` README](../criterio-portfolio/README.md).
+the [repository README](../../README.md).
 
 ---
 
-## The scope
+## What it is
 
 | | |
 |---|---|
@@ -27,6 +27,8 @@ the [`criterio-portfolio` README](../criterio-portfolio/README.md).
 | **What it looks at** | The definition, the interviews, the tickets and the metrics |
 | **Cadence** | By seasons: a round of interviews, a product committee, a definition being closed |
 | **Instances** | One per product |
+
+## What it does
 
 **What it does that nobody else does: contrasting the definition against the evidence of
 demand.** It is the same comparison that holds up the whole family — declared against evidenced
@@ -38,39 +40,43 @@ anywhere**, which assumption has gone months without being verified, where the b
 asserts a number the metric does not support, and what was decided to be built that **nobody is
 building**.
 
-## Installation
+### The eleven commands
 
-```
-/plugin marketplace add josenanez-company/criterio
-/plugin install criterio-product@criterio
-/product-setup
-```
+| Command | What it does |
+|---|---|
+| `/product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have |
+| `/product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme that has gone months said without anybody turning it into anything |
+| `/product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted without anybody asking for it, and what nobody decides |
+| `/product-definition` | The definition against the evidence of demand, and where the business and the data do not match |
+| `/product-trace` | Requirement → decision → project → deliverable, and the two gaps above |
+| `/product-spec` | The draft specification with verifiable criteria and the gaps pointed out, not filled in |
+| `/product-charter` | The project charter: where the record is born and the writer changes hands |
+| `/product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them |
+| `/product-publish` | Publishes your record where the other products can read it |
+| `/product-overlap` | Where you step on another product: the same metric counted twice, the same project, the same segment |
+| `/product-wake` | **The one you put on a clock.** What crossed a threshold without anybody doing anything |
 
-**In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
-GitHub → `josenanez-company/criterio`.
+### The twelve skills
 
-If you run a project and not a product, yours is [Samuel](../criterio-project/README.md). If you run
-the portfolio, [Vera](../criterio-portfolio/README.md).
+They load on their own when the subject comes up. Eight are product's own; four are literal
+copies from `criterio-portfolio`, because they are method and not role.
 
-## The first result
+| Skill | What it encapsulates | Whose it is |
+|---|---|---|
+| `requirement-record` | **Alba's data contract.** Schema, extraction, citation, the five states and what each one demands | Alba's own |
+| `product-health` | The eleven signals, the four thresholds, in what order they are read and **which one is not a finding** | Alba's own |
+| `demand-evidence` | What counts as evidence that somebody asked for something, what does not count even if it looks like it, and how it ages | Alba's own |
+| `discovery-synthesis` | Interviews and tickets into themes with the citation. A theme is a set of quotations, not a claim | Alba's own |
+| `assumption-tracking` | The assumption written so that it can turn out false, and the day it becomes a recorded risk | Alba's own |
+| `product-metrics` | The series with its source and its definition, and the contrast between declared and measured | Alba's own |
+| `specification-draft` | The verifiable acceptance criterion, and the rule of pointing out the gap instead of filling it | Alba's own |
+| `regulatory-sweep` | The obligations the definition touches, cited. **It does not opine on compliance** | Alba's own |
+| `project-record` | The project record: born with the charter, and Alba is the one who creates it | Copy of Vera's · also in Samuel |
+| `governance-artifacts` | What a project charter contains and who decides what | Copy of Vera's · also in Samuel |
+| `document-intake` | Which document has to be re-read and which not, which formats can be read and with what | Copy of Vera's · also in Samuel |
+| `raid-taxonomy` | Where an assumption moves to the day nobody verifies it | Copy of Vera's · also in Samuel |
 
-`/product-setup` looks at your folder, asks four questions — one at a time, each with a suggested
-answer — and **takes the definition you already have written and breaks it into claims.** With
-that it shows you, in under ten minutes, three lists:
-
-- **What the evidence supports**, with the document and the date.
-- **What rests on an assumption** nobody has verified.
-- **What is not stated anywhere.**
-
-That third list is the one no review finds, **because reading a well-written document everything
-looks supported.**
-
-**What ends up configured** is written by `/product-setup` from your answers, on your machine and
-in a file of yours: where the product's documentation is, where your register lives, how often it
-is reviewed, the four thresholds, and the record that you accepted the terms, with your name and
-the date. All of that is changed **by talking**.
-
-## The finding nobody else produces
+## What it is for
 
 In a project you contrast the **status the manager declares** against the documentary evidence.
 In a product you contrast the **definition** against the evidence of demand.
@@ -95,7 +101,63 @@ it builds another.** Alba does not believe her own register: she confirms it aga
 project's record, which has another owner and another cadence. When the two do not match, **the
 disagreement is reported and not fixed from here.**
 
-## It does not wait to be called
+### And what it is not for
+
+- **It does not decide what gets built.** You decide that. Alba shows you what supports it, and
+  if she decided, the comparison would be comparing the system against itself.
+- **It does not talk to your customer**, and it does not read what the customer does not say. It
+  is the part of the craft no agent will ever have, and it is the one that feeds everything else.
+- **It does not judge whether something will be liked.**
+- **It does not say whether your product complies.** It names and cites the obligations it
+  touches; the judgement is legal and the responsibility is your organisation's.
+- **It does not fill a gap with what is reasonable.** A specification with the holes filled in
+  looks complete, gets approved, and what nobody decided ends up decided by the agent.
+- **It does not write in your documentation folder.**
+- **It does not guess.** Every value carries the citation of the document it came from. *«It is
+  not stated anywhere»* is a valid and expected answer.
+
+**And one thing it deliberately stops doing on the day of the charter: writing the project's
+record.** She creates it with the signed charter and from then on only reads it. If two agents
+wrote it, the disagreement between them would stop being a signal and would become a race.
+
+And one that has to be said out loud: **your documents are processed on the AI platform's
+infrastructure**, not only on your machine. Confirm that this is admissible under your policies
+before pointing it at confidential material. Full disclaimer in
+[DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
+
+## Installing and configuring
+
+```
+/plugin marketplace add josenanez-company/criterio
+/plugin install criterio-product@criterio
+/product-setup
+```
+
+**In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
+GitHub → `josenanez-company/criterio`.
+
+If you run a project and not a product, yours is [Samuel](../criterio-project/README.md). If you run
+the portfolio, [Vera](../criterio-portfolio/README.md).
+
+### The first result
+
+`/product-setup` looks at your folder, asks four questions — one at a time, each with a suggested
+answer — and **takes the definition you already have written and breaks it into claims.** With
+that it shows you, in under ten minutes, three lists:
+
+- **What the evidence supports**, with the document and the date.
+- **What rests on an assumption** nobody has verified.
+- **What is not stated anywhere.**
+
+That third list is the one no review finds, **because reading a well-written document everything
+looks supported.**
+
+**What ends up configured** is written by `/product-setup` from your answers, on your machine and
+in a file of yours: where the product's documentation is, where your register lives, how often it
+is reviewed, the four thresholds, and the record that you accepted the terms, with your name and
+the date. All of that is changed **by talking**.
+
+### How often it runs
 
 This is the difference between a command and an agent. A command waits. **This one is scheduled
 and runs on its own.**
@@ -122,63 +184,20 @@ told without anyone asking.
 server that publishes it with a section for products, where whoever is looking can leave the
 agent a written question. → **[Rostrum](../criterio-portfolio/SERVER.md)**
 
-## What it never does
+## Working with the others
 
-- **It does not decide what gets built.** You decide that. Alba shows you what supports it, and
-  if she decided, the comparison would be comparing the system against itself.
-- **It does not talk to your customer**, and it does not read what the customer does not say. It
-  is the part of the craft no agent will ever have, and it is the one that feeds everything else.
-- **It does not judge whether something will be liked.**
-- **It does not say whether your product complies.** It names and cites the obligations it
-  touches; the judgement is legal and the responsibility is your organisation's.
-- **It does not fill a gap with what is reasonable.** A specification with the holes filled in
-  looks complete, gets approved, and what nobody decided ends up decided by the agent.
-- **It does not write in your documentation folder.**
-- **It does not guess.** Every value carries the citation of the document it came from. *«It is
-  not stated anywhere»* is a valid and expected answer.
+Alba works alone. If the other two are installed, **there is nothing to connect**: they
+meet through the project record, which is one more document in the folder.
 
-**And one thing it deliberately stops doing on the day of the charter: writing the project's
-record.** She creates it with the signed charter and from then on only reads it. If two agents
-wrote it, the disagreement between them would stop being a signal and would become a race.
+| With whom | What happens |
+|---|---|
+| **Samuel** | Alba writes the project charter and with it **creates** the project record. From then on she never writes it again: he does. She reads it to confirm that the project claiming to build her product really builds it |
+| **Vera** | Reads the product record Alba publishes with `/product-publish`, to look at the product through all the projects building it |
+| **Other products** | Each publishes its record, and Alba reads them to see where she steps on another: the same metric counted twice, the same project or the same segment |
 
-And one that has to be said out loud: **your documents are processed on the AI platform's
-infrastructure**, not only on your machine. Confirm that this is admissible under your policies
-before pointing it at confidential material. Full disclaimer in
-[DISCLAIMER.md](../../DISCLAIMER.md), terms in [TERMS.md](../../TERMS.md).
+## Tests
 
----
-
-From here down is for whoever wants to audit it before installing it. **All of this can be read
-without running anything**, and that is deliberate.
-
-## How you work with Alba
-
-The three agents share five behaviours, and none is style: they are what makes the result
-something you can put in front of a committee. **Every value carries the citation** of its
-document and date · **«it is not stated anywhere» is a valid answer** · **they stay quiet when
-there is no news** · **none of them declares** · **none of them writes to anybody**. They are
-explained in the [family README](../../README.md#what-the-three-share).
-
-What changes between one and another is **the rhythm of the conversation**, and that is worth
-knowing before installing.
-
-**With Alba you talk in seasons.** She works before the project exists, and that work is not
-weekly: it comes in bursts — a round of interviews, a product committee, a definition that has to
-be closed — with quiet weeks in between.
-
-**The rhythm:** `/product-setup` once; `/product-discovery` every time a round of interviews
-ends; `/product-definition` when the definition is about to be closed or when somebody is about
-to argue about it; `/product-charter` the day it becomes a project. `/product-wake` weekly
-reports what crossed a threshold while nobody was watching.
-
-**What it will ask of you:** **talking to the customer.** It is the part of the craft no agent
-will ever have, and without it there is nothing to synthesise. And **deciding**: what has gone
-sixty days undecided is still undecided when Alba finishes; what changes is that it now has a
-name, a number of days and somebody to ask.
-
-**What not to ask it:** whether something will be liked. That is in no document.
-
-## How it works
+### How it is built
 
 The spine is the **requirement record**: a data contract every command reads and writes, with the
 citation of the source document and its date on every field, and with five states that say what
@@ -203,43 +222,7 @@ with the charter. **The last two are literal copies of Vera's, not imports**, be
 installed plugin has to run on its own; in the repository, `scripts/sincronizar.py --check` fails
 if the copies have drifted apart.
 
-## The eleven commands
-
-| Command | What it does |
-|---|---|
-| `/product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have |
-| `/product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme that has gone months said without anybody turning it into anything |
-| `/product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted without anybody asking for it, and what nobody decides |
-| `/product-definition` | The definition against the evidence of demand, and where the business and the data do not match |
-| `/product-trace` | Requirement → decision → project → deliverable, and the two gaps above |
-| `/product-spec` | The draft specification with verifiable criteria and the gaps pointed out, not filled in |
-| `/product-charter` | The project charter: where the record is born and the writer changes hands |
-| `/product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them |
-| `/product-publish` | Publishes your record where the other products can read it |
-| `/product-overlap` | Where you step on another product: the same metric counted twice, the same project, the same segment |
-| `/product-wake` | **The one you put on a clock.** What crossed a threshold without anybody doing anything |
-
-## The twelve skills
-
-They load on their own when the subject comes up. Eight are product's own; four are literal
-copies from `criterio-portfolio`, because they are method and not role.
-
-| Skill | What it encapsulates | Whose it is |
-|---|---|---|
-| `requirement-record` | **Alba's data contract.** Schema, extraction, citation, the five states and what each one demands | Alba's own |
-| `product-health` | The eleven signals, the four thresholds, in what order they are read and **which one is not a finding** | Alba's own |
-| `demand-evidence` | What counts as evidence that somebody asked for something, what does not count even if it looks like it, and how it ages | Alba's own |
-| `discovery-synthesis` | Interviews and tickets into themes with the citation. A theme is a set of quotations, not a claim | Alba's own |
-| `assumption-tracking` | The assumption written so that it can turn out false, and the day it becomes a recorded risk | Alba's own |
-| `product-metrics` | The series with its source and its definition, and the contrast between declared and measured | Alba's own |
-| `specification-draft` | The verifiable acceptance criterion, and the rule of pointing out the gap instead of filling it | Alba's own |
-| `regulatory-sweep` | The obligations the definition touches, cited. **It does not opine on compliance** | Alba's own |
-| `project-record` | The project record: born with the charter, and Alba is the one who creates it | Copy of Vera's · also in Samuel |
-| `governance-artifacts` | What a project charter contains and who decides what | Copy of Vera's · also in Samuel |
-| `document-intake` | Which document has to be re-read and which not, which formats can be read and with what | Copy of Vera's · also in Samuel |
-| `raid-taxonomy` | Where an assumption moves to the day nobody verifies it | Copy of Vera's · also in Samuel |
-
-## How it is verified
+### How it is verified
 
 ```
 python3 tests/criterio-product/grade.py    over two products, with a negative control
@@ -261,3 +244,4 @@ The full design, with the acceptance criteria and what still belongs to the pers
 
 And the family's tests — what no agent can answer alone — in the
 [family README](../../README.md#the-familys-tests).
+

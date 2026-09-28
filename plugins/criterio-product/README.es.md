@@ -14,11 +14,11 @@ los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
 
 **Esta página se lee sola.** Alba funciona sin sus hermanos: si solo defines productos, aquí
 está todo, incluidas sus pruebas. La familia —cómo se encuentra con Vera y con Samuel— está en
-el [README de `criterio-portfolio`](../criterio-portfolio/README.es.md).
+el [README del repositorio](../../README.es.md).
 
 ---
 
-## El alcance
+## Qué es
 
 | | |
 |---|---|
@@ -27,6 +27,8 @@ el [README de `criterio-portfolio`](../criterio-portfolio/README.es.md).
 | **Qué mira** | La definición, las entrevistas, los tickets y las métricas |
 | **Cadencia** | Por temporadas: una ronda de entrevistas, un comité de producto, una definición que se cierra |
 | **Instancias** | Una por producto |
+
+## Qué hace
 
 **Lo que hace y nadie más hace: contrastar la definición contra la evidencia de demanda.**
 Es la misma comparación que sostiene a toda la familia —lo declarado contra lo evidenciado—
@@ -38,40 +40,43 @@ dicha en ninguna parte**, qué supuesto lleva meses sin verificarse, dónde el c
 afirma un número que la métrica no sostiene, y qué se decidió construir que **nadie está
 construyendo**.
 
-## Instalación
+### Los once comandos
 
-```
-/plugin marketplace add josenanez-company/criterio
-/plugin install criterio-product@criterio
-/product-setup
-```
+| Comando | Qué hace |
+|---|---|
+| `/product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas |
+| `/product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada |
+| `/product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide |
+| `/product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden |
+| `/product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba |
+| `/product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados |
+| `/product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos |
+| `/product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce |
+| `/product-publish` | Publica tu ficha donde los demás productos la puedan leer |
+| `/product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
+| `/product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
 
-**En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
-marketplace desde GitHub → `josenanez-company/criterio`.
+### Los doce skills
 
-Si gestionas un proyecto y no un producto, lo tuyo es
-[Samuel](../criterio-project/README.es.md). Si gestionas el portafolio,
-[Vera](../criterio-portfolio/README.es.md).
+Se cargan solos cuando el tema aparece. Ocho son propios de producto; cuatro son copias
+literales de `criterio-portfolio`, porque son método y no rol.
 
-## El primer resultado
+| Skill | Qué encapsula | De quién es |
+|---|---|---|
+| `requirement-record` | **El contrato de datos de Alba.** Esquema, extracción, citación, los cinco estados y qué exige cada uno | Propia de Alba |
+| `product-health` | Las once señales, los cuatro umbrales, en qué orden se leen y **cuál no es hallazgo** | Propia de Alba |
+| `demand-evidence` | Qué cuenta como evidencia de que alguien pidió algo, qué no cuenta aunque lo parezca, y cómo envejece | Propia de Alba |
+| `discovery-synthesis` | Entrevistas y tickets en temas con la cita. Un tema es un conjunto de citas, no una afirmación | Propia de Alba |
+| `assumption-tracking` | El supuesto escrito de forma que puede resultar falso, y el día en que se vuelve riesgo registrado | Propia de Alba |
+| `product-metrics` | La serie con su fuente y su definición, y el contraste entre lo declarado y lo medido | Propia de Alba |
+| `specification-draft` | El criterio de aceptación verificable, y la regla de señalar el vacío en vez de rellenarlo | Propia de Alba |
+| `regulatory-sweep` | Las obligaciones que toca la definición, citadas. **No opina sobre cumplimiento** | Propia de Alba |
+| `project-record` | La ficha del proyecto: nace con el acta, y Alba es quien la crea | Copia de Vera · también en Samuel |
+| `governance-artifacts` | Qué contiene un acta de constitución y quién decide qué | Copia de Vera · también en Samuel |
+| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué | Copia de Vera · también en Samuel |
+| `raid-taxonomy` | A dónde se muda un supuesto el día que nadie lo verifica | Copia de Vera · también en Samuel |
 
-`/product-setup` mira tu carpeta, hace cuatro preguntas —una a la vez, cada una con una
-respuesta sugerida— y **toma la definición que ya tengas escrita y la parte en afirmaciones.**
-Con eso te muestra, en menos de diez minutos, tres listas:
-
-- **Lo que la evidencia sostiene**, con el documento y la fecha.
-- **Lo que se sostiene en un supuesto** que nadie ha verificado.
-- **Lo que no está dicho en ninguna parte.**
-
-Esa tercera lista es la que ninguna revisión encuentra, **porque leyendo un documento bien
-escrito todo parece sustentado.**
-
-**Lo que queda configurado** lo escribe `/product-setup` a partir de lo que respondiste, en tu
-equipo y en un archivo tuyo: dónde está la documentación del producto, dónde vive tu registro,
-cada cuánto se revisa, los cuatro umbrales, y el registro de que aceptaste los términos con tu
-nombre y la fecha. Todo eso se cambia **hablando**.
-
-## El hallazgo que nadie más produce
+## Para qué sirve
 
 En un proyecto se contrasta el **estado que el gerente declara** contra la evidencia
 documental. En un producto se contrasta la **definición** contra la evidencia de demanda.
@@ -96,7 +101,64 @@ dice que ejecuta otro.** Alba no le cree a su propio registro: lo confirma contr
 proyecto, que tiene otro dueño y otra cadencia. Cuando las dos no coinciden, **el desacuerdo se
 reporta y no se arregla desde aquí.**
 
-## No espera a que lo llamen
+### Y para qué no sirve
+
+- **No decide qué se construye.** Eso lo decides tú. Alba te muestra qué lo sostiene, y si
+  ella decidiera, la comparación compararía al sistema consigo mismo.
+- **No habla con tu cliente**, y no lee lo que el cliente no dice. Es la parte del oficio que
+  ningún agente va a tener, y es la que alimenta todo lo demás.
+- **No juzga si algo va a gustar.**
+- **No dice si tu producto cumple la norma.** Nombra y cita las obligaciones que toca; el
+  juicio es jurídico y la responsabilidad es de tu organización.
+- **No rellena un vacío con lo razonable.** Una especificación con los huecos rellenados se ve
+  completa, se aprueba, y lo que nadie decidió queda decidido por el agente.
+- **No escribe en tu carpeta de documentación.**
+- **No adivina.** Cada dato lleva la cita del documento de donde salió. *«No está dicho en
+  ninguna parte»* es una respuesta válida y esperada.
+
+**Y hay una cosa que deliberadamente deja de hacer el día del acta: escribir la ficha del
+proyecto.** La crea con el acta firmada y a partir de ahí solo la lee. Si dos agentes la
+escribieran, el desacuerdo entre ellos dejaría de ser una señal y sería una carrera.
+
+Y una que hay que decir en voz alta: **tus documentos se procesan en la infraestructura de la
+plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo tus políticas antes
+de apuntarlo a material confidencial. Descargo completo en
+[DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
+
+## Instalación y configuración
+
+```
+/plugin marketplace add josenanez-company/criterio
+/plugin install criterio-product@criterio
+/product-setup
+```
+
+**En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
+marketplace desde GitHub → `josenanez-company/criterio`.
+
+Si gestionas un proyecto y no un producto, lo tuyo es
+[Samuel](../criterio-project/README.es.md). Si gestionas el portafolio,
+[Vera](../criterio-portfolio/README.es.md).
+
+### El primer resultado
+
+`/product-setup` mira tu carpeta, hace cuatro preguntas —una a la vez, cada una con una
+respuesta sugerida— y **toma la definición que ya tengas escrita y la parte en afirmaciones.**
+Con eso te muestra, en menos de diez minutos, tres listas:
+
+- **Lo que la evidencia sostiene**, con el documento y la fecha.
+- **Lo que se sostiene en un supuesto** que nadie ha verificado.
+- **Lo que no está dicho en ninguna parte.**
+
+Esa tercera lista es la que ninguna revisión encuentra, **porque leyendo un documento bien
+escrito todo parece sustentado.**
+
+**Lo que queda configurado** lo escribe `/product-setup` a partir de lo que respondiste, en tu
+equipo y en un archivo tuyo: dónde está la documentación del producto, dónde vive tu registro,
+cada cuánto se revisa, los cuatro umbrales, y el registro de que aceptaste los términos con tu
+nombre y la fecha. Todo eso se cambia **hablando**.
+
+### Cada cuánto corre
 
 Esta es la diferencia entre un comando y un agente. Un comando espera. **Este se programa y
 corre solo.**
@@ -123,63 +185,20 @@ pierde es que avise sin que nadie pregunte.
 que lo publica con una sección para productos, y quien mira puede dejarle una pregunta escrita
 al agente. → **[Rostrum](../criterio-portfolio/SERVER.es.md)**
 
-## Lo que nunca hace
+## Trabajo en equipo
 
-- **No decide qué se construye.** Eso lo decides tú. Alba te muestra qué lo sostiene, y si
-  ella decidiera, la comparación compararía al sistema consigo mismo.
-- **No habla con tu cliente**, y no lee lo que el cliente no dice. Es la parte del oficio que
-  ningún agente va a tener, y es la que alimenta todo lo demás.
-- **No juzga si algo va a gustar.**
-- **No dice si tu producto cumple la norma.** Nombra y cita las obligaciones que toca; el
-  juicio es jurídico y la responsabilidad es de tu organización.
-- **No rellena un vacío con lo razonable.** Una especificación con los huecos rellenados se ve
-  completa, se aprueba, y lo que nadie decidió queda decidido por el agente.
-- **No escribe en tu carpeta de documentación.**
-- **No adivina.** Cada dato lleva la cita del documento de donde salió. *«No está dicho en
-  ninguna parte»* es una respuesta válida y esperada.
+Alba funciona sola. Si están los otros dos, **no hay nada que conectar**: se encuentran
+por la ficha del proyecto, que es un documento más en la carpeta.
 
-**Y hay una cosa que deliberadamente deja de hacer el día del acta: escribir la ficha del
-proyecto.** La crea con el acta firmada y a partir de ahí solo la lee. Si dos agentes la
-escribieran, el desacuerdo entre ellos dejaría de ser una señal y sería una carrera.
+| Con quién | Qué pasa |
+|---|---|
+| **Samuel** | Alba redacta el acta de constitución y con ella **crea** la ficha del proyecto. De ahí en adelante no la vuelve a escribir: la escribe él. Ella la lee para confirmar que el proyecto que dice construir su producto de verdad lo construye |
+| **Vera** | Lee la ficha del producto que Alba publica con `/product-publish`, para mirar el producto a través de todos los proyectos que lo construyen |
+| **Otros productos** | Cada uno publica su ficha, y Alba las lee para ver dónde se pisa: la misma métrica contada dos veces, el mismo proyecto o el mismo segmento |
 
-Y una que hay que decir en voz alta: **tus documentos se procesan en la infraestructura de la
-plataforma de IA**, no solo en tu equipo. Confirma que sea admisible bajo tus políticas antes
-de apuntarlo a material confidencial. Descargo completo en
-[DISCLAIMER.es.md](../../DISCLAIMER.es.md), términos en [TERMS.es.md](../../TERMS.es.md).
+## Pruebas
 
----
-
-De aquí para abajo es para quien quiera auditarlo antes de instalarlo. **Todo esto se puede
-leer sin ejecutar nada**, y eso es deliberado.
-
-## Cómo se trabaja con Alba
-
-Los tres agentes comparten cinco conductas, y ninguna es estilo: son las que hacen que el
-resultado se pueda poner frente a un comité. **Cada dato lleva la cita** del documento y su
-fecha · **«no está dicho en ninguna parte» es una respuesta válida** · **se callan cuando no
-hay novedad** · **ninguno declara** · **ninguno le escribe a nadie**. Están explicadas en el
-[README de la familia](../../README.es.md#lo-que-comparten-los-tres).
-
-Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso conviene saberlo
-antes de instalar.
-
-**Con Alba se conversa por temporadas.** Trabaja antes de que exista el proyecto, y ese trabajo
-no es semanal: viene por rachas —una ronda de entrevistas, un comité de producto, una
-definición que hay que cerrar— con semanas tranquilas en medio.
-
-**El ritmo:** `/product-setup` una vez; `/product-discovery` cada vez que termina una ronda de
-entrevistas; `/product-definition` cuando la definición se va a cerrar o cuando alguien la va a
-discutir; `/product-charter` el día que se vuelve proyecto. `/product-wake` semanal avisa de lo
-que cruzó un umbral mientras nadie miraba.
-
-**Lo que te va a pedir a ti:** **hablar con el cliente.** Es la parte del oficio que ningún
-agente va a tener, y sin ella no hay nada que sintetizar. Y **decidir**: lo que lleva sesenta
-días sin decidirse sigue sin decidirse cuando Alba termina; lo que cambia es que ahora tiene
-nombre, días y alguien a quien preguntarle.
-
-**Lo que no le pidas:** que te diga si algo va a gustar. Eso no está en ningún documento.
-
-## Cómo funciona
+### Cómo está construido
 
 La espina es el **registro de requerimiento**: un contrato de datos que todos los comandos leen
 y escriben, con la cita al documento fuente y a su fecha en cada campo, y con cinco estados que
@@ -203,43 +222,7 @@ crea con el acta. **Los dos últimos son copias literales de los de Vera, no imp
 porque un plugin instalado tiene que correr solo; en el repositorio,
 `scripts/sincronizar.py --check` falla si las copias se separaron.
 
-## Los once comandos
-
-| Comando | Qué hace |
-|---|---|
-| `/product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas |
-| `/product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada |
-| `/product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide |
-| `/product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden |
-| `/product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba |
-| `/product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados |
-| `/product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos |
-| `/product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce |
-| `/product-publish` | Publica tu ficha donde los demás productos la puedan leer |
-| `/product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
-| `/product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
-
-## Los doce skills
-
-Se cargan solos cuando el tema aparece. Ocho son propios de producto; cuatro son copias
-literales de `criterio-portfolio`, porque son método y no rol.
-
-| Skill | Qué encapsula | De quién es |
-|---|---|---|
-| `requirement-record` | **El contrato de datos de Alba.** Esquema, extracción, citación, los cinco estados y qué exige cada uno | Propia de Alba |
-| `product-health` | Las once señales, los cuatro umbrales, en qué orden se leen y **cuál no es hallazgo** | Propia de Alba |
-| `demand-evidence` | Qué cuenta como evidencia de que alguien pidió algo, qué no cuenta aunque lo parezca, y cómo envejece | Propia de Alba |
-| `discovery-synthesis` | Entrevistas y tickets en temas con la cita. Un tema es un conjunto de citas, no una afirmación | Propia de Alba |
-| `assumption-tracking` | El supuesto escrito de forma que puede resultar falso, y el día en que se vuelve riesgo registrado | Propia de Alba |
-| `product-metrics` | La serie con su fuente y su definición, y el contraste entre lo declarado y lo medido | Propia de Alba |
-| `specification-draft` | El criterio de aceptación verificable, y la regla de señalar el vacío en vez de rellenarlo | Propia de Alba |
-| `regulatory-sweep` | Las obligaciones que toca la definición, citadas. **No opina sobre cumplimiento** | Propia de Alba |
-| `project-record` | La ficha del proyecto: nace con el acta, y Alba es quien la crea | Copia de Vera · también en Samuel |
-| `governance-artifacts` | Qué contiene un acta de constitución y quién decide qué | Copia de Vera · también en Samuel |
-| `document-intake` | Qué documento hay que releer y cuál no, qué formatos se pueden leer y con qué | Copia de Vera · también en Samuel |
-| `raid-taxonomy` | A dónde se muda un supuesto el día que nadie lo verifica | Copia de Vera · también en Samuel |
-
-## Cómo se verifica
+### Cómo se verifica
 
 ```
 python3 tests/criterio-product/grade.py    sobre dos productos, con control negativo
@@ -261,3 +244,4 @@ El diseño completo, con los criterios de aceptación y lo que sigue siendo de l
 
 Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el
 [README de la familia](../../README.es.md#las-pruebas-de-la-familia).
+

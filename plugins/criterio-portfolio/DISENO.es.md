@@ -156,7 +156,7 @@ contra qué contrastar la evidencia, que es todo el sistema. **No se construye.*
 
 Lista de acciones que el agente no ejecuta. No es una evaluación de riesgo ni pretende ser
 exhaustiva: **la responsabilidad de uso y ejecución es de la organización que lo despliega.**
-Ver [Vera · lo que nunca hace](README.es.md#lo-que-nunca-hace).
+Ver [Vera · y para qué no sirve](README.es.md#y-para-qué-no-sirve).
 
 | Función | Requiere | Qué le entrega al agente |
 |---|---|---|
