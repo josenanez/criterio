@@ -153,6 +153,19 @@ En este orden, que es el de uso real y no el alfabético:
 | 16 | `/criterio-portfolio:portfolio-server` | Levantar Rostrum | `server.md` |
 | 17 | `/criterio-portfolio:portfolio-setup` | **Solo el día 1.** Del 2 al 5 no debe hacer falta | — |
 
+**Y se contrasta contra la clave, no a ojo:**
+
+```
+python3 tests/sintetico/contrastar.py .pruebas/corp-demo \
+  --alertas <lo que dijo> --aprobado <lo que dijo> --verde <lo que dijo>
+```
+
+Imprime las cifras que el informe tiene que acertar y dice en qué se separó — incluido *por
+cuánto*, que es lo que distingue un criterio distinto de un cero de más. La primera corrida
+acertó las 158 alertas, los 128 hitos sin evidencia y los 30 verdes contradichos, y escribió
+el presupuesto aprobado mil veces mayor. La aritmética estaba bien; el agente la transcribió
+mal, y ninguna puerta podía verlo porque el script tenía razón.
+
 **Qué anotar en cada evidencia**, y es lo mismo para los tres agentes: el comando, cuánto
 tardó, cuántos documentos leyó, qué produjo, **cuántos hallazgos y de qué señal**, y —lo
 más importante— **qué dijo que no sabía**. Un comando que nunca dice *«no está dicho en

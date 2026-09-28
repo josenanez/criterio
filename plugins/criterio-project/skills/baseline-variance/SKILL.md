@@ -77,6 +77,28 @@ El script calcula: días de desviación, porcentajes, conteo de replanificacione
 
 Tú interpretas: qué significa esa desviación, si el motivo declarado explica el atraso, si la replanificación fue un ajuste razonable o una forma de limpiar el semáforo.
 
+## Una cifra se copia, no se reescribe
+
+**Ninguna cifra que el script calculó se vuelve a teclear.** Se copia del campo, tal cual,
+con todos sus dígitos. Suena obvio y no lo es: en una corrida sobre cincuenta proyectos el
+agente escribió el presupuesto aprobado con tres ceros de más —303.100.000.000.000 en vez
+de 303.100.000.000— mientras las otras tres cifras del mismo cuadro salían exactas y la
+desviación quedaba bien calculada. El script tenía razón; el error fue al transcribir.
+
+Un presupuesto mil veces mayor no es un defecto de formato. Es la primera cosa que mira un
+director financiero, y destruye la credibilidad del documento entero antes de que nadie
+llegue al hallazgo que importa.
+
+Las tres reglas que lo evitan:
+
+- **Se copia del campo del script**, nunca de una lectura del documento ni de una suma
+  hecha en el razonamiento.
+- **La misma cifra aparece igual en todas partes del informe.** Si el resumen dice
+  «$303.100M» y el detalle dice otra cosa, una de las dos está mal y el lector no sabe
+  cuál. Antes de entregar, se comparan.
+- **Un total se contrasta con sus partes.** Si el aprobado no está entre el comprometido y
+  algo del mismo orden de magnitud que la proyección, no se publica: se revisa.
+
 ## Cuando no hay línea base
 
 Es el caso más común en una PMO real: el proyecto arrancó sin plan aprobado, o el plan existe pero nadie lo marcó como línea base.

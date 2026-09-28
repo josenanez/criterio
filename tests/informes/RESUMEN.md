@@ -8,7 +8,7 @@ Cada día el mismo material se escribe con una disposición distinta y lo espera
 
 | Día | Disposición | Docs | Tiempo | Aciertos | Falsos + | Falsos − | Precisión | Cobertura | Controles |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---|
-| 1 | referencia | 406 | 3.1 s | 417 | 0 | 0 | 100.0% | 100.0% | ✓ |
+| 1 | referencia | 406 | 3.3 s | 417 | 0 | 0 | 100.0% | 100.0% | ✓ |
 
 ## Qué se sostiene
 
@@ -16,7 +16,7 @@ Cada día el mismo material se escribe con una disposición distinta y lo espera
 |---|---:|---:|---:|
 | Precisión | 100.0% | 100.0% | 100.0% |
 | Cobertura | 100.0% | 100.0% | 100.0% |
-| ms por documento | 7.7 | 7.7 | 7.7 |
+| ms por documento | 8.0 | 8.0 | 8.0 |
 
 **La precisión no se movió entre disposiciones.** Con el material escrito de cuatro formas distintas, el agente reportó lo mismo: el recorrido no depende de cómo esté organizada la carpeta.
 

@@ -100,6 +100,40 @@ PROFUNDIDAD = {
 }
 
 
+# Las fases de un proyecto bancario, que es lo que un hito nombra de verdad. «Hito 1» y
+# «Hito 2» dejaban la tabla más importante del informe ilegible: un comité no decide sobre
+# «Hito 1 · 433 días sin evidencia». Lo dijo el propio agente al leer el material.
+FASES = (
+    "Diseño funcional aprobado",
+    "Ambiente de pruebas certificado",
+    "Integración con el core",
+    "Piloto con usuarios internos",
+    "Salida a producción",
+    "Estabilización y cierre",
+)
+
+# Lo que un informe de avance dice de verdad. «Avance del periodo» no da materia prima
+# para un análisis de causa, y sin ella los comandos de diagnóstico se prueban contra
+# nada.
+AVANCES = (
+    "Se cerró la certificación del ambiente de pruebas",
+    "El proveedor entregó el componente de integración, pendiente de aceptación",
+    "Dos historias quedaron fuera del alcance del sprint por dependencia con el core",
+    "Se reprogramó la salida por ventana de cambio del área de operaciones",
+    "El equipo perdió dos semanas por rotación de un desarrollador clave",
+    "Se levantó un hallazgo de seguridad en la revisión de arquitectura",
+    "La prueba de carga no alcanzó el umbral pactado y se repite",
+    "Se recibió la aprobación regulatoria pendiente desde el trimestre anterior",
+)
+
+RIESGOS = (
+    "Dependencia del calendario de liberaciones del core",
+    "Disponibilidad del equipo de seguridad para la revisión final",
+    "Concentración del conocimiento en una sola persona",
+    "Cambio regulatorio en discusión que puede mover el alcance",
+    "El proveedor no ha confirmado la fecha de la última entrega",
+)
+
 # Los supuestos que sostienen un producto. Son enunciados que alguien puede verificar o
 # no, y esa es la única razón por la que están aquí: un supuesto sin verificar es un
 # riesgo que nadie registró.
@@ -129,7 +163,7 @@ def nuevo_proyecto(rnd, i: int, hoy: dt.date) -> dict:
     hitos = []
     for h in range(n_hitos):
         cuando = -arranque + int(duracion * (h + 1) / (n_hitos + 0.5))
-        hitos.append({"nombre": f"Hito {h + 1}", "base": f(hoy, cuando),
+        hitos.append({"nombre": FASES[h % len(FASES)], "base": f(hoy, cuando),
                       "vigente": f(hoy, cuando), "cerrado": cuando < 0,
                       "recibo": None})
     return {
@@ -426,7 +460,7 @@ def escribir(estado: dict, destino: Path, hoy: dt.date, disp: str) -> tuple:
                  alcance=[f"Componente {i}" for i in range(1, 4)],
                  fuera=["Lo que otro proyecto cubre"],
                  exito=f"{p['nombre']} en producción y medido.",
-                 riesgos=["Sin riesgos nuevos en el periodo"])
+                 riesgos=rnd.sample(RIESGOS, rnd.randint(1, 2)))
         c.gobierno(p["aprobacion"], "acta-constitucion.md", org.acta(d))
         if PROFUNDIDAD[p["profundidad"]]["plan"]:
             # La versión 1 es la línea base original: la fecha comprometida y la vigente
@@ -449,7 +483,8 @@ def escribir(estado: dict, destino: Path, hoy: dt.date, disp: str) -> tuple:
                               org.recibo(d, h["recibo"], h["nombre"], p["gerente"], ""))
         c.seguimiento(p["declarado"]["fecha"], "informe-avance.md", org.informe(
             d, p["declarado"]["estado"].capitalize(), p["declarado"]["fecha"],
-            p["declarado"]["pct"], ["Avance del periodo"]))
+            p["declarado"]["pct"],
+            rnd.sample(AVANCES, rnd.randint(1, 3))))
         for ch in p["cambios"]:
             c.seguimiento(ch["fecha"], f"solicitud-cambio-{ch['ref'].lower()}.md",
                           org.cambio(d, ch["fecha"], ch["ref"], "Ampliación de alcance",
