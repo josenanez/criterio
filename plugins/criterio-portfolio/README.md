@@ -18,7 +18,7 @@ page**, and each one reads alone: you can install one agent without the others.
 
 ## The PMO family
 
-![The PMO family: three agents, one data contract](../../docs/img/en/familia-pmo.png)
+![The family: three agents, one data contract](../../docs/img/en/familia.png)
 
 The capability has more than one agent because the organisation has more than one role.
 They carry people's names because **they are capabilities that extend people**, and each

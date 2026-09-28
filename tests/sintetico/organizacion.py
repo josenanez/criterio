@@ -298,7 +298,10 @@ def proyectos(port: corpus.Portafolio) -> list:
         "**Compromiso sin fecha**: Sandra Gil, «por definir» — no puede estar vencido, "
         "y por eso desaparece de todos los informes",
         "**Dependencia declarada y no confirmada**: PRY-109 no la menciona",
-        "**Proyección por encima del aprobado**: 4.600 contra 4.200 millones"]))
+        "**Y una que NO debe reportarse**: la proyección está 9,5% por encima del "
+        "aprobado (4.600 contra 4.200 millones), justo **bajo** el umbral de 10%. "
+        "Sirve para ver si el agente respeta el umbral en vez de reportar toda "
+        "diferencia. La desviación de costo que sí debe salir está en PRY-109"]))
 
     # ── PRY-102 · replanificación sin autorizar, desviación de tiempo
     p = dict(codigo="PRY-102", nombre="Core de depósitos",
@@ -346,7 +349,8 @@ def proyectos(port: corpus.Portafolio) -> list:
         "producción 60 días y no hay solicitud de cambio ni acta del comité que lo "
         "autorice",
         "**Desviación de tiempo** contra la línea base original en dos hitos",
-        "**Proyección por encima del aprobado**: 19.200 contra 18.000 millones",
+        "**Proyección 6,7% por encima del aprobado** (19.200 contra 18.000 millones): "
+        "bajo el umbral de 10%, no debe salir como desviación de costo",
         "La dependencia que PRY-101 declara sobre este proyecto **no aparece aquí**"]))
 
     # ── PRY-103 · proveedor: entregable tardío y facturado sin entrega
@@ -520,7 +524,8 @@ def proyectos(port: corpus.Portafolio) -> list:
         "**Cambio sin línea base nueva**: CC-07 mueve 45 días y 620 millones, el "
         "cronograma vigente ya lo refleja, y no hay línea base v2 ni autorización",
         "**Presupuesto comprometido al 95%**, por encima del umbral de 90%",
-        "**Proyección por encima del aprobado**: 7.100 contra 6.800 millones"]))
+        "**Proyección por encima del aprobado**: 7.100 contra 6.800 millones, 4,4% — "
+        "también bajo el umbral, así que tampoco debe salir como desviación de costo"]))
 
     # ── PRY-107 · patrocinador contradicho, cambio de gobernanza
     p = dict(codigo="PRY-107", nombre="Billetera y pagos QR",
@@ -653,8 +658,8 @@ def proyectos(port: corpus.Portafolio) -> list:
         [{"quien": "Jorge Medina",
           "que": "Traer las opciones para cubrir la desviación de costo", "para": f(9)}]))
     plantado.append((p["codigo"], p["nombre"], [
-        "**Desviación de costo**: proyección de 8.600 contra 8.400... 7.400 millones "
-        "aprobados, 16% por encima del umbral de 10%",
+        "**Desviación de costo · la única que dispara**: proyección de 8.600 contra "
+        "7.400 millones aprobados, **+16,2%**, por encima del umbral de 10%",
         "Todo lo demás está al día: es el caso donde debe salir **una sola señal** y no "
         "un informe entero",
         "**PRY-101 declara depender de este proyecto y aquí no se menciona** — la "

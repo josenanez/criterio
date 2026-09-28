@@ -18,7 +18,7 @@ propia página**, y cada una se lee sola: se puede instalar un agente sin los ot
 
 ## La familia PMO
 
-![La familia PMO: tres agentes, un solo contrato de datos](../../docs/img/es/familia-pmo.png)
+![La familia: tres agentes, un solo contrato de datos](../../docs/img/es/familia.png)
 
 La capacidad tiene más de un agente porque la organización tiene más de un rol. Llevan nombre
 de persona porque **son capacidades extendidas de personas**, y el significado de cada

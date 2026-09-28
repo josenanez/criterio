@@ -119,24 +119,24 @@ T = {
         'construccion': 'En construcción',
         'sin_construir': 'Sin construir',
         # ── familia ──
-        'fam_ante': 'La familia PMO',
+        'fam_ante': 'La familia',
         'fam_tit': 'Tres agentes, un solo contrato de datos',
         'n1': 'Vera', 'n2': 'Samuel', 'n3': 'Alba',
-        'ag1': 'Agente PMO',
-        'ag1_para': 'Para el gerente de la PMO y sus analistas',
+        'ag1': 'Director de proyectos',
+        'ag1_para': 'Para quien responde por el portafolio completo',
         'ag1_desc': 'Cuarenta proyectos. Barrido amplio, cadencia de comité.',
-        'ag2': 'Agente PM',
-        'ag2_para': 'Para cada gerente de proyecto',
+        'ag2': 'Gerente de proyecto',
+        'ag2_para': 'Para quien responde por un proyecto',
         'ag2_desc': 'Un proyecto. Profundidad, cadencia por reunión.',
-        'ag3': 'Agente de producto',
+        'ag3': 'Gerente de producto',
         'ag3_para': 'Para quien define qué se construye',
         'ag3_desc': 'Antes de que exista el proyecto.',
         'comparten': 'Lo que comparten',
         'ficha_tit': 'La ficha de proyecto',
         'ficha_desc': 'Cada dato con la cita del documento del que salió, y su fecha. '
                       'Ningún agente lee documentos crudos por su cuenta.',
-        'regla': 'La ficha del PM es una declaración. El hallazgo del PMO es evidencia. '
-                 'Nunca se fusionan, y la diferencia entre las dos es la señal.',
+        'regla': 'La ficha del gerente es una declaración. El hallazgo de Vera es '
+                 'evidencia. Nunca se fusionan, y la diferencia entre las dos es la señal.',
         'propias': 'Propias',
         'q_ante': 'Los primeros quince minutos',
         'q_tit': 'Configurar es una conversación, y termina con un resultado',
@@ -221,23 +221,23 @@ T = {
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
-        'fam_ante': 'The PMO family',
+        'fam_ante': 'The family',
         'fam_tit': 'Three agents, one data contract',
         'n1': 'Vera', 'n2': 'Samuel', 'n3': 'Alba',
-        'ag1': 'PMO agent',
-        'ag1_para': 'For the PMO manager and their analysts',
+        'ag1': 'Project director',
+        'ag1_para': 'For whoever answers for the whole portfolio',
         'ag1_desc': 'Forty projects. Broad sweep, committee cadence.',
-        'ag2': 'PM agent',
-        'ag2_para': 'For each project manager',
+        'ag2': 'Project manager',
+        'ag2_para': 'For whoever answers for one project',
         'ag2_desc': 'One project. Depth, per-meeting cadence.',
-        'ag3': 'Product agent',
+        'ag3': 'Product manager',
         'ag3_para': 'For whoever defines what gets built',
         'ag3_desc': 'Before the project exists.',
         'comparten': 'What they share',
         'ficha_tit': 'The project record',
         'ficha_desc': 'Every field with the citation of the document it came from, and its '
                       'date. No agent reads raw documents on its own.',
-        'regla': "The PM's record is a declaration. The PMO's finding is evidence. They never "
+        'regla': "The manager's record is a declaration. Vera's finding is evidence. They never "
                  "merge, and the gap between them is the signal.",
         'propias': 'Its own',
         'q_ante': 'The first fifteen minutes',
@@ -894,7 +894,7 @@ if __name__ == '__main__':
                 idioma, 'cfo.png')
         guardar(emblema(t, 'CLO', t['clo_fn'], t['clo_fr'], t['declarada'], glifo_clo),
                 idioma, 'clo.png')
-        guardar(familia(t), idioma, 'familia-pmo.png')
+        guardar(familia(t), idioma, 'familia.png')
         guardar(flujo(t), idioma, 'flujo.png')
         guardar(contrato(t), idioma, 'contrato.png')
         guardar(quince(t), idioma, 'quince-minutos.png')
