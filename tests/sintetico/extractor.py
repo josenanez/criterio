@@ -79,17 +79,41 @@ def filas(texto: str, cabecera: str):
     return out
 
 
+def agrupar(raiz: Path, prefijo: str) -> dict:
+    """Los archivos de cada caso, venga la carpeta como venga.
+
+    Una carpeta por caso es la forma ordenada, y es la que este material usa casi
+    siempre. Pero el agente promete funcionar con lo que haya, así que el extractor de
+    referencia no puede depender de ella: agrupa por el código —que está en la carpeta o
+    en el nombre del archivo— y cuando no encuentra ninguno, cae a la primera carpeta.
+    """
+    import re as _re
+    grupos = {}
+    for f in sorted(raiz.rglob("*")):
+        if not f.is_file():
+            continue
+        rel = f.relative_to(raiz)
+        m = _re.search(rf"{prefijo}-[A-Z0-9]+", str(rel))
+        clave = m.group(0) if m else rel.parts[0]
+        grupos.setdefault(clave, []).append(f)
+    return grupos
+
+
 # ── proyectos ────────────────────────────────────────────────────────────
 
-def ficha_proyecto(carpeta: Path, raiz: Path) -> dict:
-    docs = sorted(p for p in carpeta.rglob("*") if p.is_file())
+def ficha_proyecto(docs: list, raiz: Path) -> dict:
+    docs = sorted(docs)
     rel = {p: str(p.relative_to(raiz)) for p in docs}
 
     acta = next((p for p in docs if "acta-constitucion" in p.name), None)
     crono = sorted(p for p in docs if "cronograma" in p.name)
     inf = next((p for p in docs if "informe-avance" in p.name
                 or "nota-avance" in p.name), None)
-    minutas = sorted(p for p in docs if "/30-" in str(p) or "30-reuniones" in str(p))
+    # Por el nombre y no por la carpeta: una minuta sigue siendo una minuta esté en
+    # `30-reuniones`, en «Reuniones/Comité semanal» o suelta con las demás.
+    minutas = sorted(p for p in docs
+                     if any(x in p.name for x in ("comite", "reunion", "seguimiento",
+                                                  "minuta")))
     recibos = [p for p in docs if "acta-recibo" in p.name]
     contratos = [p for p in docs if p.name.count("contrato")]
     facturas = [p for p in docs if "factura" in p.name]
@@ -321,8 +345,8 @@ def ficha_proyecto(carpeta: Path, raiz: Path) -> dict:
 
 # ── productos ────────────────────────────────────────────────────────────
 
-def registro_producto(carpeta: Path, raiz: Path) -> tuple:
-    docs = sorted(p for p in carpeta.rglob("*") if p.is_file())
+def registro_producto(docs: list, raiz: Path) -> tuple:
+    docs = sorted(docs)
     rel = {p: str(p.relative_to(raiz)) for p in docs}
     defin = next((p for p in docs if "definicion-producto" in p.name), None)
     caso = next((p for p in docs if "caso-de-negocio" in p.name), None)
@@ -426,10 +450,10 @@ if __name__ == "__main__":
     destino = base / "estado" / "records"
     destino.mkdir(parents=True, exist_ok=True)
     n = 0
-    for carpeta in sorted(p for p in proy_raiz.iterdir() if p.is_dir()):
-        ficha = ficha_proyecto(carpeta, proy_raiz)
+    for clave, archivos in sorted(agrupar(proy_raiz, "PRY").items()):
+        ficha = ficha_proyecto(archivos, proy_raiz)
         if not ficha:
-            print(f"  SIN ACTA  {carpeta.name}")
+            print(f"  SIN ACTA  {clave}")
             continue
         codigo = ficha["identity"]["code"]["value"]
         (destino / f"{codigo}.json").write_text(
@@ -438,8 +462,8 @@ if __name__ == "__main__":
     print(f"proyectos  {n} fichas  →  estado/records/")
 
     m = 0
-    for carpeta in sorted(p for p in prod_raiz.iterdir() if p.is_dir()):
-        prod, reqs, metricas = registro_producto(carpeta, prod_raiz)
+    for clave, archivos in sorted(agrupar(prod_raiz, "PRD").items()):
+        prod, reqs, metricas = registro_producto(archivos, prod_raiz)
         if not prod:
             continue
         codigo = prod["identity"]["code"]

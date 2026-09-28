@@ -44,6 +44,51 @@ def plata(n: int) -> str:
     return f"{n:,}".replace(",", ".")
 
 
+# ── lo que cada caso debe producir, en nombres de señal ──────────────────
+# La clave de respuestas en prosa es para una persona. Esta es para el calificador:
+# sin ella, medir aciertos y falsos positivos exige leer markdown, y una prueba que
+# necesita que alguien lea no corre todos los días.
+#
+# Se declara a mano, como todo lo esperado en este repositorio. Si se derivara del
+# mismo cálculo que se quiere medir, la prueba no probaría nada.
+ESPERADO = {
+    "PRY-101": ["milestone_overdue", "milestone_met_without_evidence",
+                "commitment_undated", "commitment_rescheduled", "declared_vs_evidence"],
+    "PRY-102": ["variance_time", "milestone_met_without_evidence",
+                "milestone_met_without_evidence", "commitment_overdue",
+                "rebaseline_unauthorized"],
+    "PRY-103": ["milestone_overdue", "vendor_deliverable_late",
+                "vendor_accepted_without_evidence", "vendor_invoiced_over_accepted"],
+    "PRY-104": ["silent", "declared_vs_evidence", "declaration_stale"],
+    "PRY-105": [],                       # control negativo
+    "PRY-106": ["milestone_met_without_evidence", "budget_committed",
+                "vendor_deliverable_late", "vendor_invoiced_without_delivery"],
+    "PRY-107": ["pm_vs_pmo", "pm_vs_pmo"],
+    "PRY-108": [],
+    "PRY-109": ["variance_cost", "change_without_baseline"],
+    "PRY-110": [],
+    "PRD-QR": ["requirement_undecided", "assumption_unverified", "assumption_unverified",
+               "claim_vs_metric"],
+    "PRD-NOMINA": [],                    # control negativo
+    "PRD-HIPO": ["requirement_without_owner", "requirement_without_acceptance",
+                 "assumption_unverified"],
+    "PRD-PYME": ["requirement_undecided", "requirement_undecided",
+                 "assumption_unverified"],
+    "PRD-COBROS": ["trace_not_confirmed", "trace_not_confirmed", "assumption_unverified"],
+    "PRD-SEGUROS": ["evidence_stale", "evidence_stale", "requirement_untraced",
+                    "requirement_undecided", "assumption_unverified"],
+    "PRD-REMESAS": ["requirement_untraced", "requirement_untraced",
+                    "requirement_untraced"],
+    "PRD-TARJETA": ["requirement_untraced", "requirement_untraced",
+                    "requirement_accepted_without_evidence",
+                    "assumption_unverified", "assumption_unverified"],
+}
+
+# Los dos que no deben producir nada. Se nombran aparte porque su fallo es de otra
+# clase: un control negativo que encuentra algo no es una señal que falta, es ruido.
+CONTROLES = ("PRY-105", "PRD-NOMINA")
+
+
 # ══════════════════════════════════════════════════════════════════════════
 # Plantillas de documento. Una por clase, parametrizada.
 # ══════════════════════════════════════════════════════════════════════════
@@ -1301,14 +1346,23 @@ if __name__ == "__main__":
     pl_proy = proyectos(proy)
     pl_prod = productos(prod)
 
-    n1 = proy.volcar("referencia")
-    n2 = prod.volcar("referencia")
+    # La disposición rota con el día del mes: así cinco corridas seguidas ejercitan
+    # cuatro formas distintas de organizar la misma carpeta, y lo esperado no cambia.
+    disp = (sys.argv[2] if len(sys.argv) > 2
+            else corpus.DISPOSICIONES[HOY.day % len(corpus.DISPOSICIONES)])
+    n1 = proy.volcar(disp)
+    n2 = prod.volcar(disp)
     (destino / "estado").mkdir(parents=True, exist_ok=True)
     corpus.escribir_suelto(destino / "LO-QUE-HAY-PLANTADO.md",
                            clave(pl_proy, pl_prod, destino))
 
+    corpus.escribir_suelto(destino / "esperado.json",
+                           json.dumps({"generado": HOY.isoformat(), "disposicion": disp,
+                                       "esperado": ESPERADO,
+                                       "controles": list(CONTROLES)},
+                                      ensure_ascii=False, indent=2))
     resumen = {
-        "generado": HOY.isoformat(),
+        "generado": HOY.isoformat(), "disposicion": disp,
         "proyectos": len(proy.casos), "documentos_proyecto": n1,
         "productos": len(prod.casos), "documentos_producto": n2,
         "controles_negativos": ["PRY-105", "PRD-NOMINA"],
@@ -1320,5 +1374,7 @@ if __name__ == "__main__":
     print(f"  documentos/proyectos/   {len(proy.casos)} proyectos · {n1} documentos")
     print(f"  documentos/productos/   {len(prod.casos)} productos · {n2} documentos")
     print(f"  estado/                 vacía, la llenan los agentes")
+    print(f"  esperado.json           la clave de respuestas, para el calificador")
+    print(f"  disposición             {disp}")
     print(f"  LO-QUE-HAY-PLANTADO.md  la clave de respuestas, fuera del barrido")
     print(f"\ncontroles negativos: PRY-105 y PRD-NOMINA · no deben dar ni un hallazgo")

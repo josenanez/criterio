@@ -42,6 +42,8 @@ PUERTAS = [
      "Que el recorrido encuentre los mismos documentos sin importar cómo estén"),
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/cobertura.py")],
      "Que ninguna señal se quede sin disparar sin que esté declarado por qué"),
+    ("material", [sys.executable, str(RAIZ / "tests/sintetico/resumen.py")],
+     "El resumen de las corridas diarias: precisión, cobertura y qué se movió"),
 
     ("código", [sys.executable, str(PMO / "portafolio.py"), "selftest"],
      "La aritmética, la cadencia, la cola y el contraste entre las dos fichas"),
