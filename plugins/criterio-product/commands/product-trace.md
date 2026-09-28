@@ -9,6 +9,15 @@ argument-hint: "[REQ-xxx o código de proyecto] o vacío para toda la cadena"
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+
+## Lo primero, antes de leer nada
+
+```
+python3 scripts/producto.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 *«¿Qué falta para tener el producto completo?»* es una pregunta que hoy se responde
@@ -115,3 +124,14 @@ acaba.
 Si hay decididos sin proyecto, ofrece `/product-charter` para el que ya esté listo para
 serlo. Si hay trazas que no se confirman, la salida es una conversación con ese gerente de
 proyecto, y conviene decirlo así en vez de proponer un comando.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/producto.py corrida --state <estado> --what crossed \
+    --nota "qué se decidió y nadie está construyendo"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-crossed.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.

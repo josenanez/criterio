@@ -9,6 +9,15 @@ argument-hint: "[fecha de corte] o vacío para hoy"
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+
+## Lo primero, antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 El informe de avance se escribe el jueves en la noche, se arma copiando el de la semana
@@ -145,3 +154,14 @@ Si hay algo reprogramado tres veces o una desviación por encima del umbral, ofr
 punto de comité con la decisión formulada. Si la declaración quedó contradicha por la
 evidencia, ofrece `/pm-publish`: **eso es exactamente lo que la PMO tiene que poder leer**,
 y es mejor que lo lea de tu ficha que se lo encuentre por su cuenta.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what report \
+    --nota "qué cambió, qué hay que mirar"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-report.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.

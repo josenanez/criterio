@@ -68,9 +68,17 @@ def cosechar(a) -> int:
                  f"`portafolio.py corrida` al final de cada comando.")
     corridas = json.loads(f.read_text(encoding="utf-8"))
 
-    # Cada tipo de corrida corresponde al comando que la produce.
-    DE = {"sweep": "portfolio-scan", "report": "portfolio-report",
-          "confirmation": "portfolio-report", "requests": "portfolio-wake"}
+    # Cada tipo de corrida corresponde al comando que la produce, y cada agente tiene su
+    # vocabulario. Un `--what` que no está aquí se ignora en vez de atribuirse al azar.
+    DE = {
+        "portfolio": {"sweep": "portfolio-scan", "report": "portfolio-report",
+                      "confirmation": "portfolio-report",
+                      "requests": "portfolio-wake"},
+        "project": {"sweep": "pm-minutes", "report": "pm-report",
+                    "confirmation": "pm-publish"},
+        "product": {"review": "product-requirements", "report": "product-publish",
+                    "crossed": "product-trace"},
+    }[a.agente]
     filas, nuevas = leer(), 0
     for c in corridas:
         comando = DE.get(c["que"])
@@ -86,6 +94,7 @@ def cosechar(a) -> int:
             "segundos": c.get("segundos"), "documentos": c.get("documentos"),
             "hallazgos": c.get("hallazgos"), "por_senal": c.get("por_senal"),
             "relectura": c.get("relectura"), "medido": c.get("medido"),
+            "producto": c.get("producto"), "requerimientos": c.get("requerimientos"),
             "no_supo": None, "salida": None, "nota": c.get("nota"),
             "origen": "corrida del agente"})
         nuevas += 1
@@ -170,7 +179,13 @@ def cobertura() -> int:
 
 
 def verificar() -> int:
-    """Puerta: el registro no puede prometer una evidencia que no está."""
+    """Puerta: el registro no puede prometer una evidencia que no está.
+
+    Y una cifra anotada a mano no cuenta como medida. Es la diferencia entre medir y
+    creer: lo que teclea quien conduce la prueba mide su transcripción, no la corrida.
+    Una anotación sola es legítima —lo cualitativo no sale de un script— pero no puede
+    pasar por estadística.
+    """
     filas, malas = leer(), []
     for f in filas:
         if f["comando"] not in comandos_de(f["agente"]):
@@ -178,6 +193,13 @@ def verificar() -> int:
         if f["salida"] and not (RAIZ / f["salida"]).is_file():
             malas.append(f"{f['comando']} día {f['dia']} apunta a {f['salida']}, "
                          f"que no existe")
+        # Sin `origen` es anterior a la cosecha, y por tanto tecleada. Un hueco que
+        # absuelve en silencio es peor que ninguna puerta.
+        if f.get("origen", "anotado a mano") != "corrida del agente" and (
+                f.get("hallazgos") or 0):
+            malas.append(f"{f['comando']} día {f['dia']} publica {f['hallazgos']} "
+                         f"hallazgos anotados a mano · una cifra tecleada no es una "
+                         f"medición: cosecha la corrida del agente")
     total = sum(len(comandos_de(a)) for a in AGENTES)
     con = len({f["comando"] for f in filas})
     if malas:

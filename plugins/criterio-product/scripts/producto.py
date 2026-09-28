@@ -622,6 +622,90 @@ def due(config: Path, state: Path, today: dt.date, th: dict | None = None) -> di
 
 # ----------------------------------------------------------- estado en disco
 
+def corrida_inicio(state: Path) -> dict:
+    """Marca el arranque, para que el tiempo lo mida la corrida y no lo estime nadie."""
+    import time
+    (state / "corrida-en-curso.json").write_text(
+        json.dumps({"desde": time.time()}), encoding="utf-8")
+    return {"marcado": True}
+
+
+def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None,
+            nota=None) -> dict:
+    """El registro de una corrida sobre este producto: qué se corrió y qué encontró.
+
+    Es lo mismo que `portafolio.py corrida` hace para Vera, y por la misma razón: sin
+    registro, lo que el agente produjo queda en una carpeta que hay que recordar, la
+    corrida del mes siguiente no tiene contra qué compararse, y cualquier estadística de
+    prueba tendría que teclearla una persona — que es medir su transcripción y no la
+    corrida.
+    """
+    import time
+    from collections import Counter
+
+    # La marca se consume reescribiéndola, no borrándola: el estado de un agente puede
+    # vivir en una carpeta compartida donde no se permite borrar, y que la corrida falle
+    # por eso sería un defecto del agente, no del recurso.
+    segundos = None
+    marca = state / "corrida-en-curso.json"
+    if marca.exists():
+        try:
+            d = json.loads(marca.read_text())
+            if not d.get("consumida"):
+                segundos = round(time.time() - d["desde"])
+        except (json.JSONDecodeError, KeyError, TypeError):
+            segundos = None
+        try:
+            marca.write_text(json.dumps({"consumida": True}), encoding="utf-8")
+        except OSError:
+            pass
+
+    r = compute(state, today, th, fichas)
+    # `compute` ya publica el conteo por señal. Volver a contarlo a mano sería el mismo
+    # error que este repositorio le encontró a un informe que reescribió una cifra.
+    senales = Counter(r.get("by_signal") or {})
+    if not senales:
+        senales = Counter(a["signal"] for a in r.get("alerts") or [])
+        for req in r.get("requirements") or []:
+            senales.update(a["signal"] for a in req.get("alerts") or [])
+
+    entrada = {"que": que, "fecha": today.isoformat(),
+               "producto": (r.get("product") or {}).get("code"),
+               "requerimientos": len(r.get("requirements") or []),
+               "segundos": segundos, "hallazgos": sum(senales.values()),
+               "por_senal": dict(senales.most_common()),
+               "medido": {"segundos": segundos is not None}, "nota": nota}
+
+    f = state / "corridas.json"
+    previas = json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+    previas.append(entrada)
+    f.write_text(json.dumps(previas, ensure_ascii=False, indent=2) + "\n",
+                 encoding="utf-8")
+
+    d = state / "corridas"
+    d.mkdir(parents=True, exist_ok=True)
+    lineas = [f"# Corrida del {today.isoformat()} · {que}", "",
+              f"{entrada['producto'] or 'producto sin código'} · "
+              f"{entrada['requerimientos']} requerimientos"
+              + (f" · {segundos} s" if segundos else "")
+              + f" · {entrada['hallazgos']} hallazgos", ""]
+    if senales:
+        lineas += ["| Señal | Hallazgos |", "|---|---:|"]
+        lineas += [f"| `{s}` | {n} |" for s, n in senales.most_common()]
+        lineas.append("")
+    if segundos is None:
+        lineas += ["> El tiempo no se midió: faltó `corrida-inicio` al arrancar.", ""]
+    if nota:
+        lineas += [nota, ""]
+    anterior = previas[-2] if len(previas) > 1 else None
+    lineas += ([f"Contra la corrida del {anterior['fecha']}: "
+                f"{entrada['hallazgos'] - (anterior.get('hallazgos') or 0):+d} hallazgos.",
+                ""] if anterior
+               else ["Primera corrida: no hay una anterior contra la cual comparar.", ""])
+    (d / f"{today.isoformat()}-{que}.md").write_text("\n".join(lineas), encoding="utf-8")
+    return entrada
+
+
 def init(state: Path) -> dict:
     for sub in ("requirements", "metrics", "snapshots"):
         (state / sub).mkdir(parents=True, exist_ok=True)
@@ -1042,10 +1126,12 @@ def selftest() -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Criterio Product — aritmética sobre el registro de requerimiento.")
-    ap.add_argument("action", choices=["init", "config", "due", "ran", "compute",
-                                       "snapshot", "diff", "publish", "overlap",
-                                       "selftest"])
+    ap.add_argument("action", choices=["init", "config", "due", "ran", "corrida",
+                                       "corrida-inicio", "compute", "snapshot", "diff",
+                                       "publish", "overlap", "selftest"])
     ap.add_argument("--state", type=Path)
+    ap.add_argument("--nota", default=None,
+                    help="qué hay que mirar de esta corrida, para `corrida`")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--otros", type=Path, default=None,
                     help="carpeta con las fichas de producto que otros publicaron")
@@ -1089,6 +1175,14 @@ def main() -> int:
         print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
     elif args.action == "compute":
         print(json.dumps(compute(args.state, today, load_thresholds(args.config), args.fichas),
+                         ensure_ascii=False, indent=2))
+    elif args.action == "corrida-inicio":
+        print(json.dumps(corrida_inicio(args.state), ensure_ascii=False))
+    elif args.action == "corrida":
+        if not args.what:
+            ap.error("--what es obligatorio para corrida: review | report | crossed")
+        print(json.dumps(corrida(args.state, args.what, today,
+                                 load_thresholds(args.config), args.fichas, args.nota),
                          ensure_ascii=False, indent=2))
     elif args.action == "snapshot":
         print(json.dumps({"written": str(snapshot(args.state, today))}, ensure_ascii=False))

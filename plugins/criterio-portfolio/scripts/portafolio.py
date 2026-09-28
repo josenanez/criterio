@@ -1174,14 +1174,22 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
     # El tiempo y los documentos los mide la corrida. Si el operador los teclea, lo que se
     # mide es su transcripción —el mismo defecto que este repositorio le encontró a un
     # informe que reescribió una cifra ya calculada— y la prueba queda viciada.
+    # La marca se consume reescribiéndola, no borrándola: el estado de un agente puede
+    # vivir en una carpeta compartida donde no se permite borrar, y que la corrida falle
+    # por eso sería un defecto del agente, no del recurso.
     segundos = None
     marca = state / "corrida-en-curso.json"
     if marca.exists():
         try:
-            segundos = round(time.time() - json.loads(marca.read_text())["desde"])
+            d = json.loads(marca.read_text())
+            if not d.get("consumida"):
+                segundos = round(time.time() - d["desde"])
         except (json.JSONDecodeError, KeyError, TypeError):
             segundos = None
-        marca.unlink()
+        try:
+            marca.write_text(json.dumps({"consumida": True}), encoding="utf-8")
+        except OSError:
+            pass
 
     documentos = relectura = None
     if docs and docs.is_dir():

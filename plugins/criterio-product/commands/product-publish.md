@@ -9,6 +9,15 @@ argument-hint: "[carpeta de productos publicados] o vacío para la configurada"
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+
+## Lo primero, antes de leer nada
+
+```
+python3 scripts/producto.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Alba trabaja sobre **un** producto. Y hay una pregunta que un producto solo no puede
@@ -100,3 +109,14 @@ Publiqué la ficha en `[ruta exacta]`, con corte al [fecha].
 **Segmento declarado:** [a quién dice servir]
 **Métricas:** [nombre, cifra y de qué documento sale cada una]
 ```
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/producto.py corrida --state <estado> --what report \
+    --nota "qué quedó publicado para el portafolio"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-report.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.

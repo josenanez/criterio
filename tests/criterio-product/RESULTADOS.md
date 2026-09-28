@@ -2,7 +2,7 @@
 
 **el agente del gerente de producto** · plugin `criterio-product`
 
-Corrida del 2026-09-28, sobre el commit `d89efeb`, con cambios en el árbol todavía sin confirmar. **3 puertas · 105 comprobaciones · todas en verde.**
+Corrida del 2026-09-28, sobre el commit `9480ae0`, con cambios en el árbol todavía sin confirmar. **3 puertas · 105 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-09-28, sobre el commit `d89efeb`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 39 ms | verde |
+| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 35 ms | verde |
 | `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 62 | 26 ms | verde |
-| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 119 ms | verde |
+| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 114 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

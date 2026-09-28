@@ -9,6 +9,15 @@ argument-hint: "<ruta de la transcripción o de las notas>"
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+
+## Lo primero, antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 El acta la escribe alguien de memoria dos días después, y por eso el acta no sirve como
@@ -143,3 +152,14 @@ reuniones, y no es un descuido: el único archivo que este agente pone en la doc
 de un proyecto es `ficha-pm.json`, y solo cuando corres `/pm-publish`. Un acta con tu
 nombre que apareció ahí sin que la hayas leído es precisamente lo que nadie quiere
 encontrarse — **el acta es tuya antes de ser evidencia de nadie.**
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what sweep \
+    --nota "qué compromisos salieron de la reunión"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-sweep.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.

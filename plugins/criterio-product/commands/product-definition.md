@@ -9,6 +9,15 @@ argument-hint: "[ruta del documento de definición] o vacío para la configurada
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+
+## Lo primero, antes de leer nada
+
+```
+python3 scripts/producto.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Es la tesis de Criterio un paso aguas arriba. En un proyecto se contrasta el **estado que el
@@ -122,3 +131,14 @@ después, y no haberlo escrito es la razón por la que nadie cierra nada.
 Si hay supuestos que llevan meses sin verificarse, ofrece convertirlos en riesgo con doliente
 — aplica **raid-taxonomy** — porque a partir de cierto punto eso es lo que son. Y si la
 definición quedó cerrada, con criterio de éxito y con autoridad, ofrece `/product-charter`.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/producto.py corrida --state <estado> --what review \
+    --nota "qué de la definición sostiene la evidencia"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-review.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.
