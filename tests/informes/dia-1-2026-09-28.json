@@ -1,7 +1,7 @@
 {
   "fecha": "2026-09-28",
   "dia": 1,
-  "commit": "a2fc413",
+  "commit": "90b097e",
   "disposicion": "referencia",
   "casos": {
     "proyectos": 50,
@@ -16,9 +16,9 @@
     }
   },
   "tiempos": {
-    "Extracción · documentos a ficha": 591,
-    "Cálculo · portafolio": 42,
-    "Cálculo · productos": 2338
+    "Extracción · documentos a ficha": 742,
+    "Cálculo · portafolio": 43,
+    "Cálculo · productos": 2328
   },
   "totales": {
     "aciertos": 417,
