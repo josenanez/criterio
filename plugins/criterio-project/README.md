@@ -13,7 +13,7 @@ the [acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
 
 **This page reads on its own.** Samuel works without his siblings: if all you run is your
 project, everything is here, tests included. The family — how he meets Vera and Alba — is in the
-[repository README](../../README.md).
+[criterio-pmo family](../../families/criterio-pmo/README.md).
 
 ---
 
@@ -233,5 +233,5 @@ The full design, with the acceptance criteria and what still belongs to the pers
 [`DISENO.es.md`](DISENO.es.md), which travels with the plugin.
 
 And the family's tests — what no agent can answer alone — in the
-[family README](../../README.md#the-familys-tests).
+[family README](../../families/criterio-pmo/README.md#the-familys-tests).
 

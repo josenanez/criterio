@@ -430,31 +430,46 @@ if en_producto:
 # llegue a los cuatro —los tres agentes y el servidor—, porque una página de familia desde
 # la que no se puede navegar es un índice roto.
 print("\nDesde la familia se llega a cada agente")
-# La página de la familia es la del repositorio, no la de un agente. Era el error de
-# nivel que había: `criterio-portfolio` era el plugin de Vera y la familia a la vez, así
-# que para leer sobre la familia había que entrar a un agente.
-DESTINOS = {"es": ["plugins/criterio-portfolio/README.es.md",
-                   "plugins/criterio-portfolio/SERVER.es.md",
-                   "plugins/criterio-project/README.es.md",
-                   "plugins/criterio-product/README.es.md"],
-            "en": ["plugins/criterio-portfolio/README.md",
-                   "plugins/criterio-portfolio/SERVER.md",
-                   "plugins/criterio-project/README.md",
-                   "plugins/criterio-product/README.md"]}
+# Tres niveles, y cada uno enlaza al siguiente: el proyecto lista sus familias, la familia
+# lleva a sus agentes y a su servidor, y cada agente se lee solo. Se colapsaron dos veces
+# —primero la familia dentro de un agente, después la familia dentro del proyecto— y las
+# dos veces el síntoma fue el mismo: quien buscaba un nivel aterrizaba en otro.
+FAMILIA = RAIZ / "families" / "criterio-pmo"
+
+DESTINOS = {"es": ["../../plugins/criterio-portfolio/README.es.md",
+                   "../../plugins/criterio-portfolio/SERVER.es.md",
+                   "../../plugins/criterio-project/README.es.md",
+                   "../../plugins/criterio-product/README.es.md"],
+            "en": ["../../plugins/criterio-portfolio/README.md",
+                   "../../plugins/criterio-portfolio/SERVER.md",
+                   "../../plugins/criterio-project/README.md",
+                   "../../plugins/criterio-product/README.md"]}
 for nombre, idioma in (("README.es.md", "es"), ("README.md", "en")):
-    pagina = RAIZ / nombre
+    pagina = FAMILIA / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
     faltan = [d for d in DESTINOS[idioma] if f"]({d})" not in cuerpo]
     for d in DESTINOS[idioma]:
-        destino = (RAIZ / d).resolve()
+        destino = (FAMILIA / d).resolve()
         if not destino.exists():
             faltan.append(f"{d} no existe")
     if faltan:
         decir(FALLA, f"{nombre} no lleva a {', '.join(faltan)}")
     else:
         decir(OK, f"{nombre} · lleva a los tres agentes y al servidor")
+
+print("\nDesde el proyecto se llega a cada familia")
+for nombre, suf in (("README.es.md", "es.md"), ("README.md", "md")):
+    pagina = RAIZ / nombre
+    if not pagina.exists():
+        continue
+    cuerpo = pagina.read_text(encoding="utf-8")
+    destino = f"families/criterio-pmo/README.{suf}"
+    if f"]({destino})" in cuerpo:
+        decir(OK, f"{nombre} · lleva a criterio-pmo")
+    else:
+        decir(FALLA, f"{nombre} no lleva a {destino}")
 
 # Y cada agente lista sus propios comandos en su propia página, porque esa página se lee
 # sola: alguien puede instalar un agente sin la familia.
@@ -481,7 +496,7 @@ for d in CONSTRUIDOS:
 # está enlazado desde donde la gente llega es uno que nadie abre.
 print("\nEl análisis de pruebas de cada agente, alcanzable")
 for nombre in ("README.es.md", "README.md"):
-    pagina = RAIZ / nombre
+    pagina = FAMILIA / nombre
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")

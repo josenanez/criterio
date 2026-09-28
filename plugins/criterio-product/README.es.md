@@ -14,7 +14,7 @@ los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
 
 **Esta página se lee sola.** Alba funciona sin sus hermanos: si solo defines productos, aquí
 está todo, incluidas sus pruebas. La familia —cómo se encuentra con Vera y con Samuel— está en
-el [README del repositorio](../../README.es.md).
+el [familia criterio-pmo](../../families/criterio-pmo/README.es.md).
 
 ---
 
@@ -243,5 +243,5 @@ El diseño completo, con los criterios de aceptación y lo que sigue siendo de l
 [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
 Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el
-[README de la familia](../../README.es.md#las-pruebas-de-la-familia).
+[README de la familia](../../families/criterio-pmo/README.es.md#las-pruebas-de-la-familia).
 

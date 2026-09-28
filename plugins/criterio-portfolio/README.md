@@ -12,7 +12,7 @@ until the [acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
 
 **This page reads on its own.** Vera works without her siblings: if all you care about is the
 portfolio, everything is here, tests included. The family — how she meets Samuel and Alba
-— is in the [repository README](../../README.md), and **the server that publishes her report** is
+— is in the [criterio-pmo family](../../families/criterio-pmo/README.md), and **the server that publishes her report** is
 in [SERVER.md](SERVER.md).
 
 ---
@@ -259,5 +259,5 @@ The full design, with the acceptance criteria and what still belongs to the peop
 [`DISENO.es.md`](DISENO.es.md), which travels with the plugin.
 
 And the family's tests — what no agent can answer alone — in the
-[family README](../../README.md#the-familys-tests).
+[family README](../../families/criterio-pmo/README.md#the-familys-tests).
 

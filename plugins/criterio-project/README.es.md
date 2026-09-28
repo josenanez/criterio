@@ -13,7 +13,7 @@ anuncia como terminado hasta que pasen los [criterios de aceptación](DISENO.es.
 
 **Esta página se lee sola.** Samuel funciona sin sus hermanos: si solo gestionas tu proyecto,
 aquí está todo, incluidas sus pruebas. La familia —cómo se encuentra con Vera y con Alba—
-está en el [README del repositorio](../../README.es.md).
+está en el [familia criterio-pmo](../../families/criterio-pmo/README.es.md).
 
 ---
 
@@ -232,5 +232,5 @@ El diseño completo, con los criterios de aceptación y lo que sigue siendo de l
 [`DISENO.es.md`](DISENO.es.md), que viaja con el plugin.
 
 Y las pruebas del conjunto de la familia —lo que ningún agente puede responder solo— en el
-[README de la familia](../../README.es.md#las-pruebas-de-la-familia).
+[README de la familia](../../families/criterio-pmo/README.es.md#las-pruebas-de-la-familia).
 
