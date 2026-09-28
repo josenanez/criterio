@@ -52,8 +52,8 @@ def documentos(carpeta: Path) -> dict:
     return {"total": total, "bytes": bytes_, "por_formato": dict(por_formato)}
 
 
-def hallazgos_portafolio(estado: Path) -> tuple:
-    r, ms = correr(PORTFOLIO, "compute", "--state", estado)
+def hallazgos_portafolio(estado: Path, hoy: str) -> tuple:
+    r, ms = correr(PORTFOLIO, "compute", "--state", estado, "--today", hoy)
     if r.returncode:
         return {}, ms, r.stderr.strip()[:300]
     d = json.loads(r.stdout)
@@ -61,12 +61,13 @@ def hallazgos_portafolio(estado: Path) -> tuple:
              for p in d.get("projects", [])}, ms, None)
 
 
-def hallazgos_producto(base: Path, fichas: Path) -> tuple:
+def hallazgos_producto(base: Path, fichas: Path, hoy: str) -> tuple:
     salida, total_ms, error = {}, 0, None
     if not base.is_dir():
         return salida, 0, "no hay registros de producto"
     for d in sorted(x for x in base.iterdir() if x.is_dir()):
-        r, ms = correr(PRODUCT, "compute", "--state", d, "--fichas", fichas)
+        r, ms = correr(PRODUCT, "compute", "--state", d, "--fichas", fichas,
+                       "--today", hoy)
         total_ms += ms
         if r.returncode:
             error = r.stderr.strip()[:200]
@@ -203,11 +204,15 @@ def pagina(d: dict) -> str:
 if __name__ == "__main__":
     base = Path(sys.argv[1] if len(sys.argv) > 1 else "~/Projects/pmo-demo").expanduser()
     import datetime as dt
-    hoy = dt.date.today().isoformat()
+    hoy = dt.date.today().isoformat()  # se reemplaza por el corte de la organización
     errores, tiempos = [], {}
 
     clave = json.loads((base / "esperado.json").read_text(encoding="utf-8"))
     esperado = clave["esperado"]
+    # La organización vive en su propio calendario: una semana por día de prueba. Mirarla
+    # con el reloj de hoy haría que los cuatro primeros días parezcan viejos y que el
+    # silencio y la antigüedad se midan contra la fecha equivocada.
+    hoy = clave.get("hoy") or hoy
 
     # ── extracción
     r, tiempos["Extracción · documentos a ficha"] = correr(EXTRACTOR, base)
@@ -215,12 +220,12 @@ if __name__ == "__main__":
         errores.append(f"extractor: {r.stderr.strip()[:200]}")
 
     # ── cálculo
-    pf, ms1, err1 = hallazgos_portafolio(base / "estado-referencia")
+    pf, ms1, err1 = hallazgos_portafolio(base / "estado-referencia", hoy)
     tiempos["Cálculo · portafolio"] = ms1
     if err1:
         errores.append(f"portafolio compute: {err1}")
     pd_, ms2, err2 = hallazgos_producto(base / "estado-referencia-productos",
-                                       base / "estado-referencia" / "records")
+                                       base / "estado-referencia" / "records", hoy)
     tiempos["Cálculo · productos"] = ms2
     if err2:
         errores.append(f"producto compute: {err2}")
@@ -232,6 +237,7 @@ if __name__ == "__main__":
 
     informe = {
         "fecha": hoy, "dia": clave.get("dia"), "commit": git,
+        "corte": hoy,
         "disposicion": clave.get("disposicion", "?"),
         "casos": {"proyectos": len(pf), "productos": len(pd_)},
         "documentos": documentos(base / "documentos"),

@@ -36,7 +36,27 @@ sys.path.insert(0, str(Path(__file__).parent))
 import corpus  # noqa: E402
 import organizacion as org  # noqa: E402  las plantillas de documento, que ya existen
 
-HOY = dt.date.today()
+# La organización vive en su propio calendario, y avanza una semana por día de prueba.
+#
+# Estaba escrito `HOY = date.today()` y se usaba en los cinco días, así que cada semana
+# escribía sus documentos con fecha de hoy y **nada envejecía**: un proyecto que se calló
+# en la semana 2 seguía con su último documento a cinco días, y el umbral de silencio son
+# quince. `silent`, `declaration_stale` y `evidence_stale` no podían sonar nunca, que es
+# exactamente lo que una prueba de cinco semanas existe para medir. El tiempo comprimido
+# es el defecto más grave que tuvo este andamiaje.
+#
+# Ahora el día 5 cae en la fecha real y cada día anterior está una semana atrás. Todo lo
+# que lee el material —el calificador y los agentes— tiene que decir contra qué fecha
+# mira, con `--today`. Un portafolio se revisa «al corte», y eso es una propiedad del
+# producto, no una concesión de la prueba.
+DIAS = 5
+
+
+def dia_a_fecha(dia: int) -> dt.date:
+    return dt.date.today() - dt.timedelta(days=7 * (DIAS - dia))
+
+
+HOY = dia_a_fecha(DIAS)
 
 # Umbrales, copiados del skill y no importados del código que se mide. Si el código
 # cambia un umbral y este no, la prueba lo dice — que es justo lo que tiene que hacer.
@@ -384,6 +404,30 @@ def piso_producto(rnd, x: dict, hoy: dt.date) -> list:
     return ["requerimiento nuevo"]
 
 
+def fechar(estado: dict, destino: Path):
+    """Anota en cada caso la fecha del documento más nuevo que quedó en disco.
+
+    La clave se deriva de lo que el material dice, no de lo que el generador quiso decir.
+    Es la misma regla que gobierna todo lo demás aquí, y se saltó una vez: el silencio se
+    medía contra un campo del estado que ningún documento respaldaba.
+    """
+    import re as _re
+    docs = destino / "documentos"
+    ultimo = {}
+    for f in docs.rglob("*"):
+        if not f.is_file():
+            continue
+        m_cod = _re.search(r"(PR[YD]-[A-Z0-9]+)", str(f.relative_to(docs)))
+        m_fec = _re.search(r"(\d{4}-\d{2}-\d{2})", f.name)
+        if m_cod and m_fec:
+            c = m_cod.group(1)
+            if m_fec.group(1) > ultimo.get(c, ""):
+                ultimo[c] = m_fec.group(1)
+    for caso in estado["proyectos"] + estado["productos"]:
+        if caso["codigo"] in ultimo:
+            caso["ultimo_escrito"] = ultimo[caso["codigo"]]
+
+
 def esperado_proyecto(p: dict, hoy: dt.date) -> list:
     """Las señales que los hechos de este proyecto obligan.
 
@@ -420,8 +464,11 @@ def esperado_proyecto(p: dict, hoy: dt.date) -> list:
         if exceso >= UMBRAL["variacion_costo_pct"]:
             s.append("variance_cost")
     base = dt.date.fromisoformat(p["hitos"][0]["base"]) if p["hitos"] else None
-    fin_base = dt.date.fromisoformat(p["hitos"][-1]["base"]) if p["hitos"] else None
-    fin_vig = dt.date.fromisoformat(p["hitos"][-1]["vigente"]) if p["hitos"] else None
+    # Sin cronograma escrito no hay línea base contra la cual medir, y la ficha llega con
+    # cero hitos. Era el mismo hueco que tenían los hitos y se arregló solo para ellos.
+    con_plan = PROFUNDIDAD[p["profundidad"]]["plan"] and p["hitos"]
+    fin_base = dt.date.fromisoformat(p["hitos"][-1]["base"]) if con_plan else None
+    fin_vig = dt.date.fromisoformat(p["hitos"][-1]["vigente"]) if con_plan else None
     ini = dt.date.fromisoformat(p["inicio"])
     if fin_base and fin_vig and fin_base > ini:
         atraso = (fin_vig - fin_base).days
@@ -459,7 +506,12 @@ def esperado_proyecto(p: dict, hoy: dt.date) -> list:
     for c in p["cambios"]:
         if c["autorizado"] and c["dias"] and not any(b >= c["fecha"] for b in lineas[1:]):
             s.append("change_without_baseline")
-    dias_silencio = (hoy - dt.date.fromisoformat(p["ultimo_doc"])).days
+    # Contra el documento más nuevo que **se escribió**, no contra la intención guardada
+    # en el estado: cuando un proyecto se calla, el simulador movía `ultimo_doc` y no
+    # escribía nada con esa fecha, así que la ficha veía cuatro días más de silencio que
+    # la clave. La clave se deriva del material en disco, siempre.
+    dias_silencio = (hoy - dt.date.fromisoformat(
+        p.get("ultimo_escrito") or p["ultimo_doc"])).days
     if dias_silencio >= UMBRAL["silencio_dias"]:
         s.append("silent")
     dias_decl = (hoy - dt.date.fromisoformat(p["declarado"]["fecha"])).days
@@ -617,6 +669,8 @@ if __name__ == "__main__":
     ap.add_argument("--proyectos", type=int, default=50)
     ap.add_argument("--productos", type=int, default=65)
     ap.add_argument("--disposicion", default=None)
+    ap.add_argument("--dias", type=int, default=DIAS,
+                    help="cuántos días tiene la prueba; el último cae en la fecha real")
     ap.add_argument("--todos", action="store_true",
                     help="que se mueva cada proyecto y cada producto, sin excepción")
     a = ap.parse_args()
@@ -625,12 +679,15 @@ if __name__ == "__main__":
     destino.mkdir(parents=True, exist_ok=True)
     banco = destino / "organizacion.json"
     rnd = random.Random(20260928 + a.dia * 7919)
+    # La fecha de la organización para este día. El último cae en la fecha real y cada
+    # anterior está una semana atrás, así que el silencio y la antigüedad se acumulan.
+    hoy = dt.date.today() - dt.timedelta(days=7 * (a.dias - a.dia))
     disp = a.disposicion or corpus.DISPOSICIONES[(a.dia - 1) % len(corpus.DISPOSICIONES)]
 
     if a.dia == 1 or not banco.exists():
-        estado = {"dia": 1, "creada": HOY.isoformat(),
-                  "proyectos": [nuevo_proyecto(rnd, i, HOY) for i in range(a.proyectos)],
-                  "productos": [nuevo_producto(rnd, i, HOY) for i in range(a.productos)]}
+        estado = {"dia": 1, "creada": hoy.isoformat(),
+                  "proyectos": [nuevo_proyecto(rnd, i, hoy) for i in range(a.proyectos)],
+                  "productos": [nuevo_producto(rnd, i, hoy) for i in range(a.productos)]}
         bitacora = [f"día 1 · organización creada: {a.proyectos} proyectos, "
                     f"{a.productos} productos"]
     else:
@@ -638,25 +695,27 @@ if __name__ == "__main__":
         estado["dia"] = a.dia
         bitacora = []
         for p in estado["proyectos"]:
-            movidos = semana_proyecto(rnd, p, HOY, a.dia, a.todos)
+            movidos = semana_proyecto(rnd, p, hoy, a.dia, a.todos)
             if a.todos and not [e for e in movidos if e != "sin movimiento"]:
-                movidos = piso_proyecto(rnd, p, HOY)
+                movidos = piso_proyecto(rnd, p, hoy)
             for e in movidos:
                 bitacora.append(f"{p['codigo']} · {e}")
         for x in estado["productos"]:
-            movidos = semana_producto(rnd, x, HOY, a.dia, a.todos)
+            movidos = semana_producto(rnd, x, hoy, a.dia, a.todos)
             if a.todos and not [e for e in movidos if e != "sin movimiento"]:
-                movidos = piso_producto(rnd, x, HOY)
+                movidos = piso_producto(rnd, x, hoy)
             for e in movidos:
                 bitacora.append(f"{x['codigo']} · {e}")
 
-    n1, n2 = escribir(estado, destino, HOY, disp)
+    n1, n2 = escribir(estado, destino, hoy, disp)
+    fechar(estado, destino)
     banco.write_text(json.dumps(estado, ensure_ascii=False, indent=1), encoding="utf-8")
 
-    esperado = {p["codigo"]: esperado_proyecto(p, HOY) for p in estado["proyectos"]}
-    esperado.update({x["codigo"]: esperado_producto(x, HOY) for x in estado["productos"]})
+    esperado = {p["codigo"]: esperado_proyecto(p, hoy) for p in estado["proyectos"]}
+    esperado.update({x["codigo"]: esperado_producto(x, hoy) for x in estado["productos"]})
     corpus.escribir_suelto(destino / "esperado.json", json.dumps(
-        {"generado": HOY.isoformat(), "dia": a.dia, "disposicion": disp,
+        {"generado": hoy.isoformat(), "hoy": hoy.isoformat(), "dia": a.dia,
+         "disposicion": disp,
          # `solo_modelo` queda para lo que el script no puede calcular y el agente sí
          # tiene que encontrar. Hoy está vacío a propósito: `progress_vs_plan` se pasó a
          # aritmética, y las dos que siguen siendo del modelo —`contradiction` y
@@ -670,7 +729,7 @@ if __name__ == "__main__":
                            + "\n".join(f"- {b}" for b in bitacora))
 
     total = sum(len(v) for v in esperado.values())
-    print(f"día {a.dia} · disposición {disp}")
+    print(f"día {a.dia} · disposición {disp} · al corte del {hoy.isoformat()}")
     print(f"  {len(estado['proyectos'])} proyectos · {n1} documentos")
     print(f"  {len(estado['productos'])} productos · {n2} documentos")
     print(f"  {total} hallazgos esperados · {len(bitacora)} cambios en la bitácora")

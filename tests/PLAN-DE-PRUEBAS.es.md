@@ -125,6 +125,18 @@ python3 tests/sintetico/simulador.py .pruebas/corp-demo --dia <N>
 Escribe la semana nueva y regenera `esperado.json`. La bitácora del día dice qué le pasó a
 cada caso, en una línea: quién se calló, quién reprogramó, quién cerró un hito.
 
+**La organización vive en su propio calendario y avanza una semana por día.** El día 5 cae
+en la fecha real y cada anterior está una semana atrás, así que el silencio y la antigüedad
+se acumulan de verdad. **Quince de las veinte señales solo aparecen con el tiempo
+corriendo** —compromisos vencidos, desviaciones, replanificaciones, evidencia envejecida—,
+y con el reloj congelado no podían sonar nunca. Todo lo que lee el material tiene que decir
+contra qué fecha mira: `--today <corte>`, que el simulador imprime al generar el día.
+
+Y hay una tensión entre `--todos` y el silencio: si cada caso se mueve cada semana, nadie
+se queda callado. La semana probabilística deja proyectos en silencio, que es lo realista;
+`--todos` estresa el índice de documentos. Las dos cosas se prueban, pero no en la misma
+corrida.
+
 **La disposición de las carpetas rota con el día** —ordenada, plana, revuelta, sin
 carpetas— y lo esperado no cambia. Una caída de fiabilidad entre días no es variación: es
 una dependencia del layout, y es un defecto.
