@@ -10,6 +10,15 @@ Consolida las fichas y responde lo que el gerente de PMO no puede saber leyendo 
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.
 > Abre declarando qué fichas cargó y su fecha. Cierra con el pie: versión, fichas aplicadas con su fecha, campos inciertos y enlace a los términos.
 
+
+## Lo primero, antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición, y la promesa que estas páginas publican se mide en minutos.
+
 ## Invocación
 
 ```
@@ -92,8 +101,7 @@ Lo último, siempre, y con la ruta real del informe:
 
 ```
 python3 scripts/portafolio.py corrida --state <estado> --what report \
-    --documentos <cuántos se leyeron> --segundos <cuánto tardó> \
-    --informe <dónde quedó el informe> \
+    --docs <carpeta de documentos> --informe <dónde quedó el informe> \
     --nota "qué hay que mirar de esta corrida"
 ```
 

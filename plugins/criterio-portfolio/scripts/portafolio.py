@@ -1142,7 +1142,19 @@ def init(state: Path) -> dict:
             "already_there": not created}
 
 
-def corrida(state: Path, que: str, today: dt.date, segundos=None, documentos=None,
+def corrida_inicio(state: Path) -> dict:
+    """Marca el arranque, para que el tiempo lo mida la corrida y no lo estime nadie.
+
+    Un tiempo que el operador escribe a mano no es una medición: es un recuerdo. Y la
+    promesa publicada de la instalación son quince minutos.
+    """
+    import time
+    f = state / "corrida-en-curso.json"
+    f.write_text(json.dumps({"desde": time.time()}), encoding="utf-8")
+    return {"marcado": True}
+
+
+def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
             informe=None, nota=None) -> dict:
     """Deja el registro de una corrida: qué se corrió, sobre qué, y qué encontró.
 
@@ -1156,7 +1168,29 @@ def corrida(state: Path, que: str, today: dt.date, segundos=None, documentos=Non
     vacío. Una instrucción en prosa se salta; un comando que hay que correr, no. Por eso es
     aritmética y no una indicación.
     """
+    import time
     from collections import Counter
+
+    # El tiempo y los documentos los mide la corrida. Si el operador los teclea, lo que se
+    # mide es su transcripción —el mismo defecto que este repositorio le encontró a un
+    # informe que reescribió una cifra ya calculada— y la prueba queda viciada.
+    segundos = None
+    marca = state / "corrida-en-curso.json"
+    if marca.exists():
+        try:
+            segundos = round(time.time() - json.loads(marca.read_text())["desde"])
+        except (json.JSONDecodeError, KeyError, TypeError):
+            segundos = None
+        marca.unlink()
+
+    documentos = relectura = None
+    if docs and docs.is_dir():
+        idx = index(docs, state)
+        documentos = idx.get("documents")
+        # Lo que de verdad hubo que releer, que es la cifra que gobierna el costo del
+        # sistema: sin ella, «leí ciento ochenta y seis documentos» no dice nada.
+        relectura = {"sin_cambio": idx.get("unchanged"), "releidos": idx.get("to_read")}
+
     fichas = sorted((state / "records").glob("*.json"))
     senales = Counter()
     for f in fichas:
@@ -1169,6 +1203,9 @@ def corrida(state: Path, que: str, today: dt.date, segundos=None, documentos=Non
 
     entrada = {"que": que, "fecha": today.isoformat(), "proyectos": len(fichas),
                "documentos": documentos, "segundos": segundos,
+               "relectura": relectura,
+               "medido": {"segundos": segundos is not None,
+                          "documentos": documentos is not None},
                "hallazgos": sum(senales.values()),
                "por_senal": dict(senales.most_common()),
                "informe": str(informe) if informe else None, "nota": nota}
@@ -1185,8 +1222,13 @@ def corrida(state: Path, que: str, today: dt.date, segundos=None, documentos=Non
     lineas = [f"# Corrida del {today.isoformat()} · {que}", "",
               f"{len(fichas)} proyectos"
               + (f" · {documentos} documentos" if documentos else "")
+              + (f", {relectura['releidos']} releídos y {relectura['sin_cambio']} sin cambio"
+                 if relectura and relectura.get("releidos") is not None else "")
               + (f" · {segundos} s" if segundos else "")
               + f" · {sum(senales.values())} hallazgos", ""]
+    if segundos is None:
+        lineas += ["> El tiempo no se midió: faltó `corrida --inicio` al arrancar. Un "
+                   "tiempo escrito a mano es un recuerdo, no una medición.", ""]
     if senales:
         lineas += ["| Señal | Hallazgos |", "|---|---:|"]
         lineas += [f"| `{s}` | {n} |" for s, n in senales.most_common()]
@@ -1316,9 +1358,10 @@ def _selftest_corrida():
         (estado / "records" / "PRY-Z.json").write_text(
             json.dumps(ficha, ensure_ascii=False), encoding="utf-8")
 
-        una = corrida(estado, "sweep", hoy, documentos=3, nota="la primera")
+        corrida_inicio(estado)
+        una = corrida(estado, "sweep", hoy, nota="la primera")
         legible = (estado / "corridas" / "2026-09-28-sweep.md").read_text(encoding="utf-8")
-        dos = corrida(estado, "report", hoy, documentos=3, informe=Path("x/informe"))
+        dos = corrida(estado, "report", hoy, informe=Path("x/informe"))
         todas = json.loads((estado / "corridas.json").read_text(encoding="utf-8"))
         segundo = (estado / "corridas" / "2026-09-28-report.md").read_text(encoding="utf-8")
         return [
@@ -1331,6 +1374,11 @@ def _selftest_corrida():
             ("corrida · y dice que no hay anterior",
              "no hay una anterior" in legible, True),
             ("corrida · acumula, no reemplaza", len(todas), 2),
+            ("corrida · mide el tiempo ella misma", una["medido"]["segundos"], True),
+            ("corrida · y la segunda ya no tiene marca que leer",
+             dos["medido"]["segundos"], False),
+            ("corrida · lo dice cuando no lo pudo medir",
+             "no se midió" in segundo, True),
             ("corrida · guarda dónde quedó el informe", dos["informe"], "x/informe"),
             ("corrida · y compara con la anterior",
              "Contra la corrida del 2026-09-28" in segundo, True),
@@ -1636,18 +1684,15 @@ def load_thresholds(config: Path | None) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
     ap.add_argument("action", choices=["init", "config", "due", "ran", "corrida",
-                                       "index", "compute", "snapshot", "diff",
-                                       "requests", "answered", "impact", "selftest"])
+                                       "corrida-inicio", "index", "compute", "snapshot",
+                                       "diff", "requests", "answered", "impact",
+                                       "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
                     help="carpeta de documentación, para `index`")
     ap.add_argument("--what", default=None,
                     help="qué se corrió: sweep | report | confirmation | requests, para `ran`")
-    ap.add_argument("--segundos", type=int, default=None,
-                    help="cuánto tardó la corrida, para `corrida`")
-    ap.add_argument("--documentos", type=int, default=None,
-                    help="cuántos documentos se leyeron, para `corrida`")
     ap.add_argument("--informe", type=Path, default=None,
                     help="dónde quedó el informe, para `corrida`")
     ap.add_argument("--nota", default=None,
@@ -1688,11 +1733,13 @@ def main() -> int:
         if not args.what:
             ap.error("--what es obligatorio para ran")
         print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
+    elif args.action == "corrida-inicio":
+        print(json.dumps(corrida_inicio(args.state), ensure_ascii=False))
     elif args.action == "corrida":
         if not args.what:
             ap.error("--what es obligatorio para corrida: sweep | report | confirmation")
-        print(json.dumps(corrida(args.state, args.what, today, args.segundos,
-                                 args.documentos, args.informe, args.nota),
+        print(json.dumps(corrida(args.state, args.what, today, args.docs,
+                                 args.informe, args.nota),
                          ensure_ascii=False, indent=2))
     elif args.action == "impact":
         if not args.code:

@@ -166,24 +166,36 @@ acertó las 158 alertas, los 128 hitos sin evidencia y los 30 verdes contradicho
 el presupuesto aprobado mil veces mayor. La aritmética estaba bien; el agente la transcribió
 mal, y ninguna puerta podía verlo porque el script tenía razón.
 
-**Y cada corrida se registra**, o no existe:
+**Las estadísticas las mide la corrida, no las teclea nadie.** Es la diferencia entre medir
+y creer: una cifra que escribe quien conduce la prueba mide su transcripción, y eso vicia el
+resultado — es el mismo defecto que este repositorio le encontró a un informe que reescribió
+una cifra ya calculada.
+
+Los comandos de los agentes llaman `portafolio.py corrida-inicio` al arrancar y
+`portafolio.py corrida` al terminar. Eso deja en `<estado>/corridas.json` los proyectos, los
+hallazgos por señal, los documentos releídos y el tiempo, medidos por la propia corrida. Al
+cerrar el día se cosechan:
+
+```
+python3 tests/sintetico/evidencia.py cosechar \
+  --agente portfolio --estado .pruebas/corp-demo/estado --dia <N>
+```
+
+Lo único que no puede salir de un script es lo cualitativo —**qué dijo el agente que no
+sabía**— y eso se anota aparte, marcado como anotación:
 
 ```
 python3 tests/sintetico/evidencia.py registrar --agente portfolio \
-  --comando portfolio-scan --dia 1 --segundos 95 --documentos 146 --hallazgos 8 \
+  --comando portfolio-scan --dia <N> \
   --no-supo "qué dijo que no estaba dicho en ninguna parte" \
-  --nota "qué dejó ver esta corrida" \
   --salida <archivo con lo que imprimió>
 ```
 
-Guarda la salida tal cual en `tests/evidencias/dia-N/<comando>.md` —resumirla la anula— y
-la página de resultados de cada agente se regenera desde el registro. **Un comando sin
+La página de cada agente distingue las dos cosas, porque no valen igual. **Un comando sin
 entrada no se probó**: no se cuenta como aprobado, la página lo dice con ese nombre, y
-`python3 tests/sintetico/evidencia.py cobertura` dice cuántos van de los 37.
+`evidencia.py cobertura` dice cuántos van de los 37.
 
-Lo que el registro pide es exactamente lo que hay que mirar: cuánto tardó, cuántos
-documentos leyó, cuántos hallazgos, y —lo más importante— **qué dijo que no sabía**. Un
-comando que nunca dice *«no está dicho en ninguna parte»* sobre cincuenta proyectos está
+Un comando que nunca dice *«no está dicho en ninguna parte»* sobre cincuenta proyectos está
 rellenando huecos, y el registro lo marca solo.
 
 ### Paso 3 · Los nueve comandos de Samuel

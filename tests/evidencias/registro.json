@@ -34,5 +34,55 @@
   "no_supo": "propuso el rol PMO a partir de lo que vio, sin preguntarlo",
   "salida": "tests/evidencias/dia-1/portfolio-setup.md",
   "nota": "El paso destapó que los 37 comandos estaban documentados sin el prefijo del plugin: 226 referencias que no resolvían."
+ },
+ {
+  "agente": "portfolio",
+  "comando": "portfolio-report",
+  "dia": 2,
+  "fecha": "2026-09-28",
+  "que": "report",
+  "segundos": null,
+  "documentos": 146,
+  "hallazgos": 189,
+  "por_senal": {
+   "milestone_met_without_evidence": 128,
+   "progress_vs_plan": 31,
+   "declared_vs_evidence": 30
+  },
+  "relectura": null,
+  "medido": null,
+  "no_supo": null,
+  "salida": null,
+  "nota": "Primera corrida con los 50 proyectos. Ninguno en silencio.",
+  "origen": "corrida del agente"
+ },
+ {
+  "agente": "portfolio",
+  "comando": "portfolio-scan",
+  "dia": 2,
+  "fecha": "2026-09-28",
+  "que": "sweep",
+  "segundos": 2,
+  "documentos": 186,
+  "hallazgos": 194,
+  "por_senal": {
+   "milestone_met_without_evidence": 127,
+   "declared_vs_evidence": 32,
+   "progress_vs_plan": 31,
+   "variance_cost": 2,
+   "commitment_undated": 2
+  },
+  "relectura": {
+   "sin_cambio": 8,
+   "releidos": 82
+  },
+  "medido": {
+   "segundos": true,
+   "documentos": true
+  },
+  "no_supo": null,
+  "salida": null,
+  "nota": "Semana 2, disposición plana.",
+  "origen": "corrida del agente"
  }
 ]

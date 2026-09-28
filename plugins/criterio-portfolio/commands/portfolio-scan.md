@@ -10,6 +10,15 @@ Puerta de entrada del plugin. Convierte una carpeta desordenada de documentos en
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes fichas ni informe.
 > Abre declarando qué encontró y cierra con el pie: versión, fichas tocadas, campos en `not_found` y enlace a los términos.
 
+
+## Lo primero, antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición, y la promesa que estas páginas publican se mide en minutos.
+
 ## Invocación
 
 ```
@@ -57,7 +66,7 @@ Guarda cada ficha en `<estado>/records/<codigo>.json`. Después corre:
 ```
 python3 scripts/portafolio.py snapshot --state <estado>
 python3 scripts/portafolio.py corrida --state <estado> --what sweep \
-    --documentos <cuántos se leyeron> --segundos <cuánto tardó> \
+    --docs <carpeta de documentos> \
     --nota "qué se movió, qué se omitió, qué hay que mirar"
 ```
 

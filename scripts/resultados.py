@@ -398,17 +398,36 @@ def bloque_comandos(plugin: str) -> list:
         p += ["Ninguno todavía. La evidencia se registra con "
               "`tests/sintetico/evidencia.py`.", ""]
         return p
-    p += ["| Comando | Días | Documentos | Hallazgos | Qué dejó ver |",
-          "|---|---|---:|---:|---|"]
+    p += ["| Comando | Días | Documentos | Tiempo | Hallazgos | De dónde sale |",
+          "|---|---|---:|---:|---:|---|"]
     for c in corridos:
         de_el = [f for f in filas if f["comando"] == c]
         dias = ", ".join(str(f["dia"]) for f in de_el)
         docs = max((f["documentos"] or 0) for f in de_el) or "—"
-        hall = sum(f["hallazgos"] or 0 for f in de_el)
-        nota = next((f["nota"] for f in de_el if f.get("nota")), "—")
-        p.append(f"| [`/{plugin}:{c}`](../evidencias/dia-{de_el[0]['dia']}/{c}.md) "
-                 f"| {dias} | {docs} | {hall} | {nota} |")
-    p.append("")
+        hall = max((f["hallazgos"] or 0) for f in de_el)
+        t_ = [f["segundos"] for f in de_el if f.get("segundos")]
+        medidas = sum(1 for f in de_el if f.get("origen") == "corrida del agente")
+        fuente = (f"medida por la corrida ({medidas}/{len(de_el)})" if medidas
+                  else "anotada a mano")
+        con_salida = next((f for f in de_el if f.get("salida")), None)
+        etiq = (f"[`/{plugin}:{c}`]({'../' + con_salida['salida'].split('tests/')[-1]})"
+                if con_salida else f"`/{plugin}:{c}`")
+        p.append(f"| {etiq} | {dias} | {docs} "
+                 f"| {f'{min(t_)}–{max(t_)} s' if t_ else '—'} | {hall} | {fuente} |")
+    p += ["", "**Las cifras que salen de la corrida las midió el agente**, no las "
+              "transcribió nadie: `portafolio.py corrida` cuenta los proyectos, los "
+              "hallazgos por señal, los documentos releídos y el tiempo. Una cifra "
+              "tecleada mide la transcripción de quien conduce la prueba, y eso la vicia.",
+          ""]
+    notas = [(f["comando"], f["nota"]) for f in filas if f.get("nota")]
+    if notas:
+        p += ["| Comando | Qué dejó ver |", "|---|---|"]
+        vistos = set()
+        for c, n_ in notas:
+            if c not in vistos:
+                p.append(f"| `{c}` | {n_} |")
+                vistos.add(c)
+        p.append("")
     faltan = [c for c in cmds if c not in corridos]
     if faltan:
         p += [f"**Sin evidencia todavía, y por eso sin probar:** "

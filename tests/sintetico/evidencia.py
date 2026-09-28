@@ -49,6 +49,56 @@ def guardar(filas: list):
                         encoding="utf-8")
 
 
+def cosechar(a) -> int:
+    """Lee las corridas que el agente registró y las trae al registro de pruebas.
+
+    Es la diferencia entre medir y creer. Si estos números los teclea quien conduce la
+    prueba desde lo que el agente imprimió, lo que se mide es su transcripción —el mismo
+    defecto que este repositorio le encontró a un informe que reescribió una cifra ya
+    calculada— y la prueba queda viciada. Así que no se teclean: salen de
+    `<estado>/corridas.json`, que la corrida escribe sola.
+
+    Lo único que sigue siendo del operador es lo cualitativo: qué dijo el agente que no
+    sabía. Eso ningún script lo puede sacar, y va marcado como anotación.
+    """
+    estado = Path(a.estado).expanduser()
+    f = estado / "corridas.json"
+    if not f.is_file():
+        sys.exit(f"no hay corridas registradas en {f}. El agente tiene que correr "
+                 f"`portafolio.py corrida` al final de cada comando.")
+    corridas = json.loads(f.read_text(encoding="utf-8"))
+
+    # Cada tipo de corrida corresponde al comando que la produce.
+    DE = {"sweep": "portfolio-scan", "report": "portfolio-report",
+          "confirmation": "portfolio-report", "requests": "portfolio-wake"}
+    filas, nuevas = leer(), 0
+    for c in corridas:
+        comando = DE.get(c["que"])
+        if not comando or comando not in comandos_de(a.agente):
+            continue
+        clave = (comando, a.dia, c["fecha"], c["que"])
+        if any((x["comando"], x["dia"], x.get("fecha"), x.get("que")) == clave
+               for x in filas):
+            continue
+        filas.append({
+            "agente": a.agente, "comando": comando, "dia": a.dia,
+            "fecha": c["fecha"], "que": c["que"],
+            "segundos": c.get("segundos"), "documentos": c.get("documentos"),
+            "hallazgos": c.get("hallazgos"), "por_senal": c.get("por_senal"),
+            "relectura": c.get("relectura"), "medido": c.get("medido"),
+            "no_supo": None, "salida": None, "nota": c.get("nota"),
+            "origen": "corrida del agente"})
+        nuevas += 1
+    filas.sort(key=lambda x: (x["dia"], x["agente"], x["comando"]))
+    guardar(filas)
+    sin_tiempo = [c for c in corridas if c.get("segundos") is None]
+    print(f"{nuevas} corrida(s) cosechada(s) de {f}")
+    if sin_tiempo:
+        print(f"  {len(sin_tiempo)} sin tiempo medido · falta `corrida-inicio` al "
+              f"arrancar el comando")
+    return 0
+
+
 def registrar(a) -> int:
     if a.comando not in comandos_de(a.agente):
         sys.exit(f"«{a.comando}» no es un comando de {AGENTES[a.agente]}. "
@@ -79,7 +129,10 @@ def registrar(a) -> int:
                   "documentos": a.documentos, "hallazgos": a.hallazgos,
                   "no_supo": a.no_supo,
                   "salida": str(archivo.relative_to(RAIZ)) if a.salida else None,
-                  "nota": a.nota})
+                  "nota": a.nota,
+                  # Marcado a propósito: lo que escribe una persona vale menos que lo que
+                  # midió la corrida, y quien lea el registro tiene que poder distinguirlo.
+                  "origen": "anotado a mano"})
     filas.sort(key=lambda f: (f["dia"], f["agente"], f["comando"]))
     guardar(filas)
     print(f"día {a.dia} · /{AGENTES[a.agente]}:{a.comando} registrado"
@@ -103,9 +156,12 @@ def cobertura() -> int:
                 dias = ", ".join(f"d{f['dia']}" for f in de_el)
                 t = [f["segundos"] for f in de_el if f["segundos"]]
                 muda = sum(1 for f in de_el if not f["no_supo"])
+                medidos = sum(1 for f in de_el if f.get("origen") == "corrida del agente")
                 print(f"  ✓ {c:24} {dias:14} "
-                      + (f"{min(t)}–{max(t)} s  " if t else "")
-                      + (f"· {muda} corrida(s) sin decir que algo faltaba" if muda else ""))
+                      + (f"{min(t)}–{max(t)} s  " if t else "sin tiempo  ")
+                      + (f"· {medidos}/{len(de_el)} medidas por la corrida "
+                         if medidos < len(de_el) else "· medido ")
+                      + (f"· {muda} sin decir que algo faltaba" if muda else ""))
             else:
                 print(f"  — {c:24} sin evidencia · no se probó")
     print(f"\n{total - sin_evidencia} de {total} comandos con evidencia. "
@@ -151,8 +207,13 @@ if __name__ == "__main__":
                    help="qué dijo que no estaba dicho en ninguna parte")
     r.add_argument("--nota")
     r.add_argument("--salida", help="archivo con lo que el comando imprimió")
+    c = sub.add_parser("cosechar")
+    c.add_argument("--agente", required=True, choices=sorted(AGENTES))
+    c.add_argument("--estado", required=True, help="carpeta de estado del agente")
+    c.add_argument("--dia", type=int, required=True)
     sub.add_parser("cobertura")
     sub.add_parser("verificar")
     a = ap.parse_args()
     raise SystemExit({"registrar": lambda: registrar(a), "cobertura": cobertura,
+                      "cosechar": lambda: cosechar(a),
                       "verificar": verificar}[a.accion]())
