@@ -148,6 +148,40 @@ No opina sobre si un proyecto debe continuar. Eso es decisión de comité, y el 
 
 No convierte un vacío en un juicio. Un proyecto sin documentación no está mal gestionado: está sin documentar, y eso es lo que se reporta.
 
+## Lo que el script produjo se copia, no se reescribe
+
+Vale para las cifras y vale para los nombres, y es la misma regla porque es el mismo error:
+volver a teclear un dato que ya estaba calculado. En dos corridas sobre cincuenta proyectos
+pasó tres veces:
+
+- El presupuesto aprobado salió **mil veces mayor** en una tabla, mientras el resumen del
+  mismo informe y la desviación usaban la cifra correcta.
+- Los hitos se reportaron como **«Hito 1», «Hito 2»** cuando la ficha decía «Diseño
+  funcional aprobado» y «Salida a producción». El script imprimió los nombres reales; la
+  redacción los sustituyó por una numeración inventada.
+- Dos proyectos distintos que comparten nombre —PRY-214 y PRY-234, los dos «Remesas»—
+  quedaron **colapsados en una fila**, como si fueran uno.
+
+Las cuatro reglas:
+
+- **Un nombre se nombra como lo nombra el documento.** El hito, el proyecto, la persona, el
+  entregable. No se renumera, no se abrevia a una etiqueta genérica, y no se traduce.
+- **Una cifra se copia del campo, con todos sus dígitos.** Nunca de una lectura del
+  documento ni de una suma hecha en el razonamiento. Y la misma cifra aparece igual en
+  todas partes del informe: si el resumen y el detalle discrepan, una está mal y el lector
+  no sabe cuál.
+- **Un código es la identidad, y el nombre no.** Dos proyectos pueden llamarse igual; una
+  fila por código, siempre.
+- **La señal se nombra con la frase que el informe ya trae.** Describirla con otras
+  palabras la deforma: `progress_vs_plan` se reportó una vez como «el avance no es coherente
+  con el tiempo transcurrido contra la línea base», y no es eso — es el avance declarado
+  contra los hitos que el cronograma da por cumplidos. Un comité que lea la paráfrasis va a
+  abrir el documento equivocado.
+
+Un hito llamado «Hito 1» hace inútil la tabla más importante del informe; un presupuesto
+mil veces mayor destruye la credibilidad del documento antes de que nadie llegue al
+hallazgo. Ninguno de los dos es un defecto de formato.
+
 ## Dos documentos que no pueden ser ciertos a la vez
 
 `contradiction` y `progress_vs_plan` se confunden y no son lo mismo. La diferencia decide

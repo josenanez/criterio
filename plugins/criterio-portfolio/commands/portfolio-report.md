@@ -85,6 +85,20 @@ Devuelve los números y la lista de señales que cruzaron umbral. Aplica **portf
 
 Si toca, aplica la confirmación periódica: **cinco campos**, los más viejos entre los que importan. Van al final, como preguntas cerradas.
 
+
+## Deja la corrida registrada
+
+Lo último, siempre, y con la ruta real del informe:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what report \
+    --documentos <cuántos se leyeron> --segundos <cuánto tardó> \
+    --informe <dónde quedó el informe> \
+    --nota "qué hay que mirar de esta corrida"
+```
+
+Sin esto la corrida no se puede compartir ni comparar: el informe queda en una carpeta que hay que recordar, y la del mes que viene no tiene contra qué medirse. Con esto, `<estado>/corridas/<fecha>-report.md` dice qué se corrió, qué encontró por señal, dónde está el informe, y cuántos hallazgos más o menos que la vez anterior.
+
 ## Salida
 
 ```markdown

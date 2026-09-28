@@ -669,8 +669,11 @@ _seguidos = _sp.run(["git", "-C", str(RAIZ), "ls-files", "*.md"],
 _sin_prefijo = []
 for _s in _seguidos:
     _p = RAIZ / _s
-    # En commands/ y skills/ el nombre desnudo es el del archivo, no una invocación.
-    if "commands" in Path(_s).parts or "skills" in Path(_s).parts or not _p.is_file():
+    # En commands/ y skills/ el nombre desnudo es el del archivo, no una invocación. Y
+    # `evidencias/` es la transcripción de lo que pasó en una corrida: cita la forma que se
+    # escribió, incluida la equivocada — ahí está precisamente el hallazgo.
+    if ("commands" in Path(_s).parts or "skills" in Path(_s).parts
+            or "evidencias" in Path(_s).parts or not _p.is_file()):
         continue
     for _m in _patron_cmd.finditer(_p.read_text(encoding="utf-8")):
         _sin_prefijo.append(f"{_s} · {_m.group(0)}")

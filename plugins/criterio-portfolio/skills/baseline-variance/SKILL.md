@@ -78,6 +78,9 @@ Tú interpretas: qué significa esa desviación, si el motivo declarado explica 
 
 ## Una cifra se copia, no se reescribe
 
+> La regla completa —cifras, nombres, códigos y cómo se nombra una señal— está en
+> `portfolio-health`. Aquí va lo que toca al dinero, que es donde más duele.
+
 **Ninguna cifra que el script calculó se vuelve a teclear.** Se copia del campo, tal cual,
 con todos sus dígitos. Suena obvio y no lo es: en una corrida sobre cincuenta proyectos el
 agente escribió el presupuesto aprobado con tres ceros de más —303.100.000.000.000 en vez

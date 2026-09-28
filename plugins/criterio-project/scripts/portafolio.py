@@ -1147,12 +1147,72 @@ def init(state: Path) -> dict:
         if not d.exists():
             d.mkdir(parents=True)
             created.append(str(d))
-    log = state / "registro.log"
-    if not log.exists():
-        log.write_text("", encoding="utf-8")
-        created.append(str(log))
     return {"state": str(state), "created": created,
             "already_there": not created}
+
+
+def corrida(state: Path, que: str, today: dt.date, segundos=None, documentos=None,
+            informe=None, nota=None) -> dict:
+    """Deja el registro de una corrida: qué se corrió, sobre qué, y qué encontró.
+
+    `cadencia.json` guarda una fecha por tipo, que es lo que `due` necesita y nada más.
+    Esto es otra cosa: **la corrida como algo que se puede compartir.** Cuántos proyectos,
+    cuántos hallazgos y de qué señal, cuánto tardó, y dónde quedó el informe — para que
+    mañana se pueda comparar y para que alguien que no estuvo pueda abrirlo.
+
+    Estaba escrito en prosa en `portfolio-scan.md` —«registra en registro.log qué leyó,
+    qué movió y qué omitió»— y en una corrida sobre cincuenta proyectos el archivo quedó
+    vacío. Una instrucción en prosa se salta; un comando que hay que correr, no. Por eso es
+    aritmética y no una indicación.
+    """
+    from collections import Counter
+    fichas = sorted((state / "records").glob("*.json"))
+    senales = Counter()
+    for f in fichas:
+        try:
+            rec = json.loads(f.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        r = compute_record(rec, today, DEFAULT_THRESHOLDS)
+        senales.update(a["signal"] for a in r.get("alerts") or [])
+
+    entrada = {"que": que, "fecha": today.isoformat(), "proyectos": len(fichas),
+               "documentos": documentos, "segundos": segundos,
+               "hallazgos": sum(senales.values()),
+               "por_senal": dict(senales.most_common()),
+               "informe": str(informe) if informe else None, "nota": nota}
+
+    f = state / "corridas.json"
+    previas = json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+    previas.append(entrada)
+    f.write_text(json.dumps(previas, ensure_ascii=False, indent=2) + "\n",
+                 encoding="utf-8")
+
+    # Y la versión legible, que es la que se comparte con quien no abre un JSON.
+    d = state / "corridas"
+    d.mkdir(parents=True, exist_ok=True)
+    lineas = [f"# Corrida del {today.isoformat()} · {que}", "",
+              f"{len(fichas)} proyectos"
+              + (f" · {documentos} documentos" if documentos else "")
+              + (f" · {segundos} s" if segundos else "")
+              + f" · {sum(senales.values())} hallazgos", ""]
+    if senales:
+        lineas += ["| Señal | Hallazgos |", "|---|---:|"]
+        lineas += [f"| `{s}` | {n} |" for s, n in senales.most_common()]
+        lineas.append("")
+    if informe:
+        lineas += [f"El informe quedó en `{informe}`.", ""]
+    if nota:
+        lineas += [nota, ""]
+    anterior = previas[-2] if len(previas) > 1 else None
+    if anterior:
+        d_h = sum(senales.values()) - (anterior.get("hallazgos") or 0)
+        lineas += [f"Contra la corrida del {anterior['fecha']}: "
+                   f"{d_h:+d} hallazgos.", ""]
+    else:
+        lineas += ["Primera corrida: no hay una anterior contra la cual comparar.", ""]
+    (d / f"{today.isoformat()}-{que}.md").write_text("\n".join(lineas), encoding="utf-8")
+    return entrada
 
 
 def check_config(config: Path) -> dict:
@@ -1239,6 +1299,52 @@ def diff(state: Path, against: Path | None) -> dict:
 
 
 # ---------------------------------------------------------------- selftest
+
+def _selftest_corrida():
+    """Que la corrida quede registrada y sepa compararse con la anterior.
+
+    Es lo que permite compartir una corrida: sin registro, el informe queda en una
+    carpeta que hay que recordar y la del mes siguiente no tiene contra qué medirse.
+    """
+    import tempfile
+    hoy = dt.date(2026, 9, 28)
+    with tempfile.TemporaryDirectory() as tmp:
+        estado = Path(tmp) / "estado"
+        init(estado)
+        ficha = {"identity": {"code": {"value": "PRY-Z"}},
+                 "declared": {"status": {"value": "verde"}, "progress_pct": {"value": 90},
+                              "as_of": {"value": "2026-09-27"}},
+                 "plan": {"milestones": [
+                     {"name": {"value": "Diseño"}, "current_date": {"value": "2025-01-10"},
+                      "state": {"value": "met"}},
+                     {"name": {"value": "Piloto"}, "current_date": {"value": "2025-06-10"},
+                      "state": {"value": "open"}},
+                     {"name": {"value": "Salida"}, "current_date": {"value": "2025-09-10"},
+                      "state": {"value": "open"}}]},
+                 "activity": {"last_document_date": {"value": "2026-09-27"}}}
+        (estado / "records" / "PRY-Z.json").write_text(
+            json.dumps(ficha, ensure_ascii=False), encoding="utf-8")
+
+        una = corrida(estado, "sweep", hoy, documentos=3, nota="la primera")
+        legible = (estado / "corridas" / "2026-09-28-sweep.md").read_text(encoding="utf-8")
+        dos = corrida(estado, "report", hoy, documentos=3, informe=Path("x/informe"))
+        todas = json.loads((estado / "corridas.json").read_text(encoding="utf-8"))
+        segundo = (estado / "corridas" / "2026-09-28-report.md").read_text(encoding="utf-8")
+        return [
+            ("corrida · cuenta los proyectos del estado", una["proyectos"], 1),
+            ("corrida · cuenta los hallazgos por señal",
+             una["por_senal"].get("milestone_overdue"), 2),
+            ("corrida · el avance declarado contra el plan también",
+             "progress_vs_plan" in una["por_senal"], True),
+            ("corrida · deja la versión legible", "| Señal | Hallazgos |" in legible, True),
+            ("corrida · y dice que no hay anterior",
+             "no hay una anterior" in legible, True),
+            ("corrida · acumula, no reemplaza", len(todas), 2),
+            ("corrida · guarda dónde quedó el informe", dos["informe"], "x/informe"),
+            ("corrida · y compara con la anterior",
+             "Contra la corrida del 2026-09-28" in segundo, True),
+        ]
+
 
 def selftest() -> int:
     today = dt.date(2026, 9, 19)
@@ -1359,6 +1465,7 @@ def selftest() -> int:
                             "vendor_invoiced_without_delivery"]),
     ]
     checks += _selftest_cadencia()
+    checks += _selftest_corrida()
 
     ok = True
     for label, got, want in checks:
@@ -1537,15 +1644,23 @@ def load_thresholds(config: Path | None) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
-    ap.add_argument("action", choices=["init", "config", "due", "ran", "index",
-                                       "compute", "snapshot", "diff", "requests",
-                                       "answered", "impact", "selftest"])
+    ap.add_argument("action", choices=["init", "config", "due", "ran", "corrida",
+                                       "index", "compute", "snapshot", "diff",
+                                       "requests", "answered", "impact", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
                     help="carpeta de documentación, para `index`")
     ap.add_argument("--what", default=None,
                     help="qué se corrió: sweep | report | confirmation | requests, para `ran`")
+    ap.add_argument("--segundos", type=int, default=None,
+                    help="cuánto tardó la corrida, para `corrida`")
+    ap.add_argument("--documentos", type=int, default=None,
+                    help="cuántos documentos se leyeron, para `corrida`")
+    ap.add_argument("--informe", type=Path, default=None,
+                    help="dónde quedó el informe, para `corrida`")
+    ap.add_argument("--nota", default=None,
+                    help="qué se movió, qué se omitió, qué hay que mirar, para `corrida`")
     ap.add_argument("--id", default=None,
                     help="identificador de la petición, para `answered`")
     ap.add_argument("--code", default=None,
@@ -1582,6 +1697,12 @@ def main() -> int:
         if not args.what:
             ap.error("--what es obligatorio para ran")
         print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
+    elif args.action == "corrida":
+        if not args.what:
+            ap.error("--what es obligatorio para corrida: sweep | report | confirmation")
+        print(json.dumps(corrida(args.state, args.what, today, args.segundos,
+                                 args.documentos, args.informe, args.nota),
+                         ensure_ascii=False, indent=2))
     elif args.action == "impact":
         if not args.code:
             ap.error("--code es obligatorio para impact")

@@ -48,7 +48,7 @@ De las minutas y transcripciones, aplica **commitment-tracking** y **raid-taxono
 
 **5. Clasifica lo que está en `entrada/`**
 
-Todo archivo suelto se asigna a su proyecto, **se mueve y se registra** en `estado/registro.log`. Si no se puede identificar el proyecto sin ambigüedad, se deja donde está, se pregunta y se levanta alerta. No es una secretaría: si puede resolverlo, lo resuelve.
+Todo archivo suelto se asigna a su proyecto y **se mueve**. Lo movido va en la `--nota` de la corrida (paso 6). Si no se puede identificar el proyecto sin ambigüedad, se deja donde está, se pregunta y se levanta alerta. No es una secretaría: si puede resolverlo, lo resuelve.
 
 **6. Escribe y deja rastro**
 
@@ -56,9 +56,14 @@ Guarda cada ficha en `<estado>/records/<codigo>.json`. Después corre:
 
 ```
 python3 scripts/portafolio.py snapshot --state <estado>
+python3 scripts/portafolio.py corrida --state <estado> --what sweep \
+    --documentos <cuántos se leyeron> --segundos <cuánto tardó> \
+    --nota "qué se movió, qué se omitió, qué hay que mirar"
 ```
 
-La instantánea es lo que permite el diff de la corrida siguiente. Registra en `<estado>/registro.log` qué leyó, qué movió y qué omitió.
+La instantánea es lo que permite el diff de la corrida siguiente. **`corrida` es lo que permite compartirla**: deja en `<estado>/corridas/` qué se corrió, sobre cuántos proyectos, cuántos hallazgos y de qué señal, y contra la corrida anterior cuántos más o menos — en JSON para la máquina y en markdown para quien no abre un JSON.
+
+Los dos son comandos y no indicaciones, a propósito. Antes esto decía «registra en `registro.log` qué leyó, qué movió y qué omitió», y en una corrida sobre cincuenta proyectos el archivo quedó vacío: una instrucción en prosa se salta sin que nada falle.
 
 ## Salida
 
