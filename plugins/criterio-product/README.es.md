@@ -42,19 +42,21 @@ construyendo**.
 
 ### Los once comandos
 
+> Se escriben con el prefijo del plugin: `/criterio-product:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
+
 | Comando | Qué hace |
 |---|---|
-| `/product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas |
-| `/product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada |
-| `/product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide |
-| `/product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden |
-| `/product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba |
-| `/product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados |
-| `/product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos |
-| `/product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce |
-| `/product-publish` | Publica tu ficha donde los demás productos la puedan leer |
-| `/product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
-| `/product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
+| `/criterio-product:product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas |
+| `/criterio-product:product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada |
+| `/criterio-product:product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide |
+| `/criterio-product:product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden |
+| `/criterio-product:product-trace` | Requerimiento → decisión → proyecto → entregable, y las dos brechas de arriba |
+| `/criterio-product:product-spec` | El borrador de especificación con criterios verificables y los vacíos señalados, no rellenados |
+| `/criterio-product:product-charter` | El acta de constitución: donde nace la ficha y el escritor cambia de manos |
+| `/criterio-product:product-business-case` | La estructura del caso de negocio con cada cifra citada, y los vacíos con quién los produce |
+| `/criterio-product:product-publish` | Publica tu ficha donde los demás productos la puedan leer |
+| `/criterio-product:product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
+| `/criterio-product:product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
 
 ### Los doce skills
 
@@ -95,7 +97,7 @@ las dos fechas, sí. Ese caso sale del corpus sintético, con la respuesta escri
 
 Y hay un segundo hallazgo de la misma clase: **lo decidido que nadie está construyendo.** Se
 decidió en un comité, se escribió en el acta, y no entró en el alcance de ningún proyecto; se
-descubre meses después, normalmente en otro comité. `/product-trace` lo encuentra, y encuentra
+descubre meses después, normalmente en otro comité. `/criterio-product:product-trace` lo encuentra, y encuentra
 además la brecha que nadie busca: **el proyecto que dice ejecutar tu producto, y cuya ficha
 dice que ejecuta otro.** Alba no le cree a su propio registro: lo confirma contra la ficha del
 proyecto, que tiene otro dueño y otra cadencia. Cuando las dos no coinciden, **el desacuerdo se
@@ -130,7 +132,7 @@ de apuntarlo a material confidencial. Descargo completo en
 ```
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-product@criterio
-/product-setup
+/criterio-product:product-setup
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
@@ -142,7 +144,7 @@ Si gestionas un proyecto y no un producto, lo tuyo es
 
 ### El primer resultado
 
-`/product-setup` mira tu carpeta, hace cuatro preguntas —una a la vez, cada una con una
+`/criterio-product:product-setup` mira tu carpeta, hace cuatro preguntas —una a la vez, cada una con una
 respuesta sugerida— y **toma la definición que ya tengas escrita y la parte en afirmaciones.**
 Con eso te muestra, en menos de diez minutos, tres listas:
 
@@ -153,7 +155,7 @@ Con eso te muestra, en menos de diez minutos, tres listas:
 Esa tercera lista es la que ninguna revisión encuentra, **porque leyendo un documento bien
 escrito todo parece sustentado.**
 
-**Lo que queda configurado** lo escribe `/product-setup` a partir de lo que respondiste, en tu
+**Lo que queda configurado** lo escribe `/criterio-product:product-setup` a partir de lo que respondiste, en tu
 equipo y en un archivo tuyo: dónde está la documentación del producto, dónde vive tu registro,
 cada cuánto se revisa, los cuatro umbrales, y el registro de que aceptaste los términos con tu
 nombre y la fecha. Todo eso se cambia **hablando**.
@@ -170,7 +172,7 @@ que la toma el código y no el criterio del momento:
 python3 scripts/producto.py due --state <estado> --config <archivo>
 ```
 
-Y `/product-wake` es el comando que el reloj invoca: mira qué cruzó un umbral mientras nadie
+Y `/criterio-product:product-wake` es el comando que el reloj invoca: mira qué cruzó un umbral mientras nadie
 miraba —un supuesto que lleva demasiado sin verificarse, una evidencia que envejeció, un
 requerimiento que nadie decide— y **si no cruzó nada no produce nada.** Callarse cuando no pasó
 nada no es una omisión — es la única razón por la que un agente que corre todas las semanas
@@ -193,7 +195,7 @@ por la ficha del proyecto, que es un documento más en la carpeta.
 | Con quién | Qué pasa |
 |---|---|
 | **Samuel** | Alba redacta el acta de constitución y con ella **crea** la ficha del proyecto. De ahí en adelante no la vuelve a escribir: la escribe él. Ella la lee para confirmar que el proyecto que dice construir su producto de verdad lo construye |
-| **Vera** | Lee la ficha del producto que Alba publica con `/product-publish`, para mirar el producto a través de todos los proyectos que lo construyen |
+| **Vera** | Lee la ficha del producto que Alba publica con `/criterio-product:product-publish`, para mirar el producto a través de todos los proyectos que lo construyen |
 | **Otros productos** | Cada uno publica su ficha, y Alba las lee para ver dónde se pisa: la misma métrica contada dos veces, el mismo proyecto o el mismo segmento |
 
 ## Pruebas

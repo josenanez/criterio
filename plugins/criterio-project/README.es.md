@@ -42,17 +42,19 @@ nombrado.
 
 ### Los nueve comandos
 
+> Se escriben con el prefijo del plugin: `/criterio-project:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
+
 | Comando | Qué hace |
 |---|---|
-| `/pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
-| `/pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
-| `/pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
-| `/pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
-| `/pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
-| `/pm-publish` | Publica tu ficha donde la PMO la puede leer |
-| `/pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
-| `/pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
-| `/pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
+| `/criterio-project:pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
+| `/criterio-project:pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
+| `/criterio-project:pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
+| `/criterio-project:pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |
+| `/criterio-project:pm-report` | El informe semanal completo **salvo el estado**, que lo declaras tú |
+| `/criterio-project:pm-publish` | Publica tu ficha donde la PMO la puede leer |
+| `/criterio-project:pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
+| `/criterio-project:pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
+| `/criterio-project:pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
 
 Tres de ellos son un ciclo, y por eso están: **el que arma la agenda antes recibe la minuta
 después.** Sin la agenda la reunión hereda el orden del día de la semana pasada; sin el acta,
@@ -77,7 +79,7 @@ la familia.
 
 ## Para qué sirve
 
-`/pm-commitments` extrae el compromiso de la minuta con doliente, fecha y fuente. Y hace algo
+`/criterio-project:pm-commitments` extrae el compromiso de la minuta con doliente, fecha y fuente. Y hace algo
 más, que es lo que separa un seguimiento útil de una lista que crece: **el mismo doliente
 prometiendo lo mismo con fecha nueva es un compromiso reprogramado, no uno nuevo.**
 
@@ -100,7 +102,7 @@ recoger lo que la reunión dejó dicho y **nadie escribió en ningún sistema.**
 - **No va a tu reunión.** Trabaja sobre lo que la reunión deja escrito, y produce lo que
   la reunión necesita.
 - **No escribe en tu carpeta de documentación.** Lo único que puede llegar a poner ahí
-  es tu ficha, y solo cuando corras `/pm-publish`.
+  es tu ficha, y solo cuando corras `/criterio-project:pm-publish`.
 - **No le escribe a nadie.** Produce la lista; perseguir un compromiso es una
   conversación, no un recordatorio automático.
 - **No marca cumplido lo que nadie documentó.** *«Rubén dice que lo entregó»* no cierra
@@ -124,7 +126,7 @@ políticas antes de apuntarlo a material confidencial. Descargo completo en
 ```
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-project@criterio
-/pm-setup
+/criterio-project:pm-setup
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
@@ -136,7 +138,7 @@ Si gestionas el portafolio y no un proyecto, lo tuyo es
 
 ### El primer resultado
 
-`/pm-setup` no te pide que ordenes nada antes de empezar. Mira la carpeta de tu
+`/criterio-project:pm-setup` no te pide que ordenes nada antes de empezar. Mira la carpeta de tu
 proyecto, hace cuatro preguntas —una a la vez, cada una con una respuesta sugerida— y
 **lee tu última minuta**. Con eso te muestra, en menos de diez minutos:
 
@@ -148,7 +150,7 @@ proyecto, hace cuatro preguntas —una a la vez, cada una con una respuesta suge
 Después te dice qué le falta a tu carpeta para que esto sea mejor. Como hallazgo, no
 como requisito: **funciona con lo que haya.**
 
-**Lo que queda configurado** lo escribe `/pm-setup` a partir de lo que respondiste, en tu
+**Lo que queda configurado** lo escribe `/criterio-project:pm-setup` a partir de lo que respondiste, en tu
 equipo y en un archivo tuyo: dónde está la carpeta del proyecto, qué día se reúnen, dónde vive
 tu ficha, los umbrales, y el registro de que aceptaste los términos con tu nombre y la fecha.
 Todo eso se cambia **hablando**.
@@ -165,7 +167,7 @@ fechas, así que la toma el código y no el criterio del momento:
 python3 scripts/portafolio.py due --state <estado> --config <archivo>
 ```
 
-Y `/pm-wake` es el comando que el reloj invoca: el día antes de la reunión prepara la agenda,
+Y `/criterio-project:pm-wake` es el comando que el reloj invoca: el día antes de la reunión prepara la agenda,
 el día después pide la minuta, una vez por semana arma el informe, y **si no toca nada no
 produce nada.** Callarse cuando no pasó nada no es una omisión — es la única razón por la que
 un agente que corre todos los días sigue instalado el mes siguiente.
@@ -187,7 +189,7 @@ por la ficha del proyecto, que es un documento más en la carpeta.
 | Con quién | Qué pasa |
 |---|---|
 | **Alba** | Entrega el acta de constitución, y con ella nace la ficha. Desde ese día el escritor es Samuel: **una ficha, un escritor** |
-| **Vera** | Samuel publica su ficha con `/pm-publish` y Vera la lee. Ella escribe la suya sobre los mismos documentos y **las dos no se fusionan**. Cuando no coinciden, la mitad de las veces el que tiene razón es el gerente, porque estuvo en la reunión donde cambió lo que el acta nunca actualizó |
+| **Vera** | Samuel publica su ficha con `/criterio-project:pm-publish` y Vera la lee. Ella escribe la suya sobre los mismos documentos y **las dos no se fusionan**. Cuando no coinciden, la mitad de las veces el que tiene razón es el gerente, porque estuvo en la reunión donde cambió lo que el acta nunca actualizó |
 | **Rostrum** | Publica el informe del proyecto en el portal, para quien no abre una carpeta |
 
 ## Pruebas

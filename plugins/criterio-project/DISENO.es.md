@@ -13,7 +13,7 @@ Marco general, definición de las clases y de las columnas:
 |---|---|
 | **Instancia** | Una por proyecto |
 | **Alcance** | Un proyecto. Profundidad, cadencia diaria o por reunión |
-| **Cadencia** | Gira alrededor de la reunión: la agenda antes, el acta después. `/pm-wake` mira de qué lado estás |
+| **Cadencia** | Gira alrededor de la reunión: la agenda antes, el acta después. `/criterio-project:pm-wake` mira de qué lado estás |
 | **Se distribuye** | Como `criterio-project`, plugin aparte, con los scripts copiados de `criterio-portfolio` |
 | **Escribe** | La ficha del proyecto — **excepto el estado declarado** |
 | **Publica** | `ficha-pm.json` en la carpeta de gobierno del proyecto, y nada más |
@@ -202,10 +202,10 @@ enterarse.
 | Mantener el expediente ordenado y trazable | La carpeta como esté | Cada dato con su ruta y su fecha; lo que no está, declarado | Construido |
 | Seguir los entregables del proveedor | Contrato, actas de recibo, facturación declarada | Vencidos sin evidencia, aceptados sin documento, factura sin entrega | Construido |
 | Ver si la replanificación se pasó de lo autorizado | Línea base de solo agregar y cambios aprobados | Días que se movió, días autorizados, días que nadie autorizó | Construido |
-| **Extraer y seguir los compromisos de cada reunión** | Minuta o transcripción | Compromisos con doliente, fecha y fuente; vencidos sin evidencia; sus reprogramaciones | **Construido**: `/pm-commitments`. Y un límite que conviene tener escrito: un compromiso sin fecha (`due_date: no_declarada`) el cálculo lo ignora y tampoco lo cuenta, así que el comando lo cuenta aparte a mano — es la razón por la que la sección «sin fecha» es obligatoria en la salida |
-| **Armar el informe de avance semanal** | Ficha, alertas y lo que cambió desde la corrida anterior | El informe completo salvo el estado declarado | **Construido**: `/pm-report`, con cadencia de proyecto y con la declaración pedida después de mostrar la evidencia, nunca antes |
-| **Armar la estructura de la reunión** | Alertas abiertas, compromisos vencidos, decisiones pendientes | Agenda con los puntos que necesitan a alguien, en orden | **Construido**: `/pm-agenda`, con lo que esta reunión no puede mover declarado aparte |
-| **Redactar el acta de la reunión** | Transcripción o notas | Acta con acuerdos, compromisos y decisiones, cada uno atribuido | **Construido**: `/pm-minutes`, que separa compromiso, decisión, intención sin doliente y riesgo dicho al pasar |
+| **Extraer y seguir los compromisos de cada reunión** | Minuta o transcripción | Compromisos con doliente, fecha y fuente; vencidos sin evidencia; sus reprogramaciones | **Construido**: `/criterio-project:pm-commitments`. Y un límite que conviene tener escrito: un compromiso sin fecha (`due_date: no_declarada`) el cálculo lo ignora y tampoco lo cuenta, así que el comando lo cuenta aparte a mano — es la razón por la que la sección «sin fecha» es obligatoria en la salida |
+| **Armar el informe de avance semanal** | Ficha, alertas y lo que cambió desde la corrida anterior | El informe completo salvo el estado declarado | **Construido**: `/criterio-project:pm-report`, con cadencia de proyecto y con la declaración pedida después de mostrar la evidencia, nunca antes |
+| **Armar la estructura de la reunión** | Alertas abiertas, compromisos vencidos, decisiones pendientes | Agenda con los puntos que necesitan a alguien, en orden | **Construido**: `/criterio-project:pm-agenda`, con lo que esta reunión no puede mover declarado aparte |
+| **Redactar el acta de la reunión** | Transcripción o notas | Acta con acuerdos, compromisos y decisiones, cada uno atribuido | **Construido**: `/criterio-project:pm-minutes`, que separa compromiso, decisión, intención sin doliente y riesgo dicho al pasar |
 
 ## B · Lo que hace, y hoy no se hace
 
@@ -213,10 +213,10 @@ enterarse.
 |---|---|---|---|
 | Revisar el acta de constitución y decir qué falta | El acta | Los campos ausentes con su consecuencia; sobre todo la autoridad del gerente | Construido |
 | Borrador del cierre y de las lecciones | Criterio de éxito pactado y la historia documental | Entregado contra comprometido, desviación final, lecciones con hecho y fecha | Construido |
-| Evaluar el efecto real de un cambio en el cronograma y en otros proyectos | El cambio y las dependencias declaradas | Los hitos propios por los que pasa el cambio, los proyectos alcanzados —directos e indirectos—, sus gerentes, y cuáles no pueden sostener su fecha | **Construido** · `portafolio.py impact`, dentro de `/pm-escalate`. Lo que no dice, y no se inventa: cuántos días se mueve cada uno |
-| Preparar el escalamiento con la decisión formulada | El ítem que excede su autoridad | La decisión como pregunta cerrada, con opciones, recomendación, y la consecuencia de no decidir con fecha | **Construido** · `/pm-escalate`. Y si lo que traías no escala, lo dice en vez de armar el paquete |
+| Evaluar el efecto real de un cambio en el cronograma y en otros proyectos | El cambio y las dependencias declaradas | Los hitos propios por los que pasa el cambio, los proyectos alcanzados —directos e indirectos—, sus gerentes, y cuáles no pueden sostener su fecha | **Construido** · `portafolio.py impact`, dentro de `/criterio-project:pm-escalate`. Lo que no dice, y no se inventa: cuántos días se mueve cada uno |
+| Preparar el escalamiento con la decisión formulada | El ítem que excede su autoridad | La decisión como pregunta cerrada, con opciones, recomendación, y la consecuencia de no decidir con fecha | **Construido** · `/criterio-project:pm-escalate`. Y si lo que traías no escala, lo dice en vez de armar el paquete |
 | **Detectar el compromiso reprogramado tres veces** | Historial de compromisos del mismo doliente sobre lo mismo | Un compromiso con su historial de reprogramaciones, señalado como bloqueo | **Construido.** `reschedules` en el esquema, `commitment_rescheduled` en el cálculo con su umbral, y la corrida lo verifica sobre PRY-001 |
-| **Primer borrador del plan y de la WBS** | El acta y proyectos análogos del portafolio | WBS por entregable, el orden por dependencia, los supuestos declarados como tales y los nodos sin definir **sin rellenar**. Las fechas van en blanco | **Construido** · `/pm-plan`. No compromete ninguna fecha: eso es autoridad |
+| **Primer borrador del plan y de la WBS** | El acta y proyectos análogos del portafolio | WBS por entregable, el orden por dependencia, los supuestos declarados como tales y los nodos sin definir **sin rellenar**. Las fechas van en blanco | **Construido** · `/criterio-project:pm-plan`. No compromete ninguna fecha: eso es autoridad |
 
 Tres veces reprogramado **no es un problema de seguimiento: es un bloqueo que nadie ha
 nombrado.** Es información distinta de tres compromisos vencidos, y es la que le sirve al
@@ -267,17 +267,17 @@ persona.** No por prudencia — por arquitectura.
 ## Lo que falta por construir, en orden
 
 1. ~~El plugin `criterio-project`~~ — **construido**, con la regla que mantiene iguales las copias.
-2. ~~El comando de compromisos~~ — **construido**: `/pm-commitments`, con `/pm-setup` delante.
-3. ~~Publicar la ficha~~ — **construido**: `/pm-publish`.
+2. ~~El comando de compromisos~~ — **construido**: `/criterio-project:pm-commitments`, con `/criterio-project:pm-setup` delante.
+3. ~~Publicar la ficha~~ — **construido**: `/criterio-project:pm-publish`.
 4. ~~El contraste `pm_vs_pmo` en código~~ — **construido**, del lado de Vera, con sus dos
    citas y con las cuatro formas de diferir distinguidas. Siete comprobaciones.
-5. ~~La estructura de la reunión~~ — **construido**: `/pm-agenda`. Cierra el ciclo, y es la
+5. ~~La estructura de la reunión~~ — **construido**: `/criterio-project:pm-agenda`. Cierra el ciclo, y es la
    de más apalancamiento: el que arma la agenda antes recibe la minuta después.
-6. ~~El informe semanal~~ — **construido**: `/pm-report`, con cadencia de proyecto.
-7. ~~El acta de la reunión~~ — **construido**: `/pm-minutes`.
-8. ~~El primer borrador del plan y de la WBS~~ — **construido**: `/pm-plan`, con los
+6. ~~El informe semanal~~ — **construido**: `/criterio-project:pm-report`, con cadencia de proyecto.
+7. ~~El acta de la reunión~~ — **construido**: `/criterio-project:pm-minutes`.
+8. ~~El primer borrador del plan y de la WBS~~ — **construido**: `/criterio-project:pm-plan`, con los
    proyectos análogos entrando como referencia citada y nunca como estimación.
-9. ~~El escalamiento con la decisión formulada~~ — **construido**: `/pm-escalate`, con el
+9. ~~El escalamiento con la decisión formulada~~ — **construido**: `/criterio-project:pm-escalate`, con el
    efecto del cambio calculado en vez de descrito.
 
 **Las tablas A y B quedan sin filas abiertas.** Lo que sigue pendiente no es construcción:

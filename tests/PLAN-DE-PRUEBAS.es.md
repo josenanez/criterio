@@ -102,10 +102,10 @@ corrida suelta no.
 ### Paso 0.4 · Configurar los tres agentes
 
 ```
-/portfolio-setup      → apuntar a .pruebas/corp-demo/documentos/proyectos
+/criterio-portfolio:portfolio-setup      → apuntar a .pruebas/corp-demo/documentos/proyectos
                         y el estado a .pruebas/corp-demo/estado
-/pm-setup             → un proyecto: .pruebas/corp-demo/documentos/proyectos/PRY-200-...
-/product-setup        → un producto: .pruebas/corp-demo/documentos/productos/PRD-300
+/criterio-project:pm-setup             → un proyecto: .pruebas/corp-demo/documentos/proyectos/PRY-200-...
+/criterio-product:product-setup        → un producto: .pruebas/corp-demo/documentos/productos/PRD-300
 ```
 
 **Evidencia:** `tests/evidencias/dia-0/setup-<agente>.md` con **cuántas preguntas hizo,
@@ -135,23 +135,23 @@ En este orden, que es el de uso real y no el alfabético:
 
 | # | Comando | Qué se verifica | Evidencia |
 |---|---|---|---|
-| 1 | `/portfolio-wake` | Que diga qué toca hoy — y que **se calle** si no toca nada | `wake.md` |
-| 2 | `/document-index` | Cuántos documentos cambiaron de verdad desde ayer, y cuántos no hubo que releer | `index.md` |
-| 3 | `/portfolio-scan` | Las cincuenta fichas, con cita en cada dato | `scan.md` |
-| 4 | `/portfolio-report` | Qué cambió, qué se contradice, qué está en silencio | `report.md` |
-| 5 | `/status-report` | Sobre tres proyectos: el semáforo declarado y lo que no explica | `status.md` |
-| 6 | `/health-check` | Un proyecto desde cero, sin mirar su informe | `health.md` |
-| 7 | `/project-history` | Desde cuándo lo declarado dejó de sostenerse | `history.md` |
-| 8 | `/raid-log` | Riesgos y dependencias, incluidos los dichos y no registrados | `raid.md` |
-| 9 | `/change-control` | Mover un proyecto 60 días: **a quién alcanza** | `change.md` |
-| 10 | `/budget-tracking` | Las cuatro cifras, y la desviación contra las dos líneas base | `budget.md` |
-| 11 | `/vendor-tracking` | Contrato contra recibo contra factura | `vendor.md` |
-| 12 | `/product-view` | Un producto a través de los proyectos que lo construyen | `product-view.md` |
-| 13 | `/project-charter` | Revisar un acta: qué le falta y qué consecuencia tiene | `charter.md` |
-| 14 | `/project-closure` | Cerrar contra el criterio pactado | `closure.md` |
-| 15 | `/steering-pack` | El material del comité, como paquete de decisiones | `steering.md` |
-| 16 | `/portfolio-server` | Levantar Rostrum | `server.md` |
-| 17 | `/portfolio-setup` | **Solo el día 1.** Del 2 al 5 no debe hacer falta | — |
+| 1 | `/criterio-portfolio:portfolio-wake` | Que diga qué toca hoy — y que **se calle** si no toca nada | `wake.md` |
+| 2 | `/criterio-portfolio:document-index` | Cuántos documentos cambiaron de verdad desde ayer, y cuántos no hubo que releer | `index.md` |
+| 3 | `/criterio-portfolio:portfolio-scan` | Las cincuenta fichas, con cita en cada dato | `scan.md` |
+| 4 | `/criterio-portfolio:portfolio-report` | Qué cambió, qué se contradice, qué está en silencio | `report.md` |
+| 5 | `/criterio-portfolio:status-report` | Sobre tres proyectos: el semáforo declarado y lo que no explica | `status.md` |
+| 6 | `/criterio-portfolio:health-check` | Un proyecto desde cero, sin mirar su informe | `health.md` |
+| 7 | `/criterio-portfolio:project-history` | Desde cuándo lo declarado dejó de sostenerse | `history.md` |
+| 8 | `/criterio-portfolio:raid-log` | Riesgos y dependencias, incluidos los dichos y no registrados | `raid.md` |
+| 9 | `/criterio-portfolio:change-control` | Mover un proyecto 60 días: **a quién alcanza** | `change.md` |
+| 10 | `/criterio-portfolio:budget-tracking` | Las cuatro cifras, y la desviación contra las dos líneas base | `budget.md` |
+| 11 | `/criterio-portfolio:vendor-tracking` | Contrato contra recibo contra factura | `vendor.md` |
+| 12 | `/criterio-portfolio:product-view` | Un producto a través de los proyectos que lo construyen | `product-view.md` |
+| 13 | `/criterio-portfolio:project-charter` | Revisar un acta: qué le falta y qué consecuencia tiene | `charter.md` |
+| 14 | `/criterio-portfolio:project-closure` | Cerrar contra el criterio pactado | `closure.md` |
+| 15 | `/criterio-portfolio:steering-pack` | El material del comité, como paquete de decisiones | `steering.md` |
+| 16 | `/criterio-portfolio:portfolio-server` | Levantar Rostrum | `server.md` |
+| 17 | `/criterio-portfolio:portfolio-setup` | **Solo el día 1.** Del 2 al 5 no debe hacer falta | — |
 
 **Qué anotar en cada evidencia**, y es lo mismo para los tres agentes: el comando, cuánto
 tardó, cuántos documentos leyó, qué produjo, **cuántos hallazgos y de qué señal**, y —lo
@@ -163,23 +163,23 @@ ninguna parte»* sobre cincuenta proyectos está rellenando huecos.
 Sobre **tres proyectos distintos cada día**, rotando, para que al quinto día haya quince
 proyectos vistos desde adentro.
 
-`/pm-wake` · `/pm-agenda` · `/pm-minutes` · `/pm-commitments` · `/pm-report` ·
-`/pm-plan` · `/pm-escalate` · `/pm-publish` · (`/pm-setup` solo el día 1)
+`/criterio-project:pm-wake` · `/criterio-project:pm-agenda` · `/criterio-project:pm-minutes` · `/criterio-project:pm-commitments` · `/criterio-project:pm-report` ·
+`/criterio-project:pm-plan` · `/criterio-project:pm-escalate` · `/criterio-project:pm-publish` · (`/criterio-project:pm-setup` solo el día 1)
 
-**Lo que hay que ver en particular:** que `/pm-commitments` reconozca el compromiso que el
+**Lo que hay que ver en particular:** que `/criterio-project:pm-commitments` reconozca el compromiso que el
 simulador reprogramó —el mismo doliente, lo mismo, fecha nueva— como **uno reprogramado y
-no como tres**. Y que `/pm-publish` deje la ficha donde Vera la lea: el día siguiente,
-`/portfolio-scan` tiene que encontrar la diferencia entre las dos fichas.
+no como tres**. Y que `/criterio-project:pm-publish` deje la ficha donde Vera la lea: el día siguiente,
+`/criterio-portfolio:portfolio-scan` tiene que encontrar la diferencia entre las dos fichas.
 
 ### Paso 4 · Los once comandos de Alba
 
 Sobre **cuatro productos distintos cada día**, rotando.
 
-`/product-wake` · `/product-discovery` · `/product-requirements` · `/product-definition` ·
-`/product-trace` · `/product-spec` · `/product-business-case` · `/product-charter` ·
-`/product-overlap` · `/product-publish` · (`/product-setup` solo el día 1)
+`/criterio-product:product-wake` · `/criterio-product:product-discovery` · `/criterio-product:product-requirements` · `/criterio-product:product-definition` ·
+`/criterio-product:product-trace` · `/criterio-product:product-spec` · `/criterio-product:product-business-case` · `/criterio-product:product-charter` ·
+`/criterio-product:product-overlap` · `/criterio-product:product-publish` · (`/criterio-product:product-setup` solo el día 1)
 
-**Lo que hay que ver:** que `/product-overlap` encuentre los productos que comparten
+**Lo que hay que ver:** que `/criterio-product:product-overlap` encuentre los productos que comparten
 métrica, proyecto o segmento — con sesenta y cinco productos, tiene que haber varios.
 
 ### Paso 5 · El servidor
@@ -190,7 +190,7 @@ Con Rostrum levantado:
 2. Entrar a un proyecto y a un producto, y comprobar que el enlace entre los dos va en los
    dos sentidos.
 3. **Dejar una pregunta escrita** desde el portal.
-4. Al día siguiente, comprobar que `/portfolio-wake` la recogió.
+4. Al día siguiente, comprobar que `/criterio-portfolio:portfolio-wake` la recogió.
 
 **Evidencia:** `tests/evidencias/dia-N/servidor.md`, con capturas de las tres secciones.
 

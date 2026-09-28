@@ -24,8 +24,8 @@ changes how it gets used — **it lets them leave the agent written questions.**
 The report first, Rostrum second. **Rostrum does not generate the report: it holds it up.**
 
 ```
-/portfolio-report html
-/portfolio-server
+/criterio-portfolio:portfolio-report html
+/criterio-portfolio:portfolio-server
 ```
 
 Or by hand, which is what the command does:

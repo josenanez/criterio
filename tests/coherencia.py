@@ -485,7 +485,8 @@ for d in CONSTRUIDOS:
             decir(FALLA, f"{d.name}/{nombre} no existe")
             continue
         cuerpo = pagina.read_text(encoding="utf-8")
-        faltan = [c for c in suyos if f"`/{c}`" not in cuerpo]
+        # Con el prefijo del plugin, que es la única forma que resuelve en una sesión.
+        faltan = [c for c in suyos if f"`/{d.name}:{c}`" not in cuerpo]
         if faltan:
             decir(FALLA, f"{d.name}/{nombre} no lista {', '.join(faltan)}")
         else:
@@ -650,6 +651,36 @@ for nombre, patron, donde in [
     else:
         decir(NOTA, f"{nombre} solo existe en markdown ({donde}); el modelo tendría que "
                     f"calcularlo por su cuenta")
+
+# ── que el comando documentado sea el que se puede escribir ───────────────
+# Claude Code nombra el comando de un plugin como `/<plugin>:<comando>`, siempre y sin
+# forma de evitarlo. Las páginas decían `/portfolio-setup`, que no resuelve: lo primero
+# que hace quien descarga el plugin es escribir lo que dice el README, y le fallaba en el
+# minuto uno. Ninguna puerta lo atrapaba porque el markdown no se ejecuta.
+print("\nQue el comando documentado sea el que se puede escribir")
+import subprocess as _sp
+
+MAPA_CMD = {f.stem: plug for plug in ("criterio-portfolio", "criterio-project",
+                                      "criterio-product")
+            for f in (RAIZ / "plugins" / plug / "commands").glob("*.md")}
+_patron_cmd = re.compile(r"(?<![\w:/-])/(" + "|".join(MAPA_CMD) + r")(?![\w-])")
+_seguidos = _sp.run(["git", "-C", str(RAIZ), "ls-files", "*.md"],
+                    capture_output=True, text=True).stdout.split()
+_sin_prefijo = []
+for _s in _seguidos:
+    _p = RAIZ / _s
+    # En commands/ y skills/ el nombre desnudo es el del archivo, no una invocación.
+    if "commands" in Path(_s).parts or "skills" in Path(_s).parts or not _p.is_file():
+        continue
+    for _m in _patron_cmd.finditer(_p.read_text(encoding="utf-8")):
+        _sin_prefijo.append(f"{_s} · {_m.group(0)}")
+if _sin_prefijo:
+    decir(FALLA, f"{len(_sin_prefijo)} referencias sin el prefijo del plugin, empezando "
+                 f"por {_sin_prefijo[0]} — quien la escriba no encuentra el comando")
+    for _x in _sin_prefijo[1:6]:
+        decir(FALLA, _x)
+else:
+    decir(OK, f"los {len(MAPA_CMD)} comandos se citan como /<plugin>:<comando>")
 
 print(f"\n{'coherente' if not fallas else f'{fallas} INCONSISTENCIAS'}")
 sys.exit(0 if not fallas else 1)

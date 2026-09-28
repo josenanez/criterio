@@ -85,7 +85,7 @@ Conviene decirlo antes de que alguien lo suponga.
   cumple*— no se puede verificar con una aserción. Lo que sí está escrito es el estado **«no
   tengo la norma a la vista»**, para que un vacío del agente no se lea como un cumplimiento.
 - **La costura con el proyecto está construida y no corrida de punta a punta.**
-  `/product-charter` crea la ficha y `/product-trace` la lee; el contraste está verificado
+  `/criterio-product:product-charter` crea la ficha y `/criterio-product:product-trace` la lee; el contraste está verificado
   con cuatro comprobaciones sobre fichas sintéticas. Lo que falta es que un agente de verdad
   cree la ficha y otro de verdad la escriba después.
 

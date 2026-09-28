@@ -107,7 +107,7 @@ solo.
 
 Lo único que escribe es la **cola de peticiones**, en una carpeta suya. Alguien deja
 una pregunta y el agente la atiende al despertar. Esa cola es la única cosa que rompe
-el silencio de `/portfolio-wake` sin ser aritmética de fechas, porque una persona preguntó.
+el silencio de `/criterio-portfolio:portfolio-wake` sin ser aritmética de fechas, porque una persona preguntó.
 **El camino de escritura hacia la ficha no existe en ese archivo**, y el selftest lo
 comprueba: escribe una petición y verifica que la ficha no cambió.
 
@@ -123,28 +123,28 @@ contrario, y cuando se le dice, lo advierte.
 | Función | Entra | Produce o mantiene | Estado |
 |---|---|---|---|
 | Convertir la documentación a texto legible | La carpeta como esté, en los formatos que haya | Markdown en caché, y la lista de lo que no se pudo leer con la razón | Construido · `texto.py` |
-| Decidir qué hay que releer | El conjunto de archivos y `meta.documents_seen` con sus dos hashes | Qué cambió, qué se reguardó sin cambiar, qué se renombró o se borró, y qué citas dejaron de resolver | Construido · `/document-index` |
-| Consolidar el estado del portafolio | Documentos de cada proyecto | Una ficha por proyecto, con cita y fecha en cada campo, y el consolidado | Construido · `/portfolio-scan`, `/portfolio-report` |
-| Armar el material de comité y el informe de dirección | Fichas, alertas, compromisos abiertos | Paquete de decisiones en borrador, con la consecuencia de no decidir | Construido · `/steering-pack` |
+| Decidir qué hay que releer | El conjunto de archivos y `meta.documents_seen` con sus dos hashes | Qué cambió, qué se reguardó sin cambiar, qué se renombró o se borró, y qué citas dejaron de resolver | Construido · `/criterio-portfolio:document-index` |
+| Consolidar el estado del portafolio | Documentos de cada proyecto | Una ficha por proyecto, con cita y fecha en cada campo, y el consolidado | Construido · `/criterio-portfolio:portfolio-scan`, `/criterio-portfolio:portfolio-report` |
+| Armar el material de comité y el informe de dirección | Fichas, alertas, compromisos abiertos | Paquete de decisiones en borrador, con la consecuencia de no decidir | Construido · `/criterio-portfolio:steering-pack` |
 | Contrastar la declaración de cada gerente contra la evidencia | `declared` de cada ficha y las alertas calculadas | `declared.unaccounted_signals`, `declared_vs_evidence`, `totals.green_contradicted` | Construido |
-| Verificar que exista acta, línea base, doliente y autoridad | Documentos de gobierno y la ficha | `has_baseline`, `fields_missing`, `no_authority`, y la consecuencia de cada vacío | Construido · `/project-charter` |
-| Seguir los compromisos del comité | Minutas y transcripciones | Compromisos con doliente, fecha y fuente; vencidos, sin fecha, y reprogramados | Construido · `/raid-log` |
-| Las cuatro cifras del presupuesto | Aprobado, contratos, ejecución, proyección declarada | Disponible real, % ejecutado, % comprometido, sobrecosto de la proyección | Construido · `/budget-tracking` |
-| Cruzar entregables de proveedor contra evidencia y facturación | Contratos, actas de recibo, facturación, monto por entregable | Vencidos sin evidencia, aceptados sin documento, factura sin entrega, factura sobre lo aceptado | Construido · `/vendor-tracking` |
+| Verificar que exista acta, línea base, doliente y autoridad | Documentos de gobierno y la ficha | `has_baseline`, `fields_missing`, `no_authority`, y la consecuencia de cada vacío | Construido · `/criterio-portfolio:project-charter` |
+| Seguir los compromisos del comité | Minutas y transcripciones | Compromisos con doliente, fecha y fuente; vencidos, sin fecha, y reprogramados | Construido · `/criterio-portfolio:raid-log` |
+| Las cuatro cifras del presupuesto | Aprobado, contratos, ejecución, proyección declarada | Disponible real, % ejecutado, % comprometido, sobrecosto de la proyección | Construido · `/criterio-portfolio:budget-tracking` |
+| Cruzar entregables de proveedor contra evidencia y facturación | Contratos, actas de recibo, facturación, monto por entregable | Vencidos sin evidencia, aceptados sin documento, factura sin entrega, factura sobre lo aceptado | Construido · `/criterio-portfolio:vendor-tracking` |
 | Detectar dependencias entre proyectos | Dependencias declaradas con el código del otro proyecto | El cruce con la fecha vigente del otro, y si fue confirmada o solo declarada | Construido |
-| Reconciliar la replanificación contra lo autorizado | Línea base de solo agregar y cambios aprobados | Días que se movió, días autorizados, días que ningún documento autoriza | Construido · `/change-control` |
-| Mirar el portafolio por producto | `identity.product` de cada ficha | El estado del producto a través de sus proyectos, y los que no declaran producto | Construido · `/product-view` |
+| Reconciliar la replanificación contra lo autorizado | Línea base de solo agregar y cambios aprobados | Días que se movió, días autorizados, días que ningún documento autoriza | Construido · `/criterio-portfolio:change-control` |
+| Mirar el portafolio por producto | `identity.product` de cada ficha | El estado del producto a través de sus proyectos, y los que no declaran producto | Construido · `/criterio-portfolio:product-view` |
 
 ## B · Lo que hace, y hoy no se hace
 
 | Función | Entra | Produce o mantiene | Estado |
 |---|---|---|---|
 | Detectar contradicciones entre documentos | Dos o más documentos que hablan del mismo campo | Campo en `ambiguous` con las dos fuentes y sus fechas; alerta sin umbral | Construido |
-| Health check de un proyecto contra evidencia | Toda la documentación, sin ficha previa | Dictamen de tres estados, y lo que la carpeta no permite saber | Construido · `/health-check` |
-| Reconstruir el historial: qué pasó en catorce meses | Los documentos ordenados por fecha | Línea de tiempo, replanificaciones, atraso acumulado, y el punto de separación | Construido · `/project-history` |
-| Lecciones ancladas a hechos documentados | Criterio de éxito del acta y la historia documental | Lecciones que nombran hecho, fecha y efecto | Construido · `/project-closure` |
-| Borrador del paquete de decisión | Alertas escaladas y la autoridad declarada | La decisión formulada como pregunta cerrada, con opciones | Construido · `/steering-pack` |
-| Impacto de un cambio en el resto del portafolio | El cambio propuesto y las dependencias declaradas | Proyectos alcanzados —directos e indirectos, con su camino—, sus gerentes, quién no puede sostener su fecha y por cuántos días, y qué dependencia nunca se confirmó | **Construido** · `portafolio.py impact`, dentro de `/change-control`. Quince comprobaciones, incluido el ciclo de dependencias |
+| Health check de un proyecto contra evidencia | Toda la documentación, sin ficha previa | Dictamen de tres estados, y lo que la carpeta no permite saber | Construido · `/criterio-portfolio:health-check` |
+| Reconstruir el historial: qué pasó en catorce meses | Los documentos ordenados por fecha | Línea de tiempo, replanificaciones, atraso acumulado, y el punto de separación | Construido · `/criterio-portfolio:project-history` |
+| Lecciones ancladas a hechos documentados | Criterio de éxito del acta y la historia documental | Lecciones que nombran hecho, fecha y efecto | Construido · `/criterio-portfolio:project-closure` |
+| Borrador del paquete de decisión | Alertas escaladas y la autoridad declarada | La decisión formulada como pregunta cerrada, con opciones | Construido · `/criterio-portfolio:steering-pack` |
+| Impacto de un cambio en el resto del portafolio | El cambio propuesto y las dependencias declaradas | Proyectos alcanzados —directos e indirectos, con su camino—, sus gerentes, quién no puede sostener su fecha y por cuántos días, y qué dependencia nunca se confirmó | **Construido** · `portafolio.py impact`, dentro de `/criterio-portfolio:change-control`. Quince comprobaciones, incluido el ciclo de dependencias |
 
 **La calibración por gerente se descartó**, y conviene dejar escrito por qué para que no
 vuelva como buena idea. Es el subproducto natural de guardar corridas: con el tiempo se sabe,

@@ -41,25 +41,27 @@ explica, y a quién alcanza mover un proyecto.
 
 ### Los diecisiete comandos
 
+> Se escriben con el prefijo del plugin: `/criterio-portfolio:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
+
 | Comando | Qué hace |
 |---|---|
-| `/portfolio-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
-| `/portfolio-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
-| `/portfolio-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
-| `/document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
-| `/portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
-| `/portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
-| `/status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica |
-| `/health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
-| `/project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
-| `/steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
-| `/raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
-| `/change-control` | Evalúa un cambio en alcance, tiempo y costo, calcula a quién alcanza, y crea línea base nueva sin borrar la anterior |
-| `/budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
-| `/vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
-| `/product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
-| `/project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
-| `/project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
+| `/criterio-portfolio:portfolio-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
+| `/criterio-portfolio:portfolio-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
+| `/criterio-portfolio:portfolio-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
+| `/criterio-portfolio:document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
+| `/criterio-portfolio:portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
+| `/criterio-portfolio:portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
+| `/criterio-portfolio:status-report` | Estado de un proyecto, y las señales que su semáforo declarado no explica |
+| `/criterio-portfolio:health-check` | Diagnostica un proyecto desde cero contra la evidencia, sin asumir nada de su informe |
+| `/criterio-portfolio:project-history` | Qué pasó en un proyecto, con la línea de tiempo y desde cuándo lo declarado no se sostiene |
+| `/criterio-portfolio:steering-pack` | Material de comité como paquete de decisiones, no como informe de avance |
+| `/criterio-portfolio:raid-log` | Riesgos, supuestos, incidencias y dependencias, incluidos los que se dijeron y nadie registró |
+| `/criterio-portfolio:change-control` | Evalúa un cambio en alcance, tiempo y costo, calcula a quién alcanza, y crea línea base nueva sin borrar la anterior |
+| `/criterio-portfolio:budget-tracking` | Aprobado, comprometido, ejecutado y proyección, con desviación contra las dos líneas base |
+| `/criterio-portfolio:vendor-tracking` | Entregables contractuales contra evidencia de recibo y contra facturación |
+| `/criterio-portfolio:product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
+| `/criterio-portfolio:project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
+| `/criterio-portfolio:project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
 
 ### Los diez skills
 
@@ -91,7 +93,7 @@ nadie porque exige mirar el grafo completo de dependencias del portafolio a la v
 > que enterarse.
 
 Ese caso sale del corpus sintético, con la respuesta escrita a mano **antes** de correr el
-cálculo. Es la clase de pregunta que solo se puede responder desde arriba: `/change-control`
+cálculo. Es la clase de pregunta que solo se puede responder desde arriba: `/criterio-portfolio:change-control`
 la calcula, y dice además a quién hay que avisarle y qué dependencias están sin confirmar.
 
 Y es la misma razón por la que Vera existe. Lo que hace no es leer mejor un proyecto —para eso
@@ -137,7 +139,7 @@ antes de apuntarlo a material confidencial. Descargo completo en
 ```
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-portfolio@criterio
-/portfolio-setup
+/criterio-portfolio:portfolio-setup
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
@@ -166,7 +168,7 @@ Al final te dice cuánto tomaría el portafolio completo, y qué le falta a tu c
 el análisis sea mejor. Pero como hallazgo, no como requisito: **esto funciona con lo que
 haya.**
 
-**Lo que queda configurado** lo escribe `/portfolio-setup` a partir de lo que respondiste, en tu
+**Lo que queda configurado** lo escribe `/criterio-portfolio:portfolio-setup` a partir de lo que respondiste, en tu
 equipo y en un archivo tuyo: dónde están los documentos, dónde vive el estado, tu cadencia de
 comité, la forma del informe, los umbrales que le hacen levantar la voz, y el registro de que
 aceptaste los términos, con tu nombre y la fecha. Todo eso se cambia **hablando**: si quieres
@@ -187,7 +189,7 @@ momento:
 python3 scripts/portafolio.py due --state <estado> --config <archivo>
 ```
 
-Y `/portfolio-wake` es el comando que el reloj invoca: mira qué toca, lo hace, y **si no toca nada
+Y `/criterio-portfolio:portfolio-wake` es el comando que el reloj invoca: mira qué toca, lo hace, y **si no toca nada
 no produce nada.** Callarse cuando no pasó nada no es una omisión — es la única razón por la
 que un agente que corre todos los días sigue instalado el mes siguiente.
 
@@ -202,7 +204,7 @@ programador del sistema en Claude Code. **Y si no quieren corridas desatendidas*
 banco es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo
 que se pierde es que avise sin que nadie pregunte.
 
-**Y si quieres que tu patrocinador lo vea sin pedírtelo**, `/portfolio-server` levanta **Rostrum**,
+**Y si quieres que tu patrocinador lo vea sin pedírtelo**, `/criterio-portfolio:portfolio-server` levanta **Rostrum**,
 el servidor de esta familia: un portal con tres secciones —informes de la PMO, proyectos y
 productos— donde quien mira puede además **dejarle una pregunta escrita al agente**, que
 queda en la cola y se atiende en la siguiente corrida. No autentica a nadie, y es a
@@ -216,7 +218,7 @@ por la ficha del proyecto, que es un documento más en la carpeta.
 
 | Con quién | Qué pasa |
 |---|---|
-| **Samuel** | Publica la ficha de su proyecto con `/pm-publish`, y Vera la lee como lee cualquier documento. **Las dos fichas no se fusionan nunca**, y cuando las dos citan y no coinciden, alguien vio un papel que el otro no vio — con la fecha de cada fuente, para saber cuál es más reciente |
+| **Samuel** | Publica la ficha de su proyecto con `/criterio-project:pm-publish`, y Vera la lee como lee cualquier documento. **Las dos fichas no se fusionan nunca**, y cuando las dos citan y no coinciden, alguien vio un papel que el otro no vio — con la fecha de cada fuente, para saber cuál es más reciente |
 | **Alba** | Redacta el acta de constitución con la que nace la ficha del proyecto. Vera la recibe ya escrita y la revisa contra la evidencia |
 | **Rostrum** | Publica el informe de Vera donde el equipo lo lea, y le devuelve las preguntas que deja quien lo mira. **No escribe nunca la ficha** |
 

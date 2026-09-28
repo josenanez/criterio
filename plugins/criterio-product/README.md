@@ -42,19 +42,21 @@ building**.
 
 ### The eleven commands
 
+> They are typed with the plugin prefix: `/criterio-product:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
+
 | Command | What it does |
 |---|---|
-| `/product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have |
-| `/product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme that has gone months said without anybody turning it into anything |
-| `/product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted without anybody asking for it, and what nobody decides |
-| `/product-definition` | The definition against the evidence of demand, and where the business and the data do not match |
-| `/product-trace` | Requirement → decision → project → deliverable, and the two gaps above |
-| `/product-spec` | The draft specification with verifiable criteria and the gaps pointed out, not filled in |
-| `/product-charter` | The project charter: where the record is born and the writer changes hands |
-| `/product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them |
-| `/product-publish` | Publishes your record where the other products can read it |
-| `/product-overlap` | Where you step on another product: the same metric counted twice, the same project, the same segment |
-| `/product-wake` | **The one you put on a clock.** What crossed a threshold without anybody doing anything |
+| `/criterio-product:product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have |
+| `/criterio-product:product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme that has gone months said without anybody turning it into anything |
+| `/criterio-product:product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted without anybody asking for it, and what nobody decides |
+| `/criterio-product:product-definition` | The definition against the evidence of demand, and where the business and the data do not match |
+| `/criterio-product:product-trace` | Requirement → decision → project → deliverable, and the two gaps above |
+| `/criterio-product:product-spec` | The draft specification with verifiable criteria and the gaps pointed out, not filled in |
+| `/criterio-product:product-charter` | The project charter: where the record is born and the writer changes hands |
+| `/criterio-product:product-business-case` | The business case's structure with every figure cited, and the gaps with who produces them |
+| `/criterio-product:product-publish` | Publishes your record where the other products can read it |
+| `/criterio-product:product-overlap` | Where you step on another product: the same metric counted twice, the same project, the same segment |
+| `/criterio-product:product-wake` | **The one you put on a clock.** What crossed a threshold without anybody doing anything |
 
 ### The twelve skills
 
@@ -95,7 +97,7 @@ running the calculation.
 
 And there is a second finding of the same kind: **what was decided and nobody is building.** It
 was decided in a committee, written in the minutes, and never entered any project's scope; it is
-discovered months later, usually in another committee. `/product-trace` finds it, and also finds
+discovered months later, usually in another committee. `/criterio-product:product-trace` finds it, and also finds
 the gap nobody looks for: **the project that says it builds your product, and whose record says
 it builds another.** Alba does not believe her own register: she confirms it against the
 project's record, which has another owner and another cadence. When the two do not match, **the
@@ -130,7 +132,7 @@ before pointing it at confidential material. Full disclaimer in
 ```
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-product@criterio
-/product-setup
+/criterio-product:product-setup
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
@@ -141,7 +143,7 @@ the portfolio, [Vera](../criterio-portfolio/README.md).
 
 ### The first result
 
-`/product-setup` looks at your folder, asks four questions — one at a time, each with a suggested
+`/criterio-product:product-setup` looks at your folder, asks four questions — one at a time, each with a suggested
 answer — and **takes the definition you already have written and breaks it into claims.** With
 that it shows you, in under ten minutes, three lists:
 
@@ -152,7 +154,7 @@ that it shows you, in under ten minutes, three lists:
 That third list is the one no review finds, **because reading a well-written document everything
 looks supported.**
 
-**What ends up configured** is written by `/product-setup` from your answers, on your machine and
+**What ends up configured** is written by `/criterio-product:product-setup` from your answers, on your machine and
 in a file of yours: where the product's documentation is, where your register lives, how often it
 is reviewed, the four thresholds, and the record that you accepted the terms, with your name and
 the date. All of that is changed **by talking**.
@@ -169,7 +171,7 @@ arithmetic, so the code takes it and not the judgement of the moment:
 python3 scripts/producto.py due --state <state> --config <file>
 ```
 
-And `/product-wake` is the command the clock invokes: it looks at what crossed a threshold while
+And `/criterio-product:product-wake` is the command the clock invokes: it looks at what crossed a threshold while
 nobody was watching — an assumption that has gone too long unverified, evidence that aged, a
 requirement nobody decides — and **if nothing crossed it produces nothing.** Staying quiet when
 nothing happened is not an omission — it is the only reason an agent that runs every week is
@@ -192,7 +194,7 @@ meet through the project record, which is one more document in the folder.
 | With whom | What happens |
 |---|---|
 | **Samuel** | Alba writes the project charter and with it **creates** the project record. From then on she never writes it again: he does. She reads it to confirm that the project claiming to build her product really builds it |
-| **Vera** | Reads the product record Alba publishes with `/product-publish`, to look at the product through all the projects building it |
+| **Vera** | Reads the product record Alba publishes with `/criterio-product:product-publish`, to look at the product through all the projects building it |
 | **Other products** | Each publishes its record, and Alba reads them to see where she steps on another: the same metric counted twice, the same project or the same segment |
 
 ## Tests

@@ -41,17 +41,19 @@ has named.
 
 ### The nine commands
 
+> They are typed with the plugin prefix: `/criterio-project:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
+
 | Command | What it does |
 |---|---|
-| `/pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your last minutes |
-| `/pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
-| `/pm-minutes` | The minutes over the transcript or the notes, with everything attributed to a person |
-| `/pm-commitments` | Who promised what, what fell due with no evidence, and what keeps being rescheduled meeting after meeting |
-| `/pm-report` | The full weekly report **except the status**, which you declare |
-| `/pm-publish` | Publishes your record where the PMO can read it |
-| `/pm-plan` | The first draft of the plan and the WBS from the charter, **without committing to any date** |
-| `/pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
-| `/pm-wake` | **The one you put on a clock.** Looks at what is due according to your meeting, and if nothing is due it stays quiet |
+| `/criterio-project:pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your last minutes |
+| `/criterio-project:pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
+| `/criterio-project:pm-minutes` | The minutes over the transcript or the notes, with everything attributed to a person |
+| `/criterio-project:pm-commitments` | Who promised what, what fell due with no evidence, and what keeps being rescheduled meeting after meeting |
+| `/criterio-project:pm-report` | The full weekly report **except the status**, which you declare |
+| `/criterio-project:pm-publish` | Publishes your record where the PMO can read it |
+| `/criterio-project:pm-plan` | The first draft of the plan and the WBS from the charter, **without committing to any date** |
+| `/criterio-project:pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
+| `/criterio-project:pm-wake` | **The one you put on a clock.** Looks at what is due according to your meeting, and if nothing is due it stays quiet |
 
 Three of them are a cycle, and that is why they are there: **the one that builds the agenda
 before receives the minutes after.** Without the agenda the meeting inherits last week's order
@@ -76,7 +78,7 @@ because a risk is a risk whoever looks at it and the record is the whole family'
 
 ## What it is for
 
-`/pm-commitments` extracts the commitment from the minutes with owner, date and source. And it
+`/criterio-project:pm-commitments` extracts the commitment from the minutes with owner, date and source. And it
 does one more thing, which is what separates useful tracking from a list that just grows: **the
 same owner promising the same thing with a new date is a rescheduled commitment, not a new
 one.**
@@ -100,7 +102,7 @@ do, but to pick up what the meeting left said and **nobody wrote into any system
 - **It does not attend your meeting.** It works on what the meeting leaves written, and produces
   what the meeting needs.
 - **It does not write in your documentation folder.** The only thing it may ever put there is
-  your record, and only when you run `/pm-publish`.
+  your record, and only when you run `/criterio-project:pm-publish`.
 - **It does not write to anybody.** It produces the list; chasing a commitment is a
   conversation, not an automatic reminder.
 - **It does not mark as done what nobody documented.** *«Rubén says he delivered it»* closes
@@ -124,7 +126,7 @@ before pointing it at confidential material. Full disclaimer in
 ```
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-project@criterio
-/pm-setup
+/criterio-project:pm-setup
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
@@ -136,7 +138,7 @@ If you run the portfolio and not a project, yours is
 
 ### The first result
 
-`/pm-setup` does not ask you to tidy anything up before starting. It looks at your project's
+`/criterio-project:pm-setup` does not ask you to tidy anything up before starting. It looks at your project's
 folder, asks four questions — one at a time, each with a suggested answer — and **reads your
 last minutes**. With that it shows you, in under ten minutes:
 
@@ -148,7 +150,7 @@ last minutes**. With that it shows you, in under ten minutes:
 Then it tells you what your folder is missing for this to be better. As a finding, not as a
 requirement: **it works with whatever is there.**
 
-**What ends up configured** is written by `/pm-setup` from your answers, on your machine and in a
+**What ends up configured** is written by `/criterio-project:pm-setup` from your answers, on your machine and in a
 file of yours: where the project's folder is, which day you meet, where your record lives, the
 thresholds, and the record that you accepted the terms, with your name and the date. All of that
 is changed **by talking**.
@@ -165,7 +167,7 @@ date arithmetic, so the code takes it and not the judgement of the moment:
 python3 scripts/portafolio.py due --state <state> --config <file>
 ```
 
-And `/pm-wake` is the command the clock invokes: the day before the meeting it prepares the
+And `/criterio-project:pm-wake` is the command the clock invokes: the day before the meeting it prepares the
 agenda, the day after it asks for the minutes, once a week it builds the report, and **if nothing
 is due it produces nothing.** Staying quiet when nothing happened is not an omission — it is the
 only reason an agent that runs every day is still installed the following month.
@@ -187,7 +189,7 @@ meet through the project record, which is one more document in the folder.
 | With whom | What happens |
 |---|---|
 | **Alba** | Delivers the project charter, and the record is born with it. From that day the writer is Samuel: **one record, one writer** |
-| **Vera** | Samuel publishes his record with `/pm-publish` and Vera reads it. She writes hers over the same documents and **the two never merge**. When they disagree, half the time the manager is right, because he was in the meeting where the thing changed that the charter never updated |
+| **Vera** | Samuel publishes his record with `/criterio-project:pm-publish` and Vera reads it. She writes hers over the same documents and **the two never merge**. When they disagree, half the time the manager is right, because he was in the meeting where the thing changed that the charter never updated |
 | **Rostrum** | Publishes the project's report on the portal, for whoever will not open a folder |
 
 ## Tests

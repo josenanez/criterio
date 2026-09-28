@@ -34,7 +34,7 @@ es la tesis de Criterio un paso aguas arriba.
 
 **La costura con el agente Project Manager es el acta de constitución** — el momento en que un
 problema definido se vuelve plan con doliente, autoridad y criterio de éxito. Ya está en el
-plugin, en `governance-artifacts` y `/project-charter`: el traspaso no necesita inventar nada.
+plugin, en `governance-artifacts` y `/criterio-portfolio:project-charter`: el traspaso no necesita inventar nada.
 
 Y el PMO no vigila proyectos sueltos: vigila **todos los proyectos que tienen producto**, y para
 eso necesita la dimensión `producto` en la ficha, que hoy no existe.
@@ -76,25 +76,25 @@ Todas dependían primero del registro de requerimiento, que hoy existe.
 
 | Función | Entra | Produce o mantiene | Estado |
 |---|---|---|---|
-| Sintetizar entrevistas y retroalimentación en temas | Entrevistas, notas, tickets, encuestas | Temas con la cita de quién lo dijo, nunca como conclusión propia | **Construido**: `/product-discovery` |
-| Inventario de requerimientos | La definición y los documentos que la soportan | Un registro por requerimiento, con estado, doliente y evidencia | **Construido**: `/product-requirements`, sobre el registro |
-| Trazabilidad requerimiento → decisión → entregable | El registro y las fichas de los proyectos que lo ejecutan | La cadena completa, que vuelve *"qué falta"* un filtro y no una corrida de modelo | **Construido**: `/product-trace`, y confirma cada traza contra la ficha del proyecto |
+| Sintetizar entrevistas y retroalimentación en temas | Entrevistas, notas, tickets, encuestas | Temas con la cita de quién lo dijo, nunca como conclusión propia | **Construido**: `/criterio-product:product-discovery` |
+| Inventario de requerimientos | La definición y los documentos que la soportan | Un registro por requerimiento, con estado, doliente y evidencia | **Construido**: `/criterio-product:product-requirements`, sobre el registro |
+| Trazabilidad requerimiento → decisión → entregable | El registro y las fichas de los proyectos que lo ejecutan | La cadena completa, que vuelve *"qué falta"* un filtro y no una corrida de modelo | **Construido**: `/criterio-product:product-trace`, y confirma cada traza contra la ficha del proyecto |
 | Detectar requerimientos sin criterio de aceptación o sin doliente | El registro | La lista de vacíos; igual que un riesgo sin doliente, es decoración | **Construido**, en código: dos señales, y un área no cuenta como doliente |
-| Recopilar análisis competitivo de fuentes públicas | Fuentes públicas | Recopilación citada, con su fecha y con qué tan fuerte es. No concluye posicionamiento | **Construido** · dentro de `/product-discovery`, porque una reseña pública es material de descubrimiento y no una categoría aparte |
+| Recopilar análisis competitivo de fuentes públicas | Fuentes públicas | Recopilación citada, con su fecha y con qué tan fuerte es. No concluye posicionamiento | **Construido** · dentro de `/criterio-product:product-discovery`, porque una reseña pública es material de descubrimiento y no una categoría aparte |
 | Consolidar las métricas del producto | El sistema donde viven | La serie al día, con su fuente y fecha | **Construido**: el skill `product-metrics` y la serie en el estado. No se conecta a ningún sistema |
-| Borrador de la especificación | Lo ya decidido y el registro de requerimientos | Borrador con criterios de aceptación y vacíos señalados | **Construido**: `/product-spec`, con la regla de señalar el vacío en vez de rellenarlo |
-| Producir el borrador del acta de constitución | La definición cerrada | El acta que el gerente firma, y con la que nace la ficha | **Construido**: `/product-charter`, y la ficha se crea después de la firma, nunca antes |
+| Borrador de la especificación | Lo ya decidido y el registro de requerimientos | Borrador con criterios de aceptación y vacíos señalados | **Construido**: `/criterio-product:product-spec`, con la regla de señalar el vacío en vez de rellenarlo |
+| Producir el borrador del acta de constitución | La definición cerrada | El acta que el gerente firma, y con la que nace la ficha | **Construido**: `/criterio-product:product-charter`, y la ficha se crea después de la firma, nunca antes |
 
 ## B · Lo que haría, y hoy no se hace
 
 | Función | Entra | Produce o mantiene | Estado |
 |---|---|---|---|
-| Contrastar la definición contra la evidencia de demanda | La definición y todo lo que la organización tenga escrito sobre demanda | Qué se sostiene, con qué documento, y qué no está dicho en ninguna parte | **Construido**: `/product-definition`. Es la función que justifica al agente |
+| Contrastar la definición contra la evidencia de demanda | La definición y todo lo que la organización tenga escrito sobre demanda | Qué se sostiene, con qué documento, y qué no está dicho en ninguna parte | **Construido**: `/criterio-product:product-definition`. Es la función que justifica al agente |
 | Detectar contradicción entre lo que dice el negocio y lo que dicen los datos | Documentos del negocio y las métricas | El conflicto con las dos fuentes y sus fechas | **Construido**, en código: `claim_vs_metric`, con las dos fuentes, las dos fechas y la dirección |
 | Identificar los supuestos no verificados de la definición | La definición | Los supuestos declarados como tales, para validarlos o convertirlos en riesgo | **Construido**: `assumption_unverified` con su umbral, y la frontera a la que se vuelve riesgo |
-| Primer barrido de obligaciones normativas que toca el producto | La definición y la norma aplicable | Las obligaciones citadas. **No opina sobre cumplimiento** | **Construido**: el skill `regulatory-sweep`, dentro de `/product-definition` |
-| Estructurar el caso de negocio | Lo que el negocio entregue | La estructura, cada cifra con su fuente, las tres clases de cifra sin mezclar, y los vacíos con quién los produce | **Construido** · `/product-business-case`. No calcula retorno: con cifras supuestas eso es una opinión con dos decimales |
-| Análisis de canibalización | Lo que los demás productos publicaron | La métrica que dos casos de negocio cuentan dos veces, el proyecto con dos dueños, y el segmento repetido | **Construido** · `/product-publish` y `/product-overlap`. La instalación sigue mirando un producto: los demás **publican**, como el gerente de proyecto publica su ficha |
+| Primer barrido de obligaciones normativas que toca el producto | La definición y la norma aplicable | Las obligaciones citadas. **No opina sobre cumplimiento** | **Construido**: el skill `regulatory-sweep`, dentro de `/criterio-product:product-definition` |
+| Estructurar el caso de negocio | Lo que el negocio entregue | La estructura, cada cifra con su fuente, las tres clases de cifra sin mezclar, y los vacíos con quién los produce | **Construido** · `/criterio-product:product-business-case`. No calcula retorno: con cifras supuestas eso es una opinión con dos decimales |
+| Análisis de canibalización | Lo que los demás productos publicaron | La métrica que dos casos de negocio cuentan dos veces, el proyecto con dos dueños, y el segmento repetido | **Construido** · `/criterio-product:product-publish` y `/criterio-product:product-overlap`. La instalación sigue mirando un producto: los demás **publican**, como el gerente de proyecto publica su ficha |
 
 La primera fila traslada la tesis de Criterio aguas arriba: en un proyecto se contrasta el
 **estado declarado** contra la evidencia documental; en un producto se contrasta la

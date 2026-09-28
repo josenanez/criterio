@@ -41,25 +41,27 @@ and who is reached when a project moves.
 
 ### The seventeen commands
 
+> They are typed with the plugin prefix: `/criterio-portfolio:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
+
 | Command | What it does |
 |---|---|
-| `/portfolio-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
-| `/portfolio-wake` | **What the clock invokes.** Looks at what is due today, does it, and if nothing is due it stays quiet |
-| `/portfolio-server` | Raises **Rostrum**, the server: exposes the report for whoever will not open a folder, and says what to ask the organisation for |
-| `/document-index` | Which documents really changed, what has to be re-read and which citations stopped resolving |
-| `/portfolio-scan` | Reads the folder and produces or updates one record per project. The front door |
-| `/portfolio-report` | Consolidated report: what changed, what contradicts what, what is quiet, what has no support |
-| `/status-report` | A project's status, and the signals its declared traffic light does not explain |
-| `/health-check` | Diagnoses a project from scratch against the evidence, assuming nothing from its report |
-| `/project-history` | What happened in a project, with the timeline and since when what was declared stopped holding |
-| `/steering-pack` | Committee material as a pack of decisions, not as a progress report |
-| `/raid-log` | Risks, assumptions, issues and dependencies, including the ones said and never recorded |
-| `/change-control` | Assesses a change in scope, time and cost, computes who it reaches, and creates a new baseline without erasing the previous one |
-| `/budget-tracking` | Approved, committed, spent and forecast, with variance against both baselines |
-| `/vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing |
-| `/product-view` | A product's state across all the projects building it |
-| `/project-charter` | Reviews or drafts the charter, pointing out what is missing and what follows from that |
-| `/project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
+| `/criterio-portfolio:portfolio-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
+| `/criterio-portfolio:portfolio-wake` | **What the clock invokes.** Looks at what is due today, does it, and if nothing is due it stays quiet |
+| `/criterio-portfolio:portfolio-server` | Raises **Rostrum**, the server: exposes the report for whoever will not open a folder, and says what to ask the organisation for |
+| `/criterio-portfolio:document-index` | Which documents really changed, what has to be re-read and which citations stopped resolving |
+| `/criterio-portfolio:portfolio-scan` | Reads the folder and produces or updates one record per project. The front door |
+| `/criterio-portfolio:portfolio-report` | Consolidated report: what changed, what contradicts what, what is quiet, what has no support |
+| `/criterio-portfolio:status-report` | A project's status, and the signals its declared traffic light does not explain |
+| `/criterio-portfolio:health-check` | Diagnoses a project from scratch against the evidence, assuming nothing from its report |
+| `/criterio-portfolio:project-history` | What happened in a project, with the timeline and since when what was declared stopped holding |
+| `/criterio-portfolio:steering-pack` | Committee material as a pack of decisions, not as a progress report |
+| `/criterio-portfolio:raid-log` | Risks, assumptions, issues and dependencies, including the ones said and never recorded |
+| `/criterio-portfolio:change-control` | Assesses a change in scope, time and cost, computes who it reaches, and creates a new baseline without erasing the previous one |
+| `/criterio-portfolio:budget-tracking` | Approved, committed, spent and forecast, with variance against both baselines |
+| `/criterio-portfolio:vendor-tracking` | Contractual deliverables against evidence of receipt and against invoicing |
+| `/criterio-portfolio:product-view` | A product's state across all the projects building it |
+| `/criterio-portfolio:project-charter` | Reviews or drafts the charter, pointing out what is missing and what follows from that |
+| `/criterio-portfolio:project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
 
 ### The ten skills
 
@@ -92,7 +94,7 @@ because it takes looking at the portfolio's whole dependency graph at once.
 
 That case comes from the synthetic corpus, with the answer written by hand **before** running
 the calculation. It is the kind of question that can only be answered from above:
-`/change-control` computes it, and also says who has to be told and which dependencies are
+`/criterio-portfolio:change-control` computes it, and also says who has to be told and which dependencies are
 unconfirmed.
 
 And it is the same reason Vera exists. What she does is not read one project better — its
@@ -137,7 +139,7 @@ before pointing it at confidential material. Full disclaimer in
 ```
 /plugin marketplace add josenanez-company/criterio
 /plugin install criterio-portfolio@criterio
-/portfolio-setup
+/criterio-portfolio:portfolio-setup
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
@@ -165,7 +167,7 @@ At the end it tells you how long the whole portfolio would take, and what your f
 missing for the analysis to be better. But as a finding, not as a requirement: **this works
 with whatever is there.**
 
-**What ends up configured** is written by `/portfolio-setup` from your answers, on your machine and in
+**What ends up configured** is written by `/criterio-portfolio:portfolio-setup` from your answers, on your machine and in
 a file of yours: where the documents are, where status lives, your committee cadence, the shape
 of the report, the thresholds that make it raise its voice, and the record that you accepted the
 terms, with your name and the date. All of that is changed **by talking**: if you want silence
@@ -185,7 +187,7 @@ The decision is date arithmetic, so the code takes it and not the judgement of t
 python3 scripts/portafolio.py due --state <state> --config <file>
 ```
 
-And `/portfolio-wake` is the command the clock invokes: it looks at what is due, does it, and **if
+And `/criterio-portfolio:portfolio-wake` is the command the clock invokes: it looks at what is due, does it, and **if
 nothing is due it produces nothing.** Staying quiet when nothing happened is not an omission —
 it is the only reason an agent that runs every day is still installed the following month.
 
@@ -199,7 +201,7 @@ system's scheduler in Claude Code. **And if unattended runs are not welcome** �
 is a reasonable answer — the cadence still says what is due, run by hand. What you lose is
 being told without anyone asking.
 
-**And if you want your sponsor to see it without asking you for it**, `/portfolio-server` raises
+**And if you want your sponsor to see it without asking you for it**, `/criterio-portfolio:portfolio-server` raises
 **Rostrum**, this family's server: a portal with three sections — PMO reports, projects and
 products — where whoever is looking can also **leave the agent a written question**, which stays
 in the queue and is answered on the next run. It authenticates nobody, and that is on purpose:
@@ -213,7 +215,7 @@ meet through the project record, which is one more document in the folder.
 
 | With whom | What happens |
 |---|---|
-| **Samuel** | He publishes his project's record with `/pm-publish`, and Vera reads it the way she reads any document. **The two records never merge**, and when both cite and disagree, somebody saw a paper the other did not — with each source's date, so you know which is more recent |
+| **Samuel** | He publishes his project's record with `/criterio-project:pm-publish`, and Vera reads it the way she reads any document. **The two records never merge**, and when both cite and disagree, somebody saw a paper the other did not — with each source's date, so you know which is more recent |
 | **Alba** | She writes the project charter the record is born with. Vera receives it already written and reviews it against the evidence |
 | **Rostrum** | Publishes Vera's report where the team will read it, and returns the questions whoever looks at it leaves. **It never writes the record** |
 

@@ -23,7 +23,7 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 
 - **La extracción nunca se ha corrido.** El corpus siembra las fichas, así que la cadena documento → modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso.
 - **La agenda, el acta y el informe no se califican con esto.** Lo que producen es redacción sobre la minuta, y un calificador determinista no la mide. Lo que sí se verifica es la aritmética de la que salen sus cifras.
-- **La ficha publicada y su contraste no se han corrido de punta a punta.** `/pm-publish` escribe y `contrastar()` emite la señal con sus dos citas, verificado sobre fichas sintéticas. Falta que un agente de verdad publique y otro de verdad lea.
+- **La ficha publicada y su contraste no se han corrido de punta a punta.** `/criterio-project:pm-publish` escribe y `contrastar()` emite la señal con sus dos citas, verificado sobre fichas sintéticas. Falta que un agente de verdad publique y otro de verdad lea.
 
 ## Qué material se usó, y qué prueba cada pieza
 

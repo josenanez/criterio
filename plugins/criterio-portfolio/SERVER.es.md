@@ -24,8 +24,8 @@ lo que cambia cómo se usa— **le deja dejarle preguntas escritas al agente**.
 Primero el informe, después Rostrum. **Rostrum no genera el informe: lo sostiene.**
 
 ```
-/portfolio-report html
-/portfolio-server
+/criterio-portfolio:portfolio-report html
+/criterio-portfolio:portfolio-server
 ```
 
 O a mano, que es lo mismo que hace el comando:

@@ -178,11 +178,11 @@ control the organisation already has. It never writes the record.
 |---|---|---|---|
 | **Installs as** | `criterio-portfolio` | `criterio-project` | `criterio-product` |
 | **Instances** | One per PMO | **One per project** | **One per product** |
-| **Configured with** | `/portfolio-setup` | `/pm-setup` | `/product-setup` |
+| **Configured with** | `/criterio-portfolio:portfolio-setup` | `/criterio-project:pm-setup` | `/criterio-product:product-setup` |
 | **How long that takes** | Fifteen minutes | Ten | Ten |
 | **What you have to tell it** | Where the documentation is, when the committee meets, who you are | Where your project is, when your meeting is, who you are | Where the definition is, who decides what gets built, who you are |
 | **Where it lands** | A file of the person's, written by the command | Same | Same |
-| **The one you put on a clock** | `/portfolio-wake` | `/pm-wake` | `/product-wake` |
+| **The one you put on a clock** | `/criterio-portfolio:portfolio-wake` | `/criterio-project:pm-wake` | `/criterio-product:product-wake` |
 | **Cadence that makes sense** | Daily if the sweep is on; and the report with its lead time before the committee | Daily with the sweep, or the day before and the day after the meeting | **Weekly is enough** |
 | **What wakes it besides the clock** | A request somebody left in Rostrum | New minutes in the folder | Something crossing a threshold on its own |
 
@@ -202,7 +202,7 @@ It is not a preference: **each agent measures against something else.**
   daily sweep makes sense and the report is delivered ahead of the committee — so the PMO
   manager has time to react to what it finds, not to learn about it once it has been sent.
 - **Samuel** measures against the meeting. His cycle is not the calendar: it is *before the
-  meeting* and *after the meeting*, which is why `/pm-wake` checks which side you are on before
+  meeting* and *after the meeting*, which is why `/criterio-project:pm-wake` checks which side you are on before
   offering anything.
 - **Alba** measures against the passing of time, and that changes everything. Her thresholds are
   counted in months, so a daily run over a register that barely moves is noise with punctuality.

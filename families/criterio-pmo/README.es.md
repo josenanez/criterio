@@ -179,11 +179,11 @@ hace falta configurado, y cada cuánto tiene sentido que corra.**
 |---|---|---|---|
 | **Se instala** | `criterio-portfolio` | `criterio-project` | `criterio-product` |
 | **Instancias** | Una por PMO | **Una por proyecto** | **Una por producto** |
-| **Se configura con** | `/portfolio-setup` | `/pm-setup` | `/product-setup` |
+| **Se configura con** | `/criterio-portfolio:portfolio-setup` | `/criterio-project:pm-setup` | `/criterio-product:product-setup` |
 | **Cuánto tarda eso** | Quince minutos | Diez | Diez |
 | **Qué le tienes que decir** | Dónde está la documentación, cuándo es el comité, quién eres | Dónde está tu proyecto, cuándo es tu reunión, quién eres | Dónde está la definición, quién decide qué se construye, quién eres |
 | **Dónde queda** | Un archivo de la persona, escrito por el comando | Igual | Igual |
-| **El que se le pone a un reloj** | `/portfolio-wake` | `/pm-wake` | `/product-wake` |
+| **El que se le pone a un reloj** | `/criterio-portfolio:portfolio-wake` | `/criterio-project:pm-wake` | `/criterio-product:product-wake` |
 | **Cadencia que tiene sentido** | Diaria si el barrido está activo; y el informe con su anticipación al comité | Diaria con barrido, o el día antes y el día después de la reunión | **Semanal alcanza** |
 | **Qué lo despierta además del reloj** | Una petición que alguien dejó en Rostrum | Una minuta nueva en la carpeta | Que algo cruzara un umbral solo |
 
@@ -204,7 +204,7 @@ No es una preferencia: **cada agente mide contra otra cosa.**
   anticipación al comité — para que el gerente de la PMO alcance a reaccionar a lo que
   encuentre, no para que se entere cuando ya está enviado.
 - **Samuel** mide contra la reunión. Su ciclo no es el calendario: es *antes de la reunión*
-  y *después de la reunión*, y por eso `/pm-wake` mira de qué lado estás antes de ofrecer
+  y *después de la reunión*, y por eso `/criterio-project:pm-wake` mira de qué lado estás antes de ofrecer
   nada.
 - **Alba** mide contra el paso del tiempo, y eso cambia todo. Sus umbrales se cuentan en
   meses, así que una corrida diaria sobre un registro que se mueve poco es ruido con
