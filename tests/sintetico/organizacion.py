@@ -21,6 +21,7 @@ una organización o persona real.
 """
 import datetime as dt
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -243,7 +244,7 @@ def proyectos(port: corpus.Portafolio) -> list:
              carpeta="PRY-101-originacion-hipotecaria",
              area="Banca Hipotecaria", patrocinador="María Restrepo, VP de Operaciones",
              gerente="Andrés Lozano", comite="Comité de Transformación Digital",
-             producto="Crédito hipotecario digital", aprobacion=d(250),
+             producto="PRD-HIPO · Crédito hipotecario digital", aprobacion=d(250),
              objetivo="Reducir el tiempo de originación hipotecaria de quince días "
                       "hábiles a cuatro, para solicitudes de vivienda no VIS.",
              alcance=["Formulario digital con validación de ingresos",
@@ -345,6 +346,9 @@ def proyectos(port: corpus.Portafolio) -> list:
         [{"quien": "Javier Hoyos", "que": "Publicar el cronograma replanificado",
           "para": d(20)}]))
     plantado.append((p["codigo"], p["nombre"], [
+        "**Dos hitos declarados cerrados sin acta de recibo**: «Diseño de la "
+        "migración» y «Motor de intereses». Este proyecto no produce actas de recibo, "
+        "que es una forma común de cerrar un hito: marcarlo cerrado en el cronograma",
         "**Replanificación sin autorizar**: el cronograma v2 mueve la salida a "
         "producción 60 días y no hay solicitud de cambio ni acta del comité que lo "
         "autorice",
@@ -523,6 +527,7 @@ def proyectos(port: corpus.Portafolio) -> list:
     plantado.append((p["codigo"], p["nombre"], [
         "**Cambio sin línea base nueva**: CC-07 mueve 45 días y 620 millones, el "
         "cronograma vigente ya lo refleja, y no hay línea base v2 ni autorización",
+        "**Un hito declarado cerrado sin acta de recibo**: «Motor de reglas»",
         "**Presupuesto comprometido al 95%**, por encima del umbral de 90%",
         "**Proyección por encima del aprobado**: 7.100 contra 6.800 millones, 4,4% — "
         "también bajo el umbral, así que tampoco debe salir como desviación de costo"]))
@@ -532,7 +537,7 @@ def proyectos(port: corpus.Portafolio) -> list:
              carpeta="PRY-107-billetera-qr",
              area="Canales Digitales", patrocinador="Laura Vélez, VP Digital",
              gerente="Camilo Beltrán", comite="Comité de Transformación Digital",
-             producto="Pagos QR comercios", aprobacion=d(300),
+             producto="PRD-QR · Pagos QR comercios", aprobacion=d(300),
              objetivo="Lanzar la billetera propia con pago QR interoperable en "
                       "comercios aliados.",
              alcance=["Billetera con QR interoperable",
@@ -579,7 +584,7 @@ def proyectos(port: corpus.Portafolio) -> list:
              carpeta="PRY-108-onboarding-pyme",
              area="Banca PyME", patrocinador="Ricardo Salas, VP Banca Empresas",
              gerente="Natalia Ospina", comite="Comité de Banca Empresas",
-             producto="Cuenta PyME", aprobacion=d(200),
+             producto="PRD-PYME · Cuenta PyME", aprobacion=d(200),
              objetivo="Abrir cuenta PyME de forma remota en menos de un día hábil.",
              alcance=["Validación de existencia y representación legal",
                       "Debida diligencia simplificada", "Apertura y activación remota"],
@@ -670,7 +675,7 @@ def proyectos(port: corpus.Portafolio) -> list:
              carpeta="PRY-110-nomina-electronica",
              area="Banca Empresas", patrocinador="Ricardo Salas, VP Banca Empresas",
              gerente="Liliana Torres", comite="Comité de Banca Empresas",
-             producto="Nómina empresarial", aprobacion=d(120),
+             producto="PRD-NOMINA · Nómina empresarial", aprobacion=d(120),
              objetivo="Dispersar nómina de empresas clientes con archivo único y "
                       "conciliación automática.",
              alcance=["Carga de archivo de nómina", "Dispersión masiva",
@@ -796,7 +801,8 @@ def tablero(x) -> str:
 
 def comite_producto(x) -> str:
     filas = "\n".join(
-        f"| {r['id']} | {r['que']} | {r['doliente']} | {r['estado']} | {r['desde']} |"
+        f"| {r['id']} | {r['que']} | {r['doliente']} | {r.get('criterio') or '—'} "
+        f"| {r['estado']} | {r['desde']} |"
         for r in x['requerimientos'])
     return f"""
 # Comité de producto · {x['nombre']}
@@ -806,8 +812,8 @@ def comite_producto(x) -> str:
 
 ## Requerimientos revisados
 
-| ID | Requerimiento | Doliente | Estado | Desde |
-|---|---|---|---|---|
+| ID | Requerimiento | Doliente | Criterio de aceptación | Estado | Desde |
+|---|---|---|---|---|---|
 {filas}
 
 ## Decisiones
@@ -852,9 +858,11 @@ def productos(port: corpus.Portafolio) -> list:
              asistentes=["Camilo Beltrán", "Laura Vélez", "Equipo de Canales"],
              requerimientos=[
                  dict(id="REQ-201", que="QR interoperable con dos adquirentes",
+                      criterio="dos adquirentes distintos liquidan una transacción de prueba",
                       doliente="Camilo Beltrán", estado="aceptado", desde=d(180)),
                  dict(id="REQ-202", que="Liquidación mismo día para comercios con más "
                                         "de 200 transacciones al mes",
+                      criterio="una transacción de un comercio con más de 200 al mes queda liquidada el mismo día",
                       doliente="Camilo Beltrán", estado="propuesto", desde=d(95))],
              decisiones=["Se construye la liquidación a un día y se evalúa la del "
                          "mismo día con la evidencia de la ronda siguiente"],
@@ -896,8 +904,10 @@ def productos(port: corpus.Portafolio) -> list:
              asistentes=["Liliana Torres", "Ricardo Salas"],
              requerimientos=[
                  dict(id="REQ-301", que="Validación del archivo antes de dispersar",
+                      criterio="un archivo con un registro inválido se rechaza antes de dispersar, y dice cuál",
                       doliente="Liliana Torres", estado="aceptado", desde=d(45)),
                  dict(id="REQ-302", que="Certificado de pago por empleado",
+                      criterio="el certificado de un empleado se descarga desde la app de la empresa",
                       doliente="Liliana Torres", estado="aceptado", desde=d(45))],
              decisiones=["Se construyen los dos requerimientos en PRY-110, con la "
                          "evidencia de las entrevistas de hace 52 días"],
@@ -932,8 +942,10 @@ def productos(port: corpus.Portafolio) -> list:
              asistentes=["Andrés Lozano", "María Restrepo"],
              requerimientos=[
                  dict(id="REQ-401", que="Estado de la solicitud visible para el cliente",
+                      criterio="el cliente ve el estado de su solicitud sin llamar a nadie",
                       doliente="Andrés Lozano", estado="aceptado", desde=d(200)),
                  dict(id="REQ-402", que="Validación de ingresos sin soporte físico",
+                      criterio="una solicitud se aprueba sin un solo soporte en papel",
                       doliente="sin asignar", estado="aceptado", desde=d(200)),
                  dict(id="REQ-403", que="Firma electrónica de la promesa",
                       doliente="Andrés Lozano", estado="aceptado", desde=d(200))],
@@ -970,10 +982,13 @@ def productos(port: corpus.Portafolio) -> list:
              asistentes=["Natalia Ospina", "Ricardo Salas", "Cumplimiento"],
              requerimientos=[
                  dict(id="REQ-501", que="Validación de existencia por cámara de comercio",
+                      criterio="la existencia se valida contra cámara de comercio en menos de un minuto",
                       doliente="Natalia Ospina", estado="aceptado", desde=d(170)),
                  dict(id="REQ-502", que="Debida diligencia simplificada para riesgo bajo",
+                      criterio="un cliente de riesgo bajo abre sin presencia del representante legal",
                       doliente="Cumplimiento", estado="propuesto", desde=d(150)),
                  dict(id="REQ-503", que="Activación el mismo día de la apertura",
+                      criterio="la cuenta queda operativa el mismo día de la apertura",
                       doliente="Natalia Ospina", estado="propuesto", desde=d(140))],
              decisiones=["Se espera el concepto de Cumplimiento para decidir REQ-502"],
              planta=["**Dos requerimientos sin decidir**: REQ-502 lleva 150 días y "
@@ -1006,8 +1021,10 @@ def productos(port: corpus.Portafolio) -> list:
              asistentes=["Paula Céspedes", "Gustavo Neira"],
              requerimientos=[
                  dict(id="REQ-601", que="Tarjeta virtual disponible al aprobar",
+                      criterio="la tarjeta virtual permite una compra en línea al minuto de aprobada",
                       doliente="Paula Céspedes", estado="aceptado", desde=d(90)),
                  dict(id="REQ-602", que="Cupo ajustable por el cliente en la app",
+                      criterio="el cliente sube y baja su cupo desde la app, dentro del rango aprobado",
                       doliente="Paula Céspedes", estado="aceptado", desde=d(90))],
              decisiones=["Se construyen los dos requerimientos, sujeto a que Riesgo "
                          "valide el efecto del cupo ajustable en la mora"],
@@ -1042,8 +1059,10 @@ def productos(port: corpus.Portafolio) -> list:
              asistentes=["Óscar Ramírez", "Laura Vélez"],
              requerimientos=[
                  dict(id="REQ-701", que="Recaudo unificado por QR y transferencia",
+                      criterio="una venta por QR y una por transferencia salen en el mismo reporte",
                       doliente="Óscar Ramírez", estado="aceptado", desde=d(135)),
                  dict(id="REQ-702", que="Reporte de ventas del día",
+                      criterio="el comercio ve el total del día antes de cerrar",
                       doliente="Óscar Ramírez", estado="aceptado", desde=d(135))],
              decisiones=["Se construye el recaudo unificado sobre PRY-107"],
              planta=["**Superposición de producto con PRD-QR**, en los tres ejes que "
@@ -1074,8 +1093,10 @@ def productos(port: corpus.Portafolio) -> list:
              asistentes=["Diana Molina", "Gustavo Neira"],
              requerimientos=[
                  dict(id="REQ-801", que="Prima diaria descontada del saldo",
+                      criterio="la prima se descuenta a diario sin generar sobregiro",
                       doliente="Diana Molina", estado="aceptado", desde=d(500)),
                  dict(id="REQ-802", que="Reclamación por la app",
+                      criterio="una reclamación se radica por la app y recibe número de caso",
                       doliente="Diana Molina", estado="propuesto", desde=d(500))],
              decisiones=["Se mantiene la definición a la espera de capacidad de "
                          "desarrollo"],
@@ -1108,10 +1129,13 @@ def productos(port: corpus.Portafolio) -> list:
              asistentes=["Felipe Arango", "Laura Vélez"],
              requerimientos=[
                  dict(id="REQ-901", que="Abono directo a cuenta del receptor",
+                      criterio="la remesa queda abonada en cuenta sin paso por oficina",
                       doliente="Felipe Arango", estado="aceptado", desde=d(105)),
                  dict(id="REQ-902", que="Tasa visible antes de aceptar la operación",
+                      criterio="la tasa se muestra antes de que el receptor acepte",
                       doliente="Felipe Arango", estado="aceptado", desde=d(105)),
                  dict(id="REQ-903", que="Apertura de cuenta dentro del flujo de cobro",
+                      criterio="el receptor sin cuenta abre una dentro del mismo flujo de cobro",
                       doliente="Felipe Arango", estado="aceptado", desde=d(105))],
              decisiones=["Se decide construir los tres requerimientos en el primer "
                          "trimestre disponible",
@@ -1175,6 +1199,22 @@ meses.
 {bloque("Productos", pl_prod)}
 ---
 
+## Lo que el extractor de referencia no puede encontrar
+
+`tests/sintetico/extractor.py` convierte estos documentos en fichas sin modelo, para
+poder probar la aritmética a escala. Dos de los hallazgos plantados **no los produce, y
+no es un defecto suyo**: necesitan leer prosa y cruzarla entre documentos, que es
+justamente lo que hace el modelo y no hace un parser.
+
+| Dónde | Qué hace falta leer |
+|---|---|
+| **PRY-107** · patrocinador contradicho y cambio de gobernanza | El acta dice un patrocinador y una minuta, en prosa, dice que el patrocinio pasó a otra persona. Hay que entender la frase, no extraer un campo |
+| **PRY-108** · contradicción entre dos documentos | El cronograma pone un hito después de la fecha de cierre que declara el acta, y el informe dice que el cierre se mantiene. Los tres no pueden ser ciertos a la vez, y verlo exige cruzarlos |
+
+**Son la vara de la corrida con el agente**: si el modelo los encuentra y el extractor no,
+ahí está medido lo que el modelo agrega. Y `decision_without_source` en PRD-REMESAS es el
+tercero de la misma clase.
+
 ## Cómo se corre
 
 A `documentos/proyectos/` se le apunta Vera. A la carpeta de un producto bajo
@@ -1191,6 +1231,14 @@ if __name__ == "__main__":
         sys.exit("uso: python3 tests/sintetico/organizacion.py <carpeta destino>")
     destino = Path(sys.argv[1]).expanduser()
     docs = destino / "documentos"
+
+    # El generador tiene que ser idempotente, y no lo era. Los nombres de archivo
+    # llevan la fecha, y la fecha es relativa al día de la corrida: regenerar al día
+    # siguiente no reemplazaba nada, dejaba dos generaciones mezcladas en la misma
+    # carpeta. Pasó, y se vio porque un compromiso apareció con seis reprogramaciones
+    # donde había tres.
+    if docs.exists():
+        shutil.rmtree(docs)
 
     proy = corpus.Portafolio(docs / "proyectos")
     prod = corpus.Portafolio(docs / "productos")

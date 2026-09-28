@@ -1,0 +1,425 @@
+# -*- coding: utf-8 -*-
+"""Extractor de referencia: de los documentos a las fichas, sin modelo.
+
+    python3 tests/sintetico/extractor.py <carpeta de la organización>
+
+**Qué es y qué no es.** El agente extrae con un modelo, que lee documentos de formas
+que nadie previó. Esto no hace eso: recorre documentos cuya estructura se conoce y los
+convierte en fichas de forma determinística. No prueba la extracción del modelo, y no
+pretende hacerlo.
+
+Lo que sí contesta, y es la pregunta que va antes: **¿los documentos contienen lo que la
+ficha necesita, y la aritmética encuentra sobre ellos lo que se plantó?** Sin esto, para
+probar el cálculo a escala habría que escribir dieciocho fichas a mano cada vez que el
+material cambie.
+
+Es también la vara contra la que se puede medir después la extracción del modelo: la
+misma carpeta, las dos fichas, campo por campo.
+"""
+import csv
+import datetime as dt
+import io
+import json
+import re
+import sys
+from pathlib import Path
+
+HOY = dt.date.today()
+
+
+# ── utilidades de lectura ────────────────────────────────────────────────
+
+def campo(valor, fuente, fecha):
+    return {"value": valor, "source": fuente, "source_date": fecha, "state": "found"}
+
+
+def vacio():
+    return {"value": None, "state": "not_found"}
+
+
+def negrita(texto: str, etiqueta: str):
+    """`**Etiqueta:** valor` → valor."""
+    m = re.search(rf"\*\*{re.escape(etiqueta)}:\*\*\s*(.+)", texto)
+    return m.group(1).strip() if m else None
+
+
+def fecha_de(nombre: str):
+    return nombre[:10] if nombre[:4].isdigit() else None
+
+
+def plata(s: str):
+    return int(re.sub(r"[^\d]", "", s)) if s and re.search(r"\d", s) else None
+
+
+def seccion(texto: str, titulo: str) -> str:
+    """El cuerpo de `## titulo`, hasta el siguiente encabezado del mismo nivel."""
+    m = re.search(rf"^## {re.escape(titulo)}\s*$(.*?)(?=^## |\Z)", texto,
+                  re.M | re.S)
+    return m.group(1).strip() if m else ""
+
+
+def vinetas(bloque: str):
+    return [l[2:].strip() for l in bloque.splitlines() if l.startswith("- ")]
+
+
+def filas(texto: str, cabecera: str):
+    """Las filas de la tabla markdown cuya cabecera empieza por `cabecera`."""
+    out, dentro = [], False
+    for l in texto.splitlines():
+        if l.startswith("|") and cabecera in l:
+            dentro = True
+            continue
+        if dentro:
+            if not l.startswith("|"):
+                break
+            celdas = [c.strip() for c in l.strip("|").split("|")]
+            if all(set(c) <= {"-", ":"} for c in celdas):
+                continue
+            out.append(celdas)
+    return out
+
+
+# ── proyectos ────────────────────────────────────────────────────────────
+
+def ficha_proyecto(carpeta: Path, raiz: Path) -> dict:
+    docs = sorted(p for p in carpeta.rglob("*") if p.is_file())
+    rel = {p: str(p.relative_to(raiz)) for p in docs}
+
+    acta = next((p for p in docs if "acta-constitucion" in p.name), None)
+    crono = sorted(p for p in docs if "cronograma" in p.name)
+    inf = next((p for p in docs if "informe-avance" in p.name
+                or "nota-avance" in p.name), None)
+    minutas = sorted(p for p in docs if "/30-" in str(p) or "30-reuniones" in str(p))
+    recibos = [p for p in docs if "acta-recibo" in p.name]
+    contratos = [p for p in docs if p.name.count("contrato")]
+    facturas = [p for p in docs if "factura" in p.name]
+    cambios = [p for p in docs if "solicitud-cambio" in p.name]
+
+    if not acta:
+        return None
+    ta, fa = acta.read_text(encoding="utf-8"), fecha_de(acta.name)
+    ra = rel[acta]
+
+    def de_acta(etiqueta):
+        v = negrita(ta, etiqueta)
+        return campo(v, ra, fa) if v and v != "No aplica" else vacio()
+
+    fechas = filas(ta, "Fecha")
+    inicio = next((f[1] for f in fechas if f[0].lower().startswith("inicio")), None)
+    cierre = next((f[1] for f in fechas if f[0].lower().startswith("cierre")), None)
+    mpres = re.search(r"\*\*([\d.]+)\s*COP\*\*", ta)
+
+    ficha = {
+        "schema_version": "0.1",
+        "identity": {
+            "code": de_acta("Código"),
+            "name": campo(ta.splitlines()[0].split("·", 1)[-1].strip(), ra, fa),
+            "business_area": de_acta("Área dueña"),
+            # «PRD-NOMINA · Nómina empresarial» → el código, que es con lo que la
+            # traza del producto se confirma. El nombre solo no sirve: dos productos
+            # pueden llamarse parecido y el código es único.
+            "product": (lambda c: campo(c["value"].split("·")[0].strip(), c["source"],
+                                        c["source_date"]) if c.get("value") else c)(
+                de_acta("Producto asociado")),
+            "sponsor": de_acta("Patrocinador"),
+            "manager": de_acta("Gerente de proyecto"),
+            "committee": de_acta("Comité"),
+            # Ningún documento de esta organización delega autoridad. No se rellena
+            # con lo razonable: se declara que no está dicho en ninguna parte.
+            "authority": vacio(),
+        },
+        "declared": {"status": vacio(), "progress_pct": vacio(), "as_of": vacio()},
+        "plan": {
+            "start_date": campo(inicio, ra, fa) if inicio else vacio(),
+            "end_date": campo(cierre, ra, fa) if cierre else vacio(),
+            "baseline": [], "milestones": [],
+        },
+        "money": {"currency": campo("COP", ra, fa),
+                  "approved": campo(plata(mpres.group(1)), ra, fa) if mpres else vacio(),
+                  "committed": vacio(), "executed": vacio(), "projection": vacio()},
+        "commitments": [], "activity": {}, "raid": {"dependencies": []},
+    }
+
+    # ── dependencias declaradas: «PRY-109 · Motor de decisión…»
+    for d in vinetas(seccion(ta, "Dependencias declaradas")):
+        m = re.match(r"(PRY-\d+)\s*·\s*(.+)", d)
+        if m:
+            ficha["raid"]["dependencies"].append({
+                "on_project": campo(m.group(1), ra, fa),
+                "what": campo(m.group(2).strip(), ra, fa),
+                "confirmed": vacio()})
+
+    # ── el estado declarado y el dinero salen del informe, que lo escribe el gerente
+    if inf:
+        ti, fi = inf.read_text(encoding="utf-8"), fecha_de(inf.name)
+        ri = rel[inf]
+        est = seccion(ti, "Estado declarado")
+        me = re.search(r"\*\*(\w+)\*\*", est)
+        mp = re.search(r"\*\*(\d+)%\*\*", est)
+        corte = negrita(ti, "Fecha de corte") or fi
+        if me:
+            ficha["declared"]["status"] = campo(me.group(1).lower(), ri, corte)
+        if mp:
+            ficha["declared"]["progress_pct"] = campo(int(mp.group(1)), ri, corte)
+        ficha["declared"]["as_of"] = campo(corte, ri, corte)
+        for fila in filas(ti, "COP"):
+            clave = {"Aprobado": "approved", "Comprometido": "committed",
+                     "Ejecutado": "executed",
+                     "Proyección al cierre": "projection"}.get(fila[0])
+            if clave and plata(fila[1]):
+                ficha["money"][clave] = campo(plata(fila[1]), ri, corte)
+
+    # ── los hitos, y qué recibo los sustenta
+    recibidos = {}
+    for r in recibos:
+        tr = r.read_text(encoding="utf-8")
+        nombre = tr.splitlines()[0].split("·", 1)[-1].strip()
+        recibidos[nombre.lower()] = (rel[r], negrita(tr, "Fecha de recibo"))
+    def recibo_de(nombre: str):
+        """El acta de recibo de un hito, si existe.
+
+        Por contención y no por igualdad: el cronograma dice «Carga de archivo» y el
+        acta dice «Carga de archivo de nómina». Un modelo lo empata leyendo; un parser
+        necesita que se lo digan, y esta es la regla más cercana que hay sin inventar.
+        """
+        n = nombre.lower()
+        for titulo, dato in recibidos.items():
+            if n in titulo or titulo in n:
+                return dato
+        return None
+
+    for c in crono:
+        rc, fc = rel[c], fecha_de(c.name)
+        lector = csv.DictReader(io.StringIO(c.read_text(encoding="utf-8")))
+        hitos = []
+        for fila in lector:
+            nombre = fila["hito"]
+            ev = recibo_de(nombre)
+            cerrado = fila["estado"] == "cerrado"
+            hitos.append({
+                "name": campo(nombre, rc, fc),
+                "baseline_date": campo(fila["fecha_linea_base"], rc, fc),
+                "current_date": campo(fila["fecha_vigente"], rc, fc),
+                "state": campo("met" if (cerrado or ev) else "open",
+                               ev[0] if ev else rc, ev[1] if ev else fc),
+                "evidence": campo(ev[0], ev[0], ev[1]) if ev else vacio()})
+        ficha["plan"]["milestones"] = hitos
+        ficha["plan"]["baseline"].append({
+            "version": len(ficha["plan"]["baseline"]) + 1, "approved_on": fc,
+            "start_date": inicio, "end_date": hitos[-1]["current_date"]["value"]
+            if hitos else cierre,
+            "reason": "línea base inicial" if not ficha["plan"]["baseline"]
+            else "replanificación", "source": rc})
+
+    # ── compromisos: el mismo doliente y lo mismo con fecha nueva es uno reprogramado
+    vistos = {}
+    for m in minutas:
+        tm = m.read_text(encoding="utf-8")
+        fm = negrita(tm, "Fecha") or fecha_de(m.name)
+        rm = rel[m]
+        for fila in filas(tm, "Responsable"):
+            quien, que, para = fila[0], fila[1], fila[2]
+            clave = (quien, que)
+            fecha_ok = re.match(r"\d{4}-\d{2}-\d{2}", para)
+            entrada = vistos.get(clave)
+            if entrada is None:
+                entrada = {"who": campo(quien, rm, fm), "what": campo(que, rm, fm),
+                           "due_date": campo(para, rm, fm) if fecha_ok else vacio(),
+                           "stated_on": campo(fm, rm, fm),
+                           "state": campo("open", rm, fm), "reschedules": []}
+                vistos[clave] = entrada
+                ficha["commitments"].append(entrada)
+            else:
+                entrada["due_date"] = campo(para, rm, fm) if fecha_ok else vacio()
+                entrada["stated_on"] = campo(fm, rm, fm)
+                for k in ("who", "what", "state"):
+                    entrada[k]["source"], entrada[k]["source_date"] = rm, fm
+            if fecha_ok:
+                entrada["reschedules"].append({"due_date": para, "source": rm})
+    for c in ficha["commitments"]:
+        if len(c["reschedules"]) < 2:
+            c.pop("reschedules")
+
+    # ── proveedores: contrato contra recibo contra factura
+    if contratos:
+        tc = contratos[0].read_text(encoding="utf-8")
+        rc2 = rel[contratos[0]]
+        fc2 = fecha_de(contratos[0].name)
+        entregables = []
+        for fila in filas(tc, "Entregable"):
+            ev = recibo_de(fila[0])
+            entregables.append({
+                "name": campo(fila[0], rc2, fc2),
+                "due_date": campo(fila[1], rc2, fc2),
+                "amount": campo(plata(fila[2]), rc2, fc2),
+                "evidence": campo(ev[0], ev[0], ev[1]) if ev else vacio()})
+        facturado = []
+        for fx in facturas:
+            tf = fx.read_text(encoding="utf-8")
+            facturado.append({
+                "concept": campo(negrita(tf, "Concepto"), rel[fx], fecha_de(fx.name)),
+                "amount": campo(plata(negrita(tf, "Valor") or ""), rel[fx],
+                                fecha_de(fx.name))})
+        ficha["vendors"] = [{"name": campo(negrita(tc, "Proveedor"), rc2, fc2),
+                             "contract": campo(rc2, rc2, fc2),
+                             "deliverables": entregables, "invoices": facturado}]
+
+    # ── control de cambios sin línea base nueva
+    if cambios:
+        ficha["changes"] = []
+        for ch in cambios:
+            tch = ch.read_text(encoding="utf-8")
+            aut = seccion(tch, "Autorización")
+            ficha["changes"].append({
+                "id": campo(tch.splitlines()[0].split()[-1], rel[ch],
+                            fecha_de(ch.name)),
+                "authorized": vacio() if "Pendiente" in aut
+                else campo(aut, rel[ch], fecha_de(ch.name))})
+
+    # ── actividad
+    todos = [(fecha_de(p.name), rel[p]) for p in docs if fecha_de(p.name)]
+    if todos:
+        f, r = max(todos)
+        ficha["activity"]["last_document_date"] = campo(f, r, f)
+    reuniones = [(fecha_de(p.name), rel[p]) for p in minutas if fecha_de(p.name)]
+    if reuniones:
+        f, r = max(reuniones)
+        ficha["activity"]["last_meeting_date"] = campo(f, r, f)
+
+    ficha["meta"] = {"record_updated": HOY.isoformat(),
+                     "documents_seen": [{"path": rel[p]} for p in docs]}
+    return ficha
+
+
+# ── productos ────────────────────────────────────────────────────────────
+
+def registro_producto(carpeta: Path, raiz: Path) -> tuple:
+    docs = sorted(p for p in carpeta.rglob("*") if p.is_file())
+    rel = {p: str(p.relative_to(raiz)) for p in docs}
+    defin = next((p for p in docs if "definicion-producto" in p.name), None)
+    caso = next((p for p in docs if "caso-de-negocio" in p.name), None)
+    entre = next((p for p in docs if "entrevistas" in p.name), None)
+    tab = next((p for p in docs if "tablero" in p.name), None)
+    com = next((p for p in docs if "comite-producto" in p.name), None)
+    if not defin:
+        return None, [], []
+
+    td, fd, rd = defin.read_text(encoding="utf-8"), fecha_de(defin.name), rel[defin]
+    proyectos = [v.split("·")[0].strip() for v in
+                 vinetas(seccion(td, "Proyectos que lo construyen"))
+                 if v.startswith("PRY")]
+
+    prod = {
+        "identity": {
+            "code": negrita(td, "Código"),
+            "name": {"value": td.splitlines()[0].split("·", 1)[-1].strip(),
+                     "source": rd, "source_date": fd},
+            "manager": {"value": negrita(td, "Gerente de producto"), "source": rd,
+                        "source_date": fd},
+            "authority": {"value": None, "state": "not_found"},
+        },
+        "definition": {
+            "problem": {"value": seccion(td, "El problema"), "source": rd,
+                        "source_date": fd},
+            "who": {"value": negrita(td, "Segmento"), "source": rd, "source_date": fd},
+            "success": {"value": None, "state": "not_found"},
+            "claims": [], "assumptions": [],
+        },
+        "activity": {"last_document_date": max(
+            (fecha_de(p.name) for p in docs if fecha_de(p.name)), default=None)},
+    }
+    for s in vinetas(seccion(td, "Supuestos")):
+        m = re.match(r"\*\*(.+?)\*\*\s*·\s*declarado el (\d{4}-\d{2}-\d{2})", s)
+        if m:
+            prod["definition"]["assumptions"].append(
+                {"value": m.group(1), "verified": False, "stated_on": m.group(2),
+                 "source": rd})
+    if caso:
+        tc, fc, rc = caso.read_text(encoding="utf-8"), fecha_de(caso.name), rel[caso]
+        for fila in filas(tc, "Métrica"):
+            prod["definition"]["claims"].append(
+                {"metric": fila[0], "declared": plata(fila[1]), "source": rc,
+                 "source_date": fc})
+
+    metricas = []
+    if tab:
+        tt, ft, rt = tab.read_text(encoding="utf-8"), fecha_de(tab.name), rel[tab]
+        for fila in filas(tt, "Métrica"):
+            metricas.append({"metric": fila[0], "source": rt,
+                             "definition": f"serie del tablero de producto",
+                             "series": [{"date": fila[2], "value": plata(fila[1])}]})
+
+    reqs = []
+    if com:
+        tm, fm, rm = com.read_text(encoding="utf-8"), fecha_de(com.name), rel[com]
+        evidencias = []
+        if entre:
+            te, fe, re_ = entre.read_text(encoding="utf-8"), fecha_de(entre.name), rel[entre]
+            for m in re.finditer(r"^### (.+?) · (\d{4}-\d{2}-\d{2})", te, re.M):
+                evidencias.append({"value": m.group(1), "source": re_,
+                                   "source_date": m.group(2)})
+        for fila in filas(tm, "Requerimiento"):
+            rid, titulo, doliente, criterio, estado, desde = fila[:6]
+            sin_doliente = doliente.lower().startswith("sin ")
+            reqs.append({
+                "id": rid, "product": prod["identity"]["code"],
+                "title": {"value": titulo, "source": rm, "source_date": fm},
+                "state": {"aceptado": "accepted", "propuesto": "proposed"}.get(
+                    estado, estado),
+                "stated_on": desde,
+                "owner": ({"value": None, "state": "not_found"} if sin_doliente
+                          else {"value": doliente, "kind": "person", "source": rm}),
+                "need": {"value": titulo, "source": rm, "source_date": fm},
+                # Un requerimiento sin criterio queda con la lista vacía, que es lo
+                # que dice el documento. No se rellena con lo razonable.
+                "acceptance": ([] if criterio in ("—", "", None)
+                               else [{"value": criterio, "source": rm}]),
+                "evidence": evidencias,
+                "decision": {"what": {"value": titulo, "source": rm},
+                             "who": "Comité de producto", "on": fm},
+                "traces": {"project": proyectos[0] if proyectos else None,
+                           "deliverables": []},
+            })
+    return prod, reqs, metricas
+
+
+# ── ejecución ────────────────────────────────────────────────────────────
+
+if __name__ == "__main__":
+    base = Path(sys.argv[1]).expanduser()
+    proy_raiz = base / "documentos" / "proyectos"
+    prod_raiz = base / "documentos" / "productos"
+
+    destino = base / "estado" / "records"
+    destino.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for carpeta in sorted(p for p in proy_raiz.iterdir() if p.is_dir()):
+        ficha = ficha_proyecto(carpeta, proy_raiz)
+        if not ficha:
+            print(f"  SIN ACTA  {carpeta.name}")
+            continue
+        codigo = ficha["identity"]["code"]["value"]
+        (destino / f"{codigo}.json").write_text(
+            json.dumps(ficha, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        n += 1
+    print(f"proyectos  {n} fichas  →  estado/records/")
+
+    m = 0
+    for carpeta in sorted(p for p in prod_raiz.iterdir() if p.is_dir()):
+        prod, reqs, metricas = registro_producto(carpeta, prod_raiz)
+        if not prod:
+            continue
+        codigo = prod["identity"]["code"]
+        d = base / "estado-productos" / codigo
+        (d / "requirements").mkdir(parents=True, exist_ok=True)
+        (d / "metrics").mkdir(parents=True, exist_ok=True)
+        (d / "producto.json").write_text(
+            json.dumps(prod, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        for r in reqs:
+            (d / "requirements" / f"{r['id']}.json").write_text(
+                json.dumps(r, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        for x in metricas:
+            (d / "metrics" / f"{x['metric']}.json").write_text(
+                json.dumps(x, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        m += 1
+    print(f"productos  {m} registros  →  estado-productos/<código>/")
