@@ -44,6 +44,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import informe  # la paleta y la página son suyas; aquí no se vuelven a escribir
+import portafolio  # la historia la lee él; Rostrum no calcula nada y no escribe nada
 
 TOPE_PETICION = 16 * 1024          # una petición es un párrafo, no un adjunto
 
@@ -59,6 +60,9 @@ RUTAS = {
     '/productos': 'el listado de productos',
     '/producto/<nombre>': 'el informe de un producto, con enlace a sus proyectos',
     '/estado.json': 'de cuándo es el informe y cuántas peticiones hay abiertas',
+    '/corridas': 'la historia: qué se corrió, qué encontró y qué cambió entre cortes',
+    '/historia/<codigo>': 'la línea de tiempo de un proyecto: desde cuándo arrastra cada señal',
+    '/corte': 'qué cambió campo por campo entre dos cortes · ?a=<fecha>&b=<fecha>',
     '/peticion': 'POST · deja una pregunta escrita para el agente',
 }
 
@@ -117,6 +121,169 @@ def pagina(titulo, cuerpo, hoy, nav=''):
     """La página del informe, con lo que solo el servidor necesita."""
     p = informe.pagina(titulo, cuerpo, hoy, nav)
     return p.replace('</style>', EXTRA + '</style>', 1)
+
+
+# ------------------------------------------------------------- la historia
+#
+# Una organización real produce documentos todos los días, y ese rastro es la memoria del
+# proyecto. El portal mostraba solo el presente y se sobreescribía, así que nadie podía
+# saber qué se dijo antes de una decisión — ni presentar un avance, ni entender dónde está
+# un proyecto. Y hay una simetría que el producto necesita: Criterio le exige a una PMO que
+# lo declarado tenga evidencia; si su propio informe se sobreescribe, a la PMO no la puede
+# auditar nadie.
+#
+# Estas tres vistas leen y no escriben, como todo lo que hace Rostrum.
+
+
+def corridas(h: dict, hoy: str) -> str:
+    """Nivel 1 · la historia de las corridas, con lo que cambió entre una y la siguiente."""
+    if not h["total"]:
+        return pagina('Historia', '<div class="bloque"><p>Todavía no hay corridas '
+                      'registradas. Cada comando que produce algo deja la suya.</p></div>',
+                      hoy, nav())
+    filas = []
+    previo = None
+    for c in h["corridas"]:
+        d = (c.get("hallazgos") or 0) - (previo or 0) if previo is not None else None
+        delta = ('—' if d is None else
+                 f'<span class="{"mal" if d > 0 else "bien" if d < 0 else ""}">{d:+d}</span>')
+        rel = c.get("relectura") or {}
+        filas.append(
+            f'<tr><td>{e(c["fecha"])}</td><td>{e(c["que"])}</td>'
+            f'<td class="n">{e(c.get("proyectos"))}</td>'
+            f'<td class="n">{e(c.get("documentos") or "—")}</td>'
+            f'<td class="n">{e(rel.get("releidos") or "—")}</td>'
+            f'<td class="n">{e(c.get("segundos") or "—")}</td>'
+            f'<td class="n">{e(c.get("hallazgos"))}</td><td class="n">{delta}</td>'
+            f'<td>{e(c.get("nota") or "")}</td></tr>')
+        previo = c.get("hallazgos") or 0
+
+    cuerpo = [
+        f'<p class="entrada"><b>{h["total"]} corridas</b>, de la del {e(h["desde"])} a la '
+        f'del {e(h["hasta"])}. Ninguna se borra: el rastro de las corridas es la memoria '
+        f'del portafolio, y sin él no se puede sostener que algo lleva meses sin '
+        f'resolverse.</p>',
+        '<div class="bloque"><table><thead><tr><th>Corte</th><th>Qué</th>'
+        '<th>Proyectos</th><th>Docs</th><th>Releídos</th><th>Seg</th>'
+        '<th>Hallazgos</th><th>Cambio</th><th>Nota</th></tr></thead><tbody>',
+        "".join(filas), '</tbody></table></div>']
+
+    # Lo que lleva más tiempo sin resolverse: la lista con la que se arma un comité.
+    arrastres = []
+    for codigo, senales in h["casos"].items():
+        for s, x in senales.items():
+            if x["seguidas"] >= 2 and not x.get("resuelta_en"):
+                arrastres.append((x["seguidas"], codigo, s, x["primera"]))
+    if arrastres:
+        arrastres.sort(reverse=True)
+        cuerpo += ['<h2>Lo que se arrastra</h2>',
+                   '<p class="entrada">Una señal que sonó una vez es ruido. Una que lleva '
+                   'varios cortes seguidos es una decisión que nadie ha tomado.</p>',
+                   '<div class="bloque"><table><thead><tr><th>Caso</th><th>Señal</th>'
+                   '<th>Cortes seguidos</th><th>Desde</th></tr></thead><tbody>']
+        for n_, codigo, s, desde in arrastres[:40]:
+            cuerpo.append(f'<tr><td><a href="/historia/{e(codigo)}">{e(codigo)}</a></td>'
+                          f'<td><code>{e(s)}</code></td><td class="n">{n_}</td>'
+                          f'<td>{e(desde)}</td></tr>')
+        cuerpo.append('</tbody></table></div>')
+
+    if len(h["instantaneas"]) > 1:
+        a, b = h["instantaneas"][-2], h["instantaneas"][-1]
+        cuerpo.append(f'<p class="entrada">Para ver qué cambió campo por campo entre dos '
+                      f'cortes: <a href="/corte?a={a}&b={b}">{a} → {b}</a>.</p>')
+    cuerpo.append(AVISO_HISTORIA)
+    return pagina('Historia de las corridas', "".join(cuerpo), hoy, nav())
+
+
+def linea_de_tiempo(h: dict, codigo: str, hoy: str) -> tuple:
+    """Nivel 2 · desde cuándo este caso arrastra cada señal, y cuál se resolvió.
+
+    Devuelve (código, cuerpo). Una vista que puede fallar tiene que decir con qué estado
+    responder: devolvía la página de error y el servidor la enviaba con 200, así que el
+    cliente recibía un «no está» marcado como «aquí está».
+    """
+    senales = h["casos"].get(codigo)
+    if not senales:
+        return 404, error(404, f'No hay historia registrada de {codigo}', hoy)
+    abiertas = {s: x for s, x in senales.items() if not x.get("resuelta_en")}
+    cerradas = {s: x for s, x in senales.items() if x.get("resuelta_en")}
+
+    def tabla(d, cabeza, extra):
+        if not d:
+            return ''
+        out = [f'<h2>{cabeza}</h2>', '<div class="bloque"><table><thead><tr>'
+               f'<th>Señal</th><th>Desde</th><th>Cortes</th><th>Seguidos</th>{extra}'
+               '</tr></thead><tbody>']
+        for s, x in sorted(d.items(), key=lambda i: -i[1]["seguidas"]):
+            fin = f'<td>{e(x.get("resuelta_en"))}</td>' if extra else ''
+            out.append(f'<tr><td><code>{e(s)}</code></td><td>{e(x["primera"])}</td>'
+                       f'<td class="n">{x["corridas"]}</td>'
+                       f'<td class="n">{x["seguidas"]}</td>{fin}</tr>')
+        out.append('</tbody></table></div>')
+        return "".join(out)
+
+    cuerpo = [f'<p class="entrada">Lo que las corridas han dicho de <b>{e(codigo)}</b> '
+              f'entre el {e(h["desde"])} y el {e(h["hasta"])}. '
+              f'<a href="/p/{e(codigo)}">Ver su informe de hoy</a>.</p>',
+              tabla(abiertas, 'Lo que sigue abierto', ''),
+              tabla(cerradas, 'Lo que se resolvió', '<th>Resuelta en</th>'),
+              AVISO_HISTORIA]
+    return 200, pagina(f'Historia · {codigo}', "".join(cuerpo), hoy, nav())
+
+
+def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
+    """Nivel 3 · qué cambió campo por campo entre dos cortes. Devuelve (código, cuerpo)."""
+    snaps = estado / 'snapshots'
+    fa, fb = snaps / f'{a}.json', snaps / f'{b}.json'
+    for f, cual in ((fa, a), (fb, b)):
+        if not f.is_file():
+            return 404, error(404, f'No hay instantánea del {cual}', hoy)
+    da = json.loads(fa.read_text(encoding='utf-8'))
+    db = json.loads(fb.read_text(encoding='utf-8'))
+    pa = {k: v for k, v in (da.get('projects') or da).items()} if isinstance(da, dict) else {}
+    pb = {k: v for k, v in (db.get('projects') or db).items()} if isinstance(db, dict) else {}
+
+    filas = []
+    for codigo in sorted(set(pa) | set(pb)):
+        va, vb = pa.get(codigo) or {}, pb.get(codigo) or {}
+        if not isinstance(va, dict) or not isinstance(vb, dict):
+            continue
+        for campo in sorted(set(va) | set(vb)):
+            x, y = va.get(campo), vb.get(campo)
+            if x != y:
+                filas.append(f'<tr><td><a href="/historia/{e(codigo)}">{e(codigo)}</a></td>'
+                             f'<td><code>{e(campo)}</code></td>'
+                             f'<td>{e(x if x is not None else "—")}</td>'
+                             f'<td>{e(y if y is not None else "—")}</td></tr>')
+    cuerpo = [f'<p class="entrada">Lo que cambió campo por campo entre el corte del '
+              f'{e(a)} y el del {e(b)}: <b>{len(filas)} cambios</b>. Es la vista que '
+              f'contesta «desde cuándo» sin que nadie tenga que recordarlo.</p>']
+    if filas:
+        cuerpo += ['<div class="bloque"><table><thead><tr><th>Proyecto</th><th>Campo</th>'
+                   f'<th>{e(a)}</th><th>{e(b)}</th></tr></thead><tbody>',
+                   "".join(filas[:500]), '</tbody></table></div>']
+        if len(filas) > 500:
+            cuerpo.append(f'<p class="entrada">Se muestran 500 de {len(filas)}.</p>')
+    else:
+        cuerpo.append('<div class="bloque"><p>Ningún campo cambió entre esos dos '
+                      'cortes.</p></div>')
+    cuerpo.append(AVISO_HISTORIA)
+    return 200, pagina(f'Corte {a} → {b}', "".join(cuerpo), hoy, nav())
+
+
+# Va en las tres páginas, y no es un descargo de responsabilidad de relleno: un registro
+# de cinco cortes diciendo que un proyecto estuvo en verde sin sustento es un artefacto
+# político, y si la página no dice qué es, alguien lo va a usar para lo que no es.
+AVISO_HISTORIA = (
+    '<p class="entrada">Esta es la historia de <b>lo que el agente leyó en los documentos</b>, '
+    'no de lo que pasó ni un juicio sobre nadie. Cada hallazgo remite al documento que lo '
+    'sostiene, y un documento que se archivó tarde cambia la lectura sin que nadie haya '
+    'hecho nada mal.</p>')
+
+
+def nav() -> str:
+    return ('<a href="/">Portada</a> · <a href="/pmo">Portafolio</a> · '
+            '<a href="/decisiones">Decisiones</a> · <a href="/corridas">Historia</a>')
 
 
 # ---------------------------------------------------------------- la cola
@@ -380,6 +547,22 @@ class Manejador(BaseHTTPRequestHandler):
             self.a(ruta[3:] + '.html')
         elif ruta.startswith('/producto/'):
             self.a('producto-' + ruta[len('/producto/'):] + '.html')
+        elif ruta == '/corridas':
+            h = portafolio.historia(self.estado)
+            self.html(200, corridas(h, self.hoy()))
+        elif ruta.startswith('/historia/'):
+            h = portafolio.historia(self.estado)
+            self.html(*linea_de_tiempo(h, ruta[len('/historia/'):], self.hoy()))
+        elif ruta == '/corte':
+            q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+            snaps = sorted(x.stem for x in (self.estado / 'snapshots').glob('*.json'))
+            a = (q.get('a') or [snaps[-2] if len(snaps) > 1 else ''])[0]
+            b = (q.get('b') or [snaps[-1] if snaps else ''])[0]
+            if not a or not b:
+                self.html(404, error(404, 'Hacen falta dos cortes para comparar',
+                                     self.hoy()))
+            else:
+                self.html(*corte(self.estado, a, b, self.hoy()))
         elif ruta == '/estado.json':
             cuerpo = json.dumps(frescura(self.informe_dir, self.estado),
                                 ensure_ascii=False, indent=2).encode('utf-8')
@@ -467,6 +650,24 @@ def selftest() -> int:
     tmp = Path(tempfile.mkdtemp())
     inf, est = tmp / 'informe', tmp / 'estado'
     inf.mkdir(); (est / 'records').mkdir(parents=True)
+    # Con historia, para que las tres vistas se ejerciten de verdad y no solo existan.
+    # Dos cortes con un campo distinto entre ellos, y dos corridas con una señal que se
+    # arrastra: es el mínimo con el que las tres páginas tienen algo que decir.
+    (est / 'snapshots').mkdir(parents=True, exist_ok=True)
+    (est / 'snapshots' / '2026-08-31.json').write_text(json.dumps(
+        {'projects': {'PRY-001': {'declared.status': 'verde', 'plan.end_date': '2026-06-30'}}}),
+        encoding='utf-8')
+    (est / 'snapshots' / '2026-09-07.json').write_text(json.dumps(
+        {'projects': {'PRY-001': {'declared.status': 'verde', 'plan.end_date': '2026-09-30'}}}),
+        encoding='utf-8')
+    (est / 'corridas.json').write_text(json.dumps([
+        {'que': 'sweep', 'fecha': '2026-08-31', 'proyectos': 1, 'documentos': 4,
+         'segundos': 2, 'hallazgos': 2, 'por_senal': {'silent': 1, 'variance_time': 1},
+         'por_caso': {'PRY-001': ['silent', 'variance_time']}, 'nota': 'la primera'},
+        {'que': 'report', 'fecha': '2026-09-07', 'proyectos': 1, 'documentos': 5,
+         'segundos': 3, 'hallazgos': 1, 'por_senal': {'variance_time': 1},
+         'por_caso': {'PRY-001': ['variance_time']}, 'nota': 'el silencio se resolvió'}]),
+        encoding='utf-8')
     for nombre, texto in (('index', 'pmo'), ('decisiones', 'decisiones'),
                           ('proyectos', 'listado de proyectos'),
                           ('productos', 'listado de productos'),
@@ -570,11 +771,33 @@ def selftest() -> int:
                 prueba = '/p/PRY-001'
             elif r.startswith('/producto/'):
                 prueba = '/producto/cuenta-transaccional'
+            elif r.startswith('/historia/'):
+                # La historia de un caso que el estado de prueba no tiene responde 404 con
+                # razón. Lo que se comprueba aquí es que la ruta exista, no que haya datos.
+                prueba = '/historia/PRY-001'
             cod = pedir(prueba)[0]
             if cod in (200, 302):
                 vivas.append(r)
         ok('todas las rutas declaradas responden', sorted(vivas),
            sorted(set(RUTAS) - {'/peticion'}))
+
+        # ── la historia
+        cod, cuerpo = pedir('/corridas')
+        ok('la historia lista las corridas', cod == 200 and '2026-08-31' in cuerpo, True)
+        ok('y dice cuánto cambió entre una y la siguiente', '-1' in cuerpo, True)
+        ok('y nombra lo que se arrastra', 'variance_time' in cuerpo, True)
+        ok('con el aviso de que es la historia de lo leído',
+           'lo que el agente leyó' in pedir('/corridas')[1], True)
+        cod, cuerpo = pedir('/historia/PRY-001')
+        ok('la línea de tiempo separa lo abierto de lo resuelto',
+           cod == 200 and 'Lo que sigue abierto' in cuerpo
+           and 'Lo que se resolvió' in cuerpo, True)
+        cod, cuerpo = pedir('/corte?a=2026-08-31&b=2026-09-07')
+        ok('el corte muestra el campo que cambió',
+           cod == 200 and 'plan.end_date' in cuerpo and '2026-06-30' in cuerpo, True)
+        cod, cuerpo = pedir('/corte?a=1999-01-01&b=2026-09-07')
+        ok('un corte que no existe lo dice en vez de reventar',
+           cod == 404 and 'No hay instantánea del 1999-01-01' in cuerpo, True)
 
         ok('el escape impide inyectar en la confirmación',
            '<script>' not in pedir('/peticion', 'POST',

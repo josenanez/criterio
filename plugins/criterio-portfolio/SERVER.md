@@ -219,6 +219,9 @@ From here down is for whoever is going to publish it.
 | `/` | The landing page, with the three sections and the form | Everyone |
 | `/pmo` | How the portfolio is going | The PMO |
 | `/decisiones` | What needs a decision | The committee and the sponsor |
+| `/corridas` | The history: what ran, what it found, and what is being carried | Everyone |
+| `/historia/<code>` | Since when a project has been carrying each signal, and which one was resolved | The PMO and the manager |
+| `/corte?a=&b=` | What changed field by field between two cut-off dates | Whoever asks "since when" |
 | `/proyectos` | The project list | Everyone |
 | `/p/<code>` | A project's report | Whoever manages it, and whoever asks |
 | `/productos` | The product list | Whoever answers for a product |
@@ -237,13 +240,47 @@ one day you want it to reach an inbox unattended. **Sending mail on someone's be
 an authority this agent will not have**, so that step is taken by something of yours,
 not by the plugin.
 
+
+## The history, and why it is not deleted
+
+A real organisation produces reports, charts and documents every day, and that trail **is**
+the project's memory. The portal showed only the present and overwrote itself: there was no
+way to know what had been said before a decision, nor to present progress, nor to
+understand where a project stands beyond today.
+
+Three views, and all three read without writing:
+
+- **`/corridas`** — what ran, how many documents had to be re-read, how long it took, how
+  many findings, and **how many more or fewer than last time**. Below, what is being
+  carried: a signal that fired once is noise; one that has lasted several consecutive
+  cut-offs is a decision nobody has taken.
+- **`/historia/<code>`** — for one project, since when it has been carrying each signal and
+  **which one was resolved, with the date**. That something got resolved is history too.
+- **`/corte?a=&b=`** — what changed field by field between two cut-offs. It answers "since
+  when" without anyone having to remember: three sponsors in eighteen months explains more
+  than any root-cause analysis.
+
+**Nothing is pruned, and nothing needs to be.** A snapshot of fifty projects weighs 112 KB,
+and three years of weekly runs fit in 17 MB; with three hundred projects, in 100 MB. What
+is not stored is the rendered report — it weighs seven times more — because it is produced
+again when someone asks for it. Deleting the trail would delete the project's history, and
+with it any tracking that holds up.
+
+And there is a symmetry the product needs. Criterio demands that a PMO's declarations have
+evidence. If the PMO's own report overwrites itself, **nobody can audit the PMO**. A run
+history subjects the agent to its own rule.
+
+All three pages say it in one line, and it is not boilerplate: this is the history of
+**what the agent read in the documents**, not of what happened, and not a judgement about
+anyone.
+
 ## How it is verified
 
 ```
 python3 scripts/servidor.py --selftest
 ```
 
-Thirty checks, on the standard library, with nothing raised by hand. A server exposing
+Thirty-seven checks, on the standard library, with nothing raised by hand. A server exposing
 a portfolio has **two ways of failing that you cannot see by looking at the screen**,
 and those are the ones checked: serving a file that is not part of the report — paths
 with `..`, absolute paths, a neighbour on disk — and having a write path to the record.

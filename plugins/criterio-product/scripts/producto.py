@@ -669,8 +669,21 @@ def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None
         for req in r.get("requirements") or []:
             senales.update(a["signal"] for a in req.get("alerts") or [])
 
+    # Por requerimiento y no solo el total del producto: es el equivalente de `por_caso`
+    # en el portafolio, y sin él no se puede saber después desde cuándo un requerimiento
+    # viene sin doliente, sin criterio o sin nadie que lo esté construyendo.
+    por_caso = {}
+    for req in r.get("requirements") or []:
+        rid = (req.get("id") or {})
+        rid = rid.get("value") if isinstance(rid, dict) else rid
+        por_caso[rid or "?"] = sorted(a["signal"] for a in req.get("alerts") or [])
+    del_producto = sorted(a["signal"] for a in r.get("alerts") or [])
+    if del_producto:
+        por_caso[(r.get("product") or {}).get("code") or "producto"] = del_producto
+
     entrada = {"que": que, "fecha": today.isoformat(),
                "producto": (r.get("product") or {}).get("code"),
+               "por_caso": por_caso,
                "requerimientos": len(r.get("requirements") or []),
                "segundos": segundos, "hallazgos": sum(senales.values()),
                "por_senal": dict(senales.most_common()),

@@ -215,6 +215,9 @@ De aquí para abajo es para quien lo va a publicar.
 | `/` | La portada, con las tres secciones y el formulario | Todos |
 | `/pmo` | Cómo va el portafolio | La PMO |
 | `/decisiones` | Lo que necesita una decisión | El comité y el patrocinador |
+| `/corridas` | La historia: qué se corrió, qué encontró, y qué se arrastra | Todos |
+| `/historia/<código>` | Desde cuándo un proyecto arrastra cada señal, y cuál se resolvió | La PMO y el gerente |
+| `/corte?a=&b=` | Qué cambió campo por campo entre dos cortes | Quien pregunta «desde cuándo» |
 | `/proyectos` | El listado de proyectos | Todos |
 | `/p/<código>` | El informe de un proyecto | Quien gerencia, y quien pregunta |
 | `/productos` | El listado de productos | Quien responde por un producto |
@@ -233,13 +236,48 @@ de que hay informe nuevo, si algún día quieres que llegue solo a un buzón. **
 correos en nombre de alguien es una facultad que este agente no va a tener**, así que
 ese paso lo da algo tuyo, no el plugin.
 
+
+## La historia, y por qué no se borra
+
+Una organización real produce informes, cuadros y documentos todos los días, y ese rastro
+**es** la memoria del proyecto. El portal mostraba solo el presente y se sobreescribía: no
+había forma de saber qué se dijo antes de una decisión, ni de presentar un avance, ni de
+entender dónde está un proyecto más allá de hoy.
+
+Tres vistas, y las tres leen sin escribir:
+
+- **`/corridas`** — qué se corrió, cuántos documentos hubo que releer, cuánto tardó, cuántos
+  hallazgos, y **cuántos más o menos que la vez anterior**. Debajo, lo que se arrastra: una
+  señal que sonó una vez es ruido; una que lleva varios cortes seguidos es una decisión que
+  nadie ha tomado.
+- **`/historia/<código>`** — de un proyecto, desde cuándo arrastra cada señal y **cuál se
+  resolvió, con la fecha**. Que algo se haya resuelto también es historia.
+- **`/corte?a=&b=`** — qué cambió campo por campo entre dos cortes. Es lo que contesta
+  «desde cuándo» sin que nadie tenga que recordarlo: tres patrocinadores en dieciocho meses
+  explican más que cualquier análisis de causa raíz.
+
+**No se poda nada, y no hace falta.** Una instantánea de cincuenta proyectos pesa 112 KB, y
+tres años de corridas semanales caben en 17 MB; con trescientos proyectos, en 100 MB. Lo
+que no se guarda es el informe renderizado —pesa siete veces más— porque se vuelve a
+producir cuando alguien lo pide. Borrar el rastro sería borrar la historia del proyecto, y
+con ella la posibilidad de hacerle un seguimiento que se sostenga.
+
+Y hay una simetría que el producto necesita. Criterio le exige a una PMO que lo declarado
+tenga evidencia. Si el informe de la PMO se sobreescribe, **a la PMO no la puede auditar
+nadie**. Un histórico de corridas somete al agente a su propia regla.
+
+Las tres páginas lo dicen en una línea, y no es un descargo de relleno: esta es la historia
+de **lo que el agente leyó en los documentos**, no de lo que pasó ni un juicio sobre nadie.
+Un registro de cinco cortes diciendo que un proyecto estuvo en verde sin sustento es un
+artefacto político, y si la página no dice qué es, alguien lo va a usar para lo que no es.
+
 ## Cómo se verifica
 
 ```
 python3 scripts/servidor.py --selftest
 ```
 
-Treinta comprobaciones, con la librería estándar y sin levantar nada a mano. Un
+Treinta y siete comprobaciones, con la librería estándar y sin levantar nada a mano. Un
 servidor que expone un portafolio tiene **dos formas de fallar que no se ven mirando la
 pantalla**, y son las que se comprueban: que sirva un archivo que no es del informe
 —rutas con `..`, rutas absolutas, un vecino en disco— y que tenga un camino de

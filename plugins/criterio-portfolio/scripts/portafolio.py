@@ -1200,14 +1200,20 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
         relectura = {"sin_cambio": idx.get("unchanged"), "releidos": idx.get("to_read")}
 
     fichas = sorted((state / "records").glob("*.json"))
-    senales = Counter()
+    senales, por_caso = Counter(), {}
     for f in fichas:
         try:
             rec = json.loads(f.read_text(encoding="utf-8"))
         except json.JSONDecodeError:
             continue
         r = compute_record(rec, today, DEFAULT_THRESHOLDS)
-        senales.update(a["signal"] for a in r.get("alerts") or [])
+        suyas = [a["signal"] for a in r.get("alerts") or []]
+        senales.update(suyas)
+        # Por caso y no solo el total: sin esto no se puede reconstruir después desde
+        # cuándo un proyecto viene arrastrando una señal, y ese es el dato que un comité
+        # necesita. Una corrida que pase sin guardarlo lo pierde para siempre.
+        codigo = value((rec.get("identity") or {}).get("code")) or f.stem
+        por_caso[codigo] = sorted(suyas)
 
     entrada = {"que": que, "fecha": today.isoformat(), "proyectos": len(fichas),
                "documentos": documentos, "segundos": segundos,
@@ -1215,7 +1221,7 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
                "medido": {"segundos": segundos is not None,
                           "documentos": documentos is not None},
                "hallazgos": sum(senales.values()),
-               "por_senal": dict(senales.most_common()),
+               "por_senal": dict(senales.most_common()), "por_caso": por_caso,
                "informe": str(informe) if informe else None, "nota": nota}
 
     f = state / "corridas.json"
@@ -1254,6 +1260,54 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
         lineas += ["Primera corrida: no hay una anterior contra la cual comparar.", ""]
     (d / f"{today.isoformat()}-{que}.md").write_text("\n".join(lineas), encoding="utf-8")
     return entrada
+
+
+def historia(state: Path) -> dict:
+    """La historia de las corridas: qué se corrió, qué encontró, y desde cuándo.
+
+    Una organización real produce documentos todos los días, y ese rastro **es** la
+    memoria del proyecto. Borrarlo es borrar la historia: sin él no se puede presentar un
+    avance, ni entender dónde está un proyecto, ni sostener ante un comité que algo lleva
+    meses sin resolverse. Así que aquí no se poda nada — y no hace falta: una instantánea
+    de cincuenta proyectos pesa 112 KB, y tres años de corridas semanales caben en 17 MB.
+    Lo que no se guarda es el informe renderizado, que pesa siete veces más y se vuelve a
+    producir cuando alguien lo pide.
+
+    De cada caso sale lo único que un comité necesita saber de una señal: **desde cuándo**
+    la arrastra y **en cuántas corridas seguidas** apareció. Una señal que sonó una vez es
+    ruido; una que lleva cinco cortes es una decisión que nadie tomó. Y cuando deja de
+    sonar queda la fecha en que se resolvió, que también es historia.
+    """
+    f = state / "corridas.json"
+    corridas = json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+    corridas.sort(key=lambda c: (c.get("fecha") or "", c.get("que") or ""))
+
+    casos = {}
+    for i, c in enumerate(corridas):
+        for codigo, senales in (c.get("por_caso") or {}).items():
+            d = casos.setdefault(codigo, {})
+            for s in senales:
+                e = d.setdefault(s, {"primera": c["fecha"], "ultima": None,
+                                     "corridas": 0, "seguidas": 0, "_i": None})
+                e["ultima"] = c["fecha"]
+                e["corridas"] += 1
+                e["seguidas"] = (e["seguidas"] + 1 if e["_i"] == i - 1 else 1)
+                e["_i"] = i
+                e.pop("resuelta_en", None)
+            for s, e in d.items():
+                if s not in senales and e["_i"] == i - 1:
+                    e["resuelta_en"] = c["fecha"]
+    for d in casos.values():
+        for e in d.values():
+            e.pop("_i", None)
+
+    return {
+        "corridas": [{k: v for k, v in c.items() if k != "por_caso"} for c in corridas],
+        "casos": casos, "total": len(corridas),
+        "desde": corridas[0]["fecha"] if corridas else None,
+        "hasta": corridas[-1]["fecha"] if corridas else None,
+        "instantaneas": sorted(x.stem for x in (state / "snapshots").glob("*.json")),
+    }
 
 
 def check_config(config: Path) -> dict:
@@ -1694,7 +1748,7 @@ def main() -> int:
     ap.add_argument("action", choices=["init", "config", "due", "ran", "corrida",
                                        "corrida-inicio", "index", "compute", "snapshot",
                                        "diff", "requests", "answered", "impact",
-                                       "selftest"])
+                                       "historia", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
@@ -1741,6 +1795,8 @@ def main() -> int:
         if not args.what:
             ap.error("--what es obligatorio para ran")
         print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
+    elif args.action == "historia":
+        print(json.dumps(historia(args.state), ensure_ascii=False, indent=2))
     elif args.action == "corrida-inicio":
         print(json.dumps(corrida_inicio(args.state), ensure_ascii=False))
     elif args.action == "corrida":
