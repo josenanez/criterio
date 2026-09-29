@@ -212,7 +212,7 @@ def ficha_proyecto(docs: list, raiz: Path) -> dict:
         tr = r.read_text(encoding="utf-8")
         nombre = tr.splitlines()[0].split("·", 1)[-1].strip()
         recibidos[nombre.lower()] = (rel[r], negrita(tr, "Fecha de recibo"))
-    def recibo_de(nombre: str):
+    def recibo_de(nombre: str, contrato: str = None):
         """El acta de recibo de un hito, si existe.
 
         Por contención y no por igualdad: el cronograma dice «Carga de archivo» y el
@@ -221,8 +221,12 @@ def ficha_proyecto(docs: list, raiz: Path) -> dict:
         """
         n = nombre.lower()
         for titulo, dato in recibidos.items():
-            if n in titulo or titulo in n:
-                return dato
+            if not (n in titulo or titulo in n):
+                continue
+            # `dato` es (ruta, fecha). Si se pide un contrato, el acta tiene que nombrarlo.
+            if contrato and contrato.lower() not in str(dato[0]).lower():
+                continue
+            return dato
         return None
 
     for c in crono:
@@ -282,39 +286,54 @@ def ficha_proyecto(docs: list, raiz: Path) -> dict:
             c.pop("reschedules")
 
     # ── proveedores: contrato contra recibo contra factura
+    # ── proveedores: uno por contrato, y las facturas al contrato que nombran
+    # Leía `contratos[0]` y le sumaba **todas** las facturas del proyecto. Con dos
+    # proveedores eso pierde el segundo contrato entero y le imputa al primero una
+    # factura que no es suya, así que `vendor_invoiced_over_accepted` sonaba sin razón.
+    # Un proyecto real tiene varios proveedores.
     if contratos:
-        tc = contratos[0].read_text(encoding="utf-8")
-        rc2 = rel[contratos[0]]
-        fc2 = fecha_de(contratos[0].name)
-        entregables = []
-        for fila in filas(tc, "Entregable"):
-            ev = recibo_de(fila[0])
-            # El contrato declara el estado; el acta de recibo es la evidencia. Son
-            # dos cosas distintas y el cruce entre ellas es media aritmética de
-            # proveedores: «recibido» sin acta que lo sustente es un hallazgo.
-            declarado = (fila[3] if len(fila) > 3 else "").strip().lower()
-            estado = {"recibido": "accepted", "entregado": "delivered"}.get(
-                declarado, "pending")
-            entregables.append({
-                "name": campo(fila[0], rc2, fc2),
-                "due_date": campo(fila[1], rc2, fc2),
-                "amount": campo(plata(fila[2]), rc2, fc2),
-                "state": campo(estado, rc2, fc2),
-                "evidence": campo(ev[0], ev[0], ev[1]) if ev else vacio()})
-        total, detalle = 0, []
-        for fx in facturas:
-            tf = fx.read_text(encoding="utf-8")
-            monto = plata(negrita(tf, "Valor") or "")
-            total += monto or 0
-            detalle.append({
-                "concept": campo(negrita(tf, "Concepto"), rel[fx], fecha_de(fx.name)),
-                "amount": campo(monto, rel[fx], fecha_de(fx.name))})
-        ficha["vendors"] = [{"name": campo(negrita(tc, "Proveedor"), rc2, fc2),
-                             "contract_ref": campo(
-                                 tc.splitlines()[0].split("·")[0].split()[-1], rc2, fc2),
-                             "deliverables": entregables,
-                             "invoiced": campo(total, rc2, fc2) if detalle else vacio(),
-                             "invoices": detalle}]
+        ficha["vendors"] = []
+        for ct in contratos:
+            tc, rc2, fc2 = ct.read_text(encoding="utf-8"), rel[ct], fecha_de(ct.name)
+            ref = tc.splitlines()[0].split("·")[0].split()[-1]
+            entregables = []
+            for fila in filas(tc, "Entregable"):
+                # Con un solo contrato basta el nombre del entregable. Con varios hay que
+                # exigir que el acta diga de cuál es: dos proveedores pueden entregar lo
+                # mismo, y adivinar le imputa a uno lo que recibió el otro.
+                ev = recibo_de(fila[0], ref if len(contratos) > 1 else None)
+                # El contrato declara el estado; el acta de recibo es la evidencia. Son
+                # dos cosas distintas y el cruce entre ellas es media aritmética de
+                # proveedores: «recibido» sin acta que lo sustente es un hallazgo.
+                declarado = (fila[3] if len(fila) > 3 else "").strip().lower()
+                estado = {"recibido": "accepted", "entregado": "delivered"}.get(
+                    declarado, "pending")
+                entregables.append({
+                    "name": campo(fila[0], rc2, fc2),
+                    "due_date": campo(fila[1], rc2, fc2),
+                    "amount": campo(plata(fila[2]), rc2, fc2),
+                    "state": campo(estado, rc2, fc2),
+                    "evidence": campo(ev[0], ev[0], ev[1]) if ev else vacio()})
+            # La factura dice de qué contrato es. Si no lo dice y hay un solo contrato,
+            # es de ese; si hay varios y no lo dice, no se le imputa a ninguno — eso es
+            # un hueco del documento, no una licencia para adivinar.
+            total, detalle = 0, []
+            for fx in facturas:
+                tf = fx.read_text(encoding="utf-8")
+                concepto = negrita(tf, "Concepto") or ""
+                if ref not in concepto and len(contratos) > 1:
+                    continue
+                monto = plata(negrita(tf, "Valor") or "")
+                total += monto or 0
+                detalle.append({
+                    "concept": campo(concepto, rel[fx], fecha_de(fx.name)),
+                    "amount": campo(monto, rel[fx], fecha_de(fx.name))})
+            ficha["vendors"].append({
+                "name": campo(negrita(tc, "Proveedor"), rc2, fc2),
+                "contract_ref": campo(ref, rc2, fc2),
+                "deliverables": entregables,
+                "invoiced": campo(total, rc2, fc2) if detalle else vacio(),
+                "invoices": detalle})
 
     # ── control de cambios sin línea base nueva
     if cambios:

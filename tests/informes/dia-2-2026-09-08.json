@@ -1,27 +1,28 @@
 {
-  "fecha": "2026-09-28",
+  "fecha": "2026-09-08",
   "dia": 2,
-  "commit": "e7b8cbd",
+  "commit": "e2939f1",
+  "corte": "2026-09-08",
   "disposicion": "plana",
   "casos": {
     "proyectos": 50,
     "productos": 65
   },
   "documentos": {
-    "total": 463,
-    "bytes": 212314,
+    "total": 520,
+    "bytes": 235703,
     "por_formato": {
-      ".md": 413,
-      ".csv": 50
+      ".md": 473,
+      ".csv": 47
     }
   },
   "tiempos": {
-    "Extracción · documentos a ficha": 567,
-    "Cálculo · portafolio": 43,
-    "Cálculo · productos": 2335
+    "Extracción · documentos a ficha": 551,
+    "Cálculo · portafolio": 42,
+    "Cálculo · productos": 2380
   },
   "totales": {
-    "aciertos": 512,
+    "aciertos": 580,
     "falsos_positivos": 0,
     "falsos_negativos": 0,
     "precision": 100.0,
@@ -30,51 +31,51 @@
   "calificacion": {
     "por_caso": {
       "PRD-300": {
+        "esperado": 8,
+        "obtenido": 8,
+        "aciertos": 8,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-301": {
         "esperado": 5,
         "obtenido": 5,
         "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
-      "PRD-301": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
       "PRD-302": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 11,
+        "obtenido": 11,
+        "aciertos": 11,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-303": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-304": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 7,
+        "obtenido": 7,
+        "aciertos": 7,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-305": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-306": {
-        "esperado": 9,
-        "obtenido": 9,
-        "aciertos": 9,
+        "esperado": 3,
+        "obtenido": 3,
+        "aciertos": 3,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -86,16 +87,16 @@
         "falsos_positivos": []
       },
       "PRD-308": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-309": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -107,51 +108,51 @@
         "falsos_positivos": []
       },
       "PRD-311": {
-        "esperado": 9,
-        "obtenido": 9,
-        "aciertos": 9,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-312": {
-        "esperado": 10,
-        "obtenido": 10,
-        "aciertos": 10,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-313": {
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-314": {
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-315": {
         "esperado": 3,
         "obtenido": 3,
         "aciertos": 3,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
-      "PRD-314": {
-        "esperado": 8,
-        "obtenido": 8,
-        "aciertos": 8,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-315": {
-        "esperado": 8,
-        "obtenido": 8,
-        "aciertos": 8,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
       "PRD-316": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-317": {
-        "esperado": 8,
-        "obtenido": 8,
-        "aciertos": 8,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -163,86 +164,86 @@
         "falsos_positivos": []
       },
       "PRD-319": {
-        "esperado": 7,
-        "obtenido": 7,
-        "aciertos": 7,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-320": {
-        "esperado": 5,
-        "obtenido": 5,
-        "aciertos": 5,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-321": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-322": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
+        "esperado": 8,
+        "obtenido": 8,
+        "aciertos": 8,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-323": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-324": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-325": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-326": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-327": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-328": {
-        "esperado": 5,
-        "obtenido": 5,
-        "aciertos": 5,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-329": {
         "esperado": 4,
         "obtenido": 4,
         "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
-      "PRD-330": {
+      "PRD-326": {
         "esperado": 5,
         "obtenido": 5,
         "aciertos": 5,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-327": {
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-328": {
+        "esperado": 8,
+        "obtenido": 8,
+        "aciertos": 8,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-329": {
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-330": {
+        "esperado": 3,
+        "obtenido": 3,
+        "aciertos": 3,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -254,65 +255,65 @@
         "falsos_positivos": []
       },
       "PRD-332": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 8,
+        "obtenido": 8,
+        "aciertos": 8,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-333": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-334": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-335": {
-        "esperado": 7,
-        "obtenido": 7,
-        "aciertos": 7,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-336": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-337": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-338": {
-        "esperado": 7,
-        "obtenido": 7,
-        "aciertos": 7,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-339": {
         "esperado": 9,
         "obtenido": 9,
         "aciertos": 9,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
-      "PRD-340": {
+      "PRD-336": {
+        "esperado": 7,
+        "obtenido": 7,
+        "aciertos": 7,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-337": {
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-338": {
+        "esperado": 3,
+        "obtenido": 3,
+        "aciertos": 3,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-339": {
         "esperado": 4,
         "obtenido": 4,
         "aciertos": 4,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-340": {
+        "esperado": 3,
+        "obtenido": 3,
+        "aciertos": 3,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -324,30 +325,30 @@
         "falsos_positivos": []
       },
       "PRD-342": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-343": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-344": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-345": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 10,
+        "obtenido": 10,
+        "aciertos": 10,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -359,30 +360,30 @@
         "falsos_positivos": []
       },
       "PRD-347": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-348": {
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-349": {
         "esperado": 4,
         "obtenido": 4,
         "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
-      "PRD-349": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
       "PRD-350": {
-        "esperado": 5,
-        "obtenido": 5,
-        "aciertos": 5,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -394,79 +395,79 @@
         "falsos_positivos": []
       },
       "PRD-352": {
-        "esperado": 10,
-        "obtenido": 10,
-        "aciertos": 10,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-353": {
-        "esperado": 8,
-        "obtenido": 8,
-        "aciertos": 8,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-354": {
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-355": {
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-356": {
+        "esperado": 9,
+        "obtenido": 9,
+        "aciertos": 9,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-357": {
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRD-358": {
         "esperado": 5,
         "obtenido": 5,
         "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
-      "PRD-355": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-356": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-357": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-358": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
       "PRD-359": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRD-360": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRD-361": {
         "esperado": 4,
         "obtenido": 4,
         "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
+      "PRD-361": {
+        "esperado": 3,
+        "obtenido": 3,
+        "aciertos": 3,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
       "PRD-362": {
-        "esperado": 7,
-        "obtenido": 7,
-        "aciertos": 7,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -478,9 +479,9 @@
         "falsos_positivos": []
       },
       "PRD-364": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
+        "esperado": 8,
+        "obtenido": 8,
+        "aciertos": 8,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -527,37 +528,37 @@
         "falsos_positivos": []
       },
       "PRY-206": {
-        "esperado": 1,
-        "obtenido": 1,
-        "aciertos": 1,
+        "esperado": 2,
+        "obtenido": 2,
+        "aciertos": 2,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-207": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-208": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-209": {
         "esperado": 4,
         "obtenido": 4,
         "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
+      "PRY-208": {
+        "esperado": 12,
+        "obtenido": 12,
+        "aciertos": 12,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-209": {
+        "esperado": 14,
+        "obtenido": 14,
+        "aciertos": 14,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
       "PRY-210": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -569,93 +570,93 @@
         "falsos_positivos": []
       },
       "PRY-212": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-213": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-214": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-215": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-216": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-217": {
-        "esperado": 7,
-        "obtenido": 7,
-        "aciertos": 7,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-218": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-219": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-220": {
         "esperado": 5,
         "obtenido": 5,
         "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
+      "PRY-213": {
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-214": {
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-215": {
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-216": {
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-217": {
+        "esperado": 3,
+        "obtenido": 3,
+        "aciertos": 3,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-218": {
+        "esperado": 11,
+        "obtenido": 11,
+        "aciertos": 11,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-219": {
+        "esperado": 1,
+        "obtenido": 1,
+        "aciertos": 1,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-220": {
+        "esperado": 0,
+        "obtenido": 0,
+        "aciertos": 0,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
       "PRY-221": {
+        "esperado": 0,
+        "obtenido": 0,
+        "aciertos": 0,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
+      "PRY-222": {
         "esperado": 2,
         "obtenido": 2,
         "aciertos": 2,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
-      "PRY-222": {
-        "esperado": 5,
-        "obtenido": 5,
-        "aciertos": 5,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
       "PRY-223": {
-        "esperado": 5,
-        "obtenido": 5,
-        "aciertos": 5,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-224": {
-        "esperado": 0,
-        "obtenido": 0,
-        "aciertos": 0,
+        "esperado": 7,
+        "obtenido": 7,
+        "aciertos": 7,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -667,16 +668,16 @@
         "falsos_positivos": []
       },
       "PRY-226": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 7,
+        "obtenido": 7,
+        "aciertos": 7,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-227": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -695,23 +696,23 @@
         "falsos_positivos": []
       },
       "PRY-230": {
-        "esperado": 7,
-        "obtenido": 7,
-        "aciertos": 7,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-231": {
-        "esperado": 1,
-        "obtenido": 1,
-        "aciertos": 1,
+        "esperado": 2,
+        "obtenido": 2,
+        "aciertos": 2,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-232": {
-        "esperado": 0,
-        "obtenido": 0,
-        "aciertos": 0,
+        "esperado": 3,
+        "obtenido": 3,
+        "aciertos": 3,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -723,30 +724,30 @@
         "falsos_positivos": []
       },
       "PRY-234": {
-        "esperado": 5,
-        "obtenido": 5,
-        "aciertos": 5,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-235": {
         "esperado": 7,
         "obtenido": 7,
         "aciertos": 7,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
+      "PRY-235": {
+        "esperado": 2,
+        "obtenido": 2,
+        "aciertos": 2,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
       "PRY-236": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
+        "esperado": 0,
+        "obtenido": 0,
+        "aciertos": 0,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-237": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 5,
+        "obtenido": 5,
+        "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -758,16 +759,16 @@
         "falsos_positivos": []
       },
       "PRY-239": {
-        "esperado": 3,
-        "obtenido": 3,
-        "aciertos": 3,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-240": {
-        "esperado": 7,
-        "obtenido": 7,
-        "aciertos": 7,
+        "esperado": 3,
+        "obtenido": 3,
+        "aciertos": 3,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -779,23 +780,23 @@
         "falsos_positivos": []
       },
       "PRY-242": {
-        "esperado": 6,
-        "obtenido": 6,
-        "aciertos": 6,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-243": {
-        "esperado": 5,
-        "obtenido": 5,
-        "aciertos": 5,
+        "esperado": 4,
+        "obtenido": 4,
+        "aciertos": 4,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-244": {
-        "esperado": 2,
-        "obtenido": 2,
-        "aciertos": 2,
+        "esperado": 0,
+        "obtenido": 0,
+        "aciertos": 0,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
@@ -807,45 +808,37 @@
         "falsos_positivos": []
       },
       "PRY-246": {
-        "esperado": 7,
-        "obtenido": 7,
-        "aciertos": 7,
-        "falsos_negativos": [],
-        "falsos_positivos": []
-      },
-      "PRY-247": {
         "esperado": 5,
         "obtenido": 5,
         "aciertos": 5,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
+      "PRY-247": {
+        "esperado": 12,
+        "obtenido": 12,
+        "aciertos": 12,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
       "PRY-248": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 7,
+        "obtenido": 7,
+        "aciertos": 7,
         "falsos_negativos": [],
         "falsos_positivos": []
       },
       "PRY-249": {
-        "esperado": 4,
-        "obtenido": 4,
-        "aciertos": 4,
+        "esperado": 6,
+        "obtenido": 6,
+        "aciertos": 6,
         "falsos_negativos": [],
         "falsos_positivos": []
       }
     },
     "por_senal": {
-      "requirement_without_owner": {
-        "aciertos": 6,
-        "fp": 0,
-        "fn": 0,
-        "casos": [],
-        "precision": 100.0,
-        "cobertura": 100.0
-      },
       "requirement_untraced": {
-        "aciertos": 210,
+        "aciertos": 233,
         "fp": 0,
         "fn": 0,
         "casos": [],
@@ -853,7 +846,15 @@
         "cobertura": 100.0
       },
       "requirement_accepted_without_evidence": {
-        "aciertos": 12,
+        "aciertos": 19,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "evidence_stale": {
+        "aciertos": 34,
         "fp": 0,
         "fn": 0,
         "casos": [],
@@ -869,23 +870,7 @@
         "cobertura": 100.0
       },
       "claim_vs_metric": {
-        "aciertos": 12,
-        "fp": 0,
-        "fn": 0,
-        "casos": [],
-        "precision": 100.0,
-        "cobertura": 100.0
-      },
-      "evidence_stale": {
-        "aciertos": 37,
-        "fp": 0,
-        "fn": 0,
-        "casos": [],
-        "precision": 100.0,
-        "cobertura": 100.0
-      },
-      "requirement_undecided": {
-        "aciertos": 2,
+        "aciertos": 15,
         "fp": 0,
         "fn": 0,
         "casos": [],
@@ -893,14 +878,22 @@
         "cobertura": 100.0
       },
       "requirement_without_acceptance": {
-        "aciertos": 6,
+        "aciertos": 11,
         "fp": 0,
         "fn": 0,
         "casos": [],
         "precision": 100.0,
         "cobertura": 100.0
       },
-      "variance_cost": {
+      "requirement_undecided": {
+        "aciertos": 8,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "requirement_without_owner": {
         "aciertos": 5,
         "fp": 0,
         "fn": 0,
@@ -908,16 +901,8 @@
         "precision": 100.0,
         "cobertura": 100.0
       },
-      "progress_vs_plan": {
-        "aciertos": 31,
-        "fp": 0,
-        "fn": 0,
-        "casos": [],
-        "precision": 100.0,
-        "cobertura": 100.0
-      },
-      "declared_vs_evidence": {
-        "aciertos": 28,
+      "variance_cost": {
+        "aciertos": 8,
         "fp": 0,
         "fn": 0,
         "casos": [],
@@ -925,7 +910,23 @@
         "cobertura": 100.0
       },
       "milestone_met_without_evidence": {
-        "aciertos": 116,
+        "aciertos": 101,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "declared_vs_evidence": {
+        "aciertos": 27,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "progress_vs_plan": {
+        "aciertos": 23,
         "fp": 0,
         "fn": 0,
         "casos": [],
@@ -933,15 +934,7 @@
         "cobertura": 100.0
       },
       "commitment_undated": {
-        "aciertos": 6,
-        "fp": 0,
-        "fn": 0,
-        "casos": [],
-        "precision": 100.0,
-        "cobertura": 100.0
-      },
-      "rebaseline_unauthorized": {
-        "aciertos": 3,
+        "aciertos": 1,
         "fp": 0,
         "fn": 0,
         "casos": [],
@@ -956,8 +949,64 @@
         "precision": 100.0,
         "cobertura": 100.0
       },
+      "rebaseline_unauthorized": {
+        "aciertos": 5,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "silent": {
+        "aciertos": 4,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
       "commitment_overdue": {
-        "aciertos": 3,
+        "aciertos": 6,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "vendor_invoiced_over_accepted": {
+        "aciertos": 7,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "vendor_accepted_without_evidence": {
+        "aciertos": 12,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "vendor_deliverable_late": {
+        "aciertos": 20,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "vendor_invoiced_without_delivery": {
+        "aciertos": 4,
+        "fp": 0,
+        "fn": 0,
+        "casos": [],
+        "precision": 100.0,
+        "cobertura": 100.0
+      },
+      "milestone_overdue": {
+        "aciertos": 2,
         "fp": 0,
         "fn": 0,
         "casos": [],

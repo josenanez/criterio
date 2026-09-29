@@ -155,6 +155,27 @@ RIESGOS = (
     "El proveedor no ha confirmado la fecha de la última entrega",
 )
 
+# Los proveedores y lo que entregan. Contrato contra acta de recibo contra factura es
+# donde aparece el dinero pagado por algo que nadie aceptó, y es la esquina que más duele en
+# una PMO de verdad. Cuatro de las veinte señales viven aquí, y se estaban probando contra
+# cero material: `PROFUNDIDAD` declaraba `contrato=True` y el simulador nunca escribía el
+# documento.
+PROVEEDORES = (
+    "Consultora Andina S.A.S.", "Integra Sistemas Ltda.", "Datacore Colombia",
+    "Núcleo Financiero S.A.", "Talento Digital S.A.S.", "Redes del Norte Ltda.",
+)
+# Sin solaparse con FASES. El acta de recibo se empareja por contención —el cronograma
+# dice «Carga de archivo» y el acta «Carga de archivo de nómina»—, y eso es lo correcto para
+# un nombre escrito a mano dos veces. Pero si un entregable se llama «Ambiente de pruebas» y
+# un hito «Ambiente de pruebas certificado», el acta del hito se empareja con el entregable
+# del proveedor y las dos cuentas salen mal. No es un defecto del emparejamiento: es que dos
+# cosas distintas no pueden llamarse casi igual en el mismo proyecto.
+ENTREGABLES_PROV = (
+    "Licenciamiento del motor", "Bolsa de horas de desarrollo",
+    "Parametrización del tarifario", "Mesa de ayuda del primer trimestre",
+    "Traspaso de conocimiento",
+)
+
 # Los supuestos que sostienen un producto. Son enunciados que alguien puede verificar o
 # no, y esa es la única razón por la que están aquí: un supuesto sin verificar es un
 # riesgo que nadie registró.
@@ -218,6 +239,8 @@ def nuevo_proyecto(rnd, i: int, hoy: dt.date) -> dict:
         "comprometido": int(presupuesto * rnd.uniform(0.25, 0.75)),
         "ejecutado": int(presupuesto * rnd.uniform(0.15, 0.55)),
         "proyeccion": int(presupuesto * rnd.uniform(0.92, 1.05)),
+        "proveedores": proveedores_de(rnd, hoy, arranque, duracion, presupuesto)
+                        if PROFUNDIDAD[prof]["contrato"] else [],
         "hitos": hitos, "compromisos": [], "lineas_base": 1, "cambios": [],
         "declarado": {"estado": rnd.choice(["verde", "verde", "amarillo"]),
                       "pct": avance(hitos, rnd),
@@ -225,6 +248,61 @@ def nuevo_proyecto(rnd, i: int, hoy: dt.date) -> dict:
         "ultimo_doc": f(hoy, -rnd.randint(2, 10)), "silencioso": False,
         "docs": [], "semana": 0,
     }
+
+
+def proveedores_de(rnd, hoy: dt.date, arranque: int, duracion: int,
+                   presupuesto: int) -> list:
+    """Un contrato, con entregables que caen en cuatro situaciones distintas.
+
+    Las cuatro que el código sabe distinguir, y ninguna se inventa: el entregable con
+    fecha pasada y nada entregado; el aceptado sin acta que lo pruebe; la factura contra
+    un contrato donde nada se aceptó; y la factura por encima de lo aceptado. Si el
+    material solo tuviera el caso feliz, cuatro señales seguirían sin probarse.
+    """
+    n = rnd.choice([0, 1, 1, 2])
+    out = []
+    for k in range(n):
+        cuantos = rnd.randint(2, 4)
+        monto_u = int(presupuesto * rnd.uniform(0.04, 0.12))
+        entregables = []
+        for j in range(cuantos):
+            cuando = -arranque + int(duracion * (j + 1) / (cuantos + 1))
+            # Cuatro estados posibles, y cada uno produce —o no— una señal distinta.
+            suerte = rnd.random()
+            if suerte < 0.35:
+                estado, acta = "recibido", f(hoy, cuando + rnd.randint(1, 20))
+            elif suerte < 0.55:
+                # Recibido y sin acta: alguien lo dio por recibido y no hay prueba.
+                estado, acta = "recibido", None
+            elif suerte < 0.8:
+                estado, acta = "en curso", None
+            else:
+                estado, acta = "pendiente", None
+            entregables.append({"que": ENTREGABLES_PROV[j % len(ENTREGABLES_PROV)],
+                                "vence": f(hoy, cuando), "estado": estado,
+                                "monto": monto_u, "acta": acta})
+        # La factura contra un contrato donde **nada** se recibió es la peor del bloque:
+        # dinero pagado por algo que nadie aceptó. Con los dados salía cero de diecisiete
+        # contratos, y una señal que importa no puede depender de la suerte del generador
+        # — se planta, igual que los controles negativos.
+        if rnd.random() < 0.22:
+            for e in entregables:
+                e["estado"] = rnd.choice(["en curso", "pendiente"])
+                e["acta"] = None
+
+        aceptado = sum(e["monto"] for e in entregables if e["estado"] == "recibido")
+        # Lo facturado: a veces exacto, a veces por encima, y a veces sin nada aceptado.
+        if aceptado == 0:
+            facturado = monto_u if rnd.random() < 0.6 else 0
+        elif rnd.random() < 0.3:
+            facturado = int(aceptado * rnd.uniform(1.15, 1.6))
+        else:
+            facturado = aceptado
+        out.append({"nombre": rnd.choice(PROVEEDORES), "ref": f"CT-{rnd.randint(100, 999)}",
+                    "firma": f(hoy, -arranque - rnd.randint(1, 20)),
+                    "entregables": entregables, "facturado": facturado,
+                    "fecha_factura": f(hoy, -rnd.randint(1, 40)) if facturado else None})
+    return out
 
 
 def nuevo_producto(rnd, i: int, hoy: dt.date) -> dict:
@@ -510,6 +588,22 @@ def esperado_proyecto(p: dict, hoy: dt.date) -> list:
     # en el estado: cuando un proyecto se calla, el simulador movía `ultimo_doc` y no
     # escribía nada con esa fecha, así que la ficha veía cuatro días más de silencio que
     # la clave. La clave se deriva del material en disco, siempre.
+    # ── proveedores. Las cuatro que el código distingue, con la misma aritmética.
+    for pv in p.get("proveedores") or []:
+        entregables = pv["entregables"]
+        aceptados = [e for e in entregables if e["estado"] == "recibido"]
+        for e in entregables:
+            if e["estado"] == "recibido" and not e["acta"]:
+                s.append("vendor_accepted_without_evidence")
+            elif e["estado"] != "recibido" and e["vence"] < h:
+                s.append("vendor_deliverable_late")
+        monto_aceptado = sum(e["monto"] for e in aceptados)
+        if pv["facturado"] and entregables and not aceptados:
+            s.append("vendor_invoiced_without_delivery")
+        elif (pv["facturado"] and any(e.get("monto") is not None for e in entregables)
+                and pv["facturado"] > monto_aceptado):
+            s.append("vendor_invoiced_over_accepted")
+
     dias_silencio = (hoy - dt.date.fromisoformat(
         p.get("ultimo_escrito") or p["ultimo_doc"])).days
     if dias_silencio >= UMBRAL["silencio_dias"]:
@@ -600,6 +694,31 @@ def escribir(estado: dict, destino: Path, hoy: dt.date, disp: str) -> tuple:
             if h["recibo"]:
                 c.seguimiento(h["recibo"], f"acta-recibo-{h['nombre'].lower().replace(' ', '-')}.md",
                               org.recibo(d, h["recibo"], h["nombre"], p["gerente"], ""))
+        # ── el proveedor: contrato, actas de recibo de sus entregables, y factura
+        for k, pv in enumerate(p.get("proveedores") or [], 1):
+            c.gobierno(pv["firma"], f"contrato-{pv['ref'].lower()}.md", org.contrato(
+                d, pv["firma"], pv["ref"], pv["nombre"],
+                [(e["que"], e["vence"], e["monto"], e["estado"])
+                 for e in pv["entregables"]]))
+            for e in pv["entregables"]:
+                if e["acta"]:
+                    # El acta lleva el contrato en el nombre y en el cuerpo. Sin eso, dos
+                    # proveedores que entregan lo mismo son indistinguibles: el acta de uno
+                    # se empareja con el entregable del otro y las dos cuentas salen mal.
+                    # No es un defecto del emparejamiento — es un acta incompleta, y en una
+                    # PMO real pasa igual.
+                    c.seguimiento(e["acta"],
+                                  f"acta-recibo-{pv['ref'].lower()}-"
+                                  f"{e['que'].lower().replace(' ', '-')}.md",
+                                  org.recibo(d, e["acta"], e["que"], p["gerente"],
+                                             f"Contrato {pv['ref']} · {pv['nombre']}."))
+            if pv["facturado"]:
+                c.seguimiento(pv["fecha_factura"], f"factura-{pv['ref'].lower()}.md",
+                              org.factura(d, pv["fecha_factura"],
+                                          f"FV-{k}{pv['ref'][-3:]}", pv["nombre"],
+                                          "Entregables del contrato " + pv["ref"],
+                                          pv["facturado"]))
+
         c.seguimiento(p["declarado"]["fecha"], "informe-avance.md", org.informe(
             d, p["declarado"]["estado"].capitalize(), p["declarado"]["fecha"],
             p["declarado"]["pct"],
