@@ -1277,7 +1277,110 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
                    "> El comando no entregó su resultado (`--salida`): la corrida registra "
                    "las cifras, pero lo que dijo se quedó en la conversación.", ""]
     (d / f"{entrada['id']}.md").write_text("\n".join(lineas), encoding="utf-8")
+    (d / f"{entrada['id']}.html").write_text(
+        pagina_corrida(f"Corrida · {entrada['id']}", "\n".join(lineas), today.isoformat()),
+        encoding="utf-8")
     return entrada
+
+
+
+# ------------------------------------------------------------ la corrida como página
+# Cada corrida deja un HTML al lado de su markdown. Es la evidencia que se puede abrir sin
+# servidor, mandar por correo o archivar; Rostrum sirve el mismo archivo con el árbol
+# encima. Los colores son los del informe, declarados aquí porque los tres agentes
+# comparten este módulo y solo Vera lleva `informe.py`.
+_PALETA = {"crema": "#f5f4ef", "panel": "#efeee8", "tinta": "#111111", "cuerpo": "#3f4450",
+           "apagado": "#6b675f", "oro": "#8a6327", "filete": "#c9c6bd"}
+
+
+def _e(x) -> str:
+    import html as _html
+    return _html.escape(str(x), quote=True)
+
+
+def md_a_html(md: str) -> str:
+    """Markdown a HTML, lo justo para lo que una corrida escribe: títulos, párrafos,
+    listas, tablas, citas y código. No es un procesador de Markdown y no pretende serlo."""
+    out, parrafo, lista, tabla, codigo = [], [], None, [], False
+    def cierra():
+        nonlocal parrafo, lista, tabla
+        if parrafo:
+            out.append('<p>' + inl(' '.join(parrafo)) + '</p>'); parrafo = []
+        if lista:
+            out.append(f'</{lista}>'); lista = None
+        if tabla:
+            filas = [f for f in tabla if not set(f.replace('|', '').strip()) <= set('-: ')]
+            if filas:
+                celdas = lambda f: [c.strip() for c in f.strip().strip('|').split('|')]
+                out.append('<table><thead><tr>' + ''.join(f'<th>{inl(c)}</th>' for c in celdas(filas[0]))
+                           + '</tr></thead><tbody>'
+                           + ''.join('<tr>' + ''.join(f'<td>{inl(c)}</td>' for c in celdas(f)) + '</tr>'
+                                     for f in filas[1:]) + '</tbody></table>')
+            tabla = []
+    def inl(t):
+        t = _e(t)
+        t = re.sub(r'`([^`]+)`', r'<code>\1</code>', t)
+        t = re.sub(r'\*\*([^*]+)\*\*', r'<b>\1</b>', t)
+        t = re.sub(r'\*([^*]+)\*', r'<i>\1</i>', t)
+        return t
+    for linea in md.splitlines():
+        if linea.startswith('```'):
+            cierra()
+            out.append('<pre>' if not codigo else '</pre>'); codigo = not codigo; continue
+        if codigo:
+            out.append(_e(linea)); continue
+        l = linea.rstrip()
+        if not l.strip():
+            cierra(); continue
+        if l.lstrip().startswith('|'):
+            if parrafo or lista: cierra()
+            tabla.append(l); continue
+        m = re.match(r'^(#{1,6})\s+(.*)', l)
+        if m:
+            cierra(); n = min(len(m.group(1)) + 1, 6)
+            out.append(f'<h{n}>{inl(m.group(2))}</h{n}>'); continue
+        if l.startswith('>'):
+            cierra(); out.append(f'<blockquote>{inl(l.lstrip("> "))}</blockquote>'); continue
+        m = re.match(r'^\s*([-*]|\d+\.)\s+(.*)', l)
+        if m:
+            if parrafo or tabla: cierra()
+            tipo = 'ol' if m.group(1)[0].isdigit() else 'ul'
+            if lista != tipo:
+                if lista: out.append(f'</{lista}>')
+                out.append(f'<{tipo}>'); lista = tipo
+            out.append(f'<li>{inl(m.group(2))}</li>'); continue
+        if lista or tabla: cierra()
+        parrafo.append(l.strip())
+    cierra()
+    if codigo: out.append('</pre>')
+    return '\n'.join(out)
+
+
+
+def pagina_corrida(titulo: str, md: str, hoy: str) -> str:
+    """El HTML de una corrida, autocontenido, en la paleta del informe."""
+    p = _PALETA
+    css = (f"body{{margin:0;background:{p['crema']};color:{p['cuerpo']};font:16px/1.6 -apple-system,"
+           f"Segoe UI,Helvetica,Arial,sans-serif}}.hoja{{max-width:900px;margin:0 auto;padding:38px 24px}}"
+           f"h1,h2,h3{{color:{p['tinta']};letter-spacing:-.02em;line-height:1.15}}h1{{font-size:1.9rem}}"
+           f"h2{{font-size:1.25rem;margin-top:2em}}.nav a{{color:{p['oro']};text-decoration:none}}"
+           f"table{{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}}"
+           f"th,td{{text-align:left;padding:.45em .6em;border-bottom:1px solid {p['filete']}}}"
+           f"th{{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:{p['apagado']}}}"
+           f"code{{background:{p['panel']};padding:.1em .35em;border-radius:3px;font-size:.9em}}"
+           f"pre{{background:{p['panel']};padding:1em;overflow:auto}}"
+           f"blockquote{{margin:1em 0;padding:.2em 1em;border-left:3px solid {p['oro']};color:{p['apagado']}}}"
+           f".pie{{margin-top:3em;padding-top:1em;border-top:1px solid {p['filete']};font-size:.85rem;"
+           f"color:{p['apagado']}}}")
+    return (f'<!doctype html>\n<html lang="es"><head><meta charset="utf-8">'
+            f'<meta name="viewport" content="width=device-width,initial-scale=1">'
+            f'<meta name="robots" content="noindex,nofollow"><title>{_e(titulo)}</title>'
+            f'<style>{css}</style></head><body><div class="hoja">'
+            f'<div class="nav"><a href="/corridas">← Historia de las corridas</a></div>'
+            f'<div class="bloque">{md_a_html(md)}</div>'
+            f'<div class="pie">Esta corrida se escribió sola al terminar el comando, el {_e(hoy)}; '
+            f'nada de esto se redactó después. Es la historia de lo que el agente leyó en los '
+            f'documentos, no de lo que pasó ni un juicio sobre nadie.</div></div></body></html>\n')
 
 
 def estados_de(state: Path) -> list:
@@ -1544,6 +1647,10 @@ def _selftest_corrida():
              ["2026-09-28-sweep-1", "2026-09-28-report-1"]),
             ("corrida · sin salida entregada, la página lo dice",
              "no entregó su resultado" in legible, True),
+            ("corrida · deja también el HTML, abrible sin servidor",
+             (estado / "corridas" / "2026-09-28-health-check-1.html").is_file()
+             and "no permite saber el presupuesto" in
+             (estado / "corridas" / "2026-09-28-health-check-1.html").read_text(encoding="utf-8"), True),
             ("corrida · con salida, la copia entera",
              "no permite saber el presupuesto" in tercero
              and "no entregó su resultado" not in tercero, True),

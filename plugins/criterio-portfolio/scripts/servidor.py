@@ -318,62 +318,7 @@ def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
     return 200, pagina(f'Corte {a} → {b}', "".join(cuerpo), hoy, nav(), '/corte')
 
 
-def md_a_html(md: str) -> str:
-    """Markdown a HTML, lo justo para lo que una corrida escribe: títulos, párrafos,
-    listas, tablas, citas y código. No es un procesador de Markdown y no pretende serlo."""
-    out, parrafo, lista, tabla, codigo = [], [], None, [], False
-    def cierra():
-        nonlocal parrafo, lista, tabla
-        if parrafo:
-            out.append('<p>' + inl(' '.join(parrafo)) + '</p>'); parrafo = []
-        if lista:
-            out.append(f'</{lista}>'); lista = None
-        if tabla:
-            filas = [f for f in tabla if not set(f.replace('|', '').strip()) <= set('-: ')]
-            if filas:
-                celdas = lambda f: [c.strip() for c in f.strip().strip('|').split('|')]
-                out.append('<table><thead><tr>' + ''.join(f'<th>{inl(c)}</th>' for c in celdas(filas[0]))
-                           + '</tr></thead><tbody>'
-                           + ''.join('<tr>' + ''.join(f'<td>{inl(c)}</td>' for c in celdas(f)) + '</tr>'
-                                     for f in filas[1:]) + '</tbody></table>')
-            tabla = []
-    def inl(t):
-        t = e(t)
-        t = re.sub(r'`([^`]+)`', r'<code>\1</code>', t)
-        t = re.sub(r'\*\*([^*]+)\*\*', r'<b>\1</b>', t)
-        t = re.sub(r'\*([^*]+)\*', r'<i>\1</i>', t)
-        return t
-    for linea in md.splitlines():
-        if linea.startswith('```'):
-            cierra()
-            out.append('<pre>' if not codigo else '</pre>'); codigo = not codigo; continue
-        if codigo:
-            out.append(e(linea)); continue
-        l = linea.rstrip()
-        if not l.strip():
-            cierra(); continue
-        if l.lstrip().startswith('|'):
-            if parrafo or lista: cierra()
-            tabla.append(l); continue
-        m = re.match(r'^(#{1,6})\s+(.*)', l)
-        if m:
-            cierra(); n = min(len(m.group(1)) + 1, 6)
-            out.append(f'<h{n}>{inl(m.group(2))}</h{n}>'); continue
-        if l.startswith('>'):
-            cierra(); out.append(f'<blockquote>{inl(l.lstrip("> "))}</blockquote>'); continue
-        m = re.match(r'^\s*([-*]|\d+\.)\s+(.*)', l)
-        if m:
-            if parrafo or tabla: cierra()
-            tipo = 'ol' if m.group(1)[0].isdigit() else 'ul'
-            if lista != tipo:
-                if lista: out.append(f'</{lista}>')
-                out.append(f'<{tipo}>'); lista = tipo
-            out.append(f'<li>{inl(m.group(2))}</li>'); continue
-        if lista or tabla: cierra()
-        parrafo.append(l.strip())
-    cierra()
-    if codigo: out.append('</pre>')
-    return '\n'.join(out)
+md_a_html = portafolio.md_a_html
 
 
 def ruta_corrida(c: dict) -> str:

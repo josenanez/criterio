@@ -734,6 +734,10 @@ def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None
                    "> El comando no entregó su resultado (`--salida`): la corrida registra "
                    "las cifras, pero lo que dijo se quedó en la conversación.", ""]
     (d / f"{entrada['id']}.md").write_text("\n".join(lineas), encoding="utf-8")
+    import portafolio as _pf  # la página de la corrida es una sola para los tres agentes
+    (d / f"{entrada['id']}.html").write_text(
+        _pf.pagina_corrida(f"Corrida · {entrada['id']}", "\n".join(lineas), today.isoformat()),
+        encoding="utf-8")
     return entrada
 
 
