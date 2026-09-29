@@ -131,10 +131,11 @@ queda dentro del caso de negocio es el que nadie vuelve a mirar— y, si el caso
 
 ## Deja la corrida registrada
 
-Lo último, siempre:
+Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
 python3 scripts/producto.py corrida --state <estado> --what product-business-case \
+    --salida <estado>/corridas/salida-product-business-case.md \
     --nota "qué produjo, y qué dijo que no sabía"
 ```
 

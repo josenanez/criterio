@@ -221,6 +221,8 @@ From here down is for whoever is going to publish it.
 | `/decisiones` | What needs a decision | The committee and the sponsor |
 | `/corridas` | The history of **all three agents**, and what is being carried | Everyone |
 | `/corridas?agente=` | Only the project manager's runs, or the product manager's | Their manager |
+| `/corridas?agente=&que=` | The runs of one command; where the tree's branches lead | Whoever tests |
+| `/corrida/<agent>/<case>/<id>` | **One whole run**: its figures and what the command produced, as it wrote it | Everyone |
 | `/historia/<code>` | Since when a project has been carrying each signal, and which one was resolved | The PMO and the manager |
 | `/corte?a=&b=` | What changed field by field between two cut-off dates | Whoever asks "since when" |
 | `/proyectos` | The project list | Everyone |

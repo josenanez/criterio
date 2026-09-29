@@ -61,11 +61,14 @@ Todo archivo suelto se asigna a su proyecto y **se mueve**. Lo movido va en la `
 
 **6. Escribe y deja rastro**
 
-Guarda cada ficha en `<estado>/records/<codigo>.json`. Después corre:
+Guarda cada ficha en `<estado>/records/<codigo>.json`. Escribe en `<estado>/corridas/salida-sweep.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
+
+Después corre:
 
 ```
 python3 scripts/portafolio.py snapshot --state <estado>
 python3 scripts/portafolio.py corrida --state <estado> --what sweep \
+    --salida <estado>/corridas/salida-sweep.md \
     --docs <carpeta de documentos> \
     --nota "qué se movió, qué se omitió, qué hay que mirar"
 ```

@@ -112,10 +112,11 @@ Publiqué la ficha en `[ruta exacta]`, con corte al [fecha].
 
 ## Deja la corrida registrada
 
-Lo último, siempre:
+Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
 python3 scripts/producto.py corrida --state <estado> --what report \
+    --salida <estado>/corridas/salida-report.md \
     --nota "qué quedó publicado para el portafolio"
 ```
 

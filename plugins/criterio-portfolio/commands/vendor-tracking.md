@@ -72,10 +72,11 @@ Si el preaviso de un contrato está por vencer, dilo aquí y no en el anexo. Si 
 
 ## Deja la corrida registrada
 
-Lo último, siempre:
+Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
 python3 scripts/portafolio.py corrida --state <estado> --what vendor-tracking \
+    --salida <estado>/corridas/salida-vendor-tracking.md \
     --nota "qué produjo, y qué dijo que no sabía"
 ```
 

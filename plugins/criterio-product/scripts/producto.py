@@ -631,7 +631,7 @@ def corrida_inicio(state: Path) -> dict:
 
 
 def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None,
-            nota=None) -> dict:
+            nota=None, salida: Path = None) -> dict:
     """El registro de una corrida sobre este producto: qué se corrió y qué encontró.
 
     Es lo mismo que `portafolio.py corrida` hace para Vera, y por la misma razón: sin
@@ -691,6 +691,18 @@ def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None
 
     f = state / "corridas.json"
     previas = json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+    # Cada corrida tiene identidad propia. Dos corridas del mismo comando el mismo día
+    # eran un solo archivo que se pisaba: la segunda borraba a la primera, y borrar una
+    # corrida es borrar historia. El ordinal las separa.
+    n = 1 + sum(1 for x in previas if x.get("fecha") == today.isoformat() and x.get("que") == que)
+    entrada["id"] = f"{today.isoformat()}-{que}-{n}"
+    # Lo que el comando produjo, entero. Sin esto la corrida guarda cifras y lo que el
+    # agente dijo se queda en una conversación que se cierra, que es justo lo que no se
+    # puede auditar. Se copia tal cual: lo que el comando produjo se copia, no se reescribe.
+    texto_salida = None
+    if salida is not None and Path(salida).is_file():
+        texto_salida = Path(salida).read_text(encoding="utf-8", errors="replace").strip()
+    entrada["salida"] = bool(texto_salida)
     previas.append(entrada)
     f.write_text(json.dumps(previas, ensure_ascii=False, indent=2) + "\n",
                  encoding="utf-8")
@@ -715,7 +727,13 @@ def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None
                 f"{entrada['hallazgos'] - (anterior.get('hallazgos') or 0):+d} hallazgos.",
                 ""] if anterior
                else ["Primera corrida: no hay una anterior contra la cual comparar.", ""])
-    (d / f"{today.isoformat()}-{que}.md").write_text("\n".join(lineas), encoding="utf-8")
+    if texto_salida:
+        lineas += ["## Lo que produjo", "", texto_salida, ""]
+    else:
+        lineas += ["## Lo que produjo", "",
+                   "> El comando no entregó su resultado (`--salida`): la corrida registra "
+                   "las cifras, pero lo que dijo se quedó en la conversación.", ""]
+    (d / f"{entrada['id']}.md").write_text("\n".join(lineas), encoding="utf-8")
     return entrada
 
 
@@ -1143,6 +1161,8 @@ def main() -> int:
                                        "corrida-inicio", "compute", "snapshot", "diff",
                                        "publish", "overlap", "selftest"])
     ap.add_argument("--state", type=Path)
+    ap.add_argument("--salida", type=Path, default=None,
+                    help="archivo con el resultado completo del comando, para `corrida`")
     ap.add_argument("--nota", default=None,
                     help="qué hay que mirar de esta corrida, para `corrida`")
     ap.add_argument("--config", type=Path, default=None)
@@ -1195,7 +1215,8 @@ def main() -> int:
         if not args.what:
             ap.error("--what es obligatorio para corrida: review | report | crossed")
         print(json.dumps(corrida(args.state, args.what, today,
-                                 load_thresholds(args.config), args.fichas, args.nota),
+                                 load_thresholds(args.config), args.fichas, args.nota,
+                                 args.salida),
                          ensure_ascii=False, indent=2))
     elif args.action == "snapshot":
         print(json.dumps({"written": str(snapshot(args.state, today))}, ensure_ascii=False))

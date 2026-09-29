@@ -1164,7 +1164,7 @@ def corrida_inicio(state: Path) -> dict:
 
 
 def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
-            informe=None, nota=None) -> dict:
+            informe=None, nota=None, salida: Path = None) -> dict:
     """Deja el registro de una corrida: qué se corrió, sobre qué, y qué encontró.
 
     `cadencia.json` guarda una fecha por tipo, que es lo que `due` necesita y nada más.
@@ -1235,6 +1235,18 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
 
     f = state / "corridas.json"
     previas = json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+    # Cada corrida tiene identidad propia. Dos corridas del mismo comando el mismo día
+    # eran un solo archivo que se pisaba: la segunda borraba a la primera, y borrar una
+    # corrida es borrar historia. El ordinal las separa.
+    n = 1 + sum(1 for x in previas if x.get("fecha") == today.isoformat() and x.get("que") == que)
+    entrada["id"] = f"{today.isoformat()}-{que}-{n}"
+    # Lo que el comando produjo, entero. Sin esto la corrida guarda cifras y lo que el
+    # agente dijo se queda en una conversación que se cierra, que es justo lo que no se
+    # puede auditar. Se copia tal cual: lo que el comando produjo se copia, no se reescribe.
+    texto_salida = None
+    if salida is not None and Path(salida).is_file():
+        texto_salida = Path(salida).read_text(encoding="utf-8", errors="replace").strip()
+    entrada["salida"] = bool(texto_salida)
     previas.append(entrada)
     f.write_text(json.dumps(previas, ensure_ascii=False, indent=2) + "\n",
                  encoding="utf-8")
@@ -1267,7 +1279,13 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
                    f"{d_h:+d} hallazgos.", ""]
     else:
         lineas += ["Primera corrida: no hay una anterior contra la cual comparar.", ""]
-    (d / f"{today.isoformat()}-{que}.md").write_text("\n".join(lineas), encoding="utf-8")
+    if texto_salida:
+        lineas += ["## Lo que produjo", "", texto_salida, ""]
+    else:
+        lineas += ["## Lo que produjo", "",
+                   "> El comando no entregó su resultado (`--salida`): la corrida registra "
+                   "las cifras, pero lo que dijo se quedó en la conversación.", ""]
+    (d / f"{entrada['id']}.md").write_text("\n".join(lineas), encoding="utf-8")
     return entrada
 
 
@@ -1513,10 +1531,14 @@ def _selftest_corrida():
 
         corrida_inicio(estado)
         una = corrida(estado, "sweep", hoy, nota="la primera")
-        legible = (estado / "corridas" / "2026-09-28-sweep.md").read_text(encoding="utf-8")
+        legible = (estado / "corridas" / "2026-09-28-sweep-1.md").read_text(encoding="utf-8")
         dos = corrida(estado, "report", hoy, informe=Path("x/informe"))
         todas = json.loads((estado / "corridas.json").read_text(encoding="utf-8"))
-        segundo = (estado / "corridas" / "2026-09-28-report.md").read_text(encoding="utf-8")
+        segundo = (estado / "corridas" / "2026-09-28-report-1.md").read_text(encoding="utf-8")
+        (Path(tmp) / "salida.md").write_text("# Diagnóstico\n\nLa carpeta no permite saber "
+                                             "el presupuesto.", encoding="utf-8")
+        corrida(estado, "health-check", hoy, salida=Path(tmp) / "salida.md")
+        tercero = (estado / "corridas" / "2026-09-28-health-check-1.md").read_text(encoding="utf-8")
         return [
             ("corrida · cuenta los proyectos del estado", una["proyectos"], 1),
             ("corrida · cuenta los hallazgos por señal",
@@ -1527,6 +1549,13 @@ def _selftest_corrida():
             ("corrida · y dice que no hay anterior",
              "no hay una anterior" in legible, True),
             ("corrida · acumula, no reemplaza", len(todas), 2),
+            ("corrida · cada una tiene identidad propia", [x["id"] for x in todas],
+             ["2026-09-28-sweep-1", "2026-09-28-report-1"]),
+            ("corrida · sin salida entregada, la página lo dice",
+             "no entregó su resultado" in legible, True),
+            ("corrida · con salida, la copia entera",
+             "no permite saber el presupuesto" in tercero
+             and "no entregó su resultado" not in tercero, True),
             ("corrida · mide el tiempo ella misma", una["medido"]["segundos"], True),
             ("corrida · y la segunda ya no tiene marca que leer",
              dos["medido"]["segundos"], False),
@@ -1848,6 +1877,8 @@ def main() -> int:
                     help="qué se corrió: sweep | report | confirmation | requests, para `ran`")
     ap.add_argument("--informe", type=Path, default=None,
                     help="dónde quedó el informe, para `corrida`")
+    ap.add_argument("--salida", type=Path, default=None,
+                    help="archivo con el resultado completo del comando, para `corrida`")
     ap.add_argument("--nota", default=None,
                     help="qué se movió, qué se omitió, qué hay que mirar, para `corrida`")
     ap.add_argument("--id", default=None,
@@ -1894,7 +1925,7 @@ def main() -> int:
         if not args.what:
             ap.error("--what es obligatorio para corrida: sweep | report | confirmation")
         print(json.dumps(corrida(args.state, args.what, today, args.docs,
-                                 args.informe, args.nota),
+                                 args.informe, args.nota, args.salida),
                          ensure_ascii=False, indent=2))
     elif args.action == "impact":
         if not args.code:

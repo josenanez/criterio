@@ -99,8 +99,11 @@ Si toca, aplica la confirmación periódica: **cinco campos**, los más viejos e
 
 Lo último, siempre, y con la ruta real del informe:
 
+Antes de `corrida`, escribe en `<estado>/corridas/salida-report.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
+
 ```
 python3 scripts/portafolio.py corrida --state <estado> --what report \
+    --salida <estado>/corridas/salida-report.md \
     --docs <carpeta de documentos> --informe <dónde quedó el informe> \
     --nota "qué hay que mirar de esta corrida"
 ```

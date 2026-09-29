@@ -217,6 +217,8 @@ De aquí para abajo es para quien lo va a publicar.
 | `/decisiones` | Lo que necesita una decisión | El comité y el patrocinador |
 | `/corridas` | La historia de **los tres agentes**, y qué se arrastra | Todos |
 | `/corridas?agente=` | Solo las del gerente de proyecto o las del de producto | Su gerente |
+| `/corridas?agente=&que=` | Las de un solo comando; es a donde llevan las ramas del árbol | Quien prueba |
+| `/corrida/<agente>/<caso>/<id>` | **Una corrida entera**: sus cifras y lo que el comando produjo, tal cual lo escribió | Todos |
 | `/historia/<código>` | Desde cuándo un proyecto arrastra cada señal, y cuál se resolvió | La PMO y el gerente |
 | `/corte?a=&b=` | Qué cambió campo por campo entre dos cortes | Quien pregunta «desde cuándo» |
 | `/proyectos` | El listado de proyectos | Todos |
