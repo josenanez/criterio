@@ -1,25 +1,25 @@
 {
   "fecha": "2026-09-01",
   "dia": 1,
-  "commit": "e2939f1",
+  "commit": "56a1478",
   "corte": "2026-09-01",
   "disposicion": "referencia",
   "casos": {
-    "proyectos": 50,
-    "productos": 65
+    "proyectos": 51,
+    "productos": 66
   },
   "documentos": {
-    "total": 447,
-    "bytes": 210644,
+    "total": 462,
+    "bytes": 216832,
     "por_formato": {
-      ".md": 405,
-      ".csv": 42
+      ".md": 419,
+      ".csv": 43
     }
   },
   "tiempos": {
-    "Extracción · documentos a ficha": 610,
-    "Cálculo · portafolio": 42,
-    "Cálculo · productos": 2300
+    "Extracción · documentos a ficha": 784,
+    "Cálculo · portafolio": 44,
+    "Cálculo · productos": 2386
   },
   "totales": {
     "aciertos": 455,
@@ -30,6 +30,13 @@
   },
   "calificacion": {
     "por_caso": {
+      "PRD-299": {
+        "esperado": 0,
+        "obtenido": 0,
+        "aciertos": 0,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
       "PRD-300": {
         "esperado": 6,
         "obtenido": 6,
@@ -485,6 +492,13 @@
         "falsos_negativos": [],
         "falsos_positivos": []
       },
+      "PRY-199": {
+        "esperado": 0,
+        "obtenido": 0,
+        "aciertos": 0,
+        "falsos_negativos": [],
+        "falsos_positivos": []
+      },
       "PRY-200": {
         "esperado": 0,
         "obtenido": 0,
@@ -885,16 +899,16 @@
         "precision": 100.0,
         "cobertura": 100.0
       },
-      "vendor_invoiced_without_delivery": {
-        "aciertos": 4,
+      "vendor_deliverable_late": {
+        "aciertos": 20,
         "fp": 0,
         "fn": 0,
         "casos": [],
         "precision": 100.0,
         "cobertura": 100.0
       },
-      "vendor_deliverable_late": {
-        "aciertos": 20,
+      "vendor_invoiced_without_delivery": {
+        "aciertos": 4,
         "fp": 0,
         "fn": 0,
         "casos": [],
@@ -919,6 +933,9 @@
       }
     }
   },
-  "controles": {},
+  "controles": {
+    "PRY-199": 0,
+    "PRD-299": 0
+  },
   "errores": []
 }

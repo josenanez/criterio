@@ -332,6 +332,114 @@ def nuevo_producto(rnd, i: int, hoy: dt.date) -> dict:
 
 
 # ══════════════════════════════════════════════════════════════════════════
+# Los controles negativos
+# ══════════════════════════════════════════════════════════════════════════
+
+# Dos casos que no deben producir ni un hallazgo. No son casos vacíos ni casos
+# pobres: están documentados hasta el fondo —cronograma, actas de recibo,
+# contrato con factura, minutas, entrevistas, tablero— y cada hecho está en
+# regla. Esa es la diferencia que importa. Un caso sin documentos no prueba
+# nada: el agente no reporta porque no hay qué leer. Un caso completo y sano
+# sí prueba algo, porque le da al agente todo lo que suele disparar una señal
+# y ninguna razón legítima para dispararla. El que encuentra algo aquí es un
+# generador de ruido, y eso cuenta tanto como no ver lo que sí está.
+CONTROLES = ("PRY-199", "PRD-299")
+
+
+def proyecto_control(hoy: dt.date) -> dict:
+    """Un proyecto con todo en regla, reconstruido contra el `hoy` de cada día.
+
+    Se rehace cada día en vez de moverse con los demás porque un control
+    congelado envejece: al tercer día `silent` y `declaration_stale` sonarían
+    por su propia antigüedad y el control fallaría por el paso del tiempo, no
+    por lo que el agente hizo. Un control que falla solo deja de ser control.
+    """
+    arranque, duracion, n_hitos = 120, 600, 5
+    presupuesto = 2_400 * 1_000_000
+    # Cada hito vencido tiene su acta de recibo, y los que faltan no han vencido:
+    # ni `milestone_overdue` ni `milestone_met_without_evidence` tienen de dónde.
+    # La vigente es la base —nada se ha movido—, así que `variance_time` tampoco.
+    hitos = []
+    for h in range(n_hitos):
+        cuando = -arranque + int(duracion * (h + 1) / (n_hitos + 0.5))
+        cerrado = cuando < 0
+        hitos.append({"nombre": FASES[h % len(FASES)], "base": f(hoy, cuando),
+                      "vigente": f(hoy, cuando), "cerrado": cerrado,
+                      "recibo": f(hoy, cuando + 3) if cerrado else None})
+    # El avance declarado es el que sostiene el cronograma, calculado igual que en
+    # la clave. Ponerlo a mano invitaba a que las dos aritméticas se separaran.
+    sostiene = round(100 * sum(1 for h in hitos if h["cerrado"]) / len(hitos))
+    # Un contrato sano: todo recibido, cada entregable con su acta, y la factura
+    # por exactamente lo aceptado. Las cuatro señales de proveedor quedan
+    # expuestas al agente y ninguna tiene por qué sonar.
+    monto_u = int(presupuesto * 0.06)
+    entregables = []
+    for j in range(3):
+        cuando = -arranque + int(duracion * (j + 1) / 4)
+        entregables.append({"que": ENTREGABLES_PROV[j % len(ENTREGABLES_PROV)],
+                            "vence": f(hoy, cuando), "estado": "recibido",
+                            "monto": monto_u, "acta": f(hoy, cuando + 5)})
+    proveedor = {"nombre": PROVEEDORES[0], "ref": "CT-199",
+                 "firma": f(hoy, -arranque - 10), "entregables": entregables,
+                 "facturado": monto_u * len(entregables),
+                 "fecha_factura": f(hoy, -12)}
+    return {
+        "codigo": "PRY-199", "nombre": "Control negativo de portafolio",
+        "carpeta": "PRY-199-control-negativo",
+        "profundidad": "completa", "area": AREAS[0], "comite": COMITES[0],
+        "patrocinador": NOMBRES[0], "gerente": NOMBRES[1],
+        # La traza tiene que cerrar por los dos lados: el requerimiento dice qué
+        # proyecto lo ejecuta y la ficha del proyecto dice qué producto construye.
+        # `confirmar_trazas` compara contra el código, no contra el nombre.
+        "producto": "PRD-299", "aprobacion": f(hoy, -arranque - 10),
+        "inicio": f(hoy, -arranque), "cierre": f(hoy, -arranque + duracion),
+        "presupuesto": presupuesto,
+        # Bien por debajo del 90% que dispara `budget_committed`, y la proyección
+        # clavada en el presupuesto: `variance_cost` en cero.
+        "comprometido": int(presupuesto * 0.45),
+        "ejecutado": int(presupuesto * 0.30),
+        "proyeccion": presupuesto,
+        "proveedores": [proveedor],
+        "hitos": hitos,
+        # Uno cumplido y uno abierto con fecha futura y una sola fecha: no hay
+        # compromiso sin fecha, ni vencido, ni reprogramado.
+        "compromisos": [
+            {"quien": NOMBRES[2], "que": "Entregar el tablero de seguimiento",
+             "fechas": [f(hoy, -20)], "cumplido": True, "dicho": f(hoy, -25)},
+            {"quien": NOMBRES[3], "que": "Presentar el cierre de la fase",
+             "fechas": [f(hoy, 20)], "cumplido": False, "dicho": f(hoy, -4)}],
+        "lineas_base": 1, "cambios": [],
+        "declarado": {"estado": "verde", "pct": sostiene, "fecha": f(hoy, -2)},
+        "ultimo_doc": f(hoy, -2), "silencioso": False,
+        "docs": [], "semana": 0,
+    }
+
+
+def producto_control(hoy: dt.date) -> dict:
+    """Un producto con todo en regla. Mismo criterio que el proyecto de control."""
+    reqs = [{"id": f"REQ-9{n:03d}", "estado": "aceptado", "doliente": NOMBRES[n % len(NOMBRES)],
+             # Con criterio, con evidencia y trazado a un proyecto: las cuatro
+             # señales de requerimiento quedan sin material que las dispare.
+             "criterio": True, "evidencia": True,
+             "desde": f(hoy, -(40 + n * 10)), "proyecto": "PRY-199"}
+            for n in range(4)]
+    return {
+        "codigo": "PRD-299", "nombre": "Control negativo de producto",
+        "carpeta": "PRD-299", "profundidad": "completa", "gerente": NOMBRES[4],
+        "segmento": "Personas",
+        "fecha": f(hoy, -90),
+        # Dentro de los doce meses: la evidencia no está vieja.
+        "entrevista": f(hoy, -60),
+        "requerimientos": reqs,
+        "supuestos": [{"que": SUPUESTOS[0], "desde": f(hoy, -50), "verificado": True}],
+        # Declarado y medido coinciden: `claim_vs_metric` no tiene brecha que medir,
+        # y el tablero existe, así que la comparación sí se le ofrece al agente.
+        "declarado": 120_000, "medido": 120_000,
+        "corte": f(hoy, -6),
+        "ultimo_doc": f(hoy, -3), "docs": [], "semana": 0,
+    }
+
+# ══════════════════════════════════════════════════════════════════════════
 # Una semana de trabajo encima de lo que ya había
 # ══════════════════════════════════════════════════════════════════════════
 
@@ -761,11 +869,18 @@ def escribir(estado: dict, destino: Path, hoy: dt.date, disp: str) -> tuple:
                                    dijo="Lo necesito y hoy no lo tengo.",
                                    tema="Necesidad principal")],
                  asistentes=[x["gerente"]],
+                 # La traza viaja al documento, igual que la verificación del supuesto.
+                 # Se quedaba en el estado: la columna «Proyecto que lo ejecuta» salía en
+                 # blanco para los ciento diecisiete casos, el extractor leía «—» y
+                 # `requirement_untraced` sonaba siempre. Una señal que no puede quedar
+                 # limpia no distingue nada, y no había forma de notarlo sin un control
+                 # negativo que reclamara la traza.
                  requerimientos=[dict(id=r["id"], que=f"Requerimiento {r['id']}",
                                       doliente=r["doliente"] or "sin asignar",
                                       criterio="se verifica en producción" if r["criterio"] else None,
                                       evidencia="Cliente entrevistado" if r["evidencia"] else None,
-                                      estado=r["estado"], desde=r["desde"])
+                                      estado=r["estado"], desde=r["desde"],
+                                      proyecto=r["proyecto"])
                                 for r in x["requerimientos"]],
                  decisiones=["Se mantiene el plan"])
         c.definicion(x["fecha"], "definicion-producto.md", org.definicion_producto(d))
@@ -814,17 +929,29 @@ if __name__ == "__main__":
         estado["dia"] = a.dia
         bitacora = []
         for p in estado["proyectos"]:
+            if p["codigo"] in CONTROLES:
+                continue
             movidos = semana_proyecto(rnd, p, hoy, a.dia, a.todos)
             if a.todos and not [e for e in movidos if e != "sin movimiento"]:
                 movidos = piso_proyecto(rnd, p, hoy)
             for e in movidos:
                 bitacora.append(f"{p['codigo']} · {e}")
         for x in estado["productos"]:
+            if x["codigo"] in CONTROLES:
+                continue
             movidos = semana_producto(rnd, x, hoy, a.dia, a.todos)
             if a.todos and not [e for e in movidos if e != "sin movimiento"]:
                 movidos = piso_producto(rnd, x, hoy)
             for e in movidos:
                 bitacora.append(f"{x['codigo']} · {e}")
+
+    # Los controles se rehacen contra el `hoy` de este día en vez de moverse con los
+    # demás: congelados envejecerían y sonarían solos al tercer día. Se reemplazan en
+    # vez de añadirse para que la corrida sea idempotente.
+    estado["proyectos"] = [p for p in estado["proyectos"]
+                           if p["codigo"] not in CONTROLES] + [proyecto_control(hoy)]
+    estado["productos"] = [x for x in estado["productos"]
+                           if x["codigo"] not in CONTROLES] + [producto_control(hoy)]
 
     n1, n2 = escribir(estado, destino, hoy, disp)
     fechar(estado, destino)
@@ -840,7 +967,7 @@ if __name__ == "__main__":
          # aritmética, y las dos que siguen siendo del modelo —`contradiction` y
          # `governance_change`— todavía no tienen material plantado aquí. Están en el
          # corpus de dieciocho casos, no en esta organización de ciento quince.
-         "esperado": esperado, "controles": [], "solo_modelo": {}},
+         "esperado": esperado, "controles": list(CONTROLES), "solo_modelo": {}},
         ensure_ascii=False, indent=1))
     corpus.escribir_suelto(destino / f"bitacora-dia-{a.dia}.md",
                            f"# Día {a.dia} · qué pasó\n\n"

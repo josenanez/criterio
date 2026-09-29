@@ -133,11 +133,21 @@ def pagina(d: dict) -> str:
     ctrl = d["controles"]
     malos = [c for c, n in ctrl.items() if n]
     p += ["## Controles negativos", "",
-          "Dos casos con documentos, reuniones y requerimientos que **no deben producir "
+          "Casos con documentos, reuniones y requerimientos que **no deben producir "
           "ni un hallazgo**. Un agente que encuentra algo ahí es un generador de ruido, "
           "y eso cuenta tanto como no encontrar lo que sí está.", ""]
-    for c, n in sorted(ctrl.items()):
-        p.append(f"- **{c}** · {'✗ ' + str(n) + ' hallazgos' if n else '✓ cero hallazgos'}")
+    # Sin controles declarados esta sección imprimía la frase de arriba y una tabla
+    # vacía debajo, que se lee como si los controles hubieran pasado. Cinco días de
+    # informes dijeron «controles negativos: cero» cuando lo cierto era que no se
+    # midieron, y un informe que tranquiliza sin haber medido es el peor de los
+    # defectos que esta prueba busca. Si no hay control, lo dice.
+    if ctrl:
+        for c, n in sorted(ctrl.items()):
+            p.append(f"- **{c}** · {'✗ ' + str(n) + ' hallazgos' if n else '✓ cero hallazgos'}")
+    else:
+        p.append("**Este material no declara ningún control negativo, así que la "
+                 "comprobación no corrió.** Lo de arriba no dice que los controles "
+                 "pasaron: dice que no se midieron.")
     p.append("")
 
     p += ["## Tiempo", "", "| Etapa | Tiempo |", "|---|---:|"]
@@ -263,8 +273,11 @@ if __name__ == "__main__":
     print(f"  aciertos {t['aciertos']} · falsos+ {t['falsos_positivos']} · "
           f"falsos− {t['falsos_negativos']} · "
           f"precisión {t['precision']}% · cobertura {t['cobertura']}%")
-    for c, n in sorted(informe["controles"].items()):
-        print(f"  control {c}: {'cero hallazgos' if not n else str(n) + ' HALLAZGOS'}")
+    if informe["controles"]:
+        for c, n in sorted(informe["controles"].items()):
+            print(f"  control {c}: {'cero hallazgos' if not n else str(n) + ' HALLAZGOS'}")
+    else:
+        print("  SIN CONTROLES NEGATIVOS declarados: la comprobación no corrió")
     print(f"  → tests/informes/{nombre}.md")
     # Falla si un control negativo produjo algo o si hubo un error de ejecución: las
     # dos cosas invalidan la corrida entera, no solo una señal.
