@@ -85,6 +85,7 @@ Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qu
 ```
 python3 scripts/portafolio.py corrida --state <estado> --what product-view \
     --salida <estado>/corridas/salida-product-view.md \
+    --caso <código del producto> \
     --nota "qué produjo, y qué dijo que no sabía"
 ```
 

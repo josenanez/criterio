@@ -144,3 +144,15 @@ Dilo antes de que lo pregunten, no después:
 Cierra diciendo **qué enlace le pasa a quién**, y cuándo va a estar desactualizado el
 informe — la portada lo dice sola, pero conviene que la persona lo sepa antes de
 mandarle el enlace a su patrocinador.
+
+## Deja la corrida registrada
+
+Antes de levantar el servidor, porque el servidor no termina. Escribe en `<estado>/corridas/salida-portfolio-server.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what portfolio-server \
+    --salida <estado>/corridas/salida-portfolio-server.md \
+    --nota "puerto, carpeta del informe, modo (rato o servicio)"
+```
+
+Aquí no va `corrida-inicio`: el tiempo de este comando es el de una conversación, y lo que vale es la nota. La corrida deja `<estado>/corridas/<fecha>-portfolio-server-<n>.md` y su HTML, que es la evidencia que el portal muestra.

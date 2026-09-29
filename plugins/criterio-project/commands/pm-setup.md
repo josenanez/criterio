@@ -120,3 +120,15 @@ python3 scripts/portafolio.py config --config <archivo>
 Ofrece leer las minutas anteriores para tener el historial completo de compromisos —
 **ahí es donde aparece el que se reprogramó tres veces**, que es el hallazgo que ninguna
 herramienta que use hoy le va a dar.
+
+## Deja la corrida registrada
+
+Lo último, siempre. Escribe en `<estado>/corridas/salida-pm-setup.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what pm-setup \
+    --salida <estado>/corridas/salida-pm-setup.md \
+    --nota "cuántas preguntas hizo, cuántos minutos hasta el primer resultado, qué encontró"
+```
+
+Aquí no va `corrida-inicio`: el tiempo de este comando es el de una conversación, y lo que vale es la nota. La corrida deja `<estado>/corridas/<fecha>-pm-setup-<n>.md` y su HTML, que es la evidencia que el portal muestra.

@@ -117,3 +117,15 @@ Cuánto tomaría el portafolio completo con lo que viste, y qué le falta a la c
 ## Después
 
 Ofrece correr el portafolio completo. Si es PMO y tiene equipo, ofrece publicar el estándar en la carpeta compartida para que sus gerentes de proyecto usen los mismos criterios.
+
+## Deja la corrida registrada
+
+Lo último, siempre. Escribe en `<estado>/corridas/salida-portfolio-setup.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what portfolio-setup \
+    --salida <estado>/corridas/salida-portfolio-setup.md \
+    --nota "cuántas preguntas hizo, cuántos minutos hasta el primer resultado, qué encontró"
+```
+
+Aquí no va `corrida-inicio`: el tiempo de este comando es el de una conversación, y lo que vale es la nota. La corrida deja `<estado>/corridas/<fecha>-portfolio-setup-<n>.md` y su HTML, que es la evidencia que el portal muestra.

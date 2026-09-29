@@ -60,7 +60,7 @@ RUTAS = {
     '/productos': 'el listado de productos',
     '/producto/<nombre>': 'el informe de un producto, con enlace a sus proyectos',
     '/estado.json': 'de cuándo es el informe y cuántas peticiones hay abiertas',
-    '/corridas': 'la historia de los tres agentes · ?agente=proyecto|producto y ?que=<comando> para filtrar',
+    '/corridas': 'la historia de los tres agentes · ?agente=, ?que=<comando> y ?caso=<código> para filtrar',
     '/corrida/<agente>/<caso>/<id>': 'una corrida: sus cifras y lo que produjo, entero',
     '/historia/<codigo>': 'la línea de tiempo de un caso: desde cuándo arrastra cada señal',
     '/corte': 'qué cambió campo por campo entre dos cortes · ?a=<fecha>&b=<fecha>',
@@ -103,6 +103,8 @@ EXTRA = f"""
 .arbol li.no span{{color:{informe.APAGADO}}}
 .arbol li.cmd a{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;padding-left:.9em;color:{informe.APAGADO}}}
 .arbol li.cmd a b{{color:{informe.ORO};font-weight:600}}\n.arbol li.run a{{font-size:.78rem;padding:.12em 0 .12em 1.8em;color:{informe.APAGADO}}}\n.arbol li.run em{{font-style:normal;color:{informe.ORO};opacity:.8}}
+.arbol li.caso > a{{font-weight:600;color:{informe.TINTA};padding-top:.5em}}
+.arbol li.caso ul{{margin-left:.6em}}
 .arbol li.no em{{display:block;font-size:.76rem;color:{informe.APAGADO};font-style:normal}}
 @media (max-width:900px){{.con-arbol{{display:block}}
   .arbol{{flex:none;border-right:0;border-bottom:1px solid {informe.FILETE};
@@ -165,17 +167,18 @@ def pagina(titulo, cuerpo, hoy, nav='', activa=''):
 SIN_SALIDA = ' <em title="sin salida entregada">·</em>'
 
 
-def corridas(h: dict, hoy: str, agente: str = '', que: str = '') -> str:
+def corridas(h: dict, hoy: str, agente: str = '', que: str = '', caso: str = '') -> str:
     """Nivel 1 · la historia de las corridas de los tres agentes.
 
     Cada fila dice de quién es y sobre qué. Sin eso, una lista que mezcla el portafolio con
     sesenta y cinco productos no se puede leer — y separarla en tres portales sería peor.
     """
-    if agente or que:
+    if agente or que or caso:
         h = dict(h, corridas=[c for c in h["corridas"]
                               if (not agente or c.get("agente") == agente)
                               and (not que or comando_de(c.get("agente") or "portafolio",
-                                                         c["que"]) == que)])
+                                                         c["que"]) == que)
+                              and (not caso or c.get("sobre") == caso)])
         h["total"] = len(h["corridas"])
     if not h["total"]:
         return pagina('Historia', '<div class="bloque"><p>Todavía no hay corridas '
@@ -205,6 +208,7 @@ def corridas(h: dict, hoy: str, agente: str = '', que: str = '') -> str:
     cuerpo = [
         f'<p class="entrada"><b>{h["total"]} corridas</b>'
         + (f' de <code>{e(que)}</code>' if que else '')
+        + (f' sobre <b>{e(caso)}</b>' if caso else '')
         + (f' del agente de {e(agente)}' if agente else
            f' de los agentes que trabajan sobre este portafolio')
         + f', de la del {e(h["desde"])} a la del {e(h["hasta"])}. Ninguna se borra: el '
@@ -331,7 +335,9 @@ def ruta_corrida(c: dict) -> str:
 def vista_corrida(estado: Path, agente: str, sobre: str, ident: str, hoy: str) -> tuple:
     """Una corrida, entera: las cifras que midió y lo que el comando produjo."""
     for quien, cual, d in portafolio.estados_de(estado):
-        if quien != agente or (cual or '-') != sobre:
+        # El caso de la ruta es el del comando (`--caso PRY-200`), que no siempre es el
+        # nombre de la carpeta del estado; lo que identifica la corrida es su archivo.
+        if quien != agente or ((cual or '-') != sobre and not (d / 'corridas' / f'{ident}.md').is_file()):
             continue
         f = d / 'corridas' / f'{ident}.md'
         if not f.is_file():
@@ -452,40 +458,50 @@ def arbol(activa: str = "") -> str:
 
 
 def rellenar_arbol(pagina_html: str, h: dict, activa_que: tuple = ("", "")) -> str:
-    """Pone bajo cada agente sus comandos y cuántas veces corrió cada uno.
+    """Pone bajo cada agente lo que corrió: primero lo que corrió sobre el portafolio
+    entero, después cada proyecto o producto con sus comandos, y bajo cada comando cada
+    corrida como hoja con su página.
 
     Es lo que pidió la prueba de los tres agentes a la vez: ver, sin abrir una tabla, qué
-    comandos han corrido y cuáles no. Un comando que no aparece aquí no ha dejado corrida,
-    y eso también es un dato.
+    comandos han corrido sobre qué casos y cuáles no. Un comando que no aparece aquí no ha
+    dejado corrida, y eso también es un dato.
     """
-    por_agente = {}
+    # agente -> caso ('' es el portafolio entero) -> comando -> [corridas]
+    arbol_ = {}
     for c in h.get("corridas") or []:
         a = c.get("agente") or "portafolio"
-        por_agente.setdefault(a, {}).setdefault(comando_de(a, c["que"]), 0)
-        por_agente[a][comando_de(a, c["que"])] += 1
+        cmd = comando_de(a, c["que"])
+        arbol_.setdefault(a, {}).setdefault(c.get("sobre") or "", {}).setdefault(cmd, []).append(c)
+
+    def hojas(agente, cmd, suyas):
+        yo = ' class="yo"' if (agente, cmd) == activa_que else ''
+        out = [f'<li class="cmd"><a href="/corridas?agente={e(agente)}&amp;que={e(cmd)}"{yo}>'
+               f'{e(cmd)} <b>· {len(suyas)}</b></a><ul>']
+        for c in suyas:
+            out.append(f'<li class="run"><a href="{ruta_corrida(c)}">{e(c.get("fecha", ""))}'
+                       f'{"" if c.get("salida") else " <em>sin salida</em>"}</a></li>')
+        out.append('</ul></li>')
+        return "".join(out)
+
     for agente in AGENTE_DEL_GRUPO.values():
         marca = f'<!--corridas:{agente}-->'
         if marca not in pagina_html:
             continue
-        cmds = por_agente.get(agente) or {}
-        if not cmds:
+        casos = arbol_.get(agente) or {}
+        if not casos:
             filas = '<li class="no"><span>ningún comando ha dejado corrida</span></li>'
         else:
             partes = []
-            for cmd, n in sorted(cmds.items()):
-                yo = ' class="yo"' if (agente, cmd) == activa_que else ''
-                partes.append(
-                    f'<li class="cmd"><a href="/corridas?agente={e(agente)}&amp;que={e(cmd)}"{yo}>'
-                    f'/{e(PLUGIN[agente])}:{e(cmd)} <b>· {n}</b></a><ul>')
-                suyas = [c for c in h.get("corridas") or []
-                         if (c.get("agente") or "portafolio") == agente
-                         and comando_de(agente, c["que"]) == cmd]
-                for c in suyas:
-                    etiqueta = c.get("fecha", "") + (f' · {c["sobre"]}' if c.get("sobre") else '')
-                    partes.append(f'<li class="run"><a href="{ruta_corrida(c)}">{e(etiqueta)}'
-                                  f'{"" if c.get("salida") else " <em>sin salida</em>"}</a></li>')
+            for cmd, suyas in sorted((casos.get("") or {}).items()):
+                partes.append(hojas(agente, cmd, suyas))
+            for caso in sorted(k for k in casos if k):
+                enlace = (f'/historia/{e(caso)}' if agente != "producto" else
+                          f'/corridas?agente=producto&amp;caso={e(caso)}')
+                partes.append(f'<li class="caso"><a href="{enlace}">{e(caso)}</a><ul>')
+                for cmd, suyas in sorted(casos[caso].items()):
+                    partes.append(hojas(agente, cmd, suyas))
                 partes.append('</ul></li>')
-            filas = ''.join(partes)
+            filas = "".join(partes)
         pagina_html = pagina_html.replace(marca, filas)
     return pagina_html
 
@@ -781,9 +797,10 @@ class Manejador(BaseHTTPRequestHandler):
             q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
             agente = (q.get('agente') or [''])[0]
             que = (q.get('que') or [''])[0]
+            caso = (q.get('caso') or [''])[0]
             h = portafolio.historia(self.estado, todos=True)
             self._activa_que = (agente, que)
-            self.html(200, corridas(h, self.hoy(), agente, que))
+            self.html(200, corridas(h, self.hoy(), agente, que, caso))
         elif ruta.startswith('/corrida/'):
             partes = ruta.split('/')[2:]
             if len(partes) == 3 and all(SEGURO.match(urllib.parse.unquote(x)) for x in partes):
@@ -1068,6 +1085,23 @@ def selftest() -> int:
         cod, una = pedir('/corrida/portafolio/-/2026-08-31-sweep-1')
         ok('cada corrida tiene su página en el portal',
            cod == 200 and 'la primera' in una and 'Lo que produjo' in una, True)
+        # una corrida sobre un caso concreto cuelga del caso, no del portafolio entero
+        (est / 'corridas.json').write_text(json.dumps(json.loads(
+            (est / 'corridas.json').read_text(encoding='utf-8')) + [
+            {'id': '2026-09-08-status-report-1', 'salida': False, 'caso': 'PRY-001',
+             'que': 'status-report', 'fecha': '2026-09-08', 'proyectos': 1,
+             'hallazgos': 1, 'por_senal': {'variance_time': 1},
+             'por_caso': {'PRY-001': ['variance_time']}}]), encoding='utf-8')
+        (est / 'corridas' / '2026-09-08-status-report-1.md').write_text(
+            '# Corrida\n\nsemáforo rojo sin explicar\n', encoding='utf-8')
+        con_caso = pedir('/corridas')[1]
+        ok('el árbol cuelga la corrida de un caso bajo su proyecto',
+           'class="caso"><a href="/historia/PRY-001">PRY-001</a>' in con_caso
+           and '/corrida/portafolio/PRY-001/2026-09-08-status-report-1' in con_caso, True)
+        ok('y esa corrida abre por su ruta con caso',
+           'semáforo rojo' in pedir('/corrida/portafolio/PRY-001/2026-09-08-status-report-1')[1], True)
+        ok('y el filtro por caso deja solo las suyas',
+           pedir('/corridas?caso=PRY-001')[1].count('<td>status-report'), 1)
         ok('y el árbol la lleva como hoja bajo su comando',
            '/corrida/portafolio/-/2026-08-31-sweep-1' in cuerpo, True)
         ok('una corrida que no existe responde 404',

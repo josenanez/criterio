@@ -1155,7 +1155,7 @@ def corrida_inicio(state: Path) -> dict:
 
 
 def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
-            informe=None, nota=None, salida: Path = None) -> dict:
+            informe=None, nota=None, salida: Path = None, caso: str = None) -> dict:
     """Deja el registro de una corrida: qué se corrió, sobre qué, y qué encontró.
 
     `cadencia.json` guarda una fecha por tipo, que es lo que `due` necesita y nada más.
@@ -1238,6 +1238,11 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
     if salida is not None and Path(salida).is_file():
         texto_salida = Path(salida).read_text(encoding="utf-8", errors="replace").strip()
     entrada["salida"] = bool(texto_salida)
+    # Sobre qué caso corrió, cuando el comando es de un proyecto o de un producto y no del
+    # portafolio entero. Es lo que permite que el árbol del portal cuelgue la corrida bajo
+    # su proyecto; sin esto, `status-report PRY-200` y `status-report PRY-201` son iguales.
+    if caso:
+        entrada["caso"] = caso
     previas.append(entrada)
     f.write_text(json.dumps(previas, ensure_ascii=False, indent=2) + "\n",
                  encoding="utf-8")
@@ -1446,7 +1451,7 @@ def historia_junta(state: Path) -> dict:
     for quien, cual, d in estados_de(state):
         h = _historia_de(d)
         for c in h["corridas"]:
-            corridas.append(dict(c, agente=quien, sobre=cual))
+            corridas.append(dict(c, agente=quien, sobre=c.get("caso") or cual))
         for codigo, senales in h["casos"].items():
             destino = casos.setdefault(codigo, {})
             for s, x in senales.items():
@@ -1977,6 +1982,8 @@ def main() -> int:
                     help="dónde quedó el informe, para `corrida`")
     ap.add_argument("--salida", type=Path, default=None,
                     help="archivo con el resultado completo del comando, para `corrida`")
+    ap.add_argument("--caso", default=None,
+                    help="código del proyecto o producto sobre el que corrió, para `corrida`")
     ap.add_argument("--nota", default=None,
                     help="qué se movió, qué se omitió, qué hay que mirar, para `corrida`")
     ap.add_argument("--id", default=None,
@@ -2023,7 +2030,7 @@ def main() -> int:
         if not args.what:
             ap.error("--what es obligatorio para corrida: sweep | report | confirmation")
         print(json.dumps(corrida(args.state, args.what, today, args.docs,
-                                 args.informe, args.nota, args.salida),
+                                 args.informe, args.nota, args.salida, args.caso),
                          ensure_ascii=False, indent=2))
     elif args.action == "impact":
         if not args.code:

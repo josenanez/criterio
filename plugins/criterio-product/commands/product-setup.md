@@ -123,3 +123,15 @@ aceptó los términos con su nombre y la fecha.
 Ofrece `/product-discovery` sobre el material de entrevistas: ahí es donde los temas se
 vuelven requerimientos con la cita de quién lo pidió, que es la evidencia de la que todo lo
 demás cuelga.
+
+## Deja la corrida registrada
+
+Lo último, siempre. Escribe en `<estado>/corridas/salida-product-setup.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:
+
+```
+python3 scripts/producto.py corrida --state <estado> --what product-setup \
+    --salida <estado>/corridas/salida-product-setup.md \
+    --nota "cuántas preguntas hizo, cuántos minutos hasta el primer resultado, qué encontró"
+```
+
+Aquí no va `corrida-inicio`: el tiempo de este comando es el de una conversación, y lo que vale es la nota. La corrida deja `<estado>/corridas/<fecha>-product-setup-<n>.md` y su HTML, que es la evidencia que el portal muestra.

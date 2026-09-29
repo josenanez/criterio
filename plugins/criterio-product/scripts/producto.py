@@ -631,7 +631,7 @@ def corrida_inicio(state: Path) -> dict:
 
 
 def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None,
-            nota=None, salida: Path = None) -> dict:
+            nota=None, salida: Path = None, caso: str = None) -> dict:
     """El registro de una corrida sobre este producto: qué se corrió y qué encontró.
 
     Es lo mismo que `portafolio.py corrida` hace para Vera, y por la misma razón: sin
@@ -703,6 +703,8 @@ def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None
     if salida is not None and Path(salida).is_file():
         texto_salida = Path(salida).read_text(encoding="utf-8", errors="replace").strip()
     entrada["salida"] = bool(texto_salida)
+    if caso:
+        entrada["caso"] = caso
     previas.append(entrada)
     f.write_text(json.dumps(previas, ensure_ascii=False, indent=2) + "\n",
                  encoding="utf-8")
@@ -1167,6 +1169,8 @@ def main() -> int:
     ap.add_argument("--state", type=Path)
     ap.add_argument("--salida", type=Path, default=None,
                     help="archivo con el resultado completo del comando, para `corrida`")
+    ap.add_argument("--caso", default=None,
+                    help="código del producto sobre el que corrió, para `corrida`")
     ap.add_argument("--nota", default=None,
                     help="qué hay que mirar de esta corrida, para `corrida`")
     ap.add_argument("--config", type=Path, default=None)
@@ -1220,7 +1224,7 @@ def main() -> int:
             ap.error("--what es obligatorio para corrida: review | report | crossed")
         print(json.dumps(corrida(args.state, args.what, today,
                                  load_thresholds(args.config), args.fichas, args.nota,
-                                 args.salida),
+                                 args.salida, args.caso),
                          ensure_ascii=False, indent=2))
     elif args.action == "snapshot":
         print(json.dumps({"written": str(snapshot(args.state, today))}, ensure_ascii=False))

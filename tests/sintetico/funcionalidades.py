@@ -38,7 +38,7 @@ FICHA = "la ficha · <estado>/records/"
 FUNCIONALIDADES = {
     # ── Vera · el portafolio
     "portfolio-setup": ("La configuración y el primer informe sobre los documentos propios",
-                        "la configuración y el estado inicial", PORTAL),
+                        "la configuración y el estado inicial y la corrida", PORTAL),
     "portfolio-wake": ("Lo que toca hoy — y silencio si no toca nada",
                        "la fecha de la última corrida en cadencia.json", CORRIDAS),
     "document-index": ("Qué cambió de verdad y qué no hubo que releer",
@@ -64,9 +64,9 @@ FUNCIONALIDADES = {
     "steering-pack": ("El material del comité como paquete de decisiones",
                       "la corrida", PORTAL + " · /decisiones"),
     "portfolio-server": ("Rostrum sirviendo el informe y recibiendo preguntas",
-                         "las peticiones en <estado>/peticiones/", PORTAL),
+                         "las peticiones en <estado>/peticiones/ y la corrida", PORTAL),
     # ── Samuel · el proyecto
-    "pm-setup": ("El agente listo sobre un proyecto", "la configuración", None),
+    "pm-setup": ("El agente listo sobre un proyecto", "la configuración y la corrida", CORRIDAS),
     "pm-wake": ("Lo que toca hoy en este proyecto", "la fecha en cadencia.json", CORRIDAS),
     "pm-agenda": ("La agenda de la reunión desde lo que quedó abierto", "la corrida", CORRIDAS),
     "pm-minutes": ("Los compromisos de la minuta, con doliente y fecha",
@@ -80,7 +80,7 @@ FUNCIONALIDADES = {
     "pm-publish": ("La ficha publicada donde el portafolio la lea",
                    "la ficha publicada y la corrida", FICHA),
     # ── Alba · el producto
-    "product-setup": ("El agente listo sobre un producto", "la configuración", None),
+    "product-setup": ("El agente listo sobre un producto", "la configuración y la corrida", CORRIDAS),
     "product-wake": ("Lo que toca hoy en este producto", "la fecha en cadencia.json", CORRIDAS),
     "product-discovery": ("La evidencia de demanda, con quién lo pidió y cuándo",
                           "la corrida", CORRIDAS),

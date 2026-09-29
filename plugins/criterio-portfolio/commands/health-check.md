@@ -116,6 +116,7 @@ Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qu
 ```
 python3 scripts/portafolio.py corrida --state <estado> --what health-check \
     --salida <estado>/corridas/salida-health-check.md \
+    --caso <código del proyecto> \
     --nota "qué produjo, y qué dijo que no sabía"
 ```
 

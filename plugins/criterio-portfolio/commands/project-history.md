@@ -96,6 +96,7 @@ Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qu
 ```
 python3 scripts/portafolio.py corrida --state <estado> --what project-history \
     --salida <estado>/corridas/salida-project-history.md \
+    --caso <código del proyecto> \
     --nota "qué produjo, y qué dijo que no sabía"
 ```
 
