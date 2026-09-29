@@ -77,6 +77,9 @@ ALIAS = {
     '/proyectos': 'proyectos.html',
     '/productos': 'productos.html',
 }
+# Del archivo a su ruta amable, para que el árbol marque dónde está el lector.
+ALIAS_INVERSO = {v: k for k, v in ALIAS.items()}
+
 ASUNTOS = {
     'revisar': 'Que revise un proyecto contra sus documentos',
     'explicar': 'Que explique de dónde salió un dato del informe',
@@ -141,11 +144,7 @@ def pagina(titulo, cuerpo, hoy, nav='', activa=''):
     de vuelta: una página impresa o abierta desde el disco no tiene servidor que se lo
     sirva, y el informe tiene que seguir leyéndose igual.
     """
-    p = informe.pagina(titulo, cuerpo, hoy, nav)
-    p = p.replace('</style>', EXTRA + '</style>', 1)
-    return p.replace('<div class="hoja">',
-                     f'<div class="con-arbol">{arbol(activa)}<div class="hoja">', 1) \
-            .replace('</div></body></html>', '</div></div></body></html>', 1)
+    return con_arbol(informe.pagina(titulo, cuerpo, hoy, nav), activa)
 
 
 # ------------------------------------------------------------- la historia
@@ -353,6 +352,17 @@ ARBOL = [
         ("/#preguntar", "Dejar una pregunta escrita para el agente", True),
     ]),
 ]
+
+
+def con_arbol(pagina_html: str, activa: str = "") -> str:
+    """Mete el árbol y su estilo en una página que ya venía escrita."""
+    if 'class="arbol"' in pagina_html or '<div class="hoja">' not in pagina_html:
+        return pagina_html
+    return (pagina_html
+            .replace('</style>', EXTRA + '</style>', 1)
+            .replace('<div class="hoja">',
+                     f'<div class="con-arbol">{arbol(activa)}<div class="hoja">', 1)
+            .replace('</div></body></html>', '</div></div></body></html>', 1))
 
 
 def arbol(activa: str = "") -> str:
@@ -611,7 +621,21 @@ class Manejador(BaseHTTPRequestHandler):
         if raiz not in ruta.parents or not ruta.is_file():
             self.html(404, error(404, 'Eso no está aquí', self.hoy()))
             return
-        self.responder(200, ruta.read_bytes())
+        # El árbol se inyecta **al servir**, no se escribe en el archivo. `informe.py`
+        # produce páginas que tienen que abrirse desde el disco, comprimidas o impresas,
+        # y ahí no hay servidor que sirva `/corridas`: un menú con enlaces muertos es
+        # peor que ninguno. Pero servidas sí lo llevan, porque un árbol que aparece en
+        # unas páginas y desaparece en otras deja al lector sin saber dónde está.
+        crudo = ruta.read_bytes()
+        if nombre.endswith('.html'):
+            try:
+                self.responder(200, con_arbol(crudo.decode('utf-8'),
+                                              ALIAS_INVERSO.get(nombre, '')
+                                              ).encode('utf-8'))
+                return
+            except UnicodeDecodeError:
+                pass
+        self.responder(200, crudo)
 
     # --- rutas ----------------------------------------------------------
     def do_HEAD(self):
@@ -765,7 +789,10 @@ def selftest() -> int:
                           ('proyectos', 'listado de proyectos'),
                           ('productos', 'listado de productos'),
                           ('PRY-001', 'uno'), ('producto-cuenta-transaccional', 'la cuenta')):
-        (inf / f'{nombre}.html').write_text(f'<h1>{texto}</h1>', encoding='utf-8')
+        # Páginas completas, como las que `informe.py` escribe de verdad. Con fragmentos
+        # el injerto del árbol no tenía dónde agarrarse y la comprobación pasaba en falso.
+        (inf / f'{nombre}.html').write_text(
+            informe.pagina(texto, f'<h1>{texto}</h1>', '2026-09-28'), encoding='utf-8')
     (est / 'records' / 'PRY-001.json').write_text('{"identity":{}}', encoding='utf-8')
     (tmp / 'secreto.txt').write_text('no debe salir', encoding='utf-8')
 
@@ -803,18 +830,24 @@ def selftest() -> int:
            all(x in portada_html for x in ('/pmo', '/proyectos', '/productos')), True)
         ok('la portada dice de quién es', 'Banco del Selftest' in portada_html, True)
 
-        # Las rutas amables redirigen al archivo: ver el comentario de ALIAS.
-        ok('la sección PMO redirige a su archivo', seguir('/pmo'), (200, '<h1>pmo</h1>'))
-        ok('el comité redirige a su archivo', seguir('/decisiones'), (200, '<h1>decisiones</h1>'))
-        ok('el listado de proyectos redirige', seguir('/proyectos'),
-           (200, '<h1>listado de proyectos</h1>'))
-        ok('el listado de productos redirige', seguir('/productos'),
-           (200, '<h1>listado de productos</h1>'))
-        ok('un proyecto redirige', seguir('/p/PRY-001'), (200, '<h1>uno</h1>'))
-        ok('un producto redirige', seguir('/producto/cuenta-transaccional'),
-           (200, '<h1>la cuenta</h1>'))
-        ok('el archivo se sirve tal cual', pedir('/proyectos.html')[1].strip(),
-           '<h1>listado de proyectos</h1>')
+        # Las rutas amables redirigen al archivo: ver el comentario de ALIAS. Se comprueba
+        # por contenido y no por igualdad, porque al servirse la página lleva el árbol.
+        def llega(ruta, texto):
+            cod, cuerpo = seguir(ruta)
+            return cod == 200 and texto in cuerpo
+
+        ok('la sección PMO redirige a su archivo', llega('/pmo', '<h1>pmo</h1>'), True)
+        ok('el comité redirige a su archivo',
+           llega('/decisiones', '<h1>decisiones</h1>'), True)
+        ok('el listado de proyectos redirige',
+           llega('/proyectos', '<h1>listado de proyectos</h1>'), True)
+        ok('el listado de productos redirige',
+           llega('/productos', '<h1>listado de productos</h1>'), True)
+        ok('un proyecto redirige', llega('/p/PRY-001', '<h1>uno</h1>'), True)
+        ok('un producto redirige',
+           llega('/producto/cuenta-transaccional', '<h1>la cuenta</h1>'), True)
+        ok('el archivo se sirve con su contenido intacto',
+           '<h1>listado de proyectos</h1>' in pedir('/proyectos.html')[1], True)
 
         # Que el menú del servidor y el de las páginas no se separen nunca.
         ok('las secciones son las mismas que las de informe.py',
@@ -882,6 +915,15 @@ def selftest() -> int:
            pedir('/corridas?agente=producto')[1].count('<tr>'), 0)
         ok('y el del portafolio sí las trae',
            pedir('/corridas?agente=portafolio')[1].count('<tr>') >= 2, True)
+        # El árbol tiene que estar en TODAS las páginas servidas, no solo en las que el
+        # servidor redacta. Si aparece en /corridas y desaparece en /pmo, el lector se
+        # queda sin saber dónde está — y es lo primero que se nota.
+        ok('el informe servido lleva el árbol',
+           'class="arbol"' in pedir('/index.html')[1], True)
+        ok('y marca la rama en la que está',
+           'class="yo"' in pedir('/index.html')[1], True)
+        ok('el archivo en disco sigue sin árbol, para abrirlo sin servidor',
+           'class="arbol"' in (inf / 'index.html').read_text(encoding='utf-8'), False)
         ok('el árbol lleva a los tres agentes por el mismo portal',
            all(x in cuerpo for x in ('Samuel', 'Alba', 'agente=proyecto',
                                      'agente=producto')), True)
