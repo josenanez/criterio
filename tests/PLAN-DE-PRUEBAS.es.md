@@ -114,6 +114,29 @@ La promesa publicada es *quince minutos*; aquí se mide.
 
 ---
 
+## Qué tiene que hacer cada funcionalidad, escrito antes
+
+«Este comando se corrió» no valida nada: un comando puede correr, imprimir algo razonable
+y no hacer lo que promete. Así que para cada uno de los 37 está escrito de antemano —en
+`tests/sintetico/funcionalidades.py`, y la puerta 23 falla si falta alguno— qué tiene que
+producir, **qué deja escrito que lo pruebe**, y dónde lo lee alguien que no estuvo:
+
+```
+python3 tests/sintetico/funcionalidades.py             # la matriz completa
+python3 tests/sintetico/funcionalidades.py --verificar # la puerta
+```
+
+La columna que separa este diseño del anterior es **qué deja**. Un comando que produce algo
+y no deja registro no se puede auditar: su resultado vive en una conversación que se cierra.
+Hoy la cuenta es **18 de 37 dejan rastro en disco** y **20 de 37 se pueden leer sin
+preguntarle a nadie**. Los otros son deuda declarada, no un descuido — y aparecen en la
+matriz con ese nombre.
+
+Eso es lo que hace la diferencia entre confiable y creíble. Un director de PMO, un gerente
+o un patrocinador entra al portal, abre el histórico de corridas y lee qué se encontró y
+desde cuándo, sin pedirle permiso a quien corrió el comando. Si para verificar una
+funcionalidad hay que preguntarle al que la ejecutó, no es transparente.
+
 ## Cada día, en este orden
 
 ### Paso 1 · Pasar una semana

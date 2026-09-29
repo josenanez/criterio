@@ -85,6 +85,23 @@ ASUNTOS = {
 }
 
 EXTRA = f"""
+.con-arbol{{display:flex;gap:0;align-items:flex-start}}
+.arbol{{flex:0 0 232px;position:sticky;top:0;padding:38px 20px 38px 0;
+  border-right:1px solid {informe.FILETE};min-height:100vh;font-size:.93rem}}
+.arbol .g{{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:{informe.ORO};font-weight:600;margin:1.6em 0 .5em}}
+.arbol .g:first-child{{margin-top:0}}
+.arbol ul{{list-style:none;margin:0;padding:0}}
+.arbol li{{margin:.2em 0}}
+.arbol a{{display:block;padding:.28em 0;color:{informe.TINTA};border:0}}
+.arbol a:hover{{color:{informe.ORO}}}
+.arbol a.yo{{color:{informe.ORO};font-weight:600}}
+.arbol li.no span{{color:{informe.APAGADO}}}
+.arbol li.no em{{display:block;font-size:.76rem;color:{informe.APAGADO};font-style:normal}}
+@media (max-width:900px){{.con-arbol{{display:block}}
+  .arbol{{flex:none;border-right:0;border-bottom:1px solid {informe.FILETE};
+    min-height:0;padding:20px 0;position:static}}}}
+@media print{{.arbol{{display:none}}}}
 .portada h1{{margin-bottom:.15em}}
 .puertas{{display:flex;flex-wrap:wrap;gap:16px;margin:30px 0 0}}
 .puerta{{flex:1 1 320px;border:1px solid {informe.FILETE};border-radius:10px;
@@ -117,10 +134,18 @@ def e(x):
     return html.escape(str(x if x is not None else ''))
 
 
-def pagina(titulo, cuerpo, hoy, nav=''):
-    """La página del informe, con lo que solo el servidor necesita."""
+def pagina(titulo, cuerpo, hoy, nav='', activa=''):
+    """La página del informe, con lo que solo el servidor necesita.
+
+    El árbol va **dentro** de la hoja y en un `<nav>` aparte, no sustituyendo al enlace
+    de vuelta: una página impresa o abierta desde el disco no tiene servidor que se lo
+    sirva, y el informe tiene que seguir leyéndose igual.
+    """
     p = informe.pagina(titulo, cuerpo, hoy, nav)
-    return p.replace('</style>', EXTRA + '</style>', 1)
+    p = p.replace('</style>', EXTRA + '</style>', 1)
+    return p.replace('<div class="hoja">',
+                     f'<div class="con-arbol">{arbol(activa)}<div class="hoja">', 1) \
+            .replace('</div></body></html>', '</div></div></body></html>', 1)
 
 
 # ------------------------------------------------------------- la historia
@@ -192,7 +217,7 @@ def corridas(h: dict, hoy: str) -> str:
         cuerpo.append(f'<p class="entrada">Para ver qué cambió campo por campo entre dos '
                       f'cortes: <a href="/corte?a={a}&b={b}">{a} → {b}</a>.</p>')
     cuerpo.append(AVISO_HISTORIA)
-    return pagina('Historia de las corridas', "".join(cuerpo), hoy, nav())
+    return pagina('Historia de las corridas', "".join(cuerpo), hoy, nav(), '/corridas')
 
 
 def linea_de_tiempo(h: dict, codigo: str, hoy: str) -> tuple:
@@ -228,7 +253,7 @@ def linea_de_tiempo(h: dict, codigo: str, hoy: str) -> tuple:
               tabla(abiertas, 'Lo que sigue abierto', ''),
               tabla(cerradas, 'Lo que se resolvió', '<th>Resuelta en</th>'),
               AVISO_HISTORIA]
-    return 200, pagina(f'Historia · {codigo}', "".join(cuerpo), hoy, nav())
+    return 200, pagina(f'Historia · {codigo}', "".join(cuerpo), hoy, nav(), '/corridas')
 
 
 def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
@@ -268,7 +293,7 @@ def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
         cuerpo.append('<div class="bloque"><p>Ningún campo cambió entre esos dos '
                       'cortes.</p></div>')
     cuerpo.append(AVISO_HISTORIA)
-    return 200, pagina(f'Corte {a} → {b}', "".join(cuerpo), hoy, nav())
+    return 200, pagina(f'Corte {a} → {b}', "".join(cuerpo), hoy, nav(), '/corte')
 
 
 # Va en las tres páginas, y no es un descargo de responsabilidad de relleno: un registro
@@ -279,6 +304,54 @@ AVISO_HISTORIA = (
     'no de lo que pasó ni un juicio sobre nadie. Cada hallazgo remite al documento que lo '
     'sostiene, y un documento que se archivó tarde cambia la lectura sin que nadie haya '
     'hecho nada mal.</p>')
+
+
+# El árbol de la izquierda. No es decoración: si un patrocinador tiene que preguntarle a
+# alguien dónde está el histórico, el histórico no es transparente. Y lo que **no** está
+# construido aparece marcado en vez de omitido, porque un menú que esconde los huecos
+# promete un producto que no existe.
+#
+# Los tres agentes viven en el árbol aunque solo uno tenga servidor: el gerente de proyecto
+# y el de producto publican su ficha para que la lea el portafolio, y el lector tiene que
+# saber que existen y por dónde entra su información.
+ARBOL = [
+    ("El portafolio · Vera", [
+        ("/pmo", "Cómo va el portafolio", True),
+        ("/decisiones", "Lo que necesita una decisión", True),
+        ("/proyectos", "Los proyectos, uno por uno", True),
+        ("/productos", "Los productos, vistos desde los proyectos", True),
+    ]),
+    ("La historia", [
+        ("/corridas", "Todas las corridas, y qué se arrastra", True),
+        ("/corte", "Qué cambió entre dos cortes", True),
+    ]),
+    ("El proyecto · Samuel", [
+        (None, "Publica su ficha; el portafolio la contrasta", False),
+    ]),
+    ("El producto · Alba", [
+        (None, "Publica su registro; el portafolio lo cruza", False),
+    ]),
+    ("Preguntar", [
+        ("/#preguntar", "Dejar una pregunta escrita para el agente", True),
+    ]),
+]
+
+
+def arbol(activa: str = "") -> str:
+    """El menú de la izquierda, con lo que hay y lo que todavía no."""
+    out = ['<nav class="arbol" aria-label="Secciones">']
+    for grupo, hijos in ARBOL:
+        out.append(f'<p class="g">{e(grupo)}</p><ul>')
+        for ruta, texto, hay in hijos:
+            if not hay:
+                out.append(f'<li class="no"><span>{e(texto)}</span>'
+                           f'<em>sin servidor propio</em></li>')
+            else:
+                cl = ' class="yo"' if ruta == activa else ''
+                out.append(f'<li><a href="{e(ruta)}"{cl}>{e(texto)}</a></li>')
+        out.append('</ul>')
+    out.append('</nav>')
+    return "".join(out)
 
 
 def nav() -> str:
