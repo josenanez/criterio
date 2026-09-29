@@ -685,5 +685,23 @@ if _sin_prefijo:
 else:
     decir(OK, f"los {len(MAPA_CMD)} comandos se citan como /<plugin>:<comando>")
 
+print("\nQue el árbol del portal tenga exactamente los comandos que existen")
+# El árbol de Rostrum es la estructura completa de la PMO: cada comando en su grupo. Un
+# comando nuevo que no entre al árbol es invisible en el portal, y uno que se borró y
+# siga en el árbol es un enlace muerto. Las dos cosas se ven aquí, no en producción.
+sys.path.insert(0, str(PLUGIN / "scripts"))
+import servidor as _srv  # noqa: E402
+_en_arbol = {(a, c) for a, grupos in _srv.GRUPOS.items() for _, cmds in grupos for c in cmds}
+_agente = {"criterio-portfolio": "portafolio", "criterio-project": "proyecto",
+           "criterio-product": "producto"}
+_en_disco = {(_agente[plug], f.stem) for plug in _agente
+             for f in (RAIZ / "plugins" / plug / "commands").glob("*.md")}
+for _a, _c in sorted(_en_disco - _en_arbol):
+    decir(FALLA, f"{_c} existe en {_a} y no está en ningún grupo del árbol")
+for _a, _c in sorted(_en_arbol - _en_disco):
+    decir(FALLA, f"{_c} está en el árbol de {_a} y no existe como comando")
+if _en_disco == _en_arbol:
+    decir(OK, f"los {len(_en_arbol)} comandos están en el árbol, cada uno en su grupo")
+
 print(f"\n{'coherente' if not fallas else f'{fallas} INCONSISTENCIAS'}")
 sys.exit(0 if not fallas else 1)

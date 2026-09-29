@@ -217,8 +217,9 @@ De aquí para abajo es para quien lo va a publicar.
 | `/decisiones` | Lo que necesita una decisión | El comité y el patrocinador |
 | `/corridas` | La historia de **los tres agentes**, y qué se arrastra | Todos |
 | `/corridas?agente=` | Solo las del gerente de proyecto o las del de producto | Su gerente |
-| `/corridas?agente=&que=` | Las de un solo comando; es a donde llevan las ramas del árbol | Quien prueba |
-| `/corrida/<agente>/<caso>/<id>` | **Una corrida entera**: sus cifras y lo que el comando produjo, tal cual lo escribió | Todos |
+| `/corridas?agente=&que=&caso=` | Las de un comando, o las de un proyecto o producto; es a donde llevan las ramas del árbol | Quien prueba |
+| `/corrida/<agente>/<id>` | **Una corrida entera, tal como la dejó el arnés**: lo que el agente mostró, con las cifras que midió | Todos |
+| `/corrida/<agente>/<caso>/<id>` | Las cifras de una corrida registrada solo por `corrida`, anterior al rastro | Todos |
 | `/historia/<código>` | Desde cuándo un proyecto arrastra cada señal, y cuál se resolvió | La PMO y el gerente |
 | `/corte?a=&b=` | Qué cambió campo por campo entre dos cortes | Quien pregunta «desde cuándo» |
 | `/proyectos` | El listado de proyectos | Todos |
@@ -306,3 +307,26 @@ página que existe. Una redirección a una página que no está es un 404 con un
 
 El detalle de la corrida, en
 [`tests/criterio-portfolio/EVIDENCIA.md`](../../tests/criterio-portfolio/EVIDENCIA.md).
+
+## El árbol es la PMO entera, y el rastro lo escribe el arnés
+
+A la izquierda de toda página va la estructura completa: cada agente con sus funciones
+(Ritmo, Lectura, Informe, Proyecto, Dinero y proveedores, Productos para Vera; Ritmo,
+Seguimiento, Plan y escalamiento, Publicación para Samuel; Ritmo, Descubrimiento,
+Definición, Trazas, Publicación para Alba), cada función con sus comandos, y cada comando
+con cada corrida que dejó. Un comando que no ha corrido se ve en gris con un cero: que no
+haya corrido también es un dato. Debajo, lo mismo visto por proyecto y por producto: todas
+las corridas de todos los agentes sobre ese caso.
+
+Las corridas no las registra el agente. Las registra el arnés: cada plugin lleva
+`hooks/hooks.json`, y Claude Code dispara `rastro.py` cuando la persona invoca un comando
+y cuando el agente termina de responder. Con lo que el arnés le entrega —el comando, el
+argumento, la hora y el texto completo que el agente mostró— queda en
+`<proyecto>/.criterio/corridas/<agente>/<fecha>-<comando>-<n>.html` la página de esa
+corrida, con las cifras que `corrida` haya medido incrustadas. El agente no puede dejar
+de registrarse, porque no es él quien registra. `.criterio/corridas/` entra al
+repositorio: es la historia.
+
+```
+python3 scripts/servidor.py --informe <carpeta> --estado <estado> --config <archivo> [--evidencia .criterio/corridas]
+```

@@ -221,8 +221,9 @@ From here down is for whoever is going to publish it.
 | `/decisiones` | What needs a decision | The committee and the sponsor |
 | `/corridas` | The history of **all three agents**, and what is being carried | Everyone |
 | `/corridas?agente=` | Only the project manager's runs, or the product manager's | Their manager |
-| `/corridas?agente=&que=` | The runs of one command; where the tree's branches lead | Whoever tests |
-| `/corrida/<agent>/<case>/<id>` | **One whole run**: its figures and what the command produced, as it wrote it | Everyone |
+| `/corridas?agente=&que=&caso=` | The runs of one command, or of one project or product; where the tree's branches lead | Whoever tests |
+| `/corrida/<agent>/<id>` | **One whole run, as the harness left it**: what the agent showed, with the figures it measured | Everyone |
+| `/corrida/<agent>/<case>/<id>` | The figures of a run recorded only by `corrida`, before the trace | Everyone |
 | `/historia/<code>` | Since when a project has been carrying each signal, and which one was resolved | The PMO and the manager |
 | `/corte?a=&b=` | What changed field by field between two cut-off dates | Whoever asks "since when" |
 | `/proyectos` | The project list | Everyone |
@@ -295,3 +296,18 @@ redirect to a page that is not there is a 404 with extra steps.
 The run in detail, in
 [`tests/criterio-portfolio/EVIDENCIA.md`](../../tests/criterio-portfolio/EVIDENCIA.md) (Spanish, as
 working documents).
+
+## The tree is the whole PMO, and the harness writes the trace
+
+Every served page carries the full structure on the left: each agent with its function
+groups, each group with its commands, each command with every run it left. A command
+that has not run shows in grey with a zero: not having run is also data. Below, the same
+seen by project and by product: every run by every agent on that case.
+
+Runs are not recorded by the agent. They are recorded by the harness: each plugin ships
+`hooks/hooks.json`, and Claude Code fires `rastro.py` when the person invokes a command
+and when the agent finishes responding. With what the harness hands over — the command,
+its argument, the time and the full text the agent showed — the run's page lands at
+`<project>/.criterio/corridas/<agent>/<date>-<command>-<n>.html`, with whatever figures
+`corrida` measured embedded. The agent cannot skip being recorded, because it is not the
+one recording. `.criterio/corridas/` goes into the repository: it is the history.

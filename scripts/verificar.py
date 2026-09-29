@@ -58,6 +58,8 @@ PUERTAS = [
      "El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo"),
     ("código", [sys.executable, str(PMO / "servidor.py"), "--selftest"],
      "Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha"),
+    ("código", [sys.executable, str(PMO / "rastro.py"), "--selftest"],
+     "Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras"),
     ("código", [sys.executable, str(PM / "portafolio.py"), "selftest"],
      "La copia de la aritmética corre sola, sin tocar el otro plugin"),
     ("código", [sys.executable, str(PM / "texto.py"), "--selftest"],

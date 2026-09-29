@@ -233,3 +233,9 @@ Claude outputs/
 # plugins habilitados de un marketplace que no ha agregado.
 .claude/settings.json
 .claude/settings.local.json
+
+# El rastro de las corridas (.criterio/corridas/) es historia y entra al repositorio: es la
+# evidencia de lo que cada agente hizo. Lo que no entra es la marca de la corrida en curso
+# y el registro de errores del propio rastro, que son de la sesión.
+.criterio/en-curso/
+.criterio/rastro-errores.log

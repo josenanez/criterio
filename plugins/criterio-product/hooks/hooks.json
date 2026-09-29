@@ -1,0 +1,27 @@
+{
+  "description": "El rastro de cada corrida, escrito por el arnés y no por el modelo: al invocar un comando queda la marca, y al terminar el agente queda la página.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/rastro.py\" enviar",
+            "timeout": 15
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/rastro.py\" parar",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

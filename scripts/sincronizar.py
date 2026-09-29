@@ -31,6 +31,7 @@ SCRIPTS = {
     "criterio-project": {
         "portafolio.py": "la aritmética; `compute` ya trabaja proyecto a proyecto",
         "texto.py": "leer un .docx es leer un .docx",
+        "rastro.py": "el rastro de cada corrida lo escribe el arnés, igual para los tres",
     },
     # Alba no calcula plan ni presupuesto —en definición no existen—, pero sí lee las
     # fichas de los proyectos que ejecutan su producto, y el contrato de campo
@@ -40,6 +41,7 @@ SCRIPTS = {
     "criterio-product": {
         "portafolio.py": "el contrato de campo, y leer la ficha del proyecto que ejecuta el producto",
         "texto.py": "una entrevista llega en .docx tanto como un acta",
+        "rastro.py": "el rastro de cada corrida lo escribe el arnés, igual para los tres",
     },
 }
 

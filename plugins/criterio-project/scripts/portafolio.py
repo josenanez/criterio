@@ -1247,6 +1247,9 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
     if salida is not None and Path(salida).is_file():
         texto_salida = Path(salida).read_text(encoding="utf-8", errors="replace").strip()
     entrada["salida"] = bool(texto_salida)
+    # Cuándo se escribió, en segundos de reloj: es lo que permite que el rastro que
+    # deja el arnés encuentre estas cifras y las incruste en la página de su corrida.
+    entrada["escrita"] = time.time()
     # Sobre qué caso corrió, cuando el comando es de un proyecto o de un producto y no del
     # portafolio entero. Es lo que permite que el árbol del portal cuelgue la corrida bajo
     # su proyecto; sin esto, `status-report PRY-200` y `status-report PRY-201` son iguales.
@@ -1291,9 +1294,6 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
                    "> El comando no entregó su resultado (`--salida`): la corrida registra "
                    "las cifras, pero lo que dijo se quedó en la conversación.", ""]
     (d / f"{entrada['id']}.md").write_text("\n".join(lineas), encoding="utf-8")
-    (d / f"{entrada['id']}.html").write_text(
-        pagina_corrida(f"Corrida · {entrada['id']}", "\n".join(lineas), today.isoformat()),
-        encoding="utf-8")
     return entrada
 
 
@@ -1661,10 +1661,7 @@ def _selftest_corrida():
              ["2026-09-28-sweep-1", "2026-09-28-report-1"]),
             ("corrida · sin salida entregada, la página lo dice",
              "no entregó su resultado" in legible, True),
-            ("corrida · deja también el HTML, abrible sin servidor",
-             (estado / "corridas" / "2026-09-28-health-check-1.html").is_file()
-             and "no permite saber el presupuesto" in
-             (estado / "corridas" / "2026-09-28-health-check-1.html").read_text(encoding="utf-8"), True),
+            ("corrida · lleva la hora en que se escribió", "escrita" in todas[0], True),
             ("corrida · con salida, la copia entera",
              "no permite saber el presupuesto" in tercero
              and "no entregó su resultado" not in tercero, True),

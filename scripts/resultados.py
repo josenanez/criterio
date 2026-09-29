@@ -44,6 +44,7 @@ SALIDA_MD = RAIZ / "docs" / "pruebas.md"
 # esta página se mantiene honesta cuando el repositorio crece.
 DUENIOS = [
     ("criterio-portfolio/scripts/servidor.py", "Rostrum"),
+    ("criterio-portfolio/scripts/rastro.py", "los tres"),
     ("criterio-portfolio/scripts/informe.py", "Vera"),
     ("criterio-portfolio/scripts/portafolio.py", "Vera"),
     ("criterio-portfolio/scripts/texto.py", "Vera"),
