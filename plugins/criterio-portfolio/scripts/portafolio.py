@@ -1279,6 +1279,31 @@ def estados_de(state: Path) -> list:
         if hermano.is_dir():
             for d in sorted(x for x in hermano.iterdir() if x.is_dir()):
                 out.append((quien, d.name, d))
+
+    # La primera corrida real de los tres agentes a la vez dejó los estados en otro
+    # sitio: Samuel en `<estado>/<código>/` y Alba en `<estado>/productos/<código>/`, que
+    # es donde sus `setup` los ponen por defecto. Un portal que solo mirara a los hermanos
+    # los habría dado por inexistentes, y eso no es «lo que no esté, no está»: es no
+    # buscar. Un estado se reconoce por lo que contiene, no por dónde quedó.
+    propios = {"records", "snapshots", "reports", "corridas", "peticiones", "metrics",
+               "requirements"}
+    ya = {d for _, _, d in out}
+
+    def es_estado(d: Path) -> bool:
+        return (d / "corridas.json").is_file() or (d / "config.json").is_file() \
+            or (d / "producto.json").is_file()
+
+    cola = sorted(x for x in state.iterdir() if x.is_dir() and x.name not in propios)
+    while cola:
+        x = cola.pop(0)
+        if x.name == "productos":
+            cola += sorted(y for y in x.iterdir() if y.is_dir())
+            continue
+        if x in ya or not es_estado(x):
+            continue
+        quien = "producto" if (x / "producto.json").is_file() else "proyecto"
+        out.append((quien, x.name, x))
+        ya.add(x)
     return out
 
 
