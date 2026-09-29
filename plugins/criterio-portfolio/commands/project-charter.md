@@ -8,6 +8,14 @@ argument-hint: "<código del proyecto> [revisar|redactar]"
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el acta.
 > Abre declarando si hay acta previa y de cuándo. Cierra con el pie de rigor.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Invocación
 
 ```
@@ -53,3 +61,14 @@ Solo con lo que sustenten los documentos y lo que el gerente confirme en la conv
 ## Después
 
 Si el acta quedó sin autoridad declarada, ofrece llevar esa definición al comité: es una decisión, no un trámite. Si de la revisión salieron supuestos, ofrece pasarlos al registro RAID.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what project-charter \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-project-charter.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

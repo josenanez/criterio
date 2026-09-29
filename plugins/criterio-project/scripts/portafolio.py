@@ -1250,7 +1250,7 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
               + (f" · {segundos} s" if segundos else "")
               + f" · {sum(senales.values())} hallazgos", ""]
     if segundos is None:
-        lineas += ["> El tiempo no se midió: faltó `corrida --inicio` al arrancar. Un "
+        lineas += ["> El tiempo no se midió: faltó `corrida-inicio` al arrancar. Un "
                    "tiempo escrito a mano es un recuerdo, no una medición.", ""]
     if senales:
         lineas += ["| Señal | Hallazgos |", "|---|---:|"]

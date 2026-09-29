@@ -9,6 +9,14 @@ argument-hint: "[qué se escala] o vacío para lo que ya está marcado"
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Un escalamiento mal formulado vuelve. *«Necesitamos definición sobre el proveedor»* no es
@@ -129,3 +137,14 @@ Si el comité decide, ofrece registrarlo: la decisión con su fecha y su documen
 ficha, y con ella se cierra el ítem del RAID que la originó. Y si el cambio mueve la línea
 base, eso es control de cambios, no un escalamiento: se registra aparte y **la línea base
 anterior no se toca.**
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what pm-escalate \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-pm-escalate.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

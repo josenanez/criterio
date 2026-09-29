@@ -9,6 +9,14 @@ argument-hint: "[ruta del caso de negocio] o vacío para armar la estructura des
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+## Antes de leer nada
+
+```
+python3 scripts/producto.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Un caso de negocio se aprueba o se rechaza por sus cifras, y casi ninguna de esas cifras
@@ -120,3 +128,14 @@ sin esto el producto no se puede cerrar meses después.]
 Ofrece pasar los supuestos al seguimiento con **assumption-tracking** —un supuesto que se
 queda dentro del caso de negocio es el que nadie vuelve a mirar— y, si el caso se aprueba,
 `/product-charter`: ahí es donde deja de ser un caso y se vuelve un proyecto.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/producto.py corrida --state <estado> --what product-business-case \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-product-business-case.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

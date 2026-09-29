@@ -9,6 +9,14 @@ argument-hint: "[REQ-xxx, REQ-xxx] o vacío para todo lo aceptado"
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+## Antes de leer nada
+
+```
+python3 scripts/producto.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Lo escribe el agente; **lo cierra el gerente de producto.** Lo que el agente aporta es lo
@@ -108,3 +116,14 @@ enlace a los términos. Y en la primera línea, que es un borrador y quién lo c
 Si la especificación quedó con los vacíos cerrados y el requerimiento tiene criterio de
 éxito, ofrece `/product-charter`: es el momento en que esto deja de ser producto y se vuelve
 proyecto.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/producto.py corrida --state <estado> --what product-spec \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-product-spec.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

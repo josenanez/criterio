@@ -8,6 +8,14 @@ argument-hint: "<código del proyecto> o 'portafolio' para el consolidado"
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.
 > Abre declarando de qué documentos sale y de cuándo. Cierra con el pie de rigor.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Invocación
 
 ```
@@ -58,3 +66,14 @@ Ejecutado [X]% · Hitos cumplidos [Y] de [Z] · [lectura en una línea]
 ## Después
 
 Si la proyección excede el aprobado, ofrece preparar la solicitud de cambio. Si el comprometido está cerca del tope, ofrece el detalle por proveedor.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what budget-tracking \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-budget-tracking.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

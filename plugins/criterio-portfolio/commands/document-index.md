@@ -8,6 +8,14 @@ argument-hint: "[código del proyecto]"
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla.
 > Este comando no lee documentos: los cuenta y los compara. Es el paso que decide el costo de todo lo demás.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Invocación
 
 ```
@@ -69,3 +77,14 @@ Si `hay que releer` es cero y no hay citas rotas, dilo en una línea y **no prod
 más**. Una corrida donde no pasó nada se contesta con una línea, no con un informe.
 
 Si hay documentos por releer, ofrece `/portfolio-scan` limitado a los proyectos tocados.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what document-index \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-document-index.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

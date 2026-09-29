@@ -8,6 +8,14 @@ argument-hint: "<código del proyecto> o 'portafolio' para el consolidado"
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el registro.
 > Abre declarando de qué documentos sale. Cierra con el pie de rigor.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Invocación
 
 ```
@@ -57,3 +65,14 @@ Un ítem mal clasificado en el registro existente se reclasifica y se dice por q
 ## Después
 
 Ofrece subir a comité los que cumplen el criterio de escalamiento, y proponer doliente para los que no tienen — proponer, no asignar.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what raid-log \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-raid-log.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

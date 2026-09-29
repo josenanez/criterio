@@ -8,6 +8,14 @@ argument-hint: "<código o nombre del proyecto>"
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.
 > Abre declarando de qué ficha sale y de cuándo. Cierra con el pie: versión, ficha aplicada con su fecha, campos inciertos y enlace a los términos.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Invocación
 
 ```
@@ -64,3 +72,14 @@ Replanificaciones: [N] — [fechas y motivos declarados]
 ## Después
 
 Si hay desviación por encima del umbral o riesgos que exceden la autoridad del gerente, ofrece preparar el punto de comité. Si el atraso viene de un cambio no formalizado, ofrece la solicitud de cambio.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what status-report \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-status-report.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

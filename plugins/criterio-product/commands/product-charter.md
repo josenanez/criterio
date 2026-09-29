@@ -9,6 +9,14 @@ argument-hint: "<REQ-xxx o el conjunto de requerimientos que van al proyecto>"
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+## Antes de leer nada
+
+```
+python3 scripts/producto.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Es **la costura del sistema**: el momento en que un problema definido se vuelve plan con
@@ -135,3 +143,14 @@ Di en una línea qué sigue, y para quién: el gerente del proyecto instala `cri
 `/pm-setup`; cuando publique su ficha con `/pm-publish`, `/product-trace` va a poder confirmar
 la traza contra ella, **y desde ahí Alba se entera de si su producto se está construyendo sin
 tener que preguntarle a nadie.**
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/producto.py corrida --state <estado> --what product-charter \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-product-charter.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

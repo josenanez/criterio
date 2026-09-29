@@ -9,6 +9,14 @@ argument-hint: "[ruta del acta de constitución] o vacío para la configurada"
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 El acta está firmada y hay que planificar. Ese primer borrador cuesta dos o tres días de
@@ -135,3 +143,14 @@ Cuando el plan se apruebe, ofrece registrarlo como **línea base original** —l
 que después permite medir desviación contra dos referencias— y pasar los supuestos al RAID
 con doliente, aplicando **raid-taxonomy**. Un supuesto que se queda en el documento del
 plan es un riesgo que nadie va a volver a mirar.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what pm-plan \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-pm-plan.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

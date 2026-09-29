@@ -9,6 +9,14 @@ argument-hint: "[fecha de la reunión] o vacío para la próxima según la caden
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Una agenda de seguimiento casi nunca se escribe. Se hereda: el mismo orden del día de la
@@ -122,3 +130,14 @@ reunión sin puntos es una decisión válida, y proponerla es más útil que lle
 Cuando la reunión termine, ofrece `/pm-minutes` sobre la transcripción o las notas: la
 agenda y el acta son el mismo ciclo, y los compromisos que salgan de ahí entran derecho a
 `/pm-commitments` con su cita.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what pm-agenda \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-pm-agenda.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

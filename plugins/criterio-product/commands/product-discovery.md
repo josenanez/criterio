@@ -9,6 +9,14 @@ argument-hint: "[carpeta o archivo de material de descubrimiento] o vacío para 
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
 
+## Antes de leer nada
+
+```
+python3 scripts/producto.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Veinte entrevistas son doscientas páginas y tres días de trabajo. Ese trabajo es agrupar, y
@@ -120,3 +128,14 @@ ningún tema que el registro no tenga ya»*. Y se acaba.
 Si algún tema nuevo quedó como requerimiento, ofrece `/product-requirements` para ver el
 registro completo con los vacíos. Y si la evidencia nueva contradice la definición, ofrece
 `/product-definition`: eso ya no es descubrimiento, es que la definición envejeció.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/producto.py corrida --state <estado> --what product-discovery \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-product-discovery.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

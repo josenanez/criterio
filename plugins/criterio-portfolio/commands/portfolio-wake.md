@@ -8,6 +8,14 @@ argument-hint: "[AAAA-MM-DD para simular otro día]"
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla.
 > Este es el comando que invoca el reloj, no la persona. Puede correr sin nadie mirando.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Para qué existe
 
 Un comando espera a que lo llamen. **Un agente no.**
@@ -133,3 +141,14 @@ que la carpeta de documentación esté montada cuando el reloj dispare.
 **Si la organización no quiere corridas desatendidas** —y en un banco es una respuesta
 razonable—, dilo sin discutir: este comando también sirve corrido a mano, y la cadencia
 sigue diciendo qué toca. Lo que se pierde es que avise sin que nadie pregunte.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what portfolio-wake \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-portfolio-wake.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.

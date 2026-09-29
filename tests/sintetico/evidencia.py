@@ -81,7 +81,9 @@ def cosechar(a) -> int:
     }[a.agente]
     filas, nuevas = leer(), 0
     for c in corridas:
-        comando = DE.get(c["que"])
+        # Los comandos que registran con su propio nombre (`--what health-check`) no
+        # necesitan traducción; los tres nombres históricos sí.
+        comando = DE.get(c["que"], c["que"])
         if not comando or comando not in comandos_de(a.agente):
             continue
         clave = (comando, a.dia, c["fecha"], c["que"])

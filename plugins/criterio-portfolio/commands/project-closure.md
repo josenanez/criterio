@@ -8,6 +8,14 @@ argument-hint: "<código del proyecto>"
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el acta de cierre.
 > Abre declarando de qué ficha y qué documentos sale. Cierra con el pie de rigor.
 
+## Antes de leer nada
+
+```
+python3 scripts/portafolio.py corrida-inicio --state <estado>
+```
+
+Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
+
 ## Invocación
 
 ```
@@ -67,3 +75,14 @@ Replanificaciones: [N]
 ## Después
 
 Ofrece mover la carpeta del proyecto a `archivo/` y dejar la ficha congelada con su última instantánea. Un proyecto cerrado sale del barrido diario pero no se borra: su historial es lo que alimenta las lecciones del siguiente.
+
+## Deja la corrida registrada
+
+Lo último, siempre:
+
+```
+python3 scripts/portafolio.py corrida --state <estado> --what project-closure \
+    --nota "qué produjo, y qué dijo que no sabía"
+```
+
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` deja `<estado>/corridas/<fecha>-project-closure.md`: cuánto tardó, sobre cuántos casos, qué señales estaban abiertas, y la nota.
