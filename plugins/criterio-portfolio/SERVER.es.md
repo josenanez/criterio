@@ -215,7 +215,8 @@ De aquí para abajo es para quien lo va a publicar.
 | `/` | La portada, con las tres secciones y el formulario | Todos |
 | `/pmo` | Cómo va el portafolio | La PMO |
 | `/decisiones` | Lo que necesita una decisión | El comité y el patrocinador |
-| `/corridas` | La historia: qué se corrió, qué encontró, y qué se arrastra | Todos |
+| `/corridas` | La historia de **los tres agentes**, y qué se arrastra | Todos |
+| `/corridas?agente=` | Solo las del gerente de proyecto o las del de producto | Su gerente |
 | `/historia/<código>` | Desde cuándo un proyecto arrastra cada señal, y cuál se resolvió | La PMO y el gerente |
 | `/corte?a=&b=` | Qué cambió campo por campo entre dos cortes | Quien pregunta «desde cuándo» |
 | `/proyectos` | El listado de proyectos | Todos |
@@ -238,6 +239,20 @@ ese paso lo da algo tuyo, no el plugin.
 
 
 ## La historia, y por qué no se borra
+
+### Un solo portal para los tres agentes
+
+El gerente de proyecto y el de producto **no tienen portal aparte**. Publican su estado
+junto al del portafolio —`<estado>-proyectos/<código>` y `<estado>-productos/<código>`— y
+este mismo Rostrum lo sirve. Tres portales obligarían a un patrocinador a saber a cuál
+entrar, y eso ya no es transparencia: es un directorio interno.
+
+Cada corrida dice de quién es y sobre qué caso, porque una lista que mezcla el portafolio
+con sesenta y cinco productos no se puede leer. El árbol de la izquierda lleva a la de cada
+agente, y `/corridas` las muestra todas en una sola línea de tiempo.
+
+Cuando un mismo caso aparece en dos estados —el proyecto lo ve su gerente y el portafolio lo
+ve entero— se queda la racha más larga. Un problema no empieza de nuevo porque lo mire otro.
 
 Una organización real produce informes, cuadros y documentos todos los días, y ese rastro
 **es** la memoria del proyecto. El portal mostraba solo el presente y se sobreescribía: no

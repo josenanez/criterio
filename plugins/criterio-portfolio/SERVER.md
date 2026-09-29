@@ -219,7 +219,8 @@ From here down is for whoever is going to publish it.
 | `/` | The landing page, with the three sections and the form | Everyone |
 | `/pmo` | How the portfolio is going | The PMO |
 | `/decisiones` | What needs a decision | The committee and the sponsor |
-| `/corridas` | The history: what ran, what it found, and what is being carried | Everyone |
+| `/corridas` | The history of **all three agents**, and what is being carried | Everyone |
+| `/corridas?agente=` | Only the project manager's runs, or the product manager's | Their manager |
 | `/historia/<code>` | Since when a project has been carrying each signal, and which one was resolved | The PMO and the manager |
 | `/corte?a=&b=` | What changed field by field between two cut-off dates | Whoever asks "since when" |
 | `/proyectos` | The project list | Everyone |

@@ -60,8 +60,8 @@ RUTAS = {
     '/productos': 'el listado de productos',
     '/producto/<nombre>': 'el informe de un producto, con enlace a sus proyectos',
     '/estado.json': 'de cuándo es el informe y cuántas peticiones hay abiertas',
-    '/corridas': 'la historia: qué se corrió, qué encontró y qué cambió entre cortes',
-    '/historia/<codigo>': 'la línea de tiempo de un proyecto: desde cuándo arrastra cada señal',
+    '/corridas': 'la historia de los tres agentes · ?agente=proyecto|producto para filtrar',
+    '/historia/<codigo>': 'la línea de tiempo de un caso: desde cuándo arrastra cada señal',
     '/corte': 'qué cambió campo por campo entre dos cortes · ?a=<fecha>&b=<fecha>',
     '/peticion': 'POST · deja una pregunta escrita para el agente',
 }
@@ -160,8 +160,16 @@ def pagina(titulo, cuerpo, hoy, nav='', activa=''):
 # Estas tres vistas leen y no escriben, como todo lo que hace Rostrum.
 
 
-def corridas(h: dict, hoy: str) -> str:
-    """Nivel 1 · la historia de las corridas, con lo que cambió entre una y la siguiente."""
+def corridas(h: dict, hoy: str, agente: str = '') -> str:
+    """Nivel 1 · la historia de las corridas de los tres agentes.
+
+    Cada fila dice de quién es y sobre qué. Sin eso, una lista que mezcla el portafolio con
+    sesenta y cinco productos no se puede leer — y separarla en tres portales sería peor.
+    """
+    if agente:
+        h = dict(h, corridas=[c for c in h["corridas"]
+                              if c.get("agente") == agente])
+        h["total"] = len(h["corridas"])
     if not h["total"]:
         return pagina('Historia', '<div class="bloque"><p>Todavía no hay corridas '
                       'registradas. Cada comando que produce algo deja la suya.</p></div>',
@@ -173,9 +181,13 @@ def corridas(h: dict, hoy: str) -> str:
         delta = ('—' if d is None else
                  f'<span class="{"mal" if d > 0 else "bien" if d < 0 else ""}">{d:+d}</span>')
         rel = c.get("relectura") or {}
+        quien = c.get("agente") or 'portafolio'
+        sobre = c.get("sobre")
         filas.append(
-            f'<tr><td>{e(c["fecha"])}</td><td>{e(c["que"])}</td>'
-            f'<td class="n">{e(c.get("proyectos"))}</td>'
+            f'<tr><td>{e(c["fecha"])}</td>'
+            f'<td>{e(quien)}{" · " + e(sobre) if sobre else ""}</td>'
+            f'<td>{e(c["que"])}</td>'
+            f'<td class="n">{e(c.get("proyectos") or c.get("requerimientos"))}</td>'
             f'<td class="n">{e(c.get("documentos") or "—")}</td>'
             f'<td class="n">{e(rel.get("releidos") or "—")}</td>'
             f'<td class="n">{e(c.get("segundos") or "—")}</td>'
@@ -184,12 +196,14 @@ def corridas(h: dict, hoy: str) -> str:
         previo = c.get("hallazgos") or 0
 
     cuerpo = [
-        f'<p class="entrada"><b>{h["total"]} corridas</b>, de la del {e(h["desde"])} a la '
-        f'del {e(h["hasta"])}. Ninguna se borra: el rastro de las corridas es la memoria '
-        f'del portafolio, y sin él no se puede sostener que algo lleva meses sin '
-        f'resolverse.</p>',
-        '<div class="bloque"><table><thead><tr><th>Corte</th><th>Qué</th>'
-        '<th>Proyectos</th><th>Docs</th><th>Releídos</th><th>Seg</th>'
+        f'<p class="entrada"><b>{h["total"]} corridas</b>'
+        + (f' del agente de {e(agente)}' if agente else
+           f' de los agentes que trabajan sobre este portafolio')
+        + f', de la del {e(h["desde"])} a la del {e(h["hasta"])}. Ninguna se borra: el '
+        f'rastro de las corridas es la memoria del proyecto, y sin él no se puede '
+        f'sostener que algo lleva meses sin resolverse.</p>',
+        '<div class="bloque"><table><thead><tr><th>Corte</th><th>Agente</th>'
+        '<th>Qué</th><th>Casos</th><th>Docs</th><th>Releídos</th><th>Seg</th>'
         '<th>Hallazgos</th><th>Cambio</th><th>Nota</th></tr></thead><tbody>',
         "".join(filas), '</tbody></table></div>']
 
@@ -314,22 +328,26 @@ AVISO_HISTORIA = (
 # Los tres agentes viven en el árbol aunque solo uno tenga servidor: el gerente de proyecto
 # y el de producto publican su ficha para que la lea el portafolio, y el lector tiene que
 # saber que existen y por dónde entra su información.
+# **Un solo Rostrum para los tres agentes.** El gerente de proyecto y el de producto no
+# tienen portal aparte: publican su estado junto al del portafolio y este mismo servidor lo
+# sirve. Un portal por agente obligaría a un patrocinador a saber a cuál entrar, y eso ya no
+# es transparencia — es un directorio interno.
 ARBOL = [
     ("El portafolio · Vera", [
         ("/pmo", "Cómo va el portafolio", True),
         ("/decisiones", "Lo que necesita una decisión", True),
         ("/proyectos", "Los proyectos, uno por uno", True),
-        ("/productos", "Los productos, vistos desde los proyectos", True),
-    ]),
-    ("La historia", [
-        ("/corridas", "Todas las corridas, y qué se arrastra", True),
-        ("/corte", "Qué cambió entre dos cortes", True),
+        ("/productos", "Los productos y sus proyectos", True),
     ]),
     ("El proyecto · Samuel", [
-        (None, "Publica su ficha; el portafolio la contrasta", False),
+        ("/corridas?agente=proyecto", "Sus corridas y qué encontró", True),
     ]),
     ("El producto · Alba", [
-        (None, "Publica su registro; el portafolio lo cruza", False),
+        ("/corridas?agente=producto", "Sus corridas y qué encontró", True),
+    ]),
+    ("La historia de los tres", [
+        ("/corridas", "Todas las corridas, y qué se arrastra", True),
+        ("/corte", "Qué cambió entre dos cortes", True),
     ]),
     ("Preguntar", [
         ("/#preguntar", "Dejar una pregunta escrita para el agente", True),
@@ -621,10 +639,12 @@ class Manejador(BaseHTTPRequestHandler):
         elif ruta.startswith('/producto/'):
             self.a('producto-' + ruta[len('/producto/'):] + '.html')
         elif ruta == '/corridas':
-            h = portafolio.historia(self.estado)
-            self.html(200, corridas(h, self.hoy()))
+            q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
+            agente = (q.get('agente') or [''])[0]
+            h = portafolio.historia(self.estado, todos=True)
+            self.html(200, corridas(h, self.hoy(), agente))
         elif ruta.startswith('/historia/'):
-            h = portafolio.historia(self.estado)
+            h = portafolio.historia(self.estado, todos=True)
             self.html(*linea_de_tiempo(h, ruta[len('/historia/'):], self.hoy()))
         elif ruta == '/corte':
             q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
@@ -857,6 +877,14 @@ def selftest() -> int:
         # ── la historia
         cod, cuerpo = pedir('/corridas')
         ok('la historia lista las corridas', cod == 200 and '2026-08-31' in cuerpo, True)
+        ok('y dice de qué agente es cada una', 'portafolio' in cuerpo, True)
+        ok('el filtro por agente deja solo las suyas',
+           pedir('/corridas?agente=producto')[1].count('<tr>'), 0)
+        ok('y el del portafolio sí las trae',
+           pedir('/corridas?agente=portafolio')[1].count('<tr>') >= 2, True)
+        ok('el árbol lleva a los tres agentes por el mismo portal',
+           all(x in cuerpo for x in ('Samuel', 'Alba', 'agente=proyecto',
+                                     'agente=producto')), True)
         ok('y dice cuánto cambió entre una y la siguiente', '-1' in cuerpo, True)
         ok('y nombra lo que se arrastra', 'variance_time' in cuerpo, True)
         ok('con el aviso de que es la historia de lo leído',

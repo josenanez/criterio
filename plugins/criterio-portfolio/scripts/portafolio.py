@@ -1262,7 +1262,64 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
     return entrada
 
 
-def historia(state: Path) -> dict:
+def estados_de(state: Path) -> list:
+    """Los estados de los tres agentes bajo una misma raíz, con quién es cada uno.
+
+    Rostrum es **uno** para los tres. El gerente de proyecto y el de producto no tienen
+    servidor aparte: publican su estado y el mismo portal lo sirve. Un portal por agente
+    obligaría a un patrocinador a saber a cuál entrar, y eso ya no es transparencia.
+
+    La convención es la carpeta: el estado del portafolio es la raíz, y al lado viven
+    `<estado>-productos/<código>` y `<estado>-proyectos/<código>`. Lo que no esté, no está —
+    no se inventa una ruta.
+    """
+    out = [("portafolio", None, state)]
+    for sufijo, quien in (("-productos", "producto"), ("-proyectos", "proyecto")):
+        hermano = state.parent / (state.name + sufijo)
+        if hermano.is_dir():
+            for d in sorted(x for x in hermano.iterdir() if x.is_dir()):
+                out.append((quien, d.name, d))
+    return out
+
+
+def historia(state: Path, todos: bool = False) -> dict:
+    """La historia de las corridas. Con `todos`, la de los tres agentes junta."""
+    if todos:
+        return historia_junta(state)
+    return _historia_de(state)
+
+
+def historia_junta(state: Path) -> dict:
+    """Las corridas de los tres agentes en una sola línea de tiempo.
+
+    Un director de PMO, un gerente o un patrocinador entra a un sitio y ve todo lo que
+    corrió sobre el portafolio, sobre un proyecto y sobre un producto. Cada corrida dice
+    de quién es; sin eso, una lista mezclada no se puede leer.
+    """
+    corridas, casos, instantaneas = [], {}, []
+    for quien, cual, d in estados_de(state):
+        h = _historia_de(d)
+        for c in h["corridas"]:
+            corridas.append(dict(c, agente=quien, sobre=cual))
+        for codigo, senales in h["casos"].items():
+            destino = casos.setdefault(codigo, {})
+            for s, x in senales.items():
+                # Un mismo caso puede aparecer en dos estados —el proyecto lo ve su
+                # gerente y el portafolio lo ve entero—. Se queda la racha más larga, que
+                # es la que un comité necesita: el problema no empieza de nuevo porque lo
+                # mire otro.
+                if s not in destino or x["seguidas"] > destino[s]["seguidas"]:
+                    destino[s] = dict(x, agente=quien)
+        instantaneas += h["instantaneas"]
+    corridas.sort(key=lambda c: (c.get("fecha") or "", c.get("agente") or ""))
+    return {"corridas": corridas, "casos": casos, "total": len(corridas),
+            "desde": corridas[0]["fecha"] if corridas else None,
+            "hasta": corridas[-1]["fecha"] if corridas else None,
+            "instantaneas": sorted(set(instantaneas)),
+            "agentes": sorted({c["agente"] for c in corridas})}
+
+
+def _historia_de(state: Path) -> dict:
     """La historia de las corridas: qué se corrió, qué encontró, y desde cuándo.
 
     Una organización real produce documentos todos los días, y ese rastro **es** la
@@ -1796,7 +1853,7 @@ def main() -> int:
             ap.error("--what es obligatorio para ran")
         print(json.dumps(ran(args.state, args.what, today), ensure_ascii=False, indent=2))
     elif args.action == "historia":
-        print(json.dumps(historia(args.state), ensure_ascii=False, indent=2))
+        print(json.dumps(historia(args.state, todos=True), ensure_ascii=False, indent=2))
     elif args.action == "corrida-inicio":
         print(json.dumps(corrida_inicio(args.state), ensure_ascii=False))
     elif args.action == "corrida":
