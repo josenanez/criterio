@@ -67,7 +67,7 @@ Al cerrar cada proyecto:
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" sellar --state <estado> --docs <carpeta de documentos> --proyecto <código>
 ```
 
-Deja en `meta.documents_seen` de la ficha los documentos del proyecto con sus hashes, calculados por el script. **Nunca escribas un hash a mano ni dejes el campo en `null`**: una ficha sin hashes hace que el plan siguiente relea el proyecto entero. Si la cuota se acaba a mitad, lo sellado queda sellado, se registra la corrida con lo que alcanzó (paso 6) y se dice cuántos proyectos faltan.
+Deja en `meta.documents_seen` de la ficha los documentos del proyecto con sus hashes, calculados por el script. **Se sella una ficha que acabas de escribir, nunca las demás ni en bloque al inicio**: sellar es declarar que el proyecto se leyó en esta corrida, y el script rechaza la ficha que no se reescribió después de `corrida-inicio`. **Nunca escribas un hash a mano ni dejes el campo en `null`**: una ficha sin hashes hace que el plan siguiente relea el proyecto entero. Si la cuota se acaba a mitad, lo sellado queda sellado, se registra la corrida con lo que alcanzó (paso 6) y se dice cuántos proyectos faltan.
 
 Orden dentro de cada proyecto: primero `00-gobierno`, luego `10-plan`, después `20-seguimiento` y `30-reuniones` de más reciente a más antiguo. Lo reciente manda sobre lo viejo.
 

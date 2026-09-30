@@ -35,6 +35,7 @@ import hashlib
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
 # Cuánto puede costar una corrida. Es configuración de la organización, no del modelo:
@@ -1164,7 +1165,6 @@ def corrida_inicio(state: Path) -> dict:
     Un tiempo que el operador escribe a mano no es una medición: es un recuerdo. Y la
     promesa publicada de la instalación son quince minutos.
     """
-    import time
     f = state / "corrida-en-curso.json"
     f.write_text(json.dumps({"desde": time.time()}), encoding="utf-8")
     return {"marcado": True}
@@ -1184,7 +1184,6 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
     vacío. Una instrucción en prosa se salta; un comando que hay que correr, no. Por eso es
     aritmética y no una indicación.
     """
-    import time
     from collections import Counter
 
     # El tiempo y los documentos los mide la corrida. Si el operador los teclea, lo que se
@@ -1842,6 +1841,10 @@ def _selftest_plan():
                                         for j in range(4)]}}), encoding="utf-8")
     ex = dict(DEFAULT_EXECUTION, batch_projects=2)
     p1 = plan(docs, estado, ex)
+    sin_corrida = sellar(docs, estado, "PRY-001")
+    (estado / "corrida-en-curso.json").write_text(json.dumps({"desde": time.time() + 60}))
+    sin_releer = sellar(docs, estado, "PRY-001")
+    (estado / "corrida-en-curso.json").write_text(json.dumps({"desde": time.time() - 60}))
     # se sella lo leído con hashes calculados por el script, no por el agente
     sellados = [sellar(docs, estado, f"PRY-00{i}") for i in range(1, 4)]
     p2 = plan(docs, estado, ex)
@@ -1853,6 +1856,8 @@ def _selftest_plan():
     p5 = plan(docs, estado, dict(ex, workers=3, reread_unchanged=True))
     return [
         ("sin hash, todo se relee (el día de la cuota)", p1["to_read"], 12),
+        ("sin corrida abierta no se sella", sin_corrida["ok"], False),
+        ("una ficha no reescrita en la corrida no se sella", sin_releer["ok"], False),
         ("sellar calcula los hashes", all(s["ok"] and s["documents_seen"] == 4 for s in sellados), True),
         ("sellado y sin cambios: plan vacío", (p2["to_read"], p2["batches"]), (0, [])),
         ("un documento cambiado: un proyecto, un lote", [b["projects"] for b in p3["batches"]], [["PRY-002"]]),
@@ -2149,6 +2154,20 @@ def sellar(docs: Path, state: Path, proyecto: str) -> dict:
         return {"ok": False, "problem": f"no hay ficha {f}"}
     if carpeta is None:
         return {"ok": False, "problem": f"no hay carpeta de {proyecto} bajo {docs}"}
+    # Sellar es declarar «esto ya se leyó». Solo vale para una ficha escrita en esta
+    # corrida: en la primera prueba el agente selló las 51 fichas de una vez, sin
+    # releerlas, y con eso la corrida siguiente habría dado «0 por leer» sobre fichas
+    # extraídas con los skills viejos. El script lo impide, no la instrucción.
+    try:
+        desde = json.loads((state / "corrida-en-curso.json").read_text(encoding="utf-8")).get("desde")
+    except (OSError, json.JSONDecodeError):
+        desde = None
+    if not desde:
+        return {"ok": False, "problem": "no hay una corrida abierta: sellar va después de "
+                                        "corrida-inicio y de escribir la ficha"}
+    if f.stat().st_mtime < desde:
+        return {"ok": False, "problem": f"la ficha {f.name} no se escribió en esta corrida; "
+                                        "sellarla la daría por leída sin haberla leído"}
     vistos = []
     for ruta in sorted(carpeta.rglob("*")):
         if not ruta.is_file() or ruta.name in IGNORAR or ruta.name.startswith("."):
