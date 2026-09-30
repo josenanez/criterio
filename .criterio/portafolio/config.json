@@ -34,5 +34,11 @@
     "version": "1.0",
     "date": "2026-09-28",
     "by": "José"
+  },
+  "execution": {
+    "workers": 1,
+    "batch_projects": 10,
+    "max_documents_per_run": 400,
+    "reread_unchanged": false
   }
 }

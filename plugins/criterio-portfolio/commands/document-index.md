@@ -32,6 +32,8 @@ Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que algui
 python3 scripts/portafolio.py index --state <estado> --docs <documentos>
 ```
 
+**1b. Lo que hay que releer no se lee aquí.** Quien lo lee es el barrido, con el plan que arma `plan-lectura` a partir de este mismo índice: por lotes, con tope y en el orden configurado. Este comando dice el tamaño del trabajo; el barrido lo hace.
+
 **2. Reporta lo que hay que releer, no lo que cambió.** Son cosas distintas y la
 diferencia es el valor de este comando: un documento reguardado cambió de hash y no de
 contenido, y releerlo es gastar por nada.

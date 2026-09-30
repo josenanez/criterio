@@ -36,11 +36,15 @@ Lista la carpeta completa. Para cada archivo registra ruta, tamaño, fecha de mo
 
 Reporta de entrada: cuántos documentos hay, cuántos proyectos se distinguen, qué formatos, y qué archivos no vas a poder leer y por qué. Nada se salta en silencio.
 
-**2. Descarta lo que no cambió**
+**2. Pide el plan de lectura; no lo redactes**
 
-Compara el hash de cada documento contra `meta.documents_seen` de la ficha existente. Los que coinciden no se vuelven a leer y sus campos se conservan.
+```
+python3 scripts/portafolio.py plan-lectura --state <estado> --docs <carpeta de documentos> --config <config>
+```
 
-Di cuántos documentos vas a leer de cuántos que hay. En un barrido de mantenimiento suelen ser cinco de doscientos, y el gerente debe verlo.
+Devuelve qué leer y en qué orden: lo nuevo y lo cambiado por hash contra `meta.documents_seen`, agrupado por proyecto en lotes de `execution.batch_projects`, cortado en `execution.max_documents_per_run` en frontera de proyecto, y `mode` dice cuántos lotes pueden ir a la vez (`execution.workers`). **Se ejecuta el plan tal cual.** Lo que no está en `batches` no se lee; lo que está en `deferred` se dice y queda para la corrida siguiente. Un plan con `to_read: 0` es la corrida más barata y más frecuente: no se abre ningún documento, se recalcula y se informa.
+
+Di cuántos documentos vas a leer de cuántos que hay, con las cifras del plan. En un barrido de mantenimiento suelen ser cinco de doscientos, y el gerente debe verlo.
 
 **3. Agrupa por proyecto**
 
@@ -52,7 +56,15 @@ Un proyecto mencionado solo dentro de las minutas de otro también cuenta: se le
 
 Aplica el skill **project-record**. Procesa en lotes por proyecto, no todo de una vez: la cuota importa y un lote fallido no debe perder el trabajo de los demás.
 
-**Un lote a la vez, en esta misma conversación, y cada ficha se escribe apenas termina su proyecto.** No lances subagentes en paralelo ni en segundo plano para repartir el corpus: en una corrida real, cinco subagentes con ~70 documentos cada uno agotaron la cuota del plan con 12 fichas de 51 escritas, la corrida quedó abierta sin registrar, y el rastro solo vio el turno principal. Cinco lecturas paralelas del mismo corpus cuestan cinco veces y no dejan nada si se cortan; una lectura secuencial que escribe cada ficha al cerrarla deja lo hecho aunque se corte. Si la cuota se acaba a mitad, se registra la corrida con lo que alcanzó (paso 6) y se dice cuántos proyectos faltan.
+**Los lotes van como dice `mode`, y cada ficha se escribe y se sella apenas termina su proyecto.** Con `workers: 1` —el valor por defecto y el de cualquier plan con ventana de cuota— los lotes van uno tras otro en esta misma conversación, y no se lanza ningún subagente en paralelo ni en segundo plano. Con `workers: N`, hasta N lotes a la vez, cada uno en un subagente con contexto propio, y nunca más: el arnés cuenta los subagentes de cada corrida y marca en rojo la que exceda lo configurado. En una corrida real, cinco subagentes con ~70 documentos cada uno agotaron la cuota con 12 fichas de 51 escritas, la corrida quedó abierta sin registrar y el rastro solo vio el turno principal; esa es la razón de que la decisión no sea tuya.
+
+Al cerrar cada proyecto:
+
+```
+python3 scripts/portafolio.py sellar --state <estado> --docs <carpeta de documentos> --proyecto <código>
+```
+
+Deja en `meta.documents_seen` de la ficha los documentos del proyecto con sus hashes, calculados por el script. **Nunca escribas un hash a mano ni dejes el campo en `null`**: una ficha sin hashes hace que el plan siguiente relea el proyecto entero. Si la cuota se acaba a mitad, lo sellado queda sellado, se registra la corrida con lo que alcanzó (paso 6) y se dice cuántos proyectos faltan.
 
 Orden dentro de cada proyecto: primero `00-gobierno`, luego `10-plan`, después `20-seguimiento` y `30-reuniones` de más reciente a más antiguo. Lo reciente manda sobre lo viejo.
 

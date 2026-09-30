@@ -37,6 +37,18 @@ import re
 import sys
 from pathlib import Path
 
+# Cuánto puede costar una corrida. Es configuración de la organización, no del modelo:
+# un plan con ventana de cinco horas corre secuencial; una empresa que paga por token
+# puede subir `workers`. Lo decide `plan-lectura`, no el agente, porque la única vez que
+# se dejó al agente decidirlo lanzó cinco lectores en paralelo sobre un corpus que no
+# había cambiado y agotó la cuota con 12 fichas de 51.
+DEFAULT_EXECUTION = {
+    "workers": 1,                  # lotes que pueden leerse a la vez; 1 = uno tras otro
+    "batch_projects": 10,          # proyectos por lote
+    "max_documents_per_run": 400,  # tope de documentos a leer en una corrida
+    "reread_unchanged": False,     # releer lo que no cambió: solo a propósito, una vez
+}
+
 DEFAULT_THRESHOLDS = {
     "silent_days": 15,
     "variance_time_pct": 10,
@@ -1047,6 +1059,10 @@ def index(docs: Path, state: Path) -> dict:
     fichas = {}
     for f in sorted((state / "records").glob("*.json")):
         fichas[f.stem] = json.loads(f.read_text(encoding="utf-8"))
+    # Un estado de producto no tiene fichas de proyecto: lo leído queda en `producto.json`,
+    # con el mismo `meta.documents_seen`, y así el índice y el plan valen para Alba igual.
+    if not fichas and (state / "producto.json").is_file():
+        fichas["producto"] = json.loads((state / "producto.json").read_text(encoding="utf-8"))
 
     # lo que cada ficha dice haber leído, y qué proyectos toca cada documento
     visto, de_quien = {}, {}
@@ -1547,6 +1563,15 @@ def check_config(config: Path) -> dict:
     if not accepted.get("version") or not accepted.get("date"):
         problems.append("terms_accepted has no version or no date — the gate is not satisfied")
 
+    ex = cfg.get("execution") or {}
+    for key in set(ex) - set(DEFAULT_EXECUTION):
+        problems.append(f"execution.{key} is not a setting this version knows")
+    for key in ("workers", "batch_projects", "max_documents_per_run"):
+        if key in ex and (not isinstance(ex[key], int) or ex[key] < 1):
+            problems.append(f"execution.{key} must be a whole number of at least 1")
+    if "reread_unchanged" in ex and not isinstance(ex["reread_unchanged"], bool):
+        problems.append("execution.reread_unchanged must be true or false")
+
     th = dict(DEFAULT_THRESHOLDS)
     th.update(cfg.get("thresholds", {}))
     unknown = set(cfg.get("thresholds", {})) - set(DEFAULT_THRESHOLDS)
@@ -1787,6 +1812,7 @@ def selftest() -> int:
     ]
     checks += _selftest_cadencia()
     checks += _selftest_corrida()
+    checks += _selftest_plan()
 
     ok = True
     for label, got, want in checks:
@@ -1795,6 +1821,45 @@ def selftest() -> int:
         print(f"  {'OK ' if good else 'FALLA'} {label:32} {got!r}{'' if good else f'  esperado {want!r}'}")
     print("\nselftest:", "sin errores" if ok else "CON ERRORES")
     return 0 if ok else 1
+
+
+def _selftest_plan():
+    """El plan de lectura reproduce el día en que se agotó la cuota, y lo que lo evita."""
+    import tempfile
+    tmp = Path(tempfile.mkdtemp())
+    docs, estado = tmp / "docs", tmp / "estado"
+    (estado / "records").mkdir(parents=True)
+    for i in range(1, 4):
+        d = docs / f"PRY-00{i}-proyecto"
+        d.mkdir(parents=True)
+        for j in range(4):
+            (d / f"2026-09-0{j + 1}-doc-{j}.md").write_text(f"proyecto {i} doc {j}", encoding="utf-8")
+        # la ficha tal como la dejó el agente: rutas y fechas, y `hash: None`
+        (estado / "records" / f"PRY-00{i}.json").write_text(json.dumps({
+            "identity": {"code": {"value": f"PRY-00{i}"}},
+            "meta": {"documents_seen": [{"path": f"PRY-00{i}-proyecto/2026-09-0{j + 1}-doc-{j}.md",
+                                         "hash": None, "date": f"2026-09-0{j + 1}"}
+                                        for j in range(4)]}}), encoding="utf-8")
+    ex = dict(DEFAULT_EXECUTION, batch_projects=2)
+    p1 = plan(docs, estado, ex)
+    # se sella lo leído con hashes calculados por el script, no por el agente
+    sellados = [sellar(docs, estado, f"PRY-00{i}") for i in range(1, 4)]
+    p2 = plan(docs, estado, ex)
+    # cambia un documento: solo ese proyecto vuelve a leerse
+    (docs / "PRY-002-proyecto" / "2026-09-01-doc-0.md").write_text("cambió", encoding="utf-8")
+    p3 = plan(docs, estado, ex)
+    # el tope corta en frontera de proyecto y difiere el resto
+    p4 = plan(docs, estado, dict(ex, max_documents_per_run=5, reread_unchanged=True))
+    p5 = plan(docs, estado, dict(ex, workers=3, reread_unchanged=True))
+    return [
+        ("sin hash, todo se relee (el día de la cuota)", p1["to_read"], 12),
+        ("sellar calcula los hashes", all(s["ok"] and s["documents_seen"] == 4 for s in sellados), True),
+        ("sellado y sin cambios: plan vacío", (p2["to_read"], p2["batches"]), (0, [])),
+        ("un documento cambiado: un proyecto, un lote", [b["projects"] for b in p3["batches"]], [["PRY-002"]]),
+        ("el tope corta por proyecto y difiere", (p4["to_read"], p4["deferred"]["projects"]), (4, ["PRY-002", "PRY-003"])),
+        ("lotes del tamaño configurado", [len(b["projects"]) for b in p5["batches"]], [2, 1]),
+        ("el modo dice cuántos a la vez", "hasta 3 a la vez" in p5["mode"] and "uno tras otro" in p4["mode"], True),
+    ]
 
 
 def _pruebas_impacto():
@@ -1955,6 +2020,122 @@ def _selftest_cadencia():
 
 # ---------------------------------------------------------------- cli
 
+def load_execution(config: Path | None) -> dict:
+    ex = dict(DEFAULT_EXECUTION)
+    if config and config.exists():
+        cfg = json.loads(config.read_text(encoding="utf-8"))
+        ex.update({k: v for k, v in (cfg.get("execution") or {}).items()
+                   if k in DEFAULT_EXECUTION})
+    return ex
+
+
+def plan(docs: Path, state: Path, execution: dict) -> dict:
+    """Qué leer en esta corrida, en qué lotes, y qué queda para la siguiente.
+
+    El agente ejecuta este plan; no lo redacta. Sale de `index` —lo nuevo y lo
+    cambiado, por hash— y de `execution` en la configuración: tantos proyectos por
+    lote, tantos lotes a la vez, tantos documentos como máximo. Un corpus sin cambios
+    da un plan vacío, que es el barrido más barato que existe y el que hoy no se hizo.
+
+    El tope corta en frontera de proyecto: una ficha se escribe con todos sus
+    documentos o no se escribe. Si un solo proyecto supera el tope, va igual y se dice.
+    """
+    idx = index(docs, state)
+    if execution.get("reread_unchanged"):
+        pendientes = []
+        for ruta in sorted(docs.rglob("*")):
+            if ruta.is_file() and ruta.name not in IGNORAR and not ruta.name.startswith("."):
+                pendientes.append({"path": str(ruta.relative_to(docs))})
+    else:
+        pendientes = list(idx["new"]) + list(idx["changed"])
+
+    # La carpeta es `<código>-nombre`; el plan habla por código, que es como se sella la
+    # ficha, y dice la carpeta al lado, que es lo que el agente abre.
+    por_proyecto, carpeta_de = {}, {}
+    for d in pendientes:
+        carpeta = d["path"].split("/")[0] if "/" in d["path"] else "-"
+        m = re.match(r"([A-Z]{2,}-\d+)", carpeta)
+        codigo = m.group(1) if m else carpeta
+        por_proyecto.setdefault(codigo, []).append(d["path"])
+        carpeta_de[codigo] = carpeta
+    proyectos = sorted(por_proyecto)
+
+    tope = execution["max_documents_per_run"]
+    elegidos, diferidos, leidos = [], [], 0
+    for codigo in proyectos:
+        n = len(por_proyecto[codigo])
+        if elegidos and leidos + n > tope:
+            diferidos.append(codigo)
+            continue
+        elegidos.append(codigo)
+        leidos += n
+
+    tamano = execution["batch_projects"]
+    lotes = [{"n": i // tamano + 1, "projects": elegidos[i:i + tamano],
+              "folders": [carpeta_de[c] for c in elegidos[i:i + tamano]],
+              "documents": sorted(r for c in elegidos[i:i + tamano] for r in por_proyecto[c])}
+             for i in range(0, len(elegidos), tamano)]
+    for lote in lotes:
+        lote["document_count"] = len(lote["documents"])
+
+    workers = execution["workers"]
+    if not lotes:
+        modo = "nada que leer: ningún documento nuevo ni cambiado; solo recalcular"
+    elif workers == 1:
+        modo = (f"{len(lotes)} lote(s), uno tras otro, en esta conversación; cada ficha se "
+                "escribe al terminar su proyecto")
+    else:
+        modo = (f"{len(lotes)} lote(s), hasta {workers} a la vez; cada ficha se escribe al "
+                "terminar su proyecto")
+    return {
+        "execution": execution,
+        "documents": idx["documents"],
+        "unchanged": idx["unchanged"],
+        "to_read": leidos,
+        "batches": lotes,
+        "deferred": {"projects": diferidos,
+                     "documents": sum(len(por_proyecto[c]) for c in diferidos)},
+        "over_cap_alone": [c for c in elegidos if len(por_proyecto[c]) > tope],
+        "mode": modo,
+        "index": {k: idx[k] for k in ("renamed", "deleted", "source_missing")},
+    }
+
+
+def sellar(docs: Path, state: Path, proyecto: str) -> dict:
+    """Deja en `meta.documents_seen` de la ficha lo que hay en disco para ese proyecto,
+    con sus hashes, calculado aquí y no tecleado por el agente.
+
+    Salió de la primera medición: 51 fichas con `documents_seen` lleno de rutas y
+    fechas y `hash: None` en todas. El agente sabía qué había leído y no podía saber el
+    hash, así que dejó el campo vacío, y con eso `index` dio 339 documentos «cambiados»
+    en un corpus que no había cambiado. Un hash lo calcula un script o no existe.
+    """
+    if proyecto == "producto":        # el estado de un producto: una sola carpeta, un solo archivo
+        f, carpeta = state / "producto.json", docs
+    else:
+        f = state / "records" / f"{proyecto}.json"
+        carpeta = next((d for d in sorted(docs.iterdir())
+                        if d.is_dir() and (d.name == proyecto or d.name.startswith(proyecto + "-"))),
+                       None)
+    if not f.is_file():
+        return {"ok": False, "problem": f"no hay ficha {f}"}
+    if carpeta is None:
+        return {"ok": False, "problem": f"no hay carpeta de {proyecto} bajo {docs}"}
+    vistos = []
+    for ruta in sorted(carpeta.rglob("*")):
+        if not ruta.is_file() or ruta.name in IGNORAR or ruta.name.startswith("."):
+            continue
+        fecha = re.match(r"(\d{4}-\d{2}-\d{2})", ruta.name)
+        vistos.append({"path": str(ruta.relative_to(docs)), "hash": hash_bytes(ruta),
+                       "text_hash": hash_texto(ruta), "date": fecha.group(1) if fecha else None})
+    rec = json.loads(f.read_text(encoding="utf-8"))
+    meta = rec.setdefault("meta", {})
+    meta["documents_seen"] = vistos
+    meta["record_updated"] = dt.date.today().isoformat()
+    f.write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
+    return {"ok": True, "project": proyecto, "documents_seen": len(vistos)}
+
+
 def load_thresholds(config: Path | None) -> dict:
     th = dict(DEFAULT_THRESHOLDS)
     if config and config.exists():
@@ -1966,13 +2147,15 @@ def load_thresholds(config: Path | None) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
     ap.add_argument("action", choices=["init", "config", "due", "ran", "corrida",
-                                       "corrida-inicio", "index", "compute", "snapshot",
+                                       "corrida-inicio", "index", "plan-lectura", "sellar", "compute", "snapshot",
                                        "diff", "requests", "answered", "impact",
                                        "historia", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
                     help="carpeta de documentación, para `index`")
+    ap.add_argument("--proyecto", default=None,
+                    help="código del proyecto cuya ficha se sella, para `sellar`")
     ap.add_argument("--what", default=None,
                     help="qué se corrió: sweep | report | confirmation | requests, para `ran`")
     ap.add_argument("--informe", type=Path, default=None,
@@ -2045,6 +2228,15 @@ def main() -> int:
         if not args.docs:
             ap.error("--docs es obligatorio para index")
         print(json.dumps(index(args.docs, args.state), ensure_ascii=False, indent=2))
+    elif args.action == "sellar":
+        if not args.docs or not args.proyecto:
+            ap.error("--docs y --proyecto son obligatorios para sellar")
+        print(json.dumps(sellar(args.docs, args.state, args.proyecto), ensure_ascii=False))
+    elif args.action == "plan-lectura":
+        if not args.docs:
+            ap.error("--docs es obligatorio para plan-lectura")
+        print(json.dumps(plan(args.docs, args.state, load_execution(args.config)),
+                         ensure_ascii=False, indent=2))
     elif args.action == "compute":
         print(json.dumps(compute(args.state, today, load_thresholds(args.config)),
                          ensure_ascii=False, indent=2))

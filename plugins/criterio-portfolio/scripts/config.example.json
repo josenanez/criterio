@@ -28,6 +28,12 @@
     "committed_pct": 90,
     "stale_field_months": 12
   },
+  "execution": {
+    "workers": 1,
+    "batch_projects": 10,
+    "max_documents_per_run": 400,
+    "reread_unchanged": false
+  },
   "confirmation": {
     "every": "monthly",
     "fields_per_run": 5

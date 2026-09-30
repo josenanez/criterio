@@ -24,6 +24,12 @@
     "evidence_stale_months": 12,
     "claim_gap_pct": 20
   },
+  "execution": {
+    "workers": 1,
+    "batch_projects": 10,
+    "max_documents_per_run": 400,
+    "reread_unchanged": false
+  },
   "terms_accepted": {
     "version": "1.0",
     "date": "2026-09-19",

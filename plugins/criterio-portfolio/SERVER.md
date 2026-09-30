@@ -258,7 +258,8 @@ understand where a project stands beyond today.
 Three views, and all three read without writing:
 
 - **`/corridas`** — what ran, how many documents had to be re-read, how long it took, how
-  many findings, and **how many more or fewer than last time**. Below, what is being
+  many findings, how many subagents it launched and how many at once — in red when it
+  exceeded what the configuration allows —, and **how many more or fewer than last time**. Below, what is being
   carried: a signal that fired once is noise; one that has lasted several consecutive
   cut-offs is a decision nobody has taken.
 - **`/historia/<code>`** — for one project, since when it has been carrying each signal and

@@ -41,6 +41,18 @@ ocho lo dijo así.
 de qué fechas, y qué no vas a poder leer. Si ya se procesó antes, **solo lo nuevo**: releer
 todo cada vez produce la misma síntesis con otra fecha.
 
+Qué es «lo nuevo» lo dice el script, no tu memoria:
+
+```
+python3 scripts/producto.py plan-lectura --state <estado> --docs <carpeta del producto> --config <config>
+```
+
+Se lee lo que está en `batches`, en el orden y el tamaño que dice `mode`, y nada más. Al terminar, se sella lo leído con sus hashes, para que la corrida siguiente no lo vuelva a abrir:
+
+```
+python3 scripts/producto.py sellar --state <estado> --docs <carpeta del producto>
+```
+
 **2. Agrupa por problema, no por solución pedida.** Aplica **discovery-synthesis**, y sus
 cuatro reglas son las que deciden si esto sirve:
 

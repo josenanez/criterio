@@ -87,6 +87,8 @@ python3 scripts/producto.py init   --state <estado>
 python3 scripts/producto.py config --config <archivo>
 ```
 
+La configuración lleva también cuánto puede costar una corrida (`execution`: lotes de diez, uno tras otro, hasta cuatrocientos documentos por corrida, sin releer lo que no cambió). **No se pregunta**: son los valores seguros para cualquier plan con ventana de cuota. Si la organización paga por uso y quiere velocidad, lo dice después en la conversación y este comando sube `workers`; nunca lo decide el agente por su cuenta.
+
 En un archivo de la persona, escrito por este comando: dónde está la carpeta del producto,
 dónde vive el estado, el código y el nombre del producto, quién decide, y el registro de que
 aceptó los términos con su nombre y la fecha.

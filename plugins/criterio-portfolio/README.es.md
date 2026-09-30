@@ -238,7 +238,13 @@ el documento a texto: `.docx`, `.xlsx` y `.pptx` con la librería estándar —s
 adentro—, `.eml` con el parser de correo, y el PDF con `pdftotext`. Lo que no se puede leer
 se declara con la razón. [`scripts/portafolio.py`](scripts/portafolio.py) hace la aritmética, y su
 subcomando `index` decide el costo de cada corrida: dos hashes por documento, uno para saber
-si vale extraer y otro para saber si vale releer. Y
+si vale extraer y otro para saber si vale releer. Sobre ese índice, `plan-lectura` arma lo
+que el agente va a leer —por lotes, con tope y con cuántos lotes a la vez, según el bloque
+`execution` de la configuración— y `sellar` deja en cada ficha los hashes de lo leído,
+calculados y no tecleados. El agente ejecuta el plan; no lo redacta, porque la única vez
+que lo redactó lanzó cinco lectores en paralelo sobre un corpus sin cambios y agotó la
+cuota. `workers` vale 1 por defecto, que es lo seguro con una ventana de cuota; una
+organización que paga por uso lo sube, y el arnés marca en rojo la corrida que lo exceda. Y
 [`scripts/informe.py`](scripts/informe.py) arma el informe impreso a partir de lo que los
 otros dos produjeron, sin volver a leer un solo documento.
 

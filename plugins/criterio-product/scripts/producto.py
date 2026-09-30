@@ -52,7 +52,7 @@ from pathlib import Path
 # tiene que correr solo.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from portafolio import (as_date, as_number, _cada, pct, proximo_comite,  # noqa: E402
-                 source_of, state_of, value)
+                 source_of, state_of, value, plan, sellar, load_execution)
 
 DEFAULT_THRESHOLDS = {
     # Días que un requerimiento puede llevar propuesto sin que nadie lo decida. Pasado
@@ -1164,8 +1164,10 @@ def main() -> int:
     ap = argparse.ArgumentParser(
         description="Criterio Product — aritmética sobre el registro de requerimiento.")
     ap.add_argument("action", choices=["init", "config", "due", "ran", "corrida",
-                                       "corrida-inicio", "compute", "snapshot", "diff",
-                                       "publish", "overlap", "selftest"])
+                                       "corrida-inicio", "plan-lectura", "sellar", "compute",
+                                       "snapshot", "diff", "publish", "overlap", "selftest"])
+    ap.add_argument("--docs", type=Path, default=None,
+                    help="carpeta de documentación del producto, para plan-lectura y sellar")
     ap.add_argument("--state", type=Path)
     ap.add_argument("--salida", type=Path, default=None,
                     help="archivo con el resultado completo del comando, para `corrida`")
@@ -1217,6 +1219,15 @@ def main() -> int:
     elif args.action == "compute":
         print(json.dumps(compute(args.state, today, load_thresholds(args.config), args.fichas),
                          ensure_ascii=False, indent=2))
+    elif args.action == "plan-lectura":
+        if not args.docs:
+            ap.error("--docs es obligatorio para plan-lectura")
+        print(json.dumps(plan(args.docs, args.state, load_execution(args.config)),
+                         ensure_ascii=False, indent=2))
+    elif args.action == "sellar":
+        if not args.docs:
+            ap.error("--docs es obligatorio para sellar")
+        print(json.dumps(sellar(args.docs, args.state, "producto"), ensure_ascii=False))
     elif args.action == "corrida-inicio":
         print(json.dumps(corrida_inicio(args.state), ensure_ascii=False))
     elif args.action == "corrida":

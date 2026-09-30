@@ -18,5 +18,11 @@
   "terms_accepted": {
     "by": "Gustavo Neira",
     "date": "2026-09-29"
+  },
+  "execution": {
+    "workers": 1,
+    "batch_projects": 10,
+    "max_documents_per_run": 400,
+    "reread_unchanged": false
   }
 }

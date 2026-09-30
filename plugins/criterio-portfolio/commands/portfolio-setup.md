@@ -70,6 +70,8 @@ Registra la aceptación con el nombre que dé la persona y la fecha. **No la asu
 
 **6. Deja todo armado**
 
+La configuración lleva también cuánto puede costar una corrida (`execution`: lotes de diez proyectos, uno tras otro, hasta cuatrocientos documentos por corrida, sin releer lo que no cambió). **No se pregunta**: son los valores seguros para cualquier plan con ventana de cuota. Si la organización paga por uso y quiere velocidad, lo dice después en la conversación y este comando sube `workers`; nunca lo decide el agente por su cuenta.
+
 ```
 python3 scripts/portafolio.py init --state <estado>
 ```

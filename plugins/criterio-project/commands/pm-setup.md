@@ -88,6 +88,8 @@ python3 scripts/portafolio.py init   --state <estado>
 python3 scripts/portafolio.py config --config <archivo>
 ```
 
+La configuración lleva también cuánto puede costar una corrida (`execution`: lotes de diez, uno tras otro, hasta cuatrocientos documentos por corrida, sin releer lo que no cambió). **No se pregunta**: son los valores seguros para cualquier plan con ventana de cuota. Si la organización paga por uso y quiere velocidad, lo dice después en la conversación y este comando sube `workers`; nunca lo decide el agente por su cuenta.
+
 ## Lo que Samuel no hace, y conviene decirlo aquí
 
 - **No declara el estado de tu proyecto.** Eso lo declaras tú. Samuel te muestra contra

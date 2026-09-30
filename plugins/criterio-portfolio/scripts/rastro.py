@@ -3,6 +3,8 @@
 
     hooks/hooks.json  →  python3 rastro.py enviar   (UserPromptSubmit)
                       →  python3 rastro.py parar    (Stop)
+                      →  python3 rastro.py subagente-inicio (SubagentStart)
+                      →  python3 rastro.py subagente-fin    (SubagentStop)
     python3 rastro.py --selftest
 
 Todo lo que antes dependía de que el agente obedeciera la última instrucción de un
@@ -90,6 +92,68 @@ def enviar(d: dict, agente: str) -> int:
         "id": None, "respuestas": 0,
     }, ensure_ascii=False), encoding="utf-8")
     return 0
+
+
+# --------------------------------------------------------------- subagentes
+
+def subagente(d: dict, agente: str, que: str) -> int:
+    """Cada subagente que la corrida lanza queda contado, con su inicio y su fin, para
+    saber cuántos corrieron a la vez. Es la medida que faltaba el día en que un barrido
+    lanzó cinco lectores en paralelo y agotó la cuota: el rastro vio 223 segundos de
+    turno principal y nada de lo que pasó debajo."""
+    marca = raiz_de(d) / "en-curso" / f"{d.get('session_id') or 'sesion'}.json"
+    if not marca.is_file():
+        return 0
+    try:
+        m = json.loads(marca.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return 0
+    if m.get("agente") != agente:
+        return 0
+    subs = m.setdefault("subagentes", [])
+    ahora = time.time()
+    if que == "inicio":
+        subs.append({"inicio": ahora, "fin": None})
+    else:
+        abierto = next((s for s in subs if s.get("fin") is None), None)
+        if abierto is None:                      # sin SubagentStart: se cuenta igual
+            subs.append({"inicio": None, "fin": ahora})
+        else:
+            abierto["fin"] = ahora
+    marca.write_text(json.dumps(m, ensure_ascii=False), encoding="utf-8")
+    return 0
+
+
+def concurrencia(subs: list) -> int:
+    """Cuántos subagentes estuvieron vivos a la vez, como máximo."""
+    eventos = []
+    for s in subs:
+        if s.get("inicio") is None:
+            continue
+        eventos.append((s["inicio"], 1))
+        eventos.append((s.get("fin") or float("inf"), -1))
+    vivos = tope = 0
+    for _, delta in sorted(eventos):
+        vivos += delta
+        tope = max(tope, vivos)
+    return tope
+
+
+def workers_configurados(cwd: Path, agente: str, caso: str | None) -> int:
+    """`execution.workers` de la configuración de este agente; 1 si no está."""
+    base = cwd / ".criterio" / agente
+    rutas = [base / caso / "config.json"] if caso else []
+    rutas += [base / "config.json"] + sorted(base.glob("*/config.json"))
+    for f in rutas:
+        if f.is_file():
+            try:
+                w = (json.loads(f.read_text(encoding="utf-8")).get("execution") or {}).get("workers")
+            except json.JSONDecodeError:
+                continue
+            if isinstance(w, int) and w >= 1:
+                return w
+            return 1
+    return 1
 
 
 # ------------------------------------------------------------------- parar
@@ -220,6 +284,12 @@ def parar(d: dict, agente: str) -> int:
                             "segundos", "hallazgos", "por_senal", "relectura", "medido",
                             "nota", "id", "_estado")} for x in medidas]
     entrada["salida"] = bool(texto.strip())
+    subs = m.get("subagentes") or []
+    workers = workers_configurados(Path(d.get("cwd") or os.getcwd()), agente, m.get("caso"))
+    entrada["subagentes"] = len(subs)
+    entrada["concurrentes"] = concurrencia(subs)
+    entrada["workers"] = workers
+    entrada["exceso"] = entrada["concurrentes"] > workers
 
     # El registro, y su página. Se reescriben enteros con cada respuesta: la corrida es
     # una sola aunque el agente haya preguntado a mitad.
@@ -231,7 +301,7 @@ def parar(d: dict, agente: str) -> int:
                   + (f" {m['args']}" if m['args'] else "") + "`"
                   + (f" · **Caso:** {m['caso']}" if m.get("caso") else ""), "",
                   f"**Inicio:** {m['inicio']} · **Fin:** {entrada['fin']} · "
-                  f"**Duración:** {entrada['segundos']} s", ""]
+                  f"**Duración:** {entrada['segundos']} s", "", _linea_paralelo(entrada), ""]
         if medidas:
             lineas += ["## Cifras medidas por la corrida", "",
                        "| Qué | Casos | Documentos | Segundos | Hallazgos | Nota |",
@@ -253,6 +323,7 @@ def parar(d: dict, agente: str) -> int:
         lineas += ["## Lo que el agente mostró", "", texto.strip() or "_(sin texto)_", ""]
     else:
         # Una respuesta más de la misma corrida: se actualizan las horas y se agrega.
+        previo = re.sub(r"\*\*Subagentes:\*\* [^\n]*", _linea_paralelo(entrada), previo)
         lineas = re.sub(r"\*\*Fin:\*\* \S+ · \*\*Duración:\*\* \d+ s",
                         f"**Fin:** {entrada['fin']} · **Duración:** {entrada['segundos']} s",
                         previo).rstrip("\n").splitlines()
@@ -265,6 +336,16 @@ def parar(d: dict, agente: str) -> int:
                         encoding="utf-8")
     marca.write_text(json.dumps(m, ensure_ascii=False), encoding="utf-8")
     return 0
+
+
+def _linea_paralelo(entrada: dict) -> str:
+    n, a_la_vez, w = entrada.get("subagentes") or 0, entrada.get("concurrentes") or 0, entrada.get("workers")
+    if not n:
+        return f"**Subagentes:** ninguno · la configuración permite {w} a la vez"
+    texto = f"**Subagentes:** {n}, hasta {a_la_vez} a la vez · la configuración permite {w}"
+    if entrada.get("exceso"):
+        texto += " · **EXCESO**: la corrida superó lo configurado"
+    return texto
 
 
 def _plugin(agente: str) -> str:
@@ -346,6 +427,21 @@ def selftest() -> int:
         parar(dict(s, transcript_path=str(tr)), "portafolio")
         ok("sin el mensaje en el hook, la salida sale de la transcripción",
            "de la transcripción" in (carpeta / f"{hoy}-portfolio-wake-1.md").read_text(), True)
+        # 9. los subagentes quedan contados, y el exceso sobre `workers` marcado
+        (cwd / ".criterio" / "portafolio").mkdir(parents=True, exist_ok=True)
+        (cwd / ".criterio" / "portafolio" / "config.json").write_text(
+            json.dumps({"execution": {"workers": 1}}), encoding="utf-8")
+        enviar(dict(s, user_input="/criterio-portfolio:portfolio-scan"), "portafolio")
+        subagente(s, "portafolio", "inicio"); subagente(s, "portafolio", "inicio")
+        subagente(s, "portafolio", "fin"); subagente(s, "portafolio", "inicio")
+        subagente(s, "portafolio", "fin"); subagente(s, "portafolio", "fin")
+        subagente(s, "proyecto", "inicio")          # de otro agente: no cuenta
+        parar(dict(s, last_assistant_message="barrido"), "portafolio")
+        scan = json.loads((carpeta / "corridas.json").read_text())[-1]
+        ok("la corrida cuenta sus subagentes y cuántos a la vez",
+           (scan["subagentes"], scan["concurrentes"], scan["workers"], scan["exceso"]), (3, 2, 1, True))
+        ok("dos a la vez con workers 1 es exceso", scan["exceso"], True)
+        ok("y la concurrencia es cero sin subagentes", concurrencia([]), 0)
     print("\n" + ("todo pasa" if not fallas else f"{len(fallas)} falla(s)"))
     return 1 if fallas else 0
 
@@ -353,7 +449,7 @@ def selftest() -> int:
 def main() -> int:
     if "--selftest" in sys.argv:
         return selftest()
-    if len(sys.argv) < 2 or sys.argv[1] not in ("enviar", "parar"):
+    if len(sys.argv) < 2 or sys.argv[1] not in ("enviar", "parar", "subagente-inicio", "subagente-fin"):
         print(__doc__)
         return 2
     agente = agente_propio()
@@ -361,7 +457,11 @@ def main() -> int:
         return 0
     d = leer_entrada()
     try:
-        return enviar(d, agente) if sys.argv[1] == "enviar" else parar(d, agente)
+        if sys.argv[1] == "enviar":
+            return enviar(d, agente)
+        if sys.argv[1] == "parar":
+            return parar(d, agente)
+        return subagente(d, agente, sys.argv[1].split("-")[1])
     except Exception as ex:  # el rastro nunca tumba la sesión; deja constancia y sigue
         try:
             (raiz_de(d) / "rastro-errores.log").parent.mkdir(parents=True, exist_ok=True)

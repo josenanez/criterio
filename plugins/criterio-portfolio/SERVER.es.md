@@ -268,7 +268,8 @@ entender dónde está un proyecto más allá de hoy.
 Tres vistas, y las tres leen sin escribir:
 
 - **`/corridas`** — qué se corrió, cuántos documentos hubo que releer, cuánto tardó, cuántos
-  hallazgos, y **cuántos más o menos que la vez anterior**. Debajo, lo que se arrastra: una
+  hallazgos, cuántos subagentes lanzó y cuántos a la vez —en rojo si pasó de lo que la
+  configuración permite—, y **cuántos más o menos que la vez anterior**. Debajo, lo que se arrastra: una
   señal que sonó una vez es ruido; una que lleva varios cortes seguidos es una decisión que
   nadie ha tomado.
 - **`/historia/<código>`** — de un proyecto, desde cuándo arrastra cada señal y **cuál se

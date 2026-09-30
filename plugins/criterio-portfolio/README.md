@@ -235,7 +235,14 @@ turns the document into text: `.docx`, `.xlsx` and `.pptx` with the standard lib
 ZIPs with XML inside —, `.eml` with the email parser, and PDF with `pdftotext`. What cannot be
 read is declared with the reason. [`scripts/portafolio.py`](scripts/portafolio.py) does the arithmetic, and
 its `index` subcommand decides each run's cost: two hashes per document, one to know whether
-extracting is worth it and another to know whether re-reading is. And
+extracting is worth it and another to know whether re-reading is. On top of that index,
+`plan-lectura` lays out what the agent will read — in batches, under a cap, and with how
+many batches at a time, per the `execution` block of the configuration — and `sellar`
+leaves in each record the hashes of what was read, computed rather than typed. The agent
+runs the plan; it does not write it, because the one time it did, it launched five
+parallel readers over an unchanged corpus and exhausted the quota. `workers` defaults to 1,
+which is the safe value under a quota window; an organization that pays per use raises it,
+and the harness flags in red any run that exceeds it. And
 [`scripts/informe.py`](scripts/informe.py) builds the printed report from what the other two
 produced, without reading a single document again.
 

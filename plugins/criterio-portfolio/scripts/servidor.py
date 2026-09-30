@@ -108,6 +108,7 @@ EXTRA = f"""
 .arbol li{{margin:.15em 0}}
 .arbol a{{display:block;padding:.3em 0;color:{informe.TINTA};border:0;text-decoration:none}}
 .arbol a:hover{{color:{informe.ORO}}}
+td.exceso{{color:{informe.ERROR};font-weight:700}}
 .arbol a.yo{{color:{informe.ORO};font-weight:700}}
 .arbol li a{{font-weight:500}}
 .arbol li a .d{{display:block;font-weight:400;font-size:.84rem;color:{informe.APAGADO};line-height:1.3}}
@@ -179,6 +180,21 @@ def pagina(titulo, cuerpo, hoy, nav='', activa=''):
 # Estas tres vistas leen y no escriben, como todo lo que hace Rostrum.
 
 
+def celda_paralelo(c: dict) -> str:
+    """Cuántos subagentes lanzó la corrida y cuántos a la vez; en rojo si pasó de
+    `execution.workers`. Es la medida que evita repetir el día en que un barrido lanzó
+    cinco lectores en paralelo y agotó la cuota: lo que se excede se ve en la historia,
+    no cuando el plan se acaba."""
+    if c.get("subagentes") is None:
+        return '<td class="n">—</td>'
+    n, a_la_vez = c["subagentes"], c.get("concurrentes") or 0
+    texto = "0" if not n else f"{n} · {a_la_vez} a la vez"
+    if c.get("exceso"):
+        return (f'<td class="n exceso" title="la configuración permite {c.get("workers")} a la vez">'
+                f'{e(texto)}</td>')
+    return f'<td class="n">{e(texto)}</td>'
+
+
 def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
              caso: str = '') -> str:
     """Nivel 1 · la historia de las corridas de los tres agentes, de las dos fuentes.
@@ -206,6 +222,7 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
             f'<td class="n">{e(c.get("documentos") or "—")}</td>'
             f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
             f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
+            + celda_paralelo(c) +
             f'<td>{"sí" if c.get("salida") else "<em>no</em>"}</td>'
             f'<td class="nw">{"arnés" if c["fuente"] == "arnés" else "solo cifras"}</td></tr>')
     cuerpo = [
@@ -219,6 +236,7 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
         f'sostener que algo lleva meses sin resolverse.</p>',
         '<div class="bloque"><table><thead><tr><th>Inicio</th><th>Agente</th>'
         '<th>Comando</th><th>Caso</th><th>Docs</th><th>Seg</th><th>Hallazgos</th>'
+        '<th title="subagentes que lanzó, y cuántos a la vez">Paralelo</th>'
         '<th>Salida</th><th>Fuente</th></tr></thead><tbody>',
         "".join(filas), '</tbody></table></div>']
 
@@ -485,6 +503,8 @@ def indice(evidencia: Path, estado: Path) -> list:
                 "comando": x.get("comando"), "caso": x.get("caso"), "fecha": x.get("fecha"),
                 "inicio": x.get("inicio"), "fin": x.get("fin"),
                 "segundos": x.get("segundos"), "salida": bool(x.get("salida")),
+                "subagentes": x.get("subagentes"), "concurrentes": x.get("concurrentes"),
+                "workers": x.get("workers"), "exceso": bool(x.get("exceso")),
                 "hallazgos": sum((m.get("hallazgos") or 0) for m in medidas) if medidas else None,
                 "documentos": next((m.get("documentos") for m in medidas if m.get("documentos")), None),
                 "medidas": len(medidas),
@@ -505,6 +525,7 @@ def indice(evidencia: Path, estado: Path) -> list:
             "comando": comando_de(agente, c["que"]), "caso": c.get("sobre"),
             "fecha": c.get("fecha"), "inicio": c.get("fecha"), "fin": None,
             "segundos": c.get("segundos"), "salida": bool(c.get("salida")),
+            "subagentes": None, "concurrentes": None, "workers": None, "exceso": False,
             "hallazgos": c.get("hallazgos"), "documentos": c.get("documentos"),
             "medidas": 1,
             "ruta": f'/corrida/{agente}/{c.get("sobre") or "-"}/{ident}',
@@ -642,7 +663,7 @@ def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -
               + (' · ' + ' · '.join(enlaces) if enlaces else '') + '.</p>']
     if suyas:
         cuerpo += ['<div class="bloque"><table><thead><tr><th>Inicio</th><th>Agente</th>'
-                   '<th>Función</th><th>Seg</th><th>Hallazgos</th><th>Salida</th></tr></thead><tbody>']
+                   '<th>Función</th><th>Seg</th><th>Hallazgos</th><th>Paralelo</th><th>Salida</th></tr></thead><tbody>']
         for c in suyas:
             cuerpo.append(
                 f'<tr><td class="nw"><a href="{e(c["ruta"])}">{e((c.get("inicio") or c.get("fecha") or "").replace("T", " ")[:16])}</a></td>'
@@ -650,6 +671,7 @@ def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -
                 f'<td>{e(etiqueta(c["comando"]))}</td>'
                 f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
                 f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
+                + celda_paralelo(c) +
                 f'<td>{"sí" if c.get("salida") else "<em>no</em>"}</td></tr>')
         cuerpo.append('</tbody></table></div>')
     else:
@@ -1304,6 +1326,7 @@ def selftest() -> int:
              'comando': 'status-report', 'args': 'PRY-001', 'caso': 'PRY-001',
              'fecha': '2026-09-08', 'inicio': '2026-09-08T10:00:00',
              'fin': '2026-09-08T10:01:30', 'segundos': 90, 'respuestas': 1,
+             'subagentes': 3, 'concurrentes': 3, 'workers': 1, 'exceso': True,
              'salida': True,
              'medidas': [{'que': 'status-report', 'id': '2026-09-08-status-report-1',
                           'hallazgos': 1, 'por_senal': {'variance_time': 1}}]}]),
@@ -1317,6 +1340,8 @@ def selftest() -> int:
         con_rastro = pedir('/corridas')[1]
         ok('la corrida del arnés está en la tabla con caso, duración y fuente',
            '2026-09-08 10:00' in con_rastro and '>90<' in con_rastro and 'arnés' in con_rastro, True)
+        ok('y el paralelismo que excede lo configurado va en rojo',
+           'class="n exceso"' in con_rastro and '3 · 3 a la vez' in con_rastro, True)
         cod, caso = pedir('/caso/PRY-001')
         ok('la página del caso junta lo que los agentes hicieron sobre él',
            cod == 200 and '/corrida/portafolio/2026-09-08-status-report-1' in caso
