@@ -90,9 +90,11 @@ ASUNTOS = {
 }
 
 EXTRA = f"""
-.con-arbol{{display:flex;gap:0;align-items:flex-start}}
-.arbol{{flex:0 0 330px;position:sticky;top:0;max-height:100vh;overflow-y:auto;
-  padding:34px 22px 34px 0;border-right:1px solid {informe.FILETE};font-size:1rem;line-height:1.45}}
+.con-arbol{{display:grid;grid-template-columns:340px minmax(0,1fr);min-height:100vh}}
+.arbol{{position:sticky;top:0;max-height:100vh;overflow-y:auto;box-sizing:border-box;
+  padding:34px 24px 40px 28px;background:{informe.PANEL_ALTO};
+  border-right:1px solid {informe.FILETE};font-size:1rem;line-height:1.45}}
+.con-arbol > .hoja{{max-width:1080px;margin:0;padding:48px 56px 96px}}
 .arbol .g{{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;
   color:{informe.ORO};font-weight:700;margin:1.7em 0 .5em}}
 .arbol .g:first-child{{margin-top:0}}
@@ -126,15 +128,17 @@ EXTRA = f"""
 .arbol li.caso summary a{{display:inline;padding:0;font-weight:600}}
 .arbol li.caso ul{{margin-left:.4em}}
 .arbol li.no span{{color:{informe.APAGADO}}}
+td.nw{{white-space:nowrap}}
 .menu-caja{{display:none}}
 .menu-boton{{display:none}}
 @media (max-width:900px){{
   .con-arbol{{display:block}}
-  .menu-boton{{display:block;margin:0 0 14px;padding:12px 16px;border:1px solid {informe.ORO};
+  .menu-boton{{display:block;margin:20px 20px 0;padding:12px 16px;border:1px solid {informe.ORO};
     border-radius:8px;color:{informe.ORO};font-weight:700;cursor:pointer;font-size:1rem}}
   .menu-boton::before{{content:"☰  "}}
-  .arbol{{display:none;flex:none;border-right:0;border-bottom:1px solid {informe.FILETE};
-    max-height:none;padding:8px 0 20px;position:static;overflow:visible}}
+  .con-arbol > .hoja{{padding:24px 20px 72px}}
+  .arbol{{display:none;border-right:0;border-bottom:1px solid {informe.FILETE};background:{informe.PANEL_ALTO};
+    max-height:none;padding:12px 20px 24px;position:static;overflow:visible}}
   .menu-caja:checked ~ .arbol{{display:block}}
   .arbol details{{margin:.2em 0}}
   .arbol details[open]{{margin-bottom:.6em}}
@@ -214,15 +218,15 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
     filas = []
     for c in lista:
         filas.append(
-            f'<tr><td><a href="{e(c["ruta"])}">{e(c.get("inicio") or c.get("fecha") or "")}</a></td>'
+            f'<tr><td class="nw"><a href="{e(c["ruta"])}">{e((c.get("inicio") or c.get("fecha") or "").replace("T", " ")[:16])}</a></td>'
             f'<td>{e(NOMBRE.get(c["agente"], c["agente"]))}</td>'
             f'<td>{e(etiqueta(c["comando"]))}<br><code>{e(c["comando"])}</code></td>'
-            f'<td>{e(c.get("caso") or "—")}</td>'
+            f'<td class="nw">{e(c.get("caso") or "—")}</td>'
             f'<td class="n">{e(c.get("documentos") or "—")}</td>'
             f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
             f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
             f'<td>{"sí" if c.get("salida") else "<em>no</em>"}</td>'
-            f'<td>{"arnés" if c["fuente"] == "arnés" else "solo cifras"}</td></tr>')
+            f'<td class="nw">{"arnés" if c["fuente"] == "arnés" else "solo cifras"}</td></tr>')
     cuerpo = [
         f'<p class="entrada"><b>{len(lista)} corridas</b>'
         + (f' de <code>{e(que)}</code>' if que else '')
