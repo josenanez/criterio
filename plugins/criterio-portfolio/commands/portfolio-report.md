@@ -1,11 +1,14 @@
 ---
 description: Informe consolidado de portafolio a partir de las fichas — qué cambió, qué se contradice, qué está en silencio y qué no tiene sustento
 argument-hint: "[ppt|pdf|html] o vacío para el formato configurado"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /portfolio-report — Informe de portafolio
 
 > **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 Consolida las fichas y responde lo que el gerente de PMO no puede saber leyendo proyecto por proyecto.
 
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.
@@ -15,7 +18,7 @@ Consolida las fichas y responde lo que el gerente de PMO no puede saber leyendo 
 ## Lo primero, antes de leer nada
 
 ```
-python3 scripts/portafolio.py corrida-inicio --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida-inicio --state <estado>
 ```
 
 Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición, y la promesa que estas páginas publican se mide en minutos.
@@ -33,7 +36,7 @@ Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que algui
 No lo escribas tú. El informe impreso lo arma un script, con el diseño del producto:
 
 ```
-python3 scripts/informe.py --state <estado> --salida <carpeta> --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/informe.py" --state <estado> --salida <carpeta> --config <archivo>
 ```
 
 Produce **dos vistas que no se diferencian por detalle sino por autoridad**, y una
@@ -65,7 +68,7 @@ Lee todas las fichas de `estado/fichas/`. Si alguna tiene más de una semana sin
 **2. Diff contra la instantánea anterior**
 
 ```
-python3 scripts/portafolio.py diff --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" diff --state <estado>
 ```
 
 Es lo primero que se calcula y lo primero que se reporta. **Qué cambió** es lo único que el gerente no sabe ya.
@@ -84,7 +87,7 @@ Aquí está el valor que no existe proyecto por proyecto:
 **4. Aplica el juicio**
 
 ```
-python3 scripts/portafolio.py compute --state <estado> --config <pmo.config.json>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <pmo.config.json>
 ```
 
 Devuelve los números y la lista de señales que cruzaron umbral. Aplica **portfolio-health** para leer qué significa cada una, y **baseline-variance** para las desviaciones. El script ya calculó; aquí se decide qué merece aparecer y en qué orden.
@@ -103,7 +106,7 @@ Lo último, siempre, y con la ruta real del informe:
 Antes de `corrida`, escribe en `<estado>/corridas/salida-report.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 scripts/portafolio.py corrida --state <estado> --what report \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what report \
     --salida <estado>/corridas/salida-report.md \
     --docs <carpeta de documentos> --informe <dónde quedó el informe> \
     --nota "qué hay que mirar de esta corrida"

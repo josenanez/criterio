@@ -1,11 +1,14 @@
 ---
 description: Levanta Rostrum, el servidor que expone el informe del portafolio, y dice qué hay que pedirle a la organización para publicarlo
 argument-hint: "[rato|servicio] o vacío para que se pregunte"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /portfolio-server — Rostrum, el informe para quien no abre una carpeta
 
 > **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla.
 
 ## Para qué existe
@@ -38,7 +41,7 @@ Antes de levantar nada, confirma que hay informe. Si no lo hay, corre primero
 `/portfolio-report html`: el servidor no genera el informe, lo sirve.
 
 ```
-python3 scripts/servidor.py --informe <carpeta> --estado <estado> --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/servidor.py" --informe <carpeta> --estado <estado> --config <archivo>
 ```
 
 Escucha en `127.0.0.1:8787`, **solo en ese equipo**. Imprime las tres direcciones y se
@@ -74,7 +77,7 @@ Aquí no basta con dar la línea. **Di también qué hay que pedir**, porque si 
 llega a seguridad sin eso, vuelve sin nada.
 
 ```
-python3 scripts/servidor.py --informe <carpeta> --estado <estado> --config <archivo> --abierto
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/servidor.py" --informe <carpeta> --estado <estado> --config <archivo> --abierto
 ```
 
 `--abierto` hace que escuche fuera del equipo. El programa lo advierte al arrancar, y
@@ -115,8 +118,8 @@ personas que abren la misma página.
 El agente las ve porque `due` las cuenta:
 
 ```
-python3 scripts/portafolio.py due --state <estado> --config <archivo>
-python3 scripts/portafolio.py requests --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" due --state <estado> --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" requests --state <estado>
 ```
 
 Una petición abierta **rompe el silencio de `/portfolio-wake`**: es la única cosa que no es
@@ -125,7 +128,7 @@ aritmética de fechas y aun así hace que el agente hable. Alguien preguntó.
 Cuando se responda una, se marca, y solo entonces deja de aparecer:
 
 ```
-python3 scripts/portafolio.py answered --state <estado> --id <identificador>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" answered --state <estado> --id <identificador>
 ```
 
 ## Lo que Rostrum no hace
@@ -151,7 +154,7 @@ mandarle el enlace a su patrocinador.
 Antes de levantar el servidor, porque el servidor no termina. Escribe en `<estado>/corridas/salida-portfolio-server.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:
 
 ```
-python3 scripts/portafolio.py corrida --state <estado> --what portfolio-server \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what portfolio-server \
     --salida <estado>/corridas/salida-portfolio-server.md \
     --nota "puerto, carpeta del informe, modo (rato o servicio)"
 ```

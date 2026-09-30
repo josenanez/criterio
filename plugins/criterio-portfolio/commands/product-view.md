@@ -1,18 +1,21 @@
 ---
 description: El estado de un producto a través de todos los proyectos que lo construyen, y no de uno
 argument-hint: "[nombre del producto]"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /product-view — Por producto, no por proyecto
 
 > **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.
 > Abre declarando de qué fichas sale y de cuándo. Cierra con el pie de rigor.
 
 ## Antes de leer nada
 
 ```
-python3 scripts/portafolio.py corrida-inicio --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida-inicio --state <estado>
 ```
 
 Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
@@ -84,7 +87,7 @@ como una sola decisión, no como dos puntos de proyecto.
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 scripts/portafolio.py corrida --state <estado> --what product-view \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what product-view \
     --salida <estado>/corridas/salida-product-view.md \
     --caso <código del producto> \
     --nota "qué produjo, y qué dijo que no sabía"

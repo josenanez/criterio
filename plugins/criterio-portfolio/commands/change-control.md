@@ -1,18 +1,21 @@
 ---
 description: Evalúa una solicitud de cambio en alcance, tiempo y costo, y deja la línea base nueva sin borrar la anterior
 argument-hint: "<código del proyecto> <qué se quiere cambiar>"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /change-control — Control de cambios
 
 > **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes la solicitud.
 > Abre declarando de qué ficha sale. Cierra con el pie de rigor.
 
 ## Antes de leer nada
 
 ```
-python3 scripts/portafolio.py corrida-inicio --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida-inicio --state <estado>
 ```
 
 Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
@@ -35,7 +38,7 @@ Un cambio que declara impacto en una sola dimensión casi siempre está mal eval
 **3. Busca el efecto en el portafolio. No lo mires a ojo: cálculalo.**
 
 ```
-python3 scripts/portafolio.py impact --state <estado> --code <proyecto> --days <días que se mueve>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" impact --state <estado> --code <proyecto> --days <días que se mueve>
 ```
 
 Recorre las dependencias declaradas y devuelve a quién alcanza el cambio —**directa e indirectamente**, con el camino por el que quedó alcanzado—, el gerente de cada uno, y las dos cosas que importan:
@@ -91,7 +94,7 @@ Ofrece llevarlo a comité si excede la autoridad, o registrar la nueva línea ba
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 scripts/portafolio.py corrida --state <estado> --what change-control \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what change-control \
     --salida <estado>/corridas/salida-change-control.md \
     --caso <código del proyecto> \
     --nota "qué produjo, y qué dijo que no sabía"

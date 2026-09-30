@@ -1,11 +1,14 @@
 ---
 description: Convierte entrevistas, tickets y notas en temas con la cita de quién lo dijo, y dice qué tema lleva meses dicho sin que nadie lo haya convertido en nada
 argument-hint: "[carpeta o archivo de material de descubrimiento] o vacío para todo lo nuevo"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /product-discovery — Sintetizar lo que dijo el cliente
 
 > **Dónde está la configuración:** `.criterio/producto/<código>/config.json`, en la carpeta donde corre la sesión; con un solo producto configurado es ese, con varios el del código que viene en el argumento. La escribe `/criterio-product:product-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
@@ -13,7 +16,7 @@ argument-hint: "[carpeta o archivo de material de descubrimiento] o vacío para 
 ## Antes de leer nada
 
 ```
-python3 scripts/producto.py corrida-inicio --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" corrida-inicio --state <estado>
 ```
 
 Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
@@ -44,13 +47,13 @@ todo cada vez produce la misma síntesis con otra fecha.
 Qué es «lo nuevo» lo dice el script, no tu memoria:
 
 ```
-python3 scripts/producto.py plan-lectura --state <estado> --docs <carpeta del producto> --config <config>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" plan-lectura --state <estado> --docs <carpeta del producto> --config <config>
 ```
 
 Se lee lo que está en `batches`, en el orden y el tamaño que dice `mode`, y nada más. Al terminar, se sella lo leído con sus hashes, para que la corrida siguiente no lo vuelva a abrir:
 
 ```
-python3 scripts/producto.py sellar --state <estado> --docs <carpeta del producto>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" sellar --state <estado> --docs <carpeta del producto>
 ```
 
 **2. Agrupa por problema, no por solución pedida.** Aplica **discovery-synthesis**, y sus
@@ -77,7 +80,7 @@ existe un requerimiento que lo recoja:
 **4. Recalcula. No cuentes tú.**
 
 ```
-python3 scripts/producto.py compute --state <estado> --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" compute --state <estado> --config <archivo>
 ```
 
 **5. Si entra material de fuentes públicas, entra citado y marcado como lo que es.**
@@ -147,7 +150,7 @@ registro completo con los vacíos. Y si la evidencia nueva contradice la definic
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 scripts/producto.py corrida --state <estado> --what product-discovery \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" corrida --state <estado> --what product-discovery \
     --salida <estado>/corridas/salida-product-discovery.md \
     --nota "qué produjo, y qué dijo que no sabía"
 ```

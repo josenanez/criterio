@@ -1,11 +1,14 @@
 ---
 description: El acta de tu reunión a partir de la transcripción o las notas — cada acuerdo, compromiso y decisión atribuido a una persona y con su cita
 argument-hint: "<ruta de la transcripción o de las notas>"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /pm-minutes — El acta de la reunión
 
 > **Dónde está la configuración:** `.criterio/proyecto/<código>/config.json`, en la carpeta donde corre la sesión; con un solo proyecto configurado es ese, con varios el del código que viene en el argumento. La escribe `/criterio-project:pm-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
@@ -14,7 +17,7 @@ argument-hint: "<ruta de la transcripción o de las notas>"
 ## Lo primero, antes de leer nada
 
 ```
-python3 scripts/portafolio.py corrida-inicio --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida-inicio --state <estado>
 ```
 
 Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
@@ -84,7 +87,7 @@ no contra la frase: *«Rubén dice que lo entregó»* no cierra nada.
 **4. Recalcula. No cuentes tú.**
 
 ```
-python3 scripts/portafolio.py compute --state <estado> --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <archivo>
 ```
 
 **5. Marca lo que la reunión contradice.** Si en la reunión cambió el patrocinador, la
@@ -159,7 +162,7 @@ encontrarse — **el acta es tuya antes de ser evidencia de nadie.**
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 scripts/portafolio.py corrida --state <estado> --what sweep \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what sweep \
     --salida <estado>/corridas/salida-sweep.md \
     --nota "qué compromisos salieron de la reunión"
 ```

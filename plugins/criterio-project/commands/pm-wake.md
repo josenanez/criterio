@@ -1,11 +1,14 @@
 ---
 description: Lo que toca hoy en tu proyecto según la cadencia de tu reunión — y si no toca nada, se calla
 argument-hint: "[AAAA-MM-DD para simular otro día]"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /pm-wake — Lo que toca hoy
 
 > **Dónde está la configuración:** `.criterio/proyecto/<código>/config.json`, en la carpeta donde corre la sesión; con un solo proyecto configurado es ese, con varios el del código que viene en el argumento. La escribe `/criterio-project:pm-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
@@ -14,7 +17,7 @@ argument-hint: "[AAAA-MM-DD para simular otro día]"
 ## Antes de leer nada
 
 ```
-python3 scripts/portafolio.py corrida-inicio --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida-inicio --state <estado>
 ```
 
 Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
@@ -36,7 +39,7 @@ la que un agente que corre todos los días sigue instalado el mes siguiente.
 **1. Pregunta qué toca.** La decisión es aritmética de fechas, así que no la tomes tú:
 
 ```
-python3 scripts/portafolio.py due --state <estado> --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" due --state <estado> --config <archivo>
 ```
 
 Devuelve `due` con lo que toca, `quiet` si no toca nada, y `next_wake`.
@@ -46,7 +49,7 @@ Devuelve `due` con lo que toca, `quiet` si no toca nada, y `next_wake`.
 **3. Si toca `sweep`** — el barrido diario de la carpeta. Aplica **document-intake**:
 
 ```
-python3 scripts/portafolio.py index --state <estado> --docs <documentos>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" index --state <estado> --docs <documentos>
 ```
 
 **Lo que importa aquí no es lo mismo que en un portafolio.** En un proyecto el documento
@@ -77,7 +80,7 @@ tu proyecto sino sobre cómo te ven.
 **7. Deja constancia de lo que corriste.** Sin esto, mañana vuelve a tocar lo mismo:
 
 ```
-python3 scripts/portafolio.py ran --state <estado> --what sweep
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" ran --state <estado> --what sweep
 ```
 
 Una llamada por cada cosa que hiciste. **Solo por las que hiciste de verdad.**
@@ -144,7 +147,7 @@ pregunte.
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 scripts/portafolio.py corrida --state <estado> --what pm-wake \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what pm-wake \
     --salida <estado>/corridas/salida-pm-wake.md \
     --nota "qué produjo, y qué dijo que no sabía"
 ```

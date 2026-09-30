@@ -1,11 +1,14 @@
 ---
 description: Contrasta la definición del producto contra la evidencia de demanda que exista — qué se sostiene, qué se sostiene en un supuesto, qué no está dicho en ninguna parte, y dónde el negocio y los datos no coinciden
 argument-hint: "[ruta del documento de definición] o vacío para la configurada"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /product-definition — La definición contra la evidencia
 
 > **Dónde está la configuración:** `.criterio/producto/<código>/config.json`, en la carpeta donde corre la sesión; con un solo producto configurado es ese, con varios el del código que viene en el argumento. La escribe `/criterio-product:product-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si
 > falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide
 > aceptación explícita y ofrece guardarla.
@@ -14,7 +17,7 @@ argument-hint: "[ruta del documento de definición] o vacío para la configurada
 ## Lo primero, antes de leer nada
 
 ```
-python3 scripts/producto.py corrida-inicio --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" corrida-inicio --state <estado>
 ```
 
 Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición.
@@ -57,7 +60,7 @@ mezcla con lo que no está dicho: es otra cosa y se resuelve de otra manera.
 contra el punto más reciente de cada serie:
 
 ```
-python3 scripts/producto.py compute --state <estado> --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" compute --state <estado> --config <archivo>
 ```
 
 `claim_vs_metric` llega con las dos fuentes, las dos fechas y la dirección. **Cítala, no la
@@ -138,7 +141,7 @@ definición quedó cerrada, con criterio de éxito y con autoridad, ofrece `/pro
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 scripts/producto.py corrida --state <estado> --what review \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" corrida --state <estado> --what review \
     --salida <estado>/corridas/salida-review.md \
     --nota "qué de la definición sostiene la evidencia"
 ```

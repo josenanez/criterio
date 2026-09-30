@@ -1,11 +1,14 @@
 ---
 description: Deja a Samuel listo para trabajar sobre un proyecto — mira su carpeta, hace cuatro preguntas, y lee la última reunión
 argument-hint: "[ruta de la carpeta del proyecto] o vacío"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /pm-setup — Instalación
 
 > **Dónde queda la configuración:** `.criterio/proyecto/<código>/config.json`, en la carpeta donde corre la sesión; con un solo proyecto configurado es ese, con varios el del código que viene en el argumento. Es la única ruta; todos los demás comandos la leen de ahí y no la buscan en otro sitio. Las rutas dentro de ella se escriben relativas a esa carpeta de la sesión.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 Lo primero que corre un gerente de proyecto después de instalar. Al terminar ha visto
 **quién prometió qué en su última reunión**, sacado de sus propios documentos.
 
@@ -84,8 +87,8 @@ proyecto, dónde vive el estado, el día de la reunión, el código y el nombre 
 proyecto, y el registro de que aceptó los términos con su nombre y la fecha.
 
 ```
-python3 scripts/portafolio.py init   --state <estado>
-python3 scripts/portafolio.py config --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" init   --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" config --config <archivo>
 ```
 
 La configuración lleva también cuánto puede costar una corrida (`execution`: lotes de diez, uno tras otro, hasta cuatrocientos documentos por corrida, sin releer lo que no cambió). **No se pregunta**: son los valores seguros para cualquier plan con ventana de cuota. Si la organización paga por uso y quiere velocidad, lo dice después en la conversación y este comando sube `workers`; nunca lo decide el agente por su cuenta.
@@ -129,7 +132,7 @@ herramienta que use hoy le va a dar.
 Lo último, siempre. Escribe en `<estado>/corridas/salida-pm-setup.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:
 
 ```
-python3 scripts/portafolio.py corrida --state <estado> --what pm-setup \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what pm-setup \
     --salida <estado>/corridas/salida-pm-setup.md \
     --nota "cuántas preguntas hizo, cuántos minutos hasta el primer resultado, qué encontró"
 ```

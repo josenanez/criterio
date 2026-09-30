@@ -15,7 +15,7 @@ Entonces la pregunta que decide el costo de una corrida no es *"¿qué leo?"* si
 **"¿qué NO tengo que volver a leer?"**. Y la respuesta no se estima: se calcula.
 
 ```
-python3 scripts/portafolio.py index --state <estado> --docs <carpeta>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" index --state <estado> --docs <carpeta>
 ```
 
 ## Las dos etapas del hash

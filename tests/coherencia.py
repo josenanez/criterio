@@ -685,6 +685,27 @@ if _sin_prefijo:
 else:
     decir(OK, f"los {len(MAPA_CMD)} comandos se citan como /<plugin>:<comando>")
 
+print("\nQue un comando corra sin pedir permiso a cada paso")
+# Un barrido pidió decenas de aprobaciones: los comandos decían `python3 scripts/x.py`, una
+# ruta que no existe donde corre la sesión, y el agente buscaba el script por el disco con
+# `find` y `cd … &&`, y cada comando compuesto es una aprobación. La ruta va absoluta
+# (`${CLAUDE_PLUGIN_ROOT}`, que Claude Code sustituye al cargar el comando) y cada comando
+# declara en `allowed-tools` lo único que necesita.
+import re as _re
+_sin_ruta, _sin_permisos = [], []
+for _f in sorted((RAIZ / "plugins").glob("*/commands/*.md")) + sorted((RAIZ / "plugins").glob("*/skills/*/SKILL.md")):
+    _t = _f.read_text(encoding="utf-8")
+    if _re.search(r"python3 +scripts/", _t):
+        _sin_ruta.append(str(_f.relative_to(RAIZ)))
+    if "/commands/" in str(_f) and "allowed-tools:" not in _t.split("\n---\n", 1)[0]:
+        _sin_permisos.append(str(_f.relative_to(RAIZ)))
+for _x in _sin_ruta[:5]:
+    decir(FALLA, f"{_x} llama un script por ruta relativa; va con ${{CLAUDE_PLUGIN_ROOT}}")
+for _x in _sin_permisos[:5]:
+    decir(FALLA, f"{_x} no declara allowed-tools")
+if not _sin_ruta and not _sin_permisos:
+    decir(OK, "los scripts se llaman por ruta absoluta y los 37 comandos declaran sus permisos")
+
 print("\nQue el árbol del portal tenga exactamente los comandos que existen")
 # El árbol de Rostrum es la estructura completa de la PMO: cada comando en su grupo. Un
 # comando nuevo que no entre al árbol es invisible en el portal, y uno que se borró y

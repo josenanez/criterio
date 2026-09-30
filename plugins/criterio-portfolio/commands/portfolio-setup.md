@@ -1,11 +1,14 @@
 ---
 description: Deja el agente listo para trabajar — mira tus carpetas, hace cinco preguntas, y produce el primer informe sobre tus propios documentos
 argument-hint: "[ruta de tus documentos de proyectos] o vacío"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /portfolio-setup — Instalación
 
 > **Dónde queda la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. Es la única ruta; todos los demás comandos la leen de ahí y no la buscan en otro sitio. Las rutas dentro de ella se escriben relativas a esa carpeta de la sesión.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 Lo primero que corre cualquiera después de instalar. Al terminar, la persona ha visto un resultado sobre sus propios documentos.
 
 **Regla que gobierna todo este comando: la persona nunca abre un archivo de configuración.** Si quiere cambiar algo después, lo dice en la conversación y este comando lo reescribe.
@@ -73,13 +76,13 @@ Registra la aceptación con el nombre que dé la persona y la fecha. **No la asu
 La configuración lleva también cuánto puede costar una corrida (`execution`: lotes de diez proyectos, uno tras otro, hasta cuatrocientos documentos por corrida, sin releer lo que no cambió). **No se pregunta**: son los valores seguros para cualquier plan con ventana de cuota. Si la organización paga por uso y quiere velocidad, lo dice después en la conversación y este comando sube `workers`; nunca lo decide el agente por su cuenta.
 
 ```
-python3 scripts/portafolio.py init --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" init --state <estado>
 ```
 
 Escribe la configuración con lo que respondió, tomando `scripts/config.example.json` como forma, y verifícala:
 
 ```
-python3 scripts/portafolio.py config --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" config --config <archivo>
 ```
 
 Si la verificación falla, arréglalo tú y vuelve a verificar. No le muestres el error a la persona salvo que necesites algo de ella.
@@ -126,7 +129,7 @@ Ofrece correr el portafolio completo. Si es PMO y tiene equipo, ofrece publicar 
 Lo último, siempre. Escribe en `<estado>/corridas/salida-portfolio-setup.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:
 
 ```
-python3 scripts/portafolio.py corrida --state <estado> --what portfolio-setup \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what portfolio-setup \
     --salida <estado>/corridas/salida-portfolio-setup.md \
     --nota "cuántas preguntas hizo, cuántos minutos hasta el primer resultado, qué encontró"
 ```

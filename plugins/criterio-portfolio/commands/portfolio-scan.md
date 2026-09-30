@@ -1,11 +1,14 @@
 ---
 description: Lee la carpeta de documentación de proyectos y produce o actualiza una ficha por proyecto, con cita a la fuente de cada dato
 argument-hint: "[ruta de la carpeta] o vacío para usar la configurada"
+allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
 
 # /portfolio-scan — Barrido de la documentación
 
 > **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
+
+> **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos.
 Puerta de entrada del plugin. Convierte una carpeta desordenada de documentos en fichas consultables.
 
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes fichas ni informe.
@@ -15,7 +18,7 @@ Puerta de entrada del plugin. Convierte una carpeta desordenada de documentos en
 ## Lo primero, antes de leer nada
 
 ```
-python3 scripts/portafolio.py corrida-inicio --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida-inicio --state <estado>
 ```
 
 Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que alguien escribe al final es un recuerdo, no una medición, y la promesa que estas páginas publican se mide en minutos.
@@ -39,7 +42,7 @@ Reporta de entrada: cuántos documentos hay, cuántos proyectos se distinguen, q
 **2. Pide el plan de lectura; no lo redactes**
 
 ```
-python3 scripts/portafolio.py plan-lectura --state <estado> --docs <carpeta de documentos> --config <config>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" plan-lectura --state <estado> --docs <carpeta de documentos> --config <config>
 ```
 
 Devuelve qué leer y en qué orden: lo nuevo y lo cambiado por hash contra `meta.documents_seen`, agrupado por proyecto en lotes de `execution.batch_projects`, cortado en `execution.max_documents_per_run` en frontera de proyecto, y `mode` dice cuántos lotes pueden ir a la vez (`execution.workers`). **Se ejecuta el plan tal cual.** Lo que no está en `batches` no se lee; lo que está en `deferred` se dice y queda para la corrida siguiente. Un plan con `to_read: 0` es la corrida más barata y más frecuente: no se abre ningún documento, se recalcula y se informa.
@@ -61,7 +64,7 @@ Aplica el skill **project-record**. Procesa en lotes por proyecto, no todo de un
 Al cerrar cada proyecto:
 
 ```
-python3 scripts/portafolio.py sellar --state <estado> --docs <carpeta de documentos> --proyecto <código>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" sellar --state <estado> --docs <carpeta de documentos> --proyecto <código>
 ```
 
 Deja en `meta.documents_seen` de la ficha los documentos del proyecto con sus hashes, calculados por el script. **Nunca escribas un hash a mano ni dejes el campo en `null`**: una ficha sin hashes hace que el plan siguiente relea el proyecto entero. Si la cuota se acaba a mitad, lo sellado queda sellado, se registra la corrida con lo que alcanzó (paso 6) y se dice cuántos proyectos faltan.
@@ -81,8 +84,8 @@ Guarda cada ficha en `<estado>/records/<codigo>.json`. Escribe en `<estado>/corr
 Después corre:
 
 ```
-python3 scripts/portafolio.py snapshot --state <estado>
-python3 scripts/portafolio.py corrida --state <estado> --what sweep \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" snapshot --state <estado>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what sweep \
     --salida <estado>/corridas/salida-sweep.md \
     --docs <carpeta de documentos> \
     --nota "qué se movió, qué se omitió, qué hay que mirar"
