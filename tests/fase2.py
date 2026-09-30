@@ -74,6 +74,14 @@ def calificar_vera() -> int:
     if error:
         print("no se pudo calcular:", error)
         return 1
+    con_ficha = {f.stem for f in (destino / "estado" / "records").glob("*.json")}
+    print(f"fichas escritas: {len(con_ficha)} de {len(esperado)} ({', '.join(sorted(con_ficha)) or 'ninguna'})")
+    if 0 < len(con_ficha) < len(esperado):
+        # un setup lee tres: se califica sobre lo que leyó, y aparte sobre el total
+        parcial = fiabilidad.totales(fiabilidad.calificar(
+            {k: v for k, v in esperado.items() if k in con_ficha},
+            {k: v for k, v in obtenido.items() if k in con_ficha}))
+        print("sobre lo leído:", json.dumps(parcial, ensure_ascii=False))
     cal = fiabilidad.calificar(esperado, obtenido)
     t = fiabilidad.totales(cal)
     print(json.dumps(t, ensure_ascii=False))

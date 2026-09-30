@@ -10,19 +10,26 @@
     ]
    },
    "salida": {
-    "muestra": "qué encontró en la carpeta, cinco preguntas, el primer informe",
+    "muestra": "qué encontró en la carpeta, cinco preguntas, las señales de `compute` sobre tres proyectos",
     "escribe": [
      ".criterio/portafolio/config.json",
-     "<estado>/ (init)"
+     "<estado>/ (init)",
+     "<estado>/records/<código>.json (tres)"
     ]
    },
    "reglas": {
-    "skills": [],
+    "skills": [
+     "portfolio-health",
+     "project-record"
+    ],
     "script": [
+     "compute",
      "config",
      "corrida",
+     "corrida-inicio",
      "init",
-     "plan-lectura"
+     "plan-lectura",
+     "sellar"
     ],
     "calcula": true
    },
@@ -31,8 +38,8 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "carpeta con 3 proyectos, sin configuración previa",
-    "esperado": "config.json válido según `config`; términos aceptados solo con sí explícito; primer resultado en menos de 15 minutos"
+    "sembrado": "vera-mini: 6 proyectos, sin configuración previa",
+    "esperado": "config en .criterio/portafolio/config.json y `config` ok; 3 fichas escritas y selladas; señales de esos 3 iguales a la clave; nada reportado sobre el control; sin subagentes en paralelo"
    }
   },
   "portfolio-scan": {

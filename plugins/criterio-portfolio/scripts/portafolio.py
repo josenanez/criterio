@@ -2027,6 +2027,21 @@ def _selftest_cadencia():
 
 # ---------------------------------------------------------------- cli
 
+# Donde vive la configuración de cada agente, y el único sitio donde los demás comandos
+# la buscan. En la primera prueba de fase 2 el setup la escribió al lado del estado, la
+# verificó, y ningún comando posterior la habría encontrado.
+UBICACION = re.compile(r"(^|/)\.criterio/(portafolio|proyecto/[^/]+|producto/[^/]+)/config\.json$")
+
+
+def en_su_sitio(config: Path) -> str | None:
+    """None si la configuración está donde los comandos la buscan; si no, el problema."""
+    if UBICACION.search(str(config).replace("\\", "/")):
+        return None
+    return ("la configuración va en .criterio/portafolio/config.json —o en "
+            ".criterio/proyecto/<código>/ o .criterio/producto/<código>/— dentro de la "
+            f"carpeta de la sesión; en {config} ningún comando la encuentra")
+
+
 def load_execution(config: Path | None) -> dict:
     ex = dict(DEFAULT_EXECUTION)
     if config and config.exists():
@@ -2230,6 +2245,10 @@ def main() -> int:
         if not args.config:
             ap.error("--config is required")
         result = check_config(args.config)
+        sitio = en_su_sitio(args.config)
+        if sitio:
+            result["ok"] = False
+            result.setdefault("problems", []).append(sitio)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0 if result["ok"] else 1
 

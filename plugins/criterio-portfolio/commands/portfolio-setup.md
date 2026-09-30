@@ -79,19 +79,35 @@ La configuración lleva también cuánto puede costar una corrida (`execution`: 
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" init --state <estado>
 ```
 
-Escribe la configuración con lo que respondió, tomando `scripts/config.example.json` como forma, y verifícala:
+Escribe la configuración **en `.criterio/portafolio/config.json`** —ni al lado del estado ni en otro sitio: es donde todos los comandos la buscan— con lo que respondió, tomando `scripts/config.example.json` como forma, y verifícala:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" config --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" config --config .criterio/portafolio/config.json
 ```
 
 Si la verificación falla, arréglalo tú y vuelve a verificar. No le muestres el error a la persona salvo que necesites algo de ella.
 
 **7. El primer resultado**
 
-No barras el portafolio completo. Toma **tres proyectos**, los de documentación más reciente, y corre el barrido sobre ellos.
+No barras el portafolio completo. Toma **tres proyectos**, los de documentación más reciente, y haz con ellos exactamente lo que hace el barrido, dejándolo escrito:
 
-Muestra lo que encontró: qué supo de cada uno, qué no está dicho en ninguna parte, y cualquier contradicción o compromiso vencido que haya aparecido. Ese es el momento en que la persona entiende para qué sirve esto.
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida-inicio --state <estado>
+```
+
+Para cada uno, uno tras otro: lee sus documentos, aplica **project-record** y escribe `<estado>/records/<código>.json`; en cuanto la ficha está escrita, séllala:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" sellar --state <estado> --docs <carpeta> --proyecto <código>
+```
+
+Después calcula:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config .criterio/portafolio/config.json
+```
+
+Muestra lo que encontró **a partir de `compute`**: qué supo de cada uno (con su cita), qué campos quedaron `not_found`, y las señales que el script levantó, con el nombre que les da **portfolio-health**. Lo que `compute` no levantó no se presenta como hallazgo, por llamativo que parezca en la lectura: en la primera prueba el setup describió problemas en el proyecto de control, que no tiene ninguno, y no dejó escrita una sola ficha. Un resultado que no quedó en disco no existe para el comando siguiente.
 
 **8. Di qué sigue**
 
@@ -130,6 +146,7 @@ Lo último, siempre. Escribe en `<estado>/corridas/salida-portfolio-setup.md` **
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what portfolio-setup \
+    --docs <carpeta> \
     --salida <estado>/corridas/salida-portfolio-setup.md \
     --nota "cuántas preguntas hizo, cuántos minutos hasta el primer resultado, qué encontró"
 ```

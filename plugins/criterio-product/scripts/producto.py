@@ -52,7 +52,7 @@ from pathlib import Path
 # tiene que correr solo.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from portafolio import (as_date, as_number, _cada, pct, proximo_comite,  # noqa: E402
-                 source_of, state_of, value, plan, sellar, load_execution)
+                 source_of, state_of, value, plan, sellar, load_execution, en_su_sitio)
 
 DEFAULT_THRESHOLDS = {
     # Días que un requerimiento puede llevar propuesto sin que nadie lo decida. Pasado
@@ -1193,6 +1193,10 @@ def main() -> int:
         if not args.config:
             ap.error("--config es obligatorio")
         res = check_config(args.config)
+        sitio = en_su_sitio(args.config)
+        if sitio:
+            res["ok"] = False
+            res.setdefault("problems", []).append(sitio)
         print(json.dumps(res, ensure_ascii=False, indent=2))
         return 0 if res["ok"] else 1
 
