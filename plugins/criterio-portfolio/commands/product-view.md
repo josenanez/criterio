@@ -39,6 +39,14 @@ producto pide y nadie prepara.
 
 ## Flujo
 
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 **1. Agrupa por `identity.product`.** Sale del cálculo, en `products`. Un proyecto sin
 producto declarado no entra: **eso también se reporta**, porque un proyecto que nadie sabe a
 qué producto sirve es un hallazgo de gobierno.

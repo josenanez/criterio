@@ -33,6 +33,8 @@ Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que algui
 
 ## Flujo
 
+Aplica también **baseline-variance** —cada versión del cronograma es una línea base y cada solicitud de cambio un registro en `changes`— y **vendor-control** para los entregables de cada contrato con su acta de recibo y lo facturado.
+
 **1. Inventario y plan, en una sola llamada**
 
 No listes la carpeta tú: ni `find`, ni `ls -R`, ni una lista en `/tmp`. El inventario y el plan salen del mismo script, en el paso 2, y **ese es el primer comando que corres después de `corrida-inicio`**. `inventory` trae cuántas carpetas de proyecto hay, cuántos archivos de cada formato y cuáles no se pueden leer y por qué.
@@ -79,14 +81,14 @@ Todo archivo suelto se asigna a su proyecto y **se mueve**. Lo movido va en la `
 
 **6. Escribe y deja rastro**
 
-Guarda cada ficha en `<estado>/records/<codigo>.json`. Escribe en `<estado>/corridas/salida-sweep.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
+Guarda cada ficha en `<estado>/records/<codigo>.json`. Escribe en `<estado>/corridas/salida-portfolio-scan.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 Después corre:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" snapshot --state <estado>
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what sweep \
-    --salida <estado>/corridas/salida-sweep.md \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what portfolio-scan \
+    --salida <estado>/corridas/salida-portfolio-scan.md \
     --docs <carpeta de documentos> \
     --nota "qué se movió, qué se omitió, qué hay que mirar"
 ```

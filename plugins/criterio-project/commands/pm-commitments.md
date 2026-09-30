@@ -141,9 +141,10 @@ lo vea.
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what sweep \
-    --salida <estado>/corridas/salida-sweep.md \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what pm-commitments \
+    --salida <estado>/corridas/salida-pm-commitments.md \
+    --caso <código del proyecto, el de la configuración> \
     --nota "qué se reprogramó y a quién alcanza"
 ```
 
-Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-sweep.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-pm-commitments-<n>.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.

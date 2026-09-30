@@ -29,6 +29,14 @@ Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que algui
 
 ## Flujo
 
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 **1. Las cuatro cifras, ninguna asumida.** Aplica **baseline-variance**: aprobado, comprometido, ejecutado, proyección. Cada una con su fuente y su fecha. Si una no está declarada en ningún documento, va `not_found` y el informe lo dice.
 
 **2. El error que hay que nombrar.** Reportar ejecutado contra aprobado ignorando el comprometido. Un proyecto con 40% ejecutado y 95% comprometido **no tiene holgura**: tiene el presupuesto agotado y todavía no se ha causado.

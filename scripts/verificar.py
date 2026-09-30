@@ -76,6 +76,8 @@ PUERTAS = [
 
     ("estructura", [sys.executable, str(RAIZ / "tests/coherencia.py")],
      "Que la documentación y el código digan lo mismo"),
+    ("estructura", [sys.executable, str(RAIZ / "tests/contratos.py")],
+     "Que cada comando y cada skill cumplan su contrato"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/validate_plugins.py")],
      "Que el marketplace y cada plugin estén completos"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/sincronizar.py"), "--check"],

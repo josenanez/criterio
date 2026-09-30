@@ -35,6 +35,16 @@ El hallazgo típico no es el fraude. Es un entregable aceptado sin evidencia de 
 
 ## Flujo
 
+Aplica **vendor-control**: qué cuenta como aceptación, los estados de un entregable y el cruce contra lo facturado.
+
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 **1. Carga los entregables contractuales** desde la ficha y desde los documentos de `00-gobierno`. Si el contrato no está en la carpeta, dilo: sin el contrato esto es una lista de supuestos.
 
 **2. Busca la evidencia de cada entregable.** Acta de recibo, correo de aceptación, mención explícita en una minuta. Aplica **project-record**: sin evidencia, el estado es `unknown`, no `delivered`.

@@ -162,9 +162,10 @@ encontrarse — **el acta es tuya antes de ser evidencia de nadie.**
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what sweep \
-    --salida <estado>/corridas/salida-sweep.md \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what pm-minutes \
+    --salida <estado>/corridas/salida-pm-minutes.md \
+    --caso <código del proyecto, el de la configuración> \
     --nota "qué compromisos salieron de la reunión"
 ```
 
-Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-sweep.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-pm-minutes-<n>.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.

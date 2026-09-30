@@ -36,6 +36,14 @@ lo reescribe.
 
 ## Flujo
 
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 **0. Preséntate, en una línea**
 
 > Soy Alba. Trabajo antes de que haya proyecto: miro qué sostiene tu definición y qué se
@@ -137,6 +145,7 @@ Lo último, siempre. Escribe en `<estado>/corridas/salida-product-setup.md` **lo
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" corrida --state <estado> --what product-setup \
     --salida <estado>/corridas/salida-product-setup.md \
+    --caso <código del producto, el de la configuración> \
     --nota "cuántas preguntas hizo, cuántos minutos hasta el primer resultado, qué encontró"
 ```
 

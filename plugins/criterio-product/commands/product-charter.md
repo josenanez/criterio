@@ -155,6 +155,7 @@ Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qu
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" corrida --state <estado> --what product-charter \
     --salida <estado>/corridas/salida-product-charter.md \
+    --caso <código del producto, el de la configuración> \
     --nota "qué produjo, y qué dijo que no sabía"
 ```
 

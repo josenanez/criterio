@@ -34,6 +34,14 @@ Si el acta no declaró criterio de éxito, eso es lo primero que dice el cierre,
 
 ## Flujo
 
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 **1. Recupera lo comprometido.** Aplica **governance-artifacts**: alcance y criterio de éxito del acta, con su fuente.
 
 **2. Contrasta entregado contra comprometido.** Qué se entregó, qué quedó fuera, y con acuerdo de quién. Un alcance recortado sin decisión registrada es un hallazgo del cierre.

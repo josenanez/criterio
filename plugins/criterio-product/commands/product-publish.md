@@ -65,6 +65,14 @@ asunto de los demás productos.
 
 ## Flujo
 
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 **1. Recalcula antes de publicar.** Una ficha vieja publicada es peor que ninguna: alguien
 la va a leer creyendo que es de hoy.
 
@@ -119,9 +127,10 @@ Publiqué la ficha en `[ruta exacta]`, con corte al [fecha].
 Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qué>.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" corrida --state <estado> --what report \
-    --salida <estado>/corridas/salida-report.md \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" corrida --state <estado> --what product-publish \
+    --salida <estado>/corridas/salida-product-publish.md \
+    --caso <código del producto, el de la configuración> \
     --nota "qué quedó publicado para el portafolio"
 ```
 
-Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-report.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.
+Sin esto la corrida no se puede compartir ni comparar, y cualquier estadística sobre ella tendría que teclearla una persona — que es medir su transcripción y no la corrida. `corrida` cuenta lo que hay que contar y deja `<estado>/corridas/<fecha>-product-publish-<n>.md`: qué encontró por señal, cuánto tardó, y cuántos hallazgos más o menos que la vez anterior.

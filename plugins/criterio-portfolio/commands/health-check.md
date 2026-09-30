@@ -37,6 +37,16 @@ gerente nuevo, o cuando el comité pide una segunda opinión.
 
 ## Flujo
 
+Aplica **project-record** al escribir lo que leíste: cada dato con su cita, y lo declarado y lo probado en campos separados.
+
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 Aplica **project-diagnosis** de principio a fin, en su orden, que no es negociable porque
 cada paso decide si el siguiente tiene respuesta posible.
 

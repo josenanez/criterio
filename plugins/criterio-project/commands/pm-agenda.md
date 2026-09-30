@@ -142,6 +142,7 @@ Lo último, siempre. Antes de correrlo, escribe en `<estado>/corridas/salida-<qu
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what pm-agenda \
     --salida <estado>/corridas/salida-pm-agenda.md \
+    --caso <código del proyecto, el de la configuración> \
     --nota "qué produjo, y qué dijo que no sabía"
 ```
 

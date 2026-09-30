@@ -1,0 +1,336 @@
+{
+ "comandos": {
+  "pm-setup": {
+   "funcion": "Deja a Samuel listo sobre un proyecto: mira su carpeta, hace cuatro preguntas y lee la última reunión.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta] o vacío",
+    "lee": [
+     "config (si existe)",
+     "documentos del proyecto"
+    ]
+   },
+   "salida": {
+    "muestra": "qué encontró, cuatro preguntas, compromisos de la última reunión",
+    "escribe": [
+     ".criterio/proyecto/<código>/config.json",
+     "<estado>/ (init)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "commitment-tracking"
+    ],
+    "script": [
+     "compute",
+     "config",
+     "corrida",
+     "init"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "carpeta de proyecto con una minuta de tres compromisos",
+    "esperado": "config válido; los tres compromisos con doliente y fecha o no_declarada; cifras de `compute`"
+   }
+  },
+  "pm-wake": {
+   "funcion": "Lo que toca hoy en el proyecto según la cadencia de la reunión; si no toca nada, se calla.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD]",
+    "lee": [
+     "config",
+     "<estado>/cadencia.json"
+    ]
+   },
+   "salida": {
+    "muestra": "qué tocaba y qué hizo, o nada",
+    "escribe": [
+     "<estado>/cadencia.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "commitment-tracking",
+     "document-intake"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio",
+     "due",
+     "index",
+     "ran"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": [
+     "pm-minutes",
+     "pm-agenda"
+    ]
+   },
+   "prueba": {
+    "sembrado": "reunión mañana y un compromiso vencido hoy",
+    "esperado": "prepara la agenda y nombra el compromiso vencido; `ran` actualiza la cadencia"
+   }
+  },
+  "pm-minutes": {
+   "funcion": "El acta de la reunión desde la transcripción o las notas: cada acuerdo, compromiso y decisión atribuido y citado.",
+   "entrada": {
+    "argumento": "<ruta de la transcripción o las notas>",
+    "lee": [
+     "config",
+     "la transcripción",
+     "<estado>/records/<código>.json"
+    ]
+   },
+   "salida": {
+    "muestra": "acta con acuerdos, compromisos, decisiones, riesgos y contradicciones",
+    "escribe": [
+     "<estado>/records/<código>.json (commitments, raid)",
+     "30-reuniones/<fecha>-acta.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "commitment-tracking",
+     "document-intake",
+     "raid-taxonomy"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "notas sembradas de PRY-200: 4 compromisos (uno reprogramado dos veces, uno sin fecha), hito declarado sin acta, verde contra prueba fallida",
+    "esperado": "7/7 de la clave; ninguna fecha inferida; compromiso reprogramado una sola vez con historial"
+   }
+  },
+  "pm-commitments": {
+   "funcion": "Quién prometió qué y para cuándo, qué venció sin evidencia y qué se reprograma reunión tras reunión.",
+   "entrada": {
+    "argumento": "[ruta de una minuta] o vacío",
+    "lee": [
+     "config",
+     "<estado>/records/<código>.json"
+    ]
+   },
+   "salida": {
+    "muestra": "compromisos ordenados por lo que necesita a alguien",
+    "escribe": [
+     "<estado>/records/<código>.json (commitments)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "commitment-tracking"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "compromiso vencido sin evidencia y otro con tres fechas",
+    "esperado": "commitment_overdue y commitment_rescheduled de `compute`; nada duplicado"
+   }
+  },
+  "pm-agenda": {
+   "funcion": "La reunión solo con lo que necesita a alguien en la sala, en orden de quién se destraba primero.",
+   "entrada": {
+    "argumento": "[fecha de la reunión] o vacío",
+    "lee": [
+     "config",
+     "<estado>/records/<código>.json",
+     "<estado>/snapshots/"
+    ]
+   },
+   "salida": {
+    "muestra": "puntos con tiempo y cita; la suma cabe",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "raid-taxonomy"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio",
+     "diff",
+     "due"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "cinco candidatos, dos que la reunión no puede mover",
+    "esperado": "tres puntos; los dos descartados con la razón; cada punto con su cita"
+   }
+  },
+  "pm-report": {
+   "funcion": "El informe de avance de la semana: el estado lo declara el gerente y Samuel muestra contra qué.",
+   "entrada": {
+    "argumento": "[fecha de corte] o vacío",
+    "lee": [
+     "config",
+     "<estado>/records/<código>.json",
+     "<estado>/snapshots/"
+    ]
+   },
+   "salida": {
+    "muestra": "informe contra la corrida anterior, declaración contrastada, cuatro cifras",
+    "escribe": [
+     "<estado>/snapshots/<fecha>.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio",
+     "diff",
+     "snapshot"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "declaración verde con prueba de carga fallida",
+    "esperado": "pide la declaración y la contrasta; declared_vs_evidence de `compute`"
+   }
+  },
+  "pm-plan": {
+   "funcion": "Primer borrador del plan y la WBS desde el acta, con supuestos declarados y sin comprometer fechas.",
+   "entrada": {
+    "argumento": "[ruta del acta] o vacío",
+    "lee": [
+     "config",
+     "acta de constitución"
+    ]
+   },
+   "salida": {
+    "muestra": "WBS por entregable, supuestos, qué falta para fechar",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "governance-artifacts",
+     "raid-taxonomy"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "acta con tres entregables y sin fecha de fin",
+    "esperado": "WBS de tres ramas; ninguna fecha; lo que falta para fechar"
+   }
+  },
+  "pm-escalate": {
+   "funcion": "Convierte lo que excede la autoridad del gerente en una decisión formulada con opciones y costo.",
+   "entrada": {
+    "argumento": "[qué se escala] o vacío",
+    "lee": [
+     "config",
+     "<estado>/records/"
+    ]
+   },
+   "salida": {
+    "muestra": "pregunta cerrada, opciones, efecto, quién decide",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "governance-artifacts",
+     "raid-taxonomy"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio",
+     "impact"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "cambio de 1.400 a 2.000 tps que mueve la fecha 30 días",
+    "esperado": "efecto calculado por `impact`; quién tiene la facultad según el acta"
+   }
+  },
+  "pm-publish": {
+   "funcion": "Publica la ficha del proyecto en su carpeta de gobierno para que la PMO la lea.",
+   "entrada": {
+    "argumento": "[confirmar] o vacío",
+    "lee": [
+     "config",
+     "<estado>/records/<código>.json"
+    ]
+   },
+   "salida": {
+    "muestra": "qué va a publicar, y la ruta exacta",
+    "escribe": [
+     "00-gobierno/ficha-pm.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "project-record"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "ficha con patrocinador distinto al de la PMO",
+    "esperado": "ficha-pm.json escrito; Vera emite pm_vs_pmo al leerlo"
+   }
+  }
+ },
+ "skills": {},
+ "por_descripcion": {
+  "vendor-control": "Ningún comando de Samuel lo aplica; lo carga Claude cuando el gerente pregunta por un proveedor. Se prueba con esa pregunta, no con un comando.",
+  "project-diagnosis": "Ningún comando de Samuel lo aplica; lo carga Claude cuando el gerente hereda un proyecto y pide un diagnóstico desde cero. Se prueba con esa pregunta."
+ }
+}

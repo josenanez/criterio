@@ -1,0 +1,495 @@
+{
+ "comandos": {
+  "product-setup": {
+   "funcion": "Deja a Alba lista sobre un producto y contrasta la definición contra la evidencia que exista.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta del producto] o vacío",
+    "lee": [
+     "config (si existe)",
+     "documentos del producto"
+    ]
+   },
+   "salida": {
+    "muestra": "qué hay escrito, cuatro preguntas, definición contra evidencia",
+    "escribe": [
+     ".criterio/producto/<código>/config.json",
+     "<estado>/ (init)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "demand-evidence",
+     "document-intake",
+     "product-metrics"
+    ],
+    "script": [
+     "compute",
+     "config",
+     "corrida",
+     "init"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "definición con cinco afirmaciones y una sola entrevista de hace 13 meses",
+    "esperado": "config válido; evidence_stale de `compute`; afirmaciones sin sustento nombradas"
+   }
+  },
+  "product-wake": {
+   "funcion": "Lo que toca hoy en el producto: revisión del registro, comité y lo que cruzó un umbral.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD]",
+    "lee": [
+     "config",
+     "<estado>/cadencia.json",
+     "<estado>/requirements/"
+    ]
+   },
+   "salida": {
+    "muestra": "qué tocaba y qué hizo, o nada",
+    "escribe": [
+     "<estado>/cadencia.json",
+     "<estado>/snapshots/<fecha>.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "assumption-tracking",
+     "document-intake",
+     "product-health"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio",
+     "due",
+     "ran",
+     "snapshot"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": [
+     "product-requirements",
+     "product-trace"
+    ]
+   },
+   "prueba": {
+    "sembrado": "un supuesto cruzó los 30 días sin verificar desde ayer",
+    "esperado": "lo nombra como cruzado hoy; assumption_unverified de `compute`"
+   }
+  },
+  "product-discovery": {
+   "funcion": "Convierte entrevistas, tickets y notas en temas con la cita de quién lo dijo.",
+   "entrada": {
+    "argumento": "[carpeta o archivo] o vacío",
+    "lee": [
+     "config",
+     "material de descubrimiento",
+     "<estado>/requirements/"
+    ]
+   },
+   "salida": {
+    "muestra": "temas por problema, con quién lo dijo y cuándo",
+    "escribe": [
+     "<estado>/requirements/<REQ>.json (evidence)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "demand-evidence",
+     "discovery-synthesis",
+     "document-intake",
+     "product-metrics",
+     "requirement-record"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio",
+     "plan-lectura",
+     "sellar"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tres entrevistas, dos piden lo mismo con palabras distintas",
+    "esperado": "un tema con dos evidencias, cada una con source_date; solo lo nuevo leído"
+   }
+  },
+  "product-requirements": {
+   "funcion": "El registro de requerimientos con sus vacíos: sin doliente, sin criterio, sin evidencia, sin decisión.",
+   "entrada": {
+    "argumento": "[REQ-xxx] o vacío",
+    "lee": [
+     "config",
+     "<estado>/requirements/"
+    ]
+   },
+   "salida": {
+    "muestra": "vacíos por requerimiento y quién los cierra",
+    "escribe": [
+     "<estado>/requirements/<REQ>.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "product-health",
+     "requirement-record"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "PRD-300: 5 requerimientos con evidencia de 13 meses, 4 sin traza, 1 sin decidir",
+    "esperado": "10/10: 5 evidence_stale, 4 requirement_untraced, 1 requirement_undecided"
+   }
+  },
+  "product-definition": {
+   "funcion": "Contrasta la definición contra la evidencia de demanda: qué se sostiene, en qué supuesto, qué no está dicho.",
+   "entrada": {
+    "argumento": "[ruta de la definición] o vacío",
+    "lee": [
+     "config",
+     "definición",
+     "<estado>/requirements/",
+     "<estado>/producto.json"
+    ]
+   },
+   "salida": {
+    "muestra": "afirmación por afirmación en tres clases, cifras contrastadas, barrido normativo",
+    "escribe": [
+     "<estado>/producto.json (definition)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "assumption-tracking",
+     "demand-evidence",
+     "product-metrics",
+     "raid-taxonomy",
+     "regulatory-sweep"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "definición que afirma 40% de adopción y la métrica mide 12%",
+    "esperado": "claim_vs_metric con las dos cifras y sus fuentes"
+   }
+  },
+  "product-business-case": {
+   "funcion": "La estructura del caso de negocio y sus vacíos, con cada cifra citada al documento del que sale.",
+   "entrada": {
+    "argumento": "[ruta del caso] o vacío",
+    "lee": [
+     "config",
+     "caso de negocio",
+     "<estado>/requirements/",
+     "<estado>/producto.json"
+    ]
+   },
+   "salida": {
+    "muestra": "cifras en tres clases (medida, declarada, supuesta), costos, vacíos",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "assumption-tracking",
+     "product-metrics",
+     "requirement-record"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "caso con un ingreso sin fuente",
+    "esperado": "el ingreso en la lista de vacíos; ninguna cifra calculada por el agente"
+   }
+  },
+  "product-charter": {
+   "funcion": "El borrador del acta desde el requerimiento aceptado: el producto se vuelve proyecto y nace la ficha.",
+   "entrada": {
+    "argumento": "<REQ-xxx>",
+    "lee": [
+     "config",
+     "<estado>/requirements/"
+    ]
+   },
+   "salida": {
+    "muestra": "borrador, supuestos que pasan al proyecto, qué no entra",
+    "escribe": [
+     "<estado>/records/<código>.json (solo con acta firmada)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "assumption-tracking",
+     "demand-evidence",
+     "governance-artifacts",
+     "project-record",
+     "raid-taxonomy",
+     "requirement-record"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio",
+     "init"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "requerimiento aceptado sin criterio de aceptación",
+    "esperado": "no escribe el acta y dice qué falta; sin firma no crea ficha"
+   }
+  },
+  "product-spec": {
+   "funcion": "Borrador de especificación desde el registro, con criterios verificables y vacíos señalados.",
+   "entrada": {
+    "argumento": "[REQ-xxx, …] o vacío",
+    "lee": [
+     "config",
+     "<estado>/requirements/"
+    ]
+   },
+   "salida": {
+    "muestra": "secciones con sus REQ, criterios verificables, vacíos con dueño",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "assumption-tracking",
+     "regulatory-sweep",
+     "requirement-record",
+     "specification-draft"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "dos requerimientos aceptados, uno sin criterio",
+    "esperado": "el que no tiene criterio queda como vacío con dueño, no rellenado"
+   }
+  },
+  "product-trace": {
+   "funcion": "La cadena requerimiento → decisión → proyecto → entregable y sus dos brechas.",
+   "entrada": {
+    "argumento": "[REQ-xxx o proyecto] o vacío",
+    "lee": [
+     "config",
+     "<estado>/requirements/",
+     "fichas de proyecto"
+    ]
+   },
+   "salida": {
+    "muestra": "cadena por requerimiento, cobertura, lo construido sin requerimiento",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "requirement-record"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "requerimiento decidido sin proyecto; traza que la ficha no confirma",
+    "esperado": "requirement_untraced y trace_not_confirmed de `compute --fichas`"
+   }
+  },
+  "product-overlap": {
+   "funcion": "Dónde este producto y otro se pisan: métrica, proyecto o segmento.",
+   "entrada": {
+    "argumento": "[código de otro producto] o vacío",
+    "lee": [
+     "config",
+     "<estado>/producto.json",
+     "productos publicados"
+    ]
+   },
+   "salida": {
+    "muestra": "métricas compartidas, proyectos compartidos, segmento",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "product-metrics",
+     "requirement-record"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio",
+     "overlap"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "dos productos que cuentan la misma métrica",
+    "esperado": "la métrica compartida primero, calculada por `overlap`"
+   }
+  },
+  "product-publish": {
+   "funcion": "Publica la ficha del producto donde los demás la puedan cruzar.",
+   "entrada": {
+    "argumento": "[carpeta de publicados] o vacío",
+    "lee": [
+     "config",
+     "<estado>/producto.json",
+     "<estado>/requirements/"
+    ]
+   },
+   "salida": {
+    "muestra": "qué publica y la ruta exacta",
+    "escribe": [
+     "<publicados>/<código>.json"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio",
+     "publish"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "producto con dos métricas y un proyecto",
+    "esperado": "archivo publicado con lo mínimo para cruzar; `overlap` de otro producto lo lee"
+   }
+  }
+ },
+ "skills": {
+  "requirement-record": {
+   "decide": "El registro de requerimiento: esquema, citas, estados; toda evidencia con source_date.",
+   "escribe": [
+    "owner",
+    "acceptance",
+    "evidence[].source_date",
+    "state",
+    "decision",
+    "traces"
+   ],
+   "alimenta": [
+    "requirement_without_owner",
+    "requirement_without_acceptance",
+    "requirement_accepted_without_evidence",
+    "requirement_undecided",
+    "requirement_untraced",
+    "trace_not_confirmed",
+    "decision_without_source",
+    "evidence_stale"
+   ]
+  },
+  "demand-evidence": {
+   "decide": "Qué cuenta como evidencia de demanda y cuándo envejece.",
+   "escribe": [
+    "evidence"
+   ],
+   "alimenta": [
+    "evidence_stale"
+   ]
+  },
+  "assumption-tracking": {
+   "decide": "Cómo se declara y se verifica un supuesto, y cuándo pasa a riesgo.",
+   "escribe": [
+    "assumptions",
+    "producto.definition.assumptions"
+   ],
+   "alimenta": [
+    "assumption_unverified"
+   ]
+  },
+  "product-metrics": {
+   "decide": "La serie medida con fuente y fecha, contra lo que el negocio declara.",
+   "escribe": [
+    "<estado>/metrics/<serie>.json"
+   ],
+   "alimenta": [
+    "claim_vs_metric",
+    "product_overlap"
+   ]
+  },
+  "product-health": {
+   "decide": "Qué umbral gobierna cada señal de producto y en qué orden se leen.",
+   "escribe": [],
+   "alimenta": []
+  },
+  "discovery-synthesis": {
+   "decide": "Temas por problema con la cita de quién lo dijo, sin conclusión propia.",
+   "escribe": [],
+   "alimenta": []
+  },
+  "regulatory-sweep": {
+   "decide": "Las obligaciones normativas que toca una definición, citadas y sin opinar.",
+   "escribe": [],
+   "alimenta": []
+  },
+  "specification-draft": {
+   "decide": "La especificación desde el registro con criterios verificables.",
+   "escribe": [],
+   "alimenta": []
+  }
+ },
+ "por_descripcion": {}
+}

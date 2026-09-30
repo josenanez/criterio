@@ -191,11 +191,19 @@ def ultimo_mensaje(transcript: str | None) -> str:
 
 
 ROL = {"pmo": "portafolio", "pm": "proyecto", "product": "producto"}
-# Los tres nombres históricos con que `corrida` registra; todo lo demás registra con el
-# nombre del comando.
-HISTORICOS = {"portafolio": {"sweep", "report", "confirmation", "requests"},
-              "proyecto": {"sweep", "report", "confirmation", "requests"},
-              "producto": {"review", "report", "crossed"}}
+
+
+def tambien(comando: str) -> set:
+    """Las otras corridas que un comando puede dejar, según el contrato de su plugin: un
+    `wake` que hace el barrido deja la de `portfolio-scan`. Todo comando registra con su
+    propio nombre —`tests/contratos.py` lo exige—, así que no hay nombres históricos que
+    adivinar."""
+    f = Path(__file__).resolve().parent.parent / "contratos.json"
+    try:
+        c = json.loads(f.read_text(encoding="utf-8"))["comandos"].get(comando) or {}
+    except (OSError, json.JSONDecodeError, KeyError):
+        return set()
+    return set((c.get("corrida") or {}).get("tambien") or [])
 
 
 def _agente_del_estado(estado: Path) -> str | None:
@@ -229,7 +237,7 @@ def cifras_medidas(cwd: Path, desde: float, comando: str, agente: str = "") -> l
         for x in entradas:
             if (x.get("escrita") or 0) < desde - 1:
                 continue
-            if agente and x.get("que") not in ({comando} | HISTORICOS.get(agente, set())):
+            if agente and x.get("que") not in ({comando} | tambien(comando)):
                 continue
             salida.append(dict(x, _estado=str(f.parent)))
     return salida

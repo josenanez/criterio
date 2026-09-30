@@ -35,6 +35,14 @@ Todo lo que no requiere decisión va al anexo. Si el paquete no tiene decisiones
 
 ## Flujo
 
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 **1. Junta lo que escala.** Aplica **raid-taxonomy** y su criterio de escalamiento: excede autoridad, afecta a otro proyecto, dos períodos sin movimiento, doliente fuera del proyecto sin responder, mitigación vencida sin evidencia.
 
 Suma las solicitudes de cambio pendientes de decisión y las contradicciones de portafolio que ningún gerente puede resolver solo.

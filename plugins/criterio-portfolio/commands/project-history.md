@@ -29,6 +29,14 @@ Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que algui
 
 ## Flujo
 
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 Aplica **portfolio-history**.
 
 **1. Ordena los documentos por fecha**, la del documento y no la de su contenido. Un acta

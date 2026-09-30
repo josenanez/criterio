@@ -1,0 +1,721 @@
+{
+ "comandos": {
+  "portfolio-setup": {
+   "funcion": "Deja a Vera lista sobre una carpeta de proyectos y muestra el primer resultado sobre esos documentos.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta] o vacío",
+    "lee": [
+     "config (si existe)",
+     "documentos"
+    ]
+   },
+   "salida": {
+    "muestra": "qué encontró en la carpeta, cinco preguntas, el primer informe",
+    "escribe": [
+     ".criterio/portafolio/config.json",
+     "<estado>/ (init)"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "config",
+     "corrida",
+     "init",
+     "plan-lectura"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "carpeta con 3 proyectos, sin configuración previa",
+    "esperado": "config.json válido según `config`; términos aceptados solo con sí explícito; primer resultado en menos de 15 minutos"
+   }
+  },
+  "portfolio-scan": {
+   "funcion": "Lee los documentos de proyectos y deja una ficha por proyecto con la cita de cada dato.",
+   "entrada": {
+    "argumento": "[ruta] o vacío para la configurada",
+    "lee": [
+     "config",
+     "documentos",
+     "<estado>/records/"
+    ]
+   },
+   "salida": {
+    "muestra": "plan de lectura (cuántos de cuántos), fichas tocadas, campos not_found",
+    "escribe": [
+     "<estado>/records/<código>.json",
+     "<estado>/snapshots/<fecha>.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance",
+     "commitment-tracking",
+     "project-record",
+     "raid-taxonomy",
+     "vendor-control"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio",
+     "plan-lectura",
+     "sellar",
+     "snapshot"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "3 proyectos: hito declarado cerrado sin acta; cronograma v1 y v2 con cambio pendiente; compromiso sin fecha",
+    "esperado": "milestone state=met con evidence vacía; 2 líneas base y 1 cambio en `changes`; compromiso con due_date no_declarada; cada ficha sellada después de escribirse"
+   }
+  },
+  "document-index": {
+   "funcion": "Dice qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver.",
+   "entrada": {
+    "argumento": "[código del proyecto]",
+    "lee": [
+     "config",
+     "documentos",
+     "<estado>/records/"
+    ]
+   },
+   "salida": {
+    "muestra": "cuántos releer de cuántos, renombrados, borrados, citas rotas",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "document-intake",
+     "project-record"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio",
+     "index"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un documento modificado, uno renombrado, uno borrado que una ficha cita",
+    "esperado": "1 cambiado, 1 renombrado, 1 cita rota nombrada con ficha y campo; no abre ningún documento"
+   }
+  },
+  "portfolio-wake": {
+   "funcion": "Mira qué toca hoy según la cadencia, lo hace, y si no toca nada se calla.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "config",
+     "<estado>/cadencia.json",
+     "<estado>/peticiones/"
+    ]
+   },
+   "salida": {
+    "muestra": "qué tocaba y qué hizo, o nada",
+    "escribe": [
+     "<estado>/cadencia.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "document-intake",
+     "portfolio-health"
+    ],
+    "script": [
+     "answered",
+     "corrida",
+     "corrida-inicio",
+     "due",
+     "index",
+     "ran",
+     "requests"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": [
+     "portfolio-scan",
+     "portfolio-report"
+    ]
+   },
+   "prueba": {
+    "sembrado": "cadencia con barrido vencido y una petición abierta",
+    "esperado": "hace el barrido y atiende la petición; `ran` actualiza cadencia.json; sin nada vencido responde `quiet` en una línea"
+   }
+  },
+  "portfolio-report": {
+   "funcion": "Informe consolidado del portafolio: qué cambió, qué se contradice, qué está en silencio y qué no tiene sustento.",
+   "entrada": {
+    "argumento": "[ppt|pdf|html] o vacío",
+    "lee": [
+     "config",
+     "<estado>/records/",
+     "<estado>/snapshots/"
+    ]
+   },
+   "salida": {
+    "muestra": "informe con cifras copiadas de `compute`, diff contra la instantánea anterior",
+    "escribe": [
+     "<informes>/<fecha>.<formato>",
+     "<estado>/snapshots/<fecha>.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance",
+     "portfolio-health"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio",
+     "diff"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "3 fichas con señales conocidas y una instantánea anterior",
+    "esperado": "cada señal de `compute` aparece con su nombre y cita; ninguna cifra distinta de la de `compute`; el diff lista lo nuevo y lo resuelto"
+   }
+  },
+  "status-report": {
+   "funcion": "Estado de un proyecto contra su plan, separando lo que el gerente declara de lo que sustentan los documentos.",
+   "entrada": {
+    "argumento": "<código del proyecto>",
+    "lee": [
+     "config",
+     "<estado>/records/<código>.json"
+    ]
+   },
+   "salida": {
+    "muestra": "declarado frente a sustentado, desviación, lo abierto, el silencio",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance",
+     "commitment-tracking",
+     "project-record",
+     "raid-taxonomy"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "proyecto en verde con un hito vencido sin evidencia y 20 días de silencio",
+    "esperado": "reporta declared_vs_evidence, milestone_overdue y silent con las cifras de `compute`"
+   }
+  },
+  "health-check": {
+   "funcion": "Diagnostica un proyecto desde cero contra la evidencia, sin asumir lo que diga su informe de avance.",
+   "entrada": {
+    "argumento": "<código o nombre del proyecto>",
+    "lee": [
+     "config",
+     "documentos del proyecto"
+    ]
+   },
+   "salida": {
+    "muestra": "dictamen por afirmación: sostenida, no sostenida, sin documento",
+    "escribe": [
+     "<estado>/records/<código>.json"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance",
+     "commitment-tracking",
+     "governance-artifacts",
+     "project-diagnosis",
+     "project-record",
+     "raid-taxonomy"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "proyecto sin ficha cuyo informe declara 80% y dos hitos cerrados sin acta",
+    "esperado": "ficha nueva; progress_vs_plan y milestone_met_without_evidence calculados por `compute`; cada dictamen con su cita"
+   }
+  },
+  "budget-tracking": {
+   "funcion": "Presupuesto aprobado, comprometido, ejecutado y proyección, con la desviación contra la línea base original y la vigente.",
+   "entrada": {
+    "argumento": "<código del proyecto> o 'portafolio'",
+    "lee": [
+     "config",
+     "<estado>/records/"
+    ]
+   },
+   "salida": {
+    "muestra": "las cuatro cifras con fuente y fecha, % comprometido, desviación de costo",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "proyecto con 40% ejecutado y 95% comprometido; contrato en USD",
+    "esperado": "budget_committed con el % de `compute`; USD reportado aparte sin convertir; ninguna cifra tecleada"
+   }
+  },
+  "vendor-tracking": {
+   "funcion": "Contrasta los entregables de un proveedor contra la evidencia de recibo y contra lo facturado.",
+   "entrada": {
+    "argumento": "<código del proyecto> [proveedor]",
+    "lee": [
+     "config",
+     "<estado>/records/<código>.json"
+    ]
+   },
+   "salida": {
+    "muestra": "entregable por entregable: estado, evidencia, facturado",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "commitment-tracking",
+     "project-record",
+     "vendor-control"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "entregable aceptado sin acta y factura mayor a lo aceptado",
+    "esperado": "vendor_accepted_without_evidence y vendor_invoiced_over_accepted con los montos de `compute`"
+   }
+  },
+  "change-control": {
+   "funcion": "Evalúa una solicitud de cambio en alcance, tiempo y costo, y deja la línea base nueva sin borrar la anterior.",
+   "entrada": {
+    "argumento": "<código del proyecto> <qué cambia>",
+    "lee": [
+     "config",
+     "<estado>/records/"
+    ]
+   },
+   "salida": {
+    "muestra": "las tres dimensiones, efecto en el portafolio, quién decide",
+    "escribe": [
+     "<estado>/records/<código>.json (plan.baseline, changes)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance",
+     "governance-artifacts"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio",
+     "impact"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "cambio de +57 días en un proyecto del que dependen otros dos",
+    "esperado": "`impact` nombra los dos dependientes; si se aprueba, línea base nueva agregada y la anterior intacta"
+   }
+  },
+  "project-history": {
+   "funcion": "Reconstruye qué pasó en un proyecto desde sus documentos y el momento en que la evidencia dejó de sostener lo reportado.",
+   "entrada": {
+    "argumento": "<código del proyecto> [desde AAAA-MM]",
+    "lee": [
+     "config",
+     "documentos del proyecto",
+     "<estado>/records/",
+     "<estado>/corridas.json"
+    ]
+   },
+   "salida": {
+    "muestra": "línea de tiempo, replanificaciones, cambios de gobierno, compromisos repetidos, punto de separación",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance",
+     "commitment-tracking",
+     "portfolio-history"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tres replanificaciones y un cambio de patrocinador",
+    "esperado": "las tres con fecha y motivo; atraso acumulado igual a `compute`; governance_change con su documento"
+   }
+  },
+  "raid-log": {
+   "funcion": "Levanta o actualiza riesgos, supuestos, incidencias y dependencias, incluidos los dichos en reuniones y no registrados.",
+   "entrada": {
+    "argumento": "<código del proyecto> o 'portafolio'",
+    "lee": [
+     "config",
+     "<estado>/records/",
+     "actas y minutas"
+    ]
+   },
+   "salida": {
+    "muestra": "RAID actualizado y lo dicho sin registrar",
+    "escribe": [
+     "<estado>/records/<código>.json (raid)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "raid-taxonomy"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "minuta con un riesgo dicho y no registrado; una dependencia entre dos proyectos",
+    "esperado": "el riesgo entra con su cita a la minuta; la dependencia queda en los dos proyectos"
+   }
+  },
+  "project-charter": {
+   "funcion": "Revisa o redacta el acta de constitución, señalando qué falta y qué consecuencia tiene.",
+   "entrada": {
+    "argumento": "<código del proyecto> [revisar|redactar]",
+    "lee": [
+     "config",
+     "documentos de gobierno"
+    ]
+   },
+   "salida": {
+    "muestra": "lo que falta y su consecuencia, o el borrador",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "governance-artifacts"
+    ],
+    "script": [
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "acta sin criterio de éxito ni facultad del comité",
+    "esperado": "nombra los dos vacíos y la consecuencia de cada uno; no inventa el contenido"
+   }
+  },
+  "project-closure": {
+   "funcion": "Cierra un proyecto contra el criterio de éxito pactado y deja lecciones que se puedan sustentar.",
+   "entrada": {
+    "argumento": "<código del proyecto>",
+    "lee": [
+     "config",
+     "<estado>/records/<código>.json",
+     "documentos del proyecto"
+    ]
+   },
+   "salida": {
+    "muestra": "entregado contra comprometido, números de cierre, RAID cerrado, lecciones",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance",
+     "governance-artifacts"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "proyecto con un entregable no recibido y costo 12% sobre lo aprobado",
+    "esperado": "el entregable no recibido nombrado; la desviación de `compute`; cada lección con su documento"
+   }
+  },
+  "steering-pack": {
+   "funcion": "Material de comité: un paquete de decisiones, no un informe de avance.",
+   "entrada": {
+    "argumento": "[fecha del comité] o vacío",
+    "lee": [
+     "config",
+     "<estado>/records/",
+     "<estado>/corridas.json"
+    ]
+   },
+   "salida": {
+    "muestra": "cada punto como decisión cerrada, con quién decide",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "governance-artifacts",
+     "raid-taxonomy"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "dos cambios pendientes de comité, uno fuera de la facultad del comité",
+    "esperado": "dos decisiones formuladas; la que excede la facultad señalada con quién decide"
+   }
+  },
+  "product-view": {
+   "funcion": "El estado de un producto a través de todos los proyectos que lo construyen.",
+   "entrada": {
+    "argumento": "[nombre del producto]",
+    "lee": [
+     "config",
+     "<estado>/records/"
+    ]
+   },
+   "salida": {
+    "muestra": "proyectos del producto, señales sumadas, fecha del más tardío, dinero sumado",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [
+     "baseline-variance"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "corrida-inicio"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "producto con tres proyectos, uno atrasado 60 días",
+    "esperado": "grupo `products` de `compute`; fecha del producto = la del atrasado; dinero igual a la suma del script"
+   }
+  },
+  "portfolio-server": {
+   "funcion": "Levanta Rostrum, el servidor que muestra el portafolio, las corridas y las peticiones.",
+   "entrada": {
+    "argumento": "[rato|servicio] o vacío",
+    "lee": [
+     "config",
+     "<estado>/",
+     ".criterio/corridas/"
+    ]
+   },
+   "salida": {
+    "muestra": "la URL y qué pedirle a la organización para publicarlo",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "answered",
+     "corrida",
+     "due",
+     "requests"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "estado con corridas de los tres agentes",
+    "esperado": "cada corrida visible en /corridas, en su agente y en su caso"
+   }
+  }
+ },
+ "skills": {
+  "project-record": {
+   "decide": "Qué se sabe de un proyecto y con qué cita: la ficha. Lo declarado y lo probado en campos separados.",
+   "escribe": [
+    "identity",
+    "declared",
+    "plan.milestones[].state",
+    "plan.milestones[].evidence",
+    "meta.documents_seen"
+   ],
+   "alimenta": [
+    "milestone_overdue",
+    "milestone_met_without_evidence",
+    "progress_vs_plan",
+    "declared_vs_evidence",
+    "declaration_stale",
+    "contradiction",
+    "governance_change",
+    "pm_vs_pmo",
+    "silent"
+   ]
+  },
+  "baseline-variance": {
+   "decide": "Cada versión del cronograma es línea base; cada solicitud de cambio, un registro. El script mide.",
+   "escribe": [
+    "plan.baseline",
+    "plan.milestones[].baseline_date",
+    "plan.milestones[].current_date",
+    "changes",
+    "money"
+   ],
+   "alimenta": [
+    "variance_time",
+    "variance_cost",
+    "budget_committed",
+    "rebaseline_unauthorized",
+    "change_without_baseline"
+   ]
+  },
+  "commitment-tracking": {
+   "decide": "Quién prometió qué y para cuándo; sin fecha inventada.",
+   "escribe": [
+    "commitments"
+   ],
+   "alimenta": [
+    "commitment_overdue",
+    "commitment_rescheduled",
+    "commitment_undated"
+   ]
+  },
+  "vendor-control": {
+   "decide": "Entregable contractual contra acta de recibo y contra factura.",
+   "escribe": [
+    "vendors"
+   ],
+   "alimenta": [
+    "vendor_deliverable_late",
+    "vendor_accepted_without_evidence",
+    "vendor_invoiced_without_delivery",
+    "vendor_invoiced_over_accepted"
+   ]
+  },
+  "raid-taxonomy": {
+   "decide": "Riesgo, supuesto, incidencia o dependencia, y cuándo escala.",
+   "escribe": [
+    "raid"
+   ],
+   "alimenta": []
+  },
+  "document-intake": {
+   "decide": "Qué documento se relee y cuál no; qué hacer con un renombrado o una cita rota.",
+   "escribe": [
+    "meta.documents_seen"
+   ],
+   "alimenta": []
+  },
+  "governance-artifacts": {
+   "decide": "Qué contiene el acta, el comité, el control de cambios y el cierre, y quién decide qué.",
+   "escribe": [
+    "identity.committee",
+    "identity.authority"
+   ],
+   "alimenta": []
+  },
+  "portfolio-health": {
+   "decide": "Cómo se nombra y en qué orden se lee cada señal; las cifras se copian del script.",
+   "escribe": [],
+   "alimenta": []
+  },
+  "portfolio-history": {
+   "decide": "La línea de tiempo de un proyecto y el punto en que la evidencia dejó de sostener lo reportado.",
+   "escribe": [],
+   "alimenta": []
+  },
+  "project-diagnosis": {
+   "decide": "El orden de lectura de un diagnóstico desde cero y cuándo la respuesta es «no se puede saber».",
+   "escribe": [],
+   "alimenta": []
+  }
+ },
+ "por_descripcion": {}
+}

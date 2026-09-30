@@ -103,16 +103,16 @@ Si toca, aplica la confirmación periódica: **cinco campos**, los más viejos e
 
 Lo último, siempre, y con la ruta real del informe:
 
-Antes de `corrida`, escribe en `<estado>/corridas/salida-report.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
+Antes de `corrida`, escribe en `<estado>/corridas/salida-portfolio-report.md` **lo que le mostraste a la persona, tal cual y entero**: es lo que la corrida guarda como evidencia y lo que Rostrum muestra en la página de esa corrida. Sin ese archivo la corrida registra las cifras y declara que el resultado se quedó en la conversación.
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what report \
-    --salida <estado>/corridas/salida-report.md \
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what portfolio-report \
+    --salida <estado>/corridas/salida-portfolio-report.md \
     --docs <carpeta de documentos> --informe <dónde quedó el informe> \
     --nota "qué hay que mirar de esta corrida"
 ```
 
-Sin esto la corrida no se puede compartir ni comparar: el informe queda en una carpeta que hay que recordar, y la del mes que viene no tiene contra qué medirse. Con esto, `<estado>/corridas/<fecha>-report.md` dice qué se corrió, qué encontró por señal, dónde está el informe, y cuántos hallazgos más o menos que la vez anterior.
+Sin esto la corrida no se puede compartir ni comparar: el informe queda en una carpeta que hay que recordar, y la del mes que viene no tiene contra qué medirse. Con esto, `<estado>/corridas/<fecha>-portfolio-report-<n>.md` dice qué se corrió, qué encontró por señal, dónde está el informe, y cuántos hallazgos más o menos que la vez anterior.
 
 ## Salida
 

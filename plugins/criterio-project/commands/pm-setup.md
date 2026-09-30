@@ -36,6 +36,14 @@ comando lo reescribe.
 
 ## Flujo
 
+**Antes de escribir una cifra, recalcula.**
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <config>
+```
+
+Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales— se copia de esa salida, con todos sus dígitos. Si el script no la da, no se escribe: se dice qué dato falta para poder calcularla.
+
 **0. Preséntate, en una línea**
 
 > Soy Samuel. Leo lo que pasa en tu proyecto y me acuerdo de lo que se prometió en cada
@@ -134,6 +142,7 @@ Lo último, siempre. Escribe en `<estado>/corridas/salida-pm-setup.md` **lo que 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida --state <estado> --what pm-setup \
     --salida <estado>/corridas/salida-pm-setup.md \
+    --caso <código del proyecto, el de la configuración> \
     --nota "cuántas preguntas hizo, cuántos minutos hasta el primer resultado, qué encontró"
 ```
 
