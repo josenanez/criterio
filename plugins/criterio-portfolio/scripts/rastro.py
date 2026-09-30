@@ -297,7 +297,15 @@ def parar(d: dict, agente: str) -> int:
     entrada["subagentes"] = len(subs)
     entrada["concurrentes"] = concurrencia(subs)
     entrada["workers"] = workers
-    entrada["exceso"] = entrada["concurrentes"] > workers
+    # Con `workers: 1` la regla es «uno tras otro en esta conversación»: cualquier
+    # subagente ya es exceso. Y sin `SubagentStart` la concurrencia no se puede medir: en
+    # la segunda prueba llegaron seis `SubagentStop` sin su inicio, la cuenta dio 0 a la
+    # vez y la corrida salió limpia. Lo que no se midió no se reporta como cero.
+    sin_inicio = any(s.get("inicio") is None for s in subs)
+    if sin_inicio:
+        entrada["concurrentes"] = None
+    entrada["exceso"] = bool(subs) and (workers == 1 or sin_inicio
+                                        or entrada["concurrentes"] > workers)
 
     # El registro, y su página. Se reescriben enteros con cada respuesta: la corrida es
     # una sola aunque el agente haya preguntado a mitad.
@@ -347,7 +355,9 @@ def parar(d: dict, agente: str) -> int:
 
 
 def _linea_paralelo(entrada: dict) -> str:
-    n, a_la_vez, w = entrada.get("subagentes") or 0, entrada.get("concurrentes") or 0, entrada.get("workers")
+    n, a_la_vez, w = entrada.get("subagentes") or 0, entrada.get("concurrentes"), entrada.get("workers")
+    if a_la_vez is None:
+        a_la_vez = "¿?"
     if not n:
         return f"**Subagentes:** ninguno · la configuración permite {w} a la vez"
     texto = f"**Subagentes:** {n}, hasta {a_la_vez} a la vez · la configuración permite {w}"
@@ -450,6 +460,12 @@ def selftest() -> int:
            (scan["subagentes"], scan["concurrentes"], scan["workers"], scan["exceso"]), (3, 2, 1, True))
         ok("dos a la vez con workers 1 es exceso", scan["exceso"], True)
         ok("y la concurrencia es cero sin subagentes", concurrencia([]), 0)
+        enviar(dict(s, user_input="/criterio-portfolio:portfolio-setup"), "portafolio")
+        subagente(s, "portafolio", "fin"); subagente(s, "portafolio", "fin")
+        parar(dict(s, last_assistant_message="setup"), "portafolio")
+        su = json.loads((carpeta / "corridas.json").read_text())[-1]
+        ok("sin inicio registrado la concurrencia no se inventa, y es exceso",
+           (su["subagentes"], su["concurrentes"], su["exceso"]), (2, None, True))
     print("\n" + ("todo pasa" if not fallas else f"{len(fallas)} falla(s)"))
     return 1 if fallas else 0
 

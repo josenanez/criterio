@@ -74,6 +74,19 @@ def calificar_vera() -> int:
     if error:
         print("no se pudo calcular:", error)
         return 1
+    sys.path.insert(0, str(RAIZ / "plugins" / "criterio-portfolio" / "scripts"))
+    import portafolio
+    repo = portafolio.huella_plugin(RAIZ / "plugins" / "criterio-portfolio")
+    try:
+        ultima = json.loads((destino / "estado" / "corridas.json").read_text(encoding="utf-8"))[-1]
+    except (OSError, json.JSONDecodeError, IndexError):
+        ultima = {}
+    corrio = ultima.get("plugin") or {}
+    if corrio.get("huella") != repo["huella"]:
+        print(f"PLUGIN VIEJO: la corrida {ultima.get('id')} usó {corrio or 'una versión sin huella'}; "
+              f"el repositorio es {repo}. Actualiza y reinstala antes de calificar.")
+    else:
+        print(f"plugin al día: {repo}")
     con_ficha = {f.stem for f in (destino / "estado" / "records").glob("*.json")}
     print(f"fichas escritas: {len(con_ficha)} de {len(esperado)} ({', '.join(sorted(con_ficha)) or 'ninguna'})")
     if 0 < len(con_ficha) < len(esperado):

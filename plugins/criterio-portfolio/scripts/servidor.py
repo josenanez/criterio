@@ -187,8 +187,8 @@ def celda_paralelo(c: dict) -> str:
     no cuando el plan se acaba."""
     if c.get("subagentes") is None:
         return '<td class="n">—</td>'
-    n, a_la_vez = c["subagentes"], c.get("concurrentes") or 0
-    texto = "0" if not n else f"{n} · {a_la_vez} a la vez"
+    n, a_la_vez = c["subagentes"], c.get("concurrentes")
+    texto = "0" if not n else f"{n} · {'¿?' if a_la_vez is None else a_la_vez} a la vez"
     if c.get("exceso"):
         return (f'<td class="n exceso" title="la configuración permite {c.get("workers")} a la vez">'
                 f'{e(texto)}</td>')

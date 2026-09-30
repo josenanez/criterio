@@ -1,6 +1,6 @@
 {
   "name": "criterio-portfolio",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Oficina de proyectos: consolidación de portafolio, estado contra plan, RAID, control de cambios, proveedores, presupuesto, comité y cierre. Lee la documentación que ya existe y dice qué cambió, qué se contradice y qué lleva semanas en silencio.",
   "author": {
     "name": "José Francisco Ñáñez",

@@ -52,7 +52,7 @@ from pathlib import Path
 # tiene que correr solo.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from portafolio import (as_date, as_number, _cada, pct, proximo_comite,  # noqa: E402
-                 source_of, state_of, value, plan, sellar, load_execution, en_su_sitio)
+                 source_of, state_of, value, plan, sellar, load_execution, en_su_sitio, huella_plugin)
 
 DEFAULT_THRESHOLDS = {
     # Días que un requerimiento puede llevar propuesto sin que nadie lo decida. Pasado
@@ -681,7 +681,7 @@ def corrida(state: Path, que: str, today: dt.date, th: dict, fichas: Path = None
     if del_producto:
         por_caso[(r.get("product") or {}).get("code") or "producto"] = del_producto
 
-    entrada = {"que": que, "fecha": today.isoformat(),
+    entrada = {"que": que, "fecha": today.isoformat(), "plugin": huella_plugin(),
                "producto": (r.get("product") or {}).get("code"),
                "por_caso": por_caso,
                "requerimientos": len(r.get("requirements") or []),

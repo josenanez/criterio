@@ -1179,6 +1179,25 @@ def corrida_inicio(state: Path) -> dict:
     return {"marcado": True}
 
 
+def huella_plugin(raiz: Path | None = None) -> dict:
+    """Qué versión del plugin corrió: la de su `plugin.json` y una huella de sus comandos,
+    skills y scripts. Claude Code corre una copia instalada del plugin, no el repositorio,
+    y la copia se queda vieja sin avisar: en la fase 2 un setup corrió el paso nuevo y el
+    barrido viejo a la vez. Con la huella en cada corrida, una copia vieja se ve."""
+    raiz = raiz or Path(__file__).resolve().parent.parent
+    h = hashlib.sha256()
+    archivos = (sorted((raiz / "commands").glob("*.md")) + sorted((raiz / "skills").glob("*/SKILL.md"))
+                + sorted((raiz / "scripts").glob("*.py")))
+    for f in archivos:
+        h.update(f.relative_to(raiz).as_posix().encode())
+        h.update(f.read_bytes())
+    try:
+        version = json.loads((raiz / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8")).get("version")
+    except (OSError, json.JSONDecodeError):
+        version = None
+    return {"version": version, "huella": h.hexdigest()[:12]}
+
+
 def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
             informe=None, nota=None, salida: Path = None, caso: str = None) -> dict:
     """Deja el registro de una corrida: qué se corrió, sobre qué, y qué encontró.
@@ -1239,7 +1258,8 @@ def corrida(state: Path, que: str, today: dt.date, docs: Path = None,
         codigo = value((rec.get("identity") or {}).get("code")) or f.stem
         por_caso[codigo] = sorted(suyas)
 
-    entrada = {"que": que, "fecha": today.isoformat(), "proyectos": len(fichas),
+    entrada = {"que": que, "fecha": today.isoformat(), "plugin": huella_plugin(),
+               "proyectos": len(fichas),
                "documentos": documentos, "segundos": segundos,
                "relectura": relectura,
                "medido": {"segundos": segundos is not None,
