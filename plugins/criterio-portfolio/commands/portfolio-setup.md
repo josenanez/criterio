@@ -45,7 +45,7 @@ una presentación, la da el primer resultado sobre sus propios documentos.
 
 Si hay ruta en el argumento, úsala. Si no, pregunta dónde están los documentos de proyectos y ofrece buscar.
 
-Lista la carpeta y reporta en dos líneas qué encontraste: cuántos proyectos se distinguen, cuántos documentos, qué formatos, y cuál es el documento más reciente. Eso le dice a la persona que esto ya está mirando sus cosas de verdad.
+Mira la carpeta con `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" plan-lectura --state <estado> --docs <carpeta>` —su `inventory` es el inventario; no uses `find` ni listas en `/tmp`— y reporta en dos líneas qué encontraste: cuántos proyectos se distinguen, cuántos documentos, qué formatos, y cuál es el documento más reciente. Eso le dice a la persona que esto ya está mirando sus cosas de verdad.
 
 Si ya hay configuración, no rehagas nada: muestra lo que está y pregunta qué quiere cambiar.
 

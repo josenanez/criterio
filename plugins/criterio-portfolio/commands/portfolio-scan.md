@@ -33,11 +33,11 @@ Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que algui
 
 ## Flujo
 
-**1. Inventario antes de leer**
+**1. Inventario y plan, en una sola llamada**
 
-Lista la carpeta completa. Para cada archivo registra ruta, tamaño, fecha de modificación y fecha del nombre si la trae. **No abras nada todavía.**
+No listes la carpeta tú: ni `find`, ni `ls -R`, ni una lista en `/tmp`. El inventario y el plan salen del mismo script, en el paso 2, y **ese es el primer comando que corres después de `corrida-inicio`**. `inventory` trae cuántas carpetas de proyecto hay, cuántos archivos de cada formato y cuáles no se pueden leer y por qué.
 
-Reporta de entrada: cuántos documentos hay, cuántos proyectos se distinguen, qué formatos, y qué archivos no vas a poder leer y por qué. Nada se salta en silencio.
+Reporta de entrada, con esas cifras: cuántos documentos hay, cuántos proyectos se distinguen, qué formatos, y qué archivos no vas a poder leer y por qué. Nada se salta en silencio.
 
 **2. Pide el plan de lectura; no lo redactes**
 

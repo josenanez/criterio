@@ -1859,6 +1859,8 @@ def _selftest_plan():
         ("el tope corta por proyecto y difiere", (p4["to_read"], p4["deferred"]["projects"]), (4, ["PRY-002", "PRY-003"])),
         ("lotes del tamaño configurado", [len(b["projects"]) for b in p5["batches"]], [2, 1]),
         ("el modo dice cuántos a la vez", "hasta 3 a la vez" in p5["mode"] and "uno tras otro" in p4["mode"], True),
+        ("el inventario lo da el plan, no el agente",
+         (p1["inventory"]["folders"], p1["inventory"]["formats"]), (3, {".md": 12})),
     ]
 
 
@@ -2041,6 +2043,30 @@ def plan(docs: Path, state: Path, execution: dict) -> dict:
     documentos o no se escribe. Si un solo proyecto supera el tope, va igual y se dice.
     """
     idx = index(docs, state)
+
+    # El inventario lo hace el script, no el agente. Cuando se lo dejó al agente armó
+    # `find … | sort > /tmp/lista && wc -l`, que es una aprobación por comando y una
+    # escritura fuera de la carpeta: el primer paso del barrido ya pedía permiso.
+    formatos, ilegibles, carpetas = {}, [], set()
+    try:
+        import texto as _texto
+        leibles = set(_texto.NATIVO) | set(_texto.CONVERTIDORES) | {".pdf"}
+        razones = dict(_texto.SIN_SOPORTE)
+    except ImportError:
+        leibles, razones = set(TEXTO_PLANO), {}
+    for ruta in sorted(docs.rglob("*")):
+        if not ruta.is_file() or ruta.name in IGNORAR or ruta.name.startswith("."):
+            continue
+        rel = ruta.relative_to(docs)
+        ext = ruta.suffix.lower() or "(sin extensión)"
+        formatos[ext] = formatos.get(ext, 0) + 1
+        if len(rel.parts) > 1:
+            carpetas.add(rel.parts[0])
+        if ruta.suffix.lower() not in leibles:
+            ilegibles.append({"path": str(rel),
+                              "why": razones.get(ruta.suffix.lower(),
+                                                 "formato que no se lee sin instalar algo")})
+
     if execution.get("reread_unchanged"):
         pendientes = []
         for ruta in sorted(docs.rglob("*")):
@@ -2097,6 +2123,8 @@ def plan(docs: Path, state: Path, execution: dict) -> dict:
                      "documents": sum(len(por_proyecto[c]) for c in diferidos)},
         "over_cap_alone": [c for c in elegidos if len(por_proyecto[c]) > tope],
         "mode": modo,
+        "inventory": {"folders": len(carpetas), "formats": dict(sorted(formatos.items())),
+                      "unreadable": ilegibles},
         "index": {k: idx[k] for k in ("renamed", "deleted", "source_missing")},
     }
 
