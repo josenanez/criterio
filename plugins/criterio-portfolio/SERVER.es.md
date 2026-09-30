@@ -218,6 +218,9 @@ De aquí para abajo es para quien lo va a publicar.
 | `/corridas` | La historia de **los tres agentes**, y qué se arrastra | Todos |
 | `/corridas?agente=` | Solo las del gerente de proyecto o las del de producto | Su gerente |
 | `/corridas?agente=&que=&caso=` | Las de un comando, o las de un proyecto o producto; es a donde llevan las ramas del árbol | Quien prueba |
+| `/agente/<agente>` | Qué hace cada agente, función por función, y cuántas veces corrió cada una | Todos |
+| `/caso/<código>` | Todo lo que los tres agentes han hecho sobre un proyecto o producto | El patrocinador |
+| `/arrastres` | Señales con varios cortes seguidos y nadie ha decidido | El comité |
 | `/corrida/<agente>/<id>` | **Una corrida entera, tal como la dejó el arnés**: lo que el agente mostró, con las cifras que midió | Todos |
 | `/corrida/<agente>/<caso>/<id>` | Las cifras de una corrida registrada solo por `corrida`, anterior al rastro | Todos |
 | `/historia/<código>` | Desde cuándo un proyecto arrastra cada señal, y cuál se resolvió | La PMO y el gerente |
@@ -308,15 +311,26 @@ página que existe. Una redirección a una página que no está es un 404 con un
 El detalle de la corrida, en
 [`tests/criterio-portfolio/EVIDENCIA.md`](../../tests/criterio-portfolio/EVIDENCIA.md).
 
-## El árbol es la PMO entera, y el rastro lo escribe el arnés
+## El menú, las páginas de los agentes y las de cada caso
 
-A la izquierda de toda página va la estructura completa: cada agente con sus funciones
-(Ritmo, Lectura, Informe, Proyecto, Dinero y proveedores, Productos para Vera; Ritmo,
-Seguimiento, Plan y escalamiento, Publicación para Samuel; Ritmo, Descubrimiento,
-Definición, Trazas, Publicación para Alba), cada función con sus comandos, y cada comando
-con cada corrida que dejó. Un comando que no ha corrido se ve en gris con un cero: que no
-haya corrido también es un dato. Debajo, lo mismo visto por proyecto y por producto: todas
-las corridas de todos los agentes sobre ese caso.
+A la izquierda de toda página va un menú corto, en el orden en que alguien entra:
+**Portafolio** (cómo va, lo que necesita una decisión, proyectos, productos), **Historia**
+(todas las corridas, lo que se arrastra, qué cambió entre dos cortes), **Los agentes**
+(Vera, Samuel y Alba, con cuántas corridas lleva cada uno) y **Preguntar**. Nada más: un
+proyecto o un producto se abre desde sus listados, y con cincuenta y sesenta y cinco no
+caben en una columna.
+
+`/agente/<agente>` es el catálogo de cada agente: sus funciones agrupadas (Arranque y
+ritmo, Lectura de documentos, Informes, Un proyecto a fondo, Dinero y proveedores,
+Productos para Vera; Arranque y ritmo, Seguimiento del proyecto, Plan y escalamiento,
+Publicar a la PMO para Samuel; Arranque y ritmo, Descubrimiento, Definición del producto,
+Trazas con proyectos, Publicar a la PMO para Alba), cada comando con un nombre que se
+entiende y el técnico al lado, cuántas veces corrió y cuándo fue la última. Un comando
+que no ha corrido aparece con cero: que no haya corrido también es un dato.
+
+`/caso/<código>` junta todo lo que los tres agentes han hecho sobre un proyecto o un
+producto, con lo que sigue abierto, y enlaza a su informe y a su línea de tiempo. Es lo
+que abre un patrocinador.
 
 Las corridas no las registra el agente. Las registra el arnés: cada plugin lleva
 `hooks/hooks.json`, y Claude Code dispara `rastro.py` cuando la persona invoca un comando
@@ -326,7 +340,3 @@ argumento, la hora y el texto completo que el agente mostró— queda en
 corrida, con las cifras que `corrida` haya medido incrustadas. El agente no puede dejar
 de registrarse, porque no es él quien registra. `.criterio/corridas/` entra al
 repositorio: es la historia.
-
-```
-python3 scripts/servidor.py --informe <carpeta> --estado <estado> --config <archivo> [--evidencia .criterio/corridas]
-```

@@ -63,6 +63,9 @@ RUTAS = {
     '/corridas': 'la historia de los tres agentes · ?agente=, ?que=<comando> y ?caso=<código> para filtrar',
     '/corrida/<agente>/<id>': 'una corrida tal como la dejó el arnés: lo que el agente mostró, con sus cifras',
     '/corrida/<agente>/<caso>/<id>': 'las cifras de una corrida registrada solo por `corrida`',
+    '/arrastres': 'lo que se arrastra: señales con varios cortes seguidos y nadie ha decidido',
+    '/agente/<agente>': 'qué hace cada agente, función por función, y cada corrida que dejó',
+    '/caso/<codigo>': 'todo lo que los tres agentes han hecho sobre un proyecto o producto',
     '/historia/<codigo>': 'la línea de tiempo de un caso: desde cuándo arrastra cada señal',
     '/corte': 'qué cambió campo por campo entre dos cortes · ?a=<fecha>&b=<fecha>',
     '/peticion': 'POST · deja una pregunta escrita para el agente',
@@ -106,28 +109,8 @@ EXTRA = f"""
 .arbol a{{display:block;padding:.3em 0;color:{informe.TINTA};border:0;text-decoration:none}}
 .arbol a:hover{{color:{informe.ORO}}}
 .arbol a.yo{{color:{informe.ORO};font-weight:700}}
-.arbol li.fija a{{font-weight:500}}
-.arbol details{{margin:.35em 0}}
-.arbol summary{{cursor:pointer;padding:.35em 0;list-style:none;font-weight:600;color:{informe.TINTA}}}
-.arbol summary::-webkit-details-marker{{display:none}}
-.arbol summary .t::before{{content:"▸ ";color:{informe.ORO}}}
-.arbol details[open] > summary .t::before{{content:"▾ "}}
-.arbol summary .d{{display:block;font-weight:400;font-size:.86rem;color:{informe.APAGADO};
-  margin:.1em 0 .2em 1.1em;line-height:1.35}}
-.arbol li.cmd{{margin-left:1.1em}}
-.arbol li.cmd a{{padding:.35em 0 .3em}}
-.arbol li.cmd a b{{color:{informe.ORO};font-weight:700}}
-.arbol li.cmd a code{{display:block;font-size:.74rem;color:{informe.APAGADO};background:none;padding:0}}
-.arbol li.cmd.vacio a{{color:{informe.APAGADO}}}
-.arbol li.cmd.vacio a b{{color:{informe.APAGADO};font-weight:500}}
-.arbol li.run a{{font-size:.9rem;padding:.22em 0 .22em 1.2em;color:{informe.CUERPO};
-  border-left:2px solid {informe.FILETE};margin:.1em 0}}
-.arbol li.run a:hover{{border-color:{informe.ORO}}}
-.arbol li.run em{{font-style:normal;color:{informe.ORO}}}
-.arbol li.run .q{{font-weight:600;color:{informe.TINTA}}}
-.arbol li.caso summary a{{display:inline;padding:0;font-weight:600}}
-.arbol li.caso ul{{margin-left:.4em}}
-.arbol li.no span{{color:{informe.APAGADO}}}
+.arbol li a{{font-weight:500}}
+.arbol li a .d{{display:block;font-weight:400;font-size:.84rem;color:{informe.APAGADO};line-height:1.3}}
 td.nw{{white-space:nowrap}}
 .menu-caja{{display:none}}
 .menu-boton{{display:none}}
@@ -140,8 +123,6 @@ td.nw{{white-space:nowrap}}
   .arbol{{display:none;border-right:0;border-bottom:1px solid {informe.FILETE};background:{informe.PANEL_ALTO};
     max-height:none;padding:12px 20px 24px;position:static;overflow:visible}}
   .menu-caja:checked ~ .arbol{{display:block}}
-  .arbol details{{margin:.2em 0}}
-  .arbol details[open]{{margin-bottom:.6em}}
 }}
 @media print{{.arbol,.menu-boton{{display:none}}}}
 .portada h1{{margin-bottom:.15em}}
@@ -219,9 +200,9 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
     for c in lista:
         filas.append(
             f'<tr><td class="nw"><a href="{e(c["ruta"])}">{e((c.get("inicio") or c.get("fecha") or "").replace("T", " ")[:16])}</a></td>'
-            f'<td>{e(NOMBRE.get(c["agente"], c["agente"]))}</td>'
+            f'<td><a href="/agente/{e(c["agente"])}">{e(NOMBRE.get(c["agente"], c["agente"]))}</a></td>'
             f'<td>{e(etiqueta(c["comando"]))}<br><code>{e(c["comando"])}</code></td>'
-            f'<td class="nw">{e(c.get("caso") or "—")}</td>'
+            f'<td class="nw">{"<a href=" + chr(34) + "/caso/" + e(c["caso"]) + chr(34) + ">" + e(c["caso"]) + "</a>" if c.get("caso") else "—"}</td>'
             f'<td class="n">{e(c.get("documentos") or "—")}</td>'
             f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
             f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
@@ -241,24 +222,8 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
         '<th>Salida</th><th>Fuente</th></tr></thead><tbody>',
         "".join(filas), '</tbody></table></div>']
 
-    # Lo que lleva más tiempo sin resolverse: la lista con la que se arma un comité.
-    arrastres = []
-    for codigo, senales in h["casos"].items():
-        for s, x in senales.items():
-            if x["seguidas"] >= 2 and not x.get("resuelta_en"):
-                arrastres.append((x["seguidas"], codigo, s, x["primera"]))
-    if arrastres:
-        arrastres.sort(reverse=True)
-        cuerpo += ['<h2>Lo que se arrastra</h2>',
-                   '<p class="entrada">Una señal que sonó una vez es ruido. Una que lleva '
-                   'varios cortes seguidos es una decisión que nadie ha tomado.</p>',
-                   '<div class="bloque"><table><thead><tr><th>Caso</th><th>Señal</th>'
-                   '<th>Cortes seguidos</th><th>Desde</th></tr></thead><tbody>']
-        for n_, codigo, s, desde in arrastres[:40]:
-            cuerpo.append(f'<tr><td><a href="/historia/{e(codigo)}">{e(codigo)}</a></td>'
-                          f'<td><code>{e(s)}</code></td><td class="n">{n_}</td>'
-                          f'<td>{e(desde)}</td></tr>')
-        cuerpo.append('</tbody></table></div>')
+    cuerpo.append('<p class="entrada">Lo que lleva varios cortes sin resolverse está aparte, '
+                  'en <a href="/arrastres">lo que se arrastra</a>.</p>')
 
     if len(h["instantaneas"]) > 1:
         a, b = h["instantaneas"][-2], h["instantaneas"][-1]
@@ -488,15 +453,6 @@ COMANDO_DE = {("portafolio", "sweep"): "portfolio-scan",
               ("producto", "report"): "product-publish",
               ("producto", "crossed"): "product-trace"}
 
-# Las páginas fijas de cada agente, antes de sus funciones.
-FIJAS = {
-    "portafolio": [("/pmo", "Cómo va el portafolio"), ("/decisiones", "Lo que necesita una decisión"),
-                   ("/proyectos", "Los proyectos, uno por uno"),
-                   ("/productos", "Los productos y sus proyectos")],
-    "proyecto": [("/corridas?agente=proyecto", "Todas sus corridas")],
-    "producto": [("/corridas?agente=producto", "Todas sus corridas")],
-}
-
 
 def comando_de(agente: str, que: str) -> str:
     return COMANDO_DE.get((agente, que), que)
@@ -558,78 +514,35 @@ def indice(evidencia: Path, estado: Path) -> list:
     return corridas
 
 
-def _hoja(c: dict) -> str:
-    hora = (c.get("inicio") or "")[11:16]
-    texto = (c.get("fecha") or "") + (f" {hora}" if hora else "")
-    if c.get("caso"):
-        texto += f" · {c['caso']}"
-    if c.get("segundos"):
-        texto += f" · {c['segundos']} s"
-    marca = "" if c.get("salida") else ' <em title="no quedó lo que el agente mostró">sin salida</em>'
-    return f'<li class="run"><a href="{e(c["ruta"])}">{e(texto)}{marca}</a></li>'
-
-
 def arbol(corridas: list, activa: str = "") -> str:
-    """El árbol entero: agentes, funciones, comandos, corridas; y por proyecto y producto."""
-    por = {}
-    for c in corridas:
-        por.setdefault((c["agente"], c["comando"]), []).append(c)
-
+    """El menú: corto, en el orden en que alguien entra. Portafolio, historia, agentes,
+    preguntar. El catálogo de funciones vive en la página de cada agente, y un proyecto
+    o un producto se abre desde sus listados: con cincuenta y sesenta y cinco no caben
+    en una columna."""
+    def li(ruta, texto, nota="", n=None):
+        yo = ' class="yo"' if ruta == activa else ''
+        cuenta = f' <span class="n">{n}</span>' if n is not None else ''
+        return (f'<li><a href="{e(ruta)}"{yo}>{e(texto)}{cuenta}'
+                + (f'<span class="d">{e(nota)}</span>' if nota else '') + '</a></li>')
+    por_agente = {a: sum(1 for c in corridas if c["agente"] == a) for a in GRUPOS}
     out = ['<input type="checkbox" id="menu" class="menu-caja">',
            '<label for="menu" class="menu-boton">Menú de la PMO</label>',
-           '<nav class="arbol" aria-label="Estructura de la PMO">']
-    for agente, grupos in GRUPOS.items():
-        n_agente = sum(len(v) for (a, _), v in por.items() if a == agente)
-        out.append(f'<p class="g">{e(TITULO[agente])} <span class="n">{n_agente}</span></p><ul>')
-        for ruta, texto in FIJAS[agente]:
-            cl = ' class="yo"' if ruta == activa else ''
-            out.append(f'<li class="fija"><a href="{e(ruta)}"{cl}>{e(texto)}</a></li>')
-        for grupo, que_es, cmds in grupos:
-            n_grupo = sum(len(por.get((agente, c), [])) for c in cmds)
-            out.append(f'<li class="grupo"><details{" open" if n_grupo else ""}>'
-                       f'<summary><span class="t">{e(grupo)}</span> <span class="n">{n_grupo}</span>'
-                       f'<span class="d">{e(que_es)}</span></summary><ul>')
-            for cmd in cmds:
-                suyas = por.get((agente, cmd), [])
-                enlace = f'/corridas?agente={agente}&amp;que={cmd}'
-                cl = "cmd" + ("" if suyas else " vacio")
-                yo = ' class="yo"' if f'/corridas?agente={agente}&que={cmd}' == activa else ''
-                out.append(f'<li class="{cl}"><a href="{enlace}"{yo}>{e(etiqueta(cmd))}'
-                           f' <b>· {len(suyas)}</b><code>{e(cmd)}</code></a>')
-                if suyas:
-                    out.append('<ul>' + "".join(_hoja(c) for c in suyas) + '</ul>')
-                out.append('</li>')
-            out.append('</ul></details></li>')
-        out.append('</ul>')
-
-    # Por caso: lo mismo, visto desde el proyecto o el producto. Todas las corridas de
-    # todos los agentes sobre ese caso, que es lo que un patrocinador quiere abrir.
-    casos = {}
-    for c in corridas:
-        if c.get("caso"):
-            casos.setdefault(c["caso"], []).append(c)
-    proyectos = sorted(k for k in casos if not k.upper().startswith("PRD"))
-    productos = sorted(k for k in casos if k.upper().startswith("PRD"))
-    for titulo, lista, ruta_de in (("Por proyecto", proyectos, lambda k: f"/historia/{k}"),
-                                   ("Por producto", productos, lambda k: f"/corridas?caso={k}")):
-        out.append(f'<p class="g">{titulo} <span class="n">{len(lista)}</span></p><ul>')
-        if not lista:
-            out.append('<li class="no"><span>ninguna corrida sobre un caso todavía</span></li>')
-        for k in lista:
-            out.append(f'<li class="caso"><details><summary><a href="{e(ruta_de(k))}">{e(k)}</a>'
-                       f' <span class="n">{len(casos[k])}</span></summary><ul>')
-            for c in casos[k]:
-                out.append(_hoja(dict(c, caso=None)).replace(
-                    '<li class="run">', f'<li class="run"><span class="q">{e(etiqueta(c["comando"]))}</span> '))
-            out.append('</ul></details></li>')
-        out.append('</ul>')
-
-    out.append('<p class="g">La historia de los tres</p><ul>'
-               f'<li class="fija"><a href="/corridas"{" class=" + chr(34) + "yo" + chr(34) if activa == "/corridas" else ""}>'
-               'Todas las corridas, y qué se arrastra</a></li>'
-               '<li class="fija"><a href="/corte">Qué cambió entre dos cortes</a></li></ul>'
-               '<p class="g">Preguntar</p><ul><li class="fija"><a href="/#preguntar">Dejar una pregunta '
-               'escrita para el agente</a></li></ul></nav>')
+           '<nav class="arbol" aria-label="Menú de la PMO">',
+           '<p class="g">Portafolio</p><ul>',
+           li('/pmo', 'Cómo va el portafolio', 'el informe: cifras, silencio, contradicciones'),
+           li('/decisiones', 'Lo que necesita una decisión', 'el material del comité'),
+           li('/proyectos', 'Proyectos', 'uno por uno'),
+           li('/productos', 'Productos', 'y los proyectos que los construyen'),
+           '</ul><p class="g">Historia</p><ul>',
+           li('/corridas', 'Todas las corridas', 'qué corrió, cuándo, qué encontró', len(corridas)),
+           li('/arrastres', 'Lo que se arrastra', 'señales con varios cortes seguidos'),
+           li('/corte', 'Qué cambió entre dos cortes'),
+           '</ul><p class="g">Los agentes</p><ul>']
+    for a in GRUPOS:
+        out.append(li(f'/agente/{a}', TITULO[a], '', por_agente[a]))
+    out += ['</ul><p class="g">Preguntar</p><ul>',
+            li('/#preguntar', 'Dejar una pregunta al agente'),
+            '</ul></nav>']
     return "".join(out)
 
 
@@ -650,6 +563,111 @@ def rellenar_arbol(pagina_html: str, corridas: list) -> str:
     if not m:
         return pagina_html
     return pagina_html.replace(m.group(0), arbol(corridas, m.group(1).strip()), 1)
+
+
+def arrastres(h: dict, hoy: str) -> str:
+    """Lo que lleva varios cortes sin resolverse: la lista con la que se arma un comité."""
+    filas = []
+    for codigo, senales in h["casos"].items():
+        for sig, x in senales.items():
+            if x["seguidas"] >= 2 and not x.get("resuelta_en"):
+                filas.append((x["seguidas"], codigo, sig, x["primera"]))
+    filas.sort(reverse=True)
+    cuerpo = ['<p class="entrada">Una señal que sonó una vez es ruido. Una que lleva varios '
+              'cortes seguidos es una decisión que nadie ha tomado. Esta es la lista, de la más '
+              'vieja a la más nueva.</p>']
+    if not filas:
+        cuerpo.append('<div class="bloque"><p>Nada lleva dos cortes seguidos todavía: hace falta '
+                      'más de una corrida para que algo se arrastre.</p></div>')
+    else:
+        cuerpo += ['<div class="bloque"><table><thead><tr><th>Caso</th><th>Señal</th>'
+                   '<th>Cortes seguidos</th><th>Desde</th></tr></thead><tbody>']
+        for n_, codigo, sig, desde in filas[:200]:
+            cuerpo.append(f'<tr><td><a href="/caso/{e(codigo)}">{e(codigo)}</a></td>'
+                          f'<td><code>{e(sig)}</code></td><td class="n">{n_}</td>'
+                          f'<td>{e(desde)}</td></tr>')
+        cuerpo.append('</tbody></table></div>')
+    cuerpo.append(AVISO_HISTORIA)
+    return pagina('Lo que se arrastra', "".join(cuerpo), hoy, nav(), '/arrastres')
+
+
+def vista_agente(todas: list, agente: str, hoy: str) -> tuple:
+    """Qué hace un agente, función por función, y cada corrida que dejó.
+
+    Es el catálogo que antes estorbaba en el menú: aquí es lo que alguien busca cuando
+    quiere saber qué hizo el agente, con el nombre de cada comando explicado.
+    """
+    if agente not in GRUPOS:
+        return 404, error(404, f'No hay agente {agente}', hoy)
+    por = {}
+    for c in todas:
+        if c["agente"] == agente:
+            por.setdefault(c["comando"], []).append(c)
+    total = sum(len(v) for v in por.values())
+    cuerpo = [f'<p class="entrada"><b>{e(NOMBRE[agente])}</b>, {e(TITULO[agente].split(" · ")[1])}: '
+              f'{len(sum((c for _, _, c in GRUPOS[agente]), []))} funciones en '
+              f'{len(GRUPOS[agente])} grupos, <b>{total} corridas</b> registradas. Un comando sin '
+              f'corridas no ha corrido; que no haya corrido también es un dato.</p>']
+    for grupo, que_es, cmds in GRUPOS[agente]:
+        cuerpo.append(f'<h2>{e(grupo)}</h2><p class="entrada">{e(que_es)}</p>'
+                      '<div class="bloque"><table><thead><tr><th>Función</th><th>Comando</th>'
+                      '<th>Corridas</th><th>Última</th></tr></thead><tbody>')
+        for cmd in cmds:
+            suyas = por.get(cmd, [])
+            ultima = suyas[-1] if suyas else None
+            cuerpo.append(
+                f'<tr><td>{e(etiqueta(cmd))}</td><td><code>/{e(PLUGIN[agente])}:{e(cmd)}</code></td>'
+                f'<td class="n"><a href="/corridas?agente={e(agente)}&amp;que={e(cmd)}">{len(suyas)}</a></td>'
+                f'<td>{"<a href=" + chr(34) + e(ultima["ruta"]) + chr(34) + ">" + e((ultima.get("inicio") or ultima.get("fecha") or "").replace("T", " ")[:16]) + "</a>" if ultima else "—"}</td></tr>')
+        cuerpo.append('</tbody></table></div>')
+    cuerpo.append(AVISO_HISTORIA)
+    return 200, pagina(f'{NOMBRE[agente]} · {TITULO[agente].split(" · ")[1]}', "".join(cuerpo), hoy,
+                       nav(), f'/agente/{agente}')
+
+
+def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -> tuple:
+    """Todo lo que los tres agentes han hecho sobre un proyecto o un producto."""
+    suyas = [c for c in todas if c.get("caso") == codigo]
+    senales = h["casos"].get(codigo) or {}
+    if not suyas and not senales and not (informe_dir / f'{codigo}.html').is_file():
+        return 404, error(404, f'No hay nada sobre {codigo}', hoy)
+    es_producto = codigo.upper().startswith("PRD")
+    enlaces = []
+    if (informe_dir / f'{codigo}.html').is_file():
+        enlaces.append(f'<a href="/p/{e(codigo)}">su informe de hoy</a>')
+    if senales:
+        enlaces.append(f'<a href="/historia/{e(codigo)}">desde cuándo arrastra cada señal</a>')
+    cuerpo = [f'<p class="entrada"><b>{e(codigo)}</b>: {len(suyas)} corridas de los agentes sobre '
+              f'este {"producto" if es_producto else "proyecto"}'
+              + (' · ' + ' · '.join(enlaces) if enlaces else '') + '.</p>']
+    if suyas:
+        cuerpo += ['<div class="bloque"><table><thead><tr><th>Inicio</th><th>Agente</th>'
+                   '<th>Función</th><th>Seg</th><th>Hallazgos</th><th>Salida</th></tr></thead><tbody>']
+        for c in suyas:
+            cuerpo.append(
+                f'<tr><td class="nw"><a href="{e(c["ruta"])}">{e((c.get("inicio") or c.get("fecha") or "").replace("T", " ")[:16])}</a></td>'
+                f'<td><a href="/agente/{e(c["agente"])}">{e(NOMBRE.get(c["agente"], c["agente"]))}</a></td>'
+                f'<td>{e(etiqueta(c["comando"]))}</td>'
+                f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
+                f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
+                f'<td>{"sí" if c.get("salida") else "<em>no</em>"}</td></tr>')
+        cuerpo.append('</tbody></table></div>')
+    else:
+        cuerpo.append('<div class="bloque"><p>Ningún comando ha corrido sobre este caso en '
+                      'particular; lo que se sabe de él viene del barrido del portafolio.</p></div>')
+    if senales:
+        abiertas = sorted((x["seguidas"], sig, x["primera"]) for sig, x in senales.items()
+                          if not x.get("resuelta_en"))
+        if abiertas:
+            cuerpo += ['<h2>Lo que sigue abierto</h2>',
+                       '<div class="bloque"><table><thead><tr><th>Señal</th><th>Desde</th>'
+                       '<th>Cortes seguidos</th></tr></thead><tbody>']
+            for n_, sig, desde in sorted(abiertas, reverse=True):
+                cuerpo.append(f'<tr><td><code>{e(sig)}</code></td><td>{e(desde)}</td>'
+                              f'<td class="n">{n_}</td></tr>')
+            cuerpo.append('</tbody></table></div>')
+    cuerpo.append(AVISO_HISTORIA)
+    return 200, pagina(f'{codigo}', "".join(cuerpo), hoy, nav(), '/corridas')
 
 
 def vista_rastro(evidencia: Path, agente: str, ident: str, hoy: str) -> tuple:
@@ -953,6 +971,18 @@ class Manejador(BaseHTTPRequestHandler):
             h = portafolio.historia(self.estado, todos=True)
             self.html(200, corridas(indice(self.evidencia, self.estado), h, self.hoy(),
                                     agente, que, caso))
+        elif ruta == '/arrastres':
+            self.html(200, arrastres(portafolio.historia(self.estado, todos=True), self.hoy()))
+        elif ruta.startswith('/agente/'):
+            self.html(*vista_agente(indice(self.evidencia, self.estado), ruta[len('/agente/'):], self.hoy()))
+        elif ruta.startswith('/caso/'):
+            codigo = urllib.parse.unquote(ruta[len('/caso/'):])
+            if not SEGURO.match(codigo):
+                self.html(404, error(404, 'Eso no está aquí', self.hoy()))
+            else:
+                self.html(*vista_caso(indice(self.evidencia, self.estado),
+                                      portafolio.historia(self.estado, todos=True),
+                                      self.informe_dir, codigo, self.hoy()))
         elif ruta.startswith('/corrida/'):
             partes = [urllib.parse.unquote(x) for x in ruta.split('/')[2:]]
             if len(partes) == 2 and all(SEGURO.match(x) for x in partes):
@@ -1206,6 +1236,10 @@ def selftest() -> int:
                 prueba = '/historia/PRY-001'
             elif r.startswith('/corrida/'):
                 prueba = '/corrida/portafolio/-/2026-08-31-sweep-1'
+            elif r.startswith('/agente/'):
+                prueba = '/agente/portafolio'
+            elif r.startswith('/caso/'):
+                prueba = '/caso/PRY-001'
             cod = pedir(prueba)[0]
             if cod in (200, 302):
                 vivas.append(r)
@@ -1230,28 +1264,29 @@ def selftest() -> int:
         ok('el archivo en disco sigue sin árbol, para abrirlo sin servidor',
            'class="arbol"' in (inf / 'index.html').read_text(encoding='utf-8'), False)
         ok('el árbol lleva a los tres agentes por el mismo portal',
-           all(x in cuerpo for x in ('Samuel', 'Alba', 'agente=proyecto',
-                                     'agente=producto')), True)
-        # El árbol es la estructura completa de la PMO: los 37 comandos siempre, con o
-        # sin corridas, agrupados por función; y aparte por proyecto y por producto.
-        ok('el árbol lleva los 37 comandos de los tres agentes, corran o no',
-           cuerpo.count('class="cmd'), 37)
-        ok('cada comando tiene un nombre que se entiende, y el técnico debajo',
-           all(f'{e(etiqueta(c))} <b>' in cuerpo and f'<code>{c}</code>' in cuerpo
-               for c in ETIQUETA), True)
-        ok('y cada grupo dice qué es',
-           '<span class="d">Instalar, saber qué toca hoy, y el portal</span>' in cuerpo, True)
-        ok('en pantallas chicas el árbol se pliega tras un botón',
+           all(x in cuerpo for x in ('Samuel', 'Alba', '/agente/proyecto',
+                                     '/agente/producto')), True)
+        # El menú es corto y fijo; el catálogo de funciones vive en la página del agente.
+        ok('el menú tiene las cuatro secciones y nada más',
+           all(x in cuerpo for x in ('>Portafolio<', '>Historia<', '>Los agentes<', '>Preguntar<'))
+           and cuerpo.count('<p class="g">') == 4, True)
+        ok('y cuenta las corridas de cada agente',
+           '/agente/portafolio' in cuerpo and '/agente/proyecto' in cuerpo and '/agente/producto' in cuerpo, True)
+        ok('en pantallas chicas el menú se pliega tras un botón',
            'class="menu-boton"' in cuerpo and '.menu-caja:checked ~ .arbol' in cuerpo, True)
-        ok('con sus grupos de funciones',
-           all(g in cuerpo for g in ('Arranque y ritmo', 'Lectura de documentos',
-                                     'Seguimiento del proyecto', 'Descubrimiento',
-                                     'Dinero y proveedores', 'Publicar a la PMO')), True)
-        ok('un comando sin corridas se ve en gris, no desaparece',
-           'class="cmd vacio"><a href="/corridas?agente=proyecto&amp;que=pm-wake">Qué toca hoy <b>· 0</b><code>pm-wake</code>' in cuerpo, True)
-        ok('y uno con corridas las cuelga como hojas',
-           'Barrido: una ficha por proyecto <b>· 1</b><code>portfolio-scan</code>' in cuerpo
-           and '/corrida/portafolio/-/2026-08-31-sweep-1' in cuerpo, True)
+        cod, vera = pedir('/agente/portafolio')
+        ok('la página del agente lleva sus 17 funciones, corran o no',
+           cod == 200 and vera.count('<code>/criterio-portfolio:') == 17, True)
+        ok('cada una con nombre que se entiende y su grupo explicado',
+           'Barrido: una ficha por proyecto' in vera
+           and 'Instalar, saber qué toca hoy, y el portal' in vera, True)
+        ok('y las de Samuel y Alba también',
+           pedir('/agente/proyecto')[1].count('<code>/criterio-project:') == 9
+           and pedir('/agente/producto')[1].count('<code>/criterio-product:') == 11, True)
+        ok('un agente que no existe responde 404', pedir('/agente/nadie')[0], 404)
+        cod, arr = pedir('/arrastres')
+        ok('lo que se arrastra tiene página propia',
+           cod == 200 and 'variance_time' in arr and '/caso/PRY-001' in arr, True)
         solo = pedir('/corridas?agente=portafolio&que=portfolio-scan')[1]
         ok('el filtro por comando deja solo las suyas',
            '<td>Barrido: una ficha por proyecto<br>' in solo and 'Informe del portafolio<br>' not in solo, True)
@@ -1277,12 +1312,15 @@ def selftest() -> int:
             encoding='utf-8')
         Manejador.evidencia = ev
         con_rastro = pedir('/corridas')[1]
-        ok('la corrida del arnés cuelga de su comando, con caso y duración',
-           'Estado de un proyecto <b>· 1</b><code>status-report</code>' in con_rastro
-           and '2026-09-08 10:00 · PRY-001 · 90 s' in con_rastro, True)
-        ok('y aparece también bajo su proyecto',
-           '<a href="/historia/PRY-001">PRY-001</a>' in con_rastro
-           and con_rastro.count('/corrida/portafolio/2026-09-08-status-report-1') >= 2, True)
+        ok('la corrida del arnés está en la tabla con caso, duración y fuente',
+           '2026-09-08 10:00' in con_rastro and '>90<' in con_rastro and 'arnés' in con_rastro, True)
+        cod, caso = pedir('/caso/PRY-001')
+        ok('la página del caso junta lo que los agentes hicieron sobre él',
+           cod == 200 and '/corrida/portafolio/2026-09-08-status-report-1' in caso
+           and 'Estado de un proyecto' in caso and 'Lo que sigue abierto' in caso, True)
+        ok('y la tabla de corridas enlaza al caso y al agente',
+           '<a href="/caso/PRY-001">PRY-001</a>' in con_rastro
+           and '<a href="/agente/portafolio">Vera</a>' in con_rastro, True)
         cod, una = pedir('/corrida/portafolio/2026-09-08-status-report-1')
         ok('su página abre con el árbol encima',
            cod == 200 and 'semáforo rojo' in una and 'class="arbol"' in una, True)
@@ -1293,7 +1331,6 @@ def selftest() -> int:
         ok('ningún hueco del árbol queda sin rellenar',
            '<!--ARBOL' in con_rastro or '<!--ARBOL' in pedir('/index.html')[1], False)
         cuerpo = con_rastro
-        ok('y nombra lo que se arrastra', 'variance_time' in cuerpo, True)
         ok('con el aviso de que es la historia de lo leído',
            'lo que el agente leyó' in pedir('/corridas')[1], True)
         cod, cuerpo = pedir('/historia/PRY-001')

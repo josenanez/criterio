@@ -222,6 +222,9 @@ From here down is for whoever is going to publish it.
 | `/corridas` | The history of **all three agents**, and what is being carried | Everyone |
 | `/corridas?agente=` | Only the project manager's runs, or the product manager's | Their manager |
 | `/corridas?agente=&que=&caso=` | The runs of one command, or of one project or product; where the tree's branches lead | Whoever tests |
+| `/agente/<agent>` | What each agent does, function by function, and how often each ran | Everyone |
+| `/caso/<code>` | Everything the three agents did on one project or product | The sponsor |
+| `/arrastres` | Signals carried over several cuts with no decision | The committee |
 | `/corrida/<agent>/<id>` | **One whole run, as the harness left it**: what the agent showed, with the figures it measured | Everyone |
 | `/corrida/<agent>/<case>/<id>` | The figures of a run recorded only by `corrida`, before the trace | Everyone |
 | `/historia/<code>` | Since when a project has been carrying each signal, and which one was resolved | The PMO and the manager |
@@ -297,12 +300,21 @@ The run in detail, in
 [`tests/criterio-portfolio/EVIDENCIA.md`](../../tests/criterio-portfolio/EVIDENCIA.md) (Spanish, as
 working documents).
 
-## The tree is the whole PMO, and the harness writes the trace
+## The menu, the agents' pages and the case pages
 
-Every served page carries the full structure on the left: each agent with its function
-groups, each group with its commands, each command with every run it left. A command
-that has not run shows in grey with a zero: not having run is also data. Below, the same
-seen by project and by product: every run by every agent on that case.
+Every served page carries a short menu on the left, in the order someone enters:
+**Portfolio** (how it is going, what needs a decision, projects, products), **History**
+(every run, what drags on, what changed between two cuts), **The agents** (Vera, Samuel
+and Alba, with how many runs each has) and **Ask**. Nothing else: a project or a product
+opens from its listing, and fifty and sixty-five do not fit in a column.
+
+`/agente/<agent>` is each agent's catalogue: its functions grouped, each command with a
+name people understand and the technical one beside it, how many times it ran and when
+it last did. A command that has not run shows a zero: not having run is also data.
+
+`/caso/<code>` gathers everything the three agents have done on one project or product,
+with what is still open, and links to its report and its timeline. It is what a sponsor
+opens.
 
 Runs are not recorded by the agent. They are recorded by the harness: each plugin ships
 `hooks/hooks.json`, and Claude Code fires `rastro.py` when the person invokes a command
