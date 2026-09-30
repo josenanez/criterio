@@ -23,6 +23,13 @@ Tres cosas juntas: **alguien**, **algo concreto** y **una fecha**. Si falta una,
 | "Lo vemos la próxima" | No. Es un aplazamiento, no un compromiso |
 | "Ya quedamos que eso se hacía" | No. Es una referencia a un compromiso anterior; búscalo en vez de crear uno nuevo |
 
+**Tampoco inventes la fecha.** "Esta semana", "antes del comité", "pronto" no son
+fechas: se copian tal cual en `due_date` y el compromiso queda `no_declarada` hasta que
+alguien la ponga. En un acta real el agente escribió `~2026-10-04` para "esta semana" —con
+tilde de aproximado y todo— y con eso el código lo habría dado por vencido el día 5 contra
+una fecha que nadie prometió. Una fecha que el doliente no dijo es un dato inventado, aunque
+el cálculo sea razonable; se pregunta en la reunión siguiente y se registra la respuesta.
+
 **Nunca inventes el doliente.** Si en la transcripción no se distingue quién se comprometió, el compromiso se registra con `who: no_identificado` y se pregunta. Asignarle una tarea a la persona equivocada quema la confianza en el sistema entero, y se quema una sola vez.
 
 ## Cómo se registra

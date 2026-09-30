@@ -72,6 +72,16 @@ un requerimiento y qué no.
   misma cosa.
 - **Lo mismo pedido por la misma persona con otro alcance es otro requerimiento.** El
   alcance es lo que cambia, y fusionarlo pierde la diferencia.
+- **Cada evidencia lleva `source_date`, siempre.** Es la fecha del documento de donde
+  salió —la del nombre del archivo, `AAAA-MM-DD-tema.ext`, o la de dentro si el nombre no
+  la trae—, y es el único campo que el código mira para saber si la evidencia envejeció.
+  La primera medición real lo mostró: el agente escribió en su nota que la única
+  entrevista tenía trece meses, y en el registro dejó `source` sin `source_date`. El
+  código no lee notas; leyó cinco requerimientos con evidencia sin fecha y no levantó
+  `evidence_stale` en ninguno. La fecha que sabes y no escribes en el campo no existe.
+- **Una evidencia es una cita concreta, no una categoría.** «Cliente entrevistado» no
+  dice quién pidió qué; «entrevista con Almacenes Rey, 2025-08-13: pide conciliación el
+  mismo día» sí. El `value` lleva lo que se dijo, en las palabras de quien lo dijo.
 - **Una queja no es un requerimiento** hasta que alguien nombra qué haría falta. Se
   registra como evidencia, no como registro propio.
 

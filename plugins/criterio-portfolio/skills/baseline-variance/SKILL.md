@@ -47,6 +47,38 @@ Dos casos más que el script separa en vez de resolver por su cuenta:
   lista de ilegibles. Cada paso es correcto y el resultado es que un cambio aprobado real
   queda fuera del control de replanificación. Un impacto en meses hay que preguntarlo.
 
+## Qué se lee para que haya línea base y haya cambios
+
+La regla de solo agregar no sirve de nada si en la ficha solo entra la primera versión.
+La primera medición real lo mostró: en carpetas con `cronograma-v1` y `cronograma-v2`, el
+agente leyó el v1, dejó una sola línea base, no registró ninguna solicitud de cambio, y
+el código, con una línea base y cero cambios, no pudo calcular desviación en tiempo ni
+replanificación no autorizada en ningún proyecto. Quince atrasos y nueve replanificaciones
+sin autorizar quedaron invisibles, no porque el cálculo fallara sino porque no le llegó
+el dato.
+
+Por eso la lectura es así, y se hace completa antes de escribir la ficha:
+
+- **Cada versión del cronograma es una línea base.** `cronograma-v1`, `-v2`, `-v3`, en
+  orden: cada una entra como registro en `plan.baseline` con `version`, `approved_on`
+  (la fecha del archivo), `start_date`, `end_date` (la fecha vigente del último hito) y
+  `source`. Tres archivos son tres líneas base, y el `reason` de cada una sale del
+  informe o acta de esa fecha si lo declara; si no, queda `not_found`.
+- **`plan.end_date` y `current_date` de cada hito salen de la versión más reciente.**
+  `baseline_date` sale de la primera. Es la diferencia entre las dos lo que el script
+  mide; si copias la misma fecha en ambas, la desviación es cero por construcción.
+- **Cada solicitud de cambio es un registro en `changes`.** Todo archivo
+  `solicitud-cambio-*`, otrosí o acta que apruebe o rechace un cambio: `ref`,
+  `requested_on`, impacto en tiempo y en costo tal como está escrito (si dice "dos
+  meses", se copia "dos meses"; el script decide si lo puede leer), `decision`
+  (`approved`, `rejected` o `pending` cuando dice "pendiente de comité"), quién lo decidió y
+  `source`. Una solicitud pendiente también se registra: que el plan se haya movido
+  antes de que el comité la viera es exactamente la resta que el script hace.
+
+Si la carpeta tiene un solo cronograma y ninguna solicitud, se dice así y la ficha lleva
+una línea base y `changes` vacío. Lo que no se hace es tener dos cronogramas y registrar
+uno.
+
 ## Desviación en tiempo
 
 Se calcula sobre hitos, no sobre porcentajes de avance declarados. Un porcentaje lo declara el gerente; una fecha de hito la sustenta un documento.

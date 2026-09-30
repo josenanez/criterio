@@ -113,6 +113,35 @@ exactamente eso.
 Si no hay `ficha-pm.json`, `pm_record` no existe y no pasa nada. Es el caso normal.
 
 
+## Estado declarado y evidencia son dos campos, y no se mezclan
+
+Un hito y un entregable llevan `state` y `evidence`, y cada uno responde a una pregunta
+distinta:
+
+- **`state`** es lo que el documento declara. Si el cronograma dice `cerrado`, `state`
+  es `met`; si dice `pendiente` o `en curso`, `pending`; si el informe dice que no se
+  cumplió, `missed`. Se copia la declaración tal cual, con su fuente.
+- **`evidence`** es la ruta del documento que **prueba** que se cumplió: un acta de
+  recibo, un acta de comité que lo da por cerrado con fecha, un correo de aceptación.
+  Si no existe, `evidence` queda vacío. Y nada más.
+
+Lo que no se hace es dejar el hito en `pending` porque no encontraste el acta. La
+primera medición real lo mostró en un barrido sobre cincuenta proyectos: el cronograma
+declaraba cinco hitos cerrados, el agente no halló acta para ninguno, y los registró
+como abiertos. El código vio cinco hitos vencidos y abiertos —`milestone_overdue`— cuando
+lo que había era cinco hitos **declarados cerrados sin un documento que lo pruebe**
+—`milestone_met_without_evidence`—, que es la señal que este sistema existe para dar y
+que pide una acción distinta: no "apúrense", sino "muéstrenme el acta". Cincuenta y
+cinco señales quedaron con el nombre equivocado por esa sola decisión.
+
+La regla es una frase: **`state` dice lo que declaran; `evidence` dice lo que prueban.**
+Que no haya prueba nunca cambia la declaración. Lo mismo vale para los entregables de un
+proveedor: `accepted` es lo que el contrato o el informe afirma, y `evidence` es el acta
+de recibo, o nada.
+
+Y un acta de recibo cuenta como evidencia solo del hito o entregable que nombra. El acta
+que certifica el ambiente de pruebas no prueba la integración con el core.
+
 ## Lo que nunca se hace
 
 - Inventar un dato que no está en ningún documento.
@@ -121,3 +150,4 @@ Si no hay `ficha-pm.json`, `pm_record` no existe y no pasa nada. Es el caso norm
 - Sobrescribir la línea base original. Ver el skill `baseline-variance`.
 - Calcular dentro de la ficha.
 - Afirmar un estado que ningún documento sustenta. "No está declarado en ninguna parte" es la respuesta correcta.
+- Cambiar `state` porque falta la evidencia. Se registra la declaración y el vacío de prueba, y el código nombra la señal.

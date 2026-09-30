@@ -52,6 +52,8 @@ Un proyecto mencionado solo dentro de las minutas de otro también cuenta: se le
 
 Aplica el skill **project-record**. Procesa en lotes por proyecto, no todo de una vez: la cuota importa y un lote fallido no debe perder el trabajo de los demás.
 
+**Un lote a la vez, en esta misma conversación, y cada ficha se escribe apenas termina su proyecto.** No lances subagentes en paralelo ni en segundo plano para repartir el corpus: en una corrida real, cinco subagentes con ~70 documentos cada uno agotaron la cuota del plan con 12 fichas de 51 escritas, la corrida quedó abierta sin registrar, y el rastro solo vio el turno principal. Cinco lecturas paralelas del mismo corpus cuestan cinco veces y no dejan nada si se cortan; una lectura secuencial que escribe cada ficha al cerrarla deja lo hecho aunque se corte. Si la cuota se acaba a mitad, se registra la corrida con lo que alcanzó (paso 6) y se dice cuántos proyectos faltan.
+
 Orden dentro de cada proyecto: primero `00-gobierno`, luego `10-plan`, después `20-seguimiento` y `30-reuniones` de más reciente a más antiguo. Lo reciente manda sobre lo viejo.
 
 De las minutas y transcripciones, aplica **commitment-tracking** y **raid-taxonomy**: recoge los compromisos y los riesgos que se dijeron y nadie registró.

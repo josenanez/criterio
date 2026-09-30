@@ -1130,6 +1130,9 @@ def selftest() -> int:
     (tmp / 'secreto.txt').write_text('no debe salir', encoding='utf-8')
 
     Manejador.informe_dir, Manejador.estado, Manejador.callado = inf, est, True
+    # La evidencia del arnés también va al temporal: sin esto el selftest lee las
+    # corridas reales de `.criterio/corridas/` del repositorio y cuenta lo que no puso.
+    Manejador.evidencia = tmp / 'evidencia'
     Manejador.organizacion = 'Banco del Selftest'
     srv = ThreadingHTTPServer(('127.0.0.1', 0), Manejador)
     hilo = threading.Thread(target=srv.serve_forever, daemon=True); hilo.start()
