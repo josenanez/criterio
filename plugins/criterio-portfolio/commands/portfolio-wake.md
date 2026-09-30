@@ -5,6 +5,7 @@ argument-hint: "[AAAA-MM-DD para simular otro día]"
 
 # /portfolio-wake — Lo que toca hoy
 
+> **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla.
 > Este es el comando que invoca el reloj, no la persona. Puede correr sin nadie mirando.
 

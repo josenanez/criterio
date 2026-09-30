@@ -5,6 +5,7 @@ argument-hint: "[ppt|pdf|html] o vacío para el formato configurado"
 
 # /portfolio-report — Informe de portafolio
 
+> **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
 Consolida las fichas y responde lo que el gerente de PMO no puede saber leyendo proyecto por proyecto.
 
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.

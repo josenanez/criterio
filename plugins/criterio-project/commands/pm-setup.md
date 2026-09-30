@@ -5,6 +5,7 @@ argument-hint: "[ruta de la carpeta del proyecto] o vacío"
 
 # /pm-setup — Instalación
 
+> **Dónde queda la configuración:** `.criterio/proyecto/<código>/config.json`, en la carpeta donde corre la sesión; con un solo proyecto configurado es ese, con varios el del código que viene en el argumento. Es la única ruta; todos los demás comandos la leen de ahí y no la buscan en otro sitio. Las rutas dentro de ella se escriben relativas a esa carpeta de la sesión.
 Lo primero que corre un gerente de proyecto después de instalar. Al terminar ha visto
 **quién prometió qué en su última reunión**, sacado de sus propios documentos.
 

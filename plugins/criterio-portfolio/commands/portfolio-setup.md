@@ -5,6 +5,7 @@ argument-hint: "[ruta de tus documentos de proyectos] o vacío"
 
 # /portfolio-setup — Instalación
 
+> **Dónde queda la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. Es la única ruta; todos los demás comandos la leen de ahí y no la buscan en otro sitio. Las rutas dentro de ella se escriben relativas a esa carpeta de la sesión.
 Lo primero que corre cualquiera después de instalar. Al terminar, la persona ha visto un resultado sobre sus propios documentos.
 
 **Regla que gobierna todo este comando: la persona nunca abre un archivo de configuración.** Si quiere cambiar algo después, lo dice en la conversación y este comando lo reescribe.

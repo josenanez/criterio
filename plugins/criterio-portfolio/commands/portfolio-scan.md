@@ -5,6 +5,7 @@ argument-hint: "[ruta de la carpeta] o vacío para usar la configurada"
 
 # /portfolio-scan — Barrido de la documentación
 
+> **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
 Puerta de entrada del plugin. Convierte una carpeta desordenada de documentos en fichas consultables.
 
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes fichas ni informe.

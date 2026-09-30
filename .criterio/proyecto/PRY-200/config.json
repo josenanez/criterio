@@ -1,0 +1,30 @@
+{
+  "version": "0.1",
+  "role": "pm",
+  "project": {
+    "code": "PRY-200",
+    "name": "Originación digital",
+    "manager": "Óscar Ramírez",
+    "sponsor": "Sandra Gil",
+    "committee": "Comité de Banca Empresas"
+  },
+  "paths": {
+    "documents": ".pruebas/corp-demo/documentos/proyectos/PRY-200-originación-digital",
+    "state": ".pruebas/corp-demo/estado/PRY-200-originación-digital"
+  },
+  "cycle": {
+    "meeting": "weekly",
+    "meeting_day": "wednesday",
+    "report_lead_days": 1,
+    "daily_sweep": true
+  },
+  "report": {
+    "format": "markdown",
+    "language": "es"
+  },
+  "terms_accepted": {
+    "version": "1.0",
+    "date": "2026-09-29",
+    "by": "Óscar Ramírez"
+  }
+}

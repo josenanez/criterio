@@ -5,6 +5,7 @@ argument-hint: "<código del proyecto> [nombre del proveedor]"
 
 # /vendor-tracking — Proveedores
 
+> **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla. Sin eso, responde preguntas pero no generes el informe.
 > Abre declarando de qué documentos sale. Cierra con el pie de rigor.
 

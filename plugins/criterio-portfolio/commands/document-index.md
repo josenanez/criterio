@@ -5,6 +5,7 @@ argument-hint: "[código del proyecto]"
 
 # /document-index — Qué cambió en la carpeta
 
+> **Dónde está la configuración:** `.criterio/portafolio/config.json`, en la carpeta donde corre la sesión. La escribe `/criterio-portfolio:portfolio-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
 > **Antes de producir nada:** verifica `terms_accepted` en la configuración local. Si falta, o su versión es anterior a la de `TERMS.md`, muestra el descargo corto, pide aceptación explícita y ofrece guardarla.
 > Este comando no lee documentos: los cuenta y los compara. Es el paso que decide el costo de todo lo demás.
 

@@ -5,6 +5,7 @@ argument-hint: "[ruta de la carpeta del producto] o vacío"
 
 # /product-setup — Instalación
 
+> **Dónde queda la configuración:** `.criterio/producto/<código>/config.json`, en la carpeta donde corre la sesión; con un solo producto configurado es ese, con varios el del código que viene en el argumento. Es la única ruta; todos los demás comandos la leen de ahí y no la buscan en otro sitio. Las rutas dentro de ella se escriben relativas a esa carpeta de la sesión.
 Lo primero que corre un gerente de producto después de instalar. Al terminar ha visto
 **qué afirmaciones de su propia definición no tienen nada que las sostenga**, sacado de sus
 propios documentos.
