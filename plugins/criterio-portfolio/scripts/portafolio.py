@@ -1859,6 +1859,12 @@ def _selftest_plan():
             "meta": {"documents_seen": [{"path": f"PRY-00{i}-proyecto/2026-09-0{j + 1}-doc-{j}.md",
                                          "hash": None, "date": f"2026-09-0{j + 1}"}
                                         for j in range(4)]}}), encoding="utf-8")
+    plan_d = docs / "PRY-003-proyecto" / "10-plan"
+    plan_d.mkdir()
+    (plan_d / "2026-01-10-cronograma-v1.csv").write_text(
+        "hito,fecha_linea_base,fecha_vigente,estado\nA,2026-03-01,2026-03-01,cerrado\nB,2026-06-30,2026-06-30,en curso\n", encoding="utf-8")
+    (plan_d / "2026-05-02-cronograma-v2.csv").write_text(
+        "hito,fecha_linea_base,fecha_vigente,estado\nA,2026-03-01,2026-03-01,cerrado\nB,2026-06-30,2026-08-15,en curso\n", encoding="utf-8")
     ex = dict(DEFAULT_EXECUTION, batch_projects=2)
     p1 = plan(docs, estado, ex)
     sin_corrida = sellar(docs, estado, "PRY-001")
@@ -1875,17 +1881,21 @@ def _selftest_plan():
     p4 = plan(docs, estado, dict(ex, max_documents_per_run=5, reread_unchanged=True))
     p5 = plan(docs, estado, dict(ex, workers=3, reread_unchanged=True))
     return [
-        ("sin hash, todo se relee (el día de la cuota)", p1["to_read"], 12),
+        ("sin hash, todo se relee (el día de la cuota)", p1["to_read"], 14),
         ("sin corrida abierta no se sella", sin_corrida["ok"], False),
         ("una ficha no reescrita en la corrida no se sella", sin_releer["ok"], False),
-        ("sellar calcula los hashes", all(s["ok"] and s["documents_seen"] == 4 for s in sellados), True),
+        ("sellar calcula los hashes", all(s["ok"] for s in sellados), True),
+        ("y completa las líneas base desde los cronogramas",
+         [(b["version"], b["end_date"]) for b in json.loads((estado / "records" / "PRY-003.json").read_text())["plan"]["baseline"]],
+         [(1, "2026-06-30"), (2, "2026-08-15")]),
         ("sellado y sin cambios: plan vacío", (p2["to_read"], p2["batches"]), (0, [])),
         ("un documento cambiado: un proyecto, un lote", [b["projects"] for b in p3["batches"]], [["PRY-002"]]),
         ("el tope corta por proyecto y difiere", (p4["to_read"], p4["deferred"]["projects"]), (4, ["PRY-002", "PRY-003"])),
         ("lotes del tamaño configurado", [len(b["projects"]) for b in p5["batches"]], [2, 1]),
         ("el modo dice cuántos a la vez", "hasta 3 a la vez" in p5["mode"] and "uno tras otro" in p4["mode"], True),
         ("el inventario lo da el plan, no el agente",
-         (p1["inventory"]["folders"], p1["inventory"]["formats"]), (3, {".md": 12})),
+         (p1["inventory"]["folders"], p1["inventory"]["formats"], p1["inventory"]["newest"]),
+         (3, {".csv": 2, ".md": 12}, "2026-09-04")),
     ]
 
 
@@ -2087,7 +2097,7 @@ def plan(docs: Path, state: Path, execution: dict) -> dict:
     # El inventario lo hace el script, no el agente. Cuando se lo dejó al agente armó
     # `find … | sort > /tmp/lista && wc -l`, que es una aprobación por comando y una
     # escritura fuera de la carpeta: el primer paso del barrido ya pedía permiso.
-    formatos, ilegibles, carpetas = {}, [], set()
+    formatos, ilegibles, carpetas, fechas = {}, [], set(), []
     try:
         import texto as _texto
         leibles = set(_texto.NATIVO) | set(_texto.CONVERTIDORES) | {".pdf"}
@@ -2100,6 +2110,9 @@ def plan(docs: Path, state: Path, execution: dict) -> dict:
         rel = ruta.relative_to(docs)
         ext = ruta.suffix.lower() or "(sin extensión)"
         formatos[ext] = formatos.get(ext, 0) + 1
+        fecha = re.match(r"(\d{4}-\d{2}-\d{2})", ruta.name)
+        if fecha:
+            fechas.append(fecha.group(1))
         if len(rel.parts) > 1:
             carpetas.add(rel.parts[0])
         if ruta.suffix.lower() not in leibles:
@@ -2163,10 +2176,39 @@ def plan(docs: Path, state: Path, execution: dict) -> dict:
                      "documents": sum(len(por_proyecto[c]) for c in diferidos)},
         "over_cap_alone": [c for c in elegidos if len(por_proyecto[c]) > tope],
         "mode": modo,
-        "inventory": {"folders": len(carpetas), "formats": dict(sorted(formatos.items())),
+        "inventory": {"folders": len(carpetas), "files": sum(formatos.values()),
+                      "newest": max(fechas) if fechas else None,
+                      "formats": dict(sorted(formatos.items())),
                       "unreadable": ilegibles},
         "index": {k: idx[k] for k in ("renamed", "deleted", "source_missing")},
     }
+
+
+def lineas_base_csv(carpeta: Path, docs: Path) -> list:
+    """Las líneas base que se leen sin interpretar: cada `…cronograma-vN.csv` es una.
+
+    Es lectura, no juicio: la fecha del archivo es cuándo se aprobó, y la fecha vigente
+    más tardía de sus hitos es su fin. En la fase 2 el agente leyó bien los hitos del v2
+    y aun así dejó una sola línea base, y con una sola no hay desviación ni replanificación
+    que medir. Lo que un script puede leer de una tabla no se le deja al modelo.
+    """
+    import csv
+    salida = []
+    for f in sorted(carpeta.rglob("*cronograma-v*.csv")):
+        m = re.search(r"(\d{4}-\d{2}-\d{2}).*cronograma-v(\d+)\.csv$", f.name)
+        if not m:
+            continue
+        try:
+            filas = list(csv.DictReader(f.read_text(encoding="utf-8").splitlines()))
+        except (OSError, UnicodeDecodeError):
+            continue
+        vigentes = sorted(r.get("fecha_vigente") for r in filas if r.get("fecha_vigente"))
+        base = sorted(r.get("fecha_linea_base") for r in filas if r.get("fecha_linea_base"))
+        salida.append({"version": int(m.group(2)), "approved_on": m.group(1),
+                       "start_date": None, "end_date": vigentes[-1] if vigentes else None,
+                       "baseline_end_date": base[-1] if base else None,
+                       "source": str(f.relative_to(docs))})
+    return sorted(salida, key=lambda b: b["version"])
 
 
 def sellar(docs: Path, state: Path, proyecto: str) -> dict:
@@ -2211,11 +2253,25 @@ def sellar(docs: Path, state: Path, proyecto: str) -> dict:
         vistos.append({"path": str(ruta.relative_to(docs)), "hash": hash_bytes(ruta),
                        "text_hash": hash_texto(ruta), "date": fecha.group(1) if fecha else None})
     rec = json.loads(f.read_text(encoding="utf-8"))
+    completado = []
+    if proyecto != "producto":
+        csvs = lineas_base_csv(carpeta, docs)
+        if csvs:
+            plan_ = rec.setdefault("plan", {})
+            previas = {b.get("version"): b for b in plan_.get("baseline") or []}
+            plan_["baseline"] = [dict(b, reason=(previas.get(b["version"]) or {}).get("reason") or "not_found")
+                                 for b in csvs]
+            ultima = csvs[-1]
+            fin = plan_.get("end_date") or {}
+            if ultima["end_date"] and (value(fin.get("source_date")) or "") <= ultima["approved_on"]:
+                plan_["end_date"] = {"value": ultima["end_date"], "source": ultima["source"],
+                                     "source_date": ultima["approved_on"], "state": "found"}
+            completado.append(f"{len(csvs)} línea(s) base desde los cronogramas")
     meta = rec.setdefault("meta", {})
     meta["documents_seen"] = vistos
     meta["record_updated"] = dt.date.today().isoformat()
     f.write_text(json.dumps(rec, ensure_ascii=False, indent=2), encoding="utf-8")
-    return {"ok": True, "project": proyecto, "documents_seen": len(vistos)}
+    return {"ok": True, "project": proyecto, "documents_seen": len(vistos), "completed": completado}
 
 
 def load_thresholds(config: Path | None) -> dict:
@@ -2269,6 +2325,13 @@ def main() -> int:
         if sitio:
             result["ok"] = False
             result.setdefault("problems", []).append(sitio)
+        estado = ((json.loads(args.config.read_text(encoding="utf-8")).get("paths") or {}).get("state")
+                  if args.config.is_file() else None) or ""
+        if ".criterio/" in estado.replace("\\", "/") + "/":
+            result["ok"] = False
+            result.setdefault("problems", []).append(
+                "el estado no va dentro de .criterio/: ahí vive la configuración, que se versiona, "
+                "y las fichas llevan datos del cliente; va junto a la carpeta de documentos")
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0 if result["ok"] else 1
 

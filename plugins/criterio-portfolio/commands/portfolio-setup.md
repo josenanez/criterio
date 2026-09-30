@@ -45,7 +45,7 @@ una presentación, la da el primer resultado sobre sus propios documentos.
 
 Si hay ruta en el argumento, úsala. Si no, pregunta dónde están los documentos de proyectos y ofrece buscar.
 
-Mira la carpeta con `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" plan-lectura --state <estado> --docs <carpeta>` —su `inventory` es el inventario; no uses `find` ni listas en `/tmp`— y reporta en dos líneas qué encontraste: cuántos proyectos se distinguen, cuántos documentos, qué formatos, y cuál es el documento más reciente. Eso le dice a la persona que esto ya está mirando sus cosas de verdad.
+Mira la carpeta con `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" plan-lectura --state <estado> --docs <carpeta>` —su `inventory` es el inventario: `files`, `folders`, `formats`, `newest` (la fecha más reciente en los nombres) y `unreadable`; esas cifras se copian, y no se usa `find` ni listas en `/tmp`— y reporta en dos líneas qué encontraste: cuántos proyectos se distinguen, cuántos documentos, qué formatos, y cuál es el documento más reciente. Eso le dice a la persona que esto ya está mirando sus cosas de verdad.
 
 Si ya hay configuración, no rehagas nada: muestra lo que está y pregunta qué quiere cambiar.
 
@@ -74,6 +74,8 @@ Registra la aceptación con el nombre que dé la persona y la fecha. **No la asu
 **6. Deja todo armado**
 
 La configuración lleva también cuánto puede costar una corrida (`execution`: lotes de diez proyectos, uno tras otro, hasta cuatrocientos documentos por corrida, sin releer lo que no cambió). **No se pregunta**: son los valores seguros para cualquier plan con ventana de cuota. Si la organización paga por uso y quiere velocidad, lo dice después en la conversación y este comando sube `workers`; nunca lo decide el agente por su cuenta.
+
+**Dónde va lo que Vera va encontrando (`<estado>`) y los informes.** No se pregunta: se propone y se dice. Junto a la carpeta de documentos, nunca dentro de `.criterio/` —ahí vive la configuración, que se versiona, y las fichas llevan datos del cliente—: si los documentos están en `<raíz>/documentos/proyectos`, el estado va en `<raíz>/estado` y los informes en `<raíz>/reportes`. `config` rechaza un estado dentro de `.criterio/`.
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" init --state <estado>

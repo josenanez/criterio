@@ -1,6 +1,6 @@
 {
   "name": "criterio-project",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Gerencia de un proyecto: el compromiso dicho y no cumplido, el plan contra la evidencia, la agenda de la reunión antes y el acta después, y el informe semanal listo salvo el estado. Una instancia por proyecto.",
   "author": {
     "name": "José Francisco Ñáñez",

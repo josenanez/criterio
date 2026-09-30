@@ -5,6 +5,7 @@
                       →  python3 rastro.py parar    (Stop)
                       →  python3 rastro.py subagente-inicio (SubagentStart)
                       →  python3 rastro.py subagente-fin    (SubagentStop)
+                      →  python3 rastro.py subagente-antes  (PreToolUse, Task|Agent)
     python3 rastro.py --selftest
 
 Todo lo que antes dependía de que el agente obedeciera la última instrucción de un
@@ -121,6 +122,31 @@ def subagente(d: dict, agente: str, que: str) -> int:
         else:
             abierto["fin"] = ahora
     marca.write_text(json.dumps(m, ensure_ascii=False), encoding="utf-8")
+    return 0
+
+
+def antes_de_subagente(d: dict, agente: str) -> int:
+    """PreToolUse sobre la herramienta de subagentes: con `workers: 1`, no se lanza.
+
+    La regla estuvo escrita en el barrido, luego en los 37 comandos, y en tres corridas
+    seguidas el agente lanzó subagentes igual. Una instrucción se salta; un hook que
+    devuelve 2 no: Claude Code bloquea la llamada y le entrega el motivo al modelo.
+    """
+    marca = raiz_de(d) / "en-curso" / f"{d.get('session_id') or 'sesion'}.json"
+    try:
+        m = json.loads(marca.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return 0
+    if m.get("agente") != agente:
+        return 0
+    workers = workers_configurados(Path(d.get("cwd") or os.getcwd()), agente, m.get("caso"))
+    vivos = sum(1 for s in m.get("subagentes") or [] if s.get("inicio") and not s.get("fin"))
+    if workers == 1 or vivos >= workers:
+        sys.stderr.write(
+            f"Criterio: la configuración permite {workers} a la vez (execution.workers) y "
+            f"{'no se lanzan subagentes' if workers == 1 else f'ya hay {vivos} corriendo'}. "
+            "Lee los documentos tú, uno tras otro, en esta conversación.\n")
+        return 2
     return 0
 
 
@@ -464,6 +490,8 @@ def selftest() -> int:
         subagente(s, "portafolio", "fin"); subagente(s, "portafolio", "fin")
         parar(dict(s, last_assistant_message="setup"), "portafolio")
         su = json.loads((carpeta / "corridas.json").read_text())[-1]
+        ok("con workers 1 el hook bloquea el subagente", antes_de_subagente(s, "portafolio"), 2)
+        ok("y el de otro agente no se mete", antes_de_subagente(s, "proyecto"), 0)
         ok("sin inicio registrado la concurrencia no se inventa, y es exceso",
            (su["subagentes"], su["concurrentes"], su["exceso"]), (2, None, True))
     print("\n" + ("todo pasa" if not fallas else f"{len(fallas)} falla(s)"))
@@ -473,7 +501,8 @@ def selftest() -> int:
 def main() -> int:
     if "--selftest" in sys.argv:
         return selftest()
-    if len(sys.argv) < 2 or sys.argv[1] not in ("enviar", "parar", "subagente-inicio", "subagente-fin"):
+    if len(sys.argv) < 2 or sys.argv[1] not in ("enviar", "parar", "subagente-inicio",
+                                                   "subagente-fin", "subagente-antes"):
         print(__doc__)
         return 2
     agente = agente_propio()
@@ -485,6 +514,8 @@ def main() -> int:
             return enviar(d, agente)
         if sys.argv[1] == "parar":
             return parar(d, agente)
+        if sys.argv[1] == "subagente-antes":
+            return antes_de_subagente(d, agente)
         return subagente(d, agente, sys.argv[1].split("-")[1])
     except Exception as ex:  # el rastro nunca tumba la sesión; deja constancia y sigue
         try:
