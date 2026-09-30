@@ -691,7 +691,7 @@ print("\nQue el árbol del portal tenga exactamente los comandos que existen")
 # siga en el árbol es un enlace muerto. Las dos cosas se ven aquí, no en producción.
 sys.path.insert(0, str(PLUGIN / "scripts"))
 import servidor as _srv  # noqa: E402
-_en_arbol = {(a, c) for a, grupos in _srv.GRUPOS.items() for _, cmds in grupos for c in cmds}
+_en_arbol = {(a, c) for a, grupos in _srv.GRUPOS.items() for _, _, cmds in grupos for c in cmds}
 _agente = {"criterio-portfolio": "portafolio", "criterio-project": "proyecto",
            "criterio-product": "producto"}
 _en_disco = {(_agente[plug], f.stem) for plug in _agente
@@ -700,8 +700,11 @@ for _a, _c in sorted(_en_disco - _en_arbol):
     decir(FALLA, f"{_c} existe en {_a} y no está en ningún grupo del árbol")
 for _a, _c in sorted(_en_arbol - _en_disco):
     decir(FALLA, f"{_c} está en el árbol de {_a} y no existe como comando")
-if _en_disco == _en_arbol:
-    decir(OK, f"los {len(_en_arbol)} comandos están en el árbol, cada uno en su grupo")
+_sin_nombre = sorted(c for _, c in _en_disco if c not in _srv.ETIQUETA)
+for _c in _sin_nombre:
+    decir(FALLA, f"{_c} no tiene nombre legible en el árbol (ETIQUETA)")
+if _en_disco == _en_arbol and not _sin_nombre:
+    decir(OK, f"los {len(_en_arbol)} comandos están en el árbol, cada uno en su grupo y con nombre")
 
 print(f"\n{'coherente' if not fallas else f'{fallas} INCONSISTENCIAS'}")
 sys.exit(0 if not fallas else 1)

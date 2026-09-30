@@ -91,26 +91,55 @@ ASUNTOS = {
 
 EXTRA = f"""
 .con-arbol{{display:flex;gap:0;align-items:flex-start}}
-.arbol{{flex:0 0 232px;position:sticky;top:0;padding:38px 20px 38px 0;
-  border-right:1px solid {informe.FILETE};min-height:100vh;font-size:.93rem}}
-.arbol .g{{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
-  color:{informe.ORO};font-weight:600;margin:1.6em 0 .5em}}
+.arbol{{flex:0 0 330px;position:sticky;top:0;max-height:100vh;overflow-y:auto;
+  padding:34px 22px 34px 0;border-right:1px solid {informe.FILETE};font-size:1rem;line-height:1.45}}
+.arbol .g{{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;
+  color:{informe.ORO};font-weight:700;margin:1.7em 0 .5em}}
 .arbol .g:first-child{{margin-top:0}}
+.arbol .n{{display:inline-block;min-width:1.6em;padding:0 .45em;margin-left:.35em;border-radius:1em;
+  background:{informe.PANEL};color:{informe.CUERPO};font-size:.82rem;font-weight:600;text-align:center;
+  letter-spacing:0;text-transform:none}}
 .arbol ul{{list-style:none;margin:0;padding:0}}
-.arbol li{{margin:.2em 0}}
-.arbol a{{display:block;padding:.28em 0;color:{informe.TINTA};border:0}}
+.arbol li{{margin:.15em 0}}
+.arbol a{{display:block;padding:.3em 0;color:{informe.TINTA};border:0;text-decoration:none}}
 .arbol a:hover{{color:{informe.ORO}}}
-.arbol a.yo{{color:{informe.ORO};font-weight:600}}
+.arbol a.yo{{color:{informe.ORO};font-weight:700}}
+.arbol li.fija a{{font-weight:500}}
+.arbol details{{margin:.35em 0}}
+.arbol summary{{cursor:pointer;padding:.35em 0;list-style:none;font-weight:600;color:{informe.TINTA}}}
+.arbol summary::-webkit-details-marker{{display:none}}
+.arbol summary .t::before{{content:"▸ ";color:{informe.ORO}}}
+.arbol details[open] > summary .t::before{{content:"▾ "}}
+.arbol summary .d{{display:block;font-weight:400;font-size:.86rem;color:{informe.APAGADO};
+  margin:.1em 0 .2em 1.1em;line-height:1.35}}
+.arbol li.cmd{{margin-left:1.1em}}
+.arbol li.cmd a{{padding:.35em 0 .3em}}
+.arbol li.cmd a b{{color:{informe.ORO};font-weight:700}}
+.arbol li.cmd a code{{display:block;font-size:.74rem;color:{informe.APAGADO};background:none;padding:0}}
+.arbol li.cmd.vacio a{{color:{informe.APAGADO}}}
+.arbol li.cmd.vacio a b{{color:{informe.APAGADO};font-weight:500}}
+.arbol li.run a{{font-size:.9rem;padding:.22em 0 .22em 1.2em;color:{informe.CUERPO};
+  border-left:2px solid {informe.FILETE};margin:.1em 0}}
+.arbol li.run a:hover{{border-color:{informe.ORO}}}
+.arbol li.run em{{font-style:normal;color:{informe.ORO}}}
+.arbol li.run .q{{font-weight:600;color:{informe.TINTA}}}
+.arbol li.caso summary a{{display:inline;padding:0;font-weight:600}}
+.arbol li.caso ul{{margin-left:.4em}}
 .arbol li.no span{{color:{informe.APAGADO}}}
-.arbol li.cmd a{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;padding-left:.9em;color:{informe.APAGADO}}}
-.arbol li.cmd a b{{color:{informe.ORO};font-weight:600}}\n.arbol li.run a{{font-size:.78rem;padding:.12em 0 .12em 1.8em;color:{informe.APAGADO}}}\n.arbol li.run em{{font-style:normal;color:{informe.ORO};opacity:.8}}
-.arbol li.caso > a{{font-weight:600;color:{informe.TINTA};padding-top:.5em}}
-.arbol li.caso ul{{margin-left:.6em}}
-.arbol li.no em{{display:block;font-size:.76rem;color:{informe.APAGADO};font-style:normal}}
-@media (max-width:900px){{.con-arbol{{display:block}}
-  .arbol{{flex:none;border-right:0;border-bottom:1px solid {informe.FILETE};
-    min-height:0;padding:20px 0;position:static}}}}
-@media print{{.arbol{{display:none}}}}
+.menu-caja{{display:none}}
+.menu-boton{{display:none}}
+@media (max-width:900px){{
+  .con-arbol{{display:block}}
+  .menu-boton{{display:block;margin:0 0 14px;padding:12px 16px;border:1px solid {informe.ORO};
+    border-radius:8px;color:{informe.ORO};font-weight:700;cursor:pointer;font-size:1rem}}
+  .menu-boton::before{{content:"☰  "}}
+  .arbol{{display:none;flex:none;border-right:0;border-bottom:1px solid {informe.FILETE};
+    max-height:none;padding:8px 0 20px;position:static;overflow:visible}}
+  .menu-caja:checked ~ .arbol{{display:block}}
+  .arbol details{{margin:.2em 0}}
+  .arbol details[open]{{margin-bottom:.6em}}
+}}
+@media print{{.arbol,.menu-boton{{display:none}}}}
 .portada h1{{margin-bottom:.15em}}
 .puertas{{display:flex;flex-wrap:wrap;gap:16px;margin:30px 0 0}}
 .puerta{{flex:1 1 320px;border:1px solid {informe.FILETE};border-radius:10px;
@@ -187,7 +216,7 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
         filas.append(
             f'<tr><td><a href="{e(c["ruta"])}">{e(c.get("inicio") or c.get("fecha") or "")}</a></td>'
             f'<td>{e(NOMBRE.get(c["agente"], c["agente"]))}</td>'
-            f'<td><code>{e(c["comando"])}</code></td>'
+            f'<td>{e(etiqueta(c["comando"]))}<br><code>{e(c["comando"])}</code></td>'
             f'<td>{e(c.get("caso") or "—")}</td>'
             f'<td class="n">{e(c.get("documentos") or "—")}</td>'
             f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
@@ -371,35 +400,78 @@ AVISO_HISTORIA = (
 PLUGIN = {"portafolio": "criterio-portfolio", "proyecto": "criterio-project",
           "producto": "criterio-product"}
 NOMBRE = {"portafolio": "Vera", "proyecto": "Samuel", "producto": "Alba"}
-TITULO = {"portafolio": "El portafolio", "proyecto": "El proyecto", "producto": "El producto"}
+TITULO = {"portafolio": "Vera · la PMO", "proyecto": "Samuel · gerente de proyecto",
+          "producto": "Alba · gerente de producto"}
 
-# Las funciones de cada agente, en el orden de uso y no el alfabético. `tests/coherencia.py`
+# Las funciones de cada agente, en el orden de uso y no el alfabético, con nombre que se
+# entiende sin saber el nombre del comando y una línea que dice qué es. `tests/coherencia.py`
 # comprueba que cada comando que existe esté aquí, y que aquí no haya ninguno que no exista.
 GRUPOS = {
     "portafolio": [
-        ("Ritmo", ["portfolio-setup", "portfolio-wake", "portfolio-server"]),
-        ("Lectura", ["document-index", "portfolio-scan"]),
-        ("Informe", ["portfolio-report", "status-report", "steering-pack"]),
-        ("Proyecto", ["health-check", "project-history", "raid-log", "change-control",
-                      "project-charter", "project-closure"]),
-        ("Dinero y proveedores", ["budget-tracking", "vendor-tracking"]),
-        ("Productos", ["product-view"]),
+        ("Arranque y ritmo", "Instalar, saber qué toca hoy, y el portal",
+         ["portfolio-setup", "portfolio-wake", "portfolio-server"]),
+        ("Lectura de documentos", "Qué cambió en la carpeta y el barrido que hace una ficha por proyecto",
+         ["document-index", "portfolio-scan"]),
+        ("Informes", "El del portafolio, el estado de un proyecto, y el paquete del comité",
+         ["portfolio-report", "status-report", "steering-pack"]),
+        ("Un proyecto a fondo", "Diagnóstico, historia, riesgos, cambios, acta y cierre",
+         ["health-check", "project-history", "raid-log", "change-control",
+          "project-charter", "project-closure"]),
+        ("Dinero y proveedores", "Presupuesto contra lo aprobado; contrato contra recibo contra factura",
+         ["budget-tracking", "vendor-tracking"]),
+        ("Productos", "Un producto visto a través de los proyectos que lo construyen",
+         ["product-view"]),
     ],
     "proyecto": [
-        ("Ritmo", ["pm-setup", "pm-wake", "pm-agenda"]),
-        ("Seguimiento", ["pm-minutes", "pm-commitments", "pm-report"]),
-        ("Plan y escalamiento", ["pm-plan", "pm-escalate"]),
-        ("Publicación", ["pm-publish"]),
+        ("Arranque y ritmo", "Instalar, saber qué toca hoy, y la agenda de la reunión",
+         ["pm-setup", "pm-wake", "pm-agenda"]),
+        ("Seguimiento del proyecto", "Minutas, compromisos y el informe semanal",
+         ["pm-minutes", "pm-commitments", "pm-report"]),
+        ("Plan y escalamiento", "El plan contra la línea base, y lo que sube al comité",
+         ["pm-plan", "pm-escalate"]),
+        ("Publicar a la PMO", "La ficha del proyecto donde la PMO la lee",
+         ["pm-publish"]),
     ],
     "producto": [
-        ("Ritmo", ["product-setup", "product-wake"]),
-        ("Descubrimiento", ["product-discovery", "product-requirements"]),
-        ("Definición", ["product-definition", "product-spec", "product-business-case",
-                        "product-charter"]),
-        ("Trazas", ["product-trace", "product-overlap"]),
-        ("Publicación", ["product-publish"]),
+        ("Arranque y ritmo", "Instalar y saber qué toca hoy",
+         ["product-setup", "product-wake"]),
+        ("Descubrimiento", "Entrevistas y requerimientos con doliente, criterio y evidencia",
+         ["product-discovery", "product-requirements"]),
+        ("Definición del producto", "Definición, especificación, caso de negocio y acta",
+         ["product-definition", "product-spec", "product-business-case", "product-charter"]),
+        ("Trazas con proyectos", "Lo decidido que nadie construye, y lo que se solapa entre productos",
+         ["product-trace", "product-overlap"]),
+        ("Publicar a la PMO", "La ficha del producto donde la PMO la lee",
+         ["product-publish"]),
     ],
 }
+
+# Cómo se llama cada comando para quien no programa. El nombre técnico va debajo, más chico.
+ETIQUETA = {
+    "portfolio-setup": "Instalación", "portfolio-wake": "Qué toca hoy",
+    "portfolio-server": "El portal", "document-index": "Qué cambió en los documentos",
+    "portfolio-scan": "Barrido: una ficha por proyecto", "portfolio-report": "Informe del portafolio",
+    "status-report": "Estado de un proyecto", "steering-pack": "Paquete del comité",
+    "health-check": "Diagnóstico desde cero", "project-history": "Historia de un proyecto",
+    "raid-log": "Riesgos y dependencias", "change-control": "Control de cambios",
+    "project-charter": "Acta de constitución", "project-closure": "Cierre del proyecto",
+    "budget-tracking": "Presupuesto", "vendor-tracking": "Proveedores",
+    "product-view": "Un producto y sus proyectos",
+    "pm-setup": "Instalación", "pm-wake": "Qué toca hoy", "pm-agenda": "Agenda de la reunión",
+    "pm-minutes": "Minutas", "pm-commitments": "Compromisos", "pm-report": "Informe del proyecto",
+    "pm-plan": "Plan y línea base", "pm-escalate": "Escalamiento", "pm-publish": "Publicar la ficha",
+    "product-setup": "Instalación", "product-wake": "Qué toca hoy",
+    "product-discovery": "Descubrimiento: entrevistas", "product-requirements": "Requerimientos",
+    "product-definition": "Definición", "product-spec": "Especificación",
+    "product-business-case": "Caso de negocio", "product-charter": "Acta de constitución",
+    "product-overlap": "Solapamientos entre productos", "product-trace": "Trazas con proyectos",
+    "product-publish": "Publicar la ficha",
+}
+
+
+def etiqueta(cmd: str) -> str:
+    return ETIQUETA.get(cmd, cmd)
+
 
 # Los tres nombres históricos de `--what`; todo lo demás registra con el nombre del comando.
 COMANDO_DE = {("portafolio", "sweep"): "portfolio-scan",
@@ -499,25 +571,27 @@ def arbol(corridas: list, activa: str = "") -> str:
     for c in corridas:
         por.setdefault((c["agente"], c["comando"]), []).append(c)
 
-    out = ['<nav class="arbol" aria-label="Estructura de la PMO">']
+    out = ['<input type="checkbox" id="menu" class="menu-caja">',
+           '<label for="menu" class="menu-boton">Menú de la PMO</label>',
+           '<nav class="arbol" aria-label="Estructura de la PMO">']
     for agente, grupos in GRUPOS.items():
         n_agente = sum(len(v) for (a, _), v in por.items() if a == agente)
-        out.append(f'<p class="g">{e(TITULO[agente])} · {e(NOMBRE[agente])}'
-                   f' <span class="n">{n_agente}</span></p><ul>')
+        out.append(f'<p class="g">{e(TITULO[agente])} <span class="n">{n_agente}</span></p><ul>')
         for ruta, texto in FIJAS[agente]:
             cl = ' class="yo"' if ruta == activa else ''
-            out.append(f'<li><a href="{e(ruta)}"{cl}>{e(texto)}</a></li>')
-        for grupo, cmds in grupos:
+            out.append(f'<li class="fija"><a href="{e(ruta)}"{cl}>{e(texto)}</a></li>')
+        for grupo, que_es, cmds in grupos:
             n_grupo = sum(len(por.get((agente, c), [])) for c in cmds)
             out.append(f'<li class="grupo"><details{" open" if n_grupo else ""}>'
-                       f'<summary>{e(grupo)} <span class="n">{n_grupo}</span></summary><ul>')
+                       f'<summary><span class="t">{e(grupo)}</span> <span class="n">{n_grupo}</span>'
+                       f'<span class="d">{e(que_es)}</span></summary><ul>')
             for cmd in cmds:
                 suyas = por.get((agente, cmd), [])
                 enlace = f'/corridas?agente={agente}&amp;que={cmd}'
                 cl = "cmd" + ("" if suyas else " vacio")
                 yo = ' class="yo"' if f'/corridas?agente={agente}&que={cmd}' == activa else ''
-                out.append(f'<li class="{cl}"><a href="{enlace}"{yo}>{e(cmd)}'
-                           f' <b>· {len(suyas)}</b></a>')
+                out.append(f'<li class="{cl}"><a href="{enlace}"{yo}>{e(etiqueta(cmd))}'
+                           f' <b>· {len(suyas)}</b><code>{e(cmd)}</code></a>')
                 if suyas:
                     out.append('<ul>' + "".join(_hoja(c) for c in suyas) + '</ul>')
                 out.append('</li>')
@@ -541,16 +615,16 @@ def arbol(corridas: list, activa: str = "") -> str:
             out.append(f'<li class="caso"><details><summary><a href="{e(ruta_de(k))}">{e(k)}</a>'
                        f' <span class="n">{len(casos[k])}</span></summary><ul>')
             for c in casos[k]:
-                out.append(_hoja(dict(c, caso=None)).replace('<li class="run">',
-                                                              f'<li class="run"><span class="q">{e(c["comando"])}</span> '))
+                out.append(_hoja(dict(c, caso=None)).replace(
+                    '<li class="run">', f'<li class="run"><span class="q">{e(etiqueta(c["comando"]))}</span> '))
             out.append('</ul></details></li>')
         out.append('</ul>')
 
     out.append('<p class="g">La historia de los tres</p><ul>'
-               f'<li><a href="/corridas"{" class=" + chr(34) + "yo" + chr(34) if activa == "/corridas" else ""}>'
+               f'<li class="fija"><a href="/corridas"{" class=" + chr(34) + "yo" + chr(34) if activa == "/corridas" else ""}>'
                'Todas las corridas, y qué se arrastra</a></li>'
-               '<li><a href="/corte">Qué cambió entre dos cortes</a></li></ul>'
-               '<p class="g">Preguntar</p><ul><li><a href="/#preguntar">Dejar una pregunta '
+               '<li class="fija"><a href="/corte">Qué cambió entre dos cortes</a></li></ul>'
+               '<p class="g">Preguntar</p><ul><li class="fija"><a href="/#preguntar">Dejar una pregunta '
                'escrita para el agente</a></li></ul></nav>')
     return "".join(out)
 
@@ -1158,17 +1232,25 @@ def selftest() -> int:
         # sin corridas, agrupados por función; y aparte por proyecto y por producto.
         ok('el árbol lleva los 37 comandos de los tres agentes, corran o no',
            cuerpo.count('class="cmd'), 37)
+        ok('cada comando tiene un nombre que se entiende, y el técnico debajo',
+           all(f'{e(etiqueta(c))} <b>' in cuerpo and f'<code>{c}</code>' in cuerpo
+               for c in ETIQUETA), True)
+        ok('y cada grupo dice qué es',
+           '<span class="d">Instalar, saber qué toca hoy, y el portal</span>' in cuerpo, True)
+        ok('en pantallas chicas el árbol se pliega tras un botón',
+           'class="menu-boton"' in cuerpo and '.menu-caja:checked ~ .arbol' in cuerpo, True)
         ok('con sus grupos de funciones',
-           all(g in cuerpo for g in ('Ritmo', 'Lectura', 'Seguimiento', 'Descubrimiento',
-                                     'Dinero y proveedores', 'Publicación')), True)
+           all(g in cuerpo for g in ('Arranque y ritmo', 'Lectura de documentos',
+                                     'Seguimiento del proyecto', 'Descubrimiento',
+                                     'Dinero y proveedores', 'Publicar a la PMO')), True)
         ok('un comando sin corridas se ve en gris, no desaparece',
-           'class="cmd vacio"><a href="/corridas?agente=proyecto&amp;que=pm-wake">pm-wake <b>· 0</b>' in cuerpo, True)
+           'class="cmd vacio"><a href="/corridas?agente=proyecto&amp;que=pm-wake">Qué toca hoy <b>· 0</b><code>pm-wake</code>' in cuerpo, True)
         ok('y uno con corridas las cuelga como hojas',
-           'portfolio-scan <b>· 1</b>' in cuerpo
+           'Barrido: una ficha por proyecto <b>· 1</b><code>portfolio-scan</code>' in cuerpo
            and '/corrida/portafolio/-/2026-08-31-sweep-1' in cuerpo, True)
         solo = pedir('/corridas?agente=portafolio&que=portfolio-scan')[1]
         ok('el filtro por comando deja solo las suyas',
-           '<code>portfolio-scan</code>' in solo and '<code>portfolio-report</code>' not in solo, True)
+           '<td>Barrido: una ficha por proyecto<br>' in solo and 'Informe del portafolio<br>' not in solo, True)
         cod, una = pedir('/corrida/portafolio/-/2026-08-31-sweep-1')
         ok('una corrida registrada solo por `corrida` tiene su página',
            cod == 200 and 'la primera' in una and 'Lo que produjo' in una, True)
@@ -1192,7 +1274,7 @@ def selftest() -> int:
         Manejador.evidencia = ev
         con_rastro = pedir('/corridas')[1]
         ok('la corrida del arnés cuelga de su comando, con caso y duración',
-           'status-report <b>· 1</b>' in con_rastro
+           'Estado de un proyecto <b>· 1</b><code>status-report</code>' in con_rastro
            and '2026-09-08 10:00 · PRY-001 · 90 s' in con_rastro, True)
         ok('y aparece también bajo su proyecto',
            '<a href="/historia/PRY-001">PRY-001</a>' in con_rastro
@@ -1201,7 +1283,7 @@ def selftest() -> int:
         ok('su página abre con el árbol encima',
            cod == 200 and 'semáforo rojo' in una and 'class="arbol"' in una, True)
         ok('y el filtro por caso deja solo las suyas',
-           pedir('/corridas?caso=PRY-001')[1].count('<code>status-report</code>'), 1)
+           pedir('/corridas?caso=PRY-001')[1].count('<td>Estado de un proyecto<br>'), 1)
         ok('una corrida que no existe responde 404',
            pedir('/corrida/portafolio/2026-01-01-sweep-1')[0], 404)
         ok('ningún hueco del árbol queda sin rellenar',
