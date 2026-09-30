@@ -79,6 +79,10 @@ for pl, script in PLUGINS.items():
             continue
         t = f.read_text(encoding="utf-8")
         cuerpo = t.split("\n---\n", 1)[1]
+        # C0 · la regla de costo está en todos: la vez que solo estaba en el barrido, el
+        # setup lanzó tres subagentes en paralelo con `workers: 1`.
+        if "sin subagentes en paralelo" not in cuerpo:
+            falla("C0 el comando no dice cuántos a la vez", f"{pl}:{cmd}")
         # C2 · skills
         citados = {s for s in skills_dir if re.search(r"\*\*" + re.escape(s) + r"\*\*|`" + re.escape(s) + r"`", cuerpo)}
         quiere = set(k["reglas"]["skills"])
