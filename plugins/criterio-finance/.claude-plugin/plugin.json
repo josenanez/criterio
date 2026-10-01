@@ -1,6 +1,6 @@
 {
   "name": "criterio-finance",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Cierre mensual contra NIIF adoptadas localmente, facturación electrónica, retenciones y reportes al supervisor, por país y con cita a la norma.",
   "author": {
     "name": "José Francisco Ñáñez",

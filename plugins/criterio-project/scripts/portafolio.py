@@ -374,7 +374,11 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
             # estar vencido, y por eso mismo desaparecía del informe. Un compromiso
             # que nadie fechó es un hallazgo, no un vacío.
             sin_fecha.append({"who": quien, "what": que, "source": fuente})
-        elif due < today and st in (None, "open", "unknown"):
+        # Vencido es aritmética, no una etiqueta: lo que no está cumplido y tiene la fecha
+        # atrás está vencido, lo haya marcado el modelo `overdue` o no. En la fase 2 el
+        # agente escribió `state: overdue` —un valor que el esquema admite— y la regla, que
+        # solo miraba `open`, lo dejó pasar: el único compromiso vencido del caso se perdió.
+        elif due < today and st != "met":
             late.append({"who": quien, "what": que, "due": due.isoformat(),
                          "days": (today - due).days, "source": fuente})
         veces = len(c.get("reschedules") or [])
@@ -1841,6 +1845,11 @@ def selftest() -> int:
     checks += _selftest_cadencia()
     checks += _selftest_corrida()
     checks += _selftest_plan()
+    _r = compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-09-08",
+                                          "state": "overdue", "source": "m.md"}]},
+                        dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)
+    checks.append(("compromiso marcado overdue sigue contando",
+                   [a["signal"] for a in _r["alerts"]].count("commitment_overdue"), 1))
 
     ok = True
     for label, got, want in checks:
