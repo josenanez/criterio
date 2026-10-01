@@ -13,18 +13,21 @@
     "muestra": "qué encontró, cuatro preguntas, compromisos de la última reunión",
     "escribe": [
      ".criterio/proyecto/<código>/config.json",
-     "<estado>/ (init)"
+     "<estado>/ (init)",
+     "<estado>/records/<código>.json"
     ]
    },
    "reglas": {
     "skills": [
-     "commitment-tracking"
+     "commitment-tracking",
+     "project-record"
     ],
     "script": [
      "compute",
      "config",
      "corrida",
-     "init"
+     "init",
+     "plan-lectura"
     ],
     "calcula": true
    },
@@ -33,8 +36,8 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "carpeta de proyecto con una minuta de tres compromisos",
-    "esperado": "config válido; los tres compromisos con doliente y fecha o no_declarada; cifras de `compute`"
+    "sembrado": "samuel-mini: PRY-200 con las notas del 30-sep (4 compromisos: uno reprogramado dos veces, dos sin fecha)",
+    "esperado": "config en su sitio; ficha con 4 compromisos, Paola con 2 reprogramaciones, Andrés y Óscar (acta) no_declarada; ninguna fecha inferida; señales de `compute`"
    }
   },
   "pm-wake": {

@@ -55,7 +55,13 @@ Una línea y sigue. **No expliques lo que vas a hacer: hazlo.**
 
 Si hay ruta en el argumento, úsala. Si no, pregunta dónde está la carpeta del proyecto.
 
-Reporta en dos líneas: cuántos documentos, cuántos parecen minutas o actas de reunión,
+El inventario lo da el script, no `find` ni una lista en `/tmp`:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" plan-lectura --state <estado> --docs <carpeta del proyecto>
+```
+
+Con su `inventory` (`files`, `formats`, `newest`, `unreadable`), reporta en dos líneas: cuántos documentos, cuántos parecen minutas o actas de reunión,
 de cuándo es la más reciente, y qué formatos no vas a poder leer. **Si no encuentras
 ninguna minuta, dilo ya** — es el insumo principal de este agente, y un gerente que no
 las guarda necesita saberlo antes que nada.
@@ -67,8 +73,11 @@ Una a la vez, cada una con su propuesta:
 1. **Quién eres y qué proyecto es.** Propón lo que leíste del acta de constitución.
 2. **Cuándo es tu reunión de seguimiento.** De ahí sale la cadencia. Propón el día de la
    semana que veas repetido en los nombres de las minutas.
-3. **Dónde guardo lo que voy encontrando.** Propón una carpeta hermana de la del
-   proyecto. **Nunca dentro de la carpeta de documentación.**
+3. **Dónde guardo lo que voy encontrando.** Propón `<raíz>/estado/<carpeta del proyecto>`
+   cuando la carpeta del proyecto esté en `<raíz>/documentos/proyectos/<carpeta>`: así la PMO
+   encuentra el estado de cada gerente junto al suyo. **Nunca dentro de la carpeta de
+   documentación** —el barrido de la PMO lo tomaría por un proyecto— **ni dentro de
+   `.criterio/`**, que es configuración y se versiona; `config` lo rechaza.
 4. **Los términos.** Muestra el descargo corto y pide aceptación explícita.
 
 **3. Lee la última reunión y muestra el resultado**
@@ -77,9 +86,20 @@ No barras el proyecto entero: **lee la minuta más reciente** y de ahí saca los
 compromisos, aplicando **commitment-tracking**. Con eso ya puedes mostrar algo real en
 minutos.
 
-Muestra quién prometió qué y para cuándo, con la cita. Si alguno ya venció sin
-evidencia, márcalo. Si alguno quedó sin fecha, cuéntalo aparte — **no puede estar
-vencido, y por eso mismo es el que desaparece de los informes.**
+Escribe lo leído en la ficha, `<estado>/records/<código>.json`, aplicando **project-record**:
+los compromisos, y lo que la minuta diga de hitos, riesgos y de la declaración del gerente,
+cada dato con su cita. Una fecha que nadie dijo —«esta semana», «la semana que viene»— va
+como `no_declarada`, no como una fecha calculada. **No la selles**: leíste una minuta, no
+el proyecto, y sellar la daría por leída entera. Después calcula:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config .criterio/proyecto/<código>/config.json
+```
+
+Muestra quién prometió qué y para cuándo, con la cita, y las señales que `compute` levantó.
+Lo que el script no levantó no se presenta como hallazgo. Si alguno quedó sin fecha,
+cuéntalo aparte — **no puede estar vencido, y por eso mismo es el que desaparece de los
+informes.** Un resultado que no quedó en la ficha no existe para el comando siguiente.
 
 **4. Di qué falta para que esto sea mejor**
 
