@@ -130,13 +130,13 @@ before pointing it at confidential material. Full disclaimer in
 ## Installing and configuring
 
 ```
-/plugin marketplace add josenanez-company/criterio
+/plugin marketplace add josenanez/criterio
 /plugin install criterio-product@criterio
 /criterio-product:product-setup
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
-GitHub → `josenanez-company/criterio`.
+GitHub → `josenanez/criterio`.
 
 If you run a project and not a product, yours is [Samuel](../criterio-project/README.md). If you run
 the portfolio, [Vera](../criterio-portfolio/README.md).

@@ -64,11 +64,11 @@ cada uno.
 El marketplace se agrega una vez, y después se instala lo que haga falta.
 
 ```
-/plugin marketplace add josenanez-company/criterio
+/plugin marketplace add josenanez/criterio
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
-marketplace desde GitHub → `josenanez-company/criterio`.
+marketplace desde GitHub → `josenanez/criterio`.
 
 **Qué instalar depende del rol que tengas, y eso lo explica cada familia.** Para la de
 gobierno de proyectos, en [criterio-pmo](families/criterio-pmo/README.es.md#instalación-de-la-familia).

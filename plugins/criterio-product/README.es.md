@@ -130,13 +130,13 @@ de apuntarlo a material confidencial. Descargo completo en
 ## Instalación y configuración
 
 ```
-/plugin marketplace add josenanez-company/criterio
+/plugin marketplace add josenanez/criterio
 /plugin install criterio-product@criterio
 /criterio-product:product-setup
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
-marketplace desde GitHub → `josenanez-company/criterio`.
+marketplace desde GitHub → `josenanez/criterio`.
 
 Si gestionas un proyecto y no un producto, lo tuyo es
 [Samuel](../criterio-project/README.es.md). Si gestionas el portafolio,

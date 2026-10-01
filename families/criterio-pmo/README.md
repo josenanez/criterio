@@ -116,7 +116,7 @@ Each agent is a plugin and installs on its own. **You do not need all three**: i
 that covers the role you have.
 
 ```
-/plugin marketplace add josenanez-company/criterio
+/plugin marketplace add josenanez/criterio
 
 /plugin install criterio-portfolio@criterio      if you run the portfolio
 /plugin install criterio-project@criterio       if you run a project
@@ -124,7 +124,7 @@ that covers the role you have.
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
-GitHub → `josenanez-company/criterio`.
+GitHub → `josenanez/criterio`.
 
 After installing, each agent has its own setup command that looks at your folders, asks a few
 questions and produces a first result over your own documents. **Nobody edits a configuration

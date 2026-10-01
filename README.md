@@ -63,11 +63,11 @@ What changes between them is **the rhythm of the conversation**, and that is on 
 The marketplace is added once, and after that you install what you need.
 
 ```
-/plugin marketplace add josenanez-company/criterio
+/plugin marketplace add josenanez/criterio
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace
-from GitHub → `josenanez-company/criterio`.
+from GitHub → `josenanez/criterio`.
 
 **What to install depends on the role you have, and each family explains that.** For the
 project governance one, see [criterio-pmo](families/criterio-pmo/README.md#installing-the-family).

@@ -124,13 +124,13 @@ políticas antes de apuntarlo a material confidencial. Descargo completo en
 ## Instalación y configuración
 
 ```
-/plugin marketplace add josenanez-company/criterio
+/plugin marketplace add josenanez/criterio
 /plugin install criterio-project@criterio
 /criterio-project:pm-setup
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
-marketplace desde GitHub → `josenanez-company/criterio`.
+marketplace desde GitHub → `josenanez/criterio`.
 
 Si gestionas el portafolio y no un proyecto, lo tuyo es
 [Vera](../criterio-portfolio/README.es.md). Si defines un producto,

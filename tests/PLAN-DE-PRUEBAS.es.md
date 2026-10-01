@@ -71,7 +71,7 @@ contra ella.
 ### Paso 0.2 · Instalar los tres agentes
 
 ```
-/plugin marketplace add josenanez-company/criterio
+/plugin marketplace add josenanez/criterio
 /plugin install criterio-portfolio@criterio
 /plugin install criterio-project@criterio
 /plugin install criterio-product@criterio

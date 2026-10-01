@@ -229,7 +229,7 @@ producto, servido por el servidor, y en PDF para quien lo quiera adjunto.
 ## Reproducirlo
 
 ```
-git clone https://github.com/josenanez-company/criterio.git
+git clone https://github.com/josenanez/criterio.git
 cd criterio
 python3 plugins/criterio-portfolio/scripts/portafolio.py selftest
 python3 plugins/criterio-portfolio/scripts/texto.py --selftest
