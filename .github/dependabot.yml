@@ -1,0 +1,9 @@
+# Lo único de terceros que corre este repositorio son las acciones de la verificación
+# (actions/checkout, actions/setup-python). Los scripts usan solo la librería estándar de
+# Python, así que no hay más dependencias que vigilar.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
