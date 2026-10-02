@@ -6,6 +6,8 @@
 
 Apache 2.0 · Four clicks to install · Each agent produces its first result in fifteen minutes
 
+**Status: in testing (0.3).** The agents are being tested command by command against seeded cases; reliability figures are published when they are measured, not before. [Security](SECURITY.md)
+
 ---
 
 | | | |

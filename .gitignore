@@ -239,3 +239,9 @@ Claude outputs/
 # y el registro de errores del propio rastro, que son de la sesión.
 .criterio/en-curso/
 .criterio/rastro-errores.log
+
+# La configuración con que se prueba este repositorio es de la máquina que prueba: apunta
+# a .pruebas/, que tampoco se publica. Quien instala Criterio escribe la suya con el setup.
+.criterio/portafolio/
+.criterio/proyecto/
+.criterio/producto/

@@ -6,6 +6,8 @@
 
 Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer resultado en quince minutos
 
+**Estado: en pruebas (0.3).** Los agentes se están probando comando por comando contra casos sembrados; las cifras de fiabilidad se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
+
 ---
 
 | | | |
