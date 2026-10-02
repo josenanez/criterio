@@ -1,5 +1,7 @@
 # Alba · one product's agent
 
+<img src="../../docs/img/en/robot-alba.png" alt="Alba" width="220" align="right">
+
 **Alba tells you what of your definition holds, and what holds only itself up.** You talk to the
 customer, read what the customer does not say, decide what gets built and set the price. She
 arrives with the chain of evidence assembled and the holes pointed out.

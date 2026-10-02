@@ -1,5 +1,7 @@
 # Rostrum · the criterio-portfolio server
 
+<img src="../../docs/img/en/robot-rostrum.png" alt="Rostrum" width="220" align="right">
+
 **The report, for whoever does not open a folder.**
 
 A rostrum does not measure, correct or opine: it **holds up what is already written, at

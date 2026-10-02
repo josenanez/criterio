@@ -1,5 +1,7 @@
 # Samuel · one project's agent
 
+<img src="../../docs/img/en/robot-samuel.png" alt="Samuel" width="220" align="right">
+
 **Samuel remembers what was promised in your meeting.** You go to the committee, negotiate and
 unblock. He arrives with the week ready and with the list of what was said and not done.
 

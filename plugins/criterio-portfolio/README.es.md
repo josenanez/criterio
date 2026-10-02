@@ -1,5 +1,7 @@
 # Vera · directora de proyectos
 
+<img src="../../docs/img/es/robot-vera.png" alt="Vera" width="220" align="right">
+
 **Un segundo cerebro para quien responde por el portafolio completo.** Lee la documentación que tu PMO ya
 tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
 

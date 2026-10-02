@@ -1,5 +1,7 @@
 # Samuel · el agente de un proyecto
 
+<img src="../../docs/img/es/robot-samuel.png" alt="Samuel" width="220" align="right">
+
 **Samuel se acuerda de lo que se prometió en tu reunión.** Tú vas al comité, negocias y
 desbloqueas. Él llega con la semana lista y con la lista de lo que se dijo y no se hizo.
 

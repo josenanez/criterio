@@ -45,6 +45,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import informe  # la paleta y la página son suyas; aquí no se vuelven a escribir
 import portafolio  # la historia la lee él; Rostrum no calcula nada y no escribe nada
+import robots  # los cuatro de la familia, con los mismos trazos que los README y el portal
 
 TOPE_PETICION = 16 * 1024          # una petición es un párrafo, no un adjunto
 
@@ -127,6 +128,18 @@ td.nw{{white-space:nowrap}}
 }}
 @media print{{.arbol,.menu-boton{{display:none}}}}
 .portada h1{{margin-bottom:.15em}}
+.familia{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 4px;max-width:720px}}
+.familia a{{display:block;text-align:center;color:inherit;border:0;padding:12px 6px 10px;border-radius:10px}}
+.familia a:hover{{background:{informe.PANEL_ALTO}}}
+.familia a:hover .ln{{stroke:{informe.ORO}}}
+.familia svg{{width:100%;max-width:88px;height:auto;display:block;margin:0 auto}}
+.familia .n{{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:{informe.TINTA};margin-top:.55em}}
+.familia .r{{display:block;font-size:.84rem;color:{informe.APAGADO}}}
+.agente-cab{{display:flex;gap:22px;align-items:center;margin:4px 0 6px}}
+.agente-cab svg{{width:76px;height:auto;flex:0 0 auto}}
+.agente-cab .entrada{{margin:0}}
+@media (max-width:600px){{.familia{{grid-template-columns:repeat(2,1fr)}}}}
 .puertas{{display:flex;flex-wrap:wrap;gap:16px;margin:30px 0 0}}
 .puerta{{flex:1 1 320px;border:1px solid {informe.FILETE};border-radius:10px;
   padding:22px 24px;background:{informe.PANEL_ALTO};display:block;
@@ -625,10 +638,11 @@ def vista_agente(todas: list, agente: str, hoy: str) -> tuple:
         if c["agente"] == agente:
             por.setdefault(c["comando"], []).append(c)
     total = sum(len(v) for v in por.values())
-    cuerpo = [f'<p class="entrada"><b>{e(NOMBRE[agente])}</b>, {e(TITULO[agente].split(" · ")[1])}: '
+    cuerpo = [f'<div class="agente-cab">{robots.svg(ROBOT_DE[agente], informe.TINTA, informe.ORO)}'
+              f'<p class="entrada"><b>{e(NOMBRE[agente])}</b>, {e(TITULO[agente].split(" · ")[1])}: '
               f'{len(sum((c for _, _, c in GRUPOS[agente]), []))} funciones en '
               f'{len(GRUPOS[agente])} grupos, <b>{total} corridas</b> registradas. Un comando sin '
-              f'corridas no ha corrido; que no haya corrido también es un dato.</p>']
+              f'corridas no ha corrido; que no haya corrido también es un dato.</p></div>']
     for grupo, que_es, cmds in GRUPOS[agente]:
         cuerpo.append(f'<h2>{e(grupo)}</h2><p class="entrada">{e(que_es)}</p>'
                       '<div class="bloque"><table><thead><tr><th>Función</th><th>Comando</th>'
@@ -783,6 +797,22 @@ def edad(iso, ahora=None):
 
 # ---------------------------------------------------------------- las páginas
 
+ROBOT_DE = {"portafolio": "vera", "proyecto": "samuel", "producto": "alba"}
+
+
+def familia() -> str:
+    """Los cuatro, cada uno llevando a lo suyo: los agentes a su página, Rostrum a la
+    historia de las corridas. Es la misma fila que abre el README de la familia."""
+    destino = {"vera": ("/agente/portafolio", "El portafolio"), "samuel": ("/agente/proyecto", "Un proyecto"),
+               "alba": ("/agente/producto", "Un producto"), "rostrum": ("/corridas", "Las corridas")}
+    filas = []
+    for nombre in robots.ORDEN:
+        ruta, rol = destino[nombre]
+        filas.append(f'<a href="{ruta}">{robots.svg(nombre, informe.TINTA, informe.ORO)}'
+                     f'<span class="n">{e(nombre.capitalize())}</span><span class="r">{e(rol)}</span></a>')
+    return '<nav class="familia" aria-label="La familia">' + "".join(filas) + "</nav>"
+
+
 def portada(fr: dict, hoy: str, org: str = '') -> str:
     dias = edad(fr.get('informe_generado'))
     if fr.get('informe_generado') is None:
@@ -835,6 +865,7 @@ def portada(fr: dict, hoy: str, org: str = '') -> str:
 <span class="ante">{e(org) if org else 'Portafolio de proyectos'}</span>
 <h1>Oficina de proyectos</h1>
 <p class="pie-cab">{sello}</p>
+{familia()}
 
 <div class="puertas">{tarjetas}</div>
 <p class="aviso">El comité tiene su propia vista, que no es ninguna de estas tres recortada:
@@ -1270,6 +1301,12 @@ def selftest() -> int:
                 vivas.append(r)
         ok('todas las rutas declaradas responden', sorted(vivas),
            sorted(set(RUTAS) - {'/peticion'}))
+
+        # ── la familia: los mismos robots que los README y el portal
+        ok('la portada lleva a los cuatro, cada uno a lo suyo',
+           (pedir('/')[1].count('class="robot"'), '/agente/proyecto' in pedir('/')[1]), (4, True))
+        ok('y la página de un agente lleva el suyo',
+           'aria-label="alba"' in pedir('/agente/producto')[1], True)
 
         # ── la historia
         cod, cuerpo = pedir('/corridas')

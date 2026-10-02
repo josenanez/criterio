@@ -7,6 +7,8 @@ record.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
 
+![Vera, Samuel, Alba and Rostrum](../../docs/img/en/robots.png)
+
 | | |
 |---|---|
 | **Scope** | The governance of a portfolio, of each project in it, and of each product those projects build |

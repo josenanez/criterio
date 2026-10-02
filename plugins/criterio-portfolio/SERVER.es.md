@@ -1,5 +1,7 @@
 # Rostrum · el servidor de criterio-portfolio
 
+<img src="../../docs/img/es/robot-rostrum.png" alt="Rostrum" width="220" align="right">
+
 **El informe, para quien no abre una carpeta.**
 
 Una tribuna no mide, no corrige y no opina: **sostiene lo que ya está escrito, a la
