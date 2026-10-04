@@ -1,0 +1,98 @@
+[
+  {
+    "id": "2026-09-30-product-wake-1",
+    "agente": "producto",
+    "comando": "product-wake",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T09:39:15",
+    "fin": "2026-09-30T09:40:53",
+    "segundos": 99,
+    "respuestas": 1,
+    "medidas": [
+      {
+        "que": "product-wake",
+        "fecha": "2026-09-30",
+        "requerimientos": 5,
+        "segundos": 24,
+        "hallazgos": 5,
+        "por_senal": {
+          "requirement_untraced": 4,
+          "requirement_undecided": 1
+        },
+        "medido": {
+          "segundos": true
+        },
+        "nota": "quiet: nada debido, proxima revision 2026-10-06",
+        "id": "2026-09-30-product-wake-1",
+        "_estado": ".pruebas/corp-demo/estado/productos/PRD-300"
+      }
+    ],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-product-discovery-1",
+    "agente": "producto",
+    "comando": "product-discovery",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T09:46:12",
+    "fin": "2026-09-30T09:46:53",
+    "segundos": 41,
+    "respuestas": 1,
+    "medidas": [
+      {
+        "que": "product-discovery",
+        "fecha": "2026-09-30",
+        "requerimientos": 5,
+        "segundos": 27,
+        "hallazgos": 5,
+        "por_senal": {
+          "requirement_untraced": 4,
+          "requirement_undecided": 1
+        },
+        "medido": {
+          "segundos": true
+        },
+        "nota": "1 pieza leida (2025-08-13), ningun tema nuevo, los 5 requerimientos ya la citan",
+        "id": "2026-09-30-product-discovery-1",
+        "_estado": ".pruebas/corp-demo/estado/productos/PRD-300"
+      }
+    ],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-product-requirements-1",
+    "agente": "producto",
+    "comando": "product-requirements",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T09:48:47",
+    "fin": "2026-09-30T09:49:36",
+    "segundos": 50,
+    "respuestas": 1,
+    "medidas": [
+      {
+        "que": "review",
+        "fecha": "2026-09-30",
+        "requerimientos": 5,
+        "segundos": 37,
+        "hallazgos": 5,
+        "por_senal": {
+          "requirement_untraced": 4,
+          "requirement_undecided": 1
+        },
+        "medido": {
+          "segundos": true
+        },
+        "nota": "4 aceptados sin proyecto, REQ-2017 201 dias sin decision, criterios genericos en los 4 aceptados, toda la evidencia de una sola pieza de 13 meses",
+        "id": "2026-09-30-review-1",
+        "_estado": ".pruebas/corp-demo/estado/productos/PRD-300"
+      }
+    ],
+    "salida": true
+  }
+]

@@ -1,0 +1,1 @@
+Revisé la carpeta: barrido y confirmación ya corrieron hoy, sin peticiones pendientes. Vuelvo el 2026-10-01.

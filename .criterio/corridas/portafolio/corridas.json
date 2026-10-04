@@ -1,0 +1,347 @@
+[
+  {
+    "id": "2026-09-30-portfolio-wake-1",
+    "agente": "portafolio",
+    "comando": "portfolio-wake",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T07:03:03",
+    "fin": "2026-09-30T07:03:26",
+    "segundos": 23,
+    "respuestas": 1,
+    "medidas": [],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-portfolio-wake-2",
+    "agente": "portafolio",
+    "comando": "portfolio-wake",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T07:06:26",
+    "fin": "2026-09-30T07:06:31",
+    "segundos": 4,
+    "respuestas": 1,
+    "medidas": [],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-portfolio-wake-3",
+    "agente": "portafolio",
+    "comando": "portfolio-wake",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T07:08:51",
+    "fin": "2026-09-30T07:09:58",
+    "segundos": 68,
+    "respuestas": 1,
+    "medidas": [
+      {
+        "que": "portfolio-wake",
+        "fecha": "2026-09-30",
+        "proyectos": 51,
+        "documentos": null,
+        "segundos": 30,
+        "relectura": null,
+        "medido": {
+          "segundos": true,
+          "documentos": false
+        },
+        "hallazgos": 219,
+        "por_senal": {
+          "milestone_overdue": 66,
+          "vendor_deliverable_late": 30,
+          "progress_vs_plan": 26,
+          "declared_vs_evidence": 21,
+          "commitment_overdue": 18,
+          "variance_cost": 17,
+          "milestone_met_without_evidence": 8,
+          "vendor_invoiced_over_accepted": 7,
+          "vendor_invoiced_without_delivery": 7,
+          "commitment_undated": 6,
+          "rebaseline_unauthorized": 4,
+          "budget_committed": 3,
+          "silent": 2,
+          "variance_time": 2,
+          "vendor_accepted_without_evidence": 1,
+          "declaration_stale": 1
+        },
+        "nota": "Quiet: barrido y confirmación ya corrieron hoy, sin peticiones. Próxima corrida 2026-10-01.",
+        "id": "2026-09-30-portfolio-wake-2",
+        "_estado": ".pruebas/corp-demo/estado"
+      }
+    ],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-document-index-1",
+    "agente": "portafolio",
+    "comando": "document-index",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T09:38:36",
+    "fin": "2026-09-30T09:41:14",
+    "segundos": 158,
+    "respuestas": 1,
+    "medidas": [
+      {
+        "que": "document-index",
+        "fecha": "2026-09-30",
+        "proyectos": 51,
+        "documentos": null,
+        "segundos": 106,
+        "relectura": null,
+        "medido": {
+          "segundos": true,
+          "documentos": false
+        },
+        "hallazgos": 219,
+        "por_senal": {
+          "milestone_overdue": 66,
+          "vendor_deliverable_late": 30,
+          "progress_vs_plan": 26,
+          "declared_vs_evidence": 21,
+          "commitment_overdue": 18,
+          "variance_cost": 17,
+          "milestone_met_without_evidence": 8,
+          "vendor_invoiced_over_accepted": 7,
+          "vendor_invoiced_without_delivery": 7,
+          "commitment_undated": 6,
+          "rebaseline_unauthorized": 4,
+          "budget_committed": 3,
+          "silent": 2,
+          "variance_time": 2,
+          "vendor_accepted_without_evidence": 1,
+          "declaration_stale": 1
+        },
+        "nota": "Primera indexación: 350 documentos en 51 proyectos. No hay índice previo — se establece la línea base de hashes. Sin renombrados, borrados, ilegibles ni citas rotas.",
+        "id": "2026-09-30-document-index-1",
+        "_estado": ".pruebas/corp-demo/estado"
+      }
+    ],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-portfolio-scan-1",
+    "agente": "portafolio",
+    "comando": "portfolio-scan",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T09:41:42",
+    "fin": "2026-09-30T09:45:25",
+    "segundos": 223,
+    "respuestas": 1,
+    "medidas": [],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-portfolio-setup-1",
+    "agente": "portafolio",
+    "comando": "portfolio-setup",
+    "args": ".pruebas/vera-mini/documentos/proyectos",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T13:52:06",
+    "fin": "2026-09-30T13:57:01",
+    "segundos": 294,
+    "respuestas": 5,
+    "medidas": [
+      {
+        "que": "portfolio-setup",
+        "fecha": "2026-09-30",
+        "proyectos": 0,
+        "documentos": null,
+        "segundos": null,
+        "relectura": null,
+        "medido": {
+          "segundos": false,
+          "documentos": false
+        },
+        "hallazgos": 0,
+        "por_senal": {},
+        "nota": "5 preguntas, primer resultado en ~3 min. Hallazgos: sobrecosto sin autorizar en PRY-206, factura antes de recibo en PRY-199, Verde cuestionable en PRY-232, alcance generico en los 3",
+        "id": "2026-09-30-portfolio-setup-1",
+        "_estado": ".pruebas/vera-mini/estado"
+      }
+    ],
+    "salida": true,
+    "subagentes": 7,
+    "concurrentes": 3,
+    "workers": 1,
+    "exceso": true
+  },
+  {
+    "id": "2026-09-30-portfolio-setup-2",
+    "agente": "portafolio",
+    "comando": "portfolio-setup",
+    "args": ".pruebas/vera-mini/documentos/proyectos",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T14:00:33",
+    "fin": "2026-09-30T14:11:40",
+    "segundos": 667,
+    "respuestas": 6,
+    "medidas": [
+      {
+        "que": "portfolio-setup",
+        "fecha": "2026-09-30",
+        "proyectos": 3,
+        "documentos": null,
+        "segundos": null,
+        "relectura": null,
+        "medido": {
+          "segundos": false,
+          "documentos": false
+        },
+        "hallazgos": 13,
+        "por_senal": {
+          "milestone_overdue": 4,
+          "declared_vs_evidence": 2,
+          "progress_vs_plan": 2,
+          "vendor_invoiced_without_delivery": 1,
+          "variance_cost": 1,
+          "commitment_undated": 1,
+          "budget_committed": 1,
+          "commitment_overdue": 1
+        },
+        "nota": "4 preguntas, primer resultado en ~5 min, 13 hallazgos en 3 proyectos: factura sin recibo, proyección 30% sobre aprobado, hito vencido",
+        "id": "2026-09-30-portfolio-setup-1",
+        "_estado": ".pruebas/vera-mini/estado"
+      }
+    ],
+    "salida": true,
+    "subagentes": 5,
+    "concurrentes": 0,
+    "workers": 1,
+    "exceso": false
+  },
+  {
+    "id": "2026-09-30-portfolio-setup-3",
+    "agente": "portafolio",
+    "comando": "portfolio-setup",
+    "args": ".pruebas/vera-mini/documentos/proyectos",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T14:24:04",
+    "fin": "2026-09-30T14:34:37",
+    "segundos": 633,
+    "respuestas": 6,
+    "medidas": [],
+    "salida": true,
+    "subagentes": 4,
+    "concurrentes": null,
+    "workers": 1,
+    "exceso": true
+  },
+  {
+    "id": "2026-09-30-portfolio-setup-4",
+    "agente": "portafolio",
+    "comando": "portfolio-setup",
+    "args": ".pruebas/vera-mini/documentos/proyectos",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T14:42:20",
+    "fin": "2026-09-30T14:53:05",
+    "segundos": 644,
+    "respuestas": 5,
+    "medidas": [
+      {
+        "que": "portfolio-setup",
+        "fecha": "2026-09-30",
+        "proyectos": 3,
+        "documentos": 45,
+        "segundos": 450,
+        "relectura": {
+          "sin_cambio": 23,
+          "releidos": 22
+        },
+        "medido": {
+          "segundos": true,
+          "documentos": true
+        },
+        "hallazgos": 11,
+        "por_senal": {
+          "milestone_overdue": 2,
+          "milestone_met_without_evidence": 2,
+          "progress_vs_plan": 1,
+          "variance_cost": 1,
+          "commitment_undated": 1,
+          "variance_time": 1,
+          "budget_committed": 1,
+          "commitment_overdue": 1,
+          "declared_vs_evidence": 1
+        },
+        "nota": "4 preguntas, primer resultado en ~3 minutos. 3 proyectos analizados: PRY-199 sin alertas, PRY-206 con 4 señales (hito vencido, brecha avance, sobrecosto 29.8%, compromiso sin fecha), PRY-232 con 7 señales y verde contradicho. 11 alertas en total, 1 verde contradicho.",
+        "id": "2026-09-30-portfolio-setup-1",
+        "_estado": ".pruebas/vera-mini/estado"
+      }
+    ],
+    "salida": true,
+    "subagentes": 3,
+    "concurrentes": null,
+    "workers": 1,
+    "exceso": true
+  },
+  {
+    "id": "2026-10-01-portfolio-scan-1",
+    "agente": "portafolio",
+    "comando": "portfolio-scan",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-10-01",
+    "inicio": "2026-10-01T15:58:41",
+    "fin": "2026-10-01T16:04:14",
+    "segundos": 333,
+    "respuestas": 1,
+    "medidas": [
+      {
+        "que": "portfolio-scan",
+        "fecha": "2026-10-01",
+        "proyectos": 6,
+        "documentos": 45,
+        "segundos": 306,
+        "relectura": {
+          "sin_cambio": 45,
+          "releidos": 0
+        },
+        "medido": {
+          "segundos": true,
+          "documentos": true
+        },
+        "hallazgos": 37,
+        "por_senal": {
+          "milestone_met_without_evidence": 9,
+          "vendor_deliverable_late": 4,
+          "progress_vs_plan": 3,
+          "variance_cost": 3,
+          "variance_time": 3,
+          "milestone_overdue": 2,
+          "silent": 2,
+          "declared_vs_evidence": 2,
+          "commitment_undated": 1,
+          "vendor_accepted_without_evidence": 1,
+          "vendor_invoiced_over_accepted": 1,
+          "vendor_invoiced_without_delivery": 1,
+          "rebaseline_unauthorized": 1,
+          "declaration_stale": 1,
+          "change_without_baseline": 1,
+          "budget_committed": 1,
+          "commitment_overdue": 1
+        },
+        "nota": "3 proyectos leidos (PRY-208, PRY-221, PRY-229), 22 documentos de 45. Sin carpeta de entrada. Hallazgos criticos: PRY-221 y PRY-229 vencidos, PRY-208 con contradiccion cronograma/informe, factura CT-793 excede contractual, 4 entregables CT-915 vencidos sin recibo.",
+        "id": "2026-10-01-portfolio-scan-1",
+        "_estado": ".pruebas/vera-mini/estado"
+      }
+    ],
+    "salida": true,
+    "subagentes": 0,
+    "concurrentes": 0,
+    "workers": 1,
+    "exceso": false
+  }
+]

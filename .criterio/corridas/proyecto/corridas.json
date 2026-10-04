@@ -1,0 +1,98 @@
+[
+  {
+    "id": "2026-09-30-pm-wake-1",
+    "agente": "proyecto",
+    "comando": "pm-wake",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T09:39:02",
+    "fin": "2026-09-30T09:40:35",
+    "segundos": 93,
+    "respuestas": 1,
+    "medidas": [
+      {
+        "que": "pm-wake",
+        "fecha": "2026-09-30",
+        "proyectos": 0,
+        "documentos": null,
+        "segundos": 63,
+        "relectura": null,
+        "medido": {
+          "segundos": true,
+          "documentos": false
+        },
+        "hallazgos": 0,
+        "por_senal": {},
+        "nota": "Primera corrida. 3 documentos nuevos, 0 minutas. Proyección de costo +23% sobre presupuesto aprobado. CC-01 pendiente 19 días. Prueba de carga sin fecha de repetición. Sin ficha publicada.",
+        "id": "2026-09-30-pm-wake-1",
+        "_estado": ".pruebas/corp-demo/estado/PRY-200-originación-digital"
+      }
+    ],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-pm-agenda-1",
+    "agente": "proyecto",
+    "comando": "pm-agenda",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T09:40:54",
+    "fin": "2026-09-30T09:41:47",
+    "segundos": 53,
+    "respuestas": 1,
+    "medidas": [
+      {
+        "que": "pm-agenda",
+        "fecha": "2026-09-30",
+        "proyectos": 0,
+        "documentos": null,
+        "segundos": 40,
+        "relectura": null,
+        "medido": {
+          "segundos": true,
+          "documentos": false
+        },
+        "hallazgos": 0,
+        "por_senal": {},
+        "nota": "Primera agenda. 3 puntos, 30 min. CC-01 pendiente 19 días, brecha proyectada 767M COP (23.3%), prueba de carga sin fecha. Sin minutas previas — no hay compromisos registrados. Un punto escalable a comité.",
+        "id": "2026-09-30-pm-agenda-1",
+        "_estado": ".pruebas/corp-demo/estado/PRY-200-originación-digital"
+      }
+    ],
+    "salida": true
+  },
+  {
+    "id": "2026-09-30-pm-minutes-1",
+    "agente": "proyecto",
+    "comando": "pm-minutes",
+    "args": "",
+    "caso": null,
+    "fecha": "2026-09-30",
+    "inicio": "2026-09-30T09:43:37",
+    "fin": "2026-09-30T09:48:41",
+    "segundos": 304,
+    "respuestas": 2,
+    "medidas": [
+      {
+        "que": "pm-minutes",
+        "fecha": "2026-09-30",
+        "proyectos": 0,
+        "documentos": null,
+        "segundos": 58,
+        "relectura": null,
+        "medido": {
+          "segundos": true,
+          "documentos": false
+        },
+        "hallazgos": 0,
+        "por_senal": {},
+        "nota": "4 compromisos (3 con fecha, 1 sin fecha). 1 reprogramado 2 veces (Paola, seguridad). 0 decisiones. 2 temas sin decidir van al comité Oct 12. 2 riesgos dichos al pasar no registrados. Contradicciones: estado verde cuestionado por Sandra, prueba de carga falló dos veces, ambiente certificado sin acta.",
+        "id": "2026-09-30-pm-minutes-1",
+        "_estado": ".pruebas/corp-demo/estado/PRY-200-originación-digital"
+      }
+    ],
+    "salida": true
+  }
+]

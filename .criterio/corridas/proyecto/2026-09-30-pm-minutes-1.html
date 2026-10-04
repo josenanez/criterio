@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Corrida · 2026-09-30-pm-minutes-1</title><style>body{margin:0;background:#f5f4ef;color:#3f4450;font:16px/1.6 -apple-system,Segoe UI,Helvetica,Arial,sans-serif}.hoja{max-width:900px;margin:0 auto;padding:38px 24px}h1,h2,h3{color:#111111;letter-spacing:-.02em;line-height:1.15}h1{font-size:1.9rem}h2{font-size:1.25rem;margin-top:2em}.nav a{color:#8a6327;text-decoration:none}table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}th,td{text-align:left;padding:.45em .6em;border-bottom:1px solid #c9c6bd}th{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#6b675f}code{background:#efeee8;padding:.1em .35em;border-radius:3px;font-size:.9em}pre{background:#efeee8;padding:1em;overflow:auto}blockquote{margin:1em 0;padding:.2em 1em;border-left:3px solid #8a6327;color:#6b675f}.pie{margin-top:3em;padding-top:1em;border-top:1px solid #c9c6bd;font-size:.85rem;color:#6b675f}</style></head><body><div class="hoja"><div class="nav"><a href="/corridas">← Historia de las corridas</a></div><div class="bloque"><h2>Corrida · 2026-09-30-pm-minutes-1</h2>
+<p><b>Agente:</b> Samuel (proyecto) · <b>Comando:</b> <code>/criterio-project:pm-minutes</code></p>
+<p><b>Inicio:</b> 2026-09-30T09:43:37 · <b>Fin:</b> 2026-09-30T09:48:41 · <b>Duración:</b> 304 s</p>
+<blockquote>Esta corrida no dejó cifras medidas por <code>corrida</code>: lo que hay es lo que el agente mostró. Si el comando debía correr los scripts y no lo hizo, eso es un hallazgo de la prueba.</blockquote>
+<h3>Lo que el agente mostró</h3>
+<p>Sin insumo no hay acta. Necesito la transcripción de la reunión o las notas de alguien — un archivo con lo que se dijo. Un acta escrita sin fuente es exactamente el problema que este comando viene a resolver.</p>
+<p>¿Dónde está el archivo? Puede ser:</p>
+<ul>
+<li>La transcripción automática de la videollamada</li>
+<li>Las notas que alguien tomó durante la reunión</li>
+<li>El chat de la sesión</li>
+</ul>
+<p>Dime la ruta y redacto el acta sobre eso.</p>
+<h3>Respuesta 2</h3>
+<p>---</p>
+<h2>Acta — Originación digital (PRY-200) · 2026-09-30</h2>
+<p><b>Asistieron:</b> Óscar Ramírez, Sandra Gil, Andrés Cely, Paola Rueda, Laura Pinzón · <b>Fuente:</b> <code>30-reuniones/2026-09-30-notas-reunion-seguimiento.md</code></p>
+<h3>Compromisos</h3>
+<table><thead><tr><th>Quién</th><th>Qué</th><th>Para cuándo</th><th>Nota</th></tr></thead><tbody><tr><td>Óscar Ramírez</td><td>Presentar CC-01 al comité</td><td>2026-10-12</td><td>Lleva desde 2026-09-11 sin presentarse</td></tr><tr><td>Paola Rueda</td><td>Revisión final de seguridad</td><td>2026-10-15</td><td><b>Reprogramado 2 veces</b> (era Sep 25, luego Oct 3)</td></tr><tr><td>Óscar Ramírez</td><td>Acta de recibo del ambiente de pruebas</td><td>~2026-10-04</td><td><i>«esta semana»</i></td></tr></tbody></table>
+<h4>Sin fecha</h4>
+<table><thead><tr><th>Quién</th><th>Qué</th></tr></thead><tbody><tr><td>Andrés Cely</td><td>Repetir prueba de carga con conexión al core corregida — <i>«la semana que viene»</i>, sin fecha</td></tr></tbody></table>
+<h3>Decisiones</h3>
+<p>Ninguna. No se tomó ninguna decisión formal.</p>
+<h3>Quedó sin decidir</h3>
+<table><thead><tr><th>Qué</th><th>Por qué</th><th>Quién tiene la facultad</th></tr></thead><tbody><tr><td>Qué pasa si la carga no pasa antes de la revisión de seguridad → producción se corre a noviembre</td><td>Nadie respondió. Sandra: <i>«lo ve en el comité»</i></td><td>Comité / Sandra Gil</td></tr><tr><td>Si el proyecto sigue en verde</td><td>Sandra: <i>«si el 12 no tenemos el acta y la carga, no está en verde»</i>. Óscar no contestó.</td><td>Óscar (declara) / Sandra (puede exigirlo)</td></tr></tbody></table>
+<h3>Dicho al pasar y no registrado</h3>
+<table><thead><tr><th>Qué</th><th>Quién</th><th>Categoría</th></tr></thead><tbody><tr><td>Dependencia secuencial carga → seguridad → producción; si falla, noviembre</td><td>Andrés Cely</td><td>Dependencia / riesgo de calendario. No estaba en el RAID.</td></tr><tr><td><i>«El piloto no necesita esa carga»</i> — umbral pactado (2.000 TPS) no aplica según Óscar</td><td>Óscar Ramírez</td><td>Supuesto no declarado. No hay documento que defina un umbral distinto para el piloto.</td></tr></tbody></table>
+<h3>Lo que esta reunión contradice</h3>
+<table><thead><tr><th>Campo</th><th>Reunión</th><th>Expediente</th></tr></thead><tbody><tr><td>Estado verde</td><td>Sandra lo cuestiona condicionado al 12 de octubre</td><td>Informe Sep 22: verde</td></tr><tr><td>Prueba de carga</td><td>Falló dos veces (1.400 vs 2.000 TPS)</td><td>Informe Sep 22 reporta un solo intento</td></tr><tr><td>Ambiente certificado</td><td>Óscar dice que sí, pero no hay acta de recibo</td><td>Informe dice <i>«se cerró la certificación»</i> sin documento de soporte</td></tr></tbody></table>
+<p>---</p>
+<p><b>4 compromisos</b> (3 con fecha, 1 sin) · <b>1 reprogramado 2 veces</b> · <b>0 decisiones</b> · <b>2 temas van al comité del 12 de octubre</b> · <b>2 riesgos no registrados</b></p>
+<p>El acta es tuya — guárdala en tu carpeta cuando la hayas revisado. Para el seguimiento completo: <code>/pm-commitments</code>. Si el estado del proyecto cambia antes del comité: <code>/pm-publish</code>.</p></div><div class="pie">Esta corrida se escribió sola al terminar el comando, el 2026-09-30; nada de esto se redactó después. Es la historia de lo que el agente leyó en los documentos, no de lo que pasó ni un juicio sobre nadie.</div></div></body></html>
