@@ -6,7 +6,7 @@ quien vigila el portafolio— y ninguno habla con otro directamente: se hablan p
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
 
-![Vera, Samuel, Alba y Rostrum](../../docs/img/es/robots.png)
+![Vera, Samuel, Alba y Rostrum](../../docs/img/es/robots.gif)
 
 | | |
 |---|---|

@@ -7,7 +7,7 @@ producto antes de que exista el proyecto. Rostrum es un gabinete de cintas y luc
 servidor donde queda todo.
 
 Son los mismos trazos que josenanez.com usa en la página de Criterio. Aquí viven en un
-solo lugar para que el servidor los dibuje en sus páginas y `docs/img/robots.py` los
+solo lugar para que el servidor los dibuje en sus páginas y `docs/img/graficos.py` los
 imprima para los README: si cambia un robot, cambia en todas partes.
 """
 from __future__ import annotations
