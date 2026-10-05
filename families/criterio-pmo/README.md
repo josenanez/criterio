@@ -15,6 +15,11 @@ record.
 | **Objective** | That declared and evidenced can be compared, every day and across the whole — which is what cannot be done today |
 | **Made of** | [Vera](../../plugins/criterio-portfolio/README.md) · [Samuel](../../plugins/criterio-project/README.md) · [Alba](../../plugins/criterio-product/README.md) · [Rostrum](../../plugins/criterio-portfolio/SERVER.md) |
 | **State** | The three agents built and verified over a synthetic corpus. **Extraction over real documentation has not been tested** |
+| **Approach** | Strategy and execution |
+| **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
+| **What it is not** | It does not replace your PMO or decide for it: it reads what your team has already written and says what does not hold up |
+| **Licence** | [Apache 2.0](../../LICENSE) |
+| **What comes next** | More capabilities to improve the workplace |
 
 ---
 

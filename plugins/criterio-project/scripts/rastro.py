@@ -265,7 +265,13 @@ def cifras_medidas(cwd: Path, desde: float, comando: str, agente: str = "") -> l
                 continue
             if agente and x.get("que") not in ({comando} | tambien(comando)):
                 continue
-            salida.append(dict(x, _estado=str(f.parent)))
+            # Relativa a la carpeta de la sesión: el rastro se versiona y una ruta absoluta
+            # publica el nombre de usuario y la estructura de carpetas de quien corrió.
+            try:
+                donde = str(f.parent.resolve().relative_to(cwd.resolve()))
+            except ValueError:
+                donde = f.parent.name
+            salida.append(dict(x, _estado=donde))
     return salida
 
 

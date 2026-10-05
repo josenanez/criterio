@@ -14,6 +14,11 @@ quien vigila el portafolio— y ninguno habla con otro directamente: se hablan p
 | **Objetivo** | Que lo declarado y lo evidenciado se puedan comparar, todos los días y sobre el conjunto — que es lo que hoy no se puede |
 | **Compuesta por** | [Vera](../../plugins/criterio-portfolio/README.es.md) · [Samuel](../../plugins/criterio-project/README.es.md) · [Alba](../../plugins/criterio-product/README.es.md) · [Rostrum](../../plugins/criterio-portfolio/SERVER.es.md) |
 | **Estado** | Los tres agentes construidos y verificados sobre corpus sintético. **La extracción sobre documentación real no se ha probado** |
+| **Enfoque** | Estrategia y ejecución |
+| **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
+| **Qué no es** | No reemplaza a tu PMO ni decide por ella: lee lo que tu equipo ya escribió y dice qué no se sostiene |
+| **Licencia** | [Apache 2.0](../../LICENSE) |
+| **Qué viene** | Más capacidades para mejorar los entornos laborales |
 
 ---
 
