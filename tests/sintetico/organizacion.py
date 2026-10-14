@@ -16,7 +16,7 @@ Las fechas se calculan **relativas al día de la corrida**, no fijas, porque el 
 que las señales de silencio, de declaración vieja y de supuesto sin verificar se disparen
 cuando alguien corra esto mañana o en tres meses.
 
-Nada aquí es real. Banco Aurora no existe, y ningún nombre, cifra ni documento viene de
+Nada aquí es real. La entidad no existe, y ningún nombre, cifra ni documento viene de
 una organización o persona real.
 """
 import datetime as dt
@@ -1292,7 +1292,7 @@ def clave(pl_proy: list, pl_prod: list, destino: Path) -> str:
 
     return f"""# Lo que hay plantado en esta organización
 
-**Banco Aurora no existe.** Ningún nombre, cifra ni documento de aquí viene de una
+**La entidad no existe.** Ningún nombre, cifra ni documento de aquí viene de una
 organización o una persona real. Se generó el {HOY.isoformat()} con
 `tests/sintetico/organizacion.py`.
 

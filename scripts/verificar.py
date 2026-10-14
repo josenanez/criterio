@@ -50,6 +50,8 @@ PUERTAS = [
      "El resumen de las corridas diarias: precisión, cobertura y qué se movió"),
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/evidencia.py"), "verificar"],
      "Que el registro de comandos no prometa una evidencia que no está"),
+    ("material", [sys.executable, str(RAIZ / "tests/banco.py"), "verificar"],
+     "Que cada calificación del agente salga de sus conteos, con intervalo y origen"),
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/funcionalidades.py"),
                   "--verificar"],
      "Que cada comando declare qué produce y qué deja escrito"),

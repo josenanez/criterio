@@ -3,7 +3,7 @@
 
     python3 tests/sintetico/simulador.py <carpeta> --dia 1 --sector mineria --formatos
 
-Hasta el 15 de octubre de 2026 todo el material era Markdown y CSV, y la página decía
+Hasta el 14 de octubre de 2026 todo el material era Markdown y CSV, y la página decía
 «docx · xlsx · pptx · pdf · eml». Lo que no se había probado era justo lo que la gente
 tiene: el acta en Word, el cronograma en Excel y el informe en PDF.
 

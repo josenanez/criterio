@@ -187,7 +187,7 @@ def hash_texto(ruta: Path):
     Existe por una razón económica: un Word reguardado o un Excel que recalcula al
     abrirlo cambian el hash de bytes sin cambiar una palabra, y cada falso positivo
     cuesta una relectura del documento, que es el único paso caro del sistema. Hasta el
-    15 de octubre de 2026 devolvía None justo para Word y Excel, los dos formatos por los
+    14 de octubre de 2026 devolvía None justo para Word y Excel, los dos formatos por los
     que existe: ahora usa los convertidores de `texto.py`.
     """
     suf = ruta.suffix.lower()

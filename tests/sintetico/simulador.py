@@ -81,10 +81,10 @@ SENALES_DE_EVIDENCIA = (
 )
 
 # El vocabulario de la industria —áreas, comités, temas, fases, proveedores— vive en
-# `sectores.py`, un perfil por sector. Este módulo arranca con el financiero y `--sector`
+# `sectores.py`, un perfil por sector. Este módulo arranca con el de bancos y `--sector`
 # lo cambia antes de escribir nada. Los hechos y la clave no dependen del perfil.
 import sectores  # noqa: E402
-SECTOR = "finanzas"
+SECTOR = "bancos"
 globals().update(sectores.PERFILES[SECTOR])
 
 
@@ -850,23 +850,23 @@ if __name__ == "__main__":
     disp = a.disposicion or corpus.DISPOSICIONES[(a.dia - 1) % len(corpus.DISPOSICIONES)]
 
     nuevo = a.dia == 1 or not banco.exists()
-    sector = a.sector or ("finanzas" if nuevo else
-                          json.loads(banco.read_text(encoding="utf-8")).get("sector", "finanzas"))
-    if not nuevo and a.sector and a.sector != json.loads(banco.read_text(encoding="utf-8")).get("sector", "finanzas"):
+    sector = a.sector or ("bancos" if nuevo else
+                          json.loads(banco.read_text(encoding="utf-8")).get("sector", "bancos"))
+    if not nuevo and a.sector and a.sector != json.loads(banco.read_text(encoding="utf-8")).get("sector", "bancos"):
         sys.exit(f"esta organización es de otro sector; no se cambia a mitad de la prueba")
     usar_sector(sector)
     # Cada industria sortea sus propios hechos. Con la misma semilla las tres tenían la
     # misma clave y una prueba en tres sectores era una sola organización con tres
-    # vocabularios: más casos distintos es lo que le da peso a una cifra. Finanzas
-    # conserva la semilla de siempre, así que corp-demo no cambia.
+    # vocabularios: más casos distintos es lo que le da peso a una cifra. Los bancos
+    # conservan la semilla de siempre, así que corp-demo no cambia.
     rnd = random.Random(20260928 + a.dia * 7919 + sectores.SEMILLA[sector])
 
     if nuevo:
         estado = {"dia": 1, "creada": hoy.isoformat(), "sector": sector,
-                  "organizacion": ORGANIZACION,
+                  "etiqueta": ETIQUETA,
                   "proyectos": [nuevo_proyecto(rnd, i, hoy) for i in range(a.proyectos)],
                   "productos": [nuevo_producto(rnd, i, hoy) for i in range(a.productos)]}
-        bitacora = [f"día 1 · {ORGANIZACION} ({sector}) creada: {a.proyectos} proyectos, "
+        bitacora = [f"día 1 · {ETIQUETA} · creada: {a.proyectos} proyectos, "
                     f"{a.productos} productos"]
     else:
         estado = json.loads(banco.read_text(encoding="utf-8"))

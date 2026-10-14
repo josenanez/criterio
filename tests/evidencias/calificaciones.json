@@ -1,0 +1,153 @@
+[
+ {
+  "id": "2026-10-14-bancos-vera-1",
+  "fecha": "2026-10-14",
+  "corte": "2026-10-14",
+  "entorno": "bancos",
+  "industria": "Entidades financieras (bancos y cooperativas) de Suramérica",
+  "etiqueta": "Entidades financieras de Suramérica · bancos",
+  "material": "organizacion",
+  "agente": "vera",
+  "version": "0.3.4",
+  "tipo": "primera",
+  "codigo": "725647a",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 10,
+  "fichas": 10,
+  "aciertos": 21,
+  "falsos_positivos": 12,
+  "falsos_negativos": 4,
+  "precision": 63.6,
+  "cobertura": 84.0,
+  "ic_precision": [
+   40.0,
+   84.8
+  ],
+  "ic_cobertura": [
+   65.3,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 0,
+  "errores": {
+   "PRY-101": {
+    "faltan": [
+     "commitment_rescheduled"
+    ],
+    "sobran": [
+     "progress_vs_plan"
+    ]
+   },
+   "PRY-102": {
+    "faltan": [
+     "commitment_overdue"
+    ],
+    "sobran": []
+   },
+   "PRY-103": {
+    "faltan": [],
+    "sobran": [
+     "progress_vs_plan"
+    ]
+   },
+   "PRY-104": {
+    "faltan": [
+     "declared_vs_evidence",
+     "silent"
+    ],
+    "sobran": []
+   },
+   "PRY-105": {
+    "faltan": [],
+    "sobran": [
+     "declared_vs_evidence",
+     "progress_vs_plan"
+    ]
+   },
+   "PRY-106": {
+    "faltan": [],
+    "sobran": [
+     "progress_vs_plan"
+    ]
+   },
+   "PRY-107": {
+    "faltan": [],
+    "sobran": [
+     "declared_vs_evidence",
+     "governance_change",
+     "governance_change",
+     "progress_vs_plan"
+    ]
+   },
+   "PRY-108": {
+    "faltan": [],
+    "sobran": [
+     "contradiction",
+     "declared_vs_evidence",
+     "progress_vs_plan"
+    ]
+   }
+  },
+  "origen": {
+   "agente": 0,
+   "codigo": 10,
+   "clave": 6,
+   "nota": "Código: silent nunca se calculaba (2, con su declared_vs_evidence); progress_vs_plan medido contra un punto (8, con 2 declared_vs_evidence). Clave: 3 fechas = 2 reprogramaciones; compromiso que el material daba por cumplido; governance_change x2, declared_vs_evidence y contradiction que la prosa plantaba y la clave no listaba.",
+   "quien": "anotado a mano"
+  },
+  "nota": "Primer contacto del agente con el material: casos escritos a mano (organizacion.py), clave de entonces."
+ },
+ {
+  "id": "2026-10-14-bancos-vera-2",
+  "fecha": "2026-10-14",
+  "corte": "2026-10-14",
+  "entorno": "bancos",
+  "industria": "Entidades financieras (bancos y cooperativas) de Suramérica",
+  "etiqueta": "Entidades financieras de Suramérica · bancos",
+  "material": "organizacion",
+  "agente": "vera",
+  "version": "0.3.5",
+  "tipo": "corregida",
+  "codigo": "9fd41a8",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 10,
+  "fichas": 10,
+  "aciertos": 29,
+  "falsos_positivos": 2,
+  "falsos_negativos": 0,
+  "precision": 93.5,
+  "cobertura": 100.0,
+  "ic_precision": [
+   79.3,
+   100.0
+  ],
+  "ic_cobertura": [
+   88.3,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "errores": {
+   "PRY-101": {
+    "faltan": [],
+    "sobran": [
+     "progress_vs_plan"
+    ]
+   },
+   "PRY-103": {
+    "faltan": [],
+    "sobran": [
+     "progress_vs_plan"
+    ]
+   }
+  },
+  "origen": {
+   "agente": 0,
+   "codigo": 0,
+   "clave": 2,
+   "nota": "progress_vs_plan en PRY-101 y PRY-103: la regla lo exige (72% y 61% con uno de cuatro hitos cerrados) y la clave escrita a mano no lo listaba.",
+   "quien": "anotado a mano"
+  },
+  "nota": "Mismo generador, regenerado tras corregir el código y la clave viendo la corrida 0: no es una medición independiente."
+ }
+]

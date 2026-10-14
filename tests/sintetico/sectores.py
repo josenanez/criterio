@@ -1,25 +1,28 @@
 # -*- coding: utf-8 -*-
-"""El vocabulario de cada industria, para que el simulador escriba una organización
-de ese sector.
+"""Los datos de prueba por industria: el vocabulario con que el simulador escribe la
+documentación de una organización del sector.
 
-    python3 tests/sintetico/simulador.py <carpeta> --dia 1 --sector retail
+    python3 tests/sintetico/simulador.py <carpeta> --dia 1 --sector cooperativas
 
-**El motor es uno; los hechos y el papel, de cada industria.** Las reglas que deciden
+Cuatro entornos, en tres industrias de Suramérica: entidades financieras (bancos y
+cooperativas de ahorro y crédito), retail y minería. No hay una empresa con nombre detrás
+de ninguno: es documentación representativa del sector, y así se presenta.
+
+**El motor es uno; los hechos y el papel, de cada entorno.** Las reglas que deciden
 qué hito venció, qué se prometió y cuándo, qué factura no tiene acta, son las mismas en
-las tres, y la clave se deduce de los hechos igual que siempre. Cada sector sortea sus
+los cuatro, y la clave se deduce de los hechos igual que siempre. Cada entorno sortea sus
 propios hechos con su semilla (`SEMILLA`), y cada uno los nombra a su manera: un hito de
 minería es «Licencia y permisos obtenidos», no «Integración con el core».
 
-Las tres organizaciones son ficticias. Banco Aurora, Comercial Ladera y Minera Cumbre
-Gris no existen, y ningún nombre de aquí es de una persona, un proveedor o una empresa
-real.
+Nada de aquí es de una organización real: ni las personas, ni los proveedores, ni las
+cifras.
 
 Una regla para cada perfil: `ENTREGABLES_PROV` no puede solaparse con `FASES`. El acta
 de recibo se empareja por contención, y dos cosas distintas que se llaman casi igual en
 el mismo proyecto cruzan sus cuentas. `selftest()` lo comprueba.
 
 Los dos controles negativos llevan nombres de proyecto y producto comunes. Se llamaron
-«Control negativo de portafolio» hasta el 15 de octubre de 2026: el agente leía en el
+«Control negativo de portafolio» hasta el 14 de octubre de 2026: el agente leía en el
 nombre de la carpeta que ahí no debía encontrar nada.
 """
 
@@ -33,8 +36,8 @@ nombre de la carpeta que ahí no debía encontrar nada.
 #   aparece el dinero pagado por algo que nadie aceptó. Cuatro señales viven aquí.
 # · SUPUESTOS: enunciados que alguien puede verificar o no; uno sin verificar es un riesgo
 #   que nadie registró.
-FINANZAS = {
-    "ORGANIZACION": "Banco Aurora",
+BANCOS = {
+    "ETIQUETA": "Entidades financieras de Suramérica · bancos",
     "AREAS": ["Banca de Personas", "Banca Empresas", "Medios de Pago", "Tecnología",
               "Riesgo y Cumplimiento", "Canales Digitales", "Operaciones", "Tesorería",
               "Banca Hipotecaria", "Banca PyME"],
@@ -43,7 +46,7 @@ FINANZAS = {
     "TEMAS_PRY": [
         ("Originación digital", "crédito de consumo"), ("Core de depósitos", "cuenta de ahorros"),
         ("Migración a la nube", None), ("Open Banking", "APIs de datos"),
-        ("Débito contactless", "tarjeta débito"), ("Monitoreo SARLAFT", None),
+        ("Débito contactless", "tarjeta débito"), ("Prevención de lavado de activos", None),
         ("Billetera y QR", "pagos QR"), ("Onboarding PyME", "cuenta PyME"),
         ("Motor de decisión", None), ("Nómina electrónica", "nómina empresarial"),
         ("Portal de proveedores", None), ("Cobranza digital", "recaudos"),
@@ -94,7 +97,7 @@ FINANZAS = {
 }
 
 RETAIL = {
-    "ORGANIZACION": "Comercial Ladera",
+    "ETIQUETA": "Empresas de retail de Suramérica · supermercados y tiendas",
     "AREAS": ["Comercial", "Abastecimiento", "Logística", "Tiendas", "Comercio electrónico",
               "Mercadeo", "Tecnología", "Finanzas", "Talento humano", "Servicio al cliente"],
     "COMITES": ["Comité de Expansión", "Comité de Transformación Digital",
@@ -154,7 +157,7 @@ RETAIL = {
 }
 
 MINERIA = {
-    "ORGANIZACION": "Minera Cumbre Gris",
+    "ETIQUETA": "Empresas mineras de Suramérica · oro y cobre",
     "AREAS": ["Mina", "Planta de procesamiento", "Mantenimiento", "Seguridad y Salud",
               "Medio Ambiente", "Relacionamiento comunitario", "Tecnología", "Logística",
               "Finanzas", "Geología"],
@@ -217,13 +220,83 @@ MINERIA = {
     "CONTROL_PRD": "Solicitud de dotación",
 }
 
-PERFILES = {"finanzas": FINANZAS, "retail": RETAIL, "mineria": MINERIA}
-SEMILLA = {"finanzas": 0, "retail": 104729, "mineria": 224737}
+COOPERATIVAS = {
+    "ETIQUETA": "Entidades financieras de Suramérica · cooperativas de ahorro y crédito",
+    "AREAS": ["Crédito", "Ahorro y aportes", "Servicio al asociado", "Tecnología",
+              "Riesgo y Cumplimiento", "Canales digitales", "Operaciones", "Tesorería",
+              "Cartera y cobranza", "Bienestar social"],
+    "COMITES": ["Consejo de Administración", "Comité de Crédito", "Comité de Riesgos",
+                "Comité de Tecnología", "Comité de Educación"],
+    "TEMAS_PRY": [
+        ("Crédito de libranza digital", "crédito de libranza"),
+        ("Apertura de ahorro en línea", "ahorro a la vista"), ("Core cooperativo", None),
+        ("Aportes sociales en línea", "aportes sociales"),
+        ("Tarjeta débito para asociados", "tarjeta débito"),
+        ("Prevención de lavado de activos", None), ("Pagos con QR", "pagos QR"),
+        ("Microcrédito rural", "microcrédito"), ("Motor de crédito", None),
+        ("Convenios de libranza con empresas", None), ("Corresponsales rurales", None),
+        ("Cobranza digital", "recaudos"), ("Firma electrónica", None),
+        ("Fondo de solidaridad en línea", "auxilios de solidaridad"),
+        ("Remesas", "remesas familiares"), ("Seguros para asociados", "microseguros"),
+        ("Asamblea virtual de delegados", None), ("Conciliación automática", None),
+        ("Canal WhatsApp", None), ("Educación financiera digital", None),
+    ],
+    "TEMAS_PRD": [
+        "Crédito de libranza", "Ahorro a la vista", "Aportes sociales", "Tarjeta débito",
+        "Pagos QR", "Microcrédito", "Recaudos", "Auxilios de solidaridad",
+        "Remesas familiares", "Microseguros", "CDAT digital", "Ahorro programado escolar",
+        "Crédito educativo", "Crédito de vivienda", "Crédito para emprendimiento",
+        "Billetera del asociado", "Convenios comerciales", "Crédito rotativo",
+        "Ahorro navideño", "Seguro exequial",
+    ],
+    "FASES": ("Diseño funcional aprobado", "Ambiente de pruebas certificado",
+              "Integración con el core cooperativo", "Piloto con asociados",
+              "Salida a producción", "Estabilización y cierre"),
+    "AVANCES": (
+        "Se cerró la certificación del ambiente de pruebas",
+        "El proveedor entregó el componente de integración, pendiente de aceptación",
+        "El Consejo de Administración pidió ajustar el reglamento antes del piloto",
+        "Se reprogramó la salida por el cierre contable de fin de mes",
+        "El equipo perdió dos semanas por rotación de un desarrollador clave",
+        "Se levantó un hallazgo de seguridad en la revisión de arquitectura",
+        "La prueba de carga no alcanzó el umbral pactado y se repite",
+        "Se recibió el concepto pendiente del ente supervisor",
+    ),
+    "RIESGOS": (
+        "Dependencia del proveedor del core cooperativo",
+        "Aprobación del reglamento por el Consejo de Administración",
+        "Concentración del conocimiento en una sola persona",
+        "Cambio normativo del supervisor que puede mover el alcance",
+        "El proveedor no ha confirmado la fecha de la última entrega",
+    ),
+    "PROVEEDORES": ("Soluciones Solidarias S.A.S.", "Sistemas Cooperativos Ltda.",
+                    "Integración Financiera del Sur", "Red Rural de Pagos S.A.S.",
+                    "Talento Solidario Ltda.", "Datos para Cooperativas S.A.S."),
+    "ENTREGABLES_PROV": ("Licenciamiento del módulo", "Bolsa de horas de desarrollo",
+                         "Parametrización de líneas de crédito", "Mesa de ayuda del primer trimestre",
+                         "Capacitación a asesores"),
+    "SUPUESTOS": ("Los asociados usan el canal digital", "El core soporta el volumen",
+                  "El reglamento vigente lo permite", "El proveedor cumple el tiempo pactado",
+                  "La demanda se sostiene sin campaña"),
+    "SEGMENTOS": ["Asociados urbanos", "Asociados rurales", "Jóvenes", "Pensionados",
+                  "Microempresarios"],
+    "CONTROL_PRY": "Cambio de mobiliario de agencias",
+    "CONTROL_PRD": "Kit de bienvenida del asociado",
+}
+
+# Las cuatro, y la industria a la que pertenece cada una. Los bancos conservan la semilla
+# de siempre, así que corp-demo no cambia.
+PERFILES = {"bancos": BANCOS, "cooperativas": COOPERATIVAS, "retail": RETAIL, "mineria": MINERIA}
+INDUSTRIA = {"bancos": "Entidades financieras (bancos y cooperativas) de Suramérica",
+             "cooperativas": "Entidades financieras (bancos y cooperativas) de Suramérica",
+             "retail": "Empresas de retail de Suramérica",
+             "mineria": "Empresas mineras de Suramérica"}
+SEMILLA = {"bancos": 0, "cooperativas": 362867, "retail": 104729, "mineria": 224737}
 
 
 def selftest() -> list:
     fallas = []
-    llaves = set(FINANZAS)
+    llaves = set(BANCOS)
     for nombre, p in PERFILES.items():
         if set(p) != llaves:
             fallas.append(f"{nombre}: llaves distintas {set(p) ^ llaves}")
