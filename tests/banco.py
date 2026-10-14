@@ -103,12 +103,19 @@ def armar(a) -> int:
     clave, espacio = carpeta / "clave", carpeta / "espacio"
     if a.dia == 1 and carpeta.exists():
         sys.exit(f"{carpeta} ya existe; un entorno no se rearma encima de una prueba")
-    cmd = [sys.executable, str(RAIZ / "tests" / "sintetico" / "simulador.py"), str(clave),
-           "--dia", str(a.dia), "--proyectos", str(a.proyectos), "--productos", str(a.productos),
-           "--formatos"] + (["--sector", a.entorno] if a.dia == 1 else [])
-    r = subprocess.run(cmd, capture_output=True, text=True)
-    if r.returncode:
-        sys.exit(r.stderr)
+    # Con --semanas N el simulador corre los días 1..N y el último cae hoy: la
+    # organización llega con N semanas de vida —minutas, compromisos reprogramados,
+    # proyectos que se callaron—, que es lo que un agente encuentra en una carpeta real.
+    dias = range(1, a.semanas + 1) if a.semanas else [a.dia]
+    for d in dias:
+        cmd = [sys.executable, str(RAIZ / "tests" / "sintetico" / "simulador.py"), str(clave),
+               "--dia", str(d), "--proyectos", str(a.proyectos), "--productos", str(a.productos),
+               "--formatos", "--dias", str(a.semanas or a.dias), "--ronda", str(a.ronda)]
+        cmd += ["--disposicion", a.disposicion] if a.disposicion else []
+        cmd += ["--sector", a.entorno] if d == 1 else []
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if r.returncode:
+            sys.exit(r.stderr)
     docs = espacio / "documentos"
     if docs.exists():
         shutil.rmtree(docs)
@@ -116,7 +123,7 @@ def armar(a) -> int:
     shutil.rmtree(clave / "documentos")
     (espacio / "estado").mkdir(parents=True, exist_ok=True)
     n = sum(1 for f in docs.rglob("*") if f.is_file())
-    print(f"{a.entorno} · día {a.dia} · {n} documentos en {docs}")
+    print(f"{a.entorno} · {a.semanas or 1} semana(s) · {n} documentos en {docs}")
     print(f"la clave queda en {clave}; el agente se corre en {espacio}")
     return 0
 
@@ -125,7 +132,9 @@ def armar(a) -> int:
 
 def calificar(a) -> int:
     carpeta = Path(a.carpeta).expanduser()
-    clave = json.loads((carpeta / "clave" / "esperado.json").read_text(encoding="utf-8"))
+    # La clave de una ronda agrega lo que siembran las notas de Samuel; si no hay, la del simulador.
+    ronda = carpeta / "clave" / "esperado-ronda.json"
+    clave = json.loads((ronda if ronda.is_file() else carpeta / "clave" / "esperado.json").read_text(encoding="utf-8"))
     org = carpeta / "clave" / "organizacion.json"
     entorno = (json.loads(org.read_text(encoding="utf-8")).get("sector")
                if org.is_file() else None) or a.entorno
@@ -244,6 +253,12 @@ if __name__ == "__main__":
     s.add_argument("--dia", type=int, default=1)
     s.add_argument("--proyectos", type=int, default=12)
     s.add_argument("--productos", type=int, default=10)
+    # Con --dias 1 el material cae en la fecha real: el agente y la clave miran el mismo
+    # día. Con el valor del simulador (5) el día 1 caía cuatro semanas atrás.
+    s.add_argument("--dias", type=int, default=1)
+    s.add_argument("--ronda", type=int, default=0)
+    s.add_argument("--semanas", type=int, default=0, help="corre los días 1..N; el último cae hoy")
+    s.add_argument("--disposicion", default=None)
     s = sub.add_parser("calificar")
     s.add_argument("carpeta")
     s.add_argument("--version", required=True)

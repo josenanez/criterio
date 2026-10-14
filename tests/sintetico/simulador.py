@@ -840,6 +840,8 @@ if __name__ == "__main__":
     ap.add_argument("--disposicion", default=None)
     ap.add_argument("--formatos", action="store_true",
                     help="parte del material en Word, Excel y PDF (formatos.py)")
+    ap.add_argument("--ronda", type=int, default=0,
+                    help="cada ronda de pruebas sortea hechos nuevos; 0 es el material de siempre")
     ap.add_argument("--sector", choices=sorted(sectores.PERFILES), default=None,
                     help="el vocabulario de la industria; el día 1 lo fija y los demás lo leen")
     ap.add_argument("--dias", type=int, default=DIAS,
@@ -867,10 +869,10 @@ if __name__ == "__main__":
     # misma clave y una prueba en tres sectores era una sola organización con tres
     # vocabularios: más casos distintos es lo que le da peso a una cifra. Los bancos
     # conservan la semilla de siempre, así que corp-demo no cambia.
-    rnd = random.Random(20260928 + a.dia * 7919 + sectores.SEMILLA[sector])
+    rnd = random.Random(20260928 + a.dia * 7919 + sectores.SEMILLA[sector] + a.ronda * 15485863)
 
     if nuevo:
-        estado = {"dia": 1, "creada": hoy.isoformat(), "sector": sector,
+        estado = {"dia": 1, "creada": hoy.isoformat(), "sector": sector, "ronda": a.ronda,
                   "etiqueta": ETIQUETA,
                   "proyectos": [nuevo_proyecto(rnd, i, hoy) for i in range(a.proyectos)],
                   "productos": [nuevo_producto(rnd, i, hoy) for i in range(a.productos)]}
