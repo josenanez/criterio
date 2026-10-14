@@ -178,7 +178,7 @@
   "que_paso": "Samuel escribió la promesa original como una reprogramación más: un compromiso dicho dos veces quedó con dos reprogramaciones. En bancos lo había escrito sin la original. El esquema no decía cuál de las dos formas es la correcta, y el conteo que dispara la alerta de compromiso reprogramado depende de eso.",
   "evidencia": "tests/evidencias/rondas/ronda-1/cooperativas/calificacion-samuel-alba.json",
   "origen": "instrucciones",
-  "correccion": null,
+  "correccion": "5e81ef7",
   "verificado_en": null
  }
 ]
