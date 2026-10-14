@@ -180,5 +180,18 @@
   "origen": "instrucciones",
   "correccion": "5e81ef7",
   "verificado_en": null
+ },
+ {
+  "id": "D015",
+  "fecha": "2026-10-14",
+  "ronda": "1",
+  "entorno": "retail",
+  "agente": "vera",
+  "comando": "calificar",
+  "que_paso": "El calificador leía el estado de cada agente en una carpeta fija. En retail Vera guardó su portafolio en estado-portafolio, como le permite su configuración, y la calificación dio 0 de 36 sin que el agente hubiera fallado. Ahora el calificador sigue la configuración de cada agente, igual que ellos.",
+  "evidencia": "tests/evidencias/rondas/ronda-1/retail/revision.json",
+  "origen": "arnes",
+  "correccion": "eb76825",
+  "verificado_en": "ronda-1 · retail (2026-10-14-retail-vera-9)"
  }
 ]
