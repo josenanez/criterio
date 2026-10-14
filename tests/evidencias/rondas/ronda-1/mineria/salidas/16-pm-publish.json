@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-14T22:37:41",
+ "estado": "success",
+ "error": false,
+ "segundos": 39,
+ "turnos": 14,
+ "tokens": 627322,
+ "tokens_salida": 3270,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-14-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-14-pm-publish-1.md",
+   "documentos/proyectos/PRY-208-trazabilidad-del-mineral/00-gobierno/ficha-pm.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/2026-10-14-pm-publish-1.md",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas.json"
+  ],
+  "borrados": []
+ }
+}

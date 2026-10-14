@@ -75,52 +75,138 @@
     "esperados": 7,
     "reportados": 0
    }
+  },
+  {
+   "entorno": "mineria",
+   "comandos": 37,
+   "completos": 37,
+   "contratos": 37,
+   "fugas": 0,
+   "minutos": 39,
+   "tokens": 25551428,
+   "vera": {
+    "id": "2026-10-14-mineria-vera-10",
+    "aciertos": 37,
+    "falsos_positivos": 2,
+    "falsos_negativos": 0,
+    "precision": 94.9,
+    "cobertura": 100.0,
+    "ic_precision": [
+     83.1,
+     100.0
+    ],
+    "ic_cobertura": [
+     90.6,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.3.6"
+   },
+   "samuel": {
+    "correctos": 2,
+    "total": 3
+   },
+   "alba": {
+    "aciertos": 0,
+    "esperados": 9,
+    "reportados": 0
+   }
+  },
+  {
+   "entorno": "retail",
+   "comandos": 37,
+   "completos": 37,
+   "contratos": 37,
+   "fugas": 0,
+   "minutos": 40,
+   "tokens": 26730038,
+   "vera": {
+    "id": "2026-10-14-retail-vera-9",
+    "aciertos": 36,
+    "falsos_positivos": 1,
+    "falsos_negativos": 0,
+    "precision": 97.3,
+    "cobertura": 100.0,
+    "ic_precision": [
+     86.2,
+     100.0
+    ],
+    "ic_cobertura": [
+     90.4,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.3.6"
+   },
+   "samuel": {
+    "correctos": 3,
+    "total": 3
+   },
+   "alba": {
+    "aciertos": 0,
+    "esperados": 6,
+    "reportados": 0
+   }
   }
  ],
  "vera": {
-  "aciertos": 113,
-  "falsos_positivos": 1,
+  "aciertos": 186,
+  "falsos_positivos": 4,
   "falsos_negativos": 0,
-  "proyectos": 26,
+  "proyectos": 52,
   "ic_precision": [
-   95.2,
+   94.7,
    100.0
   ],
   "ic_cobertura": [
-   96.7,
+   98.0,
    100.0
   ],
-  "controles": 2,
-  "controles_limpios": 2
+  "controles": 4,
+  "controles_limpios": 4
  },
  "senales": [
   {
    "senal": "milestone_met_without_evidence",
-   "aciertos": 49,
+   "aciertos": 82,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
    "senal": "progress_vs_plan",
-   "aciertos": 16,
+   "aciertos": 27,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
    "senal": "declared_vs_evidence",
-   "aciertos": 11,
+   "aciertos": 19,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
-   "senal": "variance_time",
-   "aciertos": 6,
+   "senal": "commitment_overdue",
+   "aciertos": 9,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
    "senal": "commitment_undated",
-   "aciertos": 5,
+   "aciertos": 7,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_time",
+   "aciertos": 7,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_deliverable_late",
+   "aciertos": 7,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
@@ -131,19 +217,25 @@
    "falsos_negativos": 0
   },
   {
-   "senal": "commitment_overdue",
-   "aciertos": 4,
-   "falsos_positivos": 0,
-   "falsos_negativos": 0
-  },
-  {
    "senal": "silent",
+   "aciertos": 5,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "pm_vs_pmo",
+   "aciertos": 0,
+   "falsos_positivos": 4,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_cost",
    "aciertos": 4,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
-   "senal": "vendor_deliverable_late",
+   "senal": "milestone_overdue",
    "aciertos": 4,
    "falsos_positivos": 0,
    "falsos_negativos": 0
@@ -155,21 +247,15 @@
    "falsos_negativos": 0
   },
   {
-   "senal": "variance_cost",
-   "aciertos": 2,
-   "falsos_positivos": 0,
-   "falsos_negativos": 0
-  },
-  {
    "senal": "vendor_accepted_without_evidence",
-   "aciertos": 2,
+   "aciertos": 3,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
-   "senal": "pm_vs_pmo",
-   "aciertos": 0,
-   "falsos_positivos": 1,
+   "senal": "vendor_invoiced_over_accepted",
+   "aciertos": 2,
+   "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {

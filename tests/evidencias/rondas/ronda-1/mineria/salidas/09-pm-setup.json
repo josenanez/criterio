@@ -1,0 +1,30 @@
+{
+ "n": 9,
+ "agente": "samuel",
+ "comando": "pm-setup",
+ "argumento": "documentos/proyectos/PRY-208-trazabilidad-del-mineral",
+ "inicio": "2026-10-14T22:30:09",
+ "estado": "success",
+ "error": false,
+ "segundos": 94,
+ "turnos": 26,
+ "tokens": 1211411,
+ "tokens_salida": 12105,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-14-pm-setup-1.html",
+   ".criterio/corridas/proyecto/2026-10-14-pm-setup-1.md",
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/proyecto/PRY-208/config.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/2026-10-14-pm-setup-1.md",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/salida-pm-setup.md",
+   "estado/PRY-208-trazabilidad-del-mineral/records/PRY-208.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json"
+  ],
+  "borrados": []
+ }
+}

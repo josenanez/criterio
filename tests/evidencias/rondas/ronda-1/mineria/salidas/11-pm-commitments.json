@@ -1,0 +1,28 @@
+{
+ "n": 11,
+ "agente": "samuel",
+ "comando": "pm-commitments",
+ "argumento": "",
+ "inicio": "2026-10-14T22:32:46",
+ "estado": "success",
+ "error": false,
+ "segundos": 43,
+ "turnos": 17,
+ "tokens": 542817,
+ "tokens_salida": 4803,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-14-pm-commitments-1.html",
+   ".criterio/corridas/proyecto/2026-10-14-pm-commitments-1.md",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/2026-10-14-pm-commitments-1.md",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/salida-pm-commitments.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas.json"
+  ],
+  "borrados": []
+ }
+}

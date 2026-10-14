@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-208-trazabilidad-del-mineral/2026-10-14-notas-reunion.txt",
+ "inicio": "2026-10-14T22:31:44",
+ "estado": "success",
+ "error": false,
+ "segundos": 63,
+ "turnos": 17,
+ "tokens": 507078,
+ "tokens_salida": 7234,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-208-trazabilidad-del-mineral/corrida-en-curso.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/2026-10-14-pm-minutes-1.md",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas.json"
+  ],
+  "borrados": []
+ }
+}

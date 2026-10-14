@@ -1,0 +1,25 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-14T22:36:43",
+ "estado": "success",
+ "error": false,
+ "segundos": 58,
+ "turnos": 16,
+ "tokens": 593259,
+ "tokens_salida": 5745,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/2026-10-14-pm-escalate-1.md",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas.json"
+  ],
+  "borrados": []
+ }
+}

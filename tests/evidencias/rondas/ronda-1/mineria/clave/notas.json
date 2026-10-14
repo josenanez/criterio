@@ -1,0 +1,24 @@
+{
+ "proyecto": "PRY-208",
+ "compromisos": [
+  {
+   "quien": "Elena Duarte",
+   "que": "Entregar el punto 31",
+   "fecha": "2026-11-14",
+   "reprogramaciones": 1
+  },
+  {
+   "quien": "Laura Vélez",
+   "que": "ajuste del presupuesto",
+   "fecha": "no_declarada",
+   "reprogramaciones": 0
+  },
+  {
+   "quien": "Óscar Ramírez",
+   "que": "revisión con el proveedor",
+   "fecha": "2026-10-24",
+   "reprogramaciones": 0
+  }
+ ],
+ "riesgo": "el proveedor podría no llegar con el equipo completo"
+}

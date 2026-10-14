@@ -849,5 +849,176 @@
   },
   "origen": null,
   "nota": "ronda 1"
+ },
+ {
+  "id": "2026-10-14-mineria-vera-10",
+  "fecha": "2026-10-14",
+  "corte": "2026-10-14",
+  "entorno": "mineria",
+  "industria": "Empresas mineras de Suramérica",
+  "etiqueta": "Empresas mineras de Suramérica · oro y cobre",
+  "material": "ronda-1",
+  "agente": "vera",
+  "version": "0.3.6",
+  "tipo": "primera",
+  "codigo": "1f0cd06",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 37,
+  "falsos_positivos": 2,
+  "falsos_negativos": 0,
+  "precision": 94.9,
+  "cobertura": 100.0,
+  "ic_precision": [
+   83.1,
+   100.0
+  ],
+  "ic_cobertura": [
+   90.6,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    3,
+    0,
+    0
+   ],
+   "PRY-201": [
+    0,
+    0,
+    0
+   ],
+   "PRY-202": [
+    5,
+    0,
+    0
+   ],
+   "PRY-203": [
+    4,
+    0,
+    0
+   ],
+   "PRY-204": [
+    0,
+    0,
+    0
+   ],
+   "PRY-205": [
+    0,
+    0,
+    0
+   ],
+   "PRY-206": [
+    5,
+    0,
+    0
+   ],
+   "PRY-207": [
+    5,
+    0,
+    0
+   ],
+   "PRY-208": [
+    7,
+    2,
+    0
+   ],
+   "PRY-209": [
+    1,
+    0,
+    0
+   ],
+   "PRY-210": [
+    2,
+    0,
+    0
+   ],
+   "PRY-211": [
+    5,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "commitment_overdue": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 16,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_overdue": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "pm_vs_pmo": {
+    "aciertos": 0,
+    "falsos_positivos": 2,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 5,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_cost": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_accepted_without_evidence": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_invoiced_over_accepted": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {
+   "PRY-208": {
+    "faltan": [],
+    "sobran": [
+     "pm_vs_pmo",
+     "pm_vs_pmo"
+    ]
+   }
+  },
+  "origen": null,
+  "nota": "ronda 1"
  }
 ]

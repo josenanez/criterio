@@ -1,0 +1,29 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-14T22:38:20",
+ "estado": "success",
+ "error": false,
+ "segundos": 55,
+ "turnos": 21,
+ "tokens": 920899,
+ "tokens_salida": 4209,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-14-pm-wake-1.html",
+   ".criterio/corridas/proyecto/2026-10-14-pm-wake-1.md",
+   "estado/PRY-208-trazabilidad-del-mineral/cadencia.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/2026-10-14-pm-wake-1.md",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-208-trazabilidad-del-mineral/corridas.json"
+  ],
+  "borrados": []
+ }
+}

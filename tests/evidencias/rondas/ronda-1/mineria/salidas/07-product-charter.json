@@ -1,0 +1,25 @@
+{
+ "n": 7,
+ "agente": "alba",
+ "comando": "product-charter",
+ "argumento": "REQ-1030",
+ "inicio": "2026-10-14T22:28:22",
+ "estado": "success",
+ "error": false,
+ "segundos": 58,
+ "turnos": 14,
+ "tokens": 646188,
+ "tokens_salida": 6041,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-14-product-charter-1.md",
+   "estado/corridas/salida-product-charter.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}
