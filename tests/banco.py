@@ -178,12 +178,24 @@ def calificar(a) -> int:
         "ic_cobertura": ancho(wilson(ac, ac + fn), bootstrap(cal["por_caso"], "cobertura")),
         "controles": len(controles),
         "controles_limpios": sum(1 for c in controles if not obtenido.get(c)),
+        # Por proyecto, para que un resumen de varias industrias remuestree proyectos.
+        "por_caso": {c: [r["aciertos"], len(r["falsos_positivos"]), len(r["falsos_negativos"])]
+                     for c, r in sorted(cal["por_caso"].items())},
+        # Por tipo de alerta: es lo que decide si alguien actúa sobre una alerta concreta.
+        "por_senal": {k: {"aciertos": v["aciertos"], "falsos_positivos": v["fp"], "falsos_negativos": v["fn"]}
+                      for k, v in sorted(cal["por_senal"].items())},
         "errores": {c: {"faltan": r["falsos_negativos"], "sobran": r["falsos_positivos"]}
                     for c, r in sorted(cal["por_caso"].items())
                     if r["falsos_negativos"] or r["falsos_positivos"]},
         "origen": None, "nota": a.nota,
     }
-    filas = leer()
+    # Calificar otra vez la misma corrida la reemplaza: una corrida es una fila.
+    filas = [f for f in leer() if not (f.get("material") == fila["material"] and f["entorno"] == entorno
+                                        and f["version"] == fila["version"] and f["tipo"] == fila["tipo"]
+                                        and f["fecha"] == fila["fecha"] and f["agente"] == fila["agente"])]
+    fila["id"] = f"{fila['fecha']}-{entorno}-{a.agente}-{len(filas) + 1}"
+    origen_previo = next((f.get("origen") for f in leer() if f["id"] == fila["id"]), None)
+    fila["origen"] = fila["origen"] or origen_previo
     filas.append(fila)
     guardar(filas)
     print(json.dumps({k: fila[k] for k in ("id", "tipo", "aciertos", "falsos_positivos",

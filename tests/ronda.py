@@ -509,6 +509,59 @@ def calificar(a) -> int:
     return 0
 
 
+# ── el resumen de una ronda, para el portal ───────────────────────────────
+
+def resumen(a) -> int:
+    """Lo que un cliente necesita saber de una ronda, calculado de la evidencia y no
+    tecleado: los comandos que terminaron y cumplieron su contrato, y las primeras corridas
+    de Vera juntas, con un intervalo que remuestrea proyectos de todas las industrias."""
+    import banco
+    base = RAIZ / "tests" / "evidencias" / "rondas" / a.ronda
+    filas = [f for f in banco.leer() if f.get("material") == a.ronda and f["tipo"] == "primera"
+             and f["agente"] == "vera"]
+    industrias = []
+    for d in sorted(x for x in base.iterdir() if x.is_dir()):
+        rev = _j(d / "revision.json") if (d / "revision.json").is_file() else {}
+        sa = _j(d / "calificacion-samuel-alba.json") if (d / "calificacion-samuel-alba.json").is_file() else {}
+        v = next((f for f in filas if f["entorno"] == d.name), None)
+        industrias.append({
+            "entorno": d.name, "comandos": rev.get("comandos"), "completos": rev.get("completos"),
+            "contratos": rev.get("contratos_cumplidos"), "fugas": len(rev.get("fugas") or []),
+            "minutos": round((rev.get("segundos") or 0) / 60), "tokens": rev.get("tokens"),
+            "vera": {k: v[k] for k in ("id", "aciertos", "falsos_positivos", "falsos_negativos", "precision",
+                                       "cobertura", "ic_precision", "ic_cobertura", "controles",
+                                       "controles_limpios", "version")} if v else None,
+            "samuel": {"correctos": sa["samuel"]["correctos"], "total": sa["samuel"]["compromisos"]} if sa else None,
+            "alba": {"aciertos": sa["alba"]["aciertos"], "esperados": sa["alba"]["aciertos"] + sa["alba"]["falsos_negativos"],
+                     "reportados": sa["alba"]["aciertos"] + sa["alba"]["falsos_positivos"]} if sa else None,
+        })
+    casos = {}
+    senales = {}
+    for f in filas:
+        for c, n in (f.get("por_caso") or {}).items():
+            casos[f"{f['entorno']}/{c}"] = {"aciertos": n[0], "falsos_positivos": ["x"] * n[1], "falsos_negativos": ["x"] * n[2]}
+        for k, x in (f.get("por_senal") or {}).items():
+            t = senales.setdefault(k, {"aciertos": 0, "falsos_positivos": 0, "falsos_negativos": 0})
+            for kk in t:
+                t[kk] += x[kk]
+    ac = sum(f["aciertos"] for f in filas)
+    fp = sum(f["falsos_positivos"] for f in filas)
+    fn = sum(f["falsos_negativos"] for f in filas)
+    out = {"ronda": a.ronda, "fecha": dt.date.today().isoformat(), "industrias": industrias,
+           "vera": {"aciertos": ac, "falsos_positivos": fp, "falsos_negativos": fn, "proyectos": len(casos),
+                    "ic_precision": banco.ancho(banco.wilson(ac, ac + fp), banco.bootstrap(casos, "precision")),
+                    "ic_cobertura": banco.ancho(banco.wilson(ac, ac + fn), banco.bootstrap(casos, "cobertura")),
+                    "controles": sum(f["controles"] for f in filas),
+                    "controles_limpios": sum(f["controles_limpios"] for f in filas)},
+           "senales": [{"senal": k, **v} for k, v in sorted(senales.items(), key=lambda kv: -sum(kv[1].values()))]}
+    _w(base / "resumen.json", out)
+    print(json.dumps(out["vera"], ensure_ascii=False))
+    for i in industrias:
+        print(f"  {i['entorno']:13} {i['completos']}/{i['comandos']} completos · {i['contratos']} contratos · "
+              f"{i['fugas']} fugas · {i['minutos']} min")
+    return 0
+
+
 # ── defectos ──────────────────────────────────────────────────────────────
 
 ORIGENES = ("agente", "codigo", "instrucciones", "material", "clave", "arnes")
@@ -575,7 +628,9 @@ if __name__ == "__main__":
     s.add_argument("--cerrar")
     for k in ("ronda", "entorno", "agente", "comando", "que", "evidencia", "origen", "commit", "verificado"):
         s.add_argument(f"--{k}")
+    s = sub.add_parser("resumen")
+    s.add_argument("ronda")
     sub.add_parser("verificar")
     a = ap.parse_args()
     sys.exit({"armar": armar, "correr": correr, "revisar": revisar, "calificar": calificar,
-              "defecto": defecto, "verificar": verificar}[a.accion](a))
+              "resumen": resumen, "defecto": defecto, "verificar": verificar}[a.accion](a))
