@@ -428,7 +428,9 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
                          "days": (today - due).days, "source": fuente})
         veces = len(c.get("reschedules") or [])
         if veces >= th["reschedules_to_flag"]:
+            # La historia completa: la primera fecha prometida y cada una de las nuevas.
             reprogramados.append({"who": quien, "what": que, "times": veces,
+                                  "original": value(c.get("original_due_date")),
                                   "dates": [value(r.get("due_date"))
                                             for r in c.get("reschedules") or []]})
     out["commitments_overdue"] = late
