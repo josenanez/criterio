@@ -38,76 +38,131 @@
     "esperados": 10,
     "reportados": 0
    }
+  },
+  {
+   "entorno": "cooperativas",
+   "comandos": 37,
+   "completos": 37,
+   "contratos": 37,
+   "fugas": 0,
+   "minutos": 41,
+   "tokens": 26809155,
+   "vera": {
+    "id": "2026-10-14-cooperativas-vera-8",
+    "aciertos": 60,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     94.0,
+     100.0
+    ],
+    "ic_cobertura": [
+     94.0,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.3.6"
+   },
+   "samuel": {
+    "correctos": 2,
+    "total": 3
+   },
+   "alba": {
+    "aciertos": 0,
+    "esperados": 7,
+    "reportados": 0
+   }
   }
  ],
  "vera": {
-  "aciertos": 53,
+  "aciertos": 113,
   "falsos_positivos": 1,
   "falsos_negativos": 0,
-  "proyectos": 13,
+  "proyectos": 26,
   "ic_precision": [
-   90.2,
+   95.2,
    100.0
   ],
   "ic_cobertura": [
-   93.2,
+   96.7,
    100.0
   ],
-  "controles": 1,
-  "controles_limpios": 1
+  "controles": 2,
+  "controles_limpios": 2
  },
  "senales": [
   {
    "senal": "milestone_met_without_evidence",
-   "aciertos": 23,
+   "aciertos": 49,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
    "senal": "progress_vs_plan",
-   "aciertos": 9,
+   "aciertos": 16,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
    "senal": "declared_vs_evidence",
+   "aciertos": 11,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_time",
    "aciertos": 6,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
    "senal": "commitment_undated",
-   "aciertos": 3,
-   "falsos_positivos": 0,
-   "falsos_negativos": 0
-  },
-  {
-   "senal": "vendor_deliverable_late",
-   "aciertos": 3,
+   "aciertos": 5,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
    "senal": "rebaseline_unauthorized",
-   "aciertos": 2,
-   "falsos_positivos": 0,
-   "falsos_negativos": 0
-  },
-  {
-   "senal": "variance_time",
-   "aciertos": 2,
-   "falsos_positivos": 0,
-   "falsos_negativos": 0
-  },
-  {
-   "senal": "change_without_baseline",
-   "aciertos": 1,
+   "aciertos": 5,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
   {
    "senal": "commitment_overdue",
-   "aciertos": 1,
+   "aciertos": 4,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "silent",
+   "aciertos": 4,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_deliverable_late",
+   "aciertos": 4,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "change_without_baseline",
+   "aciertos": 3,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_cost",
+   "aciertos": 2,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_accepted_without_evidence",
+   "aciertos": 2,
    "falsos_positivos": 0,
    "falsos_negativos": 0
   },
@@ -118,19 +173,13 @@
    "falsos_negativos": 0
   },
   {
-   "senal": "silent",
-   "aciertos": 1,
-   "falsos_positivos": 0,
-   "falsos_negativos": 0
-  },
-  {
-   "senal": "variance_cost",
-   "aciertos": 1,
-   "falsos_positivos": 0,
-   "falsos_negativos": 0
-  },
-  {
    "senal": "vendor_invoiced_without_delivery",
+   "aciertos": 1,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "budget_committed",
    "aciertos": 1,
    "falsos_positivos": 0,
    "falsos_negativos": 0

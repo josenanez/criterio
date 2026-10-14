@@ -75,7 +75,7 @@
   "evidencia": "tests/evidencias/calificaciones.json",
   "origen": "material",
   "correccion": "8c84264",
-  "verificado_en": null
+  "verificado_en": "2026-10-14-bancos-vera-7"
  },
  {
   "id": "D007",
@@ -88,7 +88,7 @@
   "evidencia": "tests/evidencias/calificaciones.json",
   "origen": "material",
   "correccion": "8c84264",
-  "verificado_en": null
+  "verificado_en": "2026-10-14-bancos-vera-7"
  },
  {
   "id": "D008",
@@ -101,7 +101,7 @@
   "evidencia": "tests/evidencias/calificaciones.json",
   "origen": "codigo",
   "correccion": "8c84264",
-  "verificado_en": null
+  "verificado_en": "2026-10-14-cooperativas-vera-8"
  },
  {
   "id": "D009",
@@ -140,7 +140,7 @@
   "evidencia": null,
   "origen": "material",
   "correccion": "286ac45",
-  "verificado_en": null
+  "verificado_en": "ronda-1 · cooperativas"
  },
  {
   "id": "D012",
@@ -166,6 +166,19 @@
   "evidencia": null,
   "origen": "arnes",
   "correccion": "286ac45",
+  "verificado_en": "ronda-1 · cooperativas (auditoría de fugas: 0)"
+ },
+ {
+  "id": "D014",
+  "fecha": "2026-10-14",
+  "ronda": "1",
+  "entorno": "cooperativas",
+  "agente": "samuel",
+  "comando": "pm-minutes",
+  "que_paso": "Samuel escribió la promesa original como una reprogramación más: un compromiso dicho dos veces quedó con dos reprogramaciones. En bancos lo había escrito sin la original. El esquema no decía cuál de las dos formas es la correcta, y el conteo que dispara la alerta de compromiso reprogramado depende de eso.",
+  "evidencia": "tests/evidencias/rondas/ronda-1/cooperativas/calificacion-samuel-alba.json",
+  "origen": "instrucciones",
+  "correccion": null,
   "verificado_en": null
  }
 ]

@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-208-motor-de-crédito/2026-10-14-notas-reunion.txt",
+ "inicio": "2026-10-14T21:09:09",
+ "estado": "success",
+ "error": false,
+ "segundos": 70,
+ "turnos": 16,
+ "tokens": 742088,
+ "tokens_salida": 6954,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-208-motor-de-crédito/corrida-en-curso.json",
+   "estado/PRY-208-motor-de-crédito/corridas/2026-10-14-pm-minutes-1.md",
+   "estado/PRY-208-motor-de-crédito/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-208-motor-de-crédito/corridas.json"
+  ],
+  "borrados": []
+ }
+}

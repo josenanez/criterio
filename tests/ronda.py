@@ -509,6 +509,50 @@ def calificar(a) -> int:
     return 0
 
 
+# ── publicar: la evidencia de una industria al repositorio ────────────────
+
+def publicar(a) -> int:
+    """Copia a `tests/evidencias/rondas/<ronda>/<entorno>/` lo que hace falta para auditar
+    una industria sin volver a correrla: lo que mostró cada comando, la revisión de
+    contratos, la calificación, la clave, y en dos paquetes la carpeta que leyó el agente y
+    lo que escribió."""
+    import tarfile
+    carpeta = Path(a.carpeta).expanduser()
+    obj = _j(carpeta / "clave" / "objetivos.json")
+    destino = RAIZ / "tests" / "evidencias" / "rondas" / f"ronda-{obj['ronda']}" / obj["entorno"]
+    if destino.exists():
+        shutil.rmtree(destino)
+    (destino / "clave").mkdir(parents=True)
+    shutil.copytree(carpeta / "salidas", destino / "salidas")
+    for f in ("revision.json", "revision.txt", "calificacion-samuel-alba.json"):
+        if (carpeta / f).is_file():
+            shutil.copy2(carpeta / f, destino / f)
+    for f in ("esperado-ronda.json", "notas.json", "objetivos.json", "organizacion.json"):
+        shutil.copy2(carpeta / "clave" / f, destino / "clave" / f)
+    espacio = carpeta / "espacio"
+    with tarfile.open(destino / "documentos.tgz", "w:gz") as t:
+        t.add(espacio / "documentos", arcname="documentos")
+    with tarfile.open(destino / "estado-del-agente.tgz", "w:gz") as t:
+        for d in ("estado", "estado-producto", ".criterio", "reportes"):
+            if (espacio / d).exists():
+                t.add(espacio / d, arcname=d)
+    rev = _j(carpeta / "revision.json")
+    (destino / "LEEME.md").write_text(
+        f"# Ronda {obj['ronda']} · {obj['entorno']}\n\n"
+        f"Corte {obj['hoy']}. {rev['completos']} de {rev['comandos']} comandos terminaron, "
+        f"{rev['contratos_cumplidos']} cumplieron su contrato, {len(rev.get('fugas') or [])} lecturas de la clave.\n\n"
+        "- `salidas/NN-comando.md`: lo que el comando le mostró a la persona, tal cual.\n"
+        "- `salidas/NN-comando.json`: cuánto tardó, cuántos tokens usó y qué archivos cambió.\n"
+        "- `revision.json`: el contrato de cada comando y la auditoría de que ningún agente leyó la clave.\n"
+        "- `calificacion-samuel-alba.json`: los compromisos de Samuel y las alertas del producto de Alba.\n"
+        "- `clave/`: lo que el agente nunca vio.\n"
+        "- `documentos.tgz`: la carpeta que leyó el agente. `estado-del-agente.tgz`: lo que escribió.\n\n"
+        "La calificación de Vera está en `tests/evidencias/calificaciones.json` y los defectos en "
+        "`tests/evidencias/defectos.json`.\n", encoding="utf-8")
+    print(f"publicado en {destino.relative_to(RAIZ)}")
+    return 0
+
+
 # ── el resumen de una ronda, para el portal ───────────────────────────────
 
 def resumen(a) -> int:
@@ -628,9 +672,11 @@ if __name__ == "__main__":
     s.add_argument("--cerrar")
     for k in ("ronda", "entorno", "agente", "comando", "que", "evidencia", "origen", "commit", "verificado"):
         s.add_argument(f"--{k}")
+    s = sub.add_parser("publicar")
+    s.add_argument("carpeta")
     s = sub.add_parser("resumen")
     s.add_argument("ronda")
     sub.add_parser("verificar")
     a = ap.parse_args()
     sys.exit({"armar": armar, "correr": correr, "revisar": revisar, "calificar": calificar,
-              "resumen": resumen, "defecto": defecto, "verificar": verificar}[a.accion](a))
+              "publicar": publicar, "resumen": resumen, "defecto": defecto, "verificar": verificar}[a.accion](a))

@@ -521,5 +521,173 @@
    "quien": "anotado a mano"
   },
   "nota": "ronda 1"
+ },
+ {
+  "id": "2026-10-14-cooperativas-vera-8",
+  "fecha": "2026-10-14",
+  "corte": "2026-10-14",
+  "entorno": "cooperativas",
+  "industria": "Entidades financieras (bancos y cooperativas) de Suramérica",
+  "etiqueta": "Entidades financieras de Suramérica · cooperativas de ahorro y crédito",
+  "material": "ronda-1",
+  "agente": "vera",
+  "version": "0.3.6",
+  "tipo": "primera",
+  "codigo": "5ae5a7d",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 60,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   94.0,
+   100.0
+  ],
+  "ic_cobertura": [
+   94.0,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    4,
+    0,
+    0
+   ],
+   "PRY-201": [
+    3,
+    0,
+    0
+   ],
+   "PRY-202": [
+    4,
+    0,
+    0
+   ],
+   "PRY-203": [
+    4,
+    0,
+    0
+   ],
+   "PRY-204": [
+    2,
+    0,
+    0
+   ],
+   "PRY-205": [
+    10,
+    0,
+    0
+   ],
+   "PRY-206": [
+    1,
+    0,
+    0
+   ],
+   "PRY-207": [
+    4,
+    0,
+    0
+   ],
+   "PRY-208": [
+    7,
+    0,
+    0
+   ],
+   "PRY-209": [
+    6,
+    0,
+    0
+   ],
+   "PRY-210": [
+    5,
+    0,
+    0
+   ],
+   "PRY-211": [
+    10,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "budget_committed": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "change_without_baseline": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_overdue": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 5,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 26,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 7,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "rebaseline_unauthorized": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "silent": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_cost": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 4,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_accepted_without_evidence": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 1"
  }
 ]

@@ -1,0 +1,21 @@
+{
+ "entorno": "cooperativas",
+ "ronda": 1,
+ "hoy": "2026-10-14",
+ "prd": "PRD-300",
+ "prd_carpeta": "PRD-300",
+ "prd_otro": "PRD-303",
+ "req": "REQ-1000",
+ "pry_sam": "PRY-208",
+ "sam_carpeta": "PRY-208-motor-de-crédito",
+ "notas": "documentos/proyectos/PRY-208-motor-de-crédito/2026-10-14-notas-reunion.txt",
+ "status": "PRY-211",
+ "health": "PRY-205",
+ "budget": "PRY-205",
+ "vendor": "PRY-211",
+ "change": "PRY-211",
+ "history": "PRY-205",
+ "charter": "PRY-206",
+ "closure": "PRY-202",
+ "producto_vista": "crédito de libranza"
+}

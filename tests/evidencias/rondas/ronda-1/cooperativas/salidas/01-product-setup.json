@@ -1,0 +1,29 @@
+{
+ "n": 1,
+ "agente": "alba",
+ "comando": "product-setup",
+ "argumento": "documentos/productos/PRD-300",
+ "inicio": "2026-10-14T21:01:13",
+ "estado": "success",
+ "error": false,
+ "segundos": 70,
+ "turnos": 23,
+ "tokens": 719329,
+ "tokens_salida": 6935,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/producto/2026-10-14-product-setup-1.html",
+   ".criterio/corridas/producto/2026-10-14-product-setup-1.md",
+   ".criterio/corridas/producto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   ".criterio/producto/PRD-300/config.json",
+   "estado/PRD-300/corridas.json",
+   "estado/PRD-300/corridas/2026-10-14-product-setup-1.md",
+   "estado/PRD-300/corridas/salida-product-setup.md",
+   "estado/PRD-300/producto.json"
+  ],
+  "modificados": [],
+  "borrados": []
+ }
+}

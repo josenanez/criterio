@@ -1,0 +1,25 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-14T21:11:12",
+ "estado": "success",
+ "error": false,
+ "segundos": 73,
+ "turnos": 16,
+ "tokens": 650631,
+ "tokens_salida": 7540,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-208-motor-de-crédito/corridas/2026-10-14-pm-agenda-1.md",
+   "estado/PRY-208-motor-de-crédito/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-208-motor-de-crédito/corridas.json"
+  ],
+  "borrados": []
+ }
+}

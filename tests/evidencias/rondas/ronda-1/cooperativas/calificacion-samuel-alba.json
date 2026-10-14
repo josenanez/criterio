@@ -1,0 +1,75 @@
+{
+ "samuel": {
+  "compromisos": 3,
+  "correctos": 2,
+  "detalle": [
+   {
+    "quien": "Paula Céspedes",
+    "esperado": {
+     "quien": "Paula Céspedes",
+     "que": "Entregar el punto 34",
+     "fecha": "2026-10-28",
+     "reprogramaciones": 1
+    },
+    "ok": false,
+    "encontrado": {
+     "fecha": "2026-10-28",
+     "reprogramaciones": 2
+    }
+   },
+   {
+    "quien": "Laura Vélez",
+    "esperado": {
+     "quien": "Laura Vélez",
+     "que": "ajuste del presupuesto",
+     "fecha": "no_declarada",
+     "reprogramaciones": 0
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "no_declarada",
+     "reprogramaciones": 0
+    }
+   },
+   {
+    "quien": "Óscar Ramírez",
+    "esperado": {
+     "quien": "Óscar Ramírez",
+     "que": "revisión con el proveedor",
+     "fecha": "2026-10-24",
+     "reprogramaciones": 0
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-24",
+     "reprogramaciones": 0
+    }
+   }
+  ]
+ },
+ "alba": {
+  "producto": "PRD-300",
+  "aciertos": 0,
+  "falsos_positivos": 0,
+  "falsos_negativos": 7,
+  "precision": null,
+  "cobertura": 0.0,
+  "errores": {
+   "PRD-300": {
+    "esperado": 7,
+    "obtenido": 0,
+    "aciertos": 0,
+    "falsos_negativos": [
+     "evidence_stale",
+     "evidence_stale",
+     "evidence_stale",
+     "requirement_untraced",
+     "requirement_untraced",
+     "requirement_untraced",
+     "requirement_without_acceptance"
+    ],
+    "falsos_positivos": []
+   }
+  }
+ }
+}
