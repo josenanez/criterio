@@ -1,0 +1,26 @@
+{
+ "n": 33,
+ "agente": "vera",
+ "comando": "portfolio-wake",
+ "argumento": "",
+ "estado": "success",
+ "error": false,
+ "segundos": 44,
+ "turnos": 14,
+ "tokens": 594082,
+ "tokens_salida": 3801,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/cadencia.json",
+   "estado/corridas/2026-10-14-portfolio-wake-1.md",
+   "estado/corridas/salida-portfolio-wake.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ },
+ "inicio": "2026-10-14T20:12:00"
+}

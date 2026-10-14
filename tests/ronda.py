@@ -184,8 +184,12 @@ def escribir_notas(carpeta: Path, p: dict, hoy: dt.date) -> tuple:
     abiertos = [c for c in p["compromisos"] if not c.get("cumplido") and c["fechas"]
                 and all(isinstance(x, str) and x[:4].isdigit() for x in c["fechas"])]
     c1 = max(abiertos, key=lambda c: len(c["fechas"]), default=None)
-    fecha = hoy - dt.timedelta(days=1)
-    nueva = hoy + dt.timedelta(days=14)
+    # La reunión es de hoy, después de la última minuta del simulador: con la fecha de
+    # ayer coincidía con el comité del mismo día y las dos fuentes daban fechas distintas
+    # para el mismo compromiso (ronda 1, bancos). La fecha nueva va después de la última.
+    fecha = hoy
+    ultima = dt.date.fromisoformat(c1["fechas"][-1]) if c1 else hoy
+    nueva = max(ultima, hoy) + dt.timedelta(days=14)
     asistentes = sorted({p["gerente"], *(c["quien"] for c in p["compromisos"])})
     otro, tercero = "Laura Vélez", "Óscar Ramírez"
     lineas = [f"notas reunión {p['nombre'].lower()} — {fecha.isoformat()}",
@@ -211,7 +215,9 @@ def escribir_notas(carpeta: Path, p: dict, hoy: dt.date) -> tuple:
                " nadie lo anotó como riesgo", "- próxima reunión en dos semanas", ""]
     ruta = carpeta / f"{fecha.isoformat()}-notas-reunion.txt"
     ruta.write_text("\n".join(lineas), encoding="utf-8")
-    _w(carpeta.parents[2] / "clave" / "notas.json", {"proyecto": p["codigo"], "compromisos": clave,
+    # La clave va junto a las demás, fuera de `espacio/`. En la primera corrida de la
+    # ronda 1 quedó dentro, al alcance del agente: la auditoría de fugas lo encontró.
+    _w(carpeta.parents[3] / "clave" / "notas.json", {"proyecto": p["codigo"], "compromisos": clave,
                                                      "riesgo": "el proveedor podría no llegar con el equipo completo"})
     return ruta, {"agrega": agrega, "quita": quita,
                   "resumen": f"{len(clave)} compromisos; clave {agrega} / sin {quita}"}
@@ -261,6 +267,7 @@ def correr(a) -> int:
         despues = manifiesto(espacio)
         u = salida.get("usage") or {}
         fila = {"n": n, "agente": agente, "comando": cmd, "argumento": arg.format(**obj),
+                "inicio": dt.datetime.fromtimestamp(t0, dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S"),
                 "estado": salida.get("subtype"), "error": bool(salida.get("is_error")) or salida.get("subtype") != "success",
                 "segundos": round(time.time() - t0), "turnos": salida.get("num_turns"),
                 "tokens": sum(u.get(k, 0) or 0 for k in ("input_tokens", "cache_creation_input_tokens",
@@ -309,7 +316,9 @@ def probar_servidor(espacio: Path) -> dict:
 
 # ── revisar: los contratos ────────────────────────────────────────────────
 
-SIEMPRE = ("corridas", "corrida-en-curso", "cache", ".criterio/corridas", "salida-")
+# Lo que escribe el propio plugin en cada comando: el rastro de la corrida y la marca de
+# la sesión en curso que dejan sus ganchos. No es una escritura del comando.
+SIEMPRE = ("corridas", "corrida-en-curso", "cache", ".criterio/corridas", ".criterio/en-curso", "salida-")
 
 
 def permitido(cambio: str, escribe: list, cmd: str) -> bool:
@@ -331,13 +340,17 @@ def permitido(cambio: str, escribe: list, cmd: str) -> bool:
 
 
 def citas_rotas(espacio: Path, ficha: Path) -> list:
+    """Una cita puede ir desde la raíz de documentos o desde la carpeta del proyecto: se
+    da por buena si algún documento termina en esa ruta."""
     docs = espacio / "documentos"
+    todos = [str(f.relative_to(docs)) for f in docs.rglob("*") if f.is_file()]
     rotas = []
     def recorrer(n):
         if isinstance(n, dict):
             s = n.get("source")
             if isinstance(s, str) and s and not s.startswith(("http", "script", "compute")):
-                if not any((d / s).exists() for d in (docs, docs / "proyectos", docs / "productos", espacio)):
+                s2 = s.split("#")[0].split(":")[0].strip()
+                if not any(t == s2 or t.endswith("/" + s2) for t in todos):
                     rotas.append(s)
             for v in n.values():
                 recorrer(v)
@@ -366,6 +379,19 @@ def revisar(a) -> int:
         borro_docs = [c for c in r["cambios"]["borrados"] if c.startswith("documentos/")]
         fichas = [espacio / c for c in cambios if "/records/" in c and c.endswith(".json")]
         rotas = sorted({x for fi in fichas for x in citas_rotas(espacio, fi)})
+        # Lo que el contrato dice que escribe y no escribió. Va como aviso y no como falla:
+        # un barrido sin documentos nuevos no tiene por qué tocar fichas. Se revisa a mano.
+        MARCAS = (("config.json", "config.json"), ("records", "/records/"), ("snapshots", "/snapshots/"),
+                  ("cadencia", "cadencia"), ("requirements", "/requirements/"), ("producto.json", "producto.json"),
+                  ("ficha-pm.json", "ficha-pm.json"), ("30-reuniones", "30-reuniones/"),
+                  ("<informes>", "reportes/"), ("<publicados>", "public"))
+        avisos = []
+        for item in escribe:
+            if any(w in item for w in ("solo", "(init)", " si ")):
+                continue
+            marca = next((m for k, m in MARCAS if k in item), None)
+            if marca and not any(marca in c for c in cambios):
+                avisos.append(f"no escribió {item}")
         problemas = []
         if r["error"]:
             problemas.append(f"no terminó ({r['estado']})")
@@ -382,21 +408,54 @@ def revisar(a) -> int:
             if not r["servidor"]["fichas_intactas"]:
                 problemas.append("Rostrum modificó fichas")
         filas.append({"n": r["n"], "agente": r["agente"], "comando": r["comando"], "termino": not r["error"],
-                      "contrato": not problemas, "problemas": problemas, "segundos": r["segundos"],
+                      "contrato": not problemas, "problemas": problemas, "avisos": avisos, "segundos": r["segundos"],
                       "tokens": r["tokens"]})
+    fugas = auditar_fugas(carpeta)
     completos = sum(1 for x in filas if x["termino"])
     cumplen = sum(1 for x in filas if x["contrato"])
     resumen = {"comandos": len(ORDEN), "corridos": len(filas), "completos": completos,
                "contratos_cumplidos": cumplen, "corrida_completa": completos == len(ORDEN),
+               "fugas": fugas,
                "segundos": sum(x["segundos"] for x in filas), "tokens": sum(x["tokens"] for x in filas),
                "filas": filas}
     _w(carpeta / "revision.json", resumen)
     for x in filas:
         print(f"{x['n']:02d} {x['comando']:22} {'terminó' if x['termino'] else 'FALLÓ  '} "
-              f"{'contrato ok' if x['contrato'] else 'CONTRATO'} {'; '.join(x['problemas'])[:150]}")
+              f"{'contrato ok' if x['contrato'] else 'CONTRATO'} {'; '.join(x['problemas'])[:150]}"
+              + (f"  · aviso: {'; '.join(x['avisos'])[:120]}" if x["avisos"] else ""))
+    print(f"\nauditoría de fugas: {len(fugas)} lecturas de la clave" + "".join(f"\n  {x}" for x in fugas[:5]))
     print(f"\n{completos}/{len(ORDEN)} terminaron · {cumplen}/{len(ORDEN)} cumplen su contrato · "
           f"{resumen['segundos'] // 60} min · {resumen['tokens'] / 1e6:.1f} M tokens")
     return 0
+
+
+def auditar_fugas(carpeta: Path) -> list:
+    """Que ningún agente haya leído la clave. Recorre lo que Claude Code registra de cada
+    sesión —cada herramienta que llamó y con qué— desde que empezó la corrida, y señala
+    cualquier lectura de la clave o del material del simulador. Una calificación con una
+    fuga no vale, y se repite la industria."""
+    espacio = (carpeta / "espacio").resolve()
+    proyectos = Path.home() / ".claude" / "projects" / re.sub(r"[^A-Za-z0-9]", "-", str(espacio))
+    primero = min((_j(f).get("inicio", "") for f in (carpeta / "salidas").glob("[0-9][0-9]-*.json")), default="")
+    patron = re.compile(r"(cat|Read|head|less|open|json\.load)[^\n]{0,200}(/clave/|esperado(-ronda)?\.json|"
+                        r"organizacion\.json|notas\.json|LO-QUE-HAY|bitacora-dia)")
+    fugas = []
+    for f in proyectos.glob("*.jsonl"):
+        for linea in f.read_text(encoding="utf-8", errors="replace").splitlines():
+            if "tool_use" not in linea:
+                continue
+            try:
+                r = json.loads(linea)
+            except json.JSONDecodeError:
+                continue
+            if r.get("type") != "assistant" or r.get("timestamp", "") < primero:
+                continue
+            for c in r["message"].get("content", []):
+                if c.get("type") == "tool_use":
+                    txt = c.get("name", "") + " " + json.dumps(c.get("input"), ensure_ascii=False)
+                    if patron.search(txt):
+                        fugas.append(f"{r['timestamp']} {txt[:160]}")
+    return fugas
 
 
 # ── calificar: lo que tiene clave ─────────────────────────────────────────
@@ -427,12 +486,16 @@ def calificar(a) -> int:
         detalle.append({"quien": c["quien"], "esperado": c, "ok": ok,
                         "encontrado": {"fecha": v(m.get("due_date")), "reprogramaciones": len(m.get("reschedules") or [])} if m else None})
     # Alba: las señales de su producto
-    estado_prd = next((d for d in espacio.glob(f"**/{obj['prd']}")
-                       if d.is_dir() and "documentos" not in d.relative_to(espacio).parts), None)
+    cfg_prd = espacio / ".criterio" / "producto" / obj["prd"] / "config.json"
     prd_obt = {}
-    if estado_prd and estado_prd.is_dir():
-        obt, _, err = fiabilidad.hallazgos_producto(estado_prd.parent, espacio / "estado" / "records", hoy)
-        prd_obt = {obj["prd"]: obt.get(obj["prd"], [])}
+    if cfg_prd.is_file():
+        rutas = _j(cfg_prd).get("paths", {})
+        r, _ = fiabilidad.correr(fiabilidad.PRODUCT, "compute", "--state", espacio / rutas.get("state", "estado"),
+                                 "--fichas", espacio / "estado" / "records", "--today", hoy)
+        if r.returncode == 0:
+            prd_obt = {obj["prd"]: [x["signal"] for x in (json.loads(r.stdout).get("alerts") or [])]}
+        else:
+            print("Alba · compute falló:", r.stderr.strip()[:200])
     cal = fiabilidad.calificar({obj["prd"]: clave["esperado"].get(obj["prd"], [])}, prd_obt)
     t = fiabilidad.totales(cal)
     salida = {"samuel": {"compromisos": len(notas["compromisos"]), "correctos": correctos, "detalle": detalle},
@@ -448,7 +511,7 @@ def calificar(a) -> int:
 
 # ── defectos ──────────────────────────────────────────────────────────────
 
-ORIGENES = ("agente", "codigo", "material", "clave", "instrucciones")
+ORIGENES = ("agente", "codigo", "instrucciones", "material", "clave", "arnes")
 
 
 def defecto(a) -> int:

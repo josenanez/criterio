@@ -340,5 +340,52 @@
    "quien": "anotado a mano"
   },
   "nota": "Primera corrida de la versión congelada sobre material que no vio: portfolio-setup y portfolio-scan."
+ },
+ {
+  "id": "2026-10-14-bancos-vera-7",
+  "fecha": "2026-10-14",
+  "corte": "2026-10-14",
+  "entorno": "bancos",
+  "industria": "Entidades financieras (bancos y cooperativas) de Suramérica",
+  "etiqueta": "Entidades financieras de Suramérica · bancos",
+  "material": "ronda-1",
+  "agente": "vera",
+  "version": "0.3.6",
+  "tipo": "primera",
+  "codigo": "1104076",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 53,
+  "falsos_positivos": 1,
+  "falsos_negativos": 0,
+  "precision": 98.1,
+  "cobertura": 100.0,
+  "ic_precision": [
+   90.2,
+   100.0
+  ],
+  "ic_cobertura": [
+   93.2,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "errores": {
+   "PRY-202": {
+    "faltan": [],
+    "sobran": [
+     "pm_vs_pmo"
+    ]
+   }
+  },
+  "origen": {
+   "agente": 0,
+   "codigo": 0,
+   "clave": 1,
+   "nota": "pm_vs_pmo en PRY-202: el acta y el cronograma traen fechas de cierre distintas; Vera tomó una y Samuel la otra. La señal es correcta sobre el material; la clave no modela lo que cruzan dos agentes.",
+   "quien": "anotado a mano"
+  },
+  "nota": "ronda 1"
  }
 ]

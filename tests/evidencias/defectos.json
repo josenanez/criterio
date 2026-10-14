@@ -102,5 +102,70 @@
   "origen": "codigo",
   "correccion": "8c84264",
   "verificado_en": null
+ },
+ {
+  "id": "D009",
+  "fecha": "2026-10-14",
+  "ronda": "1",
+  "entorno": "bancos",
+  "agente": "alba",
+  "comando": "product-setup",
+  "que_paso": "La cadena de Alba nunca construye la ficha del producto (producto.json) ni el registro de requerimientos desde los documentos: los requerimientos están en el acta del comité y ningún comando los registra. Los 11 comandos trabajaron sobre un estado vacío y Alba encontró 0 de las 10 alertas de su producto.",
+  "evidencia": null,
+  "origen": "instrucciones",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D010",
+  "fecha": "2026-10-14",
+  "ronda": "1",
+  "entorno": "bancos",
+  "agente": "alba",
+  "comando": "product-setup",
+  "que_paso": "Alba guardó su estado en estado/, la misma carpeta que usa Vera: comparten corridas.json y cadencia.json. Una ficha, un escritor: cada agente necesita su propia carpeta de estado.",
+  "evidencia": null,
+  "origen": "instrucciones",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D011",
+  "fecha": "2026-10-14",
+  "ronda": "1",
+  "entorno": "bancos",
+  "agente": "samuel",
+  "comando": "pm-minutes",
+  "que_paso": "Las notas crudas se fecharon el mismo día que la minuta del simulador y con otra fecha para el mismo compromiso; la clave esperaba una reprogramación. Samuel señaló el conflicto entre las dos fuentes y no contó una reprogramación sin promesa anterior: su lectura fue la correcta.",
+  "evidencia": null,
+  "origen": "material",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D012",
+  "fecha": "2026-10-14",
+  "ronda": "1",
+  "entorno": "bancos",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "pm_vs_pmo en PRY-202: el acta y el cronograma traen fechas de cierre distintas y cada agente leyó una. La alerta es correcta; la clave no modela lo que cruzan dos agentes.",
+  "evidencia": null,
+  "origen": "clave",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D013",
+  "fecha": "2026-10-14",
+  "ronda": "1",
+  "entorno": "bancos",
+  "agente": "todos",
+  "comando": "ronda",
+  "que_paso": "La clave de las notas quedó dentro de la carpeta del agente. La auditoría de las herramientas que llamó cada sesión no encontró ninguna lectura en la corrida válida; desde cooperativas va fuera, y la auditoría de fugas corre en cada industria.",
+  "evidencia": null,
+  "origen": "arnes",
+  "correccion": null,
+  "verificado_en": null
  }
 ]

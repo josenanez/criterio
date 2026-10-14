@@ -1,0 +1,28 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "estado": "success",
+ "error": false,
+ "segundos": 91,
+ "turnos": 17,
+ "tokens": 590343,
+ "tokens_salida": 10823,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-14-pm-plan-1.html",
+   ".criterio/corridas/proyecto/2026-10-14-pm-plan-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/2026-10-14-pm-plan-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-migración-a-la-nube/corridas.json"
+  ],
+  "borrados": []
+ },
+ "inicio": "2026-10-14T20:12:00"
+}

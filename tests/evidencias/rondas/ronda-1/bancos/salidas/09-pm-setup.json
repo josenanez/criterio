@@ -1,0 +1,30 @@
+{
+ "n": 9,
+ "agente": "samuel",
+ "comando": "pm-setup",
+ "argumento": "documentos/proyectos/PRY-202-migración-a-la-nube",
+ "estado": "success",
+ "error": false,
+ "segundos": 95,
+ "turnos": 30,
+ "tokens": 1176742,
+ "tokens_salida": 11713,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-14-pm-setup-1.html",
+   ".criterio/corridas/proyecto/2026-10-14-pm-setup-1.md",
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/proyecto/PRY-202/config.json",
+   "estado/PRY-202-migración-a-la-nube/corridas.json",
+   "estado/PRY-202-migración-a-la-nube/corridas/2026-10-14-pm-setup-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/salida-pm-setup.md",
+   "estado/PRY-202-migración-a-la-nube/records/PRY-202.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json"
+  ],
+  "borrados": []
+ },
+ "inicio": "2026-10-14T20:12:00"
+}

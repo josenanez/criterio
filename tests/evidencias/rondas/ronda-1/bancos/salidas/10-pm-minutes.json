@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-202-migración-a-la-nube/2026-10-13-notas-reunion.txt",
+ "estado": "success",
+ "error": false,
+ "segundos": 64,
+ "turnos": 16,
+ "tokens": 550286,
+ "tokens_salida": 7191,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-202-migración-a-la-nube/corrida-en-curso.json",
+   "estado/PRY-202-migración-a-la-nube/corridas/2026-10-14-pm-minutes-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-migración-a-la-nube/corridas.json"
+  ],
+  "borrados": []
+ },
+ "inicio": "2026-10-14T20:12:00"
+}
