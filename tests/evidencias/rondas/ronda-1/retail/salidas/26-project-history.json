@@ -1,0 +1,28 @@
+{
+ "n": 26,
+ "agente": "vera",
+ "comando": "project-history",
+ "argumento": "PRY-207",
+ "inicio": "2026-10-14T22:10:57",
+ "estado": "success",
+ "error": false,
+ "segundos": 70,
+ "turnos": 20,
+ "tokens": 679002,
+ "tokens_salida": 7450,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-14-project-history-1.html",
+   ".criterio/corridas/portafolio/2026-10-14-project-history-1.md",
+   "estado-portafolio/corridas/2026-10-14-project-history-1.md",
+   "estado-portafolio/corridas/salida-project-history.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado-portafolio/corridas.json"
+  ],
+  "borrados": []
+ }
+}

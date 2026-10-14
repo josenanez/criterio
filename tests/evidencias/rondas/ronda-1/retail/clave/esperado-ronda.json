@@ -1,0 +1,133 @@
+{
+ "generado": "2026-10-14",
+ "hoy": "2026-10-14",
+ "dia": 3,
+ "disposicion": "referencia",
+ "esperado": {
+  "PRY-200": [],
+  "PRY-201": [
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan"
+  ],
+  "PRY-202": [],
+  "PRY-203": [
+   "commitment_overdue",
+   "declared_vs_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan"
+  ],
+  "PRY-204": [],
+  "PRY-205": [
+   "milestone_met_without_evidence",
+   "milestone_overdue",
+   "progress_vs_plan"
+  ],
+  "PRY-206": [
+   "declared_vs_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan",
+   "vendor_deliverable_late"
+  ],
+  "PRY-207": [],
+  "PRY-208": [
+   "commitment_overdue",
+   "declared_vs_evidence",
+   "milestone_met_without_evidence"
+  ],
+  "PRY-209": [
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan"
+  ],
+  "PRY-210": [
+   "declared_vs_evidence",
+   "milestone_met_without_evidence",
+   "milestone_overdue",
+   "silent",
+   "variance_cost"
+  ],
+  "PRY-211": [
+   "declared_vs_evidence",
+   "progress_vs_plan",
+   "commitment_undated"
+  ],
+  "PRY-199": [],
+  "PRD-300": [
+   "requirement_accepted_without_evidence",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-301": [
+   "evidence_stale",
+   "evidence_stale",
+   "evidence_stale",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-302": [
+   "requirement_accepted_without_evidence",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-303": [
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-304": [
+   "assumption_unverified",
+   "requirement_undecided",
+   "requirement_untraced"
+  ],
+  "PRD-305": [
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-306": [
+   "assumption_unverified",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-307": [
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_without_owner"
+  ],
+  "PRD-308": [
+   "assumption_unverified",
+   "claim_vs_metric",
+   "requirement_accepted_without_evidence",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-309": [
+   "assumption_unverified",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-299": []
+ },
+ "controles": [
+  "PRY-199",
+  "PRD-299"
+ ],
+ "solo_modelo": {}
+}

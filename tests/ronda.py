@@ -472,8 +472,13 @@ def calificar(a) -> int:
                     "--agente", "vera", "--material", f"ronda-{obj['ronda']}", *base], check=False)
     # Samuel: los compromisos de las notas crudas
     notas = _j(carpeta / "clave" / "notas.json")
-    fichas = list((espacio).glob(f"**/records/{obj['pry_sam']}.json"))
-    sam = next((f for f in fichas if "/estado/records/" not in str(f)), fichas[0] if fichas else None)
+    # Cada agente, en la carpeta de estado que dice su configuración.
+    def estado_de(rel: str, defecto: str) -> Path:
+        f = espacio / ".criterio" / rel / "config.json"
+        return espacio / (_j(f).get("paths", {}).get("state", defecto) if f.is_file() else defecto)
+    estado_vera = estado_de("portafolio", "estado")
+    ficha_sam = estado_de(f"proyecto/{obj['pry_sam']}", "estado") / "records" / f"{obj['pry_sam']}.json"
+    sam = ficha_sam if ficha_sam.is_file() else None
     comps = (_j(sam).get("commitments") or []) if sam else []
     v = lambda x: (x.get("value") if isinstance(x, dict) else x) or ""
     correctos, detalle = 0, []
@@ -491,7 +496,7 @@ def calificar(a) -> int:
     if cfg_prd.is_file():
         rutas = _j(cfg_prd).get("paths", {})
         r, _ = fiabilidad.correr(fiabilidad.PRODUCT, "compute", "--state", espacio / rutas.get("state", "estado"),
-                                 "--fichas", espacio / "estado" / "records", "--today", hoy)
+                                 "--fichas", estado_vera / "records", "--today", hoy)
         if r.returncode == 0:
             prd_obt = {obj["prd"]: [x["signal"] for x in (json.loads(r.stdout).get("alerts") or [])]}
         else:

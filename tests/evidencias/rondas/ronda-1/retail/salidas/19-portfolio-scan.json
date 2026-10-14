@@ -1,0 +1,39 @@
+{
+ "n": 19,
+ "agente": "vera",
+ "comando": "portfolio-scan",
+ "argumento": "",
+ "inicio": "2026-10-14T22:01:05",
+ "estado": "success",
+ "error": false,
+ "segundos": 205,
+ "turnos": 48,
+ "tokens": 3444139,
+ "tokens_salida": 23128,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-14-portfolio-scan-1.html",
+   ".criterio/corridas/portafolio/2026-10-14-portfolio-scan-1.md",
+   "estado-portafolio/corridas/2026-10-14-portfolio-scan-1.md",
+   "estado-portafolio/corridas/salida-portfolio-scan.md",
+   "estado-portafolio/records/PRY-199.json",
+   "estado-portafolio/records/PRY-200.json",
+   "estado-portafolio/records/PRY-201.json",
+   "estado-portafolio/records/PRY-202.json",
+   "estado-portafolio/records/PRY-204.json",
+   "estado-portafolio/records/PRY-205.json",
+   "estado-portafolio/records/PRY-206.json",
+   "estado-portafolio/records/PRY-207.json",
+   "estado-portafolio/records/PRY-209.json",
+   "estado-portafolio/records/PRY-210.json",
+   "estado-portafolio/snapshots/2026-10-14.json"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado-portafolio/corridas.json"
+  ],
+  "borrados": []
+ }
+}

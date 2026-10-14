@@ -1,0 +1,25 @@
+{
+ "n": 11,
+ "agente": "samuel",
+ "comando": "pm-commitments",
+ "argumento": "",
+ "inicio": "2026-10-14T21:52:09",
+ "estado": "success",
+ "error": false,
+ "segundos": 41,
+ "turnos": 11,
+ "tokens": 531183,
+ "tokens_salida": 3514,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-211-pronóstico-de-demanda/corridas/2026-10-14-pm-commitments-1.md",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/salida-pm-commitments.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-pronóstico-de-demanda/corridas.json"
+  ],
+  "borrados": []
+ }
+}

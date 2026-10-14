@@ -143,7 +143,11 @@ def calificar(a) -> int:
     hoy = clave.get("hoy") or clave.get("generado")
     esperado = {k: [x["signal"] if isinstance(x, dict) else x for x in v]
                 for k, v in clave["esperado"].items() if k.startswith("PRY")}
-    estado = carpeta / "espacio" / "estado"
+    # El estado de Vera es el que dice su configuración: en retail eligió
+    # `estado-portafolio/`, y calificar `estado/` a ciegas dio 0 de 36.
+    cfg = carpeta / "espacio" / ".criterio" / "portafolio" / "config.json"
+    estado = carpeta / "espacio" / (json.loads(cfg.read_text(encoding="utf-8")).get("paths", {}).get("state", "estado")
+                                    if cfg.is_file() else "estado")
     if a.commit:
         # Las señales se calculan con el código de esa versión, no con el de hoy: una
         # corrida vieja calificada con el script corregido no es la corrida que pasó.

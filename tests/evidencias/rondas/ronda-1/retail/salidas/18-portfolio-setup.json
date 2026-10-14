@@ -1,0 +1,33 @@
+{
+ "n": 18,
+ "agente": "vera",
+ "comando": "portfolio-setup",
+ "argumento": "documentos/proyectos",
+ "inicio": "2026-10-14T21:59:17",
+ "estado": "success",
+ "error": false,
+ "segundos": 108,
+ "turnos": 37,
+ "tokens": 1058658,
+ "tokens_salida": 16676,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-14-portfolio-setup-1.html",
+   ".criterio/corridas/portafolio/2026-10-14-portfolio-setup-1.md",
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/portafolio/config.json",
+   "estado-portafolio/corrida-en-curso.json",
+   "estado-portafolio/corridas.json",
+   "estado-portafolio/corridas/2026-10-14-portfolio-setup-1.md",
+   "estado-portafolio/corridas/salida-portfolio-setup.md",
+   "estado-portafolio/records/PRY-203.json",
+   "estado-portafolio/records/PRY-208.json",
+   "estado-portafolio/records/PRY-211.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json"
+  ],
+  "borrados": []
+ }
+}

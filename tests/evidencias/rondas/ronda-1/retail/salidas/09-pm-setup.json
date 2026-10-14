@@ -1,0 +1,30 @@
+{
+ "n": 9,
+ "agente": "samuel",
+ "comando": "pm-setup",
+ "argumento": "documentos/proyectos/PRY-211-pronóstico-de-demanda",
+ "inicio": "2026-10-14T21:49:35",
+ "estado": "success",
+ "error": false,
+ "segundos": 102,
+ "turnos": 29,
+ "tokens": 1454430,
+ "tokens_salida": 11033,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-14-pm-setup-1.html",
+   ".criterio/corridas/proyecto/2026-10-14-pm-setup-1.md",
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/proyecto/PRY-211/config.json",
+   "estado/PRY-211-pronóstico-de-demanda/corridas.json",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/2026-10-14-pm-setup-1.md",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/salida-pm-setup.md",
+   "estado/PRY-211-pronóstico-de-demanda/records/PRY-211.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json"
+  ],
+  "borrados": []
+ }
+}
