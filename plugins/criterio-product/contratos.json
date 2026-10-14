@@ -1,7 +1,7 @@
 {
  "comandos": {
   "product-setup": {
-   "funcion": "Deja a Alba lista sobre un producto y contrasta la definición contra la evidencia que exista.",
+   "funcion": "Deja a Alba lista sobre un producto: levanta la ficha del producto y su registro de requerimientos con lo que ya está escrito, y contrasta la definición contra la evidencia.",
    "entrada": {
     "argumento": "[ruta de la carpeta del producto] o vacío",
     "lee": [
@@ -13,20 +13,24 @@
     "muestra": "qué hay escrito, cuatro preguntas, definición contra evidencia",
     "escribe": [
      ".criterio/producto/<código>/config.json",
-     "<estado>/ (init)"
+     "<estado>/ (init)",
+     "<estado>/producto.json",
+     "<estado>/requirements/<REQ>.json"
     ]
    },
    "reglas": {
     "skills": [
      "demand-evidence",
      "document-intake",
-     "product-metrics"
+     "product-metrics",
+     "requirement-record"
     ],
     "script": [
      "compute",
      "config",
      "corrida",
-     "init"
+     "init",
+     "sellar"
     ],
     "calcula": true
    },
@@ -36,7 +40,7 @@
    },
    "prueba": {
     "sembrado": "definición con cinco afirmaciones y una sola entrevista de hace 13 meses",
-    "esperado": "config válido; evidence_stale de `compute`; afirmaciones sin sustento nombradas"
+    "esperado": "config válido en estado-producto/<código>; producto.json y un registro por requerimiento nombrado en los documentos, cada campo con cita o not_found; evidence_stale de `compute`; afirmaciones sin sustento nombradas"
    }
   },
   "product-wake": {

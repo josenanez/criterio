@@ -66,13 +66,38 @@ necesita saberlo antes que nada. No es un impedimento: es el primer hallazgo.
 1. **Quién eres y qué producto es.** Propón lo que leíste del caso de negocio.
 2. **Quién decide qué se construye.** Es la autoridad, y es el campo que más se pierde: sin
    él no hay acta de constitución posible, y sin acta no nace la ficha del proyecto.
-3. **Dónde guardo lo que voy encontrando.** Propón una carpeta hermana. **Nunca dentro de la
-   carpeta de documentación.**
+3. **Dónde guardo lo que voy encontrando.** Propón `estado-producto/<código>`, hermana de la
+   carpeta de documentación. **Nunca dentro de la documentación, y nunca la carpeta de
+   estado de otro agente** —la del portafolio suele llamarse `estado/`—: cada agente escribe
+   en la suya. En la primera ronda Alba guardó en `estado/` y compartió con Vera el registro
+   de corridas.
 4. **Los términos.** Muestra el descargo corto y pide aceptación explícita.
 
-**3. Contrasta la definición y muestra el resultado**
+**3. Levanta la ficha del producto y su registro, con lo que ya está escrito**
 
-No inventaríes el producto entero. **Toma la definición que haya** —el caso de negocio, el
+Aplica **requirement-record**. Es el paso del que cuelgan los otros diez comandos: en la
+primera ronda nadie lo hizo, y Alba trabajó sobre una ficha vacía en todo lo demás.
+
+- **`<estado>/producto.json`**: código, nombre, gerente y quién decide; y de la definición,
+  el problema, a quién, el criterio de éxito, cada afirmación y cada supuesto. Cada campo
+  con su cita y su fecha, o `not_found`.
+- **Un `<estado>/requirements/<REQ>.json` por requerimiento que ya esté nombrado** en los
+  documentos —el acta del comité de producto, la definición, el caso de negocio—, con el
+  estado que el documento dice, quién lo pidió, el criterio de aceptación, la evidencia con
+  su `source_date`, la decisión y el proyecto que lo ejecuta tal como están escritos.
+  «Ninguno declarado» es un proyecto vacío, no uno que haya que buscar.
+
+**Se levanta lo escrito, no lo que falta.** No se crea un requerimiento que ningún
+documento nombra, ni se completa un criterio que nadie escribió: eso queda en `not_found`, y
+es exactamente lo que los demás comandos reportan. Al terminar, sella la lectura:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" sellar --state <estado> --docs <carpeta del producto>
+```
+
+**4. Contrasta la definición y muestra el resultado**
+
+**Toma la definición que haya** —el caso de negocio, el
 documento de producto, lo que exista— y aplica **demand-evidence**: parte sus afirmaciones y
 clasifica cada una en sostenida, sostenida por un supuesto, o **no está dicha en ninguna
 parte.**
@@ -84,7 +109,7 @@ Si hay cifras en la definición y hay alguna serie medida a la vista, aplica
 **product-metrics** y contrástalas. Si no hay serie, **dilo como hallazgo**: nadie está
 midiendo lo que el negocio afirmó.
 
-**4. Di qué falta para que esto sea mejor**
+**5. Di qué falta para que esto sea mejor**
 
 Como hallazgo, no como requisito. **Esto funciona con lo que haya.** Lo que suele faltar y
 vale la pena nombrar: las transcripciones de las entrevistas, la serie de la métrica
