@@ -847,7 +847,13 @@
     ]
    }
   },
-  "origen": null,
+  "origen": {
+   "agente": 0,
+   "codigo": 0,
+   "clave": 1,
+   "nota": "pm_vs_pmo en PRY-211: el acta y el cronograma traen fechas de cierre distintas y cada agente leyó una. La señal es correcta sobre el material; la clave no modela el cruce entre agentes (D012).",
+   "quien": "anotado a mano"
+  },
   "nota": "ronda 1"
  },
  {
@@ -1018,7 +1024,13 @@
     ]
    }
   },
-  "origen": null,
+  "origen": {
+   "agente": 0,
+   "codigo": 0,
+   "clave": 2,
+   "nota": "pm_vs_pmo dos veces en PRY-208: el acta y el cronograma traen fechas de cierre distintas y cada agente leyó una. La señal es correcta sobre el material; la clave no modela el cruce entre agentes (D012).",
+   "quien": "anotado a mano"
+  },
   "nota": "ronda 1"
  }
 ]
