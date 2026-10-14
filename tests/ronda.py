@@ -127,7 +127,9 @@ def armar(a) -> int:
         cands = [p for p in pry if s in senales.get(p["codigo"], []) and p["codigo"] not in excluir]
         return max(cands, key=lambda p: len(senales.get(p["codigo"], [])), default=None)
 
-    sam = max(pry, key=lambda p: (len(p["compromisos"]), sum(len(c["fechas"]) for c in p["compromisos"]),
+    fechado = lambda p: any(not c.get("cumplido") and c["fechas"] and all(isinstance(x, str) and x[:4].isdigit()
+                                                                          for x in c["fechas"]) for c in p["compromisos"])
+    sam = max(pry, key=lambda p: (fechado(p), len(p["compromisos"]), sum(len(c["fechas"]) for c in p["compromisos"]),
                                   len(senales.get(p["codigo"], []))))
     alba = max(prd, key=lambda x: len(senales.get(x["codigo"], [])))
     otro = max((x for x in prd if x["codigo"] != alba["codigo"]),
@@ -178,7 +180,9 @@ def escribir_notas(carpeta: Path, p: dict, hoy: dt.date) -> tuple:
     """Las notas crudas de la última reunión del proyecto de Samuel, como las toma alguien
     en el cuaderno: sin tabla, con las fechas dichas como se dicen. Tres compromisos con
     respuesta conocida y un riesgo dicho que nadie registra."""
-    abiertos = [c for c in p["compromisos"] if not c.get("cumplido")]
+    # El que se reprograma tiene que tener fecha: uno «por definir» no se mueve, se fecha.
+    abiertos = [c for c in p["compromisos"] if not c.get("cumplido") and c["fechas"]
+                and all(isinstance(x, str) and x[:4].isdigit() for x in c["fechas"])]
     c1 = max(abiertos, key=lambda c: len(c["fechas"]), default=None)
     fecha = hoy - dt.timedelta(days=1)
     nueva = hoy + dt.timedelta(days=14)
