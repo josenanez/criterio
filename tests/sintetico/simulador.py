@@ -192,8 +192,13 @@ def proveedores_de(rnd, hoy: dt.date, arranque: int, duracion: int,
             cuando = -arranque + int(duracion * (j + 1) / (cuantos + 1))
             # Cuatro estados posibles, y cada uno produce —o no— una señal distinta.
             suerte = rnd.random()
-            if suerte < 0.35:
-                estado, acta = "recibido", f(hoy, cuando + rnd.randint(1, 20))
+            # Un entregable que todavía no vence no tiene acta: el material traía actas
+            # de recibo con fecha futura, y el agente —con razón— no las aceptó como
+            # evidencia. El acta de uno vencido cae antes de hoy.
+            if cuando >= 0:
+                estado, acta = rnd.choice(["en curso", "pendiente"]), None
+            elif suerte < 0.35:
+                estado, acta = "recibido", f(hoy, min(cuando + rnd.randint(1, 20), -1))
             elif suerte < 0.55:
                 # Recibido y sin acta: alguien lo dio por recibido y no hay prueba.
                 estado, acta = "recibido", None
@@ -287,23 +292,26 @@ def proyecto_control(hoy: dt.date) -> dict:
         cerrado = cuando < 0
         hitos.append({"nombre": FASES[h % len(FASES)], "base": f(hoy, cuando),
                       "vigente": f(hoy, cuando), "cerrado": cerrado,
-                      "recibo": f(hoy, cuando + 3) if cerrado else None})
+                      "recibo": f(hoy, min(cuando + 3, -1)) if cerrado else None})
     # El avance declarado es el que sostiene el cronograma, calculado igual que en
     # la clave. Ponerlo a mano invitaba a que las dos aritméticas se separaran.
     sostiene = round(100 * sum(1 for h in hitos if h["cerrado"]) / len(hitos))
-    # Un contrato sano: todo recibido, cada entregable con su acta, y la factura
-    # por exactamente lo aceptado. Las cuatro señales de proveedor quedan
-    # expuestas al agente y ninguna tiene por qué sonar.
+    # Un contrato sano: lo vencido, recibido con su acta; lo que no ha vencido,
+    # pendiente y sin acta; y la factura por exactamente lo aceptado. Las cuatro
+    # señales de proveedor quedan expuestas al agente y ninguna tiene por qué sonar.
+    # Hasta el 14 de octubre todo salía recibido, con actas fechadas en el futuro.
     monto_u = int(presupuesto * 0.06)
     entregables = []
     for j in range(3):
         cuando = -arranque + int(duracion * (j + 1) / 4)
+        vencido = cuando + 5 < 0
         entregables.append({"que": ENTREGABLES_PROV[j % len(ENTREGABLES_PROV)],
-                            "vence": f(hoy, cuando), "estado": "recibido",
-                            "monto": monto_u, "acta": f(hoy, cuando + 5)})
+                            "vence": f(hoy, cuando),
+                            "estado": "recibido" if vencido else "pendiente",
+                            "monto": monto_u, "acta": f(hoy, cuando + 5) if vencido else None})
     proveedor = {"nombre": PROVEEDORES[0], "ref": "CT-199",
                  "firma": f(hoy, -arranque - 10), "entregables": entregables,
-                 "facturado": monto_u * len(entregables),
+                 "facturado": monto_u * sum(1 for e in entregables if e["estado"] == "recibido"),
                  "fecha_factura": f(hoy, -12)}
     return {
         "codigo": "PRY-199", "nombre": CONTROL_PRY,

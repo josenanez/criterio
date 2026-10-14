@@ -351,9 +351,16 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     # diez proyectos, incluido el control negativo. Lo imposible es salir del tramo
     # [cerrados/total, (cerrados+1)/total]; la brecha se mide contra su borde.
     if len(hitos) >= th["progress_vs_plan_min_milestones"] and avance is not None:
-        cerrados = sum(1 for m in hitos if value(m.get("state")) == "met")
+        # Un hito cuyo estado dos documentos dicen distinto no es un hecho: ensancha el
+        # tramo en vez de contarse como cerrado. En la primera corrida sobre
+        # cooperativas (14-oct) un informe decía «se cerró» de un hito que el cronograma
+        # tenía en curso; el agente lo marcó ambiguo, y contarlo como cerrado disparó
+        # esta señal en el control negativo.
+        cerrados = sum(1 for m in hitos if value(m.get("state")) == "met"
+                       and state_of(m.get("state")) != "ambiguous")
+        dudosos = sum(1 for m in hitos if state_of(m.get("state")) == "ambiguous")
         desde = round(100 * cerrados / len(hitos))
-        hasta = round(100 * min(cerrados + 1, len(hitos)) / len(hitos))
+        hasta = round(100 * min(cerrados + dudosos + 1, len(hitos)) / len(hitos))
         brecha = desde - avance if avance < desde else (hasta - avance if avance > hasta else 0)
         out["progress_vs_plan"] = {"declared_pct": avance, "plan_supports_pct": [desde, hasta],
                                    "milestones_met": cerrados, "milestones": len(hitos),
@@ -1914,6 +1921,12 @@ def _selftest_lectura():
         ("tramo · 85% está a 10, en el umbral: dispara", "progress_vs_plan" in senales(con(85)), True),
         ("tramo · 84% está a 9: no dispara", "progress_vs_plan" in senales(con(84)), False),
         ("tramo · 20% está a 30 por debajo: dispara", "progress_vs_plan" in senales(con(20)), True),
+        ("tramo · un hito ambiguo no cuenta como cerrado: lo ensancha",
+         compute_record(dict(base, declared=dict(base["declared"], progress_pct={"value": 20}),
+                             plan={"milestones": [hito("A", "met"),
+                                                  dict(hito("B", "met"), state={"value": "met", "state": "ambiguous"}),
+                                                  hito("C", "open"), hito("D", "open"), hito("E", "open")]}),
+                        hoy, DEFAULT_THRESHOLDS)["progress_vs_plan"]["plan_supports_pct"], [20, 60]),
     ]
 
 

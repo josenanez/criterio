@@ -67,7 +67,7 @@ BANCOS = {
               "Integración con el core", "Piloto con usuarios internos",
               "Salida a producción", "Estabilización y cierre"),
     "AVANCES": (
-        "Se cerró la certificación del ambiente de pruebas",
+        "Se ajustó el plan de pruebas con el área de seguridad",
         "El proveedor entregó el componente de integración, pendiente de aceptación",
         "Dos historias quedaron fuera del alcance del sprint por dependencia con el core",
         "Se reprogramó la salida por ventana de cambio del área de operaciones",
@@ -126,9 +126,9 @@ RETAIL = {
               "Integración con el ERP", "Piloto en tiendas", "Despliegue en la cadena",
               "Estabilización y cierre"),
     "AVANCES": (
-        "Se cerró la certificación del ambiente de pruebas",
+        "Se ajustó el plan de pruebas con el área de seguridad",
         "El proveedor entregó el componente de integración, pendiente de aceptación",
-        "El piloto en dos tiendas se extendió una semana por el conteo de inventario",
+        "La validación con dos tiendas se extendió una semana por el conteo de inventario",
         "Se reprogramó el despliegue por el congelamiento de temporada de fin de año",
         "El equipo perdió dos semanas por rotación de un desarrollador clave",
         "Se levantó un hallazgo de seguridad en los medios de pago",
@@ -190,13 +190,13 @@ MINERIA = {
               "Licencia y permisos obtenidos", "Montaje e instalación",
               "Pruebas en operación", "Entrega a operaciones"),
     "AVANCES": (
-        "Se aprobó la ingeniería de detalle en el comité de inversiones",
+        "Se actualizó el presupuesto de la obra con el área de compras",
         "El proveedor entregó los equipos en el campamento, pendientes de aceptación",
         "Las lluvias detuvieron el montaje durante diez días",
         "Se reprogramó la parada de planta por la ventana de mantenimiento",
         "El equipo perdió dos semanas por rotación de un ingeniero clave",
         "Se levantó un hallazgo en la auditoría de seguridad",
-        "La prueba en operación no alcanzó la disponibilidad pactada y se repite",
+        "El primer ensayo de disponibilidad de los equipos no alcanzó lo pactado y se repite",
         "Se recibió el permiso ambiental pendiente desde el trimestre anterior",
     ),
     "RIESGOS": (
@@ -253,7 +253,7 @@ COOPERATIVAS = {
               "Integración con el core cooperativo", "Piloto con asociados",
               "Salida a producción", "Estabilización y cierre"),
     "AVANCES": (
-        "Se cerró la certificación del ambiente de pruebas",
+        "Se ajustó el plan de pruebas con el área de seguridad",
         "El proveedor entregó el componente de integración, pendiente de aceptación",
         "El Consejo de Administración pidió ajustar el reglamento antes del piloto",
         "Se reprogramó la salida por el cierre contable de fin de mes",
@@ -307,6 +307,12 @@ def selftest() -> list:
         temas = [t for t, _ in p["TEMAS_PRY"]]
         if len(set(temas)) != len(temas) or len(set(p["TEMAS_PRD"])) != len(p["TEMAS_PRD"]):
             fallas.append(f"{nombre}: temas repetidos")
+        # Un avance se escribe al azar: no puede afirmar el estado de un hito, porque
+        # contradiría al cronograma sin que la clave lo sepa (14-oct, cooperativas y minería).
+        for av in p["AVANCES"]:
+            for h in p["FASES"]:
+                if h.lower() in av.lower():
+                    fallas.append(f"{nombre}: el avance «{av}» nombra el hito «{h}»")
         if p["CONTROL_PRY"] in temas or p["CONTROL_PRD"] in p["TEMAS_PRD"]:
             fallas.append(f"{nombre}: el control comparte nombre con un caso")
     return fallas

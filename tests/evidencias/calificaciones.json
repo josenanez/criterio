@@ -149,5 +149,196 @@
    "quien": "anotado a mano"
   },
   "nota": "Mismo generador, regenerado tras corregir el código y la clave viendo la corrida 0: no es una medición independiente."
+ },
+ {
+  "id": "2026-10-14-bancos-vera-3",
+  "fecha": "2026-10-14",
+  "corte": "2026-09-16",
+  "entorno": "bancos",
+  "industria": "Entidades financieras (bancos y cooperativas) de Suramérica",
+  "etiqueta": "Entidades financieras de Suramérica · bancos",
+  "material": "simulador",
+  "agente": "vera",
+  "version": "0.3.5",
+  "tipo": "primera",
+  "codigo": "d519ab1",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 51,
+  "falsos_positivos": 2,
+  "falsos_negativos": 0,
+  "precision": 96.2,
+  "cobertura": 100.0,
+  "ic_precision": [
+   86.0,
+   100.0
+  ],
+  "ic_cobertura": [
+   93.0,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "errores": {
+   "PRY-210": {
+    "faltan": [],
+    "sobran": [
+     "vendor_accepted_without_evidence",
+     "vendor_accepted_without_evidence"
+    ]
+   }
+  },
+  "origen": {
+   "agente": 0,
+   "codigo": 0,
+   "clave": 2,
+   "nota": "PRY-210: el material trae actas de recibo con fecha futura; el agente no las aceptó como evidencia y la clave sí. Defecto del generador.",
+   "quien": "anotado a mano"
+  },
+  "nota": "Primera corrida de la versión congelada sobre material que no vio: portfolio-setup y portfolio-scan."
+ },
+ {
+  "id": "2026-10-14-cooperativas-vera-4",
+  "fecha": "2026-10-14",
+  "corte": "2026-09-16",
+  "entorno": "cooperativas",
+  "industria": "Entidades financieras (bancos y cooperativas) de Suramérica",
+  "etiqueta": "Entidades financieras de Suramérica · cooperativas de ahorro y crédito",
+  "material": "simulador",
+  "agente": "vera",
+  "version": "0.3.5",
+  "tipo": "primera",
+  "codigo": "d519ab1",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 34,
+  "falsos_positivos": 5,
+  "falsos_negativos": 0,
+  "precision": 87.2,
+  "cobertura": 100.0,
+  "ic_precision": [
+   66.7,
+   100.0
+  ],
+  "ic_cobertura": [
+   89.8,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 0,
+  "errores": {
+   "PRY-199": {
+    "faltan": [],
+    "sobran": [
+     "contradiction",
+     "declared_vs_evidence",
+     "progress_vs_plan"
+    ]
+   },
+   "PRY-203": {
+    "faltan": [],
+    "sobran": [
+     "contradiction",
+     "progress_vs_plan"
+    ]
+   }
+  },
+  "origen": {
+   "agente": 0,
+   "codigo": 3,
+   "clave": 2,
+   "nota": "contradiction en PRY-199 y PRY-203: el informe dice que se cerró un hito que el cronograma tiene en curso; el generador escribe avances al azar que contradicen los hechos (clave). progress_vs_plan y declared_vs_evidence: el código contó como cerrado un hito ambiguo (código).",
+   "quien": "anotado a mano"
+  },
+  "nota": "Primera corrida de la versión congelada sobre material que no vio: portfolio-setup y portfolio-scan."
+ },
+ {
+  "id": "2026-10-14-retail-vera-5",
+  "fecha": "2026-10-14",
+  "corte": "2026-09-16",
+  "entorno": "retail",
+  "industria": "Empresas de retail de Suramérica",
+  "etiqueta": "Empresas de retail de Suramérica · supermercados y tiendas",
+  "material": "simulador",
+  "agente": "vera",
+  "version": "0.3.5",
+  "tipo": "primera",
+  "codigo": "d519ab1",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 49,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   92.7,
+   100.0
+  ],
+  "ic_cobertura": [
+   92.7,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "errores": {},
+  "origen": {
+   "agente": 0,
+   "codigo": 0,
+   "clave": 0,
+   "nota": null,
+   "quien": "anotado a mano"
+  },
+  "nota": "Primera corrida de la versión congelada sobre material que no vio: portfolio-setup y portfolio-scan."
+ },
+ {
+  "id": "2026-10-14-mineria-vera-6",
+  "fecha": "2026-10-14",
+  "corte": "2026-09-16",
+  "entorno": "mineria",
+  "industria": "Empresas mineras de Suramérica",
+  "etiqueta": "Empresas mineras de Suramérica · oro y cobre",
+  "material": "simulador",
+  "agente": "vera",
+  "version": "0.3.5",
+  "tipo": "primera",
+  "codigo": "d519ab1",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 53,
+  "falsos_positivos": 1,
+  "falsos_negativos": 0,
+  "precision": 98.1,
+  "cobertura": 100.0,
+  "ic_precision": [
+   90.2,
+   100.0
+  ],
+  "ic_cobertura": [
+   93.2,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "errores": {
+   "PRY-203": {
+    "faltan": [],
+    "sobran": [
+     "contradiction"
+    ]
+   }
+  },
+  "origen": {
+   "agente": 0,
+   "codigo": 0,
+   "clave": 1,
+   "nota": "contradiction en PRY-203: el informe dice que la prueba en operación no alcanzó la disponibilidad y el cronograma la da por cerrada; avance escrito al azar por el generador.",
+   "quien": "anotado a mano"
+  },
+  "nota": "Primera corrida de la versión congelada sobre material que no vio: portfolio-setup y portfolio-scan."
  }
 ]
