@@ -115,16 +115,22 @@ changes:                # solicitudes de cambio
 commitments:            # ver el skill commitment-tracking
   - who:
     what:
-    due_date:           # `no_declarada` cuando nadie la dijo. No puede estar vencido,
+    due_date:           # la fecha VIGENTE: la de la última vez que se prometió.
+                        # `no_declarada` cuando nadie la dijo. No puede estar vencido,
                         # y por eso mismo se cuenta aparte: un compromiso que nadie
                         # fecho es un hallazgo, no un vacio.
-    stated_on:
-    source:             # la minuta o transcripción donde se dijo
+    original_due_date:  # la fecha de la PRIMERA promesa, la de stated_on y source.
+    stated_on:          # cuándo se prometió la primera vez
+    source:             # la minuta o transcripción donde se dijo la primera vez
     state:              # open | met | overdue | unknown
-    reschedules:        # el mismo compromiso prometido de nuevo, con fecha nueva.
-      - due_date:       # Tres veces no son tres compromisos vencidos: es uno con
-        stated_on:      # historial, y un bloqueo que nadie ha nombrado.
-        source:
+    reschedules:        # una entrada por cada vez que se volvió a prometer con fecha
+      - due_date:       # nueva, en orden; la última es la vigente. La promesa original
+        stated_on:      # NO es una entrada: un compromiso dicho dos veces tiene una
+        source:         # reprogramación, no dos. Tres veces no son tres compromisos
+                        # vencidos: es uno con historial, y un bloqueo que nadie ha
+                        # nombrado. En la ronda 1 el agente lo escribió de dos formas
+                        # distintas —una con la original como entrada, otra sin ella—
+                        # y el conteo de reprogramaciones salió distinto para el mismo caso.
 
 activity:               # lo calcula el script a partir de los nombres de archivo
   last_document_date:
