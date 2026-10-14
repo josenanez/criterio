@@ -113,7 +113,7 @@
   "que_paso": "La cadena de Alba nunca construye la ficha del producto (producto.json) ni el registro de requerimientos desde los documentos: los requerimientos están en el acta del comité y ningún comando los registra. Los 11 comandos trabajaron sobre un estado vacío y Alba encontró 0 de las 10 alertas de su producto.",
   "evidencia": null,
   "origen": "instrucciones",
-  "correccion": null,
+  "correccion": "db80a49",
   "verificado_en": null
  },
  {
@@ -126,7 +126,7 @@
   "que_paso": "Alba guardó su estado en estado/, la misma carpeta que usa Vera: comparten corridas.json y cadencia.json. Una ficha, un escritor: cada agente necesita su propia carpeta de estado.",
   "evidencia": null,
   "origen": "instrucciones",
-  "correccion": null,
+  "correccion": "db80a49",
   "verificado_en": null
  },
  {
@@ -139,7 +139,7 @@
   "que_paso": "Las notas crudas se fecharon el mismo día que la minuta del simulador y con otra fecha para el mismo compromiso; la clave esperaba una reprogramación. Samuel señaló el conflicto entre las dos fuentes y no contó una reprogramación sin promesa anterior: su lectura fue la correcta.",
   "evidencia": null,
   "origen": "material",
-  "correccion": null,
+  "correccion": "286ac45",
   "verificado_en": null
  },
  {
@@ -165,7 +165,7 @@
   "que_paso": "La clave de las notas quedó dentro de la carpeta del agente. La auditoría de las herramientas que llamó cada sesión no encontró ninguna lectura en la corrida válida; desde cooperativas va fuera, y la auditoría de fugas corre en cada industria.",
   "evidencia": null,
   "origen": "arnes",
-  "correccion": null,
+  "correccion": "286ac45",
   "verificado_en": null
  }
 ]
