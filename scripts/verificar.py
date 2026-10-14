@@ -38,6 +38,10 @@ PUERTAS = [
 
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/corpus.py"), "--selftest"],
      "El motor del material: la estructura de referencia y las cuatro disposiciones"),
+    ("material", [sys.executable, str(RAIZ / "tests/sintetico/sectores.py")],
+     "Tres industrias con el mismo motor de hechos: finanzas, retail y minería"),
+    ("material", [sys.executable, str(RAIZ / "tests/sintetico/formatos.py")],
+     "El material en Word, Excel y PDF, y que el plugin lo lea"),
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/disposiciones.py")],
      "Que el recorrido encuentre los mismos documentos sin importar cómo estén"),
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/cobertura.py")],

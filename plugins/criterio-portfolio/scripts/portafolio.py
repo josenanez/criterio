@@ -36,6 +36,8 @@ import json
 import re
 import sys
 import time
+import xml.etree.ElementTree as ET
+import zipfile
 from pathlib import Path
 
 # Cuánto puede costar una corrida. Es configuración de la organización, no del modelo:
@@ -168,18 +170,36 @@ def hash_bytes(ruta: Path) -> str:
     return h.hexdigest()
 
 
+def _texto():
+    """`texto.py`, el que convierte Word, Excel y PowerPoint con la librería estándar.
+    Viaja en la misma carpeta de scripts de cada plugin."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    try:
+        import texto
+        return texto
+    except ImportError:
+        return None
+
+
 def hash_texto(ruta: Path):
     """Hash del texto extraído, o None si el formato no se puede leer sin dependencias.
 
     Existe por una razón económica: un Word reguardado o un Excel que recalcula al
     abrirlo cambian el hash de bytes sin cambiar una palabra, y cada falso positivo
-    cuesta una relectura del documento, que es el único paso caro del sistema.
+    cuesta una relectura del documento, que es el único paso caro del sistema. Hasta el
+    15 de octubre de 2026 devolvía None justo para Word y Excel, los dos formatos por los
+    que existe: ahora usa los convertidores de `texto.py`.
     """
-    if ruta.suffix.lower() not in TEXTO_PLANO:
-        return None
+    suf = ruta.suffix.lower()
     try:
-        texto = ruta.read_text(encoding="utf-8", errors="replace")
-    except OSError:
+        if suf in TEXTO_PLANO:
+            texto = ruta.read_text(encoding="utf-8", errors="replace")
+        else:
+            conv = getattr(_texto(), "CONVERTIDORES", {}).get(suf)
+            if not conv:
+                return None
+            texto = conv[1](ruta)
+    except (OSError, ValueError, KeyError, zipfile.BadZipFile, ET.ParseError):
         return None
     return hashlib.sha256(" ".join(texto.split()).encode("utf-8")).hexdigest()
 
@@ -2249,13 +2269,21 @@ def lineas_base_csv(carpeta: Path, docs: Path) -> list:
     """
     import csv
     salida = []
-    for f in sorted(carpeta.rglob("*cronograma-v*.csv")):
-        m = re.search(r"(\d{4}-\d{2}-\d{2}).*cronograma-v(\d+)\.csv$", f.name)
+    for f in sorted(carpeta.rglob("*cronograma-v*")):
+        m = re.search(r"(\d{4}-\d{2}-\d{2}).*cronograma-v(\d+)\.(csv|xlsx)$", f.name)
         if not m:
             continue
         try:
-            filas = list(csv.DictReader(f.read_text(encoding="utf-8").splitlines()))
-        except (OSError, UnicodeDecodeError):
+            if m.group(3) == "csv":
+                filas = list(csv.DictReader(f.read_text(encoding="utf-8").splitlines()))
+            else:
+                # El cronograma en Excel, que es como llega casi siempre. La primera hoja,
+                # la primera fila como encabezado.
+                hoja = _texto().de_xlsx(f).split("\n\n## ")[0].split("\n\n", 1)[-1].splitlines()
+                cab = [c.strip() for c in hoja[0].split(" | ")]
+                filas = [dict(zip(cab, (c.strip() for c in r.split(" | ")))) for r in hoja[1:]]
+        except (OSError, UnicodeDecodeError, AttributeError, IndexError, KeyError,
+                zipfile.BadZipFile, ET.ParseError):
             continue
         vigentes = sorted(r.get("fecha_vigente") for r in filas if r.get("fecha_vigente"))
         base = sorted(r.get("fecha_linea_base") for r in filas if r.get("fecha_linea_base"))

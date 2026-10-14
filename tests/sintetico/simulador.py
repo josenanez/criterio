@@ -80,36 +80,25 @@ SENALES_DE_EVIDENCIA = (
     "vendor_invoiced_over_accepted", "rebaseline_unauthorized", "governance_change",
 )
 
-AREAS = ["Banca de Personas", "Banca Empresas", "Medios de Pago", "Tecnología",
-         "Riesgo y Cumplimiento", "Canales Digitales", "Operaciones", "Tesorería",
-         "Banca Hipotecaria", "Banca PyME"]
-COMITES = ["Comité de Transformación Digital", "Comité de Arquitectura",
-           "Comité de Riesgos", "Comité de Medios de Pago", "Comité de Banca Empresas"]
+# El vocabulario de la industria —áreas, comités, temas, fases, proveedores— vive en
+# `sectores.py`, un perfil por sector. Este módulo arranca con el financiero y `--sector`
+# lo cambia antes de escribir nada. Los hechos y la clave no dependen del perfil.
+import sectores  # noqa: E402
+SECTOR = "finanzas"
+globals().update(sectores.PERFILES[SECTOR])
+
+
+def usar_sector(nombre: str) -> None:
+    global SECTOR
+    SECTOR = nombre
+    globals().update(sectores.PERFILES[nombre])
+
+
 NOMBRES = ["María Restrepo", "Andrés Lozano", "Diana Molina", "Carlos Peña",
            "Felipe Arango", "Laura Vélez", "Óscar Ramírez", "Paula Céspedes",
            "Gustavo Neira", "Elena Duarte", "Mauricio Pérez", "Camilo Beltrán",
            "Natalia Ospina", "Ricardo Salas", "Jorge Medina", "Liliana Torres",
            "Sandra Gil", "Rubén Cárdenas", "Javier Hoyos", "Beatriz Cuéllar"]
-TEMAS_PRY = [
-    ("Originación digital", "crédito de consumo"), ("Core de depósitos", "cuenta de ahorros"),
-    ("Migración a la nube", None), ("Open Banking", "APIs de datos"),
-    ("Débito contactless", "tarjeta débito"), ("Monitoreo SARLAFT", None),
-    ("Billetera y QR", "pagos QR"), ("Onboarding PyME", "cuenta PyME"),
-    ("Motor de decisión", None), ("Nómina electrónica", "nómina empresarial"),
-    ("Portal de proveedores", None), ("Cobranza digital", "recaudos"),
-    ("Firma electrónica", None), ("Tarjeta de crédito digital", "tarjeta de crédito"),
-    ("Remesas", "remesas familiares"), ("Microseguros", "microseguros"),
-    ("Banca abierta fase 2", None), ("Conciliación automática", None),
-    ("Canal WhatsApp", None), ("Scoring alternativo", None),
-]
-TEMAS_PRD = [
-    "Pagos QR comercios", "Nómina empresarial", "Crédito hipotecario digital",
-    "Cuenta PyME", "Tarjeta de crédito digital", "Recaudos y cobros", "Microseguros",
-    "Remesas familiares", "Cuenta de ahorros joven", "Crédito de libre inversión",
-    "Datáfono móvil", "Factoring digital", "Seguro de desempleo", "CDT digital",
-    "Cuenta de nómina", "Adquirencia comercios", "Billetera empresarial",
-    "Crédito rotativo", "Pagos recurrentes", "Corresponsal bancario",
-]
 
 # Cuánta documentación tiene cada caso. Es lo que más varía en una organización real:
 # el mismo comité aprueba dos proyectos y uno documenta todo y el otro casi nada.
@@ -120,72 +109,6 @@ PROFUNDIDAD = {
     "minima": dict(plan=False, recibos=False, contrato=False, minutas=0, informes=1),
 }
 
-
-# Las fases de un proyecto bancario, que es lo que un hito nombra de verdad. «Hito 1» y
-# «Hito 2» dejaban la tabla más importante del informe ilegible: un comité no decide sobre
-# «Hito 1 · 433 días sin evidencia». Lo dijo el propio agente al leer el material.
-FASES = (
-    "Diseño funcional aprobado",
-    "Ambiente de pruebas certificado",
-    "Integración con el core",
-    "Piloto con usuarios internos",
-    "Salida a producción",
-    "Estabilización y cierre",
-)
-
-# Lo que un informe de avance dice de verdad. «Avance del periodo» no da materia prima
-# para un análisis de causa, y sin ella los comandos de diagnóstico se prueban contra
-# nada.
-AVANCES = (
-    "Se cerró la certificación del ambiente de pruebas",
-    "El proveedor entregó el componente de integración, pendiente de aceptación",
-    "Dos historias quedaron fuera del alcance del sprint por dependencia con el core",
-    "Se reprogramó la salida por ventana de cambio del área de operaciones",
-    "El equipo perdió dos semanas por rotación de un desarrollador clave",
-    "Se levantó un hallazgo de seguridad en la revisión de arquitectura",
-    "La prueba de carga no alcanzó el umbral pactado y se repite",
-    "Se recibió la aprobación regulatoria pendiente desde el trimestre anterior",
-)
-
-RIESGOS = (
-    "Dependencia del calendario de liberaciones del core",
-    "Disponibilidad del equipo de seguridad para la revisión final",
-    "Concentración del conocimiento en una sola persona",
-    "Cambio regulatorio en discusión que puede mover el alcance",
-    "El proveedor no ha confirmado la fecha de la última entrega",
-)
-
-# Los proveedores y lo que entregan. Contrato contra acta de recibo contra factura es
-# donde aparece el dinero pagado por algo que nadie aceptó, y es la esquina que más duele en
-# una PMO de verdad. Cuatro de las veinte señales viven aquí, y se estaban probando contra
-# cero material: `PROFUNDIDAD` declaraba `contrato=True` y el simulador nunca escribía el
-# documento.
-PROVEEDORES = (
-    "Consultora Andina S.A.S.", "Integra Sistemas Ltda.", "Datacore Colombia",
-    "Núcleo Financiero S.A.", "Talento Digital S.A.S.", "Redes del Norte Ltda.",
-)
-# Sin solaparse con FASES. El acta de recibo se empareja por contención —el cronograma
-# dice «Carga de archivo» y el acta «Carga de archivo de nómina»—, y eso es lo correcto para
-# un nombre escrito a mano dos veces. Pero si un entregable se llama «Ambiente de pruebas» y
-# un hito «Ambiente de pruebas certificado», el acta del hito se empareja con el entregable
-# del proveedor y las dos cuentas salen mal. No es un defecto del emparejamiento: es que dos
-# cosas distintas no pueden llamarse casi igual en el mismo proyecto.
-ENTREGABLES_PROV = (
-    "Licenciamiento del motor", "Bolsa de horas de desarrollo",
-    "Parametrización del tarifario", "Mesa de ayuda del primer trimestre",
-    "Traspaso de conocimiento",
-)
-
-# Los supuestos que sostienen un producto. Son enunciados que alguien puede verificar o
-# no, y esa es la única razón por la que están aquí: un supuesto sin verificar es un
-# riesgo que nadie registró.
-SUPUESTOS = (
-    "El segmento paga por esto",
-    "El canal actual soporta el volumen",
-    "La regulación vigente lo permite",
-    "El proveedor cumple el tiempo pactado",
-    "La demanda declarada se sostiene sin campaña",
-)
 
 def f(base: dt.date, dias: int) -> str:
     return (base + dt.timedelta(days=dias)).isoformat()
@@ -318,8 +241,7 @@ def nuevo_producto(rnd, i: int, hoy: dt.date) -> dict:
     return {
         "codigo": f"PRD-{300 + i}", "nombre": nombre, "carpeta": f"PRD-{300 + i}",
         "profundidad": prof, "gerente": rnd.choice(NOMBRES),
-        "segmento": rnd.choice(["Personas", "PyME", "Empresas", "Microcomercio",
-                                "Base de la pirámide"]),
+        "segmento": rnd.choice(SEGMENTOS),
         "fecha": f(hoy, -rnd.randint(60, 400)),
         "entrevista": f(hoy, -rnd.randint(30, 420)),
         "requerimientos": reqs,
@@ -384,8 +306,8 @@ def proyecto_control(hoy: dt.date) -> dict:
                  "facturado": monto_u * len(entregables),
                  "fecha_factura": f(hoy, -12)}
     return {
-        "codigo": "PRY-199", "nombre": "Control negativo de portafolio",
-        "carpeta": "PRY-199-control-negativo",
+        "codigo": "PRY-199", "nombre": CONTROL_PRY,
+        "carpeta": "PRY-199-" + CONTROL_PRY.lower().replace(" ", "-"),
         "profundidad": "completa", "area": AREAS[0], "comite": COMITES[0],
         "patrocinador": NOMBRES[0], "gerente": NOMBRES[1],
         # La traza tiene que cerrar por los dos lados: el requerimiento dice qué
@@ -424,7 +346,7 @@ def producto_control(hoy: dt.date) -> dict:
              "desde": f(hoy, -(40 + n * 10)), "proyecto": "PRY-199"}
             for n in range(4)]
     return {
-        "codigo": "PRD-299", "nombre": "Control negativo de producto",
+        "codigo": "PRD-299", "nombre": CONTROL_PRD,
         "carpeta": "PRD-299", "profundidad": "completa", "gerente": NOMBRES[4],
         "segmento": "Personas",
         "fecha": f(hoy, -90),
@@ -908,6 +830,10 @@ if __name__ == "__main__":
     ap.add_argument("--proyectos", type=int, default=50)
     ap.add_argument("--productos", type=int, default=65)
     ap.add_argument("--disposicion", default=None)
+    ap.add_argument("--formatos", action="store_true",
+                    help="parte del material en Word, Excel y PDF (formatos.py)")
+    ap.add_argument("--sector", choices=sorted(sectores.PERFILES), default=None,
+                    help="el vocabulario de la industria; el día 1 lo fija y los demás lo leen")
     ap.add_argument("--dias", type=int, default=DIAS,
                     help="cuántos días tiene la prueba; el último cae en la fecha real")
     ap.add_argument("--todos", action="store_true",
@@ -917,17 +843,30 @@ if __name__ == "__main__":
     destino = Path(a.destino).expanduser()
     destino.mkdir(parents=True, exist_ok=True)
     banco = destino / "organizacion.json"
-    rnd = random.Random(20260928 + a.dia * 7919)
+    # La semilla del sector se fija después de saber el sector (más abajo).
     # La fecha de la organización para este día. El último cae en la fecha real y cada
     # anterior está una semana atrás, así que el silencio y la antigüedad se acumulan.
     hoy = dt.date.today() - dt.timedelta(days=7 * (a.dias - a.dia))
     disp = a.disposicion or corpus.DISPOSICIONES[(a.dia - 1) % len(corpus.DISPOSICIONES)]
 
-    if a.dia == 1 or not banco.exists():
-        estado = {"dia": 1, "creada": hoy.isoformat(),
+    nuevo = a.dia == 1 or not banco.exists()
+    sector = a.sector or ("finanzas" if nuevo else
+                          json.loads(banco.read_text(encoding="utf-8")).get("sector", "finanzas"))
+    if not nuevo and a.sector and a.sector != json.loads(banco.read_text(encoding="utf-8")).get("sector", "finanzas"):
+        sys.exit(f"esta organización es de otro sector; no se cambia a mitad de la prueba")
+    usar_sector(sector)
+    # Cada industria sortea sus propios hechos. Con la misma semilla las tres tenían la
+    # misma clave y una prueba en tres sectores era una sola organización con tres
+    # vocabularios: más casos distintos es lo que le da peso a una cifra. Finanzas
+    # conserva la semilla de siempre, así que corp-demo no cambia.
+    rnd = random.Random(20260928 + a.dia * 7919 + sectores.SEMILLA[sector])
+
+    if nuevo:
+        estado = {"dia": 1, "creada": hoy.isoformat(), "sector": sector,
+                  "organizacion": ORGANIZACION,
                   "proyectos": [nuevo_proyecto(rnd, i, hoy) for i in range(a.proyectos)],
                   "productos": [nuevo_producto(rnd, i, hoy) for i in range(a.productos)]}
-        bitacora = [f"día 1 · organización creada: {a.proyectos} proyectos, "
+        bitacora = [f"día 1 · {ORGANIZACION} ({sector}) creada: {a.proyectos} proyectos, "
                     f"{a.productos} productos"]
     else:
         estado = json.loads(banco.read_text(encoding="utf-8"))
@@ -960,6 +899,10 @@ if __name__ == "__main__":
 
     n1, n2 = escribir(estado, destino, hoy, disp)
     fechar(estado, destino)
+    if a.formatos:
+        import formatos
+        bitacora.append("formatos · " + ", ".join(
+            f"{n} {ext}" for ext, n in sorted(formatos.convertir(destino).items())))
     banco.write_text(json.dumps(estado, ensure_ascii=False, indent=1), encoding="utf-8")
 
     esperado = {p["codigo"]: esperado_proyecto(p, hoy) for p in estado["proyectos"]}

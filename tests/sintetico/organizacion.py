@@ -52,13 +52,17 @@ def plata(n: int) -> str:
 # Se declara a mano, como todo lo esperado en este repositorio. Si se derivara del
 # mismo cálculo que se quiere medir, la prueba no probaría nada.
 ESPERADO = {
+    # `progress_vs_plan` en 101 y 103 sale de la regla, no de una intención: declaran
+    # 72% y 61% con uno de cuatro hitos cerrados, y el cronograma sostiene hasta 50%.
     "PRY-101": ["milestone_overdue", "milestone_met_without_evidence",
-                "commitment_undated", "commitment_rescheduled", "declared_vs_evidence"],
+                "commitment_undated", "commitment_rescheduled", "declared_vs_evidence",
+                "progress_vs_plan"],
     "PRY-102": ["variance_time", "milestone_met_without_evidence",
                 "milestone_met_without_evidence", "commitment_overdue",
                 "rebaseline_unauthorized"],
     "PRY-103": ["milestone_overdue", "vendor_deliverable_late",
-                "vendor_accepted_without_evidence", "vendor_invoiced_over_accepted"],
+                "vendor_accepted_without_evidence", "vendor_invoiced_over_accepted",
+                "progress_vs_plan"],
     "PRY-104": ["silent", "declared_vs_evidence", "declaration_stale"],
     "PRY-105": [],                       # control negativo
     "PRY-106": ["milestone_met_without_evidence", "budget_committed",
@@ -464,8 +468,10 @@ def proyectos(port: corpus.Portafolio) -> list:
     c.seguimiento(d(30), "factura-NCS-2291.md", factura(
         p, d(30), "NCS-2291", "Nubia Cloud Services S.A.S.",
         "Migración de las primeras 20 aplicaciones", 2_400_000_000))
-    c.seguimiento(d(14), "informe-avance.md", informe(
-        p, "Amarillo", d(14), 61,
+    # A ocho días, no a catorce: a un día del umbral de silencio, el caso cambiaba de
+    # respuesta según el día en que se calificara.
+    c.seguimiento(d(8), "informe-avance.md", informe(
+        p, "Amarillo", d(8), 61,
         ["La landing zone está recibida y operando",
          "Las primeras 20 aplicaciones siguen en migración: van 14 de 20",
          "Se radicó la factura del segundo entregable"]))
