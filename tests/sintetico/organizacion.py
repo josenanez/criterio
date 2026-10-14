@@ -63,8 +63,11 @@ ESPERADO = {
     "PRY-105": [],                       # control negativo
     "PRY-106": ["milestone_met_without_evidence", "budget_committed",
                 "vendor_deliverable_late", "vendor_invoiced_without_delivery"],
-    "PRY-107": ["pm_vs_pmo", "pm_vs_pmo"],
-    "PRY-108": [],
+    # El acta y la minuta nombran patrocinador y comité distintos: son dos cambios de
+    # gobierno, y un cambio de gobierno es de las señales que un verde tiene que explicar.
+    "PRY-107": ["pm_vs_pmo", "pm_vs_pmo", "governance_change", "governance_change",
+                "declared_vs_evidence"],
+    "PRY-108": ["contradiction"],
     "PRY-109": ["variance_cost", "change_without_baseline"],
     "PRY-110": [],
     "PRD-QR": ["requirement_undecided", "assumption_unverified", "assumption_unverified",
@@ -336,9 +339,10 @@ def proyectos(port: corpus.Portafolio) -> list:
          "La integración con centrales de riesgo sigue pendiente del contrato",
          "Se inició el diseño de la firma electrónica"]))
     # Cada comité vuelve a prometer lo mismo con fecha NUEVA y más adelante, que es
-    # como se reprograma de verdad: la de hace 60 días ya venció sin evidencia, la de
-    # hace 35 también, y la última todavía no. Tres promesas, dos incumplidas.
-    for fecha, promete in ((d(60), d(30)), (d(35), d(10)), (d(12), f(5))):
+    # como se reprograma de verdad. Cuatro fechas son tres reprogramaciones, que es el
+    # umbral: con tres comités quedaban dos, y la primera corrida con el modelo (14-oct)
+    # contó bien y la clave no. La última promesa todavía no vence.
+    for fecha, promete in ((d(85), d(55)), (d(60), d(30)), (d(35), d(10)), (d(12), f(5))):
         c.reunion(fecha, "comite-transformacion.md", minuta(
             p, fecha,
             ["María Restrepo", "Andrés Lozano", "Rubén Cárdenas", "Sandra Gil"],
@@ -405,7 +409,10 @@ def proyectos(port: corpus.Portafolio) -> list:
         p, d(22), ["Carlos Peña", "Diana Molina", "Javier Hoyos"],
         ["Ventana de migración y su impacto en el cronograma",
          "Resultado del paralelo del motor de intereses"],
-        [{"quien": "Javier Hoyos", "que": "Publicar el cronograma replanificado",
+        # Lo que nadie hizo: la versión 2 se publicó, y el informe lo dice, pero la
+        # autorización que pedía el comité no existe en ningún documento.
+        [{"quien": "Javier Hoyos",
+          "que": "Radicar ante el comité la solicitud de cambio que autorice la replanificación",
           "para": d(20)}]))
     plantado.append((p["codigo"], p["nombre"], [
         "**Dos hitos declarados cerrados sin acta de recibo**: «Diseño de la "
@@ -414,6 +421,8 @@ def proyectos(port: corpus.Portafolio) -> list:
         "**Replanificación sin autorizar**: el cronograma v2 mueve la salida a "
         "producción 60 días y no hay solicitud de cambio ni acta del comité que lo "
         "autorice",
+        "**Compromiso vencido**: Javier Hoyos iba a radicar la solicitud de cambio que "
+        "autorizara la replanificación; venció hace 20 días y ningún documento la tiene",
         "**Desviación de tiempo** contra la línea base original en dos hitos",
         "**Proyección 6,7% por encima del aprobado** (19.200 contra 18.000 millones): "
         "bajo el umbral de 10%, no debe salir como desviación de costo",

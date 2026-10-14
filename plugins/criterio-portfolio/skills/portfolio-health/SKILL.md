@@ -200,6 +200,8 @@ La segunda es un defecto del proyecto, no del registro, y por eso **sí entra** 
 señales que un semáforo verde tiene que explicar. La primera no: mezclarlas debilita el
 hallazgo.
 
-Y es aritmética —hitos cerrados sobre hitos totales contra el porcentaje declarado—, así
-que la calcula el script. Tú preguntas lo que el script no puede: cuál de los dos
+Y es aritmética, así que la calcula el script. El cronograma no sostiene un número sino
+un tramo: con dos de cuatro hitos cerrados el tercero puede ir avanzado, y lo posible va
+de 50% a 75%. La señal sale cuando lo declarado queda fuera del tramo por más de
+`progress_vs_plan_points`. Tú preguntas lo que el script no puede: cuál de los dos
 documentos está mal, que casi siempre es el cronograma que nadie mantuvo.

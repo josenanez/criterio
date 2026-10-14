@@ -53,10 +53,12 @@ DEFAULT_EXECUTION = {
 DEFAULT_THRESHOLDS = {
     "silent_days": 15,
     "variance_time_pct": 10,
-    # Puntos de diferencia entre el avance que el gerente declara y el que sostiene su
-    # propio cronograma. Por debajo es redondeo; por encima, los dos documentos no
-    # pueden ser ciertos a la vez.
-    "progress_vs_plan_points": 25,
+    # Puntos que el avance declarado puede quedar fuera del tramo que sostiene el
+    # cronograma —de k/n a (k+1)/n hitos cerrados— antes de ser imposible. Se mide desde
+    # el borde del tramo, no desde los hitos cerrados: 25 desde el borde era tan holgado
+    # que un proyecto con uno de tres hitos cerrados podía declarar 90%. La holgura cubre
+    # que los hitos no pesan lo mismo.
+    "progress_vs_plan_points": 10,
     # Hitos mínimos para que la fracción pueda contradecir un porcentaje. Con uno solo, el
     # plan únicamente sostiene 0% o 100%, así que cualquier cifra intermedia dispararía:
     # sería un falso positivo garantizado en todo proyecto con pocos hitos.
@@ -248,8 +250,17 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
         out["alerts"].append({"signal": kind, "detail": detail})
 
     # --- silence -------------------------------------------------------
+    # El último documento lo sabe el script, no el agente: `sellar` deja en
+    # `meta.documents_seen` cada archivo con la fecha de su nombre. En la primera
+    # corrida con el modelo (14-oct) ninguna de diez fichas traía `activity`, y el
+    # silencio no se calculó en ninguna: el proyecto con 52 días sin un documento salió
+    # sin la señal. Se toma la fecha más reciente de las dos fuentes.
     activity = rec.get("activity", {}) or {}
-    last_doc = as_date(activity.get("last_document_date"))
+    fechas = [as_date(activity.get("last_document_date"))]
+    fechas += [as_date(d.get("date")) for d in ((rec.get("meta") or {}).get("documents_seen") or [])
+               if isinstance(d, dict)]
+    fechas = [x for x in fechas if x]
+    last_doc = max(fechas) if fechas else None
     out["days_silent"] = (today - last_doc).days if last_doc else None
     if out["days_silent"] is not None and out["days_silent"] >= th["silent_days"]:
         alert("silent", {"days": out["days_silent"], "since": last_doc.isoformat()})
@@ -313,11 +324,18 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     hitos = plan.get("milestones") or []
     # `pct` ya es una función en este módulo; el avance declarado va con su propio nombre.
     avance = as_number(declarado_pct(rec))
+    #
+    # El plan no sostiene un punto, sostiene un tramo: con dos de cuatro hitos cerrados
+    # el tercero puede ir avanzado, y 70% es posible. Medir solo contra los cerrados
+    # (50%) lo marcaba imposible, y la primera corrida con el modelo lo disparó en seis de
+    # diez proyectos, incluido el control negativo. Lo imposible es salir del tramo
+    # [cerrados/total, (cerrados+1)/total]; la brecha se mide contra su borde.
     if len(hitos) >= th["progress_vs_plan_min_milestones"] and avance is not None:
         cerrados = sum(1 for m in hitos if value(m.get("state")) == "met")
-        sostiene = round(100 * cerrados / len(hitos))
-        brecha = sostiene - avance
-        out["progress_vs_plan"] = {"declared_pct": avance, "plan_supports_pct": sostiene,
+        desde = round(100 * cerrados / len(hitos))
+        hasta = round(100 * min(cerrados + 1, len(hitos)) / len(hitos))
+        brecha = desde - avance if avance < desde else (hasta - avance if avance > hasta else 0)
+        out["progress_vs_plan"] = {"declared_pct": avance, "plan_supports_pct": [desde, hasta],
                                    "milestones_met": cerrados, "milestones": len(hitos),
                                    "gap_points": brecha}
         if abs(brecha) >= th["progress_vs_plan_points"]:
@@ -1663,7 +1681,7 @@ def _selftest_corrida():
         estado = Path(tmp) / "estado"
         init(estado)
         ficha = {"identity": {"code": {"value": "PRY-Z"}},
-                 "declared": {"status": {"value": "verde"}, "progress_pct": {"value": 90},
+                 "declared": {"status": {"value": "verde"}, "progress_pct": {"value": 95},
                               "as_of": {"value": "2026-09-27"}},
                  "plan": {"milestones": [
                      {"name": {"value": "Diseño"}, "current_date": {"value": "2025-01-10"},
@@ -1836,6 +1854,7 @@ def selftest() -> int:
     checks += _selftest_cadencia()
     checks += _selftest_corrida()
     checks += _selftest_plan()
+    checks += _selftest_lectura()
     _r = compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-09-08",
                                           "state": "overdue", "source": "m.md"}]},
                         dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)
@@ -1849,6 +1868,33 @@ def selftest() -> int:
         print(f"  {'OK ' if good else 'FALLA'} {label:32} {got!r}{'' if good else f'  esperado {want!r}'}")
     print("\nselftest:", "sin errores" if ok else "CON ERRORES")
     return 0 if ok else 1
+
+
+def _selftest_lectura():
+    """Las dos correcciones de la primera corrida con el modelo (14-oct)."""
+    hoy = dt.date(2026, 10, 14)
+    hito = lambda n, st: {"name": {"value": n}, "current_date": {"value": "2026-01-10"},
+                          "state": {"value": st}}
+    base = {"identity": {"code": {"value": "PRY-T"}},
+            "declared": {"status": {"value": "verde"}, "as_of": {"value": "2026-10-08"}},
+            "plan": {"milestones": [hito("A", "met"), hito("B", "met"),
+                                    hito("C", "open"), hito("D", "open")]},
+            "meta": {"documents_seen": [{"path": "x/2026-08-23-informe.md", "date": "2026-08-23"},
+                                        {"path": "x/plan.csv", "date": None}]}}
+    def con(pct):
+        r = dict(base, declared=dict(base["declared"], progress_pct={"value": pct}))
+        return compute_record(r, hoy, DEFAULT_THRESHOLDS)
+    senales = lambda r: [a["signal"] for a in r["alerts"]]
+    return [
+        ("silencio · sale de documents_seen si la ficha no trae activity",
+         con(60)["days_silent"], 52),
+        ("silencio · y dispara", "silent" in senales(con(60)), True),
+        ("tramo · 2 de 4 cerrados sostiene 50-75", con(60)["progress_vs_plan"]["plan_supports_pct"], [50, 75]),
+        ("tramo · 78% está a 3 puntos: no dispara", "progress_vs_plan" in senales(con(78)), False),
+        ("tramo · 85% está a 10, en el umbral: dispara", "progress_vs_plan" in senales(con(85)), True),
+        ("tramo · 84% está a 9: no dispara", "progress_vs_plan" in senales(con(84)), False),
+        ("tramo · 20% está a 30 por debajo: dispara", "progress_vs_plan" in senales(con(20)), True),
+    ]
 
 
 def _selftest_plan():

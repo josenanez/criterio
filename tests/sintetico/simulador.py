@@ -62,7 +62,7 @@ HOY = dia_a_fecha(DIAS)
 # cambia un umbral y este no, la prueba lo dice — que es justo lo que tiene que hacer.
 UMBRAL = {"silencio_dias": 15, "declaracion_vieja_dias": 30, "comprometido_pct": 90,
           "variacion_costo_pct": 10, "variacion_tiempo_pct": 10, "reprogramaciones": 3,
-          "avance_vs_plan_puntos": 25, "avance_vs_plan_hitos_min": 3, "replan_tolerancia_dias": 0, "supuesto_sin_verificar_dias": 30,
+          "avance_vs_plan_puntos": 10, "avance_vs_plan_hitos_min": 3, "replan_tolerancia_dias": 0, "supuesto_sin_verificar_dias": 30,
           "evidencia_vieja_meses": 12, "sin_decidir_dias": 60, "brecha_declarado_pct": 20}
 
 # Los estados en que alguien ya decidió que el requerimiento se hace. Son los que exigen
@@ -666,9 +666,14 @@ def esperado_proyecto(p: dict, hoy: dt.date) -> list:
     # papel, y contra eso se mide.
     # El avance declarado contra el que sostiene el cronograma. El material es todo el
     # desorden que quiera: mientras la clave lo calcule, queda medido.
+    # El cronograma sostiene un tramo, no un punto: con k de n hitos cerrados el
+    # siguiente puede ir avanzado, así que lo posible va de k/n a (k+1)/n.
     if len(hitos) >= UMBRAL["avance_vs_plan_hitos_min"]:
-        sostiene = round(100 * sum(1 for h in hitos if h["cerrado"]) / len(hitos))
-        if abs(sostiene - p["declarado"]["pct"]) >= UMBRAL["avance_vs_plan_puntos"]:
+        k, n = sum(1 for h in hitos if h["cerrado"]), len(hitos)
+        desde, hasta = round(100 * k / n), round(100 * min(k + 1, n) / n)
+        dec = p["declarado"]["pct"]
+        fuera = desde - dec if dec < desde else (dec - hasta if dec > hasta else 0)
+        if fuera >= UMBRAL["avance_vs_plan_puntos"]:
             s.append("progress_vs_plan")
 
     lineas = []
