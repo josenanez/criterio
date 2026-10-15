@@ -1,6 +1,6 @@
 {
  "ronda": "ronda-1",
- "fecha": "2026-10-14",
+ "fecha": "2026-10-15",
  "industrias": [
   {
    "entorno": "bancos",
@@ -10,6 +10,19 @@
    "fugas": 0,
    "minutos": 41,
    "tokens": 26785088,
+   "documentos": {
+    "total": 118,
+    "por_formato": {
+     "md": 54,
+     "docx": 34,
+     "pdf": 14,
+     "xlsx": 8,
+     "csv": 6,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
    "vera": {
     "id": "2026-10-14-bancos-vera-7",
     "aciertos": 53,
@@ -47,6 +60,19 @@
    "fugas": 0,
    "minutos": 41,
    "tokens": 26809155,
+   "documentos": {
+    "total": 120,
+    "por_formato": {
+     "md": 56,
+     "docx": 33,
+     "pdf": 11,
+     "xlsx": 10,
+     "csv": 8,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
    "vera": {
     "id": "2026-10-14-cooperativas-vera-8",
     "aciertos": 60,
@@ -84,6 +110,19 @@
    "fugas": 0,
    "minutos": 39,
    "tokens": 25551428,
+   "documentos": {
+    "total": 118,
+    "por_formato": {
+     "md": 55,
+     "docx": 36,
+     "pdf": 13,
+     "xlsx": 8,
+     "csv": 4,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
    "vera": {
     "id": "2026-10-14-mineria-vera-10",
     "aciertos": 37,
@@ -121,6 +160,19 @@
    "fugas": 0,
    "minutos": 40,
    "tokens": 26730038,
+   "documentos": {
+    "total": 101,
+    "por_formato": {
+     "md": 48,
+     "docx": 32,
+     "pdf": 9,
+     "xlsx": 5,
+     "csv": 5,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
    "vera": {
     "id": "2026-10-14-retail-vera-9",
     "aciertos": 36,

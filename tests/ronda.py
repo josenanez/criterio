@@ -560,6 +560,18 @@ def publicar(a) -> int:
 
 # ── el resumen de una ronda, para el portal ───────────────────────────────
 
+def _documentos(tgz: Path) -> dict:
+    """Los documentos que la industria le dio a los agentes, por formato: el material que
+    procesaron, contado del archivo publicado y no tecleado."""
+    import tarfile
+    from collections import Counter
+    if not tgz.is_file():
+        return {"total": 0, "por_formato": {}}
+    with tarfile.open(tgz) as t:
+        fmt = Counter(Path(m.name).suffix.lower().lstrip(".") or "otro" for m in t.getmembers() if m.isfile())
+    return {"total": sum(fmt.values()), "por_formato": dict(fmt.most_common())}
+
+
 def resumen(a) -> int:
     """Lo que un cliente necesita saber de una ronda, calculado de la evidencia y no
     tecleado: los comandos que terminaron y cumplieron su contrato, y las primeras corridas
@@ -577,6 +589,8 @@ def resumen(a) -> int:
             "entorno": d.name, "comandos": rev.get("comandos"), "completos": rev.get("completos"),
             "contratos": rev.get("contratos_cumplidos"), "fugas": len(rev.get("fugas") or []),
             "minutos": round((rev.get("segundos") or 0) / 60), "tokens": rev.get("tokens"),
+            "documentos": _documentos(d / "documentos.tgz"),
+            "proyectos": v.get("proyectos") if v else None,
             "vera": {k: v[k] for k in ("id", "aciertos", "falsos_positivos", "falsos_negativos", "precision",
                                        "cobertura", "ic_precision", "ic_cobertura", "controles",
                                        "controles_limpios", "version")} if v else None,
