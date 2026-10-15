@@ -101,7 +101,7 @@ tr:last-child td{{border-bottom:none}}
 .cita{{display:block;font-size:.8rem;color:{APAGADO_FRIO};margin-top:3px}}
 .vacio{{color:{APAGADO};font-style:italic}}
 .bloque{{border:1px solid {FILETE};border-left:3px solid {ORO};background:{LAVADO_ORO};
-  border-radius:0 8px 8px 0;padding:18px 22px;margin:20px 0}}
+  border-radius:0 8px 8px 0;padding:18px 22px;margin:20px 0;overflow-x:auto}}
 .bloque h3{{margin-top:0}}
 .bloque.info{{background:{INFO_FONDO};border-color:{INFO_FILETE};border-left-color:{INFO}}}
 .decision{{border:1px solid {FILETE};border-radius:8px;padding:22px 24px;margin:18px 0;

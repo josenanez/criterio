@@ -35,6 +35,8 @@ identity:
                         # varios proyectos y sobrevive a todos ellos: es la dimensión
                         # con la que la PMO mira el conjunto por producto y no por
                         # proyecto. Vacío es válido: no todo proyecto tiene producto.
+                        # Si el acta dice que no sirve a uno («No aplica», «Ninguno»),
+                        # el campo va vacío: no es un producto con ese nombre.
   authority:            # hasta qué monto y qué cambio de alcance puede decidir el
                         # gerente sin subir a comité. Es el campo que falta en nueve
                         # de cada diez actas, y sin él el control de cambios no puede

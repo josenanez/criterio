@@ -130,6 +130,20 @@ def value(field):
     return field
 
 
+# Un acta dice con palabras que el proyecto no sirve a un producto: «No aplica», «N/A»,
+# «Ninguno». Eso es un campo vacío, no un producto llamado «No aplica» que agrupa a todos
+# los proyectos sin producto en la vista por producto (D016).
+SIN_PRODUCTO = {"no aplica", "n/a", "na", "ninguno", "ninguna", "sin producto", "-", "—",
+                "none", "not applicable", "no product"}
+
+
+def producto(field):
+    v = value(field)
+    if isinstance(v, str) and v.strip().lower().rstrip(".") in SIN_PRODUCTO:
+        return None
+    return v
+
+
 def state_of(field) -> str:
     if isinstance(field, dict):
         return field.get("state", "found")
@@ -262,7 +276,7 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     ident = rec.get("identity", {}) or {}
     code = value(ident.get("code")) or "?"
     out = {"code": code, "name": value(ident.get("name")),
-           "product": value(ident.get("product")),
+           "product": producto(ident.get("product")),
            "authority": value(ident.get("authority")),
            "alerts": []}
 
@@ -1929,6 +1943,12 @@ def _selftest_lectura():
                                                   dict(hito("B", "met"), state={"value": "met", "state": "ambiguous"}),
                                                   hito("C", "open"), hito("D", "open"), hito("E", "open")]}),
                         hoy, DEFAULT_THRESHOLDS)["progress_vs_plan"]["plan_supports_pct"], [20, 60]),
+        ("producto · «No aplica» en el acta es vacío, no un producto",
+         compute_record(dict(base, identity={"code": {"value": "PRY-T"}, "product": {"value": "No aplica"}}),
+                        hoy, DEFAULT_THRESHOLDS)["product"], None),
+        ("producto · un producto con nombre se conserva",
+         compute_record(dict(base, identity={"code": {"value": "PRY-T"}, "product": {"value": "Pagos QR"}}),
+                        hoy, DEFAULT_THRESHOLDS)["product"], "Pagos QR"),
     ]
 
 
