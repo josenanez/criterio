@@ -9,7 +9,7 @@ arrives with the chain of evidence assembled and the holes pointed out.
 [Español](README.es.md) · `criterio-product` · Apache 2.0 · One instance per product
 
 **Status: the eleven commands are built**, twelve skills, and the register's arithmetic verified
-with 62 checks. **What has not been tested yet: the register over a real product's
+with 63 checks. **What has not been tested yet: the register over a real product's
 documentation** — extraction from interviews and business cases has not been exercised outside
 synthetic material. Nothing is announced as finished until the
 [acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
@@ -230,7 +230,7 @@ if the copies have drifted apart.
 
 ```
 python3 tests/criterio-product/grade.py    over two products, with a negative control
-python3 scripts/producto.py selftest      62 checks over the arithmetic
+python3 scripts/producto.py selftest      63 checks over the arithmetic
 ```
 
 On the standard library, with nothing installed. Over a synthetic corpus with hand-written

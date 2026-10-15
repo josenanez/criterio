@@ -1224,6 +1224,25 @@ def init(state: Path) -> dict:
             "already_there": not created}
 
 
+def terminos_estado(config: Path) -> dict:
+    """La aceptación de los términos, contra lo instalado. Vive en `terminos.py`."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import terminos
+    return terminos.estado(config)
+
+
+def config_de(state: Path) -> Path | None:
+    """La configuración que apunta a este estado, entre las de los tres agentes de la sesión."""
+    for c in sorted(Path.cwd().glob(".criterio/**/config.json")):
+        try:
+            ruta = (json.loads(c.read_text(encoding="utf-8")).get("paths") or {}).get("state")
+        except (OSError, json.JSONDecodeError):
+            continue
+        if ruta and (Path.cwd() / ruta).resolve() == state.resolve():
+            return c
+    return None
+
+
 def corrida_inicio(state: Path) -> dict:
     """Marca el arranque, para que el tiempo lo mida la corrida y no lo estime nadie.
 
@@ -1646,6 +1665,10 @@ def check_config(config: Path) -> dict:
     accepted = cfg.get("terms_accepted") or {}
     if not accepted.get("version") or not accepted.get("date"):
         problems.append("terms_accepted has no version or no date — the gate is not satisfied")
+    else:
+        # Cada versión de la familia se acepta de nuevo, y la aceptación se amarra al texto
+        # por su huella: el número solo no dice qué se aceptó (D019).
+        problems += [f"términos: {m}" for m in terminos_estado(config)["motivos"]]
 
     ex = cfg.get("execution") or {}
     for key in set(ex) - set(DEFAULT_EXECUTION):
@@ -2402,7 +2425,7 @@ def load_thresholds(config: Path | None) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Criterio PMO — arithmetic over project records.")
-    ap.add_argument("action", choices=["init", "config", "due", "ran", "corrida",
+    ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "due", "ran", "corrida",
                                        "corrida-inicio", "index", "plan-lectura", "sellar", "compute", "snapshot",
                                        "diff", "requests", "answered", "impact",
                                        "historia", "selftest"])
@@ -2429,11 +2452,26 @@ def main() -> int:
     ap.add_argument("--days", type=int, default=0,
                     help="días que se mueve, para `impact`")
     ap.add_argument("--against", type=Path, default=None)
+    ap.add_argument("--por", default=None, help="quien acepta los términos, para `aceptar`")
+    ap.add_argument("--idioma", default=None, help="es | en, para `aceptar`; por defecto el del informe")
     ap.add_argument("--today", default=None)
     args = ap.parse_args()
 
     if args.action == "selftest":
         return selftest()
+
+    if args.action in ("terminos", "aceptar"):
+        if not args.config:
+            ap.error("--config is required")
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import terminos
+        if args.action == "terminos":
+            r = terminos.estado(args.config)
+            print(json.dumps(r, ensure_ascii=False, indent=2))
+            return 0 if r["vigente"] else 3
+        hoy = dt.date.fromisoformat(args.today) if args.today else None
+        print(json.dumps(terminos.aceptar(args.config, args.por, args.idioma, hoy), ensure_ascii=False, indent=2))
+        return 0
 
     if args.action == "config":
         if not args.config:
@@ -2472,6 +2510,17 @@ def main() -> int:
     elif args.action == "historia":
         print(json.dumps(historia(args.state, todos=True), ensure_ascii=False, indent=2))
     elif args.action == "corrida-inicio":
+        # Ningún comando arranca con una aceptación que no rige para esta versión.
+        cfg = args.config or config_de(args.state)
+        if cfg is not None and cfg.is_file():
+            t = terminos_estado(cfg)
+            if not t["vigente"]:
+                print(json.dumps({"marcado": False, "terminos": t, "que_hacer": (
+                    "Antes de seguir: muestra a la persona el texto en_corto tal cual, con el enlace a la "
+                    "nota legal, y pide un sí explícito. Con el sí y su nombre, corre `portafolio.py aceptar "
+                    "--config <config> --por \"<nombre>\"` y vuelve a empezar el comando. Sin el sí, responde "
+                    "preguntas pero no produzcas análisis ni informe.")}, ensure_ascii=False, indent=2))
+                return 3
         print(json.dumps(corrida_inicio(args.state), ensure_ascii=False))
     elif args.action == "corrida":
         if not args.what:

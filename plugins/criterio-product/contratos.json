@@ -15,7 +15,8 @@
      ".criterio/producto/<código>/config.json",
      "<estado>/ (init)",
      "<estado>/producto.json",
-     "<estado>/requirements/<REQ>.json"
+     "<estado>/requirements/<REQ>.json",
+     ".criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)"
     ]
    },
    "reglas": {
@@ -26,11 +27,13 @@
      "requirement-record"
     ],
     "script": [
+     "aceptar",
      "compute",
      "config",
      "corrida",
      "init",
-     "sellar"
+     "sellar",
+     "terminos"
     ],
     "calcula": true
    },
@@ -72,7 +75,8 @@
      "corrida-inicio",
      "due",
      "ran",
-     "snapshot"
+     "snapshot",
+     "terminos"
     ],
     "calcula": true
    },
@@ -117,7 +121,8 @@
      "corrida",
      "corrida-inicio",
      "plan-lectura",
-     "sellar"
+     "sellar",
+     "terminos"
     ],
     "calcula": true
    },
@@ -153,7 +158,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -194,7 +200,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -230,7 +237,8 @@
     ],
     "script": [
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": false
    },
@@ -270,7 +278,8 @@
     "script": [
      "corrida",
      "corrida-inicio",
-     "init"
+     "init",
+     "terminos"
     ],
     "calcula": false
    },
@@ -305,7 +314,8 @@
     ],
     "script": [
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": false
    },
@@ -339,7 +349,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -374,7 +385,8 @@
     "script": [
      "corrida",
      "corrida-inicio",
-     "overlap"
+     "overlap",
+     "terminos"
     ],
     "calcula": true
    },
@@ -409,7 +421,8 @@
      "compute",
      "corrida",
      "corrida-inicio",
-     "publish"
+     "publish",
+     "terminos"
     ],
     "calcula": true
    },

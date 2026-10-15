@@ -65,11 +65,7 @@ Presentación, PDF o página. Si no sabe, presentación.
 
 **5. Los términos**
 
-Muestra el descargo corto y pide aceptación explícita:
-
-> Esto produce borradores de trabajo, no decisiones. Lee los documentos que le indiques y dice lo que muestran; no sabe lo que se habló fuera de ellos. Puede equivocarse, y por eso cada dato viene con la cita del documento de donde salió. Tus documentos se procesan en la infraestructura de la plataforma de IA, no solo en tu equipo. Se entrega sin garantía. Términos completos: TERMS.md.
-
-Registra la aceptación con el nombre que dé la persona y la fecha. **No la asumas, no la infieras de que siga hablando, y no la escribas sin un sí explícito.**
+**Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" terminos --config .criterio/portafolio/config.json` y muestra **tal cual** su `en_corto` —el texto vive en `TERMS.es.md`, que viaja con el plugin— con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta. **No la asumas, no la infieras de que siga hablando, y no la registres sin un sí.** Cada versión de la familia se acepta de nuevo, aunque el texto no haya cambiado. La aceptación se registra en el paso siguiente, cuando la configuración ya existe.
 
 **6. Deja todo armado**
 
@@ -81,7 +77,15 @@ La configuración lleva también cuánto puede costar una corrida (`execution`: 
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" init --state <estado>
 ```
 
-Escribe la configuración **en `.criterio/portafolio/config.json`** —ni al lado del estado ni en otro sitio: es donde todos los comandos la buscan— con lo que respondió, tomando `scripts/config.example.json` como forma, y verifícala:
+Escribe la configuración **en `.criterio/portafolio/config.json`** —ni al lado del estado ni en otro sitio: es donde todos los comandos la buscan— con lo que respondió, tomando `scripts/config.example.json` como forma; `terms_accepted` no se escribe a mano.
+
+Con la configuración escrita y el sí dado, registra la aceptación —deja en `.criterio/terminos/` el comprobante en Markdown y en PDF, su archivo `.sha256` y la entrada en `aceptaciones.json`, y la escribe en la configuración—, y dile a la persona dónde quedó:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" aceptar --config .criterio/portafolio/config.json --por "<nombre>"
+```
+
+Y verifícala:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" config --config .criterio/portafolio/config.json
@@ -124,6 +128,7 @@ Cuánto tomaría el portafolio completo con lo que viste, y qué le falta a la c
 **Eres:** [PMO del portafolio | gerente de <proyecto>]
 **Te aviso:** [dos días antes del comité del <fecha> | cada <cadencia>]
 **En:** [presentación | PDF | página]
+**Términos:** aceptados para la versión [X.Y.Z] · comprobante en `.criterio/terminos/[archivo].md` y `.pdf` · SHA-256 [los primeros 16 caracteres]…
 
 ### Probé con tres proyectos
 

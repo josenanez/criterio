@@ -71,7 +71,7 @@ necesita saberlo antes que nada. No es un impedimento: es el primer hallazgo.
    estado de otro agente** —la del portafolio suele llamarse `estado/`—: cada agente escribe
    en la suya. En la primera ronda Alba guardó en `estado/` y compartió con Vera el registro
    de corridas.
-4. **Los términos.** Muestra el descargo corto y pide aceptación explícita.
+4. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" terminos --config .criterio/producto/<código>/config.json` y muestra **tal cual** su `en_corto` —el texto vive en `TERMS.es.md`, que viaja con el plugin— con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta. **No la asumas, no la infieras de que siga hablando, y no la registres sin un sí.** Cada versión de la familia se acepta de nuevo, aunque el texto no haya cambiado.
 
 **3. Levanta la ficha del producto y su registro, con lo que ya está escrito**
 
@@ -120,6 +120,17 @@ requerimiento descartado se ve igual que uno que nadie miró.
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" init   --state <estado>
+```
+
+Con la configuración escrita y el sí dado, registra la aceptación —deja en `.criterio/terminos/` el comprobante en Markdown y en PDF, su archivo `.sha256` y la entrada en `aceptaciones.json`, y la escribe en la configuración—, y dile a la persona dónde quedó:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" aceptar --config .criterio/producto/<código>/config.json --por "<nombre>"
+```
+
+Y verifícala:
+
+```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" config --config .criterio/producto/<código>/config.json
 ```
 
@@ -127,7 +138,7 @@ La configuración lleva también cuánto puede costar una corrida (`execution`: 
 
 En un archivo de la persona, escrito por este comando: dónde está la carpeta del producto,
 dónde vive el estado, el código y el nombre del producto, quién decide, y el registro de que
-aceptó los términos con su nombre y la fecha.
+aceptó los términos de esta versión, con su nombre, la fecha y la huella del comprobante.
 
 ## Lo que Alba no hace, y conviene decirlo aquí
 
@@ -143,6 +154,7 @@ aceptó los términos con su nombre y la fecha.
 ## Listo — [producto]
 
 **Lo que miré:** [N] documentos · [N] de descubrimiento · la definición del [fecha]
+**Términos:** aceptados para la versión [X.Y.Z] · comprobante en `.criterio/terminos/[archivo].md` y `.pdf` · SHA-256 [los primeros 16 caracteres]…
 
 ### Lo que tu definición afirma, y qué lo sostiene
 | Afirmación | Sostenida por | De cuándo |

@@ -32,6 +32,7 @@ SCRIPTS = {
         "portafolio.py": "la aritmética; `compute` ya trabaja proyecto a proyecto",
         "texto.py": "leer un .docx es leer un .docx",
         "rastro.py": "el rastro de cada corrida lo escribe el arnés, igual para los tres",
+        "terminos.py": "la aceptación de los términos se registra igual en los tres",
     },
     # Alba no calcula plan ni presupuesto —en definición no existen—, pero sí lee las
     # fichas de los proyectos que ejecutan su producto, y el contrato de campo
@@ -42,8 +43,19 @@ SCRIPTS = {
         "portafolio.py": "el contrato de campo, y leer la ficha del proyecto que ejecuta el producto",
         "texto.py": "una entrevista llega en .docx tanto como un acta",
         "rastro.py": "el rastro de cada corrida lo escribe el arnés, igual para los tres",
+        "terminos.py": "la aceptación de los términos se registra igual en los tres",
     },
 }
+
+# Lo que viaja con cada plugin instalado, byte a byte: los términos que rigen y el registro
+# de versiones. Sin cabecera, porque su huella SHA-256 es la que se publica y la que firma
+# cada comprobante; una copia que difiera en un byte tendría otra. La fuente es la raíz.
+RAIZ_A_PLUGINS = {
+    "TERMS.md": ("TERMS.md", "los términos que rigen, en inglés"),
+    "TERMS.es.md": ("TERMS.es.md", "los términos que rigen, en español"),
+    "registro/versiones.json": ("REGISTRO.json", "el registro de versiones de la familia"),
+}
+PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
@@ -157,6 +169,15 @@ def revisar(escribir: bool) -> int:
                 _comparar(RAIZ / "plugins" / plugin / "skills" / nombre / rel, texto,
                           f"{plugin}/skills/{nombre}/{rel}", porque, escribir,
                           origen.stat().st_mode, estado)
+
+    for plugin in PLUGINS_FAMILIA:
+        for fuente, (destino, porque) in sorted(RAIZ_A_PLUGINS.items()):
+            origen = RAIZ / fuente
+            if not origen.exists():
+                estado["problemas"].append(f"falta la fuente {fuente}")
+                continue
+            _comparar(RAIZ / "plugins" / plugin / destino, origen.read_text(encoding="utf-8"),
+                      f"{plugin}/{destino}", porque, escribir, 0o644, estado)
 
     if estado["problemas"]:
         print()

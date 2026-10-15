@@ -25,6 +25,10 @@ import zipfile
 from pathlib import Path
 from xml.sax.saxutils import escape
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "plugins" / "criterio-portfolio" / "scripts"))
+from terminos import pdf_de_lineas  # noqa: E402
+
 # Qué tipo de documento va a qué formato, y en qué proporción.
 REGLAS = (
     ("acta-constitucion", ".docx", 0.6), ("comite", ".docx", 0.5), ("minuta", ".docx", 0.5),
@@ -165,11 +169,6 @@ def _envolver(t: str, ancho: int = 92) -> list:
     return out + ([linea] if linea else [])
 
 
-def _pdf_texto(t: str) -> str:
-    b = t.encode("cp1252", errors="replace")
-    return "".join(f"\\{c:03o}" if c > 126 or c in (40, 41, 92) else chr(c) for c in b)
-
-
 def a_pdf(md: str, destino: Path) -> None:
     """Un PDF con capa de texto, Helvetica, en tantas páginas como haga falta."""
     lineas = []
@@ -182,34 +181,9 @@ def a_pdf(md: str, destino: Path) -> None:
         else:
             pre = "- " if b[0] == "li" else ""
             lineas += [(x, 10) for x in _envolver(pre + _plano(b[1]))]
-    paginas, pagina, y = [], [], 790
-    for texto, tam in lineas:
-        if y < 60:
-            paginas.append(pagina)
-            pagina, y = [], 790
-        pagina.append((texto, tam, y))
-        y -= tam + 5
-    paginas.append(pagina)
-
-    objs = ["<< /Type /Catalog /Pages 2 0 R >>", None,
-            "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>"]
-    kids = []
-    for pg in paginas:
-        flujo = "".join(f"BT /F1 {t} Tf 50 {y} Td ({_pdf_texto(x)}) Tj ET\n" for x, t, y in pg)
-        objs.append(f"<< /Length {len(flujo.encode('latin-1'))} >>\nstream\n{flujo}endstream")
-        objs.append(f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] "
-                    f"/Resources << /Font << /F1 3 0 R >> >> /Contents {len(objs)} 0 R >>")
-        kids.append(len(objs))
-    objs[1] = f"<< /Type /Pages /Kids [{' '.join(f'{k} 0 R' for k in kids)}] /Count {len(kids)} >>"
-    salida, offs = "%PDF-1.4\n", []
-    for i, o in enumerate(objs, start=1):
-        offs.append(len(salida.encode("latin-1")))
-        salida += f"{i} 0 obj\n{o}\nendobj\n"
-    xref = len(salida.encode("latin-1"))
-    salida += f"xref\n0 {len(objs) + 1}\n0000000000 65535 f \n"
-    salida += "".join(f"{o:010d} 00000 n \n" for o in offs)
-    salida += f"trailer\n<< /Size {len(objs) + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n"
-    destino.write_bytes(salida.encode("latin-1"))
+    # El PDF lo escribe el plugin, que también lo usa para el comprobante de los términos:
+    # una sola implementación, que la puerta de formatos ejercita con el material.
+    pdf_de_lineas(lineas, destino)
 
 
 # ── la pasada ─────────────────────────────────────────────────────────────

@@ -318,7 +318,9 @@ def probar_servidor(espacio: Path) -> dict:
 
 # Lo que escribe el propio plugin en cada comando: el rastro de la corrida y la marca de
 # la sesión en curso que dejan sus ganchos. No es una escritura del comando.
-SIEMPRE = ("corridas", "corrida-en-curso", "cache", ".criterio/corridas", ".criterio/en-curso", "salida-")
+# Y la aceptación de los términos: cualquier comando la pide si la versión instalada cambió.
+SIEMPRE = ("corridas", "corrida-en-curso", "cache", ".criterio/corridas", ".criterio/en-curso", "salida-",
+           ".criterio/terminos/")
 
 
 def permitido(cambio: str, escribe: list, cmd: str) -> bool:

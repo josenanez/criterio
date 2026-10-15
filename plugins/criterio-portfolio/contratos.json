@@ -14,7 +14,8 @@
     "escribe": [
      ".criterio/portafolio/config.json",
      "<estado>/ (init)",
-     "<estado>/records/<código>.json (tres)"
+     "<estado>/records/<código>.json (tres)",
+     ".criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)"
     ]
    },
    "reglas": {
@@ -23,13 +24,15 @@
      "project-record"
     ],
     "script": [
+     "aceptar",
      "compute",
      "config",
      "corrida",
      "corrida-inicio",
      "init",
      "plan-lectura",
-     "sellar"
+     "sellar",
+     "terminos"
     ],
     "calcula": true
    },
@@ -72,7 +75,8 @@
      "corrida-inicio",
      "plan-lectura",
      "sellar",
-     "snapshot"
+     "snapshot",
+     "terminos"
     ],
     "calcula": false
    },
@@ -107,7 +111,8 @@
     "script": [
      "corrida",
      "corrida-inicio",
-     "index"
+     "index",
+     "terminos"
     ],
     "calcula": true
    },
@@ -148,7 +153,8 @@
      "due",
      "index",
      "ran",
-     "requests"
+     "requests",
+     "terminos"
     ],
     "calcula": true
    },
@@ -190,7 +196,8 @@
      "compute",
      "corrida",
      "corrida-inicio",
-     "diff"
+     "diff",
+     "terminos"
     ],
     "calcula": true
    },
@@ -226,7 +233,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -266,7 +274,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -299,7 +308,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -334,7 +344,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -370,7 +381,8 @@
     "script": [
      "corrida",
      "corrida-inicio",
-     "impact"
+     "impact",
+     "terminos"
     ],
     "calcula": true
    },
@@ -407,7 +419,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -442,7 +455,8 @@
     ],
     "script": [
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": false
    },
@@ -474,7 +488,8 @@
     ],
     "script": [
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": false
    },
@@ -509,7 +524,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -544,7 +560,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -577,7 +594,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -610,7 +628,8 @@
      "answered",
      "corrida",
      "due",
-     "requests"
+     "requests",
+     "terminos"
     ],
     "calcula": false
    },

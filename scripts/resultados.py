@@ -43,6 +43,8 @@ SALIDA_MD = RAIZ / "docs" / "pruebas.md"
 # Una puerta cuyo comando no case con ninguna de estas rompe la corrida, y así es como
 # esta página se mantiene honesta cuando el repositorio crece.
 DUENIOS = [
+    ("criterio-portfolio/scripts/terminos.py", "La familia"),
+    ("scripts/registro.py", "La familia"),
     ("criterio-portfolio/scripts/servidor.py", "Rostrum"),
     ("criterio-portfolio/scripts/rastro.py", "los tres"),
     ("criterio-portfolio/scripts/informe.py", "Vera"),

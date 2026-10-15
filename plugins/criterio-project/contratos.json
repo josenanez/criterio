@@ -14,7 +14,8 @@
     "escribe": [
      ".criterio/proyecto/<código>/config.json",
      "<estado>/ (init)",
-     "<estado>/records/<código>.json"
+     "<estado>/records/<código>.json",
+     ".criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)"
     ]
    },
    "reglas": {
@@ -23,11 +24,13 @@
      "project-record"
     ],
     "script": [
+     "aceptar",
      "compute",
      "config",
      "corrida",
      "init",
-     "plan-lectura"
+     "plan-lectura",
+     "terminos"
     ],
     "calcula": true
    },
@@ -65,7 +68,8 @@
      "corrida-inicio",
      "due",
      "index",
-     "ran"
+     "ran",
+     "terminos"
     ],
     "calcula": true
    },
@@ -107,7 +111,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -142,7 +147,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },
@@ -177,7 +183,8 @@
      "corrida",
      "corrida-inicio",
      "diff",
-     "due"
+     "due",
+     "terminos"
     ],
     "calcula": true
    },
@@ -215,7 +222,8 @@
      "corrida",
      "corrida-inicio",
      "diff",
-     "snapshot"
+     "snapshot",
+     "terminos"
     ],
     "calcula": true
    },
@@ -248,7 +256,8 @@
     ],
     "script": [
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": false
    },
@@ -282,7 +291,8 @@
     "script": [
      "corrida",
      "corrida-inicio",
-     "impact"
+     "impact",
+     "terminos"
     ],
     "calcula": true
    },
@@ -317,7 +327,8 @@
     "script": [
      "compute",
      "corrida",
-     "corrida-inicio"
+     "corrida-inicio",
+     "terminos"
     ],
     "calcula": true
    },

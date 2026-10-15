@@ -1,6 +1,6 @@
 # Terms of use
 
-[Español](TERMS.es.md) · Version 1.0 · 2026-09-18
+[Español](TERMS.es.md) · Version 1.1 · 2026-10-15
 
 By installing, deploying, testing or running Criterio, you accept these terms. If you do not accept them, do not install it.
 
@@ -44,14 +44,26 @@ Apache 2.0 grants no trademark rights. "Criterio" and the maintainer's name may 
 
 ## 8. How acceptance is recorded
 
-Acceptance is recorded in your own local configuration file, with the version of these terms and the date. The plugin asks once, shows the disclaimer, and does not produce a full analysis until acceptance is recorded. See [docs/acceptance.md](docs/acceptance.md).
+**One acceptance per version.** Every version of the agent family asks you to accept these terms, even when their text did not change: installing Criterio or updating it to a new version requires a new acceptance. Until the acceptance for the installed version is recorded, the plugin answers questions but produces no analysis and no report. It never assumes it, never infers it from you continuing the conversation, and never records it without an explicit yes.
+
+**A receipt that is yours.** On acceptance, the plugin leaves on your machine, in `.criterio/terminos/`, a Markdown receipt and a PDF receipt with your name, the date, the family version, the version of these terms, their SHA-256 fingerprint and the version-register entry, followed by the full text you accepted. Earlier receipts are kept: the succession of acceptances is the trail. The technical detail is in `docs/acceptance.md`, in the repository.
+
+**Integrity.** Every receipt keeps its integrity and may not be modified. Its SHA-256 fingerprint (SHA-2, 256 bits) is recorded in the configuration, in the acceptance log and in a `.sha256` file next to it; any change, however small, produces another fingerprint and voids it as a record. The same holds for these terms: their fingerprint is published with every version.
+
+**Legal notice and version register.** The legal notice of the agent family and the version register —what changed in each version, which terms govern it and their fingerprint— are published at https://www.josenanez.com/agents/criterio-pmo/legal. Every register entry carries the fingerprint of the previous one, so an altered or removed entry shows.
 
 Every report the plugin generates carries the disclaimer and the state of the records it used, so the warning travels with the document rather than staying in this repository.
 
 ## 9. Changes to these terms
 
-These terms are versioned. A change bumps the version and the date at the top of this file, and the plugin asks for acceptance again on the next run.
+These terms are versioned. A change bumps the version and the date at the top of this file and enters the version register with its fingerprint. Since every family version is accepted again, a change to the terms reaches whoever uses Criterio on the next update.
+
+## In short
+
+This is what the plugin shows you before asking you to accept:
+
+> Criterio produces working drafts, not decisions or advice. It processes the documents you point it to and says what they show; it does not know what was said outside them. It can be wrong, which is why every data point comes with a citation to the document it came from: verification is yours. Your documents are processed on the AI platform's infrastructure, not only on your machine. Provided as is, with no warranty. Every version is accepted again and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
 
 ---
 
-Full text of the licence: [LICENSE](LICENSE). Plain-language limits: [DISCLAIMER.md](DISCLAIMER.md).
+Full text of the licence: `LICENSE`, at the root of the repository. Plain-language limits: `DISCLAIMER.md`. Legal notice and version register: https://www.josenanez.com/agents/criterio-pmo/legal

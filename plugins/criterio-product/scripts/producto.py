@@ -52,7 +52,8 @@ from pathlib import Path
 # tiene que correr solo.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from portafolio import (as_date, as_number, _cada, pct, proximo_comite,  # noqa: E402
-                 source_of, state_of, value, plan, sellar, load_execution, en_su_sitio, huella_plugin)
+                 source_of, state_of, value, plan, sellar, load_execution, en_su_sitio, huella_plugin,
+                 terminos_estado, config_de)
 
 DEFAULT_THRESHOLDS = {
     # Días que un requerimiento puede llevar propuesto sin que nadie lo decida. Pasado
@@ -810,6 +811,10 @@ def check_config(config: Path) -> dict:
     faltan = [c for c in ("product", "paths", "terms_accepted", "cycle") if c not in cfg]
     rutas = cfg.get("paths", {}) or {}
     faltan += [f"paths.{c}" for c in ("documents", "state") if c not in rutas]
+    if "terms_accepted" in cfg:
+        # La misma puerta que los otros dos agentes: una aceptación por versión, amarrada
+        # al texto por su huella (D019).
+        faltan += [f"términos: {m}" for m in terminos_estado(config)["motivos"]]
     return {"ok": not faltan, "missing": faltan, "path": str(config),
             "thresholds": {**DEFAULT_THRESHOLDS, **(cfg.get("thresholds") or {})}}
 
@@ -1038,6 +1043,9 @@ def selftest() -> int:
                                              "committee_next": "2026-12-03",
                                              "report_lead_days": 2},
                                    "thresholds": {"undecided_days": 30}}), encoding="utf-8")
+        ok(not check_config(cfg)["ok"], "una aceptación sin comprobante ni versión de la familia no abre la puerta")
+        import terminos
+        terminos.aceptar(cfg, "Prueba del selftest", hoy=hoy)
         res = check_config(cfg)
         ok(res["ok"] and res["thresholds"]["undecided_days"] == 30,
            "y un umbral de la organización pisa el de por defecto")
@@ -1163,7 +1171,7 @@ def selftest() -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(
         description="Criterio Product — aritmética sobre el registro de requerimiento.")
-    ap.add_argument("action", choices=["init", "config", "due", "ran", "corrida",
+    ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "due", "ran", "corrida",
                                        "corrida-inicio", "plan-lectura", "sellar", "compute",
                                        "snapshot", "diff", "publish", "overlap", "selftest"])
     ap.add_argument("--docs", type=Path, default=None,
@@ -1176,6 +1184,8 @@ def main() -> int:
     ap.add_argument("--nota", default=None,
                     help="qué hay que mirar de esta corrida, para `corrida`")
     ap.add_argument("--config", type=Path, default=None)
+    ap.add_argument("--por", default=None, help="quien acepta los términos, para `aceptar`")
+    ap.add_argument("--idioma", default=None, help="es | en, para `aceptar`")
     ap.add_argument("--otros", type=Path, default=None,
                     help="carpeta con las fichas de producto que otros publicaron")
     ap.add_argument("--fichas", type=Path, default=None,
@@ -1188,6 +1198,18 @@ def main() -> int:
 
     if args.action == "selftest":
         return selftest()
+
+    if args.action in ("terminos", "aceptar"):
+        if not args.config:
+            ap.error("--config es obligatorio")
+        import terminos
+        if args.action == "terminos":
+            r = terminos.estado(args.config)
+            print(json.dumps(r, ensure_ascii=False, indent=2))
+            return 0 if r["vigente"] else 3
+        hoy = dt.date.fromisoformat(args.today) if getattr(args, "today", None) else None
+        print(json.dumps(terminos.aceptar(args.config, args.por, args.idioma, hoy), ensure_ascii=False, indent=2))
+        return 0
 
     if args.action == "config":
         if not args.config:
@@ -1233,6 +1255,17 @@ def main() -> int:
             ap.error("--docs es obligatorio para sellar")
         print(json.dumps(sellar(args.docs, args.state, "producto"), ensure_ascii=False))
     elif args.action == "corrida-inicio":
+        # Ningún comando arranca con una aceptación que no rige para esta versión.
+        cfg = getattr(args, "config", None) or config_de(args.state)
+        if cfg is not None and Path(cfg).is_file():
+            t = terminos_estado(Path(cfg))
+            if not t["vigente"]:
+                print(json.dumps({"marcado": False, "terminos": t, "que_hacer": (
+                    "Antes de seguir: muestra a la persona el texto en_corto tal cual, con el enlace a la "
+                    "nota legal, y pide un sí explícito. Con el sí y su nombre, corre `producto.py aceptar "
+                    "--config <config> --por \"<nombre>\"` y vuelve a empezar el comando. Sin el sí, responde "
+                    "preguntas pero no produzcas análisis ni informe.")}, ensure_ascii=False, indent=2))
+                return 3
         print(json.dumps(corrida_inicio(args.state), ensure_ascii=False))
     elif args.action == "corrida":
         if not args.what:
