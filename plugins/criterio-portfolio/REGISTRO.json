@@ -414,6 +414,48 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "d8af32b4c5a1b92ab20e2c6ef0603c4f5bce9b68602a72ea825df0c31ed3ee4b",
       "sha256": "a9f5f18ec3113c320eabe6e5234bb49c6470cea7c86a4aa65aa202e3f90d5927"
+    },
+    {
+      "version": "0.3.9",
+      "fecha": "2026-10-15",
+      "commit": null,
+      "base": "aefd53d",
+      "etiqueta": "v0.3.9",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "e3deeb24e5ae42fef2c0192cc5161d8c18bbf037914776236830570e9ecf5cdb",
+        "criterio-product": "09509969b517d702d7e1c1e4159168354343f16f4ba58a545e0fc61e0a24dbce",
+        "criterio-project": "fcdc5c8fb4dd5975d7a4def09d5a84b3b55de6255386df8c16ef26d48a90b48e"
+      },
+      "destacados": [
+        "Una sola regla por campo: el proveedor declarado entregado sin acta se registra como declarado, con la evidencia vacía, en los dos skills de Vera.",
+        "Samuel: la promesa original nunca es una reprogramación, también en pm-minutes y pm-commitments.",
+        "Alba: el acta que registra la decisión va en su campo, aunque sea una revisión posterior, y el acta del comité no es evidencia de demanda.",
+        "sellar rechaza una ficha con citas a documentos que no existen.",
+        "El caché de texto tiene un solo lugar, <estado>/cache/texto/.",
+        "Rostrum: ningún enlace del menú lleva a un error, cada campo y cada señal se nombran en castellano y ninguna página se sale de la pantalla de un teléfono."
+      ],
+      "cambios": [
+        "Every register entry carries its tag, and the tag sits on the commit that holds the entry",
+        "ronda.py: the test session accepts the terms in force for the version, and records it by name",
+        "Round 2 on 0.3.8: 148 of 148 commands, Vera 223/230, Alba from 0 to 38 of 43",
+        "Round 2 fixes: one rule per field, citations that resolve, and a key that counts what is visible",
+        "Defects D022 to D029 point to their fix, 7b5ab31; D026 and D029 verified",
+        "Rostrum tested end to end, and what that found: a menu link to an error, raw field paths, signal keys and tables wider than a phone",
+        "Defects D030 to D034: Rostrum, found by the end-to-end check, fixed in fa65257 and verified on round 2",
+        "Samples large enough to measure Samuel and Alba: about a hundred graded cases each per round",
+        "Rostrum gets its own figure: checks that pass out of checks made, phone and desktop included"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "a9f5f18ec3113c320eabe6e5234bb49c6470cea7c86a4aa65aa202e3f90d5927",
+      "sha256": "f742387fc01a65fed1468c2cc466b43daf64c7e5dfe753ca98cdabf3bc5d1b9a"
     }
   ]
 }
