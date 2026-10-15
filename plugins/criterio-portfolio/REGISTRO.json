@@ -456,6 +456,43 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "a9f5f18ec3113c320eabe6e5234bb49c6470cea7c86a4aa65aa202e3f90d5927",
       "sha256": "f742387fc01a65fed1468c2cc466b43daf64c7e5dfe753ca98cdabf3bc5d1b9a"
+    },
+    {
+      "version": "0.3.10",
+      "fecha": "2026-10-15",
+      "commit": null,
+      "base": "7d48c2a",
+      "etiqueta": "v0.3.10",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "832009d541b99323ffe08d066411fd55b58d28647671ddb10c23d87650e97822",
+        "criterio-product": "b4e96d9a570c1042476cf3300a401e12dfdcbab16193aae2230f1fca0d444c8a",
+        "criterio-project": "2a7fdf64503425068f454960a40e3b621512b3ab009018c52b07b4edfe592162"
+      },
+      "destacados": [
+        "Samuel lee todas las minutas del proyecto en orden al configurarse, para que la ficha traiga el historial de cada compromiso: cuántas veces se movió y qué se cerró con acta.",
+        "Ponerle fecha a un compromiso que no la tenía no es reprogramarlo.",
+        "El informe tiene un solo lugar, la carpeta que Rostrum sirve; el script rechaza otra.",
+        "Rostrum: las rutas largas dentro de código se parten en un teléfono.",
+        "pm-wake declara la ficha que escribe en su barrido y no deja copias de respaldo."
+      ],
+      "cambios": [
+        "Rostrum's figure on round 2 with 0.3.8: 1742 of 2182 checks (80%); the round summary carries it per industry",
+        "pm-setup reads every meeting minute in order, so the commitment register carries its history",
+        "Long paths in code wrap on a phone instead of pushing the run page wider than the screen",
+        "The report has one place, paths.reports, which is what Rostrum serves",
+        "Dating an undated commitment is not rescheduling it; pm-wake declares the record it writes and leaves no backup copies"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "f742387fc01a65fed1468c2cc466b43daf64c7e5dfe753ca98cdabf3bc5d1b9a",
+      "sha256": "45caaf940f463b11fde3fb1949b12031998e15a9b775867ddddadebe00cac35c"
     }
   ]
 }
