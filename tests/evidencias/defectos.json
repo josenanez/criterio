@@ -219,5 +219,18 @@
   "origen": "codigo",
   "correccion": "4b15b73",
   "verificado_en": "ronda-1 · minería (página de corridas)"
+ },
+ {
+  "id": "D018",
+  "fecha": "2026-10-15",
+  "ronda": "1",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-report",
+  "que_paso": "En minería Vera escribió «not_found» como valor de la autoridad del gerente y de la etapa, además de marcarlo como no encontrado, y la página de cada proyecto imprimió la palabra. El informe ahora lee el estado: un campo no encontrado dice «no está dicho en ninguna parte».",
+  "evidencia": null,
+  "origen": "codigo",
+  "correccion": "5295fa0",
+  "verificado_en": "ronda-1 · minería (informe regenerado, PRY-208)"
  }
 ]
