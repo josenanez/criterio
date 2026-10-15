@@ -375,5 +375,70 @@
   "origen": "clave",
   "correccion": "7b5ab31",
   "verificado_en": "armar cooperativas --ronda 2 sobre 7b5ab31: la clave espera 1 reprogramación, la que muestra el material"
+ },
+ {
+  "id": "D030",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "todos",
+  "agente": "rostrum",
+  "comando": "portfolio-server",
+  "que_paso": "El menú de Rostrum enlaza «Qué cambió entre dos cortes» y, con un solo corte —la primera corrida—, la página respondía 404 en las cuatro industrias. Ahora dice que la comparación llega con la próxima corrida.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/bancos/rostrum.json",
+  "origen": "codigo",
+  "correccion": "fa65257",
+  "verificado_en": "ronda-2 · las cuatro industrias regeneradas con fa65257: 0 rutas rotas y 0 palabras crudas en el informe"
+ },
+ {
+  "id": "D031",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "todos",
+  "agente": "rostrum",
+  "comando": "portfolio-report",
+  "que_paso": "El informe nombraba los campos sin dato por su ruta: identity.phase en los 52 proyectos, declared.*, pm_record.* y vendors[].invoiced. El léxico se había quedado atrás del esquema; ahora lo cubre entero y un selftest lee schema.yaml para que no vuelva a pasar. La vista de cortes también nombra los campos.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/bancos/rostrum.json",
+  "origen": "codigo",
+  "correccion": "fa65257",
+  "verificado_en": "ronda-2 · las cuatro industrias regeneradas con fa65257: 0 rutas rotas y 0 palabras crudas en el informe"
+ },
+ {
+  "id": "D032",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "todos",
+  "agente": "rostrum",
+  "comando": "portfolio-server",
+  "que_paso": "La historia de cada caso, lo que se arrastra y la vista de caso mostraban la clave de la señal (milestone_met_without_evidence) en lugar de su nombre. Ahora usan los nombres del informe, y un selftest comprueba que toda señal del motor tenga uno.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/bancos/rostrum.json",
+  "origen": "codigo",
+  "correccion": "fa65257",
+  "verificado_en": "ronda-2 · las cuatro industrias regeneradas con fa65257: 0 rutas rotas y 0 palabras crudas en el informe"
+ },
+ {
+  "id": "D033",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "todos",
+  "agente": "rostrum",
+  "comando": "portfolio-server",
+  "que_paso": "En un teléfono (390 px) las tablas empujaban la página más allá de la pantalla en 62 vistas: proyectos, productos, cada proyecto, cada producto y las páginas de corrida. D017 había resuelto los bloques, no las tablas sueltas. Ahora cada tabla se desplaza dentro de su caja.",
+  "evidencia": null,
+  "origen": "codigo",
+  "correccion": "fa65257",
+  "verificado_en": "ronda-2 · bancos regenerado con fa65257, navegador en la nube: 0 de 147 rutas se salen de la pantalla a 390 y 1280 px"
+ },
+ {
+  "id": "D034",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "todos",
+  "agente": "rostrum",
+  "comando": "ronda",
+  "que_paso": "La prueba de Rostrum de cada ronda pedía siete rutas y miraba solo que respondieran 200, y corría el servidor del repositorio en lugar del instalado. Por eso D030 a D033 pasaron la ronda 1 y la 2 sin que nada fallara. Ahora recorre cada enlace con la versión instalada, busca rutas, palabras del esquema y claves de señal, prueba una petición y revisa que no escriba fichas.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/bancos/rostrum.json",
+  "origen": "arnes",
+  "correccion": "fa65257",
+  "verificado_en": "ronda.py rostrum sobre las cuatro industrias de la ronda 2"
  }
 ]
