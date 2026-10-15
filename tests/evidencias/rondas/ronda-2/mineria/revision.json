@@ -402,7 +402,8 @@
    "contrato": false,
    "problemas": [
     "rutas de Rostrum que no responden: {'/corte': 404}",
-    "Rostrum muestra 136 rutas, palabras del esquema o claves de señal: ['/PRY-199.html: identity.phase', '/PRY-200.html: identity.phase', '/PRY-201.html: identity.phase']"
+    "Rostrum muestra 136 rutas, palabras del esquema o claves de señal: ['/PRY-199.html: identity.phase', '/PRY-200.html: identity.phase', '/PRY-201.html: identity.phase']",
+    "Rostrum se sale de la pantalla a 390 px en 58 páginas: ['/proyectos', '/productos', '/proyectos.html']"
    ],
    "avisos": [],
    "segundos": 50,

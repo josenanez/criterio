@@ -50,6 +50,11 @@
     "aciertos": 11,
     "esperados": 11,
     "reportados": 16
+   },
+   "rostrum": {
+    "pasan": 441,
+    "total": 552,
+    "pantalla": true
    }
   },
   {
@@ -100,6 +105,11 @@
     "aciertos": 9,
     "esperados": 9,
     "reportados": 9
+   },
+   "rostrum": {
+    "pasan": 438,
+    "total": 550,
+    "pantalla": true
    }
   },
   {
@@ -150,6 +160,11 @@
     "aciertos": 10,
     "esperados": 10,
     "reportados": 14
+   },
+   "rostrum": {
+    "pasan": 426,
+    "total": 531,
+    "pantalla": true
    }
   },
   {
@@ -200,6 +215,11 @@
     "aciertos": 8,
     "esperados": 13,
     "reportados": 8
+   },
+   "rostrum": {
+    "pasan": 437,
+    "total": 549,
+    "pantalla": true
    }
   }
  ],

@@ -810,6 +810,10 @@ def resumen(a) -> int:
         rev = _j(d / "revision.json") if (d / "revision.json").is_file() else {}
         sa = _j(d / "calificacion-samuel-alba.json") if (d / "calificacion-samuel-alba.json").is_file() else {}
         v = next((f for f in filas if f["entorno"] == d.name), None)
+        # Rostrum: la prueba completa que dejó `rostrum` o la del comando del servidor.
+        ro = _j(d / "rostrum.json") if (d / "rostrum.json").is_file() else \
+            (_j(d / "salidas" / "34-portfolio-server.json").get("servidor") or {}) \
+            if (d / "salidas" / "34-portfolio-server.json").is_file() else {}
         industrias.append({
             "entorno": d.name, "comandos": rev.get("comandos"), "completos": rev.get("completos"),
             "contratos": rev.get("contratos_cumplidos"), "fugas": len(rev.get("fugas") or []),
@@ -822,6 +826,8 @@ def resumen(a) -> int:
             "samuel": {"correctos": sa["samuel"]["correctos"], "total": sa["samuel"]["compromisos"]} if sa else None,
             "alba": {"aciertos": sa["alba"]["aciertos"], "esperados": sa["alba"]["aciertos"] + sa["alba"]["falsos_negativos"],
                      "reportados": sa["alba"]["aciertos"] + sa["alba"]["falsos_positivos"]} if sa else None,
+            "rostrum": {"pasan": ro["comprobaciones"]["pasan"], "total": ro["comprobaciones"]["total"],
+                        "pantalla": ro.get("pantalla") is not None} if ro.get("comprobaciones") else None,
         })
     casos = {}
     senales = {}
