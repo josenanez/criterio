@@ -1491,7 +1491,7 @@ def pagina_corrida(titulo: str, md: str, hoy: str) -> str:
            f"table{{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}}"
            f"th,td{{text-align:left;padding:.45em .6em;border-bottom:1px solid {p['filete']}}}"
            f"th{{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:{p['apagado']}}}"
-           f"code{{background:{p['panel']};padding:.1em .35em;border-radius:3px;font-size:.9em}}"
+           f"code{{background:{p['panel']};padding:.1em .35em;border-radius:3px;font-size:.9em;overflow-wrap:anywhere}}"
            f"pre{{background:{p['panel']};padding:1em;overflow:auto}}"
            f"@media (max-width:640px){{table{{display:block;max-width:100%;overflow-x:auto}}}}"
            f"blockquote{{margin:1em 0;padding:.2em 1em;border-left:3px solid {p['oro']};color:{p['apagado']}}}"

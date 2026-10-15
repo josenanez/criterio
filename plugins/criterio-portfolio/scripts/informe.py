@@ -84,6 +84,7 @@ h3{{font-size:1.06rem;color:{TINTA};font-weight:600;margin:1.8em 0 .5em}}
 .cifra.mala{{background:{ERROR_FONDO};border-color:{ERROR_FILETE}}}
 .cifra.mala .n{{color:{ERROR}}}
 table{{width:100%;border-collapse:collapse;margin:.6em 0 0;font-size:.95rem}}
+code{{overflow-wrap:anywhere}}
 th{{text-align:left;font-weight:600;color:{APAGADO};font-size:.78rem;
   letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;
   border-bottom:1px solid {FILETE}}}
