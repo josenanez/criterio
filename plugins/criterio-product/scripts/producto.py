@@ -860,6 +860,9 @@ def selftest() -> int:
     r = compute_requirement({"id": "R1", "state": "aceptado"}, hoy, th)
     ok(any(a["signal"] == "requirement_without_owner" for a in r["alerts"]),
        "sin doliente, señal")
+    r = compute_requirement({"id": "R1b", "state": "aceptado", "owner": "not_found"}, hoy, th)
+    ok(any(a["signal"] == "requirement_without_owner" for a in r["alerts"]),
+       "«not_found» escrito como doliente es no tenerlo (ronda 3, minería)")
     r = compute_requirement({"id": "R2", "state": "aceptado",
                              "owner": {"value": "Producto", "kind": "area"}}, hoy, th)
     ok(any(a["signal"] == "requirement_without_owner" for a in r["alerts"]),

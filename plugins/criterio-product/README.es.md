@@ -9,7 +9,7 @@ llega con la cadena de evidencia armada y los huecos señalados.
 [English](README.md) · `criterio-product` · Apache 2.0 · Una instancia por producto
 
 **Estado: los once comandos construidos**, doce skills, y la aritmética del registro
-verificada con 63 comprobaciones. **Lo que todavía no se ha probado: el registro sobre la
+verificada con 64 comprobaciones. **Lo que todavía no se ha probado: el registro sobre la
 documentación real de un producto** — la extracción desde entrevistas y casos de negocio no
 se ha ejercitado fuera de material sintético. Nada se anuncia como terminado hasta que pasen
 los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
@@ -230,7 +230,7 @@ porque un plugin instalado tiene que correr solo; en el repositorio,
 
 ```
 python3 tests/criterio-product/grade.py    sobre dos productos, con control negativo
-python3 scripts/producto.py selftest      63 comprobaciones sobre la aritmética
+python3 scripts/producto.py selftest      64 comprobaciones sobre la aritmética
 ```
 
 Con la librería estándar, sin instalar nada. Sobre un corpus sintético con respuestas escritas

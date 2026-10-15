@@ -133,9 +133,15 @@ EVIDENCE_SIGNALS = (
 # ---------------------------------------------------------------- helpers
 
 def value(field):
-    """A field is either a bare value or {value, source, source_date, state}."""
+    """A field is either a bare value or {value, source, source_date, state}.
+
+    `not_found` is a state, never a value: a record that writes it as the value —
+    `"owner": "not_found"`— is saying the field is empty, and reading it as a name hid a
+    requirement without an owner (round 3, mining) as D018 hid a missing authority."""
     if isinstance(field, dict) and "value" in field:
-        return field["value"]
+        field = field["value"]
+    if isinstance(field, str) and field.strip().lower() == "not_found":
+        return None
     return field
 
 
@@ -2030,6 +2036,8 @@ def _selftest_plan():
     ficha1.write_text(json.dumps(r1), encoding="utf-8")
     con_rota = sellar(docs, estado, "PRY-001")
     return [
+        ("not_found es un estado, no un valor", (value("not_found"), value({"value": "not_found"}), value("Ana")),
+         (None, None, "Ana")),
         ("una cita con dos rutas no se sella", (con_rota["ok"], len(con_rota.get("broken") or [])), (False, 1)),
         ("sin hash, todo se relee (el día de la cuota)", p1["to_read"], 14),
         ("sin corrida abierta no se sella", sin_corrida["ok"], False),
