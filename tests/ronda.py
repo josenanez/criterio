@@ -45,7 +45,8 @@ import fiabilidad  # noqa: E402
 PLUGIN = {"vera": "criterio-portfolio", "samuel": "criterio-project", "alba": "criterio-product"}
 DEFECTOS = RAIZ / "tests" / "evidencias" / "defectos.json"
 NOTA = ("(Sesión de prueba sin interfaz: nadie va a responder preguntas. Términos: José Francisco "
-        "Ñáñez acepta TERMS.md para esta prueba, fecha {hoy}. En cada otra pregunta toma la "
+        "Ñáñez acepta los términos vigentes de esta versión para esta prueba, fecha {hoy}; cuando el "
+        "agente los muestre, regístralo con ese nombre. En cada otra pregunta toma la "
         "respuesta sugerida, dila en una línea y sigue. Si un comando pide algo que no existe, "
         "dilo y termina; no lo inventes.)")
 
