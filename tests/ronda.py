@@ -148,16 +148,24 @@ def armar(a) -> int:
                 key=lambda n: sum(1 for p in pry if p.get("producto") == n))
     reqs = [r for r in alba["requerimientos"] if r["estado"] in ("aceptado", "en_construccion")]
 
-    notas, efecto = escribir_notas(docs / "proyectos" / sam["carpeta"], sam, hoy)
+    # Samuel: seis comités de historia y las notas de hoy. La clave de Vera para ese
+    # proyecto se recalcula con las mismas reglas del simulador sobre los compromisos que
+    # quedaron escritos, para que los dos agentes se califiquen contra el mismo material.
+    sys.path.insert(0, str(RAIZ / "tests" / "sintetico"))
+    import simulador
+    car_sam = docs / "proyectos" / sam["carpeta"]
+    comps = historia_samuel(car_sam, sam, hoy, simulador.NOMBRES, f"{a.entorno}-{a.ronda}-samuel")
+    notas = escribir_notas(car_sam, sam, comps, hoy)
+    _w(clave / "notas.json", {"proyecto": sam["codigo"], "compromisos": clave_samuel(comps),
+                              "riesgo": "el proveedor podría no llegar con el equipo completo"})
+    sam_mod = dict(sam, compromisos=comps, ultimo_escrito=hoy.isoformat())
     esp_ronda = dict(esp)
     esp_ronda["esperado"] = {k: list(v) for k, v in senales.items()}
-    fila = esp_ronda["esperado"].setdefault(sam["codigo"], [])
-    for s in efecto["agrega"]:
-        fila.append(s)
-    for s in efecto["quita"]:
-        if s in fila:
-            fila.remove(s)
+    esp_ronda["esperado"][sam["codigo"]] = simulador.esperado_proyecto(sam_mod, hoy)
     _w(clave / "esperado-ronda.json", esp_ronda)
+    efecto = {"resumen": f"{len(comps)} compromisos en {SEMANAS_SAM} comités y las notas de hoy; "
+                         f"{sum(c['cumplido'] for c in comps)} cerrados con acta, "
+                         f"{sum(bool(c.get('reclamado')) for c in comps)} dichos sin acta"}
     obj = {
         "entorno": org.get("sector"), "ronda": a.ronda, "hoy": esp["hoy"],
         "prd": alba["codigo"], "prd_carpeta": alba["carpeta"], "prd_otro": otro["codigo"],
@@ -177,78 +185,111 @@ def armar(a) -> int:
     return 0
 
 
-def fechas_a_la_vista(carpeta: Path, c: dict) -> set:
-    """Las fechas del simulador para un compromiso que algún documento del proyecto
-    muestra en la misma línea que el compromiso. Lee con los convertidores del plugin."""
-    sys.path.insert(0, str(RAIZ / "plugins" / "criterio-portfolio" / "scripts"))
-    import texto
-    def leer(f: Path) -> str:
-        ext = f.suffix.lower()
-        if ext in texto.NATIVO:
-            return texto.de_nativo(f)
-        if ext == ".pdf":
-            return texto.de_pdf(f)[0] or ""
-        if ext in texto.CONVERTIDORES:
-            return texto.CONVERTIDORES[ext][1](f) or ""
-        return ""
-    que, vistas = c["que"].lower(), set()
-    for f in sorted(carpeta.rglob("*")):
-        if f.is_file():
-            for linea in leer(f).splitlines():
-                if que in linea.lower():
-                    vistas |= set(re.findall(r"\d{4}-\d{2}-\d{2}", linea))
-    return vistas & {x for x in c["fechas"] if x}
+# La muestra de Samuel. Con tres compromisos por industria su cifra salía de doce casos y
+# el margen era de cuarenta puntos (ronda 2): ni subir ni bajar significaba nada. Un
+# proyecto real llega a su sexta semana con decenas de compromisos dichos en comité,
+# unos reprogramados, otros cerrados con acta y otros «ya lo entregué» sin nada que lo
+# pruebe. Eso es lo que se escribe aquí, y la clave sale de lo que quedó escrito.
+VERBOS_SAM = ("Entregar el punto", "Enviar el documento", "Cerrar la prueba", "Revisar el anexo",
+              "Validar el ambiente", "Aprobar el diseño", "Actualizar la matriz", "Confirmar la fecha")
+SEMANAS_SAM, NUEVOS_SAM = 6, 4
 
 
-def escribir_notas(carpeta: Path, p: dict, hoy: dt.date) -> tuple:
-    """Las notas crudas de la última reunión del proyecto de Samuel, como las toma alguien
-    en el cuaderno: sin tabla, con las fechas dichas como se dicen. Tres compromisos con
-    respuesta conocida y un riesgo dicho que nadie registra."""
-    # El que se reprograma tiene que tener fecha: uno «por definir» no se mueve, se fecha.
-    abiertos = [c for c in p["compromisos"] if not c.get("cumplido") and c["fechas"]
-                and all(isinstance(x, str) and x[:4].isdigit() for x in c["fechas"])]
-    c1 = max(abiertos, key=lambda c: len(c["fechas"]), default=None)
-    # La reunión es de hoy, después de la última minuta del simulador: con la fecha de
-    # ayer coincidía con el comité del mismo día y las dos fuentes daban fechas distintas
-    # para el mismo compromiso (ronda 1, bancos). La fecha nueva va después de la última.
-    fecha = hoy
-    ultima = dt.date.fromisoformat(c1["fechas"][-1]) if c1 else hoy
-    nueva = max(ultima, hoy) + dt.timedelta(days=14)
-    asistentes = sorted({p["gerente"], *(c["quien"] for c in p["compromisos"])})
+def historia_samuel(carpeta: Path, p: dict, hoy: dt.date, nombres: list, semilla: str) -> list:
+    """Seis comités semanales del proyecto de Samuel, con sus compromisos de punta a punta.
+    Reemplaza la minuta del simulador —que solo mostraba la última foto— por la historia:
+    cada fecha nueva queda en la minuta de la semana en que se dijo."""
+    import random
+    rnd = random.Random(semilla)
+    reun, seg = carpeta / "30-reuniones", carpeta / "20-seguimiento"
+    reun.mkdir(parents=True, exist_ok=True)
+    seg.mkdir(parents=True, exist_ok=True)
+    for f in reun.glob("*comite-semanal*"):
+        f.unlink()
+    iso = lambda d: d.isoformat()
+    comps, n = [], 0
+    for w in range(SEMANAS_SAM):
+        fr = hoy - dt.timedelta(days=7 * (SEMANAS_SAM - w))
+        cerrados, dichos = [], []
+        for c in [c for c in comps if not c["cumplido"] and not c.get("reclamado")]:
+            u = rnd.random()
+            fechada = c["fechas"][-1] is not None
+            if c.get("terco") or (0.20 <= u < 0.50):
+                if fechada:                       # otra fecha: una reprogramación más
+                    base = max(dt.date.fromisoformat(c["fechas"][-1]), fr)
+                    c["fechas"].append(iso(base + dt.timedelta(days=rnd.randint(7, 21))))
+                else:                             # «por definir» que se fecha: no se reprograma
+                    c["fechas"].append(iso(fr + dt.timedelta(days=rnd.randint(7, 21))))
+            elif u < 0.12 and fechada:
+                c["cumplido"] = True
+                cerrados.append(c)
+                (seg / f"{iso(fr)}-acta-recibo-{c['n']}.md").write_text(
+                    f"# Acta de recibo · {c['que']}\n\n**Proyecto:** {p['codigo']} · {p['nombre']}\n"
+                    f"**Fecha de recibo:** {iso(fr)}\n**Recibido por:** {p['gerente']}\n\n"
+                    f"Se recibe a satisfacción: **{c['que']}**, compromiso de {c['quien']}.\n",
+                    encoding="utf-8")
+            elif u < 0.20:
+                c["reclamado"] = True             # lo dice, y no hay acta: sigue abierto
+                dichos.append(c)
+        for k in range(NUEVOS_SAM):
+            n += 1
+            sin_fecha = rnd.random() < 0.15
+            comps.append({"n": n, "quien": rnd.choice(nombres), "que": f"{VERBOS_SAM[n % len(VERBOS_SAM)]} {n}",
+                          "fechas": [None if sin_fecha else iso(fr + dt.timedelta(days=rnd.randint(3, 28)))],
+                          "cumplido": False, "dicho": iso(fr), "terco": w == 0 and k < 2})
+        abiertos = [c for c in comps if not c["cumplido"] and not c.get("reclamado")]
+        filas = "\n".join(f"| {c['quien']} | {c['que']} | {c['fechas'][-1] or 'por definir'} |" for c in abiertos)
+        partes = [f"# {p.get('comite') or 'Comité de seguimiento'} · {p['nombre']}", "",
+                  f"**Fecha:** {iso(fr)}",
+                  f"**Asistentes:** {', '.join(sorted({p['gerente'], *(c['quien'] for c in abiertos)}))}", "",
+                  "## Compromisos abiertos", "", "| Responsable | Compromiso | Para |", "|---|---|---|", filas]
+        if cerrados:
+            partes += ["", "## Cerrados en esta reunión", ""] + [
+                f"- {c['que']} ({c['quien']}): recibido, acta de recibo del {iso(fr)}." for c in cerrados]
+        if dichos:
+            partes += ["", "## Lo que se dijo", ""] + [
+                f"- {c['quien']} dice que ya entregó «{c['que'].lower()}». No se presentó acta." for c in dichos]
+        (reun / f"{iso(fr)}-comite-semanal.md").write_text("\n".join(partes) + "\n", encoding="utf-8")
+    return comps
+
+
+def escribir_notas(carpeta: Path, p: dict, comps: list, hoy: dt.date) -> Path:
+    """Las notas crudas de la reunión de hoy, como las toma alguien en el cuaderno: sin
+    tabla, con las fechas dichas como se dicen. Reprograma el compromiso que más se ha
+    movido, deja uno sin fecha y uno nuevo, y un riesgo que nadie registra."""
+    iso = lambda d: d.isoformat()
+    abiertos = [c for c in comps if not c["cumplido"] and not c.get("reclamado") and c["fechas"][-1]]
+    c1 = max(abiertos, key=lambda c: len([x for x in c["fechas"] if x]), default=None)
     otro, tercero = "Laura Vélez", "Óscar Ramírez"
-    lineas = [f"notas reunión {p['nombre'].lower()} — {fecha.isoformat()}",
-              f"estuvieron: {', '.join(asistentes + [otro, tercero])}", ""]
-    clave, agrega, quita = [], [], []
+    asistentes = sorted({p["gerente"], *(c["quien"] for c in abiertos)})
+    lineas = [f"notas reunión {p['nombre'].lower()} — {iso(hoy)}",
+              f"estuvieron: {', '.join(sorted(set(asistentes) | {otro, tercero}))}", ""]
     if c1:
+        nueva = max(dt.date.fromisoformat(c1["fechas"][-1]), hoy) + dt.timedelta(days=14)
+        c1["fechas"].append(iso(nueva))
         lineas.append(f"- {c1['quien']} dice que lo de «{c1['que'].lower()}» no alcanzó, "
                       f"se compromete para el {nueva.strftime('%d/%m/%Y')}")
-        # Con la nueva, tantas reprogramaciones como fechas tenía **a la vista**: la clave
-        # cuenta lo que el material deja leer, no la historia del simulador. En la ronda 2
-        # (cooperativas) el simulador le dio dos fechas y solo una minuta quedó en la
-        # carpeta; la clave esperaba dos reprogramaciones donde el material sostenía una.
-        repro = len(fechas_a_la_vista(carpeta, c1))
-        clave.append({"quien": c1["quien"], "que": c1["que"], "fecha": nueva.isoformat(),
-                      "reprogramaciones": repro})
-        if dt.date.fromisoformat(c1["fechas"][-1]) < hoy:
-            quita.append("commitment_overdue")
-        if repro >= 3 > repro - 1:
-            agrega.append("commitment_rescheduled")
     lineas.append(f"- {otro} queda de mandar el ajuste del presupuesto la otra semana")
-    clave.append({"quien": otro, "que": "ajuste del presupuesto", "fecha": "no_declarada", "reprogramaciones": 0})
-    agrega.append("commitment_undated")
+    comps.append({"quien": otro, "que": "Mandar el ajuste del presupuesto", "fechas": [None],
+                  "cumplido": False, "dicho": iso(hoy)})
     f3 = hoy + dt.timedelta(days=10)
-    lineas.append(f"- {tercero}: revisión con el proveedor, queda para el {f3.isoformat()}")
-    clave.append({"quien": tercero, "que": "revisión con el proveedor", "fecha": f3.isoformat(), "reprogramaciones": 0})
+    lineas.append(f"- {tercero}: revisión con el proveedor, queda para el {iso(f3)}")
+    comps.append({"quien": tercero, "que": "Revisión con el proveedor", "fechas": [iso(f3)],
+                  "cumplido": False, "dicho": iso(hoy)})
     lineas += ["- se comentó que el proveedor podría no llegar con el equipo completo para la siguiente fase,"
                " nadie lo anotó como riesgo", "- próxima reunión en dos semanas", ""]
-    ruta = carpeta / f"{fecha.isoformat()}-notas-reunion.txt"
+    ruta = carpeta / f"{iso(hoy)}-notas-reunion.txt"
     ruta.write_text("\n".join(lineas), encoding="utf-8")
-    # La clave va junto a las demás, fuera de `espacio/`. En la primera corrida de la
-    # ronda 1 quedó dentro, al alcance del agente: la auditoría de fugas lo encontró.
-    _w(carpeta.parents[3] / "clave" / "notas.json", {"proyecto": p["codigo"], "compromisos": clave,
-                                                     "riesgo": "el proveedor podría no llegar con el equipo completo"})
-    return ruta, {"agrega": agrega, "quita": quita,
-                  "resumen": f"{len(clave)} compromisos; clave {agrega} / sin {quita}"}
+    return ruta
+
+
+def clave_samuel(comps: list) -> list:
+    """Lo que Samuel debe dejar en su ficha por cada compromiso: la fecha vigente, cuántas
+    veces se reprogramó —fechas a la vista menos la primera; «por definir» no cuenta— y si
+    está cumplido, que solo lo está con acta."""
+    return [{"quien": c["quien"], "que": c["que"], "fecha": c["fechas"][-1] or "no_declarada",
+             "reprogramaciones": max(len([x for x in c["fechas"] if x]) - 1, 0),
+             "estado": "cumplido" if c["cumplido"] else "abierto"} for c in comps]
 
 
 # ── correr ────────────────────────────────────────────────────────────────
@@ -597,14 +638,24 @@ def calificar(a) -> int:
     comps = (_j(sam).get("commitments") or []) if sam else []
     v = lambda x: (x.get("value") if isinstance(x, dict) else x) or ""
     correctos, detalle = 0, []
+    def es_el(x, c):
+        """La misma persona y el mismo compromiso: el número que lo distingue, o la última
+        palabra cuando no lleva número. Tolera que el agente lo redacte a su manera."""
+        if not v(x.get("who")) or v(x.get("who")).split()[0] != c["quien"].split()[0]:
+            return False
+        num = re.findall(r"\d+", c["que"])
+        que = v(x.get("what")).lower()
+        return bool(re.search(rf"\b{num[-1]}\b", que)) if num else c["que"].lower().split()[-1] in que
     for c in notas["compromisos"]:
-        m = next((x for x in comps if v(x.get("who")).split()[0] == c["quien"].split()[0]
-                  and c["que"].split()[0].lower() in v(x.get("what")).lower()), None)
+        m = next((x for x in comps if es_el(x, c)), None)
+        cumplido = bool(m) and v(m.get("state")) == "met"
         ok = bool(m) and (v(m.get("due_date")) == c["fecha"] or (c["fecha"] == "no_declarada" and v(m.get("due_date")) in ("", "no_declarada"))) \
-            and len(m.get("reschedules") or []) == c["reprogramaciones"]
+            and len(m.get("reschedules") or []) == c["reprogramaciones"] \
+            and cumplido == (c.get("estado") == "cumplido")
         correctos += ok
         detalle.append({"quien": c["quien"], "esperado": c, "ok": ok,
-                        "encontrado": {"fecha": v(m.get("due_date")), "reprogramaciones": len(m.get("reschedules") or [])} if m else None})
+                        "encontrado": {"fecha": v(m.get("due_date")), "reprogramaciones": len(m.get("reschedules") or []),
+                                       "estado": v(m.get("state"))} if m else None})
     # Alba: las señales de su producto
     cfg_prd = espacio / ".criterio" / "producto" / obj["prd"] / "config.json"
     prd_obt = {}
@@ -621,7 +672,7 @@ def calificar(a) -> int:
     salida = {"samuel": {"compromisos": len(notas["compromisos"]), "correctos": correctos, "detalle": detalle},
               "alba": {"producto": obj["prd"], **t, "errores": cal["por_caso"]}}
     _w(carpeta / "calificacion-samuel-alba.json", salida)
-    print(f"Samuel · compromisos de las notas: {correctos} de {len(notas['compromisos'])}")
+    print(f"Samuel · compromisos del proyecto: {correctos} de {len(notas['compromisos'])}")
     for d in detalle:
         print(f"   {'OK' if d['ok'] else '  '} {d['quien']}: esperado {d['esperado']['fecha']} "
               f"({d['esperado']['reprogramaciones']}) · encontrado {d['encontrado']}")

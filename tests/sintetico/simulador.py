@@ -236,12 +236,18 @@ def proveedores_de(rnd, hoy: dt.date, arranque: int, duracion: int,
 def nuevo_producto(rnd, i: int, hoy: dt.date) -> dict:
     nombre = TEMAS_PRD[i % len(TEMAS_PRD)]
     prof = rnd.choice(["completa", "media", "media", "delgada"])
-    n_req = {"completa": 4, "media": 3, "delgada": 2, "minima": 1}[prof]
+    # Una muestra que alcance para medir: con cuatro requerimientos por producto, Alba se
+    # calificaba sobre unas diez alertas por industria y el margen de su cifra era de
+    # treinta puntos (ronda 2). Un registro de producto real tiene decenas, y no todos
+    # aceptados, con criterio y con evidencia: cada combinación es una señal distinta.
+    n_req = {"completa": 16, "media": 14, "delgada": 12, "minima": 6}[prof]
     reqs = []
     for r in range(n_req):
-        reqs.append({"id": f"REQ-{1000 + i * 10 + r}", "estado": "aceptado",
-                     "doliente": rnd.choice(NOMBRES), "criterio": True,
-                     "evidencia": True, "desde": f(hoy, -rnd.randint(30, 200)),
+        reqs.append({"id": f"REQ-{4000 + i * 100 + r}",
+                     "estado": "aceptado" if rnd.random() < 0.75 else "propuesto",
+                     "doliente": rnd.choice(NOMBRES) if rnd.random() < 0.9 else None,
+                     "criterio": rnd.random() < 0.75,
+                     "evidencia": rnd.random() < 0.75, "desde": f(hoy, -rnd.randint(30, 200)),
                      "proyecto": None})
     return {
         "codigo": f"PRD-{300 + i}", "nombre": nombre, "carpeta": f"PRD-{300 + i}",
