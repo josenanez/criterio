@@ -2,7 +2,7 @@
  "comandos": 37,
  "corridos": 37,
  "completos": 37,
- "contratos_cumplidos": 36,
+ "contratos_cumplidos": 35,
  "corrida_completa": true,
  "fugas": [],
  "segundos": 2494,
@@ -399,8 +399,11 @@
    "agente": "vera",
    "comando": "portfolio-server",
    "termino": true,
-   "contrato": true,
-   "problemas": [],
+   "contrato": false,
+   "problemas": [
+    "rutas de Rostrum que no responden: {'/corte': 404}",
+    "Rostrum muestra 139 rutas, palabras del esquema o claves de señal: ['/PRY-199.html: identity.phase', '/PRY-200.html: identity.phase', '/PRY-201.html: identity.phase']"
+   ],
    "avisos": [],
    "segundos": 49,
    "tokens": 480688

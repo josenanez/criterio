@@ -31,11 +31,11 @@
 31 product-view           terminó contrato ok 
 32 portfolio-report       terminó contrato ok   · aviso: no escribió <estado>/snapshots/<fecha>.json
 33 portfolio-wake         terminó contrato ok 
-34 portfolio-server       terminó contrato ok 
+34 portfolio-server       terminó CONTRATO rutas de Rostrum que no responden: {'/corte': 404}; Rostrum muestra 161 rutas, palabras del esquema o claves de señal: ['/PRY-199.html: identity.phase
 35 product-trace          terminó contrato ok 
 36 product-overlap        terminó contrato ok 
 37 product-wake           terminó contrato ok 
 
 auditoría de fugas: 0 lecturas de la clave
 
-37/37 terminaron · 37/37 cumplen su contrato · 42 min · 25.5 M tokens
+37/37 terminaron · 36/37 cumplen su contrato · 42 min · 25.5 M tokens

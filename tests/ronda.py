@@ -315,31 +315,106 @@ def correr(a) -> int:
     return 0
 
 
-def probar_servidor(espacio: Path) -> dict:
-    """Rostrum lo levanta este script, no el agente: un servidor en primer plano dentro de
-    una sesión sin interfaz no termina. Se comprueba que responda y que no escriba fichas."""
+def servidor_instalado(espacio: Path) -> Path:
+    """El servidor.py de la versión que la sesión tenía instalada —la que aceptó en sus
+    términos—, no el del árbol del repositorio. Si no está en la caché, el del repositorio."""
+    try:
+        cfg = _j(espacio / ".criterio" / "portafolio" / "config.json")
+        version = (cfg.get("terms_accepted") or {}).get("family_version")
+    except (OSError, json.JSONDecodeError):
+        version = None
+    cache = Path.home() / ".claude" / "plugins" / "cache"
+    for f in sorted(cache.glob(f"*/criterio-portfolio/{version}/scripts/servidor.py")) if version else []:
+        return f
+    return RAIZ / "plugins" / "criterio-portfolio" / "scripts" / "servidor.py"
+
+
+# Lo que no debe llegar a quien lee un informe: palabras del esquema, rutas de la ficha,
+# nombres de señal en snake_case y restos de un programa.
+CRUDO_ROSTRUM = re.compile(
+    r"\b(?:identity|declared|plan|money|vendors|raid|changes|commitments|pm_record|activity|meta)"
+    r"(?:\[\d+\])?\.[a-z_]+|\b(?:not_found|no_declarada|unknown|undefined|NaN|None|null)\b"
+    r"|Traceback|\[object|No aplica|\b[a-z]+_[a-z_]+\b")
+
+
+def probar_servidor(espacio: Path, puerto: int = 8799) -> dict:
+    """Rostrum de punta a punta. Lo levanta este script, no el agente —un servidor en
+    primer plano dentro de una sesión sin interfaz no termina—, con la versión instalada,
+    y recorre cada enlace interno desde la portada: que cada página responda, que ninguna
+    ruta, palabra del esquema o nombre de señal llegue al informe, que una petición se
+    guarde y que no escriba fichas. Las páginas de corrida muestran lo que el agente dijo
+    tal cual; lo crudo de ellas se cuenta aparte, como voz del agente."""
+    import html as _html
+    import urllib.error
+    import urllib.parse
+    espacio = espacio.resolve()       # el servidor corre con cwd en el espacio
     cfg = _j(espacio / ".criterio" / "portafolio" / "config.json")
     estado = espacio / cfg["paths"]["state"]
     informe = espacio / cfg["paths"].get("reports", "reportes")
-    script = next(Path.home().glob(".claude/plugins/**/criterio-portfolio/scripts/servidor.py"), None) \
-        or RAIZ / "plugins" / "criterio-portfolio" / "scripts" / "servidor.py"
+    script = servidor_instalado(espacio)
     antes = manifiesto(estado / "records") if (estado / "records").is_dir() else {}
+    buzon = estado / "peticiones"
+    previas = set(buzon.glob("*")) if buzon.is_dir() else set()
+    log = espacio.parent / "rostrum.log"
     p = subprocess.Popen([sys.executable, str(script), "--informe", str(informe), "--estado", str(estado),
                           "--config", str(espacio / ".criterio" / "portafolio" / "config.json"),
-                          "--puerto", "8799"], stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
-    rutas = {}
+                          "--evidencia", str(espacio / ".criterio" / "corridas"), "--puerto", str(puerto)],
+                         cwd=espacio, stdout=subprocess.DEVNULL, stderr=log.open("w"))
+    base = f"http://127.0.0.1:{puerto}"
+    vistas, cola, malas, crudo, voz, paginas, peticion = {}, ["/"], {}, [], 0, 0, None
+    def visible(s):
+        s = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", s)
+        s = re.sub(r"(?is)<span class=\"cita\">.*?</span>", " ", s)   # la cita es una ruta de archivo
+        return _html.unescape(re.sub(r"(?s)<[^>]+>", " ", s))
     try:
         time.sleep(3)
-        for ruta in ("/", "/pmo", "/decisiones", "/proyectos", "/productos", "/corridas", "/estado.json"):
+        while cola and len(vistas) < 900:
+            ruta = cola.pop(0)
+            if ruta in vistas:
+                continue
             try:
-                with urllib.request.urlopen(f"http://127.0.0.1:8799{ruta}", timeout=10) as resp:
-                    rutas[ruta] = resp.status
+                with urllib.request.urlopen(base + ruta, timeout=15) as r:
+                    cod, cuerpo = r.status, r.read().decode("utf-8", "replace")
+                    tipo, final = r.headers.get("Content-Type", ""), urllib.parse.urlparse(r.url).path
+            except urllib.error.HTTPError as e:
+                cod, cuerpo, tipo, final = e.code, "", "", ruta
             except Exception as e:  # noqa: BLE001
-                rutas[ruta] = str(getattr(e, "code", e))[:60]
+                cod, cuerpo, tipo, final = str(e)[:60], "", "", ruta
+            vistas[ruta] = cod
+            if cod != 200:
+                malas[ruta] = cod
+                continue
+            if "html" not in tipo:
+                continue
+            paginas += 1
+            if ruta.startswith("/corrida/"):
+                # Lo que el agente le dijo a la persona, tal cual; lo que marcó como código
+                # (un comando, un campo) se muestra como código y no cuenta.
+                voz += len(CRUDO_ROSTRUM.findall(visible(re.sub(r"(?s)<code>.*?</code>", " ", cuerpo))))
+            else:
+                crudo += [f"{ruta}: {m.group(0)}" for m in CRUDO_ROSTRUM.finditer(visible(cuerpo))]
+            for href in re.findall(r'href="([^"#]+)', cuerpo):
+                u = urllib.parse.urlparse(urllib.parse.urljoin(base + final, _html.unescape(href)))
+                if u.netloc == f"127.0.0.1:{puerto}":
+                    k = u.path + (f"?{u.query}" if u.query else "")
+                    if k not in vistas and k not in cola:
+                        cola.append(k)
+        n0 = json.loads(urllib.request.urlopen(base + "/estado.json", timeout=10).read())["peticiones_abiertas"]
+        datos = urllib.parse.urlencode({"asunto": "explicar", "texto": "Prueba del arnés: ¿de dónde sale el verde?"})
+        urllib.request.urlopen(urllib.request.Request(base + "/peticion", data=datos.encode()), timeout=10)
+        n1 = json.loads(urllib.request.urlopen(base + "/estado.json", timeout=10).read())["peticiones_abiertas"]
+        peticion = n1 == n0 + 1
+    except Exception as e:  # noqa: BLE001
+        malas["(arnés)"] = str(e)[:80]
     finally:
         p.terminate()
+        for f in (set(buzon.glob("*")) if buzon.is_dir() else set()) - previas:
+            f.unlink()          # la petición de prueba no se queda en el buzón del agente
     despues = manifiesto(estado / "records") if (estado / "records").is_dir() else {}
-    return {"rutas": rutas, "fichas_intactas": antes == despues}
+    return {"servidor": str(script.relative_to(Path.home())) if Path.home() in script.parents else "repositorio",
+            "rutas": len(vistas), "paginas": paginas, "malas": malas, "crudo": sorted(set(crudo))[:40],
+            "crudo_total": len(crudo), "voz_del_agente": voz, "peticion": peticion,
+            "fichas_intactas": antes == despues}
 
 
 # ── revisar: los contratos ────────────────────────────────────────────────
@@ -431,11 +506,21 @@ def revisar(a) -> int:
             problemas.append(f"borró documentos: {borro_docs[:4]}")
         if rotas:
             problemas.append(f"{len(rotas)} citas a documentos que no existen: {rotas[:3]}")
-        if r.get("servidor"):
-            malas = {k: v for k, v in r["servidor"]["rutas"].items() if v != 200}
-            if malas:
-                problemas.append(f"rutas de Rostrum que no responden: {malas}")
-            if not r["servidor"]["fichas_intactas"]:
+        s = r.get("servidor")
+        if r["comando"] == "portfolio-server" and (carpeta / "rostrum.json").is_file():
+            s = _j(carpeta / "rostrum.json")      # la prueba completa, corrida aparte sobre la carpeta
+        if s and "rutas" in s and isinstance(s["rutas"], dict):     # la prueba de antes de la ronda 3
+            s = {"malas": {k: v for k, v in s["rutas"].items() if v != 200}, "crudo": [], "peticion": True,
+                 "fichas_intactas": s["fichas_intactas"]}
+        if s:
+            if s["malas"]:
+                problemas.append(f"rutas de Rostrum que no responden: {s['malas']}")
+            if s["crudo"]:
+                problemas.append(f"Rostrum muestra {s.get('crudo_total', len(s['crudo']))} rutas, palabras del esquema "
+                                 f"o claves de señal: {s['crudo'][:3]}")
+            if s["peticion"] is False:
+                problemas.append("Rostrum no guardó la petición")
+            if not s["fichas_intactas"]:
                 problemas.append("Rostrum modificó fichas")
         filas.append({"n": r["n"], "agente": r["agente"], "comando": r["comando"], "termino": not r["error"],
                       "contrato": not problemas, "problemas": problemas, "avisos": avisos, "segundos": r["segundos"],
@@ -546,6 +631,21 @@ def calificar(a) -> int:
 
 # ── publicar: la evidencia de una industria al repositorio ────────────────
 
+def rostrum(a) -> int:
+    """La prueba completa de Rostrum sobre una carpeta ya corrida: deja `rostrum.json`,
+    que `revisar` usa para el comando del servidor y `publicar` lleva a la evidencia."""
+    carpeta = Path(a.carpeta).expanduser()
+    r = probar_servidor(carpeta / "espacio", a.puerto)
+    _w(carpeta / "rostrum.json", r)
+    print(f"Rostrum · {r['servidor']} · {r['rutas']} rutas, {r['paginas']} páginas · "
+          f"{len(r['malas'])} sin responder {r['malas'] or ''} · {r['crudo_total']} crudas en el informe · "
+          f"{r['voz_del_agente']} en la voz del agente · petición {'ok' if r['peticion'] else 'FALLA'} · "
+          f"fichas {'intactas' if r['fichas_intactas'] else 'MODIFICADAS'}")
+    for x in r["crudo"][:12]:
+        print("   ", x)
+    return 0
+
+
 def publicar(a) -> int:
     """Copia a `tests/evidencias/rondas/<ronda>/<entorno>/` lo que hace falta para auditar
     una industria sin volver a correrla: lo que mostró cada comando, la revisión de
@@ -559,7 +659,7 @@ def publicar(a) -> int:
         shutil.rmtree(destino)
     (destino / "clave").mkdir(parents=True)
     shutil.copytree(carpeta / "salidas", destino / "salidas")
-    for f in ("revision.json", "revision.txt", "calificacion-samuel-alba.json"):
+    for f in ("revision.json", "revision.txt", "calificacion-samuel-alba.json", "rostrum.json"):
         if (carpeta / f).is_file():
             shutil.copy2(carpeta / f, destino / f)
     for f in ("esperado-ronda.json", "notas.json", "objetivos.json", "organizacion.json"):
@@ -580,6 +680,8 @@ def publicar(a) -> int:
         "- `salidas/NN-comando.json`: cuánto tardó, cuántos tokens usó y qué archivos cambió.\n"
         "- `revision.json`: el contrato de cada comando y la auditoría de que ningún agente leyó la clave.\n"
         "- `calificacion-samuel-alba.json`: los compromisos de Samuel y las alertas del producto de Alba.\n"
+        "- `rostrum.json`: Rostrum recorrido entero —cada página que enlaza, si responde, si muestra rutas "
+        "o claves del esquema, si guarda una petición y si deja las fichas intactas—, con la versión instalada.\n"
         "- `clave/`: lo que el agente nunca vio.\n"
         "- `documentos.tgz`: la carpeta que leyó el agente. `estado-del-agente.tgz`: lo que escribió.\n\n"
         "La calificación de Vera está en `tests/evidencias/calificaciones.json` y los defectos en "
@@ -721,6 +823,9 @@ if __name__ == "__main__":
     s.add_argument("--cerrar")
     for k in ("ronda", "entorno", "agente", "comando", "que", "evidencia", "origen", "commit", "verificado"):
         s.add_argument(f"--{k}")
+    s = sub.add_parser("rostrum")
+    s.add_argument("carpeta")
+    s.add_argument("--puerto", type=int, default=8799)
     s = sub.add_parser("publicar")
     s.add_argument("carpeta")
     s = sub.add_parser("resumen")
@@ -728,4 +833,4 @@ if __name__ == "__main__":
     sub.add_parser("verificar")
     a = ap.parse_args()
     sys.exit({"armar": armar, "correr": correr, "revisar": revisar, "calificar": calificar,
-              "publicar": publicar, "resumen": resumen, "defecto": defecto, "verificar": verificar}[a.accion](a))
+              "publicar": publicar, "rostrum": rostrum, "resumen": resumen, "defecto": defecto, "verificar": verificar}[a.accion](a))

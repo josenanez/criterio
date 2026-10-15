@@ -109,7 +109,8 @@ tr:last-child td{{border-bottom:none}}
 .decision .p{{font-size:1.16rem;color:{TINTA};font-weight:500;margin:0 0 .5em}}
 .decision dl{{margin:.6em 0 0;display:grid;grid-template-columns:270px 1fr;gap:6px 20px}}
 @media (max-width:640px){{.decision dl{{grid-template-columns:1fr;gap:2px 0}}
-  .decision dd{{margin-bottom:.8em}}}}
+  .decision dd{{margin-bottom:.8em}}
+  table{{display:block;max-width:100%;overflow-x:auto}}}}
 .decision dt{{color:{APAGADO};font-size:.82rem;text-transform:uppercase;
   letter-spacing:.06em;font-weight:600;padding-top:2px}}
 .decision dd{{margin:0}}
@@ -206,16 +207,25 @@ LEXICO = {
     'identity.committee': 'A qué comité reporta',
     'identity.authority': 'Hasta dónde decide el gerente sin subir al comité',
     'identity.product': 'Qué producto construye',
+    'identity.aliases': 'Con qué otros nombres aparece',
+    'identity.business_area': 'Qué área es dueña del proyecto',
+    'identity.phase': 'En qué fase va',
+    'declared.status': 'Qué estado declara el gerente',
+    'declared.progress_pct': 'Qué avance declara el gerente',
+    'declared.as_of': 'De cuándo es la declaración del gerente',
+    'declared.source': 'Dónde lo declara el gerente',
     'plan.start_date': 'Cuándo arrancó',
     'plan.end_date': 'Cuándo cierra',
-    'plan.phase': 'En qué fase va',
+    'plan.scope_summary': 'Qué alcance tiene',
+    'plan.exclusions': 'Qué queda fuera del alcance',
+    'raid.risks': 'Qué riesgos tiene',
+    'raid.assumptions': 'Qué supuestos tiene',
+    'raid.issues': 'Qué incidencias tiene',
     'money.currency': 'En qué moneda está el presupuesto',
     'money.approved': 'Cuánto le aprobaron',
     'money.committed': 'Cuánto lleva comprometido',
     'money.executed': 'Cuánto lleva ejecutado',
     'money.projection': 'En cuánto proyecta terminar',
-    'status.declared': 'Qué estado declara el gerente',
-    'status.as_of': 'De cuándo es esa declaración',
 }
 # Para las listas: cómo se llama cada elemento, y de qué campo sale su rótulo.
 # La clave es el nombre suelto, no la ruta: `plan.milestones` y `milestones` son
@@ -229,6 +239,9 @@ LISTAS = {
     'commitments': ('el compromiso', ('what',)),
     'vendors': ('el proveedor', ('name',)),
     'deliverables': ('el entregable', ('name',)),
+    'baseline': ('la línea base', ('version',)),
+    'changes': ('el cambio', ('ref',)),
+    'reschedules': ('la reprogramación', ('due_date',)),
 }
 HOJAS = {
     'evidence': 'La evidencia de',
@@ -240,6 +253,30 @@ HOJAS = {
     'name': 'Cómo se llama',
     'impact': 'Qué impacto tiene',
     'mitigation': 'Cómo se mitiga',
+    'approved_on': 'Cuándo se aprobó',
+    'start_date': 'Cuándo arranca',
+    'end_date': 'Cuándo cierra',
+    'reason': 'Por qué se aprobó',
+    'version': 'Qué versión es',
+    'baseline_date': 'La fecha de línea base de',
+    'current_date': 'La fecha vigente de',
+    'contract_ref': 'Qué contrato respalda a',
+    'invoiced': 'Cuánto ha facturado',
+    'on_project': 'De qué proyecto depende',
+    'needed_by': 'Para cuándo se necesita',
+    'confirmed': 'Si está confirmada',
+    'requested_on': 'Cuándo se pidió',
+    'scope_impact': 'Qué cambia en el alcance con',
+    'time_impact': 'Cuánto tiempo suma',
+    'cost_impact': 'Cuánto cuesta',
+    'decision': 'Qué se decidió sobre',
+    'decided_by': 'Quién decidió',
+    'original_due_date': 'Para cuándo se prometió primero',
+    'stated_on': 'Cuándo se dijo',
+    'source': 'De dónde sale',
+    'who': 'Quién responde por',
+    'what': 'Qué es',
+    'ref': 'Qué referencia tiene',
 }
 
 
@@ -265,6 +302,10 @@ def _recorta(texto, tope=70):
 
 
 def nombre_campo(rec: dict, ruta: str) -> str:
+    if ruta.startswith('pm_record.'):
+        # El contraste con la ficha del gerente (Samuel) trae las rutas de su ficha.
+        dentro = nombre_campo(rec.get('pm_record') or {}, ruta[len('pm_record.'):])
+        return f'En la ficha del gerente: {dentro[:1].lower()}{dentro[1:]}'
     if ruta in LEXICO:
         return LEXICO[ruta]
     trozos = _trozos(ruta)
@@ -294,6 +335,35 @@ def nombre_campo(rec: dict, ruta: str) -> str:
     frase = f'{HOJAS.get(hoja, hoja)} {sujeto}'
     # «La evidencia de el entregable» delata que la frase la armó una máquina.
     return frase.replace(' de el ', ' del ')
+
+
+def hojas_del_esquema(esquema: Path | None = None) -> list:
+    """Cada campo de la ficha que puede quedar `not_found`, como ruta con índice cero:
+    `vendors[0].deliverables[0].evidence`. Sale del esquema del skill, no de una lista
+    escrita aquí: si el esquema gana un campo y el léxico no, el selftest lo dice."""
+    esquema = esquema or Path(__file__).resolve().parent.parent / 'skills' / 'project-record' / 'references' / 'schema.yaml'
+    rutas, pila = [], []          # pila de (sangría, nombre, es_lista)
+    for crudo in esquema.read_text(encoding='utf-8').splitlines():
+        linea = crudo.split('#', 1)[0].rstrip()
+        if not linea.strip() or ':' not in linea:
+            continue
+        sangria = len(linea) - len(linea.lstrip(' '))
+        item = linea.lstrip(' ').startswith('- ')
+        if item:
+            sangria += 2
+            if pila:
+                pila[-1] = (pila[-1][0], pila[-1][1], True)
+        nombre, resto = linea.lstrip(' -').split(':', 1)
+        while pila and pila[-1][0] >= sangria:
+            pila.pop()
+        base = '.'.join(n + ('[0]' if lista else '') for _, n, lista in pila)
+        ruta = f'{base}.{nombre}' if base else nombre
+        if resto.strip() in ('', '[]'):
+            rutas.append(ruta)
+        pila.append((sangria, nombre, False))
+    # un contenedor también aparece como hoja vacía: solo quedan las hojas de verdad
+    hojas = [r for r in rutas if not any(o.startswith(r + '.') or o.startswith(r + '[') for o in rutas)]
+    return [r for r in hojas if not r.startswith(('meta.', 'activity.', 'schema_version'))]
 
 
 def campo(rec: dict, ruta: str):
@@ -955,6 +1025,15 @@ def selftest() -> int:
     }
     ok('no encontrado no se imprime', 'not_found' in con_cita(
         {'identity': {'authority': {'value': 'not_found', 'state': 'not_found'}}}, 'identity.authority'), False)
+    # Cada campo del esquema, dicho en castellano: ninguna ruta ni palabra del esquema
+    # llega a quien lee. En la ronda 2 `identity.phase` salió así en los 52 proyectos.
+    crudos = []
+    for r in hojas_del_esquema() + ['pm_record.identity.phase', 'pm_record.declared.status']:
+        n = nombre_campo({}, r)
+        hoja = re.sub(r'\[\d+\]', '', r).split('.')[-1]
+        if re.search(r'[_\[]|\w\.\w', n) or re.search(r'\b' + re.escape(hoja) + r'\b', n):
+            crudos.append(f'{r} → {n}')
+    ok('cada campo del esquema tiene nombre en castellano', crudos, [])
     ok('campo simple', nombre_campo(ficha, 'identity.authority'),
        'Hasta dónde decide el gerente sin subir al comité')
     ok('elemento de lista', nombre_campo(ficha, 'plan.milestones[0].evidence'),
@@ -978,6 +1057,11 @@ def selftest() -> int:
     ok('ninguna ruta cruda sobrevive', sospechosas, [])
 
     ok('las señales duras están nombradas', sorted(DURAS - set(NOMBRES)), [])
+    # Toda señal que el motor emite tiene nombre: Rostrum la muestra en la historia de
+    # cada caso, y en la ronda 2 salieron como `milestone_met_without_evidence`.
+    motor = (Path(__file__).resolve().parent / 'portafolio.py').read_text(encoding='utf-8')
+    ok('toda señal del motor tiene nombre',
+       sorted(set(re.findall(r'alert\("([a-z_]+)"', motor)) - set(NOMBRES)), [])
 
     print()
     if fallas:

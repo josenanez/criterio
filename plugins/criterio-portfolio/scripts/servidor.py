@@ -285,7 +285,7 @@ def linea_de_tiempo(h: dict, codigo: str, hoy: str) -> tuple:
                '</tr></thead><tbody>']
         for s, x in sorted(d.items(), key=lambda i: -i[1]["seguidas"]):
             fin = f'<td>{e(x.get("resuelta_en"))}</td>' if extra else ''
-            out.append(f'<tr><td><code>{e(s)}</code></td><td>{e(x["primera"])}</td>'
+            out.append(f'<tr><td>{e(informe.NOMBRES.get(s, s))}</td><td>{e(x["primera"])}</td>'
                        f'<td class="n">{x["corridas"]}</td>'
                        f'<td class="n">{x["seguidas"]}</td>{fin}</tr>')
         out.append('</tbody></table></div>')
@@ -317,11 +317,16 @@ def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
         va, vb = pa.get(codigo) or {}, pb.get(codigo) or {}
         if not isinstance(va, dict) or not isinstance(vb, dict):
             continue
+        # La ficha de hoy pone nombre a cada elemento de lista: «el proveedor «X»».
+        try:
+            rec = json.loads((estado / 'records' / f'{codigo}.json').read_text(encoding='utf-8'))
+        except (OSError, json.JSONDecodeError):
+            rec = {}
         for campo in sorted(set(va) | set(vb)):
             x, y = va.get(campo), vb.get(campo)
             if x != y:
                 filas.append(f'<tr><td><a href="/historia/{e(codigo)}">{e(codigo)}</a></td>'
-                             f'<td><code>{e(campo)}</code></td>'
+                             f'<td>{e(informe.nombre_campo(rec, campo))}</td>'
                              f'<td>{e(x if x is not None else "—")}</td>'
                              f'<td>{e(y if y is not None else "—")}</td></tr>')
     cuerpo = [f'<p class="entrada">Lo que cambió campo por campo entre el corte del '
@@ -618,7 +623,7 @@ def arrastres(h: dict, hoy: str) -> str:
                    '<th>Cortes seguidos</th><th>Desde</th></tr></thead><tbody>']
         for n_, codigo, sig, desde in filas[:200]:
             cuerpo.append(f'<tr><td><a href="/caso/{e(codigo)}">{e(codigo)}</a></td>'
-                          f'<td><code>{e(sig)}</code></td><td class="n">{n_}</td>'
+                          f'<td>{e(informe.NOMBRES.get(sig, sig))}</td><td class="n">{n_}</td>'
                           f'<td>{e(desde)}</td></tr>')
         cuerpo.append('</tbody></table></div>')
     cuerpo.append(AVISO_HISTORIA)
@@ -699,7 +704,7 @@ def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -
                        '<div class="bloque"><table><thead><tr><th>Señal</th><th>Desde</th>'
                        '<th>Cortes seguidos</th></tr></thead><tbody>']
             for n_, sig, desde in sorted(abiertas, reverse=True):
-                cuerpo.append(f'<tr><td><code>{e(sig)}</code></td><td>{e(desde)}</td>'
+                cuerpo.append(f'<tr><td>{e(informe.NOMBRES.get(sig, sig))}</td><td>{e(desde)}</td>'
                               f'<td class="n">{n_}</td></tr>')
             cuerpo.append('</tbody></table></div>')
     cuerpo.append(AVISO_HISTORIA)
@@ -1053,8 +1058,14 @@ class Manejador(BaseHTTPRequestHandler):
             a = (q.get('a') or [snaps[-2] if len(snaps) > 1 else ''])[0]
             b = (q.get('b') or [snaps[-1] if snaps else ''])[0]
             if not a or not b:
-                self.html(404, error(404, 'Hacen falta dos cortes para comparar',
-                                     self.hoy()))
+                # Con un solo corte no hay nada que comparar, y no es un error: es la
+                # primera corrida. El árbol enlaza aquí siempre (ronda 2: 404 en las
+                # cuatro industrias desde el menú).
+                uno = f' el del {e(snaps[-1])}' if snaps else ' ninguno todavía'
+                self.html(200, pagina('Qué cambió entre dos cortes',
+                    f'<p class="entrada">Hay un solo corte:{uno}. La comparación campo por '
+                    'campo aparece cuando la próxima corrida deje el segundo.</p>'
+                    + AVISO_HISTORIA, self.hoy(), nav(), '/corte'))
             else:
                 self.html(*corte(self.estado, a, b, self.hoy()))
         elif ruta == '/estado.json':
@@ -1348,7 +1359,7 @@ def selftest() -> int:
         ok('un agente que no existe responde 404', pedir('/agente/nadie')[0], 404)
         cod, arr = pedir('/arrastres')
         ok('lo que se arrastra tiene página propia',
-           cod == 200 and 'variance_time' in arr and '/caso/PRY-001' in arr, True)
+           cod == 200 and 'desviación en tiempo' in arr and 'variance_time' not in arr and '/caso/PRY-001' in arr, True)
         solo = pedir('/corridas?agente=portafolio&que=portfolio-scan')[1]
         ok('el filtro por comando deja solo las suyas',
            '<td>Barrido: una ficha por proyecto<br>' in solo and 'Informe del portafolio<br>' not in solo, True)
@@ -1402,12 +1413,21 @@ def selftest() -> int:
         ok('la línea de tiempo separa lo abierto de lo resuelto',
            cod == 200 and 'Lo que sigue abierto' in cuerpo
            and 'Lo que se resolvió' in cuerpo, True)
+        ok('la historia nombra la señal, no su clave',
+           'desviación en tiempo' in cuerpo and 'variance_time' not in cuerpo, True)
         cod, cuerpo = pedir('/corte?a=2026-08-31&b=2026-09-07')
-        ok('el corte muestra el campo que cambió',
-           cod == 200 and 'plan.end_date' in cuerpo and '2026-06-30' in cuerpo, True)
+        ok('el corte muestra el campo que cambió, con su nombre',
+           cod == 200 and 'Cuándo cierra' in cuerpo and 'plan.end_date' not in cuerpo
+           and '2026-06-30' in cuerpo, True)
         cod, cuerpo = pedir('/corte?a=1999-01-01&b=2026-09-07')
         ok('un corte que no existe lo dice en vez de reventar',
            cod == 404 and 'No hay instantánea del 1999-01-01' in cuerpo, True)
+        primero = est / 'snapshots' / '2026-08-31.json'
+        primero.rename(primero.with_suffix('.aparte'))
+        cod, cuerpo = pedir('/corte')
+        primero.with_suffix('.aparte').rename(primero)
+        ok('con un solo corte el menú no lleva a un error',
+           cod == 200 and 'Hay un solo corte' in cuerpo, True)
 
         ok('el escape impide inyectar en la confirmación',
            '<script>' not in pedir('/peticion', 'POST',

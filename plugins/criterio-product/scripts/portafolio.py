@@ -1502,6 +1502,7 @@ def pagina_corrida(titulo: str, md: str, hoy: str) -> str:
            f"th{{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:{p['apagado']}}}"
            f"code{{background:{p['panel']};padding:.1em .35em;border-radius:3px;font-size:.9em}}"
            f"pre{{background:{p['panel']};padding:1em;overflow:auto}}"
+           f"@media (max-width:640px){{table{{display:block;max-width:100%;overflow-x:auto}}}}"
            f"blockquote{{margin:1em 0;padding:.2em 1em;border-left:3px solid {p['oro']};color:{p['apagado']}}}"
            f".pie{{margin-top:3em;padding-top:1em;border-top:1px solid {p['filete']};font-size:.85rem;"
            f"color:{p['apagado']}}}")
