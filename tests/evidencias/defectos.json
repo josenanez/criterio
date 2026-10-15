@@ -232,5 +232,44 @@
   "origen": "codigo",
   "correccion": "5295fa0",
   "verificado_en": "ronda-1 · minería (informe regenerado, PRY-208)"
+ },
+ {
+  "id": "D019",
+  "fecha": "2026-10-15",
+  "ronda": "1",
+  "entorno": "todos",
+  "agente": "todos",
+  "comando": "portfolio-setup · config",
+  "que_paso": "Los términos prometían volver a pedir aceptación cuando cambiaran, pero la verificación de la configuración solo revisaba que hubiera una versión y una fecha: nunca las comparaba con los términos vigentes ni con la versión instalada. Ahora la puerta es código, en config y en corrida-inicio: una aceptación por versión de la familia, amarrada al texto por su huella SHA-256 y a su comprobante.",
+  "evidencia": null,
+  "origen": "codigo",
+  "correccion": "45d62ff",
+  "verificado_en": "selftest de terminos.py: una aceptación vieja, otra versión o un comprobante tocado no abren la puerta"
+ },
+ {
+  "id": "D020",
+  "fecha": "2026-10-15",
+  "ronda": "1",
+  "entorno": "todos",
+  "agente": "todos",
+  "comando": "portfolio-setup · pm-setup · product-setup",
+  "que_paso": "El descargo remitía a TERMS.md, que estaba en la raíz del repositorio y no dentro de cada plugin: quien instalaba un agente no tenía garantizado el texto que aceptaba. Samuel y Alba además decían «muestra el descargo corto» sin el texto. Ahora los términos viajan byte a byte en cada plugin y los tres muestran la misma sección «En corto».",
+  "evidencia": null,
+  "origen": "instrucciones",
+  "correccion": "45d62ff",
+  "verificado_en": "puerta de sincronización: los términos y el registro viajan idénticos en los tres plugins"
+ },
+ {
+  "id": "D021",
+  "fecha": "2026-10-15",
+  "ronda": "1",
+  "entorno": "todos",
+  "agente": "todos",
+  "comando": "docs/acceptance.md",
+  "que_paso": "La guía de aceptación describía un bloque YAML en «un archivo local de la empresa»; lo real era JSON en .criterio/<agente>/config.json, sin huella ni comprobante. Ahora describe lo que el código hace: comprobante en Markdown y PDF, archivo .sha256, bitácora encadenada y registro de versiones.",
+  "evidencia": null,
+  "origen": "instrucciones",
+  "correccion": "45d62ff",
+  "verificado_en": "validate_plugins y coherencia en verde con la versión 1.1"
  }
 ]
