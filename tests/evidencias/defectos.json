@@ -193,5 +193,31 @@
   "origen": "arnes",
   "correccion": "eb76825",
   "verificado_en": "ronda-1 · retail (2026-10-14-retail-vera-9)"
+ },
+ {
+  "id": "D016",
+  "fecha": "2026-10-15",
+  "ronda": "1",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-report",
+  "que_paso": "La vista por producto de Rostrum mostró «No aplica» como un producto construido por siete proyectos: el acta dice que el proyecto no sirve a un producto, y la ficha copió las palabras. El código ahora lee esas palabras como un campo vacío y esos proyectos pasan a «proyectos que no dicen qué producto construyen».",
+  "evidencia": null,
+  "origen": "codigo",
+  "correccion": "4b15b73",
+  "verificado_en": "ronda-1 · minería (informe regenerado: 6 productos, sin «No aplica»)"
+ },
+ {
+  "id": "D017",
+  "fecha": "2026-10-15",
+  "ronda": "1",
+  "entorno": "mineria",
+  "agente": "rostrum",
+  "comando": "portfolio-server",
+  "que_paso": "En la historia de corridas de Rostrum la tabla de diez columnas se salía de su bloque por la derecha y cortaba las últimas columnas. Los bloques ahora se desplazan de lado dentro de su borde.",
+  "evidencia": null,
+  "origen": "codigo",
+  "correccion": "4b15b73",
+  "verificado_en": "ronda-1 · minería (página de corridas)"
  }
 ]
