@@ -1,5 +1,5 @@
 ---
-description: Deja a Samuel listo para trabajar sobre un proyecto — mira su carpeta, hace cuatro preguntas, y lee la última reunión
+description: Deja a Samuel listo para trabajar sobre un proyecto — mira su carpeta, hace cuatro preguntas, y lee sus reuniones para armar el historial de compromisos
 argument-hint: "[ruta de la carpeta del proyecto] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
 ---
@@ -10,7 +10,7 @@ allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(
 
 > **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos. **Y sin subagentes en paralelo:** se leen hasta `execution.workers` proyectos a la vez según la configuración —1 si no lo dice, que es uno tras otro en esta misma conversación—; nunca más por decisión propia. El arnés cuenta los subagentes de cada corrida y marca la que se exceda.
 Lo primero que corre un gerente de proyecto después de instalar. Al terminar ha visto
-**quién prometió qué en su última reunión**, sacado de sus propios documentos.
+**quién prometió qué, desde cuándo y cuántas veces se ha movido**, sacado de sus propias minutas.
 
 **Regla que gobierna todo este comando: la persona nunca abre un archivo de
 configuración.** Si quiere cambiar algo después, lo dice en la conversación y este
@@ -80,11 +80,18 @@ Una a la vez, cada una con su propuesta:
    `.criterio/`**, que es configuración y se versiona; `config` lo rechaza.
 4. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" terminos --config .criterio/proyecto/<código>/config.json` y muestra **tal cual** su `en_corto` —el texto vive en `TERMS.es.md`, que viaja con el plugin— con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta. **No la asumas, no la infieras de que siga hablando, y no la registres sin un sí.** Cada versión de la familia se acepta de nuevo, aunque el texto no haya cambiado.
 
-**3. Lee la última reunión y muestra el resultado**
+**3. Lee las reuniones y muestra el resultado**
 
-No barras el proyecto entero: **lee la minuta más reciente** y de ahí saca los
-compromisos, aplicando **commitment-tracking**. Con eso ya puedes mostrar algo real en
-minutos.
+No barras el proyecto entero, pero **lee todas sus minutas, de la más vieja a la más
+nueva** —todas si son veinte o menos; si son más, las de las últimas doce semanas, y dilo—,
+y las actas de recibo que nombren un compromiso. Aplica **commitment-tracking**. La última
+minuta dice qué está abierto hoy; las anteriores dicen **cuántas veces se movió cada fecha**
+y qué se cerró, y eso no lo dice ninguna minuta sola: el compromiso reprogramado tres veces
+solo aparece leyéndolas en orden. Un compromiso está cumplido cuando un acta lo prueba; que
+alguien diga en la reunión que ya lo entregó no lo cierra.
+
+En la ronda 3 de pruebas Samuel leyó solo la última reunión: su ficha tuvo 3 de los 26
+compromisos del proyecto, y solo siguió hacia atrás el que las notas de ese día mencionaban.
 
 Escribe lo leído en la ficha, `<estado>/records/<código>.json`, aplicando **project-record**:
 los compromisos, y lo que la minuta diga de hitos, riesgos y de la declaración del gerente,
@@ -148,7 +155,7 @@ La configuración lleva también cuánto puede costar una corrida (`execution`: 
 **Lo que miré:** [N] documentos · [N] minutas · la última del [fecha]
 **Términos:** aceptados para la versión [X.Y.Z] · comprobante en `.criterio/terminos/[archivo].md` y `.pdf` · SHA-256 [los primeros 16 caracteres]…
 
-### Lo que se prometió en tu última reunión
+### Lo que está abierto, y cuántas veces se ha movido
 | Quién | Qué | Para cuándo | |
 [Con la cita de la minuta. Marca los vencidos sin evidencia.]
 
@@ -163,9 +170,9 @@ La configuración lleva también cuánto puede costar una corrida (`execution`: 
 
 ## Después
 
-Ofrece leer las minutas anteriores para tener el historial completo de compromisos —
-**ahí es donde aparece el que se reprogramó tres veces**, que es el hallazgo que ninguna
-herramienta que use hoy le va a dar.
+Si dejaste minutas sin leer porque eran más de veinte, ofrece leer las que faltan: ahí puede
+estar **el que se reprogramó tres veces**, que es el hallazgo que ninguna herramienta que use
+hoy le va a dar.
 
 ## Deja la corrida registrada
 
