@@ -3,8 +3,15 @@
 """El registro de versiones de la familia de agentes: qué cambió, qué términos la rigen, y su huella.
 
     python3 scripts/registro.py historia                  arma las entradas de las versiones ya publicadas, desde git
-    python3 scripts/registro.py liberar 0.3.8 --destacado "…" [--destacado "…"]
+    python3 scripts/registro.py liberar 0.3.9 --destacado "…" [--destacado "…"] [--etiquetar]
     python3 scripts/registro.py verificar                 puerta
+
+**La entrada y la etiqueta apuntan al mismo punto.** Desde la 0.3.9 cada entrada guarda su
+etiqueta (`v0.3.9`), y `liberar --etiquetar` hace el commit de la versión y crea la etiqueta
+sobre ese commit, que es el que contiene la entrada. Las entradas anteriores anotan el commit
+donde nació cada versión; la etiqueta `v0.3.6`, creada a mano, marca un commit posterior de la
+misma versión, y la `v0.3.8` el commit que la registró. Eso no se corrige reescribiendo el
+registro: una entrada pasada no se toca.
 
 **Como una patente.** Cada versión deja una entrada que no se borra ni se reescribe: la
 fecha, el commit, los cambios, los términos que la rigen con su huella SHA-256, y la
@@ -169,7 +176,7 @@ def poner_version(v: str) -> list[str]:
     return tocados
 
 
-def liberar(v: str, destacados: list[str]) -> int:
+def liberar(v: str, destacados: list[str], etiquetar: bool = False) -> int:
     reg = leer()
     if any(e["version"] == v for e in reg["versiones"]):
         print(f"la versión {v} ya está registrada: una versión no se registra dos veces")
@@ -179,9 +186,19 @@ def liberar(v: str, destacados: list[str]) -> int:
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "sincronizar.py")], check=True,
                    capture_output=True)
     base = git("rev-parse", "--short", "HEAD").strip()
-    rango = f"{previa['commit']}..HEAD" if previa and previa.get("commit") else "HEAD"
+    # Desde dónde contar los cambios: la etiqueta de la anterior si existe (es el commit que la
+    # registró), si no el commit donde nació, si no el commit sobre el que se liberó.
+    desde = None
+    for ref in ([previa.get("etiqueta"), f"v{previa['version']}", previa.get("commit"), previa.get("base")]
+                if previa else []):
+        if ref and subprocess.run(["git", "-C", str(RAIZ), "rev-parse", "-q", "--verify", f"{ref}^{{commit}}"],
+                                  capture_output=True).returncode == 0:
+            desde = ref
+            break
+    rango = f"{desde}..HEAD" if desde else "HEAD"
     cambios = git("log", "--reverse", "--format=%s", rango).splitlines()
     e = sellar({"version": v, "fecha": dt.date.today().isoformat(), "commit": None, "base": base,
+                "etiqueta": f"v{v}",
                 "terminos": terminos_en(None), "plugins": huellas_en(None),
                 "destacados": destacados, "cambios": cambios, "aceptacion": ACEPTACION_AHORA,
                 "anterior": previa["sha256"] if previa else None})
@@ -190,7 +207,16 @@ def liberar(v: str, destacados: list[str]) -> int:
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "sincronizar.py")], check=True,
                    capture_output=True)
     print(f"  {v} registrada · base {base} · {len(cambios)} cambios desde la anterior · sha256 {e['sha256'][:16]}…")
-    print("  Haz el commit de la versión y la etiqueta: git tag v" + v)
+    if not etiquetar:
+        print(f"  Haz el commit de la versión y crea la etiqueta sobre él: git tag v{v}")
+        return 0
+    # El commit de la versión lleva el registro, los números de versión y las copias; la
+    # etiqueta va sobre ese commit, el que contiene la entrada.
+    git("add", "registro", ".claude-plugin", "plugins")
+    git("commit", "-q", "-m", f"Release {v}, entered in the version register")
+    git("tag", "-a", f"v{v}", "-m", f"Criterio {v} · entrada SHA-256 {e['sha256']}")
+    print(f"  commit {git('rev-parse', '--short', 'HEAD').strip()} y etiqueta v{v}. "
+          f"Súbelos: git push origin main && git push origin v{v}")
     return 0
 
 
@@ -220,6 +246,17 @@ def verificar() -> int:
         if t["sha256"] != ultima["terminos"]["sha256"]:
             problemas.append("los términos cambiaron después de la última versión registrada: "
                              "un cambio a los términos sale con una versión nueva")
+        # La etiqueta de una entrada apunta a un commit que contiene esa entrada.
+        for e in reg["versiones"]:
+            etq = e.get("etiqueta")
+            if not etq:
+                continue
+            r = subprocess.run(["git", "-C", str(RAIZ), "show", f"{etq}:registro/versiones.json"],
+                               capture_output=True, text=True)
+            if r.returncode:
+                avisos.append(f"la etiqueta {etq} todavía no existe en este repositorio")
+            elif e["sha256"] not in r.stdout:
+                problemas.append(f"la etiqueta {etq} apunta a un commit que no contiene la entrada {e['version']}")
         ahora = huellas_en(None)
         movidos = [p for p in FAMILIA if ahora.get(p) != ultima["plugins"].get(p)]
         if movidos:
@@ -240,6 +277,8 @@ def main() -> int:
     ap.add_argument("accion", choices=["historia", "liberar", "verificar"])
     ap.add_argument("version", nargs="?")
     ap.add_argument("--destacado", action="append", default=[])
+    ap.add_argument("--etiquetar", action="store_true",
+                    help="hace el commit de la versión y crea su etiqueta sobre él")
     a = ap.parse_args()
     if a.accion == "historia":
         return historia()
@@ -247,7 +286,7 @@ def main() -> int:
         return verificar()
     if not a.version or not re.fullmatch(r"\d+\.\d+\.\d+", a.version):
         ap.error("liberar necesita la versión, como 0.3.8")
-    return liberar(a.version, a.destacado)
+    return liberar(a.version, a.destacado, a.etiquetar)
 
 
 if __name__ == "__main__":
