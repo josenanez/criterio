@@ -1,0 +1,28 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-15T22:46:58",
+ "estado": "success",
+ "error": false,
+ "segundos": 116,
+ "turnos": 21,
+ "tokens": 1293123,
+ "tokens_salida": 14370,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-203-despacho-automático-de-flota/cadencia.json",
+   "estado/PRY-203-despacho-automático-de-flota/corridas/2026-10-15-pm-wake-1.md",
+   "estado/PRY-203-despacho-automático-de-flota/corridas/salida-pm-wake.md",
+   "estado/PRY-203-despacho-automático-de-flota/records/PRY-203.json.bak-antes-barrido"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-despacho-automático-de-flota/corridas.json",
+   "estado/PRY-203-despacho-automático-de-flota/records/PRY-203.json"
+  ],
+  "borrados": []
+ }
+}

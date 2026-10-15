@@ -1,0 +1,29 @@
+{
+ "n": 31,
+ "agente": "vera",
+ "comando": "product-view",
+ "argumento": "crédito de libranza",
+ "inicio": "2026-10-15T21:40:24",
+ "estado": "success",
+ "error": false,
+ "segundos": 56,
+ "turnos": 12,
+ "tokens": 535819,
+ "tokens_salida": 5735,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-15-product-view-1.html",
+   ".criterio/corridas/portafolio/2026-10-15-product-view-1.md",
+   "estado/corridas/2026-10-15-product-view-1.md",
+   "estado/corridas/2026-10-15-product-view-2.md",
+   "estado/corridas/salida-product-view.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

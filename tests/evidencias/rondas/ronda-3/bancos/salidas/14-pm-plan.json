@@ -1,0 +1,25 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-15T20:30:38",
+ "estado": "success",
+ "error": false,
+ "segundos": 72,
+ "turnos": 13,
+ "tokens": 518284,
+ "tokens_salida": 7526,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-207-onboarding-pyme/corridas/2026-10-15-pm-plan-1.md",
+   "estado/PRY-207-onboarding-pyme/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-207-onboarding-pyme/corridas.json"
+  ],
+  "borrados": []
+ }
+}

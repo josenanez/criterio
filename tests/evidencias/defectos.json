@@ -179,7 +179,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-1/cooperativas/calificacion-samuel-alba.json",
   "origen": "instrucciones",
   "correccion": "5e81ef7",
-  "verificado_en": null
+  "verificado_en": "ronda-3 · cuatro industrias sobre 0.3.9: Samuel escribe la promesa original aparte; 77 de 78 compromisos con sus reprogramaciones bien contadas donde leyó las minutas"
  },
  {
   "id": "D015",
@@ -283,7 +283,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-2/bancos/revision.json",
   "origen": "material",
   "correccion": "7b5ab31",
-  "verificado_en": null
+  "verificado_en": "ronda-3 · cuatro industrias sobre 0.3.9: sin la frase al azar, cero vendor_accepted_without_evidence fuera de la clave"
  },
  {
   "id": "D023",
@@ -296,7 +296,7 @@
   "evidencia": null,
   "origen": "instrucciones",
   "correccion": "7b5ab31",
-  "verificado_en": null
+  "verificado_en": "ronda-3 · cuatro industrias sobre 0.3.9: cero falsos positivos de proveedor en Vera (252 de 256)"
  },
  {
   "id": "D024",
@@ -309,7 +309,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-2/bancos/revision.json",
   "origen": "instrucciones",
   "correccion": "7b5ab31",
-  "verificado_en": null
+  "verificado_en": "ronda-3 · cuatro industrias sobre 0.3.9: el caché queda en <estado>/cache/texto/ y el barrido cumple su contrato en las cuatro"
  },
  {
   "id": "D025",
@@ -322,7 +322,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-2/retail/calificacion-samuel-alba.json",
   "origen": "instrucciones",
   "correccion": "7b5ab31",
-  "verificado_en": null
+  "verificado_en": "ronda-3 · cuatro industrias sobre 0.3.9: ningún compromiso con la promesa original contada como reprogramación"
  },
  {
   "id": "D026",
@@ -348,7 +348,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-2/bancos/calificacion-samuel-alba.json",
   "origen": "instrucciones",
   "correccion": "7b5ab31",
-  "verificado_en": null
+  "verificado_en": "ronda-3 · cuatro industrias sobre 0.3.9: Alba 142 de 142 alertas correctas, cero decision_without_source falsos"
  },
  {
   "id": "D028",
@@ -361,7 +361,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-2/retail/calificacion-samuel-alba.json",
   "origen": "instrucciones",
   "correccion": "7b5ab31",
-  "verificado_en": null
+  "verificado_en": "ronda-3 · cuatro industrias sobre 0.3.9: evidence_stale encontrado en las cuatro industrias; Alba 142 de 143"
  },
  {
   "id": "D029",
@@ -440,5 +440,83 @@
   "origen": "arnes",
   "correccion": "fa65257",
   "verificado_en": "ronda.py rostrum sobre las cuatro industrias de la ronda 2"
+ },
+ {
+  "id": "D035",
+  "fecha": "2026-10-15",
+  "ronda": "3",
+  "entorno": "bancos",
+  "agente": "samuel",
+  "comando": "pm-setup",
+  "que_paso": "pm-setup leía solo la última reunión y ofrecía leer las anteriores; en una sesión sin nadie que respondiera, Samuel nunca las leyó y su ficha tuvo 3 de los 26 compromisos del proyecto. En cooperativas, retail y minería los recuperó pm-commitments y acertó 77 de 78: dependía de la sesión. Ahora pm-setup lee todas las minutas en orden.",
+  "evidencia": "tests/evidencias/rondas/ronda-3/bancos/calificacion-samuel-alba.json",
+  "origen": "instrucciones",
+  "correccion": "4ba01bd",
+  "verificado_en": null
+ },
+ {
+  "id": "D036",
+  "fecha": "2026-10-15",
+  "ronda": "3",
+  "entorno": "cooperativas",
+  "agente": "rostrum",
+  "comando": "portfolio-server",
+  "que_paso": "Una ruta de archivo larga dentro de código no se partía y la página de una corrida medía 436 px en un teléfono de 390.",
+  "evidencia": "tests/evidencias/rondas/ronda-3/cooperativas/revision.json",
+  "origen": "codigo",
+  "correccion": "14f78e6",
+  "verificado_en": "la página regenerada con 14f78e6 mide 390 px en un teléfono de 390"
+ },
+ {
+  "id": "D037",
+  "fecha": "2026-10-15",
+  "ronda": "3",
+  "entorno": "retail",
+  "agente": "vera",
+  "comando": "portfolio-report",
+  "que_paso": "portfolio-report decía --salida <carpeta> sin decir cuál; Vera escribió el informe en una subcarpeta con fecha y Rostrum, que sirve paths.reports, respondió 404 en cada página del informe (366 de 380). Ahora el informe va siempre a paths.reports y el script rechaza otra carpeta.",
+  "evidencia": "tests/evidencias/rondas/ronda-3/retail/revision.json",
+  "origen": "instrucciones",
+  "correccion": "f1ac133",
+  "verificado_en": null
+ },
+ {
+  "id": "D038",
+  "fecha": "2026-10-15",
+  "ronda": "3",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "Vera contó como reprogramación la primera fecha de un compromiso prometido «por definir», y un compromiso movido dos veces sonó como commitment_rescheduled. commitment-tracking no decía que fechar no es reprogramar.",
+  "evidencia": "tests/evidencias/rondas/ronda-3/mineria/revision.json",
+  "origen": "instrucciones",
+  "correccion": "7d48c2a",
+  "verificado_en": null
+ },
+ {
+  "id": "D039",
+  "fecha": "2026-10-15",
+  "ronda": "3",
+  "entorno": "mineria",
+  "agente": "samuel",
+  "comando": "pm-wake",
+  "que_paso": "El barrido de pm-wake escribe compromisos en la ficha, como dice su diseño, pero su contrato solo declaraba cadencia.json; además dejó una copia .bak junto a la ficha.",
+  "evidencia": "tests/evidencias/rondas/ronda-3/mineria/revision.json",
+  "origen": "instrucciones",
+  "correccion": "7d48c2a",
+  "verificado_en": null
+ },
+ {
+  "id": "D040",
+  "fecha": "2026-10-15",
+  "ronda": "3",
+  "entorno": "mineria",
+  "agente": "alba",
+  "comando": "product-requirements",
+  "que_paso": "Alba escribió el doliente como la cadena not_found y el motor la leyó como un nombre: requirement_without_owner no sonó. Es el mismo error de D018; ahora value() lo trata como vacío en los tres agentes.",
+  "evidencia": "tests/evidencias/rondas/ronda-3/mineria/calificacion-samuel-alba.json",
+  "origen": "codigo",
+  "correccion": "df7598f",
+  "verificado_en": "selftest de producto.py y de portafolio.py: not_found escrito como valor es un campo vacío"
  }
 ]

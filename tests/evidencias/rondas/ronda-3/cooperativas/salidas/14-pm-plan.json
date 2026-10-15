@@ -1,0 +1,28 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-15T21:17:39",
+ "estado": "success",
+ "error": false,
+ "segundos": 73,
+ "turnos": 16,
+ "tokens": 628569,
+ "tokens_salida": 7910,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-plan-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-plan-1.md",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas/2026-10-15-pm-plan-1.md",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

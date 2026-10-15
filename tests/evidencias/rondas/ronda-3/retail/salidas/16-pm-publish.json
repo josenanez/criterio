@@ -1,0 +1,26 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-15T22:03:58",
+ "estado": "success",
+ "error": false,
+ "segundos": 40,
+ "turnos": 13,
+ "tokens": 605005,
+ "tokens_salida": 3433,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "documentos/proyectos/PRY-201-programa-de-fidelización/00-gobierno/ficha-pm.json",
+   "estado/PRY-201-programa-de-fidelización/corridas/2026-10-15-pm-publish-1.md",
+   "estado/PRY-201-programa-de-fidelización/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-201-programa-de-fidelización/corridas.json"
+  ],
+  "borrados": []
+ }
+}

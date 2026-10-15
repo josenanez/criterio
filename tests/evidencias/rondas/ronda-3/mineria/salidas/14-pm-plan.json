@@ -1,0 +1,25 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-15T22:43:22",
+ "estado": "success",
+ "error": false,
+ "segundos": 112,
+ "turnos": 16,
+ "tokens": 743481,
+ "tokens_salida": 13576,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-203-despacho-automático-de-flota/corridas/2026-10-15-pm-plan-1.md",
+   "estado/PRY-203-despacho-automático-de-flota/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-despacho-automático-de-flota/corridas.json"
+  ],
+  "borrados": []
+ }
+}

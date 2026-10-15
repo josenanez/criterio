@@ -1,0 +1,49 @@
+{
+ "n": 32,
+ "agente": "vera",
+ "comando": "portfolio-report",
+ "argumento": "html",
+ "inicio": "2026-10-15T22:25:17",
+ "estado": "success",
+ "error": false,
+ "segundos": 59,
+ "turnos": 19,
+ "tokens": 718512,
+ "tokens_salida": 7101,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-15-portfolio-report-1.md",
+   "estado/corridas/salida-portfolio-report.md",
+   "reportes/2026-10-15-portafolio/PRY-199.html",
+   "reportes/2026-10-15-portafolio/PRY-200.html",
+   "reportes/2026-10-15-portafolio/PRY-201.html",
+   "reportes/2026-10-15-portafolio/PRY-202.html",
+   "reportes/2026-10-15-portafolio/PRY-203.html",
+   "reportes/2026-10-15-portafolio/PRY-204.html",
+   "reportes/2026-10-15-portafolio/PRY-205.html",
+   "reportes/2026-10-15-portafolio/PRY-206.html",
+   "reportes/2026-10-15-portafolio/PRY-207.html",
+   "reportes/2026-10-15-portafolio/PRY-208.html",
+   "reportes/2026-10-15-portafolio/PRY-209.html",
+   "reportes/2026-10-15-portafolio/PRY-210.html",
+   "reportes/2026-10-15-portafolio/PRY-211.html",
+   "reportes/2026-10-15-portafolio/decisiones.html",
+   "reportes/2026-10-15-portafolio/index.html",
+   "reportes/2026-10-15-portafolio/producto-autopago-en-tienda.html",
+   "reportes/2026-10-15-portafolio/producto-entrega-rapida.html",
+   "reportes/2026-10-15-portafolio/producto-marca-propia.html",
+   "reportes/2026-10-15-portafolio/producto-pago-con-qr.html",
+   "reportes/2026-10-15-portafolio/producto-prd-299.html",
+   "reportes/2026-10-15-portafolio/producto-puntos-de-fidelizacion.html",
+   "reportes/2026-10-15-portafolio/producto-venta-en-linea.html",
+   "reportes/2026-10-15-portafolio/productos.html",
+   "reportes/2026-10-15-portafolio/proyectos.html"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

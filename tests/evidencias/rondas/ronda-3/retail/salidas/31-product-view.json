@@ -1,0 +1,28 @@
+{
+ "n": 31,
+ "agente": "vera",
+ "comando": "product-view",
+ "argumento": "autopago en tienda",
+ "inicio": "2026-10-15T22:24:32",
+ "estado": "success",
+ "error": false,
+ "segundos": 45,
+ "turnos": 13,
+ "tokens": 539513,
+ "tokens_salida": 4345,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-15-product-view-1.html",
+   ".criterio/corridas/portafolio/2026-10-15-product-view-1.md",
+   "estado/corridas/2026-10-15-product-view-1.md",
+   "estado/corridas/salida-product-view.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

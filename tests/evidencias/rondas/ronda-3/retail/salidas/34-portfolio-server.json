@@ -1,0 +1,62 @@
+{
+ "n": 34,
+ "agente": "vera",
+ "comando": "portfolio-server",
+ "argumento": "rato",
+ "inicio": "2026-10-15T22:27:03",
+ "estado": "success",
+ "error": false,
+ "segundos": 40,
+ "turnos": 10,
+ "tokens": 423751,
+ "tokens_salida": 3798,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-15-portfolio-server-1.html",
+   ".criterio/corridas/portafolio/2026-10-15-portfolio-server-1.md",
+   "estado/corridas/2026-10-15-portfolio-server-1.md",
+   "estado/corridas/salida-portfolio-server.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ },
+ "servidor": {
+  "servidor": ".claude/plugins/cache/criterio/criterio-portfolio/0.3.9/scripts/servidor.py",
+  "rutas": 113,
+  "paginas": 99,
+  "malas": {
+   "/pmo": 404,
+   "/decisiones": 404,
+   "/proyectos": 404,
+   "/productos": 404,
+   "/p/PRY-205": 404,
+   "/p/PRY-202": 404,
+   "/p/PRY-201": 404,
+   "/p/PRY-206": 404,
+   "/p/PRY-208": 404,
+   "/p/PRY-204": 404,
+   "/p/PRY-210": 404,
+   "/p/PRY-209": 404,
+   "/p/PRY-207": 404,
+   "/p/PRY-200": 404
+  },
+  "crudo": [],
+  "crudo_total": 0,
+  "voz_del_agente": 14,
+  "peticion": true,
+  "fichas_intactas": true,
+  "pantalla": {
+   "390": [],
+   "1280": []
+  },
+  "comprobaciones": {
+   "total": 380,
+   "pasan": 366
+  }
+ }
+}

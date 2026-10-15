@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-15T21:20:01",
+ "estado": "success",
+ "error": false,
+ "segundos": 42,
+ "turnos": 13,
+ "tokens": 555707,
+ "tokens_salida": 3901,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-publish-1.md",
+   "documentos/proyectos/PRY-203-aportes-sociales-en-línea/00-gobierno/ficha-pm.json",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas/2026-10-15-pm-publish-1.md",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

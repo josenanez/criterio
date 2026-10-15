@@ -1,0 +1,34 @@
+{
+ "n": 9,
+ "agente": "samuel",
+ "comando": "pm-setup",
+ "argumento": "documentos/proyectos/PRY-201-programa-de-fidelización",
+ "inicio": "2026-10-15T21:54:53",
+ "estado": "success",
+ "error": false,
+ "segundos": 114,
+ "turnos": 39,
+ "tokens": 1751122,
+ "tokens_salida": 14473,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-setup-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-setup-1.md",
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/proyecto/PRY-201/config.json",
+   ".criterio/terminos/aceptacion-criterio-project-0.3.9-2026-10-15.md",
+   ".criterio/terminos/aceptacion-criterio-project-0.3.9-2026-10-15.pdf",
+   ".criterio/terminos/aceptacion-criterio-project-0.3.9-2026-10-15.sha256",
+   "estado/PRY-201-programa-de-fidelización/corridas.json",
+   "estado/PRY-201-programa-de-fidelización/corridas/2026-10-15-pm-setup-1.md",
+   "estado/PRY-201-programa-de-fidelización/corridas/salida-pm-setup.md",
+   "estado/PRY-201-programa-de-fidelización/records/PRY-201.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   ".criterio/terminos/aceptaciones.json"
+  ],
+  "borrados": []
+ }
+}
