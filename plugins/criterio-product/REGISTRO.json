@@ -358,6 +358,62 @@
       "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
       "anterior": "2364a6d8592f5c3e5fa4a64aa37dd923b76e2220d7eabfd0bbf598e9382f3d4b",
       "sha256": "d8af32b4c5a1b92ab20e2c6ef0603c4f5bce9b68602a72ea825df0c31ed3ee4b"
+    },
+    {
+      "version": "0.3.8",
+      "fecha": "2026-10-15",
+      "commit": null,
+      "base": "46c9e65",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "b86b6702428cb025c6823b65791d54bea67a2e90e87c50315a8dffd975426e93",
+        "criterio-product": "88392eb8037a5885e397306dfe2b657a44cf581f3101e4d1738a2b14e2a58aa9",
+        "criterio-project": "04ad5e8c12b1ce5d3368f0c59efeb88f31345531fb9242fe98e30c9991ddaa14"
+      },
+      "destacados": [
+        "Una aceptación de términos por versión, con comprobante en Markdown y PDF, su huella SHA-256 y una bitácora encadenada; la puerta es código.",
+        "Registro de versiones de la familia, encadenado por huellas, que se publica en la nota legal del portal.",
+        "Términos 1.1: certificación interna de cada versión antes de publicarse, aceptación por versión, comprobantes e integridad; garantía y responsabilidad se remiten a la licencia Apache 2.0.",
+        "Alba construye la ficha de su producto y su registro de requerimientos desde lo escrito, y cada agente guarda su estado en su propia carpeta.",
+        "El compromiso reprogramado guarda la promesa original aparte de sus reprogramaciones.",
+        "La regresión del motor corre en cada verificación del código.",
+        "Rostrum: «No aplica» deja de ser un producto, las tablas anchas se desplazan dentro de su bloque y un campo no encontrado se lee como tal."
+      ],
+      "cambios": [
+        "defectos.json: the commits that fix the four round-1 defects already corrected",
+        "A round summary for the portal, computed from the evidence",
+        "Round 1, cooperatives: 37 of 37, Vera 60/60, and a commitment counted twice",
+        "A rescheduled commitment: the original promise is not one of its reschedules",
+        "defectos.json: D014 fixed in 5e81ef7",
+        "commitment_rescheduled carries the original date too; gates green again",
+        "Round 1, retail: 37 of 37, Vera 36/37, Samuel 3/3; graders read each agent's state from its config",
+        "defectos.json: D015, the grader read a fixed state path",
+        "Round 1 closed: mining 37 of 37, Vera 37/39; four industries, 148 commands, 186/190",
+        "Origin of the round-1 retail and mining errors: the key, D012",
+        "docs/pruebas: 29 of 29 gates, 672 checks, round 1 closed",
+        "«No aplica» is an empty product, and wide tables scroll inside their block",
+        "defectos.json: D016 and D017, found in Rostrum on the mining round",
+        "A field not found reads as not found, even when the record copied the state into the value",
+        "defectos.json: D018",
+        "The engine's five-week regression runs on every verification",
+        "Regression run of 15 October on c97cd8e: five of five cuts match the key",
+        "docs/pruebas: 30 gates with the engine regression",
+        "Round summary counts the documents each industry handed the agents, and its projects",
+        "Terms: one acceptance per version, a receipt in Markdown and PDF with its SHA-256, and a version register",
+        "defectos.json: D019-D021, the terms gate and where the terms live",
+        "The PDF receipt reads each row as label: value",
+        "Every version is certified before it is published; warranty and liability are Apache 2.0's"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "d8af32b4c5a1b92ab20e2c6ef0603c4f5bce9b68602a72ea825df0c31ed3ee4b",
+      "sha256": "a9f5f18ec3113c320eabe6e5234bb49c6470cea7c86a4aa65aa202e3f90d5927"
     }
   ]
 }
