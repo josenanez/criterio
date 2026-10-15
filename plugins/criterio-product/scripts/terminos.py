@@ -244,8 +244,9 @@ def lineas_de_md(md: str) -> list[tuple[str, int]]:
             nivel = len(s) - len(s.lstrip("#"))
             lineas += [("", 6), (_plano(s.lstrip("# ")), 14 if nivel == 1 else 12)]
         elif s.startswith("|"):
-            celdas = [_plano(c) for c in s.strip("|").split("|")]
-            lineas += [(x, 9) for x in _envolver("   ".join(c for c in celdas if c), 105)]
+            celdas = [c for c in (_plano(c) for c in s.strip("|").split("|")) if c]
+            fila = f"{celdas[0]}: {'   '.join(celdas[1:])}" if len(celdas) > 1 else " ".join(celdas)
+            lineas += [(x, 10) for x in _envolver(fila, 100)]
         else:
             pre = "- " if s.lstrip().startswith(("- ", "* ")) else ""
             cuerpo = s.lstrip()[2:] if pre else s
