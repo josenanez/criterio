@@ -4,11 +4,11 @@
 
 ## Read this before you install
 
-**Criterio produces working drafts, not decisions, and nothing here has been certified by anyone.**
+**Criterio produces working drafts, not decisions. Every version goes through an internal certification before it is published.**
 
 This repository contains instructions for a language model. Its output must be checked by someone qualified before it is used to decide, sign, file, report or escalate.
 
-It is published under Apache 2.0, **as is, with no warranty of any kind**. Whoever deploys it, tests it or runs it does so on their own responsibility and accepts the [terms of use](TERMS.md).
+It is published under the Apache 2.0 licence, which governs its warranty and liability. Whoever deploys it, tests it or runs it accepts the [terms of use](TERMS.md).
 
 ## What it is and what it is not
 
@@ -28,7 +28,7 @@ That last row is the one that matters. Its input is documents. It knows what was
 
 **3. Your content is processed on the AI platform's infrastructure**, not only on your machine. Before processing confidential documents or third-party personal data, confirm that this is admissible under your policies, your contracts and the applicable data protection law. That assessment is yours to make, not this project's.
 
-**4. No warranty, no liability.** Under Apache 2.0 this work is provided "as is", and neither the maintainer nor any contributor is liable for damages arising from its use.
+**4. Warranty and liability.** Governed by the Apache 2.0 licence, sections 7 and 8.
 
 ## Personal data and confidentiality
 

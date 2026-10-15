@@ -6,9 +6,11 @@ Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos
 
 ---
 
-## 1. No es asesoría y no tiene certificación
+## 1. No es asesoría; cada versión se certifica antes de publicarse
 
-Criterio produce **borradores de trabajo**. Nada en este proyecto ha sido certificado por ningún profesional ni por ninguna entidad, y nada en él crea relación profesional alguna entre usted y el mantenedor o cualquier aportante.
+Criterio produce **borradores de trabajo**. No es asesoría y no crea relación profesional alguna entre usted y el mantenedor o cualquier aportante.
+
+Cada versión pasa una certificación interna antes de publicarse: pruebas automáticas del código en cada cambio, y rondas en las que los tres agentes ejecutan todos sus comandos sobre datos de prueba sintéticos, construidos a partir de proyectos reales de entidades financieras, retail y minería, sin datos de ninguna organización. Lo que produce cada agente se compara con una clave de respuestas, y los resultados —con su margen de confianza, los defectos encontrados y su corrección— se publican en la evidencia de pruebas y en la nota legal: https://www.josenanez.com/es/agents/criterio-pmo.
 
 ## 2. La verificación es suya
 
@@ -24,13 +26,9 @@ Los documentos que usted procese son tratados por la plataforma de IA sobre la q
 
 No envíe a este proyecto documentos de clientes, datos personales reales ni material confidencial. Los aportes que los contengan serán rechazados.
 
-## 5. Sin garantía y sin responsabilidad
+## 5. Garantía y responsabilidad
 
-Esta obra se licencia bajo Apache 2.0 y se entrega **"tal cual", sin garantías ni condiciones de ninguna clase**, expresas o implícitas, incluidas las de comerciabilidad, idoneidad para un propósito determinado y no infracción.
-
-En la máxima medida permitida por la ley aplicable, ni el mantenedor ni ningún aportante responden por daños de ningún tipo —directos, indirectos, incidentales, especiales o consecuenciales, incluidos lucro cesante, pérdida de datos o pérdidas derivadas de una decisión tomada con base en una salida—, aun habiendo sido advertidos de su posibilidad.
-
-Las secciones 7 y 8 de la licencia Apache 2.0 aplican en su integridad y este documento no las restringe.
+Se rigen por la licencia Apache 2.0, secciones 7 y 8.
 
 ## 6. Aportes
 
@@ -62,7 +60,7 @@ Estos términos están versionados. Un cambio sube la versión y la fecha al ini
 
 Esto es lo que el plugin le muestra antes de pedirle que acepte:
 
-> Criterio produce borradores de trabajo, no decisiones ni asesoría. Procesa los documentos que usted le indique y dice lo que muestran; no sabe lo que se habló fuera de ellos. Puede equivocarse, y por eso cada dato viene con la cita del documento de donde salió: la verificación es suya. Sus documentos se procesan en la infraestructura de la plataforma de IA, no solo en su equipo. Se entrega sin garantía. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
+> Criterio produce borradores de trabajo, no decisiones ni asesoría. Procesa los documentos que usted le indique y dice lo que muestran; no sabe lo que se habló fuera de ellos. Puede equivocarse, y por eso cada dato viene con la cita del documento de donde salió: la verificación es suya. Sus documentos se procesan en la infraestructura de la plataforma de IA, no solo en su equipo. Cada versión se certifica antes de publicarse; garantía y responsabilidad: licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
 
 ---
 

@@ -4,11 +4,11 @@
 
 ## Léalo antes de instalar
 
-**Criterio produce borradores de trabajo, no decisiones, y aquí nadie ha certificado nada.**
+**Criterio produce borradores de trabajo, no decisiones. Cada versión pasa una certificación interna antes de publicarse.**
 
 Este repositorio contiene instrucciones para un modelo de lenguaje. Su salida debe verificarla alguien competente antes de usarla para decidir, firmar, reportar o escalar.
 
-Se publica bajo Apache 2.0, **tal cual, sin garantía de ninguna clase**. Quien lo despliegue, lo pruebe o lo ejecute lo hace bajo su propia responsabilidad y acepta los [términos de uso](TERMS.es.md).
+Se publica bajo la licencia Apache 2.0, que rige su garantía y responsabilidad. Quien lo despliegue, lo pruebe o lo ejecute acepta los [términos de uso](TERMS.es.md).
 
 ## Qué es y qué no es
 
@@ -28,7 +28,7 @@ La última fila es la que importa. Su insumo son documentos. Sabe lo que se escr
 
 **3. Su contenido se procesa en la infraestructura de la plataforma de IA**, no solo en su equipo. Antes de procesar documentos confidenciales o datos personales de terceros, confirme que sea admisible bajo sus políticas, sus contratos y la ley de datos aplicable. Esa evaluación le corresponde a usted.
 
-**4. Sin garantía y sin responsabilidad.** Bajo Apache 2.0 esta obra se entrega "tal cual", y ni el mantenedor ni los aportantes responden por daños derivados de su uso.
+**4. Garantía y responsabilidad.** Se rigen por la licencia Apache 2.0, secciones 7 y 8.
 
 ## Datos personales y confidencialidad
 

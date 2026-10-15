@@ -87,7 +87,7 @@ project governance one, see [criterio-pmo](families/criterio-pmo/README.md#insta
 
 **What we do not claim**
 
-This produces working drafts, not decisions. Nothing here has been certified by anyone. The agents know what was written, not what was said outside the documents. Read the [disclaimer](DISCLAIMER.md) before installing: using it means accepting the [terms](TERMS.md).
+This produces working drafts, not decisions. Every version goes through an internal certification before it is published, and its evidence is public. The agents know what was written, not what was said outside the documents. Read the [disclaimer](DISCLAIMER.md) before installing: using it means accepting the [terms](TERMS.md).
 
 ---
 

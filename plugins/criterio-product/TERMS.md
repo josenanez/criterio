@@ -6,9 +6,11 @@ By installing, deploying, testing or running Criterio, you accept these terms. I
 
 ---
 
-## 1. No advice, no certification
+## 1. Not advice; every version is certified before it is published
 
-Criterio produces **working drafts**. Nothing in this project has been certified by any professional or body, and nothing in it creates a professional relationship of any kind between you and the maintainer or any contributor.
+Criterio produces **working drafts**. It is not advice and creates no professional relationship of any kind between you and the maintainer or any contributor.
+
+Every version goes through an internal certification before it is published: automated tests of the code on every change, and rounds in which the three agents run all their commands on synthetic test data, built from real projects in financial entities, retail and mining, with no data from any organisation. What each agent produces is compared with an answer key, and the results —with their confidence margin, the defects found and their fix— are published in the test evidence and the legal notice: https://www.josenanez.com/agents/criterio-pmo.
 
 ## 2. Verification is yours
 
@@ -24,13 +26,9 @@ Documents you process are handled by the AI platform you run this on, under that
 
 Do not send this project any client documents, real personal data, or confidential material. Contributions containing them will be rejected.
 
-## 5. No warranty, no liability
+## 5. Warranty and liability
 
-This work is licensed under Apache 2.0 and provided **"as is", without warranties or conditions of any kind**, express or implied, including merchantability, fitness for a particular purpose and non-infringement.
-
-To the maximum extent permitted by applicable law, neither the maintainer nor any contributor is liable for any damages — direct, indirect, incidental, special, exemplary or consequential, including lost profits, lost data, or losses arising from a decision taken on the basis of an output — even if advised of the possibility of such damages.
-
-Sections 7 and 8 of the Apache 2.0 licence apply in full and are not narrowed by this document.
+Governed by the Apache 2.0 licence, sections 7 and 8.
 
 ## 6. Contributions
 
@@ -62,7 +60,7 @@ These terms are versioned. A change bumps the version and the date at the top of
 
 This is what the plugin shows you before asking you to accept:
 
-> Criterio produces working drafts, not decisions or advice. It processes the documents you point it to and says what they show; it does not know what was said outside them. It can be wrong, which is why every data point comes with a citation to the document it came from: verification is yours. Your documents are processed on the AI platform's infrastructure, not only on your machine. Provided as is, with no warranty. Every version is accepted again and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
+> Criterio produces working drafts, not decisions or advice. It processes the documents you point it to and says what they show; it does not know what was said outside them. It can be wrong, which is why every data point comes with a citation to the document it came from: verification is yours. Your documents are processed on the AI platform's infrastructure, not only on your machine. Every version is certified before it is published; warranty and liability: Apache 2.0 licence. Every version is accepted again and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
 
 ---
 
