@@ -85,6 +85,17 @@ un requerimiento y qué no.
 - **Una queja no es un requerimiento** hasta que alguien nombra qué haría falta. Se
   registra como evidencia, no como registro propio.
 
+**El estado sale de un documento, y ese documento es la decisión.** Cuando el acta de un
+comité dice que un requerimiento quedó `aceptado` o `descartado`, se registra en
+`decision`: `what` con lo decidido y la cita del acta, `who` quien decidió si el acta lo
+dice, `on` la fecha de la decisión si el acta la da —*«aceptado desde el 28 de agosto»*—
+o la del acta si no. Un acta que revisa el estado después también lo registra: es el
+documento que hay, y se cita. No hay otro campo para la fuente del estado.
+`decision_without_source` es para lo que **ningún** documento registra. En la ronda 2 la
+cita quedó en un campo que el esquema no tiene (bancos) o se dejó vacía porque el acta era
+una revisión posterior (minería): el cálculo no las vio y nueve requerimientos aceptados en
+comité salieron como decisiones sin documento.
+
 ## Cuando dos documentos piden cosas distintas
 
 La misma regla que en la ficha del proyecto: **no se fusionan y no se elige por

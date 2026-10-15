@@ -177,6 +177,29 @@ def armar(a) -> int:
     return 0
 
 
+def fechas_a_la_vista(carpeta: Path, c: dict) -> set:
+    """Las fechas del simulador para un compromiso que algún documento del proyecto
+    muestra en la misma línea que el compromiso. Lee con los convertidores del plugin."""
+    sys.path.insert(0, str(RAIZ / "plugins" / "criterio-portfolio" / "scripts"))
+    import texto
+    def leer(f: Path) -> str:
+        ext = f.suffix.lower()
+        if ext in texto.NATIVO:
+            return texto.de_nativo(f)
+        if ext == ".pdf":
+            return texto.de_pdf(f)[0] or ""
+        if ext in texto.CONVERTIDORES:
+            return texto.CONVERTIDORES[ext][1](f) or ""
+        return ""
+    que, vistas = c["que"].lower(), set()
+    for f in sorted(carpeta.rglob("*")):
+        if f.is_file():
+            for linea in leer(f).splitlines():
+                if que in linea.lower():
+                    vistas |= set(re.findall(r"\d{4}-\d{2}-\d{2}", linea))
+    return vistas & {x for x in c["fechas"] if x}
+
+
 def escribir_notas(carpeta: Path, p: dict, hoy: dt.date) -> tuple:
     """Las notas crudas de la última reunión del proyecto de Samuel, como las toma alguien
     en el cuaderno: sin tabla, con las fechas dichas como se dicen. Tres compromisos con
@@ -199,7 +222,11 @@ def escribir_notas(carpeta: Path, p: dict, hoy: dt.date) -> tuple:
     if c1:
         lineas.append(f"- {c1['quien']} dice que lo de «{c1['que'].lower()}» no alcanzó, "
                       f"se compromete para el {nueva.strftime('%d/%m/%Y')}")
-        repro = len(c1["fechas"])            # con la nueva, tantas reprogramaciones como fechas tenía
+        # Con la nueva, tantas reprogramaciones como fechas tenía **a la vista**: la clave
+        # cuenta lo que el material deja leer, no la historia del simulador. En la ronda 2
+        # (cooperativas) el simulador le dio dos fechas y solo una minuta quedó en la
+        # carpeta; la clave esperaba dos reprogramaciones donde el material sostenía una.
+        repro = len(fechas_a_la_vista(carpeta, c1))
         clave.append({"quien": c1["quien"], "que": c1["que"], "fecha": nueva.isoformat(),
                       "reprogramaciones": repro})
         if dt.date.fromisoformat(c1["fechas"][-1]) < hoy:

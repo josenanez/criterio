@@ -54,11 +54,15 @@ Reglas que no se negocian, todas del skill:
   interoperable»* es una decisión; *«Rubén entrega el documento el 9»* es un compromiso.
 
 **2. Si el compromiso ya existía, no lo dupliques: actualízalo.** El mismo doliente
-sobre lo mismo con fecha nueva **es el mismo compromiso reprogramado**, y la fecha
-anterior entra en su historial:
+sobre lo mismo con fecha nueva **es el mismo compromiso reprogramado**. La primera
+promesa queda en `original_due_date` y **no es una entrada** de `reschedules`; cada
+promesa nueva agrega una entrada con su fecha, y `due_date` pasa a ser la vigente. Dos
+fechas son una reprogramación; tres, dos:
 
 ```json
-"reschedules": [{"due_date": ..., "stated_on": ...}]
+"due_date": "<la vigente>",
+"original_due_date": "<la de la primera promesa>",
+"reschedules": [{"due_date": "<cada fecha nueva>", "stated_on": ..., "source": ...}]
 ```
 
 Esto es lo que separa un seguimiento útil de una lista que crece. Tres entradas sueltas

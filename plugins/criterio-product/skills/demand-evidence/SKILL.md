@@ -36,6 +36,11 @@ Ordenado por lo que aguanta una pregunta incómoda en un comité:
   decisiones, con quién y con su documento. **Es una razón perfectamente válida para
   construir algo, y no es evidencia de demanda.** Confundir las dos es lo que hace que seis
   meses después nadie sepa por qué se hizo.
+- **El acta del comité que lo acepta.** Registra la decisión —va en `decision`, ver
+  **requirement-record**—, no la demanda. Si el acta dice *«lo pidió un cliente
+  entrevistado»*, la evidencia es la entrevista, con su `source_date`; citar el acta en su
+  lugar le pone a la demanda la fecha de la reunión y esconde que envejeció. Si ninguna
+  entrevista lo nombra, se cita la más cercana y se dice que no lo nombra.
 - **Un informe de mercado sobre otra geografía.** Se cita como lo que es, y se dice de qué
   mercado habla.
 - **Un tema de descubrimiento sin ninguna cita.** Ver **discovery-synthesis**.

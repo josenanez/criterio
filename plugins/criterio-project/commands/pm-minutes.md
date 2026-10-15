@@ -78,8 +78,9 @@ Reglas que no se negocian:
   línea legítima del acta, y vale más que elegir una.
 
 **3. Cruza contra lo que ya existe.** El mismo doliente prometiendo lo mismo con fecha
-nueva **es un compromiso reprogramado, no uno nuevo**: la fecha anterior entra en su
-historial y el contador sube. Y si la reunión cerró algo, **ciérralo contra el documento**,
+nueva **es un compromiso reprogramado, no uno nuevo**: la primera promesa se queda en
+`original_due_date`, la fecha nueva entra en `reschedules` y pasa a `due_date`. La
+promesa original nunca es una entrada de `reschedules` —ver **commitment-tracking**—. Y si la reunión cerró algo, **ciérralo contra el documento**,
 no contra la frase: *«Rubén dice que lo entregó»* no cierra nada.
 
 **4. Recalcula. No cuentes tú.**

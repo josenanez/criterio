@@ -51,6 +51,8 @@ Devuelve qué leer y en qué orden: lo nuevo y lo cambiado por hash contra `meta
 
 Di cuántos documentos vas a leer de cuántos que hay, con las cifras del plan. En un barrido de mantenimiento suelen ser cinco de doscientos, y el gerente debe verlo.
 
+**Word, Excel, PowerPoint y PDF se leen por su texto, convertido con `texto.py` al caché `<estado>/cache/texto/`** —aplica **document-intake**—. La cita de la ficha va siempre al documento original, nunca al caché.
+
 **3. Agrupa por proyecto**
 
 Un proyecto es una carpeta bajo `proyectos/`. Si la estructura no está, agrupa por lo que digan los documentos y **propón** la estructura; no la impongas.

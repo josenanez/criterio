@@ -68,7 +68,7 @@ BANCOS = {
               "Salida a producción", "Estabilización y cierre"),
     "AVANCES": (
         "Se ajustó el plan de pruebas con el área de seguridad",
-        "El proveedor entregó el componente de integración, pendiente de aceptación",
+        "Se acordó con arquitectura cómo se revisan los requisitos no funcionales",
         "Dos historias quedaron fuera del alcance del sprint por dependencia con el core",
         "Se reprogramó la salida por ventana de cambio del área de operaciones",
         "El equipo perdió dos semanas por rotación de un desarrollador clave",
@@ -127,7 +127,7 @@ RETAIL = {
               "Estabilización y cierre"),
     "AVANCES": (
         "Se ajustó el plan de pruebas con el área de seguridad",
-        "El proveedor entregó el componente de integración, pendiente de aceptación",
+        "Se acordó con arquitectura cómo se revisan los requisitos no funcionales",
         "La validación con dos tiendas se extendió una semana por el conteo de inventario",
         "Se reprogramó el despliegue por el congelamiento de temporada de fin de año",
         "El equipo perdió dos semanas por rotación de un desarrollador clave",
@@ -254,7 +254,7 @@ COOPERATIVAS = {
               "Salida a producción", "Estabilización y cierre"),
     "AVANCES": (
         "Se ajustó el plan de pruebas con el área de seguridad",
-        "El proveedor entregó el componente de integración, pendiente de aceptación",
+        "Se acordó con arquitectura cómo se revisan los requisitos no funcionales",
         "El Consejo de Administración pidió ajustar el reglamento antes del piloto",
         "Se reprogramó la salida por el cierre contable de fin de mes",
         "El equipo perdió dos semanas por rotación de un desarrollador clave",

@@ -43,6 +43,15 @@ La conversión vive en `scripts/texto.py` y produce Markdown en un caché. **El 
 un caché, no la fuente:** la cita de una ficha apunta siempre al documento original, porque
 es lo que una persona abre para verificar.
 
+**El caché tiene un solo lugar: `<estado>/cache/texto/`**, el del agente que lo usa.
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/texto.py" --docs <documentos> --cache <estado>/cache/texto
+```
+
+Ninguna otra carpeta: en la ronda 2 un barrido lo dejó en `<estado>/texto/`, fuera de lo que
+su contrato declara.
+
 | Formato | Cómo se lee | Dependencia |
 |---|---|---|
 | `.md` `.txt` `.csv` `.tsv` `.json` `.yaml` | Directo | ninguna |

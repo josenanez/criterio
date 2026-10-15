@@ -19,9 +19,13 @@ recibo**, o una factura que corre por delante de la entrega mientras nadie suma.
 Un acta de recibo firmada, un correo de aceptación explícito, o una mención en una minuta
 posterior que diga que se recibió y quién lo recibió.
 
-**No cuenta:** que el proveedor lo declare entregado. Que aparezca en su informe de
-avance. Que el gerente lo mencione en pasado. Que nadie se haya quejado. Sin documento, el
-estado es `unknown`, no `delivered`.
+**No cuenta como evidencia:** que el proveedor lo declare entregado. Que aparezca en su
+informe de avance. Que el gerente lo mencione en pasado. Que nadie se haya quejado. Eso se
+registra como lo que es, una declaración: `state` dice lo declarado —`delivered` o
+`accepted`— y `evidence` queda vacía. Es la misma regla de la ficha (**project-record**):
+`state` dice lo que declaran; `evidence`, lo que prueban. Esa combinación es exactamente
+`vendor_accepted_without_evidence`: alguien dice que llegó y ningún documento lo prueba.
+Registrarla como `unknown` borra la señal.
 
 Y la distinción que importa: *entregado* no es *aceptado*. Alguien puede haber recibido la
 caja sin haber revisado el contenido. Cuando el documento no permite distinguirlos, se
@@ -31,11 +35,11 @@ reporta el que el documento sustente y se dice que no se distingue.
 
 | Estado | Qué es |
 |---|---|
-| `pending` | No ha llegado, o llegó y no hay nada que lo pruebe |
-| `delivered` | Hay documento de entrega |
-| `accepted` | Hay documento de aceptación por quien tiene la facultad |
-| `late` | Pasó la fecha comprometida |
-| `unknown` | No se puede determinar del documento |
+| `pending` | Nadie dice que haya llegado |
+| `delivered` | Un documento dice que se entregó. El acta o el correo que lo prueba va en `evidence` |
+| `accepted` | Un documento dice que se aceptó. El acta de quien tiene la facultad va en `evidence` |
+| `late` | Pasó la fecha comprometida y nadie dice que se entregó |
+| `unknown` | Ningún documento dice nada del entregable |
 
 ## El monto, y por qué cambia el hallazgo
 
