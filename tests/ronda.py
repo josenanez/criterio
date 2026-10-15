@@ -29,6 +29,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -445,17 +446,53 @@ def probar_servidor(espacio: Path, puerto: int = 8799) -> dict:
         urllib.request.urlopen(urllib.request.Request(base + "/peticion", data=datos.encode()), timeout=10)
         n1 = json.loads(urllib.request.urlopen(base + "/estado.json", timeout=10).read())["peticiones_abiertas"]
         peticion = n1 == n0 + 1
+        pantalla = revisar_pantalla(base, [r for r, c in vistas.items() if c == 200 and not r.endswith(".json")])
     except Exception as e:  # noqa: BLE001
         malas["(arnés)"] = str(e)[:80]
+        pantalla = None
     finally:
         p.terminate()
         for f in (set(buzon.glob("*")) if buzon.is_dir() else set()) - previas:
             f.unlink()          # la petición de prueba no se queda en el buzón del agente
     despues = manifiesto(estado / "records") if (estado / "records").is_dir() else {}
+    # La cifra de Rostrum: comprobaciones que pasan sobre las que se hacen. Una por ruta
+    # que debe responder, una por página del informe que no debe mostrar nada crudo, una
+    # por página y ancho de pantalla, la petición y las fichas.
+    paginas_informe = [r for r, c in vistas.items() if c == 200 and not r.startswith("/corrida/")
+                       and not r.endswith(".json")]
+    con_crudo = {x.split(": ", 1)[0] for x in crudo}
+    total = len(vistas) + len(paginas_informe) + 2
+    pasan = (len(vistas) - len(malas)) + (len(paginas_informe) - len(con_crudo)) \
+        + bool(peticion) + (antes == despues)
+    if pantalla is not None:
+        n = len([r for r, c in vistas.items() if c == 200 and not r.endswith(".json")])
+        total += 2 * n
+        pasan += 2 * n - sum(len(v) for v in pantalla.values())
     return {"servidor": str(script.relative_to(Path.home())) if Path.home() in script.parents else "repositorio",
             "rutas": len(vistas), "paginas": paginas, "malas": malas, "crudo": sorted(set(crudo))[:40],
             "crudo_total": len(crudo), "voz_del_agente": voz, "peticion": peticion,
-            "fichas_intactas": antes == despues}
+            "fichas_intactas": antes == despues, "pantalla": pantalla,
+            "comprobaciones": {"total": total, "pasan": pasan}}
+
+
+def revisar_pantalla(base: str, rutas: list):
+    """Cada página en un teléfono y en un escritorio, con `tests/pantalla.mjs`. Sin Node o
+    sin Playwright devuelve None: la prueba dice que no se hizo, no que pasó."""
+    import tempfile
+    if not shutil.which("node"):
+        return None
+    with tempfile.NamedTemporaryFile("w", suffix=".json", delete=False) as f:
+        json.dump(rutas, f)
+    entorno = dict(os.environ)
+    if os.environ.get("PLAYWRIGHT_NODE_PATH"):
+        entorno["NODE_PATH"] = os.environ["PLAYWRIGHT_NODE_PATH"]
+    r = subprocess.run(["node", str(RAIZ / "tests" / "pantalla.mjs"), base, f.name],
+                       capture_output=True, text=True, timeout=1800, env=entorno)
+    Path(f.name).unlink()
+    if r.returncode:
+        return None
+    fuera = json.loads(r.stdout.strip().splitlines()[-1])
+    return {"390": fuera.get("390", []), "1280": fuera.get("1280", [])}
 
 
 # ── revisar: los contratos ────────────────────────────────────────────────
@@ -559,6 +596,9 @@ def revisar(a) -> int:
             if s["crudo"]:
                 problemas.append(f"Rostrum muestra {s.get('crudo_total', len(s['crudo']))} rutas, palabras del esquema "
                                  f"o claves de señal: {s['crudo'][:3]}")
+            for ancho, rutas_ in (s.get("pantalla") or {}).items():
+                if rutas_:
+                    problemas.append(f"Rostrum se sale de la pantalla a {ancho} px en {len(rutas_)} páginas: {rutas_[:3]}")
             if s["peticion"] is False:
                 problemas.append("Rostrum no guardó la petición")
             if not s["fichas_intactas"]:
@@ -691,7 +731,9 @@ def rostrum(a) -> int:
     print(f"Rostrum · {r['servidor']} · {r['rutas']} rutas, {r['paginas']} páginas · "
           f"{len(r['malas'])} sin responder {r['malas'] or ''} · {r['crudo_total']} crudas en el informe · "
           f"{r['voz_del_agente']} en la voz del agente · petición {'ok' if r['peticion'] else 'FALLA'} · "
-          f"fichas {'intactas' if r['fichas_intactas'] else 'MODIFICADAS'}")
+          f"fichas {'intactas' if r['fichas_intactas'] else 'MODIFICADAS'} · pantalla "
+          f"{'no revisada (sin Node o Playwright)' if r['pantalla'] is None else {k: len(v) for k, v in r['pantalla'].items()}}"
+          f" · {r['comprobaciones']['pasan']} de {r['comprobaciones']['total']} comprobaciones")
     for x in r["crudo"][:12]:
         print("   ", x)
     return 0
