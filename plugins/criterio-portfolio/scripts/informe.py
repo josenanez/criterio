@@ -305,6 +305,10 @@ def campo(rec: dict, ruta: str):
         nodo = nodo.get(parte)
     if not isinstance(nodo, dict):
         return nodo, None, None, None
+    # Un campo no encontrado no tiene valor, aunque la ficha haya copiado el estado en el
+    # valor («not_found»): el informe dice que no está dicho, no imprime la palabra (D018).
+    if nodo.get('state') == 'not_found':
+        return None, nodo.get('source'), nodo.get('source_date'), 'not_found'
     return nodo.get('value'), nodo.get('source'), nodo.get('source_date'), nodo.get('state')
 
 
@@ -949,6 +953,8 @@ def selftest() -> int:
                      'deliverables': [{'name': {'value': 'Landing zone'},
                                        'evidence': {'value': None}}]}],
     }
+    ok('no encontrado no se imprime', 'not_found' in con_cita(
+        {'identity': {'authority': {'value': 'not_found', 'state': 'not_found'}}}, 'identity.authority'), False)
     ok('campo simple', nombre_campo(ficha, 'identity.authority'),
        'Hasta dónde decide el gerente sin subir al comité')
     ok('elemento de lista', nombre_campo(ficha, 'plan.milestones[0].evidence'),
