@@ -55,7 +55,8 @@
    "salida": {
     "muestra": "qué tocaba y qué hizo, o nada",
     "escribe": [
-     "<estado>/cadencia.json"
+     "<estado>/cadencia.json",
+     "<estado>/records/<código>.json (commitments, solo si el barrido trae una minuta)"
     ]
    },
    "reglas": {

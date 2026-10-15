@@ -55,6 +55,8 @@ que aparece suele ser una minuta, y una minuta nueva significa compromisos nuevo
 índice trae una, corre la extracción de **commitment-tracking** sobre ella. Si lo que
 cambió no es una minuta, recalcula y cállate si nada cruzó un umbral.
 
+Lo extraído va a la ficha, `<estado>/records/<código>.json`, y a ningún otro archivo: **no dejes copias de respaldo en el estado** (`.bak`, «antes de»). La ficha es una sola; lo que cambió entre un día y otro lo guardan las corridas. En la ronda 3 (minería) quedó una copia junto a la ficha.
+
 **4. Si el comité está cerca, mira de qué lado de la reunión estás.** Es lo propio de este
 agente, y sale del `detail.committee` que devuelve `due`:
 
