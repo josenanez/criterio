@@ -261,7 +261,8 @@ if __name__ == "__main__":
     # resumen de cinco días se quedaba en uno sin que nada fallara.
     dia = informe["dia"]
     nombre = f"dia-{dia}-{hoy}" if dia else hoy
-    salida = RAIZ / "tests" / "informes"
+    # regresion.py manda cada corrida a su propia carpeta; a mano, van a tests/informes.
+    salida = Path(os.environ.get("CRITERIO_INFORMES") or RAIZ / "tests" / "informes")
     salida.mkdir(parents=True, exist_ok=True)
     (salida / f"{nombre}.json").write_text(
         json.dumps(informe, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -278,7 +279,7 @@ if __name__ == "__main__":
             print(f"  control {c}: {'cero hallazgos' if not n else str(n) + ' HALLAZGOS'}")
     else:
         print("  SIN CONTROLES NEGATIVOS declarados: la comprobación no corrió")
-    print(f"  → tests/informes/{nombre}.md")
+    print(f"  → {salida / nombre}.md")
     # Falla si un control negativo produjo algo o si hubo un error de ejecución: las
     # dos cosas invalidan la corrida entera, no solo una señal.
     sys.exit(1 if errores or any(informe["controles"].values()) else 0)
