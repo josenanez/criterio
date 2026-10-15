@@ -1,0 +1,26 @@
+{
+ "n": 8,
+ "agente": "alba",
+ "comando": "product-publish",
+ "argumento": "",
+ "inicio": "2026-10-15T15:49:12",
+ "estado": "success",
+ "error": false,
+ "segundos": 29,
+ "turnos": 9,
+ "tokens": 364127,
+ "tokens_salida": 2064,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/producto/2026-10-15-product-publish-1.html",
+   ".criterio/corridas/producto/2026-10-15-product-publish-1.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/producto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado-producto/PRD-300/corrida-en-curso.json"
+  ],
+  "borrados": []
+ }
+}

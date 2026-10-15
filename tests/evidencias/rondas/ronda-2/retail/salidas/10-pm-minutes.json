@@ -1,0 +1,29 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-205-pago-con-qr-en-caja/2026-10-15-notas-reunion.txt",
+ "inicio": "2026-10-15T15:10:22",
+ "estado": "success",
+ "error": false,
+ "segundos": 57,
+ "turnos": 15,
+ "tokens": 542032,
+ "tokens_salida": 5470,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-minutes-1.md",
+   "estado/PRY-205-pago-con-qr-en-caja/corrida-en-curso.json",
+   "estado/PRY-205-pago-con-qr-en-caja/corridas/2026-10-15-pm-minutes-1.md",
+   "estado/PRY-205-pago-con-qr-en-caja/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-pago-con-qr-en-caja/corridas.json"
+  ],
+  "borrados": []
+ }
+}

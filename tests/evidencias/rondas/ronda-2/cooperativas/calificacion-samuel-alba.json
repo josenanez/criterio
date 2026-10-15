@@ -1,0 +1,67 @@
+{
+ "samuel": {
+  "compromisos": 3,
+  "correctos": 2,
+  "detalle": [
+   {
+    "quien": "Beatriz Cuéllar",
+    "esperado": {
+     "quien": "Beatriz Cuéllar",
+     "que": "Entregar el punto 32",
+     "fecha": "2026-11-20",
+     "reprogramaciones": 2
+    },
+    "ok": false,
+    "encontrado": {
+     "fecha": "2026-11-20",
+     "reprogramaciones": 1
+    }
+   },
+   {
+    "quien": "Laura Vélez",
+    "esperado": {
+     "quien": "Laura Vélez",
+     "que": "ajuste del presupuesto",
+     "fecha": "no_declarada",
+     "reprogramaciones": 0
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "no_declarada",
+     "reprogramaciones": 0
+    }
+   },
+   {
+    "quien": "Óscar Ramírez",
+    "esperado": {
+     "quien": "Óscar Ramírez",
+     "que": "revisión con el proveedor",
+     "fecha": "2026-10-25",
+     "reprogramaciones": 0
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-25",
+     "reprogramaciones": 0
+    }
+   }
+  ]
+ },
+ "alba": {
+  "producto": "PRD-300",
+  "aciertos": 9,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "errores": {
+   "PRD-300": {
+    "esperado": 9,
+    "obtenido": 9,
+    "aciertos": 9,
+    "falsos_negativos": [],
+    "falsos_positivos": []
+   }
+  }
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "n": 11,
+ "agente": "samuel",
+ "comando": "pm-commitments",
+ "argumento": "",
+ "inicio": "2026-10-15T15:11:20",
+ "estado": "success",
+ "error": false,
+ "segundos": 36,
+ "turnos": 12,
+ "tokens": 470048,
+ "tokens_salida": 3018,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-205-pago-con-qr-en-caja/corridas/2026-10-15-pm-commitments-1.md",
+   "estado/PRY-205-pago-con-qr-en-caja/corridas/salida-pm-commitments.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-pago-con-qr-en-caja/corridas.json"
+  ],
+  "borrados": []
+ }
+}

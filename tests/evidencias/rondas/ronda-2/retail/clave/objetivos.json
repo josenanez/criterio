@@ -1,0 +1,21 @@
+{
+ "entorno": "retail",
+ "ronda": 2,
+ "hoy": "2026-10-15",
+ "prd": "PRD-303",
+ "prd_carpeta": "PRD-303",
+ "prd_otro": "PRD-304",
+ "req": "REQ-1030",
+ "pry_sam": "PRY-205",
+ "sam_carpeta": "PRY-205-pago-con-qr-en-caja",
+ "notas": "documentos/proyectos/PRY-205-pago-con-qr-en-caja/2026-10-15-notas-reunion.txt",
+ "status": "PRY-203",
+ "health": "PRY-208",
+ "budget": "PRY-205",
+ "vendor": "PRY-206",
+ "change": "PRY-202",
+ "history": "PRY-211",
+ "charter": "PRY-202",
+ "closure": "PRY-203",
+ "producto_vista": "venta en línea"
+}

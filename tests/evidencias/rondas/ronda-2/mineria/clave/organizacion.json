@@ -1,0 +1,1783 @@
+{
+ "dia": 3,
+ "creada": "2026-10-01",
+ "sector": "mineria",
+ "ronda": 2,
+ "etiqueta": "Empresas mineras de Suramérica · oro y cobre",
+ "proyectos": [
+  {
+   "codigo": "PRY-200",
+   "nombre": "Mantenimiento predictivo de camiones",
+   "carpeta": "PRY-200-mantenimiento-predictivo-de-camiones",
+   "profundidad": "delgada",
+   "area": "Tecnología",
+   "comite": "Comité Ambiental",
+   "patrocinador": "Andrés Lozano",
+   "gerente": "Carlos Peña",
+   "producto": "monitoreo de flota",
+   "aprobacion": "2026-02-04",
+   "inicio": "2026-02-14",
+   "cierre": "2027-05-13",
+   "presupuesto": 800000000,
+   "comprometido": 462114005,
+   "ejecutado": 462496289,
+   "proyeccion": 787391756,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-06-23",
+     "vigente": "2026-06-23",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-10-30",
+     "vigente": "2026-10-30",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2027-03-09",
+     "vigente": "2027-03-09",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Gustavo Neira",
+     "que": "Entregar el punto 23",
+     "fechas": [
+      "2026-10-19",
+      "2026-10-27"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-05"
+    },
+    {
+     "quien": "Laura Vélez",
+     "que": "Entregar el punto 10",
+     "fechas": [
+      "2026-10-28"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 65,
+    "fecha": "2026-10-11"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-12"
+  },
+  {
+   "codigo": "PRY-201",
+   "nombre": "Ampliación de la relavera",
+   "carpeta": "PRY-201-ampliación-de-la-relavera",
+   "profundidad": "media",
+   "area": "Seguridad y Salud",
+   "comite": "Comité de Operaciones",
+   "patrocinador": "Laura Vélez",
+   "gerente": "Natalia Ospina",
+   "producto": null,
+   "aprobacion": "2026-04-13",
+   "inicio": "2026-04-23",
+   "cierre": "2027-06-06",
+   "presupuesto": 800000000,
+   "comprometido": 476899312,
+   "ejecutado": 358392016,
+   "proyeccion": 839626771,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-07-22",
+     "vigente": "2026-07-22",
+     "cerrado": true,
+     "recibo": "2026-10-09"
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-10-21",
+     "vigente": "2026-10-21",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2027-01-20",
+     "vigente": "2027-01-20",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-04-21",
+     "vigente": "2027-04-21",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Liliana Torres",
+     "que": "Entregar el punto 15",
+     "fechas": [
+      "2026-10-03"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-02"
+    },
+    {
+     "quien": "Javier Hoyos",
+     "que": "Entregar el punto 28",
+     "fechas": [
+      "2026-11-08"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-15"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 41,
+    "fecha": "2026-10-13"
+   },
+   "ultimo_doc": "2026-10-14",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRY-202",
+   "nombre": "Planta de tratamiento de agua",
+   "carpeta": "PRY-202-planta-de-tratamiento-de-agua",
+   "profundidad": "completa",
+   "area": "Medio Ambiente",
+   "comite": "Comité de Seguridad",
+   "patrocinador": "Liliana Torres",
+   "gerente": "Ricardo Salas",
+   "producto": null,
+   "aprobacion": "2026-06-21",
+   "inicio": "2026-07-01",
+   "cierre": "2028-02-05",
+   "presupuesto": 1200000000,
+   "comprometido": 586654716,
+   "ejecutado": 539615164,
+   "proyeccion": 1176212499,
+   "proveedores": [
+    {
+     "nombre": "Ingeniería Minera del Sur S.A.S.",
+     "ref": "CT-503",
+     "firma": "2026-06-23",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-11-24",
+       "estado": "pendiente",
+       "monto": 88340049,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2027-04-19",
+       "estado": "pendiente",
+       "monto": 88340049,
+       "acta": null
+      },
+      {
+       "que": "Calibración de sensores",
+       "vence": "2027-09-12",
+       "estado": "pendiente",
+       "monto": 88340049,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": null
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-10-15",
+     "vigente": "2026-10-15",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2027-01-29",
+     "vigente": "2027-01-29",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2027-05-15",
+     "vigente": "2027-05-15",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-08-29",
+     "vigente": "2027-08-29",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Pruebas en operación",
+     "base": "2027-12-13",
+     "vigente": "2027-12-13",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "María Restrepo",
+     "que": "Entregar el punto 15",
+     "fechas": [
+      "2026-10-01"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 48,
+    "fecha": "2026-10-13"
+   },
+   "ultimo_doc": "2026-10-15",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRY-203",
+   "nombre": "Despacho automático de flota",
+   "carpeta": "PRY-203-despacho-automático-de-flota",
+   "profundidad": "delgada",
+   "area": "Medio Ambiente",
+   "comite": "Comité de Tecnología",
+   "patrocinador": "Javier Hoyos",
+   "gerente": "Paula Céspedes",
+   "producto": "despacho de flota",
+   "aprobacion": "2025-06-24",
+   "inicio": "2025-07-04",
+   "cierre": "2027-01-04",
+   "presupuesto": 1200000000,
+   "comprometido": 772433451,
+   "ejecutado": 514897208,
+   "proyeccion": 1120646033,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2025-12-07",
+     "vigente": "2025-12-07",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-05-13",
+     "vigente": "2026-05-13",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-10-17",
+     "vigente": "2026-10-17",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "María Restrepo",
+     "que": "Entregar el punto 27",
+     "fechas": [
+      "2026-11-05"
+     ],
+     "cumplido": true,
+     "dicho": "2026-10-02"
+    },
+    {
+     "quien": "Elena Duarte",
+     "que": "Entregar el punto 29",
+     "fechas": [
+      "2026-10-23"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-10"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 73,
+    "fecha": "2026-10-12"
+   },
+   "ultimo_doc": "2026-10-11",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-12"
+  },
+  {
+   "codigo": "PRY-204",
+   "nombre": "Monitoreo de taludes",
+   "carpeta": "PRY-204-monitoreo-de-taludes",
+   "profundidad": "delgada",
+   "area": "Tecnología",
+   "comite": "Comité de Tecnología",
+   "patrocinador": "Ricardo Salas",
+   "gerente": "Jorge Medina",
+   "producto": "alerta de taludes",
+   "aprobacion": "2025-08-31",
+   "inicio": "2025-09-10",
+   "cierre": "2027-02-24",
+   "presupuesto": 2400000000,
+   "comprometido": 1747958077,
+   "ejecutado": 493764835,
+   "proyeccion": 2505660114,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-02-09",
+     "vigente": "2026-02-09",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-07-11",
+     "vigente": "2026-07-11",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-12-10",
+     "vigente": "2026-12-10",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Felipe Arango",
+     "que": "Entregar el punto 10",
+     "fechas": [
+      "2026-10-15"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-08"
+    },
+    {
+     "quien": "Óscar Ramírez",
+     "que": "Entregar el punto 40",
+     "fechas": [
+      "2026-10-14"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-15"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 30,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-10",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRY-205",
+   "nombre": "Sistema de gestión de seguridad",
+   "carpeta": "PRY-205-sistema-de-gestión-de-seguridad",
+   "profundidad": "delgada",
+   "area": "Geología",
+   "comite": "Comité de Operaciones",
+   "patrocinador": "María Restrepo",
+   "gerente": "Rubén Cárdenas",
+   "producto": null,
+   "aprobacion": "2025-08-11",
+   "inicio": "2025-08-21",
+   "cierre": "2027-01-19",
+   "presupuesto": 9500000000,
+   "comprometido": 6239682167,
+   "ejecutado": 5491598094,
+   "proyeccion": 9244059945,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-01-15",
+     "vigente": "2026-01-15",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-06-11",
+     "vigente": "2026-06-11",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-11-06",
+     "vigente": "2026-11-06",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Elena Duarte",
+     "que": "Entregar el punto 31",
+     "fechas": [
+      "2026-11-05",
+      "2026-10-29"
+     ],
+     "cumplido": true,
+     "dicho": "2026-10-03"
+    },
+    {
+     "quien": "Mauricio Pérez",
+     "que": "Entregar el punto 4",
+     "fechas": [
+      "2026-10-12"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 26,
+    "fecha": "2026-10-11"
+   },
+   "ultimo_doc": "2026-10-12",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-12"
+  },
+  {
+   "codigo": "PRY-206",
+   "nombre": "Red privada LTE en mina",
+   "carpeta": "PRY-206-red-privada-lte-en-mina",
+   "profundidad": "minima",
+   "area": "Mina",
+   "comite": "Comité Ambiental",
+   "patrocinador": "Mauricio Pérez",
+   "gerente": "Liliana Torres",
+   "producto": null,
+   "aprobacion": "2025-07-19",
+   "inicio": "2025-07-29",
+   "cierre": "2026-09-22",
+   "presupuesto": 4200000000,
+   "comprometido": 2939043394,
+   "ejecutado": 823740094,
+   "proyeccion": 4043433327,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-01-13",
+     "vigente": "2026-01-13",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-06-30",
+     "vigente": "2026-06-30",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 77,
+    "fecha": "2026-09-25"
+   },
+   "ultimo_doc": "2026-10-04",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-09-25"
+  },
+  {
+   "codigo": "PRY-207",
+   "nombre": "Gemelo digital de la planta",
+   "carpeta": "PRY-207-gemelo-digital-de-la-planta",
+   "profundidad": "completa",
+   "area": "Mantenimiento",
+   "comite": "Comité de Operaciones",
+   "patrocinador": "Diana Molina",
+   "gerente": "Felipe Arango",
+   "producto": "gemelo digital",
+   "aprobacion": "2026-05-24",
+   "inicio": "2026-06-03",
+   "cierre": "2027-05-28",
+   "presupuesto": 1200000000,
+   "comprometido": 897281144,
+   "ejecutado": 325260789,
+   "proyeccion": 1122546554,
+   "proveedores": [
+    {
+     "nombre": "Montajes Industriales Ltda.",
+     "ref": "CT-555",
+     "firma": "2026-05-21",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-08-31",
+       "estado": "recibido",
+       "monto": 102304427,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-11-29",
+       "estado": "en curso",
+       "monto": 102304427,
+       "acta": null
+      },
+      {
+       "que": "Calibración de sensores",
+       "vence": "2027-02-27",
+       "estado": "pendiente",
+       "monto": 102304427,
+       "acta": null
+      }
+     ],
+     "facturado": 102304427,
+     "fecha_factura": "2026-08-28"
+    },
+    {
+     "nombre": "Equipos Pesados Andinos",
+     "ref": "CT-517",
+     "firma": "2026-05-30",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-08-31",
+       "estado": "pendiente",
+       "monto": 69251482,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-11-29",
+       "estado": "en curso",
+       "monto": 69251482,
+       "acta": null
+      },
+      {
+       "que": "Calibración de sensores",
+       "vence": "2027-02-27",
+       "estado": "en curso",
+       "monto": 69251482,
+       "acta": null
+      }
+     ],
+     "facturado": 69251482,
+     "fecha_factura": "2026-08-26"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-08-07",
+     "vigente": "2026-08-07",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-10-11",
+     "vigente": "2026-10-11",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-12-15",
+     "vigente": "2026-12-15",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-02-19",
+     "vigente": "2027-02-19",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Pruebas en operación",
+     "base": "2027-04-25",
+     "vigente": "2027-08-09",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Laura Vélez",
+     "que": "Entregar el punto 33",
+     "fechas": [
+      null
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-04"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 106,
+     "autorizado": false,
+     "fecha": "2026-10-07"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 34,
+    "fecha": "2026-10-06"
+   },
+   "ultimo_doc": "2026-10-04",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-07"
+  },
+  {
+   "codigo": "PRY-208",
+   "nombre": "Trazabilidad del mineral",
+   "carpeta": "PRY-208-trazabilidad-del-mineral",
+   "profundidad": "delgada",
+   "area": "Mina",
+   "comite": "Comité Ambiental",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Gustavo Neira",
+   "producto": "trazabilidad",
+   "aprobacion": "2025-08-20",
+   "inicio": "2025-08-30",
+   "cierre": "2026-12-10",
+   "presupuesto": 800000000,
+   "comprometido": 256136235,
+   "ejecutado": 454535191,
+   "proyeccion": 791485060,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-01-10",
+     "vigente": "2026-01-10",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-05-23",
+     "vigente": "2026-05-23",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-10-04",
+     "vigente": "2027-01-25",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "María Restrepo",
+     "que": "Entregar el punto 17",
+     "fechas": [
+      "2026-10-17"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 113,
+     "autorizado": true,
+     "fecha": "2026-10-11"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 68,
+    "fecha": "2026-10-13"
+   },
+   "ultimo_doc": "2026-10-11",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRY-209",
+   "nombre": "Electrificación de equipos",
+   "carpeta": "PRY-209-electrificación-de-equipos",
+   "profundidad": "minima",
+   "area": "Medio Ambiente",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Laura Vélez",
+   "gerente": "Sandra Gil",
+   "producto": null,
+   "aprobacion": "2025-10-14",
+   "inicio": "2025-10-24",
+   "cierre": "2027-05-06",
+   "presupuesto": 9500000000,
+   "comprometido": 6073991276,
+   "ejecutado": 2385742576,
+   "proyeccion": 9936230266,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-06-04",
+     "vigente": "2026-06-04",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2027-01-14",
+     "vigente": "2027-01-14",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 48,
+    "fecha": "2026-10-08"
+   },
+   "ultimo_doc": "2026-10-12",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-08"
+  },
+  {
+   "codigo": "PRY-210",
+   "nombre": "Programa de relacionamiento comunitario",
+   "carpeta": "PRY-210-programa-de-relacionamiento-comunitario",
+   "profundidad": "completa",
+   "area": "Mina",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Javier Hoyos",
+   "producto": null,
+   "aprobacion": "2026-03-24",
+   "inicio": "2026-04-03",
+   "cierre": "2027-04-25",
+   "presupuesto": 9500000000,
+   "comprometido": 3772287163,
+   "ejecutado": 2782173991,
+   "proyeccion": 9573898546,
+   "proveedores": [
+    {
+     "nombre": "Ingeniería Minera del Sur S.A.S.",
+     "ref": "CT-414",
+     "firma": "2026-03-19",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-06-19",
+       "estado": "pendiente",
+       "monto": 654129595,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-09-04",
+       "estado": "recibido",
+       "monto": 654129595,
+       "acta": "2026-09-12"
+      },
+      {
+       "que": "Calibración de sensores",
+       "vence": "2026-11-21",
+       "estado": "en curso",
+       "monto": 654129595,
+       "acta": null
+      },
+      {
+       "que": "Soporte del primer trimestre",
+       "vence": "2027-02-06",
+       "estado": "en curso",
+       "monto": 654129595,
+       "acta": null
+      }
+     ],
+     "facturado": 654129595,
+     "fecha_factura": "2026-08-28"
+    },
+    {
+     "nombre": "Montajes Industriales Ltda.",
+     "ref": "CT-637",
+     "firma": "2026-03-24",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-08-10",
+       "estado": "pendiente",
+       "monto": 553602024,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-12-17",
+       "estado": "en curso",
+       "monto": 553602024,
+       "acta": null
+      }
+     ],
+     "facturado": 553602024,
+     "fecha_factura": "2026-09-29"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-06-12",
+     "vigente": "2026-06-12",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-08-21",
+     "vigente": "2026-08-21",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-10-31",
+     "vigente": "2026-10-31",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-01-09",
+     "vigente": "2027-01-09",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Pruebas en operación",
+     "base": "2027-03-20",
+     "vigente": "2027-03-20",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Felipe Arango",
+     "que": "Entregar el punto 26",
+     "fechas": [
+      "2026-11-03"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-09"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 56,
+    "fecha": "2026-10-10"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-10"
+  },
+  {
+   "codigo": "PRY-211",
+   "nombre": "Control de polvo en vías",
+   "carpeta": "PRY-211-control-de-polvo-en-vías",
+   "profundidad": "completa",
+   "area": "Logística",
+   "comite": "Comité Ambiental",
+   "patrocinador": "Diana Molina",
+   "gerente": "Rubén Cárdenas",
+   "producto": null,
+   "aprobacion": "2026-03-09",
+   "inicio": "2026-03-19",
+   "cierre": "2027-09-10",
+   "presupuesto": 2400000000,
+   "comprometido": 984976055,
+   "ejecutado": 1403798497,
+   "proyeccion": 2702499056,
+   "proveedores": [
+    {
+     "nombre": "Ingeniería Minera del Sur S.A.S.",
+     "ref": "CT-147",
+     "firma": "2026-03-01",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-08-01",
+       "estado": "recibido",
+       "monto": 218970261,
+       "acta": "2026-08-10"
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-12-14",
+       "estado": "en curso",
+       "monto": 218970261,
+       "acta": null
+      },
+      {
+       "que": "Calibración de sensores",
+       "vence": "2027-04-28",
+       "estado": "en curso",
+       "monto": 218970261,
+       "acta": null
+      }
+     ],
+     "facturado": 218970261,
+     "fecha_factura": "2026-09-06"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-06-25",
+     "vigente": "2026-06-25",
+     "cerrado": true,
+     "recibo": "2026-10-03"
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-10-01",
+     "vigente": "2026-10-01",
+     "cerrado": true,
+     "recibo": "2026-10-09"
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2027-01-07",
+     "vigente": "2027-01-07",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-04-15",
+     "vigente": "2027-04-15",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Pruebas en operación",
+     "base": "2027-07-22",
+     "vigente": "2027-09-25",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "María Restrepo",
+     "que": "Entregar el punto 22",
+     "fechas": [
+      null
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-14"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 65,
+     "autorizado": false,
+     "fecha": "2026-10-08"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 66,
+    "fecha": "2026-10-12"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRY-199",
+   "nombre": "Cambio de luminarias del campamento",
+   "carpeta": "PRY-199-cambio-de-luminarias-del-campamento",
+   "profundidad": "completa",
+   "area": "Mina",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "María Restrepo",
+   "gerente": "Andrés Lozano",
+   "producto": "PRD-299",
+   "aprobacion": "2026-06-07",
+   "inicio": "2026-06-17",
+   "cierre": "2028-02-07",
+   "presupuesto": 2400000000,
+   "comprometido": 1080000000,
+   "ejecutado": 720000000,
+   "proyeccion": 2400000000,
+   "proveedores": [
+    {
+     "nombre": "Ingeniería Minera del Sur S.A.S.",
+     "ref": "CT-199",
+     "firma": "2026-06-07",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-11-14",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2027-04-13",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Calibración de sensores",
+       "vence": "2027-09-10",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": "2026-10-03"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-10-04",
+     "vigente": "2026-10-04",
+     "cerrado": true,
+     "recibo": "2026-10-07"
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2027-01-21",
+     "vigente": "2027-01-21",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2027-05-10",
+     "vigente": "2027-05-10",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-08-27",
+     "vigente": "2027-08-27",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Pruebas en operación",
+     "base": "2027-12-14",
+     "vigente": "2027-12-14",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el tablero de seguimiento",
+     "fechas": [
+      "2026-09-25"
+     ],
+     "cumplido": true,
+     "dicho": "2026-09-20"
+    },
+    {
+     "quien": "Carlos Peña",
+     "que": "Presentar el cierre de la fase",
+     "fechas": [
+      "2026-11-04"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-11"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 20,
+    "fecha": "2026-10-13"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-13"
+  }
+ ],
+ "productos": [
+  {
+   "codigo": "PRD-300",
+   "nombre": "Monitoreo de flota",
+   "carpeta": "PRD-300",
+   "profundidad": "media",
+   "gerente": "Beatriz Cuéllar",
+   "segmento": "Gerencia",
+   "fecha": "2026-02-02",
+   "entrevista": "2025-09-28",
+   "requerimientos": [
+    {
+     "id": "REQ-1000",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1001",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1002",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2017",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-09-28",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El ahorro se sostiene sin inversión adicional",
+     "desde": "2026-06-06",
+     "verificado": false
+    }
+   ],
+   "declarado": 164808,
+   "medido": 102629,
+   "corte": "2026-09-28",
+   "ultimo_doc": "2026-10-11",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-11"
+  },
+  {
+   "codigo": "PRD-301",
+   "nombre": "Alerta de taludes",
+   "carpeta": "PRD-301",
+   "profundidad": "media",
+   "gerente": "Camilo Beltrán",
+   "segmento": "Gerencia",
+   "fecha": "2026-01-04",
+   "entrevista": "2026-07-18",
+   "requerimientos": [
+    {
+     "id": "REQ-1010",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-07",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1011",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1012",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-22",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-04-04",
+     "verificado": true
+    }
+   ],
+   "declarado": 191184,
+   "medido": null,
+   "corte": "2026-09-16",
+   "ultimo_doc": "2026-10-03",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-03"
+  },
+  {
+   "codigo": "PRD-302",
+   "nombre": "Despacho de flota",
+   "carpeta": "PRD-302",
+   "profundidad": "media",
+   "gerente": "Ricardo Salas",
+   "segmento": "Comunidad",
+   "fecha": "2025-10-19",
+   "entrevista": "2025-08-09",
+   "requerimientos": [
+    {
+     "id": "REQ-1020",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1021",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1022",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-26",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-08-02",
+     "verificado": true
+    }
+   ],
+   "declarado": 252848,
+   "medido": 214850,
+   "corte": "2026-10-10",
+   "ultimo_doc": "2026-10-10",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-10"
+  },
+  {
+   "codigo": "PRD-303",
+   "nombre": "Gemelo digital",
+   "carpeta": "PRD-303",
+   "profundidad": "completa",
+   "gerente": "Sandra Gil",
+   "segmento": "Supervisores",
+   "fecha": "2026-07-21",
+   "entrevista": "2025-08-22",
+   "requerimientos": [
+    {
+     "id": "REQ-1030",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1031",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-22",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1032",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1033",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-22",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El ahorro se sostiene sin inversión adicional",
+     "desde": "2026-04-03",
+     "verificado": false
+    }
+   ],
+   "declarado": 268419,
+   "medido": null,
+   "corte": "2026-09-06",
+   "ultimo_doc": "2026-10-02",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-02"
+  },
+  {
+   "codigo": "PRD-304",
+   "nombre": "Trazabilidad",
+   "carpeta": "PRD-304",
+   "profundidad": "media",
+   "gerente": "Carlos Peña",
+   "segmento": "Supervisores",
+   "fecha": "2026-02-20",
+   "entrevista": "2026-02-22",
+   "requerimientos": [
+    {
+     "id": "REQ-1040",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1041",
+     "estado": "propuesto",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1042",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-22",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La licencia ambiental lo permite",
+     "desde": "2026-05-13",
+     "verificado": false
+    }
+   ],
+   "declarado": 128826,
+   "medido": null,
+   "corte": "2026-09-26",
+   "ultimo_doc": "2026-10-14",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRD-305",
+   "nombre": "Alerta de fatiga",
+   "carpeta": "PRD-305",
+   "profundidad": "completa",
+   "gerente": "Javier Hoyos",
+   "segmento": "Mantenimiento",
+   "fecha": "2025-11-01",
+   "entrevista": "2025-11-07",
+   "requerimientos": [
+    {
+     "id": "REQ-1050",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1051",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1052",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1053",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-03",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-05-23",
+     "verificado": false
+    }
+   ],
+   "declarado": 176319,
+   "medido": null,
+   "corte": "2026-09-18",
+   "ultimo_doc": "2026-10-09",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-09"
+  },
+  {
+   "codigo": "PRD-306",
+   "nombre": "Almacén de repuestos",
+   "carpeta": "PRD-306",
+   "profundidad": "delgada",
+   "gerente": "Elena Duarte",
+   "segmento": "Operadores",
+   "fecha": "2025-11-13",
+   "entrevista": "2026-08-26",
+   "requerimientos": [
+    {
+     "id": "REQ-1060",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1061",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-29",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-06-02",
+     "verificado": false
+    }
+   ],
+   "declarado": 207536,
+   "medido": 189134,
+   "corte": "2026-10-13",
+   "ultimo_doc": "2026-10-09",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRD-307",
+   "nombre": "Reporte ambiental",
+   "carpeta": "PRD-307",
+   "profundidad": "delgada",
+   "gerente": "Javier Hoyos",
+   "segmento": "Supervisores",
+   "fecha": "2026-06-29",
+   "entrevista": "2026-03-20",
+   "requerimientos": [
+    {
+     "id": "REQ-1070",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1071",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-01",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-06-19",
+     "verificado": false
+    }
+   ],
+   "declarado": 68054,
+   "medido": null,
+   "corte": "2026-09-08",
+   "ultimo_doc": "2026-10-07",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-07"
+  },
+  {
+   "codigo": "PRD-308",
+   "nombre": "Permisos de trabajo digitales",
+   "carpeta": "PRD-308",
+   "profundidad": "media",
+   "gerente": "Natalia Ospina",
+   "segmento": "Comunidad",
+   "fecha": "2026-01-05",
+   "entrevista": "2025-08-30",
+   "requerimientos": [
+    {
+     "id": "REQ-1080",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1081",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1082",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-13",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-04-15",
+     "verificado": true
+    }
+   ],
+   "declarado": 250086,
+   "medido": 169375,
+   "corte": "2026-10-11",
+   "ultimo_doc": "2026-10-13",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRD-309",
+   "nombre": "Inspección con drones",
+   "carpeta": "PRD-309",
+   "profundidad": "delgada",
+   "gerente": "Diana Molina",
+   "segmento": "Operadores",
+   "fecha": "2026-02-27",
+   "entrevista": "2026-06-23",
+   "requerimientos": [
+    {
+     "id": "REQ-1090",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1091",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-21",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El ahorro se sostiene sin inversión adicional",
+     "desde": "2026-07-25",
+     "verificado": false
+    }
+   ],
+   "declarado": 167550,
+   "medido": null,
+   "corte": "2026-09-26",
+   "ultimo_doc": "2026-10-11",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-11"
+  },
+  {
+   "codigo": "PRD-299",
+   "nombre": "Solicitud de dotación",
+   "carpeta": "PRD-299",
+   "profundidad": "completa",
+   "gerente": "Felipe Arango",
+   "segmento": "Personas",
+   "fecha": "2026-07-17",
+   "entrevista": "2026-08-16",
+   "requerimientos": [
+    {
+     "id": "REQ-9000",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-05",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9001",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-26",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9002",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-16",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9003",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-06",
+     "proyecto": "PRY-199"
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-08-26",
+     "verificado": true
+    }
+   ],
+   "declarado": 120000,
+   "medido": 120000,
+   "corte": "2026-10-09",
+   "ultimo_doc": "2026-10-12",
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-12"
+  }
+ ]
+}

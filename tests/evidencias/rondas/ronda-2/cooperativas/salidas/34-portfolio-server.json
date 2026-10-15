@@ -1,0 +1,40 @@
+{
+ "n": 34,
+ "agente": "vera",
+ "comando": "portfolio-server",
+ "argumento": "rato",
+ "inicio": "2026-10-15T14:57:38",
+ "estado": "success",
+ "error": false,
+ "segundos": 50,
+ "turnos": 11,
+ "tokens": 486224,
+ "tokens_salida": 4454,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-15-portfolio-server-1.html",
+   ".criterio/corridas/portafolio/2026-10-15-portfolio-server-1.md",
+   "estado/corridas/2026-10-15-portfolio-server-1.md",
+   "estado/corridas/salida-portfolio-server.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ },
+ "servidor": {
+  "rutas": {
+   "/": 200,
+   "/pmo": 200,
+   "/decisiones": 200,
+   "/proyectos": 200,
+   "/productos": 200,
+   "/corridas": 200,
+   "/estado.json": 200
+  },
+  "fichas_intactas": true
+ }
+}

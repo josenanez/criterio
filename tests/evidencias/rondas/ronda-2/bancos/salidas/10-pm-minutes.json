@@ -1,0 +1,30 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-206-billetera-y-qr/2026-10-15-notas-reunion.txt",
+ "inicio": "2026-10-15T13:43:14",
+ "estado": "success",
+ "error": false,
+ "segundos": 54,
+ "turnos": 19,
+ "tokens": 677604,
+ "tokens_salida": 5704,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-minutes-1.md",
+   "estado/PRY-206-billetera-y-qr/corrida-en-curso.json",
+   "estado/PRY-206-billetera-y-qr/corridas/2026-10-15-pm-minutes-1.md",
+   "estado/PRY-206-billetera-y-qr/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-206-billetera-y-qr/corridas.json",
+   "estado/PRY-206-billetera-y-qr/records/PRY-206.json"
+  ],
+  "borrados": []
+ }
+}

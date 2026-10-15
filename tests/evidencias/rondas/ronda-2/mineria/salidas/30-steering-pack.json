@@ -1,0 +1,25 @@
+{
+ "n": 30,
+ "agente": "vera",
+ "comando": "steering-pack",
+ "argumento": "",
+ "inicio": "2026-10-15T16:17:24",
+ "estado": "success",
+ "error": false,
+ "segundos": 98,
+ "turnos": 15,
+ "tokens": 771085,
+ "tokens_salida": 11624,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-15-steering-pack-1.md",
+   "estado/corridas/salida-steering-pack.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "proyecto": "PRY-205",
+ "compromisos": [
+  {
+   "quien": "Mauricio Pérez",
+   "que": "Entregar el punto 4",
+   "fecha": "2026-10-29",
+   "reprogramaciones": 1
+  },
+  {
+   "quien": "Laura Vélez",
+   "que": "ajuste del presupuesto",
+   "fecha": "no_declarada",
+   "reprogramaciones": 0
+  },
+  {
+   "quien": "Óscar Ramírez",
+   "que": "revisión con el proveedor",
+   "fecha": "2026-10-25",
+   "reprogramaciones": 0
+  }
+ ],
+ "riesgo": "el proveedor podría no llegar con el equipo completo"
+}

@@ -1,0 +1,21 @@
+{
+ "entorno": "bancos",
+ "ronda": 2,
+ "hoy": "2026-10-15",
+ "prd": "PRD-303",
+ "prd_carpeta": "PRD-303",
+ "prd_otro": "PRD-302",
+ "req": "REQ-1030",
+ "pry_sam": "PRY-206",
+ "sam_carpeta": "PRY-206-billetera-y-qr",
+ "notas": "documentos/proyectos/PRY-206-billetera-y-qr/2026-10-15-notas-reunion.txt",
+ "status": "PRY-210",
+ "health": "PRY-206",
+ "budget": "PRY-206",
+ "vendor": "PRY-206",
+ "change": "PRY-206",
+ "history": "PRY-207",
+ "charter": "PRY-211",
+ "closure": "PRY-200",
+ "producto_vista": "pagos QR"
+}

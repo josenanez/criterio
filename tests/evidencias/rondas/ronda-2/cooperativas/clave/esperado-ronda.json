@@ -1,0 +1,168 @@
+{
+ "generado": "2026-10-15",
+ "hoy": "2026-10-15",
+ "dia": 3,
+ "disposicion": "referencia",
+ "esperado": {
+  "PRY-200": [
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan",
+   "variance_time",
+   "vendor_deliverable_late",
+   "vendor_deliverable_late",
+   "vendor_deliverable_late"
+  ],
+  "PRY-201": [
+   "commitment_overdue",
+   "declared_vs_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan",
+   "vendor_deliverable_late",
+   "vendor_deliverable_late",
+   "vendor_invoiced_without_delivery"
+  ],
+  "PRY-202": [
+   "declared_vs_evidence",
+   "milestone_met_without_evidence",
+   "milestone_overdue",
+   "silent",
+   "vendor_accepted_without_evidence"
+  ],
+  "PRY-203": [
+   "commitment_overdue",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan",
+   "commitment_undated"
+  ],
+  "PRY-204": [
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan",
+   "variance_cost"
+  ],
+  "PRY-205": [
+   "commitment_undated"
+  ],
+  "PRY-206": [
+   "commitment_overdue",
+   "vendor_accepted_without_evidence",
+   "vendor_accepted_without_evidence",
+   "vendor_invoiced_over_accepted"
+  ],
+  "PRY-207": [
+   "declared_vs_evidence",
+   "milestone_met_without_evidence",
+   "milestone_overdue",
+   "progress_vs_plan",
+   "variance_cost"
+  ],
+  "PRY-208": [
+   "change_without_baseline"
+  ],
+  "PRY-209": [
+   "declared_vs_evidence",
+   "variance_cost"
+  ],
+  "PRY-210": [
+   "change_without_baseline",
+   "commitment_overdue",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence",
+   "progress_vs_plan",
+   "variance_time"
+  ],
+  "PRY-211": [
+   "declared_vs_evidence",
+   "milestone_met_without_evidence",
+   "milestone_met_without_evidence"
+  ],
+  "PRY-199": [],
+  "PRD-300": [
+   "claim_vs_metric",
+   "evidence_stale",
+   "evidence_stale",
+   "evidence_stale",
+   "evidence_stale",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-301": [
+   "claim_vs_metric",
+   "requirement_undecided",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-302": [
+   "assumption_unverified",
+   "evidence_stale",
+   "evidence_stale",
+   "evidence_stale",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_without_owner"
+  ],
+  "PRD-303": [
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-304": [
+   "requirement_accepted_without_evidence",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-305": [
+   "requirement_undecided",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_without_owner"
+  ],
+  "PRD-306": [
+   "evidence_stale",
+   "evidence_stale",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-307": [
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-308": [
+   "evidence_stale",
+   "evidence_stale",
+   "evidence_stale",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-309": [
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced",
+   "requirement_untraced"
+  ],
+  "PRD-299": []
+ },
+ "controles": [
+  "PRY-199",
+  "PRD-299"
+ ],
+ "solo_modelo": {}
+}

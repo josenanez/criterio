@@ -114,7 +114,7 @@
   "evidencia": null,
   "origen": "instrucciones",
   "correccion": "db80a49",
-  "verificado_en": null
+  "verificado_en": "ronda-2 · cuatro industrias: Alba construye producto y requerimientos y encuentra 38 de 43 (0 de 32 en la ronda 1)"
  },
  {
   "id": "D010",
@@ -127,7 +127,7 @@
   "evidencia": null,
   "origen": "instrucciones",
   "correccion": "db80a49",
-  "verificado_en": null
+  "verificado_en": "ronda-2 · cuatro industrias: Alba guarda su estado en estado-producto/<código>, separado del de Vera"
  },
  {
   "id": "D011",
@@ -271,5 +271,109 @@
   "origen": "instrucciones",
   "correccion": "45d62ff",
   "verificado_en": "validate_plugins y coherencia en verde con la versión 1.1"
+ },
+ {
+  "id": "D022",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "bancos",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "El generador escribe al azar en el informe de avance «El proveedor entregó el componente de integración, pendiente de aceptación», sin acta y sin modelarlo en la clave. Vera lo registró como entregado sin evidencia en cuatro proyectos y el motor dio vendor_accepted_without_evidence: la señal es correcta sobre el material; la clave no la lista.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/bancos/revision.json",
+  "origen": "material",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D023",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "bancos",
+  "agente": "vera",
+  "comando": "vendor-control",
+  "que_paso": "vendor-control decía que un entregable sin documento es unknown, no delivered; project-record y el motor dicen que state es lo declarado y evidence lo probado. Dos skills del mismo agente daban reglas opuestas para el mismo campo.",
+  "evidencia": null,
+  "origen": "instrucciones",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D024",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "bancos",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "El barrido convirtió los documentos con texto.py y dejó el caché en estado/texto/, fuera de lo que declara su contrato: ningún comando ni skill decía dónde va el caché. Es la única falla de contrato de bancos.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/bancos/revision.json",
+  "origen": "instrucciones",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D025",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "retail",
+  "agente": "samuel",
+  "comando": "pm-minutes · pm-commitments",
+  "que_paso": "D014 volvió en retail: Samuel escribió la promesa original como una reprogramación. El skill commitment-tracking ya decía que la original no es una entrada, pero pm-minutes y pm-commitments seguían diciendo que «la fecha anterior entra en su historial».",
+  "evidencia": "tests/evidencias/rondas/ronda-2/retail/calificacion-samuel-alba.json",
+  "origen": "instrucciones",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D026",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "retail",
+  "agente": "vera",
+  "comando": "portfolio-setup",
+  "que_paso": "Una ficha juntó dos rutas en un solo source («contrato.md; factura: …») y sellar la dio por leída: nadie que abra la carpeta puede seguir esa cita. sellar no revisaba que las citas fueran documentos que existen.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/retail/revision.json",
+  "origen": "codigo",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D027",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "bancos · mineria",
+  "agente": "alba",
+  "comando": "product-requirements",
+  "que_paso": "Nueve requerimientos aceptados en un acta de comité salieron como decision_without_source: en bancos la cita quedó en un campo que el esquema no tiene; en minería Alba dejó decision vacía porque el acta era una revisión posterior. El skill no decía que la fuente del estado va en decision.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/bancos/calificacion-samuel-alba.json",
+  "origen": "instrucciones",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D028",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "retail",
+  "agente": "alba",
+  "comando": "product-requirements",
+  "que_paso": "Alba citó el acta del comité como evidencia de demanda en lugar de la entrevista: la evidencia quedó con la fecha de la reunión y cinco evidence_stale no salieron. demand-evidence no decía que el acta que acepta es la decisión, no la demanda.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/retail/calificacion-samuel-alba.json",
+  "origen": "instrucciones",
+  "correccion": null,
+  "verificado_en": null
+ },
+ {
+  "id": "D029",
+  "fecha": "2026-10-15",
+  "ronda": "2",
+  "entorno": "cooperativas",
+  "agente": "samuel",
+  "comando": "ronda",
+  "que_paso": "La clave de las notas contó las fechas del simulador (dos) y en la carpeta quedó una sola minuta con una fecha: esperaba dos reprogramaciones donde el material sostiene una. Samuel registró una; su lectura fue la correcta.",
+  "evidencia": "tests/evidencias/rondas/ronda-2/cooperativas/calificacion-samuel-alba.json",
+  "origen": "clave",
+  "correccion": null,
+  "verificado_en": null
  }
 ]

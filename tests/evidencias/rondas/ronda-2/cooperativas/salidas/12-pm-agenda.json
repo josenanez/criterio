@@ -1,0 +1,28 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-15T14:28:01",
+ "estado": "success",
+ "error": false,
+ "segundos": 77,
+ "turnos": 18,
+ "tokens": 675470,
+ "tokens_salida": 8302,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-agenda-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-agenda-1.md",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas/2026-10-15-pm-agenda-1.md",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

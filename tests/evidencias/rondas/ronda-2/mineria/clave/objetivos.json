@@ -1,0 +1,21 @@
+{
+ "entorno": "mineria",
+ "ronda": 2,
+ "hoy": "2026-10-15",
+ "prd": "PRD-300",
+ "prd_carpeta": "PRD-300",
+ "prd_otro": "PRD-303",
+ "req": "REQ-1000",
+ "pry_sam": "PRY-205",
+ "sam_carpeta": "PRY-205-sistema-de-gestión-de-seguridad",
+ "notas": "documentos/proyectos/PRY-205-sistema-de-gestión-de-seguridad/2026-10-15-notas-reunion.txt",
+ "status": "PRY-206",
+ "health": "PRY-204",
+ "budget": "PRY-211",
+ "vendor": "PRY-207",
+ "change": "PRY-202",
+ "history": "PRY-207",
+ "charter": "PRY-209",
+ "closure": "PRY-206",
+ "producto_vista": "despacho de flota"
+}

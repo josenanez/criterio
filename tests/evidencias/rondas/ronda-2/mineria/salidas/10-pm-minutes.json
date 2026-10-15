@@ -1,0 +1,29 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-205-sistema-de-gestión-de-seguridad/2026-10-15-notas-reunion.txt",
+ "inicio": "2026-10-15T15:51:13",
+ "estado": "success",
+ "error": false,
+ "segundos": 58,
+ "turnos": 15,
+ "tokens": 501863,
+ "tokens_salida": 6615,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-minutes-1.md",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corrida-en-curso.json",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas/2026-10-15-pm-minutes-1.md",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "n": 13,
+ "agente": "samuel",
+ "comando": "pm-report",
+ "argumento": "",
+ "inicio": "2026-10-15T14:29:17",
+ "estado": "success",
+ "error": false,
+ "segundos": 52,
+ "turnos": 13,
+ "tokens": 639176,
+ "tokens_salida": 4660,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-report-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-report-1.md",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas/2026-10-15-pm-report-1.md",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas/salida-pm-report.md",
+   "estado/PRY-203-aportes-sociales-en-línea/snapshots/2026-10-15.json"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-aportes-sociales-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

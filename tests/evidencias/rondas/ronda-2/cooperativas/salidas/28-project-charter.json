@@ -1,0 +1,30 @@
+{
+ "n": 28,
+ "agente": "vera",
+ "comando": "project-charter",
+ "argumento": "PRY-205 revisar",
+ "inicio": "2026-10-15T14:48:07",
+ "estado": "success",
+ "error": false,
+ "segundos": 72,
+ "turnos": 20,
+ "tokens": 785969,
+ "tokens_salida": 7388,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-15-project-charter-1.html",
+   ".criterio/corridas/portafolio/2026-10-15-project-charter-1.md",
+   "estado/cache-texto/PRY-205-prevención-de-lavado-de-activos/00-gobierno/2026-06-06-acta-constitucion.docx.md",
+   "estado/cache-texto/manifest.json",
+   "estado/corridas/2026-10-15-project-charter-1.md",
+   "estado/corridas/salida-project-charter.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,1698 @@
+{
+ "dia": 3,
+ "creada": "2026-10-01",
+ "sector": "bancos",
+ "ronda": 2,
+ "etiqueta": "Entidades financieras de Suramérica · bancos",
+ "proyectos": [
+  {
+   "codigo": "PRY-200",
+   "nombre": "Originación digital",
+   "carpeta": "PRY-200-originación-digital",
+   "profundidad": "delgada",
+   "area": "Tesorería",
+   "comite": "Comité de Banca Empresas",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Óscar Ramírez",
+   "producto": "crédito de consumo",
+   "aprobacion": "2025-11-02",
+   "inicio": "2025-11-12",
+   "cierre": "2026-06-09",
+   "presupuesto": 3300000000,
+   "comprometido": 1968323704,
+   "ejecutado": 636458838,
+   "proyeccion": 3368898966,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-01-10",
+     "vigente": "2026-01-10",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-03-11",
+     "vigente": "2026-03-11",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2026-05-10",
+     "vigente": "2026-08-16",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el punto 22",
+     "fechas": [
+      "2026-10-08"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 98,
+     "autorizado": false,
+     "fecha": "2026-10-13"
+    }
+   ],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 43,
+    "fecha": "2026-10-10"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRY-201",
+   "nombre": "Core de depósitos",
+   "carpeta": "PRY-201-core-de-depósitos",
+   "profundidad": "media",
+   "area": "Riesgo y Cumplimiento",
+   "comite": "Comité de Medios de Pago",
+   "patrocinador": "Elena Duarte",
+   "gerente": "Sandra Gil",
+   "producto": "cuenta de ahorros",
+   "aprobacion": "2025-07-02",
+   "inicio": "2025-07-12",
+   "cierre": "2027-01-19",
+   "presupuesto": 800000000,
+   "comprometido": 540313160,
+   "ejecutado": 346245546,
+   "proyeccion": 824430173,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2025-11-12",
+     "vigente": "2025-11-12",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-03-16",
+     "vigente": "2026-03-16",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2026-07-17",
+     "vigente": "2026-07-17",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con usuarios internos",
+     "base": "2026-11-18",
+     "vigente": "2026-11-18",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Gustavo Neira",
+     "que": "Entregar el punto 30",
+     "fechas": [
+      null
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-04"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 71,
+    "fecha": "2026-10-04"
+   },
+   "ultimo_doc": "2026-10-06",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-04"
+  },
+  {
+   "codigo": "PRY-202",
+   "nombre": "Migración a la nube",
+   "carpeta": "PRY-202-migración-a-la-nube",
+   "profundidad": "media",
+   "area": "Banca Empresas",
+   "comite": "Comité de Transformación Digital",
+   "patrocinador": "Jorge Medina",
+   "gerente": "Mauricio Pérez",
+   "producto": null,
+   "aprobacion": "2026-01-14",
+   "inicio": "2026-01-24",
+   "cierre": "2027-07-06",
+   "presupuesto": 18000000000,
+   "comprometido": 9783706068,
+   "ejecutado": 9343786948,
+   "proyeccion": 17240746390,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-05-21",
+     "vigente": "2026-05-21",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-09-15",
+     "vigente": "2026-09-15",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2027-01-11",
+     "vigente": "2027-01-11",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con usuarios internos",
+     "base": "2027-05-08",
+     "vigente": "2027-06-19",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Gustavo Neira",
+     "que": "Entregar el punto 5",
+     "fechas": [
+      "2026-10-25"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-11"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 42,
+     "autorizado": true,
+     "fecha": "2026-10-04"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 82,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-12",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRY-203",
+   "nombre": "Open Banking",
+   "carpeta": "PRY-203-open-banking",
+   "profundidad": "media",
+   "area": "Banca de Personas",
+   "comite": "Comité de Arquitectura",
+   "patrocinador": "Felipe Arango",
+   "gerente": "Elena Duarte",
+   "producto": "APIs de datos",
+   "aprobacion": "2025-12-22",
+   "inicio": "2026-01-01",
+   "cierre": "2026-12-18",
+   "presupuesto": 3300000000,
+   "comprometido": 2642425382,
+   "ejecutado": 1076636264,
+   "proyeccion": 3753660017,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-03-20",
+     "vigente": "2026-03-20",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-06-06",
+     "vigente": "2026-06-06",
+     "cerrado": true,
+     "recibo": "2026-10-07"
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2026-08-23",
+     "vigente": "2026-08-23",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con usuarios internos",
+     "base": "2026-11-09",
+     "vigente": "2027-01-26",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el punto 35",
+     "fechas": [
+      "2026-09-28"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-11"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 78,
+     "autorizado": true,
+     "fecha": "2026-10-04"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 25,
+    "fecha": "2026-10-03"
+   },
+   "ultimo_doc": "2026-10-10",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-11"
+  },
+  {
+   "codigo": "PRY-204",
+   "nombre": "Débito contactless",
+   "carpeta": "PRY-204-débito-contactless",
+   "profundidad": "delgada",
+   "area": "Medios de Pago",
+   "comite": "Comité de Banca Empresas",
+   "patrocinador": "Mauricio Pérez",
+   "gerente": "Paula Céspedes",
+   "producto": "tarjeta débito",
+   "aprobacion": "2025-11-08",
+   "inicio": "2025-11-18",
+   "cierre": "2027-01-03",
+   "presupuesto": 800000000,
+   "comprometido": 444443611,
+   "ejecutado": 268589102,
+   "proyeccion": 1020707324,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-03-15",
+     "vigente": "2026-03-15",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-07-10",
+     "vigente": "2026-07-10",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2026-11-05",
+     "vigente": "2026-11-05",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Jorge Medina",
+     "que": "Entregar el punto 12",
+     "fechas": [
+      null
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-15"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 58,
+    "fecha": "2026-10-12"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRY-205",
+   "nombre": "Prevención de lavado de activos",
+   "carpeta": "PRY-205-prevención-de-lavado-de-activos",
+   "profundidad": "minima",
+   "area": "Riesgo y Cumplimiento",
+   "comite": "Comité de Transformación Digital",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Camilo Beltrán",
+   "producto": null,
+   "aprobacion": "2025-07-10",
+   "inicio": "2025-07-20",
+   "cierre": "2027-02-28",
+   "presupuesto": 3300000000,
+   "comprometido": 1253821894,
+   "ejecutado": 1952355864,
+   "proyeccion": 3460336570,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-03-12",
+     "vigente": "2026-03-12",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-11-02",
+     "vigente": "2027-03-27",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 3,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 109,
+     "autorizado": true,
+     "fecha": "2026-10-06"
+    },
+    {
+     "ref": "CC-02",
+     "dias": 36,
+     "autorizado": false,
+     "fecha": "2026-10-12"
+    }
+   ],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 63,
+    "fecha": "2026-10-04"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-12"
+  },
+  {
+   "codigo": "PRY-206",
+   "nombre": "Billetera y QR",
+   "carpeta": "PRY-206-billetera-y-qr",
+   "profundidad": "completa",
+   "area": "Banca Hipotecaria",
+   "comite": "Comité de Arquitectura",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Camilo Beltrán",
+   "producto": "pagos QR",
+   "aprobacion": "2025-06-02",
+   "inicio": "2025-06-12",
+   "cierre": "2026-11-11",
+   "presupuesto": 6800000000,
+   "comprometido": 3979137385,
+   "ejecutado": 2925165723,
+   "proyeccion": 7686267486,
+   "proveedores": [
+    {
+     "nombre": "Redes del Norte Ltda.",
+     "ref": "CT-725",
+     "firma": "2025-06-06",
+     "entregables": [
+      {
+       "que": "Licenciamiento del motor",
+       "vence": "2025-10-19",
+       "estado": "recibido",
+       "monto": 460039595,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de desarrollo",
+       "vence": "2026-02-25",
+       "estado": "en curso",
+       "monto": 460039595,
+       "acta": null
+      },
+      {
+       "que": "Parametrización del tarifario",
+       "vence": "2026-07-04",
+       "estado": "recibido",
+       "monto": 460039595,
+       "acta": null
+      }
+     ],
+     "facturado": 1317839587,
+     "fecha_factura": "2026-09-10"
+    },
+    {
+     "nombre": "Consultora Andina S.A.S.",
+     "ref": "CT-279",
+     "firma": "2025-05-23",
+     "entregables": [
+      {
+       "que": "Licenciamiento del motor",
+       "vence": "2025-10-19",
+       "estado": "recibido",
+       "monto": 381337855,
+       "acta": "2025-11-05"
+      },
+      {
+       "que": "Bolsa de horas de desarrollo",
+       "vence": "2026-02-25",
+       "estado": "recibido",
+       "monto": 381337855,
+       "acta": "2026-03-16"
+      },
+      {
+       "que": "Parametrización del tarifario",
+       "vence": "2026-07-04",
+       "estado": "pendiente",
+       "monto": 381337855,
+       "acta": null
+      }
+     ],
+     "facturado": 762675710,
+     "fecha_factura": "2026-09-10"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2025-09-14",
+     "vigente": "2025-09-14",
+     "cerrado": true,
+     "recibo": "2026-10-11"
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2025-12-17",
+     "vigente": "2025-12-17",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2026-03-21",
+     "vigente": "2026-03-21",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con usuarios internos",
+     "base": "2026-06-23",
+     "vigente": "2026-06-23",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Salida a producción",
+     "base": "2026-09-25",
+     "vigente": "2026-09-25",
+     "cerrado": true,
+     "recibo": "2026-10-04"
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Liliana Torres",
+     "que": "Entregar el punto 7",
+     "fechas": [
+      "2026-09-30"
+     ],
+     "cumplido": true,
+     "dicho": "2026-10-04"
+    },
+    {
+     "quien": "Liliana Torres",
+     "que": "Entregar el punto 21",
+     "fechas": [
+      "2026-10-05"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 31,
+    "fecha": "2026-10-04"
+   },
+   "ultimo_doc": "2026-10-11",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-12"
+  },
+  {
+   "codigo": "PRY-207",
+   "nombre": "Onboarding PyME",
+   "carpeta": "PRY-207-onboarding-pyme",
+   "profundidad": "media",
+   "area": "Banca de Personas",
+   "comite": "Comité de Transformación Digital",
+   "patrocinador": "Óscar Ramírez",
+   "gerente": "Javier Hoyos",
+   "producto": "cuenta PyME",
+   "aprobacion": "2026-05-17",
+   "inicio": "2026-05-27",
+   "cierre": "2027-04-27",
+   "presupuesto": 3300000000,
+   "comprometido": 1403747264,
+   "ejecutado": 988461552,
+   "proyeccion": 3119708600,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-08-09",
+     "vigente": "2026-08-09",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-10-22",
+     "vigente": "2026-10-22",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2027-01-05",
+     "vigente": "2027-01-05",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con usuarios internos",
+     "base": "2027-03-20",
+     "vigente": "2027-08-10",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 3,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 23,
+     "autorizado": true,
+     "fecha": "2026-10-05"
+    },
+    {
+     "ref": "CC-02",
+     "dias": 120,
+     "autorizado": true,
+     "fecha": "2026-10-13"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 75,
+    "fecha": "2026-09-26"
+   },
+   "ultimo_doc": "2026-10-10",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRY-208",
+   "nombre": "Motor de decisión",
+   "carpeta": "PRY-208-motor-de-decisión",
+   "profundidad": "delgada",
+   "area": "Banca Empresas",
+   "comite": "Comité de Transformación Digital",
+   "patrocinador": "Javier Hoyos",
+   "gerente": "Carlos Peña",
+   "producto": null,
+   "aprobacion": "2025-07-04",
+   "inicio": "2025-07-14",
+   "cierre": "2026-05-20",
+   "presupuesto": 2400000000,
+   "comprometido": 1968902025,
+   "ejecutado": 375756283,
+   "proyeccion": 3022670609,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2025-10-10",
+     "vigente": "2025-10-10",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-01-07",
+     "vigente": "2026-01-07",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2026-04-05",
+     "vigente": "2026-04-25",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "María Restrepo",
+     "que": "Entregar el punto 38",
+     "fechas": [
+      "2026-09-22"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-08"
+    },
+    {
+     "quien": "Rubén Cárdenas",
+     "que": "Entregar el punto 12",
+     "fechas": [
+      "2026-11-09"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-10"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 20,
+     "autorizado": true,
+     "fecha": "2026-10-10"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 45,
+    "fecha": "2026-10-11"
+   },
+   "ultimo_doc": "2026-10-12",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-11"
+  },
+  {
+   "codigo": "PRY-209",
+   "nombre": "Nómina electrónica",
+   "carpeta": "PRY-209-nómina-electrónica",
+   "profundidad": "media",
+   "area": "Medios de Pago",
+   "comite": "Comité de Arquitectura",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Paula Céspedes",
+   "producto": "nómina empresarial",
+   "aprobacion": "2026-01-30",
+   "inicio": "2026-02-09",
+   "cierre": "2027-03-10",
+   "presupuesto": 800000000,
+   "comprometido": 617749136,
+   "ejecutado": 241881517,
+   "proyeccion": 742906512,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-05-07",
+     "vigente": "2026-05-07",
+     "cerrado": true,
+     "recibo": "2026-10-08"
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-08-03",
+     "vigente": "2026-08-03",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2026-10-29",
+     "vigente": "2026-10-29",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con usuarios internos",
+     "base": "2027-01-25",
+     "vigente": "2027-01-25",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 45,
+    "fecha": "2026-10-04"
+   },
+   "ultimo_doc": "2026-10-06",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-08"
+  },
+  {
+   "codigo": "PRY-210",
+   "nombre": "Portal de proveedores",
+   "carpeta": "PRY-210-portal-de-proveedores",
+   "profundidad": "media",
+   "area": "Riesgo y Cumplimiento",
+   "comite": "Comité de Banca Empresas",
+   "patrocinador": "Rubén Cárdenas",
+   "gerente": "Óscar Ramírez",
+   "producto": null,
+   "aprobacion": "2025-05-22",
+   "inicio": "2025-06-01",
+   "cierre": "2025-12-26",
+   "presupuesto": 2400000000,
+   "comprometido": 1636053902,
+   "ejecutado": 456513809,
+   "proyeccion": 2498619894,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2025-07-17",
+     "vigente": "2025-07-17",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2025-09-01",
+     "vigente": "2025-09-01",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2025-10-17",
+     "vigente": "2025-10-17",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con usuarios internos",
+     "base": "2025-12-02",
+     "vigente": "2025-12-24",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Rubén Cárdenas",
+     "que": "Entregar el punto 10",
+     "fechas": [
+      null
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-13"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 22,
+     "autorizado": false,
+     "fecha": "2026-10-08"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 39,
+    "fecha": "2026-10-10"
+   },
+   "ultimo_doc": "2026-10-12",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRY-211",
+   "nombre": "Cobranza digital",
+   "carpeta": "PRY-211-cobranza-digital",
+   "profundidad": "minima",
+   "area": "Tecnología",
+   "comite": "Comité de Medios de Pago",
+   "patrocinador": "Óscar Ramírez",
+   "gerente": "Paula Céspedes",
+   "producto": "recaudos",
+   "aprobacion": "2026-05-11",
+   "inicio": "2026-05-21",
+   "cierre": "2027-04-28",
+   "presupuesto": 3300000000,
+   "comprometido": 2612295707,
+   "ejecutado": 1351157629,
+   "proyeccion": 3394680472,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-10-04",
+     "vigente": "2026-10-04",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2027-02-18",
+     "vigente": "2027-02-18",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 25,
+    "fecha": "2026-10-07"
+   },
+   "ultimo_doc": "2026-10-04",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-07"
+  },
+  {
+   "codigo": "PRY-199",
+   "nombre": "Renovación de cajeros automáticos",
+   "carpeta": "PRY-199-renovación-de-cajeros-automáticos",
+   "profundidad": "completa",
+   "area": "Banca de Personas",
+   "comite": "Comité de Transformación Digital",
+   "patrocinador": "María Restrepo",
+   "gerente": "Andrés Lozano",
+   "producto": "PRD-299",
+   "aprobacion": "2026-06-07",
+   "inicio": "2026-06-17",
+   "cierre": "2028-02-07",
+   "presupuesto": 2400000000,
+   "comprometido": 1080000000,
+   "ejecutado": 720000000,
+   "proyeccion": 2400000000,
+   "proveedores": [
+    {
+     "nombre": "Consultora Andina S.A.S.",
+     "ref": "CT-199",
+     "firma": "2026-06-07",
+     "entregables": [
+      {
+       "que": "Licenciamiento del motor",
+       "vence": "2026-11-14",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de desarrollo",
+       "vence": "2027-04-13",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Parametrización del tarifario",
+       "vence": "2027-09-10",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": "2026-10-03"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-10-04",
+     "vigente": "2026-10-04",
+     "cerrado": true,
+     "recibo": "2026-10-07"
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2027-01-21",
+     "vigente": "2027-01-21",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core",
+     "base": "2027-05-10",
+     "vigente": "2027-05-10",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con usuarios internos",
+     "base": "2027-08-27",
+     "vigente": "2027-08-27",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Salida a producción",
+     "base": "2027-12-14",
+     "vigente": "2027-12-14",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el tablero de seguimiento",
+     "fechas": [
+      "2026-09-25"
+     ],
+     "cumplido": true,
+     "dicho": "2026-09-20"
+    },
+    {
+     "quien": "Carlos Peña",
+     "que": "Presentar el cierre de la fase",
+     "fechas": [
+      "2026-11-04"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-11"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 20,
+    "fecha": "2026-10-13"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-13"
+  }
+ ],
+ "productos": [
+  {
+   "codigo": "PRD-300",
+   "nombre": "Pagos QR comercios",
+   "carpeta": "PRD-300",
+   "profundidad": "media",
+   "gerente": "Jorge Medina",
+   "segmento": "PyME",
+   "fecha": "2025-10-12",
+   "entrevista": "2025-10-24",
+   "requerimientos": [
+    {
+     "id": "REQ-1000",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1001",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1002",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2024",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-27",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-05-18",
+     "verificado": false
+    }
+   ],
+   "declarado": 273646,
+   "medido": 219534,
+   "corte": "2026-10-08",
+   "ultimo_doc": "2026-10-11",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-11"
+  },
+  {
+   "codigo": "PRD-301",
+   "nombre": "Nómina empresarial",
+   "carpeta": "PRD-301",
+   "profundidad": "completa",
+   "gerente": "Javier Hoyos",
+   "segmento": "PyME",
+   "fecha": "2025-12-18",
+   "entrevista": "2025-11-16",
+   "requerimientos": [
+    {
+     "id": "REQ-1010",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1011",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1012",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-07",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1013",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-24",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El canal actual soporta el volumen",
+     "desde": "2026-04-26",
+     "verificado": false
+    }
+   ],
+   "declarado": 128606,
+   "medido": null,
+   "corte": "2026-09-19",
+   "ultimo_doc": "2026-10-11",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-11"
+  },
+  {
+   "codigo": "PRD-302",
+   "nombre": "Crédito hipotecario digital",
+   "carpeta": "PRD-302",
+   "profundidad": "delgada",
+   "gerente": "Óscar Ramírez",
+   "segmento": "Personas",
+   "fecha": "2026-05-16",
+   "entrevista": "2025-08-12",
+   "requerimientos": [
+    {
+     "id": "REQ-1020",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1021",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2016",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-09-22",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La demanda declarada se sostiene sin campaña",
+     "desde": "2026-06-08",
+     "verificado": false
+    }
+   ],
+   "declarado": 160570,
+   "medido": null,
+   "corte": "2026-09-16",
+   "ultimo_doc": "2026-10-02",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-02"
+  },
+  {
+   "codigo": "PRD-303",
+   "nombre": "Cuenta PyME",
+   "carpeta": "PRD-303",
+   "profundidad": "completa",
+   "gerente": "Beatriz Cuéllar",
+   "segmento": "Empresas",
+   "fecha": "2026-02-02",
+   "entrevista": "2025-08-11",
+   "requerimientos": [
+    {
+     "id": "REQ-1030",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1031",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-08",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1032",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1033",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2018",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-09-23",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El segmento paga por esto",
+     "desde": "2026-09-21",
+     "verificado": false
+    }
+   ],
+   "declarado": 276747,
+   "medido": 246553,
+   "corte": "2026-10-09",
+   "ultimo_doc": "2026-10-13",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRD-304",
+   "nombre": "Tarjeta de crédito digital",
+   "carpeta": "PRD-304",
+   "profundidad": "media",
+   "gerente": "Paula Céspedes",
+   "segmento": "Empresas",
+   "fecha": "2026-01-01",
+   "entrevista": "2026-08-14",
+   "requerimientos": [
+    {
+     "id": "REQ-1040",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1041",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1042",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2024",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-10-08",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La demanda declarada se sostiene sin campaña",
+     "desde": "2026-04-12",
+     "verificado": true
+    }
+   ],
+   "declarado": 183611,
+   "medido": null,
+   "corte": "2026-09-11",
+   "ultimo_doc": "2026-10-10",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-10"
+  },
+  {
+   "codigo": "PRD-305",
+   "nombre": "Recaudos y cobros",
+   "carpeta": "PRD-305",
+   "profundidad": "delgada",
+   "gerente": "Ricardo Salas",
+   "segmento": "PyME",
+   "fecha": "2025-09-19",
+   "entrevista": "2026-08-26",
+   "requerimientos": [
+    {
+     "id": "REQ-1050",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1051",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2023",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-10-05",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La regulación vigente lo permite",
+     "desde": "2026-07-18",
+     "verificado": false
+    }
+   ],
+   "declarado": 145388,
+   "medido": null,
+   "corte": "2026-09-29",
+   "ultimo_doc": "2026-10-14",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRD-306",
+   "nombre": "Microseguros",
+   "carpeta": "PRD-306",
+   "profundidad": "delgada",
+   "gerente": "Paula Céspedes",
+   "segmento": "Base de la pirámide",
+   "fecha": "2026-06-29",
+   "entrevista": "2025-12-30",
+   "requerimientos": [
+    {
+     "id": "REQ-1060",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1061",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-10",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-09-13",
+     "verificado": false
+    }
+   ],
+   "declarado": 198938,
+   "medido": null,
+   "corte": "2026-09-27",
+   "ultimo_doc": "2026-09-28",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-09-28"
+  },
+  {
+   "codigo": "PRD-307",
+   "nombre": "Remesas familiares",
+   "carpeta": "PRD-307",
+   "profundidad": "delgada",
+   "gerente": "Gustavo Neira",
+   "segmento": "Base de la pirámide",
+   "fecha": "2025-09-26",
+   "entrevista": "2026-03-14",
+   "requerimientos": [
+    {
+     "id": "REQ-1070",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1071",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2023",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-29",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La demanda declarada se sostiene sin campaña",
+     "desde": "2026-06-27",
+     "verificado": false
+    }
+   ],
+   "declarado": 252237,
+   "medido": null,
+   "corte": "2026-09-07",
+   "ultimo_doc": "2026-10-13",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRD-308",
+   "nombre": "Cuenta de ahorros joven",
+   "carpeta": "PRD-308",
+   "profundidad": "media",
+   "gerente": "Andrés Lozano",
+   "segmento": "Base de la pirámide",
+   "fecha": "2025-12-19",
+   "entrevista": "2026-06-16",
+   "requerimientos": [
+    {
+     "id": "REQ-1080",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1081",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1082",
+     "estado": "propuesto",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2024",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-10-05",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La regulación vigente lo permite",
+     "desde": "2026-05-10",
+     "verificado": false
+    }
+   ],
+   "declarado": 101993,
+   "medido": null,
+   "corte": "2026-09-25",
+   "ultimo_doc": "2026-10-09",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-09"
+  },
+  {
+   "codigo": "PRD-309",
+   "nombre": "Crédito de libre inversión",
+   "carpeta": "PRD-309",
+   "profundidad": "media",
+   "gerente": "Laura Vélez",
+   "segmento": "Empresas",
+   "fecha": "2026-01-21",
+   "entrevista": "2026-03-21",
+   "requerimientos": [
+    {
+     "id": "REQ-1090",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1091",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-1092",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2017",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-09-26",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La demanda declarada se sostiene sin campaña",
+     "desde": "2026-09-23",
+     "verificado": true
+    }
+   ],
+   "declarado": 203609,
+   "medido": null,
+   "corte": "2026-09-27",
+   "ultimo_doc": "2026-10-04",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-04"
+  },
+  {
+   "codigo": "PRD-299",
+   "nombre": "Ahorro programado",
+   "carpeta": "PRD-299",
+   "profundidad": "completa",
+   "gerente": "Felipe Arango",
+   "segmento": "Personas",
+   "fecha": "2026-07-17",
+   "entrevista": "2026-08-16",
+   "requerimientos": [
+    {
+     "id": "REQ-9000",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-05",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9001",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-26",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9002",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-16",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9003",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-06",
+     "proyecto": "PRY-199"
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El segmento paga por esto",
+     "desde": "2026-08-26",
+     "verificado": true
+    }
+   ],
+   "declarado": 120000,
+   "medido": 120000,
+   "corte": "2026-10-09",
+   "ultimo_doc": "2026-10-12",
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-12"
+  }
+ ]
+}

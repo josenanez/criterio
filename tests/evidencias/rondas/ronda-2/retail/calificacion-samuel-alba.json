@@ -1,0 +1,73 @@
+{
+ "samuel": {
+  "compromisos": 3,
+  "correctos": 2,
+  "detalle": [
+   {
+    "quien": "Beatriz Cuéllar",
+    "esperado": {
+     "quien": "Beatriz Cuéllar",
+     "que": "Entregar el punto 1",
+     "fecha": "2026-11-22",
+     "reprogramaciones": 1
+    },
+    "ok": false,
+    "encontrado": {
+     "fecha": "2026-11-22",
+     "reprogramaciones": 2
+    }
+   },
+   {
+    "quien": "Laura Vélez",
+    "esperado": {
+     "quien": "Laura Vélez",
+     "que": "ajuste del presupuesto",
+     "fecha": "no_declarada",
+     "reprogramaciones": 0
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "no_declarada",
+     "reprogramaciones": 0
+    }
+   },
+   {
+    "quien": "Óscar Ramírez",
+    "esperado": {
+     "quien": "Óscar Ramírez",
+     "que": "revisión con el proveedor",
+     "fecha": "2026-10-25",
+     "reprogramaciones": 0
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-25",
+     "reprogramaciones": 0
+    }
+   }
+  ]
+ },
+ "alba": {
+  "producto": "PRD-303",
+  "aciertos": 8,
+  "falsos_positivos": 0,
+  "falsos_negativos": 5,
+  "precision": 100.0,
+  "cobertura": 61.5,
+  "errores": {
+   "PRD-303": {
+    "esperado": 13,
+    "obtenido": 8,
+    "aciertos": 8,
+    "falsos_negativos": [
+     "evidence_stale",
+     "evidence_stale",
+     "evidence_stale",
+     "evidence_stale",
+     "evidence_stale"
+    ],
+    "falsos_positivos": []
+   }
+  }
+ }
+}

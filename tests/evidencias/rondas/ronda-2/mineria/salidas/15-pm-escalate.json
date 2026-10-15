@@ -1,0 +1,25 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-15T15:56:47",
+ "estado": "success",
+ "error": false,
+ "segundos": 60,
+ "turnos": 18,
+ "tokens": 669270,
+ "tokens_salida": 6118,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas/2026-10-15-pm-escalate-1.md",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas.json"
+  ],
+  "borrados": []
+ }
+}

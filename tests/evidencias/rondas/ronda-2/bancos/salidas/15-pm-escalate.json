@@ -1,0 +1,25 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-15T13:48:45",
+ "estado": "success",
+ "error": false,
+ "segundos": 54,
+ "turnos": 13,
+ "tokens": 497033,
+ "tokens_salida": 5065,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-206-billetera-y-qr/corridas/2026-10-15-pm-escalate-1.md",
+   "estado/PRY-206-billetera-y-qr/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-206-billetera-y-qr/corridas.json"
+  ],
+  "borrados": []
+ }
+}

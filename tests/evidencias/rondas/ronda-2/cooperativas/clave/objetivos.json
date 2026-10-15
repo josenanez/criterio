@@ -1,0 +1,21 @@
+{
+ "entorno": "cooperativas",
+ "ronda": 2,
+ "hoy": "2026-10-15",
+ "prd": "PRD-300",
+ "prd_carpeta": "PRD-300",
+ "prd_otro": "PRD-302",
+ "req": "REQ-1000",
+ "pry_sam": "PRY-203",
+ "sam_carpeta": "PRY-203-aportes-sociales-en-línea",
+ "notas": "documentos/proyectos/PRY-203-aportes-sociales-en-línea/2026-10-15-notas-reunion.txt",
+ "status": "PRY-202",
+ "health": "PRY-201",
+ "budget": "PRY-204",
+ "vendor": "PRY-200",
+ "change": "PRY-200",
+ "history": "PRY-210",
+ "charter": "PRY-205",
+ "closure": "PRY-200",
+ "producto_vista": "aportes sociales"
+}

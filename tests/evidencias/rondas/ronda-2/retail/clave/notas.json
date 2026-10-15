@@ -1,0 +1,24 @@
+{
+ "proyecto": "PRY-205",
+ "compromisos": [
+  {
+   "quien": "Beatriz Cuéllar",
+   "que": "Entregar el punto 1",
+   "fecha": "2026-11-22",
+   "reprogramaciones": 1
+  },
+  {
+   "quien": "Laura Vélez",
+   "que": "ajuste del presupuesto",
+   "fecha": "no_declarada",
+   "reprogramaciones": 0
+  },
+  {
+   "quien": "Óscar Ramírez",
+   "que": "revisión con el proveedor",
+   "fecha": "2026-10-25",
+   "reprogramaciones": 0
+  }
+ ],
+ "riesgo": "el proveedor podría no llegar con el equipo completo"
+}
