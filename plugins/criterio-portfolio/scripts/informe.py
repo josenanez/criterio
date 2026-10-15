@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Criterio PMO — el informe.
 
-    python3 informe.py --state <estado> --salida <carpeta> [--config <archivo>]
+    python3 informe.py --state <estado> --config <archivo>          (va a paths.reports)
+    python3 informe.py --state <estado> --salida <carpeta>         (sin configuración)
                        [--today AAAA-MM-DD]
 
 Toma lo que calculó `portafolio.py compute` y las fichas, y produce el informe en HTML con
@@ -1083,8 +1084,21 @@ def main() -> int:
     args = ap.parse_args()
     if args.selftest:
         return selftest()
-    if not args.state or not args.salida:
-        ap.error('--state y --salida son obligatorios (o usa --selftest)')
+    if not args.state:
+        ap.error('--state es obligatorio (o usa --selftest)')
+    # El informe tiene un solo lugar: `paths.reports` de la configuración, que es la
+    # carpeta que Rostrum sirve. En la ronda 3 (retail) el agente eligió una subcarpeta
+    # con fecha y Rostrum respondió 404 en cada página del informe.
+    reportes = None
+    if args.config and args.config.is_file():
+        reportes = (json.loads(args.config.read_text(encoding='utf-8')).get('paths') or {}).get('reports')
+    if args.salida is None:
+        if not reportes:
+            ap.error('sin --salida, la configuración tiene que decir paths.reports')
+        args.salida = Path(reportes)
+    elif reportes and args.salida.resolve() != Path(reportes).resolve():
+        ap.error(f'el informe va a {reportes} (paths.reports de la configuración): '
+                 'es la carpeta que Rostrum sirve. Omite --salida.')
     hoy = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
     print(json.dumps(generar(args.state, args.salida, args.config, hoy),
                      ensure_ascii=False, indent=2))

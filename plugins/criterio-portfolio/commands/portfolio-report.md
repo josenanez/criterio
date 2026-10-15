@@ -36,8 +36,11 @@ Marca el arranque para que **el tiempo lo mida la corrida**. Un tiempo que algui
 No lo escribas tú. El informe impreso lo arma un script, con el diseño del producto:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/informe.py" --state <estado> --salida <carpeta> --config <archivo>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/informe.py" --state <estado> --config <archivo>
 ```
+
+Sin `--salida`: el informe va siempre a `paths.reports` de la configuración, que es la
+carpeta que Rostrum sirve. El script rechaza otra carpeta.
 
 Produce **dos vistas que no se diferencian por detalle sino por autoridad**, y una
 página por proyecto:
