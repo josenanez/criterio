@@ -493,6 +493,45 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "f742387fc01a65fed1468c2cc466b43daf64c7e5dfe753ca98cdabf3bc5d1b9a",
       "sha256": "45caaf940f463b11fde3fb1949b12031998e15a9b775867ddddadebe00cac35c"
+    },
+    {
+      "version": "0.3.11",
+      "fecha": "2026-10-16",
+      "commit": null,
+      "base": "9a21b05",
+      "etiqueta": "v0.3.11",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "4ac579180f6b49d17187efc8bc109c5b14cd04b5742cd58c5a465bde6a4d4ca5",
+        "criterio-product": "36d648b9d02cf8746df997b7949fcaf9858b6e52ad0b1bb85988c1c1126ce737",
+        "criterio-project": "398b4b498fe1b081776e3ced43687fd16b10aa70d7c58b35af808513aac7b966"
+      },
+      "destacados": [
+        "Alba: la evidencia de un requerimiento es la entrevista de donde viene la demanda, no el acta del comité que lo acepta; lo dice el comando que extrae.",
+        "Samuel: fechar un compromiso prometido «por definir» no es reprogramarlo, en sus comandos y en la aritmética.",
+        "Rostrum abre las páginas de productos con nombre —tildes y espacios— y codifica cada tramo de sus rutas.",
+        "El sello de Vera revisa solo sus propias citas; una cita es una sola ruta.",
+        "not_found es un estado, nunca un valor: un requerimiento con el doliente escrito así no tiene doliente."
+      ],
+      "cambios": [
+        "not_found is a state, never a value: a requirement whose owner is written as \"not_found\" has no owner",
+        "Round 3 on 0.3.9: Vera 252/256, Alba 142/143 with no false positive, Rostrum 1949/1964, Samuel 80/104",
+        "product-setup says where requirement evidence comes from: the interview, not the committee act that accepts it",
+        "Rostrum encodes each path segment, and the end-to-end check follows links as a browser does",
+        "Dating an undated commitment is not rescheduling it, now in Samuel's commands and in the arithmetic",
+        "Rostrum opens cases with a name, Vera's seal is hers alone, and a citation is one path",
+        "Round 4 on 0.3.10: Samuel 100/104, Vera 228/231, Rostrum 2128/2132, Alba 135/146 with no false alert"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "45caaf940f463b11fde3fb1949b12031998e15a9b775867ddddadebe00cac35c",
+      "sha256": "3a37b8e5acfa45a0c9967a3a00b835234449e3bf4e8d927b3947637df4b2583e"
     }
   ]
 }
