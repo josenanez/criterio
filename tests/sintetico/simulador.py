@@ -237,6 +237,20 @@ def proveedores_de(rnd, hoy: dt.date, arranque: int, duracion: int,
     return out
 
 
+# Con qué se verifica un supuesto: lo que assumption-tracking admite como cita. Un
+# «verificado» sin decir con qué no lo es, y en la ronda 6 Alba lo leyó así con razón (D052).
+EVIDENCIAS_SUPUESTO = ["la medición del piloto", "el concepto jurídico de cumplimiento",
+                       "la entrevista con doce clientes del segmento",
+                       "el documento técnico del proveedor"]
+
+
+def supuesto(rnd, hoy: dt.date, que: str, hace: int, verificado: bool) -> dict:
+    s = {"que": que, "desde": f(hoy, -hace), "verificado": verificado}
+    if verificado:
+        s["evidencia"] = f"{rnd.choice(EVIDENCIAS_SUPUESTO)} del {f(hoy, -rnd.randint(1, max(hace - 1, 1)))}"
+    return s
+
+
 def nuevo_producto(rnd, i: int, hoy: dt.date) -> dict:
     nombre = TEMAS_PRD[i % len(TEMAS_PRD)]
     prof = rnd.choice(["completa", "media", "media", "delgada"])
@@ -260,8 +274,7 @@ def nuevo_producto(rnd, i: int, hoy: dt.date) -> dict:
         "fecha": f(hoy, -rnd.randint(60, 400)),
         "entrevista": f(hoy, -rnd.randint(30, 420)),
         "requerimientos": reqs,
-        "supuestos": [{"que": rnd.choice(SUPUESTOS), "desde": f(hoy, -rnd.randint(5, 200)),
-                       "verificado": rnd.random() < 0.5}],
+        "supuestos": [supuesto(rnd, hoy, rnd.choice(SUPUESTOS), rnd.randint(5, 200), rnd.random() < 0.5)],
         "declarado": rnd.randint(50_000, 300_000),
         "medido": None, "corte": f(hoy, -rnd.randint(2, 25)),
         "ultimo_doc": f(hoy, -rnd.randint(2, 20)), "docs": [], "semana": 0,
@@ -375,7 +388,7 @@ def producto_control(hoy: dt.date) -> dict:
         # Dentro de los doce meses: la evidencia no está vieja.
         "entrevista": f(hoy, -60),
         "requerimientos": reqs,
-        "supuestos": [{"que": SUPUESTOS[0], "desde": f(hoy, -50), "verificado": True}],
+        "supuestos": [supuesto(random.Random(299), hoy, SUPUESTOS[0], 50, True)],
         # Declarado y medido coinciden: `claim_vs_metric` no tiene brecha que medir,
         # y el tablero existe, así que la comparación sí se le ofrece al agente.
         "declarado": 120_000, "medido": 120_000,
@@ -806,8 +819,8 @@ def escribir(estado: dict, destino: Path, hoy: dt.date, disp: str) -> tuple:
                  # supuesto se verificó, el lector no tiene más opción que asumir que no,
                  # y `assumption_unverified` se dispara en los sesenta y cinco productos:
                  # una señal que siempre suena no distingue nada.
-                 supuestos=[{"que": a["que"], "desde": a["desde"],
-                             "verificado": a["verificado"]} for a in x["supuestos"]],
+                 supuestos=[{"que": a["que"], "desde": a["desde"], "verificado": a["verificado"],
+                             "evidencia": a.get("evidencia")} for a in x["supuestos"]],
                  proyectos=[r["proyecto"] for r in x["requerimientos"] if r["proyecto"]]
                  or ["Ninguno declarado"],
                  cifras=[dict(clave="volumen_mensual", declarado=x["declarado"],

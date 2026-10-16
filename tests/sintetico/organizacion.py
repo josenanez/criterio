@@ -834,7 +834,7 @@ def definicion_producto(x) -> str:
 
 ## Supuestos
 
-{chr(10).join(f"- **{s['que']}** · declarado el {s['desde']} · " + ("verificado" if s.get('verificado') else "sin verificar") for s in x['supuestos'])}
+{chr(10).join(f"- **{s['que']}** · declarado el {s['desde']} · " + (f"verificado con {s['evidencia']}" if s.get('verificado') and s.get('evidencia') else "verificado" if s.get('verificado') else "sin verificar") for s in x['supuestos'])}
 
 ## Proyectos que lo construyen
 
