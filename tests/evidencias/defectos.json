@@ -152,7 +152,7 @@
   "que_paso": "pm_vs_pmo en PRY-202: el acta y el cronograma traen fechas de cierre distintas y cada agente leyó una. La alerta es correcta; la clave no modela lo que cruzan dos agentes.",
   "evidencia": null,
   "origen": "clave",
-  "correccion": null,
+  "correccion": "cb0d57b2",
   "verificado_en": null
  },
  {
@@ -596,5 +596,31 @@
   "origen": "codigo",
   "correccion": "88e4386",
   "verificado_en": "selftest de portafolio.py: un compromiso cumplido no suena como reprogramado"
+ },
+ {
+  "id": "D047",
+  "fecha": "2026-10-16",
+  "ronda": "5",
+  "entorno": "retail",
+  "agente": "samuel",
+  "comando": "pm-publish",
+  "que_paso": "El generador escribía en el acta un cierre que el cronograma del mismo día no alcanzaba: dos documentos de la misma fecha con dos cierres. Samuel tomaba el del acta y Vera el último hito, y sonaba pm_vs_pmo en las cuatro industrias.",
+  "evidencia": "tests/evidencias/rondas/ronda-4/retail/salidas/18-portfolio-setup.md",
+  "origen": "material",
+  "correccion": "cb0d57b2",
+  "verificado_en": null
+ },
+ {
+  "id": "D048",
+  "fecha": "2026-10-16",
+  "ronda": "5",
+  "entorno": "retail",
+  "agente": "samuel",
+  "comando": "pm-setup",
+  "que_paso": "pm-setup y pm-publish no decían de dónde sale plan.end_date, y el ejemplo de project-record ponía en value el documento más viejo, contra su propia regla. Ahora es la fecha vigente, del cronograma más reciente, y el acta va en la línea base.",
+  "evidencia": null,
+  "origen": "instrucciones",
+  "correccion": "cb0d57b2",
+  "verificado_en": null
  }
 ]
