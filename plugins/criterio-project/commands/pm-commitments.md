@@ -55,7 +55,7 @@ Reglas que no se negocian, todas del skill:
 
 **2. Si el compromiso ya existía, no lo dupliques: actualízalo.** El mismo doliente
 sobre lo mismo con fecha nueva **es el mismo compromiso reprogramado**. La primera
-promesa queda en `original_due_date` y **no es una entrada** de `reschedules`; cada
+promesa queda en `original_due_date` y **no es una entrada** de `reschedules`; Si se prometió «por definir», el día que después se le pone es su primera fecha —va en `original_due_date`—, no una reprogramación. cada
 promesa nueva agrega una entrada con su fecha, y `due_date` pasa a ser la vigente. Dos
 fechas son una reprogramación; tres, dos:
 

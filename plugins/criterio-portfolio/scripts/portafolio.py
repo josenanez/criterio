@@ -438,6 +438,11 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
             late.append({"who": quien, "what": que, "due": due.isoformat(),
                          "days": (today - due).days, "source": fuente})
         veces = len(c.get("reschedules") or [])
+        # Fechar no es reprogramar: si la promesa original no tenía fecha, la primera que
+        # se le puso es su fecha, no una reprogramación (rondas 3 y 4: Vera y Samuel la
+        # contaron como una más). El conteo se corrige aquí aunque la ficha la traiga así.
+        if veces and value(c.get("original_due_date")) == "no_declarada":
+            veces -= 1
         if veces >= th["reschedules_to_flag"]:
             # La historia completa: la primera fecha prometida y cada una de las nuevas.
             reprogramados.append({"who": quien, "what": que, "times": veces,
@@ -2027,6 +2032,12 @@ def _selftest_plan():
     ficha1.write_text(json.dumps(r1), encoding="utf-8")
     con_rota = sellar(docs, estado, "PRY-001")
     return [
+        ("fechar un compromiso sin fecha no es reprogramarlo",
+         compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-12-01",
+                                          "original_due_date": "no_declarada", "state": "open",
+                                          "reschedules": [{"due_date": "2026-10-01"}, {"due_date": "2026-11-01"},
+                                                          {"due_date": "2026-12-01"}]}]},
+                        dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)["commitments_rescheduled"], []),
         ("not_found es un estado, no un valor", (value("not_found"), value({"value": "not_found"}), value("Ana")),
          (None, None, "Ana")),
         ("una cita con dos rutas no se sella", (con_rota["ok"], len(con_rota.get("broken") or [])), (False, 1)),
