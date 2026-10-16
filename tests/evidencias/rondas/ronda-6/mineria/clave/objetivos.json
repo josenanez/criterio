@@ -1,0 +1,21 @@
+{
+ "entorno": "mineria",
+ "ronda": 6,
+ "hoy": "2026-10-16",
+ "prd": "PRD-301",
+ "prd_carpeta": "PRD-301",
+ "prd_otro": "PRD-300",
+ "req": "REQ-4100",
+ "pry_sam": "PRY-205",
+ "sam_carpeta": "PRY-205-sistema-de-gestión-de-seguridad",
+ "notas": "documentos/proyectos/PRY-205-sistema-de-gestión-de-seguridad/2026-10-16-notas-reunion.txt",
+ "status": "PRY-204",
+ "health": "PRY-201",
+ "budget": "PRY-209",
+ "vendor": "PRY-201",
+ "change": "PRY-200",
+ "history": "PRY-203",
+ "charter": "PRY-200",
+ "closure": "PRY-202",
+ "producto_vista": "gemelo digital"
+}

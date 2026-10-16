@@ -1,0 +1,28 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-16T20:32:27",
+ "estado": "success",
+ "error": false,
+ "segundos": 74,
+ "turnos": 15,
+ "tokens": 672214,
+ "tokens_salida": 9004,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-16-pm-plan-1.html",
+   ".criterio/corridas/proyecto/2026-10-16-pm-plan-1.md",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas/2026-10-16-pm-plan-1.md",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas.json"
+  ],
+  "borrados": []
+ }
+}

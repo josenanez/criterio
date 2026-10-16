@@ -1,0 +1,26 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-16T19:52:01",
+ "estado": "success",
+ "error": false,
+ "segundos": 46,
+ "turnos": 15,
+ "tokens": 690347,
+ "tokens_salida": 4634,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "documentos/proyectos/PRY-210-corresponsales-rurales/00-gobierno/ficha-pm.json",
+   "estado/PRY-210-corresponsales-rurales/corridas/2026-10-16-pm-publish-1.md",
+   "estado/PRY-210-corresponsales-rurales/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-210-corresponsales-rurales/corridas.json"
+  ],
+  "borrados": []
+ }
+}

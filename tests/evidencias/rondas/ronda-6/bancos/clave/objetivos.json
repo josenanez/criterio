@@ -1,0 +1,21 @@
+{
+ "entorno": "bancos",
+ "ronda": 6,
+ "hoy": "2026-10-16",
+ "prd": "PRD-306",
+ "prd_carpeta": "PRD-306",
+ "prd_otro": "PRD-302",
+ "req": "REQ-4600",
+ "pry_sam": "PRY-207",
+ "sam_carpeta": "PRY-207-onboarding-pyme",
+ "notas": "documentos/proyectos/PRY-207-onboarding-pyme/2026-10-16-notas-reunion.txt",
+ "status": "PRY-202",
+ "health": "PRY-205",
+ "budget": "PRY-203",
+ "vendor": "PRY-200",
+ "change": "PRY-200",
+ "history": "PRY-206",
+ "charter": "PRY-201",
+ "closure": "PRY-205",
+ "producto_vista": "crédito de consumo"
+}

@@ -1,0 +1,25 @@
+{
+ "n": 24,
+ "agente": "vera",
+ "comando": "vendor-tracking",
+ "argumento": "PRY-205",
+ "inicio": "2026-10-16T20:51:03",
+ "estado": "success",
+ "error": false,
+ "segundos": 52,
+ "turnos": 15,
+ "tokens": 501863,
+ "tokens_salida": 5932,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-16-vendor-tracking-1.md",
+   "estado/corridas/salida-vendor-tracking.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

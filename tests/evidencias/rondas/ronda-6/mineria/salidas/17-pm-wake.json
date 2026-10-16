@@ -1,0 +1,26 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-16T20:35:20",
+ "estado": "success",
+ "error": false,
+ "segundos": 42,
+ "turnos": 14,
+ "tokens": 652589,
+ "tokens_salida": 3957,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/cadencia.json",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas/2026-10-16-pm-wake-1.md",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-sistema-de-gestión-de-seguridad/corridas.json"
+  ],
+  "borrados": []
+ }
+}

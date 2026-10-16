@@ -1,0 +1,30 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-206-precios-dinámicos/2026-10-16-notas-reunion.txt",
+ "inicio": "2026-10-16T20:31:46",
+ "estado": "success",
+ "error": false,
+ "segundos": 75,
+ "turnos": 16,
+ "tokens": 742928,
+ "tokens_salida": 8194,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-16-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-16-pm-minutes-1.md",
+   "estado/PRY-206-precios-dinámicos/corrida-en-curso.json",
+   "estado/PRY-206-precios-dinámicos/corridas/2026-10-16-pm-minutes-1.md",
+   "estado/PRY-206-precios-dinámicos/corridas/2026-10-16-pm-minutes-2.md",
+   "estado/PRY-206-precios-dinámicos/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-206-precios-dinámicos/corridas.json"
+  ],
+  "borrados": []
+ }
+}

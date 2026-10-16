@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-210-corresponsales-rurales/2026-10-16-notas-reunion.txt",
+ "inicio": "2026-10-16T19:45:31",
+ "estado": "success",
+ "error": false,
+ "segundos": 58,
+ "turnos": 14,
+ "tokens": 514687,
+ "tokens_salida": 7240,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-210-corresponsales-rurales/corrida-en-curso.json",
+   "estado/PRY-210-corresponsales-rurales/corridas/2026-10-16-pm-minutes-1.md",
+   "estado/PRY-210-corresponsales-rurales/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-210-corresponsales-rurales/corridas.json"
+  ],
+  "borrados": []
+ }
+}

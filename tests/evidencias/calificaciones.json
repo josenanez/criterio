@@ -3954,5 +3954,672 @@
    "quien": "anotado a mano"
   },
   "nota": "ronda 5"
+ },
+ {
+  "id": "2026-10-16-bancos-vera-27",
+  "fecha": "2026-10-16",
+  "corte": "2026-10-16",
+  "entorno": "bancos",
+  "industria": "Entidades financieras (bancos y cooperativas) de Suramérica",
+  "etiqueta": "Entidades financieras de Suramérica · bancos",
+  "material": "ronda-6",
+  "agente": "vera",
+  "version": "0.3.12",
+  "tipo": "primera",
+  "codigo": "483fc7b7",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 78,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   95.3,
+   100.0
+  ],
+  "ic_cobertura": [
+   95.3,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    8,
+    0,
+    0
+   ],
+   "PRY-201": [
+    0,
+    0,
+    0
+   ],
+   "PRY-202": [
+    7,
+    0,
+    0
+   ],
+   "PRY-203": [
+    4,
+    0,
+    0
+   ],
+   "PRY-204": [
+    6,
+    0,
+    0
+   ],
+   "PRY-205": [
+    13,
+    0,
+    0
+   ],
+   "PRY-206": [
+    7,
+    0,
+    0
+   ],
+   "PRY-207": [
+    21,
+    0,
+    0
+   ],
+   "PRY-208": [
+    2,
+    0,
+    0
+   ],
+   "PRY-209": [
+    1,
+    0,
+    0
+   ],
+   "PRY-210": [
+    6,
+    0,
+    0
+   ],
+   "PRY-211": [
+    3,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "commitment_overdue": {
+    "aciertos": 10,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_rescheduled": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 6,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 4,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 20,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_overdue": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 7,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "rebaseline_unauthorized": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_cost": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 18,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_invoiced_without_delivery": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 6"
+ },
+ {
+  "id": "2026-10-16-cooperativas-vera-27",
+  "fecha": "2026-10-16",
+  "corte": "2026-10-16",
+  "entorno": "cooperativas",
+  "industria": "Entidades financieras (bancos y cooperativas) de Suramérica",
+  "etiqueta": "Entidades financieras de Suramérica · cooperativas de ahorro y crédito",
+  "material": "ronda-6",
+  "agente": "vera",
+  "version": "0.3.12",
+  "tipo": "primera",
+  "codigo": "483fc7b7",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 52,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   93.1,
+   100.0
+  ],
+  "ic_cobertura": [
+   93.1,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    0,
+    0,
+    0
+   ],
+   "PRY-201": [
+    3,
+    0,
+    0
+   ],
+   "PRY-202": [
+    4,
+    0,
+    0
+   ],
+   "PRY-203": [
+    0,
+    0,
+    0
+   ],
+   "PRY-204": [
+    10,
+    0,
+    0
+   ],
+   "PRY-205": [
+    3,
+    0,
+    0
+   ],
+   "PRY-206": [
+    3,
+    0,
+    0
+   ],
+   "PRY-207": [
+    5,
+    0,
+    0
+   ],
+   "PRY-208": [
+    6,
+    0,
+    0
+   ],
+   "PRY-209": [
+    2,
+    0,
+    0
+   ],
+   "PRY-210": [
+    12,
+    0,
+    0
+   ],
+   "PRY-211": [
+    4,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "commitment_overdue": {
+    "aciertos": 5,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_rescheduled": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 5,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 8,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 19,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_overdue": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "rebaseline_unauthorized": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_cost": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_accepted_without_evidence": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_invoiced_over_accepted": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 6"
+ },
+ {
+  "id": "2026-10-16-mineria-vera-29",
+  "fecha": "2026-10-16",
+  "corte": "2026-10-16",
+  "entorno": "mineria",
+  "industria": "Empresas mineras de Suramérica",
+  "etiqueta": "Empresas mineras de Suramérica · oro y cobre",
+  "material": "ronda-6",
+  "agente": "vera",
+  "version": "0.3.12",
+  "tipo": "primera",
+  "codigo": "82c35aa0",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 60,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   94.0,
+   100.0
+  ],
+  "ic_cobertura": [
+   94.0,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    0,
+    0,
+    0
+   ],
+   "PRY-201": [
+    8,
+    0,
+    0
+   ],
+   "PRY-202": [
+    8,
+    0,
+    0
+   ],
+   "PRY-203": [
+    8,
+    0,
+    0
+   ],
+   "PRY-204": [
+    4,
+    0,
+    0
+   ],
+   "PRY-205": [
+    14,
+    0,
+    0
+   ],
+   "PRY-206": [
+    0,
+    0,
+    0
+   ],
+   "PRY-207": [
+    9,
+    0,
+    0
+   ],
+   "PRY-208": [
+    0,
+    0,
+    0
+   ],
+   "PRY-209": [
+    1,
+    0,
+    0
+   ],
+   "PRY-210": [
+    7,
+    0,
+    0
+   ],
+   "PRY-211": [
+    1,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "commitment_overdue": {
+    "aciertos": 8,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_rescheduled": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 4,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 4,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 20,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_overdue": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 4,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "rebaseline_unauthorized": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_cost": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_accepted_without_evidence": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 9,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_invoiced_over_accepted": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_invoiced_without_delivery": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 6"
+ },
+ {
+  "id": "2026-10-16-retail-vera-30",
+  "fecha": "2026-10-16",
+  "corte": "2026-10-16",
+  "entorno": "retail",
+  "industria": "Empresas de retail de Suramérica",
+  "etiqueta": "Empresas de retail de Suramérica · supermercados y tiendas",
+  "material": "ronda-6",
+  "agente": "vera",
+  "version": "0.3.12",
+  "tipo": "primera",
+  "codigo": "e2b36df0",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 76,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   95.2,
+   100.0
+  ],
+  "ic_cobertura": [
+   95.2,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    5,
+    0,
+    0
+   ],
+   "PRY-201": [
+    6,
+    0,
+    0
+   ],
+   "PRY-202": [
+    0,
+    0,
+    0
+   ],
+   "PRY-203": [
+    6,
+    0,
+    0
+   ],
+   "PRY-204": [
+    6,
+    0,
+    0
+   ],
+   "PRY-205": [
+    8,
+    0,
+    0
+   ],
+   "PRY-206": [
+    19,
+    0,
+    0
+   ],
+   "PRY-207": [
+    4,
+    0,
+    0
+   ],
+   "PRY-208": [
+    1,
+    0,
+    0
+   ],
+   "PRY-209": [
+    11,
+    0,
+    0
+   ],
+   "PRY-210": [
+    5,
+    0,
+    0
+   ],
+   "PRY-211": [
+    5,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "commitment_overdue": {
+    "aciertos": 9,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_rescheduled": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 6,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 7,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 30,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_overdue": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 8,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "rebaseline_unauthorized": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_accepted_without_evidence": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 4,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_invoiced_without_delivery": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 6"
  }
 ]

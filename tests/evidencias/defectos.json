@@ -153,7 +153,7 @@
   "evidencia": null,
   "origen": "clave",
   "correccion": "cb0d57b2",
-  "verificado_en": null
+  "verificado_en": "ronda-6 · las cuatro industrias"
  },
  {
   "id": "D013",
@@ -595,7 +595,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-5/mineria/revision.json",
   "origen": "codigo",
   "correccion": "88e4386",
-  "verificado_en": "selftest de portafolio.py: un compromiso cumplido no suena como reprogramado"
+  "verificado_en": "selftest de portafolio.py: un compromiso cumplido no suena como reprogramado · ronda-6 · las cuatro industrias"
  },
  {
   "id": "D047",
@@ -608,7 +608,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-4/retail/salidas/18-portfolio-setup.md",
   "origen": "material",
   "correccion": "cb0d57b2",
-  "verificado_en": null
+  "verificado_en": "ronda-6 · las cuatro industrias"
  },
  {
   "id": "D048",
@@ -621,6 +621,58 @@
   "evidencia": null,
   "origen": "instrucciones",
   "correccion": "cb0d57b2",
+  "verificado_en": "ronda-6 · las cuatro industrias"
+ },
+ {
+  "id": "D049",
+  "fecha": "2026-10-16",
+  "ronda": "6",
+  "entorno": "bancos",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "portfolio-scan y health-check dejaron el caché de texto en <estado>/texto, fuera de su contrato, aunque document-intake dice <estado>/cache/texto. La regla pasa al script: texto.py rechaza cualquier otra carpeta.",
+  "evidencia": "tests/evidencias/rondas/ronda-6/bancos/revision.json",
+  "origen": "instrucciones",
+  "correccion": "82c35aa0",
+  "verificado_en": null
+ },
+ {
+  "id": "D050",
+  "fecha": "2026-10-16",
+  "ronda": "6",
+  "entorno": "bancos",
+  "agente": "rostrum",
+  "comando": "portfolio-server",
+  "que_paso": "La página de una corrida de product-setup medía 616 px en un teléfono de 390: la tabla ya se desplazaba por dentro, pero su bloque no. El bloque se desplaza ahora él mismo.",
+  "evidencia": "tests/evidencias/rondas/ronda-6/bancos/rostrum.json",
+  "origen": "codigo",
+  "correccion": "82c35aa0",
+  "verificado_en": null
+ },
+ {
+  "id": "D051",
+  "fecha": "2026-10-16",
+  "ronda": "6",
+  "entorno": "mineria",
+  "agente": "samuel",
+  "comando": "pm-setup",
+  "que_paso": "D042 otra vez: Samuel dejó la primera fecha de un compromiso «por definir» como reprogramación en la ficha (1 de 104). El conteo de la alerta era correcto. compute devuelve ahora record_issues y los comandos de Samuel corrigen la ficha antes de terminar.",
+  "evidencia": "tests/evidencias/rondas/ronda-6/mineria/calificacion-samuel-alba.json",
+  "origen": "agente",
+  "correccion": "e2b36df0",
+  "verificado_en": null
+ },
+ {
+  "id": "D052",
+  "fecha": "2026-10-16",
+  "ronda": "6",
+  "entorno": "retail",
+  "agente": "alba",
+  "comando": "product-wake",
+  "que_paso": "La definición generada decía «verificado» sin decir con qué, y Alba, aplicando assumption-tracking (verificado solo contra algo que se pueda citar), levantó assumption_unverified. La clave lo daba por verificado. El material dice ahora con qué y cuándo se verificó.",
+  "evidencia": "tests/evidencias/rondas/ronda-6/retail/calificacion-samuel-alba.json",
+  "origen": "material",
+  "correccion": "3aa2d272",
   "verificado_en": null
  }
 ]

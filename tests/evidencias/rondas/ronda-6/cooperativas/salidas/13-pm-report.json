@@ -1,0 +1,26 @@
+{
+ "n": 13,
+ "agente": "samuel",
+ "comando": "pm-report",
+ "argumento": "",
+ "inicio": "2026-10-16T19:49:00",
+ "estado": "success",
+ "error": false,
+ "segundos": 61,
+ "turnos": 14,
+ "tokens": 649309,
+ "tokens_salida": 6495,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-210-corresponsales-rurales/corridas/2026-10-16-pm-report-1.md",
+   "estado/PRY-210-corresponsales-rurales/corridas/salida-pm-report.md",
+   "estado/PRY-210-corresponsales-rurales/snapshots/2026-10-16.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-210-corresponsales-rurales/corridas.json"
+  ],
+  "borrados": []
+ }
+}

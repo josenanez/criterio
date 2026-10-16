@@ -1,0 +1,25 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-16T19:47:10",
+ "estado": "success",
+ "error": false,
+ "segundos": 94,
+ "turnos": 15,
+ "tokens": 696577,
+ "tokens_salida": 11629,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-207-onboarding-pyme/corridas/2026-10-16-pm-agenda-1.md",
+   "estado/PRY-207-onboarding-pyme/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-207-onboarding-pyme/corridas.json"
+  ],
+  "borrados": []
+ }
+}

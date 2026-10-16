@@ -1,0 +1,28 @@
+{
+ "n": 11,
+ "agente": "samuel",
+ "comando": "pm-commitments",
+ "argumento": "",
+ "inicio": "2026-10-16T19:46:16",
+ "estado": "success",
+ "error": false,
+ "segundos": 54,
+ "turnos": 14,
+ "tokens": 545817,
+ "tokens_salida": 6289,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-16-pm-commitments-1.html",
+   ".criterio/corridas/proyecto/2026-10-16-pm-commitments-1.md",
+   "estado/PRY-207-onboarding-pyme/corridas/2026-10-16-pm-commitments-1.md",
+   "estado/PRY-207-onboarding-pyme/corridas/salida-pm-commitments.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-207-onboarding-pyme/corridas.json"
+  ],
+  "borrados": []
+ }
+}

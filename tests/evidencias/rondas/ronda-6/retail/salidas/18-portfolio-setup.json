@@ -1,0 +1,51 @@
+{
+ "n": 18,
+ "agente": "vera",
+ "comando": "portfolio-setup",
+ "argumento": "documentos/proyectos",
+ "inicio": "2026-10-16T20:40:19",
+ "estado": "success",
+ "error": false,
+ "segundos": 128,
+ "turnos": 29,
+ "tokens": 1484463,
+ "tokens_salida": 20026,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-16-portfolio-setup-1.html",
+   ".criterio/corridas/portafolio/2026-10-16-portfolio-setup-1.md",
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/portafolio/config.json",
+   ".criterio/terminos/aceptacion-criterio-portfolio-0.3.12-2026-10-16.md",
+   ".criterio/terminos/aceptacion-criterio-portfolio-0.3.12-2026-10-16.pdf",
+   ".criterio/terminos/aceptacion-criterio-portfolio-0.3.12-2026-10-16.sha256",
+   "estado/cache/texto/PRY-200-tienda-en-línea/00-gobierno/2025-09-01-acta-constitucion.docx.md",
+   "estado/cache/texto/PRY-200-tienda-en-línea/10-plan/2025-09-01-cronograma-v1.xlsx.md",
+   "estado/cache/texto/PRY-200-tienda-en-línea/20-seguimiento/2026-10-13-acta-recibo-diseño-de-la-experiencia-aprobado.md.md",
+   "estado/cache/texto/PRY-200-tienda-en-línea/20-seguimiento/2026-10-16-informe-avance.pdf.md",
+   "estado/cache/texto/PRY-200-tienda-en-línea/30-reuniones/2026-10-11-comite-semanal.md.md",
+   "estado/cache/texto/PRY-202-centro-de-distribución-norte/00-gobierno/2025-08-03-acta-constitucion.docx.md",
+   "estado/cache/texto/PRY-202-centro-de-distribución-norte/20-seguimiento/2026-10-16-informe-avance.pdf.md",
+   "estado/cache/texto/PRY-210-etiquetas-electrónicas-de-precio/00-gobierno/2026-04-22-acta-constitucion.docx.md",
+   "estado/cache/texto/PRY-210-etiquetas-electrónicas-de-precio/10-plan/2026-04-22-cronograma-v1.csv.md",
+   "estado/cache/texto/PRY-210-etiquetas-electrónicas-de-precio/10-plan/2026-10-16-cronograma-v3.csv.md",
+   "estado/cache/texto/PRY-210-etiquetas-electrónicas-de-precio/20-seguimiento/2026-10-09-solicitud-cambio-cc-01.md.md",
+   "estado/cache/texto/PRY-210-etiquetas-electrónicas-de-precio/20-seguimiento/2026-10-16-informe-avance.pdf.md",
+   "estado/cache/texto/PRY-210-etiquetas-electrónicas-de-precio/20-seguimiento/2026-10-16-solicitud-cambio-cc-02.md.md",
+   "estado/cache/texto/manifest.json",
+   "estado/corrida-en-curso.json",
+   "estado/corridas.json",
+   "estado/corridas/2026-10-16-portfolio-setup-1.md",
+   "estado/corridas/salida-portfolio-setup.md",
+   "estado/records/PRY-200.json",
+   "estado/records/PRY-202.json",
+   "estado/records/PRY-210.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   ".criterio/terminos/aceptaciones.json"
+  ],
+  "borrados": []
+ }
+}
