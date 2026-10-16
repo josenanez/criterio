@@ -284,6 +284,66 @@ def escribir_notas(carpeta: Path, p: dict, comps: list, hoy: dt.date) -> Path:
     return ruta
 
 
+# ── el contraste entre las dos fichas, en la clave (D012) ────────────────
+# Los ocho campos que el motor contrasta entre la ficha del gerente y la de la PMO.
+CONTRASTADOS = ("identity.sponsor", "identity.manager", "identity.committee", "identity.product",
+                "plan.end_date", "money.approved", "declared.status", "declared.as_of")
+ESTADOS = {"verde": "green", "amarillo": "yellow", "rojo": "red"}
+
+
+def verdad_contrastada(p: dict) -> dict:
+    """Lo que el material dice de los ocho campos, sacado de los hechos del generador y no
+    de lo que escribió ningún agente. La fecha de cierre es la vigente: el último hito del
+    cronograma si el proyecto lo documenta; si no, el cierre del acta."""
+    import simulador
+    plan = simulador.PROFUNDIDAD[p["profundidad"]]["plan"] and p["hitos"]
+    return {"identity.sponsor": p.get("patrocinador"), "identity.manager": p.get("gerente"),
+            "identity.committee": p.get("comite"), "identity.product": p.get("producto"),
+            "plan.end_date": p["hitos"][-1]["vigente"] if plan else p.get("cierre"),
+            "money.approved": p.get("presupuesto"),
+            "declared.status": p["declarado"]["estado"], "declared.as_of": p["declarado"]["fecha"]}
+
+
+def _norma(campo: str, x):
+    x = x.get("value") if isinstance(x, dict) else x
+    if x in (None, "", "not_found", "no_declarada"):
+        return None
+    if campo == "money.approved":
+        try:
+            return int(float(str(x).replace(",", "")))
+        except ValueError:
+            return str(x)
+    if campo.endswith(("end_date", "as_of")):
+        return str(x)[:10]
+    if campo == "declared.status":
+        return ESTADOS.get(str(x).strip().lower(), str(x).strip().lower())
+    return " ".join(str(x).split()).casefold()
+
+
+def _en(rec, ruta: str):
+    for k in ruta.split("."):
+        rec = rec.get(k) if isinstance(rec, dict) else None
+    return rec
+
+
+def contraste_esperado(p: dict, publicada: dict) -> list:
+    """Los campos donde la ficha que el gerente publicó no dice lo que dice el material.
+
+    Para Vera, `ficha-pm.json` es un documento más del proyecto: lo que trae está escrito,
+    y la clave puede calcular de ahí lo que el contraste tiene que encontrar. **Lo que no
+    hace es leer la ficha de Vera:** la PMO que lee bien coincide con el material, y donde
+    el gerente no coincide con él tiene que sonar `pm_vs_pmo`. Si la que lee mal es Vera,
+    la alerta que suene de más es suya. Las mismas reglas que el motor: el gerente sin el
+    dato no es hallazgo; el material sin el dato y el gerente con él, sí."""
+    verdad, fuera = verdad_contrastada(p), []
+    for c in CONTRASTADOS:
+        a, b = _norma(c, verdad[c]), _norma(c, _en(publicada, c))
+        if b is None or a == b:
+            continue
+        fuera.append({"campo": c, "material": a, "gerente": b})
+    return fuera
+
+
 def clave_samuel(comps: list) -> list:
     """Lo que Samuel debe dejar en su ficha por cada compromiso: la fecha vigente, cuántas
     veces se reprogramó —fechas a la vista menos la primera; «por definir» no cuenta— y si
@@ -664,6 +724,19 @@ def calificar(a) -> int:
     clave = _j(carpeta / "clave" / "esperado-ronda.json")
     hoy = clave["hoy"]
     base = ["--version", a.version, "--tipo", a.tipo, "--nota", f"ronda {obj['ronda']}"]
+    # El contraste con la ficha que publicó Samuel entra a la clave aquí y no al armar:
+    # esa ficha no existe hasta que corre /pm-publish. Se recalcula entero cada vez, así
+    # que calificar dos veces deja la misma clave.
+    sys.path.insert(0, str(RAIZ / "tests" / "sintetico"))
+    org = _j(carpeta / "clave" / "organizacion.json")
+    p_sam = next(x for x in org["proyectos"] if x["codigo"] == obj["pry_sam"])
+    pub = next((espacio / "documentos" / "proyectos" / obj["sam_carpeta"]).rglob("ficha-pm.json"), None)
+    contraste = contraste_esperado(p_sam, _j(pub)) if pub else []
+    sin = [x for x in clave["esperado"].get(obj["pry_sam"], []) if x != "pm_vs_pmo"]
+    clave["esperado"][obj["pry_sam"]] = sin + ["pm_vs_pmo"] * len(contraste)
+    clave["contraste"] = {"proyecto": obj["pry_sam"], "publicada": str(pub.relative_to(espacio)) if pub else None,
+                          "campos": contraste}
+    _w(carpeta / "clave" / "esperado-ronda.json", clave)
     # Vera: las señales del portafolio, contra la clave de la ronda (con lo que agregan las notas)
     subprocess.run([sys.executable, str(RAIZ / "tests" / "banco.py"), "calificar", str(carpeta),
                     "--agente", "vera", "--material", f"ronda-{obj['ronda']}", *base], check=False)
@@ -697,6 +770,10 @@ def calificar(a) -> int:
         detalle.append({"quien": c["quien"], "esperado": c, "ok": ok,
                         "encontrado": {"fecha": v(m.get("due_date")), "reprogramaciones": len(m.get("reschedules") or []),
                                        "estado": v(m.get("state"))} if m else None})
+    # Samuel: la fecha de cierre vigente, la que la PMO contrasta (D047)
+    fin_ok = verdad_contrastada(p_sam)["plan.end_date"]
+    fin_sam = _norma("plan.end_date", _en(_j(sam), "plan.end_date")) if sam else None
+    cierre = {"esperado": fin_ok, "encontrado": fin_sam, "ok": fin_sam == fin_ok}
     # Alba: las señales de su producto
     cfg_prd = espacio / ".criterio" / "producto" / obj["prd"] / "config.json"
     prd_obt = {}
@@ -710,10 +787,13 @@ def calificar(a) -> int:
             print("Alba · compute falló:", r.stderr.strip()[:200])
     cal = fiabilidad.calificar({obj["prd"]: clave["esperado"].get(obj["prd"], [])}, prd_obt)
     t = fiabilidad.totales(cal)
-    salida = {"samuel": {"compromisos": len(notas["compromisos"]), "correctos": correctos, "detalle": detalle},
+    salida = {"samuel": {"compromisos": len(notas["compromisos"]), "correctos": correctos, "detalle": detalle,
+                         "cierre": cierre},
               "alba": {"producto": obj["prd"], **t, "errores": cal["por_caso"]}}
     _w(carpeta / "calificacion-samuel-alba.json", salida)
-    print(f"Samuel · compromisos del proyecto: {correctos} de {len(notas['compromisos'])}")
+    print(f"Samuel · compromisos del proyecto: {correctos} de {len(notas['compromisos'])} · "
+          f"cierre {'OK' if cierre['ok'] else 'MAL'} (esperado {fin_ok}, encontrado {fin_sam})")
+    print(f"Vera · contraste esperado con la ficha publicada: {len(contraste)} {contraste or ''}")
     for d in detalle:
         print(f"   {'OK' if d['ok'] else '  '} {d['quien']}: esperado {d['esperado']['fecha']} "
               f"({d['esperado']['reprogramaciones']}) · encontrado {d['encontrado']}")
@@ -824,7 +904,9 @@ def resumen(a) -> int:
             "vera": {k: v[k] for k in ("id", "aciertos", "falsos_positivos", "falsos_negativos", "precision",
                                        "cobertura", "ic_precision", "ic_cobertura", "controles",
                                        "controles_limpios", "version")} if v else None,
-            "samuel": {"correctos": sa["samuel"]["correctos"], "total": sa["samuel"]["compromisos"]} if sa else None,
+            "samuel": {"correctos": sa["samuel"]["correctos"] + bool((sa["samuel"].get("cierre") or {}).get("ok")),
+                       "total": sa["samuel"]["compromisos"] + ("cierre" in sa["samuel"]),
+                       "cierre": sa["samuel"].get("cierre")} if sa else None,
             "alba": {"aciertos": sa["alba"]["aciertos"], "esperados": sa["alba"]["aciertos"] + sa["alba"]["falsos_negativos"],
                      "reportados": sa["alba"]["aciertos"] + sa["alba"]["falsos_positivos"]} if sa else None,
             "rostrum": {"pasan": ro["comprobaciones"]["pasan"], "total": ro["comprobaciones"]["total"],

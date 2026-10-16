@@ -62,17 +62,21 @@ No elijas. Registra los dos:
 
 ```yaml
 end_date:
-  value: "2026-11-30"
-  source: "10-plan/2026-02-01-cronograma-v2.xlsx"
-  source_date: 2026-02-01
+  value: "2027-02-28"
+  source: "20-seguimiento/2026-08-14-acta-comite.md"
+  source_date: 2026-08-14
   state: ambiguous
   conflict:
-    value: "2027-02-28"
-    source: "20-seguimiento/2026-08-14-acta-comite.md"
-    source_date: 2026-08-14
+    value: "2026-11-30"
+    source: "10-plan/2026-02-01-cronograma-v2.xlsx"
+    source_date: 2026-02-01
 ```
 
-El campo queda `ambiguous`, `value` lleva el del documento más reciente, y la contradicción se levanta como alerta. **La contradicción entre documentos siempre se reporta, sin umbral.**
+El campo queda `ambiguous`, `value` lleva el del documento más reciente, y la contradicción se levanta como alerta.
+
+**La fecha de cierre del acta no contradice al cronograma: es la original.** `plan.end_date` es
+la vigente —el último hito del cronograma más reciente—, y la del acta de constitución va en
+`plan.baseline` como la versión 1. Que las dos difieran es la desviación, no una contradicción. **La contradicción entre documentos siempre se reporta, sin umbral.**
 
 ## Antigüedad del dato
 

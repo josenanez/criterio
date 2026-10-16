@@ -157,7 +157,11 @@ def nuevo_proyecto(rnd, i: int, hoy: dt.date) -> dict:
         "profundidad": prof, "area": rnd.choice(AREAS), "comite": rnd.choice(COMITES),
         "patrocinador": rnd.choice(NOMBRES), "gerente": rnd.choice(NOMBRES),
         "producto": producto, "aprobacion": f(hoy, -arranque - 10),
-        "inicio": f(hoy, -arranque), "cierre": f(hoy, -arranque + duracion),
+        "inicio": f(hoy, -arranque),
+        # El cierre del acta es el último hito del cronograma con que nació el proyecto.
+        # Antes el acta decía un cierre que el cronograma del mismo día no alcanzaba: dos
+        # documentos de la misma fecha con dos cierres, y cada agente leía uno (D047).
+        "cierre": hitos[-1]["base"] if hitos else f(hoy, -arranque + duracion),
         "presupuesto": presupuesto,
         "comprometido": int(presupuesto * rnd.uniform(0.25, 0.75)),
         "ejecutado": int(presupuesto * rnd.uniform(0.15, 0.55)),
@@ -328,7 +332,11 @@ def proyecto_control(hoy: dt.date) -> dict:
         # proyecto lo ejecuta y la ficha del proyecto dice qué producto construye.
         # `confirmar_trazas` compara contra el código, no contra el nombre.
         "producto": "PRD-299", "aprobacion": f(hoy, -arranque - 10),
-        "inicio": f(hoy, -arranque), "cierre": f(hoy, -arranque + duracion),
+        "inicio": f(hoy, -arranque),
+        # El cierre del acta es el último hito del cronograma con que nació el proyecto.
+        # Antes el acta decía un cierre que el cronograma del mismo día no alcanzaba: dos
+        # documentos de la misma fecha con dos cierres, y cada agente leía uno (D047).
+        "cierre": hitos[-1]["base"] if hitos else f(hoy, -arranque + duracion),
         "presupuesto": presupuesto,
         # Bien por debajo del 90% que dispara `budget_committed`, y la proyección
         # clavada en el presupuesto: `variance_cost` en cero.

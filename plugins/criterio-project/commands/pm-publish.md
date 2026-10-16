@@ -55,14 +55,19 @@ alguien la va a leer creyendo que es de hoy.
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <archivo>
 ```
 
-**2. Di qué vas a publicar, antes de escribir nada.** Cuántos campos van con dato,
+**2. Revisa la fecha de cierre contra el cronograma vigente.** `plan.end_date` es la fecha
+vigente: si hay un cronograma más nuevo que la cita de la ficha, la fecha sale de su último
+hito. La del acta es la original, va en `plan.baseline`, y publicarla como vigente le
+da a la PMO una diferencia que no es hallazgo sino un papel sin leer.
+
+**3. Di qué vas a publicar, antes de escribir nada.** Cuántos campos van con dato,
 cuántos van como *no está dicho en ninguna parte*, de cuándo es el más viejo, y **qué
 declara el estado del proyecto** — que es lo primero que la PMO va a mirar.
 
-**3. Escribe `ficha-pm.json`** en la carpeta de gobierno del proyecto. Es el único sitio
+**4. Escribe `ficha-pm.json`** en la carpeta de gobierno del proyecto. Es el único sitio
 donde este comando escribe. Si esa carpeta no existe, **pregunta antes de crearla**.
 
-**4. Confirma con la ruta exacta** y con la fecha, para que quede en la conversación.
+**5. Confirma con la ruta exacta** y con la fecha, para que quede en la conversación.
 
 ## Lo que la PMO va a ver, y conviene que sepas
 

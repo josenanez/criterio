@@ -46,8 +46,8 @@ Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales�
 
 **0. Preséntate, en una línea**
 
-> Soy Samuel. Leo lo que pasa en tu proyecto y me acuerdo de lo que se prometió en cada
-> reunión.
+> Soy Samuel. Proceso lo que pasa en tu proyecto y llevo la cuenta de lo que se prometió
+> en cada reunión.
 
 Una línea y sigue. **No expliques lo que vas a hacer: hazlo.**
 
@@ -96,7 +96,9 @@ compromisos del proyecto, y solo siguió hacia atrás el que las notas de ese d�
 Escribe lo leído en la ficha, `<estado>/records/<código>.json`, aplicando **project-record**:
 los compromisos, y lo que la minuta diga de hitos, riesgos y de la declaración del gerente,
 cada dato con su cita. Una fecha que nadie dijo —«esta semana», «la semana que viene»— va
-como `no_declarada`, no como una fecha calculada. **No la selles**: leíste una minuta, no
+como `no_declarada`, no como una fecha calculada. **La fecha de cierre es la vigente**:
+si la carpeta trae un cronograma, `plan.end_date` sale de su último hito, con esa cita; la
+del acta de constitución es la original y va en `plan.baseline`, no en `end_date`. **No la selles**: leíste una minuta, no
 el proyecto, y sellar la daría por leída entera. Después calcula:
 
 ```
