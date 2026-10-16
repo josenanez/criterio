@@ -517,7 +517,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-3/mineria/calificacion-samuel-alba.json",
   "origen": "codigo",
   "correccion": "df7598f",
-  "verificado_en": "selftest de producto.py y de portafolio.py: not_found escrito como valor es un campo vacío"
+  "verificado_en": "ronda-5 · cuatro industrias sobre 0.3.11: Alba 150 de 150, ningún doliente sin señal"
  },
  {
   "id": "D041",
@@ -530,7 +530,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-4/bancos/calificacion-samuel-alba.json",
   "origen": "instrucciones",
   "correccion": "a46261d",
-  "verificado_en": null
+  "verificado_en": "ronda-5 · cuatro industrias sobre 0.3.11: Alba cita la entrevista; 150 de 150 alertas encontradas"
  },
  {
   "id": "D042",
@@ -556,7 +556,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-4/cooperativas/rostrum.json",
   "origen": "codigo",
   "correccion": "0bd6787",
-  "verificado_en": null
+  "verificado_en": "ronda-5 · cuatro industrias sobre 0.3.11: Rostrum 2155 de 2155, los productos con nombre abren"
  },
  {
   "id": "D044",
@@ -569,7 +569,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-4/mineria/revision.json",
   "origen": "codigo",
   "correccion": "0bd6787",
-  "verificado_en": null
+  "verificado_en": "ronda-5 · cuatro industrias sobre 0.3.11: el sello de Vera no se frena por citas ajenas; cobertura 100 %"
  },
  {
   "id": "D045",
@@ -582,6 +582,19 @@
   "evidencia": "tests/evidencias/rondas/ronda-4/mineria/revision.json",
   "origen": "instrucciones",
   "correccion": "0bd6787",
-  "verificado_en": null
+  "verificado_en": "ronda-5 · cuatro industrias sobre 0.3.11: ninguna cita con dos rutas; 148 de 148 contratos"
+ },
+ {
+  "id": "D046",
+  "fecha": "2026-10-16",
+  "ronda": "5",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "El motor hacía sonar commitment_rescheduled en un compromiso reprogramado tres veces y después cumplido con acta. La señal es para un bloqueo abierto; la clave del simulador ya lo excluía.",
+  "evidencia": "tests/evidencias/rondas/ronda-5/mineria/revision.json",
+  "origen": "codigo",
+  "correccion": "88e4386",
+  "verificado_en": "selftest de portafolio.py: un compromiso cumplido no suena como reprogramado"
  }
 ]
