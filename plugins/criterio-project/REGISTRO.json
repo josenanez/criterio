@@ -532,6 +532,43 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "45caaf940f463b11fde3fb1949b12031998e15a9b775867ddddadebe00cac35c",
       "sha256": "3a37b8e5acfa45a0c9967a3a00b835234449e3bf4e8d927b3947637df4b2583e"
+    },
+    {
+      "version": "0.3.12",
+      "fecha": "2026-10-16",
+      "commit": null,
+      "base": "46aa2bb8",
+      "etiqueta": "v0.3.12",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "e22c87c17ff1aea44b37c487bef293e048662f9cf1f097ce8e59aecb108acd88",
+        "criterio-product": "056db146457e037a4327e4dc4f8442cd161e09118c7d8518381e9ba6cc99b0b4",
+        "criterio-project": "662d43900335586fd581506cb763336a14c19eb079159a472381aebb93ab01b6"
+      },
+      "destacados": [
+        "Vera y Samuel se presentan por lo que hacen: procesan la documentación que ya tienes.",
+        "Samuel publica como fecha de cierre la vigente, la del cronograma más reciente: la misma que contrasta la PMO.",
+        "El ejemplo de project-record guarda en value el documento más reciente, como dice su propia regla.",
+        "Un compromiso cumplido con acta ya no suena como reprogramado."
+      ],
+      "cambios": [
+        "Release 0.3.11, entered in the version register",
+        "Round 5 on 0.3.11: 148 of 148 contracts, Alba 150/150, Rostrum 2155/2155, Samuel 102/104, Vera 223/228",
+        "A commitment met with a receipt no longer sounds as rescheduled",
+        "Defects: D040, D041 and D043 to D045 verified on round 5; D046 found and fixed",
+        "The key models the manager-PMO contrast from the published record, and the charter closes where the schedule does",
+        "Defects: D012 fixed in the key; D047 (material) and D048 (instructions) registered and fixed"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "3a37b8e5acfa45a0c9967a3a00b835234449e3bf4e8d927b3947637df4b2583e",
+      "sha256": "145e91d6a6f363d0aee51047d537aa55a559ff7b94087025fa4f068d282d5c56"
     }
   ]
 }
