@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-210-portal-de-proveedores/2026-10-15-notas-reunion.txt",
+ "inicio": "2026-10-15T23:30:04",
+ "estado": "success",
+ "error": false,
+ "segundos": 55,
+ "turnos": 15,
+ "tokens": 556993,
+ "tokens_salida": 6780,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-210-portal-de-proveedores/corrida-en-curso.json",
+   "estado/PRY-210-portal-de-proveedores/corridas/2026-10-15-pm-minutes-1.md",
+   "estado/PRY-210-portal-de-proveedores/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-210-portal-de-proveedores/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-15T23:37:16",
+ "estado": "success",
+ "error": false,
+ "segundos": 42,
+ "turnos": 15,
+ "tokens": 700817,
+ "tokens_salida": 3741,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-publish-1.md",
+   "documentos/proyectos/PRY-210-portal-de-proveedores/00-gobierno/ficha-pm.json",
+   "estado/PRY-210-portal-de-proveedores/corridas/2026-10-15-pm-publish-1.md",
+   "estado/PRY-210-portal-de-proveedores/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-210-portal-de-proveedores/corridas.json"
+  ],
+  "borrados": []
+ }
+}

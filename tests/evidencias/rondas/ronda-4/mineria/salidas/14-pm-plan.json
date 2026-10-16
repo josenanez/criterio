@@ -1,0 +1,28 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-16T01:50:19",
+ "estado": "success",
+ "error": false,
+ "segundos": 82,
+ "turnos": 18,
+ "tokens": 715447,
+ "tokens_salida": 9381,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-15-pm-plan-1.html",
+   ".criterio/corridas/proyecto/2026-10-15-pm-plan-1.md",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas/2026-10-15-pm-plan-1.md",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas.json"
+  ],
+  "borrados": []
+ }
+}

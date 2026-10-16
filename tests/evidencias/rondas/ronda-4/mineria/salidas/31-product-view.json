@@ -1,0 +1,25 @@
+{
+ "n": 31,
+ "agente": "vera",
+ "comando": "product-view",
+ "argumento": "despacho de flota",
+ "inicio": "2026-10-16T02:16:50",
+ "estado": "success",
+ "error": false,
+ "segundos": 48,
+ "turnos": 12,
+ "tokens": 556715,
+ "tokens_salida": 5319,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-15-product-view-1.md",
+   "estado/corridas/salida-product-view.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

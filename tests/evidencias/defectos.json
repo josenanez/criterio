@@ -452,7 +452,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-3/bancos/calificacion-samuel-alba.json",
   "origen": "instrucciones",
   "correccion": "4ba01bd",
-  "verificado_en": null
+  "verificado_en": "ronda-4 · cuatro industrias sobre 0.3.10: Samuel lee todas las minutas en las cuatro; 100 de 104 compromisos"
  },
  {
   "id": "D036",
@@ -478,7 +478,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-3/retail/revision.json",
   "origen": "instrucciones",
   "correccion": "f1ac133",
-  "verificado_en": null
+  "verificado_en": "ronda-4 · cuatro industrias sobre 0.3.10: el informe queda en paths.reports y Rostrum lo sirve en las cuatro"
  },
  {
   "id": "D038",
@@ -491,7 +491,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-3/mineria/revision.json",
   "origen": "instrucciones",
   "correccion": "7d48c2a",
-  "verificado_en": null
+  "verificado_en": "ronda-4 · cuatro industrias sobre 0.3.10: ningún commitment_rescheduled falso en Vera"
  },
  {
   "id": "D039",
@@ -504,7 +504,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-3/mineria/revision.json",
   "origen": "instrucciones",
   "correccion": "7d48c2a",
-  "verificado_en": null
+  "verificado_en": "ronda-4 · cuatro industrias sobre 0.3.10: pm-wake cumple su contrato en las cuatro industrias"
  },
  {
   "id": "D040",
@@ -518,5 +518,70 @@
   "origen": "codigo",
   "correccion": "df7598f",
   "verificado_en": "selftest de producto.py y de portafolio.py: not_found escrito como valor es un campo vacío"
+ },
+ {
+  "id": "D041",
+  "fecha": "2026-10-16",
+  "ronda": "4",
+  "entorno": "bancos",
+  "agente": "alba",
+  "comando": "product-setup",
+  "que_paso": "D028 volvió: Alba citó el acta del comité como evidencia de demanda y 11 evidence_stale no salieron. La corrección de la 0.3.9 estaba en demand-evidence, pero quien extrae los requerimientos es product-setup, que solo decía «la evidencia con su source_date». Ahora lo dice ahí.",
+  "evidencia": "tests/evidencias/rondas/ronda-4/bancos/calificacion-samuel-alba.json",
+  "origen": "instrucciones",
+  "correccion": "a46261d",
+  "verificado_en": null
+ },
+ {
+  "id": "D042",
+  "fecha": "2026-10-16",
+  "ronda": "4",
+  "entorno": "retail · mineria",
+  "agente": "samuel",
+  "comando": "pm-minutes · pm-commitments",
+  "que_paso": "Samuel contó como reprogramación la primera fecha de cuatro compromisos prometidos «por definir», el mismo error de Vera en D038. La regla estaba solo en el skill; ahora está en sus comandos y la aritmética no cuenta esa primera fecha.",
+  "evidencia": "tests/evidencias/rondas/ronda-4/retail/calificacion-samuel-alba.json",
+  "origen": "instrucciones",
+  "correccion": "5ae06a6",
+  "verificado_en": null
+ },
+ {
+  "id": "D043",
+  "fecha": "2026-10-16",
+  "ronda": "4",
+  "entorno": "cooperativas · mineria",
+  "agente": "rostrum",
+  "comando": "portfolio-server",
+  "que_paso": "Las páginas de los productos con nombre («tarjeta débito», «despacho de flota») respondían 404: la guarda de rutas solo aceptaba letras sin tilde, números, punto y guion. Ahora acepta letras de cualquier alfabeto y espacios, nunca una barra ni «..»; los enlaces además van codificados (31496ee).",
+  "evidencia": "tests/evidencias/rondas/ronda-4/cooperativas/rostrum.json",
+  "origen": "codigo",
+  "correccion": "0bd6787",
+  "verificado_en": null
+ },
+ {
+  "id": "D044",
+  "fecha": "2026-10-16",
+  "ronda": "4",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "La ficha de Samuel traía una cita con dos rutas; como la de Vera incluye la de Samuel para el contraste, su sello se negó y la línea base del cronograma no se completó: rebaseline_unauthorized y variance_time no salieron. El sello de Vera ahora revisa solo sus propias citas.",
+  "evidencia": "tests/evidencias/rondas/ronda-4/mineria/revision.json",
+  "origen": "codigo",
+  "correccion": "0bd6787",
+  "verificado_en": null
+ },
+ {
+  "id": "D045",
+  "fecha": "2026-10-16",
+  "ronda": "4",
+  "entorno": "mineria",
+  "agente": "samuel",
+  "comando": "pm-setup",
+  "que_paso": "Samuel escribió la cita de un proveedor con dos rutas («contrato.md; factura: …»), el error de D026 que el sello de Vera atrapa y el de Samuel no tiene. project-record ahora dice que una cita es una sola ruta y que la factura va en invoiced.",
+  "evidencia": "tests/evidencias/rondas/ronda-4/mineria/revision.json",
+  "origen": "instrucciones",
+  "correccion": "0bd6787",
+  "verificado_en": null
  }
 ]

@@ -1,0 +1,22 @@
+{
+ "servidor": ".claude/plugins/cache/criterio/criterio-portfolio/0.3.10/scripts/servidor.py",
+ "rutas": 143,
+ "paginas": 141,
+ "malas": {
+  "/corrida/portafolio/despacho%20de%20flota/2026-10-15-product-view-1": 404,
+  "/caso/despacho%20de%20flota": 404
+ },
+ "crudo": [],
+ "crudo_total": 0,
+ "voz_del_agente": 16,
+ "peticion": true,
+ "fichas_intactas": true,
+ "pantalla": {
+  "390": [],
+  "1280": []
+ },
+ "comprobaciones": {
+  "total": 534,
+  "pasan": 532
+ }
+}

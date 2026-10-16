@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-200-mantenimiento-predictivo-de-camiones/2026-10-15-notas-reunion.txt",
+ "inicio": "2026-10-16T01:45:26",
+ "estado": "success",
+ "error": false,
+ "segundos": 58,
+ "turnos": 20,
+ "tokens": 706609,
+ "tokens_salida": 6993,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corrida-en-curso.json",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas/2026-10-15-pm-minutes-1.md",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "entorno": "bancos",
+ "ronda": 4,
+ "hoy": "2026-10-15",
+ "prd": "PRD-309",
+ "prd_carpeta": "PRD-309",
+ "prd_otro": "PRD-300",
+ "req": "REQ-4900",
+ "pry_sam": "PRY-210",
+ "sam_carpeta": "PRY-210-portal-de-proveedores",
+ "notas": "documentos/proyectos/PRY-210-portal-de-proveedores/2026-10-15-notas-reunion.txt",
+ "status": "PRY-208",
+ "health": "PRY-204",
+ "budget": "portafolio",
+ "vendor": "PRY-204",
+ "change": "PRY-201",
+ "history": "PRY-201",
+ "charter": "PRY-201",
+ "closure": "PRY-205",
+ "producto_vista": "nómina empresarial"
+}

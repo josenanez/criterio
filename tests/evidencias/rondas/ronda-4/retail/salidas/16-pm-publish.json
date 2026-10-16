@@ -1,0 +1,26 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-16T01:08:59",
+ "estado": "success",
+ "error": false,
+ "segundos": 45,
+ "turnos": 14,
+ "tokens": 807360,
+ "tokens_salida": 4064,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "documentos/proyectos/PRY-209-migración-del-erp/00-gobierno/ficha-pm.json",
+   "estado/PRY-209-migración-del-erp/corridas/2026-10-15-pm-publish-1.md",
+   "estado/PRY-209-migración-del-erp/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-209-migración-del-erp/corridas.json"
+  ],
+  "borrados": []
+ }
+}

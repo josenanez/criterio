@@ -1,0 +1,22 @@
+{
+ "servidor": ".claude/plugins/cache/criterio/criterio-portfolio/0.3.10/scripts/servidor.py",
+ "rutas": 145,
+ "paginas": 143,
+ "malas": {
+  "/corrida/portafolio/tarjeta%20d%C3%A9bito/2026-10-15-product-view-1": 404,
+  "/caso/tarjeta%20d%C3%A9bito": 404
+ },
+ "crudo": [],
+ "crudo_total": 0,
+ "voz_del_agente": 7,
+ "peticion": true,
+ "fichas_intactas": true,
+ "pantalla": {
+  "390": [],
+  "1280": []
+ },
+ "comprobaciones": {
+  "total": 541,
+  "pasan": 539
+ }
+}
