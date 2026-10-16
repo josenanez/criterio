@@ -167,6 +167,11 @@ button:hover{{background:{informe.TINTA};border-color:{informe.TINTA}}}
 """
 
 
+def seg(x) -> str:
+    """Un tramo de ruta codificado: un caso puede llamarse «tarjeta débito» (ronda 4)."""
+    return urllib.parse.quote(str(x), safe='')
+
+
 def e(x):
     return html.escape(str(x if x is not None else ''))
 
@@ -231,7 +236,7 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
             f'<tr><td class="nw"><a href="{e(c["ruta"])}">{e((c.get("inicio") or c.get("fecha") or "").replace("T", " ")[:16])}</a></td>'
             f'<td><a href="/agente/{e(c["agente"])}">{e(NOMBRE.get(c["agente"], c["agente"]))}</a></td>'
             f'<td>{e(etiqueta(c["comando"]))}<br><code>{e(c["comando"])}</code></td>'
-            f'<td class="nw">{"<a href=" + chr(34) + "/caso/" + e(c["caso"]) + chr(34) + ">" + e(c["caso"]) + "</a>" if c.get("caso") else "—"}</td>'
+            f'<td class="nw">{"<a href=" + chr(34) + "/caso/" + e(seg(c["caso"])) + chr(34) + ">" + e(c["caso"]) + "</a>" if c.get("caso") else "—"}</td>'
             f'<td class="n">{e(c.get("documentos") or "—")}</td>'
             f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
             f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
@@ -325,7 +330,7 @@ def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
         for campo in sorted(set(va) | set(vb)):
             x, y = va.get(campo), vb.get(campo)
             if x != y:
-                filas.append(f'<tr><td><a href="/historia/{e(codigo)}">{e(codigo)}</a></td>'
+                filas.append(f'<tr><td><a href="/historia/{e(seg(codigo))}">{e(codigo)}</a></td>'
                              f'<td>{e(informe.nombre_campo(rec, campo))}</td>'
                              f'<td>{e(x if x is not None else "—")}</td>'
                              f'<td>{e(y if y is not None else "—")}</td></tr>')
@@ -546,7 +551,8 @@ def indice(evidencia: Path, estado: Path) -> list:
             "subagentes": None, "concurrentes": None, "workers": None, "exceso": False,
             "hallazgos": c.get("hallazgos"), "documentos": c.get("documentos"),
             "medidas": 1,
-            "ruta": f'/corrida/{agente}/{c.get("sobre") or "-"}/{ident}',
+            # «tarjeta débito» es un caso válido; en la ruta va codificado (ronda 4, cooperativas).
+            "ruta": f'/corrida/{agente}/{seg(c.get("sobre") or "-")}/{ident}',
             "orden": c.get("fecha") or "",
         })
     corridas.sort(key=lambda c: (c["orden"], c["agente"], c["id"]))
@@ -622,7 +628,7 @@ def arrastres(h: dict, hoy: str) -> str:
         cuerpo += ['<div class="bloque"><table><thead><tr><th>Caso</th><th>Señal</th>'
                    '<th>Cortes seguidos</th><th>Desde</th></tr></thead><tbody>']
         for n_, codigo, sig, desde in filas[:200]:
-            cuerpo.append(f'<tr><td><a href="/caso/{e(codigo)}">{e(codigo)}</a></td>'
+            cuerpo.append(f'<tr><td><a href="/caso/{e(seg(codigo))}">{e(codigo)}</a></td>'
                           f'<td>{e(informe.NOMBRES.get(sig, sig))}</td><td class="n">{n_}</td>'
                           f'<td>{e(desde)}</td></tr>')
         cuerpo.append('</tbody></table></div>')
@@ -676,7 +682,7 @@ def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -
     if (informe_dir / f'{codigo}.html').is_file():
         enlaces.append(f'<a href="/p/{e(codigo)}">su informe de hoy</a>')
     if senales:
-        enlaces.append(f'<a href="/historia/{e(codigo)}">desde cuándo arrastra cada señal</a>')
+        enlaces.append(f'<a href="/historia/{e(seg(codigo))}">desde cuándo arrastra cada señal</a>')
     cuerpo = [f'<p class="entrada"><b>{e(codigo)}</b>: {len(suyas)} corridas de los agentes sobre '
               f'este {"producto" if es_producto else "proyecto"}'
               + (' · ' + ' · '.join(enlaces) if enlaces else '') + '.</p>']
@@ -1051,7 +1057,7 @@ class Manejador(BaseHTTPRequestHandler):
                 self.html(404, error(404, 'Eso no está aquí', self.hoy()))
         elif ruta.startswith('/historia/'):
             h = portafolio.historia(self.estado, todos=True)
-            self.html(*linea_de_tiempo(h, ruta[len('/historia/'):], self.hoy()))
+            self.html(*linea_de_tiempo(h, urllib.parse.unquote(ruta[len('/historia/'):]), self.hoy()))
         elif ruta == '/corte':
             q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
             snaps = sorted(x.stem for x in (self.estado / 'snapshots').glob('*.json'))
@@ -1413,6 +1419,8 @@ def selftest() -> int:
         ok('la línea de tiempo separa lo abierto de lo resuelto',
            cod == 200 and 'Lo que sigue abierto' in cuerpo
            and 'Lo que se resolvió' in cuerpo, True)
+        ok('un caso con espacio en el nombre lleva la ruta codificada',
+           (seg('tarjeta débito'), pedir('/historia/' + seg('PRY-001'))[0]), ('tarjeta%20d%C3%A9bito', 200))
         ok('la historia nombra la señal, no su clave',
            'desviación en tiempo' in cuerpo and 'variance_time' not in cuerpo, True)
         cod, cuerpo = pedir('/corte?a=2026-08-31&b=2026-09-07')

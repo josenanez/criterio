@@ -438,7 +438,8 @@ def probar_servidor(espacio: Path, puerto: int = 8799) -> dict:
             for href in re.findall(r'href="([^"#]+)', cuerpo):
                 u = urllib.parse.urlparse(urllib.parse.urljoin(base + final, _html.unescape(href)))
                 if u.netloc == f"127.0.0.1:{puerto}":
-                    k = u.path + (f"?{u.query}" if u.query else "")
+                    # Como un navegador: un espacio o una tilde en el enlace viajan codificados.
+                    k = urllib.parse.quote(u.path, safe="/%:@") + (f"?{u.query}" if u.query else "")
                     if k not in vistas and k not in cola:
                         cola.append(k)
         n0 = json.loads(urllib.request.urlopen(base + "/estado.json", timeout=10).read())["peticiones_abiertas"]
