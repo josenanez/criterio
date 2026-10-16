@@ -86,6 +86,11 @@ primera ronda nadie lo hizo, y Alba trabajó sobre una ficha vacía en todo lo d
   estado que el documento dice, quién lo pidió, el criterio de aceptación, la evidencia con
   su `source_date`, la decisión y el proyecto que lo ejecuta tal como están escritos.
   «Ninguno declarado» es un proyecto vacío, no uno que haya que buscar.
+- **La evidencia es de dónde viene la demanda, no el acta que la acepta.** Si el acta dice
+  que lo pidió un «cliente entrevistado», la evidencia es la entrevista, citada con **su**
+  fecha; el acta va en `decision` (ver **demand-evidence** y **requirement-record**). Citar
+  el acta le pone a la demanda la fecha del comité y esconde que envejeció: en las rondas 3
+  y 4 de pruebas eso escondió 16 `evidence_stale`.
 
 **Se levanta lo escrito, no lo que falta.** No se crea un requerimiento que ningún
 documento nombra, ni se completa un criterio que nadie escribió: eso queda en `not_found`, y
