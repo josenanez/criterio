@@ -284,7 +284,7 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     out = {"code": code, "name": value(ident.get("name")),
            "product": producto(ident.get("product")),
            "authority": value(ident.get("authority")),
-           "alerts": []}
+           "alerts": [], "record_issues": []}
 
     def alert(kind, detail):
         out["alerts"].append({"signal": kind, "detail": detail})
@@ -443,6 +443,13 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
         # contaron como una más). El conteo se corrige aquí aunque la ficha la traiga así.
         if veces and value(c.get("original_due_date")) == "no_declarada":
             veces -= 1
+            # El conteo se corrige, pero la ficha sigue diciéndole a quien la lee que se
+            # reprogramó. El script no la reescribe —tiene un solo escritor—: le dice al
+            # agente qué corregir (ronda 6, minería: D042 otra vez).
+            out["record_issues"].append({
+                "who": quien, "what": que, "field": "commitments.reschedules",
+                "fix": "la promesa no tenía fecha: la primera que se le puso va en "
+                       "original_due_date y sale de reschedules"})
         # Un compromiso cumplido con acta ya no es un bloqueo: su historia queda en la ficha,
         # pero la señal es para lo que sigue abierto (ronda 5, minería).
         if veces >= th["reschedules_to_flag"] and st != "met":
@@ -814,6 +821,7 @@ def compute(state: Path, today: dt.date, th: dict) -> dict:
             ),
             "products": len(por_producto),
             "no_authority": sum(1 for p in projects if not p.get("authority")),
+            "record_issues": sum(len(p["record_issues"]) for p in projects),
         },
     }
 
@@ -2050,6 +2058,15 @@ def _selftest_plan():
                                           "reschedules": [{"due_date": "2026-10-01"}, {"due_date": "2026-11-01"},
                                                           {"due_date": "2026-12-01"}]}]},
                         dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)["commitments_rescheduled"], []),
+        ("y la ficha que lo trae así recibe qué corregir",
+         [i["field"] for i in compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-10-18",
+                                          "original_due_date": "no_declarada", "state": "met",
+                                          "reschedules": [{"due_date": "2026-10-18"}]}]},
+                        dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)["record_issues"]], ["commitments.reschedules"]),
+        ("la que lo trae bien no recibe nada",
+         compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-10-18",
+                                          "original_due_date": "2026-10-18", "state": "open", "reschedules": []}]},
+                        dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)["record_issues"], []),
         ("not_found es un estado, no un valor", (value("not_found"), value({"value": "not_found"}), value("Ana")),
          (None, None, "Ana")),
         ("una cita con dos rutas no se sella", (con_rota["ok"], len(con_rota.get("broken") or [])), (False, 1)),

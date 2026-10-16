@@ -75,6 +75,10 @@ nadie ha nombrado**, y es información distinta.
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <archivo>
 ```
 
+**Si trae `record_issues`, corrige esa parte de la ficha y vuelve a calcular.** El script
+no reescribe la ficha —tiene un solo escritor, que eres tú—: dice qué quedó contra la
+regla y cómo va. Una ficha con `record_issues` no se da por terminada.
+
 Devuelve `commitments_overdue`, `commitments_undated` y `commitments_rescheduled` con
 las veces y las fechas. **Si un número de tu salida no sale de ahí, está inventado.**
 

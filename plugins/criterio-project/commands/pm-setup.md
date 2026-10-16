@@ -105,6 +105,10 @@ el proyecto, y sellar la daría por leída entera. Después calcula:
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config .criterio/proyecto/<código>/config.json
 ```
 
+**Si trae `record_issues`, corrige esa parte de la ficha y vuelve a calcular.** El script
+no reescribe la ficha —tiene un solo escritor, que eres tú—: dice qué quedó contra la
+regla y cómo va. Una ficha con `record_issues` no se da por terminada.
+
 Muestra quién prometió qué y para cuándo, con la cita, y las señales que `compute` levantó.
 Lo que el script no levantó no se presenta como hallazgo. Si alguno quedó sin fecha,
 cuéntalo aparte — **no puede estar vencido, y por eso mismo es el que desaparece de los

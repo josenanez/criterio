@@ -63,7 +63,7 @@ Un documento nuevo que corresponde a lo prometido, una mención explícita en un
 
 Cuando el mismo doliente promete lo mismo en varias reuniones con fechas sucesivas, no son varios compromisos: es uno con historial. Se registra una vez: `original_due_date` es la fecha de la primera promesa, `due_date` la vigente, y `reschedules` lleva una entrada por cada vez que se volvió a prometer —la original no es una entrada—. Dos fechas son una reprogramación; tres, dos.
 
-**Ponerle fecha a un compromiso que no la tenía no es reprogramarlo.** Si se prometió «por definir» y una reunión posterior le pone día, esa es su primera fecha: va en `original_due_date` y `reschedules` sigue vacío. Se reprograma solo lo que ya tenía una fecha y la cambió. En la ronda 3 (minería) Vera contó la primera fecha como una reprogramación más y un compromiso movido dos veces sonó como `commitment_rescheduled`.
+**Ponerle fecha a un compromiso que no la tenía no es reprogramarlo.** Si se prometió «por definir» y una reunión posterior le pone día, esa es su primera fecha: va en `original_due_date` y `reschedules` sigue vacío. Se reprograma solo lo que ya tenía una fecha y la cambió. Si una ficha lo trae al revés, `compute` corrige el conteo y lo devuelve en `record_issues` para que el agente arregle la ficha. En la ronda 3 (minería) Vera contó la primera fecha como una reprogramación más y un compromiso movido dos veces sonó como `commitment_rescheduled`.
 
 Un compromiso reprogramado tres veces es información distinta de tres compromisos vencidos, y es la que le sirve al gerente: no tiene un problema de seguimiento, tiene un bloqueo que nadie ha nombrado.
 

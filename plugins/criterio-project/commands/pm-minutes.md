@@ -89,6 +89,10 @@ no contra la frase: *«Rubén dice que lo entregó»* no cierra nada.
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config <archivo>
 ```
 
+**Si trae `record_issues`, corrige esa parte de la ficha y vuelve a calcular.** El script
+no reescribe la ficha —tiene un solo escritor, que eres tú—: dice qué quedó contra la
+regla y cómo va. Una ficha con `record_issues` no se da por terminada.
+
 **5. Marca lo que la reunión contradice.** Si en la reunión cambió el patrocinador, la
 fecha de cierre o el comité, eso **no es solo un acuerdo: es un campo de la ficha que la
 documentación oficial todavía dice distinto.** Nómbralo, con las dos fuentes y las dos
