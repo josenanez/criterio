@@ -1,0 +1,52 @@
+{
+ "n": 32,
+ "agente": "vera",
+ "comando": "portfolio-report",
+ "argumento": "html",
+ "inicio": "2026-10-16T16:49:18",
+ "estado": "success",
+ "error": false,
+ "segundos": 62,
+ "turnos": 13,
+ "tokens": 440512,
+ "tokens_salida": 6500,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-16-portfolio-report-1.html",
+   ".criterio/corridas/portafolio/2026-10-16-portfolio-report-1.md",
+   "estado/corridas/2026-10-16-portfolio-report-1.md",
+   "estado/corridas/salida-portfolio-report.md",
+   "reportes/PRY-199.html",
+   "reportes/PRY-200.html",
+   "reportes/PRY-201.html",
+   "reportes/PRY-202.html",
+   "reportes/PRY-203.html",
+   "reportes/PRY-204.html",
+   "reportes/PRY-205.html",
+   "reportes/PRY-206.html",
+   "reportes/PRY-207.html",
+   "reportes/PRY-208.html",
+   "reportes/PRY-209.html",
+   "reportes/PRY-210.html",
+   "reportes/PRY-211.html",
+   "reportes/decisiones.html",
+   "reportes/index.html",
+   "reportes/producto-autopago-en-tienda.html",
+   "reportes/producto-entrega-rapida.html",
+   "reportes/producto-marca-propia.html",
+   "reportes/producto-pago-con-qr.html",
+   "reportes/producto-prd-299.html",
+   "reportes/producto-puntos-de-fidelizacion.html",
+   "reportes/producto-venta-en-linea.html",
+   "reportes/productos.html",
+   "reportes/proyectos.html"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

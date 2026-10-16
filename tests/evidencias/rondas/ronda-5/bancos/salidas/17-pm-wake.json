@@ -1,0 +1,27 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-16T14:29:01",
+ "estado": "success",
+ "error": false,
+ "segundos": 68,
+ "turnos": 18,
+ "tokens": 805152,
+ "tokens_salida": 5358,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-211-cobranza-digital/cadencia.json",
+   "estado/PRY-211-cobranza-digital/corridas/2026-10-16-pm-wake-1.md",
+   "estado/PRY-211-cobranza-digital/corridas/2026-10-16-pm-wake-2.md",
+   "estado/PRY-211-cobranza-digital/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-cobranza-digital/corridas.json"
+  ],
+  "borrados": []
+ }
+}

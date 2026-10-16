@@ -1,0 +1,25 @@
+{
+ "n": 3,
+ "agente": "alba",
+ "comando": "product-requirements",
+ "argumento": "",
+ "inicio": "2026-10-16T15:06:34",
+ "estado": "success",
+ "error": false,
+ "segundos": 80,
+ "turnos": 14,
+ "tokens": 695024,
+ "tokens_salida": 7000,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado-producto/PRD-309/corridas/2026-10-16-product-requirements-1.md",
+   "estado-producto/PRD-309/corridas/salida-product-requirements.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado-producto/PRD-309/corridas.json"
+  ],
+  "borrados": []
+ }
+}

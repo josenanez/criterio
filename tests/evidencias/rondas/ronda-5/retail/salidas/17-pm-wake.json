@@ -1,0 +1,29 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-16T16:22:19",
+ "estado": "success",
+ "error": false,
+ "segundos": 49,
+ "turnos": 14,
+ "tokens": 645181,
+ "tokens_salida": 3627,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-16-pm-wake-1.html",
+   ".criterio/corridas/proyecto/2026-10-16-pm-wake-1.md",
+   "estado/PRY-209-migración-del-erp/cadencia.json",
+   "estado/PRY-209-migración-del-erp/corridas/2026-10-16-pm-wake-1.md",
+   "estado/PRY-209-migración-del-erp/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-209-migración-del-erp/corridas.json"
+  ],
+  "borrados": []
+ }
+}

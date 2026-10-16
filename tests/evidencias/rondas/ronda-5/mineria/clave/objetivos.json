@@ -1,0 +1,21 @@
+{
+ "entorno": "mineria",
+ "ronda": 5,
+ "hoy": "2026-10-16",
+ "prd": "PRD-304",
+ "prd_carpeta": "PRD-304",
+ "prd_otro": "PRD-301",
+ "req": "REQ-4401",
+ "pry_sam": "PRY-200",
+ "sam_carpeta": "PRY-200-mantenimiento-predictivo-de-camiones",
+ "notas": "documentos/proyectos/PRY-200-mantenimiento-predictivo-de-camiones/2026-10-16-notas-reunion.txt",
+ "status": "PRY-207",
+ "health": "PRY-211",
+ "budget": "PRY-203",
+ "vendor": "PRY-207",
+ "change": "PRY-207",
+ "history": "PRY-210",
+ "charter": "PRY-209",
+ "closure": "PRY-200",
+ "producto_vista": "monitoreo de flota"
+}

@@ -1,0 +1,2657 @@
+{
+ "dia": 3,
+ "creada": "2026-10-02",
+ "sector": "mineria",
+ "ronda": 5,
+ "etiqueta": "Empresas mineras de Suramérica · oro y cobre",
+ "proyectos": [
+  {
+   "codigo": "PRY-200",
+   "nombre": "Mantenimiento predictivo de camiones",
+   "carpeta": "PRY-200-mantenimiento-predictivo-de-camiones",
+   "profundidad": "media",
+   "area": "Medio Ambiente",
+   "comite": "Comité de Operaciones",
+   "patrocinador": "Andrés Lozano",
+   "gerente": "Ricardo Salas",
+   "producto": "monitoreo de flota",
+   "aprobacion": "2025-06-03",
+   "inicio": "2025-06-13",
+   "cierre": "2026-09-30",
+   "presupuesto": 1200000000,
+   "comprometido": 390173338,
+   "ejecutado": 438812017,
+   "proyeccion": 1175719466,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2025-09-26",
+     "vigente": "2025-09-26",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-01-09",
+     "vigente": "2026-01-09",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-04-25",
+     "vigente": "2026-04-25",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2026-08-08",
+     "vigente": "2026-08-08",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el punto 18",
+     "fechas": [
+      null,
+      "2026-11-04"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-07"
+    },
+    {
+     "quien": "María Restrepo",
+     "que": "Entregar el punto 34",
+     "fechas": [
+      "2026-10-05"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-10"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 54,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-11",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRY-201",
+   "nombre": "Ampliación de la relavera",
+   "carpeta": "PRY-201-ampliación-de-la-relavera",
+   "profundidad": "delgada",
+   "area": "Logística",
+   "comite": "Comité de Tecnología",
+   "patrocinador": "Felipe Arango",
+   "gerente": "Jorge Medina",
+   "producto": null,
+   "aprobacion": "2026-02-06",
+   "inicio": "2026-02-16",
+   "cierre": "2027-08-16",
+   "presupuesto": 800000000,
+   "comprometido": 442122350,
+   "ejecutado": 199320802,
+   "proyeccion": 775123302,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-07-22",
+     "vigente": "2026-07-22",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-12-25",
+     "vigente": "2026-12-25",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2027-05-30",
+     "vigente": "2027-05-30",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 58,
+    "fecha": "2026-10-15"
+   },
+   "ultimo_doc": "2026-10-15",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRY-202",
+   "nombre": "Planta de tratamiento de agua",
+   "carpeta": "PRY-202-planta-de-tratamiento-de-agua",
+   "profundidad": "media",
+   "area": "Mina",
+   "comite": "Comité de Tecnología",
+   "patrocinador": "Felipe Arango",
+   "gerente": "Javier Hoyos",
+   "producto": null,
+   "aprobacion": "2026-02-02",
+   "inicio": "2026-02-12",
+   "cierre": "2026-09-23",
+   "presupuesto": 6800000000,
+   "comprometido": 4935969607,
+   "ejecutado": 4175232521,
+   "proyeccion": 6474985210,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-04-02",
+     "vigente": "2026-04-02",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-05-22",
+     "vigente": "2026-05-22",
+     "cerrado": true,
+     "recibo": "2026-10-09"
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-07-10",
+     "vigente": "2026-07-10",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2026-08-29",
+     "vigente": "2026-08-29",
+     "cerrado": true,
+     "recibo": "2026-10-15"
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Rubén Cárdenas",
+     "que": "Entregar el punto 19",
+     "fechas": [
+      "2026-09-23",
+      "2026-11-07"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-09"
+    },
+    {
+     "quien": "Sandra Gil",
+     "que": "Entregar el punto 27",
+     "fechas": [
+      "2026-10-18"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 35,
+    "fecha": "2026-10-13"
+   },
+   "ultimo_doc": "2026-10-14",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRY-203",
+   "nombre": "Despacho automático de flota",
+   "carpeta": "PRY-203-despacho-automático-de-flota",
+   "profundidad": "media",
+   "area": "Geología",
+   "comite": "Comité de Seguridad",
+   "patrocinador": "Javier Hoyos",
+   "gerente": "Beatriz Cuéllar",
+   "producto": "despacho de flota",
+   "aprobacion": "2026-03-09",
+   "inicio": "2026-03-19",
+   "cierre": "2027-02-14",
+   "presupuesto": 800000000,
+   "comprometido": 339448354,
+   "ejecutado": 389245930,
+   "proyeccion": 966342753,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-05-31",
+     "vigente": "2026-05-31",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-08-13",
+     "vigente": "2026-08-13",
+     "cerrado": true,
+     "recibo": "2026-10-08"
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-10-26",
+     "vigente": "2026-10-26",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-01-08",
+     "vigente": "2027-03-15",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Natalia Ospina",
+     "que": "Entregar el punto 25",
+     "fechas": [
+      "2026-11-06",
+      "2026-11-08"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-05"
+    },
+    {
+     "quien": "Beatriz Cuéllar",
+     "que": "Entregar el punto 23",
+     "fechas": [
+      "2026-11-02"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-14"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 66,
+     "autorizado": false,
+     "fecha": "2026-10-09"
+    }
+   ],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 82,
+    "fecha": "2026-10-13"
+   },
+   "ultimo_doc": "2026-10-15",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRY-204",
+   "nombre": "Monitoreo de taludes",
+   "carpeta": "PRY-204-monitoreo-de-taludes",
+   "profundidad": "media",
+   "area": "Mantenimiento",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Paula Céspedes",
+   "gerente": "Ricardo Salas",
+   "producto": "alerta de taludes",
+   "aprobacion": "2025-05-30",
+   "inicio": "2025-06-09",
+   "cierre": "2026-01-14",
+   "presupuesto": 4200000000,
+   "comprometido": 1381230197,
+   "ejecutado": 1091528211,
+   "proyeccion": 3896903162,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2025-07-27",
+     "vigente": "2025-07-27",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2025-09-14",
+     "vigente": "2025-09-14",
+     "cerrado": true,
+     "recibo": "2026-10-04"
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2025-11-02",
+     "vigente": "2025-11-02",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2025-12-20",
+     "vigente": "2026-02-19",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Andrés Lozano",
+     "que": "Entregar el punto 18",
+     "fechas": [
+      "2026-10-07"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-13"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 61,
+     "autorizado": true,
+     "fecha": "2026-10-09"
+    }
+   ],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 77,
+    "fecha": "2026-10-13"
+   },
+   "ultimo_doc": "2026-10-15",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRY-205",
+   "nombre": "Sistema de gestión de seguridad",
+   "carpeta": "PRY-205-sistema-de-gestión-de-seguridad",
+   "profundidad": "delgada",
+   "area": "Tecnología",
+   "comite": "Comité de Tecnología",
+   "patrocinador": "Beatriz Cuéllar",
+   "gerente": "Rubén Cárdenas",
+   "producto": null,
+   "aprobacion": "2025-11-28",
+   "inicio": "2025-12-08",
+   "cierre": "2027-03-02",
+   "presupuesto": 18000000000,
+   "comprometido": 6223168923,
+   "ejecutado": 9946270998,
+   "proyeccion": 16651362791,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-04-15",
+     "vigente": "2026-04-15",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-08-21",
+     "vigente": "2026-08-21",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-12-27",
+     "vigente": "2026-12-27",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 73,
+    "fecha": "2026-10-09"
+   },
+   "ultimo_doc": "2026-10-07",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-09"
+  },
+  {
+   "codigo": "PRY-206",
+   "nombre": "Red privada LTE en mina",
+   "carpeta": "PRY-206-red-privada-lte-en-mina",
+   "profundidad": "minima",
+   "area": "Tecnología",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Óscar Ramírez",
+   "gerente": "Liliana Torres",
+   "producto": null,
+   "aprobacion": "2026-02-23",
+   "inicio": "2026-03-05",
+   "cierre": "2026-10-07",
+   "presupuesto": 6800000000,
+   "comprometido": 4816495906,
+   "ejecutado": 2629808719,
+   "proyeccion": 7517983731,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-05-30",
+     "vigente": "2026-05-30",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-08-24",
+     "vigente": "2026-08-24",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 80,
+    "fecha": "2026-10-12"
+   },
+   "ultimo_doc": "2026-10-12",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-12"
+  },
+  {
+   "codigo": "PRY-207",
+   "nombre": "Gemelo digital de la planta",
+   "carpeta": "PRY-207-gemelo-digital-de-la-planta",
+   "profundidad": "completa",
+   "area": "Tecnología",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Jorge Medina",
+   "gerente": "Natalia Ospina",
+   "producto": "gemelo digital",
+   "aprobacion": "2025-12-01",
+   "inicio": "2025-12-11",
+   "cierre": "2027-06-16",
+   "presupuesto": 9500000000,
+   "comprometido": 6646347227,
+   "ejecutado": 3711432409,
+   "proyeccion": 9553085251,
+   "proveedores": [
+    {
+     "nombre": "Automatización de Procesos Ltda.",
+     "ref": "CT-858",
+     "firma": "2025-12-10",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-04-28",
+       "estado": "recibido",
+       "monto": 503962353,
+       "acta": "2026-05-08"
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-09-13",
+       "estado": "en curso",
+       "monto": 503962353,
+       "acta": null
+      },
+      {
+       "que": "Calibración de sensores",
+       "vence": "2027-01-29",
+       "estado": "en curso",
+       "monto": 503962353,
+       "acta": null
+      }
+     ],
+     "facturado": 503962353,
+     "fecha_factura": "2026-09-06"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-03-21",
+     "vigente": "2026-03-21",
+     "cerrado": true,
+     "recibo": "2026-10-15"
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-06-29",
+     "vigente": "2026-06-29",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-10-08",
+     "vigente": "2026-10-08",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-01-16",
+     "vigente": "2027-01-16",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Pruebas en operación",
+     "base": "2027-04-26",
+     "vigente": "2027-04-26",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Beatriz Cuéllar",
+     "que": "Entregar el punto 23",
+     "fechas": [
+      "2026-10-16"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-09"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 75,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRY-208",
+   "nombre": "Trazabilidad del mineral",
+   "carpeta": "PRY-208-trazabilidad-del-mineral",
+   "profundidad": "media",
+   "area": "Medio Ambiente",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Paula Céspedes",
+   "producto": "trazabilidad",
+   "aprobacion": "2025-08-24",
+   "inicio": "2025-09-03",
+   "cierre": "2027-04-05",
+   "presupuesto": 2400000000,
+   "comprometido": 1869649137,
+   "ejecutado": 975753496,
+   "proyeccion": 2358211719,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-01-09",
+     "vigente": "2026-01-09",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-05-18",
+     "vigente": "2026-05-18",
+     "cerrado": true,
+     "recibo": "2026-10-07"
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-09-24",
+     "vigente": "2026-09-24",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-01-30",
+     "vigente": "2027-05-20",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 110,
+     "autorizado": true,
+     "fecha": "2026-10-07"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 48,
+    "fecha": "2026-10-07"
+   },
+   "ultimo_doc": "2026-10-04",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-07"
+  },
+  {
+   "codigo": "PRY-209",
+   "nombre": "Electrificación de equipos",
+   "carpeta": "PRY-209-electrificación-de-equipos",
+   "profundidad": "minima",
+   "area": "Mina",
+   "comite": "Comité de Seguridad",
+   "patrocinador": "Andrés Lozano",
+   "gerente": "Javier Hoyos",
+   "producto": null,
+   "aprobacion": "2025-11-01",
+   "inicio": "2025-11-11",
+   "cierre": "2026-12-31",
+   "presupuesto": 3300000000,
+   "comprometido": 2261539217,
+   "ejecutado": 1620829158,
+   "proyeccion": 3289376978,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-04-26",
+     "vigente": "2026-04-26",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-10-09",
+     "vigente": "2026-10-09",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 54,
+    "fecha": "2026-10-07"
+   },
+   "ultimo_doc": "2026-10-04",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-07"
+  },
+  {
+   "codigo": "PRY-210",
+   "nombre": "Programa de relacionamiento comunitario",
+   "carpeta": "PRY-210-programa-de-relacionamiento-comunitario",
+   "profundidad": "completa",
+   "area": "Medio Ambiente",
+   "comite": "Comité Ambiental",
+   "patrocinador": "Carlos Peña",
+   "gerente": "Laura Vélez",
+   "producto": null,
+   "aprobacion": "2026-05-11",
+   "inicio": "2026-05-21",
+   "cierre": "2027-08-31",
+   "presupuesto": 3300000000,
+   "comprometido": 1917858493,
+   "ejecutado": 655590341,
+   "proyeccion": 3118748068,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-08-13",
+     "vigente": "2026-08-13",
+     "cerrado": true,
+     "recibo": "2026-10-15"
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-11-06",
+     "vigente": "2026-11-06",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2027-01-30",
+     "vigente": "2027-01-30",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-04-25",
+     "vigente": "2027-04-25",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Pruebas en operación",
+     "base": "2027-07-19",
+     "vigente": "2027-08-21",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Paula Céspedes",
+     "que": "Entregar el punto 35",
+     "fechas": [
+      null
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-15"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 33,
+     "autorizado": false,
+     "fecha": "2026-10-16"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 72,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-11",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-16"
+  },
+  {
+   "codigo": "PRY-211",
+   "nombre": "Control de polvo en vías",
+   "carpeta": "PRY-211-control-de-polvo-en-vías",
+   "profundidad": "media",
+   "area": "Seguridad y Salud",
+   "comite": "Comité de Operaciones",
+   "patrocinador": "Javier Hoyos",
+   "gerente": "Elena Duarte",
+   "producto": null,
+   "aprobacion": "2025-09-30",
+   "inicio": "2025-10-10",
+   "cierre": "2026-11-16",
+   "presupuesto": 800000000,
+   "comprometido": 479425244,
+   "ejecutado": 262125757,
+   "proyeccion": 835519093,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-01-07",
+     "vigente": "2026-01-07",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2026-04-06",
+     "vigente": "2026-04-06",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2026-07-05",
+     "vigente": "2026-07-05",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2026-10-02",
+     "vigente": "2026-12-11",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Rubén Cárdenas",
+     "que": "Entregar el punto 17",
+     "fechas": [
+      "2026-10-17"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-15"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 70,
+     "autorizado": false,
+     "fecha": "2026-10-12"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 48,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-14",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRY-199",
+   "nombre": "Cambio de luminarias del campamento",
+   "carpeta": "PRY-199-cambio-de-luminarias-del-campamento",
+   "profundidad": "completa",
+   "area": "Mina",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "María Restrepo",
+   "gerente": "Andrés Lozano",
+   "producto": "PRD-299",
+   "aprobacion": "2026-06-08",
+   "inicio": "2026-06-18",
+   "cierre": "2028-02-08",
+   "presupuesto": 2400000000,
+   "comprometido": 1080000000,
+   "ejecutado": 720000000,
+   "proyeccion": 2400000000,
+   "proveedores": [
+    {
+     "nombre": "Ingeniería Minera del Sur S.A.S.",
+     "ref": "CT-199",
+     "firma": "2026-06-08",
+     "entregables": [
+      {
+       "que": "Licenciamiento del software",
+       "vence": "2026-11-15",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2027-04-14",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Calibración de sensores",
+       "vence": "2027-09-11",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": "2026-10-04"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Ingeniería básica aprobada",
+     "base": "2026-10-05",
+     "vigente": "2026-10-05",
+     "cerrado": true,
+     "recibo": "2026-10-08"
+    },
+    {
+     "nombre": "Ingeniería de detalle aprobada",
+     "base": "2027-01-22",
+     "vigente": "2027-01-22",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Licencia y permisos obtenidos",
+     "base": "2027-05-11",
+     "vigente": "2027-05-11",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Montaje e instalación",
+     "base": "2027-08-28",
+     "vigente": "2027-08-28",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Pruebas en operación",
+     "base": "2027-12-15",
+     "vigente": "2027-12-15",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el tablero de seguimiento",
+     "fechas": [
+      "2026-09-26"
+     ],
+     "cumplido": true,
+     "dicho": "2026-09-21"
+    },
+    {
+     "quien": "Carlos Peña",
+     "que": "Presentar el cierre de la fase",
+     "fechas": [
+      "2026-11-05"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 20,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-14",
+   "silencioso": false,
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-14"
+  }
+ ],
+ "productos": [
+  {
+   "codigo": "PRD-300",
+   "nombre": "Monitoreo de flota",
+   "carpeta": "PRD-300",
+   "profundidad": "media",
+   "gerente": "Felipe Arango",
+   "segmento": "Gerencia",
+   "fecha": "2025-11-16",
+   "entrevista": "2026-03-06",
+   "requerimientos": [
+    {
+     "id": "REQ-4000",
+     "estado": "propuesto",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4001",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4002",
+     "estado": "propuesto",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4003",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4004",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4005",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4006",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-08",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4007",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4008",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4009",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4010",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4011",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-07-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4012",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4013",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-26",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El ahorro se sostiene sin inversión adicional",
+     "desde": "2026-06-21",
+     "verificado": false
+    }
+   ],
+   "declarado": 67239,
+   "medido": 48010,
+   "corte": "2026-10-02",
+   "ultimo_doc": "2026-10-16",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-16"
+  },
+  {
+   "codigo": "PRD-301",
+   "nombre": "Alerta de taludes",
+   "carpeta": "PRD-301",
+   "profundidad": "delgada",
+   "gerente": "Óscar Ramírez",
+   "segmento": "Supervisores",
+   "fecha": "2026-05-30",
+   "entrevista": "2025-09-28",
+   "requerimientos": [
+    {
+     "id": "REQ-4100",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-07-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4101",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4102",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4103",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4104",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4105",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4106",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4107",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4108",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4109",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4110",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4111",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2026",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-09-24",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La licencia ambiental lo permite",
+     "desde": "2026-06-13",
+     "verificado": false
+    }
+   ],
+   "declarado": 123463,
+   "medido": null,
+   "corte": "2026-09-15",
+   "ultimo_doc": "2026-10-03",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-03"
+  },
+  {
+   "codigo": "PRD-302",
+   "nombre": "Despacho de flota",
+   "carpeta": "PRD-302",
+   "profundidad": "completa",
+   "gerente": "Elena Duarte",
+   "segmento": "Gerencia",
+   "fecha": "2025-11-20",
+   "entrevista": "2026-05-22",
+   "requerimientos": [
+    {
+     "id": "REQ-4200",
+     "estado": "propuesto",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4201",
+     "estado": "propuesto",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4202",
+     "estado": "propuesto",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4203",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4204",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4205",
+     "estado": "propuesto",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4206",
+     "estado": "propuesto",
+     "doliente": "Javier Hoyos",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4207",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4208",
+     "estado": "propuesto",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4209",
+     "estado": "propuesto",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4210",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-07-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4211",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4212",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4213",
+     "estado": "propuesto",
+     "doliente": "Óscar Ramírez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4214",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4215",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2037",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-10-09",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La licencia ambiental lo permite",
+     "desde": "2026-06-29",
+     "verificado": false
+    }
+   ],
+   "declarado": 152670,
+   "medido": null,
+   "corte": "2026-09-21",
+   "ultimo_doc": "2026-10-15",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRD-303",
+   "nombre": "Gemelo digital",
+   "carpeta": "PRD-303",
+   "profundidad": "completa",
+   "gerente": "Rubén Cárdenas",
+   "segmento": "Supervisores",
+   "fecha": "2026-07-16",
+   "entrevista": "2026-06-12",
+   "requerimientos": [
+    {
+     "id": "REQ-4300",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4301",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-03-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4302",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4303",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-19",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4304",
+     "estado": "propuesto",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4305",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-05-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4306",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4307",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4308",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4309",
+     "estado": "propuesto",
+     "doliente": "Sandra Gil",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4310",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-03-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4311",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4312",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4313",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4314",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4315",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-15",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La licencia ambiental lo permite",
+     "desde": "2026-03-17",
+     "verificado": true
+    }
+   ],
+   "declarado": 245044,
+   "medido": null,
+   "corte": "2026-09-29",
+   "ultimo_doc": "2026-10-14",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRD-304",
+   "nombre": "Trazabilidad",
+   "carpeta": "PRD-304",
+   "profundidad": "media",
+   "gerente": "Gustavo Neira",
+   "segmento": "Mantenimiento",
+   "fecha": "2026-02-26",
+   "entrevista": "2025-08-15",
+   "requerimientos": [
+    {
+     "id": "REQ-4400",
+     "estado": "propuesto",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4401",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-19",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4402",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4403",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4404",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-22",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4405",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-07",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4406",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4407",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4408",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4409",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4410",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4411",
+     "estado": "propuesto",
+     "doliente": "Felipe Arango",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4412",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4413",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2028",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-09-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2036",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-10-05",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La red de la mina soporta el volumen",
+     "desde": "2026-03-27",
+     "verificado": true
+    }
+   ],
+   "declarado": 151914,
+   "medido": 116821,
+   "corte": "2026-10-14",
+   "ultimo_doc": "2026-10-13",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRD-305",
+   "nombre": "Alerta de fatiga",
+   "carpeta": "PRD-305",
+   "profundidad": "delgada",
+   "gerente": "Beatriz Cuéllar",
+   "segmento": "Comunidad",
+   "fecha": "2026-05-13",
+   "entrevista": "2026-03-03",
+   "requerimientos": [
+    {
+     "id": "REQ-4500",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4501",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4502",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4503",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4504",
+     "estado": "propuesto",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4505",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-08-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4506",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4507",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4508",
+     "estado": "propuesto",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4509",
+     "estado": "propuesto",
+     "doliente": "Felipe Arango",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4510",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4511",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2033",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-10-11",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El ahorro se sostiene sin inversión adicional",
+     "desde": "2026-08-20",
+     "verificado": false
+    }
+   ],
+   "declarado": 76325,
+   "medido": 55059,
+   "corte": "2026-10-15",
+   "ultimo_doc": "2026-10-13",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRD-306",
+   "nombre": "Almacén de repuestos",
+   "carpeta": "PRD-306",
+   "profundidad": "media",
+   "gerente": "Javier Hoyos",
+   "segmento": "Mantenimiento",
+   "fecha": "2025-12-27",
+   "entrevista": "2026-05-10",
+   "requerimientos": [
+    {
+     "id": "REQ-4600",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-03-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4601",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4602",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4603",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-19",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4604",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4605",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4606",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4607",
+     "estado": "propuesto",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4608",
+     "estado": "propuesto",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4609",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4610",
+     "estado": "propuesto",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4611",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4612",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4613",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-30",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-05-14",
+     "verificado": false
+    }
+   ],
+   "declarado": 268823,
+   "medido": null,
+   "corte": "2026-09-23",
+   "ultimo_doc": "2026-09-19",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-09-19"
+  },
+  {
+   "codigo": "PRD-307",
+   "nombre": "Reporte ambiental",
+   "carpeta": "PRD-307",
+   "profundidad": "media",
+   "gerente": "Rubén Cárdenas",
+   "segmento": "Operadores",
+   "fecha": "2026-06-24",
+   "entrevista": "2026-05-07",
+   "requerimientos": [
+    {
+     "id": "REQ-4700",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4701",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4702",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-19",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4703",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-09-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4704",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4705",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4706",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4707",
+     "estado": "propuesto",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4708",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4709",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4710",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4711",
+     "estado": "propuesto",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4712",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4713",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2028",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-19",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La licencia ambiental lo permite",
+     "desde": "2026-08-27",
+     "verificado": false
+    }
+   ],
+   "declarado": 227161,
+   "medido": 166264,
+   "corte": "2026-10-03",
+   "ultimo_doc": "2026-10-03",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-03"
+  },
+  {
+   "codigo": "PRD-308",
+   "nombre": "Permisos de trabajo digitales",
+   "carpeta": "PRD-308",
+   "profundidad": "completa",
+   "gerente": "Diana Molina",
+   "segmento": "Gerencia",
+   "fecha": "2026-04-15",
+   "entrevista": "2025-11-30",
+   "requerimientos": [
+    {
+     "id": "REQ-4800",
+     "estado": "propuesto",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4801",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-22",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4802",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4803",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4804",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-22",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4805",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4806",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4807",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4808",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4809",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-03-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4810",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4811",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-22",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4812",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4813",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4814",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4815",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-02",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La licencia ambiental lo permite",
+     "desde": "2026-08-07",
+     "verificado": false
+    }
+   ],
+   "declarado": 209706,
+   "medido": null,
+   "corte": "2026-09-12",
+   "ultimo_doc": "2026-10-06",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-06"
+  },
+  {
+   "codigo": "PRD-309",
+   "nombre": "Inspección con drones",
+   "carpeta": "PRD-309",
+   "profundidad": "delgada",
+   "gerente": "Paula Céspedes",
+   "segmento": "Gerencia",
+   "fecha": "2026-04-24",
+   "entrevista": "2025-12-14",
+   "requerimientos": [
+    {
+     "id": "REQ-4900",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4901",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4902",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4903",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4904",
+     "estado": "propuesto",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4905",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4906",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4907",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4908",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4909",
+     "estado": "propuesto",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4910",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4911",
+     "estado": "propuesto",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2026",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-22",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-07-24",
+     "verificado": false
+    }
+   ],
+   "declarado": 124520,
+   "medido": 86430,
+   "corte": "2026-10-13",
+   "ultimo_doc": "2026-10-10",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRD-299",
+   "nombre": "Solicitud de dotación",
+   "carpeta": "PRD-299",
+   "profundidad": "completa",
+   "gerente": "Felipe Arango",
+   "segmento": "Personas",
+   "fecha": "2026-07-18",
+   "entrevista": "2026-08-17",
+   "requerimientos": [
+    {
+     "id": "REQ-9000",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-06",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9001",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-27",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9002",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-17",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9003",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-07",
+     "proyecto": "PRY-199"
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Operaciones adopta la herramienta",
+     "desde": "2026-08-27",
+     "verificado": true
+    }
+   ],
+   "declarado": 120000,
+   "medido": 120000,
+   "corte": "2026-10-10",
+   "ultimo_doc": "2026-10-13",
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-13"
+  }
+ ]
+}

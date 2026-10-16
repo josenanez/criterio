@@ -1,0 +1,21 @@
+{
+ "entorno": "bancos",
+ "ronda": 5,
+ "hoy": "2026-10-16",
+ "prd": "PRD-303",
+ "prd_carpeta": "PRD-303",
+ "prd_otro": "PRD-300",
+ "req": "REQ-4301",
+ "pry_sam": "PRY-211",
+ "sam_carpeta": "PRY-211-cobranza-digital",
+ "notas": "documentos/proyectos/PRY-211-cobranza-digital/2026-10-16-notas-reunion.txt",
+ "status": "PRY-207",
+ "health": "PRY-204",
+ "budget": "PRY-211",
+ "vendor": "PRY-207",
+ "change": "PRY-201",
+ "history": "PRY-200",
+ "charter": "PRY-205",
+ "closure": "PRY-201",
+ "producto_vista": "tarjeta débito"
+}

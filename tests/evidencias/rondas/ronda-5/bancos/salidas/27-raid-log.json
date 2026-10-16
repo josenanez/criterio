@@ -1,0 +1,25 @@
+{
+ "n": 27,
+ "agente": "vera",
+ "comando": "raid-log",
+ "argumento": "portafolio",
+ "inicio": "2026-10-16T14:47:57",
+ "estado": "success",
+ "error": false,
+ "segundos": 144,
+ "turnos": 28,
+ "tokens": 1306355,
+ "tokens_salida": 16114,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-16-raid-log-1.md",
+   "estado/corridas/salida-raid-log.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

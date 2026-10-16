@@ -1,0 +1,28 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-16T16:16:16",
+ "estado": "success",
+ "error": false,
+ "segundos": 91,
+ "turnos": 20,
+ "tokens": 791742,
+ "tokens_salida": 10181,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-16-pm-agenda-1.html",
+   ".criterio/corridas/proyecto/2026-10-16-pm-agenda-1.md",
+   "estado/PRY-209-migración-del-erp/corridas/2026-10-16-pm-agenda-1.md",
+   "estado/PRY-209-migración-del-erp/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-209-migración-del-erp/corridas.json"
+  ],
+  "borrados": []
+ }
+}

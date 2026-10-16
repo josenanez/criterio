@@ -1,0 +1,28 @@
+{
+ "n": 22,
+ "agente": "vera",
+ "comando": "health-check",
+ "argumento": "PRY-204",
+ "inicio": "2026-10-16T14:39:43",
+ "estado": "success",
+ "error": false,
+ "segundos": 182,
+ "turnos": 29,
+ "tokens": 1161283,
+ "tokens_salida": 20282,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-16-health-check-1.html",
+   ".criterio/corridas/portafolio/2026-10-16-health-check-1.md",
+   "estado/corridas/2026-10-16-health-check-1.md",
+   "estado/corridas/salida-health-check.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

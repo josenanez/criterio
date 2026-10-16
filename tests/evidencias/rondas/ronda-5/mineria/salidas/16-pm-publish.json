@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-16T17:18:42",
+ "estado": "success",
+ "error": false,
+ "segundos": 47,
+ "turnos": 12,
+ "tokens": 650445,
+ "tokens_salida": 3626,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-16-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-16-pm-publish-1.md",
+   "documentos/proyectos/PRY-200-mantenimiento-predictivo-de-camiones/00-gobierno/ficha-pm.json",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas/2026-10-16-pm-publish-1.md",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas.json"
+  ],
+  "borrados": []
+ }
+}

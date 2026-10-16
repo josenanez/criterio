@@ -1,0 +1,21 @@
+{
+ "entorno": "retail",
+ "ronda": 5,
+ "hoy": "2026-10-16",
+ "prd": "PRD-306",
+ "prd_carpeta": "PRD-306",
+ "prd_otro": "PRD-303",
+ "req": "REQ-4601",
+ "pry_sam": "PRY-209",
+ "sam_carpeta": "PRY-209-migración-del-erp",
+ "notas": "documentos/proyectos/PRY-209-migración-del-erp/2026-10-16-notas-reunion.txt",
+ "status": "PRY-210",
+ "health": "PRY-202",
+ "budget": "PRY-202",
+ "vendor": "PRY-210",
+ "change": "PRY-207",
+ "history": "PRY-207",
+ "charter": "PRY-201",
+ "closure": "PRY-201",
+ "producto_vista": "puntos de fidelización"
+}

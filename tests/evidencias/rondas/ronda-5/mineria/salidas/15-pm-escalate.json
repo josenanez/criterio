@@ -1,0 +1,28 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-16T17:17:30",
+ "estado": "success",
+ "error": false,
+ "segundos": 72,
+ "turnos": 14,
+ "tokens": 559682,
+ "tokens_salida": 6699,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-16-pm-escalate-1.html",
+   ".criterio/corridas/proyecto/2026-10-16-pm-escalate-1.md",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas/2026-10-16-pm-escalate-1.md",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-mantenimiento-predictivo-de-camiones/corridas.json"
+  ],
+  "borrados": []
+ }
+}
