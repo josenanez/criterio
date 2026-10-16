@@ -452,7 +452,9 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
         # contaron como una más). El conteo se corrige aquí aunque la ficha la traiga así.
         if veces and value(c.get("original_due_date")) == "no_declarada":
             veces -= 1
-        if veces >= th["reschedules_to_flag"]:
+        # Un compromiso cumplido con acta ya no es un bloqueo: su historia queda en la ficha,
+        # pero la señal es para lo que sigue abierto (ronda 5, minería).
+        if veces >= th["reschedules_to_flag"] and st != "met":
             # La historia completa: la primera fecha prometida y cada una de las nuevas.
             reprogramados.append({"who": quien, "what": que, "times": veces,
                                   "original": value(c.get("original_due_date")),
@@ -2042,6 +2044,11 @@ def _selftest_plan():
     con_rota = sellar(docs, estado, "PRY-001")
     ajena = citas_rotas({"pm_record": {"vendors": [{"source": "a.md; factura: b.md"}]}}, docs)
     return [
+        ("un compromiso cumplido no suena como reprogramado",
+         compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-09-01", "state": "met",
+                                          "reschedules": [{"due_date": "2026-08-01"}, {"due_date": "2026-08-15"},
+                                                          {"due_date": "2026-09-01"}]}]},
+                        dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)["commitments_rescheduled"], []),
         ("fechar un compromiso sin fecha no es reprogramarlo",
          compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-12-01",
                                           "original_due_date": "no_declarada", "state": "open",

@@ -74,7 +74,7 @@ el informe y **no** levanta alerta: es viejo, no es falso.
 |---|---|---|
 | `commitment_overdue` | Pasó la fecha prometida y no hay evidencia de cumplimiento | — siempre |
 | `commitment_undated` | Nadie le puso fecha. No puede estar vencido, y por eso mismo desaparecía del informe: **un compromiso que nadie fechó es un hallazgo, no un vacío** | — siempre |
-| `commitment_rescheduled` | El mismo compromiso se prometió de nuevo demasiadas veces. No son varios vencidos: es uno con historial, y un bloqueo que nadie nombró | `reschedules_to_flag` |
+| `commitment_rescheduled` | El mismo compromiso, todavía abierto, se prometió de nuevo demasiadas veces. No son varios vencidos: es uno con historial, y un bloqueo que nadie nombró. Uno cumplido con acta ya no suena | `reschedules_to_flag` |
 
 ### Proveedores
 
