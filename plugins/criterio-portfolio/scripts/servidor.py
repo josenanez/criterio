@@ -939,6 +939,9 @@ nada más ni ejecuta nada.</p>"""
 # ---------------------------------------------------------------- el servidor
 
 SEGURO = re.compile(r'^[A-Za-z0-9._-]+$')
+# Un caso puede ser un producto con nombre —«tarjeta débito», «despacho de flota»—: letras
+# de cualquier alfabeto, espacios, punto y guion; nunca una barra ni «..» (ronda 4).
+CASO = re.compile(r'^(?!.*\.\.)[\w .-]+$')
 
 
 class Manejador(BaseHTTPRequestHandler):
@@ -1041,7 +1044,7 @@ class Manejador(BaseHTTPRequestHandler):
             self.html(*vista_agente(indice(self.evidencia, self.estado), ruta[len('/agente/'):], self.hoy()))
         elif ruta.startswith('/caso/'):
             codigo = urllib.parse.unquote(ruta[len('/caso/'):])
-            if not SEGURO.match(codigo):
+            if not CASO.match(codigo):
                 self.html(404, error(404, 'Eso no está aquí', self.hoy()))
             else:
                 self.html(*vista_caso(indice(self.evidencia, self.estado),
@@ -1051,7 +1054,8 @@ class Manejador(BaseHTTPRequestHandler):
             partes = [urllib.parse.unquote(x) for x in ruta.split('/')[2:]]
             if len(partes) == 2 and all(SEGURO.match(x) for x in partes):
                 self.html(*vista_rastro(self.evidencia, partes[0], partes[1], self.hoy()))
-            elif len(partes) == 3 and all(SEGURO.match(x) for x in partes):
+            elif len(partes) == 3 and SEGURO.match(partes[0]) and CASO.match(partes[1]) \
+                    and SEGURO.match(partes[2]):
                 self.html(*vista_corrida(self.estado, partes[0], partes[1], partes[2], self.hoy()))
             else:
                 self.html(404, error(404, 'Eso no está aquí', self.hoy()))
@@ -1419,6 +1423,9 @@ def selftest() -> int:
         ok('la línea de tiempo separa lo abierto de lo resuelto',
            cod == 200 and 'Lo que sigue abierto' in cuerpo
            and 'Lo que se resolvió' in cuerpo, True)
+        ok('un caso con nombre abre su página y uno con «..» no',
+           (bool(CASO.match('tarjeta débito')), bool(CASO.match('../x')), bool(CASO.match('a/b'))),
+           (True, False, False))
         ok('un caso con espacio en el nombre lleva la ruta codificada',
            (seg('tarjeta débito'), pedir('/historia/' + seg('PRY-001'))[0]), ('tarjeta%20d%C3%A9bito', 200))
         ok('la historia nombra la señal, no su clave',

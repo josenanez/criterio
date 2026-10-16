@@ -140,6 +140,8 @@ Que no haya prueba nunca cambia la declaración. Lo mismo vale para los entregab
 proveedor: `accepted` es lo que el contrato o el informe afirma, y `evidence` es el acta
 de recibo, o nada.
 
+**Una cita es una sola ruta.** Cada dato lleva la suya: lo facturado cita la factura en `invoiced`, `{value, source, source_date}`, y no se suma a la cita del proveedor. «contrato.md; factura: factura.md» en un `source` no es una cita que alguien pueda seguir: en las rondas 2 y 4 de pruebas Vera y Samuel la escribieron así.
+
 Y un acta de recibo cuenta como evidencia solo del hito o entregable que nombra. El acta
 que certifica el ambiente de pruebas no prueba la integración con el core.
 

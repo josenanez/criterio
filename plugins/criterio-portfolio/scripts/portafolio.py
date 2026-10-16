@@ -2031,6 +2031,7 @@ def _selftest_plan():
     r1["vendors"] = [{"name": "X", "source": "PRY-001-proyecto/a.md; factura: PRY-001-proyecto/b.md"}]
     ficha1.write_text(json.dumps(r1), encoding="utf-8")
     con_rota = sellar(docs, estado, "PRY-001")
+    ajena = citas_rotas({"pm_record": {"vendors": [{"source": "a.md; factura: b.md"}]}}, docs)
     return [
         ("fechar un compromiso sin fecha no es reprogramarlo",
          compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-12-01",
@@ -2041,6 +2042,7 @@ def _selftest_plan():
         ("not_found es un estado, no un valor", (value("not_found"), value({"value": "not_found"}), value("Ana")),
          (None, None, "Ana")),
         ("una cita con dos rutas no se sella", (con_rota["ok"], len(con_rota.get("broken") or [])), (False, 1)),
+        ("la cita rota de la ficha del gerente no frena el sello de Vera", ajena, []),
         ("sin hash, todo se relee (el día de la cuota)", p1["to_read"], 14),
         ("sin corrida abierta no se sella", sin_corrida["ok"], False),
         ("una ficha no reescrita en la corrida no se sella", sin_releer["ok"], False),
@@ -2388,6 +2390,10 @@ def citas_rotas(rec, docs: Path) -> list:
     rotas = []
     def recorrer(n):
         if isinstance(n, dict):
+            # La ficha del gerente que se contrasta es de Samuel: sus citas son suyas y las
+            # revisa él. Si frenaran el sello de Vera, una cita rota ajena le quitaría la
+            # línea base del cronograma (ronda 4, minería: dos alertas perdidas).
+            n = {k: v for k, v in n.items() if k != "pm_record"}
             s = n.get("source")
             if isinstance(s, str) and s.strip() and not s.startswith(("http", "script", "compute")):
                 # «ruta · sección», «ruta#ancla» o «ruta (nota)» ubican dentro del documento
