@@ -1516,6 +1516,10 @@ def pagina_corrida(titulo: str, md: str, hoy: str) -> str:
            f"code{{background:{p['panel']};padding:.1em .35em;border-radius:3px;font-size:.9em;overflow-wrap:anywhere}}"
            f"pre{{background:{p['panel']};padding:1em;overflow:auto}}"
            f"@media (max-width:640px){{table{{display:block;max-width:100%;overflow-x:auto}}}}"
+           # La tabla que se desplaza por dentro no basta: en la ronda 6 una corrida de
+           # product-setup seguía ensanchando la página a 616 px en un teléfono. El bloque
+           # que la contiene se desplaza él mismo, y la página no pasa del ancho.
+           f".bloque{{overflow-x:auto;max-width:100%}}"
            f"blockquote{{margin:1em 0;padding:.2em 1em;border-left:3px solid {p['oro']};color:{p['apagado']}}}"
            f".pie{{margin-top:3em;padding-top:1em;border-top:1px solid {p['filete']};font-size:.85rem;"
            f"color:{p['apagado']}}}")

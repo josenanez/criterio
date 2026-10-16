@@ -1395,6 +1395,8 @@ def selftest() -> int:
                                       'semáforo rojo sin explicar\n', '2026-09-08'),
             encoding='utf-8')
         Manejador.evidencia = ev
+        ok('la página de una corrida no se ensancha en un teléfono: su bloque se desplaza',
+           '.bloque{overflow-x:auto' in portafolio.pagina_corrida('c', '# c', '2026-09-08'), True)
         con_rastro = pedir('/corridas')[1]
         ok('la corrida del arnés está en la tabla con caso, duración y fuente',
            '2026-09-08 10:00' in con_rastro and '>90<' in con_rastro and 'arnés' in con_rastro, True)

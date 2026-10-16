@@ -322,6 +322,8 @@ def selftest() -> int:
         ("md · pasa nativo", por_ruta["minuta.md"]["converter"], "nativo"),
         ("msg · se declara", por_ruta["reporte.msg"]["ok"], False),
         ("msg · con la razón", "Outlook" in por_ruta["reporte.msg"]["reason"], True),
+        ("caché · <estado>/cache/texto", cache_valido(Path("estado/cache/texto")), True),
+        ("caché · rechaza <estado>/texto", cache_valido(Path("estado/texto")), False),
     ]
     ok = True
     for etiqueta, tiene, quiere in pruebas:
@@ -332,6 +334,13 @@ def selftest() -> int:
     shutil.rmtree(tmp)
     print("\nselftest:", "sin errores" if ok else "CON ERRORES")
     return 0 if ok else 1
+
+
+def cache_valido(cache: Path) -> bool:
+    """El caché tiene un solo lugar, `<estado>/cache/texto/`. Un barrido de la ronda 6 lo
+    dejó en `<estado>/texto/`, fuera de lo que declara su contrato, aunque el skill lo
+    dice: la regla está ahora en el script, que es donde no se olvida."""
+    return tuple(Path(cache).parts[-2:]) == ("cache", "texto")
 
 
 def main() -> int:
@@ -346,6 +355,9 @@ def main() -> int:
         return selftest()
     if not args.docs or not args.cache:
         ap.error("--docs y --cache son obligatorios")
+    if not cache_valido(args.cache):
+        ap.error(f"el caché va en <estado>/cache/texto, no en {args.cache}: "
+                 "es el único sitio que declara el contrato del comando")
 
     r = convertir(args.docs, args.cache, args.solo)
     print(json.dumps({k: v for k, v in r.items() if k != "files"},
