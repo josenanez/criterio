@@ -68,14 +68,15 @@ material de prueba.
 
 Conviene decirlo antes de que alguien lo suponga.
 
-- **La extracción nunca se ha corrido.** El corpus siembra los registros desde
-  `expected/registros/`, así que la cadena documento → modelo → registro no se ha
-  ejercitado. `grade.py --registros` existe para eso y todavía no se ha ejecutado. **Es la
-  misma deuda que tienen los otros dos plugins**, y es la más importante de las tres.
-- **Ningún comando se ha corrido con un agente de verdad.** Lo que se prueba aquí es la
-  aritmética del registro y su contraste contra las fichas. Los siete comandos están
-  escritos y verificados como estructura —existen, declaran, y no inventan skills— y eso no
-  es lo mismo que haberlos ejercitado.
+- **En este corpus la extracción no se corre.** El corpus siembra los registros desde
+  `expected/registros/`: lo que se prueba aquí es la aritmética del registro y su contraste
+  contra las fichas. La cadena documento → modelo → registro se ejercita en las **rondas de
+  punta a punta** (`tests/evidencias/rondas/`, desde el 14 de octubre): Alba arma la ficha
+  de su producto y el registro de requerimientos desde lo escrito, y se califican las
+  alertas sobre su producto —unas 35 por industria—. Lo que todavía no se ha ejecutado es
+  `grade.py --registros`, la comparación campo por campo del registro entero.
+- **Los once comandos corren con un agente de verdad en cada ronda**, instalados desde
+  cero, y el contrato de cada uno se revisa en cada corrida (`tests/ronda.py revisar`).
 - **La síntesis de descubrimiento no se puede calificar con esto.** Convertir ocho
   entrevistas en temas con sus citas es trabajo del modelo, no del código, y un grader
   determinista no lo mide. Las entrevistas del corpus están escritas con el conteo explícito

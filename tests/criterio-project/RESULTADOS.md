@@ -2,7 +2,7 @@
 
 **el agente del gerente de proyecto** · plugin `criterio-project`
 
-Corrida del 2026-10-17, sobre el commit `eeef25fa`, con cambios en el árbol todavía sin confirmar. **4 puertas · 145 comprobaciones · todas en verde.**
+Corrida del 2026-10-17, sobre el commit `ba404af5`, con cambios en el árbol todavía sin confirmar. **4 puertas · 145 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,10 +10,10 @@ Corrida del 2026-10-17, sobre el commit `eeef25fa`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 65 ms | verde |
-| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 112 | 120 ms | verde |
-| `criterio-project/texto.py` | La copia de la conversión, igual | 14 | 51 ms | verde |
-| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 102 ms | verde |
+| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 55 ms | verde |
+| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 112 | 123 ms | verde |
+| `criterio-project/texto.py` | La copia de la conversión, igual | 14 | 58 ms | verde |
+| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 148 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -21,15 +21,25 @@ Una puerta sin comprobaciones no es una puerta vacía: **genera el material sint
 
 Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es publicidad; lo que lo vuelve auditable es lo que dice que todavía no se sabe.
 
-- **La extracción nunca se ha corrido.** El corpus siembra las fichas, así que la cadena documento → modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso.
+- **Este corpus no corre la extracción; la corren las rondas.** El corpus siembra las fichas. En las rondas de punta a punta Samuel lee seis comités y las notas del día, y se califican sus compromisos y su fecha de cierre. La comparación campo por campo, `grade.py --fichas`, todavía no se ha ejecutado.
 - **La agenda, el acta y el informe no se califican con esto.** Lo que producen es redacción sobre la minuta, y un calificador determinista no la mide. Lo que sí se verifica es la aritmética de la que salen sus cifras.
-- **La ficha publicada y su contraste no se han corrido de punta a punta.** `/criterio-project:pm-publish` escribe y `contrastar()` emite la señal con sus dos citas, verificado sobre fichas sintéticas. Falta que un agente de verdad publique y otro de verdad lea.
+- **La ficha publicada y su contraste corren de punta a punta en cada ronda.** Samuel publica con `/criterio-project:pm-publish` y Vera la lee en su barrido; desde la ronda 6 la clave calcula el contraste esperado desde la ficha publicada.
 
 ## Los comandos, corridos por un agente de verdad
 
-**0 de 9.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
+**9 de 9** corrieron en la ronda 6 con el plugin instalado desde cero, en 4 industrias; **9** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-6/`](../evidencias/rondas/ronda-6/).
 
-Ninguno todavía. La evidencia se registra con `tests/sintetico/evidencia.py`.
+| Comando | Terminó | Cumplió su contrato | Tiempo |
+|---|---|---|---:|
+| `/criterio-project:pm-agenda` | 4 de 4 | 4 de 4 | 87–104 s |
+| `/criterio-project:pm-commitments` | 4 de 4 | 4 de 4 | 47–68 s |
+| `/criterio-project:pm-escalate` | 4 de 4 | 4 de 4 | 52–68 s |
+| `/criterio-project:pm-minutes` | 4 de 4 | 4 de 4 | 58–75 s |
+| `/criterio-project:pm-plan` | 4 de 4 | 4 de 4 | 68–81 s |
+| `/criterio-project:pm-publish` | 4 de 4 | 4 de 4 | 43–46 s |
+| `/criterio-project:pm-report` | 4 de 4 | 4 de 4 | 61–69 s |
+| `/criterio-project:pm-setup` | 4 de 4 | 4 de 4 | 135–191 s |
+| `/criterio-project:pm-wake` | 4 de 4 | 4 de 4 | 22–42 s |
 
 
 ## Qué material se usó, y qué prueba cada pieza

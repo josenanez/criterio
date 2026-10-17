@@ -2,7 +2,7 @@
 
 **el agente del gerente de producto** · plugin `criterio-product`
 
-Corrida del 2026-10-17, sobre el commit `eeef25fa`, con cambios en el árbol todavía sin confirmar. **3 puertas · 107 comprobaciones · todas en verde.**
+Corrida del 2026-10-17, sobre el commit `ba404af5`, con cambios en el árbol todavía sin confirmar. **3 puertas · 107 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-10-17, sobre el commit `eeef25fa`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 46 ms | verde |
-| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 92 ms | verde |
-| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 300 ms | verde |
+| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 33 ms | verde |
+| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 93 ms | verde |
+| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 396 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -20,15 +20,27 @@ Una puerta sin comprobaciones no es una puerta vacía: **genera el material sint
 
 Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es publicidad; lo que lo vuelve auditable es lo que dice que todavía no se sabe.
 
-- **La extracción nunca se ha corrido.** El corpus siembra los registros, así que la cadena documento → modelo → registro no se ha ejercitado. `grade.py --registros` existe para eso.
+- **Este corpus no corre la extracción; la corren las rondas.** El corpus siembra los registros. En las rondas de punta a punta Alba arma su ficha y su registro desde lo escrito, y se califican las alertas sobre su producto. La comparación campo por campo, `grade.py --registros`, todavía no se ha ejecutado.
 - **La síntesis de descubrimiento no se puede calificar con esto.** Convertir ocho entrevistas en temas con sus citas es trabajo del modelo. Las entrevistas del corpus llevan el conteo explícito —«6 de 8»— para que el día que se califique haya contra qué.
 - **El barrido normativo no se prueba en ninguna parte.** Su salida depende de conocimiento externo al repositorio, y su regla dura —*no dice si cumple*— no se puede verificar con una aserción.
 
 ## Los comandos, corridos por un agente de verdad
 
-**0 de 11.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
+**11 de 11** corrieron en la ronda 6 con el plugin instalado desde cero, en 4 industrias; **11** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-6/`](../evidencias/rondas/ronda-6/).
 
-Ninguno todavía. La evidencia se registra con `tests/sintetico/evidencia.py`.
+| Comando | Terminó | Cumplió su contrato | Tiempo |
+|---|---|---|---:|
+| `/criterio-product:product-business-case` | 4 de 4 | 4 de 4 | 46–56 s |
+| `/criterio-product:product-charter` | 4 de 4 | 4 de 4 | 52–61 s |
+| `/criterio-product:product-definition` | 4 de 4 | 4 de 4 | 49–53 s |
+| `/criterio-product:product-discovery` | 4 de 4 | 4 de 4 | 27–32 s |
+| `/criterio-product:product-overlap` | 4 de 4 | 4 de 4 | 12–16 s |
+| `/criterio-product:product-publish` | 4 de 4 | 4 de 4 | 31–34 s |
+| `/criterio-product:product-requirements` | 4 de 4 | 4 de 4 | 34–51 s |
+| `/criterio-product:product-setup` | 4 de 4 | 4 de 4 | 92–126 s |
+| `/criterio-product:product-spec` | 4 de 4 | 4 de 4 | 60–82 s |
+| `/criterio-product:product-trace` | 4 de 4 | 4 de 4 | 48–60 s |
+| `/criterio-product:product-wake` | 4 de 4 | 4 de 4 | 45–57 s |
 
 
 ## Qué material se usó, y qué prueba cada pieza

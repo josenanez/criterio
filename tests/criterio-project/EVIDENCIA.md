@@ -57,17 +57,19 @@ de las mismas fórmulas que el código, esto no probaría nada.
 
 Conviene decirlo antes de que alguien lo suponga.
 
-- **La extracción nunca se ha corrido.** El estado se siembra copiando
-  `expected/fichas/`, así que la cadena documento → modelo → ficha no se ha
-  ejercitado. `grade.py --fichas` existe para eso y todavía no se ha ejecutado.
-- **Ningún comando se ha corrido con un agente de verdad.** Samuel trae seis, y están
-  verificados como estructura —existen, declaran, y no inventan skills—, que no es lo
-  mismo que haberlos ejercitado. Lo que se prueba aquí es el cálculo.
-- **La ficha publicada y el contraste `pm_vs_pmo` están construidos pero no corridos
-  de punta a punta.** `/criterio-project:pm-publish` escribe la ficha y `contrastar()` emite la señal con
-  sus dos citas — verificado con siete comprobaciones en `portafolio.py selftest` y con una
-  corrida a mano sobre PRY-101. Lo que falta es que un agente de verdad publique y otro
-  de verdad lea.
+- **En este corpus la extracción no se corre.** El estado se siembra copiando
+  `expected/fichas/`: lo que se prueba aquí es el cálculo. La cadena documento → modelo →
+  ficha se ejercita en las **rondas de punta a punta** (`tests/evidencias/rondas/`, desde el
+  14 de octubre): Samuel lee seis comités semanales y las notas del día en cada industria,
+  y se califican unos 26 compromisos por industria —fecha vigente, reprogramaciones y si
+  están cumplidos— y, desde la ronda 6, la fecha de cierre que publica. Lo que todavía no
+  se ha ejecutado es `grade.py --fichas`, la comparación campo por campo de la ficha entera.
+- **Los nueve comandos corren con un agente de verdad en cada ronda**, instalados desde
+  cero, y el contrato de cada uno se revisa en cada corrida (`tests/ronda.py revisar`).
+- **La ficha publicada y el contraste `pm_vs_pmo` corren de punta a punta en cada ronda:**
+  Samuel publica con `/criterio-project:pm-publish` y Vera la lee en su barrido como un
+  documento más. Desde la ronda 6 la clave calcula el contraste esperado desde la ficha
+  publicada (D012).
 - **La agenda, el acta y el informe semanal no se califican con esto.** Los tres están
   construidos —`/criterio-project:pm-agenda`, `/criterio-project:pm-minutes`, `/criterio-project:pm-report`— y lo que producen es redacción
   sobre la minuta, que un grader determinista no mide. Lo que sí se verifica es la

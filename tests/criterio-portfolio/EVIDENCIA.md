@@ -96,8 +96,14 @@ convenciones peores— y el plugin corriendo como lo correría alguien de afuera
 desde cero. Cada escalón deja su resultado aquí, y el escalón que falla dice qué hay que
 arreglar antes de subir el siguiente.
 
-Este documento registra **el escalón donde vamos**, no una aspiración. Hoy es el primero:
-seis proyectos, formatos de texto, convención de nombres respetada.
+Este documento registra **el escalón donde vamos**, no una aspiración. El primero fue este
+corpus: seis proyectos, formatos de texto, convención de nombres respetada. **Hoy son las
+rondas de punta a punta** (`tests/evidencias/rondas/`, desde el 14 de octubre): cuatro
+industrias, unos trece proyectos por industria en Word, Excel, PDF, CSV y Markdown, los 37
+comandos de la familia en el orden de una PMO, con los plugins instalados desde cero y una
+clave que ningún agente ve. Las señales de Vera se califican contra esa clave en cada
+ronda; `grade.py --fichas`, la comparación campo por campo, todavía no se ha ejecutado
+sobre esas fichas.
 
 ## El informe, sobre el mismo portafolio
 

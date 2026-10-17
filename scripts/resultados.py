@@ -248,13 +248,13 @@ code{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
 """
 
 NO_PROBADO = [
-    ("La extracción nunca se ha corrido",
-     "Los tres corpus siembran el estado desde sus respuestas de referencia, así que la "
-     "cadena documento → modelo → ficha no se ha ejercitado. <code>grade.py --fichas</code> "
-     "y <code>grade.py --registros</code> existen para eso y no se han ejecutado."),
-    ("Ningún comando se ha corrido con un agente de verdad",
-     "Los {comandos} comandos están verificados como estructura —existen, declaran, y no "
-     "invocan un skill que no esté—, y eso no es lo mismo que haberlos ejercitado."),
+    ("Estos corpus no corren la extracción; la corren las rondas",
+     "Los tres corpus de esta página siembran el estado desde sus respuestas de referencia: "
+     "lo que prueban es el cálculo. La cadena documento → modelo → ficha la ejercitan las "
+     "rondas de punta a punta de <code>tests/evidencias/rondas/</code>, con los {comandos} "
+     "comandos corridos por un agente de verdad y sus señales calificadas contra una clave "
+     "que no ve. Lo que todavía no se ha ejecutado es la comparación campo por campo, "
+     "<code>grade.py --fichas</code> y <code>grade.py --registros</code>."),
     ("Nada se ha corrido sobre la documentación real de una organización",
      "Todo el material es sintético y construido desde cero. Es la diferencia que protege "
      "a quien instale esto: <b>construido y verificado sobre corpus, no probado sobre "
@@ -394,13 +394,65 @@ def comandos_ejercitados(plugin: str) -> tuple:
     return cmds, sorted(corridos), mios
 
 
+def ronda_reciente() -> tuple:
+    """La ronda de punta a punta más reciente con revisión publicada, y sus filas por
+    industria. Volvió a pasar lo mismo que con el registro: la página decía «0 de 9»
+    con seis rondas publicadas, porque solo miraba el registro de antes de las rondas."""
+    base = RAIZ / "tests" / "evidencias" / "rondas"
+    rondas = sorted((d for d in base.glob("ronda-*") if any(d.glob("*/revision.json"))),
+                    key=lambda d: int(d.name.split("-")[1])) if base.exists() else []
+    if not rondas:
+        return None, {}
+    r = rondas[-1]
+    return r.name, {d.parent.name: json.loads(d.read_text(encoding="utf-8")).get("filas") or []
+                    for d in sorted(r.glob("*/revision.json"))}
+
+
+def bloque_ronda(plugin: str) -> tuple:
+    cmds = sorted(c.stem for c in (RAIZ / "plugins" / plugin / "commands").glob("*.md"))
+    nombre, por_ind = ronda_reciente()
+    if not nombre:
+        return [], set()
+    p, vistos = [], set()
+    filas = []
+    for c in cmds:
+        suyas = [(e, f) for e, fs in por_ind.items() for f in fs if f.get("comando") == c]
+        if not suyas:
+            continue
+        vistos.add(c)
+        terminaron = sum(1 for _, f in suyas if f.get("termino"))
+        cumplen = sum(1 for _, f in suyas if f.get("termino") and f.get("contrato"))
+        t_ = [f["segundos"] for _, f in suyas if f.get("segundos")]
+        filas.append(f"| `/{plugin}:{c}` | {terminaron} de {len(por_ind)} | {cumplen} de {len(por_ind)} "
+                     f"| {f'{min(t_)}–{max(t_)} s' if t_ else '—'} |")
+    todos = sum(1 for c in vistos if all(f.get("termino") and f.get("contrato")
+                                         for fs in por_ind.values() for f in fs if f.get("comando") == c))
+    p += [f"**{len(vistos)} de {len(cmds)}** corrieron en la {nombre.replace('-', ' ')} con el plugin "
+          f"instalado desde cero, en {len(por_ind)} industrias; **{todos}** cumplieron su contrato "
+          f"en todas. El detalle de cada corrida, con lo que mostró el comando, está en "
+          f"[`tests/evidencias/rondas/{nombre}/`](../evidencias/rondas/{nombre}/).", "",
+          "| Comando | Terminó | Cumplió su contrato | Tiempo |", "|---|---|---|---:|", *filas, ""]
+    return p, vistos
+
+
 def bloque_comandos(plugin: str) -> list:
     cmds, corridos, filas = comandos_ejercitados(plugin)
-    p = ["## Los comandos, corridos por un agente de verdad", "",
-         f"**{len(corridos)} de {len(cmds)}.** Un comando sin evidencia registrada no se "
-         f"probó: no se cuenta como aprobado y no se redondea. Los verificados como "
-         f"estructura —existen, declaran, y no invocan un skill que no esté— son otra "
-         f"cosa.", ""]
+    ronda, en_ronda = bloque_ronda(plugin)
+    p = ["## Los comandos, corridos por un agente de verdad", ""]
+    if ronda:
+        p += ronda
+        faltan = [c for c in cmds if c not in en_ronda and c not in corridos]
+        if faltan:
+            p += [f"**Sin evidencia todavía, y por eso sin probar:** "
+                  + ", ".join(f"`{c}`" for c in faltan), ""]
+        if not corridos:
+            return p
+        p += ["### Antes de las rondas", ""]
+    else:
+        p += [f"**{len(corridos)} de {len(cmds)}.** Un comando sin evidencia registrada no se "
+              f"probó: no se cuenta como aprobado y no se redondea. Los verificados como "
+              f"estructura —existen, declaran, y no invocan un skill que no esté— son otra "
+              f"cosa.", ""]
     if not corridos:
         p += ["Ninguno todavía. La evidencia se registra con "
               "`tests/sintetico/evidencia.py`.", ""]
@@ -435,7 +487,7 @@ def bloque_comandos(plugin: str) -> list:
                 p.append(f"| `{c}` | {n_} |")
                 vistos.add(c)
         p.append("")
-    faltan = [c for c in cmds if c not in corridos]
+    faltan = [c for c in cmds if c not in corridos and not ronda]
     if faltan:
         p += [f"**Sin evidencia todavía, y por eso sin probar:** "
               + ", ".join(f"`{c}`" for c in faltan), ""]
@@ -449,28 +501,32 @@ def bloque_comandos(plugin: str) -> list:
 
 NO_CUBRE = {
     "criterio-portfolio": [
-        ("La extracción nunca se ha corrido",
-         "El estado se siembra copiando `expected/fichas/`, así que la cadena documento "
-         "→ modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso."),
+        ("Este corpus no corre la extracción; la corren las rondas",
+         "El estado se siembra copiando `expected/fichas/`. La cadena documento → modelo → "
+         "ficha la ejercitan las rondas de punta a punta, donde las señales de Vera se "
+         "califican contra una clave que no ve. La comparación campo por campo, "
+         "`grade.py --fichas`, todavía no se ha ejecutado."),
         ("Nada se ha corrido sobre la documentación real de una organización",
          "Todo el material es sintético y construido desde cero."),
     ],
     "criterio-project": [
-        ("La extracción nunca se ha corrido",
-         "El corpus siembra las fichas, así que la cadena documento → modelo → ficha no "
-         "se ha ejercitado. `grade.py --fichas` existe para eso."),
+        ("Este corpus no corre la extracción; la corren las rondas",
+         "El corpus siembra las fichas. En las rondas de punta a punta Samuel lee seis "
+         "comités y las notas del día, y se califican sus compromisos y su fecha de cierre. "
+         "La comparación campo por campo, `grade.py --fichas`, todavía no se ha ejecutado."),
         ("La agenda, el acta y el informe no se califican con esto",
          "Lo que producen es redacción sobre la minuta, y un calificador determinista no "
          "la mide. Lo que sí se verifica es la aritmética de la que salen sus cifras."),
-        ("La ficha publicada y su contraste no se han corrido de punta a punta",
-         "`/criterio-project:pm-publish` escribe y `contrastar()` emite la señal con "
-         "sus dos citas, verificado sobre fichas sintéticas. Falta que un agente de "
-         "verdad publique y otro de verdad lea."),
+        ("La ficha publicada y su contraste corren de punta a punta en cada ronda",
+         "Samuel publica con `/criterio-project:pm-publish` y Vera la lee en su barrido; "
+         "desde la ronda 6 la clave calcula el contraste esperado desde la ficha publicada."),
     ],
     "criterio-product": [
-        ("La extracción nunca se ha corrido",
-         "El corpus siembra los registros, así que la cadena documento → modelo → "
-         "registro no se ha ejercitado. `grade.py --registros` existe para eso."),
+        ("Este corpus no corre la extracción; la corren las rondas",
+         "El corpus siembra los registros. En las rondas de punta a punta Alba arma su "
+         "ficha y su registro desde lo escrito, y se califican las alertas sobre su "
+         "producto. La comparación campo por campo, `grade.py --registros`, todavía no se "
+         "ha ejecutado."),
         ("La síntesis de descubrimiento no se puede calificar con esto",
          "Convertir ocho entrevistas en temas con sus citas es trabajo del modelo. Las "
          "entrevistas del corpus llevan el conteo explícito —«6 de 8»— para que el día "

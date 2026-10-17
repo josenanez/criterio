@@ -2,7 +2,7 @@
 
 **el agente de la PMO y el servidor que publica su informe** · plugin `criterio-portfolio`
 
-Corrida del 2026-10-17, sobre el commit `eeef25fa`, con cambios en el árbol todavía sin confirmar. **6 puertas · 290 comprobaciones · todas en verde.**
+Corrida del 2026-10-17, sobre el commit `ba404af5`, con cambios en el árbol todavía sin confirmar. **6 puertas · 290 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,12 +10,12 @@ Corrida del 2026-10-17, sobre el commit `eeef25fa`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 68 ms | verde |
-| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 112 | 151 ms | verde |
-| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 14 | 64 ms | verde |
-| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 18 | 41 ms | verde |
-| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 67 | 720 ms | verde |
-| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 445 ms | verde |
+| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 70 ms | verde |
+| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 112 | 81 ms | verde |
+| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 14 | 47 ms | verde |
+| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 18 | 49 ms | verde |
+| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 67 | 707 ms | verde |
+| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 441 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -23,12 +23,34 @@ Una puerta sin comprobaciones no es una puerta vacía: **genera el material sint
 
 Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es publicidad; lo que lo vuelve auditable es lo que dice que todavía no se sabe.
 
-- **La extracción nunca se ha corrido.** El estado se siembra copiando `expected/fichas/`, así que la cadena documento → modelo → ficha no se ha ejercitado. `grade.py --fichas` existe para eso.
+- **Este corpus no corre la extracción; la corren las rondas.** El estado se siembra copiando `expected/fichas/`. La cadena documento → modelo → ficha la ejercitan las rondas de punta a punta, donde las señales de Vera se califican contra una clave que no ve. La comparación campo por campo, `grade.py --fichas`, todavía no se ha ejecutado.
 - **Nada se ha corrido sobre la documentación real de una organización.** Todo el material es sintético y construido desde cero.
 
 ## Los comandos, corridos por un agente de verdad
 
-**3 de 17.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
+**17 de 17** corrieron en la ronda 6 con el plugin instalado desde cero, en 4 industrias; **14** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-6/`](../evidencias/rondas/ronda-6/).
+
+| Comando | Terminó | Cumplió su contrato | Tiempo |
+|---|---|---|---:|
+| `/criterio-portfolio:budget-tracking` | 4 de 4 | 4 de 4 | 48–79 s |
+| `/criterio-portfolio:change-control` | 4 de 4 | 4 de 4 | 44–65 s |
+| `/criterio-portfolio:document-index` | 4 de 4 | 4 de 4 | 24–44 s |
+| `/criterio-portfolio:health-check` | 4 de 4 | 3 de 4 | 84–120 s |
+| `/criterio-portfolio:portfolio-report` | 4 de 4 | 4 de 4 | 63–70 s |
+| `/criterio-portfolio:portfolio-scan` | 4 de 4 | 3 de 4 | 149–291 s |
+| `/criterio-portfolio:portfolio-server` | 4 de 4 | 3 de 4 | 36–51 s |
+| `/criterio-portfolio:portfolio-setup` | 4 de 4 | 4 de 4 | 120–185 s |
+| `/criterio-portfolio:portfolio-wake` | 4 de 4 | 4 de 4 | 40–62 s |
+| `/criterio-portfolio:product-view` | 4 de 4 | 4 de 4 | 42–74 s |
+| `/criterio-portfolio:project-charter` | 4 de 4 | 4 de 4 | 44–49 s |
+| `/criterio-portfolio:project-closure` | 4 de 4 | 4 de 4 | 53–67 s |
+| `/criterio-portfolio:project-history` | 4 de 4 | 4 de 4 | 70–80 s |
+| `/criterio-portfolio:raid-log` | 4 de 4 | 4 de 4 | 105–137 s |
+| `/criterio-portfolio:status-report` | 4 de 4 | 4 de 4 | 45–61 s |
+| `/criterio-portfolio:steering-pack` | 4 de 4 | 4 de 4 | 106–198 s |
+| `/criterio-portfolio:vendor-tracking` | 4 de 4 | 4 de 4 | 47–63 s |
+
+### Antes de las rondas
 
 | Comando | Días | Documentos | Tiempo | Hallazgos | De dónde sale |
 |---|---|---:|---:|---:|---|
@@ -43,8 +65,6 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 | `portfolio-report` | 158 de 158 alertas, y 7 de 8 cifras exactas. El aprobado salió 1000x. De aquí salieron la regla de cifras y la señal progress_vs_plan. · Cifras no cosechadas: esta corrida es anterior a que la corrida midiera lo suyo. |
 | `portfolio-scan` | Encontró por su cuenta la incompatibilidad cronograma/avance en 8 proyectos. De ahí salió la señal progress_vs_plan. · Cifras no cosechadas: esta corrida es anterior a que la corrida midiera lo suyo. |
 | `portfolio-setup` | El paso destapó que los 37 comandos estaban documentados sin el prefijo del plugin: 226 referencias que no resolvían. · Cifras no cosechadas: esta corrida es anterior a que la corrida midiera lo suyo. |
-
-**Sin evidencia todavía, y por eso sin probar:** `budget-tracking`, `change-control`, `document-index`, `health-check`, `portfolio-server`, `portfolio-wake`, `product-view`, `project-charter`, `project-closure`, `project-history`, `raid-log`, `status-report`, `steering-pack`, `vendor-tracking`
 
 **Corridas en que el agente no dijo que algo no estuviera dicho:** `portfolio-report`, `portfolio-scan`. Sobre material con huecos plantados, eso es señal de que rellenó.
 
