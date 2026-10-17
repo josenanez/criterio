@@ -1016,6 +1016,23 @@ def selftest() -> int:
     ok('porcentaje ausente', pct(None), '—')
     ok('monto', plata(1850000000), '1.850.000.000')
 
+    import os, tempfile
+    with tempfile.TemporaryDirectory() as t:
+        raiz = Path(t).resolve()
+        cfg = raiz / '.criterio' / 'portafolio' / 'config.json'
+        cfg.parent.mkdir(parents=True)
+        cfg.write_text(json.dumps({'paths': {'reports': 'reportes'}}), encoding='utf-8')
+        (raiz / 'estado').mkdir()
+        antes = os.getcwd()
+        os.chdir(raiz / 'estado')
+        try:
+            ok('el informe va a la raíz del espacio aunque el shell esté en estado/',
+               carpeta_informe(cfg, None), (raiz / 'reportes', None))
+            ok('y una --salida relativa a otro lado se rechaza',
+               carpeta_informe(cfg, Path('reportes'))[0], None)
+        finally:
+            os.chdir(antes)
+
     ficha = {
         'plan': {'milestones': [{'name': {'value': 'Salida a producción'},
                                  'evidence': {'value': None}}]},
@@ -1073,6 +1090,29 @@ def selftest() -> int:
     return 0
 
 
+def carpeta_informe(config, salida):
+    """Dónde va el informe: `paths.reports` de la configuración, contado desde la raíz del
+    espacio —la carpeta que contiene `.criterio/`— y no desde donde esté parado el shell.
+
+    En la ronda 8 (bancos) el shell del agente había quedado dentro de `estado/`, el
+    informe salió en `estado/reportes/` y Rostrum respondió 404 en cada página. Una ruta
+    relativa se lee contra la raíz del espacio; devuelve (carpeta, error)."""
+    reportes = None
+    if config and Path(config).is_file():
+        reportes = (json.loads(Path(config).read_text(encoding='utf-8')).get('paths') or {}).get('reports')
+    if not reportes:
+        if salida is None:
+            return None, 'sin --salida, la configuración tiene que decir paths.reports'
+        return Path(salida), None
+    raiz = Path(config).resolve().parents[2]
+    destino = Path(reportes).expanduser()
+    destino = (destino if destino.is_absolute() else raiz / destino).resolve()
+    if salida is not None and Path(salida).resolve() != destino:
+        return None, (f'el informe va a {destino} (paths.reports de la configuración): '
+                      'es la carpeta que Rostrum sirve. Omite --salida.')
+    return destino, None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description='Criterio PMO — el informe.')
     ap.add_argument('--state', type=Path)
@@ -1089,16 +1129,9 @@ def main() -> int:
     # El informe tiene un solo lugar: `paths.reports` de la configuración, que es la
     # carpeta que Rostrum sirve. En la ronda 3 (retail) el agente eligió una subcarpeta
     # con fecha y Rostrum respondió 404 en cada página del informe.
-    reportes = None
-    if args.config and args.config.is_file():
-        reportes = (json.loads(args.config.read_text(encoding='utf-8')).get('paths') or {}).get('reports')
-    if args.salida is None:
-        if not reportes:
-            ap.error('sin --salida, la configuración tiene que decir paths.reports')
-        args.salida = Path(reportes)
-    elif reportes and args.salida.resolve() != Path(reportes).resolve():
-        ap.error(f'el informe va a {reportes} (paths.reports de la configuración): '
-                 'es la carpeta que Rostrum sirve. Omite --salida.')
+    args.salida, error = carpeta_informe(args.config, args.salida)
+    if error:
+        ap.error(error)
     hoy = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
     print(json.dumps(generar(args.state, args.salida, args.config, hoy),
                      ensure_ascii=False, indent=2))
