@@ -1,0 +1,29 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-200-tienda-en-línea/2026-10-17-notas-reunion.txt",
+ "inicio": "2026-10-17T22:35:34",
+ "estado": "success",
+ "error": false,
+ "segundos": 72,
+ "turnos": 19,
+ "tokens": 823822,
+ "tokens_salida": 8792,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-minutes-1.md",
+   "estado/PRY-200-tienda-en-línea/corrida-en-curso.json",
+   "estado/PRY-200-tienda-en-línea/corridas/2026-10-17-pm-minutes-1.md",
+   "estado/PRY-200-tienda-en-línea/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-tienda-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

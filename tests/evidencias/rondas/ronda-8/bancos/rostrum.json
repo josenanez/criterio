@@ -1,0 +1,35 @@
+{
+ "servidor": ".claude/plugins/cache/criterio/criterio-portfolio/0.3.13/scripts/servidor.py",
+ "rutas": 122,
+ "paginas": 107,
+ "malas": {
+  "/pmo": 404,
+  "/decisiones": 404,
+  "/proyectos": 404,
+  "/productos": 404,
+  "/p/PRY-205": 404,
+  "/p/PRY-202": 404,
+  "/p/PRY-200": 404,
+  "/p/PRY-210": 404,
+  "/p/PRY-203": 404,
+  "/p/PRY-208": 404,
+  "/p/PRY-211": 404,
+  "/p/PRY-209": 404,
+  "/p/PRY-206": 404,
+  "/p/PRY-204": 404,
+  "/p/PRY-201": 404
+ },
+ "crudo": [],
+ "crudo_total": 0,
+ "voz_del_agente": 28,
+ "peticion": true,
+ "fichas_intactas": true,
+ "pantalla": {
+  "390": [],
+  "1280": []
+ },
+ "comprobaciones": {
+  "total": 409,
+  "pasan": 394
+ }
+}

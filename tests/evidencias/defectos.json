@@ -673,7 +673,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-6/retail/calificacion-samuel-alba.json",
   "origen": "material",
   "correccion": "3aa2d272",
-  "verificado_en": null
+  "verificado_en": "ronda-8 · las cuatro industrias: ninguna alerta de más de Alba"
  },
  {
   "id": "D053",
@@ -686,6 +686,32 @@
   "evidencia": null,
   "origen": "material",
   "correccion": "7597895d",
+  "verificado_en": "ronda-8 · las cuatro industrias: ninguna alerta de más de Alba"
+ },
+ {
+  "id": "D054",
+  "fecha": "2026-10-17",
+  "ronda": "8",
+  "entorno": "bancos",
+  "agente": "vera",
+  "comando": "portfolio-report",
+  "que_paso": "El informe salió en estado/reportes/ porque informe.py resolvía paths.reports contra la carpeta donde estaba el shell del agente, y Rostrum respondió 404 en las páginas del informe (394 de 409). Ahora se cuenta desde la raíz del espacio.",
+  "evidencia": null,
+  "origen": "codigo",
+  "correccion": "2631bbcc",
+  "verificado_en": null
+ },
+ {
+  "id": "D055",
+  "fecha": "2026-10-17",
+  "ronda": "8",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "D022 quedó a medias: en minería el informe de avance todavía podía decir al azar «El proveedor entregó los equipos en el campamento, pendientes de aceptación». Vera lo registró y el motor dio vendor_accepted_without_evidence en PRY-201, correcto sobre el material; la clave no lo modela. La frase se reemplazó.",
+  "evidencia": null,
+  "origen": "material",
+  "correccion": "43cd7c8f",
   "verificado_en": null
  }
 ]

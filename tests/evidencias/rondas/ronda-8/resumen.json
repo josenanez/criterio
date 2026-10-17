@@ -1,0 +1,366 @@
+{
+ "ronda": "ronda-8",
+ "fecha": "2026-10-17",
+ "industrias": [
+  {
+   "entorno": "bancos",
+   "comandos": 37,
+   "completos": 37,
+   "contratos": 36,
+   "fugas": 0,
+   "minutos": 43,
+   "tokens": 29512220,
+   "documentos": {
+    "total": 132,
+    "por_formato": {
+     "md": 72,
+     "docx": 34,
+     "pdf": 13,
+     "xlsx": 7,
+     "csv": 4,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-17-bancos-vera-35",
+    "aciertos": 60,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     94.0,
+     100.0
+    ],
+    "ic_cobertura": [
+     94.0,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.3.13"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2027-06-29",
+     "encontrado": "2027-06-29",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 32,
+    "esperados": 32,
+    "reportados": 32
+   },
+   "rostrum": {
+    "pasan": 394,
+    "total": 409,
+    "pantalla": true
+   }
+  },
+  {
+   "entorno": "cooperativas",
+   "comandos": 37,
+   "completos": 37,
+   "contratos": 37,
+   "fugas": 0,
+   "minutos": 42,
+   "tokens": 28882596,
+   "documentos": {
+    "total": 130,
+    "por_formato": {
+     "md": 78,
+     "docx": 23,
+     "pdf": 14,
+     "xlsx": 8,
+     "csv": 5,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-17-cooperativas-vera-36",
+    "aciertos": 69,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     94.7,
+     100.0
+    ],
+    "ic_cobertura": [
+     94.7,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.3.13"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2026-10-01",
+     "encontrado": "2026-10-01",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 43,
+    "esperados": 43,
+    "reportados": 43
+   },
+   "rostrum": {
+    "pasan": 558,
+    "total": 558,
+    "pantalla": true
+   }
+  },
+  {
+   "entorno": "mineria",
+   "comandos": 37,
+   "completos": 37,
+   "contratos": 37,
+   "fugas": 0,
+   "minutos": 43,
+   "tokens": 29137906,
+   "documentos": {
+    "total": 121,
+    "por_formato": {
+     "md": 62,
+     "docx": 32,
+     "pdf": 11,
+     "xlsx": 8,
+     "csv": 6,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-17-mineria-vera-38",
+    "aciertos": 51,
+    "falsos_positivos": 1,
+    "falsos_negativos": 0,
+    "precision": 98.1,
+    "cobertura": 100.0,
+    "ic_precision": [
+     89.9,
+     100.0
+    ],
+    "ic_cobertura": [
+     93.0,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.3.13"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2027-05-10",
+     "encontrado": "2027-05-10",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 40,
+    "esperados": 40,
+    "reportados": 40
+   },
+   "rostrum": {
+    "pasan": 537,
+    "total": 537,
+    "pantalla": true
+   }
+  },
+  {
+   "entorno": "retail",
+   "comandos": 37,
+   "completos": 37,
+   "contratos": 37,
+   "fugas": 0,
+   "minutos": 45,
+   "tokens": 32104409,
+   "documentos": {
+    "total": 144,
+    "por_formato": {
+     "md": 83,
+     "docx": 31,
+     "xlsx": 13,
+     "pdf": 10,
+     "csv": 5,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-17-retail-vera-37",
+    "aciertos": 73,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     95.0,
+     100.0
+    ],
+    "ic_cobertura": [
+     95.0,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.3.13"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2026-09-07",
+     "encontrado": "2026-09-07",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 34,
+    "esperados": 34,
+    "reportados": 34
+   },
+   "rostrum": {
+    "pasan": 552,
+    "total": 552,
+    "pantalla": true
+   }
+  }
+ ],
+ "vera": {
+  "aciertos": 253,
+  "falsos_positivos": 1,
+  "falsos_negativos": 0,
+  "proyectos": 52,
+  "ic_precision": [
+   97.8,
+   100.0
+  ],
+  "ic_cobertura": [
+   98.5,
+   100.0
+  ],
+  "controles": 4,
+  "controles_limpios": 4
+ },
+ "senales": [
+  {
+   "senal": "milestone_met_without_evidence",
+   "aciertos": 81,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_overdue",
+   "aciertos": 35,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "progress_vs_plan",
+   "aciertos": 24,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "declared_vs_evidence",
+   "aciertos": 22,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_deliverable_late",
+   "aciertos": 17,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_undated",
+   "aciertos": 12,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_rescheduled",
+   "aciertos": 10,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_cost",
+   "aciertos": 10,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_time",
+   "aciertos": 10,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "change_without_baseline",
+   "aciertos": 7,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "rebaseline_unauthorized",
+   "aciertos": 6,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_accepted_without_evidence",
+   "aciertos": 3,
+   "falsos_positivos": 1,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "milestone_overdue",
+   "aciertos": 4,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_invoiced_without_delivery",
+   "aciertos": 4,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "budget_committed",
+   "aciertos": 3,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "silent",
+   "aciertos": 3,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_invoiced_over_accepted",
+   "aciertos": 2,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  }
+ ]
+}

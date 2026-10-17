@@ -1,0 +1,28 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-17T22:39:58",
+ "estado": "success",
+ "error": false,
+ "segundos": 73,
+ "turnos": 14,
+ "tokens": 552406,
+ "tokens_salida": 9478,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-plan-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-plan-1.md",
+   "estado/PRY-200-tienda-en-línea/corridas/2026-10-17-pm-plan-1.md",
+   "estado/PRY-200-tienda-en-línea/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-tienda-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-17T21:55:49",
+ "estado": "success",
+ "error": false,
+ "segundos": 83,
+ "turnos": 15,
+ "tokens": 587876,
+ "tokens_salida": 10318,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-200-crédito-de-libranza-digital/corridas/2026-10-17-pm-plan-1.md",
+   "estado/PRY-200-crédito-de-libranza-digital/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-crédito-de-libranza-digital/corridas.json"
+  ],
+  "borrados": []
+ }
+}

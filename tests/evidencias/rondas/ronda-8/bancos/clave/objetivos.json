@@ -1,0 +1,21 @@
+{
+ "entorno": "bancos",
+ "ronda": 8,
+ "hoy": "2026-10-17",
+ "prd": "PRD-306",
+ "prd_carpeta": "PRD-306",
+ "prd_otro": "PRD-302",
+ "req": "REQ-4600",
+ "pry_sam": "PRY-202",
+ "sam_carpeta": "PRY-202-migración-a-la-nube",
+ "notas": "documentos/proyectos/PRY-202-migración-a-la-nube/2026-10-17-notas-reunion.txt",
+ "status": "PRY-200",
+ "health": "PRY-210",
+ "budget": "PRY-203",
+ "vendor": "PRY-202",
+ "change": "PRY-208",
+ "history": "PRY-202",
+ "charter": "PRY-207",
+ "closure": "PRY-205",
+ "producto_vista": "nómina empresarial"
+}

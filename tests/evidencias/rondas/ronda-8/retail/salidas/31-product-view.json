@@ -1,0 +1,25 @@
+{
+ "n": 31,
+ "agente": "vera",
+ "comando": "product-view",
+ "argumento": "pago con QR",
+ "inicio": "2026-10-17T23:04:55",
+ "estado": "success",
+ "error": false,
+ "segundos": 48,
+ "turnos": 16,
+ "tokens": 653170,
+ "tokens_salida": 5202,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-17-product-view-1.md",
+   "estado/corridas/salida-product-view.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

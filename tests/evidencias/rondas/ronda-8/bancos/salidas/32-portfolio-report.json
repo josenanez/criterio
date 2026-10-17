@@ -1,0 +1,51 @@
+{
+ "n": 32,
+ "agente": "vera",
+ "comando": "portfolio-report",
+ "argumento": "html",
+ "inicio": "2026-10-17T22:20:27",
+ "estado": "success",
+ "error": false,
+ "segundos": 56,
+ "turnos": 14,
+ "tokens": 619860,
+ "tokens_salida": 6804,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-17-portfolio-report-1.md",
+   "estado/corridas/salida-portfolio-report.md",
+   "estado/reportes/PRY-199.html",
+   "estado/reportes/PRY-200.html",
+   "estado/reportes/PRY-201.html",
+   "estado/reportes/PRY-202.html",
+   "estado/reportes/PRY-203.html",
+   "estado/reportes/PRY-204.html",
+   "estado/reportes/PRY-205.html",
+   "estado/reportes/PRY-206.html",
+   "estado/reportes/PRY-207.html",
+   "estado/reportes/PRY-208.html",
+   "estado/reportes/PRY-209.html",
+   "estado/reportes/PRY-210.html",
+   "estado/reportes/PRY-211.html",
+   "estado/reportes/decisiones.html",
+   "estado/reportes/index.html",
+   "estado/reportes/producto-apis-de-datos.html",
+   "estado/reportes/producto-credito-de-consumo.html",
+   "estado/reportes/producto-cuenta-de-ahorros.html",
+   "estado/reportes/producto-cuenta-pyme.html",
+   "estado/reportes/producto-nomina-empresarial.html",
+   "estado/reportes/producto-pagos-qr.html",
+   "estado/reportes/producto-prd-299.html",
+   "estado/reportes/producto-recaudos.html",
+   "estado/reportes/producto-tarjeta-debito.html",
+   "estado/reportes/productos.html",
+   "estado/reportes/proyectos.html"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

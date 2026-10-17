@@ -1,0 +1,28 @@
+{
+ "n": 28,
+ "agente": "vera",
+ "comando": "project-charter",
+ "argumento": "PRY-207 revisar",
+ "inicio": "2026-10-17T22:16:09",
+ "estado": "success",
+ "error": false,
+ "segundos": 48,
+ "turnos": 13,
+ "tokens": 541182,
+ "tokens_salida": 5120,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-17-project-charter-1.html",
+   ".criterio/corridas/portafolio/2026-10-17-project-charter-1.md",
+   "estado/corridas/2026-10-17-project-charter-1.md",
+   "estado/corridas/salida-project-charter.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

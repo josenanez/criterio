@@ -1,0 +1,2698 @@
+{
+ "dia": 3,
+ "creada": "2026-10-03",
+ "sector": "cooperativas",
+ "ronda": 8,
+ "etiqueta": "Entidades financieras de Suramérica · cooperativas de ahorro y crédito",
+ "proyectos": [
+  {
+   "codigo": "PRY-200",
+   "nombre": "Crédito de libranza digital",
+   "carpeta": "PRY-200-crédito-de-libranza-digital",
+   "profundidad": "completa",
+   "area": "Cartera y cobranza",
+   "comite": "Consejo de Administración",
+   "patrocinador": "Carlos Peña",
+   "gerente": "Jorge Medina",
+   "producto": "crédito de libranza",
+   "aprobacion": "2025-12-18",
+   "inicio": "2025-12-28",
+   "cierre": "2026-10-01",
+   "presupuesto": 4200000000,
+   "comprometido": 3390376801,
+   "ejecutado": 1405474333,
+   "proyeccion": 4010066854,
+   "proveedores": [
+    {
+     "nombre": "Soluciones Solidarias S.A.S.",
+     "ref": "CT-410",
+     "firma": "2025-12-13",
+     "entregables": [
+      {
+       "que": "Licenciamiento del módulo",
+       "vence": "2026-03-14",
+       "estado": "pendiente",
+       "monto": 194058672,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de desarrollo",
+       "vence": "2026-05-29",
+       "estado": "en curso",
+       "monto": 194058672,
+       "acta": null
+      },
+      {
+       "que": "Parametrización de líneas de crédito",
+       "vence": "2026-08-13",
+       "estado": "en curso",
+       "monto": 194058672,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": null
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-02-21",
+     "vigente": "2026-02-21",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-04-17",
+     "vigente": "2026-04-17",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-06-12",
+     "vigente": "2026-06-12",
+     "cerrado": true,
+     "recibo": "2026-10-07"
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2026-08-06",
+     "vigente": "2026-08-06",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Salida a producción",
+     "base": "2026-10-01",
+     "vigente": "2026-10-01",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Laura Vélez",
+     "que": "Entregar el punto 23",
+     "fechas": [
+      "2026-09-27",
+      "2026-11-01"
+     ],
+     "cumplido": true,
+     "dicho": "2026-10-10"
+    },
+    {
+     "quien": "Laura Vélez",
+     "que": "Entregar el punto 35",
+     "fechas": [
+      "2026-10-24"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-12"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 48,
+    "fecha": "2026-10-07"
+   },
+   "ultimo_doc": "2026-10-12",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-12"
+  },
+  {
+   "codigo": "PRY-201",
+   "nombre": "Apertura de ahorro en línea",
+   "carpeta": "PRY-201-apertura-de-ahorro-en-línea",
+   "profundidad": "media",
+   "area": "Cartera y cobranza",
+   "comite": "Comité de Educación",
+   "patrocinador": "Paula Céspedes",
+   "gerente": "Paula Céspedes",
+   "producto": "ahorro a la vista",
+   "aprobacion": "2026-04-16",
+   "inicio": "2026-04-26",
+   "cierre": "2027-09-15",
+   "presupuesto": 4200000000,
+   "comprometido": 2835540251,
+   "ejecutado": 2435174020,
+   "proyeccion": 4306338785,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-08-30",
+     "vigente": "2026-08-30",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2027-01-04",
+     "vigente": "2027-01-04",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2027-05-11",
+     "vigente": "2027-05-11",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2027-09-15",
+     "vigente": "2027-09-15",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 47,
+    "fecha": "2026-10-15"
+   },
+   "ultimo_doc": "2026-10-15",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRY-202",
+   "nombre": "Core cooperativo",
+   "carpeta": "PRY-202-core-cooperativo",
+   "profundidad": "media",
+   "area": "Canales digitales",
+   "comite": "Consejo de Administración",
+   "patrocinador": "Andrés Lozano",
+   "gerente": "Natalia Ospina",
+   "producto": null,
+   "aprobacion": "2025-08-20",
+   "inicio": "2025-08-30",
+   "cierre": "2026-05-16",
+   "presupuesto": 3300000000,
+   "comprometido": 1650470755,
+   "ejecutado": 1930253365,
+   "proyeccion": 3433155097,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2025-11-02",
+     "vigente": "2025-11-02",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-01-06",
+     "vigente": "2026-01-06",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-03-12",
+     "vigente": "2026-03-12",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2026-05-16",
+     "vigente": "2026-05-16",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Natalia Ospina",
+     "que": "Entregar el punto 25",
+     "fechas": [
+      "2026-09-23"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-07"
+    },
+    {
+     "quien": "Camilo Beltrán",
+     "que": "Entregar el punto 16",
+     "fechas": [
+      "2026-10-15"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-17"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 65,
+    "fecha": "2026-10-17"
+   },
+   "ultimo_doc": "2026-10-14",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-17"
+  },
+  {
+   "codigo": "PRY-203",
+   "nombre": "Aportes sociales en línea",
+   "carpeta": "PRY-203-aportes-sociales-en-línea",
+   "profundidad": "minima",
+   "area": "Cartera y cobranza",
+   "comite": "Comité de Riesgos",
+   "patrocinador": "María Restrepo",
+   "gerente": "Gustavo Neira",
+   "producto": "aportes sociales",
+   "aprobacion": "2025-08-03",
+   "inicio": "2025-08-13",
+   "cierre": "2026-03-16",
+   "presupuesto": 18000000000,
+   "comprometido": 12718235403,
+   "ejecutado": 8771337338,
+   "proyeccion": 16832732205,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2025-11-28",
+     "vigente": "2025-11-28",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-03-16",
+     "vigente": "2026-07-06",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 112,
+     "autorizado": true,
+     "fecha": "2026-10-14"
+    }
+   ],
+   "declarado": {
+    "estado": "verde",
+    "pct": 35,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-15",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRY-204",
+   "nombre": "Tarjeta débito para asociados",
+   "carpeta": "PRY-204-tarjeta-débito-para-asociados",
+   "profundidad": "delgada",
+   "area": "Crédito",
+   "comite": "Comité de Riesgos",
+   "patrocinador": "Sandra Gil",
+   "gerente": "Javier Hoyos",
+   "producto": "tarjeta débito",
+   "aprobacion": "2026-03-19",
+   "inicio": "2026-03-29",
+   "cierre": "2027-06-17",
+   "presupuesto": 1200000000,
+   "comprometido": 565373056,
+   "ejecutado": 329106175,
+   "proyeccion": 1180865844,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-08-24",
+     "vigente": "2026-08-24",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2027-01-20",
+     "vigente": "2027-01-20",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2027-06-17",
+     "vigente": "2027-06-17",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 62,
+    "fecha": "2026-09-25"
+   },
+   "ultimo_doc": "2026-09-27",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-09-25"
+  },
+  {
+   "codigo": "PRY-205",
+   "nombre": "Prevención de lavado de activos",
+   "carpeta": "PRY-205-prevención-de-lavado-de-activos",
+   "profundidad": "delgada",
+   "area": "Tesorería",
+   "comite": "Consejo de Administración",
+   "patrocinador": "María Restrepo",
+   "gerente": "Camilo Beltrán",
+   "producto": null,
+   "aprobacion": "2026-02-06",
+   "inicio": "2026-02-16",
+   "cierre": "2026-09-21",
+   "presupuesto": 4200000000,
+   "comprometido": 1378457363,
+   "ejecutado": 1937776494,
+   "proyeccion": 5188200936,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-04-29",
+     "vigente": "2026-04-29",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-07-11",
+     "vigente": "2026-07-11",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-09-21",
+     "vigente": "2026-09-21",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 48,
+    "fecha": "2026-10-14"
+   },
+   "ultimo_doc": "2026-10-12",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRY-206",
+   "nombre": "Pagos con QR",
+   "carpeta": "PRY-206-pagos-con-qr",
+   "profundidad": "media",
+   "area": "Cartera y cobranza",
+   "comite": "Consejo de Administración",
+   "patrocinador": "Beatriz Cuéllar",
+   "gerente": "Felipe Arango",
+   "producto": "pagos QR",
+   "aprobacion": "2026-04-15",
+   "inicio": "2026-04-25",
+   "cierre": "2027-03-19",
+   "presupuesto": 3300000000,
+   "comprometido": 2970911597,
+   "ejecutado": 1806185462,
+   "proyeccion": 3444173074,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-07-16",
+     "vigente": "2026-07-16",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-10-06",
+     "vigente": "2026-10-06",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-12-27",
+     "vigente": "2026-12-27",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2027-03-19",
+     "vigente": "2027-03-19",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Jorge Medina",
+     "que": "Entregar el punto 14",
+     "fechas": [
+      "2026-10-10"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-16"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 83,
+    "fecha": "2026-10-10"
+   },
+   "ultimo_doc": "2026-10-16",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-16"
+  },
+  {
+   "codigo": "PRY-207",
+   "nombre": "Microcrédito rural",
+   "carpeta": "PRY-207-microcrédito-rural",
+   "profundidad": "media",
+   "area": "Operaciones",
+   "comite": "Comité de Crédito",
+   "patrocinador": "Laura Vélez",
+   "gerente": "Liliana Torres",
+   "producto": "microcrédito",
+   "aprobacion": "2025-09-29",
+   "inicio": "2025-10-09",
+   "cierre": "2026-10-09",
+   "presupuesto": 6800000000,
+   "comprometido": 4130690153,
+   "ejecutado": 1536413566,
+   "proyeccion": 6731398575,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-01-08",
+     "vigente": "2026-01-08",
+     "cerrado": true,
+     "recibo": "2026-10-08"
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-04-09",
+     "vigente": "2026-04-09",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-07-10",
+     "vigente": "2026-07-10",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2026-10-09",
+     "vigente": "2026-10-09",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 36,
+    "fecha": "2026-10-06"
+   },
+   "ultimo_doc": "2026-10-08",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-08"
+  },
+  {
+   "codigo": "PRY-208",
+   "nombre": "Motor de crédito",
+   "carpeta": "PRY-208-motor-de-crédito",
+   "profundidad": "completa",
+   "area": "Ahorro y aportes",
+   "comite": "Comité de Riesgos",
+   "patrocinador": "Liliana Torres",
+   "gerente": "Laura Vélez",
+   "producto": null,
+   "aprobacion": "2025-11-14",
+   "inicio": "2025-11-24",
+   "cierre": "2026-12-24",
+   "presupuesto": 18000000000,
+   "comprometido": 15434381391,
+   "ejecutado": 9323368667,
+   "proyeccion": 18533650569,
+   "proveedores": [
+    {
+     "nombre": "Talento Solidario Ltda.",
+     "ref": "CT-349",
+     "firma": "2025-11-22",
+     "entregables": [
+      {
+       "que": "Licenciamiento del módulo",
+       "vence": "2026-04-18",
+       "estado": "recibido",
+       "monto": 1129542113,
+       "acta": "2026-04-29"
+      },
+      {
+       "que": "Bolsa de horas de desarrollo",
+       "vence": "2026-09-10",
+       "estado": "recibido",
+       "monto": 1129542113,
+       "acta": "2026-09-30"
+      }
+     ],
+     "facturado": 2259084226,
+     "fecha_factura": "2026-09-05"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-02-11",
+     "vigente": "2026-02-11",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-05-01",
+     "vigente": "2026-05-01",
+     "cerrado": true,
+     "recibo": "2026-10-04"
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-07-19",
+     "vigente": "2026-07-19",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2026-10-06",
+     "vigente": "2026-10-06",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Salida a producción",
+     "base": "2026-12-24",
+     "vigente": "2027-04-20",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 117,
+     "autorizado": true,
+     "fecha": "2026-10-14"
+    }
+   ],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 85,
+    "fecha": "2026-10-08"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRY-209",
+   "nombre": "Convenios de libranza con empresas",
+   "carpeta": "PRY-209-convenios-de-libranza-con-empresas",
+   "profundidad": "completa",
+   "area": "Ahorro y aportes",
+   "comite": "Comité de Crédito",
+   "patrocinador": "Mauricio Pérez",
+   "gerente": "Felipe Arango",
+   "producto": null,
+   "aprobacion": "2026-01-24",
+   "inicio": "2026-02-03",
+   "cierre": "2027-04-10",
+   "presupuesto": 800000000,
+   "comprometido": 640217034,
+   "ejecutado": 350822333,
+   "proyeccion": 796111121,
+   "proveedores": [
+    {
+     "nombre": "Integración Financiera del Sur",
+     "ref": "CT-951",
+     "firma": "2026-01-17",
+     "entregables": [
+      {
+       "que": "Licenciamiento del módulo",
+       "vence": "2026-07-11",
+       "estado": "recibido",
+       "monto": 32792867,
+       "acta": "2026-07-23"
+      },
+      {
+       "que": "Bolsa de horas de desarrollo",
+       "vence": "2026-12-16",
+       "estado": "en curso",
+       "monto": 32792867,
+       "acta": null
+      }
+     ],
+     "facturado": 32792867,
+     "fecha_factura": "2026-09-18"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-04-30",
+     "vigente": "2026-04-30",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-07-25",
+     "vigente": "2026-07-25",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-10-20",
+     "vigente": "2026-10-20",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2027-01-14",
+     "vigente": "2027-01-14",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Salida a producción",
+     "base": "2027-04-10",
+     "vigente": "2027-04-10",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Javier Hoyos",
+     "que": "Entregar el punto 35",
+     "fechas": [
+      "2026-10-10"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-17"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 27,
+    "fecha": "2026-10-06"
+   },
+   "ultimo_doc": "2026-10-15",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-17"
+  },
+  {
+   "codigo": "PRY-210",
+   "nombre": "Corresponsales rurales",
+   "carpeta": "PRY-210-corresponsales-rurales",
+   "profundidad": "media",
+   "area": "Bienestar social",
+   "comite": "Comité de Crédito",
+   "patrocinador": "Diana Molina",
+   "gerente": "Óscar Ramírez",
+   "producto": null,
+   "aprobacion": "2025-07-25",
+   "inicio": "2025-08-04",
+   "cierre": "2026-07-16",
+   "presupuesto": 9500000000,
+   "comprometido": 4992964859,
+   "ejecutado": 1630726010,
+   "proyeccion": 9123347396,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2025-10-29",
+     "vigente": "2025-10-29",
+     "cerrado": true,
+     "recibo": "2026-10-05"
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-01-24",
+     "vigente": "2026-01-24",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-04-21",
+     "vigente": "2026-04-21",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2026-07-16",
+     "vigente": "2026-07-16",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Sandra Gil",
+     "que": "Entregar el punto 40",
+     "fechas": [
+      null
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-06"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 81,
+    "fecha": "2026-10-09"
+   },
+   "ultimo_doc": "2026-10-05",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-09"
+  },
+  {
+   "codigo": "PRY-211",
+   "nombre": "Cobranza digital",
+   "carpeta": "PRY-211-cobranza-digital",
+   "profundidad": "completa",
+   "area": "Tecnología",
+   "comite": "Comité de Riesgos",
+   "patrocinador": "Liliana Torres",
+   "gerente": "Camilo Beltrán",
+   "producto": "recaudos",
+   "aprobacion": "2026-01-30",
+   "inicio": "2026-02-09",
+   "cierre": "2026-10-14",
+   "presupuesto": 3300000000,
+   "comprometido": 1118869755,
+   "ejecutado": 855582138,
+   "proyeccion": 3150132734,
+   "proveedores": [
+    {
+     "nombre": "Datos para Cooperativas S.A.S.",
+     "ref": "CT-650",
+     "firma": "2026-01-31",
+     "entregables": [
+      {
+       "que": "Licenciamiento del módulo",
+       "vence": "2026-05-10",
+       "estado": "pendiente",
+       "monto": 376332909,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de desarrollo",
+       "vence": "2026-08-09",
+       "estado": "en curso",
+       "monto": 376332909,
+       "acta": null
+      }
+     ],
+     "facturado": 376332909,
+     "fecha_factura": "2026-08-29"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-03-30",
+     "vigente": "2026-03-30",
+     "cerrado": true,
+     "recibo": "2026-10-17"
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2026-05-18",
+     "vigente": "2026-05-18",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2026-07-07",
+     "vigente": "2026-07-07",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2026-08-25",
+     "vigente": "2026-08-25",
+     "cerrado": true,
+     "recibo": "2026-10-08"
+    },
+    {
+     "nombre": "Salida a producción",
+     "base": "2026-10-14",
+     "vigente": "2026-10-14",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Rubén Cárdenas",
+     "que": "Entregar el punto 2",
+     "fechas": [
+      "2026-09-28"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-15"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 77,
+    "fecha": "2026-10-15"
+   },
+   "ultimo_doc": "2026-10-13",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-17"
+  },
+  {
+   "codigo": "PRY-199",
+   "nombre": "Cambio de mobiliario de agencias",
+   "carpeta": "PRY-199-cambio-de-mobiliario-de-agencias",
+   "profundidad": "completa",
+   "area": "Crédito",
+   "comite": "Consejo de Administración",
+   "patrocinador": "María Restrepo",
+   "gerente": "Andrés Lozano",
+   "producto": "PRD-299",
+   "aprobacion": "2026-06-09",
+   "inicio": "2026-06-19",
+   "cierre": "2027-12-16",
+   "presupuesto": 2400000000,
+   "comprometido": 1080000000,
+   "ejecutado": 720000000,
+   "proyeccion": 2400000000,
+   "proveedores": [
+    {
+     "nombre": "Soluciones Solidarias S.A.S.",
+     "ref": "CT-199",
+     "firma": "2026-06-09",
+     "entregables": [
+      {
+       "que": "Licenciamiento del módulo",
+       "vence": "2026-11-16",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de desarrollo",
+       "vence": "2027-04-15",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Parametrización de líneas de crédito",
+       "vence": "2027-09-12",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": "2026-10-05"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño funcional aprobado",
+     "base": "2026-10-06",
+     "vigente": "2026-10-06",
+     "cerrado": true,
+     "recibo": "2026-10-09"
+    },
+    {
+     "nombre": "Ambiente de pruebas certificado",
+     "base": "2027-01-23",
+     "vigente": "2027-01-23",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con el core cooperativo",
+     "base": "2027-05-12",
+     "vigente": "2027-05-12",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Piloto con asociados",
+     "base": "2027-08-29",
+     "vigente": "2027-08-29",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Salida a producción",
+     "base": "2027-12-16",
+     "vigente": "2027-12-16",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el tablero de seguimiento",
+     "fechas": [
+      "2026-09-27"
+     ],
+     "cumplido": true,
+     "dicho": "2026-09-22"
+    },
+    {
+     "quien": "Carlos Peña",
+     "que": "Presentar el cierre de la fase",
+     "fechas": [
+      "2026-11-06"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-13"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 20,
+    "fecha": "2026-10-15"
+   },
+   "ultimo_doc": "2026-10-15",
+   "silencioso": false,
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-15"
+  }
+ ],
+ "productos": [
+  {
+   "codigo": "PRD-300",
+   "nombre": "Crédito de libranza",
+   "carpeta": "PRD-300",
+   "profundidad": "completa",
+   "gerente": "Javier Hoyos",
+   "segmento": "Asociados rurales",
+   "fecha": "2025-12-12",
+   "entrevista": "2026-07-27",
+   "requerimientos": [
+    {
+     "id": "REQ-4000",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4001",
+     "estado": "propuesto",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4002",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4003",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4004",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4005",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4006",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4007",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4008",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4009",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4010",
+     "estado": "propuesto",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4011",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4012",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4013",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4014",
+     "estado": "propuesto",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4015",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-29",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-04-10",
+     "verificado": true,
+     "evidencia_fecha": "2026-06-25",
+     "evidencia": "la medición del piloto del 2026-06-25"
+    }
+   ],
+   "declarado": 110666,
+   "medido": 75313,
+   "corte": "2026-10-07",
+   "ultimo_doc": "2026-10-12",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-12"
+  },
+  {
+   "codigo": "PRD-301",
+   "nombre": "Ahorro a la vista",
+   "carpeta": "PRD-301",
+   "profundidad": "delgada",
+   "gerente": "Diana Molina",
+   "segmento": "Jóvenes",
+   "fecha": "2026-07-17",
+   "entrevista": "2026-04-05",
+   "requerimientos": [
+    {
+     "id": "REQ-4100",
+     "estado": "propuesto",
+     "doliente": "María Restrepo",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4101",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4102",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4103",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4104",
+     "estado": "propuesto",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4105",
+     "estado": "propuesto",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-06-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4106",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-09-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4107",
+     "estado": "propuesto",
+     "doliente": "Laura Vélez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4108",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4109",
+     "estado": "propuesto",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4110",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-06-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4111",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-08",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El core soporta el volumen",
+     "desde": "2026-06-02",
+     "verificado": false
+    }
+   ],
+   "declarado": 62651,
+   "medido": null,
+   "corte": "2026-09-19",
+   "ultimo_doc": "2026-10-13",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-13"
+  },
+  {
+   "codigo": "PRD-302",
+   "nombre": "Aportes sociales",
+   "carpeta": "PRD-302",
+   "profundidad": "completa",
+   "gerente": "María Restrepo",
+   "segmento": "Asociados urbanos",
+   "fecha": "2025-12-05",
+   "entrevista": "2026-05-26",
+   "requerimientos": [
+    {
+     "id": "REQ-4200",
+     "estado": "propuesto",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4201",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4202",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4203",
+     "estado": "propuesto",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4204",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4205",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4206",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4207",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4208",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4209",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4210",
+     "estado": "propuesto",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4211",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4212",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4213",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4214",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4215",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-11",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Los asociados usan el canal digital",
+     "desde": "2026-06-26",
+     "verificado": false
+    }
+   ],
+   "declarado": 207060,
+   "medido": null,
+   "corte": "2026-09-18",
+   "ultimo_doc": "2026-09-25",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-09-25"
+  },
+  {
+   "codigo": "PRD-303",
+   "nombre": "Tarjeta débito",
+   "carpeta": "PRD-303",
+   "profundidad": "delgada",
+   "gerente": "Beatriz Cuéllar",
+   "segmento": "Microempresarios",
+   "fecha": "2026-07-04",
+   "entrevista": "2026-05-04",
+   "requerimientos": [
+    {
+     "id": "REQ-4300",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4301",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4302",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4303",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4304",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4305",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4306",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4307",
+     "estado": "propuesto",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4308",
+     "estado": "propuesto",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4309",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4310",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4311",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-11",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-07-11",
+     "verificado": false
+    }
+   ],
+   "declarado": 226477,
+   "medido": null,
+   "corte": "2026-09-19",
+   "ultimo_doc": "2026-10-08",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-08"
+  },
+  {
+   "codigo": "PRD-304",
+   "nombre": "Pagos QR",
+   "carpeta": "PRD-304",
+   "profundidad": "media",
+   "gerente": "Felipe Arango",
+   "segmento": "Jóvenes",
+   "fecha": "2025-11-15",
+   "entrevista": "2026-08-01",
+   "requerimientos": [
+    {
+     "id": "REQ-4400",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4401",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4402",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4403",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4404",
+     "estado": "propuesto",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4405",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4406",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4407",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4408",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4409",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4410",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4411",
+     "estado": "propuesto",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4412",
+     "estado": "propuesto",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4413",
+     "estado": "propuesto",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-30",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-03-30",
+     "verificado": false
+    }
+   ],
+   "declarado": 226453,
+   "medido": null,
+   "corte": "2026-09-08",
+   "ultimo_doc": "2026-10-07",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-07"
+  },
+  {
+   "codigo": "PRD-305",
+   "nombre": "Microcrédito",
+   "carpeta": "PRD-305",
+   "profundidad": "delgada",
+   "gerente": "Diana Molina",
+   "segmento": "Microempresarios",
+   "fecha": "2025-11-10",
+   "entrevista": "2026-05-14",
+   "requerimientos": [
+    {
+     "id": "REQ-4500",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4501",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4502",
+     "estado": "propuesto",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4503",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4504",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4505",
+     "estado": "propuesto",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4506",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-03-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4507",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4508",
+     "estado": "propuesto",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4509",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4510",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4511",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2033",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-10-08",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-08-02",
+     "verificado": true,
+     "evidencia_fecha": "2026-08-30",
+     "evidencia": "la entrevista con doce clientes del segmento del 2026-08-30"
+    }
+   ],
+   "declarado": 119236,
+   "medido": null,
+   "corte": "2026-09-15",
+   "ultimo_doc": "2026-10-11",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-11"
+  },
+  {
+   "codigo": "PRD-306",
+   "nombre": "Recaudos",
+   "carpeta": "PRD-306",
+   "profundidad": "completa",
+   "gerente": "Gustavo Neira",
+   "segmento": "Asociados urbanos",
+   "fecha": "2025-09-28",
+   "entrevista": "2025-09-27",
+   "requerimientos": [
+    {
+     "id": "REQ-4600",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4601",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4602",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4603",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4604",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4605",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4606",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4607",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-03-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4608",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4609",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4610",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4611",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4612",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4613",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4614",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4615",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2030",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-09-23",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El reglamento vigente lo permite",
+     "desde": "2026-05-16",
+     "verificado": false
+    }
+   ],
+   "declarado": 196775,
+   "medido": 175099,
+   "corte": "2026-10-15",
+   "ultimo_doc": "2026-10-15",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-15"
+  },
+  {
+   "codigo": "PRD-307",
+   "nombre": "Auxilios de solidaridad",
+   "carpeta": "PRD-307",
+   "profundidad": "media",
+   "gerente": "Diana Molina",
+   "segmento": "Microempresarios",
+   "fecha": "2026-04-18",
+   "entrevista": "2025-09-25",
+   "requerimientos": [
+    {
+     "id": "REQ-4700",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4701",
+     "estado": "propuesto",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4702",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4703",
+     "estado": "propuesto",
+     "doliente": "Elena Duarte",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4704",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4705",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-22",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4706",
+     "estado": "propuesto",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4707",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4708",
+     "estado": "propuesto",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4709",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-08-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4710",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4711",
+     "estado": "propuesto",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4712",
+     "estado": "propuesto",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4713",
+     "estado": "propuesto",
+     "doliente": "Laura Vélez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2035",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-10-08",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Los asociados usan el canal digital",
+     "desde": "2026-09-08",
+     "verificado": true,
+     "evidencia_fecha": "2026-09-28",
+     "evidencia": "el concepto jurídico de cumplimiento del 2026-09-28"
+    }
+   ],
+   "declarado": 177205,
+   "medido": 176292,
+   "corte": "2026-10-10",
+   "ultimo_doc": "2026-10-17",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-17"
+  },
+  {
+   "codigo": "PRD-308",
+   "nombre": "Remesas familiares",
+   "carpeta": "PRD-308",
+   "profundidad": "media",
+   "gerente": "Natalia Ospina",
+   "segmento": "Asociados urbanos",
+   "fecha": "2025-09-26",
+   "entrevista": "2026-01-02",
+   "requerimientos": [
+    {
+     "id": "REQ-4800",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4801",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4802",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4803",
+     "estado": "propuesto",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4804",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4805",
+     "estado": "propuesto",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-03-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4806",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4807",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4808",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4809",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4810",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-06-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4811",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-08",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4812",
+     "estado": "propuesto",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4813",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-25",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-09-10",
+     "verificado": false
+    }
+   ],
+   "declarado": 174609,
+   "medido": null,
+   "corte": "2026-09-16",
+   "ultimo_doc": "2026-10-14",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRD-309",
+   "nombre": "Microseguros",
+   "carpeta": "PRD-309",
+   "profundidad": "media",
+   "gerente": "Mauricio Pérez",
+   "segmento": "Asociados urbanos",
+   "fecha": "2026-04-01",
+   "entrevista": "2025-12-16",
+   "requerimientos": [
+    {
+     "id": "REQ-4900",
+     "estado": "propuesto",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4901",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4902",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-19",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4903",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4904",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4905",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4906",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-03-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4907",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4908",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4909",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4910",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4911",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4912",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-04-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4913",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-09-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2035",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-10-12",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Los asociados usan el canal digital",
+     "desde": "2026-03-23",
+     "verificado": true,
+     "evidencia_fecha": "2026-05-28",
+     "evidencia": "la entrevista con doce clientes del segmento del 2026-05-28"
+    }
+   ],
+   "declarado": 299344,
+   "medido": 198254,
+   "corte": "2026-10-14",
+   "ultimo_doc": "2026-10-12",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-14"
+  },
+  {
+   "codigo": "PRD-299",
+   "nombre": "Kit de bienvenida del asociado",
+   "carpeta": "PRD-299",
+   "profundidad": "completa",
+   "gerente": "Felipe Arango",
+   "segmento": "Personas",
+   "fecha": "2026-07-19",
+   "entrevista": "2026-08-18",
+   "requerimientos": [
+    {
+     "id": "REQ-9000",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-07",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9001",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-28",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9002",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-18",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9003",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-08",
+     "proyecto": "PRY-199"
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Los asociados usan el canal digital",
+     "desde": "2026-08-28",
+     "verificado": true,
+     "evidencia_fecha": "2026-09-23",
+     "evidencia": "el concepto jurídico de cumplimiento del 2026-09-23"
+    }
+   ],
+   "declarado": 120000,
+   "medido": 120000,
+   "corte": "2026-10-11",
+   "ultimo_doc": "2026-10-14",
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-14"
+  }
+ ]
+}

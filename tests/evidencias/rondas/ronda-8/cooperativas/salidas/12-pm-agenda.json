@@ -1,0 +1,25 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-17T21:53:14",
+ "estado": "success",
+ "error": false,
+ "segundos": 98,
+ "turnos": 16,
+ "tokens": 750782,
+ "tokens_salida": 12889,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-200-crédito-de-libranza-digital/corridas/2026-10-17-pm-agenda-1.md",
+   "estado/PRY-200-crédito-de-libranza-digital/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-crédito-de-libranza-digital/corridas.json"
+  ],
+  "borrados": []
+ }
+}

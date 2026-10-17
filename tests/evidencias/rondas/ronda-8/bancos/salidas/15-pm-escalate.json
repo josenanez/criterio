@@ -1,0 +1,25 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-17T21:56:41",
+ "estado": "success",
+ "error": false,
+ "segundos": 68,
+ "turnos": 18,
+ "tokens": 673882,
+ "tokens_salida": 8041,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-202-migración-a-la-nube/corridas/2026-10-17-pm-escalate-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-migración-a-la-nube/corridas.json"
+  ],
+  "borrados": []
+ }
+}

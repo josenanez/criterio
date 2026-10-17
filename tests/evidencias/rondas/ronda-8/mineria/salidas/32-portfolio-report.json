@@ -1,0 +1,49 @@
+{
+ "n": 32,
+ "agente": "vera",
+ "comando": "portfolio-report",
+ "argumento": "html",
+ "inicio": "2026-10-17T23:02:04",
+ "estado": "success",
+ "error": false,
+ "segundos": 55,
+ "turnos": 18,
+ "tokens": 882023,
+ "tokens_salida": 5835,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-17-portfolio-report-1.md",
+   "estado/corridas/2026-10-17-portfolio-report-2.md",
+   "estado/corridas/salida-portfolio-report.md",
+   "reportes/PRY-199.html",
+   "reportes/PRY-200.html",
+   "reportes/PRY-201.html",
+   "reportes/PRY-202.html",
+   "reportes/PRY-203.html",
+   "reportes/PRY-204.html",
+   "reportes/PRY-205.html",
+   "reportes/PRY-206.html",
+   "reportes/PRY-207.html",
+   "reportes/PRY-208.html",
+   "reportes/PRY-209.html",
+   "reportes/PRY-210.html",
+   "reportes/PRY-211.html",
+   "reportes/decisiones.html",
+   "reportes/index.html",
+   "reportes/producto-alerta-de-taludes.html",
+   "reportes/producto-despacho-de-flota.html",
+   "reportes/producto-gemelo-digital.html",
+   "reportes/producto-monitoreo-de-flota.html",
+   "reportes/producto-prd-299.html",
+   "reportes/producto-trazabilidad.html",
+   "reportes/productos.html",
+   "reportes/proyectos.html"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

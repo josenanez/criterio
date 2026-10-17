@@ -1,0 +1,29 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-17T21:58:30",
+ "estado": "success",
+ "error": false,
+ "segundos": 45,
+ "turnos": 19,
+ "tokens": 855868,
+ "tokens_salida": 5125,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-wake-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-wake-1.md",
+   "estado/PRY-202-migración-a-la-nube/cadencia.json",
+   "estado/PRY-202-migración-a-la-nube/corridas/2026-10-17-pm-wake-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-migración-a-la-nube/corridas.json"
+  ],
+  "borrados": []
+ }
+}

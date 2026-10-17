@@ -1,0 +1,29 @@
+{
+ "n": 13,
+ "agente": "samuel",
+ "comando": "pm-report",
+ "argumento": "",
+ "inicio": "2026-10-17T21:54:04",
+ "estado": "success",
+ "error": false,
+ "segundos": 73,
+ "turnos": 15,
+ "tokens": 727445,
+ "tokens_salida": 8644,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-report-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-report-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/2026-10-17-pm-report-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/salida-pm-report.md",
+   "estado/PRY-202-migración-a-la-nube/snapshots/2026-10-17.json"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-migración-a-la-nube/corridas.json"
+  ],
+  "borrados": []
+ }
+}

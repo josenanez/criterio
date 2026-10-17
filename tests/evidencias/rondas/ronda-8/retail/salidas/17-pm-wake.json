@@ -1,0 +1,28 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-17T22:43:02",
+ "estado": "success",
+ "error": false,
+ "segundos": 20,
+ "turnos": 9,
+ "tokens": 411172,
+ "tokens_salida": 1687,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-wake-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-wake-1.md",
+   "estado/PRY-200-tienda-en-línea/corridas/2026-10-17-pm-wake-1.md",
+   "estado/PRY-200-tienda-en-línea/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-tienda-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "n": 23,
+ "agente": "vera",
+ "comando": "budget-tracking",
+ "argumento": "PRY-200",
+ "inicio": "2026-10-17T22:51:57",
+ "estado": "success",
+ "error": false,
+ "segundos": 58,
+ "turnos": 13,
+ "tokens": 662639,
+ "tokens_salida": 6418,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-17-budget-tracking-1.md",
+   "estado/corridas/salida-budget-tracking.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

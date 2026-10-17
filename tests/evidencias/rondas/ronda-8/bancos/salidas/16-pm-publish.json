@@ -1,0 +1,26 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-17T21:57:49",
+ "estado": "success",
+ "error": false,
+ "segundos": 41,
+ "turnos": 14,
+ "tokens": 721888,
+ "tokens_salida": 3691,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "documentos/proyectos/PRY-202-migración-a-la-nube/00-gobierno/ficha-pm.json",
+   "estado/PRY-202-migración-a-la-nube/corridas/2026-10-17-pm-publish-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-migración-a-la-nube/corridas.json"
+  ],
+  "borrados": []
+ }
+}

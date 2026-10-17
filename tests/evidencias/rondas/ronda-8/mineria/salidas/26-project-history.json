@@ -1,0 +1,25 @@
+{
+ "n": 26,
+ "agente": "vera",
+ "comando": "project-history",
+ "argumento": "PRY-200",
+ "inicio": "2026-10-17T22:54:50",
+ "estado": "success",
+ "error": false,
+ "segundos": 68,
+ "turnos": 13,
+ "tokens": 549741,
+ "tokens_salida": 8207,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-17-project-history-1.md",
+   "estado/corridas/salida-project-history.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

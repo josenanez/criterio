@@ -1,0 +1,29 @@
+{
+ "n": 13,
+ "agente": "samuel",
+ "comando": "pm-report",
+ "argumento": "",
+ "inicio": "2026-10-17T22:37:44",
+ "estado": "success",
+ "error": false,
+ "segundos": 53,
+ "turnos": 14,
+ "tokens": 673753,
+ "tokens_salida": 6016,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-report-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-report-1.md",
+   "estado/PRY-201-ampliación-de-la-relavera/corridas/2026-10-17-pm-report-1.md",
+   "estado/PRY-201-ampliación-de-la-relavera/corridas/salida-pm-report.md",
+   "estado/PRY-201-ampliación-de-la-relavera/snapshots/2026-10-17.json"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-201-ampliación-de-la-relavera/corridas.json"
+  ],
+  "borrados": []
+ }
+}

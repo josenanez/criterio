@@ -1,0 +1,25 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-17T21:52:25",
+ "estado": "success",
+ "error": false,
+ "segundos": 99,
+ "turnos": 16,
+ "tokens": 909752,
+ "tokens_salida": 12918,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-202-migración-a-la-nube/corridas/2026-10-17-pm-agenda-1.md",
+   "estado/PRY-202-migración-a-la-nube/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-migración-a-la-nube/corridas.json"
+  ],
+  "borrados": []
+ }
+}
