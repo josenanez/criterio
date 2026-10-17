@@ -1,0 +1,26 @@
+{
+ "n": 13,
+ "agente": "samuel",
+ "comando": "pm-report",
+ "argumento": "",
+ "inicio": "2026-10-17T19:48:43",
+ "estado": "success",
+ "error": false,
+ "segundos": 67,
+ "turnos": 16,
+ "tokens": 754726,
+ "tokens_salida": 8106,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas/2026-10-17-pm-report-1.md",
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas/salida-pm-report.md",
+   "estado/PRY-205-prevención-de-lavado-de-activos/snapshots/2026-10-17.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas.json"
+  ],
+  "borrados": []
+ }
+}

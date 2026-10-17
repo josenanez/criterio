@@ -1,0 +1,448 @@
+{
+ "samuel": {
+  "compromisos": 26,
+  "correctos": 26,
+  "detalle": [
+   {
+    "quien": "Gustavo Neira",
+    "esperado": {
+     "quien": "Gustavo Neira",
+     "que": "Enviar el documento 1",
+     "fecha": "2026-12-04",
+     "reprogramaciones": 6,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-12-04",
+     "reprogramaciones": 6,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Sandra Gil",
+    "esperado": {
+     "quien": "Sandra Gil",
+     "que": "Cerrar la prueba 2",
+     "fecha": "2026-12-07",
+     "reprogramaciones": 5,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-12-07",
+     "reprogramaciones": 5,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Paula Céspedes",
+    "esperado": {
+     "quien": "Paula Céspedes",
+     "que": "Revisar el anexo 3",
+     "fecha": "2026-10-19",
+     "reprogramaciones": 1,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-19",
+     "reprogramaciones": 1,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Laura Vélez",
+    "esperado": {
+     "quien": "Laura Vélez",
+     "que": "Validar el ambiente 4",
+     "fecha": "2026-09-18",
+     "reprogramaciones": 0,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-09-18",
+     "reprogramaciones": 0,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Mauricio Pérez",
+    "esperado": {
+     "quien": "Mauricio Pérez",
+     "que": "Aprobar el diseño 5",
+     "fecha": "2026-10-10",
+     "reprogramaciones": 1,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-10",
+     "reprogramaciones": 1,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Javier Hoyos",
+    "esperado": {
+     "quien": "Javier Hoyos",
+     "que": "Actualizar la matriz 6",
+     "fecha": "2026-10-24",
+     "reprogramaciones": 1,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-24",
+     "reprogramaciones": 1,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Paula Céspedes",
+    "esperado": {
+     "quien": "Paula Céspedes",
+     "que": "Confirmar la fecha 7",
+     "fecha": "2026-10-10",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-10",
+     "reprogramaciones": 0,
+     "estado": "overdue"
+    }
+   },
+   {
+    "quien": "Felipe Arango",
+    "esperado": {
+     "quien": "Felipe Arango",
+     "que": "Entregar el punto 8",
+     "fecha": "2026-10-24",
+     "reprogramaciones": 1,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-24",
+     "reprogramaciones": 1,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Gustavo Neira",
+    "esperado": {
+     "quien": "Gustavo Neira",
+     "que": "Enviar el documento 9",
+     "fecha": "2026-11-01",
+     "reprogramaciones": 2,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-11-01",
+     "reprogramaciones": 2,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Elena Duarte",
+    "esperado": {
+     "quien": "Elena Duarte",
+     "que": "Cerrar la prueba 10",
+     "fecha": "2026-10-10",
+     "reprogramaciones": 0,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-10",
+     "reprogramaciones": 0,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Camilo Beltrán",
+    "esperado": {
+     "quien": "Camilo Beltrán",
+     "que": "Revisar el anexo 11",
+     "fecha": "2026-11-11",
+     "reprogramaciones": 2,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-11-11",
+     "reprogramaciones": 2,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Javier Hoyos",
+    "esperado": {
+     "quien": "Javier Hoyos",
+     "que": "Validar el ambiente 12",
+     "fecha": "no_declarada",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "no_declarada",
+     "reprogramaciones": 0,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Carlos Peña",
+    "esperado": {
+     "quien": "Carlos Peña",
+     "que": "Aprobar el diseño 13",
+     "fecha": "2026-10-30",
+     "reprogramaciones": 1,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-30",
+     "reprogramaciones": 1,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Beatriz Cuéllar",
+    "esperado": {
+     "quien": "Beatriz Cuéllar",
+     "que": "Actualizar la matriz 14",
+     "fecha": "2026-10-18",
+     "reprogramaciones": 0,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-18",
+     "reprogramaciones": 0,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Mauricio Pérez",
+    "esperado": {
+     "quien": "Mauricio Pérez",
+     "que": "Confirmar la fecha 15",
+     "fecha": "2026-10-10",
+     "reprogramaciones": 0,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-10",
+     "reprogramaciones": 0,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Sandra Gil",
+    "esperado": {
+     "quien": "Sandra Gil",
+     "que": "Entregar el punto 16",
+     "fecha": "2026-11-29",
+     "reprogramaciones": 2,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-11-29",
+     "reprogramaciones": 2,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Felipe Arango",
+    "esperado": {
+     "quien": "Felipe Arango",
+     "que": "Enviar el documento 17",
+     "fecha": "2026-10-07",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-07",
+     "reprogramaciones": 0,
+     "estado": "overdue"
+    }
+   },
+   {
+    "quien": "Laura Vélez",
+    "esperado": {
+     "quien": "Laura Vélez",
+     "que": "Cerrar la prueba 18",
+     "fecha": "2026-10-08",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-08",
+     "reprogramaciones": 0,
+     "estado": "overdue"
+    }
+   },
+   {
+    "quien": "Jorge Medina",
+    "esperado": {
+     "quien": "Jorge Medina",
+     "que": "Revisar el anexo 19",
+     "fecha": "2026-10-21",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-21",
+     "reprogramaciones": 0,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Liliana Torres",
+    "esperado": {
+     "quien": "Liliana Torres",
+     "que": "Validar el ambiente 20",
+     "fecha": "2026-10-24",
+     "reprogramaciones": 0,
+     "estado": "cumplido"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-24",
+     "reprogramaciones": 0,
+     "estado": "met"
+    }
+   },
+   {
+    "quien": "Óscar Ramírez",
+    "esperado": {
+     "quien": "Óscar Ramírez",
+     "que": "Aprobar el diseño 21",
+     "fecha": "2026-10-20",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-20",
+     "reprogramaciones": 0,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Carlos Peña",
+    "esperado": {
+     "quien": "Carlos Peña",
+     "que": "Actualizar la matriz 22",
+     "fecha": "2026-10-16",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-16",
+     "reprogramaciones": 0,
+     "estado": "overdue"
+    }
+   },
+   {
+    "quien": "María Restrepo",
+    "esperado": {
+     "quien": "María Restrepo",
+     "que": "Confirmar la fecha 23",
+     "fecha": "2026-10-19",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-19",
+     "reprogramaciones": 0,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Beatriz Cuéllar",
+    "esperado": {
+     "quien": "Beatriz Cuéllar",
+     "que": "Entregar el punto 24",
+     "fecha": "2026-11-07",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-11-07",
+     "reprogramaciones": 0,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Laura Vélez",
+    "esperado": {
+     "quien": "Laura Vélez",
+     "que": "Mandar el ajuste del presupuesto",
+     "fecha": "no_declarada",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "no_declarada",
+     "reprogramaciones": 0,
+     "estado": "open"
+    }
+   },
+   {
+    "quien": "Óscar Ramírez",
+    "esperado": {
+     "quien": "Óscar Ramírez",
+     "que": "Revisión con el proveedor",
+     "fecha": "2026-10-27",
+     "reprogramaciones": 0,
+     "estado": "abierto"
+    },
+    "ok": true,
+    "encontrado": {
+     "fecha": "2026-10-27",
+     "reprogramaciones": 0,
+     "estado": "open"
+    }
+   }
+  ],
+  "cierre": {
+   "esperado": "2026-01-08",
+   "encontrado": "2026-01-08",
+   "ok": true
+  }
+ },
+ "alba": {
+  "producto": "PRD-305",
+  "aciertos": 38,
+  "falsos_positivos": 1,
+  "falsos_negativos": 0,
+  "precision": 97.4,
+  "cobertura": 100.0,
+  "errores": {
+   "PRD-305": {
+    "esperado": 38,
+    "obtenido": 39,
+    "aciertos": 38,
+    "falsos_negativos": [],
+    "falsos_positivos": [
+     "assumption_unverified"
+    ]
+   }
+  }
+ }
+}

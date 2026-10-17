@@ -1,0 +1,29 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-211-pronóstico-de-demanda/2026-10-17-notas-reunion.txt",
+ "inicio": "2026-10-17T20:31:11",
+ "estado": "success",
+ "error": false,
+ "segundos": 70,
+ "turnos": 15,
+ "tokens": 673677,
+ "tokens_salida": 8671,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-minutes-1.md",
+   "estado/PRY-211-pronóstico-de-demanda/corrida-en-curso.json",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/2026-10-17-pm-minutes-1.md",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-pronóstico-de-demanda/corridas.json"
+  ],
+  "borrados": []
+ }
+}

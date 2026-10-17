@@ -1,0 +1,28 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-17T19:51:01",
+ "estado": "success",
+ "error": false,
+ "segundos": 68,
+ "turnos": 17,
+ "tokens": 539881,
+ "tokens_salida": 8193,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-escalate-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-escalate-1.md",
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas/2026-10-17-pm-escalate-1.md",
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas.json"
+  ],
+  "borrados": []
+ }
+}

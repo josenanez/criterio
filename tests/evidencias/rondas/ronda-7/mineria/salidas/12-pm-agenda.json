@@ -1,0 +1,25 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-17T20:33:44",
+ "estado": "success",
+ "error": false,
+ "segundos": 81,
+ "turnos": 14,
+ "tokens": 594111,
+ "tokens_salida": 10389,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-202-planta-de-tratamiento-de-agua/corridas/2026-10-17-pm-agenda-1.md",
+   "estado/PRY-202-planta-de-tratamiento-de-agua/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-planta-de-tratamiento-de-agua/corridas.json"
+  ],
+  "borrados": []
+ }
+}

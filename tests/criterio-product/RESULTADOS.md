@@ -2,7 +2,7 @@
 
 **el agente del gerente de producto** · plugin `criterio-product`
 
-Corrida del 2026-10-17, sobre el commit `ba404af5`, con cambios en el árbol todavía sin confirmar. **3 puertas · 107 comprobaciones · todas en verde.**
+Corrida del 2026-10-17, sobre el commit `7597895d`, con cambios en el árbol todavía sin confirmar. **3 puertas · 107 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-10-17, sobre el commit `ba404af5`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 33 ms | verde |
-| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 93 ms | verde |
-| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 396 ms | verde |
+| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 28 ms | verde |
+| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 70 ms | verde |
+| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 258 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -26,21 +26,21 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 
 ## Los comandos, corridos por un agente de verdad
 
-**11 de 11** corrieron en la ronda 6 con el plugin instalado desde cero, en 4 industrias; **11** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-6/`](../evidencias/rondas/ronda-6/).
+**11 de 11** corrieron en la ronda 7 con el plugin instalado desde cero, en 4 industrias; **11** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-7/`](../evidencias/rondas/ronda-7/).
 
 | Comando | Terminó | Cumplió su contrato | Tiempo |
 |---|---|---|---:|
-| `/criterio-product:product-business-case` | 4 de 4 | 4 de 4 | 46–56 s |
-| `/criterio-product:product-charter` | 4 de 4 | 4 de 4 | 52–61 s |
-| `/criterio-product:product-definition` | 4 de 4 | 4 de 4 | 49–53 s |
-| `/criterio-product:product-discovery` | 4 de 4 | 4 de 4 | 27–32 s |
-| `/criterio-product:product-overlap` | 4 de 4 | 4 de 4 | 12–16 s |
-| `/criterio-product:product-publish` | 4 de 4 | 4 de 4 | 31–34 s |
-| `/criterio-product:product-requirements` | 4 de 4 | 4 de 4 | 34–51 s |
-| `/criterio-product:product-setup` | 4 de 4 | 4 de 4 | 92–126 s |
-| `/criterio-product:product-spec` | 4 de 4 | 4 de 4 | 60–82 s |
-| `/criterio-product:product-trace` | 4 de 4 | 4 de 4 | 48–60 s |
-| `/criterio-product:product-wake` | 4 de 4 | 4 de 4 | 45–57 s |
+| `/criterio-product:product-business-case` | 4 de 4 | 4 de 4 | 47–63 s |
+| `/criterio-product:product-charter` | 4 de 4 | 4 de 4 | 56–63 s |
+| `/criterio-product:product-definition` | 4 de 4 | 4 de 4 | 46–56 s |
+| `/criterio-product:product-discovery` | 4 de 4 | 4 de 4 | 29–52 s |
+| `/criterio-product:product-overlap` | 4 de 4 | 4 de 4 | 11–13 s |
+| `/criterio-product:product-publish` | 4 de 4 | 4 de 4 | 30–38 s |
+| `/criterio-product:product-requirements` | 4 de 4 | 4 de 4 | 44–57 s |
+| `/criterio-product:product-setup` | 4 de 4 | 4 de 4 | 128–131 s |
+| `/criterio-product:product-spec` | 4 de 4 | 4 de 4 | 56–88 s |
+| `/criterio-product:product-trace` | 4 de 4 | 4 de 4 | 43–50 s |
+| `/criterio-product:product-wake` | 4 de 4 | 4 de 4 | 41–50 s |
 
 
 ## Qué material se usó, y qué prueba cada pieza

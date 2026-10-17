@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-17T20:38:14",
+ "estado": "success",
+ "error": false,
+ "segundos": 44,
+ "turnos": 16,
+ "tokens": 841951,
+ "tokens_salida": 4138,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-publish-1.md",
+   "documentos/proyectos/PRY-211-pronóstico-de-demanda/00-gobierno/ficha-pm.json",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/2026-10-17-pm-publish-1.md",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-pronóstico-de-demanda/corridas.json"
+  ],
+  "borrados": []
+ }
+}

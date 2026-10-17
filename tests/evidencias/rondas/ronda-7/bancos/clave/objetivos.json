@@ -1,0 +1,21 @@
+{
+ "entorno": "bancos",
+ "ronda": 7,
+ "hoy": "2026-10-17",
+ "prd": "PRD-302",
+ "prd_carpeta": "PRD-302",
+ "prd_otro": "PRD-304",
+ "req": "REQ-4203",
+ "pry_sam": "PRY-205",
+ "sam_carpeta": "PRY-205-prevención-de-lavado-de-activos",
+ "notas": "documentos/proyectos/PRY-205-prevención-de-lavado-de-activos/2026-10-17-notas-reunion.txt",
+ "status": "PRY-202",
+ "health": "PRY-205",
+ "budget": "PRY-201",
+ "vendor": "PRY-209",
+ "change": "PRY-202",
+ "history": "PRY-205",
+ "charter": "PRY-203",
+ "closure": "PRY-204",
+ "producto_vista": "APIs de datos"
+}

@@ -1,0 +1,26 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-17T19:52:09",
+ "estado": "success",
+ "error": false,
+ "segundos": 48,
+ "turnos": 17,
+ "tokens": 809903,
+ "tokens_salida": 4963,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "documentos/proyectos/PRY-200-crédito-de-libranza-digital/00-gobierno/ficha-pm.json",
+   "estado/PRY-200-crédito-de-libranza-digital/corridas/2026-10-17-pm-publish-1.md",
+   "estado/PRY-200-crédito-de-libranza-digital/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-crédito-de-libranza-digital/corridas.json"
+  ],
+  "borrados": []
+ }
+}

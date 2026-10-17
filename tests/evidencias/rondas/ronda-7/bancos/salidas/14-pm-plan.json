@@ -1,0 +1,25 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-17T19:49:50",
+ "estado": "success",
+ "error": false,
+ "segundos": 71,
+ "turnos": 12,
+ "tokens": 564883,
+ "tokens_salida": 8707,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas/2026-10-17-pm-plan-1.md",
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-205-prevención-de-lavado-de-activos/corridas.json"
+  ],
+  "borrados": []
+ }
+}

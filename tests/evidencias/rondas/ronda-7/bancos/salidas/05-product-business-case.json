@@ -1,0 +1,28 @@
+{
+ "n": 5,
+ "agente": "alba",
+ "comando": "product-business-case",
+ "argumento": "",
+ "inicio": "2026-10-17T19:39:16",
+ "estado": "success",
+ "error": false,
+ "segundos": 60,
+ "turnos": 18,
+ "tokens": 618910,
+ "tokens_salida": 6874,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/producto/2026-10-17-product-business-case-1.html",
+   ".criterio/corridas/producto/2026-10-17-product-business-case-1.md",
+   "estado-producto/PRD-302/corridas/2026-10-17-product-business-case-1.md",
+   "estado-producto/PRD-302/corridas/salida-product-business-case.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/producto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado-producto/PRD-302/corridas.json"
+  ],
+  "borrados": []
+ }
+}

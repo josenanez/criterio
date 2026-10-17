@@ -1,0 +1,28 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-17T20:35:58",
+ "estado": "success",
+ "error": false,
+ "segundos": 66,
+ "turnos": 16,
+ "tokens": 592476,
+ "tokens_salida": 8189,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-plan-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-plan-1.md",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/2026-10-17-pm-plan-1.md",
+   "estado/PRY-211-pronóstico-de-demanda/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-pronóstico-de-demanda/corridas.json"
+  ],
+  "borrados": []
+ }
+}

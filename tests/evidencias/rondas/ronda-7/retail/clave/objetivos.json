@@ -1,0 +1,21 @@
+{
+ "entorno": "retail",
+ "ronda": 7,
+ "hoy": "2026-10-17",
+ "prd": "PRD-309",
+ "prd_carpeta": "PRD-309",
+ "prd_otro": "PRD-304",
+ "req": "REQ-4900",
+ "pry_sam": "PRY-211",
+ "sam_carpeta": "PRY-211-pronóstico-de-demanda",
+ "notas": "documentos/proyectos/PRY-211-pronóstico-de-demanda/2026-10-17-notas-reunion.txt",
+ "status": "PRY-203",
+ "health": "PRY-211",
+ "budget": "PRY-205",
+ "vendor": "PRY-211",
+ "change": "PRY-211",
+ "history": "PRY-201",
+ "charter": "PRY-200",
+ "closure": "PRY-204",
+ "producto_vista": "venta en línea"
+}

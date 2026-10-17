@@ -543,7 +543,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-4/retail/calificacion-samuel-alba.json",
   "origen": "instrucciones",
   "correccion": "5ae06a6",
-  "verificado_en": null
+  "verificado_en": "ronda-7 · las cuatro industrias"
  },
  {
   "id": "D043",
@@ -634,7 +634,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-6/bancos/revision.json",
   "origen": "instrucciones",
   "correccion": "82c35aa0",
-  "verificado_en": null
+  "verificado_en": "ronda-7 · las cuatro industrias"
  },
  {
   "id": "D050",
@@ -647,7 +647,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-6/bancos/rostrum.json",
   "origen": "codigo",
   "correccion": "82c35aa0",
-  "verificado_en": null
+  "verificado_en": "ronda-7 · las cuatro industrias"
  },
  {
   "id": "D051",
@@ -660,7 +660,7 @@
   "evidencia": "tests/evidencias/rondas/ronda-6/mineria/calificacion-samuel-alba.json",
   "origen": "agente",
   "correccion": "e2b36df0",
-  "verificado_en": null
+  "verificado_en": "ronda-7 · las cuatro industrias"
  },
  {
   "id": "D052",
@@ -673,6 +673,19 @@
   "evidencia": "tests/evidencias/rondas/ronda-6/retail/calificacion-samuel-alba.json",
   "origen": "material",
   "correccion": "3aa2d272",
+  "verificado_en": null
+ },
+ {
+  "id": "D053",
+  "fecha": "2026-10-17",
+  "ronda": "7",
+  "entorno": "cooperativas",
+  "agente": "alba",
+  "comando": "product-wake",
+  "que_paso": "D052 a medias: la definición ya decía con qué se verificó el supuesto, pero ese documento no estaba en la carpeta, y Alba no lo dio por verificado. El generador escribe ahora el anexo de verificación en la carpeta del producto.",
+  "evidencia": null,
+  "origen": "material",
+  "correccion": "7597895d",
   "verificado_en": null
  }
 ]

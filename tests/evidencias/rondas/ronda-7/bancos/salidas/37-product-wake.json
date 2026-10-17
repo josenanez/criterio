@@ -1,0 +1,30 @@
+{
+ "n": 37,
+ "agente": "alba",
+ "comando": "product-wake",
+ "argumento": "",
+ "inicio": "2026-10-17T20:18:56",
+ "estado": "success",
+ "error": false,
+ "segundos": 50,
+ "turnos": 16,
+ "tokens": 821925,
+ "tokens_salida": 5048,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/producto/2026-10-17-product-wake-1.html",
+   ".criterio/corridas/producto/2026-10-17-product-wake-1.md",
+   "estado-producto/PRD-302/cadencia.json",
+   "estado-producto/PRD-302/corridas/2026-10-17-product-wake-1.md",
+   "estado-producto/PRD-302/corridas/salida-product-wake.md",
+   "estado-producto/PRD-302/snapshots/2026-10-17.json"
+  ],
+  "modificados": [
+   ".criterio/corridas/producto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado-producto/PRD-302/corridas.json"
+  ],
+  "borrados": []
+ }
+}

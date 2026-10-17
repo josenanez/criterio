@@ -1,0 +1,21 @@
+{
+ "entorno": "mineria",
+ "ronda": 7,
+ "hoy": "2026-10-17",
+ "prd": "PRD-301",
+ "prd_carpeta": "PRD-301",
+ "prd_otro": "PRD-309",
+ "req": "REQ-4100",
+ "pry_sam": "PRY-202",
+ "sam_carpeta": "PRY-202-planta-de-tratamiento-de-agua",
+ "notas": "documentos/proyectos/PRY-202-planta-de-tratamiento-de-agua/2026-10-17-notas-reunion.txt",
+ "status": "PRY-201",
+ "health": "PRY-204",
+ "budget": "PRY-202",
+ "vendor": "PRY-201",
+ "change": "PRY-201",
+ "history": "PRY-202",
+ "charter": "PRY-210",
+ "closure": "PRY-203",
+ "producto_vista": "monitoreo de flota"
+}
