@@ -247,7 +247,11 @@ EVIDENCIAS_SUPUESTO = ["la medición del piloto", "el concepto jurídico de cump
 def supuesto(rnd, hoy: dt.date, que: str, hace: int, verificado: bool) -> dict:
     s = {"que": que, "desde": f(hoy, -hace), "verificado": verificado}
     if verificado:
-        s["evidencia"] = f"{rnd.choice(EVIDENCIAS_SUPUESTO)} del {f(hoy, -rnd.randint(1, max(hace - 1, 1)))}"
+        # La verificación es un documento que está en la carpeta, no una frase: en la
+        # ronda 7 Alba no dio por verificado lo que la definición nombraba y la carpeta
+        # no traía (D053), y tenía razón.
+        s["evidencia_fecha"] = f(hoy, -rnd.randint(1, max(hace - 1, 1)))
+        s["evidencia"] = f"{rnd.choice(EVIDENCIAS_SUPUESTO)} del {s['evidencia_fecha']}"
     return s
 
 
@@ -820,7 +824,8 @@ def escribir(estado: dict, destino: Path, hoy: dt.date, disp: str) -> tuple:
                  # y `assumption_unverified` se dispara en los sesenta y cinco productos:
                  # una señal que siempre suena no distingue nada.
                  supuestos=[{"que": a["que"], "desde": a["desde"], "verificado": a["verificado"],
-                             "evidencia": a.get("evidencia")} for a in x["supuestos"]],
+                             "evidencia": a.get("evidencia"), "evidencia_fecha": a.get("evidencia_fecha")}
+                            for a in x["supuestos"]],
                  proyectos=[r["proyecto"] for r in x["requerimientos"] if r["proyecto"]]
                  or ["Ninguno declarado"],
                  cifras=[dict(clave="volumen_mensual", declarado=x["declarado"],
@@ -847,6 +852,14 @@ def escribir(estado: dict, destino: Path, hoy: dt.date, disp: str) -> tuple:
                  decisiones=["Se mantiene el plan"])
         c.definicion(x["fecha"], "definicion-producto.md", org.definicion_producto(d))
         c.definicion(x["fecha"], "caso-de-negocio.md", org.caso_negocio(d))
+        for a in d["supuestos"]:
+            if a.get("evidencia_fecha"):
+                c.definicion(a["evidencia_fecha"], "verificacion-supuesto.md",
+                             f"# Verificación del supuesto · {x['nombre']}\n\n"
+                             f"**Fecha:** {a['evidencia_fecha']}\n\n"
+                             f"**Supuesto:** {a['que']}\n\n"
+                             f"**Con qué se verificó:** {a['evidencia']}\n\n"
+                             f"**Resultado:** se confirmó.\n")
         c.descubrimiento(x["entrevista"], "entrevistas.md", org.entrevistas(d))
         if x["medido"]:
             c.metrica(x["corte"], "tablero-metricas.md", org.tablero(d))
