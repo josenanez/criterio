@@ -191,7 +191,9 @@ MINERIA = {
               "Pruebas en operación", "Entrega a operaciones"),
     "AVANCES": (
         "Se actualizó el presupuesto de la obra con el área de compras",
-        "El proveedor entregó los equipos en el campamento, pendientes de aceptación",
+        # Sin entregas de proveedor al azar: una frase así es un hecho que la clave no
+        # modela (D022, y en minería quedó una: D055).
+        "Se acordó con operaciones el plan de arranque de los equipos",
         "Las lluvias detuvieron el montaje durante diez días",
         "Se reprogramó la parada de planta por la ventana de mantenimiento",
         "El equipo perdió dos semanas por rotación de un ingeniero clave",
