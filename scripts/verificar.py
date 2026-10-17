@@ -96,6 +96,8 @@ PUERTAS = [
      "Que el marketplace y cada plugin estén completos"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/sincronizar.py"), "--check"],
      "Que las copias compartidas no se hayan separado"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/manual.py"), "--check"],
+     "Que el manual diga lo que dicen los README y los contratos"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/resultados.py"), "--selftest"],
      "Que la página de resultados no deje una puerta sin dueño"),
 ]

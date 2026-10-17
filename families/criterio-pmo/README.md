@@ -153,6 +153,8 @@ the others.
 | **Alba** · one product | What exists before the project: the definition against the evidence of demand, the requirement register, and the charter the record is born with | Does not decide what gets built, and does not talk to the customer | [criterio-product](../../plugins/criterio-product/README.md) · 11 commands, 12 skills | [results](../../tests/criterio-product/RESULTADOS.md) |
 | **Rostrum** · the server | Publishing the report where the team will read it, and taking the request from whoever will not open a folder | **Never writes the record**, and decides nothing | [Rostrum](../../plugins/criterio-portfolio/SERVER.md) | inside Vera's |
 
+The 37 commands one by one —what each does and which skills it uses— are in the [command manual](../../docs/manual.md).
+
 **The boundary is the same for all three, and it is not a recommendation: it is a restriction of
 the write path.** None of them writes a project's declared status. A person writes that line,
 and without it the comparison between declared and evidenced — which is what all of this lives
