@@ -569,6 +569,40 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "3a37b8e5acfa45a0c9967a3a00b835234449e3bf4e8d927b3947637df4b2583e",
       "sha256": "145e91d6a6f363d0aee51047d537aa55a559ff7b94087025fa4f068d282d5c56"
+    },
+    {
+      "version": "0.3.13",
+      "fecha": "2026-10-17",
+      "commit": null,
+      "base": "fe7e4b2e",
+      "etiqueta": "v0.3.13",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "70192c5103383ef4994dfc969ea6159a4dca8140ea593a542be74fe5f8f498c5",
+        "criterio-product": "1a56b70d734646869dcd82dca6672ad7242973a5aa0dc64c0e7c382cad200c0e",
+        "criterio-project": "3ebf817c8eac3c7a26acde08e6eae4b2f770dc5f0fe1c29a5cc1569f90849572"
+      },
+      "destacados": [
+        "El caché de texto tiene un solo lugar, <estado>/cache/texto, y texto.py rechaza cualquier otro.",
+        "La página de una corrida cabe en un teléfono: su bloque se desplaza en vez de ensanchar la página.",
+        "compute devuelve record_issues cuando una ficha guarda como reprogramación la primera fecha de un compromiso sin fecha, y los comandos de Samuel la corrigen antes de terminar."
+      ],
+      "cambios": [
+        "The text cache has one place, now enforced by texto.py; a run page's block scrolls on a phone instead of widening it",
+        "compute returns record_issues when a record lists the first date of an undated commitment as a reschedule, and Samuel's commands fix the record before finishing",
+        "A verified assumption in the generated definition says what verified it",
+        "Round 6 on 0.3.12: Vera 266/266 with no false alert, Samuel 107/108, Alba 135/135 found and 135/136 right, Rostrum 2173/2174, 145/148 contracts"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "145e91d6a6f363d0aee51047d537aa55a559ff7b94087025fa4f068d282d5c56",
+      "sha256": "95f71e8af113f999e379d71a22ae4f662ffbe50aca8f55a2a3319216c01444e0"
     }
   ]
 }
