@@ -151,7 +151,7 @@ su detalle. **Cada página de agente se lee sola** — alguien puede instalar un
 | **Alba** · un producto | Lo que hay antes del proyecto: la definición contra la evidencia de demanda, el registro de requerimientos, y el acta con la que nace la ficha | No decide qué se construye, y no habla con el cliente | [criterio-product](../../plugins/criterio-product/README.es.md) · 11 comandos, 12 skills | [resultados](../../tests/criterio-product/RESULTADOS.md) |
 | **Rostrum** · el servidor | Publicar el informe donde el equipo lo lea, y recibir la petición de quien no abre una carpeta | **No escribe nunca la ficha**, y no decide nada | [Rostrum](../../plugins/criterio-portfolio/SERVER.es.md) | dentro de las de Vera |
 
-Los 37 comandos uno por uno —qué hacen, qué reciben, qué leen y qué escriben— están en el [manual de los comandos](../../docs/manual.es.md).
+Los 37 comandos uno por uno —qué hacen, qué reciben, qué leen y qué escriben— están en el [manual de los comandos](../../docs/manual.es.md), y las respuestas a lo que más se pregunta, en las [preguntas frecuentes](PREGUNTAS.es.md).
 
 **La frontera es la misma para los tres y no es una recomendación: es una restricción del
 camino de escritura.** Ninguno escribe el estado declarado de un proyecto. Esa línea la escribe
