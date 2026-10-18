@@ -641,6 +641,39 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "95f71e8af113f999e379d71a22ae4f662ffbe50aca8f55a2a3319216c01444e0",
       "sha256": "81fed035a2e6e0c088aec37ea69a8ba8a1c9813c31332a5223f7b01374c9890f"
+    },
+    {
+      "version": "0.5.0",
+      "fecha": "2026-10-18",
+      "commit": null,
+      "base": "065b50c5",
+      "etiqueta": "v0.5.0",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "17a487857456218e8fd82e0c1024e3d75fd9afb84da8da1ccd268373e1ebf7d5",
+        "criterio-product": "469e3bf2a2a16ac7a8f441da7f6bb6cae8f827a53f2f2d753cea02be4a06aad5",
+        "criterio-project": "a8273f7a814c89d619d5d2cb57c4f851879072c0306537c1354ccd7f98c24507"
+      },
+      "destacados": [
+        "Versión de lanzamiento de la familia de gobierno de proyectos.",
+        "El contraste entre la ficha del gerente y la de la PMO lee el producto con su regla: «No aplica» es un campo vacío, no un producto."
+      ],
+      "cambios": [
+        "The manager-PMO contrast reads the product with its own rule: «No aplica» is empty, not a product",
+        "The key reads «No aplica» in the product as empty, as the schema says (D057)",
+        "Round 9 on 0.4.0: 148/148 contracts, Samuel 108/108, Alba 128/128, Rostrum 2170/2170, Vera 266/266 found and 266/267 right",
+        "Launch notes for 0.4.0, in Spanish and English, with round 9 as the measured result and what is not known yet"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "81fed035a2e6e0c088aec37ea69a8ba8a1c9813c31332a5223f7b01374c9890f",
+      "sha256": "a455ee96c51539808bab5e7ee264f826c27b745d01e3ca6bda57fb702bcef3cb"
     }
   ]
 }
