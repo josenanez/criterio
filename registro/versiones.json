@@ -603,6 +603,44 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "145e91d6a6f363d0aee51047d537aa55a559ff7b94087025fa4f068d282d5c56",
       "sha256": "95f71e8af113f999e379d71a22ae4f662ffbe50aca8f55a2a3319216c01444e0"
+    },
+    {
+      "version": "0.4.0",
+      "fecha": "2026-10-17",
+      "commit": null,
+      "base": "7f3984f7",
+      "etiqueta": "v0.4.0",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "f3486e563e418ff84200d15d8e1bef8fc87d032b055fbd33bca3f5205c2ee4ad",
+        "criterio-product": "1a56b70d734646869dcd82dca6672ad7242973a5aa0dc64c0e7c382cad200c0e",
+        "criterio-project": "3ebf817c8eac3c7a26acde08e6eae4b2f770dc5f0fe1c29a5cc1569f90849572"
+      },
+      "destacados": [
+        "Primera versión pública de la familia de gobierno de proyectos: Vera, Samuel, Alba y Rostrum, 37 comandos, probados en ocho rondas sobre datos de prueba de cuatro industrias.",
+        "El informe del portafolio va siempre a la carpeta que Rostrum sirve, contada desde la raíz del espacio y no desde donde esté el agente.",
+        "El manual de los 37 comandos se genera desde el README y el contrato de cada plugin, y la verificación falla si deja de coincidir.",
+        "Las páginas de resultados y de evidencia leen las rondas de punta a punta."
+      ],
+      "cambios": [
+        "The command manual, generated from each plugin's README table and contratos.json, with a gate that fails when it drifts",
+        "The results and evidence pages say what the end-to-end rounds already proved",
+        "A verified assumption comes with its verification document in the product folder",
+        "Round 7 on 0.3.13: 148/148 contracts, Vera 280/280, Samuel 108/108, Alba 140/140 found and 140/141 right, Rostrum 2190/2190",
+        "The report folder is counted from the workspace root, not from wherever the shell stands",
+        "Mining progress notes no longer carry a random vendor delivery the key does not model (D055, the one D022 missed)",
+        "Round 8 on 0.3.13: Samuel 108/108, Alba 149/149 with no extra alert, Vera 253/253 found and 253/254 right, Rostrum 2041/2056, 147/148 contracts"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "95f71e8af113f999e379d71a22ae4f662ffbe50aca8f55a2a3319216c01444e0",
+      "sha256": "81fed035a2e6e0c088aec37ea69a8ba8a1c9813c31332a5223f7b01374c9890f"
     }
   ]
 }
