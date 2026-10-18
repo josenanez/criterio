@@ -239,8 +239,9 @@ def proveedores_de(rnd, hoy: dt.date, arranque: int, duracion: int,
 
 # Con qué se verifica un supuesto: lo que assumption-tracking admite como cita. Un
 # «verificado» sin decir con qué no lo es, y en la ronda 6 Alba lo leyó así con razón (D052).
+# Solo evidencias que el anexo contiene enteras: «la entrevista con doce clientes» remitía a
+# una entrevista que la carpeta no traía, y Alba no la dio por verificada (D058).
 EVIDENCIAS_SUPUESTO = ["la medición del piloto", "el concepto jurídico de cumplimiento",
-                       "la entrevista con doce clientes del segmento",
                        "el documento técnico del proveedor"]
 
 
@@ -858,7 +859,8 @@ def escribir(estado: dict, destino: Path, hoy: dt.date, disp: str) -> tuple:
                              f"# Verificación del supuesto · {x['nombre']}\n\n"
                              f"**Fecha:** {a['evidencia_fecha']}\n\n"
                              f"**Supuesto:** {a['que']}\n\n"
-                             f"**Con qué se verificó:** {a['evidencia']}\n\n"
+                             f"**Con qué se verificó:** {a['evidencia']}. Este anexo es esa evidencia: "
+                             f"recoge la verificación completa y no remite a otro documento.\n\n"
                              f"**Resultado:** se confirmó.\n")
         c.descubrimiento(x["entrevista"], "entrevistas.md", org.entrevistas(d))
         if x["medido"]:
