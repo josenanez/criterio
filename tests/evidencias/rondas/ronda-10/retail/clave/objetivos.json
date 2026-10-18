@@ -1,0 +1,21 @@
+{
+ "entorno": "retail",
+ "ronda": 10,
+ "hoy": "2026-10-18",
+ "prd": "PRD-300",
+ "prd_carpeta": "PRD-300",
+ "prd_otro": "PRD-307",
+ "req": "REQ-4000",
+ "pry_sam": "PRY-206",
+ "sam_carpeta": "PRY-206-precios-dinámicos",
+ "notas": "documentos/proyectos/PRY-206-precios-dinámicos/2026-10-18-notas-reunion.txt",
+ "status": "PRY-205",
+ "health": "PRY-206",
+ "budget": "PRY-201",
+ "vendor": "PRY-201",
+ "change": "PRY-200",
+ "history": "PRY-206",
+ "charter": "PRY-210",
+ "closure": "PRY-208",
+ "producto_vista": "puntos de fidelización"
+}

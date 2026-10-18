@@ -1,0 +1,28 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-18T13:43:00",
+ "estado": "success",
+ "error": false,
+ "segundos": 86,
+ "turnos": 19,
+ "tokens": 687317,
+ "tokens_salida": 10075,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-18-pm-agenda-1.html",
+   ".criterio/corridas/proyecto/2026-10-18-pm-agenda-1.md",
+   "estado/PRY-203-despacho-automático-de-flota/corridas/2026-10-18-pm-agenda-1.md",
+   "estado/PRY-203-despacho-automático-de-flota/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-despacho-automático-de-flota/corridas.json"
+  ],
+  "borrados": []
+ }
+}

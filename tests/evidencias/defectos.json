@@ -725,7 +725,7 @@
   "evidencia": "tests/evidencias/calificaciones.json",
   "origen": "codigo",
   "correccion": "219a4469",
-  "verificado_en": null
+  "verificado_en": "ronda-10 · las cuatro industrias sobre 0.5.0"
  },
  {
   "id": "D057",
@@ -738,6 +738,45 @@
   "evidencia": "tests/evidencias/calificaciones.json",
   "origen": "clave",
   "correccion": "94addcf8",
+  "verificado_en": "ronda-10 · la clave del contraste no esperó ningún pm_vs_pmo por «No aplica»"
+ },
+ {
+  "id": "D058",
+  "fecha": "2026-10-18",
+  "ronda": "10",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-setup",
+  "que_paso": "En el setup Vera dejó sin compromisos el proyecto de Samuel porque estaban en la ficha que él publicó; la ficha quedó sellada, el barrido no la releyó y faltaron 7 alertas de compromisos en PRY-203. Las dos fichas nunca se fusionan: ahora lo dicen el setup y el barrido, y compute lo señala en record_issues.",
+  "evidencia": null,
+  "origen": "instrucciones",
+  "correccion": "77c3e6ad",
+  "verificado_en": null
+ },
+ {
+  "id": "D059",
+  "fecha": "2026-10-18",
+  "ronda": "10",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "El índice contaba como citas rotas las de la ficha del gerente (pm_record), que citan con las rutas de su propio estado: 18 en PRY-203. citas_rotas ya las excluía; el índice no.",
+  "evidencia": null,
+  "origen": "codigo",
+  "correccion": "77c3e6ad",
+  "verificado_en": null
+ },
+ {
+  "id": "D060",
+  "fecha": "2026-10-18",
+  "ronda": "10",
+  "entorno": "mineria",
+  "agente": "alba",
+  "comando": "product-wake",
+  "que_paso": "El anexo de verificación decía «verificado con la entrevista con doce clientes», y esa entrevista no estaba en la carpeta; Alba no lo dio por verificado, con razón. El anexo contiene ahora toda su evidencia y no remite a otro documento.",
+  "evidencia": null,
+  "origen": "material",
+  "correccion": "1bcb73f8",
   "verificado_en": null
  }
 ]

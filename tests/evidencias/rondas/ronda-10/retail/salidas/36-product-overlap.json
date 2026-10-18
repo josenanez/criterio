@@ -1,0 +1,25 @@
+{
+ "n": 36,
+ "agente": "alba",
+ "comando": "product-overlap",
+ "argumento": "PRD-307",
+ "inicio": "2026-10-18T14:16:14",
+ "estado": "success",
+ "error": false,
+ "segundos": 14,
+ "turnos": 4,
+ "tokens": 199295,
+ "tokens_salida": 562,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/producto/2026-10-18-product-overlap-1.html",
+   ".criterio/corridas/producto/2026-10-18-product-overlap-1.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/producto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json"
+  ],
+  "borrados": []
+ }
+}

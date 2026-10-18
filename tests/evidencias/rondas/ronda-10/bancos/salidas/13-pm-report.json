@@ -1,0 +1,26 @@
+{
+ "n": 13,
+ "agente": "samuel",
+ "comando": "pm-report",
+ "argumento": "",
+ "inicio": "2026-10-18T13:00:12",
+ "estado": "success",
+ "error": false,
+ "segundos": 111,
+ "turnos": 13,
+ "tokens": 673131,
+ "tokens_salida": 14275,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-201-core-de-depósitos/corridas/2026-10-18-pm-report-1.md",
+   "estado/PRY-201-core-de-depósitos/corridas/salida-pm-report.md",
+   "estado/PRY-201-core-de-depósitos/snapshots/2026-10-18.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-201-core-de-depósitos/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-201-apertura-de-ahorro-en-línea/2026-10-18-notas-reunion.txt",
+ "inicio": "2026-10-18T12:55:23",
+ "estado": "success",
+ "error": false,
+ "segundos": 68,
+ "turnos": 15,
+ "tokens": 620720,
+ "tokens_salida": 8317,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-18-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-18-pm-minutes-1.md",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corrida-en-curso.json",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas/2026-10-18-pm-minutes-1.md",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

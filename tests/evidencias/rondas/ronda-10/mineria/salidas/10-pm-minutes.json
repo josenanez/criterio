@@ -1,0 +1,29 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-203-despacho-automático-de-flota/2026-10-18-notas-reunion.txt",
+ "inicio": "2026-10-18T13:41:12",
+ "estado": "success",
+ "error": false,
+ "segundos": 56,
+ "turnos": 14,
+ "tokens": 480796,
+ "tokens_salida": 6641,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-18-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-18-pm-minutes-1.md",
+   "estado/PRY-203-despacho-automático-de-flota/corrida-en-curso.json",
+   "estado/PRY-203-despacho-automático-de-flota/corridas/2026-10-18-pm-minutes-1.md",
+   "estado/PRY-203-despacho-automático-de-flota/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-despacho-automático-de-flota/corridas.json"
+  ],
+  "borrados": []
+ }
+}

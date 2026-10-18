@@ -1,0 +1,188 @@
+{
+ "proyecto": "PRY-201",
+ "compromisos": [
+  {
+   "quien": "Diana Molina",
+   "que": "Enviar el documento 1",
+   "fecha": "2026-12-03",
+   "reprogramaciones": 6,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Andrés Lozano",
+   "que": "Cerrar la prueba 2",
+   "fecha": "2026-11-27",
+   "reprogramaciones": 5,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Camilo Beltrán",
+   "que": "Revisar el anexo 3",
+   "fecha": "2026-09-18",
+   "reprogramaciones": 0,
+   "estado": "cumplido"
+  },
+  {
+   "quien": "Natalia Ospina",
+   "que": "Validar el ambiente 4",
+   "fecha": "2026-10-24",
+   "reprogramaciones": 3,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Andrés Lozano",
+   "que": "Aprobar el diseño 5",
+   "fecha": "2026-10-08",
+   "reprogramaciones": 1,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Felipe Arango",
+   "que": "Actualizar la matriz 6",
+   "fecha": "2026-10-07",
+   "reprogramaciones": 1,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Diana Molina",
+   "que": "Confirmar la fecha 7",
+   "fecha": "2026-11-05",
+   "reprogramaciones": 2,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Diana Molina",
+   "que": "Entregar el punto 8",
+   "fecha": "2026-10-04",
+   "reprogramaciones": 0,
+   "estado": "cumplido"
+  },
+  {
+   "quien": "Ricardo Salas",
+   "que": "Enviar el documento 9",
+   "fecha": "2026-10-12",
+   "reprogramaciones": 1,
+   "estado": "cumplido"
+  },
+  {
+   "quien": "Mauricio Pérez",
+   "que": "Cerrar la prueba 10",
+   "fecha": "2026-10-15",
+   "reprogramaciones": 1,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Sandra Gil",
+   "que": "Revisar el anexo 11",
+   "fecha": "2026-10-26",
+   "reprogramaciones": 1,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Sandra Gil",
+   "que": "Validar el ambiente 12",
+   "fecha": "no_declarada",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Sandra Gil",
+   "que": "Aprobar el diseño 13",
+   "fecha": "2026-10-03",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Paula Céspedes",
+   "que": "Actualizar la matriz 14",
+   "fecha": "2026-10-08",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Paula Céspedes",
+   "que": "Confirmar la fecha 15",
+   "fecha": "2026-10-09",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Javier Hoyos",
+   "que": "Entregar el punto 16",
+   "fecha": "2026-10-14",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Elena Duarte",
+   "que": "Enviar el documento 17",
+   "fecha": "2026-10-13",
+   "reprogramaciones": 0,
+   "estado": "cumplido"
+  },
+  {
+   "quien": "Elena Duarte",
+   "que": "Cerrar la prueba 18",
+   "fecha": "2026-10-28",
+   "reprogramaciones": 1,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Mauricio Pérez",
+   "que": "Revisar el anexo 19",
+   "fecha": "2026-10-26",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Paula Céspedes",
+   "que": "Validar el ambiente 20",
+   "fecha": "2026-10-28",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Rubén Cárdenas",
+   "que": "Aprobar el diseño 21",
+   "fecha": "2026-10-15",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Andrés Lozano",
+   "que": "Actualizar la matriz 22",
+   "fecha": "2026-10-25",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Andrés Lozano",
+   "que": "Confirmar la fecha 23",
+   "fecha": "2026-10-19",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Gustavo Neira",
+   "que": "Entregar el punto 24",
+   "fecha": "2026-11-06",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Laura Vélez",
+   "que": "Mandar el ajuste del presupuesto",
+   "fecha": "no_declarada",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  },
+  {
+   "quien": "Óscar Ramírez",
+   "que": "Revisión con el proveedor",
+   "fecha": "2026-10-28",
+   "reprogramaciones": 0,
+   "estado": "abierto"
+  }
+ ],
+ "riesgo": "el proveedor podría no llegar con el equipo completo"
+}

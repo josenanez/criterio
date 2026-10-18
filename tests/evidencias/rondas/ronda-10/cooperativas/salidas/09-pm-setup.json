@@ -1,0 +1,34 @@
+{
+ "n": 9,
+ "agente": "samuel",
+ "comando": "pm-setup",
+ "argumento": "documentos/proyectos/PRY-201-apertura-de-ahorro-en-línea",
+ "inicio": "2026-10-18T12:52:58",
+ "estado": "success",
+ "error": false,
+ "segundos": 144,
+ "turnos": 43,
+ "tokens": 1745997,
+ "tokens_salida": 21802,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-18-pm-setup-1.html",
+   ".criterio/corridas/proyecto/2026-10-18-pm-setup-1.md",
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/proyecto/PRY-201/config.json",
+   ".criterio/terminos/aceptacion-criterio-project-0.5.0-2026-10-18.md",
+   ".criterio/terminos/aceptacion-criterio-project-0.5.0-2026-10-18.pdf",
+   ".criterio/terminos/aceptacion-criterio-project-0.5.0-2026-10-18.sha256",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas.json",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas/2026-10-18-pm-setup-1.md",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas/salida-pm-setup.md",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/records/PRY-201.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   ".criterio/terminos/aceptaciones.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,41 @@
+01 product-setup          terminó contrato ok 
+02 product-discovery      terminó contrato ok   · aviso: no escribió <estado>/requirements/<REQ>.json (evidence)
+03 product-requirements   terminó contrato ok   · aviso: no escribió <estado>/requirements/<REQ>.json
+04 product-definition     terminó contrato ok   · aviso: no escribió <estado>/producto.json (definition)
+05 product-business-case  terminó contrato ok 
+06 product-spec           terminó contrato ok 
+07 product-charter        terminó contrato ok 
+08 product-publish        terminó contrato ok   · aviso: no escribió <publicados>/<código>.json
+09 pm-setup               terminó contrato ok 
+10 pm-minutes             terminó contrato ok   · aviso: no escribió <estado>/records/<código>.json (commitments, raid); no escribió 30-reuniones/<fecha>-acta.md
+11 pm-commitments         terminó contrato ok   · aviso: no escribió <estado>/records/<código>.json (commitments)
+12 pm-agenda              terminó contrato ok 
+13 pm-report              terminó contrato ok 
+14 pm-plan                terminó contrato ok 
+15 pm-escalate            terminó contrato ok 
+16 pm-publish             terminó contrato ok 
+17 pm-wake                terminó contrato ok 
+18 portfolio-setup        terminó contrato ok 
+19 portfolio-scan         terminó contrato ok 
+20 document-index         terminó contrato ok 
+21 status-report          terminó contrato ok 
+22 health-check           terminó contrato ok   · aviso: no escribió <estado>/records/<código>.json
+23 budget-tracking        terminó contrato ok 
+24 vendor-tracking        terminó contrato ok 
+25 change-control         terminó contrato ok   · aviso: no escribió <estado>/records/<código>.json (plan.baseline, changes)
+26 project-history        terminó contrato ok 
+27 raid-log               terminó contrato ok   · aviso: no escribió <estado>/records/<código>.json (raid)
+28 project-charter        terminó contrato ok 
+29 project-closure        terminó contrato ok 
+30 steering-pack          terminó contrato ok 
+31 product-view           terminó contrato ok 
+32 portfolio-report       terminó contrato ok   · aviso: no escribió <estado>/snapshots/<fecha>.json
+33 portfolio-wake         terminó contrato ok 
+34 portfolio-server       terminó contrato ok 
+35 product-trace          terminó contrato ok 
+36 product-overlap        terminó contrato ok 
+37 product-wake           terminó contrato ok 
+
+auditoría de fugas: 0 lecturas de la clave
+
+37/37 terminaron · 37/37 cumplen su contrato · 45 min · 27.8 M tokens

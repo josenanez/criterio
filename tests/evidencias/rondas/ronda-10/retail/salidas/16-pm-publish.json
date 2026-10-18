@@ -1,0 +1,26 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-18T13:48:53",
+ "estado": "success",
+ "error": false,
+ "segundos": 46,
+ "turnos": 16,
+ "tokens": 833976,
+ "tokens_salida": 4578,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "documentos/proyectos/PRY-206-precios-dinámicos/00-gobierno/ficha-pm.json",
+   "estado/PRY-206-precios-dinámicos/corridas/2026-10-18-pm-publish-1.md",
+   "estado/PRY-206-precios-dinámicos/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-206-precios-dinámicos/corridas.json"
+  ],
+  "borrados": []
+ }
+}

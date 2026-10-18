@@ -1,0 +1,25 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-18T13:00:19",
+ "estado": "success",
+ "error": false,
+ "segundos": 62,
+ "turnos": 12,
+ "tokens": 470115,
+ "tokens_salida": 6222,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas/2026-10-18-pm-escalate-1.md",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-201-apertura-de-ahorro-en-línea/corridas.json"
+  ],
+  "borrados": []
+ }
+}

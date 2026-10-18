@@ -1,0 +1,21 @@
+{
+ "entorno": "mineria",
+ "ronda": 10,
+ "hoy": "2026-10-18",
+ "prd": "PRD-308",
+ "prd_carpeta": "PRD-308",
+ "prd_otro": "PRD-301",
+ "req": "REQ-4800",
+ "pry_sam": "PRY-203",
+ "sam_carpeta": "PRY-203-despacho-automático-de-flota",
+ "notas": "documentos/proyectos/PRY-203-despacho-automático-de-flota/2026-10-18-notas-reunion.txt",
+ "status": "PRY-201",
+ "health": "PRY-202",
+ "budget": "PRY-205",
+ "vendor": "PRY-201",
+ "change": "PRY-201",
+ "history": "PRY-205",
+ "charter": "PRY-206",
+ "closure": "PRY-202",
+ "producto_vista": "monitoreo de flota"
+}
