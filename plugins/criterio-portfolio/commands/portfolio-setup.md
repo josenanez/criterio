@@ -101,7 +101,7 @@ No barras el portafolio completo. Toma **tres proyectos**, los de documentación
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" corrida-inicio --state <estado>
 ```
 
-Para cada uno, uno tras otro: lee sus documentos, aplica **project-record** y escribe `<estado>/records/<código>.json`; en cuanto la ficha está escrita, séllala:
+Para cada uno, uno tras otro: lee sus documentos, aplica **project-record** —y **commitment-tracking** sobre sus minutas— y escribe `<estado>/records/<código>.json`. **La ficha que publicó el gerente (`ficha-pm.json`) se guarda en `pm_record` y no reemplaza tu lectura:** los compromisos los sacas tú de las minutas, aunque los suyos estén ahí. En cuanto la ficha está escrita, séllala:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" sellar --state <estado> --docs <carpeta> --proyecto <código>
@@ -112,6 +112,9 @@ Después calcula:
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" compute --state <estado> --config .criterio/portafolio/config.json
 ```
+
+**Si trae `record_issues`, corrige esa parte de la ficha, vuelve a sellarla y a calcular.**
+El script no reescribe la ficha —tiene un solo escritor—: dice qué quedó contra la regla.
 
 Muestra lo que encontró **a partir de `compute`**: qué supo de cada uno (con su cita), qué campos quedaron `not_found`, y las señales que el script levantó, con el nombre que les da **portfolio-health**. Lo que `compute` no levantó no se presenta como hallazgo, por llamativo que parezca en la lectura: en la primera prueba el setup describió problemas en el proyecto de control, que no tiene ninguno, y no dejó escrita una sola ficha. Un resultado que no quedó en disco no existe para el comando siguiente.
 

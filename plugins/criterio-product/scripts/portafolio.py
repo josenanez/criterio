@@ -298,6 +298,16 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     def alert(kind, detail):
         out["alerts"].append({"signal": kind, "detail": detail})
 
+    # La ficha que publicó el gerente no reemplaza la lectura propia: son dos fichas y
+    # nunca se fusionan. En la ronda 10 (minería) Vera dejó sin compromisos el proyecto de
+    # Samuel «porque están en su ficha», y las siete alertas de compromisos no salieron.
+    pm = rec.get("pm_record")
+    if isinstance(pm, dict) and (pm.get("commitments") or []) and not (rec.get("commitments") or []):
+        out["record_issues"].append({
+            "who": None, "what": None, "field": "commitments",
+            "fix": "la ficha del gerente trae compromisos y la tuya ninguno: sácalos tú de las "
+                   "minutas (commitment-tracking); la del gerente no reemplaza tu lectura"})
+
     # --- silence -------------------------------------------------------
     # El último documento lo sabe el script, no el agente: `sellar` deja en
     # `meta.documents_seen` cada archivo con la fecha de su nombre. En la primera
@@ -1216,6 +1226,11 @@ def index(docs: Path, state: Path) -> dict:
     rotas = []
     for codigo, rec in fichas.items():
         for ruta_campo, campo in walk_fields(rec):
+            # La ficha del gerente cita con las rutas de su propio estado: no es de Vera y no
+            # se le pide que resuelva aquí, igual que `citas_rotas` (ronda 10, minería: 18
+            # citas «rotas» que eran todas suyas).
+            if ruta_campo.startswith("pm_record"):
+                continue
             fuente = campo.get("source")
             if fuente and fuente not in en_disco:
                 rotas.append({"project": codigo, "field": ruta_campo, "source": fuente})
@@ -2074,6 +2089,9 @@ def _selftest_plan():
                                           "reschedules": [{"due_date": "2026-10-01"}, {"due_date": "2026-11-01"},
                                                           {"due_date": "2026-12-01"}]}]},
                         dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)["commitments_rescheduled"], []),
+        ("la ficha del gerente no reemplaza los compromisos propios",
+         [i["field"] for i in compute_record({"commitments": [], "pm_record": {"commitments": [{"who": "A", "what": "x"}]}},
+                                             dt.date(2026, 10, 18), DEFAULT_THRESHOLDS)["record_issues"]], ["commitments"]),
         ("y la ficha que lo trae así recibe qué corregir",
          [i["field"] for i in compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-10-18",
                                           "original_due_date": "no_declarada", "state": "met",

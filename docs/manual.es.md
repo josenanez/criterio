@@ -300,7 +300,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Escribe.** `.criterio/portafolio/config.json`; `<estado>/ (init)`; `<estado>/records/<código>.json (tres)`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`
 
-**Skills.** **portfolio-health**, **project-record**
+**Skills.** **commitment-tracking**, **portfolio-health**, **project-record**
 
 ### `/criterio-portfolio:portfolio-wake`
 

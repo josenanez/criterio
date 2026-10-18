@@ -75,7 +75,7 @@ Deja en `meta.documents_seen` de la ficha los documentos del proyecto con sus ha
 
 Orden dentro de cada proyecto: primero `00-gobierno`, luego `10-plan`, después `20-seguimiento` y `30-reuniones` de más reciente a más antiguo. Lo reciente manda sobre lo viejo.
 
-De las minutas y transcripciones, aplica **commitment-tracking** y **raid-taxonomy**: recoge los compromisos y los riesgos que se dijeron y nadie registró.
+De las minutas y transcripciones, aplica **commitment-tracking** y **raid-taxonomy**: recoge los compromisos y los riesgos que se dijeron y nadie registró. **Aunque el proyecto tenga `ficha-pm.json`**: la del gerente va en `pm_record` y no reemplaza tu lectura.
 
 **5. Clasifica lo que está en `entrada/`**
 
