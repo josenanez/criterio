@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-18T02:13:24",
+ "estado": "success",
+ "error": false,
+ "segundos": 42,
+ "turnos": 15,
+ "tokens": 717135,
+ "tokens_salida": 4191,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-publish-1.md",
+   "documentos/proyectos/PRY-211-control-de-polvo-en-vías/00-gobierno/ficha-pm.json",
+   "estado/PRY-211-control-de-polvo-en-vías/corridas/2026-10-17-pm-publish-1.md",
+   "estado/PRY-211-control-de-polvo-en-vías/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-control-de-polvo-en-vías/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "entorno": "mineria",
+ "ronda": 9,
+ "hoy": "2026-10-17",
+ "prd": "PRD-300",
+ "prd_carpeta": "PRD-300",
+ "prd_otro": "PRD-306",
+ "req": "REQ-4000",
+ "pry_sam": "PRY-211",
+ "sam_carpeta": "PRY-211-control-de-polvo-en-vías",
+ "notas": "documentos/proyectos/PRY-211-control-de-polvo-en-vías/2026-10-17-notas-reunion.txt",
+ "status": "PRY-203",
+ "health": "PRY-211",
+ "budget": "PRY-207",
+ "vendor": "PRY-211",
+ "change": "PRY-211",
+ "history": "PRY-211",
+ "charter": "PRY-206",
+ "closure": "PRY-201",
+ "producto_vista": "gemelo digital"
+}

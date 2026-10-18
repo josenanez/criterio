@@ -699,7 +699,7 @@
   "evidencia": null,
   "origen": "codigo",
   "correccion": "2631bbcc",
-  "verificado_en": null
+  "verificado_en": "ronda-9 · las cuatro industrias sobre 0.4.0"
  },
  {
   "id": "D055",
@@ -712,6 +712,32 @@
   "evidencia": null,
   "origen": "material",
   "correccion": "43cd7c8f",
+  "verificado_en": "ronda-9 · las cuatro industrias sobre 0.4.0"
+ },
+ {
+  "id": "D056",
+  "fecha": "2026-10-17",
+  "ronda": "9",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "pm_vs_pmo comparaba el producto con value() y no con producto(): Samuel escribió «no aplica» como producto, la ficha de Vera no tenía ninguno, y sonó un contraste contra nada en PRY-211. El esquema dice que «No aplica» es vacío.",
+  "evidencia": "tests/evidencias/calificaciones.json",
+  "origen": "codigo",
+  "correccion": "219a4469",
+  "verificado_en": null
+ },
+ {
+  "id": "D057",
+  "fecha": "2026-10-17",
+  "ronda": "9",
+  "entorno": "mineria",
+  "agente": "vera",
+  "comando": "portfolio-scan",
+  "que_paso": "La clave del contraste contó «no aplica» del gerente como un producto y esperaba ese pm_vs_pmo; la primera calificación de minería lo dio como acierto. Corregida antes de publicar: es una alerta de más (D056).",
+  "evidencia": "tests/evidencias/calificaciones.json",
+  "origen": "clave",
+  "correccion": "94addcf8",
   "verificado_en": null
  }
 ]

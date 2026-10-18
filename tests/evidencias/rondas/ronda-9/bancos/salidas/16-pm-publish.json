@@ -1,0 +1,26 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-18T01:31:08",
+ "estado": "success",
+ "error": false,
+ "segundos": 39,
+ "turnos": 14,
+ "tokens": 708515,
+ "tokens_salida": 3595,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "documentos/proyectos/PRY-200-originación-digital/00-gobierno/ficha-pm.json",
+   "estado/PRY-200-originación-digital/corridas/2026-10-17-pm-publish-1.md",
+   "estado/PRY-200-originación-digital/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-originación-digital/corridas.json"
+  ],
+  "borrados": []
+ }
+}

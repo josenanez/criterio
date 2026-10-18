@@ -1,0 +1,28 @@
+{
+ "n": 25,
+ "agente": "vera",
+ "comando": "change-control",
+ "argumento": "PRY-211 mover la salida a producción 30 días",
+ "inicio": "2026-10-18T02:27:15",
+ "estado": "success",
+ "error": false,
+ "segundos": 63,
+ "turnos": 17,
+ "tokens": 670820,
+ "tokens_salida": 7127,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-17-change-control-1.html",
+   ".criterio/corridas/portafolio/2026-10-17-change-control-1.md",
+   "estado/corridas/2026-10-17-change-control-1.md",
+   "estado/corridas/salida-change-control.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "n": 11,
+ "agente": "samuel",
+ "comando": "pm-commitments",
+ "argumento": "",
+ "inicio": "2026-10-18T02:05:59",
+ "estado": "success",
+ "error": false,
+ "segundos": 58,
+ "turnos": 13,
+ "tokens": 673879,
+ "tokens_salida": 6874,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-203-reposición-automática/corridas/2026-10-17-pm-commitments-1.md",
+   "estado/PRY-203-reposición-automática/corridas/salida-pm-commitments.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-203-reposición-automática/corridas.json"
+  ],
+  "borrados": []
+ }
+}

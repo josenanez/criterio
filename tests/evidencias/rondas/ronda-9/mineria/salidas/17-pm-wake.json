@@ -1,0 +1,26 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-18T02:14:06",
+ "estado": "success",
+ "error": false,
+ "segundos": 37,
+ "turnos": 16,
+ "tokens": 623713,
+ "tokens_salida": 4349,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-211-control-de-polvo-en-vías/cadencia.json",
+   "estado/PRY-211-control-de-polvo-en-vías/corridas/2026-10-17-pm-wake-1.md",
+   "estado/PRY-211-control-de-polvo-en-vías/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-control-de-polvo-en-vías/corridas.json"
+  ],
+  "borrados": []
+ }
+}

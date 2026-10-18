@@ -1,0 +1,19 @@
+{
+ "servidor": ".claude/plugins/cache/criterio/criterio-portfolio/0.4.0/scripts/servidor.py",
+ "rutas": 143,
+ "paginas": 143,
+ "malas": {},
+ "crudo": [],
+ "crudo_total": 0,
+ "voz_del_agente": 20,
+ "peticion": true,
+ "fichas_intactas": true,
+ "pantalla": {
+  "390": [],
+  "1280": []
+ },
+ "comprobaciones": {
+  "total": 541,
+  "pasan": 541
+ }
+}

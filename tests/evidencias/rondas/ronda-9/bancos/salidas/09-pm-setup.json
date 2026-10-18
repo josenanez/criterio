@@ -1,0 +1,34 @@
+{
+ "n": 9,
+ "agente": "samuel",
+ "comando": "pm-setup",
+ "argumento": "documentos/proyectos/PRY-200-originación-digital",
+ "inicio": "2026-10-18T01:22:57",
+ "estado": "success",
+ "error": false,
+ "segundos": 119,
+ "turnos": 35,
+ "tokens": 986168,
+ "tokens_salida": 18727,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-17-pm-setup-1.html",
+   ".criterio/corridas/proyecto/2026-10-17-pm-setup-1.md",
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/proyecto/PRY-200/config.json",
+   ".criterio/terminos/aceptacion-criterio-project-0.4.0-2026-10-17.md",
+   ".criterio/terminos/aceptacion-criterio-project-0.4.0-2026-10-17.pdf",
+   ".criterio/terminos/aceptacion-criterio-project-0.4.0-2026-10-17.sha256",
+   "estado/PRY-200-originación-digital/corridas.json",
+   "estado/PRY-200-originación-digital/corridas/2026-10-17-pm-setup-1.md",
+   "estado/PRY-200-originación-digital/corridas/salida-pm-setup.md",
+   "estado/PRY-200-originación-digital/records/PRY-200.json"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   ".criterio/terminos/aceptaciones.json"
+  ],
+  "borrados": []
+ }
+}

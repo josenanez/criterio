@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-200-originación-digital/2026-10-17-notas-reunion.txt",
+ "inicio": "2026-10-18T01:24:56",
+ "estado": "success",
+ "error": false,
+ "segundos": 62,
+ "turnos": 14,
+ "tokens": 678872,
+ "tokens_salida": 7171,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-200-originación-digital/corrida-en-curso.json",
+   "estado/PRY-200-originación-digital/corridas/2026-10-17-pm-minutes-1.md",
+   "estado/PRY-200-originación-digital/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-originación-digital/corridas.json"
+  ],
+  "borrados": []
+ }
+}
