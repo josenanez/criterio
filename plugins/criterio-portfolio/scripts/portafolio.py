@@ -685,7 +685,10 @@ def contrastar(pmo_rec: dict, pm_rec, today: dt.date) -> list:
     fuera = []
     for ruta in CAMPOS_CONTRASTADOS:
         a, b = campo_en(pmo_rec, ruta), campo_en(pm_rec, ruta)
-        va, vb = value(a), value(b)
+        # El producto se lee con su regla: «No aplica» es vacío, no un producto. En la
+        # ronda 9 (minería) Samuel lo escribió así y sonó pm_vs_pmo contra nada (D056).
+        leer = producto if ruta == "identity.product" else value
+        va, vb = leer(a), leer(b)
         if vb is None and va is None:
             continue
         if vb is None:
@@ -1992,6 +1995,10 @@ def _selftest_lectura():
                                                   dict(hito("B", "met"), state={"value": "met", "state": "ambiguous"}),
                                                   hito("C", "open"), hito("D", "open"), hito("E", "open")]}),
                         hoy, DEFAULT_THRESHOLDS)["progress_vs_plan"]["plan_supports_pct"], [20, 60]),
+        ("contraste · «No aplica» del gerente contra nada no es hallazgo",
+         contrastar({"identity": {"product": {"value": None, "state": "not_found"}}},
+                    {"identity": {"product": {"value": "no aplica", "source": "a.md", "source_date": "2026-09-01"}}},
+                    dt.date(2026, 10, 17)), []),
         ("producto · «No aplica» en el acta es vacío, no un producto",
          compute_record(dict(base, identity={"code": {"value": "PRY-T"}, "product": {"value": "No aplica"}}),
                         hoy, DEFAULT_THRESHOLDS)["product"], None),
