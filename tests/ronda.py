@@ -289,6 +289,8 @@ def escribir_notas(carpeta: Path, p: dict, comps: list, hoy: dt.date) -> Path:
 CONTRASTADOS = ("identity.sponsor", "identity.manager", "identity.committee", "identity.product",
                 "plan.end_date", "money.approved", "declared.status", "declared.as_of")
 ESTADOS = {"verde": "green", "amarillo": "yellow", "rojo": "red"}
+SIN_PRODUCTO = {"no aplica", "n/a", "na", "ninguno", "ninguna", "sin producto", "-", "—",
+                "none", "not applicable", "no product"}
 
 
 def verdad_contrastada(p: dict) -> dict:
@@ -317,6 +319,10 @@ def _norma(campo: str, x):
         return str(x)[:10]
     if campo == "declared.status":
         return ESTADOS.get(str(x).strip().lower(), str(x).strip().lower())
+    # El esquema: «No aplica», «Ninguno» en el producto es un campo vacío, no un producto
+    # con ese nombre (D016). La clave de la ronda 9 lo contó como valor (D057).
+    if campo == "identity.product" and str(x).strip().lower().rstrip(".") in SIN_PRODUCTO:
+        return None
     return " ".join(str(x).split()).casefold()
 
 
