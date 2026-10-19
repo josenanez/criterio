@@ -290,10 +290,10 @@ Tested in 4 South American industries, with 13 projects per industry in the late
 | Financial institutions · credit unions | Tested · rounds 1–10 | Board of directors and credit committee; cooperative core, payroll loans and member contributions; urban and rural members |
 | Retail | Tested · rounds 1–10 | Online store, loyalty and distribution centres; ERP integration and change freezes in peak season |
 | Mining (gold and copper) | Tested · rounds 1–10 | Engineering, licences and permits, installation; plant shutdowns; engineering and installation vendors |
-| Construction and infrastructure | Increment 2 · version 0.7.0 | MS Project schedules, change orders, contractors, physical against financial progress |
-| Oil & gas | Increment 2 · version 0.7.0 | Capital megaprojects, contractors, permits and process safety |
-| Telecommunications | Increment 3 · version 0.8.0 | Many rollouts in parallel, vendors and permits: portfolio scale |
-| Logistics | Increment 3 · version 0.8.0 | Roll-outs across several sites while operations never stop |
+| Construction and infrastructure | Increment 3 · version 0.8.0 | MS Project schedules, change orders, contractors, physical against financial progress |
+| Oil & gas | Increment 3 · version 0.8.0 | Capital megaprojects, contractors, permits and process safety |
+| Telecommunications | Increment 4 · version 0.9.0 | Many rollouts in parallel, vendors and permits: portfolio scale |
+| Logistics | Increment 4 · version 0.9.0 | Roll-outs across several sites while operations never stop |
 
 <!-- /industrias -->
 

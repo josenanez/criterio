@@ -29,7 +29,7 @@ Round 10, on version 0.5.0, on 18 October 2026: 52 projects and the 37 commands 
 | Alba · correct alerts of those raised | 131 of 132 | 95.8–99.9% |
 | Rostrum · checks on what it shows | 2175 of 2175 | 99.8–100% |
 
-No false alert from Vera. The seven she missed are one failure, in one mining project: at setup she left that project without commitments because they were in the record its manager published (D059). Alba's extra alert was right: the test data cited an interview the folder did not hold (D058). Both are fixed after 0.5.0.
+No false alert from Vera. The seven she missed are one failure, in one mining project: at setup she left that project without commitments because they were in the record its manager published (D058). Alba's extra alert was right: the test data cited an interview the folder did not hold (D060). Both are fixed after 0.5.0.
 
 60 defects registered with their origin, the commit that fixes them and the round that verified them, all under [`tests/evidencias/`](../tests/evidencias/). The FAQ is in [`families/criterio-pmo/PREGUNTAS.md`](../families/criterio-pmo/PREGUNTAS.md).
 

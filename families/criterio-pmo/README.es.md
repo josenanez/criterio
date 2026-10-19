@@ -292,10 +292,10 @@ Probada en 4 industrias de Suramérica, con 13 proyectos por industria en la úl
 | Entidades financieras · cooperativas | Probada · rondas 1–10 | Consejo de Administración y comité de crédito; core cooperativo, libranza y aportes; asociados urbanos y rurales |
 | Retail | Probada · rondas 1–10 | Tienda en línea, fidelización y centros de distribución; integración con el ERP y congelamiento de cambios en temporada alta |
 | Minería (oro y cobre) | Probada · rondas 1–10 | Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje |
-| Construcción e infraestructura | Incremento 2 · versión 0.7.0 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
-| Oil & gas | Incremento 2 · versión 0.7.0 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
-| Telecomunicaciones | Incremento 3 · versión 0.8.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
-| Logística | Incremento 3 · versión 0.8.0 | Implantaciones en varios centros con una operación que no se detiene |
+| Construcción e infraestructura | Incremento 3 · versión 0.8.0 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
+| Oil & gas | Incremento 3 · versión 0.8.0 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
+| Telecomunicaciones | Incremento 4 · versión 0.9.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
+| Logística | Incremento 4 · versión 0.9.0 | Implantaciones en varios centros con una operación que no se detiene |
 
 <!-- /industrias -->
 

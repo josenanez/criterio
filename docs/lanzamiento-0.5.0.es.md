@@ -29,7 +29,7 @@ Ronda 10, sobre la versión 0.5.0, el 18 de octubre de 2026: 52 proyectos y los 
 | Alba · alertas correctas de las emitidas | 131 de 132 | 95,8–99,9 % |
 | Rostrum · comprobaciones de lo que muestra | 2175 de 2175 | 99,8–100 % |
 
-Ninguna alerta falsa de Vera. Las siete que le faltaron son una sola falla, en un proyecto de minería: al configurarse dejó ese proyecto sin compromisos porque estaban en la ficha que publicó su gerente (D059). La alerta de más de Alba tenía razón: los datos de prueba citaban una entrevista que la carpeta no traía (D058). Las dos están corregidas después de la 0.5.0.
+Ninguna alerta falsa de Vera. Las siete que le faltaron son una sola falla, en un proyecto de minería: al configurarse dejó ese proyecto sin compromisos porque estaban en la ficha que publicó su gerente (D058). La alerta de más de Alba tenía razón: los datos de prueba citaban una entrevista que la carpeta no traía (D060). Las dos están corregidas después de la 0.5.0.
 
 60 defectos registrados con su origen, el commit que los corrige y la ronda que los verificó, todos en [`tests/evidencias/`](../tests/evidencias/). Las preguntas frecuentes, en [`families/criterio-pmo/PREGUNTAS.es.md`](../families/criterio-pmo/PREGUNTAS.es.md).
 
