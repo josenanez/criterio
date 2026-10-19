@@ -674,6 +674,46 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "81fed035a2e6e0c088aec37ea69a8ba8a1c9813c31332a5223f7b01374c9890f",
       "sha256": "a455ee96c51539808bab5e7ee264f826c27b745d01e3ca6bda57fb702bcef3cb"
+    },
+    {
+      "version": "0.6.0",
+      "fecha": "2026-10-19",
+      "commit": null,
+      "base": "d1a58fd",
+      "etiqueta": "v0.6.0",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "3c78073b68d95bf32a80c3b917747ee8efc61597a516a2bf48395a90a24b9c05",
+        "criterio-product": "a10c003db0abb6110eef459624b62cc4d2a534da3d6647700872b843ff69baf2",
+        "criterio-project": "42c1ea5251f196d22944788a605dfc7f9a093f8dfbc5c9b9ae1f8263209ddf7d"
+      },
+      "destacados": [
+        "Vera lee los compromisos de cada proyecto ella misma aunque el gerente haya publicado su ficha, y el cálculo avisa cuando la ficha de Vera no los trae (D058)",
+        "El índice ya no cuenta como citas rotas las de la ficha que publicó el gerente (D059)",
+        "Un anexo de verificación contiene toda su evidencia (D060)",
+        "Las industrias de prueba, probadas y siguientes, salen de una sola fuente"
+      ],
+      "cambios": [
+        "Vera reads the commitments herself even when the manager published his record, and compute says so when she does not",
+        "A verification annex holds its whole evidence, and no assumption is verified with an interview the folder does not hold (D058)",
+        "Round 10 on 0.5.0: 148/148 contracts, Vera 242/242 right with no false alert, Samuel 108/108, Alba 131/131 found, Rostrum 2175/2175",
+        "FAQ for the family, in Spanish and English, as the single source the portal reads; launch notes move to 0.5.0 with round 10",
+        "Animación de la familia: el GIF sale del componente actual del portal",
+        "Video y GIF de la familia: un solo dueño, el componente del portal",
+        "Las industrias de prueba: una sola fuente, las probadas y las que vienen",
+        "Resultados: la corrida con la puerta 34",
+        "La hoja de ruta se corre un número, y las notas de 0.5.0 citan los defectos como el registro"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "a455ee96c51539808bab5e7ee264f826c27b745d01e3ca6bda57fb702bcef3cb",
+      "sha256": "4d43e7ddebdffe3d5096f9d1b3e96c1df9f6ffc874da58255979d8bb70c618c9"
     }
   ]
 }
