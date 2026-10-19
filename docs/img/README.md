@@ -5,8 +5,8 @@ pip install pillow cairosvg
 python3 docs/img/graficos.py
 ```
 
-Las escribe [`graficos.py`](graficos.py) con PIL, en los dos idiomas —también el GIF de
-la familia y la cabecera de cada agente—, y **las tipografías
+Las escribe [`graficos.py`](graficos.py) con PIL, en los dos idiomas —también la
+cabecera de cada agente—, y **las tipografías
 viajan con el repositorio** — `InterTight-400/500/600.ttf`, bajo SIL Open Font License.
 Sin ellas el generador no corre, y un generador que solo funciona en la máquina de quien
 lo escribió no es un generador.
@@ -22,4 +22,8 @@ real—, están en [`portal/`](portal/) con su propio procedimiento.
 Los robots no se dibujan aquí: sus trazos viven en
 [`plugins/criterio-portfolio/scripts/robots.py`](../../plugins/criterio-portfolio/scripts/robots.py),
 los mismos con que el servidor y josenanez.com los dibujan. El generador solo les pone
-color —oro el que trabaja, crema al 38 % el que espera— y los anima.
+color.
+
+El GIF de la familia (`es/robots.gif`, `en/robots.gif`) no sale de aquí: se graba del
+componente del portal, que es el dueño de la animación, junto con el video del post. El
+procedimiento está en [`../video/`](../video/).

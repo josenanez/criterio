@@ -8,6 +8,8 @@ quien vigila el portafolio— y ninguno habla con otro directamente: se hablan p
 
 ![Vera, Samuel, Alba y Rostrum](../../docs/img/es/robots.gif)
 
+[Video de la familia (MP4, 4:5)](../../docs/video/criterio-pmo-familia-es.mp4)
+
 | | |
 |---|---|
 | **Alcance** | El gobierno de un portafolio, de cada proyecto que lo compone y de cada producto que esos proyectos construyen |

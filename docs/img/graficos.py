@@ -12,8 +12,9 @@ Los robots salen de plugins/criterio-portfolio/scripts/robots.py, el mismo archi
 que el servidor los dibuja y los mismos trazos de josenanez.com: encendido es oro, en
 reposo es crema al 38 %, como en el portal. Si cambia un robot, cambia en todas partes.
 
-Sale a docs/img/es/ y docs/img/en/. Los PNG y el GIF se versionan para que no haya que
-correr nada. Las fuentes viajan con el repositorio (Inter Tight, SIL Open Font
+Sale a docs/img/es/ y docs/img/en/. Los PNG se versionan para que no haya que correr
+nada. El GIF de la familia no sale de aquí: se graba del componente del portal, que es
+el dueño de la animación (docs/video/). Las fuentes viajan con el repositorio (Inter Tight, SIL Open Font
 License); INTER_TIGHT apunta a otra carpeta si se quiere.
 
 Cada figura declara su ritmo vertical en vez de estimarlo. Estimar posiciones es como
@@ -21,9 +22,7 @@ se llega a que una frase pise una insignia.
 """
 import functools
 import io
-import math
 import os
-import re
 import sys
 
 import cairosvg
@@ -56,10 +55,6 @@ def mezcla(color, fondo, a):
     return '#%02x%02x%02x' % tuple(round(a * x + (1 - a) * y) for x, y in zip(uno, dos))
 
 
-REPOSO = mezcla(CREMA, PANEL, .38)          # el robot que no trabaja, como en el portal
-REPOSO_ROL = mezcla(APAGADO, PANEL, .38)
-OJO_REPOSO = mezcla(FILETE_FUERTE, PANEL, .38)
-RAYA = mezcla('#ffffff', PANEL, .025)       # las líneas de pantalla del piso
 
 
 def f(ruta, px):
@@ -148,15 +143,6 @@ T = {
                'samuel': ('Samuel', 'Gerente de proyecto', 'Para quien responde por un proyecto.', 'Un proyecto'),
                'alba': ('Alba', 'Gerente de producto', 'Para quien define qué se construye.', 'Un producto'),
                'rostrum': ('Rostrum', 'El servidor', 'Donde quedan las corridas de los tres.', 'El servidor')},
-        'lcd': 'CRITERIO · PMO', 'listo': 'LISTO', 'imprime': 'IMPRIMIENDO',
-        'ficha': 'LA FICHA DEL PROYECTO',
-        'ficha_nota': 'El único contrato. Los agentes no se hablan entre sí: se hablan por ella.',
-        'inicio': 'CRITERIO · FAMILIA PMO', 'fin': 'FIN DE LA IMPRESIÓN.',
-        'guion': [('vera', 'VERA · EL PORTAFOLIO', 'Lee la documentación de todos los proyectos y dice qué cambió, qué se contradice y qué lleva semanas en silencio.'),
-                  ('samuel', 'SAMUEL · UN PROYECTO', 'Prepara la agenda antes de la reunión y la minuta después. Registra el compromiso dicho y no cumplido.'),
-                  ('alba', 'ALBA · UN PRODUCTO', 'Trabaja antes de que exista el proyecto: contrasta la definición con la evidencia de demanda.'),
-                  ('rostrum', 'ROSTRUM · EL SERVIDOR', 'Publica el informe donde el equipo lo lee, y recibe sus preguntas. Nunca escribe la ficha.'),
-                  ('ficha', 'LA REGLA', 'Ningún agente habla con otro. Se hablan por la ficha del proyecto, y el estado declarado lo escribe siempre una persona.')],
         'declarada': 'Capacidad declarada',
         'construccion': 'En construcción',
         'sin_construir': 'Sin construir',
@@ -265,15 +251,6 @@ T = {
                'samuel': ('Samuel', 'Project manager', 'For whoever answers for one project.', 'One project'),
                'alba': ('Alba', 'Product manager', 'For whoever defines what gets built.', 'One product'),
                'rostrum': ('Rostrum', 'The server', "Where the three agents' runs are kept.", 'The server')},
-        'lcd': 'CRITERIO · PMO', 'listo': 'READY', 'imprime': 'PRINTING',
-        'ficha': 'THE PROJECT RECORD',
-        'ficha_nota': 'The only contract. The agents never talk to each other: they talk through it.',
-        'inicio': 'CRITERIO · PMO FAMILY', 'fin': 'END OF PRINTOUT.',
-        'guion': [('vera', 'VERA · THE PORTFOLIO', 'Reads the documentation of every project and tells you what changed, what contradicts itself and what has been silent for weeks.'),
-                  ('samuel', 'SAMUEL · ONE PROJECT', 'Prepares the agenda before the meeting and the minutes after it. Records the commitment that was said and not kept.'),
-                  ('alba', 'ALBA · ONE PRODUCT', 'Works before the project exists: checks the definition against the evidence of demand.'),
-                  ('rostrum', 'ROSTRUM · THE SERVER', 'Publishes the report where the team reads it, and takes their questions. Never writes the record.'),
-                  ('ficha', 'THE RULE', 'No agent talks to another. They talk through the project record, and the declared status is always written by a person.')],
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
@@ -427,21 +404,13 @@ def emblema(t, sigla, fn, fr, estado, glifo):
 # ══════════════════════════════════════════════════════════════════ los robots
 
 @functools.lru_cache(maxsize=None)
-def robot(nombre, ancho, trazo=ORO, ojo=ORO, leds=None):
-    """El robot en PNG. `leds`, si viene, da un color a cada luz (las antenas de Vera,
-    Samuel y Alba; las cinco de Rostrum), para que en la animación parpadeen. El trazo
-    engrosa al achicarse: por debajo de cien píxeles, 2.5 se vuelve un hilo."""
+def robot(nombre, ancho, trazo=ORO, ojo=ORO):
+    """El robot en PNG. El trazo engrosa al achicarse: por debajo de cien píxeles, 2.5 se
+    vuelve un hilo."""
     grosor = max(2.5, 2.5 * 100 / ancho)
     svg = trazos.svg(nombre, trazo, ojo, ancho=120, grosor=round(grosor, 2))
-    if leds is not None:
-        colores = iter(leds)
-        svg = re.sub(r'(class="led"[^>]*?fill=")[^"]*', lambda m: m.group(1) + next(colores), svg)
     png = cairosvg.svg2png(bytestring=svg.encode('utf-8'), output_width=ancho)
     return Image.open(io.BytesIO(png)).convert('RGBA')
-
-
-def luces(nombre):
-    return trazos.svg(nombre, CREMA, ORO).count('class="led"')
 
 
 def pegar(img, r, x, y):
@@ -461,149 +430,6 @@ def tarjeta(t, nombre):
     d.text((82, 534), rol, font=f(M5, 32), fill=CREMA)
     parrafo(d, (82, 584), frase, f(R, 25), APAGADO, 556, 34)
     return img
-
-
-def discontinua(d, x0, y0, x1, y1, color, trazo=8, hueco=6):
-    largo = math.hypot(x1 - x0, y1 - y0)
-    k = 0.0
-    while k < largo:
-        a, b = k / largo, min(k + trazo, largo) / largo
-        d.line([(x0 + (x1 - x0) * a, y0 + (y1 - y0) * a),
-                (x0 + (x1 - x0) * b, y0 + (y1 - y0) * b)], fill=color, width=2)
-        k += trazo + hueco
-
-
-AW, AH = 1280, 760
-BOB = 1600     # ms: el vaivén del robot que trabaja, como en el portal
-GUINO = 2600   # ms: cada cuánto parpadea
-LUZ = 400      # ms: las luces
-
-
-def escena(t, reloj, encendido, linea, n, imprimiendo):
-    """Un cuadro del piso: los cuatro, la ficha que los une y la hoja que se imprime.
-    `encendido` es quien trabaja; 'ficha' los enciende a todos, como al final en el
-    portal. `linea` es (etiqueta, frase) y `n` cuántos caracteres van impresos."""
-    img = Image.new('RGB', (AW, AH), NEGRO)
-    d = ImageDraw.Draw(img)
-    d.rectangle([24, 24, AW - 25, AH - 25], fill=PANEL, outline=FILETE, width=2)
-    for y in range(28, AH - 28, 4):
-        d.line([(26, y), (AW - 27, y)], fill=RAYA)
-
-    # la pantalla de arriba
-    track(d, (64, 52), t['lcd'], f(M6, 20), ORO, 3.4)
-    estado = t['imprime'] if imprimiendo else t['listo']
-    fu = f(M6, 18)
-    x = AW - 64 - ancho_track(d, estado, fu, 2.4)
-    track(d, (x, 54), estado, fu, APAGADO, 2.4)
-    prende = imprimiendo and (reloj // LUZ) % 2 == 0
-    d.ellipse([x - 26, 58, x - 12, 72], fill=ORO if prende else FILETE_FUERTE)
-
-    # los cuatro
-    col = (AW - 128) / 4
-    for i, nombre in enumerate(trazos.ORDEN):
-        cx = 64 + col * i + col / 2
-        on = encendido in (nombre, 'ficha')
-        nl = luces(nombre)
-        if on:
-            guino = reloj % GUINO > GUINO - 120
-            fase = reloj // LUZ
-            leds = tuple(ORO if (fase + k) % 2 == 0 else OJO_REPOSO for k in range(nl))
-            r = robot(nombre, 130, ORO, OJO_REPOSO if guino else ORO, leds)
-            vaiven = 0 if nombre == 'rostrum' else -4 * math.sin(2 * math.pi * reloj / BOB) ** 2
-            pegar(img, r, cx - 65, 98 + round(vaiven))
-        else:
-            pegar(img, robot(nombre, 130, REPOSO, OJO_REPOSO, (OJO_REPOSO,) * nl), cx - 65, 104)
-        nom = nombre.upper()
-        fn = f(M6, 24)
-        track(d, (cx - ancho_track(d, nom, fn, 3.4) / 2, 304), nom, fn, CREMA if on else REPOSO, 3.4)
-        rol = t['rb'][nombre][3].upper()
-        fr = f(M6, 15)
-        track(d, (cx - ancho_track(d, rol, fr, 2.2) / 2, 342), rol, fr,
-              ORO if on else REPOSO_ROL, 2.2)
-        # el cable a la ficha: Rostrum no escribe en ella, su cable no se enciende
-        vivo = encendido == 'ficha' and nombre != 'rostrum'
-        discontinua(d, cx, 374, cx, 410, ORO if vivo else FILETE_FUERTE, 5, 5)
-
-    # la ficha
-    ficha = encendido == 'ficha'
-    caja = (120, 410, AW - 120, 494)
-    if ficha:
-        d.rectangle(caja, fill=mezcla(ORO, PANEL, .08))
-    color = ORO if ficha else FILETE_FUERTE
-    for a, b in (((caja[0], caja[1]), (caja[2], caja[1])), ((caja[2], caja[1]), (caja[2], caja[3])),
-                 ((caja[2], caja[3]), (caja[0], caja[3])), ((caja[0], caja[3]), (caja[0], caja[1]))):
-        discontinua(d, *a, *b, color)
-    fu = f(M6, 18)
-    track(d, (AW / 2 - ancho_track(d, t['ficha'], fu, 3) / 2, 426), t['ficha'], fu,
-          ORO if ficha else APAGADO, 3)
-    fu = f(R, 18)
-    d.text((AW / 2 - d.textlength(t['ficha_nota'], font=fu) / 2, 458), t['ficha_nota'],
-           font=fu, fill=APAGADO)
-
-    # la hoja: papel continuo, con sus bandas y sus perforaciones
-    hx0, hy0, hx1, hy1 = 64, 530, AW - 64, AH - 52
-    for k, y in enumerate(range(hy0, hy1, 44)):
-        d.rectangle([hx0, y, hx1, min(y + 44, hy1)], fill='#e7eee7' if k % 2 == 0 else CREMA)
-    for y in range(hy0 + 13, hy1, 26):
-        for cx in (hx0 + 12, hx1 - 12):
-            d.ellipse([cx - 5, y - 5, cx + 5, y + 5], fill=NEGRO)
-    etiqueta, frase = linea
-    tx, ancho = hx0 + 44, hx1 - hx0 - 88
-    if etiqueta is None:
-        track(d, (tx, hy0 + 22), frase, f(M6, 20), TINTA, 2.4)
-        return img
-    track(d, (tx, hy0 + 22), etiqueta, f(M6, 18), TINTA_ORO, 2.4)
-    fb = f(R, 24)
-    assert not sin_glifo(frase), frase
-    renglones = envolver(d, frase, fb, ancho)
-    assert len(renglones) <= 3, f'{etiqueta}: no cabe en la hoja'
-    y, quedan, cursor = hy0 + 58, n, None
-    for renglon in renglones:
-        visible = renglon[:max(quedan, 0)]
-        d.text((tx, y), visible, font=fb, fill=TINTA)
-        if quedan <= len(renglon) and cursor is None:
-            cursor = (tx + d.textlength(visible, font=fb) + 2, y + 4)
-        quedan -= len(renglon) + 1
-        y += 34
-    if imprimiendo and cursor and (reloj // 350) % 2 == 0:
-        d.rectangle([cursor[0], cursor[1], cursor[0] + 12, cursor[1] + 24], fill=TINTA_ORO)
-    return img
-
-
-def animacion(t):
-    """El piso del portal, en GIF: cada robot se enciende mientras la hoja imprime lo
-    que hace, y al final la ficha los enciende a todos."""
-    cuadros, reloj = [], 0
-
-    def cuadro(ms, **kw):
-        nonlocal reloj
-        cuadros.append((escena(t, reloj, **kw), ms))
-        reloj += ms
-
-    for _ in range(4):
-        cuadro(300, encendido=None, linea=(None, t['inicio']), n=0, imprimiendo=False)
-    for quien, etiqueta, frase in t['guion']:
-        for n in range(0, len(frase) + 3, 3):
-            cuadro(40, encendido=quien, linea=(etiqueta, frase), n=n, imprimiendo=True)
-        for _ in range(8):
-            cuadro(150, encendido=quien, linea=(etiqueta, frase), n=len(frase), imprimiendo=True)
-    for _ in range(14):
-        cuadro(250, encendido='ficha', linea=(None, t['fin']), n=0, imprimiendo=False)
-    return cuadros
-
-
-def guardar_gif(cuadros, idioma, nombre):
-    """Una sola paleta para todos los cuadros, sin tramado: los colores no bailan de un
-    cuadro a otro y el archivo pesa lo que cambia, no la escena entera."""
-    muestra = Image.new('RGB', (AW, AH * 3))
-    for k, i in enumerate((0, len(cuadros) // 3, -1)):
-        muestra.paste(cuadros[i][0], (0, AH * k))
-    paleta = muestra.quantize(colors=96, method=Image.Quantize.MEDIANCUT)
-    imgs = [c.quantize(palette=paleta, dither=Image.Dither.NONE) for c, _ in cuadros]
-    ruta = os.path.join(AQUI, idioma, nombre)
-    imgs[0].save(ruta, save_all=True, append_images=imgs[1:], loop=0,
-                 duration=[ms for _, ms in cuadros], optimize=True)
-    print(f'  {idioma}/{nombre}  {len(imgs)} cuadros, {os.path.getsize(ruta) // 1024} KB')
 
 
 # ══════════════════════════════════════════════════════════════════ la familia
@@ -1146,4 +972,3 @@ if __name__ == '__main__':
         guardar(servidor(t), idioma, 'servidor.png')
         for nombre in trazos.ORDEN:
             guardar(tarjeta(t, nombre), idioma, f'robot-{nombre}.png')
-        guardar_gif(animacion(t), idioma, 'robots.gif')

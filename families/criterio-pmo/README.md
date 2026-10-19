@@ -9,6 +9,8 @@ record.
 
 ![Vera, Samuel, Alba and Rostrum](../../docs/img/en/robots.gif)
 
+[Family video (MP4, 4:5)](../../docs/video/criterio-pmo-familia-en.mp4)
+
 | | |
 |---|---|
 | **Scope** | The governance of a portfolio, of each project in it, and of each product those projects build |

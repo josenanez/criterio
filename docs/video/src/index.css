@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@source "./CriterioFamily.tsx";  /* explícito: la copia está en .gitignore y Tailwind no lee lo ignorado */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/inter-tight";
+
+:root { --font-inter: 'Inter Variable'; --font-inter-tight: 'Inter Tight Variable'; }
+html, body { margin: 0; background: #050505; font-family: var(--font-inter), Arial, sans-serif; }
+#frame { min-height: 100vh; display: flex; align-items: center; position: relative; }
+#frame > section { width: 100%; }
+
+/* La tarjeta final */
+#end { position: absolute; inset: 0; background: #050505; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity .8s ease; pointer-events: none; }
+#end.on { opacity: 1; }
+#end .in { padding: 0 72px; }
+#end .k { color: #d5a84b; font-size: 22px; letter-spacing: .18em; text-transform: uppercase; font-weight: 600; margin: 0 0 40px; }
+#end .big { color: #fff; font-family: var(--font-inter-tight); font-size: 58px; line-height: 1.12; letter-spacing: -.03em; font-weight: 500; margin: 0 0 14px; }
+#end .d { color: rgba(255,255,255,.7); font-size: 28px; margin: 44px 0 10px; }
+#end .u { color: #d5a84b; font-size: 28px; margin: 0; }
+
+/* Formato vertical del video: dos columnas a cualquier ancho */
+body.video #frame section .grid.grid-cols-1 { grid-template-columns: 1.1fr 1fr; }
+body.video #frame section .cf-floor .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+body.video #frame > section { padding-top: 26px; }
+body.video #end .in { zoom: .7246; }
