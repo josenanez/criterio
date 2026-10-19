@@ -280,6 +280,25 @@ escritas a mano— lo responde su página; aquí se verifica lo que ninguno pued
 Todo corre con la librería estándar y sin instalar nada. Qué prueba cada corpus y, con el mismo
 detalle, **qué no**, en las tres páginas de evidencia bajo [`tests/`](../../tests/).
 
+## Las industrias de prueba
+
+<!-- industrias: generado por scripts/industrias.py desde industrias.json; no se edita a mano -->
+
+Probada en 4 industrias de Suramérica, con 13 proyectos por industria en la última ronda. Las siguientes entran de dos en dos, cada una con su versión y su ronda completa.
+
+| Industria | Estado | Qué trae a las pruebas |
+|---|---|---|
+| Entidades financieras · bancos | Probada · rondas 1–10 | Core de depósitos, originación digital, nube y Open Banking; comités de transformación, arquitectura y riesgos |
+| Entidades financieras · cooperativas | Probada · rondas 1–10 | Consejo de Administración y comité de crédito; core cooperativo, libranza y aportes; asociados urbanos y rurales |
+| Retail | Probada · rondas 1–10 | Tienda en línea, fidelización y centros de distribución; integración con el ERP y congelamiento de cambios en temporada alta |
+| Minería (oro y cobre) | Probada · rondas 1–10 | Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje |
+| Construcción e infraestructura | Incremento 2 · versión 0.7.0 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
+| Oil & gas | Incremento 2 · versión 0.7.0 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
+| Telecomunicaciones | Incremento 3 · versión 0.8.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
+| Logística | Incremento 3 · versión 0.8.0 | Implantaciones en varios centros con una operación que no se detiene |
+
+<!-- /industrias -->
+
 ## Los dieciocho skills de la familia
 
 Dieciocho skills distintos entre los tres agentes. **Los que comparten son copias literales, no un módulo importado**: un plugin instalado tiene que correr solo, y un `import` a la ruta del otro funciona aquí y falla en el equipo de quien lo instaló.

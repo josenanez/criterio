@@ -278,6 +278,25 @@ alone:
 Everything runs on the standard library with nothing installed. What each corpus proves and, in
 the same detail, **what it does not**, in the three evidence pages under [`tests/`](../../tests/).
 
+## The test industries
+
+<!-- industrias: generado por scripts/industrias.py desde industrias.json; no se edita a mano -->
+
+Tested in 4 South American industries, with 13 projects per industry in the latest round. The next ones come in two at a time, each with its own version and full round.
+
+| Industry | Status | What it brings to the tests |
+|---|---|---|
+| Financial institutions · banks | Tested · rounds 1–10 | Deposit core, digital origination, cloud and Open Banking; transformation, architecture and risk committees |
+| Financial institutions · credit unions | Tested · rounds 1–10 | Board of directors and credit committee; cooperative core, payroll loans and member contributions; urban and rural members |
+| Retail | Tested · rounds 1–10 | Online store, loyalty and distribution centres; ERP integration and change freezes in peak season |
+| Mining (gold and copper) | Tested · rounds 1–10 | Engineering, licences and permits, installation; plant shutdowns; engineering and installation vendors |
+| Construction and infrastructure | Increment 2 · version 0.7.0 | MS Project schedules, change orders, contractors, physical against financial progress |
+| Oil & gas | Increment 2 · version 0.7.0 | Capital megaprojects, contractors, permits and process safety |
+| Telecommunications | Increment 3 · version 0.8.0 | Many rollouts in parallel, vendors and permits: portfolio scale |
+| Logistics | Increment 3 · version 0.8.0 | Roll-outs across several sites while operations never stop |
+
+<!-- /industrias -->
+
 ## The family's eighteen skills
 
 Eighteen distinct skills across the three agents. **What they share are literal copies, not an imported module**: an installed plugin has to run on its own, and an `import` into the other one's path works here and fails on the machine of whoever installed it.
