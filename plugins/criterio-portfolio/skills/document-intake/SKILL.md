@@ -56,10 +56,12 @@ su contrato declara.
 | `.md` `.txt` `.csv` `.tsv` `.json` `.yaml` | Directo | ninguna |
 | `.docx` `.xlsx` `.pptx` | Son ZIP con XML adentro: `zipfile` y `xml.etree` | **ninguna** |
 | `.eml` | El parser de correo de la librería estándar | ninguna |
-| `.html` `.xml` | Se quitan las etiquetas | ninguna |
+| `.xml` de Microsoft Project | **Como cronograma**: tareas, hitos, línea base, avance, predecesoras y recursos. Un `…cronograma-vN.xml` además da su línea base al motor, igual que el CSV o el Excel | **ninguna** |
+| `.html` y cualquier otro `.xml` | Se quitan las etiquetas | ninguna |
 | `.pdf` con capa de texto | `pdftotext`, de poppler | el binario |
+| `.mpp` de Microsoft Project | Con Java y MPXJ (`CRITERIO_MPXJ`, el classpath de sus .jar) se pasa a XML de Project y se procesa como cronograma. Sin eso se declara: se guarda desde Project como XML | Java y MPXJ, opcionales |
 | `.pdf` escaneado | **No se lee.** Necesita OCR | — |
-| `.msg` `.doc` `.xls` `.mpp` | **No se leen.** Se dice cómo guardarlos para que sí | — |
+| `.msg` `.doc` `.xls` | **No se leen.** Se dice cómo guardarlos para que sí | — |
 
 Que los formatos de Office se lean sin instalar nada no es un detalle: es lo que permite
 que la mitad de la carpeta de una PMO real entre sin un proyecto de integración.

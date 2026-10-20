@@ -5,7 +5,7 @@
 
 Hasta el 14 de octubre de 2026 todo el material era Markdown y CSV, y la página decía
 «docx · xlsx · pptx · pdf · eml». Lo que no se había probado era justo lo que la gente
-tiene: el acta en Word, el cronograma en Excel y el informe en PDF.
+tiene: el acta en Word, el cronograma en Excel o en Microsoft Project y el informe en PDF.
 
 Sin dependencias, como `texto.py`: un .docx y un .xlsx son un ZIP con XML, y un PDF de
 texto se escribe a mano. Las tablas del Markdown pasan a tablas de verdad en Word, no a
@@ -34,12 +34,15 @@ REGLAS = (
     ("acta-constitucion", ".docx", 0.6), ("comite", ".docx", 0.5), ("minuta", ".docx", 0.5),
     ("informe-avance", ".pdf", 0.5), ("acta-recibo", ".pdf", 0.5), ("factura", ".pdf", 0.7),
     ("contrato", ".docx", 0.6), ("definicion-producto", ".docx", 0.5),
-    ("entrevistas", ".docx", 0.4), ("cronograma-v", ".xlsx", 0.6),
+    ("entrevistas", ".docx", 0.4), ("cronograma-v", ".xlsx", 0.45),
 )
+# De los cronogramas que no pasan a Excel, esta parte se guarda desde Microsoft Project, como
+# XML (desde la 0.7.0). El resto queda en CSV: los tres formatos en que llega un cronograma.
+CRONOGRAMA_PROJECT = 0.6
 
 
-def _toca(ruta: Path, proporcion: float) -> bool:
-    h = int(hashlib.sha256(ruta.name.encode("utf-8")).hexdigest()[:8], 16)
+def _toca(ruta: Path, proporcion: float, sal: str = "") -> bool:
+    h = int(hashlib.sha256((sal + ruta.name).encode("utf-8")).hexdigest()[:8], 16)
     return (h % 1000) / 1000 < proporcion
 
 
@@ -156,6 +159,32 @@ def a_xlsx(csv_texto: str, destino: Path, hoja: str = "Cronograma") -> None:
                    f'{"".join(xml_filas)}</sheetData></worksheet>')
 
 
+# ── XML de Microsoft Project ─────────────────────────────────────────────
+
+def a_mspdi(csv_texto: str, destino: Path, titulo: str = "Cronograma") -> None:
+    """El cronograma guardado desde Microsoft Project (MSPDI): cada hito del CSV con su fecha
+    vigente, su línea base guardada en el propio archivo, su avance y la predecesora de
+    fin a comienzo con el hito anterior. Los mismos hechos que el CSV, en el formato de
+    Project."""
+    import csv
+    filas = [r for r in csv.DictReader(csv_texto.strip().splitlines()) if r.get("hito")]
+    avance = {"cerrado": 100, "en curso": 50}
+    tareas = []
+    for i, r in enumerate(filas, start=1):
+        fin, base = r.get("fecha_vigente") or r.get("fecha_linea_base"), r.get("fecha_linea_base") or r.get("fecha_vigente")
+        pred = (f"<PredecessorLink><PredecessorUID>{i - 1}</PredecessorUID><Type>1</Type></PredecessorLink>" if i > 1 else "")
+        tareas.append(f"<Task><UID>{i}</UID><ID>{i}</ID><Name>{escape(r['hito'])}</Name><WBS>{i}</WBS>"
+                      f"<OutlineLevel>1</OutlineLevel><Milestone>1</Milestone><Start>{fin}T17:00:00</Start>"
+                      f"<Finish>{fin}T17:00:00</Finish><Duration>PT0H0M0S</Duration>"
+                      f"<PercentComplete>{avance.get((r.get('estado') or '').strip(), 0)}</PercentComplete>"
+                      f"<Baseline><Number>0</Number><Finish>{base}T17:00:00</Finish></Baseline>{pred}</Task>")
+    destino.write_text(
+        '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+        f'<Project xmlns="http://schemas.microsoft.com/project"><Title>{escape(titulo)}</Title>'
+        f'<MinutesPerDay>480</MinutesPerDay><Tasks><Task><UID>0</UID><ID>0</ID><Name>{escape(titulo)}</Name>'
+        f'<Summary>1</Summary></Task>{"".join(tareas)}</Tasks></Project>', encoding="utf-8")
+
+
 # ── PDF ───────────────────────────────────────────────────────────────────
 
 def _envolver(t: str, ancho: int = 92) -> list:
@@ -195,6 +224,15 @@ def convertir(raiz: Path) -> dict:
     for f in sorted((raiz / "documentos").rglob("*")):
         if not f.is_file() or f.suffix not in (".md", ".csv"):
             continue
+        if ("cronograma-v" in f.name and f.suffix == ".csv" and not _toca(f, dict((c, x) for c, _, x in REGLAS)["cronograma-v"])
+                and _toca(f, CRONOGRAMA_PROJECT, sal="project")):
+            nuevo = f.with_suffix(".xml")
+            a_mspdi(f.read_text(encoding="utf-8"), nuevo)
+            st = f.stat()
+            os.utime(nuevo, (st.st_atime, st.st_mtime))
+            f.unlink()
+            cuenta[".xml"] = cuenta.get(".xml", 0) + 1
+            continue
         for clave, ext, prop in REGLAS:
             if clave in f.name and _toca(f, prop):
                 if ext == ".xlsx" and f.suffix != ".csv":
@@ -232,10 +270,18 @@ def selftest() -> list:
         pry.mkdir(parents=True)
         a_xlsx("hito,fecha_linea_base,fecha_vigente\nDiseño,2026-01-10,2026-01-10\n"
                "Salida,2026-06-30,2026-08-15\n", pry / "2026-02-01-cronograma-v2.xlsx")
+        a_mspdi("hito,fecha_linea_base,fecha_vigente,estado\nDiseño,2026-01-10,2026-01-10,cerrado\n"
+                "Salida,2026-06-30,2026-09-30,en curso\n", pry / "2026-07-01-cronograma-v3.xml")
         lb = portafolio.lineas_base_csv(pry, t / "docs")
+        proj = texto.de_project(pry / "2026-07-01-cronograma-v3.xml")
         return [
+            ("project · la línea base sale del XML de Project",
+             [(b["version"], b["end_date"], b["baseline_end_date"]) for b in lb if b["version"] == 3],
+             [(3, "2026-09-30", "2026-06-30")]),
+            ("project · el hito con su avance y su predecesora",
+             "| Salida | 2026-06-30 | 2026-09-30 | en curso |" in proj and "| 2 | 2 | Salida |" in proj and "1FS" in proj, True),
             ("xlsx · la línea base sale del cronograma en Excel",
-             [(b["version"], b["end_date"], b["baseline_end_date"]) for b in lb],
+             [(b["version"], b["end_date"], b["baseline_end_date"]) for b in lb if b["version"] == 2],
              [(2, "2026-08-15", "2026-06-30")]),
             ("docx · tiene hash de texto", portafolio.hash_texto(t / "m.docx") is not None, True),
             ("docx · la tabla se lee", "Rubén Cárdenas" in docx and "2026-10-19" in docx, True),

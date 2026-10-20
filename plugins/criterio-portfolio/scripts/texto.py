@@ -11,7 +11,10 @@ con el skill project-record. Aquí solo se saca el texto de adentro del archivo.
 
 Librería estándar, sin dependencias. Eso es posible porque `.docx`, `.xlsx` y
 `.pptx` son archivos ZIP con XML adentro, y `zipfile` y `xml.etree` vienen con
-Python. El PDF es el único formato que de verdad necesita algo de afuera.
+Python. El cronograma de Microsoft Project guardado como XML también es XML, y se
+procesa como cronograma: tareas, hitos, líneas base, predecesoras y recursos. El PDF
+necesita `pdftotext`, y el `.mpp` binario de Project necesita Java con MPXJ; sin eso,
+se declara cómo guardarlo para que se procese.
 
 La conversión es un CACHÉ, no la fuente. La cita de una ficha apunta siempre al
 documento original, porque es lo que una persona abre para verificar. El Markdown
@@ -191,17 +194,147 @@ def de_pdf(ruta: Path):
     return r.stdout, None
 
 
+# ---------------------------------------------------------------- Microsoft Project
+
+NS_PROJECT = "http://schemas.microsoft.com/project"
+TIPOS_DEPENDENCIA = {"0": "FF", "1": "FS", "2": "SF", "3": "SS"}
+
+
+def es_project(ruta: Path) -> bool:
+    """El XML que guarda Microsoft Project (MSPDI): su raíz es `<Project>` en el espacio
+    de nombres de Project. Cualquier otro XML se procesa como marcado."""
+    try:
+        with ruta.open("rb") as f:
+            cabeza = f.read(4096).decode("utf-8", errors="replace")
+    except OSError:
+        return False
+    return NS_PROJECT in cabeza and "<Project" in cabeza
+
+
+def _fecha(v):
+    return v[:10] if v and re.match(r"\d{4}-\d{2}-\d{2}", v) else None
+
+
+def _dias(duracion, minutos_dia: int):
+    """`PT40H0M0S` → días de trabajo, con los minutos por día del propio proyecto."""
+    m = re.match(r"PT(\d+)H(\d+)M", duracion or "")
+    if not m:
+        return None
+    return round((int(m.group(1)) * 60 + int(m.group(2))) / minutos_dia, 2)
+
+
+def proyecto_mspdi(ruta: Path) -> dict:
+    """El cronograma de un XML de Project, con sus campos y sin interpretar: lo que el
+    archivo dice. La tarea de UID 0 es el resumen del proyecto y no se cuenta."""
+    raiz = ET.parse(ruta).getroot()
+    ns = {"p": NS_PROJECT}
+
+    def t(el, tag):
+        x = el.find(f"p:{tag}", ns)
+        return x.text.strip() if x is not None and x.text else None
+
+    minutos_dia = int(t(raiz, "MinutesPerDay") or 480)
+    recursos = {t(r, "UID"): t(r, "Name") for r in raiz.findall("p:Resources/p:Resource", ns)}
+    asignados = {}
+    for a in raiz.findall("p:Assignments/p:Assignment", ns):
+        nombre = recursos.get(t(a, "ResourceUID"))
+        if nombre:
+            asignados.setdefault(t(a, "TaskUID"), []).append(nombre)
+    tareas = []
+    for x in raiz.findall("p:Tasks/p:Task", ns):
+        uid = t(x, "UID")
+        if uid in (None, "0") or t(x, "IsNull") == "1":
+            continue
+        bases = {}
+        for b in x.findall("p:Baseline", ns):
+            bases[int(t(b, "Number") or 0)] = {"start": _fecha(t(b, "Start")), "finish": _fecha(t(b, "Finish"))}
+        preds = [{"uid": t(l, "PredecessorUID"), "type": TIPOS_DEPENDENCIA.get(t(l, "Type") or "1", "FS"),
+                  "lag_days": round(int(t(l, "LinkLag") or 0) / 10 / minutos_dia, 2)}
+                 for l in x.findall("p:PredecessorLink", ns)]
+        tareas.append({"uid": uid, "id": t(x, "ID"), "wbs": t(x, "WBS") or t(x, "OutlineNumber"),
+                       "name": t(x, "Name") or "", "level": int(t(x, "OutlineLevel") or 1),
+                       "summary": t(x, "Summary") == "1", "milestone": t(x, "Milestone") == "1",
+                       "start": _fecha(t(x, "Start")), "finish": _fecha(t(x, "Finish")),
+                       "duration_days": _dias(t(x, "Duration"), minutos_dia),
+                       "percent": int(float(t(x, "PercentComplete") or 0)),
+                       "actual_finish": _fecha(t(x, "ActualFinish")), "baselines": bases,
+                       "predecessors": preds, "resources": asignados.get(uid, [])})
+    return {"name": t(raiz, "Title") or t(raiz, "Name"), "start": _fecha(t(raiz, "StartDate")),
+            "finish": _fecha(t(raiz, "FinishDate")), "status_date": _fecha(t(raiz, "StatusDate")),
+            "tasks": tareas}
+
+
+def hitos_project(cr: dict) -> list:
+    """Las filas del cronograma con las mismas columnas que el CSV y el Excel —hito, fecha
+    de línea base, fecha vigente, estado—, para que el motor las procese igual. Son los
+    hitos del archivo; si no marca ninguno, las tareas que no son resumen."""
+    filas = [x for x in cr["tasks"] if x["milestone"]] or [x for x in cr["tasks"] if not x["summary"]]
+    return [{"hito": x["name"], "fecha_linea_base": (x["baselines"].get(0) or {}).get("finish") or x["finish"],
+             "fecha_vigente": x["finish"],
+             "estado": "cerrado" if x["percent"] >= 100 else ("en curso" if x["percent"] > 0 else "pendiente")}
+            for x in filas if x["finish"]]
+
+
+def de_project(ruta: Path) -> str:
+    cr = proyecto_mspdi(ruta)
+    por_uid = {x["uid"]: x["id"] or x["uid"] for x in cr["tasks"]}
+    lineas = [f"# Cronograma · Microsoft Project · {cr['name'] or ruta.stem}", "",
+              f"**Inicio:** {cr['start'] or '—'} · **Fin:** {cr['finish'] or '—'} · "
+              f"**Fecha de estado:** {cr['status_date'] or '—'}", "", "## Tareas", "",
+              "| ID | EDT | Tarea | Inicio | Fin | Línea base: fin | Avance | Tipo | Predecesoras | Recursos |",
+              "|---|---|---|---|---|---|---|---|---|---|"]
+    for x in cr["tasks"]:
+        tipo = "hito" if x["milestone"] else ("resumen" if x["summary"] else "tarea")
+        preds = ", ".join(f"{por_uid.get(p['uid'], p['uid'])}{p['type']}"
+                          + (f"{'+' if p['lag_days'] > 0 else ''}{p['lag_days']:g}d" if p["lag_days"] else "")
+                          for p in x["predecessors"])
+        base = (x["baselines"].get(0) or {}).get("finish") or "—"
+        lineas.append(f"| {x['id'] or ''} | {x['wbs'] or ''} | {'· ' * (x['level'] - 1)}{x['name']} | {x['start'] or '—'} | "
+                      f"{x['finish'] or '—'} | {base} | {x['percent']}% | {tipo} | {preds or '—'} | {', '.join(x['resources']) or '—'} |")
+    hitos = hitos_project(cr)
+    if hitos:
+        lineas += ["", "## Hitos", "", "| Hito | Línea base | Vigente | Estado |", "|---|---|---|---|"]
+        lineas += [f"| {h['hito']} | {h['fecha_linea_base']} | {h['fecha_vigente']} | {h['estado']} |" for h in hitos]
+    return "\n".join(lineas)
+
+
+def de_xml(ruta: Path):
+    """Un XML de Project es un cronograma; cualquier otro XML, marcado."""
+    return ("project", de_project(ruta)) if es_project(ruta) else ("marcado", de_marcado(ruta))
+
+
+def de_mpp(ruta: Path):
+    """El `.mpp` es binario y propietario. Se procesa solo si el equipo tiene Java y MPXJ
+    —`CRITERIO_MPXJ` con el classpath de sus .jar—, que lo pasa a XML de Project. Sin eso
+    se declara, con la forma de guardarlo para que sí se procese."""
+    import os
+    import tempfile
+    cp = os.environ.get("CRITERIO_MPXJ")
+    if not cp or not shutil.which("java"):
+        return None, ("Microsoft Project (.mpp). Guárdalo como XML de Project (Archivo → Guardar como → "
+                      "XML) y se procesa como cronograma, o configura Java con MPXJ en CRITERIO_MPXJ.")
+    with tempfile.TemporaryDirectory() as tmp:
+        destino = Path(tmp) / (ruta.stem + ".xml")
+        try:
+            r = subprocess.run(["java", "-cp", cp, "net.sf.mpxj.sample.MpxjConvert", str(ruta), str(destino)],
+                               capture_output=True, text=True, timeout=180)
+        except (OSError, subprocess.TimeoutExpired) as e:
+            return None, f"MPXJ falló: {e}"
+        if r.returncode != 0 or not destino.exists():
+            return None, f"MPXJ no pudo convertir el .mpp (código {r.returncode})"
+        return de_project(destino), None
+
+
 CONVERTIDORES = {
     ".docx": ("docx", de_docx), ".xlsx": ("xlsx", de_xlsx), ".pptx": ("pptx", de_pptx),
     ".html": ("marcado", de_marcado), ".htm": ("marcado", de_marcado),
-    ".xml": ("marcado", de_marcado), ".eml": ("eml", de_eml),
+    ".eml": ("eml", de_eml),
 }
 
 SIN_SOPORTE = {
     ".msg": "formato propietario de Outlook. Guárdalo como .eml y se lee.",
     ".doc": "Word anterior a 2007. Guárdalo como .docx y se lee.",
     ".xls": "Excel anterior a 2007. Guárdalo como .xlsx y se lee.",
-    ".mpp": "Microsoft Project. Expórtalo a .xlsx o .csv.",
     ".zip": "un contenedor: descomprímelo en la carpeta.",
 }
 
@@ -228,6 +361,12 @@ def convertir(docs: Path, cache: Path, solo: str | None = None) -> dict:
             elif ext == ".pdf":
                 fila["converter"] = "pdftotext"
                 texto, razon = de_pdf(ruta)
+            elif ext == ".xml":
+                fila["converter"], texto = de_xml(ruta)
+                razon = None
+            elif ext == ".mpp":
+                fila["converter"] = "mpxj"
+                texto, razon = de_mpp(ruta)
             elif ext in CONVERTIDORES:
                 nombre, fn = CONVERTIDORES[ext]
                 fila["converter"], texto, razon = nombre, fn(ruta), None
@@ -267,7 +406,7 @@ def convertir(docs: Path, cache: Path, solo: str | None = None) -> dict:
 
 
 def selftest() -> int:
-    """Construye un .docx, un .xlsx y un .pptx mínimos y los vuelve a leer."""
+    """Construye un .docx, un .xlsx, un .pptx y un XML de Project mínimos y los vuelve a leer."""
     import tempfile
     tmp = Path(tempfile.mkdtemp())
     docs = tmp / "docs"
@@ -305,14 +444,46 @@ def selftest() -> int:
                                     encoding="utf-8")
     (docs / "reporte.msg").write_bytes(b"binario de outlook")
 
+    # El XML que guarda Microsoft Project: un resumen, dos tareas y un hito con línea base,
+    # predecesora, avance y un recurso asignado.
+    (docs / "cronograma.xml").write_text(
+        f'<?xml version="1.0" encoding="UTF-8"?><Project xmlns="{NS_PROJECT}"><Title>Core de depósitos</Title>'
+        '<StartDate>2026-01-12T08:00:00</StartDate><FinishDate>2026-09-30T17:00:00</FinishDate>'
+        '<StatusDate>2026-06-01T17:00:00</StatusDate><MinutesPerDay>480</MinutesPerDay><Tasks>'
+        '<Task><UID>0</UID><ID>0</ID><Name>Core de depósitos</Name><Summary>1</Summary></Task>'
+        '<Task><UID>1</UID><ID>1</ID><Name>Diseño</Name><WBS>1</WBS><OutlineLevel>1</OutlineLevel>'
+        '<Start>2026-01-12T08:00:00</Start><Finish>2026-03-06T17:00:00</Finish><Duration>PT320H0M0S</Duration>'
+        '<PercentComplete>100</PercentComplete><Baseline><Number>0</Number><Finish>2026-02-27T17:00:00</Finish></Baseline></Task>'
+        '<Task><UID>2</UID><ID>2</ID><Name>Migración</Name><WBS>2</WBS><OutlineLevel>1</OutlineLevel>'
+        '<Start>2026-03-09T08:00:00</Start><Finish>2026-08-28T17:00:00</Finish><PercentComplete>40</PercentComplete>'
+        '<PredecessorLink><PredecessorUID>1</PredecessorUID><Type>1</Type><LinkLag>9600</LinkLag></PredecessorLink></Task>'
+        '<Task><UID>3</UID><ID>3</ID><Name>Salida en vivo</Name><WBS>3</WBS><OutlineLevel>1</OutlineLevel><Milestone>1</Milestone>'
+        '<Start>2026-09-30T17:00:00</Start><Finish>2026-09-30T17:00:00</Finish><PercentComplete>0</PercentComplete>'
+        '<Baseline><Number>0</Number><Finish>2026-07-31T17:00:00</Finish></Baseline>'
+        '<PredecessorLink><PredecessorUID>2</PredecessorUID><Type>1</Type></PredecessorLink></Task>'
+        '</Tasks><Resources><Resource><UID>1</UID><Name>Laura Gómez</Name></Resource></Resources>'
+        '<Assignments><Assignment><TaskUID>2</TaskUID><ResourceUID>1</ResourceUID></Assignment></Assignments></Project>',
+        encoding="utf-8")
+    (docs / "otro.xml").write_text('<?xml version="1.0"?><nota><p>Texto de una nota</p></nota>', encoding="utf-8")
+    (docs / "plan.mpp").write_bytes(b"binario de project")
+
     r = convertir(docs, tmp / "cache")
     por_ruta = {f["path"]: f for f in r["files"]}
     leer = lambda p: (tmp / "cache" / por_ruta[p]["cached"]).read_text(encoding="utf-8")
 
     pruebas = [
-        ("documentos vistos", r["documents"], 5),
-        ("convertidos", r["converted"], 4),
-        ("ilegibles declarados", r["unreadable"], 1),
+        ("documentos vistos", r["documents"], 8),
+        ("convertidos", r["converted"], 6),
+        ("ilegibles declarados", r["unreadable"], 2),
+        ("project · se reconoce", por_ruta["cronograma.xml"]["converter"], "project"),
+        ("project · la tarea, su fin y su avance", "| 2 | 2 | Migración | 2026-03-09 | 2026-08-28 | — | 40% |" in leer("cronograma.xml"), True),
+        ("project · predecesora con desfase", "1FS+2d" in leer("cronograma.xml"), True),
+        ("project · recurso asignado", "Laura Gómez" in leer("cronograma.xml"), True),
+        ("project · el hito contra su línea base", "| Salida en vivo | 2026-07-31 | 2026-09-30 | pendiente |" in leer("cronograma.xml"), True),
+        ("project · el resumen no es tarea", "| 0 |" in leer("cronograma.xml"), False),
+        ("xml común · sigue como marcado", por_ruta["otro.xml"]["converter"], "marcado"),
+        ("mpp · sin MPXJ se declara", por_ruta["plan.mpp"]["ok"], False),
+        ("mpp · dice cómo guardarlo", "XML de Project" in por_ruta["plan.mpp"]["reason"], True),
         ("docx · patrocinador", "María Restrepo" in leer("acta.docx"), True),
         ("docx · dos párrafos", "2026-11-30" in leer("acta.docx"), True),
         ("xlsx · nombre de la hoja", "Presupuesto" in leer("presupuesto.xlsx"), True),

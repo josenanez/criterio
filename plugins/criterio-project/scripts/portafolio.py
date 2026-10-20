@@ -2055,6 +2055,14 @@ def _selftest_plan():
         "hito,fecha_linea_base,fecha_vigente,estado\nA,2026-03-01,2026-03-01,cerrado\nB,2026-06-30,2026-06-30,en curso\n", encoding="utf-8")
     (plan_d / "2026-05-02-cronograma-v2.csv").write_text(
         "hito,fecha_linea_base,fecha_vigente,estado\nA,2026-03-01,2026-03-01,cerrado\nB,2026-06-30,2026-08-15,en curso\n", encoding="utf-8")
+    # La tercera, guardada desde Microsoft Project: el motor la procesa como las otras dos.
+    (plan_d / "2026-07-20-cronograma-v3.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?><Project xmlns="http://schemas.microsoft.com/project"><Tasks>'
+        '<Task><UID>1</UID><ID>1</ID><Name>A</Name><Milestone>1</Milestone><Finish>2026-03-01T17:00:00</Finish>'
+        '<PercentComplete>100</PercentComplete><Baseline><Number>0</Number><Finish>2026-03-01T17:00:00</Finish></Baseline></Task>'
+        '<Task><UID>2</UID><ID>2</ID><Name>B</Name><Milestone>1</Milestone><Finish>2026-09-30T17:00:00</Finish>'
+        '<PercentComplete>0</PercentComplete><Baseline><Number>0</Number><Finish>2026-06-30T17:00:00</Finish></Baseline></Task>'
+        '</Tasks></Project>', encoding="utf-8")
     ex = dict(DEFAULT_EXECUTION, batch_projects=2)
     p1 = plan(docs, estado, ex)
     sin_corrida = sellar(docs, estado, "PRY-001")
@@ -2105,13 +2113,13 @@ def _selftest_plan():
          (None, None, "Ana")),
         ("una cita con dos rutas no se sella", (con_rota["ok"], len(con_rota.get("broken") or [])), (False, 1)),
         ("la cita rota de la ficha del gerente no frena el sello de Vera", ajena, []),
-        ("sin hash, todo se relee (el día de la cuota)", p1["to_read"], 14),
+        ("sin hash, todo se relee (el día de la cuota)", p1["to_read"], 15),
         ("sin corrida abierta no se sella", sin_corrida["ok"], False),
         ("una ficha no reescrita en la corrida no se sella", sin_releer["ok"], False),
         ("sellar calcula los hashes", all(s["ok"] for s in sellados), True),
         ("y completa las líneas base desde los cronogramas",
          [(b["version"], b["end_date"]) for b in json.loads((estado / "records" / "PRY-003.json").read_text())["plan"]["baseline"]],
-         [(1, "2026-06-30"), (2, "2026-08-15")]),
+         [(1, "2026-06-30"), (2, "2026-08-15"), (3, "2026-09-30")]),
         ("sellado y sin cambios: plan vacío", (p2["to_read"], p2["batches"]), (0, [])),
         ("un documento cambiado: un proyecto, un lote", [b["projects"] for b in p3["batches"]], [["PRY-002"]]),
         ("el tope corta por proyecto y difiere", (p4["to_read"], p4["deferred"]["projects"]), (4, ["PRY-002", "PRY-003"])),
@@ -2119,7 +2127,7 @@ def _selftest_plan():
         ("el modo dice cuántos a la vez", "hasta 3 a la vez" in p5["mode"] and "uno tras otro" in p4["mode"], True),
         ("el inventario lo da el plan, no el agente",
          (p1["inventory"]["folders"], p1["inventory"]["formats"], p1["inventory"]["newest"]),
-         (3, {".csv": 2, ".md": 12}, "2026-09-04")),
+         (3, {".csv": 2, ".md": 12, ".xml": 1}, "2026-09-04")),
     ]
 
 
@@ -2409,7 +2417,8 @@ def plan(docs: Path, state: Path, execution: dict) -> dict:
 
 
 def lineas_base_csv(carpeta: Path, docs: Path) -> list:
-    """Las líneas base que se leen sin interpretar: cada `…cronograma-vN.csv` es una.
+    """Las líneas base que se leen sin interpretar: cada `…cronograma-vN` —CSV, Excel o
+    XML de Microsoft Project— es una.
 
     Es lectura, no juicio: la fecha del archivo es cuándo se aprobó, y la fecha vigente
     más tardía de sus hitos es su fin. En la fase 2 el agente leyó bien los hitos del v2
@@ -2419,12 +2428,19 @@ def lineas_base_csv(carpeta: Path, docs: Path) -> list:
     import csv
     salida = []
     for f in sorted(carpeta.rglob("*cronograma-v*")):
-        m = re.search(r"(\d{4}-\d{2}-\d{2}).*cronograma-v(\d+)\.(csv|xlsx)$", f.name)
+        m = re.search(r"(\d{4}-\d{2}-\d{2}).*cronograma-v(\d+)\.(csv|xlsx|xml)$", f.name)
         if not m:
             continue
         try:
             if m.group(3) == "csv":
                 filas = list(csv.DictReader(f.read_text(encoding="utf-8").splitlines()))
+            elif m.group(3) == "xml":
+                # El cronograma de Project: sus hitos con la línea base que guardó el propio
+                # archivo y la fecha vigente, en las mismas columnas que el CSV.
+                tx = _texto()
+                if not tx or not tx.es_project(f):
+                    continue
+                filas = tx.hitos_project(tx.proyecto_mspdi(f))
             else:
                 # El cronograma en Excel, que es como llega casi siempre. La primera hoja,
                 # la primera fila como encabezado.
