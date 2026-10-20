@@ -2,7 +2,7 @@
 
 **el agente del gerente de producto** · plugin `criterio-product`
 
-Corrida del 2026-10-19, sobre el commit `5129851`, con cambios en el árbol todavía sin confirmar. **3 puertas · 107 comprobaciones · todas en verde.**
+Corrida del 2026-10-20, sobre el commit `c6146c0`, con cambios en el árbol todavía sin confirmar. **3 puertas · 107 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-10-19, sobre el commit `5129851`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 32 ms | verde |
-| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 30 ms | verde |
-| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 120 ms | verde |
+| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 39 ms | verde |
+| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 37 ms | verde |
+| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 131 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -72,6 +72,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
 | `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | verde |
 | `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | verde |
+| `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
 
 El conjunto de los tres agentes, en [`docs/pruebas.md`](../../docs/pruebas.md) — y con gráficas, para abrir en un navegador, en [`pruebas.html`](../../docs/pruebas.html). Todo corre con la librería estándar y sin instalar nada.
