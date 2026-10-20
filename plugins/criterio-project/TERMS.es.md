@@ -1,16 +1,16 @@
 # Términos de uso
 
-[English](TERMS.md) · Versión 1.1 · 2026-10-15
+[English](TERMS.md) · Versión 1.2 · 2026-10-20
 
 Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos. Si no los acepta, no lo instale.
 
 ---
 
-## 1. No es asesoría; cada versión se certifica antes de publicarse
+## 1. No es asesoría; cada versión se prueba antes de publicarse
 
 Criterio produce **borradores de trabajo**. No es asesoría y no crea relación profesional alguna entre usted y el mantenedor o cualquier aportante.
 
-Cada versión pasa una certificación interna antes de publicarse: pruebas automáticas del código en cada cambio, y rondas en las que los tres agentes ejecutan todos sus comandos sobre datos de prueba sintéticos, construidos a partir de proyectos reales de entidades financieras, retail y minería, sin datos de ninguna organización. Lo que produce cada agente se compara con una clave de respuestas, y los resultados —con su margen de confianza, los defectos encontrados y su corrección— se publican en la evidencia de pruebas y en la nota legal: https://www.josenanez.com/es/agents/criterio-pmo.
+Cada versión pasa una validación interna antes de publicarse: pruebas automáticas del código en cada cambio, y rondas en las que los tres agentes ejecutan todos sus comandos sobre datos de prueba sintéticos, construidos a partir de proyectos reales de entidades financieras, retail y minería, sin datos de ninguna organización. Lo que produce cada agente se compara con una clave de respuestas, y los resultados —con su margen de confianza, los defectos encontrados y su corrección— se publican en la evidencia de pruebas y en la nota legal: https://www.josenanez.com/es/agents/criterio-pmo.
 
 ## 2. La verificación es suya
 
@@ -60,7 +60,7 @@ Estos términos están versionados. Un cambio sube la versión y la fecha al ini
 
 Esto es lo que el plugin le muestra antes de pedirle que acepte:
 
-> Criterio produce borradores de trabajo, no decisiones ni asesoría. Procesa los documentos que usted le indique y dice lo que muestran; no sabe lo que se habló fuera de ellos. Puede equivocarse, y por eso cada dato viene con la cita del documento de donde salió: la verificación es suya. Sus documentos se procesan en la infraestructura de la plataforma de IA, no solo en su equipo. Cada versión se certifica antes de publicarse; garantía y responsabilidad: licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
+> Criterio produce borradores de trabajo, no decisiones ni asesoría. Procesa los documentos que usted le indique y dice lo que muestran; no sabe lo que se habló fuera de ellos. Puede equivocarse, y por eso cada dato viene con la cita del documento de donde salió: la verificación es suya. Sus documentos se procesan en la infraestructura de la plataforma de IA, no solo en su equipo. Cada versión se prueba antes de publicarse; garantía y responsabilidad: licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
 
 ---
 

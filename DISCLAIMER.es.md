@@ -4,7 +4,7 @@
 
 ## Léalo antes de instalar
 
-**Criterio produce borradores de trabajo, no decisiones. Cada versión pasa una certificación interna antes de publicarse.**
+**Criterio produce borradores de trabajo, no decisiones. Cada versión pasa una validación interna antes de publicarse.**
 
 Este repositorio contiene instrucciones para un modelo de lenguaje. Su salida debe verificarla alguien competente antes de usarla para decidir, firmar, reportar o escalar.
 

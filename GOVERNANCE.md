@@ -13,7 +13,7 @@
 
 ## Release model
 
-Criterio builds and releases with an explicit disclaimer, and whoever deploys or runs it accepts the terms. Every version goes through an internal certification before it is published —the code gates on every change and the rounds of the three agents on synthetic test data built from real projects— and enters the version register; the word *certified* is used only for that and always with a link to its evidence. Warranty and liability are governed by the Apache 2.0 licence. See [TERMS.md](TERMS.md) and [docs/acceptance.md](docs/acceptance.md).
+Criterio builds and releases with an explicit disclaimer, and whoever deploys or runs it accepts the terms. Every version goes through an internal validation before it is published —the code gates on every change and the rounds of the three agents on synthetic test data built from real projects— and enters the version register; the product is never called *certified*, *verified* or *approved* (decision 0003): it is called *tested*, always with a link to its evidence. Warranty and liability are governed by the Apache 2.0 licence. See [TERMS.md](TERMS.md) and [docs/acceptance.md](docs/acceptance.md).
 
 What holds quality up is not a signature. It is that every statement in an output carries the document it came from, that arithmetic lives in code where it can be tested, and that anything uncertain or stale is surfaced at run time rather than smoothed over.
 

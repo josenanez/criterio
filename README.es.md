@@ -88,7 +88,7 @@ gobierno de proyectos, en [criterio-pmo](families/criterio-pmo/README.es.md#inst
 
 **Lo que no afirmamos**
 
-Esto produce borradores de trabajo, no decisiones. Cada versión pasa una certificación interna antes de publicarse, y su evidencia es pública. Los agentes saben lo que se escribió, no lo que se habló fuera de los documentos. Lee el [descargo](DISCLAIMER.es.md) antes de instalar: usarlo implica aceptar los [términos](TERMS.es.md).
+Esto produce borradores de trabajo, no decisiones. Cada versión pasa una validación interna antes de publicarse, y su evidencia es pública. Los agentes saben lo que se escribió, no lo que se habló fuera de los documentos. Lee el [descargo](DISCLAIMER.es.md) antes de instalar: usarlo implica aceptar los [términos](TERMS.es.md).
 
 ---
 

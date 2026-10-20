@@ -1,16 +1,16 @@
 # Terms of use
 
-[Español](TERMS.es.md) · Version 1.1 · 2026-10-15
+[Español](TERMS.es.md) · Version 1.2 · 2026-10-20
 
 By installing, deploying, testing or running Criterio, you accept these terms. If you do not accept them, do not install it.
 
 ---
 
-## 1. Not advice; every version is certified before it is published
+## 1. Not advice; every version is tested before it is published
 
 Criterio produces **working drafts**. It is not advice and creates no professional relationship of any kind between you and the maintainer or any contributor.
 
-Every version goes through an internal certification before it is published: automated tests of the code on every change, and rounds in which the three agents run all their commands on synthetic test data, built from real projects in financial entities, retail and mining, with no data from any organisation. What each agent produces is compared with an answer key, and the results —with their confidence margin, the defects found and their fix— are published in the test evidence and the legal notice: https://www.josenanez.com/agents/criterio-pmo.
+Every version goes through an internal validation before it is published: automated tests of the code on every change, and rounds in which the three agents run all their commands on synthetic test data, built from real projects in financial entities, retail and mining, with no data from any organisation. What each agent produces is compared with an answer key, and the results —with their confidence margin, the defects found and their fix— are published in the test evidence and the legal notice: https://www.josenanez.com/agents/criterio-pmo.
 
 ## 2. Verification is yours
 
@@ -60,7 +60,7 @@ These terms are versioned. A change bumps the version and the date at the top of
 
 This is what the plugin shows you before asking you to accept:
 
-> Criterio produces working drafts, not decisions or advice. It processes the documents you point it to and says what they show; it does not know what was said outside them. It can be wrong, which is why every data point comes with a citation to the document it came from: verification is yours. Your documents are processed on the AI platform's infrastructure, not only on your machine. Every version is certified before it is published; warranty and liability: Apache 2.0 licence. Every version is accepted again and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
+> Criterio produces working drafts, not decisions or advice. It processes the documents you point it to and says what they show; it does not know what was said outside them. It can be wrong, which is why every data point comes with a citation to the document it came from: verification is yours. Your documents are processed on the AI platform's infrastructure, not only on your machine. Every version is tested before it is published; warranty and liability: Apache 2.0 licence. Every version is accepted again and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
 
 ---
 

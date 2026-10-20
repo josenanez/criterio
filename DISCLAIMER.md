@@ -4,7 +4,7 @@
 
 ## Read this before you install
 
-**Criterio produces working drafts, not decisions. Every version goes through an internal certification before it is published.**
+**Criterio produces working drafts, not decisions. Every version goes through an internal validation before it is published.**
 
 This repository contains instructions for a language model. Its output must be checked by someone qualified before it is used to decide, sign, file, report or escalate.
 
