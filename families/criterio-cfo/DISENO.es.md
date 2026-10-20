@@ -72,6 +72,7 @@ verifican campo por campo antes de escribir el lector ([ADR 0006](../../docs/dec
 | `bank_unreconciled` | Hay movimientos del extracto sin su registro, o registros sin su movimiento |
 | `reconciling_item_aged` | Una partida conciliatoria lleva más días de los configurados |
 | `reconciliation_stale` | La conciliación de una cuenta no se actualizó en el periodo |
+| `account_unreconciled` | El saldo de una cuenta en el mayor no es el de su auxiliar (cuentas por cobrar, por pagar, inventarios, activos fijos, intercompañías) |
 | `einvoice_not_recorded` | Una factura electrónica emitida o recibida no tiene registro contable |
 | `recorded_without_einvoice` | Un registro que la necesita no tiene factura electrónica que lo soporte |
 | `einvoice_amount_mismatch` | El valor o el impuesto del XML no es el del registro |
@@ -112,18 +113,115 @@ supervisores; no opina sobre deducibilidad, tarifas ni tratamientos NIIF en la p
 no dice de memoria una tarifa, un plazo ni el valor de una unidad tributaria; no firma; no declara
 el estado del cierre ni del presupuesto.
 
-## Comandos propuestos
+## La estructura de carpetas
 
-| Clara · `criterio-finance` | Qué produce |
-|---|---|
-| `finance-setup` | Mira las carpetas, hace pocas preguntas (entidad, país, periodo, ERP) y arma la primera ficha del cierre |
-| `close-scan` | Procesa los documentos del periodo y actualiza la ficha con su cita |
-| `close-status` | El estado del cierre contra el checklist, separando lo declarado de lo que sostienen los soportes |
-| `bank-reconcile` | La conciliación de cada cuenta bancaria, con partidas abiertas y su antigüedad |
-| `ledger-check` | El cuadre del balance de comprobación y del mayor |
-| `einvoice-check` | Cada factura electrónica contra su registro, y cada registro contra su factura |
-| `audit-pack` | El paquete para el auditor: requerimientos, respuestas y soportes, con lo que falta |
-| `finance-wake` | Lo que toca hoy según la cadencia del cierre; si no toca nada, se calla |
+Clara procesa una carpeta por entidad y, dentro, una por periodo. Cada tipo de documento tiene su
+lugar, numerado en el orden en que se trabaja el cierre. `finance-setup` crea la estructura vacía
+si no existe y, en cada corrida, dice qué archivo está fuera de su lugar y dónde va; no lo mueve.
+
+```
+finanzas/
+└── <entidad>/                          una por entidad (NIT o RUC en la configuración)
+    ├── configuracion/                  la escribe finance-setup: país, marco, ERP, moneda, umbrales,
+    │                                   quién aprueba, plan de cuentas con la naturaleza de cada cuenta
+    ├── checklist/
+    │   └── checklist-cierre.xlsx       el checklist vigente, en el modelo definido (abajo)
+    └── <AAAA-MM>/                      un periodo
+        ├── 01-contabilidad/
+        │   ├── balance-comprobacion.xlsx|csv
+        │   ├── libro-mayor.xlsx|csv
+        │   └── auxiliares/<cuenta>.xlsx|csv
+        ├── 02-bancos/
+        │   └── <banco>-<últimos 4 dígitos de la cuenta>/
+        │       ├── extracto.csv|xlsx|pdf
+        │       └── auxiliar-libros.xlsx|csv
+        ├── 03-facturacion/
+        │   ├── emitidas/               XML de la DIAN (F-01) o del SRI (F-04)
+        │   └── recibidas/
+        ├── 04-soportes/                la evidencia de cada tarea del checklist: actas, correos,
+        │                               conciliaciones firmadas; el nombre empieza con el id de la tarea
+        └── 05-auditoria/
+            ├── requerimientos/
+            └── respuestas/
+estado-finanzas/                        lo que escribe Clara: fichas, informes, índices; nunca lo edita
+                                        una persona
+```
+
+Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta.
+
+## El checklist del cierre
+
+El checklist llega de una de dos formas, y la persona elige:
+
+1. **Lo carga la organización** en el modelo definido.
+2. **Clara recomienda uno por industria** —banca, cooperativas, retail y minería, las cuatro de las
+   pruebas— como borrador. Una persona lo revisa y lo aprueba antes de usarlo; hasta entonces el
+   estado del cierre se calcula, pero el informe dice que el checklist no está aprobado.
+
+El modelo es una hoja con estas columnas:
+
+| Columna | Qué lleva | Obligatoria |
+|---|---|---|
+| `id` | Identificador único de la tarea, por ejemplo `C-07` | Sí |
+| `tarea` | Qué se hace | Sí |
+| `area` | Contabilidad, tesorería, impuestos, nómina… | Sí |
+| `responsable` | Una persona, no un área | Sí |
+| `dia_limite` | Día hábil del cierre en que vence (D+3) o fecha | Sí |
+| `depende_de` | Ids de las tareas que tienen que estar antes | No |
+| `evidencia_esperada` | Qué documento la prueba: «conciliación firmada», «acta del comité» | Sí |
+| `criticidad` | Alta, media o baja | Sí |
+
+## El formato común de los reportes
+
+Todo reporte de Clara sale en Markdown, y Rostrum lo publica, con la misma estructura y en este
+orden, de lo más importante a lo menos:
+
+1. **Encabezado:** entidad, periodo, fecha de corte, versión del agente.
+2. **Lo que hay que atender:** las señales abiertas ordenadas por importancia (criticidad, monto y
+   antigüedad), cada una con su responsable y su cita.
+3. **El resultado:** la tabla propia de cada comando.
+4. **Lo que no se pudo procesar:** cada archivo con el motivo y dónde debería estar.
+5. **Las preguntas que hizo** y la respuesta que tomó.
+6. **Fuentes:** cada documento citado, con su ruta y su fecha, y las fuentes normativas o técnicas
+   por su identificador de [`FUENTES.es.md`](FUENTES.es.md).
+
+## Los comandos de Clara, en orden de importancia
+
+`finance-setup` va primero porque los demás lo necesitan: crea la estructura de carpetas, hace
+las preguntas que ningún documento responde y deja la configuración.
+
+| # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |
+|---|---|---|---|---|
+| 0 | `finance-setup` | La carpeta raíz. Preguntas: entidad y NIT o RUC, país, grupo NIIF, ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas | Crea las carpetas que falten; inventario de lo que hay | Configuración guardada; inventario por carpeta (qué hay, qué falta, qué está fuera de lugar); checklist cargado o recomendado; la primera ficha del cierre |
+| 1 | `close-scan` | El periodo completo | Extrae el texto de cada documento con su huella; solo relee lo que cambió; actualiza la ficha con la cita de cada dato | Qué cambió en el periodo; qué se agregó a la ficha; las señales nuevas; lo que no se pudo leer y por qué |
+| 2 | `close-status` | `checklist/checklist-cierre.xlsx`, `04-soportes/` y la ficha | Cruza cada tarea con su evidencia, su fecha y sus dependencias; calcula el avance con evidencia ponderado por criticidad | Estado declarado contra estado evidenciado; tabla de tareas ordenada por criticidad y vencimiento: cumplida con evidencia, cumplida sin evidencia, vencida, en plazo, bloqueada por otra; la ruta crítica del cierre |
+| 3 | `bank-reconcile` | Cada carpeta de `02-bancos/`: extracto y auxiliar, con fecha, descripción, referencia, valor y saldo | Cruce por referencia exacta, después por valor y fecha dentro de la ventana configurada, después por valor; clasifica cada partida abierta | Por cuenta: saldo según banco, consignaciones en tránsito, cheques pendientes de cobro, notas bancarias sin registrar y saldo según libros, con la diferencia sin explicar (debe ser cero); partidas abiertas por antigüedad (0–30, 31–60, 61–90 y más de 90 días) |
+| 4 | `ledger-check` | `01-contabilidad/`: balance de comprobación y libro mayor; el plan de cuentas de la configuración | Débitos contra créditos; saldo inicial más movimientos contra saldo final; mayor contra balance, cuenta por cuenta; saldos contrarios a la naturaleza que declara el plan de cuentas de la organización | El cuadre general; las diferencias por cuenta con su monto; las cuentas con saldo contrario a su naturaleza |
+| 5 | `einvoice-check` | `03-facturacion/` y los registros contables de las cuentas que la configuración asocia a ventas y compras | Lee cada XML con la estructura oficial (F-01, F-04); cruza por CUFE o clave de acceso, número, NIT o RUC y valor | Facturas sin registro, registros sin factura, diferencias de valor o de impuesto, duplicados; sin opinión fiscal: lo que es criterio tributario queda como pregunta para la persona |
+| 6 | `audit-pack` | `05-auditoria/` y la ficha | Cruza cada requerimiento con su respuesta y sus soportes | El índice del paquete: requerimiento, respuesta, soporte citado y estado (respondido con soporte, respondido sin soporte, sin responder, vencido); no mueve ni copia archivos |
+| 7 | `finance-wake` | La configuración y la ficha | Decide qué toca según la cadencia: a diario durante la ventana del cierre, semanal fuera de ella | Lo que corrió y lo que encontró; si no toca nada, se calla |
+
+### La conciliación contable
+
+La conciliación de cuentas contra sus auxiliares —cuentas por cobrar, cuentas por pagar,
+inventarios, activos fijos, intercompañías— es trabajo del contralor, así que es de Clara y de
+este plugin, no de otro. Entra como un comando propio, **`account-reconcile`**, después de
+`bank-reconcile` y con su misma lógica: el mayor contra el auxiliar de cada cuenta, las partidas
+abiertas y su antigüedad. Su entrada es `01-contabilidad/auxiliares/`. La consolidación de varias
+entidades queda fuera de la primera versión.
+
+## Rostrum: el mismo, ampliado
+
+Rostrum no se duplica: un solo servidor publica los informes de todas las familias. Hoy vive
+dentro de `criterio-portfolio`, y eso obliga a instalar la familia PMO para publicar el cierre.
+La propuesta es sacarlo a un plugin propio, compartido, y ampliarlo con las páginas del cierre y
+del presupuesto.
+
+Después de este diseño viene su evolución visual, con estándares internacionales de usabilidad y
+accesibilidad: WCAG 2.2 nivel AA para accesibilidad y la serie ISO 9241 para el diseño centrado
+en las personas.
+
+## Los comandos de Tomás (por detallar)
 
 | Tomás · `criterio-budget` | Qué produce |
 |---|---|
@@ -172,4 +270,5 @@ README de `criterio-finance`, quedan por verificar antes de publicarse en otro l
 1. Los formatos de exportación del ERP que se soportan primero: una plantilla de columnas por
    ERP, o un mapeo que `finance-setup` y `budget-setup` preguntan.
 2. Los umbrales por defecto de cada señal.
-3. Si Rostrum publica los informes financieros desde la primera versión o después.
+3. Sacar Rostrum de `criterio-portfolio` a un plugin propio compartido: el nombre y el momento.
+4. Los checklists recomendados por industria: quién los redacta y con qué fuente.
