@@ -23,10 +23,10 @@ estado. El diseño, la documentación y las pruebas citan esas fuentes por su id
 
 ## Un agente por rol
 
-| Rol | Agente (nombre por confirmar) | Plugin | Qué hace |
+| Rol | Agente  | Plugin | Qué hace |
 |---|---|---|---|
 | Contralor | **Clara** — de *clarus*: que los libros digan lo mismo que los soportes | `criterio-finance` | El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica contra la contabilidad y el paquete para el auditor |
-| FP&A | **Tomás** — «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución | `criterio-fpa` | El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto |
+| FP&A | **Tomás** — «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución | `criterio-budget` | El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto |
 
 Como en la familia PMO, los dos no se hablan entre sí: se hablan por sus fichas.
 
@@ -125,7 +125,7 @@ el estado del cierre ni del presupuesto.
 | `audit-pack` | El paquete para el auditor: requerimientos, respuestas y soportes, con lo que falta |
 | `finance-wake` | Lo que toca hoy según la cadencia del cierre; si no toca nada, se calla |
 
-| Tomás · `criterio-fpa` | Qué produce |
+| Tomás · `criterio-budget` | Qué produce |
 |---|---|
 | `fpa-setup` | Mira las carpetas, hace pocas preguntas (año, áreas, versión aprobada) y arma la primera ficha del presupuesto |
 | `budget-scan` | Procesa presupuesto, ejecución, compromisos y actas, y actualiza cada ficha |
@@ -161,11 +161,15 @@ Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.e
 F-10 (Ventana Research / ISG) y F-11 (KPMG). Las de APQC (F-12) y Gartner (F-13), que hoy están en el
 README de `criterio-finance`, quedan por verificar antes de publicarse en otro lugar.
 
+## Decisiones cerradas
+
+- Los nombres de los agentes: Clara (contralora) y Tomás (FP&A). José, 2026-10-20.
+- Los plugins: `criterio-finance` para Clara, el que ya estaba declarado, y `criterio-budget` para
+  Tomás, dentro de la familia `criterio-cfo`. José, 2026-10-20.
+
 ## Decisiones abiertas
 
-1. Los nombres de los agentes: Clara y Tomás son una propuesta.
-2. El nombre del plugin de FP&A: `criterio-fpa`.
-3. Los formatos de exportación del ERP que se soportan primero: una plantilla de columnas por
+1. Los formatos de exportación del ERP que se soportan primero: una plantilla de columnas por
    ERP, o un mapeo que `finance-setup` y `fpa-setup` preguntan.
-4. Los umbrales por defecto de cada señal.
-5. Si Rostrum publica los informes financieros desde la primera versión o después.
+2. Los umbrales por defecto de cada señal.
+3. Si Rostrum publica los informes financieros desde la primera versión o después.

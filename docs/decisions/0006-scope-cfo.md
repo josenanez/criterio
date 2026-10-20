@@ -43,6 +43,7 @@ documentos distintos; mezclarlos repite el error que la familia PMO evitó con u
 - El diseño vive en `families/criterio-cfo/DISENO.es.md` y se construye por incrementos, como la
   familia PMO: primero comandos y skills con sus contratos; después material de prueba con clave;
   después rondas. Nada se declara probado sin ronda.
-- `criterio-finance` pasa a ser el plugin del contralor. FP&A lleva un plugin propio.
+- La familia es `criterio-cfo`. `criterio-finance` pasa a ser el plugin de Clara, la contralora, y
+  `criterio-budget` el de Tomás, FP&A.
 - La página de capacidades cambia el estado de CFO de «declarada» a «en construcción» solo cuando
   exista el primer comando que cumpla su contrato.
