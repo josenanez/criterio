@@ -112,6 +112,11 @@ Y hay cuatro formas de diferir, de las que **solo dos son hallazgo**:
 La segunda fila es la que hace que esto sirva. Sin ella, cada corrida reportaría cien
 diferencias de alcance y nadie volvería a abrir el informe.
 
+**Las diferencias de forma no son diferencias.** Antes de comparar, un texto vacío cuenta
+como vacío; un nombre se compara sin tildes, mayúsculas ni espacios de más; una fecha, como
+fecha, y un monto, como número («$1.850.000.000» y 1850000000 son el mismo aprobado). Lo
+calcula `compute`, no el modelo.
+
 **Contrastar no es arbitrar.** La señal no dice quién tiene razón, dice quién cita lo más
 nuevo — y la mitad de las veces el que la tiene es el gerente, porque estuvo en la
 reunión donde cambió el patrocinador y el acta de constitución no se actualizó nunca.

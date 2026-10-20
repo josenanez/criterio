@@ -684,6 +684,49 @@ def campo_en(rec, ruta):
     return nodo
 
 
+def _monto(v):
+    """Un monto escrito como lo escribe una persona —«$1.850.000.000», «1,850,000,000.00»,
+    «1.850.000.000,50»— como número. Lo que no es un monto devuelve None."""
+    if isinstance(v, (int, float)):
+        return float(v)
+    t = re.sub(r"[^\d.,-]", "", str(v))
+    if not re.search(r"\d", t):
+        return None
+    if "," in t and "." in t:
+        t = t.replace(".", "").replace(",", ".") if t.rfind(",") > t.rfind(".") else t.replace(",", "")
+    elif t.count(".") > 1 or re.fullmatch(r"-?\d{1,3}(\.\d{3})+", t):
+        t = t.replace(".", "")
+    elif t.count(",") > 1 or re.fullmatch(r"-?\d{1,3}(,\d{3})+", t):
+        t = t.replace(",", "")
+    else:
+        t = t.replace(",", ".")
+    try:
+        return float(t)
+    except ValueError:
+        return None
+
+
+def _normal(ruta: str, v):
+    """Lo que se compara entre las dos fichas, sin diferencias de forma: un texto vacío es
+    vacío, «María  Restrepo» y «maria restrepo» son la misma persona, una fecha es la fecha
+    y un monto es el número. Sin esto, dos agentes que leen lo mismo «no coinciden» por un
+    espacio o una tilde (ronda 6 y 7: un producto "" contra uno null)."""
+    import unicodedata
+    if v is None:
+        return None
+    if ruta in ("plan.end_date", "declared.as_of"):
+        d = as_date(v)
+        return d.isoformat() if d else _normal("", v)
+    if ruta == "money.approved":
+        n = _monto(v)
+        return n if n is not None else _normal("", v)
+    t = " ".join(str(v).split())
+    if not t:
+        return None
+    t = "".join(c for c in unicodedata.normalize("NFKD", t) if not unicodedata.combining(c))
+    return t.casefold()
+
+
 def contrastar(pmo_rec: dict, pm_rec, today: dt.date) -> list:
     """Dónde el gerente y la PMO no leyeron lo mismo.
 
@@ -708,15 +751,21 @@ def contrastar(pmo_rec: dict, pm_rec, today: dt.date) -> list:
         # ronda 9 (minería) Samuel lo escribió así y sonó pm_vs_pmo contra nada (D056).
         leer = producto if ruta == "identity.product" else value
         va, vb = leer(a), leer(b)
-        if vb is None and va is None:
+        na, nb = _normal(ruta, va), _normal(ruta, vb)
+        if na is None and nb is None:
             continue
-        if vb is None:
-            continue                       # profundidad al revés: la PMO vio más
-        if va is None:
-            fuera.append({"field": ruta, "only": "pm", "pm": vb,
-                          "pm_source": source_of(b), "pm_date": source_of_date(b)})
+        if na is None:
+            # El gerente lo tiene y la PMO no: diferencia de profundidad, no hallazgo. Hasta
+            # la 0.6.0 el código lo reportaba al revés del skill, y de ahí salían las
+            # alertas falsas de esta señal (D056: «no aplica» de Samuel contra nada).
             continue
-        if str(va).strip() == str(vb).strip():
+        if nb is None:
+            # La PMO lo tiene y el gerente no: la PMO procesó un documento del proyecto que
+            # el gerente no está viendo.
+            fuera.append({"field": ruta, "only": "pmo", "pmo": va,
+                          "pmo_source": source_of(a), "pmo_date": source_of_date(a)})
+            continue
+        if na == nb:
             continue
         fa, fb = source_of_date(a), source_of_date(b)
         fuera.append({
@@ -755,12 +804,20 @@ def _pruebas_contraste():
 
     d = contrastar(pmo, pm, hoy)
     por_campo = {x["field"]: x for x in d}
-    solo_pm = por_campo.get("identity.product", {})
     patro = por_campo.get("identity.sponsor", {})
 
-    # Lo que el gerente tiene y la PMO no, al revés: profundidad, no hallazgo.
-    hondo = contrastar({"identity": {"sponsor": c("X", "a.md", "2026-01-01")}},
-                       {"identity": {}}, hoy)
+    # La PMO lo tiene y el gerente no: hallazgo, con la cita de la PMO.
+    solo_pmo = contrastar({"identity": {"sponsor": c("X", "a.md", "2026-01-01")}},
+                          {"identity": {}}, hoy)
+    # Las diferencias de forma no son diferencias: tilde, mayúsculas, espacios, vacío.
+    forma = contrastar({"identity": {"sponsor": c("María  Restrepo", "a.md", "2026-01-01"),
+                                     "product": c("", "a.md", "2026-01-01")},
+                        "plan": {"end_date": c("2027-02-27", "c.csv", "2026-08-10")},
+                        "money": {"approved": c("1.850.000.000", "a.md", "2026-01-01")}},
+                       {"identity": {"sponsor": c("maria restrepo", "m.md", "2026-09-11"),
+                                     "product": {"value": None, "state": "not_found"}},
+                        "plan": {"end_date": c("2027-02-27", "c.csv", "2026-08-10")},
+                        "money": {"approved": c(1850000000, "a.md", "2026-01-01")}}, hoy)
 
     # una cadencia que nadie lee tiene que fallar, no guardarse en silencio
     import tempfile as _tf
@@ -776,14 +833,15 @@ def _pruebas_contraste():
     return [
         ("cadencia · un `--what` que nadie lee se rechaza", _rechaza, True),
         ("cadencia · uno que `due` sí lee se guarda", _acepta, True),
-        ("contraste · solo lo que difiere", sorted(por_campo),
-         ["identity.product", "identity.sponsor"]),
+        ("contraste · solo lo que difiere", sorted(por_campo), ["identity.sponsor"]),
         ("contraste · coincidir no es hallazgo", "identity.manager" in por_campo, False),
         ("contraste · quién cita lo más nuevo", patro.get("newer"), "pm"),
         ("contraste · lleva las dos citas",
          bool(patro.get("pmo_source") and patro.get("pm_source")), True),
-        ("contraste · lo que solo tiene el PM", solo_pm.get("only"), "pm"),
-        ("contraste · profundidad al revés no es hallazgo", hondo, []),
+        ("contraste · lo que solo tiene el gerente es profundidad, no hallazgo",
+         "identity.product" in por_campo, False),
+        ("contraste · lo que solo tiene la PMO es hallazgo", [x.get("only") for x in solo_pmo], ["pmo"]),
+        ("contraste · forma no es diferencia (tilde, espacios, vacío, monto)", forma, []),
         ("contraste · sin ficha del PM no hay señal", contrastar(pmo, None, hoy), []),
     ]
 
