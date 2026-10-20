@@ -12,6 +12,15 @@ persona.
 Primera versión: NIIF adoptadas localmente, en Colombia y Ecuador, con la factura electrónica de
 la DIAN y del SRI.
 
+**Cómo trabajan.** Automatizados: procesan los documentos, calculan las señales y preparan cada
+entregable sin intervención. Semiautomatizados cuando falta un dato que ningún documento trae
+—la entidad, el periodo, el umbral, quién aprueba—: entonces le preguntan a la persona, dicen qué
+preguntaron y siguen con la respuesta.
+
+**Fuentes.** Toda fuente que se usa para procesar —anexos técnicos, normas, cifras de terceros—
+está en [`FUENTES.es.md`](FUENTES.es.md) con su versión, su enlace, la fecha de consulta y su
+estado. El diseño, la documentación y las pruebas citan esas fuentes por su identificador.
+
 ## Un agente por rol
 
 | Rol | Agente (nombre por confirmar) | Plugin | Qué hace |
@@ -47,8 +56,8 @@ separados. «No encontrado» es una respuesta válida.
 | Actas del comité de presupuesto y de traslados | Word, PDF | Tomás |
 | Fichas de proyectos de la familia PMO | `ficha-pm.json` y fichas de Vera | Tomás, solo lectura |
 
-Los formatos de la DIAN y del SRI se leen desde su fuente técnica oficial y se verifican campo
-por campo antes de escribir el lector ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regla 2).
+Los formatos de la DIAN (F-01) y del SRI (F-04) se leen desde su fuente técnica oficial y se
+verifican campo por campo antes de escribir el lector ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regla 2).
 
 ## Las señales: lo que calcula el código
 
@@ -141,18 +150,16 @@ facturas leído con `xml.etree`.
 
 Igual que la familia PMO: material sintético por industria con una clave que los agentes no ven,
 una entidad de control que no debe levantar ninguna señal, y facturas electrónicas generadas con
-la estructura oficial. Nada se declara probado sin una ronda completa.
+la estructura oficial. Cada material de prueba deja escrito en su clave qué fuente y qué versión
+usó para generarse (por ejemplo, F-01 anexo 1.9), así que una prueba se puede repetir contra la
+misma versión y se sabe cuáles hay que regenerar cuando la fuente cambia. Nada se declara probado
+sin una ronda completa.
 
 ## Cifras de terceros
 
-Solo entran las del registro de cifras verificadas, con fuente, año y muestra:
-
-- 44 % cerraba el trimestre en seis días hábiles en 2023, contra 49 % en 2019 (Ventana Research / ISG, 2023).
-- 45 % de los controles SOX son manuales, y las horas del programa subieron 32 % en dos años (KPMG, SOX Survey 2025, ~150 profesionales).
-
-Por verificar antes de publicarlas: la de APQC sobre días de cierre y la de Gartner sobre errores
-de los contadores, que hoy están en el README de `criterio-finance`. Ese README dice además «totalmente
-manual», y la fuente dice «manuales»: se corrige al construir.
+Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md):
+F-10 (Ventana Research / ISG) y F-11 (KPMG). Las de APQC (F-12) y Gartner (F-13), que hoy están en el
+README de `criterio-finance`, quedan por verificar antes de publicarse en otro lugar.
 
 ## Decisiones abiertas
 
