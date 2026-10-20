@@ -106,6 +106,8 @@ PUERTAS = [
      "Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/analisis.py"), "--check"],
      "Que el análisis estadístico diga lo que dice la evidencia de las rondas"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/cfo.py"), "--check"],
+     "Que el diseño de la familia CFO salga de sus fuentes y no se apoye en una por verificar"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/resultados.py"), "--selftest"],
      "Que la página de resultados no deje una puerta sin dueño"),
 ]
