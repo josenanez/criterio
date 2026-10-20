@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Inter, Arial, sans-serif" font-size="12">
+<rect width="760" height="380" fill="#050505"/>
+<text x="60" y="32" font-size="17" fill="#f5f4ef">Evolución por ronda de las cuatro métricas</text>
+<text x="60" y="54" fill="#8a867e">Porcentaje en las 4 industrias. Vera, Samuel y Alba contra la clave; Rostrum por comprobación</text>
+<line x1="60" x2="78" y1="78" y2="78" stroke="#d5a84b" stroke-width="3"/><text x="84" y="82" fill="#f5f4ef">Vera · precisión</text>
+<line x1="225" x2="243" y1="78" y2="78" stroke="#4f86c6" stroke-width="3"/><text x="249" y="82" fill="#f5f4ef">Samuel · compromisos</text>
+<line x1="390" x2="408" y1="78" y2="78" stroke="#3f9a6a" stroke-width="3"/><text x="414" y="82" fill="#f5f4ef">Alba · cobertura</text>
+<line x1="555" x2="573" y1="78" y2="78" stroke="#a46fc9" stroke-width="3"/><text x="579" y="82" fill="#f5f4ef">Rostrum · comprobaciones</text>
+<line x1="60" x2="700" y1="330.0" y2="330.0" stroke="#2b2b28"/><text x="52" y="334.0" text-anchor="end" fill="#8a867e">0 %</text>
+<line x1="60" x2="700" y1="275.0" y2="275.0" stroke="#2b2b28"/><text x="52" y="279.0" text-anchor="end" fill="#8a867e">25 %</text>
+<line x1="60" x2="700" y1="220.0" y2="220.0" stroke="#2b2b28"/><text x="52" y="224.0" text-anchor="end" fill="#8a867e">50 %</text>
+<line x1="60" x2="700" y1="165.0" y2="165.0" stroke="#2b2b28"/><text x="52" y="169.0" text-anchor="end" fill="#8a867e">75 %</text>
+<line x1="60" x2="700" y1="110.0" y2="110.0" stroke="#2b2b28"/><text x="52" y="114.0" text-anchor="end" fill="#8a867e">100 %</text>
+<line x1="60" x2="700" y1="112.2" y2="112.2" stroke="#8a867e" stroke-dasharray="4 4"/><text x="706" y="116.2" fill="#8a867e">99 %</text>
+<text x="60.0" y="350" text-anchor="middle" fill="#8a867e">R1</text>
+<text x="131.1" y="350" text-anchor="middle" fill="#8a867e">R2</text>
+<text x="202.2" y="350" text-anchor="middle" fill="#8a867e">R3</text>
+<text x="273.3" y="350" text-anchor="middle" fill="#8a867e">R4</text>
+<text x="344.4" y="350" text-anchor="middle" fill="#8a867e">R5</text>
+<text x="415.6" y="350" text-anchor="middle" fill="#8a867e">R6</text>
+<text x="486.7" y="350" text-anchor="middle" fill="#8a867e">R7</text>
+<text x="557.8" y="350" text-anchor="middle" fill="#8a867e">R8</text>
+<text x="628.9" y="350" text-anchor="middle" fill="#8a867e">R9</text>
+<text x="700.0" y="350" text-anchor="middle" fill="#8a867e">R10</text>
+<path d="M60.0,114.6 L131.1,116.6 L202.2,113.5 L273.3,112.9 L344.4,114.8 L415.6,110.0 L486.7,110.0 L557.8,110.9 L628.9,110.9 L700.0,110.0" fill="none" stroke="#d5a84b" stroke-width="2.5"/>
+<circle cx="60.0" cy="114.6" r="3.5" fill="#d5a84b"/>
+<circle cx="131.1" cy="116.6" r="3.5" fill="#d5a84b"/>
+<circle cx="202.2" cy="113.5" r="3.5" fill="#d5a84b"/>
+<circle cx="273.3" cy="112.9" r="3.5" fill="#d5a84b"/>
+<circle cx="344.4" cy="114.8" r="3.5" fill="#d5a84b"/>
+<circle cx="415.6" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="486.7" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="557.8" cy="110.9" r="3.5" fill="#d5a84b"/>
+<circle cx="628.9" cy="110.9" r="3.5" fill="#d5a84b"/>
+<circle cx="700.0" cy="110.0" r="3.5" fill="#d5a84b"/>
+<path d="M60.0,165.0 L131.1,146.7 L202.2,160.8 L273.3,118.4 L344.4,114.2 L415.6,112.0 L486.7,110.0 L557.8,110.0 L628.9,110.0 L700.0,110.0" fill="none" stroke="#4f86c6" stroke-width="2.5"/>
+<circle cx="60.0" cy="165.0" r="3.5" fill="#4f86c6"/>
+<circle cx="131.1" cy="146.7" r="3.5" fill="#4f86c6"/>
+<circle cx="202.2" cy="160.8" r="3.5" fill="#4f86c6"/>
+<circle cx="273.3" cy="118.4" r="3.5" fill="#4f86c6"/>
+<circle cx="344.4" cy="114.2" r="3.5" fill="#4f86c6"/>
+<circle cx="415.6" cy="112.0" r="3.5" fill="#4f86c6"/>
+<circle cx="486.7" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="557.8" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="628.9" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="700.0" cy="110.0" r="3.5" fill="#4f86c6"/>
+<path d="M60.0,330.0 L131.1,135.5 L202.2,111.5 L273.3,126.5 L344.4,110.0 L415.6,110.0 L486.7,110.0 L557.8,110.0 L628.9,110.0 L700.0,110.0" fill="none" stroke="#3f9a6a" stroke-width="2.5"/>
+<circle cx="60.0" cy="330.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="131.1" cy="135.5" r="3.5" fill="#3f9a6a"/>
+<circle cx="202.2" cy="111.5" r="3.5" fill="#3f9a6a"/>
+<circle cx="273.3" cy="126.5" r="3.5" fill="#3f9a6a"/>
+<circle cx="344.4" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="415.6" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="486.7" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="557.8" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="628.9" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="700.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<path d="M131.1,154.4 L202.2,111.8 L273.3,110.4 L344.4,110.0 L415.6,110.2 L486.7,110.0 L557.8,111.5 L628.9,110.0 L700.0,110.0" fill="none" stroke="#a46fc9" stroke-width="2.5"/>
+<circle cx="131.1" cy="154.4" r="3.5" fill="#a46fc9"/>
+<circle cx="202.2" cy="111.8" r="3.5" fill="#a46fc9"/>
+<circle cx="273.3" cy="110.4" r="3.5" fill="#a46fc9"/>
+<circle cx="344.4" cy="110.0" r="3.5" fill="#a46fc9"/>
+<circle cx="415.6" cy="110.2" r="3.5" fill="#a46fc9"/>
+<circle cx="486.7" cy="110.0" r="3.5" fill="#a46fc9"/>
+<circle cx="557.8" cy="111.5" r="3.5" fill="#a46fc9"/>
+<circle cx="628.9" cy="110.0" r="3.5" fill="#a46fc9"/>
+<circle cx="700.0" cy="110.0" r="3.5" fill="#a46fc9"/>
+</svg>

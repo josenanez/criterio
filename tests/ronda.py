@@ -938,6 +938,8 @@ def resumen(a) -> int:
                     "controles_limpios": sum(f["controles_limpios"] for f in filas)},
            "senales": [{"senal": k, **v} for k, v in sorted(senales.items(), key=lambda kv: -sum(kv[1].values()))]}
     _w(base / "resumen.json", out)
+    # El análisis estadístico sale de esta evidencia: se regenera con cada resumen.
+    subprocess.run([sys.executable, str(RAIZ / "scripts" / "analisis.py")], check=True)
     print(json.dumps(out["vera"], ensure_ascii=False))
     for i in industrias:
         print(f"  {i['entorno']:13} {i['completos']}/{i['comandos']} completos · {i['contratos']} contratos · "

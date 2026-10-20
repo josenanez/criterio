@@ -102,6 +102,8 @@ PUERTAS = [
      "Que las industrias del README salgan de su fuente y que «probada» sea cierto"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/carpetas.py"), "--check"],
      "Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/analisis.py"), "--check"],
+     "Que el análisis estadístico diga lo que dice la evidencia de las rondas"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/resultados.py"), "--selftest"],
      "Que la página de resultados no deje una puerta sin dueño"),
 ]

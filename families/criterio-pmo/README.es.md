@@ -308,6 +308,12 @@ escritas a mano— lo responde su página; aquí se verifica lo que ninguno pued
 Todo corre con la librería estándar y sin instalar nada. Qué prueba cada corpus y, con el mismo
 detalle, **qué no**, en las tres páginas de evidencia bajo [`tests/`](../../tests/).
 
+**El análisis estadístico de las rondas con los agentes** —precisión, cobertura y margen del 95 %
+de cada uno, su evolución ronda a ronda, por industria, por tipo de alerta y los defectos con su
+origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera
+[`scripts/analisis.py`](../../scripts/analisis.py) desde [`tests/evidencias/`](../../tests/evidencias/)
+con cada ronda, y `verificar.py` comprueba que diga lo que dice la evidencia.
+
 ## Las industrias de prueba
 
 <!-- industrias: generado por scripts/industrias.py desde industrias.json; no se edita a mano -->
