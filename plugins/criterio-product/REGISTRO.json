@@ -714,6 +714,54 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "a455ee96c51539808bab5e7ee264f826c27b745d01e3ca6bda57fb702bcef3cb",
       "sha256": "4d43e7ddebdffe3d5096f9d1b3e96c1df9f6ffc874da58255979d8bb70c618c9"
+    },
+    {
+      "version": "0.7.0",
+      "fecha": "2026-10-20",
+      "commit": null,
+      "base": "4844b37",
+      "etiqueta": "v0.7.0",
+      "terminos": {
+        "version": "1.2",
+        "fecha": "2026-10-20",
+        "sha256": {
+          "es": "97ef3d7200b125faef9cf3ef59dd2616621418c504c54332a7ec8c9042676fc3",
+          "en": "6359f5315d159b248691716475fc14f75dfc6cfea4309ff07b41f1ca82c91ece"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "42b94d7bd3b007ef56fa2a7d166f9da779334dc725a9c8a7c9dd64f200cc8e32",
+        "criterio-product": "5ff0fe804a3fad4217afdb71a919dd094a68c16c4519e183b66f15442446be0f",
+        "criterio-project": "e7fcc4f63dce0eb0b93d1a6f6fe3126b4b133610a4e36a283729aa480a4f2811"
+      },
+      "destacados": [
+        "Cronogramas de Microsoft Project: el XML de Project se procesa como cronograma —tareas, hitos, línea base, avance, predecesoras y recursos— y el .mpp donde haya Java y MPXJ",
+        "La estructura de carpetas recomendada para la familia, en los README y en el skill document-intake",
+        "El contraste entre la ficha del gerente y la de la PMO, como lo define el skill y con la comparación normalizada (D061)",
+        "El análisis estadístico, regenerado con cada prueba y publicado en josenanez.com",
+        "La hoja de ruta, desde una sola fuente",
+        "Términos 1.2: cada versión se prueba antes de publicarse; la 0.7.0 pide aceptarlos de nuevo"
+      ],
+      "cambios": [
+        "La familia CFO entra al alcance: ADR 0006 y su diseño",
+        "CFO: las fuentes en una sola lista, y la cifra de KPMG como dice la fuente",
+        "CFO: nombres y plugins cerrados — Clara en criterio-finance, Tomás en criterio-budget",
+        "CFO: los comandos de Tomás llevan el prefijo de su plugin (budget-setup, budget-wake)",
+        "CFO · Clara: carpetas, checklist, formato de reportes y cada comando con su entrada y su reporte",
+        "PMO: estructura de carpetas recomendada, una sola fuente (ADR 0007)",
+        "Resultados: la corrida con la puerta 35",
+        "Análisis estadístico de las rondas, generado desde la evidencia",
+        "Resultados: la corrida con la puerta 36",
+        "Análisis: tiempo por proyecto y el próximo paso, el despliegue en una organización",
+        "Cronogramas de Microsoft Project: el XML como cronograma y el .mpp con MPXJ",
+        "pm_vs_pmo: el contraste como lo define el skill, y sin diferencias de forma",
+        "Defectos: D061, el contraste de pm_vs_pmo al revés del skill; el análisis con 61",
+        "Hoja de ruta desde una sola fuente: hoja-de-ruta.json",
+        "Términos 1.2: cada versión se prueba antes de publicarse"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "4d43e7ddebdffe3d5096f9d1b3e96c1df9f6ffc874da58255979d8bb70c618c9",
+      "sha256": "a6f6bb9312bd290bdc5b7295dea1eb491791bc8e5681af7a5859a99cafe3bb9b"
     }
   ]
 }
