@@ -778,5 +778,18 @@
   "origen": "material",
   "correccion": "1bcb73f8",
   "verificado_en": null
+ },
+ {
+  "id": "D061",
+  "fecha": "2026-10-20",
+  "ronda": "10",
+  "entorno": "las cuatro industrias",
+  "agente": "vera",
+  "comando": "compute",
+  "que_paso": "Al analizar las rondas 1–10, pm_vs_pmo sumaba 18 alertas falsas y ninguna correcta. contrastar() reportaba lo que solo tenía la ficha del gerente y callaba lo que solo tenía la de la PMO, al revés del skill portfolio-health y de su propio docstring, y comparaba los valores como texto: un producto \"\" contra uno null, o un nombre con otra tilde, contaba como diferencia. Ahora lo del gerente es profundidad, lo de la PMO es hallazgo, y la comparación se normaliza.",
+  "evidencia": "tests/evidencias/calificaciones.json",
+  "origen": "codigo",
+  "correccion": "6a400d22",
+  "verificado_en": null
  }
 ]

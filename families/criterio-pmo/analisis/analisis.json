@@ -404,7 +404,7 @@
        "100 %",
        "100 %",
        "100 %",
-       "3"
+       "4"
       ]
      ],
      "en": [
@@ -516,7 +516,7 @@
        "100%",
        "100%",
        "100%",
-       "3"
+       "4"
       ]
      ]
     }
@@ -636,10 +636,10 @@
    },
    "parrafos": {
     "es": [
-     "Vera no emitió ninguna alerta falsa. Vera no detectó 7 alertas, todas en Minería. Alba emitió 1 alerta que no estaba en la clave. Corregidos y por verificar en la próxima ronda: D058, D059, D060."
+     "Vera no emitió ninguna alerta falsa. Vera no detectó 7 alertas, todas en Minería. Alba emitió 1 alerta que no estaba en la clave. Corregidos y por verificar en la próxima ronda: D058, D059, D060, D061."
     ],
     "en": [
-     "Vera raised no false alert. Vera missed 7 alerts, all in Mining. Alba raised 1 alert not in the key. Fixed and to be verified in the next round: D058, D059, D060."
+     "Vera raised no false alert. Vera missed 7 alerts, all in Mining. Alba raised 1 alert not in the key. Fixed and to be verified in the next round: D058, D059, D060, D061."
     ]
    }
   },
@@ -1091,10 +1091,10 @@
    },
    "parrafos": {
     "es": [
-     "60 defectos registrados, cada uno con su origen, su corrección y la ronda que la verificó: 57 verificados y 3 por verificar. 17 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "61 defectos registrados, cada uno con su origen, su corrección y la ronda que la verificó: 57 verificados y 4 por verificar. 17 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "60 defects logged, each with its origin, its fix and the round that verified it: 57 verified and 3 to verify. 17 came from the material, the key or the test harness, not from the agents."
+     "61 defects logged, each with its origin, its fix and the round that verified it: 57 verified and 4 to verify. 17 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -1112,7 +1112,7 @@
      "es": [
       [
        "Código",
-       "22"
+       "23"
       ],
       [
        "Instrucciones del agente",
@@ -1138,7 +1138,7 @@
      "en": [
       [
        "Code",
-       "22"
+       "23"
       ],
       [
        "Agent instructions",
@@ -1178,7 +1178,7 @@
      "es": [
       [
        "Vera",
-       "27"
+       "28"
       ],
       [
        "Samuel",
@@ -1200,7 +1200,7 @@
      "en": [
       [
        "Vera",
-       "27"
+       "28"
       ],
       [
        "Samuel",

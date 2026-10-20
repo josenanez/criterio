@@ -56,11 +56,11 @@ Los acumulados de Samuel, Alba y Rostrum incluyen las primeras rondas, cuando es
 | 7 · 0.3.13 | 52 | 534 | 100 % | 100 % | 100 % | 100 % | 100 % | 1 |
 | 8 · 0.3.13 | 52 | 527 | 99,6 % | 100 % | 100 % | 99,3 % | 99,3 % | 2 |
 | 9 · 0.4.0 | 52 | 532 | 99,6 % | 100 % | 100 % | 100 % | 100 % | 2 |
-| 10 · 0.5.0 | 52 | 531 | 100 % | 100 % | 100 % | 100 % | 100 % | 3 |
+| 10 · 0.5.0 | 52 | 531 | 100 % | 100 % | 100 % | 100 % | 100 % | 4 |
 
 ## La versión más reciente probada · 0.5.0, ronda 10
 
-Vera no emitió ninguna alerta falsa. Vera no detectó 7 alertas, todas en Minería. Alba emitió 1 alerta que no estaba en la clave. Corregidos y por verificar en la próxima ronda: D058, D059, D060.
+Vera no emitió ninguna alerta falsa. Vera no detectó 7 alertas, todas en Minería. Alba emitió 1 alerta que no estaba en la clave. Corregidos y por verificar en la próxima ronda: D058, D059, D060, D061.
 
 | Agente · métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
@@ -110,11 +110,11 @@ Vera emitió alertas de 18 tipos; en 15 no tuvo una sola alerta falsa, y las 25 
 
 ![Defectos](defectos-es.svg)
 
-60 defectos registrados, cada uno con su origen, su corrección y la ronda que la verificó: 57 verificados y 3 por verificar. 17 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
+61 defectos registrados, cada uno con su origen, su corrección y la ronda que la verificó: 57 verificados y 4 por verificar. 17 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
 
 | Origen | Defectos |
 |---|---|
-| Código | 22 |
+| Código | 23 |
 | Instrucciones del agente | 20 |
 | Material de prueba | 10 |
 | Clave de calificación | 4 |
@@ -123,7 +123,7 @@ Vera emitió alertas de 18 tipos; en 15 no tuvo una sola alerta falsa, y las 25 
 
 | Agente | Defectos |
 |---|---|
-| Vera | 27 |
+| Vera | 28 |
 | Samuel | 11 |
 | Alba | 9 |
 | Rostrum | 9 |

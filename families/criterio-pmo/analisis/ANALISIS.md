@@ -56,11 +56,11 @@ The totals for Samuel, Alba and Rostrum include the first rounds, while those ca
 | 7 · 0.3.13 | 52 | 534 | 100% | 100% | 100% | 100% | 100% | 1 |
 | 8 · 0.3.13 | 52 | 527 | 99.6% | 100% | 100% | 99.3% | 99.3% | 2 |
 | 9 · 0.4.0 | 52 | 532 | 99.6% | 100% | 100% | 100% | 100% | 2 |
-| 10 · 0.5.0 | 52 | 531 | 100% | 100% | 100% | 100% | 100% | 3 |
+| 10 · 0.5.0 | 52 | 531 | 100% | 100% | 100% | 100% | 100% | 4 |
 
 ## The most recent version tested · 0.5.0, round 10
 
-Vera raised no false alert. Vera missed 7 alerts, all in Mining. Alba raised 1 alert not in the key. Fixed and to be verified in the next round: D058, D059, D060.
+Vera raised no false alert. Vera missed 7 alerts, all in Mining. Alba raised 1 alert not in the key. Fixed and to be verified in the next round: D058, D059, D060, D061.
 
 | Agent · measure | Cases | Result | 95% margin |
 |---|---|---|---|
@@ -110,11 +110,11 @@ Vera raised alerts of 18 types; 15 had not a single false alert, and the 25 fals
 
 ![Defects](defectos-en.svg)
 
-60 defects logged, each with its origin, its fix and the round that verified it: 57 verified and 3 to verify. 17 came from the material, the key or the test harness, not from the agents.
+61 defects logged, each with its origin, its fix and the round that verified it: 57 verified and 4 to verify. 17 came from the material, the key or the test harness, not from the agents.
 
 | Origin | Defects |
 |---|---|
-| Code | 22 |
+| Code | 23 |
 | Agent instructions | 20 |
 | Test material | 10 |
 | Grading key | 4 |
@@ -123,7 +123,7 @@ Vera raised alerts of 18 types; 15 had not a single false alert, and the 25 fals
 
 | Agent | Defects |
 |---|---|
-| Vera | 27 |
+| Vera | 28 |
 | Samuel | 11 |
 | Alba | 9 |
 | Rostrum | 9 |
