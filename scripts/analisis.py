@@ -375,18 +375,21 @@ def secciones():
                          "filas": {i: [[(AGENTE.get(k, k) if isinstance(AGENTE.get(k, k), str) else AGENTE[k][0 if f(i) else 1]), num(v, i)] for k, v in ag.most_common()] for i in L}}})
 
     # 9 · consumo y límites
-    S.append({"id": "consumo", "titulo": {"es": "Consumo y lo que esta medición no cubre", "en": "Cost, and what this measurement does not cover"},
+    mpp = T["minutos"] / T["proyectos"]
+    S.append({"id": "consumo", "titulo": {"es": "Tiempo, consumo y próximo paso", "en": "Time, cost and next step"},
               "parrafos": {i: [
-                  (f"Las {len(R)} rondas usaron {num(round(T['tokens'] / 1e6), i)} millones de tokens y {num(round(T['minutos'] / 60), i)} horas de ejecución de los agentes; "
-                   f"en promedio, {num(round(T['tokens'] / 1e6 / len(R)), i)} millones de tokens por ronda."
+                  (f"Las {len(R)} rondas tomaron {num(round(T['minutos'] / 60), i)} horas de ejecución para {num(T['proyectos'], i)} proyectos: "
+                   f"{dec(mpp, i)} minutos por proyecto, con todos los comandos de los tres agentes y el servidor. "
+                   f"Usaron {num(round(T['tokens'] / 1e6), i)} millones de tokens; en promedio, {num(round(T['tokens'] / 1e6 / len(R)), i)} millones por ronda."
                    if f(i) else
-                   f"The {len(R)} rounds used {num(round(T['tokens'] / 1e6), i)} million tokens and {num(round(T['minutos'] / 60), i)} hours of agent run time; "
-                   f"on average, {num(round(T['tokens'] / 1e6 / len(R)), i)} million tokens per round."),
-                  ("La redacción del modelo de lenguaje (LLM) —actas, informes, síntesis— se verifica por el contrato de cada comando y por la aritmética de sus cifras, no con un calificador determinista. "
-                   "El material es de prueba: el siguiente paso es el primer uso sobre la documentación de una organización concreta, que decide la versión 1.0."
+                   f"The {len(R)} rounds took {num(round(T['minutos'] / 60), i)} hours of run time for {num(T['proyectos'], i)} projects: "
+                   f"{dec(mpp, i)} minutes per project, with every command of the three agents and the server. "
+                   f"They used {num(round(T['tokens'] / 1e6), i)} million tokens; on average, {num(round(T['tokens'] / 1e6 / len(R)), i)} million per round."),
+                  ("Las actas, los informes y las síntesis que redacta el modelo de lenguaje (LLM) se verifican por el contrato de cada comando y por la aritmética de sus cifras. "
+                   "El próximo paso es el despliegue en una organización, que lleva la familia a la versión 1.0."
                    if f(i) else
-                   "The language model's (LLM) writing —minutes, reports, syntheses— is checked through each command's contract and the arithmetic of its figures, not by a deterministic grader. "
-                   "The material is test material: the next step is first use on a specific organization's documentation, which decides version 1.0."),
+                   "The minutes, reports and syntheses the language model (LLM) writes are checked through each command's contract and the arithmetic of their figures. "
+                   "The next step is deployment in an organization, which takes the family to version 1.0."),
               ] for i in L}})
     meta = {"generado_desde": "tests/evidencias", "ultima_ronda": U["n"], "fecha": U["fecha"], "version": U["version"],
             "rondas": [r["n"] for r in R]}

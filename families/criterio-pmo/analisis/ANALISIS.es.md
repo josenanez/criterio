@@ -129,11 +129,11 @@ Vera emitió alertas de 18 tipos; en 15 no tuvo una sola alerta falsa, y las 25 
 | Rostrum | 9 |
 | Los tres | 4 |
 
-## Consumo y lo que esta medición no cubre
+## Tiempo, consumo y próximo paso
 
-Las 10 rondas usaron 1156 millones de tokens y 30 horas de ejecución de los agentes; en promedio, 116 millones de tokens por ronda.
+Las 10 rondas tomaron 30 horas de ejecución para 520 proyectos: 3,4 minutos por proyecto, con todos los comandos de los tres agentes y el servidor. Usaron 1156 millones de tokens; en promedio, 116 millones por ronda.
 
-La redacción del modelo de lenguaje (LLM) —actas, informes, síntesis— se verifica por el contrato de cada comando y por la aritmética de sus cifras, no con un calificador determinista. El material es de prueba: el siguiente paso es el primer uso sobre la documentación de una organización concreta, que decide la versión 1.0.
+Las actas, los informes y las síntesis que redacta el modelo de lenguaje (LLM) se verifican por el contrato de cada comando y por la aritmética de sus cifras. El próximo paso es el despliegue en una organización, que lleva la familia a la versión 1.0.
 
 ---
 

@@ -129,11 +129,11 @@ Vera raised alerts of 18 types; 15 had not a single false alert, and the 25 fals
 | Rostrum | 9 |
 | All three | 4 |
 
-## Cost, and what this measurement does not cover
+## Time, cost and next step
 
-The 10 rounds used 1156 million tokens and 30 hours of agent run time; on average, 116 million tokens per round.
+The 10 rounds took 30 hours of run time for 520 projects: 3.4 minutes per project, with every command of the three agents and the server. They used 1156 million tokens; on average, 116 million per round.
 
-The language model's (LLM) writing —minutes, reports, syntheses— is checked through each command's contract and the arithmetic of its figures, not by a deterministic grader. The material is test material: the next step is first use on a specific organization's documentation, which decides version 1.0.
+The minutes, reports and syntheses the language model (LLM) writes are checked through each command's contract and the arithmetic of their figures. The next step is deployment in an organization, which takes the family to version 1.0.
 
 ---
 
