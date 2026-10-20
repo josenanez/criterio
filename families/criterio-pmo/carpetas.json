@@ -1,0 +1,35 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia PMO: la leen el material de prueba (tests/sintetico/corpus.py), los README de la familia y el skill document-intake de los tres plugins (scripts/carpetas.py). Es una recomendación: los agentes procesan la carpeta como esté (ADR 0007).",
+  "raiz": {
+    "es": "Una carpeta por proyecto y una por producto, cada una empezando por su código: `PRY-101-originacion-digital`, `PRD-301-pagos-qr`.",
+    "en": "One folder per project and one per product, each starting with its code: `PRY-101-digital-origination`, `PRD-301-qr-payments`."
+  },
+  "proyecto": [
+    {"bucket": "gobierno", "carpeta": "00-gobierno",
+     "es": "Acta de constitución, contratos con proveedores y la ficha que publica el gerente del proyecto",
+     "en": "Charter, vendor contracts and the record the project manager publishes"},
+    {"bucket": "plan", "carpeta": "10-plan",
+     "es": "Cronogramas y líneas base, cada versión con su fecha en el nombre",
+     "en": "Schedules and baselines, each version with its date in the name"},
+    {"bucket": "seguimiento", "carpeta": "20-seguimiento",
+     "es": "Informes de avance, actas de recibo de entregables, facturas de proveedores, solicitudes de cambio y su aprobación",
+     "en": "Status reports, deliverable acceptance receipts, vendor invoices, change requests and their approval"},
+    {"bucket": "reuniones", "carpeta": "30-reuniones",
+     "es": "Minutas, actas de comité y notas de reunión, con la fecha en el nombre",
+     "en": "Minutes, committee records and meeting notes, with the date in the name"}
+  ],
+  "producto": [
+    {"bucket": "definicion", "carpeta": "00-definicion",
+     "es": "Definición del producto y caso de negocio",
+     "en": "Product definition and business case"},
+    {"bucket": "descubrimiento", "carpeta": "10-descubrimiento",
+     "es": "Entrevistas, visitas, tickets y notas de clientes",
+     "en": "Interviews, visits, tickets and customer notes"},
+    {"bucket": "metricas", "carpeta": "20-metricas",
+     "es": "Tableros y series de las métricas del producto",
+     "en": "Dashboards and series of the product metrics"},
+    {"bucket": "decisiones", "carpeta": "30-decisiones",
+     "es": "Actas de los comités de producto",
+     "en": "Product committee records"}
+  ]
+}

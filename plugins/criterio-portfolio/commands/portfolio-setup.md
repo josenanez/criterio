@@ -120,7 +120,7 @@ Muestra lo que encontró **a partir de `compute`**: qué supo de cada uno (con s
 
 **8. Di qué sigue**
 
-Cuánto tomaría el portafolio completo con lo que viste, y qué le falta a la carpeta para que el análisis sea mejor — fechas en los nombres de archivo, actas que no están, proyectos sin doliente. Pero dilo como hallazgo, no como requisito: esto funciona con lo que haya.
+Cuánto tomaría el portafolio completo con lo que viste, y qué le falta a la carpeta para que el análisis sea mejor — fechas en los nombres de archivo, actas que no están, proyectos sin doliente. Pero dilo como hallazgo, no como requisito: esto funciona con lo que haya. Si la carpeta no tiene una carpeta por proyecto, muestra la estructura recomendada del skill `document-intake` como sugerencia; nunca muevas, renombres ni crees nada dentro de los documentos.
 
 ## Salida
 

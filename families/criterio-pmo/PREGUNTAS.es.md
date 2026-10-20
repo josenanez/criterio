@@ -16,6 +16,10 @@ No. Preparan borradores de trabajo y dicen qué cambió, qué se contradice y qu
 
 Un plan pago de Claude, la aplicación de escritorio si los documentos viven en tu equipo, y una carpeta con la documentación como esté. Una carpeta desordenada es el caso normal.
 
+### ¿Cómo organizo la carpeta?
+
+Como esté: los agentes la procesan así, y las pruebas lo comprueban con cuatro disposiciones distintas. Si se arranca de cero, la familia recomienda una carpeta por proyecto y una por producto, cada una con su código al inicio, y adentro cuatro carpetas: gobierno, plan, seguimiento y reuniones para un proyecto; definición, descubrimiento, métricas y decisiones para un producto. El detalle está en el README de la familia.
+
 ## Cómo se prueba
 
 ### ¿Con qué datos se probó?

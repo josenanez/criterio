@@ -116,7 +116,7 @@ informes.** Un resultado que no quedó en la ficha no existe para el comando sig
 
 **4. Di qué falta para que esto sea mejor**
 
-Como hallazgo, no como requisito. **Esto funciona con lo que haya.** Lo que suele faltar
+Como hallazgo, no como requisito. **Esto funciona con lo que haya.** Si los documentos no están ordenados, muestra la estructura recomendada del skill `document-intake` como sugerencia; nunca muevas, renombres ni crees nada dentro de los documentos. Lo que suele faltar
 y vale la pena nombrar: minutas de las reuniones anteriores, el cronograma vigente, y
 las actas de recibo de lo entregado — sin ellas un compromiso cumplido se ve igual que
 uno incumplido.

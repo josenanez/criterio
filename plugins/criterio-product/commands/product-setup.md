@@ -116,7 +116,7 @@ midiendo lo que el negocio afirmó.
 
 **5. Di qué falta para que esto sea mejor**
 
-Como hallazgo, no como requisito. **Esto funciona con lo que haya.** Lo que suele faltar y
+Como hallazgo, no como requisito. **Esto funciona con lo que haya.** Si los documentos no están ordenados, muestra la estructura recomendada del skill `document-intake` como sugerencia; nunca muevas, renombres ni crees nada dentro de los documentos. Lo que suele faltar y
 vale la pena nombrar: las transcripciones de las entrevistas, la serie de la métrica
 principal con su fuente, y las decisiones del comité de producto — sin ellas, un
 requerimiento descartado se ve igual que uno que nadie miró.

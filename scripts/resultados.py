@@ -64,6 +64,7 @@ DUENIOS = [
     ("scripts/sincronizar.py", "La familia"),
     ("scripts/manual.py", "La familia"),
     ("scripts/industrias.py", "La familia"),
+    ("scripts/carpetas.py", "La familia"),
     ("scripts/resultados.py", "La familia"),
 ]
 

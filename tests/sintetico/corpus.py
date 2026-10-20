@@ -21,9 +21,9 @@ estructura no está se agrupa por lo que digan los documentos y no se impone nad
 tres corpus, en cambio, usaban todos el mismo árbol ordenado, así que la promesa
 «funciona con lo que haya» no se probaba nunca.
 
-La estructura de referencia es solo eso: la que el material sintético usa. **No es un
-requisito del agente y no se le propone al que adopta.** Si un día se convirtiera en
-recomendación, sería una decisión de producto y no de pruebas.
+La estructura de referencia es la que el material sintético usa y, desde el ADR 0007, la que
+la familia recomienda a quien la adopta. **Sigue sin ser un requisito del agente:** las otras
+tres disposiciones prueban que procesa la carpeta como esté.
 
 Nada de lo que se genera con esto es real. Ningún documento de cliente, de empleador
 ni dato personal, como exige CONTRIBUTING.md.
@@ -35,20 +35,14 @@ from pathlib import Path
 # El prefijo numérico ordena por etapa del ciclo de vida y no por alfabeto, que es
 # la única razón por la que está: `00-gobierno` antes que `30-reuniones` aunque la
 # g venga antes que la r.
-ESTRUCTURA = {
-    "proyecto": {
-        "gobierno": "00-gobierno",          # acta, contratos, lo que constituye
-        "plan": "10-plan",                  # cronogramas y líneas base
-        "seguimiento": "20-seguimiento",     # informes, recibos, cambios
-        "reuniones": "30-reuniones",         # minutas y comités
-    },
-    "producto": {
-        "definicion": "00-definicion",       # definición y caso de negocio
-        "descubrimiento": "10-descubrimiento",  # entrevistas, visitas, tickets
-        "metricas": "20-metricas",           # tableros y series
-        "decisiones": "30-decisiones",        # comités de producto
-    },
-}
+import json as _json
+
+# La estructura vive en families/criterio-pmo/carpetas.json, que es también la que la familia
+# recomienda a quien la adopta (ADR 0007). Una sola fuente: si cambia allí, cambia aquí.
+_CARPETAS = _json.loads((Path(__file__).resolve().parents[2] / "families" / "criterio-pmo"
+                         / "carpetas.json").read_text(encoding="utf-8"))
+ESTRUCTURA = {clase: {b["bucket"]: b["carpeta"] for b in _CARPETAS[clase]}
+              for clase in ("proyecto", "producto")}
 
 # Cómo se llama cada bucket cuando la carpeta la organizó una persona y no una
 # convención. Se usa en la disposición `revuelta`, y trae a propósito espacios,

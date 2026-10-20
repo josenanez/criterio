@@ -118,6 +118,34 @@ el cliente, porque no hay síntesis sin entrevista.
 Quitar a la persona no deja al agente solo: lo deja sin comida. Cada hoja documenta qué se
 rompe primero si se intenta, y en qué orden.
 
+## La estructura de carpetas recomendada
+
+<!-- carpetas: generado por scripts/carpetas.py desde carpetas.json; no se edita a mano -->
+
+Recomendada, no obligatoria: los agentes procesan la carpeta como esté, y las pruebas lo comprueban con cuatro disposiciones distintas. Con esta estructura cada documento llega a su lugar sin que el agente tenga que deducirlo.
+
+Una carpeta por proyecto y una por producto, cada una empezando por su código: `PRY-101-originacion-digital`, `PRD-301-pagos-qr`.
+
+**Cada proyecto**
+
+| Carpeta | Qué va |
+|---|---|
+| `00-gobierno/` | Acta de constitución, contratos con proveedores y la ficha que publica el gerente del proyecto |
+| `10-plan/` | Cronogramas y líneas base, cada versión con su fecha en el nombre |
+| `20-seguimiento/` | Informes de avance, actas de recibo de entregables, facturas de proveedores, solicitudes de cambio y su aprobación |
+| `30-reuniones/` | Minutas, actas de comité y notas de reunión, con la fecha en el nombre |
+
+**Cada producto**
+
+| Carpeta | Qué va |
+|---|---|
+| `00-definicion/` | Definición del producto y caso de negocio |
+| `10-descubrimiento/` | Entrevistas, visitas, tickets y notas de clientes |
+| `20-metricas/` | Tableros y series de las métricas del producto |
+| `30-decisiones/` | Actas de los comités de producto |
+
+<!-- /carpetas -->
+
 ## Instalación de la familia
 
 Cada agente es un plugin y se instala solo. **No hace falta instalar los tres**: se instala el

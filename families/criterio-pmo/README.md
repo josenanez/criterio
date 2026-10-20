@@ -119,6 +119,34 @@ customer, because there is no synthesis without an interview.
 Removing the person does not leave the agent alone: it leaves it without food. Each design
 sheet documents what breaks first if you try, and in what order.
 
+## The recommended folder structure
+
+<!-- carpetas: generado por scripts/carpetas.py desde carpetas.json; no se edita a mano -->
+
+Recommended, not required: the agents process the folder as it is, and the tests check it with four different layouts. With this structure every document lands in its place without the agent having to work it out.
+
+One folder per project and one per product, each starting with its code: `PRY-101-digital-origination`, `PRD-301-qr-payments`.
+
+**Each project**
+
+| Folder | What goes in it |
+|---|---|
+| `00-gobierno/` | Charter, vendor contracts and the record the project manager publishes |
+| `10-plan/` | Schedules and baselines, each version with its date in the name |
+| `20-seguimiento/` | Status reports, deliverable acceptance receipts, vendor invoices, change requests and their approval |
+| `30-reuniones/` | Minutes, committee records and meeting notes, with the date in the name |
+
+**Each product**
+
+| Folder | What goes in it |
+|---|---|
+| `00-definicion/` | Product definition and business case |
+| `10-descubrimiento/` | Interviews, visits, tickets and customer notes |
+| `20-metricas/` | Dashboards and series of the product metrics |
+| `30-decisiones/` | Product committee records |
+
+<!-- /carpetas -->
+
 ## Installing the family
 
 Each agent is a plugin and installs on its own. **You do not need all three**: install the one

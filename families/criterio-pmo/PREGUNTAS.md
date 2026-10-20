@@ -16,6 +16,10 @@ No. They prepare working drafts and say what changed, what contradicts what and 
 
 A paid Claude plan, the desktop app if the documents live on your computer, and a folder with the documentation as it is. A messy folder is the normal case.
 
+### How do I organise the folder?
+
+As it is: the agents process it that way, and the tests check it with four different layouts. Starting from scratch, the family recommends one folder per project and one per product, each starting with its code, and inside four folders: governance, plan, tracking and meetings for a project; definition, discovery, metrics and decisions for a product. The detail is in the family README.
+
 ## How it is tested
 
 ### What data was it tested on?
