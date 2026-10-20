@@ -333,6 +333,23 @@ Probada en 4 industrias de Suramérica, con 13 proyectos por industria en la úl
 
 <!-- /industrias -->
 
+## Hoja de ruta
+
+<!-- hoja de ruta: generado por scripts/hoja.py desde hoja-de-ruta.json; no se edita a mano -->
+
+La familia crece por incrementos. Cada uno es una versión con su prueba completa y su análisis estadístico publicados, con las mismas métricas, para que la evolución se pueda comparar.
+
+| Versión | Estado | Qué entra | Prueba |
+|---|---|---|---|
+| 0.6.0 | Liberada | **Material más amplio**<br>· Las correcciones D058 a D060<br>· 20 proyectos por industria en el material de prueba<br>· Las industrias desde una sola fuente | La verifica la prueba de la 0.7.0 |
+| 0.7.0 | En curso | **Cronogramas de Microsoft Project**<br>· El XML de Project como cronograma: tareas, hitos, línea base, avance, predecesoras y recursos; el .mpp donde haya Java y MPXJ<br>· La estructura de carpetas recomendada<br>· El contraste entre la ficha del gerente y la de la PMO como lo define el skill<br>· El análisis estadístico, regenerado con cada prueba<br>· Esta hoja de ruta, desde una sola fuente | 4 industrias, 80 proyectos |
+| 0.8.0 | Siguiente | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones | 6 industrias |
+| 0.9.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
+| 0.10.0 | Siguiente | **Rostrum**<br>· Rostrum como plugin propio, con su evolución visual según WCAG 2.2 AA e ISO 9241<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
+| 1.0.0 | Reservada | **El despliegue en una organización**<br>· El esquema de la ficha, sostenido en el primer despliegue en una organización | La documentación de esa organización |
+
+<!-- /hoja de ruta -->
+
 ## Los dieciocho skills de la familia
 
 Dieciocho skills distintos entre los tres agentes. **Los que comparten son copias literales, no un módulo importado**: un plugin instalado tiene que correr solo, y un `import` a la ruta del otro funciona aquí y falla en el equipo de quien lo instaló.

@@ -204,6 +204,16 @@ def liberar(v: str, destacados: list[str], etiquetar: bool = False) -> int:
                 "anterior": previa["sha256"] if previa else None})
     reg["versiones"].append(e)
     escribir(reg)
+    # La hoja de ruta dice «liberada» de la versión que acaba de entrar al registro, y su
+    # sección del README se regenera: las dos cosas pasan en el mismo commit.
+    hoja = RAIZ / "families" / "criterio-pmo" / "hoja-de-ruta.json"
+    if hoja.exists():
+        h = json.loads(hoja.read_text(encoding="utf-8"))
+        for i in h["incrementos"]:
+            if i["version"] == v:
+                i["estado"] = "liberada"
+        hoja.write_text(json.dumps(h, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+        subprocess.run([sys.executable, str(RAIZ / "scripts" / "hoja.py")], check=True, capture_output=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "sincronizar.py")], check=True,
                    capture_output=True)
     print(f"  {v} registrada · base {base} · {len(cambios)} cambios desde la anterior · sha256 {e['sha256'][:16]}…")
@@ -212,7 +222,7 @@ def liberar(v: str, destacados: list[str], etiquetar: bool = False) -> int:
         return 0
     # El commit de la versión lleva el registro, los números de versión y las copias; la
     # etiqueta va sobre ese commit, el que contiene la entrada.
-    git("add", "registro", ".claude-plugin", "plugins")
+    git("add", "registro", ".claude-plugin", "plugins", "families")
     git("commit", "-q", "-m", f"Release {v}, entered in the version register")
     git("tag", "-a", f"v{v}", "-m", f"Criterio {v} · entrada SHA-256 {e['sha256']}")
     print(f"  commit {git('rev-parse', '--short', 'HEAD').strip()} y etiqueta v{v}. "

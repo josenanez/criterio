@@ -1,0 +1,23 @@
+{
+  "nota": "Fuente única de la hoja de ruta de la familia PMO: la escriben en los README scripts/hoja.py y en josenanez.com scripts/criterio-hoja-de-ruta.mjs del portal. Cada incremento es una versión con su prueba completa y su análisis publicados con las mismas métricas. «liberada» solo si la versión está en registro/versiones.json; las industrias se nombran por su id de industrias.json, que es su dueño.",
+  "incrementos": [
+    {"incremento": 1, "version": "0.6.0", "estado": "liberada", "industrias": [],
+     "es": {"titulo": "Material más amplio", "entra": ["Las correcciones D058 a D060", "20 proyectos por industria en el material de prueba", "Las industrias desde una sola fuente"], "prueba": "La verifica la prueba de la 0.7.0"},
+     "en": {"titulo": "Wider material", "entra": ["Fixes D058 to D060", "20 projects per industry in the test material", "Industries from a single source"], "prueba": "Verified by the 0.7.0 test"}},
+    {"incremento": 2, "version": "0.7.0", "estado": "en curso", "industrias": [],
+     "es": {"titulo": "Cronogramas de Microsoft Project", "entra": ["El XML de Project como cronograma: tareas, hitos, línea base, avance, predecesoras y recursos; el .mpp donde haya Java y MPXJ", "La estructura de carpetas recomendada", "El contraste entre la ficha del gerente y la de la PMO como lo define el skill", "El análisis estadístico, regenerado con cada prueba", "Esta hoja de ruta, desde una sola fuente"], "prueba": "4 industrias, 80 proyectos"},
+     "en": {"titulo": "Microsoft Project schedules", "entra": ["Project XML as a schedule: tasks, milestones, baseline, progress, predecessors and resources; .mpp where Java and MPXJ are present", "The recommended folder structure", "The contrast between the manager's record and the PMO's, as the skill defines it", "The statistical analysis, regenerated with every test", "This roadmap, from a single source"], "prueba": "4 industries, 80 projects"}},
+    {"incremento": 3, "version": "0.8.0", "estado": "siguiente", "industrias": ["construccion", "oil-gas"],
+     "es": {"titulo": "Construcción e infraestructura, y oil & gas", "entra": ["Dos industrias nuevas, con sus propios proyectos, documentos y situaciones"], "prueba": "6 industrias"},
+     "en": {"titulo": "Construction and infrastructure, and oil & gas", "entra": ["Two new industries, with their own projects, documents and situations"], "prueba": "6 industries"}},
+    {"incremento": 4, "version": "0.9.0", "estado": "siguiente", "industrias": ["telecomunicaciones", "logistica"],
+     "es": {"titulo": "Telecomunicaciones y logística", "entra": ["Dos industrias nuevas: la escala del portafolio y la operación que no se detiene"], "prueba": "8 industrias"},
+     "en": {"titulo": "Telecommunications and logistics", "entra": ["Two new industries: portfolio scale and operations that never stop"], "prueba": "8 industries"}},
+    {"incremento": 5, "version": "0.10.0", "estado": "siguiente", "industrias": [],
+     "es": {"titulo": "Rostrum", "entra": ["Rostrum como plugin propio, con su evolución visual según WCAG 2.2 AA e ISO 9241", "Gantt de línea base contra vigente, hitos y curva de avance"], "prueba": "8 industrias"},
+     "en": {"titulo": "Rostrum", "entra": ["Rostrum as its own plugin, with its visual evolution to WCAG 2.2 AA and ISO 9241", "Gantt of baseline against current, milestones and progress curve"], "prueba": "8 industries"}},
+    {"incremento": null, "version": "1.0.0", "estado": "reservada", "industrias": [],
+     "es": {"titulo": "El despliegue en una organización", "entra": ["El esquema de la ficha, sostenido en el primer despliegue en una organización"], "prueba": "La documentación de esa organización"},
+     "en": {"titulo": "Deployment in an organization", "entra": ["The record schema, holding up in the first deployment in an organization"], "prueba": "That organization's documentation"}}
+  ]
+}

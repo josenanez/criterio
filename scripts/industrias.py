@@ -6,7 +6,7 @@
     python3 scripts/industrias.py --check   falla si el README o la fuente no cuadran
 
 La fuente es una sola: families/criterio-pmo/industrias.json. La lee este script y la
-lee el portal. Una industria dice «probada» solo si tiene perfil en
+lee el portal. La versión en que entra cada industria siguiente es de hoja-de-ruta.json. Una industria dice «probada» solo si tiene perfil en
 tests/sintetico/sectores.py y corrió en la última ronda; una industria con perfil que no
 diga «probada» también falla. Las rondas y los proyectos no se escriben a mano: salen de
 tests/evidencias/rondas/.
@@ -22,6 +22,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 FAMILIA = RAIZ / "families" / "criterio-pmo"
 FUENTE = FAMILIA / "industrias.json"
+HOJA = FAMILIA / "hoja-de-ruta.json"
 RONDAS = RAIZ / "tests" / "evidencias" / "rondas"
 sys.path.insert(0, str(RAIZ / "tests" / "sintetico"))
 import sectores  # noqa: E402
@@ -88,12 +89,18 @@ def validar(fuente: dict, hist: list[tuple[int, dict]]) -> list[str]:
     for i in fuente["industrias"]:
         if i["estado"] not in ("probada", "siguiente"):
             errores.append(f"{i['id']}: estado desconocido «{i['estado']}»")
-        if i["estado"] == "siguiente" and not (i.get("incremento") and i.get("version")):
-            errores.append(f"{i['id']}: una industria siguiente lleva incremento y versión")
+        if i["estado"] == "siguiente" and i["id"] not in en_hoja():
+            errores.append(f"{i['id']}: una industria siguiente tiene que estar en un incremento de hoja-de-ruta.json")
         for idioma in ("es", "en"):
             if not (i.get(idioma, {}).get("nombre") and i[idioma].get("trae")):
                 errores.append(f"{i['id']}: le falta el texto en {idioma}")
     return errores
+
+
+def en_hoja() -> dict:
+    """La versión y el incremento de cada industria siguiente: los decide la hoja de ruta."""
+    h = json.loads(HOJA.read_text(encoding="utf-8"))
+    return {x: i for i in h["incrementos"] for x in i["industrias"]}
 
 
 def seccion(fuente: dict, hist: list[tuple[int, dict]], idioma: str) -> str:
@@ -108,7 +115,8 @@ def seccion(fuente: dict, hist: list[tuple[int, dict]], idioma: str) -> str:
             r = tramo([n for n, d in hist if any(x["entorno"] == i["id"] for x in d["industrias"])])
             estado = t["probada"].format(r=r)
         else:
-            estado = t["siguiente"].format(i=i["incremento"], v=i["version"])
+            inc = en_hoja()[i["id"]]
+            estado = t["siguiente"].format(i=inc["incremento"], v=inc["version"])
         filas.append(f"| {i[idioma]['nombre']} | {estado} | {i[idioma]['trae']} |")
     return "\n".join([INICIO, "", t["lead"].format(n=len(probadas), p=p), "", t["cab"], "|---|---|---|",
                       *filas, "", FIN])
