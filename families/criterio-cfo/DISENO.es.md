@@ -127,13 +127,13 @@ el estado del cierre ni del presupuesto.
 
 | Tomás · `criterio-budget` | Qué produce |
 |---|---|
-| `fpa-setup` | Mira las carpetas, hace pocas preguntas (año, áreas, versión aprobada) y arma la primera ficha del presupuesto |
+| `budget-setup` | Mira las carpetas, hace pocas preguntas (año, áreas, versión aprobada) y arma la primera ficha del presupuesto |
 | `budget-scan` | Procesa presupuesto, ejecución, compromisos y actas, y actualiza cada ficha |
 | `variance-report` | Aprobado, ejecutado, comprometido y desviación por área y cuenta |
 | `forecast` | La proyección al cierre del año, con su supuesto declarado |
 | `transfer-log` | Cada traslado con su acta, y los que no la tienen |
 | `budget-committee-pack` | El material del comité de presupuesto como paquete de decisiones |
-| `fpa-wake` | Lo que toca hoy según la cadencia del presupuesto; si no toca nada, se calla |
+| `budget-wake` | Lo que toca hoy según la cadencia del presupuesto; si no toca nada, se calla |
 
 ## Lo que se reusa de la familia PMO
 
@@ -170,6 +170,6 @@ README de `criterio-finance`, quedan por verificar antes de publicarse en otro l
 ## Decisiones abiertas
 
 1. Los formatos de exportación del ERP que se soportan primero: una plantilla de columnas por
-   ERP, o un mapeo que `finance-setup` y `fpa-setup` preguntan.
+   ERP, o un mapeo que `finance-setup` y `budget-setup` preguntan.
 2. Los umbrales por defecto de cada señal.
 3. Si Rostrum publica los informes financieros desde la primera versión o después.
