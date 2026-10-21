@@ -88,7 +88,7 @@ estado-legal/
 
 ## Lo que nunca se hace
 
-- **Mover, renombrar o crear** algo dentro de los documentos de la organización. La estructura se sugiere; el inventario dice dónde iría cada archivo.
+- **Mover, renombrar o crear** algo dentro de los documentos de la organización. La estructura se sugiere; el inventario dice dónde iría cada archivo. La única excepción es la marca de la carpeta raíz, `_CRITERIO_<…>.txt`, que se deja solo con el sí de la persona y que ningún inventario cuenta como documento (ADR 0011).
 - **Escribir el estado dentro de la carpeta de documentos.** El estado vive en `estado-legal/<entidad>/`.
 - **Adivinar el formato** de un archivo que no se pudo procesar: se reporta con lo que le falta.
 - **Calificar un documento.** Que un contrato sea válido, que una cláusula obligue o que una norma aplique lo decide una persona.

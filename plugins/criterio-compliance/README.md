@@ -51,7 +51,7 @@ In the first fifteen minutes, `compliance-setup` shows the status of the period:
 - It does not file reports with supervisors, and it does not sign.
 - It does not read the content of a report or process who made it: only the deadlines in the case log.
 - It does not declare the compliance status: the compliance officer does.
-- It never moves, renames or creates anything inside the organisation's documents.
+- It never moves, renames or creates anything inside the organisation's documents. The only thing it leaves, if the person allows it, is the file that marks the root folder so it is recognised at a glance.
 
 ## Installing and configuring
 

@@ -65,7 +65,7 @@ In the first fifteen minutes, `finance-setup` shows the status of the period's c
 - It does not file returns or supervisory reports, and it does not sign.
 - It gives no opinion on deductibility, rates or IFRS treatment, and states no rate, deadline or tax unit value from memory.
 - It does not declare the close status: the controller does.
-- It never moves, renames or creates anything inside the organisation's documents.
+- It never moves, renames or creates anything inside the organisation's documents. The only thing it leaves, if the person allows it, is the file that marks the root folder so it is recognised at a glance.
 
 ## Installing and configuring
 

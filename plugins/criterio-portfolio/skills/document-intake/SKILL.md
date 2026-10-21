@@ -150,3 +150,7 @@ No decide qué dice un documento. Decide si hay que abrirlo.
 
 No borra ni mueve nada. Reporta lo que encontró; reorganizar una carpeta es del dueño de
 la carpeta.
+
+**El archivo `_CRITERIO_<…>.txt` no es un documento.** Es la marca de la carpeta raíz, que el setup
+deja solo con el sí de la persona para que la carpeta se reconozca a primera vista (ADR 0011). No se
+indexa, no se procesa y no se cita; si alguien lo borra, la carpeta solo pierde la marca.

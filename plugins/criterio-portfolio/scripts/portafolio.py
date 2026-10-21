@@ -77,7 +77,18 @@ DEFAULT_THRESHOLDS = {
 # es lo único disponible, y un reguardado se ve como un cambio: se declara así en la
 # salida en vez de fingir precisión.
 TEXTO_PLANO = (".md", ".txt", ".csv", ".tsv", ".json", ".yaml", ".yml", ".html", ".xml")
-IGNORAR = (".DS_Store", "Thumbs.db")
+class _Ignorar(tuple):
+    """Lo que ningún recorrido cuenta como documento: lo del sistema operativo y el archivo que
+    marca la carpeta raíz (ADR 0011), que es del agente y no de la organización."""
+    def __contains__(self, nombre) -> bool:
+        if tuple.__contains__(self, nombre):
+            return True
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import raiz
+        return raiz.es_marcador(str(nombre))
+
+
+IGNORAR = _Ignorar((".DS_Store", "Thumbs.db"))
 
 # Declared status, as the manager reports it. The rank only orders the
 # vocabulary so the code can ask "is this light green". It is not a severity
@@ -2528,7 +2539,7 @@ def main() -> int:
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "due", "ran", "corrida",
                                        "corrida-inicio", "index", "plan-lectura", "sellar", "compute", "snapshot",
                                        "diff", "requests", "answered", "impact",
-                                       "historia", "selftest"])
+                                       "historia", "buscar-raiz", "marcar-raiz", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
@@ -2555,10 +2566,26 @@ def main() -> int:
     ap.add_argument("--por", default=None, help="quien acepta los términos, para `aceptar`")
     ap.add_argument("--idioma", default=None, help="es | en, para `aceptar`; por defecto el del informe")
     ap.add_argument("--today", default=None)
+    ap.add_argument("--entidad", default=None, help="de quién es la carpeta raíz, para `marcar-raiz`")
     args = ap.parse_args()
 
     if args.action == "selftest":
         return selftest()
+
+    if args.action in ("buscar-raiz", "marcar-raiz"):
+        # La carpeta raíz: la busca por su marca y por lo que tiene adentro, y la marca solo con el sí
+        # de la persona (ADR 0011). El plugin dice qué se busca: el portafolio, un proyecto, un producto.
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import raiz
+        if args.action == "buscar-raiz":
+            print(json.dumps(raiz.buscar(args.docs or Path.cwd(), raiz.plugin_propio()), ensure_ascii=False, indent=2))
+            return 0
+        if not args.docs:
+            ap.error("--docs es la carpeta que la persona eligió")
+        r = raiz.marcar(args.docs, raiz.plugin_propio(), args.entidad, args.por)
+        print(json.dumps(r, ensure_ascii=False, indent=2))
+        return 0 if r["ok"] else 1
+
 
     if args.action in ("terminos", "aceptar"):
         if not args.config:

@@ -68,7 +68,8 @@ ocupado, `--puerto 8788`. Quien solo tiene la familia PMO lo puede levantar como
 ## El primer resultado
 
 En los primeros quince minutos, después del setup de cada familia, `server-setup` muestra el mapa
-—cada agente, su entidad o su caso y la carpeta de su estado— y `server-start` deja en el navegador
+—cada agente, su entidad o su caso, la carpeta de sus documentos con su marca
+`_CRITERIO_<QUÉ>.txt` si la tiene, y la de su estado— y `server-start` deja en el navegador
 la portada con todos los agentes del mapa: el informe de la PMO, una puerta por familia, lo que
 vence en todas y el formulario para preguntarle a cualquiera de ellos.
 

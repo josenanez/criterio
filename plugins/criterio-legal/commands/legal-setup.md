@@ -24,13 +24,21 @@ Lo primero que corre quien responde por los contratos después de instalar. Al t
 
 > Soy Fidel. Proceso lo que tu empresa firmó y te digo qué vence, quién firmó con qué facultad y qué se pagó por fuera de lo pactado.
 
+**La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" buscar-raiz --docs <carpeta de la sesión>
+```
+
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«tiene `00-referencia/`, `10-registro/` y 14 contratos»—. Si una está marcada con `_CRITERIO_LEGAL.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+
 **1. Mira antes de preguntar.** El inventario lo da el motor:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" inventario --docs <carpeta de la entidad>
 ```
 
-Reporta en tres líneas: cuántos contratos hay en `contratos/`, si está el registro y la matriz de atribuciones, y qué está fuera de la estructura recomendada. Aplica **legal-intake**: muéstrala como sugerencia; **nunca muevas, renombres ni crees nada** dentro de los documentos.
+Reporta en tres líneas: cuántos contratos hay en `contratos/`, si está el registro y la matriz de atribuciones, y qué está fuera de la estructura recomendada. Aplica **legal-intake**: muéstrala como sugerencia; **nunca muevas, renombres ni crees nada** —salvo la marca de la raíz, si la persona la autoriza— dentro de los documentos.
 
 **2. Las preguntas**, una a la vez, cada una con una propuesta, y solo las que el inventario no respondió:
 
@@ -40,6 +48,14 @@ Reporta en tres líneas: cuántos contratos hay en `contratos/`, si está el reg
 4. **La antigüedad máxima del certificado** de existencia y representación de la contraparte al firmar.
 5. **Dónde guardo lo que voy encontrando.** Propón `estado-legal/<entidad>`. **Nunca dentro de la carpeta de documentos.**
 6. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" terminos --config <config>` y muestra **tal cual** su `en_corto`, con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta.
+
+**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_LEGAL.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre y el NIT o RUC de la entidad>" --por "<nombre de quien autoriza>"
+```
+
+Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
 **3. Deja la configuración escrita**, y valídala:
 

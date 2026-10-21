@@ -19,7 +19,8 @@
      ".criterio/terminos/ (aceptar)",
      "<estado>/contratos/resultados.json",
      "<estado>/contratos/reporte-obligations-calendar.md",
-     "<estado>/corridas/salida-legal-setup.md"
+     "<estado>/corridas/salida-legal-setup.md",
+     "<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)"
     ]
    },
    "reglas": {
@@ -30,12 +31,14 @@
     ],
     "script": [
      "aceptar",
+     "buscar-raiz",
      "compute",
      "config",
      "convertir",
      "corrida",
      "init",
      "inventario",
+     "marcar-raiz",
      "reporte",
      "terminos"
     ],

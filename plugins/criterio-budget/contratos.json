@@ -16,7 +16,8 @@
      "<estado>/presupuesto/<AAAA>/ficha.json",
      ".criterio/terminos/ (aceptar)",
      "<estado>/presupuesto/<AAAA>/resultados.json",
-     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md"
+     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md",
+     "<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)"
     ]
    },
    "reglas": {
@@ -26,12 +27,14 @@
     ],
     "script": [
      "aceptar",
+     "buscar-raiz",
      "compute",
      "config",
      "convertir",
      "corrida",
      "init",
      "inventario",
+     "marcar-raiz",
      "reporte",
      "terminos"
     ],

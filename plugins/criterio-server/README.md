@@ -67,7 +67,8 @@ taken, `--puerto 8788`. Whoever has only the PMO family can raise it as before, 
 ## The first result
 
 In the first fifteen minutes, after each family's setup, `server-setup` shows the map —every
-agent, its entity or case, and its state folder— and `server-start` puts the landing page in the
+agent, its entity or case, its documents folder with its `_CRITERIO_<QUÉ>.txt` marker if it
+has one, and its state folder— and `server-start` puts the landing page in the
 browser with every agent on the map: the PMO report, one door per family, what falls due across
 all of them and the form to ask any of them a question.
 

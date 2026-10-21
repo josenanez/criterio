@@ -1176,7 +1176,7 @@ def main() -> int:
         description="Criterio Product — aritmética sobre el registro de requerimiento.")
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "due", "ran", "corrida",
                                        "corrida-inicio", "plan-lectura", "sellar", "compute",
-                                       "snapshot", "diff", "publish", "overlap", "selftest"])
+                                       "snapshot", "diff", "publish", "overlap", "buscar-raiz", "marcar-raiz", "selftest"])
     ap.add_argument("--docs", type=Path, default=None,
                     help="carpeta de documentación del producto, para plan-lectura y sellar")
     ap.add_argument("--state", type=Path)
@@ -1197,10 +1197,26 @@ def main() -> int:
     ap.add_argument("--what", default=None,
                     help="qué se corrió: review | report | crossed, para `ran`")
     ap.add_argument("--today", default=None)
+    ap.add_argument("--entidad", default=None, help="de quién es la carpeta raíz, para `marcar-raiz`")
     args = ap.parse_args()
 
     if args.action == "selftest":
         return selftest()
+
+    if args.action in ("buscar-raiz", "marcar-raiz"):
+        # La carpeta raíz: la busca por su marca y por lo que tiene adentro, y la marca solo con el sí
+        # de la persona (ADR 0011). El plugin dice qué se busca: el portafolio, un proyecto, un producto.
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import raiz
+        if args.action == "buscar-raiz":
+            print(json.dumps(raiz.buscar(args.docs or Path.cwd(), raiz.plugin_propio()), ensure_ascii=False, indent=2))
+            return 0
+        if not args.docs:
+            ap.error("--docs es la carpeta que la persona eligió")
+        r = raiz.marcar(args.docs, raiz.plugin_propio(), args.entidad, args.por)
+        print(json.dumps(r, ensure_ascii=False, indent=2))
+        return 0 if r["ok"] else 1
+
 
     if args.action in ("terminos", "aceptar"):
         if not args.config:

@@ -16,7 +16,8 @@
      "<estado>/ (init)",
      "<estado>/producto.json",
      "<estado>/requirements/<REQ>.json",
-     ".criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)"
+     ".criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)",
+     "<raíz>/_CRITERIO_PRODUCTO.txt (marcar-raiz, con permiso)"
     ]
    },
    "reglas": {
@@ -28,10 +29,12 @@
     ],
     "script": [
      "aceptar",
+     "buscar-raiz",
      "compute",
      "config",
      "corrida",
      "init",
+     "marcar-raiz",
      "sellar",
      "terminos"
     ],

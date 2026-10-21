@@ -16,7 +16,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** qué hay escrito, cuatro preguntas, definición contra evidencia
 
-**Escribe.** `.criterio/producto/<código>/config.json`; `<estado>/ (init)`; `<estado>/producto.json`; `<estado>/requirements/<REQ>.json`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`
+**Escribe.** `.criterio/producto/<código>/config.json`; `<estado>/ (init)`; `<estado>/producto.json`; `<estado>/requirements/<REQ>.json`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`; `<raíz>/_CRITERIO_PRODUCTO.txt (marcar-raiz, con permiso)`
 
 **Skills.** **demand-evidence**, **document-intake**, **product-metrics**, **requirement-record**
 
@@ -170,7 +170,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** qué encontró, cuatro preguntas, compromisos de la última reunión
 
-**Escribe.** `.criterio/proyecto/<código>/config.json`; `<estado>/ (init)`; `<estado>/records/<código>.json`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`
+**Escribe.** `.criterio/proyecto/<código>/config.json`; `<estado>/ (init)`; `<estado>/records/<código>.json`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`; `<raíz>/_CRITERIO_PROYECTO.txt (marcar-raiz, con permiso)`
 
 **Skills.** **commitment-tracking**, **document-intake**, **project-record**
 
@@ -298,7 +298,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** qué encontró en la carpeta, cinco preguntas, las señales de `compute` sobre tres proyectos
 
-**Escribe.** `.criterio/portafolio/config.json`; `<estado>/ (init)`; `<estado>/records/<código>.json (tres)`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`
+**Escribe.** `.criterio/portafolio/config.json`; `<estado>/ (init)`; `<estado>/records/<código>.json (tres)`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`; `<raíz>/_CRITERIO_PORTAFOLIO.txt (marcar-raiz, con permiso)`
 
 **Skills.** **commitment-tracking**, **document-intake**, **portfolio-health**, **project-record**
 

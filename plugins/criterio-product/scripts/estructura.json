@@ -1,0 +1,53 @@
+{
+  "generado": "por scripts/carpetas.py desde families/criterio-pmo/carpetas.json; no se edita a mano",
+  "niveles": [
+    {
+      "id": "proyecto",
+      "ruta": "[A-Z]{2,5}-\\d{2,}[^/]*",
+      "profundidad": 1,
+      "etiqueta": "<código>/",
+      "carpetas": [
+        {
+          "carpeta": "00-gobierno",
+          "patrones": []
+        },
+        {
+          "carpeta": "10-plan",
+          "patrones": []
+        },
+        {
+          "carpeta": "20-seguimiento",
+          "patrones": []
+        },
+        {
+          "carpeta": "30-reuniones",
+          "patrones": []
+        }
+      ]
+    },
+    {
+      "id": "producto",
+      "ruta": "[A-Z]{2,5}-\\d{2,}[^/]*",
+      "profundidad": 1,
+      "etiqueta": "<código>/",
+      "carpetas": [
+        {
+          "carpeta": "00-definicion",
+          "patrones": []
+        },
+        {
+          "carpeta": "10-descubrimiento",
+          "patrones": []
+        },
+        {
+          "carpeta": "20-metricas",
+          "patrones": []
+        },
+        {
+          "carpeta": "30-decisiones",
+          "patrones": []
+        }
+      ]
+    }
+  ]
+}

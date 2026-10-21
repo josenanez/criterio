@@ -41,9 +41,15 @@ Estas reglas importan más que el orden de los pasos:
 Una línea y sigue. **No expliques lo que vas a hacer: hazlo.** La confianza en esto no la da
 una presentación, la da el primer resultado sobre sus propios documentos.
 
-**1. Mira antes de preguntar**
+**La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
 
-Si hay ruta en el argumento, úsala. Si no, pregunta dónde están los documentos de proyectos y ofrece buscar.
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" buscar-raiz --docs <carpeta de la sesión>
+```
+
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«12 proyectos (PRY-101, PRY-102, PRY-103…)»—. Si una está marcada con `_CRITERIO_PORTAFOLIO.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+
+**1. Mira antes de preguntar**
 
 Mira la carpeta con `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" plan-lectura --state <estado> --docs <carpeta>` —su `inventory` es el inventario: `files`, `folders`, `formats`, `newest` (la fecha más reciente en los nombres) y `unreadable`; esas cifras se copian, y no se usa `find` ni listas en `/tmp`— y reporta en dos líneas qué encontraste: cuántos proyectos se distinguen, cuántos documentos, qué formatos, y cuál es el documento más reciente. Eso le dice a la persona que esto ya está mirando sus cosas de verdad.
 
@@ -66,6 +72,14 @@ Presentación, PDF o página. Si no sabe, presentación.
 **5. Los términos**
 
 **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" terminos --config .criterio/portafolio/config.json` y muestra **tal cual** su `en_corto` —el texto vive en `TERMS.es.md`, que viaja con el plugin— con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta. **No la asumas, no la infieras de que siga hablando, y no la registres sin un sí.** Cada versión de la familia se acepta de nuevo, aunque el texto no haya cambiado. La aceptación se registra en el paso siguiente, cuando la configuración ya existe.
+
+**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_PORTAFOLIO.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre de la organización>" --por "<nombre de quien autoriza>"
+```
+
+Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
 **6. Deja todo armado**
 

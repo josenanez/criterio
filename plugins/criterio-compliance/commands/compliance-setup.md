@@ -24,17 +24,33 @@ Lo primero que corre quien responde por el cumplimiento después de instalar. Al
 
 > Soy Constanza. Pongo cada obligación de tu matriz al lado de su evidencia, todos los días y no solo el de la auditoría.
 
+**La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" buscar-raiz --docs <carpeta de la sesión>
+```
+
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«tiene `00-referencia/`, `10-registro/` y 6 periodos de cumplimiento»—. Si una está marcada con `_CRITERIO_LEGAL.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+
 **1. Mira antes de preguntar:**
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" inventario --docs <carpeta de la entidad>
 ```
 
-Aplica **legal-intake**: si la carpeta no sigue la estructura, muéstrala como sugerencia; **nunca muevas, renombres ni crees nada**.
+Aplica **legal-intake**: si la carpeta no sigue la estructura, muéstrala como sugerencia; **nunca muevas, renombres ni crees nada** —salvo la marca de la raíz, si la persona la autoriza—.
 
 **2. La matriz de obligaciones**, en el modelo de **obligations-matrix**: cada obligación con su id, la fuente de la que sale —norma, contrato o política—, su responsable, su periodicidad, su fecha límite y la evidencia que la prueba. **Constanza no trae obligaciones**: las define la organización. Lo que le falte a cada fila se dice, no se completa.
 
 **3. Las preguntas**, una a la vez y con propuesta: la entidad y el país; el periodo que se evalúa; el plazo de respuesta del canal de denuncias; los días para evaluar una norma nueva; si la organización usa a Fidel, dónde están sus fichas; dónde guardo lo que encuentro (`estado-legal/<entidad>`, nunca dentro de los documentos); y los términos: corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" terminos --config <config>`, muestra **tal cual** su `en_corto` y pide un sí explícito con el nombre de quien acepta.
+
+**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_LEGAL.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre y el NIT o RUC de la entidad>" --por "<nombre de quien autoriza>"
+```
+
+Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
 **4. Deja la configuración escrita:**
 

@@ -28,7 +28,15 @@ Lo primero que corre un contralor después de instalar. Al terminar ha visto **e
 
 > Soy Clara. Proceso los documentos de tu cierre y te muestro qué cuadra, qué no y qué no tiene soporte.
 
-**1. Mira antes de preguntar.** Si hay ruta en el argumento, úsala; si no, pregunta dónde está la carpeta de la entidad. El inventario lo da el motor:
+**La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" buscar-raiz --docs <carpeta de la sesión>
+```
+
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«tiene `00-referencia/` y nueve periodos»—. Si una está marcada con `_CRITERIO_FINANZAS.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+
+**1. Mira antes de preguntar.** El inventario lo da el motor:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" inventario --docs <carpeta de la entidad>
@@ -47,6 +55,14 @@ Con su salida, reporta en tres líneas: cuántos archivos, qué periodos y años
 7. **Quién aprueba el cierre**, y los festivos del calendario si la persona los tiene a mano.
 8. **Dónde guardo lo que voy encontrando.** Propón `estado-finanzas/<entidad>` al lado de la carpeta `finanzas/`. **Nunca dentro de la carpeta de documentos**: `config` lo rechaza.
 9. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" terminos --config <config>` y muestra **tal cual** su `en_corto`, con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta. **No lo asumas ni lo registres sin un sí.** Cada versión de la familia se acepta de nuevo.
+
+**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_FINANZAS.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre y el NIT o RUC de la entidad>" --por "<nombre de quien autoriza>"
+```
+
+Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
 **3. Deja la configuración escrita**, con las respuestas y con los umbrales por defecto declarados en `config.example.json` (ninguno es una norma: son configuración), y prepara el estado:
 

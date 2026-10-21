@@ -33,6 +33,7 @@ SCRIPTS = {
         "texto.py": "leer un .docx es leer un .docx",
         "rastro.py": "el rastro de cada corrida lo escribe el arnés, igual para los tres",
         "terminos.py": "la aceptación de los términos se registra igual en los tres",
+        "raiz.py": "buscar y marcar la carpeta raíz es igual en todos los agentes (ADR 0011)",
     },
     # Alba no calcula plan ni presupuesto —en definición no existen—, pero sí lee las
     # fichas de los proyectos que ejecutan su producto, y el contrato de campo
@@ -44,6 +45,7 @@ SCRIPTS = {
         "texto.py": "una entrevista llega en .docx tanto como un acta",
         "rastro.py": "el rastro de cada corrida lo escribe el arnés, igual para los tres",
         "terminos.py": "la aceptación de los términos se registra igual en los tres",
+        "raiz.py": "buscar y marcar la carpeta raíz es igual en todos los agentes (ADR 0011)",
     },
 }
 
@@ -55,6 +57,7 @@ for _p in ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-co
         "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
         "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
         "rastro.py": "el rastro de cada corrida lo escribe el arnés, igual en todas las familias (ADR 0010)",
+        "raiz.py": "buscar y marcar la carpeta raíz es igual en todos los agentes (ADR 0011)",
     }
 # Rostrum sirve lo que escriben todos: la página del informe de la PMO, su historia y la página de
 # cada corrida son de quien las escribe, y el servidor las toma de su copia (ADR 0010).
@@ -63,6 +66,7 @@ SCRIPTS["criterio-server"] = {
     "portafolio.py": "la historia de las corridas se lee igual que la escribe la PMO",
     "rastro.py": "la página de una corrida es la que escribe el arnés",
     "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
+    "raiz.py": "el mapa dice si la raíz de cada agente está marcada",
 }
 # El arnés de cada agente: el mismo `hooks.json` que llama a su copia de `rastro.py`.
 HOOKS = ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-compliance")

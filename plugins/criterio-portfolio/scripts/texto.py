@@ -37,7 +37,18 @@ import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
 
-IGNORAR = (".DS_Store", "Thumbs.db")
+class _Ignorar(tuple):
+    """Lo que ningún recorrido cuenta como documento: lo del sistema operativo y el archivo que
+    marca la carpeta raíz (ADR 0011), que es del agente y no de la organización."""
+    def __contains__(self, nombre) -> bool:
+        if tuple.__contains__(self, nombre):
+            return True
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import raiz
+        return raiz.es_marcador(str(nombre))
+
+
+IGNORAR = _Ignorar((".DS_Store", "Thumbs.db"))
 NATIVO = (".md", ".txt", ".csv", ".tsv", ".json", ".yaml", ".yml")
 
 

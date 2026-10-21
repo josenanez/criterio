@@ -50,7 +50,7 @@ In the first fifteen minutes, `budget-setup` shows approved against actual and c
 - It does not recommend the committee's decision: it presents each point with its figure and citation.
 - It does not declare any area's budget status.
 - It does not present a forecast as the correct one: each carries its stated assumption.
-- It never moves, renames or creates anything inside the organisation's documents.
+- It never moves, renames or creates anything inside the organisation's documents. The only thing it leaves, if the person allows it, is the file that marks the root folder so it is recognised at a glance.
 
 ## Installing and configuring
 

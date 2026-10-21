@@ -62,7 +62,7 @@ In the first fifteen minutes, `legal-setup` shows the contract calendar: what is
 - It does not recommend renewing, terminating or renegotiating: a person decides, and Fidel records the decision when a document takes it.
 - It does not draft, sign or send contracts, amendments or notices.
 - It states no rule, legal deadline or authority from memory that the matrix does not hold.
-- It never moves, renames or creates anything inside the organisation's documents.
+- It never moves, renames or creates anything inside the organisation's documents. The only thing it leaves, if the person allows it, is the file that marks the root folder so it is recognised at a glance.
 
 ## Installing and configuring
 

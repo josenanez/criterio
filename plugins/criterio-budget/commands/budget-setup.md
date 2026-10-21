@@ -28,13 +28,21 @@ Lo primero que corre el responsable de FP&A después de instalar. Al terminar ha
 
 > Soy Tomás. Pongo el presupuesto al lado de su gemelo, la ejecución, y te digo dónde se separan.
 
+**La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" buscar-raiz --docs <carpeta de la sesión>
+```
+
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«tiene `00-referencia/` y nueve periodos»—. Si una está marcada con `_CRITERIO_FINANZAS.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+
 **1. Mira antes de preguntar.** El inventario lo da el motor:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" inventario --docs <carpeta de la entidad>
 ```
 
-Reporta qué versiones hay en `10-aprobado/`, qué periodos tienen `10-contabilidad/`, si hay compromisos, proyecciones y actas. Aplica **finance-intake**: si la carpeta no sigue la estructura, muéstrala como sugerencia; **nunca muevas, renombres ni crees nada**.
+Reporta qué versiones hay en `10-aprobado/`, qué periodos tienen `10-contabilidad/`, si hay compromisos, proyecciones y actas. Aplica **finance-intake**: si la carpeta no sigue la estructura, muéstrala como sugerencia; **nunca muevas, renombres ni crees nada** —salvo la marca de la raíz, si la persona la autoriza—.
 
 **2. Las preguntas**, una a la vez y solo las que el inventario no respondió:
 
@@ -52,6 +60,14 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" convertir --config <config> 
 7. **Si la organización usa la familia PMO**, dónde están las fichas de sus proyectos: así el presupuesto de cada proyecto se cruza con el del área.
 8. **Dónde guardo lo que voy encontrando.** Propón `estado-finanzas/<entidad>`. **Nunca dentro de la carpeta de documentos.**
 9. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" terminos --config <config>`, muestra **tal cual** su `en_corto` con el enlace a la nota legal y pide un sí explícito con el nombre de quien acepta. **No lo registres sin un sí.**
+
+**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_FINANZAS.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre y el NIT o RUC de la entidad>" --por "<nombre de quien autoriza>"
+```
+
+Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
 **3. Deja la configuración escrita** y valídala:
 

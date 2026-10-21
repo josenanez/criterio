@@ -9,6 +9,10 @@ La fuente es una sola: families/criterio-pmo/carpetas.json. La usa el material d
 (tests/sintetico/corpus.py) y la recomienda la familia (ADR 0007). Este script la escribe en
 los dos README de la familia y en el skill document-intake de los tres plugins, que es lo que
 el agente instalado tiene a mano cuando le dice a alguien cómo organizar su carpeta.
+
+Escribe además `scripts/estructura.json` en los tres plugins: la misma estructura en la forma que
+usa `raiz.py` para encontrar la carpeta de un proyecto, de un producto o del portafolio por lo que
+tiene adentro (ADR 0011). Un proyecto o un producto se reconoce por su código al inicio del nombre.
 """
 from __future__ import annotations
 
@@ -66,6 +70,18 @@ def aplicar(texto: str, bl: str, idioma: str, antes: str, ruta: Path) -> str:
     return texto.replace(antes, f"{TEXTO[idioma]['titulo']}\n\n{bl}\n\n{antes}", 1)
 
 
+CODIGO = r"[A-Z]{2,5}-\d{2,}[^/]*"
+PLUGINS_PMO = ("criterio-portfolio", "criterio-project", "criterio-product")
+
+
+def estructura_json(f: dict) -> str:
+    d = {"generado": "por scripts/carpetas.py desde families/criterio-pmo/carpetas.json; no se edita a mano",
+         "niveles": [{"id": clase, "ruta": CODIGO, "profundidad": 1, "etiqueta": "<código>/",
+                      "carpetas": [{"carpeta": b["carpeta"], "patrones": []} for b in f[clase]]}
+                     for clase in ("proyecto", "producto")]}
+    return json.dumps(d, ensure_ascii=False, indent=2) + "\n"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
@@ -88,6 +104,16 @@ def main() -> int:
         elif nuevo != actual:
             ruta.write_text(nuevo, encoding="utf-8")
             print(f"  {ruta.relative_to(RAIZ)}")
+    for plug in PLUGINS_PMO:
+        ruta = RAIZ / "plugins" / plug / "scripts" / "estructura.json"
+        nuevo = estructura_json(f)
+        actual = ruta.read_text(encoding="utf-8") if ruta.exists() else ""
+        if actual != nuevo:
+            if args.check:
+                errores.append(f"{ruta.relative_to(RAIZ)}: no sale de carpetas.json")
+            else:
+                ruta.write_text(nuevo, encoding="utf-8")
+                print(f"  {ruta.relative_to(RAIZ)}")
     for e in errores:
         print(f"  ✗ {e}")
     if args.check and not errores:

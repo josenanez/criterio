@@ -430,8 +430,12 @@ def inventario(docs: Path, estado: Path | None, est: dict) -> dict:
     previo = previo or {}
     archivos, nuevos, cambiados, fuera, ilegibles = {}, [], [], [], []
     instancias: dict[str, set] = {}
+    import sys
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import raiz  # el archivo que marca la raíz es del agente, no un documento (ADR 0011)
     for p in sorted(docs.rglob("*")):
-        if not p.is_file() or p.name.startswith(".") or any(x.startswith(".") for x in p.relative_to(docs).parts):
+        if not p.is_file() or p.name.startswith(".") or any(x.startswith(".") for x in p.relative_to(docs).parts) \
+                or raiz.es_marcador(p.name):
             continue
         r = p.relative_to(docs).as_posix()
         h = sha256(p)
@@ -641,7 +645,7 @@ def argumentos(descripcion: str):
     ap = argparse.ArgumentParser(description=descripcion)
     for op, t in (("--config", Path), ("--state", Path), ("--docs", Path), ("--salida", Path), ("--file", Path)):
         ap.add_argument(op, type=t)
-    for op in ("--period", "--year", "--today", "--what", "--caso", "--nota", "--por", "--idioma", "--id"):
+    for op in ("--period", "--year", "--today", "--what", "--caso", "--nota", "--por", "--idioma", "--id", "--entidad"):
         ap.add_argument(op)
     return ap
 
@@ -662,6 +666,19 @@ def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas
             return 0 if r["vigente"] else 3
         print(json.dumps(terminos.aceptar(a.config, a.por, a.idioma, _hoy(a) if a.today else None), ensure_ascii=False, indent=2))
         return 0
+    if a.action in ("buscar-raiz", "marcar-raiz"):
+        # La carpeta raíz: se busca por su marca y por la estructura que tiene adentro, y se marca solo
+        # con el sí de la persona (ADR 0011).
+        sys.path.insert(0, str(aqui))
+        import raiz
+        if a.action == "buscar-raiz":
+            print(json.dumps(raiz.buscar(a.docs or Path.cwd(), plugin(aqui)["name"]), ensure_ascii=False, indent=2))
+            return 0
+        if not a.docs:
+            ap.error("--docs es la carpeta que la persona eligió")
+        r = raiz.marcar(a.docs, plugin(aqui)["name"], a.entidad, a.por)
+        print(json.dumps(r, ensure_ascii=False, indent=2))
+        return 0 if r["ok"] else 1
     if a.action == "init":
         if not a.state:
             ap.error("--state es obligatorio")

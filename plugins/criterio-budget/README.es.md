@@ -50,7 +50,7 @@ En los primeros quince minutos, `budget-setup` deja ver lo aprobado contra lo ej
 - No recomienda la decisión del comité: presenta cada punto con su cifra y su cita.
 - No declara el estado del presupuesto de ningún área.
 - No presenta una proyección como la correcta: cada una lleva su supuesto escrito.
-- No mueve, renombra ni crea nada dentro de los documentos de la organización.
+- No mueve, renombra ni crea nada dentro de los documentos de la organización. Lo único que deja, si la persona lo autoriza, es el archivo que marca la carpeta raíz para que se reconozca a primera vista.
 
 ## Instalación y configuración
 

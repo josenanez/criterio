@@ -1,6 +1,6 @@
 # 0007 · La familia PMO recomienda una estructura de carpetas
 
-**Fecha:** 2026-10-20 · **Estado:** aceptada
+**Fecha:** 2026-10-20 · **Estado:** aceptada · **Modificada por:** [0011](0011-la-carpeta-raiz-se-busca-y-se-marca.md), que permite marcar la carpeta raíz con permiso
 
 ## Contexto
 

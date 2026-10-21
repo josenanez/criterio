@@ -74,6 +74,8 @@ PUERTAS = [
      "Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras"),
     ("código", [sys.executable, str(PMO / "terminos.py"), "--selftest"],
      "Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256"),
+    ("código", [sys.executable, str(PMO / "raiz.py"), "--selftest"],
+     "La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso"),
     ("material", [sys.executable, str(RAIZ / "scripts/registro.py"), "verificar"],
      "El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos"),
     ("código", [sys.executable, str(PM / "portafolio.py"), "selftest"],

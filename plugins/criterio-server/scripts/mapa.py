@@ -28,6 +28,8 @@ import sys
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
+sys.path.insert(0, str(AQUI))
+import raiz as raiz_mod  # noqa: E402  la marca de la carpeta raíz, la misma de cada agente
 
 
 def registro() -> dict:
@@ -84,12 +86,17 @@ def descubrir(raiz: Path) -> dict:
                  "informe": None, "existe": bool(estado and estado.is_dir())}
             if a["area"] == "portafolio":
                 e["informe"] = _relativa(_ruta(paths.get("reports"), raiz), raiz)
+            docs = _ruta(paths.get("documents"), raiz)
+            e["documentos"] = _relativa(docs, raiz)
+            marca = raiz_mod.leer(docs, a["plugin"]) if docs and docs.is_dir() and a["plugin"] in raiz_mod.DESTINO else None
+            e["marcada"] = marca["archivo"] if marca else None
             if estado is None:
                 problemas.append(f"{ident}: {e['config']} no dice dónde está el estado (paths.state)")
             elif not e["existe"]:
                 problemas.append(f"{ident}: la carpeta de estado {e['estado']} no existe todavía; el agente no ha corrido")
             entradas.append(e)
     return {"raiz": str(raiz), "entradas": entradas, "problemas": problemas,
+            "sin_marca": [e["id"] for e in entradas if e["documentos"] and not e["marcada"]],
             "familias": sorted({e["familia"] for e in entradas})}
 
 
@@ -161,8 +168,12 @@ def selftest() -> int:
             f.write_text(json.dumps(cuerpo), encoding="utf-8")
         config("portafolio", {"organization": {"name": "Banco de Prueba"},
                               "paths": {"state": "pmo/estado", "reports": "pmo/informe"}})
-        config("finanzas/900-banco", {"entity": {"name": "Banco de Prueba"}, "paths": {"state": "estado-finanzas/900-banco"}})
-        config("legal/900-banco", {"entity": {"name": "Banco de Prueba"}, "paths": {"state": "estado-legal/900-banco"}})
+        config("finanzas/900-banco", {"entity": {"name": "Banco de Prueba"},
+                                      "paths": {"state": "estado-finanzas/900-banco", "documents": "finanzas/900-banco"}})
+        (raiz / "finanzas/900-banco").mkdir(parents=True)
+        raiz_mod.marcar(raiz / "finanzas/900-banco", "criterio-finance", "Banco de Prueba", "prueba", hoy=dt.date(2026, 10, 21))
+        config("legal/900-banco", {"entity": {"name": "Banco de Prueba"},
+                                   "paths": {"state": "estado-legal/900-banco", "documents": "legal/900-banco"}})
         config("presupuesto/900-banco", {"paths": {}})
         (raiz / ".criterio" / "otra-cosa").mkdir()
         for d in ("pmo/estado", "estado-finanzas/900-banco"):
@@ -173,6 +184,10 @@ def selftest() -> int:
         ok("con su familia", d["familias"], ["cfo", "clo", "pmo"])
         ok("y lo que falta lo dice: un estado que no existe, una configuración sin estado",
            sorted(p.split(":")[0] for p in d["problemas"]), ["legal/900-banco", "presupuesto/900-banco"])
+        fin = next(e for e in d["entradas"] if e["id"] == "finanzas/900-banco")
+        ok("cada entrada dice dónde están sus documentos y si la raíz está marcada",
+           (fin["documentos"], fin["marcada"]), ("finanzas/900-banco", "_CRITERIO_FINANZAS.txt"))
+        ok("y una raíz sin marca se ve", d["sin_marca"], ["legal/900-banco"])
         ok("el informe de la PMO va con su entrada",
            next(e["informe"] for e in d["entradas"] if e["area"] == "portafolio"), "pmo/informe")
         g = guardar(raiz, sin=["presupuesto/900-banco"])

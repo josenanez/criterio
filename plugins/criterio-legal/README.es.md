@@ -62,7 +62,7 @@ En los primeros quince minutos, `legal-setup` deja ver el calendario de los cont
 - No recomienda renovar, terminar ni renegociar: la decisión es de una persona, y Fidel la registra cuando un documento la toma.
 - No redacta, firma ni envía contratos, otrosíes ni preavisos.
 - No dice de memoria una norma, un plazo legal ni una facultad que la matriz no tiene.
-- No mueve, renombra ni crea nada dentro de los documentos de la organización.
+- No mueve, renombra ni crea nada dentro de los documentos de la organización. Lo único que deja, si la persona lo autoriza, es el archivo que marca la carpeta raíz para que se reconozca a primera vista.
 
 ## Instalación y configuración
 

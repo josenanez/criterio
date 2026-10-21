@@ -26,4 +26,4 @@ Verified on synthetic material in `tests/criterio-clo/`, with a key the agent ne
 
 ## 5. Folders
 
-- [ ] The agent never moves, renames or creates anything inside the organisation's documents; it suggests the recommended structure (ADR 0007).
+- [ ] The agent never moves, renames or creates anything inside the organisation's documents; it suggests the recommended structure (ADR 0007). The only exception is the root marker, `_CRITERIO_<…>.txt`, written only with the person's explicit yes and never counted as a document (ADR 0011).

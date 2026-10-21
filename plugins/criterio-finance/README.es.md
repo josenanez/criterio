@@ -65,7 +65,7 @@ En los primeros quince minutos, `finance-setup` deja ver el estado del cierre de
 - No presenta declaraciones ni reportes a supervisores, y no firma.
 - No opina sobre deducibilidad, tarifas ni tratamientos NIIF, y no dice de memoria una tarifa, un plazo ni el valor de una unidad tributaria.
 - No declara el estado del cierre: lo declara el contralor.
-- No mueve, renombra ni crea nada dentro de los documentos de la organización.
+- No mueve, renombra ni crea nada dentro de los documentos de la organización. Lo único que deja, si la persona lo autoriza, es el archivo que marca la carpeta raíz para que se reconozca a primera vista.
 
 ## Instalación y configuración
 

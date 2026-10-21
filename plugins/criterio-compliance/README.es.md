@@ -51,7 +51,7 @@ En los primeros quince minutos, `compliance-setup` deja ver el estado del period
 - No presenta reportes a supervisores ni firma.
 - No lee el contenido de una denuncia ni procesa quién denunció: solo los plazos del registro de casos.
 - No declara el estado de cumplimiento: lo declara el oficial de cumplimiento.
-- No mueve, renombra ni crea nada dentro de los documentos de la organización.
+- No mueve, renombra ni crea nada dentro de los documentos de la organización. Lo único que deja, si la persona lo autoriza, es el archivo que marca la carpeta raíz para que se reconozca a primera vista.
 
 ## Instalación y configuración
 

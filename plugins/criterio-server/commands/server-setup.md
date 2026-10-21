@@ -24,7 +24,7 @@ allowed-tools: Read, Glob, Grep, Bash(python3:*), Bash(ls:*)
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/mapa.py" descubrir --raiz <carpeta de trabajo>
 ```
 
-Muéstralo como una tabla, una fila por agente e instancia, con la familia, el agente, la entidad o el caso y la carpeta de su estado. Lo que venga en `problemas` va debajo, tal cual. Por ejemplo, un estado que todavía no existe porque el agente no ha corrido. **No lo arregles tú**: di qué comando de qué agente lo resuelve.
+Muéstralo como una tabla, una fila por agente e instancia, con la familia, el agente, la entidad o el caso, la carpeta de sus documentos y la de su estado. Si la carpeta de documentos tiene su marca (`marcada`, el archivo `_CRITERIO_<QUÉ>.txt`), dilo con el nombre del archivo; las de `sin_marca` se marcan desde el setup de su agente, no desde aquí (ADR 0011). Lo que venga en `problemas` va debajo, tal cual. Por ejemplo, un estado que todavía no existe porque el agente no ha corrido. **No lo arregles tú**: di qué comando de qué agente lo resuelve.
 
 Si no encontró a ningún agente, dilo en una línea y di qué falta: cada familia se instala y se configura con su propio setup —`/criterio-portfolio:portfolio-setup`, `/criterio-finance:finance-setup`, `/criterio-legal:legal-setup`…—, y después se vuelve aquí.
 

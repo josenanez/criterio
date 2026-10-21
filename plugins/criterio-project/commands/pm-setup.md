@@ -51,9 +51,15 @@ Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales�
 
 Una línea y sigue. **No expliques lo que vas a hacer: hazlo.**
 
-**1. Mira antes de preguntar**
+**La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
 
-Si hay ruta en el argumento, úsala. Si no, pregunta dónde está la carpeta del proyecto.
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" buscar-raiz --docs <carpeta de la sesión>
+```
+
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«se llama como un proyecto y tiene `00-gobierno/`, `10-plan/`»—. Si una está marcada con `_CRITERIO_PROYECTO.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+
+**1. Mira antes de preguntar**
 
 El inventario lo da el script, no `find` ni una lista en `/tmp`:
 
@@ -79,6 +85,14 @@ Una a la vez, cada una con su propuesta:
    documentación** —el barrido de la PMO lo tomaría por un proyecto— **ni dentro de
    `.criterio/`**, que es configuración y se versiona; `config` lo rechaza.
 4. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" terminos --config .criterio/proyecto/<código>/config.json` y muestra **tal cual** su `en_corto` —el texto vive en `TERMS.es.md`, que viaja con el plugin— con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta. **No la asumas, no la infieras de que siga hablando, y no la registres sin un sí.** Cada versión de la familia se acepta de nuevo, aunque el texto no haya cambiado.
+
+**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_PROYECTO.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el código y el nombre del proyecto>" --por "<nombre de quien autoriza>"
+```
+
+Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
 **3. Lee las reuniones y muestra el resultado**
 

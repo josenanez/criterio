@@ -19,7 +19,8 @@
      ".criterio/terminos/ (aceptar)",
      "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
      "<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md",
-     "<estado>/corridas/salida-compliance-setup.md"
+     "<estado>/corridas/salida-compliance-setup.md",
+     "<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)"
     ]
    },
    "reglas": {
@@ -30,12 +31,14 @@
     ],
     "script": [
      "aceptar",
+     "buscar-raiz",
      "compute",
      "config",
      "convertir",
      "corrida",
      "init",
      "inventario",
+     "marcar-raiz",
      "reporte",
      "terminos"
     ],

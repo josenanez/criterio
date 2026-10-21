@@ -736,7 +736,7 @@ def calcular(cfg: dict, rol: str, a) -> tuple[dict, Path]:
 def main() -> int:
     ap = N.argumentos("El motor de Fidel y Constanza.")
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "inventario", "convertir",
-                                       "compute", "reporte", "despertar", "responder", "corrida", "selftest"])
+                                       "compute", "reporte", "despertar", "responder", "corrida", "buscar-raiz", "marcar-raiz", "selftest"])
     a = ap.parse_args()
     if a.action == "selftest":
         return selftest()
