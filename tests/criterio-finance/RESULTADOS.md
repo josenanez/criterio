@@ -2,7 +2,7 @@
 
 **la agente contralora de la familia CFO** · plugin `criterio-finance`
 
-Corrida del 2026-10-20, sobre el commit `4712964`, con cambios en el árbol todavía sin confirmar. **2 puertas · 35 comprobaciones · todas en verde.**
+Corrida del 2026-10-20, sobre el commit `2c8278c`, con cambios en el árbol todavía sin confirmar. **2 puertas · 35 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-20, sobre el commit `4712964`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-finance/finanzas.py selftest` | El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima | 28 | 113 ms | verde |
-| `criterio-cfo/evaluar.py` | Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles | 7 | 240 ms | verde |
+| `criterio-finance/finanzas.py selftest` | El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima | 28 | 94 ms | verde |
+| `criterio-cfo/evaluar.py` | Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles | 7 | 220 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -25,12 +25,9 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 
 ## Los comandos, corridos por un agente de verdad
 
-**0 de 9** corrieron en la ronda 10 con el plugin instalado desde cero, en 4 industrias; **0** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-10/`](../evidencias/rondas/ronda-10/).
+**0 de 9.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
 
-| Comando | Terminó | Cumplió su contrato | Tiempo |
-|---|---|---|---:|
-
-**Sin evidencia todavía, y por eso sin probar:** `account-reconcile`, `audit-pack`, `bank-reconcile`, `close-scan`, `close-status`, `einvoice-check`, `finance-setup`, `finance-wake`, `ledger-check`
+Ninguno todavía. La evidencia se registra con `tests/sintetico/evidencia.py`.
 
 
 ## Qué material se usó, y qué prueba cada pieza
