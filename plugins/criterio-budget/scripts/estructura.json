@@ -1,0 +1,72 @@
+{
+  "generado": "por scripts/cfo.py desde families/criterio-cfo/carpetas.json; no se edita a mano",
+  "entidad": [
+    {
+      "carpeta": "00-referencia",
+      "patrones": [
+        "^plan",
+        "^checklist",
+        "^mapeo"
+      ]
+    }
+  ],
+  "periodo": [
+    {
+      "carpeta": "10-contabilidad",
+      "patrones": [
+        "^balance",
+        "^libro"
+      ]
+    },
+    {
+      "carpeta": "20-bancos",
+      "patrones": [
+        "^extracto",
+        "^auxiliar_libros"
+      ]
+    },
+    {
+      "carpeta": "30-facturacion",
+      "patrones": [
+        "_xml$"
+      ]
+    },
+    {
+      "carpeta": "40-soportes",
+      "patrones": []
+    },
+    {
+      "carpeta": "50-auditoria",
+      "patrones": [
+        "^requerimientos",
+        "^pbc"
+      ]
+    }
+  ],
+  "presupuesto": [
+    {
+      "carpeta": "10-aprobado",
+      "patrones": [
+        "^presupuesto_\\d{4}_v\\d+"
+      ]
+    },
+    {
+      "carpeta": "20-compromisos",
+      "patrones": [
+        "^compromisos"
+      ]
+    },
+    {
+      "carpeta": "30-proyecciones",
+      "patrones": [
+        "^proyeccion"
+      ]
+    },
+    {
+      "carpeta": "40-actas",
+      "patrones": [
+        "^acta"
+      ]
+    }
+  ]
+}

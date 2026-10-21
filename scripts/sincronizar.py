@@ -47,6 +47,26 @@ SCRIPTS = {
     },
 }
 
+# La familia CFO toma de la PMO lo que es igual en cualquier función —leer un documento,
+# registrar la aceptación de los términos— y comparte entre sus dos plugins su propio motor.
+# La fuente de `finanzas.py` y de `finance-intake` es criterio-finance, donde se editan.
+for _p in ("criterio-finance", "criterio-budget"):
+    SCRIPTS[_p] = {
+        "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
+        "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
+    }
+FUENTE_CFO = RAIZ / "plugins" / "criterio-finance" / "scripts"
+SCRIPTS_CFO = {
+    "criterio-budget": {
+        "finanzas.py": "el motor de los dos: Tomás toma la ejecución de la misma contabilidad que cierra Clara",
+    },
+}
+SKILLS_CFO = {
+    "criterio-budget": {
+        "finance-intake": "los mismos documentos, la misma estructura y las mismas columnas",
+    },
+}
+
 # Lo que viaja con cada plugin instalado, byte a byte: los términos que rigen y el registro
 # de versiones. Sin cabecera, porque su huella SHA-256 es la que se publica y la que firma
 # cada comprobante; una copia que difiera en un byte tendría otra. La fuente es la raíz.
@@ -55,7 +75,7 @@ RAIZ_A_PLUGINS = {
     "TERMS.es.md": ("TERMS.es.md", "los términos que rigen, en español"),
     "registro/versiones.json": ("REGISTRO.json", "el registro de versiones de la familia"),
 }
-PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product")
+PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-finance", "criterio-budget")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
@@ -86,7 +106,7 @@ SKILLS = {
 CABECERA = """# ─────────────────────────────────────────────────────────────────────────────
 # COPIA. No se edita aquí.
 #
-# La fuente es plugins/criterio-portfolio/scripts/{nombre}. Este archivo lo escribe
+# La fuente es plugins/{origen}/scripts/{nombre}. Este archivo lo escribe
 # scripts/sincronizar.py, y tests/coherencia.py falla si las dos versiones se
 # separan. Se copia en vez de importarse porque un plugin instalado tiene que
 # correr solo: un import a la ruta del otro plugin funciona en el repositorio y
@@ -97,22 +117,22 @@ CABECERA = """# ─────────────────────�
 
 # En markdown la marca va como comentario HTML: no se ve al leer el skill, se ve al
 # abrirlo para editarlo, que es exactamente cuando hace falta.
-MARCA_MD = ("<!-- COPIA · la fuente es plugins/criterio-portfolio/skills/{nombre}/. "
+MARCA_MD = ("<!-- COPIA · la fuente es plugins/{origen}/skills/{nombre}/. "
             "La escribe scripts/sincronizar.py y no se edita aquí. -->\n")
 
 
-def con_cabecera(texto: str, nombre: str) -> str:
+def con_cabecera(texto: str, nombre: str, origen: str = "criterio-portfolio") -> str:
     """La cabecera va después del shebang, si lo hay, para no romper el ejecutable."""
-    marca = CABECERA.format(nombre=nombre)
+    marca = CABECERA.format(nombre=nombre, origen=origen)
     if texto.startswith("#!"):
         primera, _, resto = texto.partition("\n")
         return f"{primera}\n{marca}{resto}"
     return marca + texto
 
 
-def con_marca_md(texto: str, nombre: str) -> str:
+def con_marca_md(texto: str, nombre: str, origen: str = "criterio-portfolio") -> str:
     """Después del frontmatter, que tiene que seguir siendo lo primero del archivo."""
-    marca = MARCA_MD.format(nombre=nombre)
+    marca = MARCA_MD.format(nombre=nombre, origen=origen)
     if texto.startswith("---\n"):
         fin = texto.find("\n---\n", 4)
         if fin != -1:
@@ -153,22 +173,35 @@ def revisar(escribir: bool) -> int:
                       f"{plugin}/scripts/{nombre}", porque, escribir,
                       origen.stat().st_mode, estado)
 
-    for plugin, skills in sorted(SKILLS.items()):
-        for nombre, porque in sorted(skills.items()):
-            carpeta = FUENTE.parent / "skills" / nombre
-            if not carpeta.is_dir():
-                estado["problemas"].append(f"falta el skill fuente {nombre}")
+    for plugin, archivos in sorted(SCRIPTS_CFO.items()):
+        for nombre, porque in sorted(archivos.items()):
+            origen = FUENTE_CFO / nombre
+            if not origen.exists():
+                estado["problemas"].append(f"falta la fuente {origen.relative_to(RAIZ)}")
                 continue
-            # Un skill es una carpeta: SKILL.md y lo que cuelgue de él. Se copia entero,
-            # porque media copia es peor que ninguna.
-            for origen in sorted(x for x in carpeta.rglob("*") if x.is_file()):
-                rel = origen.relative_to(carpeta)
-                texto = origen.read_text(encoding="utf-8")
-                if origen.name == "SKILL.md":
-                    texto = con_marca_md(texto, nombre)
-                _comparar(RAIZ / "plugins" / plugin / "skills" / nombre / rel, texto,
-                          f"{plugin}/skills/{nombre}/{rel}", porque, escribir,
-                          origen.stat().st_mode, estado)
+            _comparar(RAIZ / "plugins" / plugin / "scripts" / nombre,
+                      con_cabecera(origen.read_text(encoding="utf-8"), nombre, "criterio-finance"),
+                      f"{plugin}/scripts/{nombre}", porque, escribir,
+                      origen.stat().st_mode, estado)
+
+    for fuente_dir, origen_plugin, tabla in ((FUENTE.parent, "criterio-portfolio", SKILLS),
+                                             (FUENTE_CFO.parent, "criterio-finance", SKILLS_CFO)):
+        for plugin, skills in sorted(tabla.items()):
+            for nombre, porque in sorted(skills.items()):
+                carpeta = fuente_dir / "skills" / nombre
+                if not carpeta.is_dir():
+                    estado["problemas"].append(f"falta el skill fuente {nombre}")
+                    continue
+                # Un skill es una carpeta: SKILL.md y lo que cuelgue de él. Se copia entero,
+                # porque media copia es peor que ninguna.
+                for origen in sorted(x for x in carpeta.rglob("*") if x.is_file()):
+                    rel = origen.relative_to(carpeta)
+                    texto = origen.read_text(encoding="utf-8")
+                    if origen.name == "SKILL.md":
+                        texto = con_marca_md(texto, nombre, origen_plugin)
+                    _comparar(RAIZ / "plugins" / plugin / "skills" / nombre / rel, texto,
+                              f"{plugin}/skills/{nombre}/{rel}", porque, escribir,
+                              origen.stat().st_mode, estado)
 
     for plugin in PLUGINS_FAMILIA:
         for fuente, (destino, porque) in sorted(RAIZ_A_PLUGINS.items()):

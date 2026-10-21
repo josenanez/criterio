@@ -12,9 +12,20 @@
       "es": "Lo que la organización entrega una vez",
       "en": "What the organisation provides once",
       "carpetas": [
-        {"carpeta": "00-referencia", "agentes": ["clara", "tomas"],
-         "es": "El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales",
-         "en": "The chart of accounts with each account's nature, `checklist-cierre.xlsx` in the defined model, and the mapping of accounts to cost centres and budget lines"}
+        {
+          "carpeta": "00-referencia",
+          "agentes": [
+            "clara",
+            "tomas"
+          ],
+          "es": "El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales",
+          "en": "The chart of accounts with each account's nature, `checklist-cierre.xlsx` in the defined model, and the mapping of accounts to cost centres and budget lines",
+          "patrones": [
+            "^plan",
+            "^checklist",
+            "^mapeo"
+          ]
+        }
       ]
     },
     {
@@ -23,21 +34,63 @@
       "es": "Un periodo contable, numerado en el orden en que se trabaja el cierre",
       "en": "One accounting period, numbered in the order the close is worked",
       "carpetas": [
-        {"carpeta": "10-contabilidad", "agentes": ["clara", "tomas"],
-         "es": "Balance de comprobación y libro mayor exportados del ERP, y `auxiliares/` con un archivo por cuenta; de aquí sale también la ejecución del presupuesto",
-         "en": "Trial balance and general ledger exported from the ERP, and `auxiliares/` with one file per account; budget execution comes from here too"},
-        {"carpeta": "20-bancos", "agentes": ["clara"],
-         "es": "Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros",
-         "en": "One folder per account, `<bank>-<last 4 digits>`, with the statement and the book ledger"},
-        {"carpeta": "30-facturacion", "agentes": ["clara"],
-         "es": "`emitidas/` y `recibidas/`, con el XML de la DIAN (F-01) o del SRI (F-04)",
-         "en": "`emitidas/` and `recibidas/`, with the DIAN (F-01) or SRI (F-04) XML"},
-        {"carpeta": "40-soportes", "agentes": ["clara"],
-         "es": "La evidencia de cada tarea del checklist —actas, correos, conciliaciones firmadas—, con el id de la tarea al inicio del nombre",
-         "en": "The evidence for each checklist task —minutes, emails, signed reconciliations—, with the task id at the start of the name"},
-        {"carpeta": "50-auditoria", "agentes": ["clara"],
-         "es": "`requerimientos/` y `respuestas/` del auditor",
-         "en": "The auditor's `requerimientos/` (requests) and `respuestas/` (answers)"}
+        {
+          "carpeta": "10-contabilidad",
+          "agentes": [
+            "clara",
+            "tomas"
+          ],
+          "es": "Balance de comprobación y libro mayor exportados del ERP, y `auxiliares/` con un archivo por cuenta; de aquí sale también la ejecución del presupuesto",
+          "en": "Trial balance and general ledger exported from the ERP, and `auxiliares/` with one file per account; budget execution comes from here too",
+          "patrones": [
+            "^balance",
+            "^libro"
+          ]
+        },
+        {
+          "carpeta": "20-bancos",
+          "agentes": [
+            "clara"
+          ],
+          "es": "Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros",
+          "en": "One folder per account, `<bank>-<last 4 digits>`, with the statement and the book ledger",
+          "patrones": [
+            "^extracto",
+            "^auxiliar_libros"
+          ]
+        },
+        {
+          "carpeta": "30-facturacion",
+          "agentes": [
+            "clara"
+          ],
+          "es": "`emitidas/` y `recibidas/`, con el XML de la DIAN (F-01) o del SRI (F-04)",
+          "en": "`emitidas/` and `recibidas/`, with the DIAN (F-01) or SRI (F-04) XML",
+          "patrones": [
+            "_xml$"
+          ]
+        },
+        {
+          "carpeta": "40-soportes",
+          "agentes": [
+            "clara"
+          ],
+          "es": "La evidencia de cada tarea del checklist —actas, correos, conciliaciones firmadas—, con el id de la tarea al inicio del nombre",
+          "en": "The evidence for each checklist task —minutes, emails, signed reconciliations—, with the task id at the start of the name",
+          "patrones": []
+        },
+        {
+          "carpeta": "50-auditoria",
+          "agentes": [
+            "clara"
+          ],
+          "es": "`requerimientos/` y `respuestas/` del auditor",
+          "en": "The auditor's `requerimientos/` (requests) and `respuestas/` (answers)",
+          "patrones": [
+            "^requerimientos",
+            "^pbc"
+          ]
+        }
       ]
     },
     {
@@ -46,18 +99,50 @@
       "es": "Un año presupuestal",
       "en": "One budget year",
       "carpetas": [
-        {"carpeta": "10-aprobado", "agentes": ["tomas"],
-         "es": "El presupuesto aprobado y cada versión, con su fecha en el nombre",
-         "en": "The approved budget and every version, with its date in the name"},
-        {"carpeta": "20-compromisos", "agentes": ["tomas"],
-         "es": "Órdenes de compra y compromisos exportados del ERP, con la fecha de corte en el nombre",
-         "en": "Purchase orders and commitments exported from the ERP, with the cut-off date in the name"},
-        {"carpeta": "30-proyecciones", "agentes": ["tomas"],
-         "es": "La proyección de cada área, una por área y fecha",
-         "en": "Each area's forecast, one per area and date"},
-        {"carpeta": "40-actas", "agentes": ["tomas"],
-         "es": "Actas del comité de presupuesto, de aprobación y de traslados",
-         "en": "Minutes of the budget committee, of approvals and of transfers"}
+        {
+          "carpeta": "10-aprobado",
+          "agentes": [
+            "tomas"
+          ],
+          "es": "El presupuesto aprobado y cada versión, con su fecha en el nombre",
+          "en": "The approved budget and every version, with its date in the name",
+          "patrones": [
+            "^presupuesto_\\d{4}_v\\d+"
+          ]
+        },
+        {
+          "carpeta": "20-compromisos",
+          "agentes": [
+            "tomas"
+          ],
+          "es": "Órdenes de compra y compromisos exportados del ERP, con la fecha de corte en el nombre",
+          "en": "Purchase orders and commitments exported from the ERP, with the cut-off date in the name",
+          "patrones": [
+            "^compromisos"
+          ]
+        },
+        {
+          "carpeta": "30-proyecciones",
+          "agentes": [
+            "tomas"
+          ],
+          "es": "La proyección de cada área, una por área y fecha",
+          "en": "Each area's forecast, one per area and date",
+          "patrones": [
+            "^proyeccion"
+          ]
+        },
+        {
+          "carpeta": "40-actas",
+          "agentes": [
+            "tomas"
+          ],
+          "es": "Actas del comité de presupuesto, de aprobación y de traslados",
+          "en": "Minutes of the budget committee, of approvals and of transfers",
+          "patrones": [
+            "^acta"
+          ]
+        }
       ]
     }
   ],

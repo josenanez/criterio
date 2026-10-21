@@ -1,0 +1,525 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""El material de prueba de la familia CFO: cuatro industrias y dos entidades de control.
+
+    python3 tests/criterio-cfo/generar.py          escribe tests/criterio-cfo/material/
+
+Cada entidad trae su cierre de septiembre de 2026 —balance, mayor, auxiliares, extractos,
+facturas electrónicas, checklist, soportes, requerimientos del auditor— y su presupuesto del
+año con dos versiones, la contabilidad de enero a septiembre, compromisos, proyecciones y
+actas. Dos de las industrias son de Colombia, con el XML de la DIAN (F-01), y dos de Ecuador,
+con el del SRI (F-04, F-09).
+
+**La clave la escribe este archivo, no el motor.** Cada defecto se siembra a propósito y su
+señal esperada queda escrita en `clave.json`, junto con lo que el agente tendría que extraer
+de los documentos escritos. El motor no la ve; `evaluar.py` compara lo que el motor levanta
+contra ella, y una señal de más cuenta igual que una de menos.
+
+**Las entidades de control no tienen ningún defecto.** Un motor que levanta algo ahí es un
+generador de ruido. Todo es determinista: la misma semilla da el mismo material, byte a byte.
+"""
+from __future__ import annotations
+
+import csv
+import datetime as dt
+import hashlib
+import json
+import random
+import shutil
+import sys
+from pathlib import Path
+
+AQUI = Path(__file__).resolve().parent
+RAIZ = AQUI.parent.parent
+sys.path.insert(0, str(RAIZ / "plugins" / "criterio-finance" / "scripts"))
+import finanzas as F  # noqa: E402
+
+SALIDA = AQUI / "material"
+PERIODO, ANIO, HOY = "2026-09", "2026", "2026-10-06"
+TASA = {"CO": 0.19, "EC": 0.15}
+
+ENTIDADES = [
+    {"carpeta": "banca", "industria": "banca", "pais": "CO", "id": "900123456", "nombre": "Banco Andino", "moneda": "COP", "escala": 1_000_000, "semilla": 11,
+     "siembra": ["balance_descuadrado", "cheque_viejo", "comision_sin_registrar", "iva_distinto", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "traslado_sin_acta", "proyecto_distinto"]},
+    {"carpeta": "cooperativas", "industria": "cooperativas", "pais": "EC", "id": "1790012345001", "nombre": "Cooperativa Sierra Alta", "moneda": "USD", "escala": 1_000, "semilla": 23,
+     "siembra": ["banco_sin_extracto", "cartera_descuadrada", "factura_sin_registro", "registro_sin_factura", "requerimiento_sin_soporte",
+                 "requerimiento_vencido", "tarea_vencida", "comprometido_al_limite", "proyeccion_vieja", "version_distinta"]},
+    {"carpeta": "retail", "industria": "retail", "pais": "CO", "id": "900765432", "nombre": "Almacenes Caribe", "moneda": "COP", "escala": 800_000, "semilla": 37,
+     "siembra": ["xml_duplicado", "registro_doble", "asiento_fuera_del_balance", "consignacion_en_transito", "cierre_declarado",
+                 "gasto_sin_linea", "proyeccion_sobre_lo_aprobado", "cuenta_sin_auxiliar"]},
+    {"carpeta": "mineria", "industria": "mineria", "pais": "EC", "id": "0990054321001", "nombre": "Minera Cóndor", "moneda": "USD", "escala": 2_000, "semilla": 41,
+     "siembra": ["tarea_vencida", "tarea_sin_soporte", "comision_sin_registrar", "cheque_viejo", "requerimiento_vencido",
+                 "desviacion", "traslado_sin_acta", "comprometido_al_limite", "factura_recibida_sin_registro", "requerimiento_en_carta"]},
+    {"carpeta": "control-co", "industria": "retail", "pais": "CO", "id": "900000001", "nombre": "Distribuidora Control", "moneda": "COP", "escala": 500_000, "semilla": 53, "siembra": []},
+    {"carpeta": "control-ec", "industria": "cooperativas", "pais": "EC", "id": "1790000001001", "nombre": "Comercial Control", "moneda": "USD", "escala": 1_500, "semilla": 67, "siembra": []},
+]
+
+# Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
+# unidades de la escala de cada entidad.
+LINEAS = [
+    ("Administración", "Servicios públicos", "5135", "ADM", 3.0),
+    ("Administración", "Mantenimiento", "5145", "ADM", 2.0),
+    ("Comercial", "Publicidad", "5195", "COM", 4.0),
+    ("Comercial", "Eventos", "5195", "EVT", 1.5),
+    ("Tecnología", "Licencias", "5135", "TEC", 5.0),
+    ("Tecnología", "PRY-310", "5145", "PRY", 6.0),
+    ("Operaciones", "Transporte", "5135", "OPE", 3.5),
+    ("Personal", "Nómina", "5105", "ADM", 20.0),
+]
+NOMBRES = {"11100501": "Bancos · cuenta 1", "11100502": "Bancos · cuenta 2", "1305": "Clientes", "1435": "Inventarios",
+           "2205": "Proveedores", "2408": "IVA por pagar", "2505": "Salarios por pagar", "3105": "Capital", "4135": "Ventas",
+           "5105": "Gastos de personal", "5135": "Servicios", "5145": "Mantenimiento", "5195": "Diversos", "5305": "Gastos financieros"}
+
+
+def r2(x: float) -> float:
+    return round(x + 0.0, 2)
+
+
+def csv_(ruta: Path, filas: list[list]) -> None:
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    with open(ruta, "w", newline="", encoding="utf-8") as f:
+        csv.writer(f, delimiter=";", lineterminator="\n").writerows([[("" if v is None else (f"{v:.2f}" if isinstance(v, float) else v)) for v in fila] for fila in filas])
+
+
+def md(ruta: Path, texto: str) -> None:
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    ruta.write_text(texto.strip() + "\n", encoding="utf-8")
+
+
+def generar(e: dict) -> dict:
+    rnd = random.Random(e["semilla"])
+    s = set(e["siembra"])
+    pais, esc, tasa = e["pais"], e["escala"], TASA[e["pais"]]
+    sesion = SALIDA / e["carpeta"]
+    ent_dir = f"{e['id']}-{e['nombre'].lower().replace(' ', '-').replace('ó', 'o')}"
+    docs = sesion / "finanzas" / ent_dir
+    p = docs / PERIODO
+    pr = docs / f"presupuesto-{ANIO}"
+    esperado: list[tuple[str, str]] = []
+    extraccion = {"cierre": {}, "presupuesto": {"minutes": [], "area_statements": [], "reports": [], "committee_commitments": []}}
+    fin_sep = dt.date(2026, 9, 30)
+
+    def tercero(i: int) -> str:
+        return (f"8{e['semilla']:02d}{i:06d}" if pais == "CO" else f"17{e['semilla']:02d}{i:06d}001")
+
+    def numero_doc(prefijo: str, i: int) -> str:
+        return f"SETP{prefijo}{i:06d}" if pais == "CO" else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
+
+    def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
+        if pais == "CO":
+            cufe = hashlib.sha384(f"{numero}{emisor}{base}".encode()).hexdigest()
+            return F.contenedor_dian(F.factura_dian(numero, cufe, fecha.isoformat(), emisor, receptor, base, iva))
+        estab, pto, sec = numero.split("-")
+        return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
+
+    mayor_sep: list[list] = []          # fecha, comprobante, cuenta, tercero, documento, debito, credito, centro_costo, descripcion
+    asiento = [0]
+
+    def asentar(fecha, lineas, prefijo="A"):
+        asiento[0] += 1
+        comp = f"{prefijo}-{asiento[0]:03d}"
+        for cuenta, ter, doc, d, c, cc, desc in lineas:
+            mayor_sep.append([fecha.isoformat(), comp, cuenta, ter, doc, r2(d), r2(c), cc, desc])
+        return comp
+
+    # ------------------------------------------------ el presupuesto y la ejecución de enero a agosto
+    v1 = {(a, l): [round(m * esc, 2)] * 12 for a, l, _, _, m in LINEAS}
+    v2 = {k: list(v) for k, v in v1.items()}
+    T = round(0.5 * esc, 2)                                   # traslado aprobado Publicidad → Eventos, julio a diciembre
+    for mes in range(6, 12):
+        v2[("Comercial", "Publicidad")][mes] = r2(v2[("Comercial", "Publicidad")][mes] - T)
+        v2[("Comercial", "Eventos")][mes] = r2(v2[("Comercial", "Eventos")][mes] + T)
+    if "traslado_sin_acta" in s:
+        U = round(0.8 * esc, 2)
+        for mes in range(6, 12):
+            v2[("Tecnología", "Licencias")][mes] = r2(v2[("Tecnología", "Licencias")][mes] - U)
+            v2[("Operaciones", "Transporte")][mes] = r2(v2[("Operaciones", "Transporte")][mes] + U)
+        esperado += [("transfer_without_approval", "traslado:2:Tecnología:Licencias"), ("transfer_without_approval", "traslado:2:Operaciones:Transporte")]
+    factor = {k: 0.97 for k in v1}
+    factor[("Personal", "Nómina")] = 1.0
+    if "desviacion" in s:
+        k = ("Administración", "Servicios públicos") if e["carpeta"] == "banca" else ("Operaciones", "Transporte")
+        factor[k] = 1.15
+        esperado.append(("variance_over_threshold", f"var:{k[0]}:{k[1]}"))
+    real = {k: [r2(v2[k][m] * factor[k]) for m in range(9)] for k in v1}
+    cab_pres = ["area", "linea", "cuenta", "centro_costo"] + F.MESES + ["total"]
+    for n, v, fecha in ((1, v1, "2026-01-15"), (2, v2, "2026-06-30")):
+        csv_(pr / "10-aprobado" / f"presupuesto-{ANIO}-v{n}-{fecha}.csv",
+             [cab_pres] + [[a, l, c, cc] + v[(a, l)] + [r2(sum(v[(a, l)]))] for a, l, c, cc, _ in LINEAS])
+    csv_(docs / "00-referencia" / "mapeo-presupuesto.csv", [["cuenta", "centro_costo", "area", "linea"]] + [[c, cc, a, l] for a, l, c, cc, _ in LINEAS])
+    acumulado = {c: 0.0 for c in NOMBRES}
+    for mes in range(1, 9):
+        filas = [["fecha", "comprobante", "cuenta", "tercero", "documento", "debito", "credito", "centro_costo", "descripcion"]]
+        for i, (a, l, c, cc, _) in enumerate(LINEAS):
+            v = real[(a, l)][mes - 1]
+            f = dt.date(2026, mes, 25).isoformat()
+            filas += [[f, f"G-{mes:02d}{i}", c, "", "", v, 0.0, cc, f"{l} de {F.MESES_LARGO[mes - 1]}"],
+                      [f, f"G-{mes:02d}{i}", "11100501", "", "", 0.0, v, "", f"Pago {l}"]]
+            acumulado[c] += v
+            acumulado["11100501"] -= v
+        if mes == 8 and "gasto_sin_linea" in s:
+            v = round(0.7 * esc, 2)
+            filas += [["2026-08-28", "G-0899", "5135", "", "", v, 0.0, "ZZZ", "Servicio sin centro de costo"],
+                      ["2026-08-28", "G-0899", "11100501", "", "", 0.0, v, "", "Pago"]]
+            acumulado["5135"] += v
+            acumulado["11100501"] -= v
+            esperado.append(("spend_without_budget_line", "sinlinea:2026-08:5135:ZZZ"))
+        csv_(docs / f"2026-{mes:02d}" / "10-contabilidad" / "libro-mayor.csv", filas)
+
+    # ------------------------------------------------ saldos de apertura de septiembre
+    abiertas_cxc = [(dt.date(2026, 8, 10 + i), tercero(100 + i), numero_doc("99", 90 + i), r2(rnd.randint(8, 20) * esc / 4)) for i in range(3)]
+    abiertas_cxp = [(dt.date(2026, 8, 12 + i), tercero(300 + i), numero_doc("77", 50 + i), r2(rnd.randint(6, 14) * esc / 4)) for i in range(3)]
+    banco_ini = {"11100501": r2(80 * esc), "11100502": r2(25 * esc)}
+    cheque_viejo = None
+    if "cheque_viejo" in s:
+        fecha_ch = dt.date(2026, 7, 20) if e["carpeta"] == "banca" else dt.date(2026, 6, 15)
+        cheque_viejo = (fecha_ch, "CH-0450", r2(-3 * esc))
+    ini = dict(acumulado)
+    ini["11100501"] = r2(ini["11100501"] + banco_ini["11100501"] + 9 * 30 * esc)   # lo que entró en el año, para que el banco quede positivo
+    ini["11100502"] = banco_ini["11100502"]
+    ini["1305"] = r2(sum(x[3] for x in abiertas_cxc))
+    ini["1435"] = r2(40 * esc)
+    ini["2205"] = r2(-sum(x[3] for x in abiertas_cxp))
+    ini["2408"] = r2(-6 * esc)
+    ini["2505"] = 0.0
+    ini["4135"] = r2(-9 * 30 * esc)
+    ini["5305"] = r2(0.4 * esc * 8)
+    ini["3105"] = 0.0
+    ini["3105"] = r2(-sum(v for k, v in ini.items() if k != "3105"))
+
+    # ------------------------------------------------ septiembre: ventas, cobros, compras, pagos, nómina, bancos
+    banco_libros = {"11100501": [], "11100502": []}            # fecha, referencia, descripción, valor
+    banco_extracto = {"11100501": [], "11100502": []}
+    xml_emitidas, xml_recibidas = [], []
+    ventas = []
+    for i in range(10):
+        f = dt.date(2026, 9, 2 + 3 * i if 2 + 3 * i <= 28 else 28)
+        base = r2(rnd.randint(10, 40) * esc / 4)
+        iva = r2(base * tasa)
+        num, ter = numero_doc("99", 100 + i), tercero(100 + i)
+        ventas.append((f, ter, num, base, iva))
+        iva_libros = iva + (round(1000 if pais == "CO" else 10, 2) if ("iva_distinto" in s and i == 4) else 0)
+        if not ("factura_sin_registro" in s and i == 9):
+            asentar(f, [("1305", ter, num, base + iva_libros, 0, "", "Venta"), ("4135", ter, num, 0, base, "", "Venta"),
+                        ("2408", ter, num, 0, iva_libros, "", "IVA generado")], "V")
+        xml_emitidas.append((f"fe-{num}.xml", factura_xml(num, f, e["id"], ter, base, iva)))
+        if "iva_distinto" in s and i == 4:
+            esperado.append(("einvoice_amount_mismatch", f"xml:{PERIODO}/30-facturacion/emitidas/fe-{num}.xml"))
+        if "factura_sin_registro" in s and i == 9:
+            esperado.append(("einvoice_not_recorded", f"xml:{PERIODO}/30-facturacion/emitidas/fe-{num}.xml"))
+    if "xml_duplicado" in s:
+        nombre, contenido = xml_emitidas[2]
+        xml_emitidas.append((nombre.replace(".xml", "-reenviada.xml"), contenido))
+        cufe = hashlib.sha384(f"{ventas[2][2]}{e['id']}{ventas[2][3]}".encode()).hexdigest()
+        esperado.append(("einvoice_duplicate", f"xml:{cufe}"))
+    # Cobros: siete facturas de septiembre y dos de agosto. La de IVA distinto y la que no se
+    # registró no se cobran: quedan en la cartera.
+    cobradas = [v for i, v in enumerate(ventas) if i in (0, 1, 2, 3, 5, 6, 7)] + [(x[0], x[1], x[2], x[3], 0.0) for x in abiertas_cxc[:2]]
+    for j, (f, ter, num, base, iva) in enumerate(cobradas):
+        total = r2(base + iva)
+        fc = max(f, dt.date(2026, 9, 3)) + dt.timedelta(days=2)
+        fc = min(fc, dt.date(2026, 9, 29))
+        if "consignacion_en_transito" in s and j == 6:
+            fc = fin_sep
+        asentar(fc, [("11100501", ter, num, total, 0, "", "Cobro"), ("1305", ter, num, 0, total, "", "Cobro")], "R")
+        banco_libros["11100501"].append((fc, num, f"Cobro {num}", total))
+        if not ("consignacion_en_transito" in s and j == 6):
+            ref = num if j % 2 == 0 else f"TRF{j:04d}"
+            banco_extracto["11100501"].append((fc + dt.timedelta(days=j % 2), ref, "Transferencia recibida", total))
+    if "consignacion_en_transito" in s:
+        esperado.append(("bank_unreconciled", "__transito__"))
+    # Compras: una factura por línea del presupuesto, salvo la nómina, que va aparte.
+    compras = []
+    for i, (a, l, c, cc, _) in enumerate(LINEAS):
+        if l == "Nómina":
+            continue
+        f = dt.date(2026, 9, 5 + 2 * i)
+        base = real[(a, l)][8]
+        iva = r2(base * tasa)
+        num, ter = numero_doc("77", 200 + i), tercero(300 + i)
+        compras.append((f, ter, num, base, iva, c, cc, a, l))
+        veces = 2 if ("registro_doble" in s and l == "Mantenimiento") else 1
+        for _ in range(veces):
+            asentar(f, [(c, ter, num, base, 0, cc, f"{l} · {num}"), ("2408", ter, num, iva, 0, "", "IVA descontable"),
+                        ("2205", ter, num, 0, r2(base + iva), "", "Cuenta por pagar")], "C")
+        if veces == 2:
+            esperado += [("einvoice_duplicate", f"reg:recibidas:{F.ident(num)}"),
+                         ("einvoice_amount_mismatch", f"xml:{PERIODO}/30-facturacion/recibidas/fr-{num}.xml")]
+            real[(a, l)][8] = r2(real[(a, l)][8] * 2)
+        if "registro_sin_factura" in s and l == "Publicidad":
+            esperado.append(("recorded_without_einvoice", f"reg:recibidas:{F.ident(num)}"))
+            continue
+        xml_recibidas.append((f"fr-{num}.xml", factura_xml(num, f, ter, e["id"], base, iva)))
+    if "factura_recibida_sin_registro" in s:
+        num, ter, f = numero_doc("77", 290), tercero(390), dt.date(2026, 9, 27)
+        xml_recibidas.append((f"fr-{num}.xml", factura_xml(num, f, ter, e["id"], r2(2 * esc), r2(2 * esc * tasa))))
+        esperado.append(("einvoice_not_recorded", f"xml:{PERIODO}/30-facturacion/recibidas/fr-{num}.xml"))
+    # Pagos: las tres cuentas por pagar de agosto y dos compras de septiembre, con cheque.
+    pagos = [(x[0] + dt.timedelta(days=30), x[1], x[2], x[3]) for x in abiertas_cxp] + [(c[0] + dt.timedelta(days=6), c[1], c[2], r2(c[3] + c[4])) for c in compras[:2]]
+    for j, (f, ter, num, total) in enumerate(pagos):
+        f = min(f, dt.date(2026, 9, 26))
+        ch = f"CH-{600 + j:04d}"
+        asentar(f, [("2205", ter, num, total, 0, "", f"Pago {num}"), ("11100501", ter, ch, 0, total, "", f"Cheque {ch}")], "P")
+        banco_libros["11100501"].append((f, ch, f"Cheque {ch}", -total))
+        banco_extracto["11100501"].append((f + dt.timedelta(days=2), ch, f"Cheque {ch} pagado", -total))
+    # Nómina: se causa y se paga por la segunda cuenta.
+    nom = real[("Personal", "Nómina")][8]
+    asentar(dt.date(2026, 9, 28), [("5105", "", "", nom, 0, "ADM", "Nómina de septiembre"), ("2505", "", "", 0, nom, "", "Nómina por pagar")], "N")
+    asentar(dt.date(2026, 9, 29), [("2505", "", "", nom, 0, "", "Pago de nómina"), ("11100502", "", "NOM-09", 0, nom, "", "Pago de nómina")], "N")
+    banco_libros["11100502"].append((dt.date(2026, 9, 29), "NOM-09", "Pago de nómina", -nom))
+    banco_extracto["11100502"].append((dt.date(2026, 9, 29), "NOM-09", "Débito nómina", -nom))
+    # Una consignación a la segunda cuenta, para que no quede negativa.
+    fondeo = r2(nom + 5 * esc)
+    asentar(dt.date(2026, 9, 27), [("11100502", "", "TRASLADO-09", fondeo, 0, "", "Traslado entre cuentas"), ("11100501", "", "TRASLADO-09", 0, fondeo, "", "Traslado entre cuentas")], "T")
+    banco_libros["11100502"].append((dt.date(2026, 9, 27), "TRASLADO-09", "Traslado recibido", fondeo))
+    banco_extracto["11100502"].append((dt.date(2026, 9, 27), "TRASLADO-09", "Traslado recibido", fondeo))
+    banco_libros["11100501"].append((dt.date(2026, 9, 27), "TRASLADO-09", "Traslado enviado", -fondeo))
+    banco_extracto["11100501"].append((dt.date(2026, 9, 27), "TRASLADO-09", "Traslado enviado", -fondeo))
+    # La comisión bancaria del mes.
+    com = r2(0.4 * esc)
+    banco_extracto["11100501"].append((fin_sep, "", "Comisión de manejo", -com))
+    if "comision_sin_registrar" in s:
+        esperado.append(("bank_unreconciled", "__comision__"))
+    else:
+        asentar(fin_sep, [("5305", "", "COM-09", com, 0, "ADM", "Comisión bancaria"), ("11100501", "", "COM-09", 0, com, "", "Comisión bancaria")], "B")
+        banco_libros["11100501"].append((fin_sep, "COM-09", "Comisión bancaria", -com))
+    if "asiento_fuera_del_balance" in s:
+        v = r2(0.15 * esc)
+        mayor_extra = [[fin_sep.isoformat(), "A-999", "5195", "", "", v, 0.0, "COM", "Ajuste registrado después del balance"],
+                       [fin_sep.isoformat(), "A-999", "2505", "", "", 0.0, v, "", "Ajuste registrado después del balance"]]
+        esperado += [("ledger_vs_trial_balance", "mayor:5195"), ("ledger_vs_trial_balance", "mayor:2505")]
+    else:
+        mayor_extra = []
+
+    # ------------------------------------------------ el balance de comprobación
+    mov = {c: [0.0, 0.0] for c in NOMBRES}
+    for x in mayor_sep:
+        mov[x[2]][0] += x[5]
+        mov[x[2]][1] += x[6]
+    tb = [["cuenta", "nombre", "saldo_inicial", "debito", "credito", "saldo_final"]]
+    for c in sorted(NOMBRES):
+        si, d, cr = r2(ini.get(c, 0.0)), r2(mov[c][0]), r2(mov[c][1])
+        sf = r2(si + d - cr)
+        if c == "5305" and "balance_descuadrado" in s:
+            d = r2(d + 5 * esc / 1000)
+        tb.append([c, NOMBRES[c], si, d, cr, sf])
+    if "balance_descuadrado" in s:
+        esperado += [("trial_balance_unbalanced", "balance"), ("ledger_vs_trial_balance", "saldo:5305"), ("ledger_vs_trial_balance", "mayor:5305")]
+    cont = p / "10-contabilidad"
+    csv_(cont / "balance-comprobacion.csv", tb)
+    csv_(cont / "libro-mayor.csv", [["fecha", "comprobante", "cuenta", "tercero", "documento", "debito", "credito", "centro_costo", "descripcion"]] + mayor_sep + mayor_extra)
+    saldo_final = {r[0]: r[5] for r in tb[1:]}
+
+    # Los auxiliares: las partidas abiertas de cartera y de proveedores al 30 de septiembre.
+    cobradas_docs = {x[2] for x in cobradas}
+    cxc = [(x[0], x[1], x[2], x[3]) for x in abiertas_cxc if x[2] not in cobradas_docs]
+    for i, (f, ter, num, base, iva) in enumerate(ventas):
+        if num in cobradas_docs or ("factura_sin_registro" in s and i == 9):
+            continue
+        extra = (1000 if pais == "CO" else 10) if ("iva_distinto" in s and i == 4) else 0
+        cxc.append((f, ter, num, r2(base + iva + extra)))
+    if "cartera_descuadrada" in s:
+        cxc = cxc[1:]
+        esperado.append(("account_unreconciled", "cuenta:1305"))
+    csv_(cont / "auxiliares" / "1305-clientes.csv", [["fecha", "tercero", "documento", "valor"]] + [[f.isoformat(), t, n, v] for f, t, n, v in cxc])
+    pagados = {x[2] for x in pagos}
+    cxp = [(x[0], x[1], x[2], -x[3]) for x in abiertas_cxp if x[2] not in pagados]
+    for f, ter, num, base, iva, *_ in compras:
+        if num not in pagados:
+            cxp.append((f, ter, num, -r2(base + iva)))
+    if "cuenta_sin_auxiliar" in s:
+        esperado.append(("reconciliation_stale", "cuenta:2205"))
+    else:
+        csv_(cont / "auxiliares" / "2205-proveedores.csv", [["fecha", "tercero", "documento", "valor"]] + [[f.isoformat(), t, n, v] for f, t, n, v in cxp])
+    assert abs(sum(x[3] for x in cxc) - saldo_final["1305"]) < 0.01 or "cartera_descuadrada" in s, (e["carpeta"], "cartera")
+    assert "cuenta_sin_auxiliar" in s or "registro_doble" in s or abs(sum(x[3] for x in cxp) - saldo_final["2205"]) < 0.01, (e["carpeta"], "proveedores")
+
+    # Los bancos: el extracto y el auxiliar de libros, con su saldo corrido.
+    subcarpetas = {"11100501": f"andino-{e['semilla']:02d}01", "11100502": f"pacifico-{e['semilla']:02d}02"}
+    for cta, sub in subcarpetas.items():
+        lib = sorted(banco_libros[cta], key=lambda x: (x[0], x[1]))
+        ext = sorted(banco_extracto[cta], key=lambda x: (x[0], x[1]))
+        saldo_lib_ini = r2(ini[cta])
+        filas_lib = [["fecha", "documento", "descripcion", "valor", "saldo"]]
+        pendientes_ini = 0.0
+        if cta == "11100501" and cheque_viejo:
+            filas_lib.append([cheque_viejo[0].isoformat(), cheque_viejo[1], f"Cheque {cheque_viejo[1]} sin cobrar", cheque_viejo[2], saldo_lib_ini])
+            pendientes_ini = cheque_viejo[2]
+            esperado += [("bank_unreconciled", "__viejo__"), ("reconciling_item_aged", "__viejo__")]
+        sl = saldo_lib_ini
+        for f, ref, desc, v in lib:
+            sl = r2(sl + v)
+            filas_lib.append([f.isoformat(), ref, desc, v, sl])
+        assert abs(sl - saldo_final[cta]) < 0.01, (e["carpeta"], cta, sl, saldo_final[cta])
+        sb = r2(saldo_lib_ini - pendientes_ini)
+        filas_ext = [["fecha", "referencia", "descripcion", "valor", "saldo"]]
+        for f, ref, desc, v in ext:
+            sb = r2(sb + v)
+            filas_ext.append([f.isoformat(), ref, desc, v, sb])
+        carpeta = p / "20-bancos" / sub
+        csv_(carpeta / "auxiliar-libros.csv", filas_lib)
+        if "banco_sin_extracto" in s and cta == "11100502":
+            esperado.append(("reconciliation_stale", f"banco:{sub}"))
+        else:
+            csv_(carpeta / "extracto.csv", filas_ext)
+        # Las claves de las partidas abiertas las pone el motor con el archivo y la fila; se
+        # resuelven aquí, donde se sabe qué fila es cada una.
+        rel_lib, rel_ext = f"{PERIODO}/20-bancos/{sub}/auxiliar-libros.csv", f"{PERIODO}/20-bancos/{sub}/extracto.csv"
+        for k, (sig, marca) in enumerate(esperado):
+            if cta != "11100501":
+                continue
+            if marca == "__viejo__":
+                esperado[k] = (sig, f"{sub}:{rel_lib}:2")
+            elif marca == "__transito__":
+                fila = next(i for i, x in enumerate(filas_lib) if i and x[0] == fin_sep.isoformat() and x[3] > 0) + 1
+                esperado[k] = (sig, f"{sub}:{rel_lib}:{fila}")
+            elif marca == "__comision__":
+                fila = next(i for i, x in enumerate(filas_ext) if i and x[2] == "Comisión de manejo") + 1
+                esperado[k] = (sig, f"{sub}:{rel_ext}:{fila}")
+
+    # Las facturas electrónicas.
+    for nombre, contenido in xml_emitidas:
+        md(p / "30-facturacion" / "emitidas" / nombre, contenido)
+    for nombre, contenido in xml_recibidas:
+        md(p / "30-facturacion" / "recibidas" / nombre, contenido)
+
+    # ------------------------------------------------ el checklist, los soportes y la auditoría
+    md(docs / "00-referencia" / "plan-de-cuentas.csv", "cuenta;nombre;naturaleza\n1;Activo;D\n2;Pasivo;C\n3;Patrimonio;C\n4;Ingresos;C\n5;Gastos;D\n6;Costos;D")
+    tareas = [
+        ("C-01", "Cerrar los módulos de ventas, compras e inventarios", "Contabilidad", "Lucía Mora", "D+1", "", "alta"),
+        ("C-02", "Conciliar cada cuenta bancaria", "Tesorería", "Andrés Paz", "D+2", "C-01", "alta"),
+        ("C-03", "Cruzar las facturas emitidas con las ventas", "Contabilidad", "Lucía Mora", "D+2", "C-01", "alta"),
+        ("C-04", "Conciliar cartera contra su auxiliar", "Contabilidad", "Marta Ríos", "D+3", "C-01", "alta"),
+        ("C-05", "Registrar provisiones y causaciones", "Contabilidad", "Jorge Vela", "D+3", "C-01", "media"),
+        ("C-06", "Preparar los papeles de trabajo de impuestos", "Impuestos", "Elena Cruz", "D+5", "C-03", "alta"),
+        ("C-07", "Cuadrar el balance de comprobación", "Contabilidad", "Lucía Mora", "D+5", "C-02 C-04 C-05", "alta"),
+        ("C-08", "Revisar el cierre y sus soportes", "Contraloría", "Sofía León", "D+6", "C-07", "alta"),
+        ("C-09", "Aprobar el cierre del periodo", "Contraloría", "Sofía León", "D+7", "C-08", "alta"),
+    ]
+    sin_soporte = {"C-02"} if "tarea_sin_soporte" in s else set()
+    vencida = {"C-05"} if "tarea_vencida" in s else set()
+    filas = [["id", "tarea", "area", "responsable", "dia_limite", "depende_de", "evidencia_esperada", "criticidad", "estado"]]
+    for tid, t, a, r, lim, dep, cri in tareas:
+        lim_d = F._limite(lim, PERIODO, set())
+        vence = lim_d <= dt.date.fromisoformat(HOY)
+        estado = "cumplida" if vence and tid not in vencida else ("en curso" if not vence else "pendiente")
+        filas.append([tid, t, a, r, lim, dep, "Soporte firmado", cri, estado])
+        if vence and tid not in vencida and tid not in sin_soporte:
+            md(p / "40-soportes" / f"{tid}-soporte.md", f"# {tid} · {t}\n\nFirmado por {r} el {lim_d.isoformat()}.")
+    csv_(docs / "00-referencia" / "checklist-cierre.csv", filas)
+    esperado += [("close_task_done_without_evidence", f"tarea:{t}") for t in sorted(sin_soporte)]
+    esperado += [("close_task_overdue", f"tarea:{t}") for t in sorted(vencida)]
+    declarado = "cerrado" if "cierre_declarado" in s else "en curso"
+    md(p / "40-soportes" / "correo-estado-del-cierre.md",
+       f"De: Sofía León\nPara: Gerencia financiera\nFecha: 2026-10-05\nAsunto: Cierre de septiembre\n\nEl cierre de septiembre está {declarado}.")
+    extraccion["cierre"]["declared"] = {"status": declarado, "source": f"{PERIODO}/40-soportes/correo-estado-del-cierre.md", "date": "2026-10-05", "by": "Sofía León"}
+    if declarado == "cerrado":
+        esperado.append(("declared_close_vs_evidence", "cierre"))
+    reqs = [["id", "solicitud", "fecha", "fecha_limite", "responsable", "estado"],
+            ["R-01", "Conciliaciones bancarias de septiembre", "2026-10-01", "2026-10-03", "Andrés Paz", "respondido"],
+            ["R-02", "Auxiliar de cartera con antigüedad", "2026-10-01", "2026-10-03", "Marta Ríos", "respondido"],
+            ["R-03", "Detalle de facturas emitidas", "2026-10-01", "2026-10-03", "Lucía Mora", "respondido"],
+            ["R-04", "Actas del comité de presupuesto", "2026-10-02", "2026-10-09", "Sofía León", ""],
+            ["R-05", "Contratos de los proveedores principales", "2026-10-01", "2026-10-02" if "requerimiento_vencido" in s else "2026-10-08", "Jorge Vela", ""]]
+    for rid in ("R-01", "R-02", "R-03"):
+        if not ("requerimiento_sin_soporte" in s and rid == "R-03"):
+            md(p / "50-auditoria" / "respuestas" / f"{rid}-respuesta.md", f"# {rid}\n\nEntregado el 2026-10-03.")
+    csv_(p / "50-auditoria" / "requerimientos" / "pbc-2026-09.csv", reqs)
+    if "requerimiento_sin_soporte" in s:
+        esperado.append(("audit_request_unanswered", "req:R-03"))
+    if "requerimiento_vencido" in s:
+        esperado.append(("audit_request_unanswered", "req:R-05"))
+    if "requerimiento_en_carta" in s:
+        md(p / "50-auditoria" / "requerimientos" / "carta-auditor-2026-10-02.md",
+           "# Carta del auditor\n\nFecha: 2026-10-02\n\nR-09 · Detalle de las partidas conciliatorias de más de 90 días. Fecha límite: 2026-10-09. Responsable: Andrés Paz.")
+        extraccion["cierre"]["audit_requests"] = [{"id": "R-09", "request": "Detalle de las partidas conciliatorias de más de 90 días", "date": "2026-10-02",
+                                                   "due": "2026-10-09", "owner": "Andrés Paz", "status": "", "source": f"{PERIODO}/50-auditoria/requerimientos/carta-auditor-2026-10-02.md"}]
+
+    # ------------------------------------------------ compromisos, proyecciones, actas y declaraciones
+    comp = {k: r2(0.3 * v2[k][9]) for k in v1}
+    if "comprometido_al_limite" in s:
+        k = ("Tecnología", "Licencias") if e["carpeta"] == "cooperativas" else ("Administración", "Mantenimiento")
+        ej = sum(real[k])
+        comp[k] = r2(0.96 * sum(v2[k]) - ej + 0.01 * esc)
+        esperado.append(("committed_near_approved", f"com:{k[0]}:{k[1]}"))
+    csv_(pr / "20-compromisos" / "compromisos-2026-09-30.csv",
+         [["numero", "fecha", "area", "linea", "proveedor", "valor", "saldo_por_ejecutar"]] +
+         [[f"OC-{i:04d}", "2026-09-15", a, l, tercero(500 + i), r2(comp[(a, l)] * 2), comp[(a, l)]] for i, (a, l, *_ ) in enumerate(LINEAS) if comp[(a, l)]])
+    areas = sorted({a for a, *_ in LINEAS})
+    for area in areas:
+        fecha = "2026-07-15" if ("proyeccion_vieja" in s and area == "Operaciones") else "2026-09-30"
+        version = "1" if ("version_distinta" in s and area == "Comercial") else "2"
+        filas = [["area", "linea", "proyeccion", "version"]]
+        for a, l, *_ in LINEAS:
+            if a != area:
+                continue
+            k = (a, l)
+            proy = r2(sum(v2[k]) * (1.10 if ("proyeccion_sobre_lo_aprobado" in s and l == "PRY-310") else 0.98))
+            if l == "Nómina":
+                proy = r2(sum(v2[k]))
+            filas.append([a, l, proy, version])
+            if version == "1":
+                esperado.append(("budget_version_mismatch", f"version:presupuesto-{ANIO}/30-proyecciones/proyeccion-{area.lower().replace('í', 'i').replace('ó', 'o')}-{fecha}.csv:{a}:{l}"))
+            if "proyeccion_sobre_lo_aprobado" in s and l == "PRY-310":
+                esperado.append(("forecast_over_approved", f"proy:{a}:{l}"))
+        if fecha == "2026-07-15":
+            esperado += [("forecast_stale", f"stale:{a}:{l}") for a, l, *_ in LINEAS if a == area]
+        csv_(pr / "30-proyecciones" / f"proyeccion-{area.lower().replace('í', 'i').replace('ó', 'o')}-{fecha}.csv", filas)
+    md(pr / "40-actas" / "acta-01-aprobacion.md", "# Acta 01 · Comité de presupuesto\n\nFecha: 2026-01-20\n\nSe aprueba el presupuesto 2026, versión 1.")
+    md(pr / "40-actas" / "acta-05-traslado.md",
+       f"# Acta 05 · Comité de presupuesto\n\nFecha: 2026-06-28\n\nSe aprueba trasladar {T * 6:,.2f} de Comercial · Publicidad a Comercial · Eventos, de julio a diciembre.")
+    md(pr / "40-actas" / "acta-06-comite.md",
+       "# Acta 06 · Comité de presupuesto\n\nFecha: 2026-09-10\n\nCompromiso: Administración revisa el contrato de vigilancia antes del próximo comité.")
+    extraccion["presupuesto"]["minutes"] = [
+        {"type": "aprobacion", "version": 1, "date": "2026-01-20", "source": f"presupuesto-{ANIO}/40-actas/acta-01-aprobacion.md"},
+        {"type": "traslado", "date": "2026-06-28", "source": f"presupuesto-{ANIO}/40-actas/acta-05-traslado.md",
+         "movements": [{"from": {"area": "Comercial", "line": "Publicidad"}, "to": {"area": "Comercial", "line": "Eventos"}, "amount": r2(T * 6)}]},
+    ]
+    extraccion["presupuesto"]["committee_commitments"] = [{"what": "Revisar el contrato de vigilancia", "owner": "Administración", "status": "abierto",
+                                                          "evidence": None, "source": f"presupuesto-{ANIO}/40-actas/acta-06-comite.md"}]
+    declaran = ["Administración"] if ("area_declara_dentro" in s or not e["siembra"]) else []
+    for area in declaran:
+        md(pr / "30-proyecciones" / f"correo-{area.lower().replace('ó', 'o')}.md", f"De: {area}\nFecha: 2026-10-01\n\nEl área de {area} va dentro del presupuesto.")
+        extraccion["presupuesto"]["area_statements"].append({"area": area, "says": "dentro", "source": f"presupuesto-{ANIO}/30-proyecciones/correo-{area.lower().replace('ó', 'o')}.md", "date": "2026-10-01"})
+    if "area_declara_dentro" in s:
+        esperado.append(("declared_vs_evidence", "declara:Administración"))
+
+    # La ficha del proyecto de la familia PMO que ejecuta la línea PRY-310.
+    apr = r2(sum(v2[("Tecnología", "PRY-310")]) * (0.9 if "proyecto_distinto" in s else 1))
+    ficha_pry = {"identity": {"code": {"value": "PRY-310", "source": "PRY-310/00-gobierno/acta.md", "state": "found"}},
+                 "money": {"approved": {"value": apr, "source": "PRY-310/00-gobierno/acta.md", "state": "found"}}}
+    (sesion / "estado-pmo" / "records").mkdir(parents=True, exist_ok=True)
+    (sesion / "estado-pmo" / "records" / "PRY-310.json").write_text(json.dumps(ficha_pry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    if "proyecto_distinto" in s:
+        esperado.append(("project_budget_mismatch", "pry:PRY-310"))
+
+    entidad = {"id": e["id"], "name": e["nombre"], "country": pais, "currency": e["moneda"], "approver": "Sofía León"}
+    rutas = {"documents": f"finanzas/{ent_dir}", "state": f"estado-finanzas/{ent_dir}"}
+    config = {
+        "clara": {"entity": entidad, "paths": rutas, "period": PERIODO,
+                  "accounts": {"sales": ["4135"], "purchases": ["1435", "5135", "5145", "5195"], "vat_generated": ["2408"], "vat_deductible": ["2408"], "reconcile": ["1305", "2205"]},
+                  "bank_accounts": sorted(subcarpetas.values()), "checklist": {"source": "organizacion", "approved": True}, "holidays": []},
+        "tomas": {"entity": entidad, "paths": rutas, "budget": {"year": ANIO, "cut": PERIODO, "pmo_records": "estado-pmo/records", "expense_prefixes": ["51", "52"]}},
+    }
+    clave = {"entidad": e["nombre"], "industria": e["industria"], "pais": pais, "hoy": HOY, "siembra": e["siembra"],
+             "config": config, "extraccion": extraccion,
+             "esperado": sorted(({"signal": a, "key": b} for a, b in set(esperado)), key=lambda x: (x["signal"], x["key"]))}
+    (sesion / "clave.json").write_text(json.dumps(clave, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return clave
+
+
+def main() -> int:
+    if SALIDA.exists():
+        shutil.rmtree(SALIDA)
+    total = 0
+    for e in ENTIDADES:
+        c = generar(e)
+        total += len(c["esperado"])
+        print(f"  {e['carpeta']:13} {e['pais']}  {len(e['siembra']):2} defectos sembrados · {len(c['esperado']):2} señales esperadas")
+    print(f"\n  {len(ENTIDADES)} entidades, {total} señales en la clave, en {SALIDA.relative_to(RAIZ)}/")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

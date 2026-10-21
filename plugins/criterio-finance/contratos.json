@@ -1,0 +1,429 @@
+{
+ "comandos": {
+  "finance-setup": {
+   "funcion": "Deja a Clara lista sobre una entidad: inventario, preguntas, términos y el primer estado del cierre.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta] o vacío",
+    "lee": [
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "inventario, preguntas, estado del cierre",
+    "escribe": [
+     ".criterio/finanzas/<entidad>/config.json",
+     "<estado>/ (init)",
+     "<estado>/cierre/<AAAA-MM>/ficha.json",
+     ".criterio/terminos/ (aceptar)",
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "close-checklist",
+     "close-record",
+     "finance-intake"
+    ],
+    "script": [
+     "aceptar",
+     "compute",
+     "config",
+     "corrida",
+     "init",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cfo: entidad de cada industria con su estructura",
+    "esperado": "config válida; estado del cierre con las señales de la clave"
+   }
+  },
+  "close-scan": {
+   "funcion": "Procesa lo que cambió en el periodo y actualiza la ficha.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<estado>/indice.json",
+     "documentos del periodo"
+    ]
+   },
+   "salida": {
+    "muestra": "qué cambió y las señales",
+    "escribe": [
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     "<estado>/cierre/<AAAA-MM>/ficha.json",
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "close-record",
+     "finance-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un archivo nuevo y uno cambiado",
+    "esperado": "el inventario los dice; ninguna tabla se transcribe"
+   }
+  },
+  "close-status": {
+   "funcion": "El estado del cierre: declarado contra evidenciado, tarea por tarea.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "00-referencia/checklist-cierre",
+     "<AAAA-MM>/40-soportes/",
+     "ficha"
+    ]
+   },
+   "salida": {
+    "muestra": "tabla de tareas, avance, ruta crítica",
+    "escribe": [
+     "<estado>/cierre/<AAAA-MM>/ficha.json (declared)",
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "close-checklist",
+     "close-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tareas cumplidas sin soporte, vencidas y bloqueadas; cierre declarado cerrado",
+    "esperado": "close_task_* y declared_close_vs_evidence de la clave"
+   }
+  },
+  "bank-reconcile": {
+   "funcion": "La conciliación de cada cuenta bancaria del periodo.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<AAAA-MM>/20-bancos/"
+    ]
+   },
+   "salida": {
+    "muestra": "conciliación por cuenta y partidas abiertas",
+    "escribe": [
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "reconciliation"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "consignación en tránsito, cheque viejo, comisión sin registrar, cuenta sin extracto",
+    "esperado": "bank_unreconciled, reconciling_item_aged, reconciliation_stale de la clave; diferencia sin explicar cero en el control"
+   }
+  },
+  "account-reconcile": {
+   "funcion": "Cada cuenta contra su auxiliar.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<AAAA-MM>/10-contabilidad/auxiliares/",
+     "balance"
+    ]
+   },
+   "salida": {
+    "muestra": "conciliación por cuenta",
+    "escribe": [
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "reconciliation"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "cartera con diferencia, una cuenta sin auxiliar",
+    "esperado": "account_unreconciled y reconciliation_stale de la clave"
+   }
+  },
+  "ledger-check": {
+   "funcion": "El cuadre del balance y del mayor.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<AAAA-MM>/10-contabilidad/",
+     "00-referencia/plan-de-cuentas"
+    ]
+   },
+   "salida": {
+    "muestra": "cuadre y cuentas con diferencia",
+    "escribe": [
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "ledger-tieout"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "balance descuadrado en una industria, cuenta del mayor fuera del balance",
+    "esperado": "trial_balance_unbalanced y ledger_vs_trial_balance de la clave"
+   }
+  },
+  "einvoice-check": {
+   "funcion": "Todas las facturas electrónicas contra la contabilidad.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<AAAA-MM>/30-facturacion/",
+     "libro mayor"
+    ]
+   },
+   "salida": {
+    "muestra": "cruce y señales",
+    "escribe": [
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "einvoice-matching"
+    ],
+    "script": [
+     "corrida",
+     "factura",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "factura sin registro, registro sin factura, diferencia de IVA, CUFE duplicado, registro en dos asientos",
+    "esperado": "einvoice_* de la clave"
+   }
+  },
+  "audit-pack": {
+   "funcion": "El índice del paquete del auditor.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<AAAA-MM>/50-auditoria/",
+     "ficha"
+    ]
+   },
+   "salida": {
+    "muestra": "índice de requerimientos",
+    "escribe": [
+     "<estado>/cierre/<AAAA-MM>/ficha.json (audit_requests)",
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "audit-support",
+     "close-record"
+    ],
+    "script": [
+     "convertir",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "requerimiento respondido sin soporte y uno vencido",
+    "esperado": "audit_request_unanswered de la clave"
+   }
+  },
+  "finance-wake": {
+   "funcion": "Lo que toca hoy en el cierre; si no toca nada, se calla.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD]",
+    "lee": [
+     "config",
+     "<estado>/corridas/registro.json"
+    ]
+   },
+   "salida": {
+    "muestra": "qué tocaba y qué hizo, o nada",
+    "escribe": [
+     "<estado>/indice.json",
+     "<estado>/cierre/<AAAA-MM>/resultados.json",
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "finance-intake"
+    ],
+    "script": [
+     "corrida",
+     "despertar",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": [
+     "close-scan",
+     "close-status"
+    ]
+   },
+   "prueba": {
+    "sembrado": "un día dentro de la ventana del cierre y uno fuera",
+    "esperado": "toca close-scan y close-status dentro; callado si ya corrió"
+   }
+  }
+ },
+ "skills": {
+  "finance-intake": {
+   "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo.",
+   "escribe": [],
+   "alimenta": [
+    "reconciliation_stale"
+   ]
+  },
+  "close-record": {
+   "decide": "Lo declarado sobre el cierre y los requerimientos fuera de la tabla, con su cita.",
+   "escribe": [
+    "declared",
+    "audit_requests",
+    "questions"
+   ],
+   "alimenta": [
+    "declared_close_vs_evidence",
+    "audit_request_unanswered"
+   ]
+  },
+  "close-checklist": {
+   "decide": "Cuándo una tarea está cumplida: con su soporte.",
+   "escribe": [],
+   "alimenta": [
+    "close_task_overdue",
+    "close_task_done_without_evidence"
+   ]
+  },
+  "reconciliation": {
+   "decide": "Cómo se cruza y clasifica cada partida abierta.",
+   "escribe": [],
+   "alimenta": [
+    "bank_unreconciled",
+    "reconciling_item_aged",
+    "reconciliation_stale",
+    "account_unreconciled"
+   ]
+  },
+  "ledger-tieout": {
+   "decide": "Qué es una diferencia del cuadre.",
+   "escribe": [],
+   "alimenta": [
+    "trial_balance_unbalanced",
+    "ledger_vs_trial_balance"
+   ]
+  },
+  "einvoice-matching": {
+   "decide": "Qué campo de la factura se procesa, con qué fuente, y cómo se cruza.",
+   "escribe": [],
+   "alimenta": [
+    "einvoice_not_recorded",
+    "recorded_without_einvoice",
+    "einvoice_amount_mismatch",
+    "einvoice_duplicate"
+   ]
+  },
+  "audit-support": {
+   "decide": "Cuándo un requerimiento está respondido con soporte.",
+   "escribe": [],
+   "alimenta": [
+    "audit_request_unanswered"
+   ]
+  }
+ },
+ "por_descripcion": {}
+}

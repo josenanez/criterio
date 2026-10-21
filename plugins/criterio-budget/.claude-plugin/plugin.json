@@ -1,0 +1,25 @@
+{
+  "name": "criterio-budget",
+  "version": "0.7.0",
+  "description": "Tomás, FP&A: el presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año con su supuesto escrito, los traslados con su acta y el material del comité de presupuesto. Toma la ejecución de la misma contabilidad que cierra Clara.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "presupuesto",
+    "budget",
+    "fpa",
+    "planeacion-financiera",
+    "ejecucion-presupuestal",
+    "budget-vs-actual",
+    "forecast",
+    "proyeccion",
+    "traslados",
+    "comite-de-presupuesto",
+    "colombia",
+    "ecuador"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cfo",
+  "license": "Apache-2.0"
+}

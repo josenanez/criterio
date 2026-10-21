@@ -1,0 +1,195 @@
+{
+  "entidad": "Banco Andino",
+  "industria": "banca",
+  "pais": "CO",
+  "hoy": "2026-10-06",
+  "siembra": [
+    "balance_descuadrado",
+    "cheque_viejo",
+    "comision_sin_registrar",
+    "iva_distinto",
+    "tarea_sin_soporte",
+    "desviacion",
+    "area_declara_dentro",
+    "traslado_sin_acta",
+    "proyecto_distinto"
+  ],
+  "config": {
+    "clara": {
+      "entity": {
+        "id": "900123456",
+        "name": "Banco Andino",
+        "country": "CO",
+        "currency": "COP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/900123456-banco-andino",
+        "state": "estado-finanzas/900123456-banco-andino"
+      },
+      "period": "2026-09",
+      "accounts": {
+        "sales": [
+          "4135"
+        ],
+        "purchases": [
+          "1435",
+          "5135",
+          "5145",
+          "5195"
+        ],
+        "vat_generated": [
+          "2408"
+        ],
+        "vat_deductible": [
+          "2408"
+        ],
+        "reconcile": [
+          "1305",
+          "2205"
+        ]
+      },
+      "bank_accounts": [
+        "andino-1101",
+        "pacifico-1102"
+      ],
+      "checklist": {
+        "source": "organizacion",
+        "approved": true
+      },
+      "holidays": []
+    },
+    "tomas": {
+      "entity": {
+        "id": "900123456",
+        "name": "Banco Andino",
+        "country": "CO",
+        "currency": "COP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/900123456-banco-andino",
+        "state": "estado-finanzas/900123456-banco-andino"
+      },
+      "budget": {
+        "year": "2026",
+        "cut": "2026-09",
+        "pmo_records": "estado-pmo/records",
+        "expense_prefixes": [
+          "51",
+          "52"
+        ]
+      }
+    }
+  },
+  "extraccion": {
+    "cierre": {
+      "declared": {
+        "status": "en curso",
+        "source": "2026-09/40-soportes/correo-estado-del-cierre.md",
+        "date": "2026-10-05",
+        "by": "Sofía León"
+      }
+    },
+    "presupuesto": {
+      "minutes": [
+        {
+          "type": "aprobacion",
+          "version": 1,
+          "date": "2026-01-20",
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.md"
+        },
+        {
+          "type": "traslado",
+          "date": "2026-06-28",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.md",
+          "movements": [
+            {
+              "from": {
+                "area": "Comercial",
+                "line": "Publicidad"
+              },
+              "to": {
+                "area": "Comercial",
+                "line": "Eventos"
+              },
+              "amount": 3000000.0
+            }
+          ]
+        }
+      ],
+      "area_statements": [
+        {
+          "area": "Administración",
+          "says": "dentro",
+          "source": "presupuesto-2026/30-proyecciones/correo-administracion.md",
+          "date": "2026-10-01"
+        }
+      ],
+      "reports": [],
+      "committee_commitments": [
+        {
+          "what": "Revisar el contrato de vigilancia",
+          "owner": "Administración",
+          "status": "abierto",
+          "evidence": null,
+          "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+        }
+      ]
+    }
+  },
+  "esperado": [
+    {
+      "signal": "bank_unreconciled",
+      "key": "andino-1101:2026-09/20-bancos/andino-1101/auxiliar-libros.csv:2"
+    },
+    {
+      "signal": "bank_unreconciled",
+      "key": "andino-1101:2026-09/20-bancos/andino-1101/extracto.csv:17"
+    },
+    {
+      "signal": "close_task_done_without_evidence",
+      "key": "tarea:C-02"
+    },
+    {
+      "signal": "declared_vs_evidence",
+      "key": "declara:Administración"
+    },
+    {
+      "signal": "einvoice_amount_mismatch",
+      "key": "xml:2026-09/30-facturacion/emitidas/fe-SETP99000104.xml"
+    },
+    {
+      "signal": "ledger_vs_trial_balance",
+      "key": "mayor:5305"
+    },
+    {
+      "signal": "ledger_vs_trial_balance",
+      "key": "saldo:5305"
+    },
+    {
+      "signal": "project_budget_mismatch",
+      "key": "pry:PRY-310"
+    },
+    {
+      "signal": "reconciling_item_aged",
+      "key": "andino-1101:2026-09/20-bancos/andino-1101/auxiliar-libros.csv:2"
+    },
+    {
+      "signal": "transfer_without_approval",
+      "key": "traslado:2:Operaciones:Transporte"
+    },
+    {
+      "signal": "transfer_without_approval",
+      "key": "traslado:2:Tecnología:Licencias"
+    },
+    {
+      "signal": "trial_balance_unbalanced",
+      "key": "balance"
+    },
+    {
+      "signal": "variance_over_threshold",
+      "key": "var:Administración:Servicios públicos"
+    }
+  ]
+}

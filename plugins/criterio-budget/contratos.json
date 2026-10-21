@@ -1,0 +1,347 @@
+{
+ "comandos": {
+  "budget-setup": {
+   "funcion": "Deja a Tomás listo sobre el presupuesto de una entidad.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta] o vacío",
+    "lee": [
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "inventario, preguntas, primera ejecución contra lo aprobado",
+    "escribe": [
+     ".criterio/presupuesto/<entidad>/config.json",
+     "<estado>/ (init)",
+     "<estado>/presupuesto/<AAAA>/ficha.json",
+     ".criterio/terminos/ (aceptar)",
+     "<estado>/presupuesto/<AAAA>/resultados.json",
+     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "budget-record",
+     "finance-intake"
+    ],
+    "script": [
+     "aceptar",
+     "compute",
+     "config",
+     "convertir",
+     "corrida",
+     "init",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "presupuesto de cada industria con dos versiones y sus actas",
+    "esperado": "versión aprobada por su acta; ejecución por línea"
+   }
+  },
+  "budget-scan": {
+   "funcion": "Procesa lo que cambió en el presupuesto y actualiza la ficha.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<estado>/indice.json",
+     "documentos"
+    ]
+   },
+   "salida": {
+    "muestra": "qué cambió y las señales",
+    "escribe": [
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     "<estado>/presupuesto/<AAAA>/ficha.json",
+     "<estado>/presupuesto/<AAAA>/resultados.json",
+     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "budget-record",
+     "finance-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un acta nueva y la contabilidad de un mes nuevo",
+    "esperado": "el acta en la ficha; el mes en la ejecución"
+   }
+  },
+  "variance-report": {
+   "funcion": "Ejecución contra presupuesto por área y línea.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "presupuesto",
+     "contabilidad",
+     "compromisos",
+     "ficha"
+    ]
+   },
+   "salida": {
+    "muestra": "tabla por área y línea",
+    "escribe": [
+     "<estado>/presupuesto/<AAAA>/resultados.json",
+     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "variance-analysis"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "línea sobre el umbral, gasto sin línea, área que se declara dentro, proyecto con otro presupuesto",
+    "esperado": "variance_over_threshold, committed_near_approved, spend_without_budget_line, declared_vs_evidence, project_budget_mismatch de la clave"
+   }
+  },
+  "forecast": {
+   "funcion": "La proyección al cierre del año con su supuesto.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<AAAA>/30-proyecciones/",
+     "ejecución",
+     "compromisos"
+    ]
+   },
+   "salida": {
+    "muestra": "tres proyecciones por línea",
+    "escribe": [
+     "<estado>/presupuesto/<AAAA>/resultados.json",
+     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "forecast-method"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "proyección del área sobre lo aprobado, proyección vencida, informe con otra versión",
+    "esperado": "forecast_over_approved, forecast_stale, budget_version_mismatch de la clave"
+   }
+  },
+  "transfer-log": {
+   "funcion": "Cada traslado con su acta, y los que no la tienen.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "<AAAA>/10-aprobado/",
+     "ficha (minutes)"
+    ]
+   },
+   "salida": {
+    "muestra": "registro de traslados",
+    "escribe": [
+     "<estado>/presupuesto/<AAAA>/ficha.json (minutes)",
+     "<estado>/presupuesto/<AAAA>/resultados.json",
+     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "budget-record",
+     "transfer-control"
+    ],
+    "script": [
+     "convertir",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un traslado con acta y uno sin ella",
+    "esperado": "transfer_without_approval de la clave"
+   }
+  },
+  "budget-committee-pack": {
+   "funcion": "El material del comité como paquete de decisiones.",
+   "entrada": {
+    "argumento": "[AAAA-MM]",
+    "lee": [
+     "config",
+     "resultados",
+     "ficha (committee_commitments)"
+    ]
+   },
+   "salida": {
+    "muestra": "puntos de decisión y compromisos del comité anterior",
+    "escribe": [
+     "<estado>/presupuesto/<AAAA>/ficha.json (committee_commitments)",
+     "<estado>/presupuesto/<AAAA>/resultados.json",
+     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "budget-record",
+     "committee-pack"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "compromisos del comité anterior",
+    "esperado": "cada punto con su cifra y su cita; sin recomendación"
+   }
+  },
+  "budget-wake": {
+   "funcion": "Lo que toca hoy en el presupuesto; si no toca nada, se calla.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD]",
+    "lee": [
+     "config",
+     "<estado>/corridas/registro.json"
+    ]
+   },
+   "salida": {
+    "muestra": "qué tocaba y qué hizo, o nada",
+    "escribe": [
+     "<estado>/indice.json",
+     "<estado>/presupuesto/<AAAA>/resultados.json",
+     "<estado>/presupuesto/<AAAA>/reporte-<comando>.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "finance-intake"
+    ],
+    "script": [
+     "corrida",
+     "despertar",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": [
+     "budget-scan",
+     "variance-report",
+     "forecast",
+     "budget-committee-pack"
+    ]
+   },
+   "prueba": {
+    "sembrado": "contabilidad de un mes nuevo; comité en tres días",
+    "esperado": "toca budget-scan; toca el paquete del comité"
+   }
+  }
+ },
+ "skills": {
+  "finance-intake": {
+   "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo.",
+   "escribe": [],
+   "alimenta": []
+  },
+  "budget-record": {
+   "decide": "Las actas, las declaraciones de las áreas y los compromisos del comité, con su cita.",
+   "escribe": [
+    "minutes",
+    "area_statements",
+    "reports",
+    "committee_commitments",
+    "questions"
+   ],
+   "alimenta": [
+    "transfer_without_approval",
+    "declared_vs_evidence",
+    "budget_version_mismatch"
+   ]
+  },
+  "variance-analysis": {
+   "decide": "Cómo se calcula la ejecución, lo disponible y la desviación.",
+   "escribe": [],
+   "alimenta": [
+    "variance_over_threshold",
+    "committed_near_approved",
+    "spend_without_budget_line",
+    "project_budget_mismatch"
+   ]
+  },
+  "forecast-method": {
+   "decide": "Las dos proyecciones y sus supuestos.",
+   "escribe": [],
+   "alimenta": [
+    "forecast_over_approved",
+    "forecast_stale"
+   ]
+  },
+  "transfer-control": {
+   "decide": "Qué cambio entre versiones es traslado, adición o reducción, y si tiene acta.",
+   "escribe": [],
+   "alimenta": [
+    "transfer_without_approval"
+   ]
+  },
+  "committee-pack": {
+   "decide": "Qué entra al paquete del comité y cómo se presenta.",
+   "escribe": [],
+   "alimenta": []
+  }
+ },
+ "por_descripcion": {}
+}

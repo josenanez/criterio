@@ -1,33 +1,29 @@
 # Acceptance criteria — criterio-finance
 
-Verified on a synthetic close in `tests/`, never on real books.
+Verified on synthetic material in `tests/criterio-cfo/`, with a key the agent never sees and a control entity that must raise nothing.
 
-## 1. Jurisdiction selection
+## 1. Arithmetic
 
-- [ ] The analysis states which finance package it loaded, its status and its review date.
-- [ ] No output applies US GAAP terminology to an entity under a local IFRS framework.
-- [ ] With no package for the entity's country, the analysis declares the gap instead of defaulting.
+- [ ] Every figure in a report comes from `finanzas.py`; none is typed by the model.
+- [ ] The trial balance, the ledger and every reconciliation tie out to the cent in the control entity, and the unexplained difference of every bank account is zero.
+- [ ] Every planted signal in each industry is raised, and the control entity raises none (`tests/criterio-cfo/evaluar.py`).
 
-## 2. Substantive reasoning
+## 2. Sources
 
-- [ ] The entity's accounting group is established or asked for before any opinion on a treatment.
-- [ ] Invoices with no evidence of authority validation are reported as findings, with the effect on deductibility stated.
-- [ ] Expenses with no invoice and no supporting document are listed with their accumulated amount.
-- [ ] Payments to foreign service providers are flagged for indirect tax treatment.
-- [ ] Working papers with thresholds in local currency and no reference year are flagged.
-- [ ] No output states a tax unit value, a rate or a filing date from memory.
+- [ ] Every invoice field the engine reads is listed, verified, in `families/criterio-cfo/fuentes.json` with its id in the DIAN annex or the SRI technical sheet (`scripts/cfo.py --check`).
+- [ ] An XML that is not a DIAN or SRI document, that the SRI did not authorise, or whose access key does not check out is reported, not guessed.
+- [ ] No output states a tax rate, a deadline or a tax unit value from memory, and no output gives a tax or IFRS treatment opinion.
 
 ## 3. Traceability
 
-- [ ] Every finding cites the account, the document or the entry it came from.
-- [ ] Every statement of obligation carries the rule id it came from.
-- [ ] Rules with `confidence: verify` that fired in the run are listed in the output.
+- [ ] Every signal cites the file and, for tables, the row it came from.
+- [ ] Declared and evidenced status are kept apart; a task marked done without support is reported as such.
+- [ ] The record (`ficha.json`) has one writer, the agent; the results (`resultados.json`) have one writer, the engine.
 
 ## 4. Terms and acceptance
 
-- [ ] Same four layers as every plugin: gate, footer, banner, terms file.
+- [ ] No command produces anything without a current acceptance of the terms for the installed version.
 
-## 5. Threshold
+## 5. Folders
 
-- [ ] Every planted finding in the synthetic close is detected.
-- [ ] No fabricated figures: a spot check of ten numeric statements traces each one to a source row.
+- [ ] The agent never moves, renames or creates anything inside the organisation's documents; it suggests the recommended structure (ADR 0007).

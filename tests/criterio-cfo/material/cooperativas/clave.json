@@ -1,0 +1,181 @@
+{
+  "entidad": "Cooperativa Sierra Alta",
+  "industria": "cooperativas",
+  "pais": "EC",
+  "hoy": "2026-10-06",
+  "siembra": [
+    "banco_sin_extracto",
+    "cartera_descuadrada",
+    "factura_sin_registro",
+    "registro_sin_factura",
+    "requerimiento_sin_soporte",
+    "requerimiento_vencido",
+    "tarea_vencida",
+    "comprometido_al_limite",
+    "proyeccion_vieja",
+    "version_distinta"
+  ],
+  "config": {
+    "clara": {
+      "entity": {
+        "id": "1790012345001",
+        "name": "Cooperativa Sierra Alta",
+        "country": "EC",
+        "currency": "USD",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/1790012345001-cooperativa-sierra-alta",
+        "state": "estado-finanzas/1790012345001-cooperativa-sierra-alta"
+      },
+      "period": "2026-09",
+      "accounts": {
+        "sales": [
+          "4135"
+        ],
+        "purchases": [
+          "1435",
+          "5135",
+          "5145",
+          "5195"
+        ],
+        "vat_generated": [
+          "2408"
+        ],
+        "vat_deductible": [
+          "2408"
+        ],
+        "reconcile": [
+          "1305",
+          "2205"
+        ]
+      },
+      "bank_accounts": [
+        "andino-2301",
+        "pacifico-2302"
+      ],
+      "checklist": {
+        "source": "organizacion",
+        "approved": true
+      },
+      "holidays": []
+    },
+    "tomas": {
+      "entity": {
+        "id": "1790012345001",
+        "name": "Cooperativa Sierra Alta",
+        "country": "EC",
+        "currency": "USD",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/1790012345001-cooperativa-sierra-alta",
+        "state": "estado-finanzas/1790012345001-cooperativa-sierra-alta"
+      },
+      "budget": {
+        "year": "2026",
+        "cut": "2026-09",
+        "pmo_records": "estado-pmo/records",
+        "expense_prefixes": [
+          "51",
+          "52"
+        ]
+      }
+    }
+  },
+  "extraccion": {
+    "cierre": {
+      "declared": {
+        "status": "en curso",
+        "source": "2026-09/40-soportes/correo-estado-del-cierre.md",
+        "date": "2026-10-05",
+        "by": "Sofía León"
+      }
+    },
+    "presupuesto": {
+      "minutes": [
+        {
+          "type": "aprobacion",
+          "version": 1,
+          "date": "2026-01-20",
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.md"
+        },
+        {
+          "type": "traslado",
+          "date": "2026-06-28",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.md",
+          "movements": [
+            {
+              "from": {
+                "area": "Comercial",
+                "line": "Publicidad"
+              },
+              "to": {
+                "area": "Comercial",
+                "line": "Eventos"
+              },
+              "amount": 3000.0
+            }
+          ]
+        }
+      ],
+      "area_statements": [],
+      "reports": [],
+      "committee_commitments": [
+        {
+          "what": "Revisar el contrato de vigilancia",
+          "owner": "Administración",
+          "status": "abierto",
+          "evidence": null,
+          "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+        }
+      ]
+    }
+  },
+  "esperado": [
+    {
+      "signal": "account_unreconciled",
+      "key": "cuenta:1305"
+    },
+    {
+      "signal": "audit_request_unanswered",
+      "key": "req:R-03"
+    },
+    {
+      "signal": "audit_request_unanswered",
+      "key": "req:R-05"
+    },
+    {
+      "signal": "budget_version_mismatch",
+      "key": "version:presupuesto-2026/30-proyecciones/proyeccion-comercial-2026-09-30.csv:Comercial:Eventos"
+    },
+    {
+      "signal": "budget_version_mismatch",
+      "key": "version:presupuesto-2026/30-proyecciones/proyeccion-comercial-2026-09-30.csv:Comercial:Publicidad"
+    },
+    {
+      "signal": "close_task_overdue",
+      "key": "tarea:C-05"
+    },
+    {
+      "signal": "committed_near_approved",
+      "key": "com:Tecnología:Licencias"
+    },
+    {
+      "signal": "einvoice_not_recorded",
+      "key": "xml:2026-09/30-facturacion/emitidas/fe-001-001-000000109.xml"
+    },
+    {
+      "signal": "forecast_stale",
+      "key": "stale:Operaciones:Transporte"
+    },
+    {
+      "signal": "reconciliation_stale",
+      "key": "banco:pacifico-2302"
+    },
+    {
+      "signal": "recorded_without_einvoice",
+      "key": "reg:recibidas:2001000000202"
+    }
+  ]
+}

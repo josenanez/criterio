@@ -1,24 +1,46 @@
-# criterio-finance
+# Clara · the controller
 
-Fork of Anthropic's `finance` plugin. The upstream closes the month against US GAAP and controls SOX; here the framework is locally adopted IFRS, and electronic invoicing is a first-class concern because it decides deductibility.
+**Clara puts the books next to their supporting documents.** The monthly close with its checklist and evidence, bank and account reconciliations, every DIAN or SRI e-invoice against its entry, and the auditor's package. She processes every document in the period, not a sample, and says what ties out, what does not and what has no support.
 
-**Status:** in design. This is the plugin of **Clara**, the controller of the CFO family, designed for locally adopted IFRS in Colombia and Ecuador, with DIAN and SRI electronic invoicing ([ADR 0006](../../docs/decisions/0006-scope-cfo.md)). The full design, with its commands, signals and folder structure, is in [`families/criterio-cfo/DISENO.es.md`](../../families/criterio-cfo/DISENO.es.md) (Spanish).
+[Español](README.es.md) · `criterio-finance` · Apache 2.0 · One instance per entity
 
-## What changes relative to the upstream plugin
+**Status: built and in testing.** The nine commands, the seven skills and the calculation engine are built; the engine passes its deterministic test against synthetic material from four industries, with a key the agent never sees and a control entity. The end-to-end test with the agent is the next step. The family, with Tomás, is in [`families/criterio-cfo/DISENO.es.md`](../../families/criterio-cfo/DISENO.es.md) (Spanish).
 
-| Area | Upstream | Here |
+Fork of Anthropic's `finance` plugin: the upstream closes against US GAAP and SOX; here the framework is locally adopted IFRS, and electronic invoicing is a first-class concern.
+
+---
+
+## How it works
+
+| | |
+|---|---|
+| **The large language model (LLM) extracts** | What only a written document carries: the status someone declares, an audit request that arrived by email |
+| **The code calculates** | Tie-outs, reconciliations, invoice matching, checklist progress: `scripts/finanzas.py`, standard library, the same result every time |
+| **A person declares** | Clara does not post entries, sign or declare the close status. Accounting or tax judgement is left as a question |
+
+## The commands
+
+<!-- cfo:comandos · generado por scripts/cfo.py; no se edita a mano -->
+| # | Command | What it delivers |
 |---|---|---|
-| Accounting framework | US GAAP | Locally adopted IFRS, with the entity's group deciding which technical framework applies |
-| Close | SOX controls | Book-to-tax reconciliation as a required control, functional currency analysis, inflation adjustment where a country requires it |
-| Invoicing | Not covered | Electronic invoicing validated by the tax authority, supporting documents for purchases from non-issuers, electronic payroll, invoices circulating as negotiable instruments |
-| Taxes | US federal and state | Withholding at source as a payer obligation, thresholds expressed in an indexed tax unit, VAT on services supplied from abroad |
-| Reporting | SEC | Companies supervisor, commercial registry renewal, annual third-party information return |
+| 0 | `/criterio-finance:finance-setup` | The configuration, the folder inventory and the first close record |
+| 1 | `/criterio-finance:close-scan` | The close record up to date, with what changed and the new signals |
+| 2 | `/criterio-finance:close-status` | The close status: declared against evidenced, task by task |
+| 3 | `/criterio-finance:bank-reconcile` | Each bank account reconciled, with its open items by age |
+| 4 | `/criterio-finance:account-reconcile` | Each account reconciled against its sub-ledger |
+| 5 | `/criterio-finance:ledger-check` | The trial balance and ledger tie-out, account by account |
+| 6 | `/criterio-finance:einvoice-check` | Every e-invoice in the period against the books, not a sample |
+| 7 | `/criterio-finance:audit-pack` | The auditor's package index, with the status of every request |
+| 8 | `/criterio-finance:finance-wake` | What the close needs today; silent when nothing does |
+<!-- /cfo:comandos -->
 
-## The problem it will attack
+## The skills
 
-**What it is.** The function that closes the books and answers for what they say. Its components are the close and consolidation, reconciliations, book-to-tax, reporting to supervisors and audit preparation.
+<!-- cfo:skills · generado por scripts/cfo.py; no se edita a mano -->
+`audit-support` · `close-checklist` · `close-record` · `einvoice-matching` · `finance-intake` · `ledger-tieout` · `reconciliation`
+<!-- /cfo:skills -->
 
-**What it costs today**
+## What it costs today
 
 <!-- cfo:cifras · generado por scripts/cfo.py; no se edita a mano -->
 | Figure | Source |
@@ -31,10 +53,30 @@ Fork of Anthropic's `finance` plugin. The upstream closes the month against US G
 
 The figure that should sting is the first: **the close did not improve in four years**, despite everything spent on technology.
 
-→ [The design of Clara and Tomás](../../families/criterio-cfo/DISENO.es.md)
+## The first result
 
----
+In the first fifteen minutes, `finance-setup` shows the status of the period's close: every checklist task with or without its evidence, and the signals the engine raised on the tie-out, the banks, the accounts and the invoices. From there, every command delivers its report in the same order: what needs attention, the result, what could not be processed, the questions it asked and the sources.
+
+## What it never does
+
+- It does not post or correct entries.
+- It does not file returns or supervisory reports, and it does not sign.
+- It gives no opinion on deductibility, rates or IFRS treatment, and states no rate, deadline or tax unit value from memory.
+- It does not declare the close status: the controller does.
+- It never moves, renames or creates anything inside the organisation's documents.
+
+## Installing and configuring
+
+```
+/plugin marketplace add josenanez/criterio
+/plugin install criterio-finance@criterio
+/criterio-finance:finance-setup
+```
+
+## Sources
+
+Every format and rule used is in [`families/criterio-cfo/FUENTES.es.md`](../../families/criterio-cfo/FUENTES.es.md) (Spanish), with its version, link and status; every invoice field the engine processes, with its id in the technical annex.
 
 ## Acceptance criteria
 
-See [ACCEPTANCE.md](ACCEPTANCE.md).
+See [ACCEPTANCE.md](ACCEPTANCE.md). **How the latest run went**, generated from the run itself: [`tests/criterio-finance/RESULTADOS.md`](../../tests/criterio-finance/RESULTADOS.md) (Spanish).

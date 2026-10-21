@@ -1,7 +1,10 @@
 # criterio-cfo · la familia de la función financiera
 
-**Estado: en diseño.** Nada de lo que sigue está construido ni probado. Decisión de alcance en
-[ADR 0006](../../docs/decisions/0006-scope-cfo.md).
+**Estado: construida y en prueba.** Los dieciséis comandos, los doce skills y el motor de cálculo
+están construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y
+dos entidades de control (`tests/criterio-cfo/`), y la prueba con el agente es el paso siguiente.
+Alcance en [ADR 0006](../../docs/decisions/0006-scope-cfo.md); cómo se reparte el trabajo entre el
+motor y el agente, en [ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md).
 
 Dos agentes que extienden la capacidad de la función financiera: preparan el trabajo del cierre
 y del presupuesto, y lo contrastan contra todos los soportes para señalar qué no cuadra, qué no
@@ -272,7 +275,7 @@ supuesto escrito, y la decisión del comité la toma una persona.
 | 0 | `budget-setup` | La carpeta raíz. Preguntas: entidad, año presupuestal, áreas o centros de costo con su responsable, la versión aprobada y su acta, el mapeo de cuentas a líneas presupuestales (en `00-referencia/`), los umbrales de desviación y, si la organización usa la familia PMO, dónde están sus fichas | Inventario de `10-aprobado/` a `40-actas/` y de los periodos con `10-contabilidad/`; identifica la versión aprobada por su acta; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada | Configuración guardada; inventario por carpeta (qué hay, qué falta, qué está fuera de su lugar y dónde iría); la versión aprobada que tomó y el acta que la sostiene; la primera ficha de cada área |
 | 1 | `budget-scan` | `presupuesto-<AAAA>/` completo y `10-contabilidad/` de cada periodo del año | Extrae cada documento con su huella; solo reprocesa lo que cambió; lleva lo ejecutado y lo comprometido a su línea con el mapeo de `00-referencia/`; actualiza cada ficha con la cita de cada dato | Qué cambió; qué se agregó a cada ficha; las señales nuevas; lo que no se pudo procesar y por qué, incluido el gasto que no tiene línea en el mapeo |
 | 2 | `variance-report` | Las fichas al corte y la versión aprobada vigente; si la organización usa la familia PMO, el presupuesto de cada proyecto en su ficha | Por área, línea y cuenta: aprobado, ejecutado, comprometido y disponible (aprobado menos ejecutado menos comprometido); la desviación del ejecutado contra el aprobado acumulado al corte, con su distribución mensual si existe, y si no existe lo dice; el presupuesto de cada proyecto contra el asignado al área | La tabla por área ordenada por desviación; las líneas sobre el umbral; el gasto sin línea presupuestal; los proyectos cuyo presupuesto no cuadra con el del área; estado declarado por el área contra estado evidenciado |
-| 3 | `forecast` | La ejecución al corte, `20-compromisos/` y la proyección de cada área en `30-proyecciones/` | Dos proyecciones calculadas, cada una con su supuesto escrito: al ritmo (el ejecutado mensual promedio por los meses que faltan, más lo comprometido) y al plan (el ejecutado más lo que falta del aprobado según su distribución mensual); las compara con la proyección que entregó el área | Por área: aprobado, la proyección del área y las dos calculadas, con la diferencia de cada una; las áreas cuya proyección supera lo aprobado; las proyecciones que no se actualizaron en los días configurados |
+| 3 | `forecast` | La ejecución al corte, `20-compromisos/` y la proyección de cada área en `30-proyecciones/` | Dos proyecciones calculadas, cada una con su supuesto escrito: al ritmo (el ejecutado más el mayor entre el promedio mensual por los meses que faltan y lo comprometido) y al plan (el ejecutado más lo que falta del aprobado según su distribución mensual); las compara con la proyección que entregó el área | Por área: aprobado, la proyección del área y las dos calculadas, con la diferencia de cada una; las áreas cuya proyección supera lo aprobado; las proyecciones que no se actualizaron en los días configurados |
 | 4 | `transfer-log` | Las versiones de `10-aprobado/` y las actas de `40-actas/` | Compara cada versión con la anterior, línea por línea: cada cambio de valor es un traslado, una adición o una reducción; lo cruza con el acta que lo aprueba por fecha, valor y líneas de origen y destino | El registro: fecha, origen, destino, valor, acta y estado (con acta, sin acta, acta sin cambio aplicado); los traslados dejan igual el total, y las adiciones y reducciones se muestran aparte |
 | 5 | `budget-committee-pack` | Las fichas, `variance-report`, `forecast` y `transfer-log` del corte, y el acta del comité anterior en `40-actas/` | Arma los puntos de decisión: líneas sobre el umbral, proyecciones sobre lo aprobado, traslados sin acta y los compromisos del comité anterior con su evidencia | El paquete en el formato común: cada decisión con su cifra, su cita y quién la toma; los compromisos del acta anterior con su estado; no recomienda la decisión |
 | 6 | `budget-wake` | La configuración y las fichas | Decide qué toca según la cadencia: cuando aparece un periodo nuevo en `10-contabilidad/`, antes de cada comité y una vez por semana para los compromisos | Lo que corrió y lo que encontró; si no toca nada, se calla |
@@ -280,28 +283,35 @@ supuesto escrito, y la decisión del comité la toma una persona.
 
 ## Lo que se reusa de la familia PMO
 
-- `texto.py` para Word, Excel, PowerPoint, PDF y correo, sincronizado como hoy entre plugins.
+- `texto.py` para Word, Excel, PowerPoint, PDF y correo, y `terminos.py` para la aceptación de
+  los términos, copiados como hoy entre plugins por `scripts/sincronizar.py`.
 - La forma de la ficha: cita por dato, declarado contra evidenciado, «no encontrado» válido.
 - Los términos por versión con su comprobante, el registro de versiones y las puertas de
   `scripts/verificar.py`.
 - Rostrum, más adelante, para publicar el informe del cierre y del presupuesto.
 
-Lo nuevo es un motor determinista propio (`finanzas.py`, librería estándar), con el XML de
-facturas leído con `xml.etree`.
+Lo nuevo es el motor propio, `finanzas.py`, con librería estándar: procesa las tablas y las
+facturas directamente, y el agente extrae a la ficha solo lo que trae un documento escrito
+([ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md)). Vive en `criterio-finance`
+y se copia a `criterio-budget`.
 
-## Cómo se prueba, cuando se pruebe
+## Cómo se prueba
 
-Igual que la familia PMO: material sintético por industria con una clave que los agentes no ven,
-una entidad de control que no debe levantar ninguna señal, y facturas electrónicas generadas con
-la estructura oficial. Cada material de prueba deja escrito en su clave qué fuente y qué versión
-usó para generarse (por ejemplo, F-01 anexo 1.9), así que una prueba se puede repetir contra la
-misma versión y se sabe cuáles hay que regenerar cuando la fuente cambia. Nada se declara probado
-sin una ronda completa.
+Igual que la familia PMO: material sintético por industria con una clave que los agentes no ven
+y entidades de control que no deben levantar ninguna señal. Está en `tests/criterio-cfo/`:
+cuatro industrias —banca y retail en Colombia, cooperativas y minería en Ecuador— y un control
+por país, con las facturas generadas con la estructura oficial de cada una. Cada señal de la
+familia se siembra al menos una vez; qué se siembra y dónde, en
+[`tests/criterio-cfo/EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md).
+
+`tests/criterio-cfo/evaluar.py` corre el motor con la extracción correcta y compara cada señal
+por su nombre y su clave: una de más cuenta igual que una de menos. La extracción del agente se
+prueba en la ronda, sobre el mismo material. La familia se declara probada con una ronda completa.
 
 ## Cifras de terceros
 
 <!-- cfo:cifras · generado por scripts/cfo.py; no se edita a mano -->
-Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: F-10 (Ventana Research / ISG), F-11 (KPMG), F-12 (APQC), F-13 (Gartner).
+Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner).
 <!-- /cfo:cifras -->
 
 ## Decisiones cerradas
@@ -310,10 +320,24 @@ Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.e
 - Los plugins: `criterio-finance` para Clara, el que ya estaba declarado, y `criterio-budget` para
   Tomás, dentro de la familia `criterio-cfo`. José, 2026-10-20.
 
+## Decisiones de la construcción
+
+Tomadas al construir, con su razón; cada una se puede revertir con una decisión nueva.
+
+- **Las columnas de las exportaciones** se reconocen por su nombre y sus variantes; la que no se
+  reconoce se pregunta y queda en `columns` de la configuración. No hay una plantilla por ERP.
+- **Los umbrales por defecto** están en `config.example.json` de cada plugin y el setup los
+  propone como configuración, no como norma. En Colombia, la tolerancia de los valores es la
+  holgura que el anexo de la DIAN permite: ±2,00 y ±5,00 en el IVA (F-01, 5.2.1).
+- **La versión vigente del presupuesto** es la más reciente, salvo que la configuración fije
+  otra; que cada cambio tenga su acta lo revisa `transfer-log`.
+- **El checklist recomendado por industria** es un borrador del plugin, sin fuente normativa,
+  y el reporte dice que no está aprobado hasta que una persona lo apruebe.
+- **La estructura de carpetas** se sugiere y nunca se crea dentro de los documentos de la
+  organización ([ADR 0007](../../docs/decisions/0007-estructura-recomendada.md)).
+
 ## Decisiones abiertas
 
-1. Los formatos de exportación del ERP que se soportan primero: una plantilla de columnas por
-   ERP, o un mapeo que `finance-setup` y `budget-setup` preguntan.
-2. Los umbrales por defecto de cada señal.
-3. Sacar Rostrum de `criterio-portfolio` a un plugin propio compartido: el nombre y el momento.
-4. Los checklists recomendados por industria: quién los redacta y con qué fuente.
+1. Sacar Rostrum de `criterio-portfolio` a un plugin propio compartido: el nombre y el momento.
+2. Quién revisa el checklist recomendado de cada industria antes de proponerlo como algo más que
+   un borrador.

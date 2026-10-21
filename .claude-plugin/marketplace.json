@@ -34,8 +34,14 @@
     },
     {
       "name": "criterio-finance",
-      "description": "Cierre mensual contra NIIF adoptadas localmente, facturación electrónica, retenciones y reportes al supervisor, por país y con cita a la norma.",
+      "description": "Clara, la contralora: el cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica de la DIAN y del SRI contra la contabilidad y el paquete del auditor. NIIF adoptadas en Colombia y Ecuador; cada cifra la calcula el código y cada dato cita su documento.",
       "source": "./plugins/criterio-finance",
+      "category": "finance"
+    },
+    {
+      "name": "criterio-budget",
+      "description": "Tomás, FP&A: el presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año con su supuesto escrito, los traslados con su acta y el material del comité de presupuesto. Toma la ejecución de la misma contabilidad que cierra Clara.",
+      "source": "./plugins/criterio-budget",
       "category": "finance"
     }
   ]

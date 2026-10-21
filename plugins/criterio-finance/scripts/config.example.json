@@ -1,0 +1,65 @@
+{
+  "version": "0.1",
+  "role": "contralor",
+  "entity": {
+    "id": "900123456",
+    "name": "Banco Andino",
+    "country": "CO",
+    "currency": "COP",
+    "framework": "grupo 1",
+    "approver": "Contralor"
+  },
+  "paths": {
+    "documents": "finanzas/900123456-banco-andino",
+    "state": "estado-finanzas/900123456-banco-andino"
+  },
+  "period": "2026-09",
+  "accounts": {
+    "sales": [
+      "41"
+    ],
+    "purchases": [
+      "14",
+      "51",
+      "52",
+      "61"
+    ],
+    "vat_generated": [
+      "2408"
+    ],
+    "vat_deductible": [
+      "2408"
+    ],
+    "reconcile": [
+      "1305",
+      "2205"
+    ]
+  },
+  "bank_accounts": [
+    "andino-1234"
+  ],
+  "checklist": {
+    "source": "organizacion",
+    "industry": "banca",
+    "approved": true
+  },
+  "thresholds": {
+    "reconciling_item_days": 30,
+    "bank_match_window_days": 5,
+    "amount_tolerance": null,
+    "variance_pct": 10,
+    "committed_pct": 95,
+    "forecast_stale_days": 45,
+    "close_window_business_days": 10
+  },
+  "holidays": [
+    "2026-10-12"
+  ],
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

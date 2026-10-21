@@ -28,8 +28,6 @@ RAIZ = Path(__file__).resolve().parent.parent
 CFO = RAIZ / "families" / "criterio-cfo"
 DISENO = CFO / "DISENO.es.md"
 FUENTES_MD = CFO / "FUENTES.es.md"
-README_FINANCE = [(RAIZ / "plugins" / "criterio-finance" / "README.es.md", "es"),
-                  (RAIZ / "plugins" / "criterio-finance" / "README.md", "en")]
 AVISO = "generado por scripts/cfo.py; no se edita a mano"
 
 
@@ -79,18 +77,29 @@ def fuentes_md(fu: dict) -> str:
             l.append(f"| {f['id']} | {celda(f['fuente'])} | {celda(f['version'])} | {enl} | {f['consultada']} "
                      f"| {celda(estado(f))} | {celda(f['uso'])} |")
         l.append("")
+    con_campos = [f for s in fu["secciones"] for f in s["fuentes"] if f.get("campos")]
+    if con_campos:
+        l += ["## Los campos que procesa el motor", "",
+              "Cada campo de factura que lee `finanzas.py` está aquí con su identificador en la fuente. La",
+              "puerta falla si el motor usa uno que no está, o uno por verificar.", ""]
+        for f in con_campos:
+            l += [f"**{f['id']} · {f['fuente']}**", "", "| Id | Campo | Estado |", "|---|---|---|"]
+            l += [f"| {c['id']} | {celda(c['campo'])} | {'Verificado' if c['estado'] == 'verificado' else 'Por verificar'} |" for c in f["campos"]]
+            l.append("")
     l += ["## Cifras de terceros", "",
           "| Id | Cifra | Fuente | Año | Muestra | Estado |", "|---|---|---|---|---|---|"]
     for c in fu["cifras"]:
         l.append(f"| {c['id']} | **{c['valor']['es']}** {celda(c['cifra']['es'])} | [{celda(c['fuente'])}]({c['enlace']}) "
                  f"| {c['anio']} | {celda(c['muestra']['es'])} | {celda(estado(c))} |")
     l += ["", "## Cómo se agrega una fuente", "",
-          "1. Se agrega en `fuentes.json` con el siguiente identificador libre —F-01 a F-09 para fuentes",
-          "   técnicas y normativas, desde F-10 para cifras de terceros— y la fila entera: versión, enlace",
-          "   al emisor, fecha de consulta, estado y uso. Después se corre `python3 scripts/cfo.py`.",
-          "2. Mientras diga «por verificar», nada se construye sobre ella: la puerta falla si un comando",
+          "1. Se agrega en `fuentes.json` con el siguiente identificador libre —F-NN para fuentes técnicas",
+          "   y normativas, C-NN para cifras de terceros— y la fila entera: versión, enlace al emisor, fecha",
+          "   de consulta, estado y uso. Después se corre `python3 scripts/cfo.py`.",
+          "2. Un campo de factura que procese el motor va en la lista de campos de su fuente, con su",
+          "   identificador en el anexo; la puerta falla si el motor usa uno que no está verificado.",
+          "3. Mientras diga «por verificar», nada se construye sobre ella: la puerta falla si un comando",
           "   la cita.",
-          "3. Cuando una fuente cambia de versión, se agrega la nueva fila y la anterior se marca como",
+          "4. Cuando una fuente cambia de versión, se agrega la nueva fila y la anterior se marca como",
           "   reemplazada, sin borrarla: el material de prueba generado con ella sigue citándola.", ""]
     return "\n".join(l)
 
@@ -166,6 +175,26 @@ def carpetas_md(ca: dict, fa: dict) -> str:
     return "\n".join(l)
 
 
+def comandos_readme(a: dict, i: str) -> str:
+    cab = "| # | Comando | Qué entrega |" if i == "es" else "| # | Command | What it delivers |"
+    l = [cab, "|---|---|---|"]
+    l += [f"| {c['n']} | `/{a['plugin']}:{c['id']}` | {celda(c[i]['entrega'] if i == 'en' else c['es']['entrega'])} |" for c in a["comandos"]]
+    return "\n".join(l)
+
+
+def skills_readme(base: Path) -> str:
+    nombres = sorted(d.name for d in (base / "skills").iterdir() if (d / "SKILL.md").is_file()) if (base / "skills").is_dir() else []
+    return " · ".join(f"`{n}`" for n in nombres)
+
+
+def intake_md(ca: dict, fa: dict) -> str:
+    """La estructura, como la necesita el agente instalado: el árbol, qué va en cada carpeta y quién la usa."""
+    t = carpetas_md(ca, fa)
+    return ("Recomendada, no obligatoria: el motor procesa la carpeta como esté, y el inventario dice qué archivo "
+            "está fuera de su lugar y dónde iría (ADR 0007). La contabilidad del periodo tiene un solo lugar, "
+            "`10-contabilidad/`: Clara la cierra y Tomás saca de ahí la ejecución.\n\n" + t)
+
+
 # ---------------------------------------------------------------- lo que tiene que cuadrar
 
 def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
@@ -178,9 +207,8 @@ def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
     for f in todas:
         if f["estado"] not in ("verificada", "por verificar"):
             err.append(f"{f['id']}: estado «{f['estado']}» no es verificada ni por verificar")
-        n = int(f["id"][2:])
-        if (f in fu["cifras"]) != (n >= 10):
-            err.append(f"{f['id']}: F-01 a F-09 son fuentes y desde F-10 son cifras")
+        if not re.fullmatch(r"C-\d\d" if f in fu["cifras"] else r"F-\d\d", f["id"]):
+            err.append(f"{f['id']}: las fuentes van como F-NN y las cifras de terceros como C-NN")
     for c in fu["cifras"]:
         if not all(c[k].get(i) for k in ("valor", "cifra", "muestra") for i in ("es", "en")):
             err.append(f"{c['id']}: le falta texto en un idioma")
@@ -226,7 +254,44 @@ def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
                     err.append(f"{c['id']}: cita {fid} y no está en fuentes.json")
                 elif por_id[fid]["estado"] != "verificada":
                     err.append(f"{c['id']}: se apoya en {fid}, que está por verificar (ADR 0006, regla 1)")
+    err += revisar_campos(fu)
     return err
+
+
+MOTOR = RAIZ / "plugins" / "criterio-finance" / "scripts" / "finanzas.py"
+# Qué fuente define los campos de cada lector del motor.
+LECTORES = {"CAMPOS_DIAN": ["F-01"], "CAMPOS_SRI": ["F-04", "F-09"]}
+
+
+def revisar_campos(fu: dict) -> list[str]:
+    """Cada campo de factura que procesa el motor tiene que estar verificado en su fuente (ADR 0006, regla 2)."""
+    if not MOTOR.is_file():
+        return []
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("finanzas_cfo", MOTOR)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    por_id = {f["id"]: f for s in fu["secciones"] for f in s["fuentes"]}
+    err = []
+    for constante, ids in LECTORES.items():
+        campos = {c["id"]: c for i in ids for c in (por_id.get(i) or {}).get("campos", [])}
+        for k in getattr(mod, constante, {}):
+            if k not in campos:
+                err.append(f"finanzas.py usa el campo {k} y no está en {' ni '.join(ids)}")
+            elif campos[k]["estado"] != "verificado":
+                err.append(f"finanzas.py usa el campo {k}, que está por verificar en {' o '.join(ids)}")
+    return err
+
+
+def estructura_json(ca: dict) -> str:
+    """Lo que el motor necesita de la estructura para decir qué está fuera de su lugar."""
+    d = {"generado": "por scripts/cfo.py desde families/criterio-cfo/carpetas.json; no se edita a mano"}
+    for n in ca["niveles"]:
+        d[n["id"]] = [{"carpeta": c["carpeta"], "patrones": c.get("patrones", [])} for c in n["carpetas"]]
+    return json.dumps(d, ensure_ascii=False, indent=2) + "\n"
+
+
+ESTRUCTURAS = [RAIZ / "plugins" / p / "scripts" / "estructura.json" for p in ("criterio-finance", "criterio-budget")]
 
 
 def main() -> int:
@@ -244,8 +309,23 @@ def main() -> int:
     for a in fa["agentes"]:
         d = poner(d, f"comandos-{a['id']}", comandos_md(a), DISENO)
     salidas.append((DISENO, d))
-    for ruta, i in README_FINANCE:
-        salidas.append((ruta, poner(ruta.read_text(encoding="utf-8"), "cifras", cifras_readme(fu, i), ruta)))
+    for a in fa["agentes"]:
+        base = RAIZ / "plugins" / a["plugin"]
+        for nombre, i in (("README.es.md", "es"), ("README.md", "en")):
+            ruta = base / nombre
+            if not ruta.is_file():
+                continue
+            t = poner(ruta.read_text(encoding="utf-8"), "comandos", comandos_readme(a, i), ruta)
+            t = poner(t, "skills", skills_readme(base), ruta)
+            if a["id"] == "clara":
+                t = poner(t, "cifras", cifras_readme(fu, i), ruta)
+            salidas.append((ruta, t))
+    intake = RAIZ / "plugins" / "criterio-finance" / "skills" / "finance-intake" / "SKILL.md"
+    if intake.is_file():
+        salidas.append((intake, poner(intake.read_text(encoding="utf-8"), "intake", intake_md(ca, fa), intake)))
+    for ruta in ESTRUCTURAS:
+        if ruta.parent.is_dir():
+            salidas.append((ruta, estructura_json(ca)))
 
     for ruta, nuevo in salidas:
         actual = ruta.read_text(encoding="utf-8") if ruta.exists() else ""

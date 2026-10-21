@@ -38,6 +38,7 @@ for _p in CONSTRUIDOS:
     DOCS += sorted(_p.glob("commands/*.md"))
 
 OK, FALLA, NOTA = "OK   ", "FALLA", "nota "
+CFO_PLUGINS = ("criterio-finance", "criterio-budget")
 fallas = 0
 
 # Nombres que la documentación usa y el código todavía no sostiene, con el lugar donde
@@ -69,6 +70,10 @@ def decir(marca, texto):
 codigo = PMO.read_text(encoding="utf-8")
 if PRODUCTO.exists():
     codigo += "\n" + PRODUCTO.read_text(encoding="utf-8")
+# La familia CFO calcula en su propio motor, y sus nombres resuelven ahí.
+FINANZAS = RAIZ / "plugins" / "criterio-finance" / "scripts" / "finanzas.py"
+if FINANZAS.exists():
+    codigo += "\n" + FINANZAS.read_text(encoding="utf-8")
 texto_docs = {d: d.read_text(encoding="utf-8") for d in DOCS if d.exists()}
 todo = "\n".join(texto_docs.values())
 
@@ -115,6 +120,11 @@ decir(OK, f"{len(en_codigo_th)} umbrales por defecto: {', '.join(sorted(en_codig
 
 candidatos = set(re.findall(r"`(silent_days|variance_\w+|committed_pct|stale_\w+|"
                             r"declaration_\w+|rebaseline_\w+)`", todo)) - en_codigo
+# Los umbrales y las señales de la familia CFO viven en su motor.
+if FINANZAS.exists():
+    _fin = FINANZAS.read_text(encoding="utf-8")
+    candidatos -= set(re.findall(r'"([a-z_]+)":', re.search(r'"thresholds": \{(.*?)\}', _fin, re.S).group(1)))
+    candidatos -= set(re.findall(r'alerta\("([a-z_]+)"', _fin))
 huerfanos = sorted(t for t in candidatos if t not in en_codigo_th)
 for th in huerfanos:
     decir(FALLA, f"la documentación nombra el umbral `{th}` y no existe")
@@ -502,7 +512,7 @@ for nombre in ("README.es.md", "README.md"):
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
     faltan = []
-    for d in CONSTRUIDOS:
+    for d in [x for x in CONSTRUIDOS if x.name not in CFO_PLUGINS]:
         destino = RAIZ / "tests" / d.name / "RESULTADOS.md"
         if not destino.exists():
             faltan.append(f"{d.name} no tiene RESULTADOS.md")
@@ -512,6 +522,22 @@ for nombre in ("README.es.md", "README.md"):
         decir(FALLA, f"{nombre} · {', '.join(faltan)}")
     else:
         decir(OK, f"{nombre} · los {len(CONSTRUIDOS)} análisis de pruebas, en markdown")
+
+# Los de la familia CFO se enlazan desde el README de su propio plugin.
+CFO_PLUGINS = ("criterio-finance", "criterio-budget")
+for nombre_p in CFO_PLUGINS:
+    d = RAIZ / "plugins" / nombre_p
+    if not (d / "commands").exists():
+        continue
+    destino = RAIZ / "tests" / nombre_p / "RESULTADOS.md"
+    for nombre in ("README.es.md", "README.md"):
+        cuerpo = (d / nombre).read_text(encoding="utf-8") if (d / nombre).exists() else ""
+        if not destino.exists():
+            decir(FALLA, f"{nombre_p} no tiene RESULTADOS.md")
+        elif f"tests/{nombre_p}/RESULTADOS.md" not in cuerpo:
+            decir(FALLA, f"{nombre_p}/{nombre} no enlaza tests/{nombre_p}/RESULTADOS.md")
+        else:
+            decir(OK, f"{nombre_p}/{nombre} · su análisis de pruebas, en markdown")
 
 # El inventario de comandos lo verifica scripts/validate_plugins.py, que exige que el
 # README del plugin liste cada uno. Ese README es la promesa pública: el plugin viaja

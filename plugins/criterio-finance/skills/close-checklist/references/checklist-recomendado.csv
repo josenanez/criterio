@@ -1,0 +1,26 @@
+industria;id;tarea;area;responsable;dia_limite;depende_de;evidencia_esperada;criticidad
+todas;C-01;Cerrar los módulos de ventas, compras e inventarios del periodo;Contabilidad;Contador general;D+1;;Reporte de cierre de módulos;alta
+todas;C-02;Conciliar cada cuenta bancaria;Tesorería;Tesorero;D+2;C-01;Conciliación firmada por cuenta;alta
+todas;C-03;Cruzar las facturas electrónicas emitidas con las ventas;Contabilidad;Contador de ingresos;D+2;C-01;Cruce firmado;alta
+todas;C-04;Cruzar las facturas electrónicas recibidas con las compras;Contabilidad;Contador de costos;D+3;C-01;Cruce firmado;alta
+todas;C-05;Conciliar cartera contra su auxiliar;Contabilidad;Analista de cartera;D+3;C-01;Conciliación firmada;alta
+todas;C-06;Conciliar proveedores contra su auxiliar;Contabilidad;Analista de cuentas por pagar;D+3;C-01;Conciliación firmada;media
+todas;C-07;Registrar depreciaciones y amortizaciones;Contabilidad;Contador de activos;D+2;C-01;Cuadro de depreciación;media
+todas;C-08;Registrar provisiones y causaciones del periodo;Contabilidad;Contador general;D+3;C-01;Papel de trabajo;alta
+todas;C-09;Registrar la nómina y sus prestaciones;Nómina;Analista de nómina;D+2;;Resumen de nómina;media
+todas;C-10;Preparar los papeles de trabajo de impuestos del periodo;Impuestos;Analista de impuestos;D+4;C-03 C-04;Papel de trabajo firmado;alta
+todas;C-11;Conciliar las cuentas entre compañías;Contabilidad;Contador general;D+4;C-01;Confirmación de saldos;media
+todas;C-12;Cuadrar el balance de comprobación;Contabilidad;Contador general;D+5;C-02 C-05 C-06 C-07 C-08 C-10;Balance cuadrado;alta
+todas;C-13;Revisar el cierre y sus soportes;Contraloría;Contralor;D+6;C-12;Revisión firmada;alta
+todas;C-14;Aprobar el cierre del periodo;Contraloría;Quien aprueba el cierre;D+7;C-13;Aprobación;alta
+banca;B-01;Conciliar la cartera de crédito con su aplicativo;Contabilidad;Analista de cartera de crédito;D+3;C-01;Conciliación firmada;alta
+banca;B-02;Registrar el deterioro de la cartera de crédito del periodo;Riesgo;Analista de riesgo de crédito;D+4;B-01;Papel de trabajo;alta
+banca;B-03;Conciliar las cuentas de depósitos con su aplicativo;Contabilidad;Analista de captaciones;D+3;C-01;Conciliación firmada;alta
+cooperativas;K-01;Conciliar aportes sociales con el registro de asociados;Contabilidad;Analista de aportes;D+3;C-01;Conciliación firmada;alta
+cooperativas;K-02;Conciliar la cartera de crédito de asociados con su aplicativo;Contabilidad;Analista de cartera;D+3;C-01;Conciliación firmada;alta
+retail;R-01;Conciliar las ventas de los puntos de venta con la contabilidad;Contabilidad;Contador de ingresos;D+2;C-01;Cruce por tienda;alta
+retail;R-02;Conciliar los recaudos con tarjeta con los extractos de las adquirentes;Tesorería;Analista de recaudos;D+3;C-02;Conciliación firmada;alta
+retail;R-03;Valorar el inventario y registrar sus ajustes;Contabilidad;Contador de costos;D+3;C-01;Papel de trabajo;alta
+mineria;M-01;Registrar la producción y el inventario de mineral del periodo;Operaciones;Analista de costos de producción;D+3;C-01;Informe de producción;alta
+mineria;M-02;Registrar las regalías y contraprestaciones causadas;Contabilidad;Contador general;D+4;M-01;Papel de trabajo;alta
+mineria;M-03;Actualizar la provisión de cierre de mina;Contabilidad;Contador de activos;D+4;C-01;Papel de trabajo;media

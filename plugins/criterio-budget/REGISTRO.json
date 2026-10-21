@@ -1,0 +1,767 @@
+{
+  "descripcion": "Registro de versiones de la familia de agentes Criterio. Cada entrada lleva la huella SHA-256 de la anterior: no se borra ni se reescribe.",
+  "versiones": [
+    {
+      "version": "0.1.0",
+      "fecha": "2026-09-19",
+      "commit": "07e50b5",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-pmo": "2a9145b35b84206fd3a09038eccd92a99c5cfe16817b93f5f0569ace8d755340"
+      },
+      "destacados": [],
+      "cambios": [
+        "Initial commit",
+        "criterio-pmo: marketplace, plugin de PMO y capa de aritmética"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": null,
+      "sha256": "6e27d1288febd1353163e086e483b7d9116df888e4cb304cde5412d25eb2f261"
+    },
+    {
+      "version": "0.2.0",
+      "fecha": "2026-09-30",
+      "commit": "2a201c8",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "6358707799c786a7b968eb46e864421a5867adafe45572922e2ac64089360353",
+        "criterio-product": "f389253b8917fe1b7debda0f398a53152509c39ae99a1fad1f82ad5aa050059e",
+        "criterio-project": "e9a398263869148e75167dc2fb2997a6550a9ba00cfa8c44e9776f1ab233ce82"
+      },
+      "destacados": [],
+      "cambios": [
+        "Presentación como market de capacidades, y comando de instalación",
+        "Portada orientada al negocio, con cifras de mercado citadas",
+        "Calcular lo que el esquema ya declaraba y la prosa ya prometía",
+        "Las hojas de los tres agentes: qué hacen, qué no, y qué es de las personas",
+        "La clase C deja de evaluar riesgos, y cada función declara qué entra y qué sale",
+        "Portafolio sintético con respuestas conocidas, y seis límites que destapó",
+        "El índice de documentos, y cuatro de los seis límites cerrados",
+        "Cuatro skills y cuatro comandos: la capacidad PMO queda completa en A y en B",
+        "El documento a texto, sin dependencias, y la hoja del PMO consolidada",
+        "Un dueño por cosa: se borran las copias, y aparece una señal que faltaba",
+        "Se borra capabilities/: cuatro puertas para una capacidad eran tres de más",
+        "La instalación vuelve, y la política de valor queda escrita y verificada",
+        "Tres emblemas en la página central, y la familia PMO con sus agentes",
+        "El agente deja de esperar a que lo llamen, y ocho piezas en dos idiomas",
+        "criterio-pmo en los dos idiomas, y el chequeo que lo sostiene",
+        "El estado deja de parecer incompleto donde no lo está",
+        "Plomada, Escuadra y Compás: los agentes tienen nombre",
+        "El informe: el mismo dato, dos autoridades",
+        "El servidor: el informe, para quien no abre una carpeta",
+        "Un portal, no una carpeta de informes: PMO, proyectos y productos",
+        "La página del servidor, con el portal fotografiado",
+        "Atril: el servidor tiene nombre, y el nombre dice qué no hace",
+        "Escuadra: dos fichas que nunca se fusionan, y dos plugins",
+        "criterio-pm existe, y la regla que impide que las copias se separen",
+        "Los ocho skills del método viajan con Escuadra",
+        "Plumb, Bevel, Caliper, Rostrum: nombres que se venden fuera",
+        "Vera, Samuel y Alba: nombres de persona, porque extienden personas",
+        "El corpus de Samuel: un proyecto visto desde adentro",
+        "Samuel abre sus puertas: setup, compromisos y publicar",
+        "pm_vs_pmo: dónde el gerente y la PMO no leyeron lo mismo",
+        "Una sola puerta para verificarlo todo",
+        "Samuel cierra el ciclo de la reunión: agenda, acta e informe",
+        "Alba abre sus puertas: el registro de requerimiento y sus siete comandos",
+        "La página de resultados sale de correr las puertas, no de escribirlas",
+        "La última decisión de esquema queda cerrada: el registro de requerimiento",
+        "Los tres agentes dejan de aparecer en construcción, empezando por la figura",
+        "Samuel y Alba dejan de esperar a que los llamen",
+        "Las hojas de los agentes entran a la familia, y la familia tiene página",
+        "Las tablas A y B de los tres agentes quedan sin filas abiertas",
+        "La explicación de cada agente entra a su README, y sobran cinco páginas",
+        "Las capturas del portal decían Plomada, y ahora se sabe cuándo envejecen",
+        "La página de la familia muestra a los tres, y sin dibujos en ASCII",
+        "Los tres README de plugin son gemelos, y la familia vive en la raíz",
+        "La familia vuelve a criterio-pmo, y cada agente enlaza sus pruebas",
+        "La familia y Vera dejan de ser la misma página",
+        "Las tres páginas de agente, con el mismo esqueleto y el alcance por delante",
+        "Un solo motor escribe el material sintético, y la estructura deja de ser costumbre",
+        "La PMO es la oficina, no un agente: los plugins se nombran por su objeto",
+        "Las figuras dicen rol y no oficina, y ahora cualquiera puede regenerarlas",
+        "Los tres agentes corren sobre una organización de diez proyectos y ocho productos",
+        "La familia sale del plugin de Vera y pasa al README del repositorio",
+        "Nivel 1 de las pruebas: de 12 señales a 18, y las seis acciones que nunca corrieron",
+        "Las páginas de los tres agentes, cortadas por las preguntas del lector",
+        "Tres niveles de navegación: el proyecto, la familia, el agente",
+        "Las pruebas miden fiabilidad: aciertos, falsos positivos y tiempo, no puertas",
+        "Cinco semanas de una organización de 115 casos, y seis defectos que nadie veía",
+        "El plan de las pruebas, en pasos, y el informe por día de simulación",
+        "La organización de las pruebas vive donde una corrida programada la encuentre",
+        "Día 1 de la prueba longitudinal: 50 proyectos, 65 productos, 417 hallazgos",
+        "El estado local de Claude Code no se versiona",
+        "El comando que la página decía no existía: 226 referencias sin el prefijo",
+        "Tres arreglos que salió a buscar el primer informe de Vera sobre 50 proyectos",
+        "El barrido encontró lo que ninguna puerta podía: 34 de 50 avances imposibles",
+        "Señal 21: el avance declarado contra el cronograma del mismo proyecto",
+        "Un comando sin evidencia no se probó, y ahora la página lo dice sola",
+        "La corrida se registra sola, porque una instrucción en prosa se salta",
+        "Día 2: una semana encima, y la prueba dejó de romper la invariante que verifica",
+        "La corrida mide sus propias estadísticas; una cifra tecleada vicia la prueba",
+        "Día 3: se mueve cada proyecto y cada producto, y la carpeta se revuelve",
+        "El tiempo estaba congelado: quince de veinte señales no podían sonar nunca",
+        "Samuel y Alba también registran su corrida, y la puerta rechaza la cifra tecleada",
+        "La historia de las corridas: tres niveles, y no se borra nada",
+        "Proveedores: contrato contra acta contra factura, y cuatro señales que no tenían material",
+        "Qué tiene que hacer cada funcionalidad, y el árbol para que alguien lo lea",
+        "Un solo Rostrum para los tres agentes, no uno por cada uno",
+        "El árbol en todas las páginas servidas, y el archivo sigue abriéndose solo",
+        "Día 5 de la prueba longitudinal: los controles negativos no se estaban midiendo",
+        "Every command records its run: 33 of 37 measure themselves",
+        "Rostrum finds the three agents' states where their setups put them",
+        "Every run is a page in the portal, and the tree reaches each one",
+        "Each run leaves its own HTML file, next to its markdown",
+        "The tree hangs every run from its project or product; 37 of 37 record",
+        "The harness writes the trace, and the portal is the whole PMO",
+        "Plugins 0.2.0: the trace hooks are declared in the manifest"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "6e27d1288febd1353163e086e483b7d9116df888e4cb304cde5412d25eb2f261",
+      "sha256": "9a9f8b61fab12571a8ce7820f5d3ae59e745222bd38114622d0fae8fbd0b1057"
+    },
+    {
+      "version": "0.3.0",
+      "fecha": "2026-09-30",
+      "commit": "bfd9fd1",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "2b5aafbe3704104dcb5885b73989ddf15f80494f6c18936a11e56945a40c50d2",
+        "criterio-product": "8169d8707a2542be8875abb24753a0fb57012841f04f464a7168a509724e198a",
+        "criterio-project": "bd5eb63acfaa1b3f40da766edb720f0292e3a10fbf638244d97f3346069f83cd"
+      },
+      "destacados": [],
+      "cambios": [
+        "The configuration has one address, and every command names it",
+        "The tree reads at a glance: plain names, a line per group, and a phone layout",
+        "The page has a real layout: a menu column with its own gutter, and content with margins",
+        "The menu is for the reader; the catalogue moves to each agent's page",
+        "What is declared and what is proven are two fields, and the reading is complete before it is written",
+        "The reading plan is computed, the hashes are sealed, and the parallelism is counted",
+        "A command runs without asking at every step",
+        "The inventory comes from the script, not from find > /tmp",
+        "A record is sealed only if this run wrote it",
+        "Every command and skill has a contract, and the contract is checked against the code",
+        "Phase 2 harness: a six-project corpus that covers every signal, and its grader",
+        "No parallel subagents in any command, not only in the scan",
+        "Setup writes what it shows, where the other commands look for it",
+        "Every run says which copy of the plugin ran, and 0.3.0 forces a fresh copy"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "9a9f8b61fab12571a8ce7820f5d3ae59e745222bd38114622d0fae8fbd0b1057",
+      "sha256": "74d7c5e493c04aeb54c20a7d71c88e2728e941204e6f0ce30f51e8e384026cc2"
+    },
+    {
+      "version": "0.3.1",
+      "fecha": "2026-09-30",
+      "commit": "d48f84c",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "05b49736d95325cf9437aae1f5751aa0af6de4641ad2834d20902ec96e3b679c",
+        "criterio-product": "1a6e28f2fbbded8d4b4b10acc7a535a1b24fad687dcd4cebcf4ee888083585b6",
+        "criterio-project": "22a1cdf829be87ef7ba15f0dd1735af89336c11a419bb3faee556245d32df2a5"
+      },
+      "destacados": [],
+      "cambios": [
+        "What a script can read from a table, the script reads; subagents are blocked, not asked"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "74d7c5e493c04aeb54c20a7d71c88e2728e941204e6f0ce30f51e8e384026cc2",
+      "sha256": "18cdd19fa969bc6f5640da7635717b9aba6907ecde5f2427e272f87913c57c91"
+    },
+    {
+      "version": "0.3.2",
+      "fecha": "2026-10-01",
+      "commit": "3b0133d",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "a076ad4bdd4e8a97dab784fc4403b442dabaef53927034ca4bbe904b3796a7a9",
+        "criterio-product": "84f011bac31e392fe7dee2e3567fdd231d3ab2433591ff4226141d5dbf4b3c01",
+        "criterio-project": "2d3f1114786062797e832a9a4224017ddc97fa8b76795f7076ec5acf9c0a1262"
+      },
+      "destacados": [],
+      "cambios": [
+        "Move the marketplace to josenanez/criterio",
+        "An overdue commitment is arithmetic, not a label"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "18cdd19fa969bc6f5640da7635717b9aba6907ecde5f2427e272f87913c57c91",
+      "sha256": "bff70225b0181c5c5b2efa79494bc263b7e978241e9468db6c4a53cbaaae055d"
+    },
+    {
+      "version": "0.3.3",
+      "fecha": "2026-10-01",
+      "commit": "661d8ea",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "a076ad4bdd4e8a97dab784fc4403b442dabaef53927034ca4bbe904b3796a7a9",
+        "criterio-product": "84f011bac31e392fe7dee2e3567fdd231d3ab2433591ff4226141d5dbf4b3c01",
+        "criterio-project": "b97a158128f18bc8751710068c4b60bc41460cf3a2116cb4c85565315bd4dc08"
+      },
+      "destacados": [],
+      "cambios": [
+        "Samuel's setup inherits what Vera's taught, and its test corpus"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "bff70225b0181c5c5b2efa79494bc263b7e978241e9468db6c4a53cbaaae055d",
+      "sha256": "608addad44a75dddf4e5e2cac4bdefb3439c348fc4c0815fc8758909eedaf860"
+    },
+    {
+      "version": "0.3.4",
+      "fecha": "2026-10-02",
+      "commit": "2fbbee5",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "498f6425e69ee0fe84fa5fda53d7fbe4220998f08c6f0e5e3f2e606dae6aaaac",
+        "criterio-product": "84f011bac31e392fe7dee2e3567fdd231d3ab2433591ff4226141d5dbf4b3c01",
+        "criterio-project": "b97a158128f18bc8751710068c4b60bc41460cf3a2116cb4c85565315bd4dc08"
+      },
+      "destacados": [],
+      "cambios": [
+        "Ready to be public: a security policy, an honest status line, and no test machinery",
+        "Dependabot watches the only third-party code that runs here: the workflow's actions",
+        "Results pages point at a commit that exists in the public history",
+        "The workflow's actions are pinned to their commit, as the repository now requires",
+        "The robots, in the READMEs and in the server"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "608addad44a75dddf4e5e2cac4bdefb3439c348fc4c0815fc8758909eedaf860",
+      "sha256": "2ec8a44afb174a6c799968ac3528c97cc1575b72683f0549a633f21f07d9f82c"
+    },
+    {
+      "version": "0.3.5",
+      "fecha": "2026-10-14",
+      "commit": "9fd41a8",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "3fc31754bdac5818a85636712bf37e7ba702d843b0de1234a2fb8c82106fab08",
+        "criterio-product": "c4ac1017933332c24b15c24ff2d1e604cc5386fbbd05d9f04d411d0a8d0ee9ed",
+        "criterio-project": "572dc3ab97794ea1859e380b99a3de793168aead508858d7861666e20fefd057"
+      },
+      "destacados": [],
+      "cambios": [
+        "Cierre de la prueba longitudinal de cinco días",
+        "What the family stands for, in its header; and the run trail carries no local paths",
+        "Las figuras con los robots del portal, y la familia animada",
+        "First model run, first fixes: silence from the files on disk, progress against a range"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "2ec8a44afb174a6c799968ac3528c97cc1575b72683f0549a633f21f07d9f82c",
+      "sha256": "2d48d5e34c6ea74c01fe805cbea462818f70ccc32eef01b6bdc690cef762cb31"
+    },
+    {
+      "version": "0.3.6",
+      "fecha": "2026-10-14",
+      "commit": "8c84264",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "1d1f62085fd24dc788c7ba0c38db1eee86d6ca7b8d243513225fd5ebc0aaa586",
+        "criterio-product": "6e2684900e33c831754d6bbced53d999854b437d77fe3b8aa2f2b0d972480abc",
+        "criterio-project": "530bdb5b7a17c5f4b9dc852b87c5aec2800eca72963c03f9313118232513dfc4"
+      },
+      "destacados": [],
+      "cambios": [
+        "Three industries and three formats: the material now arrives as it does in real life",
+        "Test data by industry, not by company; and every agent figure with its counts, interval and origin",
+        "First held-out runs in four environments, and what they found in the material"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "2d48d5e34c6ea74c01fe805cbea462818f70ccc32eef01b6bdc690cef762cb31",
+      "sha256": "2364a6d8592f5c3e5fa4a64aa37dd923b76e2220d7eabfd0bbf598e9382f3d4b"
+    },
+    {
+      "version": "0.3.7",
+      "fecha": "2026-10-14",
+      "commit": "db80a49",
+      "terminos": {
+        "version": "1.0",
+        "fecha": "2026-09-18",
+        "sha256": {
+          "es": "1248a5e1aea7b80be268111b563028ae0e24e34a8d83dc5f6e7f58402a89e8ba",
+          "en": "c91a767ff5235a505652e203619aad5275db0d9136ab6316062d644d7fc76a65"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "1d1f62085fd24dc788c7ba0c38db1eee86d6ca7b8d243513225fd5ebc0aaa586",
+        "criterio-product": "4f9ab506a77f8a33292c91f5a956cb0be3bc1a0e20965f6ad2351324387100bf",
+        "criterio-project": "530bdb5b7a17c5f4b9dc852b87c5aec2800eca72963c03f9313118232513dfc4"
+      },
+      "destacados": [],
+      "cambios": [
+        "A test round is the three agents, all 37 commands, in order, in one industry",
+        "ronda.py: the commitment Samuel's notes reschedule has to have a date",
+        "Round 1, banks: 37 of 37 commands, and what they found",
+        "Alba builds her product record and her requirements register from what is written"
+      ],
+      "aceptacion": "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante",
+      "anterior": "2364a6d8592f5c3e5fa4a64aa37dd923b76e2220d7eabfd0bbf598e9382f3d4b",
+      "sha256": "d8af32b4c5a1b92ab20e2c6ef0603c4f5bce9b68602a72ea825df0c31ed3ee4b"
+    },
+    {
+      "version": "0.3.8",
+      "fecha": "2026-10-15",
+      "commit": null,
+      "base": "46c9e65",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "b86b6702428cb025c6823b65791d54bea67a2e90e87c50315a8dffd975426e93",
+        "criterio-product": "88392eb8037a5885e397306dfe2b657a44cf581f3101e4d1738a2b14e2a58aa9",
+        "criterio-project": "04ad5e8c12b1ce5d3368f0c59efeb88f31345531fb9242fe98e30c9991ddaa14"
+      },
+      "destacados": [
+        "Una aceptación de términos por versión, con comprobante en Markdown y PDF, su huella SHA-256 y una bitácora encadenada; la puerta es código.",
+        "Registro de versiones de la familia, encadenado por huellas, que se publica en la nota legal del portal.",
+        "Términos 1.1: certificación interna de cada versión antes de publicarse, aceptación por versión, comprobantes e integridad; garantía y responsabilidad se remiten a la licencia Apache 2.0.",
+        "Alba construye la ficha de su producto y su registro de requerimientos desde lo escrito, y cada agente guarda su estado en su propia carpeta.",
+        "El compromiso reprogramado guarda la promesa original aparte de sus reprogramaciones.",
+        "La regresión del motor corre en cada verificación del código.",
+        "Rostrum: «No aplica» deja de ser un producto, las tablas anchas se desplazan dentro de su bloque y un campo no encontrado se lee como tal."
+      ],
+      "cambios": [
+        "defectos.json: the commits that fix the four round-1 defects already corrected",
+        "A round summary for the portal, computed from the evidence",
+        "Round 1, cooperatives: 37 of 37, Vera 60/60, and a commitment counted twice",
+        "A rescheduled commitment: the original promise is not one of its reschedules",
+        "defectos.json: D014 fixed in 5e81ef7",
+        "commitment_rescheduled carries the original date too; gates green again",
+        "Round 1, retail: 37 of 37, Vera 36/37, Samuel 3/3; graders read each agent's state from its config",
+        "defectos.json: D015, the grader read a fixed state path",
+        "Round 1 closed: mining 37 of 37, Vera 37/39; four industries, 148 commands, 186/190",
+        "Origin of the round-1 retail and mining errors: the key, D012",
+        "docs/pruebas: 29 of 29 gates, 672 checks, round 1 closed",
+        "«No aplica» is an empty product, and wide tables scroll inside their block",
+        "defectos.json: D016 and D017, found in Rostrum on the mining round",
+        "A field not found reads as not found, even when the record copied the state into the value",
+        "defectos.json: D018",
+        "The engine's five-week regression runs on every verification",
+        "Regression run of 15 October on c97cd8e: five of five cuts match the key",
+        "docs/pruebas: 30 gates with the engine regression",
+        "Round summary counts the documents each industry handed the agents, and its projects",
+        "Terms: one acceptance per version, a receipt in Markdown and PDF with its SHA-256, and a version register",
+        "defectos.json: D019-D021, the terms gate and where the terms live",
+        "The PDF receipt reads each row as label: value",
+        "Every version is certified before it is published; warranty and liability are Apache 2.0's"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "d8af32b4c5a1b92ab20e2c6ef0603c4f5bce9b68602a72ea825df0c31ed3ee4b",
+      "sha256": "a9f5f18ec3113c320eabe6e5234bb49c6470cea7c86a4aa65aa202e3f90d5927"
+    },
+    {
+      "version": "0.3.9",
+      "fecha": "2026-10-15",
+      "commit": null,
+      "base": "aefd53d",
+      "etiqueta": "v0.3.9",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "e3deeb24e5ae42fef2c0192cc5161d8c18bbf037914776236830570e9ecf5cdb",
+        "criterio-product": "09509969b517d702d7e1c1e4159168354343f16f4ba58a545e0fc61e0a24dbce",
+        "criterio-project": "fcdc5c8fb4dd5975d7a4def09d5a84b3b55de6255386df8c16ef26d48a90b48e"
+      },
+      "destacados": [
+        "Una sola regla por campo: el proveedor declarado entregado sin acta se registra como declarado, con la evidencia vacía, en los dos skills de Vera.",
+        "Samuel: la promesa original nunca es una reprogramación, también en pm-minutes y pm-commitments.",
+        "Alba: el acta que registra la decisión va en su campo, aunque sea una revisión posterior, y el acta del comité no es evidencia de demanda.",
+        "sellar rechaza una ficha con citas a documentos que no existen.",
+        "El caché de texto tiene un solo lugar, <estado>/cache/texto/.",
+        "Rostrum: ningún enlace del menú lleva a un error, cada campo y cada señal se nombran en castellano y ninguna página se sale de la pantalla de un teléfono."
+      ],
+      "cambios": [
+        "Every register entry carries its tag, and the tag sits on the commit that holds the entry",
+        "ronda.py: the test session accepts the terms in force for the version, and records it by name",
+        "Round 2 on 0.3.8: 148 of 148 commands, Vera 223/230, Alba from 0 to 38 of 43",
+        "Round 2 fixes: one rule per field, citations that resolve, and a key that counts what is visible",
+        "Defects D022 to D029 point to their fix, 7b5ab31; D026 and D029 verified",
+        "Rostrum tested end to end, and what that found: a menu link to an error, raw field paths, signal keys and tables wider than a phone",
+        "Defects D030 to D034: Rostrum, found by the end-to-end check, fixed in fa65257 and verified on round 2",
+        "Samples large enough to measure Samuel and Alba: about a hundred graded cases each per round",
+        "Rostrum gets its own figure: checks that pass out of checks made, phone and desktop included"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "a9f5f18ec3113c320eabe6e5234bb49c6470cea7c86a4aa65aa202e3f90d5927",
+      "sha256": "f742387fc01a65fed1468c2cc466b43daf64c7e5dfe753ca98cdabf3bc5d1b9a"
+    },
+    {
+      "version": "0.3.10",
+      "fecha": "2026-10-15",
+      "commit": null,
+      "base": "7d48c2a",
+      "etiqueta": "v0.3.10",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "832009d541b99323ffe08d066411fd55b58d28647671ddb10c23d87650e97822",
+        "criterio-product": "b4e96d9a570c1042476cf3300a401e12dfdcbab16193aae2230f1fca0d444c8a",
+        "criterio-project": "2a7fdf64503425068f454960a40e3b621512b3ab009018c52b07b4edfe592162"
+      },
+      "destacados": [
+        "Samuel lee todas las minutas del proyecto en orden al configurarse, para que la ficha traiga el historial de cada compromiso: cuántas veces se movió y qué se cerró con acta.",
+        "Ponerle fecha a un compromiso que no la tenía no es reprogramarlo.",
+        "El informe tiene un solo lugar, la carpeta que Rostrum sirve; el script rechaza otra.",
+        "Rostrum: las rutas largas dentro de código se parten en un teléfono.",
+        "pm-wake declara la ficha que escribe en su barrido y no deja copias de respaldo."
+      ],
+      "cambios": [
+        "Rostrum's figure on round 2 with 0.3.8: 1742 of 2182 checks (80%); the round summary carries it per industry",
+        "pm-setup reads every meeting minute in order, so the commitment register carries its history",
+        "Long paths in code wrap on a phone instead of pushing the run page wider than the screen",
+        "The report has one place, paths.reports, which is what Rostrum serves",
+        "Dating an undated commitment is not rescheduling it; pm-wake declares the record it writes and leaves no backup copies"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "f742387fc01a65fed1468c2cc466b43daf64c7e5dfe753ca98cdabf3bc5d1b9a",
+      "sha256": "45caaf940f463b11fde3fb1949b12031998e15a9b775867ddddadebe00cac35c"
+    },
+    {
+      "version": "0.3.11",
+      "fecha": "2026-10-16",
+      "commit": null,
+      "base": "9a21b05",
+      "etiqueta": "v0.3.11",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "4ac579180f6b49d17187efc8bc109c5b14cd04b5742cd58c5a465bde6a4d4ca5",
+        "criterio-product": "36d648b9d02cf8746df997b7949fcaf9858b6e52ad0b1bb85988c1c1126ce737",
+        "criterio-project": "398b4b498fe1b081776e3ced43687fd16b10aa70d7c58b35af808513aac7b966"
+      },
+      "destacados": [
+        "Alba: la evidencia de un requerimiento es la entrevista de donde viene la demanda, no el acta del comité que lo acepta; lo dice el comando que extrae.",
+        "Samuel: fechar un compromiso prometido «por definir» no es reprogramarlo, en sus comandos y en la aritmética.",
+        "Rostrum abre las páginas de productos con nombre —tildes y espacios— y codifica cada tramo de sus rutas.",
+        "El sello de Vera revisa solo sus propias citas; una cita es una sola ruta.",
+        "not_found es un estado, nunca un valor: un requerimiento con el doliente escrito así no tiene doliente."
+      ],
+      "cambios": [
+        "not_found is a state, never a value: a requirement whose owner is written as \"not_found\" has no owner",
+        "Round 3 on 0.3.9: Vera 252/256, Alba 142/143 with no false positive, Rostrum 1949/1964, Samuel 80/104",
+        "product-setup says where requirement evidence comes from: the interview, not the committee act that accepts it",
+        "Rostrum encodes each path segment, and the end-to-end check follows links as a browser does",
+        "Dating an undated commitment is not rescheduling it, now in Samuel's commands and in the arithmetic",
+        "Rostrum opens cases with a name, Vera's seal is hers alone, and a citation is one path",
+        "Round 4 on 0.3.10: Samuel 100/104, Vera 228/231, Rostrum 2128/2132, Alba 135/146 with no false alert"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "45caaf940f463b11fde3fb1949b12031998e15a9b775867ddddadebe00cac35c",
+      "sha256": "3a37b8e5acfa45a0c9967a3a00b835234449e3bf4e8d927b3947637df4b2583e"
+    },
+    {
+      "version": "0.3.12",
+      "fecha": "2026-10-16",
+      "commit": null,
+      "base": "46aa2bb8",
+      "etiqueta": "v0.3.12",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "e22c87c17ff1aea44b37c487bef293e048662f9cf1f097ce8e59aecb108acd88",
+        "criterio-product": "056db146457e037a4327e4dc4f8442cd161e09118c7d8518381e9ba6cc99b0b4",
+        "criterio-project": "662d43900335586fd581506cb763336a14c19eb079159a472381aebb93ab01b6"
+      },
+      "destacados": [
+        "Vera y Samuel se presentan por lo que hacen: procesan la documentación que ya tienes.",
+        "Samuel publica como fecha de cierre la vigente, la del cronograma más reciente: la misma que contrasta la PMO.",
+        "El ejemplo de project-record guarda en value el documento más reciente, como dice su propia regla.",
+        "Un compromiso cumplido con acta ya no suena como reprogramado."
+      ],
+      "cambios": [
+        "Release 0.3.11, entered in the version register",
+        "Round 5 on 0.3.11: 148 of 148 contracts, Alba 150/150, Rostrum 2155/2155, Samuel 102/104, Vera 223/228",
+        "A commitment met with a receipt no longer sounds as rescheduled",
+        "Defects: D040, D041 and D043 to D045 verified on round 5; D046 found and fixed",
+        "The key models the manager-PMO contrast from the published record, and the charter closes where the schedule does",
+        "Defects: D012 fixed in the key; D047 (material) and D048 (instructions) registered and fixed"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "3a37b8e5acfa45a0c9967a3a00b835234449e3bf4e8d927b3947637df4b2583e",
+      "sha256": "145e91d6a6f363d0aee51047d537aa55a559ff7b94087025fa4f068d282d5c56"
+    },
+    {
+      "version": "0.3.13",
+      "fecha": "2026-10-17",
+      "commit": null,
+      "base": "fe7e4b2e",
+      "etiqueta": "v0.3.13",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "70192c5103383ef4994dfc969ea6159a4dca8140ea593a542be74fe5f8f498c5",
+        "criterio-product": "1a56b70d734646869dcd82dca6672ad7242973a5aa0dc64c0e7c382cad200c0e",
+        "criterio-project": "3ebf817c8eac3c7a26acde08e6eae4b2f770dc5f0fe1c29a5cc1569f90849572"
+      },
+      "destacados": [
+        "El caché de texto tiene un solo lugar, <estado>/cache/texto, y texto.py rechaza cualquier otro.",
+        "La página de una corrida cabe en un teléfono: su bloque se desplaza en vez de ensanchar la página.",
+        "compute devuelve record_issues cuando una ficha guarda como reprogramación la primera fecha de un compromiso sin fecha, y los comandos de Samuel la corrigen antes de terminar."
+      ],
+      "cambios": [
+        "The text cache has one place, now enforced by texto.py; a run page's block scrolls on a phone instead of widening it",
+        "compute returns record_issues when a record lists the first date of an undated commitment as a reschedule, and Samuel's commands fix the record before finishing",
+        "A verified assumption in the generated definition says what verified it",
+        "Round 6 on 0.3.12: Vera 266/266 with no false alert, Samuel 107/108, Alba 135/135 found and 135/136 right, Rostrum 2173/2174, 145/148 contracts"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "145e91d6a6f363d0aee51047d537aa55a559ff7b94087025fa4f068d282d5c56",
+      "sha256": "95f71e8af113f999e379d71a22ae4f662ffbe50aca8f55a2a3319216c01444e0"
+    },
+    {
+      "version": "0.4.0",
+      "fecha": "2026-10-17",
+      "commit": null,
+      "base": "7f3984f7",
+      "etiqueta": "v0.4.0",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "f3486e563e418ff84200d15d8e1bef8fc87d032b055fbd33bca3f5205c2ee4ad",
+        "criterio-product": "1a56b70d734646869dcd82dca6672ad7242973a5aa0dc64c0e7c382cad200c0e",
+        "criterio-project": "3ebf817c8eac3c7a26acde08e6eae4b2f770dc5f0fe1c29a5cc1569f90849572"
+      },
+      "destacados": [
+        "Primera versión pública de la familia de gobierno de proyectos: Vera, Samuel, Alba y Rostrum, 37 comandos, probados en ocho rondas sobre datos de prueba de cuatro industrias.",
+        "El informe del portafolio va siempre a la carpeta que Rostrum sirve, contada desde la raíz del espacio y no desde donde esté el agente.",
+        "El manual de los 37 comandos se genera desde el README y el contrato de cada plugin, y la verificación falla si deja de coincidir.",
+        "Las páginas de resultados y de evidencia leen las rondas de punta a punta."
+      ],
+      "cambios": [
+        "The command manual, generated from each plugin's README table and contratos.json, with a gate that fails when it drifts",
+        "The results and evidence pages say what the end-to-end rounds already proved",
+        "A verified assumption comes with its verification document in the product folder",
+        "Round 7 on 0.3.13: 148/148 contracts, Vera 280/280, Samuel 108/108, Alba 140/140 found and 140/141 right, Rostrum 2190/2190",
+        "The report folder is counted from the workspace root, not from wherever the shell stands",
+        "Mining progress notes no longer carry a random vendor delivery the key does not model (D055, the one D022 missed)",
+        "Round 8 on 0.3.13: Samuel 108/108, Alba 149/149 with no extra alert, Vera 253/253 found and 253/254 right, Rostrum 2041/2056, 147/148 contracts"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "95f71e8af113f999e379d71a22ae4f662ffbe50aca8f55a2a3319216c01444e0",
+      "sha256": "81fed035a2e6e0c088aec37ea69a8ba8a1c9813c31332a5223f7b01374c9890f"
+    },
+    {
+      "version": "0.5.0",
+      "fecha": "2026-10-18",
+      "commit": null,
+      "base": "065b50c5",
+      "etiqueta": "v0.5.0",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "17a487857456218e8fd82e0c1024e3d75fd9afb84da8da1ccd268373e1ebf7d5",
+        "criterio-product": "469e3bf2a2a16ac7a8f441da7f6bb6cae8f827a53f2f2d753cea02be4a06aad5",
+        "criterio-project": "a8273f7a814c89d619d5d2cb57c4f851879072c0306537c1354ccd7f98c24507"
+      },
+      "destacados": [
+        "Versión de lanzamiento de la familia de gobierno de proyectos.",
+        "El contraste entre la ficha del gerente y la de la PMO lee el producto con su regla: «No aplica» es un campo vacío, no un producto."
+      ],
+      "cambios": [
+        "The manager-PMO contrast reads the product with its own rule: «No aplica» is empty, not a product",
+        "The key reads «No aplica» in the product as empty, as the schema says (D057)",
+        "Round 9 on 0.4.0: 148/148 contracts, Samuel 108/108, Alba 128/128, Rostrum 2170/2170, Vera 266/266 found and 266/267 right",
+        "Launch notes for 0.4.0, in Spanish and English, with round 9 as the measured result and what is not known yet"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "81fed035a2e6e0c088aec37ea69a8ba8a1c9813c31332a5223f7b01374c9890f",
+      "sha256": "a455ee96c51539808bab5e7ee264f826c27b745d01e3ca6bda57fb702bcef3cb"
+    },
+    {
+      "version": "0.6.0",
+      "fecha": "2026-10-19",
+      "commit": null,
+      "base": "d1a58fd",
+      "etiqueta": "v0.6.0",
+      "terminos": {
+        "version": "1.1",
+        "fecha": "2026-10-15",
+        "sha256": {
+          "es": "d31e6b36110416181cb7d8dd69726f1c27e7f8d06b28a48116cddc43213a7bf0",
+          "en": "baf6ad76bb5e9539b925b378da24ea8f20f3b567302b90b2ca7f3b56691419c7"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "3c78073b68d95bf32a80c3b917747ee8efc61597a516a2bf48395a90a24b9c05",
+        "criterio-product": "a10c003db0abb6110eef459624b62cc4d2a534da3d6647700872b843ff69baf2",
+        "criterio-project": "42c1ea5251f196d22944788a605dfc7f9a093f8dfbc5c9b9ae1f8263209ddf7d"
+      },
+      "destacados": [
+        "Vera lee los compromisos de cada proyecto ella misma aunque el gerente haya publicado su ficha, y el cálculo avisa cuando la ficha de Vera no los trae (D058)",
+        "El índice ya no cuenta como citas rotas las de la ficha que publicó el gerente (D059)",
+        "Un anexo de verificación contiene toda su evidencia (D060)",
+        "Las industrias de prueba, probadas y siguientes, salen de una sola fuente"
+      ],
+      "cambios": [
+        "Vera reads the commitments herself even when the manager published his record, and compute says so when she does not",
+        "A verification annex holds its whole evidence, and no assumption is verified with an interview the folder does not hold (D058)",
+        "Round 10 on 0.5.0: 148/148 contracts, Vera 242/242 right with no false alert, Samuel 108/108, Alba 131/131 found, Rostrum 2175/2175",
+        "FAQ for the family, in Spanish and English, as the single source the portal reads; launch notes move to 0.5.0 with round 10",
+        "Animación de la familia: el GIF sale del componente actual del portal",
+        "Video y GIF de la familia: un solo dueño, el componente del portal",
+        "Las industrias de prueba: una sola fuente, las probadas y las que vienen",
+        "Resultados: la corrida con la puerta 34",
+        "La hoja de ruta se corre un número, y las notas de 0.5.0 citan los defectos como el registro"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "a455ee96c51539808bab5e7ee264f826c27b745d01e3ca6bda57fb702bcef3cb",
+      "sha256": "4d43e7ddebdffe3d5096f9d1b3e96c1df9f6ffc874da58255979d8bb70c618c9"
+    },
+    {
+      "version": "0.7.0",
+      "fecha": "2026-10-20",
+      "commit": null,
+      "base": "4844b37",
+      "etiqueta": "v0.7.0",
+      "terminos": {
+        "version": "1.2",
+        "fecha": "2026-10-20",
+        "sha256": {
+          "es": "97ef3d7200b125faef9cf3ef59dd2616621418c504c54332a7ec8c9042676fc3",
+          "en": "6359f5315d159b248691716475fc14f75dfc6cfea4309ff07b41f1ca82c91ece"
+        }
+      },
+      "plugins": {
+        "criterio-portfolio": "42b94d7bd3b007ef56fa2a7d166f9da779334dc725a9c8a7c9dd64f200cc8e32",
+        "criterio-product": "5ff0fe804a3fad4217afdb71a919dd094a68c16c4519e183b66f15442446be0f",
+        "criterio-project": "e7fcc4f63dce0eb0b93d1a6f6fe3126b4b133610a4e36a283729aa480a4f2811"
+      },
+      "destacados": [
+        "Cronogramas de Microsoft Project: el XML de Project se procesa como cronograma —tareas, hitos, línea base, avance, predecesoras y recursos— y el .mpp donde haya Java y MPXJ",
+        "La estructura de carpetas recomendada para la familia, en los README y en el skill document-intake",
+        "El contraste entre la ficha del gerente y la de la PMO, como lo define el skill y con la comparación normalizada (D061)",
+        "El análisis estadístico, regenerado con cada prueba y publicado en josenanez.com",
+        "La hoja de ruta, desde una sola fuente",
+        "Términos 1.2: cada versión se prueba antes de publicarse; la 0.7.0 pide aceptarlos de nuevo"
+      ],
+      "cambios": [
+        "La familia CFO entra al alcance: ADR 0006 y su diseño",
+        "CFO: las fuentes en una sola lista, y la cifra de KPMG como dice la fuente",
+        "CFO: nombres y plugins cerrados — Clara en criterio-finance, Tomás en criterio-budget",
+        "CFO: los comandos de Tomás llevan el prefijo de su plugin (budget-setup, budget-wake)",
+        "CFO · Clara: carpetas, checklist, formato de reportes y cada comando con su entrada y su reporte",
+        "PMO: estructura de carpetas recomendada, una sola fuente (ADR 0007)",
+        "Resultados: la corrida con la puerta 35",
+        "Análisis estadístico de las rondas, generado desde la evidencia",
+        "Resultados: la corrida con la puerta 36",
+        "Análisis: tiempo por proyecto y el próximo paso, el despliegue en una organización",
+        "Cronogramas de Microsoft Project: el XML como cronograma y el .mpp con MPXJ",
+        "pm_vs_pmo: el contraste como lo define el skill, y sin diferencias de forma",
+        "Defectos: D061, el contraste de pm_vs_pmo al revés del skill; el análisis con 61",
+        "Hoja de ruta desde una sola fuente: hoja-de-ruta.json",
+        "Términos 1.2: cada versión se prueba antes de publicarse"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "4d43e7ddebdffe3d5096f9d1b3e96c1df9f6ffc874da58255979d8bb70c618c9",
+      "sha256": "a6f6bb9312bd290bdc5b7295dea1eb491791bc8e5681af7a5859a99cafe3bb9b"
+    }
+  ]
+}

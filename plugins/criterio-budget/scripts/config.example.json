@@ -1,0 +1,40 @@
+{
+  "version": "0.1",
+  "role": "fpa",
+  "entity": {
+    "id": "900123456",
+    "name": "Banco Andino",
+    "country": "CO",
+    "currency": "COP",
+    "framework": "grupo 1",
+    "approver": "Contralor"
+  },
+  "paths": {
+    "documents": "finanzas/900123456-banco-andino",
+    "state": "estado-finanzas/900123456-banco-andino"
+  },
+  "budget": {
+    "year": "2026",
+    "cut": "2026-09",
+    "expense_prefixes": [
+      "51",
+      "52"
+    ],
+    "committee_dates": [
+      "2026-10-15"
+    ],
+    "pmo_records": "estado/records"
+  },
+  "thresholds": {
+    "variance_pct": 10,
+    "committed_pct": 95,
+    "forecast_stale_days": 45
+  },
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

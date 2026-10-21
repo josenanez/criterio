@@ -43,6 +43,10 @@ SALIDA_MD = RAIZ / "docs" / "pruebas.md"
 # Una puerta cuyo comando no case con ninguna de estas rompe la corrida, y así es como
 # esta página se mantiene honesta cuando el repositorio crece.
 DUENIOS = [
+    ("criterio-finance/scripts/finanzas.py", "Clara"),
+    ("evaluar.py --agente clara", "Clara"),
+    ("evaluar.py --agente tomas", "Tomás"),
+    ("tests/criterio-cfo/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("criterio-portfolio/scripts/servidor.py", "Rostrum"),
@@ -81,6 +85,10 @@ QUIEN = {
     "Rostrum": ("El servidor", "Una tribuna. Sostiene lo que ya está escrito, donde el "
                                "equipo puede leerlo. No decide nada, y por eso no lleva "
                                "nombre de persona"),
+    "Clara": ("Agente contralor", "De <i>clarus</i>: que los libros digan lo mismo que los "
+                                  "soportes. Cierra el mes contra su evidencia"),
+    "Tomás": ("Agente de FP&A", "«El gemelo»: pone el presupuesto al lado de su gemelo, "
+                                "la ejecución"),
     "La familia": ("Lo que los tres comparten", "Que la documentación y el código digan "
                                                 "lo mismo, que el marketplace esté "
                                                 "completo, que las copias compartidas no "
@@ -89,7 +97,7 @@ QUIEN = {
                                                 "cómo estén organizados"),
 }
 
-ORDEN = ["Vera", "Samuel", "Alba", "Rostrum", "La familia"]
+ORDEN = ["Vera", "Samuel", "Alba", "Rostrum", "Clara", "Tomás", "La familia"]
 
 # Cómo cuenta cada script sus comprobaciones. Los selftests imprimen «ok» en minúscula y
 # los calificadores «OK» en mayúscula, con sangrías distintas. Se cuentan las dos formas
@@ -380,6 +388,8 @@ PLUGIN_DE = {
     "Rostrum": "criterio-portfolio",
     "Samuel": "criterio-project",
     "Alba": "criterio-product",
+    "Clara": "criterio-finance",
+    "Tomás": "criterio-budget",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -430,6 +440,8 @@ def bloque_ronda(plugin: str) -> tuple:
         t_ = [f["segundos"] for _, f in suyas if f.get("segundos")]
         filas.append(f"| `/{plugin}:{c}` | {terminaron} de {len(por_ind)} | {cumplen} de {len(por_ind)} "
                      f"| {f'{min(t_)}–{max(t_)} s' if t_ else '—'} |")
+    if not vistos:
+        return [], set()
     todos = sum(1 for c in vistos if all(f.get("termino") and f.get("contrato")
                                          for fs in por_ind.values() for f in fs if f.get("comando") == c))
     p += [f"**{len(vistos)} de {len(cmds)}** corrieron en la {nombre.replace('-', ' ')} con el plugin "
@@ -542,10 +554,27 @@ NO_CUBRE = {
     ],
 }
 
+_CFO_NO_CUBRE = [
+    ("La extracción del agente la prueba la ronda, no esta corrida",
+     "Esta corrida escribe en la ficha lo que el agente tendría que extraer —el estado declarado, "
+     "las actas, lo que dice cada área— y prueba el motor con esa extracción. Que el agente la haga "
+     "bien sobre los mismos documentos lo prueba la ronda con el agente."),
+    ("Nada se ha corrido sobre la contabilidad real de una organización",
+     "Todo el material es sintético y construido desde cero, con la estructura oficial de cada factura."),
+]
+NO_CUBRE["criterio-finance"] = _CFO_NO_CUBRE + [
+    ("En Ecuador, los comprobantes que no son factura se identifican y no se cruzan",
+     "Los campos de valor de la nota de crédito y de los demás tipos del SRI no están verificados "
+     "en su fuente (F-09): se identifican por la clave de acceso y quedan fuera del cruce."),
+]
+NO_CUBRE["criterio-budget"] = list(_CFO_NO_CUBRE)
+
 QUE_ES = {
     "criterio-portfolio": ("Vera y Rostrum", "el agente de la PMO y el servidor que publica su informe"),
     "criterio-project": ("Samuel", "el agente del gerente de proyecto"),
     "criterio-product": ("Alba", "el agente del gerente de producto"),
+    "criterio-finance": ("Clara", "la agente contralora de la familia CFO"),
+    "criterio-budget": ("Tomás", "el agente de FP&A de la familia CFO"),
 }
 
 
@@ -596,7 +625,7 @@ def por_agente(filas: list, rapido: bool) -> list:
         p += ["", "## Qué material se usó, y qué prueba cada pieza", "",
               f"El detalle del corpus —qué planta cada proyecto o producto, por qué, y "
               f"cuál es su control negativo— está en "
-              f"[`EVIDENCIA.md`](EVIDENCIA.md), que se escribe a mano y no se genera.", "",
+              f"[`EVIDENCIA.md`]({'../criterio-cfo/EVIDENCIA.md' if plugin in ('criterio-finance', 'criterio-budget') else 'EVIDENCIA.md'}), que se escribe a mano y no se genera.", "",
               "**El control negativo es la mitad del valor de estas pruebas.** Un agente "
               "que encuentra hallazgos donde no los hay es un generador de ruido, y eso "
               "no se detecta mirando solo los casos que sí fallan.", "",
