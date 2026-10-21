@@ -2,7 +2,7 @@
 
 **el agente del gerente de proyecto** · plugin `criterio-project`
 
-Corrida del 2026-10-21, sobre el commit `a00708f`, con cambios en el árbol todavía sin confirmar. **4 puertas · 157 comprobaciones · todas en verde.**
+Corrida del 2026-10-21, sobre el commit `1d13ccf`, con cambios en el árbol todavía sin confirmar. **4 puertas · 157 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,10 +10,10 @@ Corrida del 2026-10-21, sobre el commit `a00708f`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 108 ms | verde |
-| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 115 | 246 ms | verde |
-| `criterio-project/texto.py` | La copia de la conversión, igual | 23 | 103 ms | verde |
-| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 185 ms | verde |
+| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 144 ms | verde |
+| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 115 | 304 ms | verde |
+| `criterio-project/texto.py` | La copia de la conversión, igual | 23 | 147 ms | verde |
+| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 171 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -67,7 +67,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-portfolio/terminos.py` | Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256 | 14 | verde |
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 11 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 155 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 156 | verde |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
