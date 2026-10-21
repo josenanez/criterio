@@ -1,0 +1,355 @@
+{
+ "comandos": {
+  "compliance-setup": {
+   "funcion": "La configuración, la matriz revisada y el primer estado del cumplimiento.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Configuración guardada; la matriz cargada y lo que le falta a cada obligación —responsable, fuente—; el primer estado del periodo",
+    "escribe": [
+     ".criterio/cumplimiento/<entidad>/config.json",
+     "<estado>/ (init)",
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     "<estado>/cumplimiento/<AAAA-MM>/ficha.json",
+     ".criterio/terminos/ (aceptar)",
+     "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
+     "<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md",
+     "<estado>/corridas/salida-compliance-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "compliance-record",
+     "legal-intake",
+     "obligations-matrix"
+    ],
+    "script": [
+     "aceptar",
+     "compute",
+     "config",
+     "convertir",
+     "corrida",
+     "init",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: la matriz y la evidencia de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "compliance-scan": {
+   "funcion": "La ficha del cumplimiento al día, con lo que cambió y las señales nuevas.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "<estado>/indice.json",
+     "documentos del periodo"
+    ]
+   },
+   "salida": {
+    "muestra": "Qué cambió; qué se agregó a la ficha; las señales nuevas; lo que no se pudo procesar",
+    "escribe": [
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     "<estado>/cumplimiento/<AAAA-MM>/ficha.json",
+     "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
+     "<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-scan.md",
+     "<estado>/corridas/salida-compliance-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "compliance-record",
+     "legal-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: la matriz y la evidencia de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "compliance-status": {
+   "funcion": "El estado del cumplimiento: declarado contra evidenciado, obligación por obligación.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "config",
+     "00-referencia/matriz-obligaciones",
+     "cumplimiento-<AAAA-MM>/10-evidencias/",
+     "<estado>/cumplimiento/<AAAA-MM>/ficha.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Estado declarado contra evidenciado; tabla de obligaciones ordenada por criticidad y vencimiento: cumplida con evidencia, cumplida sin evidencia, vencida, en plazo",
+    "escribe": [
+     "<estado>/cumplimiento/<AAAA-MM>/ficha.json",
+     "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
+     "<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md",
+     "<estado>/corridas/salida-compliance-status.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "compliance-record",
+     "obligations-matrix"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: la matriz y la evidencia de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "policy-review": {
+   "funcion": "Cada política con su próxima revisión, y las vencidas.",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "20-politicas/indice-politicas"
+    ]
+   },
+   "salida": {
+    "muestra": "Las políticas con la revisión vencida o sin responsable, y las próximas a revisar",
+    "escribe": [
+     "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
+     "<estado>/cumplimiento/<AAAA-MM>/reporte-policy-review.md",
+     "<estado>/corridas/salida-policy-review.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "policy-control"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: la matriz y la evidencia de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "regulatory-watch": {
+   "funcion": "Las normas nuevas con su evaluación, y las que aplican sin obligación.",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "30-normativa/",
+     "<estado>/cumplimiento/<AAAA-MM>/ficha.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Las normas sin evaluar y las que aplican sin obligación en la matriz; sin opinión sobre el alcance de ninguna norma",
+    "escribe": [
+     "<estado>/cache/",
+     "<estado>/cumplimiento/<AAAA-MM>/ficha.json",
+     "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
+     "<estado>/cumplimiento/<AAAA-MM>/reporte-regulatory-watch.md",
+     "<estado>/corridas/salida-regulatory-watch.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "compliance-record",
+     "regulatory-change"
+    ],
+    "script": [
+     "convertir",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: la matriz y la evidencia de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "reports-cases": {
+   "funcion": "Los casos del canal de denuncias contra su plazo.",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "40-canal/casos"
+    ]
+   },
+   "salida": {
+    "muestra": "Los casos abiertos por antigüedad y los que pasaron su plazo; sin datos de quién denunció",
+    "escribe": [
+     "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
+     "<estado>/cumplimiento/<AAAA-MM>/reporte-reports-cases.md",
+     "<estado>/corridas/salida-reports-cases.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "whistleblowing-channel"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: la matriz y la evidencia de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "compliance-wake": {
+   "funcion": "Lo que toca hoy en el cumplimiento; si no toca nada, se calla.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "config",
+     "<estado>/corridas/",
+     "00-referencia/matriz-obligaciones"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+    "escribe": [
+     "<estado>/indice.json",
+     "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
+     "<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md",
+     "<estado>/corridas/salida-compliance-wake.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "legal-intake"
+    ],
+    "script": [
+     "corrida",
+     "despertar",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: la matriz y la evidencia de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  }
+ },
+ "skills": {
+  "legal-intake": {
+   "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo y cómo se nombra la evidencia.",
+   "escribe": [],
+   "alimenta": [
+    "register_mismatch",
+    "contract_obligation_overdue",
+    "compliance_done_without_evidence"
+   ]
+  },
+  "compliance-record": {
+   "decide": "Lo declarado sobre el periodo y las normas nuevas fuera del registro, con su cita.",
+   "escribe": [
+    "declared",
+    "new_rules",
+    "questions"
+   ],
+   "alimenta": [
+    "declared_compliance_vs_evidence",
+    "regulatory_change_unassessed"
+   ]
+  },
+  "obligations-matrix": {
+   "decide": "El modelo de la matriz y cuándo una obligación está cumplida con evidencia.",
+   "escribe": [],
+   "alimenta": [
+    "compliance_obligation_overdue",
+    "compliance_done_without_evidence",
+    "compliance_evidence_stale",
+    "obligation_without_owner",
+    "obligation_without_source",
+    "contract_obligation_not_in_matrix"
+   ]
+  },
+  "policy-control": {
+   "decide": "Cuándo una revisión de política está vencida.",
+   "escribe": [],
+   "alimenta": [
+    "policy_review_overdue"
+   ]
+  },
+  "regulatory-change": {
+   "decide": "Cuándo una norma registrada está sin evaluar y cuándo aplica sin estar en la matriz.",
+   "escribe": [],
+   "alimenta": [
+    "regulatory_change_unassessed",
+    "applicable_norm_not_in_matrix"
+   ]
+  },
+  "whistleblowing-channel": {
+   "decide": "Los plazos de los casos, sin datos de quién denunció.",
+   "escribe": [],
+   "alimenta": [
+    "report_case_overdue"
+   ]
+  }
+ },
+ "por_descripcion": {}
+}

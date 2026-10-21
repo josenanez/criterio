@@ -1,0 +1,609 @@
+{
+  "entidad": "Cooperativa Sierra Alta",
+  "industria": "cooperativas",
+  "pais": "EC",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "vencido_vigente",
+      "certificado_viejo",
+      "pagos_de_mas",
+      "contrato_sin_registro"
+    ],
+    "constanza": [
+      "cumplida_sin_evidencia",
+      "evidencia_vieja",
+      "caso_vencido",
+      "norma_aplica_sin_matriz",
+      "norma_en_boletin"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "1790012345001",
+        "name": "Cooperativa Sierra Alta",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/1790012345001-cooperativa-sierra-alta",
+        "state": "estado-legal/1790012345001-cooperativa-sierra-alta"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "1790012345001",
+        "name": "Cooperativa Sierra Alta",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/1790012345001-cooperativa-sierra-alta",
+        "state": "estado-legal/1790012345001-cooperativa-sierra-alta"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/1790012345001-cooperativa-sierra-alta/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-201": {
+        "code": "CTR-201",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Sistemas Cooperativos Cía. Ltda.",
+          "id": "800002001"
+        },
+        "value": 160000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Patricio Andrade",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sistemas Cooperativos Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-201-sistemas-cooperativos-cia-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-201-sistemas-cooperativos-cia-ltda/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-201-sistemas-cooperativos-cia-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Sistemas Cooperativos Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-201-sistemas-cooperativos-cia-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Sistemas Cooperativos Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-201-sistemas-cooperativos-cia-ltda/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Sistemas Cooperativos Cía. Ltda.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-201-sistemas-cooperativos-cia-ltda/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-201-sistemas-cooperativos-cia-ltda/10-contrato/contrato.md"
+      },
+      "CTR-202": {
+        "code": "CTR-202",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Suministros Quito S.A.",
+          "id": "800002002"
+        },
+        "value": 80000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Gabriela Mora",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Suministros Quito S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 20000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Gabriela Mora",
+            "source": "contratos/CTR-202-suministros-quito-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-202-suministros-quito-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-202-suministros-quito-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-202-suministros-quito-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Suministros Quito S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-202-suministros-quito-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Suministros Quito S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-202-suministros-quito-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-202-suministros-quito-s-a/10-contrato/contrato.md"
+      },
+      "CTR-203": {
+        "code": "CTR-203",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Edificios del Valle S.A.",
+          "id": "800002003"
+        },
+        "value": 120000,
+        "start": "2025-02-01",
+        "end": "2026-08-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Patricio Andrade",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Edificios del Valle S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-203-edificios-del-valle-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-12-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-203-edificios-del-valle-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-203-edificios-del-valle-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-08-06",
+            "who": "Edificios del Valle S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-203-edificios-del-valle-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-08-31",
+            "who": "Edificios del Valle S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-203-edificios-del-valle-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-203-edificios-del-valle-s-a/10-contrato/contrato.md"
+      },
+      "CTR-204": {
+        "code": "CTR-204",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Software Andino Cía. Ltda.",
+          "id": "800002004"
+        },
+        "value": 60000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Gabriela Mora",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Software Andino Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-204-software-andino-cia-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-204-software-andino-cia-ltda/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-11",
+          "source": "contratos/CTR-204-software-andino-cia-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Software Andino Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-204-software-andino-cia-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Software Andino Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-204-software-andino-cia-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-204-software-andino-cia-ltda/10-contrato/contrato.md"
+      },
+      "CTR-205": {
+        "code": "CTR-205",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Asesoría Financiera Cía. Ltda.",
+          "id": "800002005"
+        },
+        "value": 40000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Gabriela Mora",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Asesoría Financiera Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-205-asesoria-financiera-cia-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-205-asesoria-financiera-cia-ltda/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-205-asesoria-financiera-cia-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Asesoría Financiera Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-205-asesoria-financiera-cia-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Asesoría Financiera Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-205-asesoria-financiera-cia-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-205-asesoria-financiera-cia-ltda/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-205-asesoria-financiera-cia-ltda/10-contrato/contrato.md"
+      },
+      "CTR-206": {
+        "code": "CTR-206",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Servicios Generales S.A.",
+          "id": "800002006"
+        },
+        "value": 100000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Patricio Andrade",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Servicios Generales S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-206-servicios-generales-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-206-servicios-generales-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-206-servicios-generales-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Servicios Generales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-206-servicios-generales-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Servicios Generales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-206-servicios-generales-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-206-servicios-generales-s-a/10-contrato/contrato.md"
+      },
+      "CTR-207": {
+        "code": "CTR-207",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Transporte de Valores S.A.",
+          "id": "800002007"
+        },
+        "value": 60000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Gabriela Mora",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Transporte de Valores S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-207-transporte-de-valores-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-207-transporte-de-valores-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-207-transporte-de-valores-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Transporte de Valores S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-207-transporte-de-valores-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Transporte de Valores S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-207-transporte-de-valores-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-207-transporte-de-valores-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-07",
+          "rule": "Circular sintética 007 de 2026",
+          "date": "2026-08-25",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-08.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "applicable_norm_not_in_matrix",
+      "key": "aplica:N-2026-04"
+    },
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "compliance_evidence_stale",
+      "key": "stale:OB-11"
+    },
+    {
+      "signal": "contract_expired_active",
+      "key": "vigente:CTR-203"
+    },
+    {
+      "signal": "counterparty_certificate_stale",
+      "key": "cert:CTR-204"
+    },
+    {
+      "signal": "payments_over_value",
+      "key": "pagos:CTR-202"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "carpeta:CTR-207"
+    },
+    {
+      "signal": "regulatory_change_unassessed",
+      "key": "norma:N-2026-07"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    }
+  ]
+}

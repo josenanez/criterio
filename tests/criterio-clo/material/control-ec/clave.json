@@ -1,0 +1,497 @@
+{
+  "entidad": "Comercial Control",
+  "industria": "cooperativas",
+  "pais": "EC",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "1790000001001",
+        "name": "Comercial Control",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/1790000001001-comercial-control",
+        "state": "estado-legal/1790000001001-comercial-control"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "1790000001001",
+        "name": "Comercial Control",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/1790000001001-comercial-control",
+        "state": "estado-legal/1790000001001-comercial-control"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/1790000001001-comercial-control/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-601": {
+        "code": "CTR-601",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística Control S.A.",
+          "id": "800006001"
+        },
+        "value": 120000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Fernanda Vaca",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística Control S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-601-logistica-control-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-601-logistica-control-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-601-logistica-control-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Logística Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-601-logistica-control-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Logística Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-601-logistica-control-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Logística Control S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-601-logistica-control-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-601-logistica-control-s-a/10-contrato/contrato.md"
+      },
+      "CTR-602": {
+        "code": "CTR-602",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Proveedora Control S.A.",
+          "id": "800006002"
+        },
+        "value": 60000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Diego Herrera",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Proveedora Control S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 15000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Diego Herrera",
+            "source": "contratos/CTR-602-proveedora-control-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-602-proveedora-control-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-602-proveedora-control-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-602-proveedora-control-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Proveedora Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-602-proveedora-control-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Proveedora Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-602-proveedora-control-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-602-proveedora-control-s-a/10-contrato/contrato.md"
+      },
+      "CTR-603": {
+        "code": "CTR-603",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Locales Control S.A.",
+          "id": "800006003"
+        },
+        "value": 90000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fernanda Vaca",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Locales Control S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-603-locales-control-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-603-locales-control-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-603-locales-control-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Locales Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-603-locales-control-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Locales Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-603-locales-control-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-603-locales-control-s-a/10-contrato/contrato.md"
+      },
+      "CTR-604": {
+        "code": "CTR-604",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Datos Control Cía. Ltda.",
+          "id": "800006004"
+        },
+        "value": 45000,
+        "start": "2026-03-01",
+        "end": "2026-12-31",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Diego Herrera",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Datos Control Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-604-datos-control-cia-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-604-datos-control-cia-ltda/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-604-datos-control-cia-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Datos Control Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-604-datos-control-cia-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Datos Control Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-604-datos-control-cia-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-25",
+          "source": "contratos/CTR-604-datos-control-cia-ltda/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-604-datos-control-cia-ltda/10-contrato/contrato.md"
+      },
+      "CTR-605": {
+        "code": "CTR-605",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultora Control Cía. Ltda.",
+          "id": "800006005"
+        },
+        "value": 30000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Diego Herrera",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultora Control Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-605-consultora-control-cia-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-605-consultora-control-cia-ltda/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-605-consultora-control-cia-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultora Control Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-605-consultora-control-cia-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultora Control Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-605-consultora-control-cia-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-605-consultora-control-cia-ltda/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-605-consultora-control-cia-ltda/10-contrato/contrato.md"
+      },
+      "CTR-606": {
+        "code": "CTR-606",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Servicios Control S.A.",
+          "id": "800006006"
+        },
+        "value": 75000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fernanda Vaca",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Servicios Control S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-606-servicios-control-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-606-servicios-control-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-606-servicios-control-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Servicios Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-606-servicios-control-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Servicios Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-606-servicios-control-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-606-servicios-control-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

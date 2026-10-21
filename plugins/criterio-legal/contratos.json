@@ -1,0 +1,360 @@
+{
+ "comandos": {
+  "legal-setup": {
+   "funcion": "La configuración, el inventario y las primeras fichas de los contratos.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas",
+    "escribe": [
+     ".criterio/legal/<entidad>/config.json",
+     "<estado>/ (init)",
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     "<estado>/contratos/<código>.json",
+     ".criterio/terminos/ (aceptar)",
+     "<estado>/contratos/resultados.json",
+     "<estado>/contratos/reporte-obligations-calendar.md",
+     "<estado>/corridas/salida-legal-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "contract-record",
+     "legal-intake",
+     "signing-authority"
+    ],
+    "script": [
+     "aceptar",
+     "compute",
+     "config",
+     "convertir",
+     "corrida",
+     "init",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: los contratos de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "contract-scan": {
+   "funcion": "Las fichas de los contratos al día, con lo que cambió y las señales nuevas.",
+   "entrada": {
+    "argumento": "[código del contrato] o vacío para todos",
+    "lee": [
+     "config",
+     "<estado>/indice.json",
+     "contratos/",
+     "10-registro/"
+    ]
+   },
+   "salida": {
+    "muestra": "Qué cambió; qué contratos son nuevos; las señales nuevas; lo que no se pudo procesar y por qué",
+    "escribe": [
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     "<estado>/contratos/<código>.json",
+     "<estado>/contratos/resultados.json",
+     "<estado>/contratos/reporte-contract-scan.md",
+     "<estado>/corridas/salida-contract-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "contract-record",
+     "legal-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: los contratos de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "contract-register": {
+   "funcion": "El registro de contratos contra lo que dicen los documentos.",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "10-registro/registro-contratos",
+     "<estado>/contratos/*.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Por contrato: estado declarado y estado según sus fechas, y cada diferencia entre el registro y el documento",
+    "escribe": [
+     "<estado>/contratos/<código>.json",
+     "<estado>/contratos/resultados.json",
+     "<estado>/contratos/reporte-contract-register.md",
+     "<estado>/corridas/salida-contract-register.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "contract-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: los contratos de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "obligations-calendar": {
+   "funcion": "Vencimientos, preavisos y obligaciones, con lo que venció sin evidencia.",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "<estado>/contratos/*.json",
+     "contratos/*/40-ejecucion/"
+    ]
+   },
+   "salida": {
+    "muestra": "El calendario de los próximos días: vencimientos, preavisos y obligaciones; lo vencido sin evidencia y los preavisos que pasaron sin decisión",
+    "escribe": [
+     "<estado>/contratos/resultados.json",
+     "<estado>/contratos/reporte-obligations-calendar.md",
+     "<estado>/corridas/salida-obligations-calendar.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "contract-calendar"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: los contratos de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "authority-check": {
+   "funcion": "Quién firmó cada contrato y con qué facultad.",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "<estado>/contratos/*.json",
+     "00-referencia/matriz-atribuciones"
+    ]
+   },
+   "salida": {
+    "muestra": "Por contrato: quién firmó, su facultad y el monto; los que no tienen firma de las dos partes; los certificados vencidos; sin opinión sobre la validez del contrato",
+    "escribe": [
+     "<estado>/contratos/resultados.json",
+     "<estado>/contratos/reporte-authority-check.md",
+     "<estado>/corridas/salida-authority-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "signing-authority"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: los contratos de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "contract-execution": {
+   "funcion": "Lo pagado contra lo pactado, y las garantías contra lo exigido.",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "10-registro/pagos",
+     "<estado>/contratos/*.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Por contrato: valor, pagado, saldo y último pago; cada garantía exigida con la aportada y su vigencia",
+    "escribe": [
+     "<estado>/contratos/resultados.json",
+     "<estado>/contratos/reporte-contract-execution.md",
+     "<estado>/corridas/salida-contract-execution.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "payments-guarantees"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: los contratos de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "legal-wake": {
+   "funcion": "Lo que toca hoy en los contratos; si no toca nada, se calla.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "config",
+     "<estado>/corridas/",
+     "<estado>/contratos/*.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+    "escribe": [
+     "<estado>/indice.json",
+     "<estado>/contratos/resultados.json",
+     "<estado>/contratos/reporte-obligations-calendar.md",
+     "<estado>/corridas/salida-legal-wake.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "legal-intake"
+    ],
+    "script": [
+     "corrida",
+     "despertar",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-clo: los contratos de cada industria con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  }
+ },
+ "skills": {
+  "legal-intake": {
+   "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo y cómo se nombra la evidencia.",
+   "escribe": [],
+   "alimenta": [
+    "register_mismatch",
+    "contract_obligation_overdue",
+    "compliance_done_without_evidence"
+   ]
+  },
+  "contract-record": {
+   "decide": "Lo que dice cada contrato, otrosí, póliza y certificado, y la decisión que toma un documento, con su cita.",
+   "escribe": [
+    "code",
+    "value",
+    "start",
+    "end",
+    "signed_on",
+    "signed_by_both",
+    "auto_renewal",
+    "notice_days",
+    "signatories",
+    "amendments",
+    "guarantees_required",
+    "guarantees_provided",
+    "counterparty_certificate",
+    "obligations",
+    "decision",
+    "source"
+   ],
+   "alimenta": [
+    "register_differs_from_contract",
+    "contract_expired_active"
+   ]
+  },
+  "contract-calendar": {
+   "decide": "Qué vence, cuándo vence el preaviso y cuándo una obligación tiene su evidencia.",
+   "escribe": [],
+   "alimenta": [
+    "contract_expiring",
+    "notice_deadline_near",
+    "renewal_notice_missed",
+    "contract_obligation_overdue"
+   ]
+  },
+  "signing-authority": {
+   "decide": "Cómo se compara cada firmante con la matriz de atribuciones de la organización.",
+   "escribe": [],
+   "alimenta": [
+    "signed_without_authority",
+    "unsigned_contract",
+    "counterparty_certificate_stale"
+   ]
+  },
+  "payments-guarantees": {
+   "decide": "Cómo se cruzan los pagos con el valor y las garantías con lo exigido.",
+   "escribe": [],
+   "alimenta": [
+    "payments_over_value",
+    "payment_after_termination",
+    "guarantee_missing",
+    "guarantee_expires_early"
+   ]
+  }
+ },
+ "por_descripcion": {}
+}

@@ -1,37 +1,29 @@
 # Acceptance criteria — criterio-legal
 
-What "working" means for this plugin, and the threshold it must hit before release. Verified on the synthetic set in `tests/`, never on real documents.
+Verified on synthetic material in `tests/criterio-clo/`, with a key the agent never sees and two control entities that must raise nothing.
 
-## 1. Jurisdiction selection
+## 1. Arithmetic
 
-- [ ] With `jurisdictions:` set in the local file, the analysis loads that package and says so in the opening banner.
-- [ ] With no `jurisdictions:` set, the skill lists the available packages and asks. It does not guess.
-- [ ] With a document governed by a law that has no package, the analysis **declares the gap** and applies only the regional baseline.
-- [ ] No output in any of the above cases cites GDPR, CCPA, HIPAA, SOX, FCPA or US state law unless the document itself is governed by that law.
+- [ ] Every date, day count and amount in a report comes from `legal.py`; none is typed by the model.
+- [ ] The documented end date follows the last signed amendment, the notice deadline is the end date minus the contract's notice days, and an auto-renewing contract with no decision to terminate rolls over in its own terms.
+- [ ] Every planted signal in each industry is raised, and the control entities raise none (`tests/criterio-clo/evaluar.py --agente fidel`).
 
-## 2. Substantive reasoning
+## 2. No legal opinion
 
-- [ ] A liability cap written in absolute terms is reported *and* flagged as not reaching wilful misconduct or gross negligence.
-- [ ] A distribution agreement with agency features is flagged for the termination payment.
-- [ ] A post-termination non-compete on an employee is flagged as ineffective, not as a negotiation point.
-- [ ] A clause assigning "all rights, moral and economic" is reported as ineffective in its moral part.
-- [ ] An amendment that changes term or value overrides the main agreement, and the citation points at the amendment.
+- [ ] No output says whether a contract, a clause, a signature or a guarantee is valid, and none recommends renewing, terminating or renegotiating (ADR 0009).
+- [ ] Authority is compared against the organisation's own matrix; with no matrix, the check is reported as not done.
+- [ ] No output states a rule, a legal deadline or an authority from memory.
 
 ## 3. Traceability
 
-- [ ] Every extracted data point carries a citation to the source document, or declares `not_found`.
-- [ ] Every statement of law carries the rule id it came from.
-- [ ] Rules with `confidence: verify` that fired in the run are listed in the output.
+- [ ] Every signal cites the contract file and, for tables, the row it came from.
+- [ ] A decision to renew or terminate is recorded only when a document takes it, with its citation.
+- [ ] Each contract record (`contratos/<code>.json`) has one writer, the agent; the results (`resultados.json`) have one writer, the engine.
 
 ## 4. Terms and acceptance
 
-- [ ] With no acceptance recorded, the skill shows the short disclaimer and does not produce a full analysis.
-- [ ] Every generated report carries the footer: version, packages applied with status and review date, rules marked verify, link to the terms.
-- [ ] A stale package is flagged in the opening banner.
+- [ ] No command produces anything without a current acceptance of the terms for the installed version.
 
-## 5. Threshold
+## 5. Folders
 
-- [ ] 100% on critical fields of the synthetic set (parties, governing law, term, renewal, notice period, value).
-- [ ] 90% or better on general fields.
-- [ ] Zero differences against the expected alert list.
-- [ ] With three typical errors injected, the grader detects all three and blocks.
+- [ ] The agent never moves, renames or creates anything inside the organisation's documents; it suggests the recommended structure (ADR 0007).

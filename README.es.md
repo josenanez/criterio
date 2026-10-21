@@ -13,7 +13,7 @@ Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer result
 | | | |
 |:--:|:--:|:--:|
 | ![Portafolio, proyecto y producto](docs/img/es/pmo.png) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) |
-| **[criterio-pmo →](families/criterio-pmo/README.es.md)**<br>tres agentes y un servidor | [criterio-cfo →](families/criterio-cfo/DISENO.es.md)<br>Clara y Tomás, construida y en prueba | criterio-clo<br>sin construir |
+| **[criterio-pmo →](families/criterio-pmo/README.es.md)**<br>tres agentes y un servidor | [criterio-cfo →](families/criterio-cfo/DISENO.es.md)<br>Clara y Tomás, construida y en prueba | [criterio-clo →](families/criterio-clo/DISENO.es.md)<br>Fidel y Constanza, construida y en prueba |
 
 ---
 
@@ -39,7 +39,7 @@ contrato de datos y se entregan trabajo unos a otros. Los de familias distintas,
 |---|---|---|---|
 | **[criterio-pmo](families/criterio-pmo/README.es.md)** | El gobierno de un portafolio, de cada proyecto y de cada producto | Que lo que se declara y lo que sustentan los documentos se puedan comparar, todos los días y sobre el conjunto | **Tres agentes y un servidor, instalables hoy** |
 | **criterio-cfo** | El cierre, el control y el reporte financiero | Que el cierre deje de depender de que alguien recuerde qué falta | **Dos agentes construidos, en prueba:** [Clara](plugins/criterio-finance/README.es.md) y [Tomás](plugins/criterio-budget/README.es.md) |
-| **criterio-clo** | Los contratos, el cumplimiento y el riesgo legal | Que una empresa sepa qué firmó, qué vence y a qué se obligó | [Declarada, sin construir](plugins/criterio-legal/README.es.md) |
+| **criterio-clo** | Los contratos, el cumplimiento y el riesgo legal | Que una empresa sepa qué firmó, qué vence y a qué se obligó | **Dos agentes construidos, en prueba:** [Fidel](plugins/criterio-legal/README.es.md) y [Constanza](plugins/criterio-compliance/README.es.md) |
 
 **La lista no está cerrada.** Una familia entra cuando alguien que ejerce esa capacidad
 quiere construirla, y el formato está en [CONTRIBUTING.es.md](CONTRIBUTING.es.md).

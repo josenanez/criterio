@@ -144,7 +144,9 @@ T = {
                'alba': ('Alba', 'Gerente de producto', 'Para quien define qué se construye.', 'Un producto'),
                'rostrum': ('Rostrum', 'El servidor', 'Donde quedan las corridas de los tres.', 'El servidor'),
                'clara': ('Clara', 'Contralora', 'Para quien cierra el mes y responde por lo que dicen los libros.', 'El cierre'),
-               'tomas': ('Tomás', 'FP&A', 'Para quien pone el presupuesto al lado de lo ejecutado.', 'El presupuesto')},
+               'tomas': ('Tomás', 'FP&A', 'Para quien pone el presupuesto al lado de lo ejecutado.', 'El presupuesto'),
+               'fidel': ('Fidel', 'Contratos', 'Para quien responde por lo que la empresa firmó.', 'Los contratos'),
+               'constanza': ('Constanza', 'Cumplimiento', 'Para quien responde por cada obligación y su evidencia.', 'El cumplimiento')},
         'en_prueba': 'Construida · en prueba',
         'declarada': 'Capacidad declarada',
         'construccion': 'En construcción',
@@ -256,7 +258,9 @@ T = {
                'alba': ('Alba', 'Product manager', 'For whoever defines what gets built.', 'One product'),
                'rostrum': ('Rostrum', 'The server', "Where the three agents' runs are kept.", 'The server'),
                'clara': ('Clara', 'Controller', 'For whoever closes the month and answers for what the books say.', 'The close'),
-               'tomas': ('Tomás', 'FP&A', 'For whoever puts the budget next to actual spend.', 'The budget')},
+               'tomas': ('Tomás', 'FP&A', 'For whoever puts the budget next to actual spend.', 'The budget'),
+               'fidel': ('Fidel', 'Contracts', 'For whoever answers for what the company signed.', 'The contracts'),
+               'constanza': ('Constanza', 'Compliance', 'For whoever answers for every obligation and its evidence.', 'Compliance')},
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
@@ -966,7 +970,7 @@ if __name__ == '__main__':
                 idioma, 'pmo.png')
         guardar(emblema(t, 'CFO', t['cfo_fn'], t['cfo_fr'], t['en_prueba'], glifo_cfo),
                 idioma, 'cfo.png')
-        guardar(emblema(t, 'CLO', t['clo_fn'], t['clo_fr'], t['declarada'], glifo_clo),
+        guardar(emblema(t, 'CLO', t['clo_fn'], t['clo_fr'], t['en_prueba'], glifo_clo),
                 idioma, 'clo.png')
         guardar(familia(t), idioma, 'familia.png')
         guardar(flujo(t), idioma, 'flujo.png')
@@ -976,10 +980,10 @@ if __name__ == '__main__':
         guardar(cadencia(t), idioma, 'cadencia.png')
         guardar(instalacion(t), idioma, 'instalacion.png')
         guardar(servidor(t), idioma, 'servidor.png')
-        for nombre in trazos.ORDEN + trazos.ORDEN_CFO:
+        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO:
             guardar(tarjeta(t, nombre), idioma, f'robot-{nombre}.png')
     # El trazo de cada robot, solo, para que el portal lo dibuje sin copiarlo.
     os.makedirs(os.path.join(AQUI, 'robots'), exist_ok=True)
-    for nombre in trazos.ORDEN + trazos.ORDEN_CFO:
+    for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO:
         with open(os.path.join(AQUI, 'robots', f'{nombre}.svg'), 'w', encoding='utf-8') as fh:
             fh.write(trazos.svg(nombre, ORO, ORO) + '\n')

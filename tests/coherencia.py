@@ -38,7 +38,7 @@ for _p in CONSTRUIDOS:
     DOCS += sorted(_p.glob("commands/*.md"))
 
 OK, FALLA, NOTA = "OK   ", "FALLA", "nota "
-CFO_PLUGINS = ("criterio-finance", "criterio-budget")
+PROPIOS = ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-compliance")
 fallas = 0
 
 # Nombres que la documentación usa y el código todavía no sostiene, con el lugar donde
@@ -517,7 +517,7 @@ for nombre in ("README.es.md", "README.md"):
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
     faltan = []
-    for d in [x for x in CONSTRUIDOS if x.name not in CFO_PLUGINS]:
+    for d in [x for x in CONSTRUIDOS if x.name not in PROPIOS]:
         destino = RAIZ / "tests" / d.name / "RESULTADOS.md"
         if not destino.exists():
             faltan.append(f"{d.name} no tiene RESULTADOS.md")
@@ -528,9 +528,8 @@ for nombre in ("README.es.md", "README.md"):
     else:
         decir(OK, f"{nombre} · los {len(CONSTRUIDOS)} análisis de pruebas, en markdown")
 
-# Los de la familia CFO se enlazan desde el README de su propio plugin.
-CFO_PLUGINS = ("criterio-finance", "criterio-budget")
-for nombre_p in CFO_PLUGINS:
+# Los de las familias CFO y CLO se enlazan desde el README de su propio plugin.
+for nombre_p in PROPIOS:
     d = RAIZ / "plugins" / nombre_p
     if not (d / "commands").exists():
         continue

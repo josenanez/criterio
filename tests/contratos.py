@@ -25,7 +25,8 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 P = RAIZ / "plugins"
 PLUGINS = {"criterio-portfolio": "portafolio.py", "criterio-project": "portafolio.py",
-           "criterio-product": "producto.py", "criterio-finance": "finanzas.py", "criterio-budget": "finanzas.py"}
+           "criterio-product": "producto.py", "criterio-finance": "finanzas.py", "criterio-budget": "finanzas.py",
+           "criterio-legal": "legal.py", "criterio-compliance": "legal.py"}
 # Las acciones que calculan. Un comando cuya salida lleva cifras derivadas llama al menos
 # una: si no, las cifras las hizo el modelo, que es lo que el diseño prohíbe.
 CALCULO = {"compute", "impact", "diff", "index", "due", "overlap", "publish", "plan-lectura",
@@ -47,7 +48,7 @@ def acciones_cli(script: Path) -> set:
 def senales_emitidas() -> set:
     s = set()
     for f in (P / "criterio-portfolio/scripts/portafolio.py", P / "criterio-product/scripts/producto.py",
-              P / "criterio-finance/scripts/finanzas.py"):
+              P / "criterio-finance/scripts/finanzas.py", P / "criterio-legal/scripts/legal.py"):
         t = f.read_text(encoding="utf-8")
         s |= (set(re.findall(r'alert\("([a-z_]+)"', t)) | set(re.findall(r'"signal": "([a-z_]+)"', t))
               | set(re.findall(r'alerta\("([a-z_]+)"', t)))

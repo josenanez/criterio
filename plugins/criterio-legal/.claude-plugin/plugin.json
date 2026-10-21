@@ -1,7 +1,7 @@
 {
   "name": "criterio-legal",
   "version": "0.7.0",
-  "description": "Revisión de contratos y cumplimiento con criterio de derecho civil suramericano: exclusiones de responsabilidad, cláusula penal, agencia comercial, datos personales, firma electrónica y anticorrupción, por país y con cita a la norma.",
+  "description": "Fidel, los contratos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías. Colombia y Ecuador; cada fecha y cada monto los calcula el código y cada dato cita su documento. Sin opinión jurídica.",
   "author": {
     "name": "José Francisco Ñáñez",
     "url": "https://josenanez.com"
@@ -10,15 +10,17 @@
     "legal",
     "contratos",
     "contracts",
-    "derecho-civil",
-    "datos-personales",
-    "habeas-data",
-    "firma-electronica",
-    "nda",
-    "anticorrupcion",
+    "contract-management",
+    "vencimientos",
+    "renovacion",
+    "preaviso",
+    "facultades",
+    "signing-authority",
+    "garantias",
+    "polizas",
     "colombia",
-    "latam"
+    "ecuador"
   ],
-  "homepage": "https://josenanez.com",
+  "homepage": "https://josenanez.com/agents/criterio-clo",
   "license": "Apache-2.0"
 }

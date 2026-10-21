@@ -1,0 +1,7 @@
+codigo,contraparte,objeto,tipo,valor,inicio,terminacion,estado,responsable
+CTR-601,Logística Control S.A.,Prestación de servicios de operación tecnológica,servicios,120000.00,2026-01-01,2027-03-31,vigente,Diego Herrera
+CTR-602,Proveedora Control S.A.,Suministro de papelería e insumos de oficina,suministro,75000.00,2025-07-01,2027-12-31,vigente,Diego Herrera
+CTR-603,Locales Control S.A.,Arrendamiento de la sede principal,arrendamiento,90000.00,2025-02-01,2026-12-31,vigente,Diego Herrera
+CTR-604,Datos Control Cía. Ltda.,Licencia de uso de software,licencia,45000.00,2026-03-01,2026-12-31,vigente,Diego Herrera
+CTR-605,Consultora Control Cía. Ltda.,Consultoría en procesos,consultoria,30000.00,2026-02-01,2026-11-20,vigente,Diego Herrera
+CTR-606,Servicios Control S.A.,Mantenimiento preventivo de instalaciones,mantenimiento,75000.00,2025-10-01,2026-07-31,terminado,Diego Herrera

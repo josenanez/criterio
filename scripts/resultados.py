@@ -47,6 +47,10 @@ DUENIOS = [
     ("evaluar.py --agente clara", "Clara"),
     ("evaluar.py --agente tomas", "Tomás"),
     ("tests/criterio-cfo/", "La familia"),
+    ("criterio-legal/scripts/legal.py", "Fidel"),
+    ("evaluar.py --agente fidel", "Fidel"),
+    ("evaluar.py --agente constanza", "Constanza"),
+    ("tests/criterio-clo/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("criterio-portfolio/scripts/servidor.py", "Rostrum"),
@@ -89,6 +93,10 @@ QUIEN = {
                                   "soportes. Cierra el mes contra su evidencia"),
     "Tomás": ("Agente de FP&A", "«El gemelo»: pone el presupuesto al lado de su gemelo, "
                                 "la ejecución"),
+    "Fidel": ("Agente de contratos", "De <i>fides</i>: la palabra dada. Pone lo firmado al lado "
+                                     "de lo que está pasando"),
+    "Constanza": ("Agente de cumplimiento", "De <i>constantia</i>: cada obligación con su "
+                                            "evidencia, todos los días y no solo el de la auditoría"),
     "La familia": ("Lo que los tres comparten", "Que la documentación y el código digan "
                                                 "lo mismo, que el marketplace esté "
                                                 "completo, que las copias compartidas no "
@@ -97,7 +105,7 @@ QUIEN = {
                                                 "cómo estén organizados"),
 }
 
-ORDEN = ["Vera", "Samuel", "Alba", "Rostrum", "Clara", "Tomás", "La familia"]
+ORDEN = ["Vera", "Samuel", "Alba", "Rostrum", "Clara", "Tomás", "Fidel", "Constanza", "La familia"]
 
 # Cómo cuenta cada script sus comprobaciones. Los selftests imprimen «ok» en minúscula y
 # los calificadores «OK» en mayúscula, con sangrías distintas. Se cuentan las dos formas
@@ -390,6 +398,8 @@ PLUGIN_DE = {
     "Alba": "criterio-product",
     "Clara": "criterio-finance",
     "Tomás": "criterio-budget",
+    "Fidel": "criterio-legal",
+    "Constanza": "criterio-compliance",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -569,13 +579,36 @@ NO_CUBRE["criterio-finance"] = _CFO_NO_CUBRE + [
 ]
 NO_CUBRE["criterio-budget"] = list(_CFO_NO_CUBRE)
 
+_CLO_NO_CUBRE = [
+    ("La extracción del agente la prueba la ronda, no esta corrida",
+     "Esta corrida escribe en la ficha lo que el agente tendría que extraer —cada contrato con sus "
+     "fechas, firmantes, otrosíes, garantías y obligaciones; lo que declara el informe del periodo; "
+     "la norma que trae un boletín— y prueba el motor con esa extracción. Que el agente la haga bien "
+     "sobre los mismos documentos lo prueba la ronda con el agente."),
+    ("Nada se ha corrido sobre los contratos ni la matriz de una organización real",
+     "Todo el material es sintético y construido desde cero; las normas que cita son ficticias."),
+    ("Ningún criterio jurídico se prueba aquí, porque ninguno se emite",
+     "El motor compara fechas, montos y facultades con lo que dicen los documentos y la matriz de la "
+     "organización. Que no opine sobre la validez de un contrato es una regla de los comandos; la "
+     "ronda con el agente es la que la pone a prueba."),
+]
+NO_CUBRE["criterio-legal"] = list(_CLO_NO_CUBRE)
+NO_CUBRE["criterio-compliance"] = list(_CLO_NO_CUBRE)
+
 QUE_ES = {
     "criterio-portfolio": ("Vera y Rostrum", "el agente de la PMO y el servidor que publica su informe"),
     "criterio-project": ("Samuel", "el agente del gerente de proyecto"),
     "criterio-product": ("Alba", "el agente del gerente de producto"),
     "criterio-finance": ("Clara", "la agente contralora de la familia CFO"),
     "criterio-budget": ("Tomás", "el agente de FP&A de la familia CFO"),
+    "criterio-legal": ("Fidel", "el agente de contratos de la familia CLO"),
+    "criterio-compliance": ("Constanza", "la agente de cumplimiento de la familia CLO"),
 }
+
+
+# El material de las familias CFO y CLO es de la familia, no de cada agente.
+EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-budget": "../criterio-cfo/EVIDENCIA.md",
+                "criterio-legal": "../criterio-clo/EVIDENCIA.md", "criterio-compliance": "../criterio-clo/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:
@@ -625,7 +658,7 @@ def por_agente(filas: list, rapido: bool) -> list:
         p += ["", "## Qué material se usó, y qué prueba cada pieza", "",
               f"El detalle del corpus —qué planta cada proyecto o producto, por qué, y "
               f"cuál es su control negativo— está en "
-              f"[`EVIDENCIA.md`]({'../criterio-cfo/EVIDENCIA.md' if plugin in ('criterio-finance', 'criterio-budget') else 'EVIDENCIA.md'}), que se escribe a mano y no se genera.", "",
+              f"[`EVIDENCIA.md`]({EVIDENCIA_DE.get(plugin, 'EVIDENCIA.md')}), que se escribe a mano y no se genera.", "",
               "**El control negativo es la mitad del valor de estas pruebas.** Un agente "
               "que encuentra hallazgos donde no los hay es un generador de ruido, y eso "
               "no se detecta mirando solo los casos que sí fallan.", "",

@@ -50,7 +50,7 @@ SCRIPTS = {
 # La familia CFO toma de la PMO lo que es igual en cualquier función —leer un documento,
 # registrar la aceptación de los términos— y comparte entre sus dos plugins su propio motor.
 # La fuente de `finanzas.py` y de `finance-intake` es criterio-finance, donde se editan.
-for _p in ("criterio-finance", "criterio-budget"):
+for _p in ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-compliance"):
     SCRIPTS[_p] = {
         "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
         "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
@@ -62,6 +62,21 @@ SCRIPTS_CFO = {
         "nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
     },
 }
+for _p in ("criterio-legal", "criterio-compliance"):
+    SCRIPTS_CFO[_p] = {"nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función"}
+# La familia CLO tiene su propio motor, con fuente en criterio-legal.
+FUENTE_CLO = RAIZ / "plugins" / "criterio-legal" / "scripts"
+SCRIPTS_CLO = {
+    "criterio-compliance": {
+        "legal.py": "el motor de los dos: Constanza toma de las fichas de Fidel las obligaciones de los contratos",
+    },
+}
+SKILLS_CLO = {
+    "criterio-compliance": {
+        "legal-intake": "los mismos documentos y la misma estructura",
+    },
+}
+
 SKILLS_CFO = {
     "criterio-budget": {
         "finance-intake": "los mismos documentos, la misma estructura y las mismas columnas",
@@ -76,7 +91,8 @@ RAIZ_A_PLUGINS = {
     "TERMS.es.md": ("TERMS.es.md", "los términos que rigen, en español"),
     "registro/versiones.json": ("REGISTRO.json", "el registro de versiones de la familia"),
 }
-PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-finance", "criterio-budget")
+PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-finance", "criterio-budget",
+                   "criterio-legal", "criterio-compliance")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
@@ -174,19 +190,22 @@ def revisar(escribir: bool) -> int:
                       f"{plugin}/scripts/{nombre}", porque, escribir,
                       origen.stat().st_mode, estado)
 
-    for plugin, archivos in sorted(SCRIPTS_CFO.items()):
-        for nombre, porque in sorted(archivos.items()):
-            origen = FUENTE_CFO / nombre
-            if not origen.exists():
-                estado["problemas"].append(f"falta la fuente {origen.relative_to(RAIZ)}")
-                continue
-            _comparar(RAIZ / "plugins" / plugin / "scripts" / nombre,
-                      con_cabecera(origen.read_text(encoding="utf-8"), nombre, "criterio-finance"),
-                      f"{plugin}/scripts/{nombre}", porque, escribir,
-                      origen.stat().st_mode, estado)
+    for fuente_dir, origen_plugin, tabla in ((FUENTE_CFO, "criterio-finance", SCRIPTS_CFO),
+                                             (FUENTE_CLO, "criterio-legal", SCRIPTS_CLO)):
+        for plugin, archivos in sorted(tabla.items()):
+            for nombre, porque in sorted(archivos.items()):
+                origen = fuente_dir / nombre
+                if not origen.exists():
+                    estado["problemas"].append(f"falta la fuente {origen.relative_to(RAIZ)}")
+                    continue
+                _comparar(RAIZ / "plugins" / plugin / "scripts" / nombre,
+                          con_cabecera(origen.read_text(encoding="utf-8"), nombre, origen_plugin),
+                          f"{plugin}/scripts/{nombre}", porque, escribir,
+                          origen.stat().st_mode, estado)
 
     for fuente_dir, origen_plugin, tabla in ((FUENTE.parent, "criterio-portfolio", SKILLS),
-                                             (FUENTE_CFO.parent, "criterio-finance", SKILLS_CFO)):
+                                             (FUENTE_CFO.parent, "criterio-finance", SKILLS_CFO),
+                                             (FUENTE_CLO.parent, "criterio-legal", SKILLS_CLO)):
         for plugin, skills in sorted(tabla.items()):
             for nombre, porque in sorted(skills.items()):
                 carpeta = fuente_dir / "skills" / nombre

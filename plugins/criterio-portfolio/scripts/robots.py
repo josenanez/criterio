@@ -11,6 +11,11 @@ soporte, y en el pecho el libro a dos columnas, debe y haber, con la marca de lo
 Tomás, «el gemelo», tiene dos antenas y dos ojos iguales, y en el pecho las barras en pares:
 lo presupuestado al lado de lo ejecutado.
 
+De la familia CLO, Fidel —de *fides*, la palabra dada— lleva en el pecho el documento con su
+firma y su sello: lo que la empresa firmó. Constanza —de *constantia*— tiene un visor que no
+parpadea y en el pecho la lista con cada casilla marcada: cada obligación con su evidencia,
+todos los días.
+
 Son los mismos trazos que josenanez.com usa en la página de Criterio. Aquí viven en un
 solo lugar para que el servidor los dibuje en sus páginas y `docs/img/graficos.py` los
 imprima para los README: si cambia un robot, cambia en todas partes.
@@ -19,8 +24,9 @@ from __future__ import annotations
 
 ORDEN = ("vera", "samuel", "alba", "rostrum")
 ORDEN_CFO = ("clara", "tomas")
+ORDEN_CLO = ("fidel", "constanza")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
-          "clara": "finanzas", "tomas": "presupuesto"}
+          "clara": "finanzas", "tomas": "presupuesto", "fidel": "contratos", "constanza": "cumplimiento"}
 
 _PIERNAS = [("line", dict(x1=44, y1=134, x2=44, y2=158)), ("line", dict(x1=76, y1=134, x2=76, y2=158)),
             ("line", dict(x1=36, y1=160, x2=52, y2=160)), ("line", dict(x1=68, y1=160, x2=84, y2=160))]
@@ -81,6 +87,29 @@ _PIEZAS = {
         ("ln", "line", dict(x1=38, y1=126, x2=82, y2=126)),
         ("ln", "line", dict(x1=44, y1=126, x2=44, y2=106)), ("ln", "line", dict(x1=50, y1=126, x2=50, y2=110)),
         ("ln", "line", dict(x1=64, y1=126, x2=64, y2=98)), ("ln", "line", dict(x1=70, y1=126, x2=70, y2=94)),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    "fidel": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "line", dict(x1=46, y1=64, x2=74, y2=64)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "path", dict(d="M40 90 L70 90 L80 100 L80 128 L40 128 Z")), ("ln", "path", dict(d="M70 90 L70 100 L80 100")),
+        ("ln", "line", dict(x1=46, y1=100, x2=64, y2=100)), ("ln", "line", dict(x1=46, y1=108, x2=74, y2=108)),
+        ("ln", "path", dict(d="M46 120 Q50 113 54 120 T62 120")), ("led", "circle", dict(cx=72, cy=120, r=4)),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    "constanza": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ln", "rect", dict(x=32, y=38, width=56, height=18, rx=9)), ("ojo", "rect", dict(x=40, y=43, width=40, height=8, rx=4)),
+        ("ln", "line", dict(x1=48, y1=66, x2=72, y2=66)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+    ] + [p for y in (92, 104, 116) for p in (
+        ("ln", "rect", dict(x=38, y=y, width=9, height=9, rx=1)),
+        ("ln", "path", dict(d=f"M39.5 {y + 4.5} L42 {y + 7} L46 {y + 1.5}")),
+        ("ln", "line", dict(x1=53, y1=y + 4.5, x2=82, y2=y + 4.5)))] + [
         ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
     ] + [("ln", t, a) for t, a in _PIERNAS],
     "rostrum": [

@@ -13,7 +13,7 @@ Apache 2.0 · Four clicks to install · Each agent produces its first result in 
 | | | |
 |:--:|:--:|:--:|
 | ![Portfolio, project and product](docs/img/en/pmo.png) | ![CFO](docs/img/en/cfo.png) | ![CLO](docs/img/en/clo.png) |
-| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents and a server | [criterio-cfo →](families/criterio-cfo/DISENO.es.md)<br>Clara and Tomás, built and in testing | criterio-clo<br>not built |
+| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents and a server | [criterio-cfo →](families/criterio-cfo/DISENO.es.md)<br>Clara and Tomás, built and in testing | [criterio-clo →](families/criterio-clo/DISENO.es.md)<br>Fidel and Constanza, built and in testing |
 
 ---
 
@@ -39,7 +39,7 @@ one another. Agents from different families do not.
 |---|---|---|---|
 | **[criterio-pmo](families/criterio-pmo/README.md)** | The governance of a portfolio, of each project and of each product | That what is declared and what the documents support can be compared, every day and across the whole | **Three agents and a server, installable today** |
 | **criterio-cfo** | Close, control and financial reporting | That closing the books stops depending on somebody remembering what is missing | **Two agents built, in testing:** [Clara](plugins/criterio-finance/README.md) and [Tomás](plugins/criterio-budget/README.md) |
-| **criterio-clo** | Contracts, compliance and legal risk | That a company knows what it signed, what expires and what it committed to | [Declared, not built](plugins/criterio-legal/README.md) |
+| **criterio-clo** | Contracts, compliance and legal risk | That a company knows what it signed, what expires and what it committed to | **Two agents built, in testing:** [Fidel](plugins/criterio-legal/README.md) and [Constanza](plugins/criterio-compliance/README.md) |
 
 **The list is not closed.** A family joins when somebody who performs that capability
 wants to build it, and the format is in [CONTRIBUTING.md](CONTRIBUTING.md).

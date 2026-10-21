@@ -28,8 +28,14 @@
     },
     {
       "name": "criterio-legal",
-      "description": "Revisión de contratos y cumplimiento con criterio de derecho civil suramericano: exclusiones de responsabilidad, cláusula penal, agencia comercial, datos personales, firma electrónica y anticorrupción, por país y con cita a la norma.",
+      "description": "Fidel, los contratos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías. Colombia y Ecuador; cada fecha y cada monto los calcula el código y cada dato cita su documento. Sin opinión jurídica.",
       "source": "./plugins/criterio-legal",
+      "category": "legal"
+    },
+    {
+      "name": "criterio-compliance",
+      "description": "Constanza, el cumplimiento: la matriz de obligaciones de la organización contra su evidencia, periodo a periodo, las obligaciones de cumplimiento de los contratos, las políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de denuncias. Colombia y Ecuador; las obligaciones las define la organización y cada dato cita su documento.",
+      "source": "./plugins/criterio-compliance",
       "category": "legal"
     },
     {

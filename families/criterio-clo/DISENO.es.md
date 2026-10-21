@@ -27,7 +27,11 @@ escriben aquí: salen de [`familia.json`](familia.json), [`carpetas.json`](carpe
 
 ## Un agente por rol
 
-<!-- clo:agentes · x -->
+<!-- clo:agentes · generado por scripts/familias.py; no se edita a mano -->
+| Rol | Agente | Plugin | Qué hace |
+|---|---|---|---|
+| Contratos | **Fidel** — de *fides*: la palabra dada; lo firmado se cumple | `criterio-legal` | Lo firmado y en qué términos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías |
+| Cumplimiento | **Constanza** — de *constantia*: cumplir siempre, no solo el día de la auditoría | `criterio-compliance` | La matriz de obligaciones de la organización contra su evidencia, la revisión de las políticas, las normas nuevas con su evaluación, el canal de denuncias con sus plazos y las obligaciones de cumplimiento que traen los contratos |
 <!-- /clo:agentes -->
 
 Como en las familias PMO y CFO, los dos no se hablan entre sí: se hablan por sus fichas. Constanza
@@ -45,7 +49,41 @@ declara el informe de cumplimiento y las normas nuevas de un boletín. Cada dato
 
 ## Las señales: lo que calcula el código
 
-<!-- clo:senales · x -->
+<!-- clo:senales · generado por scripts/familias.py; no se edita a mano -->
+**Fidel · Contratos**
+
+| Señal | Se levanta cuando |
+|---|---|
+| `contract_expiring` | Un contrato vence dentro de los días configurados y no tiene una decisión registrada de renovar o terminar |
+| `notice_deadline_near` | La fecha límite del preaviso de no renovación de un contrato con renovación automática cae dentro de los días configurados |
+| `renewal_notice_missed` | Pasó la fecha límite del preaviso de un contrato con renovación automática sin una decisión registrada |
+| `contract_expired_active` | El registro reporta vigente un contrato cuya fecha de terminación ya pasó |
+| `register_mismatch` | Un contrato de la carpeta no está en el registro, o una fila del registro no tiene su documento |
+| `register_differs_from_contract` | El valor o las fechas del registro no son los del documento |
+| `contract_obligation_overdue` | Una obligación del contrato pasó su fecha sin evidencia |
+| `signed_without_authority` | Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones |
+| `unsigned_contract` | El documento no tiene la firma de las dos partes y el contrato ya empezó |
+| `counterparty_certificate_stale` | El certificado de la contraparte tenía más días de los configurados cuando se firmó |
+| `payments_over_value` | Lo pagado supera el valor del contrato más sus otrosíes |
+| `payment_after_termination` | Hay pagos con fecha posterior a la terminación del contrato |
+| `guarantee_missing` | El contrato exige una garantía y no hay póliza aportada |
+| `guarantee_expires_early` | La póliza aportada vence antes de lo que exige el contrato |
+
+**Constanza · Cumplimiento**
+
+| Señal | Se levanta cuando |
+|---|---|
+| `compliance_obligation_overdue` | Una obligación de la matriz pasó su fecha límite sin evidencia |
+| `compliance_done_without_evidence` | Una obligación figura cumplida y ninguna evidencia la sostiene |
+| `compliance_evidence_stale` | La evidencia más reciente de una obligación periódica es de antes de su ventana |
+| `obligation_without_owner` | Una obligación de la matriz no tiene responsable |
+| `obligation_without_source` | Una obligación de la matriz no cita la norma, el contrato o la política de la que sale |
+| `declared_compliance_vs_evidence` | El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica |
+| `policy_review_overdue` | Una política pasó su fecha de revisión |
+| `regulatory_change_unassessed` | Una norma registrada lleva más días de los configurados sin evaluación de impacto |
+| `applicable_norm_not_in_matrix` | Una norma que aplica no tiene ninguna obligación en la matriz |
+| `report_case_overdue` | Un caso del canal de denuncias pasó el plazo de respuesta configurado |
+| `contract_obligation_not_in_matrix` | Una obligación de cumplimiento de un contrato no está en la matriz |
 <!-- /clo:senales -->
 
 Los días de aviso, la antigüedad máxima del certificado, el plazo del canal y los días para
@@ -74,19 +112,85 @@ agentes procesan la carpeta como esté. `legal-setup` y `compliance-setup` compa
 encuentran con esta estructura y dicen qué archivo está fuera de su lugar y dónde iría; no crean,
 mueven ni renombran nada en los documentos de la organización.
 
-<!-- clo:carpetas · x -->
+<!-- clo:carpetas · generado por scripts/familias.py; no se edita a mano -->
+Una carpeta por entidad, con el NIT o el RUC al inicio del nombre. Dentro, lo que la organización lleva para toda la entidad, una carpeta por contrato y una por periodo de cumplimiento.
+
+```
+legal/
+└── <entidad>/
+    ├── 00-referencia/
+    ├── 10-registro/
+    ├── 20-politicas/
+    ├── 30-normativa/
+    ├── 40-canal/
+    ├── contratos/<código>/
+    │   ├── 10-contrato/
+    │   ├── 20-garantias/
+    │   ├── 30-contraparte/
+    │   └── 40-ejecucion/
+    └── cumplimiento-<AAAA-MM>/
+        ├── 10-evidencias/
+        └── 20-reportes/
+estado-legal/
+```
+
+**`<entidad>/`** · Lo que la organización lleva para toda la entidad
+
+| Carpeta | Qué va | Agente |
+|---|---|---|
+| `00-referencia/` | La matriz de atribuciones —quién firma qué y hasta qué monto— y la matriz de obligaciones de cumplimiento | Fidel, Constanza |
+| `10-registro/` | El registro de contratos que lleva la organización y la exportación de pagos por contrato del ERP, con la fecha de corte en el nombre | Fidel |
+| `20-politicas/` | El índice de políticas con su versión y su próxima revisión, y cada política | Constanza |
+| `30-normativa/` | El registro normativo, los boletines y las evaluaciones de impacto de cada norma nueva | Constanza |
+| `40-canal/` | El registro de casos del canal de denuncias, con su fecha de recepción y de respuesta | Constanza |
+
+**`contratos/<código>/`** · Un contrato, con su código al inicio del nombre de la carpeta
+
+| Carpeta | Qué va | Agente |
+|---|---|---|
+| `10-contrato/` | El contrato firmado y cada otrosí | Fidel |
+| `20-garantias/` | Las pólizas y garantías aportadas | Fidel |
+| `30-contraparte/` | El certificado de existencia y representación de la contraparte y sus documentos | Fidel |
+| `40-ejecucion/` | Actas de entrega, informes y la evidencia de cada obligación, con su id al inicio del nombre | Fidel, Constanza |
+
+**`cumplimiento-<AAAA-MM>/`** · Un periodo de cumplimiento
+
+| Carpeta | Qué va | Agente |
+|---|---|---|
+| `10-evidencias/` | La evidencia de cada obligación del periodo, con su id al inicio del nombre | Constanza |
+| `20-reportes/` | El informe de cumplimiento del periodo | Constanza |
+
+**`estado-legal/`** · Lo que escriben Fidel y Constanza: la configuración, las fichas de cada contrato, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí.
 <!-- /clo:carpetas -->
 
 Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta.
 
 ## Los comandos de Fidel, en orden de importancia
 
-<!-- clo:comandos-fidel · x -->
+<!-- clo:comandos-fidel · generado por scripts/familias.py; no se edita a mano -->
+| # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |
+|---|---|---|---|---|
+| 0 | `legal-setup` | La carpeta raíz. Preguntas: entidad y NIT o RUC, país, la matriz de atribuciones de `00-referencia/`, con cuántos días de anticipación se avisa un vencimiento o un preaviso, la antigüedad máxima del certificado de la contraparte y quién decide renovar | Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada | Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas |
+| 1 | `contract-scan` | `contratos/` completo y `10-registro/` | Extrae el texto de cada documento con su huella y solo reprocesa lo que cambió; el agente lleva a la ficha de cada contrato sus partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones, cada dato con su cita; el motor valida la ficha | Qué cambió; qué contratos son nuevos; las señales nuevas; lo que no se pudo procesar y por qué |
+| 2 | `contract-register` | `10-registro/registro-contratos` y las fichas | Cruza el registro con las carpetas y con las fichas: contrato sin registro, registro sin documento, estado declarado contra la fecha de terminación, y el valor y las fechas del registro contra lo que dice el documento | Por contrato: estado declarado y estado según sus fechas, y cada diferencia entre el registro y el documento |
+| 3 | `obligations-calendar` | Las fichas y `40-ejecucion/` de cada contrato | Fecha de terminación, fecha límite del preaviso de no renovación (terminación menos los días de preaviso) y cada obligación con fecha contra su evidencia en `40-ejecucion/`, con su id al inicio del nombre | El calendario de los próximos días: vencimientos, preavisos y obligaciones; lo vencido sin evidencia y los preavisos que pasaron sin decisión |
+| 4 | `authority-check` | Las fichas, `00-referencia/matriz-atribuciones` y `30-contraparte/` | Cada firmante de la entidad contra su facultad a la fecha de firma, por tipo y monto, otrosíes incluidos; los documentos sin la firma de las dos partes; el certificado de la contraparte contra la antigüedad configurada a la fecha de firma | Por contrato: quién firmó, su facultad y el monto; los que no tienen firma de las dos partes; los certificados vencidos; sin opinión sobre la validez del contrato |
+| 5 | `contract-execution` | `10-registro/pagos`, las fichas y `20-garantias/` | Lo pagado contra el valor más los otrosíes; los pagos después de la terminación; las garantías exigidas contra las aportadas y su vigencia contra la que exige el contrato | Por contrato: valor, pagado, saldo y último pago; cada garantía exigida con la aportada y su vigencia |
+| 6 | `legal-wake` | La configuración y las fichas | Decide qué toca: los vencimientos y preavisos que entran en la ventana, los documentos nuevos y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
 <!-- /clo:comandos-fidel -->
 
 ## Los comandos de Constanza, en orden de importancia
 
-<!-- clo:comandos-constanza · x -->
+<!-- clo:comandos-constanza · generado por scripts/familias.py; no se edita a mano -->
+| # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |
+|---|---|---|---|---|
+| 0 | `compliance-setup` | La carpeta raíz. Preguntas: entidad, país, la matriz de obligaciones de `00-referencia/` en el modelo definido (F-01), el periodo, el plazo de respuesta del canal, los días para evaluar una norma nueva y, si la organización usa a Fidel, dónde están sus fichas | Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada | Configuración guardada; la matriz cargada y lo que le falta a cada obligación —responsable, fuente—; el primer estado del periodo |
+| 1 | `compliance-scan` | Toda la carpeta de la entidad | Reprocesa solo lo que cambió; el agente lleva a la ficha lo que declara el informe de `20-reportes/` y las normas nuevas de los boletines de `30-normativa/`, con su cita | Qué cambió; qué se agregó a la ficha; las señales nuevas; lo que no se pudo procesar |
+| 2 | `compliance-status` | `00-referencia/matriz-obligaciones`, `10-evidencias/` del periodo y de los anteriores, y las fichas de Fidel si las hay | Cada obligación contra su evidencia en la ventana de su periodicidad y su fecha límite; las que no tienen responsable ni fuente; las obligaciones de cumplimiento de los contratos que la matriz no tiene; lo declarado contra lo evidenciado | Estado declarado contra evidenciado; tabla de obligaciones ordenada por criticidad y vencimiento: cumplida con evidencia, cumplida sin evidencia, vencida, en plazo |
+| 3 | `policy-review` | `20-politicas/indice-politicas` | Cada política contra su fecha de revisión y su responsable | Las políticas con la revisión vencida o sin responsable, y las próximas a revisar |
+| 4 | `regulatory-watch` | `30-normativa/registro-normativo` y las normas nuevas de la ficha | Cada norma registrada contra su evaluación de impacto en los días configurados; las que aplican sin una obligación en la matriz | Las normas sin evaluar y las que aplican sin obligación en la matriz; sin opinión sobre el alcance de ninguna norma |
+| 5 | `reports-cases` | `40-canal/casos` | Cada caso contra el plazo de respuesta configurado | Los casos abiertos por antigüedad y los que pasaron su plazo; sin datos de quién denunció |
+| 6 | `compliance-wake` | La configuración y la ficha | Decide qué toca: las obligaciones que vencen en la ventana, los documentos nuevos y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
 <!-- /clo:comandos-constanza -->
 
 ## El formato común de los reportes
@@ -105,7 +209,8 @@ completa.
 
 ## Cifras de terceros
 
-<!-- clo:cifras · x -->
+<!-- clo:cifras · generado por scripts/familias.py; no se edita a mano -->
+Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (World Commerce & Contracting con Deloitte), C-02 (EY Law y Harvard Law School Center on the Legal Profession), C-03 (EY Law y Harvard Law School Center on the Legal Profession).
 <!-- /clo:cifras -->
 
 ## Decisiones cerradas

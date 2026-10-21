@@ -1,0 +1,37 @@
+{
+  "version": "0.1",
+  "role": "cumplimiento",
+  "entity": {
+    "id": "900123456",
+    "name": "Banco Andino",
+    "country": "CO",
+    "currency": "COP"
+  },
+  "paths": {
+    "documents": "legal/900123456-banco-andino",
+    "state": "estado-legal/900123456-banco-andino"
+  },
+  "period": "2026-09",
+  "compliance": {
+    "contract_records": "estado-legal/900123456-banco-andino/contratos"
+  },
+  "thresholds": {
+    "contract_warning_days": 60,
+    "notice_warning_days": 30,
+    "certificate_max_days": 30,
+    "amount_tolerance": 1.0,
+    "case_response_days": 15,
+    "norm_assessment_days": 30,
+    "renewal_months": 12
+  },
+  "holidays": [
+    "2026-10-12"
+  ],
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}
