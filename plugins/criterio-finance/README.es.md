@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cfo-claro.svg" alt="Criterio CFO · Cierre, control y reporte" height="48"></picture>
+
 # Clara · la contralora
 
 <img src="../../docs/img/es/robot-clara.gif" alt="Clara" width="220" align="right">

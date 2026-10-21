@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-clo-oscuro.svg"><img src="../../docs/img/marca/es/criterio-clo-claro.svg" alt="Criterio CLO · Contratos y cumplimiento" height="48"></picture>
+
 # Constanza · el cumplimiento
 
 <img src="../../docs/img/es/robot-constanza.gif" alt="Constanza" width="220" align="right">

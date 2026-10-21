@@ -1,7 +1,7 @@
 {
   "tomadas_con": {
-    "informe.py": "0a4854cf9c44197f",
-    "servidor.py": "0234a02e8c2ac0d0"
+    "plugins/criterio-portfolio/scripts/informe.py": "0a4854cf9c44197f",
+    "plugins/criterio-server/scripts/servidor.py": "45a963160ac6be44"
   },
   "corte": "2026-09-30",
   "ancho": 1240

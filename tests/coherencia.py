@@ -662,8 +662,10 @@ if SELLO.exists():
     import hashlib
     sello = json.loads(SELLO.read_text(encoding="utf-8"))
     viejas = []
+    # La clave es la ruta desde la raíz del repositorio: el servidor vive en criterio-server y
+    # el informe en criterio-portfolio, y un nombre solo no dice cuál de las copias se usó.
     for nombre, firma in sello.get("tomadas_con", {}).items():
-        fuente = PLUGIN / "scripts" / nombre
+        fuente = RAIZ / nombre
         if not fuente.exists():
             viejas.append(f"{nombre} ya no existe")
         elif hashlib.sha256(fuente.read_bytes()).hexdigest()[:16] != firma:

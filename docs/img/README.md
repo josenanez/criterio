@@ -31,7 +31,10 @@ Rostrum giran— y de esa tabla sale todo lo que se mueve:
 |---|---|
 | `es/robot-<agente>.gif`, `en/robot-<agente>.gif` | La tarjeta animada de cada agente, en la cabecera de su README |
 | `robots/<agente>.svg` | El robot solo, animado con su propia hoja de estilo: el portal lo publica tal cual |
-| `robots/robots.json` | Las piezas y los gestos como datos, para la impresora del portal |
+| `robots/robots.json` | Las piezas y los gestos como datos, para la impresora del portal, y el símbolo |
+| `marca/simbolo-claro.svg`, `marca/simbolo-oscuro.svg` | El símbolo de Criterio, el corchete y el punto: `-claro` para fondo crema, `-oscuro` para fondo negro |
+| `marca/logotipo-*.svg` | El símbolo y «Criterio», con la palabra convertida en trazo |
+| `marca/<idioma>/criterio-<sigla>-*.svg` | El logotipo de cada familia con su función en palabras, que sale de su `familia.json` |
 
 Nada de eso se edita a mano. Quien pide reducir el movimiento ve el robot quieto.
 

@@ -1,6 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="docs/img/marca/logotipo-oscuro.svg"><img src="docs/img/marca/logotipo-claro.svg" alt="Criterio" height="56"></picture>
+
 # Criterio
 
-**A marketplace of agent families that accelerate organisational capabilities.**
+**Evidence before the decision.** A platform of agent families: each family extends a complete executive function —project governance, finance, legal and those to come— with one method, one brand and one portal, Rostrum.
 
 [Español](README.es.md) · [Terms](TERMS.md) · [Disclaimer](DISCLAIMER.md) · [Contributing](CONTRIBUTING.md)
 
@@ -25,7 +27,7 @@ Each has its own method, its own language and its own ways of failing. And they 
 
 Work tools help you produce one more document. The problem was never a missing template.
 
-**Criterio is a marketplace of agents, one per capability.** They process what already exists, keep a record of what they found with a citation for every data point, and on the next run say what changed.
+**Criterio is a platform of agent families, one per capability.** They process what already exists, keep a record of what they found with a citation for every data point, and on the next run say what changed.
 
 ---
 

@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-clo-oscuro.svg"><img src="../../docs/img/marca/en/criterio-clo-claro.svg" alt="Criterio CLO · Contracts and compliance" height="48"></picture>
+
 # Fidel · contracts
 
 <img src="../../docs/img/en/robot-fidel.gif" alt="Fidel" width="220" align="right">

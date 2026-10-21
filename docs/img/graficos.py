@@ -27,11 +27,20 @@ import os
 import sys
 
 import cairosvg
+from fontTools.pens.svgPathPen import SVGPathPen
+from fontTools.pens.transformPen import TransformPen
+from fontTools.ttLib import TTFont
 from PIL import Image, ImageDraw, ImageFont
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(AQUI, '..', '..', 'plugins', 'criterio-server', 'scripts'))
 import robots as trazos  # noqa: E402
+# El nombre de cada familia —la sigla y la función en palabras— es de familia.json, por medio del
+# registro que escribe scripts/familias.py. Aquí no se escribe ninguno.
+with open(os.path.join(AQUI, '..', '..', 'plugins', 'criterio-server', 'scripts', 'agentes.json'), encoding='utf-8') as _fh:
+    REGISTRO = json.load(_fh)
+FAMILIA = {fa['sigla']: fa for fa in REGISTRO['familias']}
+FAMILIA_DE = {a['area']: a['familia'] for a in REGISTRO['agentes']}
 FUENTES = os.environ.get('INTER_TIGHT', AQUI)
 R = os.path.join(FUENTES, 'InterTight-400.ttf')
 M5 = os.path.join(FUENTES, 'InterTight-500.ttf')
@@ -131,19 +140,16 @@ def titulo(d, xy, antetitulo, texto, ancho, px=54):
 
 T = {
     'es': {
-        # ── emblemas ──
-        'pmo_fn': 'Oficina de proyectos',
+        # ── emblemas (la función de cada familia sale de su familia.json) ──
         'pmo_fr': 'Proceso la documentación que tu PMO ya tiene, y digo qué no se sostiene.',
-        'cfo_fn': 'Cierre, control y reporte',
         'cfo_fr': 'Cierro contra lo que dicen los documentos, no contra lo que se declara.',
-        'clo_fn': 'Contratos y cumplimiento',
         'clo_fr': 'Sé qué firmaste, qué vence, y a qué te obligaste.',
         'disponible': 'Disponible',
         # ── los robots ──
         'rb': {'vera': ('Vera', 'Director de proyectos', 'Para quien responde por el portafolio completo.', 'El portafolio'),
                'samuel': ('Samuel', 'Gerente de proyecto', 'Para quien responde por un proyecto.', 'Un proyecto'),
                'alba': ('Alba', 'Gerente de producto', 'Para quien define qué se construye.', 'Un producto'),
-               'rostrum': ('Rostrum', 'El servidor', 'Donde quedan las corridas de los tres.', 'El servidor'),
+               'rostrum': ('Rostrum', 'El portal', 'Lo que pide atención hoy, de todas las familias, con su rastro.', 'El portal'),
                'clara': ('Clara', 'Contralora', 'Para quien cierra el mes y responde por lo que dicen los libros.', 'El cierre'),
                'tomas': ('Tomás', 'FP&A', 'Para quien pone el presupuesto al lado de lo ejecutado.', 'El presupuesto'),
                'fidel': ('Fidel', 'Contratos', 'Para quien responde por lo que la empresa firmó.', 'Los contratos'),
@@ -245,11 +251,8 @@ T = {
         'ct_nota': 'Ningún agente escribe el estado declarado: eso lo escribe una persona. Y la ficha del gerente y la lectura de la PMO no se fusionan nunca — la diferencia entre las dos es el hallazgo.',
     },
     'en': {
-        'pmo_fn': 'Project management office',
         'pmo_fr': 'I process the documentation your PMO already has, and say what does not hold.',
-        'cfo_fn': 'Close, control and reporting',
         'cfo_fr': 'I close against what the documents say, not against what is declared.',
-        'clo_fn': 'Contracts and compliance',
         'clo_fr': 'I know what you signed, what expires, and what you committed to.',
         'disponible': 'Available',
         'en_prueba': 'Built · in testing',
@@ -257,7 +260,7 @@ T = {
         'rb': {'vera': ('Vera', 'Project director', 'For whoever answers for the whole portfolio.', 'The portfolio'),
                'samuel': ('Samuel', 'Project manager', 'For whoever answers for one project.', 'One project'),
                'alba': ('Alba', 'Product manager', 'For whoever defines what gets built.', 'One product'),
-               'rostrum': ('Rostrum', 'The server', "Where the three agents' runs are kept.", 'The server'),
+               'rostrum': ('Rostrum', 'The portal', 'What needs attention today, across every family, with its trail.', 'The portal'),
                'clara': ('Clara', 'Controller', 'For whoever closes the month and answers for what the books say.', 'The close'),
                'tomas': ('Tomás', 'FP&A', 'For whoever puts the budget next to actual spend.', 'The budget'),
                'fidel': ('Fidel', 'Contracts', 'For whoever answers for what the company signed.', 'The contracts'),
@@ -370,36 +373,34 @@ SKILLS_PROD = ['requirement-record', 'demand-evidence', 'product-health']
 LE, ME = 720, 64
 
 
-def glifo_pmo(img, d, x, y):
-    """La familia que existe: Vera, Samuel, Alba y Rostrum, encendidos."""
-    for i, nombre in enumerate(trazos.ORDEN):
-        pegar(img, robot(nombre, 84), x + i * 108, y - 14)
+@functools.lru_cache(maxsize=None)
+def simbolo_png(alto, color=ORO):
+    """El símbolo de Criterio en PNG, del mismo trazo con que lo dibujan Rostrum y el portal."""
+    png = cairosvg.svg2png(bytestring=trazos.simbolo(color, alto).encode('utf-8'), output_width=alto)
+    return Image.open(io.BytesIO(png)).convert('RGBA')
 
 
-def glifo_cfo(img, d, x, y):
-    largo, alto, hueco = 152, 9, 19
-    for i in range(5):
-        an = largo if i < 4 else int(largo * 0.55)
-        cy = y + i * (alto + hueco)
-        d.rectangle([(x, cy), (x + an, cy + alto)], fill=ORO if i == 4 else FILETE_FUERTE)
+def logotipo(img, d, x, y, alto, sigla=None, texto=CREMA):
+    """El símbolo y «Criterio» en Inter Tight 600; con `sigla`, la de la familia en oro.
+    `y` es el borde de arriba del símbolo; la palabra se apoya en la base del corchete."""
+    pegar(img, simbolo_png(alto), x, y)
+    fu = f(M6, int(alto * 0.9))
+    base = y + alto * 53 / 64
+    xt = x + alto * 1.2
+    d.text((xt, base), 'Criterio', font=fu, fill=texto, anchor='ls')
+    if sigla:
+        d.text((xt + d.textlength('Criterio ', font=fu), base), sigla, font=fu, fill=ORO, anchor='ls')
 
 
-def glifo_clo(img, d, x, y):
-    an, al, esq = 120, 150, 34
-    d.polygon([(x, y), (x + an - esq, y), (x + an, y + esq), (x + an, y + al), (x, y + al)],
-              outline=FILETE_FUERTE, width=2)
-    d.line([(x + an - esq, y), (x + an - esq, y + esq), (x + an, y + esq)],
-           fill=FILETE_FUERTE, width=2)
-    d.ellipse([(x + an - 46, y + al - 46), (x + an + 10, y + al + 10)], outline=ORO, width=3)
-
-
-def emblema(t, sigla, fn, fr, estado, glifo):
+def emblema(t, sigla, fn, fr, estado):
+    """El emblema de una familia: el logotipo arriba, la sigla grande en oro, la función en
+    palabras y la frase. La familia se reconoce por su sigla y su función, no por un color."""
     img = Image.new('RGB', (LE, LE), NEGRO)
     d = ImageDraw.Draw(img)
     d.rectangle([(ME // 2, ME // 2), (LE - ME // 2, LE - ME // 2)], outline=FILETE, width=2)
     X = ME + 18
-    glifo(img, d, X, 108)
-    track(d, (X, 258), sigla, f(M6, 104), ORO, 6)
+    logotipo(img, d, X, 104, 72)
+    track(d, (X, 236), sigla, f(M6, 132), ORO, 6)
     d.line([(X, 414), (LE - ME - 18, 414)], fill=FILETE_FUERTE, width=2)
     d.text((X, 434), fn, font=f(M5, 34), fill=CREMA)
     lineas = envolver(d, fr, f(R, 27), LE - 2 * ME - 36)
@@ -410,6 +411,76 @@ def emblema(t, sigla, fn, fr, estado, glifo):
         y += 38
     insignia(d, (X, 600), estado, estado in (t['disponible'], t['en_prueba']))
     return img
+
+
+# ══════════════════════════════════════════════════════════════════ la marca
+#
+# El símbolo y los logotipos en SVG, con la palabra convertida en trazo: se ven igual en un
+# navegador que no tiene Inter Tight. «claro» es para fondo crema (oro #8a6327 y tinta) y
+# «oscuro» para fondo negro (oro #d5a84b y crema), como dice docs/design.md.
+
+FONDOS = {'claro': (TINTA_ORO, TINTA, '#6b675f'), 'oscuro': (ORO, CREMA, APAGADO)}
+
+
+@functools.lru_cache(maxsize=None)
+def _fuente(ruta):
+    tt = TTFont(ruta)
+    return tt, tt.getGlyphSet(), tt.getBestCmap(), tt['head'].unitsPerEm
+
+
+def trazo_texto(texto, ruta, px, x, base, espacio=-0.01):
+    """`texto` como el `d` de un `<path>`, apoyado en `base`. Devuelve el camino y dónde termina."""
+    tt, glifos, cmap, upm = _fuente(ruta)
+    esc, partes = px / upm, []
+    for ch in texto:
+        nombre = cmap[ord(ch)]
+        pluma = SVGPathPen(glifos)
+        glifos[nombre].draw(TransformPen(pluma, (esc, 0, 0, -esc, x, base)))
+        partes.append(pluma.getCommands())
+        x += tt['hmtx'][nombre][0] * esc + espacio * px
+    return ' '.join(p for p in partes if p), x
+
+
+def logotipo_svg(fondo, sigla=None, funcion=None):
+    """El logotipo en una caja de 64 de alto: el símbolo, «Criterio» y, en una familia, su sigla
+    en oro y la función en palabras debajo."""
+    oro, tinta, apagado = FONDOS[fondo]
+    s_ = trazos.SIMBOLO
+    cx, cy, r = s_['punto']
+    piezas = [f'<path d="{s_["corchete"]}" fill="none" stroke="{oro}" stroke-width="{s_["grosor"]}" '
+              f'stroke-linecap="round" stroke-linejoin="round"/>', f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{oro}"/>']
+    d_, fin = trazo_texto('Criterio', M6, 58, 78, 53)
+    piezas.append(f'<path d="{d_}" fill="{tinta}"/>')
+    if sigla:
+        d_, fin = trazo_texto(sigla, M6, 58, fin + 15, 53)
+        piezas.append(f'<path d="{d_}" fill="{oro}"/>')
+    alto = 64
+    if funcion:
+        d_, fin2 = trazo_texto(funcion, R, 24, 78, 96, 0)
+        piezas.append(f'<path d="{d_}" fill="{apagado}"/>')
+        fin, alto = max(fin, fin2), 108
+    ancho = round(fin + 4)
+    nombre = 'Criterio' + (f' {sigla}' if sigla else '') + (f' · {funcion}' if funcion else '')
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {ancho} {alto}" width="{ancho}" height="{alto}" '
+            f'role="img" aria-label="{nombre}"><title>{nombre}</title>' + ''.join(piezas) + '</svg>\n')
+
+
+def marca():
+    carpeta = os.path.join(AQUI, 'marca')
+    os.makedirs(carpeta, exist_ok=True)
+
+    def escribe(rel, texto):
+        ruta = os.path.join(carpeta, rel)
+        os.makedirs(os.path.dirname(ruta), exist_ok=True)
+        with open(ruta, 'w', encoding='utf-8') as fh:
+            fh.write(texto)
+        print(f'  marca/{rel}')
+    for fondo, (oro, _, _) in FONDOS.items():
+        escribe(f'simbolo-{fondo}.svg', trazos.simbolo(oro, 64) + '\n')
+        escribe(f'logotipo-{fondo}.svg', logotipo_svg(fondo))
+        for idioma in ('es', 'en'):
+            for sg, fa in FAMILIA.items():
+                escribe(f'{idioma}/criterio-{sg}-{fondo}.svg', logotipo_svg(fondo, sg.upper(), fa['nombre'][idioma]))
 
 
 # ══════════════════════════════════════════════════════════════════ los robots
@@ -436,6 +507,11 @@ def tarjeta(t, nombre):
     fondo = Image.new('RGB', (720, 720), NEGRO)
     d = ImageDraw.Draw(fondo)
     d.rectangle([32, 32, 687, 687], outline=FILETE, width=2)
+    # El logotipo de su familia, arriba a la derecha; Rostrum es de todas: lleva solo «Criterio».
+    sg = FAMILIA_DE.get(trazos.AGENTE.get(nombre))
+    fu = f(M6, 32)
+    ancho_logo = 36 * 1.2 + d.textlength('Criterio' + (f' {sg.upper()}' if sg else ''), font=fu)
+    logotipo(fondo, d, 638 - ancho_logo, 82, 36, sg.upper() if sg else None)
     d.text((82, 380), nom, font=f(M6, 96), fill=ORO)
     d.line([82, 512, 638, 512], fill=FILETE_FUERTE, width=2)
     d.text((82, 534), rol, font=f(M5, 32), fill=CREMA)
@@ -988,14 +1064,11 @@ def guardar(img, idioma, nombre):
 
 
 if __name__ == '__main__':
+    marca()
     for idioma, t in T.items():
         print(idioma)
-        guardar(emblema(t, 'PMO', t['pmo_fn'], t['pmo_fr'], t['disponible'], glifo_pmo),
-                idioma, 'pmo.png')
-        guardar(emblema(t, 'CFO', t['cfo_fn'], t['cfo_fr'], t['en_prueba'], glifo_cfo),
-                idioma, 'cfo.png')
-        guardar(emblema(t, 'CLO', t['clo_fn'], t['clo_fr'], t['en_prueba'], glifo_clo),
-                idioma, 'clo.png')
+        for sg, estado in (('pmo', t['disponible']), ('cfo', t['en_prueba']), ('clo', t['en_prueba'])):
+            guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], estado), idioma, f'{sg}.png')
         guardar(familia(t), idioma, 'familia.png')
         guardar(flujo(t), idioma, 'flujo.png')
         guardar(contrato(t), idioma, 'contrato.png')

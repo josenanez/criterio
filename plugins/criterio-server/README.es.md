@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/logotipo-oscuro.svg"><img src="../../docs/img/marca/logotipo-claro.svg" alt="Criterio" height="48"></picture>
+
 # Rostrum · el portal de todas las familias
 
 <img src="../../docs/img/es/robot-rostrum.gif" alt="Rostrum" width="220" align="right">
@@ -382,8 +384,9 @@ con las familias sin alargarse:
 1. **Inicio** y **Lo que vence.** Arriba, lo que pide atención hoy. El único número que lleva el
    menú es el de lo que ya pasó su fecha.
 2. **Las familias.** Una entrada por familia, con su sigla y su función, plegada. Dentro van sus
-   vistas (las cuatro de la PMO, o lo último de la familia) y sus agentes. Se abre sola la de la
-   página que se está mirando, así que con diez familias el menú sigue siendo de diez líneas.
+   vistas (las cuatro de la PMO, o lo último de la familia), sus agentes y **Dónde trabaja**. Se
+   abre sola la de la página que se está mirando, así que con diez familias el menú sigue siendo
+   de diez líneas.
 3. **El rastro.** Todas las corridas, lo que se arrastra y, si está la PMO, qué cambió entre dos
    cortes.
 4. **Preguntar a un agente**, como botón, con las preguntas sin responder si las hay.
@@ -392,6 +395,16 @@ El inicio repite esa lógica: primero las cifras de lo que pide atención (lo ve
 en treinta días, las señales abiertas, las preguntas sin responder) y después una tarjeta por
 familia con sus agentes y una sola puerta, la de la familia. Cada familia tiene su página en
 `/familia/<sigla>`, la PMO también.
+
+Arriba del menú va la marca de [`docs/design.md`](../../docs/design.md): el símbolo, «Criterio» y
+la promesa, *la evidencia antes de la decisión*. Cada familia se presenta igual en el menú, en su
+tarjeta y en su página: **Criterio CFO** con la función en palabras debajo, sin un color propio.
+
+**Dónde trabaja.** La página de cada familia y la de cada agente dicen, con la ruta completa en el
+equipo donde corre Rostrum, la carpeta raíz (la que tiene `.criterio/`), la de los documentos con
+su marca `_CRITERIO_…` o el aviso de que falta, la del estado y la configuración. Un clic sobre una
+ruta la selecciona entera para copiarla. El mapa guarda esas rutas relativas a la raíz para no
+publicar la carpeta de nadie; Rostrum las completa al servir.
 
 `/agente/<área>` es el catálogo de cada agente: sus funciones agrupadas como las declara su
 familia, cada comando con un nombre que se entiende y el técnico al lado, cuántas veces corrió y

@@ -49,6 +49,66 @@ su tiempo hasta el primer resultado y su sección de lo que nunca hace. **Si fal
 
 ---
 
+## La marca
+
+**Criterio. La evidencia antes de la decisión.** Criterio es una **plataforma de familias de
+agentes**: cada familia extiende una función ejecutiva completa —gobierno de proyectos, finanzas,
+legal y las que vienen—, y todas comparten un método, una marca y un portal, Rostrum. No se dice
+«market de agentes»: sugiere un catálogo de terceros que se compran por separado. (`/plugin
+marketplace` sigue siendo el comando con que Claude instala los plugins; eso es mecánica, no
+posicionamiento.)
+
+### Arquitectura de marca
+
+| Nivel | Regla de nombre | Cómo se escribe |
+|---|---|---|
+| Plataforma | Criterio, sin región ni añadidos | **Criterio** |
+| Familia | Criterio + la sigla del cargo que extiende + la función en palabras | **Criterio CFO** · Cierre, control y reporte |
+| Agente | Un nombre de persona cuyo significado apunta al oficio, con su rol y su robot | **Clara** · Contralora |
+| Plugin | `criterio-` + el objeto sobre el que trabaja, en inglés | `criterio-finance` |
+| Portal | Un objeto, no una persona: el mismo para todas las familias | **Rostrum** |
+
+La sigla y la función van siempre juntas: un nivel C entiende «CFO»; su equipo entiende «cierre,
+control y reporte». **La función de cada familia se escribe una sola vez, en su `familia.json`**;
+de ahí la toman Rostrum, el portal, los emblemas y las tarjetas.
+
+### El símbolo y el logotipo
+
+| Pieza | Regla |
+|---|---|
+| Símbolo | Una cita: el corchete que enmarca la evidencia y el punto que la sostiene. En oro, del mismo trazo redondeado que los robots. Se lee desde 16 px; por debajo de 32 px el trazo engruesa |
+| Logotipo | El símbolo a la izquierda y «Criterio» en Inter Tight 600. Sobre crema: `oroClaro` y `tinta`. Sobre negro: `oroOscuro` y `crema` |
+| Familia | El logotipo, la sigla en oro y debajo la función en palabras |
+| Agentes | Los robots de línea son los personajes. Cada uno lleva el gesto de su oficio y nunca sustituye al logotipo |
+| Color | Esta paleta, sin un hex nuevo. **Las familias no llevan color propio**: el oro es el único acento; verde, rojo y ámbar son señales, no marca |
+
+El símbolo se dibuja una sola vez, en
+[`plugins/criterio-server/scripts/robots.py`](../plugins/criterio-server/scripts/robots.py)
+(`simbolo()`), junto a los robots. `docs/img/graficos.py` lo escribe en
+[`docs/img/marca/`](img/marca/) —el símbolo y el logotipo, `-claro` para fondo crema y `-oscuro`
+para fondo negro, y el logotipo de cada familia en los dos idiomas, con la palabra convertida en
+trazo— y lo pone en los emblemas y en la tarjeta de cada agente. Rostrum lo lleva en su
+cabecera, en cada familia y en la pestaña del navegador; el portal lo recibe en `robots.json`.
+
+### La voz
+
+Criterio habla como un buen contralor que trabaja para ti: dice primero lo que encontró, muestra
+de dónde lo sacó y deja la decisión en tus manos.
+
+| Decimos | No decimos | Por qué |
+|---|---|---|
+| Procesa, calcula, prepara, construye | Lee, revisa por encima | Los agentes trabajan sobre la evidencia; no son lectores |
+| Abierto, Apache 2.0 | Gratis, free | «Gratis» resta valor y genera problemas |
+| Probado sobre material sintético de cuatro industrias | Certificado, verificado, aprobado, 100 % | La palabra se gana con la prueba; el 100 % no le dice nada a un nivel C |
+| Modelo de lenguaje (LLM) | IA mágica, inteligencia que decide | Nombra la herramienta y su límite |
+| La cifra con fuente, año y muestra | Cifras propias sin medir | Ninguna cifra se inventa |
+| El siguiente paso es… | Todavía no podemos, lamentablemente | Lo pendiente es plan, no disculpa |
+
+La voz es la misma en un README, en un reporte del motor, en Rostrum y en una publicación. Lo
+que cambia es la profundidad, nunca el tono.
+
+---
+
 ## Cómo se ve
 
 Toda pieza que se vea —el informe que produce un agente, la proyección en el servidor, un

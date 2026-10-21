@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cfo-claro.svg" alt="Criterio CFO · Close, control and reporting" height="48"></picture>
+
 # Tomás · FP&A
 
 <img src="../../docs/img/en/robot-tomas.gif" alt="Tomás" width="220" align="right">

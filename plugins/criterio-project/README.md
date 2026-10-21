@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-pmo-oscuro.svg"><img src="../../docs/img/marca/en/criterio-pmo-claro.svg" alt="Criterio PMO · Project governance" height="48"></picture>
+
 # Samuel · one project's agent
 
 <img src="../../docs/img/en/robot-samuel.gif" alt="Samuel" width="220" align="right">

@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-pmo-oscuro.svg"><img src="../../docs/img/marca/es/criterio-pmo-claro.svg" alt="Criterio PMO · Gobierno de proyectos" height="48"></picture>
+
 # criterio-pmo · la familia de gobierno de proyectos
 
 **Tres agentes y un servidor, alrededor de un solo contrato de datos.** Cada uno extiende

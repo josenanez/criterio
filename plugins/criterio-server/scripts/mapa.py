@@ -134,6 +134,10 @@ def cargar(mapa: Path) -> tuple[dict, list[dict], Path]:
         x["_estado"] = _ruta(e.get("estado"), raiz)
         x["_informe"] = _ruta(e.get("informe"), raiz)
         x["_config"] = _ruta(e.get("config"), raiz)
+        # Dónde trabaja el agente, completo: la carpeta raíz, la que tiene `.criterio/`, y la de sus
+        # documentos. Rostrum la muestra en cada familia para que nadie tenga que adivinarla.
+        x["_raiz"] = raiz
+        x["_documentos"] = _ruta(e.get("documentos"), raiz)
         entradas.append(x)
     return cfg, entradas, raiz
 
@@ -198,6 +202,10 @@ def selftest() -> int:
         ok("y el nombre de la organización sale de la PMO", cfg["organization"]["name"], "Banco de Prueba")
         ok("las rutas del mapa son relativas: el mapa no publica la carpeta del usuario",
            all(not Path(e["estado"]).is_absolute() for e in cfg["entradas"]), True)
+        fin_c = next(e for e in entradas if e["id"] == "finanzas/900-banco")
+        ok("pero al cargarlo cada entrada sabe dónde trabaja, completo: la raíz y sus documentos",
+           (fin_c["_raiz"].resolve(), fin_c["_documentos"].resolve()),
+           (raiz.resolve(), (raiz / "finanzas" / "900-banco").resolve()))
         config("cumplimiento/900-banco", {"paths": {"state": "estado-legal/900-banco"}})
         rv = revisar(destino(raiz))
         ok("una familia instalada después aparece como nueva, y lo dejado fuera no vuelve",

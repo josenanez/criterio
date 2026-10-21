@@ -109,9 +109,28 @@ EXTRA = f"""
 .lado{{position:sticky;top:0;max-height:100vh;overflow-y:auto;box-sizing:border-box;
   background:{informe.PANEL_ALTO};border-right:1px solid {informe.FILETE}}}
 .arbol{{padding:6px 22px 40px 26px;font-size:1rem;line-height:1.45}}
-.marca{{display:block;padding:26px 22px 14px 26px;border:0;color:{informe.TINTA}}}
-.marca .m1{{display:block;font-size:1.3rem;font-weight:600;letter-spacing:-.01em}}
-.marca .m2{{display:block;font-size:.8rem;color:{informe.APAGADO};margin-top:2px}}
+.marca{{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:12px;align-items:center;
+  padding:26px 22px 14px 22px;border:0;color:{informe.TINTA};text-decoration:none}}
+.marca .simbolo{{grid-row:1 / span 3;width:40px;height:40px}}
+.marca .m1{{font-size:1.45rem;font-weight:600;letter-spacing:-.015em;line-height:1.1}}
+.marca .m2{{font-size:.84rem;color:{informe.TINTA};font-style:italic;line-height:1.3}}
+.marca .m3{{font-size:.78rem;color:{informe.APAGADO};line-height:1.3}}
+.logo{{display:inline-flex;align-items:center;gap:.38em;white-space:nowrap;line-height:1}}
+.logo .simbolo{{flex:0 0 auto;width:1.05em;height:1.05em}}
+.logo .cr{{font-weight:600;color:{informe.TINTA};letter-spacing:-.01em}}
+.logo .sg{{font-weight:600;color:{informe.ORO};letter-spacing:-.01em}}
+h1.fam-h1{{margin-bottom:.1em}}
+p.fn-h1{{font-size:1.2rem;color:{informe.CUERPO};margin:0 0 1.1em}}
+dl.rutas{{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:10px 18px;margin:10px 0 0}}
+dl.rutas dt{{font-weight:600;font-size:.9rem;color:{informe.TINTA}}}
+dl.rutas dd{{margin:0;min-width:0}}
+p.trabaja{{margin:-.2em 0 1.2em;font-size:.95rem}}
+p.trabaja .q{{font-weight:600;color:{informe.TINTA};margin-right:.3em}}
+p.trabaja a{{white-space:nowrap;margin-left:.6em}}
+dl.rutas.raiz{{margin:14px 0 16px}}
+code.ruta{{user-select:all;-webkit-user-select:all;overflow-wrap:anywhere;font-size:.9rem}}
+.cita.falta{{color:{informe.ERROR}}}
+@media (max-width:640px){{dl.rutas{{grid-template-columns:minmax(0,1fr);gap:2px 0}} dl.rutas dd{{margin-bottom:10px}}}}
 .arbol .hoy{{margin:0 0 6px;padding-bottom:10px;border-bottom:1px solid {informe.FILETE_SUAVE}}}
 .arbol .n.alerta{{background:{informe.ERROR_FONDO};color:{informe.ERROR}}}
 details.fam{{margin:.15em 0;border-radius:8px}}
@@ -177,7 +196,7 @@ th{{font-size:.78rem}}
   padding:20px 22px 18px;background:{informe.PANEL_ALTO};color:inherit;border-bottom:1px solid {informe.FILETE}}}
 .fam-card:hover{{border-color:{informe.ORO}}}
 .fam-card:hover .ln{{stroke:{informe.ORO}}}
-.fam-card .q{{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:{informe.ORO};font-weight:700}}
+.fam-card .q{{font-size:1.3rem}}
 .fam-card .t{{font-size:1.2rem;color:{informe.TINTA};font-weight:500;margin:.25em 0 .6em;line-height:1.25}}
 .fam-card .caras{{display:flex;gap:6px;margin:4px 0 12px}}
 .fam-card .cara{{flex:0 0 74px;text-align:center}}
@@ -538,6 +557,108 @@ def comando(cmd: str) -> str:
     return f'{e(etiqueta(cmd))}<span class="cita"><code class="cmd">{e(cmd)}</code></span>'
 
 
+# ------------------------------------------------------------------ la marca
+#
+# La marca es de docs/design.md: el símbolo —el corchete y el punto, que dibuja robots.simbolo—,
+# «Criterio» en Inter Tight 600 y, en cada familia, la sigla del cargo en oro con la función en
+# palabras debajo. Las familias no llevan color propio: el oro es el único acento.
+PROMESA = robots.PROMESA['es']
+ICONO = 'data:image/svg+xml,' + urllib.parse.quote(robots.simbolo(informe.ORO, 64))
+
+
+def nombre_familia(s_: str) -> str:
+    return f'Criterio {s_.upper()}'
+
+
+def logo_familia(s_: str, alto: float = 28) -> str:
+    """El logotipo de una familia: el símbolo, «Criterio» en tinta y la sigla en oro."""
+    return (f'<span class="logo">{robots.simbolo(informe.ORO, alto, None)}'
+            f'<span class="cr">Criterio</span> <span class="sg">{e(s_.upper())}</span></span>')
+
+
+# ------------------------------------------------------------ dónde trabaja
+#
+# El mapa guarda las rutas relativas a la carpeta raíz, para no publicar la carpeta de nadie.
+# Rostrum las completa al servir, en la máquina donde corre, que es donde alguien las necesita:
+# para abrir la carpeta, para saber qué está procesando cada agente y para encontrar su estado.
+
+def ruta_completa(p) -> str:
+    """Una ruta completa, entera de un clic (se selecciona sola) y partida por sus barras."""
+    return '<code class="ruta">' + re.sub(r'([/\\])', r'\1<wbr>', e(str(p))) + '</code>'
+
+
+def donde(x: dict, con_raiz: bool = True) -> str:
+    """Dónde trabaja una instancia de un agente: la carpeta raíz, la de sus documentos con su
+    marca, la de su estado y su configuración, cada una con la ruta completa en este equipo.
+    Sin `con_raiz`, la raíz ya se dijo una vez para todos."""
+    filas = []
+
+    def fila(que, p, nota=''):
+        if p is None:
+            return
+        p = Path(p)
+        existe = p.exists()
+        filas.append(f'<dt>{e(que)}</dt><dd>{ruta_completa(p.resolve() if existe else p)}'
+                     + (f'<span class="cita">{nota}</span>' if nota else '')
+                     + ('' if existe else '<span class="cita falta">Esa carpeta no existe todavía.</span>') + '</dd>')
+    if con_raiz:
+        fila('Carpeta raíz', x.get('_raiz'), NOTA_RAIZ)
+    docs, plugin = x.get('_documentos'), PLUGIN.get(x['area'])
+    dest = mapa.raiz_mod.DESTINO.get(plugin) or {}
+    if docs is not None:
+        m = mapa.raiz_mod.leer(docs, plugin) if dest and docs.is_dir() else None
+        if m:
+            nota = (f'Marcada con <code>{e(m["archivo"])}</code>' + (f' el {e(m["marcada"])}' if m.get('marcada') else '')
+                    + (f' por {e(m["por"])}' if m.get('por') else '') + '.')
+        elif dest:
+            nota = (f'Sin marca todavía: el setup la busca y, con tu sí, deja <code>{e(dest["marca"])}</code> '
+                    'para que la próxima vez la encuentre sola.')
+        else:
+            nota = ''
+        fila('Documentos', docs, nota)
+    elif x.get('_raiz') is not None:
+        filas.append('<dt>Documentos</dt><dd>La configuración no dice dónde están: el agente los busca desde la '
+                     'carpeta raíz.</dd>')
+    fila('Estado', x.get('_estado'), 'Lo que escribe su motor. Rostrum lo sirve sin cambiarlo.')
+    if x['area'] == 'portafolio':
+        fila('Informe', x.get('_informe'))
+    fila('Configuración', x.get('_config'))
+    return (f'<div class="bloque donde"><h3>{e(NOMBRE.get(x["area"], x["area"]))}'
+            + (f' · {e(x["nombre"])}' if x.get('nombre') else '') + f'</h3><dl class="rutas">{"".join(filas)}</dl></div>')
+
+
+NOTA_RAIZ = 'Donde se abre la sesión del agente: la que tiene la carpeta <code>.criterio/</code>.'
+
+
+def raiz_comun(suyas: list):
+    raices = {Path(x['_raiz']).resolve() for x in suyas if x.get('_raiz') is not None}
+    return raices.pop() if len(raices) == 1 else None
+
+
+def trabaja_en(suyas: list) -> str:
+    """Una línea arriba de la página: en qué carpeta trabaja la familia, y el enlace al detalle."""
+    r = raiz_comun(suyas)
+    if r is None:
+        return ''
+    return (f'<p class="trabaja"><span class="q">Trabaja en</span> {ruta_completa(r)} '
+            '<a href="#donde">Dónde está cada agente</a></p>')
+
+
+def seccion_donde(suyas: list, quien: str = 'cada agente') -> str:
+    """«Dónde trabaja», para varias instancias: la raíz una vez, si es la misma, y debajo cada
+    agente con sus carpetas. Con muchas —un Samuel por proyecto—, se pliega."""
+    if not suyas:
+        return ''
+    r = raiz_comun(suyas)
+    bloques = ''.join(donde(x, con_raiz=r is None) for x in suyas)
+    if len(suyas) > 4:
+        bloques = f'<details class="senales"><summary>Ver las {len(suyas)} carpetas</summary>{bloques}</details>'
+    cab = (f'<dl class="rutas raiz"><dt>Carpeta raíz</dt><dd>{ruta_completa(r)}<span class="cita">{NOTA_RAIZ}</span></dd></dl>'
+           if r is not None else '')
+    return (f'<h2 id="donde">Dónde trabaja</h2><p class="entrada">La carpeta de {e(quien)} en este equipo, con la '
+            'ruta completa. Un clic sobre una ruta la selecciona entera, para copiarla.</p>' + cab + bloques)
+
+
 def caso_es(c: str) -> str:
     """Qué es un caso por la forma de su código: lo que se dice en la frase que lo presenta."""
     if re.match(r'^\d{4}-\d{2}$', c):
@@ -727,8 +848,9 @@ def arbol(corridas: list, activa: str = "", entradas: list | None = None, hoy: s
     areas = areas_de(entradas)
     at = atencion(entradas, hoy or dt.date.today().isoformat())
     abierta = familia_de_ruta(activa)
-    out = ['<header class="lado"><a class="marca" href="/"><span class="m1">Criterio</span>'
-           '<span class="m2">Rostrum · el portal de las familias</span></a>'
+    out = [f'<header class="lado"><a class="marca" href="/">{robots.simbolo(informe.ORO, 40, None)}'
+           f'<span class="m1">Criterio</span><span class="m2">{e(PROMESA)}</span>'
+           '<span class="m3">Rostrum · el portal de las familias</span></a>'
            '<input type="checkbox" id="menu" class="menu-caja">',
            '<label for="menu" class="menu-boton">Menú</label>',
            '<nav class="arbol" aria-label="Menú del portal"><ul class="hoy">',
@@ -747,6 +869,7 @@ def arbol(corridas: list, activa: str = "", entradas: list | None = None, hoy: s
         else:
             out.append(li(f'/familia/{s_}', 'Lo último de la familia', 'reportes y señales abiertas'))
         out += [li(f'/agente/{a}', NOMBRE[a], AGENTES[a]["rol"]["es"]) for a in suyos]
+        out.append(li(f'/familia/{s_}#donde', 'Dónde trabaja', 'la carpeta de cada agente, completa'))
         out.append('</ul></details>')
     out += ['<p class="g">El rastro</p><ul>',
             li('/corridas', 'Todas las corridas', 'qué corrió, cuándo y qué encontró'),
@@ -876,10 +999,11 @@ def vista_agente(todas: list, agente: str, hoy: str, entradas: list | None = Non
     total = sum(len(v) for v in por.values())
     cuerpo = [f'<div class="agente-cab">{robots.svg(ROBOT_DE[agente], informe.TINTA, informe.ORO, animado=True, estilo=False)}'
               f'<p class="entrada"><b>{e(NOMBRE[agente])}</b>, {e(TITULO[agente].split(" · ")[1])}, '
-              f'de la familia {e(FAMILIAS[FAMILIA_DE[agente]]["nombre"]["es"].lower())}: '
+              f'de {e(nombre_familia(FAMILIA_DE[agente]))}, {e(FAMILIAS[FAMILIA_DE[agente]]["nombre"]["es"].lower())}: '
               f'{len(sum((c for _, _, c in GRUPOS[agente]), []))} funciones en '
               f'{len(GRUPOS[agente])} grupos, <b>{informe.plural(total, "corrida registrada", "corridas registradas")}</b>. Un comando sin '
-              f'corridas no ha corrido; que no haya corrido también es un dato.</p></div>']
+              f'corridas no ha corrido; que no haya corrido también es un dato.</p></div>',
+              trabaja_en([x for x in (entradas or []) if x['area'] == agente])]
     for grupo, que_es, cmds in GRUPOS[agente]:
         cuerpo.append(f'<h2>{e(grupo)}</h2><p class="entrada">{e(que_es)}</p>'
                       '<div class="bloque"><table><thead><tr><th>Función</th><th>Comando</th>'
@@ -904,10 +1028,11 @@ def vista_agente(todas: list, agente: str, hoy: str, entradas: list | None = Non
             cuerpo.append(f'<tr><td><a href="{e(ruta_reporte(x, rp["ruta"]))}">{e(ETIQUETA.get(rp["comando"], rp["comando"]))}</a></td>'
                           f'<td>{codigo(rp["ruta"])}</td><td class="nw">{e(rp["escrito"])}</td></tr>')
         cuerpo.append('</tbody></table></div>')
+    cuerpo.append(seccion_donde([x for x in (entradas or []) if x['area'] == agente], NOMBRE[agente]))
     cuerpo.append(AVISO_HISTORIA)
     fam = FAMILIA_DE[agente]
     return 200, pagina(f'{NOMBRE[agente]} · {TITULO[agente].split(" · ")[1]}', "".join(cuerpo), hoy,
-                       nav((f'/familia/{fam}', FAMILIAS[fam]["nombre"]["es"]), ('', NOMBRE[agente])), f'/agente/{agente}')
+                       nav((f'/familia/{fam}', nombre_familia(fam)), ('', NOMBRE[agente])), f'/agente/{agente}')
 
 
 def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -> tuple:
@@ -1158,7 +1283,7 @@ def tarjeta_familia(s_: str, entradas: list, at: dict, fr: dict) -> str:
     else:
         n_s = at['senales'].get(s_, 0)
         hoy_tiene = informe.plural(n_s, 'señal abierta', 'señales abiertas') if n_s else 'Sin señales abiertas'
-    return (f'<a class="fam-card" href="/familia/{e(s_)}"><span class="q">Criterio {e(s_.upper())}</span>'
+    return (f'<a class="fam-card" href="/familia/{e(s_)}"><span class="q">{logo_familia(s_, 30)}</span>'
             f'<span class="t">{e(f_["nombre"]["es"])}</span><span class="caras">{caras}</span>'
             f'<span class="d">{e(hoy_tiene)}</span></a>')
 
@@ -1183,6 +1308,9 @@ def portada(fr: dict, hoy: str, org: str = '', entradas: list | None = None) -> 
         sello = (f"El informe de la PMO que se sirve aquí se produjo "
                  f"{'hoy' if not dias else 'hace ' + informe.plural(dias, 'día', 'días')}. "
                  f"No se recalcula al abrir esta página.")
+    raiz_mapa = next((x['_raiz'] for x in entradas if x.get('_raiz') is not None), None)
+    if raiz_mapa is not None:
+        sello += f' Sirve el mapa de {ruta_completa(Path(raiz_mapa).resolve())}.'
     prox = fr.get('proxima_corrida')
     if prox and con_pmo:
         sello += f" La próxima corrida de Vera es el <strong>{e(prox)}</strong>."
@@ -1252,6 +1380,11 @@ def _senales(r: dict) -> int:
     return len((r.get('datos') or {}).get('alertas') or [])
 
 
+def cabeza_familia(s_: str) -> str:
+    """El título de la página de una familia: su logotipo y, debajo, la función en palabras."""
+    return f'<h1 class="fam-h1">{logo_familia(s_, 44)}</h1><p class="fn-h1">{e(FAMILIAS[s_]["nombre"]["es"])}</p>'
+
+
 def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
     """Una familia: cada agente del mapa con lo último que escribió su motor y sus reportes."""
     if sigla not in FAMILIAS:
@@ -1259,12 +1392,14 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
     f = FAMILIAS[sigla]
     suyas = [x for x in entradas if FAMILIA_DE.get(x['area']) == sigla]
     if not suyas:
-        return 404, error(404, f'La familia {f["nombre"]["es"]} no está en el mapa de este portal', hoy)
+        return 404, error(404, f'{nombre_familia(sigla)}, {f["nombre"]["es"].lower()}, no está en el mapa de este portal', hoy)
     if sigla == 'pmo':
         return 200, familia_pmo(f, entradas, hoy)
-    cuerpo = [f'<p class="entrada">Familia {e(sigla.upper())} · {e(f["estado"]["es"])}. Lo que sigue es lo '
+    cuerpo = [cabeza_familia(sigla),
+              f'<p class="entrada">{e(f["estado"]["es"])}. Lo que sigue es lo '
               'último que escribió el motor de cada agente, con la fecha en que lo escribió: aquí no se '
-              'recalcula nada. Cada reporte se abre tal como lo dejó el agente.</p>']
+              'recalcula nada. Cada reporte se abre tal como lo dejó el agente.</p>',
+              trabaja_en(suyas)]
     for a in f["agentes"]:
         for x in [x for x in suyas if x['area'] == a]:
             res = resultados_de(x)
@@ -1304,7 +1439,9 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
                 if len(reps) > 12:
                     cuerpo.append(f'<p class="entrada">Se muestran los 12 más recientes de {len(reps)}; el resto está en la '
                                   f'<a href="/agente/{e(a)}">página del agente</a>.</p>')
-    return 200, pagina(f["nombre"]["es"], "".join(cuerpo), hoy, nav(('', f["nombre"]["es"])), f'/familia/{sigla}')
+    cuerpo.append(seccion_donde(suyas))
+    return 200, pagina(f'{nombre_familia(sigla)} · {f["nombre"]["es"]}', "".join(cuerpo), hoy,
+                       nav(('', nombre_familia(sigla))), f'/familia/{sigla}')
 
 
 def familia_pmo(f: dict, entradas: list, hoy: str) -> str:
@@ -1319,8 +1456,10 @@ def familia_pmo(f: dict, entradas: list, hoy: str) -> str:
                'documento del que salió cada dato.'),
               ('/productos', 'Productos', 'El producto completo, incluso cuando lo construyen proyectos que '
                'reportan a comités distintos.'))
-    cuerpo = [f'<p class="entrada">Familia PMO · {e(f["estado"]["es"])}. El informe de la PMO lo produce Vera; '
-              'aquí se sirve tal como lo dejó, sin recalcular nada.</p><div class="puertas">']
+    cuerpo = [cabeza_familia('pmo'),
+              f'<p class="entrada">{e(f["estado"]["es"])}. El informe de la PMO lo produce Vera; '
+              'aquí se sirve tal como lo dejó, sin recalcular nada.</p>',
+              trabaja_en([x for x in entradas if FAMILIA_DE.get(x['area']) == 'pmo']), '<div class="puertas">']
     cuerpo += [f'<a class="puerta" href="{r}"><span class="t">{e(t)}</span><p class="d">{e(d_)}</p></a>'
                for r, t, d_ in vistas]
     cuerpo.append('</div><h2>Sus agentes</h2>')
@@ -1328,7 +1467,9 @@ def familia_pmo(f: dict, entradas: list, hoy: str) -> str:
         cuerpo.append(f'<div class="agente-cab">{robots.svg(ROBOT_DE[a], informe.TINTA, informe.ORO, animado=True, estilo=False)}'
                       f'<h3 class="t"><a href="/agente/{e(a)}">{e(NOMBRE[a])}</a>, {e(AGENTES[a]["titulo"])}'
                       f'<span class="cita">{e(AGENTES[a]["rol"]["es"])}</span></h3></div>')
-    return pagina(f["nombre"]["es"], "".join(cuerpo), hoy, nav(('', f["nombre"]["es"])), '/familia/pmo')
+    cuerpo.append(seccion_donde([x for x in entradas if FAMILIA_DE.get(x['area']) == 'pmo']))
+    return pagina(f'{nombre_familia("pmo")} · {f["nombre"]["es"]}', "".join(cuerpo), hoy,
+                  nav(('', nombre_familia('pmo'))), '/familia/pmo')
 
 
 def vista_reporte(entradas: list, area: str, instancia: str, rel: str, hoy: str) -> tuple:
@@ -1348,7 +1489,7 @@ def vista_reporte(entradas: list, area: str, instancia: str, rel: str, hoy: str)
               'Es el reporte tal como quedó en el estado del agente; nada de esto se redactó para el portal.</p>',
               '<div class="bloque">', md_a_html(f.read_text(encoding='utf-8')), '</div>']
     sigla = FAMILIA_DE.get(area)
-    migas = nav(*([(f'/familia/{sigla}', FAMILIAS[sigla]["nombre"]["es"])] if sigla and sigla != 'pmo' else []),
+    migas = nav(*([(f'/familia/{sigla}', nombre_familia(sigla))] if sigla and sigla != 'pmo' else []),
                 (f'/agente/{area}', NOMBRE.get(area, area)), ('', ETIQUETA.get(comando, comando)))
     return 200, pagina(f'{NOMBRE.get(area, area)} · {ETIQUETA.get(comando, comando)}', "".join(cuerpo), hoy, migas,
                        f'/familia/{sigla}' if sigla and sigla != 'pmo' else f'/agente/{area}')
@@ -1482,6 +1623,9 @@ class Manejador(BaseHTTPRequestHandler):
         # rastro cambian mientras el servidor corre.
         if '<!--ARBOL ' in texto:
             texto = rellenar_arbol(texto, self.todas(), self.entradas, self.hoy())
+        # El símbolo de Criterio en la pestaña: las páginas del informe traen un ícono vacío,
+        # porque se abren también desde el disco; servidas, son de Rostrum.
+        texto = texto.replace('<link rel="icon" href="data:,">', f'<link rel="icon" href="{ICONO}">', 1)
         self.responder(codigo, texto.encode('utf-8'))
 
     def hoy(self):
@@ -1998,7 +2142,10 @@ def selftest() -> int:
                                                      'paths': {'state': 'pmo/estado', 'reports': 'pmo/informe'}})
         escribe('pmo/informe/index.html', informe.pagina('pmo', '<h1>pmo</h1>', '2026-10-06'))
         (raiz / 'pmo' / 'estado').mkdir(parents=True)
-        escribe('.criterio/finanzas/900-banco/config.json', {'entity': {'name': 'Banco del Mapa'}, 'paths': {'state': 'estado-finanzas/900-banco'}})
+        escribe('.criterio/finanzas/900-banco/config.json', {'entity': {'name': 'Banco del Mapa'},
+                                                             'paths': {'state': 'estado-finanzas/900-banco', 'documents': 'finanzas/900-banco'}})
+        (raiz / 'finanzas' / '900-banco').mkdir(parents=True)
+        mapa.raiz_mod.marcar(raiz / 'finanzas' / '900-banco', 'criterio-finance', '900-banco', 'Ana Prueba', dt.date(2026, 10, 1))
         escribe('estado-finanzas/900-banco/cierre/2026-09/resultados.json', {
             'agente': 'clara', 'periodo': '2026-09', 'alertas': [{'signal': 'project_budget_mismatch', 'key': 'pry:PRY-310'}],
             'vence': [{'fecha': '2026-10-08', 'que': 'T-04 · Conciliaciones firmadas', 'caso': '2026-09', 'estado': 'en plazo', 'comando': 'close-status'}]})
@@ -2013,7 +2160,9 @@ def selftest() -> int:
         escribe('estado-finanzas/900-banco/presupuesto/2026/resultados.json', {'agente': 'tomas', 'anio': '2026', 'alertas': [], 'vence': []})
         escribe('estado-finanzas/900-banco/presupuesto/2026/reporte-variance-report.md', '# variance-report\n\nLa ejecución del año.\n')
         escribe('estado-finanzas/900-banco/corridas/2026-10-06-close-status-1.md', '# Corrida del 2026-10-06 · close-status\n\n## Lo que produjo\n\nel cierre\n')
-        escribe('.criterio/legal/900-banco/config.json', {'entity': {'name': 'Banco del Mapa'}, 'paths': {'state': 'estado-legal/900-banco'}})
+        escribe('.criterio/legal/900-banco/config.json', {'entity': {'name': 'Banco del Mapa'},
+                                                          'paths': {'state': 'estado-legal/900-banco', 'documents': 'legal/900-banco'}})
+        (raiz / 'legal' / '900-banco').mkdir(parents=True)
         escribe('estado-legal/900-banco/contratos/resultados.json', {
             'agente': 'fidel', 'alertas': [], 'vence': [{'fecha': '2026-11-01', 'que': 'límite del preaviso', 'caso': 'CTR-104',
                                                          'estado': 'pendiente', 'comando': 'obligations-calendar'}]})
@@ -2054,6 +2203,28 @@ def selftest() -> int:
         ok('la página de la familia CFO lleva el reporte de Clara y sus señales abiertas',
            cod == 200 and '/reporte/finanzas/900-banco/cierre/2026-09/reporte-close-status.md' in fam and 'Estado del cierre' in fam, True)
         ok('la familia se ve entera: Tomás está en la portada aunque no haya corrido', '/agente/presupuesto' in port, True)
+        # La marca de docs/design.md: el símbolo, «Criterio» y la promesa; cada familia con su sigla y su función.
+        ok('la cabecera lleva el símbolo, «Criterio» y la promesa; la pestaña, el símbolo',
+           ('class="simbolo"' in port, f'<span class="m2">{PROMESA}</span>' in port, f'href="{ICONO}"' in port,
+            '<link rel="icon" href="data:,">' in port), (True, True, True, False))
+        ok('la familia se presenta con su logotipo y la función en palabras, en la página, la tarjeta y las migas',
+           ('<h1 class="fam-h1"><span class="logo">' in fam and '<p class="fn-h1">Cierre, control y reporte</p>' in fam,
+            '<title>Criterio CFO · Cierre, control y reporte · Rostrum</title>' in fam,
+            port.count('<span class="sg">'), '<a href="/familia/cfo">Criterio CFO</a>' in clara), (True, True, 3, True))
+        # Dónde trabaja cada agente, con la ruta completa en este equipo (el mapa la guarda relativa).
+        sin_wbr = fam.replace('<wbr>', '')
+        ok('la familia dice dónde trabaja cada agente: la raíz, los documentos, el estado y la configuración, completos',
+           ('id="donde"' in fam, str(raiz.resolve()) in sin_wbr,
+            str((raiz / 'finanzas' / '900-banco').resolve()) in sin_wbr,
+            str((raiz / '.criterio' / 'finanzas' / '900-banco' / 'config.json').resolve()) in sin_wbr,
+            '/familia/cfo#donde' in port), (True, True, True, True, True))
+        ok('con la marca de la carpeta o el aviso de que falta',
+           ('Marcada con <code>_CRITERIO_FINANZAS.txt</code> el 2026-10-01 por Ana Prueba' in fam,
+            'deja <code>_CRITERIO_LEGAL.txt</code>' in pedir('/familia/clo')[1]), (True, True))
+        ok('y la página del agente y la de la PMO también',
+           ('id="donde"' in clara and str((raiz / 'finanzas' / '900-banco').resolve()) in clara.replace('<wbr>', ''),
+            'id="donde"' in pedir('/familia/pmo')[1]), (True, True))
+        ok('la portada dice qué carpeta sirve', str(raiz.resolve()) in port.replace('<wbr>', ''), True)
         cod_pmo, pmo_ = pedir('/familia/pmo')
         ok('una familia que no existe es 404; la PMO tiene su página de familia con sus cuatro vistas',
            (pedir('/familia/cxo')[0], cod_pmo, all(r in pmo_ for r in ('href="/pmo"', 'href="/decisiones"',

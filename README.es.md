@@ -1,6 +1,8 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="docs/img/marca/logotipo-oscuro.svg"><img src="docs/img/marca/logotipo-claro.svg" alt="Criterio" height="56"></picture>
+
 # Criterio
 
-**Un market de familias de agentes que aceleran capacidades organizacionales.**
+**La evidencia antes de la decisión.** Una plataforma de familias de agentes: cada familia extiende una función ejecutiva completa —gobierno de proyectos, finanzas, legal y las que vienen— con un mismo método, una marca y un portal, Rostrum.
 
 [English](README.md) · [Términos](TERMS.es.md) · [Descargo](DISCLAIMER.es.md) · [Cómo aportar](CONTRIBUTING.es.md)
 
@@ -25,7 +27,7 @@ Cada una tiene su método, su lenguaje y sus formas propias de fallar. Y todas c
 
 Las herramientas de trabajo ayudan a producir un documento más. El problema nunca fue que faltara una plantilla.
 
-**Criterio es un market de agentes, uno por capacidad.** Procesan lo que ya existe, guardan lo que encontraron con una cita por cada dato, y en la corrida siguiente dicen qué cambió.
+**Criterio es una plataforma de familias de agentes, una por capacidad.** Procesan lo que ya existe, guardan lo que encontraron con una cita por cada dato, y en la corrida siguiente dicen qué cambió.
 
 ---
 

@@ -1,3 +1,5 @@
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/logotipo-oscuro.svg"><img src="../../docs/img/marca/logotipo-claro.svg" alt="Criterio" height="48"></picture>
+
 # Rostrum · the portal for every family
 
 <img src="../../docs/img/en/robot-rostrum.gif" alt="Rostrum" width="220" align="right">
@@ -380,8 +382,9 @@ with the families without getting longer:
 1. **Home** and **What falls due.** At the top, what needs attention today. The only number on the
    menu is the count of what is already past its date.
 2. **The families.** One entry per family, with its acronym and its function, folded. Inside are
-   its views (the PMO's four, or the family's latest) and its agents. The family of the page being
-   viewed opens by itself, so with ten families the menu is still ten lines.
+   its views (the PMO's four, or the family's latest), its agents and **Where it works**. The
+   family of the page being viewed opens by itself, so with ten families the menu is still ten
+   lines.
 3. **The trail.** Every run, what is being carried and, if the PMO is there, what changed between
    two cut-offs.
 4. **Ask an agent**, as a button, with the unanswered questions if there are any.
@@ -390,6 +393,17 @@ The home page follows the same logic: first the figures for what needs attention
 what falls due in thirty days, open signals, unanswered questions), then one card per family with
 its agents and a single door, the family's. Each family has its page at `/familia/<sigla>`, the
 PMO's too.
+
+Above the menu sits the brand from [`docs/design.md`](../../docs/design.md): the symbol, «Criterio»
+and the promise, *evidence before the decision*. Each family is presented the same way in the
+menu, on its card and on its page: **Criterio CFO** with its function in words underneath, and no
+colour of its own.
+
+**Where it works.** Each family's page and each agent's page give, with the full path on the
+machine where Rostrum runs, the root folder (the one holding `.criterio/`), the documents folder
+with its `_CRITERIO_…` marker or a note that it is missing, the state folder and the
+configuration. One click on a path selects all of it for copying. The map stores those paths
+relative to the root so it never publishes anyone's folder; Rostrum completes them when serving.
 
 `/agente/<area>` is each agent's catalogue: its functions grouped as its family declares them,
 each command with a name that can be understood and the technical one beside it, how many times

@@ -10,7 +10,7 @@
   "plugins": [
     {
       "name": "criterio-portfolio",
-      "description": "Oficina de proyectos: consolidación de portafolio, estado contra plan, RAID, control de cambios, proveedores, presupuesto, comité y cierre. Lee la documentación que ya existe y dice qué cambió, qué se contradice y qué lleva semanas en silencio.",
+      "description": "Oficina de proyectos: consolidación de portafolio, estado contra plan, RAID, control de cambios, proveedores, presupuesto, comité y cierre. Procesa la documentación que ya existe y dice qué cambió, qué se contradice y qué lleva semanas en silencio.",
       "source": "./plugins/criterio-portfolio",
       "category": "project-management"
     },

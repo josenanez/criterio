@@ -19,6 +19,10 @@ todos los días.
 Son los mismos trazos que josenanez.com usa en la página de Criterio. Aquí viven en un
 solo lugar para que el servidor los dibuje en sus páginas y `docs/img/graficos.py` los
 imprima para los README: si cambia un robot, cambia en todas partes.
+
+Aquí vive también el símbolo de Criterio, el corchete y el punto: una cita, el corchete que
+enmarca la evidencia y el punto que la sostiene. Es del mismo trazo redondeado que los robots
+y, como ellos, se dibuja una sola vez (`simbolo()`); `docs/design.md` dice cómo se usa.
 """
 from __future__ import annotations
 
@@ -325,6 +329,26 @@ def svg(robot: str, trazo: str, acento: str, ancho: float = 120, grosor: float =
             + hoja + cuerpo + "</svg>")
 
 
+# El símbolo, en una caja de 64 × 64. El trazo engruesa por debajo de 32 px para que se siga
+# leyendo a 16 px, el tamaño de una pestaña del navegador.
+# Y la promesa, que va con el símbolo en la cabecera de Rostrum, del portal y del README.
+PROMESA = {"es": "La evidencia antes de la decisión", "en": "Evidence before the decision"}
+SIMBOLO = {"corchete": "M27 11H17.5Q11 11 11 17.5V46.5Q11 53 17.5 53H27", "punto": (39, 32, 7.5),
+           "grosor": 5.5, "grosor_chico": 7.5}
+
+
+def simbolo(color: str, alto: float = 64, titulo: str | None = "Criterio", clase: str = "simbolo") -> str:
+    """El corchete y el punto como `<svg>`. Con `titulo` se anuncia como imagen; sin él es
+    decorativo (va junto a la palabra «Criterio», que ya lo dice)."""
+    g = SIMBOLO["grosor"] if alto >= 32 else SIMBOLO["grosor_chico"]
+    cx, cy, r = SIMBOLO["punto"]
+    rol = (f'role="img" aria-label="{titulo}"' if titulo else 'aria-hidden="true" focusable="false"')
+    return (f'<svg class="{clase}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="{alto:g}" '
+            f'height="{alto:g}" {rol}><path d="{SIMBOLO["corchete"]}" fill="none" stroke="{color}" '
+            f'stroke-width="{g}" stroke-linecap="round" stroke-linejoin="round"/>'
+            f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{color}"/></svg>')
+
+
 def datos() -> dict:
     """Los robots como datos, para quien los dibuja con su propio marcado (el portal): las
     piezas, el gesto y el retraso de cada una, y la hoja de los gestos."""
@@ -343,7 +367,7 @@ def datos() -> dict:
                     d["retraso"] = round((g["dura"] - retraso) % g["dura"], 3)
             lista.append(d)
         out[robot] = {"piezas": lista, "quieto": robot in QUIETOS}
-    return {"robots": out, "css": css(".cr-anima"), "vuelta": VUELTA}
+    return {"robots": out, "css": css(".cr-anima"), "vuelta": VUELTA, "simbolo": SIMBOLO, "promesa": PROMESA}
 
 
 def selftest() -> int:
@@ -382,6 +406,11 @@ def selftest() -> int:
        and "animation-iteration-count:infinite" in hoja and VUELTA <= 5)
     d = datos()
     ok("los datos del portal traen los ocho robots y la misma hoja", set(d["robots"]) == set(todos) and d["css"] == css())
+    ok("el portal recibe el símbolo de aquí, no una copia", d["simbolo"] == SIMBOLO)
+    chico, grande = simbolo("#000", 16, None), simbolo("#000", 64)
+    ok("el símbolo engruesa por debajo de 32 px y, junto a la palabra, no se anuncia dos veces",
+       f'stroke-width="{SIMBOLO["grosor_chico"]}"' in chico and 'aria-hidden="true"' in chico
+       and 'aria-label="Criterio"' in grande)
     print()
     if fallas:
         print(f"{len(fallas)} falla(s)")
