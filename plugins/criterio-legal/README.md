@@ -8,7 +8,7 @@
 
 [Español](README.es.md) · `criterio-legal` · Apache 2.0 · One instance per entity
 
-**Status: built and in testing.** The seven commands, the five skills and the calculation engine are built; the engine passes its deterministic test against synthetic material from four industries, with a key the agent never sees and two control entities. The end-to-end test with the agent is the next step. The family, with Constanza, is in [`families/criterio-clo/DISENO.es.md`](../../families/criterio-clo/DISENO.es.md) (Spanish).
+**Status: built and in testing.** The seven commands, the five skills and the calculation engine are built; the engine passes its deterministic test against synthetic material from four industries, with a key the agent never sees and two control entities. The end-to-end test with the agent is the next step. The family, with Constanza, is in [`families/criterio-clo/DISENO.md`](../../families/criterio-clo/DISENO.md).
 
 ---
 

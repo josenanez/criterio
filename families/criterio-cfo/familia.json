@@ -39,6 +39,10 @@
             "entrega": "La configuración, el inventario de la carpeta y la primera ficha del cierre"
           },
           "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and NIT or RUC, country, IFRS group (F-05, F-06), ERP, currency, period, thresholds, who approves, chart of accounts",
+            "proceso": "Inventory of what is there; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder (what is there, what is missing, what is out of place and where it would go); checklist loaded or recommended; the first close record",
             "entrega": "The configuration, the folder inventory and the first close record"
           }
         },
@@ -53,6 +57,10 @@
             "entrega": "La ficha del cierre al día, con lo que cambió y las señales nuevas"
           },
           "en": {
+            "etiqueta": "What changed in the close",
+            "entrada": "The whole period",
+            "proceso": "Extracts each document's text with its fingerprint; only reprocesses what changed; updates the record with the citation of every data point",
+            "reporte": "What changed in the period; what was added to the record; the new signals; what could not be processed and why",
             "entrega": "The close record up to date, with what changed and the new signals"
           }
         },
@@ -67,6 +75,10 @@
             "entrega": "El estado del cierre: declarado contra evidenciado, tarea por tarea"
           },
           "en": {
+            "etiqueta": "Close status",
+            "entrada": "`00-referencia/checklist-cierre.xlsx`, `40-soportes/` and the record",
+            "proceso": "Matches each task with its evidence, its date and its dependencies; calculates evidenced progress weighted by criticality",
+            "reporte": "Declared status against evidenced status; task table ordered by criticality and due date: done with evidence, done without evidence, overdue, on time, blocked by another; the close's critical path",
             "entrega": "The close status: declared against evidenced, task by task"
           }
         },
@@ -81,6 +93,10 @@
             "entrega": "La conciliación de cada cuenta bancaria, con sus partidas abiertas por antigüedad"
           },
           "en": {
+            "etiqueta": "Bank reconciliation",
+            "entrada": "Each folder in `20-bancos/`: statement and ledger, with date, description, reference, amount and balance",
+            "proceso": "Matches by exact reference, then by amount and date within the configured window, then by amount; classifies every open item",
+            "reporte": "Per account: balance per bank, deposits in transit, outstanding cheques, unrecorded bank notes and balance per books, with the unexplained difference (it must be zero); open items by age (0–30, 31–60, 61–90 and over 90 days)",
             "entrega": "Each bank account reconciled, with its open items by age"
           }
         },
@@ -95,6 +111,10 @@
             "entrega": "La conciliación de cada cuenta contra su auxiliar"
           },
           "en": {
+            "etiqueta": "Account reconciliation",
+            "entrada": "`10-contabilidad/`: the general ledger and `auxiliares/` for receivables, payables, inventory, fixed assets and intercompany",
+            "proceso": "The logic of `bank-reconcile`: the general-ledger balance against the subledger balance of each account, and open items with their age",
+            "reporte": "Per account: balance per general ledger, balance per subledger, the difference and the items that explain it by age; the accounts whose reconciliation was not updated in the period",
             "entrega": "Each account reconciled against its sub-ledger"
           }
         },
@@ -109,6 +129,10 @@
             "entrega": "El cuadre del balance y del mayor, cuenta por cuenta"
           },
           "en": {
+            "etiqueta": "Trial balance and ledger tie-out",
+            "entrada": "`10-contabilidad/`: trial balance and general ledger; the chart of accounts in `00-referencia/`",
+            "proceso": "Debits against credits; opening balance plus movements against closing balance; ledger against trial balance, account by account; balances contrary to the nature declared by the organisation's chart of accounts",
+            "reporte": "The overall tie-out; differences by account with their amount; accounts with a balance contrary to their nature",
             "entrega": "The trial balance and ledger tie-out, account by account"
           }
         },
@@ -123,6 +147,10 @@
             "entrega": "Todas las facturas electrónicas del periodo contra la contabilidad, no una muestra"
           },
           "en": {
+            "etiqueta": "Electronic invoices",
+            "entrada": "`30-facturacion/` and the accounting entries of the accounts the configuration links to sales and purchases",
+            "proceso": "Processes each XML with its official structure (F-01, F-04); matches by CUFE or access key, number, NIT or RUC and amount",
+            "reporte": "Invoices without an entry, entries without an invoice, differences in amount or tax, duplicates; no tax opinion: whatever is a tax judgement is left as a question for the person",
             "entrega": "Every e-invoice in the period against the books, not a sample"
           }
         },
@@ -137,6 +165,10 @@
             "entrega": "El índice del paquete del auditor, con el estado de cada requerimiento"
           },
           "en": {
+            "etiqueta": "Auditor's package",
+            "entrada": "`50-auditoria/` and the record",
+            "proceso": "Matches each request with its answer and its supporting documents",
+            "reporte": "The package index: request, answer, cited support and status (answered with support, answered without support, unanswered, overdue); moves or copies no files",
             "entrega": "The auditor's package index, with the status of every request"
           }
         },
@@ -151,6 +183,10 @@
             "entrega": "Lo que toca hoy en el cierre; si no toca nada, se calla"
           },
           "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the record",
+            "proceso": "Decides what is due by cadence: daily during the close window, weekly outside it",
+            "reporte": "What ran and what it found; if nothing is due, it stays silent",
             "entrega": "What the close needs today; silent when nothing does"
           }
         }
@@ -261,6 +297,10 @@
             "entrega": "La configuración, el inventario y la primera ficha del presupuesto de cada área"
           },
           "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity, budget year, areas or cost centres with their owner, the approved version and its minutes, the mapping of accounts to budget lines (in `00-referencia/`), the variance thresholds and, if the organisation uses the PMO family, where its records are",
+            "proceso": "Inventory of `10-aprobado/` to `40-actas/` and of the periods with `10-contabilidad/`; identifies the approved version by its minutes; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder (what is there, what is missing, what is out of place and where it would go); the approved version it took and the minutes behind it; each area's first record",
             "entrega": "The configuration, the inventory and each area's first budget record"
           }
         },
@@ -275,6 +315,10 @@
             "entrega": "Las fichas del presupuesto al día, con lo que cambió y las señales nuevas"
           },
           "en": {
+            "etiqueta": "What changed in the budget",
+            "entrada": "The whole `presupuesto-<AAAA>/` and `10-contabilidad/` for each period of the year",
+            "proceso": "Extracts each document with its fingerprint; only reprocesses what changed; takes actual and committed spend to its line with the mapping in `00-referencia/`; updates each record with the citation of every data point",
+            "reporte": "What changed; what was added to each record; the new signals; what could not be processed and why, including spend with no line in the mapping",
             "entrega": "The budget records up to date, with what changed and the new signals"
           }
         },
@@ -289,6 +333,10 @@
             "entrega": "Aprobado, ejecutado, comprometido, disponible y desviación por área y cuenta"
           },
           "en": {
+            "etiqueta": "Actual against approved",
+            "entrada": "The records at cut-off and the approved version in force; if the organisation uses the PMO family, each project's budget in its record",
+            "proceso": "By area, line and account: approved, actual, committed and available (approved minus actual minus committed); actual against approved accumulated to cut-off, with its monthly phasing if there is one, and saying so if there is not; each project's budget against the one assigned to the area",
+            "reporte": "The table by area ordered by variance; lines over the threshold; spend with no budget line; projects whose budget does not tie out with the area's; status declared by the area against evidenced status",
             "entrega": "Approved, actual, committed, available and variance by area and account"
           }
         },
@@ -303,6 +351,10 @@
             "entrega": "La proyección al cierre del año, con su supuesto declarado"
           },
           "en": {
+            "etiqueta": "Year-end forecast",
+            "entrada": "Actual at cut-off, `20-compromisos/` and each area's forecast in `30-proyecciones/`",
+            "proceso": "Two calculated forecasts, each with its written assumption: at run rate (actual plus the greater of the monthly average times the remaining months and what is committed) and at plan (actual plus what is left of the approved budget by its monthly phasing); compares them with the forecast the area delivered",
+            "reporte": "By area: approved, the area's forecast and the two calculated ones, with the difference of each; areas whose forecast exceeds what was approved; forecasts not updated within the configured days",
             "entrega": "The year-end forecast, with its stated assumption"
           }
         },
@@ -317,6 +369,10 @@
             "entrega": "Cada traslado con su acta, y los que no la tienen"
           },
           "en": {
+            "etiqueta": "Transfers and their minutes",
+            "entrada": "The versions in `10-aprobado/` and the minutes in `40-actas/`",
+            "proceso": "Compares each version with the previous one, line by line: every change in amount is a transfer, an addition or a reduction; matches it with the minutes that approve it by date, amount and source and destination lines",
+            "reporte": "The log: date, source, destination, amount, minutes and status (with minutes, without minutes, minutes with no change applied); transfers leave the total unchanged, and additions and reductions are shown separately",
             "entrega": "Every transfer with its approval minutes, and those without"
           }
         },
@@ -331,6 +387,10 @@
             "entrega": "El material del comité de presupuesto como paquete de decisiones"
           },
           "en": {
+            "etiqueta": "Budget committee pack",
+            "entrada": "The records, `variance-report`, `forecast` and `transfer-log` at cut-off, and the previous committee's minutes in `40-actas/`",
+            "proceso": "Builds the decision points: lines over the threshold, forecasts over what was approved, transfers without minutes and the previous committee's commitments with their evidence",
+            "reporte": "The pack in the common format: each decision with its figure, its citation and who makes it; the previous minutes' commitments with their status; it does not recommend the decision",
             "entrega": "The budget committee material as a decision pack"
           }
         },
@@ -345,6 +405,10 @@
             "entrega": "Lo que toca hoy en el presupuesto; si no toca nada, se calla"
           },
           "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the records",
+            "proceso": "Decides what is due by cadence: when a new period appears in `10-contabilidad/`, before each committee and once a week for commitments",
+            "reporte": "What ran and what it found; if nothing is due, it stays silent",
             "entrega": "What the budget needs today; silent when nothing does"
           }
         }

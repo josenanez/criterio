@@ -8,7 +8,7 @@
 
 [Español](README.es.md) · `criterio-budget` · Apache 2.0 · One instance per entity
 
-**Status: built and in testing.** The seven commands, the six skills and the calculation engine are built; the engine passes its deterministic test against synthetic material from four industries, with a key the agent never sees and a control entity. The end-to-end test with the agent is the next step. The family, with Clara, is in [`families/criterio-cfo/DISENO.es.md`](../../families/criterio-cfo/DISENO.es.md) (Spanish).
+**Status: built and in testing.** The seven commands, the six skills and the calculation engine are built; the engine passes its deterministic test against synthetic material from four industries, with a key the agent never sees and a control entity. The end-to-end test with the agent is the next step. The family, with Clara, is in [`families/criterio-cfo/DISENO.md`](../../families/criterio-cfo/DISENO.md).
 
 ---
 

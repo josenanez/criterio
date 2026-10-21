@@ -39,6 +39,10 @@
             "entrega": "La configuración, el inventario y las primeras fichas de los contratos"
           },
           "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and NIT or RUC, country, the signing-authority matrix in `00-referencia/`, how many days ahead an expiry or a notice period is flagged, the maximum age of the counterparty's certificate and who decides to renew",
+            "proceso": "Inventory of what is there; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the contracts in `contratos/` against those in the register; the first records",
             "entrega": "The configuration, the inventory and the first contract records"
           }
         },
@@ -53,6 +57,10 @@
             "entrega": "Las fichas de los contratos al día, con lo que cambió y las señales nuevas"
           },
           "en": {
+            "etiqueta": "What changed in the contracts",
+            "entrada": "The whole `contratos/` and `10-registro/`",
+            "proceso": "Extracts each document's text with its fingerprint and only reprocesses what changed; the agent takes to each contract's record its parties, value, dates, renewal, notice period, signatories, amendments, guarantees and obligations, every data point with its citation; the engine validates the record",
+            "reporte": "What changed; which contracts are new; the new signals; what could not be processed and why",
             "entrega": "The contract records up to date, with what changed and the new signals"
           }
         },
@@ -67,6 +75,10 @@
             "entrega": "El registro de contratos contra lo que dicen los documentos"
           },
           "en": {
+            "etiqueta": "Contract register",
+            "entrada": "`10-registro/registro-contratos` and the records",
+            "proceso": "Matches the register with the folders and the records: contract with no register entry, register entry with no document, declared status against the end date, and the register's value and dates against what the document says",
+            "reporte": "Per contract: declared status and status by its dates, and every difference between the register and the document",
             "entrega": "The contract register against what the documents say"
           }
         },
@@ -81,6 +93,10 @@
             "entrega": "Vencimientos, preavisos y obligaciones, con lo que venció sin evidencia"
           },
           "en": {
+            "etiqueta": "Expiries, notice periods and obligations",
+            "entrada": "The records and each contract's `40-ejecucion/`",
+            "proceso": "End date, deadline for the non-renewal notice (end date minus the notice days) and every dated obligation against its evidence in `40-ejecucion/`, with its id at the start of the name",
+            "reporte": "The calendar for the coming days: expiries, notice periods and obligations; what is overdue without evidence and the notice periods that passed without a decision",
             "entrega": "Expiries, notices and obligations, with what is overdue without evidence"
           }
         },
@@ -95,6 +111,10 @@
             "entrega": "Quién firmó cada contrato y con qué facultad"
           },
           "en": {
+            "etiqueta": "Signatures and authority",
+            "entrada": "The records, `00-referencia/matriz-atribuciones` and `30-contraparte/`",
+            "proceso": "Each of the entity's signatories against their authority on the signing date, by type and amount, amendments included; documents without both parties' signatures; the counterparty's certificate against the configured age on the signing date",
+            "reporte": "Per contract: who signed, their authority and the amount; those without both parties' signatures; expired certificates; no opinion on the contract's validity",
             "entrega": "Who signed each contract and with what authority"
           }
         },
@@ -109,6 +129,10 @@
             "entrega": "Lo pagado contra lo pactado, y las garantías contra lo exigido"
           },
           "en": {
+            "etiqueta": "Payments and guarantees",
+            "entrada": "`10-registro/pagos`, the records and `20-garantias/`",
+            "proceso": "What was paid against the value plus amendments; payments after the end date; the guarantees required against those provided, and their validity against what the contract requires",
+            "reporte": "Per contract: value, paid, balance and last payment; each required guarantee with the one provided and its validity",
             "entrega": "Payments against the agreed value, and guarantees against what was required"
           }
         },
@@ -123,6 +147,10 @@
             "entrega": "Lo que toca hoy en los contratos; si no toca nada, se calla"
           },
           "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the records",
+            "proceso": "Decides what is due: the expiries and notice periods entering the window, new documents and a weekly review",
+            "reporte": "What ran and what it found; if nothing is due, it stays silent",
             "entrega": "What the contracts need today; silent when nothing does"
           }
         }
@@ -233,6 +261,10 @@
             "entrega": "La configuración, la matriz revisada y el primer estado del cumplimiento"
           },
           "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity, country, the obligations matrix in `00-referencia/` in the defined model (F-01), the period, the channel's response deadline, the days to assess a new regulation and, if the organisation uses Fidel, where his records are",
+            "proceso": "Inventory of what is there; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; the matrix loaded and what each obligation is missing —owner, source—; the period's first status",
             "entrega": "The configuration, the reviewed matrix and the first compliance status"
           }
         },
@@ -247,6 +279,10 @@
             "entrega": "La ficha del cumplimiento al día, con lo que cambió y las señales nuevas"
           },
           "en": {
+            "etiqueta": "What changed in compliance",
+            "entrada": "The entity's whole folder",
+            "proceso": "Only reprocesses what changed; the agent takes to the record what the report in `20-reportes/` declares and the new regulations in the bulletins in `30-normativa/`, with their citation",
+            "reporte": "What changed; what was added to the record; the new signals; what could not be processed",
             "entrega": "The compliance record up to date, with what changed and the new signals"
           }
         },
@@ -261,6 +297,10 @@
             "entrega": "El estado del cumplimiento: declarado contra evidenciado, obligación por obligación"
           },
           "en": {
+            "etiqueta": "Compliance status",
+            "entrada": "`00-referencia/matriz-obligaciones`, `10-evidencias/` for the period and earlier ones, and Fidel's records if there are any",
+            "proceso": "Each obligation against its evidence within the window of its frequency and its deadline; those with no owner or source; the contracts' compliance obligations that the matrix does not have; declared against evidenced",
+            "reporte": "Declared status against evidenced; table of obligations ordered by criticality and due date: done with evidence, done without evidence, overdue, on time",
             "entrega": "Compliance status: declared against evidenced, obligation by obligation"
           }
         },
@@ -275,6 +315,10 @@
             "entrega": "Cada política con su próxima revisión, y las vencidas"
           },
           "en": {
+            "etiqueta": "Policies to review",
+            "entrada": "`20-politicas/indice-politicas`",
+            "proceso": "Each policy against its review date and its owner",
+            "reporte": "Policies with an overdue review or no owner, and those coming up for review",
             "entrega": "Every policy with its next review, and the overdue ones"
           }
         },
@@ -289,6 +333,10 @@
             "entrega": "Las normas nuevas con su evaluación, y las que aplican sin obligación"
           },
           "en": {
+            "etiqueta": "New regulations",
+            "entrada": "`30-normativa/registro-normativo` and the new regulations in the record",
+            "proceso": "Each registered regulation against its impact assessment within the configured days; those that apply without an obligation in the matrix",
+            "reporte": "Regulations not yet assessed and those that apply without an obligation in the matrix; no opinion on the scope of any regulation",
             "entrega": "New rules with their assessment, and the applicable ones without an obligation"
           }
         },
@@ -303,6 +351,10 @@
             "entrega": "Los casos del canal de denuncias contra su plazo"
           },
           "en": {
+            "etiqueta": "Whistleblowing channel",
+            "entrada": "`40-canal/casos`",
+            "proceso": "Each case against the configured response deadline",
+            "reporte": "Open cases by age and those past their deadline; no data about who reported",
             "entrega": "Whistleblowing cases against their deadline"
           }
         },
@@ -317,6 +369,10 @@
             "entrega": "Lo que toca hoy en el cumplimiento; si no toca nada, se calla"
           },
           "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the record",
+            "proceso": "Decides what is due: obligations falling due within the window, new documents and a weekly review",
+            "reporte": "What ran and what it found; if nothing is due, it stays silent",
             "entrega": "What compliance needs today; silent when nothing does"
           }
         }

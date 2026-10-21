@@ -1,3 +1,5 @@
+[English](DISENO.md)
+
 # criterio-cfo · la familia de la función financiera
 
 ![Clara, Tomás y Rostrum](../../docs/img/es/robots-cfo.gif)

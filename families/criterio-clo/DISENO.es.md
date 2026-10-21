@@ -1,3 +1,5 @@
+[English](DISENO.md)
+
 # criterio-clo · la familia de la función legal
 
 ![Fidel, Constanza y Rostrum](../../docs/img/es/robots-clo.gif)

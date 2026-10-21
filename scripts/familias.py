@@ -134,10 +134,16 @@ def fuentes_md(fu: dict) -> str:
     return "\n".join(l)
 
 
-def cifras_diseno(fu: dict) -> str:
+def cifras_diseno(fu: dict, i: str = "es") -> str:
     ver = [c for c in fu["cifras"] if c["estado"] == "verificada"]
     pend = [c for c in fu["cifras"] if c["estado"] != "verificada"]
     ids = ", ".join(f"{c['id']} ({c['fuente'].split(',')[0]})" for c in ver)
+    if i == "en":
+        t = (f"Only verified figures go in, with their source, year and sample; they are in [`FUENTES.es.md`](FUENTES.es.md) "
+             f"(Spanish). Verified: {ids}.")
+        if pend:
+            t += " To be verified, and out of any publication until they are: " + ", ".join(c["id"] for c in pend) + "."
+        return t
     t = (f"Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). "
          f"Verificadas: {ids}.")
     if pend:
@@ -158,31 +164,43 @@ def cifras_readme(fu: dict, i: str) -> str:
 
 # ---------------------------------------------------------------- la familia
 
-def agentes_md(fa: dict) -> str:
-    l = ["| Rol | Agente | Plugin | Qué hace |", "|---|---|---|---|"]
+# Los encabezados de las tablas del diseño, en los dos idiomas: el diseño en inglés sale de las
+# mismas fuentes que el español (cada texto de familia.json y carpetas.json trae los dos).
+CABECERAS = {
+    "es": {"agentes": "| Rol | Agente | Plugin | Qué hace |", "senales": "| Señal | Se levanta cuando |",
+           "comandos": "| # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |",
+           "carpetas": "| Carpeta | Qué va | Agente |"},
+    "en": {"agentes": "| Role | Agent | Plugin | What it does |", "senales": "| Signal | Raised when |",
+           "comandos": "| # | Command | Input | Process (calculated by the code) | Report |",
+           "carpetas": "| Folder | What goes in | Agent |"},
+}
+
+
+def agentes_md(fa: dict, i: str = "es") -> str:
+    l = [CABECERAS[i]["agentes"], "|---|---|---|---|"]
     for a in fa["agentes"]:
-        l.append(f"| {a['rol']['es']} | **{a['nombre']}** — {a['origen']['es']} | `{a['plugin']}` | {a['hace']['es']} |")
+        l.append(f"| {a['rol'][i]} | **{a['nombre']}** — {a['origen'][i]} | `{a['plugin']}` | {a['hace'][i]} |")
     return "\n".join(l)
 
 
-def senales_md(fa: dict) -> str:
+def senales_md(fa: dict, i: str = "es") -> str:
     l = []
     for a in fa["agentes"]:
-        l += [f"**{a['nombre']} · {a['rol']['es']}**", "", "| Señal | Se levanta cuando |", "|---|---|"]
-        l += [f"| `{s['id']}` | {celda(s['es'])} |" for s in a["senales"]]
+        l += [f"**{a['nombre']} · {a['rol'][i]}**", "", CABECERAS[i]["senales"], "|---|---|"]
+        l += [f"| `{s['id']}` | {celda(s[i])} |" for s in a["senales"]]
         l.append("")
     return "\n".join(l).rstrip()
 
 
-def comandos_md(a: dict) -> str:
-    l = ["| # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |", "|---|---|---|---|---|"]
+def comandos_md(a: dict, i: str = "es") -> str:
+    l = [CABECERAS[i]["comandos"], "|---|---|---|---|---|"]
     for c in a["comandos"]:
-        e = c["es"]
+        e = c[i]
         l.append(f"| {c['n']} | `{c['id']}` | {celda(e['entrada'])} | {celda(e['proceso'])} | {celda(e['reporte'])} |")
     return "\n".join(l)
 
 
-def carpetas_md(ca: dict, fa: dict) -> str:
+def carpetas_md(ca: dict, fa: dict, i: str = "es") -> str:
     nombres = {a["id"]: a["nombre"] for a in fa["agentes"]}
     niveles = ca["niveles"]
     # Bajo la entidad: sus carpetas propias, después cada nivel con las suyas.
@@ -195,13 +213,13 @@ def carpetas_md(ca: dict, fa: dict) -> str:
         for j, h in enumerate(hijos):
             arbol.append(f"    {'    ' if ultimo else '│   '}{'└── ' if j == len(hijos) - 1 else '├── '}{h}")
     arbol.append(ca["estado"]["carpeta"])
-    l = [ca["raiz"]["es"], "", "```", *arbol, "```", ""]
+    l = [ca["raiz"][i], "", "```", *arbol, "```", ""]
     for n in niveles:
-        l += [f"**`{n['carpeta']}`** · {n['es']}", "", "| Carpeta | Qué va | Agente |", "|---|---|---|"]
+        l += [f"**`{n['carpeta']}`** · {n[i]}", "", CABECERAS[i]["carpetas"], "|---|---|---|"]
         for c in n["carpetas"]:
-            l.append(f"| `{c['carpeta']}/` | {celda(c['es'])} | {', '.join(nombres[x] for x in c['agentes'])} |")
+            l.append(f"| `{c['carpeta']}/` | {celda(c[i])} | {', '.join(nombres[x] for x in c['agentes'])} |")
         l.append("")
-    l.append(f"**`{ca['estado']['carpeta']}`** · {ca['estado']['es']}.")
+    l.append(f"**`{ca['estado']['carpeta']}`** · {ca['estado'][i]}.")
     return "\n".join(l)
 
 
@@ -268,9 +286,11 @@ def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
             if not (s.get("es") and s.get("en")):
                 err.append(f"{s['id']}: le falta el texto en un idioma")
         for c in a["comandos"]:
-            if not c["en"].get("entrega"):
-                err.append(f"{c['id']}: le falta la entrega en inglés")
-            texto = " ".join(c["es"].values())
+            # El diseño en inglés publica el comando entero, así que el inglés trae lo mismo que el español.
+            faltan = [k for k in c["es"] if not c["en"].get(k)]
+            if faltan:
+                err.append(f"{c['id']}: le falta en inglés {', '.join(faltan)}")
+            texto = " ".join(list(c["es"].values()) + list(c["en"].values()))
             for tok in re.findall(r"`([^`]+)`", texto):
                 cabeza = tok.split("/")[0]
                 if re.match(r"\d\d-", cabeza) and cabeza not in numeradas:
@@ -332,15 +352,19 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
         return [], 0, 0
     fu, ca, fa = cargar("fuentes.json"), cargar("carpetas.json"), cargar("familia.json")
     errores = revisar(fu, ca, fa)
-    diseno = F["dir"] / "DISENO.es.md"
     salidas: list[tuple[Path, str]] = [(F["dir"] / "FUENTES.es.md", fuentes_md(fu))]
-    d = diseno.read_text(encoding="utf-8")
-    for nombre, contenido in (("agentes", agentes_md(fa)), ("carpetas", carpetas_md(ca, fa)),
-                              ("senales", senales_md(fa)), ("cifras", cifras_diseno(fu))):
-        d = poner(d, nombre, contenido, diseno)
-    for a in fa["agentes"]:
-        d = poner(d, f"comandos-{a['id']}", comandos_md(a), diseno)
-    salidas.append((diseno, d))
+    # El diseño en español y, si existe, en inglés: las mismas tablas, de las mismas fuentes.
+    for nombre_d, i in (("DISENO.es.md", "es"), ("DISENO.md", "en")):
+        diseno = F["dir"] / nombre_d
+        if not diseno.is_file():
+            continue
+        d = diseno.read_text(encoding="utf-8")
+        for nombre, contenido in (("agentes", agentes_md(fa, i)), ("carpetas", carpetas_md(ca, fa, i)),
+                                  ("senales", senales_md(fa, i)), ("cifras", cifras_diseno(fu, i))):
+            d = poner(d, nombre, contenido, diseno)
+        for a in fa["agentes"]:
+            d = poner(d, f"comandos-{a['id']}", comandos_md(a, i), diseno)
+        salidas.append((diseno, d))
     for a in fa["agentes"]:
         base = P / a["plugin"]
         for nombre, i in (("README.es.md", "es"), ("README.md", "en")):

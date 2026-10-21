@@ -87,8 +87,8 @@ running `server-setup` again.
 
 Each family explains in its own documentation what it has in the portal: the
 [PMO](../../families/criterio-pmo/README.md#in-rostrum-the-portal-for-every-family), the
-[CFO](../../families/criterio-cfo/DISENO.es.md#en-rostrum) (Spanish) and the
-[CLO](../../families/criterio-clo/DISENO.es.md#en-rostrum) (Spanish). The full guide, with
+[CFO](../../families/criterio-cfo/DISENO.md#in-rostrum) and the
+[CLO](../../families/criterio-clo/DISENO.md#in-rostrum). The full guide, with
 screenshots, is at [josenanez.com/agents/rostrum](https://www.josenanez.com/agents/rostrum).
 
 ## The first result
