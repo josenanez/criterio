@@ -1,5 +1,7 @@
 # Clara · the controller
 
+<img src="../../docs/img/en/robot-clara.png" alt="Clara" width="220" align="right">
+
 **Clara puts the books next to their supporting documents.** The monthly close with its checklist and evidence, bank and account reconciliations, every DIAN or SRI e-invoice against its entry, and the auditor's package. She processes every document in the period, not a sample, and says what ties out, what does not and what has no support.
 
 [Español](README.es.md) · `criterio-finance` · Apache 2.0 · One instance per entity

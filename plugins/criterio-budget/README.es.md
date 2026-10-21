@@ -1,5 +1,7 @@
 # Tomás · FP&A
 
+<img src="../../docs/img/es/robot-tomas.png" alt="Tomás" width="220" align="right">
+
 **Tomás pone el presupuesto al lado de su gemelo, la ejecución.** Lo aprobado contra lo ejecutado y lo comprometido por área y línea, la proyección al cierre del año con su supuesto escrito, cada traslado con su acta y el material del comité como paquete de decisiones.
 
 [English](README.md) · `criterio-budget` · Apache 2.0 · Una instancia por entidad

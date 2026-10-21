@@ -1,5 +1,7 @@
 # Clara · la contralora
 
+<img src="../../docs/img/es/robot-clara.png" alt="Clara" width="220" align="right">
+
 **Clara pone los libros al lado de sus soportes.** El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, cada factura electrónica de la DIAN o del SRI contra su registro, y el paquete para el auditor. Procesa todos los documentos del periodo, no una muestra, y dice qué cuadra, qué no y qué no tiene soporte.
 
 [English](README.md) · `criterio-finance` · Apache 2.0 · Una instancia por entidad

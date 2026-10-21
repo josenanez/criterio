@@ -132,7 +132,7 @@ T = {
     'es': {
         # ── emblemas ──
         'pmo_fn': 'Oficina de proyectos',
-        'pmo_fr': 'Leo la documentación que tu PMO ya tiene, y digo qué no se sostiene.',
+        'pmo_fr': 'Proceso la documentación que tu PMO ya tiene, y digo qué no se sostiene.',
         'cfo_fn': 'Cierre, control y reporte',
         'cfo_fr': 'Cierro contra lo que dicen los documentos, no contra lo que se declara.',
         'clo_fn': 'Contratos y cumplimiento',
@@ -142,7 +142,10 @@ T = {
         'rb': {'vera': ('Vera', 'Director de proyectos', 'Para quien responde por el portafolio completo.', 'El portafolio'),
                'samuel': ('Samuel', 'Gerente de proyecto', 'Para quien responde por un proyecto.', 'Un proyecto'),
                'alba': ('Alba', 'Gerente de producto', 'Para quien define qué se construye.', 'Un producto'),
-               'rostrum': ('Rostrum', 'El servidor', 'Donde quedan las corridas de los tres.', 'El servidor')},
+               'rostrum': ('Rostrum', 'El servidor', 'Donde quedan las corridas de los tres.', 'El servidor'),
+               'clara': ('Clara', 'Contralora', 'Para quien cierra el mes y responde por lo que dicen los libros.', 'El cierre'),
+               'tomas': ('Tomás', 'FP&A', 'Para quien pone el presupuesto al lado de lo ejecutado.', 'El presupuesto')},
+        'en_prueba': 'Construida · en prueba',
         'declarada': 'Capacidad declarada',
         'construccion': 'En construcción',
         'sin_construir': 'Sin construir',
@@ -240,17 +243,20 @@ T = {
     },
     'en': {
         'pmo_fn': 'Project management office',
-        'pmo_fr': 'I read the documentation your PMO already has, and say what does not hold.',
+        'pmo_fr': 'I process the documentation your PMO already has, and say what does not hold.',
         'cfo_fn': 'Close, control and reporting',
         'cfo_fr': 'I close against what the documents say, not against what is declared.',
         'clo_fn': 'Contracts and compliance',
         'clo_fr': 'I know what you signed, what expires, and what you committed to.',
         'disponible': 'Available',
+        'en_prueba': 'Built · in testing',
         # ── the robots ──
         'rb': {'vera': ('Vera', 'Project director', 'For whoever answers for the whole portfolio.', 'The portfolio'),
                'samuel': ('Samuel', 'Project manager', 'For whoever answers for one project.', 'One project'),
                'alba': ('Alba', 'Product manager', 'For whoever defines what gets built.', 'One product'),
-               'rostrum': ('Rostrum', 'The server', "Where the three agents' runs are kept.", 'The server')},
+               'rostrum': ('Rostrum', 'The server', "Where the three agents' runs are kept.", 'The server'),
+               'clara': ('Clara', 'Controller', 'For whoever closes the month and answers for what the books say.', 'The close'),
+               'tomas': ('Tomás', 'FP&A', 'For whoever puts the budget next to actual spend.', 'The budget')},
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
@@ -397,7 +403,7 @@ def emblema(t, sigla, fn, fr, estado, glifo):
     for linea in lineas:
         d.text((X, y), linea, font=f(R, 27), fill=APAGADO)
         y += 38
-    insignia(d, (X, 600), estado, estado in (t['disponible'], T['en']['disponible']))
+    insignia(d, (X, 600), estado, estado in (t['disponible'], t['en_prueba']))
     return img
 
 
@@ -958,7 +964,7 @@ if __name__ == '__main__':
         print(idioma)
         guardar(emblema(t, 'PMO', t['pmo_fn'], t['pmo_fr'], t['disponible'], glifo_pmo),
                 idioma, 'pmo.png')
-        guardar(emblema(t, 'CFO', t['cfo_fn'], t['cfo_fr'], t['declarada'], glifo_cfo),
+        guardar(emblema(t, 'CFO', t['cfo_fn'], t['cfo_fr'], t['en_prueba'], glifo_cfo),
                 idioma, 'cfo.png')
         guardar(emblema(t, 'CLO', t['clo_fn'], t['clo_fr'], t['declarada'], glifo_clo),
                 idioma, 'clo.png')
@@ -970,5 +976,10 @@ if __name__ == '__main__':
         guardar(cadencia(t), idioma, 'cadencia.png')
         guardar(instalacion(t), idioma, 'instalacion.png')
         guardar(servidor(t), idioma, 'servidor.png')
-        for nombre in trazos.ORDEN:
+        for nombre in trazos.ORDEN + trazos.ORDEN_CFO:
             guardar(tarjeta(t, nombre), idioma, f'robot-{nombre}.png')
+    # El trazo de cada robot, solo, para que el portal lo dibuje sin copiarlo.
+    os.makedirs(os.path.join(AQUI, 'robots'), exist_ok=True)
+    for nombre in trazos.ORDEN + trazos.ORDEN_CFO:
+        with open(os.path.join(AQUI, 'robots', f'{nombre}.svg'), 'w', encoding='utf-8') as fh:
+            fh.write(trazos.svg(nombre, ORO, ORO) + '\n')
