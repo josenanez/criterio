@@ -1,0 +1,46 @@
+name: Compartir un hallazgo · Share a finding
+description: Lo que un agente encontró, o no encontró, sobre tus documentos. Solo si quieres compartirlo. · What an agent found, or missed, on your documents. Only if you want to share it.
+title: "[Hallazgo] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Gracias por compartirlo. **Nada de esto se envía solo**: este issue es el único canal de vuelta, y lo abres tú.
+        Describe el hallazgo con tus palabras; no pegues documentos.
+
+        Thank you for sharing it. **Nothing is ever sent automatically**: this issue is the only way back, and you open it.
+        Describe the finding in your own words; do not paste documents.
+  - type: dropdown
+    id: familia
+    attributes:
+      label: Familia · Family
+      options:
+        - Criterio PMO · Vera, Samuel, Alba
+        - Criterio CFO · Clara, Tomás
+        - Criterio CLO · Fidel, Constanza
+        - Rostrum
+    validations:
+      required: true
+  - type: input
+    id: comando
+    attributes:
+      label: Comando y versión · Command and version
+      placeholder: /criterio-finance:close-status · 0.7.0
+  - type: textarea
+    id: hallazgo
+    attributes:
+      label: Qué encontró, o qué no encontró · What it found, or what it missed
+      description: La señal, la cifra o la fila del reporte, y por qué te sirvió o no. · The signal, figure or report line, and why it helped or not.
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Qué esperabas · What you expected
+  - type: checkboxes
+    id: datos
+    attributes:
+      label: Datos · Data
+      options:
+        - label: No incluye documentos de clientes, datos personales reales ni material confidencial. · It contains no client documents, real personal data or confidential material.
+          required: true

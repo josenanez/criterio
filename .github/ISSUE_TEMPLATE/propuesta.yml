@@ -1,0 +1,21 @@
+name: Proponer un cambio · Propose a change
+description: Antes de escribir código, para que dos personas no hagan lo mismo. · Before writing code, so two people do not build the same thing.
+title: "[Propuesta] "
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: El problema, en el lenguaje de quien lo vive · The problem, in the words of whoever has it
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Lo que propones · What you propose
+    validations:
+      required: true
+  - type: textarea
+    id: fuente
+    attributes:
+      label: La fuente · The source
+      description: La norma, el formato oficial o la cifra con su fuente, año y muestra, si aplica. · The regulation, official format or figure with its source, year and sample, if it applies.

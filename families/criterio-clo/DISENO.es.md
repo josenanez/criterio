@@ -25,7 +25,9 @@ qué preguntaron y siguen con la respuesta.
 **De dónde sale este documento.** Las tablas de agentes, carpetas, señales, comandos y cifras no se
 escriben aquí: salen de [`familia.json`](familia.json), [`carpetas.json`](carpetas.json) y
 [`fuentes.json`](fuentes.json), que `scripts/familias.py` escribe en este diseño, en
-`FUENTES.es.md`, en los README de los plugins y, con `scripts/criterio-clo.mjs`, en el portal.
+`FUENTES.es.md`, en los README de los plugins y, con `scripts/criterio-familias.mjs`, en el portal.
+
+**Lo que más se pregunta**, en [`PREGUNTAS.es.md`](PREGUNTAS.es.md) ([English](PREGUNTAS.md)), y **hacia dónde va**, en la [hoja de ruta](#hoja-de-ruta).
 
 ## Un agente por rol
 
@@ -244,6 +246,21 @@ completa.
 <!-- clo:cifras · generado por scripts/familias.py; no se edita a mano -->
 Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (World Commerce & Contracting con Deloitte), C-02 (EY Law y Harvard Law School Center on the Legal Profession), C-03 (EY Law y Harvard Law School Center on the Legal Profession).
 <!-- /clo:cifras -->
+
+## Hoja de ruta
+
+<!-- hoja de ruta: generado por scripts/hoja.py desde hoja-de-ruta.json; no se edita a mano -->
+
+La familia crece por incrementos. Cada uno es una versión con su prueba completa y su análisis estadístico publicados, con las mismas métricas, para que la evolución se pueda comparar.
+
+| Versión | Estado | Qué entra | Prueba |
+|---|---|---|---|
+| Incremento 1 | En curso | **Construida, con el motor probado**<br>· Los catorce comandos de Fidel y Constanza, sus skills y el motor de cálculo<br>· Colombia y Ecuador, sin opinión jurídica: lo que exige una obligación lo define la organización en su matriz<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente | El motor, contra 4 industrias y 2 entidades de control |
+| Incremento 2 | Siguiente | **La ronda con el agente**<br>· Fidel y Constanza corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo trae cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones—, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
+| Incremento 3 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre los contratos y el cumplimiento de una organización concreta | La documentación de esa organización |
+| Incremento 4 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
+
+<!-- /hoja de ruta -->
 
 ## Decisiones cerradas
 

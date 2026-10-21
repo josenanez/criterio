@@ -1,0 +1,55 @@
+name: Reportar un defecto · Report a defect
+description: Un comando que falla, un reporte que dice algo que los documentos no dicen, una página de Rostrum que no abre. · A command that fails, a report that says something the documents do not, a Rostrum page that does not open.
+title: "[Defecto] "
+body:
+  - type: dropdown
+    id: familia
+    attributes:
+      label: Familia · Family
+      options:
+        - Criterio PMO · Vera, Samuel, Alba
+        - Criterio CFO · Clara, Tomás
+        - Criterio CLO · Fidel, Constanza
+        - Rostrum
+    validations:
+      required: true
+  - type: input
+    id: comando
+    attributes:
+      label: Comando y versión · Command and version
+      placeholder: /criterio-legal:obligations-calendar · 0.7.0
+    validations:
+      required: true
+  - type: dropdown
+    id: donde
+    attributes:
+      label: Dónde corre · Where it runs
+      options:
+        - Claude Cowork
+        - Claude Code
+        - Otro · Other
+  - type: textarea
+    id: que
+    attributes:
+      label: Qué pasó · What happened
+      description: Lo que mostró el agente o el error, sin datos reales. · What the agent showed or the error, with no real data.
+    validations:
+      required: true
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Qué esperabas · What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: pasos
+    attributes:
+      label: Cómo reproducirlo · How to reproduce it
+      description: Si se puede, con el material de prueba del repositorio (tests/). · If possible, with the repository's test material (tests/).
+  - type: checkboxes
+    id: datos
+    attributes:
+      label: Datos · Data
+      options:
+        - label: No incluye documentos de clientes, datos personales reales ni material confidencial. · It contains no client documents, real personal data or confidential material.
+          required: true

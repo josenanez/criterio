@@ -1,5 +1,5 @@
 {
-  "nota": "Fuente única de las fuentes de la familia CLO: scripts/familias.py escribe FUENTES.es.md, la sección de cifras de DISENO.es.md y la tabla de cifras de los README de criterio-legal; el portal la publica con scripts/criterio-clo.mjs.",
+  "nota": "Fuente única de las fuentes de la familia CLO: scripts/familias.py escribe FUENTES.es.md, la sección de cifras de DISENO.es.md y la tabla de cifras de los README de criterio-legal; el portal la publica con scripts/criterio-familias.mjs.",
   "secciones": [
     {
       "id": "marcos",

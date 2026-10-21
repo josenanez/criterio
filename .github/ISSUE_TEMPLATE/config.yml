@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Una vulnerabilidad · A vulnerability
+    url: https://github.com/josenanez/criterio/blob/main/SECURITY.md
+    about: No la publiques en un issue; sigue la política de seguridad. · Do not post it in an issue; follow the security policy.
+  - name: Apoyar el trabajo · Support the work
+    url: https://www.josenanez.com/es/agents/criterio-pmo#support
+    about: Una contribución voluntaria para pruebas, documentación y nuevas capacidades. · A voluntary contribution for testing, documentation and new capabilities.

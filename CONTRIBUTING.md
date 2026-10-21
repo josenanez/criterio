@@ -6,7 +6,7 @@
 
 Read [TERMS.md](TERMS.md). Contributions are licensed under Apache 2.0 by the act of submitting them, and by contributing you state that the content is yours to submit and contains no client or confidential material.
 
-Open an issue first describing what you want to change, so two people do not write the same thing twice.
+Open an issue first describing what you want to change, so two people do not write the same thing twice. There are three templates: **propose a change**, **report a defect** and **share a finding** —what an agent found or missed on your documents—. None of them asks for documents: describe it in words, with no real data.
 
 ## The shape of the work
 

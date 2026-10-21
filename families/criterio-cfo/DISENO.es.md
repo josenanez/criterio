@@ -29,9 +29,11 @@ estado. El diseño, la documentación y las pruebas citan esas fuentes por su id
 **De dónde sale este documento.** Las tablas de agentes, carpetas, señales, comandos y cifras no se
 escriben aquí: salen de tres fuentes, [`familia.json`](familia.json), [`carpetas.json`](carpetas.json)
 y [`fuentes.json`](fuentes.json), que `scripts/familias.py` escribe en este diseño, en `FUENTES.es.md`,
-en los README de `criterio-finance` y, con `scripts/criterio-cfo.mjs`, en el portal. Una puerta de
+en los README de `criterio-finance` y, con `scripts/criterio-familias.mjs`, en el portal. Una puerta de
 `scripts/verificar.py` falla si alguna copia no cuadra, si un comando cita una carpeta que no está
 en la estructura o si se apoya en una fuente por verificar.
+
+**Lo que más se pregunta**, en [`PREGUNTAS.es.md`](PREGUNTAS.es.md) ([English](PREGUNTAS.md)), y **hacia dónde va**, en la [hoja de ruta](#hoja-de-ruta).
 
 ## Un agente por rol
 
@@ -336,6 +338,20 @@ prueba en la ronda, sobre el mismo material. La familia se declara probada con u
 <!-- cfo:cifras · generado por scripts/familias.py; no se edita a mano -->
 Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner).
 <!-- /cfo:cifras -->
+
+## Hoja de ruta
+
+<!-- hoja de ruta: generado por scripts/hoja.py desde hoja-de-ruta.json; no se edita a mano -->
+
+La familia crece por incrementos. Cada uno es una versión con su prueba completa y su análisis estadístico publicados, con las mismas métricas, para que la evolución se pueda comparar.
+
+| Versión | Estado | Qué entra | Prueba |
+|---|---|---|---|
+| Incremento 1 | En curso | **Construida, con el motor probado**<br>· Los dieciséis comandos de Clara y Tomás, sus doce skills y el motor de cálculo<br>· La factura electrónica de la DIAN y del SRI, procesada desde su fuente técnica oficial<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente | El motor, contra 4 industrias y 2 entidades de control |
+| Incremento 2 | Siguiente | **La ronda con el agente**<br>· Clara y Tomás corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo traen las actas, los correos y las cartas del auditor, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
+| Incremento 3 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre la contabilidad y el presupuesto de una organización concreta | La documentación de esa organización |
+
+<!-- /hoja de ruta -->
 
 ## Decisiones cerradas
 

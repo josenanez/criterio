@@ -478,6 +478,30 @@ def agentes_json() -> tuple[str, list[str]]:
     return json.dumps(d, ensure_ascii=False, indent=2) + "\n", err
 
 
+def revisar_preguntas() -> list[str]:
+    """Las preguntas frecuentes de cada familia: el portal las publica en los dos idiomas, así que
+    los dos tienen que traer las mismas secciones y las mismas preguntas, en el mismo orden."""
+    err = []
+    for d in sorted((RAIZ / "families").glob("criterio-*")):
+        es, en = d / "PREGUNTAS.es.md", d / "PREGUNTAS.md"
+        if not es.is_file() and not en.is_file():
+            continue
+        if not (es.is_file() and en.is_file()):
+            err.append(f"{d.name}: las preguntas frecuentes están en un solo idioma")
+            continue
+        forma = [[ln.startswith("## ") for ln in f.read_text(encoding="utf-8").splitlines() if ln.startswith(("## ", "### "))]
+                 for f in (es, en)]
+        if forma[0] != forma[1]:
+            err.append(f"{d.name}: PREGUNTAS.es.md y PREGUNTAS.md no traen las mismas secciones y preguntas")
+        for f in (es, en):
+            texto = f.read_text(encoding="utf-8").lower()
+            # «certificado» aquí es un documento (el de la contraparte), no una promesa de calidad.
+            for x in (p for p in PROHIBIDAS if not p.startswith("certif")):
+                if x in texto:
+                    err.append(f"{d.name}/{f.name}: dice «{x.strip()}»")
+    return err
+
+
 def familias_servidor(reg: dict, i: str) -> str:
     """Cada agente de cada familia: su setup, dónde deja su configuración y con qué marca su
     carpeta raíz. Es lo que `server-setup` encuentra para armar el mapa."""
@@ -505,6 +529,7 @@ def main() -> int:
             resumen.append(f"{clave.upper()} {n} comandos y {archivos} archivos")
     contenido, e_ag = agentes_json()
     errores += [f"AGENTES · {e}" for e in e_ag]
+    errores += [f"PREGUNTAS · {e}" for e in revisar_preguntas()]
     destino = P / "criterio-server" / "scripts" / "agentes.json"
     if destino.parent.is_dir():
         actual = destino.read_text(encoding="utf-8") if destino.exists() else ""

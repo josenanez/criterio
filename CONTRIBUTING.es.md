@@ -6,7 +6,7 @@
 
 Lea [TERMS.es.md](TERMS.es.md). Los aportes se licencian bajo Apache 2.0 por el solo hecho de enviarlos, y al aportar usted declara que el contenido es suyo y no contiene material confidencial ni de clientes.
 
-Abra primero un issue describiendo qué quiere cambiar, para que dos personas no escriban lo mismo.
+Abra primero un issue describiendo qué quiere cambiar, para que dos personas no escriban lo mismo. Hay tres plantillas: **proponer un cambio**, **reportar un defecto** y **compartir un hallazgo** —lo que un agente encontró o no encontró sobre sus documentos—. Ninguna pide documentos: se describe con palabras, sin datos reales.
 
 ## La forma del trabajo
 

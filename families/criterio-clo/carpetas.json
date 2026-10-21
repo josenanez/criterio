@@ -1,5 +1,5 @@
 {
-  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CLO: scripts/familias.py la escribe en DISENO.es.md, en el skill legal-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-clo.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CLO: scripts/familias.py la escribe en DISENO.es.md, en el skill legal-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
   "raiz": {
     "carpeta": "legal/",
     "es": "Una carpeta por entidad, con el NIT o el RUC al inicio del nombre. Dentro, lo que la organización lleva para toda la entidad, una carpeta por contrato y una por periodo de cumplimiento.",
