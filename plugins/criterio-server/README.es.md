@@ -77,10 +77,12 @@ vence en todas y el formulario para preguntarle a cualquiera de ellos.
 
 ## Lo que ve quien entra
 
-![La portada del portal](../../docs/img/portal/portada.png)
+![El inicio del portal](../../docs/img/portal/portada.png)
 
-Las secciones, en el orden en que alguien pregunta: **cómo va todo, después el proyecto que le
-toca, después el producto que le importa**, y después cada familia que trabaja en la organización.
+El inicio responde primero **qué pide atención hoy**: lo que ya pasó su fecha, lo que vence en
+treinta días, las señales abiertas y las preguntas sin responder. Después viene una tarjeta por
+familia. Dentro de la PMO el orden es el de siempre: **cómo va todo, después el proyecto que le
+toca, después el producto que le importa**.
 
 La portada dice además **de cuándo es lo que se ve**, que es precisamente lo que nadie sabe
 cuando le reenvían un PDF. No se recalcula al abrir la página, y eso se declara en vez de
@@ -374,11 +376,22 @@ formulario y el movimiento.
 
 ## El menú, las páginas de los agentes y las de cada caso
 
-A la izquierda de toda página va un menú corto, en el orden en que alguien entra:
-**Portafolio** si la PMO está en el mapa (cómo va, lo que necesita una decisión, proyectos,
-productos), **Las familias** si están las otras (cada familia y lo que vence), **Historia** (todas
-las corridas, lo que se arrastra, qué cambió entre dos cortes), **Los agentes** (cada uno con
-cuántas corridas lleva) y **Preguntar**.
+A la izquierda de toda página va el menú. Está ordenado por lo que alguien viene a hacer y crece
+con las familias sin alargarse:
+
+1. **Inicio** y **Lo que vence.** Arriba, lo que pide atención hoy. El único número que lleva el
+   menú es el de lo que ya pasó su fecha.
+2. **Las familias.** Una entrada por familia, con su sigla y su función, plegada. Dentro van sus
+   vistas (las cuatro de la PMO, o lo último de la familia) y sus agentes. Se abre sola la de la
+   página que se está mirando, así que con diez familias el menú sigue siendo de diez líneas.
+3. **El rastro.** Todas las corridas, lo que se arrastra y, si está la PMO, qué cambió entre dos
+   cortes.
+4. **Preguntar a un agente**, como botón, con las preguntas sin responder si las hay.
+
+El inicio repite esa lógica: primero las cifras de lo que pide atención (lo vencido, lo que vence
+en treinta días, las señales abiertas, las preguntas sin responder) y después una tarjeta por
+familia con sus agentes y una sola puerta, la de la familia. Cada familia tiene su página en
+`/familia/<sigla>`, la PMO también.
 
 `/agente/<área>` es el catálogo de cada agente: sus funciones agrupadas como las declara su
 familia, cada comando con un nombre que se entiende y el técnico al lado, cuántas veces corrió y

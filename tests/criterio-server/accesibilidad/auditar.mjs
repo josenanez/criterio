@@ -97,8 +97,13 @@ if (await p.$('form.pide')) {
   if (new URL(p.url()).pathname !== '/') fallas.push('el formulario se envía sin texto');
 }
 const t = await b.newPage({ viewport: { width: 390, height: 800 } });
-await t.goto(BASE + '/'); await t.keyboard.press('Tab'); await t.keyboard.press('Tab');
-if ((await t.evaluate(() => document.activeElement.className)) !== 'menu-caja') fallas.push('el menú del teléfono no se alcanza con el teclado');
+await t.goto(BASE + '/');
+let alcanzado = false;
+for (let i = 0; i < 4 && !alcanzado; i++) {   // el salto al contenido y la marca van antes
+  await t.keyboard.press('Tab');
+  alcanzado = (await t.evaluate(() => document.activeElement.className)) === 'menu-caja';
+}
+if (!alcanzado) fallas.push('el menú del teléfono no se alcanza con el teclado en los primeros cuatro Tab');
 await t.keyboard.press('Space');
 if ((await t.evaluate(() => getComputedStyle(document.querySelector('.arbol')).display)) === 'none') fallas.push('el menú del teléfono no se abre con el teclado');
 

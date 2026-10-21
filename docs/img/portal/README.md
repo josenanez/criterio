@@ -20,7 +20,7 @@ python3 plugins/criterio-portfolio/scripts/informe.py \
   --state /tmp/estado --salida /tmp/informe \
   --config <una configuración con organization.name> --today 2026-09-30
 
-python3 plugins/criterio-portfolio/scripts/servidor.py \
+python3 plugins/criterio-server/scripts/servidor.py \
   --informe /tmp/informe --estado /tmp/estado --config <la misma>
 ```
 
@@ -31,7 +31,7 @@ instalar nada, y un pipeline de capturas rompería esa propiedad por una comodid
 
 | Archivo | Qué página es |
 |---|---|
-| `portada.png` | La portada que sirve el servidor, con las tres secciones |
+| `portada.png` | El inicio que sirve el servidor: lo que pide atención y la tarjeta de la familia |
 | `informes-pmo.png` | `index.html` · cómo va el portafolio |
 | `decisiones.png` | `decisiones.html` · lo que necesita una decisión del comité |
 | `proyectos.png` | `proyectos.html` · el listado |

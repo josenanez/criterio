@@ -76,10 +76,12 @@ all of them and the form to ask any of them a question.
 
 ## What a visitor sees
 
-![The portal's landing page](../../docs/img/portal/portada.png)
+![The portal's home page](../../docs/img/portal/portada.png)
 
-The sections, in the order someone asks: **how everything is going, then the project that is
-theirs, then the product they care about**, and then each family working in the organisation.
+The home page answers first **what needs attention today**: what is already past its date, what
+falls due in thirty days, open signals and unanswered questions. Then comes one card per family.
+Inside the PMO the order is the usual one: **how everything is going, then the project that is
+theirs, then the product they care about**.
 
 The landing page also says **how old what you are looking at is**, which is precisely what nobody
 knows when a PDF is forwarded to them. It is not recomputed when the page opens, and that is
@@ -372,11 +374,22 @@ at 1280, 768, 390 and 320 px. It also checks the keyboard, the phone menu, the f
 
 ## The menu, the agents' pages and the case pages
 
-On the left of every page there is a short menu, in the order someone comes in: **Portfolio** if
-the PMO is on the map (how it is going, what needs a decision, projects, products), **The
-families** if the others are (each family and what falls due), **History** (every run, what is
-being carried, what changed between two cut-offs), **The agents** (each with its run count) and
-**Ask**.
+On the left of every page is the menu. It is ordered by what someone comes to do, and it grows
+with the families without getting longer:
+
+1. **Home** and **What falls due.** At the top, what needs attention today. The only number on the
+   menu is the count of what is already past its date.
+2. **The families.** One entry per family, with its acronym and its function, folded. Inside are
+   its views (the PMO's four, or the family's latest) and its agents. The family of the page being
+   viewed opens by itself, so with ten families the menu is still ten lines.
+3. **The trail.** Every run, what is being carried and, if the PMO is there, what changed between
+   two cut-offs.
+4. **Ask an agent**, as a button, with the unanswered questions if there are any.
+
+The home page follows the same logic: first the figures for what needs attention (what is overdue,
+what falls due in thirty days, open signals, unanswered questions), then one card per family with
+its agents and a single door, the family's. Each family has its page at `/familia/<sigla>`, the
+PMO's too.
 
 `/agente/<area>` is each agent's catalogue: its functions grouped as its family declares them,
 each command with a name that can be understood and the technical one beside it, how many times
