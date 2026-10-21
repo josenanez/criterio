@@ -6,7 +6,7 @@
 
 Apache 2.0 · Four clicks to install · Each agent produces its first result in fifteen minutes
 
-**Status: in testing (0.3).** The agents are being tested command by command against seeded cases; reliability figures are published when they are measured, not before. [Security](SECURITY.md)
+**Status: the PMO family is released in 0.7.0; the CFO and CLO families are built and in testing.** Every change goes through `scripts/verificar.py`: today, 970 checks across 49 gates, with what each one tests and what it does not on [the results page](docs/pruebas.md) (Spanish). Reliability figures on real data are published when they are measured, not before. [Security](SECURITY.md)
 
 ---
 
@@ -25,7 +25,7 @@ Each has its own method, its own language and its own ways of failing. And they 
 
 Work tools help you produce one more document. The problem was never a missing template.
 
-**Criterio is a marketplace of agents, one per capability.** They read what already exists, keep a record of what they found with a citation for every data point, and on the next run say what changed.
+**Criterio is a marketplace of agents, one per capability.** They process what already exists, keep a record of what they found with a citation for every data point, and on the next run say what changed.
 
 ---
 
@@ -45,14 +45,17 @@ one another. Agents from different families do not.
 PMO report, the CFO and CLO reports, what falls due across all of them— for whoever does not open
 a folder, and takes written questions for any agent. It installs separately,
 [`criterio-server`](plugins/criterio-server/README.md), and a map built by folder selection says
-what it serves ([ADR 0010](docs/decisions/0010-rostrum-plugin-propio.md), Spanish).
+what it serves ([ADR 0010](docs/decisions/0010-rostrum-plugin-propio.md), Spanish). Its home page
+says what needs attention today across every family. Its menu has one entry per family, so it grows
+without getting longer. Every page meets WCAG 2.2 AA, checked with Chromium and axe-core at four
+screen widths ([how it is tested](plugins/criterio-server/README.md#how-it-is-verified)).
 
 **The list is not closed.** A family joins when somebody who performs that capability
 wants to build it, and the format is in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## What every agent shares
 
-This is not a collection of loose assistants. All three are built on the same five behaviours,
+This is not a collection of loose assistants. All of them are built on the same six behaviours,
 and they are not style: they are what makes their output something you can put in front of a
 committee.
 
@@ -63,6 +66,10 @@ committee.
    agent that reports every week whether or not there is news gets ignored within a month.
 4. **None of them declares.** None writes a project's status or decides what gets built.
 5. **None of them writes to anybody.** They produce the list; chasing someone is a conversation.
+6. **They find their folder; they do not ask for it.** Setup searches for the root folder, offers
+   numbered candidates with the reason for each and, if the person says yes, marks it with a
+   visible file, `_CRITERIO_<QUÉ>.txt`. It is the only thing an agent writes among the
+   organisation's documents ([ADR 0011](docs/decisions/0011-la-carpeta-raiz-se-busca-y-se-marca.md), Spanish).
 
 What changes between them is **the rhythm of the conversation**, and that is on each one's page.
 
@@ -94,14 +101,6 @@ project governance one, see [criterio-pmo](families/criterio-pmo/README.md#insta
 **What we do not claim**
 
 This produces working drafts, not decisions. Every version goes through an internal validation before it is published, and its evidence is public. The agents know what was written, not what was said outside the documents. Read the [disclaimer](DISCLAIMER.md) before installing: using it means accepting the [terms](TERMS.md).
-
----
-
-Maintained by [José Francisco Ñáñez](https://josenanez.com).
-
----
-
-Maintained by [José Francisco Ñáñez](https://josenanez.com).
 
 ---
 

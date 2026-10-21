@@ -56,7 +56,7 @@
   {
    "incremento": 3,
    "version": "0.8.0",
-   "estado": "siguiente",
+   "estado": "en curso",
    "industrias": [
     "construccion",
     "oil-gas"
@@ -64,14 +64,18 @@
    "es": {
     "titulo": "Construcción e infraestructura, y oil & gas",
     "entra": [
-     "Dos industrias nuevas, con sus propios proyectos, documentos y situaciones"
+     "Dos industrias nuevas, con sus propios proyectos, documentos y situaciones",
+     "Ya construido: Rostrum para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core",
+     "Ya construido: la carpeta raíz que cada agente busca y, con permiso, marca"
     ],
     "prueba": "6 industrias"
    },
    "en": {
     "titulo": "Construction and infrastructure, and oil & gas",
     "entra": [
-     "Two new industries, with their own projects, documents and situations"
+     "Two new industries, with their own projects, documents and situations",
+     "Already built: Rostrum for every family, with one menu entry per family and a home page that says what needs attention today, WCAG 2.2 AA checked with axe-core",
+     "Already built: the root folder each agent searches for and, with permission, marks"
     ],
     "prueba": "6 industries"
    }
@@ -107,7 +111,6 @@
    "es": {
     "titulo": "Rostrum",
     "entra": [
-     "La evolución visual de Rostrum según WCAG 2.2 AA e ISO 9241; ser plugin propio para todas las familias entró en la 0.7.0",
      "Gantt de línea base contra vigente, hitos y curva de avance"
     ],
     "prueba": "8 industrias"
@@ -115,7 +118,6 @@
    "en": {
     "titulo": "Rostrum",
     "entra": [
-     "Rostrum's visual evolution to WCAG 2.2 AA and ISO 9241; becoming its own plugin for every family came in 0.7.0",
      "Gantt of baseline against current, milestones and progress curve"
     ],
     "prueba": "8 industries"

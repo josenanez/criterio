@@ -6,7 +6,7 @@
 
 Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer resultado en quince minutos
 
-**Estado: en pruebas (0.3).** Los agentes se están probando comando por comando contra casos sembrados; las cifras de fiabilidad se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
+**Estado: la familia PMO está liberada en la 0.7.0; la CFO y la CLO están construidas y en prueba.** Cada cambio pasa por `scripts/verificar.py`: hoy, 970 comprobaciones en 49 puertas, con lo que cada una prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
 
 ---
 
@@ -25,7 +25,7 @@ Cada una tiene su método, su lenguaje y sus formas propias de fallar. Y todas c
 
 Las herramientas de trabajo ayudan a producir un documento más. El problema nunca fue que faltara una plantilla.
 
-**Criterio es un market de agentes, uno por capacidad.** Leen lo que ya existe, guardan lo que encontraron con una cita por cada dato, y en la corrida siguiente dicen qué cambió.
+**Criterio es un market de agentes, uno por capacidad.** Procesan lo que ya existe, guardan lo que encontraron con una cita por cada dato, y en la corrida siguiente dicen qué cambió.
 
 ---
 
@@ -45,14 +45,17 @@ contrato de datos y se entregan trabajo unos a otros. Los de familias distintas,
 —el informe de la PMO, los reportes de la CFO y de la CLO, lo que vence en todas— para quien no
 abre una carpeta, y recibe preguntas escritas para cualquier agente. Se instala aparte,
 [`criterio-server`](plugins/criterio-server/README.es.md), y un mapa por selección de carpeta dice qué
-sirve ([ADR 0010](docs/decisions/0010-rostrum-plugin-propio.md)).
+sirve ([ADR 0010](docs/decisions/0010-rostrum-plugin-propio.md)). Su inicio dice qué pide atención hoy en
+todas las familias. Su menú tiene una entrada por familia, así que crece sin alargarse. Cada
+página cumple WCAG 2.2 AA, comprobado con Chromium y axe-core a cuatro anchos de pantalla
+([cómo se prueba](plugins/criterio-server/README.es.md#cómo-se-verifica)).
 
 **La lista no está cerrada.** Una familia entra cuando alguien que ejerce esa capacidad
 quiere construirla, y el formato está en [CONTRIBUTING.es.md](CONTRIBUTING.es.md).
 
 ## Lo que comparten todos los agentes
 
-No es una colección de asistentes sueltos. Los tres se construyen sobre las mismas cinco
+No es una colección de asistentes sueltos. Todos se construyen sobre las mismas seis
 conductas, y no son estilo: son las que hacen que su salida se pueda poner frente a un comité.
 
 1. **Cada dato lleva la cita del documento de donde salió**, con su fecha. Un dato sin fuente
@@ -63,6 +66,10 @@ conductas, y no son estilo: son las que hacen que su salida se pueda poner frent
    Un agente que reporta todas las semanas haya o no noticia se ignora en un mes.
 4. **Ninguno declara.** Ninguno escribe el estado de un proyecto ni decide qué se construye.
 5. **Ninguno le escribe a nadie.** Producen la lista; perseguir a alguien es una conversación.
+6. **Encuentran su carpeta; no la piden.** El setup busca la carpeta raíz, la propone numerada con
+   la razón de cada candidata y, si la persona dice que sí, la marca con un archivo visible,
+   `_CRITERIO_<QUÉ>.txt`. Es lo único que un agente escribe entre los documentos de la
+   organización ([ADR 0011](docs/decisions/0011-la-carpeta-raiz-se-busca-y-se-marca.md)).
 
 Lo que cambia entre uno y otro es **el ritmo de la conversación**, y eso está en la página de
 cada uno.
@@ -95,14 +102,6 @@ gobierno de proyectos, en [criterio-pmo](families/criterio-pmo/README.es.md#inst
 **Lo que no afirmamos**
 
 Esto produce borradores de trabajo, no decisiones. Cada versión pasa una validación interna antes de publicarse, y su evidencia es pública. Los agentes saben lo que se escribió, no lo que se habló fuera de los documentos. Lee el [descargo](DISCLAIMER.es.md) antes de instalar: usarlo implica aceptar los [términos](TERMS.es.md).
-
----
-
-Mantenido por [José Francisco Ñáñez](https://josenanez.com).
-
----
-
-Mantenido por [José Francisco Ñáñez](https://josenanez.com).
 
 ---
 

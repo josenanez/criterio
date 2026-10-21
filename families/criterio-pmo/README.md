@@ -341,9 +341,9 @@ The family grows in increments. Each one is a version with its full test and its
 |---|---|---|---|
 | 0.6.0 | Released | **Wider material**<br>· Fixes D058 to D060<br>· 20 projects per industry in the test material<br>· Industries from a single source | Verified by the 0.7.0 test |
 | 0.7.0 | Released | **Microsoft Project schedules**<br>· Project XML as a schedule: tasks, milestones, baseline, progress, predecessors and resources; .mpp where Java and MPXJ are present<br>· The recommended folder structure<br>· The contrast between the manager's record and the PMO's, as the skill defines it<br>· The statistical analysis, regenerated with every test<br>· This roadmap, from a single source | 4 industries, 80 projects |
-| 0.8.0 | Next | **Construction and infrastructure, and oil & gas**<br>· Two new industries, with their own projects, documents and situations | 6 industries |
+| 0.8.0 | In progress | **Construction and infrastructure, and oil & gas**<br>· Two new industries, with their own projects, documents and situations<br>· Already built: Rostrum for every family, with one menu entry per family and a home page that says what needs attention today, WCAG 2.2 AA checked with axe-core<br>· Already built: the root folder each agent searches for and, with permission, marks | 6 industries |
 | 0.9.0 | Next | **Telecommunications and logistics**<br>· Two new industries: portfolio scale and operations that never stop | 8 industries |
-| 0.10.0 | Next | **Rostrum**<br>· Rostrum's visual evolution to WCAG 2.2 AA and ISO 9241; becoming its own plugin for every family came in 0.7.0<br>· Gantt of baseline against current, milestones and progress curve | 8 industries |
+| 0.10.0 | Next | **Rostrum**<br>· Gantt of baseline against current, milestones and progress curve | 8 industries |
 | 1.0.0 | Reserved | **Deployment in an organization**<br>· The record schema, holding up in the first deployment in an organization | That organization's documentation |
 
 <!-- /hoja de ruta -->
