@@ -245,7 +245,9 @@ def lineas_de_md(md: str) -> list[tuple[str, int]]:
     return lineas
 
 
-def pdf_de_lineas(lineas: list[tuple[str, int]], destino: Path) -> None:
+def pdf_de_lineas(lineas: list[tuple[str, int]], destino: Path, idioma: str = "es", titulo: str = "") -> None:
+    """El PDF dice su idioma y su título: un lector de pantalla lo lee en español y no anuncia
+    un nombre de archivo."""
     paginas, pagina, y = [], [], 790
     for texto, tam in lineas:
         if y < 60:
@@ -255,7 +257,9 @@ def pdf_de_lineas(lineas: list[tuple[str, int]], destino: Path) -> None:
             pagina.append((texto, tam, y))
         y -= tam + 5
     paginas.append(pagina)
-    objs = ["<< /Type /Catalog /Pages 2 0 R >>", None,
+    titulo = titulo or next((x for x, _ in lineas if x), "")
+    objs = [f"<< /Type /Catalog /Pages 2 0 R /Lang ({_pdf_texto(idioma)}) "
+            f"/ViewerPreferences << /DisplayDocTitle true >> >>", None,
             "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>"]
     kids = []
     for pg in paginas:
@@ -265,6 +269,8 @@ def pdf_de_lineas(lineas: list[tuple[str, int]], destino: Path) -> None:
                     f"/Resources << /Font << /F1 3 0 R >> >> /Contents {len(objs)} 0 R >>")
         kids.append(len(objs))
     objs[1] = f"<< /Type /Pages /Kids [{' '.join(f'{k} 0 R' for k in kids)}] /Count {len(kids)} >>"
+    objs.append(f"<< /Title ({_pdf_texto(titulo)}) /Producer (Criterio) >>")
+    info = len(objs)
     salida, offs = "%PDF-1.4\n", []
     for i, o in enumerate(objs, start=1):
         offs.append(len(salida.encode("latin-1")))
@@ -272,7 +278,7 @@ def pdf_de_lineas(lineas: list[tuple[str, int]], destino: Path) -> None:
     xref = len(salida.encode("latin-1"))
     salida += f"xref\n0 {len(objs) + 1}\n0000000000 65535 f \n"
     salida += "".join(f"{o:010d} 00000 n \n" for o in offs)
-    salida += f"trailer\n<< /Size {len(objs) + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n"
+    salida += f"trailer\n<< /Size {len(objs) + 1} /Root 1 0 R /Info {info} 0 R >>\nstartxref\n{xref}\n%%EOF\n"
     destino.write_bytes(salida.encode("latin-1"))
 
 
@@ -301,7 +307,7 @@ def aceptar(config: Path, por: str, idioma: str | None = None, hoy: dt.date | No
     pdf = carpeta / f"{nombre}.pdf"
     texto = comprobante_md(por, hoy.isoformat(), inst, t, reg, url, nombre, idioma)
     md.write_text(texto, encoding="utf-8")
-    pdf_de_lineas(lineas_de_md(texto), pdf)
+    pdf_de_lineas(lineas_de_md(texto), pdf, idioma)
     h_md, h_pdf = sha256(md), sha256(pdf)
     (carpeta / f"{nombre}.sha256").write_text(f"{h_md}  {md.name}\n{h_pdf}  {pdf.name}\n", encoding="utf-8")
 

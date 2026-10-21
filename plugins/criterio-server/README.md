@@ -357,6 +357,19 @@ latest run went**, generated from the run itself:
 [`tests/criterio-server/RESULTADOS.md`](../../tests/criterio-server/RESULTADOS.md) (Spanish).
 Acceptance criteria in [ACCEPTANCE.md](ACCEPTANCE.md).
 
+**Accessibility, WCAG 2.2 AA.** The tests above check, without a browser, what must not regress:
+
+- the contrast of every text colour against every background;
+- the border of form fields;
+- that no text drops below 12 px;
+- on every linked page: a single `h1`, the skip link, `main`, title and language;
+- that the robots stop on their own in under five seconds.
+
+The full walk, with Chromium and axe-core, is in
+[`tests/criterio-server/accesibilidad/`](../../tests/criterio-server/accesibilidad/). With
+Rostrum running, `npm ci && BASE=http://127.0.0.1:<port> npm run auditar` walks every linked page
+at 1280, 768, 390 and 320 px. It also checks the keyboard, the phone menu, the form and motion.
+
 ## The menu, the agents' pages and the case pages
 
 On the left of every page there is a short menu, in the order someone comes in: **Portfolio** if

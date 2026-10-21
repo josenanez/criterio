@@ -96,60 +96,69 @@ ALIAS = {
 # Del archivo a su ruta amable, para que el árbol marque dónde está el lector.
 ALIAS_INVERSO = {v: k for k, v in ALIAS.items()}
 
+# Las claves son las que el agente lee en su `*-wake`; los textos sirven a cualquier familia.
 ASUNTOS = {
-    'revisar': 'Que revise un proyecto contra sus documentos',
-    'explicar': 'Que explique de dónde salió un dato del informe',
-    'corregir': 'Que algo del informe no coincide con lo que sé',
+    'revisar': 'Que revise un caso contra sus documentos (un proyecto, un contrato, un periodo)',
+    'explicar': 'Que explique de dónde salió un dato',
+    'corregir': 'Que algo de lo publicado no coincide con lo que sé',
     'otra': 'Otra cosa',
 }
 
 EXTRA = f"""
-.con-arbol{{display:grid;grid-template-columns:340px minmax(0,1fr);min-height:100vh}}
-.arbol{{position:sticky;top:0;max-height:100vh;overflow-y:auto;box-sizing:border-box;
-  padding:34px 24px 40px 28px;background:{informe.PANEL_ALTO};
-  border-right:1px solid {informe.FILETE};font-size:1rem;line-height:1.45}}
+.con-arbol{{display:grid;grid-template-columns:320px minmax(0,1fr);min-height:100vh}}
+.lado{{position:sticky;top:0;max-height:100vh;overflow-y:auto;box-sizing:border-box;
+  background:{informe.PANEL_ALTO};border-right:1px solid {informe.FILETE}}}
+.arbol{{padding:30px 22px 40px 26px;font-size:1rem;line-height:1.45}}
 .con-arbol > .hoja{{max-width:1080px;margin:0;padding:48px 56px 96px}}
-.arbol .g{{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;
-  color:{informe.ORO};font-weight:700;margin:1.7em 0 .5em}}
+.arbol .g{{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;
+  color:{informe.ORO};font-weight:700;margin:1.5em 0 .4em}}
 .arbol .g:first-child{{margin-top:0}}
 .arbol .n{{display:inline-block;min-width:1.6em;padding:0 .45em;margin-left:.35em;border-radius:1em;
   background:{informe.PANEL};color:{informe.CUERPO};font-size:.82rem;font-weight:600;text-align:center;
   letter-spacing:0;text-transform:none}}
 .arbol ul{{list-style:none;margin:0;padding:0}}
-.arbol li{{margin:.15em 0}}
-.arbol a{{display:block;padding:.3em 0;color:{informe.TINTA};border:0;text-decoration:none}}
+.arbol li{{margin:.1em 0}}
+.arbol a{{display:block;padding:.28em 0;color:{informe.TINTA};border:0;text-decoration:none}}
+.arbol a[aria-current]{{color:{informe.ORO};font-weight:700}}
 .arbol a:hover{{color:{informe.ORO}}}
 td.exceso{{color:{informe.ERROR};font-weight:700}}
-.arbol a.yo{{color:{informe.ORO};font-weight:700}}
 .arbol li a{{font-weight:500}}
 .arbol li a .d{{display:block;font-weight:400;font-size:.84rem;color:{informe.APAGADO};line-height:1.3}}
 td.nw{{white-space:nowrap}}
-.menu-caja{{display:none}}
-.menu-boton{{display:none}}
+.menu-caja,.menu-boton{{display:none}}
 @media (max-width:900px){{
   .con-arbol{{display:block}}
-  .menu-boton{{display:block;margin:20px 20px 0;padding:12px 16px;border:1px solid {informe.ORO};
-    border-radius:8px;color:{informe.ORO};font-weight:700;cursor:pointer;font-size:1rem}}
+  .lado{{position:static;max-height:none;overflow:visible;border-right:0;
+    border-bottom:1px solid {informe.FILETE}}}
+  /* La casilla del menú se puede alcanzar con el teclado: está, aunque no se vea. */
+  .menu-caja{{display:block;position:absolute;opacity:0;width:1px;height:1px;margin:0}}
+  .menu-boton{{display:block;margin:14px 18px;padding:12px 16px;border:1px solid {informe.ORO};
+    border-radius:8px;color:{informe.ORO};font-weight:700;cursor:pointer;font-size:1rem;
+    text-transform:none;letter-spacing:0}}
   .menu-boton::before{{content:"☰  "}}
-  .con-arbol > .hoja{{padding:24px 20px 72px}}
-  .arbol{{display:none;border-right:0;border-bottom:1px solid {informe.FILETE};background:{informe.PANEL_ALTO};
-    max-height:none;padding:12px 20px 24px;position:static;overflow:visible}}
+  .menu-caja:checked + .menu-boton::before{{content:"✕  "}}
+  .menu-caja:focus-visible + .menu-boton{{outline:3px solid {informe.ORO};outline-offset:2px}}
+  .con-arbol > .hoja{{padding:24px 18px 72px}}
+  .arbol{{display:none;padding:4px 20px 24px}}
   .menu-caja:checked ~ .arbol{{display:block}}
 }}
-@media print{{.arbol,.menu-boton{{display:none}}}}
+@media print{{.lado{{display:none}}}}
 .portada h1{{margin-bottom:.15em}}
 .familia{{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 4px;max-width:720px}}
 .familia a{{display:block;text-align:center;color:inherit;border:0;padding:12px 6px 10px;border-radius:10px}}
 .familia a:hover{{background:{informe.PANEL_ALTO}}}
 .familia a:hover .ln{{stroke:{informe.ORO}}}
 .familia svg{{width:100%;max-width:88px;height:auto;display:block;margin:0 auto}}
+.familia a:focus-visible{{outline:3px solid {informe.ORO};outline-offset:0}}
 .familia .n{{display:block;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
   color:{informe.TINTA};margin-top:.55em}}
 .familia .r{{display:block;font-size:.84rem;color:{informe.APAGADO}}}
 .agente-cab{{display:flex;gap:22px;align-items:center;margin:4px 0 6px}}
 .agente-cab svg{{width:76px;height:auto;flex:0 0 auto}}
 .agente-cab .entrada{{margin:0}}
-@media (max-width:600px){{.familia{{grid-template-columns:repeat(2,1fr)}}}}
+@media (max-width:600px){{.familia{{grid-template-columns:repeat(4,1fr);gap:4px}}
+  .familia a{{padding:8px 2px}} .familia svg{{max-width:54px}}
+  .familia .n{{font-size:.75rem;letter-spacing:.06em}} .familia .r{{display:none}}}}
 .puertas{{display:flex;flex-wrap:wrap;gap:16px;margin:30px 0 0}}
 .puerta{{flex:1 1 320px;border:1px solid {informe.FILETE};border-radius:10px;
   padding:22px 24px;background:{informe.PANEL_ALTO};display:block;
@@ -160,19 +169,36 @@ td.nw{{white-space:nowrap}}
 .puerta .t{{display:block;font-size:1.2rem;color:{informe.TINTA};font-weight:500;
   margin:.35em 0 .3em;line-height:1.25}}
 .puerta .d{{font-size:.93rem;color:{informe.APAGADO};margin:0}}
-form.pide{{margin:14px 0 0;max-width:660px}}
+form.pide{{margin:14px 0 0;max-width:720px}}
 form.pide .par{{display:flex;flex-wrap:wrap;gap:0 18px}}
-form.pide .par > div{{flex:1 1 220px}}
-label{{display:block;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
-  color:{informe.APAGADO};font-weight:600;margin:16px 0 5px}}
-input,select,textarea{{width:100%;padding:10px 12px;border:1px solid {informe.FILETE};
-  border-radius:6px;background:#fff;color:{informe.CUERPO};font:inherit;font-size:.95rem}}
+form.pide .par > div{{flex:1 1 260px}}
+label{{display:block;font-size:.85rem;color:{informe.TINTA};font-weight:600;margin:18px 0 6px}}
+label .ayuda{{display:block;font-weight:400;color:{informe.APAGADO};font-size:.85rem;margin-top:2px}}
+input,select,textarea{{width:100%;min-height:44px;padding:10px 12px;border:1px solid {informe.APAGADO};
+  border-radius:6px;background:#fff;color:{informe.TINTA};font:inherit;font-size:1rem}}
+::placeholder{{color:{informe.APAGADO};opacity:1}}
 input:focus,select:focus,textarea:focus{{outline:2px solid {informe.ORO};outline-offset:-1px}}
 textarea{{min-height:110px;resize:vertical}}
-button{{margin-top:20px;padding:11px 24px;border:1px solid {informe.ORO};border-radius:6px;
+button{{margin-top:20px;min-height:44px;padding:11px 24px;border:1px solid {informe.ORO};border-radius:6px;
   background:{informe.ORO};color:{informe.CREMA};font:inherit;font-weight:600;cursor:pointer}}
 button:hover{{background:{informe.TINTA};border-color:{informe.TINTA}}}
-.aviso{{font-size:.88rem;color:{informe.APAGADO};margin:.6em 0 0;max-width:660px}}
+.aviso{{font-size:.9rem;color:{informe.APAGADO};margin:.6em 0 0;max-width:720px}}
+.migas{{margin:0 0 10px}}
+.migas ol{{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:2px 0}}
+.migas li + li::before{{content:"›";margin:0 .5em;color:{informe.APAGADO}}}
+.migas a{{display:inline-block;padding:3px 0}}
+.resumen{{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 6px}}
+.resumen .cifra{{flex:0 1 210px}}
+tr.pasada td:first-child{{color:{informe.ERROR};font-weight:600}}
+.est{{display:inline-block;padding:1px 8px;border-radius:4px;font-size:.82rem;border:1px solid {informe.FILETE};
+  background:{informe.PANEL};color:{informe.CUERPO};white-space:nowrap}}
+.est.mal{{color:{informe.ERROR};border-color:{informe.ERROR_FILETE};background:{informe.ERROR_FONDO}}}
+.est.ok{{color:{informe.OK_};border-color:{informe.OK_};background:{informe.OK_FONDO}}}
+code.cmd{{white-space:nowrap;font-size:1em}}
+details.senales{{margin:6px 0 0}}
+details.senales summary{{cursor:pointer;color:{informe.ORO};font-weight:600;padding:6px 0;min-height:24px}}
+details.senales ul{{margin:6px 0 0;padding-left:1.2em}}
+details.senales li{{margin:.35em 0}}
 @media print{{.puertas,form.pide{{display:none}}}}
 """ + robots.css(".cr-anima")  # los gestos de cada robot, una vez por página
 
@@ -195,7 +221,10 @@ def pagina(titulo, cuerpo, hoy, nav='', activa=''):
     """
     # El pie de `informe.pagina` es el del informe de Vera. Una página que arma el servidor la sirve
     # Rostrum, y lo dice: lo que hay en ella lo escribió el agente que se nombra en la página.
-    html_ = informe.pagina(titulo, cuerpo, hoy, nav).replace(
+    # Cada página dice qué es en un `<h1>`. Las que lo traen (la portada, un error) lo ponen ellas.
+    if '<h1' not in cuerpo:
+        cuerpo = f'<h1>{e(titulo)}</h1>' + cuerpo
+    html_ = informe.pagina(f'{titulo} · Rostrum', cuerpo, hoy, nav).replace(
         f'Producido por <strong>Vera</strong>, el agente PMO de Criterio, el {e(hoy)}.',
         f'Servido por <strong>Rostrum</strong>, el portal de Criterio, el {e(hoy)}: lo que hay aquí lo escribió '
         f'el agente que se nombra, y no se recalculó al servirlo.', 1)
@@ -242,36 +271,45 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
              and (not que or c["comando"] == que)
              and (not caso or c.get("caso") == caso)]
     activa = f'/corridas?agente={agente}&que={que}' if agente and que else '/corridas'
+    migas = nav(('/corridas', 'Historia')) if not (agente or que or caso) else \
+        nav(('/corridas', 'Historia'), ('', etiqueta(que) if que else (NOMBRE.get(agente, agente) if agente else caso)))
     if not lista:
-        return pagina('Historia', '<div class="bloque"><p>Todavía no hay corridas '
+        return pagina('Historia de las corridas', '<div class="bloque"><p>Todavía no hay corridas '
                       'registradas con ese filtro. Cada comando que corre deja la suya.</p></div>',
-                      hoy, nav(), activa)
+                      hoy, migas, activa)
+    # Una columna que no tiene nada en ninguna fila no se muestra: tres columnas de guiones
+    # hacen que la tabla no quepa y no dicen nada.
+    hay = {k: any(c.get(k) not in (None, '', 0) for c in lista) for k in ('documentos', 'segundos', 'subagentes')}
     filas = []
     for c in lista:
         filas.append(
             f'<tr><td class="nw"><a href="{e(c["ruta"])}">{e((c.get("inicio") or c.get("fecha") or "").replace("T", " ")[:16])}</a></td>'
             f'<td><a href="/agente/{e(c["agente"])}">{e(NOMBRE.get(c["agente"], c["agente"]))}</a></td>'
-            f'<td>{e(etiqueta(c["comando"]))}<br><code>{e(c["comando"])}</code></td>'
+            f'<td>{comando(c["comando"])}</td>'
             f'<td class="nw">{"<a href=" + chr(34) + "/caso/" + e(seg(c["caso"])) + chr(34) + ">" + e(c["caso"]) + "</a>" if c.get("caso") else "—"}</td>'
-            f'<td class="n">{e(c.get("documentos") or "—")}</td>'
-            f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
-            f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
-            + celda_paralelo(c) +
-            f'<td>{"sí" if c.get("salida") else "<em>no</em>"}</td>'
-            f'<td class="nw">{"arnés" if c["fuente"] == "arnés" else "solo cifras"}</td></tr>')
+            + (f'<td class="n">{e(c.get("documentos") or "—")}</td>' if hay['documentos'] else '')
+            + (f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>' if hay['segundos'] else '')
+            + f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
+            + (celda_paralelo(c) if hay['subagentes'] else '')
+            + f'<td>{"sí" if c.get("salida") else "no"}</td></tr>')
+    n_ag = len({c["agente"] for c in lista})
     cuerpo = [
-        f'<p class="entrada"><b>{len(lista)} corridas</b>'
-        + (f' de <code>{e(que)}</code>' if que else '')
+        f'<p class="entrada"><b>{informe.plural(len(lista), "corrida", "corridas")}</b>'
+        + (f' de <code class="cmd">{e(que)}</code>' if que else '')
         + (f' sobre <b>{e(caso)}</b>' if caso else '')
         + (f' de {e(NOMBRE.get(agente, agente))}' if agente else
-           ' de los tres agentes')
-        + f', de la del {e(lista[0]["fecha"])} a la del {e(lista[-1]["fecha"])}. Ninguna se '
-        f'borra: el rastro de las corridas es la memoria del proyecto, y sin él no se puede '
-        f'sostener que algo lleva meses sin resolverse.</p>',
+           f' de {informe.plural(n_ag, "agente", "agentes")}')
+        + (f', del {e(lista[0]["fecha"])}' if lista[0]["fecha"] == lista[-1]["fecha"] else
+           f', de la del {e(lista[0]["fecha"])} a la del {e(lista[-1]["fecha"])}')
+        + '. Ninguna se borra: el rastro de las corridas es la memoria del trabajo, y sin él no se '
+        'puede sostener que algo lleva meses sin resolverse. La fecha abre la corrida.</p>',
         '<div class="bloque"><table><thead><tr><th>Inicio</th><th>Agente</th>'
-        '<th>Comando</th><th>Caso</th><th>Docs</th><th>Seg</th><th>Hallazgos</th>'
-        '<th title="subagentes que lanzó, y cuántos a la vez">Paralelo</th>'
-        '<th>Salida</th><th>Fuente</th></tr></thead><tbody>',
+        '<th>Función</th><th>Caso</th>'
+        + ('<th>Docs</th>' if hay['documentos'] else '')
+        + ('<th>Segundos</th>' if hay['segundos'] else '')
+        + '<th>Hallazgos</th>'
+        + ('<th title="subagentes que lanzó, y cuántos a la vez">Paralelo</th>' if hay['subagentes'] else '')
+        + '<th title="si el comando dejó lo que mostró">Salida</th></tr></thead><tbody>',
         "".join(filas), '</tbody></table></div>']
 
     cuerpo.append('<p class="entrada">Lo que lleva varios cortes sin resolverse está aparte, '
@@ -282,10 +320,10 @@ def corridas(todas: list, h: dict, hoy: str, agente: str = '', que: str = '',
         cuerpo.append(f'<p class="entrada">Para ver qué cambió campo por campo entre dos '
                       f'cortes: <a href="/corte?a={a}&b={b}">{a} → {b}</a>.</p>')
     cuerpo.append(AVISO_HISTORIA)
-    return pagina('Historia de las corridas', "".join(cuerpo), hoy, nav(), activa)
+    return pagina('Historia de las corridas', "".join(cuerpo), hoy, migas, activa)
 
 
-def linea_de_tiempo(h: dict, codigo: str, hoy: str) -> tuple:
+def linea_de_tiempo(h: dict, codigo: str, hoy: str, informe_dir: Path | None = None) -> tuple:
     """Nivel 2 · desde cuándo este caso arrastra cada señal, y cuál se resolvió.
 
     Devuelve (código, cuerpo). Una vista que puede fallar tiene que decir con qué estado
@@ -306,19 +344,22 @@ def linea_de_tiempo(h: dict, codigo: str, hoy: str) -> tuple:
                '</tr></thead><tbody>']
         for s, x in sorted(d.items(), key=lambda i: -i[1]["seguidas"]):
             fin = f'<td>{e(x.get("resuelta_en"))}</td>' if extra else ''
-            out.append(f'<tr><td>{e(informe.NOMBRES.get(s, s))}</td><td>{e(x["primera"])}</td>'
+            out.append(f'<tr><td>{senal(s)}</td><td class="nw">{e(x["primera"])}</td>'
                        f'<td class="n">{x["corridas"]}</td>'
                        f'<td class="n">{x["seguidas"]}</td>{fin}</tr>')
         out.append('</tbody></table></div>')
         return "".join(out)
 
+    informe_hoy = (f' <a href="/p/{e(codigo)}">Ver su informe de hoy</a>.'
+                   if informe_dir is not None and (informe_dir / f'{codigo}.html').is_file() else '')
     cuerpo = [f'<p class="entrada">Lo que las corridas han dicho de <b>{e(codigo)}</b> '
-              f'entre el {e(h["desde"])} y el {e(h["hasta"])}. '
-              f'<a href="/p/{e(codigo)}">Ver su informe de hoy</a>.</p>',
+              f'entre el {e(h["desde"])} y el {e(h["hasta"])}.{informe_hoy} '
+              f'<a href="/caso/{e(seg(codigo))}">Todo lo que se ha hecho sobre él</a>.</p>',
               tabla(abiertas, 'Lo que sigue abierto', ''),
               tabla(cerradas, 'Lo que se resolvió', '<th>Resuelta en</th>'),
               AVISO_HISTORIA]
-    return 200, pagina(f'Historia · {codigo}', "".join(cuerpo), hoy, nav(), '/corridas')
+    return 200, pagina(f'Desde cuándo · {codigo}', "".join(cuerpo), hoy,
+                       nav(('/corridas', 'Historia'), (f'/caso/{seg(codigo)}', codigo), ('', 'Desde cuándo')), '/corridas')
 
 
 def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
@@ -346,7 +387,7 @@ def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
         for campo in sorted(set(va) | set(vb)):
             x, y = va.get(campo), vb.get(campo)
             if x != y:
-                filas.append(f'<tr><td><a href="/historia/{e(seg(codigo))}">{e(codigo)}</a></td>'
+                filas.append(f'<tr><td><a href="/caso/{e(seg(codigo))}">{e(codigo)}</a></td>'
                              f'<td>{e(informe.nombre_campo(rec, campo))}</td>'
                              f'<td>{e(x if x is not None else "—")}</td>'
                              f'<td>{e(y if y is not None else "—")}</td></tr>')
@@ -363,7 +404,8 @@ def corte(estado: Path, a: str, b: str, hoy: str) -> tuple:
         cuerpo.append('<div class="bloque"><p>Ningún campo cambió entre esos dos '
                       'cortes.</p></div>')
     cuerpo.append(AVISO_HISTORIA)
-    return 200, pagina(f'Corte {a} → {b}', "".join(cuerpo), hoy, nav(), '/corte')
+    return 200, pagina(f'Qué cambió del {a} al {b}', "".join(cuerpo), hoy,
+                       nav(('/corridas', 'Historia'), ('', 'Qué cambió')), '/corte')
 
 
 md_a_html = rastro.md_a_html
@@ -389,12 +431,13 @@ def vista_corrida(entradas: list, agente: str, sobre: str, ident: str, hoy: str)
         que = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', ident)
         que = re.sub(r'-\d+$', '', que)
         cmd = comando_de(agente, que)
-        cuerpo = [f'<p class="entrada">Corrida <code>{e(ident)}</code> del agente de '
-                  f'{e(agente)}{" sobre <b>" + e(sobre) + "</b>" if sobre != "-" else ""}. '
+        cuerpo = [f'<p class="entrada">Corrida <code>{e(ident)}</code> de '
+                  f'{e(NOMBRE.get(agente, agente))}{" sobre <b>" + e(sobre) + "</b>" if sobre != "-" else ""}. '
                   f'Lo que sigue es lo que la corrida escribió sola al terminar; nada de esto se '
                   f'redactó después.</p>',
                   '<div class="bloque">', md_a_html(md), '</div>', AVISO_HISTORIA]
-        return 200, pagina(f'Corrida · {ident}', ''.join(cuerpo), hoy, nav(),
+        return 200, pagina(f'{NOMBRE.get(agente, agente)} · {etiqueta(cmd)} · {ident[:10]}', ''.join(cuerpo), hoy,
+                           nav(('/corridas', 'Historia'), (f'/agente/{agente}', NOMBRE.get(agente, agente)), ('', etiqueta(cmd))),
                            f'/corridas?agente={agente}&que={cmd}')
     return 404, error(404, f'No hay corrida {ident} de {agente}', hoy)
 
@@ -444,6 +487,43 @@ ETIQUETA = {c["id"]: c["etiqueta"] for a in REGISTRO["agentes"] + [REGISTRO["ser
 
 def etiqueta(cmd: str) -> str:
     return ETIQUETA.get(cmd, cmd)
+
+
+# El nombre de cada señal en palabras: los de la PMO son del informe de Vera, los de las otras
+# familias salen de su familia.json. El código va debajo, para quien lo busca en un reporte.
+SENAL = {**informe.NOMBRES, **(REGISTRO.get("senales") or {})}
+
+
+def codigo(x) -> str:
+    """Un nombre de código que se parte por sus guiones bajos y sus barras, no a mitad de palabra."""
+    return '<code>' + re.sub(r'([_/])', r'\1<wbr>', e(x)) + '</code>'
+
+
+def senal(sig: str) -> str:
+    nombre = SENAL.get(sig)
+    if not nombre:
+        return codigo(sig)
+    return f'{e(nombre[:1].upper() + nombre[1:])}<span class="cita">{codigo(sig)}</span>'
+
+
+def comando(cmd: str) -> str:
+    """Una función por su nombre y, debajo, el comando que la corre, entero en una línea."""
+    return f'{e(etiqueta(cmd))}<span class="cita"><code class="cmd">{e(cmd)}</code></span>'
+
+
+def caso_es(c: str) -> str:
+    """Qué es un caso por la forma de su código: lo que se dice en la frase que lo presenta."""
+    if re.match(r'^\d{4}-\d{2}$', c):
+        return 'periodo'
+    if re.match(r'^\d{4}$', c):
+        return 'año'
+    if c.upper().startswith('PRD'):
+        return 'producto'
+    if c.upper().startswith('CTR'):
+        return 'contrato'
+    if c.upper().startswith('PRY'):
+        return 'proyecto'
+    return 'caso'
 
 
 # Los tres nombres históricos de `--what`; todo lo demás registra con el nombre del comando.
@@ -591,7 +671,7 @@ def arbol(corridas: list, activa: str = "", entradas: list | None = None) -> str
     funciones vive en la página de cada agente, y un proyecto, un producto o un contrato se abre
     desde su listado: con cincuenta no caben en una columna."""
     def li(ruta, texto, nota="", n=None):
-        yo = ' class="yo"' if ruta == activa else ''
+        yo = ' aria-current="page"' if ruta == activa else ''
         cuenta = f' <span class="n">{n}</span>' if n is not None else ''
         return (f'<li><a href="{e(ruta)}"{yo}>{e(texto)}{cuenta}'
                 + (f'<span class="d">{e(nota)}</span>' if nota else '') + '</a></li>')
@@ -599,9 +679,9 @@ def arbol(corridas: list, activa: str = "", entradas: list | None = None) -> str
     areas = areas_de(entradas)
     otras = [s for s in familias_de(entradas) if s != "pmo"]
     por_agente = {a: sum(1 for c in corridas if c["agente"] == a) for a in areas}
-    out = ['<input type="checkbox" id="menu" class="menu-caja">',
+    out = ['<header class="lado"><input type="checkbox" id="menu" class="menu-caja">',
            '<label for="menu" class="menu-boton">Menú</label>',
-           '<nav class="arbol" aria-label="Menú">']
+           '<nav class="arbol" aria-label="Menú del portal">']
     if "portafolio" in areas:
         out += ['<p class="g">Portafolio</p><ul>',
                 li('/pmo', 'Cómo va el portafolio', 'el informe: cifras, silencio, contradicciones'),
@@ -625,7 +705,7 @@ def arbol(corridas: list, activa: str = "", entradas: list | None = None) -> str
         out.append(li(f'/agente/{a}', TITULO[a], '', por_agente[a]))
     out += ['</ul><p class="g">Preguntar</p><ul>',
             li('/#preguntar', 'Dejar una pregunta a un agente'),
-            '</ul></nav>']
+            '</ul></nav></header>']
     return "".join(out)
 
 
@@ -667,11 +747,11 @@ def arrastres(h: dict, hoy: str) -> str:
                    '<th>Cortes seguidos</th><th>Desde</th></tr></thead><tbody>']
         for n_, codigo, sig, desde in filas[:200]:
             cuerpo.append(f'<tr><td><a href="/caso/{e(seg(codigo))}">{e(codigo)}</a></td>'
-                          f'<td>{e(informe.NOMBRES.get(sig, sig))}</td><td class="n">{n_}</td>'
-                          f'<td>{e(desde)}</td></tr>')
+                          f'<td>{senal(sig)}</td><td class="n">{n_}</td>'
+                          f'<td class="nw">{e(desde)}</td></tr>')
         cuerpo.append('</tbody></table></div>')
     cuerpo.append(AVISO_HISTORIA)
-    return pagina('Lo que se arrastra', "".join(cuerpo), hoy, nav(), '/arrastres')
+    return pagina('Lo que se arrastra', "".join(cuerpo), hoy, nav(('/corridas', 'Historia'), ('', 'Lo que se arrastra')), '/arrastres')
 
 
 def vista_agente(todas: list, agente: str, hoy: str, entradas: list | None = None) -> tuple:
@@ -691,7 +771,7 @@ def vista_agente(todas: list, agente: str, hoy: str, entradas: list | None = Non
               f'<p class="entrada"><b>{e(NOMBRE[agente])}</b>, {e(TITULO[agente].split(" · ")[1])}, '
               f'de la familia {e(FAMILIAS[FAMILIA_DE[agente]]["nombre"]["es"].lower())}: '
               f'{len(sum((c for _, _, c in GRUPOS[agente]), []))} funciones en '
-              f'{len(GRUPOS[agente])} grupos, <b>{total} corridas</b> registradas. Un comando sin '
+              f'{len(GRUPOS[agente])} grupos, <b>{informe.plural(total, "corrida registrada", "corridas registradas")}</b>. Un comando sin '
               f'corridas no ha corrido; que no haya corrido también es un dato.</p></div>']
     for grupo, que_es, cmds in GRUPOS[agente]:
         cuerpo.append(f'<h2>{e(grupo)}</h2><p class="entrada">{e(que_es)}</p>'
@@ -701,7 +781,7 @@ def vista_agente(todas: list, agente: str, hoy: str, entradas: list | None = Non
             suyas = por.get(cmd, [])
             ultima = suyas[-1] if suyas else None
             cuerpo.append(
-                f'<tr><td>{e(etiqueta(cmd))}</td><td><code>/{e(PLUGIN[agente])}:{e(cmd)}</code></td>'
+                f'<tr><td>{e(etiqueta(cmd))}</td><td><code class="cmd">/{e(PLUGIN[agente])}:{e(cmd)}</code></td>'
                 f'<td class="n"><a href="/corridas?agente={e(agente)}&amp;que={e(cmd)}">{len(suyas)}</a></td>'
                 f'<td>{"<a href=" + chr(34) + e(ultima["ruta"]) + chr(34) + ">" + e((ultima.get("inicio") or ultima.get("fecha") or "").replace("T", " ")[:16]) + "</a>" if ultima else "—"}</td></tr>')
         cuerpo.append('</tbody></table></div>')
@@ -715,11 +795,11 @@ def vista_agente(todas: list, agente: str, hoy: str, entradas: list | None = Non
                       '</tr></thead><tbody>')
         for rp in reps:
             cuerpo.append(f'<tr><td><a href="{e(ruta_reporte(x, rp["ruta"]))}">{e(ETIQUETA.get(rp["comando"], rp["comando"]))}</a></td>'
-                          f'<td><code>{e(rp["ruta"])}</code></td><td class="nw">{e(rp["escrito"])}</td></tr>')
+                          f'<td>{codigo(rp["ruta"])}</td><td class="nw">{e(rp["escrito"])}</td></tr>')
         cuerpo.append('</tbody></table></div>')
     cuerpo.append(AVISO_HISTORIA)
     return 200, pagina(f'{NOMBRE[agente]} · {TITULO[agente].split(" · ")[1]}', "".join(cuerpo), hoy,
-                       nav(), f'/agente/{agente}')
+                       nav(('', NOMBRE[agente])), f'/agente/{agente}')
 
 
 def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -> tuple:
@@ -728,27 +808,25 @@ def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -
     senales = h["casos"].get(codigo) or {}
     if not suyas and not senales and not (informe_dir / f'{codigo}.html').is_file():
         return 404, error(404, f'No hay nada sobre {codigo}', hoy)
-    es_producto = codigo.upper().startswith("PRD")
+    que_es = caso_es(codigo)
     enlaces = []
     if (informe_dir / f'{codigo}.html').is_file():
         enlaces.append(f'<a href="/p/{e(codigo)}">su informe de hoy</a>')
     if senales:
         enlaces.append(f'<a href="/historia/{e(seg(codigo))}">desde cuándo arrastra cada señal</a>')
-    cuerpo = [f'<p class="entrada"><b>{e(codigo)}</b>: {len(suyas)} corridas de los agentes sobre '
-              f'este {"producto" if es_producto else "proyecto"}'
+    cuerpo = [f'<p class="entrada"><b>{e(codigo)}</b>: {informe.plural(len(suyas), "corrida", "corridas")} '
+              f'de los agentes sobre este {que_es}'
               + (' · ' + ' · '.join(enlaces) if enlaces else '') + '.</p>']
     if suyas:
         cuerpo += ['<div class="bloque"><table><thead><tr><th>Inicio</th><th>Agente</th>'
-                   '<th>Función</th><th>Seg</th><th>Hallazgos</th><th>Paralelo</th><th>Salida</th></tr></thead><tbody>']
+                   '<th>Función</th><th>Hallazgos</th><th>Salida</th></tr></thead><tbody>']
         for c in suyas:
             cuerpo.append(
                 f'<tr><td class="nw"><a href="{e(c["ruta"])}">{e((c.get("inicio") or c.get("fecha") or "").replace("T", " ")[:16])}</a></td>'
                 f'<td><a href="/agente/{e(c["agente"])}">{e(NOMBRE.get(c["agente"], c["agente"]))}</a></td>'
-                f'<td>{e(etiqueta(c["comando"]))}</td>'
-                f'<td class="n">{e(c.get("segundos") if c.get("segundos") is not None else "—")}</td>'
+                f'<td>{comando(c["comando"])}</td>'
                 f'<td class="n">{e(c.get("hallazgos") if c.get("hallazgos") is not None else "—")}</td>'
-                + celda_paralelo(c) +
-                f'<td>{"sí" if c.get("salida") else "<em>no</em>"}</td></tr>')
+                f'<td>{"sí" if c.get("salida") else "no"}</td></tr>')
         cuerpo.append('</tbody></table></div>')
     else:
         cuerpo.append('<div class="bloque"><p>Ningún comando ha corrido sobre este caso en '
@@ -762,13 +840,13 @@ def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -
                        '<div class="bloque"><table><thead><tr><th>Señal</th><th>Agente</th><th>Desde</th>'
                        '<th>Cortes seguidos</th></tr></thead><tbody>']
             for n_, sig, desde, quien_ in sorted(abiertas, reverse=True, key=lambda z: (z[0], z[1])):
-                nombre_s = informe.NOMBRES.get(sig)
-                cuerpo.append(f'<tr><td>{e(nombre_s) if nombre_s else "<code>" + e(sig) + "</code>"}</td>'
+                cuerpo.append(f'<tr><td>{senal(sig)}</td>'
                               f'<td>{"<a href=" + chr(34) + "/agente/" + e(quien_) + chr(34) + ">" + e(NOMBRE.get(quien_, quien_)) + "</a>" if quien_ else "—"}</td>'
-                              f'<td>{e(desde)}</td><td class="n">{n_}</td></tr>')
+                              f'<td class="nw">{e(desde)}</td><td class="n">{n_}</td></tr>')
             cuerpo.append('</tbody></table></div>')
     cuerpo.append(AVISO_HISTORIA)
-    return 200, pagina(f'{codigo}', "".join(cuerpo), hoy, nav(), '/corridas')
+    return 200, pagina(f'{codigo} · todo lo que se ha hecho sobre este {que_es}', "".join(cuerpo), hoy,
+                       nav(('/corridas', 'Historia'), ('', codigo)), '/corridas')
 
 
 def vista_rastro(evidencia: Path, agente: str, ident: str, hoy: str) -> tuple:
@@ -780,8 +858,16 @@ def vista_rastro(evidencia: Path, agente: str, ident: str, hoy: str) -> tuple:
     return 200, con_arbol(f.read_text(encoding="utf-8"), f'/corridas?agente={agente}&que={que}')
 
 
-def nav() -> str:
-    return '<a href="/">Portada</a> · <a href="/corridas">Historia</a>'
+def nav(*pasos) -> str:
+    """Las migas: desde la portada hasta donde está el lector, que va sin enlace. `pasos` son
+    pares (ruta, texto); el último es la página actual y su ruta se ignora."""
+    items = [('/', 'Portada')] + list(pasos)
+    out = []
+    for i, (ruta, texto) in enumerate(items):
+        ultimo = i == len(items) - 1 and i > 0
+        out.append(f'<li aria-current="page">{e(texto)}</li>' if ultimo
+                   else f'<li><a href="{e(ruta)}">{e(texto)}</a></li>')
+    return '<nav class="migas" aria-label="Estás en"><ol>' + ''.join(out) + '</ol></nav>'
 
 
 
@@ -1031,28 +1117,25 @@ toma en su próxima corrida. Sirve para lo que el portal no alcanza a responder 
 por qué un dato dice lo que dice, o que algo no coincide con lo que tú sabes.</p>
 {cola}
 <form class="pide" method="post" action="/peticion">
+  <label for="para">Para quién</label>
+  <select id="para" name="para">{destinos}</select>
+  <label for="asunto">De qué se trata</label>
+  <select id="asunto" name="asunto">{opciones}</select>
   <div class="par">
-    <div><label for="para">Para quién</label>
-      <select id="para" name="para">{destinos}</select></div>
-    <div><label for="asunto">De qué se trata</label>
-      <select id="asunto" name="asunto">{opciones}</select></div>
+    <div><label for="proyecto">Caso <span class="ayuda">Si aplica: PRY-001, CTR-101, 2026-09</span></label>
+      <input id="proyecto" name="proyecto" maxlength="40"></div>
+    <div><label for="de">Quién pregunta <span class="ayuda">Tu nombre, para que te respondan</span></label>
+      <input id="de" name="de" maxlength="80" autocomplete="name"></div>
   </div>
-  <div class="par">
-    <div><label for="proyecto">Caso, si aplica</label>
-      <input id="proyecto" name="proyecto" placeholder="PRY-001, CTR-101, 2026-09" maxlength="40"></div>
-    <div><label for="de">Quién pregunta</label>
-      <input id="de" name="de" placeholder="Tu nombre" maxlength="80"></div>
-  </div>
-  <label for="texto">Qué necesitas</label>
-  <textarea id="texto" name="texto" maxlength="4000"
-    placeholder="Escríbelo como se lo dirías a la persona responsable."></textarea>
+  <label for="texto">Qué necesitas <span class="ayuda">Obligatorio. Escríbelo como se lo dirías a la persona responsable.</span></label>
+  <textarea id="texto" name="texto" maxlength="4000" required></textarea>
   <button type="submit">Dejar la petición</button>
 </form>
 <p class="aviso"><strong>Esta página no pide contraseña</strong>, así que quien pregunta
 es quien dice ser y nada más. No escribas aquí nada que no pondrías en un correo
 interno.</p>
 </div>"""
-    return pagina(org or 'Criterio', cuerpo, hoy)
+    return pagina(f'Portada · {org}' if org else 'Portada', cuerpo, hoy)
 
 
 # --------------------------------------------------------- las familias CFO y CLO
@@ -1069,7 +1152,7 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
     suyas = [x for x in entradas if FAMILIA_DE.get(x['area']) == sigla]
     if not suyas:
         return 404, error(404, f'La familia {f["nombre"]["es"]} no está en el mapa de este portal', hoy)
-    cuerpo = [f'<p class="entrada"><b>{e(f["nombre"]["es"])}</b> · {e(f["estado"]["es"])}. Lo que sigue es lo '
+    cuerpo = [f'<p class="entrada">Familia {e(sigla.upper())} · {e(f["estado"]["es"])}. Lo que sigue es lo '
               'último que escribió el motor de cada agente, con la fecha en que lo escribió: aquí no se '
               'recalcula nada. Cada reporte se abre tal como lo dejó el agente.</p>']
     for a in f["agentes"]:
@@ -1077,35 +1160,41 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
             res = resultados_de(x)
             reps = reportes_de(x)
             cuerpo.append(f'<div class="agente-cab">{robots.svg(ROBOT_DE[a], informe.TINTA, informe.ORO, animado=True, estilo=False)}'
-                          f'<p class="entrada"><b><a href="/agente/{e(a)}">{e(NOMBRE[a])}</a></b>, '
+                          f'<h2 class="t"><a href="/agente/{e(a)}">{e(NOMBRE[a])}</a>, '
                           f'{e(AGENTES[a]["titulo"])}' + (f' · {e(x["nombre"])}' if x.get('nombre') else '')
-                          + (f' · <b>{len(pendientes(x["_estado"], ROBOT_DE[a]))}</b> peticiones abiertas' if x.get('_estado') and pendientes(x['_estado'], ROBOT_DE[a]) else '')
-                          + '</p></div>')
+                          + (f' · {informe.plural(len(pendientes(x["_estado"], ROBOT_DE[a])), "petición abierta", "peticiones abiertas")}' if x.get('_estado') and pendientes(x['_estado'], ROBOT_DE[a]) else '')
+                          + '</h2></div>')
             if not res and not reps:
                 cuerpo.append('<div class="bloque"><p>El agente todavía no ha dejado nada en su estado: '
                               'su primer comando es el setup.</p></div>')
                 continue
-            if res:
-                cuerpo.append('<div class="bloque"><table><thead><tr><th>Ámbito</th><th>Corte</th><th>Señales abiertas</th>'
-                              '<th>Calculado</th><th>Escrito</th></tr></thead><tbody>')
-                for r in res:
-                    d = r['datos']
-                    cuerpo.append(f'<tr><td>{e(r["ambito"])}</td><td>{e(d.get("periodo") or d.get("anio") or d.get("corte") or "—")}</td>'
-                                  f'<td class="n">{_senales(r)}</td><td class="nw">{e(d.get("hoy") or "—")}</td>'
-                                  f'<td class="nw">{e(r["escrito"][:16].replace("T", " "))}</td></tr>')
-                cuerpo.append('</tbody></table></div>')
+            for r in res:
+                d = r['datos']
+                corte_ = d.get("periodo") or d.get("anio") or d.get("corte") or "—"
+                alertas = d.get('alertas') or []
+                cuerpo.append(f'<div class="bloque"><h3>{e(str(r["ambito"]).capitalize())} · {e(corte_)}</h3>'
+                              f'<p>Calculado por el motor el <b>{e(d.get("hoy") or "—")}</b>, escrito el '
+                              f'{e(r["escrito"][:16].replace("T", " "))}. '
+                              + (f'<b>{informe.plural(len(alertas), "señal abierta", "señales abiertas")}</b>.'
+                                 if alertas else 'Sin señales abiertas.') + '</p>')
+                if alertas:
+                    cuerpo.append(f'<details class="senales"><summary>Ver {"la señal" if len(alertas) == 1 else "las " + str(len(alertas)) + " señales"}</summary><ul>')
+                    for al in alertas[:60]:
+                        cuerpo.append(f'<li>{senal(al.get("signal") or "")}'
+                                      + (f'<br>{e(al.get("detail"))}' if al.get("detail") else '') + '</li>')
+                    cuerpo.append('</ul></details>')
+                cuerpo.append('</div>')
             if reps:
-                cuerpo.append('<div class="bloque"><table><thead><tr><th>Reporte</th><th>Comando</th><th>Escrito</th>'
+                cuerpo.append('<div class="bloque"><h3>Sus reportes</h3><table><thead><tr><th>Reporte</th><th>Comando</th><th>Escrito</th>'
                               '</tr></thead><tbody>')
                 for rp in reps[:12]:
                     cuerpo.append(f'<tr><td><a href="{e(ruta_reporte(x, rp["ruta"]))}">{e(ETIQUETA.get(rp["comando"], rp["comando"]))}</a></td>'
-                                  f'<td><code>{e(rp["comando"])}</code></td><td class="nw">{e(rp["escrito"])}</td></tr>')
+                                  f'<td><code class="cmd">{e(rp["comando"])}</code></td><td class="nw">{e(rp["escrito"])}</td></tr>')
                 cuerpo.append('</tbody></table></div>')
                 if len(reps) > 12:
                     cuerpo.append(f'<p class="entrada">Se muestran los 12 más recientes de {len(reps)}; el resto está en la '
                                   f'<a href="/agente/{e(a)}">página del agente</a>.</p>')
-    cuerpo.append(AVISO_HISTORIA)
-    return 200, pagina(f["nombre"]["es"], "".join(cuerpo), hoy, nav(), f'/familia/{sigla}')
+    return 200, pagina(f["nombre"]["es"], "".join(cuerpo), hoy, nav(('', f["nombre"]["es"])), f'/familia/{sigla}')
 
 
 def vista_reporte(entradas: list, area: str, instancia: str, rel: str, hoy: str) -> tuple:
@@ -1121,11 +1210,13 @@ def vista_reporte(entradas: list, area: str, instancia: str, rel: str, hoy: str)
         return 404, error(404, 'Eso no está aquí', hoy)
     comando = partes[-1][len('reporte-'):-3]
     escrito = dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc).isoformat(timespec='minutes').replace('T', ' ')[:16]
-    cuerpo = [f'<p class="entrada">{e(quien(x))} · <code>{e(comando)}</code> · escrito por el motor el {e(escrito)}. '
+    cuerpo = [f'<p class="entrada">{e(quien(x))} · <code class="cmd">{e(comando)}</code> · escrito por el motor el {e(escrito)}. '
               'Es el reporte tal como quedó en el estado del agente; nada de esto se redactó para el portal.</p>',
               '<div class="bloque">', md_a_html(f.read_text(encoding='utf-8')), '</div>']
     sigla = FAMILIA_DE.get(area)
-    return 200, pagina(f'{NOMBRE.get(area, area)} · {ETIQUETA.get(comando, comando)}', "".join(cuerpo), hoy, nav(),
+    migas = nav(*([(f'/familia/{sigla}', FAMILIAS[sigla]["nombre"]["es"])] if sigla and sigla != 'pmo' else []),
+                (f'/agente/{area}', NOMBRE.get(area, area)), ('', ETIQUETA.get(comando, comando)))
+    return 200, pagina(f'{NOMBRE.get(area, area)} · {ETIQUETA.get(comando, comando)}', "".join(cuerpo), hoy, migas,
                        f'/familia/{sigla}' if sigla and sigla != 'pmo' else f'/agente/{area}')
 
 
@@ -1154,19 +1245,39 @@ def vista_vence(entradas: list, hoy: str) -> tuple:
     if not filas:
         cuerpo.append('<div class="bloque"><p>Ningún agente del mapa ha dejado nada con fecha todavía.</p></div>')
     else:
+        # Lo que ya pasó su fecha va marcado y contado arriba: es lo primero que alguien busca.
+        hoy_d = hoy[:10]
+        en30 = (dt.date.fromisoformat(hoy_d) + dt.timedelta(days=30)).isoformat() if re.match(r'^\d{4}-\d{2}-\d{2}$', hoy_d) else ''
+        pasadas = sum(1 for f_, *_ in filas if f_ and f_ < hoy_d)
+        pronto = sum(1 for f_, *_ in filas if f_ and hoy_d <= f_ <= en30)
+        cuerpo.append('<div class="resumen">'
+                      f'<div class="cifra{" mala" if pasadas else ""}"><span class="n">{pasadas}</span>'
+                      f'<span class="q">con la fecha ya pasada</span></div>'
+                      f'<div class="cifra"><span class="n">{pronto}</span><span class="q">en los próximos 30 días</span></div>'
+                      f'<div class="cifra"><span class="n">{len(filas)}</span><span class="q">en total</span></div></div>'
+                      f'<p class="aviso">Las fechas se comparan con hoy, {e(hoy_d)}. El estado de cada fila es el que '
+                      f'dejó su motor el día que calculó: una fila «en plazo» con la fecha ya pasada pide que el '
+                      f'agente vuelva a correr.</p>')
+        varias = len({x.get('nombre') for _, x, _, _ in filas if x.get('nombre')}) > 1
         cuerpo += ['<div class="bloque"><table><thead><tr><th>Fecha</th><th>Agente</th><th>Qué</th><th>Caso</th>'
                    '<th>Estado</th><th>Calculado</th></tr></thead><tbody>']
         for fecha_, x, v, escrito in filas[:400]:
             caso = v.get('caso')
-            cuerpo.append(f'<tr><td class="nw">{e(fecha_)}</td><td><a href="/agente/{e(x["area"])}">{e(quien(x))}</a></td>'
-                          f'<td>{e(v.get("que"))}' + (f'<br><code>{e(v["comando"])}</code>' if v.get("comando") else '') + '</td>'
+            pasada = bool(fecha_ and fecha_ < hoy_d)
+            estado_ = v.get("estado") or "—"
+            # El estado es el que dejó el motor el día que calculó; la fecha se compara con hoy.
+            tono = ' mal' if estado_ in ('vencida', 'vencido', 'sin responder', 'cumplida sin evidencia') else ''
+            cuerpo.append(f'<tr{" class=" + chr(34) + "pasada" + chr(34) if pasada else ""}>'
+                          f'<td class="nw">{e(fecha_)}{"<span class=" + chr(34) + "cita" + chr(34) + ">ya pasó</span>" if pasada else ""}</td>'
+                          f'<td><a href="/agente/{e(x["area"])}">{e(quien(x) if varias else NOMBRE.get(x["area"], x["area"]))}</a></td>'
+                          f'<td>{e(v.get("que"))}' + (f'<span class="cita"><code class="cmd">{e(v["comando"])}</code></span>' if v.get("comando") else '') + '</td>'
                           '<td class="nw">' + (f'<a href="/caso/{e(seg(caso))}">{e(caso)}</a>' if caso else '—') + '</td>'
-                          f'<td>{e(v.get("estado") or "—")}</td><td class="nw">{e((escrito or "configuración")[:10])}</td></tr>')
+                          f'<td><span class="est{tono}">{e(estado_)}</span></td>'
+                          f'<td class="nw">{e((escrito or "")[:10]) or "configuración"}</td></tr>')
         cuerpo.append('</tbody></table></div>')
         if len(filas) > 400:
             cuerpo.append(f'<p class="entrada">Se muestran 400 de {len(filas)}.</p>')
-    cuerpo.append(AVISO_HISTORIA)
-    return 200, pagina('Lo que vence', "".join(cuerpo), hoy, nav(), '/vence')
+    return 200, pagina('Lo que vence', "".join(cuerpo), hoy, nav(('', 'Lo que vence')), '/vence')
 
 
 def recibida(registro: dict, hoy: str) -> str:
@@ -1174,7 +1285,7 @@ def recibida(registro: dict, hoy: str) -> str:
 <h1>Queda anotada</h1>
 <p class="pie-cab">{e(registro['id'])}</p>
 <div class="bloque info">
-<h3>Qué pasa ahora</h3>
+<h2 class="t">Qué pasa ahora</h2>
 <p>El agente la toma en su próxima corrida. <strong>No hay nadie del otro lado
 respondiendo en este momento</strong>, y decirlo es más honesto que un «en breve
 te contactamos».</p>
@@ -1184,16 +1295,17 @@ te contactamos».</p>
 <dl><dt>Para</dt><dd>{e(registro.get('para') or '—')}</dd><dt>Caso</dt><dd>{e(registro['proyecto'] or '—')}</dd>
 <dt>Quién pregunta</dt><dd>{e(registro['de'] or 'no lo dijo')}</dd>
 <dt>Qué necesita</dt><dd>{e(registro['texto']) or '<em>en blanco</em>'}</dd></dl></div>"""
-    return pagina('Petición recibida', cuerpo, hoy,
-                  '<div class="nav"><a href="/">← Volver a la portada</a></div>')
+    return pagina('Petición recibida', cuerpo, hoy, nav(('', 'Petición recibida')))
 
 
 def error(codigo: int, que: str, hoy: str) -> str:
     cuerpo = f"""<span class="ante">{codigo}</span>
 <h1>{e(que)}</h1>
-<p class="pie-cab">Este servidor solo sirve el informe que ya se produjo. No busca
-nada más ni ejecuta nada.</p>"""
-    return pagina(f'{codigo}', cuerpo, hoy, '<div class="nav"><a href="/">← Portada</a></div>')
+<p class="pie-cab">Este portal solo sirve lo que los agentes ya escribieron. No busca nada más
+ni ejecuta nada.</p>
+<p>Puedes volver a la <a href="/">portada</a>, ver <a href="/corridas">todas las corridas</a>
+o, si buscabas algo con fecha, <a href="/vence">lo que vence</a>.</p>"""
+    return pagina(f'{codigo} · {que}', cuerpo, hoy, nav(('', 'No está aquí')))
 
 
 # ---------------------------------------------------------------- el servidor
@@ -1346,7 +1458,8 @@ class Manejador(BaseHTTPRequestHandler):
                 self.html(404, error(404, 'Eso no está aquí', self.hoy()))
         elif ruta.startswith('/historia/'):
             h = historia(self.entradas)
-            self.html(*linea_de_tiempo(h, urllib.parse.unquote(ruta[len('/historia/'):]), self.hoy()))
+            self.html(*linea_de_tiempo(h, urllib.parse.unquote(ruta[len('/historia/'):]), self.hoy(),
+                                       self.informe_dir))
         elif ruta == '/corte':
             q = urllib.parse.parse_qs(urllib.parse.urlparse(self.path).query)
             snaps = sorted(x.stem for x in (self.estado / 'snapshots').glob('*.json'))
@@ -1648,7 +1761,7 @@ def selftest() -> int:
         ok('el informe servido lleva el árbol',
            'class="arbol"' in pedir('/index.html')[1], True)
         ok('y marca la rama en la que está',
-           'class="yo"' in pedir('/index.html')[1], True)
+           'aria-current="page"' in pedir('/index.html')[1], True)
         ok('el archivo en disco sigue sin árbol, para abrirlo sin servidor',
            'class="arbol"' in (inf / 'index.html').read_text(encoding='utf-8'), False)
         ok('el árbol lleva a los tres agentes por el mismo portal',
@@ -1667,20 +1780,21 @@ def selftest() -> int:
            ('cr-anima' in vera and 'g-mira' in vera and vera.count('@keyframes cr-mira') == 1
             and 'prefers-reduced-motion' in vera), True)
         ok('la página del agente lleva sus 16 funciones, corran o no',
-           cod == 200 and vera.count('<code>/criterio-portfolio:') == 16, True)
+           cod == 200 and vera.count('<code class="cmd">/criterio-portfolio:') == 16, True)
         ok('cada una con nombre que se entiende y su grupo explicado',
            'Barrido: una ficha por proyecto' in vera
            and 'Instalar, saber qué toca hoy' in vera, True)
         ok('y las de Samuel y Alba también',
-           pedir('/agente/proyecto')[1].count('<code>/criterio-project:') == 9
-           and pedir('/agente/producto')[1].count('<code>/criterio-product:') == 11, True)
+           pedir('/agente/proyecto')[1].count('<code class="cmd">/criterio-project:') == 9
+           and pedir('/agente/producto')[1].count('<code class="cmd">/criterio-product:') == 11, True)
         ok('un agente que no existe responde 404', pedir('/agente/nadie')[0], 404)
         cod, arr = pedir('/arrastres')
-        ok('lo que se arrastra tiene página propia',
-           cod == 200 and 'desviación en tiempo' in arr and 'variance_time' not in arr and '/caso/PRY-001' in arr, True)
+        ok('lo que se arrastra tiene página propia, con la señal en palabras y su código debajo',
+           cod == 200 and 'Desviación en tiempo<span class="cita"><code>variance_<wbr>time</code>' in arr
+           and '/caso/PRY-001' in arr, True)
         solo = pedir('/corridas?agente=portafolio&que=portfolio-scan')[1]
         ok('el filtro por comando deja solo las suyas',
-           '<td>Barrido: una ficha por proyecto<br>' in solo and 'Informe del portafolio<br>' not in solo, True)
+           '>Barrido: una ficha por proyecto<span class="cita">' in solo and 'Informe del portafolio<span' not in solo, True)
         cod, una = pedir('/corrida/portafolio/-/2026-08-31-sweep-1')
         ok('una corrida registrada solo por `corrida` tiene su página',
            cod == 200 and 'la primera' in una and 'Lo que produjo' in una, True)
@@ -1706,8 +1820,8 @@ def selftest() -> int:
         ok('la página de una corrida no se ensancha en un teléfono: su bloque se desplaza',
            '.bloque{overflow-x:auto' in portafolio.pagina_corrida('c', '# c', '2026-09-08'), True)
         con_rastro = pedir('/corridas')[1]
-        ok('la corrida del arnés está en la tabla con caso, duración y fuente',
-           '2026-09-08 10:00' in con_rastro and '>90<' in con_rastro and 'arnés' in con_rastro, True)
+        ok('la corrida del arnés está en la tabla con caso y duración',
+           '2026-09-08 10:00' in con_rastro and '>90<' in con_rastro, True)
         ok('y el paralelismo que excede lo configurado va en rojo',
            'class="n exceso"' in con_rastro and '3 · 3 a la vez' in con_rastro, True)
         cod, caso = pedir('/caso/PRY-001')
@@ -1721,7 +1835,7 @@ def selftest() -> int:
         ok('su página abre con el árbol encima',
            cod == 200 and 'semáforo rojo' in una and 'class="arbol"' in una, True)
         ok('y el filtro por caso deja solo las suyas',
-           pedir('/corridas?caso=PRY-001')[1].count('<td>Estado de un proyecto<br>'), 1)
+           pedir('/corridas?caso=PRY-001')[1].count('>Estado de un proyecto<span class="cita">'), 1)
         ok('una corrida que no existe responde 404',
            pedir('/corrida/portafolio/2026-01-01-sweep-1')[0], 404)
         ok('ningún hueco del árbol queda sin rellenar',
@@ -1738,8 +1852,8 @@ def selftest() -> int:
            (True, False, False))
         ok('un caso con espacio en el nombre lleva la ruta codificada',
            (seg('tarjeta débito'), pedir('/historia/' + seg('PRY-001'))[0]), ('tarjeta%20d%C3%A9bito', 200))
-        ok('la historia nombra la señal, no su clave',
-           'desviación en tiempo' in cuerpo and 'variance_time' not in cuerpo, True)
+        ok('la historia nombra la señal en palabras, y su clave solo debajo',
+           'Desviación en tiempo<span class="cita">' in cuerpo and '<td>variance_time' not in cuerpo, True)
         cod, cuerpo = pedir('/corte?a=2026-08-31&b=2026-09-07')
         ok('el corte muestra el campo que cambió, con su nombre',
            cod == 200 and 'Cuándo cierra' in cuerpo and 'plan.end_date' not in cuerpo
@@ -1828,10 +1942,33 @@ def selftest() -> int:
         ok('y el menú tiene las familias', '>Las familias<' in hist and '/familia/clo' in hist, True)
         cod, caso_ = pedir('/caso/PRY-310')
         ok('el caso cruza familias: la señal de Clara sobre un proyecto de la PMO, con quién la levantó',
-           cod == 200 and 'project_budget_mismatch' in caso_ and '<a href="/agente/finanzas">Clara</a>' in caso_, True)
+           cod == 200 and 'project_<wbr>budget_<wbr>mismatch' in caso_ and '<a href="/agente/finanzas">Clara</a>' in caso_, True)
+        # La estructura que un lector de pantalla necesita, en cada página que sirve el portal: se
+        # recorren los enlaces desde la portada y cada página tiene que cumplirla.
+        vistas_, cola_, malas = set(), ['/'], []
+        while cola_ and len(vistas_) < 120:
+            r_ = cola_.pop(0)
+            if r_ in vistas_:
+                continue
+            vistas_.add(r_)
+            res_ = pedir(r_)
+            if len(res_) == 3:
+                cola_.append(res_[2]); continue
+            cod_, html_ = res_
+            if cod_ != 200 or '<html' not in html_:
+                continue
+            if not (html_.count('<h1') == 1 and '<main id="contenido"' in html_ and 'href="#contenido"' in html_
+                    and '<title>' in html_ and 'lang="es"' in html_):
+                malas.append(r_)
+            for h_ in re.findall(r'href="(/[^"#]*)"', html_):
+                h_ = html.unescape(h_)
+                if h_ not in vistas_ and not h_.endswith('.json'):
+                    cola_.append(h_)
+        ok(f'las {len(vistas_)} páginas enlazadas tienen un h1, el salto al contenido, main, título e idioma',
+           (len(vistas_) > 30, malas), (True, []))
         cod, fidel = pedir('/agente/legal')
         ok('la página de Fidel lleva sus siete comandos y sus reportes',
-           cod == 200 and fidel.count('<code>/criterio-legal:') == 7 and 'Sus reportes' in fidel, True)
+           cod == 200 and fidel.count('<code class="cmd">/criterio-legal:') == 7 and 'Sus reportes' in fidel, True)
         cod, _r = pedir('/peticion', 'POST', urllib.parse.urlencode({'para': 'legal/900-banco', 'texto': '¿Quién decide CTR-104?'}))
         ok('la petición llega al estado del agente que se eligió, y a ningún otro',
            (cod, len(pendientes(raiz / 'estado-legal' / '900-banco')), len(pendientes(raiz / 'pmo' / 'estado'))), (200, 1, 0))
@@ -1847,7 +1984,7 @@ def selftest() -> int:
         Manejador.entradas = entradas_legado(inf, est)
 
         ok('el escape impide inyectar en la confirmación',
-           '<script>' not in pedir('/peticion', 'POST',
+           '<script>x</script>' not in pedir('/peticion', 'POST',
                                    urllib.parse.urlencode({'de': '<script>x</script>'}))[1], True)
     finally:
         srv.shutdown(); srv.server_close()

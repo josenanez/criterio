@@ -443,9 +443,12 @@ def md_a_html(md: str) -> str:
             tabla = []
     def inl(t):
         t = _e(t)
-        t = re.sub(r'`([^`]+)`', r'<code>\1</code>', t)
+        # En el código, un nombre largo («einvoice_amount_mismatch», una ruta) se parte por sus
+        # guiones bajos y sus barras, no a mitad de palabra.
+        t = re.sub(r'`([^`]+)`', lambda m: '<code>' + re.sub(r'([_/])', r'\1<wbr>', m.group(1)) + '</code>', t)
         t = re.sub(r'\*\*([^*]+)\*\*', r'<b>\1</b>', t)
         t = re.sub(r'\*([^*]+)\*', r'<i>\1</i>', t)
+        t = re.sub(r'(?<![\w<])_([^_<>]+)_(?![\w>])', r'<i>\1</i>', t)
         return t
     for linea in md.splitlines():
         if linea.startswith('```'):
@@ -484,14 +487,17 @@ def md_a_html(md: str) -> str:
 def pagina_corrida(titulo: str, md: str, hoy: str) -> str:
     """El HTML de una corrida, autocontenido, en la paleta del informe."""
     p = _PALETA
-    css = (f"body{{margin:0;background:{p['crema']};color:{p['cuerpo']};font:16px/1.6 -apple-system,"
-           f"Segoe UI,Helvetica,Arial,sans-serif}}.hoja{{max-width:900px;margin:0 auto;padding:38px 24px}}"
+    css = (f"body{{margin:0;background:{p['crema']};color:{p['cuerpo']};font:16px/1.6 'Inter Tight','Inter',"
+           f"-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}}.hoja{{max-width:900px;margin:0 auto;padding:38px 24px}}"
+           f".saltar{{position:absolute;left:12px;top:-60px;padding:10px 16px;background:{p['tinta']};color:{p['crema']};"
+           f"border-radius:6px;font-weight:600;text-decoration:none}}.saltar:focus{{top:12px}}main:focus{{outline:none}}"
+           f"a:focus-visible{{outline:3px solid {p['oro']};outline-offset:2px}}"
            f"h1,h2,h3{{color:{p['tinta']};letter-spacing:-.02em;line-height:1.15}}h1{{font-size:1.9rem}}"
            f"h2{{font-size:1.25rem;margin-top:2em}}.nav a{{color:{p['oro']};text-decoration:none}}"
            f"table{{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95rem}}"
            f"th,td{{text-align:left;padding:.45em .6em;border-bottom:1px solid {p['filete']}}}"
            f"th{{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:{p['apagado']}}}"
-           f"code{{background:{p['panel']};padding:.1em .35em;border-radius:3px;font-size:.9em;overflow-wrap:anywhere}}"
+           f"code{{background:{p['panel']};padding:.1em .35em;border-radius:3px;font-size:.9em;overflow-wrap:break-word}}"
            f"pre{{background:{p['panel']};padding:1em;overflow:auto}}"
            f"@media (max-width:640px){{table{{display:block;max-width:100%;overflow-x:auto}}}}"
            # La tabla que se desplaza por dentro no basta: en la ronda 6 una corrida de
@@ -503,13 +509,14 @@ def pagina_corrida(titulo: str, md: str, hoy: str) -> str:
            f"color:{p['apagado']}}}")
     return (f'<!doctype html>\n<html lang="es"><head><meta charset="utf-8">'
             f'<meta name="viewport" content="width=device-width,initial-scale=1">'
-            f'<meta name="robots" content="noindex,nofollow"><title>{_e(titulo)}</title>'
-            f'<style>{css}</style></head><body><div class="hoja">'
+            f'<meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:,"><title>{_e(titulo)}</title>'
+            f'<style>{css}</style></head><body><a class="saltar" href="#contenido">Saltar al contenido</a>'
+            f'<div class="hoja"><main id="contenido" tabindex="-1">'
             f'<div class="nav"><a href="/corridas">← Historia de las corridas</a></div>'
-            f'<div class="bloque">{md_a_html(md)}</div>'
-            f'<div class="pie">Esta corrida se escribió sola al terminar el comando, el {_e(hoy)}; '
-            f'nada de esto se redactó después. Es la historia de lo que el agente leyó en los '
-            f'documentos, no de lo que pasó ni un juicio sobre nadie.</div></div></body></html>\n')
+            f'<h1>{_e(titulo)}</h1><div class="bloque">{md_a_html(md)}</div></main>'
+            f'<footer class="pie">Esta corrida se escribió sola al terminar el comando, el {_e(hoy)}; '
+            f'nada de esto se redactó después. Es la historia de lo que el agente procesó de los '
+            f'documentos, no de lo que pasó ni un juicio sobre nadie.</footer></div></body></html>\n')
 
 
 def _pagina(titulo: str, md: str, hoy: str) -> str:

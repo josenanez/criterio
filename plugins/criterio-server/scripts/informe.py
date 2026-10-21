@@ -78,6 +78,12 @@ body{{margin:0;background:{CREMA};color:{CUERPO};
 .hoja{{max-width:1080px;margin:0 auto;padding:56px 32px 96px}}
 a{{color:{ORO};text-decoration:none;border-bottom:1px solid {FILETE_ORO}}}
 a:hover{{border-bottom-color:{ORO}}}
+a:focus-visible,button:focus-visible,summary:focus-visible,label:focus-visible,[tabindex]:focus-visible{{
+  outline:3px solid {ORO};outline-offset:2px;border-radius:2px}}
+.saltar{{position:absolute;left:12px;top:-60px;z-index:10;padding:10px 16px;background:{TINTA};
+  color:{CREMA};border:0;border-radius:6px;font-weight:600}}
+.saltar:focus{{top:12px}}
+main:focus{{outline:none}}
 h1{{font-size:2.35rem;line-height:1.14;color:{TINTA};font-weight:500;margin:.2em 0 .1em;
   letter-spacing:-.01em}}
 h2{{font-size:1.4rem;color:{TINTA};font-weight:500;margin:2.6em 0 .8em;
@@ -94,7 +100,7 @@ h3{{font-size:1.06rem;color:{TINTA};font-weight:600;margin:1.8em 0 .5em}}
 .cifra.mala{{background:{ERROR_FONDO};border-color:{ERROR_FILETE}}}
 .cifra.mala .n{{color:{ERROR}}}
 table{{width:100%;border-collapse:collapse;margin:.6em 0 0;font-size:.95rem}}
-code{{overflow-wrap:anywhere}}
+code{{overflow-wrap:break-word}}
 th{{text-align:left;font-weight:600;color:{APAGADO};font-size:.78rem;
   letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;
   border-bottom:1px solid {FILETE}}}
@@ -112,8 +118,12 @@ tr:last-child td{{border-bottom:none}}
 .cita{{display:block;font-size:.8rem;color:{APAGADO_FRIO};margin-top:3px}}
 .vacio{{color:{APAGADO};font-style:italic}}
 .bloque{{border:1px solid {FILETE};border-left:3px solid {ORO};background:{LAVADO_ORO};
-  border-radius:0 8px 8px 0;padding:18px 22px;margin:20px 0;overflow-x:auto}}
-.bloque h3{{margin-top:0}}
+  border-radius:0 8px 8px 0;padding:18px 22px;margin:20px 0}}
+.bloque h3,.bloque h2.t{{margin-top:0}}
+h2.t{{font-size:1.06rem;font-weight:600;margin:1.8em 0 .5em;padding:0;border:0}}
+.bloque > :first-child{{margin-top:0}}
+.tabla{{max-width:100%;overflow-x:auto}}
+.tabla > table{{margin-top:0}}
 .bloque.info{{background:{INFO_FONDO};border-color:{INFO_FILETE};border-left-color:{INFO}}}
 .decision{{border:1px solid {FILETE};border-radius:8px;padding:22px 24px;margin:18px 0;
   background:{PANEL_ALTO}}}
@@ -121,33 +131,41 @@ tr:last-child td{{border-bottom:none}}
 .decision dl{{margin:.6em 0 0;display:grid;grid-template-columns:270px 1fr;gap:6px 20px}}
 @media (max-width:640px){{.decision dl{{grid-template-columns:1fr;gap:2px 0}}
   .decision dd{{margin-bottom:.8em}}
-  table{{display:block;max-width:100%;overflow-x:auto}}}}
+  .hoja{{padding:32px 18px 72px}}
+  h1{{font-size:1.9rem}}
+  table.apila,table.apila tbody,table.apila tr,table.apila td{{display:block;width:100%}}
+  table.apila thead{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+  table.apila tr{{padding:10px 0;border-bottom:1px solid {FILETE}}}
+  table.apila td{{border:0;padding:3px 0}}
+  table.apila td[data-col]{{position:relative;padding-left:8.2em;min-height:1.6em}}
+  table.apila td[data-col]::before{{content:attr(data-col);position:absolute;left:0;top:.45em;width:7.6em;
+    font-size:.75rem;line-height:1.25;letter-spacing:.04em;text-transform:uppercase;color:{APAGADO};font-weight:600}}}}
 .decision dt{{color:{APAGADO};font-size:.82rem;text-transform:uppercase;
   letter-spacing:.06em;font-weight:600;padding-top:2px}}
 .decision dd{{margin:0}}
 .pie{{margin-top:64px;padding-top:20px;border-top:1px solid {FILETE};
   color:{APAGADO};font-size:.86rem}}
 .nav{{margin:0 0 30px;font-size:.92rem}}
-.nav a{{margin-right:18px}}
+.nav a{{margin-right:18px;display:inline-block;padding:3px 0}}
 .barra{{border-bottom:1px solid {FILETE};margin:-20px 0 34px;padding-bottom:14px;
   display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 26px}}
 .barra .casa{{font-size:.95rem;font-weight:600;color:{TINTA};border:none;
   margin-right:8px}}
-.barra .casa span{{display:block;font-size:.7rem;letter-spacing:.14em;
+.barra .casa span{{display:block;font-size:.75rem;letter-spacing:.14em;
   text-transform:uppercase;color:{ORO};font-weight:600}}
 .barra nav{{display:flex;flex-wrap:wrap;gap:4px 22px;margin-left:auto}}
-.barra nav a{{border:none;color:{APAGADO};font-size:.95rem;padding:2px 0;
+.barra nav a{{border:none;color:{APAGADO};font-size:.95rem;padding:4px 0;
   border-bottom:2px solid transparent}}
 .barra nav a:hover{{color:{TINTA}}}
 .barra nav a.aqui{{color:{TINTA};font-weight:600;border-bottom-color:{ORO}}}
 .migas{{font-size:.9rem;color:{APAGADO};margin:0 0 6px}}
-.migas a{{border:none}}
+.migas a{{border-bottom:1px solid {FILETE_ORO}}}
 .par{{display:flex;flex-wrap:wrap;gap:16px;margin:26px 0 0}}
 .par > *{{flex:1 1 300px}}
 @media print{{
   body{{background:#fff}}
   .hoja{{max-width:none;padding:0}}
-  .nav,.barra nav{{display:none}}
+  .nav,.barra nav,.saltar{{display:none}}
   .barra{{margin-top:0}}
   h2{{page-break-after:avoid}}
   .decision,.bloque,tr{{page-break-inside:avoid}}
@@ -174,7 +192,7 @@ NOMBRES = {
     'governance_change': 'cambio de gobierno',
     'declared_vs_evidence': 'la evidencia no explica el verde',
     'declaration_stale': 'declaración vieja',
-    'pm_vs_pmo': 'el gerente y la PMO no leyeron lo mismo',
+    'pm_vs_pmo': 'la ficha del gerente y la de la PMO no coinciden',
     'rebaseline_unauthorized': 'replanificación sin autorizar',
     'change_without_baseline': 'cambio sin línea base',
     'vendor_deliverable_late': 'entregable de proveedor vencido',
@@ -455,19 +473,62 @@ def barra(seccion, org):
     return f'<div class="barra">{casa}<nav>{enlaces}</nav></div>'
 
 
+# Una tabla ancha se desliza dentro de su caja y no empuja la página. Si de verdad se desliza,
+# se puede alcanzar con el teclado: el foco solo se le da a la que lo necesita, para no llenar
+# la página de paradas inútiles.
+DESLIZA = ("<script>(function(){function f(){document.querySelectorAll('.tabla').forEach(function(t){"
+           "if(t.scrollWidth>t.clientWidth+1){t.tabIndex=0}else{t.removeAttribute('tabindex')}})}"
+           "f();addEventListener('resize',f)})()</script>")
+
+
+def apilable(tabla: str, cols: list) -> str:
+    """Una tabla de cuatro columnas o más, en un teléfono, se lee fila por fila: cada celda lleva
+    el nombre de su columna, y la hoja de estilo la apila. En pantalla ancha no cambia nada."""
+    def fila(m):
+        i = iter(range(10_000))
+        return re.sub(r'<td\b', lambda _: f'<td data-col="{e(cols[min(next(i), len(cols) - 1)])}"', m.group(0))
+    tabla = re.sub(r'<tbody>.*?</tbody>', lambda m: re.sub(r'<tr\b.*?</tr>', fila, m.group(0), flags=re.S), tabla, flags=re.S)
+    return tabla.replace('<table', '<table class="apila"', 1)
+
+
+def tablas(html_: str) -> str:
+    """Cada tabla dentro de su caja deslizable, con un nombre que la distingue de las demás de la
+    página: el título bajo el que está y sus columnas."""
+    out, fin, vistos = [], 0, {}
+    for m in re.finditer(r'<table\b.*?</table>', html_, flags=re.S):
+        antes = html_[:m.start()]
+        titulos = re.findall(r'<h[1-4][^>]*>(.*?)</h[1-4]>', antes, re.S)
+        bajo = re.sub(r'<[^>]+>', '', titulos[-1]).strip() if titulos else ''
+        cols = [re.sub(r'<[^>]+>', '', c).strip() for c in re.findall(r'<th[^>]*>(.*?)</th>', m.group(0), re.S)]
+        nombre = (bajo or 'Tabla') + (': ' + ', '.join(c for c in cols if c) if cols else '')
+        nombre = nombre[:140]
+        vistos[nombre] = vistos.get(nombre, 0) + 1
+        if vistos[nombre] > 1:
+            nombre += f' ({vistos[nombre]})'
+        tabla = m.group(0)
+        if len(cols) >= 4:
+            tabla = apilable(tabla, cols)
+        out += [html_[fin:m.start()], f'<div class="tabla" role="region" aria-label="{e(nombre)}">', tabla, '</div>']
+        fin = m.end()
+    out.append(html_[fin:])
+    return ''.join(out)
+
+
 def pagina(titulo, cuerpo, hoy, nav=''):
+    """La página entera. El contenido va en `<main>`, con un enlace para saltar a él: el menú de
+    Rostrum va antes, y quien navega con teclado no tiene por qué recorrerlo en cada página."""
     return f"""<!doctype html>
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
+<meta name="robots" content="noindex,nofollow"><link rel="icon" href="data:,">
 <title>{e(titulo)}</title><style>{CSS}</style></head>
-<body><div class="hoja">{nav}{cuerpo}
-<div class="pie">
+<body><a class="saltar" href="#contenido">Saltar al contenido</a><div class="hoja"><main id="contenido" tabindex="-1">{nav}{tablas(cuerpo)}</main>
+<footer class="pie">
 Producido por <strong>Vera</strong>, el agente PMO de Criterio, el {e(hoy)}.
 Esto es un <strong>borrador de trabajo, no una decisión</strong>: cada dato lleva la cita del
 documento del que salió para que se pueda verificar, y «no está dicho en ninguna parte» es un
 hallazgo válido. El agente sabe lo que se escribió, no lo que se habló fuera de los documentos.
-</div></div></body></html>
+</footer>{DESLIZA}</div></body></html>
 """
 
 
@@ -723,7 +784,7 @@ def vista_decisiones(datos, fichas, hoy, org=None):
 </div>""" for proy, preg, datos_d in decisiones)
 
     if not decisiones:
-        bloques = """<div class="bloque info"><h3>No hay decisiones pendientes</h3>
+        bloques = """<div class="bloque info"><h2 class="t">No hay decisiones pendientes</h2>
 <p>Nada de lo que el agente encontró excede la autoridad de quien gerencia cada proyecto.
 Eso no significa que todo vaya bien: significa que nada requiere una decisión de este
 comité.</p></div>"""
@@ -900,7 +961,7 @@ def vista_proyecto(p, rec, hoy, org=None):
 <p class="pie-cab">Al {e(hoy)}</p>
 
 <div class="bloque">
-<h3>La declaración y la evidencia</h3>
+<h2 class="t">La declaración y la evidencia</h2>
 <p><strong>Declara:</strong> {semaforo(d.get('status'))}
 {f"· {pct(d.get('progress_pct'))} de avance" if d.get('progress_pct') is not None else ''}
 · al {e(d.get('as_of'))}
@@ -1016,6 +1077,38 @@ def selftest() -> int:
         if real != esperado:
             fallas.append(f'{que}: {real!r} en vez de {esperado!r}')
         print(f'{"  ok  " if real == esperado else " FALLA"} {que}')
+
+    # ── WCAG 2.2 AA: lo que se puede comprobar sin navegador. El recorrido con axe-core está
+    # en tests/criterio-server/accesibilidad.mjs; esto es lo que no puede volver atrás sin que
+    # una puerta lo diga.
+    def contraste(a_, b_):
+        def lum(h):
+            c = [int(h.lstrip('#')[k:k + 2], 16) / 255 for k in (0, 2, 4)]
+            c = [x / 12.92 if x <= 0.03928 else ((x + 0.055) / 1.055) ** 2.4 for x in c]
+            return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
+        la, lb = sorted((lum(a_), lum(b_)), reverse=True)
+        return (la + 0.05) / (lb + 0.05)
+    fondos = (CREMA, PANEL, PANEL_ALTO, LAVADO_ORO, '#ffffff')
+    textos = (TINTA, CUERPO, APAGADO, APAGADO_FRIO, ORO, ERROR, OK_, ALERTA, INFO)
+    ok('todo texto contra todo fondo de la paleta llega a 4,5:1 (WCAG 1.4.3)',
+       [(t, f) for t in textos for f in fondos if contraste(t, f) < 4.5], [])
+    ok('cada estado contra su fondo llega a 4,5:1',
+       [(t, f) for t, f in ((OK_, OK_FONDO), (ERROR, ERROR_FONDO), (ALERTA, ALERTA_FONDO), (INFO, INFO_FONDO))
+        if contraste(t, f) < 4.5], [])
+    ok('el borde de un campo y el foco se distinguen del fondo a 3:1 (WCAG 1.4.11)',
+       min(contraste(APAGADO, '#ffffff'), contraste(ORO, '#ffffff'), contraste(ORO, CREMA)) >= 3, True)
+    tamanos = [float(x) for x in re.findall(r'font-size:\s*([0-9.]+)rem', CSS)]
+    ok('ninguna letra por debajo de 12 px (.75rem)', [x for x in tamanos if x < .75], [])
+    muestra = pagina('Prueba', '<h1>Prueba</h1><h2>Uno</h2><table><thead><tr><th>A</th><th>B</th><th>C</th>'
+                     '<th>D</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></tbody></table>'
+                     '<h2>Uno</h2><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>'
+                     '<tbody><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></tbody></table>', '2026-10-21')
+    ok('la página tiene idioma, salto al contenido, main y pie (WCAG 2.4.1, 1.3.1)',
+       all(x in muestra for x in ('<html lang="es">', 'href="#contenido"', '<main id="contenido"', '<footer')), True)
+    ok('cada tabla en su región, con un nombre que no repite el de otra (WCAG 1.3.1, 2.1.1)',
+       re.findall(r'aria-label="([^"]+)"', muestra), ['Uno: A, B, C, D', 'Uno: A, B, C, D (2)'])
+    ok('en un teléfono la tabla ancha se lee fila por fila: cada celda dice su columna',
+       'class="apila"' in muestra and 'data-col="D">4<' in muestra, True)
 
     ok('plural en singular', plural(1, 'día', 'días'), '1 día')
     ok('plural en plural', plural(0, 'día', 'días'), '0 días')

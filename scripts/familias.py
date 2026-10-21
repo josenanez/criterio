@@ -305,6 +305,15 @@ def revisar_campos(fu: dict) -> list[str]:
     return err
 
 
+def nombres_json(fa: dict) -> str:
+    """El nombre en palabras de cada señal y de cada comando de la familia, para que el motor los
+    escriba así en sus reportes: un reporte que se abre fuera del portal también se entiende."""
+    d = {"generado": f"por scripts/familias.py desde families/criterio-{CLAVE[0]}/familia.json; {AVISO}",
+         "senales": {x["id"]: x["es"] for a in fa["agentes"] for x in a.get("senales") or []},
+         "comandos": {c["id"]: c["es"]["etiqueta"] for a in fa["agentes"] for c in a["comandos"]}}
+    return json.dumps(d, ensure_ascii=False, indent=2) + "\n"
+
+
 def estructura_json(ca: dict) -> str:
     """Lo que el motor necesita de la estructura para decir qué está fuera de su lugar."""
     d = {"generado": f"por scripts/familias.py desde families/criterio-{CLAVE[0]}/carpetas.json; no se edita a mano",
@@ -350,6 +359,7 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
         ruta = P / p / "scripts" / "estructura.json"
         if ruta.parent.is_dir():
             salidas.append((ruta, estructura_json(ca)))
+            salidas.append((ruta.with_name("nombres.json"), nombres_json(fa)))
     for ruta, nuevo in salidas:
         actual = ruta.read_text(encoding="utf-8") if ruta.exists() else ""
         if nuevo == actual:
@@ -443,8 +453,16 @@ def agentes_json() -> tuple[str, list[str]]:
     areas = [a["area"] for a in agentes]
     if len(areas) != len(set(areas)):
         err.append("dos agentes con la misma área")
+    # El nombre de cada señal, para que Rostrum la diga en palabras y no en código.
+    senales = {}
+    for sigla in ("cfo", "clo"):
+        f = RAIZ / "families" / f"criterio-{sigla}" / "familia.json"
+        if f.is_file():
+            for a in json.loads(f.read_text(encoding="utf-8"))["agentes"]:
+                senales.update({x["id"]: x["es"] for x in a.get("senales") or []})
     d = {"generado": f"por scripts/familias.py desde families/*/familia.json; {AVISO}",
-         "familias": familias, "agentes": agentes, "servidor": SERVIDOR}
+         "familias": familias, "agentes": agentes, "servidor": SERVIDOR,
+         "senales": dict(sorted(senales.items()))}
     return json.dumps(d, ensure_ascii=False, indent=2) + "\n", err
 
 

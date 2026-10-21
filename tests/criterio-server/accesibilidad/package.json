@@ -1,0 +1,8 @@
+{
+  "name": "criterio-rostrum-accesibilidad",
+  "private": true,
+  "type": "module",
+  "description": "Recorre Rostrum entero en Chromium con axe-core: WCAG 2.2 A y AA, teclado, menú del teléfono, formulario, movimiento y reflujo",
+  "scripts": { "auditar": "node auditar.mjs" },
+  "devDependencies": { "axe-core": "4.10.3", "playwright": "1.56.1" }
+}

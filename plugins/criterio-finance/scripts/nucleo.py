@@ -471,6 +471,28 @@ def _m(x) -> str:
     return "—" if x is None else f"{mon(x)}"
 
 
+def _nombres() -> dict:
+    """Los nombres en palabras de las señales y los comandos de la familia (`nombres.json`, que
+    escribe scripts/familias.py). Sin el archivo, el reporte sale con el código, como antes."""
+    try:
+        return json.loads((Path(__file__).resolve().parent / "nombres.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+NOMBRES = _nombres()
+
+
+def nombre_senal(s: str) -> str:
+    """«Una tarea figura cumplida y ningún documento la sostiene (`close_task_done_without_evidence`)»."""
+    n = (NOMBRES.get("senales") or {}).get(s)
+    return f"{n} (`{s}`)" if n else f"`{s}`"
+
+
+def nombre_comando(c: str) -> str:
+    return (NOMBRES.get("comandos") or {}).get(c) or c
+
+
 def _cita(c) -> str:
     if not c:
         return ""
@@ -487,13 +509,13 @@ def marco_reporte(r: dict, comando: str, version: str, *, agente: str, senales: 
     ent = r.get("entidad") or {}
     _PAIS[0] = (ent.get("country") or "CO").upper()
     alertas = [a for a in r["alertas"] if senales is None or a["signal"] in senales]
-    l = [f"# {comando} · {ent.get('name')} · {alcance}", "",
-         f"**Entidad:** {ent.get('name')} ({ent.get('id')}) · **Fecha de corte:** {r.get('corte')} · **Procesado:** {r.get('hoy')} · **Agente:** {agente}, versión {version}{extra}", ""]
+    l = [f"# {nombre_comando(comando)} · {ent.get('name')} · {alcance}", "",
+         f"**Entidad:** {ent.get('name')} ({ent.get('id')}) · **Fecha de corte:** {r.get('corte')} · **Procesado:** {r.get('hoy')} · **Agente:** {agente}, versión {version}{extra} · **Comando:** `{comando}`", ""]
     l += ["## Lo que hay que atender", ""]
     if alertas:
         l += ["| # | Señal | Qué | Monto | Responsable | Días | Cita |", "|---|---|---|---|---|---|---|"]
         for i, a in enumerate(alertas, 1):
-            l.append(f"| {i} | `{a['signal']}` | {a['detail'].replace('|', '/')} | {_m(a['amount'])} | {a['owner'] or '—'} | {a['age_days'] if a['age_days'] is not None else '—'} | {_cita(a['cite'])} |")
+            l.append(f"| {i} | {nombre_senal(a['signal'])} | {a['detail'].replace('|', '/')} | {_m(a['amount'])} | {a['owner'] or '—'} | {a['age_days'] if a['age_days'] is not None else '—'} | {_cita(a['cite'])} |")
     else:
         l.append("Nada abierto en lo que procesa este comando.")
     l += ["", "## El resultado", ""]
@@ -555,10 +577,10 @@ def corrida(estado: Path, que: str, salida: Path | None, caso: str | None, nota:
                "hallazgos": len(alertas) if r is not None else None, "por_senal": dict(por_senal.most_common()),
                "por_caso": {k: sorted(v) for k, v in sorted(por_caso.items())}, "salida": bool(cuerpo),
                "escrita": time.time(), "nota": nota}
-    lineas = [f"# Corrida del {hoy.isoformat()} · {que}", "",
+    lineas = [f"# Corrida del {hoy.isoformat()} · {nombre_comando(que)}", "",
               (f"Caso: {caso} · " if caso else "") + (f"{len(alertas)} hallazgos" if r is not None else "sin cálculo"), ""]
     if por_senal:
-        lineas += ["| Señal | Hallazgos |", "|---|---:|"] + [f"| `{s}` | {k} |" for s, k in por_senal.most_common()] + [""]
+        lineas += ["| Señal | Hallazgos |", "|---|---:|"] + [f"| {nombre_senal(s)} | {k} |" for s, k in por_senal.most_common()] + [""]
     if nota:
         lineas += [nota, ""]
     lineas += ["## Lo que produjo", "", cuerpo or "_(el comando no dejó su salida)_", ""]

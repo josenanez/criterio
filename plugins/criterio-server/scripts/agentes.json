@@ -77,7 +77,7 @@
           ]
         },
         {
-          "titulo": "Lectura de documentos",
+          "titulo": "Los documentos",
           "linea": "Qué cambió en la carpeta y el barrido que hace una ficha por proyecto",
           "comandos": [
             {
@@ -591,5 +591,55 @@
         ]
       }
     ]
+  },
+  "senales": {
+    "account_unreconciled": "El saldo de una cuenta en el mayor no es el de su auxiliar (cuentas por cobrar, por pagar, inventarios, activos fijos, intercompañías)",
+    "applicable_norm_not_in_matrix": "Una norma que aplica no tiene ninguna obligación en la matriz",
+    "audit_request_unanswered": "Un requerimiento del auditor no tiene respuesta con soporte",
+    "bank_unreconciled": "Hay movimientos del extracto sin su registro, o registros sin su movimiento",
+    "budget_version_mismatch": "El informe usa una versión del presupuesto distinta de la aprobada",
+    "close_task_done_without_evidence": "Una tarea figura cumplida y ningún documento la sostiene",
+    "close_task_overdue": "Una tarea del checklist pasó su fecha y no tiene evidencia",
+    "committed_near_approved": "Ejecutado más comprometido se acerca a lo aprobado sin holgura",
+    "compliance_done_without_evidence": "Una obligación figura cumplida y ninguna evidencia la sostiene",
+    "compliance_evidence_stale": "La evidencia más reciente de una obligación periódica es de antes de su ventana",
+    "compliance_obligation_overdue": "Una obligación de la matriz pasó su fecha límite sin evidencia",
+    "contract_expired_active": "El registro reporta vigente un contrato cuya fecha de terminación ya pasó",
+    "contract_expiring": "Un contrato vence dentro de los días configurados y no tiene una decisión registrada de renovar o terminar",
+    "contract_obligation_not_in_matrix": "Una obligación de cumplimiento de un contrato no está en la matriz",
+    "contract_obligation_overdue": "Una obligación del contrato pasó su fecha sin evidencia",
+    "counterparty_certificate_stale": "El certificado de la contraparte tenía más días de los configurados cuando se firmó",
+    "declared_close_vs_evidence": "El cierre se reporta como cerrado y hay señales abiertas que ese estado no explica",
+    "declared_compliance_vs_evidence": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
+    "declared_vs_evidence": "El área se reporta dentro del presupuesto y los números no lo sostienen",
+    "einvoice_amount_mismatch": "El valor o el impuesto del XML no es el del registro",
+    "einvoice_duplicate": "El mismo CUFE o la misma clave de acceso aparece registrado dos veces",
+    "einvoice_not_recorded": "Una factura electrónica emitida o recibida no tiene registro contable",
+    "forecast_over_approved": "La proyección al cierre del año supera lo aprobado",
+    "forecast_stale": "La proyección del área no se actualizó en los días configurados",
+    "guarantee_expires_early": "La póliza aportada vence antes de lo que exige el contrato",
+    "guarantee_missing": "El contrato exige una garantía y no hay póliza aportada",
+    "ledger_vs_trial_balance": "El saldo de una cuenta en el mayor no es el del balance de comprobación",
+    "notice_deadline_near": "La fecha límite del preaviso de no renovación de un contrato con renovación automática cae dentro de los días configurados",
+    "obligation_without_owner": "Una obligación de la matriz no tiene responsable",
+    "obligation_without_source": "Una obligación de la matriz no cita la norma, el contrato o la política de la que sale",
+    "payment_after_termination": "Hay pagos con fecha posterior a la terminación del contrato",
+    "payments_over_value": "Lo pagado supera el valor del contrato más sus otrosíes",
+    "policy_review_overdue": "Una política pasó su fecha de revisión",
+    "project_budget_mismatch": "El presupuesto de un proyecto en su ficha no es el que tiene asignado el área",
+    "reconciliation_stale": "La conciliación de una cuenta no se actualizó en el periodo",
+    "reconciling_item_aged": "Una partida conciliatoria lleva más días de los configurados",
+    "recorded_without_einvoice": "Un registro que la necesita no tiene factura electrónica que lo soporte",
+    "register_differs_from_contract": "El valor o las fechas del registro no son los del documento",
+    "register_mismatch": "Un contrato de la carpeta no está en el registro, o una fila del registro no tiene su documento",
+    "regulatory_change_unassessed": "Una norma registrada lleva más días de los configurados sin evaluación de impacto",
+    "renewal_notice_missed": "Pasó la fecha límite del preaviso de un contrato con renovación automática sin una decisión registrada",
+    "report_case_overdue": "Un caso del canal de denuncias pasó el plazo de respuesta configurado",
+    "signed_without_authority": "Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones",
+    "spend_without_budget_line": "Hay gasto en una cuenta o centro de costo sin línea presupuestal",
+    "transfer_without_approval": "Un traslado o una modificación no tiene el acta que lo aprueba",
+    "trial_balance_unbalanced": "Los débitos y los créditos del balance de comprobación no suman lo mismo",
+    "unsigned_contract": "El documento no tiene la firma de las dos partes y el contrato ya empezó",
+    "variance_over_threshold": "Lo ejecutado al corte se aparta del presupuesto más del porcentaje configurado"
   }
 }

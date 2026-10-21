@@ -35,6 +35,54 @@ estado—, y una carpeta en `.criterio/` que no es de ningún agente. Comprueba 
 - lo dejado fuera no vuelva solo;
 - una familia instalada después aparezca como nueva.
 
+## La auditoría de accesibilidad y uso, 2026-10-21
+
+Se hizo con Chromium y axe-core sobre un espacio de trabajo de demostración con salidas reales de
+los motores de las tres familias (Banco Andino: Vera, Clara, Tomás, Fidel y Constanza). Se corrió
+[`accesibilidad/auditar.mjs`](accesibilidad/auditar.mjs) en cuatro configuraciones: el mapa con
+las tres familias, el modo heredado solo con la PMO, un mapa solo con la CFO y un mapa con un
+agente que todavía no ha corrido.
+
+**Antes:** 131 páginas con el mapa completo.
+
+- axe encontró seis reglas incumplidas:
+  - sin `main`, y contenido fuera de toda región;
+  - 109 páginas sin `h1`;
+  - encabezados que saltan de nivel en 11 páginas;
+  - en 8 páginas, migas cuyos enlaces solo se distinguían por el color, con 1,04:1 contra el
+    texto de al lado;
+  - en 32 páginas, cajas que se deslizan sin poderse alcanzar con el teclado.
+- 10 enlaces llevaban a un 404.
+- El menú del teléfono no se abría con el teclado.
+- Los robots se movían sin parar (WCAG 2.2.2).
+- El borde de los campos del formulario tenía 1,7:1 contra el fondo (WCAG 1.4.11 pide 3:1).
+
+En la lectura:
+
+- las señales salían como código (`trial_balance_unbalanced`), cortado a mitad de palabra en las
+  tablas de los reportes;
+- en un teléfono, las tablas anchas quedaban cortadas;
+- en un portal sin la PMO, el formulario decía «proyecto»;
+- dos textos describían a los agentes con «leyó».
+
+**Después:** 138 páginas con el mapa completo, 78 con el modo heredado, 34 con solo la CFO y 21
+con un agente sin corridas.
+
+- En las cuatro configuraciones axe no encuentra ninguna incumplida.
+- No hay enlaces rotos ni errores de consola.
+- Ninguna página se sale del ancho a 1280, 768, 390 ni 320 px, y ninguna letra baja de 12 px.
+- El primer Tab salta al contenido y el foco se ve.
+- El menú del teléfono se abre con el teclado.
+- El formulario no se envía sin texto.
+- Los robots se paran solos antes de cinco segundos.
+
+Desde ahora, el `--selftest` de `informe.py` y el de `servidor.py` comprueban sin navegador:
+
+- el contraste de la paleta;
+- el tamaño mínimo de letra;
+- la estructura de cada página enlazada;
+- que los robots se paren.
+
 ## Lo que no prueba
 
 Las rondas de la familia PMO levantan Rostrum de punta a punta sobre lo que los agentes de verdad

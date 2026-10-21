@@ -357,6 +357,21 @@ motor. **Cómo salió la última corrida**, generado desde la corrida misma:
 [`tests/criterio-server/RESULTADOS.md`](../../tests/criterio-server/RESULTADOS.md). Criterios de
 aceptación en [ACCEPTANCE.md](ACCEPTANCE.md).
 
+**Accesibilidad, WCAG 2.2 AA.** Las pruebas de arriba comprueban sin navegador lo que no puede
+volver atrás:
+
+- el contraste de cada color de texto contra cada fondo;
+- el borde de los campos;
+- que ninguna letra baje de 12 px;
+- en cada página enlazada: un solo `h1`, el salto al contenido, `main`, título e idioma;
+- que los robots se paren solos en menos de cinco segundos.
+
+El recorrido completo, con Chromium y axe-core, está en
+[`tests/criterio-server/accesibilidad/`](../../tests/criterio-server/accesibilidad/). Con un
+Rostrum corriendo, `npm ci && BASE=http://127.0.0.1:<puerto> npm run auditar` recorre cada página
+enlazada a 1280, 768, 390 y 320 px. Revisa también el teclado, el menú del teléfono, el
+formulario y el movimiento.
+
 ## El menú, las páginas de los agentes y las de cada caso
 
 A la izquierda de toda página va un menú corto, en el orden en que alguien entra:

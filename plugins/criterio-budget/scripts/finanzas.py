@@ -1525,6 +1525,9 @@ def selftest() -> int:
         md = reporte(r, "bank-reconcile", "0.0.0")
         ok("el reporte sigue el orden común", [x for x in md.splitlines() if x.startswith("## ")],
            ["## Lo que hay que atender", "## El resultado", "## Lo que no se pudo procesar", "## Las preguntas que hizo", "## Fuentes"])
+        ok("el reporte dice la señal y el comando en palabras, con su código al lado",
+           ("Hay movimientos del extracto sin su registro" in md and "(`bank_unreconciled`)" in md
+            and md.startswith("# Conciliación bancaria") and "**Comando:** `bank-reconcile`" in md) if N.NOMBRES else True, True)
 
         # Tomás: presupuesto con dos versiones y un traslado sin acta.
         pr = docs / "presupuesto-2026"

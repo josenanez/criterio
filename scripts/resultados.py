@@ -244,7 +244,7 @@ h3{{font-size:1.05rem;color:{TINTA};font-weight:600;margin:0 0 .2em}}
   color:{ORO};font-weight:600}}
 .agente .que{{color:{APAGADO};font-size:.92rem;margin:.3em 0 1em;max-width:70ch}}
 table{{width:100%;border-collapse:collapse;font-size:.93rem}}
-th{{text-align:left;font-weight:600;color:{APAGADO};font-size:.74rem;letter-spacing:.08em;
+th{{text-align:left;font-weight:600;color:{APAGADO};font-size:.75rem;letter-spacing:.08em;
   text-transform:uppercase;padding:8px 10px;border-bottom:1px solid {FILETE}}}
 td{{padding:9px 10px;border-bottom:1px solid {FILETE_SUAVE};vertical-align:top}}
 tr:last-child td{{border-bottom:none}}
@@ -261,8 +261,21 @@ td .porque{{display:block;font-size:.83rem;color:{APAGADO};margin-top:2px}}
 .bloque li{{margin:.4em 0}}
 .pie{{margin-top:56px;padding-top:18px;border-top:1px solid {FILETE};color:{APAGADO};
   font-size:.85rem}}
-code{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;
-  background:{PANEL};padding:1px 5px;border-radius:3px}}
+code{{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;
+  background:{PANEL};padding:1px 5px;border-radius:3px;overflow-wrap:break-word}}
+.tope svg{{max-width:100%;height:auto}}
+@media (max-width:640px){{
+  .hoja{{padding:32px 16px 72px}} h1{{font-size:1.9rem}} .agente{{padding:18px 16px}}
+  .tope{{padding:18px 16px}}
+  /* En un teléfono, cada puerta se lee como una ficha: cada dato con el nombre de su columna. */
+  table,tbody,tr,td{{display:block;width:100%}}
+  thead{{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+  tr{{padding:10px 0;border-bottom:1px solid {FILETE}}}
+  td{{border:0;padding:3px 0}} td.n{{text-align:left}}
+  td[data-col]{{position:relative;padding-left:7.4em}}
+  td[data-col]::before{{content:attr(data-col);position:absolute;left:0;top:.35em;width:6.8em;
+    font-size:.75rem;letter-spacing:.04em;text-transform:uppercase;color:{APAGADO};font-weight:600}}
+}}
 @media print{{
   body{{background:#fff}} .hoja{{max-width:none;padding:0}}
   h2{{page-break-after:avoid}} .agente,tr{{page-break-inside:avoid}}
@@ -324,7 +337,7 @@ def pagina(filas: list, rapido: bool) -> str:
     p = [f'<!doctype html><html lang="es"><head><meta charset="utf-8">',
          f'<meta name="viewport" content="width=device-width,initial-scale=1">',
          f'<title>Criterio · resultados de las pruebas</title>',
-         f'<style>{CSS}</style></head><body><div class="hoja">',
+         f'<link rel="icon" href="data:,"><style>{CSS}</style></head><body><div class="hoja"><main>',
          f'<p class="ante">Criterio · verificación</p>',
          f'<h1>Qué se probó, y qué no</h1>',
          f'<p class="entrada">Esta página sale de una corrida, no de un resumen escrito a '
@@ -355,14 +368,14 @@ def pagina(filas: list, rapido: bool) -> str:
                  f'<p class="que">{que}</p>'
                  f'<table><thead><tr><th>Puerta</th><th>Qué prueba</th>'
                  f'<th class="n">Comprob.</th><th class="n">Tiempo</th>'
-                 f'<th></th></tr></thead><tbody>')
+                 f'<th>Estado</th></tr></thead><tbody>')
         for f in grupo:
             marca = ('<span class="sem verde">verde</span>' if f["ok"]
                      else f'<span class="sem rojo">{f["fallas"]} en rojo</span>')
-            p.append(f'<tr><td><code>{e(f["etiqueta"])}</code></td>'
-                     f'<td>{e(f["porque"])}</td>'
-                     f'<td class="n">{f["checks"] or "—"}</td>'
-                     f'<td class="n">{f["ms"]} ms</td><td>{marca}</td></tr>')
+            p.append(f'<tr><td data-col="Puerta"><code>{e(f["etiqueta"])}</code></td>'
+                     f'<td data-col="Qué prueba">{e(f["porque"])}</td>'
+                     f'<td class="n" data-col="Comprob.">{f["checks"] or "—"}</td>'
+                     f'<td class="n" data-col="Tiempo">{f["ms"]} ms</td><td data-col="Estado">{marca}</td></tr>')
         p.append('</tbody></table></div>')
 
     p.append('<h2>Lo que esta corrida no cubre</h2>')
@@ -374,12 +387,12 @@ def pagina(filas: list, rapido: bool) -> str:
         p.append(f'<li><b>{e(titulo)}.</b> {detalle.format(comandos=comandos)}</li>')
     p.append('</ul></div>')
 
-    p.append(f'<div class="pie"><p>Corrida del {hoy} · commit <code>{e(commit)}</code>'
+    p.append(f'</main><footer class="pie"><p>Corrida del {hoy} · commit <code>{e(commit)}</code>'
              f'{" · con cambios sin confirmar" if sucio else ""} · '
              f'{"sin regenerar el material sintético" if rapido else "material sintético regenerado en esta corrida"}.</p>'
              f'<p>Reproducirlo: <code>python3 scripts/resultados.py</code>. El detalle de '
              f'qué prueba cada corpus y qué no, en las tres páginas de evidencia bajo '
-             f'<code>tests/</code>.</p></div>')
+             f'<code>tests/</code>.</p></footer>')
     p.append('</div></body></html>')
     return "".join(p)
 

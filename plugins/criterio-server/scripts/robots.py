@@ -259,7 +259,12 @@ def css(selector: str = ".cr-anima") -> str:
                 prop = f"stroke-dashoffset:{v:g}"
             pasos.append(f"{f * 100:g}%{{{prop}}}")
         reglas.append(f"@keyframes cr-{base}{{{''.join(pasos)}}}")
-        reglas.append(f"{selector} .g-{base}{{animation:cr-{base} {g['dura']:g}s linear infinite}}")
+        # Una vuelta y se queda quieto: lo que se mueve solo más de cinco segundos tiene que
+        # poderse parar (WCAG 2.2.2). Sigue moviéndose mientras el puntero o el foco están encima.
+        veces = round(VUELTA / g["dura"])
+        reglas.append(f"{selector} .g-{base}{{animation:cr-{base} {g['dura']:g}s linear {veces}}}")
+        reglas.append(f"{selector}:hover .g-{base},a:hover>{selector} .g-{base},"
+                      f"a:focus-visible>{selector} .g-{base}{{animation-iteration-count:infinite}}")
     reglas.append("@media (prefers-reduced-motion: reduce){"
                   f"{selector} *{{animation:none!important;stroke-dashoffset:0!important;"
                   "transform:none!important;opacity:1!important}}}")
@@ -371,6 +376,10 @@ def selftest() -> int:
        "<style>" not in c0 and "stroke-dashoffset" in c0 and c0 != c1)
     ok("y la vuelta cierra: el segundo 0 y el de la vuelta son el mismo cuadro",
        svg("tomas", "#000", "#000", t=0) == svg("tomas", "#000", "#000", t=VUELTA))
+    hoja = css()
+    ok("se mueve una vuelta y se para; sigue solo con el puntero o el foco encima (WCAG 2.2.2)",
+       "linear infinite" not in hoja and f"linear {round(VUELTA / GESTOS['cuerpo']['dura'])}" in hoja
+       and "animation-iteration-count:infinite" in hoja and VUELTA <= 5)
     d = datos()
     ok("los datos del portal traen los ocho robots y la misma hoja", set(d["robots"]) == set(todos) and d["css"] == css())
     print()
