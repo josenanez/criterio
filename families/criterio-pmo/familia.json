@@ -294,7 +294,7 @@
     ],
     "es": {
       "eyebrow": "Criterio · Familia PMO",
-      "titulo": "Tres agentes y un servidor para la oficina de proyectos",
+      "titulo": "Tres agentes y un portal para la oficina de proyectos",
       "sub": "Procesan lo que tu organización ya escribió, preparan el trabajo de la oficina de proyectos y dicen qué cambió, qué se contradice y qué ningún documento sostiene.",
       "ficha": "LA FICHA DEL PROYECTO",
       "fichaNota": "El único contrato. Los agentes no se hablan entre sí: se hablan por ella.",
@@ -311,7 +311,7 @@
           "texto": "CRITERIO · FAMILIA PMO"
         },
         {
-          "texto": "Gobierno de proyectos con tres agentes y un servidor. Cada agente extiende a una persona de la oficina de proyectos; ninguno la reemplaza."
+          "texto": "Gobierno de proyectos con tres agentes y un portal. Cada agente extiende a una persona de la oficina de proyectos; ninguno la reemplaza."
         },
         {
           "quien": "vera",
@@ -346,7 +346,7 @@
     },
     "en": {
       "eyebrow": "Criterio · PMO family",
-      "titulo": "Three agents and a server for the project office",
+      "titulo": "Three agents and a portal for the project office",
       "sub": "They process what your organisation already wrote, prepare the project office’s work and tell you what changed, what contradicts itself and what no document supports.",
       "ficha": "THE PROJECT RECORD",
       "fichaNota": "The only contract. The agents never talk to each other: they talk through it.",
@@ -363,7 +363,7 @@
           "texto": "CRITERIO · PMO FAMILY"
         },
         {
-          "texto": "Project governance with three agents and a server. Each agent extends one person in the project office; none replaces them."
+          "texto": "Project governance with three agents and a portal. Each agent extends one person in the project office; none replaces them."
         },
         {
           "quien": "vera",
