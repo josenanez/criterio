@@ -87,7 +87,7 @@ QUIEN = {
                                      "compromiso dicho y no cumplido"),
     "Alba": ("Agente de producto", "El amanecer: la luz que hay antes de que se vea "
                                    "nada. Trabaja antes de que exista el proyecto"),
-    "Rostrum": ("El servidor", "Una tribuna. Sostiene lo que todos los agentes ya escribieron, "
+    "Rostrum": ("El portal", "Una tribuna. Sostiene lo que todos los agentes ya escribieron, "
                                "donde el equipo puede leerlo. No decide nada, y por eso no lleva "
                                "nombre de persona"),
     "Clara": ("Agente contralor", "De <i>clarus</i>: que los libros digan lo mismo que los "

@@ -195,6 +195,36 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 | 6 | `compliance-wake` | La configuración y la ficha | Decide qué toca: las obligaciones que vencen en la ventana, los documentos nuevos y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
 <!-- /clo:comandos-constanza -->
 
+## En Rostrum
+
+Un solo portal, `criterio-server`, publica lo que escriben todas las familias
+([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)). La CLO entra igual que cualquier
+otra, sin que el servidor sepa nada de contratos.
+
+**Cómo entra.** `/criterio-legal:legal-setup` y `/criterio-compliance:compliance-setup` dejan su
+configuración en `.criterio/legal/<entidad>/` y `.criterio/cumplimiento/<entidad>/`, con la carpeta
+legal de la entidad marcada con `_CRITERIO_LEGAL.txt`. Fidel y Constanza comparten el estado de la
+entidad, y cada uno ve en el portal sus corridas y sus reportes, no los del otro. Después,
+`/criterio-server:server-setup` encuentra las dos configuraciones y las suma al mapa, y
+`/criterio-server:server-start` levanta el portal.
+
+**Lo que la CLO tiene en Rostrum:**
+
+| Dónde | Qué |
+|---|---|
+| Inicio | La tarjeta **Criterio CLO** con Fidel y Constanza y sus señales abiertas |
+| `/familia/clo` | Lo último que escribió el motor de cada uno —los contratos, el cumplimiento de un periodo—, con sus señales en palabras y sus reportes tal como los dejó el motor |
+| Lo que vence | El preaviso de un contrato con renovación automática, el límite de un plazo, la obligación que vence, ordenados con los de las otras familias |
+| `/caso/<CTR>` | Todo lo que los agentes hicieron sobre un contrato |
+| Dónde trabaja | La ruta completa de la carpeta raíz, de los documentos de la entidad con su marca, del estado y de cada configuración |
+| Preguntar a un agente | Una pregunta para Fidel o para Constanza, que la atiende en su siguiente corrida |
+
+Rostrum no recalcula nada y no escribe en el estado: sirve lo que el motor ya escribió y lo
+dice con su fecha.
+
+→ [Rostrum: instalación, configuración y uso con todas las familias](https://www.josenanez.com/es/agents/rostrum) ·
+[su README](../../plugins/criterio-server/README.es.md)
+
 ## El formato común de los reportes
 
 El mismo de las familias PMO y CFO, y lo escribe el motor: encabezado, lo que hay que atender, el

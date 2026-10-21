@@ -61,6 +61,8 @@
         "en": "Project director"
       },
       "titulo": "la PMO",
+      "setup": "/criterio-portfolio:portfolio-setup",
+      "marca": "_CRITERIO_PORTAFOLIO.txt",
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -176,6 +178,8 @@
         "en": "Project manager"
       },
       "titulo": "gerente de proyecto",
+      "setup": "/criterio-project:pm-setup",
+      "marca": "_CRITERIO_PROYECTO.txt",
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -251,6 +255,8 @@
         "en": "Product manager"
       },
       "titulo": "gerente de producto",
+      "setup": "/criterio-product:product-setup",
+      "marca": "_CRITERIO_PRODUCTO.txt",
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -342,6 +348,8 @@
         "en": "Controller"
       },
       "titulo": "el cierre",
+      "setup": "/criterio-finance:finance-setup",
+      "marca": "_CRITERIO_FINANZAS.txt",
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -407,6 +415,8 @@
         "en": "FP&A"
       },
       "titulo": "el presupuesto",
+      "setup": "/criterio-budget:budget-setup",
+      "marca": "_CRITERIO_FINANZAS.txt",
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -464,6 +474,8 @@
         "en": "Contracts"
       },
       "titulo": "los contratos",
+      "setup": "/criterio-legal:legal-setup",
+      "marca": "_CRITERIO_LEGAL.txt",
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -521,6 +533,8 @@
         "en": "Compliance"
       },
       "titulo": "el cumplimiento",
+      "setup": "/criterio-compliance:compliance-setup",
+      "marca": "_CRITERIO_LEGAL.txt",
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -571,10 +585,10 @@
     "plugin": "criterio-server",
     "area": "rostrum",
     "rol": {
-      "es": "El servidor",
-      "en": "The server"
+      "es": "El portal",
+      "en": "The portal"
     },
-    "titulo": "el servidor",
+    "titulo": "el portal",
     "grupos": [
       {
         "titulo": "El portal",

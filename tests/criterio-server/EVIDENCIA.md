@@ -76,6 +76,9 @@ con un agente sin corridas.
 - El formulario no se envía sin texto.
 - Los robots se paran solos antes de cinco segundos.
 
+**Con la marca y «Dónde trabaja»**, la misma auditoría se volvió a correr con el mapa de las tres
+familias: 139 páginas, ninguna regla incumplida.
+
 Desde ahora, el `--selftest` de `informe.py` y el de `servidor.py` comprueban sin navegador:
 
 - el contraste de la paleta;

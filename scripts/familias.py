@@ -375,7 +375,7 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
 # ---------------------------------------------------------------- los agentes, para Rostrum
 
 SERVIDOR = {"id": "rostrum", "nombre": "Rostrum", "plugin": "criterio-server", "area": "rostrum",
-            "rol": {"es": "El servidor", "en": "The server"}, "titulo": "el servidor",
+            "rol": {"es": "El portal", "en": "The portal"}, "titulo": "el portal",
             "grupos": [{"titulo": "El portal", "linea": "El mapa de las familias y el servidor que las publica",
                         "comandos": [{"id": "server-setup", "etiqueta": "El mapa de las familias"},
                                      {"id": "server-start", "etiqueta": "Levantar el portal"}]}]}
@@ -414,6 +414,15 @@ def revisar_impresora(sigla: str, fa: dict) -> list[str]:
     return err
 
 
+def _raiz():
+    """raiz.py de criterio-server, el mismo que copia cada plugin."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("raiz", P / "criterio-server" / "scripts" / "raiz.py")
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
 def agentes_json() -> tuple[str, list[str]]:
     """Los agentes de todas las familias, en el orden de la PMO, la CFO y la CLO."""
     err, familias, agentes = [], [], []
@@ -434,9 +443,12 @@ def agentes_json() -> tuple[str, list[str]]:
                            "comandos": [{"id": c["id"], "etiqueta": c["es"]["etiqueta"]} for c in ritmo]},
                           {"titulo": a["rol"]["es"], "linea": a["hace"]["es"],
                            "comandos": [{"id": c["id"], "etiqueta": c["es"]["etiqueta"]} for c in por_n[1:-1]]}]
+            # El setup y la marca de su carpeta raíz son de raiz.py (ADR 0011): aquí solo se copian,
+            # para que Rostrum y el portal digan cómo entra cada agente al mapa sin escribirlo a mano.
+            dest = _raiz().DESTINO.get(a["plugin"]) or {}
             agentes.append({"id": a["id"], "nombre": a["nombre"], "plugin": a["plugin"], "area": a["area"],
                             "ambitos": a.get("ambitos") or [], "familia": sigla, "rol": a["rol"], "titulo": a.get("titulo") or a["rol"]["es"].lower(),
-                            "grupos": grupos})
+                            "setup": dest.get("setup"), "marca": dest.get("marca"), "grupos": grupos})
     for a in agentes + [SERVIDOR]:
         existentes = {x.stem for x in (P / a["plugin"] / "commands").glob("*.md")}
         en_grupos = [c["id"] for g in a["grupos"] for c in g["comandos"]]
@@ -466,6 +478,21 @@ def agentes_json() -> tuple[str, list[str]]:
     return json.dumps(d, ensure_ascii=False, indent=2) + "\n", err
 
 
+def familias_servidor(reg: dict, i: str) -> str:
+    """Cada agente de cada familia: su setup, dónde deja su configuración y con qué marca su
+    carpeta raíz. Es lo que `server-setup` encuentra para armar el mapa."""
+    cab = ("| Familia | Agente | Su setup | Deja su configuración en | Marca su carpeta raíz con |\n|---|---|---|---|---|"
+           if i == "es" else
+           "| Family | Agent | Its setup | Leaves its configuration in | Marks its root folder with |\n|---|---|---|---|---|")
+    filas = [cab]
+    nombre = {f["sigla"]: f["nombre"][i] for f in reg["familias"]}
+    for a in reg["agentes"]:
+        donde = f"`.criterio/{a['area']}/`" if a["area"] == "portafolio" else f"`.criterio/{a['area']}/<{'instancia' if i == 'es' else 'instance'}>/`"
+        filas.append(f"| **Criterio {a['familia'].upper()}** · {celda(nombre[a['familia']])} | {a['nombre']} | "
+                     f"`{a['setup']}` | {donde} | `{a['marca']}` |")
+    return "\n".join(filas)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
@@ -487,6 +514,21 @@ def main() -> int:
             else:
                 destino.write_text(contenido, encoding="utf-8")
                 print(f"  {destino.relative_to(RAIZ)}")
+    # En el README de Rostrum, cómo entra cada familia al mapa: sale de las mismas familias.
+    reg = json.loads(contenido)
+    CLAVE[0] = "servidor"
+    for nombre, i in (("README.es.md", "es"), ("README.md", "en")):
+        ruta = P / "criterio-server" / nombre
+        if not ruta.is_file():
+            continue
+        actual = ruta.read_text(encoding="utf-8")
+        nuevo = poner(actual, "familias", familias_servidor(reg, i), ruta)
+        if nuevo != actual:
+            if args.check:
+                errores.append(f"{ruta.relative_to(RAIZ)}: no es lo que sale de las familias; corre scripts/familias.py")
+            else:
+                ruta.write_text(nuevo, encoding="utf-8")
+                print(f"  {ruta.relative_to(RAIZ)}")
     for e in errores:
         print(f"  ✗ {e}")
     if args.check and not errores:

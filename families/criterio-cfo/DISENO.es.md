@@ -253,16 +253,37 @@ inventarios, activos fijos, intercompañías— es trabajo del contralor, así q
 este plugin, no de otro: es `account-reconcile`, con la lógica de `bank-reconcile`. La
 consolidación de varias entidades queda fuera de la primera versión.
 
-## Rostrum: el mismo, ampliado
+## En Rostrum
 
-Rostrum no se duplica: un solo servidor publica los informes de todas las familias. Desde la
-0.7.0 es su propio plugin, `criterio-server`, y sirve las páginas del cierre y del presupuesto con
-las de las otras familias, desde un mapa que arma por selección de carpeta
-([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)).
+Rostrum no se duplica: un solo portal, `criterio-server`, publica lo que escriben todas las
+familias ([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)). La CFO entra igual que
+cualquier otra, sin que el servidor sepa nada de finanzas.
 
-Después de este diseño viene su evolución visual, con estándares internacionales de usabilidad y
-accesibilidad: WCAG 2.2 nivel AA para accesibilidad y la serie ISO 9241 para el diseño centrado
-en las personas.
+**Cómo entra.** `/criterio-finance:finance-setup` y `/criterio-budget:budget-setup` dejan su
+configuración en `.criterio/finanzas/<entidad>/` y `.criterio/presupuesto/<entidad>/`, con la
+carpeta de finanzas de la entidad marcada con `_CRITERIO_FINANZAS.txt`. Clara y Tomás comparten
+el estado de la entidad, y cada uno ve en el portal sus corridas y sus reportes, no los del otro.
+Después, `/criterio-server:server-setup` encuentra las dos configuraciones y las suma al mapa, y
+`/criterio-server:server-start` levanta el portal. Una entidad nueva entra volviendo a correr
+`server-setup`.
+
+**Lo que la CFO tiene en Rostrum:**
+
+| Dónde | Qué |
+|---|---|
+| Inicio | La tarjeta **Criterio CFO** con Clara y Tomás y sus señales abiertas |
+| `/familia/cfo` | Lo último que escribió el motor de cada uno —el cierre de un mes, el presupuesto de un año—, con sus señales en palabras y la fecha de cálculo, y sus reportes tal como los dejó el motor |
+| Lo que vence | Las tareas del cierre y los requerimientos del auditor con fecha, ordenados con los vencimientos de las otras familias |
+| `/caso/<PRY>` | Una señal de presupuesto sobre un proyecto de la PMO aparece en la página de ese proyecto |
+| Dónde trabaja | La ruta completa de la carpeta raíz, de los documentos de la entidad con su marca, del estado y de cada configuración |
+| Preguntar a un agente | Una pregunta para Clara o para Tomás, que la atiende en su siguiente corrida |
+
+Rostrum no recalcula nada y no escribe en el estado: sirve lo que el motor ya escribió y lo
+dice con su fecha. Las páginas cumplen WCAG 2.2 nivel AA, comprobado con axe-core a cuatro
+anchos de pantalla (`tests/criterio-server/accesibilidad/`).
+
+→ [Rostrum: instalación, configuración y uso con todas las familias](https://www.josenanez.com/es/agents/rostrum) ·
+[su README](../../plugins/criterio-server/README.es.md)
 
 ## Los comandos de Tomás, en orden de importancia
 

@@ -67,6 +67,31 @@ Escucha en `127.0.0.1:8787`, **solo en tu equipo**, y se para con Ctrl-C. Si el 
 ocupado, `--puerto 8788`. Quien solo tiene la familia PMO lo puede levantar como antes, sin mapa:
 `servidor.py --informe <carpeta> --estado <estado> --config <archivo>`.
 
+## Cómo entra cada familia
+
+Ninguna familia se programa en el servidor. Cada agente, al correr su setup, deja su
+configuración en la carpeta de trabajo y marca la carpeta raíz de sus documentos;
+`server-setup` encuentra esas configuraciones, te las muestra y guarda el mapa. Una familia o una
+entidad nueva entra volviendo a correr `server-setup`.
+
+<!-- servidor:familias · generado por scripts/familias.py; no se edita a mano -->
+| Familia | Agente | Su setup | Deja su configuración en | Marca su carpeta raíz con |
+|---|---|---|---|---|
+| **Criterio PMO** · Gobierno de proyectos | Vera | `/criterio-portfolio:portfolio-setup` | `.criterio/portafolio/` | `_CRITERIO_PORTAFOLIO.txt` |
+| **Criterio PMO** · Gobierno de proyectos | Samuel | `/criterio-project:pm-setup` | `.criterio/proyecto/<instancia>/` | `_CRITERIO_PROYECTO.txt` |
+| **Criterio PMO** · Gobierno de proyectos | Alba | `/criterio-product:product-setup` | `.criterio/producto/<instancia>/` | `_CRITERIO_PRODUCTO.txt` |
+| **Criterio CFO** · Cierre, control y reporte | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · Cierre, control y reporte | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CLO** · Contratos y cumplimiento | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instancia>/` | `_CRITERIO_LEGAL.txt` |
+| **Criterio CLO** · Contratos y cumplimiento | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instancia>/` | `_CRITERIO_LEGAL.txt` |
+<!-- /servidor:familias -->
+
+Cada familia cuenta en su propia documentación qué tiene en el portal: la
+[PMO](../../families/criterio-pmo/README.es.md#en-rostrum-el-portal-de-todas-las-familias), la
+[CFO](../../families/criterio-cfo/DISENO.es.md#en-rostrum) y la
+[CLO](../../families/criterio-clo/DISENO.es.md#en-rostrum). La guía completa, con capturas, está en
+[josenanez.com/es/agents/rostrum](https://www.josenanez.com/es/agents/rostrum).
+
 ## El primer resultado
 
 En los primeros quince minutos, después del setup de cada familia, `server-setup` muestra el mapa

@@ -192,26 +192,42 @@ the write path.** None of them writes a project's declared status. A person writ
 and without it the comparison between declared and evidenced — which is what all of this lives
 on — would be comparing the system against itself.
 
-## The visualisation and query server
+## In Rostrum, the portal for every family
 
-Up to here the family's result is files on the machine of whoever ran the agents. **A
-sponsor does not open a folder of files**: they open a link, or they open nothing. That is
-what **Rostrum**, the server, is for: since this version it is a plugin of its own and serves every family.
+Up to here the family's result is files on the machine of whoever ran the agents. **A sponsor
+does not open a folder of files**: they open a link, or they open nothing. That is what
+**Rostrum** is for: a plugin of its own, `criterio-server`, that serves the PMO together with the
+other families.
 
-It raises a portal with **three sections** — PMO reports, projects and products — and the
-link between project and product goes both ways. That is where what no other page can say
-lives: when a product is built by projects reporting to different committees, each
-committee sees its project and **none of them sees the product**.
+**How the PMO enters the portal.** Each agent leaves its configuration when its setup runs:
+`/criterio-portfolio:portfolio-setup` in `.criterio/portafolio/`, `/criterio-project:pm-setup` in
+`.criterio/proyecto/<PRY>/` and `/criterio-product:product-setup` in `.criterio/producto/<PRD>/`,
+with the root folder of its documents marked (`_CRITERIO_PORTAFOLIO.txt`, `_CRITERIO_PROYECTO.txt`,
+`_CRITERIO_PRODUCTO.txt`). Then `/criterio-server:server-setup` finds those configurations, shows
+them so you can say yes and saves the map; `/criterio-server:server-start` raises the portal. A
+new project enters by running `server-setup` again.
 
-And whoever is looking can **leave the agent a written question**. It does not answer on
-the spot; the question stays in the queue and is taken on the next run. *«This does not
-match what I know»* is the most valuable request in the system: it is a person saying
-which document is missing.
+**What the PMO has in Rostrum:**
 
-**It authenticates nobody, and that is on purpose**: it is published behind the access
-control the organisation already has. It never writes the record.
+| Where | What |
+|---|---|
+| Home | The **Criterio PMO** card: how many projects and products have a report, and the signals from Vera's last sweep with its date |
+| Menu › PMO | The four views of Vera's report —how the portfolio is doing, what needs a decision, projects and products—, each agent's page and **Where it works** |
+| What falls due | The next committee, next to the other families' due dates |
+| `/caso/<PRY>` | Everything the agents did on a project, including what Tomás found in its budget |
+| Where it works | The full path of the root folder, of the documents with their marker, of the state and of the configuration of Vera, Samuel and Alba |
+| Ask an agent | The question goes to `peticiones/` of whoever you choose and is taken on their next run |
 
-→ **[Rostrum, with screenshots of each section and what to ask your organisation for](../../plugins/criterio-server/README.md)**
+That is where what no other page can say lives: when a product is built by projects reporting
+to different committees, each committee sees its project and **none of them sees the product**.
+And *«this does not match what I know»* is the most valuable request in the system: it is a
+person saying which document is missing.
+
+**It authenticates nobody, and that is on purpose**: it is published behind the access control
+the organisation already has. It never writes the record.
+
+→ **[Rostrum: install, configure and use it with every family](https://www.josenanez.com/agents/rostrum)** ·
+[its README, with the routes and what to ask your organisation for](../../plugins/criterio-server/README.md)
 
 ## How each one is configured and how often it runs
 

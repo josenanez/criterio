@@ -190,26 +190,41 @@ camino de escritura.** Ninguno escribe el estado declarado de un proyecto. Esa l
 una persona, y sin ella la comparación entre lo declarado y lo evidenciado —que es de lo que
 vive todo esto— compararía al sistema consigo mismo.
 
-## El servidor de visualización y consulta
+## En Rostrum, el portal de todas las familias
 
-Hasta aquí el resultado de la familia son archivos en el equipo de quien corrió los
-agentes. **Un patrocinador no abre una carpeta de archivos**: abre un enlace, o no abre
-nada. Para eso está **Rostrum**, el servidor, que desde esta versión es su propio plugin y sirve a todas las familias.
+Hasta aquí el resultado de la familia son archivos en el equipo de quien corrió los agentes. **Un
+patrocinador no abre una carpeta de archivos**: abre un enlace, o no abre nada. Para eso está
+**Rostrum**, un plugin aparte, `criterio-server`, que sirve a la PMO junto con las demás familias.
 
-Levanta un portal con **tres secciones** —informes de la PMO, proyectos y productos—, y el
-enlace entre proyecto y producto va en los dos sentidos. Ahí está lo que ninguna otra
-página puede decir: cuando un producto lo construyen proyectos que reportan a comités
-distintos, cada comité ve su proyecto y **ninguno ve el producto**.
+**Cómo entra la PMO al portal.** Cada agente deja su configuración al correr su setup:
+`/criterio-portfolio:portfolio-setup` en `.criterio/portafolio/`, `/criterio-project:pm-setup` en
+`.criterio/proyecto/<PRY>/` y `/criterio-product:product-setup` en `.criterio/producto/<PRD>/`, con
+la carpeta raíz de sus documentos marcada (`_CRITERIO_PORTAFOLIO.txt`, `_CRITERIO_PROYECTO.txt`,
+`_CRITERIO_PRODUCTO.txt`). Después, `/criterio-server:server-setup` encuentra esas configuraciones,
+las muestra para que digas que sí y guarda el mapa; `/criterio-server:server-start` levanta el
+portal. Un proyecto nuevo entra volviendo a correr `server-setup`.
 
-Y quien mira puede **dejarle una pregunta escrita al agente**. No le contesta en el
-momento; la pregunta queda en la cola y se atiende en la siguiente corrida. *«Esto no
-coincide con lo que yo sé»* es la petición de más valor del sistema: es una persona
-diciendo qué documento falta.
+**Lo que la PMO tiene en Rostrum:**
+
+| Dónde | Qué |
+|---|---|
+| Inicio | La tarjeta **Criterio PMO**: cuántos proyectos y productos tienen informe, y las señales del último barrido de Vera con su fecha |
+| Menú › PMO | Las cuatro vistas del informe de Vera —cómo va el portafolio, lo que necesita una decisión, proyectos y productos—, la página de cada agente y **Dónde trabaja** |
+| Lo que vence | El próximo comité, junto a los vencimientos de las otras familias |
+| `/caso/<PRY>` | Todo lo que los agentes hicieron sobre un proyecto, también lo que encontró Tomás en su presupuesto |
+| Dónde trabaja | La ruta completa de la carpeta raíz, de los documentos con su marca, del estado y de la configuración de Vera, Samuel y Alba |
+| Preguntar a un agente | La pregunta queda en `peticiones/` de quien elijas y se atiende en su siguiente corrida |
+
+Ahí está lo que ninguna otra página puede decir: cuando un producto lo construyen proyectos que
+reportan a comités distintos, cada comité ve su proyecto y **ninguno ve el producto**. Y *«esto no
+coincide con lo que yo sé»* es la petición de más valor del sistema: es una persona diciendo qué
+documento falta.
 
 **No autentica a nadie, y es a propósito**: se publica detrás del control de acceso que la
 organización ya tiene. No escribe nunca la ficha.
 
-→ **[Rostrum, con capturas de cada sección y qué pedirle a tu organización](../../plugins/criterio-server/README.es.md)**
+→ **[Rostrum: instalación, configuración y uso con todas las familias](https://www.josenanez.com/es/agents/rostrum)** ·
+[su README, con las rutas y qué pedirle a tu organización](../../plugins/criterio-server/README.es.md)
 
 ## Cómo se configura y cada cuánto corre cada uno
 
