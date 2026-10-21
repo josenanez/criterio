@@ -8,7 +8,7 @@
 
 Apache 2.0 · Four clicks to install · Each agent produces its first result in fifteen minutes
 
-**Status: the PMO family is released in 0.7.0; the CFO and CLO families are built and in testing.** Every change goes through `scripts/verificar.py`: today, 970 checks across 49 gates, with what each one tests and what it does not on [the results page](docs/pruebas.md) (Spanish). Reliability figures on real data are published when they are measured, not before. [Security](SECURITY.md)
+**Status: the PMO family is released in 0.7.0; the CFO and CLO families are built and in testing.** Every change goes through `scripts/verificar.py`: today, 981 checks across 49 gates, with what each one tests and what it does not on [the results page](docs/pruebas.md) (Spanish). Reliability figures on real data are published when they are measured, not before. [Security](SECURITY.md)
 
 ---
 

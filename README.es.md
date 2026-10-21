@@ -8,7 +8,7 @@
 
 Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer resultado en quince minutos
 
-**Estado: la familia PMO está liberada en la 0.7.0; la CFO y la CLO están construidas y en prueba.** Cada cambio pasa por `scripts/verificar.py`: hoy, 970 comprobaciones en 49 puertas, con lo que cada una prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
+**Estado: la familia PMO está liberada en la 0.7.0; la CFO y la CLO están construidas y en prueba.** Cada cambio pasa por `scripts/verificar.py`: hoy, 981 comprobaciones en 49 puertas, con lo que cada una prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
 
 ---
 
