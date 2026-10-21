@@ -17,6 +17,16 @@ import fs from 'node:fs';
 
 const BASE = process.env.BASE || 'http://127.0.0.1:8765';
 const AXE = fs.readFileSync(new URL('./node_modules/axe-core/axe.min.js', import.meta.url), 'utf8');
+// Antes de abrir el navegador: que haya un Rostrum escuchando. Si no, se dice en una línea.
+try {
+  const r = await fetch(BASE + '/estado.json');
+  if (!r.ok) throw new Error(`respondió ${r.status}`);
+} catch (e) {
+  console.error(`No hay un Rostrum respondiendo en ${BASE} (${e.cause?.code || e.message}).`);
+  console.error('Levántalo en otra ventana de la terminal y déjalo corriendo mientras se audita:');
+  console.error('  python3 <repo>/plugins/criterio-server/scripts/servidor.py --mapa .criterio/rostrum/config.json');
+  process.exit(2);
+}
 const b = await chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
 const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
 const fallas = [];
@@ -73,7 +83,7 @@ for (const ancho of [1280, 768, 390, 320]) {
 
 // 3 · lo que no se ve en una captura
 await p.setViewportSize({ width: 1280, height: 900 });
-await p.goto(BASE + paginas.find((u) => u !== '/') ); await p.keyboard.press('Tab');
+await p.goto(BASE + (paginas.find((u) => u !== '/') || '/')); await p.keyboard.press('Tab');
 if ((await p.evaluate(() => document.activeElement.className)) !== 'saltar') fallas.push('el primer Tab no es el salto al contenido');
 await p.keyboard.press('Enter');
 if ((await p.evaluate(() => document.activeElement.id)) !== 'contenido') fallas.push('el salto no lleva al contenido');
