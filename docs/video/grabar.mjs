@@ -1,9 +1,10 @@
-// Graba la animación de la familia desde el componente del portal, que es su dueño:
-// el texto de la impresora vive en components/criterio/CriterioFamily.tsx y no se
-// copia a mano a ningún otro lado. De una sola grabación salen las dos piezas:
+// Graba la impresora de cada familia desde el componente del portal, que es el dueño de la
+// animación: components/criterio/CriterioFamily.tsx, con la hoja que el portal publica en
+// lib/criterioImpresora.ts desde families/*/familia.json. Nada se copia a mano. Salen:
 //
 //   docs/video/criterio-pmo-familia-{es,en}.mp4   vertical 4:5, 1080×1350, para LinkedIn
-//   docs/img/{es,en}/robots.gif                   apaisado, 1120 px, para los README
+//   docs/img/{es,en}/robots.gif                   la PMO, apaisado, 1120 px, para los README
+//   docs/img/{es,en}/robots-{cfo,clo}.gif          la CFO y la CLO, igual
 //
 // Uso (desde docs/video):  npm ci && PORTAL=<carpeta del portal> npm run grabar
 // Pide ffmpeg en el PATH. El navegador es el de Playwright (npx playwright install chromium);
@@ -24,11 +25,16 @@ if (!process.env.PORTAL) {
   process.exit(1);
 }
 const componente = path.resolve(process.env.PORTAL, 'components', 'criterio', 'CriterioFamily.tsx');
-if (!fs.existsSync(componente)) {
-  console.error(`No está el componente en ${componente}`);
-  process.exit(1);
+const hoja = path.resolve(process.env.PORTAL, 'lib', 'criterioImpresora.ts');
+for (const f of [componente, hoja]) {
+  if (!fs.existsSync(f)) {
+    console.error(`No está ${f}; en el portal, node scripts/criterio-familias.mjs`);
+    process.exit(1);
+  }
 }
 fs.copyFileSync(componente, path.join(AQUI, 'src', 'CriterioFamily.tsx'));
+fs.mkdirSync(path.join(AQUI, 'src', 'lib'), { recursive: true });
+fs.copyFileSync(hoja, path.join(AQUI, 'src', 'lib', 'criterioImpresora.ts'));
 if (spawnSync('ffmpeg', ['-version']).status !== 0) {
   console.error('Falta ffmpeg en el PATH');
   process.exit(1);
@@ -37,12 +43,15 @@ if (spawnSync('ffmpeg', ['-version']).status !== 0) {
 // El video se dibuja a 783 px de ancho y se amplía 1,38: así el texto se lee en un
 // teléfono y el componente cae en su diseño de dos columnas. El GIF va sin subtítulo
 // ni encabezado, solo el piso y la hoja: el README ya tiene su propio título.
+// El video es solo de la PMO: su tarjeta final lleva las cifras de sus rondas. Las familias
+// CFO y CLO salen en GIF. FAMILIAS=cfo,clo graba solo esas.
+const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo').split(',');
 const TOMAS = [
-  { idioma: 'es', tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 },
-  { idioma: 'en', tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 },
-  { idioma: 'es', tipo: 'gif', ancho: 1280, alto: 568, zoom: 1 },
-  { idioma: 'en', tipo: 'gif', ancho: 1280, alto: 568, zoom: 1 },
-];
+  { familia: 'pmo', idioma: 'es', tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 },
+  { familia: 'pmo', idioma: 'en', tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 },
+  ...['pmo', 'cfo', 'clo'].flatMap((familia) => ['es', 'en'].map((idioma) =>
+    ({ familia, idioma, tipo: 'gif', ancho: 1280, alto: 568, zoom: 1 }))),
+].filter((t) => FAMILIAS.includes(t.familia));
 const FIN = /FIN DE LA IMPRESIÓN|END OF PRINTOUT/;
 
 function ffmpeg(args) {
@@ -64,7 +73,7 @@ function lista(carpeta, tiempos, ultimo) {
 }
 
 async function grabar(navegador, url, toma) {
-  const carpeta = path.join(AQUI, 'cuadros', `${toma.tipo}-${toma.idioma}`);
+  const carpeta = path.join(AQUI, 'cuadros', `${toma.familia}-${toma.tipo}-${toma.idioma}`);
   fs.rmSync(carpeta, { recursive: true, force: true });
   fs.mkdirSync(carpeta, { recursive: true });
   const pagina = await navegador.newPage({ viewport: { width: toma.ancho, height: toma.alto } });
@@ -84,7 +93,7 @@ async function grabar(navegador, url, toma) {
       unobserve() {}
     };
   });
-  await pagina.goto(`${url}?l=${toma.idioma}`, { waitUntil: 'networkidle' });
+  await pagina.goto(`${url}?l=${toma.idioma}&f=${toma.familia}`, { waitUntil: 'networkidle' });
   await pagina.evaluate(({ tipo, zoom }) => {
     const s = document.querySelector('section');
     s.querySelectorAll('button').forEach((b) => b.parentElement && b.parentElement.remove());
@@ -140,7 +149,7 @@ function video(toma, { carpeta, tiempos }) {
 // lo que se mueve y no la escena entera. El último cuadro, la impresión completa, se
 // queda cuatro segundos antes de volver a empezar.
 function gif(toma, { carpeta, tiempos }) {
-  const salida = path.join(RAIZ, 'docs', 'img', toma.idioma, 'robots.gif');
+  const salida = path.join(RAIZ, 'docs', 'img', toma.idioma, toma.familia === 'pmo' ? 'robots.gif' : `robots-${toma.familia}.gif`);
   const filtro = 'fps=8,scale=1120:-1:flags=lanczos,split[a][b];[a]palettegen=max_colors=64:stats_mode=diff[p];[b][p]paletteuse=dither=none:diff_mode=rectangle';
   ffmpeg(['-f', 'concat', '-safe', '0', '-i', lista(carpeta, tiempos, 4.0), '-vf', filtro, '-loop', '0', salida]);
   return salida;

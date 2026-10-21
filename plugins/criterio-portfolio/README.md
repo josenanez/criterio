@@ -1,6 +1,6 @@
 # Vera · project director
 
-<img src="../../docs/img/en/robot-vera.png" alt="Vera" width="220" align="right">
+<img src="../../docs/img/en/robot-vera.gif" alt="Vera" width="220" align="right">
 
 **A second brain for whoever answers for the whole portfolio.** It reads the documentation your PMO
 already has and says what changed, what contradicts what, and what has gone quiet for weeks.

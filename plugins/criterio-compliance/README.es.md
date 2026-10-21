@@ -1,6 +1,6 @@
 # Constanza · el cumplimiento
 
-<img src="../../docs/img/es/robot-constanza.png" alt="Constanza" width="220" align="right">
+<img src="../../docs/img/es/robot-constanza.gif" alt="Constanza" width="220" align="right">
 
 **Constanza pone cada obligación de la organización al lado de su evidencia, todos los días y no solo el de la auditoría.** La matriz de obligaciones periodo a periodo, las obligaciones de cumplimiento que vienen de los contratos, las políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de denuncias. Dice qué está cumplido con evidencia, qué se declara cumplido sin ella y qué venció.
 

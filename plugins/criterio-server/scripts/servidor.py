@@ -174,7 +174,7 @@ button{{margin-top:20px;padding:11px 24px;border:1px solid {informe.ORO};border-
 button:hover{{background:{informe.TINTA};border-color:{informe.TINTA}}}
 .aviso{{font-size:.88rem;color:{informe.APAGADO};margin:.6em 0 0;max-width:660px}}
 @media print{{.puertas,form.pide{{display:none}}}}
-"""
+""" + robots.css(".cr-anima")  # los gestos de cada robot, una vez por página
 
 
 def seg(x) -> str:
@@ -687,7 +687,7 @@ def vista_agente(todas: list, agente: str, hoy: str, entradas: list | None = Non
         if c["agente"] == agente:
             por.setdefault(c["comando"], []).append(c)
     total = sum(len(v) for v in por.values())
-    cuerpo = [f'<div class="agente-cab">{robots.svg(ROBOT_DE[agente], informe.TINTA, informe.ORO)}'
+    cuerpo = [f'<div class="agente-cab">{robots.svg(ROBOT_DE[agente], informe.TINTA, informe.ORO, animado=True, estilo=False)}'
               f'<p class="entrada"><b>{e(NOMBRE[agente])}</b>, {e(TITULO[agente].split(" · ")[1])}, '
               f'de la familia {e(FAMILIAS[FAMILIA_DE[agente]]["nombre"]["es"].lower())}: '
               f'{len(sum((c for _, _, c in GRUPOS[agente]), []))} funciones en '
@@ -935,9 +935,9 @@ def familia(entradas: list | None = None) -> str:
     areas = areas_de(entradas or [])
     filas = []
     for a in areas:
-        filas.append(f'<a href="/agente/{e(a)}">{robots.svg(ROBOT_DE[a], informe.TINTA, informe.ORO)}'
+        filas.append(f'<a href="/agente/{e(a)}">{robots.svg(ROBOT_DE[a], informe.TINTA, informe.ORO, animado=True, estilo=False)}'
                      f'<span class="n">{e(NOMBRE[a])}</span><span class="r">{e(AGENTES[a]["rol"]["es"])}</span></a>')
-    filas.append(f'<a href="/corridas">{robots.svg("rostrum", informe.TINTA, informe.ORO)}'
+    filas.append(f'<a href="/corridas">{robots.svg("rostrum", informe.TINTA, informe.ORO, animado=True, estilo=False)}'
                  f'<span class="n">Rostrum</span><span class="r">Las corridas</span></a>')
     return '<nav class="familia" aria-label="Los agentes">' + "".join(filas) + "</nav>"
 
@@ -1076,7 +1076,7 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
         for x in [x for x in suyas if x['area'] == a]:
             res = resultados_de(x)
             reps = reportes_de(x)
-            cuerpo.append(f'<div class="agente-cab">{robots.svg(ROBOT_DE[a], informe.TINTA, informe.ORO)}'
+            cuerpo.append(f'<div class="agente-cab">{robots.svg(ROBOT_DE[a], informe.TINTA, informe.ORO, animado=True, estilo=False)}'
                           f'<p class="entrada"><b><a href="/agente/{e(a)}">{e(NOMBRE[a])}</a></b>, '
                           f'{e(AGENTES[a]["titulo"])}' + (f' · {e(x["nombre"])}' if x.get('nombre') else '')
                           + (f' · <b>{len(pendientes(x["_estado"], ROBOT_DE[a]))}</b> peticiones abiertas' if x.get('_estado') and pendientes(x['_estado'], ROBOT_DE[a]) else '')
@@ -1630,7 +1630,7 @@ def selftest() -> int:
 
         # ── la familia: los mismos robots que los README y el portal
         ok('la portada lleva a los cuatro, cada uno a lo suyo',
-           (pedir('/')[1].count('class="robot"'), '/agente/proyecto' in pedir('/')[1]), (4, True))
+           (pedir('/')[1].count('class="robot cr-anima"'), '/agente/proyecto' in pedir('/')[1]), (4, True))
         ok('y la página de un agente lleva el suyo',
            'aria-label="alba"' in pedir('/agente/producto')[1], True)
 
@@ -1663,6 +1663,9 @@ def selftest() -> int:
         ok('en pantallas chicas el menú se pliega tras un botón',
            'class="menu-boton"' in cuerpo and '.menu-caja:checked ~ .arbol' in cuerpo, True)
         cod, vera = pedir('/agente/portafolio')
+        ok('el robot del agente hace su gesto, con la hoja de los gestos una sola vez y quieto si se pide',
+           ('cr-anima' in vera and 'g-mira' in vera and vera.count('@keyframes cr-mira') == 1
+            and 'prefers-reduced-motion' in vera), True)
         ok('la página del agente lleva sus 16 funciones, corran o no',
            cod == 200 and vera.count('<code>/criterio-portfolio:') == 16, True)
         ok('cada una con nombre que se entiende y su grupo explicado',
@@ -1788,7 +1791,7 @@ def selftest() -> int:
         Manejador.entradas, Manejador.evidencia = entradas_m, raiz / '.criterio' / 'corridas'
         cod, port = pedir('/')
         ok('con el mapa, la portada lleva a todos los agentes de las tres familias y a Rostrum',
-           (cod, port.count('class="robot"')), (200, 8))
+           (cod, port.count('class="robot cr-anima"')), (200, 8))
         cod, tomas = pedir('/agente/presupuesto')
         cod2, clara = pedir('/agente/finanzas')
         ok('dos agentes que comparten el estado: cada uno con sus reportes y sus corridas, no los del otro',

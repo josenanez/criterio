@@ -1,4 +1,5 @@
 node_modules/
 cuadros/
-# La copia del componente se trae del portal en cada grabación: el dueño es el portal.
+# La copia del componente y de su hoja se traen del portal en cada grabación: el dueño es el portal.
 src/CriterioFamily.tsx
+src/lib/

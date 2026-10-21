@@ -283,5 +283,118 @@
         }
       ]
     }
-  ]
+  ],
+  "impresora": {
+    "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica y docs/video la graba; no se copia a mano.",
+    "bots": [
+      "vera",
+      "samuel",
+      "alba",
+      "rostrum"
+    ],
+    "es": {
+      "eyebrow": "Criterio · Familia PMO",
+      "titulo": "Tres agentes y un servidor para la oficina de proyectos",
+      "sub": "Procesan lo que tu organización ya escribió, preparan el trabajo de la oficina de proyectos y dicen qué cambió, qué se contradice y qué ningún documento sostiene.",
+      "ficha": "LA FICHA DEL PROYECTO",
+      "fichaNota": "El único contrato. Los agentes no se hablan entre sí: se hablan por ella.",
+      "roles": {
+        "vera": "El portafolio",
+        "samuel": "Un proyecto",
+        "alba": "Un producto",
+        "rostrum": "El servidor"
+      },
+      "nota": "Estado de la familia: probada ronda a ronda sobre datos de prueba de entidades financieras (bancos y cooperativas), retail y minería de Suramérica, construidos para ser más exigentes que la documentación habitual de esas organizaciones. El siguiente paso es su primer uso sobre la documentación de una organización concreta.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · FAMILIA PMO"
+        },
+        {
+          "texto": "Gobierno de proyectos con tres agentes y un servidor. Cada agente extiende a una persona de la oficina de proyectos; ninguno la reemplaza."
+        },
+        {
+          "quien": "vera",
+          "tag": "VERA · EL PORTAFOLIO",
+          "texto": "Procesa la documentación de todos los proyectos, como esté, construye la ficha de cada uno y dice qué cambió, qué se contradice y qué lleva semanas en silencio. Arma el material del comité. Nunca declara el estado de un proyecto."
+        },
+        {
+          "quien": "samuel",
+          "tag": "SAMUEL · UN PROYECTO",
+          "texto": "Prepara la agenda antes de la reunión y la minuta después. Registra el compromiso dicho y no cumplido. No va a la reunión: el gerente va."
+        },
+        {
+          "quien": "alba",
+          "tag": "ALBA · UN PRODUCTO",
+          "texto": "Trabaja antes de que exista el proyecto: contrasta la definición con la evidencia de demanda y entrega el acta con la que nace el proyecto. No decide qué se construye."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · EL SERVIDOR",
+          "texto": "Publica el informe donde el equipo lo lee y recibe las preguntas de quien no abre una carpeta. Nunca escribe la ficha."
+        },
+        {
+          "quien": "ficha",
+          "tag": "LA REGLA",
+          "texto": "Ningún agente habla con otro. Se hablan por la ficha del proyecto, y el estado declarado lo escribe siempre una persona."
+        },
+        {
+          "cabeza": true,
+          "texto": "FIN DE LA IMPRESIÓN."
+        }
+      ]
+    },
+    "en": {
+      "eyebrow": "Criterio · PMO family",
+      "titulo": "Three agents and a server for the project office",
+      "sub": "They process what your organisation already wrote, prepare the project office’s work and tell you what changed, what contradicts itself and what no document supports.",
+      "ficha": "THE PROJECT RECORD",
+      "fichaNota": "The only contract. The agents never talk to each other: they talk through it.",
+      "roles": {
+        "vera": "The portfolio",
+        "samuel": "One project",
+        "alba": "One product",
+        "rostrum": "The server"
+      },
+      "nota": "Where the family stands: tested round after round on test data from financial entities (banks and cooperatives), retail and mining in South America, built to be more demanding than those organisations’ usual documentation. The next step is its first use on a specific organisation’s documentation.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · PMO FAMILY"
+        },
+        {
+          "texto": "Project governance with three agents and a server. Each agent extends one person in the project office; none replaces them."
+        },
+        {
+          "quien": "vera",
+          "tag": "VERA · THE PORTFOLIO",
+          "texto": "Processes the documentation of every project, as it is, builds each one’s record and tells you what changed, what contradicts itself and what has been silent for weeks. Builds the committee pack. Never declares a project’s status."
+        },
+        {
+          "quien": "samuel",
+          "tag": "SAMUEL · ONE PROJECT",
+          "texto": "Prepares the agenda before the meeting and the minutes after it. Records the commitment that was said and not kept. He does not go to the meeting: the manager does."
+        },
+        {
+          "quien": "alba",
+          "tag": "ALBA · ONE PRODUCT",
+          "texto": "Works before the project exists: checks the definition against the evidence of demand and delivers the charter the project is born with. She does not decide what gets built."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · THE SERVER",
+          "texto": "Publishes the report where the team reads it and takes questions from people who never open a folder. Never writes the record."
+        },
+        {
+          "quien": "ficha",
+          "tag": "THE RULE",
+          "texto": "No agent talks to another. They talk through the project record, and the declared status is always written by a person."
+        },
+        {
+          "cabeza": true,
+          "texto": "END OF PRINTOUT."
+        }
+      ]
+    }
+  }
 }

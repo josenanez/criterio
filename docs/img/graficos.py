@@ -22,6 +22,7 @@ se llega a que una frase pise una insignia.
 """
 import functools
 import io
+import json
 import os
 import sys
 
@@ -414,11 +415,11 @@ def emblema(t, sigla, fn, fr, estado, glifo):
 # ══════════════════════════════════════════════════════════════════ los robots
 
 @functools.lru_cache(maxsize=None)
-def robot(nombre, ancho, trazo=ORO, ojo=ORO):
+def robot(nombre, ancho, trazo=ORO, ojo=ORO, t=None):
     """El robot en PNG. El trazo engrosa al achicarse: por debajo de cien píxeles, 2.5 se
-    vuelve un hilo."""
+    vuelve un hilo. Con `t`, es el robot en ese segundo de su gesto: un cuadro del GIF."""
     grosor = max(2.5, 2.5 * 100 / ancho)
-    svg = trazos.svg(nombre, trazo, ojo, ancho=120, grosor=round(grosor, 2))
+    svg = trazos.svg(nombre, trazo, ojo, ancho=120, grosor=round(grosor, 2), t=t)
     png = cairosvg.svg2png(bytestring=svg.encode('utf-8'), output_width=ancho)
     return Image.open(io.BytesIO(png)).convert('RGBA')
 
@@ -429,17 +430,40 @@ def pegar(img, r, x, y):
 
 
 def tarjeta(t, nombre):
-    """La cabecera del README de cada agente."""
+    """La cabecera del README de cada agente, animada: el robot hace su gesto (los gestos
+    viven en robots.py) sobre la tarjeta quieta. Una vuelta completa, en bucle."""
     nom, rol, frase, _ = t['rb'][nombre]
-    img = Image.new('RGB', (720, 720), NEGRO)
-    d = ImageDraw.Draw(img)
+    fondo = Image.new('RGB', (720, 720), NEGRO)
+    d = ImageDraw.Draw(fondo)
     d.rectangle([32, 32, 687, 687], outline=FILETE, width=2)
-    pegar(img, robot(nombre, 200), 82, 70)
     d.text((82, 380), nom, font=f(M6, 96), fill=ORO)
     d.line([82, 512, 638, 512], fill=FILETE_FUERTE, width=2)
     d.text((82, 534), rol, font=f(M5, 32), fill=CREMA)
     parrafo(d, (82, 584), frase, f(R, 25), APAGADO, 556, 34)
-    return img
+    cuadros = []
+    for k in range(CUADROS):
+        img = fondo.copy()
+        pegar(img, robot(nombre, 200, t=round(k * trazos.VUELTA / CUADROS, 4)), 82, 70)
+        cuadros.append(img)
+    return cuadros
+
+
+CUADROS = 48   # 100 ms cada uno: la vuelta de 4,8 s
+
+
+def guardar_gif(cuadros, idioma, nombre):
+    """Un GIF con una sola paleta para todos los cuadros: así cada cuadro guarda solo lo que
+    cambió, el robot, y la tarjeta pesa poco."""
+    carpeta = os.path.join(AQUI, idioma)
+    os.makedirs(carpeta, exist_ok=True)
+    muestra = Image.new('RGB', (720, 720 * 2))
+    muestra.paste(cuadros[0], (0, 0))
+    muestra.paste(cuadros[len(cuadros) // 2], (0, 720))
+    paleta = muestra.quantize(colors=64, dither=Image.Dither.NONE)
+    p = [c.quantize(palette=paleta, dither=Image.Dither.NONE) for c in cuadros]
+    p[0].save(os.path.join(carpeta, nombre), save_all=True, append_images=p[1:],
+              duration=int(trazos.VUELTA * 1000 / len(cuadros)), loop=0, optimize=False, disposal=1)
+    print(f'  {idioma}/{nombre}')
 
 
 # ══════════════════════════════════════════════════════════════════ la familia
@@ -981,9 +1005,14 @@ if __name__ == '__main__':
         guardar(instalacion(t), idioma, 'instalacion.png')
         guardar(servidor(t), idioma, 'servidor.png')
         for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO:
-            guardar(tarjeta(t, nombre), idioma, f'robot-{nombre}.png')
-    # El trazo de cada robot, solo, para que el portal lo dibuje sin copiarlo.
+            guardar_gif(tarjeta(t, nombre), idioma, f'robot-{nombre}.gif')
+    # El trazo de cada robot, solo y con su gesto, para que el portal lo dibuje sin copiarlo.
+    # Es un SVG animado: se mueve igual en un README, en el portal y en Rostrum.
     os.makedirs(os.path.join(AQUI, 'robots'), exist_ok=True)
     for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO:
         with open(os.path.join(AQUI, 'robots', f'{nombre}.svg'), 'w', encoding='utf-8') as fh:
-            fh.write(trazos.svg(nombre, ORO, ORO) + '\n')
+            fh.write(trazos.svg(nombre, ORO, ORO, animado=True) + '\n')
+    # Y como datos, para quien dibuja el robot con su propio marcado: la impresora del portal.
+    with open(os.path.join(AQUI, 'robots', 'robots.json'), 'w', encoding='utf-8') as fh:
+        json.dump(trazos.datos(), fh, ensure_ascii=False, indent=1)
+        fh.write('\n')

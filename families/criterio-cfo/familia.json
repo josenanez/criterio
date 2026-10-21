@@ -401,5 +401,105 @@
         "presupuesto"
       ]
     }
-  ]
+  ],
+  "impresora": {
+    "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica y docs/video la graba; no se copia a mano.",
+    "bots": [
+      "clara",
+      "tomas",
+      "rostrum"
+    ],
+    "es": {
+      "eyebrow": "Criterio · Familia CFO",
+      "titulo": "Dos agentes para el cierre, el control y el reporte",
+      "sub": "Procesan los libros, los soportes y el presupuesto como estén, y dicen qué cuadra, qué no y qué no tiene soporte.",
+      "ficha": "LAS FICHAS DE LA ENTIDAD",
+      "fichaNota": "El único contrato. Clara y Tomás no se hablan entre sí: se hablan por sus fichas.",
+      "roles": {
+        "clara": "El cierre",
+        "tomas": "El presupuesto",
+        "rostrum": "El portal"
+      },
+      "nota": "Estado de la familia: construida y en prueba. El motor pasa su prueba determinista contra material sintético de cuatro industrias, con una clave que el agente no ve y dos entidades de control. El siguiente paso es la prueba con el agente de extremo a extremo.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · FAMILIA CFO"
+        },
+        {
+          "texto": "Cierre, control y reporte con dos agentes. Cada uno extiende a una persona de finanzas; ninguno la reemplaza."
+        },
+        {
+          "quien": "clara",
+          "tag": "CLARA · EL CIERRE",
+          "texto": "Pone los libros al lado de sus soportes: el cierre con su checklist y su evidencia, las conciliaciones, cada factura electrónica contra su registro y el paquete para el auditor. Procesa todos los documentos del periodo, no una muestra. No registra asientos ni declara el estado del cierre."
+        },
+        {
+          "quien": "tomas",
+          "tag": "TOMÁS · EL PRESUPUESTO",
+          "texto": "Pone el presupuesto al lado de su gemelo, la ejecución: lo aprobado contra lo ejecutado y lo comprometido, la proyección al cierre con su supuesto escrito y cada traslado con su acta. No recomienda la decisión del comité."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · EL PORTAL",
+          "texto": "Publica lo que Clara y Tomás escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. No recalcula nada."
+        },
+        {
+          "quien": "ficha",
+          "tag": "LA REGLA",
+          "texto": "Cada cifra sale con su cita, y lo que ningún documento sostiene se dice. El estado declarado lo firma siempre una persona."
+        },
+        {
+          "cabeza": true,
+          "texto": "FIN DE LA IMPRESIÓN."
+        }
+      ]
+    },
+    "en": {
+      "eyebrow": "Criterio · CFO family",
+      "titulo": "Two agents for the close, control and reporting",
+      "sub": "They process the books, the supporting documents and the budget as they are, and tell you what ties out, what does not and what has no support.",
+      "ficha": "THE ENTITY’S RECORDS",
+      "fichaNota": "The only contract. Clara and Tomás never talk to each other: they talk through their records.",
+      "roles": {
+        "clara": "The close",
+        "tomas": "The budget",
+        "rostrum": "The portal"
+      },
+      "nota": "Where the family stands: built and in testing. The engine passes its deterministic test against synthetic material from four industries, with a key the agent never sees and two control entities. The next step is the end-to-end test with the agent.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · CFO FAMILY"
+        },
+        {
+          "texto": "Close, control and reporting with two agents. Each one extends one person in finance; neither replaces them."
+        },
+        {
+          "quien": "clara",
+          "tag": "CLARA · THE CLOSE",
+          "texto": "Puts the books next to their supporting documents: the close with its checklist and evidence, the reconciliations, every e-invoice against its entry and the auditor’s package. She processes every document in the period, not a sample. She posts no entries and does not declare the status of the close."
+        },
+        {
+          "quien": "tomas",
+          "tag": "TOMÁS · THE BUDGET",
+          "texto": "Puts the budget next to its twin, actual spend: approved against actual and committed, the year-end forecast with its stated assumption and every transfer with its minutes. He does not recommend the committee’s decision."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · THE PORTAL",
+          "texto": "Publishes what Clara and Tomás wrote —their reports, what falls due, their signals— and takes questions from people who never open a folder. It recalculates nothing."
+        },
+        {
+          "quien": "ficha",
+          "tag": "THE RULE",
+          "texto": "Every figure comes with its citation, and whatever no document supports is said. The declared status is always signed by a person."
+        },
+        {
+          "cabeza": true,
+          "texto": "END OF PRINTOUT."
+        }
+      ]
+    }
+  }
 }

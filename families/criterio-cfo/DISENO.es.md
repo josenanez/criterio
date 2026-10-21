@@ -1,5 +1,7 @@
 # criterio-cfo · la familia de la función financiera
 
+![Clara, Tomás y Rostrum](../../docs/img/es/robots-cfo.gif)
+
 **Estado: construida y en prueba.** Los dieciséis comandos, los doce skills y el motor de cálculo
 están construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y
 dos entidades de control (`tests/criterio-cfo/`), y la prueba con el agente es el paso siguiente.

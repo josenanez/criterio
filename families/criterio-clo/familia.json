@@ -383,5 +383,105 @@
         "cumplimiento"
       ]
     }
-  ]
+  ],
+  "impresora": {
+    "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica y docs/video la graba; no se copia a mano.",
+    "bots": [
+      "fidel",
+      "constanza",
+      "rostrum"
+    ],
+    "es": {
+      "eyebrow": "Criterio · Familia CLO",
+      "titulo": "Dos agentes para los contratos y el cumplimiento",
+      "sub": "Procesan lo que la empresa firmó y lo que se comprometió a cumplir, y dicen qué vence, qué no cuadra y qué no tiene evidencia.",
+      "ficha": "LAS FICHAS DE LA ENTIDAD",
+      "fichaNota": "El único contrato. Fidel y Constanza no se hablan entre sí: se hablan por sus fichas.",
+      "roles": {
+        "fidel": "Los contratos",
+        "constanza": "El cumplimiento",
+        "rostrum": "El portal"
+      },
+      "nota": "Estado de la familia: construida y en prueba. El motor pasa su prueba determinista contra material sintético de cuatro industrias, con una clave que el agente no ve y dos entidades de control. El siguiente paso es la prueba con el agente de extremo a extremo.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · FAMILIA CLO"
+        },
+        {
+          "texto": "Contratos y cumplimiento con dos agentes. Cada uno extiende a una persona del área legal; ninguno la reemplaza."
+        },
+        {
+          "quien": "fidel",
+          "tag": "FIDEL · LOS CONTRATOS",
+          "texto": "Pone lo que la empresa firmó al lado de lo que está pasando: los vencimientos y los preavisos, cada obligación con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado. Procesa todos los contratos, no una muestra. No opina sobre la validez de un contrato."
+        },
+        {
+          "quien": "constanza",
+          "tag": "CONSTANZA · EL CUMPLIMIENTO",
+          "texto": "Pone cada obligación al lado de su evidencia, todos los días y no solo el de la auditoría: la matriz periodo a periodo, las políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de denuncias. No declara el estado del cumplimiento."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · EL PORTAL",
+          "texto": "Publica lo que Fidel y Constanza escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. No recalcula nada."
+        },
+        {
+          "quien": "ficha",
+          "tag": "LA REGLA",
+          "texto": "Constanza toma de las fichas de Fidel las obligaciones que traen los contratos. Lo que pide criterio jurídico queda como pregunta, y lo decide siempre una persona."
+        },
+        {
+          "cabeza": true,
+          "texto": "FIN DE LA IMPRESIÓN."
+        }
+      ]
+    },
+    "en": {
+      "eyebrow": "Criterio · CLO family",
+      "titulo": "Two agents for contracts and compliance",
+      "sub": "They process what the company signed and what it committed to comply with, and tell you what is expiring, what does not match and what has no evidence.",
+      "ficha": "THE ENTITY’S RECORDS",
+      "fichaNota": "The only contract. Fidel and Constanza never talk to each other: they talk through their records.",
+      "roles": {
+        "fidel": "Contracts",
+        "constanza": "Compliance",
+        "rostrum": "The portal"
+      },
+      "nota": "Where the family stands: built and in testing. The engine passes its deterministic test against synthetic material from four industries, with a key the agent never sees and two control entities. The next step is the end-to-end test with the agent.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · CLO FAMILY"
+        },
+        {
+          "texto": "Contracts and compliance with two agents. Each one extends one person in legal; neither replaces them."
+        },
+        {
+          "quien": "fidel",
+          "tag": "FIDEL · CONTRACTS",
+          "texto": "Puts what the company signed next to what is actually happening: expiries and notices, every obligation with its evidence, who signed with what authority and what was paid against what was agreed. He processes every contract, not a sample. He gives no opinion on whether a contract is valid."
+        },
+        {
+          "quien": "constanza",
+          "tag": "CONSTANZA · COMPLIANCE",
+          "texto": "Puts every obligation next to its evidence, every day and not only on audit day: the matrix period by period, policies due for review, new rules not yet assessed and the whistleblowing channel’s deadlines. She does not declare the compliance status."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · THE PORTAL",
+          "texto": "Publishes what Fidel and Constanza wrote —their reports, what falls due, their signals— and takes questions from people who never open a folder. It recalculates nothing."
+        },
+        {
+          "quien": "ficha",
+          "tag": "THE RULE",
+          "texto": "Constanza takes the obligations that contracts carry from Fidel’s records. Anything that takes legal judgement stays a question, and a person always decides it."
+        },
+        {
+          "cabeza": true,
+          "texto": "END OF PRINTOUT."
+        }
+      ]
+    }
+  }
 }

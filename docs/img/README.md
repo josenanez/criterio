@@ -19,11 +19,23 @@ de otro.
 Las capturas del portal, que son otra cosa —salen de un navegador contra el servidor
 real—, están en [`portal/`](portal/) con su propio procedimiento.
 
-Los robots no se dibujan aquí: sus trazos viven en
-[`plugins/criterio-portfolio/scripts/robots.py`](../../plugins/criterio-portfolio/scripts/robots.py),
-los mismos con que el servidor y josenanez.com los dibujan. El generador solo les pone
-color.
+Los robots no se dibujan aquí: sus trazos **y sus gestos** viven en
+[`plugins/criterio-server/scripts/robots.py`](../../plugins/criterio-server/scripts/robots.py),
+los mismos con que Rostrum y josenanez.com los dibujan. Cada robot tiene el gesto de su
+oficio —el lente de Vera recorre el portafolio, Samuel escribe la minuta, a Alba le sale el
+sol, la lupa de Clara se acerca al soporte, las barras de Tomás suben en pares, Fidel traza
+su firma y enciende el sello, Constanza marca cada casilla sin parpadear y los carretes de
+Rostrum giran— y de esa tabla sale todo lo que se mueve:
 
-El GIF de la familia (`es/robots.gif`, `en/robots.gif`) no sale de aquí: se graba del
-componente del portal, que es el dueño de la animación, junto con el video del post. El
-procedimiento está en [`../video/`](../video/).
+| Pieza | Para qué |
+|---|---|
+| `es/robot-<agente>.gif`, `en/robot-<agente>.gif` | La tarjeta animada de cada agente, en la cabecera de su README |
+| `robots/<agente>.svg` | El robot solo, animado con su propia hoja de estilo: el portal lo publica tal cual |
+| `robots/robots.json` | Las piezas y los gestos como datos, para la impresora del portal |
+
+Nada de eso se edita a mano. Quien pide reducir el movimiento ve el robot quieto.
+
+El GIF de cada familia (`es/robots.gif` de la PMO, `es/robots-cfo.gif`, `es/robots-clo.gif`
+y sus pares en inglés) no sale de aquí: se graba del componente del portal, que es el dueño
+de la impresora, junto con el video del post. El procedimiento está en
+[`../video/`](../video/).

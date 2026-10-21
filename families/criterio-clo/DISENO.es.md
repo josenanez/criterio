@@ -1,5 +1,7 @@
 # criterio-clo · la familia de la función legal
 
+![Fidel, Constanza y Rostrum](../../docs/img/es/robots-clo.gif)
+
 **Estado: construida y en prueba.** Los catorce comandos, los skills y el motor de cálculo están
 construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y dos
 entidades de control (`tests/criterio-clo/`), y la prueba con el agente es el paso siguiente.

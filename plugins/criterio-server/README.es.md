@@ -1,6 +1,6 @@
 # Rostrum · el portal de todas las familias
 
-<img src="../../docs/img/es/robot-rostrum.png" alt="Rostrum" width="220" align="right">
+<img src="../../docs/img/es/robot-rostrum.gif" alt="Rostrum" width="220" align="right">
 
 **Lo que los agentes ya escribieron, para quien no abre una carpeta.**
 

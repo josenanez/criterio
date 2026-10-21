@@ -70,6 +70,8 @@ PUERTAS = [
      "Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-server/scripts/mapa.py"), "--selftest"],
      "El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado"),
+    ("código", [sys.executable, str(RAIZ / "plugins/criterio-server/scripts/robots.py"), "--selftest"],
+     "Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide"),
     ("código", [sys.executable, str(PMO / "rastro.py"), "--selftest"],
      "Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras"),
     ("código", [sys.executable, str(PMO / "terminos.py"), "--selftest"],

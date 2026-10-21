@@ -1,6 +1,6 @@
 # Rostrum · the portal for every family
 
-<img src="../../docs/img/en/robot-rostrum.png" alt="Rostrum" width="220" align="right">
+<img src="../../docs/img/en/robot-rostrum.gif" alt="Rostrum" width="220" align="right">
 
 **What the agents already wrote, for whoever does not open a folder.**
 

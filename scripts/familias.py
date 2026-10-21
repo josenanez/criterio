@@ -371,6 +371,39 @@ SERVIDOR = {"id": "rostrum", "nombre": "Rostrum", "plugin": "criterio-server", "
                                      {"id": "server-start", "etiqueta": "Levantar el portal"}]}]}
 
 
+# Las palabras que la impresora no dice: los agentes no «leen», procesan, calculan y preparan.
+PROHIBIDAS = ("leen ", "gratis", "free ", "100 %", "100%", "certificad", "certified")
+
+
+def revisar_impresora(sigla: str, fa: dict) -> list[str]:
+    """La hoja de la impresora del portal: en los dos idiomas, cada línea de un agente de la
+    familia o de Rostrum, cada robot con su papel, y sin las palabras que no se usan."""
+    err, imp = [], fa.get("impresora")
+    if not imp:
+        return [f"{sigla}: falta la impresora (impresora en familia.json)"]
+    propios = {a["id"] for a in fa["agentes"]}
+    bots = imp.get("bots") or []
+    if set(bots) - propios - {"rostrum"} or not propios <= set(bots):
+        err.append(f"{sigla}: los robots de la impresora no son los agentes de la familia y Rostrum")
+    for i in ("es", "en"):
+        t = imp.get(i) or {}
+        for k in ("eyebrow", "titulo", "sub", "ficha", "fichaNota", "roles", "nota", "guion"):
+            if not t.get(k):
+                err.append(f"{sigla}.impresora.{i}: falta {k}")
+        if set(t.get("roles") or {}) != set(bots):
+            err.append(f"{sigla}.impresora.{i}: cada robot lleva su papel, y solo ellos")
+        quienes = [x.get("quien") for x in t.get("guion") or [] if x.get("quien")]
+        if set(quienes) - set(bots) - {"ficha"} or set(bots) - set(quienes):
+            err.append(f"{sigla}.impresora.{i}: la hoja habla de cada robot, y solo de ellos")
+        todo = json.dumps(t, ensure_ascii=False).lower()
+        for w in PROHIBIDAS:
+            if w in todo:
+                err.append(f"{sigla}.impresora.{i}: dice «{w.strip()}»")
+    if len((imp.get("es") or {}).get("guion") or []) != len((imp.get("en") or {}).get("guion") or []):
+        err.append(f"{sigla}.impresora: la hoja no tiene las mismas líneas en los dos idiomas")
+    return err
+
+
 def agentes_json() -> tuple[str, list[str]]:
     """Los agentes de todas las familias, en el orden de la PMO, la CFO y la CLO."""
     err, familias, agentes = [], [], []
@@ -403,6 +436,10 @@ def agentes_json() -> tuple[str, list[str]]:
             err.append(f"{a['plugin']}:{x} no está en ningún grupo de {a['nombre']}")
         for x in sorted(set(en_grupos) - existentes):
             err.append(f"{a['nombre']}: el grupo nombra {x}, que no existe en {a['plugin']}")
+    for sigla in ("pmo", "cfo", "clo"):
+        f = RAIZ / "families" / f"criterio-{sigla}" / "familia.json"
+        if f.is_file():
+            err += revisar_impresora(sigla, json.loads(f.read_text(encoding="utf-8")))
     areas = [a["area"] for a in agentes]
     if len(areas) != len(set(areas)):
         err.append("dos agentes con la misma área")

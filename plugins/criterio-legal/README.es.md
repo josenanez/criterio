@@ -1,6 +1,6 @@
 # Fidel · los contratos
 
-<img src="../../docs/img/es/robot-fidel.png" alt="Fidel" width="220" align="right">
+<img src="../../docs/img/es/robot-fidel.gif" alt="Fidel" width="220" align="right">
 
 **Fidel pone lo que la empresa firmó al lado de lo que está pasando.** El registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, cada obligación con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías. Procesa todos los contratos de la carpeta, no una muestra, y dice qué vence, qué no cuadra y qué no tiene soporte.
 

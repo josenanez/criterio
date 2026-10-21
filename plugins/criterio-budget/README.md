@@ -1,6 +1,6 @@
 # Tomás · FP&A
 
-<img src="../../docs/img/en/robot-tomas.png" alt="Tomás" width="220" align="right">
+<img src="../../docs/img/en/robot-tomas.gif" alt="Tomás" width="220" align="right">
 
 **Tomás puts the budget next to its twin, actual spend.** Approved against actual and committed by area and line, the year-end forecast with its stated assumption, every transfer with its approval minutes, and the committee material as a decision pack.
 

@@ -1,6 +1,6 @@
 # Fidel · contracts
 
-<img src="../../docs/img/en/robot-fidel.png" alt="Fidel" width="220" align="right">
+<img src="../../docs/img/en/robot-fidel.gif" alt="Fidel" width="220" align="right">
 
 **Fidel puts what the company signed next to what is actually happening.** The contract register against its documents, expiries and renewal notices, every obligation with its evidence, who signed with what authority, and what was paid against what was agreed and its guarantees. He processes every contract in the folder, not a sample, and says what is expiring, what does not match and what has no support.
 

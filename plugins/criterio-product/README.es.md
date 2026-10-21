@@ -1,6 +1,6 @@
 # Alba · el agente de un producto
 
-<img src="../../docs/img/es/robot-alba.png" alt="Alba" width="220" align="right">
+<img src="../../docs/img/es/robot-alba.gif" alt="Alba" width="220" align="right">
 
 **Alba te dice qué de tu definición se sostiene, y qué se sostiene solo.** Tú hablas con el
 cliente, lees lo que el cliente no dice, decides qué se construye y pones el precio. Ella

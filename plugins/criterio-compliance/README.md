@@ -1,6 +1,6 @@
 # Constanza · compliance
 
-<img src="../../docs/img/en/robot-constanza.png" alt="Constanza" width="220" align="right">
+<img src="../../docs/img/en/robot-constanza.gif" alt="Constanza" width="220" align="right">
 
 **Constanza puts every obligation of the organisation next to its evidence, every day and not only on audit day.** The obligations matrix period by period, the compliance obligations that come from contracts, policies due for review, new rules not yet assessed and the whistleblowing channel's deadlines. She says what is met with evidence, what is declared met without it and what is overdue.
 
