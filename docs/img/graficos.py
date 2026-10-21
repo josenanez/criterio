@@ -145,6 +145,15 @@ T = {
         'cfo_fr': 'Cierro contra lo que dicen los documentos, no contra lo que se declara.',
         'clo_fr': 'Sé qué firmaste, qué vence, y a qué te obligaste.',
         'disponible': 'Disponible',
+        # ── tarjetas sociales (1200 × 630): el título de cada página y una línea de lo que hacen ──
+        'og': {'pmo': ('Extiende la capacidad de tu PMO',
+                       'Vera, Samuel y Alba procesan la documentación de cada proyecto, calculan desviaciones y alertas, y preparan el material del comité.'),
+               'cfo': ('El cierre y el presupuesto, contra todos sus soportes',
+                       'Clara y Tomás procesan cada documento y calculan lo que no cuadra. El estado lo declara siempre una persona.'),
+               'clo': ('Lo que la empresa firmó y a qué se obligó, contra sus documentos',
+                       'Fidel y Constanza procesan cada contrato y cada obligación, sin opinión jurídica: la decisión es de una persona.'),
+               'rostrum': ('Rostrum, el portal de todas las familias',
+                           'Lo que pide atención hoy, lo último de cada motor, lo que vence y dónde trabaja cada agente. No calcula ni escribe.')},
         # ── los robots ──
         'rb': {'vera': ('Vera', 'Director de proyectos', 'Para quien responde por el portafolio completo.', 'El portafolio'),
                'samuel': ('Samuel', 'Gerente de proyecto', 'Para quien responde por un proyecto.', 'Un proyecto'),
@@ -255,6 +264,14 @@ T = {
         'cfo_fr': 'I close against what the documents say, not against what is declared.',
         'clo_fr': 'I know what you signed, what expires, and what you committed to.',
         'disponible': 'Available',
+        'og': {'pmo': ('Extend your PMO’s capacity',
+                       'Vera, Samuel and Alba process every project’s documentation, compute variances and alerts, and prepare the committee material.'),
+               'cfo': ('The close and the budget, against all of their evidence',
+                       'Clara and Tomás process every document and calculate what does not tie out. The status is always declared by a person.'),
+               'clo': ('What the company signed and what it committed to, against its documents',
+                       'Fidel and Constanza process every contract and every obligation, with no legal opinion: the decision is a person’s.'),
+               'rostrum': ('Rostrum, the portal for every family',
+                           'What needs attention today, the latest from each engine, what falls due and where each agent works. It calculates and writes nothing.')},
         'en_prueba': 'Built · in testing',
         # ── the robots ──
         'rb': {'vera': ('Vera', 'Project director', 'For whoever answers for the whole portfolio.', 'The portfolio'),
@@ -481,6 +498,54 @@ def marca():
         for idioma in ('es', 'en'):
             for sg, fa in FAMILIA.items():
                 escribe(f'{idioma}/criterio-{sg}-{fondo}.svg', logotipo_svg(fondo, sg.upper(), fa['nombre'][idioma]))
+
+
+# ══════════════════════════════════════════════════════════════════ tarjetas sociales
+
+OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO,
+             'rostrum': ('rostrum', trazos.ORDEN[0], trazos.ORDEN_CFO[0], trazos.ORDEN_CLO[0])}
+
+
+def tarjeta_social(t, clave, idioma):
+    """La imagen que acompaña el enlace de cada página de Criterio en las redes: el logotipo de la
+    familia, la promesa, el título de la página y sus robots, el primero encendido."""
+    W, H = 1200, 630
+    img = Image.new('RGB', (W, H), NEGRO)
+    d = ImageDraw.Draw(img)
+    d.rectangle([(0, 0), (W, 6)], fill=ORO)
+    X = 84
+    logotipo(img, d, X, 74, 46, None if clave == 'rostrum' else clave.upper())
+    track(d, (X, 156), trazos.PROMESA[idioma].upper(), f(M6, 18), ORO, 2.2)
+    titulo_, linea = t['og'][clave]
+    fu = f(M5, 50)
+    lineas = envolver(d, titulo_, fu, 600)
+    assert len(lineas) <= 3, f'og {clave}: el título no cabe en tres líneas'
+    y = 196
+    for ln in lineas:
+        d.text((X, y), ln, font=fu, fill=CREMA)
+        y += 60
+    d.line([(X, y + 18), (X + 96, y + 18)], fill=ORO, width=3)
+    fr = f(R, 23)
+    lr = envolver(d, linea, fr, 600)
+    assert len(lr) <= 3, f'og {clave}: la línea no cabe en tres líneas'
+    y += 44
+    for ln in lr:
+        d.text((X, y), ln, font=fr, fill=APAGADO)
+        y += 33
+    assert y < 520, f'og {clave}: el texto pisa el pie'
+    bots = OG_ROBOTS[clave]
+    ancho = 78 if len(bots) > 3 else 120  # el texto llega hasta x = 684: los robots empiezan después
+    paso = ancho + 14
+    x0 = W - 84 - paso * len(bots) + 14
+    assert x0 >= X + 600 + 24, f'og {clave}: los robots pisan el texto'
+    for k, b in enumerate(bots):
+        trazo = ORO if k == 0 else mezcla(CREMA, NEGRO, 0.38)
+        pegar(img, robot(b, ancho, trazo, trazo), x0 + k * paso, 210)
+    d.line([(X, 534), (W - 84, 534)], fill=FILETE, width=1)
+    d.text((X, 562), 'josenanez.com', font=f(R, 22), fill=APAGADO)
+    fn = f(M5, 22)
+    d.text((W - 84 - d.textlength('José Ñáñez', font=fn), 562), 'José Ñáñez', font=fn, fill=ORO)
+    return img
 
 
 # ══════════════════════════════════════════════════════════════════ los robots
@@ -1070,6 +1135,8 @@ if __name__ == '__main__':
         for sg, estado in (('pmo', t['disponible']), ('cfo', t['en_prueba']), ('clo', t['en_prueba'])):
             guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], estado), idioma, f'{sg}.png')
         guardar(familia(t), idioma, 'familia.png')
+        for clave in ('pmo', 'cfo', 'clo', 'rostrum'):
+            guardar(tarjeta_social(t, clave, idioma), idioma, f'og-{clave}.png')
         guardar(flujo(t), idioma, 'flujo.png')
         guardar(contrato(t), idioma, 'contrato.png')
         guardar(quince(t), idioma, 'quince-minutos.png')
