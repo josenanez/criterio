@@ -636,10 +636,13 @@ def indice(evidencia: Path, entradas: list) -> list:
         if not f.is_file():
             continue
         try:
-            entradas = json.loads(f.read_text(encoding="utf-8"))
+            # Ojo con el nombre: `entradas` es el mapa, y la historia de los estados se arma con él
+            # más abajo. Con el mismo nombre, las corridas de la CFO y la CLO desaparecían en
+            # cuanto había rastro del arnés de la PMO.
+            registros = json.loads(f.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        for x in entradas:
+        for x in registros:
             medidas = x.get("medidas") or []
             for m in medidas:
                 if m.get("id"):
@@ -2016,10 +2019,17 @@ def selftest() -> int:
                                                          'estado': 'pendiente', 'comando': 'obligations-calendar'}]})
         escribe('estado-legal/900-banco/contratos/reporte-obligations-calendar.md', '# obligations-calendar\n\nCTR-104: el preaviso vence el 2026-11-01.\n')
         escribe('estado-legal/900-banco/contratos/secreto.md', 'no es un reporte')
+        # El rastro del arnés de la PMO, al lado: no puede tapar las corridas de las otras familias.
+        escribe('.criterio/corridas/portafolio/corridas.json', [{'id': '2026-10-06-portfolio-scan-1', 'comando': 'portfolio-scan',
+                                                                 'fecha': '2026-10-06', 'inicio': '2026-10-06T09:00', 'salida': True}])
         mapa.guardar(raiz)
         cfg_m, entradas_m, _ = mapa.cargar(mapa.destino(raiz))
         Manejador.entradas, Manejador.evidencia = entradas_m, raiz / '.criterio' / 'corridas'
         cod, port = pedir('/')
+        todas_ = indice(Manejador.evidencia, Manejador.entradas)
+        ok('con el rastro del arnés de la PMO, las corridas de la CFO siguen en la historia',
+           (sorted({c['agente'] for c in todas_}), '2026-10-06-close-status-1' in pedir('/corridas?agente=finanzas')[1]),
+           (['finanzas', 'portafolio', 'presupuesto'], True))
         ok('con el mapa, la portada presenta las tres familias con todos sus agentes',
            (cod, port.count('class="robot cr-anima"'), port.count('class="fam-card"')), (200, 7, 3))
         ok('el menú lleva una entrada por familia, plegada, y abre la de la página que se mira',
