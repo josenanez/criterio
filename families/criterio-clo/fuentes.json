@@ -1,0 +1,88 @@
+{
+  "nota": "Fuente única de las fuentes de la familia CLO: scripts/familias.py escribe FUENTES.es.md, la sección de cifras de DISENO.es.md y la tabla de cifras de los README de criterio-legal; el portal la publica con scripts/criterio-clo.mjs.",
+  "secciones": [
+    {
+      "id": "marcos",
+      "titulo": "Marcos de referencia",
+      "fuentes": [
+        {
+          "id": "F-01",
+          "fuente": "ISO 37301:2021 · Sistemas de gestión del cumplimiento — Requisitos con orientación para su uso",
+          "version": "Edición 1, abril de 2021; confirmada en su revisión sistemática de 2026",
+          "enlaces": [
+            [
+              "iso.org",
+              "https://www.iso.org/standard/75080.html"
+            ]
+          ],
+          "consultada": "2026-10-20",
+          "estado": "verificada",
+          "nota": "Se consultó la ficha de la norma en ISO: título, edición, estado y alcance —establecer, desarrollar, implementar, evaluar, mantener y mejorar un sistema de gestión del cumplimiento—. Se usa como modelo de la matriz de obligaciones: cada obligación con su fuente, su responsable y su evidencia. No se transcribe su contenido",
+          "uso": "El modelo de la matriz de obligaciones que procesa Constanza; ninguna obligación sale de aquí: las define la organización"
+        }
+      ]
+    }
+  ],
+  "cifras": [
+    {
+      "id": "C-01",
+      "valor": {
+        "es": "8,6 %",
+        "en": "8.6%"
+      },
+      "cifra": {
+        "es": "del valor de los contratos se erosiona en promedio por una gestión contractual deficiente; los mejores, poco más de 3 %, los peores, más de 20 %",
+        "en": "of contract value is eroded on average by poor contract management; the best a little over 3%, the worst more than 20%"
+      },
+      "fuente": "World Commerce & Contracting con Deloitte",
+      "anio": "2022",
+      "enlace": "https://www.deloitte.com/us/en/services/tax/articles/contract-management-lifecycle-insights.html",
+      "muestra": {
+        "es": "Más de 1.200 organizaciones",
+        "en": "More than 1,200 organisations"
+      },
+      "estado": "verificada",
+      "nota": "Actualización de 2022 de la investigación de 2014, que daba 9,2 %; la nota de Deloitte dice «más de 1.200 organizaciones», no un número exacto"
+    },
+    {
+      "id": "C-02",
+      "valor": {
+        "es": "90 %",
+        "en": "90%"
+      },
+      "cifra": {
+        "es": "de las organizaciones tiene dificultad para encontrar sus propios contratos",
+        "en": "of organisations report difficulty locating their own contracts"
+      },
+      "fuente": "EY Law y Harvard Law School Center on the Legal Profession",
+      "anio": "2021",
+      "enlace": "https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf",
+      "muestra": {
+        "es": "1.000 líderes de contratación, dentro de una investigación de más de 2.000 personas en 22 países, enero de 2021",
+        "en": "1,000 contracting leaders, within research of more than 2,000 people in 22 countries, January 2021"
+      },
+      "estado": "verificada",
+      "nota": "Página 7 del informe"
+    },
+    {
+      "id": "C-03",
+      "valor": {
+        "es": "19.000",
+        "en": "19,000"
+      },
+      "cifra": {
+        "es": "contratos al año gestiona en promedio el equipo de contratación de una organización grande",
+        "en": "contracts a year are managed on average by a large organisation's contracting team"
+      },
+      "fuente": "EY Law y Harvard Law School Center on the Legal Profession",
+      "anio": "2021",
+      "enlace": "https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf",
+      "muestra": {
+        "es": "1.000 líderes de contratación, enero de 2021",
+        "en": "1,000 contracting leaders, January 2021"
+      },
+      "estado": "verificada",
+      "nota": "Página 14 del informe"
+    }
+  ]
+}

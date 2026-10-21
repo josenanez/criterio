@@ -1,0 +1,358 @@
+{
+  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CLO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-clo.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json.",
+  "estado": {
+    "es": "Construida · en prueba",
+    "en": "Built · in testing"
+  },
+  "agentes": [
+    {
+      "id": "fidel",
+      "nombre": "Fidel",
+      "plugin": "criterio-legal",
+      "rol": {
+        "es": "Contratos",
+        "en": "Contracts"
+      },
+      "origen": {
+        "es": "de *fides*: la palabra dada; lo firmado se cumple",
+        "en": "from *fides*: the word given; what was signed is kept"
+      },
+      "hace": {
+        "es": "Lo firmado y en qué términos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías",
+        "en": "What was signed and on what terms: the contract register against its documents, expiries and renewal notices, obligations with their evidence, who signed with what authority, and what was paid against what was agreed and its guarantees"
+      },
+      "comandos": [
+        {
+          "id": "legal-setup",
+          "n": 0,
+          "es": {
+            "entrada": "La carpeta raíz. Preguntas: entidad y NIT o RUC, país, la matriz de atribuciones de `00-referencia/`, con cuántos días de anticipación se avisa un vencimiento o un preaviso, la antigüedad máxima del certificado de la contraparte y quién decide renovar",
+            "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas",
+            "entrega": "La configuración, el inventario y las primeras fichas de los contratos"
+          },
+          "en": {
+            "entrega": "The configuration, the inventory and the first contract records"
+          }
+        },
+        {
+          "id": "contract-scan",
+          "n": 1,
+          "es": {
+            "entrada": "`contratos/` completo y `10-registro/`",
+            "proceso": "Extrae el texto de cada documento con su huella y solo reprocesa lo que cambió; el agente lleva a la ficha de cada contrato sus partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones, cada dato con su cita; el motor valida la ficha",
+            "reporte": "Qué cambió; qué contratos son nuevos; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "Las fichas de los contratos al día, con lo que cambió y las señales nuevas"
+          },
+          "en": {
+            "entrega": "The contract records up to date, with what changed and the new signals"
+          }
+        },
+        {
+          "id": "contract-register",
+          "n": 2,
+          "es": {
+            "entrada": "`10-registro/registro-contratos` y las fichas",
+            "proceso": "Cruza el registro con las carpetas y con las fichas: contrato sin registro, registro sin documento, estado declarado contra la fecha de terminación, y el valor y las fechas del registro contra lo que dice el documento",
+            "reporte": "Por contrato: estado declarado y estado según sus fechas, y cada diferencia entre el registro y el documento",
+            "entrega": "El registro de contratos contra lo que dicen los documentos"
+          },
+          "en": {
+            "entrega": "The contract register against what the documents say"
+          }
+        },
+        {
+          "id": "obligations-calendar",
+          "n": 3,
+          "es": {
+            "entrada": "Las fichas y `40-ejecucion/` de cada contrato",
+            "proceso": "Fecha de terminación, fecha límite del preaviso de no renovación (terminación menos los días de preaviso) y cada obligación con fecha contra su evidencia en `40-ejecucion/`, con su id al inicio del nombre",
+            "reporte": "El calendario de los próximos días: vencimientos, preavisos y obligaciones; lo vencido sin evidencia y los preavisos que pasaron sin decisión",
+            "entrega": "Vencimientos, preavisos y obligaciones, con lo que venció sin evidencia"
+          },
+          "en": {
+            "entrega": "Expiries, notices and obligations, with what is overdue without evidence"
+          }
+        },
+        {
+          "id": "authority-check",
+          "n": 4,
+          "es": {
+            "entrada": "Las fichas, `00-referencia/matriz-atribuciones` y `30-contraparte/`",
+            "proceso": "Cada firmante de la entidad contra su facultad a la fecha de firma, por tipo y monto, otrosíes incluidos; los documentos sin la firma de las dos partes; el certificado de la contraparte contra la antigüedad configurada a la fecha de firma",
+            "reporte": "Por contrato: quién firmó, su facultad y el monto; los que no tienen firma de las dos partes; los certificados vencidos; sin opinión sobre la validez del contrato",
+            "entrega": "Quién firmó cada contrato y con qué facultad"
+          },
+          "en": {
+            "entrega": "Who signed each contract and with what authority"
+          }
+        },
+        {
+          "id": "contract-execution",
+          "n": 5,
+          "es": {
+            "entrada": "`10-registro/pagos`, las fichas y `20-garantias/`",
+            "proceso": "Lo pagado contra el valor más los otrosíes; los pagos después de la terminación; las garantías exigidas contra las aportadas y su vigencia contra la que exige el contrato",
+            "reporte": "Por contrato: valor, pagado, saldo y último pago; cada garantía exigida con la aportada y su vigencia",
+            "entrega": "Lo pagado contra lo pactado, y las garantías contra lo exigido"
+          },
+          "en": {
+            "entrega": "Payments against the agreed value, and guarantees against what was required"
+          }
+        },
+        {
+          "id": "legal-wake",
+          "n": 6,
+          "es": {
+            "entrada": "La configuración y las fichas",
+            "proceso": "Decide qué toca: los vencimientos y preavisos que entran en la ventana, los documentos nuevos y una revisión semanal",
+            "reporte": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+            "entrega": "Lo que toca hoy en los contratos; si no toca nada, se calla"
+          },
+          "en": {
+            "entrega": "What the contracts need today; silent when nothing does"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "contract_expiring",
+          "es": "Un contrato vence dentro de los días configurados y no tiene una decisión registrada de renovar o terminar",
+          "en": "A contract expires within the configured days with no recorded decision to renew or terminate"
+        },
+        {
+          "id": "notice_deadline_near",
+          "es": "La fecha límite del preaviso de no renovación de un contrato con renovación automática cae dentro de los días configurados",
+          "en": "The non-renewal notice deadline of an auto-renewing contract falls within the configured days"
+        },
+        {
+          "id": "renewal_notice_missed",
+          "es": "Pasó la fecha límite del preaviso de un contrato con renovación automática sin una decisión registrada",
+          "en": "The notice deadline of an auto-renewing contract passed with no recorded decision"
+        },
+        {
+          "id": "contract_expired_active",
+          "es": "El registro reporta vigente un contrato cuya fecha de terminación ya pasó",
+          "en": "The register reports as active a contract whose end date has passed"
+        },
+        {
+          "id": "register_mismatch",
+          "es": "Un contrato de la carpeta no está en el registro, o una fila del registro no tiene su documento",
+          "en": "A contract in the folder is not in the register, or a register row has no document"
+        },
+        {
+          "id": "register_differs_from_contract",
+          "es": "El valor o las fechas del registro no son los del documento",
+          "en": "The register's value or dates differ from the document's"
+        },
+        {
+          "id": "contract_obligation_overdue",
+          "es": "Una obligación del contrato pasó su fecha sin evidencia",
+          "en": "A contract obligation is past its date with no evidence"
+        },
+        {
+          "id": "signed_without_authority",
+          "es": "Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones",
+          "en": "The entity's signatory had no authority for the type or amount under the authority matrix"
+        },
+        {
+          "id": "unsigned_contract",
+          "es": "El documento no tiene la firma de las dos partes y el contrato ya empezó",
+          "en": "The document lacks both parties' signatures and the contract has already started"
+        },
+        {
+          "id": "counterparty_certificate_stale",
+          "es": "El certificado de la contraparte tenía más días de los configurados cuando se firmó",
+          "en": "The counterparty's certificate was older than the configured days at signing"
+        },
+        {
+          "id": "payments_over_value",
+          "es": "Lo pagado supera el valor del contrato más sus otrosíes",
+          "en": "Payments exceed the contract value plus its amendments"
+        },
+        {
+          "id": "payment_after_termination",
+          "es": "Hay pagos con fecha posterior a la terminación del contrato",
+          "en": "There are payments dated after the contract's end"
+        },
+        {
+          "id": "guarantee_missing",
+          "es": "El contrato exige una garantía y no hay póliza aportada",
+          "en": "The contract requires a guarantee and none was provided"
+        },
+        {
+          "id": "guarantee_expires_early",
+          "es": "La póliza aportada vence antes de lo que exige el contrato",
+          "en": "The policy provided expires earlier than the contract requires"
+        }
+      ]
+    },
+    {
+      "id": "constanza",
+      "nombre": "Constanza",
+      "plugin": "criterio-compliance",
+      "rol": {
+        "es": "Cumplimiento",
+        "en": "Compliance"
+      },
+      "origen": {
+        "es": "de *constantia*: cumplir siempre, no solo el día de la auditoría",
+        "en": "from *constantia*: compliance every day, not only on audit day"
+      },
+      "hace": {
+        "es": "La matriz de obligaciones de la organización contra su evidencia, la revisión de las políticas, las normas nuevas con su evaluación, el canal de denuncias con sus plazos y las obligaciones de cumplimiento que traen los contratos",
+        "en": "The organisation's obligations matrix against its evidence, policy reviews, new rules with their assessment, the whistleblowing channel with its deadlines, and the compliance obligations that contracts carry"
+      },
+      "comandos": [
+        {
+          "id": "compliance-setup",
+          "n": 0,
+          "es": {
+            "entrada": "La carpeta raíz. Preguntas: entidad, país, la matriz de obligaciones de `00-referencia/` en el modelo definido (F-01), el periodo, el plazo de respuesta del canal, los días para evaluar una norma nueva y, si la organización usa a Fidel, dónde están sus fichas",
+            "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; la matriz cargada y lo que le falta a cada obligación —responsable, fuente—; el primer estado del periodo",
+            "entrega": "La configuración, la matriz revisada y el primer estado del cumplimiento"
+          },
+          "en": {
+            "entrega": "The configuration, the reviewed matrix and the first compliance status"
+          }
+        },
+        {
+          "id": "compliance-scan",
+          "n": 1,
+          "es": {
+            "entrada": "Toda la carpeta de la entidad",
+            "proceso": "Reprocesa solo lo que cambió; el agente lleva a la ficha lo que declara el informe de `20-reportes/` y las normas nuevas de los boletines de `30-normativa/`, con su cita",
+            "reporte": "Qué cambió; qué se agregó a la ficha; las señales nuevas; lo que no se pudo procesar",
+            "entrega": "La ficha del cumplimiento al día, con lo que cambió y las señales nuevas"
+          },
+          "en": {
+            "entrega": "The compliance record up to date, with what changed and the new signals"
+          }
+        },
+        {
+          "id": "compliance-status",
+          "n": 2,
+          "es": {
+            "entrada": "`00-referencia/matriz-obligaciones`, `10-evidencias/` del periodo y de los anteriores, y las fichas de Fidel si las hay",
+            "proceso": "Cada obligación contra su evidencia en la ventana de su periodicidad y su fecha límite; las que no tienen responsable ni fuente; las obligaciones de cumplimiento de los contratos que la matriz no tiene; lo declarado contra lo evidenciado",
+            "reporte": "Estado declarado contra evidenciado; tabla de obligaciones ordenada por criticidad y vencimiento: cumplida con evidencia, cumplida sin evidencia, vencida, en plazo",
+            "entrega": "El estado del cumplimiento: declarado contra evidenciado, obligación por obligación"
+          },
+          "en": {
+            "entrega": "Compliance status: declared against evidenced, obligation by obligation"
+          }
+        },
+        {
+          "id": "policy-review",
+          "n": 3,
+          "es": {
+            "entrada": "`20-politicas/indice-politicas`",
+            "proceso": "Cada política contra su fecha de revisión y su responsable",
+            "reporte": "Las políticas con la revisión vencida o sin responsable, y las próximas a revisar",
+            "entrega": "Cada política con su próxima revisión, y las vencidas"
+          },
+          "en": {
+            "entrega": "Every policy with its next review, and the overdue ones"
+          }
+        },
+        {
+          "id": "regulatory-watch",
+          "n": 4,
+          "es": {
+            "entrada": "`30-normativa/registro-normativo` y las normas nuevas de la ficha",
+            "proceso": "Cada norma registrada contra su evaluación de impacto en los días configurados; las que aplican sin una obligación en la matriz",
+            "reporte": "Las normas sin evaluar y las que aplican sin obligación en la matriz; sin opinión sobre el alcance de ninguna norma",
+            "entrega": "Las normas nuevas con su evaluación, y las que aplican sin obligación"
+          },
+          "en": {
+            "entrega": "New rules with their assessment, and the applicable ones without an obligation"
+          }
+        },
+        {
+          "id": "reports-cases",
+          "n": 5,
+          "es": {
+            "entrada": "`40-canal/casos`",
+            "proceso": "Cada caso contra el plazo de respuesta configurado",
+            "reporte": "Los casos abiertos por antigüedad y los que pasaron su plazo; sin datos de quién denunció",
+            "entrega": "Los casos del canal de denuncias contra su plazo"
+          },
+          "en": {
+            "entrega": "Whistleblowing cases against their deadline"
+          }
+        },
+        {
+          "id": "compliance-wake",
+          "n": 6,
+          "es": {
+            "entrada": "La configuración y la ficha",
+            "proceso": "Decide qué toca: las obligaciones que vencen en la ventana, los documentos nuevos y una revisión semanal",
+            "reporte": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+            "entrega": "Lo que toca hoy en el cumplimiento; si no toca nada, se calla"
+          },
+          "en": {
+            "entrega": "What compliance needs today; silent when nothing does"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "compliance_obligation_overdue",
+          "es": "Una obligación de la matriz pasó su fecha límite sin evidencia",
+          "en": "A matrix obligation is past its deadline with no evidence"
+        },
+        {
+          "id": "compliance_done_without_evidence",
+          "es": "Una obligación figura cumplida y ninguna evidencia la sostiene",
+          "en": "An obligation is marked done and no evidence supports it"
+        },
+        {
+          "id": "compliance_evidence_stale",
+          "es": "La evidencia más reciente de una obligación periódica es de antes de su ventana",
+          "en": "The latest evidence of a periodic obligation predates its window"
+        },
+        {
+          "id": "obligation_without_owner",
+          "es": "Una obligación de la matriz no tiene responsable",
+          "en": "A matrix obligation has no owner"
+        },
+        {
+          "id": "obligation_without_source",
+          "es": "Una obligación de la matriz no cita la norma, el contrato o la política de la que sale",
+          "en": "A matrix obligation cites no rule, contract or policy it comes from"
+        },
+        {
+          "id": "declared_compliance_vs_evidence",
+          "es": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
+          "en": "The report declares the period compliant and there are open signals that status does not explain"
+        },
+        {
+          "id": "policy_review_overdue",
+          "es": "Una política pasó su fecha de revisión",
+          "en": "A policy is past its review date"
+        },
+        {
+          "id": "regulatory_change_unassessed",
+          "es": "Una norma registrada lleva más días de los configurados sin evaluación de impacto",
+          "en": "A registered rule has gone longer than the configured days without an impact assessment"
+        },
+        {
+          "id": "applicable_norm_not_in_matrix",
+          "es": "Una norma que aplica no tiene ninguna obligación en la matriz",
+          "en": "An applicable rule has no obligation in the matrix"
+        },
+        {
+          "id": "report_case_overdue",
+          "es": "Un caso del canal de denuncias pasó el plazo de respuesta configurado",
+          "en": "A whistleblowing case is past the configured response time"
+        },
+        {
+          "id": "contract_obligation_not_in_matrix",
+          "es": "Una obligación de cumplimiento de un contrato no está en la matriz",
+          "en": "A contract's compliance obligation is not in the matrix"
+        }
+      ]
+    }
+  ]
+}

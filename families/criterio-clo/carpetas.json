@@ -1,0 +1,169 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CLO: scripts/familias.py la escribe en DISENO.es.md, en el skill legal-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-clo.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "legal/",
+    "es": "Una carpeta por entidad, con el NIT o el RUC al inicio del nombre. Dentro, lo que la organización lleva para toda la entidad, una carpeta por contrato y una por periodo de cumplimiento.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, what the organisation keeps for the whole entity, one folder per contract and one per compliance period."
+  },
+  "niveles": [
+    {
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que la organización lleva para toda la entidad",
+      "en": "What the organisation keeps for the whole entity",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "agentes": [
+            "fidel",
+            "constanza"
+          ],
+          "es": "La matriz de atribuciones —quién firma qué y hasta qué monto— y la matriz de obligaciones de cumplimiento",
+          "en": "The authority matrix —who signs what and up to what amount— and the compliance obligations matrix",
+          "patrones": [
+            "^matriz"
+          ]
+        },
+        {
+          "carpeta": "10-registro",
+          "agentes": [
+            "fidel"
+          ],
+          "es": "El registro de contratos que lleva la organización y la exportación de pagos por contrato del ERP, con la fecha de corte en el nombre",
+          "en": "The organisation's contract register and the ERP export of payments by contract, with the cut-off date in the name",
+          "patrones": [
+            "^registro_contratos",
+            "^pagos"
+          ]
+        },
+        {
+          "carpeta": "20-politicas",
+          "agentes": [
+            "constanza"
+          ],
+          "es": "El índice de políticas con su versión y su próxima revisión, y cada política",
+          "en": "The policy index with each version and next review, and every policy",
+          "patrones": [
+            "^indice_politicas",
+            "^politica"
+          ]
+        },
+        {
+          "carpeta": "30-normativa",
+          "agentes": [
+            "constanza"
+          ],
+          "es": "El registro normativo, los boletines y las evaluaciones de impacto de cada norma nueva",
+          "en": "The regulatory register, the bulletins and the impact assessment of every new rule",
+          "patrones": [
+            "^registro_normativo",
+            "^boletin",
+            "^evaluacion"
+          ]
+        },
+        {
+          "carpeta": "40-canal",
+          "agentes": [
+            "constanza"
+          ],
+          "es": "El registro de casos del canal de denuncias, con su fecha de recepción y de respuesta",
+          "en": "The whistleblowing channel case log, with received and answered dates",
+          "patrones": [
+            "^casos",
+            "^canal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contrato",
+      "carpeta": "contratos/<código>/",
+      "ruta": "contratos/[^/]+",
+      "profundidad": 2,
+      "es": "Un contrato, con su código al inicio del nombre de la carpeta",
+      "en": "One contract, with its code at the start of the folder name",
+      "carpetas": [
+        {
+          "carpeta": "10-contrato",
+          "agentes": [
+            "fidel"
+          ],
+          "es": "El contrato firmado y cada otrosí",
+          "en": "The signed contract and every amendment",
+          "patrones": [
+            "^contrato",
+            "^otrosi"
+          ]
+        },
+        {
+          "carpeta": "20-garantias",
+          "agentes": [
+            "fidel"
+          ],
+          "es": "Las pólizas y garantías aportadas",
+          "en": "The insurance policies and guarantees provided",
+          "patrones": [
+            "^poliza",
+            "^garantia"
+          ]
+        },
+        {
+          "carpeta": "30-contraparte",
+          "agentes": [
+            "fidel"
+          ],
+          "es": "El certificado de existencia y representación de la contraparte y sus documentos",
+          "en": "The counterparty's certificate of existence and representation and its documents",
+          "patrones": [
+            "^certificado",
+            "^rut"
+          ]
+        },
+        {
+          "carpeta": "40-ejecucion",
+          "agentes": [
+            "fidel",
+            "constanza"
+          ],
+          "es": "Actas de entrega, informes y la evidencia de cada obligación, con su id al inicio del nombre",
+          "en": "Delivery records, reports and the evidence of every obligation, with its id at the start of the name",
+          "patrones": []
+        }
+      ]
+    },
+    {
+      "id": "periodo",
+      "carpeta": "cumplimiento-<AAAA-MM>/",
+      "ruta": "cumplimiento-\\d{4}-\\d{2}",
+      "es": "Un periodo de cumplimiento",
+      "en": "One compliance period",
+      "carpetas": [
+        {
+          "carpeta": "10-evidencias",
+          "agentes": [
+            "constanza"
+          ],
+          "es": "La evidencia de cada obligación del periodo, con su id al inicio del nombre",
+          "en": "The evidence of every obligation in the period, with its id at the start of the name",
+          "patrones": []
+        },
+        {
+          "carpeta": "20-reportes",
+          "agentes": [
+            "constanza"
+          ],
+          "es": "El informe de cumplimiento del periodo",
+          "en": "The period's compliance report",
+          "patrones": [
+            "^informe_cumplimiento"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-legal/",
+    "es": "Lo que escriben Fidel y Constanza: la configuración, las fichas de cada contrato, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Fidel and Constanza write: the configuration, each contract's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+  }
+}

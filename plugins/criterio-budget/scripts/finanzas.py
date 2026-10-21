@@ -35,7 +35,6 @@ Librería estándar, sin dependencias.
 """
 from __future__ import annotations
 
-import argparse
 import datetime as dt
 import json
 import re
@@ -49,7 +48,7 @@ sys.path.insert(0, str(AQUI))
 import nucleo as N  # noqa: E402
 from nucleo import (  # noqa: E402,F401  · MESES_LARGO lo usa el generador del material
     CRITICIDAD, MESES, MESES_LARGO, TABLAS, Tabla, _PAIS, _cita, _csv, _hoy, _m, _xlsx, alerta, buscar,
-    cargar_config, corrida, csv_filas, dia_habil, escribir_json, estructura, fecha, fin_de_mes, ident,
+    csv_filas, dia_habil, escribir_json, estructura, fecha, fin_de_mes, ident,
     inicio_de_mes, inventario, iso, leer_json, marco_reporte, mon, nit_sin_dv, norm, numero, ordenar, pc,
     redondo, registro_corridas, rel, xlsx_filas,
 )
@@ -1342,14 +1341,8 @@ def despertar(cfg: dict, rol: str, hoy: dt.date) -> dict:
 
 
 
-def _version_plugin() -> str:
-    m = leer_json(AQUI.parent / ".claude-plugin" / "plugin.json", {}) or {}
-    return m.get("version", "?")
-
-
 def _rol() -> str:
-    m = leer_json(AQUI.parent / ".claude-plugin" / "plugin.json", {}) or {}
-    return "tomas" if m.get("name") == "criterio-budget" else "clara"
+    return "tomas" if N.plugin(AQUI)["name"] == "criterio-budget" else "clara"
 
 
 def calcular(cfg: dict, rol: str, a) -> tuple[dict, Path]:
@@ -1370,103 +1363,17 @@ def calcular(cfg: dict, rol: str, a) -> tuple[dict, Path]:
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(description="El motor de Clara y Tomás.")
+    ap = N.argumentos("El motor de Clara y Tomás.")
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "inventario", "convertir",
                                        "compute", "reporte", "factura", "despertar", "corrida", "selftest"])
-    ap.add_argument("--config", type=Path)
-    ap.add_argument("--state", type=Path)
-    ap.add_argument("--docs", type=Path)
-    ap.add_argument("--period")
-    ap.add_argument("--year")
-    ap.add_argument("--today")
-    ap.add_argument("--what", help="el comando: para reporte y corrida")
-    ap.add_argument("--salida", type=Path)
-    ap.add_argument("--caso")
-    ap.add_argument("--nota")
-    ap.add_argument("--por")
-    ap.add_argument("--idioma")
-    ap.add_argument("--file", type=Path)
     a = ap.parse_args()
-    rol = _rol()
-
     if a.action == "selftest":
         return selftest()
-    if a.action in ("terminos", "aceptar"):
-        if not a.config:
-            ap.error("--config es obligatorio")
-        sys.path.insert(0, str(AQUI))
-        import terminos
-        if a.action == "terminos":
-            r = terminos.estado(a.config)
-            print(json.dumps(r, ensure_ascii=False, indent=2))
-            return 0 if r["vigente"] else 3
-        print(json.dumps(terminos.aceptar(a.config, a.por, a.idioma, _hoy(a) if a.today else None), ensure_ascii=False, indent=2))
-        return 0
-    if a.action == "init":
-        if not a.state:
-            ap.error("--state es obligatorio")
-        for sub in ("cierre", "presupuesto", "corridas", "cache"):
-            (a.state / sub).mkdir(parents=True, exist_ok=True)
-        print(json.dumps({"estado": str(a.state), "listo": True}, ensure_ascii=False))
-        return 0
     if a.action == "factura":
         print(json.dumps(leer_factura(a.file), ensure_ascii=False, indent=2))
         return 0
-    if a.action == "inventario":
-        docs = a.docs
-        estado = a.state
-        if a.config:
-            cfg, _ = cargar_config(a.config)
-            docs, estado = docs or cfg["_docs"], estado or cfg["_estado"]
-        if not docs:
-            ap.error("--docs o --config")
-        inv = inventario(docs, estado, estructura(ESTRUCTURA))
-        if estado:
-            escribir_json(estado / "indice.json", {"archivos": inv["archivos"], "fecha": iso(_hoy(a))})
-        resumen = {k: v for k, v in inv.items() if k != "archivos"}
-        print(json.dumps(resumen, ensure_ascii=False, indent=2))
-        return 0
-    if a.action == "convertir":
-        sys.path.insert(0, str(AQUI))
-        import texto
-        cfg, _ = cargar_config(a.config)
-        print(json.dumps(texto.convertir(cfg["_docs"], cfg["_estado"] / "cache", a.caso), ensure_ascii=False, indent=2)[:20000])
-        return 0
-    if not a.config:
-        ap.error("--config es obligatorio")
-    cfg, _ = cargar_config(a.config)
-    if a.action == "config":
-        p = revisar_config(cfg, rol)
-        print(json.dumps({"ok": not p, "problemas": p, "entidad": cfg.get("entity"), "documentos": str(cfg["_docs"]),
-                          "estado": str(cfg["_estado"])}, ensure_ascii=False, indent=2))
-        return 0 if not p else 1
-    if a.action == "compute":
-        r, destino = calcular(cfg, rol, a)
-        cuenta = {}
-        for x in r["alertas"]:
-            cuenta[x["signal"]] = cuenta.get(x["signal"], 0) + 1
-        print(json.dumps({"resultados": str(destino), "senales": cuenta, "total": len(r["alertas"]),
-                          "record_issues": r["record_issues"], "no_procesado": len(r.get("no_procesado") or []) +
-                          sum(len(p.get("no_procesado") or []) for p in r["partes"].values())}, ensure_ascii=False, indent=2))
-        return 0
-    if a.action == "reporte":
-        if not a.what:
-            ap.error("--what es el comando cuyo reporte se escribe")
-        r, destino = calcular(cfg, rol, a)
-        md = reporte(r, a.what, _version_plugin())
-        sal = destino.parent / f"reporte-{a.what}.md"
-        sal.write_text(md, encoding="utf-8")
-        print(md)
-        return 0
-    if a.action == "despertar":
-        print(json.dumps(despertar(cfg, rol, _hoy(a)), ensure_ascii=False, indent=2))
-        return 0
-    if a.action == "corrida":
-        if not a.what:
-            ap.error("--what es el comando que corrió")
-        print(json.dumps(corrida(cfg["_estado"], a.what, a.salida, a.caso, a.nota, _hoy(a)), ensure_ascii=False))
-        return 0
-    return 1
+    return N.despachar(a, ap, aqui=AQUI, rol=_rol(), estructura_json=ESTRUCTURA, subcarpetas=("cierre", "presupuesto"),
+                       revisar_config=revisar_config, calcular=calcular, reporte=reporte, despertar=despertar)
 
 
 # ================================================================ la prueba del motor

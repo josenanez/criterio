@@ -560,3 +560,98 @@ def _csv(ruta: Path, filas: list[list]) -> None:
     ruta.parent.mkdir(parents=True, exist_ok=True)
     with open(ruta, "w", newline="", encoding="utf-8") as f:
         csv.writer(f, delimiter=";").writerows(filas)
+
+
+# ================================================================ la línea de comandos, igual en todos los motores
+
+def plugin(aqui: Path) -> dict:
+    """El nombre y la versión del plugin instalado, de su manifiesto."""
+    m = leer_json(aqui.parent / ".claude-plugin" / "plugin.json", {}) or {}
+    return {"name": m.get("name"), "version": m.get("version", "?")}
+
+
+def argumentos(descripcion: str):
+    import argparse
+    ap = argparse.ArgumentParser(description=descripcion)
+    for op, t in (("--config", Path), ("--state", Path), ("--docs", Path), ("--salida", Path), ("--file", Path)):
+        ap.add_argument(op, type=t)
+    for op in ("--period", "--year", "--today", "--what", "--caso", "--nota", "--por", "--idioma"):
+        ap.add_argument(op)
+    return ap
+
+
+def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas: tuple, revisar_config, calcular,
+              reporte, despertar) -> int:
+    """Las acciones que todos los motores hacen igual. Las propias de cada uno las atiende el motor
+    antes de llegar aquí."""
+    import sys
+    if a.action in ("terminos", "aceptar"):
+        if not a.config:
+            ap.error("--config es obligatorio")
+        sys.path.insert(0, str(aqui))
+        import terminos
+        if a.action == "terminos":
+            r = terminos.estado(a.config)
+            print(json.dumps(r, ensure_ascii=False, indent=2))
+            return 0 if r["vigente"] else 3
+        print(json.dumps(terminos.aceptar(a.config, a.por, a.idioma, _hoy(a) if a.today else None), ensure_ascii=False, indent=2))
+        return 0
+    if a.action == "init":
+        if not a.state:
+            ap.error("--state es obligatorio")
+        for sub in tuple(subcarpetas) + ("corridas", "cache"):
+            (a.state / sub).mkdir(parents=True, exist_ok=True)
+        print(json.dumps({"estado": str(a.state), "listo": True}, ensure_ascii=False))
+        return 0
+    if a.action == "inventario":
+        docs, estado = a.docs, a.state
+        if a.config:
+            cfg, _ = cargar_config(a.config)
+            docs, estado = docs or cfg["_docs"], estado or cfg["_estado"]
+        if not docs:
+            ap.error("--docs o --config")
+        inv = inventario(docs, estado, estructura(estructura_json))
+        if estado:
+            escribir_json(estado / "indice.json", {"archivos": inv["archivos"], "fecha": iso(_hoy(a))})
+        print(json.dumps({k: v for k, v in inv.items() if k != "archivos"}, ensure_ascii=False, indent=2))
+        return 0
+    if a.action == "convertir":
+        sys.path.insert(0, str(aqui))
+        import texto
+        cfg, _ = cargar_config(a.config)
+        print(json.dumps(texto.convertir(cfg["_docs"], cfg["_estado"] / "cache", a.caso), ensure_ascii=False, indent=2)[:20000])
+        return 0
+    if not a.config:
+        ap.error("--config es obligatorio")
+    cfg, _ = cargar_config(a.config)
+    if a.action == "config":
+        p = revisar_config(cfg, rol)
+        print(json.dumps({"ok": not p, "problemas": p, "entidad": cfg.get("entity"), "documentos": str(cfg["_docs"]),
+                          "estado": str(cfg["_estado"])}, ensure_ascii=False, indent=2))
+        return 0 if not p else 1
+    if a.action == "compute":
+        r, destino = calcular(cfg, rol, a)
+        cuenta: dict[str, int] = {}
+        for x in r["alertas"]:
+            cuenta[x["signal"]] = cuenta.get(x["signal"], 0) + 1
+        print(json.dumps({"resultados": str(destino), "senales": cuenta, "total": len(r["alertas"]),
+                          "record_issues": r["record_issues"], "no_procesado": len(r.get("no_procesado") or []) +
+                          sum(len(p.get("no_procesado") or []) for p in r["partes"].values())}, ensure_ascii=False, indent=2))
+        return 0
+    if a.action == "reporte":
+        if not a.what:
+            ap.error("--what es el comando cuyo reporte se escribe")
+        r, destino = calcular(cfg, rol, a)
+        md = reporte(r, a.what, plugin(aqui)["version"])
+        (destino.parent / f"reporte-{a.what}.md").write_text(md, encoding="utf-8")
+        print(md)
+        return 0
+    if a.action == "despertar":
+        print(json.dumps(despertar(cfg, rol, _hoy(a)), ensure_ascii=False, indent=2))
+        return 0
+    if a.action == "corrida":
+        if not a.what:
+            ap.error("--what es el comando que corrió")
+        print(json.dumps(corrida(cfg["_estado"], a.what, a.salida, a.caso, a.nota, _hoy(a)), ensure_ascii=False))
+        return 0
+    return 1
