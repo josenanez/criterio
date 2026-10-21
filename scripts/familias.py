@@ -13,7 +13,12 @@ Cada familia tiene tres fuentes en families/criterio-<familia>/, y cada cosa tie
   carpetas.json   la estructura de carpetas recomendada (ADR 0007)
   familia.json    los agentes, sus comandos con entrada, proceso y reporte, y sus señales
 
-El portal las publica con scripts/criterio-cfo.mjs y scripts/criterio-clo.mjs. Lo que comprueba
+Escribe además `plugins/criterio-server/scripts/agentes.json`: los agentes de todas las familias
+—también los de la PMO, desde families/criterio-pmo/familia.json— con su plugin, su área, sus
+grupos y sus comandos, que es de donde Rostrum los saca (ADR 0010). Ningún nombre de agente se
+escribe a mano en el servidor, y cada comando que existe en un plugin tiene que estar ahí.
+
+El portal las publica con scripts/criterio-familias.mjs. Lo que comprueba
 además de las copias: que cada carpeta citada por un comando exista en la estructura, que cada
 fuente citada por un comando esté verificada (ADR 0006, regla 1), que cada campo que lee un motor
 esté verificado en su fuente y que la numeración vaya de diez en diez.
@@ -357,6 +362,55 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
     return [f"{clave.upper()} · {e}" for e in errores], sum(len(a["comandos"]) for a in fa["agentes"]), len(salidas)
 
 
+# ---------------------------------------------------------------- los agentes, para Rostrum
+
+SERVIDOR = {"id": "rostrum", "nombre": "Rostrum", "plugin": "criterio-server", "area": "rostrum",
+            "rol": {"es": "El servidor", "en": "The server"}, "titulo": "el servidor",
+            "grupos": [{"titulo": "El portal", "linea": "El mapa de las familias y el servidor que las publica",
+                        "comandos": [{"id": "server-setup", "etiqueta": "El mapa de las familias"},
+                                     {"id": "server-start", "etiqueta": "Levantar el portal"}]}]}
+
+
+def agentes_json() -> tuple[str, list[str]]:
+    """Los agentes de todas las familias, en el orden de la PMO, la CFO y la CLO."""
+    err, familias, agentes = [], [], []
+    for sigla in ("pmo", "cfo", "clo"):
+        f = RAIZ / "families" / f"criterio-{sigla}" / "familia.json"
+        if not f.is_file():
+            continue
+        fa = json.loads(f.read_text(encoding="utf-8"))
+        familias.append({"sigla": sigla, "nombre": fa["nombre"], "estado": fa["estado"],
+                         "agentes": [a["area"] for a in fa["agentes"]]})
+        for a in fa["agentes"]:
+            if "grupos" in a:
+                grupos = a["grupos"]
+            else:
+                por_n = sorted(a["comandos"], key=lambda c: c["n"])
+                ritmo = [por_n[0], por_n[-1]]
+                grupos = [{"titulo": "Arranque y ritmo", "linea": "Instalar y saber qué toca hoy",
+                           "comandos": [{"id": c["id"], "etiqueta": c["es"]["etiqueta"]} for c in ritmo]},
+                          {"titulo": a["rol"]["es"], "linea": a["hace"]["es"],
+                           "comandos": [{"id": c["id"], "etiqueta": c["es"]["etiqueta"]} for c in por_n[1:-1]]}]
+            agentes.append({"id": a["id"], "nombre": a["nombre"], "plugin": a["plugin"], "area": a["area"],
+                            "ambitos": a.get("ambitos") or [], "familia": sigla, "rol": a["rol"], "titulo": a.get("titulo") or a["rol"]["es"].lower(),
+                            "grupos": grupos})
+    for a in agentes + [SERVIDOR]:
+        existentes = {x.stem for x in (P / a["plugin"] / "commands").glob("*.md")}
+        en_grupos = [c["id"] for g in a["grupos"] for c in g["comandos"]]
+        if len(en_grupos) != len(set(en_grupos)):
+            err.append(f"{a['nombre']}: un comando está en dos grupos")
+        for x in sorted(existentes - set(en_grupos)):
+            err.append(f"{a['plugin']}:{x} no está en ningún grupo de {a['nombre']}")
+        for x in sorted(set(en_grupos) - existentes):
+            err.append(f"{a['nombre']}: el grupo nombra {x}, que no existe en {a['plugin']}")
+    areas = [a["area"] for a in agentes]
+    if len(areas) != len(set(areas)):
+        err.append("dos agentes con la misma área")
+    d = {"generado": f"por scripts/familias.py desde families/*/familia.json; {AVISO}",
+         "familias": familias, "agentes": agentes, "servidor": SERVIDOR}
+    return json.dumps(d, ensure_ascii=False, indent=2) + "\n", err
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
@@ -367,6 +421,17 @@ def main() -> int:
         errores += e
         if n:
             resumen.append(f"{clave.upper()} {n} comandos y {archivos} archivos")
+    contenido, e_ag = agentes_json()
+    errores += [f"AGENTES · {e}" for e in e_ag]
+    destino = P / "criterio-server" / "scripts" / "agentes.json"
+    if destino.parent.is_dir():
+        actual = destino.read_text(encoding="utf-8") if destino.exists() else ""
+        if actual != contenido:
+            if args.check:
+                errores.append(f"{destino.relative_to(RAIZ)}: no es lo que sale de las familias; corre scripts/familias.py")
+            else:
+                destino.write_text(contenido, encoding="utf-8")
+                print(f"  {destino.relative_to(RAIZ)}")
     for e in errores:
         print(f"  ✗ {e}")
     if args.check and not errores:

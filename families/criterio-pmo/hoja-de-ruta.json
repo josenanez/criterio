@@ -107,7 +107,7 @@
    "es": {
     "titulo": "Rostrum",
     "entra": [
-     "Rostrum como plugin propio, con su evolución visual según WCAG 2.2 AA e ISO 9241",
+     "La evolución visual de Rostrum según WCAG 2.2 AA e ISO 9241; ser plugin propio para todas las familias entró en la 0.7.0",
      "Gantt de línea base contra vigente, hitos y curva de avance"
     ],
     "prueba": "8 industrias"
@@ -115,7 +115,7 @@
    "en": {
     "titulo": "Rostrum",
     "entra": [
-     "Rostrum as its own plugin, with its visual evolution to WCAG 2.2 AA and ISO 9241",
+     "Rostrum's visual evolution to WCAG 2.2 AA and ISO 9241; becoming its own plugin for every family came in 0.7.0",
      "Gantt of baseline against current, milestones and progress curve"
     ],
     "prueba": "8 industries"

@@ -253,10 +253,10 @@ consolidación de varias entidades queda fuera de la primera versión.
 
 ## Rostrum: el mismo, ampliado
 
-Rostrum no se duplica: un solo servidor publica los informes de todas las familias. Hoy vive
-dentro de `criterio-portfolio`, y eso obliga a instalar la familia PMO para publicar el cierre.
-La propuesta es sacarlo a un plugin propio, compartido, y ampliarlo con las páginas del cierre y
-del presupuesto.
+Rostrum no se duplica: un solo servidor publica los informes de todas las familias. Desde la
+0.7.0 es su propio plugin, `criterio-server`, y sirve las páginas del cierre y del presupuesto con
+las de las otras familias, desde un mapa que arma por selección de carpeta
+([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)).
 
 Después de este diseño viene su evolución visual, con estándares internacionales de usabilidad y
 accesibilidad: WCAG 2.2 nivel AA para accesibilidad y la serie ISO 9241 para el diseño centrado
@@ -288,7 +288,7 @@ supuesto escrito, y la decisión del comité la toma una persona.
 - La forma de la ficha: cita por dato, declarado contra evidenciado, «no encontrado» válido.
 - Los términos por versión con su comprobante, el registro de versiones y las puertas de
   `scripts/verificar.py`.
-- Rostrum, más adelante, para publicar el informe del cierre y del presupuesto.
+- Rostrum, `criterio-server`, para publicar los reportes del cierre y del presupuesto (ADR 0010).
 
 Lo nuevo es el motor propio, `finanzas.py`, con librería estándar: procesa las tablas y las
 facturas directamente, y el agente extrae a la ficha solo lo que trae un documento escrito
@@ -338,6 +338,7 @@ Tomadas al construir, con su razón; cada una se puede revertir con una decisió
 
 ## Decisiones abiertas
 
-1. Sacar Rostrum de `criterio-portfolio` a un plugin propio compartido: el nombre y el momento.
+1. ~~Sacar Rostrum de `criterio-portfolio` a un plugin propio compartido: el nombre y el momento.~~
+   Cerrada en el [ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md): `criterio-server`, en la 0.7.0.
 2. Quién revisa el checklist recomendado de cada industria antes de proponerlo como algo más que
    un borrador.

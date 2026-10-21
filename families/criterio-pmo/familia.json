@@ -1,0 +1,287 @@
+{
+  "nota": "Fuente única de los agentes de la familia PMO para el servidor: scripts/familias.py la escribe, con las otras familias, en plugins/criterio-server/scripts/agentes.json. Cada comando que existe en el plugin tiene que estar aquí, en su grupo y con su nombre para quien no programa.",
+  "sigla": "pmo",
+  "nombre": {
+    "es": "Gobierno de proyectos",
+    "en": "Project governance"
+  },
+  "estado": {
+    "es": "Construida y probada",
+    "en": "Built and tested"
+  },
+  "agentes": [
+    {
+      "id": "vera",
+      "nombre": "Vera",
+      "plugin": "criterio-portfolio",
+      "area": "portafolio",
+      "rol": {
+        "es": "Director de proyectos",
+        "en": "Project director"
+      },
+      "titulo": "la PMO",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar, saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "portfolio-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "portfolio-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Lectura de documentos",
+          "linea": "Qué cambió en la carpeta y el barrido que hace una ficha por proyecto",
+          "comandos": [
+            {
+              "id": "document-index",
+              "etiqueta": "Qué cambió en los documentos"
+            },
+            {
+              "id": "portfolio-scan",
+              "etiqueta": "Barrido: una ficha por proyecto"
+            }
+          ]
+        },
+        {
+          "titulo": "Informes",
+          "linea": "El del portafolio, el estado de un proyecto, y el paquete del comité",
+          "comandos": [
+            {
+              "id": "portfolio-report",
+              "etiqueta": "Informe del portafolio"
+            },
+            {
+              "id": "status-report",
+              "etiqueta": "Estado de un proyecto"
+            },
+            {
+              "id": "steering-pack",
+              "etiqueta": "Paquete del comité"
+            }
+          ]
+        },
+        {
+          "titulo": "Un proyecto a fondo",
+          "linea": "Diagnóstico, historia, riesgos, cambios, acta y cierre",
+          "comandos": [
+            {
+              "id": "health-check",
+              "etiqueta": "Diagnóstico desde cero"
+            },
+            {
+              "id": "project-history",
+              "etiqueta": "Historia de un proyecto"
+            },
+            {
+              "id": "raid-log",
+              "etiqueta": "Riesgos y dependencias"
+            },
+            {
+              "id": "change-control",
+              "etiqueta": "Control de cambios"
+            },
+            {
+              "id": "project-charter",
+              "etiqueta": "Acta de constitución"
+            },
+            {
+              "id": "project-closure",
+              "etiqueta": "Cierre del proyecto"
+            }
+          ]
+        },
+        {
+          "titulo": "Dinero y proveedores",
+          "linea": "Presupuesto contra lo aprobado; contrato contra recibo contra factura",
+          "comandos": [
+            {
+              "id": "budget-tracking",
+              "etiqueta": "Presupuesto"
+            },
+            {
+              "id": "vendor-tracking",
+              "etiqueta": "Proveedores"
+            }
+          ]
+        },
+        {
+          "titulo": "Productos",
+          "linea": "Un producto visto a través de los proyectos que lo construyen",
+          "comandos": [
+            {
+              "id": "product-view",
+              "etiqueta": "Un producto y sus proyectos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "samuel",
+      "nombre": "Samuel",
+      "plugin": "criterio-project",
+      "area": "proyecto",
+      "rol": {
+        "es": "Gerente de proyecto",
+        "en": "Project manager"
+      },
+      "titulo": "gerente de proyecto",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar, saber qué toca hoy, y la agenda de la reunión",
+          "comandos": [
+            {
+              "id": "pm-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "pm-wake",
+              "etiqueta": "Qué toca hoy"
+            },
+            {
+              "id": "pm-agenda",
+              "etiqueta": "Agenda de la reunión"
+            }
+          ]
+        },
+        {
+          "titulo": "Seguimiento del proyecto",
+          "linea": "Minutas, compromisos y el informe semanal",
+          "comandos": [
+            {
+              "id": "pm-minutes",
+              "etiqueta": "Minutas"
+            },
+            {
+              "id": "pm-commitments",
+              "etiqueta": "Compromisos"
+            },
+            {
+              "id": "pm-report",
+              "etiqueta": "Informe del proyecto"
+            }
+          ]
+        },
+        {
+          "titulo": "Plan y escalamiento",
+          "linea": "El plan contra la línea base, y lo que sube al comité",
+          "comandos": [
+            {
+              "id": "pm-plan",
+              "etiqueta": "Plan y línea base"
+            },
+            {
+              "id": "pm-escalate",
+              "etiqueta": "Escalamiento"
+            }
+          ]
+        },
+        {
+          "titulo": "Publicar a la PMO",
+          "linea": "La ficha del proyecto donde la PMO la lee",
+          "comandos": [
+            {
+              "id": "pm-publish",
+              "etiqueta": "Publicar la ficha"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alba",
+      "nombre": "Alba",
+      "plugin": "criterio-product",
+      "area": "producto",
+      "rol": {
+        "es": "Gerente de producto",
+        "en": "Product manager"
+      },
+      "titulo": "gerente de producto",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "product-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "product-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Descubrimiento",
+          "linea": "Entrevistas y requerimientos con doliente, criterio y evidencia",
+          "comandos": [
+            {
+              "id": "product-discovery",
+              "etiqueta": "Descubrimiento: entrevistas"
+            },
+            {
+              "id": "product-requirements",
+              "etiqueta": "Requerimientos"
+            }
+          ]
+        },
+        {
+          "titulo": "Definición del producto",
+          "linea": "Definición, especificación, caso de negocio y acta",
+          "comandos": [
+            {
+              "id": "product-definition",
+              "etiqueta": "Definición"
+            },
+            {
+              "id": "product-spec",
+              "etiqueta": "Especificación"
+            },
+            {
+              "id": "product-business-case",
+              "etiqueta": "Caso de negocio"
+            },
+            {
+              "id": "product-charter",
+              "etiqueta": "Acta de constitución"
+            }
+          ]
+        },
+        {
+          "titulo": "Trazas con proyectos",
+          "linea": "Lo decidido que nadie construye, y lo que se solapa entre productos",
+          "comandos": [
+            {
+              "id": "product-trace",
+              "etiqueta": "Trazas con proyectos"
+            },
+            {
+              "id": "product-overlap",
+              "etiqueta": "Solapamientos entre productos"
+            }
+          ]
+        },
+        {
+          "titulo": "Publicar a la PMO",
+          "linea": "La ficha del producto donde la PMO la lee",
+          "comandos": [
+            {
+              "id": "product-publish",
+              "etiqueta": "Publicar la ficha"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Manual de los comandos de Criterio
 
-Los 37 comandos de la familia, en el orden en que una PMO los usa: Alba define el producto, Samuel ejecuta un proyecto, Vera consolida el portafolio y Rostrum lo publica. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
+Los 38 comandos de la familia PMO y de Rostrum, en el orden en que una PMO los usa: Alba define el producto, Samuel ejecuta un proyecto, Vera consolida el portafolio y Rostrum lo publica. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
 
 Este manual se genera con `scripts/manual.py` desde la tabla del README de cada plugin y su `contratos.json`, el mismo contrato que las pruebas comparan contra cada corrida. No se edita a mano.
 
@@ -286,7 +286,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **commitment-tracking**, **document-intake**
 
-## Vera y Rostrum · el portafolio
+## Vera · el portafolio
 
 ### `/criterio-portfolio:portfolio-setup`
 
@@ -315,18 +315,6 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `<estado>/cadencia.json`
 
 **Skills.** **document-intake**, **portfolio-health**
-
-### `/criterio-portfolio:portfolio-server`
-
-**Qué hace.** Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización
-
-**Argumento.** `[rato|servicio] o vacío`
-
-**Lee.** config; `<estado>/`; `.criterio/corridas/`
-
-**Muestra.** la URL y qué pedirle a la organización para publicarlo
-
-**Escribe.** nada: no escribe
 
 ### `/criterio-portfolio:document-index`
 
@@ -523,3 +511,29 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** nada: no escribe
 
 **Skills.** **baseline-variance**, **governance-artifacts**
+
+## Rostrum · el portal de todas las familias
+
+### `/criterio-server:server-setup`
+
+**Qué hace.** El mapa: qué agentes de qué familias hay en la carpeta de trabajo y dónde está el estado de cada uno
+
+**Argumento.** `[carpeta de trabajo] o vacío`
+
+**Lee.** `.criterio/<área>/[<instancia>/]config.json`
+
+**Muestra.** el mapa encontrado, lo que falta y lo que se deja fuera
+
+**Escribe.** `.criterio/rostrum/config.json`; `.criterio/terminos/ (aceptar)`
+
+### `/criterio-server:server-start`
+
+**Qué hace.** El portal levantado sobre el mapa, y qué pedirle a la organización para publicarlo
+
+**Argumento.** `[rato|servicio] o vacío`
+
+**Lee.** `.criterio/rostrum/config.json`; el estado de cada entrada del mapa
+
+**Muestra.** las direcciones del portal y qué se pide para publicarlo
+
+**Escribe.** `<estado>/peticiones/<id>.json (el servidor, por cada petición)`

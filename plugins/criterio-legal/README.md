@@ -76,6 +76,8 @@ In the first fifteen minutes, `legal-setup` shows the contract calendar: what is
 
 `legal-setup` looks at the folder, asks what no document answers —the entity, the authority matrix, how many days ahead to warn of an expiry— and shows the first calendar. The recommended folder structure is in the `legal-intake` skill; Fidel suggests it and moves nothing.
 
+**For whoever does not open a folder**, what Fidel writes —reports, what falls due, signals— is published by Rostrum, the portal for every family: [`criterio-server`](../criterio-server/README.md). Written questions can be left there too, and Fidel takes them in the `*-wake` command.
+
 ## Sources
 
 Every framework and figure used is in [`families/criterio-clo/FUENTES.es.md`](../../families/criterio-clo/FUENTES.es.md) (Spanish), with its version, link and status.

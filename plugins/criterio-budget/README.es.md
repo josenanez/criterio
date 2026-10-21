@@ -62,6 +62,8 @@ En los primeros quince minutos, `budget-setup` deja ver lo aprobado contra lo ej
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar marketplace desde GitHub → `josenanez/criterio`.
 
+**Para quien no abre una carpeta**, lo que Tomás escribe —sus reportes y sus señales— lo publica Rostrum, el portal de todas las familias: [`criterio-server`](../criterio-server/README.es.md). Ahí también se le pueden dejar preguntas escritas, que toma en su `*-wake`.
+
 ## Cómo se verifica
 
 ```

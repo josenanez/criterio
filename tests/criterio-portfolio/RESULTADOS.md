@@ -1,8 +1,8 @@
-# Resultado de las pruebas · Vera y Rostrum
+# Resultado de las pruebas · Vera
 
-**el agente de la PMO y el servidor que publica su informe** · plugin `criterio-portfolio`
+**el agente de la PMO** · plugin `criterio-portfolio`
 
-Corrida del 2026-10-20, sobre el commit `0fa2601`, con cambios en el árbol todavía sin confirmar. **6 puertas · 304 comprobaciones · todas en verde.**
+Corrida del 2026-10-21, sobre el commit `68ccc5d`, con cambios en el árbol todavía sin confirmar. **5 puertas · 237 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,12 +10,11 @@ Corrida del 2026-10-20, sobre el commit `0fa2601`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 59 ms | verde |
-| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 115 | 117 ms | verde |
-| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 23 | 63 ms | verde |
-| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 20 | 57 ms | verde |
-| `criterio-portfolio/servidor.py` | Rostrum: rutas, que no se salga de la carpeta, y que no escriba la ficha | 67 | 697 ms | verde |
-| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 467 ms | verde |
+| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 94 ms | verde |
+| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 115 | 230 ms | verde |
+| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 23 | 86 ms | verde |
+| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 20 | 71 ms | verde |
+| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 658 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -28,7 +27,7 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 
 ## Los comandos, corridos por un agente de verdad
 
-**17 de 17** corrieron en la ronda 10 con el plugin instalado desde cero, en 4 industrias; **17** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-10/`](../evidencias/rondas/ronda-10/).
+**16 de 16** corrieron en la ronda 10 con el plugin instalado desde cero, en 4 industrias; **16** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-10/`](../evidencias/rondas/ronda-10/).
 
 | Comando | Terminó | Cumplió su contrato | Tiempo |
 |---|---|---|---:|
@@ -38,7 +37,6 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 | `/criterio-portfolio:health-check` | 4 de 4 | 4 de 4 | 114–231 s |
 | `/criterio-portfolio:portfolio-report` | 4 de 4 | 4 de 4 | 48–61 s |
 | `/criterio-portfolio:portfolio-scan` | 4 de 4 | 4 de 4 | 168–289 s |
-| `/criterio-portfolio:portfolio-server` | 4 de 4 | 4 de 4 | 35–48 s |
 | `/criterio-portfolio:portfolio-setup` | 4 de 4 | 4 de 4 | 90–173 s |
 | `/criterio-portfolio:portfolio-wake` | 4 de 4 | 4 de 4 | 38–49 s |
 | `/criterio-portfolio:product-view` | 4 de 4 | 4 de 4 | 38–49 s |
@@ -92,7 +90,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `sintetico/funcionalidades.py` | Que cada comando declare qué produce y qué deja escrito | 1 | verde |
 | `criterio-portfolio/terminos.py` | Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256 | 14 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 131 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 148 | verde |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |

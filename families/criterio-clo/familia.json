@@ -1,5 +1,10 @@
 {
-  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CLO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-clo.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json.",
+  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CLO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-clo.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json. `area` es la carpeta de la configuración del agente (`.criterio/<area>/`) y `ambitos`, las carpetas de su estado que son suyas cuando comparte el estado con el otro agente de la familia (ADR 0010).",
+  "sigla": "clo",
+  "nombre": {
+    "es": "Contratos y cumplimiento",
+    "en": "Contracts and compliance"
+  },
   "estado": {
     "es": "Construida · en prueba",
     "en": "Built · in testing"
@@ -13,6 +18,7 @@
         "es": "Contratos",
         "en": "Contracts"
       },
+      "titulo": "los contratos",
       "origen": {
         "es": "de *fides*: la palabra dada; lo firmado se cumple",
         "en": "from *fides*: the word given; what was signed is kept"
@@ -26,6 +32,7 @@
           "id": "legal-setup",
           "n": 0,
           "es": {
+            "etiqueta": "Instalación",
             "entrada": "La carpeta raíz. Preguntas: entidad y NIT o RUC, país, la matriz de atribuciones de `00-referencia/`, con cuántos días de anticipación se avisa un vencimiento o un preaviso, la antigüedad máxima del certificado de la contraparte y quién decide renovar",
             "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
             "reporte": "Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas",
@@ -39,6 +46,7 @@
           "id": "contract-scan",
           "n": 1,
           "es": {
+            "etiqueta": "Qué cambió en los contratos",
             "entrada": "`contratos/` completo y `10-registro/`",
             "proceso": "Extrae el texto de cada documento con su huella y solo reprocesa lo que cambió; el agente lleva a la ficha de cada contrato sus partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones, cada dato con su cita; el motor valida la ficha",
             "reporte": "Qué cambió; qué contratos son nuevos; las señales nuevas; lo que no se pudo procesar y por qué",
@@ -52,6 +60,7 @@
           "id": "contract-register",
           "n": 2,
           "es": {
+            "etiqueta": "Registro de contratos",
             "entrada": "`10-registro/registro-contratos` y las fichas",
             "proceso": "Cruza el registro con las carpetas y con las fichas: contrato sin registro, registro sin documento, estado declarado contra la fecha de terminación, y el valor y las fechas del registro contra lo que dice el documento",
             "reporte": "Por contrato: estado declarado y estado según sus fechas, y cada diferencia entre el registro y el documento",
@@ -65,6 +74,7 @@
           "id": "obligations-calendar",
           "n": 3,
           "es": {
+            "etiqueta": "Vencimientos, preavisos y obligaciones",
             "entrada": "Las fichas y `40-ejecucion/` de cada contrato",
             "proceso": "Fecha de terminación, fecha límite del preaviso de no renovación (terminación menos los días de preaviso) y cada obligación con fecha contra su evidencia en `40-ejecucion/`, con su id al inicio del nombre",
             "reporte": "El calendario de los próximos días: vencimientos, preavisos y obligaciones; lo vencido sin evidencia y los preavisos que pasaron sin decisión",
@@ -78,6 +88,7 @@
           "id": "authority-check",
           "n": 4,
           "es": {
+            "etiqueta": "Firmas y facultades",
             "entrada": "Las fichas, `00-referencia/matriz-atribuciones` y `30-contraparte/`",
             "proceso": "Cada firmante de la entidad contra su facultad a la fecha de firma, por tipo y monto, otrosíes incluidos; los documentos sin la firma de las dos partes; el certificado de la contraparte contra la antigüedad configurada a la fecha de firma",
             "reporte": "Por contrato: quién firmó, su facultad y el monto; los que no tienen firma de las dos partes; los certificados vencidos; sin opinión sobre la validez del contrato",
@@ -91,6 +102,7 @@
           "id": "contract-execution",
           "n": 5,
           "es": {
+            "etiqueta": "Pagos y garantías",
             "entrada": "`10-registro/pagos`, las fichas y `20-garantias/`",
             "proceso": "Lo pagado contra el valor más los otrosíes; los pagos después de la terminación; las garantías exigidas contra las aportadas y su vigencia contra la que exige el contrato",
             "reporte": "Por contrato: valor, pagado, saldo y último pago; cada garantía exigida con la aportada y su vigencia",
@@ -104,6 +116,7 @@
           "id": "legal-wake",
           "n": 6,
           "es": {
+            "etiqueta": "Qué toca hoy",
             "entrada": "La configuración y las fichas",
             "proceso": "Decide qué toca: los vencimientos y preavisos que entran en la ventana, los documentos nuevos y una revisión semanal",
             "reporte": "Lo que corrió y lo que encontró; si no toca nada, se calla",
@@ -185,6 +198,10 @@
           "es": "La póliza aportada vence antes de lo que exige el contrato",
           "en": "The policy provided expires earlier than the contract requires"
         }
+      ],
+      "area": "legal",
+      "ambitos": [
+        "contratos"
       ]
     },
     {
@@ -195,6 +212,7 @@
         "es": "Cumplimiento",
         "en": "Compliance"
       },
+      "titulo": "el cumplimiento",
       "origen": {
         "es": "de *constantia*: cumplir siempre, no solo el día de la auditoría",
         "en": "from *constantia*: compliance every day, not only on audit day"
@@ -208,6 +226,7 @@
           "id": "compliance-setup",
           "n": 0,
           "es": {
+            "etiqueta": "Instalación",
             "entrada": "La carpeta raíz. Preguntas: entidad, país, la matriz de obligaciones de `00-referencia/` en el modelo definido (F-01), el periodo, el plazo de respuesta del canal, los días para evaluar una norma nueva y, si la organización usa a Fidel, dónde están sus fichas",
             "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
             "reporte": "Configuración guardada; la matriz cargada y lo que le falta a cada obligación —responsable, fuente—; el primer estado del periodo",
@@ -221,6 +240,7 @@
           "id": "compliance-scan",
           "n": 1,
           "es": {
+            "etiqueta": "Qué cambió en el cumplimiento",
             "entrada": "Toda la carpeta de la entidad",
             "proceso": "Reprocesa solo lo que cambió; el agente lleva a la ficha lo que declara el informe de `20-reportes/` y las normas nuevas de los boletines de `30-normativa/`, con su cita",
             "reporte": "Qué cambió; qué se agregó a la ficha; las señales nuevas; lo que no se pudo procesar",
@@ -234,6 +254,7 @@
           "id": "compliance-status",
           "n": 2,
           "es": {
+            "etiqueta": "Estado del cumplimiento",
             "entrada": "`00-referencia/matriz-obligaciones`, `10-evidencias/` del periodo y de los anteriores, y las fichas de Fidel si las hay",
             "proceso": "Cada obligación contra su evidencia en la ventana de su periodicidad y su fecha límite; las que no tienen responsable ni fuente; las obligaciones de cumplimiento de los contratos que la matriz no tiene; lo declarado contra lo evidenciado",
             "reporte": "Estado declarado contra evidenciado; tabla de obligaciones ordenada por criticidad y vencimiento: cumplida con evidencia, cumplida sin evidencia, vencida, en plazo",
@@ -247,6 +268,7 @@
           "id": "policy-review",
           "n": 3,
           "es": {
+            "etiqueta": "Políticas por revisar",
             "entrada": "`20-politicas/indice-politicas`",
             "proceso": "Cada política contra su fecha de revisión y su responsable",
             "reporte": "Las políticas con la revisión vencida o sin responsable, y las próximas a revisar",
@@ -260,6 +282,7 @@
           "id": "regulatory-watch",
           "n": 4,
           "es": {
+            "etiqueta": "Normas nuevas",
             "entrada": "`30-normativa/registro-normativo` y las normas nuevas de la ficha",
             "proceso": "Cada norma registrada contra su evaluación de impacto en los días configurados; las que aplican sin una obligación en la matriz",
             "reporte": "Las normas sin evaluar y las que aplican sin obligación en la matriz; sin opinión sobre el alcance de ninguna norma",
@@ -273,6 +296,7 @@
           "id": "reports-cases",
           "n": 5,
           "es": {
+            "etiqueta": "Canal de denuncias",
             "entrada": "`40-canal/casos`",
             "proceso": "Cada caso contra el plazo de respuesta configurado",
             "reporte": "Los casos abiertos por antigüedad y los que pasaron su plazo; sin datos de quién denunció",
@@ -286,6 +310,7 @@
           "id": "compliance-wake",
           "n": 6,
           "es": {
+            "etiqueta": "Qué toca hoy",
             "entrada": "La configuración y la ficha",
             "proceso": "Decide qué toca: las obligaciones que vencen en la ventana, los documentos nuevos y una revisión semanal",
             "reporte": "Lo que corrió y lo que encontró; si no toca nada, se calla",
@@ -352,6 +377,10 @@
           "es": "Una obligación de cumplimiento de un contrato no está en la matriz",
           "en": "A contract's compliance obligation is not in the matrix"
         }
+      ],
+      "area": "cumplimiento",
+      "ambitos": [
+        "cumplimiento"
       ]
     }
   ]

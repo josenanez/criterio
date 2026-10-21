@@ -181,7 +181,7 @@ pierde es que avise sin que nadie pregunte.
 
 **Y si quieres que tu patrocinador vea el informe sin pedírtelo**, la familia tiene un servidor
 que lo publica con una sección para proyectos, y quien mira puede dejarle una pregunta escrita
-al agente. → **[Rostrum](../criterio-portfolio/SERVER.es.md)**
+al agente. → **[Rostrum](../criterio-server/README.es.md)**
 
 ## Trabajo en equipo
 

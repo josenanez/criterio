@@ -254,9 +254,10 @@
    "entrada": {
     "argumento": "[AAAA-MM-DD para simular otro día]",
     "lee": [
-     "config",
+     "<estado>/contratos/*.json",
      "<estado>/corridas/",
-     "<estado>/contratos/*.json"
+     "<estado>/peticiones/",
+     "config"
     ]
    },
    "salida": {
@@ -265,7 +266,8 @@
      "<estado>/indice.json",
      "<estado>/contratos/resultados.json",
      "<estado>/contratos/reporte-obligations-calendar.md",
-     "<estado>/corridas/salida-legal-wake.md"
+     "<estado>/corridas/salida-legal-wake.md",
+     "<estado>/peticiones/<id>.json (responder)"
     ]
    },
    "reglas": {
@@ -277,6 +279,7 @@
      "despertar",
      "inventario",
      "reporte",
+     "responder",
      "terminos"
     ],
     "calcula": true

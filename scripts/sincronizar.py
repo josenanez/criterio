@@ -26,7 +26,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 FUENTE = RAIZ / "plugins" / "criterio-portfolio" / "scripts"
 
 # Qué comparte cada plugin, y por qué. Lo que no está aquí no se comparte: el informe
-# de un proyecto no es el del portafolio recortado, y Rostrum es de la PMO.
+# de un proyecto no es el del portafolio recortado.
 SCRIPTS = {
     "criterio-project": {
         "portafolio.py": "la aritmética; `compute` ya trabaja proyecto a proyecto",
@@ -54,7 +54,18 @@ for _p in ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-co
     SCRIPTS[_p] = {
         "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
         "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
+        "rastro.py": "el rastro de cada corrida lo escribe el arnés, igual en todas las familias (ADR 0010)",
     }
+# Rostrum sirve lo que escriben todos: la página del informe de la PMO, su historia y la página de
+# cada corrida son de quien las escribe, y el servidor las toma de su copia (ADR 0010).
+SCRIPTS["criterio-server"] = {
+    "informe.py": "la paleta y la página del informe: el servidor las sirve, no las reescribe",
+    "portafolio.py": "la historia de las corridas se lee igual que la escribe la PMO",
+    "rastro.py": "la página de una corrida es la que escribe el arnés",
+    "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
+}
+# El arnés de cada agente: el mismo `hooks.json` que llama a su copia de `rastro.py`.
+HOOKS = ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-compliance")
 FUENTE_CFO = RAIZ / "plugins" / "criterio-finance" / "scripts"
 SCRIPTS_CFO = {
     "criterio-budget": {
@@ -92,7 +103,7 @@ RAIZ_A_PLUGINS = {
     "registro/versiones.json": ("REGISTRO.json", "el registro de versiones de la familia"),
 }
 PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-finance", "criterio-budget",
-                   "criterio-legal", "criterio-compliance")
+                   "criterio-legal", "criterio-compliance", "criterio-server")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
@@ -222,6 +233,12 @@ def revisar(escribir: bool) -> int:
                     _comparar(RAIZ / "plugins" / plugin / "skills" / nombre / rel, texto,
                               f"{plugin}/skills/{nombre}/{rel}", porque, escribir,
                               origen.stat().st_mode, estado)
+
+    hooks = FUENTE.parent / "hooks" / "hooks.json"
+    for plugin in HOOKS:
+        _comparar(RAIZ / "plugins" / plugin / "hooks" / "hooks.json", hooks.read_text(encoding="utf-8"),
+                  f"{plugin}/hooks/hooks.json", "el arnés llama a su copia de rastro.py, como en la familia PMO",
+                  escribir, 0o644, estado)
 
     for plugin in PLUGINS_FAMILIA:
         for fuente, (destino, porque) in sorted(RAIZ_A_PLUGINS.items()):

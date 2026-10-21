@@ -14,7 +14,7 @@ quien vigila el portafolio— y ninguno habla con otro directamente: se hablan p
 |---|---|
 | **Alcance** | El gobierno de un portafolio, de cada proyecto que lo compone y de cada producto que esos proyectos construyen |
 | **Objetivo** | Que lo declarado y lo evidenciado se puedan comparar, todos los días y sobre el conjunto — que es lo que hoy no se puede |
-| **Compuesta por** | [Vera](../../plugins/criterio-portfolio/README.es.md) · [Samuel](../../plugins/criterio-project/README.es.md) · [Alba](../../plugins/criterio-product/README.es.md) · [Rostrum](../../plugins/criterio-portfolio/SERVER.es.md) |
+| **Compuesta por** | [Vera](../../plugins/criterio-portfolio/README.es.md) · [Samuel](../../plugins/criterio-project/README.es.md) · [Alba](../../plugins/criterio-product/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **Estado** | Los tres agentes construidos y verificados sobre corpus sintético. **La extracción sobre documentación real no se ha probado** |
 | **Enfoque** | Estrategia y ejecución |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
@@ -176,12 +176,12 @@ su detalle. **Cada página de agente se lee sola** — alguien puede instalar un
 
 | | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
 |---|---|---|---|---|
-| **Vera** · el portafolio | El portafolio completo: consolidar, contrastar lo declarado contra la evidencia, y armar el material del comité | No declara el estado de ningún proyecto, y no prioriza la demanda | [criterio-portfolio](../../plugins/criterio-portfolio/README.es.md) · 17 comandos, 10 skills | [resultados](../../tests/criterio-portfolio/RESULTADOS.md) |
+| **Vera** · el portafolio | El portafolio completo: consolidar, contrastar lo declarado contra la evidencia, y armar el material del comité | No declara el estado de ningún proyecto, y no prioriza la demanda | [criterio-portfolio](../../plugins/criterio-portfolio/README.es.md) · 16 comandos, 10 skills | [resultados](../../tests/criterio-portfolio/RESULTADOS.md) |
 | **Samuel** · un proyecto | Lo que la reunión deja escrito: el compromiso dicho y no cumplido, el plan contra la evidencia, y el informe listo salvo una línea | No declara el estado de su proyecto, y no va a la reunión | [criterio-project](../../plugins/criterio-project/README.es.md) · 9 comandos, 8 skills | [resultados](../../tests/criterio-project/RESULTADOS.md) |
 | **Alba** · un producto | Lo que hay antes del proyecto: la definición contra la evidencia de demanda, el registro de requerimientos, y el acta con la que nace la ficha | No decide qué se construye, y no habla con el cliente | [criterio-product](../../plugins/criterio-product/README.es.md) · 11 comandos, 12 skills | [resultados](../../tests/criterio-product/RESULTADOS.md) |
-| **Rostrum** · el servidor | Publicar el informe donde el equipo lo lea, y recibir la petición de quien no abre una carpeta | **No escribe nunca la ficha**, y no decide nada | [Rostrum](../../plugins/criterio-portfolio/SERVER.es.md) | dentro de las de Vera |
+| **Rostrum** · el servidor | Publicar el informe donde el equipo lo lea, y recibir la petición de quien no abre una carpeta | **No escribe nunca la ficha**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 
-Los 37 comandos uno por uno —qué hacen, qué reciben, qué leen y qué escriben— están en el [manual de los comandos](../../docs/manual.es.md), y las respuestas a lo que más se pregunta, en las [preguntas frecuentes](PREGUNTAS.es.md).
+Los 36 comandos de la familia y los 2 de Rostrum, uno por uno —qué hacen, qué reciben, qué leen y qué escriben— están en el [manual de los comandos](../../docs/manual.es.md), y las respuestas a lo que más se pregunta, en las [preguntas frecuentes](PREGUNTAS.es.md).
 
 **La frontera es la misma para los tres y no es una recomendación: es una restricción del
 camino de escritura.** Ninguno escribe el estado declarado de un proyecto. Esa línea la escribe
@@ -192,7 +192,7 @@ vive todo esto— compararía al sistema consigo mismo.
 
 Hasta aquí el resultado de la familia son archivos en el equipo de quien corrió los
 agentes. **Un patrocinador no abre una carpeta de archivos**: abre un enlace, o no abre
-nada. Para eso está **Rostrum**, el servidor de esta familia.
+nada. Para eso está **Rostrum**, el servidor, que desde esta versión es su propio plugin y sirve a todas las familias.
 
 Levanta un portal con **tres secciones** —informes de la PMO, proyectos y productos—, y el
 enlace entre proyecto y producto va en los dos sentidos. Ahí está lo que ninguna otra
@@ -207,7 +207,7 @@ diciendo qué documento falta.
 **No autentica a nadie, y es a propósito**: se publica detrás del control de acceso que la
 organización ya tiene. No escribe nunca la ficha.
 
-→ **[Rostrum, con capturas de cada sección y qué pedirle a tu organización](../../plugins/criterio-portfolio/SERVER.es.md)**
+→ **[Rostrum, con capturas de cada sección y qué pedirle a tu organización](../../plugins/criterio-server/README.es.md)**
 
 ## Cómo se configura y cada cuánto corre cada uno
 
@@ -345,7 +345,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 0.7.0 | Liberada | **Cronogramas de Microsoft Project**<br>· El XML de Project como cronograma: tareas, hitos, línea base, avance, predecesoras y recursos; el .mpp donde haya Java y MPXJ<br>· La estructura de carpetas recomendada<br>· El contraste entre la ficha del gerente y la de la PMO como lo define el skill<br>· El análisis estadístico, regenerado con cada prueba<br>· Esta hoja de ruta, desde una sola fuente | 4 industrias, 80 proyectos |
 | 0.8.0 | Siguiente | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones | 6 industrias |
 | 0.9.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
-| 0.10.0 | Siguiente | **Rostrum**<br>· Rostrum como plugin propio, con su evolución visual según WCAG 2.2 AA e ISO 9241<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
+| 0.10.0 | Siguiente | **Rostrum**<br>· La evolución visual de Rostrum según WCAG 2.2 AA e ISO 9241; ser plugin propio para todas las familias entró en la 0.7.0<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
 | 1.0.0 | Reservada | **El despliegue en una organización**<br>· El esquema de la ficha, sostenido en el primer despliegue en una organización | La documentación de esa organización |
 
 <!-- /hoja de ruta -->
@@ -385,10 +385,10 @@ documentación real de una organización.**
 
 | Agente | Se instala | Tablas A y B de su diseño |
 |---|---|---|
-| **Vera** · PMO | `criterio-portfolio` · 17 comandos, 10 skills | **sin filas abiertas** |
+| **Vera** · PMO | `criterio-portfolio` · 16 comandos, 10 skills | **sin filas abiertas** |
 | **Samuel** · proyecto | `criterio-project` · 9 comandos, 8 skills | **sin filas abiertas** |
 | **Alba** · producto | `criterio-product` · 11 comandos, 12 skills | **sin filas abiertas** |
-| **Rostrum** · el servidor | dentro de `criterio-portfolio` | — |
+| **Rostrum** · el servidor | `criterio-server` · 2 comandos, para todas las familias | — |
 
 **Ninguna de las tres hojas de diseño tiene ya una fila en «Falta» o en «Parcial».** Lo que
 sigue pendiente no es construcción.

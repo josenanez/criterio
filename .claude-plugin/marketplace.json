@@ -49,6 +49,12 @@
       "description": "Tomás, FP&A: el presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año con su supuesto escrito, los traslados con su acta y el material del comité de presupuesto. Toma la ejecución de la misma contabilidad que cierra Clara.",
       "source": "./plugins/criterio-budget",
       "category": "finance"
+    },
+    {
+      "name": "criterio-server",
+      "description": "Rostrum, el portal de todas las familias: publica lo que los agentes ya escribieron —el informe de la PMO, los reportes de la CFO y de la CLO, lo que vence en todas, la historia de cada corrida— para quien no abre una carpeta, y recibe preguntas escritas para cualquier agente. Un mapa por selección de carpeta dice qué se sirve. No calcula, no escribe fichas y no autentica.",
+      "source": "./plugins/criterio-server",
+      "category": "productivity"
     }
   ]
 }

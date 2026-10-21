@@ -65,6 +65,8 @@ En los primeros quince minutos, `compliance-setup` deja ver el estado del period
 
 `compliance-setup` mira la carpeta, revisa la matriz de obligaciones, hace las preguntas que ningún documento responde —el periodo, el plazo del canal, los días para evaluar una norma— y muestra el primer estado. Si la organización usa a Fidel, Constanza toma de sus fichas las obligaciones de cumplimiento de los contratos. La estructura de carpetas recomendada está en el skill `legal-intake`.
 
+**Para quien no abre una carpeta**, lo que Constanza escribe —sus reportes, lo que vence, sus señales— lo publica Rostrum, el portal de todas las familias: [`criterio-server`](../criterio-server/README.es.md). Ahí también se le pueden dejar preguntas escritas, que toma en su `*-wake`.
+
 ## Las fuentes
 
 Cada marco que se usa está en [`families/criterio-clo/FUENTES.es.md`](../../families/criterio-clo/FUENTES.es.md), con su versión, su enlace y su estado.

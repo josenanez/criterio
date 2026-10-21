@@ -1,0 +1,73 @@
+{
+ "comandos": {
+  "server-setup": {
+   "funcion": "Arma el mapa de Rostrum: qué agentes de qué familias hay en la carpeta de trabajo y dónde está el estado de cada uno.",
+   "entrada": {
+    "argumento": "[carpeta de trabajo] o vacío",
+    "lee": [
+     ".criterio/<área>/[<instancia>/]config.json"
+    ]
+   },
+   "salida": {
+    "muestra": "el mapa encontrado, lo que falta y lo que se deja fuera",
+    "escribe": [
+     ".criterio/rostrum/config.json",
+     ".criterio/terminos/ (aceptar)"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "aceptar",
+     "descubrir",
+     "guardar",
+     "revisar",
+     "terminos"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "mapa.py --selftest: una carpeta con la PMO, la CFO y la CLO, una configuración sin estado y una familia instalada después",
+    "esperado": "cada agente encontrado por su carpeta; lo dejado fuera no vuelve; lo nuevo aparece al revisar"
+   }
+  },
+  "server-start": {
+   "funcion": "Levanta el portal sobre el mapa y dice qué pedirle a la organización para publicarlo.",
+   "entrada": {
+    "argumento": "[rato|servicio] o vacío",
+    "lee": [
+     ".criterio/rostrum/config.json",
+     "el estado de cada entrada del mapa"
+    ]
+   },
+   "salida": {
+    "muestra": "las direcciones del portal y qué se pide para publicarlo",
+    "escribe": [
+     "<estado>/peticiones/<id>.json (el servidor, por cada petición)"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "revisar",
+     "terminos"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "servidor.py --selftest: la PMO sola y las tres familias en un mapa",
+    "esperado": "cada ruta responde; ningún archivo fuera de lo que toca; la petición solo en el estado elegido"
+   }
+  }
+ },
+ "skills": {},
+ "por_descripcion": {}
+}

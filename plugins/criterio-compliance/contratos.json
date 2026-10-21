@@ -257,9 +257,10 @@
    "entrada": {
     "argumento": "[AAAA-MM-DD para simular otro día]",
     "lee": [
-     "config",
+     "00-referencia/matriz-obligaciones",
      "<estado>/corridas/",
-     "00-referencia/matriz-obligaciones"
+     "<estado>/peticiones/",
+     "config"
     ]
    },
    "salida": {
@@ -268,7 +269,8 @@
      "<estado>/indice.json",
      "<estado>/cumplimiento/<AAAA-MM>/resultados.json",
      "<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md",
-     "<estado>/corridas/salida-compliance-wake.md"
+     "<estado>/corridas/salida-compliance-wake.md",
+     "<estado>/peticiones/<id>.json (responder)"
     ]
    },
    "reglas": {
@@ -280,6 +282,7 @@
      "despertar",
      "inventario",
      "reporte",
+     "responder",
      "terminos"
     ],
     "calcula": true

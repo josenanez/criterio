@@ -75,6 +75,8 @@ In the first fifteen minutes, `finance-setup` shows the status of the period's c
 /criterio-finance:finance-setup
 ```
 
+**For whoever does not open a folder**, what Clara writes —reports, what falls due, signals— is published by Rostrum, the portal for every family: [`criterio-server`](../criterio-server/README.md). Written questions can be left there too, and Clara takes them in the `*-wake` command.
+
 ## Sources
 
 Every format and rule used is in [`families/criterio-cfo/FUENTES.es.md`](../../families/criterio-cfo/FUENTES.es.md) (Spanish), with its version, link and status; every invoice field the engine processes, with its id in the technical annex.

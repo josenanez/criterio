@@ -8,7 +8,7 @@ Un solo generador para todas, porque comparten vocabulario: fondo negro, un acen
 de oro, filetes finos, Inter Tight, y el texto cargando el mensaje. Colores y reglas
 en docs/design.md.
 
-Los robots salen de plugins/criterio-portfolio/scripts/robots.py, el mismo archivo con
+Los robots salen de plugins/criterio-server/scripts/robots.py, el mismo archivo con
 que el servidor los dibuja y los mismos trazos de josenanez.com: encendido es oro, en
 reposo es crema al 38 %, como en el portal. Si cambia un robot, cambia en todas partes.
 
@@ -29,7 +29,7 @@ import cairosvg
 from PIL import Image, ImageDraw, ImageFont
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(AQUI, '..', '..', 'plugins', 'criterio-portfolio', 'scripts'))
+sys.path.insert(0, os.path.join(AQUI, '..', '..', 'plugins', 'criterio-server', 'scripts'))
 import robots as trazos  # noqa: E402
 FUENTES = os.environ.get('INTER_TIGHT', AQUI)
 R = os.path.join(FUENTES, 'InterTight-400.ttf')

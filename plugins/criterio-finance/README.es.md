@@ -79,6 +79,8 @@ En los primeros quince minutos, `finance-setup` deja ver el estado del cierre de
 
 `finance-setup` mira la carpeta, hace las preguntas que ningún documento responde —la entidad, el marco, las cuentas que cruzan las facturas, el checklist— y muestra el primer estado del cierre. La estructura de carpetas recomendada está en el skill `finance-intake`; Clara la sugiere y no mueve nada.
 
+**Para quien no abre una carpeta**, lo que Clara escribe —sus reportes, lo que vence, sus señales— lo publica Rostrum, el portal de todas las familias: [`criterio-server`](../criterio-server/README.es.md). Ahí también se le pueden dejar preguntas escritas, que toma en su `*-wake`.
+
 ## Las fuentes
 
 Cada formato y cada norma que se usa está en [`families/criterio-cfo/FUENTES.es.md`](../../families/criterio-cfo/FUENTES.es.md), con su versión, su enlace y su estado; cada campo de factura que procesa el motor, con su identificador en el anexo técnico.

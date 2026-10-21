@@ -60,6 +60,8 @@ In the first fifteen minutes, `budget-setup` shows approved against actual and c
 /criterio-budget:budget-setup
 ```
 
+**For whoever does not open a folder**, what Tomás writes —reports and signals— is published by Rostrum, the portal for every family: [`criterio-server`](../criterio-server/README.md). Written questions can be left there too, and Tomás takes them in the `*-wake` command.
+
 ## Acceptance criteria
 
 See [ACCEPTANCE.md](ACCEPTANCE.md). **How the latest run went**, generated from the run itself: [`tests/criterio-budget/RESULTADOS.md`](../../tests/criterio-budget/RESULTADOS.md) (Spanish).

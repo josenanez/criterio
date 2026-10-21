@@ -15,7 +15,7 @@ record.
 |---|---|
 | **Scope** | The governance of a portfolio, of each project in it, and of each product those projects build |
 | **Objective** | That declared and evidenced can be compared, every day and across the whole — which is what cannot be done today |
-| **Made of** | [Vera](../../plugins/criterio-portfolio/README.md) · [Samuel](../../plugins/criterio-project/README.md) · [Alba](../../plugins/criterio-product/README.md) · [Rostrum](../../plugins/criterio-portfolio/SERVER.md) |
+| **Made of** | [Vera](../../plugins/criterio-portfolio/README.md) · [Samuel](../../plugins/criterio-project/README.md) · [Alba](../../plugins/criterio-product/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **State** | The three agents built and verified over a synthetic corpus. **Extraction over real documentation has not been tested** |
 | **Approach** | Strategy and execution |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
@@ -178,12 +178,12 @@ the others.
 
 | | What it answers for | What it never does | Its page | Its tests |
 |---|---|---|---|---|
-| **Vera** · the portfolio | The whole portfolio: consolidating, contrasting what is declared against the evidence, and building the committee pack | Does not declare any project's status, and does not prioritise demand | [criterio-portfolio](../../plugins/criterio-portfolio/README.md) · 17 commands, 10 skills | [results](../../tests/criterio-portfolio/RESULTADOS.md) |
+| **Vera** · the portfolio | The whole portfolio: consolidating, contrasting what is declared against the evidence, and building the committee pack | Does not declare any project's status, and does not prioritise demand | [criterio-portfolio](../../plugins/criterio-portfolio/README.md) · 16 commands, 10 skills | [results](../../tests/criterio-portfolio/RESULTADOS.md) |
 | **Samuel** · one project | What the meeting leaves written: the commitment said and not kept, the plan against the evidence, and the report ready but for one line | Does not declare his project's status, and does not attend the meeting | [criterio-project](../../plugins/criterio-project/README.md) · 9 commands, 8 skills | [results](../../tests/criterio-project/RESULTADOS.md) |
 | **Alba** · one product | What exists before the project: the definition against the evidence of demand, the requirement register, and the charter the record is born with | Does not decide what gets built, and does not talk to the customer | [criterio-product](../../plugins/criterio-product/README.md) · 11 commands, 12 skills | [results](../../tests/criterio-product/RESULTADOS.md) |
-| **Rostrum** · the server | Publishing the report where the team will read it, and taking the request from whoever will not open a folder | **Never writes the record**, and decides nothing | [Rostrum](../../plugins/criterio-portfolio/SERVER.md) | inside Vera's |
+| **Rostrum** · the server | Publishing the report where the team will read it, and taking the request from whoever will not open a folder | **Never writes the record**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 
-The 37 commands one by one —what each does and which skills it uses— are in the [command manual](../../docs/manual.md), and the answers to what people ask most, in the [FAQ](PREGUNTAS.md).
+The family's 36 commands and Rostrum's 2, one by one —what each does and which skills it uses— are in the [command manual](../../docs/manual.md), and the answers to what people ask most, in the [FAQ](PREGUNTAS.md).
 
 **The boundary is the same for all three, and it is not a recommendation: it is a restriction of
 the write path.** None of them writes a project's declared status. A person writes that line,
@@ -194,7 +194,7 @@ on — would be comparing the system against itself.
 
 Up to here the family's result is files on the machine of whoever ran the agents. **A
 sponsor does not open a folder of files**: they open a link, or they open nothing. That is
-what **Rostrum**, this family's server, is for.
+what **Rostrum**, the server, is for: since this version it is a plugin of its own and serves every family.
 
 It raises a portal with **three sections** — PMO reports, projects and products — and the
 link between project and product goes both ways. That is where what no other page can say
@@ -209,7 +209,7 @@ which document is missing.
 **It authenticates nobody, and that is on purpose**: it is published behind the access
 control the organisation already has. It never writes the record.
 
-→ **[Rostrum, with screenshots of each section and what to ask your organisation for](../../plugins/criterio-portfolio/SERVER.md)**
+→ **[Rostrum, with screenshots of each section and what to ask your organisation for](../../plugins/criterio-server/README.md)**
 
 ## How each one is configured and how often it runs
 
@@ -343,7 +343,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 0.7.0 | Released | **Microsoft Project schedules**<br>· Project XML as a schedule: tasks, milestones, baseline, progress, predecessors and resources; .mpp where Java and MPXJ are present<br>· The recommended folder structure<br>· The contrast between the manager's record and the PMO's, as the skill defines it<br>· The statistical analysis, regenerated with every test<br>· This roadmap, from a single source | 4 industries, 80 projects |
 | 0.8.0 | Next | **Construction and infrastructure, and oil & gas**<br>· Two new industries, with their own projects, documents and situations | 6 industries |
 | 0.9.0 | Next | **Telecommunications and logistics**<br>· Two new industries: portfolio scale and operations that never stop | 8 industries |
-| 0.10.0 | Next | **Rostrum**<br>· Rostrum as its own plugin, with its visual evolution to WCAG 2.2 AA and ISO 9241<br>· Gantt of baseline against current, milestones and progress curve | 8 industries |
+| 0.10.0 | Next | **Rostrum**<br>· Rostrum's visual evolution to WCAG 2.2 AA and ISO 9241; becoming its own plugin for every family came in 0.7.0<br>· Gantt of baseline against current, milestones and progress curve | 8 industries |
 | 1.0.0 | Reserved | **Deployment in an organization**<br>· The record schema, holding up in the first deployment in an organization | That organization's documentation |
 
 <!-- /hoja de ruta -->
@@ -383,10 +383,10 @@ documentation.**
 
 | Agent | Installs as | The A and B tables of its design |
 |---|---|---|
-| **Vera** · PMO | `criterio-portfolio` · 17 commands, 10 skills | **no open rows** |
+| **Vera** · PMO | `criterio-portfolio` · 16 commands, 10 skills | **no open rows** |
 | **Samuel** · project | `criterio-project` · 9 commands, 8 skills | **no open rows** |
 | **Alba** · product | `criterio-product` · 11 commands, 12 skills | **no open rows** |
-| **Rostrum** · the server | inside `criterio-portfolio` | — |
+| **Rostrum** · the server | `criterio-server` · 2 commands, for every family | — |
 
 **None of the three design sheets has a row left in "missing" or "partial".** What remains
 is not construction.

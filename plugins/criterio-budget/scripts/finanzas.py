@@ -873,7 +873,19 @@ def clara(cfg: dict, periodo: str, hoy: dt.date) -> dict:
     partes["close-status"]["declarado"] = dec or None
     return {"agente": "clara", "entidad": cfg.get("entity"), "periodo": periodo, "corte": iso(fin_de_mes(periodo)),
             "hoy": iso(hoy), "partes": partes, "alertas": ordenar(alertas), "record_issues": problemas,
-            "preguntas": ficha.get("questions") or []}
+            "preguntas": ficha.get("questions") or [], "vence": vence_clara(partes, periodo)}
+
+
+def vence_clara(partes: dict, periodo: str) -> list[dict]:
+    """Lo del cierre que tiene fecha y no está cumplido con su evidencia, para la vista de lo
+    que vence de Rostrum: la tarea y el requerimiento del auditor, con su estado (ADR 0010)."""
+    out = [{"fecha": x["limite"], "que": f"{x['id']} · {x['tarea']}", "caso": periodo, "estado": x["estado"],
+            "responsable": x.get("responsable"), "comando": "close-status"}
+           for x in partes["close-status"].get("tareas", []) if x.get("limite") and x.get("estado") != "cumplida con evidencia"]
+    out += [{"fecha": x["limite"], "que": f"{x['id']} · {x.get('solicitud')}", "caso": periodo, "estado": x.get("estado"),
+             "responsable": x.get("responsable"), "comando": "audit-pack"}
+            for x in partes["audit-pack"].get("requerimientos", []) if x.get("limite") and x.get("estado") != "respondido con soporte"]
+    return sorted(out, key=lambda v: (v["fecha"], v["que"]))
 
 
 def revisar_ficha_cierre(f: dict) -> list[str]:
@@ -1182,9 +1194,10 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
         "transfer-log": tr,
         "budget-committee-pack": {"compromisos_comite": ficha.get("committee_commitments") or []},
     }
+    # El presupuesto no tiene fechas que venzan en su ficha: lo que vence en el año es del cierre.
     return {"agente": "tomas", "entidad": cfg.get("entity"), "anio": anio, "corte": corte, "hoy": iso(hoy),
             "version_vigente": vig["version"], "partes": partes, "alertas": ordenar(alertas), "no_procesado": no_proc,
-            "record_issues": problemas, "preguntas": ficha.get("questions") or []}
+            "record_issues": problemas, "preguntas": ficha.get("questions") or [], "vence": []}
 
 
 def revisar_ficha_presupuesto(f: dict) -> list[str]:
@@ -1365,7 +1378,7 @@ def calcular(cfg: dict, rol: str, a) -> tuple[dict, Path]:
 def main() -> int:
     ap = N.argumentos("El motor de Clara y Tomás.")
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "inventario", "convertir",
-                                       "compute", "reporte", "factura", "despertar", "corrida", "selftest"])
+                                       "compute", "reporte", "factura", "despertar", "responder", "corrida", "selftest"])
     a = ap.parse_args()
     if a.action == "selftest":
         return selftest()

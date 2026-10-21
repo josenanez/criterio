@@ -181,7 +181,7 @@ told without anyone asking.
 
 **And if you want your sponsor to see the report without asking you for it**, the family has a
 server that publishes it with a section for projects, where whoever is looking can leave the
-agent a written question. → **[Rostrum](../criterio-portfolio/SERVER.md)**
+agent a written question. → **[Rostrum](../criterio-server/README.md)**
 
 ## Working with the others
 

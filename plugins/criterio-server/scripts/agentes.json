@@ -1,0 +1,595 @@
+{
+  "generado": "por scripts/familias.py desde families/*/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "familias": [
+    {
+      "sigla": "pmo",
+      "nombre": {
+        "es": "Gobierno de proyectos",
+        "en": "Project governance"
+      },
+      "estado": {
+        "es": "Construida y probada",
+        "en": "Built and tested"
+      },
+      "agentes": [
+        "portafolio",
+        "proyecto",
+        "producto"
+      ]
+    },
+    {
+      "sigla": "cfo",
+      "nombre": {
+        "es": "Cierre, control y reporte",
+        "en": "Close, control and reporting"
+      },
+      "estado": {
+        "es": "Construida · en prueba",
+        "en": "Built · in testing"
+      },
+      "agentes": [
+        "finanzas",
+        "presupuesto"
+      ]
+    },
+    {
+      "sigla": "clo",
+      "nombre": {
+        "es": "Contratos y cumplimiento",
+        "en": "Contracts and compliance"
+      },
+      "estado": {
+        "es": "Construida · en prueba",
+        "en": "Built · in testing"
+      },
+      "agentes": [
+        "legal",
+        "cumplimiento"
+      ]
+    }
+  ],
+  "agentes": [
+    {
+      "id": "vera",
+      "nombre": "Vera",
+      "plugin": "criterio-portfolio",
+      "area": "portafolio",
+      "ambitos": [],
+      "familia": "pmo",
+      "rol": {
+        "es": "Director de proyectos",
+        "en": "Project director"
+      },
+      "titulo": "la PMO",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar, saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "portfolio-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "portfolio-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Lectura de documentos",
+          "linea": "Qué cambió en la carpeta y el barrido que hace una ficha por proyecto",
+          "comandos": [
+            {
+              "id": "document-index",
+              "etiqueta": "Qué cambió en los documentos"
+            },
+            {
+              "id": "portfolio-scan",
+              "etiqueta": "Barrido: una ficha por proyecto"
+            }
+          ]
+        },
+        {
+          "titulo": "Informes",
+          "linea": "El del portafolio, el estado de un proyecto, y el paquete del comité",
+          "comandos": [
+            {
+              "id": "portfolio-report",
+              "etiqueta": "Informe del portafolio"
+            },
+            {
+              "id": "status-report",
+              "etiqueta": "Estado de un proyecto"
+            },
+            {
+              "id": "steering-pack",
+              "etiqueta": "Paquete del comité"
+            }
+          ]
+        },
+        {
+          "titulo": "Un proyecto a fondo",
+          "linea": "Diagnóstico, historia, riesgos, cambios, acta y cierre",
+          "comandos": [
+            {
+              "id": "health-check",
+              "etiqueta": "Diagnóstico desde cero"
+            },
+            {
+              "id": "project-history",
+              "etiqueta": "Historia de un proyecto"
+            },
+            {
+              "id": "raid-log",
+              "etiqueta": "Riesgos y dependencias"
+            },
+            {
+              "id": "change-control",
+              "etiqueta": "Control de cambios"
+            },
+            {
+              "id": "project-charter",
+              "etiqueta": "Acta de constitución"
+            },
+            {
+              "id": "project-closure",
+              "etiqueta": "Cierre del proyecto"
+            }
+          ]
+        },
+        {
+          "titulo": "Dinero y proveedores",
+          "linea": "Presupuesto contra lo aprobado; contrato contra recibo contra factura",
+          "comandos": [
+            {
+              "id": "budget-tracking",
+              "etiqueta": "Presupuesto"
+            },
+            {
+              "id": "vendor-tracking",
+              "etiqueta": "Proveedores"
+            }
+          ]
+        },
+        {
+          "titulo": "Productos",
+          "linea": "Un producto visto a través de los proyectos que lo construyen",
+          "comandos": [
+            {
+              "id": "product-view",
+              "etiqueta": "Un producto y sus proyectos"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "samuel",
+      "nombre": "Samuel",
+      "plugin": "criterio-project",
+      "area": "proyecto",
+      "ambitos": [],
+      "familia": "pmo",
+      "rol": {
+        "es": "Gerente de proyecto",
+        "en": "Project manager"
+      },
+      "titulo": "gerente de proyecto",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar, saber qué toca hoy, y la agenda de la reunión",
+          "comandos": [
+            {
+              "id": "pm-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "pm-wake",
+              "etiqueta": "Qué toca hoy"
+            },
+            {
+              "id": "pm-agenda",
+              "etiqueta": "Agenda de la reunión"
+            }
+          ]
+        },
+        {
+          "titulo": "Seguimiento del proyecto",
+          "linea": "Minutas, compromisos y el informe semanal",
+          "comandos": [
+            {
+              "id": "pm-minutes",
+              "etiqueta": "Minutas"
+            },
+            {
+              "id": "pm-commitments",
+              "etiqueta": "Compromisos"
+            },
+            {
+              "id": "pm-report",
+              "etiqueta": "Informe del proyecto"
+            }
+          ]
+        },
+        {
+          "titulo": "Plan y escalamiento",
+          "linea": "El plan contra la línea base, y lo que sube al comité",
+          "comandos": [
+            {
+              "id": "pm-plan",
+              "etiqueta": "Plan y línea base"
+            },
+            {
+              "id": "pm-escalate",
+              "etiqueta": "Escalamiento"
+            }
+          ]
+        },
+        {
+          "titulo": "Publicar a la PMO",
+          "linea": "La ficha del proyecto donde la PMO la lee",
+          "comandos": [
+            {
+              "id": "pm-publish",
+              "etiqueta": "Publicar la ficha"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alba",
+      "nombre": "Alba",
+      "plugin": "criterio-product",
+      "area": "producto",
+      "ambitos": [],
+      "familia": "pmo",
+      "rol": {
+        "es": "Gerente de producto",
+        "en": "Product manager"
+      },
+      "titulo": "gerente de producto",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "product-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "product-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Descubrimiento",
+          "linea": "Entrevistas y requerimientos con doliente, criterio y evidencia",
+          "comandos": [
+            {
+              "id": "product-discovery",
+              "etiqueta": "Descubrimiento: entrevistas"
+            },
+            {
+              "id": "product-requirements",
+              "etiqueta": "Requerimientos"
+            }
+          ]
+        },
+        {
+          "titulo": "Definición del producto",
+          "linea": "Definición, especificación, caso de negocio y acta",
+          "comandos": [
+            {
+              "id": "product-definition",
+              "etiqueta": "Definición"
+            },
+            {
+              "id": "product-spec",
+              "etiqueta": "Especificación"
+            },
+            {
+              "id": "product-business-case",
+              "etiqueta": "Caso de negocio"
+            },
+            {
+              "id": "product-charter",
+              "etiqueta": "Acta de constitución"
+            }
+          ]
+        },
+        {
+          "titulo": "Trazas con proyectos",
+          "linea": "Lo decidido que nadie construye, y lo que se solapa entre productos",
+          "comandos": [
+            {
+              "id": "product-trace",
+              "etiqueta": "Trazas con proyectos"
+            },
+            {
+              "id": "product-overlap",
+              "etiqueta": "Solapamientos entre productos"
+            }
+          ]
+        },
+        {
+          "titulo": "Publicar a la PMO",
+          "linea": "La ficha del producto donde la PMO la lee",
+          "comandos": [
+            {
+              "id": "product-publish",
+              "etiqueta": "Publicar la ficha"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clara",
+      "nombre": "Clara",
+      "plugin": "criterio-finance",
+      "area": "finanzas",
+      "ambitos": [
+        "cierre"
+      ],
+      "familia": "cfo",
+      "rol": {
+        "es": "Contralor",
+        "en": "Controller"
+      },
+      "titulo": "el cierre",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "finance-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "finance-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Contralor",
+          "linea": "El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica contra la contabilidad y el paquete para el auditor",
+          "comandos": [
+            {
+              "id": "close-scan",
+              "etiqueta": "Qué cambió en el cierre"
+            },
+            {
+              "id": "close-status",
+              "etiqueta": "Estado del cierre"
+            },
+            {
+              "id": "bank-reconcile",
+              "etiqueta": "Conciliación bancaria"
+            },
+            {
+              "id": "account-reconcile",
+              "etiqueta": "Conciliación de cuentas"
+            },
+            {
+              "id": "ledger-check",
+              "etiqueta": "Cuadre del balance y el mayor"
+            },
+            {
+              "id": "einvoice-check",
+              "etiqueta": "Facturas electrónicas"
+            },
+            {
+              "id": "audit-pack",
+              "etiqueta": "Paquete del auditor"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tomas",
+      "nombre": "Tomás",
+      "plugin": "criterio-budget",
+      "area": "presupuesto",
+      "ambitos": [
+        "presupuesto"
+      ],
+      "familia": "cfo",
+      "rol": {
+        "es": "FP&A",
+        "en": "FP&A"
+      },
+      "titulo": "el presupuesto",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "budget-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "budget-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "FP&A",
+          "linea": "El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto",
+          "comandos": [
+            {
+              "id": "budget-scan",
+              "etiqueta": "Qué cambió en el presupuesto"
+            },
+            {
+              "id": "variance-report",
+              "etiqueta": "Ejecución contra aprobado"
+            },
+            {
+              "id": "forecast",
+              "etiqueta": "Proyección al cierre del año"
+            },
+            {
+              "id": "transfer-log",
+              "etiqueta": "Traslados y sus actas"
+            },
+            {
+              "id": "budget-committee-pack",
+              "etiqueta": "Paquete del comité de presupuesto"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fidel",
+      "nombre": "Fidel",
+      "plugin": "criterio-legal",
+      "area": "legal",
+      "ambitos": [
+        "contratos"
+      ],
+      "familia": "clo",
+      "rol": {
+        "es": "Contratos",
+        "en": "Contracts"
+      },
+      "titulo": "los contratos",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "legal-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "legal-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Contratos",
+          "linea": "Lo firmado y en qué términos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías",
+          "comandos": [
+            {
+              "id": "contract-scan",
+              "etiqueta": "Qué cambió en los contratos"
+            },
+            {
+              "id": "contract-register",
+              "etiqueta": "Registro de contratos"
+            },
+            {
+              "id": "obligations-calendar",
+              "etiqueta": "Vencimientos, preavisos y obligaciones"
+            },
+            {
+              "id": "authority-check",
+              "etiqueta": "Firmas y facultades"
+            },
+            {
+              "id": "contract-execution",
+              "etiqueta": "Pagos y garantías"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "constanza",
+      "nombre": "Constanza",
+      "plugin": "criterio-compliance",
+      "area": "cumplimiento",
+      "ambitos": [
+        "cumplimiento"
+      ],
+      "familia": "clo",
+      "rol": {
+        "es": "Cumplimiento",
+        "en": "Compliance"
+      },
+      "titulo": "el cumplimiento",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "compliance-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "compliance-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Cumplimiento",
+          "linea": "La matriz de obligaciones de la organización contra su evidencia, la revisión de las políticas, las normas nuevas con su evaluación, el canal de denuncias con sus plazos y las obligaciones de cumplimiento que traen los contratos",
+          "comandos": [
+            {
+              "id": "compliance-scan",
+              "etiqueta": "Qué cambió en el cumplimiento"
+            },
+            {
+              "id": "compliance-status",
+              "etiqueta": "Estado del cumplimiento"
+            },
+            {
+              "id": "policy-review",
+              "etiqueta": "Políticas por revisar"
+            },
+            {
+              "id": "regulatory-watch",
+              "etiqueta": "Normas nuevas"
+            },
+            {
+              "id": "reports-cases",
+              "etiqueta": "Canal de denuncias"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "servidor": {
+    "id": "rostrum",
+    "nombre": "Rostrum",
+    "plugin": "criterio-server",
+    "area": "rostrum",
+    "rol": {
+      "es": "El servidor",
+      "en": "The server"
+    },
+    "titulo": "el servidor",
+    "grupos": [
+      {
+        "titulo": "El portal",
+        "linea": "El mapa de las familias y el servidor que las publica",
+        "comandos": [
+          {
+            "id": "server-setup",
+            "etiqueta": "El mapa de las familias"
+          },
+          {
+            "id": "server-start",
+            "etiqueta": "Levantar el portal"
+          }
+        ]
+      }
+    ]
+  }
+}

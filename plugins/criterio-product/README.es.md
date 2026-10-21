@@ -187,7 +187,7 @@ pierde es que avise sin que nadie pregunte.
 
 **Y si quieres que el comité de producto lo vea sin pedírtelo**, la familia tiene un servidor
 que lo publica con una sección para productos, y quien mira puede dejarle una pregunta escrita
-al agente. → **[Rostrum](../criterio-portfolio/SERVER.es.md)**
+al agente. → **[Rostrum](../criterio-server/README.es.md)**
 
 ## Trabajo en equipo
 

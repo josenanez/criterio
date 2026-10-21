@@ -74,7 +74,10 @@ if PRODUCTO.exists():
 FINANZAS = RAIZ / "plugins" / "criterio-finance" / "scripts" / "finanzas.py"
 LEGAL = RAIZ / "plugins" / "criterio-legal" / "scripts" / "legal.py"
 NUCLEO = RAIZ / "plugins" / "criterio-finance" / "scripts" / "nucleo.py"
-for _m in (FINANZAS, LEGAL, NUCLEO):
+# Rostrum tiene su mapa, y los nombres que la documentación del servidor usa resuelven ahí.
+MAPA = RAIZ / "plugins" / "criterio-server" / "scripts" / "mapa.py"
+SERVIDOR = RAIZ / "plugins" / "criterio-server" / "scripts" / "servidor.py"
+for _m in (FINANZAS, LEGAL, NUCLEO, MAPA, SERVIDOR):
     if _m.exists():
         codigo += "\n" + _m.read_text(encoding="utf-8")
 texto_docs = {d: d.read_text(encoding="utf-8") for d in DOCS if d.exists()}
@@ -176,7 +179,7 @@ for d in CONSTRUIDOS:
 # Las rutas del servidor se escriben igual que un comando —`/decisiones`— y no lo son.
 # Se importan de donde están declaradas, para que una ruta nueva no obligue a nadie a
 # escribir una excepción aquí, y un comando nuevo sí siga fallando.
-SRV = PLUGIN / "scripts" / "servidor.py"
+SRV = RAIZ / "plugins" / "criterio-server" / "scripts" / "servidor.py"
 rutas = set()
 if SRV.exists():
     sys.path.insert(0, str(SRV.parent))
@@ -257,7 +260,7 @@ NUMEROS = {"diez": 10, "once": 11, "dieciocho": 18, "eighteen": 18, "diecisiete"
            "doce": 12, "trece": 13, "catorce": 14, "dieciséis": 16,
            "fifteen": 15, "twenty": 20, "twenty-five": 25, "thirty": 30,
            "thirty-five": 35, "forty": 40, "forty-two": 42, "twelve": 12}
-for duenio, script, paginas in ((PLUGIN, "servidor.py", ("SERVER.es.md", "SERVER.md")),
+for duenio, script, paginas in ((RAIZ / "plugins" / "criterio-server", "servidor.py", ("README.es.md", "README.md")),
                                 (PRODUCT, "producto.py", ("README.es.md", "README.md"))):
     fuente = (duenio / "scripts" / script)
     if not fuente.exists():
@@ -452,11 +455,11 @@ print("\nDesde la familia se llega a cada agente")
 FAMILIA = RAIZ / "families" / "criterio-pmo"
 
 DESTINOS = {"es": ["../../plugins/criterio-portfolio/README.es.md",
-                   "../../plugins/criterio-portfolio/SERVER.es.md",
+                   "../../plugins/criterio-server/README.es.md",
                    "../../plugins/criterio-project/README.es.md",
                    "../../plugins/criterio-product/README.es.md"],
             "en": ["../../plugins/criterio-portfolio/README.md",
-                   "../../plugins/criterio-portfolio/SERVER.md",
+                   "../../plugins/criterio-server/README.md",
                    "../../plugins/criterio-project/README.md",
                    "../../plugins/criterio-product/README.md"]}
 for nombre, idioma in (("README.es.md", "es"), ("README.md", "en")):
@@ -735,17 +738,18 @@ for _x in _sin_ruta[:5]:
 for _x in _sin_permisos[:5]:
     decir(FALLA, f"{_x} no declara allowed-tools")
 if not _sin_ruta and not _sin_permisos:
-    decir(OK, "los scripts se llaman por ruta absoluta y los 37 comandos declaran sus permisos")
+    decir(OK, f"los scripts se llaman por ruta absoluta y los {len(list((RAIZ / 'plugins').glob('*/commands/*.md')))} comandos declaran sus permisos")
 
 print("\nQue el árbol del portal tenga exactamente los comandos que existen")
 # El árbol de Rostrum es la estructura completa de la PMO: cada comando en su grupo. Un
 # comando nuevo que no entre al árbol es invisible en el portal, y uno que se borró y
 # siga en el árbol es un enlace muerto. Las dos cosas se ven aquí, no en producción.
-sys.path.insert(0, str(PLUGIN / "scripts"))
+# Los grupos salen de agentes.json, que escribe scripts/familias.py desde las familias (ADR 0010);
+# aquí se comprueba contra el disco para todos los agentes, no solo los de la PMO.
+sys.path.insert(0, str(SRV.parent))
 import servidor as _srv  # noqa: E402
 _en_arbol = {(a, c) for a, grupos in _srv.GRUPOS.items() for _, _, cmds in grupos for c in cmds}
-_agente = {"criterio-portfolio": "portafolio", "criterio-project": "proyecto",
-           "criterio-product": "producto"}
+_agente = {plug: area for area, plug in _srv.PLUGIN.items()}
 _en_disco = {(_agente[plug], f.stem) for plug in _agente
              for f in (RAIZ / "plugins" / plug / "commands").glob("*.md")}
 for _a, _c in sorted(_en_disco - _en_arbol):

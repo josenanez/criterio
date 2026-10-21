@@ -1,0 +1,47 @@
+{
+  "version": "0.1",
+  "role": "servidor",
+  "organization": {
+    "name": "Banco Andino"
+  },
+  "entradas": [
+    {
+      "id": "portafolio",
+      "area": "portafolio",
+      "agente": "vera",
+      "nombre_agente": "Vera",
+      "familia": "pmo",
+      "instancia": null,
+      "nombre": "Banco Andino",
+      "config": ".criterio/portafolio/config.json",
+      "estado": "PMO/estado",
+      "informe": "PMO/reportes"
+    },
+    {
+      "id": "finanzas/900123456-banco-andino",
+      "area": "finanzas",
+      "agente": "clara",
+      "nombre_agente": "Clara",
+      "familia": "cfo",
+      "instancia": "900123456-banco-andino",
+      "nombre": "Banco Andino",
+      "config": ".criterio/finanzas/900123456-banco-andino/config.json",
+      "estado": "estado-finanzas/900123456-banco-andino",
+      "informe": null
+    },
+    {
+      "id": "legal/900123456-banco-andino",
+      "area": "legal",
+      "agente": "fidel",
+      "nombre_agente": "Fidel",
+      "familia": "clo",
+      "instancia": "900123456-banco-andino",
+      "nombre": "Banco Andino",
+      "config": ".criterio/legal/900123456-banco-andino/config.json",
+      "estado": "estado-legal/900123456-banco-andino",
+      "informe": null
+    }
+  ],
+  "fuera": [],
+  "guardado": "2026-10-21"
+}

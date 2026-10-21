@@ -26,7 +26,7 @@ ORDEN = ("vera", "samuel", "alba", "rostrum")
 ORDEN_CFO = ("clara", "tomas")
 ORDEN_CLO = ("fidel", "constanza")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
-          "clara": "finanzas", "tomas": "presupuesto", "fidel": "contratos", "constanza": "cumplimiento"}
+          "clara": "finanzas", "tomas": "presupuesto", "fidel": "legal", "constanza": "cumplimiento"}
 
 _PIERNAS = [("line", dict(x1=44, y1=134, x2=44, y2=158)), ("line", dict(x1=76, y1=134, x2=76, y2=158)),
             ("line", dict(x1=36, y1=160, x2=52, y2=160)), ("line", dict(x1=68, y1=160, x2=84, y2=160))]

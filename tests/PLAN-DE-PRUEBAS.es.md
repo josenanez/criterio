@@ -185,7 +185,7 @@ En este orden, que es el de uso real y no el alfabético:
 | 13 | `/criterio-portfolio:project-charter` | Revisar un acta: qué le falta y qué consecuencia tiene | `charter.md` |
 | 14 | `/criterio-portfolio:project-closure` | Cerrar contra el criterio pactado | `closure.md` |
 | 15 | `/criterio-portfolio:steering-pack` | El material del comité, como paquete de decisiones | `steering.md` |
-| 16 | `/criterio-portfolio:portfolio-server` | Levantar Rostrum | `server.md` |
+| 16 | `/criterio-server:server-start` | Levantar Rostrum (desde la 0.7.0, su propio plugin) | `server.md` |
 | 17 | `/criterio-portfolio:portfolio-setup` | **Solo el día 1.** Del 2 al 5 no debe hacer falta | — |
 
 **Y se contrasta contra la clave, no a ojo:**

@@ -7,7 +7,7 @@ tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
 
 [English](README.md) · Apache 2.0 · Una instancia por oficina de proyectos · Se instala en cuatro clics
 
-**Estado: los diecisiete comandos construidos**, los diez skills del método y la aritmética
+**Estado: los dieciséis comandos construidos**, los diez skills del método y la aritmética
 verificada sobre un corpus con respuestas escritas a mano. **Lo que todavía no se ha probado:
 la extracción sobre la documentación real de una organización.** Nada se anuncia como
 terminado hasta que pasen los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
@@ -15,7 +15,7 @@ terminado hasta que pasen los [criterios de aceptación](DISENO.es.md#criterios-
 **Esta página se lee sola.** Vera funciona sin sus hermanos: si solo te interesa el
 portafolio, aquí está todo, incluidas sus pruebas. La familia —cómo se encuentra con Samuel y
 con Alba— está en el [familia criterio-pmo](../../families/criterio-pmo/README.es.md), y **el servidor que publica su
-informe**, en [SERVER.es.md](SERVER.es.md).
+informe**, Rostrum, es su propio plugin: [criterio-server](../criterio-server/README.es.md).
 
 ---
 
@@ -41,7 +41,7 @@ corrida anterior, qué se contradice entre dos documentos del mismo proyecto, qu
 semanas en silencio, cuántos de los que reportan verde tienen evidencia que ese verde no
 explica, y a quién alcanza mover un proyecto.
 
-### Los diecisiete comandos
+### Los dieciséis comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-portfolio:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -49,7 +49,6 @@ explica, y a quién alcanza mover un proyecto.
 |---|---|
 | `/criterio-portfolio:portfolio-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
 | `/criterio-portfolio:portfolio-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
-| `/criterio-portfolio:portfolio-server` | Levanta **Rostrum**, el servidor: expone el informe para quien no abre una carpeta, y dice qué pedirle a la organización |
 | `/criterio-portfolio:document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
 | `/criterio-portfolio:portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |
 | `/criterio-portfolio:portfolio-report` | Informe consolidado: qué cambió, qué se contradice, qué está en silencio, qué no tiene sustento |
@@ -206,12 +205,12 @@ programador del sistema en Claude Code. **Y si no quieren corridas desatendidas*
 banco es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo
 que se pierde es que avise sin que nadie pregunte.
 
-**Y si quieres que tu patrocinador lo vea sin pedírtelo**, `/criterio-portfolio:portfolio-server` levanta **Rostrum**,
-el servidor de esta familia: un portal con tres secciones —informes de la PMO, proyectos y
+**Y si quieres que tu patrocinador lo vea sin pedírtelo**, `/criterio-server:server-start` levanta **Rostrum**,
+el servidor de todas las familias, que se instala aparte: un portal con tres secciones —informes de la PMO, proyectos y
 productos— donde quien mira puede además **dejarle una pregunta escrita al agente**, que
 queda en la cola y se atiende en la siguiente corrida. No autentica a nadie, y es a
 propósito: se publica detrás del control de acceso que tu organización ya tiene.
-→ **[Rostrum, con capturas de cada sección](SERVER.es.md)**
+→ **[Rostrum, con capturas de cada sección](../criterio-server/README.es.md)**
 
 ## Trabajo en equipo
 

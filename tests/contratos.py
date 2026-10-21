@@ -26,7 +26,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 P = RAIZ / "plugins"
 PLUGINS = {"criterio-portfolio": "portafolio.py", "criterio-project": "portafolio.py",
            "criterio-product": "producto.py", "criterio-finance": "finanzas.py", "criterio-budget": "finanzas.py",
-           "criterio-legal": "legal.py", "criterio-compliance": "legal.py"}
+           "criterio-legal": "legal.py", "criterio-compliance": "legal.py", "criterio-server": "mapa.py"}
 # Las acciones que calculan. Un comando cuya salida lleva cifras derivadas llama al menos
 # una: si no, las cifras las hizo el modelo, que es lo que el diseño prohíbe.
 CALCULO = {"compute", "impact", "diff", "index", "due", "overlap", "publish", "plan-lectura",
@@ -70,7 +70,7 @@ for pl, c in contratos.items():
 for pl, script in PLUGINS.items():
     cli = acciones_cli(P / pl / "scripts" / script)
     existentes = {f.stem for f in (P / pl / "commands").glob("*.md")}
-    skills_dir = {d.name for d in (P / pl / "skills").iterdir() if d.is_dir()}
+    skills_dir = {d.name for d in (P / pl / "skills").iterdir() if d.is_dir()} if (P / pl / "skills").is_dir() else set()
     cc = contratos[pl]["comandos"]
     for x in sorted(existentes - set(cc)):
         falla("C1 sin contrato", f"{pl}:{x}")
@@ -133,7 +133,7 @@ esquema = claves_esquema()
 emitidas = senales_emitidas()
 alimentadas = set()
 for pl in PLUGINS:
-    for d in sorted((P / pl / "skills").iterdir()):
+    for d in sorted((P / pl / "skills").iterdir()) if (P / pl / "skills").is_dir() else []:
         if d.name not in skills_contrato:
             falla("C6 skill sin contrato", f"{pl} → {d.name}")
 for nombre, (pl, s) in sorted(skills_contrato.items()):

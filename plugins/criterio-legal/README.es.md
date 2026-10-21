@@ -76,6 +76,8 @@ En los primeros quince minutos, `legal-setup` deja ver el calendario de los cont
 
 `legal-setup` mira la carpeta, hace las preguntas que ningún documento responde —la entidad, la matriz de atribuciones, con cuántos días se avisa un vencimiento— y muestra el primer calendario. La estructura de carpetas recomendada está en el skill `legal-intake`; Fidel la sugiere y no mueve nada.
 
+**Para quien no abre una carpeta**, lo que Fidel escribe —sus reportes, lo que vence, sus señales— lo publica Rostrum, el portal de todas las familias: [`criterio-server`](../criterio-server/README.es.md). Ahí también se le pueden dejar preguntas escritas, que toma en su `*-wake`.
+
 ## Las fuentes
 
 Cada marco y cada cifra que se usa está en [`families/criterio-clo/FUENTES.es.md`](../../families/criterio-clo/FUENTES.es.md), con su versión, su enlace y su estado.

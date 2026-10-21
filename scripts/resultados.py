@@ -53,7 +53,7 @@ DUENIOS = [
     ("tests/criterio-clo/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
-    ("criterio-portfolio/scripts/servidor.py", "Rostrum"),
+    ("criterio-server/scripts/", "Rostrum"),
     ("criterio-portfolio/scripts/rastro.py", "los tres"),
     ("criterio-portfolio/scripts/informe.py", "Vera"),
     ("criterio-portfolio/scripts/portafolio.py", "Vera"),
@@ -86,8 +86,8 @@ QUIEN = {
                                      "compromiso dicho y no cumplido"),
     "Alba": ("Agente de producto", "El amanecer: la luz que hay antes de que se vea "
                                    "nada. Trabaja antes de que exista el proyecto"),
-    "Rostrum": ("El servidor", "Una tribuna. Sostiene lo que ya está escrito, donde el "
-                               "equipo puede leerlo. No decide nada, y por eso no lleva "
+    "Rostrum": ("El servidor", "Una tribuna. Sostiene lo que todos los agentes ya escribieron, "
+                               "donde el equipo puede leerlo. No decide nada, y por eso no lleva "
                                "nombre de persona"),
     "Clara": ("Agente contralor", "De <i>clarus</i>: que los libros digan lo mismo que los "
                                   "soportes. Cierra el mes contra su evidencia"),
@@ -340,8 +340,8 @@ def pagina(filas: list, rapido: bool) -> str:
          '</div></div>',
          '<h2>En conjunto</h2>',
          '<p class="entrada">Comprobaciones por dueño. Los tamaños no son comparables '
-         'entre sí y no pretenden serlo: Vera tiene diecisiete comandos y Rostrum es un '
-         'servidor de ochocientas líneas. Lo que dice esta gráfica es dónde está puesta '
+         'entre sí y no pretenden serlo: Vera tiene dieciséis comandos y Rostrum es '
+         'un solo servidor. Lo que dice esta gráfica es dónde está puesta '
          'la verificación.</p>',
          barras(datos)]
 
@@ -393,7 +393,7 @@ def pagina(filas: list, rapido: bool) -> str:
 
 PLUGIN_DE = {
     "Vera": "criterio-portfolio",
-    "Rostrum": "criterio-portfolio",
+    "Rostrum": "criterio-server",
     "Samuel": "criterio-project",
     "Alba": "criterio-product",
     "Clara": "criterio-finance",
@@ -592,11 +592,19 @@ _CLO_NO_CUBRE = [
      "organización. Que no opine sobre la validez de un contrato es una regla de los comandos; la "
      "ronda con el agente es la que la pone a prueba."),
 ]
+NO_CUBRE["criterio-server"] = [
+    ("El mapa de las tres familias no se ha corrido sobre una organización",
+     "Lo prueba su selftest sobre una carpeta sintética con la PMO, la CFO y la CLO. Las rondas de la "
+     "familia PMO levantan Rostrum de punta a punta; las de las otras familias, todavía no."),
+    ("La autenticación no se prueba porque no existe",
+     "Rostrum no autentica, a propósito: se publica detrás del control de acceso de la organización."),
+]
 NO_CUBRE["criterio-legal"] = list(_CLO_NO_CUBRE)
 NO_CUBRE["criterio-compliance"] = list(_CLO_NO_CUBRE)
 
 QUE_ES = {
-    "criterio-portfolio": ("Vera y Rostrum", "el agente de la PMO y el servidor que publica su informe"),
+    "criterio-portfolio": ("Vera", "el agente de la PMO"),
+    "criterio-server": ("Rostrum", "el portal de todas las familias"),
     "criterio-project": ("Samuel", "el agente del gerente de proyecto"),
     "criterio-product": ("Alba", "el agente del gerente de producto"),
     "criterio-finance": ("Clara", "la agente contralora de la familia CFO"),

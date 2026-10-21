@@ -65,6 +65,8 @@ In the first fifteen minutes, `compliance-setup` shows the status of the period:
 
 `compliance-setup` looks at the folder, reviews the obligations matrix, asks what no document answers —the period, the channel deadline, the days to assess a new rule— and shows the first status. If the organisation uses Fidel, Constanza takes the contracts' compliance obligations from his records. The recommended folder structure is in the `legal-intake` skill.
 
+**For whoever does not open a folder**, what Constanza writes —reports, what falls due, signals— is published by Rostrum, the portal for every family: [`criterio-server`](../criterio-server/README.md). Written questions can be left there too, and Constanza takes them in the `*-wake` command.
+
 ## Sources
 
 Every framework used is in [`families/criterio-clo/FUENTES.es.md`](../../families/criterio-clo/FUENTES.es.md) (Spanish), with its version, link and status.

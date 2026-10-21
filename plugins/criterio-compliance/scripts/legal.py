@@ -395,8 +395,14 @@ def fidel(cfg: dict, hoy: dt.date) -> dict:
         "authority-check": {"firmas": firmas},
         "contract-execution": {"contratos": ejecucion},
     }
+    # Lo que vence, para Rostrum (ADR 0010): del calendario, entre 30 días atrás y 90 adelante, sin
+    # las obligaciones que ya tienen su evidencia ni los preavisos que alguien ya decidió.
+    vence = [{"fecha": x["fecha"], "que": x["que"], "caso": x["codigo"], "comando": "obligations-calendar",
+              "estado": "con evidencia" if x.get("evidencia") else ("decidido" if (fichas.get(x["codigo"]) or {}).get("decision") else "pendiente")}
+             for x in calendario if x["fecha"] and x["dias"] is not None and -30 <= x["dias"] <= 90]
+    vence = sorted((v for v in vence if v["estado"] == "pendiente"), key=lambda v: (v["fecha"], v["caso"], v["que"]))
     return {"agente": "fidel", "entidad": cfg.get("entity"), "corte": iso(hoy), "hoy": iso(hoy), "partes": partes,
-            "alertas": ordenar(al), "no_procesado": no_proc, "record_issues": problemas, "preguntas": []}
+            "alertas": ordenar(al), "no_procesado": no_proc, "record_issues": problemas, "preguntas": [], "vence": vence}
 
 
 # ================================================================ Constanza · el cumplimiento
@@ -581,8 +587,19 @@ def constanza(cfg: dict, periodo: str, hoy: dt.date) -> dict:
         "regulatory-watch": {"normas": normas},
         "reports-cases": {"casos": casos, "plazo": umbral(cfg, "case_response_days")},
     }
+    plazo_casos = umbral(cfg, "case_response_days")
+    vence = ([{"fecha": o["limite"], "que": f"{o['id']} · {o['obligacion']}", "caso": periodo, "estado": o["estado"],
+               "responsable": o.get("responsable"), "comando": "compliance-status"}
+              for o in obligaciones if o["limite"] and o["estado"] in ("vencida", "en plazo")]
+             + [{"fecha": x["proxima_revision"], "que": f"{x['codigo']} · revisión de {x['politica']}", "caso": periodo,
+                 "estado": "vencida" if x["dias"] is not None and x["dias"] < 0 else "en plazo", "responsable": x.get("responsable"),
+                 "comando": "policy-review"} for x in politicas if x["proxima_revision"] and x["dias"] is not None and x["dias"] <= 90]
+             + [{"fecha": iso(fecha(x["recibido"]) + dt.timedelta(days=plazo_casos)), "que": f"caso {x['id']} · plazo de respuesta",
+                 "caso": periodo, "estado": "vencida" if x["dias"] is not None and x["dias"] > plazo_casos else "en plazo",
+                 "responsable": None, "comando": "reports-cases"} for x in casos if x["recibido"] and not x["respondido"]])
     return {"agente": "constanza", "entidad": cfg.get("entity"), "periodo": periodo, "corte": iso(fin_de_mes(periodo)), "hoy": iso(hoy),
-            "partes": partes, "alertas": ordenar(al), "no_procesado": no_proc, "record_issues": problemas, "preguntas": ficha.get("questions") or []}
+            "partes": partes, "alertas": ordenar(al), "no_procesado": no_proc, "record_issues": problemas, "preguntas": ficha.get("questions") or [],
+            "vence": sorted(vence, key=lambda v: (v["fecha"], v["que"]))}
 
 
 def revisar_ficha_cumplimiento(f: dict) -> list[str]:
@@ -719,7 +736,7 @@ def calcular(cfg: dict, rol: str, a) -> tuple[dict, Path]:
 def main() -> int:
     ap = N.argumentos("El motor de Fidel y Constanza.")
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "inventario", "convertir",
-                                       "compute", "reporte", "despertar", "corrida", "selftest"])
+                                       "compute", "reporte", "despertar", "responder", "corrida", "selftest"])
     a = ap.parse_args()
     if a.action == "selftest":
         return selftest()
@@ -780,6 +797,20 @@ def selftest() -> int:
            sorted((a["signal"], a["key"]) for a in r["alertas"]),
            [("compliance_done_without_evidence", "oblig:OB-2"), ("compliance_obligation_overdue", "oblig:OB-1"),
             ("obligation_without_owner", "duenio:OB-2"), ("obligation_without_source", "fuente:OB-2")])
+        # El contrato de estado común (ADR 0010): la corrida en el formato que sirve Rostrum, y las peticiones.
+        ok("lo que vence lo calcula el motor, sin lo que ya tiene evidencia",
+           [v["que"] for v in r["vence"]][:1], ["OB-1 · Reporte mensual"])
+        (t / "salida.md").write_text("lo que se mostró", encoding="utf-8")
+        reg = N.corrida(est, "compliance-status", t / "salida.md", "2026-09", None, hoy, r, "0.0.0")
+        c = leer_json(est / "corridas.json", [])[-1]
+        ok("la corrida queda en el formato común, con sus hallazgos por caso",
+           (reg["id"], c["que"], c["hallazgos"], sorted(c["por_caso"]), c["salida"]),
+           ("2026-10-06-compliance-status-1", "compliance-status", 4, ["2026-09"], True))
+        ok("y el registro la lee para saber qué toca", N.registro_corridas(est)[-1]["comando"], "compliance-status")
+        escribir_json(est / "peticiones" / "p1.json", {"id": "p1", "texto": "¿por qué vence OB-1?", "respondida": None})
+        ok("la petición abierta se ve", [p["id"] for p in N.peticiones_abiertas(est)], ["p1"])
+        N.responder_peticion(est, "p1", hoy)
+        ok("y respondida ya no", N.peticiones_abiertas(est), [])
     print(f"\n{'OK' if not fallas else str(len(fallas)) + ' FALLAS'}")
     return 1 if fallas else 0
 

@@ -27,7 +27,7 @@ from pathlib import Path
 
 RAIZ = Path(__file__).parent.parent.parent
 AGENTES = {"portfolio": "criterio-portfolio", "project": "criterio-project",
-           "product": "criterio-product"}
+           "product": "criterio-product", "server": "criterio-server"}
 
 # El histórico donde el lector entra. `corridas` es `<estado>/corridas/<fecha>-<que>.md`,
 # que la corrida escribe sola; `portal` es una ruta de Rostrum.
@@ -63,8 +63,11 @@ FUNCIONALIDADES = {
     "project-closure": ("El cierre contra el criterio pactado", "la corrida", CORRIDAS),
     "steering-pack": ("El material del comité como paquete de decisiones",
                       "la corrida", PORTAL + " · /decisiones"),
-    "portfolio-server": ("Rostrum sirviendo el informe y recibiendo preguntas",
-                         "las peticiones en <estado>/peticiones/ y la corrida", PORTAL),
+    # ── Rostrum · el portal de todas las familias (criterio-server desde la 0.7.0)
+    "server-setup": ("El mapa de las familias: cada agente y dónde está su estado",
+                     "el mapa en .criterio/rostrum/config.json", PORTAL),
+    "server-start": ("Rostrum sirviendo lo que escribieron los agentes y recibiendo preguntas",
+                     "las peticiones en <estado>/peticiones/ de cada agente", PORTAL),
     # ── Samuel · el proyecto
     "pm-setup": ("El agente listo sobre un proyecto", "la configuración y la corrida", CORRIDAS),
     "pm-wake": ("Lo que toca hoy en este proyecto", "la fecha en cadencia.json", CORRIDAS),

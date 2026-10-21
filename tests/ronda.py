@@ -43,7 +43,8 @@ sys.path.insert(0, str(RAIZ / "tests" / "sintetico"))
 sys.path.insert(0, str(RAIZ / "tests"))
 import fiabilidad  # noqa: E402
 
-PLUGIN = {"vera": "criterio-portfolio", "samuel": "criterio-project", "alba": "criterio-product"}
+PLUGIN = {"vera": "criterio-portfolio", "samuel": "criterio-project", "alba": "criterio-product",
+          "rostrum": "criterio-server"}
 DEFECTOS = RAIZ / "tests" / "evidencias" / "defectos.json"
 NOTA = ("(Sesión de prueba sin interfaz: nadie va a responder preguntas. Términos: José Francisco "
         "Ñáñez acepta los términos vigentes de esta versión para esta prueba, fecha {hoy}; cuando el "
@@ -91,7 +92,8 @@ ORDEN = [
     ("vera", "product-view", "{producto_vista}"),
     ("vera", "portfolio-report", "html"),
     ("vera", "portfolio-wake", ""),
-    ("vera", "portfolio-server", "rato"),
+    ("rostrum", "server-setup", ""),
+    ("rostrum", "server-start", "rato"),
     ("alba", "product-trace", ""),
     ("alba", "product-overlap", "{prd_otro}"),
     ("alba", "product-wake", ""),
@@ -413,7 +415,7 @@ def correr(a) -> int:
                 "cambios": {"nuevos": sorted(set(despues) - set(antes)),
                             "modificados": sorted(k for k in set(antes) & set(despues) if antes[k] != despues[k]),
                             "borrados": sorted(set(antes) - set(despues))}}
-        if cmd == "portfolio-server":
+        if cmd in ("portfolio-server", "server-start"):
             fila["servidor"] = probar_servidor(espacio)
         _w(base.with_suffix(".json"), fila)
         base.with_suffix(".md").write_text(f"# /{PLUGIN[agente]}:{cmd} {fila['argumento']}\n\n"
@@ -432,9 +434,11 @@ def servidor_instalado(espacio: Path) -> Path:
     except (OSError, json.JSONDecodeError):
         version = None
     cache = Path.home() / ".claude" / "plugins" / "cache"
-    for f in sorted(cache.glob(f"*/criterio-portfolio/{version}/scripts/servidor.py")) if version else []:
-        return f
-    return RAIZ / "plugins" / "criterio-portfolio" / "scripts" / "servidor.py"
+    # Desde la 0.7.0 Rostrum es su propio plugin (ADR 0010); antes vivía en criterio-portfolio.
+    for plug in ("criterio-server", "criterio-portfolio"):
+        for f in sorted(cache.glob(f"*/{plug}/{version}/scripts/servidor.py")) if version else []:
+            return f
+    return RAIZ / "plugins" / "criterio-server" / "scripts" / "servidor.py"
 
 
 # Lo que no debe llegar a quien lee un informe: palabras del esquema, rutas de la ficha,
@@ -652,7 +656,7 @@ def revisar(a) -> int:
         if rotas:
             problemas.append(f"{len(rotas)} citas a documentos que no existen: {rotas[:3]}")
         s = r.get("servidor")
-        if r["comando"] == "portfolio-server" and (carpeta / "rostrum.json").is_file():
+        if r["comando"] in ("portfolio-server", "server-start") and (carpeta / "rostrum.json").is_file():
             s = _j(carpeta / "rostrum.json")      # la prueba completa, corrida aparte sobre la carpeta
         if s and "rutas" in s and isinstance(s["rutas"], dict):     # la prueba de antes de la ronda 3
             s = {"malas": {k: v for k, v in s["rutas"].items() if v != 200}, "crudo": [], "peticion": True,
@@ -898,9 +902,10 @@ def resumen(a) -> int:
         sa = _j(d / "calificacion-samuel-alba.json") if (d / "calificacion-samuel-alba.json").is_file() else {}
         v = next((f for f in filas if f["entorno"] == d.name), None)
         # Rostrum: la prueba completa que dejó `rostrum` o la del comando del servidor.
+        salida_srv = next((f for f in sorted((d / "salidas").glob("*-server-start.json")) + [d / "salidas" / "34-portfolio-server.json"]
+                           if f.is_file()), None) if (d / "salidas").is_dir() else None
         ro = _j(d / "rostrum.json") if (d / "rostrum.json").is_file() else \
-            (_j(d / "salidas" / "34-portfolio-server.json").get("servidor") or {}) \
-            if (d / "salidas" / "34-portfolio-server.json").is_file() else {}
+            (_j(salida_srv).get("servidor") or {}) if salida_srv else {}
         industrias.append({
             "entorno": d.name, "comandos": rev.get("comandos"), "completos": rev.get("completos"),
             "contratos": rev.get("contratos_cumplidos"), "fugas": len(rev.get("fugas") or []),

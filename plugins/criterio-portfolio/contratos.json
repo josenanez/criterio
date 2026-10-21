@@ -610,40 +610,6 @@
     "sembrado": "producto con tres proyectos, uno atrasado 60 días",
     "esperado": "grupo `products` de `compute`; fecha del producto = la del atrasado; dinero igual a la suma del script"
    }
-  },
-  "portfolio-server": {
-   "funcion": "Levanta Rostrum, el servidor que muestra el portafolio, las corridas y las peticiones.",
-   "entrada": {
-    "argumento": "[rato|servicio] o vacío",
-    "lee": [
-     "config",
-     "<estado>/",
-     ".criterio/corridas/"
-    ]
-   },
-   "salida": {
-    "muestra": "la URL y qué pedirle a la organización para publicarlo",
-    "escribe": []
-   },
-   "reglas": {
-    "skills": [],
-    "script": [
-     "answered",
-     "corrida",
-     "due",
-     "requests",
-     "terminos"
-    ],
-    "calcula": false
-   },
-   "corrida": {
-    "caso": false,
-    "tambien": []
-   },
-   "prueba": {
-    "sembrado": "estado con corridas de los tres agentes",
-    "esperado": "cada corrida visible en /corridas, en su agente y en su caso"
-   }
   }
  },
  "skills": {

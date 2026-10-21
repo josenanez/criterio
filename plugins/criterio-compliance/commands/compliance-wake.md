@@ -28,7 +28,13 @@ allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" despertar --config <config>
 ```
 
-**2. Si `callado` es verdadero, termina aquí**, en una línea.
+**2. Si `callado` es verdadero, termina aquí** —con una petición abierta nunca lo es—, en una línea.
+
+**Las peticiones primero.** Si `peticiones` trae alguna —la dejó alguien en Rostrum, el portal—, respóndela antes de lo demás: di de quién es, qué pide y lo que los documentos y el último reporte responden, con su cita. Lo que pida criterio de una persona queda dicho como pregunta para ella. Cuando la respondas, márcala:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" responder --config <config> --id <id de la petición>
+```
 
 **3. Si toca `compliance-scan`**, aplica **legal-intake** y haz el barrido:
 

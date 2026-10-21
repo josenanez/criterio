@@ -323,8 +323,9 @@
    "entrada": {
     "argumento": "[AAAA-MM-DD]",
     "lee": [
-     "config",
-     "<estado>/corridas/registro.json"
+     "<estado>/corridas/registro.json",
+     "<estado>/peticiones/",
+     "config"
     ]
    },
    "salida": {
@@ -332,7 +333,8 @@
     "escribe": [
      "<estado>/indice.json",
      "<estado>/cierre/<AAAA-MM>/resultados.json",
-     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
+     "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md",
+     "<estado>/peticiones/<id>.json (responder)"
     ]
    },
    "reglas": {
@@ -344,6 +346,7 @@
      "despertar",
      "inventario",
      "reporte",
+     "responder",
      "terminos"
     ],
     "calcula": true

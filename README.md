@@ -13,7 +13,7 @@ Apache 2.0 · Four clicks to install · Each agent produces its first result in 
 | | | |
 |:--:|:--:|:--:|
 | ![Portfolio, project and product](docs/img/en/pmo.png) | ![CFO](docs/img/en/cfo.png) | ![CLO](docs/img/en/clo.png) |
-| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents and a server | [criterio-cfo →](families/criterio-cfo/DISENO.es.md)<br>Clara and Tomás, built and in testing | [criterio-clo →](families/criterio-clo/DISENO.es.md)<br>Fidel and Constanza, built and in testing |
+| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents | [criterio-cfo →](families/criterio-cfo/DISENO.es.md)<br>Clara and Tomás, built and in testing | [criterio-clo →](families/criterio-clo/DISENO.es.md)<br>Fidel and Constanza, built and in testing |
 
 ---
 
@@ -37,9 +37,15 @@ one another. Agents from different families do not.
 
 | Family | Scope | Objective | State |
 |---|---|---|---|
-| **[criterio-pmo](families/criterio-pmo/README.md)** | The governance of a portfolio, of each project and of each product | That what is declared and what the documents support can be compared, every day and across the whole | **Three agents and a server, installable today** |
+| **[criterio-pmo](families/criterio-pmo/README.md)** | The governance of a portfolio, of each project and of each product | That what is declared and what the documents support can be compared, every day and across the whole | **Three agents, installable today** |
 | **criterio-cfo** | Close, control and financial reporting | That closing the books stops depending on somebody remembering what is missing | **Two agents built, in testing:** [Clara](plugins/criterio-finance/README.md) and [Tomás](plugins/criterio-budget/README.md) |
 | **criterio-clo** | Contracts, compliance and legal risk | That a company knows what it signed, what expires and what it committed to | **Two agents built, in testing:** [Fidel](plugins/criterio-legal/README.md) and [Constanza](plugins/criterio-compliance/README.md) |
+
+**Rostrum, the portal, is one for every family.** It publishes what the agents already wrote —the
+PMO report, the CFO and CLO reports, what falls due across all of them— for whoever does not open
+a folder, and takes written questions for any agent. It installs separately,
+[`criterio-server`](plugins/criterio-server/README.md), and a map built by folder selection says
+what it serves ([ADR 0010](docs/decisions/0010-rostrum-plugin-propio.md), Spanish).
 
 **The list is not closed.** A family joins when somebody who performs that capability
 wants to build it, and the format is in [CONTRIBUTING.md](CONTRIBUTING.md).

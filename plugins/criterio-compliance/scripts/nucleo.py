@@ -13,7 +13,10 @@
 
 Números y fechas como llegan en las exportaciones, tablas en CSV y Excel con su fila de
 origen, la estructura recomendada y el inventario de la carpeta, las señales, el marco común
-del reporte y el registro de cada corrida. Lo propio de cada función vive en su motor
+del reporte, el registro de cada corrida y las peticiones. El registro y las peticiones siguen el
+contrato de estado común de todos los agentes (ADR 0010): `<estado>/corridas.json` con
+`<estado>/corridas/<id>.md`, y `<estado>/peticiones/<id>.json`, con el mismo esquema que la familia
+PMO, para que Rostrum los sirva sin saber de qué familia son. Lo propio de cada función vive en su motor
 —`finanzas.py`, `legal.py`—, que importa esto.
 
 La fuente vive en criterio-finance y `scripts/sincronizar.py` la copia a los demás plugins: un
@@ -515,21 +518,84 @@ def marco_reporte(r: dict, comando: str, version: str, *, agente: str, senales: 
     return "\n".join(l) + "\n"
 
 
+# ================================================================ el registro de las corridas
+
+CASO = re.compile(r"\b([A-Z]{2,5}-\d{2,})\b")
+
+
 def registro_corridas(estado: Path) -> list[dict]:
-    return leer_json(estado / "corridas" / "registro.json", []) or []
+    """Las corridas del estado, con `comando` y `fecha`. Las del registro anterior a la 0.7.0,
+    `corridas/registro.json`, se leen también: la historia no se pierde por cambiar de formato."""
+    nuevas = leer_json(estado / "corridas.json", []) or []
+    viejas = leer_json(estado / "corridas" / "registro.json", []) or []
+    return [dict(c, comando=c.get("que")) for c in nuevas] + viejas
 
 
-def corrida(estado: Path, que: str, salida: Path | None, caso: str | None, nota: str | None, hoy: dt.date) -> dict:
+def _ambito(r: dict) -> str:
+    return str(r.get("periodo") or r.get("anio") or r.get("year") or r.get("agente") or "-")
+
+
+def corrida(estado: Path, que: str, salida: Path | None, caso: str | None, nota: str | None, hoy: dt.date,
+            r: dict | None = None, version: str | None = None) -> dict:
+    """Deja la corrida en el formato común: qué se corrió, sobre qué, qué encontró y lo que el
+    comando mostró. Los hallazgos salen de lo que el motor calculó (`r`), no de lo que el agente
+    diga; por caso, el código que trae la clave de la señal —un contrato, un proyecto— o el ámbito
+    de la corrida, para que se pueda saber después desde cuándo se arrastra cada una."""
+    import time
+    from collections import Counter
     carpeta = estado / "corridas"
     carpeta.mkdir(parents=True, exist_ok=True)
-    reg = registro_corridas(estado)
-    n = 1 + sum(1 for c in reg if c["comando"] == que and c["fecha"] == hoy.isoformat())
-    nombre = f"{hoy.isoformat()}-{que}-{n}.md"
-    cuerpo = salida.read_text(encoding="utf-8") if salida and salida.is_file() else ""
-    (carpeta / nombre).write_text(f"<!-- corrida {que} · {hoy.isoformat()} · caso {caso or '—'} -->\n\n{cuerpo}\n\n---\n\n{nota or ''}\n", encoding="utf-8")
-    reg.append({"fecha": hoy.isoformat(), "comando": que, "caso": caso, "archivo": nombre, "nota": nota})
-    escribir_json(carpeta / "registro.json", reg)
-    return {"registrada": nombre}
+    f = estado / "corridas.json"
+    previas = leer_json(f, []) or []
+    n = 1 + sum(1 for c in previas if c.get("que") == que and c.get("fecha") == hoy.isoformat())
+    ident = f"{hoy.isoformat()}-{que}-{n}"
+    alertas = (r or {}).get("alertas") or []
+    por_senal = Counter(a["signal"] for a in alertas)
+    por_caso: dict[str, list] = {}
+    for a in alertas:
+        m = CASO.search(str(a.get("key") or ""))
+        por_caso.setdefault(m.group(1) if m else _ambito(r), []).append(a["signal"])
+    cuerpo = salida.read_text(encoding="utf-8").strip() if salida and salida.is_file() else ""
+    entrada = {"id": ident, "que": que, "fecha": hoy.isoformat(), "caso": caso, "plugin": {"version": version},
+               "hallazgos": len(alertas) if r is not None else None, "por_senal": dict(por_senal.most_common()),
+               "por_caso": {k: sorted(v) for k, v in sorted(por_caso.items())}, "salida": bool(cuerpo),
+               "escrita": time.time(), "nota": nota}
+    lineas = [f"# Corrida del {hoy.isoformat()} · {que}", "",
+              (f"Caso: {caso} · " if caso else "") + (f"{len(alertas)} hallazgos" if r is not None else "sin cálculo"), ""]
+    if por_senal:
+        lineas += ["| Señal | Hallazgos |", "|---|---:|"] + [f"| `{s}` | {k} |" for s, k in por_senal.most_common()] + [""]
+    if nota:
+        lineas += [nota, ""]
+    lineas += ["## Lo que produjo", "", cuerpo or "_(el comando no dejó su salida)_", ""]
+    (carpeta / f"{ident}.md").write_text("\n".join(lineas), encoding="utf-8")
+    previas.append(entrada)
+    escribir_json(f, previas)
+    return {"registrada": f"{ident}.md", "id": ident, "hallazgos": entrada["hallazgos"]}
+
+
+# ================================================================ las peticiones
+
+def peticiones_abiertas(estado: Path, agente: str | None = None) -> list[dict]:
+    """Las que alguien dejó en Rostrum para este agente y nadie ha respondido, de la más vieja
+    a la más nueva. Las escribe el servidor; el agente solo las responde. Dos agentes de una
+    familia comparten el estado, así que cada uno toma las que van para él (`agente`)."""
+    out = []
+    for f in sorted((estado / "peticiones").glob("*.json")) if (estado / "peticiones").is_dir() else []:
+        p = leer_json(f, None)
+        if isinstance(p, dict) and not p.get("respondida") and (agente is None or p.get("agente") in (None, agente)):
+            out.append(p)
+    return out
+
+
+def responder_peticion(estado: Path, ident: str, hoy: dt.date) -> dict:
+    """Marca una petición como respondida. Es lo único que el agente le escribe."""
+    f = estado / "peticiones" / f"{ident}.json"
+    p = leer_json(f, None)
+    if not isinstance(p, dict) or not re.fullmatch(r"[A-Za-z0-9._-]+", ident):
+        return {"ok": False, "motivo": f"no hay petición {ident}"}
+    p["respondida"] = hoy.isoformat()
+    escribir_json(f, p)
+    return {"ok": True, "id": ident, "respondida": p["respondida"]}
 
 
 def _hoy(a) -> dt.date:
@@ -575,7 +641,7 @@ def argumentos(descripcion: str):
     ap = argparse.ArgumentParser(description=descripcion)
     for op, t in (("--config", Path), ("--state", Path), ("--docs", Path), ("--salida", Path), ("--file", Path)):
         ap.add_argument(op, type=t)
-    for op in ("--period", "--year", "--today", "--what", "--caso", "--nota", "--por", "--idioma"):
+    for op in ("--period", "--year", "--today", "--what", "--caso", "--nota", "--por", "--idioma", "--id"):
         ap.add_argument(op)
     return ap
 
@@ -647,11 +713,25 @@ def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas
         print(md)
         return 0
     if a.action == "despertar":
-        print(json.dumps(despertar(cfg, rol, _hoy(a)), ensure_ascii=False, indent=2))
+        d = despertar(cfg, rol, _hoy(a))
+        # Una petición que alguien dejó en Rostrum despierta al agente aunque no toque nada más.
+        d["peticiones"] = peticiones_abiertas(cfg["_estado"], rol)
+        d["callado"] = d.get("callado", False) and not d["peticiones"]
+        print(json.dumps(d, ensure_ascii=False, indent=2))
+        return 0
+    if a.action == "responder":
+        if not a.id:
+            ap.error("--id es la petición que se respondió")
+        print(json.dumps(responder_peticion(cfg["_estado"], a.id, _hoy(a)), ensure_ascii=False))
         return 0
     if a.action == "corrida":
         if not a.what:
             ap.error("--what es el comando que corrió")
-        print(json.dumps(corrida(cfg["_estado"], a.what, a.salida, a.caso, a.nota, _hoy(a)), ensure_ascii=False))
+        try:
+            r, _ = calcular(cfg, rol, a)
+        except (SystemExit, Exception):  # una corrida que no se puede calcular se registra igual
+            r = None
+        print(json.dumps(corrida(cfg["_estado"], a.what, a.salida, a.caso, a.nota, _hoy(a), r, plugin(aqui)["version"]),
+                         ensure_ascii=False))
         return 0
     return 1

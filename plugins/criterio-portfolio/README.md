@@ -7,15 +7,15 @@ already has and says what changed, what contradicts what, and what has gone quie
 
 [Español](README.es.md) · Apache 2.0 · One instance per project office · Installs in four clicks
 
-**Status: the seventeen commands are built**, along with the ten skills of the method and the
+**Status: the sixteen commands are built**, along with the ten skills of the method and the
 arithmetic verified against a corpus with answers written by hand. **What has not been tested
 yet: extraction over a real organisation's documentation.** Nothing is announced as finished
 until the [acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
 
 **This page reads on its own.** Vera works without her siblings: if all you care about is the
 portfolio, everything is here, tests included. The family — how she meets Samuel and Alba
-— is in the [criterio-pmo family](../../families/criterio-pmo/README.md), and **the server that publishes her report** is
-in [SERVER.md](SERVER.md).
+— is in the [criterio-pmo family](../../families/criterio-pmo/README.md), and **the server that publishes her report**,
+Rostrum, is a plugin of its own: [criterio-server](../criterio-server/README.md).
 
 ---
 
@@ -41,7 +41,7 @@ previous run, what contradicts what between two documents of the same project, w
 quiet for weeks, how many of those reporting green carry evidence that green does not explain,
 and who is reached when a project moves.
 
-### The seventeen commands
+### The sixteen commands
 
 > They are typed with the plugin prefix: `/criterio-portfolio:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -49,7 +49,6 @@ and who is reached when a project moves.
 |---|---|
 | `/criterio-portfolio:portfolio-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
 | `/criterio-portfolio:portfolio-wake` | **What the clock invokes.** Looks at what is due today, does it, and if nothing is due it stays quiet |
-| `/criterio-portfolio:portfolio-server` | Raises **Rostrum**, the server: exposes the report for whoever will not open a folder, and says what to ask the organisation for |
 | `/criterio-portfolio:document-index` | Which documents really changed, what has to be re-read and which citations stopped resolving |
 | `/criterio-portfolio:portfolio-scan` | Reads the folder and produces or updates one record per project. The front door |
 | `/criterio-portfolio:portfolio-report` | Consolidated report: what changed, what contradicts what, what is quiet, what has no support |
@@ -203,12 +202,12 @@ system's scheduler in Claude Code. **And if unattended runs are not welcome** �
 is a reasonable answer — the cadence still says what is due, run by hand. What you lose is
 being told without anyone asking.
 
-**And if you want your sponsor to see it without asking you for it**, `/criterio-portfolio:portfolio-server` raises
-**Rostrum**, this family's server: a portal with three sections — PMO reports, projects and
+**And if you want your sponsor to see it without asking you for it**, `/criterio-server:server-start` raises
+**Rostrum**, the server for every family, installed separately: a portal with three sections — PMO reports, projects and
 products — where whoever is looking can also **leave the agent a written question**, which stays
 in the queue and is answered on the next run. It authenticates nobody, and that is on purpose:
 it is published behind the access control your organisation already has.
-→ **[Rostrum, with screenshots of each section](SERVER.md)**
+→ **[Rostrum, with screenshots of each section](../criterio-server/README.md)**
 
 ## Working with the others
 
