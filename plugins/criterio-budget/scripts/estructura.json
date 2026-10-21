@@ -1,71 +1,91 @@
 {
-  "generado": "por scripts/cfo.py desde families/criterio-cfo/carpetas.json; no se edita a mano",
-  "entidad": [
+  "generado": "por scripts/familias.py desde families/criterio-cfo/carpetas.json; no se edita a mano",
+  "niveles": [
     {
-      "carpeta": "00-referencia",
-      "patrones": [
-        "^plan",
-        "^checklist",
-        "^mapeo"
-      ]
-    }
-  ],
-  "periodo": [
-    {
-      "carpeta": "10-contabilidad",
-      "patrones": [
-        "^balance",
-        "^libro"
-      ]
-    },
-    {
-      "carpeta": "20-bancos",
-      "patrones": [
-        "^extracto",
-        "^auxiliar_libros"
+      "id": "entidad",
+      "ruta": null,
+      "profundidad": 1,
+      "etiqueta": "",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "patrones": [
+            "^plan",
+            "^checklist",
+            "^mapeo"
+          ]
+        }
       ]
     },
     {
-      "carpeta": "30-facturacion",
-      "patrones": [
-        "_xml$"
+      "id": "periodo",
+      "ruta": "\\d{4}-\\d{2}",
+      "profundidad": 1,
+      "etiqueta": "<AAAA-MM>/",
+      "carpetas": [
+        {
+          "carpeta": "10-contabilidad",
+          "patrones": [
+            "^balance",
+            "^libro"
+          ]
+        },
+        {
+          "carpeta": "20-bancos",
+          "patrones": [
+            "^extracto",
+            "^auxiliar_libros"
+          ]
+        },
+        {
+          "carpeta": "30-facturacion",
+          "patrones": [
+            "_xml$"
+          ]
+        },
+        {
+          "carpeta": "40-soportes",
+          "patrones": []
+        },
+        {
+          "carpeta": "50-auditoria",
+          "patrones": [
+            "^requerimientos",
+            "^pbc"
+          ]
+        }
       ]
     },
     {
-      "carpeta": "40-soportes",
-      "patrones": []
-    },
-    {
-      "carpeta": "50-auditoria",
-      "patrones": [
-        "^requerimientos",
-        "^pbc"
-      ]
-    }
-  ],
-  "presupuesto": [
-    {
-      "carpeta": "10-aprobado",
-      "patrones": [
-        "^presupuesto_\\d{4}_v\\d+"
-      ]
-    },
-    {
-      "carpeta": "20-compromisos",
-      "patrones": [
-        "^compromisos"
-      ]
-    },
-    {
-      "carpeta": "30-proyecciones",
-      "patrones": [
-        "^proyeccion"
-      ]
-    },
-    {
-      "carpeta": "40-actas",
-      "patrones": [
-        "^acta"
+      "id": "presupuesto",
+      "ruta": "presupuesto-\\d{4}",
+      "profundidad": 1,
+      "etiqueta": "presupuesto-<AAAA>/",
+      "carpetas": [
+        {
+          "carpeta": "10-aprobado",
+          "patrones": [
+            "^presupuesto_\\d{4}_v\\d+"
+          ]
+        },
+        {
+          "carpeta": "20-compromisos",
+          "patrones": [
+            "^compromisos"
+          ]
+        },
+        {
+          "carpeta": "30-proyecciones",
+          "patrones": [
+            "^proyeccion"
+          ]
+        },
+        {
+          "carpeta": "40-actas",
+          "patrones": [
+            "^acta"
+          ]
+        }
       ]
     }
   ]

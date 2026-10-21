@@ -1,5 +1,5 @@
 {
-  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CFO: scripts/cfo.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-cfo.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json.",
+  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CFO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-cfo.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json.",
   "estado": {
     "es": "Construida · en prueba",
     "en": "Built · in testing"

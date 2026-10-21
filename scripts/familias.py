@@ -1,20 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""El diseño de la familia CFO, escrito desde sus tres fuentes.
+"""El diseño de las familias CFO y CLO, escrito desde sus tres fuentes.
 
-    python3 scripts/cfo.py           escribe FUENTES.es.md, las tablas de DISENO.es.md y las cifras
-                                     de los README de criterio-finance
-    python3 scripts/cfo.py --check   falla si alguna copia no sale de las fuentes, o si las fuentes
-                                     no cuadran entre sí
+    python3 scripts/familias.py           escribe FUENTES.es.md, las tablas de DISENO.es.md, los
+                                          bloques de los README y del skill de documentos de cada
+                                          plugin, y la estructura que usa el motor
+    python3 scripts/familias.py --check   falla si alguna copia no sale de las fuentes, o si las
+                                          fuentes no cuadran entre sí
 
-Las fuentes son tres, en families/criterio-cfo/, y cada cosa tiene una sola:
+Cada familia tiene tres fuentes en families/criterio-<familia>/, y cada cosa tiene una sola:
   fuentes.json    las fuentes técnicas, normativas y las cifras de terceros, con su estado
   carpetas.json   la estructura de carpetas recomendada (ADR 0007)
   familia.json    los agentes, sus comandos con entrada, proceso y reporte, y sus señales
 
-El portal publica las mismas tres con scripts/criterio-cfo.mjs. Lo que comprueba además de las
-copias: que cada carpeta citada por un comando exista en la estructura, que cada fuente citada
-por un comando esté verificada (ADR 0006, regla 1) y que la numeración vaya de diez en diez.
+El portal las publica con scripts/criterio-cfo.mjs y scripts/criterio-clo.mjs. Lo que comprueba
+además de las copias: que cada carpeta citada por un comando exista en la estructura, que cada
+fuente citada por un comando esté verificada (ADR 0006, regla 1), que cada campo que lee un motor
+esté verificado en su fuente y que la numeración vaya de diez en diez.
 """
 from __future__ import annotations
 
@@ -25,27 +27,50 @@ import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-CFO = RAIZ / "families" / "criterio-cfo"
-DISENO = CFO / "DISENO.es.md"
-FUENTES_MD = CFO / "FUENTES.es.md"
-AVISO = "generado por scripts/cfo.py; no se edita a mano"
+AVISO = "generado por scripts/familias.py; no se edita a mano"
+P = RAIZ / "plugins"
+
+# Lo que cambia de una familia a otra. Todo lo demás es igual.
+FAMILIAS = {
+    "cfo": {
+        "dir": RAIZ / "families" / "criterio-cfo", "adr": "0006-scope-cfo.md",
+        "cifras_en": "clara",
+        "intake": (P / "criterio-finance" / "skills" / "finance-intake" / "SKILL.md",
+                   "La contabilidad del periodo tiene un solo lugar, `10-contabilidad/`: Clara la cierra y "
+                   "Tomás saca de ahí la ejecución."),
+        "estructuras": ["criterio-finance", "criterio-budget"],
+        "motor": P / "criterio-finance" / "scripts" / "finanzas.py",
+        "lectores": {"CAMPOS_DIAN": ["F-01"], "CAMPOS_SRI": ["F-04", "F-09"]},
+    },
+    "clo": {
+        "dir": RAIZ / "families" / "criterio-clo", "adr": "0009-scope-clo.md",
+        "cifras_en": "fidel",
+        "intake": (P / "criterio-legal" / "skills" / "legal-intake" / "SKILL.md",
+                   "Cada contrato tiene un solo lugar, su carpeta en `contratos/`: Fidel la procesa y Constanza "
+                   "toma de su ficha las obligaciones de cumplimiento."),
+        "estructuras": ["criterio-legal", "criterio-compliance"],
+        "motor": P / "criterio-legal" / "scripts" / "legal.py",
+        "lectores": {},
+    },
+}
+F: dict = {}          # la familia en curso
+CLAVE = [""]
 
 
 def cargar(nombre: str) -> dict:
-    return json.loads((CFO / nombre).read_text(encoding="utf-8"))
-
-
-def marcas(nombre: str) -> tuple[str, str]:
-    return f"<!-- cfo:{nombre} · {AVISO} -->", f"<!-- /cfo:{nombre} -->"
+    return json.loads((F["dir"] / nombre).read_text(encoding="utf-8"))
 
 
 def poner(texto: str, nombre: str, contenido: str, ruta: Path) -> str:
-    ini, fin = marcas(nombre)
-    if ini not in texto or fin not in texto:
-        raise SystemExit(f"{ruta.relative_to(RAIZ)}: faltan las marcas de «{nombre}»")
-    a = texto.index(ini)
+    """Reemplaza el bloque entre sus marcas. La marca de apertura se busca por su prefijo, así
+    que cambiar el aviso no deja huérfano ningún bloque."""
+    pre = f"<!-- {CLAVE[0]}:{nombre} · "
+    fin = f"<!-- /{CLAVE[0]}:{nombre} -->"
+    if pre not in texto or fin not in texto:
+        raise SystemExit(f"{ruta.relative_to(RAIZ)}: faltan las marcas de «{CLAVE[0]}:{nombre}»")
+    a = texto.index(pre)
     b = texto.index(fin, a) + len(fin)
-    return texto[:a] + f"{ini}\n{contenido}\n{fin}" + texto[b:]
+    return texto[:a] + f"{pre}{AVISO} -->\n{contenido}\n{fin}" + texto[b:]
 
 
 def celda(s: str) -> str:
@@ -60,15 +85,15 @@ def estado(f: dict) -> str:
 
 
 def fuentes_md(fu: dict) -> str:
-    l = ["# criterio-cfo · las fuentes", "",
+    l = [f"# criterio-{CLAVE[0]} · las fuentes", "",
          f"<!-- {AVISO}, desde fuentes.json -->", "",
          "Toda fuente que la familia usa para procesar, documentar o probar, con su versión, su enlace, la",
          "fecha en que se consultó y su estado. Es la única lista: el diseño, los skills, los lectores y el",
          "material de prueba citan la fuente por su identificador, no copian su contenido. Se edita en",
-         "[`fuentes.json`](fuentes.json); este archivo lo escribe `scripts/cfo.py`.", "",
+         "[`fuentes.json`](fuentes.json); este archivo lo escribe `scripts/familias.py`.", "",
          "**Estados.** *Verificada*: se consultó el texto publicado por quien la emite. *Por verificar*: se",
          "conoce por una fuente secundaria o falta confirmar la versión vigente; no se construye nada sobre",
-         "ella hasta verificarla ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regla 1).", ""]
+         f"ella hasta verificarla ([ADR {F['adr'][:4]}](../../docs/decisions/{F['adr']}), regla 1).", ""]
     for s in fu["secciones"]:
         l += [f"## {s['titulo']}", "",
               "| Id | Fuente | Versión | Enlace | Consultada | Estado | Uso |", "|---|---|---|---|---|---|---|"]
@@ -94,7 +119,7 @@ def fuentes_md(fu: dict) -> str:
     l += ["", "## Cómo se agrega una fuente", "",
           "1. Se agrega en `fuentes.json` con el siguiente identificador libre —F-NN para fuentes técnicas",
           "   y normativas, C-NN para cifras de terceros— y la fila entera: versión, enlace al emisor, fecha",
-          "   de consulta, estado y uso. Después se corre `python3 scripts/cfo.py`.",
+          "   de consulta, estado y uso. Después se corre `python3 scripts/familias.py`.",
           "2. Un campo de factura que procese el motor va en la lista de campos de su fuente, con su",
           "   identificador en el anexo; la puerta falla si el motor usa uno que no está verificado.",
           "3. Mientras diga «por verificar», nada se construye sobre ella: la puerta falla si un comando",
@@ -191,8 +216,7 @@ def intake_md(ca: dict, fa: dict) -> str:
     """La estructura, como la necesita el agente instalado: el árbol, qué va en cada carpeta y quién la usa."""
     t = carpetas_md(ca, fa)
     return ("Recomendada, no obligatoria: el motor procesa la carpeta como esté, y el inventario dice qué archivo "
-            "está fuera de su lugar y dónde iría (ADR 0007). La contabilidad del periodo tiene un solo lugar, "
-            "`10-contabilidad/`: Clara la cierra y Tomás saca de ahí la ejecución.\n\n" + t)
+            "está fuera de su lugar y dónde iría (ADR 0007). " + F["intake"][1] + "\n\n" + t)
 
 
 # ---------------------------------------------------------------- lo que tiene que cuadrar
@@ -227,7 +251,6 @@ def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
             if not (c.get("es") and c.get("en")):
                 err.append(f"carpetas.json: a «{c['carpeta']}» le falta el texto en un idioma")
             numeradas.add(c["carpeta"])
-    niveles = {nv["carpeta"].rstrip("/") for nv in ca["niveles"]}
     for a in fa["agentes"]:
         if not any(a["id"] in c["agentes"] for nv in ca["niveles"] for c in nv["carpetas"]):
             err.append(f"{a['nombre']}: ninguna carpeta de la estructura es suya")
@@ -247,8 +270,6 @@ def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
                 cabeza = tok.split("/")[0]
                 if re.match(r"\d\d-", cabeza) and cabeza not in numeradas:
                     err.append(f"{c['id']}: cita `{tok}` y esa carpeta no está en carpetas.json")
-                if cabeza.startswith("presupuesto-") and cabeza not in niveles:
-                    err.append(f"{c['id']}: cita `{tok}` y ese nivel no está en carpetas.json")
             for fid in re.findall(r"F-\d\d", texto):
                 if fid not in por_id:
                     err.append(f"{c['id']}: cita {fid} y no está en fuentes.json")
@@ -258,89 +279,98 @@ def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
     return err
 
 
-MOTOR = RAIZ / "plugins" / "criterio-finance" / "scripts" / "finanzas.py"
-# Qué fuente define los campos de cada lector del motor.
-LECTORES = {"CAMPOS_DIAN": ["F-01"], "CAMPOS_SRI": ["F-04", "F-09"]}
-
-
 def revisar_campos(fu: dict) -> list[str]:
     """Cada campo de factura que procesa el motor tiene que estar verificado en su fuente (ADR 0006, regla 2)."""
-    if not MOTOR.is_file():
+    if not F["motor"].is_file() or not F["lectores"]:
         return []
     import importlib.util
-    spec = importlib.util.spec_from_file_location("finanzas_cfo", MOTOR)
+    sys.dont_write_bytecode = True
+    spec = importlib.util.spec_from_file_location(f"motor_{CLAVE[0]}", F["motor"])
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     por_id = {f["id"]: f for s in fu["secciones"] for f in s["fuentes"]}
     err = []
-    for constante, ids in LECTORES.items():
+    for constante, ids in F["lectores"].items():
         campos = {c["id"]: c for i in ids for c in (por_id.get(i) or {}).get("campos", [])}
         for k in getattr(mod, constante, {}):
             if k not in campos:
-                err.append(f"finanzas.py usa el campo {k} y no está en {' ni '.join(ids)}")
+                err.append(f"{F['motor'].name} usa el campo {k} y no está en {' ni '.join(ids)}")
             elif campos[k]["estado"] != "verificado":
-                err.append(f"finanzas.py usa el campo {k}, que está por verificar en {' o '.join(ids)}")
+                err.append(f"{F['motor'].name} usa el campo {k}, que está por verificar en {' o '.join(ids)}")
     return err
 
 
 def estructura_json(ca: dict) -> str:
     """Lo que el motor necesita de la estructura para decir qué está fuera de su lugar."""
-    d = {"generado": "por scripts/cfo.py desde families/criterio-cfo/carpetas.json; no se edita a mano"}
-    for n in ca["niveles"]:
-        d[n["id"]] = [{"carpeta": c["carpeta"], "patrones": c.get("patrones", [])} for c in n["carpetas"]]
+    d = {"generado": f"por scripts/familias.py desde families/criterio-{CLAVE[0]}/carpetas.json; no se edita a mano",
+         "niveles": [{"id": n["id"], "ruta": n.get("ruta"), "profundidad": n.get("profundidad", 1),
+                      "etiqueta": "" if not n.get("ruta") else n["carpeta"],
+                      "carpetas": [{"carpeta": c["carpeta"], "patrones": c.get("patrones", [])} for c in n["carpetas"]]}
+                     for n in ca["niveles"]]}
     return json.dumps(d, ensure_ascii=False, indent=2) + "\n"
 
 
-ESTRUCTURAS = [RAIZ / "plugins" / p / "scripts" / "estructura.json" for p in ("criterio-finance", "criterio-budget")]
-
-
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--check", action="store_true")
-    args = ap.parse_args()
+def una(clave: str, check: bool) -> tuple[list[str], int, int]:
+    F.clear()
+    F.update(FAMILIAS[clave])
+    CLAVE[0] = clave
+    if not (F["dir"] / "familia.json").is_file():
+        return [], 0, 0
     fu, ca, fa = cargar("fuentes.json"), cargar("carpetas.json"), cargar("familia.json")
     errores = revisar(fu, ca, fa)
-
-    salidas: list[tuple[Path, str]] = [(FUENTES_MD, fuentes_md(fu))]
-    d = DISENO.read_text(encoding="utf-8")
+    diseno = F["dir"] / "DISENO.es.md"
+    salidas: list[tuple[Path, str]] = [(F["dir"] / "FUENTES.es.md", fuentes_md(fu))]
+    d = diseno.read_text(encoding="utf-8")
     for nombre, contenido in (("agentes", agentes_md(fa)), ("carpetas", carpetas_md(ca, fa)),
                               ("senales", senales_md(fa)), ("cifras", cifras_diseno(fu))):
-        d = poner(d, nombre, contenido, DISENO)
+        d = poner(d, nombre, contenido, diseno)
     for a in fa["agentes"]:
-        d = poner(d, f"comandos-{a['id']}", comandos_md(a), DISENO)
-    salidas.append((DISENO, d))
+        d = poner(d, f"comandos-{a['id']}", comandos_md(a), diseno)
+    salidas.append((diseno, d))
     for a in fa["agentes"]:
-        base = RAIZ / "plugins" / a["plugin"]
+        base = P / a["plugin"]
         for nombre, i in (("README.es.md", "es"), ("README.md", "en")):
             ruta = base / nombre
             if not ruta.is_file():
                 continue
             t = poner(ruta.read_text(encoding="utf-8"), "comandos", comandos_readme(a, i), ruta)
             t = poner(t, "skills", skills_readme(base), ruta)
-            if a["id"] == "clara":
+            if a["id"] == F["cifras_en"]:
                 t = poner(t, "cifras", cifras_readme(fu, i), ruta)
             salidas.append((ruta, t))
-    intake = RAIZ / "plugins" / "criterio-finance" / "skills" / "finance-intake" / "SKILL.md"
+    intake = F["intake"][0]
     if intake.is_file():
         salidas.append((intake, poner(intake.read_text(encoding="utf-8"), "intake", intake_md(ca, fa), intake)))
-    for ruta in ESTRUCTURAS:
+    for p in F["estructuras"]:
+        ruta = P / p / "scripts" / "estructura.json"
         if ruta.parent.is_dir():
             salidas.append((ruta, estructura_json(ca)))
-
     for ruta, nuevo in salidas:
         actual = ruta.read_text(encoding="utf-8") if ruta.exists() else ""
         if nuevo == actual:
             continue
-        if args.check:
-            errores.append(f"{ruta.relative_to(RAIZ)}: no es lo que sale de las fuentes; corre scripts/cfo.py")
+        if check:
+            errores.append(f"{ruta.relative_to(RAIZ)}: no es lo que sale de las fuentes; corre scripts/familias.py")
         else:
             ruta.write_text(nuevo, encoding="utf-8")
             print(f"  {ruta.relative_to(RAIZ)}")
+    return [f"{clave.upper()} · {e}" for e in errores], sum(len(a["comandos"]) for a in fa["agentes"]), len(salidas)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--check", action="store_true")
+    args = ap.parse_args()
+    errores, resumen = [], []
+    for clave in FAMILIAS:
+        e, n, archivos = una(clave, args.check)
+        errores += e
+        if n:
+            resumen.append(f"{clave.upper()} {n} comandos y {archivos} archivos")
     for e in errores:
         print(f"  ✗ {e}")
     if args.check and not errores:
-        n = sum(len(a["comandos"]) for a in fa["agentes"])
-        print(f"  la familia CFO cuadra: {n} comandos, {len(salidas)} archivos, cada carpeta y cada fuente en su lugar")
+        print(f"  las familias cuadran: {' · '.join(resumen)}, cada carpeta y cada fuente en su lugar")
     return 1 if errores else 0
 
 

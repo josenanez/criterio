@@ -22,7 +22,7 @@
 
 ## Los comandos
 
-<!-- cfo:comandos · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
 | # | Comando | Qué entrega |
 |---|---|---|
 | 0 | `/criterio-budget:budget-setup` | La configuración, el inventario y la primera ficha del presupuesto de cada área |
@@ -36,7 +36,7 @@
 
 ## Los skills
 
-<!-- cfo:skills · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:skills · generado por scripts/familias.py; no se edita a mano -->
 `budget-record` · `committee-pack` · `finance-intake` · `forecast-method` · `transfer-control` · `variance-analysis`
 <!-- /cfo:skills -->
 

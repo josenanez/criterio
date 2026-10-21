@@ -1,5 +1,5 @@
 {
-  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CFO: scripts/cfo.py la escribe en DISENO.es.md y comprueba que cada carpeta que citan los comandos de familia.json exista aquí; el portal la publica con scripts/criterio-cfo.mjs. Es una recomendación, como en la familia PMO (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CFO: scripts/familias.py la escribe en DISENO.es.md y comprueba que cada carpeta que citan los comandos de familia.json exista aquí; el portal la publica con scripts/criterio-cfo.mjs. Es una recomendación, como en la familia PMO (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
   "raiz": {
     "carpeta": "finanzas/",
     "es": "Una carpeta por entidad, con el NIT o el RUC al inicio del nombre: `900123456-banco-andino`. Dentro, lo que la organización entrega una vez, una carpeta por periodo contable y una por año presupuestal.",
@@ -91,7 +91,8 @@
             "^pbc"
           ]
         }
-      ]
+      ],
+      "ruta": "\\d{4}-\\d{2}"
     },
     {
       "id": "presupuesto",
@@ -143,7 +144,8 @@
             "^acta"
           ]
         }
-      ]
+      ],
+      "ruta": "presupuesto-\\d{4}"
     }
   ],
   "estado": {

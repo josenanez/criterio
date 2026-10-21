@@ -114,8 +114,8 @@ PUERTAS = [
      "Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-cfo/evaluar.py"), "--agente", "tomas"],
      "Que Tomás levante cada señal sembrada en el presupuesto, y ninguna en los controles"),
-    ("estructura", [sys.executable, str(RAIZ / "scripts/cfo.py"), "--check"],
-     "Que el diseño de la familia CFO salga de sus fuentes y no se apoye en una por verificar"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/familias.py"), "--check"],
+     "Que el diseño de las familias CFO y CLO salga de sus fuentes y no se apoye en una por verificar"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/resultados.py"), "--selftest"],
      "Que la página de resultados no deje una puerta sin dueño"),
 ]

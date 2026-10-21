@@ -22,7 +22,7 @@ Primera versión: NIIF adoptadas localmente en Colombia y Ecuador, con la factur
 
 ## Los comandos
 
-<!-- cfo:comandos · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
 | # | Comando | Qué entrega |
 |---|---|---|
 | 0 | `/criterio-finance:finance-setup` | La configuración, el inventario de la carpeta y la primera ficha del cierre |
@@ -38,13 +38,13 @@ Primera versión: NIIF adoptadas localmente en Colombia y Ecuador, con la factur
 
 ## Los skills
 
-<!-- cfo:skills · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:skills · generado por scripts/familias.py; no se edita a mano -->
 `audit-support` · `close-checklist` · `close-record` · `einvoice-matching` · `finance-intake` · `ledger-tieout` · `reconciliation`
 <!-- /cfo:skills -->
 
 ## Lo que cuesta hoy
 
-<!-- cfo:cifras · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:cifras · generado por scripts/familias.py; no se edita a mano -->
 | Cifra | Fuente |
 |---|---|
 | **44 %** cerraba el trimestre en seis días hábiles en 2023, contra 49 % en 2019 | [Ventana Research / ISG, Smart Financial Close, 2023](https://research.isg-one.com/analyst-perspectives/research-reveals-the-importance-of-technology-in-shortening-the-close) — No indicada en la nota |

@@ -72,8 +72,11 @@ if PRODUCTO.exists():
     codigo += "\n" + PRODUCTO.read_text(encoding="utf-8")
 # La familia CFO calcula en su propio motor, y sus nombres resuelven ahí.
 FINANZAS = RAIZ / "plugins" / "criterio-finance" / "scripts" / "finanzas.py"
-if FINANZAS.exists():
-    codigo += "\n" + FINANZAS.read_text(encoding="utf-8")
+LEGAL = RAIZ / "plugins" / "criterio-legal" / "scripts" / "legal.py"
+NUCLEO = RAIZ / "plugins" / "criterio-finance" / "scripts" / "nucleo.py"
+for _m in (FINANZAS, LEGAL, NUCLEO):
+    if _m.exists():
+        codigo += "\n" + _m.read_text(encoding="utf-8")
 texto_docs = {d: d.read_text(encoding="utf-8") for d in DOCS if d.exists()}
 todo = "\n".join(texto_docs.values())
 
@@ -121,8 +124,10 @@ decir(OK, f"{len(en_codigo_th)} umbrales por defecto: {', '.join(sorted(en_codig
 candidatos = set(re.findall(r"`(silent_days|variance_\w+|committed_pct|stale_\w+|"
                             r"declaration_\w+|rebaseline_\w+)`", todo)) - en_codigo
 # Los umbrales y las señales de la familia CFO viven en su motor.
-if FINANZAS.exists():
-    _fin = FINANZAS.read_text(encoding="utf-8")
+for _mot in (FINANZAS, LEGAL):
+    if not _mot.exists():
+        continue
+    _fin = _mot.read_text(encoding="utf-8")
     candidatos -= set(re.findall(r'"([a-z_]+)":', re.search(r'"thresholds": \{(.*?)\}', _fin, re.S).group(1)))
     candidatos -= set(re.findall(r'alerta\("([a-z_]+)"', _fin))
 huerfanos = sorted(t for t in candidatos if t not in en_codigo_th)

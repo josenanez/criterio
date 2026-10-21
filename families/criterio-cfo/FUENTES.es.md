@@ -1,11 +1,11 @@
 # criterio-cfo · las fuentes
 
-<!-- generado por scripts/cfo.py; no se edita a mano, desde fuentes.json -->
+<!-- generado por scripts/familias.py; no se edita a mano, desde fuentes.json -->
 
 Toda fuente que la familia usa para procesar, documentar o probar, con su versión, su enlace, la
 fecha en que se consultó y su estado. Es la única lista: el diseño, los skills, los lectores y el
 material de prueba citan la fuente por su identificador, no copian su contenido. Se edita en
-[`fuentes.json`](fuentes.json); este archivo lo escribe `scripts/cfo.py`.
+[`fuentes.json`](fuentes.json); este archivo lo escribe `scripts/familias.py`.
 
 **Estados.** *Verificada*: se consultó el texto publicado por quien la emite. *Por verificar*: se
 conoce por una fuente secundaria o falta confirmar la versión vigente; no se construye nada sobre
@@ -95,7 +95,7 @@ puerta falla si el motor usa uno que no está, o uno por verificar.
 
 1. Se agrega en `fuentes.json` con el siguiente identificador libre —F-NN para fuentes técnicas
    y normativas, C-NN para cifras de terceros— y la fila entera: versión, enlace al emisor, fecha
-   de consulta, estado y uso. Después se corre `python3 scripts/cfo.py`.
+   de consulta, estado y uso. Después se corre `python3 scripts/familias.py`.
 2. Un campo de factura que procese el motor va en la lista de campos de su fuente, con su
    identificador en el anexo; la puerta falla si el motor usa uno que no está verificado.
 3. Mientras diga «por verificar», nada se construye sobre ella: la puerta falla si un comando

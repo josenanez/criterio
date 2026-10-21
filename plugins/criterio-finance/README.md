@@ -22,7 +22,7 @@ Fork of Anthropic's `finance` plugin: the upstream closes against US GAAP and SO
 
 ## The commands
 
-<!-- cfo:comandos · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
 | # | Command | What it delivers |
 |---|---|---|
 | 0 | `/criterio-finance:finance-setup` | The configuration, the folder inventory and the first close record |
@@ -38,13 +38,13 @@ Fork of Anthropic's `finance` plugin: the upstream closes against US GAAP and SO
 
 ## The skills
 
-<!-- cfo:skills · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:skills · generado por scripts/familias.py; no se edita a mano -->
 `audit-support` · `close-checklist` · `close-record` · `einvoice-matching` · `finance-intake` · `ledger-tieout` · `reconciliation`
 <!-- /cfo:skills -->
 
 ## What it costs today
 
-<!-- cfo:cifras · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:cifras · generado por scripts/familias.py; no se edita a mano -->
 | Figure | Source |
 |---|---|
 | **44%** closed the quarter within six working days in 2023, down from 49% in 2019 | [Ventana Research / ISG, Smart Financial Close, 2023](https://research.isg-one.com/analyst-perspectives/research-reveals-the-importance-of-technology-in-shortening-the-close) — Not stated in the note |

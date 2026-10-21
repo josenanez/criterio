@@ -26,14 +26,14 @@ estado. El diseño, la documentación y las pruebas citan esas fuentes por su id
 
 **De dónde sale este documento.** Las tablas de agentes, carpetas, señales, comandos y cifras no se
 escriben aquí: salen de tres fuentes, [`familia.json`](familia.json), [`carpetas.json`](carpetas.json)
-y [`fuentes.json`](fuentes.json), que `scripts/cfo.py` escribe en este diseño, en `FUENTES.es.md`,
+y [`fuentes.json`](fuentes.json), que `scripts/familias.py` escribe en este diseño, en `FUENTES.es.md`,
 en los README de `criterio-finance` y, con `scripts/criterio-cfo.mjs`, en el portal. Una puerta de
 `scripts/verificar.py` falla si alguna copia no cuadra, si un comando cita una carpeta que no está
 en la estructura o si se apoya en una fuente por verificar.
 
 ## Un agente por rol
 
-<!-- cfo:agentes · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:agentes · generado por scripts/familias.py; no se edita a mano -->
 | Rol | Agente | Plugin | Qué hace |
 |---|---|---|---|
 | Contralor | **Clara** — de *clarus*: que los libros digan lo mismo que los soportes | `criterio-finance` | El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica contra la contabilidad y el paquete para el auditor |
@@ -73,7 +73,7 @@ verifican campo por campo antes de escribir el lector ([ADR 0006](../../docs/dec
 
 ## Las señales: lo que calcula el código
 
-<!-- cfo:senales · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:senales · generado por scripts/familias.py; no se edita a mano -->
 **Clara · Contralor**
 
 | Señal | Se levanta cuando |
@@ -138,7 +138,7 @@ diez en diez, como en la familia PMO, en el orden en que se trabaja el cierre y 
 Cada documento tiene un solo lugar. La contabilidad del periodo vive en `10-contabilidad/`: Clara
 la cierra y Tomás saca de ahí la ejecución del presupuesto, sin copias entre carpetas.
 
-<!-- cfo:carpetas · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:carpetas · generado por scripts/familias.py; no se edita a mano -->
 Una carpeta por entidad, con el NIT o el RUC al inicio del nombre: `900123456-banco-andino`. Dentro, lo que la organización entrega una vez, una carpeta por periodo contable y una por año presupuestal.
 
 ```
@@ -230,7 +230,7 @@ orden, de lo más importante a lo menos:
 `finance-setup` va primero porque los demás lo necesitan: compara la carpeta con la estructura
 recomendada, hace las preguntas que ningún documento responde y deja la configuración.
 
-<!-- cfo:comandos-clara · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:comandos-clara · generado por scripts/familias.py; no se edita a mano -->
 | # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |
 |---|---|---|---|---|
 | 0 | `finance-setup` | La carpeta raíz. Preguntas: entidad y NIT o RUC, país, grupo NIIF (F-05, F-06), ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas | Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada | Configuración guardada; inventario por carpeta (qué hay, qué falta, qué está fuera de su lugar y dónde iría); checklist cargado o recomendado; la primera ficha del cierre |
@@ -269,7 +269,7 @@ contabilidad: toma la ejecución de `10-contabilidad/`, la lleva a cada línea c
 organización y la pone al lado del presupuesto aprobado. La proyección siempre sale con su
 supuesto escrito, y la decisión del comité la toma una persona.
 
-<!-- cfo:comandos-tomas · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:comandos-tomas · generado por scripts/familias.py; no se edita a mano -->
 | # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |
 |---|---|---|---|---|
 | 0 | `budget-setup` | La carpeta raíz. Preguntas: entidad, año presupuestal, áreas o centros de costo con su responsable, la versión aprobada y su acta, el mapeo de cuentas a líneas presupuestales (en `00-referencia/`), los umbrales de desviación y, si la organización usa la familia PMO, dónde están sus fichas | Inventario de `10-aprobado/` a `40-actas/` y de los periodos con `10-contabilidad/`; identifica la versión aprobada por su acta; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada | Configuración guardada; inventario por carpeta (qué hay, qué falta, qué está fuera de su lugar y dónde iría); la versión aprobada que tomó y el acta que la sostiene; la primera ficha de cada área |
@@ -310,7 +310,7 @@ prueba en la ronda, sobre el mismo material. La familia se declara probada con u
 
 ## Cifras de terceros
 
-<!-- cfo:cifras · generado por scripts/cfo.py; no se edita a mano -->
+<!-- cfo:cifras · generado por scripts/familias.py; no se edita a mano -->
 Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner).
 <!-- /cfo:cifras -->
 

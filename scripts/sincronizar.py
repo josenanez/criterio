@@ -59,6 +59,7 @@ FUENTE_CFO = RAIZ / "plugins" / "criterio-finance" / "scripts"
 SCRIPTS_CFO = {
     "criterio-budget": {
         "finanzas.py": "el motor de los dos: Tomás toma la ejecución de la misma contabilidad que cierra Clara",
+        "nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
     },
 }
 SKILLS_CFO = {
