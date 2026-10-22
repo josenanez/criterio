@@ -171,16 +171,47 @@ def _norma(x):
     return x
 
 
-def _igual(esperado, obtenido) -> bool:
-    """Igual campo por campo, con una tolerancia: un texto del agente que contiene el de la clave
-    —el mismo compromiso, dicho con más detalle— cuenta como bien. La diferencia se reporta igual."""
+def _renglon(texto: str, lugar: str):
+    """El renglón (desde 1) al que apunta una cita: «línea 5», o «punto 1» —el ítem numerado—."""
+    m = re.fullmatch(r"\s*l[ií]nea\s+(\d+)\s*", lugar, re.I)
+    if m:
+        return int(m.group(1))
+    m = re.fullmatch(r"\s*punto\s+(\d+)\s*", lugar, re.I)
+    if m:
+        for i, linea in enumerate(texto.splitlines(), start=1):
+            if re.match(rf"\s*{m.group(1)}[.)]\s", linea):
+                return i
+    return None
+
+
+def _misma_cita(esperada, obtenida, espacio) -> bool:
+    """Dos citas del mismo archivo que señalan el mismo renglón son la misma cita, aunque una
+    diga «línea 5» y la otra «punto 1» (CLO-5). Sin el espacio, o si no se resuelven, no."""
+    if espacio is None or not isinstance(esperada, str) or not isinstance(obtenida, str):
+        return False
+    (a, _, la), (b, _, lb) = esperada.partition(","), obtenida.partition(",")
+    if a.strip() != b.strip() or not la or not lb:
+        return False
+    hallado = next(iter(sorted(espacio.glob(f"**/{a.strip()}"))), None)
+    if hallado is None:
+        return False
+    texto = hallado.read_text(encoding="utf-8", errors="replace")
+    ra, rb = _renglon(texto, la), _renglon(texto, lb)
+    return ra is not None and ra == rb
+
+
+def _igual(esperado, obtenido, espacio=None) -> bool:
+    """Igual campo por campo, con dos tolerancias: un texto del agente que contiene el de la clave
+    —el mismo compromiso, dicho con más detalle— cuenta como bien, y una cita (`source`) que señala
+    el mismo renglón del mismo archivo también. La diferencia se reporta igual."""
     esperado, obtenido = _norma(esperado), _norma(obtenido)
     if isinstance(esperado, str) and isinstance(obtenido, str):
         return esperado.strip().lower() in obtenido.strip().lower()
     if isinstance(esperado, dict) and isinstance(obtenido, dict):
-        return all(_igual(v, obtenido.get(k)) for k, v in esperado.items())
+        return all(_igual(v, obtenido.get(k), espacio) or (k == "source" and _misma_cita(v, obtenido.get(k), espacio))
+                   for k, v in esperado.items())
     if isinstance(esperado, list) and isinstance(obtenido, list):
-        return len(esperado) == len(obtenido) and all(_igual(a, b) for a, b in zip(esperado, obtenido))
+        return len(esperado) == len(obtenido) and all(_igual(a, b, espacio) for a, b in zip(esperado, obtenido))
     return esperado == obtenido
 
 
@@ -225,7 +256,7 @@ def calificar(a) -> int:
                 if ruta.split(".")[0] in PROPIOS:
                     continue
                 extraccion.append({"ficha": f"{sub}/{k}" if k else sub, "campo": ruta, "esperado": valor,
-                                   "obtenido": hecho.get(ruta), "bien": _igual(valor, hecho.get(ruta))})
+                                   "obtenido": hecho.get(ruta), "bien": _igual(valor, hecho.get(ruta), espacio)})
     tokens = sum(_j(f).get("tokens") or 0 for f in (carpeta / "salidas").glob("*.json"))
     res = {"entidad": clave["entidad"], "agentes": sorted(corridos), "tokens": tokens,
            "senales": {"esperadas": len(esperado), "acertadas": len(ok), "de_mas": sorted(map(list, sobran)),
