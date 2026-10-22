@@ -273,27 +273,50 @@ def publicar(a) -> int:
     return 0
 
 
+ESTADOS = {"verificado": "corregido y verificado", "por-verificar": "corregido, por verificar", "abierto": "abierto"}
+ORIGENES = {"agente": "la lectura del agente", "codigo": "el código", "instrucciones": "las instrucciones del agente",
+            "material": "los datos de prueba", "clave": "la clave de respuestas", "arnes": "el arnés de prueba"}
+
+
+def _material(sigla: str, carpeta: str) -> str:
+    """Qué material corrió una carpeta, por industria y país: las tablas no nombran entidades."""
+    mat = RAIZ / "tests" / f"criterio-{sigla}" / "material"
+    ent = max((e.name for e in mat.iterdir() if carpeta == e.name or carpeta.startswith(f"{e.name}-")), key=len)
+    k = _j(mat / ent / "clave.json")
+    sembrado = len(k["siembra"]) if isinstance(k["siembra"], list) else sum(len(v) for v in k["siembra"].values())
+    return f"{'control' if sembrado == 0 else k['industria']} · {k['pais']}"
+
+
 def resumen(_a) -> int:
-    """La tabla de cada familia, desde las calificaciones publicadas. No se escribe a mano."""
+    """La tabla de cada familia y sus defectos, desde las calificaciones y defectos.json. No se escribe a mano."""
     for fam in sorted(d for d in EVIDENCIAS.iterdir() if d.is_dir()) if EVIDENCIAS.is_dir() else []:
         filas = []
         for c in sorted(fam.glob("ronda-*/*/calificacion.json")):
             d = _j(c)
             rep_ = sum((_j(f).get("tokens") or 0) for f in (c.parent / "repetidas").glob("*.json")) if (c.parent / "repetidas").is_dir() else 0
             s_, e_ = d["senales"], d["extraccion"]
-            filas.append(f"| {c.parent.parent.name} | [{c.parent.name}]({c.parent.parent.name}/{c.parent.name}/) | {d['entidad']} | "
+            filas.append(f"| {c.parent.parent.name} | [{c.parent.name}]({c.parent.parent.name}/{c.parent.name}/) | {_material(fam.name, c.parent.name)} | "
                          f"{', '.join(d['agentes'])} | {s_['acertadas']} de {s_['esperadas']} · {len(s_['de_mas'])} de más | "
                          f"{e_['bien']} de {e_['campos']} | {d['tokens'] / 1e6:.2f} M" + (f" + {rep_ / 1e6:.2f} M repetidos" if rep_ else "") + " |")
+        defectos = _j(fam / "defectos.json")["defectos"] if (fam / "defectos.json").is_file() else []
+        tabla_d = ""
+        if defectos:
+            tabla_d = ("\n## Los defectos que encontraron\n\n"
+                       "Cada uno con su origen y el commit que lo corrige, desde `defectos.json`. Se da por verificado solo "
+                       "cuando una corrida posterior a la corrección da lo esperado.\n\n"
+                       "| Id | Ronda | Carpeta | Origen | Qué pasó | Corrección | Commit | Estado |\n|---|---|---|---|---|---|---|---|\n"
+                       + "\n".join(f"| {x['id']} | {x['ronda']} | {x.get('carpeta', '—')} | {ORIGENES[x['origen']]} | {x['es']['que']} | "
+                                    f"{x['es']['correccion']} | {x['commit'] or '—'} | {ESTADOS[x['estado']]} |" for x in defectos) + "\n")
         texto = (f"# criterio-{fam.name} · las rondas con el agente\n\n"
-                 "<!-- generado por tests/ronda_familia.py resumen desde cada calificacion.json; no se edita a mano -->\n\n"
+                 "<!-- generado por tests/ronda_familia.py resumen desde cada calificacion.json y defectos.json; no se edita a mano -->\n\n"
                  "Cada fila es una entidad del material corrida por los agentes con `tests/ronda_familia.py`, con un tope "
                  "de tokens fijado antes de empezar. Las señales se comparan por su nombre y su clave contra la clave que "
                  "el agente no ve; la extracción, campo por campo contra lo que traen los documentos escritos. En "
                  "`repetidas/` están las corridas que se repitieron después de corregir un defecto, con su costo.\n\n"
-                 "| Ronda | Carpeta | Entidad | Agentes | Señales | Extracción | Tokens |\n|---|---|---|---|---|---|---|\n"
-                 + "\n".join(filas) + "\n")
+                 "| Ronda | Carpeta | Material | Agentes | Señales | Extracción | Tokens |\n|---|---|---|---|---|---|---|\n"
+                 + "\n".join(filas) + "\n" + tabla_d)
         (fam / "RONDAS.md").write_text(texto, encoding="utf-8")
-        print(f"  {(fam / 'RONDAS.md').relative_to(RAIZ)} · {len(filas)} filas")
+        print(f"  {(fam / 'RONDAS.md').relative_to(RAIZ)} · {len(filas)} filas · {len(defectos)} defectos")
     return 0
 
 

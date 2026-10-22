@@ -1,0 +1,57 @@
+{
+  "nota": "Los defectos que encontraron las rondas con el agente de la familia CFO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica.",
+  "defectos": [
+    {
+      "id": "CFO-1",
+      "ronda": 1,
+      "carpeta": "banca",
+      "agentes": ["tomas"],
+      "origen": "instrucciones",
+      "commit": "7ba9570",
+      "estado": "verificado",
+      "verificacion": "banca",
+      "es": {
+        "que": "Tomás proponía la ruta de las fichas de la PMO sin buscarlas antes, y el motor no avisaba cuando no encontraba ninguna.",
+        "correccion": "Tomás busca las fichas antes de proponer la ruta y el motor dice cuando no hay ninguna. La instalación se repitió en banca y dio lo esperado."
+      },
+      "en": {
+        "que": "Tomás proposed the path to the PMO records without looking for them first, and the engine said nothing when it found none.",
+        "correccion": "Tomás looks for the records before proposing the path and the engine says when there are none. Setup was rerun on banking and gave the expected result."
+      }
+    },
+    {
+      "id": "CFO-2",
+      "ronda": 1,
+      "carpeta": "banca",
+      "agentes": [],
+      "origen": "arnes",
+      "commit": "7ba9570",
+      "estado": "por-verificar",
+      "es": {
+        "que": "La calificación no igualaba una cifra escrita de otra forma y rechazaba un texto correcto con más detalle que la clave.",
+        "correccion": "La calificación iguala las cifras y acepta el texto que contiene lo que pide la clave. Se verifica en la ronda 2."
+      },
+      "en": {
+        "que": "Grading did not match a figure written another way and rejected a correct text with more detail than the key.",
+        "correccion": "Grading matches figures and accepts text that contains what the key asks for. Verified in round 2."
+      }
+    },
+    {
+      "id": "CFO-3",
+      "ronda": 1,
+      "carpeta": "control-co",
+      "agentes": ["clara", "tomas"],
+      "origen": "codigo",
+      "commit": "39e892d",
+      "estado": "por-verificar",
+      "es": {
+        "que": "Un cambio de carpeta del agente hacía que el motor escribiera el estado y las señales en otra parte: resolvía las rutas desde la sesión y no desde la carpeta de .criterio.",
+        "correccion": "El motor resuelve las rutas desde la carpeta de .criterio y la calificación solo toma el estado que dice la configuración. Se verifica en la ronda 2."
+      },
+      "en": {
+        "que": "When the agent changed folder, the engine wrote state and signals somewhere else: it resolved paths from the session, not from the .criterio folder.",
+        "correccion": "The engine resolves paths from the .criterio folder and grading only takes the state the configuration names. Verified in round 2."
+      }
+    }
+  ]
+}

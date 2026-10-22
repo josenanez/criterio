@@ -1,0 +1,92 @@
+{
+  "nota": "Los defectos que encontraron las rondas con el agente de la familia CLO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica.",
+  "defectos": [
+    {
+      "id": "CLO-1",
+      "ronda": 1,
+      "carpeta": "banca",
+      "agentes": ["constanza"],
+      "origen": "codigo",
+      "commit": "f80f39f",
+      "estado": "verificado",
+      "verificacion": "banca",
+      "es": {
+        "que": "Constanza no tomaba las fichas de Fidel del estado compartido cuando la configuración no las nombraba, y las rutas de las fichas no se resolvían desde la carpeta de .criterio.",
+        "correccion": "Constanza las toma del estado compartido y las rutas se resuelven desde .criterio. El estado del cumplimiento se repitió en banca: 10 de 10 señales."
+      },
+      "en": {
+        "que": "Constanza did not take Fidel’s records from the shared state when the configuration did not name them, and record paths were not resolved from the .criterio folder.",
+        "correccion": "Constanza takes them from the shared state and paths are resolved from .criterio. Compliance status was rerun on banking: 10 of 10 signals."
+      }
+    },
+    {
+      "id": "CLO-2",
+      "ronda": 1,
+      "agentes": [],
+      "origen": "arnes",
+      "commit": "f80f39f",
+      "estado": "por-verificar",
+      "es": {
+        "que": "La calificación contaba señales de un periodo distinto del de la clave y las preguntas que el agente escribe de suyo.",
+        "correccion": "La ronda califica solo el periodo de la clave y no las preguntas propias del agente. Se verifica en la ronda 2."
+      },
+      "en": {
+        "que": "Grading counted signals from a period other than the key’s and the questions the agent writes on its own.",
+        "correccion": "The round grades only the key’s period, not the agent’s own questions. Verified in round 2."
+      }
+    },
+    {
+      "id": "CLO-3",
+      "ronda": 1,
+      "carpeta": "control-co",
+      "agentes": ["constanza"],
+      "origen": "codigo",
+      "commit": "4df0442",
+      "estado": "verificado",
+      "verificacion": "control-co",
+      "es": {
+        "que": "Constanza usó la configuración de Fidel: el motor no rechazaba la configuración de otro agente.",
+        "correccion": "El motor rechaza la configuración de otro agente y familias.py comprueba que cada carpeta sea la de familia.json. Los comandos de Constanza se repitieron en el control: ninguna señal de más."
+      },
+      "en": {
+        "que": "Constanza used Fidel’s configuration: the engine did not reject another agent’s configuration.",
+        "correccion": "The engine rejects another agent’s configuration and familias.py checks each folder against familia.json. Constanza’s commands were rerun on the control: no extra signals."
+      }
+    },
+    {
+      "id": "CLO-4",
+      "ronda": 1,
+      "carpeta": "control-co",
+      "agentes": ["fidel"],
+      "origen": "instrucciones",
+      "commit": "df6a04b",
+      "estado": "verificado",
+      "verificacion": "control-co-fidel",
+      "es": {
+        "que": "Fidel dejaba fuera de la ficha las obligaciones que vencen al final del contrato, como el informe final o el acta de liquidación: faltó una en cada uno de los cinco contratos.",
+        "correccion": "La skill de la ficha pide todas las obligaciones con fecha, en el orden de sus cláusulas. Fidel se corrió de nuevo sobre el control: 128 de 128 datos."
+      },
+      "en": {
+        "que": "Fidel left out of the record the obligations due at the end of the contract, such as the final report or the settlement minutes: one was missing in each of the five contracts.",
+        "correccion": "The record skill asks for every dated obligation, in clause order. Fidel was rerun on the control: 128 of 128 data points."
+      }
+    },
+    {
+      "id": "CLO-5",
+      "ronda": 1,
+      "carpeta": "control-co",
+      "agentes": ["constanza"],
+      "origen": "arnes",
+      "commit": null,
+      "estado": "abierto",
+      "es": {
+        "que": "La calificación compara la cita como texto: Constanza citó «línea 5» y la clave «punto 1», que son el mismo renglón del boletín. Por eso el control da 126 de 132 y no 127.",
+        "correccion": "Pendiente: que la calificación acepte la cita por línea cuando señala el mismo lugar que la clave."
+      },
+      "en": {
+        "que": "Grading compares the citation as text: Constanza cited “line 5” and the key “item 1”, which are the same line of the bulletin. That is why the control scores 126 of 132 and not 127.",
+        "correccion": "Pending: grading should accept a line citation when it points to the same place as the key."
+      }
+    }
+  ]
+}
