@@ -354,7 +354,11 @@ def cargar_config(ruta: Path) -> tuple[dict, Path]:
     cfg = leer_json(ruta)
     if cfg is None:
         raise SystemExit(f"{ruta} no existe: corre el setup del agente")
-    base = Path.cwd()
+    # Las rutas relativas se resuelven desde la carpeta donde vive `.criterio/`, no desde donde
+    # esté parada la sesión: un `cd` previo dejaba el estado escrito en otra parte y levantaba
+    # señales sobre una carpeta vacía.
+    r = Path(ruta).resolve()
+    base = next((x.parent for x in r.parents if x.name == ".criterio"), Path.cwd())
 
     def ruta_de(k):
         v = (cfg.get("paths") or {}).get(k)

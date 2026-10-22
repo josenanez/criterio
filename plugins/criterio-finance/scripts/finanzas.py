@@ -1450,6 +1450,21 @@ def selftest() -> int:
     ok("fecha dd/mm/aaaa", fecha("21/10/2012"), dt.date(2012, 10, 21))
     ok("fecha serie de Excel", fecha("45930"), dt.date(2025, 9, 30))
     ok("D+3 en días hábiles", _limite("D+3", "2026-09", set()), dt.date(2026, 10, 5))
+    # Las rutas de la configuración no dependen de dónde esté parada la sesión.
+    import os
+    import tempfile
+    with tempfile.TemporaryDirectory() as t:
+        raiz_t = Path(t).resolve()
+        c = raiz_t / ".criterio" / "finanzas" / "1" / "config.json"
+        N.escribir_json(c, {"paths": {"documents": "docs", "state": "estado"}})
+        (raiz_t / "otra").mkdir()
+        antes = os.getcwd()
+        os.chdir(raiz_t / "otra")
+        try:
+            cfg_t, _ = N.cargar_config(c)
+        finally:
+            os.chdir(antes)
+        ok("rutas desde la carpeta de .criterio, no desde la sesión", (cfg_t["_docs"], cfg_t["_estado"]), (raiz_t / "docs", raiz_t / "estado"))
     # El ejemplo de la ficha técnica del SRI (F-09): la clave 2110201101179214673900110020010000000011234567813
     ok("módulo 11 del ejemplo del SRI", digito_mod11("211020110117921467390011002001000000001123456781"), 3)
     ca = clave_acceso("2110201101179214673900110020010000000011234567813")

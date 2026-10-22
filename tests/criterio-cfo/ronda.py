@@ -169,10 +169,14 @@ def calificar(a) -> int:
     carpeta = Path(a.carpeta).expanduser()
     espacio, clave = carpeta / "espacio", _j(carpeta / "clave.json")
     obtenido, fichas = set(), {}
+    # Solo el estado que dice la configuración que dejó el agente: un archivo escrito en otra
+    # parte no es el resultado, y no se califica.
+    estados = {espacio / _j(c)["paths"]["state"] for c in espacio.glob(".criterio/*/*/config.json")
+               if (_j(c).get("paths") or {}).get("state")}
     for rol, sub in (("clara", "cierre"), ("tomas", "presupuesto")):
-        for f in sorted(espacio.rglob(f"{sub}/*/resultados.json")):
+        for f in sorted(x for e in estados for x in e.glob(f"{sub}/*/resultados.json")):
             obtenido |= {(x["signal"], x["key"]) for x in _j(f).get("alertas") or [] if x["signal"] in DE[rol]}
-        fichas[sub] = [_j(f) for f in sorted(espacio.rglob(f"{sub}/*/ficha.json"))]
+        fichas[sub] = [_j(f) for f in sorted(x for e in estados for x in e.glob(f"{sub}/*/ficha.json"))]
     corridos = {_j(f)["agente"] for f in (carpeta / "salidas").glob("*.json")}
     esperado = {(x["signal"], x["key"]) for x in clave["esperado"]
                 if any(x["signal"] in DE[r] for r in corridos)}
