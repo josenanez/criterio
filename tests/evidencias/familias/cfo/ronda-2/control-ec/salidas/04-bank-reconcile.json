@@ -1,0 +1,30 @@
+{
+  "n": 4,
+  "agente": "clara",
+  "comando": "bank-reconcile",
+  "argumento": "",
+  "inicio": "2026-10-22T22:59:30",
+  "estado": "success",
+  "error": false,
+  "segundos": 30,
+  "turnos": 8,
+  "tokens": 340023,
+  "tokens_salida": 3356,
+  "costo_usd": 0.1367123,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-bank-reconcile-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-bank-reconcile-1.md",
+      "estado-finanzas/1790000001001-comercial-control/cierre/2026-09/reporte-bank-reconcile.md",
+      "estado-finanzas/1790000001001-comercial-control/corridas/2026-10-06-bank-reconcile-1.md",
+      "estado-finanzas/1790000001001-comercial-control/corridas/salida-bank-reconcile.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790000001001-comercial-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "n": 4,
+  "agente": "clara",
+  "comando": "bank-reconcile",
+  "argumento": "",
+  "inicio": "2026-10-22T21:58:02",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 8,
+  "tokens": 342771,
+  "tokens_salida": 4418,
+  "costo_usd": 0.1627967,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-bank-reconcile-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-bank-reconcile-1.md",
+      "estado-finanzas/900123456-banco-andino/cierre/2026-09/reporte-bank-reconcile.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-bank-reconcile-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-bank-reconcile.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

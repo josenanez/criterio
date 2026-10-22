@@ -5,7 +5,9 @@
       "id": "CFO-1",
       "ronda": 1,
       "carpeta": "banca",
-      "agentes": ["tomas"],
+      "agentes": [
+        "tomas"
+      ],
       "origen": "instrucciones",
       "commit": "7ba9570",
       "estado": "verificado",
@@ -26,31 +28,57 @@
       "agentes": [],
       "origen": "arnes",
       "commit": "7ba9570",
-      "estado": "por-verificar",
+      "estado": "verificado",
       "es": {
         "que": "La calificación no igualaba una cifra escrita de otra forma y rechazaba un texto correcto con más detalle que la clave.",
-        "correccion": "La calificación iguala las cifras y acepta el texto que contiene lo que pide la clave. Se verifica en la ronda 2."
+        "correccion": "La calificación iguala las cifras y acepta el texto que contiene lo que pide la clave. Verificado en la ronda 2: 48 de 49 datos en las seis entidades."
       },
       "en": {
         "que": "Grading did not match a figure written another way and rejected a correct text with more detail than the key.",
-        "correccion": "Grading matches figures and accepts text that contains what the key asks for. Verified in round 2."
-      }
+        "correccion": "Grading matches figures and accepts text that contains what the key asks for. Verified in round 2: 48 of 49 data points across the six entities."
+      },
+      "verificacion": "banca",
+      "ronda_verificacion": 2
     },
     {
       "id": "CFO-3",
       "ronda": 1,
       "carpeta": "control-co",
-      "agentes": ["clara", "tomas"],
+      "agentes": [
+        "clara",
+        "tomas"
+      ],
       "origen": "codigo",
       "commit": "39e892d",
-      "estado": "por-verificar",
+      "estado": "verificado",
       "es": {
         "que": "Un cambio de carpeta del agente hacía que el motor escribiera el estado y las señales en otra parte: resolvía las rutas desde la sesión y no desde la carpeta de .criterio.",
-        "correccion": "El motor resuelve las rutas desde la carpeta de .criterio y la calificación solo toma el estado que dice la configuración. Se verifica en la ronda 2."
+        "correccion": "El motor resuelve las rutas desde la carpeta de .criterio y la calificación solo toma el estado que dice la configuración. Verificado en la ronda 2: ninguna señal de más en los dos controles."
       },
       "en": {
         "que": "When the agent changed folder, the engine wrote state and signals somewhere else: it resolved paths from the session, not from the .criterio folder.",
-        "correccion": "The engine resolves paths from the .criterio folder and grading only takes the state the configuration names. Verified in round 2."
+        "correccion": "The engine resolves paths from the .criterio folder and grading only takes the state the configuration names. Verified in round 2: no extra signals in either control."
+      },
+      "verificacion": "control-co",
+      "ronda_verificacion": 2
+    },
+    {
+      "id": "CFO-4",
+      "ronda": 2,
+      "carpeta": "mineria",
+      "agentes": [
+        "tomas"
+      ],
+      "origen": "arnes",
+      "commit": null,
+      "estado": "abierto",
+      "es": {
+        "que": "La calificación compara el compromiso del comité como texto: la clave dice «Revisar el contrato de vigilancia» y Tomás escribió «Administración revisa el contrato de vigilancia antes del próximo comité», el mismo compromiso con el mismo responsable y la misma acta. Por eso minería da 8 de 9 y no 9.",
+        "correccion": "Pendiente: decidir cómo la calificación reconoce el mismo compromiso dicho con otras palabras sin volverse permisiva."
+      },
+      "en": {
+        "que": "Grading compares the committee commitment as text: the key says “Revisar el contrato de vigilancia” and Tomás wrote “Administración revisa el contrato de vigilancia antes del próximo comité”, the same commitment with the same owner and the same minutes. That is why mining scores 8 of 9 and not 9.",
+        "correccion": "Pending: decide how grading recognises the same commitment in other words without becoming lenient."
       }
     }
   ]

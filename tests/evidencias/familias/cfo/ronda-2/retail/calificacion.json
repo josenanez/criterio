@@ -1,0 +1,19 @@
+{
+  "entidad": "Almacenes Caribe",
+  "agentes": [
+    "clara",
+    "tomas"
+  ],
+  "tokens": 8818063,
+  "senales": {
+    "esperadas": 10,
+    "acertadas": 10,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

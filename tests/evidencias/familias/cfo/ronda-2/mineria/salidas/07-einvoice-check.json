@@ -1,0 +1,30 @@
+{
+  "n": 7,
+  "agente": "clara",
+  "comando": "einvoice-check",
+  "argumento": "",
+  "inicio": "2026-10-22T22:36:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 9,
+  "tokens": 447049,
+  "tokens_salida": 2392,
+  "costo_usd": 0.14234439999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-einvoice-check-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-einvoice-check-1.md",
+      "estado-finanzas/0990054321001-minera-condor/cierre/2026-09/reporte-einvoice-check.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/2026-10-06-einvoice-check-1.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/salida-einvoice-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

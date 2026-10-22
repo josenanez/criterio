@@ -1,0 +1,30 @@
+{
+  "n": 7,
+  "agente": "clara",
+  "comando": "einvoice-check",
+  "argumento": "",
+  "inicio": "2026-10-22T22:49:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 9,
+  "tokens": 445635,
+  "tokens_salida": 2793,
+  "costo_usd": 0.14537730000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-einvoice-check-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-einvoice-check-1.md",
+      "estado-finanzas/900765432-almacenes-caribe/cierre/2026-09/reporte-einvoice-check.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/2026-10-06-einvoice-check-1.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/salida-einvoice-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900765432-almacenes-caribe/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "tomas",
+  "comando": "variance-report",
+  "argumento": "",
+  "inicio": "2026-10-22T22:03:47",
+  "estado": "success",
+  "error": false,
+  "segundos": 48,
+  "turnos": 10,
+  "tokens": 453271,
+  "tokens_salida": 4382,
+  "costo_usd": 0.18479230000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-variance-report-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-variance-report-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-variance-report-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-variance-report.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

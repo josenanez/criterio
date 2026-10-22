@@ -1,0 +1,37 @@
+{
+  "n": 2,
+  "agente": "clara",
+  "comando": "close-scan",
+  "argumento": "",
+  "inicio": "2026-10-22T22:20:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 16,
+  "tokens": 739519,
+  "tokens_salida": 4855,
+  "costo_usd": 0.22015460000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-close-scan-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-close-scan-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cache/2026-09/40-soportes/C-01-soporte.md.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cache/2026-09/40-soportes/C-02-soporte.md.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cache/2026-09/40-soportes/C-03-soporte.md.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cache/2026-09/40-soportes/C-04-soporte.md.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cache/2026-09/40-soportes/correo-estado-del-cierre.md.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cache/manifest.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cierre/2026-09/reporte-close-scan.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-close-scan-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/salida-close-scan.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/indice.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

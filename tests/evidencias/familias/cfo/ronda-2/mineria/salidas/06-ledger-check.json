@@ -1,0 +1,30 @@
+{
+  "n": 6,
+  "agente": "clara",
+  "comando": "ledger-check",
+  "argumento": "",
+  "inicio": "2026-10-22T22:36:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 10,
+  "tokens": 490166,
+  "tokens_salida": 2431,
+  "costo_usd": 0.1447996,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-ledger-check-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-ledger-check-1.md",
+      "estado-finanzas/0990054321001-minera-condor/cierre/2026-09/reporte-ledger-check.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/2026-10-06-ledger-check-1.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/salida-ledger-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

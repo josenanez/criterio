@@ -1,0 +1,30 @@
+{
+  "n": 15,
+  "agente": "tomas",
+  "comando": "budget-committee-pack",
+  "argumento": "",
+  "inicio": "2026-10-22T22:29:44",
+  "estado": "success",
+  "error": false,
+  "segundos": 52,
+  "turnos": 13,
+  "tokens": 590879,
+  "tokens_salida": 5817,
+  "costo_usd": 0.224943,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-budget-committee-pack-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-budget-committee-pack-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-budget-committee-pack-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/salida-budget-committee-pack.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/presupuesto/2026/reporte-budget-committee-pack.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

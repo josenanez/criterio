@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "tomas",
+  "comando": "variance-report",
+  "argumento": "",
+  "inicio": "2026-10-22T23:04:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 38,
+  "turnos": 11,
+  "tokens": 395571,
+  "tokens_salida": 4029,
+  "costo_usd": 0.1584808,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-variance-report-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-variance-report-1.md",
+      "estado-finanzas/1790000001001-comercial-control/corridas/2026-10-06-variance-report-1.md",
+      "estado-finanzas/1790000001001-comercial-control/corridas/salida-variance-report.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790000001001-comercial-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "n": 4,
+  "agente": "clara",
+  "comando": "bank-reconcile",
+  "argumento": "",
+  "inicio": "2026-10-22T22:22:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 32,
+  "turnos": 9,
+  "tokens": 456161,
+  "tokens_salida": 2632,
+  "costo_usd": 0.15783080000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-bank-reconcile-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-bank-reconcile-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cierre/2026-09/reporte-bank-reconcile.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-bank-reconcile-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/salida-bank-reconcile.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

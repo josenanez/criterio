@@ -1,0 +1,43 @@
+{
+  "entidad": "Minera Cóndor",
+  "agentes": [
+    "clara",
+    "tomas"
+  ],
+  "tokens": 9700311,
+  "senales": {
+    "esperadas": 11,
+    "acertadas": 11,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 9,
+    "bien": 8,
+    "mal": [
+      {
+        "ficha": "presupuesto",
+        "campo": "committee_commitments",
+        "esperado": [
+          {
+            "what": "Revisar el contrato de vigilancia",
+            "owner": "Administración",
+            "status": "abierto",
+            "evidence": null,
+            "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+          }
+        ],
+        "obtenido": [
+          {
+            "what": "Administración revisa el contrato de vigilancia antes del próximo comité",
+            "owner": "Administración",
+            "status": "abierto",
+            "evidence": null,
+            "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

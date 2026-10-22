@@ -1,0 +1,30 @@
+{
+  "n": 8,
+  "agente": "clara",
+  "comando": "audit-pack",
+  "argumento": "",
+  "inicio": "2026-10-22T22:13:25",
+  "estado": "success",
+  "error": false,
+  "segundos": 42,
+  "turnos": 9,
+  "tokens": 445611,
+  "tokens_salida": 2858,
+  "costo_usd": 0.1476993,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-audit-pack-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-audit-pack-1.md",
+      "estado-finanzas/900000001-distribuidora-control/cierre/2026-09/reporte-audit-pack.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-audit-pack-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-audit-pack.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

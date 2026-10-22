@@ -1,0 +1,30 @@
+{
+  "n": 5,
+  "agente": "clara",
+  "comando": "account-reconcile",
+  "argumento": "",
+  "inicio": "2026-10-22T22:11:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 31,
+  "turnos": 9,
+  "tokens": 391338,
+  "tokens_salida": 3316,
+  "costo_usd": 0.1462213,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-account-reconcile-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-account-reconcile-1.md",
+      "estado-finanzas/900000001-distribuidora-control/cierre/2026-09/reporte-account-reconcile.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-account-reconcile-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-account-reconcile.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

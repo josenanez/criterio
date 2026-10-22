@@ -1,0 +1,35 @@
+{
+  "n": 16,
+  "agente": "tomas",
+  "comando": "budget-wake",
+  "argumento": "",
+  "inicio": "2026-10-22T22:44:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 54,
+  "turnos": 15,
+  "tokens": 559068,
+  "tokens_salida": 5901,
+  "costo_usd": 0.2063383,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-budget-wake-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-budget-wake-1.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/2026-10-06-budget-scan-2.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/2026-10-06-budget-wake-1.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/2026-10-06-forecast-2.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/2026-10-06-variance-report-2.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/salida-budget-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/0990054321001-minera-condor/corridas.json",
+      "estado-finanzas/0990054321001-minera-condor/indice.json",
+      "estado-finanzas/0990054321001-minera-condor/presupuesto/2026/reporte-forecast.md",
+      "estado-finanzas/0990054321001-minera-condor/presupuesto/2026/reporte-variance-report.md"
+    ],
+    "borrados": []
+  }
+}

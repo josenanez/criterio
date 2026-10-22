@@ -1,0 +1,19 @@
+{
+  "entidad": "Cooperativa Sierra Alta",
+  "agentes": [
+    "clara",
+    "tomas"
+  ],
+  "tokens": 9168446,
+  "senales": {
+    "esperadas": 11,
+    "acertadas": 11,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

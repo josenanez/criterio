@@ -1,0 +1,30 @@
+{
+  "n": 7,
+  "agente": "clara",
+  "comando": "einvoice-check",
+  "argumento": "",
+  "inicio": "2026-10-22T22:24:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 37,
+  "turnos": 10,
+  "tokens": 450034,
+  "tokens_salida": 4119,
+  "costo_usd": 0.1641355,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-einvoice-check-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-einvoice-check-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cierre/2026-09/reporte-einvoice-check.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-einvoice-check-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/salida-einvoice-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

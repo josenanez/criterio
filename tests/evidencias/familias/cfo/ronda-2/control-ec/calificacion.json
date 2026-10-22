@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Control",
+  "agentes": [
+    "clara",
+    "tomas"
+  ],
+  "tokens": 8517570,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "n": 12,
+  "agente": "tomas",
+  "comando": "variance-report",
+  "argumento": "",
+  "inicio": "2026-10-22T22:27:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 38,
+  "turnos": 8,
+  "tokens": 397871,
+  "tokens_salida": 5058,
+  "costo_usd": 0.1690968,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-variance-report-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-variance-report-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-variance-report-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/salida-variance-report.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

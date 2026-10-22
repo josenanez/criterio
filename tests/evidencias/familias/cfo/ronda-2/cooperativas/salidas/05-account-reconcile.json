@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "clara",
+  "comando": "account-reconcile",
+  "argumento": "",
+  "inicio": "2026-10-22T22:22:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 10,
+  "tokens": 441669,
+  "tokens_salida": 3591,
+  "costo_usd": 0.15345029999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cierre/2026-09/reporte-account-reconcile.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-account-reconcile-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/salida-account-reconcile.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

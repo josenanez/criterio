@@ -1,0 +1,30 @@
+{
+  "n": 14,
+  "agente": "tomas",
+  "comando": "transfer-log",
+  "argumento": "",
+  "inicio": "2026-10-22T22:42:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 70,
+  "turnos": 16,
+  "tokens": 715467,
+  "tokens_salida": 5357,
+  "costo_usd": 0.2410142,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-transfer-log-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-transfer-log-1.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/2026-10-06-transfer-log-1.md",
+      "estado-finanzas/0990054321001-minera-condor/corridas/salida-transfer-log.md",
+      "estado-finanzas/0990054321001-minera-condor/presupuesto/2026/reporte-transfer-log.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

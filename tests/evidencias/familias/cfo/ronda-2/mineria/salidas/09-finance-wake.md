@@ -1,0 +1,3 @@
+# /criterio-finance:finance-wake 
+
+Hoy (2026-10-06) no toca nada en el cierre de la entidad 0990054321001: no hay tareas pendientes ni peticiones abiertas, así que no produje reporte. Los términos (versión 1.2) están vigentes y aceptados, así que no tuve que registrar ninguna aceptación. Dejé la corrida registrada como `2026-10-06-finance-wake-1`, con el caso 2026-09. El motor dice que ese registro tiene 7 hallazgos, y no los revisé. Vuelvo cuando el motor indique la próxima fecha.

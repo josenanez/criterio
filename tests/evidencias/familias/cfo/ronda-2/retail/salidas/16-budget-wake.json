@@ -1,0 +1,34 @@
+{
+  "n": 16,
+  "agente": "tomas",
+  "comando": "budget-wake",
+  "argumento": "",
+  "inicio": "2026-10-22T22:56:13",
+  "estado": "success",
+  "error": false,
+  "segundos": 47,
+  "turnos": 16,
+  "tokens": 520934,
+  "tokens_salida": 6406,
+  "costo_usd": 0.21861609999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-budget-wake-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-budget-wake-1.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/2026-10-06-budget-scan-2.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/2026-10-06-budget-wake-1.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/2026-10-06-forecast-2.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/2026-10-06-variance-report-2.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/salida-budget-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900765432-almacenes-caribe/corridas.json",
+      "estado-finanzas/900765432-almacenes-caribe/presupuesto/2026/reporte-forecast.md",
+      "estado-finanzas/900765432-almacenes-caribe/presupuesto/2026/reporte-variance-report.md"
+    ],
+    "borrados": []
+  }
+}
