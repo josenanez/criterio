@@ -5,7 +5,9 @@
       "id": "CLO-1",
       "ronda": 1,
       "carpeta": "banca",
-      "agentes": ["constanza"],
+      "agentes": [
+        "constanza"
+      ],
       "origen": "codigo",
       "commit": "f80f39f",
       "estado": "verificado",
@@ -39,7 +41,9 @@
       "id": "CLO-3",
       "ronda": 1,
       "carpeta": "control-co",
-      "agentes": ["constanza"],
+      "agentes": [
+        "constanza"
+      ],
       "origen": "codigo",
       "commit": "4df0442",
       "estado": "verificado",
@@ -57,7 +61,9 @@
       "id": "CLO-4",
       "ronda": 1,
       "carpeta": "control-co",
-      "agentes": ["fidel"],
+      "agentes": [
+        "fidel"
+      ],
       "origen": "instrucciones",
       "commit": "df6a04b",
       "estado": "verificado",
@@ -75,17 +81,19 @@
       "id": "CLO-5",
       "ronda": 1,
       "carpeta": "control-co",
-      "agentes": ["constanza"],
+      "agentes": [
+        "constanza"
+      ],
       "origen": "arnes",
-      "commit": null,
-      "estado": "abierto",
+      "commit": "db293b9",
+      "estado": "por-verificar",
       "es": {
         "que": "La calificación compara la cita como texto: Constanza citó «línea 5» y la clave «punto 1», que son el mismo renglón del boletín. Por eso el control da 126 de 132 y no 127.",
-        "correccion": "Pendiente: que la calificación acepte la cita por línea cuando señala el mismo lugar que la clave."
+        "correccion": "La calificación acepta la cita que señala el mismo renglón del mismo archivo que la clave. Se verifica en la ronda 2."
       },
       "en": {
         "que": "Grading compares the citation as text: Constanza cited “line 5” and the key “item 1”, which are the same line of the bulletin. That is why the control scores 126 of 132 and not 127.",
-        "correccion": "Pending: grading should accept a line citation when it points to the same place as the key."
+        "correccion": "Grading accepts a citation that points to the same line of the same file as the key. Verified in round 2."
       }
     }
   ]
