@@ -132,13 +132,35 @@ def correr(a) -> int:
     return 0
 
 
+def _norma(x):
+    """3000000.0 y 3000000 son la misma cifra."""
+    if isinstance(x, float) and x.is_integer():
+        return int(x)
+    if isinstance(x, dict):
+        return {k: _norma(v) for k, v in x.items()}
+    if isinstance(x, list):
+        return [_norma(v) for v in x]
+    return x
+
+
+def _igual(esperado, obtenido) -> bool:
+    """Igual campo por campo, con una tolerancia: un texto del agente que contiene el de la clave
+    —el mismo compromiso, dicho con más detalle— cuenta como bien. La diferencia se reporta igual."""
+    esperado, obtenido = _norma(esperado), _norma(obtenido)
+    if isinstance(esperado, str) and isinstance(obtenido, str):
+        return esperado.strip().lower() in obtenido.strip().lower()
+    if isinstance(esperado, dict) and isinstance(obtenido, dict):
+        return all(_igual(v, obtenido.get(k)) for k, v in esperado.items())
+    if isinstance(esperado, list) and isinstance(obtenido, list):
+        return len(esperado) == len(obtenido) and all(_igual(a, b) for a, b in zip(esperado, obtenido))
+    return esperado == obtenido
+
+
 def _plano(x, pre=""):
     """Un dict anidado como pares ruta → valor, para comparar la ficha campo por campo."""
     if isinstance(x, dict):
         for k, v in x.items():
             yield from _plano(v, f"{pre}.{k}" if pre else k)
-    elif isinstance(x, list):
-        yield pre, json.dumps(x, ensure_ascii=False, sort_keys=True)
     else:
         yield pre, x
 
@@ -163,7 +185,7 @@ def calificar(a) -> int:
         hecho = dict(_plano(fichas.get(sub)[-1])) if fichas.get(sub) else {}
         for ruta, valor in _plano(ref):
             extraccion.append({"ficha": sub, "campo": ruta, "esperado": valor, "obtenido": hecho.get(ruta),
-                               "bien": hecho.get(ruta) == valor})
+                               "bien": _igual(valor, hecho.get(ruta))})
     tokens = sum(_j(f).get("tokens") or 0 for f in (carpeta / "salidas").glob("*.json"))
     res = {"entidad": clave["entidad"], "agentes": sorted(corridos), "tokens": tokens,
            "senales": {"esperadas": len(esperado), "acertadas": len(ok), "de_mas": sorted(map(list, sobran)),

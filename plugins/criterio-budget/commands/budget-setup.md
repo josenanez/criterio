@@ -57,7 +57,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" convertir --config <config> 
 4. **El mapeo de cuentas a líneas:** si `00-referencia/` no trae `mapeo-presupuesto`, pídelo; sin él no hay ejecución por línea. Tomás no recalcula la contabilidad: la toma de `10-contabilidad/` y la lleva a cada línea con ese mapeo.
 5. **Los umbrales**: desviación, comprometido y días de una proyección vencida. Propón los de `config.example.json` y dilo: son configuración, no norma.
 6. **Las fechas del comité de presupuesto**, si las hay.
-7. **Si la organización usa la familia PMO**, dónde están las fichas de sus proyectos: así el presupuesto de cada proyecto se cruza con el del área.
+7. **Si la organización usa la familia PMO**, dónde están las fichas de sus proyectos: así el presupuesto de cada proyecto se cruza con el del área. Antes de preguntar, búscalas con Glob —una carpeta `records/` con archivos `PRY-*.json`, o un `ficha-pm.json`— y propone la ruta que encontraste. **No tomes la ruta del ejemplo sin comprobar que existe**: si no encuentras fichas, dilo y deja `pmo_records` vacío.
 8. **Dónde guardo lo que voy encontrando.** Propón `estado-finanzas/<entidad>`. **Nunca dentro de la carpeta de documentos.**
 9. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" terminos --config <config>`, muestra **tal cual** su `en_corto` con el enlace a la nota legal y pide un sí explícito con el nombre de quien acepta. **No lo registres sin un sí.**
 

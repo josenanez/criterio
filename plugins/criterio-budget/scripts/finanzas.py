@@ -1176,7 +1176,10 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
     if pmo:
         rp = Path(pmo).expanduser()
         rp = rp if rp.is_absolute() else Path.cwd() / rp
-        for r in sorted(rp.glob("*.json")) if rp.is_dir() else []:
+        fichas_pmo = sorted(rp.glob("*.json")) if rp.is_dir() else []
+        if not fichas_pmo:
+            no_proc.append({"archivo": str(pmo), "motivo": "la configuración apunta a las fichas de la familia PMO y ahí no hay ninguna: el presupuesto de los proyectos no se cruzó"})
+        for r in fichas_pmo:
             ficha_p = leer_json(r, {}) or {}
             code = ((ficha_p.get("identity") or {}).get("code") or {}).get("value")
             apr = numero(((ficha_p.get("money") or {}).get("approved") or {}).get("value"))
