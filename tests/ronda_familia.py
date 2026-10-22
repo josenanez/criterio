@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""La ronda con el agente de la familia CFO: Clara y Tomás corren sus comandos sobre el material
-de una entidad, y lo que escribieron se califica contra la clave que no vieron.
+"""La ronda con el agente de las familias CFO y CLO: los dos agentes de la familia corren sus
+comandos sobre el material de una entidad, y lo que escribieron se califica contra la clave que
+no vieron.
 
-    python3 tests/criterio-cfo/ronda.py armar <carpeta> --entidad banca
-    python3 tests/criterio-cfo/ronda.py correr <carpeta> --tope 5000000 [--solo 1 2]
-    python3 tests/criterio-cfo/ronda.py calificar <carpeta>
+    python3 tests/ronda_familia.py armar <carpeta> --familia cfo --entidad banca
+    python3 tests/ronda_familia.py correr <carpeta> --tope 5000000 [--solo 1 2]
+    python3 tests/ronda_familia.py calificar <carpeta>
+
+La familia queda escrita en `<carpeta>/familia.txt` al armar, y las otras dos acciones la toman
+de ahí. Las rondas de la PMO tienen su propio arnés, `tests/ronda.py`.
 
 **El tope es obligatorio.** Antes de cada comando se suma lo que gastaron los anteriores; si
 llegó al tope, la ronda para ahí y lo dice. Un comando ya empezado no se corta: el tope se puede
@@ -17,8 +21,8 @@ tokens usó y qué archivos cambió, igual que en las rondas de la PMO (`tests/r
 **Qué se califica.** Las señales que el motor dejó en `resultados.json` a partir de la
 configuración y de la ficha que escribió el agente, contra las esperadas de la clave: una de más
 cuenta igual que una de menos. Y la extracción: lo que el agente llevó a la ficha contra lo que
-la clave dice que traen los documentos escritos. `evaluar.py` prueba el motor con la extracción
-correcta; esto prueba la extracción.
+la clave dice que traen los documentos escritos. El `evaluar.py` de cada familia prueba el motor
+con la extracción correcta; esto prueba la extracción.
 """
 from __future__ import annotations
 
@@ -32,12 +36,27 @@ import sys
 import time
 from pathlib import Path
 
-AQUI = Path(__file__).resolve().parent
-RAIZ = AQUI.parent.parent
-MATERIAL = AQUI / "material"
-FAMILIA = json.loads((RAIZ / "families" / "criterio-cfo" / "familia.json").read_text(encoding="utf-8"))
-DE = {a["id"]: {x["id"] for x in a["senales"]} for a in FAMILIA["agentes"]}
-ORDEN = [(a["id"], a["plugin"], c["id"]) for a in FAMILIA["agentes"] for c in sorted(a["comandos"], key=lambda c: c["n"])]
+RAIZ = Path(__file__).resolve().parent.parent
+
+# Lo que cambia de una familia a otra: dónde deja cada agente sus resultados y dónde está cada
+# ficha que la clave describe. `{k}` es la ficha de una por clave —la de cada contrato—.
+FAMILIAS = {
+    "cfo": {"resultados": {"clara": "cierre/*/resultados.json", "tomas": "presupuesto/*/resultados.json"},
+            "fichas": {"cierre": ("clara", "cierre/*/ficha.json"), "presupuesto": ("tomas", "presupuesto/*/ficha.json")}},
+    "clo": {"resultados": {"fidel": "contratos/resultados.json", "constanza": "cumplimiento/*/resultados.json"},
+            "fichas": {"contratos": ("fidel", "contratos/{k}.json"), "cumplimiento": ("constanza", "cumplimiento/*/ficha.json")}},
+}
+
+
+def familia(sigla: str) -> dict:
+    fa = json.loads((RAIZ / "families" / f"criterio-{sigla}" / "familia.json").read_text(encoding="utf-8"))
+    return dict(FAMILIAS[sigla], sigla=sigla, material=RAIZ / "tests" / f"criterio-{sigla}" / "material",
+                de={a["id"]: {x["id"] for x in a["senales"]} for a in fa["agentes"]},
+                orden=[(a["id"], a["plugin"], c["id"]) for a in fa["agentes"] for c in sorted(a["comandos"], key=lambda c: c["n"])])
+
+
+def de_carpeta(carpeta: Path) -> dict:
+    return familia((carpeta / "familia.txt").read_text(encoding="utf-8").strip())
 NOTA = ("(Sesión de prueba sin interfaz: nadie va a responder preguntas. La fecha de esta prueba es {hoy}: "
         "pásala al motor con `--today {hoy}` en cada llamada que la acepte. Términos: José Francisco Ñáñez "
         "acepta los términos vigentes de esta versión para esta prueba, fecha {hoy}; cuando el agente los "
@@ -62,9 +81,10 @@ def manifiesto(raiz: Path) -> dict:
 
 def armar(a) -> int:
     """El espacio del agente es el material de la entidad sin su clave; la clave queda afuera."""
-    origen = MATERIAL / a.entidad
+    F = familia(a.familia)
+    origen = F["material"] / a.entidad
     if not (origen / "clave.json").is_file():
-        print(f"no hay material para «{a.entidad}»: corre tests/criterio-cfo/generar.py")
+        print(f"no hay material para «{a.entidad}»: corre tests/criterio-{a.familia}/generar.py")
         return 1
     carpeta = Path(a.carpeta).expanduser()
     espacio = carpeta / "espacio"
@@ -73,15 +93,16 @@ def armar(a) -> int:
         return 1
     shutil.copytree(origen, espacio, ignore=shutil.ignore_patterns("clave.json"))
     shutil.copy2(origen / "clave.json", carpeta / "clave.json")
+    (carpeta / "familia.txt").write_text(a.familia + "\n", encoding="utf-8")
     print(f"armado: {a.entidad} en {espacio}")
     return 0
 
 
-def instalar(espacio: Path) -> None:
+def instalar(espacio: Path, orden: list) -> None:
     if (espacio / ".claude" / "settings.json").is_file():
         return
     subprocess.run(["git", "init", "-q"], cwd=espacio)
-    for p in sorted({p for _, p, _ in ORDEN}):
+    for p in sorted({p for _, p, _ in orden}):
         subprocess.run(["claude", "plugin", "install", f"{p}@criterio", "--scope", "project"],
                        cwd=espacio, capture_output=True)
 
@@ -89,12 +110,12 @@ def instalar(espacio: Path) -> None:
 def correr(a) -> int:
     carpeta = Path(a.carpeta).expanduser()
     espacio, sal = carpeta / "espacio", carpeta / "salidas"
-    clave = _j(carpeta / "clave.json")
+    clave, F = _j(carpeta / "clave.json"), de_carpeta(carpeta)
     sal.mkdir(exist_ok=True)
-    instalar(espacio)
-    docs = clave["config"]["clara"]["paths"]["documents"]
+    instalar(espacio, F["orden"])
+    docs = next(iter(clave["config"].values()))["paths"]["documents"]
     gastado = sum(_j(f).get("tokens") or 0 for f in sal.glob("*.json"))
-    for n, (agente, plugin, cmd) in enumerate(ORDEN, start=1):
+    for n, (agente, plugin, cmd) in enumerate(F["orden"], start=1):
         base = sal / f"{n:02d}-{cmd}"
         if base.with_suffix(".json").is_file() or (a.solo and n not in a.solo):
             continue
@@ -167,29 +188,32 @@ def _plano(x, pre=""):
 
 def calificar(a) -> int:
     carpeta = Path(a.carpeta).expanduser()
-    espacio, clave = carpeta / "espacio", _j(carpeta / "clave.json")
-    obtenido, fichas = set(), {}
+    espacio, clave, F = carpeta / "espacio", _j(carpeta / "clave.json"), de_carpeta(carpeta)
+    obtenido = set()
     # Solo el estado que dice la configuración que dejó el agente: un archivo escrito en otra
     # parte no es el resultado, y no se califica.
     estados = {espacio / _j(c)["paths"]["state"] for c in espacio.glob(".criterio/*/*/config.json")
                if (_j(c).get("paths") or {}).get("state")}
-    for rol, sub in (("clara", "cierre"), ("tomas", "presupuesto")):
-        for f in sorted(x for e in estados for x in e.glob(f"{sub}/*/resultados.json")):
-            obtenido |= {(x["signal"], x["key"]) for x in _j(f).get("alertas") or [] if x["signal"] in DE[rol]}
-        fichas[sub] = [_j(f) for f in sorted(x for e in estados for x in e.glob(f"{sub}/*/ficha.json"))]
+    for rol, patron in F["resultados"].items():
+        for f in sorted(x for e in estados for x in e.glob(patron)):
+            obtenido |= {(x["signal"], x["key"]) for x in _j(f).get("alertas") or [] if x["signal"] in F["de"][rol]}
     corridos = {_j(f)["agente"] for f in (carpeta / "salidas").glob("*.json")}
     esperado = {(x["signal"], x["key"]) for x in clave["esperado"]
-                if any(x["signal"] in DE[r] for r in corridos)}
+                if any(x["signal"] in F["de"][r] for r in corridos)}
     ok, sobran, faltan = obtenido & esperado, obtenido - esperado, esperado - obtenido
     extraccion = []
-    de_quien = {"cierre": "clara", "presupuesto": "tomas"}
     for sub, ref in (clave.get("extraccion") or {}).items():
-        if de_quien.get(sub) not in corridos:
+        rol, patron = F["fichas"][sub]
+        if rol not in corridos:
             continue
-        hecho = dict(_plano(fichas.get(sub)[-1])) if fichas.get(sub) else {}
-        for ruta, valor in _plano(ref):
-            extraccion.append({"ficha": sub, "campo": ruta, "esperado": valor, "obtenido": hecho.get(ruta),
-                               "bien": _igual(valor, hecho.get(ruta))})
+        # Una ficha por clave (cada contrato), o una sola ficha: la más reciente de su patrón.
+        partes = ({k: v for k, v in ref.items()} if "{k}" in patron else {"": ref})
+        for k, esperado_k in partes.items():
+            hallados = sorted(x for e in estados for x in e.glob(patron.format(k=k)))
+            hecho = dict(_plano(_j(hallados[-1]))) if hallados else {}
+            for ruta, valor in _plano(esperado_k):
+                extraccion.append({"ficha": f"{sub}/{k}" if k else sub, "campo": ruta, "esperado": valor,
+                                   "obtenido": hecho.get(ruta), "bien": _igual(valor, hecho.get(ruta))})
     tokens = sum(_j(f).get("tokens") or 0 for f in (carpeta / "salidas").glob("*.json"))
     res = {"entidad": clave["entidad"], "agentes": sorted(corridos), "tokens": tokens,
            "senales": {"esperadas": len(esperado), "acertadas": len(ok), "de_mas": sorted(map(list, sobran)),
@@ -208,7 +232,8 @@ def main() -> int:
     sp = ap.add_subparsers(dest="accion", required=True)
     s = sp.add_parser("armar")
     s.add_argument("carpeta")
-    s.add_argument("--entidad", required=True, choices=sorted(d.name for d in MATERIAL.iterdir() if d.is_dir()))
+    s.add_argument("--familia", required=True, choices=sorted(FAMILIAS))
+    s.add_argument("--entidad", required=True, help="una carpeta de tests/criterio-<familia>/material/")
     s = sp.add_parser("correr")
     s.add_argument("carpeta")
     s.add_argument("--tope", type=int, required=True, help="tokens; la ronda para antes del comando que lo pase")
