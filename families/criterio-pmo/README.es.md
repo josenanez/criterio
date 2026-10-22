@@ -343,10 +343,10 @@ Probada en 4 industrias de Suramérica, con 13 proyectos por industria en la úl
 | Entidades financieras · cooperativas | Probada · rondas 1–10 | Consejo de Administración y comité de crédito; core cooperativo, libranza y aportes; asociados urbanos y rurales |
 | Retail | Probada · rondas 1–10 | Tienda en línea, fidelización y centros de distribución; integración con el ERP y congelamiento de cambios en temporada alta |
 | Minería (oro y cobre) | Probada · rondas 1–10 | Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje |
-| Construcción e infraestructura | Incremento 3 · versión 0.8.0 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
-| Oil & gas | Incremento 3 · versión 0.8.0 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
-| Telecomunicaciones | Incremento 4 · versión 0.9.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
-| Logística | Incremento 4 · versión 0.9.0 | Implantaciones en varios centros con una operación que no se detiene |
+| Construcción e infraestructura | Incremento 4 · versión 0.9.0 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
+| Oil & gas | Incremento 4 · versión 0.9.0 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
+| Telecomunicaciones | Incremento 5 · versión 0.10.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
+| Logística | Incremento 5 · versión 0.10.0 | Implantaciones en varios centros con una operación que no se detiene |
 
 <!-- /industrias -->
 
@@ -360,9 +360,10 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 |---|---|---|---|
 | 0.6.0 | Liberada | **Material más amplio**<br>· Las correcciones D058 a D060<br>· 20 proyectos por industria en el material de prueba<br>· Las industrias desde una sola fuente | La verifica la prueba de la 0.7.0 |
 | 0.7.0 | Liberada | **Cronogramas de Microsoft Project**<br>· El XML de Project como cronograma: tareas, hitos, línea base, avance, predecesoras y recursos; el .mpp donde haya Java y MPXJ<br>· La estructura de carpetas recomendada<br>· El contraste entre la ficha del gerente y la de la PMO como lo define el skill<br>· El análisis estadístico, regenerado con cada prueba<br>· Esta hoja de ruta, desde una sola fuente | 4 industrias, 80 proyectos |
-| 0.8.0 | En curso | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones<br>· Ya construido: Rostrum para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core<br>· Ya construido: la carpeta raíz que cada agente busca y, con permiso, marca | 6 industrias |
-| 0.9.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
-| 0.10.0 | Siguiente | **Rostrum**<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
+| 0.8.0 | En curso | **Rostrum para todas las familias, y la CFO y la CLO**<br>· Rostrum, un plugin propio para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· Las familias CFO y CLO, con el motor probado y una primera ronda con el agente | La verifica la prueba de la 0.9.0 |
+| 0.9.0 | Siguiente | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones | 6 industrias |
+| 0.10.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
+| 0.11.0 | Siguiente | **Rostrum**<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
 | 1.0.0 | Reservada | **El despliegue en una organización**<br>· El esquema de la ficha, sostenido en el primer despliegue en una organización | La documentación de esa organización |
 
 <!-- /hoja de ruta -->

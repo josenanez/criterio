@@ -57,6 +57,30 @@
    "incremento": 3,
    "version": "0.8.0",
    "estado": "en curso",
+   "industrias": [],
+   "es": {
+    "titulo": "Rostrum para todas las familias, y la CFO y la CLO",
+    "entra": [
+     "Rostrum, un plugin propio para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core",
+     "La carpeta raíz que cada agente busca y, con permiso, marca",
+     "Las familias CFO y CLO, con el motor probado y una primera ronda con el agente"
+    ],
+    "prueba": "La verifica la prueba de la 0.9.0"
+   },
+   "en": {
+    "titulo": "Rostrum for every family, and the CFO and CLO families",
+    "entra": [
+     "Rostrum, a plugin of its own for every family, with a menu per family and a home that says what needs attention today, WCAG 2.2 AA checked with axe-core",
+     "The root folder each agent searches for and, with permission, marks",
+     "The CFO and CLO families, with the engine tested and a first round with the agent"
+    ],
+    "prueba": "Verified by the 0.9.0 test"
+   }
+  },
+  {
+   "incremento": 4,
+   "version": "0.9.0",
+   "estado": "siguiente",
    "industrias": [
     "construccion",
     "oil-gas"
@@ -64,25 +88,21 @@
    "es": {
     "titulo": "Construcción e infraestructura, y oil & gas",
     "entra": [
-     "Dos industrias nuevas, con sus propios proyectos, documentos y situaciones",
-     "Ya construido: Rostrum para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core",
-     "Ya construido: la carpeta raíz que cada agente busca y, con permiso, marca"
+     "Dos industrias nuevas, con sus propios proyectos, documentos y situaciones"
     ],
     "prueba": "6 industrias"
    },
    "en": {
     "titulo": "Construction and infrastructure, and oil & gas",
     "entra": [
-     "Two new industries, with their own projects, documents and situations",
-     "Already built: Rostrum for every family, with one menu entry per family and a home page that says what needs attention today, WCAG 2.2 AA checked with axe-core",
-     "Already built: the root folder each agent searches for and, with permission, marks"
+     "Two new industries, with their own projects, documents and situations"
     ],
     "prueba": "6 industries"
    }
   },
   {
-   "incremento": 4,
-   "version": "0.9.0",
+   "incremento": 5,
+   "version": "0.10.0",
    "estado": "siguiente",
    "industrias": [
     "telecomunicaciones",
@@ -104,8 +124,8 @@
    }
   },
   {
-   "incremento": 5,
-   "version": "0.10.0",
+   "incremento": 6,
+   "version": "0.11.0",
    "estado": "siguiente",
    "industrias": [],
    "es": {

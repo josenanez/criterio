@@ -3,28 +3,30 @@
  "incrementos": [
   {
    "incremento": 1,
-   "version": null,
+   "version": "0.8.0",
    "estado": "en curso",
    "industrias": [],
    "es": {
-    "titulo": "Construida, con el motor probado",
+    "titulo": "Construida, con el motor probado y una primera ronda con el agente",
     "entra": [
      "Los catorce comandos de Fidel y Constanza, sus skills y el motor de cálculo",
      "Colombia y Ecuador, sin opinión jurídica: lo que exige una obligación lo define la organización en su matriz",
      "La carpeta raíz que cada agente busca y, con permiso, marca",
-     "La familia en Rostrum, con lo que vence y dónde trabaja cada agente"
+     "La familia en Rostrum, con lo que vence y dónde trabaja cada agente",
+     "La primera ronda con el agente: Fidel y Constanza sobre banca y el control de Colombia, con los defectos que encontró corregidos"
     ],
-    "prueba": "El motor, contra 4 industrias y 2 entidades de control"
+    "prueba": "El motor, contra 4 industrias y 2 entidades de control; el agente, sobre banca y el control de Colombia"
    },
    "en": {
-    "titulo": "Built, with the engine tested",
+    "titulo": "Built, with the engine tested and a first round with the agent",
     "entra": [
      "Fidel and Constanza’s fourteen commands, their skills and the calculation engine",
      "Colombia and Ecuador, with no legal opinion: what an obligation requires is defined by the organisation in its matrix",
      "The root folder each agent searches for and, with permission, marks",
-     "The family in Rostrum, with what falls due and where each agent works"
+     "The family in Rostrum, with what falls due and where each agent works",
+     "The first round with the agent: Fidel and Constanza on banking and the Colombian control, with the defects it found fixed"
     ],
-    "prueba": "The engine, against 4 industries and 2 control entities"
+    "prueba": "The engine, against 4 industries and 2 control entities; the agent, on banking and the Colombian control"
    }
   },
   {
@@ -33,7 +35,7 @@
    "estado": "siguiente",
    "industrias": [],
    "es": {
-    "titulo": "La ronda con el agente",
+    "titulo": "La ronda completa con el agente",
     "entra": [
      "Fidel y Constanza corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda",
      "Lo que solo trae cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones—, extraído y calificado contra la clave",
@@ -42,7 +44,7 @@
     "prueba": "4 industrias y 2 entidades de control, con la clave que el agente no ve"
    },
    "en": {
-    "titulo": "The round with the agent",
+    "titulo": "The full round with the agent",
     "entra": [
      "Fidel and Constanza run their commands on the material of the four industries, as the PMO does in every round",
      "What only each contract carries —parties, value, dates, renewal, notice period, signatories, amendments, guarantees and obligations—, extracted and graded against the key",
