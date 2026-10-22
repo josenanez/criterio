@@ -26,6 +26,7 @@ esté verificado en su fuente y que la numeración vaya de diez en diez.
 from __future__ import annotations
 
 import argparse
+import ast
 import json
 import re
 import sys
@@ -472,7 +473,18 @@ def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
                     err.append(f"{c['id']}: se apoya en {fid}, que está por verificar (ADR 0006, regla 1)")
     err += revisar_campos(fu)
     err += revisar_skills(fa)
+    err += revisar_area(fa)
     return err
+
+
+def revisar_area(fa: dict) -> list[str]:
+    """El motor exige que cada agente use su propia carpeta de configuración: la de nucleo.py
+    tiene que ser la `area` de familia.json."""
+    texto = (P / "criterio-finance" / "scripts" / "nucleo.py").read_text(encoding="utf-8")
+    m = re.search(r"^AREA = (\{.*?\})$", texto, re.S | re.M)
+    motor = ast.literal_eval(m.group(1)) if m else {}
+    return [f"{a['plugin']}: el motor usa .criterio/{motor.get(a['plugin'])}/ y familia.json dice .criterio/{a['area']}/"
+            for a in fa["agentes"] if motor.get(a["plugin"]) != a["area"]]
 
 
 def revisar_skills(fa: dict) -> list[str]:

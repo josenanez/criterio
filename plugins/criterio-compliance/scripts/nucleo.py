@@ -677,11 +677,24 @@ def argumentos(descripcion: str):
     return ap
 
 
+# La carpeta de la configuración de cada agente, `.criterio/<area>/<entidad>/config.json`. Es la
+# misma `area` de families/criterio-<familia>/familia.json, y scripts/familias.py comprueba que
+# coincidan. Dos agentes que comparten el estado no comparten la configuración.
+AREA = {"criterio-finance": "finanzas", "criterio-budget": "presupuesto",
+        "criterio-legal": "legal", "criterio-compliance": "cumplimiento"}
+
+
 def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas: tuple, revisar_config, calcular,
               reporte, despertar) -> int:
     """Las acciones que todos los motores hacen igual. Las propias de cada uno las atiende el motor
     antes de llegar aquí."""
     import sys
+    area = AREA.get(plugin(aqui).get("name"))
+    if area and getattr(a, "config", None) and Path(a.config).resolve().parent.parent.name != area:
+        print(json.dumps({"ok": False, "motivo": f"{a.config} no es una configuración de este agente: la suya va en "
+                          f".criterio/{area}/<entidad>/config.json, aunque comparta el estado con otro agente"},
+                         ensure_ascii=False))
+        return 1
     if a.action in ("terminos", "aceptar"):
         if not a.config:
             ap.error("--config es obligatorio")
