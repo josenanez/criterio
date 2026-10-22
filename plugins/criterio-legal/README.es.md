@@ -83,7 +83,7 @@ y la fecha límite de su preaviso de no renovación. Y hace algo más, que es lo
 calendario útil de una lista de fechas: **un contrato con renovación automática que nadie decide
 se renueva solo**, y el informe lo dice antes de que pase la fecha.
 
-> **Banco Andino** · contratos al 6 de octubre de 2026
+> **Material de prueba · banca, Colombia** · contratos al 6 de octubre de 2026
 > Un contrato con renovación automática tiene su preaviso dentro de la ventana configurada, y
 > ningún documento registra la decisión de renovarlo o terminarlo.
 > **Si nadie decide, el contrato decide solo.**

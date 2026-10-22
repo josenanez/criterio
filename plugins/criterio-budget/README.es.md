@@ -84,7 +84,7 @@ línea. Y hace algo más, que es lo que separa un registro útil de una lista de
 movimiento entre líneas se cruza con el acta que lo aprueba**, por fecha, valor y líneas de
 origen y destino.
 
-> **Banco Andino** · presupuesto de 2026
+> **Material de prueba · banca, Colombia** · presupuesto de 2026
 > Entre dos versiones del presupuesto, una línea bajó y otra subió en el mismo valor, y en `40-actas/`
 > no hay acta que lo apruebe.
 > **El presupuesto cambió; la decisión no está escrita en ninguna parte.**

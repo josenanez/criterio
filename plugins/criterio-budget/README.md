@@ -84,7 +84,7 @@ And it does something more, which is what separates a useful log from a list of 
 movement between lines is matched with the minutes that approve it**, by date, amount and source
 and destination lines.
 
-> **Banco Andino** · 2026 budget
+> **Test material · banking, Colombia** · 2026 budget
 > Between two versions of the budget, one line went down and another went up by the same amount, and
 > there are no minutes approving it in `40-actas/`.
 > **The budget changed; the decision is not written down anywhere.**

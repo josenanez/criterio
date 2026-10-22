@@ -84,7 +84,7 @@ and the deadline for its notice of non-renewal. And it does something more, whic
 separates a useful calendar from a list of dates: **an auto-renewing contract nobody decides on
 renews on its own**, and the report says so before the date passes.
 
-> **Banco Andino** · contracts as of 6 October 2026
+> **Test material · banking, Colombia** · contracts as of 6 October 2026
 > An auto-renewing contract has its notice period within the configured window, and no document
 > records the decision to renew or terminate it.
 > **If nobody decides, the contract decides on its own.**

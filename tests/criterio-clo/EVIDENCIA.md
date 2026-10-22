@@ -7,14 +7,14 @@ sintéticos.
 
 ## Las entidades
 
-| Entidad | País | Industria | Defectos sembrados | Señales esperadas |
+| Carpeta del material | País | Industria | Defectos sembrados | Señales esperadas |
 |---|---|---|---:|---:|
-| Banco Andino | Colombia | banca | 10 | 10 |
-| Cooperativa Sierra Alta | Ecuador | cooperativas | 9 | 9 |
-| Almacenes Caribe | Colombia | retail | 9 | 9 |
-| Minera Cóndor | Ecuador | minería | 9 | 9 |
-| Distribuidora Control | Colombia | — | 0 | 0 |
-| Comercial Control | Ecuador | — | 0 | 0 |
+| `banca` | Colombia | banca | 10 | 10 |
+| `cooperativas` | Ecuador | cooperativas | 9 | 9 |
+| `retail` | Colombia | retail | 9 | 9 |
+| `mineria` | Ecuador | minería | 9 | 9 |
+| `control-co` | Colombia | — | 0 | 0 |
+| `control-ec` | Ecuador | — | 0 | 0 |
 
 Cada una trae su carpeta legal al 6 de octubre de 2026: la matriz de atribuciones y la de
 obligaciones, el registro de contratos y la exportación de pagos, el índice de políticas con

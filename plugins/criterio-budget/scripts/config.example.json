@@ -3,15 +3,15 @@
   "role": "fpa",
   "entity": {
     "id": "900123456",
-    "name": "Banco Andino",
+    "name": "Entidad de ejemplo",
     "country": "CO",
     "currency": "COP",
     "framework": "grupo 1",
     "approver": "Contralor"
   },
   "paths": {
-    "documents": "finanzas/900123456-banco-andino",
-    "state": "estado-finanzas/900123456-banco-andino"
+    "documents": "finanzas/900123456-entidad-de-ejemplo",
+    "state": "estado-finanzas/900123456-entidad-de-ejemplo"
   },
   "budget": {
     "year": "2026",

@@ -237,7 +237,7 @@ def selftest() -> int:
     try:
         with tempfile.TemporaryDirectory() as tmp:
             t = Path(tmp)
-            ent = t / "Documentos" / "Contabilidad 2026" / "900123456 Banco Andino"
+            ent = t / "Documentos" / "Contabilidad 2026" / "900123456 Entidad de Ejemplo"
             for d in ("00-referencia", "2026-08/10-contabilidad", "2026-09/10-contabilidad", "2026-09/20-bancos"):
                 (ent / d).mkdir(parents=True)
             (t / "Documentos" / "Fotos" / "2026-09").mkdir(parents=True)        # se parece, pero no es
@@ -245,12 +245,12 @@ def selftest() -> int:
             (t / ".criterio" / "finanzas" / "00-referencia").mkdir(parents=True)
             r = buscar(t, "criterio-finance")
             ok("encuentra la carpeta de la entidad aunque esté tres niveles abajo y tenga espacios",
-               [c["carpeta"] for c in r["candidatas"]], ["Documentos/Contabilidad 2026/900123456 Banco Andino"])
+               [c["carpeta"] for c in r["candidatas"]], ["Documentos/Contabilidad 2026/900123456 Entidad de Ejemplo"])
             ok("y dice por qué: la carpeta de referencia y los periodos",
                r["candidatas"][0]["evidencia"], ["tiene 00-referencia/", "2 periodos (2026-08, 2026-09)"])
             ok("no propone el estado del agente ni una carpeta de fotos con nombre de periodo",
                any("estado" in c["carpeta"] or "Fotos" in c["carpeta"] for c in r["candidatas"]), False)
-            m = marcar(ent, "criterio-finance", "Banco Andino (900123456)", "Ana Gil", dt.date(2026, 10, 21))
+            m = marcar(ent, "criterio-finance", "Entidad de Ejemplo (900123456)", "Ana Gil", dt.date(2026, 10, 21))
             f = ent / "_CRITERIO_FINANZAS.txt"
             # El guion bajo: el Finder y el Explorador ponen la puntuación antes que números y letras.
             ok("la marca es un archivo de texto visible, que empieza por guion bajo para salir primero",
@@ -263,8 +263,8 @@ def selftest() -> int:
             r = buscar(t, "criterio-finance")
             ok("con una copia parecida al lado, la marcada va primero y con certeza",
                (r["candidatas"][0]["carpeta"], r["candidatas"][0]["marcada"], r["candidatas"][0]["n"]),
-               ("Documentos/Contabilidad 2026/900123456 Banco Andino", True, 1))
-            ok("y se lee de qué entidad es", leer(ent, "criterio-finance")["entidad"], "Banco Andino (900123456)")
+               ("Documentos/Contabilidad 2026/900123456 Entidad de Ejemplo", True, 1))
+            ok("y se lee de qué entidad es", leer(ent, "criterio-finance")["entidad"], "Entidad de Ejemplo (900123456)")
             ok("un marcador no se pone en el estado de un agente",
                marcar(t / "estado-finanzas" / "900123456", "criterio-finance", None, None)["ok"], False)
             ok("el marcador se reconoce como tal", (es_marcador("_CRITERIO_FINANZAS.txt"), es_marcador("acta.txt")), (True, False))

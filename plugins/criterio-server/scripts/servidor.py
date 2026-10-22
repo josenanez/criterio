@@ -1248,7 +1248,7 @@ def ruta_reporte(x: dict, rel: str) -> str:
 
 
 def quien(x: dict) -> str:
-    """El agente y su instancia, como se nombran en una tabla: «Clara · Banco Andino»."""
+    """El agente y su instancia, como se nombran en una tabla: «Clara · Entidad de ejemplo»."""
     n = NOMBRE.get(x['area'], x['area'])
     return f"{n} · {x['nombre']}" if x.get('nombre') else n
 

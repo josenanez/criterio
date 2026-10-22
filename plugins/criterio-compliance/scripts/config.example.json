@@ -3,17 +3,17 @@
   "role": "cumplimiento",
   "entity": {
     "id": "900123456",
-    "name": "Banco Andino",
+    "name": "Entidad de ejemplo",
     "country": "CO",
     "currency": "COP"
   },
   "paths": {
-    "documents": "legal/900123456-banco-andino",
-    "state": "estado-legal/900123456-banco-andino"
+    "documents": "legal/900123456-entidad-de-ejemplo",
+    "state": "estado-legal/900123456-entidad-de-ejemplo"
   },
   "period": "2026-09",
   "compliance": {
-    "contract_records": "estado-legal/900123456-banco-andino/contratos"
+    "contract_records": "estado-legal/900123456-entidad-de-ejemplo/contratos"
   },
   "thresholds": {
     "contract_warning_days": 60,

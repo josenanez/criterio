@@ -38,7 +38,7 @@ estado—, y una carpeta en `.criterio/` que no es de ningún agente. Comprueba 
 ## La auditoría de accesibilidad y uso, 2026-10-21
 
 Se hizo con Chromium y axe-core sobre un espacio de trabajo de demostración con salidas reales de
-los motores de las tres familias (Banco Andino: Vera, Clara, Tomás, Fidel y Constanza). Se corrió
+los motores de las tres familias (la misma entidad de prueba para Vera, Clara, Tomás, Fidel y Constanza). Se corrió
 [`accesibilidad/auditar.mjs`](accesibilidad/auditar.mjs) en cuatro configuraciones: el mapa con
 las tres familias, el modo heredado solo con la PMO, un mapa solo con la CFO y un mapa con un
 agente que todavía no ha corrido.

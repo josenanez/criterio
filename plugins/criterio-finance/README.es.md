@@ -89,7 +89,7 @@ algo más, que es lo que separa un checklist útil de una lista de casillas: **u
 cumplida sin el documento que la prueba no está cumplida**, y el informe lo dice con la tarea y su
 responsable.
 
-> **Banco Andino** · cierre de septiembre de 2026
+> **Material de prueba · banca, Colombia** · cierre de septiembre de 2026
 > Una tarea del checklist figura cumplida y en `40-soportes/` no hay nada con su id.
 > **El checklist dice que está hecha; la evidencia no.**
 

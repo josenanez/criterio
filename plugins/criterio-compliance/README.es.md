@@ -84,7 +84,7 @@ en la ventana de su periodicidad. Y hace algo más, que es lo que separa una mat
 lista de casillas: **una obligación que la matriz declara cumplida y ninguna evidencia sostiene no
 está cumplida**, y el informe la pone al lado de lo que el informe del periodo declara.
 
-> **Cooperativa Sierra Alta** · cumplimiento de septiembre de 2026
+> **Material de prueba · cooperativas, Ecuador** · cumplimiento de septiembre de 2026
 > La matriz declara cumplida una obligación, y en `10-evidencias/` no hay nada con su id.
 > **La matriz dice que está cumplida; la evidencia no.**
 

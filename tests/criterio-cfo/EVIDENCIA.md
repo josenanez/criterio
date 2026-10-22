@@ -6,14 +6,14 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 
 ## Las entidades
 
-| Entidad | País | Industria | Defectos sembrados | Señales esperadas |
+| Carpeta del material | País | Industria | Defectos sembrados | Señales esperadas |
 |---|---|---|---:|---:|
-| Banco Andino | Colombia | banca | 9 | 13 |
-| Cooperativa Sierra Alta | Ecuador | cooperativas | 10 | 11 |
-| Almacenes Caribe | Colombia | retail | 8 | 10 |
-| Minera Cóndor | Ecuador | minería | 10 | 11 |
-| Distribuidora Control | Colombia | — | 0 | 0 |
-| Comercial Control | Ecuador | — | 0 | 0 |
+| `banca` | Colombia | banca | 9 | 13 |
+| `cooperativas` | Ecuador | cooperativas | 10 | 11 |
+| `retail` | Colombia | retail | 8 | 10 |
+| `mineria` | Ecuador | minería | 10 | 11 |
+| `control-co` | Colombia | — | 0 | 0 |
+| `control-ec` | Ecuador | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos

@@ -88,7 +88,7 @@ something more, which is what separates a useful checklist from a list of boxes:
 done without the document that proves it is not done**, and the report says so with the task and
 its owner.
 
-> **Banco Andino** · September 2026 close
+> **Test material · banking, Colombia** · September 2026 close
 > A checklist task is marked done and there is nothing with its id in `40-soportes/`.
 > **The checklist says it is done; the evidence does not.**
 

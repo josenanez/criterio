@@ -2,7 +2,7 @@
   "version": "0.1",
   "role": "servidor",
   "organization": {
-    "name": "Banco Andino"
+    "name": "Entidad de ejemplo"
   },
   "entradas": [
     {
@@ -12,33 +12,33 @@
       "nombre_agente": "Vera",
       "familia": "pmo",
       "instancia": null,
-      "nombre": "Banco Andino",
+      "nombre": "Entidad de ejemplo",
       "config": ".criterio/portafolio/config.json",
       "estado": "PMO/estado",
       "informe": "PMO/reportes"
     },
     {
-      "id": "finanzas/900123456-banco-andino",
+      "id": "finanzas/900123456-entidad-de-ejemplo",
       "area": "finanzas",
       "agente": "clara",
       "nombre_agente": "Clara",
       "familia": "cfo",
-      "instancia": "900123456-banco-andino",
-      "nombre": "Banco Andino",
-      "config": ".criterio/finanzas/900123456-banco-andino/config.json",
-      "estado": "estado-finanzas/900123456-banco-andino",
+      "instancia": "900123456-entidad-de-ejemplo",
+      "nombre": "Entidad de ejemplo",
+      "config": ".criterio/finanzas/900123456-entidad-de-ejemplo/config.json",
+      "estado": "estado-finanzas/900123456-entidad-de-ejemplo",
       "informe": null
     },
     {
-      "id": "legal/900123456-banco-andino",
+      "id": "legal/900123456-entidad-de-ejemplo",
       "area": "legal",
       "agente": "fidel",
       "nombre_agente": "Fidel",
       "familia": "clo",
-      "instancia": "900123456-banco-andino",
-      "nombre": "Banco Andino",
-      "config": ".criterio/legal/900123456-banco-andino/config.json",
-      "estado": "estado-legal/900123456-banco-andino",
+      "instancia": "900123456-entidad-de-ejemplo",
+      "nombre": "Entidad de ejemplo",
+      "config": ".criterio/legal/900123456-entidad-de-ejemplo/config.json",
+      "estado": "estado-legal/900123456-entidad-de-ejemplo",
       "informe": null
     }
   ],

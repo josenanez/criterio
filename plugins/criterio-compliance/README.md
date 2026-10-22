@@ -84,7 +84,7 @@ within its frequency window. And it does something more, which is what separates
 from a list of boxes: **an obligation the matrix declares met and no evidence supports is not
 met**, and the report puts it next to what the period's report declares.
 
-> **Cooperativa Sierra Alta** · September 2026 compliance
+> **Test material · credit unions, Ecuador** · September 2026 compliance
 > The matrix declares an obligation met, and there is nothing with its id in `10-evidencias/`.
 > **The matrix says it is met; the evidence does not.**
 
