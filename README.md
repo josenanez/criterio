@@ -15,7 +15,7 @@ Apache 2.0 · Four clicks to install · Each agent produces its first result in 
 | | | |
 |:--:|:--:|:--:|
 | ![Portfolio, project and product](docs/img/en/pmo.png) | ![CFO](docs/img/en/cfo.png) | ![CLO](docs/img/en/clo.png) |
-| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents | [criterio-cfo →](families/criterio-cfo/DISENO.md)<br>Clara and Tomás, built and in testing | [criterio-clo →](families/criterio-clo/DISENO.md)<br>Fidel and Constanza, built and in testing |
+| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents | **[criterio-cfo →](families/criterio-cfo/README.md)**<br>Clara and Tomás, built and in testing | **[criterio-clo →](families/criterio-clo/README.md)**<br>Fidel and Constanza, built and in testing |
 
 ---
 
@@ -40,8 +40,8 @@ one another. Agents from different families do not.
 | Family | Scope | Objective | State |
 |---|---|---|---|
 | **[criterio-pmo](families/criterio-pmo/README.md)** | The governance of a portfolio, of each project and of each product | That what is declared and what the documents support can be compared, every day and across the whole | **Three agents, installable today** |
-| **criterio-cfo** | Close, control and financial reporting | That closing the books stops depending on somebody remembering what is missing | **Two agents built, in testing:** [Clara](plugins/criterio-finance/README.md) and [Tomás](plugins/criterio-budget/README.md) |
-| **criterio-clo** | Contracts, compliance and legal risk | That a company knows what it signed, what expires and what it committed to | **Two agents built, in testing:** [Fidel](plugins/criterio-legal/README.md) and [Constanza](plugins/criterio-compliance/README.md) |
+| **[criterio-cfo](families/criterio-cfo/README.md)** | Close, control and financial reporting | That closing the books stops depending on somebody remembering what is missing | **Two agents built, in testing:** [Clara](plugins/criterio-finance/README.md) and [Tomás](plugins/criterio-budget/README.md) |
+| **[criterio-clo](families/criterio-clo/README.md)** | Contracts, compliance and legal risk | That a company knows what it signed, what expires and what it committed to | **Two agents built, in testing:** [Fidel](plugins/criterio-legal/README.md) and [Constanza](plugins/criterio-compliance/README.md) |
 
 **Rostrum, the portal, is one for every family.** It publishes what the agents already wrote —the
 PMO report, the CFO and CLO reports, what falls due across all of them— for whoever does not open

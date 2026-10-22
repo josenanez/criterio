@@ -1,6 +1,6 @@
 # Manual de los comandos de Criterio
 
-Los 38 comandos de la familia PMO y de Rostrum, en el orden en que una PMO los usa: Alba define el producto, Samuel ejecuta un proyecto, Vera consolida el portafolio y Rostrum lo publica. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
+Los 68 comandos de las familias PMO, CFO y CLO y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros y Tomás lleva el presupuesto— y la CLO —Fidel lleva los contratos y Constanza el cumplimiento—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
 
 Este manual se genera con `scripts/manual.py` desde la tabla del README de cada plugin y su `contratos.json`, el mismo contrato que las pruebas comparan contra cada corrida. No se edita a mano.
 
@@ -12,7 +12,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ruta de la carpeta del producto] o vacío`
 
-**Lee.** config (si existe); documentos del producto
+**Procesa.** config (si existe); documentos del producto
 
 **Muestra.** qué hay escrito, cuatro preguntas, definición contra evidencia
 
@@ -26,7 +26,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[carpeta o archivo] o vacío`
 
-**Lee.** config; material de descubrimiento; `<estado>/requirements/`
+**Procesa.** config; material de descubrimiento; `<estado>/requirements/`
 
 **Muestra.** temas por problema, con quién lo dijo y cuándo
 
@@ -40,7 +40,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[REQ-xxx] o vacío`
 
-**Lee.** config; `<estado>/requirements/`
+**Procesa.** config; `<estado>/requirements/`
 
 **Muestra.** vacíos por requerimiento y quién los cierra
 
@@ -54,7 +54,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ruta de la definición] o vacío`
 
-**Lee.** config; definición; `<estado>/requirements/`; `<estado>/producto.json`
+**Procesa.** config; definición; `<estado>/requirements/`; `<estado>/producto.json`
 
 **Muestra.** afirmación por afirmación en tres clases, cifras contrastadas, barrido normativo
 
@@ -68,7 +68,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[REQ-xxx o proyecto] o vacío`
 
-**Lee.** config; `<estado>/requirements/`; fichas de proyecto
+**Procesa.** config; `<estado>/requirements/`; fichas de proyecto
 
 **Muestra.** cadena por requerimiento, cobertura, lo construido sin requerimiento
 
@@ -82,7 +82,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[REQ-xxx, …] o vacío`
 
-**Lee.** config; `<estado>/requirements/`
+**Procesa.** config; `<estado>/requirements/`
 
 **Muestra.** secciones con sus REQ, criterios verificables, vacíos con dueño
 
@@ -96,7 +96,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<REQ-xxx>`
 
-**Lee.** config; `<estado>/requirements/`
+**Procesa.** config; `<estado>/requirements/`
 
 **Muestra.** borrador, supuestos que pasan al proyecto, qué no entra
 
@@ -110,7 +110,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ruta del caso] o vacío`
 
-**Lee.** config; caso de negocio; `<estado>/requirements/`; `<estado>/producto.json`
+**Procesa.** config; caso de negocio; `<estado>/requirements/`; `<estado>/producto.json`
 
 **Muestra.** cifras en tres clases (medida, declarada, supuesta), costos, vacíos
 
@@ -124,7 +124,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[carpeta de publicados] o vacío`
 
-**Lee.** config; `<estado>/producto.json`; `<estado>/requirements/`
+**Procesa.** config; `<estado>/producto.json`; `<estado>/requirements/`
 
 **Muestra.** qué publica y la ruta exacta
 
@@ -136,7 +136,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[código de otro producto] o vacío`
 
-**Lee.** config; `<estado>/producto.json`; productos publicados
+**Procesa.** config; `<estado>/producto.json`; productos publicados
 
 **Muestra.** métricas compartidas, proyectos compartidos, segmento
 
@@ -150,7 +150,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[AAAA-MM-DD]`
 
-**Lee.** config; `<estado>/cadencia.json`; `<estado>/requirements/`
+**Procesa.** config; `<estado>/cadencia.json`; `<estado>/requirements/`
 
 **Muestra.** qué tocaba y qué hizo, o nada
 
@@ -166,7 +166,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ruta de la carpeta] o vacío`
 
-**Lee.** config (si existe); documentos del proyecto
+**Procesa.** config (si existe); documentos del proyecto
 
 **Muestra.** qué encontró, cuatro preguntas, compromisos de la última reunión
 
@@ -180,7 +180,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[fecha de la reunión] o vacío`
 
-**Lee.** config; `<estado>/records/<código>.json`; `<estado>/snapshots/`
+**Procesa.** config; `<estado>/records/<código>.json`; `<estado>/snapshots/`
 
 **Muestra.** puntos con tiempo y cita; la suma cabe
 
@@ -194,7 +194,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<ruta de la transcripción o las notas>`
 
-**Lee.** config; la transcripción; `<estado>/records/<código>.json`
+**Procesa.** config; la transcripción; `<estado>/records/<código>.json`
 
 **Muestra.** acta con acuerdos, compromisos, decisiones, riesgos y contradicciones
 
@@ -208,7 +208,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ruta de una minuta] o vacío`
 
-**Lee.** config; `<estado>/records/<código>.json`
+**Procesa.** config; `<estado>/records/<código>.json`
 
 **Muestra.** compromisos ordenados por lo que necesita a alguien
 
@@ -222,7 +222,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[fecha de corte] o vacío`
 
-**Lee.** config; `<estado>/records/<código>.json`; `<estado>/snapshots/`
+**Procesa.** config; `<estado>/records/<código>.json`; `<estado>/snapshots/`
 
 **Muestra.** informe contra la corrida anterior, declaración contrastada, cuatro cifras
 
@@ -236,7 +236,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[confirmar] o vacío`
 
-**Lee.** config; `<estado>/records/<código>.json`
+**Procesa.** config; `<estado>/records/<código>.json`
 
 **Muestra.** qué va a publicar, y la ruta exacta
 
@@ -250,7 +250,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ruta del acta] o vacío`
 
-**Lee.** config; acta de constitución
+**Procesa.** config; acta de constitución
 
 **Muestra.** WBS por entregable, supuestos, qué falta para fechar
 
@@ -264,7 +264,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[qué se escala] o vacío`
 
-**Lee.** config; `<estado>/records/`
+**Procesa.** config; `<estado>/records/`
 
 **Muestra.** pregunta cerrada, opciones, efecto, quién decide
 
@@ -278,7 +278,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[AAAA-MM-DD]`
 
-**Lee.** config; `<estado>/cadencia.json`
+**Procesa.** config; `<estado>/cadencia.json`
 
 **Muestra.** qué tocaba y qué hizo, o nada
 
@@ -294,7 +294,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ruta de la carpeta] o vacío`
 
-**Lee.** config (si existe); documentos
+**Procesa.** config (si existe); documentos
 
 **Muestra.** qué encontró en la carpeta, cinco preguntas, las señales de `compute` sobre tres proyectos
 
@@ -308,7 +308,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[AAAA-MM-DD para simular otro día]`
 
-**Lee.** config; `<estado>/cadencia.json`; `<estado>/peticiones/`
+**Procesa.** config; `<estado>/cadencia.json`; `<estado>/peticiones/`
 
 **Muestra.** qué tocaba y qué hizo, o nada
 
@@ -322,7 +322,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[código del proyecto]`
 
-**Lee.** config; documentos; `<estado>/records/`
+**Procesa.** config; documentos; `<estado>/records/`
 
 **Muestra.** cuántos releer de cuántos, renombrados, borrados, citas rotas
 
@@ -336,7 +336,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ruta] o vacío para la configurada`
 
-**Lee.** config; documentos; `<estado>/records/`
+**Procesa.** config; documentos; `<estado>/records/`
 
 **Muestra.** plan de lectura (cuántos de cuántos), fichas tocadas, campos not_found
 
@@ -350,7 +350,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[ppt|pdf|html] o vacío`
 
-**Lee.** config; `<estado>/records/`; `<estado>/snapshots/`
+**Procesa.** config; `<estado>/records/`; `<estado>/snapshots/`
 
 **Muestra.** informe con cifras copiadas de `compute`, diff contra la instantánea anterior
 
@@ -364,7 +364,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código del proyecto>`
 
-**Lee.** config; `<estado>/records/<código>.json`
+**Procesa.** config; `<estado>/records/<código>.json`
 
 **Muestra.** declarado frente a sustentado, desviación, lo abierto, el silencio
 
@@ -378,7 +378,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código o nombre del proyecto>`
 
-**Lee.** config; documentos del proyecto
+**Procesa.** config; documentos del proyecto
 
 **Muestra.** dictamen por afirmación: sostenida, no sostenida, sin documento
 
@@ -392,7 +392,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código del proyecto> [desde AAAA-MM]`
 
-**Lee.** config; documentos del proyecto; `<estado>/records/`; `<estado>/corridas.json`
+**Procesa.** config; documentos del proyecto; `<estado>/records/`; `<estado>/corridas.json`
 
 **Muestra.** línea de tiempo, replanificaciones, cambios de gobierno, compromisos repetidos, punto de separación
 
@@ -406,7 +406,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[fecha del comité] o vacío`
 
-**Lee.** config; `<estado>/records/`; `<estado>/corridas.json`
+**Procesa.** config; `<estado>/records/`; `<estado>/corridas.json`
 
 **Muestra.** cada punto como decisión cerrada, con quién decide
 
@@ -420,7 +420,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código del proyecto> o 'portafolio'`
 
-**Lee.** config; `<estado>/records/`; actas y minutas
+**Procesa.** config; `<estado>/records/`; actas y minutas
 
 **Muestra.** RAID actualizado y lo dicho sin registrar
 
@@ -434,7 +434,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código del proyecto> <qué cambia>`
 
-**Lee.** config; `<estado>/records/`
+**Procesa.** config; `<estado>/records/`
 
 **Muestra.** las tres dimensiones, efecto en el portafolio, quién decide
 
@@ -448,7 +448,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código del proyecto> o 'portafolio'`
 
-**Lee.** config; `<estado>/records/`
+**Procesa.** config; `<estado>/records/`
 
 **Muestra.** las cuatro cifras con fuente y fecha, % comprometido, desviación de costo
 
@@ -462,7 +462,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código del proyecto> [proveedor]`
 
-**Lee.** config; `<estado>/records/<código>.json`
+**Procesa.** config; `<estado>/records/<código>.json`
 
 **Muestra.** entregable por entregable: estado, evidencia, facturado
 
@@ -476,7 +476,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[nombre del producto]`
 
-**Lee.** config; `<estado>/records/`
+**Procesa.** config; `<estado>/records/`
 
 **Muestra.** proyectos del producto, señales sumadas, fecha del más tardío, dinero sumado
 
@@ -490,7 +490,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código del proyecto> [revisar|redactar]`
 
-**Lee.** config; documentos de gobierno
+**Procesa.** config; documentos de gobierno
 
 **Muestra.** lo que falta y su consecuencia, o el borrador
 
@@ -504,13 +504,441 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `<código del proyecto>`
 
-**Lee.** config; `<estado>/records/<código>.json`; documentos del proyecto
+**Procesa.** config; `<estado>/records/<código>.json`; documentos del proyecto
 
 **Muestra.** entregado contra comprometido, números de cierre, RAID cerrado, lecciones
 
 **Escribe.** nada: no escribe
 
 **Skills.** **baseline-variance**, **governance-artifacts**
+
+## Clara · el cierre
+
+### `/criterio-finance:finance-setup`
+
+**Qué hace.** La configuración, el inventario de la carpeta y la primera ficha del cierre
+
+**Argumento.** `[ruta de la carpeta] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** inventario, preguntas, estado del cierre
+
+**Escribe.** `.criterio/finanzas/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/cierre/<AAAA-MM>/ficha.json`; `.criterio/terminos/ (aceptar)`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)`
+
+**Skills.** **close-checklist**, **close-record**, **finance-intake**
+
+### `/criterio-finance:close-scan`
+
+**Qué hace.** La ficha del cierre al día, con lo que cambió y las señales nuevas
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<estado>/indice.json`; documentos del periodo
+
+**Muestra.** qué cambió y las señales
+
+**Escribe.** `<estado>/indice.json`; `<estado>/cache/`; `<estado>/cierre/<AAAA-MM>/ficha.json`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **close-record**, **finance-intake**
+
+### `/criterio-finance:close-status`
+
+**Qué hace.** El estado del cierre: declarado contra evidenciado, tarea por tarea
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `00-referencia/checklist-cierre`; `<AAAA-MM>/40-soportes/`; ficha
+
+**Muestra.** tabla de tareas, avance, ruta crítica
+
+**Escribe.** `<estado>/cierre/<AAAA-MM>/ficha.json (declared)`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **close-checklist**, **close-record**
+
+### `/criterio-finance:bank-reconcile`
+
+**Qué hace.** La conciliación de cada cuenta bancaria, con sus partidas abiertas por antigüedad
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<AAAA-MM>/20-bancos/`
+
+**Muestra.** conciliación por cuenta y partidas abiertas
+
+**Escribe.** `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **reconciliation**
+
+### `/criterio-finance:account-reconcile`
+
+**Qué hace.** La conciliación de cada cuenta contra su auxiliar
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<AAAA-MM>/10-contabilidad/auxiliares/`; balance
+
+**Muestra.** conciliación por cuenta
+
+**Escribe.** `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **reconciliation**
+
+### `/criterio-finance:ledger-check`
+
+**Qué hace.** El cuadre del balance y del mayor, cuenta por cuenta
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<AAAA-MM>/10-contabilidad/`; `00-referencia/plan-de-cuentas`
+
+**Muestra.** cuadre y cuentas con diferencia
+
+**Escribe.** `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **ledger-tieout**
+
+### `/criterio-finance:einvoice-check`
+
+**Qué hace.** Todas las facturas electrónicas del periodo contra la contabilidad, no una muestra
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<AAAA-MM>/30-facturacion/`; libro mayor
+
+**Muestra.** cruce y señales
+
+**Escribe.** `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **einvoice-matching**
+
+### `/criterio-finance:audit-pack`
+
+**Qué hace.** El índice del paquete del auditor, con el estado de cada requerimiento
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<AAAA-MM>/50-auditoria/`; ficha
+
+**Muestra.** índice de requerimientos
+
+**Escribe.** `<estado>/cierre/<AAAA-MM>/ficha.json (audit_requests)`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **audit-support**, **close-record**
+
+### `/criterio-finance:finance-wake`
+
+**Qué hace.** Lo que toca hoy en el cierre; si no toca nada, se calla
+
+**Argumento.** `[AAAA-MM-DD]`
+
+**Procesa.** `<estado>/corridas/registro.json`; `<estado>/peticiones/`; config
+
+**Muestra.** qué tocaba y qué hizo, o nada
+
+**Escribe.** `<estado>/indice.json`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`; `<estado>/peticiones/<id>.json (responder)`
+
+**Skills.** **finance-intake**
+
+## Tomás · el presupuesto
+
+### `/criterio-budget:budget-setup`
+
+**Qué hace.** La configuración, el inventario y la primera ficha del presupuesto de cada área
+
+**Argumento.** `[ruta de la carpeta] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** inventario, preguntas, primera ejecución contra lo aprobado
+
+**Escribe.** `.criterio/presupuesto/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/presupuesto/<AAAA>/ficha.json`; `.criterio/terminos/ (aceptar)`; `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)`
+
+**Skills.** **budget-record**, **finance-intake**
+
+### `/criterio-budget:budget-scan`
+
+**Qué hace.** Las fichas del presupuesto al día, con lo que cambió y las señales nuevas
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<estado>/indice.json`; documentos
+
+**Muestra.** qué cambió y las señales
+
+**Escribe.** `<estado>/indice.json`; `<estado>/cache/`; `<estado>/presupuesto/<AAAA>/ficha.json`; `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`
+
+**Skills.** **budget-record**, **finance-intake**
+
+### `/criterio-budget:variance-report`
+
+**Qué hace.** Aprobado, ejecutado, comprometido, disponible y desviación por área y cuenta
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; presupuesto; contabilidad; compromisos; ficha
+
+**Muestra.** tabla por área y línea
+
+**Escribe.** `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`
+
+**Skills.** **variance-analysis**
+
+### `/criterio-budget:forecast`
+
+**Qué hace.** La proyección al cierre del año, con su supuesto declarado
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<AAAA>/30-proyecciones/`; ejecución; compromisos
+
+**Muestra.** tres proyecciones por línea
+
+**Escribe.** `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`
+
+**Skills.** **forecast-method**
+
+### `/criterio-budget:transfer-log`
+
+**Qué hace.** Cada traslado con su acta, y los que no la tienen
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<AAAA>/10-aprobado/`; ficha (minutes)
+
+**Muestra.** registro de traslados
+
+**Escribe.** `<estado>/presupuesto/<AAAA>/ficha.json (minutes)`; `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`
+
+**Skills.** **budget-record**, **transfer-control**
+
+### `/criterio-budget:budget-committee-pack`
+
+**Qué hace.** El material del comité de presupuesto como paquete de decisiones
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; resultados; ficha (committee_commitments)
+
+**Muestra.** puntos de decisión y compromisos del comité anterior
+
+**Escribe.** `<estado>/presupuesto/<AAAA>/ficha.json (committee_commitments)`; `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`
+
+**Skills.** **budget-record**, **committee-pack**
+
+### `/criterio-budget:budget-wake`
+
+**Qué hace.** Lo que toca hoy en el presupuesto; si no toca nada, se calla
+
+**Argumento.** `[AAAA-MM-DD]`
+
+**Procesa.** `<estado>/corridas/registro.json`; `<estado>/peticiones/`; config
+
+**Muestra.** qué tocaba y qué hizo, o nada
+
+**Escribe.** `<estado>/indice.json`; `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`; `<estado>/peticiones/<id>.json (responder)`
+
+**Skills.** **finance-intake**
+
+## Fidel · los contratos
+
+### `/criterio-legal:legal-setup`
+
+**Qué hace.** La configuración, el inventario y las primeras fichas de los contratos
+
+**Argumento.** `[ruta de la carpeta de la entidad] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas
+
+**Escribe.** `.criterio/legal/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/contratos/<código>.json`; `.criterio/terminos/ (aceptar)`; `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-obligations-calendar.md`; `<estado>/corridas/salida-legal-setup.md`; `<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)`
+
+**Skills.** **contract-record**, **legal-intake**, **signing-authority**
+
+### `/criterio-legal:contract-scan`
+
+**Qué hace.** Las fichas de los contratos al día, con lo que cambió y las señales nuevas
+
+**Argumento.** `[código del contrato] o vacío para todos`
+
+**Procesa.** config; `<estado>/indice.json`; `contratos/`; `10-registro/`
+
+**Muestra.** Qué cambió; qué contratos son nuevos; las señales nuevas; lo que no se pudo procesar y por qué
+
+**Escribe.** `<estado>/indice.json`; `<estado>/cache/`; `<estado>/contratos/<código>.json`; `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-contract-scan.md`; `<estado>/corridas/salida-contract-scan.md`
+
+**Skills.** **contract-record**, **legal-intake**
+
+### `/criterio-legal:contract-register`
+
+**Qué hace.** El registro de contratos contra lo que dicen los documentos
+
+**Argumento.** `vacío`
+
+**Procesa.** config; `10-registro/registro-contratos`; `<estado>/contratos/*.json`
+
+**Muestra.** Por contrato: estado declarado y estado según sus fechas, y cada diferencia entre el registro y el documento
+
+**Escribe.** `<estado>/contratos/<código>.json`; `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-contract-register.md`; `<estado>/corridas/salida-contract-register.md`
+
+**Skills.** **contract-record**
+
+### `/criterio-legal:obligations-calendar`
+
+**Qué hace.** Vencimientos, preavisos y obligaciones, con lo que venció sin evidencia
+
+**Argumento.** `vacío`
+
+**Procesa.** config; `<estado>/contratos/*.json`; `contratos/*/40-ejecucion/`
+
+**Muestra.** El calendario de los próximos días: vencimientos, preavisos y obligaciones; lo vencido sin evidencia y los preavisos que pasaron sin decisión
+
+**Escribe.** `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-obligations-calendar.md`; `<estado>/corridas/salida-obligations-calendar.md`
+
+**Skills.** **contract-calendar**
+
+### `/criterio-legal:authority-check`
+
+**Qué hace.** Quién firmó cada contrato y con qué facultad
+
+**Argumento.** `vacío`
+
+**Procesa.** config; `<estado>/contratos/*.json`; `00-referencia/matriz-atribuciones`
+
+**Muestra.** Por contrato: quién firmó, su facultad y el monto; los que no tienen firma de las dos partes; los certificados vencidos; sin opinión sobre la validez del contrato
+
+**Escribe.** `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-authority-check.md`; `<estado>/corridas/salida-authority-check.md`
+
+**Skills.** **signing-authority**
+
+### `/criterio-legal:contract-execution`
+
+**Qué hace.** Lo pagado contra lo pactado, y las garantías contra lo exigido
+
+**Argumento.** `vacío`
+
+**Procesa.** config; `10-registro/pagos`; `<estado>/contratos/*.json`
+
+**Muestra.** Por contrato: valor, pagado, saldo y último pago; cada garantía exigida con la aportada y su vigencia
+
+**Escribe.** `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-contract-execution.md`; `<estado>/corridas/salida-contract-execution.md`
+
+**Skills.** **payments-guarantees**
+
+### `/criterio-legal:legal-wake`
+
+**Qué hace.** Lo que toca hoy en los contratos; si no toca nada, se calla
+
+**Argumento.** `[AAAA-MM-DD para simular otro día]`
+
+**Procesa.** `<estado>/contratos/*.json`; `<estado>/corridas/`; `<estado>/peticiones/`; config
+
+**Muestra.** Lo que corrió y lo que encontró; si no toca nada, se calla
+
+**Escribe.** `<estado>/indice.json`; `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-obligations-calendar.md`; `<estado>/corridas/salida-legal-wake.md`; `<estado>/peticiones/<id>.json (responder)`
+
+**Skills.** **legal-intake**
+
+## Constanza · el cumplimiento
+
+### `/criterio-compliance:compliance-setup`
+
+**Qué hace.** La configuración, la matriz revisada y el primer estado del cumplimiento
+
+**Argumento.** `[ruta de la carpeta de la entidad] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** Configuración guardada; la matriz cargada y lo que le falta a cada obligación —responsable, fuente—; el primer estado del periodo
+
+**Escribe.** `.criterio/cumplimiento/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/cumplimiento/<AAAA-MM>/ficha.json`; `.criterio/terminos/ (aceptar)`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md`; `<estado>/corridas/salida-compliance-setup.md`; `<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)`
+
+**Skills.** **compliance-record**, **legal-intake**, **obligations-matrix**
+
+### `/criterio-compliance:compliance-scan`
+
+**Qué hace.** La ficha del cumplimiento al día, con lo que cambió y las señales nuevas
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** config; `<estado>/indice.json`; documentos del periodo
+
+**Muestra.** Qué cambió; qué se agregó a la ficha; las señales nuevas; lo que no se pudo procesar
+
+**Escribe.** `<estado>/indice.json`; `<estado>/cache/`; `<estado>/cumplimiento/<AAAA-MM>/ficha.json`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-scan.md`; `<estado>/corridas/salida-compliance-scan.md`
+
+**Skills.** **compliance-record**, **legal-intake**
+
+### `/criterio-compliance:compliance-status`
+
+**Qué hace.** El estado del cumplimiento: declarado contra evidenciado, obligación por obligación
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** config; `00-referencia/matriz-obligaciones`; `cumplimiento-<AAAA-MM>/10-evidencias/`; `<estado>/cumplimiento/<AAAA-MM>/ficha.json`
+
+**Muestra.** Estado declarado contra evidenciado; tabla de obligaciones ordenada por criticidad y vencimiento: cumplida con evidencia, cumplida sin evidencia, vencida, en plazo
+
+**Escribe.** `<estado>/cumplimiento/<AAAA-MM>/ficha.json`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md`; `<estado>/corridas/salida-compliance-status.md`
+
+**Skills.** **compliance-record**, **obligations-matrix**
+
+### `/criterio-compliance:policy-review`
+
+**Qué hace.** Cada política con su próxima revisión, y las vencidas
+
+**Argumento.** `vacío`
+
+**Procesa.** config; `20-politicas/indice-politicas`
+
+**Muestra.** Las políticas con la revisión vencida o sin responsable, y las próximas a revisar
+
+**Escribe.** `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-policy-review.md`; `<estado>/corridas/salida-policy-review.md`
+
+**Skills.** **policy-control**
+
+### `/criterio-compliance:regulatory-watch`
+
+**Qué hace.** Las normas nuevas con su evaluación, y las que aplican sin obligación
+
+**Argumento.** `vacío`
+
+**Procesa.** config; `30-normativa/`; `<estado>/cumplimiento/<AAAA-MM>/ficha.json`
+
+**Muestra.** Las normas sin evaluar y las que aplican sin obligación en la matriz; sin opinión sobre el alcance de ninguna norma
+
+**Escribe.** `<estado>/cache/`; `<estado>/cumplimiento/<AAAA-MM>/ficha.json`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-regulatory-watch.md`; `<estado>/corridas/salida-regulatory-watch.md`
+
+**Skills.** **compliance-record**, **regulatory-change**
+
+### `/criterio-compliance:reports-cases`
+
+**Qué hace.** Los casos del canal de denuncias contra su plazo
+
+**Argumento.** `vacío`
+
+**Procesa.** config; `40-canal/casos`
+
+**Muestra.** Los casos abiertos por antigüedad y los que pasaron su plazo; sin datos de quién denunció
+
+**Escribe.** `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-reports-cases.md`; `<estado>/corridas/salida-reports-cases.md`
+
+**Skills.** **whistleblowing-channel**
+
+### `/criterio-compliance:compliance-wake`
+
+**Qué hace.** Lo que toca hoy en el cumplimiento; si no toca nada, se calla
+
+**Argumento.** `[AAAA-MM-DD para simular otro día]`
+
+**Procesa.** `00-referencia/matriz-obligaciones`; `<estado>/corridas/`; `<estado>/peticiones/`; config
+
+**Muestra.** Lo que corrió y lo que encontró; si no toca nada, se calla
+
+**Escribe.** `<estado>/indice.json`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md`; `<estado>/corridas/salida-compliance-wake.md`; `<estado>/peticiones/<id>.json (responder)`
+
+**Skills.** **legal-intake**
 
 ## Rostrum · el portal de todas las familias
 
@@ -520,7 +948,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[carpeta de trabajo] o vacío`
 
-**Lee.** `.criterio/<área>/[<instancia>/]config.json`
+**Procesa.** `.criterio/<área>/[<instancia>/]config.json`
 
 **Muestra.** el mapa encontrado, lo que falta y lo que se deja fuera
 
@@ -532,7 +960,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Argumento.** `[rato|servicio] o vacío`
 
-**Lee.** `.criterio/rostrum/config.json`; el estado de cada entrada del mapa
+**Procesa.** `.criterio/rostrum/config.json`; el estado de cada entrada del mapa
 
 **Muestra.** las direcciones del portal y qué se pide para publicarlo
 

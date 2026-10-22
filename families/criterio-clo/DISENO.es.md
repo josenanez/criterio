@@ -1,13 +1,13 @@
-[English](DISENO.md)
+[English](DISENO.md) · [← La familia](README.es.md)
 
-# criterio-clo · la familia de la función legal
+# criterio-clo · el diseño de la familia
 
-![Fidel, Constanza y Rostrum](../../docs/img/es/robots-clo.gif)
-
-**Estado: construida y en prueba.** Los catorce comandos, los skills y el motor de cálculo están
+**Estado: construida y en prueba.** Los catorce comandos, los diez skills y el motor de cálculo están
 construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y dos
 entidades de control (`tests/criterio-clo/`), y la prueba con el agente es el paso siguiente.
 Alcance en [ADR 0009](../../docs/decisions/0009-scope-clo.md).
+
+**Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, sus fichas y sus invariantes, la estructura de carpetas, Rostrum, la cadencia, las pruebas y la hoja de ruta están en su [página](README.es.md).
 
 Dos agentes que extienden la capacidad de la función legal: procesan lo que la empresa firmó y lo
 que se obligó a cumplir, y lo contrastan contra todos los soportes para señalar qué vence, qué no
@@ -24,12 +24,16 @@ entregable sin intervención. Semiautomatizados cuando falta un dato que ningún
 —la entidad, los días de aviso, quién decide renovar—: entonces le preguntan a la persona, dicen
 qué preguntaron y siguen con la respuesta.
 
-**De dónde sale este documento.** Las tablas de agentes, carpetas, señales, comandos y cifras no se
+**Fuentes.** Toda fuente que se usa para procesar —marcos, normas, cifras de terceros— está en
+[`FUENTES.es.md`](FUENTES.es.md) con su versión, su enlace, la fecha de consulta y su estado. El diseño,
+la documentación y las pruebas citan esas fuentes por su identificador.
+
+**De dónde sale este documento.** Las tablas de agentes, señales, comandos y cifras no se
 escriben aquí: salen de [`familia.json`](familia.json), [`carpetas.json`](carpetas.json) y
 [`fuentes.json`](fuentes.json), que `scripts/familias.py` escribe en este diseño, en
-`FUENTES.es.md`, en los README de los plugins y, con `scripts/criterio-familias.mjs`, en el portal.
+`FUENTES.es.md`, en la página de la familia, en los README de los plugins y, con `scripts/criterio-familias.mjs`, en el portal.
 
-**Lo que más se pregunta**, en [`PREGUNTAS.es.md`](PREGUNTAS.es.md) ([English](PREGUNTAS.md)), y **hacia dónde va**, en la [hoja de ruta](#hoja-de-ruta).
+**Lo que más se pregunta**, en [`PREGUNTAS.es.md`](PREGUNTAS.es.md) ([English](PREGUNTAS.md)), y **hacia dónde va**, en la [hoja de ruta](README.es.md#hoja-de-ruta).
 
 ## Un agente por rol
 
@@ -41,9 +45,30 @@ escriben aquí: salen de [`familia.json`](familia.json), [`carpetas.json`](carpe
 <!-- /clo:agentes -->
 
 Como en las familias PMO y CFO, los dos no se hablan entre sí: se hablan por sus fichas. Constanza
-toma de las fichas de Fidel las obligaciones de cumplimiento que traen los contratos.
+toma de las fichas de Fidel las obligaciones de cumplimiento que traen los contratos. Las fichas y las
+invariantes que las gobiernan, en la [página de la familia](README.es.md#los-dos-agentes-y-sus-fichas).
 
-## Lo que procesa el motor y lo que extrae el agente
+## Los documentos que procesan
+
+| Documento | Formato esperado | Agente |
+|---|---|---|
+| Registro de contratos y exportación de pagos por contrato | Excel o CSV, con la fecha de corte en el nombre | Fidel |
+| Matriz de atribuciones: quién firma qué y hasta qué monto | Excel o CSV | Fidel |
+| El contrato firmado y cada otrosí | Word o PDF con texto | Fidel |
+| Pólizas y garantías aportadas | PDF con texto | Fidel |
+| Certificado de existencia y representación de la contraparte | PDF con texto | Fidel |
+| Acta o correo en que alguien decide renovar o terminar | Word, PDF, correo | Fidel |
+| Actas de entrega, informes y la evidencia de cada obligación | Cualquier formato, con el id de la obligación al inicio del nombre | Fidel, Constanza |
+| Matriz de obligaciones de cumplimiento | Excel o CSV, en el modelo definido | Constanza |
+| Índice de políticas, y cada política | Excel o CSV; la política, Word o PDF | Constanza |
+| Registro normativo, boletines y evaluaciones de impacto | Excel o CSV; el boletín, PDF o correo | Constanza |
+| Registro de casos del canal de denuncias | Excel o CSV, solo con sus fechas | Constanza |
+| Informe de cumplimiento del periodo | Word o PDF | Constanza |
+
+Las columnas que necesita cada tabla, y sus variantes, en el skill `legal-intake`. Dónde va cada
+documento, en la [estructura de carpetas recomendada](README.es.md#la-estructura-de-carpetas-recomendada).
+
+### Lo que procesa el motor y lo que extrae el agente
 
 Como en la familia CFO ([ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md)), el
 motor procesa las tablas directamente —el registro de contratos, los pagos, la matriz de
@@ -96,7 +121,7 @@ Los días de aviso, la antigüedad máxima del certificado, el plazo del canal y
 evaluar una norma son configuración de cada organización, con un valor por defecto declarado;
 ninguno es una norma.
 
-## Las tres clases
+## Las tres clases, como en la familia PMO
 
 **A · Lo que hace, y hoy consume tiempo de alguien:** armar el registro de contratos, llevar el
 calendario de vencimientos y preavisos, revisar quién firmó cada contrato, cruzar los pagos contra
@@ -110,66 +135,6 @@ obligaciones con lo que los contratos obligan.
 **C · Lo que no hace:** no interpreta cláusulas ni normas; no califica la validez de un contrato ni
 de una firma; no decide renovar ni terminar; no redacta ni negocia; no responde casos del canal de
 denuncias ni procesa datos de quién denunció; no declara el estado del cumplimiento.
-
-## La estructura de carpetas
-
-Recomendada, no obligatoria ([ADR 0007](../../docs/decisions/0007-estructura-recomendada.md)): los
-agentes procesan la carpeta como esté. `legal-setup` y `compliance-setup` comparan lo que
-encuentran con esta estructura y dicen qué archivo está fuera de su lugar y dónde iría; no crean,
-mueven ni renombran nada en los documentos de la organización.
-
-<!-- clo:carpetas · generado por scripts/familias.py; no se edita a mano -->
-Una carpeta por entidad, con el NIT o el RUC al inicio del nombre. Dentro, lo que la organización lleva para toda la entidad, una carpeta por contrato y una por periodo de cumplimiento.
-
-```
-legal/
-└── <entidad>/
-    ├── 00-referencia/
-    ├── 10-registro/
-    ├── 20-politicas/
-    ├── 30-normativa/
-    ├── 40-canal/
-    ├── contratos/<código>/
-    │   ├── 10-contrato/
-    │   ├── 20-garantias/
-    │   ├── 30-contraparte/
-    │   └── 40-ejecucion/
-    └── cumplimiento-<AAAA-MM>/
-        ├── 10-evidencias/
-        └── 20-reportes/
-estado-legal/
-```
-
-**`<entidad>/`** · Lo que la organización lleva para toda la entidad
-
-| Carpeta | Qué va | Agente |
-|---|---|---|
-| `00-referencia/` | La matriz de atribuciones —quién firma qué y hasta qué monto— y la matriz de obligaciones de cumplimiento | Fidel, Constanza |
-| `10-registro/` | El registro de contratos que lleva la organización y la exportación de pagos por contrato del ERP, con la fecha de corte en el nombre | Fidel |
-| `20-politicas/` | El índice de políticas con su versión y su próxima revisión, y cada política | Constanza |
-| `30-normativa/` | El registro normativo, los boletines y las evaluaciones de impacto de cada norma nueva | Constanza |
-| `40-canal/` | El registro de casos del canal de denuncias, con su fecha de recepción y de respuesta | Constanza |
-
-**`contratos/<código>/`** · Un contrato, con su código al inicio del nombre de la carpeta
-
-| Carpeta | Qué va | Agente |
-|---|---|---|
-| `10-contrato/` | El contrato firmado y cada otrosí | Fidel |
-| `20-garantias/` | Las pólizas y garantías aportadas | Fidel |
-| `30-contraparte/` | El certificado de existencia y representación de la contraparte y sus documentos | Fidel |
-| `40-ejecucion/` | Actas de entrega, informes y la evidencia de cada obligación, con su id al inicio del nombre | Fidel, Constanza |
-
-**`cumplimiento-<AAAA-MM>/`** · Un periodo de cumplimiento
-
-| Carpeta | Qué va | Agente |
-|---|---|---|
-| `10-evidencias/` | La evidencia de cada obligación del periodo, con su id al inicio del nombre | Constanza |
-| `20-reportes/` | El informe de cumplimiento del periodo | Constanza |
-
-**`estado-legal/`** · Lo que escriben Fidel y Constanza: la configuración, las fichas de cada contrato, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí.
-<!-- /clo:carpetas -->
-
-Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta.
 
 ## Los comandos de Fidel, en orden de importancia
 
@@ -199,40 +164,26 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 | 6 | `compliance-wake` | La configuración y la ficha | Decide qué toca: las obligaciones que vencen en la ventana, los documentos nuevos y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
 <!-- /clo:comandos-constanza -->
 
-## En Rostrum
-
-Un solo portal, `criterio-server`, publica lo que escriben todas las familias
-([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)). La CLO entra igual que cualquier
-otra, sin que el servidor sepa nada de contratos.
-
-**Cómo entra.** `/criterio-legal:legal-setup` y `/criterio-compliance:compliance-setup` dejan su
-configuración en `.criterio/legal/<entidad>/` y `.criterio/cumplimiento/<entidad>/`, con la carpeta
-legal de la entidad marcada con `_CRITERIO_LEGAL.txt`. Fidel y Constanza comparten el estado de la
-entidad, y cada uno ve en el portal sus corridas y sus reportes, no los del otro. Después,
-`/criterio-server:server-setup` encuentra las dos configuraciones y las suma al mapa, y
-`/criterio-server:server-start` levanta el portal.
-
-**Lo que la CLO tiene en Rostrum:**
-
-| Dónde | Qué |
-|---|---|
-| Inicio | La tarjeta **Criterio CLO** con Fidel y Constanza y sus señales abiertas |
-| `/familia/clo` | Lo último que escribió el motor de cada uno —los contratos, el cumplimiento de un periodo—, con sus señales en palabras y sus reportes tal como los dejó el motor |
-| Lo que vence | El preaviso de un contrato con renovación automática, el límite de un plazo, la obligación que vence, ordenados con los de las otras familias |
-| `/caso/<CTR>` | Todo lo que los agentes hicieron sobre un contrato |
-| Dónde trabaja | La ruta completa de la carpeta raíz, de los documentos de la entidad con su marca, del estado y de cada configuración |
-| Preguntar a un agente | Una pregunta para Fidel o para Constanza, que la atiende en su siguiente corrida |
-
-Rostrum no recalcula nada y no escribe en el estado: sirve lo que el motor ya escribió y lo
-dice con su fecha.
-
-→ [Rostrum: instalación, configuración y uso con todas las familias](https://www.josenanez.com/es/agents/rostrum) ·
-[su README](../../plugins/criterio-server/README.es.md)
-
 ## El formato común de los reportes
 
 El mismo de las familias PMO y CFO, y lo escribe el motor: encabezado, lo que hay que atender, el
 resultado propio del comando, lo que no se pudo procesar, las preguntas que hizo y las fuentes.
+
+## Lo que se reusa de las familias PMO y CFO
+
+- `texto.py` para Word, Excel, PowerPoint, PDF y correo, `terminos.py` para la aceptación de los
+  términos, `rastro.py` para el rastro de cada corrida y `raiz.py` para la carpeta raíz, copiados
+  de la familia PMO por `scripts/sincronizar.py`.
+- `nucleo.py` —tablas, fechas, inventario, señales y reporte—, copiado de `criterio-finance`.
+- La forma de la ficha: cita por dato, declarado contra evidenciado, «no encontrado» válido.
+- Los términos por versión con su comprobante, el registro de versiones y las puertas de
+  `scripts/verificar.py`.
+- Rostrum, `criterio-server`, para publicar los reportes de los contratos y del cumplimiento
+  ([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)).
+
+Lo nuevo es el motor propio, `legal.py`, con librería estándar: procesa las tablas directamente, y
+el agente extrae a la ficha solo lo que trae un documento escrito. Vive en `criterio-legal` y se
+copia a `criterio-compliance`, con el skill `legal-intake`.
 
 ## Cómo se prueba
 
@@ -248,21 +199,6 @@ completa.
 <!-- clo:cifras · generado por scripts/familias.py; no se edita a mano -->
 Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (World Commerce & Contracting con Deloitte), C-02 (EY Law y Harvard Law School Center on the Legal Profession), C-03 (EY Law y Harvard Law School Center on the Legal Profession).
 <!-- /clo:cifras -->
-
-## Hoja de ruta
-
-<!-- hoja de ruta: generado por scripts/hoja.py desde hoja-de-ruta.json; no se edita a mano -->
-
-La familia crece por incrementos. Cada uno es una versión con su prueba completa y su análisis estadístico publicados, con las mismas métricas, para que la evolución se pueda comparar.
-
-| Versión | Estado | Qué entra | Prueba |
-|---|---|---|---|
-| Incremento 1 | En curso | **Construida, con el motor probado**<br>· Los catorce comandos de Fidel y Constanza, sus skills y el motor de cálculo<br>· Colombia y Ecuador, sin opinión jurídica: lo que exige una obligación lo define la organización en su matriz<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente | El motor, contra 4 industrias y 2 entidades de control |
-| Incremento 2 | Siguiente | **La ronda con el agente**<br>· Fidel y Constanza corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo trae cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones—, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
-| Incremento 3 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre los contratos y el cumplimiento de una organización concreta | La documentación de esa organización |
-| Incremento 4 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
-
-<!-- /hoja de ruta -->
 
 ## Decisiones cerradas
 

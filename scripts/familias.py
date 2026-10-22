@@ -223,16 +223,186 @@ def carpetas_md(ca: dict, fa: dict, i: str = "es") -> str:
     return "\n".join(l)
 
 
+# Los números en palabras, para los títulos que cuentan: «Los nueve comandos» sale del plugin, no
+# de quien escribe, y una puerta compara cada cifra escrita en palabras con la que cuenta el código.
+NUMEROS = {
+    "es": {1: "un", 2: "dos", 3: "tres", 4: "cuatro", 5: "cinco", 6: "seis", 7: "siete", 8: "ocho", 9: "nueve",
+           10: "diez", 11: "once", 12: "doce", 13: "trece", 14: "catorce", 15: "quince", 16: "dieciséis",
+           17: "diecisiete", 18: "dieciocho", 19: "diecinueve", 20: "veinte"},
+    "en": {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine",
+           10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen",
+           17: "seventeen", 18: "eighteen", 19: "nineteen", 20: "twenty"},
+}
+
+
+def palabra(n: int, i: str) -> str:
+    return NUMEROS[i][n]
+
+
+def skills_de(plugin: str) -> list[str]:
+    base = P / plugin / "skills"
+    return sorted(d.name for d in base.iterdir() if (d / "SKILL.md").is_file()) if base.is_dir() else []
+
+
+def cuenta(a: dict) -> tuple[int, int]:
+    return len(a["comandos"]), len(skills_de(a["plugin"]))
+
+
 def comandos_readme(a: dict, i: str) -> str:
-    cab = "| # | Comando | Qué entrega |" if i == "es" else "| # | Command | What it delivers |"
-    l = [cab, "|---|---|---|"]
-    l += [f"| {c['n']} | `/{a['plugin']}:{c['id']}` | {celda(c[i]['entrega'] if i == 'en' else c['es']['entrega'])} |" for c in a["comandos"]]
+    """La tabla de comandos de la página del agente, con la forma de las de la familia PMO: el
+    comando con su prefijo y lo que entrega. De aquí la toma también el manual de los comandos."""
+    n = len(a["comandos"])
+    if i == "es":
+        l = [f"### Los {palabra(n, i)} comandos", "",
+             f"> Se escriben con el prefijo del plugin: `/{a['plugin']}:` y autocompletar hace el resto. Es la única "
+             "forma que resuelve en una sesión de Claude Code.", "", "| Comando | Qué hace |", "|---|---|"]
+    else:
+        l = [f"### The {palabra(n, i)} commands", "",
+             f"> They are typed with the plugin prefix: `/{a['plugin']}:` and autocomplete does the rest. It is the "
+             "only form that resolves in a Claude Code session.", "", "| Command | What it does |", "|---|---|"]
+    l += [f"| `/{a['plugin']}:{c['id']}` | {celda(c[i]['entrega'])} |" for c in a["comandos"]]
     return "\n".join(l)
 
 
-def skills_readme(base: Path) -> str:
-    nombres = sorted(d.name for d in (base / "skills").iterdir() if (d / "SKILL.md").is_file()) if (base / "skills").is_dir() else []
-    return " · ".join(f"`{n}`" for n in nombres)
+def duenio(skill: str, fa: dict) -> dict:
+    """El agente dueño de un skill es el primero de la familia que lo trae; los demás llevan copia."""
+    return next(a for a in fa["agentes"] if skill in skills_de(a["plugin"]))
+
+
+def de_quien(skill: str, a: dict, fa: dict, i: str) -> str:
+    d = duenio(skill, fa)
+    otros = [x["nombre"] for x in fa["agentes"] if x is not a and x is not d and skill in skills_de(x["plugin"])]
+    y = " y " if i == "es" else " and "
+    if d is a:
+        tambien = [x["nombre"] for x in fa["agentes"] if x is not a and skill in skills_de(x["plugin"])]
+        base = "Propio" if i == "es" else "Own"
+        if tambien:
+            base += (" · también en " if i == "es" else " · also in ") + y.join(tambien)
+        return base
+    base = f"Copia de {d['nombre']}" if i == "es" else f"Copy of {d['nombre']}'s"
+    if otros:
+        base += (" · también en " if i == "es" else " · also in ") + y.join(otros)
+    return base
+
+
+def skills_readme(a: dict, fa: dict, i: str) -> str:
+    nombres = skills_de(a["plugin"])
+    if i == "es":
+        l = [f"### Los {palabra(len(nombres), i)} skills", "",
+             "Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se consultan "
+             "como un manual.", "", "| Skill | Qué encapsula | De quién es |", "|---|---|---|"]
+    else:
+        l = [f"### The {palabra(len(nombres), i)} skills", "",
+             "They load on their own when the subject comes up. They are the knowledge the commands share, and they "
+             "are consulted like a manual.", "", "| Skill | What it encapsulates | Whose it is |", "|---|---|---|"]
+    l += [f"| `{n}` | {celda(fa['skills'][n][i])} | {de_quien(n, a, fa, i)} |" for n in nombres]
+    return "\n".join(l)
+
+
+# ---------------------------------------------------------------- la página de la familia
+
+# Rostrum en las tablas de cada familia: es el mismo para todas, así que su fila no sale de
+# ninguna familia.
+ROSTRUM = {
+    "es": {"rol": "el portal", "hace": "Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta",
+           "nunca": "**No escribe en el estado ni recalcula nada**, y no decide nada"},
+    "en": {"rol": "the portal", "hace": "Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder",
+           "nunca": "**Never writes the state or recalculates anything**, and decides nothing"},
+}
+
+
+def _readme(plugin: str, i: str) -> str:
+    return f"../../plugins/{plugin}/README{'.es' if i == 'es' else ''}.md"
+
+
+def familia_agentes(fa: dict, i: str) -> str:
+    """De qué responde cada agente, qué nunca hace, su página y sus pruebas."""
+    if i == "es":
+        l = ["| | De qué responde | Lo que nunca hace | Su página | Sus pruebas |", "|---|---|---|---|---|"]
+    else:
+        l = ["| | What it answers for | What it never does | Its page | Its tests |", "|---|---|---|---|---|"]
+    res = "resultados" if i == "es" else "results"
+    for a in fa["agentes"]:
+        nc, ns = cuenta(a)
+        cs = f"{nc} comandos, {ns} skills" if i == "es" else f"{nc} commands, {ns} skills"
+        l.append(f"| **{a['nombre']}** · {a['rol'][i].lower() if a['rol'][i] != 'FP&A' else 'FP&A'} | {celda(a['hace'][i])} | "
+                 f"{celda(a['nunca'][i])} | [{a['plugin']}]({_readme(a['plugin'], i)}) · {cs} | "
+                 f"[{res}](../../tests/{a['plugin']}/RESULTADOS.md) |")
+    r = ROSTRUM[i]
+    dos = "2 comandos, uno para todas las familias" if i == "es" else "2 commands, one for every family"
+    l.append(f"| **Rostrum** · {r['rol']} | {r['hace']} | {r['nunca']} | [criterio-server]({_readme('criterio-server', i)}) · "
+             f"{dos} | [{res}](../../tests/criterio-server/RESULTADOS.md) |")
+    return "\n".join(l)
+
+
+def _mayus(t: str) -> str:
+    return t[:1].upper() + t[1:]
+
+
+def configuracion(fa: dict, i: str) -> str:
+    """Dónde se ve cada agente, qué le hace falta configurado y cada cuánto corre: sale de sus
+    comandos, el primero y el último de cada uno."""
+    ag = fa["agentes"]
+    fila = lambda k, xs: f"| **{k}** | " + " | ".join(xs) + " |"
+    ent = "entidad" if i == "es" else "entity"
+    if i == "es":
+        l = ["| | " + " | ".join(a["nombre"] for a in ag) + " |", "|---|" + "---|" * len(ag),
+             fila("Se instala", [f"`{a['plugin']}`" for a in ag]),
+             fila("Instancias", [fa["instancia"][i] for a in ag]),
+             fila("Se configura con", [f"`/{a['plugin']}:{a['comandos'][0]['id']}`" for a in ag]),
+             fila("Cuánto tarda eso", ["Quince minutos" for a in ag]),
+             fila("Qué le tienes que decir", [celda(_mayus(a["comandos"][0][i]["entrada"].split("Preguntas: ", 1)[-1])) for a in ag]),
+             fila("Dónde queda", [f"`.criterio/{a['area']}/<{ent}>/config.json`, escrito por el comando" for a in ag]),
+             fila("El que se le pone a un reloj", [f"`/{a['plugin']}:{a['comandos'][-1]['id']}`" for a in ag]),
+             fila("Qué toca cada día", [celda(a["comandos"][-1][i]["proceso"]) for a in ag]),
+             fila("Qué lo despierta además del reloj", ["Una pregunta que alguien dejó en Rostrum" for a in ag])]
+    else:
+        l = ["| | " + " | ".join(a["nombre"] for a in ag) + " |", "|---|" + "---|" * len(ag),
+             fila("Installs as", [f"`{a['plugin']}`" for a in ag]),
+             fila("Instances", [fa["instancia"][i] for a in ag]),
+             fila("Configured with", [f"`/{a['plugin']}:{a['comandos'][0]['id']}`" for a in ag]),
+             fila("How long that takes", ["Fifteen minutes" for a in ag]),
+             fila("What you have to tell it", [celda(_mayus(a["comandos"][0][i]["entrada"].split("Questions: ", 1)[-1])) for a in ag]),
+             fila("Where it lands", [f"`.criterio/{a['area']}/<{ent}>/config.json`, written by the command" for a in ag]),
+             fila("The one you put on a clock", [f"`/{a['plugin']}:{a['comandos'][-1]['id']}`" for a in ag]),
+             fila("What it does each day", [celda(a["comandos"][-1][i]["proceso"]) for a in ag]),
+             fila("What wakes it besides the clock", ["A question somebody left in Rostrum" for a in ag])]
+    return "\n".join(l)
+
+
+def skills_familia(fa: dict, i: str) -> str:
+    todos = sorted(fa["skills"])
+    ag = fa["agentes"]
+    compartidos = [s for s in todos if sum(s in skills_de(a["plugin"]) for a in ag) > 1]
+    n = palabra(len(todos), i).capitalize()
+    if i == "es":
+        l = [f"{n} skills distintos entre los dos agentes. **Los que comparten son copias literales, no un módulo "
+             "importado**: un plugin instalado tiene que correr solo. `scripts/sincronizar.py` las copia y "
+             "`scripts/sincronizar.py --check` falla si se separan." if compartidos else f"{n} skills distintos entre los dos agentes.", ""]
+    else:
+        l = [f"{n} distinct skills across the two agents. **The ones they share are literal copies, not an imported "
+             "module**: an installed plugin has to run on its own. `scripts/sincronizar.py` copies them and "
+             "`scripts/sincronizar.py --check` fails if they drift." if compartidos else f"{n} distinct skills across the two agents.", ""]
+    l += ["| Skill | " + " | ".join(a["nombre"] for a in ag) + " |", "|---|" + ":--:|" * len(ag)]
+    l += [f"| `{s}` | " + " | ".join("●" if s in skills_de(a["plugin"]) else "·" for a in ag) + " |" for s in todos]
+    return "\n".join(l)
+
+
+def estado_familia(fa: dict, i: str) -> str:
+    if i == "es":
+        l = ["| Agente | Se instala | Su prueba |", "|---|---|---|"]
+    else:
+        l = ["| Agent | Installs as | Its test |", "|---|---|---|"]
+    for a in fa["agentes"]:
+        nc, ns = cuenta(a)
+        cs = f"{nc} comandos, {ns} skills" if i == "es" else f"{nc} commands, {ns} skills"
+        pr = ("El motor, probado; la ronda con el agente, pendiente" if i == "es"
+              else "The engine, tested; the round with the agent, pending")
+        l.append(f"| **{a['nombre']}** · {a['rol'][i]} | `{a['plugin']}` · {cs} | {pr} · "
+                 f"[{'resultados' if i == 'es' else 'results'}](../../tests/{a['plugin']}/RESULTADOS.md) |")
+    l.append(f"| **Rostrum** · {ROSTRUM[i]['rol']} | `criterio-server` · "
+             f"{'2 comandos, para todas las familias' if i == 'es' else '2 commands, for every family'} | — |")
+    return "\n".join(l)
 
 
 def intake_md(ca: dict, fa: dict) -> str:
@@ -301,6 +471,55 @@ def revisar(fu: dict, ca: dict, fa: dict) -> list[str]:
                 elif por_id[fid]["estado"] != "verificada":
                     err.append(f"{c['id']}: se apoya en {fid}, que está por verificar (ADR 0006, regla 1)")
     err += revisar_campos(fu)
+    err += revisar_skills(fa)
+    return err
+
+
+def revisar_skills(fa: dict) -> list[str]:
+    """Cada skill de cada plugin está descrito en familia.json, en los dos idiomas, y nada más."""
+    err = []
+    en_plugins = {s for a in fa["agentes"] for s in skills_de(a["plugin"])}
+    descritos = set(fa.get("skills") or {})
+    for s in sorted(en_plugins - descritos):
+        err.append(f"el skill {s} está en un plugin y no en los skills de familia.json")
+    for s in sorted(descritos - en_plugins):
+        err.append(f"familia.json describe el skill {s}, que ningún plugin trae")
+    for s, t in (fa.get("skills") or {}).items():
+        if not (t.get("es") and t.get("en")):
+            err.append(f"el skill {s}: le falta la descripción en un idioma")
+    for a in fa["agentes"]:
+        if not (a.get("nunca", {}).get("es") and a.get("nunca", {}).get("en")):
+            err.append(f"{a['nombre']}: le falta lo que nunca hace (nunca) en un idioma")
+    if not (fa.get("instancia", {}).get("es") and fa.get("instancia", {}).get("en")):
+        err.append("falta la instancia de la familia en un idioma")
+    return err
+
+
+# Cada cifra de comandos o de skills escrita en palabras tiene que ser una que cuenta el código:
+# la del plugin en su página, la de la familia o la de uno de sus agentes en las de la familia.
+# «Los dos comandos de reloj» no cuenta los comandos de nadie: es el de cada agente.
+_CUENTA = re.compile(r"\b([a-záéíóúñ]+) (comandos|commands|skills)\b(?! de reloj)", re.I)
+
+
+def revisar_cuentas(fa: dict) -> list[str]:
+    err = []
+    a_n = {i: {v: k for k, v in NUMEROS[i].items()} for i in ("es", "en")}
+    familia = (sum(len(a["comandos"]) for a in fa["agentes"]), len(fa.get("skills") or {}))
+    paginas = [(F["dir"] / n, i, [familia] + [cuenta(a) for a in fa["agentes"]])
+               for n, i in (("README.es.md", "es"), ("README.md", "en"), ("DISENO.es.md", "es"), ("DISENO.md", "en"))]
+    paginas += [(P / a["plugin"] / n, i, [cuenta(a)]) for a in fa["agentes"]
+                for n, i in (("README.es.md", "es"), ("README.md", "en"))]
+    for ruta, i, validas in paginas:
+        if not ruta.is_file():
+            continue
+        for m in _CUENTA.finditer(ruta.read_text(encoding="utf-8")):
+            n = a_n[i].get(m.group(1).lower())
+            if n is None:
+                continue
+            tipo = 0 if m.group(2).lower() in ("comandos", "commands") else 1
+            if n not in {v[tipo] for v in validas}:
+                err.append(f"{ruta.relative_to(RAIZ)} dice «{m.group(0)}» y el código cuenta "
+                           f"{' o '.join(str(v[tipo]) for v in validas)}")
     return err
 
 
@@ -351,20 +570,34 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
     if not (F["dir"] / "familia.json").is_file():
         return [], 0, 0
     fu, ca, fa = cargar("fuentes.json"), cargar("carpetas.json"), cargar("familia.json")
-    errores = revisar(fu, ca, fa)
+    errores = revisar(fu, ca, fa) + revisar_cuentas(fa)
     salidas: list[tuple[Path, str]] = [(F["dir"] / "FUENTES.es.md", fuentes_md(fu))]
-    # El diseño en español y, si existe, en inglés: las mismas tablas, de las mismas fuentes.
+    # El diseño, en los dos idiomas: las mismas tablas, de las mismas fuentes.
     for nombre_d, i in (("DISENO.es.md", "es"), ("DISENO.md", "en")):
         diseno = F["dir"] / nombre_d
         if not diseno.is_file():
             continue
         d = diseno.read_text(encoding="utf-8")
-        for nombre, contenido in (("agentes", agentes_md(fa, i)), ("carpetas", carpetas_md(ca, fa, i)),
-                                  ("senales", senales_md(fa, i)), ("cifras", cifras_diseno(fu, i))):
+        for nombre, contenido in (("agentes", agentes_md(fa, i)), ("senales", senales_md(fa, i)),
+                                  ("cifras", cifras_diseno(fu, i))):
             d = poner(d, nombre, contenido, diseno)
         for a in fa["agentes"]:
             d = poner(d, f"comandos-{a['id']}", comandos_md(a, i), diseno)
         salidas.append((diseno, d))
+    # La página de la familia, con la forma de la de la PMO: lo que sale de las fuentes y de los
+    # plugins —quién responde de qué, la estructura, la configuración, los skills, el estado— no
+    # se escribe a mano.
+    for nombre_r, i in (("README.es.md", "es"), ("README.md", "en")):
+        pagina = F["dir"] / nombre_r
+        if not pagina.is_file():
+            errores.append(f"falta families/criterio-{CLAVE[0]}/{nombre_r}, la página de la familia")
+            continue
+        t = pagina.read_text(encoding="utf-8")
+        for nombre, contenido in (("familia-agentes", familia_agentes(fa, i)), ("carpetas", carpetas_md(ca, fa, i)),
+                                  ("configuracion", configuracion(fa, i)), ("skills-familia", skills_familia(fa, i)),
+                                  ("estado", estado_familia(fa, i))):
+            t = poner(t, nombre, contenido, pagina)
+        salidas.append((pagina, t))
     for a in fa["agentes"]:
         base = P / a["plugin"]
         for nombre, i in (("README.es.md", "es"), ("README.md", "en")):
@@ -372,7 +605,7 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
             if not ruta.is_file():
                 continue
             t = poner(ruta.read_text(encoding="utf-8"), "comandos", comandos_readme(a, i), ruta)
-            t = poner(t, "skills", skills_readme(base), ruta)
+            t = poner(t, "skills", skills_readme(a, fa, i), ruta)
             if a["id"] == F["cifras_en"]:
                 t = poner(t, "cifras", cifras_readme(fu, i), ruta)
             salidas.append((ruta, t))

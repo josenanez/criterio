@@ -230,7 +230,11 @@
       "area": "legal",
       "ambitos": [
         "contratos"
-      ]
+      ],
+      "nunca": {
+        "es": "No interpreta cláusulas, no califica la validez de un contrato y no decide renovar ni terminar",
+        "en": "It does not interpret clauses, does not rule on a contract's validity and does not decide to renew or terminate"
+      }
     },
     {
       "id": "constanza",
@@ -437,7 +441,11 @@
       "area": "cumplimiento",
       "ambitos": [
         "cumplimiento"
-      ]
+      ],
+      "nunca": {
+        "es": "No define obligaciones, no dice qué exige una norma y no procesa quién denunció",
+        "en": "It does not define obligations, does not say what a regulation requires and does not process who reported"
+      }
     }
   ],
   "impresora": {
@@ -538,6 +546,52 @@
           "texto": "END OF PRINTOUT."
         }
       ]
+    }
+  },
+  "instancia": {
+    "es": "Una por entidad",
+    "en": "One per entity"
+  },
+  "skills": {
+    "compliance-record": {
+      "es": "La ficha del periodo: lo que solo dicen los documentos escritos de cumplimiento —el estado que declara el informe, las normas nuevas de un boletín o un correo—, cada dato con su cita",
+      "en": "The period record: what only the written compliance documents say —the status the report declares, new regulations from a bulletin or an email—, each item with its citation"
+    },
+    "contract-calendar": {
+      "es": "El calendario de los contratos: la terminación con sus otrosíes, la fecha límite del preaviso de no renovación, la prórroga automática y cada obligación con fecha contra su evidencia",
+      "en": "The contract calendar: termination with its amendments, the deadline for the notice of non-renewal, automatic extension and each dated obligation against its evidence"
+    },
+    "contract-record": {
+      "es": "La ficha de un contrato: partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías, certificado de la contraparte y obligaciones, cada dato con su cita",
+      "en": "A contract's record: parties, value, dates, renewal, notice period, signatories, amendments, guarantees, counterparty certificate and obligations, each item with its citation"
+    },
+    "legal-intake": {
+      "es": "Qué documentos procesa la familia, dónde va cada uno, qué tablas procesa el motor directamente y qué extrae el agente a la ficha",
+      "en": "Which documents the family processes, where each one goes, which tables the engine processes directly and what the agent extracts to the record"
+    },
+    "obligations-matrix": {
+      "es": "El modelo de la matriz de obligaciones —id, fuente, responsable, periodicidad, fecha límite, evidencia esperada y criticidad— y cuándo una obligación está cumplida, vencida o sin evidencia",
+      "en": "The obligations matrix model —id, source, owner, frequency, deadline, expected evidence and criticality— and when an obligation is met, overdue or without evidence"
+    },
+    "payments-guarantees": {
+      "es": "Lo pagado por cada contrato contra su valor y sus otrosíes, los pagos después de la terminación, y las garantías exigidas contra las pólizas aportadas y su vigencia",
+      "en": "What was paid on each contract against its value and amendments, payments after termination, and the guarantees required against the policies provided and their term"
+    },
+    "policy-control": {
+      "es": "El índice de políticas —código, versión, responsable, aprobación y próxima revisión— y cuándo una revisión está vencida",
+      "en": "The policy index —code, version, owner, approval and next review— and when a review is overdue"
+    },
+    "regulatory-change": {
+      "es": "Una norma nueva desde que llega hasta que la organización evalúa su impacto y la lleva a la matriz: el registro normativo, los días sin evaluación y la norma que aplica y ninguna obligación cita",
+      "en": "A new regulation from arrival until the organisation assesses its impact and takes it to the matrix: the regulatory register, the days without assessment and the regulation that applies and no obligation cites"
+    },
+    "signing-authority": {
+      "es": "Quién firmó contra la matriz de atribuciones —tipo, monto y vigencia de la facultad, otrosíes incluidos—, el documento sin la firma de las dos partes y el certificado de la contraparte vencido al firmar",
+      "en": "Who signed against the signing-authority matrix —type, amount and term of the authority, amendments included—, the document without both parties' signatures and the counterparty certificate expired at signing"
+    },
+    "whistleblowing-channel": {
+      "es": "Los plazos del canal de denuncias sin procesar quién denunció ni qué dijo: el registro de casos con su fecha de recepción y de respuesta, y el caso abierto más allá del plazo",
+      "en": "The whistleblowing channel's deadlines without processing who reported or what they said: the case register with its receipt and response dates, and the case open beyond the deadline"
     }
   }
 }

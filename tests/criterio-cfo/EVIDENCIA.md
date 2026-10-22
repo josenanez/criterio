@@ -70,6 +70,6 @@ donde no se sembró el descuadre y que cada factura cruce con su registro o teng
 
 ## Lo que no prueba
 
-La extracción. Que el agente lea el acta de traslado, el correo que declara el cierre o la carta
+La extracción. Que el agente procese el acta de traslado, el correo que declara el cierre o la carta
 del auditor y lo registre bien en la ficha lo prueba la ronda con el agente, sobre este mismo
 material y contra esta misma clave.

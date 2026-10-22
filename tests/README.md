@@ -63,9 +63,31 @@ against the reference. The second mode needs the plugin running in a real sessio
 The reference records live under `expected/`, not `input/`, on purpose: they are an answer,
 not an input.
 
+## The CFO and CLO material
+
+The CFO and CLO families test their engines the same way, with one material per family rather
+than one per agent, because both agents of a family process the same entity's folder:
+
+```
+tests/
+├── criterio-cfo/            and criterio-clo/, with the same shape
+│   ├── generar.py           builds material/ deterministically: the same files, byte for byte
+│   ├── material/<entity>/   four industries and one control entity per country
+│   │   └── clave.json       the key: every planted defect and the signal it has to raise
+│   ├── evaluar.py           runs the engine and compares every signal by name and key
+│   └── EVIDENCIA.md         what is planted, how it is graded, and what it does not test
+└── criterio-finance/        and criterio-budget/, criterio-legal/, criterio-compliance/
+    └── RESULTADOS.md        each agent's last run, written by scripts/resultados.py
+```
+
+The engine never sees `clave.json`. An extra signal counts the same as a missing one, and the
+control entities carry no defects at all, so any signal there is a failure. What the material
+does not test yet is the agent's extraction from the written documents; that is the round with
+the agent, over this same material and against this same key.
+
 ## The bar
 
-A plugin is not released until the acceptance criteria at the end of its own `DISENO.es.md` pass over this material, and the result of that run is published with the release.
+A plugin is not released until its acceptance criteria pass over this material —at the end of its own `DISENO.es.md` in the PMO family, in its `ACCEPTANCE.md` in the CFO and CLO families—, and the result of that run is published with the release.
 
 For `criterio-portfolio` the input is a project documentation folder built to contain the failures a real one contains: a milestone that passed with no evidence, a project that has been silent for weeks, minutes naming a sponsor different from the charter, a dependency one plan declares and the other ignores, a commitment promised three times.
 

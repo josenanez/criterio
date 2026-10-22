@@ -32,13 +32,16 @@ CONSTRUIDOS = sorted(d for d in (RAIZ / "plugins").iterdir()
 # agente viaja con la suya, y el enlace que su README promete resuelve también en el
 # equipo de quien instaló el plugin, no solo en GitHub.
 DOCS = [RAIZ / "README.es.md", RAIZ / "README.md"]
+# Y las páginas de cada familia —su README, su diseño, sus preguntas, sus fuentes—: son las
+# primeras que se abren desde el README del proyecto.
+for _f in sorted((RAIZ / "families").glob("criterio-*")):
+    DOCS += sorted(_f.glob("*.md")) + sorted(_f.glob("analisis/*.md"))
 for _p in CONSTRUIDOS:
     DOCS += sorted(_p.glob("*.md"))
     DOCS += sorted(_p.glob("skills/*/SKILL.md"))
     DOCS += sorted(_p.glob("commands/*.md"))
 
 OK, FALLA, NOTA = "OK   ", "FALLA", "nota "
-PROPIOS = ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-compliance")
 fallas = 0
 
 # Nombres que la documentación usa y el código todavía no sostiene, con el lugar donde
@@ -454,30 +457,28 @@ print("\nDesde la familia se llega a cada agente")
 # lleva a sus agentes y a su servidor, y cada agente se lee solo. Se colapsaron dos veces
 # —primero la familia dentro de un agente, después la familia dentro del proyecto— y las
 # dos veces el síntoma fue el mismo: quien buscaba un nivel aterrizaba en otro.
+# Cada familia, con los plugins a los que su página tiene que llevar: sus agentes y el portal.
+FAMILIAS = {
+    "criterio-pmo": ["criterio-portfolio", "criterio-server", "criterio-project", "criterio-product"],
+    "criterio-cfo": ["criterio-finance", "criterio-budget", "criterio-server"],
+    "criterio-clo": ["criterio-legal", "criterio-compliance", "criterio-server"],
+}
 FAMILIA = RAIZ / "families" / "criterio-pmo"
-
-DESTINOS = {"es": ["../../plugins/criterio-portfolio/README.es.md",
-                   "../../plugins/criterio-server/README.es.md",
-                   "../../plugins/criterio-project/README.es.md",
-                   "../../plugins/criterio-product/README.es.md"],
-            "en": ["../../plugins/criterio-portfolio/README.md",
-                   "../../plugins/criterio-server/README.md",
-                   "../../plugins/criterio-project/README.md",
-                   "../../plugins/criterio-product/README.md"]}
-for nombre, idioma in (("README.es.md", "es"), ("README.md", "en")):
-    pagina = FAMILIA / nombre
-    if not pagina.exists():
-        continue
-    cuerpo = pagina.read_text(encoding="utf-8")
-    faltan = [d for d in DESTINOS[idioma] if f"]({d})" not in cuerpo]
-    for d in DESTINOS[idioma]:
-        destino = (FAMILIA / d).resolve()
-        if not destino.exists():
-            faltan.append(f"{d} no existe")
-    if faltan:
-        decir(FALLA, f"{nombre} no lleva a {', '.join(faltan)}")
-    else:
-        decir(OK, f"{nombre} · lleva a los tres agentes y al servidor")
+for fam, plugins in FAMILIAS.items():
+    carpeta = RAIZ / "families" / fam
+    for nombre, idioma in (("README.es.md", "es"), ("README.md", "en")):
+        pagina = carpeta / nombre
+        if not pagina.exists():
+            decir(FALLA, f"{fam}/{nombre} no existe: cada familia tiene su página en los dos idiomas")
+            continue
+        cuerpo = pagina.read_text(encoding="utf-8")
+        destinos = [f"../../plugins/{x}/README{'.es' if idioma == 'es' else ''}.md" for x in plugins]
+        faltan = [d for d in destinos if f"]({d})" not in cuerpo]
+        faltan += [f"{d} no existe" for d in destinos if not (carpeta / d).resolve().exists()]
+        if faltan:
+            decir(FALLA, f"{fam}/{nombre} no lleva a {', '.join(faltan)}")
+        else:
+            decir(OK, f"{fam}/{nombre} · lleva a sus {len(plugins) - 1} agentes y al portal")
 
 print("\nDesde el proyecto se llega a cada familia")
 for nombre, suf in (("README.es.md", "es.md"), ("README.md", "md")):
@@ -485,18 +486,18 @@ for nombre, suf in (("README.es.md", "es.md"), ("README.md", "md")):
     if not pagina.exists():
         continue
     cuerpo = pagina.read_text(encoding="utf-8")
-    destino = f"families/criterio-pmo/README.{suf}"
-    if f"]({destino})" in cuerpo:
-        decir(OK, f"{nombre} · lleva a criterio-pmo")
-    else:
-        decir(FALLA, f"{nombre} no lleva a {destino}")
+    for fam in FAMILIAS:
+        destino = f"families/{fam}/README.{suf}"
+        if f"]({destino})" in cuerpo:
+            decir(OK, f"{nombre} · lleva a {fam}")
+        else:
+            decir(FALLA, f"{nombre} no lleva a {destino}")
 
 # Y cada agente lista sus propios comandos en su propia página, porque esa página se lee
 # sola: alguien puede instalar un agente sin la familia.
 print("\nCada agente lista lo suyo en su página")
-PROPIAS = {"criterio-portfolio": ["README.es.md", "README.md"],
-           "criterio-project": ["README.es.md", "README.md"],
-           "criterio-product": ["README.es.md", "README.md"]}
+PROPIAS = {x: ["README.es.md", "README.md"] for fam, plugins in FAMILIAS.items()
+           for x in plugins if x != "criterio-server"}
 for d in CONSTRUIDOS:
     suyos = sorted(c.stem for c in d.glob("commands/*.md"))
     for nombre in PROPIAS.get(d.name, []):
@@ -516,25 +517,26 @@ for d in CONSTRUIDOS:
 # agente, en markdown. Un resultado que solo existe en HTML no se ve en GitHub, y uno que no
 # está enlazado desde donde la gente llega es uno que nadie abre.
 print("\nEl análisis de pruebas de cada agente, alcanzable")
-for nombre in ("README.es.md", "README.md"):
-    pagina = FAMILIA / nombre
-    if not pagina.exists():
-        continue
-    cuerpo = pagina.read_text(encoding="utf-8")
-    faltan = []
-    for d in [x for x in CONSTRUIDOS if x.name not in PROPIOS]:
-        destino = RAIZ / "tests" / d.name / "RESULTADOS.md"
-        if not destino.exists():
-            faltan.append(f"{d.name} no tiene RESULTADOS.md")
-        elif f"tests/{d.name}/RESULTADOS.md" not in cuerpo:
-            faltan.append(f"{d.name} no está enlazado")
-    if faltan:
-        decir(FALLA, f"{nombre} · {', '.join(faltan)}")
-    else:
-        decir(OK, f"{nombre} · los {len(CONSTRUIDOS)} análisis de pruebas, en markdown")
+for fam, plugins in FAMILIAS.items():
+    for nombre in ("README.es.md", "README.md"):
+        pagina = RAIZ / "families" / fam / nombre
+        if not pagina.exists():
+            continue
+        cuerpo = pagina.read_text(encoding="utf-8")
+        faltan = []
+        for x in plugins:
+            destino = RAIZ / "tests" / x / "RESULTADOS.md"
+            if not destino.exists():
+                faltan.append(f"{x} no tiene RESULTADOS.md")
+            elif f"tests/{x}/RESULTADOS.md" not in cuerpo:
+                faltan.append(f"{x} no está enlazado")
+        if faltan:
+            decir(FALLA, f"{fam}/{nombre} · {', '.join(faltan)}")
+        else:
+            decir(OK, f"{fam}/{nombre} · los {len(plugins)} análisis de pruebas, en markdown")
 
-# Los de las familias CFO y CLO se enlazan desde el README de su propio plugin.
-for nombre_p in PROPIOS:
+# Y cada agente enlaza el suyo desde su propia página, que se lee sola.
+for nombre_p in PROPIAS:
     d = RAIZ / "plugins" / nombre_p
     if not (d / "commands").exists():
         continue
@@ -614,7 +616,7 @@ else:
 # Hubo una segunda sección que declaraba dónde se superponía cada agente con los otros dos, y
 # se quitó: que dos roles hagan la misma tarea en momentos distintos no es una superposición
 # que haya que justificar, es la tarea. Explicarlo creaba el conflicto que pretendía evitar.
-print("\nLas tres páginas de agente, con el mismo esqueleto")
+print("\nCada página de agente, con el mismo esqueleto")
 import fnmatch
 
 ESQUELETO = {
@@ -624,9 +626,7 @@ ESQUELETO = {
            "Working with the others", "Tests"],
 }
 
-AGENTES = [(PLUGIN, "README.es.md", "README.md"),
-           (RAIZ / "plugins" / "criterio-project", "README.es.md", "README.md"),
-           (PRODUCT, "README.es.md", "README.md")]
+AGENTES = [(RAIZ / "plugins" / x, "README.es.md", "README.md") for x in PROPIAS]
 for carpeta, es, en in AGENTES:
     for nombre, idioma in ((es, "es"), (en, "en")):
         pagina = carpeta / nombre

@@ -1,14 +1,14 @@
-[Español](DISENO.es.md)
+[Español](DISENO.es.md) · [← The family](README.md)
 
-# criterio-cfo · the finance function family
-
-![Clara, Tomás and Rostrum](../../docs/img/en/robots-cfo.gif)
+# criterio-cfo · the family design
 
 **Status: built and in testing.** The sixteen commands, the twelve skills and the calculation
 engine are built; the engine passes its deterministic test against the material of four industries
 and two control entities (`tests/criterio-cfo/`), and the test with the agent is the next step.
 Scope in [ADR 0006](../../docs/decisions/0006-scope-cfo.md); how the work is split between the
 engine and the agent, in [ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md).
+
+**This is the family's design sheet**: the documents it processes, the signals the code calculates, each command with its input, process and report, and the decisions taken. What the family does, how it is installed, its records and their invariants, the folder structure, Rostrum, the cadence, the tests and the roadmap are on its [page](README.md).
 
 Two agents that extend the capacity of the finance function: they prepare the work of the close and
 the budget, and check it against all of its evidence to flag what does not tie out, what has no
@@ -29,16 +29,15 @@ figures— is in [`FUENTES.es.md`](FUENTES.es.md) (Spanish) with its version, it
 was consulted and its status. The design, the documentation and the tests cite those sources by
 their identifier.
 
-**Where this document comes from.** The tables of agents, folders, signals, commands and figures
+**Where this document comes from.** The tables of agents, signals, commands and figures
 are not written here: they come from three sources, [`familia.json`](familia.json),
 [`carpetas.json`](carpetas.json) and [`fuentes.json`](fuentes.json), which `scripts/familias.py`
-writes into this design in both languages, into `FUENTES.es.md`, into the `criterio-finance`
-READMEs and, with `scripts/criterio-familias.mjs`, into the portal. A gate in
+writes into this design in both languages, into `FUENTES.es.md`, into the family page, into the
+`criterio-finance` and `criterio-budget` READMEs and, with `scripts/criterio-familias.mjs`, into the portal. A gate in
 `scripts/verificar.py` fails if any copy does not tie out, if a command cites a folder that is not
 in the structure or if it relies on a source still to be verified.
 
-**What people ask most** is in [`PREGUNTAS.md`](PREGUNTAS.md), and **where it is going**, in the
-[roadmap](#roadmap).
+**What people ask most** is in [`PREGUNTAS.md`](PREGUNTAS.md), and **where it is going**, in the [roadmap](README.md#roadmap).
 
 ## One agent per role
 
@@ -49,17 +48,7 @@ in the structure or if it relies on a source still to be verified.
 | FP&A | **Tomás** — “the twin”: puts the budget next to its twin, actual spend | `criterio-budget` | The approved budget against actual and committed spend, the year-end forecast, budget transfers and the budget committee pack |
 <!-- /cfo:agentes -->
 
-As in the PMO family, the two never talk to each other: they talk through their records.
-
-## The records: the only contract
-
-| Record | One per | What it carries | Who writes it |
-|---|---|---|---|
-| Close record | Entity and period | The checklist tasks with owner, date and evidence; each reconciliation with its open items; the e-invoices against their entries; the declared status of the close | Clara; the status, the controller in person |
-| Budget record | Area or cost centre and year | Approved, actual and committed by account; the area's forecast; the transfers with their minutes; the declared status | Tomás; the status, the head of the area |
-
-Every data point cites the document it comes from and its date. Declared and evidenced go in
-separate fields. «Not found» is a valid answer.
+As in the PMO family, the two never talk to each other: they talk through their records. The records and the invariants that govern them, on the [family page](README.md#the-two-agents-and-their-records).
 
 ## The documents they process
 
@@ -77,9 +66,9 @@ separate fields. «Not found» is a valid answer.
 | Budget and transfer committee minutes | Word, PDF | Tomás |
 | Project records from the PMO family | `ficha-pm.json` and Vera's records | Tomás, read only |
 
-The DIAN (F-01) and SRI (F-04) formats are taken from their official technical source and verified
+The DIAN (F-01) and SRI (F-04) formats are taken from their official technical source and confirmed
 field by field before the reader is written ([ADR 0006](../../docs/decisions/0006-scope-cfo.md),
-rule 2).
+rule 2). Where each document goes, in the [recommended folder structure](README.md#the-recommended-folder-structure).
 
 ## The signals: what the code calculates
 
@@ -135,69 +124,6 @@ each report uses with the approved one; matching each project's budget with the 
 regulatory reports; in the first version it gives no opinion on deductibility, rates or IFRS
 treatments, and it never states a rate, a deadline or the value of a tax unit from memory; it does
 not sign; it does not declare the status of the close or the budget.
-
-## The folder structure
-
-Recommended, not required, as in the PMO family ([ADR 0007](../../docs/decisions/0007-estructura-recomendada.md)):
-the agents process the folder as it is. `finance-setup` and `budget-setup` compare what they find
-with this structure and, on every run, say which file is out of place and where it would go; they
-create, move or rename nothing among the organisation's documents. The numbering goes in tens, as
-in the PMO family, in the order in which the close and the budget are worked. The folder names are
-in Spanish: they are the names the agents look for.
-
-Every document has a single place. The period's books live in `10-contabilidad/`: Clara closes them
-and Tomás takes actual spend from there, with no copies between folders.
-
-<!-- cfo:carpetas · generado por scripts/familias.py; no se edita a mano -->
-One folder per entity, with its tax id at the start of the name: `900123456-andean-bank`. Inside it, what the organisation provides once, one folder per accounting period and one per budget year.
-
-```
-finanzas/
-└── <entidad>/
-    ├── 00-referencia/
-    ├── <AAAA-MM>/
-    │   ├── 10-contabilidad/
-    │   ├── 20-bancos/
-    │   ├── 30-facturacion/
-    │   ├── 40-soportes/
-    │   └── 50-auditoria/
-    └── presupuesto-<AAAA>/
-        ├── 10-aprobado/
-        ├── 20-compromisos/
-        ├── 30-proyecciones/
-        └── 40-actas/
-estado-finanzas/
-```
-
-**`<entidad>/`** · What the organisation provides once
-
-| Folder | What goes in | Agent |
-|---|---|---|
-| `00-referencia/` | The chart of accounts with each account's nature, `checklist-cierre.xlsx` in the defined model, and the mapping of accounts to cost centres and budget lines | Clara, Tomás |
-
-**`<AAAA-MM>/`** · One accounting period, numbered in the order the close is worked
-
-| Folder | What goes in | Agent |
-|---|---|---|
-| `10-contabilidad/` | Trial balance and general ledger exported from the ERP, and `auxiliares/` with one file per account; budget execution comes from here too | Clara, Tomás |
-| `20-bancos/` | One folder per account, `<bank>-<last 4 digits>`, with the statement and the book ledger | Clara |
-| `30-facturacion/` | `emitidas/` and `recibidas/`, with the DIAN (F-01) or SRI (F-04) XML | Clara |
-| `40-soportes/` | The evidence for each checklist task —minutes, emails, signed reconciliations—, with the task id at the start of the name | Clara |
-| `50-auditoria/` | The auditor's `requerimientos/` (requests) and `respuestas/` (answers) | Clara |
-
-**`presupuesto-<AAAA>/`** · One budget year
-
-| Folder | What goes in | Agent |
-|---|---|---|
-| `10-aprobado/` | The approved budget and every version, with its date in the name | Tomás |
-| `20-compromisos/` | Purchase orders and commitments exported from the ERP, with the cut-off date in the name | Tomás |
-| `30-proyecciones/` | Each area's forecast, one per area and date | Tomás |
-| `40-actas/` | Minutes of the budget committee, of approvals and of transfers | Tomás |
-
-**`estado-finanzas/`** · What Clara and Tomás write: the configuration, the records, the reports and the indexes. No person edits it, and no agent writes anywhere else.
-<!-- /cfo:carpetas -->
-
-A file without the expected format is not guessed: it is reported with what it is missing.
 
 ## The close checklist
 
@@ -261,38 +187,6 @@ intercompany— is the controller's work, so it belongs to Clara and to this plu
 it is `account-reconcile`, with the logic of `bank-reconcile`. Consolidating several entities is
 outside the first version.
 
-## In Rostrum
-
-Rostrum is not duplicated: one portal, `criterio-server`, publishes what every family writes
-([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)). The CFO enters like any other,
-without the server knowing anything about finance.
-
-**How it enters.** `/criterio-finance:finance-setup` and `/criterio-budget:budget-setup` leave
-their configuration in `.criterio/finanzas/<entity>/` and `.criterio/presupuesto/<entity>/`, with
-the entity's finance folder marked with `_CRITERIO_FINANZAS.txt`. Clara and Tomás share the
-entity's state, and each one sees their own runs and reports in the portal, not the other's. Then
-`/criterio-server:server-setup` finds both configurations and adds them to the map, and
-`/criterio-server:server-start` raises the portal. A new entity enters by running `server-setup`
-again.
-
-**What the CFO has in Rostrum:**
-
-| Where | What |
-|---|---|
-| Home | The **Criterio CFO** card with Clara and Tomás and their open signals |
-| `/familia/cfo` | The latest each engine wrote —the close of a month, the budget of a year—, with its signals in words and the calculation date, and its reports as the engine left them |
-| What falls due | Close tasks and auditor requests with a date, sorted with the other families' due dates |
-| `/caso/<PRY>` | A budget signal on a PMO project shows up on that project's page |
-| Where it works | The full path of the root folder, of the entity's documents with their marker, of the state and of each configuration |
-| Ask an agent | A question for Clara or Tomás, taken on their next run |
-
-Rostrum recalculates nothing and never writes to the state: it serves what the engine already wrote
-and says when. The pages meet WCAG 2.2 level AA, checked with axe-core at four screen widths
-(`tests/criterio-server/accesibilidad/`).
-
-→ [Rostrum: install, configure and use it with every family](https://www.josenanez.com/agents/rostrum) ·
-[its README](../../plugins/criterio-server/README.md)
-
 ## Tomás's commands, in order of importance
 
 `budget-setup` goes first for the same reason as `finance-setup`. Tomás does not recalculate the
@@ -345,20 +239,6 @@ tested in the round, on the same material. The family is declared tested with a 
 <!-- cfo:cifras · generado por scripts/familias.py; no se edita a mano -->
 Only verified figures go in, with their source, year and sample; they are in [`FUENTES.es.md`](FUENTES.es.md) (Spanish). Verified: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner).
 <!-- /cfo:cifras -->
-
-## Roadmap
-
-<!-- hoja de ruta: generado por scripts/hoja.py desde hoja-de-ruta.json; no se edita a mano -->
-
-The family grows in increments. Each one is a version with its full test and its statistical analysis published, with the same metrics, so the evolution can be compared.
-
-| Version | Status | What goes in | Test |
-|---|---|---|---|
-| Increment 1 | In progress | **Built, with the engine tested**<br>· Clara and Tomás’s sixteen commands, their twelve skills and the calculation engine<br>· DIAN and SRI electronic invoicing, processed from its official technical source<br>· The root folder each agent searches for and, with permission, marks<br>· The family in Rostrum, with what falls due and where each agent works | The engine, against 4 industries and 2 control entities |
-| Increment 2 | Next | **The round with the agent**<br>· Clara and Tomás run their commands on the material of the four industries, as the PMO does in every round<br>· What only minutes, emails and auditor letters carry, extracted and graded against the key<br>· With a full round, the family is declared tested | 4 industries and 2 control entities, with the key the agent never sees |
-| Increment 3 | Reserved | **Deployment in an organisation**<br>· The first use on a specific organisation’s books and budget | That organisation’s documentation |
-
-<!-- /hoja de ruta -->
 
 ## Closed decisions
 

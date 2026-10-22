@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 """La hoja de ruta de cada familia, en su documentación.
 
-    python3 scripts/hoja.py           escribe la sección: en los dos README de la PMO y en los
-                                      dos diseños de la CFO y la CLO
+    python3 scripts/hoja.py           escribe la sección en los dos README de cada familia
     python3 scripts/hoja.py --check   falla si un documento o una fuente no cuadran
 
 La fuente es una por familia: families/criterio-<sigla>/hoja-de-ruta.json. La lee este script y
@@ -44,10 +43,10 @@ def _familia(sigla: str, docs: dict) -> dict:
 FAMILIAS = [
     _familia("pmo", {"es": ("README.es.md", "## Hoja de ruta", "## Los dieciocho skills de la familia"),
                      "en": ("README.md", "## Roadmap", "## The family's eighteen skills")}),
-    _familia("cfo", {"es": ("DISENO.es.md", "## Hoja de ruta", "## Decisiones cerradas"),
-                     "en": ("DISENO.md", "## Roadmap", "## Closed decisions")}),
-    _familia("clo", {"es": ("DISENO.es.md", "## Hoja de ruta", "## Decisiones cerradas"),
-                     "en": ("DISENO.md", "## Roadmap", "## Closed decisions")}),
+    _familia("cfo", {"es": ("README.es.md", "## Hoja de ruta", "## Los doce skills de la familia"),
+                     "en": ("README.md", "## Roadmap", "## The family's twelve skills")}),
+    _familia("clo", {"es": ("README.es.md", "## Hoja de ruta", "## Los diez skills de la familia"),
+                     "en": ("README.md", "## Roadmap", "## The family's ten skills")}),
 ]
 
 

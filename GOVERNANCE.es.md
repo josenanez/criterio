@@ -13,7 +13,7 @@
 
 ## Modelo de publicación
 
-Criterio construye y publica con un descargo explícito, y quien lo despliegue o lo ejecute acepta los términos. Cada versión pasa una validación interna antes de publicarse —las puertas del código en cada cambio y las rondas de los tres agentes sobre datos de prueba sintéticos construidos a partir de proyectos reales— y queda en el registro de versiones; sobre el producto no se dice *certificado*, *verificado* ni *aprobado* (decisión 0003): se dice *probado*, siempre con enlace a su evidencia. La garantía y la responsabilidad se rigen por la licencia Apache 2.0. Ver [TERMS.es.md](TERMS.es.md) y [docs/acceptance.md](docs/acceptance.md).
+Criterio construye y publica con un descargo explícito, y quien lo despliegue o lo ejecute acepta los términos. Cada versión pasa una validación interna antes de publicarse —las puertas del código en cada cambio y las rondas de los agentes de cada familia sobre datos de prueba sintéticos —en la PMO, construidos a partir de proyectos reales—— y queda en el registro de versiones; sobre el producto no se dice *certificado*, *verificado* ni *aprobado* (decisión 0003): se dice *probado*, siempre con enlace a su evidencia. La garantía y la responsabilidad se rigen por la licencia Apache 2.0. Ver [TERMS.es.md](TERMS.es.md) y [docs/acceptance.md](docs/acceptance.md).
 
 Lo que sostiene la calidad no es una firma. Es que toda afirmación de una salida cargue el documento de donde salió, que la aritmética viva en código donde se puede probar, y que lo incierto o lo vencido se declare en tiempo de ejecución en vez de maquillarse.
 
@@ -23,7 +23,7 @@ Cada plugin se verifica con sus propios criterios. No hay un umbral único para 
 
 Cada plugin lleva, en su propia carpeta:
 
-- `ACCEPTANCE.md` — qué significa "funciona" para él y qué umbral debe alcanzar.
+- Sus criterios de aceptación —qué significa "funciona" para él y qué umbral debe alcanzar—: al final de su `DISENO.es.md` en la familia PMO, y en su `ACCEPTANCE.md` en las familias CFO y CLO, cuyo diseño es de la familia (`families/criterio-<familia>/DISENO.es.md`).
 - Material sintético con respuestas conocidas, en `tests/`.
 - Un evaluador que califica la corrida contra esas respuestas.
 

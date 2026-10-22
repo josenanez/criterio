@@ -88,8 +88,8 @@ entidad nueva entra volviendo a correr `server-setup`.
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la
 [PMO](../../families/criterio-pmo/README.es.md#en-rostrum-el-portal-de-todas-las-familias), la
-[CFO](../../families/criterio-cfo/DISENO.es.md#en-rostrum) y la
-[CLO](../../families/criterio-clo/DISENO.es.md#en-rostrum). La guía completa, con capturas, está en
+[CFO](../../families/criterio-cfo/README.es.md#en-rostrum-el-portal-de-todas-las-familias) y la
+[CLO](../../families/criterio-clo/README.es.md#en-rostrum-el-portal-de-todas-las-familias). La guía completa, con capturas, está en
 [josenanez.com/es/agents/rostrum](https://www.josenanez.com/es/agents/rostrum).
 
 ## El primer resultado

@@ -1,14 +1,14 @@
-[English](DISENO.md)
+[English](DISENO.md) · [← La familia](README.es.md)
 
-# criterio-cfo · la familia de la función financiera
-
-![Clara, Tomás y Rostrum](../../docs/img/es/robots-cfo.gif)
+# criterio-cfo · el diseño de la familia
 
 **Estado: construida y en prueba.** Los dieciséis comandos, los doce skills y el motor de cálculo
 están construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y
 dos entidades de control (`tests/criterio-cfo/`), y la prueba con el agente es el paso siguiente.
 Alcance en [ADR 0006](../../docs/decisions/0006-scope-cfo.md); cómo se reparte el trabajo entre el
 motor y el agente, en [ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md).
+
+**Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, sus fichas y sus invariantes, la estructura de carpetas, Rostrum, la cadencia, las pruebas y la hoja de ruta están en su [página](README.es.md).
 
 Dos agentes que extienden la capacidad de la función financiera: preparan el trabajo del cierre
 y del presupuesto, y lo contrastan contra todos los soportes para señalar qué no cuadra, qué no
@@ -28,14 +28,15 @@ preguntaron y siguen con la respuesta.
 está en [`FUENTES.es.md`](FUENTES.es.md) con su versión, su enlace, la fecha de consulta y su
 estado. El diseño, la documentación y las pruebas citan esas fuentes por su identificador.
 
-**De dónde sale este documento.** Las tablas de agentes, carpetas, señales, comandos y cifras no se
+**De dónde sale este documento.** Las tablas de agentes, señales, comandos y cifras no se
 escriben aquí: salen de tres fuentes, [`familia.json`](familia.json), [`carpetas.json`](carpetas.json)
 y [`fuentes.json`](fuentes.json), que `scripts/familias.py` escribe en este diseño, en `FUENTES.es.md`,
-en los README de `criterio-finance` y, con `scripts/criterio-familias.mjs`, en el portal. Una puerta de
+en la página de la familia, en los README de `criterio-finance` y `criterio-budget` y, con
+`scripts/criterio-familias.mjs`, en el portal. Una puerta de
 `scripts/verificar.py` falla si alguna copia no cuadra, si un comando cita una carpeta que no está
 en la estructura o si se apoya en una fuente por verificar.
 
-**Lo que más se pregunta**, en [`PREGUNTAS.es.md`](PREGUNTAS.es.md) ([English](PREGUNTAS.md)), y **hacia dónde va**, en la [hoja de ruta](#hoja-de-ruta).
+**Lo que más se pregunta**, en [`PREGUNTAS.es.md`](PREGUNTAS.es.md) ([English](PREGUNTAS.md)), y **hacia dónde va**, en la [hoja de ruta](README.es.md#hoja-de-ruta).
 
 ## Un agente por rol
 
@@ -46,17 +47,7 @@ en la estructura o si se apoya en una fuente por verificar.
 | FP&A | **Tomás** — «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución | `criterio-budget` | El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto |
 <!-- /cfo:agentes -->
 
-Como en la familia PMO, los dos no se hablan entre sí: se hablan por sus fichas.
-
-## Las fichas: el único contrato
-
-| Ficha | Una por | Qué lleva | Quién la escribe |
-|---|---|---|---|
-| Ficha del cierre | Entidad y periodo | Las tareas del checklist con responsable, fecha y evidencia; cada conciliación con sus partidas abiertas; las facturas electrónicas contra sus registros; el estado declarado del cierre | Clara; el estado, el contralor persona |
-| Ficha del presupuesto | Área o centro de costo y año | Aprobado, ejecutado y comprometido por cuenta; la proyección del área; los traslados con su acta; el estado declarado | Tomás; el estado, el responsable del área |
-
-Cada dato cita el documento del que sale y su fecha. Declarado y evidenciado van en campos
-separados. «No encontrado» es una respuesta válida.
+Como en la familia PMO, los dos no se hablan entre sí: se hablan por sus fichas. Las fichas y las invariantes que las gobiernan, en la [página de la familia](README.es.md#los-dos-agentes-y-sus-fichas).
 
 ## Los documentos que procesan
 
@@ -74,8 +65,9 @@ separados. «No encontrado» es una respuesta válida.
 | Actas del comité de presupuesto y de traslados | Word, PDF | Tomás |
 | Fichas de proyectos de la familia PMO | `ficha-pm.json` y fichas de Vera | Tomás, solo lectura |
 
-Los formatos de la DIAN (F-01) y del SRI (F-04) se leen desde su fuente técnica oficial y se
-verifican campo por campo antes de escribir el lector ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regla 2).
+Los formatos de la DIAN (F-01) y del SRI (F-04) se toman de su fuente técnica oficial y se
+confirman campo por campo antes de escribir el lector ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regla 2).
+Dónde va cada documento, en la [estructura de carpetas recomendada](README.es.md#la-estructura-de-carpetas-recomendada).
 
 ## Las señales: lo que calcula el código
 
@@ -132,68 +124,6 @@ proyecto con el del área.
 supervisores; no opina sobre deducibilidad, tarifas ni tratamientos NIIF en la primera versión, y
 no dice de memoria una tarifa, un plazo ni el valor de una unidad tributaria; no firma; no declara
 el estado del cierre ni del presupuesto.
-
-## La estructura de carpetas
-
-Recomendada, no obligatoria, como en la familia PMO ([ADR 0007](../../docs/decisions/0007-estructura-recomendada.md)):
-los agentes procesan la carpeta como esté. `finance-setup` y `budget-setup` comparan lo que
-encuentran con esta estructura y, en cada corrida, dicen qué archivo está fuera de su lugar y dónde
-iría; no crean, mueven ni renombran nada en los documentos de la organización. La numeración va de
-diez en diez, como en la familia PMO, en el orden en que se trabaja el cierre y el presupuesto.
-
-Cada documento tiene un solo lugar. La contabilidad del periodo vive en `10-contabilidad/`: Clara
-la cierra y Tomás saca de ahí la ejecución del presupuesto, sin copias entre carpetas.
-
-<!-- cfo:carpetas · generado por scripts/familias.py; no se edita a mano -->
-Una carpeta por entidad, con el NIT o el RUC al inicio del nombre: `900123456-banco-andino`. Dentro, lo que la organización entrega una vez, una carpeta por periodo contable y una por año presupuestal.
-
-```
-finanzas/
-└── <entidad>/
-    ├── 00-referencia/
-    ├── <AAAA-MM>/
-    │   ├── 10-contabilidad/
-    │   ├── 20-bancos/
-    │   ├── 30-facturacion/
-    │   ├── 40-soportes/
-    │   └── 50-auditoria/
-    └── presupuesto-<AAAA>/
-        ├── 10-aprobado/
-        ├── 20-compromisos/
-        ├── 30-proyecciones/
-        └── 40-actas/
-estado-finanzas/
-```
-
-**`<entidad>/`** · Lo que la organización entrega una vez
-
-| Carpeta | Qué va | Agente |
-|---|---|---|
-| `00-referencia/` | El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales | Clara, Tomás |
-
-**`<AAAA-MM>/`** · Un periodo contable, numerado en el orden en que se trabaja el cierre
-
-| Carpeta | Qué va | Agente |
-|---|---|---|
-| `10-contabilidad/` | Balance de comprobación y libro mayor exportados del ERP, y `auxiliares/` con un archivo por cuenta; de aquí sale también la ejecución del presupuesto | Clara, Tomás |
-| `20-bancos/` | Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros | Clara |
-| `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01) o del SRI (F-04) | Clara |
-| `40-soportes/` | La evidencia de cada tarea del checklist —actas, correos, conciliaciones firmadas—, con el id de la tarea al inicio del nombre | Clara |
-| `50-auditoria/` | `requerimientos/` y `respuestas/` del auditor | Clara |
-
-**`presupuesto-<AAAA>/`** · Un año presupuestal
-
-| Carpeta | Qué va | Agente |
-|---|---|---|
-| `10-aprobado/` | El presupuesto aprobado y cada versión, con su fecha en el nombre | Tomás |
-| `20-compromisos/` | Órdenes de compra y compromisos exportados del ERP, con la fecha de corte en el nombre | Tomás |
-| `30-proyecciones/` | La proyección de cada área, una por área y fecha | Tomás |
-| `40-actas/` | Actas del comité de presupuesto, de aprobación y de traslados | Tomás |
-
-**`estado-finanzas/`** · Lo que escriben Clara y Tomás: la configuración, las fichas, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí.
-<!-- /cfo:carpetas -->
-
-Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta.
 
 ## El checklist del cierre
 
@@ -257,38 +187,6 @@ inventarios, activos fijos, intercompañías— es trabajo del contralor, así q
 este plugin, no de otro: es `account-reconcile`, con la lógica de `bank-reconcile`. La
 consolidación de varias entidades queda fuera de la primera versión.
 
-## En Rostrum
-
-Rostrum no se duplica: un solo portal, `criterio-server`, publica lo que escriben todas las
-familias ([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)). La CFO entra igual que
-cualquier otra, sin que el servidor sepa nada de finanzas.
-
-**Cómo entra.** `/criterio-finance:finance-setup` y `/criterio-budget:budget-setup` dejan su
-configuración en `.criterio/finanzas/<entidad>/` y `.criterio/presupuesto/<entidad>/`, con la
-carpeta de finanzas de la entidad marcada con `_CRITERIO_FINANZAS.txt`. Clara y Tomás comparten
-el estado de la entidad, y cada uno ve en el portal sus corridas y sus reportes, no los del otro.
-Después, `/criterio-server:server-setup` encuentra las dos configuraciones y las suma al mapa, y
-`/criterio-server:server-start` levanta el portal. Una entidad nueva entra volviendo a correr
-`server-setup`.
-
-**Lo que la CFO tiene en Rostrum:**
-
-| Dónde | Qué |
-|---|---|
-| Inicio | La tarjeta **Criterio CFO** con Clara y Tomás y sus señales abiertas |
-| `/familia/cfo` | Lo último que escribió el motor de cada uno —el cierre de un mes, el presupuesto de un año—, con sus señales en palabras y la fecha de cálculo, y sus reportes tal como los dejó el motor |
-| Lo que vence | Las tareas del cierre y los requerimientos del auditor con fecha, ordenados con los vencimientos de las otras familias |
-| `/caso/<PRY>` | Una señal de presupuesto sobre un proyecto de la PMO aparece en la página de ese proyecto |
-| Dónde trabaja | La ruta completa de la carpeta raíz, de los documentos de la entidad con su marca, del estado y de cada configuración |
-| Preguntar a un agente | Una pregunta para Clara o para Tomás, que la atiende en su siguiente corrida |
-
-Rostrum no recalcula nada y no escribe en el estado: sirve lo que el motor ya escribió y lo
-dice con su fecha. Las páginas cumplen WCAG 2.2 nivel AA, comprobado con axe-core a cuatro
-anchos de pantalla (`tests/criterio-server/accesibilidad/`).
-
-→ [Rostrum: instalación, configuración y uso con todas las familias](https://www.josenanez.com/es/agents/rostrum) ·
-[su README](../../plugins/criterio-server/README.es.md)
-
 ## Los comandos de Tomás, en orden de importancia
 
 `budget-setup` va primero por la misma razón que `finance-setup`. Tomás no recalcula la
@@ -340,20 +238,6 @@ prueba en la ronda, sobre el mismo material. La familia se declara probada con u
 <!-- cfo:cifras · generado por scripts/familias.py; no se edita a mano -->
 Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner).
 <!-- /cfo:cifras -->
-
-## Hoja de ruta
-
-<!-- hoja de ruta: generado por scripts/hoja.py desde hoja-de-ruta.json; no se edita a mano -->
-
-La familia crece por incrementos. Cada uno es una versión con su prueba completa y su análisis estadístico publicados, con las mismas métricas, para que la evolución se pueda comparar.
-
-| Versión | Estado | Qué entra | Prueba |
-|---|---|---|---|
-| Incremento 1 | En curso | **Construida, con el motor probado**<br>· Los dieciséis comandos de Clara y Tomás, sus doce skills y el motor de cálculo<br>· La factura electrónica de la DIAN y del SRI, procesada desde su fuente técnica oficial<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente | El motor, contra 4 industrias y 2 entidades de control |
-| Incremento 2 | Siguiente | **La ronda con el agente**<br>· Clara y Tomás corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo traen las actas, los correos y las cartas del auditor, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
-| Incremento 3 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre la contabilidad y el presupuesto de una organización concreta | La documentación de esa organización |
-
-<!-- /hoja de ruta -->
 
 ## Decisiones cerradas
 

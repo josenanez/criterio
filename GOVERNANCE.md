@@ -13,7 +13,7 @@
 
 ## Release model
 
-Criterio builds and releases with an explicit disclaimer, and whoever deploys or runs it accepts the terms. Every version goes through an internal validation before it is published —the code gates on every change and the rounds of the three agents on synthetic test data built from real projects— and enters the version register; the product is never called *certified*, *verified* or *approved* (decision 0003): it is called *tested*, always with a link to its evidence. Warranty and liability are governed by the Apache 2.0 licence. See [TERMS.md](TERMS.md) and [docs/acceptance.md](docs/acceptance.md).
+Criterio builds and releases with an explicit disclaimer, and whoever deploys or runs it accepts the terms. Every version goes through an internal validation before it is published —the code gates on every change and the rounds of each family's agents on synthetic test data —in the PMO, built from real projects—— and enters the version register; the product is never called *certified*, *verified* or *approved* (decision 0003): it is called *tested*, always with a link to its evidence. Warranty and liability are governed by the Apache 2.0 licence. See [TERMS.md](TERMS.md) and [docs/acceptance.md](docs/acceptance.md).
 
 What holds quality up is not a signature. It is that every statement in an output carries the document it came from, that arithmetic lives in code where it can be tested, and that anything uncertain or stale is surfaced at run time rather than smoothed over.
 
@@ -23,7 +23,7 @@ Each plugin is verified on its own terms. There is no single bar across the proj
 
 Every plugin carries, in its own folder:
 
-- `DISENO.es.md` — the agent's design sheet, and at its end what "working" means for this plugin and the threshold it must hit.
+- Its acceptance criteria —what "working" means for this plugin and the threshold it must hit—: at the end of its `DISENO.es.md` in the PMO family, and in its `ACCEPTANCE.md` in the CFO and CLO families, whose design belongs to the family (`families/criterio-<familia>/DISENO.es.md`).
 - Synthetic material with known answers, under `tests/`.
 - A grader that scores a run against those answers.
 

@@ -266,7 +266,11 @@
       "area": "finanzas",
       "ambitos": [
         "cierre"
-      ]
+      ],
+      "nunca": {
+        "es": "No registra asientos, no firma y no declara el estado del cierre",
+        "en": "It does not post entries, does not sign and does not declare the close status"
+      }
     },
     {
       "id": "tomas",
@@ -463,7 +467,11 @@
       "area": "presupuesto",
       "ambitos": [
         "presupuesto"
-      ]
+      ],
+      "nunca": {
+        "es": "No aprueba traslados, no recomienda la decisión del comité y no declara el estado de ningún área",
+        "en": "It does not approve transfers, does not recommend the committee's decision and does not declare any area's status"
+      }
     }
   ],
   "impresora": {
@@ -564,6 +572,60 @@
           "texto": "END OF PRINTOUT."
         }
       ]
+    }
+  },
+  "instancia": {
+    "es": "Una por entidad",
+    "en": "One per entity"
+  },
+  "skills": {
+    "audit-support": {
+      "es": "El paquete del auditor: el índice de requerimientos, cómo se nombra cada respuesta y cuándo un requerimiento está respondido con soporte",
+      "en": "The auditor's package: the request index, how each response is named and when a request is answered with support"
+    },
+    "budget-record": {
+      "es": "La ficha del presupuesto: lo que el agente extrae de los documentos escritos —actas de aprobación y de traslado, lo que cada área declara, los compromisos del comité— con su cita",
+      "en": "The budget record: what the agent extracts from written documents —approval and transfer minutes, what each area declares, the committee's commitments— with its citation"
+    },
+    "close-checklist": {
+      "es": "El checklist del cierre: el modelo de columnas, cómo se prueba cada tarea con su soporte, el calendario en días hábiles y el checklist recomendado por industria como borrador",
+      "en": "The close checklist: the column model, how each task is proven with its support, the business-day calendar and the recommended checklist per industry as a draft"
+    },
+    "close-record": {
+      "es": "La ficha del cierre: lo que el agente extrae de los documentos escritos —el estado declarado, los requerimientos que llegaron por correo o en Word— con su cita",
+      "en": "The close record: what the agent extracts from written documents —the declared status, the requests that arrived by email or in Word— with its citation"
+    },
+    "committee-pack": {
+      "es": "El material del comité de presupuesto como paquete de decisiones: qué entra, cómo se presenta cada punto con su cifra y su cita, y los compromisos del comité anterior",
+      "en": "The budget committee material as a decision pack: what goes in, how each point is presented with its figure and citation, and the previous committee's commitments"
+    },
+    "einvoice-matching": {
+      "es": "La factura electrónica de la DIAN o del SRI contra la contabilidad: los campos que se procesan y su fuente, las reglas del cruce, los duplicados, y lo que queda sin opinión fiscal",
+      "en": "The DIAN or SRI e-invoice against the books: the fields processed and their source, the matching rules, duplicates, and what is left without a tax opinion"
+    },
+    "finance-intake": {
+      "es": "Qué documentos procesa la familia, dónde va cada uno, qué procesa el motor directamente y qué extrae el agente a la ficha",
+      "en": "Which documents the family processes, where each one goes, what the engine processes directly and what the agent extracts to the record"
+    },
+    "forecast-method": {
+      "es": "Las dos proyecciones al cierre del año —al ritmo y al plan—, sus supuestos, cómo se comparan con la del área y cuándo una proyección está vencida",
+      "en": "The two year-end forecasts —at the current pace and to plan—, their assumptions, how they compare with the area's own and when a forecast is stale"
+    },
+    "ledger-tieout": {
+      "es": "El cuadre del balance de comprobación y del mayor: débitos contra créditos, saldo inicial más movimientos contra saldo final, cuenta por cuenta, y los saldos contrarios a su naturaleza",
+      "en": "The trial balance and ledger tie-out: debits against credits, opening balance plus movements against closing balance, account by account, and balances contrary to their nature"
+    },
+    "reconciliation": {
+      "es": "Cómo concilia el motor: el extracto contra el auxiliar de libros en tres pasadas, la clasificación de cada partida abierta, su antigüedad, y el mayor contra el auxiliar de cada cuenta",
+      "en": "How the engine reconciles: the statement against the book ledger in three passes, how each open item is classified, its age, and the ledger against each account's subledger"
+    },
+    "transfer-control": {
+      "es": "Los traslados, adiciones y reducciones: cómo se detectan comparando versiones, cómo se cruzan con el acta que los aprueba y qué es un acta sin cambio aplicado",
+      "en": "Transfers, additions and reductions: how they are found by comparing versions, how they are matched with the minutes that approve them and what minutes with no change applied are"
+    },
+    "variance-analysis": {
+      "es": "La ejecución contra el presupuesto: la versión aprobada, el aprobado al corte, lo ejecutado desde la contabilidad con el mapeo de cuentas, lo comprometido, lo disponible y la desviación",
+      "en": "Actuals against budget: the approved version, the approved amount to date, actuals from the books through the account mapping, committed, available and the variance"
     }
   }
 }

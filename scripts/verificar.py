@@ -190,7 +190,8 @@ def main() -> int:
         return 1
     print(color(f"{total} puertas en verde", VERDE))
     print("\nQué prueba cada corrida y qué no, en tests/criterio-portfolio/EVIDENCIA.md,")
-    print("tests/criterio-project/EVIDENCIA.md y tests/criterio-product/EVIDENCIA.md —")
+    print("tests/criterio-project/EVIDENCIA.md, tests/criterio-product/EVIDENCIA.md,")
+    print("tests/criterio-cfo/EVIDENCIA.md y tests/criterio-clo/EVIDENCIA.md —")
     print("incluido lo que todavía no se ha probado.")
     return 0
 

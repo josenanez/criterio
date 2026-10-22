@@ -81,7 +81,7 @@ cruce con la matriz.
 
 ## Lo que no prueba
 
-La extracción. Que el agente lea el contrato, el otrosí, la póliza, el acta del comité, el
+La extracción. Que el agente procese el contrato, el otrosí, la póliza, el acta del comité, el
 informe del periodo o el boletín y lo registre bien en la ficha lo prueba la ronda con el
 agente, sobre este mismo material y contra esta misma clave. Tampoco prueba que el agente se
 abstenga de opinar sobre la validez de un contrato: eso es una regla de los comandos, y la
