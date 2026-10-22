@@ -7,6 +7,8 @@ no vieron.
     python3 tests/ronda_familia.py armar <carpeta> --familia cfo --entidad banca
     python3 tests/ronda_familia.py correr <carpeta> --tope 5000000 [--solo 1 2]
     python3 tests/ronda_familia.py calificar <carpeta>
+    python3 tests/ronda_familia.py publicar <carpeta> --ronda 1 --nombre banca
+    python3 tests/ronda_familia.py resumen
 
 La familia queda escrita en `<carpeta>/familia.txt` al armar, y las otras dos acciones la toman
 de ahí. Las rondas de la PMO tienen su propio arnés, `tests/ronda.py`.
@@ -30,6 +32,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -236,6 +239,64 @@ def calificar(a) -> int:
     return 0 if not sobran and not faltan and not res["extraccion"]["mal"] else 1
 
 
+EVIDENCIAS = RAIZ / "tests" / "evidencias" / "familias"
+
+
+def _limpio(texto: str, carpeta: Path) -> str:
+    """Sin rutas de la máquina donde corrió: el repositorio es público."""
+    for ruta, nombre in ((carpeta / "espacio", "<espacio>"), (carpeta, "<ronda>"), (RAIZ, "<repositorio>"),
+                         (Path.home() / ".claude", "<claude>")):
+        texto = texto.replace(str(ruta.resolve()), nombre).replace(str(ruta), nombre)
+    texto = re.sub(r"en-curso/[0-9a-f-]{36}", "en-curso/<sesion>", texto)
+    return re.sub(r"/tmp/[^\s\"'`)]*", "<temporal>", texto)
+
+
+def publicar(a) -> int:
+    """Lo que dejó la ronda, al repositorio: cada salida con su costo, las que se repitieron tras
+    corregir un defecto y la calificación. Lo que el agente escribió en su estado no se copia: lo
+    resume la calificación, y el material lo vuelve a generar `generar.py`."""
+    carpeta = Path(a.carpeta).expanduser()
+    F = de_carpeta(carpeta)
+    if not (carpeta / "calificacion.json").is_file():
+        print("primero calificar")
+        return 1
+    destino = EVIDENCIAS / F["sigla"] / f"ronda-{a.ronda}" / a.nombre
+    if destino.exists():
+        shutil.rmtree(destino)
+    for sub, nombre in (("salidas", "salidas"), ("primera", "repetidas")):
+        for f in sorted((carpeta / sub).glob("*")) if (carpeta / sub).is_dir() else []:
+            (destino / nombre).mkdir(parents=True, exist_ok=True)
+            (destino / nombre / f.name).write_text(_limpio(f.read_text(encoding="utf-8"), carpeta), encoding="utf-8")
+    (destino / "calificacion.json").write_text(_limpio((carpeta / "calificacion.json").read_text(encoding="utf-8"), carpeta),
+                                              encoding="utf-8")
+    print(f"publicado en {destino.relative_to(RAIZ)}")
+    return 0
+
+
+def resumen(_a) -> int:
+    """La tabla de cada familia, desde las calificaciones publicadas. No se escribe a mano."""
+    for fam in sorted(d for d in EVIDENCIAS.iterdir() if d.is_dir()) if EVIDENCIAS.is_dir() else []:
+        filas = []
+        for c in sorted(fam.glob("ronda-*/*/calificacion.json")):
+            d = _j(c)
+            rep_ = sum((_j(f).get("tokens") or 0) for f in (c.parent / "repetidas").glob("*.json")) if (c.parent / "repetidas").is_dir() else 0
+            s_, e_ = d["senales"], d["extraccion"]
+            filas.append(f"| {c.parent.parent.name} | [{c.parent.name}]({c.parent.parent.name}/{c.parent.name}/) | {d['entidad']} | "
+                         f"{', '.join(d['agentes'])} | {s_['acertadas']} de {s_['esperadas']} · {len(s_['de_mas'])} de más | "
+                         f"{e_['bien']} de {e_['campos']} | {d['tokens'] / 1e6:.2f} M" + (f" + {rep_ / 1e6:.2f} M repetidos" if rep_ else "") + " |")
+        texto = (f"# criterio-{fam.name} · las rondas con el agente\n\n"
+                 "<!-- generado por tests/ronda_familia.py resumen desde cada calificacion.json; no se edita a mano -->\n\n"
+                 "Cada fila es una entidad del material corrida por los agentes con `tests/ronda_familia.py`, con un tope "
+                 "de tokens fijado antes de empezar. Las señales se comparan por su nombre y su clave contra la clave que "
+                 "el agente no ve; la extracción, campo por campo contra lo que traen los documentos escritos. En "
+                 "`repetidas/` están las corridas que se repitieron después de corregir un defecto, con su costo.\n\n"
+                 "| Ronda | Carpeta | Entidad | Agentes | Señales | Extracción | Tokens |\n|---|---|---|---|---|---|---|\n"
+                 + "\n".join(filas) + "\n")
+        (fam / "RONDAS.md").write_text(texto, encoding="utf-8")
+        print(f"  {(fam / 'RONDAS.md').relative_to(RAIZ)} · {len(filas)} filas")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     sp = ap.add_subparsers(dest="accion", required=True)
@@ -250,8 +311,13 @@ def main() -> int:
     s.add_argument("--solo", type=int, nargs="*")
     s = sp.add_parser("calificar")
     s.add_argument("carpeta")
+    s = sp.add_parser("publicar")
+    s.add_argument("carpeta")
+    s.add_argument("--ronda", type=int, required=True)
+    s.add_argument("--nombre", required=True, help="la carpeta de la entidad en la evidencia")
+    sp.add_parser("resumen")
     a = ap.parse_args()
-    return {"armar": armar, "correr": correr, "calificar": calificar}[a.accion](a)
+    return {"armar": armar, "correr": correr, "calificar": calificar, "publicar": publicar, "resumen": resumen}[a.accion](a)
 
 
 if __name__ == "__main__":

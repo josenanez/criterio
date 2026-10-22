@@ -1,0 +1,33 @@
+{
+  "n": 16,
+  "agente": "tomas",
+  "comando": "budget-wake",
+  "argumento": "",
+  "inicio": "2026-10-22T18:37:44",
+  "estado": "success",
+  "error": false,
+  "segundos": 50,
+  "turnos": 16,
+  "tokens": 517385,
+  "tokens_salida": 6330,
+  "costo_usd": 0.212392,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-budget-wake-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-budget-wake-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-budget-scan-2.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-budget-wake-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-forecast-2.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-variance-report-2.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-budget-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json",
+      "estado-finanzas/900000001-distribuidora-control/indice.json"
+    ],
+    "borrados": []
+  }
+}

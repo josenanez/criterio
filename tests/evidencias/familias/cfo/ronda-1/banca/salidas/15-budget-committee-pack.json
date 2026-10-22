@@ -1,0 +1,32 @@
+{
+  "n": 15,
+  "agente": "tomas",
+  "comando": "budget-committee-pack",
+  "argumento": "",
+  "inicio": "2026-10-22T18:14:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 48,
+  "turnos": 14,
+  "tokens": 634501,
+  "tokens_salida": 4813,
+  "costo_usd": 0.2268496,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-budget-committee-pack-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-budget-committee-pack-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-budget-committee-pack-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-budget-committee-pack.md",
+      "estado-finanzas/900123456-banco-andino/presupuesto/2026/reporte-budget-committee-pack.md",
+      "finanzas/900123456-banco-andino/presupuesto-2026/estado-finanzas/900123456-banco-andino/presupuesto/2026/reporte-budget-committee-pack.md",
+      "finanzas/900123456-banco-andino/presupuesto-2026/estado-finanzas/900123456-banco-andino/presupuesto/2026/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

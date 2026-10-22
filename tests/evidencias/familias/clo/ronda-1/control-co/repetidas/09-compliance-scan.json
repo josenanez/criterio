@@ -1,0 +1,26 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-10-22T19:19:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 3,
+  "tokens": 140706,
+  "tokens_salida": 363,
+  "costo_usd": 0.0711408,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-scan-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-scan-1.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "borrados": []
+  }
+}

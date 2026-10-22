@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Andino",
+  "agentes": [
+    "clara",
+    "tomas"
+  ],
+  "tokens": 8777410,
+  "senales": {
+    "esperadas": 13,
+    "acertadas": 13,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

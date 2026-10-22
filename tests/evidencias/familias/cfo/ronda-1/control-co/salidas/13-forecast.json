@@ -1,0 +1,29 @@
+{
+  "n": 13,
+  "agente": "tomas",
+  "comando": "forecast",
+  "argumento": "",
+  "inicio": "2026-10-22T18:35:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 39,
+  "turnos": 9,
+  "tokens": 390068,
+  "tokens_salida": 3130,
+  "costo_usd": 0.14319990000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-forecast-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-forecast-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-forecast-1.md",
+      "estado-finanzas/900000001-distribuidora-control/presupuesto/2026/reporte-forecast.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

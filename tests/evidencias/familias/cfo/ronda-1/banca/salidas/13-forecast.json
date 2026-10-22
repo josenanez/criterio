@@ -1,0 +1,30 @@
+{
+  "n": 13,
+  "agente": "tomas",
+  "comando": "forecast",
+  "argumento": "",
+  "inicio": "2026-10-22T18:13:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 9,
+  "tokens": 442849,
+  "tokens_salida": 3828,
+  "costo_usd": 0.16887820000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-forecast-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-forecast-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-forecast-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-forecast.md",
+      "estado-finanzas/900123456-banco-andino/presupuesto/2026/reporte-forecast.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

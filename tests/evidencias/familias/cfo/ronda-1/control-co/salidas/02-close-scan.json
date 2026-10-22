@@ -1,0 +1,31 @@
+{
+  "n": 2,
+  "agente": "clara",
+  "comando": "close-scan",
+  "argumento": "",
+  "inicio": "2026-10-22T18:26:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 74,
+  "turnos": 18,
+  "tokens": 789619,
+  "tokens_salida": 3567,
+  "costo_usd": 0.2105101,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/900000001-distribuidora-control/cache/2026-09/40-soportes/correo-estado-del-cierre.md.md",
+      "estado-finanzas/900000001-distribuidora-control/cache/manifest.json",
+      "estado-finanzas/900000001-distribuidora-control/cierre/2026-09/reporte-close-scan.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/estado-finanzas/900000001-distribuidora-control/cierre/2026-09/resultados.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas/estado-finanzas/900000001-distribuidora-control/corridas.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas/estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-close-scan-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-close-scan.md",
+      "estado-finanzas/900000001-distribuidora-control/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "borrados": []
+  }
+}

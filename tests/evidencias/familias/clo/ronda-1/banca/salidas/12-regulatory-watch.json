@@ -1,0 +1,30 @@
+{
+  "n": 12,
+  "agente": "constanza",
+  "comando": "regulatory-watch",
+  "argumento": "",
+  "inicio": "2026-10-22T19:04:48",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 10,
+  "tokens": 486277,
+  "tokens_salida": 2954,
+  "costo_usd": 0.1579578,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-regulatory-watch-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-regulatory-watch-1.md",
+      "estado-legal/900123456-banco-andino/corridas/2026-10-06-regulatory-watch-1.md",
+      "estado-legal/900123456-banco-andino/corridas/salida-regulatory-watch.md",
+      "estado-legal/900123456-banco-andino/cumplimiento/2026-10/reporte-regulatory-watch.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "n": 9,
+  "agente": "clara",
+  "comando": "finance-wake",
+  "argumento": "",
+  "inicio": "2026-10-22T18:32:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 32,
+  "turnos": 13,
+  "tokens": 505084,
+  "tokens_salida": 2965,
+  "costo_usd": 0.16189739999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-finance-wake-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-finance-wake-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-close-scan-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-close-status-2.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-finance-wake-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-finance-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json",
+      "estado-finanzas/900000001-distribuidora-control/indice.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "entidad": "Distribuidora Control",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 7910661,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 126,
+    "mal": [
+      {
+        "ficha": "contratos/CTR-501",
+        "campo": "obligations",
+        "esperado": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Transportes Control S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-501-transportes-control-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Transportes Control S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-501-transportes-control-s-a-s/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Transportes Control S.A.S.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-501-transportes-control-s-a-s/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución (agosto)",
+            "due": "2026-09-05",
+            "who": "Transportes Control S.A.S.",
+            "kind": "entrega",
+            "source": "legal/900000001-distribuidora-control/contratos/CTR-501-transportes-control-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Transportes Control S.A.S.",
+            "kind": "cumplimiento",
+            "source": "legal/900000001-distribuidora-control/contratos/CTR-501-transportes-control-s-a-s/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "bien": false
+      },
+      {
+        "ficha": "contratos/CTR-502",
+        "campo": "obligations",
+        "esperado": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Insumos Control S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-502-insumos-control-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Insumos Control S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-502-insumos-control-s-a-s/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución (agosto)",
+            "due": "2026-09-05",
+            "who": "Insumos Control S.A.S.",
+            "kind": "entrega",
+            "source": "legal/900000001-distribuidora-control/contratos/CTR-502-insumos-control-s-a-s/10-contrato/contrato.md, cláusula 5"
+          }
+        ],
+        "bien": false
+      },
+      {
+        "ficha": "contratos/CTR-503",
+        "campo": "obligations",
+        "esperado": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Bodegas Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-503-bodegas-control-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Bodegas Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-503-bodegas-control-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución (agosto)",
+            "due": "2026-09-05",
+            "who": "Bodegas Control S.A.",
+            "kind": "entrega",
+            "source": "legal/900000001-distribuidora-control/contratos/CTR-503-bodegas-control-s-a/10-contrato/contrato.md, cláusula 5"
+          }
+        ],
+        "bien": false
+      },
+      {
+        "ficha": "contratos/CTR-504",
+        "campo": "obligations",
+        "esperado": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Software Control S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-504-software-control-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Software Control S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-504-software-control-s-a-s/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución (agosto)",
+            "due": "2026-09-05",
+            "who": "Software Control S.A.S.",
+            "kind": "entrega",
+            "source": "legal/900000001-distribuidora-control/contratos/CTR-504-software-control-s-a-s/10-contrato/contrato.md, cláusula 5"
+          }
+        ],
+        "bien": false
+      },
+      {
+        "ficha": "contratos/CTR-505",
+        "campo": "obligations",
+        "esperado": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Asesores Control S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-505-asesores-control-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Asesores Control S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-505-asesores-control-s-a-s/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución (agosto)",
+            "due": "2026-09-05",
+            "who": "Asesores Control S.A.S.",
+            "kind": "entrega",
+            "source": "legal/900000001-distribuidora-control/contratos/CTR-505-asesores-control-s-a-s/10-contrato/contrato.md, cláusula 5"
+          }
+        ],
+        "bien": false
+      },
+      {
+        "ficha": "cumplimiento",
+        "campo": "new_rules",
+        "esperado": [
+          {
+            "id": "N-2026-09",
+            "rule": "Circular sintética 009 de 2026",
+            "date": "2026-09-28",
+            "applies": "por evaluar",
+            "source": "30-normativa/boletin-2026-09.md, punto 1"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "N-2026-09",
+            "rule": "Circular sintética 009 de 2026",
+            "date": "2026-09-28",
+            "applies": "por evaluar",
+            "source": "30-normativa/boletin-2026-09.md, línea 5"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

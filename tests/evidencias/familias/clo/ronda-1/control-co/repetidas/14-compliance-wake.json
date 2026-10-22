@@ -1,0 +1,26 @@
+{
+  "n": 14,
+  "agente": "constanza",
+  "comando": "compliance-wake",
+  "argumento": "",
+  "inicio": "2026-10-22T19:21:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 13,
+  "turnos": 3,
+  "tokens": 141280,
+  "tokens_salida": 410,
+  "costo_usd": 0.07172980000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-wake-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-wake-1.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "borrados": []
+  }
+}

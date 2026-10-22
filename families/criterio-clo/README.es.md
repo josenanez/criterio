@@ -15,12 +15,12 @@ habla con el otro directamente: se hablan por sus fichas.
 | **Alcance** | Los contratos, el cumplimiento y el riesgo legal de una entidad: lo que firmó contra lo que está pasando, y cada obligación contra su evidencia |
 | **Objetivo** | Que una empresa sepa qué firmó, qué vence y a qué se obligó |
 | **Compuesta por** | [Fidel](../../plugins/criterio-legal/README.es.md) · [Constanza](../../plugins/criterio-compliance/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
-| **Estado** | Construida y en prueba: el motor, probado contra el material de cuatro industrias y dos entidades de control. **La ronda con el agente es el paso siguiente**, y sin ella la familia no se declara probada |
+| **Estado** | Construida y en prueba: el motor, probado contra el material de cuatro industrias y dos entidades de control. Una primera ronda con el agente, pequeña —banca y el control de Colombia—, ya [corrió](../../tests/evidencias/familias/clo/RONDAS.md). **La ronda completa es el paso siguiente**, y sin ella la familia no se declara probada |
 | **Enfoque** | Contratos y cumplimiento, sin opinión jurídica |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al abogado ni al oficial de cumplimiento, y no decide por ellos: procesa lo que la organización firmó y lo que se obligó a cumplir, y dice qué vence, qué no tiene evidencia y qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | La ronda con el agente, y después el despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | La ronda completa con el agente, y después el despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -45,8 +45,7 @@ políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de 
 las fichas de Fidel las obligaciones de cumplimiento que traen los contratos.
 
 **Los dos se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
-su página: el motor está probado contra material sintético de cuatro industrias; **la
-extracción del agente sobre ese material es la ronda que sigue, y nada se ha probado todavía
+su página: el motor está probado contra material sintético de cuatro industrias; **la extracción del agente pasó una primera ronda pequeña, y la completa es la que sigue; nada se ha probado todavía
 sobre los documentos de una organización.**
 
 Primera versión: Colombia y Ecuador. **Sin opinión jurídica**: ninguno de los dos interpreta una
@@ -344,10 +343,7 @@ señal que tiene que levantar, con el mismo detalle, **y qué no prueba el mater
 [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md). El conjunto de todas las familias, en
 [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**Lo que todavía no se ha corrido es la ronda con el agente**: la extracción de lo que solo trae
-cada contrato, calificada contra la misma clave, y que el agente se abstenga de opinar sobre la
-validez de un contrato, que es una regla de los comandos. Con ella llega el análisis estadístico
-de la familia, con las mismas métricas que la PMO.
+**La primera ronda con el agente** corrió sobre banca y el control de Colombia: Fidel y Constanza corren sus comandos y lo que extraen de cada contrato y de cada informe se califica contra la misma clave. Cada salida, su costo, su calificación y los comandos que se repitieron tras corregir un defecto están en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md). La ronda completa, con las cuatro industrias y los dos controles, trae el análisis estadístico de la familia, con las mismas métricas que la PMO.
 
 ## Las industrias de prueba
 
@@ -401,8 +397,8 @@ todavía no.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Fidel** · Contratos | `criterio-legal` · 7 comandos, 5 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Cumplimiento | `criterio-compliance` · 7 comandos, 6 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contratos | `criterio-legal` · 7 comandos, 5 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Cumplimiento | `criterio-compliance` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 

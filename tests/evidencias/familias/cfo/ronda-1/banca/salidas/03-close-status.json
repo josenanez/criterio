@@ -1,0 +1,29 @@
+{
+  "n": 3,
+  "agente": "clara",
+  "comando": "close-status",
+  "argumento": "",
+  "inicio": "2026-10-22T18:05:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 60,
+  "turnos": 11,
+  "tokens": 516054,
+  "tokens_salida": 4420,
+  "costo_usd": 0.20301800000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-close-status-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-close-status-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-close-status-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-close-status.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "n": 8,
+  "agente": "clara",
+  "comando": "audit-pack",
+  "argumento": "",
+  "inicio": "2026-10-22T18:09:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 50,
+  "turnos": 12,
+  "tokens": 560706,
+  "tokens_salida": 4385,
+  "costo_usd": 0.2007757,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-audit-pack-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-audit-pack-1.md",
+      "estado-finanzas/900123456-banco-andino/cierre/2026-09/reporte-audit-pack.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-audit-pack-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-audit-pack.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

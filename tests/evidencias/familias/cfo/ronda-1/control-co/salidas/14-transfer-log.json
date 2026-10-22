@@ -1,0 +1,30 @@
+{
+  "n": 14,
+  "agente": "tomas",
+  "comando": "transfer-log",
+  "argumento": "",
+  "inicio": "2026-10-22T18:36:06",
+  "estado": "success",
+  "error": false,
+  "segundos": 52,
+  "turnos": 18,
+  "tokens": 556994,
+  "tokens_salida": 3778,
+  "costo_usd": 0.17947380000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-transfer-log-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-transfer-log-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-transfer-log-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-transfer-log.md",
+      "estado-finanzas/900000001-distribuidora-control/presupuesto/2026/reporte-transfer-log.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

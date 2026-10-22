@@ -12,9 +12,7 @@ stated assumption and every transfer with its minutes.
 
 **Status: the seven commands are built**, along with the six skills and the calculation engine,
 tested against synthetic material from four industries with a key the agent never sees and one
-control entity per country. **What has not been tested yet: the agent's extraction** — the round
-with the agent over that same material is the next step, and nothing has been run yet on an
-organisation's documents. Nothing is announced as finished until the
+control entity per country. **The agent's extraction passed a [first, small round](../../tests/evidencias/familias/cfo/RONDAS.md)** —banking and the Colombian control—; the full round is the next step, and nothing has been run yet on an organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
 
 **This page stands on its own.** Tomás works without Clara: if you only run the budget,

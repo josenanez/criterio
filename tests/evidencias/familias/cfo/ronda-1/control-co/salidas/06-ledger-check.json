@@ -1,0 +1,30 @@
+{
+  "n": 6,
+  "agente": "clara",
+  "comando": "ledger-check",
+  "argumento": "",
+  "inicio": "2026-10-22T18:30:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 8,
+  "tokens": 337862,
+  "tokens_salida": 2925,
+  "costo_usd": 0.130876,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-ledger-check-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-ledger-check-1.md",
+      "estado-finanzas/900000001-distribuidora-control/cierre/2026-09/reporte-ledger-check.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-ledger-check-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-ledger-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

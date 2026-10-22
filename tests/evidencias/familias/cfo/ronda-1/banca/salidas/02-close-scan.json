@@ -1,0 +1,37 @@
+{
+  "n": 2,
+  "agente": "clara",
+  "comando": "close-scan",
+  "argumento": "",
+  "inicio": "2026-10-22T18:04:35",
+  "estado": "success",
+  "error": false,
+  "segundos": 79,
+  "turnos": 18,
+  "tokens": 744932,
+  "tokens_salida": 6443,
+  "costo_usd": 0.25774620000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-22-close-scan-1.html",
+      ".criterio/corridas/finanzas/2026-10-22-close-scan-1.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/C-01-soporte.md.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/C-03-soporte.md.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/C-04-soporte.md.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/C-05-soporte.md.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/correo-estado-del-cierre.md.md",
+      "estado-finanzas/900123456-banco-andino/cache/manifest.json",
+      "estado-finanzas/900123456-banco-andino/cierre/2026-09/reporte-close-scan.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-close-scan-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-close-scan.md",
+      "estado-finanzas/900123456-banco-andino/indice.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

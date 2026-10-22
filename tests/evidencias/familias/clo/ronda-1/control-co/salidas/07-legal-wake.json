@@ -1,0 +1,29 @@
+{
+  "n": 7,
+  "agente": "fidel",
+  "comando": "legal-wake",
+  "argumento": "",
+  "inicio": "2026-10-22T19:18:03",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 8,
+  "tokens": 334676,
+  "tokens_salida": 1196,
+  "costo_usd": 0.10533219999999999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-legal-wake-1.html",
+      ".criterio/corridas/legal/2026-10-22-legal-wake-1.md",
+      "estado-legal/900000001-distribuidora-control/corridas/2026-10-06-legal-wake-1.md",
+      "estado-legal/900000001-distribuidora-control/corridas/salida-legal-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/900000001-distribuidora-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

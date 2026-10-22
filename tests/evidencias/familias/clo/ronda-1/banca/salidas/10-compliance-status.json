@@ -1,0 +1,32 @@
+{
+  "n": 10,
+  "agente": "constanza",
+  "comando": "compliance-status",
+  "argumento": "",
+  "inicio": "2026-10-22T19:07:58",
+  "estado": "success",
+  "error": false,
+  "segundos": 44,
+  "turnos": 8,
+  "tokens": 342428,
+  "tokens_salida": 4401,
+  "costo_usd": 0.15188079999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-status-2.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-status-2.md",
+      "estado-legal/900123456-banco-andino/corridas/2026-10-06-compliance-status-2.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/900123456-banco-andino/corridas.json",
+      "estado-legal/900123456-banco-andino/corridas/salida-compliance-status.md",
+      "estado-legal/900123456-banco-andino/cumplimiento/2026-09/resultados.json",
+      "estado-legal/900123456-banco-andino/cumplimiento/2026-10/reporte-compliance-status.md",
+      "estado-legal/900123456-banco-andino/cumplimiento/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

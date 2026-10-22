@@ -1,0 +1,40 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/900123456-banco-andino",
+  "inicio": "2026-10-22T19:00:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 101,
+  "turnos": 25,
+  "tokens": 1282909,
+  "tokens_salida": 10020,
+  "costo_usd": 0.4022303000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-setup-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-setup-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/cumplimiento/900123456/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.7.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.7.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.7.0-2026-10-06.sha256",
+      "estado-legal/900123456-banco-andino/cache/cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md.md",
+      "estado-legal/900123456-banco-andino/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/900123456-banco-andino/corridas/salida-compliance-setup.md",
+      "estado-legal/900123456-banco-andino/cumplimiento/2026-09/ficha.json",
+      "estado-legal/900123456-banco-andino/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/900123456-banco-andino/cumplimiento/2026-09/resultados.json",
+      "legal/900123456-banco-andino/_CRITERIO_LEGAL.txt"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/900123456-banco-andino/cache/manifest.json",
+      "estado-legal/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

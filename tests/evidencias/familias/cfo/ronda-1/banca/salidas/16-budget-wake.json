@@ -1,0 +1,33 @@
+{
+  "n": 16,
+  "agente": "tomas",
+  "comando": "budget-wake",
+  "argumento": "",
+  "inicio": "2026-10-22T18:15:15",
+  "estado": "success",
+  "error": false,
+  "segundos": 55,
+  "turnos": 15,
+  "tokens": 623948,
+  "tokens_salida": 6049,
+  "costo_usd": 0.23111600000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-budget-wake-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-budget-wake-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-budget-scan-2.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-budget-wake-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-forecast-2.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-variance-report-2.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-budget-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json",
+      "estado-finanzas/900123456-banco-andino/indice.json"
+    ],
+    "borrados": []
+  }
+}

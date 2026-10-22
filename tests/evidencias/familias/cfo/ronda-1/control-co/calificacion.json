@@ -1,0 +1,19 @@
+{
+  "entidad": "Distribuidora Control",
+  "agentes": [
+    "clara",
+    "tomas"
+  ],
+  "tokens": 8537176,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

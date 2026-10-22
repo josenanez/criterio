@@ -397,8 +397,8 @@ def estado_familia(fa: dict, i: str) -> str:
     for a in fa["agentes"]:
         nc, ns = cuenta(a)
         cs = f"{nc} comandos, {ns} skills" if i == "es" else f"{nc} commands, {ns} skills"
-        pr = ("El motor, probado; la ronda con el agente, pendiente" if i == "es"
-              else "The engine, tested; the round with the agent, pending")
+        pr = ("El motor, probado; una primera ronda con el agente; la completa, pendiente" if i == "es"
+              else "The engine, tested; a first round with the agent; the full one, pending")
         l.append(f"| **{a['nombre']}** · {a['rol'][i]} | `{a['plugin']}` · {cs} | {pr} · "
                  f"[{'resultados' if i == 'es' else 'results'}](../../tests/{a['plugin']}/RESULTADOS.md) |")
     l.append(f"| **Rostrum** · {ROSTRUM[i]['rol']} | `criterio-server` · "

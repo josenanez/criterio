@@ -15,12 +15,12 @@ con el otro directamente: se hablan por sus fichas.
 | **Alcance** | El cierre, el control y el reporte financiero de una entidad: los libros contra sus soportes, y el presupuesto contra su ejecución |
 | **Objetivo** | Que el cierre deje de depender de que alguien recuerde qué falta |
 | **Compuesta por** | [Clara](../../plugins/criterio-finance/README.es.md) · [Tomás](../../plugins/criterio-budget/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
-| **Estado** | Construida y en prueba: el motor, probado contra el material de cuatro industrias y dos entidades de control. **La ronda con el agente es el paso siguiente**, y sin ella la familia no se declara probada |
+| **Estado** | Construida y en prueba: el motor, probado contra el material de cuatro industrias y dos entidades de control. Una primera ronda con el agente, pequeña —banca y el control de Colombia—, ya [corrió](../../tests/evidencias/familias/cfo/RONDAS.md). **La ronda completa es el paso siguiente**, y sin ella la familia no se declara probada |
 | **Enfoque** | Control y reporte |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al contralor ni al equipo de planeación financiera, y no decide por ellos: procesa lo que la función ya tiene y dice qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | La ronda con el agente, y después el despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | La ronda completa con el agente, y después el despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -43,8 +43,7 @@ acta y arma el material del comité como un paquete de decisiones. Toma la ejecu
 contabilidad que cierra Clara, sin copiarla.
 
 **Los dos se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
-su página: el motor está probado contra material sintético de cuatro industrias; **la
-extracción del agente sobre ese material es la ronda que sigue, y nada se ha probado todavía
+su página: el motor está probado contra material sintético de cuatro industrias; **la extracción del agente pasó una primera ronda pequeña, y la completa es la que sigue; nada se ha probado todavía
 sobre los documentos de una organización.**
 
 Primera versión: NIIF adoptadas localmente en Colombia y Ecuador, con la factura electrónica de
@@ -332,9 +331,7 @@ tiene que levantar, con el mismo detalle, **y qué no prueba el material**, en
 [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md). El conjunto de todas las familias, en
 [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**Lo que todavía no se ha corrido es la ronda con el agente**: la extracción de lo que solo
-traen las actas, los correos y las cartas del auditor, calificada contra la misma clave. Con
-ella llega el análisis estadístico de la familia, con las mismas métricas que la PMO.
+**La primera ronda con el agente** corrió sobre banca y el control de Colombia: Clara y Tomás corren sus comandos y lo que extraen de las actas, los correos y las cartas del auditor se califica contra la misma clave. Cada salida, su costo, su calificación y los comandos que se repitieron tras corregir un defecto están en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md). La ronda completa, con las cuatro industrias y los dos controles, trae el análisis estadístico de la familia, con las mismas métricas que la PMO.
 
 ## Las industrias de prueba
 
@@ -388,8 +385,8 @@ todavía no.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 

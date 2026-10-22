@@ -54,7 +54,7 @@ El material trae una clave con lo que se sembró, y el motor no la ve. La prueba
 
 ### ¿Ya está probada la familia completa?
 
-El motor sí. La extracción del agente sobre los documentos escritos —lo que solo traen las actas, los correos y las cartas del auditor— se prueba en la ronda con el agente, que es el paso siguiente. La familia se declara probada con una ronda completa.
+El motor sí. La extracción del agente sobre los documentos escritos —lo que solo traen las actas, los correos y las cartas del auditor— pasó una primera ronda con el agente, pequeña: banca y el control de Colombia. La familia se declara probada con la ronda completa, que es el paso siguiente.
 
 ## Datos y privacidad
 

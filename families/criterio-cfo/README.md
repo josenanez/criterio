@@ -15,12 +15,12 @@ the other directly: they talk through their records.
 | **Scope** | The close, control and financial reporting of an entity: the books against their supporting documents, and the budget against its execution |
 | **Objective** | That the close stops depending on someone remembering what is missing |
 | **Made of** | [Clara](../../plugins/criterio-finance/README.md) · [Tomás](../../plugins/criterio-budget/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
-| **State** | Built and in testing: the engine, tested against the material of four industries and two control entities. **The round with the agent is the next step**, and without it the family is not declared tested |
+| **State** | Built and in testing: the engine, tested against the material of four industries and two control entities. A first, small round with the agent —banking and the Colombian control— has [run](../../tests/evidencias/familias/cfo/RONDAS.md). **The full round is the next step**, and without it the family is not declared tested |
 | **Approach** | Control and reporting |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the controller or the financial planning team, and does not decide for them: it processes what the function already has and says what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | The round with the agent, and then deployment in an organisation: [the roadmap](#roadmap) |
+| **What comes next** | The full round with the agent, and then deployment in an organisation: [the roadmap](#roadmap) |
 
 ---
 
@@ -43,8 +43,7 @@ builds the committee material as a decision pack. He takes actuals from the same
 closes, without copying them.
 
 **Both install today**, each with its own plugin, and both carry the same debt, written on their
-page: the engine is tested against synthetic material from four industries; **the agent's
-extraction over that material is the next round, and nothing has been tested yet on an
+page: the engine is tested against synthetic material from four industries; **the agent's extraction passed a first, small round, and the full one is next; nothing has been tested yet on an
 organisation's documents.**
 
 First version: IFRS as locally adopted in Colombia and Ecuador, with DIAN and SRI electronic
@@ -332,9 +331,7 @@ the signal it has to raise, in the same detail, **and what the material does not
 [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish). The whole set across every
 family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**What has not been run yet is the round with the agent**: the extraction of what only minutes,
-emails and auditor letters carry, graded against the same key. With it comes the family's
-statistical analysis, with the same metrics as the PMO.
+**The first round with the agent** ran on banking and the Colombian control: Clara and Tomás run their commands and what they extract from minutes, emails and auditor letters is graded against the same key. Every output, its cost, its grading and the commands repeated after a defect was fixed are in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md). The full round, with the four industries and the two controls, brings the family's statistical analysis, with the same metrics as the PMO.
 
 ## The test industries
 
@@ -387,8 +384,8 @@ hidden: **the engine is tested on synthetic material; the agent's extraction is 
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 

@@ -1,0 +1,32 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-22T18:33:53",
+  "estado": "success",
+  "error": false,
+  "segundos": 55,
+  "turnos": 18,
+  "tokens": 899492,
+  "tokens_salida": 5041,
+  "costo_usd": 0.23732219999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-22-budget-scan-1.html",
+      ".criterio/corridas/presupuesto/2026-10-22-budget-scan-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-budget-scan.md",
+      "estado-finanzas/900000001-distribuidora-control/presupuesto/2026/ficha.json",
+      "estado-finanzas/900000001-distribuidora-control/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json",
+      "estado-finanzas/900000001-distribuidora-control/presupuesto/2026/resultados.json"
+    ],
+    "borrados": []
+  }
+}
