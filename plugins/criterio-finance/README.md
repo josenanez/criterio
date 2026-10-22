@@ -17,8 +17,6 @@ with the agent over that same material is the next step, and nothing has been ru
 organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
 
-Fork of Anthropic's `finance` plugin: the upstream closes against US GAAP and SOX; here the framework is locally adopted IFRS, and electronic invoicing is a first-class concern.
-
 **This page stands on its own.** Clara works without Tomás: if you only close the books,
 everything is here, including her tests. The family —how she meets Tomás and Rostrum— is in the
 [criterio-cfo family](../../families/criterio-cfo/README.md).

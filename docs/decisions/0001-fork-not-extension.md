@@ -1,6 +1,6 @@
 # 0001 · Fork, not extension
 
-**Date:** 2026-09-18 · **Status:** accepted
+**Date:** 2026-09-18 · **Status:** superseded (2026-10-22) · The forks were never built: the normative line was dropped in 0005, and the CFO and CLO families (0006, 0009) were written from scratch. No file in this repository derives from `knowledge-work-plugins`.
 
 ## Context
 
