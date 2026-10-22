@@ -41,11 +41,15 @@ RAIZ = Path(__file__).resolve().parent.parent
 # Lo que cambia de una familia a otra: dónde deja cada agente sus resultados y dónde está cada
 # ficha que la clave describe. `{k}` es la ficha de una por clave —la de cada contrato—.
 FAMILIAS = {
-    "cfo": {"resultados": {"clara": "cierre/*/resultados.json", "tomas": "presupuesto/*/resultados.json"},
-            "fichas": {"cierre": ("clara", "cierre/*/ficha.json"), "presupuesto": ("tomas", "presupuesto/*/ficha.json")}},
-    "clo": {"resultados": {"fidel": "contratos/resultados.json", "constanza": "cumplimiento/*/resultados.json"},
-            "fichas": {"contratos": ("fidel", "contratos/{k}.json"), "cumplimiento": ("constanza", "cumplimiento/*/ficha.json")}},
+    "cfo": {"resultados": {"clara": "cierre/{periodo}/resultados.json", "tomas": "presupuesto/{anio}/resultados.json"},
+            "fichas": {"cierre": ("clara", "cierre/{periodo}/ficha.json"), "presupuesto": ("tomas", "presupuesto/{anio}/ficha.json")},
+            "periodos": lambda c: {"periodo": c["config"]["clara"]["period"], "anio": c["config"]["tomas"]["budget"]["year"]}},
+    "clo": {"resultados": {"fidel": "contratos/resultados.json", "constanza": "cumplimiento/{periodo}/resultados.json"},
+            "fichas": {"contratos": ("fidel", "contratos/{k}.json"), "cumplimiento": ("constanza", "cumplimiento/{periodo}/ficha.json")},
+            "periodos": lambda c: {"periodo": c["periodo"]}},
 }
+# Lo que el agente escribe de suyo y no extrae de un documento: no se califica contra la clave.
+PROPIOS = {"questions"}
 
 
 def familia(sigla: str) -> dict:
@@ -194,8 +198,11 @@ def calificar(a) -> int:
     # parte no es el resultado, y no se califica.
     estados = {espacio / _j(c)["paths"]["state"] for c in espacio.glob(".criterio/*/*/config.json")
                if (_j(c).get("paths") or {}).get("state")}
+    # El periodo que dice la clave: un comando que calcula también el mes en curso deja otro
+    # resultado, y ese no es el que se califica.
+    per = F["periodos"](clave)
     for rol, patron in F["resultados"].items():
-        for f in sorted(x for e in estados for x in e.glob(patron)):
+        for f in sorted(x for e in estados for x in e.glob(patron.format(**per))):
             obtenido |= {(x["signal"], x["key"]) for x in _j(f).get("alertas") or [] if x["signal"] in F["de"][rol]}
     corridos = {_j(f)["agente"] for f in (carpeta / "salidas").glob("*.json")}
     esperado = {(x["signal"], x["key"]) for x in clave["esperado"]
@@ -209,9 +216,11 @@ def calificar(a) -> int:
         # Una ficha por clave (cada contrato), o una sola ficha: la más reciente de su patrón.
         partes = ({k: v for k, v in ref.items()} if "{k}" in patron else {"": ref})
         for k, esperado_k in partes.items():
-            hallados = sorted(x for e in estados for x in e.glob(patron.format(k=k)))
+            hallados = sorted(x for e in estados for x in e.glob(patron.format(k=k, **per)))
             hecho = dict(_plano(_j(hallados[-1]))) if hallados else {}
             for ruta, valor in _plano(esperado_k):
+                if ruta.split(".")[0] in PROPIOS:
+                    continue
                 extraccion.append({"ficha": f"{sub}/{k}" if k else sub, "campo": ruta, "esperado": valor,
                                    "obtenido": hecho.get(ruta), "bien": _igual(valor, hecho.get(ruta))})
     tokens = sum(_j(f).get("tokens") or 0 for f in (carpeta / "salidas").glob("*.json"))

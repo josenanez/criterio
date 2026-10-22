@@ -499,11 +499,15 @@ def constanza(cfg: dict, periodo: str, hoy: dt.date) -> dict:
     texto_matriz = norm(" ".join(matriz_fuentes))
 
     # Las obligaciones de cumplimiento de los contratos (fichas de Fidel).
+    # Si la configuración no dice dónde están, son las del estado que Constanza comparte con Fidel
+    # (ADR 0010): las fichas de los contratos de la misma entidad.
     rutas = (cfg.get("compliance") or {}).get("contract_records")
+    if not rutas and cfg.get("_estado") and (Path(cfg["_estado"]) / "contratos").is_dir():
+        rutas = str(Path(cfg["_estado"]) / "contratos")
     contratos = []
     if rutas:
         rp = Path(rutas).expanduser()
-        rp = rp if rp.is_absolute() else Path.cwd() / rp
+        rp = rp if rp.is_absolute() else Path(cfg.get("_raiz") or Path.cwd()) / rp
         for code, c in sorted(fichas_contratos(rp.parent if rp.name == "contratos" else rp).items()):
             for o in c.get("obligations") or []:
                 if norm(o.get("kind")) != "cumplimiento":

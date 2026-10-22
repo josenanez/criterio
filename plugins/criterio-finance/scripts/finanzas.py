@@ -1166,7 +1166,7 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
     proyectos = []
     if pmo:
         rp = Path(pmo).expanduser()
-        rp = rp if rp.is_absolute() else Path.cwd() / rp
+        rp = rp if rp.is_absolute() else Path(cfg.get("_raiz") or Path.cwd()) / rp
         fichas_pmo = sorted(rp.glob("*.json")) if rp.is_dir() else []
         if not fichas_pmo:
             no_proc.append({"archivo": str(pmo), "motivo": "la configuración apunta a las fichas de la familia PMO y ahí no hay ninguna: el presupuesto de los proyectos no se cruzó"})

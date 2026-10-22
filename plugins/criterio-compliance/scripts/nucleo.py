@@ -376,6 +376,7 @@ def cargar_config(ruta: Path) -> tuple[dict, Path]:
         p = Path(v).expanduser()
         return p if p.is_absolute() else base / p
     cfg["_docs"], cfg["_estado"] = ruta_de("documents"), ruta_de("state")
+    cfg["_raiz"] = base
     return cfg, ruta
 
 
