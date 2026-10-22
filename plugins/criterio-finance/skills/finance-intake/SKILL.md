@@ -22,7 +22,7 @@ Los números llegan con coma o con punto decimal; las fechas en ISO, `dd/mm/aaaa
 <!-- cfo:intake · generado por scripts/familias.py; no se edita a mano -->
 Recomendada, no obligatoria: el motor procesa la carpeta como esté, y el inventario dice qué archivo está fuera de su lugar y dónde iría (ADR 0007). La contabilidad del periodo tiene un solo lugar, `10-contabilidad/`: Clara la cierra y Tomás saca de ahí la ejecución.
 
-Una carpeta por entidad, con el NIT o el RUC al inicio del nombre: `900123456-banco-andino`. Dentro, lo que la organización entrega una vez, una carpeta por periodo contable y una por año presupuestal.
+Una carpeta por entidad, con el NIT o el RUC al inicio del nombre: `900123456-nombre-de-la-entidad`. Dentro, lo que la organización entrega una vez, una carpeta por periodo contable y una por año presupuestal.
 
 ```
 finanzas/

@@ -121,7 +121,7 @@ numeración va de diez en diez, como en la familia PMO, en el orden en que se tr
 el presupuesto.
 
 <!-- cfo:carpetas · generado por scripts/familias.py; no se edita a mano -->
-Una carpeta por entidad, con el NIT o el RUC al inicio del nombre: `900123456-banco-andino`. Dentro, lo que la organización entrega una vez, una carpeta por periodo contable y una por año presupuestal.
+Una carpeta por entidad, con el NIT o el RUC al inicio del nombre: `900123456-nombre-de-la-entidad`. Dentro, lo que la organización entrega una vez, una carpeta por periodo contable y una por año presupuestal.
 
 ```
 finanzas/

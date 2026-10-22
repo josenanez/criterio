@@ -120,7 +120,7 @@ never create, move or rename anything in the organisation's documents. The numbe
 tens, as in the PMO family, in the order the close and the budget are worked.
 
 <!-- cfo:carpetas · generado por scripts/familias.py; no se edita a mano -->
-One folder per entity, with its tax id at the start of the name: `900123456-andean-bank`. Inside it, what the organisation provides once, one folder per accounting period and one per budget year.
+One folder per entity, with its tax id at the start of the name: `900123456-entity-name`. Inside it, what the organisation provides once, one folder per accounting period and one per budget year.
 
 ```
 finanzas/
