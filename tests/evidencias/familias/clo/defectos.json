@@ -172,16 +172,18 @@
         "fidel"
       ],
       "origen": "arnes",
-      "commit": null,
-      "estado": "abierto",
+      "commit": "96935cc",
+      "estado": "verificado",
       "es": {
         "que": "El mismo caso que CFO-4: la clave dice «Reporte de operaciones al oficial de cumplimiento» y Fidel escribió «Reporte de operaciones del periodo al oficial de cumplimiento». La calificación lo cuenta como error porque compara el texto contenido, no el sentido. Se repitió en la ronda 3, en el control de Colombia: es el único dato que falló ahí (131 de 132).",
-        "correccion": "Pendiente, junto con CFO-4: decidir cómo la calificación reconoce el mismo dato dicho con otras palabras sin volverse permisiva."
+        "correccion": "La misma corrección que CFO-4. Verificado volviendo a calificar las salidas originales: banca de la ronda 2, 132 de 132, y el control de Colombia de la ronda 3, 132 de 132; las demás entidades no cambian."
       },
       "en": {
         "que": "The same case as CFO-4: the key says “Reporte de operaciones al oficial de cumplimiento” and Fidel wrote “Reporte de operaciones del periodo al oficial de cumplimiento”. Grading counts it as an error because it compares contained text, not meaning. It recurred in round 3, on the Colombian control: the only data point that failed there (131 of 132).",
-        "correccion": "Pending, together with CFO-4: decide how grading recognises the same data point in other words without becoming lenient."
-      }
+        "correccion": "The same fix as CFO-4. Verified by re-grading the original outputs: round 2 banking, 132 of 132, and round 3 Colombian control, 132 of 132; the other entities do not change."
+      },
+      "verificacion": "banca",
+      "ronda_verificacion": 3
     }
   ]
 }

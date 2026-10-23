@@ -70,16 +70,18 @@
         "tomas"
       ],
       "origen": "arnes",
-      "commit": null,
-      "estado": "abierto",
+      "commit": "96935cc",
+      "estado": "verificado",
       "es": {
         "que": "La calificación compara el compromiso del comité como texto: la clave dice «Revisar el contrato de vigilancia» y Tomás escribió «Administración revisa el contrato de vigilancia antes del próximo comité», el mismo compromiso con el mismo responsable y la misma acta. Por eso minería da 8 de 9 y no 9.",
-        "correccion": "Pendiente: decidir cómo la calificación reconoce el mismo compromiso dicho con otras palabras sin volverse permisiva."
+        "correccion": "La calificación acepta un what con las palabras de la clave, salvo la conjugación, solo cuando su cita y lo demás del registro coinciden. Verificado volviendo a calificar la salida original de minería de la ronda 2: 9 de 9 datos; las demás entidades no cambian."
       },
       "en": {
         "que": "Grading compares the committee commitment as text: the key says “Revisar el contrato de vigilancia” and Tomás wrote “Administración revisa el contrato de vigilancia antes del próximo comité”, the same commitment with the same owner and the same minutes. That is why mining scores 8 of 9 and not 9.",
-        "correccion": "Pending: decide how grading recognises the same commitment in other words without becoming lenient."
-      }
+        "correccion": "Grading accepts a what with the key’s words, conjugation aside, only when its citation and the rest of the record match. Verified by re-grading the original round 2 mining output: 9 of 9 data points; the other entities do not change."
+      },
+      "verificacion": "mineria",
+      "ronda_verificacion": 3
     }
   ]
 }
