@@ -2,7 +2,7 @@
 
 **el agente de contratos de la familia CLO** · plugin `criterio-legal`
 
-Corrida del 2026-10-23, sobre el commit `fb4fda6`, con cambios en el árbol todavía sin confirmar. **2 puertas · 25 comprobaciones · todas en verde.**
+Corrida del 2026-10-23, sobre el commit `ee8c95f`, con cambios en el árbol todavía sin confirmar. **2 puertas · 25 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-23, sobre el commit `fb4fda6`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-legal/legal.py selftest` | El motor de Fidel y Constanza: fechas, prórrogas, plazos y una entidad mínima con todo mal | 18 | 68 ms | verde |
-| `criterio-clo/evaluar.py` | Que Fidel levante cada señal sembrada en los contratos, y ninguna en los controles | 7 | 155 ms | verde |
+| `criterio-legal/legal.py selftest` | El motor de Fidel y Constanza: fechas, prórrogas, plazos y una entidad mínima con todo mal | 18 | 63 ms | verde |
+| `criterio-clo/evaluar.py` | Que Fidel levante cada señal sembrada en los contratos, y ninguna en los controles | 7 | 147 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
