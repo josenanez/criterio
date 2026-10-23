@@ -64,7 +64,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" marcar-raiz --docs <la carpe
 
 Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
-**3. Deja la configuración escrita**, con las respuestas y con los umbrales por defecto declarados en `config.example.json` (ninguno es una norma: son configuración), y prepara el estado:
+**3. Deja la configuración escrita**, con las respuestas y con los umbrales por defecto declarados en `config.example.json` (ninguno es una norma: son configuración), y prepara el estado. **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona: ningún comando del motor la crea. `init` prepara el estado y `config` la valida.
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" init --state <estado>

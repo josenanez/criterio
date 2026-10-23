@@ -307,6 +307,8 @@ def sembrar_fidel(e: dict, cs: list[dict], esperado: list) -> None:
         esperado.append(("signed_without_authority", f"firma:{c2['code']}:OT-1"))
     if "sin_firma" in s:               # la contraparte no firmó y el contrato ya empezó
         c5["signed_by_both"] = False
+        # Quien no firmó no es firmante: la ficha lista solo a la entidad (CLO-7).
+        c5["signatories"] = [x for x in c5["signatories"] if x["party"] == "entidad"]
         esperado.append(("unsigned_contract", f"sinfirma:{c5['code']}"))
     if "certificado_viejo" in s:       # el certificado tenía 75 días cuando se firmó
         c4["counterparty_certificate"]["issued_on"] = iso(d(c4["signed_on"]) - dt.timedelta(days=75))

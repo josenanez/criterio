@@ -52,7 +52,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" marcar-raiz --docs <la carpeta 
 
 Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
-**4. Deja la configuración escrita:**
+**4. Deja la configuración escrita.** **La escribes tú**, en la ruta de la configuración, con la forma de `${CLAUDE_PLUGIN_ROOT}/scripts/config.example.json` y las respuestas de la persona: ningún comando del motor la crea. `init` prepara el estado y `config` la valida.
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" init --state <estado>
