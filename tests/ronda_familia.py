@@ -200,15 +200,40 @@ def _misma_cita(esperada, obtenida, espacio) -> bool:
     return ra is not None and ra == rb
 
 
+VACIAS = {"de", "del", "la", "las", "el", "los", "al", "a", "y", "o", "en", "por", "para", "con", "un", "una", "su", "sus", "que", "se"}
+
+
+def _palabras(texto: str) -> set:
+    """Las palabras con contenido de un texto, por su raíz de cinco letras: «Revisar» y «revisa»
+    son la misma; los artículos y las preposiciones no cuentan."""
+    return {w[:5] for w in re.findall(r"[a-záéíóúñü0-9]+", texto.lower()) if w not in VACIAS}
+
+
+def _mismas_palabras(esperado, obtenido) -> bool:
+    """El mismo dato dicho con otras palabras (CFO-4, CLO-9): cada palabra con contenido de la
+    clave está en lo que escribió el agente, salvo la conjugación. Solo se aplica a `what`, y solo
+    cuando lo demás del mismo registro —su cita, su responsable, su fecha— coincide con la clave."""
+    if not isinstance(esperado, str) or not isinstance(obtenido, str):
+        return False
+    clave = _palabras(esperado)
+    return bool(clave) and clave <= _palabras(obtenido)
+
+
 def _igual(esperado, obtenido, espacio=None) -> bool:
-    """Igual campo por campo, con dos tolerancias: un texto del agente que contiene el de la clave
-    —el mismo compromiso, dicho con más detalle— cuenta como bien, y una cita (`source`) que señala
-    el mismo renglón del mismo archivo también. La diferencia se reporta igual."""
+    """Igual campo por campo, con tres tolerancias: un texto del agente que contiene el de la clave
+    —el mismo compromiso, dicho con más detalle— cuenta como bien; una cita (`source`) que señala
+    el mismo renglón del mismo archivo también; y un `what` con las mismas palabras de la clave,
+    salvo la conjugación, cuando lo demás del registro coincide. La diferencia se reporta igual."""
     esperado, obtenido = _norma(esperado), _norma(obtenido)
     if isinstance(esperado, str) and isinstance(obtenido, str):
         return esperado.strip().lower() in obtenido.strip().lower()
     if isinstance(esperado, dict) and isinstance(obtenido, dict):
-        return all(_igual(v, obtenido.get(k), espacio) or (k == "source" and _misma_cita(v, obtenido.get(k), espacio))
+        # `what` dicho con otras palabras cuenta solo si el registro tiene con qué anclarlo —su
+        # cita— y todo lo demás coincide: lo exige el mismo all().
+        anclado = "source" in esperado
+        return all(_igual(v, obtenido.get(k), espacio)
+                   or (k == "source" and _misma_cita(v, obtenido.get(k), espacio))
+                   or (k == "what" and anclado and _mismas_palabras(v, obtenido.get(k)))
                    for k, v in esperado.items())
     if isinstance(esperado, list) and isinstance(obtenido, list):
         return len(esperado) == len(obtenido) and all(_igual(a, b, espacio) for a, b in zip(esperado, obtenido))
