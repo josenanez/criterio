@@ -48,6 +48,16 @@ política de datos contra su cumplimiento.**
 - **La ley de datos personales de cada país se verifica antes de citarse**: en Colombia, la Ley
   1581 de 2012; en Ecuador, la ley orgánica de 2021. Las dos están por verificar.
 
+## Lo que cuesta hoy
+
+Son cifras de terceros, verificadas contra el texto de quien las publica.
+
+| Cifra | Fuente | Muestra | Estado |
+|---|---|---|---|
+| **67 %** no confía del todo en los datos con los que toma decisiones (55 % en 2023) | Precisely con el LeBow College de la Universidad de Drexel, 18 de septiembre de 2024 ([nota](https://www.precisely.com/press-release/new-global-research-points-to-lack-of-data-quality-and-governance-as-major-obstacles-to-ai-readiness)) | Más de 565 profesionales de datos y analítica en el mundo, primer semestre de 2024 | Verificada |
+| **64 %** pone la calidad de datos como su principal reto de integridad (50 % en 2023) | La misma | La misma | Verificada |
+| **77 %** califica la calidad de sus datos como promedio o peor (66 % el año anterior) | La misma | La misma | Verificada |
+
 ## Lo que falta decidir
 
 1. El nombre del agente.

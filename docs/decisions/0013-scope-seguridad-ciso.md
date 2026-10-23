@@ -58,6 +58,16 @@ evidencia, con el calendario y el núcleo común.
 - **La norma del país se verifica antes de citarse.** Por ejemplo, la circular de ciberseguridad
   del supervisor financiero de Colombia está por verificar.
 
+## Lo que cuesta hoy
+
+Son cifras de terceros, verificadas contra el texto de quien las publica.
+
+| Cifra | Fuente | Muestra | Estado |
+|---|---|---|---|
+| **20 %** de las brechas empezó por la explotación de una vulnerabilidad, un 34 % más que el año anterior | Verizon, Data Breach Investigations Report 2025 ([informe](https://www.netaonline.org/sites/default/files/uploads/documents/2025-dbir-data-breach-investigations-report.pdf)) | 22.052 incidentes, de ellos 12.195 brechas confirmadas | Verificada |
+| **54 %** de las vulnerabilidades de los dispositivos de borde se corrigió del todo en el año, con una mediana de 32 días | El mismo informe | La misma | Verificada |
+| **USD 4,44 millones** cuesta en promedio una brecha de datos, y toma 241 días identificarla y contenerla | IBM con el Ponemon Institute, Cost of a Data Breach Report 2025 ([informe](https://www.bakerdonelson.com/webfiles/Publications/20250822_Cost-of-a-Data-Breach-Report-2025.pdf)) | 600 organizaciones con brechas, de marzo de 2024 a febrero de 2025 | Verificada |
+
 ## Lo que falta decidir
 
 1. El nombre del agente.

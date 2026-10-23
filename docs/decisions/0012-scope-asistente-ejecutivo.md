@@ -40,8 +40,8 @@ Cumple las cuatro condiciones de las 0006 y 0009:
 
 **El alcance se amplía a una familia de dirección con un agente: Ofelia, la asistente
 ejecutiva.** Su nombre viene del griego *ōphéleia*, «ayuda»: es la que prepara. Trabaja en
-Colombia y Ecuador, como las demás. La sigla de la familia es **EA** (*executive assistant*), por
-confirmar.
+Colombia y Ecuador, como las demás. La sigla de la familia es **EA** (*executive assistant*),
+confirmada el 23 de octubre de 2026.
 
 **Ofelia prepara; no recomienda ni decide.** Para cada punto que pide una decisión, arma la ficha
 de la decisión:
@@ -153,6 +153,17 @@ direccion/
 **La prueba.** Material sintético por industria y una entidad de control por país, con su clave.
 Va con el mismo arnés, `tests/ronda_familia.py`: primero el motor contra la clave y después la
 ronda con el agente.
+
+## Lo que cuesta hoy
+
+Son cifras de terceros, verificadas contra el texto de quien las publica. Pasan a `fuentes.json` cuando la familia se construya.
+
+| Cifra | Fuente | Muestra | Estado |
+|---|---|---|---|
+| **57 %** del tiempo de trabajo se va en comunicar (reuniones, correo y chat) y el 43 % en crear | Microsoft, Work Trend Index 2023, «Will AI Fix Work?», 9 de mayo de 2023 ([informe](https://www.boye-co.com/s/WTI_Annual_2023_Will_AI_Fix_Work_.pdf)) | 31.000 trabajadores de tiempo completo en 31 mercados, del 1 de febrero al 14 de marzo de 2023 | Verificada |
+| **55 %** dice que los próximos pasos al final de una reunión no quedan claros | El mismo informe | La misma | Verificada |
+| **68 %** no tiene suficiente tiempo de concentración sin interrupciones en su jornada | El mismo informe | La misma | Verificada |
+| **72 %** del tiempo de trabajo de un CEO se va en reuniones | Porter y Nohria, «How CEOs Manage Time», Harvard Business Review, 2018 | 27 CEO, más de 60.000 horas registradas | Por verificar: la muestra la confirma [McKinsey](https://www.mckinsey.com/about-us/new-at-mckinsey-blog/how-do-ceos-manage-their-time-the-winners-of-the-60th-annual-hbr-mckinsey-award-explain); el 72 % solo se ha visto en fuentes secundarias |
 
 ## Lo que queda para un segundo incremento
 

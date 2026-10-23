@@ -50,6 +50,16 @@ repite: los revisa.
 - **Lo que reporta va a quien lo pide la norma.** El entregable es para el CAE y el comité de
   auditoría; la persona decide qué sube.
 
+## Lo que cuesta hoy
+
+Son cifras de terceros, verificadas contra el texto de quien las publica.
+
+| Cifra | Fuente | Muestra | Estado |
+|---|---|---|---|
+| **5 %** de los ingresos pierde una organización por fraude cada año, según la estimación de los examinadores | ACFE, Occupational Fraud 2024: A Report to the Nations ([informe](https://www.ivey.uwo.ca/media/kjljj5cy/2024-report-to-the-nations.pdf)) | 1.921 casos de 138 países y territorios | Verificada |
+| **43 %** de los fraudes se detectó por una denuncia y **14 %** por la auditoría interna | El mismo informe | La misma | Verificada |
+| **12 meses** dura en mediana un fraude antes de detectarse, con una pérdida mediana de USD 145.000 por caso | El mismo informe | La misma | Verificada |
+
 ## Lo que falta decidir
 
 1. El nombre del agente.
