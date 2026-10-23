@@ -386,12 +386,18 @@ def correr(a) -> int:
     obj = _j(carpeta / "clave" / "objetivos.json")
     sal.mkdir(exist_ok=True)
     instalar(espacio)
+    # El tope de tokens, como en tests/ronda_familia.py: antes de cada comando se suma lo que
+    # gastaron los anteriores; si llegó al tope, la corrida para ahí y lo dice.
+    gastado = sum(_j(f).get("tokens") or 0 for f in sal.glob("*.json"))
     for n, (agente, cmd, arg) in enumerate(ORDEN, start=1):
         base = sal / f"{n:02d}-{cmd}"
         if base.with_suffix(".json").is_file() and not a.repetir:
             continue
         if a.solo and n not in a.solo:
             continue
+        if a.tope and gastado >= a.tope:
+            print(f"tope alcanzado: {gastado / 1e6:.2f} M de {a.tope / 1e6:.2f} M tokens; la corrida para antes de {cmd}")
+            return 2
         antes = manifiesto(espacio)
         prompt = f"/{PLUGIN[agente]}:{cmd} {arg.format(**obj)}".strip() + "\n\n" + NOTA.format(hoy=obj["hoy"])
         t0 = time.time()
@@ -418,6 +424,7 @@ def correr(a) -> int:
         if cmd in ("portfolio-server", "server-start"):
             fila["servidor"] = probar_servidor(espacio)
         _w(base.with_suffix(".json"), fila)
+        gastado += fila["tokens"]
         base.with_suffix(".md").write_text(f"# /{PLUGIN[agente]}:{cmd} {fila['argumento']}\n\n"
                                            + (salida.get("result") or ""), encoding="utf-8")
         print(f"{n:02d} {cmd:22} {fila['estado']:8} {fila['segundos']:4d} s {fila['tokens'] // 1000:6d} k "
@@ -1006,6 +1013,7 @@ if __name__ == "__main__":
     s = sub.add_parser("correr")
     s.add_argument("carpeta")
     s.add_argument("--limite", type=int, default=900, help="segundos por comando")
+    s.add_argument("--tope", type=int, default=0, help="tokens; la corrida para antes del comando que lo pase")
     s.add_argument("--repetir", action="store_true")
     s.add_argument("--solo", type=int, nargs="*")
     s = sub.add_parser("revisar")
