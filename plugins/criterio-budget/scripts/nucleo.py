@@ -102,7 +102,30 @@ def fecha(v) -> dt.date | None:
     return None
 
 
+# El registro único de países: lo que cambia de un país a otro y es igual en cualquier función.
+# Un país entra aquí cuando su material de prueba corrió; lo propio de cada familia —el lector de
+# la factura, la tolerancia, la ley— va en su motor, con la clave del país, y su selftest exige que
+# las claves de los dos coincidan.
+PAISES = {
+    "CO": {"nombre": "Colombia", "id_fiscal": "NIT", "moneda": "COP", "decimal": ","},
+    "EC": {"nombre": "Ecuador", "id_fiscal": "RUC", "moneda": "USD", "decimal": "."},
+}
+
 _PAIS = ["CO"]
+
+
+def pais_de(cfg_o_entidad: dict) -> str:
+    """El código del país de la entidad, de la configuración o de la entidad misma."""
+    ent = cfg_o_entidad.get("entity", cfg_o_entidad) if isinstance(cfg_o_entidad, dict) else {}
+    return ((ent or {}).get("country") or "CO").upper()
+
+
+def revisar_pais(ent: dict) -> list[str]:
+    """Lo que falla del país de una entidad: vacío si está en el registro."""
+    c = (ent.get("country") or "").upper()
+    if c in PAISES:
+        return []
+    return [f"entity.country debe ser uno de {', '.join(PAISES)} en esta versión"]
 
 
 def mon(x) -> str:
@@ -110,12 +133,12 @@ def mon(x) -> str:
     if x is None:
         return "—"
     t = f"{x:,.2f}"
-    return t.replace(",", "§").replace(".", ",").replace("§", ".") if _PAIS[0] == "CO" else t
+    return t.replace(",", "§").replace(".", ",").replace("§", ".") if PAISES.get(_PAIS[0], {}).get("decimal") == "," else t
 
 
 def pc(x: float, signo: bool = False) -> str:
     t = f"{x:+.1f}" if signo else f"{x:.1f}"
-    return t.replace(".", ",") if _PAIS[0] == "CO" else t
+    return t.replace(".", ",") if PAISES.get(_PAIS[0], {}).get("decimal") == "," else t
 
 
 def iso(d) -> str | None:
@@ -521,7 +544,7 @@ def marco_reporte(r: dict, comando: str, version: str, *, agente: str, senales: 
     resultado, lo que no se pudo procesar, las preguntas que hizo y las fuentes. Toda cifra sale
     de `r`; el resultado lo escribe `cuerpo(r, comando, parte)` de cada motor."""
     ent = r.get("entidad") or {}
-    _PAIS[0] = (ent.get("country") or "CO").upper()
+    _PAIS[0] = pais_de(ent)
     alertas = [a for a in r["alertas"] if senales is None or a["signal"] in senales]
     l = [f"# {nombre_comando(comando)} · {ent.get('name')} · {alcance}", "",
          f"**Entidad:** {ent.get('name')} ({ent.get('id')}) · **Fecha de corte:** {r.get('corte')} · **Procesado:** {r.get('hoy')} · **Agente:** {agente}, versión {version}{extra} · **Comando:** `{comando}`", ""]

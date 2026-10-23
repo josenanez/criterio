@@ -268,14 +268,20 @@ DEFECTOS = {
     "report": {"language": "es"},
     "execution": {"workers": 1},
 }
-TOLERANCIAS = {"CO": (2.00, 5.00), "EC": (0.01, 0.01)}
+# Lo propio de la familia CFO en cada país del registro (nucleo.PAISES): la factura electrónica
+# —su fuente técnica y el nombre de su clave única— y la tolerancia de los cuadres, que sigue
+# cómo redondea cada fuente. El selftest exige que las claves coincidan con el registro.
+FACTURA = {
+    "CO": {"fuentes": ["F-01"], "clave": "CUFE", "tolerancia": (2.00, 5.00)},
+    "EC": {"fuentes": ["F-04"], "clave": "número de clave de acceso", "tolerancia": (0.01, 0.01)},
+}
 
 
 def tolerancias(cfg: dict) -> tuple[float, float]:
     t = (cfg.get("thresholds") or {}).get("amount_tolerance")
     if t is not None:
         return float(t), float(t)
-    return TOLERANCIAS.get(((cfg.get("entity") or {}).get("country") or "CO").upper(), (2.00, 5.00))
+    return FACTURA.get(N.pais_de(cfg), FACTURA["CO"])["tolerancia"]
 
 
 def umbral(cfg: dict, k: str):
@@ -290,8 +296,7 @@ def revisar_config(cfg: dict, rol: str) -> list[str]:
     for k in ("id", "name", "country", "currency"):
         if not ent.get(k):
             p.append(f"entity.{k} vacío")
-    if (ent.get("country") or "").upper() not in ("CO", "EC"):
-        p.append("entity.country debe ser CO o EC en esta versión")
+    p += N.revisar_pais(ent)
     for k in ("_docs", "_estado"):
         if cfg.get(k) is None:
             p.append(f"paths.{k.strip('_').replace('docs', 'documents').replace('estado', 'state')} vacío")
@@ -620,7 +625,7 @@ def facturas(cfg: dict, periodo: str) -> dict:
     tol, tol_iva = tolerancias(cfg)
     ac = cfg.get("accounts") or {}
     out = {"periodo": periodo, "facturas": 0, "alertas": [], "no_procesado": [], "solo_identidad": [],
-           "sin_documento": [], "cruzadas": 0, "fuentes": sorted({"F-01" if ((cfg.get('entity') or {}).get('country') or 'CO').upper() == 'CO' else "F-04"})}
+           "sin_documento": [], "cruzadas": 0, "fuentes": sorted(FACTURA[N.pais_de(cfg)]["fuentes"])}
     leidas = []
     for lado in ("emitidas", "recibidas"):
         for p in sorted((carpeta / lado).rglob("*.xml")) if (carpeta / lado).is_dir() else []:
@@ -639,7 +644,7 @@ def facturas(cfg: dict, periodo: str) -> dict:
         por_id.setdefault(d.get("id") or d["archivo"], []).append(d)
     for k, v in por_id.items():
         if len(v) > 1:
-            out["alertas"].append(alerta("einvoice_duplicate", f"el mismo {'CUFE' if v[0]['pais'] == 'CO' else 'número de clave de acceso'} aparece en {len(v)} archivos ({v[0]['numero']})",
+            out["alertas"].append(alerta("einvoice_duplicate", f"el mismo {FACTURA[v[0]['pais']]['clave']} aparece en {len(v)} archivos ({v[0]['numero']})",
                                          [{"archivo": x["archivo"]} for x in v], v[0].get("total"), clave=f"xml:{k}"))
     my = mayor(cfg, periodo)
     if my is None:
@@ -853,7 +858,7 @@ def auditoria(cfg: dict, periodo: str, hoy: dt.date, ficha: dict) -> dict:
 # ================================================================ Clara · todo el periodo
 
 def clara(cfg: dict, periodo: str, hoy: dt.date) -> dict:
-    _PAIS[0] = ((cfg.get("entity") or {}).get("country") or "CO").upper()
+    _PAIS[0] = N.pais_de(cfg)
     estado = cfg["_estado"] / "cierre" / periodo
     ficha = leer_json(estado / "ficha.json", {}) or {}
     problemas = revisar_ficha_cierre(ficha)
@@ -1073,7 +1078,7 @@ def traslados(vs: list[dict], ficha: dict) -> dict:
 
 
 def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
-    _PAIS[0] = ((cfg.get("entity") or {}).get("country") or "CO").upper()
+    _PAIS[0] = N.pais_de(cfg)
     estado = cfg["_estado"] / "presupuesto" / anio
     ficha = leer_json(estado / "ficha.json", {}) or {}
     problemas = revisar_ficha_presupuesto(ficha)
@@ -1476,6 +1481,15 @@ def selftest() -> int:
         ok("rutas desde la carpeta de .criterio, no desde la sesión", (cfg_t["_docs"], cfg_t["_estado"]), (raiz_t / "docs", raiz_t / "estado"))
     # El ejemplo de la ficha técnica del SRI (F-09): la clave 2110201101179214673900110020010000000011234567813
     ok("módulo 11 del ejemplo del SRI", digito_mod11("211020110117921467390011002001000000001123456781"), 3)
+    # El registro único de países: la factura tiene un lector por cada país del registro, y un
+    # país fuera del registro se rechaza con la lista de los que sí están.
+    ok("la factura cubre los países del registro", sorted(FACTURA), sorted(N.PAISES))
+    ok("un país fuera del registro se rechaza", N.revisar_pais({"country": "XX"}), [f"entity.country debe ser uno de {', '.join(N.PAISES)} en esta versión"])
+    ok("un país del registro pasa", N.revisar_pais({"country": "ec"}), [])
+    _PAIS[0] = "EC"
+    ok("las cifras de Ecuador llevan punto decimal", mon(1234567.891), "1,234,567.89")
+    _PAIS[0] = "CO"
+    ok("las cifras de Colombia llevan coma decimal", mon(1234567.891), "1.234.567,89")
     ca = clave_acceso("2110201101179214673900110020010000000011234567813")
     ok("la clave del ejemplo es válida", (ca["valida"], ca["tipo"], ca["ruc"], ca["serie"]), (True, "01", "1792146739001", "002001"))
     ok("una clave con un dígito cambiado no", clave_acceso("2110201101179214673900110020010000000011234567814")["valida"], False)

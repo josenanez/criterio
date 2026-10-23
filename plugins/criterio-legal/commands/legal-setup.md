@@ -42,7 +42,7 @@ Reporta en tres líneas: cuántos contratos hay en `contratos/`, si está el reg
 
 **2. Las preguntas**, una a la vez, cada una con una propuesta, y solo las que el inventario no respondió:
 
-1. **La entidad:** nombre, NIT o RUC y país (Colombia o Ecuador).
+1. **La entidad:** nombre, identificación fiscal (NIT, RUC u otra) y país. Los países que soporta esta versión son los del registro del motor; si das otro, la revisión de la configuración dice cuáles son.
 2. **La matriz de atribuciones**: quién firma qué tipo de contrato y hasta qué monto, en el modelo de **signing-authority**. Si no existe, el chequeo de facultades queda sin hacer, y se dice.
 3. **Con cuántos días de anticipación** quiere el aviso de un vencimiento y de un preaviso. Propón los de `config.example.json`: son configuración, no norma.
 4. **La antigüedad máxima del certificado** de existencia y representación de la contraparte al firmar.

@@ -122,8 +122,7 @@ def revisar_config(cfg: dict, rol: str) -> list[str]:
     for k in ("id", "name", "country"):
         if not ent.get(k):
             p.append(f"entity.{k} vacío")
-    if (ent.get("country") or "").upper() not in ("CO", "EC"):
-        p.append("entity.country debe ser CO o EC en esta versión")
+    p += N.revisar_pais(ent)
     for k, n in (("_docs", "documents"), ("_estado", "state")):
         if cfg.get(k) is None:
             p.append(f"paths.{n} vacío")
@@ -216,7 +215,7 @@ def valor_total(c: dict) -> float:
 
 
 def fidel(cfg: dict, hoy: dt.date) -> dict:
-    _PAIS[0] = ((cfg.get("entity") or {}).get("country") or "CO").upper()
+    _PAIS[0] = N.pais_de(cfg)
     docs, estado = cfg["_docs"], cfg["_estado"]
     fichas = fichas_contratos(estado)
     carpetas = carpetas_contratos(docs)
@@ -432,7 +431,7 @@ def _periodos_hasta(periodo: str, meses: int) -> list[str]:
 
 
 def constanza(cfg: dict, periodo: str, hoy: dt.date) -> dict:
-    _PAIS[0] = ((cfg.get("entity") or {}).get("country") or "CO").upper()
+    _PAIS[0] = N.pais_de(cfg)
     docs, estado = cfg["_docs"], cfg["_estado"]
     ficha = leer_json(estado / "cumplimiento" / periodo / "ficha.json", {}) or {}
     problemas = revisar_ficha_cumplimiento(ficha)
@@ -761,6 +760,8 @@ def selftest() -> int:
             print(f"  FALLA  {nombre}: {obtenido!r} en lugar de {esperado!r}")
 
     hoy = dt.date(2026, 10, 6)
+    ok("un país fuera del registro se rechaza", bool(N.revisar_pais({"country": "XX"})), True)
+    ok("los países del registro pasan", [c for c in N.PAISES if N.revisar_pais({"country": c})], [])
     ok("sumar meses al fin de mes", sumar_meses(dt.date(2026, 1, 31), 1), dt.date(2026, 2, 28))
     ok("día 15 del mes siguiente", _limite_obligacion("día 15", "2026-09", set()), dt.date(2026, 10, 15))
     ok("D+5 en días hábiles", _limite_obligacion("D+5", "2026-09", set()), dt.date(2026, 10, 7))
