@@ -158,9 +158,11 @@ Only verified figures go in, with their source, year and sample; they are in [`F
 - The family acronym, EA. José, 2026-10-23.
 - She prepares; she does not recommend or decide. José, 2026-10-23.
 - The board secretariat is a mode of Ofelia, not a separate agent. José, 2026-10-23.
+- The plugin, `criterio-assistant`, with the `ea-*` commands. José, 2026-10-23.
+- The numbered folder structure —`10-agenda/`, `20-correspondencia/`, `90-borradores/` and
+  `organos/<órgano>/<fecha>/`—, which adapts the ADR's to the ADR 0007 convention. José, 2026-10-23.
 
 ## Open decisions
 
-1. The plugin name. The proposal is `criterio-assistant`, with `ea-*` commands.
-2. The numbered folder structure (`10-agenda/`, `20-correspondencia/`, `90-borradores/`,
-   `organos/<órgano>/<fecha>/`), which adapts the ADR's to the ADR 0007 convention.
+None for building the first increment. Travel and the direct connection to the calendar or the
+mailbox are left for the second (ADR 0012).

@@ -140,7 +140,7 @@ ejecutivo de la alta dirección.
 **Nunca:** envía, agenda, acepta, mueve, declara cumplido un compromiso sin evidencia, recomienda
 una opción, prioriza por el ejecutivo ni evalúa a una persona o a un área.
 
-**Las carpetas.** Es la estructura recomendada, no obligatoria:
+**Las carpetas.** Es la estructura recomendada, no obligatoria. La que se construye es la numerada, según la ADR 0007, y su fuente única es [`carpetas.json`](../../families/criterio-ea/carpetas.json); el plugin es `criterio-assistant`. José, 2026-10-23. El esbozo original:
 
 ```
 direccion/

@@ -154,9 +154,11 @@ Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.e
 - La sigla de la familia, EA. José, 2026-10-23.
 - Prepara; no recomienda ni decide. José, 2026-10-23.
 - La secretaría de junta es un modo de Ofelia, no un agente aparte. José, 2026-10-23.
+- El plugin, `criterio-assistant`, con los comandos `ea-*`. José, 2026-10-23.
+- La estructura numerada de carpetas —`10-agenda/`, `20-correspondencia/`, `90-borradores/` y
+  `organos/<órgano>/<fecha>/`—, que ajusta la del ADR a la convención de la ADR 0007. José, 2026-10-23.
 
 ## Decisiones abiertas
 
-1. El nombre del plugin. La propuesta es `criterio-assistant`, con comandos `ea-*`.
-2. La estructura numerada de carpetas (`10-agenda/`, `20-correspondencia/`, `90-borradores/`,
-   `organos/<órgano>/<fecha>/`), que ajusta la del ADR a la convención de la ADR 0007.
+Ninguna para construir el primer incremento. Los viajes y la conexión directa al calendario o al
+correo quedan para el segundo (ADR 0012).
