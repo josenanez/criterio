@@ -6,8 +6,8 @@
     "en": "Contracts and compliance"
   },
   "estado": {
-    "es": "Construida · en prueba",
-    "en": "Built · in testing"
+    "es": "Construida · probada",
+    "en": "Built · tested"
   },
   "agentes": [
     {
@@ -466,7 +466,7 @@
         "constanza": "El cumplimiento",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: construida y en prueba. El motor pasa su prueba determinista contra material sintético de cuatro industrias, con una clave que el agente no ve y dos entidades de control. El siguiente paso es la prueba con el agente de extremo a extremo.",
+      "nota": "Estado de la familia: construida y probada. El motor pasa su prueba determinista contra material sintético de cuatro industrias y dos entidades de control, y los agentes pasaron la ronda completa sobre las seis entidades, con una clave que no ven. El siguiente paso es su primer uso sobre la documentación de una organización concreta.",
       "guion": [
         {
           "cabeza": true,
@@ -512,7 +512,7 @@
         "constanza": "Compliance",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: built and in testing. The engine passes its deterministic test against synthetic material from four industries, with a key the agent never sees and two control entities. The next step is the end-to-end test with the agent.",
+      "nota": "Where the family stands: built and tested. The engine passes its deterministic test against synthetic material from four industries and two control entities, and the agents passed the full round on the six entities, with a key they never see. The next step is its first use on a specific organisation’s documentation.",
       "guion": [
         {
           "cabeza": true,

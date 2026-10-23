@@ -12,7 +12,7 @@ con evidencia, lo que se declara cumplido sin ella y lo que venció.
 
 **Estado: los siete comandos construidos**, los seis skills y el motor de cálculo, probado contra
 material sintético de cuatro industrias con una clave que el agente no ve y una entidad de
-control por país. **La extracción del agente pasó una [primera ronda pequeña](../../tests/evidencias/familias/clo/RONDAS.md)** —banca y el control de Colombia—; la ronda completa es el paso siguiente, y nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
+control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/clo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
 
 **Esta página se lee sola.** Constanza funciona sin Fidel: si solo respondes por el

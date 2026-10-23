@@ -15,12 +15,12 @@ con el otro directamente: se hablan por sus fichas.
 | **Alcance** | El cierre, el control y el reporte financiero de una entidad: los libros contra sus soportes, y el presupuesto contra su ejecución |
 | **Objetivo** | Que el cierre deje de depender de que alguien recuerde qué falta |
 | **Compuesta por** | [Clara](../../plugins/criterio-finance/README.es.md) · [Tomás](../../plugins/criterio-budget/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
-| **Estado** | Construida y en prueba: el motor, probado contra el material de cuatro industrias y dos entidades de control. Una primera ronda con el agente, pequeña —banca y el control de Colombia—, ya [corrió](../../tests/evidencias/familias/cfo/RONDAS.md). **La ronda completa es el paso siguiente**, y sin ella la familia no se declara probada |
+| **Estado** | Construida y probada sobre material sintético: el motor, contra cuatro industrias y dos entidades de control; los agentes, en una [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md) sobre las seis entidades. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Control y reporte |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al contralor ni al equipo de planeación financiera, y no decide por ellos: procesa lo que la función ya tiene y dice qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | La ronda completa con el agente, y después el despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | El despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -43,7 +43,7 @@ acta y arma el material del comité como un paquete de decisiones. Toma la ejecu
 contabilidad que cierra Clara, sin copiarla.
 
 **Los dos se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
-su página: el motor está probado contra material sintético de cuatro industrias; **la extracción del agente pasó una primera ronda pequeña, y la completa es la que sigue; nada se ha probado todavía
+su página: el motor está probado contra material sintético de cuatro industrias; **la extracción de los agentes pasó la ronda completa sobre las seis entidades; nada se ha probado todavía
 sobre los documentos de una organización.**
 
 Primera versión: NIIF adoptadas localmente en Colombia y Ecuador, con la factura electrónica de
@@ -331,7 +331,7 @@ tiene que levantar, con el mismo detalle, **y qué no prueba el material**, en
 [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md). El conjunto de todas las familias, en
 [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**La primera ronda con el agente** corrió sobre banca y el control de Colombia: Clara y Tomás corren sus comandos y lo que extraen de las actas, los correos y las cartas del auditor se califica contra la misma clave. Cada salida, su costo, su calificación y los comandos que se repitieron tras corregir un defecto están en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md). La ronda completa, con las cuatro industrias y los dos controles, trae el análisis estadístico de la familia, con las mismas métricas que la PMO.
+**Las rondas con el agente.** La ronda 1 corrió sobre banca y el control de Colombia; la ronda 2, completa, sobre las seis entidades: Clara y Tomás corren todos sus comandos y lo que extraen de los documentos escritos se califica contra la misma clave. La ronda 2 dio 45 de 45 señales sin una de más y 48 de 49 datos de las fichas, y los 4 defectos que encontraron las rondas están corregidos y verificados. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md). El análisis estadístico de la familia, como el de la PMO, todavía no está escrito.
 
 ## Las industrias de prueba
 
@@ -379,17 +379,17 @@ Doce skills distintos entre los dos agentes. **Los que comparten son copias lite
 ## Estado
 
 **Los dos están construidos y se pueden instalar hoy**, y los dos tienen la misma deuda, que
-conviene no esconder: **el motor está probado sobre material sintético; la extracción del agente
-todavía no.**
+conviene no esconder: **el motor y la extracción de los agentes están probados sobre material sintético, no
+sobre la documentación de una organización real.**
 
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; la ronda completa con el agente, la 2 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; la ronda completa con el agente, la 2 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 
-La familia se declara probada con una ronda completa con el agente, y el primer uso sobre la
+La familia quedó probada con la ronda completa con el agente, y el primer uso sobre la
 contabilidad de una organización concreta es el incremento siguiente. Las decisiones que siguen
 abiertas, en el [diseño](DISENO.es.md#decisiones-abiertas).

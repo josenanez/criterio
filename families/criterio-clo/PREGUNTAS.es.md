@@ -50,7 +50,7 @@ El material trae una clave con lo que se sembró, y el motor no la ve. La prueba
 
 ### ¿Ya está probada la familia completa?
 
-El motor sí. La extracción del agente sobre cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones— pasó una primera ronda con el agente, pequeña: banca y el control de Colombia. La familia se declara probada con la ronda completa, que es el paso siguiente.
+El motor sí. La extracción del agente sobre cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones— pasó la ronda completa con el agente sobre las seis entidades: 37 de 37 señales sin una de más y 808 de 815 datos de las fichas. La familia se declara probada; nada ha corrido todavía sobre los documentos de una organización.
 
 ## Datos y privacidad
 

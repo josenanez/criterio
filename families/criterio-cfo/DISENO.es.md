@@ -2,9 +2,9 @@
 
 # criterio-cfo · el diseño de la familia
 
-**Estado: construida y en prueba.** Los dieciséis comandos, los doce skills y el motor de cálculo
+**Estado: construida y probada sobre material sintético.** Los dieciséis comandos, los doce skills y el motor de cálculo
 están construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y
-dos entidades de control (`tests/criterio-cfo/`), y la prueba con el agente es el paso siguiente.
+dos entidades de control (`tests/criterio-cfo/`), y los agentes pasaron la ronda completa sobre las seis entidades ([las rondas](../../tests/evidencias/familias/cfo/RONDAS.md)).
 Alcance en [ADR 0006](../../docs/decisions/0006-scope-cfo.md); cómo se reparte el trabajo entre el
 motor y el agente, en [ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md).
 

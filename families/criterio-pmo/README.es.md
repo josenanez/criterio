@@ -20,7 +20,7 @@ quien vigila el portafolio— y ninguno habla con otro directamente: se hablan p
 | **Estado** | Los tres agentes construidos y verificados sobre corpus sintético. **La extracción sobre documentación real no se ha probado** |
 | **Enfoque** | Estrategia y ejecución |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
-| **Qué no es** | No reemplaza a tu PMO ni decide por ella: lee lo que tu equipo ya escribió y dice qué no se sostiene |
+| **Qué no es** | No reemplaza a tu PMO ni decide por ella: procesa lo que tu equipo ya escribió y dice qué no se sostiene |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
 | **Qué viene** | Más capacidades para mejorar los entornos laborales |
 
@@ -411,9 +411,12 @@ documentación real de una organización.**
 **Ninguna de las tres hojas de diseño tiene ya una fila en «Falta» o en «Parcial».** Lo que
 sigue pendiente no es construcción.
 
-Y una deuda que es de los tres a la vez: **la extracción nunca se ha corrido.** Los tres
-corpus siembran el estado desde sus respuestas de referencia, así que la cadena documento →
-modelo → ficha no se ha ejercitado.
+La cadena documento → modelo → ficha se prueba en rondas con el agente: los tres agentes corren
+sus 38 comandos, en el orden de una PMO, sobre la documentación de una organización por
+industria, y lo que escriben se califica contra una clave que no ven. La ronda 11 corrió sobre
+seis industrias y 78 proyectos: Vera 381 de 381 alertas sin una de más, Samuel y Alba al 100 %.
+Su detalle, en el [análisis estadístico](analisis/ANALISIS.es.md). Lo que no prueba es la
+documentación de una organización real.
 
 La corrida que sostiene estos estados, con lo que prueba y lo que no, está en las tres
 páginas de evidencia bajo [`tests/`](../../tests/) y el conjunto en

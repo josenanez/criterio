@@ -2,9 +2,9 @@
 
 # criterio-clo · el diseño de la familia
 
-**Estado: construida y en prueba.** Los catorce comandos, los diez skills y el motor de cálculo están
+**Estado: construida y probada sobre material sintético.** Los catorce comandos, los diez skills y el motor de cálculo están
 construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y dos
-entidades de control (`tests/criterio-clo/`), y la prueba con el agente es el paso siguiente.
+entidades de control (`tests/criterio-clo/`), y los agentes pasaron la ronda completa sobre las seis entidades ([las rondas](../../tests/evidencias/familias/clo/RONDAS.md)).
 Alcance en [ADR 0009](../../docs/decisions/0009-scope-clo.md).
 
 **Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, sus fichas y sus invariantes, la estructura de carpetas, Rostrum, la cadencia, las pruebas y la hoja de ruta están en su [página](README.es.md).

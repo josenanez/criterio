@@ -15,12 +15,12 @@ habla con el otro directamente: se hablan por sus fichas.
 | **Alcance** | Los contratos, el cumplimiento y el riesgo legal de una entidad: lo que firmó contra lo que está pasando, y cada obligación contra su evidencia |
 | **Objetivo** | Que una empresa sepa qué firmó, qué vence y a qué se obligó |
 | **Compuesta por** | [Fidel](../../plugins/criterio-legal/README.es.md) · [Constanza](../../plugins/criterio-compliance/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
-| **Estado** | Construida y en prueba: el motor, probado contra el material de cuatro industrias y dos entidades de control. Una primera ronda con el agente, pequeña —banca y el control de Colombia—, ya [corrió](../../tests/evidencias/familias/clo/RONDAS.md). **La ronda completa es el paso siguiente**, y sin ella la familia no se declara probada |
+| **Estado** | Construida y probada sobre material sintético: el motor, contra cuatro industrias y dos entidades de control; los agentes, en una [ronda completa](../../tests/evidencias/familias/clo/RONDAS.md) sobre las seis entidades. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Contratos y cumplimiento, sin opinión jurídica |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al abogado ni al oficial de cumplimiento, y no decide por ellos: procesa lo que la organización firmó y lo que se obligó a cumplir, y dice qué vence, qué no tiene evidencia y qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | La ronda completa con el agente, y después el despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | El despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -45,7 +45,7 @@ políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de 
 las fichas de Fidel las obligaciones de cumplimiento que traen los contratos.
 
 **Los dos se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
-su página: el motor está probado contra material sintético de cuatro industrias; **la extracción del agente pasó una primera ronda pequeña, y la completa es la que sigue; nada se ha probado todavía
+su página: el motor está probado contra material sintético de cuatro industrias; **la extracción de los agentes pasó la ronda completa sobre las seis entidades; nada se ha probado todavía
 sobre los documentos de una organización.**
 
 Primera versión: Colombia y Ecuador. **Sin opinión jurídica**: ninguno de los dos interpreta una
@@ -343,7 +343,7 @@ señal que tiene que levantar, con el mismo detalle, **y qué no prueba el mater
 [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md). El conjunto de todas las familias, en
 [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**La primera ronda con el agente** corrió sobre banca y el control de Colombia: Fidel y Constanza corren sus comandos y lo que extraen de cada contrato y de cada informe se califica contra la misma clave. Cada salida, su costo, su calificación y los comandos que se repitieron tras corregir un defecto están en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md). La ronda completa, con las cuatro industrias y los dos controles, trae el análisis estadístico de la familia, con las mismas métricas que la PMO.
+**Las rondas con el agente.** La ronda 1 corrió sobre banca y el control de Colombia; la ronda 2, completa, sobre las seis entidades: Fidel y Constanza corren todos sus comandos y lo que extraen de los documentos escritos se califica contra la misma clave. La ronda 2 dio 37 de 37 señales sin una de más y 808 de 815 datos de las fichas, y los 9 defectos que encontraron las rondas, con una ronda 3 de verificación, están corregidos y verificados. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md). El análisis estadístico de la familia, como el de la PMO, todavía no está escrito.
 
 ## Las industrias de prueba
 
@@ -391,18 +391,18 @@ Diez skills distintos entre los dos agentes. **Los que comparten son copias lite
 ## Estado
 
 **Los dos están construidos y se pueden instalar hoy**, y los dos tienen la misma deuda, que
-conviene no esconder: **el motor está probado sobre material sintético; la extracción del agente
-todavía no.**
+conviene no esconder: **el motor y la extracción de los agentes están probados sobre material sintético, no
+sobre la documentación de una organización real.**
 
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Fidel** · Contratos | `criterio-legal` · 7 comandos, 5 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Cumplimiento | `criterio-compliance` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contratos | `criterio-legal` · 7 comandos, 5 skills | El motor, probado; la ronda completa con el agente, la 2 · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Cumplimiento | `criterio-compliance` · 7 comandos, 6 skills | El motor, probado; la ronda completa con el agente, la 2 · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 
-La familia se declara probada con una ronda completa con el agente, y el primer uso sobre los
+La familia quedó probada con la ronda completa con el agente, y el primer uso sobre los
 contratos y el cumplimiento de una organización concreta es el incremento siguiente; los
 contratos públicos, con sus propias reglas, vienen después. Las decisiones que siguen abiertas,
 en el [diseño](DISENO.es.md#decisiones-abiertas).

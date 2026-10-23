@@ -15,12 +15,12 @@ the other directly: they talk through their records.
 | **Scope** | The close, control and financial reporting of an entity: the books against their supporting documents, and the budget against its execution |
 | **Objective** | That the close stops depending on someone remembering what is missing |
 | **Made of** | [Clara](../../plugins/criterio-finance/README.md) · [Tomás](../../plugins/criterio-budget/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
-| **State** | Built and in testing: the engine, tested against the material of four industries and two control entities. A first, small round with the agent —banking and the Colombian control— has [run](../../tests/evidencias/familias/cfo/RONDAS.md). **The full round is the next step**, and without it the family is not declared tested |
+| **State** | Built and tested on synthetic material: the engine, against four industries and two control entities; the agents, in a [full round](../../tests/evidencias/familias/cfo/RONDAS.md) on the six entities. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Control and reporting |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the controller or the financial planning team, and does not decide for them: it processes what the function already has and says what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | The full round with the agent, and then deployment in an organisation: [the roadmap](#roadmap) |
+| **What comes next** | Deployment in an organisation: [the roadmap](#roadmap) |
 
 ---
 
@@ -43,7 +43,7 @@ builds the committee material as a decision pack. He takes actuals from the same
 closes, without copying them.
 
 **Both install today**, each with its own plugin, and both carry the same debt, written on their
-page: the engine is tested against synthetic material from four industries; **the agent's extraction passed a first, small round, and the full one is next; nothing has been tested yet on an
+page: the engine is tested against synthetic material from four industries; **the agents' extraction passed the full round on the six entities; nothing has been tested yet on an
 organisation's documents.**
 
 First version: IFRS as locally adopted in Colombia and Ecuador, with DIAN and SRI electronic
@@ -331,7 +331,7 @@ the signal it has to raise, in the same detail, **and what the material does not
 [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish). The whole set across every
 family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**The first round with the agent** ran on banking and the Colombian control: Clara and Tomás run their commands and what they extract from minutes, emails and auditor letters is graded against the same key. Every output, its cost, its grading and the commands repeated after a defect was fixed are in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md). The full round, with the four industries and the two controls, brings the family's statistical analysis, with the same metrics as the PMO.
+**The rounds with the agent.** Round 1 ran on banking and the Colombian control; round 2, the full one, on the six entities: Clara and Tomás run all their commands and what they extract from the written documents is graded against the same key. Round 2 gave 45 of 45 signals with none extra and 48 of 49 record data points, and the 4 defects the rounds found are fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md). The family's statistical analysis, like the PMO's, is not written yet.
 
 ## The test industries
 
@@ -379,16 +379,17 @@ Twelve distinct skills across the two agents. **The ones they share are literal 
 ## Status
 
 **Both are built and can be installed today**, and both carry the same debt, which is better not
-hidden: **the engine is tested on synthetic material; the agent's extraction is not yet.**
+hidden: **the engine and the agents' extraction are tested on synthetic material, not on a real organisation's
+documentation.**
 
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; the full round with the agent, round 2 · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; the full round with the agent, round 2 · [results](../../tests/criterio-budget/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 
-The family is declared tested with a full round with the agent, and the first use on a specific
-organisation's books is the increment after that. The decisions still open, in the
+The family was declared tested with the full round with the agent, and the first use on a specific
+organisation's books is the next increment. The decisions still open, in the
 [design](DISENO.md#open-decisions).

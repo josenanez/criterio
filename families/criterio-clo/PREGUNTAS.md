@@ -50,7 +50,7 @@ The material carries a key with what was planted, and the engine never sees it. 
 
 ### Is the whole family tested yet?
 
-The engine is. The agent's extraction from each contract —parties, value, dates, renewal, notice period, signatories, amendments, guarantees and obligations— passed a first, small round with the agent: banking and the Colombian control. The family is declared tested with the full round, which is the next step.
+The engine is. The agent's extraction from each contract —parties, value, dates, renewal, notice period, signatories, amendments, guarantees and obligations— passed the full round with the agent on the six entities: 37 of 37 signals with none extra and 808 of 815 record data points. The family is declared tested; nothing has run yet on an organisation's documents.
 
 ## Data and privacy
 

@@ -21,7 +21,7 @@ record.
 | **State** | The three agents built and verified over a synthetic corpus. **Extraction over real documentation has not been tested** |
 | **Approach** | Strategy and execution |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
-| **What it is not** | It does not replace your PMO or decide for it: it reads what your team has already written and says what does not hold up |
+| **What it is not** | It does not replace your PMO or decide for it: it processes what your team has already written and says what does not hold up |
 | **Licence** | [Apache 2.0](../../LICENSE) |
 | **What comes next** | More capabilities to improve the workplace |
 
@@ -410,9 +410,12 @@ documentation.**
 **None of the three design sheets has a row left in "missing" or "partial".** What remains
 is not construction.
 
-And one debt that belongs to all three at once: **extraction has never been run.** The three
-corpora seed the state from their reference answers, so the document → model → record chain has
-not been exercised.
+The document → model → record chain is tested in rounds with the agent: the three agents run
+their 38 commands, in the order of a PMO, on the documentation of one organisation per industry,
+and what they write is graded against a key they never see. Round 11 ran on six industries and 78
+projects: Vera 381 of 381 alerts with none extra, Samuel and Alba at 100%. Its detail, in the
+[statistical analysis](analisis/ANALISIS.md). What it does not test is a real organisation's
+documentation.
 
 The run that supports these states, with what it proves and what it does not, is in the three
 evidence pages under [`tests/`](../../tests/) and the whole in

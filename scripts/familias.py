@@ -389,6 +389,18 @@ def skills_familia(fa: dict, i: str) -> str:
     return "\n".join(l)
 
 
+def ronda_completa(sigla: str):
+    """La primera ronda con el agente que corrió sobre todas las entidades del material, o None.
+    Sale de lo publicado en tests/evidencias/familias/: el estado no se escribe a mano."""
+    material = RAIZ / "tests" / f"criterio-{sigla}" / "material"
+    entidades = {d.name for d in material.iterdir() if d.is_dir()} if material.is_dir() else set()
+    base = RAIZ / "tests" / "evidencias" / "familias" / sigla
+    for d in sorted(base.glob("ronda-*"), key=lambda x: int(x.name.split("-")[1])) if base.is_dir() else []:
+        if entidades and entidades <= {c.name for c in d.iterdir() if c.is_dir()}:
+            return int(d.name.split("-")[1])
+    return None
+
+
 def estado_familia(fa: dict, i: str) -> str:
     if i == "es":
         l = ["| Agente | Se instala | Su prueba |", "|---|---|---|"]
@@ -397,8 +409,13 @@ def estado_familia(fa: dict, i: str) -> str:
     for a in fa["agentes"]:
         nc, ns = cuenta(a)
         cs = f"{nc} comandos, {ns} skills" if i == "es" else f"{nc} commands, {ns} skills"
-        pr = ("El motor, probado; una primera ronda con el agente; la completa, pendiente" if i == "es"
-              else "The engine, tested; a first round with the agent; the full one, pending")
+        n = ronda_completa(fa["sigla"])
+        if n:
+            pr = (f"El motor, probado; la ronda completa con el agente, la {n}" if i == "es"
+                  else f"The engine, tested; the full round with the agent, round {n}")
+        else:
+            pr = ("El motor, probado; una primera ronda con el agente; la completa, pendiente" if i == "es"
+                  else "The engine, tested; a first round with the agent; the full one, pending")
         l.append(f"| **{a['nombre']}** · {a['rol'][i]} | `{a['plugin']}` · {cs} | {pr} · "
                  f"[{'resultados' if i == 'es' else 'results'}](../../tests/{a['plugin']}/RESULTADOS.md) |")
     l.append(f"| **Rostrum** · {ROSTRUM[i]['rol']} | `criterio-server` · "

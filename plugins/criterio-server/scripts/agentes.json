@@ -24,8 +24,8 @@
         "en": "Close, control and reporting"
       },
       "estado": {
-        "es": "Construida · en prueba",
-        "en": "Built · in testing"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "finanzas",
@@ -39,8 +39,8 @@
         "en": "Contracts and compliance"
       },
       "estado": {
-        "es": "Construida · en prueba",
-        "en": "Built · in testing"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "legal",

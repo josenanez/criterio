@@ -2,9 +2,9 @@
 
 # criterio-clo · the family design
 
-**Status: built and in testing.** The fourteen commands, the ten skills and the calculation engine are
+**Status: built and tested on synthetic material.** The fourteen commands, the ten skills and the calculation engine are
 built; the engine passes its deterministic test against the material of four industries and two
-control entities (`tests/criterio-clo/`), and the test with the agent is the next step. Scope in
+control entities (`tests/criterio-clo/`), and the agents passed the full round on the six entities ([the rounds](../../tests/evidencias/familias/clo/RONDAS.md)). Scope in
 [ADR 0009](../../docs/decisions/0009-scope-clo.md).
 
 **This is the family's design sheet**: the documents it processes, the signals the code calculates, each command with its input, process and report, and the decisions taken. What the family does, how it is installed, its records and their invariants, the folder structure, Rostrum, the cadence, the tests and the roadmap are on its [page](README.md).

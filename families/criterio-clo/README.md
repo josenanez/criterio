@@ -15,12 +15,12 @@ talks to the other directly: they talk through their records.
 | **Scope** | The contracts, compliance and legal risk of an entity: what it signed against what is happening, and each obligation against its evidence |
 | **Objective** | That a company knows what it signed, what falls due and what it committed to |
 | **Made of** | [Fidel](../../plugins/criterio-legal/README.md) · [Constanza](../../plugins/criterio-compliance/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
-| **State** | Built and in testing: the engine, tested against the material of four industries and two control entities. A first, small round with the agent —banking and the Colombian control— has [run](../../tests/evidencias/familias/clo/RONDAS.md). **The full round is the next step**, and without it the family is not declared tested |
+| **State** | Built and tested on synthetic material: the engine, against four industries and two control entities; the agents, in a [full round](../../tests/evidencias/familias/clo/RONDAS.md) on the six entities. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Contracts and compliance, with no legal opinion |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the lawyer or the compliance officer, and does not decide for them: it processes what the organisation signed and what it committed to comply with, and says what falls due, what has no evidence and what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | The full round with the agent, and then deployment in an organisation: [the roadmap](#roadmap) |
+| **What comes next** | Deployment in an organisation: [the roadmap](#roadmap) |
 
 ---
 
@@ -44,7 +44,7 @@ for review, the new regulations not yet assessed and the whistleblowing channel'
 takes from Fidel's records the compliance obligations that contracts carry.
 
 **Both install today**, each with its own plugin, and both carry the same debt, written on their
-page: the engine is tested against synthetic material from four industries; **the agent's extraction passed a first, small round, and the full one is next; nothing has been tested yet on an
+page: the engine is tested against synthetic material from four industries; **the agents' extraction passed the full round on the six entities; nothing has been tested yet on an
 organisation's documents.**
 
 First version: Colombia and Ecuador. **No legal opinion**: neither of them interprets a clause,
@@ -341,7 +341,7 @@ entity and the signal it has to raise, in the same detail, **and what the materi
 test**, in [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md) (Spanish). The whole set across
 every family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**The first round with the agent** ran on banking and the Colombian control: Fidel and Constanza run their commands and what they extract from each contract and each report is graded against the same key. Every output, its cost, its grading and the commands repeated after a defect was fixed are in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md). The full round, with the four industries and the two controls, brings the family's statistical analysis, with the same metrics as the PMO.
+**The rounds with the agent.** Round 1 ran on banking and the Colombian control; round 2, the full one, on the six entities: Fidel and Constanza run all their commands and what they extract from the written documents is graded against the same key. Round 2 gave 37 of 37 signals with none extra and 808 of 815 record data points, and the 9 defects the rounds found, with a round 3 for verification, are fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md). The family's statistical analysis, like the PMO's, is not written yet.
 
 ## The test industries
 
@@ -389,16 +389,17 @@ Ten distinct skills across the two agents. **The ones they share are literal cop
 ## Status
 
 **Both are built and can be installed today**, and both carry the same debt, which is better not
-hidden: **the engine is tested on synthetic material; the agent's extraction is not yet.**
+hidden: **the engine and the agents' extraction are tested on synthetic material, not on a real organisation's
+documentation.**
 
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Fidel** · Contracts | `criterio-legal` · 7 commands, 5 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Compliance | `criterio-compliance` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contracts | `criterio-legal` · 7 commands, 5 skills | The engine, tested; the full round with the agent, round 2 · [results](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Compliance | `criterio-compliance` · 7 commands, 6 skills | The engine, tested; the full round with the agent, round 2 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /clo:estado -->
 
-The family is declared tested with a full round with the agent, and the first use on a specific
-organisation's contracts and compliance is the increment after that; public contracts, with their
+The family was declared tested with the full round with the agent, and the first use on a specific
+organisation's contracts and compliance is the next increment; public contracts, with their
 own rules, come later. The decisions still open, in the [design](DISENO.md#open-decisions).

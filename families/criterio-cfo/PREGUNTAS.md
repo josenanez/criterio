@@ -54,7 +54,7 @@ The material carries a key with what was planted, and the engine never sees it. 
 
 ### Is the whole family tested yet?
 
-The engine is. The agent's extraction from written documents —what only minutes, emails and auditor letters carry— passed a first, small round with the agent: banking and the Colombian control. The family is declared tested with the full round, which is the next step.
+The engine is. The agent's extraction from written documents —what only minutes, emails and auditor letters carry— passed the full round with the agent on the six entities: 45 of 45 signals with none extra and 48 of 49 record data points. The family is declared tested; nothing has run yet on an organisation's documents.
 
 ## Data and privacy
 
