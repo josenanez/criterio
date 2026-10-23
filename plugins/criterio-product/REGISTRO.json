@@ -857,6 +857,80 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "a6f6bb9312bd290bdc5b7295dea1eb491791bc8e5681af7a5859a99cafe3bb9b",
       "sha256": "79b06923eef7e7d449739ba35998d3d3453b01149bca0faa221f3cf601bcd899"
+    },
+    {
+      "version": "0.9.0",
+      "fecha": "2026-10-23",
+      "commit": null,
+      "base": "4f09c35",
+      "etiqueta": "v0.9.0",
+      "terminos": {
+        "version": "1.2",
+        "fecha": "2026-10-20",
+        "sha256": {
+          "es": "97ef3d7200b125faef9cf3ef59dd2616621418c504c54332a7ec8c9042676fc3",
+          "en": "6359f5315d159b248691716475fc14f75dfc6cfea4309ff07b41f1ca82c91ece"
+        }
+      },
+      "plugins": {
+        "criterio-budget": "76e5214531d7ffe0109310260a943e23c879e6f3661c0a6abeef32e12a222a87",
+        "criterio-compliance": "410fc4e1963fcc27068069f721aec68d208a333ceaf6df65bc87449a21dd338a",
+        "criterio-finance": "f2a4011f22843dcee6c7ddae6a217ae11b53b175e28ad7a267342dea9f51e87c",
+        "criterio-legal": "4b3bd6070f60c6b86ec24d4b62b46905dee411c4501c5785e22d42bb8869808e",
+        "criterio-portfolio": "a7b261ed232fa711be036bbce3ad392ebcb549ce329a5b217b1086d14fadab55",
+        "criterio-product": "ff97115958256418c16c79f44df4ee2bb46a3f3ede21607d866392d558b20ce9",
+        "criterio-project": "7372b121b1af700ea5d62182a42625d4a867a1ec1ee15e7b381bc92b00c5aa9b",
+        "criterio-server": "712fe4737e1420c1d0ffe252cda06282b2bcf29f9f866c4e2209931ca13b38f8"
+      },
+      "destacados": [
+        "La PMO en seis industrias: entran construcción e infraestructura, y petróleo y gas. La ronda 11, sobre 78 proyectos: Vera 381 de 381 alertas sin una de más, Samuel 162 de 162 y Alba 204 de 204",
+        "La CFO y la CLO, probadas con la ronda completa con el agente sobre las seis entidades: la CFO 45 de 45 señales y la CLO 37 de 37, sin una de más; los 13 defectos que encontraron sus rondas, corregidos y verificados",
+        "Rostrum con las tres familias, auditado con axe-core en 288 páginas a cuatro anchos: ninguna falla",
+        "Los 63 defectos de la PMO, corregidos y verificados",
+        "La 0.9.0 pide aceptar de nuevo los términos"
+      ],
+      "cambios": [
+        "Hoja de ruta: la 0.9.0, construcción y oil & gas, en curso",
+        "Resultados: la corrida con 49 puertas",
+        "Los defectos de las rondas de la CFO y la CLO, con su origen, su commit y su estado en defectos.json; RONDAS.md los publica y nombra el material por industria y país, no por entidad",
+        "Resultados: la corrida con 49 puertas",
+        "El ejemplo de la carpeta de la entidad de la CFO no nombra una empresa: NIT seguido del nombre de la entidad",
+        "Resultados: la corrida con 49 puertas",
+        "Ningún texto publicado nombra una empresa del material de prueba: los README citan el material por industria y país, las configuraciones de ejemplo usan una entidad de ejemplo y las EVIDENCIA nombran la carpeta del material",
+        "Resultados: la corrida con 49 puertas",
+        "La calificación de la ronda acepta una cita que señala el mismo renglón del mismo archivo que la clave, aunque una diga «línea 5» y la otra «punto 1» (CLO-5)",
+        "CLO-5 corregido, por verificar en la ronda 2",
+        "Resultados: la corrida con 49 puertas",
+        "CFO, ronda 2 con el agente: las seis entidades, 45 de 45 señales sin una de más y 48 de 49 datos; CFO-2 y CFO-3 verificados, CFO-4 abierto",
+        "Resultados: la corrida con 49 puertas",
+        "Los cuatro setup dicen que la configuración la escribe el agente y que el motor no la crea (CLO-6); la ficha de un contrato sin la firma de la contraparte lista solo a quien firmó y su fecha (CLO-7, CLO-8)",
+        "CLO, ronda 2 con el agente: las seis entidades, 37 de 37 señales sin una de más y 808 de 815 datos; CLO-2, CLO-3 y CLO-4 verificados; CLO-6 a CLO-8 corregidos por verificar y CLO-9 abierto",
+        "Resultados: la corrida con 49 puertas",
+        "CLO, ronda 3 de verificación: Constanza en el control de Colombia y Fidel en minería; CLO-5 a CLO-8 verificados, CLO-9 sigue abierto",
+        "Resultados: la corrida con 49 puertas",
+        "La calificación de la ronda reconoce el mismo dato dicho con otras palabras: un what con las palabras de la clave, salvo la conjugación, cuando su cita y lo demás del registro coinciden (CFO-4, CLO-9)",
+        "CFO-4 y CLO-9 verificados: ningún defecto abierto en la CFO ni en la CLO",
+        "Resultados: la corrida con 49 puertas",
+        "PMO 0.9.0: los perfiles de construcción e infraestructura y de petróleo y gas para el material de prueba, con su semilla; el simulador arma las dos industrias con 13 proyectos y 11 productos cada una",
+        "Resultados: la corrida con 49 puertas",
+        "La puerta de industrias deja que la del incremento en curso tenga su perfil antes de su ronda",
+        "Resultados: la corrida con 49 puertas",
+        "La ronda de la PMO lleva tope de tokens, como la de las familias",
+        "Ronda 11, construcción: la calificación de Vera, 54 de 54 alertas sin falsos positivos",
+        "Rostrum: un enlace largo en un párrafo se parte antes que ensanchar la página; la línea de los términos llevaba una corrida a 401 px en un teléfono (ronda 11, construcción)",
+        "La revisión de contratos de la ronda acepta la marca de la carpeta raíz que deja un setup con permiso (ADR 0011)",
+        "Ronda 11, petróleo y gas: la calificación de Vera, 53 de 53 alertas sin falsos positivos",
+        "Ronda 11, parte A: construcción, petróleo y gas, y minería con los tres agentes, 185 de 185 alertas de Vera sin una de más; D058 a D063 verificados; las dos industrias nuevas, probadas; una ronda por partes no deja sin probar a las que aún no corren",
+        "Resultados: la corrida con 49 puertas",
+        "Ronda 11, parte B: bancos, cooperativas y retail. La ronda completa en seis industrias: Vera 381 de 381 alertas sin una de más en 78 proyectos, los seis controles limpios, Samuel y Alba al 100 %, 227 de 228 comandos dentro de su contrato",
+        "Resultados: la corrida con 49 puertas",
+        "Las páginas de la CFO y la CLO dicen lo que ya está probado: la ronda completa con el agente, sus cifras y sus defectos verificados; la PMO ya no dice que la extracción nunca corrió, y procesa en vez de leer",
+        "Rostrum con las tres familias, auditado: 288 páginas a 1280, 768, 390 y 320 px sin una falla; la tabla que se desliza se alcanza con el teclado y un encabezado vacío va como celda. La ronda completa de la CFO y la CLO entra en la 0.9.0",
+        "Resultados: la corrida con 49 puertas"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "79b06923eef7e7d449739ba35998d3d3453b01149bca0faa221f3cf601bcd899",
+      "sha256": "e0e3579d82728c56c6b7dc1b26ace55fcac36c9144929d1726f67ec49eb111e2"
     }
   ]
 }
