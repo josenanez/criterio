@@ -357,18 +357,27 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
     # común: quien cierra un hito lo marca cerrado, y ahí se acaba el rastro. Es
     # exactamente lo que el README promete —«el hito cuya fecha pasó y no hay un solo
     # documento que pruebe que se cumplió»— y durante un tiempo el código no lo hizo.
-    overdue, sin_prueba = [], []
+    overdue, sin_prueba, en_cronograma = [], [], []
     for m in plan.get("milestones") or []:
         due = as_date(m.get("current_date")) or as_date(m.get("baseline_date"))
         st = value(m.get("state"))
         evidence = value(m.get("evidence"))
-        if not (due and due < today) or evidence:
-            continue
-        fila = {"name": value(m.get("name")), "due": due.isoformat(),
-                "days": (today - due).days}
-        (sin_prueba if st == "met" else overdue).append(fila)
+        base = as_date(m.get("baseline_date"))
+        if due and due < today and not evidence:
+            estado_hito = "met_without_evidence" if st == "met" else "overdue"
+            fila = {"name": value(m.get("name")), "due": due.isoformat(),
+                    "days": (today - due).days}
+            (sin_prueba if st == "met" else overdue).append(fila)
+        else:
+            estado_hito = "met" if st == "met" else "pending"
+        en_cronograma.append({"name": value(m.get("name")),
+                              "baseline": base.isoformat() if base else None,
+                              "current": due.isoformat() if due else None,
+                              "status": estado_hito, "evidence": bool(evidence),
+                              "slip_days": (due - base).days if due and base else None})
     out["milestones_overdue"] = overdue
     out["milestones_met_without_evidence"] = sin_prueba
+    out["schedule"] = cronograma(plan, baselines, en_cronograma, today)
 
     # --- el avance declarado contra el cronograma del mismo proyecto ----
     # `contradiction` es el mismo campo dicho distinto en dos documentos. Esto es otra
@@ -630,6 +639,38 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
         alert("pm_vs_pmo", d)
 
     return out
+
+
+def cronograma(plan, baselines, hitos, today):
+    """Lo que Rostrum dibuja en el Gantt y en la curva de avance, calculado aquí para que el
+    informe no decida nada: cada línea base aprobada, el plan vigente, cada hito con su fecha de
+    línea base, su fecha vigente y su estado, y la curva.
+
+    La curva cuenta hitos, no esfuerzo: qué parte de los hitos debía estar cumplida en cada fecha
+    según la línea base, según el plan vigente, y cuáles están cumplidos con evidencia. El avance
+    declarado va aparte, como el punto que el gerente dice; nada lo convierte en curva."""
+    def d(x):
+        f = as_date(x)
+        return f.isoformat() if f else None
+
+    lineas = [{"version": b.get("version"), "approved_on": d(b.get("approved_on")),
+               "start": d(b.get("start_date")), "end": d(b.get("end_date"))} for b in baselines]
+    total = len(hitos)
+
+    def escalones(fechas):
+        fechas = sorted(f for f in fechas if f)
+        return [{"date": f, "pct": round(100 * (i + 1) / total)} for i, f in enumerate(fechas)]
+
+    curva = None
+    if total:
+        curva = {"milestones": total,
+                 "baseline": escalones(h["baseline"] for h in hitos),
+                 "current": escalones(h["current"] for h in hitos),
+                 "met": escalones(h["current"] for h in hitos
+                                  if h["status"] == "met" and h["evidence"]
+                                  and h["current"] and h["current"] <= today.isoformat())}
+    return {"start": d(plan.get("start_date")), "end": d(plan.get("end_date")),
+            "baselines": lineas, "milestones": hitos, "curve": curva, "today": today.isoformat()}
 
 
 def declarado_pct(rec):
@@ -2015,7 +2056,20 @@ def _selftest_plan():
     ficha1.write_text(json.dumps(r1), encoding="utf-8")
     con_rota = sellar(docs, estado, "PRY-001")
     ajena = citas_rotas({"pm_record": {"vendors": [{"source": "a.md; factura: b.md"}]}}, docs)
+    _plan = {"start_date": "2026-01-15", "end_date": "2026-11-30",
+             "baseline": [{"version": 1, "start_date": "2026-01-15", "end_date": "2026-09-30"}],
+             "milestones": [{"name": "A", "baseline_date": "2026-03-02", "current_date": "2026-03-06", "state": "met",
+                             "evidence": "acta.md"},
+                            {"name": "B", "baseline_date": "2026-05-29", "current_date": "2026-07-31", "state": "pending"},
+                            {"name": "C", "baseline_date": "2026-06-01", "state": "met"},
+                            {"name": "D", "baseline_date": "2026-09-30", "current_date": "2026-11-30", "state": "pending"}]}
+    _s = compute_record({"plan": _plan}, dt.date(2026, 9, 29), DEFAULT_THRESHOLDS)["schedule"]
     return [
+        ("el cronograma dice el estado de cada hito con la misma regla que las señales",
+         [h["status"] for h in _s["milestones"]], ["met", "overdue", "met_without_evidence", "pending"]),
+        ("el corrimiento de cada hito es vigente menos línea base", [h["slip_days"] for h in _s["milestones"]], [4, 63, 0, 61]),
+        ("la curva solo suma lo cumplido con evidencia", [p["pct"] for p in _s["curve"]["met"]], [25]),
+        ("la curva del plan vigente llega al 100 % con el último hito", _s["curve"]["current"][-1], {"date": "2026-11-30", "pct": 100}),
         ("un compromiso cumplido no suena como reprogramado",
          compute_record({"commitments": [{"who": "B", "what": "x", "due_date": "2026-09-01", "state": "met",
                                           "reschedules": [{"due_date": "2026-08-01"}, {"due_date": "2026-08-15"},

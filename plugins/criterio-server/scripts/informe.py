@@ -126,6 +126,15 @@ tr:last-child td{{border-bottom:none}}
 h2.t{{font-size:1.06rem;font-weight:600;margin:1.8em 0 .5em;padding:0;border:0}}
 .bloque > :first-child{{margin-top:0}}
 .tabla{{max-width:100%;overflow-x:auto}}
+.grafico{{max-width:100%;overflow-x:auto;margin:.6em 0 0;background:{PANEL_ALTO};border:1px solid {FILETE};
+  border-radius:8px;padding:14px 14px 8px}}
+.grafico svg{{display:block;font-family:inherit}}
+.leyenda{{font-size:.84rem;color:{APAGADO};margin:.6em 0 0;line-height:2}}
+.leyenda .m{{display:inline-block;width:18px;height:10px;border-radius:3px;margin:0 6px 0 10px;vertical-align:middle}}
+.leyenda .l{{display:inline-block;width:22px;height:0;margin:0 6px 0 10px;vertical-align:middle}}
+.leyenda .r{{display:inline-block;width:10px;height:10px;transform:rotate(45deg);border:2px solid;margin:0 7px 0 12px;vertical-align:middle}}
+.leyenda .i{{white-space:nowrap;margin-right:14px}}
+.leyenda .i > span{{margin-left:0}}
 .tabla > table{{margin-top:0}}
 .bloque.info{{background:{INFO_FONDO};border-color:{INFO_FILETE};border-left-color:{INFO}}}
 .decision{{border:1px solid {FILETE};border-radius:8px;padding:22px 24px;margin:18px 0;
@@ -928,6 +937,236 @@ permiten responder.</p>
     return pagina(f"Producto · {g['product']}", cuerpo, hoy, barra('productos', org))
 
 
+# ---------------------------------------------------------------- el cronograma
+# El Gantt y la curva dibujan lo que `portafolio.py compute` dejó en `schedule`: aquí no se
+# calcula ni se decide nada. Cada marca lleva su texto (`<title>`) y su estado en palabras, y
+# debajo va la misma información en una tabla, para quien no ve el dibujo o lo imprime.
+
+# El ancho del dibujo: cabe en la hoja del informe; en un teléfono el gráfico se desplaza.
+ANCHO_GRAFICO = 980
+MESES_CORTO = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic']
+ESTADO_HITO = {'met': ('cumplido', OK_), 'pending': ('pendiente', CUERPO),
+               'overdue': ('vencido sin evidencia', ERROR),
+               'met_without_evidence': ('cumplido sin evidencia', ALERTA)}
+
+
+def _f(s):
+    try:
+        return dt.date.fromisoformat(s) if s else None
+    except ValueError:
+        return None
+
+
+def _dominio(s):
+    """Del primer al último día que aparece en el cronograma, hoy incluido, con un margen."""
+    fechas = [_f(s.get('start')), _f(s.get('end')), _f(s.get('today'))]
+    for b in s.get('baselines') or []:
+        fechas += [_f(b.get('start')), _f(b.get('end'))]
+    for h in s.get('milestones') or []:
+        fechas += [_f(h.get('baseline')), _f(h.get('current'))]
+    fechas = [f for f in fechas if f]
+    if len(fechas) < 2:
+        return None
+    a, b = min(fechas), max(fechas)
+    a = a.replace(day=1)
+    b = (b.replace(day=28) + dt.timedelta(days=8)).replace(day=1)
+    return a, b
+
+
+def _eje(a, b, x, alto, y0=0, limite=None):
+    """Los meses como marcas; con más de un año, uno de cada tres."""
+    meses, m = [], a
+    while m <= b:
+        meses.append(m)
+        m = (m.replace(day=28) + dt.timedelta(days=8)).replace(day=1)
+    # Una etiqueta de mes pide unos 48 px; si no caben todas, va una de cada dos, tres o seis.
+    ancho_mes = (x(b) - x(a)) / max(len(meses), 1)
+    paso = next((n for n in (1, 2, 3, 6, 12) if ancho_mes * n >= 48), 12)
+    out = []
+    for i, m in enumerate(meses):
+        if i % paso:
+            continue
+        xx = x(m)
+        if limite is not None and xx + 40 > limite:
+            continue
+        out.append(f'<line x1="{xx:.1f}" y1="{y0}" x2="{xx:.1f}" y2="{alto}" stroke="{FILETE_SUAVE}" stroke-width="1"/>'
+                   f'<text x="{xx + 3:.1f}" y="{y0 + 12}" font-size="12" fill="{APAGADO}">'
+                   f'{MESES_CORTO[m.month - 1]} {str(m.year)[2:]}</text>')
+    return ''.join(out)
+
+
+def _rombo(cx, cy, r, relleno, borde, titulo):
+    pts = f'{cx:.1f},{cy - r:.1f} {cx + r:.1f},{cy:.1f} {cx:.1f},{cy + r:.1f} {cx - r:.1f},{cy:.1f}'
+    return (f'<polygon points="{pts}" fill="{relleno}" stroke="{borde}" stroke-width="2">'
+            f'<title>{e(titulo)}</title></polygon>')
+
+
+def _leyenda(items):
+    """Cada muestra con su texto, juntos: en un teléfono la leyenda se parte entre elementos."""
+    return '<p class="leyenda">' + ''.join(
+        f'<span class="i"><span class="{c}" style="{estilo}"></span>{e(texto)}</span>' for c, estilo, texto in items) + '</p>'
+
+
+def gantt(s):
+    """Cada línea base aprobada, el plan vigente y cada hito: dónde estaba y dónde está."""
+    dom = _dominio(s or {})
+    if not dom:
+        return '<p class="vacio">El cronograma no trae fechas suficientes para dibujarlo.</p>'
+    a, b = dom
+    ancho, izq, der, fila = ANCHO_GRAFICO, 210, 170, 30
+    filas = [('base', x) for x in s.get('baselines') or []]
+    filas.append(('vigente', None))
+    filas += [('hito', h) for h in s.get('milestones') or []]
+    alto = 26 + fila * len(filas) + 10
+    dias = max((b - a).days, 1)
+
+    def x(f):
+        return izq + (ancho - izq - der) * (f - a).days / dias
+
+    partes = [_eje(a, b, x, alto, limite=ancho - der)]
+    hoy = _f(s.get('today'))
+    for i, (tipo, dato) in enumerate(filas):
+        y = 26 + fila * i + fila / 2
+        if tipo == 'base':
+            ini, fin = _f(dato.get('start')), _f(dato.get('end'))
+            etiqueta = f"Línea base {dato.get('version') or i + 1}"
+            nota = f"aprobada el {dato.get('approved_on')}" if dato.get('approved_on') else ''
+            if ini and fin:
+                partes.append(f'<rect x="{x(ini):.1f}" y="{y - 6:.1f}" width="{max(x(fin) - x(ini), 2):.1f}" height="12" rx="4" '
+                              f'fill="{FILETE}"><title>{e(etiqueta)}: {e(dato.get("start"))} a {e(dato.get("end"))} · {e(nota)}</title></rect>')
+        elif tipo == 'vigente':
+            ini, fin = _f(s.get('start')), _f(s.get('end'))
+            etiqueta, nota = 'Plan vigente', f"cierre {s.get('end')}" if s.get('end') else 'sin cierre'
+            if ini and fin:
+                partes.append(f'<rect x="{x(ini):.1f}" y="{y - 6:.1f}" width="{max(x(fin) - x(ini), 2):.1f}" height="12" rx="4" '
+                              f'fill="{ORO}"><title>Plan vigente: {e(s.get("start"))} a {e(s.get("end"))}</title></rect>')
+        else:
+            etiqueta = dato.get('name') or 'Hito sin nombre'
+            texto, color = ESTADO_HITO.get(dato.get('status'),
+                        ('—', CUERPO))
+            nota = texto
+            base, act = _f(dato.get('baseline')), _f(dato.get('current'))
+            if base and act and base != act:
+                partes.append(f'<line x1="{x(base):.1f}" y1="{y:.1f}" x2="{x(act):.1f}" y2="{y:.1f}" '
+                              f'stroke="{APAGADO}" stroke-width="2"/>')
+            if base:
+                partes.append(_rombo(x(base), y, 6, CREMA, APAGADO, f"{etiqueta}: línea base {dato.get('baseline')}"))
+            if act:
+                partes.append(_rombo(x(act), y, 7, color, color,
+                                     f"{etiqueta}: vigente {dato.get('current')} · {texto}"))
+        partes.append(f'<text x="0" y="{y + 4:.1f}" font-size="13" fill="{TINTA}">{e(_recorta(etiqueta, 30))}</text>')
+        partes.append(f'<text x="{ancho - der + 12}" y="{y + 4:.1f}" font-size="12" fill="{APAGADO}">{e(nota)}</text>')
+    if hoy and a <= hoy <= b:
+        partes.append(f'<line x1="{x(hoy):.1f}" y1="18" x2="{x(hoy):.1f}" y2="{alto}" stroke="{TINTA}" '
+                      f'stroke-width="1.5" stroke-dasharray="4 3"/>'
+                      f'<text x="{x(hoy) + 4:.1f}" y="{alto - 4}" font-size="12" fill="{TINTA}">hoy</text>')
+    desc = (f"{len(s.get('baselines') or [])} líneas base, el plan vigente y {len(s.get('milestones') or [])} hitos, "
+            f"del {a.isoformat()} al {b.isoformat()}. La misma información está en la tabla de hitos.")
+    return (f'<div class="grafico" tabindex="0" role="region" aria-label="Gantt de línea base contra vigente">'
+            f'<svg viewBox="0 0 {ancho} {alto}" width="{ancho}" height="{alto}" role="img" aria-labelledby="gt gd">'
+            f'<title id="gt">Línea base contra vigente</title><desc id="gd">{e(desc)}</desc>'
+            f'{"".join(partes)}</svg></div>'
+            + _leyenda([('m', f"background:{FILETE}", 'línea base aprobada'),
+                        ('m', f"background:{ORO}", 'plan vigente'),
+                        ('r', f"border-color:{APAGADO};background:{CREMA}", 'hito en la línea base'),
+                        ('r', f"border-color:{OK_};background:{OK_}", 'cumplido'),
+                        ('r', f"border-color:{CUERPO};background:{CUERPO}", 'pendiente'),
+                        ('r', f"border-color:{ERROR};background:{ERROR}", 'vencido sin evidencia'),
+                        ('r', f"border-color:{ALERTA};background:{ALERTA}", 'cumplido sin evidencia')]))
+
+
+def curva(s, declarado=None):
+    """Qué parte de los hitos debía estar cumplida en cada fecha, y cuál lo está con evidencia."""
+    c = (s or {}).get('curve')
+    dom = _dominio(s or {})
+    if not c or not dom:
+        return '<p class="vacio">Sin hitos en el cronograma no hay curva de avance.</p>'
+    a, b = dom
+    ancho, izq, der, arriba, abajo = ANCHO_GRAFICO, 44, 20, 24, 30
+    alto = 230
+    dias = max((b - a).days, 1)
+    hoy = _f(s.get('today'))
+
+    def x(f):
+        return izq + (ancho - izq - der) * (f - a).days / dias
+
+    def y(p):
+        return arriba + (alto - arriba - abajo) * (1 - p / 100)
+
+    inicio = _f(s.get('start')) or a
+
+    def camino(puntos, hasta):
+        d = f'M{x(inicio):.1f},{y(0):.1f}'
+        for pnt in puntos:
+            f = _f(pnt['date'])
+            if f:
+                d += f' H{x(f):.1f} V{y(pnt["pct"]):.1f}'
+        return d + f' H{x(hasta):.1f}'
+
+    partes = [_eje(a, b, x, alto - abajo, arriba - 14, limite=ancho)]
+    for p in (0, 50, 100):
+        partes.append(f'<line x1="{izq}" y1="{y(p):.1f}" x2="{ancho - der}" y2="{y(p):.1f}" stroke="{FILETE_SUAVE}"/>'
+                      f'<text x="{izq - 6}" y="{y(p) + 4:.1f}" font-size="12" fill="{APAGADO}" text-anchor="end">{p} %</text>')
+    partes.append(f'<path d="{camino(c["baseline"], b)}" fill="none" stroke="{APAGADO}" stroke-width="2" '
+                  f'stroke-dasharray="6 4"><title>Plan de la línea base</title></path>')
+    partes.append(f'<path d="{camino(c["current"], b)}" fill="none" stroke="{ORO}" stroke-width="2">'
+                  f'<title>Plan vigente</title></path>')
+    if hoy:
+        partes.append(f'<path d="{camino(c["met"], min(hoy, b))}" fill="none" stroke="{OK_}" stroke-width="2.5">'
+                      f'<title>Cumplidos con evidencia</title></path>')
+    for pnt in c['met']:
+        f = _f(pnt['date'])
+        if f:
+            partes.append(f'<circle cx="{x(f):.1f}" cy="{y(pnt["pct"]):.1f}" r="4.5" fill="{OK_}" stroke="{CREMA}" stroke-width="2">'
+                          f'<title>{pnt["pct"]} % de los hitos cumplidos con evidencia al {pnt["date"]}</title></circle>')
+    if declarado and declarado.get('pct') is not None and _f(declarado.get('date')):
+        f = _f(declarado['date'])
+        if a <= f <= b:
+            partes.append(_rombo(x(f), y(declarado['pct']), 7, CREMA, TINTA,
+                                 f"Avance declarado: {pct(declarado['pct'])} al {declarado['date']}"))
+            partes.append(f'<text x="{x(f) + 12:.1f}" y="{y(declarado["pct"]) + 4:.1f}" font-size="12" '
+                          f'fill="{TINTA}">declarado {e(pct(declarado["pct"]))}</text>')
+    if hoy and a <= hoy <= b:
+        partes.append(f'<line x1="{x(hoy):.1f}" y1="{arriba}" x2="{x(hoy):.1f}" y2="{alto - abajo}" stroke="{TINTA}" '
+                      f'stroke-width="1.5" stroke-dasharray="4 3"/>'
+                      f'<text x="{x(hoy) + 4:.1f}" y="{alto - abajo - 6}" font-size="12" fill="{TINTA}">hoy</text>')
+    desc = (f"El porcentaje de los {c['milestones']} hitos que debía estar cumplido según la línea base y según el "
+            f"plan vigente, y el que está cumplido con evidencia. Cuenta hitos, no esfuerzo.")
+    return (f'<div class="grafico" tabindex="0" role="region" aria-label="Curva de avance por hitos">'
+            f'<svg viewBox="0 0 {ancho} {alto}" width="{ancho}" height="{alto}" role="img" aria-labelledby="ct cd">'
+            f'<title id="ct">Curva de avance por hitos</title><desc id="cd">{e(desc)}</desc>'
+            f'{"".join(partes)}</svg></div>'
+            + _leyenda([('l', f"border-top:2px dashed {APAGADO}", 'plan de la línea base'),
+                        ('l', f"border-top:2px solid {ORO}", 'plan vigente'),
+                        ('l', f"border-top:3px solid {OK_}", 'cumplidos con evidencia'),
+                        ('r', f"border-color:{TINTA};background:{CREMA}", 'avance declarado')])
+            + f'<p class="cita">La curva cuenta hitos, no esfuerzo: un hito cumplido sin evidencia no suma.</p>')
+
+
+def corrimiento(dias):
+    """«63 días después», «7 días antes» o «a tiempo»: un signo menos no se lee en voz alta."""
+    if dias is None:
+        return '—'
+    if dias == 0:
+        return 'a tiempo'
+    return f"{plural(abs(dias), 'día', 'días')} {'después' if dias > 0 else 'antes'}"
+
+
+def tabla_hitos(s):
+    hitos = (s or {}).get('milestones') or []
+    if not hitos:
+        return ''
+    filas = ''.join(
+        f"<tr><td data-col=\"Hito\">{e(h.get('name'))}</td><td data-col=\"Línea base\">{e(h.get('baseline') or '—')}</td>"
+        f"<td data-col=\"Vigente\">{e(h.get('current') or '—')}</td>"
+        f"<td data-col=\"Corrimiento\">{corrimiento(h.get('slip_days'))}</td>"
+        f"<td data-col=\"Estado\">{e(ESTADO_HITO.get(h.get('status'),
+                        ('—',))[0])}</td></tr>"
+        for h in hitos)
+    return ('<table class="apila"><thead><tr><th>Hito</th><th>Línea base</th><th>Vigente</th><th>Corrimiento</th>'
+            f'<th>Estado</th></tr></thead><tbody>{filas}</tbody></table>')
+
+
 def vista_proyecto(p, rec, hoy, org=None):
     d = p.get('declared', {})
     money = p.get('money', {})
@@ -999,6 +1238,13 @@ def vista_proyecto(p, rec, hoy, org=None):
     <td>{'—' if (p.get('changes') or {}).get('unauthorized_days') is None
          else plural(p['changes']['unauthorized_days'], 'día', 'días')}</td></tr>
 </table>
+
+<h2>El cronograma: línea base contra vigente</h2>
+{gantt(p.get('schedule'))}
+{tabla_hitos(p.get('schedule'))}
+
+<h2>La curva de avance</h2>
+{curva(p.get('schedule'), {'pct': d.get('progress_pct'), 'date': d.get('as_of')})}
 
 <h2>Dinero</h2>
 <table>
@@ -1106,6 +1352,25 @@ def selftest() -> int:
        min(contraste(APAGADO, '#ffffff'), contraste(ORO, '#ffffff'), contraste(ORO, CREMA)) >= 3, True)
     tamanos = [float(x) for x in re.findall(r'font-size:\s*([0-9.]+)rem', CSS)]
     ok('ninguna letra por debajo de 12 px (.75rem)', [x for x in tamanos if x < .75], [])
+    # El Gantt y la curva: lo que dibujan sale de `schedule`, con su texto y su tabla.
+    sch = {'start': '2026-01-15', 'end': '2026-11-30', 'today': '2026-09-29',
+           'baselines': [{'version': 1, 'approved_on': '2026-01-12', 'start': '2026-01-15', 'end': '2026-09-30'}],
+           'milestones': [{'name': 'Diseño', 'baseline': '2026-03-02', 'current': '2026-03-06', 'status': 'met',
+                           'evidence': True, 'slip_days': 4},
+                          {'name': 'Motor', 'baseline': '2026-05-29', 'current': '2026-07-31', 'status': 'overdue',
+                           'evidence': False, 'slip_days': 63}],
+           'curve': {'milestones': 2, 'baseline': [{'date': '2026-03-02', 'pct': 50}, {'date': '2026-05-29', 'pct': 100}],
+                     'current': [{'date': '2026-03-06', 'pct': 50}, {'date': '2026-07-31', 'pct': 100}],
+                     'met': [{'date': '2026-03-06', 'pct': 50}]}}
+    g, c = gantt(sch), curva(sch, {'pct': 45, 'date': '2026-09-20'})
+    ok('el Gantt y la curva son imágenes con título y descripción, y se desplazan con el teclado (WCAG 1.1.1, 2.1.1)',
+       all('role="img"' in x and '<desc id=' in x and 'tabindex="0"' in x for x in (g, c)), True)
+    ok('cada hito dice su estado en palabras, no solo en color (WCAG 1.4.1)',
+       ('vencido sin evidencia' in g, 'cumplido' in g), (True, True))
+    ok('ningún texto del Gantt ni de la curva por debajo de 12 px',
+       [x for x in re.findall(r'font-size="([0-9.]+)"', g + c) if float(x) < 12], [])
+    ok('la tabla de hitos trae lo mismo que el Gantt', tabla_hitos(sch).count('<tr>'), 3)
+    ok('sin fechas no se dibuja nada inventado', 'vacio' in gantt({}) and 'vacio' in curva({}), True)
     muestra = pagina('Prueba', '<h1>Prueba</h1><h2>Uno</h2><table><thead><tr><th>A</th><th>B</th><th>C</th>'
                      '<th>D</th></tr></thead><tbody><tr><td>1</td><td>2</td><td>3</td><td>4</td></tr></tbody></table>'
                      '<h2>Uno</h2><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead>'
