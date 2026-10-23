@@ -2,7 +2,7 @@
 
 **el agente de la PMO** · plugin `criterio-portfolio`
 
-Corrida del 2026-10-23, sobre el commit `7e90877`, con cambios en el árbol todavía sin confirmar. **5 puertas · 244 comprobaciones · todas en verde.**
+Corrida del 2026-10-23, sobre el commit `9df9c34`, con cambios en el árbol todavía sin confirmar. **5 puertas · 244 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,11 +10,11 @@ Corrida del 2026-10-23, sobre el commit `7e90877`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 62 ms | verde |
-| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 115 | 131 ms | verde |
-| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 23 | 74 ms | verde |
-| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 27 | 75 ms | verde |
-| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 427 ms | verde |
+| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 77 ms | verde |
+| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 115 | 100 ms | verde |
+| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 23 | 48 ms | verde |
+| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 27 | 48 ms | verde |
+| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 452 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -27,26 +27,26 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 
 ## Los comandos, corridos por un agente de verdad
 
-**16 de 16** corrieron en la ronda 11 con el plugin instalado desde cero, en 3 industrias; **16** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-11/`](../evidencias/rondas/ronda-11/).
+**16 de 16** corrieron en la ronda 11 con el plugin instalado desde cero, en 6 industrias; **16** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-11/`](../evidencias/rondas/ronda-11/).
 
 | Comando | Terminó | Cumplió su contrato | Tiempo |
 |---|---|---|---:|
-| `/criterio-portfolio:budget-tracking` | 3 de 3 | 3 de 3 | 60–63 s |
-| `/criterio-portfolio:change-control` | 3 de 3 | 3 de 3 | 59–71 s |
-| `/criterio-portfolio:document-index` | 3 de 3 | 3 de 3 | 11–27 s |
-| `/criterio-portfolio:health-check` | 3 de 3 | 3 de 3 | 95–150 s |
-| `/criterio-portfolio:portfolio-report` | 3 de 3 | 3 de 3 | 49–88 s |
-| `/criterio-portfolio:portfolio-scan` | 3 de 3 | 3 de 3 | 177–444 s |
-| `/criterio-portfolio:portfolio-setup` | 3 de 3 | 3 de 3 | 168–183 s |
-| `/criterio-portfolio:portfolio-wake` | 3 de 3 | 3 de 3 | 41–66 s |
-| `/criterio-portfolio:product-view` | 3 de 3 | 3 de 3 | 37–63 s |
-| `/criterio-portfolio:project-charter` | 3 de 3 | 3 de 3 | 57–62 s |
-| `/criterio-portfolio:project-closure` | 3 de 3 | 3 de 3 | 97–111 s |
-| `/criterio-portfolio:project-history` | 3 de 3 | 3 de 3 | 69–104 s |
-| `/criterio-portfolio:raid-log` | 3 de 3 | 3 de 3 | 126–186 s |
-| `/criterio-portfolio:status-report` | 3 de 3 | 3 de 3 | 45–55 s |
-| `/criterio-portfolio:steering-pack` | 3 de 3 | 3 de 3 | 115–296 s |
-| `/criterio-portfolio:vendor-tracking` | 3 de 3 | 3 de 3 | 52–70 s |
+| `/criterio-portfolio:budget-tracking` | 6 de 6 | 6 de 6 | 60–77 s |
+| `/criterio-portfolio:change-control` | 6 de 6 | 6 de 6 | 59–91 s |
+| `/criterio-portfolio:document-index` | 6 de 6 | 6 de 6 | 11–43 s |
+| `/criterio-portfolio:health-check` | 6 de 6 | 6 de 6 | 95–150 s |
+| `/criterio-portfolio:portfolio-report` | 6 de 6 | 6 de 6 | 49–142 s |
+| `/criterio-portfolio:portfolio-scan` | 6 de 6 | 6 de 6 | 177–444 s |
+| `/criterio-portfolio:portfolio-setup` | 6 de 6 | 6 de 6 | 145–243 s |
+| `/criterio-portfolio:portfolio-wake` | 6 de 6 | 6 de 6 | 41–71 s |
+| `/criterio-portfolio:product-view` | 6 de 6 | 6 de 6 | 37–94 s |
+| `/criterio-portfolio:project-charter` | 6 de 6 | 6 de 6 | 54–78 s |
+| `/criterio-portfolio:project-closure` | 6 de 6 | 6 de 6 | 75–111 s |
+| `/criterio-portfolio:project-history` | 6 de 6 | 6 de 6 | 69–104 s |
+| `/criterio-portfolio:raid-log` | 6 de 6 | 6 de 6 | 126–199 s |
+| `/criterio-portfolio:status-report` | 6 de 6 | 6 de 6 | 45–78 s |
+| `/criterio-portfolio:steering-pack` | 6 de 6 | 6 de 6 | 112–296 s |
+| `/criterio-portfolio:vendor-tracking` | 6 de 6 | 6 de 6 | 52–100 s |
 
 ### Antes de las rondas
 
