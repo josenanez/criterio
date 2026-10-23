@@ -160,7 +160,7 @@ def _dian(raiz, tipo: str) -> dict:
             otros += monto
     uuid = _h(raiz, "UUID")
     d = {
-        "pais": "CO", "fuente": "F-01", "tipo": "nota de crédito" if nc else "factura",
+        "pais": PAIS_DEL_LECTOR["dian"], "lector": "dian", "fuente": "F-01", "tipo": "nota de crédito" if nc else "factura",
         "numero": _t(raiz, "ID"), "id": _t(raiz, "UUID"),
         "esquema": uuid.get("schemeName") if uuid is not None else None,
         "fecha": iso(fecha(_t(raiz, "IssueDate"))),
@@ -183,7 +183,7 @@ def _sri(raiz) -> dict:
     cod = _t(it, "codDoc") if it is not None else None
     estab, pto, sec = (_t(it, x) if it is not None else None for x in ("estab", "ptoEmi", "secuencial"))
     d = {
-        "pais": "EC", "fuente": "F-04", "tipo": TIPOS_SRI.get(cod or "", f"tipo {cod}"),
+        "pais": PAIS_DEL_LECTOR["sri"], "lector": "sri", "fuente": "F-04", "tipo": TIPOS_SRI.get(cod or "", f"tipo {cod}"),
         "cod_doc": cod, "id": clave,
         "numero": "-".join(x for x in (estab, pto, sec) if x) or None,
         "emisor": ident(_t(it, "ruc") if it is not None else None),
@@ -268,20 +268,18 @@ DEFECTOS = {
     "report": {"language": "es"},
     "execution": {"workers": 1},
 }
-# Lo propio de la familia CFO en cada país del registro (nucleo.PAISES): la factura electrónica
-# —su fuente técnica y el nombre de su clave única— y la tolerancia de los cuadres, que sigue
-# cómo redondea cada fuente. El selftest exige que las claves coincidan con el registro.
-FACTURA = {
-    "CO": {"fuentes": ["F-01"], "clave": "CUFE", "tolerancia": (2.00, 5.00)},
-    "EC": {"fuentes": ["F-04"], "clave": "número de clave de acceso", "tolerancia": (0.01, 0.01)},
-}
+# Lo propio de la familia CFO en cada país viene de su registro (paises.json): la factura
+# electrónica —su lector, su fuente técnica, el nombre de su clave única— y la tolerancia de los
+# cuadres. Cada lector dice de qué país es por su nombre, no por un código escrito aquí.
+FACTURA = {c: p["factura"] for c, p in N.PAISES.items()}
+PAIS_DEL_LECTOR = {f["lector"]: c for c, f in FACTURA.items()}
 
 
 def tolerancias(cfg: dict) -> tuple[float, float]:
     t = (cfg.get("thresholds") or {}).get("amount_tolerance")
     if t is not None:
         return float(t), float(t)
-    return FACTURA.get(N.pais_de(cfg), FACTURA["CO"])["tolerancia"]
+    return tuple(FACTURA.get(N.pais_de(cfg), FACTURA[N.POR_OMISION])["tolerancia"])
 
 
 def umbral(cfg: dict, k: str):
@@ -633,7 +631,7 @@ def facturas(cfg: dict, periodo: str) -> dict:
             if "error" in d:
                 out["no_procesado"].append({"archivo": rel(p, docs), "motivo": d["error"]})
                 continue
-            if d.get("pais") == "EC" and not d["clave"]["valida"]:
+            if d.get("lector") == "sri" and not d["clave"]["valida"]:
                 out["no_procesado"].append({"archivo": rel(p, docs), "motivo": "; ".join(d["clave"]["motivos"])})
                 continue
             d["lado"], d["archivo"] = lado, rel(p, docs)
@@ -683,7 +681,7 @@ def facturas(cfg: dict, periodo: str) -> dict:
         r["citas"].append(my.cita(f, docs))
     vistos = set()
     for d in leidas:
-        if d["tipo"] not in ("factura", "nota de crédito", "liquidación de compra") or (d["pais"] == "EC" and not d.get("valores")):
+        if d["tipo"] not in ("factura", "nota de crédito", "liquidación de compra") or (d.get("lector") == "sri" and not d.get("valores")):
             out["solo_identidad"].append({"archivo": d["archivo"], "tipo": d["tipo"], "numero": d["numero"]})
             continue
         clave = (d["lado"], ident(d["numero"]))
@@ -1486,10 +1484,11 @@ def selftest() -> int:
     ok("la factura cubre los países del registro", sorted(FACTURA), sorted(N.PAISES))
     ok("un país fuera del registro se rechaza", N.revisar_pais({"country": "XX"}), [f"entity.country debe ser uno de {', '.join(N.PAISES)} en esta versión"])
     ok("un país del registro pasa", N.revisar_pais({"country": "ec"}), [])
-    _PAIS[0] = "EC"
-    ok("las cifras de Ecuador llevan punto decimal", mon(1234567.891), "1,234,567.89")
-    _PAIS[0] = "CO"
-    ok("las cifras de Colombia llevan coma decimal", mon(1234567.891), "1.234.567,89")
+    for c, p in N.PAISES.items():
+        _PAIS[0] = c
+        ok(f"las cifras de {p['nombre']['es']} llevan su separador decimal", mon(1234567.891)[-3], p["decimal"])
+    _PAIS[0] = N.POR_OMISION
+    ok("cada lector de factura es de un país del registro", sorted(PAIS_DEL_LECTOR.values()), sorted(N.PAISES))
     ca = clave_acceso("2110201101179214673900110020010000000011234567813")
     ok("la clave del ejemplo es válida", (ca["valida"], ca["tipo"], ca["ruc"], ca["serie"]), (True, "01", "1792146739001", "002001"))
     ok("una clave con un dígito cambiado no", clave_acceso("2110201101179214673900110020010000000011234567814")["valida"], False)

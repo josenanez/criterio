@@ -43,7 +43,9 @@ FAM = {
 }
 INDUSTRIA = {"banca": ("Banca", "Banking"), "cooperativas": ("Cooperativas", "Credit unions"), "retail": ("Retail", "Retail"),
              "mineria": ("Minería", "Mining"), "control": ("Control", "Control")}
-PAIS = {"CO": ("Colombia", "Colombia"), "EC": ("Ecuador", "Ecuador")}
+# Los nombres de los países salen del registro único del motor, no de aquí.
+PAIS = {p["codigo"]: (p["nombre"]["es"], p["nombre"]["en"]) for p in json.loads(
+    (RAIZ / "plugins" / "criterio-finance" / "scripts" / "paises.json").read_text(encoding="utf-8"))["paises"]}
 ORIGEN = {**A.ORIGEN, "arnes": ("Arnés de pruebas", "Test harness")}
 SERIES = [("cobertura", "Señales · cobertura", "Signals · coverage", "#d5a84b"),
           ("precision", "Señales · precisión", "Signals · precision", "#4f86c6"),

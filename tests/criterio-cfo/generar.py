@@ -36,7 +36,8 @@ import finanzas as F  # noqa: E402
 
 SALIDA = AQUI / "material"
 PERIODO, ANIO, HOY = "2026-09", "2026", "2026-10-06"
-TASA = {"CO": 0.19, "EC": 0.15}
+# La tasa del IVA de cada país sale de su registro (paises.json), como todo lo que cambia de un país a otro.
+TASA = {c: f["iva"] for c, f in F.FACTURA.items()}
 
 ENTIDADES = [
     {"carpeta": "banca", "industria": "banca", "pais": "CO", "id": "900123456", "nombre": "Banco Andino", "moneda": "COP", "escala": 1_000_000, "semilla": 11,
@@ -91,6 +92,7 @@ def generar(e: dict) -> dict:
     rnd = random.Random(e["semilla"])
     s = set(e["siembra"])
     pais, esc, tasa = e["pais"], e["escala"], TASA[e["pais"]]
+    dian = F.FACTURA[pais]["lector"] == "dian"
     sesion = SALIDA / e["carpeta"]
     ent_dir = f"{e['id']}-{e['nombre'].lower().replace(' ', '-').replace('ó', 'o')}"
     docs = sesion / "finanzas" / ent_dir
@@ -101,13 +103,13 @@ def generar(e: dict) -> dict:
     fin_sep = dt.date(2026, 9, 30)
 
     def tercero(i: int) -> str:
-        return (f"8{e['semilla']:02d}{i:06d}" if pais == "CO" else f"17{e['semilla']:02d}{i:06d}001")
+        return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
-        return f"SETP{prefijo}{i:06d}" if pais == "CO" else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
+        return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
-        if pais == "CO":
+        if dian:
             cufe = hashlib.sha384(f"{numero}{emisor}{base}".encode()).hexdigest()
             return F.contenedor_dian(F.factura_dian(numero, cufe, fecha.isoformat(), emisor, receptor, base, iva))
         estab, pto, sec = numero.split("-")
@@ -199,7 +201,7 @@ def generar(e: dict) -> dict:
         iva = r2(base * tasa)
         num, ter = numero_doc("99", 100 + i), tercero(100 + i)
         ventas.append((f, ter, num, base, iva))
-        iva_libros = iva + (round(1000 if pais == "CO" else 10, 2) if ("iva_distinto" in s and i == 4) else 0)
+        iva_libros = iva + (round(1000 if dian else 10, 2) if ("iva_distinto" in s and i == 4) else 0)
         if not ("factura_sin_registro" in s and i == 9):
             asentar(f, [("1305", ter, num, base + iva_libros, 0, "", "Venta"), ("4135", ter, num, 0, base, "", "Venta"),
                         ("2408", ter, num, 0, iva_libros, "", "IVA generado")], "V")
@@ -317,7 +319,7 @@ def generar(e: dict) -> dict:
     for i, (f, ter, num, base, iva) in enumerate(ventas):
         if num in cobradas_docs or ("factura_sin_registro" in s and i == 9):
             continue
-        extra = (1000 if pais == "CO" else 10) if ("iva_distinto" in s and i == 4) else 0
+        extra = (1000 if dian else 10) if ("iva_distinto" in s and i == 4) else 0
         cxc.append((f, ter, num, r2(base + iva + extra)))
     if "cartera_descuadrada" in s:
         cxc = cxc[1:]

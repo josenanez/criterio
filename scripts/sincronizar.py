@@ -75,10 +75,12 @@ SCRIPTS_CFO = {
     "criterio-budget": {
         "finanzas.py": "el motor de los dos: Tomás toma la ejecución de la misma contabilidad que cierra Clara",
         "nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
+        "paises.json": "el registro único de países: ningún motor escribe el nombre de un país",
     },
 }
 for _p in ("criterio-legal", "criterio-compliance"):
-    SCRIPTS_CFO[_p] = {"nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función"}
+    SCRIPTS_CFO[_p] = {"nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
+                       "paises.json": "el registro único de países: ningún motor escribe el nombre de un país"}
 # La familia CLO tiene su propio motor, con fuente en criterio-legal.
 FUENTE_CLO = RAIZ / "plugins" / "criterio-legal" / "scripts"
 SCRIPTS_CLO = {
@@ -213,8 +215,10 @@ def revisar(escribir: bool) -> int:
                 if not origen.exists():
                     estado["problemas"].append(f"falta la fuente {origen.relative_to(RAIZ)}")
                     continue
+                texto = origen.read_text(encoding="utf-8")
+                # Un JSON no admite comentarios: se copia tal cual, y su campo «nota» dice cuál es la fuente.
                 _comparar(RAIZ / "plugins" / plugin / "scripts" / nombre,
-                          con_cabecera(origen.read_text(encoding="utf-8"), nombre, origen_plugin),
+                          texto if origen.suffix == ".json" else con_cabecera(texto, nombre, origen_plugin),
                           f"{plugin}/scripts/{nombre}", porque, escribir,
                           origen.stat().st_mode, estado)
 

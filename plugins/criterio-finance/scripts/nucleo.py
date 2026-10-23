@@ -93,22 +93,19 @@ def fecha(v) -> dt.date | None:
     return None
 
 
-# El registro único de países: lo que cambia de un país a otro y es igual en cualquier función.
-# Un país entra aquí cuando su material de prueba corrió; lo propio de cada familia —el lector de
-# la factura, la tolerancia, la ley— va en su motor, con la clave del país, y su selftest exige que
-# las claves de los dos coincidan.
-PAISES = {
-    "CO": {"nombre": "Colombia", "id_fiscal": "NIT", "moneda": "COP", "decimal": ","},
-    "EC": {"nombre": "Ecuador", "id_fiscal": "RUC", "moneda": "USD", "decimal": "."},
-}
+# El registro único de países: paises.json, junto a este archivo. Ningún motor escribe el nombre ni
+# el código de un país; lo que cambia de uno a otro —el separador decimal, la identificación fiscal,
+# la moneda, y para la CFO su factura— sale de ahí. Agregar un país es agregar su entrada.
+PAISES = {p["codigo"]: p for p in json.loads((Path(__file__).resolve().parent / "paises.json").read_text(encoding="utf-8"))["paises"]}
+POR_OMISION = next(iter(PAISES))
 
-_PAIS = ["CO"]
+_PAIS = [POR_OMISION]
 
 
 def pais_de(cfg_o_entidad: dict) -> str:
     """El código del país de la entidad, de la configuración o de la entidad misma."""
     ent = cfg_o_entidad.get("entity", cfg_o_entidad) if isinstance(cfg_o_entidad, dict) else {}
-    return ((ent or {}).get("country") or "CO").upper()
+    return ((ent or {}).get("country") or POR_OMISION).upper()
 
 
 def revisar_pais(ent: dict) -> list[str]:
@@ -120,7 +117,7 @@ def revisar_pais(ent: dict) -> list[str]:
 
 
 def mon(x) -> str:
-    """Una cifra como se lee en el país de la entidad: 1.234.567,89 en Colombia, 1,234,567.89 en Ecuador."""
+    """Una cifra como se lee en el país de la entidad, con el separador decimal de su registro."""
     if x is None:
         return "—"
     t = f"{x:,.2f}"
