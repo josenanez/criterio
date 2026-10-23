@@ -2,7 +2,7 @@
 
 **el portal de todas las familias** · plugin `criterio-server`
 
-Corrida del 2026-10-22, sobre el commit `8bdf7cd`, con cambios en el árbol todavía sin confirmar. **3 puertas · 125 comprobaciones · todas en verde.**
+Corrida del 2026-10-23, sobre el commit `7e90877`, con cambios en el árbol todavía sin confirmar. **3 puertas · 125 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-10-22, sobre el commit `8bdf7cd`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 97 | 1169 ms | verde |
-| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 13 | 57 ms | verde |
-| `criterio-server/robots.py` | Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide | 15 | 27 ms | verde |
+| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 97 | 1263 ms | verde |
+| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 13 | 50 ms | verde |
+| `criterio-server/robots.py` | Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide | 15 | 29 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -25,9 +25,12 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 
 ## Los comandos, corridos por un agente de verdad
 
-**0 de 2.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
+**2 de 2** corrieron en la ronda 11 con el plugin instalado desde cero, en 3 industrias; **1** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-11/`](../evidencias/rondas/ronda-11/).
 
-Ninguno todavía. La evidencia se registra con `tests/sintetico/evidencia.py`.
+| Comando | Terminó | Cumplió su contrato | Tiempo |
+|---|---|---|---:|
+| `/criterio-server:server-setup` | 3 de 3 | 3 de 3 | 30–32 s |
+| `/criterio-server:server-start` | 3 de 3 | 2 de 3 | 33–45 s |
 
 
 ## Qué material se usó, y qué prueba cada pieza

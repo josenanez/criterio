@@ -2,7 +2,7 @@
 
 **el agente del gerente de proyecto** · plugin `criterio-project`
 
-Corrida del 2026-10-22, sobre el commit `8bdf7cd`, con cambios en el árbol todavía sin confirmar. **4 puertas · 157 comprobaciones · todas en verde.**
+Corrida del 2026-10-23, sobre el commit `7e90877`, con cambios en el árbol todavía sin confirmar. **4 puertas · 157 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,10 +10,10 @@ Corrida del 2026-10-22, sobre el commit `8bdf7cd`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 72 ms | verde |
-| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 115 | 138 ms | verde |
-| `criterio-project/texto.py` | La copia de la conversión, igual | 23 | 66 ms | verde |
-| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 116 ms | verde |
+| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 50 ms | verde |
+| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 115 | 115 ms | verde |
+| `criterio-project/texto.py` | La copia de la conversión, igual | 23 | 54 ms | verde |
+| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 112 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -27,19 +27,19 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 
 ## Los comandos, corridos por un agente de verdad
 
-**9 de 9** corrieron en la ronda 10 con el plugin instalado desde cero, en 4 industrias; **9** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-10/`](../evidencias/rondas/ronda-10/).
+**9 de 9** corrieron en la ronda 11 con el plugin instalado desde cero, en 3 industrias; **9** cumplieron su contrato en todas. El detalle de cada corrida, con lo que mostró el comando, está en [`tests/evidencias/rondas/ronda-11/`](../evidencias/rondas/ronda-11/).
 
 | Comando | Terminó | Cumplió su contrato | Tiempo |
 |---|---|---|---:|
-| `/criterio-project:pm-agenda` | 4 de 4 | 4 de 4 | 67–112 s |
-| `/criterio-project:pm-commitments` | 4 de 4 | 4 de 4 | 47–59 s |
-| `/criterio-project:pm-escalate` | 4 de 4 | 4 de 4 | 58–73 s |
-| `/criterio-project:pm-minutes` | 4 de 4 | 4 de 4 | 56–68 s |
-| `/criterio-project:pm-plan` | 4 de 4 | 4 de 4 | 60–86 s |
-| `/criterio-project:pm-publish` | 4 de 4 | 4 de 4 | 46–58 s |
-| `/criterio-project:pm-report` | 4 de 4 | 4 de 4 | 46–111 s |
-| `/criterio-project:pm-setup` | 4 de 4 | 4 de 4 | 144–174 s |
-| `/criterio-project:pm-wake` | 4 de 4 | 4 de 4 | 34–65 s |
+| `/criterio-project:pm-agenda` | 3 de 3 | 3 de 3 | 95–122 s |
+| `/criterio-project:pm-commitments` | 3 de 3 | 3 de 3 | 55–75 s |
+| `/criterio-project:pm-escalate` | 3 de 3 | 3 de 3 | 52–105 s |
+| `/criterio-project:pm-minutes` | 3 de 3 | 3 de 3 | 65–99 s |
+| `/criterio-project:pm-plan` | 3 de 3 | 3 de 3 | 74–87 s |
+| `/criterio-project:pm-publish` | 3 de 3 | 3 de 3 | 42–60 s |
+| `/criterio-project:pm-report` | 3 de 3 | 3 de 3 | 54–71 s |
+| `/criterio-project:pm-setup` | 3 de 3 | 3 de 3 | 150–200 s |
+| `/criterio-project:pm-wake` | 3 de 3 | 3 de 3 | 49–58 s |
 
 
 ## Qué material se usó, y qué prueba cada pieza
