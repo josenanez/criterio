@@ -321,17 +321,25 @@
         },
         {
           "id": "F-08",
-          "fuente": "Ecuador · Superintendencia de Compañías, Resolución SC.INPA.UA.G-10.005 de 5 de noviembre de 2010 (Registro Oficial 335, 7 de diciembre de 2010): clasificación de las compañías para aplicar la NIIF para las Pymes",
+          "fuente": "Ecuador · Superintendencia de Compañías, Valores y Seguros, Resolución SCVS-INC-DNCDN-2019-0009 (Registro Oficial 39, 13 de septiembre de 2019): instructivo para aplicar las NIIF completas y la NIIF para las Pymes; su antecedente es la Resolución SC.INPA.UA.G-10.005 de 5 de noviembre de 2010",
           "version": "—",
           "enlaces": [
             [
-              "Superintendencia",
+              "Cámara de Comercio de Quito, texto de la resolución",
+              "https://ccq.ec/wp-content/uploads/2019/10/consultatributariasept.2019.pdf"
+            ],
+            [
+              "Ferrere",
+              "https://www.ferrere.com/en/news/ecuador-nuevos-montos-para-pymes/"
+            ],
+            [
+              "Superintendencia, antecedente de 2010",
               "https://www.supercias.gob.ec/bd_supercias/descargas/niif/Diferencias%20entre%20NIIF%20completas%20y%20NIIF%20para%20las%20PYMES%20y%20su%20aplicacion%20a%20las%20partidas%20contables.pdf"
             ]
           ],
-          "consultada": "2026-10-20",
-          "estado": "por verificar",
-          "nota": "La cita el mismo documento de la Superintendencia, con los límites de activos, ventas y trabajadores; falta consultar el texto de la resolución y sus reformas antes de usar esos límites",
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "nota": "Aplica la NIIF para las Pymes la compañía que cumple las tres condiciones: activos inferiores a 4 millones de dólares, ventas brutas anuales de hasta 5 millones y menos de 200 trabajadores en promedio anual ponderado. El texto de la resolución se consultó en el boletín de la Cámara de Comercio de Quito y lo confirma Ferrere; no se encontró una reforma posterior",
           "uso": "Pregunta de `finance-setup` sobre si la entidad aplica la NIIF para las Pymes"
         }
       ]
