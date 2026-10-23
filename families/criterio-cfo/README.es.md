@@ -26,6 +26,8 @@ con el otro directamente: se hablan por sus fichas.
 
 ## Qué hace la familia
 
+![La familia: Clara y Tomás, una ficha cada uno](../../docs/img/es/familia-cfo.png)
+
 La función financiera tiene dos roles que trabajan sobre los mismos libros y miran cosas
 distintas, y por eso la familia tiene dos agentes. Llevan nombre de persona porque **son
 capacidades extendidas de personas**, y el significado de cada nombre apunta a lo que hace:
@@ -51,7 +53,9 @@ la DIAN y del SRI procesada desde su fuente técnica oficial.
 
 ---
 
-## Cómo trabajan los dos
+## Cómo operan los dos
+
+![Cómo operan los dos agentes](../../docs/img/es/flujo-cfo.png)
 
 El modelo de lenguaje (LLM) extrae; el código calcula; el estado del cierre y del presupuesto lo
 declara siempre una persona. **El motor procesa las tablas directamente** —el balance, el mayor,
@@ -67,6 +71,8 @@ y siguen con la respuesta.
 ## Los dos agentes y sus fichas
 
 Nada se habla con nada directamente. **Cada agente escribe su ficha, y la ficha es el contrato.**
+
+![El contrato: quién escribe cada ficha y quién solo la publica](../../docs/img/es/contrato-cfo.png)
 
 | Ficha | Una por | Qué lleva | Quién la escribe |
 |---|---|---|---|

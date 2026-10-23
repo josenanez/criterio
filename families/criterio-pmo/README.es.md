@@ -77,7 +77,7 @@ persona no deja al agente solo: lo deja sin comida.
 
 Nada se habla con nada directamente. **La ficha de proyecto es el único contrato.**
 
-![El único contrato: quién escribe la ficha y quién solo la lee](../../docs/img/es/contrato.png)
+![El único contrato: quién escribe la ficha y quién solo la publica](../../docs/img/es/contrato.png)
 
 El Product Manager trabaja antes de que exista plan: no escribe en la ficha, **la crea**. Su
 entrega cierra con el acta de constitución, que es el certificado de nacimiento de la ficha.

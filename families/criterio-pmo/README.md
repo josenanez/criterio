@@ -79,7 +79,7 @@ not leave the agent alone: it leaves it without food.
 
 Nothing talks to anything directly. **The project record is the only contract.**
 
-![The single contract: who writes the record and who only reads it](../../docs/img/en/contrato.png)
+![The single contract: who writes the record and who only publishes it](../../docs/img/en/contrato.png)
 
 The Product Manager works before a plan exists: it does not write into the record, **it creates
 it.** Its delivery closes with the charter, which is the record's birth certificate.

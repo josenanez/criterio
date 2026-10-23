@@ -42,7 +42,13 @@
         "en": "More than 1,200 organisations"
       },
       "estado": "verificada",
-      "nota": "Actualización de 2022 de la investigación de 2014, que daba 9,2 %; la nota de Deloitte dice «más de 1.200 organizaciones», no un número exacto"
+      "nota": "Actualización de 2022 de la investigación de 2014, que daba 9,2 %; la nota de Deloitte dice «más de 1.200 organizaciones», no un número exacto",
+      "barra": {
+        "tipo": "share",
+        "valor": 8.6,
+        "es": "8,6 de cada 100 del valor de un contrato",
+        "en": "8.6 of every 100 of a contract’s value"
+      }
     },
     {
       "id": "C-02",
@@ -62,7 +68,13 @@
         "en": "1,000 contracting leaders, within research of more than 2,000 people in 22 countries, January 2021"
       },
       "estado": "verificada",
-      "nota": "Página 7 del informe"
+      "nota": "Página 7 del informe",
+      "barra": {
+        "tipo": "share",
+        "valor": 90,
+        "es": "90 de cada 100 organizaciones",
+        "en": "90 of every 100 organisations"
+      }
     },
     {
       "id": "C-03",

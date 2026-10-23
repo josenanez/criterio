@@ -26,6 +26,8 @@ talks to the other directly: they talk through their records.
 
 ## What the family does
 
+![The family: Fidel and Constanza, each with its records](../../docs/img/en/familia-clo.png)
+
 The legal function has two roles that work on the same documents and answer for different
 things, which is why the family has two agents. They carry a person's name because **they are
 extended capabilities of people**, and what each name means points to what it does: **Fidel**
@@ -53,7 +55,9 @@ requires is defined by the organisation in its matrix, citing its source.
 
 ---
 
-## How the two work
+## How the two operate
+
+![How the two agents operate](../../docs/img/en/flujo-clo.png)
 
 The language model (LLM) extracts; the code calculates; the decision —to renew, to terminate, how
 a clause or a regulation is read— is always made by a person. **The engine processes the tables
@@ -72,6 +76,8 @@ carry on with the answer.
 
 Nothing talks to anything directly. **Each agent writes its records, and the record is the
 contract.**
+
+![The contract: who writes each record and who only publishes it](../../docs/img/en/contrato-clo.png)
 
 | Record | One per | What it holds | Who writes it |
 |---|---|---|---|

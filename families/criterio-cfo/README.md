@@ -26,6 +26,8 @@ the other directly: they talk through their records.
 
 ## What the family does
 
+![The family: Clara and Tomás, one record each](../../docs/img/en/familia-cfo.png)
+
 The finance function has two roles that work on the same books and look at different things,
 which is why the family has two agents. They carry a person's name because **they are extended
 capabilities of people**, and what each name means points to what it does: **Clara** —from
@@ -51,7 +53,9 @@ invoicing processed from its official technical source.
 
 ---
 
-## How the two work
+## How the two operate
+
+![How the two agents operate](../../docs/img/en/flujo-cfo.png)
 
 The language model (LLM) extracts; the code calculates; the status of the close and of the
 budget is always declared by a person. **The engine processes the tables directly** —the trial
@@ -68,6 +72,8 @@ and carry on with the answer.
 
 Nothing talks to anything directly. **Each agent writes its record, and the record is the
 contract.**
+
+![The contract: who writes each record and who only publishes it](../../docs/img/en/contrato-cfo.png)
 
 | Record | One per | What it holds | Who writes it |
 |---|---|---|---|

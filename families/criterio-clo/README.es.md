@@ -26,6 +26,8 @@ habla con el otro directamente: se hablan por sus fichas.
 
 ## Qué hace la familia
 
+![La familia: Fidel y Constanza, cada uno con sus fichas](../../docs/img/es/familia-clo.png)
+
 La función legal tiene dos roles que trabajan sobre los mismos documentos y responden por cosas
 distintas, y por eso la familia tiene dos agentes. Llevan nombre de persona porque **son
 capacidades extendidas de personas**, y el significado de cada nombre apunta a lo que hace:
@@ -54,7 +56,9 @@ exige lo define la organización en su matriz, con la cita de su fuente.
 
 ---
 
-## Cómo trabajan los dos
+## Cómo operan los dos
+
+![Cómo operan los dos agentes](../../docs/img/es/flujo-clo.png)
 
 El modelo de lenguaje (LLM) extrae; el código calcula; la decisión —renovar, terminar, cómo se
 interpreta una cláusula o una norma— la toma siempre una persona. **El motor procesa las tablas
@@ -73,6 +77,8 @@ preguntaron y siguen con la respuesta.
 
 Nada se habla con nada directamente. **Cada agente escribe sus fichas, y la ficha es el
 contrato.**
+
+![El contrato: quién escribe cada ficha y quién solo la publica](../../docs/img/es/contrato-clo.png)
 
 | Ficha | Una por | Qué lleva | Quién la escribe |
 |---|---|---|---|

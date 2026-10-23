@@ -33,6 +33,7 @@ from fontTools.ttLib import TTFont
 from PIL import Image, ImageDraw, ImageFont
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
+RAIZ = os.path.normpath(os.path.join(AQUI, '..', '..'))
 sys.path.insert(0, os.path.join(AQUI, '..', '..', 'plugins', 'criterio-server', 'scripts'))
 import robots as trazos  # noqa: E402
 # El nombre de cada familia —la sigla y la función en palabras— es de familia.json, por medio del
@@ -183,7 +184,7 @@ T = {
         'comparten': 'Lo que comparten',
         'ficha_tit': 'La ficha de proyecto',
         'ficha_desc': 'Cada dato con la cita del documento del que salió, y su fecha. '
-                      'Ningún agente lee documentos crudos por su cuenta.',
+                      'Ningún agente vuelve por su cuenta a los documentos crudos.',
         'regla': 'La ficha del gerente es una declaración. El hallazgo de Vera es '
                  'evidencia. Nunca se fusionan, y la diferencia entre las dos es la señal.',
         'propias': 'Propias',
@@ -239,25 +240,25 @@ T = {
         'fl_tit': 'Ninguna flecha va de un agente a otro',
         'fl_cajas': [('LA DEFINICIÓN', 'Alba', 'Antes de que exista el proyecto'), ('EL PROYECTO', 'Samuel', 'Un proyecto, cadencia de reunión'), ('EL PORTAFOLIO', 'Vera', 'Cuarenta proyectos, cadencia de comité'), ('EL EQUIPO', 'Rostrum', 'Quien no va a abrir una carpeta')],
         'fl_peticion': 'la petición: revisar · explicar · corregir',
-        'fl_traza': '¿se está construyendo mi producto? · Alba lee la ficha del proyecto',
+        'fl_traza': '¿se está construyendo mi producto? · Alba procesa la ficha del proyecto',
         'fl_gente': 'Y LAS PERSONAS, QUE NO SE VAN',
         'fl_personas': [('El gerente de producto', 'Habla con el cliente, decide qué se construye y firma el acta.'), ('El gerente de proyecto', 'Dirige la reunión, negocia, y declara el estado de su proyecto.'), ('El gerente de la PMO', 'Decide qué escala y persigue lo que el informe pide.')],
         'fl_nota': 'Todo cruza por un documento. Dos agentes que se hablan directo son dos agentes que hay que desplegar juntos, y el insumo de cada uno lo produce el trabajo no delegable de su persona.',
 
         'fl_cruza': [('el acta de constitución', 'y con ella nace la ficha del proyecto'),
-                     ('ficha-pm.json', 'publicada en la carpeta de gobierno del proyecto, y Vera la lee como lee todo lo demás'),
+                     ('ficha-pm.json', 'publicada en la carpeta de gobierno del proyecto, y Vera la procesa como procesa todo lo demás'),
                      ('el informe', 'en una dirección, para quien no va a abrir una carpeta')],
         # ── el único contrato ──
         'ct_ante': 'EL ÚNICO CONTRATO',
         'ct_tit': 'Nada se habla con nada directamente',
         'ct_ficha': 'La ficha de proyecto',
         'ct_ficha_sub': 'Cada dato con la cita del documento del que salió, y su fecha.',
-        'ct_escriben': [('Alba', 'La crea, con el acta de constitución'), ('Samuel', 'Escribe la ficha del proyecto, salvo el estado declarado'), ('Vera', 'Escribe su lectura de portafolio, y lee todas')],
+        'ct_escriben': [('Alba', 'La crea, con el acta de constitución'), ('Samuel', 'Escribe la ficha del proyecto, salvo el estado declarado'), ('Vera', 'Escribe su análisis del portafolio, y procesa todas')],
         'ct_lee': ('Rostrum', 'Publica el informe donde el equipo lo lea'),
-        'ct_solo_lee': 'solo lee',
+        'ct_solo_lee': 'solo publica',
         'ct_orden': 'Y EL ORDEN EN EL TIEMPO',
         'ct_tiempo': [('Alba', 'Define. Su entrega cierra con el acta, que es el certificado de nacimiento de la ficha.'), ('Samuel', 'Ejecuta. Un proyecto, con cadencia de reunión.'), ('Vera', 'Vigila el conjunto, con cadencia de comité.')],
-        'ct_nota': 'Ningún agente escribe el estado declarado: eso lo escribe una persona. Y la ficha del gerente y la lectura de la PMO no se fusionan nunca — la diferencia entre las dos es el hallazgo.',
+        'ct_nota': 'Ningún agente escribe el estado declarado: eso lo escribe una persona. Y la ficha del gerente y el análisis de la PMO no se fusionan nunca — la diferencia entre las dos es el hallazgo.',
     },
     'en': {
         'pmo_fr': 'I process the documentation your PMO already has, and say what does not hold.',
@@ -300,7 +301,7 @@ T = {
         'comparten': 'What they share',
         'ficha_tit': 'The project record',
         'ficha_desc': 'Every field with the citation of the document it came from, and its '
-                      'date. No agent reads raw documents on its own.',
+                      'date. No agent goes back to the raw documents on its own.',
         'regla': "The manager's record is a declaration. Vera's finding is evidence. They never "
                  "merge, and the gap between them is the signal.",
         'propias': 'Its own',
@@ -356,25 +357,25 @@ T = {
         'fl_tit': 'No arrow goes from one agent to another',
         'fl_cajas': [('THE DEFINITION', 'Alba', 'Before the project exists'), ('THE PROJECT', 'Samuel', 'One project, meeting cadence'), ('THE PORTFOLIO', 'Vera', 'Forty projects, committee cadence'), ('THE TEAM', 'Rostrum', 'Whoever will not open a folder')],
         'fl_peticion': 'the request: review · explain · correct',
-        'fl_traza': 'is my product being built? · Alba reads the project record',
+        'fl_traza': 'is my product being built? · Alba processes the project record',
         'fl_gente': 'AND THE PEOPLE, WHO DO NOT LEAVE',
         'fl_personas': [('The product manager', 'Talks to the customer, decides what gets built and signs the charter.'), ('The project manager', 'Runs the meeting, negotiates, and declares the project status.'), ('The PMO manager', 'Decides what escalates and chases what the report asks for.')],
         'fl_nota': "Everything crosses through a document. Two agents talking directly are two agents you have to deploy together, and each one's input is produced by work its person cannot delegate.",
 
         'fl_cruza': [('the project charter', "and with it the project's record is born"),
-                     ('ficha-pm.json', "published into the project's governance folder, where Vera reads it like any other document"),
+                     ('ficha-pm.json', "published into the project's governance folder, where Vera processes it like any other document"),
                      ('the report', 'at an address, for whoever will not open a folder')],
         # ── el único contrato ──
         'ct_ante': 'THE SINGLE CONTRACT',
         'ct_tit': 'Nothing talks to anything directly',
         'ct_ficha': 'The project record',
         'ct_ficha_sub': 'Every value with the citation of the document it came from, and its date.',
-        'ct_escriben': [('Alba', 'Creates it, with the project charter'), ('Samuel', "Writes the project's record, except the declared status"), ('Vera', 'Writes her portfolio reading, and reads all of them')],
+        'ct_escriben': [('Alba', 'Creates it, with the project charter'), ('Samuel', "Writes the project's record, except the declared status"), ('Vera', 'Writes her portfolio analysis, and processes all of them')],
         'ct_lee': ('Rostrum', 'Publishes the report where the team will read it'),
-        'ct_solo_lee': 'reads only',
+        'ct_solo_lee': 'only publishes',
         'ct_orden': 'AND THE ORDER IN TIME',
         'ct_tiempo': [('Alba', "Defines. Her delivery closes with the charter, the record's birth certificate."), ('Samuel', 'Executes. One project, meeting cadence.'), ('Vera', 'Watches the whole, committee cadence.')],
-        'ct_nota': "No agent writes the declared status: a person writes that. And the manager's record and the PMO's reading never merge — the difference between them is the finding.",
+        'ct_nota': "No agent writes the declared status: a person writes that. And the manager's record and the PMO's analysis never merge — the difference between them is the finding.",
     },
 }
 
@@ -383,6 +384,206 @@ SKILLS_COMPARTIDOS = ['project-record', 'document-intake', 'baseline-variance',
 SKILLS_PMO = ['portfolio-health', 'project-diagnosis', 'portfolio-history', 'vendor-control']
 SKILLS_PM = ['commitment-tracking']
 SKILLS_PROD = ['requirement-record', 'demand-evidence', 'product-health']
+
+
+# ══════════════════════════════════════════════ las figuras de la CFO y la CLO
+# La misma forma que las de la PMO —la familia, cómo operan, el contrato—, con el texto de cada
+# familia. Los agentes, sus roles y sus skills salen de familia.json y de las carpetas de cada
+# plugin; aquí solo va lo que se dice en la figura.
+
+def _familia_json(sg):
+    with open(os.path.join(RAIZ, 'families', f'criterio-{sg}', 'familia.json'), encoding='utf-8') as fh:
+        return json.load(fh)
+
+
+def _skills(plugin):
+    carpeta = os.path.join(RAIZ, 'plugins', plugin, 'skills')
+    return sorted(x for x in os.listdir(carpeta) if os.path.isdir(os.path.join(carpeta, x)))
+
+
+def compartidos_de(sg):
+    """Los skills que tienen todos los agentes de la familia: copias literales."""
+    conjuntos = [set(_skills(a['plugin'])) for a in _familia_json(sg)['agentes']]
+    return sorted(set.intersection(*conjuntos))
+
+
+def agentes_de(sg, t):
+    comunes = set(compartidos_de(sg))
+    salida = []
+    for a in _familia_json(sg)['agentes']:
+        idioma = t['_idioma']
+        para, desc = t['fig_agentes'][a['id']]
+        propios = [x for x in _skills(a['plugin']) if x not in comunes]
+        salida.append((a['id'], a['nombre'], a['rol'][idioma], para, desc, t['disponible'], True, propios))
+    return salida
+
+
+FIG = {
+    'cfo': {
+        'es': {
+            '_idioma': 'es',
+            'fam_tit': 'Dos agentes, una ficha cada uno',
+            'fig_agentes': {
+                'clara': ('Para quien cierra el mes y responde por lo que dicen los libros',
+                          'Un cierre por periodo. Todos los documentos del mes, no una muestra.'),
+                'tomas': ('Para quien pone el presupuesto al lado de lo ejecutado',
+                          'Un presupuesto por área y año, contra la contabilidad que cierra Clara.'),
+            },
+            'ficha_tit': 'Las fichas del cierre y del presupuesto',
+            'ficha_desc': 'Cada dato con la cita del documento del que salió, y su fecha. Las tablas las '
+                          'procesa el motor; la ficha lleva lo que solo dice un documento escrito.',
+            'regla': 'El estado del cierre lo declara el contralor y el del presupuesto, el responsable '
+                     'del área. Lo declarado y lo evidenciado nunca se fusionan: la diferencia es la señal.',
+            'fl_ante': 'Cómo operan los dos',
+            'fl_cajas': [('EL CIERRE', 'Clara', 'Una entidad y un periodo, cadencia mensual', 'clara'),
+                         ('EL PRESUPUESTO', 'Tomás', 'Un área y un año, cadencia de comité', 'tomas'),
+                         ('EL EQUIPO', 'Rostrum', 'Quien no va a abrir una carpeta', 'rostrum')],
+            'fl_cruza': [('la contabilidad cerrada del periodo',
+                          'en 10-contabilidad/: Tomás toma de ahí la ejecución, sin copiarla'),
+                         ('el informe', 'en una dirección, para quien no va a abrir una carpeta')],
+            'fl_lazos': ((2, 0, 'la pregunta escrita en Rostrum: Clara o Tomás la atienden en su siguiente corrida', 60),),
+            'fl_personas': [('El contralor', 'Registra los asientos, firma y declara el estado del cierre.'),
+                            ('El responsable del área', 'Aprueba los traslados y declara el estado de su presupuesto.'),
+                            ('El comité', 'Decide con el material que prepara Tomás.')],
+            'fl_nota': 'Todo cruza por un documento: la contabilidad cerrada, la ficha, el informe. Y el '
+                       'insumo de cada agente lo produce el trabajo no delegable de su persona.',
+            'ct_ante': 'El contrato',
+            'ct_ficha': 'Las fichas',
+            'ct_ficha_sub': 'La del cierre y la del presupuesto: cada dato con su cita y su fecha.',
+            'ct_escriben': [('Clara', 'Escribe la ficha del cierre, salvo el estado declarado'),
+                            ('Tomás', 'Escribe la ficha del presupuesto, salvo el estado declarado')],
+            'ct_lee': ('Rostrum', 'Publica el informe donde el equipo lo vea'),
+            'ct_solo_lee': 'solo publica',
+            'ct_tiempo': [('Clara', 'Cierra el periodo con su checklist y su evidencia.'),
+                          ('Tomás', 'Toma la ejecución de esa misma contabilidad.'),
+                          ('El comité', 'Decide con el material de Tomás.')],
+            'ct_nota': 'Ningún agente declara el estado: lo declara el contralor o el responsable del área. '
+                       'Y lo declarado y lo evidenciado no se fusionan nunca — la diferencia es el hallazgo.',
+        },
+        'en': {
+            '_idioma': 'en',
+            'fam_tit': 'Two agents, one record each',
+            'fig_agentes': {
+                'clara': ('For whoever closes the month and answers for what the books say',
+                          'One close per period. Every document of the month, not a sample.'),
+                'tomas': ('For whoever sets the budget beside what was spent',
+                          'One budget per area and year, against the books Clara closes.'),
+            },
+            'ficha_tit': 'The close and budget records',
+            'ficha_desc': 'Every item cited to the document it came from, with its date. The engine '
+                          'processes the tables; the record carries what only a written document says.',
+            'regla': 'The controller declares the status of the close and the area owner that of the '
+                     'budget. Declared and evidenced never merge: the difference is the signal.',
+            'fl_ante': 'How the two operate',
+            'fl_cajas': [('THE CLOSE', 'Clara', 'One entity and one period, monthly cadence', 'clara'),
+                         ('THE BUDGET', 'Tomás', 'One area and one year, committee cadence', 'tomas'),
+                         ('THE TEAM', 'Rostrum', 'Whoever will not open a folder', 'rostrum')],
+            'fl_cruza': [("the period's closed books",
+                          'in 10-contabilidad/: Tomás takes the execution from there, without copying it'),
+                         ('the report', 'one way, for whoever will not open a folder')],
+            'fl_lazos': ((2, 0, 'the question written in Rostrum: Clara or Tomás answer it on their next run', 60),),
+            'fl_personas': [('The controller', 'Posts the entries, signs and declares the status of the close.'),
+                            ('The area owner', 'Approves transfers and declares the status of their budget.'),
+                            ('The committee', 'Decides on the material Tomás prepares.')],
+            'fl_nota': "Everything crosses through a document: the closed books, the record, the report. And "
+                       "each agent's input is produced by its person's non-delegable work.",
+            'ct_ante': 'The contract',
+            'ct_ficha': 'The records',
+            'ct_ficha_sub': 'The close record and the budget record: every item with its citation and date.',
+            'ct_escriben': [('Clara', 'Writes the close record, except the declared status'),
+                            ('Tomás', 'Writes the budget record, except the declared status')],
+            'ct_lee': ('Rostrum', 'Publishes the report where the team will see it'),
+            'ct_solo_lee': 'only publishes',
+            'ct_tiempo': [('Clara', 'Closes the period with its checklist and evidence.'),
+                          ('Tomás', 'Takes the execution from those same books.'),
+                          ('The committee', 'Decides on the material Tomás prepares.')],
+            'ct_nota': 'No agent declares the status: the controller or the area owner does. And declared '
+                       'and evidenced never merge — the difference is the finding.',
+        },
+    },
+    'clo': {
+        'es': {
+            '_idioma': 'es',
+            'fam_tit': 'Dos agentes, cada uno con sus fichas',
+            'fig_agentes': {
+                'fidel': ('Para quien responde por lo que la empresa firmó',
+                          'Cada contrato vigente: lo que obliga, lo que vence y quién lo firmó.'),
+                'constanza': ('Para quien responde por cada obligación y su evidencia',
+                              'Cada obligación de cumplimiento contra su evidencia, a su plazo.'),
+            },
+            'ficha_tit': 'Las fichas del contrato y del periodo',
+            'ficha_desc': 'Cada dato con la cita del documento y la cláusula de la que salió. Ninguno '
+                          'interpreta una cláusula ni da una opinión jurídica.',
+            'regla': 'Renovar, terminar o cómo se interpreta una norma lo decide siempre una persona. Lo '
+                     'declarado y lo evidenciado nunca se fusionan: la diferencia es la señal.',
+            'fl_ante': 'Cómo operan los dos',
+            'fl_cajas': [('LOS CONTRATOS', 'Fidel', 'Cada contrato, con su calendario de vencimientos', 'fidel'),
+                         ('EL CUMPLIMIENTO', 'Constanza', 'Una entidad y un periodo de cumplimiento', 'constanza'),
+                         ('EL EQUIPO', 'Rostrum', 'Quien no va a abrir una carpeta', 'rostrum')],
+            'fl_cruza': [('la ficha de cada contrato',
+                          'en su carpeta de contratos/: Constanza toma de ahí las obligaciones de cumplimiento, sin copiarlas'),
+                         ('el informe', 'en una dirección, para quien no va a abrir una carpeta')],
+            'fl_lazos': ((2, 0, 'la pregunta escrita en Rostrum: Fidel o Constanza la atienden en su siguiente corrida', 60),),
+            'fl_personas': [('Quien decide sobre el contrato', 'Decide renovar o terminar, y cómo se interpreta una cláusula.'),
+                            ('El oficial de cumplimiento', 'Declara el estado del cumplimiento del periodo.'),
+                            ('La organización', 'Define cada obligación en su matriz, con su fuente.')],
+            'fl_nota': 'Todo cruza por un documento: la ficha del contrato, la del periodo, el informe. Y el '
+                       'insumo de cada agente lo produce el trabajo no delegable de su persona.',
+            'ct_ante': 'El contrato',
+            'ct_ficha': 'Las fichas',
+            'ct_ficha_sub': 'La de cada contrato y la del periodo: cada dato con su cita y su fecha.',
+            'ct_escriben': [('Fidel', 'Escribe la ficha de cada contrato, salvo la decisión de renovar'),
+                            ('Constanza', 'Escribe la ficha del periodo, salvo el estado declarado')],
+            'ct_lee': ('Rostrum', 'Publica el informe donde el equipo lo vea'),
+            'ct_solo_lee': 'solo publica',
+            'ct_tiempo': [('Fidel', 'Registra cada contrato, sus fechas y sus obligaciones.'),
+                          ('Constanza', 'Toma de esas fichas las obligaciones de cumplimiento.'),
+                          ('El oficial de cumplimiento', 'Declara el estado del periodo.')],
+            'ct_nota': 'Ningún agente declara ni decide: el estado lo declara el oficial de cumplimiento y '
+                       'renovar lo decide una persona. Lo declarado y lo evidenciado no se fusionan nunca.',
+        },
+        'en': {
+            '_idioma': 'en',
+            'fam_tit': 'Two agents, each with its records',
+            'fig_agentes': {
+                'fidel': ('For whoever answers for what the company signed',
+                          'Every contract in force: what it commits to, what expires and who signed it.'),
+                'constanza': ('For whoever answers for each obligation and its evidence',
+                              'Every compliance obligation against its evidence, by its deadline.'),
+            },
+            'ficha_tit': 'The contract and period records',
+            'ficha_desc': 'Every item cited to the document and clause it came from. Neither interprets a '
+                          'clause or gives a legal opinion.',
+            'regla': 'Renewing, terminating or how a rule is read is always decided by a person. Declared '
+                     'and evidenced never merge: the difference is the signal.',
+            'fl_ante': 'How the two operate',
+            'fl_cajas': [('THE CONTRACTS', 'Fidel', 'Every contract, with its expiry calendar', 'fidel'),
+                         ('COMPLIANCE', 'Constanza', 'One entity and one compliance period', 'constanza'),
+                         ('THE TEAM', 'Rostrum', 'Whoever will not open a folder', 'rostrum')],
+            'fl_cruza': [("each contract's record",
+                          'in its contratos/ folder: Constanza takes the compliance obligations from there, without copying them'),
+                         ('the report', 'one way, for whoever will not open a folder')],
+            'fl_lazos': ((2, 0, 'the question written in Rostrum: Fidel or Constanza answer it on their next run', 60),),
+            'fl_personas': [('Whoever decides on the contract', 'Decides to renew or terminate, and how a clause is read.'),
+                            ('The compliance officer', "Declares the period's compliance status."),
+                            ('The organisation', 'Defines each obligation in its matrix, with its source.')],
+            'fl_nota': "Everything crosses through a document: the contract record, the period record, the "
+                       "report. And each agent's input is produced by its person's non-delegable work.",
+            'ct_ante': 'The contract',
+            'ct_ficha': 'The records',
+            'ct_ficha_sub': "Each contract's and the period's: every item with its citation and date.",
+            'ct_escriben': [('Fidel', "Writes each contract's record, except the decision to renew"),
+                            ('Constanza', "Writes the period's record, except the declared status")],
+            'ct_lee': ('Rostrum', 'Publishes the report where the team will see it'),
+            'ct_solo_lee': 'only publishes',
+            'ct_tiempo': [('Fidel', 'Records each contract, its dates and obligations.'),
+                          ('Constanza', 'Takes the compliance obligations from those records.'),
+                          ('The compliance officer', "Declares the period's status.")],
+            'ct_nota': 'No agent declares or decides: the compliance officer declares the status and a person '
+                       'decides to renew. Declared and evidenced never merge.',
+        },
+    },
+}
 
 
 # ══════════════════════════════════════════════════════════════════ emblemas
@@ -426,7 +627,7 @@ def emblema(t, sigla, fn, fr, estado):
     for linea in lineas:
         d.text((X, y), linea, font=f(R, 27), fill=APAGADO)
         y += 38
-    insignia(d, (X, 600), estado, estado in (t['disponible'], t['en_prueba']))
+    insignia(d, (X, 600), estado, True)
     return img
 
 
@@ -623,7 +824,7 @@ def etiquetas(d, x, y, items, ancho, fill=APAGADO, borde=FILETE_FUERTE):
     return cy + 33
 
 
-def familia(t):
+def familia(t, agentes=None, compartidos=None):
     W, H = 1680, 1260
     img = Image.new('RGB', (W, H), NEGRO)
     d = ImageDraw.Draw(img)
@@ -631,20 +832,23 @@ def familia(t):
 
     titulo(d, (M, 66), t['fam_ante'], t['fam_tit'], W - 2 * M, 50)
 
-    # tres columnas
-    col = (W - 2 * M - 2 * 36) // 3
-    agentes = [
+    if agentes is None:
+        agentes = [
         # Los tres disponibles. La insignia dice qué se puede instalar hoy, no qué tan
         # probado está: eso lo dice el estado de cada plugin y la página de pruebas, con
         # la distinción que importa — construido y verificado sobre corpus, no probado
         # sobre documentación real.
-        (t['n1'], t['ag1'], t['ag1_para'], t['ag1_desc'], t['disponible'], True, SKILLS_PMO),
-        (t['n2'], t['ag2'], t['ag2_para'], t['ag2_desc'], t['disponible'], True, SKILLS_PM),
-        (t['n3'], t['ag3'], t['ag3_para'], t['ag3_desc'], t['disponible'], True, SKILLS_PROD),
-    ]
+        (trazos.ORDEN[0], t['n1'], t['ag1'], t['ag1_para'], t['ag1_desc'], t['disponible'], True, SKILLS_PMO),
+        (trazos.ORDEN[1], t['n2'], t['ag2'], t['ag2_para'], t['ag2_desc'], t['disponible'], True, SKILLS_PM),
+        (trazos.ORDEN[2], t['n3'], t['ag3'], t['ag3_para'], t['ag3_desc'], t['disponible'], True, SKILLS_PROD),
+        ]
+    compartidos = SKILLS_COMPARTIDOS if compartidos is None else compartidos
+    # una columna por agente
+    n = len(agentes)
+    col = (W - 2 * M - (n - 1) * 36) // n
     TOP, ALTO = 238, 520
     ROBOT = 96                 # de ancho; de alto, 136
-    for i, (nombre, rol, para, desc, estado, activo, propios) in enumerate(agentes):
+    for i, (rid, nombre, rol, para, desc, estado, activo, propios) in enumerate(agentes):
         x = M + i * (col + 36)
         d.rounded_rectangle([(x, TOP), (x + col, TOP + ALTO)], radius=10,
                             fill=PANEL, outline=ORO if activo else FILETE, width=2)
@@ -652,7 +856,7 @@ def familia(t):
         # la insignia va arriba a la derecha, y el robot debajo de ella: el texto de la
         # izquierda se envuelve en el ancho que el robot le deja
         insignia(d, (px, TOP + 26), estado, activo, derecha=x + col - 28)
-        bajo_robot = pegar(img, robot(trazos.ORDEN[i], ROBOT), x + col - 28 - ROBOT, TOP + 84)
+        bajo_robot = pegar(img, robot(rid, ROBOT), x + col - 28 - ROBOT, TOP + 84)
         d.text((px, TOP + 78), nombre, font=f(M6, 44), fill=ORO if activo else CREMA)
         d.text((px, TOP + 136), rol, font=f(R, 22), fill=APAGADO)
         y = parrafo(d, (px, TOP + 180), para, f(R, 23), APAGADO, col - 56 - ROBOT - 24, 32)
@@ -668,7 +872,7 @@ def familia(t):
     BY = TOP + ALTO + 54
     d.rounded_rectangle([(M, BY), (W - M, BY + 128)], radius=10, outline=FILETE, width=2)
     d.text((M + 28, BY + 24), t['comparten'], font=f(M6, 22), fill=ORO)
-    etiquetas(d, M + 28, BY + 62, SKILLS_COMPARTIDOS, W - 2 * M - 56)
+    etiquetas(d, M + 28, BY + 62, compartidos, W - 2 * M - 56)
 
     # la ficha, que es el contrato
     FY = BY + 128 + 54
@@ -955,32 +1159,37 @@ def flujo(t):
     primera versión de esta figura los escribió encima del nombre del agente siguiente.
     En vertical el texto tiene todo el ancho que necesite.
     """
-    W, H, M = 1680, 1560, 72
+    CAJA, SALTO = 128, 124
+    TOP = 246
+    cajas = t['fl_cajas']
+    # el alto sale del número de cajas: con las cuatro de la PMO da los mismos 1560
+    W, M = 1680, 72
+    H = TOP + len(cajas) * (CAJA + SALTO) - SALTO + 74 + 196 + 160
     img = Image.new('RGB', (W, H), NEGRO)
     d = ImageDraw.Draw(img)
     titulo(d, (M, 66), t['fl_ante'], t['fl_tit'], W - 2 * M, 46)
 
-    CAJA, SALTO = 128, 124
     ANCHO = 940            # la tarjeta; a la derecha quedan los lazos de vuelta
-    TOP = 246
     ys = []
-    for i, (etapa, nombre, quien) in enumerate(t['fl_cajas']):
+    for i, caja in enumerate(cajas):
+        etapa, nombre, quien = caja[:3]
+        rid = caja[3] if len(caja) > 3 else nombre.lower()
         y = TOP + i * (CAJA + SALTO)
         ys.append(y)
-        agente = i < 3
+        agente = i < len(cajas) - 1      # la última es Rostrum, que no es agente
         d.rounded_rectangle([(M, y), (M + ANCHO, y + CAJA)], radius=10,
                             fill=PANEL if agente else None,
                             outline=ORO if agente else FILETE_FUERTE, width=2)
         track(d, (M + 26, y + 22), etapa, f(M6, 18), APAGADO, 2.4)
         d.text((M + 26, y + 56), nombre, font=f(M5, 40), fill=ORO if agente else CREMA)
         # el agente encendido; Rostrum, que no es agente, en crema
-        r = robot(nombre.lower(), 70, ORO if agente else CREMA)
+        r = robot(rid, 70, ORO if agente else CREMA)
         pegar(img, r, M + ANCHO - 30 - r.width, y + (CAJA - r.height) // 2)
         fin = parrafo(d, (M + 300, y + 62), quien, f(R, 22), APAGADO, ANCHO - 330 - 100, 30)
         assert fin < y + CAJA - 8, f'{nombre}: el texto se sale de la tarjeta'
 
         # la flecha hacia la siguiente, con lo que cruza escrito al lado
-        if i < len(t['fl_cajas']) - 1:
+        if i < len(cajas) - 1:
             cx = M + 110
             y0, y1 = y + CAJA + 12, y + CAJA + SALTO - 12
             d.line([(cx, y0), (cx, y1)], fill=ORO, width=2)
@@ -1006,15 +1215,15 @@ def flujo(t):
                       f(R, 20), APAGADO, W - M - x - 28, 27)
         assert fin < H - 380, 'el texto del lazo se sale de la figura'
 
-    lazo(3, 2, t['fl_peticion'], 60)
-    lazo(2, 0, t['fl_traza'], 150)
+    for desde, hasta, texto, carril in t.get('fl_lazos', ((3, 2, t['fl_peticion'], 60), (2, 0, t['fl_traza'], 150))):
+        lazo(desde, hasta, texto, carril)
 
     # la banda de las personas: cada agente se alimenta de trabajo no delegable
     BY = ys[-1] + CAJA + 74
     d.rounded_rectangle([(M, BY), (W - M, BY + 196)], radius=10, fill=PANEL,
                         outline=FILETE_FUERTE, width=2)
     track(d, (M + 28, BY + 24), t['fl_gente'], f(M6, 18), ORO, 2.4)
-    paso = (W - 2 * M - 56) // 3
+    paso = (W - 2 * M - 56) // len(t['fl_personas'])
     for i, (quien, hace) in enumerate(t['fl_personas']):
         x = M + 28 + i * paso
         fin = parrafo(d, (x, BY + 106), hace, f(R, 20), APAGADO, paso - 34, 27)
@@ -1058,7 +1267,7 @@ def contrato(t):
 
     # los tres que escriben, a la izquierda
     CW, CH, HUECO = 340, 116, 20
-    ALTO = 3 * CH + 2 * HUECO
+    ALTO = len(t['ct_escriben']) * CH + (len(t['ct_escriben']) - 1) * HUECO
     y0 = fy + FH // 2 - ALTO // 2
     for i, (quien, que) in enumerate(t['ct_escriben']):
         y = y0 + i * (CH + HUECO)
@@ -1100,13 +1309,13 @@ def contrato(t):
     d.rounded_rectangle([(M, BY), (W - M, BY + 190)], radius=10, fill=PANEL,
                         outline=FILETE_FUERTE, width=2)
     track(d, (M + 28, BY + 24), t['ct_orden'], f(M6, 18), ORO, 2.4)
-    paso = (W - 2 * M - 56) // 3
+    paso = (W - 2 * M - 56) // len(t['ct_tiempo'])
     for i, (quien, que) in enumerate(t['ct_tiempo']):
         x = M + 28 + i * paso
         d.text((x, BY + 62), quien, font=f(M5, 26), fill=CREMA)
         fin = parrafo(d, (x, BY + 100), que, f(R, 19), APAGADO, paso - 80, 25)
         assert fin < BY + 190 - 6, f'{quien}: el texto se sale de la banda'
-        if i < 2:
+        if i < len(t['ct_tiempo']) - 1:
             ax = x + paso - 52
             ay = BY + 74
             d.line([(ax, ay), (ax + 28, ay)], fill=ORO, width=2)
@@ -1132,9 +1341,16 @@ if __name__ == '__main__':
     marca()
     for idioma, t in T.items():
         print(idioma)
-        for sg, estado in (('pmo', t['disponible']), ('cfo', t['en_prueba']), ('clo', t['en_prueba'])):
-            guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], estado), idioma, f'{sg}.png')
+        # el estado de cada familia es el de su familia.json, por medio del registro
+        for sg in ('pmo', 'cfo', 'clo'):
+            guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], FAMILIA[sg]['estado'][idioma]), idioma, f'{sg}.png')
         guardar(familia(t), idioma, 'familia.png')
+        # las tres figuras de la PMO, con la misma forma, para la CFO y la CLO
+        for sg in ('cfo', 'clo'):
+            tf = {**t, **FIG[sg][idioma]}
+            guardar(familia(tf, agentes_de(sg, tf), compartidos_de(sg)), idioma, f'familia-{sg}.png')
+            guardar(flujo(tf), idioma, f'flujo-{sg}.png')
+            guardar(contrato(tf), idioma, f'contrato-{sg}.png')
         for clave in ('pmo', 'cfo', 'clo', 'rostrum'):
             guardar(tarjeta_social(t, clave, idioma), idioma, f'og-{clave}.png')
         guardar(flujo(t), idioma, 'flujo.png')

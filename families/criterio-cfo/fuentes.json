@@ -364,7 +364,13 @@
         "en": "Not stated in the note"
       },
       "estado": "verificada",
-      "nota": "Registro de cifras del proyecto"
+      "nota": "Registro de cifras del proyecto",
+      "barra": {
+        "tipo": "share",
+        "valor": 44,
+        "es": "44 de cada 100 organizaciones",
+        "en": "44 of every 100 organisations"
+      }
     },
     {
       "id": "C-02",
@@ -384,7 +390,13 @@
         "en": "About 150 SOX professionals"
       },
       "estado": "verificada",
-      "nota": "La fuente dice «manuales», no «totalmente manuales»"
+      "nota": "La fuente dice «manuales», no «totalmente manuales»",
+      "barra": {
+        "tipo": "share",
+        "valor": 45,
+        "es": "45 de cada 100 controles SOX",
+        "en": "45 of every 100 SOX controls"
+      }
     },
     {
       "id": "C-03",
@@ -404,7 +416,20 @@
         "en": "Not stated in the note; the benchmarking measure reports the 18.0-day median across 2,214 organisations"
       },
       "estado": "verificada",
-      "nota": "Los cuartiles de la medida de benchmarking son de acceso restringido; las cifras de 10 y 35 días salen de la nota"
+      "nota": "Los cuartiles de la medida de benchmarking son de acceso restringido; las cifras de 10 y 35 días salen de la nota",
+      "barra": {
+        "tipo": "overrun",
+        "base": 10,
+        "actual": 18,
+        "es": [
+          "Los más rápidos",
+          "La mediana"
+        ],
+        "en": [
+          "The fastest",
+          "The median"
+        ]
+      }
     },
     {
       "id": "C-04",
@@ -424,7 +449,13 @@
         "en": "497 people in the controllership function, surveyed in July 2023"
       },
       "estado": "verificada",
-      "nota": "La muestra es de la función de contraloría, no solo de contadores"
+      "nota": "La muestra es de la función de contraloría, no solo de contadores",
+      "barra": {
+        "tipo": "share",
+        "valor": 18,
+        "es": "18 de cada 100 personas de contraloría",
+        "en": "18 of every 100 controllership staff"
+      }
     }
   ]
 }
