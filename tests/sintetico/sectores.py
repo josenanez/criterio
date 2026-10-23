@@ -4,8 +4,9 @@ documentación de una organización del sector.
 
     python3 tests/sintetico/simulador.py <carpeta> --dia 1 --sector cooperativas
 
-Cuatro entornos, en tres industrias de Suramérica: entidades financieras (bancos y
-cooperativas de ahorro y crédito), retail y minería. No hay una empresa con nombre detrás
+Seis entornos, en cinco industrias de Suramérica: entidades financieras (bancos y
+cooperativas de ahorro y crédito), retail, minería, construcción e infraestructura, y
+petróleo y gas. No hay una empresa con nombre detrás
 de ninguno: es documentación representativa del sector, y así se presenta.
 
 **El motor es uno; los hechos y el papel, de cada entorno.** Las reglas que deciden
@@ -286,14 +287,136 @@ COOPERATIVAS = {
     "CONTROL_PRD": "Kit de bienvenida del asociado",
 }
 
-# Las cuatro, y la industria a la que pertenece cada una. Los bancos conservan la semilla
+CONSTRUCCION = {
+    "ETIQUETA": "Empresas de construcción e infraestructura de Suramérica · vías y edificaciones",
+    "AREAS": ["Proyectos", "Ingeniería", "Interventoría", "Compras", "Seguridad y Salud en el Trabajo",
+              "Medio Ambiente", "Gestión predial", "Tecnología", "Finanzas", "Calidad"],
+    "COMITES": ["Comité de Obra", "Comité de Inversiones", "Comité de Contratación",
+                "Comité de Seguridad", "Comité Técnico"],
+    "TEMAS_PRY": [
+        ("Variante vial del sur", None), ("Edificio de oficinas Torre Norte", "arriendo de oficinas"),
+        ("Puente vehicular sobre el río", None), ("Planta de tratamiento de agua", None),
+        ("Vivienda de interés social etapa 2", "vivienda VIS"), ("Ampliación del aeropuerto regional", None),
+        ("Modelado BIM de proyectos", "modelos BIM"), ("Control de avance con drones", None),
+        ("Bodega logística modular", "bodegas en arriendo"), ("Doble calzada del corredor central", None),
+        ("Colegio público por concesión", None), ("Hospital de segundo nivel", None),
+        ("Gestión predial digital", None), ("Portal de contratistas", None),
+        ("Patio de prefabricados", "prefabricados"), ("Renovación de redes de acueducto", None),
+        ("Centro comercial de barrio", "locales comerciales"), ("Túnel de conexión urbana", None),
+        ("Sistema de costos de obra", None), ("Vivienda campestre", "lotes campestres"),
+    ],
+    "TEMAS_PRD": [
+        "Arriendo de oficinas", "Vivienda VIS", "Modelos BIM", "Bodegas en arriendo", "Prefabricados",
+        "Locales comerciales", "Lotes campestres", "Mantenimiento vial", "Alquiler de maquinaria",
+        "Interventoría externa", "Diseño y construcción", "Administración delegada",
+        "Concreto premezclado", "Venta de vivienda sobre planos", "Remodelación corporativa",
+        "Parqueaderos", "Vivienda para arriendo", "Señalización vial", "Obras de urbanismo",
+        "Postventa de vivienda",
+    ],
+    "FASES": ("Diseños de detalle aprobados", "Licencias y permisos obtenidos", "Cimentación terminada",
+              "Estructura terminada", "Entrega de obra al cliente", "Liquidación del contrato"),
+    "AVANCES": (
+        "Se ajustó el programa de obra con el contratista de estructura",
+        "Se acordó con la interventoría cómo se miden las cantidades de obra",
+        "Las lluvias detuvieron el movimiento de tierras durante nueve días",
+        "Se reprogramó el vaciado por la llegada tardía del acero",
+        "El equipo perdió dos semanas por rotación del residente de obra",
+        "Se levantó un hallazgo de seguridad en el trabajo en alturas",
+        "El ensayo de resistencia del concreto no alcanzó el valor pactado y se repite",
+        "Se recibió el concepto de la autoridad ambiental sobre el plan de manejo",
+    ),
+    "RIESGOS": (
+        "Lluvias por encima del promedio en la temporada",
+        "Compra de predios pendiente en el trazado",
+        "Concentración del conocimiento en una sola persona",
+        "Cambio en la norma de sismorresistencia que puede mover el alcance",
+        "El proveedor no ha confirmado la fecha de la última entrega",
+    ),
+    "PROVEEDORES": ("Constructora del Valle S.A.S.", "Estructuras Metálicas del Norte Ltda.",
+                    "Concretos Andinos S.A.S.", "Geotecnia y Suelos Ltda.",
+                    "Interventorías Técnicas S.A.S.", "Maquinaria Pesada del Sur"),
+    "ENTREGABLES_PROV": ("Suministro de acero de refuerzo", "Bolsa de horas de ingeniería",
+                         "Alquiler de equipos de izaje", "Estudio de suelos",
+                         "Capacitación a maestros de obra"),
+    "SUPUESTOS": ("Los predios se compran a tiempo", "El clima permite el programa de obra",
+                  "La licencia se expide sin objeciones", "El proveedor cumple el tiempo pactado",
+                  "El precio del acero se sostiene"),
+    "SEGMENTOS": ["Hogares", "Empresas", "Entidades públicas", "Inversionistas", "Comunidad"],
+    "CONTROL_PRY": "Pintura de la sede administrativa",
+    "CONTROL_PRD": "Dotación de cascos",
+}
+
+OIL_GAS = {
+    "ETIQUETA": "Empresas de petróleo y gas de Suramérica · exploración, producción y transporte",
+    "AREAS": ["Exploración", "Producción", "Perforación", "Mantenimiento", "HSE", "Ambiental",
+              "Relacionamiento con comunidades", "Tecnología", "Cadena de suministro", "Finanzas"],
+    "COMITES": ["Comité de Inversiones", "Comité de Operaciones", "Comité de HSE",
+                "Comité de Integridad", "Comité de Tecnología"],
+    "TEMAS_PRY": [
+        ("Campaña de perforación del bloque sur", None), ("Facilidades de producción temprana", None),
+        ("Gasoducto de interconexión", "transporte de gas"), ("Recobro mejorado con agua", None),
+        ("Integridad de ductos", None), ("Monitoreo remoto de pozos", "monitoreo de pozos"),
+        ("Planta de tratamiento de crudo", None), ("Gemelo digital de la estación", None),
+        ("Reducción de quema de gas", "gas para generación"), ("Sísmica 3D del bloque norte", None),
+        ("Mantenimiento predictivo de bombas", None), ("Estación de compresión", None),
+        ("Tanques de almacenamiento", "almacenamiento para terceros"), ("Sistema de control de pozos", None),
+        ("Paneles solares en campo", "energía solar en campo"), ("Plan de abandono de pozos", None),
+        ("Laboratorio de fluidos", "análisis de fluidos"), ("Portal de contratistas de campo", None),
+        ("Centro de control integrado", None), ("Programa de inversión social", None),
+    ],
+    "TEMAS_PRD": [
+        "Transporte de gas", "Monitoreo de pozos", "Gas para generación", "Almacenamiento para terceros",
+        "Energía solar en campo", "Análisis de fluidos", "Venta de crudo pesado", "Suministro de GLP",
+        "Servicios de perforación", "Tratamiento de agua de producción", "Gas natural vehicular",
+        "Venta de condensados", "Servicio de compresión", "Inspección de ductos",
+        "Alquiler de capacidad de oleoducto", "Crudo liviano para mezcla", "Captura de carbono",
+        "Venta de azufre", "Energía para comunidades", "Asfaltos",
+    ],
+    "FASES": ("Ingeniería básica aprobada", "Licencia ambiental otorgada", "Pozos perforados",
+              "Montaje de facilidades", "Primer crudo o gas", "Cierre y entrega a operaciones"),
+    "AVANCES": (
+        "Se ajustó el plan de perforación con la geología del pozo vecino",
+        "Se acordó con integridad cómo se inspeccionan las soldaduras",
+        "Un bloqueo de la comunidad detuvo el transporte de equipos ocho días",
+        "Se reprogramó la movilización del taladro por disponibilidad del contratista",
+        "El equipo perdió dos semanas por rotación del supervisor de campo",
+        "Se levantó un hallazgo de seguridad en espacios confinados",
+        "La prueba hidrostática no alcanzó la presión pactada y se repite",
+        "Se recibió la aprobación de la consulta previa pendiente desde el trimestre anterior",
+    ),
+    "RIESGOS": (
+        "Bloqueos de la comunidad en la vía de acceso",
+        "Precio del crudo por debajo del supuesto del caso de negocio",
+        "Concentración del conocimiento en una sola persona",
+        "Cambio en la licencia ambiental que puede mover el alcance",
+        "El proveedor no ha confirmado la fecha de la última entrega",
+    ),
+    "PROVEEDORES": ("Servicios de Perforación del Sur S.A.S.", "Ingeniería de Ductos Ltda.",
+                    "Montajes Petroleros Andinos", "Integridad y Corrosión S.A.S.",
+                    "Automatización de Campo Ltda.", "Servicios Ambientales Petroleros"),
+    "ENTREGABLES_PROV": ("Alquiler del taladro", "Bolsa de horas de ingeniería",
+                         "Inspección con raspador inteligente", "Soporte del primer trimestre",
+                         "Capacitación a operadores de campo"),
+    "SUPUESTOS": ("El precio del crudo se sostiene", "La comunidad respalda el proyecto",
+                  "La licencia ambiental lo permite", "El proveedor cumple el tiempo pactado",
+                  "El yacimiento responde como dice el modelo"),
+    "SEGMENTOS": ["Generadoras", "Distribuidoras de gas", "Refinerías", "Industria", "Comunidad"],
+    "CONTROL_PRY": "Adecuación del casino del campamento",
+    "CONTROL_PRD": "Solicitud de dotación de campo",
+}
+
+# Las seis, y la industria a la que pertenece cada una. Los bancos conservan la semilla
 # de siempre, así que corp-demo no cambia.
-PERFILES = {"bancos": BANCOS, "cooperativas": COOPERATIVAS, "retail": RETAIL, "mineria": MINERIA}
+PERFILES = {"bancos": BANCOS, "cooperativas": COOPERATIVAS, "retail": RETAIL, "mineria": MINERIA,
+            "construccion": CONSTRUCCION, "oil-gas": OIL_GAS}
 INDUSTRIA = {"bancos": "Entidades financieras (bancos y cooperativas) de Suramérica",
              "cooperativas": "Entidades financieras (bancos y cooperativas) de Suramérica",
              "retail": "Empresas de retail de Suramérica",
-             "mineria": "Empresas mineras de Suramérica"}
-SEMILLA = {"bancos": 0, "cooperativas": 362867, "retail": 104729, "mineria": 224737}
+             "mineria": "Empresas mineras de Suramérica",
+             "construccion": "Empresas de construcción e infraestructura de Suramérica",
+             "oil-gas": "Empresas de petróleo y gas de Suramérica"}
+SEMILLA = {"bancos": 0, "cooperativas": 362867, "retail": 104729, "mineria": 224737,
+           "construccion": 512927, "oil-gas": 690143}
 
 
 def selftest() -> list:

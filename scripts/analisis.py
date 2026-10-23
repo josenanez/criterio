@@ -33,7 +33,8 @@ REPO = "https://github.com/josenanez/criterio"
 L = ("es", "en")
 
 INDUSTRIA = {"bancos": ("Banca", "Banking"), "cooperativas": ("Cooperativas", "Credit unions"),
-             "retail": ("Retail", "Retail"), "mineria": ("Minería", "Mining")}
+             "retail": ("Retail", "Retail"), "mineria": ("Minería", "Mining"),
+             "construccion": ("Construcción", "Construction"), "oil-gas": ("Oil & gas", "Oil & gas")}
 SENAL = {
     "milestone_met_without_evidence": ("Hito dado por cumplido sin evidencia", "Milestone marked met with no evidence"),
     "milestone_overdue": ("Hito vencido", "Overdue milestone"),
