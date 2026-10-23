@@ -25,7 +25,7 @@ Cumple las cuatro condiciones de las 0006 y 0009:
 
 ## Decisión
 
-**El alcance se amplía a una familia de dirección con un agente: el asistente ejecutivo.** Corre
+**El alcance se amplía a una familia de dirección con un agente: Ofelia, el asistente ejecutivo.** Corre
 en Colombia y Ecuador, como las demás. Contrasta los compromisos de cada reunión de dirección
 contra su seguimiento y prepara la próxima reunión de cada órgano.
 
@@ -67,15 +67,16 @@ camino que tomó la familia CFO con su núcleo.
 agente cuando el órgano es la junta. Queda como un modo del asistente, no como un agente aparte,
 hasta que una ronda muestre que necesita reglas propias.
 
+## El nombre
+
+**Ofelia**, del griego *ōphéleia*, «ayuda»: es la que prepara. Cada nombre de Criterio dice lo
+que hace la capacidad. Se decidió el 23 de octubre de 2026.
+
 ## Lo que falta decidir
 
-1. **El nombre del agente.** Cada nombre de Criterio dice lo que hace la capacidad. Candidatos:
-   - **Ofelia**, del griego *ōphéleia*, «ayuda»: es la que prepara.
-   - **Mónica**, que la tradición asocia con el latín *monere*, «advertir, recordar». La
-     etimología no es segura.
-2. **La sigla y el nombre de la familia** en el mapa y en el repositorio. El grupo del mapa es
+1. **La sigla y el nombre de la familia** en el mapa y en el repositorio. El grupo del mapa es
    «Transversales».
-3. **Si la primera versión incluye la exportación del calendario** o empieza solo con las actas
+2. **Si la primera versión incluye la exportación del calendario** o empieza solo con las actas
    y el material de cada órgano.
 
 ## Alternativas descartadas
