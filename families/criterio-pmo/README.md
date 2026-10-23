@@ -18,6 +18,7 @@ record.
 | **Scope** | The governance of a portfolio, of each project in it, and of each product those projects build |
 | **Objective** | That declared and evidenced can be compared, every day and across the whole — which is what cannot be done today |
 | **Made of** | [Vera](../../plugins/criterio-portfolio/README.md) · [Samuel](../../plugins/criterio-project/README.md) · [Alba](../../plugins/criterio-product/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
+| **The support** | The framework that defines each role and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
 | **State** | The three agents built and verified over a synthetic corpus. **Extraction over real documentation has not been tested** |
 | **Approach** | Strategy and execution |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |

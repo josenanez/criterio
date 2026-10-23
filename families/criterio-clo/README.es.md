@@ -15,6 +15,7 @@ habla con el otro directamente: se hablan por sus fichas.
 | **Alcance** | Los contratos, el cumplimiento y el riesgo legal de una entidad: lo que firmó contra lo que está pasando, y cada obligación contra su evidencia |
 | **Objetivo** | Que una empresa sepa qué firmó, qué vence y a qué se obligó |
 | **Compuesta por** | [Fidel](../../plugins/criterio-legal/README.es.md) · [Constanza](../../plugins/criterio-compliance/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
+| **El soporte** | El marco de trabajo que define cada rol y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
 | **Estado** | Construida y probada sobre material sintético: el motor, contra cuatro industrias y dos entidades de control; los agentes, en una [ronda completa](../../tests/evidencias/familias/clo/RONDAS.md) sobre las seis entidades. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Contratos y cumplimiento, sin opinión jurídica |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |

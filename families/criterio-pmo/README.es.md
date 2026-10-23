@@ -17,6 +17,7 @@ quien vigila el portafolio— y ninguno habla con otro directamente: se hablan p
 | **Alcance** | El gobierno de un portafolio, de cada proyecto que lo compone y de cada producto que esos proyectos construyen |
 | **Objetivo** | Que lo declarado y lo evidenciado se puedan comparar, todos los días y sobre el conjunto — que es lo que hoy no se puede |
 | **Compuesta por** | [Vera](../../plugins/criterio-portfolio/README.es.md) · [Samuel](../../plugins/criterio-project/README.es.md) · [Alba](../../plugins/criterio-product/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
+| **El soporte** | El marco de trabajo que define cada rol y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
 | **Estado** | Los tres agentes construidos y verificados sobre corpus sintético. **La extracción sobre documentación real no se ha probado** |
 | **Enfoque** | Estrategia y ejecución |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |

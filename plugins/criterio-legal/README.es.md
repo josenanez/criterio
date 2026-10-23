@@ -99,6 +99,7 @@ la razón por la que Fidel existe: no decidir por ti, sino que la decisión lleg
 | **8,6 %** del valor de los contratos se erosiona en promedio por una gestión contractual deficiente; los mejores, poco más de 3 %, los peores, más de 20 % | [World Commerce & Contracting con Deloitte, 2022](https://www.deloitte.com/us/en/services/tax/articles/contract-management-lifecycle-insights.html) — Más de 1.200 organizaciones |
 | **90 %** de las organizaciones tiene dificultad para encontrar sus propios contratos | [EY Law y Harvard Law School Center on the Legal Profession, 2021](https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf) — 1.000 líderes de contratación, dentro de una investigación de más de 2.000 personas en 22 países, enero de 2021 |
 | **19.000** contratos al año gestiona en promedio el equipo de contratación de una organización grande | [EY Law y Harvard Law School Center on the Legal Profession, 2021](https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf) — 1.000 líderes de contratación, enero de 2021 |
+| **46 %** de las denuncias que llegan al canal ético se comprueban: la tasa mediana más alta que se ha registrado | [NAVEX, Whistleblowing & Incident Management Benchmark Report, 2025](https://www.navex.com/en-us/resources/reports/whistleblowing-incident-management-report/) — 2,15 millones de reportes de más de 4.000 organizaciones |
 <!-- /clo:cifras -->
 
 Una empresa que no encuentra sus propios contratos no puede saber qué firmó, qué vence ni a qué

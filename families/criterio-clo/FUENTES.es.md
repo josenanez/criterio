@@ -11,6 +11,12 @@ material de prueba citan la fuente por su identificador, no copian su contenido.
 conoce por una fuente secundaria o falta confirmar la versión vigente; no se construye nada sobre
 ella hasta verificarla ([ADR 0009](../../docs/decisions/0009-scope-clo.md), regla 1).
 
+## El rol
+
+| Id | Fuente | Versión | Enlace | Consultada | Estado | Uso |
+|---|---|---|---|---|---|---|
+| F-02 | NCMA y World Commerce & Contracting · Contract Management Standard | Cuarta edición, 19 de junio de 2025 | [worldcc.com](https://news.worldcc.com/ccmi/contract-management-standard-fourth-edition-launch) | 2026-10-23 | Verificada: Se consultó el anuncio de su publicación por el Commerce & Contract Management Institute: cuarta edición, con un marco armonizado para todos los mercados, industrias y funciones. No se transcribe su contenido | El marco del rol de Fidel, quien responde por lo que la empresa firmó. El de Constanza es la ISO 37301 (F-01) |
+
 ## Marcos de referencia
 
 | Id | Fuente | Versión | Enlace | Consultada | Estado | Uso |
@@ -24,6 +30,7 @@ ella hasta verificarla ([ADR 0009](../../docs/decisions/0009-scope-clo.md), regl
 | C-01 | **8,6 %** del valor de los contratos se erosiona en promedio por una gestión contractual deficiente; los mejores, poco más de 3 %, los peores, más de 20 % | [World Commerce & Contracting con Deloitte](https://www.deloitte.com/us/en/services/tax/articles/contract-management-lifecycle-insights.html) | 2022 | Más de 1.200 organizaciones | Verificada: Actualización de 2022 de la investigación de 2014, que daba 9,2 %; la nota de Deloitte dice «más de 1.200 organizaciones», no un número exacto |
 | C-02 | **90 %** de las organizaciones tiene dificultad para encontrar sus propios contratos | [EY Law y Harvard Law School Center on the Legal Profession](https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf) | 2021 | 1.000 líderes de contratación, dentro de una investigación de más de 2.000 personas en 22 países, enero de 2021 | Verificada: Página 7 del informe |
 | C-03 | **19.000** contratos al año gestiona en promedio el equipo de contratación de una organización grande | [EY Law y Harvard Law School Center on the Legal Profession](https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf) | 2021 | 1.000 líderes de contratación, enero de 2021 | Verificada: Página 14 del informe |
+| C-04 | **46 %** de las denuncias que llegan al canal ético se comprueban: la tasa mediana más alta que se ha registrado | [NAVEX, Whistleblowing & Incident Management Benchmark Report](https://www.navex.com/en-us/resources/reports/whistleblowing-incident-management-report/) | 2025 | 2,15 millones de reportes de más de 4.000 organizaciones | Verificada: Lo dice la página del informe de 2025 en NAVEX: «2,15 millones de reportes de más de 4.000 organizaciones» y una tasa mediana de comprobación del 46 %, la más alta registrada |
 
 ## Cómo se agrega una fuente
 

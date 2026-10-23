@@ -11,6 +11,13 @@ material de prueba citan la fuente por su identificador, no copian su contenido.
 conoce por una fuente secundaria o falta confirmar la versión vigente; no se construye nada sobre
 ella hasta verificarla ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regla 1).
 
+## El rol
+
+| Id | Fuente | Versión | Enlace | Consultada | Estado | Uso |
+|---|---|---|---|---|---|---|
+| F-11 | O*NET · 11-3031.01 Treasurers and Controllers | — | [onetonline.org](https://www.onetonline.org/link/summary/11-3031.01) | 2026-10-23 | Verificada: La clasificación de ocupaciones del Departamento de Trabajo de los Estados Unidos: 23 tareas, entre ellas los estados financieros, el control interno, las auditorías de las cuentas y los impuestos. La misma ocupación reúne la tesorería | El marco del rol de Clara, la contralora |
+| F-12 | O*NET · 13-2031.00 Budget Analysts | — | [onetonline.org](https://www.onetonline.org/link/summary/13-2031.00) | 2026-10-23 | Verificada: Entre sus tareas: analizar los informes mensuales de presupuesto y contabilidad para mantener el control del gasto, revisar los presupuestos de operación y verificar que los ajustes sigan los cambios de los programas | El marco del rol de Tomás, FP&A |
+
 ## Formatos de factura y comprobantes electrónicos
 
 | Id | Fuente | Versión | Enlace | Consultada | Estado | Uso |

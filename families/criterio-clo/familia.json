@@ -234,7 +234,10 @@
       "nunca": {
         "es": "No interpreta cláusulas, no califica la validez de un contrato y no decide renovar ni terminar",
         "en": "It does not interpret clauses, does not rule on a contract's validity and does not decide to renew or terminate"
-      }
+      },
+      "marco": [
+        "F-02"
+      ]
     },
     {
       "id": "constanza",
@@ -445,7 +448,10 @@
       "nunca": {
         "es": "No define obligaciones, no dice qué exige una norma y no procesa quién denunció",
         "en": "It does not define obligations, does not say what a regulation requires and does not process who reported"
-      }
+      },
+      "marco": [
+        "F-01"
+      ]
     }
   ],
   "impresora": {

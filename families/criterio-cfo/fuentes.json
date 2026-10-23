@@ -2,6 +2,42 @@
   "nota": "Fuente única de las fuentes de la familia CFO: scripts/familias.py escribe FUENTES.es.md, la sección de cifras de DISENO.es.md y la tabla de cifras de los README de criterio-finance; el portal la publica con scripts/criterio-familias.mjs.",
   "secciones": [
     {
+      "id": "rol",
+      "titulo": "El rol",
+      "fuentes": [
+        {
+          "id": "F-11",
+          "fuente": "O*NET · 11-3031.01 Treasurers and Controllers",
+          "version": "—",
+          "enlaces": [
+            [
+              "onetonline.org",
+              "https://www.onetonline.org/link/summary/11-3031.01"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "nota": "La clasificación de ocupaciones del Departamento de Trabajo de los Estados Unidos: 23 tareas, entre ellas los estados financieros, el control interno, las auditorías de las cuentas y los impuestos. La misma ocupación reúne la tesorería",
+          "uso": "El marco del rol de Clara, la contralora"
+        },
+        {
+          "id": "F-12",
+          "fuente": "O*NET · 13-2031.00 Budget Analysts",
+          "version": "—",
+          "enlaces": [
+            [
+              "onetonline.org",
+              "https://www.onetonline.org/link/summary/13-2031.00"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "nota": "Entre sus tareas: analizar los informes mensuales de presupuesto y contabilidad para mantener el control del gasto, revisar los presupuestos de operación y verificar que los ajustes sigan los cambios de los programas",
+          "uso": "El marco del rol de Tomás, FP&A"
+        }
+      ]
+    },
+    {
       "id": "formatos",
       "titulo": "Formatos de factura y comprobantes electrónicos",
       "fuentes": [

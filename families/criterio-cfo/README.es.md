@@ -15,6 +15,7 @@ con el otro directamente: se hablan por sus fichas.
 | **Alcance** | El cierre, el control y el reporte financiero de una entidad: los libros contra sus soportes, y el presupuesto contra su ejecución |
 | **Objetivo** | Que el cierre deje de depender de que alguien recuerde qué falta |
 | **Compuesta por** | [Clara](../../plugins/criterio-finance/README.es.md) · [Tomás](../../plugins/criterio-budget/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
+| **El soporte** | El marco de trabajo que define cada rol y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
 | **Estado** | Construida y probada sobre material sintético: el motor, contra cuatro industrias y dos entidades de control; los agentes, en una [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md) sobre las seis entidades. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Control y reporte |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |

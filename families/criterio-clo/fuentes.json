@@ -2,6 +2,27 @@
   "nota": "Fuente única de las fuentes de la familia CLO: scripts/familias.py escribe FUENTES.es.md, la sección de cifras de DISENO.es.md y la tabla de cifras de los README de criterio-legal; el portal la publica con scripts/criterio-familias.mjs.",
   "secciones": [
     {
+      "id": "rol",
+      "titulo": "El rol",
+      "fuentes": [
+        {
+          "id": "F-02",
+          "fuente": "NCMA y World Commerce & Contracting · Contract Management Standard",
+          "version": "Cuarta edición, 19 de junio de 2025",
+          "enlaces": [
+            [
+              "worldcc.com",
+              "https://news.worldcc.com/ccmi/contract-management-standard-fourth-edition-launch"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "nota": "Se consultó el anuncio de su publicación por el Commerce & Contract Management Institute: cuarta edición, con un marco armonizado para todos los mercados, industrias y funciones. No se transcribe su contenido",
+          "uso": "El marco del rol de Fidel, quien responde por lo que la empresa firmó. El de Constanza es la ISO 37301 (F-01)"
+        }
+      ]
+    },
+    {
       "id": "marcos",
       "titulo": "Marcos de referencia",
       "fuentes": [
@@ -95,6 +116,32 @@
       },
       "estado": "verificada",
       "nota": "Página 14 del informe"
+    },
+    {
+      "id": "C-04",
+      "valor": {
+        "es": "46 %",
+        "en": "46%"
+      },
+      "cifra": {
+        "es": "de las denuncias que llegan al canal ético se comprueban: la tasa mediana más alta que se ha registrado",
+        "en": "of the reports to the ethics channel are substantiated: the highest median rate ever recorded"
+      },
+      "fuente": "NAVEX, Whistleblowing & Incident Management Benchmark Report",
+      "anio": "2025",
+      "enlace": "https://www.navex.com/en-us/resources/reports/whistleblowing-incident-management-report/",
+      "muestra": {
+        "es": "2,15 millones de reportes de más de 4.000 organizaciones",
+        "en": "2.15 million reports from more than 4,000 organisations"
+      },
+      "estado": "verificada",
+      "nota": "Lo dice la página del informe de 2025 en NAVEX: «2,15 millones de reportes de más de 4.000 organizaciones» y una tasa mediana de comprobación del 46 %, la más alta registrada",
+      "barra": {
+        "tipo": "share",
+        "valor": 46,
+        "es": "46 de cada 100 denuncias",
+        "en": "46 of every 100 reports"
+      }
     }
   ]
 }

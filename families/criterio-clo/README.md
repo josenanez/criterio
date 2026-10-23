@@ -15,6 +15,7 @@ talks to the other directly: they talk through their records.
 | **Scope** | The contracts, compliance and legal risk of an entity: what it signed against what is happening, and each obligation against its evidence |
 | **Objective** | That a company knows what it signed, what falls due and what it committed to |
 | **Made of** | [Fidel](../../plugins/criterio-legal/README.md) · [Constanza](../../plugins/criterio-compliance/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
+| **The support** | The framework that defines each role and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
 | **State** | Built and tested on synthetic material: the engine, against four industries and two control entities; the agents, in a [full round](../../tests/evidencias/familias/clo/RONDAS.md) on the six entities. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Contracts and compliance, with no legal opinion |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |

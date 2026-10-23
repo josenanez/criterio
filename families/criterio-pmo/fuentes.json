@@ -1,0 +1,169 @@
+{
+  "nota": "Fuente única del soporte de la familia PMO: el marco de trabajo que define cada rol y lo que le cuesta hoy a una organización, en cifras de terceros. scripts/soporte.py la verifica y escribe FUENTES.es.md; el portal publica sus cifras.",
+  "secciones": [
+    {
+      "id": "rol",
+      "titulo": "El rol",
+      "fuentes": [
+        {
+          "id": "F-01",
+          "fuente": "PMI · The Standard for Portfolio Management",
+          "version": "Cuarta edición, 2017",
+          "enlaces": [
+            [
+              "pmi.org",
+              "https://www.pmi.org/standards/for-portfolio-management"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "nota": "Se consultó la ficha del estándar en el PMI: título, edición y año. Define la gestión de un portafolio de proyectos, programas y otro trabajo para que sirva al plan estratégico de la organización",
+          "uso": "El marco del rol de Vera, quien responde por el portafolio"
+        },
+        {
+          "id": "F-02",
+          "fuente": "PMI · PMBOK Guide y The Standard for Project Management",
+          "version": "Octava edición, noviembre de 2025",
+          "enlaces": [
+            [
+              "pmi.org",
+              "https://www.pmi.org/standards/pmbok"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "nota": "Se consultó la ficha de la guía en el PMI: octava edición, publicada en noviembre de 2025, junto con The Standard for Project Management",
+          "uso": "El marco del rol de Samuel, quien responde por un proyecto"
+        },
+        {
+          "id": "F-03",
+          "fuente": "AIPMM · The Guide to the Product Management and Marketing Body of Knowledge (ProdBOK)",
+          "version": "—",
+          "enlaces": [
+            [
+              "aipmm.com",
+              "https://aipmm.com/bok/"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "nota": "Se consultó la ficha de la guía en la AIPMM: título, editor y alcance —el marco de la gestión de producto para llevar productos y servicios al mercado—. La ficha no dice la edición",
+          "uso": "El marco del rol de Alba, quien define qué se construye"
+        }
+      ]
+    }
+  ],
+  "cifras": [
+    {
+      "id": "C-01",
+      "valor": {
+        "es": "73 %",
+        "en": "73%"
+      },
+      "cifra": {
+        "es": "de sobrecosto medio en proyectos de TI; el 18 % se pasa en más de la mitad",
+        "en": "average cost overrun on IT projects; 18% overrun by more than half"
+      },
+      "fuente": "Flyvbjerg, Budzier, Aaen, Keil y Zottoli, The Uniqueness of IT Cost Risk, Project Management Journal",
+      "anio": "2026",
+      "enlace": "https://journals.sagepub.com/doi/10.1177/87569728251340590",
+      "muestra": {
+        "es": "11.011 proyectos de 23 tipos en 126 países; 5.360 de TI",
+        "en": "11,011 projects of 23 types in 126 countries; 5,360 IT"
+      },
+      "estado": "verificada",
+      "nota": "Tabla 1: media de 1,73 para TI (N = 5.360); tabla 2: 18,26 % con sobrecosto mayor al 50 %. Publicado en línea el 7 de julio de 2025, en el volumen de 2026",
+      "barra": {
+        "tipo": "overrun",
+        "base": 100,
+        "actual": 173,
+        "es": [
+          "Presupuesto aprobado",
+          "Costo final, en promedio"
+        ],
+        "en": [
+          "Approved budget",
+          "Final cost, on average"
+        ]
+      }
+    },
+    {
+      "id": "C-02",
+      "valor": {
+        "es": "31 %",
+        "en": "31%"
+      },
+      "cifra": {
+        "es": "de los proyectos complejos no alcanza los beneficios que se propuso",
+        "en": "of complex projects fail to achieve the benefits they set out to deliver"
+      },
+      "fuente": "PMI, Pulse of the Profession 2026",
+      "anio": "2026",
+      "enlace": "https://www.pmi.org/about/press-media/2026/pulse-why-complex-projects-fail-best-practices-are-not-enough-system-thinking",
+      "muestra": {
+        "es": "No indicada en la nota de prensa",
+        "en": "Not stated in the press release"
+      },
+      "estado": "verificada",
+      "nota": "La nota de prensa del PMI dice «casi un tercio (31 %) de los proyectos complejos no logra el alcance completo de sus beneficios», más del doble que los proyectos en general. La muestra que publicábamos (2.534 encuestados, 35 países) no está en la nota: se quitó",
+      "barra": {
+        "tipo": "share",
+        "valor": 31,
+        "es": "31 de cada 100 proyectos complejos",
+        "en": "31 of every 100 complex projects"
+      }
+    },
+    {
+      "id": "C-03",
+      "valor": {
+        "es": "1 de 3",
+        "en": "1 in 3"
+      },
+      "cifra": {
+        "es": "proyectos no tiene línea base, y la mitad de las organizaciones no tiene indicadores en tiempo real",
+        "en": "projects has no baseline, and half of organisations have no real-time indicators"
+      },
+      "fuente": "Wellingtone, The State of Project Management 2026",
+      "anio": "2026",
+      "enlace": "https://wellingtone.co.uk/publications/state-of-project-management-research/",
+      "muestra": {
+        "es": "Cientos de participantes de más de 150 organizaciones",
+        "en": "Hundreds of participants from more than 150 organisations"
+      },
+      "estado": "verificada",
+      "nota": "Se consultó el informe: un tercio de los proyectos sin línea base y la mitad de las organizaciones sin indicadores en tiempo real. El 22 % que planifica en Excel, que publicábamos, no se pudo confirmar en el texto: se quitó",
+      "barra": {
+        "tipo": "share",
+        "valor": 33,
+        "es": "Uno de cada tres proyectos",
+        "en": "One in every three projects"
+      }
+    },
+    {
+      "id": "C-04",
+      "valor": {
+        "es": "72 %",
+        "en": "72%"
+      },
+      "cifra": {
+        "es": "dedica medio día o más cada mes solo a consolidar informes a mano",
+        "en": "spend half a day or more every month just collating reports by hand"
+      },
+      "fuente": "Wellingtone, The State of Project Management 2026",
+      "anio": "2026",
+      "enlace": "https://wellingtone.co.uk/publications/state-of-project-management-research/",
+      "muestra": {
+        "es": "Cientos de participantes de más de 150 organizaciones",
+        "en": "Hundreds of participants from more than 150 organisations"
+      },
+      "estado": "verificada",
+      "nota": "Lo dicen el informe y su nota de prensa del 16 de marzo de 2026",
+      "barra": {
+        "tipo": "share",
+        "valor": 72,
+        "es": "72 de cada 100 profesionales de proyectos",
+        "en": "72 of every 100 project professionals"
+      }
+    }
+  ]
+}

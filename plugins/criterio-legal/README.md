@@ -100,6 +100,7 @@ it is the reason Fidel exists: not to decide for you, but so that the decision a
 | **8.6%** of contract value is eroded on average by poor contract management; the best a little over 3%, the worst more than 20% | [World Commerce & Contracting con Deloitte, 2022](https://www.deloitte.com/us/en/services/tax/articles/contract-management-lifecycle-insights.html) — More than 1,200 organisations |
 | **90%** of organisations report difficulty locating their own contracts | [EY Law y Harvard Law School Center on the Legal Profession, 2021](https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf) — 1,000 contracting leaders, within research of more than 2,000 people in 22 countries, January 2021 |
 | **19,000** contracts a year are managed on average by a large organisation's contracting team | [EY Law y Harvard Law School Center on the Legal Profession, 2021](https://clp.law.harvard.edu/wp-content/uploads/2022/10/ey-contracting-report-june-2021.pdf) — 1,000 contracting leaders, January 2021 |
+| **46%** of the reports to the ethics channel are substantiated: the highest median rate ever recorded | [NAVEX, Whistleblowing & Incident Management Benchmark Report, 2025](https://www.navex.com/en-us/resources/reports/whistleblowing-incident-management-report/) — 2.15 million reports from more than 4,000 organisations |
 <!-- /clo:cifras -->
 
 A company that cannot find its own contracts cannot know what it signed, what is expiring or what

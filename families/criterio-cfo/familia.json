@@ -270,7 +270,10 @@
       "nunca": {
         "es": "No registra asientos, no firma y no declara el estado del cierre",
         "en": "It does not post entries, does not sign and does not declare the close status"
-      }
+      },
+      "marco": [
+        "F-11"
+      ]
     },
     {
       "id": "tomas",
@@ -471,7 +474,10 @@
       "nunca": {
         "es": "No aprueba traslados, no recomienda la decisión del comité y no declara el estado de ningún área",
         "en": "It does not approve transfers, does not recommend the committee's decision and does not declare any area's status"
-      }
+      },
+      "marco": [
+        "F-12"
+      ]
     }
   ],
   "impresora": {

@@ -197,7 +197,7 @@ completa.
 ## Cifras de terceros
 
 <!-- clo:cifras · generado por scripts/familias.py; no se edita a mano -->
-Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (World Commerce & Contracting con Deloitte), C-02 (EY Law y Harvard Law School Center on the Legal Profession), C-03 (EY Law y Harvard Law School Center on the Legal Profession).
+Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (World Commerce & Contracting con Deloitte), C-02 (EY Law y Harvard Law School Center on the Legal Profession), C-03 (EY Law y Harvard Law School Center on the Legal Profession), C-04 (NAVEX).
 <!-- /clo:cifras -->
 
 ## Decisiones cerradas

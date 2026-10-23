@@ -114,6 +114,8 @@ PUERTAS = [
      "Que el análisis estadístico diga lo que dice la evidencia de las rondas"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/analisis_familias.py"), "--check"],
      "Que el análisis estadístico de la CFO y la CLO diga lo que dice la evidencia de sus rondas"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/soporte.py"), "--check"],
+     "Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-finance/scripts/finanzas.py"), "selftest"],
      "El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-cfo/generar.py")],
