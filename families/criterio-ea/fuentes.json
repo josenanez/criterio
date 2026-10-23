@@ -1,0 +1,160 @@
+{
+  "nota": "Fuente única de las fuentes de la familia EA: scripts/familias.py escribe FUENTES.es.md y la sección de cifras de DISENO.es.md; el portal publica su soporte con scripts/criterio-familias.mjs.",
+  "secciones": [
+    {
+      "id": "rol",
+      "titulo": "El rol",
+      "fuentes": [
+        {
+          "id": "F-01",
+          "fuente": "O*NET · 43-6011.00 Executive Secretaries and Executive Administrative Assistants",
+          "version": "Datos de 2026 (O*NET OnLine, sitio actualizado el 6 de octubre de 2026)",
+          "enlaces": [
+            [
+              "onetonline.org",
+              "https://www.onetonline.org/link/summary/43-6011.00"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "nota": "Se consultaron las tareas de la ocupación en O*NET OnLine, del Departamento de Trabajo de los Estados Unidos: llevar la agenda del ejecutivo, preparar el orden del día de las reuniones, abrir, clasificar y distribuir la correspondencia, responder la rutinaria y reunir información para el ejecutivo",
+          "uso": "El marco del rol de Ofelia: de aquí sale lo que hace y, por la frontera con el jefe de gabinete, lo que no hace (ADR 0012)"
+        }
+      ]
+    },
+    {
+      "id": "formatos",
+      "titulo": "Los formatos que procesa el motor",
+      "fuentes": [
+        {
+          "id": "F-02",
+          "fuente": "IETF · RFC 5545, Internet Calendaring and Scheduling Core Object Specification (iCalendar)",
+          "version": "Septiembre de 2009, Proposed Standard; actualizada por las RFC 5546, 6868, 7529, 7953, 7986, 9073, 9074 y 9253",
+          "enlaces": [
+            [
+              "rfc-editor.org",
+              "https://rfc-editor.org/info/rfc5545"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "uso": "La agenda exportada en .ics: los eventos, sus repeticiones y sus zonas horarias, que calcula el código"
+        },
+        {
+          "id": "F-03",
+          "fuente": "IETF · RFC 5322, Internet Message Format",
+          "version": "Octubre de 2008, Draft Standard; actualizada por la RFC 6854",
+          "enlaces": [
+            [
+              "rfc-editor.org",
+              "https://rfc-editor.org/info/rfc5322"
+            ]
+          ],
+          "consultada": "2026-10-23",
+          "estado": "verificada",
+          "uso": "Los correos guardados como archivo: de quién, para quién, la fecha y el hilo, que procesa el código"
+        }
+      ]
+    }
+  ],
+  "cifras": [
+    {
+      "id": "C-01",
+      "valor": {
+        "es": "57 %",
+        "en": "57%"
+      },
+      "cifra": {
+        "es": "del tiempo de trabajo se va en comunicar —reuniones, correo y chat— y el 43 % en crear",
+        "en": "of working time goes to communicating —meetings, email and chat— and 43% to creating"
+      },
+      "fuente": "Microsoft, Work Trend Index 2023, «Will AI Fix Work?»",
+      "anio": "2023",
+      "enlace": "https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work",
+      "muestra": {
+        "es": "Datos agregados de uso de Microsoft 365, no la encuesta; el informe no da el tamaño de esa muestra",
+        "en": "Aggregated Microsoft 365 usage data, not the survey; the report does not give the size of that sample"
+      },
+      "estado": "verificada",
+      "nota": "Lo dice el informe del 9 de mayo de 2023 en microsoft.com: el empleado promedio pasa el 57 % de su tiempo comunicando y el 43 % creando, según las señales de productividad de Microsoft 365",
+      "barra": {
+        "tipo": "share",
+        "valor": 57,
+        "es": "57 de cada 100 horas",
+        "en": "57 of every 100 hours"
+      }
+    },
+    {
+      "id": "C-02",
+      "valor": {
+        "es": "55 %",
+        "en": "55%"
+      },
+      "cifra": {
+        "es": "dice que los próximos pasos al final de una reunión no quedan claros",
+        "en": "say the next steps at the end of a meeting are unclear"
+      },
+      "fuente": "Microsoft, Work Trend Index 2023, «Will AI Fix Work?»",
+      "anio": "2023",
+      "enlace": "https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work",
+      "muestra": {
+        "es": "31.000 trabajadores de tiempo completo o independientes en 31 mercados",
+        "en": "31,000 full-time employed or self-employed workers in 31 markets"
+      },
+      "estado": "verificada",
+      "nota": "Lo dice el mismo informe, entre las ineficiencias de las reuniones",
+      "barra": {
+        "tipo": "share",
+        "valor": 55,
+        "es": "55 de cada 100 personas",
+        "en": "55 of every 100 people"
+      }
+    },
+    {
+      "id": "C-03",
+      "valor": {
+        "es": "68 %",
+        "en": "68%"
+      },
+      "cifra": {
+        "es": "no tiene suficiente tiempo de concentración sin interrupciones en su jornada",
+        "en": "do not have enough uninterrupted focus time in their workday"
+      },
+      "fuente": "Microsoft, Work Trend Index 2023, «Will AI Fix Work?»",
+      "anio": "2023",
+      "enlace": "https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work",
+      "muestra": {
+        "es": "31.000 trabajadores de tiempo completo o independientes en 31 mercados",
+        "en": "31,000 full-time employed or self-employed workers in 31 markets"
+      },
+      "estado": "verificada",
+      "nota": "Lo dice el mismo informe",
+      "barra": {
+        "tipo": "share",
+        "valor": 68,
+        "es": "68 de cada 100 personas",
+        "en": "68 of every 100 people"
+      }
+    },
+    {
+      "id": "C-04",
+      "valor": {
+        "es": "72 %",
+        "en": "72%"
+      },
+      "cifra": {
+        "es": "del tiempo de trabajo de un CEO se va en reuniones",
+        "en": "of a CEO's working time goes to meetings"
+      },
+      "fuente": "Porter y Nohria, «How CEOs Manage Time», Harvard Business Review",
+      "anio": "2018",
+      "enlace": "https://www.mckinsey.com/about-us/new-at-mckinsey-blog/how-do-ceos-manage-their-time-the-winners-of-the-60th-annual-hbr-mckinsey-award-explain",
+      "muestra": {
+        "es": "27 CEO, más de 60.000 horas registradas",
+        "en": "27 CEOs, more than 60,000 logged hours"
+      },
+      "estado": "por verificar",
+      "nota": "McKinsey confirma la muestra; el 72 % solo se ha visto en fuentes secundarias. No se publica hasta verlo en el artículo"
+    }
+  ]
+}

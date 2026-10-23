@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""El diseño de las familias CFO y CLO, escrito desde sus tres fuentes.
+"""El diseño de las familias, escrito desde sus tres fuentes.
 
     python3 scripts/familias.py           escribe FUENTES.es.md, las tablas de DISENO.es.md, los
                                           bloques de los README y del skill de documentos de cada
@@ -36,29 +36,32 @@ RAIZ = Path(__file__).resolve().parent.parent
 AVISO = "generado por scripts/familias.py; no se edita a mano"
 P = RAIZ / "plugins"
 
-# Lo que cambia de una familia a otra. Todo lo demás es igual.
-FAMILIAS = {
-    "cfo": {
-        "dir": RAIZ / "families" / "criterio-cfo", "adr": "0006-scope-cfo.md",
-        "cifras_en": "clara",
-        "intake": (P / "criterio-finance" / "skills" / "finance-intake" / "SKILL.md",
-                   "La contabilidad del periodo tiene un solo lugar, `10-contabilidad/`: Clara la cierra y "
-                   "Tomás saca de ahí la ejecución."),
-        "estructuras": ["criterio-finance", "criterio-budget"],
-        "motor": P / "criterio-finance" / "scripts" / "finanzas.py",
-        "lectores": {"CAMPOS_DIAN": ["F-01"], "CAMPOS_SRI": ["F-04", "F-09"]},
-    },
-    "clo": {
-        "dir": RAIZ / "families" / "criterio-clo", "adr": "0009-scope-clo.md",
-        "cifras_en": "fidel",
-        "intake": (P / "criterio-legal" / "skills" / "legal-intake" / "SKILL.md",
-                   "Cada contrato tiene un solo lugar, su carpeta en `contratos/`: Fidel la procesa y Constanza "
-                   "toma de su ficha las obligaciones de cumplimiento."),
-        "estructuras": ["criterio-legal", "criterio-compliance"],
-        "motor": P / "criterio-legal" / "scripts" / "legal.py",
-        "lectores": {},
-    },
-}
+# Las familias salen de families/criterio-<sigla>/familia.json, en su `orden`: ninguna se escribe aquí.
+# Lo que cambia de una a otra —su ADR, dónde van sus cifras, su intake, su motor— está en su
+# bloque `generador`; la de la PMO no lo trae, porque sus fuentes las escribe scripts/soporte.py.
+def todas() -> list[dict]:
+    fams = [json.loads(f.read_text(encoding="utf-8")) | {"dir": f.parent}
+            for f in (RAIZ / "families").glob("criterio-*/familia.json")]
+    return sorted(fams, key=lambda fa: fa["orden"])
+
+
+def construida(fa: dict) -> bool:
+    """Una familia en diseño todavía no tiene plugin: no entra a Rostrum ni a su página."""
+    return all((P / a["plugin"]).is_dir() for a in fa["agentes"])
+
+
+def config(fa: dict) -> dict:
+    g = fa["generador"]
+    intake = g.get("intake")
+    return {"dir": fa["dir"], "adr": fa["adr"], "cifras_en": g["cifras_en"],
+            "intake": (P / intake["skill"].split("/")[0] / "skills" / intake["skill"].split("/")[1] / "SKILL.md",
+                       intake["texto"]) if intake else None,
+            "estructuras": g.get("estructuras") or [],
+            "motor": P / g["motor"] if g.get("motor") else None,
+            "lectores": g.get("lectores") or {}}
+
+
+FAMILIAS = {fa["sigla"]: fa for fa in todas() if "generador" in fa}
 F: dict = {}          # la familia en curso
 CLAVE = [""]
 
@@ -501,7 +504,7 @@ def revisar_area(fa: dict) -> list[str]:
     m = re.search(r"^AREA = (\{.*?\})$", texto, re.S | re.M)
     motor = ast.literal_eval(m.group(1)) if m else {}
     return [f"{a['plugin']}: el motor usa .criterio/{motor.get(a['plugin'])}/ y familia.json dice .criterio/{a['area']}/"
-            for a in fa["agentes"] if motor.get(a["plugin"]) != a["area"]]
+            for a in fa["agentes"] if (P / a["plugin"]).is_dir() and motor.get(a["plugin"]) != a["area"]]
 
 
 def revisar_skills(fa: dict) -> list[str]:
@@ -554,7 +557,7 @@ def revisar_cuentas(fa: dict) -> list[str]:
 
 def revisar_campos(fu: dict) -> list[str]:
     """Cada campo de factura que procesa el motor tiene que estar verificado en su fuente (ADR 0006, regla 2)."""
-    if not F["motor"].is_file() or not F["lectores"]:
+    if not F["motor"] or not F["motor"].is_file() or not F["lectores"]:
         return []
     import importlib.util
     sys.dont_write_bytecode = True
@@ -594,11 +597,10 @@ def estructura_json(ca: dict) -> str:
 
 def una(clave: str, check: bool) -> tuple[list[str], int, int]:
     F.clear()
-    F.update(FAMILIAS[clave])
+    F.update(config(FAMILIAS[clave]))
     CLAVE[0] = clave
-    if not (F["dir"] / "familia.json").is_file():
-        return [], 0, 0
     fu, ca, fa = cargar("fuentes.json"), cargar("carpetas.json"), cargar("familia.json")
+    hecha = construida(fa)
     errores = revisar(fu, ca, fa) + revisar_cuentas(fa)
     salidas: list[tuple[Path, str]] = [(F["dir"] / "FUENTES.es.md", fuentes_md(fu))]
     # El diseño, en los dos idiomas: las mismas tablas, de las mismas fuentes.
@@ -619,6 +621,8 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
     for nombre_r, i in (("README.es.md", "es"), ("README.md", "en")):
         pagina = F["dir"] / nombre_r
         if not pagina.is_file():
+            if not hecha:
+                continue
             errores.append(f"falta families/criterio-{CLAVE[0]}/{nombre_r}, la página de la familia")
             continue
         t = pagina.read_text(encoding="utf-8")
@@ -638,8 +642,8 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
             if a["id"] == F["cifras_en"]:
                 t = poner(t, "cifras", cifras_readme(fu, i), ruta)
             salidas.append((ruta, t))
-    intake = F["intake"][0]
-    if intake.is_file():
+    intake = F["intake"][0] if F["intake"] else None
+    if intake and intake.is_file():
         salidas.append((intake, poner(intake.read_text(encoding="utf-8"), "intake", intake_md(ca, fa), intake)))
     for p in F["estructuras"]:
         ruta = P / p / "scripts" / "estructura.json"
@@ -710,13 +714,11 @@ def _raiz():
 
 
 def agentes_json() -> tuple[str, list[str]]:
-    """Los agentes de todas las familias, en el orden de la PMO, la CFO y la CLO."""
+    """Los agentes de las familias construidas, en su orden. Una en diseño todavía no tiene plugin."""
     err, familias, agentes = [], [], []
-    for sigla in ("pmo", "cfo", "clo"):
-        f = RAIZ / "families" / f"criterio-{sigla}" / "familia.json"
-        if not f.is_file():
-            continue
-        fa = json.loads(f.read_text(encoding="utf-8"))
+    hechas = [fa for fa in todas() if construida(fa)]
+    for fa in hechas:
+        sigla = fa["sigla"]
         familias.append({"sigla": sigla, "nombre": fa["nombre"], "estado": fa["estado"],
                          "agentes": [a["area"] for a in fa["agentes"]]})
         for a in fa["agentes"]:
@@ -744,20 +746,16 @@ def agentes_json() -> tuple[str, list[str]]:
             err.append(f"{a['plugin']}:{x} no está en ningún grupo de {a['nombre']}")
         for x in sorted(set(en_grupos) - existentes):
             err.append(f"{a['nombre']}: el grupo nombra {x}, que no existe en {a['plugin']}")
-    for sigla in ("pmo", "cfo", "clo"):
-        f = RAIZ / "families" / f"criterio-{sigla}" / "familia.json"
-        if f.is_file():
-            err += revisar_impresora(sigla, json.loads(f.read_text(encoding="utf-8")))
+    for fa in hechas:
+        err += revisar_impresora(fa["sigla"], fa)
     areas = [a["area"] for a in agentes]
     if len(areas) != len(set(areas)):
         err.append("dos agentes con la misma área")
     # El nombre de cada señal, para que Rostrum la diga en palabras y no en código.
     senales = {}
-    for sigla in ("cfo", "clo"):
-        f = RAIZ / "families" / f"criterio-{sigla}" / "familia.json"
-        if f.is_file():
-            for a in json.loads(f.read_text(encoding="utf-8"))["agentes"]:
-                senales.update({x["id"]: x["es"] for x in a.get("senales") or []})
+    for fa in hechas:
+        for a in fa["agentes"]:
+            senales.update({x["id"]: x["es"] for x in a.get("senales") or []})
     d = {"generado": f"por scripts/familias.py desde families/*/familia.json; {AVISO}",
          "familias": familias, "agentes": agentes, "servidor": SERVIDOR,
          "senales": dict(sorted(senales.items()))}

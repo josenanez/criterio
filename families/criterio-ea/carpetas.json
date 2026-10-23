@@ -1,0 +1,123 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia EA: scripts/familias.py la escribe en DISENO.es.md. Es una recomendación (ADR 0007): Ofelia procesa la carpeta como esté y el setup la sugiere, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "direccion/",
+    "es": "Una carpeta por ejecutivo que se asiste. Dentro, la referencia de su oficina, su agenda, su correspondencia, los borradores que prepara Ofelia y una carpeta por reunión de cada órgano.",
+    "en": "One folder per executive being assisted. Inside it, the office's reference files, the calendar, the correspondence, the drafts Ofelia prepares and one folder per meeting of each governing body."
+  },
+  "niveles": [
+    {
+      "id": "ejecutivo",
+      "carpeta": "<ejecutivo>/",
+      "es": "La oficina de un ejecutivo",
+      "en": "One executive's office",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "Los órganos que se siguen —junta, comité de presidencia, comités de la junta—, quién los integra y su calendario de sesiones",
+          "en": "The governing bodies being followed —board, executive committee, board committees—, their members and their meeting calendar",
+          "patrones": [
+            "^organos",
+            "^calendario"
+          ]
+        },
+        {
+          "carpeta": "10-agenda",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "Las exportaciones de la agenda en .ics, con la fecha de la exportación en el nombre",
+          "en": "The calendar exports in .ics, with the export date in the name",
+          "patrones": [
+            "\\.ics$"
+          ]
+        },
+        {
+          "carpeta": "20-correspondencia",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "Los correos guardados como archivo, uno por mensaje",
+          "en": "The emails saved as files, one per message",
+          "patrones": [
+            "\\.eml$",
+            "\\.msg$"
+          ]
+        },
+        {
+          "carpeta": "90-borradores",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "Lo único que escribe Ofelia entre los documentos: borradores de actas y de respuestas, con «BORRADOR» en el nombre",
+          "en": "The only place among the documents where Ofelia writes: draft minutes and draft replies, with «BORRADOR» in the name",
+          "patrones": [
+            "BORRADOR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reunion",
+      "carpeta": "organos/<órgano>/<AAAA-MM-DD>/",
+      "ruta": "organos/[^/]+/\\d{4}-\\d{2}-\\d{2}",
+      "profundidad": 3,
+      "es": "Una sesión de un órgano, con su fecha como nombre de la carpeta",
+      "en": "One meeting of a governing body, with its date as the folder name",
+      "carpetas": [
+        {
+          "carpeta": "10-convocatoria",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "La convocatoria y el orden del día",
+          "en": "The notice of meeting and the agenda",
+          "patrones": [
+            "^convocatoria",
+            "^orden"
+          ]
+        },
+        {
+          "carpeta": "20-material",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "El material que se envía a los miembros antes de la sesión",
+          "en": "The materials sent to members before the meeting",
+          "patrones": []
+        },
+        {
+          "carpeta": "30-notas",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "Las notas o la transcripción de la sesión",
+          "en": "The notes or transcript of the meeting",
+          "patrones": [
+            "^notas",
+            "^transcripcion"
+          ]
+        },
+        {
+          "carpeta": "40-acta",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "El acta firmada. Ofelia nunca archiva un borrador aquí",
+          "en": "The signed minutes. Ofelia never files a draft here",
+          "patrones": [
+            "^acta"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-direccion/",
+    "es": "Lo que escribe Ofelia: la configuración, las fichas de cada reunión, de cada hilo y de cada exportación, y los informes. Ninguna persona lo edita, y Ofelia no escribe fuera de aquí ni de `90-borradores/`",
+    "en": "What Ofelia writes: the configuration, the record of each meeting, thread and export, and the reports. No person edits it, and Ofelia writes nowhere else except `90-borradores/`"
+  }
+}

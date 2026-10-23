@@ -11,8 +11,8 @@ Cada familia, en families/criterio-<familia>/:
 - esa fuente está en fuentes.json, en la sección `rol`, y está verificada;
 - fuentes.json trae al menos tres cifras de terceros verificadas, con su fuente, año y muestra.
 
-Las fuentes de la CFO y la CLO las escribe scripts/familias.py; la de la PMO, esta puerta, con el
-mismo formato. Ninguna cifra se teclea aquí.
+Las fuentes de las familias con bloque `generador` las escribe scripts/familias.py; las demás —la
+PMO—, esta puerta, con el mismo formato. Ninguna cifra se teclea aquí.
 """
 from __future__ import annotations
 
@@ -26,8 +26,8 @@ sys.path.insert(0, str(RAIZ / "scripts"))
 import familias as FAM  # noqa: E402
 
 MINIMO_CIFRAS = 3
-# Las familias cuyas FUENTES.es.md no escribe familias.py.
-PROPIAS = {"pmo": "0005-scope-pmo-only.md"}
+# Las familias cuyas FUENTES.es.md no escribe familias.py: las que no traen bloque `generador`.
+PROPIAS = {fa["sigla"]: fa["adr"] for fa in FAM.todas() if "generador" not in fa}
 
 
 def revisar(dir_: Path) -> list[str]:

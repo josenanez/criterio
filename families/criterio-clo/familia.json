@@ -1,6 +1,8 @@
 {
   "nota": "Fuente única de los agentes, los comandos y las señales de la familia CLO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-familias.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json. `area` es la carpeta de la configuración del agente (`.criterio/<area>/`) y `ambitos`, las carpetas de su estado que son suyas cuando comparte el estado con el otro agente de la familia (ADR 0010).",
   "sigla": "clo",
+  "orden": 30,
+  "adr": "0009-scope-clo.md",
   "nombre": {
     "es": "Contratos y cumplimiento",
     "en": "Contracts and compliance"
@@ -8,6 +10,19 @@
   "estado": {
     "es": "Construida · probada",
     "en": "Built · tested"
+  },
+  "generador": {
+    "cifras_en": "fidel",
+    "intake": {
+      "skill": "criterio-legal/legal-intake",
+      "texto": "Cada contrato tiene un solo lugar, su carpeta en `contratos/`: Fidel la procesa y Constanza toma de su ficha las obligaciones de cumplimiento."
+    },
+    "estructuras": [
+      "criterio-legal",
+      "criterio-compliance"
+    ],
+    "motor": "criterio-legal/scripts/legal.py",
+    "lectores": {}
   },
   "agentes": [
     {

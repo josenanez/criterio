@@ -1,0 +1,261 @@
+{
+  "nota": "Fuente única de la agente, los comandos y las señales de la familia EA: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal publica su soporte con scripts/criterio-familias.mjs. La familia está en diseño: mientras su plugin no exista, no entra a Rostrum ni a la página de la familia (ADR 0012).",
+  "sigla": "ea",
+  "orden": 40,
+  "adr": "0012-scope-asistente-ejecutivo.md",
+  "nombre": {
+    "es": "Dirección",
+    "en": "Executive office"
+  },
+  "estado": {
+    "es": "En diseño",
+    "en": "In design"
+  },
+  "instancia": {
+    "es": "Una por ejecutivo",
+    "en": "One per executive"
+  },
+  "generador": {
+    "cifras_en": "ofelia"
+  },
+  "agentes": [
+    {
+      "id": "ofelia",
+      "nombre": "Ofelia",
+      "plugin": "criterio-assistant",
+      "rol": {
+        "es": "Asistente ejecutiva",
+        "en": "Executive assistant"
+      },
+      "titulo": "la oficina de dirección",
+      "origen": {
+        "es": "del griego *ōphéleia*, «ayuda»: es la que prepara",
+        "en": "from the Greek *ōphéleia*, «help»: she is the one who prepares"
+      },
+      "hace": {
+        "es": "El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta",
+        "en": "The executive's day to day: the calendar against their commitments, the preparation of each governing-body meeting with the record of each decision, the draft minutes, the follow-up of commitments and the correspondence that needs a reply"
+      },
+      "area": "direccion",
+      "ambitos": [],
+      "nunca": {
+        "es": "No envía, no agenda, no acepta ni mueve nada; no recomienda una opción, no prioriza por el ejecutivo, no declara cumplido un compromiso sin evidencia y no evalúa a una persona ni a un área",
+        "en": "It does not send, schedule, accept or move anything; it does not recommend an option, prioritise for the executive, declare a commitment done without evidence or evaluate a person or a team"
+      },
+      "marco": [
+        "F-01"
+      ],
+      "comandos": [
+        {
+          "id": "ea-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: el ejecutivo y quién lo asiste, los órganos de `00-referencia`, las carpetas excluidas, los umbrales —días antes de una sesión para el material, días para el acta, cambios de fecha que cuentan, antigüedad máxima de la agenda—, si publica en Rostrum y los términos",
+            "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; las carpetas excluidas; los órganos con sus sesiones encontradas",
+            "entrega": "La configuración, el inventario y los órganos con sus sesiones"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: the executive and who assists them, the governing bodies in `00-referencia`, the excluded folders, the thresholds —days before a meeting for the materials, days for the minutes, date changes that count, maximum age of the calendar—, whether it publishes to Rostrum and the terms",
+            "proceso": "Inventory of what is there; compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the excluded folders; the governing bodies with the meetings found",
+            "entrega": "The configuration, the inventory and the governing bodies with their meetings"
+          }
+        },
+        {
+          "id": "ea-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Procesar",
+            "entrada": "La agenda de `10-agenda`, cada sesión de `organos/` y la correspondencia de `20-correspondencia` (F-02, F-03)",
+            "proceso": "El código normaliza la agenda —repeticiones y zonas horarias— y los correos; el modelo de lenguaje (LLM) extrae de actas, notas y correos los acuerdos, los compromisos y lo que se pide, cada uno con su cita",
+            "reporte": "Las fichas nuevas y las que cambiaron; lo que no se pudo procesar y por qué",
+            "entrega": "Las fichas de las reuniones, de la correspondencia y de la agenda"
+          },
+          "en": {
+            "etiqueta": "Process",
+            "entrada": "The calendar in `10-agenda`, each meeting in `organos/` and the correspondence in `20-correspondencia` (F-02, F-03)",
+            "proceso": "The code normalises the calendar —recurrences and time zones— and the emails; the language model (LLM) extracts from minutes, notes and emails the agreements, the commitments and what is being asked, each with its citation",
+            "reporte": "The new records and those that changed; what could not be processed and why",
+            "entrega": "The records of the meetings, the correspondence and the calendar"
+          }
+        },
+        {
+          "id": "ea-agenda",
+          "n": 2,
+          "es": {
+            "etiqueta": "La semana",
+            "entrada": "La ficha de la agenda y las de las reuniones",
+            "proceso": "Cruza la semana del ejecutivo contra sus sesiones y sus compromisos; si la exportación es más vieja que el umbral, avisa y no calcula cruces",
+            "reporte": "Los cruces, las sesiones sin material y las sesiones sin acta, con la fecha de la exportación",
+            "entrega": "La semana del ejecutivo: cruces, sesiones sin material y sesiones sin acta"
+          },
+          "en": {
+            "etiqueta": "The week",
+            "entrada": "The calendar record and the meeting records",
+            "proceso": "Checks the executive's week against their meetings and commitments; if the export is older than the threshold, it says so and computes no conflicts",
+            "reporte": "The conflicts, the meetings without materials and those without minutes, with the export date",
+            "entrega": "The executive's week: conflicts, meetings without materials and meetings without minutes"
+          }
+        },
+        {
+          "id": "ea-prep",
+          "n": 3,
+          "es": {
+            "etiqueta": "Preparar una sesión",
+            "entrada": "El órgano y la fecha de la próxima sesión; la ficha de la anterior",
+            "proceso": "Arma el orden del día con lo que quedó abierto, lista el material que falta en `20-material` y prepara la ficha de cada decisión: las opciones que traen los documentos, la evidencia de cada una con su cita, lo que falta saber y las fechas que fijan el plazo",
+            "reporte": "El paquete de la sesión. No ordena las opciones ni dice cuál conviene",
+            "entrega": "El paquete de la sesión, con la ficha de cada decisión"
+          },
+          "en": {
+            "etiqueta": "Prepare a meeting",
+            "entrada": "The governing body and the date of the next meeting; the record of the previous one",
+            "proceso": "Builds the agenda with what was left open, lists the materials missing from `20-material` and prepares the record of each decision: the options the documents bring, the evidence for each with its citation, what is still unknown and the dates that set the deadline",
+            "reporte": "The meeting pack. It does not rank the options or say which one is best",
+            "entrega": "The meeting pack, with the record of each decision"
+          }
+        },
+        {
+          "id": "ea-minutes",
+          "n": 4,
+          "es": {
+            "etiqueta": "Borrador del acta",
+            "entrada": "Las notas o la transcripción de `30-notas`",
+            "proceso": "El modelo de lenguaje (LLM) extrae cada acuerdo y cada compromiso con su cita; el código marca los que no tienen responsable o fecha",
+            "reporte": "El borrador en `90-borradores`, con «BORRADOR» en el nombre y en el texto, y la lista de lo que falta para cerrarlo",
+            "entrega": "El borrador del acta, con cada acuerdo y compromiso citado"
+          },
+          "en": {
+            "etiqueta": "Draft minutes",
+            "entrada": "The notes or the transcript in `30-notas`",
+            "proceso": "The language model (LLM) extracts each agreement and commitment with its citation; the code flags those with no owner or no date",
+            "reporte": "The draft in `90-borradores`, with «BORRADOR» in the name and in the text, and the list of what is missing to close it",
+            "entrega": "The draft minutes, with each agreement and commitment cited"
+          }
+        },
+        {
+          "id": "ea-commitments",
+          "n": 5,
+          "es": {
+            "etiqueta": "Compromisos",
+            "entrada": "Las fichas de las reuniones; las de los proyectos, si Samuel las tiene",
+            "proceso": "Calcula con las reglas de compromiso del núcleo común cuáles vencieron sin evidencia, cuáles no tienen fecha y cuáles se movieron más del umbral; los de proyecto los cita de la ficha de Samuel y no los recalcula",
+            "reporte": "El estado de los compromisos de dirección, por órgano y por responsable",
+            "entrega": "El estado de los compromisos de dirección, por órgano y por responsable"
+          },
+          "en": {
+            "etiqueta": "Commitments",
+            "entrada": "The meeting records; the project records, if Samuel has them",
+            "proceso": "Using the commitment rules of the shared core, computes which are overdue without evidence, which have no date and which moved more than the threshold; project commitments are cited from Samuel's record, not recomputed",
+            "reporte": "The status of the executive commitments, by governing body and by owner",
+            "entrega": "The status of the executive commitments, by governing body and by owner"
+          }
+        },
+        {
+          "id": "ea-mail",
+          "n": 6,
+          "es": {
+            "etiqueta": "Correspondencia",
+            "entrada": "Las fichas de la correspondencia",
+            "proceso": "Calcula qué pide respuesta y su plazo; para lo rutinario, el modelo de lenguaje (LLM) escribe un borrador de respuesta",
+            "reporte": "Lo que pide respuesta y para cuándo; los borradores en `90-borradores`. Nunca envía",
+            "entrega": "La correspondencia que pide respuesta, con sus borradores"
+          },
+          "en": {
+            "etiqueta": "Correspondence",
+            "entrada": "The correspondence records",
+            "proceso": "Computes what needs a reply and its deadline; for routine items, the language model (LLM) writes a draft reply",
+            "reporte": "What needs a reply and by when; the drafts in `90-borradores`. It never sends",
+            "entrega": "The correspondence that needs a reply, with its drafts"
+          }
+        },
+        {
+          "id": "ea-weekly",
+          "n": 7,
+          "es": {
+            "etiqueta": "Resumen de la semana",
+            "entrada": "La configuración y las fichas",
+            "proceso": "Reúne lo que llegó, lo que vence y lo que falta preparar",
+            "reporte": "Un solo resumen a la semana; no se publica en Rostrum salvo que la configuración lo diga",
+            "entrega": "El resumen de la semana: lo que llegó, lo que vence y lo que falta preparar"
+          },
+          "en": {
+            "etiqueta": "Weekly summary",
+            "entrada": "The configuration and the records",
+            "proceso": "Gathers what arrived, what is due and what still needs preparing",
+            "reporte": "A single summary a week; not published to Rostrum unless the configuration says so",
+            "entrega": "The weekly summary: what arrived, what is due and what still needs preparing"
+          }
+        },
+        {
+          "id": "ea-wake",
+          "n": 8,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y las fichas",
+            "proceso": "Decide qué toca: las sesiones que entran en la ventana, las actas pendientes, los plazos de la correspondencia y una revisión semanal",
+            "reporte": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+            "entrega": "Lo que toca hoy en la oficina; si no toca nada, se calla"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the records",
+            "proceso": "Decides what is due: the meetings entering the window, pending minutes, correspondence deadlines and a weekly review",
+            "reporte": "What ran and what it found; if nothing is due, it stays silent",
+            "entrega": "What the office needs today; silent when nothing does"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "meeting_conflict",
+          "es": "Dos reuniones del ejecutivo se cruzan en la agenda exportada",
+          "en": "Two of the executive's meetings overlap in the exported calendar"
+        },
+        {
+          "id": "meeting_without_material",
+          "es": "A los días configurados de una sesión de un órgano, su material no está en la carpeta",
+          "en": "Within the configured days before a governing-body meeting, its materials are not in the folder"
+        },
+        {
+          "id": "meeting_without_minutes",
+          "es": "Pasados los días configurados de una sesión, su acta firmada no está",
+          "en": "The configured days after a meeting have passed and its signed minutes are not there"
+        },
+        {
+          "id": "agreement_without_owner",
+          "es": "Un acuerdo del acta no tiene responsable",
+          "en": "An agreement in the minutes has no owner"
+        },
+        {
+          "id": "agreement_without_date",
+          "es": "Un acuerdo del acta no tiene fecha",
+          "en": "An agreement in the minutes has no date"
+        },
+        {
+          "id": "commitment_overdue",
+          "es": "Un compromiso venció y ningún documento lo sostiene como cumplido",
+          "en": "A commitment is overdue and no document supports it as done"
+        },
+        {
+          "id": "commitment_rescheduled",
+          "es": "Un compromiso se movió más veces de las configuradas",
+          "en": "A commitment was moved more times than configured"
+        },
+        {
+          "id": "correspondence_unanswered",
+          "es": "Un correo guardado pide respuesta y su plazo venció sin una respuesta guardada",
+          "en": "A saved email asks for a reply and its deadline passed with no saved reply"
+        },
+        {
+          "id": "decision_deadline",
+          "es": "Una decisión pendiente tiene una fecha que la fija dentro de los días configurados",
+          "en": "A pending decision has a date that sets it within the configured days"
+        }
+      ]
+    }
+  ]
+}

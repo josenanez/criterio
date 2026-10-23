@@ -156,12 +156,12 @@ ronda con el agente.
 
 ## Lo que cuesta hoy
 
-Son cifras de terceros, verificadas contra el texto de quien las publica. Pasan a `fuentes.json` cuando la familia se construya.
+Son cifras de terceros, verificadas contra el texto de quien las publica. Su fuente única es [`families/criterio-ea/fuentes.json`](../../families/criterio-ea/fuentes.json); el 57 % sale de los datos de uso de Microsoft 365 y no de la encuesta, corregido el 23 de octubre de 2026.
 
 | Cifra | Fuente | Muestra | Estado |
 |---|---|---|---|
-| **57 %** del tiempo de trabajo se va en comunicar (reuniones, correo y chat) y el 43 % en crear | Microsoft, Work Trend Index 2023, «Will AI Fix Work?», 9 de mayo de 2023 ([informe](https://www.boye-co.com/s/WTI_Annual_2023_Will_AI_Fix_Work_.pdf)) | 31.000 trabajadores de tiempo completo en 31 mercados, del 1 de febrero al 14 de marzo de 2023 | Verificada |
-| **55 %** dice que los próximos pasos al final de una reunión no quedan claros | El mismo informe | La misma | Verificada |
+| **57 %** del tiempo de trabajo se va en comunicar (reuniones, correo y chat) y el 43 % en crear | Microsoft, Work Trend Index 2023, «Will AI Fix Work?», 9 de mayo de 2023 ([informe](https://www.microsoft.com/en-us/worklab/work-trend-index/will-ai-fix-work)) | Datos agregados de uso de Microsoft 365, no la encuesta; el informe no da el tamaño de esa muestra | Verificada |
+| **55 %** dice que los próximos pasos al final de una reunión no quedan claros | El mismo informe | 31.000 trabajadores de tiempo completo o independientes en 31 mercados, del 1 de febrero al 14 de marzo de 2023 | Verificada |
 | **68 %** no tiene suficiente tiempo de concentración sin interrupciones en su jornada | El mismo informe | La misma | Verificada |
 | **72 %** del tiempo de trabajo de un CEO se va en reuniones | Porter y Nohria, «How CEOs Manage Time», Harvard Business Review, 2018 | 27 CEO, más de 60.000 horas registradas | Por verificar: la muestra la confirma [McKinsey](https://www.mckinsey.com/about-us/new-at-mckinsey-blog/how-do-ceos-manage-their-time-the-winners-of-the-60th-annual-hbr-mckinsey-award-explain); el 72 % solo se ha visto en fuentes secundarias |
 

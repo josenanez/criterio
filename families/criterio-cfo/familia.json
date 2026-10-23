@@ -1,6 +1,8 @@
 {
   "nota": "Fuente única de los agentes, los comandos y las señales de la familia CFO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-familias.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json. `area` es la carpeta de la configuración del agente (`.criterio/<area>/`) y `ambitos`, las carpetas de su estado que son suyas cuando comparte el estado con el otro agente de la familia (ADR 0010).",
   "sigla": "cfo",
+  "orden": 20,
+  "adr": "0006-scope-cfo.md",
   "nombre": {
     "es": "Cierre, control y reporte",
     "en": "Close, control and reporting"
@@ -8,6 +10,27 @@
   "estado": {
     "es": "Construida · probada",
     "en": "Built · tested"
+  },
+  "generador": {
+    "cifras_en": "clara",
+    "intake": {
+      "skill": "criterio-finance/finance-intake",
+      "texto": "La contabilidad del periodo tiene un solo lugar, `10-contabilidad/`: Clara la cierra y Tomás saca de ahí la ejecución."
+    },
+    "estructuras": [
+      "criterio-finance",
+      "criterio-budget"
+    ],
+    "motor": "criterio-finance/scripts/finanzas.py",
+    "lectores": {
+      "CAMPOS_DIAN": [
+        "F-01"
+      ],
+      "CAMPOS_SRI": [
+        "F-04",
+        "F-09"
+      ]
+    }
   },
   "agentes": [
     {

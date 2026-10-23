@@ -34,7 +34,12 @@ CONSTRUIDOS = sorted(d for d in (RAIZ / "plugins").iterdir()
 DOCS = [RAIZ / "README.es.md", RAIZ / "README.md"]
 # Y las páginas de cada familia —su README, su diseño, sus preguntas, sus fuentes—: son las
 # primeras que se abren desde el README del proyecto.
+# Una familia en diseño —su plugin todavía no existe— nombra señales que ningún código calcula
+# aún: su hoja de diseño es lo que se construye. Entra cuando existe su plugin.
 for _f in sorted((RAIZ / "families").glob("criterio-*")):
+    _fa = json.loads((_f / "familia.json").read_text(encoding="utf-8")) if (_f / "familia.json").is_file() else {}
+    if not all((RAIZ / "plugins" / a["plugin"]).is_dir() for a in _fa.get("agentes", [])):
+        continue
     DOCS += sorted(_f.glob("*.md")) + sorted(_f.glob("analisis/*.md"))
 for _p in CONSTRUIDOS:
     DOCS += sorted(_p.glob("*.md"))
