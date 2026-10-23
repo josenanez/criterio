@@ -1,5 +1,5 @@
 {
-  "nota": "Los defectos que encontraron las rondas con el agente de la familia CFO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica.",
+  "nota": "Los defectos que encontraron las rondas con el agente de la familia CFO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
   "defectos": [
     {
       "id": "CFO-1",
@@ -81,7 +81,14 @@
         "correccion": "Grading accepts a what with the key’s words, conjugation aside, only when its citation and the rest of the record match. Verified by re-grading the original round 2 mining output: 9 of 9 data points; the other entities do not change."
       },
       "verificacion": "mineria",
-      "ronda_verificacion": 3
+      "ronda_verificacion": 3,
+      "fallas": [
+        [
+          2,
+          "mineria",
+          "presupuesto · committee_commitments"
+        ]
+      ]
     }
   ]
 }

@@ -112,6 +112,8 @@ PUERTAS = [
      "Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/analisis.py"), "--check"],
      "Que el análisis estadístico diga lo que dice la evidencia de las rondas"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/analisis_familias.py"), "--check"],
+     "Que el análisis estadístico de la CFO y la CLO diga lo que dice la evidencia de sus rondas"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-finance/scripts/finanzas.py"), "selftest"],
      "El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-cfo/generar.py")],

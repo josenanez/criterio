@@ -12,9 +12,9 @@ anything, the name would stop being true.
 
 [Español](README.es.md) · `criterio-server` · Apache 2.0 · One per organisation
 
-**Status: built; the map across the three families is new and in testing.** The PMO family's
+**Status: built and tested.** The PMO family's
 portal has existed since 0.2 and has been tested end to end in every round since 0.3.9; the map
-that adds the CFO and CLO families is tested by its selftest across the three families at once.
+that adds the CFO and CLO families is tested by its selftest across the three families at once, and the accessibility audit ran on the round outputs of all three.
 The decision is in [ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md) (Spanish).
 
 ---

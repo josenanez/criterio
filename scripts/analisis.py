@@ -405,20 +405,22 @@ def secciones():
 FONDO, TINTA, GRIS, FILETE = "#050505", "#f5f4ef", "#8a867e", "#2b2b28"
 
 
-def svg_evolucion(g, idioma):
+def svg_evolucion(g, idioma, series=None, titulo=None, subtitulo=None):
+    """La gráfica de evolución. La de la PMO por omisión; una familia pasa sus series y sus textos."""
+    series = SERIES if series is None else series
     W, H, x0, x1, y0, y1 = 760, 380, 60, 700, 110, 330
     ns = [p["n"] for p in g]
     nmin, nmax = min(ns), max(ns)
     x = lambda n: x0 + (n - nmin) * (x1 - x0) / max(1, nmax - nmin)
     y = lambda v: y1 - v / 100 * (y1 - y0)
-    t = ("Evolución por ronda de las cuatro métricas", "The four measures, round by round")[idioma == "en"]
-    sub = ("Porcentaje en las 4 industrias. Vera, Samuel y Alba contra la clave; Rostrum por comprobación",
+    t = titulo[idioma] if titulo else ("Evolución por ronda de las cuatro métricas", "The four measures, round by round")[idioma == "en"]
+    sub = subtitulo[idioma] if subtitulo else ("Porcentaje en las 4 industrias. Vera, Samuel y Alba contra la clave; Rostrum por comprobación",
            "Percentage across the 4 industries. Vera, Samuel and Alba against the key; Rostrum by check")[idioma == "en"]
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="Inter, Arial, sans-serif" font-size="12">',
            f'<rect width="{W}" height="{H}" fill="{FONDO}"/>',
            f'<text x="{x0}" y="32" font-size="17" fill="{TINTA}">{t}</text>',
            f'<text x="{x0}" y="54" fill="{GRIS}">{sub}</text>']
-    for k, (slug, es, en, c) in enumerate(SERIES):
+    for k, (slug, es, en, c) in enumerate(series):
         out.append(f'<line x1="{x0 + k * 165}" x2="{x0 + k * 165 + 18}" y1="78" y2="78" stroke="{c}" stroke-width="3"/>'
                    f'<text x="{x0 + k * 165 + 24}" y="82" fill="{TINTA}">{es if idioma == "es" else en}</text>')
     for v in (0, 25, 50, 75, 100):
@@ -428,7 +430,7 @@ def svg_evolucion(g, idioma):
                f'<text x="{x1 + 6}" y="{y(99) + 4:.1f}" fill="{GRIS}">99{" %" if idioma == "es" else "%"}</text>')
     for n in ns:
         out.append(f'<text x="{x(n):.1f}" y="{y1 + 20}" text-anchor="middle" fill="{GRIS}">R{n}</text>')
-    for slug, _, _, c in SERIES:
+    for slug, _, _, c in series:
         pts = [(p["n"], p[slug]) for p in g if p[slug] is not None]
         if not pts:
             continue
@@ -439,13 +441,13 @@ def svg_evolucion(g, idioma):
     return "\n".join(out) + "\n"
 
 
-def svg_defectos(g, idioma):
+def svg_defectos(g, idioma, subtitulo=None):
     W, H, x0, x1, y0, y1 = 760, 340, 60, 720, 80, 290
     pico = max(p["defectos"] for p in g) or 1
     banda = (x1 - x0) / len(g)
     total = sum(p["defectos"] for p in g)
     t = ("Defectos encontrados por ronda", "Defects found per round")[idioma == "en"]
-    sub = (f"{total} en total; R0 son los encontrados antes de la primera ronda", f"{total} in total; R0 are those found before the first round")[idioma == "en"]
+    sub = subtitulo(total)[idioma] if subtitulo else (f"{total} en total; R0 son los encontrados antes de la primera ronda", f"{total} in total; R0 are those found before the first round")[idioma == "en"]
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" font-family="Inter, Arial, sans-serif" font-size="12">',
            f'<rect width="{W}" height="{H}" fill="{FONDO}"/>',
            f'<text x="{x0}" y="32" font-size="17" fill="{TINTA}">{t}</text>',

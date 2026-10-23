@@ -1,0 +1,661 @@
+{
+ "meta": {
+  "generado_desde": "tests/evidencias/familias/cfo",
+  "ultima_ronda": 2,
+  "rondas": [
+   1,
+   2
+  ]
+ },
+ "secciones": [
+  {
+   "id": "resumen",
+   "titulo": {
+    "es": "En una mirada",
+    "en": "At a glance"
+   },
+   "parrafos": {
+    "es": [
+     "La ronda completa más reciente, la 2, sobre las 6 entidades del material: 45 de 45 señales sembradas encontradas (margen del 95 %: 92,1–100 %) y 0 de más; 48 de 49 datos extraídos bien (98 %, margen del 95 %: 89,3–99,7 %); y 2 de 2 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–2, 58 de 58 señales encontradas, 0 de más y 64 de 65 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+    ],
+    "en": [
+     "The most recent complete round, round 2, on the material's 6 entities: 45 of 45 seeded signals found (95% margin: 92.1–100%) and 0 extra; 48 of 49 data items extracted right (98%, 95% margin: 89.3–99.7%); and 2 of 2 control entities with no signal at all.",
+     "Across rounds 1–2, 58 of 58 signals found, 0 extra and 64 of 65 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+    ]
+   }
+  },
+  {
+   "id": "metodo",
+   "titulo": {
+    "es": "Qué se probó y cómo",
+    "en": "What was tested and how"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "",
+      ""
+     ],
+     "en": [
+      "",
+      ""
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Rondas",
+       "2; la completa más reciente es la 2"
+      ],
+      [
+       "Material",
+       "Banca · Colombia, Cooperativas · Ecuador, Minería · Ecuador, Retail · Colombia"
+      ],
+      [
+       "Entidades de control",
+       "Control · Colombia, Control · Ecuador"
+      ],
+      [
+       "Corridas de una entidad",
+       "8"
+      ],
+      [
+       "Señales sembradas",
+       "58"
+      ],
+      [
+       "Datos calificados",
+       "65"
+      ]
+     ],
+     "en": [
+      [
+       "Rounds",
+       "2; the most recent complete one is round 2"
+      ],
+      [
+       "Material",
+       "Banking · Colombia, Credit unions · Ecuador, Mining · Ecuador, Retail · Colombia"
+      ],
+      [
+       "Control entities",
+       "Control · Colombia, Control · Ecuador"
+      ],
+      [
+       "Entity runs",
+       "8"
+      ],
+      [
+       "Seeded signals",
+       "58"
+      ],
+      [
+       "Data items graded",
+       "65"
+      ]
+     ]
+    }
+   },
+   "parrafos": {
+    "es": [
+     "Cada entidad corre todos los comandos de los dos agentes, con un tope de tokens fijado antes de empezar, sobre un material que trae su clave aparte: el agente nunca la ve. Las señales se comparan por su nombre y su clave; la extracción, campo por campo, contra lo que traen los documentos escritos. Las entidades de control no tienen ningún defecto sembrado: cualquier señal en ellas es una falla.",
+     "Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que levantó, cuántas eran correctas. Margen del 95 %: intervalo de confianza de Wilson sobre los casos."
+    ],
+    "en": [
+     "Each entity runs every command of the two agents, with a token cap set before starting, on material whose key is kept apart: the agent never sees it. Signals are compared by name and key; extraction, field by field, against what the written documents say. Control entities carry no seeded defect: any signal in them is a failure.",
+     "Coverage: of the seeded signals, how many were found. Precision: of those raised, how many were right. 95% margin: Wilson confidence interval over the cases."
+    ]
+   }
+  },
+  {
+   "id": "acumulado",
+   "titulo": {
+    "es": "Resultados acumulados · rondas 1–2",
+    "en": "Cumulative results · rounds 1–2"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Métrica",
+      "Casos",
+      "Resultado",
+      "Margen del 95 %"
+     ],
+     "en": [
+      "Measure",
+      "Cases",
+      "Result",
+      "95% margin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Señales · cobertura",
+       "58 de 58",
+       "100 %",
+       "93,7–100 %"
+      ],
+      [
+       "Señales · precisión",
+       "58 de 58",
+       "100 %",
+       "93,7–100 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "64 de 65",
+       "98,5 %",
+       "91,7–99,8 %"
+      ],
+      [
+       "Control · sin ninguna señal",
+       "3 de 3",
+       "100 %",
+       "43,8–100 %"
+      ]
+     ],
+     "en": [
+      [
+       "Signals · coverage",
+       "58 of 58",
+       "100%",
+       "93.7–100%"
+      ],
+      [
+       "Signals · precision",
+       "58 of 58",
+       "100%",
+       "93.7–100%"
+      ],
+      [
+       "Extraction · data right",
+       "64 of 65",
+       "98.5%",
+       "91.7–99.8%"
+      ],
+      [
+       "Control · with no signal",
+       "3 of 3",
+       "100%",
+       "43.8–100%"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "evolucion",
+   "titulo": {
+    "es": "Evolución por ronda",
+    "en": "Round by round"
+   },
+   "imagen": {
+    "es": "evolucion-es.svg",
+    "en": "evolucion-en.svg"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Ronda",
+      "Entidades",
+      "Señales · cobertura",
+      "Señales · precisión",
+      "Extracción",
+      "Control sin señales",
+      "Tokens",
+      "Defectos"
+     ],
+     "en": [
+      "Round",
+      "Entities",
+      "Signals · coverage",
+      "Signals · precision",
+      "Extraction",
+      "Control with no signal",
+      "Tokens",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "1",
+       "2",
+       "100 %",
+       "100 %",
+       "100 %",
+       "1 de 1",
+       "17,3 M",
+       "3"
+      ],
+      [
+       "2",
+       "6",
+       "100 %",
+       "100 %",
+       "98 %",
+       "2 de 2",
+       "53 M",
+       "1"
+      ]
+     ],
+     "en": [
+      [
+       "1",
+       "2",
+       "100%",
+       "100%",
+       "100%",
+       "1 of 1",
+       "17.3 M",
+       "3"
+      ],
+      [
+       "2",
+       "6",
+       "100%",
+       "100%",
+       "98%",
+       "2 of 2",
+       "53 M",
+       "1"
+      ]
+     ]
+    }
+   },
+   "parrafos": {
+    "es": [
+     "Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes."
+    ],
+    "en": [
+     "A round that does not run every entity is partial: the first, small one, before the complete one, or a verification round, which repeats the runs a fixed defect left pending."
+    ]
+   }
+  },
+  {
+   "id": "ultima",
+   "titulo": {
+    "es": "La ronda completa más reciente · ronda 2",
+    "en": "The most recent complete round · round 2"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Métrica",
+      "Casos",
+      "Resultado",
+      "Margen del 95 %"
+     ],
+     "en": [
+      "Measure",
+      "Cases",
+      "Result",
+      "95% margin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Señales · cobertura",
+       "45 de 45",
+       "100 %",
+       "92,1–100 %"
+      ],
+      [
+       "Señales · precisión",
+       "45 de 45",
+       "100 %",
+       "92,1–100 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "48 de 49",
+       "98 %",
+       "89,3–99,7 %"
+      ],
+      [
+       "Control · sin ninguna señal",
+       "2 de 2",
+       "100 %",
+       "34,2–100 %"
+      ]
+     ],
+     "en": [
+      [
+       "Signals · coverage",
+       "45 of 45",
+       "100%",
+       "92.1–100%"
+      ],
+      [
+       "Signals · precision",
+       "45 of 45",
+       "100%",
+       "92.1–100%"
+      ],
+      [
+       "Extraction · data right",
+       "48 of 49",
+       "98%",
+       "89.3–99.7%"
+      ],
+      [
+       "Control · with no signal",
+       "2 of 2",
+       "100%",
+       "34.2–100%"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "industrias",
+   "titulo": {
+    "es": "Por industria y país · ronda 2",
+    "en": "By industry and country · round 2"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Material",
+      "Agentes",
+      "Señales",
+      "De más",
+      "Extracción",
+      "Tokens"
+     ],
+     "en": [
+      "Material",
+      "Agents",
+      "Signals",
+      "Extra",
+      "Extraction",
+      "Tokens"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Banca · Colombia",
+       "Clara, Tomás",
+       "13 de 13",
+       "0",
+       "8 de 8",
+       "8,4 M"
+      ],
+      [
+       "Cooperativas · Ecuador",
+       "Clara, Tomás",
+       "11 de 11",
+       "0",
+       "8 de 8",
+       "9,2 M"
+      ],
+      [
+       "Minería · Ecuador",
+       "Clara, Tomás",
+       "11 de 11",
+       "0",
+       "8 de 9",
+       "9,7 M"
+      ],
+      [
+       "Retail · Colombia",
+       "Clara, Tomás",
+       "10 de 10",
+       "0",
+       "8 de 8",
+       "8,8 M"
+      ],
+      [
+       "Control · Colombia",
+       "Clara, Tomás",
+       "0 de 0",
+       "0",
+       "8 de 8",
+       "8,4 M"
+      ],
+      [
+       "Control · Ecuador",
+       "Clara, Tomás",
+       "0 de 0",
+       "0",
+       "8 de 8",
+       "8,5 M"
+      ]
+     ],
+     "en": [
+      [
+       "Banking · Colombia",
+       "Clara, Tomás",
+       "13 of 13",
+       "0",
+       "8 of 8",
+       "8.4 M"
+      ],
+      [
+       "Credit unions · Ecuador",
+       "Clara, Tomás",
+       "11 of 11",
+       "0",
+       "8 of 8",
+       "9.2 M"
+      ],
+      [
+       "Mining · Ecuador",
+       "Clara, Tomás",
+       "11 of 11",
+       "0",
+       "8 of 9",
+       "9.7 M"
+      ],
+      [
+       "Retail · Colombia",
+       "Clara, Tomás",
+       "10 of 10",
+       "0",
+       "8 of 8",
+       "8.8 M"
+      ],
+      [
+       "Control · Colombia",
+       "Clara, Tomás",
+       "0 of 0",
+       "0",
+       "8 of 8",
+       "8.4 M"
+      ],
+      [
+       "Control · Ecuador",
+       "Clara, Tomás",
+       "0 of 0",
+       "0",
+       "8 of 8",
+       "8.5 M"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "senales",
+   "titulo": {
+    "es": "Lo que falló, uno por uno · rondas 1–2",
+    "en": "What failed, one by one · rounds 1–2"
+   },
+   "parrafos": {
+    "es": [
+     "1 falla en 8 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+    ],
+    "en": [
+     "1 failure in 8 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+    ]
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Ronda",
+      "Material",
+      "Qué",
+      "Dónde",
+      "Defecto",
+      "Origen"
+     ],
+     "en": [
+      "Round",
+      "Material",
+      "What",
+      "Where",
+      "Defect",
+      "Origin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "2",
+       "Minería · Ecuador",
+       "Dato calificado como mal",
+       "presupuesto · committee_commitments",
+       "CFO-4",
+       "Arnés de pruebas"
+      ]
+     ],
+     "en": [
+      [
+       "2",
+       "Mining · Ecuador",
+       "Data item graded wrong",
+       "presupuesto · committee_commitments",
+       "CFO-4",
+       "Test harness"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "defectos",
+   "titulo": {
+    "es": "Defectos",
+    "en": "Defects"
+   },
+   "imagen": {
+    "es": "defectos-es.svg",
+    "en": "defectos-en.svg"
+   },
+   "parrafos": {
+    "es": [
+     "4 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 4 verificados y 0 por verificar. 2 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+    ],
+    "en": [
+     "4 defects logged, each with its origin, its fix and the run that verified it: 4 verified and 0 to verify. 2 came from the material, the key or the test harness, not from the agents."
+    ]
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Origen",
+      "Defectos"
+     ],
+     "en": [
+      "Origin",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Arnés de pruebas",
+       "2"
+      ],
+      [
+       "Instrucciones del agente",
+       "1"
+      ],
+      [
+       "Código",
+       "1"
+      ]
+     ],
+     "en": [
+      [
+       "Test harness",
+       "2"
+      ],
+      [
+       "Agent instructions",
+       "1"
+      ],
+      [
+       "Code",
+       "1"
+      ]
+     ]
+    }
+   },
+   "tabla2": {
+    "cab": {
+     "es": [
+      "Agente",
+      "Defectos"
+     ],
+     "en": [
+      "Agent",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Tomás",
+       "3"
+      ],
+      [
+       "Ninguno",
+       "1"
+      ],
+      [
+       "Clara",
+       "1"
+      ]
+     ],
+     "en": [
+      [
+       "Tomás",
+       "3"
+      ],
+      [
+       "None",
+       "1"
+      ],
+      [
+       "Clara",
+       "1"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "consumo",
+   "titulo": {
+    "es": "Consumo y próximo paso",
+    "en": "Cost and next step"
+   },
+   "parrafos": {
+    "es": [
+     "Las 2 rondas usaron 71,1 millones de tokens: 70,3 millones en las corridas calificadas y 0,8 en las que se repitieron después de corregir un defecto. En promedio, 8,8 millones por entidad.",
+     "El material es sintético. El próximo paso es el despliegue en una organización, con su propia documentación."
+    ],
+    "en": [
+     "The 2 rounds used 71.1 million tokens: 70.3 million in the graded runs and 0.8 in the ones repeated after fixing a defect. On average, 8.8 million per entity.",
+     "The material is synthetic. The next step is deployment in an organisation, with its own documentation."
+    ]
+   }
+  }
+ ]
+}

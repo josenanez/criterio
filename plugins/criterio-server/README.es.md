@@ -12,9 +12,9 @@ dejaría de ser cierto.
 
 [English](README.md) · `criterio-server` · Apache 2.0 · Uno por organización
 
-**Estado: construido; el mapa de las tres familias es nuevo y está en prueba.** El portal de la
+**Estado: construido y probado.** El portal de la
 familia PMO existe desde la 0.2 y se probó de punta a punta en cada ronda desde la 0.3.9; el mapa que suma las familias CFO y CLO lo
-prueba su selftest sobre las tres familias a la vez. La decisión, en el
+prueba su selftest sobre las tres familias a la vez, y la auditoría de accesibilidad corrió sobre las salidas de las rondas de las tres. La decisión, en el
 [ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md).
 
 ---
