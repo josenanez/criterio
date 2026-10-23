@@ -7529,5 +7529,158 @@
   "errores": {},
   "origen": null,
   "nota": "ronda 11"
+ },
+ {
+  "id": "2026-10-23-oil-gas-vera-48",
+  "fecha": "2026-10-23",
+  "corte": "2026-10-22",
+  "entorno": "oil-gas",
+  "industria": "Empresas de petróleo y gas de Suramérica",
+  "etiqueta": "Empresas de petróleo y gas de Suramérica · exploración, producción y transporte",
+  "material": "ronda-11",
+  "agente": "vera",
+  "version": "0.8.0",
+  "tipo": "primera",
+  "codigo": "11b6f1c",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 53,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   93.2,
+   100.0
+  ],
+  "ic_cobertura": [
+   93.2,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    16,
+    0,
+    0
+   ],
+   "PRY-201": [
+    0,
+    0,
+    0
+   ],
+   "PRY-202": [
+    6,
+    0,
+    0
+   ],
+   "PRY-203": [
+    0,
+    0,
+    0
+   ],
+   "PRY-204": [
+    5,
+    0,
+    0
+   ],
+   "PRY-205": [
+    2,
+    0,
+    0
+   ],
+   "PRY-206": [
+    2,
+    0,
+    0
+   ],
+   "PRY-207": [
+    0,
+    0,
+    0
+   ],
+   "PRY-208": [
+    7,
+    0,
+    0
+   ],
+   "PRY-209": [
+    4,
+    0,
+    0
+   ],
+   "PRY-210": [
+    7,
+    0,
+    0
+   ],
+   "PRY-211": [
+    4,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "commitment_overdue": {
+    "aciertos": 10,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_rescheduled": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 5,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 22,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_overdue": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 6,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "silent": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_cost": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 11"
  }
 ]
