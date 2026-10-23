@@ -1,0 +1,30 @@
+{
+  "n": 5,
+  "agente": "fidel",
+  "comando": "authority-check",
+  "argumento": "",
+  "inicio": "2026-10-22T23:38:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 8,
+  "tokens": 384605,
+  "tokens_salida": 2219,
+  "costo_usd": 0.12388859999999999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-authority-check-1.html",
+      ".criterio/corridas/legal/2026-10-22-authority-check-1.md",
+      "estado-legal/0990054321001-minera-condor/contratos/reporte-authority-check.md",
+      "estado-legal/0990054321001-minera-condor/corridas/2026-10-06-authority-check-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/salida-authority-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

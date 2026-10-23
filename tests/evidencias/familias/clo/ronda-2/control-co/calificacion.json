@@ -1,0 +1,56 @@
+{
+  "entidad": "Distribuidora Control",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 5297804,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 128,
+    "mal": [
+      {
+        "ficha": "cumplimiento",
+        "campo": "declared.status",
+        "esperado": "cumplido",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "cumplimiento",
+        "campo": "declared.date",
+        "esperado": "2026-10-05",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "cumplimiento",
+        "campo": "declared.source",
+        "esperado": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "cumplimiento",
+        "campo": "new_rules",
+        "esperado": [
+          {
+            "id": "N-2026-09",
+            "rule": "Circular sintética 009 de 2026",
+            "date": "2026-09-28",
+            "applies": "por evaluar",
+            "source": "30-normativa/boletin-2026-09.md, punto 1"
+          }
+        ],
+        "obtenido": null,
+        "bien": false
+      }
+    ]
+  }
+}

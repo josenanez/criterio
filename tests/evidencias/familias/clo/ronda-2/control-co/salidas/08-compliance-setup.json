@@ -1,0 +1,26 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/900000001-distribuidora-control",
+  "inicio": "2026-10-22T23:24:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 13,
+  "tokens": 551586,
+  "tokens_salida": 3130,
+  "costo_usd": 0.19615970000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-setup-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-compliance-setup-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "borrados": []
+  }
+}

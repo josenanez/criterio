@@ -1,0 +1,26 @@
+{
+  "n": 13,
+  "agente": "constanza",
+  "comando": "reports-cases",
+  "argumento": "",
+  "inicio": "2026-10-22T23:25:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 10,
+  "turnos": 3,
+  "tokens": 139966,
+  "tokens_salida": 382,
+  "costo_usd": 0.07130950000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-reports-cases-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-reports-cases-1.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 12,
+  "agente": "constanza",
+  "comando": "regulatory-watch",
+  "argumento": "",
+  "inicio": "2026-10-22T23:33:05",
+  "estado": "success",
+  "error": false,
+  "segundos": 39,
+  "turnos": 17,
+  "tokens": 715218,
+  "tokens_salida": 3433,
+  "costo_usd": 0.19562440000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-regulatory-watch-1.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas/salida-regulatory-watch.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/cumplimiento/2026-09/reporte-regulatory-watch.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Control",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 7719590,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 134,
+    "bien": 134,
+    "mal": []
+  }
+}

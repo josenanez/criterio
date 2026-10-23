@@ -1,0 +1,30 @@
+{
+  "n": 6,
+  "agente": "fidel",
+  "comando": "contract-execution",
+  "argumento": "",
+  "inicio": "2026-10-22T23:29:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 22,
+  "turnos": 8,
+  "tokens": 334667,
+  "tokens_salida": 2118,
+  "costo_usd": 0.11738020000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-contract-execution-1.html",
+      ".criterio/corridas/legal/2026-10-22-contract-execution-1.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/contratos/reporte-contract-execution.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-contract-execution-1.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas/salida-contract-execution.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

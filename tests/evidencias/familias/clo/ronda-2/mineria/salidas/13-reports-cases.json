@@ -1,0 +1,27 @@
+{
+  "n": 13,
+  "agente": "constanza",
+  "comando": "reports-cases",
+  "argumento": "",
+  "inicio": "2026-10-22T23:42:31",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 10,
+  "tokens": 435965,
+  "tokens_salida": 2726,
+  "costo_usd": 0.1395428,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/0990054321001-minera-condor/corridas/2026-10-06-reports-cases-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/salida-reports-cases.md",
+      "estado-legal/0990054321001-minera-condor/cumplimiento/2026-10/reporte-reports-cases.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

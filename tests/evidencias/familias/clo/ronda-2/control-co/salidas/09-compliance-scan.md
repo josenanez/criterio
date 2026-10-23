@@ -1,0 +1,3 @@
+# /criterio-compliance:compliance-scan 
+
+No hay configuración de cumplimiento: no existe `.criterio/cumplimiento/<entidad>/config.json` en esta carpeta. Solo hay una de contratos (`.criterio/legal/900000001/config.json`), y no la uso porque no es la de este comando. Me detengo aquí. Hay que correr antes `/criterio-compliance:compliance-setup`, que escribe esa configuración y registra la aceptación de los términos. No corrí ningún comando del motor ni generé reporte.

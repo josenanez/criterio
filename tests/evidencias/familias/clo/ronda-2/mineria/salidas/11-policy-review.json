@@ -1,0 +1,30 @@
+{
+  "n": 11,
+  "agente": "constanza",
+  "comando": "policy-review",
+  "argumento": "",
+  "inicio": "2026-10-22T23:41:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 11,
+  "tokens": 437152,
+  "tokens_salida": 2400,
+  "costo_usd": 0.1347142,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-policy-review-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-policy-review-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/2026-10-06-policy-review-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/salida-policy-review.md",
+      "estado-legal/0990054321001-minera-condor/cumplimiento/2026-10/reporte-policy-review.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

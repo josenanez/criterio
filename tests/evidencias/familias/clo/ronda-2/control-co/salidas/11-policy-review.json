@@ -1,0 +1,26 @@
+{
+  "n": 11,
+  "agente": "constanza",
+  "comando": "policy-review",
+  "argumento": "",
+  "inicio": "2026-10-22T23:25:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 10,
+  "turnos": 5,
+  "tokens": 140893,
+  "tokens_salida": 443,
+  "costo_usd": 0.0741355,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-policy-review-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-policy-review-1.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "borrados": []
+  }
+}

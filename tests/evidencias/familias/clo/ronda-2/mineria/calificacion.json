@@ -1,0 +1,51 @@
+{
+  "entidad": "Minera Cóndor",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 7718519,
+  "senales": {
+    "esperadas": 9,
+    "acertadas": 9,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 130,
+    "mal": [
+      {
+        "ficha": "contratos/CTR-405",
+        "campo": "signed_on",
+        "esperado": "2026-01-27",
+        "obtenido": null,
+        "bien": false
+      },
+      {
+        "ficha": "contratos/CTR-405",
+        "campo": "signatories",
+        "esperado": [
+          {
+            "name": "Verónica Paz",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Ambiental Consultores Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "obtenido": [
+          {
+            "name": "Verónica Paz",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

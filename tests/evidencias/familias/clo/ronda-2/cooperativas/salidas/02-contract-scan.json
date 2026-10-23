@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-22T23:27:18",
+  "estado": "success",
+  "error": false,
+  "segundos": 47,
+  "turnos": 20,
+  "tokens": 1038404,
+  "tokens_salida": 4310,
+  "costo_usd": 0.3257986,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/1790012345001-cooperativa-sierra-alta/contratos/reporte-contract-scan.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas/salida-contract-scan.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

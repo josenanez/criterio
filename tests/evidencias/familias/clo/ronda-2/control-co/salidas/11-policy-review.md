@@ -1,0 +1,3 @@
+# /criterio-compliance:policy-review 
+
+No hay configuración de cumplimiento. No existe `.criterio/cumplimiento/<entidad>/config.json` en esta carpeta, y solo hay una de contratos (`.criterio/legal/900000001/config.json`), que no uso porque no es la de cumplimiento. Me detengo aquí, sin términos, reporte ni corrida registrada. Para continuar hay que correr antes `/criterio-compliance:compliance-setup`, que escribe la configuración y registra la aceptación de los términos.

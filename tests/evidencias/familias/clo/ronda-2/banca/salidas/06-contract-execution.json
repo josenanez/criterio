@@ -1,0 +1,30 @@
+{
+  "n": 6,
+  "agente": "fidel",
+  "comando": "contract-execution",
+  "argumento": "",
+  "inicio": "2026-10-22T23:14:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 10,
+  "tokens": 392231,
+  "tokens_salida": 2848,
+  "costo_usd": 0.14809290000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-contract-execution-1.html",
+      ".criterio/corridas/legal/2026-10-22-contract-execution-1.md",
+      "estado-legal/900123456-banco-andino/contratos/reporte-contract-execution.md",
+      "estado-legal/900123456-banco-andino/corridas/2026-10-06-contract-execution-1.md",
+      "estado-legal/900123456-banco-andino/corridas/salida-contract-execution.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

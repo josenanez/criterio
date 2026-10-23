@@ -1,0 +1,29 @@
+{
+  "n": 7,
+  "agente": "fidel",
+  "comando": "legal-wake",
+  "argumento": "",
+  "inicio": "2026-10-22T23:39:08",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 9,
+  "tokens": 386457,
+  "tokens_salida": 1453,
+  "costo_usd": 0.11708320000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-legal-wake-1.html",
+      ".criterio/corridas/legal/2026-10-22-legal-wake-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/2026-10-06-legal-wake-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/salida-legal-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

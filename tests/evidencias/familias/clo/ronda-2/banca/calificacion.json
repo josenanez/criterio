@@ -1,0 +1,77 @@
+{
+  "entidad": "Banco Andino",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 7925052,
+  "senales": {
+    "esperadas": 10,
+    "acertadas": 10,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 131,
+    "mal": [
+      {
+        "ficha": "contratos/CTR-101",
+        "campo": "obligations",
+        "esperado": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Soluciones Andinas S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-101-soluciones-andinas-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Soluciones Andinas S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-101-soluciones-andinas-s-a-s/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Soluciones Andinas S.A.S.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-101-soluciones-andinas-s-a-s/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución (agosto)",
+            "due": "2026-09-05",
+            "who": "Soluciones Andinas S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-101-soluciones-andinas-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Soluciones Andinas S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-101-soluciones-andinas-s-a-s/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones del periodo al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Soluciones Andinas S.A.S.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-101-soluciones-andinas-s-a-s/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

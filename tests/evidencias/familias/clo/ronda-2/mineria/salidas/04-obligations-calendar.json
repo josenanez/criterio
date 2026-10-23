@@ -1,0 +1,30 @@
+{
+  "n": 4,
+  "agente": "fidel",
+  "comando": "obligations-calendar",
+  "argumento": "",
+  "inicio": "2026-10-22T23:37:47",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 8,
+  "tokens": 338319,
+  "tokens_salida": 3190,
+  "costo_usd": 0.1332605,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-obligations-calendar-1.html",
+      ".criterio/corridas/legal/2026-10-22-obligations-calendar-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/2026-10-06-obligations-calendar-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/salida-obligations-calendar.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/0990054321001-minera-condor/contratos/reporte-obligations-calendar.md",
+      "estado-legal/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

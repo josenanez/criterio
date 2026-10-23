@@ -1,0 +1,30 @@
+{
+  "n": 12,
+  "agente": "constanza",
+  "comando": "regulatory-watch",
+  "argumento": "",
+  "inicio": "2026-10-22T23:42:00",
+  "estado": "success",
+  "error": false,
+  "segundos": 31,
+  "turnos": 9,
+  "tokens": 435742,
+  "tokens_salida": 2692,
+  "costo_usd": 0.1371403,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-22-regulatory-watch-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-22-regulatory-watch-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/2026-10-06-regulatory-watch-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/salida-regulatory-watch.md",
+      "estado-legal/0990054321001-minera-condor/cumplimiento/2026-10/reporte-regulatory-watch.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}

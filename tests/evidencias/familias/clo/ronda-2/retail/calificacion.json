@@ -1,0 +1,19 @@
+{
+  "entidad": "Almacenes Caribe",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 7223761,
+  "senales": {
+    "esperadas": 9,
+    "acertadas": 9,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

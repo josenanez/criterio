@@ -1,0 +1,30 @@
+{
+  "n": 5,
+  "agente": "fidel",
+  "comando": "authority-check",
+  "argumento": "",
+  "inicio": "2026-10-22T23:28:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 7,
+  "tokens": 336163,
+  "tokens_salida": 2665,
+  "costo_usd": 0.12516030000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-authority-check-1.html",
+      ".criterio/corridas/legal/2026-10-22-authority-check-1.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/contratos/reporte-authority-check.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-authority-check-1.md",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas/salida-authority-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "n": 4,
+  "agente": "fidel",
+  "comando": "obligations-calendar",
+  "argumento": "",
+  "inicio": "2026-10-22T23:13:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 32,
+  "turnos": 9,
+  "tokens": 391441,
+  "tokens_salida": 4051,
+  "costo_usd": 0.1641629,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-obligations-calendar-1.html",
+      ".criterio/corridas/legal/2026-10-22-obligations-calendar-1.md",
+      "estado-legal/900123456-banco-andino/corridas/2026-10-06-obligations-calendar-1.md",
+      "estado-legal/900123456-banco-andino/corridas/salida-obligations-calendar.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

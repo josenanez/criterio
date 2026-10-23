@@ -1,0 +1,30 @@
+{
+  "n": 6,
+  "agente": "fidel",
+  "comando": "contract-execution",
+  "argumento": "",
+  "inicio": "2026-10-22T23:47:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 7,
+  "tokens": 336859,
+  "tokens_salida": 3085,
+  "costo_usd": 0.13082310000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-contract-execution-1.html",
+      ".criterio/corridas/legal/2026-10-22-contract-execution-1.md",
+      "estado-legal/900765432-almacenes-caribe/contratos/reporte-contract-execution.md",
+      "estado-legal/900765432-almacenes-caribe/corridas/2026-10-06-contract-execution-1.md",
+      "estado-legal/900765432-almacenes-caribe/corridas/salida-contract-execution.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/900765432-almacenes-caribe/corridas.json"
+    ],
+    "borrados": []
+  }
+}
