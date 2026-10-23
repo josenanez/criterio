@@ -2,7 +2,7 @@
 
 **el agente de FP&A de la familia CFO** · plugin `criterio-budget`
 
-Corrida del 2026-10-22, sobre el commit `e63306a`, con cambios en el árbol todavía sin confirmar. **1 puertas · 7 comprobaciones · todas en verde.**
+Corrida del 2026-10-22, sobre el commit `b3073e0`, con cambios en el árbol todavía sin confirmar. **1 puertas · 7 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-10-22, sobre el commit `e63306a`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-cfo/evaluar.py` | Que Tomás levante cada señal sembrada en el presupuesto, y ninguna en los controles | 7 | 241 ms | verde |
+| `criterio-cfo/evaluar.py` | Que Tomás levante cada señal sembrada en el presupuesto, y ninguna en los controles | 7 | 220 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -58,7 +58,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
 | `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | verde |
-| `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | verde |
+| `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | **0 EN ROJO** |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
 | `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
