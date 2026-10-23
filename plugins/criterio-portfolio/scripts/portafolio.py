@@ -40,6 +40,10 @@ import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
 
+# El núcleo común viaja junto a este archivo, como raiz.py: un plugin instalado tiene que correr solo.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import nucleo as N  # noqa: E402
+
 # Cuánto puede costar una corrida. Es configuración de la organización, no del modelo:
 # un plan con ventana de cinco horas corre secuencial; una empresa que paga por token
 # puede subir `workers`. Lo decide `plan-lectura`, no el agente, porque la única vez que
@@ -134,17 +138,12 @@ EVIDENCE_SIGNALS = (
 
 # ---------------------------------------------------------------- helpers
 
-def value(field):
-    """A field is either a bare value or {value, source, source_date, state}.
-
-    `not_found` is a state, never a value: a record that writes it as the value —
-    `"owner": "not_found"`— is saying the field is empty, and reading it as a name hid a
-    requirement without an owner (round 3, mining) as D018 hid a missing authority."""
-    if isinstance(field, dict) and "value" in field:
-        field = field["value"]
-    if isinstance(field, str) and field.strip().lower() == "not_found":
-        return None
-    return field
+# A field is either a bare value or {value, source, source_date, state}. The contract lives in
+# the shared core, with the commitment rules, so every agent reads a record the same way.
+# `not_found` is a state, never a value: a record that writes it as the value —
+# `"owner": "not_found"`— is saying the field is empty, and reading it as a name hid a
+# requirement without an owner (round 3, mining) as D018 hid a missing authority.
+value = N.valor_campo
 
 
 # Un acta dice con palabras que el proyecto no sirve a un producto: «No aplica», «N/A»,
@@ -167,20 +166,10 @@ def state_of(field) -> str:
     return "found"
 
 
-def source_of(field):
-    if isinstance(field, dict):
-        return field.get("source")
-    return None
+source_of = N.fuente_campo
 
 
-def as_date(raw):
-    raw = value(raw)
-    if not raw:
-        return None
-    try:
-        return dt.date.fromisoformat(str(raw)[:10])
-    except ValueError:
-        return None
+as_date = N.fecha_campo
 
 
 def as_number(raw):
@@ -439,46 +428,10 @@ def compute_record(rec: dict, today: dt.date, th: dict) -> dict:
             alert("variance_cost", {"pct": over, "projection": projection, "approved": approved})
 
     # --- commitments ---------------------------------------------------
-    late, sin_fecha, reprogramados = [], [], []
-    for c in rec.get("commitments") or []:
-        due = as_date(c.get("due_date"))
-        st = value(c.get("state"))
-        quien = value(c.get("who"))
-        que = value(c.get("what"))
-        fuente = source_of(c.get("what")) or value(c.get("source"))
-        if due is None:
-            # El skill registra un compromiso sin fecha como `no_declarada`. No puede
-            # estar vencido, y por eso mismo desaparecía del informe. Un compromiso
-            # que nadie fechó es un hallazgo, no un vacío.
-            sin_fecha.append({"who": quien, "what": que, "source": fuente})
-        # Vencido es aritmética, no una etiqueta: lo que no está cumplido y tiene la fecha
-        # atrás está vencido, lo haya marcado el modelo `overdue` o no. En la fase 2 el
-        # agente escribió `state: overdue` —un valor que el esquema admite— y la regla, que
-        # solo miraba `open`, lo dejó pasar: el único compromiso vencido del caso se perdió.
-        elif due < today and st != "met":
-            late.append({"who": quien, "what": que, "due": due.isoformat(),
-                         "days": (today - due).days, "source": fuente})
-        veces = len(c.get("reschedules") or [])
-        # Fechar no es reprogramar: si la promesa original no tenía fecha, la primera que
-        # se le puso es su fecha, no una reprogramación (rondas 3 y 4: Vera y Samuel la
-        # contaron como una más). El conteo se corrige aquí aunque la ficha la traiga así.
-        if veces and value(c.get("original_due_date")) == "no_declarada":
-            veces -= 1
-            # El conteo se corrige, pero la ficha sigue diciéndole a quien la lee que se
-            # reprogramó. El script no la reescribe —tiene un solo escritor—: le dice al
-            # agente qué corregir (ronda 6, minería: D042 otra vez).
-            out["record_issues"].append({
-                "who": quien, "what": que, "field": "commitments.reschedules",
-                "fix": "la promesa no tenía fecha: la primera que se le puso va en "
-                       "original_due_date y sale de reschedules"})
-        # Un compromiso cumplido con acta ya no es un bloqueo: su historia queda en la ficha,
-        # pero la señal es para lo que sigue abierto (ronda 5, minería).
-        if veces >= th["reschedules_to_flag"] and st != "met":
-            # La historia completa: la primera fecha prometida y cada una de las nuevas.
-            reprogramados.append({"who": quien, "what": que, "times": veces,
-                                  "original": value(c.get("original_due_date")),
-                                  "dates": [value(r.get("due_date"))
-                                            for r in c.get("reschedules") or []]})
+    # Las reglas viven en el núcleo común, que comparten Samuel, Vera y Ofelia (ADR 0012).
+    cm = N.compromisos(rec.get("commitments") or [], today, th["reschedules_to_flag"])
+    late, sin_fecha, reprogramados = cm["vencidos"], cm["sin_fecha"], cm["reprogramados"]
+    out["record_issues"] += cm["arreglos"]
     out["commitments_overdue"] = late
     out["commitments_undated"] = sin_fecha
     out["commitments_rescheduled"] = reprogramados

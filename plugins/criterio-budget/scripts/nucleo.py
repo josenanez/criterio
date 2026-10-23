@@ -9,7 +9,7 @@
 # falla en el equipo de quien lo instaló.
 # ─────────────────────────────────────────────────────────────────────────────
 # -*- coding: utf-8 -*-
-"""El núcleo de los motores de las familias CFO y CLO: lo que es igual en cualquier función.
+"""El núcleo común de los motores: lo que es igual en cualquier función.
 
 Números y fechas como llegan en las exportaciones, tablas en CSV y Excel con su fila de
 origen, la estructura recomendada y el inventario de la carpeta, las señales, el marco común
@@ -17,7 +17,8 @@ del reporte, el registro de cada corrida y las peticiones. El registro y las pet
 contrato de estado común de todos los agentes (ADR 0010): `<estado>/corridas.json` con
 `<estado>/corridas/<id>.md`, y `<estado>/peticiones/<id>.json`, con el mismo esquema que la familia
 PMO, para que Rostrum los sirva sin saber de qué familia son. Lo propio de cada función vive en su motor
-—`finanzas.py`, `legal.py`—, que importa esto.
+—`finanzas.py`, `legal.py`—, que importa esto. Las reglas de compromiso también viven aquí: las usan
+Samuel y Vera desde `portafolio.py` y las va a usar Ofelia (ADR 0012).
 
 La fuente vive en criterio-finance y `scripts/sincronizar.py` la copia a los demás plugins: un
 plugin instalado tiene que correr solo. Librería estándar, sin dependencias.
@@ -499,6 +500,76 @@ def alerta(signal: str, detalle: str, cita: dict | list | None = None, monto: fl
 
 def ordenar(alertas: list[dict]) -> list[dict]:
     return sorted(alertas, key=lambda a: (a["severity"], -abs(a["amount"] or 0), -(a["age_days"] or 0), a["signal"], a["key"]))
+
+
+# ---------------------------------------------------------------- los compromisos
+# Las reglas de compromiso de la familia PMO, comunes a Samuel, a Vera y a Ofelia (ADR 0012). Un
+# compromiso viene de una ficha: cada campo es un valor o {value, source, source_date, state}.
+# Salen de aquí iguales para todos: el resultado y los textos no cambian según quién los llame.
+
+def valor_campo(campo):
+    """El valor de un campo de ficha. `not_found` es un estado, nunca un valor: la ficha que lo
+    escribe como valor dice que el campo está vacío."""
+    if isinstance(campo, dict) and "value" in campo:
+        campo = campo["value"]
+    if isinstance(campo, str) and campo.strip().lower() == "not_found":
+        return None
+    return campo
+
+
+def fuente_campo(campo):
+    return campo.get("source") if isinstance(campo, dict) else None
+
+
+def fecha_campo(campo) -> dt.date | None:
+    v = valor_campo(campo)
+    if not v:
+        return None
+    try:
+        return dt.date.fromisoformat(str(v)[:10])
+    except ValueError:
+        return None
+
+
+def compromisos(lista: list, hoy: dt.date, reprogramaciones: int) -> dict:
+    """Los compromisos vencidos, los que nadie fechó y los reprogramados, y lo que la ficha tiene
+    que corregir. `reprogramaciones` es el umbral: cuántas veces se movió para que suene."""
+    vencidos, sin_fecha, reprogramados, arreglos = [], [], [], []
+    for c in lista or []:
+        due = fecha_campo(c.get("due_date"))
+        st = valor_campo(c.get("state"))
+        quien = valor_campo(c.get("who"))
+        que = valor_campo(c.get("what"))
+        fuente = fuente_campo(c.get("what")) or valor_campo(c.get("source"))
+        if due is None:
+            # El skill registra un compromiso sin fecha como `no_declarada`. No puede estar
+            # vencido, y por eso mismo desaparecía del informe. Un compromiso que nadie fechó es
+            # un hallazgo, no un vacío.
+            sin_fecha.append({"who": quien, "what": que, "source": fuente})
+        # Vencido es aritmética, no una etiqueta: lo que no está cumplido y tiene la fecha atrás
+        # está vencido, lo haya marcado el modelo `overdue` o no. En la fase 2 el agente escribió
+        # `state: overdue` y la regla, que solo miraba `open`, dejó pasar el único vencido del caso.
+        elif due < hoy and st != "met":
+            vencidos.append({"who": quien, "what": que, "due": due.isoformat(),
+                             "days": (hoy - due).days, "source": fuente})
+        veces = len(c.get("reschedules") or [])
+        # Fechar no es reprogramar: si la promesa original no tenía fecha, la primera que se le
+        # puso es su fecha, no una reprogramación (rondas 3 y 4 de la PMO). El conteo se corrige
+        # aquí aunque la ficha la traiga así, y se le dice a quien la escribe qué corregir: el
+        # núcleo no reescribe una ficha, que tiene un solo escritor (ronda 6, minería: D042).
+        if veces and valor_campo(c.get("original_due_date")) == "no_declarada":
+            veces -= 1
+            arreglos.append({
+                "who": quien, "what": que, "field": "commitments.reschedules",
+                "fix": "la promesa no tenía fecha: la primera que se le puso va en "
+                       "original_due_date y sale de reschedules"})
+        # Un compromiso cumplido con acta ya no es un bloqueo: su historia queda en la ficha, pero
+        # la señal es para lo que sigue abierto (ronda 5, minería).
+        if veces >= reprogramaciones and st != "met":
+            reprogramados.append({"who": quien, "what": que, "times": veces,
+                                  "original": valor_campo(c.get("original_due_date")),
+                                  "dates": [valor_campo(r.get("due_date")) for r in c.get("reschedules") or []]})
+    return {"vencidos": vencidos, "sin_fecha": sin_fecha, "reprogramados": reprogramados, "arreglos": arreglos}
 
 
 def _m(x) -> str:

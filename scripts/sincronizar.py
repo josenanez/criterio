@@ -81,6 +81,11 @@ SCRIPTS_CFO = {
 for _p in ("criterio-legal", "criterio-compliance"):
     SCRIPTS_CFO[_p] = {"nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
                        "paises.json": "el registro único de países: ningún motor escribe el nombre de un país"}
+# Las reglas de compromiso viven en el núcleo común (ADR 0012): `portafolio.py` lo importa, así que
+# va con él a cada plugin que lo trae.
+for _p in ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-server"):
+    SCRIPTS_CFO[_p] = {"nucleo.py": "las reglas de compromiso, comunes a Samuel, Vera y Ofelia (ADR 0012)",
+                       "paises.json": "el registro único de países, que el núcleo carga al importarse"}
 # La familia CLO tiene su propio motor, con fuente en criterio-legal.
 FUENTE_CLO = RAIZ / "plugins" / "criterio-legal" / "scripts"
 SCRIPTS_CLO = {

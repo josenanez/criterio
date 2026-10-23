@@ -124,9 +124,9 @@ Son las del ADR 0012, y cada una tiene que poder comprobarse en la prueba:
 
 ## Lo que se reusa
 
-- Las reglas de compromiso de Samuel —vencido sin evidencia, sin fecha, reprogramado—, que pasan de
-  `portafolio.py` al núcleo común (`nucleo.py`). Las pruebas de Samuel tienen que dar exactamente lo
-  mismo antes y después.
+- Las reglas de compromiso de Samuel —vencido sin evidencia, sin fecha, reprogramado—, que ya viven
+  en el núcleo común (`nucleo.py`, `compromisos`) y que `portafolio.py` importa. Las pruebas de
+  Samuel, Vera y Alba dieron exactamente lo mismo antes y después del cambio.
 - `nucleo.py` —tablas, fechas, inventario, señales, reporte y el registro de países—, y `texto.py`,
   `terminos.py`, `rastro.py` y `raiz.py`, copiados por `scripts/sincronizar.py`.
 - El skill `commitment-tracking`.

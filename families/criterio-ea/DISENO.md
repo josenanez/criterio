@@ -128,9 +128,9 @@ They are those of ADR 0012, and each one has to be checkable in the test:
 
 ## What is reused
 
-- Samuel's commitment rules —overdue without evidence, undated, rescheduled—, which move from
-  `portafolio.py` to the shared core (`nucleo.py`). Samuel's tests must give exactly the same before
-  and after.
+- Samuel's commitment rules —overdue without evidence, undated, rescheduled—, which now live in the
+  shared core (`nucleo.py`, `compromisos`) imported by `portafolio.py`. Samuel's, Vera's and Alba's
+  tests gave exactly the same before and after the change.
 - `nucleo.py` —tables, dates, inventory, signals, report and the country registry—, and `texto.py`,
   `terminos.py`, `rastro.py` and `raiz.py`, copied by `scripts/sincronizar.py`.
 - The `commitment-tracking` skill.

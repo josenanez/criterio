@@ -186,6 +186,7 @@ La oficina del ejecutivo cruza órganos y proyectos, y tiene otros dueños.
 - El diseño se escribe en `families/criterio-ea/DISENO.es.md` desde las mismas tres fuentes que las
   familias CFO y CLO (`familia.json`, `carpetas.json` y `fuentes.json`), con `scripts/familias.py`,
   que hoy conoce tres familias y tiene que conocer una cuarta.
-- Las reglas de compromiso pasan al núcleo común, y las pruebas de Samuel siguen dando lo mismo.
+- Las reglas de compromiso pasan al núcleo común, y las pruebas de Samuel siguen dando lo mismo. Hecho el
+  23 de octubre de 2026: `nucleo.compromisos`, con las pruebas de la familia PMO idénticas antes y después.
 - El mapa de la página de Agentes la muestra como «Siguiente», sin fecha, hasta que la familia esté
   construida y probada.
