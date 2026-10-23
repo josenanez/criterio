@@ -582,10 +582,18 @@ SIEMPRE = ("corridas", "corrida-en-curso", "cache", ".criterio/corridas", ".crit
            ".criterio/terminos/")
 
 
+MARCAS_RAIZ = {"_CRITERIO_PORTAFOLIO.txt", "_CRITERIO_PROYECTO.txt", "_CRITERIO_PRODUCTO.txt"}
+
+
 def permitido(cambio: str, escribe: list, cmd: str) -> bool:
     if any(s in cambio for s in SIEMPRE):
         return True
     reglas = " ".join(escribe)
+    # La marca de la carpeta raíz es lo único que un agente escribe dentro de los documentos,
+    # y solo en su setup y con permiso (ADR 0011). La ronda contesta que sí a lo sugerido, así
+    # que el setup puede dejarla (ronda 11, petróleo y gas).
+    if cmd.endswith("-setup") and Path(cambio).name in MARCAS_RAIZ:
+        return True
     if cambio.startswith("documentos/"):
         return ("ficha-pm.json" in reglas and cambio.endswith("ficha-pm.json")) or \
                ("30-reuniones" in reglas and "acta" in cambio) or \
