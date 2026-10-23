@@ -1,0 +1,21 @@
+{
+ "entorno": "construccion",
+ "ronda": 11,
+ "hoy": "2026-10-22",
+ "prd": "PRD-305",
+ "prd_carpeta": "PRD-305",
+ "prd_otro": "PRD-308",
+ "req": "REQ-4500",
+ "pry_sam": "PRY-201",
+ "sam_carpeta": "PRY-201-edificio-de-oficinas-torre-norte",
+ "notas": "documentos/proyectos/PRY-201-edificio-de-oficinas-torre-norte/2026-10-22-notas-reunion.txt",
+ "status": "PRY-200",
+ "health": "PRY-205",
+ "budget": "PRY-203",
+ "vendor": "PRY-201",
+ "change": "PRY-206",
+ "history": "PRY-203",
+ "charter": "PRY-202",
+ "closure": "PRY-203",
+ "producto_vista": "vivienda VIS"
+}

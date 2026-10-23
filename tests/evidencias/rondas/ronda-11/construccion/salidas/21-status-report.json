@@ -1,0 +1,28 @@
+{
+ "n": 21,
+ "agente": "vera",
+ "comando": "status-report",
+ "argumento": "PRY-200",
+ "inicio": "2026-10-23T01:30:40",
+ "estado": "success",
+ "error": false,
+ "segundos": 45,
+ "turnos": 10,
+ "tokens": 508999,
+ "tokens_salida": 5046,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-22-status-report-1.html",
+   ".criterio/corridas/portafolio/2026-10-22-status-report-1.md",
+   "estado/corridas/2026-10-22-status-report-1.md",
+   "estado/corridas/salida-status-report.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

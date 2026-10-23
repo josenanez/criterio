@@ -335,16 +335,16 @@ con cada ronda, y `verificar.py` comprueba que diga lo que dice la evidencia.
 
 <!-- industrias: generado por scripts/industrias.py desde industrias.json; no se edita a mano -->
 
-Probada en 4 industrias de Suramérica, con 13 proyectos por industria en la última ronda. Las siguientes entran de dos en dos, cada una con su versión y su ronda completa.
+Probada en 6 industrias de Suramérica, con 13 proyectos por industria en la última ronda. Las siguientes entran de dos en dos, cada una con su versión y su ronda completa.
 
 | Industria | Estado | Qué trae a las pruebas |
 |---|---|---|
 | Entidades financieras · bancos | Probada · rondas 1–10 | Core de depósitos, originación digital, nube y Open Banking; comités de transformación, arquitectura y riesgos |
 | Entidades financieras · cooperativas | Probada · rondas 1–10 | Consejo de Administración y comité de crédito; core cooperativo, libranza y aportes; asociados urbanos y rurales |
 | Retail | Probada · rondas 1–10 | Tienda en línea, fidelización y centros de distribución; integración con el ERP y congelamiento de cambios en temporada alta |
-| Minería (oro y cobre) | Probada · rondas 1–10 | Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje |
-| Construcción e infraestructura | Incremento 4 · versión 0.9.0 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
-| Oil & gas | Incremento 4 · versión 0.9.0 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
+| Minería (oro y cobre) | Probada · rondas 1–11 | Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje |
+| Construcción e infraestructura | Probada · rondas 11 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
+| Oil & gas | Probada · rondas 11 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
 | Telecomunicaciones | Incremento 5 · versión 0.10.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
 | Logística | Incremento 5 · versión 0.10.0 | Implantaciones en varios centros con una operación que no se detiene |
 

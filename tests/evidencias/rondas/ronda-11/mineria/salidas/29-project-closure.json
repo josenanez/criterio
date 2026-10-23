@@ -1,0 +1,25 @@
+{
+ "n": 29,
+ "agente": "vera",
+ "comando": "project-closure",
+ "argumento": "PRY-200",
+ "inicio": "2026-10-23T13:18:48",
+ "estado": "success",
+ "error": false,
+ "segundos": 102,
+ "turnos": 19,
+ "tokens": 833519,
+ "tokens_salida": 9615,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-23-project-closure-1.md",
+   "estado/corridas/salida-project-closure.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

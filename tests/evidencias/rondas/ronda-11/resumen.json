@@ -1,0 +1,309 @@
+{
+ "ronda": "ronda-11",
+ "fecha": "2026-10-23",
+ "industrias": [
+  {
+   "entorno": "construccion",
+   "comandos": 38,
+   "completos": 38,
+   "contratos": 37,
+   "fugas": 0,
+   "minutos": 46,
+   "tokens": 27399792,
+   "documentos": {
+    "total": 128,
+    "por_formato": {
+     "md": 73,
+     "docx": 28,
+     "pdf": 11,
+     "xlsx": 7,
+     "xml": 4,
+     "csv": 3,
+     "json": 1,
+     "txt": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-22-construccion-vera-47",
+    "aciertos": 54,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     93.4,
+     100.0
+    ],
+    "ic_cobertura": [
+     93.4,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.8.0"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2026-12-15",
+     "encontrado": "2026-12-15",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 26,
+    "esperados": 26,
+    "reportados": 26
+   },
+   "rostrum": {
+    "pasan": 518,
+    "total": 519,
+    "pantalla": true
+   }
+  },
+  {
+   "entorno": "mineria",
+   "comandos": 38,
+   "completos": 38,
+   "contratos": 38,
+   "fugas": 0,
+   "minutos": 59,
+   "tokens": 32005659,
+   "documentos": {
+    "total": 147,
+    "por_formato": {
+     "md": 72,
+     "docx": 32,
+     "pdf": 20,
+     "xml": 9,
+     "xlsx": 5,
+     "txt": 4,
+     "csv": 4,
+     "json": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-23-mineria-vera-49",
+    "aciertos": 78,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     95.3,
+     100.0
+    ],
+    "ic_cobertura": [
+     95.3,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.8.0"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2027-11-06",
+     "encontrado": "2027-11-06",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 35,
+    "esperados": 35,
+    "reportados": 35
+   },
+   "rostrum": {
+    "pasan": 547,
+    "total": 547,
+    "pantalla": true
+   }
+  },
+  {
+   "entorno": "oil-gas",
+   "comandos": 38,
+   "completos": 38,
+   "contratos": 38,
+   "fugas": 0,
+   "minutos": 48,
+   "tokens": 26960496,
+   "documentos": {
+    "total": 128,
+    "por_formato": {
+     "md": 75,
+     "docx": 29,
+     "pdf": 11,
+     "xml": 4,
+     "xlsx": 3,
+     "csv": 3,
+     "txt": 2,
+     "json": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-23-oil-gas-vera-48",
+    "aciertos": 53,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     93.2,
+     100.0
+    ],
+    "ic_cobertura": [
+     93.2,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "0.8.0"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2026-10-06",
+     "encontrado": "2026-10-06",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 31,
+    "esperados": 31,
+    "reportados": 31
+   },
+   "rostrum": {
+    "pasan": 503,
+    "total": 503,
+    "pantalla": true
+   }
+  }
+ ],
+ "vera": {
+  "aciertos": 185,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "proyectos": 39,
+  "ic_precision": [
+   98.0,
+   100.0
+  ],
+  "ic_cobertura": [
+   98.0,
+   100.0
+  ],
+  "controles": 3,
+  "controles_limpios": 3
+ },
+ "senales": [
+  {
+   "senal": "milestone_met_without_evidence",
+   "aciertos": 57,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_overdue",
+   "aciertos": 31,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "declared_vs_evidence",
+   "aciertos": 19,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "progress_vs_plan",
+   "aciertos": 15,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_undated",
+   "aciertos": 12,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_deliverable_late",
+   "aciertos": 10,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_time",
+   "aciertos": 9,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_rescheduled",
+   "aciertos": 7,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_cost",
+   "aciertos": 7,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "rebaseline_unauthorized",
+   "aciertos": 4,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_accepted_without_evidence",
+   "aciertos": 4,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "change_without_baseline",
+   "aciertos": 2,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "milestone_overdue",
+   "aciertos": 2,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_invoiced_over_accepted",
+   "aciertos": 2,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_invoiced_without_delivery",
+   "aciertos": 2,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "silent",
+   "aciertos": 1,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "budget_committed",
+   "aciertos": 1,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  }
+ ]
+}

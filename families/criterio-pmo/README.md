@@ -334,16 +334,16 @@ with every round, and `verificar.py` checks that it says what the evidence says.
 
 <!-- industrias: generado por scripts/industrias.py desde industrias.json; no se edita a mano -->
 
-Tested in 4 South American industries, with 13 projects per industry in the latest round. The next ones come in two at a time, each with its own version and full round.
+Tested in 6 South American industries, with 13 projects per industry in the latest round. The next ones come in two at a time, each with its own version and full round.
 
 | Industry | Status | What it brings to the tests |
 |---|---|---|
 | Financial institutions · banks | Tested · rounds 1–10 | Deposit core, digital origination, cloud and Open Banking; transformation, architecture and risk committees |
 | Financial institutions · credit unions | Tested · rounds 1–10 | Board of directors and credit committee; cooperative core, payroll loans and member contributions; urban and rural members |
 | Retail | Tested · rounds 1–10 | Online store, loyalty and distribution centres; ERP integration and change freezes in peak season |
-| Mining (gold and copper) | Tested · rounds 1–10 | Engineering, licences and permits, installation; plant shutdowns; engineering and installation vendors |
-| Construction and infrastructure | Increment 4 · version 0.9.0 | MS Project schedules, change orders, contractors, physical against financial progress |
-| Oil & gas | Increment 4 · version 0.9.0 | Capital megaprojects, contractors, permits and process safety |
+| Mining (gold and copper) | Tested · rounds 1–11 | Engineering, licences and permits, installation; plant shutdowns; engineering and installation vendors |
+| Construction and infrastructure | Tested · rounds 11 | MS Project schedules, change orders, contractors, physical against financial progress |
+| Oil & gas | Tested · rounds 11 | Capital megaprojects, contractors, permits and process safety |
 | Telecommunications | Increment 5 · version 0.10.0 | Many rollouts in parallel, vendors and permits: portfolio scale |
 | Logistics | Increment 5 · version 0.10.0 | Roll-outs across several sites while operations never stop |
 

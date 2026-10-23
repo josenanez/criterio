@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-23T01:22:41",
+ "estado": "success",
+ "error": false,
+ "segundos": 42,
+ "turnos": 14,
+ "tokens": 686994,
+ "tokens_salida": 3645,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-22-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-22-pm-publish-1.md",
+   "documentos/proyectos/PRY-201-edificio-de-oficinas-torre-norte/00-gobierno/ficha-pm.json",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas/2026-10-22-pm-publish-1.md",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas.json"
+  ],
+  "borrados": []
+ }
+}

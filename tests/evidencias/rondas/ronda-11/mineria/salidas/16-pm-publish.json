@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-23T12:53:56",
+ "estado": "success",
+ "error": false,
+ "segundos": 60,
+ "turnos": 13,
+ "tokens": 688693,
+ "tokens_salida": 3853,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-23-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-23-pm-publish-1.md",
+   "documentos/proyectos/PRY-204-monitoreo-de-taludes/00-gobierno/ficha-pm.json",
+   "estado/PRY-204-monitoreo-de-taludes/corridas/2026-10-23-pm-publish-1.md",
+   "estado/PRY-204-monitoreo-de-taludes/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-204-monitoreo-de-taludes/corridas.json"
+  ],
+  "borrados": []
+ }
+}

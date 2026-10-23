@@ -1,0 +1,26 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-23T11:28:44",
+ "estado": "success",
+ "error": false,
+ "segundos": 54,
+ "turnos": 12,
+ "tokens": 540833,
+ "tokens_salida": 4013,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/cadencia.json",
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/corridas/2026-10-23-pm-wake-1.md",
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/corridas.json"
+  ],
+  "borrados": []
+ }
+}

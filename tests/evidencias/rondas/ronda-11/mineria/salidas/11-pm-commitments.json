@@ -1,0 +1,28 @@
+{
+ "n": 11,
+ "agente": "samuel",
+ "comando": "pm-commitments",
+ "argumento": "",
+ "inicio": "2026-10-23T12:46:17",
+ "estado": "success",
+ "error": false,
+ "segundos": 73,
+ "turnos": 11,
+ "tokens": 626580,
+ "tokens_salida": 6081,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-23-pm-commitments-1.html",
+   ".criterio/corridas/proyecto/2026-10-23-pm-commitments-1.md",
+   "estado/PRY-204-monitoreo-de-taludes/corridas/2026-10-23-pm-commitments-1.md",
+   "estado/PRY-204-monitoreo-de-taludes/corridas/salida-pm-commitments.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-204-monitoreo-de-taludes/corridas.json"
+  ],
+  "borrados": []
+ }
+}

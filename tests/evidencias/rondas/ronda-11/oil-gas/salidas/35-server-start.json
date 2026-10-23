@@ -1,0 +1,43 @@
+{
+ "n": 35,
+ "agente": "rostrum",
+ "comando": "server-start",
+ "argumento": "rato",
+ "inicio": "2026-10-23T11:54:13",
+ "estado": "success",
+ "error": false,
+ "segundos": 38,
+ "turnos": 8,
+ "tokens": 415681,
+ "tokens_salida": 2594,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [],
+  "modificados": [
+   ".criterio/corridas/portafolio/2026-10-23-portfolio-wake-1.html",
+   ".criterio/corridas/portafolio/2026-10-23-portfolio-wake-1.md",
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json"
+  ],
+  "borrados": []
+ },
+ "servidor": {
+  "servidor": ".claude/plugins/cache/criterio/criterio-server/0.8.0/scripts/servidor.py",
+  "rutas": 130,
+  "paginas": 130,
+  "malas": {},
+  "crudo": [],
+  "crudo_total": 0,
+  "voz_del_agente": 3,
+  "peticion": true,
+  "fichas_intactas": true,
+  "pantalla": {
+   "390": [],
+   "1280": []
+  },
+  "comprobaciones": {
+   "total": 490,
+   "pasan": 490
+  }
+ }
+}

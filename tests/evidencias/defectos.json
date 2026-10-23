@@ -751,7 +751,7 @@
   "evidencia": null,
   "origen": "instrucciones",
   "correccion": "77c3e6ad",
-  "verificado_en": null
+  "verificado_en": "ronda-11/mineria"
  },
  {
   "id": "D059",
@@ -764,7 +764,7 @@
   "evidencia": null,
   "origen": "codigo",
   "correccion": "77c3e6ad",
-  "verificado_en": null
+  "verificado_en": "ronda-11/mineria"
  },
  {
   "id": "D060",
@@ -777,7 +777,7 @@
   "evidencia": null,
   "origen": "material",
   "correccion": "1bcb73f8",
-  "verificado_en": null
+  "verificado_en": "ronda-11/mineria"
  },
  {
   "id": "D061",
@@ -790,6 +790,32 @@
   "evidencia": "tests/evidencias/calificaciones.json",
   "origen": "codigo",
   "correccion": "6a400d22",
-  "verificado_en": null
+  "verificado_en": "ronda-11/mineria"
+ },
+ {
+  "id": "D062",
+  "fecha": "2026-10-23",
+  "ronda": "11",
+  "entorno": "construccion",
+  "agente": "rostrum",
+  "comando": "server-start",
+  "que_paso": "La página de una corrida se salía de la pantalla a 390 px: la línea de los términos lleva la dirección completa de la página legal y no se partía. Rostrum la publicaba a 401 px en un teléfono.",
+  "evidencia": "tests/evidencias/rondas/ronda-11/construccion",
+  "origen": "codigo",
+  "correccion": "11b6f1c",
+  "verificado_en": "ronda-11/mineria"
+ },
+ {
+  "id": "D063",
+  "fecha": "2026-10-23",
+  "ronda": "11",
+  "entorno": "oil-gas",
+  "agente": "vera",
+  "comando": "portfolio-setup",
+  "que_paso": "La revisión de contratos contaba como escrito fuera de contrato la marca _CRITERIO_PORTAFOLIO.txt que el setup deja en la carpeta raíz con permiso (ADR 0011); la ronda acepta lo sugerido, así que la marca es lo esperado.",
+  "evidencia": "tests/evidencias/rondas/ronda-11/oil-gas",
+  "origen": "arnes",
+  "correccion": "7ac2a2b",
+  "verificado_en": "ronda-11/oil-gas"
  }
 ]

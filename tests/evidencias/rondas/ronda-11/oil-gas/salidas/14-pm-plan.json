@@ -1,0 +1,30 @@
+{
+ "n": 14,
+ "agente": "samuel",
+ "comando": "pm-plan",
+ "argumento": "",
+ "inicio": "2026-10-23T11:25:36",
+ "estado": "success",
+ "error": false,
+ "segundos": 84,
+ "turnos": 19,
+ "tokens": 792208,
+ "tokens_salida": 8367,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-23-pm-plan-1.html",
+   ".criterio/corridas/proyecto/2026-10-23-pm-plan-1.md",
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/cache/texto/00-gobierno/2025-10-21-acta-constitucion.docx.md",
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/cache/texto/manifest.json",
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/corridas/2026-10-23-pm-plan-1.md",
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/corridas/salida-pm-plan.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-200-campaña-de-perforación-del-bloque-sur/corridas.json"
+  ],
+  "borrados": []
+ }
+}

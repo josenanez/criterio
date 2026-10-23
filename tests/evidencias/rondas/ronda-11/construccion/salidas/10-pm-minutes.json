@@ -1,0 +1,30 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-201-edificio-de-oficinas-torre-norte/2026-10-22-notas-reunion.txt",
+ "inicio": "2026-10-23T01:15:19",
+ "estado": "success",
+ "error": false,
+ "segundos": 65,
+ "turnos": 16,
+ "tokens": 691671,
+ "tokens_salida": 7332,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-22-pm-minutes-1.html",
+   ".criterio/corridas/proyecto/2026-10-22-pm-minutes-1.md",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corrida-en-curso.json",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas/2026-10-22-pm-minutes-1.md",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas.json",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/records/PRY-201.json"
+  ],
+  "borrados": []
+ }
+}

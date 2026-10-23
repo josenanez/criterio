@@ -1,0 +1,28 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-23T12:52:11",
+ "estado": "success",
+ "error": false,
+ "segundos": 105,
+ "turnos": 19,
+ "tokens": 811421,
+ "tokens_salida": 9117,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-23-pm-escalate-1.html",
+   ".criterio/corridas/proyecto/2026-10-23-pm-escalate-1.md",
+   "estado/PRY-204-monitoreo-de-taludes/corridas/2026-10-23-pm-escalate-1.md",
+   "estado/PRY-204-monitoreo-de-taludes/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-204-monitoreo-de-taludes/corridas.json"
+  ],
+  "borrados": []
+ }
+}

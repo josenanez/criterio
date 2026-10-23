@@ -1,0 +1,28 @@
+{
+ "n": 31,
+ "agente": "vera",
+ "comando": "product-view",
+ "argumento": "vivienda VIS",
+ "inicio": "2026-10-23T01:44:20",
+ "estado": "success",
+ "error": false,
+ "segundos": 37,
+ "turnos": 10,
+ "tokens": 417007,
+ "tokens_salida": 3864,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-22-product-view-1.html",
+   ".criterio/corridas/portafolio/2026-10-22-product-view-1.md",
+   "estado/corridas/2026-10-22-product-view-1.md",
+   "estado/corridas/salida-product-view.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

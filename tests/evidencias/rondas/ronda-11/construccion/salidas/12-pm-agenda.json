@@ -1,0 +1,25 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-23T01:17:38",
+ "estado": "success",
+ "error": false,
+ "segundos": 95,
+ "turnos": 14,
+ "tokens": 615480,
+ "tokens_salida": 11676,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas/2026-10-22-pm-agenda-1.md",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-201-edificio-de-oficinas-torre-norte/corridas.json"
+  ],
+  "borrados": []
+ }
+}

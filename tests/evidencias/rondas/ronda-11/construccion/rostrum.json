@@ -1,0 +1,21 @@
+{
+ "servidor": ".claude/plugins/cache/criterio/criterio-server/0.8.0/scripts/servidor.py",
+ "rutas": 138,
+ "paginas": 138,
+ "malas": {},
+ "crudo": [],
+ "crudo_total": 0,
+ "voz_del_agente": 5,
+ "peticion": true,
+ "fichas_intactas": true,
+ "pantalla": {
+  "390": [
+   "/corrida/portafolio/-/2026-10-22-portfolio-scan-1"
+  ],
+  "1280": []
+ },
+ "comprobaciones": {
+  "total": 519,
+  "pasan": 518
+ }
+}

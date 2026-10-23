@@ -87,6 +87,12 @@ def validar(fuente: dict, hist: list[tuple[int, dict]]) -> list[str]:
         errores.append(f"{sobra} dice «probada» y no tiene perfil en sectores.py")
     if hist:
         ultima = {x["entorno"] for x in hist[-1][1]["industrias"]}
+        # Una ronda se corre por partes: mientras la última no tiene todas las industrias de la
+        # anterior, las que faltan siguen probadas por la anterior (ronda 11, parte A).
+        if len(hist) > 1:
+            previa = {x["entorno"] for x in hist[-2][1]["industrias"]}
+            if not previa <= ultima:
+                ultima |= previa
         for i in sorted(probadas - ultima):
             errores.append(f"{i} dice «probada» y no corrió en la ronda {hist[-1][0]}")
     for i in fuente["industrias"]:

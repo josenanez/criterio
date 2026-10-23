@@ -1,0 +1,25 @@
+{
+ "n": 20,
+ "agente": "vera",
+ "comando": "document-index",
+ "argumento": "",
+ "inicio": "2026-10-23T13:06:14",
+ "estado": "success",
+ "error": false,
+ "segundos": 11,
+ "turnos": 2,
+ "tokens": 96763,
+ "tokens_salida": 408,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-23-document-index-1.html",
+   ".criterio/corridas/portafolio/2026-10-23-document-index-1.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json"
+  ],
+  "borrados": []
+ }
+}
