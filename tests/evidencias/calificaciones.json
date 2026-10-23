@@ -7376,5 +7376,158 @@
   "errores": {},
   "origen": null,
   "nota": "ronda 10"
+ },
+ {
+  "id": "2026-10-22-construccion-vera-47",
+  "fecha": "2026-10-22",
+  "corte": "2026-10-22",
+  "entorno": "construccion",
+  "industria": "Empresas de construcción e infraestructura de Suramérica",
+  "etiqueta": "Empresas de construcción e infraestructura de Suramérica · vías y edificaciones",
+  "material": "ronda-11",
+  "agente": "vera",
+  "version": "0.8.0",
+  "tipo": "primera",
+  "codigo": "3412930",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 54,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   93.4,
+   100.0
+  ],
+  "ic_cobertura": [
+   93.4,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    7,
+    0,
+    0
+   ],
+   "PRY-201": [
+    19,
+    0,
+    0
+   ],
+   "PRY-202": [
+    0,
+    0,
+    0
+   ],
+   "PRY-203": [
+    6,
+    0,
+    0
+   ],
+   "PRY-204": [
+    5,
+    0,
+    0
+   ],
+   "PRY-205": [
+    6,
+    0,
+    0
+   ],
+   "PRY-206": [
+    3,
+    0,
+    0
+   ],
+   "PRY-207": [
+    0,
+    0,
+    0
+   ],
+   "PRY-208": [
+    0,
+    0,
+    0
+   ],
+   "PRY-209": [
+    4,
+    0,
+    0
+   ],
+   "PRY-210": [
+    2,
+    0,
+    0
+   ],
+   "PRY-211": [
+    2,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "change_without_baseline": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_overdue": {
+    "aciertos": 14,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_rescheduled": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 5,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 17,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 4,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_cost": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 11"
  }
 ]
