@@ -338,9 +338,9 @@ Tested in 6 South American industries, with 13 projects per industry in the late
 
 | Industry | Status | What it brings to the tests |
 |---|---|---|
-| Financial institutions · banks | Tested · rounds 1–10 | Deposit core, digital origination, cloud and Open Banking; transformation, architecture and risk committees |
-| Financial institutions · credit unions | Tested · rounds 1–10 | Board of directors and credit committee; cooperative core, payroll loans and member contributions; urban and rural members |
-| Retail | Tested · rounds 1–10 | Online store, loyalty and distribution centres; ERP integration and change freezes in peak season |
+| Financial institutions · banks | Tested · rounds 1–11 | Deposit core, digital origination, cloud and Open Banking; transformation, architecture and risk committees |
+| Financial institutions · credit unions | Tested · rounds 1–11 | Board of directors and credit committee; cooperative core, payroll loans and member contributions; urban and rural members |
+| Retail | Tested · rounds 1–11 | Online store, loyalty and distribution centres; ERP integration and change freezes in peak season |
 | Mining (gold and copper) | Tested · rounds 1–11 | Engineering, licences and permits, installation; plant shutdowns; engineering and installation vendors |
 | Construction and infrastructure | Tested · rounds 11 | MS Project schedules, change orders, contractors, physical against financial progress |
 | Oil & gas | Tested · rounds 11 | Capital megaprojects, contractors, permits and process safety |

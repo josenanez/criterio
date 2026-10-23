@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-206-pagos-con-qr/2026-10-23-notas-reunion.txt",
+ "inicio": "2026-10-23T15:32:23",
+ "estado": "success",
+ "error": false,
+ "segundos": 85,
+ "turnos": 15,
+ "tokens": 674247,
+ "tokens_salida": 8115,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-206-pagos-con-qr/corrida-en-curso.json",
+   "estado/PRY-206-pagos-con-qr/corridas/2026-10-23-pm-minutes-1.md",
+   "estado/PRY-206-pagos-con-qr/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-206-pagos-con-qr/corridas.json"
+  ],
+  "borrados": []
+ }
+}

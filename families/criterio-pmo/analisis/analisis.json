@@ -27,12 +27,12 @@
    },
    "parrafos": {
     "es": [
-     "La versión más reciente probada, 0.8.0, en la ronda 11: Vera con 100 % de precisión (margen del 95 %: 98–100 %) y 100 % de cobertura; Samuel con 100 % de compromisos correctos; Alba con 100 % de alertas encontradas; Rostrum con 99,9 % de comprobaciones.",
-     "Sumando las rondas 1–11, Vera acertó en el 99 % de las 2629 alertas que emitió y encontró el 99,7 % de las 2613 que había. Desde la ronda 6, las cuatro métricas se mantienen por encima del 99 %."
+     "La versión más reciente probada, 0.8.0, en la ronda 11: Vera con 100 % de precisión (margen del 95 %: 99–100 %) y 100 % de cobertura; Samuel con 100 % de compromisos correctos; Alba con 100 % de alertas encontradas; Rostrum con 99,9 % de comprobaciones.",
+     "Sumando las rondas 1–11, Vera acertó en el 99,1 % de las 2825 alertas que emitió y encontró el 99,7 % de las 2809 que había. Desde la ronda 6, las cuatro métricas se mantienen por encima del 99 %."
     ],
     "en": [
-     "The most recent version tested, 0.8.0, in round 11: Vera at 100% precision (95% margin: 98–100%) and 100% coverage; Samuel at 100% commitments right; Alba at 100% of alerts found; Rostrum at 99.9% of checks.",
-     "Across rounds 1–11, Vera was right on 99% of the 2629 alerts she raised and found 99.7% of the 2613 there were. Since round 6, all four measures have stayed above 99%."
+     "The most recent version tested, 0.8.0, in round 11: Vera at 100% precision (95% margin: 99–100%) and 100% coverage; Samuel at 100% commitments right; Alba at 100% of alerts found; Rostrum at 99.9% of checks.",
+     "Across rounds 1–11, Vera was right on 99.1% of the 2825 alerts she raised and found 99.7% of the 2809 there were. Since round 6, all four measures have stayed above 99%."
     ]
    }
   },
@@ -61,19 +61,19 @@
       ],
       [
        "Industrias",
-       "Construcción, Minería, Oil & gas"
+       "Banca, Construcción, Cooperativas, Minería, Oil & gas, Retail"
       ],
       [
        "Proyectos analizados",
-       "559"
+       "598"
       ],
       [
        "Documentos procesados",
-       "5540: Markdown 2997, Word 1306, PDF 548, Excel 341, CSV 241, texto 47, JSON 43, xml 17"
+       "5960: Markdown 3231, Word 1395, PDF 594, Excel 361, CSV 249, texto 54, JSON 46, xml 30"
       ],
       [
        "Ejecuciones",
-       "1594"
+       "1708"
       ],
       [
        "Lecturas de la clave",
@@ -81,7 +81,7 @@
       ],
       [
        "Proyectos de control",
-       "43"
+       "46"
       ]
      ],
      "en": [
@@ -91,19 +91,19 @@
       ],
       [
        "Industries",
-       "Construction, Mining, Oil & gas"
+       "Banking, Construction, Credit unions, Mining, Oil & gas, Retail"
       ],
       [
        "Projects analyzed",
-       "559"
+       "598"
       ],
       [
        "Documents processed",
-       "5540: Markdown 2997, Word 1306, PDF 548, Excel 341, CSV 241, text 47, JSON 43, xml 17"
+       "5960: Markdown 3231, Word 1395, PDF 594, Excel 361, CSV 249, text 54, JSON 46, xml 30"
       ],
       [
        "Runs",
-       "1594"
+       "1708"
       ],
       [
        "Reads of the key",
@@ -111,7 +111,7 @@
       ],
       [
        "Control projects",
-       "43"
+       "46"
       ]
      ]
     }
@@ -152,101 +152,101 @@
      "es": [
       [
        "Vera · precisión",
-       "2604 de 2629",
-       "99 %",
-       "98,5–99,4 %"
+       "2800 de 2825",
+       "99,1 %",
+       "98,6–99,4 %"
       ],
       [
        "Vera · cobertura",
-       "2604 de 2613",
+       "2800 de 2809",
        "99,7 %",
        "99,3–99,9 %"
       ],
       [
        "Vera · proyectos de control sin alertas",
-       "43 de 43",
+       "46 de 46",
        "100 %",
-       "91,7–100 %"
+       "92,2–100 %"
       ],
       [
        "Samuel · compromisos correctos",
-       "921 de 957",
-       "96,2 %",
-       "94,8–97,3 %"
+       "1002 de 1038",
+       "96,5 %",
+       "95,2–97,5 %"
       ],
       [
        "Alba · cobertura",
-       "1240 de 1289",
-       "96,2 %",
-       "95–97,2 %"
+       "1352 de 1401",
+       "96,5 %",
+       "95,4–97,4 %"
       ],
       [
        "Alba · precisión",
-       "1240 de 1252",
-       "99 %",
-       "98,3–99,5 %"
+       "1352 de 1364",
+       "99,1 %",
+       "98,4–99,5 %"
       ],
       [
        "Rostrum · comprobaciones (10 rondas)",
-       "20 291 de 20 767",
-       "97,7 %",
-       "97,4–98 %"
+       "21 939 de 22 415",
+       "97,9 %",
+       "97,6–98,1 %"
       ],
       [
        "Contratos cumplidos",
-       "1576 de 1594",
+       "1690 de 1708",
        "98,9 %",
-       "98,2–99,3 %"
+       "98,3–99,4 %"
       ]
      ],
      "en": [
       [
        "Vera · precision",
-       "2604 of 2629",
-       "99%",
-       "98.5–99.4%"
+       "2800 of 2825",
+       "99.1%",
+       "98.6–99.4%"
       ],
       [
        "Vera · coverage",
-       "2604 of 2613",
+       "2800 of 2809",
        "99.7%",
        "99.3–99.9%"
       ],
       [
        "Vera · control projects with no alerts",
-       "43 of 43",
+       "46 of 46",
        "100%",
-       "91.7–100%"
+       "92.2–100%"
       ],
       [
        "Samuel · commitments right",
-       "921 of 957",
-       "96.2%",
-       "94.8–97.3%"
+       "1002 of 1038",
+       "96.5%",
+       "95.2–97.5%"
       ],
       [
        "Alba · coverage",
-       "1240 of 1289",
-       "96.2%",
-       "95–97.2%"
+       "1352 of 1401",
+       "96.5%",
+       "95.4–97.4%"
       ],
       [
        "Alba · precision",
-       "1240 of 1252",
-       "99%",
-       "98.3–99.5%"
+       "1352 of 1364",
+       "99.1%",
+       "98.4–99.5%"
       ],
       [
        "Rostrum · checks (10 rounds)",
-       "20,291 of 20,767",
-       "97.7%",
-       "97.4–98%"
+       "21,939 of 22,415",
+       "97.9%",
+       "97.6–98.1%"
       ],
       [
        "Contracts kept",
-       "1576 of 1594",
+       "1690 of 1708",
        "98.9%",
-       "98.2–99.3%"
+       "98.3–99.4%"
       ]
      ]
     }
@@ -409,13 +409,13 @@
       ],
       [
        "11 · 0.8.0",
-       "39",
-       "403",
+       "78",
+       "823",
        "100 %",
        "100 %",
        "100 %",
        "99,9 %",
-       "99,1 %",
+       "99,6 %",
        "2"
       ]
      ],
@@ -532,13 +532,13 @@
       ],
       [
        "11 · 0.8.0",
-       "39",
-       "403",
+       "78",
+       "823",
        "100%",
        "100%",
        "100%",
        "99.9%",
-       "99.1%",
+       "99.6%",
        "2"
       ]
      ]
@@ -570,89 +570,89 @@
      "es": [
       [
        "Vera · precisión",
-       "185 de 185",
+       "381 de 381",
        "100 %",
-       "98–100 %"
+       "99–100 %"
       ],
       [
        "Vera · cobertura",
-       "185 de 185",
+       "381 de 381",
        "100 %",
-       "98–100 %"
+       "99–100 %"
       ],
       [
        "Samuel · compromisos correctos",
-       "81 de 81",
+       "162 de 162",
        "100 %",
-       "95,4–100 %"
+       "97,6–100 %"
       ],
       [
        "Alba · cobertura",
-       "92 de 92",
+       "204 de 204",
        "100 %",
-       "95,9–100 %"
+       "98,1–100 %"
       ],
       [
        "Alba · precisión",
-       "92 de 92",
+       "204 de 204",
        "100 %",
-       "95,9–100 %"
+       "98,1–100 %"
       ],
       [
        "Rostrum · comprobaciones",
-       "1568 de 1569",
+       "3216 de 3217",
        "99,9 %",
-       "99,6–100 %"
+       "99,8–100 %"
       ],
       [
        "Contratos cumplidos",
-       "113 de 114",
-       "99,1 %",
-       "95,1–99,9 %"
+       "227 de 228",
+       "99,6 %",
+       "97,5–100 %"
       ]
      ],
      "en": [
       [
        "Vera · precision",
-       "185 of 185",
+       "381 of 381",
        "100%",
-       "98–100%"
+       "99–100%"
       ],
       [
        "Vera · coverage",
-       "185 of 185",
+       "381 of 381",
        "100%",
-       "98–100%"
+       "99–100%"
       ],
       [
        "Samuel · commitments right",
-       "81 of 81",
+       "162 of 162",
        "100%",
-       "95.4–100%"
+       "97.6–100%"
       ],
       [
        "Alba · coverage",
-       "92 of 92",
+       "204 of 204",
        "100%",
-       "95.9–100%"
+       "98.1–100%"
       ],
       [
        "Alba · precision",
-       "92 of 92",
+       "204 of 204",
        "100%",
-       "95.9–100%"
+       "98.1–100%"
       ],
       [
        "Rostrum · checks",
-       "1568 of 1569",
+       "3216 of 3217",
        "99.9%",
-       "99.6–100%"
+       "99.8–100%"
       ],
       [
        "Contracts kept",
-       "113 of 114",
-       "99.1%",
-       "95.1–99.9%"
+       "227 of 228",
+       "99.6%",
+       "97.5–100%"
       ]
      ]
     }
@@ -697,21 +697,21 @@
      "es": [
       [
        "Banca",
-       "98,6 %",
+       "98,7 %",
        "100 %",
-       "89 %",
-       "93,4 %",
-       "98,4 %",
-       "97,4 %"
+       "90,2 %",
+       "94,1 %",
+       "98,5 %",
+       "97,6 %"
       ],
       [
        "Cooperativas",
-       "99,5 %",
+       "99,6 %",
        "100 %",
-       "98,2 %",
-       "97,7 %",
+       "98,4 %",
+       "98 %",
        "99,7 %",
-       "97,6 %"
+       "97,9 %"
       ],
       [
        "Minería",
@@ -726,10 +726,10 @@
        "Retail",
        "99,4 %",
        "100 %",
-       "98,2 %",
-       "95,9 %",
-       "99,6 %",
-       "97,3 %"
+       "98,4 %",
+       "96,5 %",
+       "99,7 %",
+       "97,6 %"
       ],
       [
        "Construcción",
@@ -753,21 +753,21 @@
      "en": [
       [
        "Banking",
-       "98.6%",
+       "98.7%",
        "100%",
-       "89%",
-       "93.4%",
-       "98.4%",
-       "97.4%"
+       "90.2%",
+       "94.1%",
+       "98.5%",
+       "97.6%"
       ],
       [
        "Credit unions",
-       "99.5%",
+       "99.6%",
        "100%",
-       "98.2%",
-       "97.7%",
+       "98.4%",
+       "98%",
        "99.7%",
-       "97.6%"
+       "97.9%"
       ],
       [
        "Mining",
@@ -782,10 +782,10 @@
        "Retail",
        "99.4%",
        "100%",
-       "98.2%",
-       "95.9%",
-       "99.6%",
-       "97.3%"
+       "98.4%",
+       "96.5%",
+       "99.7%",
+       "97.6%"
       ],
       [
        "Construction",
@@ -838,7 +838,7 @@
      "es": [
       [
        "Hito dado por cumplido sin evidencia",
-       "876",
+       "950",
        "0",
        "0",
        "100 %",
@@ -846,15 +846,15 @@
       ],
       [
        "Compromiso vencido sin evidencia",
-       "312",
+       "337",
        "0",
        "4",
        "100 %",
-       "98,7 %"
+       "98,8 %"
       ],
       [
        "Avance declarado que el plan no sostiene",
-       "281",
+       "302",
        "0",
        "0",
        "100 %",
@@ -862,7 +862,7 @@
       ],
       [
        "Verde que la evidencia no sostiene",
-       "247",
+       "260",
        "0",
        "0",
        "100 %",
@@ -870,7 +870,7 @@
       ],
       [
        "Entregable de proveedor vencido",
-       "177",
+       "192",
        "0",
        "0",
        "100 %",
@@ -878,23 +878,23 @@
       ],
       [
        "Compromiso que nadie fechó",
-       "149",
+       "163",
        "0",
        "1",
        "100 %",
-       "99,3 %"
+       "99,4 %"
       ],
       [
        "Desviación en tiempo",
-       "102",
+       "109",
        "0",
        "1",
        "100 %",
-       "99 %"
+       "99,1 %"
       ],
       [
        "Desviación en costo",
-       "96",
+       "100",
        "0",
        "0",
        "100 %",
@@ -902,19 +902,19 @@
       ],
       [
        "Compromiso prometido una y otra vez",
-       "86",
+       "96",
        "2",
        "2",
-       "97,7 %",
-       "97,7 %"
+       "98 %",
+       "98 %"
       ],
       [
        "Línea base movida más de lo autorizado",
-       "59",
+       "63",
        "0",
        "1",
        "100 %",
-       "98,3 %"
+       "98,4 %"
       ],
       [
        "Hito vencido",
@@ -926,15 +926,15 @@
       ],
       [
        "Entrega dada por aceptada sin evidencia",
-       "48",
+       "52",
        "5",
        "0",
-       "90,6 %",
+       "91,2 %",
        "100 %"
       ],
       [
        "Cambio aprobado sin línea base nueva",
-       "33",
+       "34",
        "0",
        "0",
        "100 %",
@@ -942,15 +942,7 @@
       ],
       [
        "Facturado sin entregable aceptado",
-       "32",
-       "0",
-       "0",
-       "100 %",
-       "100 %"
-      ],
-      [
-       "Facturado por encima de lo aceptado",
-       "24",
+       "33",
        "0",
        "0",
        "100 %",
@@ -958,7 +950,15 @@
       ],
       [
        "Proyecto sin actividad",
-       "23",
+       "25",
+       "0",
+       "0",
+       "100 %",
+       "100 %"
+      ],
+      [
+       "Facturado por encima de lo aceptado",
+       "25",
        "0",
        "0",
        "100 %",
@@ -984,7 +984,7 @@
      "en": [
       [
        "Milestone marked met with no evidence",
-       "876",
+       "950",
        "0",
        "0",
        "100%",
@@ -992,15 +992,15 @@
       ],
       [
        "Overdue commitment with no evidence",
-       "312",
+       "337",
        "0",
        "4",
        "100%",
-       "98.7%"
+       "98.8%"
       ],
       [
        "Declared progress the plan does not support",
-       "281",
+       "302",
        "0",
        "0",
        "100%",
@@ -1008,7 +1008,7 @@
       ],
       [
        "Green the evidence does not support",
-       "247",
+       "260",
        "0",
        "0",
        "100%",
@@ -1016,7 +1016,7 @@
       ],
       [
        "Late vendor deliverable",
-       "177",
+       "192",
        "0",
        "0",
        "100%",
@@ -1024,23 +1024,23 @@
       ],
       [
        "Commitment nobody dated",
-       "149",
+       "163",
        "0",
        "1",
        "100%",
-       "99.3%"
+       "99.4%"
       ],
       [
        "Time variance",
-       "102",
+       "109",
        "0",
        "1",
        "100%",
-       "99%"
+       "99.1%"
       ],
       [
        "Cost variance",
-       "96",
+       "100",
        "0",
        "0",
        "100%",
@@ -1048,19 +1048,19 @@
       ],
       [
        "Commitment promised again and again",
-       "86",
+       "96",
        "2",
        "2",
-       "97.7%",
-       "97.7%"
+       "98%",
+       "98%"
       ],
       [
        "Baseline moved beyond what was authorised",
-       "59",
+       "63",
        "0",
        "1",
        "100%",
-       "98.3%"
+       "98.4%"
       ],
       [
        "Overdue milestone",
@@ -1072,15 +1072,15 @@
       ],
       [
        "Delivery accepted with no evidence",
-       "48",
+       "52",
        "5",
        "0",
-       "90.6%",
+       "91.2%",
        "100%"
       ],
       [
        "Approved change with no new baseline",
-       "33",
+       "34",
        "0",
        "0",
        "100%",
@@ -1088,15 +1088,7 @@
       ],
       [
        "Invoiced with no accepted deliverable",
-       "32",
-       "0",
-       "0",
-       "100%",
-       "100%"
-      ],
-      [
-       "Invoiced above what was accepted",
-       "24",
+       "33",
        "0",
        "0",
        "100%",
@@ -1104,7 +1096,15 @@
       ],
       [
        "Project with no activity",
-       "23",
+       "25",
+       "0",
+       "0",
+       "100%",
+       "100%"
+      ],
+      [
+       "Invoiced above what was accepted",
+       "25",
        "0",
        "0",
        "100%",
@@ -1289,11 +1289,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 11 rondas tomaron 32 horas de ejecución para 559 proyectos: 3,5 minutos por proyecto, con todos los comandos de los tres agentes y el servidor. Usaron 1242 millones de tokens; en promedio, 113 millones por ronda.",
+     "Las 11 rondas tomaron 35 horas de ejecución para 598 proyectos: 3,5 minutos por proyecto, con todos los comandos de los tres agentes y el servidor. Usaron 1333 millones de tokens; en promedio, 121 millones por ronda.",
      "Las actas, los informes y las síntesis que redacta el modelo de lenguaje (LLM) se verifican por el contrato de cada comando y por la aritmética de sus cifras. El próximo paso es el despliegue en una organización, que lleva la familia a la versión 1.0."
     ],
     "en": [
-     "The 11 rounds took 32 hours of run time for 559 projects: 3.5 minutes per project, with every command of the three agents and the server. They used 1242 million tokens; on average, 113 million per round.",
+     "The 11 rounds took 35 hours of run time for 598 projects: 3.5 minutes per project, with every command of the three agents and the server. They used 1333 million tokens; on average, 121 million per round.",
      "The minutes, reports and syntheses the language model (LLM) writes are checked through each command's contract and the arithmetic of their figures. The next step is deployment in an organization, which takes the family to version 1.0."
     ]
    }

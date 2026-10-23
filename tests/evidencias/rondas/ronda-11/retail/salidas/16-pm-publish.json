@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-23T16:38:45",
+ "estado": "success",
+ "error": false,
+ "segundos": 82,
+ "turnos": 14,
+ "tokens": 661508,
+ "tokens_salida": 3935,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-23-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-23-pm-publish-1.md",
+   "documentos/proyectos/PRY-202-centro-de-distribución-norte/00-gobierno/ficha-pm.json",
+   "estado/PRY-202-centro-de-distribución-norte/corridas/2026-10-23-pm-publish-1.md",
+   "estado/PRY-202-centro-de-distribución-norte/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-202-centro-de-distribución-norte/corridas.json"
+  ],
+  "borrados": []
+ }
+}

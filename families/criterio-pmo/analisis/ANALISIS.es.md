@@ -6,9 +6,9 @@ No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera c
 
 ## En una mirada
 
-La versión más reciente probada, 0.8.0, en la ronda 11: Vera con 100 % de precisión (margen del 95 %: 98–100 %) y 100 % de cobertura; Samuel con 100 % de compromisos correctos; Alba con 100 % de alertas encontradas; Rostrum con 99,9 % de comprobaciones.
+La versión más reciente probada, 0.8.0, en la ronda 11: Vera con 100 % de precisión (margen del 95 %: 99–100 %) y 100 % de cobertura; Samuel con 100 % de compromisos correctos; Alba con 100 % de alertas encontradas; Rostrum con 99,9 % de comprobaciones.
 
-Sumando las rondas 1–11, Vera acertó en el 99 % de las 2629 alertas que emitió y encontró el 99,7 % de las 2613 que había. Desde la ronda 6, las cuatro métricas se mantienen por encima del 99 %.
+Sumando las rondas 1–11, Vera acertó en el 99,1 % de las 2825 alertas que emitió y encontró el 99,7 % de las 2809 que había. Desde la ronda 6, las cuatro métricas se mantienen por encima del 99 %.
 
 ## Qué se probó y cómo
 
@@ -19,12 +19,12 @@ Precisión: de las alertas emitidas, cuántas eran correctas. Cobertura: de las 
 |   |   |
 |---|---|
 | Periodo | 11 rondas, 2026-10-15 → 2026-10-23, versiones 0.3.6 → 0.8.0 |
-| Industrias | Construcción, Minería, Oil & gas |
-| Proyectos analizados | 559 |
-| Documentos procesados | 5540: Markdown 2997, Word 1306, PDF 548, Excel 341, CSV 241, texto 47, JSON 43, xml 17 |
-| Ejecuciones | 1594 |
+| Industrias | Banca, Construcción, Cooperativas, Minería, Oil & gas, Retail |
+| Proyectos analizados | 598 |
+| Documentos procesados | 5960: Markdown 3231, Word 1395, PDF 594, Excel 361, CSV 249, texto 54, JSON 46, xml 30 |
+| Ejecuciones | 1708 |
 | Lecturas de la clave | 0 |
-| Proyectos de control | 43 |
+| Proyectos de control | 46 |
 
 ## Resultados acumulados · rondas 1–11
 
@@ -32,14 +32,14 @@ Los acumulados de Samuel, Alba y Rostrum incluyen las primeras rondas, cuando es
 
 | Agente · métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Vera · precisión | 2604 de 2629 | 99 % | 98,5–99,4 % |
-| Vera · cobertura | 2604 de 2613 | 99,7 % | 99,3–99,9 % |
-| Vera · proyectos de control sin alertas | 43 de 43 | 100 % | 91,7–100 % |
-| Samuel · compromisos correctos | 921 de 957 | 96,2 % | 94,8–97,3 % |
-| Alba · cobertura | 1240 de 1289 | 96,2 % | 95–97,2 % |
-| Alba · precisión | 1240 de 1252 | 99 % | 98,3–99,5 % |
-| Rostrum · comprobaciones (10 rondas) | 20 291 de 20 767 | 97,7 % | 97,4–98 % |
-| Contratos cumplidos | 1576 de 1594 | 98,9 % | 98,2–99,3 % |
+| Vera · precisión | 2800 de 2825 | 99,1 % | 98,6–99,4 % |
+| Vera · cobertura | 2800 de 2809 | 99,7 % | 99,3–99,9 % |
+| Vera · proyectos de control sin alertas | 46 de 46 | 100 % | 92,2–100 % |
+| Samuel · compromisos correctos | 1002 de 1038 | 96,5 % | 95,2–97,5 % |
+| Alba · cobertura | 1352 de 1401 | 96,5 % | 95,4–97,4 % |
+| Alba · precisión | 1352 de 1364 | 99,1 % | 98,4–99,5 % |
+| Rostrum · comprobaciones (10 rondas) | 21 939 de 22 415 | 97,9 % | 97,6–98,1 % |
+| Contratos cumplidos | 1690 de 1708 | 98,9 % | 98,3–99,4 % |
 
 ## Evolución por ronda
 
@@ -57,7 +57,7 @@ Los acumulados de Samuel, Alba y Rostrum incluyen las primeras rondas, cuando es
 | 8 · 0.3.13 | 52 | 527 | 99,6 % | 100 % | 100 % | 99,3 % | 99,3 % | 2 |
 | 9 · 0.4.0 | 52 | 532 | 99,6 % | 100 % | 100 % | 100 % | 100 % | 2 |
 | 10 · 0.5.0 | 52 | 531 | 100 % | 100 % | 100 % | 100 % | 100 % | 4 |
-| 11 · 0.8.0 | 39 | 403 | 100 % | 100 % | 100 % | 99,9 % | 99,1 % | 2 |
+| 11 · 0.8.0 | 78 | 823 | 100 % | 100 % | 100 % | 99,9 % | 99,6 % | 2 |
 
 ## La versión más reciente probada · 0.8.0, ronda 11
 
@@ -65,22 +65,22 @@ Vera no emitió ninguna alerta falsa.
 
 | Agente · métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Vera · precisión | 185 de 185 | 100 % | 98–100 % |
-| Vera · cobertura | 185 de 185 | 100 % | 98–100 % |
-| Samuel · compromisos correctos | 81 de 81 | 100 % | 95,4–100 % |
-| Alba · cobertura | 92 de 92 | 100 % | 95,9–100 % |
-| Alba · precisión | 92 de 92 | 100 % | 95,9–100 % |
-| Rostrum · comprobaciones | 1568 de 1569 | 99,9 % | 99,6–100 % |
-| Contratos cumplidos | 113 de 114 | 99,1 % | 95,1–99,9 % |
+| Vera · precisión | 381 de 381 | 100 % | 99–100 % |
+| Vera · cobertura | 381 de 381 | 100 % | 99–100 % |
+| Samuel · compromisos correctos | 162 de 162 | 100 % | 97,6–100 % |
+| Alba · cobertura | 204 de 204 | 100 % | 98,1–100 % |
+| Alba · precisión | 204 de 204 | 100 % | 98,1–100 % |
+| Rostrum · comprobaciones | 3216 de 3217 | 99,9 % | 99,8–100 % |
+| Contratos cumplidos | 227 de 228 | 99,6 % | 97,5–100 % |
 
 ## Por industria · rondas 1–11
 
 | Industria | Vera · precisión | Vera · cobertura | Samuel | Alba · cobertura | Alba · precisión | Rostrum |
 |---|---|---|---|---|---|---|
-| Banca | 98,6 % | 100 % | 89 % | 93,4 % | 98,4 % | 97,4 % |
-| Cooperativas | 99,5 % | 100 % | 98,2 % | 97,7 % | 99,7 % | 97,6 % |
+| Banca | 98,7 % | 100 % | 90,2 % | 94,1 % | 98,5 % | 97,6 % |
+| Cooperativas | 99,6 % | 100 % | 98,4 % | 98 % | 99,7 % | 97,9 % |
 | Minería | 98,6 % | 98,6 % | 98,4 % | 97 % | 98,5 % | 98 % |
-| Retail | 99,4 % | 100 % | 98,2 % | 95,9 % | 99,6 % | 97,3 % |
+| Retail | 99,4 % | 100 % | 98,4 % | 96,5 % | 99,7 % | 97,6 % |
 | Construcción | 100 % | 100 % | 100 % | 100 % | 100 % | 99,8 % |
 | Oil & gas | 100 % | 100 % | 100 % | 100 % | 100 % | 100 % |
 
@@ -90,22 +90,22 @@ Vera emitió alertas de 18 tipos; en 15 no tuvo una sola alerta falsa, y las 25 
 
 | Tipo de alerta | Correctas | Falsas | No detectadas | Precisión | Cobertura |
 |---|---|---|---|---|---|
-| Hito dado por cumplido sin evidencia | 876 | 0 | 0 | 100 % | 100 % |
-| Compromiso vencido sin evidencia | 312 | 0 | 4 | 100 % | 98,7 % |
-| Avance declarado que el plan no sostiene | 281 | 0 | 0 | 100 % | 100 % |
-| Verde que la evidencia no sostiene | 247 | 0 | 0 | 100 % | 100 % |
-| Entregable de proveedor vencido | 177 | 0 | 0 | 100 % | 100 % |
-| Compromiso que nadie fechó | 149 | 0 | 1 | 100 % | 99,3 % |
-| Desviación en tiempo | 102 | 0 | 1 | 100 % | 99 % |
-| Desviación en costo | 96 | 0 | 0 | 100 % | 100 % |
-| Compromiso prometido una y otra vez | 86 | 2 | 2 | 97,7 % | 97,7 % |
-| Línea base movida más de lo autorizado | 59 | 0 | 1 | 100 % | 98,3 % |
+| Hito dado por cumplido sin evidencia | 950 | 0 | 0 | 100 % | 100 % |
+| Compromiso vencido sin evidencia | 337 | 0 | 4 | 100 % | 98,8 % |
+| Avance declarado que el plan no sostiene | 302 | 0 | 0 | 100 % | 100 % |
+| Verde que la evidencia no sostiene | 260 | 0 | 0 | 100 % | 100 % |
+| Entregable de proveedor vencido | 192 | 0 | 0 | 100 % | 100 % |
+| Compromiso que nadie fechó | 163 | 0 | 1 | 100 % | 99,4 % |
+| Desviación en tiempo | 109 | 0 | 1 | 100 % | 99,1 % |
+| Desviación en costo | 100 | 0 | 0 | 100 % | 100 % |
+| Compromiso prometido una y otra vez | 96 | 2 | 2 | 98 % | 98 % |
+| Línea base movida más de lo autorizado | 63 | 0 | 1 | 100 % | 98,4 % |
 | Hito vencido | 53 | 0 | 0 | 100 % | 100 % |
-| Entrega dada por aceptada sin evidencia | 48 | 5 | 0 | 90,6 % | 100 % |
-| Cambio aprobado sin línea base nueva | 33 | 0 | 0 | 100 % | 100 % |
-| Facturado sin entregable aceptado | 32 | 0 | 0 | 100 % | 100 % |
-| Facturado por encima de lo aceptado | 24 | 0 | 0 | 100 % | 100 % |
-| Proyecto sin actividad | 23 | 0 | 0 | 100 % | 100 % |
+| Entrega dada por aceptada sin evidencia | 52 | 5 | 0 | 91,2 % | 100 % |
+| Cambio aprobado sin línea base nueva | 34 | 0 | 0 | 100 % | 100 % |
+| Facturado sin entregable aceptado | 33 | 0 | 0 | 100 % | 100 % |
+| Proyecto sin actividad | 25 | 0 | 0 | 100 % | 100 % |
+| Facturado por encima de lo aceptado | 25 | 0 | 0 | 100 % | 100 % |
 | Presupuesto comprometido sin holgura | 6 | 0 | 0 | 100 % | 100 % |
 | Gerente y PMO no dicen lo mismo | 0 | 18 | 0 | 0 % | — |
 
@@ -134,7 +134,7 @@ Vera emitió alertas de 18 tipos; en 15 no tuvo una sola alerta falsa, y las 25 
 
 ## Tiempo, consumo y próximo paso
 
-Las 11 rondas tomaron 32 horas de ejecución para 559 proyectos: 3,5 minutos por proyecto, con todos los comandos de los tres agentes y el servidor. Usaron 1242 millones de tokens; en promedio, 113 millones por ronda.
+Las 11 rondas tomaron 35 horas de ejecución para 598 proyectos: 3,5 minutos por proyecto, con todos los comandos de los tres agentes y el servidor. Usaron 1333 millones de tokens; en promedio, 121 millones por ronda.
 
 Las actas, los informes y las síntesis que redacta el modelo de lenguaje (LLM) se verifican por el contrato de cada comando y por la aritmética de sus cifras. El próximo paso es el despliegue en una organización, que lleva la familia a la versión 1.0.
 

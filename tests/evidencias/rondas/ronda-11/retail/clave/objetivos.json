@@ -1,0 +1,21 @@
+{
+ "entorno": "retail",
+ "ronda": 11,
+ "hoy": "2026-10-23",
+ "prd": "PRD-301",
+ "prd_carpeta": "PRD-301",
+ "prd_otro": "PRD-302",
+ "req": "REQ-4100",
+ "pry_sam": "PRY-202",
+ "sam_carpeta": "PRY-202-centro-de-distribución-norte",
+ "notas": "documentos/proyectos/PRY-202-centro-de-distribución-norte/2026-10-23-notas-reunion.txt",
+ "status": "PRY-207",
+ "health": "PRY-209",
+ "budget": "PRY-206",
+ "vendor": "PRY-201",
+ "change": "PRY-201",
+ "history": "PRY-201",
+ "charter": "PRY-203",
+ "closure": "PRY-204",
+ "producto_vista": "pago con QR"
+}

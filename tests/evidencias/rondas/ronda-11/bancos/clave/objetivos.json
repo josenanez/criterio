@@ -1,0 +1,21 @@
+{
+ "entorno": "bancos",
+ "ronda": 11,
+ "hoy": "2026-10-23",
+ "prd": "PRD-302",
+ "prd_carpeta": "PRD-302",
+ "prd_otro": "PRD-304",
+ "req": "REQ-4200",
+ "pry_sam": "PRY-206",
+ "sam_carpeta": "PRY-206-billetera-y-qr",
+ "notas": "documentos/proyectos/PRY-206-billetera-y-qr/2026-10-23-notas-reunion.txt",
+ "status": "PRY-207",
+ "health": "PRY-202",
+ "budget": "PRY-202",
+ "vendor": "PRY-201",
+ "change": "PRY-201",
+ "history": "PRY-200",
+ "charter": "PRY-208",
+ "closure": "PRY-202",
+ "producto_vista": "cuenta PyME"
+}

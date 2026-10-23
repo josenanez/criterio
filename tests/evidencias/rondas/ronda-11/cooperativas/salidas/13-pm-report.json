@@ -1,0 +1,29 @@
+{
+ "n": 13,
+ "agente": "samuel",
+ "comando": "pm-report",
+ "argumento": "",
+ "inicio": "2026-10-23T15:36:27",
+ "estado": "success",
+ "error": false,
+ "segundos": 76,
+ "turnos": 13,
+ "tokens": 568701,
+ "tokens_salida": 6415,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-23-pm-report-1.html",
+   ".criterio/corridas/proyecto/2026-10-23-pm-report-1.md",
+   "estado/PRY-206-pagos-con-qr/corridas/2026-10-23-pm-report-1.md",
+   "estado/PRY-206-pagos-con-qr/corridas/salida-pm-report.md",
+   "estado/PRY-206-pagos-con-qr/snapshots/2026-10-23.json"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-206-pagos-con-qr/corridas.json"
+  ],
+  "borrados": []
+ }
+}

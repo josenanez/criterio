@@ -1,0 +1,25 @@
+{
+ "n": 21,
+ "agente": "vera",
+ "comando": "status-report",
+ "argumento": "PRY-207",
+ "inicio": "2026-10-23T15:51:57",
+ "estado": "success",
+ "error": false,
+ "segundos": 72,
+ "turnos": 15,
+ "tokens": 658555,
+ "tokens_salida": 5544,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/corridas/2026-10-23-status-report-1.md",
+   "estado/corridas/salida-status-report.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

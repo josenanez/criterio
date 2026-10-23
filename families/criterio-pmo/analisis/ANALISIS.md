@@ -6,9 +6,9 @@ Not edited by hand: every figure comes from the evidence and the analysis is reg
 
 ## At a glance
 
-The most recent version tested, 0.8.0, in round 11: Vera at 100% precision (95% margin: 98–100%) and 100% coverage; Samuel at 100% commitments right; Alba at 100% of alerts found; Rostrum at 99.9% of checks.
+The most recent version tested, 0.8.0, in round 11: Vera at 100% precision (95% margin: 99–100%) and 100% coverage; Samuel at 100% commitments right; Alba at 100% of alerts found; Rostrum at 99.9% of checks.
 
-Across rounds 1–11, Vera was right on 99% of the 2629 alerts she raised and found 99.7% of the 2613 there were. Since round 6, all four measures have stayed above 99%.
+Across rounds 1–11, Vera was right on 99.1% of the 2825 alerts she raised and found 99.7% of the 2809 there were. Since round 6, all four measures have stayed above 99%.
 
 ## What was tested and how
 
@@ -19,12 +19,12 @@ Precision: of the alerts raised, how many were right. Coverage: of those there w
 |   |   |
 |---|---|
 | Period | 11 rounds, 2026-10-15 → 2026-10-23, versions 0.3.6 → 0.8.0 |
-| Industries | Construction, Mining, Oil & gas |
-| Projects analyzed | 559 |
-| Documents processed | 5540: Markdown 2997, Word 1306, PDF 548, Excel 341, CSV 241, text 47, JSON 43, xml 17 |
-| Runs | 1594 |
+| Industries | Banking, Construction, Credit unions, Mining, Oil & gas, Retail |
+| Projects analyzed | 598 |
+| Documents processed | 5960: Markdown 3231, Word 1395, PDF 594, Excel 361, CSV 249, text 54, JSON 46, xml 30 |
+| Runs | 1708 |
 | Reads of the key | 0 |
-| Control projects | 43 |
+| Control projects | 46 |
 
 ## Cumulative results · rounds 1–11
 
@@ -32,14 +32,14 @@ The totals for Samuel, Alba and Rostrum include the first rounds, while those ca
 
 | Agent · measure | Cases | Result | 95% margin |
 |---|---|---|---|
-| Vera · precision | 2604 of 2629 | 99% | 98.5–99.4% |
-| Vera · coverage | 2604 of 2613 | 99.7% | 99.3–99.9% |
-| Vera · control projects with no alerts | 43 of 43 | 100% | 91.7–100% |
-| Samuel · commitments right | 921 of 957 | 96.2% | 94.8–97.3% |
-| Alba · coverage | 1240 of 1289 | 96.2% | 95–97.2% |
-| Alba · precision | 1240 of 1252 | 99% | 98.3–99.5% |
-| Rostrum · checks (10 rounds) | 20,291 of 20,767 | 97.7% | 97.4–98% |
-| Contracts kept | 1576 of 1594 | 98.9% | 98.2–99.3% |
+| Vera · precision | 2800 of 2825 | 99.1% | 98.6–99.4% |
+| Vera · coverage | 2800 of 2809 | 99.7% | 99.3–99.9% |
+| Vera · control projects with no alerts | 46 of 46 | 100% | 92.2–100% |
+| Samuel · commitments right | 1002 of 1038 | 96.5% | 95.2–97.5% |
+| Alba · coverage | 1352 of 1401 | 96.5% | 95.4–97.4% |
+| Alba · precision | 1352 of 1364 | 99.1% | 98.4–99.5% |
+| Rostrum · checks (10 rounds) | 21,939 of 22,415 | 97.9% | 97.6–98.1% |
+| Contracts kept | 1690 of 1708 | 98.9% | 98.3–99.4% |
 
 ## Round by round
 
@@ -57,7 +57,7 @@ The totals for Samuel, Alba and Rostrum include the first rounds, while those ca
 | 8 · 0.3.13 | 52 | 527 | 99.6% | 100% | 100% | 99.3% | 99.3% | 2 |
 | 9 · 0.4.0 | 52 | 532 | 99.6% | 100% | 100% | 100% | 100% | 2 |
 | 10 · 0.5.0 | 52 | 531 | 100% | 100% | 100% | 100% | 100% | 4 |
-| 11 · 0.8.0 | 39 | 403 | 100% | 100% | 100% | 99.9% | 99.1% | 2 |
+| 11 · 0.8.0 | 78 | 823 | 100% | 100% | 100% | 99.9% | 99.6% | 2 |
 
 ## The most recent version tested · 0.8.0, round 11
 
@@ -65,22 +65,22 @@ Vera raised no false alert.
 
 | Agent · measure | Cases | Result | 95% margin |
 |---|---|---|---|
-| Vera · precision | 185 of 185 | 100% | 98–100% |
-| Vera · coverage | 185 of 185 | 100% | 98–100% |
-| Samuel · commitments right | 81 of 81 | 100% | 95.4–100% |
-| Alba · coverage | 92 of 92 | 100% | 95.9–100% |
-| Alba · precision | 92 of 92 | 100% | 95.9–100% |
-| Rostrum · checks | 1568 of 1569 | 99.9% | 99.6–100% |
-| Contracts kept | 113 of 114 | 99.1% | 95.1–99.9% |
+| Vera · precision | 381 of 381 | 100% | 99–100% |
+| Vera · coverage | 381 of 381 | 100% | 99–100% |
+| Samuel · commitments right | 162 of 162 | 100% | 97.6–100% |
+| Alba · coverage | 204 of 204 | 100% | 98.1–100% |
+| Alba · precision | 204 of 204 | 100% | 98.1–100% |
+| Rostrum · checks | 3216 of 3217 | 99.9% | 99.8–100% |
+| Contracts kept | 227 of 228 | 99.6% | 97.5–100% |
 
 ## By industry · rounds 1–11
 
 | Industry | Vera · precision | Vera · coverage | Samuel | Alba · coverage | Alba · precision | Rostrum |
 |---|---|---|---|---|---|---|
-| Banking | 98.6% | 100% | 89% | 93.4% | 98.4% | 97.4% |
-| Credit unions | 99.5% | 100% | 98.2% | 97.7% | 99.7% | 97.6% |
+| Banking | 98.7% | 100% | 90.2% | 94.1% | 98.5% | 97.6% |
+| Credit unions | 99.6% | 100% | 98.4% | 98% | 99.7% | 97.9% |
 | Mining | 98.6% | 98.6% | 98.4% | 97% | 98.5% | 98% |
-| Retail | 99.4% | 100% | 98.2% | 95.9% | 99.6% | 97.3% |
+| Retail | 99.4% | 100% | 98.4% | 96.5% | 99.7% | 97.6% |
 | Construction | 100% | 100% | 100% | 100% | 100% | 99.8% |
 | Oil & gas | 100% | 100% | 100% | 100% | 100% | 100% |
 
@@ -90,22 +90,22 @@ Vera raised alerts of 18 types; 15 had not a single false alert, and the 25 fals
 
 | Alert type | Right | False | Missed | Precision | Coverage |
 |---|---|---|---|---|---|
-| Milestone marked met with no evidence | 876 | 0 | 0 | 100% | 100% |
-| Overdue commitment with no evidence | 312 | 0 | 4 | 100% | 98.7% |
-| Declared progress the plan does not support | 281 | 0 | 0 | 100% | 100% |
-| Green the evidence does not support | 247 | 0 | 0 | 100% | 100% |
-| Late vendor deliverable | 177 | 0 | 0 | 100% | 100% |
-| Commitment nobody dated | 149 | 0 | 1 | 100% | 99.3% |
-| Time variance | 102 | 0 | 1 | 100% | 99% |
-| Cost variance | 96 | 0 | 0 | 100% | 100% |
-| Commitment promised again and again | 86 | 2 | 2 | 97.7% | 97.7% |
-| Baseline moved beyond what was authorised | 59 | 0 | 1 | 100% | 98.3% |
+| Milestone marked met with no evidence | 950 | 0 | 0 | 100% | 100% |
+| Overdue commitment with no evidence | 337 | 0 | 4 | 100% | 98.8% |
+| Declared progress the plan does not support | 302 | 0 | 0 | 100% | 100% |
+| Green the evidence does not support | 260 | 0 | 0 | 100% | 100% |
+| Late vendor deliverable | 192 | 0 | 0 | 100% | 100% |
+| Commitment nobody dated | 163 | 0 | 1 | 100% | 99.4% |
+| Time variance | 109 | 0 | 1 | 100% | 99.1% |
+| Cost variance | 100 | 0 | 0 | 100% | 100% |
+| Commitment promised again and again | 96 | 2 | 2 | 98% | 98% |
+| Baseline moved beyond what was authorised | 63 | 0 | 1 | 100% | 98.4% |
 | Overdue milestone | 53 | 0 | 0 | 100% | 100% |
-| Delivery accepted with no evidence | 48 | 5 | 0 | 90.6% | 100% |
-| Approved change with no new baseline | 33 | 0 | 0 | 100% | 100% |
-| Invoiced with no accepted deliverable | 32 | 0 | 0 | 100% | 100% |
-| Invoiced above what was accepted | 24 | 0 | 0 | 100% | 100% |
-| Project with no activity | 23 | 0 | 0 | 100% | 100% |
+| Delivery accepted with no evidence | 52 | 5 | 0 | 91.2% | 100% |
+| Approved change with no new baseline | 34 | 0 | 0 | 100% | 100% |
+| Invoiced with no accepted deliverable | 33 | 0 | 0 | 100% | 100% |
+| Project with no activity | 25 | 0 | 0 | 100% | 100% |
+| Invoiced above what was accepted | 25 | 0 | 0 | 100% | 100% |
 | Budget committed with no headroom | 6 | 0 | 0 | 100% | 100% |
 | Manager and PMO do not say the same | 0 | 18 | 0 | 0% | — |
 
@@ -134,7 +134,7 @@ Vera raised alerts of 18 types; 15 had not a single false alert, and the 25 fals
 
 ## Time, cost and next step
 
-The 11 rounds took 32 hours of run time for 559 projects: 3.5 minutes per project, with every command of the three agents and the server. They used 1242 million tokens; on average, 113 million per round.
+The 11 rounds took 35 hours of run time for 598 projects: 3.5 minutes per project, with every command of the three agents and the server. They used 1333 million tokens; on average, 121 million per round.
 
 The minutes, reports and syntheses the language model (LLM) writes are checked through each command's contract and the arithmetic of their figures. The next step is deployment in an organization, which takes the family to version 1.0.
 

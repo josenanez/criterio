@@ -339,9 +339,9 @@ Probada en 6 industrias de Suramérica, con 13 proyectos por industria en la úl
 
 | Industria | Estado | Qué trae a las pruebas |
 |---|---|---|
-| Entidades financieras · bancos | Probada · rondas 1–10 | Core de depósitos, originación digital, nube y Open Banking; comités de transformación, arquitectura y riesgos |
-| Entidades financieras · cooperativas | Probada · rondas 1–10 | Consejo de Administración y comité de crédito; core cooperativo, libranza y aportes; asociados urbanos y rurales |
-| Retail | Probada · rondas 1–10 | Tienda en línea, fidelización y centros de distribución; integración con el ERP y congelamiento de cambios en temporada alta |
+| Entidades financieras · bancos | Probada · rondas 1–11 | Core de depósitos, originación digital, nube y Open Banking; comités de transformación, arquitectura y riesgos |
+| Entidades financieras · cooperativas | Probada · rondas 1–11 | Consejo de Administración y comité de crédito; core cooperativo, libranza y aportes; asociados urbanos y rurales |
+| Retail | Probada · rondas 1–11 | Tienda en línea, fidelización y centros de distribución; integración con el ERP y congelamiento de cambios en temporada alta |
 | Minería (oro y cobre) | Probada · rondas 1–11 | Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje |
 | Construcción e infraestructura | Probada · rondas 11 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
 | Oil & gas | Probada · rondas 11 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |

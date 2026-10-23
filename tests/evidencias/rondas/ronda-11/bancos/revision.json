@@ -1,0 +1,451 @@
+{
+ "comandos": 38,
+ "corridos": 38,
+ "completos": 38,
+ "contratos_cumplidos": 38,
+ "corrida_completa": true,
+ "fugas": [],
+ "segundos": 3448,
+ "tokens": 30465042,
+ "filas": [
+  {
+   "n": 1,
+   "agente": "alba",
+   "comando": "product-setup",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 132,
+   "tokens": 1393524
+  },
+  {
+   "n": 2,
+   "agente": "alba",
+   "comando": "product-discovery",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/requirements/<REQ>.json (evidence)"
+   ],
+   "segundos": 47,
+   "tokens": 447534
+  },
+  {
+   "n": 3,
+   "agente": "alba",
+   "comando": "product-requirements",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/requirements/<REQ>.json"
+   ],
+   "segundos": 66,
+   "tokens": 545280
+  },
+  {
+   "n": 4,
+   "agente": "alba",
+   "comando": "product-definition",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/producto.json (definition)"
+   ],
+   "segundos": 76,
+   "tokens": 671619
+  },
+  {
+   "n": 5,
+   "agente": "alba",
+   "comando": "product-business-case",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 83,
+   "tokens": 592199
+  },
+  {
+   "n": 6,
+   "agente": "alba",
+   "comando": "product-spec",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 139,
+   "tokens": 835356
+  },
+  {
+   "n": 7,
+   "agente": "alba",
+   "comando": "product-charter",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 63,
+   "tokens": 517350
+  },
+  {
+   "n": 8,
+   "agente": "alba",
+   "comando": "product-publish",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <publicados>/<código>.json"
+   ],
+   "segundos": 46,
+   "tokens": 498888
+  },
+  {
+   "n": 9,
+   "agente": "samuel",
+   "comando": "pm-setup",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 178,
+   "tokens": 1791864
+  },
+  {
+   "n": 10,
+   "agente": "samuel",
+   "comando": "pm-minutes",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/records/<código>.json (commitments, raid)",
+    "no escribió 30-reuniones/<fecha>-acta.md"
+   ],
+   "segundos": 84,
+   "tokens": 595738
+  },
+  {
+   "n": 11,
+   "agente": "samuel",
+   "comando": "pm-commitments",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/records/<código>.json (commitments)"
+   ],
+   "segundos": 60,
+   "tokens": 567399
+  },
+  {
+   "n": 12,
+   "agente": "samuel",
+   "comando": "pm-agenda",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 117,
+   "tokens": 903664
+  },
+  {
+   "n": 13,
+   "agente": "samuel",
+   "comando": "pm-report",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 72,
+   "tokens": 614496
+  },
+  {
+   "n": 14,
+   "agente": "samuel",
+   "comando": "pm-plan",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 94,
+   "tokens": 627559
+  },
+  {
+   "n": 15,
+   "agente": "samuel",
+   "comando": "pm-escalate",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 100,
+   "tokens": 663726
+  },
+  {
+   "n": 16,
+   "agente": "samuel",
+   "comando": "pm-publish",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 66,
+   "tokens": 613297
+  },
+  {
+   "n": 17,
+   "agente": "samuel",
+   "comando": "pm-wake",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 102,
+   "tokens": 901481
+  },
+  {
+   "n": 18,
+   "agente": "vera",
+   "comando": "portfolio-setup",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 243,
+   "tokens": 2637612
+  },
+  {
+   "n": 19,
+   "agente": "vera",
+   "comando": "portfolio-scan",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 235,
+   "tokens": 2490770
+  },
+  {
+   "n": 20,
+   "agente": "vera",
+   "comando": "document-index",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 32,
+   "tokens": 402051
+  },
+  {
+   "n": 21,
+   "agente": "vera",
+   "comando": "status-report",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 78,
+   "tokens": 552007
+  },
+  {
+   "n": 22,
+   "agente": "vera",
+   "comando": "health-check",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/records/<código>.json"
+   ],
+   "segundos": 97,
+   "tokens": 811971
+  },
+  {
+   "n": 23,
+   "agente": "vera",
+   "comando": "budget-tracking",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 60,
+   "tokens": 554937
+  },
+  {
+   "n": 24,
+   "agente": "vera",
+   "comando": "vendor-tracking",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 100,
+   "tokens": 784200
+  },
+  {
+   "n": 25,
+   "agente": "vera",
+   "comando": "change-control",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/records/<código>.json (plan.baseline, changes)"
+   ],
+   "segundos": 91,
+   "tokens": 638156
+  },
+  {
+   "n": 26,
+   "agente": "vera",
+   "comando": "project-history",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 85,
+   "tokens": 656041
+  },
+  {
+   "n": 27,
+   "agente": "vera",
+   "comando": "raid-log",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/records/<código>.json (raid)"
+   ],
+   "segundos": 148,
+   "tokens": 1180176
+  },
+  {
+   "n": 28,
+   "agente": "vera",
+   "comando": "project-charter",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 75,
+   "tokens": 494895
+  },
+  {
+   "n": 29,
+   "agente": "vera",
+   "comando": "project-closure",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 84,
+   "tokens": 775993
+  },
+  {
+   "n": 30,
+   "agente": "vera",
+   "comando": "steering-pack",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 112,
+   "tokens": 828597
+  },
+  {
+   "n": 31,
+   "agente": "vera",
+   "comando": "product-view",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 64,
+   "tokens": 550892
+  },
+  {
+   "n": 32,
+   "agente": "vera",
+   "comando": "portfolio-report",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [
+    "no escribió <estado>/snapshots/<fecha>.json"
+   ],
+   "segundos": 101,
+   "tokens": 1118972
+  },
+  {
+   "n": 33,
+   "agente": "vera",
+   "comando": "portfolio-wake",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 65,
+   "tokens": 653546
+  },
+  {
+   "n": 34,
+   "agente": "rostrum",
+   "comando": "server-setup",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 75,
+   "tokens": 469076
+  },
+  {
+   "n": 35,
+   "agente": "rostrum",
+   "comando": "server-start",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 38,
+   "tokens": 360630
+  },
+  {
+   "n": 36,
+   "agente": "alba",
+   "comando": "product-trace",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 73,
+   "tokens": 891900
+  },
+  {
+   "n": 37,
+   "agente": "alba",
+   "comando": "product-overlap",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 18,
+   "tokens": 148824
+  },
+  {
+   "n": 38,
+   "agente": "alba",
+   "comando": "product-wake",
+   "termino": true,
+   "contrato": true,
+   "problemas": [],
+   "avisos": [],
+   "segundos": 49,
+   "tokens": 682822
+  }
+ ]
+}
