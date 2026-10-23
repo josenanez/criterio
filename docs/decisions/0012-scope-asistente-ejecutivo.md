@@ -1,102 +1,180 @@
-# 0012 · El alcance se amplía al asistente ejecutivo
+# 0012 · El alcance se amplía a la asistente ejecutiva: Ofelia
 
-**Fecha:** 2026-10-23 · **Estado:** propuesta · **Modifica:** 0009
+**Fecha:** 2026-10-23 · **Estado:** aceptada · **Modifica:** 0009
 
 ## Contexto
 
 El mapa de capacidades de la página de Agentes, acordado el 23 de octubre de 2026, deja cuatro
-capacidades como «Siguiente»: el asistente ejecutivo, seguridad (CISO), auditoría (CAE) y datos
-(CDO). El orden lo pone cuánto reutiliza cada una de lo ya construido, y el asistente va primero.
+capacidades como «Siguiente»: la asistente ejecutiva, seguridad (CISO), auditoría (CAE) y datos
+(CDO). El orden lo pone cuánto reutiliza cada una de lo ya construido, y la asistente va primero.
 
 **El CEO no tiene tarjeta propia en el mapa.** No procesa documentos: decide sobre lo que le
 prepara su equipo, y eso ya lo cubren las demás familias. Lo que sí le llega directo es el trabajo
-de su oficina: qué se comprometió en cada reunión, qué se cumplió, qué viene en la próxima y qué
-material falta. Hoy ese trabajo vive en la memoria de una persona y en su correo.
+de su oficina, que hoy vive en la memoria de una persona y en su correo.
+
+**El rol se define desde una fuente externa, no desde lo que se nos ocurra.** O*NET, la
+clasificación de ocupaciones del Departamento de Trabajo de los Estados Unidos (43-6011.00,
+*Executive Secretaries and Executive Administrative Assistants*), pone en el centro del rol:
+
+- llevar la agenda del ejecutivo;
+- preparar el orden del día y la logística de juntas y comités;
+- levantar y distribuir las actas;
+- abrir, clasificar y distribuir la correspondencia, y responder la rutinaria;
+- archivar y recuperar documentos;
+- reunir información y preparar material para el ejecutivo.
+
+La frontera con el jefe de gabinete o con un VP es la que marca la práctica. La asistente es dueña
+del día a día del ejecutivo: su agenda, su correo y la preparación y el seguimiento de sus
+reuniones. Las iniciativas, la coordinación del equipo directivo y las decisiones sobre procesos y
+recursos son del otro rol.
 
 Cumple las cuatro condiciones de las 0006 y 0009:
 
-- **Trabajo recurrente sobre documentos:** agendas, actas, minutas, material de comités y
-  correos de seguimiento.
-- **Una brecha entre lo declarado y lo escrito:** el compromiso que se da por hecho y no tiene
-  evidencia, o la reunión que no tiene acta.
-- **Cifras y fechas que calcula el código:** vencimientos, días sin acta y veces que se movió un
-  compromiso.
-- **Una persona que decide:** el ejecutivo y su asistente.
+- trabajo recurrente sobre documentos;
+- una brecha entre lo declarado y lo escrito, como el compromiso que se da por hecho y no tiene
+  evidencia o la reunión que no tiene acta;
+- fechas y conteos que calcula el código;
+- una persona que decide.
 
 ## Decisión
 
-**El alcance se amplía a una familia de dirección con un agente: Ofelia, el asistente ejecutivo.** Corre
-en Colombia y Ecuador, como las demás. Contrasta los compromisos de cada reunión de dirección
-contra su seguimiento y prepara la próxima reunión de cada órgano.
+**El alcance se amplía a una familia de dirección con un agente: Ofelia, la asistente
+ejecutiva.** Su nombre viene del griego *ōphéleia*, «ayuda»: es la que prepara. Trabaja en
+Colombia y Ecuador, como las demás. La sigla de la familia es **EA** (*executive assistant*), por
+confirmar.
+
+**Ofelia prepara; no recomienda ni decide.** Para cada punto que pide una decisión, arma la ficha
+de la decisión:
+
+- la decisión, como la escribe el material;
+- las opciones que traen los documentos;
+- la evidencia de cada opción, con su cita;
+- lo que falta saber;
+- las fechas que fijan el plazo, calculadas por el código.
+
+No las ordena ni dice cuál conviene. Hay cuatro razones:
+
+1. Solo sabe lo que está escrito, y una decisión de dirección pesa sobre todo lo que no lo está.
+2. Que una opción sea la mejor no se puede calificar contra una clave.
+3. Si propusiera qué acordar, después mediría su propia propuesta en el seguimiento.
+4. En una entidad vigilada, una recomendación necesita un dueño que responda por ella.
+
+Recomendar es otra capacidad, más cerca de Estrategia y transformación, con su propio ADR y un
+responsable humano que la firme.
 
 **Reutiliza lo que ya está probado.**
 
-- El motor de compromisos de Samuel: un compromiso vencido sin evidencia, uno que nadie fechó y
-  uno prometido una y otra vez.
+- El motor de compromisos de Samuel: el compromiso vencido sin evidencia, el que nadie fechó y el
+  prometido una y otra vez.
 - El skill `commitment-tracking`.
+- El núcleo común de las familias CFO y CLO.
 - Rostrum como portal.
 
-Las reglas del compromiso salen de `portafolio.py` y pasan al núcleo común (`nucleo.py`), para
-que Samuel y el asistente usen el mismo código y no dos copias que se separan. Es el mismo
-camino que tomó la familia CFO con su núcleo.
+Las reglas de compromiso salen de `portafolio.py` y pasan al núcleo común (`nucleo.py`), para que
+Samuel y Ofelia usen el mismo código. Las pruebas de Samuel tienen que dar exactamente lo mismo
+antes y después del cambio.
 
-**Las reglas de la 0009 siguen, más tres propias:**
+**La secretaría de junta es un modo de Ofelia, no un agente aparte.** Es el mismo trabajo cuando
+el órgano es la junta. Se separa solo si una ronda muestra que necesita reglas propias.
 
-1. **No actúa en nombre del ejecutivo.** No envía correos, no acepta ni mueve reuniones y no
-   responde por nadie. Prepara el borrador; quien lo envía es una persona.
-2. **Procesa exportaciones, no buzones.** En la primera versión, la agenda llega como archivo
-   (`.ics`) y los correos como archivos guardados en la carpeta. Una conexión directa al correo
-   o al calendario es otra decisión, por la sensibilidad de lo que trae.
-3. **Un compromiso se da por cumplido solo con su evidencia.** Que alguien diga «ya está» queda
-   como declarado, en un campo separado de lo evidenciado, como en las demás familias.
+## Las reglas de Ofelia
 
-## Diseño propuesto
+Las reglas de la 0009 siguen. Estas son las propias, y responden a lo que podría salir mal en la
+operación real de una oficina de dirección:
 
-| Qué | Propuesta |
+| Lo que podría salir mal | La regla |
 |---|---|
-| Para quién | La oficina del presidente o del gerente general, y quien asiste a un ejecutivo de la alta dirección |
-| Qué procesa | La agenda exportada; por cada órgano (junta, comité directivo, comités), su agenda, su material y su acta; los correos de seguimiento guardados; y los informes que ya publican las demás familias en sus carpetas, como cualquier otro documento |
-| Lo que calcula el código | Compromisos vencidos sin evidencia; compromisos sin fecha o sin responsable; compromisos movidos más de N veces; reuniones sin acta pasados N días; reuniones cuyo material no está N días antes; decisiones del acta sin compromiso que las ejecute. Los umbrales son configuración |
-| Entregables | El estado de los compromisos de dirección, por órgano y por responsable; el paquete de la próxima reunión de cada órgano, con lo abierto de la anterior y lo que reportan las familias; y el resumen semanal para el ejecutivo |
-| Comandos, en borrador | `ea-setup`, `ea-scan`, `ea-commitments`, `ea-prep`, `ea-weekly`, `ea-wake` |
-| Nunca | Envía, agenda, acepta, declara cumplido un compromiso sin evidencia, prioriza por el ejecutivo |
-| Carpetas | `direccion/` con `agenda/`, `organos/<órgano>/<fecha>/` (agenda, material, acta) y `seguimiento/` |
-| Prueba | Material sintético por industria y una entidad de control por país, con su clave, con el mismo arnés `tests/ronda_familia.py`; primero el motor contra la clave y después la ronda con el agente |
+| Que actúe en nombre del ejecutivo | No envía, no acepta y no mueve nada. Escribe borradores solo en `borradores/`; quien los envía es una persona |
+| Que toque documentos oficiales | No edita actas, agendas ni correos originales. Escribe solo en `.criterio/` y en `borradores/`, más el archivo que marca su carpeta raíz (ADR 0011) |
+| Que el borrador del acta se tome como el acta | Cada borrador lleva «BORRADOR» en el nombre y en el texto; el acta es la que se firma, y Ofelia nunca la archiva como tal |
+| Que la información de la presidencia quede a la vista del equipo | Su informe **no se publica en Rostrum por omisión**; publicarlo es una decisión explícita de la configuración |
+| Que procese lo que no debe | Procesa solo las carpetas que se le indican y respeta una lista de carpetas excluidas, que dice en el setup y en cada informe |
+| Que dos agentes lleven el mismo compromiso con datos distintos | Cada compromiso es del acta donde nació. Los de proyecto son de Samuel: Ofelia los cita de su ficha y no los recalcula |
+| Una agenda vieja que da cruces falsos | Cada informe dice la fecha de la exportación; si tiene más de N días, avisa y no calcula cruces |
+| Eventos recurrentes o zonas horarias mal leídos | Las repeticiones y las zonas horarias del .ics las calcula el código, con su autoprueba; un evento ambiguo se declara, no se adivina |
+| Saturar de avisos | Se calla cuando nada cruza un umbral; un solo resumen a la semana |
+| Conectarse al buzón o al calendario | En esta versión procesa exportaciones —la agenda en .ics y los correos guardados como archivo—, no cuentas; una conexión directa es otra decisión, con su revisión de privacidad |
+| Que reemplace a la persona | Es para quien asiste al ejecutivo; la persona sigue siendo dueña de la agenda y de lo que se envía |
 
-**La secretaría de junta** (los acuerdos del acta contra su cumplimiento) reutiliza este mismo
-agente cuando el órgano es la junta. Queda como un modo del asistente, no como un agente aparte,
-hasta que una ronda muestre que necesita reglas propias.
+## El diseño
 
-## El nombre
+**Para quién.** Para la oficina del presidente o del gerente general, y para quien asiste a un
+ejecutivo de la alta dirección.
 
-**Ofelia**, del griego *ōphéleia*, «ayuda»: es la que prepara. Cada nombre de Criterio dice lo
-que hace la capacidad. Se decidió el 23 de octubre de 2026.
+**Lo que calcula el código.** Todos los umbrales son configuración.
 
-## Lo que falta decidir
+| Señal | Cuándo se levanta |
+|---|---|
+| `meeting_conflict` | Dos reuniones del ejecutivo se cruzan en la agenda exportada |
+| `meeting_without_material` | A N días de una reunión de un órgano, su material no está en la carpeta |
+| `meeting_without_minutes` | Pasados N días de una reunión, su acta no está |
+| `agreement_without_owner` | Un acuerdo del acta no tiene responsable |
+| `agreement_without_date` | Un acuerdo del acta no tiene fecha |
+| `commitment_overdue` | Un compromiso venció y ningún documento lo sostiene como cumplido |
+| `commitment_rescheduled` | Un compromiso se movió más de N veces |
+| `correspondence_unanswered` | Un correo guardado pide respuesta y su plazo venció sin respuesta guardada |
+| `decision_deadline` | Una decisión pendiente tiene una fecha que la fija dentro de N días |
 
-1. **La sigla y el nombre de la familia** en el mapa y en el repositorio. El grupo del mapa es
-   «Transversales».
-2. **Si la primera versión incluye la exportación del calendario** o empieza solo con las actas
-   y el material de cada órgano.
+**Las fichas.** Cada dato lleva su cita.
+
+| Ficha | Una por | Qué lleva |
+|---|---|---|
+| Ficha de la reunión | Reunión de un órgano | Órgano, fecha, orden del día, material, acta, acuerdos, compromisos y las decisiones con su ficha |
+| Ficha de la correspondencia | Hilo guardado | De quién, qué pide, para cuándo y si hay respuesta guardada |
+| Ficha de la agenda | Exportación | Los eventos normalizados, con la fecha de la exportación |
+
+**Los comandos, en borrador.**
+
+| Comando | Lo que entrega |
+|---|---|
+| `ea-setup` | Pide la carpeta raíz, los órganos, el ejecutivo, quién lo asiste, las carpetas excluidas, los umbrales, si publica en Rostrum y los términos |
+| `ea-scan` | Procesa la agenda, los órganos y la correspondencia, y escribe las fichas |
+| `ea-agenda` | La semana del ejecutivo contra sus compromisos: cruces, reuniones sin material y reuniones sin acta |
+| `ea-prep` | El paquete de la próxima reunión de un órgano: orden del día con lo abierto de la anterior, lista del material que falta y la ficha de cada decisión |
+| `ea-minutes` | El borrador del acta desde las notas o la transcripción, con cada acuerdo y compromiso citado |
+| `ea-commitments` | El estado de los compromisos de dirección, por órgano y por responsable |
+| `ea-mail` | La correspondencia guardada: qué pide respuesta y para cuándo, y el borrador de las respuestas rutinarias |
+| `ea-weekly` | El resumen de la semana: lo que llegó, lo que vence y lo que falta preparar |
+| `ea-wake` | La cadencia; se calla si nada cruza un umbral |
+
+**Nunca:** envía, agenda, acepta, mueve, declara cumplido un compromiso sin evidencia, recomienda
+una opción, prioriza por el ejecutivo ni evalúa a una persona o a un área.
+
+**Las carpetas.** Es la estructura recomendada, no obligatoria:
+
+```
+direccion/
+  agenda/                     las exportaciones .ics
+  organos/<órgano>/<fecha>/   orden del día, material, notas y acta
+  correspondencia/            los correos guardados
+  borradores/                 lo único que escribe Ofelia entre los documentos
+```
+
+**La prueba.** Material sintético por industria y una entidad de control por país, con su clave.
+Va con el mismo arnés, `tests/ronda_familia.py`: primero el motor contra la clave y después la
+ronda con el agente.
+
+## Lo que queda para un segundo incremento
+
+- Viajes: los itinerarios contra la agenda.
+- La conexión directa al calendario o al correo.
 
 ## Alternativas descartadas
 
-**Un agente del CEO.** Duplica lo que preparan las demás familias y su entregable sería una
-opinión sobre el negocio, no un contraste contra documentos.
+**Un agente del CEO.** Duplica lo que preparan las demás familias, y su entregable sería una opinión
+sobre el negocio.
 
-**Conectar el correo y el calendario desde la primera versión.** Es la entrada más útil y la más
-sensible: el buzón de un ejecutivo trae información de toda la organización. Se decide aparte,
-con su propia revisión de privacidad.
+**Una asistente que recomienda.** Es el jefe de gabinete con otro nombre. Las cuatro razones están
+en la decisión.
 
-**Extender a Samuel.** Samuel responde por un proyecto y su cadencia es la reunión de
-seguimiento. La oficina del ejecutivo cruza órganos y proyectos, y tiene otros dueños.
+**Extender a Samuel.** Samuel responde por un proyecto y su cadencia es la reunión de seguimiento.
+La oficina del ejecutivo cruza órganos y proyectos, y tiene otros dueños.
 
 ## Consecuencias
 
-- El diseño se escribe en `families/criterio-<sigla>/DISENO.es.md` desde las mismas tres fuentes
-  que las familias CFO y CLO (`familia.json`, `carpetas.json`, `fuentes.json`), con
-  `scripts/familias.py`.
-- Las reglas de compromiso pasan al núcleo común, y las pruebas de Samuel tienen que seguir
-  dando lo mismo antes y después del cambio.
-- El mapa de la página de Agentes lo muestra como «Siguiente», sin fecha, hasta que la familia
-  esté construida y probada.
+- El diseño se escribe en `families/criterio-ea/DISENO.es.md` desde las mismas tres fuentes que las
+  familias CFO y CLO (`familia.json`, `carpetas.json` y `fuentes.json`), con `scripts/familias.py`,
+  que hoy conoce tres familias y tiene que conocer una cuarta.
+- Las reglas de compromiso pasan al núcleo común, y las pruebas de Samuel siguen dando lo mismo.
+- El mapa de la página de Agentes la muestra como «Siguiente», sin fecha, hasta que la familia esté
+  construida y probada.
