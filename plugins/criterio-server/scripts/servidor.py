@@ -1095,7 +1095,10 @@ def accesible(h: str) -> str:
     """Una corrida guardada con una versión anterior del arnés se sirve con la estructura de hoy:
     salto al contenido, `main` y un `h1` con su título. El archivo no se toca: es evidencia."""
     if '<main' in h:
-        return h
+        # Ya trae la estructura; las tablas, con su caja y su teclado como las de hoy.
+        if 'class="tabla"' in h:
+            return h
+        return informe.tablas(h).replace('</body>', informe.DESLIZA + '</body>', 1)
     titulo = re.search(r'<title>(.*?)</title>', h, re.S)
     h1 = f'<h1>{titulo.group(1)}</h1>' if titulo and '<h1' not in h else ''
     h = h.replace('<body><div class="hoja">',

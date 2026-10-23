@@ -479,7 +479,9 @@ def barra(seccion, org):
 # Una tabla ancha se desliza dentro de su caja y no empuja la página. Si de verdad se desliza,
 # se puede alcanzar con el teclado: el foco solo se le da a la que lo necesita, para no llenar
 # la página de paradas inútiles.
-DESLIZA = ("<script>(function(){function f(){document.querySelectorAll('.tabla').forEach(function(t){"
+# La caja que se desliza se alcanza con el teclado. Una tabla que se desliza ella misma —la de una
+# corrida guardada, cuya hoja la vuelve bloque en un teléfono— también (ronda 11, todas las familias).
+DESLIZA = ("<script>(function(){function f(){document.querySelectorAll('.tabla, table').forEach(function(t){"
            "if(t.scrollWidth>t.clientWidth+1){t.tabIndex=0}else{t.removeAttribute('tabindex')}})}"
            "f();addEventListener('resize',f)})()</script>")
 
@@ -508,7 +510,9 @@ def tablas(html_: str) -> str:
         vistos[nombre] = vistos.get(nombre, 0) + 1
         if vistos[nombre] > 1:
             nombre += f' ({vistos[nombre]})'
-        tabla = m.group(0)
+        # Un encabezado vacío —la columna de la izquierda de una tabla de dos entradas— no es un
+        # encabezado: va como celda (axe, empty-table-header).
+        tabla = re.sub(r'<th([^>]*)>\s*</th>', r'<td\1></td>', m.group(0))
         if len(cols) >= 4:
             tabla = apilable(tabla, cols)
         out += [html_[fin:m.start()], f'<div class="tabla" role="region" aria-label="{e(nombre)}">', tabla, '</div>']

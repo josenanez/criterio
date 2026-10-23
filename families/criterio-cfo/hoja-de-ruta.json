@@ -31,8 +31,8 @@
   },
   {
    "incremento": 2,
-   "version": null,
-   "estado": "siguiente",
+   "version": "0.9.0",
+   "estado": "en curso",
    "industrias": [],
    "es": {
     "titulo": "La ronda completa con el agente",
