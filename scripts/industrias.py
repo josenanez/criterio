@@ -8,7 +8,7 @@
 La fuente es una sola: families/criterio-pmo/industrias.json. La lee este script y la
 lee el portal. La versión en que entra cada industria siguiente es de hoja-de-ruta.json. Una industria dice «probada» solo si tiene perfil en
 tests/sintetico/sectores.py y corrió en la última ronda; una industria con perfil que no
-diga «probada» también falla. Las rondas y los proyectos no se escriben a mano: salen de
+diga «probada» también falla, salvo la del incremento en curso, que arma su material antes de su ronda. Las rondas y los proyectos no se escriben a mano: salen de
 tests/evidencias/rondas/.
 """
 from __future__ import annotations
@@ -78,7 +78,10 @@ def validar(fuente: dict, hist: list[tuple[int, dict]]) -> list[str]:
         errores.append("industrias.json repite un id")
     probadas = {i["id"] for i in fuente["industrias"] if i["estado"] == "probada"}
     perfiles = set(sectores.PERFILES)
-    for falta in sorted(perfiles - probadas):
+    # La industria del incremento en curso tiene su perfil antes de su ronda: se arma el
+    # material, y después se corre. Cualquier otra con perfil tiene que estar probada.
+    en_curso = {x for x, inc in en_hoja().items() if inc.get("estado") == "en curso"}
+    for falta in sorted(perfiles - probadas - en_curso):
         errores.append(f"{falta} tiene perfil en sectores.py y no figura como probada")
     for sobra in sorted(probadas - perfiles):
         errores.append(f"{sobra} dice «probada» y no tiene perfil en sectores.py")
