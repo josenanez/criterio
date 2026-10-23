@@ -1,0 +1,18 @@
+{
+  "entidad": "Minera Cóndor",
+  "agentes": [
+    "fidel"
+  ],
+  "tokens": 3467805,
+  "senales": {
+    "esperadas": 4,
+    "acertadas": 4,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 128,
+    "bien": 128,
+    "mal": []
+  }
+}

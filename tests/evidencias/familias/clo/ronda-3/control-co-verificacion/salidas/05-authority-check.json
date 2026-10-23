@@ -1,0 +1,30 @@
+{
+  "n": 5,
+  "agente": "fidel",
+  "comando": "authority-check",
+  "argumento": "",
+  "inicio": "2026-10-23T00:33:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 39,
+  "turnos": 9,
+  "tokens": 385740,
+  "tokens_salida": 2470,
+  "costo_usd": 0.1400707,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-authority-check-1.html",
+      ".criterio/corridas/legal/2026-10-22-authority-check-1.md",
+      "estado-legal/900000001-distribuidora-control/contratos/reporte-authority-check.md",
+      "estado-legal/900000001-distribuidora-control/corridas/2026-10-06-authority-check-1.md",
+      "estado-legal/900000001-distribuidora-control/corridas/salida-authority-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/900000001-distribuidora-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

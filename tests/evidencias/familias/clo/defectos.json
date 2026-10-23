@@ -89,15 +89,17 @@
       ],
       "origen": "arnes",
       "commit": "db293b9",
-      "estado": "por-verificar",
+      "estado": "verificado",
       "es": {
         "que": "La calificación compara la cita como texto: Constanza citó «línea 5» y la clave «punto 1», que son el mismo renglón del boletín. Por eso el control da 126 de 132 y no 127.",
-        "correccion": "La calificación acepta la cita que señala el mismo renglón del mismo archivo que la clave. No se pudo verificar en la ronda 2: en el control de Colombia, Constanza no escribió la ficha del periodo (CLO-6). Se verifica en la ronda 3."
+        "correccion": "La calificación acepta la cita que señala el mismo renglón del mismo archivo que la clave. Verificado volviendo a calificar la salida original del control de Colombia de la ronda 1 con la calificación corregida: la cita «línea 5» cuenta como bien y el resultado pasa de 126 a 127 de 132. En la ronda 3, Constanza citó «punto 1»."
       },
       "en": {
         "que": "Grading compares the citation as text: Constanza cited “line 5” and the key “item 1”, which are the same line of the bulletin. That is why the control scores 126 of 132 and not 127.",
-        "correccion": "Grading accepts a citation that points to the same line of the same file as the key. It could not be verified in round 2: on the Colombian control, Constanza did not write the period record (CLO-6). Verified in round 3."
-      }
+        "correccion": "Grading accepts a citation that points to the same line of the same file as the key. Verified by re-grading the original round 1 output of the Colombian control with the corrected grading: the “line 5” citation counts as correct and the result goes from 126 to 127 of 132. In round 3, Constanza cited “item 1”."
+      },
+      "verificacion": "control-co",
+      "ronda_verificacion": 3
     },
     {
       "id": "CLO-6",
@@ -108,15 +110,17 @@
       ],
       "origen": "instrucciones",
       "commit": "f075160",
-      "estado": "por-verificar",
+      "estado": "verificado",
       "es": {
         "que": "En el control de Colombia, Constanza no escribió su configuración: el setup decía «deja la configuración escrita» sin decir que la escribe el agente, y ella paró porque ningún comando del motor la crea. Sin configuración, sus comandos no calcularon nada: los 4 datos de la ficha del periodo faltan, y ese control no prueba sus falsas alarmas en esta ronda.",
-        "correccion": "Los cuatro setup (Clara, Tomás, Fidel y Constanza) dicen que la configuración la escribe el agente con la forma de config.example.json, que init prepara el estado y config la valida. Se verifica en la ronda 3."
+        "correccion": "Los cuatro setup (Clara, Tomás, Fidel y Constanza) dicen que la configuración la escribe el agente con la forma de config.example.json, que init prepara el estado y config la valida. Verificado en la ronda 3: Constanza escribió su configuración en el control de Colombia y su ficha del periodo trae los 4 datos."
       },
       "en": {
         "que": "On the Colombian control, Constanza did not write her configuration: setup said “leave the configuration written” without saying the agent writes it, and she stopped because no engine command creates it. Without a configuration her commands computed nothing: the 4 data points of the period record are missing, and that control does not test her false alarms in this round.",
-        "correccion": "All four setups (Clara, Tomás, Fidel and Constanza) say the agent writes the configuration in the shape of config.example.json, that init prepares the state and config validates it. Verified in round 3."
-      }
+        "correccion": "All four setups (Clara, Tomás, Fidel and Constanza) say the agent writes the configuration in the shape of config.example.json, that init prepares the state and config validates it. Verified in round 3: Constanza wrote her configuration on the Colombian control and her period record carries the 4 data points."
+      },
+      "verificacion": "control-co-verificacion",
+      "ronda_verificacion": 3
     },
     {
       "id": "CLO-7",
@@ -127,15 +131,17 @@
       ],
       "origen": "clave",
       "commit": "f075160",
-      "estado": "por-verificar",
+      "estado": "verificado",
       "es": {
         "que": "La clave de un contrato sin la firma de la contraparte seguía listando a la contraparte como firmante. Fidel, con razón, listó solo a quien firmó.",
-        "correccion": "El generador deja en la clave solo a quien firmó; cambia únicamente la clave de minería. Se verifica en la ronda 3."
+        "correccion": "El generador deja en la clave solo a quien firmó; cambia únicamente la clave de minería. Verificado en la ronda 3: Fidel sobre minería, 128 de 128 datos."
       },
       "en": {
         "que": "The key of a contract without the counterparty’s signature still listed the counterparty as a signatory. Fidel, rightly, listed only who signed.",
-        "correccion": "The generator keeps only who signed in the key; only the mining key changes. Verified in round 3."
-      }
+        "correccion": "The generator keeps only who signed in the key; only the mining key changes. Verified in round 3: Fidel on mining, 128 of 128 data points."
+      },
+      "verificacion": "mineria-fidel",
+      "ronda_verificacion": 3
     },
     {
       "id": "CLO-8",
@@ -146,15 +152,17 @@
       ],
       "origen": "instrucciones",
       "commit": "f075160",
-      "estado": "por-verificar",
+      "estado": "verificado",
       "es": {
         "que": "En ese mismo contrato, Fidel dejó vacía la fecha de firma: la skill no decía qué fecha va cuando solo firmó una parte.",
-        "correccion": "La skill de la ficha dice que la fecha es la de la firma que trae el documento, aunque sea de una sola parte, y que signed_by_both dice que falta la otra. Se verifica en la ronda 3."
+        "correccion": "La skill de la ficha dice que la fecha es la de la firma que trae el documento, aunque sea de una sola parte, y que signed_by_both dice que falta la otra. Verificado en la ronda 3: Fidel sobre minería, 128 de 128 datos."
       },
       "en": {
         "que": "On that same contract, Fidel left the signing date empty: the skill did not say which date applies when only one party signed.",
-        "correccion": "The record skill says the date is that of the signature the document carries, even if only one party signed, and that signed_by_both says the other is missing. Verified in round 3."
-      }
+        "correccion": "The record skill says the date is that of the signature the document carries, even if only one party signed, and that signed_by_both says the other is missing. Verified in round 3: Fidel on mining, 128 of 128 data points."
+      },
+      "verificacion": "mineria-fidel",
+      "ronda_verificacion": 3
     },
     {
       "id": "CLO-9",
@@ -167,11 +175,11 @@
       "commit": null,
       "estado": "abierto",
       "es": {
-        "que": "El mismo caso que CFO-4: la clave dice «Reporte de operaciones al oficial de cumplimiento» y Fidel escribió «Reporte de operaciones del periodo al oficial de cumplimiento». La calificación lo cuenta como error porque compara el texto contenido, no el sentido.",
+        "que": "El mismo caso que CFO-4: la clave dice «Reporte de operaciones al oficial de cumplimiento» y Fidel escribió «Reporte de operaciones del periodo al oficial de cumplimiento». La calificación lo cuenta como error porque compara el texto contenido, no el sentido. Se repitió en la ronda 3, en el control de Colombia: es el único dato que falló ahí (131 de 132).",
         "correccion": "Pendiente, junto con CFO-4: decidir cómo la calificación reconoce el mismo dato dicho con otras palabras sin volverse permisiva."
       },
       "en": {
-        "que": "The same case as CFO-4: the key says “Reporte de operaciones al oficial de cumplimiento” and Fidel wrote “Reporte de operaciones del periodo al oficial de cumplimiento”. Grading counts it as an error because it compares contained text, not meaning.",
+        "que": "The same case as CFO-4: the key says “Reporte de operaciones al oficial de cumplimiento” and Fidel wrote “Reporte de operaciones del periodo al oficial de cumplimiento”. Grading counts it as an error because it compares contained text, not meaning. It recurred in round 3, on the Colombian control: the only data point that failed there (131 of 132).",
         "correccion": "Pending, together with CFO-4: decide how grading recognises the same data point in other words without becoming lenient."
       }
     }

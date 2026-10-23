@@ -1,0 +1,30 @@
+{
+  "n": 3,
+  "agente": "fidel",
+  "comando": "contract-register",
+  "argumento": "",
+  "inicio": "2026-10-23T00:43:06",
+  "estado": "success",
+  "error": false,
+  "segundos": 40,
+  "turnos": 9,
+  "tokens": 384836,
+  "tokens_salida": 2340,
+  "costo_usd": 0.1262328,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-22-contract-register-1.html",
+      ".criterio/corridas/legal/2026-10-22-contract-register-1.md",
+      ".criterio/corridas/legal/corridas.json",
+      "estado-legal/0990054321001-minera-condor/contratos/reporte-contract-register.md",
+      "estado-legal/0990054321001-minera-condor/corridas/2026-10-06-contract-register-1.md",
+      "estado-legal/0990054321001-minera-condor/corridas/salida-contract-register.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/0990054321001-minera-condor/corridas.json"
+    ],
+    "borrados": []
+  }
+}
