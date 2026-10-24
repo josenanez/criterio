@@ -1152,6 +1152,10 @@ def corrimiento(dias):
     return f"{plural(abs(dias), 'día', 'días')} {'después' if dias > 0 else 'antes'}"
 
 
+def estado_hito(h):
+    return ESTADO_HITO.get(h.get('status'), ('—',))[0]
+
+
 def tabla_hitos(s):
     hitos = (s or {}).get('milestones') or []
     if not hitos:
@@ -1160,8 +1164,7 @@ def tabla_hitos(s):
         f"<tr><td data-col=\"Hito\">{e(h.get('name'))}</td><td data-col=\"Línea base\">{e(h.get('baseline') or '—')}</td>"
         f"<td data-col=\"Vigente\">{e(h.get('current') or '—')}</td>"
         f"<td data-col=\"Corrimiento\">{corrimiento(h.get('slip_days'))}</td>"
-        f"<td data-col=\"Estado\">{e(ESTADO_HITO.get(h.get('status'),
-                        ('—',))[0])}</td></tr>"
+        f"<td data-col=\"Estado\">{e(estado_hito(h))}</td></tr>"
         for h in hitos)
     return ('<table class="apila"><thead><tr><th>Hito</th><th>Línea base</th><th>Vigente</th><th>Corrimiento</th>'
             f'<th>Estado</th></tr></thead><tbody>{filas}</tbody></table>')

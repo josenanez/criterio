@@ -77,6 +77,7 @@ DUENIOS = [
     ("scripts/analisis.py", "La familia"),
     ("scripts/analisis_familias.py", "La familia"),
     ("scripts/soporte.py", "La familia"),
+    ("scripts/compatibilidad.py", "La familia"),
     ("scripts/hoja.py", "La familia"),
     ("scripts/familias.py", "La familia"),
     ("scripts/resultados.py", "La familia"),
