@@ -2,7 +2,7 @@
 
 **la agente de tesorería de la familia CFO** · plugin `criterio-treasury`
 
-Corrida del 2026-10-26, sobre el commit `46a3632`, con cambios en el árbol todavía sin confirmar. **1 puertas · 45 comprobaciones · todas en verde.**
+Corrida del 2026-10-26, sobre el commit `3bd213b`, con cambios en el árbol todavía sin confirmar. **2 puertas · 52 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,8 @@ Corrida del 2026-10-26, sobre el commit `46a3632`, con cambios en el árbol toda
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-treasury/finanzas.py selftest` | La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima | 45 | 141 ms | verde |
+| `criterio-treasury/finanzas.py selftest` | La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima | 45 | 170 ms | verde |
+| `criterio-cfo/evaluar.py` | El motor de Áurea contra la clave: caja, pagos, exposición, vencimientos y covenants en cuatro industrias, y nada en los controles | 7 | 467 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -18,7 +19,7 @@ Una puerta sin comprobaciones no es una puerta vacía: **genera el material sint
 
 Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es publicidad; lo que lo vuelve auditable es lo que dice que todavía no se sabe.
 
-- **Su ronda con el agente no ha corrido.** Esta corrida prueba el motor de Áurea con su autoprueba: la caja, los pagos, la exposición, los vencimientos y los covenants sobre una entidad mínima. Su material por industria y su ronda con el agente son el siguiente paso (ADR 0016).
+- **Su ronda con el agente no ha corrido.** Esta corrida prueba el motor de Áurea contra la clave del material de cuatro industrias y dos controles, y con su autoprueba. La ronda con el agente, sobre el mismo material, es el siguiente paso (ADR 0016).
 - **Nada se ha corrido sobre los extractos ni la política de una organización real.** Todo es sintético; la política, la matriz de firmas y los covenants son de cada organización.
 
 ## Los comandos, corridos por un agente de verdad
