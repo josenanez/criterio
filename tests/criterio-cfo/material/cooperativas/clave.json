@@ -98,12 +98,12 @@
           "type": "aprobacion",
           "version": 1,
           "date": "2026-01-20",
-          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.md"
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.docx"
         },
         {
           "type": "traslado",
           "date": "2026-06-28",
-          "source": "presupuesto-2026/40-actas/acta-05-traslado.md",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.docx",
           "movements": [
             {
               "from": {
@@ -127,7 +127,7 @@
           "owner": "Administración",
           "status": "abierto",
           "evidence": null,
-          "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+          "source": "presupuesto-2026/40-actas/acta-06-comite.docx"
         }
       ]
     }
@@ -147,11 +147,11 @@
     },
     {
       "signal": "budget_version_mismatch",
-      "key": "version:presupuesto-2026/30-proyecciones/proyeccion-comercial-2026-09-30.csv:Comercial:Eventos"
+      "key": "version:presupuesto-2026/30-proyecciones/proyeccion-comercial-2026-09-30.xlsx:Comercial:Eventos"
     },
     {
       "signal": "budget_version_mismatch",
-      "key": "version:presupuesto-2026/30-proyecciones/proyeccion-comercial-2026-09-30.csv:Comercial:Publicidad"
+      "key": "version:presupuesto-2026/30-proyecciones/proyeccion-comercial-2026-09-30.xlsx:Comercial:Publicidad"
     },
     {
       "signal": "close_task_overdue",

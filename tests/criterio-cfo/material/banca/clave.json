@@ -97,7 +97,7 @@
           "type": "aprobacion",
           "version": 1,
           "date": "2026-01-20",
-          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.md"
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.docx"
         },
         {
           "type": "traslado",
@@ -145,7 +145,7 @@
     },
     {
       "signal": "bank_unreconciled",
-      "key": "andino-1101:2026-09/20-bancos/andino-1101/extracto.csv:17"
+      "key": "andino-1101:2026-09/20-bancos/andino-1101/extracto.xlsx:17"
     },
     {
       "signal": "close_task_done_without_evidence",

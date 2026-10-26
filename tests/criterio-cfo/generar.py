@@ -15,6 +15,11 @@ señal esperada queda escrita en `clave.json`, junto con lo que el agente tendr�
 de los documentos escritos. El motor no la ve; `evaluar.py` compara lo que el motor levanta
 contra ella, y una señal de más cuenta igual que una de menos.
 
+**Los formatos son los de un área financiera real.** Parte de las tablas pasa a Excel —con números
+y fechas de verdad, no texto— y parte de las actas, los soportes y las respuestas al auditor a Word
+y PDF. Qué se convierte lo decide un hash del nombre y de la entidad, así que el mismo material
+sale siempre igual; los hechos no cambian con el formato, y la clave cita el archivo como queda.
+
 **Las entidades de control no tienen ningún defecto.** Un motor que levanta algo ahí es un
 generador de ruido. Todo es determinista: la misma semilla da el mismo material, byte a byte.
 """
@@ -33,6 +38,8 @@ AQUI = Path(__file__).resolve().parent
 RAIZ = AQUI.parent.parent
 sys.path.insert(0, str(RAIZ / "plugins" / "criterio-finance" / "scripts"))
 import finanzas as F  # noqa: E402
+sys.path.insert(0, str(RAIZ / "tests" / "sintetico"))
+import formatos as FMT  # noqa: E402  (Word y PDF sin dependencias, los mismos de la familia PMO)
 
 SALIDA = AQUI / "material"
 PERIODO, ANIO, HOY = "2026-09", "2026", "2026-10-06"
@@ -86,6 +93,85 @@ def csv_(ruta: Path, filas: list[list]) -> None:
 def md(ruta: Path, texto: str) -> None:
     ruta.parent.mkdir(parents=True, exist_ok=True)
     ruta.write_text(texto.strip() + "\n", encoding="utf-8")
+
+
+# Qué pasa a qué formato, y en qué proporción. Las tablas que una organización lleva en Excel —el
+# mayor, el balance, el presupuesto, los extractos que baja del banco— y los documentos que circulan
+# en Word o PDF —actas, soportes, respuestas al auditor—. Los correos quedan como texto.
+FORMATOS = (
+    ("libro-mayor", ".xlsx", 0.5), ("balance-comprobacion", ".xlsx", 0.6), ("extracto", ".xlsx", 0.5),
+    ("auxiliar", ".xlsx", 0.3), ("checklist-cierre", ".xlsx", 0.5), ("pbc-", ".xlsx", 0.5),
+    ("presupuesto-", ".xlsx", 0.7), ("compromisos-", ".xlsx", 0.5), ("proyeccion-", ".xlsx", 0.4),
+    ("acta-", ".docx", 0.6), ("-soporte", ".pdf", 0.6), ("-respuesta", ".docx", 0.5),
+)
+_SERIE = dt.date(1899, 12, 30)
+
+
+def _celda(ref: str, v: str) -> str:
+    """Un número como número y una fecha como fecha de Excel; lo demás, texto."""
+    if v.count("-") == 2 and len(v) == 10 and v[:4].isdigit():
+        try:
+            return f'<c r="{ref}" s="1"><v>{(dt.date.fromisoformat(v) - _SERIE).days}</v></c>'
+        except ValueError:
+            pass
+    if v and v.lstrip("-").replace(".", "", 1).isdigit() and not (len(v) > 1 and v.lstrip("-")[0] == "0" and "." not in v):
+        return f'<c r="{ref}"><v>{v}</v></c>'      # el número tal cual: Excel guarda el valor, no su formato
+    return f'<c r="{ref}" t="inlineStr"><is><t>{FMT.escape(v)}</t></is></c>'
+
+
+def a_excel(origen: Path, destino: Path) -> None:
+    """Un CSV del material como lo guarda Excel: una hoja, números y fechas con su tipo."""
+    import zipfile
+    filas = list(csv.reader(origen.read_text(encoding="utf-8").splitlines(), delimiter=";"))
+    hoja = "".join(f'<row r="{r}">' + "".join(_celda(f"{FMT._col(c)}{r}", v) for c, v in enumerate(fila)) + "</row>"
+                   for r, fila in enumerate(filas, start=1))
+    S = 'xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"'
+    R = 'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"'
+    rel = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'
+    with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr("[Content_Types].xml",
+                   '<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+                   '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+                   '<Default Extension="xml" ContentType="application/xml"/>'
+                   '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
+                   '<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>'
+                   '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>')
+        z.writestr("_rels/.rels", f'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+                   f'<Relationship Id="rId1" Type="{rel}/officeDocument" Target="xl/workbook.xml"/></Relationships>')
+        z.writestr("xl/workbook.xml", f'<?xml version="1.0" encoding="UTF-8"?><workbook {S} {R}><sheets>'
+                   f'<sheet name="Hoja1" sheetId="1" r:id="rId1"/></sheets></workbook>')
+        z.writestr("xl/_rels/workbook.xml.rels", f'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+                   f'<Relationship Id="rId1" Type="{rel}/worksheet" Target="worksheets/sheet1.xml"/>'
+                   f'<Relationship Id="rId2" Type="{rel}/styles" Target="styles.xml"/></Relationships>')
+        z.writestr("xl/styles.xml", f'<?xml version="1.0" encoding="UTF-8"?><styleSheet {S}>'
+                   '<fonts count="1"><font><sz val="11"/><name val="Calibri"/></font></fonts>'
+                   '<fills count="1"><fill><patternFill patternType="none"/></fill></fills>'
+                   '<borders count="1"><border/></borders><cellStyleXfs count="1"><xf/></cellStyleXfs>'
+                   '<cellXfs count="2"><xf/><xf numFmtId="14" applyNumberFormat="1"/></cellXfs></styleSheet>')
+        z.writestr("xl/worksheets/sheet1.xml", f'<?xml version="1.0" encoding="UTF-8"?><worksheet {S}><sheetData>{hoja}</sheetData></worksheet>')
+
+
+def formatos_reales(docs: Path, sal: str) -> dict[str, str]:
+    """Convierte parte del material a Excel, Word y PDF. Devuelve {ruta vieja: ruta nueva}, relativas
+    a la carpeta de la entidad, para que la clave cite el archivo como queda."""
+    cambios = {}
+    for f in sorted(docs.rglob("*")):
+        if not f.is_file() or f.suffix not in (".csv", ".md"):
+            continue
+        for clave, ext, prop in FORMATOS:
+            if clave not in f.name:
+                continue
+            if (ext == ".xlsx") != (f.suffix == ".csv") or not FMT._toca(f, prop, sal=sal):
+                break
+            nuevo = f.with_suffix(ext)
+            if ext == ".xlsx":
+                a_excel(f, nuevo)
+            else:
+                {".docx": FMT.a_docx, ".pdf": FMT.a_pdf}[ext](f.read_text(encoding="utf-8"), nuevo)
+            f.unlink()
+            cambios[f.relative_to(docs).as_posix()] = nuevo.relative_to(docs).as_posix()
+            break
+    return cambios
 
 
 def generar(e: dict) -> dict:
@@ -507,8 +593,11 @@ def generar(e: dict) -> dict:
     clave = {"entidad": e["nombre"], "industria": e["industria"], "pais": pais, "hoy": HOY, "siembra": e["siembra"],
              "config": config, "extraccion": extraccion,
              "esperado": sorted(({"signal": a, "key": b} for a, b in set(esperado)), key=lambda x: (x["signal"], x["key"]))}
-    (sesion / "clave.json").write_text(json.dumps(clave, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    return clave
+    texto = json.dumps(clave, ensure_ascii=False, indent=2)
+    for viejo, nuevo in sorted(formatos_reales(docs, e["carpeta"]).items(), key=lambda x: -len(x[0])):
+        texto = texto.replace(viejo, nuevo)
+    (sesion / "clave.json").write_text(texto + "\n", encoding="utf-8")
+    return json.loads(texto)
 
 
 def main() -> int:

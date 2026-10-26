@@ -114,7 +114,7 @@
         {
           "type": "traslado",
           "date": "2026-06-28",
-          "source": "presupuesto-2026/40-actas/acta-05-traslado.md",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.docx",
           "movements": [
             {
               "from": {
@@ -154,7 +154,7 @@
     },
     {
       "signal": "bank_unreconciled",
-      "key": "andino-4101:2026-09/20-bancos/andino-4101/extracto.csv:17"
+      "key": "andino-4101:2026-09/20-bancos/andino-4101/extracto.xlsx:17"
     },
     {
       "signal": "close_task_done_without_evidence",
