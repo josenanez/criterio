@@ -1,0 +1,20 @@
+{
+  "entidad": "Minera Cóndor",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4560520,
+  "senales": {
+    "esperadas": 14,
+    "acertadas": 14,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 9,
+    "bien": 9,
+    "mal": []
+  }
+}

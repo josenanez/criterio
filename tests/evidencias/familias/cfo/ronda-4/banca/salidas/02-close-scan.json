@@ -1,0 +1,41 @@
+{
+  "n": 2,
+  "agente": "clara",
+  "comando": "close-scan",
+  "argumento": "",
+  "inicio": "2026-10-26T17:15:02",
+  "estado": "success",
+  "error": false,
+  "segundos": 72,
+  "turnos": 15,
+  "tokens": 711844,
+  "tokens_salida": 5830,
+  "costo_usd": 0.2519451,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-26-close-scan-1.html",
+      ".criterio/corridas/finanzas/2026-10-26-close-scan-1.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/C-01-soporte.pdf.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/C-03-soporte.pdf.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/C-04-soporte.pdf.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/C-05-soporte.pdf.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/40-soportes/correo-estado-del-cierre.md.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/50-auditoria/requerimientos/pbc-2026-09.csv.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/50-auditoria/respuestas/R-01-respuesta.docx.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/50-auditoria/respuestas/R-02-respuesta.docx.md",
+      "estado-finanzas/900123456-banco-andino/cache/2026-09/50-auditoria/respuestas/R-03-respuesta.docx.md",
+      "estado-finanzas/900123456-banco-andino/cache/manifest.json",
+      "estado-finanzas/900123456-banco-andino/cierre/2026-09/reporte-close-scan.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-close-scan-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-close-scan.md",
+      "estado-finanzas/900123456-banco-andino/indice.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

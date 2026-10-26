@@ -1,12 +1,13 @@
 {
  "meta": {
   "generado_desde": "tests/evidencias/familias/cfo",
-  "ultima_ronda": 3,
-  "completa": false,
+  "ultima_ronda": 4,
+  "completa": true,
   "rondas": [
    1,
    2,
-   3
+   3,
+   4
   ]
  },
  "secciones": [
@@ -18,12 +19,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 3, parcial, sobre 4 de las 9 entidades del material: 40 de 40 señales sembradas encontradas (margen del 95 %: 91,2–100 %) y 0 de más; 33 de 33 datos extraídos bien (100 %, margen del 95 %: 89,5–100 %); y 1 de 1 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–3, 98 de 98 señales encontradas, 0 de más y 97 de 98 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda completa más reciente, la 4, sobre las 9 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 74 de 74 datos extraídos bien (100 %, margen del 95 %: 95–100 %); y 3 de 3 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–4, 178 de 178 señales encontradas, 0 de más y 171 de 172 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 3, partial, on 4 of the material's 9 entities: 40 of 40 seeded signals found (95% margin: 91.2–100%) and 0 extra; 33 of 33 data items extracted right (100%, 95% margin: 89.5–100%); and 1 of 1 control entities with no signal at all.",
-     "Across rounds 1–3, 98 of 98 signals found, 0 extra and 97 of 98 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent complete round, round 4, on the material's 9 entities: 80 of 80 seeded signals found (95% margin: 95.4–100%) and 0 extra; 74 of 74 data items extracted right (100%, 95% margin: 95–100%); and 3 of 3 control entities with no signal at all.",
+     "Across rounds 1–4, 178 of 178 signals found, 0 extra and 171 of 172 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -48,53 +49,53 @@
      "es": [
       [
        "Rondas",
-       "3; la más reciente, la 3, es parcial"
+       "4; la completa más reciente es la 4"
       ],
       [
        "Material",
-       "Banca · Colombia, Banca · Perú, Minería · Perú"
+       "Banca · Colombia, Banca · Perú, Cooperativas · Ecuador, Minería · Ecuador, Minería · Perú, Retail · Colombia"
       ],
       [
        "Entidades de control",
-       "Control · Perú"
+       "Control · Colombia, Control · Ecuador, Control · Perú"
       ],
       [
        "Corridas de una entidad",
-       "12"
+       "21"
       ],
       [
        "Señales sembradas",
-       "98"
+       "178"
       ],
       [
        "Datos calificados",
-       "98"
+       "172"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "3; the most recent, round 3, is partial"
+       "4; the most recent complete one is round 4"
       ],
       [
        "Material",
-       "Banking · Colombia, Banking · Peru, Mining · Peru"
+       "Banking · Colombia, Banking · Peru, Credit unions · Ecuador, Mining · Ecuador, Mining · Peru, Retail · Colombia"
       ],
       [
        "Control entities",
-       "Control · Peru"
+       "Control · Colombia, Control · Ecuador, Control · Peru"
       ],
       [
        "Entity runs",
-       "12"
+       "21"
       ],
       [
        "Seeded signals",
-       "98"
+       "178"
       ],
       [
        "Data items graded",
-       "98"
+       "172"
       ]
      ]
     }
@@ -113,8 +114,8 @@
   {
    "id": "acumulado",
    "titulo": {
-    "es": "Resultados acumulados · rondas 1–3",
-    "en": "Cumulative results · rounds 1–3"
+    "es": "Resultados acumulados · rondas 1–4",
+    "en": "Cumulative results · rounds 1–4"
    },
    "tabla": {
     "cab": {
@@ -135,53 +136,53 @@
      "es": [
       [
        "Señales · cobertura",
-       "98 de 98",
+       "178 de 178",
        "100 %",
-       "96,2–100 %"
+       "97,8–100 %"
       ],
       [
        "Señales · precisión",
-       "98 de 98",
+       "178 de 178",
        "100 %",
-       "96,2–100 %"
+       "97,8–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "97 de 98",
-       "99 %",
-       "94,4–99,9 %"
+       "171 de 172",
+       "99,4 %",
+       "96,7–99,9 %"
       ],
       [
        "Control · sin ninguna señal",
-       "4 de 4",
+       "7 de 7",
        "100 %",
-       "51–100 %"
+       "64,5–100 %"
       ]
      ],
      "en": [
       [
        "Signals · coverage",
-       "98 of 98",
+       "178 of 178",
        "100%",
-       "96.2–100%"
+       "97.8–100%"
       ],
       [
        "Signals · precision",
-       "98 of 98",
+       "178 of 178",
        "100%",
-       "96.2–100%"
+       "97.8–100%"
       ],
       [
        "Extraction · data right",
-       "97 of 98",
-       "99%",
-       "94.4–99.9%"
+       "171 of 172",
+       "99.4%",
+       "96.7–99.9%"
       ],
       [
        "Control · with no signal",
-       "4 of 4",
+       "7 of 7",
        "100%",
-       "51–100%"
+       "64.5–100%"
       ]
      ]
     }
@@ -251,6 +252,16 @@
        "1 de 1",
        "17,2 M",
        "3"
+      ],
+      [
+       "4",
+       "9",
+       "100 %",
+       "100 %",
+       "100 %",
+       "3 de 3",
+       "38 M",
+       "3"
       ]
      ],
      "en": [
@@ -283,6 +294,16 @@
        "1 of 1",
        "17.2 M",
        "3"
+      ],
+      [
+       "4",
+       "9",
+       "100%",
+       "100%",
+       "100%",
+       "3 of 3",
+       "38 M",
+       "3"
       ]
      ]
     }
@@ -299,8 +320,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda más reciente · ronda 3",
-    "en": "The most recent round · round 3"
+    "es": "La ronda completa más reciente · ronda 4",
+    "en": "The most recent complete round · round 4"
    },
    "tabla": {
     "cab": {
@@ -321,53 +342,53 @@
      "es": [
       [
        "Señales · cobertura",
-       "40 de 40",
+       "80 de 80",
        "100 %",
-       "91,2–100 %"
+       "95,4–100 %"
       ],
       [
        "Señales · precisión",
-       "40 de 40",
+       "80 de 80",
        "100 %",
-       "91,2–100 %"
+       "95,4–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "33 de 33",
+       "74 de 74",
        "100 %",
-       "89,5–100 %"
+       "95–100 %"
       ],
       [
        "Control · sin ninguna señal",
-       "1 de 1",
+       "3 de 3",
        "100 %",
-       "20,6–100 %"
+       "43,8–100 %"
       ]
      ],
      "en": [
       [
        "Signals · coverage",
-       "40 of 40",
+       "80 of 80",
        "100%",
-       "91.2–100%"
+       "95.4–100%"
       ],
       [
        "Signals · precision",
-       "40 of 40",
+       "80 of 80",
        "100%",
-       "91.2–100%"
+       "95.4–100%"
       ],
       [
        "Extraction · data right",
-       "33 of 33",
+       "74 of 74",
        "100%",
-       "89.5–100%"
+       "95–100%"
       ],
       [
        "Control · with no signal",
-       "1 of 1",
+       "3 of 3",
        "100%",
-       "20.6–100%"
+       "43.8–100%"
       ]
      ]
     }
@@ -376,8 +397,8 @@
   {
    "id": "industrias",
    "titulo": {
-    "es": "Por industria y país · ronda 3",
-    "en": "By industry and country · round 3"
+    "es": "Por industria y país · ronda 4",
+    "en": "By industry and country · round 4"
    },
    "tabla": {
     "cab": {
@@ -406,7 +427,7 @@
        "16 de 16",
        "0",
        "8 de 8",
-       "3,8 M"
+       "4,7 M"
       ],
       [
        "Banca · Perú",
@@ -414,7 +435,23 @@
        "12 de 12",
        "0",
        "8 de 8",
-       "4,8 M"
+       "4,2 M"
+      ],
+      [
+       "Cooperativas · Ecuador",
+       "aurea, Clara, Tomás",
+       "14 de 14",
+       "0",
+       "8 de 8",
+       "4,2 M"
+      ],
+      [
+       "Minería · Ecuador",
+       "aurea, Clara, Tomás",
+       "14 de 14",
+       "0",
+       "9 de 9",
+       "4,6 M"
       ],
       [
        "Minería · Perú",
@@ -422,7 +459,31 @@
        "12 de 12",
        "0",
        "9 de 9",
-       "4,7 M"
+       "4,1 M"
+      ],
+      [
+       "Retail · Colombia",
+       "aurea, Clara, Tomás",
+       "12 de 12",
+       "0",
+       "8 de 8",
+       "4,3 M"
+      ],
+      [
+       "Control · Colombia",
+       "aurea, Clara, Tomás",
+       "0 de 0",
+       "0",
+       "8 de 8",
+       "3,9 M"
+      ],
+      [
+       "Control · Ecuador",
+       "aurea, Clara, Tomás",
+       "0 de 0",
+       "0",
+       "8 de 8",
+       "3,8 M"
       ],
       [
        "Control · Perú",
@@ -430,7 +491,7 @@
        "0 de 0",
        "0",
        "8 de 8",
-       "3,9 M"
+       "4,3 M"
       ]
      ],
      "en": [
@@ -440,7 +501,7 @@
        "16 of 16",
        "0",
        "8 of 8",
-       "3.8 M"
+       "4.7 M"
       ],
       [
        "Banking · Peru",
@@ -448,7 +509,23 @@
        "12 of 12",
        "0",
        "8 of 8",
-       "4.8 M"
+       "4.2 M"
+      ],
+      [
+       "Credit unions · Ecuador",
+       "aurea, Clara, Tomás",
+       "14 of 14",
+       "0",
+       "8 of 8",
+       "4.2 M"
+      ],
+      [
+       "Mining · Ecuador",
+       "aurea, Clara, Tomás",
+       "14 of 14",
+       "0",
+       "9 of 9",
+       "4.6 M"
       ],
       [
        "Mining · Peru",
@@ -456,7 +533,31 @@
        "12 of 12",
        "0",
        "9 of 9",
-       "4.7 M"
+       "4.1 M"
+      ],
+      [
+       "Retail · Colombia",
+       "aurea, Clara, Tomás",
+       "12 of 12",
+       "0",
+       "8 of 8",
+       "4.3 M"
+      ],
+      [
+       "Control · Colombia",
+       "aurea, Clara, Tomás",
+       "0 of 0",
+       "0",
+       "8 of 8",
+       "3.9 M"
+      ],
+      [
+       "Control · Ecuador",
+       "aurea, Clara, Tomás",
+       "0 of 0",
+       "0",
+       "8 of 8",
+       "3.8 M"
       ],
       [
        "Control · Peru",
@@ -464,7 +565,7 @@
        "0 of 0",
        "0",
        "8 of 8",
-       "3.9 M"
+       "4.3 M"
       ]
      ]
     }
@@ -473,15 +574,15 @@
   {
    "id": "senales",
    "titulo": {
-    "es": "Lo que falló, uno por uno · rondas 1–3",
-    "en": "What failed, one by one · rounds 1–3"
+    "es": "Lo que falló, uno por uno · rondas 1–4",
+    "en": "What failed, one by one · rounds 1–4"
    },
    "parrafos": {
     "es": [
-     "1 falla en 12 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "1 falla en 21 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "1 failure in 12 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "1 failure in 21 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -539,10 +640,10 @@
    },
    "parrafos": {
     "es": [
-     "7 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 7 verificados y 0 por verificar. 3 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "10 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 10 verificados y 0 por verificar. 5 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "7 defects logged, each with its origin, its fix and the run that verified it: 7 verified and 0 to verify. 3 came from the material, the key or the test harness, not from the agents."
+     "10 defects logged, each with its origin, its fix and the run that verified it: 10 verified and 0 to verify. 5 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -560,6 +661,10 @@
      "es": [
       [
        "Instrucciones del agente",
+       "4"
+      ],
+      [
+       "Material de prueba",
        "3"
       ],
       [
@@ -569,15 +674,15 @@
       [
        "Código",
        "1"
-      ],
-      [
-       "Material de prueba",
-       "1"
       ]
      ],
      "en": [
       [
        "Agent instructions",
+       "4"
+      ],
+      [
+       "Test material",
        "3"
       ],
       [
@@ -586,10 +691,6 @@
       ],
       [
        "Code",
-       "1"
-      ],
-      [
-       "Test material",
        "1"
       ]
      ]
@@ -613,15 +714,15 @@
        "5"
       ],
       [
-       "Ninguno",
-       "1"
-      ],
-      [
        "Clara",
-       "1"
+       "3"
       ],
       [
        "aurea",
+       "2"
+      ],
+      [
+       "Ninguno",
        "1"
       ]
      ],
@@ -631,15 +732,15 @@
        "5"
       ],
       [
-       "None",
-       "1"
-      ],
-      [
        "Clara",
-       "1"
+       "3"
       ],
       [
        "aurea",
+       "2"
+      ],
+      [
+       "None",
        "1"
       ]
      ]
@@ -654,11 +755,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 3 rondas usaron 92,8 millones de tokens: 87,5 millones en las corridas calificadas y 5,3 en las que se repitieron después de corregir un defecto. En promedio, 7,3 millones por entidad.",
+     "Las 4 rondas usaron 136,2 millones de tokens: 125,5 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 6 millones por entidad.",
      "El material es sintético. El próximo paso es el despliegue en una organización, con su propia documentación."
     ],
     "en": [
-     "The 3 rounds used 92.8 million tokens: 87.5 million in the graded runs and 5.3 in the ones repeated after fixing a defect. On average, 7.3 million per entity.",
+     "The 4 rounds used 136.2 million tokens: 125.5 million in the graded runs and 10.7 in the ones repeated after fixing a defect. On average, 6 million per entity.",
      "The material is synthetic. The next step is deployment in an organisation, with its own documentation."
     ]
    }

@@ -161,6 +161,72 @@
       "verificacion": "banca-pe",
       "ronda_verificacion": 3,
       "fallas": []
+    },
+    {
+      "id": "CFO-8",
+      "ronda": 4,
+      "carpeta": "cooperativas",
+      "agentes": [
+        "clara"
+      ],
+      "origen": "instrucciones",
+      "commit": "d4afcde",
+      "estado": "verificado",
+      "es": {
+        "que": "En la instalación, Clara tomó como cuentas de compras las que empiezan por 51 y 53, por su nombre. La 5305 es de gastos financieros, y una comisión bancaria salió como compra sin factura electrónica: una señal de más.",
+        "correccion": "El motor propone las cuentas que cruzan las facturas desde los datos —las del mayor que registran el número de una factura del periodo—, y Clara no agrega por su cuenta un prefijo que ninguna factura sostiene. Con esa propuesta el motor da exactamente la clave en las nueve entidades. Se repitió la instalación y el escaneo de Clara en cooperativas: ninguna señal de más."
+      },
+      "en": {
+        "que": "During setup, Clara took the accounts starting with 51 and 53 as purchases, by their name. 5305 is financial expenses, and a bank fee came out as a purchase without an e-invoice: one extra signal.",
+        "correccion": "The engine proposes the invoice-matching accounts from the data —the ledger accounts that record the number of an invoice of the period—, and Clara does not add on her own a prefix no invoice supports. With that proposal the engine matches the key exactly on all nine entities. Clara's setup and scan were rerun on credit unions: no extra signal."
+      },
+      "verificacion": "cooperativas",
+      "ronda_verificacion": 4,
+      "fallas": []
+    },
+    {
+      "id": "CFO-9",
+      "ronda": 4,
+      "carpeta": "retail",
+      "agentes": [
+        "clara"
+      ],
+      "origen": "material",
+      "commit": "d4afcde",
+      "estado": "verificado",
+      "es": {
+        "que": "Clara agregó inventarios a las cuentas que se concilian, sin auxiliar en ningún periodo, y salió una conciliación desactualizada de más. Ningún documento decía cuáles se concilian cada mes: la clave lo daba por sabido.",
+        "correccion": "El material trae los auxiliares de agosto, como los tiene un área financiera, y Clara propone las cuentas con auxiliar en este periodo o en el anterior. Se repitió la instalación y el escaneo de Clara en retail: ninguna señal de más."
+      },
+      "en": {
+        "que": "Clara added inventories to the accounts to reconcile, with no subledger in any period, and an extra stale-reconciliation signal came out. No document said which accounts are reconciled each month: the key took it for granted.",
+        "correccion": "The material carries August's subledgers, as a finance function has them, and Clara proposes the accounts with a subledger this period or the previous one. Clara's setup and scan were rerun on retail: no extra signal."
+      },
+      "verificacion": "retail",
+      "ronda_verificacion": 4,
+      "fallas": []
+    },
+    {
+      "id": "CFO-10",
+      "ronda": 4,
+      "carpeta": "banca-pe",
+      "agentes": [
+        "aurea"
+      ],
+      "origen": "material",
+      "commit": "d4afcde",
+      "estado": "verificado",
+      "es": {
+        "que": "La política de prueba traía la tasa del dólar en 1, y Áurea dedujo de ahí que la moneda funcional era el dólar. La cuenta en dólares dejó de ser extranjera y no se levantó la exposición cambiaria.",
+        "correccion": "La tasa de referencia del material es del orden de la real para la moneda de la entidad, y Áurea toma la moneda funcional de la entidad, no de la política. Se repitió la instalación y el escaneo de Áurea en banca de Perú y en retail: levantó la exposición en las dos."
+      },
+      "en": {
+        "que": "The test policy had the dollar rate at 1, and Áurea inferred from it that the functional currency was the dollar. The dollar account stopped being foreign and the FX exposure was not raised.",
+        "correccion": "The material's reference rate is of the order of the real one for the entity's currency, and Áurea takes the functional currency from the entity, not from the policy. Áurea's setup and scan were rerun on Peru banking and on retail: she raised the exposure in both."
+      },
+      "verificacion": "banca-pe",
+      "ronda_verificacion": 4,
+      "fallas": []
     }
   ]
 }

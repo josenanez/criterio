@@ -936,7 +936,7 @@
       "version": "0.10.0",
       "fecha": "2026-10-26",
       "commit": null,
-      "base": "67898bb",
+      "base": "d4afcde",
       "etiqueta": "v0.10.0",
       "terminos": {
         "version": "1.2",
@@ -947,21 +947,21 @@
         }
       },
       "plugins": {
-        "criterio-budget": "7678aa06489611c40664b903a4cc9a3b5151226d1c974510c23a867e4e106404",
+        "criterio-budget": "0bb2e995f7a25cea91bf84e76f46cae3bba37ee7e365467f272fcaed12db81c0",
         "criterio-compliance": "b8394a89cdcfa45678965ce1da54dd6390c1ce18c09693fa7e32f8c21c89a7ca",
-        "criterio-finance": "b57fdec0fe64ada2bab8697356f06645d5ee02f413534c4f0cc0c19f2496aec1",
+        "criterio-finance": "ad814285bf2a9ade3971f030d906635ab70541d87a15df27a7ac8b5eebb39923",
         "criterio-legal": "1e939e172da8b097d6fd3ae56238e9cfb084fa76bd665682351ef1be7bcb6efa",
         "criterio-portfolio": "96272efdc2f74a332e007483cc51ef89cea3e603fe05c223bcba4daf0990d37d",
         "criterio-product": "c252f591a2938a9b48237152e7d149ac8d984436ea2dcb16176650713e0d6c83",
         "criterio-project": "c0d1491ac6610b000644260fd0d7154ca8be86b29d06a684b859f3a5c83a5fcd",
         "criterio-server": "ad9101693c33efa516fea8517f5a4b6bcaf02a5d53de271e2ee998c2b4ce0ea1",
-        "criterio-treasury": "e1c6e93e5ad036fe45bcce9264b342c6bc672387ead3df1ab57adfcffbbdbc67"
+        "criterio-treasury": "fb398dac4d44769c624e44f8fadaff3f7110d88a46352600e5b04077f44380f3"
       },
       "destacados": [
         "La función financiera con tres agentes: entra Áurea, la tesorería, con la caja, los pagos y la deuda contra su política",
         "Perú: la factura electrónica de la SUNAT procesada desde su guía oficial, con banca, minería y una entidad de control probadas",
         "Los formatos de un área financiera real: Excel, Word y PDF, incluido el extracto bancario en PDF, que procesa el motor",
-        "La ronda 3 con los tres agentes, su instalación y su escaneo, sobre banca de Colombia y banca, minería y control de Perú: 40 de 40 señales, ninguna de más y 33 de 33 datos, después de corregir y verificar los tres defectos que encontró",
+        "La ronda 4, completa, con los tres agentes —su instalación y su escaneo— sobre las nueve entidades de Colombia, Ecuador y Perú: 80 de 80 señales, ninguna de más y 74 de 74 datos, después de corregir y verificar los seis defectos que encontraron las rondas 3 y 4",
         "La PMO: el cronograma con su Gantt y su curva de avance en el informe de Vera",
         "La 0.10.0 pide aceptar de nuevo los términos"
       ],
@@ -1006,11 +1006,14 @@
         "Resultados de la corrida",
         "CFO: Perú con el lector UBL 2.1 de la SUNAT (F-13), el IGV (F-14) y las NIIF del Consejo Normativo (F-15); el extracto bancario en PDF con texto lo procesa el motor; material de banca, minería y control de Perú; el material sale igual byte a byte en cualquier minuto",
         "CFO-5 y CFO-6, de la ronda 3: Áurea toma la moneda del extracto cuando la configuración no la dice, y cada extracto del material la trae; Tomás recibe en record_issues el escrito de proyecciones o actas que la ficha no cita, y puede anotarlo en reviewed con su motivo; el PDF del extracto con el ancho de cada columna",
-        "CFO-7, de la ronda 3: Tomás toma como vigente la versión más reciente del presupuesto y no fija approved_version por su cuenta; cada acta de cambio va a la ficha"
+        "CFO-7, de la ronda 3: Tomás toma como vigente la versión más reciente del presupuesto y no fija approved_version por su cuenta; cada acta de cambio va a la ficha",
+        "0.10.0 · La función financiera con Áurea y Perú: la ronda 3 con los tres agentes sobre banca de Colombia y banca, minería y control de Perú, 40 de 40 señales y 33 de 33 datos tras corregir CFO-5, CFO-6 y CFO-7; el análisis dice parcial a la ronda que no cubre todo el material; las notas de lanzamiento de la 0.10.0",
+        "Resultados de la corrida",
+        "CFO-8, CFO-9 y CFO-10, de la ronda 4: Clara propone las cuentas que cruzan las facturas desde los datos (finanzas.py cuentas) y las que se concilian desde los auxiliares de este periodo o del anterior; Áurea toma la moneda funcional de la entidad y no de la política; el material trae los auxiliares de agosto y una tasa de referencia del orden de la real"
       ],
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "e0e3579d82728c56c6b7dc1b26ace55fcac36c9144929d1726f67ec49eb111e2",
-      "sha256": "bf98220e0c59fa4b42666f76bca84d1db3d5a658c871ed0ac8b48a9e82e5dce1"
+      "sha256": "4950e0645f486ab827050edb248700042fd9819f5f6d06e80b31adee40e59d41"
     }
   ]
 }

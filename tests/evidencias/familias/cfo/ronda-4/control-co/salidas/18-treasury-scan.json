@@ -1,0 +1,30 @@
+{
+  "n": 18,
+  "agente": "aurea",
+  "comando": "treasury-scan",
+  "argumento": "",
+  "inicio": "2026-10-26T17:47:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 33,
+  "turnos": 9,
+  "tokens": 438271,
+  "tokens_salida": 2208,
+  "costo_usd": 0.1319074,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-10-26-treasury-scan-1.html",
+      ".criterio/corridas/tesoreria/2026-10-26-treasury-scan-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/2026-10-06-treasury-scan-1.md",
+      "estado-finanzas/900000001-distribuidora-control/corridas/salida-treasury-scan.md",
+      "estado-finanzas/900000001-distribuidora-control/tesoreria/2026-09/reporte-treasury-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900000001-distribuidora-control/corridas.json"
+    ],
+    "borrados": []
+  }
+}

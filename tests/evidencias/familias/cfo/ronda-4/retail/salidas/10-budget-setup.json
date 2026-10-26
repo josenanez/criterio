@@ -1,0 +1,41 @@
+{
+  "n": 10,
+  "agente": "tomas",
+  "comando": "budget-setup",
+  "argumento": "finanzas/900765432-almacenes-caribe",
+  "inicio": "2026-10-26T17:30:58",
+  "estado": "success",
+  "error": false,
+  "segundos": 81,
+  "turnos": 28,
+  "tokens": 1003223,
+  "tokens_salida": 9745,
+  "costo_usd": 0.3608302000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-26-budget-setup-1.html",
+      ".criterio/corridas/presupuesto/2026-10-26-budget-setup-1.md",
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/presupuesto/900765432-almacenes-caribe/config.json",
+      ".criterio/terminos/aceptacion-criterio-budget-0.10.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-budget-0.10.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-budget-0.10.0-2026-10-06.sha256",
+      "estado-finanzas/900765432-almacenes-caribe/cache/presupuesto-2026/40-actas/acta-01-aprobacion.md.md",
+      "estado-finanzas/900765432-almacenes-caribe/cache/presupuesto-2026/40-actas/acta-05-traslado.md.md",
+      "estado-finanzas/900765432-almacenes-caribe/cache/presupuesto-2026/40-actas/acta-06-comite.docx.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/2026-10-06-budget-setup-1.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/salida-budget-setup.md",
+      "estado-finanzas/900765432-almacenes-caribe/presupuesto/2026/ficha.json",
+      "estado-finanzas/900765432-almacenes-caribe/presupuesto/2026/reporte-variance-report.md",
+      "estado-finanzas/900765432-almacenes-caribe/presupuesto/2026/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/900765432-almacenes-caribe/cache/manifest.json",
+      "estado-finanzas/900765432-almacenes-caribe/corridas.json"
+    ],
+    "borrados": []
+  }
+}

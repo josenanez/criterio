@@ -18,20 +18,20 @@ El modelo de lenguaje (LLM) extrae de los documentos escritos; el código calcul
 
 Datos de prueba de cuatro industrias en tres países —banca y retail en Colombia, cooperativas y minería en Ecuador, banca y minería en Perú— y una entidad de control por país, sin ningún defecto sembrado: cualquier señal en ella es una falla. Una clave que ningún agente ve.
 
-**Ronda 3, con los tres agentes**, sobre banca de Colombia y banca, minería y el control de Perú. Cada agente corrió su instalación y su escaneo, que es donde levanta sus señales y extrae lo que traen los escritos:
+**Ronda 4, con los tres agentes, completa sobre las nueve entidades.** Cada agente corrió su instalación y su escaneo, que es donde levanta sus señales y extrae lo que traen los escritos:
 
 | | Resultado | Margen del 95 % |
 |---|---|---|
-| Señales sembradas encontradas | 40 de 40 | 91,2–100 % |
+| Señales sembradas encontradas | 80 de 80 | 95,4–100 % |
 | Señales de más | 0 | — |
-| Datos extraídos correctos | 33 de 33 | 89,5–100 % |
-| Entidad de control sin ninguna señal | 1 de 1 | — |
+| Datos extraídos correctos | 74 de 74 | 95–100 % |
+| Entidades de control sin ninguna señal | 3 de 3 | — |
 
-La primera pasada dio 38 de 40 y 32 de 33. Las dos fallas venían de la prueba y de las instrucciones, no del cálculo: la moneda de la cuenta en dólares solo estaba en la clave (CFO-5), y Tomás no llevó a la ficha un correo de un área (CFO-6). Al repetir apareció un tercer defecto: Tomás fijó por su cuenta la versión del presupuesto (CFO-7). Los tres están corregidos, y las corridas repetidas dieron lo esperado. La ronda usó 21,6 millones de tokens, con las repeticiones.
+La primera pasada dio 79 de 80 y 2 señales de más. Las tres fallas estaban en la instalación, no en el cálculo: Clara tomó una cuenta de gastos financieros como compras (CFO-8) y agregó una cuenta a conciliar sin auxiliar (CFO-9), y Áurea dedujo la moneda funcional de una tasa de prueba mal puesta (CFO-10). Ahora el motor propone las cuentas desde los datos, el material trae lo que faltaba para decidir, y las corridas repetidas dieron lo esperado. La ronda usó 43,5 millones de tokens, con las repeticiones.
 
-**Ronda 2, con Clara y Tomás**, completa sobre las seis entidades de Colombia y Ecuador: 45 de 45 señales (92,1–100 %), ninguna de más, 48 de 49 datos y los 2 controles sin ninguna señal.
+Antes, la ronda 3 —parcial, sobre cuatro entidades— encontró CFO-5, CFO-6 y CFO-7, y la ronda 2, con Clara y Tomás sobre las seis entidades de Colombia y Ecuador, dio 45 de 45 señales.
 
-Los siete defectos registrados tienen su origen, el commit que los corrige y la ronda que los verificó, en [`tests/evidencias/familias/cfo/`](../tests/evidencias/familias/cfo/RONDAS.md). El análisis estadístico completo está en [`families/criterio-cfo/analisis/`](../families/criterio-cfo/analisis/ANALISIS.es.md).
+Los diez defectos registrados tienen su origen, el commit que los corrige y la ronda que los verificó, en [`tests/evidencias/familias/cfo/`](../tests/evidencias/familias/cfo/RONDAS.md). El análisis estadístico completo está en [`families/criterio-cfo/analisis/`](../families/criterio-cfo/analisis/ANALISIS.es.md).
 
 ## Lo que cuesta hoy
 

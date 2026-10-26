@@ -1,0 +1,31 @@
+{
+  "n": 2,
+  "agente": "clara",
+  "comando": "close-scan",
+  "argumento": "",
+  "inicio": "2026-10-26T18:11:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 9,
+  "tokens": 399955,
+  "tokens_salida": 5853,
+  "costo_usd": 0.12607400000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-26-close-scan-2.html",
+      ".criterio/corridas/finanzas/2026-10-26-close-scan-2.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/cierre/2026-09/reporte-close-scan.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-close-scan-2.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/salida-close-scan.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/indice.json"
+    ],
+    "borrados": []
+  }
+}

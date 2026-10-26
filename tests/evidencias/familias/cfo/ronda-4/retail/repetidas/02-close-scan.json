@@ -1,0 +1,35 @@
+{
+  "n": 2,
+  "agente": "clara",
+  "comando": "close-scan",
+  "argumento": "",
+  "inicio": "2026-10-26T17:29:53",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 16,
+  "tokens": 816587,
+  "tokens_salida": 6628,
+  "costo_usd": 0.26454739999999993,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/900765432-almacenes-caribe/cache/2026-09/40-soportes/C-01-soporte.pdf.md",
+      "estado-finanzas/900765432-almacenes-caribe/cache/2026-09/40-soportes/C-02-soporte.pdf.md",
+      "estado-finanzas/900765432-almacenes-caribe/cache/2026-09/40-soportes/C-03-soporte.md.md",
+      "estado-finanzas/900765432-almacenes-caribe/cache/2026-09/40-soportes/C-04-soporte.md.md",
+      "estado-finanzas/900765432-almacenes-caribe/cache/2026-09/40-soportes/C-05-soporte.pdf.md",
+      "estado-finanzas/900765432-almacenes-caribe/cache/2026-09/40-soportes/correo-estado-del-cierre.md.md",
+      "estado-finanzas/900765432-almacenes-caribe/cache/manifest.json",
+      "estado-finanzas/900765432-almacenes-caribe/cierre/2026-09/reporte-close-scan.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/2026-10-06-close-scan-1.md",
+      "estado-finanzas/900765432-almacenes-caribe/corridas/salida-close-scan.md",
+      "estado-finanzas/900765432-almacenes-caribe/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900765432-almacenes-caribe/corridas.json"
+    ],
+    "borrados": []
+  }
+}

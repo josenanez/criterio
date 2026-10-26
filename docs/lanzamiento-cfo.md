@@ -18,20 +18,20 @@ The language model (LLM) extracts from written documents; the code calculates th
 
 Test data from four industries in three countries —banking and retail in Colombia, credit unions and mining in Ecuador, banking and mining in Peru— and one control entity per country with no seeded defect: any signal there is a failure. A key no agent sees.
 
-**Round 3, with the three agents**, on Colombian banking and Peruvian banking, mining and control. Each agent ran its setup and its scan, which is where it raises its signals and extracts what the written documents carry:
+**Round 4, with the three agents, complete on the nine entities.** Each agent ran its setup and its scan, which is where it raises its signals and extracts what the written documents carry:
 
 | | Result | 95% margin |
 |---|---|---|
-| Seeded signals found | 40 of 40 | 91.2–100% |
+| Seeded signals found | 80 of 80 | 95.4–100% |
 | Extra signals | 0 | — |
-| Data extracted correctly | 33 of 33 | 89.5–100% |
-| Control entity with no signal | 1 of 1 | — |
+| Data extracted correctly | 74 of 74 | 95–100% |
+| Control entities with no signal | 3 of 3 | — |
 
-The first pass scored 38 of 40 and 32 of 33. Both misses came from the test and the instructions, not the calculation: the dollar account's currency was only in the key (CFO-5), and Tomás did not take an area's email to the record (CFO-6). The rerun surfaced a third defect: Tomás set the budget version on his own (CFO-7). All three are fixed, and the repeated runs gave the expected result. The round used 21.6 million tokens, reruns included.
+The first pass scored 79 of 80 with 2 extra signals. All three misses were in setup, not in the calculation: Clara took a financial-expense account as purchases (CFO-8) and added an account to reconcile with no subledger (CFO-9), and Áurea inferred the functional currency from a test rate set wrong (CFO-10). The engine now proposes the accounts from the data, the material carries what was missing to decide, and the repeated runs gave the expected result. The round used 43.5 million tokens, reruns included.
 
-**Round 2, with Clara and Tomás**, complete on the six Colombian and Ecuadorian entities: 45 of 45 signals (92.1–100%), none extra, 48 of 49 data items and both controls with no signal.
+Before it, round 3 —partial, on four entities— found CFO-5, CFO-6 and CFO-7, and round 2, with Clara and Tomás on the six Colombian and Ecuadorian entities, scored 45 of 45 signals.
 
-The seven recorded defects carry their origin, the commit that fixes them and the round that verified them, in [`tests/evidencias/familias/cfo/`](../tests/evidencias/familias/cfo/RONDAS.md). The full statistical analysis is in [`families/criterio-cfo/analisis/`](../families/criterio-cfo/analisis/ANALISIS.md).
+The ten recorded defects carry their origin, the commit that fixes them and the round that verified them, in [`tests/evidencias/familias/cfo/`](../tests/evidencias/familias/cfo/RONDAS.md). The full statistical analysis is in [`families/criterio-cfo/analisis/`](../families/criterio-cfo/analisis/ANALISIS.md).
 
 ## What it costs today
 

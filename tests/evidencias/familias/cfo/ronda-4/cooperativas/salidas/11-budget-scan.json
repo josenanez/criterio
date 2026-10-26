@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-26T17:25:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 57,
+  "turnos": 15,
+  "tokens": 619645,
+  "tokens_salida": 5051,
+  "costo_usd": 0.20905870000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas/salida-budget-scan.md",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/1790012345001-cooperativa-sierra-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}
