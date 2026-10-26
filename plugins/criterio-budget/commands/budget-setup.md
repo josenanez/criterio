@@ -47,7 +47,7 @@ Reporta qué versiones hay en `10-aprobado/`, qué periodos tienen `10-contabili
 **2. Las preguntas**, una a la vez y solo las que el inventario no respondió:
 
 1. **La entidad y el año presupuestal.**
-2. **La versión aprobada y su acta.** Lee las actas de `40-actas/` y propón la versión que aprueba la más reciente; la aprobación va a la ficha aplicando **budget-record**:
+2. **La versión aprobada y su acta.** Lee las actas de `40-actas/` y registra en la ficha, aplicando **budget-record**, el acta que aprueba el presupuesto y cada acta de traslado, adición o reducción. **La versión vigente es la más reciente de `10-aprobado/`**: una versión posterior nace de los cambios que aprueban esas actas, aunque ninguna diga «se aprueba la versión 2», y que cada cambio tenga su acta lo revisa el motor (`transfer_without_approval`). **No fijes `budget.approved_version` por tu cuenta**: solo si la persona dice que rige otra versión.
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" convertir --config <config> --caso presupuesto-<AAAA>/40-actas
