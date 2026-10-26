@@ -48,7 +48,7 @@ Reporta qué cuentas tienen extracto en `20-bancos/`, si hay `60-tesoreria/` con
 
 **2. Las preguntas**, una a la vez y solo las que el inventario no respondió:
 
-1. **La entidad y el periodo.** Áurea trabaja sobre el mismo periodo que cierra Clara.
+1. **La entidad y el periodo.** Áurea trabaja sobre el mismo periodo que cierra Clara, y con la misma entidad y la misma moneda funcional que dice la configuración de Clara. **No deduzcas la moneda funcional de la política**: una tasa o un límite en otra moneda dicen cuál es la extranjera, no cuál es la funcional.
 2. **La política de tesorería.** Si `00-referencia/` no trae `politica-tesoreria`, dilo: sin ella no hay mínimo de caja, aprobadores por monto ni límite de exposición. **No la inventes ni la propongas como norma**: la política es de la organización.
 3. **Las cuentas en otra moneda**, para `treasury.currencies`: la carpeta de la cuenta y su moneda. Si el extracto trae la columna de moneda, el motor la toma de ahí y no hace falta preguntarla; pregunta solo por las cuentas cuyo extracto no la dice.
 4. **Los umbrales**: la desviación contra la proyección, los días de vencimiento y el margen del covenant. Propón los de `config.example.json` y dilo: son configuración, no norma.

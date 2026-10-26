@@ -500,6 +500,41 @@ def mayor(cfg: dict, periodo: str) -> Tabla | None:
     return None if t.faltan else t
 
 
+def cuentas_de_factura(docs: Path, periodo: str) -> dict:
+    """Las cuentas que cruzan las facturas, sacadas de los datos y no del nombre de la cuenta: las
+    del mayor que registran el número de una factura del periodo. En cada registro, la línea por la
+    base es de ventas o compras, la del impuesto es del IVA o IGV, y la del total —cartera,
+    proveedores, bancos— es la contrapartida y no cuenta. Devuelve los prefijos de cuatro dígitos con
+    cuántas facturas los sostienen; es una propuesta para que la persona confirme."""
+    from collections import Counter
+    my = mayor({"_docs": docs}, periodo)
+    if my is None:
+        return {"error": f"no hay libro mayor en {periodo}/10-contabilidad/ para proponer las cuentas"}
+    lados = {"emitidas": ("sales", "vat_generated"), "recibidas": ("purchases", "vat_deductible")}
+    facturas = {lado: {} for lado in lados}
+    for lado in lados:
+        d_lado = docs / periodo / "30-facturacion" / lado
+        for p in sorted(d_lado.rglob("*.xml")) if d_lado.is_dir() else []:
+            d = leer_factura(p)
+            if "error" not in d and d.get("valores", True) and d.get("base") is not None:
+                facturas[lado][ident(d["numero"])] = d
+    out = {k: Counter() for par in lados.values() for k in par}
+    for f in my.filas:
+        doc, cta = ident(f.get("documento")), str(f.get("cuenta") or "").strip()
+        if not doc or not cta:
+            continue
+        v = abs((numero(f.get("debito")) or 0.0) - (numero(f.get("credito")) or 0.0))
+        for lado, (base_k, iva_k) in lados.items():
+            d = facturas[lado].get(doc)
+            if not d:
+                continue
+            total = d.get("total") or (d["base"] + (d.get("iva") or 0))
+            cerca = min((("base", d["base"]), ("iva", d.get("iva") or 0.0), ("total", total)), key=lambda x: abs(v - x[1]))[0]
+            if cerca != "total":
+                out[base_k if cerca == "base" else iva_k][cta[:4]] += 1
+    return {k: [{"prefijo": c, "facturas": n} for c, n in sorted(v.items(), key=lambda x: (-x[1], x[0]))] for k, v in out.items()}
+
+
 # ================================================================ Clara · bancos
 
 def _movimientos(t: Tabla) -> list[dict]:
@@ -1744,12 +1779,17 @@ def calcular(cfg: dict, rol: str, a) -> tuple[dict, Path]:
 def main() -> int:
     ap = N.argumentos("El motor de Clara, Tomás y Áurea.")
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "inventario", "convertir",
-                                       "compute", "reporte", "factura", "despertar", "responder", "corrida", "buscar-raiz", "marcar-raiz", "selftest"])
+                                       "compute", "reporte", "factura", "cuentas", "despertar", "responder", "corrida", "buscar-raiz", "marcar-raiz", "selftest"])
     a = ap.parse_args()
     if a.action == "selftest":
         return selftest()
     if a.action == "factura":
         print(json.dumps(leer_factura(a.file), ensure_ascii=False, indent=2))
+        return 0
+    if a.action == "cuentas":
+        if not a.docs or not a.period:
+            ap.error("cuentas: --docs <carpeta de la entidad> --period AAAA-MM")
+        print(json.dumps(cuentas_de_factura(Path(a.docs), a.period), ensure_ascii=False, indent=2))
         return 0
     return N.despachar(a, ap, aqui=AQUI, rol=_rol(), estructura_json=ESTRUCTURA, subcarpetas=("cierre", "presupuesto", "tesoreria"),
                        revisar_config=revisar_config, calcular=calcular, reporte=reporte, despertar=despertar)
@@ -1942,6 +1982,9 @@ def selftest() -> int:
         senales = sorted({a["signal"] for a in r["alertas"]})
         ok("cuadre sin hallazgos", [a for a in r["alertas"] if a["signal"] in ("trial_balance_unbalanced", "ledger_vs_trial_balance")], [])
         ok("la factura cruza con su registro", r["partes"]["einvoice-check"]["cruzadas"], 1)
+        ok("las cuentas que cruzan salen de los datos: la base, el IVA, y no la contrapartida",
+           {k: [x["prefijo"] for x in v] for k, v in cuentas_de_factura(docs, "2026-09").items()},
+           {"sales": ["4135"], "vat_generated": ["2408"], "purchases": [], "vat_deductible": []})
         b = r["partes"]["bank-reconcile"]["cuentas"][0]
         ok("banco: los intereses quedan como nota crédito sin registrar", (b["notas_credito_sin_registrar"], b["diferencia_sin_explicar"]), (12.0, 0.0))
         # El mismo extracto, como lo entrega el banco: un PDF con texto y las cifras con punto de miles.

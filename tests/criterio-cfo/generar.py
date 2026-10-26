@@ -264,7 +264,10 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
     if "exposicion" in s and cuentas:
         c = cuentas[-1]
         monedas[c] = "USD"
-        politica += [["tasa", "USD", 1], ["limite_exposicion", "USD", r2(abs(saldos[c]) * 0.5)]]
+        # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
+        # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
+        tasa = {"COP": 4000, "PEN": 3.75}.get(e["moneda"], 1)
+        politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
     # agente no la puede saber si solo está en la clave (CFO-5).
@@ -583,6 +586,11 @@ def generar(e: dict) -> dict:
         esperado.append(("reconciliation_stale", "cuenta:2205"))
     else:
         csv_(cont / "auxiliares" / "2205-proveedores.csv", [["fecha", "tercero", "documento", "valor"]] + [[f.isoformat(), t, n, v] for f, t, n, v in cxp])
+    # Los auxiliares de agosto, con lo que quedó abierto: así sabe quien configura qué cuentas se
+    # concilian cada mes, y la que no trae el de septiembre es la que falta.
+    ago = docs / "2026-08" / "10-contabilidad" / "auxiliares"
+    csv_(ago / "1305-clientes.csv", [["fecha", "tercero", "documento", "valor"]] + [[f.isoformat(), t, n, v] for f, t, n, v in abiertas_cxc])
+    csv_(ago / "2205-proveedores.csv", [["fecha", "tercero", "documento", "valor"]] + [[f.isoformat(), t, n, -v] for f, t, n, v in abiertas_cxp])
     assert abs(sum(x[3] for x in cxc) - saldo_final["1305"]) < 0.01 or "cartera_descuadrada" in s, (e["carpeta"], "cartera")
     assert "cuenta_sin_auxiliar" in s or "registro_doble" in s or abs(sum(x[3] for x in cxp) - saldo_final["2205"]) < 0.01, (e["carpeta"], "proveedores")
 
