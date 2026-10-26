@@ -2211,8 +2211,8 @@ def selftest() -> int:
            ('class="simbolo"' in port, f'<span class="m2">{PROMESA}</span>' in port, f'href="{ICONO}"' in port,
             '<link rel="icon" href="data:,">' in port), (True, True, True, False))
         ok('la familia se presenta con su logotipo y la función en palabras, en la página, la tarjeta y las migas',
-           ('<h1 class="fam-h1"><span class="logo">' in fam and '<p class="fn-h1">Cierre, control y reporte</p>' in fam,
-            '<title>Criterio CFO · Cierre, control y reporte · Rostrum</title>' in fam,
+           ('<h1 class="fam-h1"><span class="logo">' in fam and '<p class="fn-h1">La función financiera</p>' in fam,
+            '<title>Criterio CFO · La función financiera · Rostrum</title>' in fam,
             port.count('<span class="sg">'), '<a href="/familia/cfo">Criterio CFO</a>' in clara), (True, True, 3, True))
         # Dónde trabaja cada agente, con la ruta completa en este equipo (el mapa la guarda relativa).
         sin_wbr = fam.replace('<wbr>', '')

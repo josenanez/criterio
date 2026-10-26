@@ -1,6 +1,6 @@
-# 0016 · Propuesta: la tesorería, tercer agente de la familia CFO
+# 0016 · La tesorería, Áurea, tercer agente de la familia CFO
 
-**Fecha:** 2026-10-23 · **Estado:** propuesta · **Modifica:** 0006
+**Fecha:** 2026-10-23 · **Estado:** aceptada el 2026-10-26 · **Modifica:** 0006
 
 ## Contexto
 
@@ -24,7 +24,7 @@ y no como una familia aparte. Comparte con Clara el motor (`finanzas.py`, que ya
 extractos bancarios), la entidad y el periodo. Con un tercer agente, la CFO queda con tres, como la
 PMO.
 
-## Decisión propuesta
+## Decisión
 
 **Un tercer agente en la familia CFO que contrasta la caja contra su proyección y su política, los
 pagos contra quién puede autorizarlos, y la deuda contra lo que exige su contrato.**
@@ -75,6 +75,7 @@ Son cifras de terceros, verificadas contra el texto de quien las publica.
 - **Es una extensión de la CFO**, no una familia aparte: la oficina del CFO gana un tercer agente.
   José, 2026-10-26.
 
-## Lo que falta decidir
-
-1. Si el primer incremento incluye los covenants de la deuda o empieza con la caja y los pagos.
+- **El primer incremento trae las siete señales**, los covenants incluidos: el covenant calculado
+  desde el cierre de Clara es lo que una junta y los bancos miran primero. José, 2026-10-26.
+- **La familia pasa a llamarse «La función financiera»** (Criterio CFO · La función financiera): con
+  la tesorería ya no es solo cierre, control y reporte. José, 2026-10-26.

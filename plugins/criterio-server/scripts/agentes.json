@@ -20,8 +20,8 @@
     {
       "sigla": "cfo",
       "nombre": {
-        "es": "Cierre, control y reporte",
-        "en": "Close, control and reporting"
+        "es": "La función financiera",
+        "en": "The finance function"
       },
       "estado": {
         "es": "Construida · probada",

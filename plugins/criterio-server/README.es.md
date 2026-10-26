@@ -80,8 +80,8 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio PMO** · Gobierno de proyectos | Vera | `/criterio-portfolio:portfolio-setup` | `.criterio/portafolio/` | `_CRITERIO_PORTAFOLIO.txt` |
 | **Criterio PMO** · Gobierno de proyectos | Samuel | `/criterio-project:pm-setup` | `.criterio/proyecto/<instancia>/` | `_CRITERIO_PROYECTO.txt` |
 | **Criterio PMO** · Gobierno de proyectos | Alba | `/criterio-product:product-setup` | `.criterio/producto/<instancia>/` | `_CRITERIO_PRODUCTO.txt` |
-| **Criterio CFO** · Cierre, control y reporte | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
-| **Criterio CFO** · Cierre, control y reporte | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · La función financiera | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · La función financiera | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 <!-- /servidor:familias -->

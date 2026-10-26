@@ -63,7 +63,7 @@ posicionamiento.)
 | Nivel | Regla de nombre | Cómo se escribe |
 |---|---|---|
 | Plataforma | Criterio, sin región ni añadidos | **Criterio** |
-| Familia | Criterio + la sigla del cargo que extiende + la función en palabras | **Criterio CFO** · Cierre, control y reporte |
+| Familia | Criterio + la sigla del cargo que extiende + la función en palabras | **Criterio CFO** · La función financiera |
 | Agente | Un nombre de persona cuyo significado apunta al oficio, con su rol y su robot | **Clara** · Contralora |
 | Plugin | `criterio-` + el objeto sobre el que trabaja, en inglés | `criterio-finance` |
 | Portal | Un objeto, no una persona: el mismo para todas las familias | **Rostrum** |
