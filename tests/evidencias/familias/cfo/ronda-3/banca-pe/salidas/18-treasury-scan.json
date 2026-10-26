@@ -1,0 +1,30 @@
+{
+  "n": 18,
+  "agente": "aurea",
+  "comando": "treasury-scan",
+  "argumento": "",
+  "inicio": "2026-10-26T16:55:28",
+  "estado": "success",
+  "error": false,
+  "segundos": 38,
+  "turnos": 9,
+  "tokens": 442630,
+  "tokens_salida": 3300,
+  "costo_usd": 0.0948058,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-10-26-treasury-scan-2.html",
+      ".criterio/corridas/tesoreria/2026-10-26-treasury-scan-2.md",
+      "estado-finanzas/20710000019-banco-ribera/corridas/2026-10-06-treasury-scan-2.md",
+      "estado-finanzas/20710000019-banco-ribera/tesoreria/2026-09/reporte-treasury-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/20710000019-banco-ribera/corridas.json",
+      "estado-finanzas/20710000019-banco-ribera/corridas/salida-treasury-scan.md"
+    ],
+    "borrados": []
+  }
+}

@@ -931,6 +931,86 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "79b06923eef7e7d449739ba35998d3d3453b01149bca0faa221f3cf601bcd899",
       "sha256": "e0e3579d82728c56c6b7dc1b26ace55fcac36c9144929d1726f67ec49eb111e2"
+    },
+    {
+      "version": "0.10.0",
+      "fecha": "2026-10-26",
+      "commit": null,
+      "base": "67898bb",
+      "etiqueta": "v0.10.0",
+      "terminos": {
+        "version": "1.2",
+        "fecha": "2026-10-20",
+        "sha256": {
+          "es": "97ef3d7200b125faef9cf3ef59dd2616621418c504c54332a7ec8c9042676fc3",
+          "en": "6359f5315d159b248691716475fc14f75dfc6cfea4309ff07b41f1ca82c91ece"
+        }
+      },
+      "plugins": {
+        "criterio-budget": "7678aa06489611c40664b903a4cc9a3b5151226d1c974510c23a867e4e106404",
+        "criterio-compliance": "b8394a89cdcfa45678965ce1da54dd6390c1ce18c09693fa7e32f8c21c89a7ca",
+        "criterio-finance": "b57fdec0fe64ada2bab8697356f06645d5ee02f413534c4f0cc0c19f2496aec1",
+        "criterio-legal": "1e939e172da8b097d6fd3ae56238e9cfb084fa76bd665682351ef1be7bcb6efa",
+        "criterio-portfolio": "96272efdc2f74a332e007483cc51ef89cea3e603fe05c223bcba4daf0990d37d",
+        "criterio-product": "c252f591a2938a9b48237152e7d149ac8d984436ea2dcb16176650713e0d6c83",
+        "criterio-project": "c0d1491ac6610b000644260fd0d7154ca8be86b29d06a684b859f3a5c83a5fcd",
+        "criterio-server": "ad9101693c33efa516fea8517f5a4b6bcaf02a5d53de271e2ee998c2b4ce0ea1",
+        "criterio-treasury": "e1c6e93e5ad036fe45bcce9264b342c6bc672387ead3df1ab57adfcffbbdbc67"
+      },
+      "destacados": [
+        "La función financiera con tres agentes: entra Áurea, la tesorería, con la caja, los pagos y la deuda contra su política",
+        "Perú: la factura electrónica de la SUNAT procesada desde su guía oficial, con banca, minería y una entidad de control probadas",
+        "Los formatos de un área financiera real: Excel, Word y PDF, incluido el extracto bancario en PDF, que procesa el motor",
+        "La ronda 3 con los tres agentes, su instalación y su escaneo, sobre banca de Colombia y banca, minería y control de Perú: 40 de 40 señales, ninguna de más y 33 de 33 datos, después de corregir y verificar los tres defectos que encontró",
+        "La PMO: el cronograma con su Gantt y su curva de avance en el informe de Vera",
+        "La 0.10.0 pide aceptar de nuevo los términos"
+      ],
+      "cambios": [
+        "CFO: F-08 verificada con la resolución vigente de 2019 para la NIIF para las Pymes",
+        "Resultados de la corrida sobre bd4cd85",
+        "CFO y CLO: las tres figuras de la PMO en su README, la barra de cada cifra y el estado de cada familia desde su familia.json",
+        "Resultados de la corrida",
+        "CFO y CLO: el análisis estadístico de sus rondas, cada falla con el defecto que la explica, y el estado de la portada de GitHub al día",
+        "Resultados de la corrida",
+        "ADR 0012, propuesta: el alcance se amplía al asistente ejecutivo, sobre el motor de compromisos de Samuel",
+        "ADR 0012: el asistente ejecutivo se llama Ofelia",
+        "ADR 0012, aceptada: Ofelia, la asistente ejecutiva, con su alcance desde O*NET, sus reglas para la operación real y la decisión preparada sin recomendarla",
+        "ADR 0013, 0014 y 0015, propuestas: seguridad (CISO), auditoría (CAE) y datos (CDO), cada rol desde su marco de referencia",
+        "El soporte de cada rol: el marco que lo define y lo que cuesta hoy, verificados, con una puerta que lo exige; las cifras de la PMO verificadas de nuevo, sin dos datos que no se sostenían",
+        "Resultados de la corrida",
+        "Lo que cuesta hoy, verificado, para Ofelia, CISO, CAE y CDO; ADR 0016, propuesta: la tesorería como tercer agente de la CFO; la sigla EA confirmada",
+        "El registro único de países en el núcleo común: Colombia y Ecuador dejan de estar fijos en los motores, y agregar un país es una entrada con su lector",
+        "Resultados de la corrida",
+        "Los países, en una lista aparte: paises.json es la fuente única que procesan el núcleo, los motores, los generadores del material y el análisis; ningún archivo de código escribe el nombre de un país",
+        "Resultados de la corrida",
+        "El diseño de Ofelia desde sus tres fuentes (familia.json, carpetas.json y fuentes.json); las familias salen de sus familia.json en su orden, y una en diseño no entra a Rostrum hasta que exista su plugin; el 57 % del Work Trend Index, corregido: sale de los datos de uso, no de la encuesta",
+        "Resultados de la corrida",
+        "Ofelia: el plugin criterio-assistant y la estructura numerada de carpetas, decisiones cerradas",
+        "Resultados de la corrida",
+        "Las reglas de compromiso, en el núcleo común: portafolio.py las importa de nucleo.py, que viaja con él a cada plugin de la PMO y a Rostrum; las pruebas de Samuel, Vera y Alba dan exactamente lo mismo",
+        "Resultados de la corrida",
+        "El Gantt de línea base contra vigente y la curva de avance por hitos en la página de cada proyecto: el motor calcula el cronograma y el informe solo lo dibuja, con su tabla, su texto y WCAG 2.2 AA comprobado",
+        "Resultados de la corrida",
+        "El informe abre con el Python del Mac: una f-string partida en dos líneas solo la acepta el 3.12; nueva puerta, compatibilidad.py, que lo busca en todos los scripts desde el 3.9",
+        "Resultados de la corrida",
+        "Las notas de lanzamiento de Criterio CFO, versión 0.9.0, en español e inglés",
+        "El material de la CFO en los formatos de un área financiera real: parte de las tablas en Excel con números y fechas de verdad, y parte de las actas, los soportes y las respuestas al auditor en Word y PDF; el motor da lo mismo contra la clave",
+        "CFO: «Cada cifra que firma el CFO, sostenida por su evidencia» como titular de la familia; Áurea, la tesorería, como extensión de la oficina del CFO (ADR 0016)",
+        "Criterio CFO · La función financiera: el nombre de la familia con la tesorería; ADR 0016 aceptada, con Áurea y las siete señales en su primer incremento",
+        "El motor de Áurea en finanzas.py: caja contra su mínimo y su proyección, exposición cambiaria, pagos contra aprobadores y matriz de firmas, vencimientos y covenants desde el balance del cierre, con su autoprueba",
+        "Áurea, la tesorería, tercer agente de la oficina del CFO: el plugin criterio-treasury con sus seis comandos, su skill, su contrato y su robot; la familia, sus figuras y sus páginas con tres agentes",
+        "Resultados de la corrida",
+        "El material de Áurea en las cuatro industrias: política, matriz de firmas, deuda, covenants, programa de pagos y flujo proyectado, con cada una de sus siete señales sembrada y los controles limpios; su motor da exactamente la clave",
+        "Resultados de la corrida",
+        "CFO: la hoja de ruta con Áurea en curso y Perú, Chile, México y Brasil como siguientes, la fuente del mapa de avance; las notas de lanzamiento con el estado de Áurea",
+        "Resultados de la corrida",
+        "CFO: Perú con el lector UBL 2.1 de la SUNAT (F-13), el IGV (F-14) y las NIIF del Consejo Normativo (F-15); el extracto bancario en PDF con texto lo procesa el motor; material de banca, minería y control de Perú; el material sale igual byte a byte en cualquier minuto",
+        "CFO-5 y CFO-6, de la ronda 3: Áurea toma la moneda del extracto cuando la configuración no la dice, y cada extracto del material la trae; Tomás recibe en record_issues el escrito de proyecciones o actas que la ficha no cita, y puede anotarlo en reviewed con su motivo; el PDF del extracto con el ancho de cada columna",
+        "CFO-7, de la ronda 3: Tomás toma como vigente la versión más reciente del presupuesto y no fija approved_version por su cuenta; cada acta de cambio va a la ficha"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "e0e3579d82728c56c6b7dc1b26ace55fcac36c9144929d1726f67ec49eb111e2",
+      "sha256": "bf98220e0c59fa4b42666f76bca84d1db3d5a658c871ed0ac8b48a9e82e5dce1"
     }
   ]
 }

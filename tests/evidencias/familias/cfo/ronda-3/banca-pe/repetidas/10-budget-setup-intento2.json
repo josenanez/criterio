@@ -1,0 +1,37 @@
+{
+  "n": 10,
+  "agente": "tomas",
+  "comando": "budget-setup",
+  "argumento": "finanzas/20710000019-banco-ribera",
+  "inicio": "2026-10-26T16:51:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 92,
+  "turnos": 29,
+  "tokens": 1125347,
+  "tokens_salida": 10357,
+  "costo_usd": 0.3244701,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-26-budget-setup-2.html",
+      ".criterio/corridas/presupuesto/2026-10-26-budget-setup-2.md",
+      ".criterio/presupuesto/20710000019/config.json",
+      ".criterio/terminos/aceptacion-criterio-budget-0.9.0-2026-10-06-2.md",
+      ".criterio/terminos/aceptacion-criterio-budget-0.9.0-2026-10-06-2.pdf",
+      ".criterio/terminos/aceptacion-criterio-budget-0.9.0-2026-10-06-2.sha256",
+      "estado-finanzas/20710000019-banco-ribera/corridas/2026-10-06-budget-setup-2.md",
+      "estado-finanzas/20710000019-banco-ribera/presupuesto/2026/ficha.json",
+      "estado-finanzas/20710000019-banco-ribera/presupuesto/2026/reporte-variance-report.md",
+      "estado-finanzas/20710000019-banco-ribera/presupuesto/2026/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/20710000019-banco-ribera/corridas.json",
+      "estado-finanzas/20710000019-banco-ribera/corridas/salida-budget-setup.md"
+    ],
+    "borrados": []
+  }
+}

@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="Inter, Arial, sans-serif" font-size="12">
 <rect width="760" height="340" fill="#050505"/>
 <text x="60" y="32" font-size="17" fill="#f5f4ef">Defectos encontrados por ronda</text>
-<text x="60" y="54" fill="#8a867e">4 en total, por la ronda en que se encontraron</text>
-<rect x="126.0" y="80.0" width="198.0" height="210.0" fill="#4a4740"/><text x="225.0" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="225.0" y="308" text-anchor="middle" fill="#8a867e">R1</text>
-<rect x="456.0" y="220.0" width="198.0" height="70.0" fill="#d5a84b"/><text x="555.0" y="214.0" text-anchor="middle" fill="#f5f4ef">1</text><text x="555.0" y="308" text-anchor="middle" fill="#8a867e">R2</text>
+<text x="60" y="54" fill="#8a867e">7 en total, por la ronda en que se encontraron</text>
+<rect x="104.0" y="80.0" width="132.0" height="210.0" fill="#4a4740"/><text x="170.0" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="170.0" y="308" text-anchor="middle" fill="#8a867e">R1</text>
+<rect x="324.0" y="220.0" width="132.0" height="70.0" fill="#4a4740"/><text x="390.0" y="214.0" text-anchor="middle" fill="#f5f4ef">1</text><text x="390.0" y="308" text-anchor="middle" fill="#8a867e">R2</text>
+<rect x="544.0" y="80.0" width="132.0" height="210.0" fill="#d5a84b"/><text x="610.0" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="610.0" y="308" text-anchor="middle" fill="#8a867e">R3</text>
 <line x1="60" x2="720" y1="290" y2="290" stroke="#8a867e"/></svg>

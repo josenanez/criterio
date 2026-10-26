@@ -2,6 +2,7 @@
  "meta": {
   "generado_desde": "tests/evidencias/familias/clo",
   "ultima_ronda": 2,
+  "completa": true,
   "rondas": [
    1,
    2,

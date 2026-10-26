@@ -103,6 +103,13 @@ def secciones(sigla: str):
     completas = [n for n in rondas if {RF._material(sigla, c["carpeta"]) for c in por[n]} >= {RF._material(sigla, e) for e in ENT}
                  and len(por[n]) >= len(ENT)]
     U = max(completas) if completas else max(rondas)
+    # Sin una ronda que cubra todo el material de hoy —porque entró una industria o un país—, la
+    # cabecera es la más reciente y dice que es parcial: no se llama completa a lo que no lo es.
+    completa = U in completas
+    cual = {"es": (f"La ronda completa más reciente, la {U}, sobre las {len(por[U])} entidades del material" if completa else
+                   f"La ronda más reciente, la {U}, parcial, sobre {len(por[U])} de las {len(ENT)} entidades del material"),
+            "en": (f"The most recent complete round, round {U}, on the material's {len(por[U])} entities" if completa else
+                   f"The most recent round, round {U}, partial, on {len(por[U])} of the material's {len(ENT)} entities")}
     T, UT = suma(C), suma(por[U])
     tramo = {"es": f"rondas {rondas[0]}–{rondas[-1]}", "en": f"rounds {rondas[0]}–{rondas[-1]}"}
     S = []
@@ -110,11 +117,11 @@ def secciones(sigla: str):
 
     # 1 · resumen
     S.append({"id": "resumen", "titulo": {"es": "En una mirada", "en": "At a glance"}, "parrafos": {i: [
-        (f"La ronda completa más reciente, la {U}, sobre las {len(por[U])} entidades del material: {de(UT['acertadas'], UT['esperadas'], i)} señales sembradas encontradas "
+        (f"{cual['es']}: {de(UT['acertadas'], UT['esperadas'], i)} señales sembradas encontradas "
          f"(margen del 95 %: {margen(wilson(UT['acertadas'], UT['esperadas']), i)}) y {num(UT['de_mas'], i)} de más; {de(UT['bien'], UT['campos'], i)} datos extraídos bien "
          f"({pct(UT['bien'], UT['campos'], i)}, margen del 95 %: {margen(wilson(UT['bien'], UT['campos']), i)}); y {de(UT['limpios'], UT['controles'], i)} entidades de control sin ninguna señal."
          if f(i) else
-         f"The most recent complete round, round {U}, on the material's {len(por[U])} entities: {de(UT['acertadas'], UT['esperadas'], i)} seeded signals found "
+         f"{cual['en']}: {de(UT['acertadas'], UT['esperadas'], i)} seeded signals found "
          f"(95% margin: {margen(wilson(UT['acertadas'], UT['esperadas']), i)}) and {num(UT['de_mas'], i)} extra; {de(UT['bien'], UT['campos'], i)} data items extracted right "
          f"({pct(UT['bien'], UT['campos'], i)}, 95% margin: {margen(wilson(UT['bien'], UT['campos']), i)}); and {de(UT['limpios'], UT['controles'], i)} control entities with no signal at all."),
         (f"Sumando las {tramo['es']}, {de(T['acertadas'], T['esperadas'], i)} señales encontradas, {num(T['de_mas'], i)} de más y {de(T['bien'], T['campos'], i)} datos bien. "
@@ -129,7 +136,8 @@ def secciones(sigla: str):
     ctrls = lambda i: ", ".join(sorted({material(sigla, c["carpeta"], ix(i)) for c in por[U] if c["control"]}))
     S.append({"id": "metodo", "titulo": {"es": "Qué se probó y cómo", "en": "What was tested and how"},
               "tabla": {"cab": {"es": ["", ""], "en": ["", ""]}, "filas": {i: [
-                  ["Rondas" if f(i) else "Rounds", f"{len(rondas)}; {'la completa más reciente es la' if f(i) else 'the most recent complete one is round'} {U}"],
+                  ["Rondas" if f(i) else "Rounds", f"{len(rondas)}; " + ((f"la completa más reciente es la {U}" if completa else f"la más reciente, la {U}, es parcial") if f(i) else
+                                                                       (f"the most recent complete one is round {U}" if completa else f"the most recent, round {U}, is partial"))],
                   ["Material" if f(i) else "Material", inds(i)],
                   ["Entidades de control" if f(i) else "Control entities", ctrls(i)],
                   ["Corridas de una entidad" if f(i) else "Entity runs", num(T["corridas"], i)],
@@ -173,7 +181,8 @@ def secciones(sigla: str):
     if S[-1]["parrafos"] is None:
         del S[-1]["parrafos"]
 
-    S.append({"id": "ultima", "titulo": {"es": f"La ronda completa más reciente · ronda {U}", "en": f"The most recent complete round · round {U}"},
+    S.append({"id": "ultima", "titulo": {"es": f"La ronda {'completa ' if completa else ''}más reciente · ronda {U}",
+                                         "en": f"The most recent {'complete ' if completa else ''}round · round {U}"},
               "tabla": {"cab": cab, "filas": {i: filas(UT, i) for i in L}}})
 
     # 6 · por material
@@ -238,7 +247,7 @@ def secciones(sigla: str):
          if f(i) else "The material is synthetic. The next step is deployment in an organisation, with its own documentation."),
     ] for i in L}})
 
-    meta = {"generado_desde": f"tests/evidencias/familias/{sigla}", "ultima_ronda": U, "rondas": rondas}
+    meta = {"generado_desde": f"tests/evidencias/familias/{sigla}", "ultima_ronda": U, "completa": completa, "rondas": rondas}
     graf = {"evolucion": [{"n": n, "cobertura": pct_valor(suma(por[n])["acertadas"], suma(por[n])["esperadas"]),
                            "precision": pct_valor(*prec(suma(por[n]))), "extraccion": pct_valor(suma(por[n])["bien"], suma(por[n])["campos"])} for n in rondas],
             "defectos": [{"n": n, "defectos": dpr.get(n, 0)} for n in rondas]}
@@ -253,8 +262,8 @@ def markdown(sigla, meta, S, idioma):
     t = FAM[sigla]["titulo"][0 if es else 1]
     ev = meta["generado_desde"]
     out = ["# " + (f"Análisis estadístico de las pruebas · {t}" if es else f"Statistical analysis of the tests · {t}"), "",
-           (f"Generado por `scripts/analisis_familias.py` desde `{ev}/` · ronda completa más reciente: {meta['ultima_ronda']} · [English]({otro})" if es else
-            f"Generated by `scripts/analisis_familias.py` from `{ev}/` · most recent complete round: {meta['ultima_ronda']} · [Español]({otro})"), "",
+           (f"Generado por `scripts/analisis_familias.py` desde `{ev}/` · ronda {'completa ' if meta.get('completa', True) else ''}más reciente: {meta['ultima_ronda']} · [English]({otro})" if es else
+            f"Generated by `scripts/analisis_familias.py` from `{ev}/` · most recent {'complete ' if meta.get('completa', True) else ''}round: {meta['ultima_ronda']} · [Español]({otro})"), "",
            ("No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda." if es else
             "Not edited by hand: every figure comes from the evidence and the analysis is regenerated with every round."), ""]
     for s in S:

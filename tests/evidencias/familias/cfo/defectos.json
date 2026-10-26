@@ -89,6 +89,78 @@
           "presupuesto · committee_commitments"
         ]
       ]
+    },
+    {
+      "id": "CFO-5",
+      "ronda": 3,
+      "carpeta": "banca-pe",
+      "agentes": [
+        "aurea"
+      ],
+      "origen": "material",
+      "commit": "fe751d3",
+      "estado": "verificado",
+      "es": {
+        "que": "La cuenta en dólares solo estaba en la clave: ningún documento decía su moneda. Áurea lo dijo así en la instalación, dejó las monedas vacías y no levantó la exposición cambiaria.",
+        "correccion": "Cada extracto del material trae su moneda, como lo imprime el banco, y el motor la toma del extracto cuando la configuración no la dice. Se repitió la instalación y el escaneo de Áurea en banca de Perú: levantó la exposición."
+      },
+      "en": {
+        "que": "The dollar account was only in the key: no document stated its currency. Áurea said so during setup, left the currencies empty and did not raise the FX exposure.",
+        "correccion": "Every statement in the material carries its currency, as the bank prints it, and the engine takes it from the statement when the configuration does not set it. Áurea's setup and scan were rerun on Peru banking: she raised the exposure."
+      },
+      "verificacion": "banca-pe",
+      "ronda_verificacion": 3,
+      "fallas": []
+    },
+    {
+      "id": "CFO-6",
+      "ronda": 3,
+      "carpeta": "banca-pe",
+      "agentes": [
+        "tomas"
+      ],
+      "origen": "instrucciones",
+      "commit": "fe751d3",
+      "estado": "verificado",
+      "es": {
+        "que": "Tomás no llevó a la ficha el correo en que Administración dice que va dentro del presupuesto, y no se levantó la declaración contra la evidencia. En las otras entidades sí lo llevó.",
+        "correccion": "El motor devuelve en record_issues cada escrito de proyecciones o actas que la ficha no cita, y el agente lo extrae o lo anota en reviewed con su motivo. Se repitió Tomás en banca de Perú: llevó el correo y levantó la señal."
+      },
+      "en": {
+        "que": "Tomás did not take to the record the email in which Administration says it is within budget, so the declaration-against-evidence signal was not raised. In the other entities he did.",
+        "correccion": "The engine returns in record_issues every written document in forecasts or minutes that the record does not cite, and the agent extracts it or notes it in reviewed with its reason. Tomás was rerun on Peru banking: he took the email and raised the signal."
+      },
+      "verificacion": "banca-pe",
+      "ronda_verificacion": 3,
+      "fallas": [
+        [
+          3,
+          "banca-pe",
+          "presupuesto · area_statements"
+        ]
+      ]
+    },
+    {
+      "id": "CFO-7",
+      "ronda": 3,
+      "carpeta": "banca-pe",
+      "agentes": [
+        "tomas"
+      ],
+      "origen": "instrucciones",
+      "commit": "67898bb",
+      "estado": "verificado",
+      "es": {
+        "que": "Al repetir la instalación, Tomás fijó la versión 1 como aprobada porque ningún acta dice «se aprueba la versión 2», aunque la 2 nace de un traslado aprobado. Eso levantó 10 señales de más contra la versión de las proyecciones.",
+        "correccion": "La instalación dice que la vigente es la versión más reciente y que cada cambio lo revisa el motor contra su acta; Tomás no fija la versión por su cuenta. Se repitió en banca de Perú: ninguna señal de más."
+      },
+      "en": {
+        "que": "When setup was rerun, Tomás set version 1 as approved because no minutes say “version 2 is approved”, although version 2 comes from an approved transfer. That raised 10 extra signals against the forecasts' version.",
+        "correccion": "Setup now says the current version is the most recent one and that the engine checks each change against its minutes; Tomás does not set the version on his own. Rerun on Peru banking: no extra signal."
+      },
+      "verificacion": "banca-pe",
+      "ronda_verificacion": 3,
+      "fallas": []
     }
   ]
 }

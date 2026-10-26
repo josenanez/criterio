@@ -1,0 +1,41 @@
+{
+  "n": 10,
+  "agente": "tomas",
+  "comando": "budget-setup",
+  "argumento": "finanzas/900123456-banco-andino",
+  "inicio": "2026-10-26T16:42:56",
+  "estado": "success",
+  "error": false,
+  "segundos": 87,
+  "turnos": 18,
+  "tokens": 656610,
+  "tokens_salida": 8275,
+  "costo_usd": 0.293029,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-26-budget-setup-1.html",
+      ".criterio/corridas/presupuesto/2026-10-26-budget-setup-1.md",
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/presupuesto/900123456-banco-andino/config.json",
+      ".criterio/terminos/aceptacion-criterio-budget-0.9.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-budget-0.9.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-budget-0.9.0-2026-10-06.sha256",
+      "estado-finanzas/900123456-banco-andino/cache/presupuesto-2026/40-actas/acta-01-aprobacion.docx.md",
+      "estado-finanzas/900123456-banco-andino/cache/presupuesto-2026/40-actas/acta-05-traslado.md.md",
+      "estado-finanzas/900123456-banco-andino/cache/presupuesto-2026/40-actas/acta-06-comite.md.md",
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-budget-setup-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-budget-setup.md",
+      "estado-finanzas/900123456-banco-andino/presupuesto/2026/reporte-transfer-log.md",
+      "estado-finanzas/900123456-banco-andino/presupuesto/2026/reporte-variance-report.md",
+      "estado-finanzas/900123456-banco-andino/presupuesto/2026/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/900123456-banco-andino/cache/manifest.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

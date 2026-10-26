@@ -1,0 +1,29 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-26T16:44:22",
+  "estado": "success",
+  "error": false,
+  "segundos": 75,
+  "turnos": 17,
+  "tokens": 789361,
+  "tokens_salida": 6277,
+  "costo_usd": 0.24095979999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/900123456-banco-andino/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/900123456-banco-andino/corridas/salida-budget-scan.md",
+      "estado-finanzas/900123456-banco-andino/presupuesto/2026/ficha.json",
+      "estado-finanzas/900123456-banco-andino/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/900123456-banco-andino/corridas.json",
+      "estado-finanzas/900123456-banco-andino/presupuesto/2026/resultados.json"
+    ],
+    "borrados": []
+  }
+}
