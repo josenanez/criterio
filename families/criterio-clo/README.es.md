@@ -371,8 +371,9 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 |---|---|---|---|
 | 0.8.0 | Liberada | **Construida, con el motor probado y una primera ronda con el agente**<br>· Los catorce comandos de Fidel y Constanza, sus skills y el motor de cálculo<br>· Colombia y Ecuador, sin opinión jurídica: lo que exige una obligación lo define la organización en su matriz<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente<br>· La primera ronda con el agente: Fidel y Constanza sobre banca y el control de Colombia, con los defectos que encontró corregidos | El motor, contra 4 industrias y 2 entidades de control; el agente, sobre banca y el control de Colombia |
 | 0.9.0 | Liberada | **La ronda completa con el agente**<br>· Fidel y Constanza corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo trae cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones—, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
-| Incremento 3 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre los contratos y el cumplimiento de una organización concreta | La documentación de esa organización |
-| Incremento 4 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
+| Incremento 3 | Siguiente | **Perú, Chile, México y Brasil**<br>· Un país a la vez, por tamaño de mercado: sus fuentes legales verificadas y su material de prueba<br>· Cada país se marca en el mapa cuando pasa su ronda | La ronda con los agentes en cada país |
+| Incremento 4 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre los contratos y el cumplimiento de una organización concreta | La documentación de esa organización |
+| Incremento 5 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
 
 <!-- /hoja de ruta -->
 

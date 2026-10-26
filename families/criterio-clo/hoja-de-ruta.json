@@ -1,5 +1,5 @@
 {
- "nota": "Fuente única de la hoja de ruta de la familia CLO: la escriben scripts/hoja.py en DISENO.es.md y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json.",
+ "nota": "Fuente única de la hoja de ruta de la familia CLO: la escriben scripts/hoja.py en DISENO.es.md y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. Los países que siguen se nombran en `paises`, con su código y su nombre: entran al registro único de países cuando pasan su ronda.",
  "incrementos": [
   {
    "incremento": 1,
@@ -56,6 +56,58 @@
   {
    "incremento": 3,
    "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "CL",
+     "nombre": {
+      "es": "Chile",
+      "en": "Chile"
+     }
+    },
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    },
+    {
+     "codigo": "BR",
+     "nombre": {
+      "es": "Brasil",
+      "en": "Brazil"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Perú, Chile, México y Brasil",
+    "entra": [
+     "Un país a la vez, por tamaño de mercado: sus fuentes legales verificadas y su material de prueba",
+     "Cada país se marca en el mapa cuando pasa su ronda"
+    ],
+    "prueba": "La ronda con los agentes en cada país"
+   },
+   "en": {
+    "titulo": "Peru, Chile, Mexico and Brazil",
+    "entra": [
+     "One country at a time, by market size: its verified legal sources and its test material",
+     "Each country is marked on the map when it passes its round"
+    ],
+    "prueba": "The round with the agents in each country"
+   }
+  },
+  {
+   "incremento": 4,
+   "version": null,
    "estado": "reservada",
    "industrias": [],
    "es": {
@@ -74,7 +126,7 @@
    }
   },
   {
-   "incremento": 4,
+   "incremento": 5,
    "version": null,
    "estado": "reservada",
    "industrias": [],
