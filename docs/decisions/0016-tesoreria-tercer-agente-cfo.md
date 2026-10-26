@@ -68,7 +68,13 @@ Son cifras de terceros, verificadas contra el texto de quien las publica.
 | **63 %** señala la suplantación por correo corporativo como la principal vía de esos fraudes | La misma | La misma | Verificada |
 | **63 %** sufrió fraude con cheques | La misma | La misma | Verificada |
 
+## Decidido
+
+- **El nombre: Áurea**, del latín *aureus*, «de oro»: la caja. Se pronuncia igual en español, inglés
+  y portugués. José, 2026-10-26.
+- **Es una extensión de la CFO**, no una familia aparte: la oficina del CFO gana un tercer agente.
+  José, 2026-10-26.
+
 ## Lo que falta decidir
 
-1. El nombre del agente.
-2. Si el primer incremento incluye los covenants de la deuda o empieza con la caja y los pagos.
+1. Si el primer incremento incluye los covenants de la deuda o empieza con la caja y los pagos.

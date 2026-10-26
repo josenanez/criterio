@@ -2,7 +2,8 @@
 
 # criterio-cfo · the finance function family
 
-**Two agents and a portal, around two records.** Each one extends a different person in the
+**Every figure the CFO signs, backed by its evidence.** The family extends the CFO's office with
+two agents and a portal, around two records. Each one extends a different person in the
 finance function — whoever closes the books and whoever runs the budget — and neither talks to
 the other directly: they talk through their records.
 

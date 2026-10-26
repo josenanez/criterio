@@ -2,7 +2,8 @@
 
 # criterio-cfo · la familia de la función financiera
 
-**Dos agentes y un portal, alrededor de dos fichas.** Cada uno extiende a una persona distinta
+**Cada cifra que firma el CFO, sostenida por su evidencia.** La familia extiende la oficina del CFO
+con dos agentes y un portal, alrededor de dos fichas. Cada uno extiende a una persona distinta
 de la función financiera —quien cierra los libros y quien lleva el presupuesto— y ninguno habla
 con el otro directamente: se hablan por sus fichas.
 
