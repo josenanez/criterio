@@ -102,6 +102,8 @@ FORMATOS = (
     ("libro-mayor", ".xlsx", 0.5), ("balance-comprobacion", ".xlsx", 0.6), ("extracto", ".xlsx", 0.5),
     ("auxiliar", ".xlsx", 0.3), ("checklist-cierre", ".xlsx", 0.5), ("pbc-", ".xlsx", 0.5),
     ("presupuesto-", ".xlsx", 0.7), ("compromisos-", ".xlsx", 0.5), ("proyeccion-", ".xlsx", 0.4),
+    ("programa-pagos", ".xlsx", 0.5), ("flujo-proyectado", ".xlsx", 0.5), ("matriz-firmas", ".xlsx", 0.5),
+    ("registro-deuda", ".xlsx", 0.5), ("covenants", ".xlsx", 0.4),
     ("acta-", ".docx", 0.6), ("-soporte", ".pdf", 0.6), ("-respuesta", ".docx", 0.5),
 )
 _SERIE = dt.date(1899, 12, 30)
@@ -172,6 +174,95 @@ def formatos_reales(docs: Path, sal: str) -> dict[str, str]:
             cambios[f.relative_to(docs).as_posix()] = nuevo.relative_to(docs).as_posix()
             break
     return cambios
+
+
+# La tesorería de Áurea (ADR 0016): qué se siembra en cada entidad. Las de control no llevan nada, y
+# cada una de las siete señales queda sembrada al menos una vez.
+TESORERIA = {
+    "banca": ["caja_bajo_minimo", "pago_sin_aprobacion", "covenant_riesgo"],
+    "cooperativas": ["caja_desviada", "firmante_sin_facultad", "vencimiento_cercano"],
+    "retail": ["exposicion", "vencimiento_cercano"],
+    "mineria": ["covenant_riesgo", "pago_sin_aprobacion", "caja_desviada"],
+}
+
+
+def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
+    """La política, la matriz de firmas, la deuda, los covenants, el programa de pagos y el flujo
+    proyectado de la entidad, sobre los extractos y el balance que ya generó el cierre."""
+    s = TESORERIA.get(e["carpeta"], [])
+    esc, hoy = e["escala"], dt.date.fromisoformat(HOY)
+    saldos = {}
+    for sub in sorted(x for x in (docs / PERIODO / "20-bancos").iterdir() if x.is_dir()):
+        ex = F.buscar(sub, "extracto")
+        if ex:
+            v, _ = F._saldo_final(ex[0])
+            if v is not None:
+                saldos[sub.name] = v
+    cuentas = sorted(saldos)
+    politica = [["concepto", "referencia", "valor"]]
+    for i, c in enumerate(cuentas):
+        v = saldos[c]
+        minimo = v + abs(v) * 0.2 + esc if ("caja_bajo_minimo" in s and i == 0) else v - abs(v) * 0.5 - esc
+        politica.append(["caja_minima", c, r2(minimo)])
+        if "caja_bajo_minimo" in s and i == 0:
+            esperado.append(("cash_below_minimum", f"caja:{c.lower()}"))
+    politica += [["aprobadores", "0", 1], ["aprobadores", esc * 20, 2]]
+    monedas = {}
+    if "exposicion" in s and cuentas:
+        c = cuentas[-1]
+        monedas[c] = "USD"
+        politica += [["tasa", "USD", 1], ["limite_exposicion", "USD", r2(abs(saldos[c]) * 0.5)]]
+        esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
+    csv_(docs / "00-referencia" / "politica-tesoreria.csv", politica)
+    csv_(docs / "00-referencia" / "matriz-firmas.csv", [["nombre", "cargo", "monto_maximo"],
+         ["Ana Ruiz", "Tesorera", esc * 25], ["Luis Mora", "Gerente financiero", esc * 100], ["Sofía León", "Contralora", esc * 100]])
+    flujo = [["cuenta", "saldo_proyectado"]]
+    for i, c in enumerate(cuentas):
+        v = saldos[c]
+        desviada = "caja_desviada" in s and i == len(cuentas) - 1 and v
+        flujo.append([c, r2(v * 1.3 if desviada else v)])
+        if desviada:
+            esperado.append(("cash_vs_forecast", f"proyeccion:{c.lower()}"))
+    csv_(docs / PERIODO / "60-tesoreria" / "flujo-proyectado.csv", flujo)
+    pagos = [["id", "fecha", "beneficiario", "valor", "aprobado_por"],
+             ["P-1", (hoy + dt.timedelta(days=2)).isoformat(), "Proveedor de servicios", esc * 5, "Ana Ruiz"],
+             ["P-2", (hoy + dt.timedelta(days=3)).isoformat(), "Arrendador", esc * 8, "Ana Ruiz"],
+             ["P-3", (hoy + dt.timedelta(days=4)).isoformat(), "Proveedor de tecnología", esc * 12,
+              "Carlos Paz" if "firmante_sin_facultad" in s else "Ana Ruiz"],
+             ["P-4", (hoy + dt.timedelta(days=6)).isoformat(), "Contratista de obra", esc * 30,
+              "Luis Mora" if "pago_sin_aprobacion" in s else "Luis Mora; Sofía León"]]
+    if "firmante_sin_facultad" in s:
+        esperado.append(("signatory_without_authority", "firma:P-3:carlos_paz"))
+    if "pago_sin_aprobacion" in s:
+        esperado.append(("payment_without_approval", "pago:P-4"))
+    csv_(docs / PERIODO / "60-tesoreria" / "programa-pagos.csv", pagos)
+    credito = "Crédito de tesorería"
+    deuda = [["obligacion", "tipo", "contraparte", "saldo", "moneda", "vencimiento"],
+             [credito, "deuda", "Banco del Norte", esc * 400, e["moneda"],
+              (hoy + dt.timedelta(days=20 if "vencimiento_cercano" in s else 90)).isoformat()],
+             ["Inversión a término", "inversion", "Banco del Sur", esc * 150, e["moneda"], (hoy + dt.timedelta(days=200)).isoformat()]]
+    if "vencimiento_cercano" in s:
+        esperado.append(("maturity_near", f"vence:{F.norm(credito)}"))
+    csv_(docs / "00-referencia" / "registro-deuda.csv", deuda)
+    # Los covenants, desde el mismo balance que cierra Clara: lejos del límite, salvo el sembrado.
+    cfg_b = {"_docs": docs}
+    bal = F.saldos_balance(cfg_b, PERIODO)
+
+    def suma(prefijos):
+        return abs(sum(v for c, (v, _, _) in bal.items() if v is not None and any(c.startswith(p) for p in prefijos)))
+    rc_num, rc_den = suma(["11", "13", "14"]), suma(["21", "22", "23", "24", "25"])
+    en_num, en_den = suma(["2"]), suma(["1"])
+    cov = [["obligacion", "indicador", "numerador", "denominador", "operador", "limite"]]
+    if rc_den:
+        rc = rc_num / rc_den
+        riesgo = "covenant_riesgo" in s
+        cov.append([credito, "Razón corriente", "11;13;14", "21;22;23;24;25", ">=", round(rc * (0.95 if riesgo else 0.5), 4)])
+        if riesgo:
+            esperado.append(("covenant_at_risk", f"covenant:{F.norm(credito)}:{F.norm('Razón corriente')}"))
+    if en_den:
+        cov.append([credito, "Endeudamiento", "2", "1", "<=", round(en_num / en_den * 2, 4)])
+    csv_(docs / "00-referencia" / "covenants.csv", cov)
+    return {"treasury": {"currencies": monedas}}, s
 
 
 def generar(e: dict) -> dict:
@@ -582,6 +673,7 @@ def generar(e: dict) -> dict:
     if "proyecto_distinto" in s:
         esperado.append(("project_budget_mismatch", "pry:PRY-310"))
 
+    cfg_tesoreria, siembra_t = tesoreria(e, docs, esperado)
     entidad = {"id": e["id"], "name": e["nombre"], "country": pais, "currency": e["moneda"], "approver": "Sofía León"}
     rutas = {"documents": f"finanzas/{ent_dir}", "state": f"estado-finanzas/{ent_dir}"}
     config = {
@@ -589,8 +681,9 @@ def generar(e: dict) -> dict:
                   "accounts": {"sales": ["4135"], "purchases": ["1435", "5135", "5145", "5195"], "vat_generated": ["2408"], "vat_deductible": ["2408"], "reconcile": ["1305", "2205"]},
                   "bank_accounts": sorted(subcarpetas.values()), "checklist": {"source": "organizacion", "approved": True}, "holidays": []},
         "tomas": {"entity": entidad, "paths": rutas, "budget": {"year": ANIO, "cut": PERIODO, "pmo_records": "estado-pmo/records", "expense_prefixes": ["51", "52"]}},
+        "aurea": {"entity": entidad, "paths": rutas, "period": PERIODO, **cfg_tesoreria},
     }
-    clave = {"entidad": e["nombre"], "industria": e["industria"], "pais": pais, "hoy": HOY, "siembra": e["siembra"],
+    clave = {"entidad": e["nombre"], "industria": e["industria"], "pais": pais, "hoy": HOY, "siembra": e["siembra"] + siembra_t,
              "config": config, "extraccion": extraccion,
              "esperado": sorted(({"signal": a, "key": b} for a, b in set(esperado)), key=lambda x: (x["signal"], x["key"]))}
     texto = json.dumps(clave, ensure_ascii=False, indent=2)

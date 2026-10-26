@@ -70,6 +70,23 @@
           "52"
         ]
       }
+    },
+    "aurea": {
+      "entity": {
+        "id": "1790000001001",
+        "name": "Comercial Control",
+        "country": "EC",
+        "currency": "USD",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/1790000001001-comercial-control",
+        "state": "estado-finanzas/1790000001001-comercial-control"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
+      }
     }
   },
   "extraccion": {

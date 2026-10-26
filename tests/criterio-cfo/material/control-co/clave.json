@@ -70,6 +70,23 @@
           "52"
         ]
       }
+    },
+    "aurea": {
+      "entity": {
+        "id": "900000001",
+        "name": "Distribuidora Control",
+        "country": "CO",
+        "currency": "COP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/900000001-distribuidora-control",
+        "state": "estado-finanzas/900000001-distribuidora-control"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
+      }
     }
   },
   "extraccion": {

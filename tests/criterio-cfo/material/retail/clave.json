@@ -11,7 +11,9 @@
     "cierre_declarado",
     "gasto_sin_linea",
     "proyeccion_sobre_lo_aprobado",
-    "cuenta_sin_auxiliar"
+    "cuenta_sin_auxiliar",
+    "exposicion",
+    "vencimiento_cercano"
   ],
   "config": {
     "clara": {
@@ -78,6 +80,25 @@
           "51",
           "52"
         ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "900765432",
+        "name": "Almacenes Caribe",
+        "country": "CO",
+        "currency": "COP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/900765432-almacenes-caribe",
+        "state": "estado-finanzas/900765432-almacenes-caribe"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {
+          "pacifico-3702": "USD"
+        }
       }
     }
   },
@@ -156,12 +177,20 @@
       "key": "proy:Tecnología:PRY-310"
     },
     {
+      "signal": "fx_exposure_over_limit",
+      "key": "exposicion:USD"
+    },
+    {
       "signal": "ledger_vs_trial_balance",
       "key": "mayor:2505"
     },
     {
       "signal": "ledger_vs_trial_balance",
       "key": "mayor:5195"
+    },
+    {
+      "signal": "maturity_near",
+      "key": "vence:credito_de_tesoreria"
     },
     {
       "signal": "reconciliation_stale",

@@ -12,7 +12,10 @@
     "desviacion",
     "area_declara_dentro",
     "traslado_sin_acta",
-    "proyecto_distinto"
+    "proyecto_distinto",
+    "caja_bajo_minimo",
+    "pago_sin_aprobacion",
+    "covenant_riesgo"
   ],
   "config": {
     "clara": {
@@ -79,6 +82,23 @@
           "51",
           "52"
         ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "900123456",
+        "name": "Banco Andino",
+        "country": "CO",
+        "currency": "COP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/900123456-banco-andino",
+        "state": "estado-finanzas/900123456-banco-andino"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
       }
     }
   },
@@ -148,8 +168,16 @@
       "key": "andino-1101:2026-09/20-bancos/andino-1101/extracto.xlsx:17"
     },
     {
+      "signal": "cash_below_minimum",
+      "key": "caja:andino-1101"
+    },
+    {
       "signal": "close_task_done_without_evidence",
       "key": "tarea:C-02"
+    },
+    {
+      "signal": "covenant_at_risk",
+      "key": "covenant:credito_de_tesoreria:razon_corriente"
     },
     {
       "signal": "declared_vs_evidence",
@@ -166,6 +194,10 @@
     {
       "signal": "ledger_vs_trial_balance",
       "key": "saldo:5305"
+    },
+    {
+      "signal": "payment_without_approval",
+      "key": "pago:P-4"
     },
     {
       "signal": "project_budget_mismatch",

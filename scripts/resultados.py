@@ -47,6 +47,7 @@ DUENIOS = [
     ("criterio-finance/scripts/finanzas.py", "Clara"),
     ("evaluar.py --agente clara", "Clara"),
     ("evaluar.py --agente tomas", "Tomás"),
+    ("evaluar.py --agente aurea", "Áurea"),
     ("tests/criterio-cfo/", "La familia"),
     ("criterio-legal/scripts/legal.py", "Fidel"),
     ("evaluar.py --agente fidel", "Fidel"),
@@ -601,9 +602,8 @@ NO_CUBRE["criterio-finance"] = _CFO_NO_CUBRE + [
 NO_CUBRE["criterio-budget"] = list(_CFO_NO_CUBRE)
 NO_CUBRE["criterio-treasury"] = [
     ("Su ronda con el agente no ha corrido",
-     "Esta corrida prueba el motor de Áurea con su autoprueba: la caja, los pagos, la exposición, los "
-     "vencimientos y los covenants sobre una entidad mínima. Su material por industria y su ronda con el "
-     "agente son el siguiente paso (ADR 0016)."),
+     "Esta corrida prueba el motor de Áurea contra la clave del material de cuatro industrias y dos controles, "
+     "y con su autoprueba. La ronda con el agente, sobre el mismo material, es el siguiente paso (ADR 0016)."),
     ("Nada se ha corrido sobre los extractos ni la política de una organización real",
      "Todo es sintético; la política, la matriz de firmas y los covenants son de cada organización."),
 ]

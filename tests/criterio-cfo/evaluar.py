@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 """El motor de la familia CFO contra la clave del material.
 
-    python3 tests/criterio-cfo/evaluar.py                  los dos agentes
-    python3 tests/criterio-cfo/evaluar.py --agente clara   solo las señales de Clara, o de Tomás
+    python3 tests/criterio-cfo/evaluar.py                  los tres agentes
+    python3 tests/criterio-cfo/evaluar.py --agente clara   solo las señales de Clara, de Tomás o de Áurea
 
 Para cada entidad de `material/`: arma la configuración que dejaría el setup, escribe en la
 ficha lo que el agente tendría que extraer de los documentos escritos —está en la clave—, corre
-el motor de Clara y el de Tomás, y compara cada señal, por su nombre y su clave, contra las
+el motor de Clara, el de Tomás y el de Áurea, y compara cada señal, por su nombre y su clave, contra las
 esperadas. **Una señal de más falla igual que una de menos**, y en las entidades de control
 cualquier señal es una falla.
 
@@ -49,7 +49,9 @@ def evaluar(carpeta: Path) -> dict:
         F.escribir_json(estado / "presupuesto" / cfg_t["budget"]["year"] / "ficha.json", clave["extraccion"]["presupuesto"])
         rc = F.clara(cfg_c, cfg_c["period"], hoy)
         rt = F.tomas(cfg_t, cfg_t["budget"]["year"], cfg_t["budget"]["cut"], hoy)
-    obtenido = {(a["signal"], a["key"]) for a in rc["alertas"] + rt["alertas"]}
+        cfg_a = dict(clave["config"]["aurea"], _docs=docs, _estado=estado)
+        ra = F.aurea(cfg_a, cfg_a["period"], hoy)
+    obtenido = {(a["signal"], a["key"]) for a in rc["alertas"] + rt["alertas"] + ra["alertas"]}
     esperado = {(x["signal"], x["key"]) for x in clave["esperado"]}
     aritmetica = []
     for c in rc["partes"]["bank-reconcile"]["cuentas"]:
@@ -61,7 +63,9 @@ def evaluar(carpeta: Path) -> dict:
     sin_cruce = fi["facturas"] - fi["cruzadas"] - len(fi["solo_identidad"]) - sum(1 for a in rc["alertas"] if a["signal"] == "einvoice_not_recorded")
     if sin_cruce:
         aritmetica.append(f"{sin_cruce} facturas sin cruce ni señal")
-    no_proc = rc["partes"]["einvoice-check"]["no_procesado"] + [x for p in rc["partes"].values() for x in p.get("no_procesado", []) if "factura" not in x["motivo"]] + rt.get("no_procesado", [])
+    # Una cuenta sin extracto ya la señala el cierre; para Áurea no es una falla distinta.
+    no_proc_a = [x for x in ra["no_procesado"] if not ("banco_sin_extracto" in clave["siembra"] and "extracto" in x["motivo"])]
+    no_proc = no_proc_a + rc["partes"]["einvoice-check"]["no_procesado"] + [x for p in rc["partes"].values() for x in p.get("no_procesado", []) if "factura" not in x["motivo"]] + rt.get("no_procesado", [])
     return {"entidad": clave["entidad"], "pais": clave["pais"], "control": not clave["siembra"],
             "esperado": esperado, "obtenido": obtenido, "aritmetica": aritmetica, "issues": rc["record_issues"] + rt["record_issues"],
             "no_procesado": [x for x in no_proc if "para revisar" not in x["motivo"]]}

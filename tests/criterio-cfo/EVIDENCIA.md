@@ -8,10 +8,10 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 
 | Carpeta del material | País | Industria | Defectos sembrados | Señales esperadas |
 |---|---|---|---:|---:|
-| `banca` | Colombia | banca | 9 | 13 |
-| `cooperativas` | Ecuador | cooperativas | 10 | 11 |
-| `retail` | Colombia | retail | 8 | 10 |
-| `mineria` | Ecuador | minería | 10 | 11 |
+| `banca` | Colombia | banca | 12 | 16 |
+| `cooperativas` | Ecuador | cooperativas | 13 | 14 |
+| `retail` | Colombia | retail | 10 | 12 |
+| `mineria` | Ecuador | minería | 13 | 14 |
 | `control-co` | Colombia | — | 0 | 0 |
 | `control-ec` | Ecuador | — | 0 | 0 |
 
@@ -22,7 +22,9 @@ recibidas —con la estructura de la DIAN (F-01) en Colombia, dentro de su conte
 SRI (F-04, F-09) en Ecuador, dentro de su respuesta de autorización—, el checklist del cierre
 con sus soportes, el índice de requerimientos del auditor con sus respuestas, dos versiones del
 presupuesto, los compromisos, las proyecciones de cada área, las actas y la ficha del proyecto
-de la familia PMO que ejecuta una de las líneas.
+de la familia PMO que ejecuta una de las líneas. Para Áurea, además, la política de tesorería, la
+matriz de firmas, el registro de la deuda y sus covenants en `00-referencia/`, y el programa de
+pagos y el flujo proyectado en `60-tesoreria/`.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 
@@ -54,8 +56,15 @@ de la familia PMO que ejecuta una de las líneas.
 | La proyección de un área con 83 días | `forecast_stale` | cooperativas |
 | Una proyección hecha sobre la versión anterior | `budget_version_mismatch` | cooperativas |
 | El proyecto de la PMO con otro presupuesto que el de su línea | `project_budget_mismatch` | banca |
+| Una cuenta con saldo bajo el mínimo de la política | `cash_below_minimum` | banca |
+| Una cuenta con saldo 30 % por debajo de su proyección | `cash_vs_forecast` | cooperativas, minería |
+| Una cuenta en dólares con su posición sobre el límite | `fx_exposure_over_limit` | retail |
+| Un pago de 30 veces la escala con una aprobación y la política pide dos | `payment_without_approval` | banca, minería |
+| Un pago aprobado por quien no está en la matriz de firmas | `signatory_without_authority` | cooperativas |
+| La razón corriente a 5 % de su límite, calculada desde el balance | `covenant_at_risk` | banca, minería |
+| El crédito de tesorería que vence en 20 días | `maturity_near` | cooperativas, retail |
 
-Las 23 señales de la familia se siembran al menos una vez. **Los controles no tienen ningún
+Las 30 señales de la familia se siembran al menos una vez. **Los controles no tienen ningún
 defecto**: un traslado aprobado con su acta, partidas que cruzan por referencia y por fecha,
 facturas en su contenedor, tareas con su soporte y áreas que se declaran dentro del presupuesto
 y lo están. Cualquier señal ahí es una falla.

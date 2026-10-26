@@ -13,7 +13,10 @@
     "traslado_sin_acta",
     "comprometido_al_limite",
     "factura_recibida_sin_registro",
-    "requerimiento_en_carta"
+    "requerimiento_en_carta",
+    "covenant_riesgo",
+    "pago_sin_aprobacion",
+    "caja_desviada"
   ],
   "config": {
     "clara": {
@@ -80,6 +83,23 @@
           "51",
           "52"
         ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "0990054321001",
+        "name": "Minera Cóndor",
+        "country": "EC",
+        "currency": "USD",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/0990054321001-minera-condor",
+        "state": "estado-finanzas/0990054321001-minera-condor"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
       }
     }
   },
@@ -157,6 +177,10 @@
       "key": "andino-4101:2026-09/20-bancos/andino-4101/extracto.xlsx:17"
     },
     {
+      "signal": "cash_vs_forecast",
+      "key": "proyeccion:pacifico-4102"
+    },
+    {
       "signal": "close_task_done_without_evidence",
       "key": "tarea:C-02"
     },
@@ -169,8 +193,16 @@
       "key": "com:Administración:Mantenimiento"
     },
     {
+      "signal": "covenant_at_risk",
+      "key": "covenant:credito_de_tesoreria:razon_corriente"
+    },
+    {
       "signal": "einvoice_not_recorded",
       "key": "xml:2026-09/30-facturacion/recibidas/fr-002-001-000000290.xml"
+    },
+    {
+      "signal": "payment_without_approval",
+      "key": "pago:P-4"
     },
     {
       "signal": "reconciling_item_aged",

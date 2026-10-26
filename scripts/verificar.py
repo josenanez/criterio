@@ -128,6 +128,8 @@ PUERTAS = [
      "Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-cfo/evaluar.py"), "--agente", "tomas"],
      "Que Tomás levante cada señal sembrada en el presupuesto, y ninguna en los controles"),
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-cfo/evaluar.py"), "--agente", "aurea"],
+     "El motor de Áurea contra la clave: caja, pagos, exposición, vencimientos y covenants en cuatro industrias, y nada en los controles"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-legal/scripts/legal.py"), "selftest"],
      "El motor de Fidel y Constanza: fechas, prórrogas, plazos y una entidad mínima con todo mal"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-clo/generar.py")],

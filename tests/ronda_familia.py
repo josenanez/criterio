@@ -44,7 +44,8 @@ RAIZ = Path(__file__).resolve().parent.parent
 # Lo que cambia de una familia a otra: dónde deja cada agente sus resultados y dónde está cada
 # ficha que la clave describe. `{k}` es la ficha de una por clave —la de cada contrato—.
 FAMILIAS = {
-    "cfo": {"resultados": {"clara": "cierre/{periodo}/resultados.json", "tomas": "presupuesto/{anio}/resultados.json"},
+    "cfo": {"resultados": {"clara": "cierre/{periodo}/resultados.json", "tomas": "presupuesto/{anio}/resultados.json",
+                           "aurea": "tesoreria/{periodo}/resultados.json"},
             "fichas": {"cierre": ("clara", "cierre/{periodo}/ficha.json"), "presupuesto": ("tomas", "presupuesto/{anio}/ficha.json")},
             "periodos": lambda c: {"periodo": c["config"]["clara"]["period"], "anio": c["config"]["tomas"]["budget"]["year"]}},
     "clo": {"resultados": {"fidel": "contratos/resultados.json", "constanza": "cumplimiento/{periodo}/resultados.json"},
