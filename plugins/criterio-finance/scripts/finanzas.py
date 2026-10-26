@@ -254,6 +254,9 @@ DEFECTOS = {
         "committed_pct": 95,              # ejecutado más comprometido contra el aprobado del año
         "forecast_stale_days": 45,        # proyección del área sin actualizar
         "close_window_business_days": 10, # ventana del cierre, en días hábiles después del fin de mes
+        "cash_forecast_pct": 10,          # Áurea: la caja real contra la proyectada
+        "maturity_days": 30,              # Áurea: una obligación o inversión que vence dentro de N días
+        "covenant_margin_pct": 10,        # Áurea: a menos de este margen del límite, el covenant está en riesgo
     },
     "holidays": [],
     "report": {"language": "es"},
@@ -302,6 +305,8 @@ def revisar_config(cfg: dict, rol: str) -> list[str]:
         for k in ("sales", "purchases", "vat_generated", "vat_deductible"):
             if not c.get(k):
                 p.append(f"accounts.{k} vacío: sin él no se cruzan las facturas con la contabilidad")
+    if rol == "aurea" and not cfg.get("period"):
+        p.append("period vacío: Áurea trabaja sobre el periodo del cierre")
     if rol == "tomas":
         b = cfg.get("budget") or {}
         if not b.get("year"):
@@ -322,6 +327,8 @@ SEVERIDAD = {
     "project_budget_mismatch": 3, "committed_near_approved": 3, "close_task_overdue": 2,
     "close_task_done_without_evidence": 2, "audit_request_unanswered": 2, "reconciling_item_aged": 3,
     "reconciliation_stale": 3, "forecast_stale": 3,
+    "cash_below_minimum": 1, "payment_without_approval": 1, "signatory_without_authority": 1, "covenant_at_risk": 1,
+    "cash_vs_forecast": 2, "fx_exposure_over_limit": 2, "maturity_near": 2,
 }
 N.SEVERIDAD.update(SEVERIDAD)
 
@@ -1214,9 +1221,236 @@ def revisar_ficha_presupuesto(f: dict) -> list[str]:
     return p
 
 
+# ================================================================ Áurea · la tesorería (ADR 0016)
+#
+# Contrasta la caja contra su mínimo y su proyección, cada pago programado contra quién puede
+# aprobarlo, y la deuda contra su vencimiento y lo que exige su contrato. Procesa exportaciones —el
+# extracto del periodo que también concilia Clara, el programa de pagos, el flujo proyectado— y la
+# política, la matriz de firmas y el registro de la deuda de `00-referencia/`. Nunca mueve dinero ni
+# entra a un portal bancario. Los covenants salen del balance del mismo periodo que cierra Clara: el
+# motor no recalcula la contabilidad, la toma.
+
+def _citas(*cs) -> list[dict]:
+    return [c for c in cs if c]
+
+
+def _referencia(cfg: dict, patron: str, requeridas: list[str], opcionales: list[str] = ()) -> Tabla | None:
+    f = buscar(cfg["_docs"] / "00-referencia", patron)
+    if not f:
+        return None
+    t = Tabla(f[0], requeridas, opcionales)
+    return None if t.faltan else t
+
+
+def politica(cfg: dict) -> dict:
+    """La política de tesorería: caja mínima por cuenta y consolidada, aprobadores por monto, límite
+    de exposición y tasa de referencia por moneda. Una fila por regla: concepto, referencia, valor."""
+    out = {"caja_minima": {}, "aprobadores": [], "limite_exposicion": {}, "tasa": {}, "cita": {}}
+    t = _referencia(cfg, "politica", ["concepto", "referencia", "valor"])
+    if t is None:
+        return out
+    for f in t.filas:
+        c, ref, v = norm(f["concepto"]).replace(" ", "_"), str(f["referencia"]).strip(), numero(f["valor"])
+        if v is None:
+            continue
+        cita = t.cita(f, cfg["_docs"])
+        if c == "caja_minima":
+            out["caja_minima"][ref.lower()] = v
+            out["cita"][f"caja:{ref.lower()}"] = cita
+        elif c == "aprobadores":
+            out["aprobadores"].append((numero(ref) or 0.0, int(v), cita))
+        elif c == "limite_exposicion":
+            out["limite_exposicion"][ref.upper()] = v
+            out["cita"][f"exposicion:{ref.upper()}"] = cita
+        elif c == "tasa":
+            out["tasa"][ref.upper()] = v
+    out["aprobadores"].sort(key=lambda x: x[0])
+    return out
+
+
+def _saldo_final(ruta: Path) -> tuple[float | None, int | None]:
+    """El último saldo del extracto, con su fila."""
+    t = Tabla(ruta, ["fecha"], ["saldo_final", "valor"])
+    if t.faltan or not t.filas:
+        return None, None
+    con = [f for f in t.filas if numero(f.get("saldo_final")) is not None]
+    if not con:
+        return None, None
+    ult = max(con, key=lambda f: (fecha(f.get("fecha")) or dt.date.min, f["_fila"]))
+    return numero(ult["saldo_final"]), ult["_fila"]
+
+
+def caja(cfg: dict, periodo: str, pol: dict) -> dict:
+    docs, out = cfg["_docs"], {"cuentas": [], "alertas": [], "no_procesado": []}
+    monedas = {k.lower(): v.upper() for k, v in ((cfg.get("treasury") or {}).get("currencies") or {}).items()}
+    funcional = ((cfg.get("entity") or {}).get("currency") or "").upper()
+    carpeta = docs / periodo / "20-bancos"
+    proy_f = buscar(docs / periodo / "60-tesoreria", "flujo")
+    proy = {}
+    if proy_f:
+        tp = Tabla(proy_f[0], ["cuenta", "saldo_proyectado"])
+        if tp.faltan:
+            out["no_procesado"].append({"archivo": rel(proy_f[0], docs), "motivo": f"le faltan {', '.join(tp.faltan)}"})
+        else:
+            proy = {str(f["cuenta"]).strip().lower(): (numero(f["saldo_proyectado"]), tp.cita(f, docs)) for f in tp.filas}
+    consolidado, exposicion = 0.0, {}
+    for sub in sorted(x for x in carpeta.iterdir() if x.is_dir()) if carpeta.is_dir() else []:
+        ex = buscar(sub, "extracto")
+        if not ex:
+            out["no_procesado"].append({"archivo": rel(sub, docs), "motivo": "no está el extracto"})
+            continue
+        saldo, fila = _saldo_final(ex[0])
+        if saldo is None:
+            out["no_procesado"].append({"archivo": rel(ex[0], docs), "motivo": "el extracto no trae saldo"})
+            continue
+        cuenta, moneda = sub.name.lower(), monedas.get(sub.name.lower(), funcional)
+        cita = {"archivo": rel(ex[0], docs), "fila": fila}
+        tasa = 1.0 if moneda == funcional else pol["tasa"].get(moneda)
+        en_funcional = saldo * tasa if tasa else None
+        if en_funcional is not None:
+            consolidado += en_funcional
+        if moneda != funcional:
+            exposicion.setdefault(moneda, [0.0, []])
+            exposicion[moneda][0] += en_funcional or 0.0
+            exposicion[moneda][1].append(cita)
+        minimo = pol["caja_minima"].get(cuenta)
+        p, pcita = proy.get(cuenta, (None, None))
+        fila_c = {"cuenta": sub.name, "moneda": moneda, "saldo": redondo(saldo), "minimo": minimo, "proyectado": p,
+                  "desviacion_pct": redondo(100 * (saldo - p) / abs(p)) if p else None, "cita": cita}
+        out["cuentas"].append(fila_c)
+        if minimo is not None and saldo < minimo:
+            out["alertas"].append(alerta("cash_below_minimum", f"{sub.name}: saldo {mon(saldo)} {moneda}, bajo el mínimo de {mon(minimo)}",
+                                         _citas(cita, pol["cita"].get(f"caja:{cuenta}")), monto=minimo - saldo, clave=f"caja:{cuenta}"))
+        if p and abs(saldo - p) / abs(p) * 100 > umbral(cfg, "cash_forecast_pct"):
+            out["alertas"].append(alerta("cash_vs_forecast", f"{sub.name}: saldo {mon(saldo)} contra {mon(p)} proyectado ({pc(100 * (saldo - p) / abs(p), True)})",
+                                         _citas(cita, pcita), monto=abs(saldo - p), clave=f"proyeccion:{cuenta}"))
+    out["consolidado"] = redondo(consolidado)
+    minimo = pol["caja_minima"].get("consolidado")
+    if minimo is not None and out["cuentas"] and consolidado < minimo:
+        out["alertas"].append(alerta("cash_below_minimum", f"la caja consolidada, {mon(consolidado)} {funcional}, está bajo el mínimo de {mon(minimo)}",
+                                     pol["cita"].get("caja:consolidado"), monto=minimo - consolidado, clave="caja:consolidado"))
+    out["exposicion"] = []
+    for moneda, (valor, citas) in sorted(exposicion.items()):
+        lim = pol["limite_exposicion"].get(moneda)
+        out["exposicion"].append({"moneda": moneda, "en_funcional": redondo(valor), "limite": lim})
+        if moneda not in pol["tasa"]:
+            out["no_procesado"].append({"archivo": "00-referencia/", "motivo": f"la política no trae la tasa de {moneda}: su exposición no se calcula"})
+        elif lim is not None and abs(valor) > lim:
+            out["alertas"].append(alerta("fx_exposure_over_limit", f"la posición en {moneda} equivale a {mon(valor)} {funcional}, sobre el límite de {mon(lim)}",
+                                         _citas(*citas, pol["cita"].get(f"exposicion:{moneda}")), monto=abs(valor) - lim, clave=f"exposicion:{moneda}"))
+    return out
+
+
+def pagos(cfg: dict, periodo: str, pol: dict) -> dict:
+    """Cada pago programado contra los aprobadores que pide la política para su monto y contra la
+    matriz de firmas: el mismo patrón de quién firmó con qué facultad que usa Fidel."""
+    docs, out = cfg["_docs"], {"pagos": [], "alertas": [], "no_procesado": []}
+    pf = buscar(docs / periodo / "60-tesoreria", "programa")
+    if not pf:
+        return out
+    t = Tabla(pf[0], ["id", "valor"], ["fecha", "beneficiario", "moneda", "aprobado_por"])
+    if t.faltan:
+        out["no_procesado"].append({"archivo": rel(pf[0], docs), "motivo": f"le faltan {', '.join(t.faltan)}"})
+        return out
+    mf = _referencia(cfg, "matriz", ["nombre", "monto_maximo"], ["cargo"])
+    firmas = {norm(f["nombre"]): (numero(f["monto_maximo"]), mf.cita(f, docs)) for f in mf.filas} if mf else {}
+    if mf is None:
+        out["no_procesado"].append({"archivo": "00-referencia/", "motivo": "no está la matriz de firmas: no se revisa quién aprobó"})
+    for f in t.filas:
+        valor = numero(f["valor"]) or 0.0
+        quienes = [x.strip() for x in re.split(r"[;,/]| y ", str(f.get("aprobado_por") or "")) if x.strip()]
+        pide = max((n for desde, n, _ in pol["aprobadores"] if valor >= desde), default=1)
+        cita = t.cita(f, docs)
+        out["pagos"].append({"id": f["id"], "fecha": iso(fecha(f.get("fecha"))), "beneficiario": f.get("beneficiario"),
+                             "valor": redondo(valor), "aprobado_por": quienes, "pide": pide, "cita": cita})
+        if len(quienes) < pide:
+            pol_cita = next((c for desde, n, c in reversed(pol["aprobadores"]) if valor >= desde), None)
+            out["alertas"].append(alerta("payment_without_approval",
+                                         f"pago {f['id']} a {f.get('beneficiario') or '—'} por {mon(valor)}: {len(quienes)} de {pide} aprobaciones que pide la política",
+                                         _citas(cita, pol_cita), monto=valor, clave=f"pago:{f['id']}"))
+        if mf is None:
+            continue
+        for q in quienes:
+            maximo, fcita = firmas.get(norm(q), (None, None))
+            if maximo is None or valor > maximo:
+                motivo = "no está en la matriz de firmas" if maximo is None else f"firma hasta {mon(maximo)}"
+                out["alertas"].append(alerta("signatory_without_authority", f"pago {f['id']} por {mon(valor)}: lo aprobó {q}, que {motivo}",
+                                             _citas(cita, fcita), monto=valor, responsable=q, clave=f"firma:{f['id']}:{norm(q)}"))
+    return out
+
+
+def deuda(cfg: dict, periodo: str, hoy: dt.date) -> dict:
+    """Los vencimientos de la deuda y las inversiones, y cada covenant calculado desde el balance del
+    periodo que cierra Clara."""
+    docs, out = cfg["_docs"], {"obligaciones": [], "covenants": [], "alertas": [], "no_procesado": []}
+    rd = _referencia(cfg, "registro_deuda", ["obligacion", "vencimiento"], ["tipo", "contraparte", "saldo", "moneda"])
+    if rd is not None:
+        dias_max = umbral(cfg, "maturity_days")
+        for f in rd.filas:
+            v = fecha(f["vencimiento"])
+            dias = (v - hoy).days if v else None
+            out["obligaciones"].append({"obligacion": f["obligacion"], "tipo": f.get("tipo") or "deuda", "contraparte": f.get("contraparte"),
+                                        "saldo": numero(f.get("saldo")), "moneda": f.get("moneda"), "vence": iso(v), "dias": dias,
+                                        "cita": rd.cita(f, docs)})
+            if dias is not None and 0 <= dias <= dias_max:
+                out["alertas"].append(alerta("maturity_near", f"{f['obligacion']} ({f.get('tipo') or 'deuda'}, {f.get('contraparte') or '—'}) vence el {iso(v)}, en {dias} días",
+                                             rd.cita(f, docs), monto=numero(f.get("saldo")), dias=dias, clave=f"vence:{norm(f['obligacion'])}"))
+    cv = _referencia(cfg, "covenants", ["obligacion", "indicador", "numerador", "denominador", "operador", "limite"])
+    if cv is None:
+        return out
+    saldos = saldos_balance(cfg, periodo)
+    if not saldos:
+        out["no_procesado"].append({"archivo": f"{periodo}/10-contabilidad/", "motivo": "no está el balance del periodo: los covenants no se calculan"})
+        return out
+    margen = umbral(cfg, "covenant_margin_pct")
+
+    def suma(prefijos: str) -> float:
+        ps = [p.strip() for p in re.split(r"[;,+ ]+", str(prefijos)) if p.strip()]
+        return abs(sum(s for c, (s, _, _) in saldos.items() if s is not None and any(c.startswith(p) for p in ps)))
+    for f in cv.filas:
+        num, den, lim = suma(f["numerador"]), suma(f["denominador"]), numero(f["limite"])
+        op = str(f["operador"]).strip()
+        if not den or lim is None or op not in ("<=", ">="):
+            out["no_procesado"].append({"archivo": rel(cv.ruta, docs), "motivo": f"fila {f['_fila']}: el covenant no se puede calcular"})
+            continue
+        valor = num / den
+        # Cruzar es pasar el límite; acercarse, quedar a menos del margen de él.
+        cruza = valor > lim if op == "<=" else valor < lim
+        cerca = (not cruza) and (abs(lim - valor) / abs(lim) * 100 <= margen)
+        estado = "incumplido" if cruza else ("en riesgo" if cerca else "cumple")
+        out["covenants"].append({"obligacion": f["obligacion"], "indicador": f["indicador"], "valor": round(valor, 2),
+                                 "operador": op, "limite": lim, "estado": estado, "cita": cv.cita(f, docs)})
+        if cruza or cerca:
+            out["alertas"].append(alerta("covenant_at_risk",
+                                         f"{f['obligacion']} · {f['indicador']}: {valor:.2f} contra el límite {op} {lim:g} ({estado}), desde el balance de {periodo}",
+                                         cv.cita(f, docs), severidad=1 if cruza else 2,
+                                         clave=f"covenant:{norm(f['obligacion'])}:{norm(f['indicador'])}"))
+    return out
+
+
+def aurea(cfg: dict, periodo: str, hoy: dt.date) -> dict:
+    _PAIS[0] = N.pais_de(cfg)
+    estado = cfg["_estado"] / "tesoreria" / periodo
+    ficha = leer_json(estado / "ficha.json", {}) or {}
+    pol = politica(cfg)
+    partes = {"cash-position": caja(cfg, periodo, pol), "payment-check": pagos(cfg, periodo, pol), "debt-watch": deuda(cfg, periodo, hoy)}
+    no_proc = [x for p in partes.values() for x in p.pop("no_procesado")]
+    if not pol["caja_minima"] and not pol["aprobadores"]:
+        no_proc.append({"archivo": "00-referencia/", "motivo": "no está la política de tesorería: sin ella no hay mínimo de caja ni aprobadores por monto"})
+    alertas = [a for p in partes.values() for a in p["alertas"]]
+    # Para la vista de lo que vence de Rostrum, con la misma forma que la de Clara (ADR 0010).
+    vence = sorted(({"fecha": o["vence"], "que": f"{o['obligacion']} · {o['tipo']}", "caso": periodo, "estado": "por vencer",
+                     "responsable": o.get("contraparte"), "comando": "debt-watch"}
+                    for o in partes["debt-watch"]["obligaciones"] if o["dias"] is not None and 0 <= o["dias"] <= umbral(cfg, "maturity_days")),
+                   key=lambda v: (v["fecha"], v["que"]))
+    return {"agente": "aurea", "entidad": cfg.get("entity"), "periodo": periodo, "corte": iso(fin_de_mes(periodo)),
+            "hoy": iso(hoy), "partes": partes, "alertas": ordenar(alertas), "no_procesado": no_proc,
+            "record_issues": [], "preguntas": ficha.get("questions") or [], "vence": vence}
+
+
 # ================================================================ el reporte, en el formato común
 
-NOMBRE = {"clara": "Clara", "tomas": "Tomás"}
+NOMBRE = {"clara": "Clara", "tomas": "Tomás", "aurea": "Áurea"}
 SENALES_DE = {
     "ledger-check": {"trial_balance_unbalanced", "ledger_vs_trial_balance"},
     "bank-reconcile": {"bank_unreconciled", "reconciling_item_aged", "reconciliation_stale"},
@@ -1227,6 +1461,9 @@ SENALES_DE = {
     "variance-report": {"variance_over_threshold", "committed_near_approved", "spend_without_budget_line", "declared_vs_evidence", "project_budget_mismatch"},
     "forecast": {"forecast_over_approved", "forecast_stale", "budget_version_mismatch"},
     "transfer-log": {"transfer_without_approval"},
+    "cash-position": {"cash_below_minimum", "cash_vs_forecast", "fx_exposure_over_limit"},
+    "payment-check": {"payment_without_approval", "signatory_without_authority"},
+    "debt-watch": {"covenant_at_risk", "maturity_near"},
 }
 
 
@@ -1296,6 +1533,26 @@ def _cuerpo(r: dict, comando: str, p: dict | None) -> list[str]:
         if p["actas_sin_cambio"]:
             l += ["", "**Actas sin cambio aplicado:** " + "; ".join(f"`{x['acta']}`" for x in p["actas_sin_cambio"])]
         l.append("")
+    elif comando == "cash-position" and p:
+        l += [f"**Caja consolidada:** {_m(p.get('consolidado'))}", "",
+              "| Cuenta | Moneda | Saldo | Mínimo | Proyectado | Desviación % |", "|---|---|---|---|---|---|"]
+        l += [f"| {c['cuenta']} | {c['moneda']} | {_m(c['saldo'])} | {_m(c['minimo'])} | {_m(c['proyectado'])} | {_m(c['desviacion_pct'])} |" for c in p["cuentas"]]
+        if p.get("exposicion"):
+            l += ["", "| Moneda | Posición en moneda funcional | Límite |", "|---|---|---|"]
+            l += [f"| {x['moneda']} | {_m(x['en_funcional'])} | {_m(x['limite'])} |" for x in p["exposicion"]]
+        l += ["", "Áurea no mueve dinero ni entra a un portal bancario: procesa las exportaciones.", ""]
+    elif comando == "payment-check" and p:
+        l += ["| Pago | Fecha | Beneficiario | Valor | Aprobado por | Pide |", "|---|---|---|---|---|---|"]
+        l += [f"| {x['id']} | {x['fecha'] or '—'} | {x['beneficiario'] or '—'} | {_m(x['valor'])} | {', '.join(x['aprobado_por']) or '—'} | {x['pide']} |" for x in p["pagos"]]
+        l.append("")
+    elif comando == "debt-watch" and p:
+        if p.get("covenants"):
+            l += ["| Obligación | Indicador | Valor | Límite | Estado |", "|---|---|---|---|---|"]
+            l += [f"| {c['obligacion']} | {c['indicador']} | {c['valor']:.2f} | {c['operador']} {c['limite']:g} | {c['estado']} |" for c in p["covenants"]]
+            l.append("")
+        l += ["| Obligación | Tipo | Contraparte | Saldo | Vence | Días |", "|---|---|---|---|---|---|"]
+        l += [f"| {o['obligacion']} | {o['tipo']} | {o['contraparte'] or '—'} | {_m(o['saldo'])} | {o['vence'] or '—'} | {o['dias'] if o['dias'] is not None else '—'} |" for o in sorted(p["obligaciones"], key=lambda o: (o['dias'] is None, o['dias']))]
+        l += ["", "Áurea no recomienda una inversión, un financiamiento ni una cobertura: la decisión es de una persona.", ""]
     elif comando == "budget-committee-pack" and p:
         l += ["Los puntos de decisión son las señales de arriba. Cada una lleva su cifra y su cita; quién decide lo dice el acta del comité.", ""]
         if p["compromisos_comite"]:
@@ -1324,6 +1581,19 @@ def despertar(cfg: dict, rol: str, hoy: dt.date) -> dict:
                 toca, motivo = ["close-scan", "close-status"], [f"estamos en la ventana del cierre de {periodo}, hasta el {ventana}: corre a diario"]
         elif not u or (hoy - u).days >= 7:
             toca, motivo = ["close-scan"], ["fuera de la ventana del cierre corre una vez por semana"]
+    elif rol == "aurea":
+        # La tesorería corre cuando hay pagos programados en los próximos días o una obligación que
+        # entra en la ventana de vencimiento; si no, una vez por semana.
+        u = ultima("treasury-scan")
+        if u != hoy:
+            r = aurea(cfg, cfg.get("period"), hoy) if cfg.get("period") else None
+            pronto = [x for x in (r["partes"]["payment-check"]["pagos"] if r else []) if x["fecha"] and 0 <= (fecha(x["fecha"]) - hoy).days <= 5]
+            if pronto:
+                toca, motivo = ["treasury-scan", "payment-check", "cash-position"], [f"hay {len(pronto)} pagos programados en los próximos cinco días"]
+            elif r and r["vence"]:
+                toca, motivo = ["treasury-scan", "debt-watch"], [f"{len(r['vence'])} obligaciones entran en la ventana de vencimiento"]
+            elif not u or (hoy - u).days >= 7:
+                toca, motivo = ["treasury-scan"], ["una vez por semana"]
     else:
         b = cfg.get("budget") or {}
         anio = str(b.get("year"))
@@ -1352,17 +1622,17 @@ def despertar(cfg: dict, rol: str, hoy: dt.date) -> dict:
 
 
 def _rol() -> str:
-    return "tomas" if N.plugin(AQUI)["name"] == "criterio-budget" else "clara"
+    return {"criterio-budget": "tomas", "criterio-treasury": "aurea"}.get(N.plugin(AQUI)["name"], "clara")
 
 
 def calcular(cfg: dict, rol: str, a) -> tuple[dict, Path]:
     hoy = _hoy(a)
-    if rol == "clara":
+    if rol in ("clara", "aurea"):
         periodo = a.period or cfg.get("period")
         if not periodo:
             raise SystemExit("falta el periodo: --period AAAA-MM o `period` en la configuración")
-        r = clara(cfg, periodo, hoy)
-        destino = cfg["_estado"] / "cierre" / periodo / "resultados.json"
+        r = (clara if rol == "clara" else aurea)(cfg, periodo, hoy)
+        destino = cfg["_estado"] / ("cierre" if rol == "clara" else "tesoreria") / periodo / "resultados.json"
     else:
         anio = str(a.year or (cfg.get("budget") or {}).get("year"))
         corte = a.period or (cfg.get("budget") or {}).get("cut") or f"{anio}-{hoy.month:02d}"
@@ -1373,7 +1643,7 @@ def calcular(cfg: dict, rol: str, a) -> tuple[dict, Path]:
 
 
 def main() -> int:
-    ap = N.argumentos("El motor de Clara y Tomás.")
+    ap = N.argumentos("El motor de Clara, Tomás y Áurea.")
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "inventario", "convertir",
                                        "compute", "reporte", "factura", "despertar", "responder", "corrida", "buscar-raiz", "marcar-raiz", "selftest"])
     a = ap.parse_args()
@@ -1382,7 +1652,7 @@ def main() -> int:
     if a.action == "factura":
         print(json.dumps(leer_factura(a.file), ensure_ascii=False, indent=2))
         return 0
-    return N.despachar(a, ap, aqui=AQUI, rol=_rol(), estructura_json=ESTRUCTURA, subcarpetas=("cierre", "presupuesto"),
+    return N.despachar(a, ap, aqui=AQUI, rol=_rol(), estructura_json=ESTRUCTURA, subcarpetas=("cierre", "presupuesto", "tesoreria"),
                        revisar_config=revisar_config, calcular=calcular, reporte=reporte, despertar=despertar)
 
 
@@ -1571,6 +1841,50 @@ def selftest() -> int:
 
         inv = inventario(docs, None, estructura(ESTRUCTURA))
         ok("inventario: nada fuera de la estructura en la entidad de prueba", inv["fuera_de_lugar"] if ESTRUCTURA.is_file() else [], [])
+
+    # Áurea: la caja contra su mínimo y su proyección, los pagos contra quién puede aprobarlos y la
+    # deuda contra su vencimiento y sus covenants, sobre una entidad mínima con todo mal.
+    with tempfile.TemporaryDirectory() as t:
+        docs, est = Path(t) / "docs", Path(t) / "estado"
+        p = docs / "2026-09"
+        _csv(p / "10-contabilidad" / "balance-comprobacion.csv", [["cuenta", "nombre", "debito", "credito", "saldo_final"],
+             ["1105", "Caja", "0", "0", "300"], ["1305", "Clientes", "0", "0", "500"], ["2105", "Obligaciones financieras", "0", "0", "-450"],
+             ["2205", "Proveedores", "0", "0", "-150"], ["3105", "Capital", "0", "0", "-200"]])
+        _csv(p / "20-bancos" / "andino-1234" / "extracto.csv", [["fecha", "referencia", "descripcion", "valor", "saldo"],
+             ["2026-09-01", "A", "Saldo", "1000", "1000"], ["2026-09-30", "B", "Pago", "-900", "100"]])
+        _csv(p / "20-bancos" / "exterior-9001" / "extracto.csv", [["fecha", "referencia", "descripcion", "valor", "saldo"],
+             ["2026-09-30", "C", "Saldo", "50", "50"]])
+        _csv(docs / "00-referencia" / "politica-tesoreria.csv", [["concepto", "referencia", "valor"],
+             ["caja_minima", "andino-1234", "200"], ["caja_minima", "consolidado", "300000"], ["aprobadores", "0", "1"],
+             ["aprobadores", "1000", "2"], ["limite_exposicion", "USD", "100000"], ["tasa", "USD", "4000"]])
+        _csv(docs / "00-referencia" / "matriz-firmas.csv", [["nombre", "cargo", "monto_maximo"], ["Ana Ruiz", "Tesorera", "5000"], ["Luis Mora", "Gerente", "50000"]])
+        _csv(p / "60-tesoreria" / "programa-pagos.csv", [["id", "fecha", "beneficiario", "valor", "aprobado_por"],
+             ["P-1", "2026-10-02", "Proveedor A", "800", "Ana Ruiz"], ["P-2", "2026-10-03", "Proveedor B", "3000", "Ana Ruiz"],
+             ["P-3", "2026-10-03", "Proveedor C", "20000", "Ana Ruiz; Pedro Gil"]])
+        _csv(p / "60-tesoreria" / "flujo-proyectado.csv", [["cuenta", "saldo_proyectado"], ["andino-1234", "400"]])
+        _csv(docs / "00-referencia" / "registro-deuda.csv", [["obligacion", "tipo", "contraparte", "saldo", "vencimiento"],
+             ["Crédito 01", "deuda", "Banco Uno", "450", "2026-10-20"], ["CDT 07", "inversion", "Banco Dos", "300", "2027-03-01"]])
+        _csv(docs / "00-referencia" / "covenants.csv", [["obligacion", "indicador", "numerador", "denominador", "operador", "limite"],
+             ["Crédito 01", "Razón corriente", "11;13", "21;22", ">=", "1.25"], ["Crédito 01", "Endeudamiento", "2", "1", "<=", "0.7"]])
+        cfg = {"entity": {"id": "1", "name": "Prueba", "country": N.POR_OMISION, "currency": "COP"}, "period": "2026-09",
+               "_docs": docs, "_estado": est, "treasury": {"currencies": {"exterior-9001": "USD"}}}
+        ra = aurea(cfg, "2026-09", dt.date(2026, 10, 1))
+        claves = sorted((a["signal"], a["key"]) for a in ra["alertas"])
+        ok("Áurea: caja bajo el mínimo en la cuenta y en el consolidado",
+           [k for s, k in claves if s == "cash_below_minimum"], ["caja:andino-1234", "caja:consolidado"])
+        ok("Áurea: la caja real contra la proyectada", [k for s, k in claves if s == "cash_vs_forecast"], ["proyeccion:andino-1234"])
+        ok("Áurea: la exposición en dólares, convertida con la tasa de la política", [k for s, k in claves if s == "fx_exposure_over_limit"], ["exposicion:USD"])
+        ok("Áurea: el pago de 3.000 pide dos aprobaciones y tiene una",
+           [k for s, k in claves if s == "payment_without_approval"], ["pago:P-2"])
+        ok("Áurea: quien aprobó sin facultad o sin estar en la matriz",
+           [k for s, k in claves if s == "signatory_without_authority"], ["firma:P-3:ana_ruiz", "firma:P-3:pedro_gil"])
+        ok("Áurea: el crédito vence en 19 días; el CDT, no", [k for s, k in claves if s == "maturity_near"], ["vence:credito_01"])
+        ok("Áurea: uno cerca del límite y otro que lo cruza, calculados desde el balance",
+           [(c["indicador"], c["valor"], c["estado"]) for c in ra["partes"]["debt-watch"]["covenants"]],
+           [("Razón corriente", 1.33, "en riesgo"), ("Endeudamiento", 0.75, "incumplido")])
+        ok("Áurea: lo que vence va a la vista de Rostrum", [v["que"] for v in ra["vence"]], ["Crédito 01 · deuda"])
+        md = reporte(ra, "payment-check", "0.0")
+        ok("Áurea: el reporte nombra las señales del comando", "payment_without_approval" in md and "Áurea" in md, True)
 
     print(f"\n{'OK' if not fallas else str(len(fallas)) + ' FALLAS'}")
     return 1 if fallas else 0
