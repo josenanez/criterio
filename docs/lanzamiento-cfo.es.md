@@ -37,7 +37,7 @@ Cifras de terceros, verificadas contra el texto de quien las publica, en [`FUENT
 ## Lo que sigue
 
 - **Más países, por tamaño de mercado:** Perú, Chile, México y Brasil, cada uno con su lector de factura electrónica y sus fuentes verificadas. Un país se anuncia cuando pasa su ronda.
-- **La tesorería**, como tercer agente de la familia: la caja, los pagos y la deuda.
+- **Áurea, la tesorería**, el tercer agente de la familia: la caja, los pagos y la deuda contra su política. Está construida y su motor da exactamente la clave del material; su ronda con el agente es el siguiente paso, y entra en una versión cuando la pase.
 - **El primer uso sobre la documentación de una organización concreta**, que es el paso que lleva la familia a la versión 1.0.
 
 ## Antes de usarla

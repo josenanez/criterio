@@ -37,7 +37,7 @@ Third-party figures, verified against the publisher's text, in [`FUENTES.es.md`]
 ## What comes next
 
 - **More countries, by market size:** Peru, Chile, Mexico and Brazil, each with its electronic-invoice reader and verified sources. A country is announced when it passes its round.
-- **Treasury**, as the family's third agent: cash, payments and debt.
+- **Áurea, treasury**, the family's third agent: cash, payments and debt against their policy. She is built and her engine matches the material's key exactly; her round with the agent is the next step, and she enters a version when she passes it.
 - **The first use on a specific organisation's documentation**, the step that takes the family to version 1.0.
 
 ## Before you use it

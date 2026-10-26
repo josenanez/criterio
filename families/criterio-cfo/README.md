@@ -369,7 +369,9 @@ The family grows in increments. Each one is a version with its full test and its
 |---|---|---|---|
 | 0.8.0 | Released | **Built, with the engine tested and a first round with the agent**<br>· Clara and Tomás’s commands, their skills and the calculation engine<br>· DIAN and SRI electronic invoicing, processed from its official technical source<br>· The root folder each agent searches for and, with permission, marks<br>· The family in Rostrum, with what falls due and where each agent works<br>· The first round with the agent: Clara and Tomás on banking and the Colombian control, with the defects it found fixed | The engine, against 4 industries and 2 control entities; the agent, on banking and the Colombian control |
 | 0.9.0 | Released | **The full round with the agent**<br>· Clara and Tomás run their commands on the material of the four industries, as the PMO does in every round<br>· What only minutes, emails and auditor letters carry, extracted and graded against the key<br>· With a full round, the family is declared tested | 4 industries and 2 control entities, with the key the agent never sees |
-| Increment 3 | Reserved | **Deployment in an organisation**<br>· The first use on a specific organisation’s books and budget | That organisation’s documentation |
+| Increment 3 | In progress | **Áurea, treasury, and the formats of a real finance function**<br>· Áurea, the third agent: cash, payments and debt against their policy<br>· The test material in Excel, Word and PDF, as a finance function holds it | The round with the three agents on the new material |
+| Increment 4 | Next | **Peru, Chile, Mexico and Brazil**<br>· One country at a time, by market size: its entry in the country registry, its electronic-invoice reader and its verified sources<br>· Each country is marked on the map when it passes its round | The round with the agents in each country |
+| Increment 5 | Reserved | **Deployment in an organisation**<br>· The first use on a specific organisation’s books and budget | That organisation’s documentation |
 
 <!-- /hoja de ruta -->
 
