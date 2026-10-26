@@ -48,11 +48,14 @@ DESTINO = {
                          "que": "la carpeta de un producto", "agentes": "Alba",
                          "setup": "/criterio-product:product-setup"},
     "criterio-finance": {"familia": "cfo", "busca": "raiz", "marca": "_CRITERIO_FINANZAS.txt",
-                         "que": "la carpeta de finanzas de una entidad", "agentes": "Clara y Tomás",
+                         "que": "la carpeta de finanzas de una entidad", "agentes": "Clara, Tomás y Áurea",
                          "setup": "/criterio-finance:finance-setup"},
     "criterio-budget": {"familia": "cfo", "busca": "raiz", "marca": "_CRITERIO_FINANZAS.txt",
-                        "que": "la carpeta de finanzas de una entidad", "agentes": "Clara y Tomás",
+                        "que": "la carpeta de finanzas de una entidad", "agentes": "Clara, Tomás y Áurea",
                         "setup": "/criterio-budget:budget-setup"},
+    "criterio-treasury": {"familia": "cfo", "busca": "raiz", "marca": "_CRITERIO_FINANZAS.txt",
+                          "que": "la carpeta de finanzas de una entidad", "agentes": "Clara, Tomás y Áurea",
+                          "setup": "/criterio-treasury:treasury-setup"},
     "criterio-legal": {"familia": "clo", "busca": "raiz", "marca": "_CRITERIO_LEGAL.txt",
                        "que": "la carpeta legal de una entidad", "agentes": "Fidel y Constanza",
                        "setup": "/criterio-legal:legal-setup"},
@@ -255,7 +258,7 @@ def selftest() -> int:
             # El guion bajo: el Finder y el Explorador ponen la puntuación antes que números y letras.
             ok("la marca es un archivo de texto visible, que empieza por guion bajo para salir primero",
                (m["ok"], f.is_file(), f.name.startswith("_") and f.suffix == ".txt"), (True, True, True))
-            ok("dice de quién es, en palabras", "Clara y Tomás" in f.read_text(encoding="utf-8")
+            ok("dice de quién es, en palabras", "Clara, Tomás y Áurea" in f.read_text(encoding="utf-8")
                and "No muevas" in f.read_text(encoding="utf-8"), True)
             otra = t / "Respaldo" / "900123456 copia"
             for d in ("00-referencia", "2026-09/10-contabilidad"):

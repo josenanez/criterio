@@ -39,6 +39,7 @@ AGENTES = [
     ("criterio-portfolio", {"es": ("Vera", "el portafolio"), "en": ("Vera", "the portfolio")}),
     ("criterio-finance", {"es": ("Clara", "el cierre"), "en": ("Clara", "the close")}),
     ("criterio-budget", {"es": ("Tomás", "el presupuesto"), "en": ("Tomás", "the budget")}),
+    ("criterio-treasury", {"es": ("Áurea", "la tesorería"), "en": ("Áurea", "treasury")}),
     ("criterio-legal", {"es": ("Fidel", "los contratos"), "en": ("Fidel", "the contracts")}),
     ("criterio-compliance", {"es": ("Constanza", "el cumplimiento"), "en": ("Constanza", "compliance")}),
     ("criterio-server", {"es": ("Rostrum", "el portal de todas las familias"), "en": ("Rostrum", "the portal for every family")}),

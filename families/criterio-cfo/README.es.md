@@ -3,9 +3,9 @@
 # criterio-cfo · la familia de la función financiera
 
 **Cada cifra que firma el CFO, sostenida por su evidencia.** La familia extiende la oficina del CFO
-con dos agentes y un portal, alrededor de dos fichas. Cada uno extiende a una persona distinta
-de la función financiera —quien cierra los libros y quien lleva el presupuesto— y ninguno habla
-con el otro directamente: se hablan por sus fichas.
+con tres agentes y un portal, alrededor de sus fichas. Cada uno extiende a una persona distinta
+de la función financiera —quien cierra los libros, quien lleva el presupuesto y quien cuida la
+caja— y ninguno habla con los otros directamente: se hablan por sus fichas.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
 
@@ -13,14 +13,14 @@ con el otro directamente: se hablan por sus fichas.
 
 | | |
 |---|---|
-| **Alcance** | El cierre, el control y el reporte financiero de una entidad: los libros contra sus soportes, y el presupuesto contra su ejecución |
+| **Alcance** | La función financiera de una entidad: los libros contra sus soportes, el presupuesto contra su ejecución y la caja, los pagos y la deuda contra su política |
 | **Objetivo** | Que el cierre deje de depender de que alguien recuerde qué falta |
-| **Compuesta por** | [Clara](../../plugins/criterio-finance/README.es.md) · [Tomás](../../plugins/criterio-budget/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
+| **Compuesta por** | [Clara](../../plugins/criterio-finance/README.es.md) · [Tomás](../../plugins/criterio-budget/README.es.md) · [Áurea](../../plugins/criterio-treasury/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define cada rol y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | Construida y probada sobre material sintético: el motor, contra cuatro industrias y dos entidades de control; los agentes, en una [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md) sobre las seis entidades. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Construida y probada sobre material sintético: el motor, contra cuatro industrias y dos entidades de control; los agentes, en una [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md) sobre las seis entidades. Áurea, la tesorería, construida y con su motor probado: su ronda con el agente es el siguiente paso. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Control y reporte |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
-| **Qué no es** | No reemplaza al contralor ni al equipo de planeación financiera, y no decide por ellos: procesa lo que la función ya tiene y dice qué no cuadra |
+| **Qué no es** | No reemplaza al contralor, al equipo de planeación financiera ni a la tesorería, y no decide por ellos: procesa lo que la función ya tiene y dice qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
 | **Qué viene** | El despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
 
@@ -30,11 +30,11 @@ con el otro directamente: se hablan por sus fichas.
 
 ![La familia: Clara y Tomás, una ficha cada uno](../../docs/img/es/familia-cfo.png)
 
-La función financiera tiene dos roles que trabajan sobre los mismos libros y miran cosas
-distintas, y por eso la familia tiene dos agentes. Llevan nombre de persona porque **son
+La función financiera tiene tres roles que trabajan sobre los mismos libros y miran cosas
+distintas, y por eso la familia tiene tres agentes. Llevan nombre de persona porque **son
 capacidades extendidas de personas**, y el significado de cada nombre apunta a lo que hace:
 **Clara** —de *clarus*— cuida que los libros digan lo mismo que los soportes; **Tomás** —«el
-gemelo»— pone el presupuesto al lado de su gemelo, la ejecución.
+gemelo»— pone el presupuesto al lado de su gemelo, la ejecución; **Áurea** —de *aureus*, «de oro»— cuida la caja.
 
 **Clara**, la del contralor, prepara el cierre del mes: el checklist con su evidencia, las
 conciliaciones bancarias y de cuentas, cada factura electrónica de la DIAN o del SRI contra su
@@ -46,18 +46,25 @@ comprometido, proyecta el cierre del año con su supuesto escrito, cruza cada tr
 acta y arma el material del comité como un paquete de decisiones. Toma la ejecución de la misma
 contabilidad que cierra Clara, sin copiarla.
 
-**Los dos se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
+**Áurea**, la de tesorería, pone cada cuenta contra su mínimo y su proyección, cada pago
+programado contra quién puede aprobarlo según la política y la matriz de firmas, la exposición
+cambiaria contra su límite, y cada covenant de la deuda —calculado desde el balance que cierra
+Clara— contra su límite. **Nunca mueve dinero ni entra a un portal bancario**
+([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)).
+
+**Clara y Tomás se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
 su página: el motor está probado contra material sintético de cuatro industrias; **la extracción de los agentes pasó la ronda completa sobre las seis entidades; nada se ha probado todavía
-sobre los documentos de una organización.**
+sobre los documentos de una organización.** Áurea también se instala hoy; su ronda con el agente
+es el siguiente paso.
 
 Primera versión: NIIF adoptadas localmente en Colombia y Ecuador, con la factura electrónica de
 la DIAN y del SRI procesada desde su fuente técnica oficial.
 
 ---
 
-## Cómo operan los dos
+## Cómo operan
 
-![Cómo operan los dos agentes](../../docs/img/es/flujo-cfo.png)
+![Cómo operan los agentes](../../docs/img/es/flujo-cfo.png)
 
 El modelo de lenguaje (LLM) extrae; el código calcula; el estado del cierre y del presupuesto lo
 declara siempre una persona. **El motor procesa las tablas directamente** —el balance, el mayor,
@@ -70,7 +77,7 @@ intervención. **Semiautomatizados** cuando falta un dato que ningún documento 
 el periodo, el umbral, quién aprueba—: entonces le preguntan a la persona, dicen qué preguntaron
 y siguen con la respuesta.
 
-## Los dos agentes y sus fichas
+## Los agentes y sus fichas
 
 Nada se habla con nada directamente. **Cada agente escribe su ficha, y la ficha es el contrato.**
 
@@ -106,7 +113,7 @@ restricción del camino de escritura.
 
 ## Lo que sigue siendo de las personas
 
-Los dos roles siguen existiendo completos. Esto extiende capacidad; no sustituye función. Y el
+Los tres roles siguen existiendo completos. Esto extiende capacidad; no sustituye función. Y el
 argumento no es de cortesía, es estructural:
 
 > **El insumo de cada agente lo produce el trabajo no delegable de su persona.**
@@ -116,7 +123,7 @@ hay nada que contrastar, y que el contralor declare el estado, porque esa es la 
 que se compara. Tomás necesita que cada área entregue su proyección y que el comité deje escrita
 su decisión, porque un traslado sin acta es justamente lo que señala.
 
-Quitar a la persona no deja al agente solo: lo deja sin insumo. **Y ninguno de los dos registra
+Quitar a la persona no deja al agente solo: lo deja sin insumo. **Y ninguno registra
 un asiento, aprueba un traslado, presenta una declaración ni firma.**
 
 ## La estructura de carpetas recomendada
@@ -140,7 +147,8 @@ finanzas/
     │   ├── 20-bancos/
     │   ├── 30-facturacion/
     │   ├── 40-soportes/
-    │   └── 50-auditoria/
+    │   ├── 50-auditoria/
+    │   └── 60-tesoreria/
     └── presupuesto-<AAAA>/
         ├── 10-aprobado/
         ├── 20-compromisos/
@@ -153,17 +161,18 @@ estado-finanzas/
 
 | Carpeta | Qué va | Agente |
 |---|---|---|
-| `00-referencia/` | El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales | Clara, Tomás |
+| `00-referencia/` | El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales; para Áurea, la política de tesorería, la matriz de firmas, el registro de la deuda y los covenants | Clara, Tomás, Áurea |
 
 **`<AAAA-MM>/`** · Un periodo contable, numerado en el orden en que se trabaja el cierre
 
 | Carpeta | Qué va | Agente |
 |---|---|---|
 | `10-contabilidad/` | Balance de comprobación y libro mayor exportados del ERP, y `auxiliares/` con un archivo por cuenta; de aquí sale también la ejecución del presupuesto | Clara, Tomás |
-| `20-bancos/` | Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros | Clara |
+| `20-bancos/` | Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros | Clara, Áurea |
 | `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01) o del SRI (F-04) | Clara |
 | `40-soportes/` | La evidencia de cada tarea del checklist —actas, correos, conciliaciones firmadas—, con el id de la tarea al inicio del nombre | Clara |
 | `50-auditoria/` | `requerimientos/` y `respuestas/` del auditor | Clara |
+| `60-tesoreria/` | El programa de pagos con quién aprobó cada uno y el flujo de caja proyectado al cierre del periodo | Áurea |
 
 **`presupuesto-<AAAA>/`** · Un año presupuestal
 
@@ -174,14 +183,14 @@ estado-finanzas/
 | `30-proyecciones/` | La proyección de cada área, una por área y fecha | Tomás |
 | `40-actas/` | Actas del comité de presupuesto, de aprobación y de traslados | Tomás |
 
-**`estado-finanzas/`** · Lo que escriben Clara y Tomás: la configuración, las fichas, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí.
+**`estado-finanzas/`** · Lo que escriben Clara, Tomás y Áurea: la configuración, las fichas, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí.
 <!-- /cfo:carpetas -->
 
 Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta.
 
 ## Instalación de la familia
 
-Cada agente es un plugin y se instala solo. **No hace falta instalar los dos**: se instala el
+Cada agente es un plugin y se instala solo. **No hace falta instalarlos todos**: se instala el
 que resuelve el rol que tienes.
 
 ```
@@ -198,7 +207,7 @@ Después de instalar, cada agente tiene su propio comando de instalación que mi
 hace las preguntas que ningún documento responde y produce un primer resultado sobre tus
 propios documentos. **Nadie edita un archivo de configuración a mano.**
 
-Y si instalas los dos, se encuentran solos: **no hay nada que conectar.** Comparten el estado
+Y si instalas más de uno, se encuentran solos: **no hay nada que conectar.** Comparten el estado
 de la entidad, y cada uno escribe solo lo suyo.
 
 ## De qué responde cada agente, y dónde está su detalle
@@ -211,6 +220,7 @@ página de agente se lee sola** — alguien puede instalar uno sin el otro.
 |---|---|---|---|---|
 | **Clara** · contralor | El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica contra la contabilidad y el paquete para el auditor | No registra asientos, no firma y no declara el estado del cierre | [criterio-finance](../../plugins/criterio-finance/README.es.md) · 9 comandos, 7 skills | [resultados](../../tests/criterio-finance/RESULTADOS.md) |
 | **Tomás** · FP&A | El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto | No aprueba traslados, no recomienda la decisión del comité y no declara el estado de ningún área | [criterio-budget](../../plugins/criterio-budget/README.es.md) · 7 comandos, 6 skills | [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · tesorería | La caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants | No mueve dinero, no hace pagos, no entra a un portal bancario y no recomienda una inversión, un financiamiento ni una cobertura | [criterio-treasury](../../plugins/criterio-treasury/README.es.md) · 6 comandos, 2 skills | [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /cfo:familia-agentes -->
 
@@ -260,17 +270,17 @@ Esta es la tabla que responde tres preguntas a la vez: **dónde queda cada agent
 falta configurado, y cada cuánto tiene sentido que corra.**
 
 <!-- cfo:configuracion · generado por scripts/familias.py; no se edita a mano -->
-| | Clara | Tomás |
-|---|---|---|
-| **Se instala** | `criterio-finance` | `criterio-budget` |
-| **Instancias** | Una por entidad | Una por entidad |
-| **Se configura con** | `/criterio-finance:finance-setup` | `/criterio-budget:budget-setup` |
-| **Cuánto tarda eso** | Quince minutos | Quince minutos |
-| **Qué le tienes que decir** | Entidad y NIT o RUC, país, grupo NIIF (F-05, F-06), ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas | Entidad, año presupuestal, áreas o centros de costo con su responsable, la versión aprobada y su acta, el mapeo de cuentas a líneas presupuestales (en `00-referencia/`), los umbrales de desviación y, si la organización usa la familia PMO, dónde están sus fichas |
-| **Dónde queda** | `.criterio/finanzas/<entidad>/config.json`, escrito por el comando | `.criterio/presupuesto/<entidad>/config.json`, escrito por el comando |
-| **El que se le pone a un reloj** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` |
-| **Qué toca cada día** | Decide qué toca según la cadencia: a diario durante la ventana del cierre, semanal fuera de ella | Decide qué toca según la cadencia: cuando aparece un periodo nuevo en `10-contabilidad/`, antes de cada comité y una vez por semana para los compromisos |
-| **Qué lo despierta además del reloj** | Una pregunta que alguien dejó en Rostrum | Una pregunta que alguien dejó en Rostrum |
+| | Clara | Tomás | Áurea |
+|---|---|---|---|
+| **Se instala** | `criterio-finance` | `criterio-budget` | `criterio-treasury` |
+| **Instancias** | Una por entidad | Una por entidad | Una por entidad |
+| **Se configura con** | `/criterio-finance:finance-setup` | `/criterio-budget:budget-setup` | `/criterio-treasury:treasury-setup` |
+| **Cuánto tarda eso** | Quince minutos | Quince minutos | Quince minutos |
+| **Qué le tienes que decir** | Entidad y NIT o RUC, país, grupo NIIF (F-05, F-06), ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas | Entidad, año presupuestal, áreas o centros de costo con su responsable, la versión aprobada y su acta, el mapeo de cuentas a líneas presupuestales (en `00-referencia/`), los umbrales de desviación y, si la organización usa la familia PMO, dónde están sus fichas | Entidad y periodo, las cuentas en otra moneda, los umbrales de desviación, de vencimiento y del margen del covenant, dónde guarda el estado y los términos |
+| **Dónde queda** | `.criterio/finanzas/<entidad>/config.json`, escrito por el comando | `.criterio/presupuesto/<entidad>/config.json`, escrito por el comando | `.criterio/tesoreria/<entidad>/config.json`, escrito por el comando |
+| **El que se le pone a un reloj** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` | `/criterio-treasury:treasury-wake` |
+| **Qué toca cada día** | Decide qué toca según la cadencia: a diario durante la ventana del cierre, semanal fuera de ella | Decide qué toca según la cadencia: cuando aparece un periodo nuevo en `10-contabilidad/`, antes de cada comité y una vez por semana para los compromisos | Decide qué toca: los pagos de los próximos cinco días, las obligaciones que entran en su ventana de vencimiento y una revisión semanal |
+| **Qué lo despierta además del reloj** | Una pregunta que alguien dejó en Rostrum | Una pregunta que alguien dejó en Rostrum | Una pregunta que alguien dejó en Rostrum |
 <!-- /cfo:configuracion -->
 
 **Nadie edita un archivo de configuración a mano.** Si para cambiar un umbral hay que abrir un
@@ -290,9 +300,9 @@ No es una preferencia: **cada agente mide contra otra cosa.**
   llega un periodo nuevo* a `10-contabilidad/` y *antes de cada comité*, y una vez por semana
   revisa los compromisos.
 
-### Los dos se callan cuando no hay nada
+### Se callan cuando no hay nada
 
-Es la regla que decide si un agente sigue instalado el mes siguiente. Los dos comandos de reloj
+Es la regla que decide si un agente sigue instalado el mes siguiente. Los comandos de reloj
 no producen nada cuando no toca nada, y entonces la salida es una línea: qué se revisó y cuándo
 vuelve. Con una pregunta abierta en Rostrum nunca se callan: la responden primero.
 
@@ -301,7 +311,7 @@ sí hay novedad ya nadie lo abre.
 
 ### Qué es lo que **no** está programado
 
-**Ninguno de los dos se programa solo.** Los dos traen el comando que un reloj invoca, y el reloj
+**Ninguno se programa solo.** Cada uno trae el comando que un reloj invoca, y el reloj
 vive fuera del plugin — una tarea programada de Claude Cowork, o el programador del sistema
 operativo invocando Claude en modo no interactivo. Alguien tiene que ponerlo, una vez.
 
@@ -328,7 +338,7 @@ de más cuenta igual que una de menos.**
 | Qué se comprueba del conjunto | Por qué es de la familia y no de un agente |
 |---|---|
 | Que cada señal sembrada se levante, y ninguna en los controles | Las señales de Clara y las de Tomás salen del mismo motor y del mismo material |
-| **Que las copias compartidas no se hayan separado** | `finanzas.py` y `finance-intake` viajan copiados en los dos plugins. Dos copias que se separan calculan distinto sobre los mismos documentos, y nadie sabría a cuál creerle |
+| **Que las copias compartidas no se hayan separado** | `finanzas.py` y `finance-intake` viajan copiados en los tres plugins. Dos copias que se separan calculan distinto sobre los mismos documentos, y nadie sabría a cuál creerle |
 | Que el diseño, las páginas y el portal digan lo que dicen las fuentes | Las tablas de agentes, comandos, señales, carpetas y skills salen de `familia.json`, `carpetas.json` y `fuentes.json`; `scripts/familias.py --check` falla si una copia no cuadra |
 | Que cada campo de factura que procesa el motor esté en su fuente oficial | Un campo que no está en el anexo de la DIAN o en la ficha del SRI no se procesa ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regla 2) |
 
@@ -357,36 +367,37 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
-| 0.8.0 | Liberada | **Construida, con el motor probado y una primera ronda con el agente**<br>· Los dieciséis comandos de Clara y Tomás, sus doce skills y el motor de cálculo<br>· La factura electrónica de la DIAN y del SRI, procesada desde su fuente técnica oficial<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente<br>· La primera ronda con el agente: Clara y Tomás sobre banca y el control de Colombia, con los defectos que encontró corregidos | El motor, contra 4 industrias y 2 entidades de control; el agente, sobre banca y el control de Colombia |
+| 0.8.0 | Liberada | **Construida, con el motor probado y una primera ronda con el agente**<br>· Los comandos de Clara y Tomás, sus skills y el motor de cálculo<br>· La factura electrónica de la DIAN y del SRI, procesada desde su fuente técnica oficial<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente<br>· La primera ronda con el agente: Clara y Tomás sobre banca y el control de Colombia, con los defectos que encontró corregidos | El motor, contra 4 industrias y 2 entidades de control; el agente, sobre banca y el control de Colombia |
 | 0.9.0 | Liberada | **La ronda completa con el agente**<br>· Clara y Tomás corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo traen las actas, los correos y las cartas del auditor, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
 | Incremento 3 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre la contabilidad y el presupuesto de una organización concreta | La documentación de esa organización |
 
 <!-- /hoja de ruta -->
 
-## Los doce skills de la familia
+## Los trece skills de la familia
 
 <!-- cfo:skills-familia · generado por scripts/familias.py; no se edita a mano -->
-Doce skills distintos entre los dos agentes. **Los que comparten son copias literales, no un módulo importado**: un plugin instalado tiene que correr solo. `scripts/sincronizar.py` las copia y `scripts/sincronizar.py --check` falla si se separan.
+Trece skills distintos entre los dos agentes. **Los que comparten son copias literales, no un módulo importado**: un plugin instalado tiene que correr solo. `scripts/sincronizar.py` las copia y `scripts/sincronizar.py --check` falla si se separan.
 
-| Skill | Clara | Tomás |
-|---|:--:|:--:|
-| `audit-support` | ● | · |
-| `budget-record` | · | ● |
-| `close-checklist` | ● | · |
-| `close-record` | ● | · |
-| `committee-pack` | · | ● |
-| `einvoice-matching` | ● | · |
-| `finance-intake` | ● | ● |
-| `forecast-method` | · | ● |
-| `ledger-tieout` | ● | · |
-| `reconciliation` | ● | · |
-| `transfer-control` | · | ● |
-| `variance-analysis` | · | ● |
+| Skill | Clara | Tomás | Áurea |
+|---|:--:|:--:|:--:|
+| `audit-support` | ● | · | · |
+| `budget-record` | · | ● | · |
+| `close-checklist` | ● | · | · |
+| `close-record` | ● | · | · |
+| `committee-pack` | · | ● | · |
+| `einvoice-matching` | ● | · | · |
+| `finance-intake` | ● | ● | ● |
+| `forecast-method` | · | ● | · |
+| `ledger-tieout` | ● | · | · |
+| `reconciliation` | ● | · | · |
+| `transfer-control` | · | ● | · |
+| `treasury-control` | · | · | ● |
+| `variance-analysis` | · | ● | · |
 <!-- /cfo:skills-familia -->
 
 ## Estado
 
-**Los dos están construidos y se pueden instalar hoy**, y los dos tienen la misma deuda, que
+**Los tres están construidos y se pueden instalar hoy**, y tienen la misma deuda, que
 conviene no esconder: **el motor y la extracción de los agentes están probados sobre material sintético, no
 sobre la documentación de una organización real.**
 
@@ -395,6 +406,7 @@ sobre la documentación de una organización real.**
 |---|---|---|
 | **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; la ronda completa con el agente, la 2 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
 | **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; la ronda completa con el agente, la 2 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Tesorería | `criterio-treasury` · 6 comandos, 2 skills | El motor, probado; la ronda completa con el agente, la 2 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 

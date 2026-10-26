@@ -47,10 +47,10 @@ from pathlib import Path
 # rastro, `.criterio/corridas/<área>/`.
 AGENTE = {"criterio-portfolio": "portafolio", "criterio-project": "proyecto",
           "criterio-product": "producto", "criterio-finance": "finanzas",
-          "criterio-budget": "presupuesto", "criterio-legal": "legal",
+          "criterio-budget": "presupuesto", "criterio-treasury": "tesoreria", "criterio-legal": "legal",
           "criterio-compliance": "cumplimiento"}
 NOMBRE = {"portafolio": "Vera", "proyecto": "Samuel", "producto": "Alba", "finanzas": "Clara",
-          "presupuesto": "Tomás", "legal": "Fidel", "cumplimiento": "Constanza"}
+          "presupuesto": "Tomás", "tesoreria": "Áurea", "legal": "Fidel", "cumplimiento": "Constanza"}
 INVOCACION = re.compile(r"^\s*/(criterio-[a-z]+):([a-z0-9-]+)\s*(.*)$", re.S)
 CASO = re.compile(r"\b([A-Z]{2,5}-\d{2,})\b")
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".next", ".venv"}

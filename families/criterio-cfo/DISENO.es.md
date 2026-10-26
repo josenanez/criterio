@@ -2,7 +2,7 @@
 
 # criterio-cfo · el diseño de la familia
 
-**Estado: construida y probada sobre material sintético.** Los dieciséis comandos, los doce skills y el motor de cálculo
+**Estado: construida y probada sobre material sintético.** Los veintidós comandos, los trece skills y el motor de cálculo
 están construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y
 dos entidades de control (`tests/criterio-cfo/`), y los agentes pasaron la ronda completa sobre las seis entidades ([las rondas](../../tests/evidencias/familias/cfo/RONDAS.md)).
 Alcance en [ADR 0006](../../docs/decisions/0006-scope-cfo.md); cómo se reparte el trabajo entre el
@@ -10,8 +10,8 @@ motor y el agente, en [ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tab
 
 **Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, sus fichas y sus invariantes, la estructura de carpetas, Rostrum, la cadencia, las pruebas y la hoja de ruta están en su [página](README.es.md).
 
-Dos agentes que extienden la capacidad de la función financiera: preparan el trabajo del cierre
-y del presupuesto, y lo contrastan contra todos los soportes para señalar qué no cuadra, qué no
+Tres agentes que extienden la capacidad de la función financiera: preparan el trabajo del cierre,
+del presupuesto y de la tesorería, y lo contrastan contra todos los soportes para señalar qué no cuadra, qué no
 tiene soporte y qué se reporta distinto de lo que dicen los documentos. El modelo de lenguaje
 (LLM) extrae; el código calcula; el estado del cierre y del presupuesto lo declara siempre una
 persona.
@@ -45,9 +45,10 @@ en la estructura o si se apoya en una fuente por verificar.
 |---|---|---|---|
 | Contralor | **Clara** — de *clarus*: que los libros digan lo mismo que los soportes | `criterio-finance` | El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica contra la contabilidad y el paquete para el auditor |
 | FP&A | **Tomás** — «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución | `criterio-budget` | El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto |
+| Tesorería | **Áurea** — del latín *aureus*, «de oro»: la caja | `criterio-treasury` | La caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants |
 <!-- /cfo:agentes -->
 
-Como en la familia PMO, los dos no se hablan entre sí: se hablan por sus fichas. Las fichas y las invariantes que las gobiernan, en la [página de la familia](README.es.md#los-dos-agentes-y-sus-fichas).
+Como en la familia PMO, los agentes no se hablan entre sí: se hablan por sus fichas. Las fichas y las invariantes que las gobiernan, en la [página de la familia](README.es.md#los-agentes-y-sus-fichas).
 
 ## Los documentos que procesan
 
@@ -104,6 +105,18 @@ Dónde va cada documento, en la [estructura de carpetas recomendada](README.es.m
 | `spend_without_budget_line` | Hay gasto en una cuenta o centro de costo sin línea presupuestal |
 | `declared_vs_evidence` | El área se reporta dentro del presupuesto y los números no lo sostienen |
 | `project_budget_mismatch` | El presupuesto de un proyecto en su ficha no es el que tiene asignado el área |
+
+**Áurea · Tesorería**
+
+| Señal | Se levanta cuando |
+|---|---|
+| `cash_below_minimum` | El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política |
+| `cash_vs_forecast` | El saldo real de una cuenta se aparta de su proyección más del umbral |
+| `fx_exposure_over_limit` | La posición en otra moneda, convertida con la tasa de la política, supera su límite |
+| `payment_without_approval` | Un pago programado no tiene las aprobaciones que pide la política para su monto |
+| `signatory_without_authority` | Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella |
+| `covenant_at_risk` | Un indicador de un contrato de deuda, calculado desde el balance que cierra Clara, cruza su límite o queda a menos del margen de él |
+| `maturity_near` | Una obligación de deuda o una inversión vence dentro de los días configurados |
 <!-- /cfo:senales -->
 
 Los umbrales son configuración de cada organización, con un valor por defecto declarado; ninguno
@@ -206,6 +219,21 @@ supuesto escrito, y la decisión del comité la toma una persona.
 | 6 | `budget-wake` | La configuración y las fichas | Decide qué toca según la cadencia: cuando aparece un periodo nuevo en `10-contabilidad/`, antes de cada comité y una vez por semana para los compromisos | Lo que corrió y lo que encontró; si no toca nada, se calla |
 <!-- /cfo:comandos-tomas -->
 
+## Los comandos de Áurea, en orden de importancia
+
+Áurea comparte con Clara el motor, la carpeta y el periodo ([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)): toma los extractos que ella concilia y calcula los covenants desde el balance que ella cierra. Nunca mueve dinero ni entra a un portal bancario.
+
+<!-- cfo:comandos-aurea · generado por scripts/familias.py; no se edita a mano -->
+| # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |
+|---|---|---|---|---|
+| 0 | `treasury-setup` | La carpeta raíz, la misma de Clara y Tomás. Preguntas: entidad y periodo, las cuentas en otra moneda, los umbrales de desviación, de vencimiento y del margen del covenant, dónde guarda el estado y los términos | Inventario de lo que hay: qué cuentas tienen extracto en `20-bancos`, si hay programa de pagos y flujo en `60-tesoreria` y si `00-referencia` trae la política, la matriz de firmas, el registro de la deuda y los covenants; no crea, mueve ni renombra nada | Configuración guardada; inventario por carpeta; la primera posición de caja |
+| 1 | `treasury-scan` | Los extractos de `20-bancos`, el programa de pagos y el flujo proyectado de `60-tesoreria`, la política, la matriz, el registro de la deuda y los covenants de `00-referencia`, y el balance de `10-contabilidad` | Procesa cada tabla con su huella; solo reprocesa lo que cambió; calcula las siete señales | Qué cambió; las señales nuevas; lo que no se pudo procesar y por qué |
+| 2 | `cash-position` | Los extractos del periodo, el flujo proyectado y la política | El último saldo de cada cuenta contra su mínimo y su proyección; la caja consolidada; la posición en otras monedas convertida con la tasa de la política | Por cuenta: saldo, mínimo, proyectado y desviación; la caja consolidada; la exposición por moneda contra su límite |
+| 3 | `payment-check` | El programa de pagos, la política y la matriz de firmas | Cada pago contra las aprobaciones que pide la política para su monto y contra la facultad de cada quien lo aprobó | Por pago: valor, quién aprobó y cuántas aprobaciones pide; los que no las tienen y quién firmó sin facultad |
+| 4 | `debt-watch` | El registro de la deuda, los covenants y el balance del periodo que cierra Clara | Los días que le faltan a cada obligación e inversión; cada covenant calculado desde el balance, contra su límite | Los covenants con su valor, su límite y su estado; las obligaciones por vencimiento |
+| 5 | `treasury-wake` | La configuración y las tablas | Decide qué toca: los pagos de los próximos cinco días, las obligaciones que entran en su ventana de vencimiento y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
+<!-- /cfo:comandos-aurea -->
+
 ## Lo que se reusa de la familia PMO
 
 - `texto.py` para Word, Excel, PowerPoint, PDF y correo, y `terminos.py` para la aceptación de
@@ -236,7 +264,7 @@ prueba en la ronda, sobre el mismo material. La familia se declara probada con u
 ## Cifras de terceros
 
 <!-- cfo:cifras · generado por scripts/familias.py; no se edita a mano -->
-Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner).
+Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.es.md`](FUENTES.es.md). Verificadas: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner), C-05 (Association for Financial Professionals).
 <!-- /cfo:cifras -->
 
 ## Decisiones cerradas

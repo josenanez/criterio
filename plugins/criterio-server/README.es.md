@@ -82,6 +82,7 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio PMO** · Gobierno de proyectos | Alba | `/criterio-product:product-setup` | `.criterio/producto/<instancia>/` | `_CRITERIO_PRODUCTO.txt` |
 | **Criterio CFO** · La función financiera | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CFO** · La función financiera | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · La función financiera | Áurea | `/criterio-treasury:treasury-setup` | `.criterio/tesoreria/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 <!-- /servidor:familias -->

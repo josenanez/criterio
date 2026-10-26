@@ -1,0 +1,34 @@
+{
+  "version": "0.1",
+  "role": "treasury",
+  "entity": {
+    "id": "900123456",
+    "name": "Entidad de ejemplo",
+    "country": "CO",
+    "currency": "COP",
+    "framework": "grupo 1",
+    "approver": "Contralor"
+  },
+  "paths": {
+    "documents": "finanzas/900123456-entidad-de-ejemplo",
+    "state": "estado-finanzas/900123456-entidad-de-ejemplo"
+  },
+  "period": "2026-09",
+  "treasury": {
+    "currencies": {
+      "exterior-9001": "USD"
+    }
+  },
+  "thresholds": {
+    "cash_forecast_pct": 10,
+    "maturity_days": 30,
+    "covenant_margin_pct": 10
+  },
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

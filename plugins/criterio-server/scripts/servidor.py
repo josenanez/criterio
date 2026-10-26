@@ -2183,7 +2183,7 @@ def selftest() -> int:
            (sorted({c['agente'] for c in todas_}), '2026-10-06-close-status-1' in pedir('/corridas?agente=finanzas')[1]),
            (['finanzas', 'portafolio', 'presupuesto'], True))
         ok('con el mapa, la portada presenta las tres familias con todos sus agentes',
-           (cod, port.count('class="robot cr-anima"'), port.count('class="fam-card"')), (200, 7, 3))
+           (cod, port.count('class="robot cr-anima"'), port.count('class="fam-card"')), (200, 8, 3))
         ok('el menú lleva una entrada por familia, plegada, y abre la de la página que se mira',
            (port.count('<details class="fam"'), port.count('<details class="fam" open'),
             pedir('/agente/finanzas')[1].count('<details class="fam" open><summary><span class="sig">CFO')), (3, 0, 1))

@@ -43,6 +43,7 @@ SALIDA_MD = RAIZ / "docs" / "pruebas.md"
 # Una puerta cuyo comando no case con ninguna de estas rompe la corrida, y así es como
 # esta página se mantiene honesta cuando el repositorio crece.
 DUENIOS = [
+    ("criterio-treasury/scripts/finanzas.py", "Áurea"),
     ("criterio-finance/scripts/finanzas.py", "Clara"),
     ("evaluar.py --agente clara", "Clara"),
     ("evaluar.py --agente tomas", "Tomás"),
@@ -97,6 +98,8 @@ QUIEN = {
                                   "soportes. Cierra el mes contra su evidencia"),
     "Tomás": ("Agente de FP&A", "«El gemelo»: pone el presupuesto al lado de su gemelo, "
                                 "la ejecución"),
+    "Áurea": ("Agente de tesorería", "De <i>aureus</i>, de oro: la caja. Pone la caja, los pagos y la "
+                                      "deuda al lado de su política; no mueve dinero"),
     "Fidel": ("Agente de contratos", "De <i>fides</i>: la palabra dada. Pone lo firmado al lado "
                                      "de lo que está pasando"),
     "Constanza": ("Agente de cumplimiento", "De <i>constantia</i>: cada obligación con su "
@@ -109,7 +112,7 @@ QUIEN = {
                                                 "cómo estén organizados"),
 }
 
-ORDEN = ["Vera", "Samuel", "Alba", "Rostrum", "Clara", "Tomás", "Fidel", "Constanza", "La familia"]
+ORDEN = ["Vera", "Samuel", "Alba", "Rostrum", "Clara", "Tomás", "Áurea", "Fidel", "Constanza", "La familia"]
 
 # Cómo cuenta cada script sus comprobaciones. Los selftests imprimen «ok» en minúscula y
 # los calificadores «OK» en mayúscula, con sangrías distintas. Se cuentan las dos formas
@@ -415,6 +418,7 @@ PLUGIN_DE = {
     "Alba": "criterio-product",
     "Clara": "criterio-finance",
     "Tomás": "criterio-budget",
+    "Áurea": "criterio-treasury",
     "Fidel": "criterio-legal",
     "Constanza": "criterio-compliance",
 }
@@ -595,6 +599,14 @@ NO_CUBRE["criterio-finance"] = _CFO_NO_CUBRE + [
      "en su fuente (F-09): se identifican por la clave de acceso y quedan fuera del cruce."),
 ]
 NO_CUBRE["criterio-budget"] = list(_CFO_NO_CUBRE)
+NO_CUBRE["criterio-treasury"] = [
+    ("Su ronda con el agente no ha corrido",
+     "Esta corrida prueba el motor de Áurea con su autoprueba: la caja, los pagos, la exposición, los "
+     "vencimientos y los covenants sobre una entidad mínima. Su material por industria y su ronda con el "
+     "agente son el siguiente paso (ADR 0016)."),
+    ("Nada se ha corrido sobre los extractos ni la política de una organización real",
+     "Todo es sintético; la política, la matriz de firmas y los covenants son de cada organización."),
+]
 
 _CLO_NO_CUBRE = [
     ("La extracción del agente la prueba la ronda, no esta corrida",
@@ -626,6 +638,7 @@ QUE_ES = {
     "criterio-product": ("Alba", "el agente del gerente de producto"),
     "criterio-finance": ("Clara", "la agente contralora de la familia CFO"),
     "criterio-budget": ("Tomás", "el agente de FP&A de la familia CFO"),
+    "criterio-treasury": ("Áurea", "la agente de tesorería de la familia CFO"),
     "criterio-legal": ("Fidel", "el agente de contratos de la familia CLO"),
     "criterio-compliance": ("Constanza", "la agente de cumplimiento de la familia CLO"),
 }
@@ -633,6 +646,7 @@ QUE_ES = {
 
 # El material de las familias CFO y CLO es de la familia, no de cada agente.
 EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-budget": "../criterio-cfo/EVIDENCIA.md",
+                "criterio-treasury": "../criterio-cfo/EVIDENCIA.md",
                 "criterio-legal": "../criterio-clo/EVIDENCIA.md", "criterio-compliance": "../criterio-clo/EVIDENCIA.md"}
 
 

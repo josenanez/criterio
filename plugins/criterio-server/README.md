@@ -81,6 +81,7 @@ running `server-setup` again.
 | **Criterio PMO** · Project governance | Alba | `/criterio-product:product-setup` | `.criterio/producto/<instance>/` | `_CRITERIO_PRODUCTO.txt` |
 | **Criterio CFO** · The finance function | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instance>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CFO** · The finance function | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instance>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · The finance function | Áurea | `/criterio-treasury:treasury-setup` | `.criterio/tesoreria/<instance>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CLO** · Contracts and compliance | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instance>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contracts and compliance | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instance>/` | `_CRITERIO_LEGAL.txt` |
 <!-- /servidor:familias -->

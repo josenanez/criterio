@@ -162,6 +162,7 @@ T = {
                'rostrum': ('Rostrum', 'El portal', 'Lo que pide atención hoy, de todas las familias, con su rastro.', 'El portal'),
                'clara': ('Clara', 'Contralora', 'Para quien cierra el mes y responde por lo que dicen los libros.', 'El cierre'),
                'tomas': ('Tomás', 'FP&A', 'Para quien pone el presupuesto al lado de lo ejecutado.', 'El presupuesto'),
+               'aurea': ('Áurea', 'Tesorería', 'Para quien responde por la caja, los pagos y la deuda.', 'La tesorería'),
                'fidel': ('Fidel', 'Contratos', 'Para quien responde por lo que la empresa firmó.', 'Los contratos'),
                'constanza': ('Constanza', 'Cumplimiento', 'Para quien responde por cada obligación y su evidencia.', 'El cumplimiento')},
         'en_prueba': 'Construida · en prueba',
@@ -281,6 +282,7 @@ T = {
                'rostrum': ('Rostrum', 'The portal', 'What needs attention today, across every family, with its trail.', 'The portal'),
                'clara': ('Clara', 'Controller', 'For whoever closes the month and answers for what the books say.', 'The close'),
                'tomas': ('Tomás', 'FP&A', 'For whoever puts the budget next to actual spend.', 'The budget'),
+               'aurea': ('Áurea', 'Treasury', 'For whoever answers for cash, payments and debt.', 'Treasury'),
                'fidel': ('Fidel', 'Contracts', 'For whoever answers for what the company signed.', 'The contracts'),
                'constanza': ('Constanza', 'Compliance', 'For whoever answers for every obligation and its evidence.', 'Compliance')},
         'declarada': 'Declared capability',
@@ -422,36 +424,43 @@ FIG = {
     'cfo': {
         'es': {
             '_idioma': 'es',
-            'fam_tit': 'Dos agentes, una ficha cada uno',
+            'fam_tit': 'Tres agentes, una ficha cada uno',
             'fig_agentes': {
                 'clara': ('Para quien cierra el mes y responde por lo que dicen los libros',
                           'Un cierre por periodo. Todos los documentos del mes, no una muestra.'),
                 'tomas': ('Para quien pone el presupuesto al lado de lo ejecutado',
                           'Un presupuesto por área y año, contra la contabilidad que cierra Clara.'),
+                'aurea': ('Para quien responde por la caja, los pagos y la deuda',
+                          'Un periodo por entidad, contra los extractos y el balance que cierra Clara.'),
             },
-            'ficha_tit': 'Las fichas del cierre y del presupuesto',
+            'ficha_tit': 'Las fichas del cierre, del presupuesto y de la tesorería',
             'ficha_desc': 'Cada dato con la cita del documento del que salió, y su fecha. Las tablas las '
                           'procesa el motor; la ficha lleva lo que solo dice un documento escrito.',
             'regla': 'El estado del cierre lo declara el contralor y el del presupuesto, el responsable '
                      'del área. Lo declarado y lo evidenciado nunca se fusionan: la diferencia es la señal.',
-            'fl_ante': 'Cómo operan los dos',
+            'fl_ante': 'Cómo operan',
             'fl_cajas': [('EL CIERRE', 'Clara', 'Una entidad y un periodo, cadencia mensual', 'clara'),
                          ('EL PRESUPUESTO', 'Tomás', 'Un área y un año, cadencia de comité', 'tomas'),
+                         ('LA TESORERÍA', 'Áurea', 'Una entidad y un periodo, cadencia de pagos', 'aurea'),
                          ('EL EQUIPO', 'Rostrum', 'Quien no va a abrir una carpeta', 'rostrum')],
             'fl_cruza': [('la contabilidad cerrada del periodo',
                           'en 10-contabilidad/: Tomás toma de ahí la ejecución, sin copiarla'),
+                         ('el mismo periodo cerrado',
+                          'en 20-bancos/ y 10-contabilidad/: Áurea toma los extractos y el balance de Clara'),
                          ('el informe', 'en una dirección, para quien no va a abrir una carpeta')],
-            'fl_lazos': ((2, 0, 'la pregunta escrita en Rostrum: Clara o Tomás la atienden en su siguiente corrida', 60),),
+            'fl_lazos': ((3, 0, 'la pregunta escrita en Rostrum: el agente que corresponde la atiende en su siguiente corrida', 60),),
             'fl_personas': [('El contralor', 'Registra los asientos, firma y declara el estado del cierre.'),
                             ('El responsable del área', 'Aprueba los traslados y declara el estado de su presupuesto.'),
+                            ('La tesorería', 'Aprueba y ejecuta los pagos y decide la inversión y el financiamiento.'),
                             ('El comité', 'Decide con el material que prepara Tomás.')],
             'fl_nota': 'Todo cruza por un documento: la contabilidad cerrada, la ficha, el informe. Y el '
                        'insumo de cada agente lo produce el trabajo no delegable de su persona.',
             'ct_ante': 'El contrato',
             'ct_ficha': 'Las fichas',
-            'ct_ficha_sub': 'La del cierre y la del presupuesto: cada dato con su cita y su fecha.',
+            'ct_ficha_sub': 'La del cierre, la del presupuesto y la de la tesorería: cada dato con su cita y su fecha.',
             'ct_escriben': [('Clara', 'Escribe la ficha del cierre, salvo el estado declarado'),
-                            ('Tomás', 'Escribe la ficha del presupuesto, salvo el estado declarado')],
+                            ('Tomás', 'Escribe la ficha del presupuesto, salvo el estado declarado'),
+                            ('Áurea', 'Escribe la ficha de la tesorería; no mueve dinero')],
             'ct_lee': ('Rostrum', 'Publica el informe donde el equipo lo vea'),
             'ct_solo_lee': 'solo publica',
             'ct_tiempo': [('Clara', 'Cierra el periodo con su checklist y su evidencia.'),
@@ -462,36 +471,43 @@ FIG = {
         },
         'en': {
             '_idioma': 'en',
-            'fam_tit': 'Two agents, one record each',
+            'fam_tit': 'Three agents, one record each',
             'fig_agentes': {
                 'clara': ('For whoever closes the month and answers for what the books say',
                           'One close per period. Every document of the month, not a sample.'),
                 'tomas': ('For whoever sets the budget beside what was spent',
                           'One budget per area and year, against the books Clara closes.'),
+                'aurea': ('For whoever answers for cash, payments and debt',
+                          'One period per entity, against the statements and books Clara closes.'),
             },
-            'ficha_tit': 'The close and budget records',
+            'ficha_tit': 'The close, budget and treasury records',
             'ficha_desc': 'Every item cited to the document it came from, with its date. The engine '
                           'processes the tables; the record carries what only a written document says.',
             'regla': 'The controller declares the status of the close and the area owner that of the '
                      'budget. Declared and evidenced never merge: the difference is the signal.',
-            'fl_ante': 'How the two operate',
+            'fl_ante': 'How they operate',
             'fl_cajas': [('THE CLOSE', 'Clara', 'One entity and one period, monthly cadence', 'clara'),
                          ('THE BUDGET', 'Tomás', 'One area and one year, committee cadence', 'tomas'),
+                         ('TREASURY', 'Áurea', 'One entity and one period, payment cadence', 'aurea'),
                          ('THE TEAM', 'Rostrum', 'Whoever will not open a folder', 'rostrum')],
             'fl_cruza': [("the period's closed books",
                           'in 10-contabilidad/: Tomás takes the execution from there, without copying it'),
+                         ('the same closed period',
+                          "in 20-bancos/ and 10-contabilidad/: Áurea takes Clara's statements and trial balance"),
                          ('the report', 'one way, for whoever will not open a folder')],
-            'fl_lazos': ((2, 0, 'the question written in Rostrum: Clara or Tomás answer it on their next run', 60),),
+            'fl_lazos': ((3, 0, 'the question written in Rostrum: the right agent answers it on their next run', 60),),
             'fl_personas': [('The controller', 'Posts the entries, signs and declares the status of the close.'),
                             ('The area owner', 'Approves transfers and declares the status of their budget.'),
+                            ('Treasury', 'Approves and executes payments and decides investment and financing.'),
                             ('The committee', 'Decides on the material Tomás prepares.')],
             'fl_nota': "Everything crosses through a document: the closed books, the record, the report. And "
                        "each agent's input is produced by its person's non-delegable work.",
             'ct_ante': 'The contract',
             'ct_ficha': 'The records',
-            'ct_ficha_sub': 'The close record and the budget record: every item with its citation and date.',
+            'ct_ficha_sub': 'The close, budget and treasury records: every item with its citation and date.',
             'ct_escriben': [('Clara', 'Writes the close record, except the declared status'),
-                            ('Tomás', 'Writes the budget record, except the declared status')],
+                            ('Tomás', 'Writes the budget record, except the declared status'),
+                            ('Áurea', 'Writes the treasury record; moves no money')],
             'ct_lee': ('Rostrum', 'Publishes the report where the team will see it'),
             'ct_solo_lee': 'only publishes',
             'ct_tiempo': [('Clara', 'Closes the period with its checklist and evidence.'),
@@ -825,7 +841,11 @@ def etiquetas(d, x, y, items, ancho, fill=APAGADO, borde=FILETE_FUERTE):
 
 
 def familia(t, agentes=None, compartidos=None):
-    W, H = 1680, 1260
+    # Con tres agentes por fila cada columna es más angosta y sus etiquetas ocupan más renglones:
+    # la tarjeta crece y la figura con ella, lo mismo que crece la tarjeta.
+    n_ag = len(agentes) if agentes is not None else 3
+    EXTRA = 140 if n_ag >= 3 and agentes is not None else 0
+    W, H = 1680, 1260 + EXTRA
     img = Image.new('RGB', (W, H), NEGRO)
     d = ImageDraw.Draw(img)
     M = 72
@@ -846,7 +866,7 @@ def familia(t, agentes=None, compartidos=None):
     # una columna por agente
     n = len(agentes)
     col = (W - 2 * M - (n - 1) * 36) // n
-    TOP, ALTO = 238, 520
+    TOP, ALTO = 238, 520 + EXTRA
     ROBOT = 96                 # de ancho; de alto, 136
     for i, (rid, nombre, rol, para, desc, estado, activo, propios) in enumerate(agentes):
         x = M + i * (col + 36)

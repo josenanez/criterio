@@ -771,7 +771,7 @@ def argumentos(descripcion: str):
 # La carpeta de la configuración de cada agente, `.criterio/<area>/<entidad>/config.json`. Es la
 # misma `area` de families/criterio-<familia>/familia.json, y scripts/familias.py comprueba que
 # coincidan. Dos agentes que comparten el estado no comparten la configuración.
-AREA = {"criterio-finance": "finanzas", "criterio-budget": "presupuesto",
+AREA = {"criterio-finance": "finanzas", "criterio-budget": "presupuesto", "criterio-treasury": "tesoreria",
         "criterio-legal": "legal", "criterio-compliance": "cumplimiento"}
 
 

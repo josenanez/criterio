@@ -12,7 +12,11 @@
           "patrones": [
             "^plan",
             "^checklist",
-            "^mapeo"
+            "^mapeo",
+            "^politica",
+            "^matriz",
+            "^registro_deuda",
+            "^covenants"
           ]
         }
       ]
@@ -52,6 +56,13 @@
           "patrones": [
             "^requerimientos",
             "^pbc"
+          ]
+        },
+        {
+          "carpeta": "60-tesoreria",
+          "patrones": [
+            "^programa",
+            "^flujo"
           ]
         }
       ]

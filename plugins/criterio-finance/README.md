@@ -76,7 +76,7 @@ They load on their own when the subject comes up. They are the knowledge the com
 | `close-checklist` | The close checklist: the column model, how each task is proven with its support, the business-day calendar and the recommended checklist per industry as a draft | Own |
 | `close-record` | The close record: what the agent extracts from written documents —the declared status, the requests that arrived by email or in Word— with its citation | Own |
 | `einvoice-matching` | The DIAN or SRI e-invoice against the books: the fields processed and their source, the matching rules, duplicates, and what is left without a tax opinion | Own |
-| `finance-intake` | Which documents the family processes, where each one goes, what the engine processes directly and what the agent extracts to the record | Own · also in Tomás |
+| `finance-intake` | Which documents the family processes, where each one goes, what the engine processes directly and what the agent extracts to the record | Own · also in Tomás and Áurea |
 | `ledger-tieout` | The trial balance and ledger tie-out: debits against credits, opening balance plus movements against closing balance, account by account, and balances contrary to their nature | Own |
 | `reconciliation` | How the engine reconciles: the statement against the book ledger in three passes, how each open item is classified, its age, and the ledger against each account's subledger | Own |
 <!-- /cfo:skills -->
@@ -105,6 +105,7 @@ behind it what supports it.
 | **45%** of SOX controls are manual in the organisations surveyed; programme hours rose 32% in two years, from 11,800 to 15,580 | [KPMG, SOX Survey, 2025](https://kpmg.com/us/en/articles/2025/2025-kpmg-sox-survey.html) — About 150 SOX professionals |
 | **18 days** is the median annual close; top performers take 10 days or less and the slowest 35 | [APQC, blog del 8 de abril de 2026, y su medida de Open Standards Benchmarking del cierre anual a nivel de sitio, 2026](https://www.apqc.org/resources/blog/how-streamline-annual-closing-process-and-speed-year-end-close) — Not stated in the note; the benchmarking measure reports the 18.0-day median across 2,214 organisations |
 | **18%** of people in the controllership function make errors at least daily, and 59% several per month, because of capacity constraints | [Gartner, comunicado del 21 de febrero de 2024, 2024](https://www.gartner.com/en/newsroom/press-releases/2024-02-21-gartner-survey-shows-that-a-third-of-accountants-make-several-error-per-weeo-due-to-capacity-constraints) — 497 people in the controllership function, surveyed in July 2023 |
+| **79%** of organisations suffered attempted or actual payments fraud in 2024; 63% name business email compromise as the main channel | [Association for Financial Professionals, 2025 Payments Fraud and Control Survey, 2025](https://www.financialprofessionals.org/about/learn-more/press-releases/Details/survey-79-percent-of-organizations-were-victims-of-attempted-or-actual-payments-fraud-activity-in-2024) — 521 corporate finance professionals |
 <!-- /cfo:cifras -->
 
 The figure that should sting is the first: **the close did not improve in four years**, despite

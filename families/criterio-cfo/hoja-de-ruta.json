@@ -9,7 +9,7 @@
    "es": {
     "titulo": "Construida, con el motor probado y una primera ronda con el agente",
     "entra": [
-     "Los dieciséis comandos de Clara y Tomás, sus doce skills y el motor de cálculo",
+     "Los comandos de Clara y Tomás, sus skills y el motor de cálculo",
      "La factura electrónica de la DIAN y del SRI, procesada desde su fuente técnica oficial",
      "La carpeta raíz que cada agente busca y, con permiso, marca",
      "La familia en Rostrum, con lo que vence y dónde trabaja cada agente",
@@ -20,7 +20,7 @@
    "en": {
     "titulo": "Built, with the engine tested and a first round with the agent",
     "entra": [
-     "Clara and Tomás’s sixteen commands, their twelve skills and the calculation engine",
+     "Clara and Tomás’s commands, their skills and the calculation engine",
      "DIAN and SRI electronic invoicing, processed from its official technical source",
      "The root folder each agent searches for and, with permission, marks",
      "The family in Rostrum, with what falls due and where each agent works",

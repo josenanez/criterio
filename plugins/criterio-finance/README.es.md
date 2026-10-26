@@ -77,7 +77,7 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 | `close-checklist` | El checklist del cierre: el modelo de columnas, cómo se prueba cada tarea con su soporte, el calendario en días hábiles y el checklist recomendado por industria como borrador | Propio |
 | `close-record` | La ficha del cierre: lo que el agente extrae de los documentos escritos —el estado declarado, los requerimientos que llegaron por correo o en Word— con su cita | Propio |
 | `einvoice-matching` | La factura electrónica de la DIAN o del SRI contra la contabilidad: los campos que se procesan y su fuente, las reglas del cruce, los duplicados, y lo que queda sin opinión fiscal | Propio |
-| `finance-intake` | Qué documentos procesa la familia, dónde va cada uno, qué procesa el motor directamente y qué extrae el agente a la ficha | Propio · también en Tomás |
+| `finance-intake` | Qué documentos procesa la familia, dónde va cada uno, qué procesa el motor directamente y qué extrae el agente a la ficha | Propio · también en Tomás y Áurea |
 | `ledger-tieout` | El cuadre del balance de comprobación y del mayor: débitos contra créditos, saldo inicial más movimientos contra saldo final, cuenta por cuenta, y los saldos contrarios a su naturaleza | Propio |
 | `reconciliation` | Cómo concilia el motor: el extracto contra el auxiliar de libros en tres pasadas, la clasificación de cada partida abierta, su antigüedad, y el mayor contra el auxiliar de cada cuenta | Propio |
 <!-- /cfo:skills -->
@@ -106,6 +106,7 @@ detrás lo que lo sostiene.
 | **45 %** de los controles SOX son manuales en las organizaciones encuestadas; las horas del programa subieron 32 % en dos años, de 11.800 a 15.580 | [KPMG, SOX Survey, 2025](https://kpmg.com/us/en/articles/2025/2025-kpmg-sox-survey.html) — Cerca de 150 profesionales SOX |
 | **18 días** es la mediana del cierre anual; los mejores lo hacen en 10 días o menos y los más lentos en 35 | [APQC, blog del 8 de abril de 2026, y su medida de Open Standards Benchmarking del cierre anual a nivel de sitio, 2026](https://www.apqc.org/resources/blog/how-streamline-annual-closing-process-and-speed-year-end-close) — La nota no la indica; la medida de benchmarking reporta la mediana de 18,0 días con 2.214 organizaciones |
 | **18 %** de las personas de la función de contraloría comete errores al menos a diario, y 59 % varios al mes, por restricciones de capacidad | [Gartner, comunicado del 21 de febrero de 2024, 2024](https://www.gartner.com/en/newsroom/press-releases/2024-02-21-gartner-survey-shows-that-a-third-of-accountants-make-several-error-per-weeo-due-to-capacity-constraints) — 497 personas de la función de contraloría, encuesta de julio de 2023 |
+| **79 %** de las organizaciones sufrió en 2024 un intento de fraude en pagos o un fraude consumado; el 63 % señala la suplantación por correo corporativo como la vía principal | [Association for Financial Professionals, 2025 Payments Fraud and Control Survey, 2025](https://www.financialprofessionals.org/about/learn-more/press-releases/Details/survey-79-percent-of-organizations-were-victims-of-attempted-or-actual-payments-fraud-activity-in-2024) — 521 profesionales de finanzas corporativas |
 <!-- /cfo:cifras -->
 
 El dato que debería incomodar es el primero: **el cierre no mejoró en cuatro años**, a pesar de

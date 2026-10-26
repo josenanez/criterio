@@ -16,14 +16,19 @@
           "carpeta": "00-referencia",
           "agentes": [
             "clara",
-            "tomas"
+            "tomas",
+            "aurea"
           ],
-          "es": "El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales",
-          "en": "The chart of accounts with each account's nature, `checklist-cierre.xlsx` in the defined model, and the mapping of accounts to cost centres and budget lines",
+          "es": "El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales; para Áurea, la política de tesorería, la matriz de firmas, el registro de la deuda y los covenants",
+          "en": "The chart of accounts with each account's nature, `checklist-cierre.xlsx` in the defined model, and the mapping of accounts to cost centres and budget lines; for Áurea, the treasury policy, the signing-authority matrix, the debt register and the covenants",
           "patrones": [
             "^plan",
             "^checklist",
-            "^mapeo"
+            "^mapeo",
+            "^politica",
+            "^matriz",
+            "^registro_deuda",
+            "^covenants"
           ]
         }
       ]
@@ -50,7 +55,8 @@
         {
           "carpeta": "20-bancos",
           "agentes": [
-            "clara"
+            "clara",
+            "aurea"
           ],
           "es": "Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros",
           "en": "One folder per account, `<bank>-<last 4 digits>`, with the statement and the book ledger",
@@ -89,6 +95,18 @@
           "patrones": [
             "^requerimientos",
             "^pbc"
+          ]
+        },
+        {
+          "carpeta": "60-tesoreria",
+          "agentes": [
+            "aurea"
+          ],
+          "es": "El programa de pagos con quién aprobó cada uno y el flujo de caja proyectado al cierre del periodo",
+          "en": "The payment schedule with who approved each payment, and the cash flow projected to period end",
+          "patrones": [
+            "^programa",
+            "^flujo"
           ]
         }
       ],
@@ -150,7 +168,7 @@
   ],
   "estado": {
     "carpeta": "estado-finanzas/",
-    "es": "Lo que escriben Clara y Tomás: la configuración, las fichas, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
-    "en": "What Clara and Tomás write: the configuration, the records, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+    "es": "Lo que escriben Clara, Tomás y Áurea: la configuración, las fichas, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Clara, Tomás and Áurea write: the configuration, the records, the reports and the indexes. No person edits it, and no agent writes anywhere else"
   }
 }

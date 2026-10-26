@@ -15,11 +15,12 @@
     "cifras_en": "clara",
     "intake": {
       "skill": "criterio-finance/finance-intake",
-      "texto": "La contabilidad del periodo tiene un solo lugar, `10-contabilidad/`: Clara la cierra y Tomás saca de ahí la ejecución."
+      "texto": "La contabilidad del periodo tiene un solo lugar, `10-contabilidad/`: Clara la cierra, Tomás saca de ahí la ejecución y Áurea calcula ahí los covenants."
     },
     "estructuras": [
       "criterio-finance",
-      "criterio-budget"
+      "criterio-budget",
+      "criterio-treasury"
     ],
     "motor": "criterio-finance/scripts/finanzas.py",
     "lectores": {
@@ -501,6 +502,182 @@
       "marco": [
         "F-12"
       ]
+    },
+    {
+      "id": "aurea",
+      "nombre": "Áurea",
+      "plugin": "criterio-treasury",
+      "rol": {
+        "es": "Tesorería",
+        "en": "Treasury"
+      },
+      "titulo": "la tesorería",
+      "origen": {
+        "es": "del latín *aureus*, «de oro»: la caja",
+        "en": "from the Latin *aureus*, “golden”: the cash"
+      },
+      "hace": {
+        "es": "La caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants",
+        "en": "Cash against its minimum and projection, each scheduled payment against who may approve it, currency exposure against its limit, and debt against its maturity and its covenants"
+      },
+      "comandos": [
+        {
+          "id": "treasury-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz, la misma de Clara y Tomás. Preguntas: entidad y periodo, las cuentas en otra moneda, los umbrales de desviación, de vencimiento y del margen del covenant, dónde guarda el estado y los términos",
+            "proceso": "Inventario de lo que hay: qué cuentas tienen extracto en `20-bancos`, si hay programa de pagos y flujo en `60-tesoreria` y si `00-referencia` trae la política, la matriz de firmas, el registro de la deuda y los covenants; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; la primera posición de caja",
+            "entrega": "La configuración, el inventario y la primera posición de caja"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder, the same as Clara's and Tomás's. Questions: entity and period, the accounts in another currency, the thresholds for deviation, maturity and covenant margin, where the state is kept and the terms",
+            "proceso": "Inventory of what is there: which accounts have a statement in `20-bancos`, whether there is a payment schedule and a projection in `60-tesoreria`, and whether `00-referencia` holds the policy, the signing-authority matrix, the debt register and the covenants; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the first cash position",
+            "entrega": "The configuration, the inventory and the first cash position"
+          }
+        },
+        {
+          "id": "treasury-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en la tesorería",
+            "entrada": "Los extractos de `20-bancos`, el programa de pagos y el flujo proyectado de `60-tesoreria`, la política, la matriz, el registro de la deuda y los covenants de `00-referencia`, y el balance de `10-contabilidad`",
+            "proceso": "Procesa cada tabla con su huella; solo reprocesa lo que cambió; calcula las siete señales",
+            "reporte": "Qué cambió; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La tesorería al día, con lo que cambió y las señales nuevas"
+          },
+          "en": {
+            "etiqueta": "What changed in treasury",
+            "entrada": "The statements in `20-bancos`, the payment schedule and projection in `60-tesoreria`, the policy, matrix, debt register and covenants in `00-referencia`, and the trial balance in `10-contabilidad`",
+            "proceso": "Processes each table with its fingerprint; reprocesses only what changed; calculates the seven signals",
+            "reporte": "What changed; the new signals; what could not be processed and why",
+            "entrega": "Treasury up to date, with what changed and the new signals"
+          }
+        },
+        {
+          "id": "cash-position",
+          "n": 2,
+          "es": {
+            "etiqueta": "La posición de caja",
+            "entrada": "Los extractos del periodo, el flujo proyectado y la política",
+            "proceso": "El último saldo de cada cuenta contra su mínimo y su proyección; la caja consolidada; la posición en otras monedas convertida con la tasa de la política",
+            "reporte": "Por cuenta: saldo, mínimo, proyectado y desviación; la caja consolidada; la exposición por moneda contra su límite",
+            "entrega": "La caja de cada cuenta contra su mínimo y su proyección, y la exposición cambiaria"
+          },
+          "en": {
+            "etiqueta": "Cash position",
+            "entrada": "The period's statements, the projection and the policy",
+            "proceso": "The last balance of each account against its minimum and its projection; consolidated cash; the position in other currencies converted at the policy's rate",
+            "reporte": "By account: balance, minimum, projected and deviation; consolidated cash; exposure by currency against its limit",
+            "entrega": "Each account's cash against its minimum and projection, and the currency exposure"
+          }
+        },
+        {
+          "id": "payment-check",
+          "n": 3,
+          "es": {
+            "etiqueta": "Los pagos y quién los aprueba",
+            "entrada": "El programa de pagos, la política y la matriz de firmas",
+            "proceso": "Cada pago contra las aprobaciones que pide la política para su monto y contra la facultad de cada quien lo aprobó",
+            "reporte": "Por pago: valor, quién aprobó y cuántas aprobaciones pide; los que no las tienen y quién firmó sin facultad",
+            "entrega": "Cada pago programado contra quién puede aprobarlo"
+          },
+          "en": {
+            "etiqueta": "Payments and who approves them",
+            "entrada": "The payment schedule, the policy and the signing-authority matrix",
+            "proceso": "Each payment against the approvals the policy requires for its amount and against the authority of each approver",
+            "reporte": "By payment: amount, who approved and how many approvals it requires; those without them and who signed without authority",
+            "entrega": "Each scheduled payment against who may approve it"
+          }
+        },
+        {
+          "id": "debt-watch",
+          "n": 4,
+          "es": {
+            "etiqueta": "La deuda y sus covenants",
+            "entrada": "El registro de la deuda, los covenants y el balance del periodo que cierra Clara",
+            "proceso": "Los días que le faltan a cada obligación e inversión; cada covenant calculado desde el balance, contra su límite",
+            "reporte": "Los covenants con su valor, su límite y su estado; las obligaciones por vencimiento",
+            "entrega": "La deuda contra su vencimiento y lo que exige su contrato"
+          },
+          "en": {
+            "etiqueta": "Debt and its covenants",
+            "entrada": "The debt register, the covenants and the trial balance of the period Clara closes",
+            "proceso": "The days left on each obligation and investment; each covenant calculated from the trial balance, against its limit",
+            "reporte": "The covenants with their value, limit and status; the obligations by maturity",
+            "entrega": "Debt against its maturity and what its contract requires"
+          }
+        },
+        {
+          "id": "treasury-wake",
+          "n": 5,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y las tablas",
+            "proceso": "Decide qué toca: los pagos de los próximos cinco días, las obligaciones que entran en su ventana de vencimiento y una revisión semanal",
+            "reporte": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+            "entrega": "Lo que toca hoy en la tesorería; si no toca nada, se calla"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the tables",
+            "proceso": "Decides what is due: payments in the next five days, obligations entering their maturity window and a weekly review",
+            "reporte": "What ran and what it found; if nothing is due, it stays silent",
+            "entrega": "What treasury needs today; silent when nothing does"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "cash_below_minimum",
+          "es": "El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política",
+          "en": "The balance of an account or of consolidated cash falls below the minimum the policy sets"
+        },
+        {
+          "id": "cash_vs_forecast",
+          "es": "El saldo real de una cuenta se aparta de su proyección más del umbral",
+          "en": "An account's actual balance deviates from its projection by more than the threshold"
+        },
+        {
+          "id": "fx_exposure_over_limit",
+          "es": "La posición en otra moneda, convertida con la tasa de la política, supera su límite",
+          "en": "The position in another currency, converted at the policy's rate, exceeds its limit"
+        },
+        {
+          "id": "payment_without_approval",
+          "es": "Un pago programado no tiene las aprobaciones que pide la política para su monto",
+          "en": "A scheduled payment lacks the approvals the policy requires for its amount"
+        },
+        {
+          "id": "signatory_without_authority",
+          "es": "Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella",
+          "en": "Whoever approves a payment lacks the authority in the signing-authority matrix, or is not in it"
+        },
+        {
+          "id": "covenant_at_risk",
+          "es": "Un indicador de un contrato de deuda, calculado desde el balance que cierra Clara, cruza su límite o queda a menos del margen de él",
+          "en": "A debt-contract ratio, calculated from the trial balance Clara closes, crosses its limit or comes within the margin of it"
+        },
+        {
+          "id": "maturity_near",
+          "es": "Una obligación de deuda o una inversión vence dentro de los días configurados",
+          "en": "A debt obligation or an investment matures within the configured days"
+        }
+      ],
+      "area": "tesoreria",
+      "ambitos": [
+        "tesoreria"
+      ],
+      "nunca": {
+        "es": "No mueve dinero, no hace pagos, no entra a un portal bancario y no recomienda una inversión, un financiamiento ni una cobertura",
+        "en": "It does not move money, make payments or log into a bank portal, and it does not recommend an investment, a financing or a hedge"
+      },
+      "marco": [
+        "F-11"
+      ]
     }
   ],
   "impresora": {
@@ -508,27 +685,29 @@
     "bots": [
       "clara",
       "tomas",
+      "aurea",
       "rostrum"
     ],
     "es": {
       "eyebrow": "Criterio · Familia CFO",
       "titulo": "La oficina del CFO, con más capacidad",
-      "sub": "Procesan los libros, los soportes y el presupuesto como estén, y dicen qué cuadra, qué no y qué no tiene soporte.",
+      "sub": "Procesan los libros, los soportes, el presupuesto y la caja como estén, y dicen qué cuadra, qué no y qué no tiene soporte.",
       "ficha": "LAS FICHAS DE LA ENTIDAD",
-      "fichaNota": "El único contrato. Clara y Tomás no se hablan entre sí: se hablan por sus fichas.",
+      "fichaNota": "El único contrato. Clara, Tomás y Áurea no se hablan entre sí: se hablan por sus fichas.",
       "roles": {
         "clara": "El cierre",
         "tomas": "El presupuesto",
+        "aurea": "La tesorería",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: construida y probada. El motor pasa su prueba determinista contra material sintético de cuatro industrias y dos entidades de control, y los agentes pasaron la ronda completa sobre las seis entidades, con una clave que no ven. El siguiente paso es su primer uso sobre la documentación de una organización concreta.",
+      "nota": "Estado de la familia: Clara y Tomás, construidos y probados: el motor pasa su prueba determinista contra material sintético de cuatro industrias y dos entidades de control, y los agentes pasaron la ronda completa sobre las seis entidades, con una clave que no ven. Áurea, construida, con su motor probado; su ronda con el agente es el siguiente paso.",
       "guion": [
         {
           "cabeza": true,
           "texto": "CRITERIO · FAMILIA CFO"
         },
         {
-          "texto": "Cierre, control y reporte con dos agentes. Cada uno extiende a una persona de finanzas; ninguno la reemplaza."
+          "texto": "La oficina del CFO, con tres agentes. Cada uno extiende a una persona de finanzas; ninguno la reemplaza."
         },
         {
           "quien": "clara",
@@ -541,9 +720,14 @@
           "texto": "Pone el presupuesto al lado de su gemelo, la ejecución: lo aprobado contra lo ejecutado y lo comprometido, la proyección al cierre con su supuesto escrito y cada traslado con su acta. No recomienda la decisión del comité."
         },
         {
+          "quien": "aurea",
+          "tag": "ÁUREA · LA TESORERÍA",
+          "texto": "Pone la caja, los pagos y la deuda al lado de su política: cada cuenta contra su mínimo, cada pago contra quién puede aprobarlo y cada covenant, calculado desde el balance que cierra Clara, contra su límite. No mueve dinero."
+        },
+        {
           "quien": "rostrum",
           "tag": "ROSTRUM · EL PORTAL",
-          "texto": "Publica lo que Clara y Tomás escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. No recalcula nada."
+          "texto": "Publica lo que Clara, Tomás y Áurea escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. No recalcula nada."
         },
         {
           "quien": "ficha",
@@ -559,22 +743,23 @@
     "en": {
       "eyebrow": "Criterio · CFO family",
       "titulo": "The CFO's office, with more capacity",
-      "sub": "They process the books, the supporting documents and the budget as they are, and tell you what ties out, what does not and what has no support.",
+      "sub": "They process the books, the supporting documents, the budget and the cash as they are, and tell you what ties out, what does not and what has no support.",
       "ficha": "THE ENTITY’S RECORDS",
-      "fichaNota": "The only contract. Clara and Tomás never talk to each other: they talk through their records.",
+      "fichaNota": "The only contract. Clara, Tomás and Áurea never talk to each other: they talk through their records.",
       "roles": {
         "clara": "The close",
         "tomas": "The budget",
+        "aurea": "Treasury",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: built and tested. The engine passes its deterministic test against synthetic material from four industries and two control entities, and the agents passed the full round on the six entities, with a key they never see. The next step is its first use on a specific organisation’s documentation.",
+      "nota": "Where the family stands: Clara and Tomás, built and tested: the engine passes its deterministic test against synthetic material from four industries and two control entities, and the agents passed the full round on the six entities, with a key they never see. Áurea, built, with her engine tested; her round with the agent is the next step.",
       "guion": [
         {
           "cabeza": true,
           "texto": "CRITERIO · CFO FAMILY"
         },
         {
-          "texto": "Close, control and reporting with two agents. Each one extends one person in finance; neither replaces them."
+          "texto": "The CFO's office, with three agents. Each one extends a person in finance; none replaces them."
         },
         {
           "quien": "clara",
@@ -587,9 +772,14 @@
           "texto": "Puts the budget next to its twin, actual spend: approved against actual and committed, the year-end forecast with its stated assumption and every transfer with its minutes. He does not recommend the committee’s decision."
         },
         {
+          "quien": "aurea",
+          "tag": "ÁUREA · TREASURY",
+          "texto": "Puts cash, payments and debt next to their policy: each account against its minimum, each payment against who may approve it and each covenant, calculated from the books Clara closes, against its limit. She moves no money."
+        },
+        {
           "quien": "rostrum",
           "tag": "ROSTRUM · THE PORTAL",
-          "texto": "Publishes what Clara and Tomás wrote —their reports, what falls due, their signals— and takes questions from people who never open a folder. It recalculates nothing."
+          "texto": "Publishes what Clara, Tomás and Áurea wrote —their reports, what falls due, their signals— and takes questions from people who never open a folder. It recalculates nothing."
         },
         {
           "quien": "ficha",
@@ -651,6 +841,10 @@
     "transfer-control": {
       "es": "Los traslados, adiciones y reducciones: cómo se detectan comparando versiones, cómo se cruzan con el acta que los aprueba y qué es un acta sin cambio aplicado",
       "en": "Transfers, additions and reductions: how they are found by comparing versions, how they are matched with the minutes that approve them and what minutes with no change applied are"
+    },
+    "treasury-control": {
+      "es": "La tesorería contra su política: la caja contra su mínimo y su proyección, los pagos contra sus aprobadores y la matriz de firmas, la exposición cambiaria y los covenants calculados desde el balance",
+      "en": "Treasury against its policy: cash against its minimum and projection, payments against their approvers and the signing-authority matrix, currency exposure and covenants calculated from the trial balance"
     },
     "variance-analysis": {
       "es": "La ejecución contra el presupuesto: la versión aprobada, el aprobado al corte, lo ejecutado desde la contabilidad con el mapeo de cuentas, lo comprometido, lo disponible y la desviación",

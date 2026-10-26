@@ -25,7 +25,7 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent.parent
 P = RAIZ / "plugins"
 PLUGINS = {"criterio-portfolio": "portafolio.py", "criterio-project": "portafolio.py",
-           "criterio-product": "producto.py", "criterio-finance": "finanzas.py", "criterio-budget": "finanzas.py",
+           "criterio-product": "producto.py", "criterio-finance": "finanzas.py", "criterio-budget": "finanzas.py", "criterio-treasury": "finanzas.py",
            "criterio-legal": "legal.py", "criterio-compliance": "legal.py", "criterio-server": "mapa.py"}
 # Las acciones que calculan. Un comando cuya salida lleva cifras derivadas llama al menos
 # una: si no, las cifras las hizo el modelo, que es lo que el diseño prohíbe.

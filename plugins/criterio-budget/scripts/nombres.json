@@ -23,7 +23,14 @@
     "budget_version_mismatch": "El informe usa una versión del presupuesto distinta de la aprobada",
     "spend_without_budget_line": "Hay gasto en una cuenta o centro de costo sin línea presupuestal",
     "declared_vs_evidence": "El área se reporta dentro del presupuesto y los números no lo sostienen",
-    "project_budget_mismatch": "El presupuesto de un proyecto en su ficha no es el que tiene asignado el área"
+    "project_budget_mismatch": "El presupuesto de un proyecto en su ficha no es el que tiene asignado el área",
+    "cash_below_minimum": "El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política",
+    "cash_vs_forecast": "El saldo real de una cuenta se aparta de su proyección más del umbral",
+    "fx_exposure_over_limit": "La posición en otra moneda, convertida con la tasa de la política, supera su límite",
+    "payment_without_approval": "Un pago programado no tiene las aprobaciones que pide la política para su monto",
+    "signatory_without_authority": "Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella",
+    "covenant_at_risk": "Un indicador de un contrato de deuda, calculado desde el balance que cierra Clara, cruza su límite o queda a menos del margen de él",
+    "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados"
   },
   "comandos": {
     "finance-setup": "Instalación",
@@ -41,6 +48,12 @@
     "forecast": "Proyección al cierre del año",
     "transfer-log": "Traslados y sus actas",
     "budget-committee-pack": "Paquete del comité de presupuesto",
-    "budget-wake": "Qué toca hoy"
+    "budget-wake": "Qué toca hoy",
+    "treasury-setup": "Instalación",
+    "treasury-scan": "Qué cambió en la tesorería",
+    "cash-position": "La posición de caja",
+    "payment-check": "Los pagos y quién los aprueba",
+    "debt-watch": "La deuda y sus covenants",
+    "treasury-wake": "Qué toca hoy"
   }
 }

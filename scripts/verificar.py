@@ -118,6 +118,8 @@ PUERTAS = [
      "Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/soporte.py"), "--check"],
      "Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas"),
+    ("código", [sys.executable, str(RAIZ / "plugins/criterio-treasury/scripts/finanzas.py"), "selftest"],
+     "La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-finance/scripts/finanzas.py"), "selftest"],
      "El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-cfo/generar.py")],

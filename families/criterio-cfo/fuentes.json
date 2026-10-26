@@ -18,7 +18,7 @@
           "consultada": "2026-10-23",
           "estado": "verificada",
           "nota": "La clasificación de ocupaciones del Departamento de Trabajo de los Estados Unidos: 23 tareas, entre ellas los estados financieros, el control interno, las auditorías de las cuentas y los impuestos. La misma ocupación reúne la tesorería",
-          "uso": "El marco del rol de Clara, la contralora"
+          "uso": "El marco del rol de Clara, la contralora, y de Áurea, la tesorería: O*NET reúne a tesoreros y contralores en la misma ocupación, y 7 de sus 23 tareas son de tesorería (ADR 0016)"
         },
         {
           "id": "F-12",
@@ -491,6 +491,32 @@
         "valor": 18,
         "es": "18 de cada 100 personas de contraloría",
         "en": "18 of every 100 controllership staff"
+      }
+    },
+    {
+      "id": "C-05",
+      "valor": {
+        "es": "79 %",
+        "en": "79%"
+      },
+      "cifra": {
+        "es": "de las organizaciones sufrió en 2024 un intento de fraude en pagos o un fraude consumado; el 63 % señala la suplantación por correo corporativo como la vía principal",
+        "en": "of organisations suffered attempted or actual payments fraud in 2024; 63% name business email compromise as the main channel"
+      },
+      "fuente": "Association for Financial Professionals, 2025 Payments Fraud and Control Survey",
+      "anio": "2025",
+      "enlace": "https://www.financialprofessionals.org/about/learn-more/press-releases/Details/survey-79-percent-of-organizations-were-victims-of-attempted-or-actual-payments-fraud-activity-in-2024",
+      "muestra": {
+        "es": "521 profesionales de finanzas corporativas",
+        "en": "521 corporate finance professionals"
+      },
+      "estado": "verificada",
+      "nota": "Lo dice la nota de prensa de la AFP del 15 de abril de 2025, verificada el 23 de octubre de 2026 (ADR 0016)",
+      "barra": {
+        "tipo": "share",
+        "valor": 79,
+        "es": "79 de cada 100 organizaciones",
+        "en": "79 of every 100 organisations"
       }
     }
   ]

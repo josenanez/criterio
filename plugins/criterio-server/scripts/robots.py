@@ -9,7 +9,8 @@ servidor donde queda todo.
 De la familia CFO, Clara —de *clarus*, ve claro— tiene un ojo con su lupa, la que acerca el
 soporte, y en el pecho el libro a dos columnas, debe y haber, con la marca de lo que cuadra.
 Tomás, «el gemelo», tiene dos antenas y dos ojos iguales, y en el pecho las barras en pares:
-lo presupuestado al lado de lo ejecutado.
+lo presupuestado al lado de lo ejecutado. Áurea —de *aureus*, de oro: la caja— lleva en el pecho
+la puerta de una caja fuerte con su perilla, que gira: custodia el dinero y no lo mueve.
 
 De la familia CLO, Fidel —de *fides*, la palabra dada— lleva en el pecho el documento con su
 firma y su sello: lo que la empresa firmó. Constanza —de *constantia*— tiene un visor que no
@@ -27,10 +28,10 @@ y, como ellos, se dibuja una sola vez (`simbolo()`); `docs/design.md` dice cómo
 from __future__ import annotations
 
 ORDEN = ("vera", "samuel", "alba", "rostrum")
-ORDEN_CFO = ("clara", "tomas")
+ORDEN_CFO = ("clara", "tomas", "aurea")
 ORDEN_CLO = ("fidel", "constanza")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
-          "clara": "finanzas", "tomas": "presupuesto", "fidel": "legal", "constanza": "cumplimiento"}
+          "clara": "finanzas", "tomas": "presupuesto", "aurea": "tesoreria", "fidel": "legal", "constanza": "cumplimiento"}
 
 _PIERNAS = [("line", dict(x1=44, y1=134, x2=44, y2=158)), ("line", dict(x1=76, y1=134, x2=76, y2=158)),
             ("line", dict(x1=36, y1=160, x2=52, y2=160)), ("line", dict(x1=68, y1=160, x2=84, y2=160))]
@@ -92,6 +93,17 @@ _PIEZAS = {
         ("ln", "line", dict(x1=38, y1=126, x2=82, y2=126)),
         ("ln", "line", dict(x1=44, y1=126, x2=44, y2=106), "barra.0"), ("ln", "line", dict(x1=50, y1=126, x2=50, y2=110), "barra.1"),
         ("ln", "line", dict(x1=64, y1=126, x2=64, y2=98), "barra.2"), ("ln", "line", dict(x1=70, y1=126, x2=70, y2=94), "barra.3"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    "aurea": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "line", dict(x1=48, y1=64, x2=72, y2=64)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "circle", dict(cx=60, cy=109, r=17)), ("ln", "circle", dict(cx=60, cy=109, r=6)),
+        ("ln", "line", dict(x1=84, y1=100, x2=84, y2=118)),
+        ("led", "circle", dict(cx=67, cy=109, r=2.5), "perilla"),
         ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
     ] + [("ln", t, a) for t, a in _PIERNAS],
     "fidel": [
@@ -174,6 +186,8 @@ GESTOS = {
     "cuadra":   {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.35, 1), (.55, 0), (.9, 0), (1, 1)]},
     # Tomás: las barras en pares, lo presupuestado al lado de lo ejecutado
     "barra":    {"tipo": "trazo", "dura": 2.4, "paso": .15, "claves": [(0, 1), (.3, 0), (.8, 0), (.95, 1), (1, 1)]},
+    # Áurea: la perilla de la caja fuerte da la vuelta
+    "perilla":  {"tipo": "xy", "dura": 2.4, "claves": _orbita(7)},
     # Fidel: la firma se traza y después se enciende el sello
     "firma":    {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.35, 0), (.85, 0), (.9, 1), (1, 1)]},
     "sello":    {"tipo": "opacidad", "dura": 2.4, "claves": [(0, .3), (.4, .3), (.45, 1), (.85, 1), (.9, .3), (1, .3)]},

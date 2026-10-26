@@ -52,7 +52,7 @@ SCRIPTS = {
 # La familia CFO toma de la PMO lo que es igual en cualquier función —leer un documento,
 # registrar la aceptación de los términos— y comparte entre sus dos plugins su propio motor.
 # La fuente de `finanzas.py` y de `finance-intake` es criterio-finance, donde se editan.
-for _p in ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-compliance"):
+for _p in ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance"):
     SCRIPTS[_p] = {
         "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
         "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
@@ -69,11 +69,16 @@ SCRIPTS["criterio-server"] = {
     "raiz.py": "el mapa dice si la raíz de cada agente está marcada",
 }
 # El arnés de cada agente: el mismo `hooks.json` que llama a su copia de `rastro.py`.
-HOOKS = ("criterio-finance", "criterio-budget", "criterio-legal", "criterio-compliance")
+HOOKS = ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance")
 FUENTE_CFO = RAIZ / "plugins" / "criterio-finance" / "scripts"
 SCRIPTS_CFO = {
     "criterio-budget": {
         "finanzas.py": "el motor de los dos: Tomás toma la ejecución de la misma contabilidad que cierra Clara",
+        "nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
+        "paises.json": "el registro único de países: ningún motor escribe el nombre de un país",
+    },
+    "criterio-treasury": {
+        "finanzas.py": "el motor de los tres: Áurea toma los extractos que concilia Clara y el balance que ella cierra",
         "nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
         "paises.json": "el registro único de países: ningún motor escribe el nombre de un país",
     },
@@ -103,6 +108,9 @@ SKILLS_CFO = {
     "criterio-budget": {
         "finance-intake": "los mismos documentos, la misma estructura y las mismas columnas",
     },
+    "criterio-treasury": {
+        "finance-intake": "los mismos documentos, la misma estructura y las mismas columnas",
+    },
 }
 
 # Lo que viaja con cada plugin instalado, byte a byte: los términos que rigen y el registro
@@ -114,7 +122,7 @@ RAIZ_A_PLUGINS = {
     "registro/versiones.json": ("REGISTRO.json", "el registro de versiones de la familia"),
 }
 PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-finance", "criterio-budget",
-                   "criterio-legal", "criterio-compliance", "criterio-server")
+                   "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-server")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen

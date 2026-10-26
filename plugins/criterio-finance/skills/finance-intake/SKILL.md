@@ -20,7 +20,7 @@ Los números llegan con coma o con punto decimal; las fechas en ISO, `dd/mm/aaaa
 ## La estructura recomendada
 
 <!-- cfo:intake · generado por scripts/familias.py; no se edita a mano -->
-Recomendada, no obligatoria: el motor procesa la carpeta como esté, y el inventario dice qué archivo está fuera de su lugar y dónde iría (ADR 0007). La contabilidad del periodo tiene un solo lugar, `10-contabilidad/`: Clara la cierra y Tomás saca de ahí la ejecución.
+Recomendada, no obligatoria: el motor procesa la carpeta como esté, y el inventario dice qué archivo está fuera de su lugar y dónde iría (ADR 0007). La contabilidad del periodo tiene un solo lugar, `10-contabilidad/`: Clara la cierra, Tomás saca de ahí la ejecución y Áurea calcula ahí los covenants.
 
 Una carpeta por entidad, con el NIT o el RUC al inicio del nombre: `900123456-nombre-de-la-entidad`. Dentro, lo que la organización entrega una vez, una carpeta por periodo contable y una por año presupuestal.
 
@@ -33,7 +33,8 @@ finanzas/
     │   ├── 20-bancos/
     │   ├── 30-facturacion/
     │   ├── 40-soportes/
-    │   └── 50-auditoria/
+    │   ├── 50-auditoria/
+    │   └── 60-tesoreria/
     └── presupuesto-<AAAA>/
         ├── 10-aprobado/
         ├── 20-compromisos/
@@ -46,17 +47,18 @@ estado-finanzas/
 
 | Carpeta | Qué va | Agente |
 |---|---|---|
-| `00-referencia/` | El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales | Clara, Tomás |
+| `00-referencia/` | El plan de cuentas con la naturaleza de cada cuenta, `checklist-cierre.xlsx` en el modelo definido y el mapeo de cuentas a centros de costo y líneas presupuestales; para Áurea, la política de tesorería, la matriz de firmas, el registro de la deuda y los covenants | Clara, Tomás, Áurea |
 
 **`<AAAA-MM>/`** · Un periodo contable, numerado en el orden en que se trabaja el cierre
 
 | Carpeta | Qué va | Agente |
 |---|---|---|
 | `10-contabilidad/` | Balance de comprobación y libro mayor exportados del ERP, y `auxiliares/` con un archivo por cuenta; de aquí sale también la ejecución del presupuesto | Clara, Tomás |
-| `20-bancos/` | Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros | Clara |
+| `20-bancos/` | Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros | Clara, Áurea |
 | `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01) o del SRI (F-04) | Clara |
 | `40-soportes/` | La evidencia de cada tarea del checklist —actas, correos, conciliaciones firmadas—, con el id de la tarea al inicio del nombre | Clara |
 | `50-auditoria/` | `requerimientos/` y `respuestas/` del auditor | Clara |
+| `60-tesoreria/` | El programa de pagos con quién aprobó cada uno y el flujo de caja proyectado al cierre del periodo | Áurea |
 
 **`presupuesto-<AAAA>/`** · Un año presupuestal
 
@@ -67,7 +69,7 @@ estado-finanzas/
 | `30-proyecciones/` | La proyección de cada área, una por área y fecha | Tomás |
 | `40-actas/` | Actas del comité de presupuesto, de aprobación y de traslados | Tomás |
 
-**`estado-finanzas/`** · Lo que escriben Clara y Tomás: la configuración, las fichas, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí.
+**`estado-finanzas/`** · Lo que escriben Clara, Tomás y Áurea: la configuración, las fichas, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí.
 <!-- /cfo:intake -->
 
 ## Lo que nunca se hace

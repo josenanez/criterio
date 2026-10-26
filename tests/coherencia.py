@@ -465,7 +465,7 @@ print("\nDesde la familia se llega a cada agente")
 # Cada familia, con los plugins a los que su página tiene que llevar: sus agentes y el portal.
 FAMILIAS = {
     "criterio-pmo": ["criterio-portfolio", "criterio-server", "criterio-project", "criterio-product"],
-    "criterio-cfo": ["criterio-finance", "criterio-budget", "criterio-server"],
+    "criterio-cfo": ["criterio-finance", "criterio-budget", "criterio-treasury", "criterio-server"],
     "criterio-clo": ["criterio-legal", "criterio-compliance", "criterio-server"],
 }
 FAMILIA = RAIZ / "families" / "criterio-pmo"

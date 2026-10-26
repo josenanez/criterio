@@ -1,0 +1,272 @@
+{
+  "comandos": {
+    "treasury-setup": {
+      "funcion": "Deja a Áurea lista sobre la tesorería de una entidad.",
+      "entrada": {
+        "argumento": "[ruta de la carpeta] o vacío",
+        "lee": [
+          "documentos de la entidad"
+        ]
+      },
+      "salida": {
+        "muestra": "inventario, preguntas, primera posición de caja",
+        "escribe": [
+          ".criterio/tesoreria/<entidad>/config.json",
+          "<estado>/ (init)",
+          ".criterio/terminos/ (aceptar)",
+          "<estado>/tesoreria/<AAAA-MM>/resultados.json",
+          "<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md",
+          "<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "finance-intake"
+        ],
+        "script": [
+          "aceptar",
+          "buscar-raiz",
+          "compute",
+          "config",
+          "corrida",
+          "init",
+          "inventario",
+          "marcar-raiz",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "extractos, programa de pagos, flujo, política, matriz, deuda y covenants de cada industria",
+        "esperado": "la posición de caja de cada cuenta contra su mínimo y su proyección"
+      }
+    },
+    "treasury-scan": {
+      "funcion": "Procesa lo que cambió en la tesorería y calcula sus señales.",
+      "entrada": {
+        "argumento": "[AAAA-MM]",
+        "lee": [
+          "config",
+          "<estado>/indice.json",
+          "documentos"
+        ]
+      },
+      "salida": {
+        "muestra": "qué cambió y las señales nuevas",
+        "escribe": [
+          "<estado>/indice.json",
+          "<estado>/tesoreria/<AAAA-MM>/resultados.json",
+          "<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "finance-intake"
+        ],
+        "script": [
+          "compute",
+          "corrida",
+          "inventario",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un extracto nuevo y un pago programado sin aprobación",
+        "esperado": "las señales nuevas de la clave"
+      }
+    },
+    "cash-position": {
+      "funcion": "La caja de cada cuenta contra su mínimo y su proyección, y la exposición cambiaria.",
+      "entrada": {
+        "argumento": "[AAAA-MM]",
+        "lee": [
+          "config",
+          "extractos",
+          "flujo proyectado",
+          "política"
+        ]
+      },
+      "salida": {
+        "muestra": "tabla por cuenta y por moneda",
+        "escribe": [
+          "<estado>/tesoreria/<AAAA-MM>/resultados.json",
+          "<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "treasury-control"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "una cuenta bajo su mínimo, una desviada de su proyección, una posición en dólares sobre su límite",
+        "esperado": "cash_below_minimum, cash_vs_forecast, fx_exposure_over_limit de la clave"
+      }
+    },
+    "payment-check": {
+      "funcion": "Cada pago programado contra quién puede aprobarlo.",
+      "entrada": {
+        "argumento": "[AAAA-MM]",
+        "lee": [
+          "config",
+          "programa de pagos",
+          "política",
+          "matriz de firmas"
+        ]
+      },
+      "salida": {
+        "muestra": "tabla por pago",
+        "escribe": [
+          "<estado>/tesoreria/<AAAA-MM>/resultados.json",
+          "<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "treasury-control"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un pago con menos aprobaciones de las que pide la política, uno aprobado por quien no tiene facultad",
+        "esperado": "payment_without_approval, signatory_without_authority de la clave"
+      }
+    },
+    "debt-watch": {
+      "funcion": "La deuda contra su vencimiento y sus covenants, desde el balance que cierra Clara.",
+      "entrada": {
+        "argumento": "[AAAA-MM]",
+        "lee": [
+          "config",
+          "registro de la deuda",
+          "covenants",
+          "balance de comprobación"
+        ]
+      },
+      "salida": {
+        "muestra": "covenants y obligaciones por vencimiento",
+        "escribe": [
+          "<estado>/tesoreria/<AAAA-MM>/resultados.json",
+          "<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "treasury-control"
+        ],
+        "script": [
+          "corrida",
+          "reporte",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un crédito que vence en menos de treinta días y un covenant cerca de su límite",
+        "esperado": "maturity_near, covenant_at_risk de la clave"
+      }
+    },
+    "treasury-wake": {
+      "funcion": "Lo que toca hoy en la tesorería; si no toca nada, se calla.",
+      "entrada": {
+        "argumento": "[AAAA-MM-DD]",
+        "lee": [
+          "<estado>/corridas/registro.json",
+          "<estado>/peticiones/",
+          "config"
+        ]
+      },
+      "salida": {
+        "muestra": "qué tocaba y qué hizo, o nada",
+        "escribe": [
+          "<estado>/indice.json",
+          "<estado>/tesoreria/<AAAA-MM>/resultados.json",
+          "<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md",
+          "<estado>/peticiones/<id>.json (responder)"
+        ]
+      },
+      "reglas": {
+        "skills": [
+          "finance-intake"
+        ],
+        "script": [
+          "compute",
+          "corrida",
+          "despertar",
+          "reporte",
+          "responder",
+          "terminos"
+        ],
+        "calcula": true
+      },
+      "corrida": {
+        "caso": true,
+        "tambien": [
+          "treasury-scan",
+          "payment-check",
+          "cash-position",
+          "debt-watch"
+        ]
+      },
+      "prueba": {
+        "sembrado": "pagos programados en los próximos cinco días",
+        "esperado": "toca payment-check"
+      }
+    }
+  },
+  "skills": {
+    "finance-intake": {
+      "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo.",
+      "escribe": [],
+      "alimenta": []
+    },
+    "treasury-control": {
+      "decide": "Cómo se calculan la caja, la exposición, las aprobaciones de cada pago, los vencimientos y los covenants.",
+      "escribe": [],
+      "alimenta": [
+        "cash_below_minimum",
+        "cash_vs_forecast",
+        "covenant_at_risk",
+        "fx_exposure_over_limit",
+        "maturity_near",
+        "payment_without_approval",
+        "signatory_without_authority"
+      ]
+    }
+  },
+  "por_descripcion": {}
+}

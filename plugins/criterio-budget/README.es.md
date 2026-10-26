@@ -71,7 +71,7 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 |---|---|---|
 | `budget-record` | La ficha del presupuesto: lo que el agente extrae de los documentos escritos —actas de aprobación y de traslado, lo que cada área declara, los compromisos del comité— con su cita | Propio |
 | `committee-pack` | El material del comité de presupuesto como paquete de decisiones: qué entra, cómo se presenta cada punto con su cifra y su cita, y los compromisos del comité anterior | Propio |
-| `finance-intake` | Qué documentos procesa la familia, dónde va cada uno, qué procesa el motor directamente y qué extrae el agente a la ficha | Copia de Clara |
+| `finance-intake` | Qué documentos procesa la familia, dónde va cada uno, qué procesa el motor directamente y qué extrae el agente a la ficha | Copia de Clara · también en Áurea |
 | `forecast-method` | Las dos proyecciones al cierre del año —al ritmo y al plan—, sus supuestos, cómo se comparan con la del área y cuándo una proyección está vencida | Propio |
 | `transfer-control` | Los traslados, adiciones y reducciones: cómo se detectan comparando versiones, cómo se cruzan con el acta que los aprueba y qué es un acta sin cambio aplicado | Propio |
 | `variance-analysis` | La ejecución contra el presupuesto: la versión aprobada, el aprobado al corte, lo ejecutado desde la contabilidad con el mapeo de cuentas, lo comprometido, lo disponible y la desviación | Propio |

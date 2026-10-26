@@ -3,9 +3,9 @@
 # criterio-cfo · the finance function family
 
 **Every figure the CFO signs, backed by its evidence.** The family extends the CFO's office with
-two agents and a portal, around two records. Each one extends a different person in the
-finance function — whoever closes the books and whoever runs the budget — and neither talks to
-the other directly: they talk through their records.
+three agents and a portal, around their records. Each one extends a different person in the
+finance function — whoever closes the books, whoever runs the budget and whoever looks after the
+cash — and none talks to the others directly: they talk through their records.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
 
@@ -13,14 +13,14 @@ the other directly: they talk through their records.
 
 | | |
 |---|---|
-| **Scope** | The close, control and financial reporting of an entity: the books against their supporting documents, and the budget against its execution |
+| **Scope** | The finance function of an entity: the books against their supporting documents, the budget against its execution, and cash, payments and debt against their policy |
 | **Objective** | That the close stops depending on someone remembering what is missing |
-| **Made of** | [Clara](../../plugins/criterio-finance/README.md) · [Tomás](../../plugins/criterio-budget/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
+| **Made of** | [Clara](../../plugins/criterio-finance/README.md) · [Tomás](../../plugins/criterio-budget/README.md) · [Áurea](../../plugins/criterio-treasury/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The framework that defines each role and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **State** | Built and tested on synthetic material: the engine, against four industries and two control entities; the agents, in a [full round](../../tests/evidencias/familias/cfo/RONDAS.md) on the six entities. **Not yet tested on a specific organisation's documentation** |
+| **State** | Built and tested on synthetic material: the engine, against four industries and two control entities; the agents, in a [full round](../../tests/evidencias/familias/cfo/RONDAS.md) on the six entities. Áurea, treasury, built with her engine tested: her round with the agent is the next step. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Control and reporting |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
-| **What it is not** | It does not replace the controller or the financial planning team, and does not decide for them: it processes what the function already has and says what does not tie out |
+| **What it is not** | It does not replace the controller, the financial planning team or treasury, and does not decide for them: it processes what the function already has and says what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
 | **What comes next** | Deployment in an organisation: [the roadmap](#roadmap) |
 
@@ -30,11 +30,11 @@ the other directly: they talk through their records.
 
 ![The family: Clara and Tomás, one record each](../../docs/img/en/familia-cfo.png)
 
-The finance function has two roles that work on the same books and look at different things,
-which is why the family has two agents. They carry a person's name because **they are extended
+The finance function has three roles that work on the same books and look at different things,
+which is why the family has three agents. They carry a person's name because **they are extended
 capabilities of people**, and what each name means points to what it does: **Clara** —from
 *clarus*— makes sure the books say what the supporting documents say; **Tomás** —"the twin"— puts
-the budget next to its twin, actual spend.
+the budget next to its twin, actual spend; **Áurea** —from *aureus*, "golden"— looks after the cash.
 
 **Clara**, the controller's agent, prepares the monthly close: the checklist with its evidence,
 bank and account reconciliations, every DIAN or SRI e-invoice against its entry, and the
@@ -46,18 +46,25 @@ forecasts the year-end with its stated assumption, matches each transfer with it
 builds the committee material as a decision pack. He takes actuals from the same books Clara
 closes, without copying them.
 
-**Both install today**, each with its own plugin, and both carry the same debt, written on their
+**Áurea**, the treasury agent, puts each account against its minimum and its projection, each
+scheduled payment against who may approve it under the policy and the signing-authority matrix,
+currency exposure against its limit, and each debt covenant —calculated from the books Clara
+closes— against its limit. **She never moves money or logs into a bank portal**
+([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)).
+
+**Clara and Tomás install today**, each with its own plugin, and both carry the same debt, written on their
 page: the engine is tested against synthetic material from four industries; **the agents' extraction passed the full round on the six entities; nothing has been tested yet on an
-organisation's documents.**
+organisation's documents.** Áurea also installs today; her round with the agent is the next
+step.
 
 First version: IFRS as locally adopted in Colombia and Ecuador, with DIAN and SRI electronic
 invoicing processed from its official technical source.
 
 ---
 
-## How the two operate
+## How they operate
 
-![How the two agents operate](../../docs/img/en/flujo-cfo.png)
+![How the agents operate](../../docs/img/en/flujo-cfo.png)
 
 The language model (LLM) extracts; the code calculates; the status of the close and of the
 budget is always declared by a person. **The engine processes the tables directly** —the trial
@@ -70,7 +77,7 @@ without intervention. **Semi-automated** when a data point no document carries i
 entity, the period, the threshold, who approves—: then they ask the person, say what they asked
 and carry on with the answer.
 
-## The two agents and their records
+## The agents and their records
 
 Nothing talks to anything directly. **Each agent writes its record, and the record is the
 contract.**
@@ -106,7 +113,7 @@ write path.
 
 ## What still belongs to the people
 
-Both roles continue to exist in full. This extends capability; it does not replace function. And
+All three roles continue to exist in full. This extends capability; it does not replace function. And
 the argument is not politeness, it is structural:
 
 > **Each agent's input is produced by the non-delegable work of its person.**
@@ -116,7 +123,7 @@ there is nothing to contrast, and the controller to declare the status, because 
 everything is compared against. Tomás needs each area to deliver its forecast and the committee
 to write down its decision, because a transfer without minutes is exactly what he flags.
 
-Removing the person does not leave the agent alone: it leaves it without input. **And neither of
+Removing the person does not leave the agent alone: it leaves it without input. **And none of
 them posts an entry, approves a transfer, files a return or signs.**
 
 ## The recommended folder structure
@@ -139,7 +146,8 @@ finanzas/
     │   ├── 20-bancos/
     │   ├── 30-facturacion/
     │   ├── 40-soportes/
-    │   └── 50-auditoria/
+    │   ├── 50-auditoria/
+    │   └── 60-tesoreria/
     └── presupuesto-<AAAA>/
         ├── 10-aprobado/
         ├── 20-compromisos/
@@ -152,17 +160,18 @@ estado-finanzas/
 
 | Folder | What goes in | Agent |
 |---|---|---|
-| `00-referencia/` | The chart of accounts with each account's nature, `checklist-cierre.xlsx` in the defined model, and the mapping of accounts to cost centres and budget lines | Clara, Tomás |
+| `00-referencia/` | The chart of accounts with each account's nature, `checklist-cierre.xlsx` in the defined model, and the mapping of accounts to cost centres and budget lines; for Áurea, the treasury policy, the signing-authority matrix, the debt register and the covenants | Clara, Tomás, Áurea |
 
 **`<AAAA-MM>/`** · One accounting period, numbered in the order the close is worked
 
 | Folder | What goes in | Agent |
 |---|---|---|
 | `10-contabilidad/` | Trial balance and general ledger exported from the ERP, and `auxiliares/` with one file per account; budget execution comes from here too | Clara, Tomás |
-| `20-bancos/` | One folder per account, `<bank>-<last 4 digits>`, with the statement and the book ledger | Clara |
+| `20-bancos/` | One folder per account, `<bank>-<last 4 digits>`, with the statement and the book ledger | Clara, Áurea |
 | `30-facturacion/` | `emitidas/` and `recibidas/`, with the DIAN (F-01) or SRI (F-04) XML | Clara |
 | `40-soportes/` | The evidence for each checklist task —minutes, emails, signed reconciliations—, with the task id at the start of the name | Clara |
 | `50-auditoria/` | The auditor's `requerimientos/` (requests) and `respuestas/` (answers) | Clara |
+| `60-tesoreria/` | The payment schedule with who approved each payment, and the cash flow projected to period end | Áurea |
 
 **`presupuesto-<AAAA>/`** · One budget year
 
@@ -173,7 +182,7 @@ estado-finanzas/
 | `30-proyecciones/` | Each area's forecast, one per area and date | Tomás |
 | `40-actas/` | Minutes of the budget committee, of approvals and of transfers | Tomás |
 
-**`estado-finanzas/`** · What Clara and Tomás write: the configuration, the records, the reports and the indexes. No person edits it, and no agent writes anywhere else.
+**`estado-finanzas/`** · What Clara, Tomás and Áurea write: the configuration, the records, the reports and the indexes. No person edits it, and no agent writes anywhere else.
 <!-- /cfo:carpetas -->
 
 A file without the expected format is not guessed: it is reported with what it lacks.
@@ -210,6 +219,7 @@ lives. **Each agent page stands on its own** — somebody can install one withou
 |---|---|---|---|---|
 | **Clara** · controller | The monthly close with its checklist and evidence, bank and account reconciliations, e-invoices against the books, and the auditor's package | It does not post entries, does not sign and does not declare the close status | [criterio-finance](../../plugins/criterio-finance/README.md) · 9 commands, 7 skills | [results](../../tests/criterio-finance/RESULTADOS.md) |
 | **Tomás** · FP&A | The approved budget against actual and committed spend, the year-end forecast, budget transfers and the budget committee pack | It does not approve transfers, does not recommend the committee's decision and does not declare any area's status | [criterio-budget](../../plugins/criterio-budget/README.md) · 7 commands, 6 skills | [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · treasury | Cash against its minimum and projection, each scheduled payment against who may approve it, currency exposure against its limit, and debt against its maturity and its covenants | It does not move money, make payments or log into a bank portal, and it does not recommend an investment, a financing or a hedge | [criterio-treasury](../../plugins/criterio-treasury/README.md) · 6 commands, 2 skills | [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /cfo:familia-agentes -->
 
@@ -259,17 +269,17 @@ This is the table that answers three questions at once: **where each agent lands
 configured, and how often it makes sense for it to run.**
 
 <!-- cfo:configuracion · generado por scripts/familias.py; no se edita a mano -->
-| | Clara | Tomás |
-|---|---|---|
-| **Installs as** | `criterio-finance` | `criterio-budget` |
-| **Instances** | One per entity | One per entity |
-| **Configured with** | `/criterio-finance:finance-setup` | `/criterio-budget:budget-setup` |
-| **How long that takes** | Fifteen minutes | Fifteen minutes |
-| **What you have to tell it** | Entity and NIT or RUC, country, IFRS group (F-05, F-06), ERP, currency, period, thresholds, who approves, chart of accounts | Entity, budget year, areas or cost centres with their owner, the approved version and its minutes, the mapping of accounts to budget lines (in `00-referencia/`), the variance thresholds and, if the organisation uses the PMO family, where its records are |
-| **Where it lands** | `.criterio/finanzas/<entity>/config.json`, written by the command | `.criterio/presupuesto/<entity>/config.json`, written by the command |
-| **The one you put on a clock** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` |
-| **What it does each day** | Decides what is due by cadence: daily during the close window, weekly outside it | Decides what is due by cadence: when a new period appears in `10-contabilidad/`, before each committee and once a week for commitments |
-| **What wakes it besides the clock** | A question somebody left in Rostrum | A question somebody left in Rostrum |
+| | Clara | Tomás | Áurea |
+|---|---|---|---|
+| **Installs as** | `criterio-finance` | `criterio-budget` | `criterio-treasury` |
+| **Instances** | One per entity | One per entity | One per entity |
+| **Configured with** | `/criterio-finance:finance-setup` | `/criterio-budget:budget-setup` | `/criterio-treasury:treasury-setup` |
+| **How long that takes** | Fifteen minutes | Fifteen minutes | Fifteen minutes |
+| **What you have to tell it** | Entity and NIT or RUC, country, IFRS group (F-05, F-06), ERP, currency, period, thresholds, who approves, chart of accounts | Entity, budget year, areas or cost centres with their owner, the approved version and its minutes, the mapping of accounts to budget lines (in `00-referencia/`), the variance thresholds and, if the organisation uses the PMO family, where its records are | Entity and period, the accounts in another currency, the thresholds for deviation, maturity and covenant margin, where the state is kept and the terms |
+| **Where it lands** | `.criterio/finanzas/<entity>/config.json`, written by the command | `.criterio/presupuesto/<entity>/config.json`, written by the command | `.criterio/tesoreria/<entity>/config.json`, written by the command |
+| **The one you put on a clock** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` | `/criterio-treasury:treasury-wake` |
+| **What it does each day** | Decides what is due by cadence: daily during the close window, weekly outside it | Decides what is due by cadence: when a new period appears in `10-contabilidad/`, before each committee and once a week for commitments | Decides what is due: payments in the next five days, obligations entering their maturity window and a weekly review |
+| **What wakes it besides the clock** | A question somebody left in Rostrum | A question somebody left in Rostrum | A question somebody left in Rostrum |
 <!-- /cfo:configuracion -->
 
 **Nobody edits a configuration file by hand.** If changing a threshold means opening a JSON, the
@@ -301,7 +311,7 @@ there is news nobody opens it.
 
 ### What is **not** scheduled
 
-**Neither of them schedules itself.** Both ship the command a clock invokes, and the clock lives
+**None of them schedules itself.** Each ships the command a clock invokes, and the clock lives
 outside the plugin — a Claude Cowork scheduled task, or the operating system's scheduler invoking
 Claude non-interactively. Somebody has to set it up, once.
 
@@ -328,7 +338,7 @@ counts the same as a missing one.**
 | What is checked across the family | Why it belongs to the family and not to one agent |
 |---|---|
 | That every planted signal is raised, and none in the controls | Clara's signals and Tomás's come from the same engine and the same material |
-| **That the shared copies have not drifted apart** | `finanzas.py` and `finance-intake` travel copied in both plugins. Two copies that drift compute differently over the same documents, and nobody would know which to believe |
+| **That the shared copies have not drifted apart** | `finanzas.py` and `finance-intake` travel copied in all three plugins. Two copies that drift compute differently over the same documents, and nobody would know which to believe |
 | That the design, the pages and the portal say what the sources say | The tables of agents, commands, signals, folders and skills come from `familia.json`, `carpetas.json` and `fuentes.json`; `scripts/familias.py --check` fails if a copy does not match |
 | That every invoice field the engine processes is in its official source | A field that is not in the DIAN annex or the SRI technical sheet is not processed ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), rule 2) |
 
@@ -357,36 +367,37 @@ The family grows in increments. Each one is a version with its full test and its
 
 | Version | Status | What goes in | Test |
 |---|---|---|---|
-| 0.8.0 | Released | **Built, with the engine tested and a first round with the agent**<br>· Clara and Tomás’s sixteen commands, their twelve skills and the calculation engine<br>· DIAN and SRI electronic invoicing, processed from its official technical source<br>· The root folder each agent searches for and, with permission, marks<br>· The family in Rostrum, with what falls due and where each agent works<br>· The first round with the agent: Clara and Tomás on banking and the Colombian control, with the defects it found fixed | The engine, against 4 industries and 2 control entities; the agent, on banking and the Colombian control |
+| 0.8.0 | Released | **Built, with the engine tested and a first round with the agent**<br>· Clara and Tomás’s commands, their skills and the calculation engine<br>· DIAN and SRI electronic invoicing, processed from its official technical source<br>· The root folder each agent searches for and, with permission, marks<br>· The family in Rostrum, with what falls due and where each agent works<br>· The first round with the agent: Clara and Tomás on banking and the Colombian control, with the defects it found fixed | The engine, against 4 industries and 2 control entities; the agent, on banking and the Colombian control |
 | 0.9.0 | Released | **The full round with the agent**<br>· Clara and Tomás run their commands on the material of the four industries, as the PMO does in every round<br>· What only minutes, emails and auditor letters carry, extracted and graded against the key<br>· With a full round, the family is declared tested | 4 industries and 2 control entities, with the key the agent never sees |
 | Increment 3 | Reserved | **Deployment in an organisation**<br>· The first use on a specific organisation’s books and budget | That organisation’s documentation |
 
 <!-- /hoja de ruta -->
 
-## The family's twelve skills
+## The family's thirteen skills
 
 <!-- cfo:skills-familia · generado por scripts/familias.py; no se edita a mano -->
-Twelve distinct skills across the two agents. **The ones they share are literal copies, not an imported module**: an installed plugin has to run on its own. `scripts/sincronizar.py` copies them and `scripts/sincronizar.py --check` fails if they drift.
+Thirteen distinct skills across the two agents. **The ones they share are literal copies, not an imported module**: an installed plugin has to run on its own. `scripts/sincronizar.py` copies them and `scripts/sincronizar.py --check` fails if they drift.
 
-| Skill | Clara | Tomás |
-|---|:--:|:--:|
-| `audit-support` | ● | · |
-| `budget-record` | · | ● |
-| `close-checklist` | ● | · |
-| `close-record` | ● | · |
-| `committee-pack` | · | ● |
-| `einvoice-matching` | ● | · |
-| `finance-intake` | ● | ● |
-| `forecast-method` | · | ● |
-| `ledger-tieout` | ● | · |
-| `reconciliation` | ● | · |
-| `transfer-control` | · | ● |
-| `variance-analysis` | · | ● |
+| Skill | Clara | Tomás | Áurea |
+|---|:--:|:--:|:--:|
+| `audit-support` | ● | · | · |
+| `budget-record` | · | ● | · |
+| `close-checklist` | ● | · | · |
+| `close-record` | ● | · | · |
+| `committee-pack` | · | ● | · |
+| `einvoice-matching` | ● | · | · |
+| `finance-intake` | ● | ● | ● |
+| `forecast-method` | · | ● | · |
+| `ledger-tieout` | ● | · | · |
+| `reconciliation` | ● | · | · |
+| `transfer-control` | · | ● | · |
+| `treasury-control` | · | · | ● |
+| `variance-analysis` | · | ● | · |
 <!-- /cfo:skills-familia -->
 
 ## Status
 
-**Both are built and can be installed today**, and both carry the same debt, which is better not
+**All three are built and can be installed today**, and they carry the same debt, which is better not
 hidden: **the engine and the agents' extraction are tested on synthetic material, not on a real organisation's
 documentation.**
 
@@ -395,6 +406,7 @@ documentation.**
 |---|---|---|
 | **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; the full round with the agent, round 2 · [results](../../tests/criterio-finance/RESULTADOS.md) |
 | **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; the full round with the agent, round 2 · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; the full round with the agent, round 2 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 

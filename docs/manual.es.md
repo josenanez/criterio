@@ -1,6 +1,6 @@
 # Manual de los comandos de Criterio
 
-Los 68 comandos de las familias PMO, CFO y CLO y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros y Tomás lleva el presupuesto— y la CLO —Fidel lleva los contratos y Constanza el cumplimiento—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
+Los 74 comandos de las familias PMO, CFO y CLO y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros y Tomás lleva el presupuesto— y la CLO —Fidel lleva los contratos y Constanza el cumplimiento—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
 
 Este manual se genera con `scripts/manual.py` desde la tabla del README de cada plugin y su `contratos.json`, el mismo contrato que las pruebas comparan contra cada corrida. No se edita a mano.
 
@@ -737,6 +737,92 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Muestra.** qué tocaba y qué hizo, o nada
 
 **Escribe.** `<estado>/indice.json`; `<estado>/presupuesto/<AAAA>/resultados.json`; `<estado>/presupuesto/<AAAA>/reporte-<comando>.md`; `<estado>/peticiones/<id>.json (responder)`
+
+**Skills.** **finance-intake**
+
+## Áurea · la tesorería
+
+### `/criterio-treasury:treasury-setup`
+
+**Qué hace.** La configuración, el inventario y la primera posición de caja
+
+**Argumento.** `[ruta de la carpeta] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** inventario, preguntas, primera posición de caja
+
+**Escribe.** `.criterio/tesoreria/<entidad>/config.json`; `<estado>/ (init)`; `.criterio/terminos/ (aceptar)`; `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`; `<raíz>/_CRITERIO_FINANZAS.txt (marcar-raiz, con permiso)`
+
+**Skills.** **finance-intake**
+
+### `/criterio-treasury:treasury-scan`
+
+**Qué hace.** La tesorería al día, con lo que cambió y las señales nuevas
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; `<estado>/indice.json`; documentos
+
+**Muestra.** qué cambió y las señales nuevas
+
+**Escribe.** `<estado>/indice.json`; `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **finance-intake**
+
+### `/criterio-treasury:cash-position`
+
+**Qué hace.** La caja de cada cuenta contra su mínimo y su proyección, y la exposición cambiaria
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; extractos; flujo proyectado; política
+
+**Muestra.** tabla por cuenta y por moneda
+
+**Escribe.** `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **treasury-control**
+
+### `/criterio-treasury:payment-check`
+
+**Qué hace.** Cada pago programado contra quién puede aprobarlo
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; programa de pagos; política; matriz de firmas
+
+**Muestra.** tabla por pago
+
+**Escribe.** `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **treasury-control**
+
+### `/criterio-treasury:debt-watch`
+
+**Qué hace.** La deuda contra su vencimiento y lo que exige su contrato
+
+**Argumento.** `[AAAA-MM]`
+
+**Procesa.** config; registro de la deuda; covenants; balance de comprobación
+
+**Muestra.** covenants y obligaciones por vencimiento
+
+**Escribe.** `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`
+
+**Skills.** **treasury-control**
+
+### `/criterio-treasury:treasury-wake`
+
+**Qué hace.** Lo que toca hoy en la tesorería; si no toca nada, se calla
+
+**Argumento.** `[AAAA-MM-DD]`
+
+**Procesa.** `<estado>/corridas/registro.json`; `<estado>/peticiones/`; config
+
+**Muestra.** qué tocaba y qué hizo, o nada
+
+**Escribe.** `<estado>/indice.json`; `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`; `<estado>/peticiones/<id>.json (responder)`
 
 **Skills.** **finance-intake**
 

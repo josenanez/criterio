@@ -2,7 +2,7 @@
 
 # criterio-cfo · the family design
 
-**Status: built and tested on synthetic material.** The sixteen commands, the twelve skills and the calculation
+**Status: built and tested on synthetic material.** The 22 commands, the thirteen skills and the calculation
 engine are built; the engine passes its deterministic test against the material of four industries
 and two control entities (`tests/criterio-cfo/`), and the agents passed the full round on the six entities ([the rounds](../../tests/evidencias/familias/cfo/RONDAS.md)).
 Scope in [ADR 0006](../../docs/decisions/0006-scope-cfo.md); how the work is split between the
@@ -10,8 +10,8 @@ engine and the agent, in [ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-
 
 **This is the family's design sheet**: the documents it processes, the signals the code calculates, each command with its input, process and report, and the decisions taken. What the family does, how it is installed, its records and their invariants, the folder structure, Rostrum, the cadence, the tests and the roadmap are on its [page](README.md).
 
-Two agents that extend the capacity of the finance function: they prepare the work of the close and
-the budget, and check it against all of its evidence to flag what does not tie out, what has no
+Three agents that extend the capacity of the finance function: they prepare the work of the close, the budget and
+treasury, and check it against all of its evidence to flag what does not tie out, what has no
 support and what is reported differently from what the documents say. The large language model
 (LLM) extracts; the code calculates; the status of the close and of the budget is always declared
 by a person.
@@ -46,9 +46,10 @@ in the structure or if it relies on a source still to be verified.
 |---|---|---|---|
 | Controller | **Clara** — from *clarus*: the books say what the supporting documents say | `criterio-finance` | The monthly close with its checklist and evidence, bank and account reconciliations, e-invoices against the books, and the auditor's package |
 | FP&A | **Tomás** — “the twin”: puts the budget next to its twin, actual spend | `criterio-budget` | The approved budget against actual and committed spend, the year-end forecast, budget transfers and the budget committee pack |
+| Treasury | **Áurea** — from the Latin *aureus*, “golden”: the cash | `criterio-treasury` | Cash against its minimum and projection, each scheduled payment against who may approve it, currency exposure against its limit, and debt against its maturity and its covenants |
 <!-- /cfo:agentes -->
 
-As in the PMO family, the two never talk to each other: they talk through their records. The records and the invariants that govern them, on the [family page](README.md#the-two-agents-and-their-records).
+As in the PMO family, the two never talk to each other: they talk through their records. The records and the invariants that govern them, on the [family page](README.md#the-agents-and-their-records).
 
 ## The documents they process
 
@@ -105,6 +106,18 @@ rule 2). Where each document goes, in the [recommended folder structure](README.
 | `spend_without_budget_line` | There is spend in an account or cost centre with no budget line |
 | `declared_vs_evidence` | The area reports itself within budget and the numbers do not support it |
 | `project_budget_mismatch` | A project's budget in its record differs from what the area has assigned |
+
+**Áurea · Treasury**
+
+| Signal | Raised when |
+|---|---|
+| `cash_below_minimum` | The balance of an account or of consolidated cash falls below the minimum the policy sets |
+| `cash_vs_forecast` | An account's actual balance deviates from its projection by more than the threshold |
+| `fx_exposure_over_limit` | The position in another currency, converted at the policy's rate, exceeds its limit |
+| `payment_without_approval` | A scheduled payment lacks the approvals the policy requires for its amount |
+| `signatory_without_authority` | Whoever approves a payment lacks the authority in the signing-authority matrix, or is not in it |
+| `covenant_at_risk` | A debt-contract ratio, calculated from the trial balance Clara closes, crosses its limit or comes within the margin of it |
+| `maturity_near` | A debt obligation or an investment matures within the configured days |
 <!-- /cfo:senales -->
 
 Thresholds are each organisation's configuration, with a declared default value; none of them is a
@@ -206,6 +219,21 @@ written assumption, and the committee's decision is made by a person.
 | 6 | `budget-wake` | The configuration and the records | Decides what is due by cadence: when a new period appears in `10-contabilidad/`, before each committee and once a week for commitments | What ran and what it found; if nothing is due, it stays silent |
 <!-- /cfo:comandos-tomas -->
 
+## Áurea's commands, in order of importance
+
+Áurea shares the engine, the folder and the period with Clara ([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)): she takes the statements Clara reconciles and calculates the covenants from the trial balance Clara closes. She never moves money or logs into a bank portal.
+
+<!-- cfo:comandos-aurea · generado por scripts/familias.py; no se edita a mano -->
+| # | Command | Input | Process (calculated by the code) | Report |
+|---|---|---|---|---|
+| 0 | `treasury-setup` | The root folder, the same as Clara's and Tomás's. Questions: entity and period, the accounts in another currency, the thresholds for deviation, maturity and covenant margin, where the state is kept and the terms | Inventory of what is there: which accounts have a statement in `20-bancos`, whether there is a payment schedule and a projection in `60-tesoreria`, and whether `00-referencia` holds the policy, the signing-authority matrix, the debt register and the covenants; creates, moves or renames nothing | Configuration saved; inventory by folder; the first cash position |
+| 1 | `treasury-scan` | The statements in `20-bancos`, the payment schedule and projection in `60-tesoreria`, the policy, matrix, debt register and covenants in `00-referencia`, and the trial balance in `10-contabilidad` | Processes each table with its fingerprint; reprocesses only what changed; calculates the seven signals | What changed; the new signals; what could not be processed and why |
+| 2 | `cash-position` | The period's statements, the projection and the policy | The last balance of each account against its minimum and its projection; consolidated cash; the position in other currencies converted at the policy's rate | By account: balance, minimum, projected and deviation; consolidated cash; exposure by currency against its limit |
+| 3 | `payment-check` | The payment schedule, the policy and the signing-authority matrix | Each payment against the approvals the policy requires for its amount and against the authority of each approver | By payment: amount, who approved and how many approvals it requires; those without them and who signed without authority |
+| 4 | `debt-watch` | The debt register, the covenants and the trial balance of the period Clara closes | The days left on each obligation and investment; each covenant calculated from the trial balance, against its limit | The covenants with their value, limit and status; the obligations by maturity |
+| 5 | `treasury-wake` | The configuration and the tables | Decides what is due: payments in the next five days, obligations entering their maturity window and a weekly review | What ran and what it found; if nothing is due, it stays silent |
+<!-- /cfo:comandos-aurea -->
+
 ## What is reused from the PMO family
 
 - `texto.py` for Word, Excel, PowerPoint, PDF and email, and `terminos.py` for accepting the terms,
@@ -237,7 +265,7 @@ tested in the round, on the same material. The family is declared tested with a 
 ## Third-party figures
 
 <!-- cfo:cifras · generado por scripts/familias.py; no se edita a mano -->
-Only verified figures go in, with their source, year and sample; they are in [`FUENTES.es.md`](FUENTES.es.md) (Spanish). Verified: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner).
+Only verified figures go in, with their source, year and sample; they are in [`FUENTES.es.md`](FUENTES.es.md) (Spanish). Verified: C-01 (Ventana Research / ISG), C-02 (KPMG), C-03 (APQC), C-04 (Gartner), C-05 (Association for Financial Professionals).
 <!-- /cfo:cifras -->
 
 ## Closed decisions

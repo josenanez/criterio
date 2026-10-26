@@ -29,7 +29,8 @@
       },
       "agentes": [
         "finanzas",
-        "presupuesto"
+        "presupuesto",
+        "tesoreria"
       ]
     },
     {
@@ -461,6 +462,61 @@
       ]
     },
     {
+      "id": "aurea",
+      "nombre": "Áurea",
+      "plugin": "criterio-treasury",
+      "area": "tesoreria",
+      "ambitos": [
+        "tesoreria"
+      ],
+      "familia": "cfo",
+      "rol": {
+        "es": "Tesorería",
+        "en": "Treasury"
+      },
+      "titulo": "la tesorería",
+      "setup": "/criterio-treasury:treasury-setup",
+      "marca": "_CRITERIO_FINANZAS.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "treasury-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "treasury-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Tesorería",
+          "linea": "La caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants",
+          "comandos": [
+            {
+              "id": "treasury-scan",
+              "etiqueta": "Qué cambió en la tesorería"
+            },
+            {
+              "id": "cash-position",
+              "etiqueta": "La posición de caja"
+            },
+            {
+              "id": "payment-check",
+              "etiqueta": "Los pagos y quién los aprueba"
+            },
+            {
+              "id": "debt-watch",
+              "etiqueta": "La deuda y sus covenants"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "fidel",
       "nombre": "Fidel",
       "plugin": "criterio-legal",
@@ -612,6 +668,8 @@
     "audit_request_unanswered": "Un requerimiento del auditor no tiene respuesta con soporte",
     "bank_unreconciled": "Hay movimientos del extracto sin su registro, o registros sin su movimiento",
     "budget_version_mismatch": "El informe usa una versión del presupuesto distinta de la aprobada",
+    "cash_below_minimum": "El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política",
+    "cash_vs_forecast": "El saldo real de una cuenta se aparta de su proyección más del umbral",
     "close_task_done_without_evidence": "Una tarea figura cumplida y ningún documento la sostiene",
     "close_task_overdue": "Una tarea del checklist pasó su fecha y no tiene evidencia",
     "committed_near_approved": "Ejecutado más comprometido se acerca a lo aprobado sin holgura",
@@ -623,6 +681,7 @@
     "contract_obligation_not_in_matrix": "Una obligación de cumplimiento de un contrato no está en la matriz",
     "contract_obligation_overdue": "Una obligación del contrato pasó su fecha sin evidencia",
     "counterparty_certificate_stale": "El certificado de la contraparte tenía más días de los configurados cuando se firmó",
+    "covenant_at_risk": "Un indicador de un contrato de deuda, calculado desde el balance que cierra Clara, cruza su límite o queda a menos del margen de él",
     "declared_close_vs_evidence": "El cierre se reporta como cerrado y hay señales abiertas que ese estado no explica",
     "declared_compliance_vs_evidence": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
     "declared_vs_evidence": "El área se reporta dentro del presupuesto y los números no lo sostienen",
@@ -631,13 +690,16 @@
     "einvoice_not_recorded": "Una factura electrónica emitida o recibida no tiene registro contable",
     "forecast_over_approved": "La proyección al cierre del año supera lo aprobado",
     "forecast_stale": "La proyección del área no se actualizó en los días configurados",
+    "fx_exposure_over_limit": "La posición en otra moneda, convertida con la tasa de la política, supera su límite",
     "guarantee_expires_early": "La póliza aportada vence antes de lo que exige el contrato",
     "guarantee_missing": "El contrato exige una garantía y no hay póliza aportada",
     "ledger_vs_trial_balance": "El saldo de una cuenta en el mayor no es el del balance de comprobación",
+    "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados",
     "notice_deadline_near": "La fecha límite del preaviso de no renovación de un contrato con renovación automática cae dentro de los días configurados",
     "obligation_without_owner": "Una obligación de la matriz no tiene responsable",
     "obligation_without_source": "Una obligación de la matriz no cita la norma, el contrato o la política de la que sale",
     "payment_after_termination": "Hay pagos con fecha posterior a la terminación del contrato",
+    "payment_without_approval": "Un pago programado no tiene las aprobaciones que pide la política para su monto",
     "payments_over_value": "Lo pagado supera el valor del contrato más sus otrosíes",
     "policy_review_overdue": "Una política pasó su fecha de revisión",
     "project_budget_mismatch": "El presupuesto de un proyecto en su ficha no es el que tiene asignado el área",
@@ -649,6 +711,7 @@
     "regulatory_change_unassessed": "Una norma registrada lleva más días de los configurados sin evaluación de impacto",
     "renewal_notice_missed": "Pasó la fecha límite del preaviso de un contrato con renovación automática sin una decisión registrada",
     "report_case_overdue": "Un caso del canal de denuncias pasó el plazo de respuesta configurado",
+    "signatory_without_authority": "Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella",
     "signed_without_authority": "Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones",
     "spend_without_budget_line": "Hay gasto en una cuenta o centro de costo sin línea presupuestal",
     "transfer_without_approval": "Un traslado o una modificación no tiene el acta que lo aprueba",

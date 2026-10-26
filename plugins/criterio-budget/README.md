@@ -71,7 +71,7 @@ They load on their own when the subject comes up. They are the knowledge the com
 |---|---|---|
 | `budget-record` | The budget record: what the agent extracts from written documents —approval and transfer minutes, what each area declares, the committee's commitments— with its citation | Own |
 | `committee-pack` | The budget committee material as a decision pack: what goes in, how each point is presented with its figure and citation, and the previous committee's commitments | Own |
-| `finance-intake` | Which documents the family processes, where each one goes, what the engine processes directly and what the agent extracts to the record | Copy of Clara's |
+| `finance-intake` | Which documents the family processes, where each one goes, what the engine processes directly and what the agent extracts to the record | Copy of Clara's · also in Áurea |
 | `forecast-method` | The two year-end forecasts —at the current pace and to plan—, their assumptions, how they compare with the area's own and when a forecast is stale | Own |
 | `transfer-control` | Transfers, additions and reductions: how they are found by comparing versions, how they are matched with the minutes that approve them and what minutes with no change applied are | Own |
 | `variance-analysis` | Actuals against budget: the approved version, the approved amount to date, actuals from the books through the account mapping, committed, available and the variance | Own |
