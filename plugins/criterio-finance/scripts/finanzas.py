@@ -1132,7 +1132,7 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
     _PAIS[0] = N.pais_de(cfg)
     estado = cfg["_estado"] / "presupuesto" / anio
     ficha = leer_json(estado / "ficha.json", {}) or {}
-    problemas = revisar_ficha_presupuesto(ficha)
+    problemas = revisar_ficha_presupuesto(ficha) + escritos_sin_citar(cfg, anio, ficha)
     alertas, no_proc = [], []
     vs = versiones(cfg, anio)
     for v in vs:
@@ -1259,6 +1259,33 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
             "record_issues": problemas, "preguntas": ficha.get("questions") or [], "vence": []}
 
 
+ESCRITOS = {".md", ".txt", ".docx", ".pdf", ".eml"}
+
+
+def _fuentes(x) -> set[str]:
+    """Cada `source` de la ficha, a cualquier profundidad."""
+    if isinstance(x, dict):
+        return ({str(x["source"])} if x.get("source") else set()) | {s for v in x.values() for s in _fuentes(v)}
+    if isinstance(x, list):
+        return {s for v in x for s in _fuentes(v)}
+    return set()
+
+
+def escritos_sin_citar(cfg: dict, anio: str, f: dict) -> list[str]:
+    """Las actas y lo que escriben las áreas son lo único que el agente lleva a la ficha: un escrito de
+    `30-proyecciones/` o de `40-actas/` que la ficha no cita es uno que nadie procesó. Si no trae nada
+    para la ficha, va en `reviewed` con el motivo; así no se calla."""
+    docs, citadas = cfg["_docs"], _fuentes(f)
+    out = []
+    for sub in ("30-proyecciones", "40-actas"):
+        d = docs / f"presupuesto-{anio}" / sub
+        for x in sorted(d.rglob("*")) if d.is_dir() else []:
+            r = rel(x, docs)
+            if x.is_file() and x.suffix.lower() in ESCRITOS and not x.name.startswith(".") and r not in citadas:
+                out.append(f"{r}: documento escrito que la ficha no cita; extrae lo que diga, o anótalo en reviewed con el motivo")
+    return out
+
+
 def revisar_ficha_presupuesto(f: dict) -> list[str]:
     p = []
     for i, a in enumerate(f.get("minutes") or []):
@@ -1270,6 +1297,9 @@ def revisar_ficha_presupuesto(f: dict) -> list[str]:
     for i, s in enumerate(f.get("area_statements") or []):
         if not s.get("area") or not s.get("source"):
             p.append(f"area_statements[{i}]: lleva area, says y source")
+    for i, r in enumerate(f.get("reviewed") or []):
+        if not r.get("source") or not r.get("note"):
+            p.append(f"reviewed[{i}]: lleva source y note, el motivo por el que no trae nada para la ficha")
     for i, q in enumerate(f.get("questions") or []):
         if not q.get("question") or "answer" not in q:
             p.append(f"questions[{i}]: lleva question y answer")
@@ -1323,19 +1353,19 @@ def politica(cfg: dict) -> dict:
     return out
 
 
-def _saldo_final(ruta: Path) -> tuple[float | None, int | None]:
-    """El último saldo del extracto, con su fila."""
+def _saldo_final(ruta: Path) -> tuple[float | None, int | None, str | None]:
+    """El último saldo del extracto, con su fila y, si el extracto la trae, su moneda."""
     try:
-        t = Tabla(ruta, ["fecha"], ["saldo_final", "valor"])
+        t = Tabla(ruta, ["fecha"], ["saldo_final", "valor", "moneda"])
     except ValueError:
-        return None, None
+        return None, None, None
     if t.faltan or not t.filas:
-        return None, None
+        return None, None, None
     con = [f for f in t.filas if numero(f.get("saldo_final")) is not None]
     if not con:
-        return None, None
+        return None, None, None
     ult = max(con, key=lambda f: (fecha(f.get("fecha")) or dt.date.min, f["_fila"]))
-    return numero(ult["saldo_final"]), ult["_fila"]
+    return numero(ult["saldo_final"]), ult["_fila"], (str(ult.get("moneda") or "").strip().upper() or None)
 
 
 def caja(cfg: dict, periodo: str, pol: dict) -> dict:
@@ -1357,11 +1387,13 @@ def caja(cfg: dict, periodo: str, pol: dict) -> dict:
         if not ex:
             out["no_procesado"].append({"archivo": rel(sub, docs), "motivo": "no está el extracto"})
             continue
-        saldo, fila = _saldo_final(ex[0])
+        saldo, fila, del_extracto = _saldo_final(ex[0])
         if saldo is None:
             out["no_procesado"].append({"archivo": rel(ex[0], docs), "motivo": "el extracto no trae saldo"})
             continue
-        cuenta, moneda = sub.name.lower(), monedas.get(sub.name.lower(), funcional)
+        # La moneda: la que fija la configuración; si no, la que dice el extracto; si no, la funcional.
+        cuenta = sub.name.lower()
+        moneda = monedas.get(cuenta) or del_extracto or funcional
         cita = {"archivo": rel(ex[0], docs), "fila": fila}
         tasa = 1.0 if moneda == funcional else pol["tasa"].get(moneda)
         en_funcional = saldo * tasa if tasa else None
@@ -1953,6 +1985,15 @@ def selftest() -> int:
         escribir_json(est / "presupuesto" / "2026" / "ficha.json", ficha)
         rt = tomas(cfg, "2026", "2026-09", dt.date(2026, 10, 6))
         ok("con el acta, el traslado queda aprobado", [a for a in rt["alertas"] if a["signal"] == "transfer_without_approval"], [])
+        ok("el acta citada no queda como escrito sin citar", [x for x in rt["record_issues"] if "acta-03" in x], [])
+        (pr / "30-proyecciones").mkdir(parents=True, exist_ok=True)
+        (pr / "30-proyecciones" / "correo-administracion.md").write_text("Vamos dentro del presupuesto.", encoding="utf-8")
+        rt = tomas(cfg, "2026", "2026-09", dt.date(2026, 10, 6))
+        ok("un correo de un área que la ficha no cita queda en record_issues (CFO-6)",
+           [x.split(":")[0] for x in rt["record_issues"]], ["presupuesto-2026/30-proyecciones/correo-administracion.md"])
+        ficha["reviewed"] = [{"source": "presupuesto-2026/30-proyecciones/correo-administracion.md", "note": "no dice nada del presupuesto"}]
+        escribir_json(est / "presupuesto" / "2026" / "ficha.json", ficha)
+        ok("anotado en reviewed con su motivo, deja de señalarse", tomas(cfg, "2026", "2026-09", dt.date(2026, 10, 6))["record_issues"], [])
 
         inv = inventario(docs, None, estructura(ESTRUCTURA))
         ok("inventario: nada fuera de la estructura en la entidad de prueba", inv["fuera_de_lugar"] if ESTRUCTURA.is_file() else [], [])
@@ -2000,6 +2041,13 @@ def selftest() -> int:
         ok("Áurea: lo que vence va a la vista de Rostrum", [v["que"] for v in ra["vence"]], ["Crédito 01 · deuda"])
         md = reporte(ra, "payment-check", "0.0")
         ok("Áurea: el reporte nombra las señales del comando", "payment_without_approval" in md and "Áurea" in md, True)
+        # Sin la moneda en la configuración, la del extracto: la exposición no depende de que alguien la diga (CFO-5).
+        _csv(p / "20-bancos" / "exterior-9001" / "extracto.csv", [["fecha", "referencia", "descripcion", "valor", "saldo", "moneda"],
+             ["2026-09-30", "C", "Saldo", "50", "50", "USD"]])
+        cfg["treasury"] = {"currencies": {}}
+        ra = aurea(cfg, "2026-09", dt.date(2026, 10, 1))
+        ok("Áurea: la moneda del extracto cuando la configuración no la dice",
+           [a["key"] for a in ra["alertas"] if a["signal"] == "fx_exposure_over_limit"], ["exposicion:USD"])
 
     print(f"\n{'OK' if not fallas else str(len(fallas)) + ' FALLAS'}")
     return 1 if fallas else 0

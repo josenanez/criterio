@@ -27,6 +27,7 @@ Una por entidad y año: `<estado>/presupuesto/<AAAA>/ficha.json`. **La escribe e
 - **`area_statements`**: lo que un área afirma de su presupuesto —«estamos dentro»—, con la cita. El motor lo contrasta con los números y levanta `declared_vs_evidence` si no lo sostienen.
 - **`reports`**: la versión del presupuesto que usa un informe, si la dice.
 - **`committee_commitments`**: lo que el comité anterior dejó encargado, con su estado y la evidencia que lo prueba.
+- **`reviewed`**: un escrito de `30-proyecciones/` o `40-actas/` que leíste y no trae nada para la ficha, con su `source` y el motivo en `note`. Cada escrito de esas dos carpetas queda citado en algún campo: si no, `compute` lo devuelve en `record_issues` como documento sin extraer.
 
 ## Las reglas
 

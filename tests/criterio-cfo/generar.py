@@ -182,10 +182,13 @@ def a_pdf_extracto(origen: Path, destino: Path) -> None:
     cab = filas[0]
     num = {i for i, c in enumerate(cab) if c in ("valor", "saldo", "debito", "credito")}
     cuerpo = [[_cifra(v) if i in num and v else v for i, v in enumerate(f)] for f in filas[1:]]
+    # El ancho de cada columna sale de su texto más largo, con aire entre una y otra: un banco no
+    # imprime una celda pegada a la siguiente.
     xs, x = [], 40
     for i, c in enumerate(cab):
-        ancho = {"fecha": 62, "referencia": 80, "descripcion": 190}.get(c, 85)
-        xs.append((x + ancho - 8, "d") if i in num else (x, "i"))
+        largo = max(sum(F.N._ANCHO.get(ch, 556) for ch in str(v)) * 8 / 1000 for v in [c] + [f[i] for f in cuerpo])
+        ancho = largo + 18
+        xs.append((x + largo, "d") if i in num else (x, "i"))
         x += ancho
     titulo = [f"Extracto de cuenta · {origen.parent.name}", f"Periodo {origen.parent.parent.parent.name}"]
     F.N._pdf_tabla(destino, titulo, [[c.capitalize() for c in cab]] + cuerpo, xs)
@@ -245,7 +248,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
     for sub in sorted(x for x in (docs / PERIODO / "20-bancos").iterdir() if x.is_dir()):
         ex = F.buscar(sub, "extracto")
         if ex:
-            v, _ = F._saldo_final(ex[0])
+            v, _, _ = F._saldo_final(ex[0])
             if v is not None:
                 saldos[sub.name] = v
     cuentas = sorted(saldos)
@@ -263,6 +266,15 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         politica += [["tasa", "USD", 1], ["limite_exposicion", "USD", r2(abs(saldos[c]) * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
+    # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
+    # agente no la puede saber si solo está en la clave (CFO-5).
+    for sub in sorted(x for x in (docs / PERIODO / "20-bancos").iterdir() if x.is_dir()):
+        ex = sub / "extracto.csv"
+        if ex.is_file():
+            with open(ex, encoding="utf-8") as fh:
+                filas = list(csv.reader(fh, delimiter=";"))
+            m = monedas.get(sub.name, e["moneda"])
+            csv_(ex, [filas[0] + ["moneda"]] + [f + [m] for f in filas[1:]])
     csv_(docs / "00-referencia" / "politica-tesoreria.csv", politica)
     csv_(docs / "00-referencia" / "matriz-firmas.csv", [["nombre", "cargo", "monto_maximo"],
          ["Ana Ruiz", "Tesorera", esc * 25], ["Luis Mora", "Gerente financiero", esc * 100], ["Sofía León", "Contralora", esc * 100]])

@@ -325,6 +325,7 @@ ALIAS = {
     "descripcion": ["descripcion", "detalle", "concepto", "description"],
     "referencia": ["referencia", "ref", "numero_referencia", "reference"],
     "valor": ["valor", "monto", "importe", "amount"],
+    "moneda": ["moneda", "divisa", "currency"],
     "id": ["id", "codigo_tarea", "tarea_id"],
     "tarea": ["tarea", "actividad", "task"],
     "area": ["area", "gerencia", "unidad"],

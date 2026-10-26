@@ -50,7 +50,7 @@ Reporta qué cuentas tienen extracto en `20-bancos/`, si hay `60-tesoreria/` con
 
 1. **La entidad y el periodo.** Áurea trabaja sobre el mismo periodo que cierra Clara.
 2. **La política de tesorería.** Si `00-referencia/` no trae `politica-tesoreria`, dilo: sin ella no hay mínimo de caja, aprobadores por monto ni límite de exposición. **No la inventes ni la propongas como norma**: la política es de la organización.
-3. **Las cuentas en otra moneda**, para `treasury.currencies`: la carpeta de la cuenta y su moneda.
+3. **Las cuentas en otra moneda**, para `treasury.currencies`: la carpeta de la cuenta y su moneda. Si el extracto trae la columna de moneda, el motor la toma de ahí y no hace falta preguntarla; pregunta solo por las cuentas cuyo extracto no la dice.
 4. **Los umbrales**: la desviación contra la proyección, los días de vencimiento y el margen del covenant. Propón los de `config.example.json` y dilo: son configuración, no norma.
 5. **Dónde guardo lo que voy encontrando.** Propón el mismo estado de Clara y Tomás, `estado-finanzas/<entidad>`. **Nunca dentro de la carpeta de documentos.**
 6. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" terminos --config <config>`, muestra **tal cual** su `en_corto` con el enlace a la nota legal y pide un sí explícito con el nombre de quien acepta. **No lo registres sin un sí.**
