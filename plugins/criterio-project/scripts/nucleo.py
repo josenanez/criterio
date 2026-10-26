@@ -257,13 +257,63 @@ def csv_filas(ruta: Path) -> list[list[str]]:
     return [r for r in csv.reader(io.StringIO(texto), delimiter=delim)]
 
 
+def _celdas(linea: str) -> list[tuple[int, int, str]]:
+    """Los trozos de una línea con su posición: una palabra suelta sigue en su celda; dos espacios
+    o más separan una celda de la siguiente."""
+    return [(m.start(), m.end(), m.group(0)) for m in re.finditer(r"\S+(?: \S+)*", linea)]
+
+
+def pdf_filas(ruta: Path) -> list[list[str]]:
+    """Una tabla dentro de un PDF con capa de texto —el extracto que el banco entrega en PDF—.
+
+    `pdftotext -layout` deja cada palabra en su columna; la cabecera fija dónde está cada una y
+    cada línea se reparte por posición. Una línea que no llena al menos dos columnas —el pie de
+    página, la segunda línea de una descripción— no es una fila. La cabecera que se repite en cada
+    página se salta. Sin `pdftotext`, o con un escaneo sin texto, no hay tabla: lo dice el error,
+    y el que llama lo deja en lo no procesado. Ninguna fila se adivina."""
+    import shutil
+    import subprocess
+    if not shutil.which("pdftotext"):
+        raise ValueError(f"{ruta.name}: para leer un PDF hace falta pdftotext (poppler); sin él, pide la exportación en Excel o CSV")
+    r = subprocess.run(["pdftotext", "-layout", str(ruta), "-"], capture_output=True, text=True, timeout=60)
+    if r.returncode != 0:
+        raise ValueError(f"{ruta.name}: pdftotext terminó en {r.returncode}")
+    nombres = {a for v in ALIAS.values() for a in v} | set(ALIAS)
+    lineas = r.stdout.replace("\f", "\n").splitlines()
+    cab, inicio = None, 0
+    for i, l in enumerate(lineas):
+        c = _celdas(l)
+        if len(c) >= 2 and sum(norm(x[2]) in nombres for x in c) >= 2:
+            cab, inicio = c, i
+            break
+    if cab is None:
+        raise ValueError(f"{ruta.name}: el PDF no trae una tabla con texto (¿es un escaneo?); pide la exportación en Excel o CSV")
+    firma = [norm(x[2]) for x in cab]
+    filas = [[x[2] for x in cab]]
+    for l in lineas[inicio + 1:]:
+        c = _celdas(l)
+        if [norm(x[2]) for x in c] == firma:
+            continue
+        fila = [""] * len(cab)
+        for a, b, t in c:
+            solape = [max(0, min(b, cb) - max(a, ca)) for ca, cb, _ in cab]
+            k = max(range(len(cab)), key=lambda j: solape[j]) if max(solape) > 0 else \
+                min(range(len(cab)), key=lambda j: abs((a + b) / 2 - (cab[j][0] + cab[j][1]) / 2))
+            fila[k] = (fila[k] + " " + t).strip()
+        if sum(1 for x in fila if x) >= 2:
+            filas.append(fila)
+    return filas
+
+
 def filas_de(ruta: Path) -> list[list[str]]:
     ext = ruta.suffix.lower()
     if ext == ".xlsx":
         return xlsx_filas(ruta)
     if ext in (".csv", ".txt", ".tsv"):
         return csv_filas(ruta)
-    raise ValueError(f"{ruta.name}: una tabla llega en .csv o .xlsx, no en {ext}")
+    if ext == ".pdf":
+        return pdf_filas(ruta)
+    raise ValueError(f"{ruta.name}: una tabla llega en .csv, .xlsx o un PDF con texto, no en {ext}")
 
 
 # Los nombres con que llega cada columna en las exportaciones. La organización puede fijar
@@ -371,13 +421,16 @@ def rel(p: Path, base: Path) -> str:
         return str(p)
 
 
-def buscar(carpeta: Path, patron: str) -> list[Path]:
-    """Los archivos de tabla de una carpeta cuyo nombre empieza por el patrón."""
+def buscar(carpeta: Path, patron: str, pdf: bool = False) -> list[Path]:
+    """Los archivos de tabla de una carpeta cuyo nombre empieza por el patrón. Con `pdf`, también
+    el PDF —el extracto que el banco entrega así—, después de cualquier CSV o Excel."""
     if not carpeta.is_dir():
         return []
-    return sorted(p for p in carpeta.iterdir()
-                  if p.is_file() and not p.name.startswith(".") and p.suffix.lower() in (".csv", ".xlsx")
-                  and norm(p.stem).startswith(norm(patron)))
+    tipos = (".csv", ".xlsx", ".pdf") if pdf else (".csv", ".xlsx")
+    return sorted((p for p in carpeta.iterdir()
+                   if p.is_file() and not p.name.startswith(".") and p.suffix.lower() in tipos
+                   and norm(p.stem).startswith(norm(patron))),
+                  key=lambda p: (p.suffix.lower() == ".pdf", p.name))
 
 
 def cargar_config(ruta: Path) -> tuple[dict, Path]:
@@ -742,6 +795,59 @@ def _xlsx(ruta: Path, filas: list[list]) -> None:
         z.writestr("[Content_Types].xml", '<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"/>')
         z.writestr("xl/workbook.xml", f'<workbook xmlns="{S[1:-1]}"><sheets><sheet name="Hoja1" sheetId="1"/></sheets></workbook>')
         z.writestr("xl/worksheets/sheet1.xml", f'<worksheet xmlns="{S[1:-1]}"><sheetData>{hoja}</sheetData></worksheet>')
+
+
+# El ancho de cada carácter en Helvetica, en milésimas del cuerpo: lo justo para alinear una cifra
+# a la derecha. Lo que no está aquí se cuenta como un dígito.
+_ANCHO = {**{c: 556 for c in "0123456789$"}, ".": 278, ",": 278, "-": 333, " ": 278, "(": 333, ")": 333}
+
+
+def _pdf_tabla(ruta: Path, titulo: list[str], filas: list[list], columnas: list[tuple[int, str]],
+               cuerpo: int = 8) -> None:
+    """Un PDF con capa de texto y una tabla, como el extracto que entrega un banco: el título arriba,
+    la cabecera repetida en cada página, cada celda en su columna (`(x, "i")` a la izquierda, `(x,
+    "d")` alineada a la derecha en x). Lo usan la prueba del lector y el material de prueba."""
+    def esc(t):
+        b = str(t).encode("cp1252", errors="replace")
+        return "".join(f"\\{c:03o}" if c > 126 or c in (40, 41, 92) else chr(c) for c in b)
+
+    def linea(celdas, y):
+        out = ""
+        for (x, al), v in zip(columnas, celdas):
+            v = str(v)
+            if al == "d":
+                x = x - sum(_ANCHO.get(c, 556) for c in v) * cuerpo / 1000
+            out += f"BT /F1 {cuerpo} Tf {x:.1f} {y} Td ({esc(v)}) Tj ET\n"
+        return out
+    paginas, flujo, y = [], "", 790
+    for t in titulo:
+        flujo += f"BT /F1 {cuerpo + 2} Tf 40 {y} Td ({esc(t)}) Tj ET\n"
+        y -= cuerpo + 8
+    flujo, y = flujo + linea(filas[0], y - 6), y - 6 - (cuerpo + 6)
+    for f in filas[1:]:
+        if y < 50:
+            paginas.append(flujo)
+            flujo, y = linea(filas[0], 790), 790 - (cuerpo + 6)
+        flujo += linea(f, y)
+        y -= cuerpo + 5
+    paginas.append(flujo)
+    objs = ["<< /Type /Catalog /Pages 2 0 R /Lang (es) >>", None,
+            "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>"]
+    kids = []
+    for pg in paginas:
+        objs.append(f"<< /Length {len(pg.encode('latin-1'))} >>\nstream\n{pg}endstream")
+        objs.append(f"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents {len(objs)} 0 R >>")
+        kids.append(len(objs))
+    objs[1] = f"<< /Type /Pages /Kids [{' '.join(f'{k} 0 R' for k in kids)}] /Count {len(kids)} >>"
+    salida, offs = "%PDF-1.4\n", []
+    for i, o in enumerate(objs, start=1):
+        offs.append(len(salida.encode("latin-1")))
+        salida += f"{i} 0 obj\n{o}\nendobj\n"
+    xref = len(salida.encode("latin-1"))
+    salida += f"xref\n0 {len(objs) + 1}\n0000000000 65535 f \n" + "".join(f"{o:010d} 00000 n \n" for o in offs)
+    salida += f"trailer\n<< /Size {len(objs) + 1} /Root 1 0 R >>\nstartxref\n{xref}\n%%EOF\n"
+    ruta.parent.mkdir(parents=True, exist_ok=True)
+    ruta.write_bytes(salida.encode("latin-1"))
 
 
 def _csv(ruta: Path, filas: list[list]) -> None:

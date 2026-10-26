@@ -1,6 +1,6 @@
 ---
 name: einvoice-matching
-description: "Cómo se procesa una factura electrónica de la DIAN o del SRI y cómo se cruza con la contabilidad: los campos que se leen y su fuente, las reglas del cruce, los duplicados y lo que queda sin opinión fiscal. Úsalo al revisar las facturas del periodo, al explicar por qué una factura no cruza o cuando un XML no se pudo procesar. E-invoicing, DIAN, SRI, CUFE, clave de acceso."
+description: "Cómo se procesa una factura electrónica de la DIAN, del SRI o de la SUNAT y cómo se cruza con la contabilidad: los campos que se leen y su fuente, las reglas del cruce, los duplicados y lo que queda sin opinión fiscal. Úsalo al revisar las facturas del periodo, al explicar por qué una factura no cruza o cuando un XML no se pudo procesar. E-invoicing, DIAN, SRI, SUNAT, CUFE, clave de acceso."
 ---
 
 # Las facturas electrónicas contra la contabilidad
@@ -11,14 +11,15 @@ Cada XML de `<AAAA-MM>/30-facturacion/emitidas/` y `recibidas/`. El motor proces
 
 - **Colombia (F-01, anexo técnico 1.9 de la DIAN):** factura (`Invoice`) y nota crédito (`CreditNote`), sueltas o dentro de su contenedor `AttachedDocument` (6.4). Número (FAD05, CAD05), CUFE o CUDE (FAD06, CAD06), fecha (FAD09, CAD09), NIT del emisor y del adquiriente (FAJ21, FAK21), base imponible (FAU04), IVA —el tributo 01— (FAS02, FAS16) y total (FAU14); de la nota crédito, la factura que corrige (CBG03, CBG04).
 - **Ecuador (F-04 y F-09, ficha técnica del SRI):** el comprobante suelto o dentro de su respuesta de autorización (7.2.3). La clave de acceso se valida entera —49 dígitos, su composición y el dígito verificador módulo 11 (tabla 1)— y se contrasta con el comprobante. De la factura (01) se procesan la fecha, el comprador, la base (`totalSinImpuestos`) y el IVA (`totalImpuesto` con código 2). **Los demás tipos se identifican por la clave de acceso y sus valores no se cruzan en esta versión**, porque los campos de valor de su formato no están verificados (F-09).
+- **Perú (F-13, guía UBL 2.1 de la factura electrónica de la SUNAT):** la factura (`Invoice`, tipo 01), que no trae una clave como el CUFE: se identifica por el RUC del emisor, su tipo, su serie y su número (`cbc:ID`, `F###-NNNNNNNN`). Fecha (`IssueDate`), RUC del emisor y documento del adquirente (`PartyTaxScheme/CompanyID`, o `PartyIdentification/ID` cuando el emisor lo pone ahí), valor de venta (`LineExtensionAmount`), IGV —el tributo 1000 del catálogo 05— y total (`PayableAmount`). La nota de crédito se identifica y sus valores no se cruzan en esta versión.
 
-Un XML que no es de ninguno de los dos, que el SRI no autorizó o cuya clave no cuadra va a «lo que no se pudo procesar», con el motivo.
+Un XML que no es de ningún país del registro, que el SRI no autorizó o cuya clave no cuadra va a «lo que no se pudo procesar», con el motivo.
 
 ## El cruce
 
 Con los registros del libro mayor en las cuentas que la configuración asocia a cada lado:
 
-| | Base | IVA |
+| | Base | IVA o IGV |
 |---|---|---|
 | Emitidas | `accounts.sales` | `accounts.vat_generated` |
 | Recibidas | `accounts.purchases` | `accounts.vat_deductible` |
@@ -27,8 +28,8 @@ Se cruza por **número de documento**; el tercero se contrasta y, si no es el de
 
 - `einvoice_not_recorded`: la factura no tiene registro.
 - `recorded_without_einvoice`: un documento en las cuentas de ventas o compras sin factura en su lado.
-- `einvoice_amount_mismatch`: la base o el IVA no son los del registro, más allá de la tolerancia (en Colombia, ±2,00 y ±5,00 del IVA, F-01 5.2.1).
-- `einvoice_duplicate`: el mismo CUFE o clave en dos archivos, o la misma factura registrada en dos asientos.
+- `einvoice_amount_mismatch`: la base o el IVA no son los del registro, más allá de la tolerancia (la de cada país en su registro; en Colombia, ±2,00 y ±5,00 del IVA, F-01 5.2.1).
+- `einvoice_duplicate`: el mismo CUFE, clave de acceso o serie y número del mismo emisor en dos archivos, o la misma factura registrada en dos asientos.
 
 Las líneas de ventas o compras sin número de documento se cuentan aparte: no se puede saber si necesitan factura.
 

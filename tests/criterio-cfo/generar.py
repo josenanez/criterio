@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""El material de prueba de la familia CFO: cuatro industrias y dos entidades de control.
+"""El material de prueba de la familia CFO: cuatro industrias y una entidad de control por país.
 
     python3 tests/criterio-cfo/generar.py          escribe tests/criterio-cfo/material/
 
 Cada entidad trae su cierre de septiembre de 2026 —balance, mayor, auxiliares, extractos,
 facturas electrónicas, checklist, soportes, requerimientos del auditor— y su presupuesto del
 año con dos versiones, la contabilidad de enero a septiembre, compromisos, proyecciones y
-actas. Dos de las industrias son de Colombia, con el XML de la DIAN (F-01), y dos de Ecuador,
-con el del SRI (F-04, F-09).
+actas. Cada entidad es de un país del registro (paises.json) y trae el XML de su factura
+electrónica, con el lector y la fuente de ese país.
 
 **La clave la escribe este archivo, no el motor.** Cada defecto se siembra a propósito y su
 señal esperada queda escrita en `clave.json`, junto con lo que el agente tendría que extraer
@@ -46,6 +46,14 @@ PERIODO, ANIO, HOY = "2026-09", "2026", "2026-10-06"
 # La tasa del IVA de cada país sale de su registro (paises.json), como todo lo que cambia de un país a otro.
 TASA = {c: f["iva"] for c, f in F.FACTURA.items()}
 
+def ruc(tipo: int, semilla: int, i: int) -> str:
+    """Un RUC ficticio de once dígitos con su dígito verificador por módulo 11 (pesos 5 4 3 2 7 6 5 4
+    3 2), para que el material tenga la forma de uno real. Ninguno corresponde a una empresa."""
+    base = f"{tipo:02d}{semilla:02d}{i:06d}"
+    r = 11 - sum(int(d) * w for d, w in zip(base, (5, 4, 3, 2, 7, 6, 5, 4, 3, 2))) % 11
+    return base + str({10: 0, 11: 1}.get(r, r))
+
+
 ENTIDADES = [
     {"carpeta": "banca", "industria": "banca", "pais": "CO", "id": "900123456", "nombre": "Banco Andino", "moneda": "COP", "escala": 1_000_000, "semilla": 11,
      "siembra": ["balance_descuadrado", "cheque_viejo", "comision_sin_registrar", "iva_distinto", "tarea_sin_soporte",
@@ -61,6 +69,13 @@ ENTIDADES = [
                  "desviacion", "traslado_sin_acta", "comprometido_al_limite", "factura_recibida_sin_registro", "requerimiento_en_carta"]},
     {"carpeta": "control-co", "industria": "retail", "pais": "CO", "id": "900000001", "nombre": "Distribuidora Control", "moneda": "COP", "escala": 500_000, "semilla": 53, "siembra": []},
     {"carpeta": "control-ec", "industria": "cooperativas", "pais": "EC", "id": "1790000001001", "nombre": "Comercial Control", "moneda": "USD", "escala": 1_500, "semilla": 67, "siembra": []},
+    {"carpeta": "banca-pe", "industria": "banca", "pais": "PE", "id": ruc(20, 71, 1), "nombre": "Banco Ribera", "moneda": "PEN", "escala": 4_000, "semilla": 71,
+     "siembra": ["iva_distinto", "xml_duplicado", "consignacion_en_transito", "cierre_declarado", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "traslado_sin_acta"]},
+    {"carpeta": "mineria-pe", "industria": "mineria", "pais": "PE", "id": ruc(20, 73, 1), "nombre": "Minera Puna Alta", "moneda": "PEN", "escala": 6_000, "semilla": 73,
+     "siembra": ["factura_sin_registro", "registro_sin_factura", "cheque_viejo", "requerimiento_en_carta", "requerimiento_vencido",
+                 "comprometido_al_limite", "version_distinta", "proyeccion_vieja"]},
+    {"carpeta": "control-pe", "industria": "mineria", "pais": "PE", "id": ruc(20, 79, 1), "nombre": "Comercial Control Sur", "moneda": "PEN", "escala": 3_000, "semilla": 79, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -100,7 +115,7 @@ def md(ruta: Path, texto: str) -> None:
 # en Word o PDF —actas, soportes, respuestas al auditor—. Los correos quedan como texto.
 FORMATOS = (
     ("libro-mayor", ".xlsx", 0.5), ("balance-comprobacion", ".xlsx", 0.6), ("extracto", ".xlsx", 0.5),
-    ("auxiliar", ".xlsx", 0.3), ("checklist-cierre", ".xlsx", 0.5), ("pbc-", ".xlsx", 0.5),
+    ("extracto", ".pdf", 0.5), ("auxiliar", ".xlsx", 0.3), ("checklist-cierre", ".xlsx", 0.5), ("pbc-", ".xlsx", 0.5),
     ("presupuesto-", ".xlsx", 0.7), ("compromisos-", ".xlsx", 0.5), ("proyeccion-", ".xlsx", 0.4),
     ("programa-pagos", ".xlsx", 0.5), ("flujo-proyectado", ".xlsx", 0.5), ("matriz-firmas", ".xlsx", 0.5),
     ("registro-deuda", ".xlsx", 0.5), ("covenants", ".xlsx", 0.4),
@@ -131,26 +146,49 @@ def a_excel(origen: Path, destino: Path) -> None:
     R = 'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"'
     rel = 'http://schemas.openxmlformats.org/officeDocument/2006/relationships'
     with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
-        z.writestr("[Content_Types].xml",
+        z.writestr(FMT._fijo("[Content_Types].xml"),
                    '<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
                    '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
                    '<Default Extension="xml" ContentType="application/xml"/>'
                    '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
                    '<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>'
                    '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>')
-        z.writestr("_rels/.rels", f'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+        z.writestr(FMT._fijo("_rels/.rels"), f'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
                    f'<Relationship Id="rId1" Type="{rel}/officeDocument" Target="xl/workbook.xml"/></Relationships>')
-        z.writestr("xl/workbook.xml", f'<?xml version="1.0" encoding="UTF-8"?><workbook {S} {R}><sheets>'
+        z.writestr(FMT._fijo("xl/workbook.xml"), f'<?xml version="1.0" encoding="UTF-8"?><workbook {S} {R}><sheets>'
                    f'<sheet name="Hoja1" sheetId="1" r:id="rId1"/></sheets></workbook>')
-        z.writestr("xl/_rels/workbook.xml.rels", f'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+        z.writestr(FMT._fijo("xl/_rels/workbook.xml.rels"), f'<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
                    f'<Relationship Id="rId1" Type="{rel}/worksheet" Target="worksheets/sheet1.xml"/>'
                    f'<Relationship Id="rId2" Type="{rel}/styles" Target="styles.xml"/></Relationships>')
-        z.writestr("xl/styles.xml", f'<?xml version="1.0" encoding="UTF-8"?><styleSheet {S}>'
+        z.writestr(FMT._fijo("xl/styles.xml"), f'<?xml version="1.0" encoding="UTF-8"?><styleSheet {S}>'
                    '<fonts count="1"><font><sz val="11"/><name val="Calibri"/></font></fonts>'
                    '<fills count="1"><fill><patternFill patternType="none"/></fill></fills>'
                    '<borders count="1"><border/></borders><cellStyleXfs count="1"><xf/></cellStyleXfs>'
                    '<cellXfs count="2"><xf/><xf numFmtId="14" applyNumberFormat="1"/></cellXfs></styleSheet>')
-        z.writestr("xl/worksheets/sheet1.xml", f'<?xml version="1.0" encoding="UTF-8"?><worksheet {S}><sheetData>{hoja}</sheetData></worksheet>')
+        z.writestr(FMT._fijo("xl/worksheets/sheet1.xml"), f'<?xml version="1.0" encoding="UTF-8"?><worksheet {S}><sheetData>{hoja}</sheetData></worksheet>')
+
+
+def _cifra(v: str) -> str:
+    """Una cifra como la imprime un banco de la región: punto de miles y coma decimal."""
+    x = float(v)
+    return f"{x:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def a_pdf_extracto(origen: Path, destino: Path) -> None:
+    """Un extracto del material como lo entrega el banco en PDF: con texto, el título de la cuenta,
+    la cabecera en cada página y las cifras alineadas a la derecha."""
+    with open(origen, encoding="utf-8") as fh:
+        filas = list(csv.reader(fh, delimiter=";"))
+    cab = filas[0]
+    num = {i for i, c in enumerate(cab) if c in ("valor", "saldo", "debito", "credito")}
+    cuerpo = [[_cifra(v) if i in num and v else v for i, v in enumerate(f)] for f in filas[1:]]
+    xs, x = [], 40
+    for i, c in enumerate(cab):
+        ancho = {"fecha": 62, "referencia": 80, "descripcion": 190}.get(c, 85)
+        xs.append((x + ancho - 8, "d") if i in num else (x, "i"))
+        x += ancho
+    titulo = [f"Extracto de cuenta · {origen.parent.name}", f"Periodo {origen.parent.parent.parent.name}"]
+    F.N._pdf_tabla(destino, titulo, [[c.capitalize() for c in cab]] + cuerpo, xs)
 
 
 def formatos_reales(docs: Path, sal: str) -> dict[str, str]:
@@ -163,11 +201,21 @@ def formatos_reales(docs: Path, sal: str) -> dict[str, str]:
         for clave, ext, prop in FORMATOS:
             if clave not in f.name:
                 continue
-            if (ext == ".xlsx") != (f.suffix == ".csv") or not FMT._toca(f, prop, sal=sal):
+            tabla = f.suffix == ".csv"
+            # Todos los extractos se llaman igual: el sorteo va por cuenta, no por nombre de archivo.
+            quien = Path(f"{f.parent.name}-{f.name}") if clave == "extracto" else f
+            if ext == ".pdf" and tabla and clave == "extracto":      # el extracto que el banco entrega en PDF
+                if not FMT._toca(quien, prop, sal=sal + "-pdf"):
+                    break
+            elif (ext == ".xlsx") != tabla or not FMT._toca(quien, prop, sal=sal):
+                if ext == ".xlsx" and clave == "extracto":
+                    continue                                       # el que no pasa a Excel puede llegar en PDF
                 break
             nuevo = f.with_suffix(ext)
             if ext == ".xlsx":
                 a_excel(f, nuevo)
+            elif tabla:
+                a_pdf_extracto(f, nuevo)
             else:
                 {".docx": FMT.a_docx, ".pdf": FMT.a_pdf}[ext](f.read_text(encoding="utf-8"), nuevo)
             f.unlink()
@@ -183,6 +231,8 @@ TESORERIA = {
     "cooperativas": ["caja_desviada", "firmante_sin_facultad", "vencimiento_cercano"],
     "retail": ["exposicion", "vencimiento_cercano"],
     "mineria": ["covenant_riesgo", "pago_sin_aprobacion", "caja_desviada"],
+    "banca-pe": ["exposicion", "firmante_sin_facultad", "vencimiento_cercano"],
+    "mineria-pe": ["caja_bajo_minimo", "covenant_riesgo", "caja_desviada"],
 }
 
 
@@ -269,7 +319,8 @@ def generar(e: dict) -> dict:
     rnd = random.Random(e["semilla"])
     s = set(e["siembra"])
     pais, esc, tasa = e["pais"], e["escala"], TASA[e["pais"]]
-    dian = F.FACTURA[pais]["lector"] == "dian"
+    lector = F.FACTURA[pais]["lector"]
+    dian = lector == "dian"
     sesion = SALIDA / e["carpeta"]
     ent_dir = f"{e['id']}-{e['nombre'].lower().replace(' ', '-').replace('ó', 'o')}"
     docs = sesion / "finanzas" / ent_dir
@@ -280,15 +331,21 @@ def generar(e: dict) -> dict:
     fin_sep = dt.date(2026, 9, 30)
 
     def tercero(i: int) -> str:
+        if lector == "sunat":
+            return ruc(20, e["semilla"], i)
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
+        if lector == "sunat":                                  # F-13: serie de cuatro, empieza por F, y número
+            return f"F{'001' if prefijo == '99' else '002'}-{i:08d}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
         if dian:
             cufe = hashlib.sha384(f"{numero}{emisor}{base}".encode()).hexdigest()
             return F.contenedor_dian(F.factura_dian(numero, cufe, fecha.isoformat(), emisor, receptor, base, iva))
+        if lector == "sunat":
+            return F.factura_sunat(numero, fecha.isoformat(), emisor, receptor, base, iva)
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 
@@ -318,7 +375,8 @@ def generar(e: dict) -> dict:
     factor = {k: 0.97 for k in v1}
     factor[("Personal", "Nómina")] = 1.0
     if "desviacion" in s:
-        k = ("Administración", "Servicios públicos") if e["carpeta"] == "banca" else ("Operaciones", "Transporte")
+        # Si un área declara que va dentro, la desviación cae en ella: eso es lo que la declaración no sostiene.
+        k = ("Administración", "Servicios públicos") if "area_declara_dentro" in s else ("Operaciones", "Transporte")
         factor[k] = 1.15
         esperado.append(("variance_over_threshold", f"var:{k[0]}:{k[1]}"))
     real = {k: [r2(v2[k][m] * factor[k]) for m in range(9)] for k in v1}
@@ -390,8 +448,10 @@ def generar(e: dict) -> dict:
     if "xml_duplicado" in s:
         nombre, contenido = xml_emitidas[2]
         xml_emitidas.append((nombre.replace(".xml", "-reenviada.xml"), contenido))
-        cufe = hashlib.sha384(f"{ventas[2][2]}{e['id']}{ventas[2][3]}".encode()).hexdigest()
-        esperado.append(("einvoice_duplicate", f"xml:{cufe}"))
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:        # la clave única es la que dice el lector de su país
+            unica = F.leer_factura_texto(contenido, Path(tmp))["id"]
+        esperado.append(("einvoice_duplicate", f"xml:{unica}"))
     # Cobros: siete facturas de septiembre y dos de agosto. La de IVA distinto y la que no se
     # registró no se cobran: quedan en la cartera.
     cobradas = [v for i, v in enumerate(ventas) if i in (0, 1, 2, 3, 5, 6, 7)] + [(x[0], x[1], x[2], x[3], 0.0) for x in abiertas_cxc[:2]]

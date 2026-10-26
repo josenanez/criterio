@@ -310,6 +310,88 @@
           "estado": "verificada",
           "nota": "Se consultó el PDF firmado electrónicamente por la Directora General y certificado por la Secretaría General del SRI; el enlace es una nota secundaria, porque el texto oficial no tiene una dirección pública confirmada. El artículo 5 pide el RUC del proveedor en la información adicional, en 60 días desde su publicación en el Registro Oficial. No cambia los campos que procesa el lector",
           "uso": "Contexto de F-04"
+        },
+        {
+          "id": "F-13",
+          "fuente": "SUNAT · Guía de elaboración de documentos electrónicos XML UBL 2.1, factura electrónica",
+          "version": "1.0 (mayo de 2017)",
+          "enlaces": [
+            [
+              "cpe.sunat.gob.pe",
+              "https://cpe.sunat.gob.pe/sites/default/files/inline-files/guia%2Bxml%2Bfactura%2Bversion%202-1%2B1%2B0%20%282%29_0%20%282%29.pdf"
+            ]
+          ],
+          "consultada": "2026-10-26",
+          "estado": "verificada",
+          "nota": "Confirmados en el texto: la raíz Invoice, UBLVersionID 2.1 y CustomizationID 2.0, la serie y el número en cbc:ID, la fecha en aaaa-mm-dd, el tipo 01, el RUC del emisor y el documento del adquirente en PartyTaxScheme/CompanyID, el tributo 1000 (IGV) con el 18.00 % en el ejemplo, y los totales en PEN. La guía no menciona PartyIdentification para el emisor: un XML que lo trae ahí se cruza por número, sin tercero. Se vuelve a consultar contra las reglas de validación vigentes antes del primer uso sobre documentación real",
+          "uso": "Lector del XML de Perú; material de prueba",
+          "campos": [
+            {
+              "id": "p5-ID",
+              "campo": "/Invoice/cbc:ID · serie y número, F###-NNNNNNNN (p. 5 y 30)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p5-UBL",
+              "campo": "/Invoice/cbc:UBLVersionID · 2.1 (p. 5)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p5-FECHA",
+              "campo": "/Invoice/cbc:IssueDate · aaaa-mm-dd (p. 5 y 31)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p5-TIPO",
+              "campo": "/Invoice/cbc:InvoiceTypeCode · 01, factura, catálogo 01 (p. 5)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p7-EMISOR",
+              "campo": "AccountingSupplierParty/Party/PartyTaxScheme/cbc:CompanyID · RUC del emisor, el tipo de documento en @schemeID, catálogo 06 (p. 7)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p8-ADQUIRENTE",
+              "campo": "AccountingCustomerParty/Party/PartyTaxScheme/cbc:CompanyID · documento del adquirente (p. 8)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p12-IMPUESTO",
+              "campo": "TaxTotal/TaxSubtotal/cbc:TaxAmount · monto del tributo (p. 12)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p21-IGV",
+              "campo": "TaxSubtotal/TaxCategory/TaxScheme/cbc:ID · código de tributo del catálogo 05; 1000 es IGV en el ejemplo (p. 13 y 21)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p13-VALOR",
+              "campo": "LegalMonetaryTotal/cbc:LineExtensionAmount · total valor de venta (p. 13)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p13-TOTAL",
+              "campo": "LegalMonetaryTotal/cbc:PayableAmount · importe total de la venta (p. 13)",
+              "estado": "verificado"
+            }
+          ]
+        },
+        {
+          "id": "F-14",
+          "fuente": "SUNAT · Cartilla 7, El IGV (portal de cultura tributaria)",
+          "version": "2025",
+          "enlaces": [
+            [
+              "cultura.sunat.gob.pe",
+              "https://cultura.sunat.gob.pe/sites/default/files/2026-01/2025_Cartilla7_IGV.pdf"
+            ]
+          ],
+          "consultada": "2026-10-26",
+          "estado": "verificada",
+          "nota": "Dice: la tasa es del 18 %, 16 % de IGV y 2 % de Impuesto de Promoción Municipal. La guía F-13 trae el mismo 18.00 en su ejemplo",
+          "uso": "La tasa del IGV del material de prueba de Perú; el motor no la usa para calcular"
         }
       ]
     },
@@ -377,6 +459,21 @@
           "estado": "verificada",
           "nota": "Aplica la NIIF para las Pymes la compañía que cumple las tres condiciones: activos inferiores a 4 millones de dólares, ventas brutas anuales de hasta 5 millones y menos de 200 trabajadores en promedio anual ponderado. El texto de la resolución se consultó en el boletín de la Cámara de Comercio de Quito y lo confirma Ferrere; no se encontró una reforma posterior",
           "uso": "Pregunta de `finance-setup` sobre si la entidad aplica la NIIF para las Pymes"
+        },
+        {
+          "id": "F-15",
+          "fuente": "Perú · Consejo Normativo de Contabilidad (MEF), Resolución N° 002-2024-EF/30: la versión 2024 de las NIIF",
+          "version": "2024",
+          "enlaces": [
+            [
+              "mef.gob.pe",
+              "https://mef.gob.pe/es/consejo-normativo-de-contabilidad/normativa-internacional/niif"
+            ]
+          ],
+          "consultada": "2026-10-26",
+          "estado": "verificada",
+          "nota": "La página del Consejo lista las NIC, NIIF, CINIIF y SIC de la versión 2024 bajo esa resolución. No dice qué entidades aplican las NIIF completas: eso se pregunta, no se supone",
+          "uso": "Pregunta de `finance-setup` sobre el marco de la entidad"
         }
       ]
     }

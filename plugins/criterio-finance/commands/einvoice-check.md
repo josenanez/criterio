@@ -14,7 +14,7 @@ allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(
 
 > **Antes de producir nada:** corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" terminos --config <config>`. Si no está vigente, muestra tal cual su `en_corto` con el enlace a la nota legal y pide correr `/criterio-finance:finance-setup`, que registra la aceptación: este comando no produce nada sin ella.
 
-Cada XML de `30-facturacion/` se procesa con la estructura oficial —el anexo técnico de la DIAN (F-01) o la ficha técnica del SRI (F-04, F-09)— y se cruza con los registros de las cuentas de ventas, compras e IVA de la configuración. Aplica **einvoice-matching**.
+Cada XML de `30-facturacion/` se procesa con la estructura oficial —el anexo técnico de la DIAN (F-01), la ficha técnica del SRI (F-04, F-09) o la guía UBL 2.1 de la SUNAT (F-13)— y se cruza con los registros de las cuentas de ventas, compras e IVA de la configuración. Aplica **einvoice-matching**.
 
 ## Flujo
 
@@ -34,7 +34,7 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" reporte --config <config> --
 
 **Sin opinión fiscal.** Clara no dice si un gasto es deducible, qué tarifa aplica ni cómo se trata una diferencia: lo que es criterio tributario queda como pregunta para la persona. Tampoco dice de memoria una tarifa, un plazo ni el valor de una unidad tributaria.
 
-En Ecuador, los comprobantes que no son factura —notas, retenciones, guías— se identifican por su clave de acceso, y sus valores no se cruzan en esta versión: el reporte los cuenta aparte.
+En Ecuador, los comprobantes que no son factura —notas, retenciones, guías— se identifican por su clave de acceso, y en Perú la nota de crédito, por su serie y número; sus valores no se cruzan en esta versión: el reporte los cuenta aparte.
 
 ## Deja la corrida registrada
 

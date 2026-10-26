@@ -10,8 +10,8 @@ Verified on synthetic material in `tests/criterio-cfo/`, with a key the agent ne
 
 ## 2. Sources
 
-- [ ] Every invoice field the engine reads is listed, verified, in `families/criterio-cfo/fuentes.json` with its id in the DIAN annex or the SRI technical sheet (`scripts/familias.py --check`).
-- [ ] An XML that is not a DIAN or SRI document, that the SRI did not authorise, or whose access key does not check out is reported, not guessed.
+- [ ] Every invoice field the engine reads is listed, verified, in `families/criterio-cfo/fuentes.json` with its id in the DIAN annex, the SRI technical sheet or the SUNAT UBL 2.1 guide (`scripts/familias.py --check`).
+- [ ] An XML that is not an e-invoice of a country in the registry, that the SRI did not authorise, or whose access key does not check out is reported, not guessed.
 - [ ] No output states a tax rate, a deadline or a tax unit value from memory, and no output gives a tax or IFRS treatment opinion.
 
 ## 3. Traceability

@@ -47,7 +47,7 @@ Con su salida, reporta en tres líneas: cuántos archivos, qué periodos y años
 **2. Las preguntas**, una a la vez y solo las que el inventario no respondió:
 
 1. **La entidad:** nombre, identificación fiscal (NIT, RUC u otra), país y moneda. Los países que soporta esta versión son los del registro del motor; si das otro, la revisión de la configuración dice cuáles son.
-2. **El marco:** el grupo NIIF en Colombia (F-05) o el marco que aplica en Ecuador (F-06). Solo se registra: Clara no opina sobre tratamientos.
+2. **El marco:** el grupo NIIF en Colombia (F-05), el marco que aplica en Ecuador (F-06) o las NIIF que oficializa el Consejo Normativo de Contabilidad en Perú (F-15). Solo se registra: Clara no opina sobre tratamientos.
 3. **El periodo que se está cerrando.** Propón el último que tenga `10-contabilidad/`.
 4. **Las cuentas que cruzan las facturas:** los prefijos de ventas, compras, IVA generado e IVA descontable del plan de cuentas. Propón los que veas en el balance; en Colombia suelen ser 41, 14/51/52/61 y 2408, y la persona confirma.
 5. **Las cuentas que se concilian contra auxiliar** (cartera, proveedores, inventarios, activos fijos, intercompañías) y las cuentas bancarias que se esperan cada mes.

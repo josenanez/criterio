@@ -70,8 +70,8 @@
           "agentes": [
             "clara"
           ],
-          "es": "`emitidas/` y `recibidas/`, con el XML de la DIAN (F-01) o del SRI (F-04)",
-          "en": "`emitidas/` and `recibidas/`, with the DIAN (F-01) or SRI (F-04) XML",
+          "es": "`emitidas/` y `recibidas/`, con el XML de la DIAN (F-01), del SRI (F-04) o de la SUNAT (F-13)",
+          "en": "`emitidas/` and `recibidas/`, with the DIAN (F-01), SRI (F-04) or SUNAT (F-13) XML",
           "patrones": [
             "_xml$"
           ]

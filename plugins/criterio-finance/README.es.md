@@ -39,8 +39,8 @@ encuentra lo que cae en la muestra; el duplicado, la factura sin registro o el r
 factura están en cualquier parte.
 
 **Lo que puede responder que hoy cuesta días:** qué tarea figura cumplida sin un documento que
-la sostenga, qué partida conciliatoria lleva más días de los aceptables, qué factura de la DIAN o
-del SRI no tiene registro —o qué registro no tiene factura—, qué cuenta no cuadra con su auxiliar
+la sostenga, qué partida conciliatoria lleva más días de los aceptables, qué factura de la DIAN, del
+SRI o de la SUNAT no tiene registro —o qué registro no tiene factura—, qué cuenta no cuadra con su auxiliar
 y qué requerimiento del auditor sigue sin respuesta con soporte.
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
@@ -76,7 +76,7 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 | `audit-support` | El paquete del auditor: el índice de requerimientos, cómo se nombra cada respuesta y cuándo un requerimiento está respondido con soporte | Propio |
 | `close-checklist` | El checklist del cierre: el modelo de columnas, cómo se prueba cada tarea con su soporte, el calendario en días hábiles y el checklist recomendado por industria como borrador | Propio |
 | `close-record` | La ficha del cierre: lo que el agente extrae de los documentos escritos —el estado declarado, los requerimientos que llegaron por correo o en Word— con su cita | Propio |
-| `einvoice-matching` | La factura electrónica de la DIAN o del SRI contra la contabilidad: los campos que se procesan y su fuente, las reglas del cruce, los duplicados, y lo que queda sin opinión fiscal | Propio |
+| `einvoice-matching` | La factura electrónica de la DIAN, del SRI o de la SUNAT contra la contabilidad: los campos que se procesan y su fuente, las reglas del cruce, los duplicados, y lo que queda sin opinión fiscal | Propio |
 | `finance-intake` | Qué documentos procesa la familia, dónde va cada uno, qué procesa el motor directamente y qué extrae el agente a la ficha | Propio · también en Tomás y Áurea |
 | `ledger-tieout` | El cuadre del balance de comprobación y del mayor: débitos contra créditos, saldo inicial más movimientos contra saldo final, cuenta por cuenta, y los saldos contrarios a su naturaleza | Propio |
 | `reconciliation` | Cómo concilia el motor: el extracto contra el auxiliar de libros en tres pasadas, la clasificación de cada partida abierta, su antigüedad, y el mayor contra el auxiliar de cada cuenta | Propio |
@@ -209,7 +209,7 @@ resultados, el motor.
 
 [`scripts/finanzas.py`](scripts/finanzas.py), con la librería estándar, hace todo lo que es
 cálculo: procesa las tablas y las facturas directamente —el balance, el mayor, los extractos,
-los auxiliares, el XML de la DIAN y del SRI— y calcula cada señal, el mismo resultado cada vez.
+los auxiliares, el XML de la DIAN, del SRI y de la SUNAT— y calcula cada señal, el mismo resultado cada vez.
 El agente lleva a la ficha solo lo que trae un documento escrito: lo que alguien declara, un
 requerimiento que llegó por correo
 ([ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md)).

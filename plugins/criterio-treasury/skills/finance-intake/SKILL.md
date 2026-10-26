@@ -8,7 +8,9 @@ description: "Qué documentos procesa la familia CFO, dónde va cada uno, qué p
 
 ## Dos clases de documento, dos formas de procesarlo
 
-**Las tablas y las facturas las procesa el motor directamente.** Balance de comprobación, libro mayor, auxiliares, extractos bancarios, checklist del cierre, índice de requerimientos del auditor, presupuesto y sus versiones, compromisos y proyecciones llegan como exportaciones en `.csv` o `.xlsx`; las facturas electrónicas, como XML de la DIAN o del SRI. Nada de eso se transcribe ni se resume: `finanzas.py` lo lee con su fila de origen, que es la cita.
+**Las tablas y las facturas las procesa el motor directamente.** Balance de comprobación, libro mayor, auxiliares, extractos bancarios, checklist del cierre, índice de requerimientos del auditor, presupuesto y sus versiones, compromisos y proyecciones llegan como exportaciones en `.csv` o `.xlsx`; las facturas electrónicas, como XML de la DIAN, del SRI o de la SUNAT. Nada de eso se transcribe ni se resume: `finanzas.py` lo lee con su fila de origen, que es la cita.
+
+**El extracto bancario también puede llegar en PDF**, como lo entrega el banco. El motor lo procesa directamente si el PDF tiene texto, y cada partida queda citada al PDF y a su fila. No lo transcribas a la ficha. Si es un escaneo sin texto, el motor lo deja en lo no procesado: pide a la persona la exportación del extracto en Excel o CSV desde la banca en línea.
 
 **Lo que solo trae un documento escrito lo extrae el agente a la ficha.** El estado que alguien declara («septiembre quedó cerrado»), un acta de aprobación o de traslado, un requerimiento del auditor que llegó por correo, lo que un área dice de su presupuesto. Se convierte con `finanzas.py convertir` y se registra en la ficha con su cita. El código no lo inventa ni lo infiere.
 
@@ -56,7 +58,7 @@ estado-finanzas/
 |---|---|---|
 | `10-contabilidad/` | Balance de comprobación y libro mayor exportados del ERP, y `auxiliares/` con un archivo por cuenta; de aquí sale también la ejecución del presupuesto | Clara, Tomás |
 | `20-bancos/` | Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros | Clara, Áurea |
-| `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01) o del SRI (F-04) | Clara |
+| `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01), del SRI (F-04) o de la SUNAT (F-13) | Clara |
 | `40-soportes/` | La evidencia de cada tarea del checklist —actas, correos, conciliaciones firmadas—, con el id de la tarea al inicio del nombre | Clara |
 | `50-auditoria/` | `requerimientos/` y `respuestas/` del auditor | Clara |
 | `60-tesoreria/` | El programa de pagos con quién aprobó cada uno y el flujo de caja proyectado al cierre del periodo | Áurea |

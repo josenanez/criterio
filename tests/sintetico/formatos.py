@@ -41,6 +41,14 @@ REGLAS = (
 CRONOGRAMA_PROJECT = 0.6
 
 
+def _fijo(nombre: str) -> zipfile.ZipInfo:
+    """La entrada de un ZIP con fecha fija: sin esto, `writestr` le pone la hora de la corrida y el
+    mismo material sale distinto cada minuto."""
+    zi = zipfile.ZipInfo(nombre, date_time=(2026, 1, 1, 0, 0, 0))
+    zi.compress_type = zipfile.ZIP_DEFLATED
+    return zi
+
+
 def _toca(ruta: Path, proporcion: float, sal: str = "") -> bool:
     h = int(hashlib.sha256((sal + ruta.name).encode("utf-8")).hexdigest()[:8], 16)
     return (h % 1000) / 1000 < proporcion
@@ -106,15 +114,15 @@ def a_docx(md: str, destino: Path) -> None:
     doc = (f'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document {W}>'
            f'<w:body>{"".join(cuerpo)}</w:body></w:document>')
     with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
-        z.writestr("[Content_Types].xml",
+        z.writestr(_fijo("[Content_Types].xml"),
                    '<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
                    '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
                    '<Default Extension="xml" ContentType="application/xml"/>'
                    '<Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>')
-        z.writestr("_rels/.rels",
+        z.writestr(_fijo("_rels/.rels"),
                    '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
                    '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>')
-        z.writestr("word/document.xml", doc)
+        z.writestr(_fijo("word/document.xml"), doc)
 
 
 # ── Excel ─────────────────────────────────────────────────────────────────
@@ -139,22 +147,22 @@ def a_xlsx(csv_texto: str, destino: Path, hoja: str = "Cronograma") -> None:
     S = 'xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"'
     R = 'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"'
     with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
-        z.writestr("[Content_Types].xml",
+        z.writestr(_fijo("[Content_Types].xml"),
                    '<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
                    '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
                    '<Default Extension="xml" ContentType="application/xml"/>'
                    '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
                    '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>')
-        z.writestr("_rels/.rels",
+        z.writestr(_fijo("_rels/.rels"),
                    '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
                    '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>')
-        z.writestr("xl/workbook.xml",
+        z.writestr(_fijo("xl/workbook.xml"),
                    f'<?xml version="1.0" encoding="UTF-8"?><workbook {S} {R}><sheets>'
                    f'<sheet name="{escape(hoja)}" sheetId="1" r:id="rId1"/></sheets></workbook>')
-        z.writestr("xl/_rels/workbook.xml.rels",
+        z.writestr(_fijo("xl/_rels/workbook.xml.rels"),
                    '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
                    '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/></Relationships>')
-        z.writestr("xl/worksheets/sheet1.xml",
+        z.writestr(_fijo("xl/worksheets/sheet1.xml"),
                    f'<?xml version="1.0" encoding="UTF-8"?><worksheet {S}><sheetData>'
                    f'{"".join(xml_filas)}</sheetData></worksheet>')
 

@@ -29,6 +29,7 @@ from __future__ import annotations
 import datetime as dt
 import json
 import re
+import shutil
 import sys
 import tempfile
 import xml.etree.ElementTree as ET
@@ -84,6 +85,18 @@ CAMPOS_SRI = {
     "IF": "infoFactura: fechaEmision (dd/mm/aaaa), identificacionComprador, totalSinImpuestos",
     "TI": "totalConImpuestos/totalImpuesto: codigo, codigoPorcentaje, baseImponible, valor",
     "T16": "codigo de impuesto 2: IVA",
+}
+CAMPOS_SUNAT = {
+    "p5-ID": "/Invoice/cbc:ID · serie y número, F###-NNNNNNNN (p. 5 y 30)",
+    "p5-UBL": "/Invoice/cbc:UBLVersionID · 2.1 (p. 5)",
+    "p5-FECHA": "/Invoice/cbc:IssueDate · aaaa-mm-dd (p. 5 y 31)",
+    "p5-TIPO": "/Invoice/cbc:InvoiceTypeCode · 01, factura, catálogo 01 (p. 5)",
+    "p7-EMISOR": "/Invoice/cac:AccountingSupplierParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID · RUC del emisor (p. 7)",
+    "p8-ADQUIRENTE": "/Invoice/cac:AccountingCustomerParty/cac:Party/cac:PartyTaxScheme/cbc:CompanyID · documento del adquirente (p. 8)",
+    "p12-IMPUESTO": "/Invoice/cac:TaxTotal/cac:TaxSubtotal/cbc:TaxAmount · monto del tributo (p. 12)",
+    "p21-IGV": "TaxSubtotal/cac:TaxCategory/cac:TaxScheme/cbc:ID · 1000 es IGV, catálogo 05 (p. 13 y 21)",
+    "p13-VALOR": "/Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount · total valor de venta (p. 13)",
+    "p13-TOTAL": "/Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount · importe total (p. 13)",
 }
 TIPOS_SRI = {"01": "factura", "03": "liquidación de compra", "04": "nota de crédito",
              "05": "nota de débito", "06": "guía de remisión", "07": "comprobante de retención"}
@@ -211,8 +224,42 @@ def _sri(raiz) -> dict:
     return d
 
 
+def _sunat(raiz, tipo: str) -> dict:
+    """La factura UBL 2.1 de la SUNAT (F-13): serie y número en `cbc:ID`, el RUC del emisor y el
+    documento del adquirente en `PartyTaxScheme/CompanyID` con el tipo de documento en @schemeID, el
+    IGV con el código 1000 del catálogo 05 y el valor de venta en `LineExtensionAmount`. No trae una
+    clave única como el CUFE: el comprobante se identifica por el RUC del emisor, su tipo, su serie y
+    su número. La nota de crédito se identifica, pero sus valores no se cruzan: su guía no está
+    verificada en esta versión. Si un emisor pone el RUC en otro elemento que la guía no dice, el
+    tercero queda vacío y el cruce se hace por número; no se adivina."""
+    def doc(lado):
+        return _t(raiz, lado, "Party", "PartyTaxScheme", "CompanyID")
+    emisor, codigo = ident(doc("AccountingSupplierParty")), _t(raiz, "InvoiceTypeCode")
+    igv = otros = 0.0
+    for tt in (c for c in raiz if _local(c.tag) == "TaxTotal"):
+        for st in (c for c in tt if _local(c.tag) == "TaxSubtotal"):
+            monto = numero(_t(st, "TaxAmount")) or 0.0
+            if _t(st, "TaxCategory", "TaxScheme", "ID") == "1000":    # F-13: catálogo 05, 1000 · IGV
+                igv += monto
+            else:
+                otros += monto
+    factura = tipo == "Invoice" and codigo == "01"
+    d = {
+        "pais": PAIS_DEL_LECTOR["sunat"], "lector": "sunat", "fuente": "F-13",
+        "tipo": "factura" if factura else "nota de crédito" if tipo == "CreditNote" else f"tipo {codigo}",
+        "numero": _t(raiz, "ID"), "fecha": iso(fecha(_t(raiz, "IssueDate"))),
+        "emisor": emisor, "receptor": ident(doc("AccountingCustomerParty")),
+        "base": numero(_t(raiz, "LegalMonetaryTotal", "LineExtensionAmount")),
+        "iva": round(igv, 2), "otros_impuestos": round(otros, 2),
+        "total": numero(_t(raiz, "LegalMonetaryTotal", "PayableAmount")),
+        "valores": factura,
+    }
+    d["id"] = f"{emisor}-{codigo or tipo}-{d['numero']}"
+    return d
+
+
 def leer_factura(ruta: Path) -> dict:
-    """Una factura o nota electrónica de la DIAN o del SRI, con o sin su contenedor."""
+    """Una factura o nota electrónica de cualquier país del registro, con o sin su contenedor."""
     try:
         raiz = ET.parse(ruta).getroot()
     except ET.ParseError as e:
@@ -237,10 +284,14 @@ def leer_factura(ruta: Path) -> dict:
             return {"error": f"el documento dentro de {nombre} no es XML válido: {e}"}
     nombre = _local(raiz.tag)
     if nombre in ("Invoice", "CreditNote"):
+        # Las dos son UBL 2.1. La de la DIAN trae el CUFE en `cbc:UUID` (F-01); la de la SUNAT no
+        # trae UUID y declara `UBLVersionID` 2.1 (F-13).
+        if _h(raiz, "UUID") is None and _t(raiz, "UBLVersionID") == "2.1":
+            return _sunat(raiz, nombre)
         return _dian(raiz, nombre)
     if _h(raiz, "infoTributaria") is not None:
         return _sri(raiz)
-    return {"error": f"no es una factura electrónica de la DIAN ni del SRI (raíz {nombre})"}
+    return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
 
 
 # ================================================================ la configuración
@@ -492,15 +543,19 @@ def bancos(cfg: dict, periodo: str) -> dict:
     vistas = set()
     for sub in sorted(p for p in carpeta.iterdir() if p.is_dir()) if carpeta.is_dir() else []:
         vistas.add(sub.name)
-        ex, au = buscar(sub, "extracto"), buscar(sub, "auxiliar")
+        ex, au = buscar(sub, "extracto", pdf=True), buscar(sub, "auxiliar")
         if not ex or not au:
             falta = "el extracto" if not ex else "el auxiliar de libros"
             out["alertas"].append(alerta("reconciliation_stale", f"{sub.name}: falta {falta} del periodo",
                                          {"archivo": rel(sub, docs) + "/"}, clave=f"banco:{sub.name}"))
             continue
-        te = Tabla(ex[0], ["fecha", "valor"], ["referencia", "descripcion", "saldo_final", "documento", "debito", "credito"], cols.get("bank_statement"))
-        if te.faltan and "valor" in te.faltan:
-            te = Tabla(ex[0], ["fecha", "debito", "credito"], ["referencia", "descripcion", "saldo_final", "documento"], cols.get("bank_statement"))
+        try:
+            te = Tabla(ex[0], ["fecha", "valor"], ["referencia", "descripcion", "saldo_final", "documento", "debito", "credito"], cols.get("bank_statement"))
+            if te.faltan and "valor" in te.faltan:
+                te = Tabla(ex[0], ["fecha", "debito", "credito"], ["referencia", "descripcion", "saldo_final", "documento"], cols.get("bank_statement"))
+        except ValueError as e:      # un PDF sin texto o sin pdftotext: se dice, no se adivina
+            out["no_procesado"].append({"archivo": rel(ex[0], docs), "motivo": str(e)})
+            continue
         ta = Tabla(au[0], ["fecha", "valor"], ["referencia", "documento", "descripcion", "saldo_final", "debito", "credito"], cols.get("bank_book"))
         if ta.faltan and "valor" in ta.faltan:
             ta = Tabla(au[0], ["fecha", "debito", "credito"], ["referencia", "documento", "descripcion", "saldo_final"], cols.get("bank_book"))
@@ -679,7 +734,7 @@ def facturas(cfg: dict, periodo: str) -> dict:
         r["citas"].append(my.cita(f, docs))
     vistos = set()
     for d in leidas:
-        if d["tipo"] not in ("factura", "nota de crédito", "liquidación de compra") or (d.get("lector") == "sri" and not d.get("valores")):
+        if d["tipo"] not in ("factura", "nota de crédito", "liquidación de compra") or not d.get("valores", True):
             out["solo_identidad"].append({"archivo": d["archivo"], "tipo": d["tipo"], "numero": d["numero"]})
             continue
         clave = (d["lado"], ident(d["numero"]))
@@ -698,7 +753,7 @@ def facturas(cfg: dict, periodo: str) -> dict:
             if abs(db) > tol:
                 partes.append(f"base {mon(signo * (d['base'] or 0))} en el XML y {mon(r['base'])} en libros")
             if abs(di) > tol_iva:
-                partes.append(f"IVA {mon(signo * (d['iva'] or 0))} en el XML y {mon(r['iva'])} en libros")
+                partes.append(f"{FACTURA[d['pais']]['impuesto']} {mon(signo * (d['iva'] or 0))} en el XML y {mon(r['iva'])} en libros")
             out["alertas"].append(alerta("einvoice_amount_mismatch", f"{d['tipo']} {d['numero']}: " + "; ".join(partes),
                                          [{"archivo": d["archivo"]}] + r["citas"][:3], db + di, clave=f"xml:{d['archivo']}"))
         if tercero and r["terceros"] and tercero not in r["terceros"]:
@@ -1270,7 +1325,10 @@ def politica(cfg: dict) -> dict:
 
 def _saldo_final(ruta: Path) -> tuple[float | None, int | None]:
     """El último saldo del extracto, con su fila."""
-    t = Tabla(ruta, ["fecha"], ["saldo_final", "valor"])
+    try:
+        t = Tabla(ruta, ["fecha"], ["saldo_final", "valor"])
+    except ValueError:
+        return None, None
     if t.faltan or not t.filas:
         return None, None
     con = [f for f in t.filas if numero(f.get("saldo_final")) is not None]
@@ -1295,7 +1353,7 @@ def caja(cfg: dict, periodo: str, pol: dict) -> dict:
             proy = {str(f["cuenta"]).strip().lower(): (numero(f["saldo_proyectado"]), tp.cita(f, docs)) for f in tp.filas}
     consolidado, exposicion = 0.0, {}
     for sub in sorted(x for x in carpeta.iterdir() if x.is_dir()) if carpeta.is_dir() else []:
-        ex = buscar(sub, "extracto")
+        ex = buscar(sub, "extracto", pdf=True)
         if not ex:
             out["no_procesado"].append({"archivo": rel(sub, docs), "motivo": "no está el extracto"})
             continue
@@ -1685,6 +1743,35 @@ def contenedor_dian(interno: str) -> str:
             '</cac:ExternalReference></cac:Attachment></AttachedDocument>')
 
 
+def leer_factura_texto(xml: str, carpeta: Path) -> dict:
+    """Para las pruebas: lee un XML escrito en una cadena."""
+    p = carpeta / "_prueba.xml"
+    p.write_text(xml, encoding="utf-8")
+    try:
+        return leer_factura(p)
+    finally:
+        p.unlink()
+
+
+def factura_sunat(numero_: str, fecha_: str, ruc: str, receptor: str, base: float, igv: float) -> str:
+    """Una factura UBL 2.1 de la SUNAT con lo que procesa el lector (F-13), para las pruebas y el material."""
+    m = 'currencyID="PEN"'
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<Invoice xmlns="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2" '
+            'xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2" '
+            'xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2">'
+            f'<cbc:UBLVersionID>2.1</cbc:UBLVersionID><cbc:CustomizationID>2.0</cbc:CustomizationID><cbc:ID>{numero_}</cbc:ID>'
+            f'<cbc:IssueDate>{fecha_}</cbc:IssueDate><cbc:InvoiceTypeCode listAgencyName="PE:SUNAT">01</cbc:InvoiceTypeCode>'
+            '<cbc:DocumentCurrencyCode>PEN</cbc:DocumentCurrencyCode>'
+            f'<cac:AccountingSupplierParty><cac:Party><cac:PartyTaxScheme><cbc:CompanyID schemeID="6">{ruc}</cbc:CompanyID></cac:PartyTaxScheme></cac:Party></cac:AccountingSupplierParty>'
+            f'<cac:AccountingCustomerParty><cac:Party><cac:PartyTaxScheme><cbc:CompanyID schemeID="6">{receptor}</cbc:CompanyID></cac:PartyTaxScheme></cac:Party></cac:AccountingCustomerParty>'
+            f'<cac:TaxTotal><cbc:TaxAmount {m}>{igv:.2f}</cbc:TaxAmount><cac:TaxSubtotal><cbc:TaxableAmount {m}>{base:.2f}</cbc:TaxableAmount>'
+            f'<cbc:TaxAmount {m}>{igv:.2f}</cbc:TaxAmount><cac:TaxCategory><cac:TaxScheme><cbc:ID>1000</cbc:ID><cbc:Name>IGV</cbc:Name>'
+            '<cbc:TaxTypeCode>VAT</cbc:TaxTypeCode></cac:TaxScheme></cac:TaxCategory></cac:TaxSubtotal></cac:TaxTotal>'
+            f'<cac:LegalMonetaryTotal><cbc:LineExtensionAmount {m}>{base:.2f}</cbc:LineExtensionAmount>'
+            f'<cbc:TaxInclusiveAmount {m}>{base + igv:.2f}</cbc:TaxInclusiveAmount><cbc:PayableAmount {m}>{base + igv:.2f}</cbc:PayableAmount>'
+            '</cac:LegalMonetaryTotal></Invoice>')
+
+
 def clave_sri(fecha_: dt.date, tipo: str, ruc: str, serie: str, secuencial: str, codigo: str = "12345678", ambiente: str = "2") -> str:
     c = f"{fecha_:%d%m%Y}{tipo}{ruc}{ambiente}{serie}{secuencial}{codigo}1"
     return c + str(digito_mod11(c))
@@ -1769,6 +1856,12 @@ def selftest() -> int:
         ok("SRI autorizada", (f["numero"], f["base"], f["iva"], f["clave"]["valida"], f["fecha"]), ("001-002-000000123", 500.0, 75.0, True, "2026-09-15"))
         x.write_text("<x/>", encoding="utf-8")
         ok("un XML que no es factura", "error" in leer_factura(x), True)
+        x.write_text(factura_sunat("F001-00000123", "2026-09-15", "20123456789", "20987654321", 1000.0, 180.0), encoding="utf-8")
+        f = leer_factura(x)
+        ok("SUNAT: factura UBL 2.1 con su IGV", (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"]),
+           ("sunat", "factura", "F001-00000123", "20123456789", "20987654321", 1000.0, 180.0, 1180.0, "2026-09-15"))
+        ok("SUNAT: el comprobante se identifica por RUC, tipo, serie y número", f["id"], "20123456789-01-F001-00000123")
+        ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"
         _xlsx(y, [["cuenta", "nombre", "debito"], ["1105", "", 10], ["1110", "Bancos", 5]])
         ok("xlsx con celda vacía en su columna", xlsx_filas(y)[1], ["1105", "", "10"])
@@ -1810,6 +1903,28 @@ def selftest() -> int:
         ok("la factura cruza con su registro", r["partes"]["einvoice-check"]["cruzadas"], 1)
         b = r["partes"]["bank-reconcile"]["cuentas"][0]
         ok("banco: los intereses quedan como nota crédito sin registrar", (b["notas_credito_sin_registrar"], b["diferencia_sin_explicar"]), (12.0, 0.0))
+        # El mismo extracto, como lo entrega el banco: un PDF con texto y las cifras con punto de miles.
+        exc = p / "20-bancos" / "andino-1234" / "extracto.csv"
+        guardado = exc.read_bytes()
+        exc.unlink()
+        N._pdf_tabla(exc.with_suffix(".pdf"), ["Banco Andino · Extracto", "Cuenta 1234 · 2026-09"],
+                     [["Fecha", "Referencia", "Descripción", "Valor", "Saldo"],
+                      ["2026-09-12", "T-55", "Transferencia", "1.190.000,00", "1.191.000,00"],
+                      ["2026-09-30", "", "Comisión", "-50,00", "1.190.950,00"],
+                      ["2026-09-30", "", "Intereses", "12,00", "1.190.962,00"]],
+                     [(40, "i"), (100, "i"), (170, "i"), (470, "d"), (555, "d")])
+        if shutil.which("pdftotext"):
+            bp = bancos(cfg, "2026-09")["cuentas"][0]
+            ok("banco: el extracto en PDF da la misma conciliación que en CSV",
+               {k: v for k, v in bp.items() if k != "abiertas"}, {k: v for k, v in b.items() if k != "abiertas"})
+            ok("banco: cada partida del PDF cita el PDF y su fila", [(a["cita"]["archivo"], a["cita"]["fila"]) for a in bp["abiertas"]],
+               [("2026-09/20-bancos/andino-1234/extracto.pdf", 4)])
+        exc.with_suffix(".pdf").write_bytes(b"%PDF-1.4\n%%EOF\n")
+        bp = bancos(cfg, "2026-09")
+        ok("banco: un PDF sin texto no se adivina: queda en lo no procesado y sin señales", (bp["cuentas"], len(bp["no_procesado"]), bp["alertas"]),
+           ([], 1, []))
+        exc.with_suffix(".pdf").unlink()
+        exc.write_bytes(guardado)
         ok("checklist: C-01 cumplida sin evidencia y C-02 vencida", sorted((a["signal"], a["key"]) for a in r["alertas"] if a["signal"].startswith("close_task")),
            [("close_task_done_without_evidence", "tarea:C-01"), ("close_task_overdue", "tarea:C-02")])
         ok("cartera sin auxiliar: conciliación desactualizada", any(a["signal"] == "reconciliation_stale" and a["key"] == "cuenta:1305" for a in r["alertas"]), True)

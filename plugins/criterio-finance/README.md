@@ -38,7 +38,7 @@ not a sample, and every close task against its evidence.** A sample finds what f
 sample; the duplicate, the invoice with no entry or the entry with no invoice can be anywhere.
 
 **What it can answer that today takes days:** which task is marked done with no document behind
-it, which reconciling item has been open longer than acceptable, which DIAN or SRI invoice has no
+it, which reconciling item has been open longer than acceptable, which DIAN, SRI or SUNAT invoice has no
 entry —or which entry has no invoice—, which account does not tie out with its subledger and which
 auditor request is still without a supported answer.
 
@@ -75,7 +75,7 @@ They load on their own when the subject comes up. They are the knowledge the com
 | `audit-support` | The auditor's package: the request index, how each response is named and when a request is answered with support | Own |
 | `close-checklist` | The close checklist: the column model, how each task is proven with its support, the business-day calendar and the recommended checklist per industry as a draft | Own |
 | `close-record` | The close record: what the agent extracts from written documents —the declared status, the requests that arrived by email or in Word— with its citation | Own |
-| `einvoice-matching` | The DIAN or SRI e-invoice against the books: the fields processed and their source, the matching rules, duplicates, and what is left without a tax opinion | Own |
+| `einvoice-matching` | The DIAN, SRI or SUNAT e-invoice against the books: the fields processed and their source, the matching rules, duplicates, and what is left without a tax opinion | Own |
 | `finance-intake` | Which documents the family processes, where each one goes, what the engine processes directly and what the agent extracts to the record | Own · also in Tomás and Áurea |
 | `ledger-tieout` | The trial balance and ledger tie-out: debits against credits, opening balance plus movements against closing balance, account by account, and balances contrary to their nature | Own |
 | `reconciliation` | How the engine reconciles: the statement against the book ledger in three passes, how each open item is classified, its age, and the ledger against each account's subledger | Own |
@@ -208,7 +208,7 @@ it; the engine writes the results.
 
 [`scripts/finanzas.py`](scripts/finanzas.py), on the standard library, does everything that is
 calculation: it processes the tables and the invoices directly —the trial balance, the ledger,
-the statements, the subledgers, the DIAN and SRI XML— and calculates each signal, the same result
+the statements, the subledgers, the DIAN, SRI and SUNAT XML— and calculates each signal, the same result
 every time. The agent takes to the record only what a written document carries: what somebody
 declares, a request that arrived by email
 ([ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md)).
