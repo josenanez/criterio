@@ -58,7 +58,7 @@ estado-finanzas/
 |---|---|---|
 | `10-contabilidad/` | Balance de comprobación y libro mayor exportados del ERP, y `auxiliares/` con un archivo por cuenta; de aquí sale también la ejecución del presupuesto | Clara, Tomás |
 | `20-bancos/` | Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros | Clara, Áurea |
-| `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01), del SRI (F-04), de la SUNAT (F-13) o del SII (F-16) | Clara |
+| `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01), del SRI (F-04), de la SUNAT (F-13), del SII (F-16) o del SAT (F-19) | Clara |
 | `40-soportes/` | La evidencia de cada tarea del checklist —actas, correos, conciliaciones firmadas—, con el id de la tarea al inicio del nombre | Clara |
 | `50-auditoria/` | `requerimientos/` y `respuestas/` del auditor | Clara |
 | `60-tesoreria/` | El programa de pagos con quién aprobó cada uno y el flujo de caja proyectado al cierre del periodo | Áurea |

@@ -36,6 +36,9 @@
       ],
       "CAMPOS_SII": [
         "F-16"
+      ],
+      "CAMPOS_SAT": [
+        "F-19"
       ]
     }
   },
@@ -63,14 +66,14 @@
           "n": 0,
           "es": {
             "etiqueta": "Instalación",
-            "entrada": "La carpeta raíz. Preguntas: entidad y NIT, RUC o RUT, país, grupo NIIF (F-05, F-06, F-15, F-18), ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas",
+            "entrada": "La carpeta raíz. Preguntas: entidad y NIT, RUC, RUT o RFC, país, grupo NIIF (F-05, F-06, F-15, F-18, F-20), ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas",
             "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
             "reporte": "Configuración guardada; inventario por carpeta (qué hay, qué falta, qué está fuera de su lugar y dónde iría); checklist cargado o recomendado; la primera ficha del cierre",
             "entrega": "La configuración, el inventario de la carpeta y la primera ficha del cierre"
           },
           "en": {
             "etiqueta": "Setup",
-            "entrada": "The root folder. Questions: entity and NIT, RUC or RUT, country, IFRS group (F-05, F-06, F-15, F-18), ERP, currency, period, thresholds, who approves, chart of accounts",
+            "entrada": "The root folder. Questions: entity and NIT, RUC, RUT or RFC, country, IFRS group (F-05, F-06, F-15, F-18, F-20), ERP, currency, period, thresholds, who approves, chart of accounts",
             "proceso": "Inventory of what is there; compares the folder with the recommended structure; creates, moves or renames nothing",
             "reporte": "Configuration saved; inventory by folder (what is there, what is missing, what is out of place and where it would go); checklist loaded or recommended; the first close record",
             "entrega": "The configuration, the folder inventory and the first close record"
@@ -172,14 +175,14 @@
           "es": {
             "etiqueta": "Facturas electrónicas",
             "entrada": "`30-facturacion/` y los registros contables de las cuentas que la configuración asocia a ventas y compras",
-            "proceso": "Procesa cada XML con la estructura oficial (F-01, F-04, F-13, F-16); cruza por número, NIT, RUC o RUT y valor, y detecta duplicados por CUFE, clave de acceso, serie y número o folio",
+            "proceso": "Procesa cada XML con la estructura oficial (F-01, F-04, F-13, F-16, F-19); cruza por número, NIT, RUC, RUT o RFC y valor, y detecta duplicados por CUFE, clave de acceso, serie y número o folio",
             "reporte": "Facturas sin registro, registros sin factura, diferencias de valor o de impuesto, duplicados; sin opinión fiscal: lo que es criterio tributario queda como pregunta para la persona",
             "entrega": "Todas las facturas electrónicas del periodo contra la contabilidad, no una muestra"
           },
           "en": {
             "etiqueta": "Electronic invoices",
             "entrada": "`30-facturacion/` and the accounting entries of the accounts the configuration links to sales and purchases",
-            "proceso": "Processes each XML with its official structure (F-01, F-04, F-13, F-16); matches by number, NIT, RUC or RUT and amount, and finds duplicates by CUFE, access key, series and number or folio",
+            "proceso": "Processes each XML with its official structure (F-01, F-04, F-13, F-16, F-19); matches by number, NIT, RUC, RUT or RFC and amount, and finds duplicates by CUFE, access key, series and number or folio",
             "reporte": "Invoices without an entry, entries without an invoice, differences in amount or tax, duplicates; no tax opinion: whatever is a tax judgement is left as a question for the person",
             "entrega": "Every e-invoice in the period against the books, not a sample"
           }

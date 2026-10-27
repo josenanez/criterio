@@ -1,0 +1,17 @@
+fecha;comprobante;cuenta;tercero;documento;debito;credito;centro_costo;descripcion
+2026-01-25;G-010;5135;;;69000.00;0.00;ADM;Servicios públicos de enero
+2026-01-25;G-010;11100501;;;0.00;69000.00;;Pago Servicios públicos
+2026-01-25;G-011;5145;;;38800.00;0.00;ADM;Mantenimiento de enero
+2026-01-25;G-011;11100501;;;0.00;38800.00;;Pago Mantenimiento
+2026-01-25;G-012;5195;;;77600.00;0.00;COM;Publicidad de enero
+2026-01-25;G-012;11100501;;;0.00;77600.00;;Pago Publicidad
+2026-01-25;G-013;5195;;;29100.00;0.00;EVT;Eventos de enero
+2026-01-25;G-013;11100501;;;0.00;29100.00;;Pago Eventos
+2026-01-25;G-014;5135;;;97000.00;0.00;TEC;Licencias de enero
+2026-01-25;G-014;11100501;;;0.00;97000.00;;Pago Licencias
+2026-01-25;G-015;5145;;;116400.00;0.00;PRY;PRY-310 de enero
+2026-01-25;G-015;11100501;;;0.00;116400.00;;Pago PRY-310
+2026-01-25;G-016;5135;;;67900.00;0.00;OPE;Transporte de enero
+2026-01-25;G-016;11100501;;;0.00;67900.00;;Pago Transporte
+2026-01-25;G-017;5105;;;400000.00;0.00;ADM;Nómina de enero
+2026-01-25;G-017;11100501;;;0.00;400000.00;;Pago Nómina

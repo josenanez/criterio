@@ -1,0 +1,16 @@
+{
+  "identity": {
+    "code": {
+      "value": "PRY-310",
+      "source": "PRY-310/00-gobierno/acta.md",
+      "state": "found"
+    }
+  },
+  "money": {
+    "approved": {
+      "value": 1080000.0,
+      "source": "PRY-310/00-gobierno/acta.md",
+      "state": "found"
+    }
+  }
+}

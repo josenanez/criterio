@@ -84,6 +84,7 @@ running `server-setup` again.
 | **Criterio CFO** · The finance function | Áurea | `/criterio-treasury:treasury-setup` | `.criterio/tesoreria/<instance>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CLO** · Contracts and compliance | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instance>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contracts and compliance | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instance>/` | `_CRITERIO_LEGAL.txt` |
+| **Criterio EA** · Executive office | Ofelia | `None` | `.criterio/direccion/<instance>/` | `None` |
 <!-- /servidor:familias -->
 
 Each family explains in its own documentation what it has in the portal: the

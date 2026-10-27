@@ -33,6 +33,7 @@ ella hasta verificarla ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regl
 | F-14 | SUNAT · Cartilla 7, El IGV (portal de cultura tributaria) | 2025 | [cultura.sunat.gob.pe](https://cultura.sunat.gob.pe/sites/default/files/2026-01/2025_Cartilla7_IGV.pdf) | 2026-10-26 | Verificada: Dice: la tasa es del 18 %, 16 % de IGV y 2 % de Impuesto de Promoción Municipal. La guía F-13 trae el mismo 18.00 en su ejemplo | La tasa del IGV del material de prueba de Perú; el motor no la usa para calcular |
 | F-16 | SII · Formato Documentos Tributarios Electrónicos | 2.5 (febrero de 2026) | [sii.cl](https://www.sii.cl/factura_electronica/factura_mercado/formato_dte_202602.pdf) | 2026-10-27 | Verificada: Confirmados en el texto: las áreas IdDoc, Emisor, Receptor y Totales del encabezado, el tipo 33 como factura electrónica, el folio, la fecha en aaaa-mm-dd, el RUT con guion y dígito verificador, y los montos neto, tasa, IVA y total. El formato no nombra el elemento raíz: el lector busca el Encabezado y no depende de él. Solo la factura (tipo 33) cruza valores en esta versión. Se vuelve a consultar contra el esquema vigente antes del primer uso sobre documentación real | Lector del DTE de Chile; material de prueba |
 | F-17 | SII · Preguntas frecuentes: ¿Cuál es la tasa del Impuesto al Valor Agregado (IVA)? | revisada el 10 de junio de 2025 | [sii.cl](https://www.sii.cl/preguntas_frecuentes/impuestos_mensuales/001_130_0572.htm) | 2026-10-27 | Verificada: Dice: la tasa del IVA es de un 19 %, según el artículo 14 de la Ley sobre Impuesto a las Ventas y Servicios | La tasa del IVA del material de prueba de Chile; el motor no la usa para calcular |
+| F-19 | SAT · Anexo 20, guía de llenado de los comprobantes fiscales digitales por Internet, CFDI versión 4.0; y el Anexo 20 de la Resolución Miscelánea Fiscal para 2022 en el Diario Oficial de la Federación | CFDI 4.0 (guía de 123 páginas; DOF del 13 de enero de 2022) | [sat.gob.mx](http://omawww.sat.gob.mx/tramitesyservicios/Paginas/documentos/Anexo_20_Guia_de_llenado_CFDI.pdf) · [dof.gob.mx](https://dof.gob.mx/2022/SHCP/SHCP_130122.pdf) | 2026-10-27 | Verificada: Confirmados en el texto: el nodo Comprobante con su espacio de nombres, la versión 4.0, la serie y el folio como control interno opcional, la fecha, el subtotal, el total, la moneda, el tipo de comprobante (I ingreso, E egreso), el RFC del emisor y del receptor, el traslado con el impuesto 002 (IVA) y la tasa 0.160000. El folio fiscal (UUID) del Timbre Fiscal Digital no se procesa en esta versión: su estándar no está en estos documentos y se verifica antes de leerlo. Se vuelve a consultar antes del primer uso sobre documentación real | Lector del CFDI de México; la tasa del IVA del material de prueba |
 
 ## Marco contable
 
@@ -43,6 +44,7 @@ ella hasta verificarla ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regl
 | F-08 | Ecuador · Superintendencia de Compañías, Valores y Seguros, Resolución SCVS-INC-DNCDN-2019-0009 (Registro Oficial 39, 13 de septiembre de 2019): instructivo para aplicar las NIIF completas y la NIIF para las Pymes; su antecedente es la Resolución SC.INPA.UA.G-10.005 de 5 de noviembre de 2010 | — | [Cámara de Comercio de Quito, texto de la resolución](https://ccq.ec/wp-content/uploads/2019/10/consultatributariasept.2019.pdf) · [Ferrere](https://www.ferrere.com/en/news/ecuador-nuevos-montos-para-pymes/) · [Superintendencia, antecedente de 2010](https://www.supercias.gob.ec/bd_supercias/descargas/niif/Diferencias%20entre%20NIIF%20completas%20y%20NIIF%20para%20las%20PYMES%20y%20su%20aplicacion%20a%20las%20partidas%20contables.pdf) | 2026-10-23 | Verificada: Aplica la NIIF para las Pymes la compañía que cumple las tres condiciones: activos inferiores a 4 millones de dólares, ventas brutas anuales de hasta 5 millones y menos de 200 trabajadores en promedio anual ponderado. El texto de la resolución se consultó en el boletín de la Cámara de Comercio de Quito y lo confirma Ferrere; no se encontró una reforma posterior | Pregunta de `finance-setup` sobre si la entidad aplica la NIIF para las Pymes |
 | F-15 | Perú · Consejo Normativo de Contabilidad (MEF), Resolución N° 002-2024-EF/30: la versión 2024 de las NIIF | 2024 | [mef.gob.pe](https://mef.gob.pe/es/consejo-normativo-de-contabilidad/normativa-internacional/niif) | 2026-10-26 | Verificada: La página del Consejo lista las NIC, NIIF, CINIIF y SIC de la versión 2024 bajo esa resolución. No dice qué entidades aplican las NIIF completas: eso se pregunta, no se supone | Pregunta de `finance-setup` sobre el marco de la entidad |
 | F-18 | IFRS Foundation · perfil de jurisdicción de Chile | actualizado el 16 de junio de 2016 | [ifrs.org](https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/chile-ifrs-profile.pdf) | 2026-10-27 | Verificada: Dice: el Colegio de Contadores adoptó las NIIF como normas contables nacionales (Boletín Técnico 85, diciembre de 2013); las listadas usan NIIF completas; los bancos, las NIIF con dos cambios de su regulador; las demás, NIIF completas o NIIF para las PYMES desde 2013. El perfil es de 2016 y nombra a la SVS y la SBIF, hoy integradas en la CMF. Qué marco aplica la entidad se pregunta, no se supone | Pregunta de `finance-setup` sobre el marco de la entidad |
+| F-20 | IFRS Foundation · perfil de jurisdicción de México | actualizado el 16 de junio de 2016 | [ifrs.org](https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/mexico-ifrs-profile.pdf) | 2026-10-27 | Verificada: Dice: las empresas listadas usan NIIF, salvo las instituciones financieras y las aseguradoras, que siguen las NIF mexicanas con los requisitos de la CNBV y la CNSF; las no listadas pueden usar NIIF, y la mayoría usa las NIF que emite el CINIF; México no adoptó la NIIF para las PYMES. Es el único de los países del registro donde una entidad no listada va, por lo común, por un marco distinto de las NIIF. Qué marco aplica la entidad se pregunta, no se supone | Pregunta de `finance-setup` sobre el marco de la entidad |
 
 ## Los campos que procesa el motor
 
@@ -123,6 +125,25 @@ puerta falla si el motor usa uno que no está, o uno por verificar.
 | p30-TASA | Encabezado/Totales/TasaIVA · en porcentaje (p. 30) | Verificado |
 | p30-IVA | Encabezado/Totales/IVA · monto neto por la tasa (p. 30) | Verificado |
 | p32-TOTAL | Encabezado/Totales/MntTotal · neto, exento, IVA e impuestos adicionales (p. 32) | Verificado |
+
+**F-19 · SAT · Anexo 20, guía de llenado de los comprobantes fiscales digitales por Internet, CFDI versión 4.0; y el Anexo 20 de la Resolución Miscelánea Fiscal para 2022 en el Diario Oficial de la Federación**
+
+| Id | Campo | Estado |
+|---|---|---|
+| p3-RAIZ | cfdi:Comprobante · espacio de nombres http://www.sat.gob.mx/cfd/4 (Anexo 20 publicado en el DOF del 13-01-2022, p. 3) | Verificado |
+| p5-VERSION | Comprobante/@Version · «4.0» (p. 5) | Verificado |
+| p5-SERIE | Comprobante/@Serie y @Folio · control interno del emisor, opcionales (p. 5) | Verificado |
+| p5-FECHA | Comprobante/@Fecha · AAAA-MM-DDThh:mm:ss (p. 5) | Verificado |
+| p8-SUBTOTAL | Comprobante/@SubTotal · suma de los conceptos antes de descuentos e impuestos (p. 8) | Verificado |
+| p8-TIPO | Comprobante/@TipoDeComprobante · «I» (Ingreso) o «E» (Egreso), catálogo c_TipoDeComprobante (p. 8 y 11) | Verificado |
+| p9-MONEDA | Comprobante/@Moneda · «MXN» en moneda nacional, ISO 4217 (p. 9) | Verificado |
+| p10-TOTAL | Comprobante/@Total (p. 10) | Verificado |
+| p15-EMISOR | Emisor/@Rfc · 12 posiciones en persona moral y 13 en persona física (p. 15) | Verificado |
+| p17-RECEPTOR | Receptor/@Rfc (p. 17) | Verificado |
+| p37-TRASLADADOS | Impuestos/@TotalImpuestosTrasladados (p. 37) | Verificado |
+| p38-TRASLADO | Impuestos/Traslados/Traslado · @Impuesto e @Importe (p. 38) | Verificado |
+| p26-IVA | c_Impuesto · 002 es IVA (p. 26) | Verificado |
+| p27-TASA | c_TasaOCuota · 0.160000 es la tasa del IVA (p. 27) | Verificado |
 
 ## Cifras de terceros
 

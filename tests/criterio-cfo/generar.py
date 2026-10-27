@@ -83,6 +83,13 @@ ENTIDADES = [
      "siembra": ["factura_sin_registro", "registro_sin_factura", "cheque_viejo", "comision_sin_registrar", "requerimiento_vencido",
                  "tarea_vencida", "desviacion", "comprometido_al_limite"]},
     {"carpeta": "control-cl", "industria": "retail", "pais": "CL", "id": F.rut(76097001), "nombre": "Comercial Control Andes", "moneda": "CLP", "escala": 300_000, "semilla": 97, "siembra": []},
+    {"carpeta": "banca-mx", "industria": "banca", "pais": "MX", "id": F.rfc("BVA", "150301", "K21"), "nombre": "Banco Valle de Anáhuac", "moneda": "MXN", "escala": 20_000, "semilla": 13,
+     "siembra": ["balance_descuadrado", "cheque_viejo", "comision_sin_registrar", "iva_distinto", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "traslado_sin_acta", "factura_sin_registro"]},
+    {"carpeta": "retail-mx", "industria": "retail", "pais": "MX", "id": F.rfc("TBA", "180912", "Q37"), "nombre": "Tiendas del Bajío", "moneda": "MXN", "escala": 15_000, "semilla": 17,
+     "siembra": ["xml_duplicado", "registro_sin_factura", "consignacion_en_transito", "cierre_declarado", "requerimiento_vencido",
+                 "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite"]},
+    {"carpeta": "control-mx", "industria": "banca", "pais": "MX", "id": F.rfc("CCM", "120615", "R59"), "nombre": "Comercial Control Centro", "moneda": "MXN", "escala": 12_000, "semilla": 19, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -245,6 +252,8 @@ TESORERIA = {
     "mineria-pe": ["caja_bajo_minimo", "covenant_riesgo", "caja_desviada"],
     "retail-cl": ["exposicion", "pago_sin_aprobacion", "vencimiento_cercano"],
     "mineria-cl": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
+    "banca-mx": ["exposicion", "caja_desviada", "pago_sin_aprobacion"],
+    "retail-mx": ["vencimiento_cercano", "covenant_riesgo", "firmante_sin_facultad"],
 }
 
 
@@ -275,7 +284,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
         # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
-        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950}.get(e["moneda"], 1)
+        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5}.get(e["moneda"], 1)
         politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
@@ -346,7 +355,7 @@ def generar(e: dict) -> dict:
     lector = F.FACTURA[pais]["lector"]
     dian = lector == "dian"
     sesion = SALIDA / e["carpeta"]
-    ent_dir = f"{e['id']}-{e['nombre'].lower().replace(' ', '-').replace('ó', 'o').replace('í', 'i')}"
+    ent_dir = f"{e['id']}-{e['nombre'].lower().replace(' ', '-').replace('ó', 'o').replace('í', 'i').replace('á', 'a')}"
     docs = sesion / "finanzas" / ent_dir
     p = docs / PERIODO
     pr = docs / f"presupuesto-{ANIO}"
@@ -359,6 +368,8 @@ def generar(e: dict) -> dict:
             return ruc(20, e["semilla"], i)
         if lector == "sii":
             return F.rut(77000000 + e["semilla"] * 1000 + i)
+        if lector == "sat":
+            return F.rfc("PRV", f"{10 + e['semilla'] % 10:02d}{1 + i % 12:02d}{1 + i % 28:02d}", f"{chr(65 + i % 26)}{e['semilla'] % 10}{i % 10}")
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
@@ -366,6 +377,8 @@ def generar(e: dict) -> dict:
             return f"F{'001' if prefijo == '99' else '002'}-{i:08d}"
         if lector == "sii":                                    # F-16: el folio es numérico, hasta 10 dígitos
             return f"{1 if prefijo == '99' else 2}{i:06d}"
+        if lector == "sat":                                    # F-19: serie y folio de control interno
+            return f"{'A' if prefijo == '99' else 'B'}{i:06d}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
@@ -376,6 +389,8 @@ def generar(e: dict) -> dict:
             return F.factura_sunat(numero, fecha.isoformat(), emisor, receptor, base, iva)
         if lector == "sii":
             return F.factura_sii(numero, fecha.isoformat(), emisor, receptor, base, iva)
+        if lector == "sat":
+            return F.factura_sat(numero[0], numero[1:], fecha.isoformat(), emisor, receptor, base, iva)
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 

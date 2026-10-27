@@ -1,0 +1,199 @@
+{
+  "entidad": "Tiendas del Bajío",
+  "industria": "retail",
+  "pais": "MX",
+  "hoy": "2026-10-06",
+  "siembra": [
+    "xml_duplicado",
+    "registro_sin_factura",
+    "consignacion_en_transito",
+    "cierre_declarado",
+    "requerimiento_vencido",
+    "gasto_sin_linea",
+    "proyeccion_vieja",
+    "comprometido_al_limite",
+    "vencimiento_cercano",
+    "covenant_riesgo",
+    "firmante_sin_facultad"
+  ],
+  "config": {
+    "clara": {
+      "entity": {
+        "id": "TBA180912Q37",
+        "name": "Tiendas del Bajío",
+        "country": "MX",
+        "currency": "MXN",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/TBA180912Q37-tiendas-del-bajio",
+        "state": "estado-finanzas/TBA180912Q37-tiendas-del-bajio"
+      },
+      "period": "2026-09",
+      "accounts": {
+        "sales": [
+          "4135"
+        ],
+        "purchases": [
+          "1435",
+          "5135",
+          "5145",
+          "5195"
+        ],
+        "vat_generated": [
+          "2408"
+        ],
+        "vat_deductible": [
+          "2408"
+        ],
+        "reconcile": [
+          "1305",
+          "2205"
+        ]
+      },
+      "bank_accounts": [
+        "andino-1701",
+        "pacifico-1702"
+      ],
+      "checklist": {
+        "source": "organizacion",
+        "approved": true
+      },
+      "holidays": []
+    },
+    "tomas": {
+      "entity": {
+        "id": "TBA180912Q37",
+        "name": "Tiendas del Bajío",
+        "country": "MX",
+        "currency": "MXN",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/TBA180912Q37-tiendas-del-bajio",
+        "state": "estado-finanzas/TBA180912Q37-tiendas-del-bajio"
+      },
+      "budget": {
+        "year": "2026",
+        "cut": "2026-09",
+        "pmo_records": "estado-pmo/records",
+        "expense_prefixes": [
+          "51",
+          "52"
+        ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "TBA180912Q37",
+        "name": "Tiendas del Bajío",
+        "country": "MX",
+        "currency": "MXN",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/TBA180912Q37-tiendas-del-bajio",
+        "state": "estado-finanzas/TBA180912Q37-tiendas-del-bajio"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
+      }
+    }
+  },
+  "extraccion": {
+    "cierre": {
+      "declared": {
+        "status": "cerrado",
+        "source": "2026-09/40-soportes/correo-estado-del-cierre.md",
+        "date": "2026-10-05",
+        "by": "Sofía León"
+      }
+    },
+    "presupuesto": {
+      "minutes": [
+        {
+          "type": "aprobacion",
+          "version": 1,
+          "date": "2026-01-20",
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.docx"
+        },
+        {
+          "type": "traslado",
+          "date": "2026-06-28",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.docx",
+          "movements": [
+            {
+              "from": {
+                "area": "Comercial",
+                "line": "Publicidad"
+              },
+              "to": {
+                "area": "Comercial",
+                "line": "Eventos"
+              },
+              "amount": 45000.0
+            }
+          ]
+        }
+      ],
+      "area_statements": [],
+      "reports": [],
+      "committee_commitments": [
+        {
+          "what": "Revisar el contrato de vigilancia",
+          "owner": "Administración",
+          "status": "abierto",
+          "evidence": null,
+          "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+        }
+      ]
+    }
+  },
+  "esperado": [
+    {
+      "signal": "audit_request_unanswered",
+      "key": "req:R-05"
+    },
+    {
+      "signal": "bank_unreconciled",
+      "key": "andino-1701:2026-09/20-bancos/andino-1701/auxiliar-libros.xlsx:16"
+    },
+    {
+      "signal": "committed_near_approved",
+      "key": "com:Administración:Mantenimiento"
+    },
+    {
+      "signal": "covenant_at_risk",
+      "key": "covenant:credito_de_tesoreria:razon_corriente"
+    },
+    {
+      "signal": "declared_close_vs_evidence",
+      "key": "cierre"
+    },
+    {
+      "signal": "einvoice_duplicate",
+      "key": "xml:TBA180912Q37-A000102"
+    },
+    {
+      "signal": "forecast_stale",
+      "key": "stale:Operaciones:Transporte"
+    },
+    {
+      "signal": "maturity_near",
+      "key": "vence:credito_de_tesoreria"
+    },
+    {
+      "signal": "recorded_without_einvoice",
+      "key": "reg:recibidas:B000202"
+    },
+    {
+      "signal": "signatory_without_authority",
+      "key": "firma:P-3:carlos_paz"
+    },
+    {
+      "signal": "spend_without_budget_line",
+      "key": "sinlinea:2026-08:5135:ZZZ"
+    }
+  ]
+}

@@ -47,6 +47,20 @@
         "legal",
         "cumplimiento"
       ]
+    },
+    {
+      "sigla": "ea",
+      "nombre": {
+        "es": "Dirección",
+        "en": "Executive office"
+      },
+      "estado": {
+        "es": "En diseño",
+        "en": "In design"
+      },
+      "agentes": [
+        "direccion"
+      ]
     }
   ],
   "agentes": [
@@ -633,6 +647,71 @@
           ]
         }
       ]
+    },
+    {
+      "id": "ofelia",
+      "nombre": "Ofelia",
+      "plugin": "criterio-assistant",
+      "area": "direccion",
+      "ambitos": [],
+      "familia": "ea",
+      "rol": {
+        "es": "Asistente ejecutiva",
+        "en": "Executive assistant"
+      },
+      "titulo": "la oficina de dirección",
+      "setup": null,
+      "marca": null,
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "ea-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "ea-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "Asistente ejecutiva",
+          "linea": "El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta",
+          "comandos": [
+            {
+              "id": "ea-scan",
+              "etiqueta": "Procesar"
+            },
+            {
+              "id": "ea-agenda",
+              "etiqueta": "La semana"
+            },
+            {
+              "id": "ea-prep",
+              "etiqueta": "Preparar una sesión"
+            },
+            {
+              "id": "ea-minutes",
+              "etiqueta": "Borrador del acta"
+            },
+            {
+              "id": "ea-commitments",
+              "etiqueta": "Compromisos"
+            },
+            {
+              "id": "ea-mail",
+              "etiqueta": "Correspondencia"
+            },
+            {
+              "id": "ea-weekly",
+              "etiqueta": "Resumen de la semana"
+            }
+          ]
+        }
+      ]
     }
   ],
   "servidor": {
@@ -664,6 +743,8 @@
   },
   "senales": {
     "account_unreconciled": "El saldo de una cuenta en el mayor no es el de su auxiliar (cuentas por cobrar, por pagar, inventarios, activos fijos, intercompañías)",
+    "agreement_without_date": "Un acuerdo del acta no tiene fecha",
+    "agreement_without_owner": "Un acuerdo del acta no tiene responsable",
     "applicable_norm_not_in_matrix": "Una norma que aplica no tiene ninguna obligación en la matriz",
     "audit_request_unanswered": "Un requerimiento del auditor no tiene respuesta con soporte",
     "bank_unreconciled": "Hay movimientos del extracto sin su registro, o registros sin su movimiento",
@@ -672,6 +753,8 @@
     "cash_vs_forecast": "El saldo real de una cuenta se aparta de su proyección más del umbral",
     "close_task_done_without_evidence": "Una tarea figura cumplida y ningún documento la sostiene",
     "close_task_overdue": "Una tarea del checklist pasó su fecha y no tiene evidencia",
+    "commitment_overdue": "Un compromiso venció y ningún documento lo sostiene como cumplido",
+    "commitment_rescheduled": "Un compromiso se movió más veces de las configuradas",
     "committed_near_approved": "Ejecutado más comprometido se acerca a lo aprobado sin holgura",
     "compliance_done_without_evidence": "Una obligación figura cumplida y ninguna evidencia la sostiene",
     "compliance_evidence_stale": "La evidencia más reciente de una obligación periódica es de antes de su ventana",
@@ -680,8 +763,10 @@
     "contract_expiring": "Un contrato vence dentro de los días configurados y no tiene una decisión registrada de renovar o terminar",
     "contract_obligation_not_in_matrix": "Una obligación de cumplimiento de un contrato no está en la matriz",
     "contract_obligation_overdue": "Una obligación del contrato pasó su fecha sin evidencia",
+    "correspondence_unanswered": "Un correo guardado pide respuesta y su plazo venció sin una respuesta guardada",
     "counterparty_certificate_stale": "El certificado de la contraparte tenía más días de los configurados cuando se firmó",
     "covenant_at_risk": "Un indicador de un contrato de deuda, calculado desde el balance que cierra Clara, cruza su límite o queda a menos del margen de él",
+    "decision_deadline": "Una decisión pendiente tiene una fecha que la fija dentro de los días configurados",
     "declared_close_vs_evidence": "El cierre se reporta como cerrado y hay señales abiertas que ese estado no explica",
     "declared_compliance_vs_evidence": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
     "declared_vs_evidence": "El área se reporta dentro del presupuesto y los números no lo sostienen",
@@ -695,6 +780,9 @@
     "guarantee_missing": "El contrato exige una garantía y no hay póliza aportada",
     "ledger_vs_trial_balance": "El saldo de una cuenta en el mayor no es el del balance de comprobación",
     "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados",
+    "meeting_conflict": "Dos reuniones del ejecutivo se cruzan en la agenda exportada",
+    "meeting_without_material": "A los días configurados de una sesión de un órgano, su material no está en la carpeta",
+    "meeting_without_minutes": "Pasados los días configurados de una sesión, su acta firmada no está",
     "notice_deadline_near": "La fecha límite del preaviso de no renovación de un contrato con renovación automática cae dentro de los días configurados",
     "obligation_without_owner": "Una obligación de la matriz no tiene responsable",
     "obligation_without_source": "Una obligación de la matriz no cita la norma, el contrato o la política de la que sale",

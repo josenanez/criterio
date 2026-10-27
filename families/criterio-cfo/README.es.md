@@ -168,7 +168,7 @@ estado-finanzas/
 |---|---|---|
 | `10-contabilidad/` | Balance de comprobación y libro mayor exportados del ERP, y `auxiliares/` con un archivo por cuenta; de aquí sale también la ejecución del presupuesto | Clara, Tomás |
 | `20-bancos/` | Una carpeta por cuenta, `<banco>-<últimos 4 dígitos>`, con el extracto y el auxiliar de libros | Clara, Áurea |
-| `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01), del SRI (F-04), de la SUNAT (F-13) o del SII (F-16) | Clara |
+| `30-facturacion/` | `emitidas/` y `recibidas/`, con el XML de la DIAN (F-01), del SRI (F-04), de la SUNAT (F-13), del SII (F-16) o del SAT (F-19) | Clara |
 | `40-soportes/` | La evidencia de cada tarea del checklist —actas, correos, conciliaciones firmadas—, con el id de la tarea al inicio del nombre | Clara |
 | `50-auditoria/` | `requerimientos/` y `respuestas/` del auditor | Clara |
 | `60-tesoreria/` | El programa de pagos con quién aprobó cada uno y el flujo de caja proyectado al cierre del periodo | Áurea |
@@ -275,7 +275,7 @@ falta configurado, y cada cuánto tiene sentido que corra.**
 | **Instancias** | Una por entidad | Una por entidad | Una por entidad |
 | **Se configura con** | `/criterio-finance:finance-setup` | `/criterio-budget:budget-setup` | `/criterio-treasury:treasury-setup` |
 | **Cuánto tarda eso** | Quince minutos | Quince minutos | Quince minutos |
-| **Qué le tienes que decir** | Entidad y NIT, RUC o RUT, país, grupo NIIF (F-05, F-06, F-15, F-18), ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas | Entidad, año presupuestal, áreas o centros de costo con su responsable, la versión aprobada y su acta, el mapeo de cuentas a líneas presupuestales (en `00-referencia/`), los umbrales de desviación y, si la organización usa la familia PMO, dónde están sus fichas | Entidad y periodo, las cuentas en otra moneda, los umbrales de desviación, de vencimiento y del margen del covenant, dónde guarda el estado y los términos |
+| **Qué le tienes que decir** | Entidad y NIT, RUC, RUT o RFC, país, grupo NIIF (F-05, F-06, F-15, F-18, F-20), ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas | Entidad, año presupuestal, áreas o centros de costo con su responsable, la versión aprobada y su acta, el mapeo de cuentas a líneas presupuestales (en `00-referencia/`), los umbrales de desviación y, si la organización usa la familia PMO, dónde están sus fichas | Entidad y periodo, las cuentas en otra moneda, los umbrales de desviación, de vencimiento y del margen del covenant, dónde guarda el estado y los términos |
 | **Dónde queda** | `.criterio/finanzas/<entidad>/config.json`, escrito por el comando | `.criterio/presupuesto/<entidad>/config.json`, escrito por el comando | `.criterio/tesoreria/<entidad>/config.json`, escrito por el comando |
 | **El que se le pone a un reloj** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` | `/criterio-treasury:treasury-wake` |
 | **Qué toca cada día** | Decide qué toca según la cadencia: a diario durante la ventana del cierre, semanal fuera de ella | Decide qué toca según la cadencia: cuando aparece un periodo nuevo en `10-contabilidad/`, antes de cada comité y una vez por semana para los compromisos | Decide qué toca: los pagos de los próximos cinco días, las obligaciones que entran en su ventana de vencimiento y una revisión semanal |
@@ -406,9 +406,9 @@ sobre la documentación de una organización real.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 5 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 5 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Tesorería | `criterio-treasury` · 6 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 5 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Tesorería | `criterio-treasury` · 6 comandos, 2 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 

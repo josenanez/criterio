@@ -107,6 +107,20 @@ CAMPOS_SUNAT = {
     "p13-VALOR": "/Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount · total valor de venta (p. 13)",
     "p13-TOTAL": "/Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount · importe total (p. 13)",
 }
+CAMPOS_SAT = {
+    "p3-RAIZ": "cfdi:Comprobante · espacio de nombres http://www.sat.gob.mx/cfd/4 (Anexo 20, DOF 13-01-2022, p. 3)",
+    "p5-VERSION": "Comprobante/@Version · «4.0» (p. 5)",
+    "p5-SERIE": "Comprobante/@Serie y @Folio · control interno del emisor, opcionales (p. 5)",
+    "p5-FECHA": "Comprobante/@Fecha · AAAA-MM-DDThh:mm:ss (p. 5)",
+    "p8-SUBTOTAL": "Comprobante/@SubTotal · suma de los conceptos antes de descuentos e impuestos (p. 8)",
+    "p8-TIPO": "Comprobante/@TipoDeComprobante · «I» (Ingreso) o «E» (Egreso) (p. 8 y 11)",
+    "p9-MONEDA": "Comprobante/@Moneda · «MXN» en moneda nacional (p. 9)",
+    "p10-TOTAL": "Comprobante/@Total · subtotal menos descuentos más impuestos trasladados menos retenidos (p. 10)",
+    "p15-EMISOR": "Emisor/@Rfc · 12 posiciones en persona moral, 13 en persona física (p. 15)",
+    "p17-RECEPTOR": "Receptor/@Rfc · el RFC del receptor (p. 17)",
+    "p37-TRASLADADOS": "Impuestos/@TotalImpuestosTrasladados (p. 37)",
+    "p38-TRASLADO": "Impuestos/Traslados/Traslado · @Impuesto 002 es IVA, catálogo c_Impuesto (p. 26 y 38)",
+}
 CAMPOS_SII = {
     "p12-TIPO": "Encabezado/IdDoc/TipoDTE · 33 es factura electrónica (p. 12)",
     "p12-FOLIO": "Encabezado/IdDoc/Folio · folio autorizado por el SII, hasta 10 dígitos (p. 12)",
@@ -278,6 +292,40 @@ def _sunat(raiz, tipo: str) -> dict:
     return d
 
 
+def _sat(raiz) -> dict:
+    """El CFDI 4.0 del SAT de México (F-19): los montos y el tipo son atributos de
+    `cfdi:Comprobante`; el RFC del emisor y del receptor, de `Emisor` y `Receptor`; el IVA es el
+    traslado con `Impuesto` 002 en el nodo `Impuestos` del comprobante. Serie y folio son de control
+    interno y opcionales: el documento se identifica por el RFC del emisor, la serie y el folio, y si
+    no los trae, por el emisor, la fecha y el total. El folio fiscal (UUID) del Timbre Fiscal Digital
+    no se procesa en esta versión: su estándar no está verificado todavía. Solo el de ingreso (I)
+    cruza valores; el de egreso (E) se identifica."""
+    a = raiz.attrib
+    tipo = a.get("TipoDeComprobante")
+    emisor = ident((_h(raiz, "Emisor") if _h(raiz, "Emisor") is not None else raiz).attrib.get("Rfc"))
+    receptor = ident((_h(raiz, "Receptor") if _h(raiz, "Receptor") is not None else raiz).attrib.get("Rfc"))
+    iva = otros = 0.0
+    imp = next((c for c in raiz if _local(c.tag) == "Impuestos"), None)
+    for t in (x for x in (imp.iter() if imp is not None else []) if _local(x.tag) == "Traslado"):
+        monto = numero(t.attrib.get("Importe")) or 0.0
+        if t.attrib.get("Impuesto") == "002":                  # F-19, p. 26: c_Impuesto 002 · IVA
+            iva += monto
+        else:
+            otros += monto
+    factura = tipo == "I"
+    numero_ = f"{a.get('Serie') or ''}{a.get('Folio') or ''}" or None
+    d = {
+        "pais": PAIS_DEL_LECTOR["sat"], "lector": "sat", "fuente": "F-19",
+        "tipo": "factura" if factura else ("egreso" if tipo == "E" else f"tipo {tipo}"),
+        "numero": numero_, "fecha": iso(fecha((a.get("Fecha") or "")[:10])),
+        "emisor": emisor, "receptor": receptor,
+        "base": numero(a.get("SubTotal")), "iva": round(iva, 2), "otros_impuestos": round(otros, 2),
+        "total": numero(a.get("Total")), "valores": factura,
+    }
+    d["id"] = f"{emisor}-{numero_}" if numero_ else f"{emisor}-{d['fecha']}-{d['total']}"
+    return d
+
+
 def _sii(doc) -> dict:
     """El DTE del SII de Chile (F-16): el tipo, el folio y la fecha en `IdDoc`, el RUT del emisor con
     su dígito verificador en `Emisor/RUTEmisor`, el del cliente en `Receptor/RUTRecep` y los montos en
@@ -335,6 +383,8 @@ def leer_factura(ruta: Path) -> dict:
         return _dian(raiz, nombre)
     if _h(raiz, "infoTributaria") is not None:
         return _sri(raiz)
+    if nombre == "Comprobante" and raiz.attrib.get("Version") == "4.0":   # F-19: el CFDI 4.0 del SAT
+        return _sat(raiz)
     if any(_local(x.tag) == "Encabezado" for x in raiz.iter()):   # F-16: el DTE del SII
         return _sii(raiz)
     return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
@@ -1890,6 +1940,25 @@ def factura_sunat(numero_: str, fecha_: str, ruc: str, receptor: str, base: floa
             '</cac:LegalMonetaryTotal></Invoice>')
 
 
+def factura_sat(serie: str, folio: str, fecha_: str, emisor: str, receptor: str, subtotal: float, iva: float) -> str:
+    """Un CFDI 4.0 de ingreso con lo que procesa el lector (F-19), para las pruebas y el material."""
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4" '
+            f'Version="4.0" Serie="{serie}" Folio="{folio}" Fecha="{fecha_}T10:00:00" SubTotal="{subtotal:.2f}" Moneda="MXN" '
+            f'Total="{subtotal + iva:.2f}" TipoDeComprobante="I" Exportacion="01" LugarExpedicion="06600">'
+            f'<cfdi:Emisor Rfc="{emisor}" Nombre="EMISOR DE PRUEBA" RegimenFiscal="601"/>'
+            f'<cfdi:Receptor Rfc="{receptor}" Nombre="RECEPTOR DE PRUEBA" DomicilioFiscalReceptor="06600" RegimenFiscalReceptor="601" UsoCFDI="G03"/>'
+            f'<cfdi:Conceptos><cfdi:Concepto ClaveProdServ="84111506" Cantidad="1" ClaveUnidad="E48" Descripcion="Servicio" ValorUnitario="{subtotal:.2f}" Importe="{subtotal:.2f}" ObjetoImp="02">'
+            f'<cfdi:Impuestos><cfdi:Traslados><cfdi:Traslado Base="{subtotal:.2f}" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="{iva:.2f}"/></cfdi:Traslados></cfdi:Impuestos>'
+            '</cfdi:Concepto></cfdi:Conceptos>'
+            f'<cfdi:Impuestos TotalImpuestosTrasladados="{iva:.2f}"><cfdi:Traslados><cfdi:Traslado Base="{subtotal:.2f}" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="{iva:.2f}"/></cfdi:Traslados></cfdi:Impuestos>'
+            '</cfdi:Comprobante>')
+
+
+def rfc(letras: str, fecha_: str, homoclave: str) -> str:
+    """Un RFC de persona moral ficticio, de 12 posiciones (F-19, p. 15). Ninguno corresponde a una empresa."""
+    return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
+
+
 def rut(cuerpo: int) -> str:
     """Un RUT con su dígito verificador por módulo 11 (factores 2 a 7 de derecha a izquierda; 10 es K
     y 11 es 0), para que el material tenga la forma de uno real. Ninguno corresponde a una empresa."""
@@ -2008,6 +2077,12 @@ def selftest() -> int:
            ("sii", "factura", "1234", "761234560", "776543217", 1000000.0, 190000.0, 1190000.0, "2026-09-15"))
         ok("SII: el documento se identifica por RUT, tipo y folio", f["id"], "761234560-33-1234")
         ok("SII: el dígito verificador K", rut(10000013), "10000013-K")
+        x.write_text(factura_sat("A", "1001", "2026-09-15", rfc("ABC", "260101", "AA1"), rfc("XYZ", "250505", "BB2"), 10000.0, 1600.0), encoding="utf-8")
+        f = leer_factura(x)
+        ok("SAT: el CFDI 4.0 de ingreso con su IVA", (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"]),
+           ("sat", "factura", "A1001", "ABC260101AA1", "XYZ250505BB2", 10000.0, 1600.0, 11600.0, "2026-09-15"))
+        ok("SAT: el CFDI se identifica por el RFC del emisor, la serie y el folio", f["id"], "ABC260101AA1-A1001")
+        ok("SAT: un CFDI de otra versión no se lee como 4.0", "error" in leer_factura_texto(factura_sat("A", "1", "2026-09-15", "ABC260101AA1", "XYZ250505BB2", 1, 0.16).replace('Version="4.0"', 'Version="3.3"'), t), True)
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"
         _xlsx(y, [["cuenta", "nombre", "debito"], ["1105", "", 10], ["1110", "Bancos", 5]])
