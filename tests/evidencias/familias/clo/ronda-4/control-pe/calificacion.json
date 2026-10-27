@@ -1,0 +1,61 @@
+{
+  "entidad": "Comercial Control Sur",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3167262,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 131,
+    "mal": [
+      {
+        "ficha": "contratos/CTR-902",
+        "campo": "obligations",
+        "esperado": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Insumos Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Insumos Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Insumos Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-06-30",
+            "who": "Insumos Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

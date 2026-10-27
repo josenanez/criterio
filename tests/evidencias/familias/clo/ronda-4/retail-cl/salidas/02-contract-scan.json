@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-27T13:56:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 18,
+  "tokens": 1023399,
+  "tokens_salida": 5168,
+  "costo_usd": 0.36815760000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/76083001-1-tiendas-pacifico/contratos/reporte-contract-scan.md",
+      "estado-legal/76083001-1-tiendas-pacifico/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/76083001-1-tiendas-pacifico/corridas/salida-contract-scan.md",
+      "estado-legal/76083001-1-tiendas-pacifico/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/76083001-1-tiendas-pacifico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

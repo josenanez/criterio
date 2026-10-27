@@ -1,0 +1,19 @@
+{
+  "entidad": "Minera Atacama Norte",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3061760,
+  "senales": {
+    "esperadas": 9,
+    "acertadas": 9,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

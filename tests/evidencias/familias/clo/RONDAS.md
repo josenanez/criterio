@@ -17,6 +17,13 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-2 | [retail](ronda-2/retail/) | retail · CO | constanza, fidel | 9 de 9 · 0 de más | 132 de 132 | 7.22 M |
 | ronda-3 | [control-co-verificacion](ronda-3/control-co-verificacion/) | control · CO | constanza, fidel | 0 de 0 · 0 de más | 131 de 132 | 7.52 M |
 | ronda-3 | [mineria-fidel](ronda-3/mineria-fidel/) | mineria · EC | fidel | 4 de 4 · 0 de más | 128 de 128 | 3.47 M |
+| ronda-4 | [banca-pe](ronda-4/banca-pe/) | banca · PE | constanza, fidel | 10 de 10 · 0 de más | 132 de 132 | 3.22 M |
+| ronda-4 | [control-cl](ronda-4/control-cl/) | control · CL | constanza, fidel | 0 de 0 · 0 de más | 132 de 132 | 3.28 M |
+| ronda-4 | [control-pe](ronda-4/control-pe/) | control · PE | constanza, fidel | 0 de 0 · 0 de más | 131 de 132 | 3.17 M |
+| ronda-4 | [control-pe-fidel](ronda-4/control-pe-fidel/) | control · PE | fidel | 0 de 0 · 0 de más | 128 de 128 | 1.78 M |
+| ronda-4 | [mineria-cl](ronda-4/mineria-cl/) | mineria · CL | constanza, fidel | 9 de 9 · 0 de más | 132 de 132 | 3.06 M |
+| ronda-4 | [mineria-pe](ronda-4/mineria-pe/) | mineria · PE | constanza, fidel | 9 de 9 · 0 de más | 153 de 153 | 3.58 M |
+| ronda-4 | [retail-cl](ronda-4/retail-cl/) | retail · CL | constanza, fidel | 9 de 9 · 0 de más | 132 de 132 | 3.52 M |
 
 ## Los defectos que encontraron
 
@@ -33,3 +40,4 @@ Cada uno con su origen y el commit que lo corrige, desde `defectos.json`. Se da 
 | CLO-7 | 2 | mineria | la clave de respuestas | La clave de un contrato sin la firma de la contraparte seguía listando a la contraparte como firmante. Fidel, con razón, listó solo a quien firmó. | El generador deja en la clave solo a quien firmó; cambia únicamente la clave de minería. Verificado en la ronda 3: Fidel sobre minería, 128 de 128 datos. | f075160 | corregido y verificado |
 | CLO-8 | 2 | mineria | las instrucciones del agente | En ese mismo contrato, Fidel dejó vacía la fecha de firma: la skill no decía qué fecha va cuando solo firmó una parte. | La skill de la ficha dice que la fecha es la de la firma que trae el documento, aunque sea de una sola parte, y que signed_by_both dice que falta la otra. Verificado en la ronda 3: Fidel sobre minería, 128 de 128 datos. | f075160 | corregido y verificado |
 | CLO-9 | 2 | banca | el arnés de prueba | El mismo caso que CFO-4: la clave dice «Reporte de operaciones al oficial de cumplimiento» y Fidel escribió «Reporte de operaciones del periodo al oficial de cumplimiento». La calificación lo cuenta como error porque compara el texto contenido, no el sentido. Se repitió en la ronda 3, en el control de Colombia: es el único dato que falló ahí (131 de 132). | La misma corrección que CFO-4. Verificado volviendo a calificar las salidas originales: banca de la ronda 2, 132 de 132, y el control de Colombia de la ronda 3, 132 de 132; las demás entidades no cambian. | 96935cc | corregido y verificado |
+| CLO-10 | 4 | control-pe | las instrucciones del agente | En un contrato cuyo otrosí movió la terminación del 2027-06-30 al 2027-12-31, Fidel dejó el informe final y el acta de liquidación con la fecha original. La terminación sí quedó bien: solo la obligación atada a ella no la siguió. | La skill de la ficha dice que una obligación atada a la terminación vence en la terminación vigente, la del último otrosí. Fidel se corrió de nuevo sobre el control de Perú: 128 de 128 datos; las entidades de Chile, corridas ya con la corrección, dan 132 de 132. | 9a616a3 | corregido y verificado |

@@ -406,9 +406,9 @@ documentation.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; with the agent, every entity in the material, up to round 5 · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; with the agent, every entity in the material, up to round 5 · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; with the agent, every entity in the material, up to round 5 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 

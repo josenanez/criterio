@@ -1,0 +1,38 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-27T13:41:41",
+  "estado": "success",
+  "error": false,
+  "segundos": 65,
+  "turnos": 17,
+  "tokens": 902547,
+  "tokens_salida": 7368,
+  "costo_usd": 0.3601816000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-27-contract-scan-1.html",
+      ".criterio/corridas/legal/2026-10-27-contract-scan-1.md",
+      ".criterio/corridas/legal/corridas.json",
+      "estado-legal/20710000019-banco-ribera/contratos/reporte-contract-scan.md",
+      "estado-legal/20710000019-banco-ribera/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/20710000019-banco-ribera/corridas/salida-contract-scan.md",
+      "estado-legal/20710000019-banco-ribera/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/20710000019-banco-ribera/contratos/CTR-701.json",
+      "estado-legal/20710000019-banco-ribera/contratos/CTR-702.json",
+      "estado-legal/20710000019-banco-ribera/contratos/CTR-703.json",
+      "estado-legal/20710000019-banco-ribera/contratos/CTR-704.json",
+      "estado-legal/20710000019-banco-ribera/contratos/CTR-705.json",
+      "estado-legal/20710000019-banco-ribera/contratos/CTR-706.json",
+      "estado-legal/20710000019-banco-ribera/contratos/resultados.json",
+      "estado-legal/20710000019-banco-ribera/corridas.json"
+    ],
+    "borrados": []
+  }
+}

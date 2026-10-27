@@ -266,6 +266,33 @@
           "contratos/CTR-501 · obligations"
         ]
       ]
+    },
+    {
+      "id": "CLO-10",
+      "ronda": 4,
+      "carpeta": "control-pe",
+      "agentes": [
+        "fidel"
+      ],
+      "origen": "instrucciones",
+      "commit": "9a616a3",
+      "estado": "verificado",
+      "verificacion": "control-pe-fidel",
+      "es": {
+        "que": "En un contrato cuyo otrosí movió la terminación del 2027-06-30 al 2027-12-31, Fidel dejó el informe final y el acta de liquidación con la fecha original. La terminación sí quedó bien: solo la obligación atada a ella no la siguió.",
+        "correccion": "La skill de la ficha dice que una obligación atada a la terminación vence en la terminación vigente, la del último otrosí. Fidel se corrió de nuevo sobre el control de Perú: 128 de 128 datos; las entidades de Chile, corridas ya con la corrección, dan 132 de 132."
+      },
+      "en": {
+        "que": "In a contract whose amendment moved the end date from 2027-06-30 to 2027-12-31, Fidel left the final report and the settlement minutes on the original date. The end date itself was right: only the obligation tied to it did not follow.",
+        "correccion": "The record skill says an obligation tied to termination falls due on the current end date, the one in the latest amendment. Fidel was rerun on the Peruvian control: 128 of 128 data points; the Chilean entities, already run with the fix, give 132 of 132."
+      },
+      "fallas": [
+        [
+          4,
+          "control-pe",
+          "contratos/CTR-902 · obligations"
+        ]
+      ]
     }
   ]
 }

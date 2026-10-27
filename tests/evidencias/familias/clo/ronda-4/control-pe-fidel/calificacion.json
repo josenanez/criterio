@@ -1,0 +1,18 @@
+{
+  "entidad": "Comercial Control Sur",
+  "agentes": [
+    "fidel"
+  ],
+  "tokens": 1782497,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 128,
+    "bien": 128,
+    "mal": []
+  }
+}

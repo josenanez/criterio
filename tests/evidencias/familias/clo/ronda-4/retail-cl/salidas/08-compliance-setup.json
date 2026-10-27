@@ -1,0 +1,39 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/76083001-1-tiendas-pacifico",
+  "inicio": "2026-10-27T13:57:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 69,
+  "turnos": 23,
+  "tokens": 854431,
+  "tokens_salida": 8736,
+  "costo_usd": 0.3243947,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-27-compliance-setup-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-27-compliance-setup-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/cumplimiento/76083001-1-tiendas-pacifico/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.10.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.10.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.10.0-2026-10-06.sha256",
+      "estado-legal/76083001-1-tiendas-pacifico/cache/cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md.md",
+      "estado-legal/76083001-1-tiendas-pacifico/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/76083001-1-tiendas-pacifico/corridas/salida-compliance-setup.md",
+      "estado-legal/76083001-1-tiendas-pacifico/cumplimiento/2026-09/ficha.json",
+      "estado-legal/76083001-1-tiendas-pacifico/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/76083001-1-tiendas-pacifico/cumplimiento/2026-09/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/76083001-1-tiendas-pacifico/cache/manifest.json",
+      "estado-legal/76083001-1-tiendas-pacifico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

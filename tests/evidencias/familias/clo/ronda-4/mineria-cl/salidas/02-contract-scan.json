@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-27T14:01:45",
+  "estado": "success",
+  "error": false,
+  "segundos": 75,
+  "turnos": 16,
+  "tokens": 803132,
+  "tokens_salida": 3591,
+  "costo_usd": 0.28999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/76089001-4-minera-atacama-norte/contratos/reporte-contract-scan.md",
+      "estado-legal/76089001-4-minera-atacama-norte/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/76089001-4-minera-atacama-norte/corridas/salida-contract-scan.md",
+      "estado-legal/76089001-4-minera-atacama-norte/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/76089001-4-minera-atacama-norte/corridas.json"
+    ],
+    "borrados": []
+  }
+}

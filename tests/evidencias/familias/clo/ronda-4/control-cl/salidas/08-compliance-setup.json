@@ -1,0 +1,39 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/76097001-8-comercial-control-andes",
+  "inicio": "2026-10-27T14:08:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 100,
+  "turnos": 25,
+  "tokens": 856886,
+  "tokens_salida": 8319,
+  "costo_usd": 0.32159999999999994,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-27-compliance-setup-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-27-compliance-setup-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/cumplimiento/76097001-8-comercial-control-andes/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.10.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.10.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.10.0-2026-10-06.sha256",
+      "estado-legal/76097001-8-comercial-control-andes/cache/cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md.md",
+      "estado-legal/76097001-8-comercial-control-andes/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/76097001-8-comercial-control-andes/corridas/salida-compliance-setup.md",
+      "estado-legal/76097001-8-comercial-control-andes/cumplimiento/2026-09/ficha.json",
+      "estado-legal/76097001-8-comercial-control-andes/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/76097001-8-comercial-control-andes/cumplimiento/2026-09/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/76097001-8-comercial-control-andes/cache/manifest.json",
+      "estado-legal/76097001-8-comercial-control-andes/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "entidad": "Tiendas Pacífico",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3519647,
+  "senales": {
+    "esperadas": 9,
+    "acertadas": 9,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

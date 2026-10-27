@@ -1,0 +1,31 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-27T13:46:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 40,
+  "turnos": 14,
+  "tokens": 763572,
+  "tokens_salida": 3668,
+  "costo_usd": 0.2494382,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-27-contract-scan-1.html",
+      ".criterio/corridas/legal/2026-10-27-contract-scan-1.md",
+      "estado-legal/20730000015-minera-puna-alta/contratos/reporte-contract-scan.md",
+      "estado-legal/20730000015-minera-puna-alta/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/20730000015-minera-puna-alta/corridas/salida-contract-scan.md",
+      "estado-legal/20730000015-minera-puna-alta/indice.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/20730000015-minera-puna-alta/corridas.json"
+    ],
+    "borrados": []
+  }
+}
