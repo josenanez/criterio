@@ -1,6 +1,6 @@
 {
   "name": "criterio-budget",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Tomás, FP&A: el presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año con su supuesto escrito, los traslados con su acta y el material del comité de presupuesto. Toma la ejecución de la misma contabilidad que cierra Clara.",
   "author": {
     "name": "José Francisco Ñáñez",

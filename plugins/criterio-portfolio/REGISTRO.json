@@ -1014,6 +1014,54 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "e0e3579d82728c56c6b7dc1b26ace55fcac36c9144929d1726f67ec49eb111e2",
       "sha256": "4950e0645f486ab827050edb248700042fd9819f5f6d06e80b31adee40e59d41"
+    },
+    {
+      "version": "0.11.0",
+      "fecha": "2026-10-27",
+      "commit": null,
+      "base": "59f0bdb4",
+      "etiqueta": "v0.11.0",
+      "terminos": {
+        "version": "1.2",
+        "fecha": "2026-10-20",
+        "sha256": {
+          "es": "97ef3d7200b125faef9cf3ef59dd2616621418c504c54332a7ec8c9042676fc3",
+          "en": "6359f5315d159b248691716475fc14f75dfc6cfea4309ff07b41f1ca82c91ece"
+        }
+      },
+      "plugins": {
+        "criterio-budget": "79b4415bc4b6ded6b73e37a1d045e49e05f1a838eac5d799580e96bb21e006d7",
+        "criterio-compliance": "b8394a89cdcfa45678965ce1da54dd6390c1ce18c09693fa7e32f8c21c89a7ca",
+        "criterio-finance": "0490ded40b6c0fdc88e623555f4e86fe3e0b3655b100b0fc8935c0d90e7ad073",
+        "criterio-legal": "d4002fea8210c3a6b26e0ec73a4922970827f13969b14bc1c2f96af46f0da1fd",
+        "criterio-portfolio": "96272efdc2f74a332e007483cc51ef89cea3e603fe05c223bcba4daf0990d37d",
+        "criterio-product": "c252f591a2938a9b48237152e7d149ac8d984436ea2dcb16176650713e0d6c83",
+        "criterio-project": "c0d1491ac6610b000644260fd0d7154ca8be86b29d06a684b859f3a5c83a5fcd",
+        "criterio-server": "ad9101693c33efa516fea8517f5a4b6bcaf02a5d53de271e2ee998c2b4ce0ea1",
+        "criterio-treasury": "27bf7bd8fa1b86e47f33c20661793f6bc663dbbcf48dfc2070c08a81a58b87d3"
+      },
+      "destacados": [
+        "Chile en Criterio CFO: la factura electrónica del SII, el IVA y las NIIF, con su ronda 5: 26 de 26 señales, 0 de más y 24 de 24 datos",
+        "Perú y Chile en Criterio CLO, con su ronda 4: 37 de 37 señales, 0 de más y 812 de 813 datos; CLO-10 corregido y verificado"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "PMO: telecomunicaciones y logística siguen siendo el siguiente incremento, ahora la 0.11.0, y Rostrum la 0.12.0; liberar la 0.10.0 los había marcado liberados por compartir el número de versión",
+        "Resultados de la corrida",
+        "CLO: Perú, Chile, México y Brasil como siguiente incremento de la hoja de ruta",
+        "Resultados de la corrida",
+        "README: cómo activar la actualización automática para recibir cada versión",
+        "Resultados de la corrida",
+        "CFO: Chile con el lector del DTE del SII (F-16), el IVA del 19 % (F-17) y las NIIF del Colegio de Contadores (F-18); material de retail, minería y control de Chile; el motor da la clave exacta en las doce entidades",
+        "CFO: la ronda 5 con los tres agentes sobre retail, minería y control de Chile, 26 de 26 señales, ninguna de más y 24 de 24 datos",
+        "Resultados de la corrida",
+        "CLO: material de banca, minería y control de Perú y de retail, minería y control de Chile, con la identificación fiscal de cada país; la obligación atada a la terminación vence en la terminación vigente (CLO-10)",
+        "CLO: la ronda 4 con Fidel y Constanza sobre banca, minería y control de Perú y retail, minería y control de Chile, 37 de 37 señales, ninguna de más y 812 de 813 datos; CLO-10 corregido y verificado; el estado de cada agente cuenta lo corrido en todas las rondas",
+        "0.11.0 · Chile en la CFO y Perú y Chile en la CLO: las hojas de ruta con México y Brasil como siguientes y la PMO en 0.12.0 y 0.13.0; los README con el estado de cuatro países; las notas de lanzamiento"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "4950e0645f486ab827050edb248700042fd9819f5f6d06e80b31adee40e59d41",
+      "sha256": "ba6b5079df744633bd34b3590c1e6a4577602f144c3019fa760437df3851b4cd"
     }
   ]
 }
