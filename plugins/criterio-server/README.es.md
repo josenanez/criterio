@@ -14,7 +14,7 @@ dejaría de ser cierto.
 
 **Estado: construido y probado.** El portal de la
 familia PMO existe desde la 0.2 y se probó de punta a punta en cada ronda desde la 0.3.9; el mapa que suma las familias CFO y CLO lo
-prueba su selftest sobre las tres familias a la vez, y la auditoría de accesibilidad corrió sobre las salidas de las rondas de las tres. La decisión, en el
+prueba su selftest sobre las tres familias a la vez —y que la oficina de Ofelia no entre si su configuración no lo dice—, y la auditoría de accesibilidad corrió sobre las salidas de las rondas de las tres. La decisión, en el
 [ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md).
 
 ---
@@ -90,8 +90,11 @@ entidad nueva entra volviendo a correr `server-setup`.
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la
 [PMO](../../families/criterio-pmo/README.es.md#en-rostrum-el-portal-de-todas-las-familias), la
-[CFO](../../families/criterio-cfo/README.es.md#en-rostrum-el-portal-de-todas-las-familias) y la
-[CLO](../../families/criterio-clo/README.es.md#en-rostrum-el-portal-de-todas-las-familias). La guía completa, con capturas, está en
+[CFO](../../families/criterio-cfo/README.es.md#en-rostrum-el-portal-de-todas-las-familias), la
+[CLO](../../families/criterio-clo/README.es.md#en-rostrum-el-portal-de-todas-las-familias) y la
+[EA](../../families/criterio-ea/README.es.md#en-rostrum-solo-si-la-oficina-lo-decide). **La oficina de Ofelia no
+entra al mapa por omisión**: `server-setup` la nombra entre las que no se publican, y entra solo si su
+configuración lo dice. La guía completa, con capturas, está en
 [josenanez.com/es/agents/rostrum](https://www.josenanez.com/es/agents/rostrum).
 
 ## El primer resultado

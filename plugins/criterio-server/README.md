@@ -14,7 +14,7 @@ anything, the name would stop being true.
 
 **Status: built and tested.** The PMO family's
 portal has existed since 0.2 and has been tested end to end in every round since 0.3.9; the map
-that adds the CFO and CLO families is tested by its selftest across the three families at once, and the accessibility audit ran on the round outputs of all three.
+that adds the CFO and CLO families is tested by its selftest across the three families at once —and that Ofelia's office stays out unless its configuration says otherwise—, and the accessibility audit ran on the round outputs of all three.
 The decision is in [ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md) (Spanish).
 
 ---
@@ -89,8 +89,11 @@ running `server-setup` again.
 
 Each family explains in its own documentation what it has in the portal: the
 [PMO](../../families/criterio-pmo/README.md#in-rostrum-the-portal-for-every-family), the
-[CFO](../../families/criterio-cfo/README.md#in-rostrum-the-portal-for-every-family) and the
-[CLO](../../families/criterio-clo/README.md#in-rostrum-the-portal-for-every-family). The full guide, with
+[CFO](../../families/criterio-cfo/README.md#in-rostrum-the-portal-for-every-family), the
+[CLO](../../families/criterio-clo/README.md#in-rostrum-the-portal-for-every-family) and the
+[EA](../../families/criterio-ea/README.md#in-rostrum-only-if-the-office-decides). **Ofelia's office is not on the
+map by default**: `server-setup` names it among those not published, and it goes in only if its
+configuration says so. The full guide, with
 screenshots, is at [josenanez.com/agents/rostrum](https://www.josenanez.com/agents/rostrum).
 
 ## The first result
