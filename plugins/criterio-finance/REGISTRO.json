@@ -1062,6 +1062,49 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "4950e0645f486ab827050edb248700042fd9819f5f6d06e80b31adee40e59d41",
       "sha256": "ba6b5079df744633bd34b3590c1e6a4577602f144c3019fa760437df3851b4cd"
+    },
+    {
+      "version": "0.12.0",
+      "fecha": "2026-10-27",
+      "commit": null,
+      "base": "c4119a1c",
+      "etiqueta": "v0.12.0",
+      "terminos": {
+        "version": "1.2",
+        "fecha": "2026-10-20",
+        "sha256": {
+          "es": "97ef3d7200b125faef9cf3ef59dd2616621418c504c54332a7ec8c9042676fc3",
+          "en": "6359f5315d159b248691716475fc14f75dfc6cfea4309ff07b41f1ca82c91ece"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "fe5f0a0f20440b000459bc3d697d22ac6a5378090cf3346a93dd2d14125a819a",
+        "criterio-budget": "fc8615751283d63be7bb9aec62bb55c2c06d3d7c91ae06446152b5048c93041c",
+        "criterio-compliance": "eb34ed6c5c67cede03373c7320777997a85f77cea1e49686e4af14b9e0a70808",
+        "criterio-finance": "5b08513817f106e3f12948f4965cadff15053d1a65955f584d4b602e5626e4f3",
+        "criterio-legal": "3fd5e7d9629c4d9cf40f911e6e1214a6a7e9b2f068e337736b12cb6f7a3665bb",
+        "criterio-portfolio": "596f3350a65b8a3eb86e79df703a0141f7301b614f64cb2aad9e14a4ede7fafc",
+        "criterio-product": "8b74ee04c661dd735edff5cdc156c8c4acef5664bdd59792fd4ddf69d484c236",
+        "criterio-project": "6ec21e8c2990f6a57a92d72604a9323e0497ff01fa565aad5b47fa59a05da1c0",
+        "criterio-server": "ae374b54f20ee1191476a144fbcee0a507b22277c76b911e87be480680e7f4d8",
+        "criterio-treasury": "ed25829a4a084644ce943c4be09096a5449b699600b1d5492f9b0ba4aebe8bca"
+      },
+      "destacados": [
+        "México en Criterio CFO: el CFDI 4.0 del SAT, el IVA y el marco NIIF o NIF de cada entidad, con su ronda 6: 27 de 27 señales, 0 de más y 24 de 24 datos",
+        "México en Criterio CLO, con su ronda 5: 20 de 20 señales, 0 de más y 395 de 396 datos; CLO-11 corregido y verificado",
+        "Criterio EA, la familia nueva: Ofelia, la asistente ejecutiva, con su ronda 1 sobre cuatro oficinas: 14 de 14 señales y 76 de 78 datos; siete de sus ocho defectos, verificados"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "CFO: México con el lector del CFDI 4.0 del SAT (F-19) y el marco NIIF o NIF de cada entidad (F-20); material de banca, retail y control de México; el motor da la clave exacta en las quince entidades",
+        "CFO: la ronda 6 con los tres agentes sobre banca, retail y control de México, 27 de 27 señales, ninguna de más y 24 de 24 datos; Áurea completa en su README y en los de la familia; Rostrum nombra cada ámbito con su tilde; CLO: material de banca, retail y control de México",
+        "CLO: la ronda 5 con Fidel y Constanza sobre banca, retail y control de México, 20 de 20 señales, ninguna de más y 395 de 396 datos; CLO-11: la skill de la ficha decía que la fecha de una obligación atada a la terminación es la de end, que es la original, y ahora dice la del último otrosí; el motor la revisa en la ficha y contract-scan la corrige antes de calcular; Fidel de nuevo sobre el control de México, 128 de 128",
+        "EA: la familia de la oficina de dirección con Ofelia, la asistente ejecutiva: su plugin criterio-assistant con nueve comandos, seis skills y su motor; su página, sus preguntas frecuentes, su evidencia, sus contratos y su ronda 1 sobre cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con sus ocho defectos y sus verificaciones; Rostrum no publica una configuración que dice que no se publica; Áurea en el README principal y en el manual; CFO, CLO y preguntas frecuentes al día con México; la PMO pasa a 0.13.0 y 0.14.0",
+        "Los defectos de la EA y CLO-11 con el commit que los corrige; las rondas y el análisis al día"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "ba6b5079df744633bd34b3590c1e6a4577602f144c3019fa760437df3851b4cd",
+      "sha256": "5c192bc2d2758a5143b9a7334cad3310a291627dc85c5ecc4b09c76e19f811f8"
     }
   ]
 }

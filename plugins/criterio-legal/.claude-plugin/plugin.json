@@ -1,6 +1,6 @@
 {
   "name": "criterio-legal",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Fidel, los contratos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías. Cada fecha y cada monto los calcula el código y cada dato cita su documento. Sin opinión jurídica.",
   "author": {
     "name": "José Francisco Ñáñez",
