@@ -1,0 +1,18 @@
+{
+  "entidad": "Distribuidora Control",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 2080339,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 22,
+    "bien": 22,
+    "mal": []
+  }
+}

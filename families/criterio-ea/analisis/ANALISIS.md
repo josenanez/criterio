@@ -6,9 +6,9 @@ Not edited by hand: every figure comes from the evidence and the analysis is reg
 
 ## At a glance
 
-The most recent complete round, round 1, on the material's 6 entities: 18 of 18 seeded signals found (95% margin: 82.4–100%) and 1 extra; 114 of 117 data items extracted right (97.4%, 95% margin: 92.7–99.2%); and 2 of 3 control entities with no signal at all.
+The most recent complete round, round 1, on the material's 7 entities: 18 of 18 seeded signals found (95% margin: 82.4–100%) and 1 extra; 136 of 139 data items extracted right (97.8%, 95% margin: 93.8–99.3%); and 3 of 4 control entities with no signal at all.
 
-Across rounds 1–1, 18 of 18 signals found, 1 extra and 114 of 117 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases.
+Across rounds 1–1, 18 of 18 signals found, 1 extra and 136 of 139 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases.
 
 ## What was tested and how
 
@@ -21,9 +21,9 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 | Rounds | 1; the most recent complete one is round 1 |
 | Material | Banking · Colombia, Credit unions · Ecuador |
 | Control entities | Control · Colombia, Control · Ecuador |
-| Entity runs | 6 |
+| Entity runs | 7 |
 | Seeded signals | 18 |
-| Data items graded | 117 |
+| Data items graded | 139 |
 
 ## Cumulative results · rounds 1–1
 
@@ -31,8 +31,8 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |---|---|---|---|
 | Signals · coverage | 18 of 18 | 100% | 82.4–100% |
 | Signals · precision | 18 of 19 | 94.7% | 75.3–99.1% |
-| Extraction · data right | 114 of 117 | 97.4% | 92.7–99.2% |
-| Control · with no signal | 2 of 3 | 66.7% | 20.7–93.9% |
+| Extraction · data right | 136 of 139 | 97.8% | 93.8–99.3% |
+| Control · with no signal | 3 of 4 | 75% | 30–95.5% |
 
 ## Round by round
 
@@ -40,7 +40,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 
 | Round | Entities | Signals · coverage | Signals · precision | Extraction | Control with no signal | Tokens | Defects |
 |---|---|---|---|---|---|---|---|
-| 1 | 6 | 100% | 94.7% | 97.4% | 2 of 3 | 9.2 M | 8 |
+| 1 | 7 | 100% | 94.7% | 97.8% | 3 of 4 | 11.3 M | 8 |
 
 ## The most recent complete round · round 1
 
@@ -48,8 +48,8 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |---|---|---|---|
 | Signals · coverage | 18 of 18 | 100% | 82.4–100% |
 | Signals · precision | 18 of 19 | 94.7% | 75.3–99.1% |
-| Extraction · data right | 114 of 117 | 97.4% | 92.7–99.2% |
-| Control · with no signal | 2 of 3 | 66.7% | 20.7–93.9% |
+| Extraction · data right | 136 of 139 | 97.8% | 93.8–99.3% |
+| Control · with no signal | 3 of 4 | 75% | 30–95.5% |
 
 ## By industry and country · round 1
 
@@ -60,11 +60,12 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 | Credit unions · Ecuador | Ofelia | 4 of 4 | 0 | 17 of 17 | 1.8 M |
 | Control · Colombia | Ofelia | 0 of 0 | 1 | 21 of 22 | 1.3 M |
 | Control · Colombia | Ofelia | 0 of 0 | 0 | 21 of 22 | 1.5 M |
+| Control · Colombia | Ofelia | 0 of 0 | 0 | 22 of 22 | 2.1 M |
 | Control · Ecuador | Ofelia | 0 of 0 | 0 | 22 of 22 | 1.5 M |
 
 ## What failed, one by one · rounds 1–1
 
-4 failures in 6 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right.
+4 failures in 7 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right.
 
 | Round | Material | What | Where | Defect | Origin |
 |---|---|---|---|---|---|
@@ -77,7 +78,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 
 ![Defects](defectos-en.svg)
 
-8 defects logged, each with its origin, its fix and the run that verified it: 7 verified and 1 to verify. 2 came from the material, the key or the test harness, not from the agents.
+8 defects logged, each with its origin, its fix and the run that verified it: 8 verified and 0 to verify. 2 came from the material, the key or the test harness, not from the agents.
 
 | Origin | Defects |
 |---|---|
@@ -92,7 +93,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 
 ## Cost and next step
 
-The 1 rounds used 10.4 million tokens: 9.2 million in the graded runs and 1.2 in the ones repeated after fixing a defect. On average, 1.5 million per entity.
+The 1 rounds used 12.5 million tokens: 11.3 million in the graded runs and 1.2 in the ones repeated after fixing a defect. On average, 1.6 million per entity.
 
 The material is synthetic. The next step is deployment in an organisation, with its own documentation.
 

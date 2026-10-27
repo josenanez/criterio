@@ -80,6 +80,8 @@ PUERTAS = [
      "La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso"),
     ("material", [sys.executable, str(RAIZ / "scripts/registro.py"), "verificar"],
      "El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos"),
+    ("código", [sys.executable, str(RAIZ / "scripts/trafico.py"), "--selftest"],
+     "La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana"),
     ("código", [sys.executable, str(PM / "portafolio.py"), "selftest"],
      "La copia de la aritmética corre sola, sin tocar el otro plugin"),
     ("código", [sys.executable, str(PM / "texto.py"), "--selftest"],

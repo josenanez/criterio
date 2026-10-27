@@ -169,14 +169,14 @@
       ],
       "origen": "instrucciones",
       "commit": "d11470ea",
-      "estado": "por-verificar",
+      "estado": "verificado",
       "es": {
         "que": "En la corrida que verificó EA-7, Ofelia agregó a lo que falta saber de una decisión un hecho que el acta ya dice: que se decide en la próxima sesión.",
-        "correccion": "La skill de la decisión dice que en `missing` va solo lo que el material no responde, no lo que los documentos ya dicen. Se verifica en la próxima ronda."
+        "correccion": "La skill de la decisión dice que en `missing` va solo lo que el material no responde, no lo que los documentos ya dicen. Ofelia se corrió de nuevo sobre el control de Colombia: ninguna señal de más y 22 de 22 datos."
       },
       "en": {
         "que": "In the run that verified EA-7, Ofelia added to what is still unknown about a decision a fact the minutes already state: that it is decided at the next meeting.",
-        "correccion": "The decision skill says `missing` holds only what the material does not answer, not what the documents already say. It is verified in the next round."
+        "correccion": "The decision skill says `missing` holds only what the material does not answer, not what the documents already say. Ofelia was rerun on the Colombian control: no extra signal and 22 of 22 data points."
       },
       "fallas": [
         [
@@ -184,7 +184,8 @@
           "control-co-ofelia",
           "reuniones/junta-directiva-2026-09-24 · decisions"
         ]
-      ]
+      ],
+      "verificacion": "control-co-ofelia-2"
     }
   ]
 }

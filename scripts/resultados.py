@@ -57,6 +57,7 @@ DUENIOS = [
     ("tests/criterio-ea/", "Ofelia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
+    ("scripts/trafico.py", "La familia"),
     ("criterio-server/scripts/", "Rostrum"),
     ("criterio-portfolio/scripts/raiz.py", "La familia"),
     ("criterio-portfolio/scripts/rastro.py", "La familia"),
