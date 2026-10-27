@@ -27,6 +27,9 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-4 | [mineria](ronda-4/mineria/) | mineria · EC | aurea, clara, tomas | 14 de 14 · 0 de más | 9 de 9 | 4.56 M |
 | ronda-4 | [mineria-pe](ronda-4/mineria-pe/) | mineria · PE | aurea, clara, tomas | 12 de 12 · 0 de más | 9 de 9 | 4.09 M |
 | ronda-4 | [retail](ronda-4/retail/) | retail · CO | aurea, clara, tomas | 12 de 12 · 0 de más | 8 de 8 | 4.30 M + 2.73 M repetidos |
+| ronda-5 | [control-cl](ronda-5/control-cl/) | control · CL | aurea, clara, tomas | 0 de 0 · 0 de más | 8 de 8 | 4.48 M |
+| ronda-5 | [mineria-cl](ronda-5/mineria-cl/) | mineria · CL | aurea, clara, tomas | 12 de 12 · 0 de más | 8 de 8 | 4.03 M |
+| ronda-5 | [retail-cl](ronda-5/retail-cl/) | retail · CL | aurea, clara, tomas | 14 de 14 · 0 de más | 8 de 8 | 4.15 M |
 
 ## Los defectos que encontraron
 

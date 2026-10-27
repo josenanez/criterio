@@ -1,0 +1,20 @@
+{
+  "entidad": "Tiendas Pacífico",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4150431,
+  "senales": {
+    "esperadas": 14,
+    "acertadas": 14,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

@@ -2,8 +2,9 @@
 <rect width="760" height="340" fill="#050505"/>
 <text x="60" y="32" font-size="17" fill="#f5f4ef">Defectos encontrados por ronda</text>
 <text x="60" y="54" fill="#8a867e">10 en total, por la ronda en que se encontraron</text>
-<rect x="93.0" y="80.0" width="99.0" height="210.0" fill="#4a4740"/><text x="142.5" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="142.5" y="308" text-anchor="middle" fill="#8a867e">R1</text>
-<rect x="258.0" y="220.0" width="99.0" height="70.0" fill="#4a4740"/><text x="307.5" y="214.0" text-anchor="middle" fill="#f5f4ef">1</text><text x="307.5" y="308" text-anchor="middle" fill="#8a867e">R2</text>
-<rect x="423.0" y="80.0" width="99.0" height="210.0" fill="#4a4740"/><text x="472.5" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="472.5" y="308" text-anchor="middle" fill="#8a867e">R3</text>
-<rect x="588.0" y="80.0" width="99.0" height="210.0" fill="#d5a84b"/><text x="637.5" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="637.5" y="308" text-anchor="middle" fill="#8a867e">R4</text>
+<rect x="86.4" y="80.0" width="79.2" height="210.0" fill="#4a4740"/><text x="126.0" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="126.0" y="308" text-anchor="middle" fill="#8a867e">R1</text>
+<rect x="218.4" y="220.0" width="79.2" height="70.0" fill="#4a4740"/><text x="258.0" y="214.0" text-anchor="middle" fill="#f5f4ef">1</text><text x="258.0" y="308" text-anchor="middle" fill="#8a867e">R2</text>
+<rect x="350.4" y="80.0" width="79.2" height="210.0" fill="#4a4740"/><text x="390.0" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="390.0" y="308" text-anchor="middle" fill="#8a867e">R3</text>
+<rect x="482.4" y="80.0" width="79.2" height="210.0" fill="#4a4740"/><text x="522.0" y="74.0" text-anchor="middle" fill="#f5f4ef">3</text><text x="522.0" y="308" text-anchor="middle" fill="#8a867e">R4</text>
+<rect x="614.4" y="290.0" width="79.2" height="0.0" fill="#d5a84b"/><text x="654.0" y="284.0" text-anchor="middle" fill="#f5f4ef">0</text><text x="654.0" y="308" text-anchor="middle" fill="#8a867e">R5</text>
 <line x1="60" x2="720" y1="290" y2="290" stroke="#8a867e"/></svg>

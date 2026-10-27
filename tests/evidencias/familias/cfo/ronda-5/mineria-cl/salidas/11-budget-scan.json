@@ -1,0 +1,30 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-27T12:25:18",
+  "estado": "success",
+  "error": false,
+  "segundos": 71,
+  "turnos": 15,
+  "tokens": 680448,
+  "tokens_salida": 5254,
+  "costo_usd": 0.21678199999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-27-budget-scan-1.html",
+      ".criterio/corridas/presupuesto/2026-10-27-budget-scan-1.md",
+      "estado-finanzas/76089001-4-minera-atacama-norte/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/76089001-4-minera-atacama-norte/corridas/salida-budget-scan.md",
+      "estado-finanzas/76089001-4-minera-atacama-norte/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/76089001-4-minera-atacama-norte/corridas.json"
+    ],
+    "borrados": []
+  }
+}

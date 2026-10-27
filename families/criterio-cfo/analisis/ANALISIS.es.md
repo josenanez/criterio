@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CFO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 4 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 5 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 4, parcial, sobre 9 de las 12 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 74 de 74 datos extraídos bien (100 %, margen del 95 %: 95–100 %); y 3 de 3 entidades de control sin ninguna señal.
+La ronda más reciente, la 5, parcial, sobre 3 de las 12 entidades del material: 26 de 26 señales sembradas encontradas (margen del 95 %: 87,1–100 %) y 0 de más; 24 de 24 datos extraídos bien (100 %, margen del 95 %: 86,2–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–4, 178 de 178 señales encontradas, 0 de más y 171 de 172 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–5, 204 de 204 señales encontradas, 0 de más y 195 de 196 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 4; la más reciente, la 4, es parcial |
-| Material | Banca · Colombia, Banca · Perú, Cooperativas · Ecuador, Minería · Ecuador, Minería · Perú, Retail · Colombia |
-| Entidades de control | Control · Colombia, Control · Ecuador, Control · Perú |
-| Corridas de una entidad | 21 |
-| Señales sembradas | 178 |
-| Datos calificados | 172 |
+| Rondas | 5; la más reciente, la 5, es parcial |
+| Material | Minería · Chile, Retail · Chile |
+| Entidades de control | Control · Chile |
+| Corridas de una entidad | 24 |
+| Señales sembradas | 204 |
+| Datos calificados | 196 |
 
-## Resultados acumulados · rondas 1–4
+## Resultados acumulados · rondas 1–5
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 178 de 178 | 100 % | 97,8–100 % |
-| Señales · precisión | 178 de 178 | 100 % | 97,8–100 % |
-| Extracción · datos correctos | 171 de 172 | 99,4 % | 96,7–99,9 % |
-| Control · sin ninguna señal | 7 de 7 | 100 % | 64,5–100 % |
+| Señales · cobertura | 204 de 204 | 100 % | 98,1–100 % |
+| Señales · precisión | 204 de 204 | 100 % | 98,1–100 % |
+| Extracción · datos correctos | 195 de 196 | 99,5 % | 97,1–100 % |
+| Control · sin ninguna señal | 8 de 8 | 100 % | 67,5–100 % |
 
 ## Evolución por ronda
 
@@ -46,33 +46,28 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 2 | 6 | 100 % | 100 % | 98 % | 2 de 2 | 53 M | 1 |
 | 3 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 17,2 M | 3 |
 | 4 | 9 | 100 % | 100 % | 100 % | 3 de 3 | 38 M | 3 |
+| 5 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 12,7 M | 0 |
 
-## La ronda más reciente · ronda 4
+## La ronda más reciente · ronda 5
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 80 de 80 | 100 % | 95,4–100 % |
-| Señales · precisión | 80 de 80 | 100 % | 95,4–100 % |
-| Extracción · datos correctos | 74 de 74 | 100 % | 95–100 % |
-| Control · sin ninguna señal | 3 de 3 | 100 % | 43,8–100 % |
+| Señales · cobertura | 26 de 26 | 100 % | 87,1–100 % |
+| Señales · precisión | 26 de 26 | 100 % | 87,1–100 % |
+| Extracción · datos correctos | 24 de 24 | 100 % | 86,2–100 % |
+| Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
 
-## Por industria y país · ronda 4
+## Por industria y país · ronda 5
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Colombia | aurea, Clara, Tomás | 16 de 16 | 0 | 8 de 8 | 4,7 M |
-| Banca · Perú | aurea, Clara, Tomás | 12 de 12 | 0 | 8 de 8 | 4,2 M |
-| Cooperativas · Ecuador | aurea, Clara, Tomás | 14 de 14 | 0 | 8 de 8 | 4,2 M |
-| Minería · Ecuador | aurea, Clara, Tomás | 14 de 14 | 0 | 9 de 9 | 4,6 M |
-| Minería · Perú | aurea, Clara, Tomás | 12 de 12 | 0 | 9 de 9 | 4,1 M |
-| Retail · Colombia | aurea, Clara, Tomás | 12 de 12 | 0 | 8 de 8 | 4,3 M |
-| Control · Colombia | aurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 3,9 M |
-| Control · Ecuador | aurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 3,8 M |
-| Control · Perú | aurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 4,3 M |
+| Minería · Chile | aurea, Clara, Tomás | 12 de 12 | 0 | 8 de 8 | 4 M |
+| Retail · Chile | aurea, Clara, Tomás | 14 de 14 | 0 | 8 de 8 | 4,2 M |
+| Control · Chile | aurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 4,5 M |
 
-## Lo que falló, uno por uno · rondas 1–4
+## Lo que falló, uno por uno · rondas 1–5
 
-1 falla en 21 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+1 falla en 24 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -100,7 +95,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 4 rondas usaron 136,2 millones de tokens: 125,5 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 6 millones por entidad.
+Las 5 rondas usaron 148,9 millones de tokens: 138,2 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,8 millones por entidad.
 
 El material es sintético. El próximo paso es el despliegue en una organización, con su propia documentación.
 

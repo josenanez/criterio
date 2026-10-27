@@ -12,22 +12,26 @@
 <line x1="60" x2="700" y1="110.0" y2="110.0" stroke="#2b2b28"/><text x="52" y="114.0" text-anchor="end" fill="#8a867e">100 %</text>
 <line x1="60" x2="700" y1="112.2" y2="112.2" stroke="#8a867e" stroke-dasharray="4 4"/><text x="706" y="116.2" fill="#8a867e">99 %</text>
 <text x="60.0" y="350" text-anchor="middle" fill="#8a867e">R1</text>
-<text x="273.3" y="350" text-anchor="middle" fill="#8a867e">R2</text>
-<text x="486.7" y="350" text-anchor="middle" fill="#8a867e">R3</text>
-<text x="700.0" y="350" text-anchor="middle" fill="#8a867e">R4</text>
-<path d="M60.0,110.0 L273.3,110.0 L486.7,110.0 L700.0,110.0" fill="none" stroke="#d5a84b" stroke-width="2.5"/>
+<text x="220.0" y="350" text-anchor="middle" fill="#8a867e">R2</text>
+<text x="380.0" y="350" text-anchor="middle" fill="#8a867e">R3</text>
+<text x="540.0" y="350" text-anchor="middle" fill="#8a867e">R4</text>
+<text x="700.0" y="350" text-anchor="middle" fill="#8a867e">R5</text>
+<path d="M60.0,110.0 L220.0,110.0 L380.0,110.0 L540.0,110.0 L700.0,110.0" fill="none" stroke="#d5a84b" stroke-width="2.5"/>
 <circle cx="60.0" cy="110.0" r="3.5" fill="#d5a84b"/>
-<circle cx="273.3" cy="110.0" r="3.5" fill="#d5a84b"/>
-<circle cx="486.7" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="220.0" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="380.0" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="540.0" cy="110.0" r="3.5" fill="#d5a84b"/>
 <circle cx="700.0" cy="110.0" r="3.5" fill="#d5a84b"/>
-<path d="M60.0,110.0 L273.3,110.0 L486.7,110.0 L700.0,110.0" fill="none" stroke="#4f86c6" stroke-width="2.5"/>
+<path d="M60.0,110.0 L220.0,110.0 L380.0,110.0 L540.0,110.0 L700.0,110.0" fill="none" stroke="#4f86c6" stroke-width="2.5"/>
 <circle cx="60.0" cy="110.0" r="3.5" fill="#4f86c6"/>
-<circle cx="273.3" cy="110.0" r="3.5" fill="#4f86c6"/>
-<circle cx="486.7" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="220.0" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="380.0" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="540.0" cy="110.0" r="3.5" fill="#4f86c6"/>
 <circle cx="700.0" cy="110.0" r="3.5" fill="#4f86c6"/>
-<path d="M60.0,110.0 L273.3,114.4 L486.7,110.0 L700.0,110.0" fill="none" stroke="#3f9a6a" stroke-width="2.5"/>
+<path d="M60.0,110.0 L220.0,114.4 L380.0,110.0 L540.0,110.0 L700.0,110.0" fill="none" stroke="#3f9a6a" stroke-width="2.5"/>
 <circle cx="60.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
-<circle cx="273.3" cy="114.4" r="3.5" fill="#3f9a6a"/>
-<circle cx="486.7" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="220.0" cy="114.4" r="3.5" fill="#3f9a6a"/>
+<circle cx="380.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="540.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
 <circle cx="700.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
 </svg>
