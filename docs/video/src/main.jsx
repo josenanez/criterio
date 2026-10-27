@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { CriterioFamily } from './CriterioFamily';
+import { IMPRESORA } from './lib/criterioImpresora';
 
 // La tarjeta final del video, que es solo de la PMO. Las cifras son las de la evidencia publicada
 // (tests/evidencias/rondas): si cambian, se cambian aquí y se vuelve a grabar.
@@ -12,7 +13,8 @@ const FINAL = {
 
 const q = new URLSearchParams(location.search);
 const idioma = q.get('l') === 'en' ? 'en' : 'es';
-const familia = ['cfo', 'clo'].includes(q.get('f')) ? q.get('f') : 'pmo';
+// Las familias son las que el portal publica en su impresora: una nueva se graba sin tocar esto.
+const familia = q.get('f') in IMPRESORA ? q.get('f') : 'pmo';
 const t = FINAL[idioma];
 
 createRoot(document.getElementById('root')).render(

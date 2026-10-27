@@ -4,7 +4,7 @@
 //
 //   docs/video/criterio-pmo-familia-{es,en}.mp4   vertical 4:5, 1080×1350, para LinkedIn
 //   docs/img/{es,en}/robots.gif                   la PMO, apaisado, 1120 px, para los README
-//   docs/img/{es,en}/robots-{cfo,clo}.gif          la CFO y la CLO, igual
+//   docs/img/{es,en}/robots-{cfo,clo,ea}.gif       la CFO, la CLO y la EA, igual
 //
 // Uso (desde docs/video):  npm ci && PORTAL=<carpeta del portal> npm run grabar
 // Pide ffmpeg en el PATH. El navegador es el de Playwright (npx playwright install chromium);
@@ -44,12 +44,12 @@ if (spawnSync('ffmpeg', ['-version']).status !== 0) {
 // teléfono y el componente cae en su diseño de dos columnas. El GIF va sin subtítulo
 // ni encabezado, solo el piso y la hoja: el README ya tiene su propio título.
 // El video es solo de la PMO: su tarjeta final lleva las cifras de sus rondas. Las familias
-// CFO y CLO salen en GIF. FAMILIAS=cfo,clo graba solo esas.
-const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo').split(',');
+// CFO, CLO y EA salen en GIF. FAMILIAS=cfo,clo graba solo esas.
+const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo,ea').split(',');
 const TOMAS = [
   { familia: 'pmo', idioma: 'es', tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 },
   { familia: 'pmo', idioma: 'en', tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 },
-  ...['pmo', 'cfo', 'clo'].flatMap((familia) => ['es', 'en'].map((idioma) =>
+  ...['pmo', 'cfo', 'clo', 'ea'].flatMap((familia) => ['es', 'en'].map((idioma) =>
     ({ familia, idioma, tipo: 'gif', ancho: 1280, alto: 568, zoom: 1 }))),
 ].filter((t) => FAMILIAS.includes(t.familia));
 const FIN = /FIN DE LA IMPRESIÓN|END OF PRINTOUT/;

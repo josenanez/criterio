@@ -39,7 +39,7 @@ Rostrum giran— y de esa tabla sale todo lo que se mueve:
 
 Nada de eso se edita a mano. Quien pide reducir el movimiento ve el robot quieto.
 
-El GIF de cada familia (`es/robots.gif` de la PMO, `es/robots-cfo.gif`, `es/robots-clo.gif`
+El GIF de cada familia (`es/robots.gif` de la PMO, `es/robots-cfo.gif`, `es/robots-clo.gif`, `es/robots-ea.gif`
 y sus pares en inglés) no sale de aquí: se graba del componente del portal, que es el dueño
 de la impresora, junto con el video del post. El procedimiento está en
 [`../video/`](../video/).

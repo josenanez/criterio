@@ -21,6 +21,7 @@ el componente y esa hoja, los monta en una página propia y graba:
 | [`../img/es/robots.gif`](../img/es/robots.gif) · [`../img/en/robots.gif`](../img/en/robots.gif) | Apaisado, 1120 px, la impresión completa de la PMO | El README de la familia PMO |
 | [`../img/es/robots-cfo.gif`](../img/es/robots-cfo.gif) · [`../img/en/robots-cfo.gif`](../img/en/robots-cfo.gif) | Igual, la CFO | El diseño de la familia CFO |
 | [`../img/es/robots-clo.gif`](../img/es/robots-clo.gif) · [`../img/en/robots-clo.gif`](../img/en/robots-clo.gif) | Igual, la CLO | El diseño de la familia CLO |
+| [`../img/es/robots-ea.gif`](../img/es/robots-ea.gif) · [`../img/en/robots-ea.gif`](../img/en/robots-ea.gif) | Igual, la EA | La página de la familia EA |
 
 `FAMILIAS=cfo,clo` graba solo esas.
 

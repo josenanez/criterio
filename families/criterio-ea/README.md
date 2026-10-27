@@ -9,7 +9,7 @@ a reply. **She prepares; she does not recommend or decide, and she never sends a
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
 
-![Ofelia](../../docs/img/en/robot-ofelia.gif)
+![Ofelia and Rostrum](../../docs/img/en/robots-ea.gif)
 
 | | |
 |---|---|

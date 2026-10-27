@@ -9,7 +9,7 @@ respuesta. **Prepara; no recomienda ni decide, y nunca envía nada.**
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
 
-![Ofelia](../../docs/img/es/robot-ofelia.gif)
+![Ofelia y Rostrum](../../docs/img/es/robots-ea.gif)
 
 | | |
 |---|---|
