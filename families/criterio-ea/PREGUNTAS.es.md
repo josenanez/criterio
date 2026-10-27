@@ -34,6 +34,10 @@ Como esté: Ofelia la procesa así. Si se arranca de cero, la familia recomienda
 
 En los primeros quince minutos, `ea-setup` deja ver la agenda de las próximas dos semanas con sus cruces, las sesiones sin material y las que siguen sin acta.
 
+### ¿En qué países sirve?
+
+En cualquiera. Ofelia no procesa facturas ni normas, sino la agenda, las actas y el correo, así que el país de la oficina es un dato y no un límite. Lo que sí cambia de una oficina a otra es cómo exporta su proveedor de calendario y de correo: eso es lo siguiente que se prueba.
+
 ### ¿Dónde veo lo que encontró?
 
 En el reporte de cada comando, en la carpeta de su estado. Su informe no se publica en Rostrum salvo que la configuración lo diga.

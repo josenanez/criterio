@@ -34,6 +34,10 @@ As it is: Ofelia processes it that way. If you start from scratch, the family re
 
 Within the first fifteen minutes, `ea-setup` shows the calendar for the next two weeks with its clashes, the meetings without materials and those still without minutes.
 
+### Which countries does she work in?
+
+Any. Ofelia processes no invoices or regulations, only the calendar, the minutes and the email, so the office's country is a data point, not a limit. What does change from one office to another is how its calendar and email provider exports: that is what gets tested next.
+
 ### Where do I see what she found?
 
 In each command's report, in her state folder. Her report is not published in Rostrum unless the configuration says so.

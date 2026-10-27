@@ -22,7 +22,7 @@ a reply. **She prepares; she does not recommend or decide, and she never sends a
 | **Commitment** | Creating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace whoever assists the executive or the board secretary: it does not send, schedule, accept or move anything, does not prioritise for the executive and does not evaluate a person or a team |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | Travel and more countries: [the roadmap](#roadmap) |
+| **What comes next** | Travel and each calendar and email provider's exports: [the roadmap](#roadmap) |
 
 ---
 
@@ -269,7 +269,7 @@ The family grows in increments. Each one is a version with its full test and its
 | Version | Status | What goes in | Test |
 |---|---|---|---|
 | 0.12.0 | Released | **Ofelia, built and tested with the full round with the agent**<br>· Ofelia's nine commands, her skills and the engine: the .ics calendar with recurrences and the clock change, saved email, the governing bodies' meetings and commitments with Samuel's rules<br>· She prepares each decision with its options and evidence, without ranking or recommending<br>· Colombia and Ecuador, in a president's office and a general manager's office, and two control offices | Round 1: Ofelia on the four offices, 14 of 14 signals and 76 of 78 data points, with one extra signal in a control; every defect it found, with its fix and its verification |
-| Increment 2 | Next | **Travel, and more countries**<br>· Itineraries against the calendar<br>· Peru, Chile and Mexico, by market size, each with its round | The round with the agent in each country |
+| Increment 2 | Next | **Travel, and each provider's exports**<br>· Itineraries against the calendar<br>· The .ics that Outlook and Google Calendar export and Outlook's .msg email, each with its material: what really changes from one office to another, not the country | The round with the agent on each provider's exports |
 | Increment 3 | Reserved | **Deployment in an organisation**<br>· The first use on a specific executive's office | That office's documentation |
 
 <!-- /hoja de ruta -->
@@ -302,6 +302,6 @@ a real executive's office.**
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /ea:estado -->
 
-Travel —itineraries against the calendar— and the next countries come in increment 2; the first use
+Travel —itineraries against the calendar— and each provider's exports come in increment 2; the first use
 on a specific executive's office, after that. The decisions still open, in the
 [design](DISENO.md#open-decisions).

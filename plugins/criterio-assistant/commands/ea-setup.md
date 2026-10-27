@@ -48,7 +48,7 @@ Reporta en tres líneas: si hay una exportación de la agenda en `10-agenda/` y 
 
 **2. Las preguntas**, una a la vez, cada una con una propuesta, y solo las que el inventario no respondió:
 
-1. **El ejecutivo y quien lo asiste**, y la entidad: su nombre y su país; la identificación fiscal no hace falta. Los países de esta versión son los del registro del motor.
+1. **El ejecutivo y quien lo asiste**, y la entidad: su nombre y, si se quiere, su país en dos letras. Ni la identificación fiscal ni el país limitan nada: Ofelia no procesa facturas ni normas.
 2. **Los órganos que se siguen**: los de `00-referencia/` —junta, comité de presidencia, comités de la junta—, quién los integra y su calendario.
 3. **Las carpetas excluidas**: lo que Ofelia no debe procesar. Se dice en cada informe.
 4. **Las direcciones de correo de la oficina**, para saber qué correo guardado es una respuesta de la oficina.

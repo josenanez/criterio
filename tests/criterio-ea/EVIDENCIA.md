@@ -67,4 +67,4 @@ sola vez. **Cualquier señal en un control es una falla.**
   no se adivina.
 - **Los correos .msg.** La estructura los acepta en `20-correspondencia/`; el motor procesa .eml.
 - **Los viajes.** Los itinerarios contra la agenda son el incremento 2.
-- **Los países siguientes.** El material es de Colombia y Ecuador.
+- **Otras oficinas de otros países.** Ofelia no procesa nada propio de un país; el material es de Colombia y Ecuador, con una tercera zona horaria, y lo que falta probar son las exportaciones de cada proveedor, no los países.

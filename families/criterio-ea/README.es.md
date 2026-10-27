@@ -22,7 +22,7 @@ respuesta. **Prepara; no recomienda ni decide, y nunca envía nada.**
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza a quien asiste al ejecutivo ni al secretario de la junta: no envía, no agenda, no acepta ni mueve nada, no prioriza por el ejecutivo y no evalúa a una persona ni a un área |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | Los viajes y más países: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | Los viajes y las exportaciones de cada proveedor de calendario y de correo: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -267,7 +267,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
 | 0.12.0 | Liberada | **Ofelia, construida y probada con la ronda completa con la agente**<br>· Los nueve comandos de Ofelia, sus skills y el motor: la agenda .ics con repeticiones y cambio de hora, el correo guardado, las sesiones de los órganos y los compromisos con las reglas de Samuel<br>· Prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar<br>· Colombia y Ecuador, en la oficina de una presidencia y de una gerencia general, y dos oficinas de control | La ronda 1: Ofelia sobre las cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con una señal de más en un control; cada defecto que encontró, con su corrección y su verificación |
-| Incremento 2 | Siguiente | **Los viajes, y más países**<br>· Los itinerarios contra la agenda<br>· Perú, Chile y México, por tamaño de mercado, cada uno con su ronda | La ronda con la agente en cada país |
+| Incremento 2 | Siguiente | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país | La ronda con la agente sobre las exportaciones de cada proveedor |
 | Incremento 3 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre la oficina de un ejecutivo concreto | La documentación de esa oficina |
 
 <!-- /hoja de ruta -->
@@ -300,6 +300,6 @@ sintético, no sobre la oficina de un ejecutivo real.**
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /ea:estado -->
 
-Los viajes —los itinerarios contra la agenda— y los países siguientes vienen en el incremento 2; el
+Los viajes —los itinerarios contra la agenda— y las exportaciones de cada proveedor vienen en el incremento 2; el
 primer uso sobre la oficina de un ejecutivo concreto, después. Las decisiones que siguen abiertas, en
 el [diseño](DISENO.es.md#decisiones-abiertas).

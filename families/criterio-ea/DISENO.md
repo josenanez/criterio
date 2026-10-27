@@ -14,7 +14,7 @@ commitments to flag what overlaps, which meeting has no materials or minutes, wh
 owner and which email is waiting for a reply. The language model (LLM) extracts; the code calculates;
 the decision is always taken by a person.
 
-First version: the countries in the engine's registry. **She prepares; she does not recommend or
+**It does not depend on the country**: it processes no invoices or regulations, only the calendar, the minutes and the email, so the office's country is a data point, not a limit. What does change from one office to another is each calendar and email provider's export. **She prepares; she does not recommend or
 decide.** For each item that calls for a decision she builds its record —the options the documents
 bring, the evidence for each, what is still unknown and the dates that set the deadline— and does not
 rank them. The four reasons are in the ADR.

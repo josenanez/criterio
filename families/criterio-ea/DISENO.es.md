@@ -14,7 +14,7 @@ qué se cruza, qué sesión no tiene material ni acta, qué acuerdo no tiene due
 respuesta. El modelo de lenguaje (LLM) extrae; el código calcula; la decisión la toma siempre una
 persona.
 
-Primera versión: los países del registro del motor. **Prepara; no recomienda ni decide.** Para cada
+**No depende del país**: no procesa facturas ni normas, sino la agenda, las actas y el correo, así que el país de la oficina es un dato y no un límite. Lo que sí cambia de una oficina a otra es la exportación de cada proveedor de calendario y de correo. **Prepara; no recomienda ni decide.** Para cada
 punto que pide una decisión arma su ficha —las opciones que traen los documentos, la evidencia de
 cada una, lo que falta saber y las fechas que fijan el plazo— y no las ordena. Las cuatro razones
 están en el ADR.

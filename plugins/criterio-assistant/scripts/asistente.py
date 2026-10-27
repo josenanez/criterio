@@ -85,10 +85,12 @@ def revisar_config(cfg: dict, rol: str) -> list[str]:
     ent = cfg.get("entity") or {}
     # La oficina se identifica por su ejecutivo, no por la identificación fiscal de la entidad:
     # ningún documento de la oficina la trae, y no se pide (EA-1).
-    for k in ("name", "country"):
-        if not ent.get(k):
-            p.append(f"entity.{k} vacío")
-    p += N.revisar_pais(ent)
+    if not ent.get("name"):
+        p.append("entity.name vacío")
+    # Ofelia no procesa nada propio de un país —ni facturas ni normas—: el país de la oficina es un
+    # dato, no un límite, y no tiene que estar en el registro de países de los demás motores.
+    if ent.get("country") and not re.fullmatch(r"[A-Za-z]{2}", str(ent["country"])):
+        p.append("entity.country es el código de dos letras del país (ISO 3166), como CO")
     if not (cfg.get("executive") or {}).get("name"):
         p.append("executive.name vacío: el ejecutivo que se asiste")
     if zona(cfg) is None:
@@ -826,6 +828,8 @@ def selftest() -> int:
         ok("el informe no se publica en Rostrum por omisión", r["publica_en_rostrum"], False)
         md = reporte(r, "ea-prep", "0.0.0")
         ok("la ficha de la decisión trae las opciones sin ordenarlas", ("Renovar" in md and "Licitar" in md and md.index("Renovar") < md.index("Licitar")), True)
+        ok("una oficina de un país fuera del registro de los demás motores pasa",
+           revisar_config(dict(cfg, entity={"name": "Oficina", "country": "AR"}), "ofelia"), [])
         ok("sin identificación fiscal, la oficina pasa y el encabezado no la inventa",
            (revisar_config(dict(cfg, _docs=docs, _estado=est), "ofelia"), "(None)" in md), ([], False))
         ok("el reporte sigue el orden común", [x for x in md.splitlines() if x.startswith("## ")],

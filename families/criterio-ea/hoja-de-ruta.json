@@ -31,20 +31,20 @@
    "estado": "siguiente",
    "industrias": [],
    "es": {
-    "titulo": "Los viajes, y más países",
+    "titulo": "Los viajes, y las exportaciones de cada proveedor",
     "entra": [
      "Los itinerarios contra la agenda",
-     "Perú, Chile y México, por tamaño de mercado, cada uno con su ronda"
+     "El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país"
     ],
-    "prueba": "La ronda con la agente en cada país"
+    "prueba": "La ronda con la agente sobre las exportaciones de cada proveedor"
    },
    "en": {
-    "titulo": "Travel, and more countries",
+    "titulo": "Travel, and each provider's exports",
     "entra": [
      "Itineraries against the calendar",
-     "Peru, Chile and Mexico, by market size, each with its round"
+     "The .ics that Outlook and Google Calendar export and Outlook's .msg email, each with its material: what really changes from one office to another, not the country"
     ],
-    "prueba": "The round with the agent in each country"
+    "prueba": "The round with the agent on each provider's exports"
    }
   },
   {
