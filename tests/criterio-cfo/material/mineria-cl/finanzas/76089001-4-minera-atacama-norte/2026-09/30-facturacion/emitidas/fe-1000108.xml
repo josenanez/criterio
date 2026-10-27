@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<DTE version="1.0" xmlns="http://www.sii.cl/SiiDte"><Documento ID="F1000108T33"><Encabezado><IdDoc><TipoDTE>33</TipoDTE><Folio>1000108</Folio><FchEmis>2026-09-26</FchEmis></IdDoc><Emisor><RUTEmisor>76089001-4</RUTEmisor><RznSoc>Emisor de prueba</RznSoc></Emisor><Receptor><RUTRecep>77089108-6</RUTRecep><RznSocRecep>Receptor de prueba</RznSocRecep></Receptor><Totales><MntNeto>2850000</MntNeto><TasaIVA>19</TasaIVA><IVA>541500</IVA><MntTotal>3391500</MntTotal></Totales></Encabezado></Documento></DTE>

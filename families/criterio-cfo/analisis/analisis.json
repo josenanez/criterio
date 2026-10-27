@@ -2,7 +2,7 @@
  "meta": {
   "generado_desde": "tests/evidencias/familias/cfo",
   "ultima_ronda": 4,
-  "completa": true,
+  "completa": false,
   "rondas": [
    1,
    2,
@@ -19,11 +19,11 @@
    },
    "parrafos": {
     "es": [
-     "La ronda completa más reciente, la 4, sobre las 9 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 74 de 74 datos extraídos bien (100 %, margen del 95 %: 95–100 %); y 3 de 3 entidades de control sin ninguna señal.",
+     "La ronda más reciente, la 4, parcial, sobre 9 de las 12 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 74 de 74 datos extraídos bien (100 %, margen del 95 %: 95–100 %); y 3 de 3 entidades de control sin ninguna señal.",
      "Sumando las rondas 1–4, 178 de 178 señales encontradas, 0 de más y 171 de 172 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent complete round, round 4, on the material's 9 entities: 80 of 80 seeded signals found (95% margin: 95.4–100%) and 0 extra; 74 of 74 data items extracted right (100%, 95% margin: 95–100%); and 3 of 3 control entities with no signal at all.",
+     "The most recent round, round 4, partial, on 9 of the material's 12 entities: 80 of 80 seeded signals found (95% margin: 95.4–100%) and 0 extra; 74 of 74 data items extracted right (100%, 95% margin: 95–100%); and 3 of 3 control entities with no signal at all.",
      "Across rounds 1–4, 178 of 178 signals found, 0 extra and 171 of 172 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
@@ -49,7 +49,7 @@
      "es": [
       [
        "Rondas",
-       "4; la completa más reciente es la 4"
+       "4; la más reciente, la 4, es parcial"
       ],
       [
        "Material",
@@ -75,7 +75,7 @@
      "en": [
       [
        "Rounds",
-       "4; the most recent complete one is round 4"
+       "4; the most recent, round 4, is partial"
       ],
       [
        "Material",
@@ -320,8 +320,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda completa más reciente · ronda 4",
-    "en": "The most recent complete round · round 4"
+    "es": "La ronda más reciente · ronda 4",
+    "en": "The most recent round · round 4"
    },
    "tabla": {
     "cab": {

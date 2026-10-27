@@ -3,27 +3,95 @@
   "paises": [
     {
       "codigo": "CO",
-      "nombre": {"es": "Colombia", "en": "Colombia"},
+      "nombre": {
+        "es": "Colombia",
+        "en": "Colombia"
+      },
       "id_fiscal": "NIT",
       "moneda": "COP",
       "decimal": ",",
-      "factura": {"lector": "dian", "fuentes": ["F-01"], "clave": "CUFE", "tolerancia": [2.0, 5.0], "iva": 0.19, "impuesto": "IVA"}
+      "factura": {
+        "lector": "dian",
+        "fuentes": [
+          "F-01"
+        ],
+        "clave": "CUFE",
+        "tolerancia": [
+          2.0,
+          5.0
+        ],
+        "iva": 0.19,
+        "impuesto": "IVA"
+      }
     },
     {
       "codigo": "EC",
-      "nombre": {"es": "Ecuador", "en": "Ecuador"},
+      "nombre": {
+        "es": "Ecuador",
+        "en": "Ecuador"
+      },
       "id_fiscal": "RUC",
       "moneda": "USD",
       "decimal": ".",
-      "factura": {"lector": "sri", "fuentes": ["F-04"], "clave": "número de clave de acceso", "tolerancia": [0.01, 0.01], "iva": 0.15, "impuesto": "IVA"}
+      "factura": {
+        "lector": "sri",
+        "fuentes": [
+          "F-04"
+        ],
+        "clave": "número de clave de acceso",
+        "tolerancia": [
+          0.01,
+          0.01
+        ],
+        "iva": 0.15,
+        "impuesto": "IVA"
+      }
     },
     {
       "codigo": "PE",
-      "nombre": {"es": "Perú", "en": "Peru"},
+      "nombre": {
+        "es": "Perú",
+        "en": "Peru"
+      },
       "id_fiscal": "RUC",
       "moneda": "PEN",
       "decimal": ".",
-      "factura": {"lector": "sunat", "fuentes": ["F-13"], "clave": "RUC, tipo, serie y número", "tolerancia": [0.01, 0.01], "iva": 0.18, "impuesto": "IGV"}
+      "factura": {
+        "lector": "sunat",
+        "fuentes": [
+          "F-13"
+        ],
+        "clave": "RUC, tipo, serie y número",
+        "tolerancia": [
+          0.01,
+          0.01
+        ],
+        "iva": 0.18,
+        "impuesto": "IGV"
+      }
+    },
+    {
+      "codigo": "CL",
+      "nombre": {
+        "es": "Chile",
+        "en": "Chile"
+      },
+      "id_fiscal": "RUT",
+      "moneda": "CLP",
+      "decimal": ",",
+      "factura": {
+        "lector": "sii",
+        "fuentes": [
+          "F-16"
+        ],
+        "clave": "RUT del emisor, tipo y folio",
+        "tolerancia": [
+          1.0,
+          1.0
+        ],
+        "iva": 0.19,
+        "impuesto": "IVA"
+      }
     }
   ]
 }

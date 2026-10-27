@@ -76,6 +76,13 @@ ENTIDADES = [
      "siembra": ["factura_sin_registro", "registro_sin_factura", "cheque_viejo", "requerimiento_en_carta", "requerimiento_vencido",
                  "comprometido_al_limite", "version_distinta", "proyeccion_vieja"]},
     {"carpeta": "control-pe", "industria": "mineria", "pais": "PE", "id": ruc(20, 79, 1), "nombre": "Comercial Control Sur", "moneda": "PEN", "escala": 3_000, "semilla": 79, "siembra": []},
+    {"carpeta": "retail-cl", "industria": "retail", "pais": "CL", "id": F.rut(76083001), "nombre": "Tiendas Pacífico", "moneda": "CLP", "escala": 250_000, "semilla": 83,
+     "siembra": ["iva_distinto", "xml_duplicado", "registro_doble", "consignacion_en_transito", "cierre_declarado",
+                 "gasto_sin_linea", "proyeccion_sobre_lo_aprobado", "traslado_sin_acta"]},
+    {"carpeta": "mineria-cl", "industria": "mineria", "pais": "CL", "id": F.rut(76089001), "nombre": "Minera Atacama Norte", "moneda": "CLP", "escala": 600_000, "semilla": 89,
+     "siembra": ["factura_sin_registro", "registro_sin_factura", "cheque_viejo", "comision_sin_registrar", "requerimiento_vencido",
+                 "tarea_vencida", "desviacion", "comprometido_al_limite"]},
+    {"carpeta": "control-cl", "industria": "retail", "pais": "CL", "id": F.rut(76097001), "nombre": "Comercial Control Andes", "moneda": "CLP", "escala": 300_000, "semilla": 97, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -236,6 +243,8 @@ TESORERIA = {
     "mineria": ["covenant_riesgo", "pago_sin_aprobacion", "caja_desviada"],
     "banca-pe": ["exposicion", "firmante_sin_facultad", "vencimiento_cercano"],
     "mineria-pe": ["caja_bajo_minimo", "covenant_riesgo", "caja_desviada"],
+    "retail-cl": ["exposicion", "pago_sin_aprobacion", "vencimiento_cercano"],
+    "mineria-cl": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
 }
 
 
@@ -266,7 +275,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
         # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
-        tasa = {"COP": 4000, "PEN": 3.75}.get(e["moneda"], 1)
+        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950}.get(e["moneda"], 1)
         politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
@@ -337,7 +346,7 @@ def generar(e: dict) -> dict:
     lector = F.FACTURA[pais]["lector"]
     dian = lector == "dian"
     sesion = SALIDA / e["carpeta"]
-    ent_dir = f"{e['id']}-{e['nombre'].lower().replace(' ', '-').replace('ó', 'o')}"
+    ent_dir = f"{e['id']}-{e['nombre'].lower().replace(' ', '-').replace('ó', 'o').replace('í', 'i')}"
     docs = sesion / "finanzas" / ent_dir
     p = docs / PERIODO
     pr = docs / f"presupuesto-{ANIO}"
@@ -348,11 +357,15 @@ def generar(e: dict) -> dict:
     def tercero(i: int) -> str:
         if lector == "sunat":
             return ruc(20, e["semilla"], i)
+        if lector == "sii":
+            return F.rut(77000000 + e["semilla"] * 1000 + i)
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
         if lector == "sunat":                                  # F-13: serie de cuatro, empieza por F, y número
             return f"F{'001' if prefijo == '99' else '002'}-{i:08d}"
+        if lector == "sii":                                    # F-16: el folio es numérico, hasta 10 dígitos
+            return f"{1 if prefijo == '99' else 2}{i:06d}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
@@ -361,6 +374,8 @@ def generar(e: dict) -> dict:
             return F.contenedor_dian(F.factura_dian(numero, cufe, fecha.isoformat(), emisor, receptor, base, iva))
         if lector == "sunat":
             return F.factura_sunat(numero, fecha.isoformat(), emisor, receptor, base, iva)
+        if lector == "sii":
+            return F.factura_sii(numero, fecha.isoformat(), emisor, receptor, base, iva)
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 
@@ -585,6 +600,10 @@ def generar(e: dict) -> dict:
     if "cuenta_sin_auxiliar" in s:
         esperado.append(("reconciliation_stale", "cuenta:2205"))
     else:
+        # El registro doble sube proveedores en el mayor y no en el auxiliar, que trae cada factura
+        # una vez: la cuenta no concilia, y eso también se espera.
+        if "registro_doble" in s:
+            esperado.append(("account_unreconciled", "cuenta:2205"))
         csv_(cont / "auxiliares" / "2205-proveedores.csv", [["fecha", "tercero", "documento", "valor"]] + [[f.isoformat(), t, n, v] for f, t, n, v in cxp])
     # Los auxiliares de agosto, con lo que quedó abierto: así sabe quien configura qué cuentas se
     # concilian cada mes, y la que no trae el de septiembre es la que falta.

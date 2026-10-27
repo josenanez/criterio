@@ -1,12 +1,12 @@
 # Análisis estadístico de las pruebas · familia CFO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda completa más reciente: 4 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 4 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda completa más reciente, la 4, sobre las 9 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 74 de 74 datos extraídos bien (100 %, margen del 95 %: 95–100 %); y 3 de 3 entidades de control sin ninguna señal.
+La ronda más reciente, la 4, parcial, sobre 9 de las 12 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 74 de 74 datos extraídos bien (100 %, margen del 95 %: 95–100 %); y 3 de 3 entidades de control sin ninguna señal.
 
 Sumando las rondas 1–4, 178 de 178 señales encontradas, 0 de más y 171 de 172 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
@@ -18,7 +18,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 4; la completa más reciente es la 4 |
+| Rondas | 4; la más reciente, la 4, es parcial |
 | Material | Banca · Colombia, Banca · Perú, Cooperativas · Ecuador, Minería · Ecuador, Minería · Perú, Retail · Colombia |
 | Entidades de control | Control · Colombia, Control · Ecuador, Control · Perú |
 | Corridas de una entidad | 21 |
@@ -47,7 +47,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 3 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 17,2 M | 3 |
 | 4 | 9 | 100 % | 100 % | 100 % | 3 de 3 | 38 M | 3 |
 
-## La ronda completa más reciente · ronda 4
+## La ronda más reciente · ronda 4
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|

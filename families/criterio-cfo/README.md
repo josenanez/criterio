@@ -168,7 +168,7 @@ estado-finanzas/
 |---|---|---|
 | `10-contabilidad/` | Trial balance and general ledger exported from the ERP, and `auxiliares/` with one file per account; budget execution comes from here too | Clara, Tomás |
 | `20-bancos/` | One folder per account, `<bank>-<last 4 digits>`, with the statement and the book ledger | Clara, Áurea |
-| `30-facturacion/` | `emitidas/` and `recibidas/`, with the DIAN (F-01), SRI (F-04) or SUNAT (F-13) XML | Clara |
+| `30-facturacion/` | `emitidas/` and `recibidas/`, with the DIAN (F-01), SRI (F-04), SUNAT (F-13) or SII (F-16) XML | Clara |
 | `40-soportes/` | The evidence for each checklist task —minutes, emails, signed reconciliations—, with the task id at the start of the name | Clara |
 | `50-auditoria/` | The auditor's `requerimientos/` (requests) and `respuestas/` (answers) | Clara |
 | `60-tesoreria/` | The payment schedule with who approved each payment, and the cash flow projected to period end | Áurea |
@@ -275,7 +275,7 @@ configured, and how often it makes sense for it to run.**
 | **Instances** | One per entity | One per entity | One per entity |
 | **Configured with** | `/criterio-finance:finance-setup` | `/criterio-budget:budget-setup` | `/criterio-treasury:treasury-setup` |
 | **How long that takes** | Fifteen minutes | Fifteen minutes | Fifteen minutes |
-| **What you have to tell it** | Entity and NIT or RUC, country, IFRS group (F-05, F-06, F-15), ERP, currency, period, thresholds, who approves, chart of accounts | Entity, budget year, areas or cost centres with their owner, the approved version and its minutes, the mapping of accounts to budget lines (in `00-referencia/`), the variance thresholds and, if the organisation uses the PMO family, where its records are | Entity and period, the accounts in another currency, the thresholds for deviation, maturity and covenant margin, where the state is kept and the terms |
+| **What you have to tell it** | Entity and NIT, RUC or RUT, country, IFRS group (F-05, F-06, F-15, F-18), ERP, currency, period, thresholds, who approves, chart of accounts | Entity, budget year, areas or cost centres with their owner, the approved version and its minutes, the mapping of accounts to budget lines (in `00-referencia/`), the variance thresholds and, if the organisation uses the PMO family, where its records are | Entity and period, the accounts in another currency, the thresholds for deviation, maturity and covenant margin, where the state is kept and the terms |
 | **Where it lands** | `.criterio/finanzas/<entity>/config.json`, written by the command | `.criterio/presupuesto/<entity>/config.json`, written by the command | `.criterio/tesoreria/<entity>/config.json`, written by the command |
 | **The one you put on a clock** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` | `/criterio-treasury:treasury-wake` |
 | **What it does each day** | Decides what is due by cadence: daily during the close window, weekly outside it | Decides what is due by cadence: when a new period appears in `10-contabilidad/`, before each committee and once a week for commitments | Decides what is due: payments in the next five days, obligations entering their maturity window and a weekly review |
@@ -406,9 +406,9 @@ documentation.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; the full round with the agent, round 4 · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; the full round with the agent, round 4 · [results](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; the full round with the agent, round 4 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 

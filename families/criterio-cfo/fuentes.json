@@ -392,6 +392,83 @@
           "estado": "verificada",
           "nota": "Dice: la tasa es del 18 %, 16 % de IGV y 2 % de Impuesto de Promoción Municipal. La guía F-13 trae el mismo 18.00 en su ejemplo",
           "uso": "La tasa del IGV del material de prueba de Perú; el motor no la usa para calcular"
+        },
+        {
+          "id": "F-16",
+          "fuente": "SII · Formato Documentos Tributarios Electrónicos",
+          "version": "2.5 (febrero de 2026)",
+          "enlaces": [
+            [
+              "sii.cl",
+              "https://www.sii.cl/factura_electronica/factura_mercado/formato_dte_202602.pdf"
+            ]
+          ],
+          "consultada": "2026-10-27",
+          "estado": "verificada",
+          "nota": "Confirmados en el texto: las áreas IdDoc, Emisor, Receptor y Totales del encabezado, el tipo 33 como factura electrónica, el folio, la fecha en aaaa-mm-dd, el RUT con guion y dígito verificador, y los montos neto, tasa, IVA y total. El formato no nombra el elemento raíz: el lector busca el Encabezado y no depende de él. Solo la factura (tipo 33) cruza valores en esta versión. Se vuelve a consultar contra el esquema vigente antes del primer uso sobre documentación real",
+          "uso": "Lector del DTE de Chile; material de prueba",
+          "campos": [
+            {
+              "id": "p12-TIPO",
+              "campo": "Encabezado/IdDoc/TipoDTE · 33, factura electrónica (p. 12)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p12-FOLIO",
+              "campo": "Encabezado/IdDoc/Folio · folio autorizado por el SII, numérico de hasta 10 dígitos (p. 12)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p12-FECHA",
+              "campo": "Encabezado/IdDoc/FchEmis · fecha de emisión en aaaa-mm-dd (p. 12)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p17-EMISOR",
+              "campo": "Encabezado/Emisor/RUTEmisor · con guion y dígito verificador, 0 a 9 o K (p. 17)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p19-RECEPTOR",
+              "campo": "Encabezado/Receptor/RUTRecep · el RUT del cliente, salvo en la factura de compra (p. 19)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p29-NETO",
+              "campo": "Encabezado/Totales/MntNeto · suma de los ítems afectos, menos descuentos y más recargos globales; numérico de 18 (p. 29)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p30-TASA",
+              "campo": "Encabezado/Totales/TasaIVA · en porcentaje (p. 30)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p30-IVA",
+              "campo": "Encabezado/Totales/IVA · monto neto por la tasa (p. 30)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p32-TOTAL",
+              "campo": "Encabezado/Totales/MntTotal · neto, exento, IVA e impuestos adicionales (p. 32)",
+              "estado": "verificado"
+            }
+          ]
+        },
+        {
+          "id": "F-17",
+          "fuente": "SII · Preguntas frecuentes: ¿Cuál es la tasa del Impuesto al Valor Agregado (IVA)?",
+          "version": "revisada el 10 de junio de 2025",
+          "enlaces": [
+            [
+              "sii.cl",
+              "https://www.sii.cl/preguntas_frecuentes/impuestos_mensuales/001_130_0572.htm"
+            ]
+          ],
+          "consultada": "2026-10-27",
+          "estado": "verificada",
+          "nota": "Dice: la tasa del IVA es de un 19 %, según el artículo 14 de la Ley sobre Impuesto a las Ventas y Servicios",
+          "uso": "La tasa del IVA del material de prueba de Chile; el motor no la usa para calcular"
         }
       ]
     },
@@ -473,6 +550,21 @@
           "consultada": "2026-10-26",
           "estado": "verificada",
           "nota": "La página del Consejo lista las NIC, NIIF, CINIIF y SIC de la versión 2024 bajo esa resolución. No dice qué entidades aplican las NIIF completas: eso se pregunta, no se supone",
+          "uso": "Pregunta de `finance-setup` sobre el marco de la entidad"
+        },
+        {
+          "id": "F-18",
+          "fuente": "IFRS Foundation · perfil de jurisdicción de Chile",
+          "version": "actualizado el 16 de junio de 2016",
+          "enlaces": [
+            [
+              "ifrs.org",
+              "https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/chile-ifrs-profile.pdf"
+            ]
+          ],
+          "consultada": "2026-10-27",
+          "estado": "verificada",
+          "nota": "Dice: el Colegio de Contadores adoptó las NIIF como normas contables nacionales (Boletín Técnico 85, diciembre de 2013); las listadas usan NIIF completas; los bancos, las NIIF con dos cambios de su regulador; las demás, NIIF completas o NIIF para las PYMES desde 2013. El perfil es de 2016 y nombra a la SVS y la SBIF, hoy integradas en la CMF. Qué marco aplica la entidad se pregunta, no se supone",
           "uso": "Pregunta de `finance-setup` sobre el marco de la entidad"
         }
       ]

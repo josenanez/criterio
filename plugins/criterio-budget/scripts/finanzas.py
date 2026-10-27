@@ -107,6 +107,17 @@ CAMPOS_SUNAT = {
     "p13-VALOR": "/Invoice/cac:LegalMonetaryTotal/cbc:LineExtensionAmount · total valor de venta (p. 13)",
     "p13-TOTAL": "/Invoice/cac:LegalMonetaryTotal/cbc:PayableAmount · importe total (p. 13)",
 }
+CAMPOS_SII = {
+    "p12-TIPO": "Encabezado/IdDoc/TipoDTE · 33 es factura electrónica (p. 12)",
+    "p12-FOLIO": "Encabezado/IdDoc/Folio · folio autorizado por el SII, hasta 10 dígitos (p. 12)",
+    "p12-FECHA": "Encabezado/IdDoc/FchEmis · aaaa-mm-dd (p. 12)",
+    "p17-EMISOR": "Encabezado/Emisor/RUTEmisor · con guion y dígito verificador, 0 a 9 o K (p. 17)",
+    "p19-RECEPTOR": "Encabezado/Receptor/RUTRecep · el RUT del cliente (p. 19)",
+    "p29-NETO": "Encabezado/Totales/MntNeto · suma de los ítems afectos (p. 29)",
+    "p30-TASA": "Encabezado/Totales/TasaIVA · en porcentaje (p. 30)",
+    "p30-IVA": "Encabezado/Totales/IVA · monto neto por la tasa (p. 30)",
+    "p32-TOTAL": "Encabezado/Totales/MntTotal · neto, exento, IVA e impuestos adicionales (p. 32)",
+}
 TIPOS_SRI = {"01": "factura", "03": "liquidación de compra", "04": "nota de crédito",
              "05": "nota de débito", "06": "guía de remisión", "07": "comprobante de retención"}
 
@@ -267,6 +278,30 @@ def _sunat(raiz, tipo: str) -> dict:
     return d
 
 
+def _sii(doc) -> dict:
+    """El DTE del SII de Chile (F-16): el tipo, el folio y la fecha en `IdDoc`, el RUT del emisor con
+    su dígito verificador en `Emisor/RUTEmisor`, el del cliente en `Receptor/RUTRecep` y los montos en
+    `Totales`. El formato nombra las áreas del encabezado, no el elemento raíz: el lector busca el
+    `Encabezado`, venga suelto, dentro de su `Documento` o en un envío. Los montos van en pesos
+    enteros. No trae una clave única: el documento se identifica por el RUT del emisor, el tipo y el
+    folio. Solo la factura electrónica (tipo 33) cruza valores; los demás tipos se identifican, pero
+    su llenado no está verificado en esta versión."""
+    enc = next((x for x in doc.iter() if _local(x.tag) == "Encabezado"), None)
+    tipo = _t(enc, "IdDoc", "TipoDTE")
+    emisor = ident(_t(enc, "Emisor", "RUTEmisor"))
+    factura = tipo == "33"                                      # F-16, p. 12: 33 · Factura Electrónica
+    d = {
+        "pais": PAIS_DEL_LECTOR["sii"], "lector": "sii", "fuente": "F-16",
+        "tipo": "factura" if factura else f"tipo {tipo}",
+        "numero": _t(enc, "IdDoc", "Folio"), "fecha": iso(fecha(_t(enc, "IdDoc", "FchEmis"))),
+        "emisor": emisor, "receptor": ident(_t(enc, "Receptor", "RUTRecep")),
+        "base": numero(_t(enc, "Totales", "MntNeto")), "iva": numero(_t(enc, "Totales", "IVA")) or 0.0,
+        "otros_impuestos": 0.0, "total": numero(_t(enc, "Totales", "MntTotal")), "valores": factura,
+    }
+    d["id"] = f"{emisor}-{tipo}-{d['numero']}"
+    return d
+
+
 def leer_factura(ruta: Path) -> dict:
     """Una factura o nota electrónica de cualquier país del registro, con o sin su contenedor."""
     try:
@@ -300,6 +335,8 @@ def leer_factura(ruta: Path) -> dict:
         return _dian(raiz, nombre)
     if _h(raiz, "infoTributaria") is not None:
         return _sri(raiz)
+    if any(_local(x.tag) == "Encabezado" for x in raiz.iter()):   # F-16: el DTE del SII
+        return _sii(raiz)
     return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
 
 
@@ -1853,6 +1890,29 @@ def factura_sunat(numero_: str, fecha_: str, ruc: str, receptor: str, base: floa
             '</cac:LegalMonetaryTotal></Invoice>')
 
 
+def rut(cuerpo: int) -> str:
+    """Un RUT con su dígito verificador por módulo 11 (factores 2 a 7 de derecha a izquierda; 10 es K
+    y 11 es 0), para que el material tenga la forma de uno real. Ninguno corresponde a una empresa."""
+    total, f = 0, 2
+    for ch in reversed(str(cuerpo)):
+        total += int(ch) * f
+        f = 2 if f == 7 else f + 1
+    r = 11 - total % 11
+    return f"{cuerpo}-{ {10: 'K', 11: '0'}.get(r, str(r)) }"
+
+
+def factura_sii(folio: str, fecha_: str, emisor: str, receptor: str, neto: float, iva: float) -> str:
+    """Un DTE del SII, factura electrónica (tipo 33), con lo que procesa el lector (F-16), para las
+    pruebas y el material. Los montos van en pesos enteros."""
+    n, i = round(neto), round(iva)
+    return ('<?xml version="1.0" encoding="ISO-8859-1"?>\n<DTE version="1.0" xmlns="http://www.sii.cl/SiiDte"><Documento ID="F' + folio + 'T33">'
+            f'<Encabezado><IdDoc><TipoDTE>33</TipoDTE><Folio>{folio}</Folio><FchEmis>{fecha_}</FchEmis></IdDoc>'
+            f'<Emisor><RUTEmisor>{emisor}</RUTEmisor><RznSoc>Emisor de prueba</RznSoc></Emisor>'
+            f'<Receptor><RUTRecep>{receptor}</RUTRecep><RznSocRecep>Receptor de prueba</RznSocRecep></Receptor>'
+            f'<Totales><MntNeto>{n}</MntNeto><TasaIVA>19</TasaIVA><IVA>{i}</IVA><MntTotal>{n + i}</MntTotal></Totales>'
+            '</Encabezado></Documento></DTE>')
+
+
 def clave_sri(fecha_: dt.date, tipo: str, ruc: str, serie: str, secuencial: str, codigo: str = "12345678", ambiente: str = "2") -> str:
     c = f"{fecha_:%d%m%Y}{tipo}{ruc}{ambiente}{serie}{secuencial}{codigo}1"
     return c + str(digito_mod11(c))
@@ -1942,6 +2002,12 @@ def selftest() -> int:
         ok("SUNAT: factura UBL 2.1 con su IGV", (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"]),
            ("sunat", "factura", "F001-00000123", "20123456789", "20987654321", 1000.0, 180.0, 1180.0, "2026-09-15"))
         ok("SUNAT: el comprobante se identifica por RUC, tipo, serie y número", f["id"], "20123456789-01-F001-00000123")
+        x.write_text(factura_sii("1234", "2026-09-15", rut(76123456), rut(77654321), 1000000, 190000), encoding="iso-8859-1")
+        f = leer_factura(x)
+        ok("SII: el DTE tipo 33 con su IVA, en pesos enteros", (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"]),
+           ("sii", "factura", "1234", "761234560", "776543217", 1000000.0, 190000.0, 1190000.0, "2026-09-15"))
+        ok("SII: el documento se identifica por RUT, tipo y folio", f["id"], "761234560-33-1234")
+        ok("SII: el dígito verificador K", rut(10000013), "10000013-K")
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"
         _xlsx(y, [["cuenta", "nombre", "debito"], ["1105", "", 10], ["1110", "Bancos", 5]])

@@ -1,0 +1,203 @@
+{
+  "entidad": "Minera Atacama Norte",
+  "industria": "mineria",
+  "pais": "CL",
+  "hoy": "2026-10-06",
+  "siembra": [
+    "factura_sin_registro",
+    "registro_sin_factura",
+    "cheque_viejo",
+    "comision_sin_registrar",
+    "requerimiento_vencido",
+    "tarea_vencida",
+    "desviacion",
+    "comprometido_al_limite",
+    "covenant_riesgo",
+    "caja_bajo_minimo",
+    "firmante_sin_facultad"
+  ],
+  "config": {
+    "clara": {
+      "entity": {
+        "id": "76089001-4",
+        "name": "Minera Atacama Norte",
+        "country": "CL",
+        "currency": "CLP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/76089001-4-minera-atacama-norte",
+        "state": "estado-finanzas/76089001-4-minera-atacama-norte"
+      },
+      "period": "2026-09",
+      "accounts": {
+        "sales": [
+          "4135"
+        ],
+        "purchases": [
+          "1435",
+          "5135",
+          "5145",
+          "5195"
+        ],
+        "vat_generated": [
+          "2408"
+        ],
+        "vat_deductible": [
+          "2408"
+        ],
+        "reconcile": [
+          "1305",
+          "2205"
+        ]
+      },
+      "bank_accounts": [
+        "andino-8901",
+        "pacifico-8902"
+      ],
+      "checklist": {
+        "source": "organizacion",
+        "approved": true
+      },
+      "holidays": []
+    },
+    "tomas": {
+      "entity": {
+        "id": "76089001-4",
+        "name": "Minera Atacama Norte",
+        "country": "CL",
+        "currency": "CLP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/76089001-4-minera-atacama-norte",
+        "state": "estado-finanzas/76089001-4-minera-atacama-norte"
+      },
+      "budget": {
+        "year": "2026",
+        "cut": "2026-09",
+        "pmo_records": "estado-pmo/records",
+        "expense_prefixes": [
+          "51",
+          "52"
+        ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "76089001-4",
+        "name": "Minera Atacama Norte",
+        "country": "CL",
+        "currency": "CLP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/76089001-4-minera-atacama-norte",
+        "state": "estado-finanzas/76089001-4-minera-atacama-norte"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
+      }
+    }
+  },
+  "extraccion": {
+    "cierre": {
+      "declared": {
+        "status": "en curso",
+        "source": "2026-09/40-soportes/correo-estado-del-cierre.md",
+        "date": "2026-10-05",
+        "by": "Sofía León"
+      }
+    },
+    "presupuesto": {
+      "minutes": [
+        {
+          "type": "aprobacion",
+          "version": 1,
+          "date": "2026-01-20",
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.docx"
+        },
+        {
+          "type": "traslado",
+          "date": "2026-06-28",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.md",
+          "movements": [
+            {
+              "from": {
+                "area": "Comercial",
+                "line": "Publicidad"
+              },
+              "to": {
+                "area": "Comercial",
+                "line": "Eventos"
+              },
+              "amount": 1800000.0
+            }
+          ]
+        }
+      ],
+      "area_statements": [],
+      "reports": [],
+      "committee_commitments": [
+        {
+          "what": "Revisar el contrato de vigilancia",
+          "owner": "Administración",
+          "status": "abierto",
+          "evidence": null,
+          "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+        }
+      ]
+    }
+  },
+  "esperado": [
+    {
+      "signal": "audit_request_unanswered",
+      "key": "req:R-05"
+    },
+    {
+      "signal": "bank_unreconciled",
+      "key": "andino-8901:2026-09/20-bancos/andino-8901/auxiliar-libros.csv:2"
+    },
+    {
+      "signal": "bank_unreconciled",
+      "key": "andino-8901:2026-09/20-bancos/andino-8901/extracto.xlsx:17"
+    },
+    {
+      "signal": "cash_below_minimum",
+      "key": "caja:andino-8901"
+    },
+    {
+      "signal": "close_task_overdue",
+      "key": "tarea:C-05"
+    },
+    {
+      "signal": "committed_near_approved",
+      "key": "com:Administración:Mantenimiento"
+    },
+    {
+      "signal": "covenant_at_risk",
+      "key": "covenant:credito_de_tesoreria:razon_corriente"
+    },
+    {
+      "signal": "einvoice_not_recorded",
+      "key": "xml:2026-09/30-facturacion/emitidas/fe-1000109.xml"
+    },
+    {
+      "signal": "reconciling_item_aged",
+      "key": "andino-8901:2026-09/20-bancos/andino-8901/auxiliar-libros.csv:2"
+    },
+    {
+      "signal": "recorded_without_einvoice",
+      "key": "reg:recibidas:2000202"
+    },
+    {
+      "signal": "signatory_without_authority",
+      "key": "firma:P-3:carlos_paz"
+    },
+    {
+      "signal": "variance_over_threshold",
+      "key": "var:Operaciones:Transporte"
+    }
+  ]
+}

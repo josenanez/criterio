@@ -1,0 +1,149 @@
+{
+  "entidad": "Comercial Control Andes",
+  "industria": "retail",
+  "pais": "CL",
+  "hoy": "2026-10-06",
+  "siembra": [],
+  "config": {
+    "clara": {
+      "entity": {
+        "id": "76097001-8",
+        "name": "Comercial Control Andes",
+        "country": "CL",
+        "currency": "CLP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/76097001-8-comercial-control-andes",
+        "state": "estado-finanzas/76097001-8-comercial-control-andes"
+      },
+      "period": "2026-09",
+      "accounts": {
+        "sales": [
+          "4135"
+        ],
+        "purchases": [
+          "1435",
+          "5135",
+          "5145",
+          "5195"
+        ],
+        "vat_generated": [
+          "2408"
+        ],
+        "vat_deductible": [
+          "2408"
+        ],
+        "reconcile": [
+          "1305",
+          "2205"
+        ]
+      },
+      "bank_accounts": [
+        "andino-9701",
+        "pacifico-9702"
+      ],
+      "checklist": {
+        "source": "organizacion",
+        "approved": true
+      },
+      "holidays": []
+    },
+    "tomas": {
+      "entity": {
+        "id": "76097001-8",
+        "name": "Comercial Control Andes",
+        "country": "CL",
+        "currency": "CLP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/76097001-8-comercial-control-andes",
+        "state": "estado-finanzas/76097001-8-comercial-control-andes"
+      },
+      "budget": {
+        "year": "2026",
+        "cut": "2026-09",
+        "pmo_records": "estado-pmo/records",
+        "expense_prefixes": [
+          "51",
+          "52"
+        ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "76097001-8",
+        "name": "Comercial Control Andes",
+        "country": "CL",
+        "currency": "CLP",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/76097001-8-comercial-control-andes",
+        "state": "estado-finanzas/76097001-8-comercial-control-andes"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
+      }
+    }
+  },
+  "extraccion": {
+    "cierre": {
+      "declared": {
+        "status": "en curso",
+        "source": "2026-09/40-soportes/correo-estado-del-cierre.md",
+        "date": "2026-10-05",
+        "by": "Sofía León"
+      }
+    },
+    "presupuesto": {
+      "minutes": [
+        {
+          "type": "aprobacion",
+          "version": 1,
+          "date": "2026-01-20",
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.docx"
+        },
+        {
+          "type": "traslado",
+          "date": "2026-06-28",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.docx",
+          "movements": [
+            {
+              "from": {
+                "area": "Comercial",
+                "line": "Publicidad"
+              },
+              "to": {
+                "area": "Comercial",
+                "line": "Eventos"
+              },
+              "amount": 900000.0
+            }
+          ]
+        }
+      ],
+      "area_statements": [
+        {
+          "area": "Administración",
+          "says": "dentro",
+          "source": "presupuesto-2026/30-proyecciones/correo-administracion.md",
+          "date": "2026-10-01"
+        }
+      ],
+      "reports": [],
+      "committee_commitments": [
+        {
+          "what": "Revisar el contrato de vigilancia",
+          "owner": "Administración",
+          "status": "abierto",
+          "evidence": null,
+          "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+        }
+      ]
+    }
+  },
+  "esperado": []
+}
