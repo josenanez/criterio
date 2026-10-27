@@ -1,5 +1,6 @@
-# El botón «Sponsor» del repositorio lleva a la contribución voluntaria del portal (dLocal Go).
+# El botón «Sponsor» del repositorio lleva a la contribución voluntaria de la plataforma, en el
+# portal (dLocal Go): la página de todas las familias, no la de una sola.
 # Es voluntaria: no desbloquea funciones ni compra consultoría.
 custom:
-  - https://www.josenanez.com/agents/criterio-pmo#support
-  - https://www.josenanez.com/es/agents/criterio-pmo#support
+  - https://www.josenanez.com/agents#support
+  - https://www.josenanez.com/es/agents#support
