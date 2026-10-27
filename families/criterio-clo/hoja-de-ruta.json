@@ -55,7 +55,7 @@
   },
   {
    "incremento": 3,
-   "version": null,
+   "version": "0.11.0",
    "estado": "siguiente",
    "industrias": [],
    "paises": [
@@ -72,7 +72,31 @@
       "es": "Chile",
       "en": "Chile"
      }
-    },
+    }
+   ],
+   "es": {
+    "titulo": "Perú y Chile",
+    "entra": [
+     "Material de banca, minería y control de Perú, y de retail, minería y control de Chile, con la identificación fiscal de cada país",
+     "Una obligación atada a la terminación vence en la terminación vigente, la del último otrosí (CLO-10)"
+    ],
+    "prueba": "La ronda 4: Fidel y Constanza sobre las seis entidades de Perú y Chile, 37 de 37 señales, ninguna de más y 812 de 813 datos; el que faltó, corregido y verificado"
+   },
+   "en": {
+    "titulo": "Peru and Chile",
+    "entra": [
+     "Material for banking, mining and control in Peru, and for retail, mining and control in Chile, with each country's tax ID",
+     "An obligation tied to termination falls due on the current end date, the one in the latest amendment (CLO-10)"
+    ],
+    "prueba": "Round 4: Fidel and Constanza on the six entities of Peru and Chile, 37 of 37 signals, none extra and 812 of 813 data points; the one missed, fixed and verified"
+   }
+  },
+  {
+   "incremento": 4,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [
     {
      "codigo": "MX",
      "nombre": {
@@ -89,7 +113,7 @@
     }
    ],
    "es": {
-    "titulo": "Perú, Chile, México y Brasil",
+    "titulo": "México y Brasil",
     "entra": [
      "Un país a la vez, por tamaño de mercado: sus fuentes legales verificadas y su material de prueba",
      "Cada país se marca en el mapa cuando pasa su ronda"
@@ -97,7 +121,7 @@
     "prueba": "La ronda con los agentes en cada país"
    },
    "en": {
-    "titulo": "Peru, Chile, Mexico and Brazil",
+    "titulo": "Mexico and Brazil",
     "entra": [
      "One country at a time, by market size: its verified legal sources and its test material",
      "Each country is marked on the map when it passes its round"
@@ -106,7 +130,7 @@
    }
   },
   {
-   "incremento": 4,
+   "incremento": 5,
    "version": null,
    "estado": "reservada",
    "industrias": [],
@@ -126,7 +150,7 @@
    }
   },
   {
-   "incremento": 5,
+   "incremento": 6,
    "version": null,
    "estado": "reservada",
    "industrias": [],

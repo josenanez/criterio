@@ -17,7 +17,7 @@ caja— y ninguno habla con los otros directamente: se hablan por sus fichas.
 | **Objetivo** | Que el cierre deje de depender de que alguien recuerde qué falta |
 | **Compuesta por** | [Clara](../../plugins/criterio-finance/README.es.md) · [Tomás](../../plugins/criterio-budget/README.es.md) · [Áurea](../../plugins/criterio-treasury/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define cada rol y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | Construida y probada sobre material sintético: el motor, contra cuatro industrias y dos entidades de control; los agentes, en una [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md) sobre las seis entidades. Áurea, la tesorería, construida y con su motor probado: su ronda con el agente es el siguiente paso. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Construida y probada sobre material sintético de cuatro países —Colombia, Ecuador, Perú y Chile—: el motor, contra las doce entidades del material; los tres agentes, en [las rondas con el agente](../../tests/evidencias/familias/cfo/RONDAS.md), la más reciente la 5, sobre Chile. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Control y reporte |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al contralor, al equipo de planeación financiera ni a la tesorería, y no decide por ellos: procesa lo que la función ya tiene y dice qué no cuadra |
@@ -52,10 +52,9 @@ cambiaria contra su límite, y cada covenant de la deuda —calculado desde el b
 Clara— contra su límite. **Nunca mueve dinero ni entra a un portal bancario**
 ([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)).
 
-**Clara y Tomás se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
-su página: el motor está probado contra material sintético de cuatro industrias; **la extracción de los agentes pasó la ronda completa sobre las seis entidades; nada se ha probado todavía
-sobre los documentos de una organización.** Áurea también se instala hoy; su ronda con el agente
-es el siguiente paso.
+**Clara, Tomás y Áurea se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
+su página: el motor y la extracción de los agentes están probados sobre material sintético de cuatro países;
+**nada se ha probado todavía sobre los documentos de una organización.**
 
 Primera versión: NIIF adoptadas localmente en Colombia y Ecuador, con la factura electrónica de
 la DIAN y del SRI procesada desde su fuente técnica oficial.
@@ -349,7 +348,7 @@ tiene que levantar, con el mismo detalle, **y qué no prueba el material**, en
 [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md). El conjunto de todas las familias, en
 [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**Las rondas con el agente.** La ronda 1 corrió sobre banca y el control de Colombia; la ronda 2, completa, sobre las seis entidades: Clara y Tomás corren todos sus comandos y lo que extraen de los documentos escritos se califica contra la misma clave. La ronda 2 dio 45 de 45 señales sin una de más y 48 de 49 datos de las fichas, y los 4 defectos que encontraron las rondas están corregidos y verificados. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md). **El análisis estadístico de las rondas** —cobertura y precisión de las señales, los datos extraídos y el margen del 95 % de cada uno, su evolución ronda a ronda, por industria y país, cada falla con el defecto que la explica y su origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) desde la evidencia de las rondas, y `verificar.py` comprueba que diga lo que dice la evidencia.
+**Las rondas con el agente.** La ronda 1 corrió sobre banca y el control de Colombia; la 2, completa, sobre las seis entidades de Colombia y Ecuador; la 3 sumó a Áurea y a Perú, y la 4 corrió los tres agentes sobre las nueve entidades: 80 de 80 señales sin una de más y 74 de 74 datos; la 5 sumó a Chile: 26 de 26 señales y 24 de 24 datos. Cada defecto que encontraron las rondas está corregido y verificado. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md). **El análisis estadístico de las rondas** —cobertura y precisión de las señales, los datos extraídos y el margen del 95 % de cada uno, su evolución ronda a ronda, por industria y país, cada falla con el defecto que la explica y su origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) desde la evidencia de las rondas, y `verificar.py` comprueba que diga lo que dice la evidencia.
 
 ## Las industrias de prueba
 
@@ -370,8 +369,9 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 0.8.0 | Liberada | **Construida, con el motor probado y una primera ronda con el agente**<br>· Los comandos de Clara y Tomás, sus skills y el motor de cálculo<br>· La factura electrónica de la DIAN y del SRI, procesada desde su fuente técnica oficial<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente<br>· La primera ronda con el agente: Clara y Tomás sobre banca y el control de Colombia, con los defectos que encontró corregidos | El motor, contra 4 industrias y 2 entidades de control; el agente, sobre banca y el control de Colombia |
 | 0.9.0 | Liberada | **La ronda completa con el agente**<br>· Clara y Tomás corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo traen las actas, los correos y las cartas del auditor, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
 | 0.10.0 | Liberada | **Áurea, Perú y los formatos de un área financiera real**<br>· Áurea, el tercer agente: la caja, los pagos y la deuda contra su política<br>· Perú, con el lector de la factura electrónica de la SUNAT desde su guía oficial<br>· El material de prueba en Excel, Word y PDF, como lo tiene un área financiera, y el extracto bancario en PDF procesado por el motor | La ronda 4, completa: los tres agentes sobre las nueve entidades de Colombia, Ecuador y Perú, con los defectos que encontraron sus rondas corregidos y verificados |
-| Incremento 4 | Siguiente | **Chile, México y Brasil**<br>· Un país a la vez, por tamaño de mercado: su entrada en el registro de países, su lector de factura electrónica y sus fuentes verificadas<br>· Cada país se marca en el mapa cuando pasa su ronda | La ronda con los agentes en cada país |
-| Incremento 5 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre la contabilidad y el presupuesto de una organización concreta | La documentación de esa organización |
+| 0.11.0 | Siguiente | **Chile**<br>· El lector de la factura electrónica de Chile, el DTE del SII (F-16), con el RUT y su dígito verificador<br>· El IVA del 19 % (F-17) y las NIIF que adoptó el Colegio de Contadores (F-18)<br>· Material de retail, minería y una entidad de control de Chile | La ronda 5: los tres agentes sobre las tres entidades de Chile, 26 de 26 señales, ninguna de más y 24 de 24 datos |
+| Incremento 5 | Siguiente | **México y Brasil**<br>· Un país a la vez, por tamaño de mercado: su entrada en el registro de países, su lector de factura electrónica y sus fuentes verificadas<br>· Cada país se marca en el mapa cuando pasa su ronda | La ronda con los agentes en cada país |
+| Incremento 6 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre la contabilidad y el presupuesto de una organización concreta | La documentación de esa organización |
 
 <!-- /hoja de ruta -->
 

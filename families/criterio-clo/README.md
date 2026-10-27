@@ -16,7 +16,7 @@ talks to the other directly: they talk through their records.
 | **Objective** | That a company knows what it signed, what falls due and what it committed to |
 | **Made of** | [Fidel](../../plugins/criterio-legal/README.md) · [Constanza](../../plugins/criterio-compliance/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The framework that defines each role and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **State** | Built and tested on synthetic material: the engine, against four industries and two control entities; the agents, in a [full round](../../tests/evidencias/familias/clo/RONDAS.md) on the six entities. **Not yet tested on a specific organisation's documentation** |
+| **State** | Built and tested on synthetic material from four countries —Colombia, Ecuador, Peru and Chile—: the engine, against the twelve entities in the material; the agents, in [the rounds with the agent](../../tests/evidencias/familias/clo/RONDAS.md), the latest round 4, on Peru and Chile. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Contracts and compliance, with no legal opinion |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the lawyer or the compliance officer, and does not decide for them: it processes what the organisation signed and what it committed to comply with, and says what falls due, what has no evidence and what does not tie out |
@@ -47,10 +47,10 @@ for review, the new regulations not yet assessed and the whistleblowing channel'
 takes from Fidel's records the compliance obligations that contracts carry.
 
 **Both install today**, each with its own plugin, and both carry the same debt, written on their
-page: the engine is tested against synthetic material from four industries; **the agents' extraction passed the full round on the six entities; nothing has been tested yet on an
-organisation's documents.**
+page: the engine is tested against synthetic material from four industries; **the engine and the agents' extraction are tested on synthetic material from four
+countries; nothing has been tested yet on an organisation's documents.**
 
-First version: Colombia and Ecuador. **No legal opinion**: neither of them interprets a clause,
+Countries: Colombia, Ecuador, Peru and Chile. **No legal opinion**: neither of them interprets a clause,
 rules on the validity of a contract or says what a regulation requires. What an obligation
 requires is defined by the organisation in its matrix, citing its source.
 
@@ -348,7 +348,7 @@ entity and the signal it has to raise, in the same detail, **and what the materi
 test**, in [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md) (Spanish). The whole set across
 every family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**The rounds with the agent.** Round 1 ran on banking and the Colombian control; round 2, the full one, on the six entities: Fidel and Constanza run all their commands and what they extract from the written documents is graded against the same key. Round 2 gave 37 of 37 signals with none extra and 808 of 815 record data points, and the 9 defects the rounds found, with a round 3 for verification, are fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md). **The statistical analysis of the rounds** —coverage and precision of the signals, the data extracted and the 95% margin of each, their evolution round by round, by industry and country, each failure with the defect that explains it and its origin— in [`analisis/ANALISIS.md`](analisis/ANALISIS.md). [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) generates it from the round evidence, and `verificar.py` checks that it says what the evidence says.
+**The rounds with the agent.** Round 1 ran on banking and the Colombian control; round 2, the full one, on the six entities of Colombia and Ecuador: 37 of 37 signals with none extra and 808 of 815 data points; round 3 verified the fixes; round 4 added Peru and Chile, their six entities: 37 of 37 signals with none extra and 812 of 813 data points. The 10 defects the rounds found are fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md). **The statistical analysis of the rounds** —coverage and precision of the signals, the data extracted and the 95% margin of each, their evolution round by round, by industry and country, each failure with the defect that explains it and its origin— in [`analisis/ANALISIS.md`](analisis/ANALISIS.md). [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) generates it from the round evidence, and `verificar.py` checks that it says what the evidence says.
 
 ## The test industries
 
@@ -369,9 +369,10 @@ The family grows in increments. Each one is a version with its full test and its
 |---|---|---|---|
 | 0.8.0 | Released | **Built, with the engine tested and a first round with the agent**<br>· Fidel and Constanza’s fourteen commands, their skills and the calculation engine<br>· Colombia and Ecuador, with no legal opinion: what an obligation requires is defined by the organisation in its matrix<br>· The root folder each agent searches for and, with permission, marks<br>· The family in Rostrum, with what falls due and where each agent works<br>· The first round with the agent: Fidel and Constanza on banking and the Colombian control, with the defects it found fixed | The engine, against 4 industries and 2 control entities; the agent, on banking and the Colombian control |
 | 0.9.0 | Released | **The full round with the agent**<br>· Fidel and Constanza run their commands on the material of the four industries, as the PMO does in every round<br>· What only each contract carries —parties, value, dates, renewal, notice period, signatories, amendments, guarantees and obligations—, extracted and graded against the key<br>· With a full round, the family is declared tested | 4 industries and 2 control entities, with the key the agent never sees |
-| Increment 3 | Next | **Peru, Chile, Mexico and Brazil**<br>· One country at a time, by market size: its verified legal sources and its test material<br>· Each country is marked on the map when it passes its round | The round with the agents in each country |
-| Increment 4 | Reserved | **Deployment in an organisation**<br>· The first use on a specific organisation’s contracts and compliance | That organisation’s documentation |
-| Increment 5 | Reserved | **Public contracts**<br>· Their own rules on publication and guarantees | Its own material, as every increment |
+| 0.11.0 | Next | **Peru and Chile**<br>· Material for banking, mining and control in Peru, and for retail, mining and control in Chile, with each country's tax ID<br>· An obligation tied to termination falls due on the current end date, the one in the latest amendment (CLO-10) | Round 4: Fidel and Constanza on the six entities of Peru and Chile, 37 of 37 signals, none extra and 812 of 813 data points; the one missed, fixed and verified |
+| Increment 4 | Next | **Mexico and Brazil**<br>· One country at a time, by market size: its verified legal sources and its test material<br>· Each country is marked on the map when it passes its round | The round with the agents in each country |
+| Increment 5 | Reserved | **Deployment in an organisation**<br>· The first use on a specific organisation’s contracts and compliance | That organisation’s documentation |
+| Increment 6 | Reserved | **Public contracts**<br>· Their own rules on publication and guarantees | Its own material, as every increment |
 
 <!-- /hoja de ruta -->
 
