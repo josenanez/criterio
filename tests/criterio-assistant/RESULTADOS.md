@@ -2,7 +2,7 @@
 
 **la asistente ejecutiva de la familia EA** · plugin `criterio-assistant`
 
-Corrida del 2026-10-27, sobre el commit `ef279b01`, con cambios en el árbol todavía sin confirmar. **3 puertas · 22 comprobaciones · todas en verde.**
+Corrida del 2026-10-27, sobre el commit `44fd8729`, con cambios en el árbol todavía sin confirmar. **3 puertas · 22 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-10-27, sobre el commit `ef279b01`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-assistant/asistente.py selftest` | El motor de Ofelia: la agenda .ics con repeticiones y cambio de hora, el correo, las sesiones y una oficina mínima con todo mal | 17 | 95 ms | verde |
-| `criterio-ea/generar.py` | El material EA: dos oficinas con defectos y dos de control, con su clave | — | 60 ms | verde |
-| `criterio-ea/evaluar.py` | Que Ofelia levante cada señal sembrada en la oficina, ninguna en los controles, y cumpla las reglas de la operación real | 5 | 139 ms | verde |
+| `criterio-assistant/asistente.py selftest` | El motor de Ofelia: la agenda .ics con repeticiones y cambio de hora, el correo, las sesiones y una oficina mínima con todo mal | 17 | 129 ms | verde |
+| `criterio-ea/generar.py` | El material EA: dos oficinas con defectos y dos de control, con su clave | — | 77 ms | verde |
+| `criterio-ea/evaluar.py` | Que Ofelia levante cada señal sembrada en la oficina, ninguna en los controles, y cumpla las reglas de la operación real | 5 | 145 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
