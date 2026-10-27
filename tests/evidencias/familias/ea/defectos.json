@@ -170,7 +170,6 @@
       "origen": "instrucciones",
       "commit": "d11470ea",
       "estado": "por-verificar",
-      "verificacion": null,
       "es": {
         "que": "En la corrida que verificó EA-7, Ofelia agregó a lo que falta saber de una decisión un hecho que el acta ya dice: que se decide en la próxima sesión.",
         "correccion": "La skill de la decisión dice que en `missing` va solo lo que el material no responde, no lo que los documentos ya dicen. Se verifica en la próxima ronda."
