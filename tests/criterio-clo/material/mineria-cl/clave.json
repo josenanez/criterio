@@ -1,0 +1,533 @@
+{
+  "entidad": "Minera Atacama Norte",
+  "industria": "mineria",
+  "pais": "CL",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "preaviso_vencido",
+      "sin_firma",
+      "sin_garantia",
+      "firma_sin_facultad"
+    ],
+    "constanza": [
+      "caso_vencido",
+      "evidencia_vieja",
+      "obligacion_contrato_fuera",
+      "norma_sin_evaluar",
+      "cumplida_sin_evidencia"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "76089001-4",
+        "name": "Minera Atacama Norte",
+        "country": "CL",
+        "currency": "CLP"
+      },
+      "paths": {
+        "documents": "legal/76089001-4-minera-atacama-norte",
+        "state": "estado-legal/76089001-4-minera-atacama-norte"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "76089001-4",
+        "name": "Minera Atacama Norte",
+        "country": "CL",
+        "currency": "CLP"
+      },
+      "paths": {
+        "documents": "legal/76089001-4-minera-atacama-norte",
+        "state": "estado-legal/76089001-4-minera-atacama-norte"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/76089001-4-minera-atacama-norte/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-1101": {
+        "code": "CTR-1101",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Sondajes del Norte SpA",
+          "id": "77011001-7"
+        },
+        "value": 360000000,
+        "start": "2026-01-01",
+        "end": "2026-10-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Ignacio Pizarro",
+            "role": "Director de compras",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sondajes del Norte SpA",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1101-sondajes-del-norte-spa/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-02-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1101-sondajes-del-norte-spa/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-1101-sondajes-del-norte-spa/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Sondajes del Norte SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1101-sondajes-del-norte-spa/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-10-31",
+            "who": "Sondajes del Norte SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1101-sondajes-del-norte-spa/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Sondajes del Norte SpA",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-1101-sondajes-del-norte-spa/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1101-sondajes-del-norte-spa/10-contrato/contrato.md"
+      },
+      "CTR-1102": {
+        "code": "CTR-1102",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Explosivos Atacama S.A.",
+          "id": "77011002-5"
+        },
+        "value": 180000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Daniela Fuentes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Explosivos Atacama S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 45000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Daniela Fuentes",
+            "source": "contratos/CTR-1102-explosivos-atacama-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1102-explosivos-atacama-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1102-explosivos-atacama-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-1102-explosivos-atacama-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Explosivos Atacama S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1102-explosivos-atacama-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Explosivos Atacama S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1102-explosivos-atacama-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1102-explosivos-atacama-s-a/10-contrato/contrato.md"
+      },
+      "CTR-1103": {
+        "code": "CTR-1103",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Campamentos Desierto Ltda.",
+          "id": "77011003-3"
+        },
+        "value": 270000000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Cristián Vergara",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Campamentos Desierto Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1103-campamentos-desierto-ltda/10-contrato/contrato.md, cláusula 9"
+          },
+          {
+            "type": "calidad",
+            "months_after_end": 12,
+            "source": "contratos/CTR-1103-campamentos-desierto-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1103-campamentos-desierto-ltda/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-1103-campamentos-desierto-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Campamentos Desierto Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1103-campamentos-desierto-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Campamentos Desierto Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1103-campamentos-desierto-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1103-campamentos-desierto-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1104": {
+        "code": "CTR-1104",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Geodatos Chile SpA",
+          "id": "77011004-1"
+        },
+        "value": 135000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Daniela Fuentes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Geodatos Chile SpA",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1104-geodatos-chile-spa/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1104-geodatos-chile-spa/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-1104-geodatos-chile-spa/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Geodatos Chile SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1104-geodatos-chile-spa/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Geodatos Chile SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1104-geodatos-chile-spa/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1104-geodatos-chile-spa/10-contrato/contrato.md"
+      },
+      "CTR-1105": {
+        "code": "CTR-1105",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultora Ambiental Ltda.",
+          "id": "77011005-K"
+        },
+        "value": 90000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": false,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Daniela Fuentes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1105-consultora-ambiental-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1105-consultora-ambiental-ltda/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-1105-consultora-ambiental-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultora Ambiental Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1105-consultora-ambiental-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultora Ambiental Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1105-consultora-ambiental-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-1105-consultora-ambiental-ltda/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-1105-consultora-ambiental-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1106": {
+        "code": "CTR-1106",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Maquinaria Minera S.A.",
+          "id": "77011006-8"
+        },
+        "value": 225000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Cristián Vergara",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Maquinaria Minera S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1106-maquinaria-minera-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1106-maquinaria-minera-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-1106-maquinaria-minera-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Maquinaria Minera S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1106-maquinaria-minera-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Maquinaria Minera S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1106-maquinaria-minera-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1106-maquinaria-minera-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "compliance_evidence_stale",
+      "key": "stale:OB-11"
+    },
+    {
+      "signal": "contract_obligation_not_in_matrix",
+      "key": "ctrobl:CTR-1101:OBL-3"
+    },
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-1103:calidad"
+    },
+    {
+      "signal": "regulatory_change_unassessed",
+      "key": "norma:N-2026-05"
+    },
+    {
+      "signal": "renewal_notice_missed",
+      "key": "preaviso:CTR-1101"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-1101"
+    },
+    {
+      "signal": "unsigned_contract",
+      "key": "sinfirma:CTR-1105"
+    }
+  ]
+}

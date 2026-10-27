@@ -1,6 +1,6 @@
 # Contrato CTR-502
 
-**Partes:** Distribuidora Control (NIT/RUC 900000001) y Insumos Control S.A.S. (NIT/RUC 800005002).
+**Partes:** Distribuidora Control (NIT 900000001) y Insumos Control S.A.S. (NIT 800005002).
 
 **Cláusula 1. Objeto.** Suministro de papelería e insumos de oficina. Tipo de contrato: suministro.
 

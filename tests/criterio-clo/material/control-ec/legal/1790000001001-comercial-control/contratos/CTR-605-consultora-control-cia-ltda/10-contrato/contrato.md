@@ -1,6 +1,6 @@
 # Contrato CTR-605
 
-**Partes:** Comercial Control (NIT/RUC 1790000001001) y Consultora Control Cía. Ltda. (NIT/RUC 800006005).
+**Partes:** Comercial Control (RUC 1790000001001) y Consultora Control Cía. Ltda. (RUC 800006005).
 
 **Cláusula 1. Objeto.** Consultoría en procesos. Tipo de contrato: consultoria.
 

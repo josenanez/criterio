@@ -1,6 +1,6 @@
 # Contrato CTR-102
 
-**Partes:** Banco Andino (NIT/RUC 900123456) y Papelería Nacional S.A.S. (NIT/RUC 800001002).
+**Partes:** Banco Andino (NIT 900123456) y Papelería Nacional S.A.S. (NIT 800001002).
 
 **Cláusula 1. Objeto.** Suministro de papelería e insumos de oficina. Tipo de contrato: suministro.
 

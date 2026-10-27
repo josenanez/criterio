@@ -1,6 +1,6 @@
 # Contrato CTR-207
 
-**Partes:** Cooperativa Sierra Alta (NIT/RUC 1790012345001) y Transporte de Valores S.A. (NIT/RUC 800002007).
+**Partes:** Cooperativa Sierra Alta (RUC 1790012345001) y Transporte de Valores S.A. (RUC 800002007).
 
 **Cláusula 1. Objeto.** Licencia de uso de software. Tipo de contrato: licencia.
 

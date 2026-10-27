@@ -1,6 +1,6 @@
 # Contrato CTR-305
 
-**Partes:** Almacenes Caribe (NIT/RUC 900765432) y Mercadeo Integral S.A.S. (NIT/RUC 800003005).
+**Partes:** Almacenes Caribe (NIT 900765432) y Mercadeo Integral S.A.S. (NIT 800003005).
 
 **Cláusula 1. Objeto.** Consultoría en procesos. Tipo de contrato: consultoria.
 

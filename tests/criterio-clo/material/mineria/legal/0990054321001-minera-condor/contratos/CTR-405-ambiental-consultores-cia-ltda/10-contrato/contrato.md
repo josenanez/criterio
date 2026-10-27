@@ -1,6 +1,6 @@
 # Contrato CTR-405
 
-**Partes:** Minera Cóndor (NIT/RUC 0990054321001) y Ambiental Consultores Cía. Ltda. (NIT/RUC 800004005).
+**Partes:** Minera Cóndor (RUC 0990054321001) y Ambiental Consultores Cía. Ltda. (RUC 800004005).
 
 **Cláusula 1. Objeto.** Consultoría en procesos. Tipo de contrato: consultoria.
 

@@ -1,6 +1,6 @@
 # Contrato CTR-403
 
-**Partes:** Minera Cóndor (NIT/RUC 0990054321001) y Campamentos Andinos S.A. (NIT/RUC 800004003).
+**Partes:** Minera Cóndor (RUC 0990054321001) y Campamentos Andinos S.A. (RUC 800004003).
 
 **Cláusula 1. Objeto.** Arrendamiento de la sede principal. Tipo de contrato: arrendamiento.
 

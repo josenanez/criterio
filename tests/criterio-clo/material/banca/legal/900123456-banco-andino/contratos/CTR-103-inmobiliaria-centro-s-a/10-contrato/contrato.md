@@ -1,6 +1,6 @@
 # Contrato CTR-103
 
-**Partes:** Banco Andino (NIT/RUC 900123456) y Inmobiliaria Centro S.A. (NIT/RUC 800001003).
+**Partes:** Banco Andino (NIT 900123456) y Inmobiliaria Centro S.A. (NIT 800001003).
 
 **Cláusula 1. Objeto.** Arrendamiento de la sede principal. Tipo de contrato: arrendamiento.
 

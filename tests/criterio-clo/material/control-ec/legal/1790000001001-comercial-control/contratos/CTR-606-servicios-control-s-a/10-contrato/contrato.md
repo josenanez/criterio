@@ -1,6 +1,6 @@
 # Contrato CTR-606
 
-**Partes:** Comercial Control (NIT/RUC 1790000001001) y Servicios Control S.A. (NIT/RUC 800006006).
+**Partes:** Comercial Control (RUC 1790000001001) y Servicios Control S.A. (RUC 800006006).
 
 **Cláusula 1. Objeto.** Mantenimiento preventivo de instalaciones. Tipo de contrato: mantenimiento.
 

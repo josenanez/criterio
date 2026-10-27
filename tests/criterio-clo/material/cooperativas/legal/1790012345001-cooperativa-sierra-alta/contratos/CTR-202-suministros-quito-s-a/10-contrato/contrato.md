@@ -1,6 +1,6 @@
 # Contrato CTR-202
 
-**Partes:** Cooperativa Sierra Alta (NIT/RUC 1790012345001) y Suministros Quito S.A. (NIT/RUC 800002002).
+**Partes:** Cooperativa Sierra Alta (RUC 1790012345001) y Suministros Quito S.A. (RUC 800002002).
 
 **Cláusula 1. Objeto.** Suministro de papelería e insumos de oficina. Tipo de contrato: suministro.
 

@@ -1,6 +1,6 @@
 # Contrato CTR-603
 
-**Partes:** Comercial Control (NIT/RUC 1790000001001) y Locales Control S.A. (NIT/RUC 800006003).
+**Partes:** Comercial Control (RUC 1790000001001) y Locales Control S.A. (RUC 800006003).
 
 **Cláusula 1. Objeto.** Arrendamiento de la sede principal. Tipo de contrato: arrendamiento.
 

@@ -1,0 +1,493 @@
+{
+  "entidad": "Comercial Control Sur",
+  "industria": "mineria",
+  "pais": "PE",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "20790000014",
+        "name": "Comercial Control Sur",
+        "country": "PE",
+        "currency": "PEN"
+      },
+      "paths": {
+        "documents": "legal/20790000014-comercial-control-sur",
+        "state": "estado-legal/20790000014-comercial-control-sur"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "20790000014",
+        "name": "Comercial Control Sur",
+        "country": "PE",
+        "currency": "PEN"
+      },
+      "paths": {
+        "documents": "legal/20790000014-comercial-control-sur",
+        "state": "estado-legal/20790000014-comercial-control-sur"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/20790000014-comercial-control-sur/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-901": {
+        "code": "CTR-901",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Transportes Control S.A.C.",
+          "id": "20900000023"
+        },
+        "value": 320000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Silvia Chávez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Transportes Control S.A.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-901-transportes-control-s-a-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-901-transportes-control-s-a-c/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-901-transportes-control-s-a-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Transportes Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-901-transportes-control-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Transportes Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-901-transportes-control-s-a-c/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Transportes Control S.A.C.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-901-transportes-control-s-a-c/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-901-transportes-control-s-a-c/10-contrato/contrato.md"
+      },
+      "CTR-902": {
+        "code": "CTR-902",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Insumos Control S.A.C.",
+          "id": "20900000031"
+        },
+        "value": 160000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Raúl Torres",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Insumos Control S.A.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 40000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Raúl Torres",
+            "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-902-insumos-control-s-a-c/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-902-insumos-control-s-a-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Insumos Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Insumos Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-902-insumos-control-s-a-c/10-contrato/contrato.md"
+      },
+      "CTR-903": {
+        "code": "CTR-903",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Almacenes Control S.A.",
+          "id": "20900000040"
+        },
+        "value": 240000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Silvia Chávez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Almacenes Control S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-903-almacenes-control-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-903-almacenes-control-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-903-almacenes-control-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Almacenes Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-903-almacenes-control-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Almacenes Control S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-903-almacenes-control-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-903-almacenes-control-s-a/10-contrato/contrato.md"
+      },
+      "CTR-904": {
+        "code": "CTR-904",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Sistemas Control S.A.C.",
+          "id": "20900000058"
+        },
+        "value": 120000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Raúl Torres",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sistemas Control S.A.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-904-sistemas-control-s-a-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-904-sistemas-control-s-a-c/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-904-sistemas-control-s-a-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Sistemas Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-904-sistemas-control-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Sistemas Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-904-sistemas-control-s-a-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-904-sistemas-control-s-a-c/10-contrato/contrato.md"
+      },
+      "CTR-905": {
+        "code": "CTR-905",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Asesoría Control S.A.C.",
+          "id": "20900000066"
+        },
+        "value": 80000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Raúl Torres",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Asesoría Control S.A.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-905-asesoria-control-s-a-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-905-asesoria-control-s-a-c/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-905-asesoria-control-s-a-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Asesoría Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-905-asesoria-control-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Asesoría Control S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-905-asesoria-control-s-a-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-905-asesoria-control-s-a-c/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-905-asesoria-control-s-a-c/10-contrato/contrato.md"
+      },
+      "CTR-906": {
+        "code": "CTR-906",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Servicios Control E.I.R.L.",
+          "id": "20900000074"
+        },
+        "value": 200000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Silvia Chávez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Servicios Control E.I.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-906-servicios-control-e-i-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-906-servicios-control-e-i-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-906-servicios-control-e-i-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Servicios Control E.I.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-906-servicios-control-e-i-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Servicios Control E.I.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-906-servicios-control-e-i-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-906-servicios-control-e-i-r-l/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

@@ -1,6 +1,6 @@
 # Contrato CTR-506
 
-**Partes:** Distribuidora Control (NIT/RUC 900000001) y Mantenimiento Control S.A.S. (NIT/RUC 800005006).
+**Partes:** Distribuidora Control (NIT 900000001) y Mantenimiento Control S.A.S. (NIT 800005006).
 
 **Cláusula 1. Objeto.** Mantenimiento preventivo de instalaciones. Tipo de contrato: mantenimiento.
 

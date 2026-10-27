@@ -1,6 +1,6 @@
 # Contrato CTR-203
 
-**Partes:** Cooperativa Sierra Alta (NIT/RUC 1790012345001) y Edificios del Valle S.A. (NIT/RUC 800002003).
+**Partes:** Cooperativa Sierra Alta (RUC 1790012345001) y Edificios del Valle S.A. (RUC 800002003).
 
 **Cláusula 1. Objeto.** Arrendamiento de la sede principal. Tipo de contrato: arrendamiento.
 

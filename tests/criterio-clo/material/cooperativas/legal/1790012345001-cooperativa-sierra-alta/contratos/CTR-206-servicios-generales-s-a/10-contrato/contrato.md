@@ -1,6 +1,6 @@
 # Contrato CTR-206
 
-**Partes:** Cooperativa Sierra Alta (NIT/RUC 1790012345001) y Servicios Generales S.A. (NIT/RUC 800002006).
+**Partes:** Cooperativa Sierra Alta (RUC 1790012345001) y Servicios Generales S.A. (RUC 800002006).
 
 **Cláusula 1. Objeto.** Mantenimiento preventivo de instalaciones. Tipo de contrato: mantenimiento.
 

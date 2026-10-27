@@ -1,6 +1,6 @@
 # Contrato CTR-303
 
-**Partes:** Almacenes Caribe (NIT/RUC 900765432) y Centro Comercial Mar S.A. (NIT/RUC 800003003).
+**Partes:** Almacenes Caribe (NIT 900765432) y Centro Comercial Mar S.A. (NIT 800003003).
 
 **Cláusula 1. Objeto.** Arrendamiento de la sede principal. Tipo de contrato: arrendamiento.
 

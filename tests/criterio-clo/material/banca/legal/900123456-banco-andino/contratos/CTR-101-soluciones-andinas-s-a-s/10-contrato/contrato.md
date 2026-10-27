@@ -1,6 +1,6 @@
 # Contrato CTR-101
 
-**Partes:** Banco Andino (NIT/RUC 900123456) y Soluciones Andinas S.A.S. (NIT/RUC 800001001).
+**Partes:** Banco Andino (NIT 900123456) y Soluciones Andinas S.A.S. (NIT 800001001).
 
 **Cláusula 1. Objeto.** Prestación de servicios de operación tecnológica. Tipo de contrato: servicios.
 

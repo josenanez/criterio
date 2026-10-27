@@ -1,6 +1,6 @@
 # Contrato CTR-501
 
-**Partes:** Distribuidora Control (NIT/RUC 900000001) y Transportes Control S.A.S. (NIT/RUC 800005001).
+**Partes:** Distribuidora Control (NIT 900000001) y Transportes Control S.A.S. (NIT 800005001).
 
 **Cláusula 1. Objeto.** Prestación de servicios de operación tecnológica. Tipo de contrato: servicios.
 

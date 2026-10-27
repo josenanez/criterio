@@ -1,6 +1,6 @@
 # Contrato CTR-106
 
-**Partes:** Banco Andino (NIT/RUC 900123456) y Mantenimientos Unidos S.A.S. (NIT/RUC 800001006).
+**Partes:** Banco Andino (NIT 900123456) y Mantenimientos Unidos S.A.S. (NIT 800001006).
 
 **Cláusula 1. Objeto.** Mantenimiento preventivo de instalaciones. Tipo de contrato: mantenimiento.
 

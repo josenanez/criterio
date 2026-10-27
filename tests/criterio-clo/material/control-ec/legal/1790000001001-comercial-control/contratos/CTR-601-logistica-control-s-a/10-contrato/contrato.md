@@ -1,6 +1,6 @@
 # Contrato CTR-601
 
-**Partes:** Comercial Control (NIT/RUC 1790000001001) y Logística Control S.A. (NIT/RUC 800006001).
+**Partes:** Comercial Control (RUC 1790000001001) y Logística Control S.A. (RUC 800006001).
 
 **Cláusula 1. Objeto.** Prestación de servicios de operación tecnológica. Tipo de contrato: servicios.
 

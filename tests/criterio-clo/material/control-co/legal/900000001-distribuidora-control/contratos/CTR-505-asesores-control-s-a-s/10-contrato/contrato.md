@@ -1,6 +1,6 @@
 # Contrato CTR-505
 
-**Partes:** Distribuidora Control (NIT/RUC 900000001) y Asesores Control S.A.S. (NIT/RUC 800005005).
+**Partes:** Distribuidora Control (NIT 900000001) y Asesores Control S.A.S. (NIT 800005005).
 
 **Cláusula 1. Objeto.** Consultoría en procesos. Tipo de contrato: consultoria.
 

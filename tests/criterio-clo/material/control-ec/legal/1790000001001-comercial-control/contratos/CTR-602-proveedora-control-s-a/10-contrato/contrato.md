@@ -1,6 +1,6 @@
 # Contrato CTR-602
 
-**Partes:** Comercial Control (NIT/RUC 1790000001001) y Proveedora Control S.A. (NIT/RUC 800006002).
+**Partes:** Comercial Control (RUC 1790000001001) y Proveedora Control S.A. (RUC 800006002).
 
 **Cláusula 1. Objeto.** Suministro de papelería e insumos de oficina. Tipo de contrato: suministro.
 

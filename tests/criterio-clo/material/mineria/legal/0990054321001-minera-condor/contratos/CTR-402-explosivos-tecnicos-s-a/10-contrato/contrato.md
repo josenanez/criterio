@@ -1,6 +1,6 @@
 # Contrato CTR-402
 
-**Partes:** Minera Cóndor (NIT/RUC 0990054321001) y Explosivos Técnicos S.A. (NIT/RUC 800004002).
+**Partes:** Minera Cóndor (RUC 0990054321001) y Explosivos Técnicos S.A. (RUC 800004002).
 
 **Cláusula 1. Objeto.** Suministro de papelería e insumos de oficina. Tipo de contrato: suministro.
 

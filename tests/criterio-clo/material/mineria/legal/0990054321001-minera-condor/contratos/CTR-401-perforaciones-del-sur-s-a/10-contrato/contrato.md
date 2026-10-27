@@ -1,6 +1,6 @@
 # Contrato CTR-401
 
-**Partes:** Minera Cóndor (NIT/RUC 0990054321001) y Perforaciones del Sur S.A. (NIT/RUC 800004001).
+**Partes:** Minera Cóndor (RUC 0990054321001) y Perforaciones del Sur S.A. (RUC 800004001).
 
 **Cláusula 1. Objeto.** Prestación de servicios de operación tecnológica. Tipo de contrato: servicios.
 

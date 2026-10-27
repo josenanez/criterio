@@ -1,0 +1,533 @@
+{
+  "entidad": "Tiendas Pacífico",
+  "industria": "retail",
+  "pais": "CL",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "contrato_por_vencer",
+      "otrosi_sin_facultad",
+      "pago_despues",
+      "garantia_corta",
+      "registro_sin_documento"
+    ],
+    "constanza": [
+      "sin_fuente",
+      "politica_vencida",
+      "obligacion_vencida",
+      "informe_declara_cumplido"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "76083001-1",
+        "name": "Tiendas Pacífico",
+        "country": "CL",
+        "currency": "CLP"
+      },
+      "paths": {
+        "documents": "legal/76083001-1-tiendas-pacifico",
+        "state": "estado-legal/76083001-1-tiendas-pacifico"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "76083001-1",
+        "name": "Tiendas Pacífico",
+        "country": "CL",
+        "currency": "CLP"
+      },
+      "paths": {
+        "documents": "legal/76083001-1-tiendas-pacifico",
+        "state": "estado-legal/76083001-1-tiendas-pacifico"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/76083001-1-tiendas-pacifico/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-1001": {
+        "code": "CTR-1001",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística Austral SpA",
+          "id": "77010001-1"
+        },
+        "value": 96000000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Francisca Muñoz",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística Austral SpA",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1001-logistica-austral-spa/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-05-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1001-logistica-austral-spa/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-1001-logistica-austral-spa/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Logística Austral SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1001-logistica-austral-spa/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Logística Austral SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1001-logistica-austral-spa/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Logística Austral SpA",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-1001-logistica-austral-spa/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1001-logistica-austral-spa/10-contrato/contrato.md"
+      },
+      "CTR-1002": {
+        "code": "CTR-1002",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Envases del Maipo S.A.",
+          "id": "77010002-K"
+        },
+        "value": 48000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Tomás Contreras",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Envases del Maipo S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 84000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Tomás Contreras",
+            "source": "contratos/CTR-1002-envases-del-maipo-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1002-envases-del-maipo-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1002-envases-del-maipo-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-1002-envases-del-maipo-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Envases del Maipo S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1002-envases-del-maipo-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Envases del Maipo S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1002-envases-del-maipo-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1002-envases-del-maipo-s-a/10-contrato/contrato.md"
+      },
+      "CTR-1003": {
+        "code": "CTR-1003",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Centro Comercial Costanera S.A.",
+          "id": "77010003-8"
+        },
+        "value": 72000000,
+        "start": "2025-02-01",
+        "end": "2026-11-25",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Francisca Muñoz",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Centro Comercial Costanera S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1003-centro-comercial-costanera-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-25",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1003-centro-comercial-costanera-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-1003-centro-comercial-costanera-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Centro Comercial Costanera S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1003-centro-comercial-costanera-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-25",
+            "who": "Centro Comercial Costanera S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1003-centro-comercial-costanera-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1003-centro-comercial-costanera-s-a/10-contrato/contrato.md"
+      },
+      "CTR-1004": {
+        "code": "CTR-1004",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Pagos Digitales SpA",
+          "id": "77010004-6"
+        },
+        "value": 36000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Tomás Contreras",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Pagos Digitales SpA",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1004-pagos-digitales-spa/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1004-pagos-digitales-spa/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-1004-pagos-digitales-spa/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Pagos Digitales SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1004-pagos-digitales-spa/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Pagos Digitales SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1004-pagos-digitales-spa/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1004-pagos-digitales-spa/10-contrato/contrato.md"
+      },
+      "CTR-1005": {
+        "code": "CTR-1005",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Marketing Integral Ltda.",
+          "id": "77010005-4"
+        },
+        "value": 24000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Tomás Contreras",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Marketing Integral Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1005-marketing-integral-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1005-marketing-integral-ltda/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-1005-marketing-integral-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Marketing Integral Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1005-marketing-integral-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Marketing Integral Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1005-marketing-integral-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-1005-marketing-integral-ltda/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-1005-marketing-integral-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1006": {
+        "code": "CTR-1006",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Frío Industrial SpA",
+          "id": "77010006-2"
+        },
+        "value": 60000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Francisca Muñoz",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Frío Industrial SpA",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1006-frio-industrial-spa/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1006-frio-industrial-spa/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-1006-frio-industrial-spa/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Frío Industrial SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1006-frio-industrial-spa/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Frío Industrial SpA",
+            "kind": "entrega",
+            "source": "contratos/CTR-1006-frio-industrial-spa/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1006-frio-industrial-spa/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_obligation_overdue",
+      "key": "oblig:OB-09"
+    },
+    {
+      "signal": "contract_expiring",
+      "key": "vence:CTR-1003"
+    },
+    {
+      "signal": "declared_compliance_vs_evidence",
+      "key": "cumplimiento"
+    },
+    {
+      "signal": "guarantee_expires_early",
+      "key": "garantia:CTR-1001:cumplimiento"
+    },
+    {
+      "signal": "obligation_without_source",
+      "key": "fuente:OB-13"
+    },
+    {
+      "signal": "payment_after_termination",
+      "key": "pagofuera:CTR-1006"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:P-03"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "registro:CTR-1009"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-1002:OT-1"
+    }
+  ]
+}

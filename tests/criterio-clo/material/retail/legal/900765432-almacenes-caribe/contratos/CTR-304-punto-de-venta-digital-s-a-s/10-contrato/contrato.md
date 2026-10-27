@@ -1,6 +1,6 @@
 # Contrato CTR-304
 
-**Partes:** Almacenes Caribe (NIT/RUC 900765432) y Punto de Venta Digital S.A.S. (NIT/RUC 800003004).
+**Partes:** Almacenes Caribe (NIT 900765432) y Punto de Venta Digital S.A.S. (NIT 800003004).
 
 **Cláusula 1. Objeto.** Licencia de uso de software. Tipo de contrato: licencia.
 

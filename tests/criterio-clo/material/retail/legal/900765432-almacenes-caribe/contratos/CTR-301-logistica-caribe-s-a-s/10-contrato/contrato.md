@@ -1,6 +1,6 @@
 # Contrato CTR-301
 
-**Partes:** Almacenes Caribe (NIT/RUC 900765432) y Logística Caribe S.A.S. (NIT/RUC 800003001).
+**Partes:** Almacenes Caribe (NIT 900765432) y Logística Caribe S.A.S. (NIT 800003001).
 
 **Cláusula 1. Objeto.** Prestación de servicios de operación tecnológica. Tipo de contrato: servicios.
 

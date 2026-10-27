@@ -1,6 +1,6 @@
 # Contrato CTR-205
 
-**Partes:** Cooperativa Sierra Alta (NIT/RUC 1790012345001) y Asesoría Financiera Cía. Ltda. (NIT/RUC 800002005).
+**Partes:** Cooperativa Sierra Alta (RUC 1790012345001) y Asesoría Financiera Cía. Ltda. (RUC 800002005).
 
 **Cláusula 1. Objeto.** Consultoría en procesos. Tipo de contrato: consultoria.
 

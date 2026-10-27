@@ -1,6 +1,6 @@
 # Contrato CTR-302
 
-**Partes:** Almacenes Caribe (NIT/RUC 900765432) y Empaques del Atlántico S.A.S. (NIT/RUC 800003002).
+**Partes:** Almacenes Caribe (NIT 900765432) y Empaques del Atlántico S.A.S. (NIT 800003002).
 
 **Cláusula 1. Objeto.** Suministro de papelería e insumos de oficina. Tipo de contrato: suministro.
 

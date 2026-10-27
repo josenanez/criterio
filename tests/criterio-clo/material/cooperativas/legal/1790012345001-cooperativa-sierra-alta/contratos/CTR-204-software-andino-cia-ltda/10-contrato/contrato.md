@@ -1,6 +1,6 @@
 # Contrato CTR-204
 
-**Partes:** Cooperativa Sierra Alta (NIT/RUC 1790012345001) y Software Andino Cía. Ltda. (NIT/RUC 800002004).
+**Partes:** Cooperativa Sierra Alta (RUC 1790012345001) y Software Andino Cía. Ltda. (RUC 800002004).
 
 **Cláusula 1. Objeto.** Licencia de uso de software. Tipo de contrato: licencia.
 

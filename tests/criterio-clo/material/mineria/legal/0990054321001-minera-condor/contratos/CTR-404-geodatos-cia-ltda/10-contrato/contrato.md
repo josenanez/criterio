@@ -1,6 +1,6 @@
 # Contrato CTR-404
 
-**Partes:** Minera Cóndor (NIT/RUC 0990054321001) y Geodatos Cía. Ltda. (NIT/RUC 800004004).
+**Partes:** Minera Cóndor (RUC 0990054321001) y Geodatos Cía. Ltda. (RUC 800004004).
 
 **Cláusula 1. Objeto.** Licencia de uso de software. Tipo de contrato: licencia.
 

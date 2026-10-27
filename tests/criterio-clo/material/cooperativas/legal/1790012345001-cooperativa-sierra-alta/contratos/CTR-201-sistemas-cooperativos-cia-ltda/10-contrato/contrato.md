@@ -1,6 +1,6 @@
 # Contrato CTR-201
 
-**Partes:** Cooperativa Sierra Alta (NIT/RUC 1790012345001) y Sistemas Cooperativos Cía. Ltda. (NIT/RUC 800002001).
+**Partes:** Cooperativa Sierra Alta (RUC 1790012345001) y Sistemas Cooperativos Cía. Ltda. (RUC 800002001).
 
 **Cláusula 1. Objeto.** Prestación de servicios de operación tecnológica. Tipo de contrato: servicios.
 

@@ -1,6 +1,6 @@
 # Contrato CTR-306
 
-**Partes:** Almacenes Caribe (NIT/RUC 900765432) y Refrigeración Industrial S.A.S. (NIT/RUC 800003006).
+**Partes:** Almacenes Caribe (NIT 900765432) y Refrigeración Industrial S.A.S. (NIT 800003006).
 
 **Cláusula 1. Objeto.** Mantenimiento preventivo de instalaciones. Tipo de contrato: mantenimiento.
 

@@ -1,6 +1,6 @@
 # Contrato CTR-604
 
-**Partes:** Comercial Control (NIT/RUC 1790000001001) y Datos Control Cía. Ltda. (NIT/RUC 800006004).
+**Partes:** Comercial Control (RUC 1790000001001) y Datos Control Cía. Ltda. (RUC 800006004).
 
 **Cláusula 1. Objeto.** Licencia de uso de software. Tipo de contrato: licencia.
 

@@ -38,6 +38,37 @@ RAIZ = AQUI.parent.parent
 sys.path.insert(0, str(RAIZ / "plugins" / "criterio-legal" / "scripts"))
 import legal as L  # noqa: E402
 
+N = L.N
+
+
+def ruc(tipo: int, semilla: int, i: int) -> str:
+    """Un RUC peruano ficticio de once dígitos con su dígito verificador por módulo 11, el mismo del
+    material de la CFO. Ninguno corresponde a una empresa."""
+    base = f"{tipo:02d}{semilla:02d}{i:06d}"
+    r = 11 - sum(int(d) * w for d, w in zip(base, (5, 4, 3, 2, 7, 6, 5, 4, 3, 2))) % 11
+    return base + str({10: 0, 11: 1}.get(r, r))
+
+
+def rut(cuerpo: int) -> str:
+    """Un RUT chileno ficticio con su dígito verificador por módulo 11 (10 es K y 11 es 0), el mismo
+    del material de la CFO. Ninguno corresponde a una empresa."""
+    total, f = 0, 2
+    for ch in reversed(str(cuerpo)):
+        total += int(ch) * f
+        f = 2 if f == 7 else f + 1
+    v = 11 - total % 11
+    return f"{cuerpo}-{ {10: 'K', 11: '0'}.get(v, str(v)) }"
+
+
+def id_contraparte(e: dict, i: int) -> str:
+    """La identificación de una contraparte con la forma de su país; Colombia y Ecuador conservan la
+    numeración con la que se probaron."""
+    if e["pais"] == "PE":
+        return ruc(20, e["n0"] // 10, i + 1)
+    if e["pais"] == "CL":
+        return rut(77000000 + e["n0"] * 10 + i)
+    return f"{800000000 + e['n0'] * 10 + i}"
+
 SALIDA = AQUI / "material"
 HOY, PERIODO = dt.date(2026, 10, 6), "2026-09"
 PERIODOS = ["2026-07", "2026-08", "2026-09"]
@@ -76,6 +107,40 @@ ENTIDADES = [
      "personas": ("Fernanda Vaca", "Diego Herrera", "Paola Cevallos"),
      "contrapartes": ["Logística Control S.A.", "Proveedora Control S.A.", "Locales Control S.A.", "Datos Control Cía. Ltda.",
                       "Consultora Control Cía. Ltda.", "Servicios Control S.A.", "Custodia Control S.A."],
+     "fidel": [], "constanza": []},
+    {"carpeta": "banca-pe", "industria": "banca", "pais": "PE", "id": ruc(20, 71, 1), "nombre": "Banco Ribera", "moneda": "PEN", "u": 60_000, "n0": 700,
+     "personas": ("Rosa Quispe", "Martín Paredes", "Claudia Salinas"),
+     "contrapartes": ["Tecnología Limeña S.A.C.", "Útiles del Pacífico S.A.C.", "Inmuebles Miraflores S.A.", "Licencias Andinas S.A.C.",
+                      "Consultoría Integral S.A.C.", "Mantenimiento Total E.I.R.L.", "Seguridad Perú S.A.C."],
+     "fidel": ["preaviso_cerca", "firma_sin_facultad", "registro_distinto", "sin_garantia", "obligacion_contrato_vencida"],
+     "constanza": ["obligacion_vencida", "sin_responsable", "norma_sin_evaluar", "informe_declara_cumplido", "obligacion_contrato_fuera"]},
+    {"carpeta": "mineria-pe", "industria": "mineria", "pais": "PE", "id": ruc(20, 73, 1), "nombre": "Minera Puna Alta", "moneda": "PEN", "u": 180_000, "n0": 800,
+     "personas": ("Julio Huamán", "Carmen Rojas", "Óscar Mendoza"),
+     "contrapartes": ["Perforaciones Andinas S.A.C.", "Voladuras Técnicas S.A.C.", "Campamentos Sierra S.A.", "Geología Aplicada S.A.C.",
+                      "Gestión Ambiental S.A.C.", "Equipos Pesados del Sur S.A.", "Laboratorio Analítico E.I.R.L."],
+     "fidel": ["vencido_vigente", "certificado_viejo", "pagos_de_mas", "contrato_sin_registro"],
+     "constanza": ["cumplida_sin_evidencia", "evidencia_vieja", "caso_vencido", "norma_aplica_sin_matriz", "norma_en_boletin"]},
+    {"carpeta": "control-pe", "industria": "mineria", "pais": "PE", "id": ruc(20, 79, 1), "nombre": "Comercial Control Sur", "moneda": "PEN", "u": 40_000, "n0": 900,
+     "personas": ("Silvia Chávez", "Raúl Torres", "Patricia Flores"),
+     "contrapartes": ["Transportes Control S.A.C.", "Insumos Control S.A.C.", "Almacenes Control S.A.", "Sistemas Control S.A.C.",
+                      "Asesoría Control S.A.C.", "Servicios Control E.I.R.L.", "Limpieza Control S.A.C."],
+     "fidel": [], "constanza": []},
+    {"carpeta": "retail-cl", "industria": "retail", "pais": "CL", "id": rut(76083001), "nombre": "Tiendas Pacífico", "moneda": "CLP", "u": 12_000_000, "n0": 1000,
+     "personas": ("Francisca Muñoz", "Tomás Contreras", "Javiera Soto"),
+     "contrapartes": ["Logística Austral SpA", "Envases del Maipo S.A.", "Centro Comercial Costanera S.A.", "Pagos Digitales SpA",
+                      "Marketing Integral Ltda.", "Frío Industrial SpA", "Seguridad Andes Ltda."],
+     "fidel": ["contrato_por_vencer", "otrosi_sin_facultad", "pago_despues", "garantia_corta", "registro_sin_documento"],
+     "constanza": ["sin_fuente", "politica_vencida", "obligacion_vencida", "informe_declara_cumplido"]},
+    {"carpeta": "mineria-cl", "industria": "mineria", "pais": "CL", "id": rut(76089001), "nombre": "Minera Atacama Norte", "moneda": "CLP", "u": 45_000_000, "n0": 1100,
+     "personas": ("Cristián Vergara", "Daniela Fuentes", "Ignacio Pizarro"),
+     "contrapartes": ["Sondajes del Norte SpA", "Explosivos Atacama S.A.", "Campamentos Desierto Ltda.", "Geodatos Chile SpA",
+                      "Consultora Ambiental Ltda.", "Maquinaria Minera S.A.", "Laboratorio Químico SpA"],
+     "fidel": ["preaviso_vencido", "sin_firma", "sin_garantia", "firma_sin_facultad"],
+     "constanza": ["caso_vencido", "evidencia_vieja", "obligacion_contrato_fuera", "norma_sin_evaluar", "cumplida_sin_evidencia"]},
+    {"carpeta": "control-cl", "industria": "retail", "pais": "CL", "id": rut(76097001), "nombre": "Comercial Control Andes", "moneda": "CLP", "u": 9_000_000, "n0": 1200,
+     "personas": ("Valentina Rojas", "Matías Herrera", "Catalina Díaz"),
+     "contrapartes": ["Transportes Control SpA", "Insumos Control Ltda.", "Bodegas Control S.A.", "Software Control SpA",
+                      "Asesores Control Ltda.", "Mantención Control SpA", "Aseo Control Ltda."],
      "fidel": [], "constanza": []},
 ]
 
@@ -141,7 +206,7 @@ def contrato(e: dict, i: int, b: dict) -> dict:
     inicio, fin = d(b["inicio"]), d(b["fin"])
     firmado = inicio - dt.timedelta(days=5)
     firmante = e["personas"][b["firma"]]
-    c = {"code": code, "type": b["tipo"], "counterparty": {"name": contraparte, "id": f"{800000000 + e['n0'] * 10 + i}"},
+    c = {"code": code, "type": b["tipo"], "counterparty": {"name": contraparte, "id": id_contraparte(e, i)},
          "value": b["valor"] * u, "start": iso(inicio), "end": iso(fin), "signed_on": iso(firmado), "signed_by_both": True,
          "auto_renewal": b["auto"], "notice_days": b["preaviso"] if b["auto"] else None, "renewal_months": 12 if b["auto"] else None,
          "signatories": [{"name": firmante, "role": ["Gerente general", "Vicepresidente financiero", "Director de compras"][b["firma"]], "party": "entidad"},
@@ -211,7 +276,7 @@ def documentos_contrato(docs: Path, e: dict, x: dict) -> None:
     md(base / "10-contrato" / "contrato.md", f"""
 # Contrato {c['code']}
 
-**Partes:** {e['nombre']} (NIT/RUC {e['id']}) y {c['counterparty']['name']} (NIT/RUC {c['counterparty']['id']}).
+**Partes:** {e['nombre']} ({N.PAISES[e['pais']]['id_fiscal']} {e['id']}) y {c['counterparty']['name']} ({N.PAISES[e['pais']]['id_fiscal']} {c['counterparty']['id']}).
 
 **Cláusula 1. Objeto.** {OBJETO[c['type']]}. Tipo de contrato: {c['type']}.
 
@@ -255,7 +320,7 @@ Aseguradora: {g['insurer']}. Vigencia hasta el {g['until']}.
     md(base / "30-contraparte" / "certificado.md", f"""
 # Certificado de existencia y representación legal
 
-{c['counterparty']['name']}, NIT/RUC {c['counterparty']['id']}. Representante legal: Representante de {c['counterparty']['name']}.
+{c['counterparty']['name']}, {N.PAISES[e['pais']]['id_fiscal']} {c['counterparty']['id']}. Representante legal: Representante de {c['counterparty']['name']}.
 
 Expedido el {cert['issued_on']}.
 """)

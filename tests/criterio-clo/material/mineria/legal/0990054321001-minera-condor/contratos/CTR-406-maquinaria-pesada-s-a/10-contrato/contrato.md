@@ -1,6 +1,6 @@
 # Contrato CTR-406
 
-**Partes:** Minera Cóndor (NIT/RUC 0990054321001) y Maquinaria Pesada S.A. (NIT/RUC 800004006).
+**Partes:** Minera Cóndor (RUC 0990054321001) y Maquinaria Pesada S.A. (RUC 800004006).
 
 **Cláusula 1. Objeto.** Mantenimiento preventivo de instalaciones. Tipo de contrato: mantenimiento.
 

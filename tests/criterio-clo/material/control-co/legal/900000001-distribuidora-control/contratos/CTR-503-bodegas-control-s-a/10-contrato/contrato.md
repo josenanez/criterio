@@ -1,6 +1,6 @@
 # Contrato CTR-503
 
-**Partes:** Distribuidora Control (NIT/RUC 900000001) y Bodegas Control S.A. (NIT/RUC 800005003).
+**Partes:** Distribuidora Control (NIT 900000001) y Bodegas Control S.A. (NIT 800005003).
 
 **Cláusula 1. Objeto.** Arrendamiento de la sede principal. Tipo de contrato: arrendamiento.
 

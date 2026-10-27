@@ -1,6 +1,6 @@
 # Contrato CTR-104
 
-**Partes:** Banco Andino (NIT/RUC 900123456) y Licencias del Norte S.A.S. (NIT/RUC 800001004).
+**Partes:** Banco Andino (NIT 900123456) y Licencias del Norte S.A.S. (NIT 800001004).
 
 **Cláusula 1. Objeto.** Licencia de uso de software. Tipo de contrato: licencia.
 

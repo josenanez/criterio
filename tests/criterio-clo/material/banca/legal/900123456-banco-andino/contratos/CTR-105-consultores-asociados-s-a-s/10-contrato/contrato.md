@@ -1,6 +1,6 @@
 # Contrato CTR-105
 
-**Partes:** Banco Andino (NIT/RUC 900123456) y Consultores Asociados S.A.S. (NIT/RUC 800001005).
+**Partes:** Banco Andino (NIT 900123456) y Consultores Asociados S.A.S. (NIT 800001005).
 
 **Cláusula 1. Objeto.** Consultoría en procesos. Tipo de contrato: consultoria.
 

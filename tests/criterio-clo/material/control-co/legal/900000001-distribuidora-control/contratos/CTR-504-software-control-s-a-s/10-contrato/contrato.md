@@ -1,6 +1,6 @@
 # Contrato CTR-504
 
-**Partes:** Distribuidora Control (NIT/RUC 900000001) y Software Control S.A.S. (NIT/RUC 800005004).
+**Partes:** Distribuidora Control (NIT 900000001) y Software Control S.A.S. (NIT 800005004).
 
 **Cláusula 1. Objeto.** Licencia de uso de software. Tipo de contrato: licencia.
 
