@@ -15,6 +15,15 @@ sintéticos.
 | `mineria` | Ecuador | minería | 9 | 9 |
 | `control-co` | Colombia | — | 0 | 0 |
 | `control-ec` | Ecuador | — | 0 | 0 |
+| `banca-pe` | Perú | banca | 10 | 10 |
+| `mineria-pe` | Perú | minería | 9 | 9 |
+| `control-pe` | Perú | — | 0 | 0 |
+| `retail-cl` | Chile | retail | 9 | 9 |
+| `mineria-cl` | Chile | minería | 9 | 9 |
+| `control-cl` | Chile | — | 0 | 0 |
+| `banca-mx` | México | banca | 10 | 10 |
+| `retail-mx` | México | retail | 10 | 10 |
+| `control-mx` | México | — | 0 | 0 |
 
 Cada una trae su carpeta legal al 6 de octubre de 2026: la matriz de atribuciones y la de
 obligaciones, el registro de contratos y la exportación de pagos, el índice de políticas con
@@ -25,6 +34,8 @@ renovación— y tres periodos de cumplimiento, de julio a septiembre, con la ev
 obligación y el informe del periodo.
 
 ## Lo que se siembra, y la señal que tiene que levantar
+
+La columna «Dónde» nombra las entidades de Colombia y Ecuador. Las de Perú, Chile y México siembran los mismos casos con la identificación fiscal de su país; la lista exacta de cada una está en su clave, `material/<entidad>/clave.json`, en `siembra` y `esperado`.
 
 **Fidel**
 

@@ -42,7 +42,7 @@ In each command's report and in Rostrum, the portal for every family. It shows t
 
 ### What data was it tested on?
 
-On synthetic material from four industries —banking and retail in Colombia, cooperatives and mining in Ecuador— and one control entity per country, with no defects at all, where any signal is a failure. Every family signal is planted at least once.
+On synthetic material from five countries —Colombia, Ecuador, Peru, Chile and Mexico—: four industries and one control entity per country, with no defects at all, where any signal is a failure. Every family signal is planted at least once.
 
 ### How do you know the engine got it right?
 
@@ -50,7 +50,7 @@ The material carries a key with what was planted, and the engine never sees it. 
 
 ### Is the whole family tested yet?
 
-The engine is. The agent's extraction from each contract —parties, value, dates, renewal, notice period, signatories, amendments, guarantees and obligations— passed the full round with the agent on the six entities: 37 of 37 signals with none extra and 808 of 815 record data points. The family is declared tested; nothing has run yet on an organisation's documents.
+The engine is, and Fidel and Constanza ran on all fifteen entities in the material: round 2 on the six of Colombia and Ecuador —37 of 37 signals with none extra and 808 of 815 record data points—, round 4 on Peru and Chile —37 of 37 and 812 of 813— and round 5 on Mexico —20 of 20 and 395 of 396—. Every data point missed has its defect, fixed and verified. The family is declared tested; nothing has run yet on an organisation's documents.
 
 ## Data and privacy
 

@@ -16,7 +16,7 @@ habla con el otro directamente: se hablan por sus fichas.
 | **Objetivo** | Que una empresa sepa qué firmó, qué vence y a qué se obligó |
 | **Compuesta por** | [Fidel](../../plugins/criterio-legal/README.es.md) · [Constanza](../../plugins/criterio-compliance/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define cada rol y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | Construida y probada sobre material sintético de cuatro países —Colombia, Ecuador, Perú y Chile—: el motor, contra las doce entidades del material; los agentes, en [las rondas con el agente](../../tests/evidencias/familias/clo/RONDAS.md), la más reciente la 4, sobre Perú y Chile. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Construida y probada sobre material sintético de cinco países —Colombia, Ecuador, Perú, Chile y México—: el motor, contra las quince entidades del material; los agentes, en [las rondas con el agente](../../tests/evidencias/familias/clo/RONDAS.md), la más reciente la 5, sobre México. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Contratos y cumplimiento, sin opinión jurídica |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al abogado ni al oficial de cumplimiento, y no decide por ellos: procesa lo que la organización firmó y lo que se obligó a cumplir, y dice qué vence, qué no tiene evidencia y qué no cuadra |
@@ -51,7 +51,7 @@ las fichas de Fidel las obligaciones de cumplimiento que traen los contratos.
 su página: el motor está probado contra material sintético de cuatro industrias; **el motor y la extracción de los agentes están probados sobre material sintético de cuatro
 países; nada se ha probado todavía sobre los documentos de una organización.**
 
-Países: Colombia, Ecuador, Perú y Chile. **Sin opinión jurídica**: ninguno de los dos interpreta una
+Países: Colombia, Ecuador, Perú, Chile y México. **Sin opinión jurídica**: ninguno de los dos interpreta una
 cláusula, califica la validez de un contrato ni dice qué exige una norma. Lo que una obligación
 exige lo define la organización en su matriz, con la cita de su fuente.
 
@@ -350,12 +350,13 @@ señal que tiene que levantar, con el mismo detalle, **y qué no prueba el mater
 [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md). El conjunto de todas las familias, en
 [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**Las rondas con el agente.** La ronda 1 corrió sobre banca y el control de Colombia; la 2, completa, sobre las seis entidades de Colombia y Ecuador: 37 de 37 señales sin una de más y 808 de 815 datos; la 3 verificó las correcciones; la 4 sumó a Perú y Chile, sus seis entidades: 37 de 37 señales sin una de más y 812 de 813 datos. Los 10 defectos que encontraron las rondas están corregidos y verificados. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md). **El análisis estadístico de las rondas** —cobertura y precisión de las señales, los datos extraídos y el margen del 95 % de cada uno, su evolución ronda a ronda, por industria y país, cada falla con el defecto que la explica y su origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) desde la evidencia de las rondas, y `verificar.py` comprueba que diga lo que dice la evidencia.
+**Las rondas con el agente.** La ronda 1 corrió sobre banca y el control de Colombia; la 2, completa, sobre las seis entidades de Colombia y Ecuador: 37 de 37 señales sin una de más y 808 de 815 datos; la 3 verificó las correcciones; la 4 sumó a Perú y Chile, sus seis entidades: 37 de 37 señales sin una de más y 812 de 813 datos; la 5 sumó a México, sus tres entidades: 20 de 20 señales sin una de más y 395 de 396 datos. Los 11 defectos que encontraron las rondas están corregidos y verificados. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md). **El análisis estadístico de las rondas** —cobertura y precisión de las señales, los datos extraídos y el margen del 95 % de cada uno, su evolución ronda a ronda, por industria y país, cada falla con el defecto que la explica y su origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) desde la evidencia de las rondas, y `verificar.py` comprueba que diga lo que dice la evidencia.
 
 ## Las industrias de prueba
 
-Cuatro industrias de Suramérica y una entidad de control por país: **banca y retail en
-Colombia**, y **cooperativas y minería en Ecuador**. Cada una trae su carpeta legal con seis
+Cuatro industrias de América Latina y una entidad de control por país: **banca y retail en
+Colombia**, **cooperativas y minería en Ecuador**, **banca y minería en Perú**, **retail y minería en
+Chile** y **banca y retail en México**. Cada una trae su carpeta legal con seis
 contratos —cada uno con su otrosí, su póliza, el certificado de la contraparte y la evidencia de
 sus obligaciones— y tres periodos de cumplimiento. Las entidades, los defectos sembrados y las
 señales esperadas de cada una, en
@@ -372,9 +373,10 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 0.8.0 | Liberada | **Construida, con el motor probado y una primera ronda con el agente**<br>· Los catorce comandos de Fidel y Constanza, sus skills y el motor de cálculo<br>· Colombia y Ecuador, sin opinión jurídica: lo que exige una obligación lo define la organización en su matriz<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· La familia en Rostrum, con lo que vence y dónde trabaja cada agente<br>· La primera ronda con el agente: Fidel y Constanza sobre banca y el control de Colombia, con los defectos que encontró corregidos | El motor, contra 4 industrias y 2 entidades de control; el agente, sobre banca y el control de Colombia |
 | 0.9.0 | Liberada | **La ronda completa con el agente**<br>· Fidel y Constanza corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo trae cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones—, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
 | 0.11.0 | Liberada | **Perú y Chile**<br>· Material de banca, minería y control de Perú, y de retail, minería y control de Chile, con la identificación fiscal de cada país<br>· Una obligación atada a la terminación vence en la terminación vigente, la del último otrosí (CLO-10) | La ronda 4: Fidel y Constanza sobre las seis entidades de Perú y Chile, 37 de 37 señales, ninguna de más y 812 de 813 datos; el que faltó, corregido y verificado |
-| Incremento 4 | Siguiente | **México y Brasil**<br>· Un país a la vez, por tamaño de mercado: sus fuentes legales verificadas y su material de prueba<br>· Cada país se marca en el mapa cuando pasa su ronda | La ronda con los agentes en cada país |
-| Incremento 5 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre los contratos y el cumplimiento de una organización concreta | La documentación de esa organización |
-| Incremento 6 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
+| 0.12.0 | Siguiente | **México**<br>· Material de banca, retail y control de México, con el RFC de cada contraparte<br>· La fecha de una obligación atada a la terminación es la del último otrosí: lo dice la skill y el motor lo revisa en la ficha (CLO-11) | La ronda 5: Fidel y Constanza sobre las tres entidades de México, 20 de 20 señales, ninguna de más y 395 de 396 datos; el que faltó, corregido y verificado |
+| Incremento 5 | Siguiente | **Brasil**<br>· Sus fuentes legales verificadas y su material de prueba<br>· Se marca en el mapa cuando pasa su ronda | La ronda con los agentes en Brasil |
+| Incremento 6 | Reservada | **El despliegue en una organización**<br>· El primer uso sobre los contratos y el cumplimiento de una organización concreta | La documentación de esa organización |
+| Incremento 7 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
 
 <!-- /hoja de ruta -->
 
@@ -406,8 +408,8 @@ sobre la documentación de una organización real.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Fidel** · Contratos | `criterio-legal` · 7 comandos, 5 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Cumplimiento | `criterio-compliance` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contratos | `criterio-legal` · 7 comandos, 5 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 5 · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Cumplimiento | `criterio-compliance` · 7 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 5 · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 

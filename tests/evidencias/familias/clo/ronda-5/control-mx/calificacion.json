@@ -1,0 +1,61 @@
+{
+  "entidad": "Comercial Control Centro",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3078313,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 131,
+    "mal": [
+      {
+        "ficha": "contratos/CTR-1502",
+        "campo": "obligations",
+        "esperado": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Insumos Control S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1502-insumos-control-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Insumos Control S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1502-insumos-control-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Insumos Control S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1502-insumos-control-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-06-30",
+            "who": "Insumos Control S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1502-insumos-control-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

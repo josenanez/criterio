@@ -1,0 +1,38 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-27T15:13:40",
+  "estado": "success",
+  "error": false,
+  "segundos": 57,
+  "turnos": 15,
+  "tokens": 857653,
+  "tokens_salida": 6249,
+  "costo_usd": 0.31975159999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-27-contract-scan-1.html",
+      ".criterio/corridas/legal/2026-10-27-contract-scan-1.md",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos/reporte-contract-scan.md",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/corridas/salida-contract-scan.md",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/indice.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos/CTR-1301.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos/CTR-1302.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos/CTR-1303.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos/CTR-1304.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos/CTR-1305.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos/CTR-1306.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos/resultados.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -93,7 +93,7 @@
   },
   {
    "incremento": 4,
-   "version": null,
+   "version": "0.12.0",
    "estado": "siguiente",
    "industrias": [],
    "paises": [
@@ -103,7 +103,31 @@
       "es": "México",
       "en": "Mexico"
      }
-    },
+    }
+   ],
+   "es": {
+    "titulo": "México",
+    "entra": [
+     "Material de banca, retail y control de México, con el RFC de cada contraparte",
+     "La fecha de una obligación atada a la terminación es la del último otrosí: lo dice la skill y el motor lo revisa en la ficha (CLO-11)"
+    ],
+    "prueba": "La ronda 5: Fidel y Constanza sobre las tres entidades de México, 20 de 20 señales, ninguna de más y 395 de 396 datos; el que faltó, corregido y verificado"
+   },
+   "en": {
+    "titulo": "Mexico",
+    "entra": [
+     "Material for banking, retail and control in Mexico, with each counterparty's RFC",
+     "The date of an obligation tied to termination is the latest amendment's: the skill says so and the engine checks it in the record (CLO-11)"
+    ],
+    "prueba": "Round 5: Fidel and Constanza on the three Mexican entities, 20 of 20 signals, none extra and 395 of 396 data points; the one missed, fixed and verified"
+   }
+  },
+  {
+   "incremento": 5,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [
     {
      "codigo": "BR",
      "nombre": {
@@ -113,24 +137,24 @@
     }
    ],
    "es": {
-    "titulo": "México y Brasil",
+    "titulo": "Brasil",
     "entra": [
-     "Un país a la vez, por tamaño de mercado: sus fuentes legales verificadas y su material de prueba",
-     "Cada país se marca en el mapa cuando pasa su ronda"
+     "Sus fuentes legales verificadas y su material de prueba",
+     "Se marca en el mapa cuando pasa su ronda"
     ],
-    "prueba": "La ronda con los agentes en cada país"
+    "prueba": "La ronda con los agentes en Brasil"
    },
    "en": {
-    "titulo": "Mexico and Brazil",
+    "titulo": "Brazil",
     "entra": [
-     "One country at a time, by market size: its verified legal sources and its test material",
-     "Each country is marked on the map when it passes its round"
+     "Its verified legal sources and its test material",
+     "It is marked on the map when it passes its round"
     ],
-    "prueba": "The round with the agents in each country"
+    "prueba": "The round with the agents in Brazil"
    }
   },
   {
-   "incremento": 5,
+   "incremento": 6,
    "version": null,
    "estado": "reservada",
    "industrias": [],
@@ -150,7 +174,7 @@
    }
   },
   {
-   "incremento": 6,
+   "incremento": 7,
    "version": null,
    "estado": "reservada",
    "industrias": [],

@@ -1,0 +1,39 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/CCM120615R59-comercial-control-centro",
+  "inicio": "2026-10-27T15:25:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 78,
+  "turnos": 20,
+  "tokens": 743163,
+  "tokens_salida": 6596,
+  "costo_usd": 0.29108370000000006,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-27-compliance-setup-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-27-compliance-setup-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/cumplimiento/CCM120615R59/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.11.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.11.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.11.0-2026-10-06.sha256",
+      "estado-legal/CCM120615R59-comercial-control-centro/cache/cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md.md",
+      "estado-legal/CCM120615R59-comercial-control-centro/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/CCM120615R59-comercial-control-centro/corridas/salida-compliance-setup.md",
+      "estado-legal/CCM120615R59-comercial-control-centro/cumplimiento/2026-09/ficha.json",
+      "estado-legal/CCM120615R59-comercial-control-centro/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/CCM120615R59-comercial-control-centro/cumplimiento/2026-09/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/CCM120615R59-comercial-control-centro/cache/manifest.json",
+      "estado-legal/CCM120615R59-comercial-control-centro/corridas.json"
+    ],
+    "borrados": []
+  }
+}

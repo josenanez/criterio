@@ -180,9 +180,16 @@ def revisar_ficha_contrato(c: dict) -> list[str]:
     for k in ("start", "end", "signed_on"):
         if c.get(k) and not fecha(c[k]):
             p.append(f"{code}: {k} no es una fecha; una fecha que nadie dijo se deja vacía")
+    # Una obligación que vence en la terminación original cuando un otrosí la movió: si está atada
+    # a la terminación —el informe final, el acta de liquidación—, vence en la vigente (CLO-10,
+    # CLO-11). El motor no adivina cuál está atada; lo dice para que la ficha se corrija.
+    fin_orig, fin_vig = fecha(c.get("end")), fin_documentado(c)
     for o in c.get("obligations") or []:
         if not o.get("id") or not o.get("source"):
             p.append(f"{code}: cada obligación lleva id y source")
+        if fin_orig and fin_vig and fin_vig != fin_orig and fecha(o.get("due")) == fin_orig:
+            p.append(f"{code}: {o.get('id') or '?'} vence en la terminación original ({fin_orig.isoformat()}) y un otrosí "
+                     f"la movió al {fin_vig.isoformat()}; si la obligación está atada a la terminación, vence en la vigente")
     for g in c.get("guarantees_required") or []:
         if not g.get("type") or not (g.get("until") or g.get("months_after_end") is not None):
             p.append(f"{code}: cada garantía exigida lleva type y until o months_after_end")
@@ -768,6 +775,12 @@ def selftest() -> int:
     ok("periodos de una ventana trimestral", _periodos_hasta("2026-02", 3), ["2026-02", "2026-01", "2025-12"])
     c = {"code": "CTR-1", "end": "2026-10-31", "auto_renewal": True, "amendments": [{"new_end": "2026-12-31", "signed": True}]}
     ok("la terminación la cambia el otrosí firmado", fin_documentado(c), dt.date(2026, 12, 31))
+    base_c = {"code": "CTR-2", "start": "2025-01-01", "end": "2027-06-30", "value": 1, "signed_by_both": True, "source": "c.md",
+              "amendments": [{"date": "2026-05-15", "new_end": "2027-12-31", "signed": True}]}
+    ok("la obligación atada a la terminación que no siguió al otrosí se dice",
+       len(revisar_ficha_contrato(dict(base_c, obligations=[{"id": "OBL-2", "due": "2027-06-30", "source": "c.md"}]))), 1)
+    ok("la que ya vence en la terminación vigente pasa",
+       revisar_ficha_contrato(dict(base_c, obligations=[{"id": "OBL-2", "due": "2027-12-31", "source": "c.md"}])), [])
     ok("con renovación automática se prorroga", fin_efectivo(dict(c, end="2026-01-31", amendments=[]), hoy, {}), dt.date(2027, 1, 31))
     with tempfile.TemporaryDirectory() as tmp:
         t = Path(tmp)

@@ -293,6 +293,33 @@
           "contratos/CTR-902 · obligations"
         ]
       ]
+    },
+    {
+      "id": "CLO-11",
+      "ronda": 5,
+      "carpeta": "control-mx",
+      "agentes": [
+        "fidel"
+      ],
+      "origen": "instrucciones",
+      "commit": "PENDIENTE",
+      "estado": "verificado",
+      "verificacion": "control-mx-fidel",
+      "es": {
+        "que": "La misma falla de CLO-10 en el control de México: el otrosí movió la terminación del 2027-06-30 al 2027-12-31 y Fidel dejó el informe final con la fecha original. La causa estaba en la skill de la ficha: decía que esa fecha es «la misma que va en `end`», y `end` es la terminación original.",
+        "correccion": "La skill dice ahora que la fecha es la del `new_end` del último otrosí, no la de `end`; el motor dice como problema de la ficha una obligación que vence en la terminación original cuando un otrosí la movió, y `contract-scan` la corrige antes de calcular. Fidel se corrió de nuevo sobre el control de México: 128 de 128 datos."
+      },
+      "en": {
+        "que": "The same failure as CLO-10 in the Mexican control: the amendment moved the end date from 2027-06-30 to 2027-12-31 and Fidel left the final report on the original date. The cause was in the record skill: it said that date is «the same as `end`», and `end` is the original end date.",
+        "correccion": "The skill now says the date is the latest amendment's `new_end`, not `end`; the engine reports as a record issue an obligation falling due on the original end date when an amendment moved it, and `contract-scan` corrects it before calculating. Fidel was rerun on the Mexican control: 128 of 128 data points."
+      },
+      "fallas": [
+        [
+          5,
+          "control-mx",
+          "contratos/CTR-1502 · obligations"
+        ]
+      ]
     }
   ]
 }

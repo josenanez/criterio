@@ -42,6 +42,8 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" reporte --config <config> --wha
 
 **El reporte lo escribe el motor**, en el formato común —encabezado, lo que hay que atender, el resultado, lo que no se pudo procesar, las preguntas que hiciste y las fuentes— y queda en `<estado>/contratos/reporte-contract-scan.md`. Muéstralo tal cual. Lo que agregues va antes del encabezado, en dos o tres líneas, y no lleva cifras ni fechas que el reporte no traiga.
 
+Si trae `record_issues`, corrige esa parte de la ficha contra su documento y vuelve a calcular.
+
 ## Deja la corrida registrada
 
 Lo último, siempre. Escribe en `<estado>/corridas/salida-contract-scan.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:

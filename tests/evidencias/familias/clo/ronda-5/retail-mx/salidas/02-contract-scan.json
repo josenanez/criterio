@@ -1,0 +1,38 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-27T15:19:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 73,
+  "turnos": 19,
+  "tokens": 886003,
+  "tokens_salida": 6722,
+  "costo_usd": 0.32779969999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-27-contract-scan-1.html",
+      ".criterio/corridas/legal/2026-10-27-contract-scan-1.md",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos/reporte-contract-scan.md",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/corridas/salida-contract-scan.md",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/indice.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos/CTR-1401.json",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos/CTR-1402.json",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos/CTR-1403.json",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos/CTR-1404.json",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos/CTR-1405.json",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos/CTR-1406.json",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos/resultados.json",
+      "estado-legal/TBA180912Q37-tiendas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -42,7 +42,7 @@ En el reporte de cada comando y en Rostrum, el portal de todas las familias. All
 
 ### ¿Con qué datos se probó?
 
-Con material sintético de cuatro industrias —banca y retail en Colombia, cooperativas y minería en Ecuador— y una entidad de control por país, sin ningún defecto, en la que cualquier señal es una falla. Cada señal de la familia se siembra al menos una vez.
+Con material sintético de cinco países —Colombia, Ecuador, Perú, Chile y México—: cuatro industrias y una entidad de control por país, sin ningún defecto, en la que cualquier señal es una falla. Cada señal de la familia se siembra al menos una vez.
 
 ### ¿Cómo se sabe si el motor acertó?
 
@@ -50,7 +50,7 @@ El material trae una clave con lo que se sembró, y el motor no la ve. La prueba
 
 ### ¿Ya está probada la familia completa?
 
-El motor sí. La extracción del agente sobre cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones— pasó la ronda completa con el agente sobre las seis entidades: 37 de 37 señales sin una de más y 808 de 815 datos de las fichas. La familia se declara probada; nada ha corrido todavía sobre los documentos de una organización.
+El motor sí, y Fidel y Constanza corrieron sobre las quince entidades del material: la ronda 2 sobre las seis de Colombia y Ecuador —37 de 37 señales sin una de más y 808 de 815 datos de las fichas—, la 4 sobre Perú y Chile —37 de 37 y 812 de 813— y la 5 sobre México —20 de 20 y 395 de 396—. Cada dato que faltó tiene su defecto, corregido y verificado. La familia se declara probada; nada ha corrido todavía sobre los documentos de una organización.
 
 ## Datos y privacidad
 

@@ -1,0 +1,37 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/BVA150301K21-banco-valle-de-anahuac",
+  "inicio": "2026-10-27T15:14:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 92,
+  "turnos": 27,
+  "tokens": 1151558,
+  "tokens_salida": 9015,
+  "costo_usd": 0.3720908,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/cumplimiento/BVA150301K21/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.11.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.11.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.11.0-2026-10-06.sha256",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/cache/cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md.md",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/corridas/salida-compliance-setup.md",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/cumplimiento/2026-09/ficha.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/cumplimiento/2026-09/resultados.json",
+      "legal/BVA150301K21-banco-valle-de-anahuac/_CRITERIO_LEGAL.txt"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/cache/manifest.json",
+      "estado-legal/BVA150301K21-banco-valle-de-anahuac/corridas.json"
+    ],
+    "borrados": []
+  }
+}
