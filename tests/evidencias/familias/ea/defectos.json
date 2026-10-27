@@ -9,7 +9,7 @@
         "ofelia"
       ],
       "origen": "codigo",
-      "commit": "PENDIENTE",
+      "commit": "d11470ea",
       "estado": "verificado",
       "verificacion": "banca",
       "es": {
@@ -30,7 +30,7 @@
         "ofelia"
       ],
       "origen": "codigo",
-      "commit": "PENDIENTE",
+      "commit": "d11470ea",
       "estado": "verificado",
       "verificacion": "banca",
       "es": {
@@ -51,7 +51,7 @@
         "ofelia"
       ],
       "origen": "instrucciones",
-      "commit": "PENDIENTE",
+      "commit": "d11470ea",
       "estado": "verificado",
       "verificacion": "banca",
       "es": {
@@ -72,7 +72,7 @@
         "ofelia"
       ],
       "origen": "clave",
-      "commit": "PENDIENTE",
+      "commit": "d11470ea",
       "estado": "verificado",
       "verificacion": "banca",
       "es": {
@@ -93,7 +93,7 @@
         "ofelia"
       ],
       "origen": "arnes",
-      "commit": "PENDIENTE",
+      "commit": "d11470ea",
       "estado": "verificado",
       "verificacion": "banca",
       "es": {
@@ -114,7 +114,7 @@
         "ofelia"
       ],
       "origen": "instrucciones",
-      "commit": "PENDIENTE",
+      "commit": "d11470ea",
       "estado": "verificado",
       "verificacion": "cooperativas-ofelia",
       "es": {
@@ -141,7 +141,7 @@
         "ofelia"
       ],
       "origen": "instrucciones",
-      "commit": "PENDIENTE",
+      "commit": "d11470ea",
       "estado": "verificado",
       "verificacion": "control-co-ofelia",
       "es": {
@@ -168,7 +168,7 @@
         "ofelia"
       ],
       "origen": "instrucciones",
-      "commit": "PENDIENTE",
+      "commit": "d11470ea",
       "estado": "por-verificar",
       "verificacion": null,
       "es": {
