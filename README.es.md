@@ -87,6 +87,10 @@ El marketplace se agrega una vez, y después se instala lo que haga falta.
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
 marketplace desde GitHub → `josenanez/criterio`.
 
+**Para recibir cada versión nueva**, activa una vez la actualización automática: en /plugin,
+Marketplaces → criterio → Enable auto-update. Claude Code la deja apagada en los marketplaces que no
+son de Anthropic, y sin ella la versión instalada no cambia sola.
+
 **Qué instalar depende del rol que tengas, y eso lo explica cada familia.** Para la de
 gobierno de proyectos, en [criterio-pmo](families/criterio-pmo/README.es.md#instalación-de-la-familia).
 
