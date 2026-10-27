@@ -1422,7 +1422,10 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
                 alertas = d.get('alertas') or []
                 # El nombre del ámbito sale del título del agente («la tesorería»), con su tilde; la
                 # carpeta no la lleva.
-                tit = re.sub(r'^(el|la|los|las) ', '', AGENTES[a].get('titulo') or '') if len(AGENTES[a].get('ambitos') or []) == 1 else ''
+                # Con un solo ámbito, o con el resultado en la raíz del estado (Ofelia), el título es el
+                # del agente, sin su artículo: el nombre del archivo no le dice nada a quien lee.
+                raiz_ = '/' not in r['ruta']
+                tit = re.sub(r'^(el|la|los|las) ', '', AGENTES[a].get('titulo') or '') if (len(AGENTES[a].get('ambitos') or []) == 1 or raiz_) else ''
                 cuerpo.append(f'<div class="bloque"><h3>{e((tit or str(r["ambito"])).capitalize())} · {e(corte_)}</h3>'
                               f'<p>Calculado por el motor el <b>{e(d.get("hoy") or "—")}</b>, escrito el '
                               f'{e(r["escrito"][:16].replace("T", " "))}. '

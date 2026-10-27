@@ -2,7 +2,7 @@
 
 **el agente de la PMO** · plugin `criterio-portfolio`
 
-Corrida del 2026-10-27, sobre el commit `bf90c607`, con cambios en el árbol todavía sin confirmar. **5 puertas · 253 comprobaciones · todas en verde.**
+Corrida del 2026-10-27, sobre el commit `e01e5332`, con cambios en el árbol todavía sin confirmar. **5 puertas · 253 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,11 +10,11 @@ Corrida del 2026-10-27, sobre el commit `bf90c607`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 77 ms | verde |
-| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 119 | 170 ms | verde |
-| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 23 | 93 ms | verde |
-| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 32 | 88 ms | verde |
-| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 539 ms | verde |
+| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 88 ms | verde |
+| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 119 | 159 ms | verde |
+| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 23 | 64 ms | verde |
+| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 32 | 66 ms | verde |
+| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 526 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -92,7 +92,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-portfolio/terminos.py` | Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256 | 14 | verde |
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 11 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 221 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 234 | **8 EN ROJO** |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |

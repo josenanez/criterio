@@ -2,12 +2,11 @@
 
 # criterio-ea · el diseño de la familia
 
-**Estado: en diseño.** Ni el motor ni el plugin existen todavía; esta hoja es la que se construye.
-Alcance y reglas en [ADR 0012](../../docs/decisions/0012-scope-asistente-ejecutivo.md).
+**Estado: construida y probada** sobre material sintético; la página de la familia es
+[`README.es.md`](README.es.md). Alcance y reglas en [ADR 0012](../../docs/decisions/0012-scope-asistente-ejecutivo.md).
 
 **Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el
-código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. La página de
-la familia se escribe cuando el plugin exista.
+código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas.
 
 Una agente que extiende la capacidad de la oficina de dirección: procesa la agenda, las sesiones de
 los órganos y la correspondencia del ejecutivo, y las contrasta contra sus compromisos para señalar

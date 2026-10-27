@@ -102,7 +102,7 @@
   },
   {
    "incremento": 5,
-   "version": "0.12.0",
+   "version": "0.13.0",
    "estado": "siguiente",
    "industrias": [
     "telecomunicaciones",
@@ -125,7 +125,7 @@
   },
   {
    "incremento": 6,
-   "version": "0.13.0",
+   "version": "0.14.0",
    "estado": "siguiente",
    "industrias": [],
    "es": {

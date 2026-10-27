@@ -1,0 +1,166 @@
+{
+ "entidad": "Cooperativa Sierra Alta",
+ "industria": "cooperativas",
+ "pais": "EC",
+ "hoy": "2026-10-26",
+ "siembra": [
+  "acuerdo_sin_responsable",
+  "agenda_vieja",
+  "borrador_en_acta",
+  "carpeta_excluida",
+  "compromiso_vencido",
+  "correo_sin_respuesta"
+ ],
+ "config": {
+  "ofelia": {
+   "entity": {
+    "name": "Cooperativa Sierra Alta",
+    "country": "EC"
+   },
+   "executive": {
+    "name": "Gerencia general"
+   },
+   "timezone": "America/Guayaquil",
+   "office_emails": [
+    "presidencia@sierraalta.test"
+   ],
+   "excluded_folders": [
+    "20-correspondencia/personal"
+   ],
+   "publish_rostrum": false,
+   "paths": {
+    "documents": "direccion/gerencia-general",
+    "state": "estado-direccion/gerencia-general"
+   }
+  }
+ },
+ "extraccion": {
+  "reuniones": {
+   "consejo-de-administracion-2026-09-24": {
+    "organ": "consejo-de-administracion",
+    "date": "2026-09-24",
+    "agreements": [
+     {
+      "id": "A-1",
+      "what": "Aprobar los estados financieros de agosto",
+      "who": "Gabriela Mora",
+      "due": "2026-10-15",
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 9"
+     },
+     {
+      "id": "A-2",
+      "what": "Actualizar la política de viajes",
+      "who": null,
+      "due": "2026-11-30",
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 10"
+     },
+     {
+      "id": "A-3",
+      "what": "Contratar la auditoría del sistema de pagos",
+      "who": "Gabriela Mora",
+      "due": "2026-12-15",
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 11"
+     }
+    ],
+    "commitments": [
+     {
+      "id": "C-1",
+      "who": "Verónica Paz",
+      "what": "Presentar el informe de cartera vencida",
+      "due_date": "2026-10-15",
+      "original_due_date": "2026-10-15",
+      "reschedules": [],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 14"
+     },
+     {
+      "id": "C-2",
+      "who": "Gabriela Mora",
+      "what": "Entregar el plan de continuidad del negocio",
+      "due_date": "2026-11-20",
+      "original_due_date": "2026-09-30",
+      "reschedules": [
+       {
+        "due_date": "2026-11-20",
+        "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 15"
+       }
+      ],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 15"
+     }
+    ],
+    "decisions": [
+     {
+      "id": "D-1",
+      "decision": "Proveedor del centro de datos alterno",
+      "source": "organos/consejo-de-administracion/2026-09-24/20-material/propuesta-centro-de-datos.md",
+      "options": [
+       {
+        "option": "Renovar con el proveedor actual",
+        "evidence": [
+         {
+          "archivo": "organos/consejo-de-administracion/2026-09-24/20-material/propuesta-centro-de-datos.md"
+         }
+        ]
+       },
+       {
+        "option": "Abrir una licitación",
+        "evidence": [
+         {
+          "archivo": "organos/consejo-de-administracion/2026-09-24/20-material/propuesta-centro-de-datos.md"
+         }
+        ]
+       }
+      ],
+      "missing": [
+       "La oferta económica de la licitación"
+      ],
+      "deadline": "2026-12-18",
+      "deadline_source": "organos/consejo-de-administracion/2026-09-24/20-material/propuesta-centro-de-datos.md, línea 3",
+      "status": "pending"
+     }
+    ]
+   }
+  },
+  "correspondencia": {
+   "2026-10-08-supervisor": {
+    "file": "20-correspondencia/2026-10-08-supervisor.eml",
+    "asks_reply": true,
+    "due": "2026-10-20",
+    "routine": false
+   },
+   "2026-10-12-cliente": {
+    "file": "20-correspondencia/2026-10-12-cliente.eml",
+    "asks_reply": true,
+    "due": "2026-10-16",
+    "routine": false
+   },
+   "2026-10-21-boletin": {
+    "file": "20-correspondencia/2026-10-21-boletin.eml",
+    "asks_reply": false,
+    "due": null,
+    "routine": false
+   }
+  }
+ },
+ "esperado": [
+  {
+   "signal": "agreement_without_owner",
+   "key": "acuerdo-responsable:consejo-de-administracion:2026-09-24:A-2"
+  },
+  {
+   "signal": "commitment_overdue",
+   "key": "compromiso:consejo-de-administracion:2026-09-24:C-1"
+  },
+  {
+   "signal": "correspondence_unanswered",
+   "key": "correo:2026-10-08-supervisor"
+  },
+  {
+   "signal": "meeting_without_minutes",
+   "key": "acta:comite-de-gerencia:2026-09-21"
+  }
+ ]
+}

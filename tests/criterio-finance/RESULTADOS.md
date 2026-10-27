@@ -2,7 +2,7 @@
 
 **la agente contralora de la familia CFO** · plugin `criterio-finance`
 
-Corrida del 2026-10-27, sobre el commit `bf90c607`, con cambios en el árbol todavía sin confirmar. **2 puertas · 74 comprobaciones · todas en verde.**
+Corrida del 2026-10-27, sobre el commit `e01e5332`, con cambios en el árbol todavía sin confirmar. **2 puertas · 81 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-27, sobre el commit `bf90c607`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-finance/finanzas.py selftest` | El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima | 61 | 209 ms | verde |
-| `criterio-cfo/evaluar.py` | Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles | 13 | 949 ms | verde |
+| `criterio-finance/finanzas.py selftest` | El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima | 65 | 145 ms | verde |
+| `criterio-cfo/evaluar.py` | Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles | 16 | 1045 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -22,6 +22,7 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 - **La extracción del agente la prueba la ronda, no esta corrida.** Esta corrida escribe en la ficha lo que el agente tendría que extraer —el estado declarado, las actas, lo que dice cada área— y prueba el motor con esa extracción. Que el agente la haga bien sobre los mismos documentos lo prueba la ronda con el agente.
 - **Nada se ha corrido sobre la contabilidad real de una organización.** Todo el material es sintético y construido desde cero, con la estructura oficial de cada factura.
 - **En Ecuador, los comprobantes que no son factura se identifican y no se cruzan.** Los campos de valor de la nota de crédito y de los demás tipos del SRI no están verificados en su fuente (F-09): se identifican por la clave de acceso y quedan fuera del cruce.
+- **En México, el folio fiscal (UUID) del Timbre Fiscal Digital no se lee.** Su estándar no está en los documentos verificados (F-19): el CFDI se identifica por el RFC del emisor, la serie y el folio, y sin ellos por el emisor, la fecha y el total.
 
 ## Los comandos, corridos por un agente de verdad
 
@@ -55,7 +56,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-portfolio/terminos.py` | Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256 | 14 | verde |
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 11 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 221 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 234 | **8 EN ROJO** |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |

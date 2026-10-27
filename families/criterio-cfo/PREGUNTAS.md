@@ -18,7 +18,7 @@ They do not post or correct entries, file returns or regulatory reports, sign, o
 
 ### Which accounting framework do they cover?
 
-The first version works with IFRS as adopted in Colombia and Ecuador, and with DIAN and SRI electronic invoicing processed from its official technical source. Every source is in the repository with its version, its link and the date it was consulted.
+With the accounting framework each country adopted —IFRS in Colombia, Ecuador, Peru and Chile; in Mexico, IFRS or NIF depending on the entity—, and with the DIAN, SRI, SUNAT, SII and SAT electronic invoice processed from its official technical source. Every source is in the repository with its version, its link and the date it was consulted.
 
 ## How it is used
 
@@ -46,7 +46,7 @@ In each command's report and in Rostrum, the portal for every family. It shows t
 
 ### What data was it tested on?
 
-On synthetic material from four industries —banking and retail in Colombia, cooperatives and mining in Ecuador— and one control entity per country, with no defects at all, where any signal is a failure. Invoices are generated with each country's official structure, and every family signal is planted at least once.
+On synthetic material from five countries —Colombia, Ecuador, Peru, Chile and Mexico—: four industries and one control entity per country, with no defects at all, where any signal is a failure. Invoices are generated with each country's official structure, and every family signal is planted at least once.
 
 ### How do you know the engine got it right?
 
@@ -54,7 +54,7 @@ The material carries a key with what was planted, and the engine never sees it. 
 
 ### Is the whole family tested yet?
 
-The engine is. The agent's extraction from written documents —what only minutes, emails and auditor letters carry— passed the full round with the agent on the six entities: 45 of 45 signals with none extra and 48 of 49 record data points. The family is declared tested; nothing has run yet on an organisation's documents.
+The engine is, and the three agents ran on all fifteen entities in the material: round 4 on the nine of Colombia, Ecuador and Peru —80 of 80 signals with none extra and 74 of 74 record data points—, round 5 on Chile —26 of 26 and 24 of 24— and round 6 on Mexico —27 of 27 and 24 of 24—. The family is declared tested; nothing has run yet on an organisation's documents.
 
 ## Data and privacy
 

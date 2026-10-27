@@ -1,0 +1,18 @@
+{
+  "entity": {"name": "Banco de prueba", "country": "CO"},
+  "executive": {"name": "Presidente", "assistant": "Asistente de presidencia"},
+  "timezone": "America/Bogota",
+  "office_emails": ["presidencia@ejemplo.test"],
+  "excluded_folders": [],
+  "publish_rostrum": false,
+  "thresholds": {
+    "material_days_before": 5,
+    "minutes_days": 15,
+    "reschedules": 2,
+    "agenda_max_age_days": 7,
+    "agenda_window_days": 14,
+    "decision_days": 14
+  },
+  "paths": {"documents": "direccion/presidencia", "state": "estado-direccion/presidencia"},
+  "report": {"language": "es"}
+}

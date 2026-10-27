@@ -1,0 +1,200 @@
+{
+ "entidad": "Banco Andino",
+ "industria": "banca",
+ "pais": "CO",
+ "hoy": "2026-10-26",
+ "siembra": [
+  "acuerdo_sin_fecha",
+  "acuerdo_sin_responsable",
+  "compromiso_movido",
+  "compromiso_vencido",
+  "correo_sin_respuesta",
+  "cruce_cambio_de_hora",
+  "cruce_directo",
+  "decision_con_plazo",
+  "sin_acta",
+  "sin_material"
+ ],
+ "config": {
+  "ofelia": {
+   "entity": {
+    "name": "Banco Andino",
+    "country": "CO"
+   },
+   "executive": {
+    "name": "Presidencia"
+   },
+   "timezone": "America/Bogota",
+   "office_emails": [
+    "presidencia@bancoandino.test"
+   ],
+   "excluded_folders": [],
+   "publish_rostrum": false,
+   "paths": {
+    "documents": "direccion/presidencia",
+    "state": "estado-direccion/presidencia"
+   }
+  }
+ },
+ "extraccion": {
+  "reuniones": {
+   "junta-directiva-2026-09-24": {
+    "organ": "junta-directiva",
+    "date": "2026-09-24",
+    "agreements": [
+     {
+      "id": "A-1",
+      "what": "Aprobar los estados financieros de agosto",
+      "who": "Andrés Vela",
+      "due": "2026-10-15",
+      "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 9"
+     },
+     {
+      "id": "A-2",
+      "what": "Actualizar la política de viajes",
+      "who": null,
+      "due": "2026-11-30",
+      "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 10"
+     },
+     {
+      "id": "A-3",
+      "what": "Contratar la auditoría del sistema de pagos",
+      "who": "Andrés Vela",
+      "due": null,
+      "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 11"
+     }
+    ],
+    "commitments": [
+     {
+      "id": "C-1",
+      "who": "Felipe Duarte",
+      "what": "Presentar el informe de cartera vencida",
+      "due_date": "2026-10-15",
+      "original_due_date": "2026-10-15",
+      "reschedules": [],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 14"
+     },
+     {
+      "id": "C-2",
+      "who": "Andrés Vela",
+      "what": "Entregar el plan de continuidad del negocio",
+      "due_date": "2026-11-20",
+      "original_due_date": "2026-09-30",
+      "reschedules": [
+       {
+        "due_date": "2026-10-15",
+        "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 15"
+       },
+       {
+        "due_date": "2026-10-30",
+        "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 15"
+       },
+       {
+        "due_date": "2026-11-20",
+        "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 15"
+       }
+      ],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 15"
+     }
+    ],
+    "decisions": [
+     {
+      "id": "D-1",
+      "decision": "Proveedor del centro de datos alterno",
+      "source": "organos/junta-directiva/2026-09-24/20-material/propuesta-centro-de-datos.md",
+      "options": [
+       {
+        "option": "Renovar con el proveedor actual",
+        "evidence": [
+         {
+          "archivo": "organos/junta-directiva/2026-09-24/20-material/propuesta-centro-de-datos.md"
+         }
+        ]
+       },
+       {
+        "option": "Abrir una licitación",
+        "evidence": [
+         {
+          "archivo": "organos/junta-directiva/2026-09-24/20-material/propuesta-centro-de-datos.md"
+         }
+        ]
+       }
+      ],
+      "missing": [
+       "La oferta económica de la licitación"
+      ],
+      "deadline": "2026-11-02",
+      "deadline_source": "organos/junta-directiva/2026-09-24/20-material/propuesta-centro-de-datos.md, línea 3",
+      "status": "pending"
+     }
+    ]
+   }
+  },
+  "correspondencia": {
+   "2026-10-08-supervisor": {
+    "file": "20-correspondencia/2026-10-08-supervisor.eml",
+    "asks_reply": true,
+    "due": "2026-10-20",
+    "routine": false
+   },
+   "2026-10-12-cliente": {
+    "file": "20-correspondencia/2026-10-12-cliente.eml",
+    "asks_reply": true,
+    "due": "2026-10-16",
+    "routine": false
+   },
+   "2026-10-21-boletin": {
+    "file": "20-correspondencia/2026-10-21-boletin.eml",
+    "asks_reply": false,
+    "due": null,
+    "routine": false
+   }
+  }
+ },
+ "esperado": [
+  {
+   "signal": "agreement_without_date",
+   "key": "acuerdo-fecha:junta-directiva:2026-09-24:A-3"
+  },
+  {
+   "signal": "agreement_without_owner",
+   "key": "acuerdo-responsable:junta-directiva:2026-09-24:A-2"
+  },
+  {
+   "signal": "commitment_overdue",
+   "key": "compromiso:junta-directiva:2026-09-24:C-1"
+  },
+  {
+   "signal": "commitment_rescheduled",
+   "key": "reprogramado:junta-directiva:2026-09-24:C-2"
+  },
+  {
+   "signal": "correspondence_unanswered",
+   "key": "correo:2026-10-08-supervisor"
+  },
+  {
+   "signal": "decision_deadline",
+   "key": "decision:junta-directiva:2026-09-24:D-1"
+  },
+  {
+   "signal": "meeting_conflict",
+   "key": "cruce:2026-10-29:junta-1|regulador-1"
+  },
+  {
+   "signal": "meeting_conflict",
+   "key": "cruce:2026-11-03:matriz-1|tesoreria-1"
+  },
+  {
+   "signal": "meeting_without_material",
+   "key": "material:junta-directiva:2026-10-29"
+  },
+  {
+   "signal": "meeting_without_minutes",
+   "key": "acta:comite-de-presidencia:2026-09-21"
+  }
+ ]
+}

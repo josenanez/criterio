@@ -145,6 +145,7 @@ T = {
         'pmo_fr': 'Proceso la documentación que tu PMO ya tiene, y digo qué no se sostiene.',
         'cfo_fr': 'Cierro contra lo que dicen los documentos, no contra lo que se declara.',
         'clo_fr': 'Sé qué firmaste, qué vence, y a qué te obligaste.',
+        'ea_fr': 'Preparo cada sesión con lo que dicen los documentos, y no decido por nadie.',
         'disponible': 'Disponible',
         # ── tarjetas sociales (1200 × 630): el título de cada página y una línea de lo que hacen ──
         'og': {'pmo': ('Extiende la capacidad de tu PMO',
@@ -153,6 +154,8 @@ T = {
                        'Clara y Tomás procesan cada documento y calculan lo que no cuadra. El estado lo declara siempre una persona.'),
                'clo': ('Lo que la empresa firmó y a qué se obligó, contra sus documentos',
                        'Fidel y Constanza procesan cada contrato y cada obligación, sin opinión jurídica: la decisión es de una persona.'),
+               'ea': ('La oficina del ejecutivo, preparada para cada sesión',
+                      'Ofelia procesa la agenda, las actas y la correspondencia, y prepara cada decisión sin recomendar. Nunca envía nada.'),
                'rostrum': ('Rostrum, el portal de todas las familias',
                            'Lo que pide atención hoy, lo último de cada motor, lo que vence y dónde trabaja cada agente. No calcula ni escribe.')},
         # ── los robots ──
@@ -164,7 +167,8 @@ T = {
                'tomas': ('Tomás', 'FP&A', 'Para quien pone el presupuesto al lado de lo ejecutado.', 'El presupuesto'),
                'aurea': ('Áurea', 'Tesorería', 'Para quien responde por la caja, los pagos y la deuda.', 'La tesorería'),
                'fidel': ('Fidel', 'Contratos', 'Para quien responde por lo que la empresa firmó.', 'Los contratos'),
-               'constanza': ('Constanza', 'Cumplimiento', 'Para quien responde por cada obligación y su evidencia.', 'El cumplimiento')},
+               'constanza': ('Constanza', 'Cumplimiento', 'Para quien responde por cada obligación y su evidencia.', 'El cumplimiento'),
+               'ofelia': ('Ofelia', 'Asistente ejecutiva', 'Para quien asiste al ejecutivo y prepara cada sesión.', 'La dirección')},
         'en_prueba': 'Construida · en prueba',
         'declarada': 'Capacidad declarada',
         'construccion': 'En construcción',
@@ -265,6 +269,7 @@ T = {
         'pmo_fr': 'I process the documentation your PMO already has, and say what does not hold.',
         'cfo_fr': 'I close against what the documents say, not against what is declared.',
         'clo_fr': 'I know what you signed, what expires, and what you committed to.',
+        'ea_fr': 'I prepare every meeting with what the documents say, and decide for no one.',
         'disponible': 'Available',
         'og': {'pmo': ('Extend your PMO’s capacity',
                        'Vera, Samuel and Alba process every project’s documentation, compute variances and alerts, and prepare the committee material.'),
@@ -272,6 +277,8 @@ T = {
                        'Clara and Tomás process every document and calculate what does not tie out. The status is always declared by a person.'),
                'clo': ('What the company signed and what it committed to, against its documents',
                        'Fidel and Constanza process every contract and every obligation, with no legal opinion: the decision is a person’s.'),
+               'ea': ('The executive’s office, prepared for every meeting',
+                      'Ofelia processes the calendar, the minutes and the correspondence, and prepares each decision without recommending. She never sends anything.'),
                'rostrum': ('Rostrum, the portal for every family',
                            'What needs attention today, the latest from each engine, what falls due and where each agent works. It calculates and writes nothing.')},
         'en_prueba': 'Built · in testing',
@@ -284,7 +291,8 @@ T = {
                'tomas': ('Tomás', 'FP&A', 'For whoever puts the budget next to actual spend.', 'The budget'),
                'aurea': ('Áurea', 'Treasury', 'For whoever answers for cash, payments and debt.', 'Treasury'),
                'fidel': ('Fidel', 'Contracts', 'For whoever answers for what the company signed.', 'The contracts'),
-               'constanza': ('Constanza', 'Compliance', 'For whoever answers for every obligation and its evidence.', 'Compliance')},
+               'constanza': ('Constanza', 'Compliance', 'For whoever answers for every obligation and its evidence.', 'Compliance'),
+               'ofelia': ('Ofelia', 'Executive assistant', 'For whoever assists the executive and prepares every meeting.', 'The executive office')},
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
@@ -719,7 +727,7 @@ def marca():
 
 # ══════════════════════════════════════════════════════════════════ tarjetas sociales
 
-OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO,
+OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA,
              'rostrum': ('rostrum', trazos.ORDEN[0], trazos.ORDEN_CFO[0], trazos.ORDEN_CLO[0])}
 
 
@@ -1362,7 +1370,7 @@ if __name__ == '__main__':
     for idioma, t in T.items():
         print(idioma)
         # el estado de cada familia es el de su familia.json, por medio del registro
-        for sg in ('pmo', 'cfo', 'clo'):
+        for sg in ('pmo', 'cfo', 'clo', 'ea'):
             guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], FAMILIA[sg]['estado'][idioma]), idioma, f'{sg}.png')
         guardar(familia(t), idioma, 'familia.png')
         # las tres figuras de la PMO, con la misma forma, para la CFO y la CLO
@@ -1371,7 +1379,7 @@ if __name__ == '__main__':
             guardar(familia(tf, agentes_de(sg, tf), compartidos_de(sg)), idioma, f'familia-{sg}.png')
             guardar(flujo(tf), idioma, f'flujo-{sg}.png')
             guardar(contrato(tf), idioma, f'contrato-{sg}.png')
-        for clave in ('pmo', 'cfo', 'clo', 'rostrum'):
+        for clave in ('pmo', 'cfo', 'clo', 'ea', 'rostrum'):
             guardar(tarjeta_social(t, clave, idioma), idioma, f'og-{clave}.png')
         guardar(flujo(t), idioma, 'flujo.png')
         guardar(contrato(t), idioma, 'contrato.png')
@@ -1380,12 +1388,12 @@ if __name__ == '__main__':
         guardar(cadencia(t), idioma, 'cadencia.png')
         guardar(instalacion(t), idioma, 'instalacion.png')
         guardar(servidor(t), idioma, 'servidor.png')
-        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO:
+        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA:
             guardar_gif(tarjeta(t, nombre), idioma, f'robot-{nombre}.gif')
     # El trazo de cada robot, solo y con su gesto, para que el portal lo dibuje sin copiarlo.
     # Es un SVG animado: se mueve igual en un README, en el portal y en Rostrum.
     os.makedirs(os.path.join(AQUI, 'robots'), exist_ok=True)
-    for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO:
+    for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA:
         with open(os.path.join(AQUI, 'robots', f'{nombre}.svg'), 'w', encoding='utf-8') as fh:
             fh.write(trazos.svg(nombre, ORO, ORO, animado=True) + '\n')
     # Y como datos, para quien dibuja el robot con su propio marcado: la impresora del portal.

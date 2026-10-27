@@ -51,6 +51,9 @@ FAMILIAS = {
     "clo": {"resultados": {"fidel": "contratos/resultados.json", "constanza": "cumplimiento/{periodo}/resultados.json"},
             "fichas": {"contratos": ("fidel", "contratos/{k}.json"), "cumplimiento": ("constanza", "cumplimiento/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
+    "ea": {"resultados": {"ofelia": "resultados.json"},
+           "fichas": {"reuniones": ("ofelia", "reuniones/{k}.json"), "correspondencia": ("ofelia", "correspondencia/{k}.json")},
+           "periodos": lambda c: {}},
 }
 # Lo que el agente escribe de suyo y no extrae de un documento: no se califica contra la clave.
 PROPIOS = {"questions"}
@@ -162,7 +165,9 @@ def correr(a) -> int:
 
 
 def _norma(x):
-    """3000000.0 y 3000000 son la misma cifra."""
+    """3000000.0 y 3000000 son la misma cifra; un texto vacío y un campo vacío son lo mismo."""
+    if isinstance(x, str) and not x.strip():
+        return None
     if isinstance(x, float) and x.is_integer():
         return int(x)
     if isinstance(x, dict):
@@ -173,25 +178,39 @@ def _norma(x):
 
 
 def _renglon(texto: str, lugar: str):
-    """El renglón (desde 1) al que apunta una cita: «línea 5», o «punto 1» —el ítem numerado—."""
-    m = re.fullmatch(r"\s*l[ií]nea\s+(\d+)\s*", lugar, re.I)
+    """El renglón (desde 1) al que apunta una cita: «línea 5»; «punto 1» —el ítem numerado—,
+    aunque venga tras el nombre de la sección («Acuerdos, punto 1»); o, si no, el texto citado
+    entre « », donde aparece en el documento (EA-5)."""
+    m = re.fullmatch(r"\s*l[ií]nea\s+(\d+)\s*(:.*)?", lugar, re.I | re.S)
     if m:
         return int(m.group(1))
-    m = re.fullmatch(r"\s*punto\s+(\d+)\s*", lugar, re.I)
+    m = re.search(r"\bpunto\s+(\d+)\b", lugar, re.I)
     if m:
         for i, linea in enumerate(texto.splitlines(), start=1):
             if re.match(rf"\s*{m.group(1)}[.)]\s", linea):
                 return i
+    m = re.search(r"«([^»]{8,})»", lugar)
+    if m:
+        for i, linea in enumerate(texto.splitlines(), start=1):
+            if m.group(1).strip() in linea:
+                return i
     return None
+
+
+def _partes_cita(cita: str) -> tuple[str, str]:
+    """El archivo de una cita y el lugar dentro de él: «a.md, línea 3» o «a.md: «texto»»."""
+    m = re.match(r"\s*([^,:«]+?\.[A-Za-z0-9]+)\s*[,:]?\s*(.*)$", cita, re.S)
+    return (m.group(1).strip(), m.group(2)) if m else (cita.strip(), "")
 
 
 def _misma_cita(esperada, obtenida, espacio) -> bool:
     """Dos citas del mismo archivo que señalan el mismo renglón son la misma cita, aunque una
-    diga «línea 5» y la otra «punto 1» (CLO-5). Sin el espacio, o si no se resuelven, no."""
+    diga «línea 5» y la otra «punto 1» (CLO-5) o cite el texto de ese renglón (EA-5). Sin el
+    espacio, o si no se resuelven, no."""
     if espacio is None or not isinstance(esperada, str) or not isinstance(obtenida, str):
         return False
-    (a, _, la), (b, _, lb) = esperada.partition(","), obtenida.partition(",")
-    if a.strip() != b.strip() or not la or not lb:
+    (a, la), (b, lb) = _partes_cita(esperada), _partes_cita(obtenida)
+    if a != b or not la or not lb:
         return False
     hallado = next(iter(sorted(espacio.glob(f"**/{a.strip()}"))), None)
     if hallado is None:
@@ -233,7 +252,7 @@ def _igual(esperado, obtenido, espacio=None) -> bool:
         # cita— y todo lo demás coincide: lo exige el mismo all().
         anclado = "source" in esperado
         return all(_igual(v, obtenido.get(k), espacio)
-                   or (k == "source" and _misma_cita(v, obtenido.get(k), espacio))
+                   or (k.endswith("source") and _misma_cita(v, obtenido.get(k), espacio))
                    or (k == "what" and anclado and _mismas_palabras(v, obtenido.get(k)))
                    for k, v in esperado.items())
     if isinstance(esperado, list) and isinstance(obtenido, list):

@@ -55,8 +55,8 @@
         "en": "Executive office"
       },
       "estado": {
-        "es": "En diseño",
-        "en": "In design"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "direccion"
@@ -660,8 +660,8 @@
         "en": "Executive assistant"
       },
       "titulo": "la oficina de dirección",
-      "setup": null,
-      "marca": null,
+      "setup": "/criterio-assistant:ea-setup",
+      "marca": "_CRITERIO_DIRECCION.txt",
       "grupos": [
         {
           "titulo": "Arranque y ritmo",

@@ -2,12 +2,11 @@
 
 # criterio-ea · the family design
 
-**Status: in design.** Neither the engine nor the plugin exists yet; this sheet is what gets built.
-Scope and rules in [ADR 0012](../../docs/decisions/0012-scope-asistente-ejecutivo.md).
+**Status: built and tested** on synthetic material; the family page is
+[`README.md`](README.md). Scope and rules in [ADR 0012](../../docs/decisions/0012-scope-asistente-ejecutivo.md).
 
 **This is the family's design sheet**: the documents it processes, the signals the code calculates,
-each command with its input, process and report, and the decisions taken. The family page is written
-once the plugin exists.
+each command with its input, process and report, and the decisions taken.
 
 One agent that extends the capacity of the executive office: she processes the executive's calendar,
 the meetings of the governing bodies and the correspondence, and checks them against the executive's

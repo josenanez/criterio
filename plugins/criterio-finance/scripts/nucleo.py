@@ -501,6 +501,10 @@ def inventario(docs: Path, estado: Path | None, est: dict) -> dict:
     previo = previo or {}
     archivos, nuevos, cambiados, fuera, ilegibles = {}, [], [], [], []
     instancias: dict[str, set] = {}
+    # Además de los formatos comunes, los que la estructura de la familia declara como suyos por su
+    # extensión —la agenda .ics de Ofelia—: los procesa su motor, no el conversor de texto.
+    legibles = LEGIBLES | {"." + m for n in est.get("niveles", []) for c in n.get("carpetas", [])
+                           for pat in c.get("patrones", []) for m in re.findall(r"^\\\.([a-z0-9]+)\$$", pat)}
     import sys
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import raiz  # el archivo que marca la raíz es del agente, no un documento (ADR 0011)
@@ -520,7 +524,7 @@ def inventario(docs: Path, estado: Path | None, est: dict) -> dict:
             cambiados.append(r)
         if not cl["en_su_lugar"]:
             fuera.append({"archivo": r, "iria": cl["iria"]})
-        if p.suffix.lower() not in LEGIBLES:
+        if p.suffix.lower() not in legibles:
             ilegibles.append({"archivo": r, "motivo": f"formato {p.suffix.lower() or 'sin extensión'} no soportado"})
     borrados = sorted(set(previo.get("archivos", {})) - set(archivos))
     out = {"archivos": archivos, "total": len(archivos), "nuevos": nuevos, "cambiados": cambiados,
@@ -658,9 +662,11 @@ def marco_reporte(r: dict, comando: str, version: str, *, agente: str, senales: 
     de `r`; el resultado lo escribe `cuerpo(r, comando, parte)` de cada motor."""
     ent = r.get("entidad") or {}
     _PAIS[0] = pais_de(ent)
+    # La identificación fiscal, solo si la configuración la trae: la oficina de Ofelia no la pide.
+    ident = f" ({ent['id']})" if ent.get("id") else ""
     alertas = [a for a in r["alertas"] if senales is None or a["signal"] in senales]
     l = [f"# {nombre_comando(comando)} · {ent.get('name')} · {alcance}", "",
-         f"**Entidad:** {ent.get('name')} ({ent.get('id')}) · **Fecha de corte:** {r.get('corte')} · **Procesado:** {r.get('hoy')} · **Agente:** {agente}, versión {version}{extra} · **Comando:** `{comando}`", ""]
+         f"**Entidad:** {ent.get('name')}{ident} · **Fecha de corte:** {r.get('corte')} · **Procesado:** {r.get('hoy')} · **Agente:** {agente}, versión {version}{extra} · **Comando:** `{comando}`", ""]
     l += ["## Lo que hay que atender", ""]
     if alertas:
         l += ["| # | Señal | Qué | Monto | Responsable | Días | Cita |", "|---|---|---|---|---|---|---|"]

@@ -64,7 +64,7 @@ def _relativa(p: Path | None, raiz: Path) -> str | None:
 def descubrir(raiz: Path) -> dict:
     """Las configuraciones de agente bajo `<raiz>/.criterio/`, con su estado."""
     reg = registro()
-    entradas, problemas = [], []
+    entradas, problemas, no_publica = [], [], []
     for a in reg["agentes"]:
         base = raiz / ".criterio" / a["area"]
         if not base.is_dir():
@@ -77,6 +77,11 @@ def descubrir(raiz: Path) -> dict:
             ident = a["area"] if instancia is None else f"{a['area']}/{instancia}"
             if not isinstance(cfg, dict):
                 problemas.append(f"{_relativa(f, raiz)}: no se puede leer como JSON")
+                continue
+            # Una configuración que dice que no se publica no entra al mapa: la de Ofelia, por
+            # omisión (ADR 0012). Se dice, para que nadie la busque en el portal.
+            if cfg.get("publish_rostrum") is False:
+                no_publica.append(ident)
                 continue
             paths = cfg.get("paths") or {}
             estado = _ruta(paths.get("state"), raiz)
@@ -95,7 +100,7 @@ def descubrir(raiz: Path) -> dict:
             elif not e["existe"]:
                 problemas.append(f"{ident}: la carpeta de estado {e['estado']} no existe todavía; el agente no ha corrido")
             entradas.append(e)
-    return {"raiz": str(raiz), "entradas": entradas, "problemas": problemas,
+    return {"raiz": str(raiz), "entradas": entradas, "problemas": problemas, "no_publica": no_publica,
             "sin_marca": [e["id"] for e in entradas if e["documentos"] and not e["marcada"]],
             "familias": sorted({e["familia"] for e in entradas})}
 
@@ -119,7 +124,7 @@ def guardar(raiz: Path, sin: list[str] | None = None, organizacion: str | None =
     f.parent.mkdir(parents=True, exist_ok=True)
     f.write_text(json.dumps(mapa, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return {"mapa": _relativa(f, raiz), "entradas": [e["id"] for e in mapa["entradas"]], "fuera": mapa["fuera"],
-            "problemas": d["problemas"]}
+            "no_publica": d["no_publica"], "problemas": d["problemas"]}
 
 
 def cargar(mapa: Path) -> tuple[dict, list[dict], Path]:
@@ -211,6 +216,14 @@ def selftest() -> int:
         ok("una familia instalada después aparece como nueva, y lo dejado fuera no vuelve",
            (rv["nuevas"], rv["fuera"]), (["cumplimiento/900-banco"], ["presupuesto/900-banco"]))
         ok("y el estado que falta se ve", rv["sin_estado"], ["legal/900-banco"])
+        config("direccion/presidencia", {"entity": {"name": "Banco de Prueba"}, "publish_rostrum": False,
+                                         "paths": {"state": "estado-direccion/presidencia", "documents": "direccion/presidencia"}})
+        d = descubrir(raiz)
+        ok("la oficina que no publica no entra al mapa, y se dice",
+           ("direccion/presidencia" in [e["id"] for e in d["entradas"]], d["no_publica"]), (False, ["direccion/presidencia"]))
+        config("direccion/presidencia", {"entity": {"name": "Banco de Prueba"}, "publish_rostrum": True,
+                                         "paths": {"state": "estado-direccion/presidencia", "documents": "direccion/presidencia"}})
+        ok("y si su configuración lo dice, entra", "direccion/presidencia" in [e["id"] for e in descubrir(raiz)["entradas"]], True)
     print()
     if fallas:
         print(f"{len(fallas)} falla(s)")

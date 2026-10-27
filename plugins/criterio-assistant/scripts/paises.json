@@ -1,0 +1,120 @@
+{
+ "nota": "El registro único de países de Criterio. Un país entra cuando su material de prueba corrió con su lector y su fuente verificada. Lo leen nucleo.py, los motores, los generadores del material, los análisis y el portal: ningún otro archivo escribe el nombre de un país. La fuente es criterio-finance; scripts/sincronizar.py lo copia a cada plugin que lo usa.",
+ "paises": [
+  {
+   "codigo": "CO",
+   "nombre": {
+    "es": "Colombia",
+    "en": "Colombia"
+   },
+   "id_fiscal": "NIT",
+   "moneda": "COP",
+   "decimal": ",",
+   "factura": {
+    "lector": "dian",
+    "fuentes": [
+     "F-01"
+    ],
+    "clave": "CUFE",
+    "tolerancia": [
+     2.0,
+     5.0
+    ],
+    "iva": 0.19,
+    "impuesto": "IVA"
+   }
+  },
+  {
+   "codigo": "EC",
+   "nombre": {
+    "es": "Ecuador",
+    "en": "Ecuador"
+   },
+   "id_fiscal": "RUC",
+   "moneda": "USD",
+   "decimal": ".",
+   "factura": {
+    "lector": "sri",
+    "fuentes": [
+     "F-04"
+    ],
+    "clave": "número de clave de acceso",
+    "tolerancia": [
+     0.01,
+     0.01
+    ],
+    "iva": 0.15,
+    "impuesto": "IVA"
+   }
+  },
+  {
+   "codigo": "PE",
+   "nombre": {
+    "es": "Perú",
+    "en": "Peru"
+   },
+   "id_fiscal": "RUC",
+   "moneda": "PEN",
+   "decimal": ".",
+   "factura": {
+    "lector": "sunat",
+    "fuentes": [
+     "F-13"
+    ],
+    "clave": "RUC, tipo, serie y número",
+    "tolerancia": [
+     0.01,
+     0.01
+    ],
+    "iva": 0.18,
+    "impuesto": "IGV"
+   }
+  },
+  {
+   "codigo": "CL",
+   "nombre": {
+    "es": "Chile",
+    "en": "Chile"
+   },
+   "id_fiscal": "RUT",
+   "moneda": "CLP",
+   "decimal": ",",
+   "factura": {
+    "lector": "sii",
+    "fuentes": [
+     "F-16"
+    ],
+    "clave": "RUT del emisor, tipo y folio",
+    "tolerancia": [
+     1.0,
+     1.0
+    ],
+    "iva": 0.19,
+    "impuesto": "IVA"
+   }
+  },
+  {
+   "codigo": "MX",
+   "nombre": {
+    "es": "México",
+    "en": "Mexico"
+   },
+   "id_fiscal": "RFC",
+   "moneda": "MXN",
+   "decimal": ".",
+   "factura": {
+    "lector": "sat",
+    "fuentes": [
+     "F-19"
+    ],
+    "clave": "RFC del emisor, serie y folio",
+    "tolerancia": [
+     0.01,
+     0.01
+    ],
+    "iva": 0.16,
+    "impuesto": "IVA"
+   }
+  }
+ ]
+}

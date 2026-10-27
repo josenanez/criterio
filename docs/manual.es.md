@@ -1,6 +1,6 @@
 # Manual de los comandos de Criterio
 
-Los 74 comandos de las familias PMO, CFO y CLO y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros y Tomás lleva el presupuesto— y la CLO —Fidel lleva los contratos y Constanza el cumplimiento—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
+Los 83 comandos de las familias PMO, CFO, CLO y EA y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros, Tomás lleva el presupuesto y Áurea la tesorería—, la CLO —Fidel lleva los contratos y Constanza el cumplimiento— y la EA —Ofelia prepara la oficina del ejecutivo—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
 
 Este manual se genera con `scripts/manual.py` desde la tabla del README de cada plugin y su `contratos.json`, el mismo contrato que las pruebas comparan contra cada corrida. No se edita a mano.
 
@@ -1025,6 +1025,128 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `<estado>/indice.json`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md`; `<estado>/corridas/salida-compliance-wake.md`; `<estado>/peticiones/<id>.json (responder)`
 
 **Skills.** **legal-intake**
+
+## Ofelia · la oficina de dirección
+
+### `/criterio-assistant:ea-setup`
+
+**Qué hace.** La configuración, el inventario y los órganos con sus sesiones
+
+**Argumento.** `[ruta de la carpeta de la oficina] o vacío`
+
+**Procesa.** documentos de la oficina
+
+**Muestra.** inventario, órganos y sesiones, preguntas, primer resultado
+
+**Escribe.** `.criterio/direccion/<ejecutivo>/config.json`; `<estado>/ (init)`; `.criterio/terminos/ (aceptar)`; `<estado>/resultados.json`; `<estado>/reporte-ea-setup.md`; `<raíz>/_CRITERIO_DIRECCION.txt (marcar-raiz, con permiso)`
+
+**Skills.** **ea-intake**
+
+### `/criterio-assistant:ea-scan`
+
+**Qué hace.** Las fichas de las reuniones, de la correspondencia y de la agenda
+
+**Argumento.** `[órgano o fecha] o vacío`
+
+**Procesa.** config; agenda .ics; `sesiones de organos/`; correos .eml
+
+**Muestra.** las fichas nuevas y cambiadas, las señales
+
+**Escribe.** `<estado>/reuniones/<órgano>-<AAAA-MM-DD>.json`; `<estado>/correspondencia/<correo>.json`; `<estado>/resultados.json`; `<estado>/reporte-ea-scan.md`
+
+**Skills.** **commitment-tracking**, **correspondence-record**, **decision-brief**, **ea-intake**, **meeting-record**
+
+### `/criterio-assistant:ea-agenda`
+
+**Qué hace.** La semana del ejecutivo: cruces, sesiones sin material y sesiones sin acta
+
+**Argumento.** `[días] o vacío`
+
+**Procesa.** config; agenda .ics; fichas de las reuniones
+
+**Muestra.** la semana: cruces, sesiones sin material y sin acta
+
+**Escribe.** `<estado>/resultados.json`; `<estado>/reporte-ea-agenda.md`
+
+### `/criterio-assistant:ea-prep`
+
+**Qué hace.** El paquete de la sesión, con la ficha de cada decisión
+
+**Argumento.** `<órgano> <AAAA-MM-DD>`
+
+**Procesa.** config; fichas de las reuniones; material de la sesión
+
+**Muestra.** el paquete de la sesión, sin ordenar las opciones
+
+**Escribe.** `<estado>/reuniones/<órgano>-<AAAA-MM-DD>.json`; `<estado>/resultados.json`; `<estado>/reporte-ea-prep.md`
+
+**Skills.** **decision-brief**
+
+### `/criterio-assistant:ea-minutes`
+
+**Qué hace.** El borrador del acta, con cada acuerdo y compromiso citado
+
+**Argumento.** `<órgano> <AAAA-MM-DD>`
+
+**Procesa.** config; notas de 30-notas
+
+**Muestra.** lo que falta para cerrar el acta
+
+**Escribe.** `90-borradores/BORRADOR-acta-<órgano>-<AAAA-MM-DD>.md`; `<estado>/resultados.json`; `<estado>/reporte-ea-minutes.md`
+
+**Skills.** **minutes-draft**
+
+### `/criterio-assistant:ea-commitments`
+
+**Qué hace.** El estado de los compromisos de dirección, por órgano y por responsable
+
+**Argumento.** `[órgano o responsable] o vacío`
+
+**Procesa.** config; fichas de las reuniones; fichas de proyecto de Samuel, si están
+
+**Muestra.** los compromisos por órgano y por responsable
+
+**Escribe.** `<estado>/resultados.json`; `<estado>/reporte-ea-commitments.md`
+
+**Skills.** **commitment-tracking**
+
+### `/criterio-assistant:ea-mail`
+
+**Qué hace.** La correspondencia que pide respuesta, con sus borradores
+
+**Argumento.** `vacío`
+
+**Procesa.** config; fichas de la correspondencia
+
+**Muestra.** lo que pide respuesta y para cuándo
+
+**Escribe.** `90-borradores/BORRADOR-respuesta-<correo>.md`; `<estado>/resultados.json`; `<estado>/reporte-ea-mail.md`
+
+**Skills.** **correspondence-record**
+
+### `/criterio-assistant:ea-weekly`
+
+**Qué hace.** El resumen de la semana: lo que llegó, lo que vence y lo que falta preparar
+
+**Argumento.** `vacío`
+
+**Procesa.** config; fichas
+
+**Muestra.** un resumen de la semana
+
+**Escribe.** `<estado>/resultados.json`; `<estado>/reporte-ea-weekly.md`
+
+### `/criterio-assistant:ea-wake`
+
+**Qué hace.** Lo que toca hoy en la oficina; si no toca nada, se calla
+
+**Argumento.** `vacío`
+
+**Procesa.** config; fichas; preguntas de Rostrum
+
+**Muestra.** lo que corrió y lo que encontró, o una línea si no toca nada
+
+**Escribe.** `<estado>/corridas/`
 
 ## Rostrum · el portal de todas las familias
 

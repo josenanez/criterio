@@ -53,6 +53,8 @@ DUENIOS = [
     ("evaluar.py --agente fidel", "Fidel"),
     ("evaluar.py --agente constanza", "Constanza"),
     ("tests/criterio-clo/", "La familia"),
+    ("criterio-assistant/scripts/asistente.py", "Ofelia"),
+    ("tests/criterio-ea/", "Ofelia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("criterio-server/scripts/", "Rostrum"),
@@ -422,6 +424,7 @@ PLUGIN_DE = {
     "Áurea": "criterio-treasury",
     "Fidel": "criterio-legal",
     "Constanza": "criterio-compliance",
+    "Ofelia": "criterio-assistant",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -598,16 +601,12 @@ NO_CUBRE["criterio-finance"] = _CFO_NO_CUBRE + [
     ("En Ecuador, los comprobantes que no son factura se identifican y no se cruzan",
      "Los campos de valor de la nota de crédito y de los demás tipos del SRI no están verificados "
      "en su fuente (F-09): se identifican por la clave de acceso y quedan fuera del cruce."),
+    ("En México, el folio fiscal (UUID) del Timbre Fiscal Digital no se lee",
+     "Su estándar no está en los documentos verificados (F-19): el CFDI se identifica por el RFC del emisor, "
+     "la serie y el folio, y sin ellos por el emisor, la fecha y el total."),
 ]
 NO_CUBRE["criterio-budget"] = list(_CFO_NO_CUBRE)
-NO_CUBRE["criterio-treasury"] = [
-    ("Su ronda con el agente no ha corrido",
-     "Esta corrida prueba el motor de Áurea contra la clave del material de cuatro industrias y dos controles, "
-     "y con su autoprueba. La ronda con el agente, sobre el mismo material, es el siguiente paso (ADR 0016)."),
-    ("Nada se ha corrido sobre los extractos ni la política de una organización real",
-     "Todo es sintético; la política, la matriz de firmas y los covenants son de cada organización."),
-]
-
+NO_CUBRE["criterio-treasury"] = list(_CFO_NO_CUBRE)
 _CLO_NO_CUBRE = [
     ("La extracción del agente la prueba la ronda, no esta corrida",
      "Esta corrida escribe en la ficha lo que el agente tendría que extraer —cada contrato con sus "
@@ -629,6 +628,18 @@ NO_CUBRE["criterio-server"] = [
      "Rostrum no autentica, a propósito: se publica detrás del control de acceso de la organización."),
 ]
 NO_CUBRE["criterio-legal"] = list(_CLO_NO_CUBRE)
+NO_CUBRE["criterio-assistant"] = [
+    ("La extracción de la agente la prueba la ronda, no esta corrida",
+     "Esta corrida escribe en cada ficha lo que la agente tendría que extraer —los acuerdos y los compromisos "
+     "del acta, las decisiones con sus opciones, lo que pide cada correo— y prueba el motor con esa extracción. "
+     "Que la agente la haga bien sobre los mismos documentos lo prueba la ronda con la agente."),
+    ("Nada se ha corrido sobre la agenda ni el correo de una oficina real",
+     "Todo es sintético. Ofelia procesa exportaciones, no cuentas: la conexión directa al calendario o al "
+     "correo es otra decisión, con su revisión de privacidad."),
+    ("Las repeticiones del .ics que no soporta se declaran, no se prueban",
+     "FREQ DAILY, WEEKLY y MONTHLY por día del mes, con INTERVAL, COUNT, UNTIL, BYDAY semanal, EXDATE y "
+     "RECURRENCE-ID. Una regla más compleja se declara como no soportada en el informe."),
+]
 NO_CUBRE["criterio-compliance"] = list(_CLO_NO_CUBRE)
 
 QUE_ES = {
@@ -641,13 +652,15 @@ QUE_ES = {
     "criterio-treasury": ("Áurea", "la agente de tesorería de la familia CFO"),
     "criterio-legal": ("Fidel", "el agente de contratos de la familia CLO"),
     "criterio-compliance": ("Constanza", "la agente de cumplimiento de la familia CLO"),
+    "criterio-assistant": ("Ofelia", "la asistente ejecutiva de la familia EA"),
 }
 
 
 # El material de las familias CFO y CLO es de la familia, no de cada agente.
 EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-budget": "../criterio-cfo/EVIDENCIA.md",
                 "criterio-treasury": "../criterio-cfo/EVIDENCIA.md",
-                "criterio-legal": "../criterio-clo/EVIDENCIA.md", "criterio-compliance": "../criterio-clo/EVIDENCIA.md"}
+                "criterio-legal": "../criterio-clo/EVIDENCIA.md", "criterio-compliance": "../criterio-clo/EVIDENCIA.md",
+                "criterio-assistant": "../criterio-ea/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:

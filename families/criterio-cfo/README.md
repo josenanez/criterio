@@ -17,7 +17,7 @@ cash — and none talks to the others directly: they talk through their records.
 | **Objective** | That the close stops depending on someone remembering what is missing |
 | **Made of** | [Clara](../../plugins/criterio-finance/README.md) · [Tomás](../../plugins/criterio-budget/README.md) · [Áurea](../../plugins/criterio-treasury/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The framework that defines each role and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **State** | Built and tested on synthetic material from four countries —Colombia, Ecuador, Peru and Chile—: the engine, against the twelve entities in the material; the three agents, in [the rounds with the agent](../../tests/evidencias/familias/cfo/RONDAS.md), the latest round 5, on Chile. **Not yet tested on a specific organisation's documentation** |
+| **State** | Built and tested on synthetic material from five countries —Colombia, Ecuador, Peru, Chile and Mexico—: the engine, against the fifteen entities in the material; the three agents, in [the rounds with the agent](../../tests/evidencias/familias/cfo/RONDAS.md), the latest round 6, on Mexico. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Control and reporting |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the controller, the financial planning team or treasury, and does not decide for them: it processes what the function already has and says what does not tie out |
@@ -53,11 +53,12 @@ closes— against its limit. **She never moves money or logs into a bank portal*
 ([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)).
 
 **Clara, Tomás and Áurea install today**, each with its own plugin, and all carry the same debt, written on their
-page: the engine and the agents' extraction are tested on synthetic material from four countries;
+page: the engine and the agents' extraction are tested on synthetic material from five countries;
 **nothing has been tested yet on an organisation's documents.**
 
-First version: IFRS as locally adopted in Colombia and Ecuador, with DIAN and SRI electronic
-invoicing processed from its official technical source.
+The accounting framework each country adopted, with its source —in Mexico, IFRS or NIF depending on
+the entity (F-20)—, and the electronic invoice of the DIAN, SRI, SUNAT, SII and SAT processed from
+its official technical source.
 
 ---
 
@@ -349,12 +350,14 @@ the signal it has to raise, in the same detail, **and what the material does not
 [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish). The whole set across every
 family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**The rounds with the agent.** Round 1 ran on banking and the Colombian control; round 2, the full one, on the six entities of Colombia and Ecuador; round 3 added Áurea and Peru, and round 4 ran the three agents on the nine entities: 80 of 80 signals with none extra and 74 of 74 data points; round 5 added Chile: 26 of 26 signals and 24 of 24 data points. Every defect the rounds found is fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md). **The statistical analysis of the rounds** —coverage and precision of the signals, the data extracted and the 95% margin of each, their evolution round by round, by industry and country, each failure with the defect that explains it and its origin— in [`analisis/ANALISIS.md`](analisis/ANALISIS.md). [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) generates it from the round evidence, and `verificar.py` checks that it says what the evidence says.
+**The rounds with the agent.** Round 1 ran on banking and the Colombian control; round 2, the full one, on the six entities of Colombia and Ecuador; round 3 added Áurea and Peru, and round 4 ran the three agents on the nine entities: 80 of 80 signals with none extra and 74 of 74 data points; round 5 added Chile: 26 of 26 signals and 24 of 24 data points; round 6 added Mexico: 27 of 27 signals and 24 of 24 data points. Every defect the rounds found is fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md). **The statistical analysis of the rounds** —coverage and precision of the signals, the data extracted and the 95% margin of each, their evolution round by round, by industry and country, each failure with the defect that explains it and its origin— in [`analisis/ANALISIS.md`](analisis/ANALISIS.md). [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) generates it from the round evidence, and `verificar.py` checks that it says what the evidence says.
 
 ## The test industries
 
-Four South American industries and one control entity per country: **banking and retail in
-Colombia**, with the DIAN XML, and **cooperatives and mining in Ecuador**, with the SRI's. Each
+Four Latin American industries and one control entity per country: **banking and retail in
+Colombia**, with the DIAN XML; **cooperatives and mining in Ecuador**, with the SRI's; **banking and
+mining in Peru**, with SUNAT's; **retail and mining in Chile**, with the SII's DTE, and **banking and
+retail in Mexico**, with the SAT's CFDI. Each
 one carries the close of a month and the budget of the year. The entities, the planted defects
 and the signals expected of each, in
 [`tests/criterio-cfo/EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish).
@@ -371,8 +374,9 @@ The family grows in increments. Each one is a version with its full test and its
 | 0.9.0 | Released | **The full round with the agent**<br>· Clara and Tomás run their commands on the material of the four industries, as the PMO does in every round<br>· What only minutes, emails and auditor letters carry, extracted and graded against the key<br>· With a full round, the family is declared tested | 4 industries and 2 control entities, with the key the agent never sees |
 | 0.10.0 | Released | **Áurea, Peru and the formats of a real finance function**<br>· Áurea, the third agent: cash, payments and debt against their policy<br>· Peru, with the SUNAT e-invoice reader built from its official guide<br>· The test material in Excel, Word and PDF, as a finance function holds it, and the bank statement in PDF processed by the engine | Round 4, complete: the three agents on the nine entities of Colombia, Ecuador and Peru, with the defects their rounds found fixed and verified |
 | 0.11.0 | Released | **Chile**<br>· The reader for Chile's electronic invoice, the SII DTE (F-16), with the RUT and its check digit<br>· The 19% VAT (F-17) and the IFRS adopted by the Colegio de Contadores (F-18)<br>· Material for retail, mining and a control entity in Chile | Round 5: the three agents on the three Chilean entities, 26 of 26 signals, none extra and 24 of 24 data points |
-| Increment 5 | Next | **Mexico and Brazil**<br>· One country at a time, by market size: its entry in the country registry, its electronic-invoice reader and its verified sources<br>· Each country is marked on the map when it passes its round | The round with the agents in each country |
-| Increment 6 | Reserved | **Deployment in an organisation**<br>· The first use on a specific organisation’s books and budget | That organisation’s documentation |
+| 0.12.0 | Next | **Mexico**<br>· The reader for the SAT's CFDI 4.0, from its filling guide (F-19), with the RFC<br>· The 16% VAT from the guide's catalogue and each entity's IFRS or NIF framework (F-20)<br>· Material for banking, retail and a control entity in Mexico | Round 6: the three agents on the three Mexican entities, 27 of 27 signals, none extra and 24 of 24 data points |
+| Increment 6 | Next | **Brazil**<br>· Its entry in the country registry, the reader for its electronic invoice and its verified sources<br>· It is marked on the map when it passes its round | The round with the agents in Brazil |
+| Increment 7 | Reserved | **Deployment in an organisation**<br>· The first use on a specific organisation’s books and budget | That organisation’s documentation |
 
 <!-- /hoja de ruta -->
 
@@ -407,9 +411,9 @@ documentation.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; with the agent, every entity in the material, up to round 6 · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; with the agent, every entity in the material, up to round 6 · [results](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; with the agent, every entity in the material, up to round 6 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; with the agent, every entitie in the material, up to round 6 · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 6 · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; with the agent, every entitie in the material, up to round 6 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 

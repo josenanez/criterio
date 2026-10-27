@@ -43,8 +43,7 @@
           "es": "Los correos guardados como archivo, uno por mensaje",
           "en": "The emails saved as files, one per message",
           "patrones": [
-            "\\.eml$",
-            "\\.msg$"
+            "\\.eml$"
           ]
         },
         {

@@ -17,13 +17,19 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 | `banca-pe` | Perú | banca | 11 | 12 |
 | `mineria-pe` | Perú | minería | 11 | 12 |
 | `control-pe` | Perú | — | 0 | 0 |
+| `retail-cl` | Chile | retail | 11 | 14 |
+| `mineria-cl` | Chile | minería | 11 | 12 |
+| `control-cl` | Chile | — | 0 | 0 |
+| `banca-mx` | México | banca | 12 | 16 |
+| `retail-mx` | México | retail | 11 | 11 |
+| `control-mx` | México | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos
 cuentas bancarias con su extracto —que dice su moneda— y su auxiliar de libros, las facturas electrónicas emitidas y
 recibidas —con la estructura de la DIAN (F-01) en Colombia, dentro de su contenedor, y la del
-SRI (F-04, F-09) en Ecuador, dentro de su respuesta de autorización, y la UBL 2.1 de la SUNAT
-(F-13) en Perú—, el checklist del cierre
+SRI (F-04, F-09) en Ecuador, dentro de su respuesta de autorización, la UBL 2.1 de la SUNAT
+(F-13) en Perú, el DTE del SII (F-16) en Chile y el CFDI 4.0 del SAT (F-19) en México—, el checklist del cierre
 con sus soportes, el índice de requerimientos del auditor con sus respuestas, dos versiones del
 presupuesto, los compromisos, las proyecciones de cada área, las actas y la ficha del proyecto
 de la familia PMO que ejecuta una de las líneas. Para Áurea, además, la política de tesorería, la
@@ -35,6 +41,8 @@ fechas de verdad; parte de las actas, los soportes y las respuestas al auditor e
 algunos extractos en PDF con texto, como los entrega el banco, que el motor procesa por columnas.
 
 ## Lo que se siembra, y la señal que tiene que levantar
+
+La columna «Dónde» nombra las entidades de Colombia, Ecuador y Perú. Las de Chile y México siembran los mismos casos con su propio lector de factura; la lista exacta de cada una está en su clave, `material/<entidad>/clave.json`, en `siembra` y `esperado`.
 
 | Defecto | Señales | Dónde |
 |---|---|---|

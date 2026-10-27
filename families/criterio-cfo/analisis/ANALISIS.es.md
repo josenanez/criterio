@@ -62,9 +62,9 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · México | aurea, Clara, Tomás | 16 de 16 | 0 | 8 de 8 | 4,3 M |
-| Retail · México | aurea, Clara, Tomás | 11 de 11 | 0 | 8 de 8 | 4,5 M |
-| Control · México | aurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 4,4 M |
+| Banca · México | Áurea, Clara, Tomás | 16 de 16 | 0 | 8 de 8 | 4,3 M |
+| Retail · México | Áurea, Clara, Tomás | 11 de 11 | 0 | 8 de 8 | 4,5 M |
+| Control · México | Áurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 4,4 M |
 
 ## Lo que falló, uno por uno · rondas 1–6
 
@@ -91,7 +91,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 |---|---|
 | Tomás | 5 |
 | Clara | 3 |
-| aurea | 2 |
+| Áurea | 2 |
 | Ninguno | 1 |
 
 ## Consumo y próximo paso

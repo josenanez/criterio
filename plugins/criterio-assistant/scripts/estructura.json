@@ -1,0 +1,70 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-ea/carpetas.json; no se edita a mano",
+  "niveles": [
+    {
+      "id": "ejecutivo",
+      "ruta": null,
+      "profundidad": 1,
+      "etiqueta": "",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "patrones": [
+            "^organos",
+            "^calendario"
+          ]
+        },
+        {
+          "carpeta": "10-agenda",
+          "patrones": [
+            "\\.ics$"
+          ]
+        },
+        {
+          "carpeta": "20-correspondencia",
+          "patrones": [
+            "\\.eml$"
+          ]
+        },
+        {
+          "carpeta": "90-borradores",
+          "patrones": [
+            "BORRADOR"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reunion",
+      "ruta": "organos/[^/]+/\\d{4}-\\d{2}-\\d{2}",
+      "profundidad": 3,
+      "etiqueta": "organos/<órgano>/<AAAA-MM-DD>/",
+      "carpetas": [
+        {
+          "carpeta": "10-convocatoria",
+          "patrones": [
+            "^convocatoria",
+            "^orden"
+          ]
+        },
+        {
+          "carpeta": "20-material",
+          "patrones": []
+        },
+        {
+          "carpeta": "30-notas",
+          "patrones": [
+            "^notas",
+            "^transcripcion"
+          ]
+        },
+        {
+          "carpeta": "40-acta",
+          "patrones": [
+            "^acta"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "nota": "Fuente única de la agente, los comandos y las señales de la familia EA: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal publica su soporte con scripts/criterio-familias.mjs. La familia está en diseño: mientras su plugin no exista, no entra a Rostrum ni a la página de la familia (ADR 0012).",
+  "nota": "Fuente única de la agente, los comandos y las señales de la familia EA: scripts/familias.py escribe sus tablas en DISENO.es.md, en el README de la familia y en el del plugin, y el portal publica su soporte con scripts/criterio-familias.mjs.",
   "sigla": "ea",
   "orden": 40,
   "adr": "0012-scope-asistente-ejecutivo.md",
@@ -8,15 +8,32 @@
     "en": "Executive office"
   },
   "estado": {
-    "es": "En diseño",
-    "en": "In design"
+    "es": "Construida · probada",
+    "en": "Built · tested"
   },
   "instancia": {
     "es": "Una por ejecutivo",
     "en": "One per executive"
   },
+  "carpeta_instancia": {
+    "es": "ejecutivo",
+    "en": "executive"
+  },
+  "unidad": {
+    "es": "oficinas",
+    "en": "offices"
+  },
   "generador": {
-    "cifras_en": "ofelia"
+    "cifras_en": "ofelia",
+    "intake": {
+      "skill": "criterio-assistant/ea-intake",
+      "texto": "Cada sesión tiene un solo lugar, su carpeta en `organos/<órgano>/<AAAA-MM-DD>/`: Ofelia procesa su convocatoria, su material, sus notas y su acta firmada."
+    },
+    "estructuras": [
+      "criterio-assistant"
+    ],
+    "motor": "criterio-assistant/scripts/asistente.py",
+    "lectores": {}
   },
   "agentes": [
     {
@@ -255,7 +272,121 @@
           "es": "Una decisión pendiente tiene una fecha que la fija dentro de los días configurados",
           "en": "A pending decision has a date that sets it within the configured days"
         }
+      ],
+      "ella": true
+    }
+  ],
+  "skills": {
+    "ea-intake": {
+      "es": "Qué documentos procesa Ofelia, dónde va cada uno, qué procesa el código directamente —la agenda .ics y los encabezados del correo— y qué extrae la agente a la ficha",
+      "en": "Which documents Ofelia processes, where each one goes, what the code processes directly —the .ics calendar and email headers— and what the agent extracts to the record"
+    },
+    "meeting-record": {
+      "es": "La ficha de una sesión: orden del día, acuerdos con su responsable y su fecha, compromisos con su historia y decisiones pendientes, cada dato con su cita",
+      "en": "A meeting record: agenda, agreements with owner and date, commitments with their history and pending decisions, each item with its citation"
+    },
+    "decision-brief": {
+      "es": "La ficha de una decisión: las opciones que traen los documentos con su evidencia, lo que falta saber y el plazo, sin ordenarlas ni recomendar",
+      "en": "A decision brief: the options the documents carry with their evidence, what is still unknown and the deadline, without ranking or recommending"
+    },
+    "minutes-draft": {
+      "es": "El borrador del acta desde las notas o la transcripción, con cada acuerdo citado y «BORRADOR» en el nombre y en el texto",
+      "en": "Draft minutes from notes or a transcript, each agreement cited and «BORRADOR» in the name and text"
+    },
+    "correspondence-record": {
+      "es": "La ficha de un correo: si pide respuesta, qué pide y para cuándo; y el borrador de las respuestas rutinarias, que nunca se envía",
+      "en": "An email record: whether it asks for a reply, what it asks and by when; and the draft of routine replies, never sent"
+    },
+    "commitment-tracking": {
+      "es": "El compromiso vencido sin evidencia, el que nadie fechó y el que se movió una y otra vez: las reglas de Samuel",
+      "en": "The commitment overdue without evidence, the one nobody dated and the one moved again and again: Samuel's rules"
+    }
+  },
+  "impresora": {
+    "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica y docs/video la graba; no se copia a mano.",
+    "bots": [
+      "ofelia",
+      "rostrum"
+    ],
+    "es": {
+      "eyebrow": "Criterio · Familia EA",
+      "titulo": "Una agente para la oficina del ejecutivo",
+      "sub": "Prepara la agenda, cada sesión con sus decisiones, el borrador del acta y lo que pide respuesta. No decide ni envía nada.",
+      "ficha": "LAS FICHAS DE LA OFICINA",
+      "fichaNota": "Cada dato con su cita. Las opciones de una decisión van como las traen los documentos, sin ordenarlas.",
+      "roles": {
+        "ofelia": "La oficina de dirección",
+        "rostrum": "El portal"
+      },
+      "nota": "Estado de la familia: construida y probada. El motor pasa su prueba determinista contra cuatro oficinas sintéticas —dos con defectos sembrados y dos de control— y la agente pasó la ronda completa con una clave que no ve. El siguiente paso es su primer uso sobre la oficina de un ejecutivo concreto.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · FAMILIA EA"
+        },
+        {
+          "texto": "La oficina del ejecutivo con una agente. Extiende a quien asiste al presidente o al gerente general; no lo reemplaza."
+        },
+        {
+          "quien": "ofelia",
+          "tag": "OFELIA · LA OFICINA DE DIRECCIÓN",
+          "texto": "Pone la agenda al lado de los compromisos: qué se cruza, qué sesión no tiene material ni acta, qué acuerdo no tiene dueño, qué compromiso venció y qué correo espera respuesta. Prepara cada decisión con sus opciones y su evidencia, sin decir cuál conviene."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · EL PORTAL",
+          "texto": "Publica solo si la oficina lo decide: por omisión, el informe de la presidencia no sale de su carpeta."
+        },
+        {
+          "quien": "ficha",
+          "tag": "LA REGLA",
+          "texto": "Ofelia no envía, no agenda, no acepta y no mueve nada. Lo que se envía lo envía una persona."
+        },
+        {
+          "cabeza": true,
+          "texto": "FIN DE LA IMPRESIÓN."
+        }
+      ]
+    },
+    "en": {
+      "eyebrow": "Criterio · EA family",
+      "titulo": "One agent for the executive's office",
+      "sub": "She prepares the calendar, each meeting with its decisions, the draft minutes and what needs a reply. She does not decide or send anything.",
+      "ficha": "THE OFFICE RECORDS",
+      "fichaNota": "Each item with its citation. A decision's options go as the documents bring them, unranked.",
+      "roles": {
+        "ofelia": "The executive office",
+        "rostrum": "The portal"
+      },
+      "nota": "Where the family stands: built and tested. The engine passes its deterministic test against four synthetic offices —two with seeded defects and two controls— and the agent passed the full round with a key she never sees. The next step is her first use on a specific executive's office.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · EA FAMILY"
+        },
+        {
+          "texto": "The executive's office with one agent. She extends the person who assists the president or general manager; she does not replace them."
+        },
+        {
+          "quien": "ofelia",
+          "tag": "OFELIA · THE EXECUTIVE OFFICE",
+          "texto": "Puts the calendar next to the commitments: what overlaps, which meeting has no material or minutes, which agreement has no owner, which commitment fell due and which email awaits a reply. She prepares each decision with its options and evidence, without saying which is best."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · THE PORTAL",
+          "texto": "Publishes only if the office decides to: by default, the president's report never leaves its folder."
+        },
+        {
+          "quien": "ficha",
+          "tag": "THE RULE",
+          "texto": "Ofelia does not send, schedule, accept or move anything. What is sent, a person sends."
+        },
+        {
+          "cabeza": true,
+          "texto": "END OF PRINT."
+        }
       ]
     }
-  ]
+  }
 }

@@ -351,7 +351,8 @@ def configuracion(fa: dict, i: str) -> str:
     comandos, el primero y el último de cada uno."""
     ag = fa["agentes"]
     fila = lambda k, xs: f"| **{k}** | " + " | ".join(xs) + " |"
-    ent = "entidad" if i == "es" else "entity"
+    # La carpeta de cada instancia: la entidad, salvo que la familia diga otra (la EA, el ejecutivo).
+    ent = (fa.get("carpeta_instancia") or {"es": "entidad", "en": "entity"})[i]
     if i == "es":
         l = ["| | " + " | ".join(a["nombre"] for a in ag) + " |", "|---|" + "---|" * len(ag),
              fila("Se instala", [f"`{a['plugin']}`" for a in ag]),
@@ -382,7 +383,9 @@ def skills_familia(fa: dict, i: str) -> str:
     ag = fa["agentes"]
     compartidos = [s for s in todos if sum(s in skills_de(a["plugin"]) for a in ag) > 1]
     n = palabra(len(todos), i).capitalize()
-    if i == "es":
+    if len(ag) == 1:
+        l = [f"{n} skills, todos de {ag[0]['nombre']}." if i == "es" else f"{n} skills, all of them {ag[0]['nombre']}'s.", ""]
+    elif i == "es":
         l = [f"{n} skills distintos entre {EN_PALABRAS['es'].get(len(fa['agentes']), len(fa['agentes']))} agentes. **Los que comparten son copias literales, no un módulo "
              "importado**: un plugin instalado tiene que correr solo. `scripts/sincronizar.py` las copia y "
              "`scripts/sincronizar.py --check` falla si se separan." if compartidos else f"{n} skills distintos entre {EN_PALABRAS['es'].get(len(fa['agentes']), len(fa['agentes']))} agentes.", ""]
@@ -411,6 +414,11 @@ def ronda_completa(sigla: str):
     return None
 
 
+def hay_rondas(sigla: str) -> bool:
+    base = RAIZ / "tests" / "evidencias" / "familias" / sigla
+    return base.is_dir() and any(base.glob("ronda-*"))
+
+
 def estado_familia(fa: dict, i: str) -> str:
     if i == "es":
         l = ["| Agente | Se instala | Su prueba |", "|---|---|---|"]
@@ -420,9 +428,15 @@ def estado_familia(fa: dict, i: str) -> str:
         nc, ns = cuenta(a)
         cs = f"{nc} comandos, {ns} skills" if i == "es" else f"{nc} commands, {ns} skills"
         n = ronda_completa(fa["sigla"])
-        if n:
-            pr = (f"El motor, probado; con el agente, todas las entidades del material, hasta la ronda {n}" if i == "es"
-                  else f"The engine, tested; with the agent, every entity in the material, up to round {n}")
+        if not hay_rondas(fa["sigla"]):
+            pr = ("El motor, probado; la ronda con el agente, pendiente" if i == "es"
+                  else "The engine, tested; the round with the agent, pending")
+        elif n:
+            # Lo que el material llama entidad —en la EA, una oficina— y el artículo del agente, de familia.json.
+            mat = (fa.get("unidad") or {"es": "entidades", "en": "entities"})[i]
+            art = "la" if a.get("ella") else "el"
+            pr = (f"El motor, probado; con {art} agente, todas las {mat} del material, hasta la ronda {n}" if i == "es"
+                  else f"The engine, tested; with the agent, every {mat[:-1] if mat.endswith('s') else mat} in the material, up to round {n}")
         else:
             pr = ("El motor, probado; una primera ronda con el agente; la completa, pendiente" if i == "es"
                   else "The engine, tested; a first round with the agent; the full one, pending")

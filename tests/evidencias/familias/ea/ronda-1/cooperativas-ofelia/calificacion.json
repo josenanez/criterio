@@ -1,0 +1,18 @@
+{
+  "entidad": "Cooperativa Sierra Alta",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 1837180,
+  "senales": {
+    "esperadas": 4,
+    "acertadas": 4,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 17,
+    "bien": 17,
+    "mal": []
+  }
+}

@@ -1,0 +1,673 @@
+{
+ "meta": {
+  "generado_desde": "tests/evidencias/familias/ea",
+  "ultima_ronda": 1,
+  "completa": true,
+  "rondas": [
+   1
+  ]
+ },
+ "secciones": [
+  {
+   "id": "resumen",
+   "titulo": {
+    "es": "En una mirada",
+    "en": "At a glance"
+   },
+   "parrafos": {
+    "es": [
+     "La ronda completa más reciente, la 1, sobre las 6 entidades del material: 18 de 18 señales sembradas encontradas (margen del 95 %: 82,4–100 %) y 1 de más; 114 de 117 datos extraídos bien (97,4 %, margen del 95 %: 92,7–99,2 %); y 2 de 3 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–1, 18 de 18 señales encontradas, 1 de más y 114 de 117 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+    ],
+    "en": [
+     "The most recent complete round, round 1, on the material's 6 entities: 18 of 18 seeded signals found (95% margin: 82.4–100%) and 1 extra; 114 of 117 data items extracted right (97.4%, 95% margin: 92.7–99.2%); and 2 of 3 control entities with no signal at all.",
+     "Across rounds 1–1, 18 of 18 signals found, 1 extra and 114 of 117 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+    ]
+   }
+  },
+  {
+   "id": "metodo",
+   "titulo": {
+    "es": "Qué se probó y cómo",
+    "en": "What was tested and how"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "",
+      ""
+     ],
+     "en": [
+      "",
+      ""
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Rondas",
+       "1; la completa más reciente es la 1"
+      ],
+      [
+       "Material",
+       "Banca · Colombia, Cooperativas · Ecuador"
+      ],
+      [
+       "Entidades de control",
+       "Control · Colombia, Control · Ecuador"
+      ],
+      [
+       "Corridas de una entidad",
+       "6"
+      ],
+      [
+       "Señales sembradas",
+       "18"
+      ],
+      [
+       "Datos calificados",
+       "117"
+      ]
+     ],
+     "en": [
+      [
+       "Rounds",
+       "1; the most recent complete one is round 1"
+      ],
+      [
+       "Material",
+       "Banking · Colombia, Credit unions · Ecuador"
+      ],
+      [
+       "Control entities",
+       "Control · Colombia, Control · Ecuador"
+      ],
+      [
+       "Entity runs",
+       "6"
+      ],
+      [
+       "Seeded signals",
+       "18"
+      ],
+      [
+       "Data items graded",
+       "117"
+      ]
+     ]
+    }
+   },
+   "parrafos": {
+    "es": [
+     "Cada entidad corre todos los comandos de los dos agentes, con un tope de tokens fijado antes de empezar, sobre un material que trae su clave aparte: el agente nunca la ve. Las señales se comparan por su nombre y su clave; la extracción, campo por campo, contra lo que traen los documentos escritos. Las entidades de control no tienen ningún defecto sembrado: cualquier señal en ellas es una falla.",
+     "Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que levantó, cuántas eran correctas. Margen del 95 %: intervalo de confianza de Wilson sobre los casos."
+    ],
+    "en": [
+     "Each entity runs every command of the two agents, with a token cap set before starting, on material whose key is kept apart: the agent never sees it. Signals are compared by name and key; extraction, field by field, against what the written documents say. Control entities carry no seeded defect: any signal in them is a failure.",
+     "Coverage: of the seeded signals, how many were found. Precision: of those raised, how many were right. 95% margin: Wilson confidence interval over the cases."
+    ]
+   }
+  },
+  {
+   "id": "acumulado",
+   "titulo": {
+    "es": "Resultados acumulados · rondas 1–1",
+    "en": "Cumulative results · rounds 1–1"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Métrica",
+      "Casos",
+      "Resultado",
+      "Margen del 95 %"
+     ],
+     "en": [
+      "Measure",
+      "Cases",
+      "Result",
+      "95% margin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Señales · cobertura",
+       "18 de 18",
+       "100 %",
+       "82,4–100 %"
+      ],
+      [
+       "Señales · precisión",
+       "18 de 19",
+       "94,7 %",
+       "75,3–99,1 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "114 de 117",
+       "97,4 %",
+       "92,7–99,2 %"
+      ],
+      [
+       "Control · sin ninguna señal",
+       "2 de 3",
+       "66,7 %",
+       "20,7–93,9 %"
+      ]
+     ],
+     "en": [
+      [
+       "Signals · coverage",
+       "18 of 18",
+       "100%",
+       "82.4–100%"
+      ],
+      [
+       "Signals · precision",
+       "18 of 19",
+       "94.7%",
+       "75.3–99.1%"
+      ],
+      [
+       "Extraction · data right",
+       "114 of 117",
+       "97.4%",
+       "92.7–99.2%"
+      ],
+      [
+       "Control · with no signal",
+       "2 of 3",
+       "66.7%",
+       "20.7–93.9%"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "evolucion",
+   "titulo": {
+    "es": "Evolución por ronda",
+    "en": "Round by round"
+   },
+   "imagen": {
+    "es": "evolucion-es.svg",
+    "en": "evolucion-en.svg"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Ronda",
+      "Entidades",
+      "Señales · cobertura",
+      "Señales · precisión",
+      "Extracción",
+      "Control sin señales",
+      "Tokens",
+      "Defectos"
+     ],
+     "en": [
+      "Round",
+      "Entities",
+      "Signals · coverage",
+      "Signals · precision",
+      "Extraction",
+      "Control with no signal",
+      "Tokens",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "1",
+       "6",
+       "100 %",
+       "94,7 %",
+       "97,4 %",
+       "2 de 3",
+       "9,2 M",
+       "8"
+      ]
+     ],
+     "en": [
+      [
+       "1",
+       "6",
+       "100%",
+       "94.7%",
+       "97.4%",
+       "2 of 3",
+       "9.2 M",
+       "8"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "ultima",
+   "titulo": {
+    "es": "La ronda completa más reciente · ronda 1",
+    "en": "The most recent complete round · round 1"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Métrica",
+      "Casos",
+      "Resultado",
+      "Margen del 95 %"
+     ],
+     "en": [
+      "Measure",
+      "Cases",
+      "Result",
+      "95% margin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Señales · cobertura",
+       "18 de 18",
+       "100 %",
+       "82,4–100 %"
+      ],
+      [
+       "Señales · precisión",
+       "18 de 19",
+       "94,7 %",
+       "75,3–99,1 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "114 de 117",
+       "97,4 %",
+       "92,7–99,2 %"
+      ],
+      [
+       "Control · sin ninguna señal",
+       "2 de 3",
+       "66,7 %",
+       "20,7–93,9 %"
+      ]
+     ],
+     "en": [
+      [
+       "Signals · coverage",
+       "18 of 18",
+       "100%",
+       "82.4–100%"
+      ],
+      [
+       "Signals · precision",
+       "18 of 19",
+       "94.7%",
+       "75.3–99.1%"
+      ],
+      [
+       "Extraction · data right",
+       "114 of 117",
+       "97.4%",
+       "92.7–99.2%"
+      ],
+      [
+       "Control · with no signal",
+       "2 of 3",
+       "66.7%",
+       "20.7–93.9%"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "industrias",
+   "titulo": {
+    "es": "Por industria y país · ronda 1",
+    "en": "By industry and country · round 1"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Material",
+      "Agentes",
+      "Señales",
+      "De más",
+      "Extracción",
+      "Tokens"
+     ],
+     "en": [
+      "Material",
+      "Agents",
+      "Signals",
+      "Extra",
+      "Extraction",
+      "Tokens"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Banca · Colombia",
+       "Ofelia",
+       "10 de 10",
+       "0",
+       "17 de 17",
+       "1,4 M"
+      ],
+      [
+       "Cooperativas · Ecuador",
+       "Ofelia",
+       "4 de 4",
+       "0",
+       "16 de 17",
+       "1,7 M"
+      ],
+      [
+       "Cooperativas · Ecuador",
+       "Ofelia",
+       "4 de 4",
+       "0",
+       "17 de 17",
+       "1,8 M"
+      ],
+      [
+       "Control · Colombia",
+       "Ofelia",
+       "0 de 0",
+       "1",
+       "21 de 22",
+       "1,3 M"
+      ],
+      [
+       "Control · Colombia",
+       "Ofelia",
+       "0 de 0",
+       "0",
+       "21 de 22",
+       "1,5 M"
+      ],
+      [
+       "Control · Ecuador",
+       "Ofelia",
+       "0 de 0",
+       "0",
+       "22 de 22",
+       "1,5 M"
+      ]
+     ],
+     "en": [
+      [
+       "Banking · Colombia",
+       "Ofelia",
+       "10 of 10",
+       "0",
+       "17 of 17",
+       "1.4 M"
+      ],
+      [
+       "Credit unions · Ecuador",
+       "Ofelia",
+       "4 of 4",
+       "0",
+       "16 of 17",
+       "1.7 M"
+      ],
+      [
+       "Credit unions · Ecuador",
+       "Ofelia",
+       "4 of 4",
+       "0",
+       "17 of 17",
+       "1.8 M"
+      ],
+      [
+       "Control · Colombia",
+       "Ofelia",
+       "0 of 0",
+       "1",
+       "21 of 22",
+       "1.3 M"
+      ],
+      [
+       "Control · Colombia",
+       "Ofelia",
+       "0 of 0",
+       "0",
+       "21 of 22",
+       "1.5 M"
+      ],
+      [
+       "Control · Ecuador",
+       "Ofelia",
+       "0 of 0",
+       "0",
+       "22 of 22",
+       "1.5 M"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "senales",
+   "titulo": {
+    "es": "Lo que falló, uno por uno · rondas 1–1",
+    "en": "What failed, one by one · rounds 1–1"
+   },
+   "parrafos": {
+    "es": [
+     "4 fallas en 6 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+    ],
+    "en": [
+     "4 failures in 6 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+    ]
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Ronda",
+      "Material",
+      "Qué",
+      "Dónde",
+      "Defecto",
+      "Origen"
+     ],
+     "en": [
+      "Round",
+      "Material",
+      "What",
+      "Where",
+      "Defect",
+      "Origin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "1",
+       "Control · Colombia",
+       "Señal de más",
+       "[\"commitment_overdue\", \"compromiso:junta-directiva:2026-09-24:C-1\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "Control · Colombia",
+       "Dato calificado como mal",
+       "reuniones/junta-directiva-2026-09-24 · commitments",
+       "EA-7",
+       "Instrucciones del agente"
+      ],
+      [
+       "1",
+       "Control · Colombia",
+       "Dato calificado como mal",
+       "reuniones/junta-directiva-2026-09-24 · decisions",
+       "EA-8",
+       "Instrucciones del agente"
+      ],
+      [
+       "1",
+       "Cooperativas · Ecuador",
+       "Dato calificado como mal",
+       "reuniones/consejo-de-administracion-2026-09-24 · agreements",
+       "EA-6",
+       "Instrucciones del agente"
+      ]
+     ],
+     "en": [
+      [
+       "1",
+       "Control · Colombia",
+       "Extra signal",
+       "[\"commitment_overdue\", \"compromiso:junta-directiva:2026-09-24:C-1\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "Control · Colombia",
+       "Data item graded wrong",
+       "reuniones/junta-directiva-2026-09-24 · commitments",
+       "EA-7",
+       "Agent instructions"
+      ],
+      [
+       "1",
+       "Control · Colombia",
+       "Data item graded wrong",
+       "reuniones/junta-directiva-2026-09-24 · decisions",
+       "EA-8",
+       "Agent instructions"
+      ],
+      [
+       "1",
+       "Credit unions · Ecuador",
+       "Data item graded wrong",
+       "reuniones/consejo-de-administracion-2026-09-24 · agreements",
+       "EA-6",
+       "Agent instructions"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "defectos",
+   "titulo": {
+    "es": "Defectos",
+    "en": "Defects"
+   },
+   "imagen": {
+    "es": "defectos-es.svg",
+    "en": "defectos-en.svg"
+   },
+   "parrafos": {
+    "es": [
+     "8 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 7 verificados y 1 por verificar. 2 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+    ],
+    "en": [
+     "8 defects logged, each with its origin, its fix and the run that verified it: 7 verified and 1 to verify. 2 came from the material, the key or the test harness, not from the agents."
+    ]
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Origen",
+      "Defectos"
+     ],
+     "en": [
+      "Origin",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Instrucciones del agente",
+       "4"
+      ],
+      [
+       "Código",
+       "2"
+      ],
+      [
+       "Clave de calificación",
+       "1"
+      ],
+      [
+       "Arnés de pruebas",
+       "1"
+      ]
+     ],
+     "en": [
+      [
+       "Agent instructions",
+       "4"
+      ],
+      [
+       "Code",
+       "2"
+      ],
+      [
+       "Grading key",
+       "1"
+      ],
+      [
+       "Test harness",
+       "1"
+      ]
+     ]
+    }
+   },
+   "tabla2": {
+    "cab": {
+     "es": [
+      "Agente",
+      "Defectos"
+     ],
+     "en": [
+      "Agent",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Ofelia",
+       "8"
+      ]
+     ],
+     "en": [
+      [
+       "Ofelia",
+       "8"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "consumo",
+   "titulo": {
+    "es": "Consumo y próximo paso",
+    "en": "Cost and next step"
+   },
+   "parrafos": {
+    "es": [
+     "Las 1 rondas usaron 10,4 millones de tokens: 9,2 millones en las corridas calificadas y 1,2 en las que se repitieron después de corregir un defecto. En promedio, 1,5 millones por entidad.",
+     "El material es sintético. El próximo paso es el despliegue en una organización, con su propia documentación."
+    ],
+    "en": [
+     "The 1 rounds used 10.4 million tokens: 9.2 million in the graded runs and 1.2 in the ones repeated after fixing a defect. On average, 1.5 million per entity.",
+     "The material is synthetic. The next step is deployment in an organisation, with its own documentation."
+    ]
+   }
+  }
+ ]
+}

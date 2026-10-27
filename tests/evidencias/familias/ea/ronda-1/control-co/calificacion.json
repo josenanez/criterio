@@ -1,0 +1,87 @@
+{
+  "entidad": "Distribuidora Control",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 1251199,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [
+      [
+        "commitment_overdue",
+        "compromiso:junta-directiva:2026-09-24:C-1"
+      ]
+    ],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 22,
+    "bien": 21,
+    "mal": [
+      {
+        "ficha": "reuniones/junta-directiva-2026-09-24",
+        "campo": "commitments",
+        "esperado": [
+          {
+            "id": "C-1",
+            "who": "Camilo Prieto",
+            "what": "Presentar el informe de cartera vencida",
+            "due_date": "2026-10-15",
+            "original_due_date": "2026-10-15",
+            "reschedules": [],
+            "state": "met",
+            "evidence": "organos/junta-directiva/2026-09-24/20-material/informe-de-gestion.md",
+            "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 14"
+          },
+          {
+            "id": "C-2",
+            "who": "Jorge Silva",
+            "what": "Entregar el plan de continuidad del negocio",
+            "due_date": "2026-11-20",
+            "original_due_date": "2026-09-30",
+            "reschedules": [
+              {
+                "due_date": "2026-11-20",
+                "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 15"
+              }
+            ],
+            "state": "open",
+            "evidence": null,
+            "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 15"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "C-1",
+            "who": "Camilo Prieto",
+            "what": "Presentar el informe de cartera vencida",
+            "due_date": "2026-10-15",
+            "original_due_date": "2026-10-15",
+            "reschedules": [],
+            "state": "open",
+            "evidence": null,
+            "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 14"
+          },
+          {
+            "id": "C-2",
+            "who": "Jorge Silva",
+            "what": "Entregar el plan de continuidad del negocio",
+            "due_date": "2026-11-20",
+            "original_due_date": "2026-09-30",
+            "reschedules": [
+              {
+                "due_date": "2026-11-20",
+                "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 15"
+              }
+            ],
+            "state": "open",
+            "evidence": null,
+            "source": "organos/junta-directiva/2026-09-24/40-acta/acta-firmada.md, línea 15"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

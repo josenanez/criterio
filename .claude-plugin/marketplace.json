@@ -28,19 +28,19 @@
     },
     {
       "name": "criterio-legal",
-      "description": "Fidel, los contratos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías. Colombia y Ecuador; cada fecha y cada monto los calcula el código y cada dato cita su documento. Sin opinión jurídica.",
+      "description": "Fidel, los contratos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías. Cada fecha y cada monto los calcula el código y cada dato cita su documento. Sin opinión jurídica.",
       "source": "./plugins/criterio-legal",
       "category": "legal"
     },
     {
       "name": "criterio-compliance",
-      "description": "Constanza, el cumplimiento: la matriz de obligaciones de la organización contra su evidencia, periodo a periodo, las obligaciones de cumplimiento de los contratos, las políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de denuncias. Colombia y Ecuador; las obligaciones las define la organización y cada dato cita su documento.",
+      "description": "Constanza, el cumplimiento: la matriz de obligaciones de la organización contra su evidencia, periodo a periodo, las obligaciones de cumplimiento de los contratos, las políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de denuncias. Las obligaciones las define la organización y cada dato cita su documento.",
       "source": "./plugins/criterio-compliance",
       "category": "legal"
     },
     {
       "name": "criterio-finance",
-      "description": "Clara, la contralora: el cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica de la DIAN y del SRI contra la contabilidad y el paquete del auditor. NIIF adoptadas en Colombia y Ecuador; cada cifra la calcula el código y cada dato cita su documento.",
+      "description": "Clara, la contralora: el cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica de la DIAN, del SRI, de la SUNAT, del SII y del SAT contra la contabilidad y el paquete del auditor. El marco contable adoptado en cada país; cada cifra la calcula el código y cada dato cita su documento.",
       "source": "./plugins/criterio-finance",
       "category": "finance"
     },
@@ -55,6 +55,12 @@
       "description": "Áurea, tesorería: la caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants, calculados desde el balance que cierra Clara. Nunca mueve dinero ni entra a un portal bancario.",
       "source": "./plugins/criterio-treasury",
       "category": "finance"
+    },
+    {
+      "name": "criterio-assistant",
+      "description": "Ofelia, la asistente ejecutiva: la agenda del ejecutivo contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos de dirección y la correspondencia que pide respuesta. Procesa exportaciones, no cuentas; prepara, no recomienda ni decide, y nunca envía.",
+      "source": "./plugins/criterio-assistant",
+      "category": "productivity"
     },
     {
       "name": "criterio-server",

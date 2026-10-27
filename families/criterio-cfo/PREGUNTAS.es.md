@@ -18,7 +18,7 @@ No registran ni corrigen asientos, no presentan declaraciones ni reportes a supe
 
 ### ¿Para qué marco normativo sirven?
 
-La primera versión trabaja con las NIIF adoptadas en Colombia y Ecuador, y con la factura electrónica de la DIAN y del SRI procesada desde su fuente técnica oficial. Cada fuente está en el repositorio con su versión, su enlace y la fecha en que se consultó.
+Con el marco contable que adoptó cada país —las NIIF en Colombia, Ecuador, Perú y Chile; en México, las NIIF o las NIF según la entidad—, y con la factura electrónica de la DIAN, del SRI, de la SUNAT, del SII y del SAT procesada desde su fuente técnica oficial. Cada fuente está en el repositorio con su versión, su enlace y la fecha en que se consultó.
 
 ## Cómo se usa
 
@@ -46,7 +46,7 @@ En el reporte de cada comando y en Rostrum, el portal de todas las familias. All
 
 ### ¿Con qué datos se probó?
 
-Con material sintético de cuatro industrias —banca y retail en Colombia, cooperativas y minería en Ecuador— y una entidad de control por país, sin ningún defecto, en la que cualquier señal es una falla. Las facturas se generan con la estructura oficial de cada país, y cada señal de la familia se siembra al menos una vez.
+Con material sintético de cinco países —Colombia, Ecuador, Perú, Chile y México—: cuatro industrias y una entidad de control por país, sin ningún defecto, en la que cualquier señal es una falla. Las facturas se generan con la estructura oficial de cada país, y cada señal de la familia se siembra al menos una vez.
 
 ### ¿Cómo se sabe si el motor acertó?
 
@@ -54,7 +54,7 @@ El material trae una clave con lo que se sembró, y el motor no la ve. La prueba
 
 ### ¿Ya está probada la familia completa?
 
-El motor sí. La extracción del agente sobre los documentos escritos —lo que solo traen las actas, los correos y las cartas del auditor— pasó la ronda completa con el agente sobre las seis entidades: 45 de 45 señales sin una de más y 48 de 49 datos de las fichas. La familia se declara probada; nada ha corrido todavía sobre los documentos de una organización.
+El motor sí, y los tres agentes corrieron sobre las quince entidades del material: la ronda 4 sobre las nueve de Colombia, Ecuador y Perú —80 de 80 señales sin una de más y 74 de 74 datos de las fichas—, la 5 sobre Chile —26 de 26 y 24 de 24— y la 6 sobre México —27 de 27 y 24 de 24—. La familia se declara probada; nada ha corrido todavía sobre los documentos de una organización.
 
 ## Datos y privacidad
 

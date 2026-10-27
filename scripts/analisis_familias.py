@@ -37,10 +37,14 @@ _spec.loader.exec_module(RF)
 
 L = A.L
 REPO = A.REPO
-FAM = {
-    "cfo": {"titulo": ("familia CFO", "CFO family"), "agentes": {"clara": "Clara", "tomas": "Tomás"}},
-    "clo": {"titulo": ("familia CLO", "CLO family"), "agentes": {"fidel": "Fidel", "constanza": "Constanza"}},
-}
+# Las familias con rondas publicadas, y el nombre de cada agente, de su familia.json: aquí no se
+# escribe ninguno.
+FAM = {}
+for _d in sorted((RAIZ / "families").glob("criterio-*/familia.json")):
+    _f = json.loads(_d.read_text(encoding="utf-8"))
+    if (RAIZ / "tests" / "evidencias" / "familias" / _f["sigla"]).is_dir() and _f["sigla"] != "pmo":
+        FAM[_f["sigla"]] = {"titulo": (f"familia {_f['sigla'].upper()}", f"{_f['sigla'].upper()} family"),
+                            "agentes": {a["id"]: a["nombre"] for a in _f["agentes"]}}
 INDUSTRIA = {"banca": ("Banca", "Banking"), "cooperativas": ("Cooperativas", "Credit unions"), "retail": ("Retail", "Retail"),
              "mineria": ("Minería", "Mining"), "control": ("Control", "Control")}
 # Los nombres de los países salen del registro único del motor, no de aquí.
@@ -311,7 +315,7 @@ def main() -> int:
     for m in malos:
         print(f"  ✗ {m} no es el que sale de la evidencia: corre python3 scripts/analisis_familias.py")
     if a.check and not malos:
-        print("  el análisis de la CFO y la CLO es el que sale de la evidencia")
+        print(f"  el análisis de {', '.join(s.upper() for s in FAM)} es el que sale de la evidencia")
     return 1 if malos else 0
 
 

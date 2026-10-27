@@ -1,0 +1,25 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-ea/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "senales": {
+    "meeting_conflict": "Dos reuniones del ejecutivo se cruzan en la agenda exportada",
+    "meeting_without_material": "A los días configurados de una sesión de un órgano, su material no está en la carpeta",
+    "meeting_without_minutes": "Pasados los días configurados de una sesión, su acta firmada no está",
+    "agreement_without_owner": "Un acuerdo del acta no tiene responsable",
+    "agreement_without_date": "Un acuerdo del acta no tiene fecha",
+    "commitment_overdue": "Un compromiso venció y ningún documento lo sostiene como cumplido",
+    "commitment_rescheduled": "Un compromiso se movió más veces de las configuradas",
+    "correspondence_unanswered": "Un correo guardado pide respuesta y su plazo venció sin una respuesta guardada",
+    "decision_deadline": "Una decisión pendiente tiene una fecha que la fija dentro de los días configurados"
+  },
+  "comandos": {
+    "ea-setup": "Instalación",
+    "ea-scan": "Procesar",
+    "ea-agenda": "La semana",
+    "ea-prep": "Preparar una sesión",
+    "ea-minutes": "Borrador del acta",
+    "ea-commitments": "Compromisos",
+    "ea-mail": "Correspondencia",
+    "ea-weekly": "Resumen de la semana",
+    "ea-wake": "Qué toca hoy"
+  }
+}

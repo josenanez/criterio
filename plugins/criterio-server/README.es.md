@@ -85,7 +85,7 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio CFO** · La función financiera | Áurea | `/criterio-treasury:treasury-setup` | `.criterio/tesoreria/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instancia>/` | `_CRITERIO_LEGAL.txt` |
-| **Criterio EA** · Dirección | Ofelia | `None` | `.criterio/direccion/<instancia>/` | `None` |
+| **Criterio EA** · Dirección | Ofelia | `/criterio-assistant:ea-setup` | `.criterio/direccion/<instancia>/` | `_CRITERIO_DIRECCION.txt` |
 <!-- /servidor:familias -->
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la

@@ -2,7 +2,7 @@
 
 **la agente de tesorería de la familia CFO** · plugin `criterio-treasury`
 
-Corrida del 2026-10-27, sobre el commit `bf90c607`, con cambios en el árbol todavía sin confirmar. **2 puertas · 74 comprobaciones · todas en verde.**
+Corrida del 2026-10-27, sobre el commit `e01e5332`, con cambios en el árbol todavía sin confirmar. **2 puertas · 81 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-27, sobre el commit `bf90c607`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-treasury/finanzas.py selftest` | La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima | 61 | 206 ms | verde |
-| `criterio-cfo/evaluar.py` | El motor de Áurea contra la clave: caja, pagos, exposición, vencimientos y covenants en cuatro industrias, y nada en los controles | 13 | 869 ms | verde |
+| `criterio-treasury/finanzas.py selftest` | La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima | 65 | 145 ms | verde |
+| `criterio-cfo/evaluar.py` | El motor de Áurea contra la clave: caja, pagos, exposición, vencimientos y covenants en cuatro industrias, y nada en los controles | 16 | 1108 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -19,8 +19,8 @@ Una puerta sin comprobaciones no es una puerta vacía: **genera el material sint
 
 Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es publicidad; lo que lo vuelve auditable es lo que dice que todavía no se sabe.
 
-- **Su ronda con el agente no ha corrido.** Esta corrida prueba el motor de Áurea contra la clave del material de cuatro industrias y dos controles, y con su autoprueba. La ronda con el agente, sobre el mismo material, es el siguiente paso (ADR 0016).
-- **Nada se ha corrido sobre los extractos ni la política de una organización real.** Todo es sintético; la política, la matriz de firmas y los covenants son de cada organización.
+- **La extracción del agente la prueba la ronda, no esta corrida.** Esta corrida escribe en la ficha lo que el agente tendría que extraer —el estado declarado, las actas, lo que dice cada área— y prueba el motor con esa extracción. Que el agente la haga bien sobre los mismos documentos lo prueba la ronda con el agente.
+- **Nada se ha corrido sobre la contabilidad real de una organización.** Todo el material es sintético y construido desde cero, con la estructura oficial de cada factura.
 
 ## Los comandos, corridos por un agente de verdad
 
@@ -54,7 +54,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-portfolio/terminos.py` | Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256 | 14 | verde |
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 11 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 221 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 234 | **8 EN ROJO** |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |

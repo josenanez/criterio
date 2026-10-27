@@ -1,0 +1,420 @@
+{
+ "comandos": {
+  "ea-setup": {
+   "funcion": "Deja a Ofelia lista sobre la oficina de un ejecutivo.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la oficina] o vacío",
+    "lee": [
+     "documentos de la oficina"
+    ]
+   },
+   "salida": {
+    "muestra": "inventario, órganos y sesiones, preguntas, primer resultado",
+    "escribe": [
+     ".criterio/direccion/<ejecutivo>/config.json",
+     "<estado>/ (init)",
+     ".criterio/terminos/ (aceptar)",
+     "<estado>/resultados.json",
+     "<estado>/reporte-ea-setup.md",
+     "<raíz>/_CRITERIO_DIRECCION.txt (marcar-raiz, con permiso)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "ea-intake"
+    ],
+    "script": [
+     "aceptar",
+     "buscar-raiz",
+     "compute",
+     "config",
+     "corrida",
+     "init",
+     "inventario",
+     "marcar-raiz",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "las cuatro oficinas del material",
+    "esperado": "la configuración que deja el setup y el primer resultado"
+   }
+  },
+  "ea-scan": {
+   "funcion": "Las fichas de las reuniones, de la correspondencia y de la agenda",
+   "entrada": {
+    "argumento": "[órgano o fecha] o vacío",
+    "lee": [
+     "config",
+     "agenda .ics",
+     "sesiones de organos/",
+     "correos .eml"
+    ]
+   },
+   "salida": {
+    "muestra": "las fichas nuevas y cambiadas, las señales",
+    "escribe": [
+     "<estado>/reuniones/<órgano>-<AAAA-MM-DD>.json",
+     "<estado>/correspondencia/<correo>.json",
+     "<estado>/resultados.json",
+     "<estado>/reporte-ea-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "commitment-tracking",
+     "correspondence-record",
+     "decision-brief",
+     "ea-intake",
+     "meeting-record"
+    ],
+    "script": [
+     "agenda",
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "acuerdos sin responsable o sin fecha, compromisos vencidos y movidos, una decisión con plazo, un correo sin respuesta",
+    "esperado": "las señales y la extracción de la clave"
+   }
+  },
+  "ea-agenda": {
+   "funcion": "La semana del ejecutivo: cruces, sesiones sin material y sesiones sin acta",
+   "entrada": {
+    "argumento": "[días] o vacío",
+    "lee": [
+     "config",
+     "agenda .ics",
+     "fichas de las reuniones"
+    ]
+   },
+   "salida": {
+    "muestra": "la semana: cruces, sesiones sin material y sin acta",
+    "escribe": [
+     "<estado>/resultados.json",
+     "<estado>/reporte-ea-agenda.md"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "agenda",
+     "compute",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un cruce directo, uno tras el cambio de hora y una agenda vieja",
+    "esperado": "meeting_conflict de la clave y ningún cruce con la agenda vieja"
+   }
+  },
+  "ea-prep": {
+   "funcion": "El paquete de la sesión, con la ficha de cada decisión",
+   "entrada": {
+    "argumento": "<órgano> <AAAA-MM-DD>",
+    "lee": [
+     "config",
+     "fichas de las reuniones",
+     "material de la sesión"
+    ]
+   },
+   "salida": {
+    "muestra": "el paquete de la sesión, sin ordenar las opciones",
+    "escribe": [
+     "<estado>/reuniones/<órgano>-<AAAA-MM-DD>.json",
+     "<estado>/resultados.json",
+     "<estado>/reporte-ea-prep.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "decision-brief"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "una sesión sin material y una decisión con plazo",
+    "esperado": "meeting_without_material y decision_deadline de la clave"
+   }
+  },
+  "ea-minutes": {
+   "funcion": "El borrador del acta, con cada acuerdo y compromiso citado",
+   "entrada": {
+    "argumento": "<órgano> <AAAA-MM-DD>",
+    "lee": [
+     "config",
+     "notas de 30-notas"
+    ]
+   },
+   "salida": {
+    "muestra": "lo que falta para cerrar el acta",
+    "escribe": [
+     "90-borradores/BORRADOR-acta-<órgano>-<AAAA-MM-DD>.md",
+     "<estado>/resultados.json",
+     "<estado>/reporte-ea-minutes.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "minutes-draft"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "una sesión con notas y sin acta, y un borrador puesto en 40-acta/",
+    "esperado": "meeting_without_minutes de la clave; el borrador no cuenta como acta"
+   }
+  },
+  "ea-commitments": {
+   "funcion": "El estado de los compromisos de dirección, por órgano y por responsable",
+   "entrada": {
+    "argumento": "[órgano o responsable] o vacío",
+    "lee": [
+     "config",
+     "fichas de las reuniones",
+     "fichas de proyecto de Samuel, si están"
+    ]
+   },
+   "salida": {
+    "muestra": "los compromisos por órgano y por responsable",
+    "escribe": [
+     "<estado>/resultados.json",
+     "<estado>/reporte-ea-commitments.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "commitment-tracking"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un compromiso vencido sin evidencia y uno movido tres veces",
+    "esperado": "commitment_overdue y commitment_rescheduled de la clave"
+   }
+  },
+  "ea-mail": {
+   "funcion": "La correspondencia que pide respuesta, con sus borradores",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "fichas de la correspondencia"
+    ]
+   },
+   "salida": {
+    "muestra": "lo que pide respuesta y para cuándo",
+    "escribe": [
+     "90-borradores/BORRADOR-respuesta-<correo>.md",
+     "<estado>/resultados.json",
+     "<estado>/reporte-ea-mail.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "correspondence-record"
+    ],
+    "script": [
+     "compute",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un requerimiento sin respuesta guardada y una carpeta excluida",
+    "esperado": "correspondence_unanswered de la clave; nada de la carpeta excluida"
+   }
+  },
+  "ea-weekly": {
+   "funcion": "El resumen de la semana: lo que llegó, lo que vence y lo que falta preparar",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "fichas"
+    ]
+   },
+   "salida": {
+    "muestra": "un resumen de la semana",
+    "escribe": [
+     "<estado>/resultados.json",
+     "<estado>/reporte-ea-weekly.md"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "compute",
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "las señales de cada oficina",
+    "esperado": "las de la clave, y que no se publique en Rostrum por omisión"
+   }
+  },
+  "ea-wake": {
+   "funcion": "Lo que toca hoy en la oficina; si no toca nada, se calla",
+   "entrada": {
+    "argumento": "vacío",
+    "lee": [
+     "config",
+     "fichas",
+     "preguntas de Rostrum"
+    ]
+   },
+   "salida": {
+    "muestra": "lo que corrió y lo que encontró, o una línea si no toca nada",
+    "escribe": [
+     "<estado>/corridas/"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "corrida",
+     "despertar",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "una sesión en su ventana, un acta pendiente y un plazo de correo",
+    "esperado": "que se calle cuando no toca nada"
+   }
+  }
+ },
+ "skills": {
+  "ea-intake": {
+   "decide": "Qué documento procesa el motor —la agenda, los encabezados de cada correo— y cuál se extrae a una ficha; dónde va cada archivo y qué carpetas se excluyen.",
+   "escribe": [],
+   "alimenta": [
+    "meeting_conflict"
+   ]
+  },
+  "meeting-record": {
+   "decide": "El orden del día, los acuerdos con su responsable y su fecha y los compromisos de cada sesión, cada uno con su cita; solo del acta firmada.",
+   "escribe": [
+    "agenda",
+    "agreements",
+    "commitments",
+    "decisions"
+   ],
+   "alimenta": [
+    "agreement_without_owner",
+    "agreement_without_date",
+    "meeting_without_material",
+    "meeting_without_minutes"
+   ]
+  },
+  "decision-brief": {
+   "decide": "La ficha de cada decisión: las opciones que traen los documentos con su evidencia, lo que falta saber y la fecha que fija el plazo, sin ordenarlas.",
+   "escribe": [
+    "decisions"
+   ],
+   "alimenta": [
+    "decision_deadline"
+   ]
+  },
+  "minutes-draft": {
+   "decide": "El borrador del acta desde las notas, con «BORRADOR» en el nombre y en el texto, en 90-borradores/.",
+   "escribe": [],
+   "alimenta": []
+  },
+  "correspondence-record": {
+   "decide": "Si un correo pide respuesta, qué pide, para cuándo y si es rutinario; el borrador de una respuesta rutinaria, sin enviarla.",
+   "escribe": [
+    "asks_reply",
+    "ask",
+    "due",
+    "routine"
+   ],
+   "alimenta": [
+    "correspondence_unanswered"
+   ]
+  },
+  "commitment-tracking": {
+   "decide": "Quién prometió qué y para cuándo; sin fecha inventada.",
+   "escribe": [
+    "commitments"
+   ],
+   "alimenta": [
+    "commitment_overdue",
+    "commitment_rescheduled",
+    "commitment_undated"
+   ]
+  }
+ },
+ "por_descripcion": {}
+}

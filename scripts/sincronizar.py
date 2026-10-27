@@ -52,7 +52,7 @@ SCRIPTS = {
 # La familia CFO toma de la PMO lo que es igual en cualquier función —leer un documento,
 # registrar la aceptación de los términos— y comparte entre sus dos plugins su propio motor.
 # La fuente de `finanzas.py` y de `finance-intake` es criterio-finance, donde se editan.
-for _p in ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance"):
+for _p in ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant"):
     SCRIPTS[_p] = {
         "texto.py": "un acta llega en .docx en finanzas tanto como en proyectos",
         "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
@@ -69,7 +69,7 @@ SCRIPTS["criterio-server"] = {
     "raiz.py": "el mapa dice si la raíz de cada agente está marcada",
 }
 # El arnés de cada agente: el mismo `hooks.json` que llama a su copia de `rastro.py`.
-HOOKS = ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance")
+HOOKS = ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant")
 FUENTE_CFO = RAIZ / "plugins" / "criterio-finance" / "scripts"
 SCRIPTS_CFO = {
     "criterio-budget": {
@@ -83,7 +83,7 @@ SCRIPTS_CFO = {
         "paises.json": "el registro único de países: ningún motor escribe el nombre de un país",
     },
 }
-for _p in ("criterio-legal", "criterio-compliance"):
+for _p in ("criterio-legal", "criterio-compliance", "criterio-assistant"):
     SCRIPTS_CFO[_p] = {"nucleo.py": "tablas, fechas, inventario, señales y reporte: igual en cualquier función",
                        "paises.json": "el registro único de países: ningún motor escribe el nombre de un país"}
 # Las reglas de compromiso viven en el núcleo común (ADR 0012): `portafolio.py` lo importa, así que
@@ -122,7 +122,7 @@ RAIZ_A_PLUGINS = {
     "registro/versiones.json": ("REGISTRO.json", "el registro de versiones de la familia"),
 }
 PLUGINS_FAMILIA = ("criterio-portfolio", "criterio-project", "criterio-product", "criterio-finance", "criterio-budget",
-                   "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-server")
+                   "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant", "criterio-server")
 
 # Los skills que son método y no rol. Un riesgo es un riesgo lo mire quien lo mire, y
 # la ficha es el contrato de datos de la familia entera. Los que quedan fuera lo hacen
@@ -142,6 +142,10 @@ SKILLS = {
     # Lo que Alba comparte es la costura con el resto de la familia: la ficha que nace
     # con el acta, el acta misma, qué documento hay que releer, y la taxonomía a la que
     # se muda un supuesto el día que nadie lo verifica.
+    # Ofelia lleva los compromisos de dirección con las mismas reglas que Samuel (ADR 0012).
+    "criterio-assistant": {
+        "commitment-tracking": "el compromiso vencido, el que nadie fechó y el que se movió: las reglas de Samuel",
+    },
     "criterio-product": {
         "project-record": "la ficha nace con el acta, y Alba es quien la crea",
         "document-intake": "una entrevista es un documento, y también envejece",

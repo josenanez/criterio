@@ -62,9 +62,9 @@ A round that does not run every entity is partial: the first, small one, before 
 
 | Material | Agents | Signals | Extra | Extraction | Tokens |
 |---|---|---|---|---|---|
-| Banking · Mexico | aurea, Clara, Tomás | 16 of 16 | 0 | 8 of 8 | 4.3 M |
-| Retail · Mexico | aurea, Clara, Tomás | 11 of 11 | 0 | 8 of 8 | 4.5 M |
-| Control · Mexico | aurea, Clara, Tomás | 0 of 0 | 0 | 8 of 8 | 4.4 M |
+| Banking · Mexico | Áurea, Clara, Tomás | 16 of 16 | 0 | 8 of 8 | 4.3 M |
+| Retail · Mexico | Áurea, Clara, Tomás | 11 of 11 | 0 | 8 of 8 | 4.5 M |
+| Control · Mexico | Áurea, Clara, Tomás | 0 of 0 | 0 | 8 of 8 | 4.4 M |
 
 ## What failed, one by one · rounds 1–6
 
@@ -91,7 +91,7 @@ A round that does not run every entity is partial: the first, small one, before 
 |---|---|
 | Tomás | 5 |
 | Clara | 3 |
-| aurea | 2 |
+| Áurea | 2 |
 | None | 1 |
 
 ## Cost and next step

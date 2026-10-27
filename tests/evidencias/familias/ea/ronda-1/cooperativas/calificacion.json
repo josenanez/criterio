@@ -1,0 +1,70 @@
+{
+  "entidad": "Cooperativa Sierra Alta",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 1666360,
+  "senales": {
+    "esperadas": 4,
+    "acertadas": 4,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 17,
+    "bien": 16,
+    "mal": [
+      {
+        "ficha": "reuniones/consejo-de-administracion-2026-09-24",
+        "campo": "agreements",
+        "esperado": [
+          {
+            "id": "A-1",
+            "what": "Aprobar los estados financieros de agosto",
+            "who": "Gabriela Mora",
+            "due": "2026-10-15",
+            "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 9"
+          },
+          {
+            "id": "A-2",
+            "what": "Actualizar la política de viajes",
+            "who": null,
+            "due": "2026-11-30",
+            "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 10"
+          },
+          {
+            "id": "A-3",
+            "what": "Contratar la auditoría del sistema de pagos",
+            "who": "Gabriela Mora",
+            "due": "2026-12-15",
+            "source": "organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, línea 11"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "A-1",
+            "what": "Aprobar los estados financieros de agosto",
+            "who": "Gabriela Mora",
+            "due": "2026-10-15",
+            "source": "direccion/gerencia-general/organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, punto 1"
+          },
+          {
+            "id": "A-2",
+            "what": "Actualizar la política de viajes",
+            "who": null,
+            "due": "2026-11-30",
+            "source": "direccion/gerencia-general/organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, punto 2"
+          },
+          {
+            "id": "A-3",
+            "what": "Contratar la auditoría del sistema de pagos",
+            "who": "Gabriela Mora",
+            "due": "2026-12-15",
+            "source": "direccion/gerencia-general/organos/consejo-de-administracion/2026-09-24/40-acta/acta-firmada.md, punto 3"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

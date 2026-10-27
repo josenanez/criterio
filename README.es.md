@@ -8,14 +8,14 @@
 
 Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer resultado en quince minutos
 
-**Estado: las familias PMO, CFO y CLO están construidas y probadas sobre material sintético, y se liberan juntas;** la versión vigente y qué cambió en cada una están en el [registro de versiones](https://www.josenanez.com/es/agents/criterio-pmo/legal). Cada cambio pasa por `scripts/verificar.py`, con cada puerta, lo que prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
+**Estado: las familias PMO, CFO, CLO y EA están construidas y probadas sobre material sintético, y se liberan juntas;** la versión vigente y qué cambió en cada una están en el [registro de versiones](https://www.josenanez.com/es/agents/criterio-pmo/legal). Cada cambio pasa por `scripts/verificar.py`, con cada puerta, lo que prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
 
 ---
 
-| | | |
-|:--:|:--:|:--:|
-| ![Portafolio, proyecto y producto](docs/img/es/pmo.png) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) |
-| **[criterio-pmo →](families/criterio-pmo/README.es.md)**<br>tres agentes | **[criterio-cfo →](families/criterio-cfo/README.es.md)**<br>Clara, Tomás y Áurea, construida y probada | **[criterio-clo →](families/criterio-clo/README.es.md)**<br>Fidel y Constanza, construida y probada |
+| | | | |
+|:--:|:--:|:--:|:--:|
+| ![Portafolio, proyecto y producto](docs/img/es/pmo.png) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) | ![EA](docs/img/es/ea.png) |
+| **[criterio-pmo →](families/criterio-pmo/README.es.md)**<br>tres agentes | **[criterio-cfo →](families/criterio-cfo/README.es.md)**<br>Clara, Tomás y Áurea, construida y probada | **[criterio-clo →](families/criterio-clo/README.es.md)**<br>Fidel y Constanza, construida y probada | **[criterio-ea →](families/criterio-ea/README.es.md)**<br>Ofelia, construida y probada |
 
 ---
 
@@ -40,8 +40,9 @@ contrato de datos y se entregan trabajo unos a otros. Los de familias distintas,
 | Familia | Alcance | Objetivo | Estado |
 |---|---|---|---|
 | **[criterio-pmo](families/criterio-pmo/README.es.md)** | El gobierno de un portafolio, de cada proyecto y de cada producto | Que lo que se declara y lo que sustentan los documentos se puedan comparar, todos los días y sobre el conjunto | **Tres agentes, instalables hoy** |
-| **[criterio-cfo](families/criterio-cfo/README.es.md)** | El cierre, el control y el reporte financiero | Que el cierre deje de depender de que alguien recuerde qué falta | **Dos agentes construidos y probados:** [Clara](plugins/criterio-finance/README.es.md) y [Tomás](plugins/criterio-budget/README.es.md) |
+| **[criterio-cfo](families/criterio-cfo/README.es.md)** | El cierre, el control y el reporte financiero | Que el cierre deje de depender de que alguien recuerde qué falta | **Tres agentes construidos y probados:** [Clara](plugins/criterio-finance/README.es.md), [Tomás](plugins/criterio-budget/README.es.md) y [Áurea](plugins/criterio-treasury/README.es.md) |
 | **[criterio-clo](families/criterio-clo/README.es.md)** | Los contratos, el cumplimiento y el riesgo legal | Que una empresa sepa qué firmó, qué vence y a qué se obligó | **Dos agentes construidos y probados:** [Fidel](plugins/criterio-legal/README.es.md) y [Constanza](plugins/criterio-compliance/README.es.md) |
+| **[criterio-ea](families/criterio-ea/README.es.md)** | La oficina de dirección: la agenda, las sesiones de los órganos, las actas, los compromisos y la correspondencia | Que el ejecutivo llegue a cada sesión preparado y que ningún acuerdo quede sin dueño ni fecha | **Una agente construida y probada:** [Ofelia](plugins/criterio-assistant/README.es.md) |
 
 **Rostrum, el portal, es uno para todas las familias.** Publica lo que los agentes ya escribieron
 —el informe de la PMO, los reportes de la CFO y de la CLO, lo que vence en todas— para quien no

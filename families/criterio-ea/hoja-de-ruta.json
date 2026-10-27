@@ -1,0 +1,71 @@
+{
+ "nota": "Fuente única de la hoja de ruta de la familia EA: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json.",
+ "incrementos": [
+  {
+   "incremento": 1,
+   "version": "0.12.0",
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Ofelia, construida y probada con la ronda completa con la agente",
+    "entra": [
+     "Los nueve comandos de Ofelia, sus skills y el motor: la agenda .ics con repeticiones y cambio de hora, el correo guardado, las sesiones de los órganos y los compromisos con las reglas de Samuel",
+     "Prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar",
+     "Colombia y Ecuador, en la oficina de una presidencia y de una gerencia general, y dos oficinas de control"
+    ],
+    "prueba": "La ronda 1: Ofelia sobre las cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con una señal de más en un control; cada defecto que encontró, con su corrección y su verificación"
+   },
+   "en": {
+    "titulo": "Ofelia, built and tested with the full round with the agent",
+    "entra": [
+     "Ofelia's nine commands, her skills and the engine: the .ics calendar with recurrences and the clock change, saved email, the governing bodies' meetings and commitments with Samuel's rules",
+     "She prepares each decision with its options and evidence, without ranking or recommending",
+     "Colombia and Ecuador, in a president's office and a general manager's office, and two control offices"
+    ],
+    "prueba": "Round 1: Ofelia on the four offices, 14 of 14 signals and 76 of 78 data points, with one extra signal in a control; every defect it found, with its fix and its verification"
+   }
+  },
+  {
+   "incremento": 2,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Los viajes, y más países",
+    "entra": [
+     "Los itinerarios contra la agenda",
+     "Perú, Chile y México, por tamaño de mercado, cada uno con su ronda"
+    ],
+    "prueba": "La ronda con la agente en cada país"
+   },
+   "en": {
+    "titulo": "Travel, and more countries",
+    "entra": [
+     "Itineraries against the calendar",
+     "Peru, Chile and Mexico, by market size, each with its round"
+    ],
+    "prueba": "The round with the agent in each country"
+   }
+  },
+  {
+   "incremento": 3,
+   "version": null,
+   "estado": "reservada",
+   "industrias": [],
+   "es": {
+    "titulo": "El despliegue en una organización",
+    "entra": [
+     "El primer uso sobre la oficina de un ejecutivo concreto"
+    ],
+    "prueba": "La documentación de esa oficina"
+   },
+   "en": {
+    "titulo": "Deployment in an organisation",
+    "entra": [
+     "The first use on a specific executive's office"
+    ],
+    "prueba": "That office's documentation"
+   }
+  }
+ ]
+}
