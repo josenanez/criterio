@@ -138,6 +138,11 @@ def secciones(sigla: str):
     # 2 · método
     inds = lambda i: ", ".join(sorted({material(sigla, c["carpeta"], ix(i)) for c in por[U] if not c["control"]}))
     ctrls = lambda i: ", ".join(sorted({material(sigla, c["carpeta"], ix(i)) for c in por[U] if c["control"]}))
+    # Quiénes corren, de familia.json: «Clara, Tomás y Áurea», o una sola agente.
+    def quienes(i):
+        n = list(FAM[sigla]["agentes"].values())
+        y = " y " if f(i) else " and "
+        return n[0] if len(n) == 1 else ", ".join(n[:-1]) + y + n[-1]
     S.append({"id": "metodo", "titulo": {"es": "Qué se probó y cómo", "en": "What was tested and how"},
               "tabla": {"cab": {"es": ["", ""], "en": ["", ""]}, "filas": {i: [
                   ["Rondas" if f(i) else "Rounds", f"{len(rondas)}; " + ((f"la completa más reciente es la {U}" if completa else f"la más reciente, la {U}, es parcial") if f(i) else
@@ -149,10 +154,10 @@ def secciones(sigla: str):
                   ["Datos calificados" if f(i) else "Data items graded", num(T["campos"], i)],
               ] for i in L}},
               "parrafos": {i: [
-                  "Cada entidad corre todos los comandos de los dos agentes, con un tope de tokens fijado antes de empezar, sobre un material que trae su clave aparte: el agente nunca la ve. "
+                  f"En cada entidad corren el setup y el procesamiento de {quienes(i)} —los comandos que procesan los documentos y escriben las fichas—, con un tope de tokens fijado antes de empezar, sobre un material que trae su clave aparte, que nadie ve. Los demás comandos calculan sobre esas fichas con el motor, que se prueba con cada cambio del repositorio. "
                   "Las señales se comparan por su nombre y su clave; la extracción, campo por campo, contra lo que traen los documentos escritos. Las entidades de control no tienen ningún defecto sembrado: cualquier señal en ellas es una falla."
                   if f(i) else
-                  "Each entity runs every command of the two agents, with a token cap set before starting, on material whose key is kept apart: the agent never sees it. "
+                  f"On each entity, {quienes(i)} run their setup and processing —the commands that process the documents and write the records—, with a token cap set before starting, on material whose key is kept apart and never seen. The other commands calculate on those records with the engine, which is tested on every change to the repository. "
                   "Signals are compared by name and key; extraction, field by field, against what the written documents say. Control entities carry no seeded defect: any signal in them is a failure.",
                   "Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que levantó, cuántas eran correctas. Margen del 95 %: intervalo de confianza de Wilson sobre los casos."
                   if f(i) else

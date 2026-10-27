@@ -2,7 +2,7 @@
 // animación: components/criterio/CriterioFamily.tsx, con la hoja que el portal publica en
 // lib/criterioImpresora.ts desde families/*/familia.json. Nada se copia a mano. Salen:
 //
-//   docs/video/criterio-pmo-familia-{es,en}.mp4   vertical 4:5, 1080×1350, para LinkedIn
+//   docs/video/criterio-{pmo,cfo}-familia-{es,en}.mp4   vertical 4:5, 1080×1350, para LinkedIn
 //   docs/img/{es,en}/robots.gif                   la PMO, apaisado, 1120 px, para los README
 //   docs/img/{es,en}/robots-{cfo,clo,ea}.gif       la CFO, la CLO y la EA, igual
 //
@@ -43,12 +43,14 @@ if (spawnSync('ffmpeg', ['-version']).status !== 0) {
 // El video se dibuja a 783 px de ancho y se amplía 1,38: así el texto se lee en un
 // teléfono y el componente cae en su diseño de dos columnas. El GIF va sin subtítulo
 // ni encabezado, solo el piso y la hoja: el README ya tiene su propio título.
-// El video es solo de la PMO: su tarjeta final lleva las cifras de sus rondas. Las familias
+// El video es de la PMO y de la CFO: su tarjeta final lleva las cifras de sus rondas. Las familias
 // CFO, CLO y EA salen en GIF. FAMILIAS=cfo,clo graba solo esas.
 const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo,ea').split(',');
+// Las familias con video, cada una con su tarjeta final en src/main.jsx.
+const VIDEOS = ['pmo', 'cfo'];
 const TOMAS = [
-  { familia: 'pmo', idioma: 'es', tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 },
-  { familia: 'pmo', idioma: 'en', tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 },
+  ...VIDEOS.flatMap((familia) => ['es', 'en'].map((idioma) =>
+    ({ familia, idioma, tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 }))),
   ...['pmo', 'cfo', 'clo', 'ea'].flatMap((familia) => ['es', 'en'].map((idioma) =>
     ({ familia, idioma, tipo: 'gif', ancho: 1280, alto: 568, zoom: 1 }))),
 ].filter((t) => FAMILIAS.includes(t.familia));
@@ -138,7 +140,7 @@ async function grabar(navegador, url, toma) {
 }
 
 function video(toma, { carpeta, tiempos }) {
-  const salida = path.join(AQUI, `criterio-pmo-familia-${toma.idioma}.mp4`);
+  const salida = path.join(AQUI, `criterio-${toma.familia}-familia-${toma.idioma}.mp4`);
   ffmpeg(['-f', 'concat', '-safe', '0', '-i', lista(carpeta, tiempos, 0.5),
     '-vf', 'fps=30,crop=trunc(iw/2)*2:trunc(ih/2)*2,format=yuv420p',
     '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-movflags', '+faststart', salida]);

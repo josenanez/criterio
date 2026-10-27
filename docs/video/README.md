@@ -18,6 +18,7 @@ el componente y esa hoja, los monta en una página propia y graba:
 | Pieza | Formato | Para qué |
 |---|---|---|
 | [`criterio-pmo-familia-es.mp4`](criterio-pmo-familia-es.mp4) · [`criterio-pmo-familia-en.mp4`](criterio-pmo-familia-en.mp4) | Vertical 4:5, 1080×1350, H.264, con la tarjeta final de cifras | El post de LinkedIn |
+| [`criterio-cfo-familia-es.mp4`](criterio-cfo-familia-es.mp4) · [`criterio-cfo-familia-en.mp4`](criterio-cfo-familia-en.mp4) | Igual, la CFO, con su tarjeta final | El post de LinkedIn de la CFO |
 | [`../img/es/robots.gif`](../img/es/robots.gif) · [`../img/en/robots.gif`](../img/en/robots.gif) | Apaisado, 1120 px, la impresión completa de la PMO | El README de la familia PMO |
 | [`../img/es/robots-cfo.gif`](../img/es/robots-cfo.gif) · [`../img/en/robots-cfo.gif`](../img/en/robots-cfo.gif) | Igual, la CFO | El diseño de la familia CFO |
 | [`../img/es/robots-clo.gif`](../img/es/robots-clo.gif) · [`../img/en/robots-clo.gif`](../img/en/robots-clo.gif) | Igual, la CLO | El diseño de la familia CLO |
@@ -30,9 +31,10 @@ se edita ni el GIF ni el video a mano, y [`graficos.py`](../img/graficos.py) no 
 la impresora: dos guiones de la misma escena terminan diciendo cosas distintas. (Sí dibuja la
 tarjeta animada de cada agente, con los mismos gestos de `robots.py`.)
 
-La tarjeta final del video lleva las cifras de la evidencia publicada en
-[`tests/evidencias/rondas/`](../../tests/evidencias/rondas). Están en `src/main.jsx`; si
-cambian, se cambian ahí.
+La tarjeta final de cada video lleva las cifras de la evidencia publicada: la PMO, de
+[`tests/evidencias/rondas/`](../../tests/evidencias/rondas); la CFO, de
+[`tests/evidencias/familias/cfo/`](../../tests/evidencias/familias/cfo) y de su material. Están en
+`src/main.jsx`; si cambian, se cambian ahí.
 
 Pide ffmpeg en el `PATH`. `CHROMIUM` apunta a otro navegador si no se usa el de
 Playwright. Los cuadros intermedios quedan en `cuadros/`, que no se versiona.
