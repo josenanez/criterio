@@ -28,7 +28,7 @@ cash — and none talks to the others directly: they talk through their records.
 
 ## What the family does
 
-![The family: Clara and Tomás, one record each](../../docs/img/en/familia-cfo.png)
+![The family: Clara, Tomás and Áurea, one record each](../../docs/img/en/familia-cfo.png)
 
 The finance function has three roles that work on the same books and look at different things,
 which is why the family has three agents. They carry a person's name because **they are extended
@@ -236,10 +236,11 @@ families, without the server knowing anything about finance
 ([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)).
 
 **How the CFO family enters the portal.** `/criterio-finance:finance-setup` and
-`/criterio-budget:budget-setup` leave their configuration in `.criterio/finanzas/<entidad>/` and
-`.criterio/presupuesto/<entidad>/`, with the entity's finance folder marked with
-`_CRITERIO_FINANZAS.txt`. Clara and Tomás share the entity's state, and each one sees its own runs
-and reports in the portal, not the other's. Then `/criterio-server:server-setup` finds both
+`/criterio-budget:budget-setup` and `/criterio-treasury:treasury-setup` leave their configuration in
+`.criterio/finanzas/<entidad>/`, `.criterio/presupuesto/<entidad>/` and `.criterio/tesoreria/<entidad>/`,
+with the entity's finance folder marked with `_CRITERIO_FINANZAS.txt`. The three share the entity's
+state, and each one sees its own runs and reports in the portal, not the others'. Áurea's report,
+with balances, is not published by default. Then `/criterio-server:server-setup` finds the
 configurations and adds them to the map, and `/criterio-server:server-start` raises the portal. A
 new entity enters by running `server-setup` again.
 
@@ -247,12 +248,12 @@ new entity enters by running `server-setup` again.
 
 | Where | What |
 |---|---|
-| Home | The **Criterio CFO** card with Clara and Tomás and their open signals |
-| `/familia/cfo` | The latest each one's engine wrote —the close of a month, the budget of a year—, with its signals in words and the calculation date, and its reports exactly as the engine left them |
+| Home | The **Criterio CFO** card with Clara, Tomás and Áurea and their open signals |
+| `/familia/cfo` | The latest each one's engine wrote —the close of a month, the budget of a year, the treasury of a period—, with its signals in words and the calculation date, and its reports exactly as the engine left them |
 | What falls due | The close tasks and the auditor's requests with a date, sorted with the other families' due dates |
 | `/caso/<PRY>` | A budget signal on a PMO project appears on that project's page |
 | Where it works | The full path of the root folder, of the entity's documents with their marker, of the state and of each configuration |
-| Ask an agent | A question for Clara or for Tomás, taken on their next run |
+| Ask an agent | A question for Clara, Tomás or Áurea, taken on their next run |
 
 **It authenticates nobody, and that is on purpose**: it is published behind the access control
 the organisation already has. It recalculates nothing and does not write the state. The pages
@@ -378,7 +379,7 @@ The family grows in increments. Each one is a version with its full test and its
 ## The family's thirteen skills
 
 <!-- cfo:skills-familia · generado por scripts/familias.py; no se edita a mano -->
-Thirteen distinct skills across the two agents. **The ones they share are literal copies, not an imported module**: an installed plugin has to run on its own. `scripts/sincronizar.py` copies them and `scripts/sincronizar.py --check` fails if they drift.
+Thirteen distinct skills across the three agents. **The ones they share are literal copies, not an imported module**: an installed plugin has to run on its own. `scripts/sincronizar.py` copies them and `scripts/sincronizar.py --check` fails if they drift.
 
 | Skill | Clara | Tomás | Áurea |
 |---|:--:|:--:|:--:|
@@ -406,9 +407,9 @@ documentation.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; with the agent, every entity in the material, up to round 6 · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; with the agent, every entity in the material, up to round 6 · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; with the agent, every entity in the material, up to round 6 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 

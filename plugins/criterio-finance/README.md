@@ -208,7 +208,7 @@ it; the engine writes the results.
 
 [`scripts/finanzas.py`](scripts/finanzas.py), on the standard library, does everything that is
 calculation: it processes the tables and the invoices directly —the trial balance, the ledger,
-the statements, the subledgers, the DIAN, SRI and SUNAT XML— and calculates each signal, the same result
+the statements, the subledgers, the DIAN, SRI, SUNAT, SII and SAT XML— and calculates each signal, the same result
 every time. The agent takes to the record only what a written document carries: what somebody
 declares, a request that arrived by email
 ([ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md)).

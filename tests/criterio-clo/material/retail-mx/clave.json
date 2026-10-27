@@ -1,0 +1,533 @@
+{
+  "entidad": "Tiendas del Bajío",
+  "industria": "retail",
+  "pais": "MX",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "preaviso_vencido",
+      "otrosi_sin_facultad",
+      "pago_despues",
+      "sin_firma",
+      "registro_sin_documento"
+    ],
+    "constanza": [
+      "sin_fuente",
+      "politica_vencida",
+      "caso_vencido",
+      "cumplida_sin_evidencia",
+      "norma_aplica_sin_matriz"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "TBA180912Q37",
+        "name": "Tiendas del Bajío",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "legal/TBA180912Q37-tiendas-del-bajio",
+        "state": "estado-legal/TBA180912Q37-tiendas-del-bajio"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "TBA180912Q37",
+        "name": "Tiendas del Bajío",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "legal/TBA180912Q37-tiendas-del-bajio",
+        "state": "estado-legal/TBA180912Q37-tiendas-del-bajio"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/TBA180912Q37-tiendas-del-bajio/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-1401": {
+        "code": "CTR-1401",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística del Bajío S.A. de C.V.",
+          "id": "PRV140202B41"
+        },
+        "value": 1760000,
+        "start": "2026-01-01",
+        "end": "2026-10-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Fernando Quiroga",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística del Bajío S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1401-logistica-del-bajio-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-02-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1401-logistica-del-bajio-s-a-de-c-v/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-1401-logistica-del-bajio-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Logística del Bajío S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1401-logistica-del-bajio-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-10-31",
+            "who": "Logística del Bajío S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1401-logistica-del-bajio-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Logística del Bajío S.A. de C.V.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-1401-logistica-del-bajio-s-a-de-c-v/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1401-logistica-del-bajio-s-a-de-c-v/10-contrato/contrato.md"
+      },
+      "CTR-1402": {
+        "code": "CTR-1402",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Empaques de Occidente S.A. de C.V.",
+          "id": "PRV140303C42"
+        },
+        "value": 880000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Sofía Elizondo",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Empaques de Occidente S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 1540000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Sofía Elizondo",
+            "source": "contratos/CTR-1402-empaques-de-occidente-s-a-de-c-v/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1402-empaques-de-occidente-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1402-empaques-de-occidente-s-a-de-c-v/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-1402-empaques-de-occidente-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Empaques de Occidente S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1402-empaques-de-occidente-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Empaques de Occidente S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1402-empaques-de-occidente-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1402-empaques-de-occidente-s-a-de-c-v/10-contrato/contrato.md"
+      },
+      "CTR-1403": {
+        "code": "CTR-1403",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Plaza Comercial León S.A.",
+          "id": "PRV140404D43"
+        },
+        "value": 1320000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fernando Quiroga",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Plaza Comercial León S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1403-plaza-comercial-leon-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1403-plaza-comercial-leon-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-1403-plaza-comercial-leon-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Plaza Comercial León S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1403-plaza-comercial-leon-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Plaza Comercial León S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1403-plaza-comercial-leon-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1403-plaza-comercial-leon-s-a/10-contrato/contrato.md"
+      },
+      "CTR-1404": {
+        "code": "CTR-1404",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Pagos en Línea S.A.P.I. de C.V.",
+          "id": "PRV140505E44"
+        },
+        "value": 660000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Sofía Elizondo",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Pagos en Línea S.A.P.I. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1404-pagos-en-linea-s-a-p-i-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1404-pagos-en-linea-s-a-p-i-de-c-v/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-1404-pagos-en-linea-s-a-p-i-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Pagos en Línea S.A.P.I. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1404-pagos-en-linea-s-a-p-i-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Pagos en Línea S.A.P.I. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1404-pagos-en-linea-s-a-p-i-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1404-pagos-en-linea-s-a-p-i-de-c-v/10-contrato/contrato.md"
+      },
+      "CTR-1405": {
+        "code": "CTR-1405",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Publicidad Integral S.C.",
+          "id": "PRV140606F45"
+        },
+        "value": 440000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": false,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Sofía Elizondo",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1405-publicidad-integral-s-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1405-publicidad-integral-s-c/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-1405-publicidad-integral-s-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Publicidad Integral S.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1405-publicidad-integral-s-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Publicidad Integral S.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1405-publicidad-integral-s-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-1405-publicidad-integral-s-c/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-1405-publicidad-integral-s-c/10-contrato/contrato.md"
+      },
+      "CTR-1406": {
+        "code": "CTR-1406",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Refrigeración Comercial S.A. de C.V.",
+          "id": "PRV140707G46"
+        },
+        "value": 1100000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fernando Quiroga",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Refrigeración Comercial S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1406-refrigeracion-comercial-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1406-refrigeracion-comercial-s-a-de-c-v/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-1406-refrigeracion-comercial-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Refrigeración Comercial S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1406-refrigeracion-comercial-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Refrigeración Comercial S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1406-refrigeracion-comercial-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1406-refrigeracion-comercial-s-a-de-c-v/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "applicable_norm_not_in_matrix",
+      "key": "aplica:N-2026-04"
+    },
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "obligation_without_source",
+      "key": "fuente:OB-13"
+    },
+    {
+      "signal": "payment_after_termination",
+      "key": "pagofuera:CTR-1406"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:P-03"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "registro:CTR-1409"
+    },
+    {
+      "signal": "renewal_notice_missed",
+      "key": "preaviso:CTR-1401"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-1402:OT-1"
+    },
+    {
+      "signal": "unsigned_contract",
+      "key": "sinfirma:CTR-1405"
+    }
+  ]
+}

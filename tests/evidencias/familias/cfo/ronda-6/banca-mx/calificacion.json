@@ -1,0 +1,20 @@
+{
+  "entidad": "Banco Valle de Anáhuac",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4295127,
+  "senales": {
+    "esperadas": 16,
+    "acertadas": 16,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

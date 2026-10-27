@@ -28,7 +28,7 @@ caja— y ninguno habla con los otros directamente: se hablan por sus fichas.
 
 ## Qué hace la familia
 
-![La familia: Clara y Tomás, una ficha cada uno](../../docs/img/es/familia-cfo.png)
+![La familia: Clara, Tomás y Áurea, una ficha cada uno](../../docs/img/es/familia-cfo.png)
 
 La función financiera tiene tres roles que trabajan sobre los mismos libros y miran cosas
 distintas, y por eso la familia tiene tres agentes. Llevan nombre de persona porque **son
@@ -237,23 +237,24 @@ familias, sin que el servidor sepa nada de finanzas
 ([ADR 0010](../../docs/decisions/0010-rostrum-plugin-propio.md)).
 
 **Cómo entra la CFO al portal.** `/criterio-finance:finance-setup` y
-`/criterio-budget:budget-setup` dejan su configuración en `.criterio/finanzas/<entidad>/` y
-`.criterio/presupuesto/<entidad>/`, con la carpeta de finanzas de la entidad marcada con
-`_CRITERIO_FINANZAS.txt`. Clara y Tomás comparten el estado de la entidad, y cada uno ve en el
-portal sus corridas y sus reportes, no los del otro. Después, `/criterio-server:server-setup`
-encuentra las dos configuraciones y las suma al mapa, y `/criterio-server:server-start` levanta el
+`/criterio-budget:budget-setup` y `/criterio-treasury:treasury-setup` dejan su configuración en
+`.criterio/finanzas/<entidad>/`, `.criterio/presupuesto/<entidad>/` y `.criterio/tesoreria/<entidad>/`,
+con la carpeta de finanzas de la entidad marcada con `_CRITERIO_FINANZAS.txt`. Los tres comparten el
+estado de la entidad, y cada uno ve en el portal sus corridas y sus reportes, no los de los otros.
+El reporte de Áurea, con saldos, no se publica por omisión. Después, `/criterio-server:server-setup`
+encuentra las configuraciones y las suma al mapa, y `/criterio-server:server-start` levanta el
 portal. Una entidad nueva entra volviendo a correr `server-setup`.
 
 **Lo que la CFO tiene en Rostrum:**
 
 | Dónde | Qué |
 |---|---|
-| Inicio | La tarjeta **Criterio CFO** con Clara y Tomás y sus señales abiertas |
-| `/familia/cfo` | Lo último que escribió el motor de cada uno —el cierre de un mes, el presupuesto de un año—, con sus señales en palabras y la fecha de cálculo, y sus reportes tal como los dejó el motor |
+| Inicio | La tarjeta **Criterio CFO** con Clara, Tomás y Áurea y sus señales abiertas |
+| `/familia/cfo` | Lo último que escribió el motor de cada uno —el cierre de un mes, el presupuesto de un año, la tesorería de un periodo—, con sus señales en palabras y la fecha de cálculo, y sus reportes tal como los dejó el motor |
 | Lo que vence | Las tareas del cierre y los requerimientos del auditor con fecha, ordenados con los vencimientos de las otras familias |
 | `/caso/<PRY>` | Una señal de presupuesto sobre un proyecto de la PMO aparece en la página de ese proyecto |
 | Dónde trabaja | La ruta completa de la carpeta raíz, de los documentos de la entidad con su marca, del estado y de cada configuración |
-| Preguntar a un agente | Una pregunta para Clara o para Tomás, que la atiende en su siguiente corrida |
+| Preguntar a un agente | Una pregunta para Clara, Tomás o Áurea, que la atiende en su siguiente corrida |
 
 **No autentica a nadie, y es a propósito**: se publica detrás del control de acceso que la
 organización ya tiene. No recalcula nada y no escribe en el estado. Las páginas cumplen WCAG 2.2
@@ -378,7 +379,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 ## Los trece skills de la familia
 
 <!-- cfo:skills-familia · generado por scripts/familias.py; no se edita a mano -->
-Trece skills distintos entre los dos agentes. **Los que comparten son copias literales, no un módulo importado**: un plugin instalado tiene que correr solo. `scripts/sincronizar.py` las copia y `scripts/sincronizar.py --check` falla si se separan.
+Trece skills distintos entre los tres agentes. **Los que comparten son copias literales, no un módulo importado**: un plugin instalado tiene que correr solo. `scripts/sincronizar.py` las copia y `scripts/sincronizar.py --check` falla si se separan.
 
 | Skill | Clara | Tomás | Áurea |
 |---|:--:|:--:|:--:|
@@ -406,9 +407,9 @@ sobre la documentación de una organización real.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Tesorería | `criterio-treasury` · 6 comandos, 2 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 6 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 6 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Tesorería | `criterio-treasury` · 6 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 6 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 

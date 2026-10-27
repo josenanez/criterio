@@ -155,6 +155,9 @@ def cifras_diseno(fu: dict, i: str = "es") -> str:
     return t
 
 
+EN_PALABRAS = {"es": {1: "el", 2: "los dos", 3: "los tres", 4: "los cuatro"}, "en": {1: "the", 2: "the two", 3: "the three", 4: "the four"}}
+
+
 def cifras_readme(fu: dict, i: str) -> str:
     cab = ("| Cifra | Fuente |" if i == "es" else "| Figure | Source |")
     l = [cab, "|---|---|"]
@@ -380,13 +383,13 @@ def skills_familia(fa: dict, i: str) -> str:
     compartidos = [s for s in todos if sum(s in skills_de(a["plugin"]) for a in ag) > 1]
     n = palabra(len(todos), i).capitalize()
     if i == "es":
-        l = [f"{n} skills distintos entre los dos agentes. **Los que comparten son copias literales, no un módulo "
+        l = [f"{n} skills distintos entre {EN_PALABRAS['es'].get(len(fa['agentes']), len(fa['agentes']))} agentes. **Los que comparten son copias literales, no un módulo "
              "importado**: un plugin instalado tiene que correr solo. `scripts/sincronizar.py` las copia y "
-             "`scripts/sincronizar.py --check` falla si se separan." if compartidos else f"{n} skills distintos entre los dos agentes.", ""]
+             "`scripts/sincronizar.py --check` falla si se separan." if compartidos else f"{n} skills distintos entre {EN_PALABRAS['es'].get(len(fa['agentes']), len(fa['agentes']))} agentes.", ""]
     else:
-        l = [f"{n} distinct skills across the two agents. **The ones they share are literal copies, not an imported "
+        l = [f"{n} distinct skills across {EN_PALABRAS['en'].get(len(fa['agentes']), len(fa['agentes']))} agents. **The ones they share are literal copies, not an imported "
              "module**: an installed plugin has to run on its own. `scripts/sincronizar.py` copies them and "
-             "`scripts/sincronizar.py --check` fails if they drift." if compartidos else f"{n} distinct skills across the two agents.", ""]
+             "`scripts/sincronizar.py --check` fails if they drift." if compartidos else f"{n} distinct skills across {EN_PALABRAS['en'].get(len(fa['agentes']), len(fa['agentes']))} agents.", ""]
     l += ["| Skill | " + " | ".join(a["nombre"] for a in ag) + " |", "|---|" + ":--:|" * len(ag)]
     l += [f"| `{s}` | " + " | ".join("●" if s in skills_de(a["plugin"]) else "·" for a in ag) + " |" for s in todos]
     return "\n".join(l)

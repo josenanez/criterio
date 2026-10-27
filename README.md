@@ -15,7 +15,7 @@ Apache 2.0 · Four clicks to install · Each agent produces its first result in 
 | | | |
 |:--:|:--:|:--:|
 | ![Portfolio, project and product](docs/img/en/pmo.png) | ![CFO](docs/img/en/cfo.png) | ![CLO](docs/img/en/clo.png) |
-| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents | **[criterio-cfo →](families/criterio-cfo/README.md)**<br>Clara and Tomás, built and tested | **[criterio-clo →](families/criterio-clo/README.md)**<br>Fidel and Constanza, built and tested |
+| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents | **[criterio-cfo →](families/criterio-cfo/README.md)**<br>Clara, Tomás and Áurea, built and tested | **[criterio-clo →](families/criterio-clo/README.md)**<br>Fidel and Constanza, built and tested |
 
 ---
 

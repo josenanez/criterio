@@ -11,10 +11,10 @@ books Clara closes.
 
 [Español](README.es.md) · `criterio-treasury` · Apache 2.0 · One instance per entity
 
-**Status: the six commands built**, her skill and the calculation engine, tested by its self-test.
-Her round with the agent on the test material is the next step; nothing has yet been run on an
-organisation's documents. Nothing is announced as finished until it passes the
-[acceptance criteria](ACCEPTANCE.md).
+**Status: built and tested on synthetic material** from four countries —Colombia, Ecuador, Peru and
+Chile— in the family's [rounds with the agent](../../tests/evidencias/familias/cfo/RONDAS.md).
+Nothing has run yet on a specific organisation's documents. What remains before calling it done,
+in the [acceptance criteria](ACCEPTANCE.md).
 
 **She is the third agent of the CFO's office** ([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)):
 she shares the engine, the folder and the period with Clara. The family is in
@@ -24,8 +24,8 @@ she shares the engine, the folder and the period with Clara. The family is in
 
 ## What it is
 
-The third capability of the CFO's office: treasury. O*NET puts treasurers and controllers in the
-same occupation (11-3031.01), which is why Áurea lives in the CFO family and not apart.
+The third capability of the CFO's office: treasury. O*NET groups treasurers and controllers in a
+single occupation (11-3031.01), which is why Áurea lives in the CFO family and not on her own.
 
 ## What it does
 
@@ -57,46 +57,107 @@ They load on their own when the subject comes up. They are the knowledge the com
 
 ## What it is for
 
-For treasury to reach the committee and the bank with cash, payments and debt checked against
-their policy, without assembling it by hand. What she processes:
+So that treasury reaches the committee and the bank with cash, payments and debt checked against
+their policy, without building it by hand. What it processes:
 
 | Document | Where |
 |---|---|
-| Each account's statement, the same one Clara reconciles | `<AAAA-MM>/20-bancos/<account>/` |
-| The payment schedule, with who approved each payment, and the projected cash flow | `<AAAA-MM>/60-tesoreria/` |
-| The treasury policy, the signing-authority matrix, the debt register and the covenants | `00-referencia/` |
-| The period's trial balance, for the covenants | `<AAAA-MM>/10-contabilidad/` |
+| Each account's statement, the same one Clara reconciles, in CSV, Excel or text PDF | `<YYYY-MM>/20-bancos/<account>/` |
+| The payment schedule, with who approved each payment, and the cash forecast | `<YYYY-MM>/60-tesoreria/` |
+| The treasury policy, the signing matrix, the debt register and the covenants | `00-referencia/` |
+| The period's trial balance, for the covenants | `<YYYY-MM>/10-contabilidad/` |
 
-**The policy is the organisation's.** Áurea does not propose it as a rule: without a policy there
-is no cash minimum and no approvers by amount, and the report says so.
+**The policy is the organisation's.** Áurea does not propose it as a rule: without a policy there is
+no cash minimum and no approvers by amount, and the report says so.
 
-### What she never does
+### What it costs today
 
-Áurea **never** moves money, makes a payment, logs into a bank portal, negotiates with a bank or
-recommends an investment, a financing or a hedge. She processes the exports treasury already has,
-and a person always takes the decision.
+The verified figures for the finance function —with their source, year and sample— are on the
+[family page](../../families/criterio-cfo/README.md) and in
+[`FUENTES.es.md`](../../families/criterio-cfo/FUENTES.es.md). The one that hits treasury head-on is
+payments fraud: a payment that goes out without the approvals its amount requires is exactly what
+Áurea puts on the table before it leaves.
+
+### And what it is not for
+
+- **It does not move money, make payments or log into a bank portal.** It processes the exports
+  treasury already has.
+- **It does not recommend an investment, a financing or a hedge**, and does not negotiate with a bank.
+- **It does not interpret the debt contract.** It calculates each covenant with the formula and
+  limit the organisation recorded, from the balance sheet Clara closes.
+- **It never moves, renames or creates anything inside the organisation's documents**, except, with
+  the person's yes, the file that marks the root folder.
+- **It does not guess.** Every data point cites the document and, in tables, the row it came from.
+
+And one to say out loud: **your documents are processed on the AI platform's infrastructure**, not
+only on your machine. Full disclaimer in [DISCLAIMER.md](../../DISCLAIMER.md), terms in
+[TERMS.md](../../TERMS.md).
 
 ## Installing and configuring
 
 ```
 /plugin marketplace add josenanez/criterio
 /plugin install criterio-treasury@criterio
+/criterio-treasury:treasury-setup
 ```
 
-Then `/criterio-treasury:treasury-setup`. **The first result, in the first fifteen minutes:** the cash position of each account against its minimum and its projection, taken from its own statements. Her report is not published to Rostrum by default: it
-carries balances and accounts.
+**In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from
+GitHub → `josenanez/criterio`.
+
+### The first result
+
+`/criterio-treasury:treasury-setup` does not ask you to tidy anything. It looks at the same folder as
+Clara and Tomás, says which accounts have a statement, whether there is a payment schedule and a
+forecast, and whether `00-referencia` holds the policy, the signing matrix, the debt register and
+the covenants. It asks what no document answers —the entity and period, the foreign-currency
+accounts and the thresholds— and within fifteen minutes shows each account's cash position against
+its minimum and forecast, taken from its own statements.
+
+**What stays configured** is written by the setup to `.criterio/tesoreria/<entity>/config.json`. Her
+report **is not published on Rostrum by default**: it carries balances and accounts.
+
+### How often it runs
+
+With each new statement and before each scheduled payment. The decision is date arithmetic:
+
+```
+python3 scripts/finanzas.py despertar --config <file>
+```
+
+And `/criterio-treasury:treasury-wake` is the command the clock calls: it does what is due and, **if
+nothing is, it stays quiet.**
 
 ## Working with the others
 
-Áurea does not talk to Clara or Tomás: she takes the statements Clara reconciles and the trial
-balance Clara closes, from the same folder, and writes her own record in `tesoreria/` of the shared
-state. Rostrum shows what falls due in her debt register; her report with balances is published only
-if the configuration says so.
+Áurea does not talk to Clara or Tomás: they find each other through the entity's state.
+
+| With whom | What happens |
+|---|---|
+| **Clara** | Áurea takes the statements Clara reconciles and the balance sheet she closes, from the same folder; she does not recalculate the books |
+| **Tomás** | They share the period and the entity; each writes only their own record |
+| **Rostrum** | Shows what falls due from her debt register; her report with balances is published only if the configuration says so |
 
 ## Tests
 
-Áurea's engine passes its self-test on a minimal entity with everything wrong: cash below its
-minimum, deviation against the projection, currency exposure, payments without approval, signatories
-without authority, maturities and covenants. The results are in [`tests/criterio-treasury/RESULTADOS.md`](../../tests/criterio-treasury/RESULTADOS.md),
-and what is missing to call her tested, in the [acceptance criteria](ACCEPTANCE.md).
+### How it is built
 
+[`scripts/finanzas.py`](scripts/finanzas.py) is the same engine as Clara's and Tomás's, copied byte for
+byte (`scripts/sincronizar.py --check` fails if it drifts). It processes the statements, the payment
+schedule, the forecast, the policy, the signing matrix, the debt register and the balance sheet
+directly, and calculates every signal: cash against its minimum and forecast, payments against their
+approvals and signatures, currency exposure, what falls due and each covenant. The agent takes to its
+record only what a written document carries.
+
+### How it is verified
+
+```
+python3 scripts/finanzas.py selftest                 the engine
+python3 tests/criterio-cfo/generar.py                 the test material
+python3 tests/criterio-cfo/evaluar.py --agente aurea  each signal against the key
+```
+
+On synthetic material with a key the engine never sees, including the control entities, where any
+signal is a failure. The rounds with the three agents, every output and every defect with its origin,
+in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md); the statistical analysis, in
+[`ANALISIS.md`](../../families/criterio-cfo/analisis/ANALISIS.md); the engine's latest run, in
+[`tests/criterio-treasury/RESULTADOS.md`](../../tests/criterio-treasury/RESULTADOS.md).

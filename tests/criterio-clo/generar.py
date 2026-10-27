@@ -60,6 +60,12 @@ def rut(cuerpo: int) -> str:
     return f"{cuerpo}-{ {10: 'K', 11: '0'}.get(v, str(v)) }"
 
 
+def rfc(letras: str, fecha_: str, homoclave: str) -> str:
+    """Un RFC mexicano ficticio de persona moral, de 12 posiciones, el mismo del material de la CFO.
+    Ninguno corresponde a una empresa."""
+    return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
+
+
 def id_contraparte(e: dict, i: int) -> str:
     """La identificación de una contraparte con la forma de su país; Colombia y Ecuador conservan la
     numeración con la que se probaron."""
@@ -67,6 +73,8 @@ def id_contraparte(e: dict, i: int) -> str:
         return ruc(20, e["n0"] // 10, i + 1)
     if e["pais"] == "CL":
         return rut(77000000 + e["n0"] * 10 + i)
+    if e["pais"] == "MX":
+        return rfc("PRV", f"{10 + e['n0'] // 100 % 10:02d}{1 + i % 12:02d}{1 + i:02d}", f"{chr(65 + i)}{e['n0'] // 100 % 10}{i}")
     return f"{800000000 + e['n0'] * 10 + i}"
 
 SALIDA = AQUI / "material"
@@ -141,6 +149,23 @@ ENTIDADES = [
      "personas": ("Valentina Rojas", "Matías Herrera", "Catalina Díaz"),
      "contrapartes": ["Transportes Control SpA", "Insumos Control Ltda.", "Bodegas Control S.A.", "Software Control SpA",
                       "Asesores Control Ltda.", "Mantención Control SpA", "Aseo Control Ltda."],
+     "fidel": [], "constanza": []},
+    {"carpeta": "banca-mx", "industria": "banca", "pais": "MX", "id": rfc("BVA", "150301", "K21"), "nombre": "Banco Valle de Anáhuac", "moneda": "MXN", "u": 300_000, "n0": 1300,
+     "personas": ("Alejandra Navarro", "Ricardo Treviño", "Mónica Garza"),
+     "contrapartes": ["Sistemas Financieros S.A. de C.V.", "Papelería del Centro S.A. de C.V.", "Inmobiliaria Reforma S.A.", "Licencias Digitales S. de R.L.",
+                      "Consultoría Integral S.C.", "Mantenimiento Industrial S.A. de C.V.", "Seguridad Privada S.A. de C.V."],
+     "fidel": ["contrato_por_vencer", "firma_sin_facultad", "pagos_de_mas", "garantia_corta", "obligacion_contrato_vencida"],
+     "constanza": ["obligacion_vencida", "sin_responsable", "norma_en_boletin", "informe_declara_cumplido", "obligacion_contrato_fuera"]},
+    {"carpeta": "retail-mx", "industria": "retail", "pais": "MX", "id": rfc("TBA", "180912", "Q37"), "nombre": "Tiendas del Bajío", "moneda": "MXN", "u": 220_000, "n0": 1400,
+     "personas": ("Fernando Quiroga", "Sofía Elizondo", "Jorge Salgado"),
+     "contrapartes": ["Logística del Bajío S.A. de C.V.", "Empaques de Occidente S.A. de C.V.", "Plaza Comercial León S.A.", "Pagos en Línea S.A.P.I. de C.V.",
+                      "Publicidad Integral S.C.", "Refrigeración Comercial S.A. de C.V.", "Vigilancia Industrial S.A. de C.V."],
+     "fidel": ["preaviso_vencido", "otrosi_sin_facultad", "pago_despues", "sin_firma", "registro_sin_documento"],
+     "constanza": ["sin_fuente", "politica_vencida", "caso_vencido", "cumplida_sin_evidencia", "norma_aplica_sin_matriz"]},
+    {"carpeta": "control-mx", "industria": "banca", "pais": "MX", "id": rfc("CCM", "120615", "R59"), "nombre": "Comercial Control Centro", "moneda": "MXN", "u": 150_000, "n0": 1500,
+     "personas": ("Gabriela Ríos", "Arturo Medina", "Lorena Castillo"),
+     "contrapartes": ["Transportes Control S.A. de C.V.", "Insumos Control S.A. de C.V.", "Bodegas Control S.A.", "Software Control S.A. de C.V.",
+                      "Asesores Control S.C.", "Mantenimiento Control S.A. de C.V.", "Limpieza Control S.A. de C.V."],
      "fidel": [], "constanza": []},
 ]
 

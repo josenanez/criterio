@@ -209,7 +209,7 @@ resultados, el motor.
 
 [`scripts/finanzas.py`](scripts/finanzas.py), con la librería estándar, hace todo lo que es
 cálculo: procesa las tablas y las facturas directamente —el balance, el mayor, los extractos,
-los auxiliares, el XML de la DIAN, del SRI y de la SUNAT— y calcula cada señal, el mismo resultado cada vez.
+los auxiliares, el XML de la DIAN, del SRI, de la SUNAT, del SII y del SAT— y calcula cada señal, el mismo resultado cada vez.
 El agente lleva a la ficha solo lo que trae un documento escrito: lo que alguien declara, un
 requerimiento que llegó por correo
 ([ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tablas.md)).

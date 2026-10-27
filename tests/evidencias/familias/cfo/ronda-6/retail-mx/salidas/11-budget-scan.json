@@ -1,0 +1,30 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-27T14:58:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 71,
+  "turnos": 18,
+  "tokens": 733190,
+  "tokens_salida": 5364,
+  "costo_usd": 0.2232972,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-27-budget-scan-1.html",
+      ".criterio/corridas/presupuesto/2026-10-27-budget-scan-1.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas/salida-budget-scan.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

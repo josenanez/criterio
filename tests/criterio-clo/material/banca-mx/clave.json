@@ -1,0 +1,546 @@
+{
+  "entidad": "Banco Valle de Anáhuac",
+  "industria": "banca",
+  "pais": "MX",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "contrato_por_vencer",
+      "firma_sin_facultad",
+      "pagos_de_mas",
+      "garantia_corta",
+      "obligacion_contrato_vencida"
+    ],
+    "constanza": [
+      "obligacion_vencida",
+      "sin_responsable",
+      "norma_en_boletin",
+      "informe_declara_cumplido",
+      "obligacion_contrato_fuera"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "BVA150301K21",
+        "name": "Banco Valle de Anáhuac",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "legal/BVA150301K21-banco-valle-de-anahuac",
+        "state": "estado-legal/BVA150301K21-banco-valle-de-anahuac"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "BVA150301K21",
+        "name": "Banco Valle de Anáhuac",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "legal/BVA150301K21-banco-valle-de-anahuac",
+        "state": "estado-legal/BVA150301K21-banco-valle-de-anahuac"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/BVA150301K21-banco-valle-de-anahuac/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-1301": {
+        "code": "CTR-1301",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Sistemas Financieros S.A. de C.V.",
+          "id": "PRV130202B31"
+        },
+        "value": 2400000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Mónica Garza",
+            "role": "Director de compras",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sistemas Financieros S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1301-sistemas-financieros-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-05-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1301-sistemas-financieros-s-a-de-c-v/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-1301-sistemas-financieros-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Sistemas Financieros S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1301-sistemas-financieros-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Sistemas Financieros S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1301-sistemas-financieros-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Sistemas Financieros S.A. de C.V.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-1301-sistemas-financieros-s-a-de-c-v/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1301-sistemas-financieros-s-a-de-c-v/10-contrato/contrato.md"
+      },
+      "CTR-1302": {
+        "code": "CTR-1302",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Papelería del Centro S.A. de C.V.",
+          "id": "PRV130303C32"
+        },
+        "value": 1200000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ricardo Treviño",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Papelería del Centro S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 300000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Ricardo Treviño",
+            "source": "contratos/CTR-1302-papeleria-del-centro-s-a-de-c-v/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1302-papeleria-del-centro-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1302-papeleria-del-centro-s-a-de-c-v/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-1302-papeleria-del-centro-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Papelería del Centro S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1302-papeleria-del-centro-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Papelería del Centro S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1302-papeleria-del-centro-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1302-papeleria-del-centro-s-a-de-c-v/10-contrato/contrato.md"
+      },
+      "CTR-1303": {
+        "code": "CTR-1303",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Inmobiliaria Reforma S.A.",
+          "id": "PRV130404D33"
+        },
+        "value": 1800000,
+        "start": "2025-02-01",
+        "end": "2026-11-25",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Alejandra Navarro",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Inmobiliaria Reforma S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1303-inmobiliaria-reforma-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-25",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1303-inmobiliaria-reforma-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-1303-inmobiliaria-reforma-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Inmobiliaria Reforma S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1303-inmobiliaria-reforma-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-25",
+            "who": "Inmobiliaria Reforma S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1303-inmobiliaria-reforma-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1303-inmobiliaria-reforma-s-a/10-contrato/contrato.md"
+      },
+      "CTR-1304": {
+        "code": "CTR-1304",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Licencias Digitales S. de R.L.",
+          "id": "PRV130505E34"
+        },
+        "value": 900000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Ricardo Treviño",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Licencias Digitales S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1304-licencias-digitales-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1304-licencias-digitales-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-1304-licencias-digitales-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Licencias Digitales S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1304-licencias-digitales-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Licencias Digitales S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1304-licencias-digitales-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1304-licencias-digitales-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-1305": {
+        "code": "CTR-1305",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultoría Integral S.C.",
+          "id": "PRV130606F35"
+        },
+        "value": 600000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ricardo Treviño",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultoría Integral S.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1305-consultoria-integral-s-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1305-consultoria-integral-s-c/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-1305-consultoria-integral-s-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultoría Integral S.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1305-consultoria-integral-s-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultoría Integral S.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1305-consultoria-integral-s-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-1305-consultoria-integral-s-c/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-1305-consultoria-integral-s-c/10-contrato/contrato.md"
+      },
+      "CTR-1306": {
+        "code": "CTR-1306",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Industrial S.A. de C.V.",
+          "id": "PRV130707G36"
+        },
+        "value": 1500000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Alejandra Navarro",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Industrial S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1306-mantenimiento-industrial-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1306-mantenimiento-industrial-s-a-de-c-v/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-1306-mantenimiento-industrial-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Industrial S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1306-mantenimiento-industrial-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Industrial S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1306-mantenimiento-industrial-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1306-mantenimiento-industrial-s-a-de-c-v/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-07",
+          "rule": "Circular sintética 007 de 2026",
+          "date": "2026-08-25",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-08.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_obligation_overdue",
+      "key": "oblig:OB-09"
+    },
+    {
+      "signal": "contract_expiring",
+      "key": "vence:CTR-1303"
+    },
+    {
+      "signal": "contract_obligation_not_in_matrix",
+      "key": "ctrobl:CTR-1301:OBL-3"
+    },
+    {
+      "signal": "contract_obligation_overdue",
+      "key": "obl:CTR-1304:OBL-1"
+    },
+    {
+      "signal": "declared_compliance_vs_evidence",
+      "key": "cumplimiento"
+    },
+    {
+      "signal": "guarantee_expires_early",
+      "key": "garantia:CTR-1301:cumplimiento"
+    },
+    {
+      "signal": "obligation_without_owner",
+      "key": "duenio:OB-12"
+    },
+    {
+      "signal": "payments_over_value",
+      "key": "pagos:CTR-1302"
+    },
+    {
+      "signal": "regulatory_change_unassessed",
+      "key": "norma:N-2026-07"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-1301"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "n": 17,
+  "agente": "aurea",
+  "comando": "treasury-setup",
+  "argumento": "finanzas/TBA180912Q37-tiendas-del-bajio",
+  "inicio": "2026-10-27T14:59:32",
+  "estado": "success",
+  "error": false,
+  "segundos": 77,
+  "turnos": 17,
+  "tokens": 694734,
+  "tokens_salida": 5531,
+  "costo_usd": 0.2511273,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-10-27-treasury-setup-1.html",
+      ".criterio/corridas/tesoreria/2026-10-27-treasury-setup-1.md",
+      ".criterio/corridas/tesoreria/corridas.json",
+      ".criterio/terminos/aceptacion-criterio-treasury-0.11.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-treasury-0.11.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-treasury-0.11.0-2026-10-06.sha256",
+      ".criterio/tesoreria/TBA180912Q37/config.json",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas/2026-10-06-treasury-setup-1.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas/salida-treasury-setup.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/tesoreria/2026-09/reporte-cash-position.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/tesoreria/2026-09/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

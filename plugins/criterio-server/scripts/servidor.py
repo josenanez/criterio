@@ -1420,7 +1420,10 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
                 d = r['datos']
                 corte_ = d.get("periodo") or d.get("anio") or d.get("corte") or "—"
                 alertas = d.get('alertas') or []
-                cuerpo.append(f'<div class="bloque"><h3>{e(str(r["ambito"]).capitalize())} · {e(corte_)}</h3>'
+                # El nombre del ámbito sale del título del agente («la tesorería»), con su tilde; la
+                # carpeta no la lleva.
+                tit = re.sub(r'^(el|la|los|las) ', '', AGENTES[a].get('titulo') or '') if len(AGENTES[a].get('ambitos') or []) == 1 else ''
+                cuerpo.append(f'<div class="bloque"><h3>{e((tit or str(r["ambito"])).capitalize())} · {e(corte_)}</h3>'
                               f'<p>Calculado por el motor el <b>{e(d.get("hoy") or "—")}</b>, escrito el '
                               f'{e(r["escrito"][:16].replace("T", " "))}. '
                               + (f'<b>{informe.plural(len(alertas), "señal abierta", "señales abiertas")}</b>.'

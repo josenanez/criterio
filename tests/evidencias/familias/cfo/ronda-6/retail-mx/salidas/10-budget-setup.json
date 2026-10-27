@@ -1,0 +1,41 @@
+{
+  "n": 10,
+  "agente": "tomas",
+  "comando": "budget-setup",
+  "argumento": "finanzas/TBA180912Q37-tiendas-del-bajio",
+  "inicio": "2026-10-27T14:56:30",
+  "estado": "success",
+  "error": false,
+  "segundos": 111,
+  "turnos": 30,
+  "tokens": 1158102,
+  "tokens_salida": 11200,
+  "costo_usd": 0.3998718,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-27-budget-setup-1.html",
+      ".criterio/corridas/presupuesto/2026-10-27-budget-setup-1.md",
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/presupuesto/TBA180912Q37/config.json",
+      ".criterio/terminos/aceptacion-criterio-budget-0.11.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-budget-0.11.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-budget-0.11.0-2026-10-06.sha256",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/cache/presupuesto-2026/40-actas/acta-01-aprobacion.docx.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/cache/presupuesto-2026/40-actas/acta-05-traslado.docx.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/cache/presupuesto-2026/40-actas/acta-06-comite.md.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas/2026-10-06-budget-setup-1.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas/salida-budget-setup.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/presupuesto/2026/ficha.json",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/presupuesto/2026/reporte-variance-report.md",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/presupuesto/2026/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/cache/manifest.json",
+      "estado-finanzas/TBA180912Q37-tiendas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}
