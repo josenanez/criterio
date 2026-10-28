@@ -276,6 +276,16 @@ ALIAS.update({
 GANADA, PERDIDA, ABIERTA = "ganada", "perdida", "abierta"
 TIPOS_DOC = {"propuesta": "propuesta", "orden_compra": "orden_compra", "orden_de_compra": "orden_compra",
              "acta_aceptacion": "acta_aceptacion", "acta_de_aceptacion": "acta_aceptacion"}
+# Cómo se dice cada uno en un reporte: «la orden de compra», no «orden compra».
+NOMBRE_DOC = {"propuesta": "la propuesta", "orden_compra": "la orden de compra", "acta_aceptacion": "el acta de aceptación"}
+
+
+def pct(x) -> str:
+    """Un porcentaje como se lee en el país de la entidad: 22 %, 12,5 %; nunca 22.0 %."""
+    if x is None:
+        return "—"
+    t = f"{x:.1f}".rstrip("0").rstrip(".")
+    return t.replace(".", ",") if N.PAISES.get(_PAIS[0], {}).get("decimal") == "," else t
 
 
 def tipo_doc(v) -> str:
@@ -562,7 +572,7 @@ def augusto(cfg: dict, periodo: str, hoy: dt.date) -> dict:
                 "tipo": o["tipo"], "falta": faltan, "dias_sin_actividad": dias, "veces_corrido": len(veces)}
         filas.append(fila)
         if faltan and (o["tipo"] == ABIERTA or en_periodo):
-            al.append(alerta("stage_without_evidence", f"{k} · {o['nombre'] or ''}: está en «{o['etapa']}» y la ficha no tiene {', '.join(f.replace('_', ' ') for f in faltan)}",
+            al.append(alerta("stage_without_evidence", f"{k} · {o['nombre'] or ''}: está en «{o['etapa']}» y la ficha no tiene {', '.join(NOMBRE_DOC.get(f, f.replace('_', ' ')) for f in faltan)}",
                              o["cita"], o["monto"], clave=f"etapa:{k}"))
         if o["tipo"] == ABIERTA and dias is not None and dias > dias_det:
             al.append(alerta("stalled_opportunity", f"{k} · {o['nombre'] or ''}: abierta en «{o['etapa']}», sin actividad desde el {iso(ultima)} ({dias} días)",
@@ -608,7 +618,7 @@ def augusto(cfg: dict, periodo: str, hoy: dt.date) -> dict:
                 metas.append({"linea": linea or "total", "meta": redondo(meta), "esperado": redondo(esperado), "cerrado": redondo(cer),
                               "desviacion_pct": redondo(desv)})
                 if desv is not None and abs(desv) > umb:
-                    al.append(alerta("target_vs_closed", f"{periodo}{' · ' + linea if linea else ''}: cerrado {mon(cer)} contra {mon(esperado)} esperado al corte ({redondo(frac * 100)} % del periodo de una meta de {mon(meta)}): {redondo(desv)} %",
+                    al.append(alerta("target_vs_closed", f"{periodo}{' · ' + linea if linea else ''}: cerrado {mon(cer)} contra {mon(esperado)} esperado al corte ({pct(frac * 100)} % del periodo de una meta de {mon(meta)}): {pct(desv)} %",
                                      t.cita(x, docs), cer - esperado, clave=f"meta:{periodo}" + (f":{norm(linea)}" if linea else "")))
     else:
         no_proc.append({"archivo": "00-referencia/", "motivo": "no está la tabla de metas"})
@@ -715,7 +725,8 @@ def valeria(cfg: dict, periodo: str, hoy: dt.date) -> dict:
         if t.faltan:
             no_proc.append({"archivo": rel(t.ruta, docs), "motivo": f"faltan las columnas {', '.join(t.faltan)}"})
         else:
-            niveles = sorted(({"nivel": x["nivel"], "tope": numero(x["tope"]) or 0.0, "aprueba": norm(x.get("aprueba")), "cita": t.cita(x, docs)} for x in t.filas),
+            niveles = sorted(({"nivel": x["nivel"], "tope": numero(x["tope"]) or 0.0, "aprueba": norm(x.get("aprueba")),
+                              "quien": str(x.get("aprueba") or "").strip(), "cita": t.cita(x, docs)} for x in t.filas),
                              key=lambda n: n["tope"])
     else:
         no_proc.append({"archivo": "00-referencia/", "motivo": "no está la matriz de descuentos"})
@@ -732,8 +743,8 @@ def valeria(cfg: dict, periodo: str, hoy: dt.date) -> dict:
         cotizaciones.append({"id": q.get("id"), "oportunidad": q.get("opportunity"), "descuento_pct": d, "nivel": nivel["nivel"] if nivel else None,
                              "pide": pide or None, "aprobo": q.get("approved_by"), "cargo": q.get("approver_role"), "dentro": ok_})
         if niveles and not ok_:
-            motivo = (f"ningún nivel de la matriz cubre un descuento de {redondo(d)} %" if nivel is None else
-                      f"el {redondo(d)} % cae en el nivel {nivel['nivel']}, que pide la aprobación de {pide}, y " +
+            motivo = (f"ningún nivel de la matriz cubre un descuento de {pct(d)} %" if nivel is None else
+                      f"el {pct(d)} % cae en el nivel {nivel['nivel']}, que pide la aprobación de {nivel['quien'] or pide}, y " +
                       (f"lo aprobó {q.get('approved_by')} como {q.get('approver_role')}" if q.get("approved_by") else "no tiene aprobación"))
             al.append(alerta("discount_outside_policy", f"{q.get('id')} · {q.get('opportunity')}: {motivo}",
                              [{"archivo": q.get("source")}] + ([nivel["cita"]] if nivel else []),
