@@ -98,7 +98,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 Las 6 rondas usaron 162,1 millones de tokens: 151,4 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,6 millones por entidad.
 
-El material es sintético. El próximo paso es el despliegue en una organización, con su propia documentación.
+El material es sintético. La 1.0, la versión estable, la declara Criterio cuando la familia cierra su alcance planeado y dos rondas completas seguidas se sostienen sin defectos nuevos (decisión 0018).
 
 ---
 

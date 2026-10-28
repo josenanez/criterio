@@ -702,11 +702,11 @@
    "parrafos": {
     "es": [
      "Las 6 rondas usaron 162,1 millones de tokens: 151,4 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,6 millones por entidad.",
-     "El material es sintético. El próximo paso es el despliegue en una organización, con su propia documentación."
+     "El material es sintético. La 1.0, la versión estable, la declara Criterio cuando la familia cierra su alcance planeado y dos rondas completas seguidas se sostienen sin defectos nuevos (decisión 0018)."
     ],
     "en": [
      "The 6 rounds used 162.1 million tokens: 151.4 million in the graded runs and 10.7 in the ones repeated after fixing a defect. On average, 5.6 million per entity.",
-     "The material is synthetic. The next step is deployment in an organisation, with its own documentation."
+     "The material is synthetic. Version 1.0, the stable one, is declared by Criterio when the family closes its planned scope and two full rounds in a row hold with no new defects (decision 0018)."
     ]
    }
   }

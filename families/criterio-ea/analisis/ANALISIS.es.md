@@ -95,7 +95,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 Las 1 rondas usaron 12,5 millones de tokens: 11,3 millones en las corridas calificadas y 1,2 en las que se repitieron después de corregir un defecto. En promedio, 1,6 millones por entidad.
 
-El material es sintético. El próximo paso es el despliegue en una organización, con su propia documentación.
+El material es sintético. La 1.0, la versión estable, la declara Criterio cuando la familia cierra su alcance planeado y dos rondas completas seguidas se sostienen sin defectos nuevos (decisión 0018).
 
 ---
 

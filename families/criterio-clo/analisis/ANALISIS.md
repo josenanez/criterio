@@ -112,7 +112,7 @@ A round that does not run every entity is partial: the first, small one, before 
 
 The 5 rounds used 110 million tokens: 107.5 million in the graded runs and 2.4 in the ones repeated after fixing a defect. On average, 4.9 million per entity.
 
-The material is synthetic. The next step is deployment in an organisation, with its own documentation.
+The material is synthetic. Version 1.0, the stable one, is declared by Criterio when the family closes its planned scope and two full rounds in a row hold with no new defects (decision 0018).
 
 ---
 
