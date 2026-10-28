@@ -2,7 +2,7 @@
 
 **la asistente ejecutiva de la familia EA** · plugin `criterio-assistant`
 
-Corrida del 2026-10-28, sobre el commit `231f7a7e`, con cambios en el árbol todavía sin confirmar. **3 puertas · 22 comprobaciones · todas en verde.**
+Corrida del 2026-10-28, sobre el commit `011ce737`, con cambios en el árbol todavía sin confirmar. **3 puertas · 22 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-10-28, sobre el commit `231f7a7e`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-assistant/asistente.py selftest` | El motor de Ofelia: la agenda .ics con repeticiones y cambio de hora, el correo, las sesiones y una oficina mínima con todo mal | 17 | 124 ms | verde |
-| `criterio-ea/generar.py` | El material EA: dos oficinas con defectos y dos de control, con su clave | — | 74 ms | verde |
-| `criterio-ea/evaluar.py` | Que Ofelia levante cada señal sembrada en la oficina, ninguna en los controles, y cumpla las reglas de la operación real | 5 | 208 ms | verde |
+| `criterio-assistant/asistente.py selftest` | El motor de Ofelia: la agenda .ics con repeticiones y cambio de hora, el correo, las sesiones y una oficina mínima con todo mal | 17 | 182 ms | verde |
+| `criterio-ea/generar.py` | El material EA: dos oficinas con defectos y dos de control, con su clave | — | 95 ms | verde |
+| `criterio-ea/evaluar.py` | Que Ofelia levante cada señal sembrada en la oficina, ninguna en los controles, y cumpla las reglas de la operación real | 5 | 201 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -64,6 +64,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | verde |
 | `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | verde |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
+| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 15 | verde |
 | `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
 | `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
