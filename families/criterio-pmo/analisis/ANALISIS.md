@@ -136,7 +136,7 @@ Vera raised alerts of 18 types; 15 had not a single false alert, and the 25 fals
 
 The 11 rounds took 35 hours of run time for 598 projects: 3.5 minutes per project, with every command of the three agents and the server. They used 1333 million tokens; on average, 121 million per round.
 
-The minutes, reports and syntheses the language model (LLM) writes are checked through each command's contract and the arithmetic of their figures. The next step is deployment in an organization, which takes the family to version 1.0.
+The minutes, reports and syntheses the language model (LLM) writes are checked through each command's contract and the arithmetic of their figures. Version 1.0, the stable one, is declared by Criterio when the family closes its planned scope and two full rounds in a row hold with no new defects (decision 0018).
 
 ---
 

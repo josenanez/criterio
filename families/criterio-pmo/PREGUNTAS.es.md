@@ -36,7 +36,7 @@ En el repositorio, en `tests/evidencias/`: lo que mostró cada comando en cada r
 
 ### ¿Se ha usado ya en una organización?
 
-Todavía no sobre la documentación de una organización concreta: es el siguiente paso, y lo que decidirá la versión 1.0. Si tu PMO quiere ser de las primeras, abre un issue en el repositorio.
+Todavía no sobre la documentación de una organización concreta. No hace falta para que la familia avance: Criterio desarrolla, prueba y libera cada versión. Si tu PMO la prueba sobre sus documentos y quiere compartir lo que encontró, abre un issue en el repositorio; lo que traiga entra en un incremento con su prueba.
 
 ## Datos y privacidad
 
@@ -56,7 +56,7 @@ No. Hoy el único canal de vuelta es el que tú eliges: un issue en GitHub. Comp
 
 ### ¿Por qué la versión todavía no es 1.0?
 
-Porque el esquema de la ficha puede cambiar con el primer uso sobre documentación real, y un 1.0 promete que no cambia. El 1.0 llega cuando el esquema sobreviva a ese uso.
+Porque la 1.0 es la versión estable, y Criterio la declara cuando la familia cumple tres condiciones (decisión 0018): su alcance planeado liberado, dos rondas completas seguidas sin defectos nuevos y con el piso del margen de confianza del 95 % en 95 % o más, y el esquema de la ficha fijo. Para la PMO, la 1.0 viene después de la 0.13.0 y la 0.14.0.
 
 ### ¿Cuánto cuesta?
 

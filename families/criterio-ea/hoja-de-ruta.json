@@ -49,22 +49,26 @@
   },
   {
    "incremento": 3,
-   "version": null,
+   "version": "1.0.0",
    "estado": "reservada",
    "industrias": [],
    "es": {
-    "titulo": "El despliegue en una organización",
+    "titulo": "La versión estable",
     "entra": [
-     "El primer uso sobre la oficina de un ejecutivo concreto"
+     "Su alcance planeado, liberado: cada incremento anterior con su versión",
+     "Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos",
+     "El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0"
     ],
-    "prueba": "La documentación de esa oficina"
+    "prueba": "Las dos rondas completas, publicadas con su análisis estadístico"
    },
    "en": {
-    "titulo": "Deployment in an organisation",
+    "titulo": "The stable version",
     "entra": [
-     "The first use on a specific executive's office"
+     "Its planned scope, released: every earlier increment with its version",
+     "Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data",
+     "The record schema, fixed: from here on, breaking it is a version 2.0"
     ],
-    "prueba": "That office's documentation"
+    "prueba": "The two full rounds, published with their statistical analysis"
    }
   }
  ]

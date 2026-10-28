@@ -36,7 +36,7 @@ In the repository, under `tests/evidencias/`: what each command showed in each r
 
 ### Has it been used in an organisation yet?
 
-Not yet on a specific organisation's documentation: that is the next step, and what will decide version 1.0. If your PMO wants to be among the first, open an issue in the repository.
+Not yet on a specific organisation's documentation. The family does not need it to move forward: Criterio develops, tests and releases every version. If your PMO tries it on its documents and wants to share what it found, open an issue in the repository; what it brings goes into an increment with its test.
 
 ## Data and privacy
 
@@ -56,7 +56,7 @@ No. Today the only way back is the one you choose: an issue on GitHub. Sharing f
 
 ### Why is the version not 1.0 yet?
 
-Because the record schema may change with the first use on real documentation, and a 1.0 promises it will not. 1.0 comes when the schema survives that use.
+Because 1.0 is the stable version, and Criterio declares it when the family meets three conditions (decision 0018): its planned scope released, two full rounds in a row with no new defects and the floor of the 95% confidence margin at 95% or higher, and the record schema fixed. For the PMO, 1.0 comes after 0.13.0 and 0.14.0.
 
 ### How much does it cost?
 

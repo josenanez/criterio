@@ -387,10 +387,10 @@ def secciones():
                    f"{dec(mpp, i)} minutes per project, with every command of the three agents and the server. "
                    f"They used {num(round(T['tokens'] / 1e6), i)} million tokens; on average, {num(round(T['tokens'] / 1e6 / len(R)), i)} million per round."),
                   ("Las actas, los informes y las síntesis que redacta el modelo de lenguaje (LLM) se verifican por el contrato de cada comando y por la aritmética de sus cifras. "
-                   "El próximo paso es el despliegue en una organización, que lleva la familia a la versión 1.0."
+                   "La versión 1.0, la estable, la declara Criterio cuando la familia cierra su alcance planeado y dos rondas completas seguidas se sostienen sin defectos nuevos (decisión 0018)."
                    if f(i) else
                    "The minutes, reports and syntheses the language model (LLM) writes are checked through each command's contract and the arithmetic of their figures. "
-                   "The next step is deployment in an organization, which takes the family to version 1.0."),
+                   "Version 1.0, the stable one, is declared by Criterio when the family closes its planned scope and two full rounds in a row hold with no new defects (decision 0018)."),
               ] for i in L}})
     meta = {"generado_desde": "tests/evidencias", "ultima_ronda": U["n"], "fecha": U["fecha"], "version": U["version"],
             "rondas": [r["n"] for r in R]}

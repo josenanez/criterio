@@ -364,7 +364,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 0.9.0 | Released | **Construction and infrastructure, and oil & gas**<br>· Two new industries, with their own projects, documents and situations | 6 industries |
 | 0.13.0 | Next | **Telecommunications and logistics**<br>· Two new industries: portfolio scale and operations that never stop | 8 industries |
 | 0.14.0 | Next | **Rostrum**<br>· Gantt of baseline against current, milestones and progress curve | 8 industries |
-| 1.0.0 | Reserved | **Deployment in an organization**<br>· The record schema, holding up in the first deployment in an organization | That organization's documentation |
+| 1.0.0 | Reserved | **The stable version**<br>· Its planned scope, released: every earlier increment with its version<br>· Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data<br>· The record schema, fixed: from here on, breaking it is a version 2.0 | The two full rounds, published with their statistical analysis |
 
 <!-- /hoja de ruta -->
 

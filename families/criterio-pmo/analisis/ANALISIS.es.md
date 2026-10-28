@@ -136,7 +136,7 @@ Vera emitió alertas de 18 tipos; en 15 no tuvo una sola alerta falsa, y las 25 
 
 Las 11 rondas tomaron 35 horas de ejecución para 598 proyectos: 3,5 minutos por proyecto, con todos los comandos de los tres agentes y el servidor. Usaron 1333 millones de tokens; en promedio, 121 millones por ronda.
 
-Las actas, los informes y las síntesis que redacta el modelo de lenguaje (LLM) se verifican por el contrato de cada comando y por la aritmética de sus cifras. El próximo paso es el despliegue en una organización, que lleva la familia a la versión 1.0.
+Las actas, los informes y las síntesis que redacta el modelo de lenguaje (LLM) se verifican por el contrato de cada comando y por la aritmética de sus cifras. La versión 1.0, la estable, la declara Criterio cuando la familia cierra su alcance planeado y dos rondas completas seguidas se sostienen sin defectos nuevos (decisión 0018).
 
 ---
 
