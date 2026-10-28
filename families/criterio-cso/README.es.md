@@ -257,7 +257,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
 | 0.1.0 | En curso | **Augusto y Valeria, construidos y probados con la ronda completa con los agentes**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven |
-| Incremento 2 | Siguiente | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas |
+| 0.2.0 | Siguiente | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas |
 
 <!-- /hoja de ruta -->
 

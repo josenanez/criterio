@@ -257,7 +257,7 @@ The family grows in increments. Each one is a version with its full test and its
 | Version | Status | What goes in | Test |
 |---|---|---|---|
 | 0.1.0 | In progress | **Augusto and Valeria, built and tested with the full round with the agents**<br>· The twelve commands, their skills and the engine, with the nine signals: Augusto's pipeline, forecast and target; Valeria's discount, contract, invoice and commission<br>· Salesforce and HubSpot exports, and any CSV or Excel with its column mapping<br>· What was won against Fidel's contracts and what was signed against Clara's invoices, through their records<br>· Colombia and Mexico, with control entities | The round with the two agents on every entity in the material, with a key they never see |
-| Increment 2 | Next | **Ecuador, Peru and Chile, and Microsoft Dynamics and Zoho**<br>· The three countries already in the country registry, with their material and their round<br>· The Microsoft Dynamics and Zoho exports, each from its verified source | The round with the agents in the three countries and on the two new exports |
+| 0.2.0 | Next | **Ecuador, Peru and Chile, and Microsoft Dynamics and Zoho**<br>· The three countries already in the country registry, with their material and their round<br>· The Microsoft Dynamics and Zoho exports, each from its verified source | The round with the agents in the three countries and on the two new exports |
 
 <!-- /hoja de ruta -->
 
