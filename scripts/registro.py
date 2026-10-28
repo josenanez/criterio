@@ -247,6 +247,29 @@ def poner_versiones(catalogo: str, por_familia: dict[str, str]) -> None:
     for sigla, v in por_familia.items():
         for pl in fam[sigla]:
             _poner(RAIZ / "plugins" / pl / ".claude-plugin" / "plugin.json", v)
+    entrar_al_marketplace(por_familia)
+
+
+def entrar_al_marketplace(por_familia: dict[str, str]) -> None:
+    """Una familia entra al marketplace con su primera liberación (decisión 0021): cada plugin que
+    falte, con la descripción de su plugin.json y la categoría de su familia.json, antes de Rostrum,
+    que va al final porque sirve a todas."""
+    m = json.loads(MARKET.read_text(encoding="utf-8"))
+    nombres = [p["name"] for p in m["plugins"]]
+    for sigla in por_familia:
+        if sigla == "rostrum":
+            continue
+        fj = json.loads((RAIZ / "families" / f"criterio-{sigla}" / "familia.json").read_text(encoding="utf-8"))
+        for pl in familias()[sigla]:
+            if pl in nombres:
+                continue
+            if not fj.get("categoria"):
+                raise SystemExit(f"{sigla}: familia.json no trae «categoria», la del marketplace para sus plugins")
+            d = json.loads((RAIZ / "plugins" / pl / ".claude-plugin" / "plugin.json").read_text(encoding="utf-8"))
+            i = nombres.index("criterio-server") if "criterio-server" in nombres else len(nombres)
+            m["plugins"].insert(i, {"name": pl, "description": d["description"], "source": f"./plugins/{pl}", "category": fj["categoria"]})
+            nombres.insert(i, pl)
+    MARKET.write_text(json.dumps(m, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def _numeros(v):
