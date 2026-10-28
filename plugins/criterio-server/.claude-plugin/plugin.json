@@ -1,6 +1,6 @@
 {
   "name": "criterio-server",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "Rostrum, el portal de todas las familias: publica lo que los agentes ya escribieron —el informe de la PMO, los reportes de la CFO y de la CLO, lo que vence en todas, la historia de cada corrida— para quien no abre una carpeta, y recibe preguntas escritas para cualquier agente. Un mapa por selección de carpeta dice qué se sirve. No calcula, no escribe fichas y no autentica.",
   "author": {
     "name": "José Francisco Ñáñez",

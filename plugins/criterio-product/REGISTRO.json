@@ -1105,6 +1105,83 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "ba6b5079df744633bd34b3590c1e6a4577602f144c3019fa760437df3851b4cd",
       "sha256": "5c192bc2d2758a5143b9a7334cad3310a291627dc85c5ecc4b09c76e19f811f8"
+    },
+    {
+      "version": "0.12.1",
+      "fecha": "2026-10-28",
+      "commit": null,
+      "base": "5b9d8738",
+      "etiqueta": "v0.12.1",
+      "familias": {
+        "cfo": "0.12.1",
+        "clo": "0.12.1",
+        "ea": "0.12.1",
+        "pmo": "0.12.1",
+        "rostrum": "0.12.1"
+      },
+      "liberadas": [
+        "cfo",
+        "clo",
+        "ea",
+        "pmo",
+        "rostrum"
+      ],
+      "versiones": {
+        "criterio-budget": "0.12.1",
+        "criterio-finance": "0.12.1",
+        "criterio-treasury": "0.12.1",
+        "criterio-compliance": "0.12.1",
+        "criterio-legal": "0.12.1",
+        "criterio-assistant": "0.12.1",
+        "criterio-portfolio": "0.12.1",
+        "criterio-product": "0.12.1",
+        "criterio-project": "0.12.1",
+        "criterio-server": "0.12.1"
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "f6713d81add6334b428e60c9198207f838d387ee414ecde525c06edb9213d899",
+        "criterio-budget": "d165aad0adedd63c36da83d46d43666caee53ee95b7526881c765a3dac8106d0",
+        "criterio-compliance": "17f6622ec7d883e4efb4475d6679337b62e547a08e5af140eda67cb4b9ed3ebb",
+        "criterio-finance": "680fc95c304129c028ce2bc85ffb38e37809e2488ce9c3d596a0baa7315633d4",
+        "criterio-legal": "9aa999aed1b6c1029e5e7c254db04a67f276ecfb085c2653b8bffccb72e17bed",
+        "criterio-portfolio": "813e47e44db7bd68a2890516b858ca73613bd55e0a906a5738e1accff1ed0a8a",
+        "criterio-product": "abd94a344b2d22b5f0b14cba88e0fa198ac53210378b980648f2991e0f6c42dc",
+        "criterio-project": "bb9084ce31aa08094bc53156cb0f295cc4176f36ed0e191518ac4c4bc26632c2",
+        "criterio-server": "4c0d2132d5390c41b2cecb9517b6376e495c1ccf543f7ad54f6aaa01b5ecadbd",
+        "criterio-treasury": "27c468ab154ada6da86ca70508dcb7ee4ac4851237ad15b988f2ae0689159c85"
+      },
+      "destacados": [
+        "Cada familia con su propia versión: la PMO, la CFO, la CLO, la EA y Rostrum suben solo cuando cambian (decisión 0017)",
+        "Términos 1.3: hablan de todas las familias, no solo de la PMO, y de la versión de cada una",
+        "Ofelia: EA-8 verificado, lo que falta de una decisión ya no repite lo que dicen los documentos"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "EA-8 sin verificación todavía: el campo se omite en lugar de ir vacío, como en los demás defectos por verificar",
+        "Rostrum: la EA en su README, con la regla de que la oficina de Ofelia no entra al mapa salvo que su configuración lo diga",
+        "EA: Ofelia no depende del país —no procesa facturas ni normas—: el motor acepta la oficina de cualquier país y su siguiente incremento son los viajes y las exportaciones de cada proveedor de calendario y de correo, no más países; el diseño, el setup, las preguntas frecuentes y la evidencia lo dicen",
+        "Resultados de la corrida",
+        "EA-8 verificado: Ofelia de nuevo sobre el control de Colombia, ninguna señal de más y 22 de 22 datos; los ocho defectos de su ronda 1, corregidos y verificados. scripts/trafico.py: la cuenta de instalaciones o actualizaciones, clonadores únicos de la ventana menos los pushes a main de esa ventana, con su histórico fuera del repositorio",
+        "Resultados de la corrida",
+        "El botón Sponsor lleva a la contribución de la plataforma, en la página de todas las familias, no a la de la PMO",
+        "EA: su GIF de familia, grabado de la impresora del portal como las demás, en su README; la grabación toma las familias de la impresora publicada, y el guion en inglés de la EA termina como los demás",
+        "Resultados de la corrida",
+        "CFO: su video para LinkedIn, vertical 4:5 en español e inglés, grabado de la impresora del portal con su tarjeta final de cifras, y su GIF al día con Áurea; el análisis estadístico dice qué comandos corren en cada entidad —el setup y el procesamiento de cada agente— y no «todos los comandos de los dos agentes»",
+        "Resultados de la corrida",
+        "Una versión por familia (ADR 0017) y términos 1.3 para todas las familias",
+        "Notas de la versión 0.12.1"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "5c192bc2d2758a5143b9a7334cad3310a291627dc85c5ecc4b09c76e19f811f8",
+      "sha256": "614c237575e22d8b0a31d756bcd69ce12df7420842fb3ca5c79ec29b4deb539f"
     }
   ]
 }

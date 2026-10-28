@@ -1,6 +1,6 @@
 {
   "name": "criterio-assistant",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "Ofelia, la asistente ejecutiva: la agenda del ejecutivo contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos de dirección y la correspondencia que pide respuesta. Procesa exportaciones, no cuentas; prepara, no recomienda ni decide, y nunca envía.",
   "author": {
     "name": "José Francisco Ñáñez",

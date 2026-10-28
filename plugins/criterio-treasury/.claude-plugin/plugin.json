@@ -1,6 +1,6 @@
 {
   "name": "criterio-treasury",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "Áurea, tesorería: la caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants, calculados desde el balance que cierra Clara. Nunca mueve dinero ni entra a un portal bancario.",
   "author": {
     "name": "José Francisco Ñáñez",
