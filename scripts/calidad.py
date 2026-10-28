@@ -103,7 +103,8 @@ def calidad(sigla: str) -> dict:
         motivo.append(f"{m['controles_con_senal']} entidad(es) de control con una señal")
     return {"etiqueta": "estable" if not motivo else "laboratorio", "ronda": m["ronda"], "rondas": m.get("rondas") or [m["ronda"]],
             "casos": m.get("casos"), "version_medida": m.get("version_medida"),
-            "pisos": {k: round(v, 1) for k, v in m["pisos"].items()}, "motivo": motivo, "umbral": UMBRAL}
+            "pisos": {k: round(v, 1) for k, v in m["pisos"].items()}, "motivo": motivo, "umbral": UMBRAL,
+            "casos_minimos": casos_minimos()}
 
 
 def siglas() -> list[str]:
