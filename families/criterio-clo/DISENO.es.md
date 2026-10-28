@@ -40,8 +40,8 @@ escriben aquí: salen de [`familia.json`](familia.json), [`carpetas.json`](carpe
 <!-- clo:agentes · generado por scripts/familias.py; no se edita a mano -->
 | Rol | Agente | Plugin | Qué hace |
 |---|---|---|---|
-| Contratos | **Fidel** — de *fides*: la palabra dada; lo firmado se cumple | `criterio-legal` | Lo firmado y en qué términos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías |
-| Cumplimiento | **Constanza** — de *constantia*: cumplir siempre, no solo el día de la auditoría | `criterio-compliance` | La matriz de obligaciones de la organización contra su evidencia, la revisión de las políticas, las normas nuevas con su evaluación, el canal de denuncias con sus plazos y las obligaciones de cumplimiento que traen los contratos |
+| Contratos | **Fidel** — del latín *fides*, la palabra dada: lo firmado se cumple | `criterio-legal` | Lo firmado y en qué términos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías |
+| Cumplimiento | **Constanza** — del latín *constantia*, «constancia»: cumplir siempre, no solo el día de la auditoría | `criterio-compliance` | La matriz de obligaciones de la organización contra su evidencia, la revisión de las políticas, las normas nuevas con su evaluación, el canal de denuncias con sus plazos y las obligaciones de cumplimiento que traen los contratos |
 <!-- /clo:agentes -->
 
 Como en las familias PMO y CFO, los dos no se hablan entre sí: se hablan por sus fichas. Constanza

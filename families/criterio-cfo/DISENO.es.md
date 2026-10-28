@@ -43,8 +43,8 @@ en la estructura o si se apoya en una fuente por verificar.
 <!-- cfo:agentes · generado por scripts/familias.py; no se edita a mano -->
 | Rol | Agente | Plugin | Qué hace |
 |---|---|---|---|
-| Contralor | **Clara** — de *clarus*: que los libros digan lo mismo que los soportes | `criterio-finance` | El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica contra la contabilidad y el paquete para el auditor |
-| FP&A | **Tomás** — «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución | `criterio-budget` | El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto |
+| Contralor | **Clara** — del latín *clarus*, «claro»: que los libros digan lo mismo que los soportes | `criterio-finance` | El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica contra la contabilidad y el paquete para el auditor |
+| FP&A | **Tomás** — del arameo *t’oma*, «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución | `criterio-budget` | El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto |
 | Tesorería | **Áurea** — del latín *aureus*, «de oro»: la caja | `criterio-treasury` | La caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants |
 <!-- /cfo:agentes -->
 

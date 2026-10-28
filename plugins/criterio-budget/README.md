@@ -9,7 +9,7 @@ committee. He arrives with approved against actual and committed, the year-end f
 stated assumption and every transfer with its minutes.
 
 <!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
-**The name.** Tomás, “the twin”: puts the budget next to its twin, actual spend.
+**The name.** Tomás, from the Aramaic *t’oma*, “the twin”: puts the budget next to its twin, actual spend.
 <!-- /agente:nombre -->
 
 [Español](README.es.md) · `criterio-budget` · Apache 2.0 · One instance per entity

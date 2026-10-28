@@ -9,7 +9,7 @@ llega con el cierre preparado: cada tarea contra su evidencia, cada cuenta conci
 factura electrónica contra su registro.
 
 <!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
-**El nombre.** Clara, de *clarus*: que los libros digan lo mismo que los soportes.
+**El nombre.** Clara, del latín *clarus*, «claro»: que los libros digan lo mismo que los soportes.
 <!-- /agente:nombre -->
 
 [English](README.md) · `criterio-finance` · Apache 2.0 · Una instancia por entidad

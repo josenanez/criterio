@@ -44,8 +44,8 @@ in the structure or if it relies on a source still to be verified.
 <!-- cfo:agentes · generado por scripts/familias.py; no se edita a mano -->
 | Role | Agent | Plugin | What it does |
 |---|---|---|---|
-| Controller | **Clara** — from *clarus*: the books say what the supporting documents say | `criterio-finance` | The monthly close with its checklist and evidence, bank and account reconciliations, e-invoices against the books, and the auditor's package |
-| FP&A | **Tomás** — “the twin”: puts the budget next to its twin, actual spend | `criterio-budget` | The approved budget against actual and committed spend, the year-end forecast, budget transfers and the budget committee pack |
+| Controller | **Clara** — from the Latin *clarus*, “clear”: the books say what the supporting documents say | `criterio-finance` | The monthly close with its checklist and evidence, bank and account reconciliations, e-invoices against the books, and the auditor's package |
+| FP&A | **Tomás** — from the Aramaic *t’oma*, “the twin”: puts the budget next to its twin, actual spend | `criterio-budget` | The approved budget against actual and committed spend, the year-end forecast, budget transfers and the budget committee pack |
 | Treasury | **Áurea** — from the Latin *aureus*, “golden”: the cash | `criterio-treasury` | Cash against its minimum and projection, each scheduled payment against who may approve it, currency exposure against its limit, and debt against its maturity and its covenants |
 <!-- /cfo:agentes -->
 

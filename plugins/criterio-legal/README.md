@@ -9,7 +9,7 @@ contracts and answer for them. He arrives with what falls due, the notice period
 signed with what authority and what was paid against what was agreed.
 
 <!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
-**The name.** Fidel, from *fides*: the word given; what was signed is kept.
+**The name.** Fidel, from the Latin *fides*, the word given: what was signed is kept.
 <!-- /agente:nombre -->
 
 [Español](README.es.md) · `criterio-legal` · Apache 2.0 · One instance per entity

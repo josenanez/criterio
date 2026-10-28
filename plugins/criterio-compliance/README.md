@@ -9,7 +9,7 @@ only on audit day.** You answer for compliance. She arrives with what is met wit
 is declared met without it and what is overdue.
 
 <!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
-**The name.** Constanza, from *constantia*: compliance every day, not only on audit day.
+**The name.** Constanza, from the Latin *constantia*, “constancy”: compliance every day, not only on audit day.
 <!-- /agente:nombre -->
 
 [Español](README.es.md) · `criterio-compliance` · Apache 2.0 · One instance per entity

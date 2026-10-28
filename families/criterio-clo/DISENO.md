@@ -42,8 +42,8 @@ languages, into `FUENTES.es.md`, into the family page, into the plugins' READMEs
 <!-- clo:agentes · generado por scripts/familias.py; no se edita a mano -->
 | Role | Agent | Plugin | What it does |
 |---|---|---|---|
-| Contracts | **Fidel** — from *fides*: the word given; what was signed is kept | `criterio-legal` | What was signed and on what terms: the contract register against its documents, expiries and renewal notices, obligations with their evidence, who signed with what authority, and what was paid against what was agreed and its guarantees |
-| Compliance | **Constanza** — from *constantia*: compliance every day, not only on audit day | `criterio-compliance` | The organisation's obligations matrix against its evidence, policy reviews, new rules with their assessment, the whistleblowing channel with its deadlines, and the compliance obligations that contracts carry |
+| Contracts | **Fidel** — from the Latin *fides*, the word given: what was signed is kept | `criterio-legal` | What was signed and on what terms: the contract register against its documents, expiries and renewal notices, obligations with their evidence, who signed with what authority, and what was paid against what was agreed and its guarantees |
+| Compliance | **Constanza** — from the Latin *constantia*, “constancy”: compliance every day, not only on audit day | `criterio-compliance` | The organisation's obligations matrix against its evidence, policy reviews, new rules with their assessment, the whistleblowing channel with its deadlines, and the compliance obligations that contracts carry |
 <!-- /clo:agentes -->
 
 As in the PMO and CFO families, the two never talk to each other: they talk through their records.

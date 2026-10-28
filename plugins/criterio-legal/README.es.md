@@ -9,7 +9,7 @@ respondes por ellos. Él llega con lo que vence, los preavisos que se acercan, q
 facultad y lo pagado contra lo pactado.
 
 <!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
-**El nombre.** Fidel, de *fides*: la palabra dada; lo firmado se cumple.
+**El nombre.** Fidel, del latín *fides*, la palabra dada: lo firmado se cumple.
 <!-- /agente:nombre -->
 
 [English](README.md) · `criterio-legal` · Apache 2.0 · Una instancia por entidad

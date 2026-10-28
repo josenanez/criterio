@@ -9,7 +9,7 @@ solo el de la auditoría.** Tú respondes por el cumplimiento. Ella llega con lo
 con evidencia, lo que se declara cumplido sin ella y lo que venció.
 
 <!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
-**El nombre.** Constanza, de *constantia*: cumplir siempre, no solo el día de la auditoría.
+**El nombre.** Constanza, del latín *constantia*, «constancia»: cumplir siempre, no solo el día de la auditoría.
 <!-- /agente:nombre -->
 
 [English](README.md) · `criterio-compliance` · Apache 2.0 · Una instancia por entidad

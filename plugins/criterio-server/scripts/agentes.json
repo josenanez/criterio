@@ -376,8 +376,8 @@
       },
       "titulo": "el cierre",
       "origen": {
-        "es": "de *clarus*: que los libros digan lo mismo que los soportes",
-        "en": "from *clarus*: the books say what the supporting documents say"
+        "es": "del latín *clarus*, «claro»: que los libros digan lo mismo que los soportes",
+        "en": "from the Latin *clarus*, “clear”: the books say what the supporting documents say"
       },
       "setup": "/criterio-finance:finance-setup",
       "marca": "_CRITERIO_FINANZAS.txt",
@@ -447,8 +447,8 @@
       },
       "titulo": "el presupuesto",
       "origen": {
-        "es": "«el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución",
-        "en": "“the twin”: puts the budget next to its twin, actual spend"
+        "es": "del arameo *t’oma*, «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución",
+        "en": "from the Aramaic *t’oma*, “the twin”: puts the budget next to its twin, actual spend"
       },
       "setup": "/criterio-budget:budget-setup",
       "marca": "_CRITERIO_FINANZAS.txt",
@@ -569,8 +569,8 @@
       },
       "titulo": "los contratos",
       "origen": {
-        "es": "de *fides*: la palabra dada; lo firmado se cumple",
-        "en": "from *fides*: the word given; what was signed is kept"
+        "es": "del latín *fides*, la palabra dada: lo firmado se cumple",
+        "en": "from the Latin *fides*, the word given: what was signed is kept"
       },
       "setup": "/criterio-legal:legal-setup",
       "marca": "_CRITERIO_LEGAL.txt",
@@ -632,8 +632,8 @@
       },
       "titulo": "el cumplimiento",
       "origen": {
-        "es": "de *constantia*: cumplir siempre, no solo el día de la auditoría",
-        "en": "from *constantia*: compliance every day, not only on audit day"
+        "es": "del latín *constantia*, «constancia»: cumplir siempre, no solo el día de la auditoría",
+        "en": "from the Latin *constantia*, “constancy”: compliance every day, not only on audit day"
       },
       "setup": "/criterio-compliance:compliance-setup",
       "marca": "_CRITERIO_LEGAL.txt",
