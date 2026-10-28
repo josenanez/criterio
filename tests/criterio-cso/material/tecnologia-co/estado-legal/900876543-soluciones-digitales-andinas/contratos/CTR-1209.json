@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1209",
+  "counterparty": {
+    "name": "Proveedor 1200 S.A.S.",
+    "id": "870001200"
+  },
+  "value": 32000000,
+  "start": "2026-09-05",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-05",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1209/10-contrato/contrato.pdf"
+}

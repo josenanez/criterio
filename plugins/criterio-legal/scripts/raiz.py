@@ -74,6 +74,12 @@ DESTINO = {
     "criterio-assistant": {"familia": "ea", "busca": "raiz", "marca": "_CRITERIO_DIRECCION.txt",
                            "que": "la carpeta de la oficina de un ejecutivo", "agentes": "Ofelia",
                            "setup": "/criterio-assistant:ea-setup"},
+    "criterio-sales": {"familia": "cso", "busca": "raiz", "marca": "_CRITERIO_COMERCIAL.txt",
+                       "que": "la carpeta comercial de una entidad", "agentes": "Augusto y Valeria",
+                       "setup": "/criterio-sales:sales-setup"},
+    "criterio-revenue": {"familia": "cso", "busca": "raiz", "marca": "_CRITERIO_COMERCIAL.txt",
+                         "que": "la carpeta comercial de una entidad", "agentes": "Augusto y Valeria",
+                         "setup": "/criterio-revenue:revenue-setup"},
 }
 # Lo que no se recorre: lo que no es de la organización, y el estado de los agentes.
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".venv", ".next", "Library", "Applications"}

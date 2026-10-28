@@ -1,0 +1,24 @@
+{
+  "name": "criterio-sales",
+  "version": "0.1.0",
+  "description": "Augusto, el pronóstico: el embudo del CRM contra su evidencia —cada oportunidad contra el documento que exige su etapa, las detenidas y los cierres que se corren— y el pronóstico comprometido contra lo que lo sostiene, con la meta contra lo cerrado. Procesa exportaciones de Salesforce, de HubSpot o de cualquier CRM en CSV o Excel; nunca escribe en el CRM ni califica a quien vende.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "ventas",
+    "sales",
+    "pronostico",
+    "forecast",
+    "embudo",
+    "pipeline",
+    "crm",
+    "salesforce",
+    "hubspot",
+    "colombia",
+    "mexico"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-cso",
+  "license": "Apache-2.0"
+}

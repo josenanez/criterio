@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1609",
+  "counterparty": {
+    "name": "Proveedor 1600 S.A.S.",
+    "id": "PRV16000101AB1"
+  },
+  "value": 280000,
+  "start": "2026-09-05",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-05",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1609/10-contrato/contrato.pdf"
+}

@@ -1,0 +1,297 @@
+{
+ "comandos": {
+  "sales-setup": {
+   "funcion": "La configuración, el inventario y el formato de cada exportación del CRM.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Configuración guardada; inventario por carpeta; cada exportación con su formato, su fecha y sus oportunidades; las columnas que faltan; la primera ficha del periodo",
+    "escribe": [
+     "<estado>/comercial/<AAAA-MM>/ficha.json",
+     ".criterio/comercial/<entidad>/config.json",
+     "<estado>/ (init)",
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     ".criterio/terminos/ (aceptar)",
+     "<raíz>/_CRITERIO_COMERCIAL.txt (marcar-raiz, con permiso)",
+     "<estado>/comercial/<AAAA-MM>/resultados.json",
+     "<estado>/comercial/<AAAA-MM>/reporte-sales-setup.md",
+     "<estado>/corridas/salida-sales-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "crm-exports",
+     "pipeline-record",
+     "sales-intake"
+    ],
+    "script": [
+     "aceptar",
+     "buscar-raiz",
+     "compute",
+     "config",
+     "convertir",
+     "corrida",
+     "exportacion",
+     "init",
+     "inventario",
+     "marcar-raiz",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "pipeline-scan": {
+   "funcion": "La ficha del periodo al día, con lo que cambió en el embudo y las señales nuevas.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "10-crm/",
+     "20-comite/",
+     "30-evidencia/",
+     "<estado>/indice.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Qué cambió entre la exportación anterior y la última; las oportunidades nuevas, ganadas y perdidas; las señales nuevas; lo que no se pudo procesar y por qué",
+    "escribe": [
+     "<estado>/comercial/<AAAA-MM>/ficha.json",
+     "<estado>/comercial/<AAAA-MM>/resultados.json",
+     "<estado>/comercial/<AAAA-MM>/reporte-pipeline-scan.md",
+     "<estado>/corridas/salida-pipeline-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "crm-exports",
+     "pipeline-record",
+     "sales-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "pipeline-check": {
+   "funcion": "Cada oportunidad contra su evidencia: la que no la tiene, la detenida y la que corre su cierre.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "10-crm/",
+     "00-referencia/etapas",
+     "<estado>/comercial/<AAAA-MM>/ficha.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Las oportunidades sin el documento de su etapa, las detenidas y las que corrieron su cierre, cada una con su cita; sin calificar a quien la lleva",
+    "escribe": [
+     "<estado>/comercial/<AAAA-MM>/resultados.json",
+     "<estado>/comercial/<AAAA-MM>/reporte-pipeline-check.md",
+     "<estado>/corridas/salida-pipeline-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "crm-exports"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "forecast-check": {
+   "funcion": "El pronóstico comprometido contra lo que lo sostiene, oportunidad por oportunidad.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "10-crm/",
+     "00-referencia/etapas",
+     "<estado>/comercial/<AAAA-MM>/ficha.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo comprometido, lo cerrado, lo ponderado con evidencia y lo ponderado sin ella; la diferencia; las oportunidades que lo sostienen y las que no",
+    "escribe": [
+     "<estado>/comercial/<AAAA-MM>/resultados.json",
+     "<estado>/comercial/<AAAA-MM>/reporte-forecast-check.md",
+     "<estado>/corridas/salida-forecast-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "forecast-backing"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "target-check": {
+   "funcion": "La meta del periodo contra lo cerrado al corte, por línea.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "10-crm/",
+     "00-referencia/metas"
+    ]
+   },
+   "salida": {
+    "muestra": "La meta, lo esperado al corte, lo cerrado y la diferencia por línea; nunca por persona",
+    "escribe": [
+     "<estado>/comercial/<AAAA-MM>/resultados.json",
+     "<estado>/comercial/<AAAA-MM>/reporte-target-check.md",
+     "<estado>/corridas/salida-target-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "forecast-backing"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "sales-wake": {
+   "funcion": "Lo que toca hoy en el embudo; si no toca nada, se calla.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "<estado>/corridas/",
+     "<estado>/peticiones/",
+     "config"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+    "escribe": [
+     "<estado>/comercial/<AAAA-MM>/resultados.json",
+     "<estado>/comercial/<AAAA-MM>/reporte-sales-wake.md",
+     "<estado>/corridas/salida-sales-wake.md",
+     "<estado>/indice.json",
+     "<estado>/peticiones/<id>.json (responder)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "sales-intake"
+    ],
+    "script": [
+     "corrida",
+     "despertar",
+     "inventario",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  }
+ },
+ "skills": {
+  "sales-intake": {
+   "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo y cómo se nombra la evidencia.",
+   "escribe": [],
+   "alimenta": [
+    "stage_without_evidence"
+   ]
+  },
+  "crm-exports": {
+   "decide": "El formato de cada exportación, el mapeo de columnas y la historia de la fecha de cierre.",
+   "escribe": [],
+   "alimenta": [
+    "stalled_opportunity",
+    "close_date_slipped"
+   ]
+  },
+  "pipeline-record": {
+   "decide": "Cada documento de evidencia con su oportunidad y su tipo, y el pronóstico comprometido, con su cita.",
+   "escribe": [
+    "evidence",
+    "declared_forecast",
+    "questions"
+   ],
+   "alimenta": [
+    "stage_without_evidence",
+    "forecast_unsupported"
+   ]
+  },
+  "forecast-backing": {
+   "decide": "El pronóstico ponderado con y sin evidencia, y la meta prorrateada.",
+   "escribe": [],
+   "alimenta": [
+    "forecast_unsupported",
+    "target_vs_closed"
+   ]
+  }
+ },
+ "por_descripcion": {}
+}

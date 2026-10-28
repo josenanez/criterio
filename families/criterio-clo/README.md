@@ -21,7 +21,7 @@ talks to the other directly: they talk through their records.
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the lawyer or the compliance officer, and does not decide for them: it processes what the organisation signed and what it committed to comply with, and says what falls due, what has no evidence and what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | Deployment in an organisation: [the roadmap](#roadmap) |
+| **What comes next** | Brazil, and then 1.0, the stable version: [the roadmap](#roadmap) |
 
 ---
 

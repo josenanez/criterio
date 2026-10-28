@@ -60,6 +60,25 @@ def familias() -> dict[str, list[str]]:
     return out
 
 
+def en_construccion() -> dict[str, str]:
+    """Los plugins de las familias que todavía no se han liberado, con la versión que su hoja de ruta
+    les planea: la primera que no dice «liberada». Una familia en construcción no está en el
+    marketplace, y entra al registro con su primera liberación (`--familia sigla=versión`)."""
+    reg = leer()
+    ultima = reg["versiones"][-1] if reg["versiones"] else {}
+    if "familias" not in ultima:
+        return {}
+    out = {}
+    for sigla, pls in familias().items():
+        if sigla in ultima["familias"]:
+            continue
+        hoja = RAIZ / "families" / f"criterio-{sigla}" / "hoja-de-ruta.json"
+        h = json.loads(hoja.read_text(encoding="utf-8")) if hoja.is_file() else {"incrementos": []}
+        v = next((i["version"] for i in h["incrementos"] if i["estado"] != "liberada" and i["version"]), None)
+        out.update({pl: v for pl in pls})
+    return out
+
+
 def version_de_familia(e: dict, sigla: str) -> str:
     """La versión de una familia en una entrada; antes de la decisión 0017, la única de la entrada."""
     return e.get("familias", {}).get(sigla, e["version"])
@@ -246,8 +265,10 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     rango = f"{desde}..HEAD" if desde else "HEAD"
     cambios = git("log", "--reverse", "--format=%s", rango).splitlines()
     # La versión de cada familia y de cada plugin después de esta entrada.
-    actuales = {s: por_familia.get(s, version_de_familia(previa, s) if previa else v) for s in fam}
-    versiones = {pl: actuales[s] for s, pls in fam.items() for pl in pls}
+    # Una familia en construcción que no se libera en esta entrada sigue fuera del registro.
+    actuales = {s: por_familia.get(s, version_de_familia(previa, s) if previa else v) for s in fam
+                if s in por_familia or not previa or "familias" not in previa or s in previa["familias"]}
+    versiones = {pl: actuales[s] for s, pls in fam.items() if s in actuales for pl in pls}
     e = sellar({"version": v, "fecha": dt.date.today().isoformat(), "commit": None, "base": base,
                 "etiqueta": f"v{v}", "familias": actuales, "liberadas": sorted(por_familia), "versiones": versiones,
                 "terminos": terminos_en(None), "plugins": huellas_en(None),
@@ -302,10 +323,19 @@ def verificar() -> int:
         if actual != ultima["version"]:
             problemas.append(f"la versión publicada es {actual} y la última registrada es {ultima['version']}: "
                              f"una versión sin registro no se libera")
-        # Cada plugin, en la versión de su familia según la última entrada.
+        # Cada plugin, en la versión de su familia según la última entrada; el de una familia en
+        # construcción, en la que le planea su hoja de ruta, y fuera del marketplace.
+        construccion = en_construccion()
+        listados = {p["name"] for p in json.loads(MARKET.read_text(encoding="utf-8")).get("plugins", [])}
         for f in sorted((RAIZ / "plugins").glob("*/.claude-plugin/plugin.json")):
             pl = f.parent.parent.name
             pv = json.loads(f.read_text(encoding="utf-8")).get("version")
+            if pl in construccion:
+                if pv != construccion[pl]:
+                    problemas.append(f"{pl} está en {pv} y su familia, en construcción, planea la {construccion[pl]} en su hoja de ruta")
+                if pl in listados:
+                    problemas.append(f"{pl} es de una familia en construcción y está en el marketplace: se publica con su primera liberación")
+                continue
             if pv != version_de_plugin(ultima, pl):
                 problemas.append(f"{pl} está en {pv} y la última entrada lo registra en {version_de_plugin(ultima, pl)}")
         registrados = {pl for pls in familias().values() for pl in pls}
@@ -328,7 +358,9 @@ def verificar() -> int:
             elif e["sha256"] not in r.stdout:
                 problemas.append(f"la etiqueta {etq} apunta a un commit que no contiene la entrada {e['version']}")
         ahora = huellas_en(None)
-        movidos = sorted(p for p in ahora if ahora.get(p) != ultima["plugins"].get(p))
+        movidos = sorted(p for p in ahora if ahora.get(p) != ultima["plugins"].get(p) and p not in construccion)
+        if construccion:
+            avisos.append(f"en construcción, fuera del marketplace: {', '.join(sorted(construccion))}")
         if movidos:
             avisos.append(f"cambios sin liberar desde la {ultima['version']}: {', '.join(movidos)}")
     for a in avisos:

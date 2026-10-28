@@ -88,10 +88,19 @@ Son cifras de terceros, verificadas contra el texto de quien las publica el 28 d
 | **28 %** de su semana dedica un vendedor a vender; el 72 % se va en otras tareas, sobre todo gestionar los negocios y capturar datos | Salesforce, State of Sales, quinta edición ([nota](https://www.salesforce.com/news/stories/sales-research-2023/)) | 7.775 profesionales de ventas en 38 países de Norteamérica, América Latina, Asia-Pacífico y Europa, del 24 de agosto al 30 de septiembre de 2022 | Verificada |
 | **84 %** de los líderes de ventas dice que la analítica comercial influyó menos de lo esperado en el desempeño; el 44 % señala la mala calidad de los datos | Gartner ([comunicado](https://www.gartner.com/en/newsroom/press-releases/2024-02-06-gartner-survey-finds-sales-analytics-has-less-influence-on-sales-performance-than-what-leadership-expected)) | 303 líderes de ventas, julio de 2023 | Verificada |
 
-## Lo que falta decidir
+## Lo que se decidió después
 
-1. El nombre de cada agente.
-2. Qué exportaciones de CRM entran primero: Salesforce, HubSpot, Microsoft Dynamics o Zoho.
-3. Si la liquidación de comisiones entra en el primer incremento o en el segundo.
-4. En qué países se prueba primero, con la identificación y la factura de cada uno que ya están en
-   el registro de países.
+Las cuatro decisiones que quedaban abiertas, tomadas el 28 de octubre de 2026:
+
+1. **Los nombres:** Augusto, de *augur*, el que lee las señales antes de que pasen, para el
+   pronóstico; y Valeria, de *valere*, valer, para la venta hasta la factura.
+2. **Las exportaciones:** Salesforce y HubSpot, cada una con su lector verificado contra la
+   documentación que publica (F-02 a F-05 de la familia), y cualquier otro CRM en CSV o Excel con su
+   mapeo de columnas. Microsoft Dynamics y Zoho, en el incremento 2.
+3. **La comisión entra en el primer incremento**: las nueve señales desde el primero.
+4. **Los países:** Colombia y México primero; Ecuador, Perú y Chile, en el incremento 2.
+
+La familia se construye en `families/criterio-cso/`, con los plugins `criterio-sales` (Augusto) y
+`criterio-revenue` (Valeria). **Mientras no pase su ronda con los agentes no entra al marketplace**:
+el registro de versiones la trata como una familia en construcción, con la versión que le planea su
+hoja de ruta, y la publica con su primera liberación.

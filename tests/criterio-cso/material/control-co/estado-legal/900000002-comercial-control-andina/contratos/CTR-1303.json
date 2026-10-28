@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1303",
+  "counterparty": {
+    "name": "Cliente Control Cinco S.A.S.",
+    "id": "830013004"
+  },
+  "value": 30000000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1303/10-contrato/contrato.pdf"
+}

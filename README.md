@@ -8,7 +8,7 @@
 
 Apache 2.0 · Four clicks to install · Each agent produces its first result in fifteen minutes
 
-**Status: the PMO, CFO, CLO and EA families are built and tested on synthetic material, and are released together;** the current version and what changed in each one are in the [version register](https://www.josenanez.com/agents/criterio-pmo/legal). Every change goes through `scripts/verificar.py`, with each gate, what it tests and what it does not on [the results page](docs/pruebas.md) (Spanish). Reliability figures on real data are published when they are measured, not before. [Security](SECURITY.md)
+**Status: the PMO, CFO, CLO and EA families are built and tested on synthetic material, and each one carries its own version ([decision 0017](docs/decisions/0017-una-version-por-familia.md));** each family's version and what changed in each one are in the [version register](https://www.josenanez.com/agents/criterio-pmo/legal). Every change goes through `scripts/verificar.py`, with each gate, what it tests and what it does not on [the results page](docs/pruebas.md) (Spanish). Reliability figures on real data are published when they are measured, not before. [Security](SECURITY.md)
 
 ---
 
@@ -43,6 +43,7 @@ one another. Agents from different families do not.
 | **[criterio-cfo](families/criterio-cfo/README.md)** | Close, control and financial reporting | That closing the books stops depending on somebody remembering what is missing | **Three agents built and tested:** [Clara](plugins/criterio-finance/README.md), [Tomás](plugins/criterio-budget/README.md) and [Áurea](plugins/criterio-treasury/README.md) |
 | **[criterio-clo](families/criterio-clo/README.md)** | Contracts, compliance and legal risk | That a company knows what it signed, what expires and what it committed to | **Two agents built and tested:** [Fidel](plugins/criterio-legal/README.md) and [Constanza](plugins/criterio-compliance/README.md) |
 | **[criterio-ea](families/criterio-ea/README.md)** | The executive office: the calendar, the governing bodies' meetings, the minutes, the commitments and the correspondence | That the executive arrives at every meeting prepared and no agreement is left without an owner or a date | **One agent built and tested:** [Ofelia](plugins/criterio-assistant/README.md) |
+| **[criterio-cso](families/criterio-cso/README.md)** | The sales function: the CRM pipeline, the forecast, the target, discounts, what was won through to the invoice and commissions | That what is committed in the sales committee has the documents that back it, and that no sale gets stuck between the close and the invoice | **In construction:** [Augusto](plugins/criterio-sales/README.md) and [Valeria](plugins/criterio-revenue/README.md); the engine, tested; the round with the agents, the next step |
 
 **Rostrum, the portal, is one for every family.** It publishes what the agents already wrote —the
 PMO report, the CFO and CLO reports, what falls due across all of them— for whoever does not open

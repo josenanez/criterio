@@ -1,0 +1,7 @@
+etapa;orden;probabilidad;exige;tipo
+Calificación;1;10;;abierta
+Propuesta;2;30;propuesta;abierta
+Negociación;3;60;;abierta
+Compromiso;4;80;orden de compra;abierta
+Ganada;5;100;;ganada
+Perdida;6;0;;perdida

@@ -821,6 +821,11 @@ def facturas(cfg: dict, periodo: str) -> dict:
             d["lado"], d["archivo"] = lado, rel(p, docs)
             leidas.append(d)
     out["facturas"] = len(leidas)
+    # Las facturas emitidas del periodo, para quien las cruza sin volver a procesarlas: Valeria, de la
+    # familia CSO, pone cada contrato firmado con un cliente al lado de su factura (ADR 0019).
+    out["emitidas"] = [{"numero": d.get("numero"), "id": d.get("id"), "fecha": d.get("fecha"), "receptor": d.get("receptor"),
+                        "base": d.get("base"), "total": d.get("total"), "tipo": d["tipo"], "archivo": d["archivo"]}
+                       for d in leidas if d["lado"] == "emitidas" and d["tipo"] == "factura"]
     por_id = {}
     for d in leidas:
         por_id.setdefault(d.get("id") or d["archivo"], []).append(d)

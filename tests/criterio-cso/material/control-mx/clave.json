@@ -1,0 +1,162 @@
+{
+  "entidad": "Comercial Control de México",
+  "industria": "servicios",
+  "pais": "MX",
+  "crm": "hubspot-xlsx",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "CCM101010AB3",
+        "name": "Comercial Control de México",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "comercial/CCM101010AB3-comercial-control-de-mexico",
+        "state": "estado-comercial/CCM101010AB3-comercial-control-de-mexico"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "hubspot",
+        "columns": {
+          "cuenta": "Associated Company"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {}
+    },
+    "valeria": {
+      "entity": {
+        "id": "CCM101010AB3",
+        "name": "Comercial Control de México",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "comercial/CCM101010AB3-comercial-control-de-mexico",
+        "state": "estado-comercial/CCM101010AB3-comercial-control-de-mexico"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "hubspot",
+        "columns": {
+          "cuenta": "Associated Company"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {},
+      "revenue": {
+        "contract_records": "estado-legal/CCM101010AB3-comercial-control-de-mexico/contratos",
+        "invoice_records": "estado-finanzas/CCM101010AB3-comercial-control-de-mexico",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-1601",
+          "type": "propuesta",
+          "amount": 907200,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1601_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1601",
+          "type": "orden_compra",
+          "amount": 840000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-1601_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1602",
+          "type": "propuesta",
+          "amount": 1360800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1602_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1602",
+          "type": "orden_compra",
+          "amount": 1260000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-1602_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1603",
+          "type": "propuesta",
+          "amount": 1890000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1603_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1603",
+          "type": "orden_compra",
+          "amount": 1750000,
+          "date": "2026-10-28",
+          "source": "30-evidencia/OPP-1603_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1604",
+          "type": "propuesta",
+          "amount": 680400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1604_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1607",
+          "type": "propuesta",
+          "amount": 831600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1607_propuesta.md"
+        }
+      ],
+      "declared_forecast": {
+        "value": 2205000,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-1601",
+          "opportunity": "OPP-1601",
+          "list_amount": 938000,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-1601_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1602",
+          "opportunity": "OPP-1602",
+          "list_amount": 1540000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-1602_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1603",
+          "opportunity": "OPP-1603",
+          "list_amount": 2030000,
+          "discount_pct": 14,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-1603_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

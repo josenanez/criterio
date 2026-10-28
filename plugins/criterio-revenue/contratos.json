@@ -1,0 +1,307 @@
+{
+ "comandos": {
+  "revenue-setup": {
+   "funcion": "La configuración, el inventario y las cuentas que faltan para cruzar con Fidel y Clara.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Configuración guardada; inventario por carpeta; las cuentas sin identificación; si encontró las fichas de Fidel y de Clara; la primera ficha del periodo",
+    "escribe": [
+     ".criterio/ingresos/<entidad>/config.json",
+     "<estado>/ (init)",
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     ".criterio/terminos/ (aceptar)",
+     "<raíz>/_CRITERIO_COMERCIAL.txt (marcar-raiz, con permiso)",
+     "<estado>/ingresos/<AAAA-MM>/resultados.json",
+     "<estado>/ingresos/<AAAA-MM>/reporte-revenue-setup.md",
+     "<estado>/corridas/salida-revenue-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "crm-exports",
+     "sales-intake",
+     "won-to-cash"
+    ],
+    "script": [
+     "aceptar",
+     "buscar-raiz",
+     "compute",
+     "config",
+     "corrida",
+     "exportacion",
+     "init",
+     "inventario",
+     "marcar-raiz",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "deal-scan": {
+   "funcion": "La ficha del periodo al día, con las cotizaciones nuevas y las señales nuevas.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "40-cotizaciones/",
+     "10-crm/",
+     "<estado>/indice.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Qué cambió; qué cotizaciones son nuevas; las señales nuevas; lo que no se pudo procesar y por qué",
+    "escribe": [
+     "<estado>/ingresos/<AAAA-MM>/ficha.json",
+     "<estado>/ingresos/<AAAA-MM>/resultados.json",
+     "<estado>/ingresos/<AAAA-MM>/reporte-deal-scan.md",
+     "<estado>/corridas/salida-deal-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "deal-record",
+     "sales-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "discount-check": {
+   "funcion": "Cada descuento contra su política y su aprobación.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "00-referencia/matriz-descuentos",
+     "<estado>/ingresos/<AAAA-MM>/ficha.json"
+    ]
+   },
+   "salida": {
+    "muestra": "Cada cotización con su descuento, su nivel, la aprobación que pide y la que tiene; las que quedan fuera de la política, con su cita",
+    "escribe": [
+     "<estado>/ingresos/<AAAA-MM>/resultados.json",
+     "<estado>/ingresos/<AAAA-MM>/reporte-discount-check.md",
+     "<estado>/corridas/salida-discount-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "discount-policy"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "won-to-invoice": {
+   "funcion": "De lo ganado a lo firmado y a lo facturado: lo que se quedó en el camino.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "10-crm/",
+     "00-referencia/cuentas",
+     "fichas de Fidel: <estado-legal>/contratos/",
+     "fichas de Clara: <estado-finanzas>/cierre/"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo ganado sin contrato y lo firmado sin factura, cada uno con su cita en el CRM y en la ficha del otro agente; los contratos no se vuelven a procesar",
+    "escribe": [
+     "<estado>/ingresos/<AAAA-MM>/resultados.json",
+     "<estado>/ingresos/<AAAA-MM>/reporte-won-to-invoice.md",
+     "<estado>/corridas/salida-won-to-invoice.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "won-to-cash"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "commission-check": {
+   "funcion": "Cada comisión liquidada contra la que da el plan.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "00-referencia/plan-comisiones",
+     "50-comisiones/",
+     "10-crm/",
+     "fichas de Clara: <estado-finanzas>/cierre/"
+    ]
+   },
+   "salida": {
+    "muestra": "Por responsable: lo que da el plan, lo liquidado y la diferencia, con las oportunidades que forman la base; no se publica en Rostrum salvo que la configuración lo diga",
+    "escribe": [
+     "<estado>/ingresos/<AAAA-MM>/resultados.json",
+     "<estado>/ingresos/<AAAA-MM>/reporte-commission-check.md",
+     "<estado>/corridas/salida-commission-check.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "commission-plan"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "revenue-wake": {
+   "funcion": "Lo que toca hoy de la venta a la factura; si no toca nada, se calla.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "<estado>/corridas/",
+     "<estado>/peticiones/",
+     "config"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+    "escribe": [
+     "<estado>/ingresos/<AAAA-MM>/resultados.json",
+     "<estado>/ingresos/<AAAA-MM>/reporte-revenue-wake.md",
+     "<estado>/corridas/salida-revenue-wake.md",
+     "<estado>/indice.json",
+     "<estado>/peticiones/<id>.json (responder)"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "sales-intake"
+    ],
+    "script": [
+     "corrida",
+     "despertar",
+     "inventario",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  }
+ },
+ "skills": {
+  "sales-intake": {
+   "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo y cómo se nombra la evidencia.",
+   "escribe": [],
+   "alimenta": [
+    "stage_without_evidence"
+   ]
+  },
+  "crm-exports": {
+   "decide": "El formato de cada exportación, el mapeo de columnas y la historia de la fecha de cierre.",
+   "escribe": [],
+   "alimenta": [
+    "stalled_opportunity",
+    "close_date_slipped"
+   ]
+  },
+  "deal-record": {
+   "decide": "Cada cotización con su descuento y su aprobación, con su cita.",
+   "escribe": [
+    "quotes",
+    "questions"
+   ],
+   "alimenta": [
+    "discount_outside_policy"
+   ]
+  },
+  "discount-policy": {
+   "decide": "El nivel que cubre cada descuento y la aprobación que pide.",
+   "escribe": [],
+   "alimenta": [
+    "discount_outside_policy"
+   ]
+  },
+  "won-to-cash": {
+   "decide": "El cruce de lo ganado con los contratos de Fidel y las facturas de Clara por la identificación del cliente.",
+   "escribe": [],
+   "alimenta": [
+    "won_without_contract",
+    "signed_without_invoice"
+   ]
+  },
+  "commission-plan": {
+   "decide": "La comisión que da el plan sobre lo ganado y facturado.",
+   "escribe": [],
+   "alimenta": [
+    "commission_differs_from_plan"
+   ]
+  }
+ },
+ "por_descripcion": {}
+}

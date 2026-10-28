@@ -760,6 +760,9 @@ def agentes_json() -> tuple[str, list[str]]:
             agentes.append({"id": a["id"], "nombre": a["nombre"], "plugin": a["plugin"], "area": a["area"],
                             "ambitos": a.get("ambitos") or [], "familia": sigla, "rol": a["rol"], "titulo": a.get("titulo") or a["rol"]["es"].lower(),
                             "origen": a.get("origen"),
+                            # Lo que no se publica en Rostrum salvo que la configuración lo diga (ADR 0019): el
+                            # comando, la clave de la configuración que lo abre y las señales que no se muestran.
+                            "privados": {c["id"]: c["privado"] for c in a.get("comandos") or [] if c.get("privado")},
                             "setup": dest.get("setup"), "marca": dest.get("marca"), "grupos": grupos})
     for a in agentes + [SERVIDOR]:
         if not all((a.get("origen") or {}).get(i) for i in ("es", "en")):

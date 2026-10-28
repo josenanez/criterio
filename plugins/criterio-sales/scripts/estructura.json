@@ -1,0 +1,60 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-cso/carpetas.json; no se edita a mano",
+  "niveles": [
+    {
+      "id": "entidad",
+      "ruta": null,
+      "profundidad": 1,
+      "etiqueta": "",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "patrones": [
+            "^etapas",
+            "^metas",
+            "^matriz_descuentos",
+            "^plan_comisiones",
+            "^cuentas",
+            "^lista_precios"
+          ]
+        },
+        {
+          "carpeta": "10-crm",
+          "patrones": [
+            "^oportunidades",
+            "^opportunit",
+            "^deals",
+            "^hubspot",
+            "^historial",
+            "^history"
+          ]
+        },
+        {
+          "carpeta": "20-comite",
+          "patrones": [
+            "^acta",
+            "^comite",
+            "^pronostico"
+          ]
+        },
+        {
+          "carpeta": "30-evidencia",
+          "patrones": []
+        },
+        {
+          "carpeta": "40-cotizaciones",
+          "patrones": [
+            "^cot",
+            "^pedido"
+          ]
+        },
+        {
+          "carpeta": "50-comisiones",
+          "patrones": [
+            "^liquidacion"
+          ]
+        }
+      ]
+    }
+  ]
+}

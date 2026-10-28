@@ -477,6 +477,8 @@ def vista_corrida(entradas: list, agente: str, sobre: str, ident: str, hoy: str)
         que = re.sub(r'^\d{4}-\d{2}-\d{2}-', '', ident)
         que = re.sub(r'-\d+$', '', que)
         cmd = comando_de(agente, que)
+        if cmd in (x.get('privados') or {}) or que in (x.get('privados') or {}):
+            break
         cuerpo = [f'<p class="entrada">Corrida <code>{e(ident)}</code> de '
                   f'{e(NOMBRE.get(agente, agente))}{" sobre <b>" + e(sobre) + "</b>" if sobre != "-" else ""}. '
                   f'Lo que sigue es lo que la corrida escribió sola al terminar; nada de esto se '
@@ -711,11 +713,25 @@ def comandos_si_comparte(area: str) -> set | None:
     return {c["id"] for g in a["grupos"] for c in g["comandos"]}
 
 
+def privados_de(entradas: list) -> dict:
+    """Por agente, los comandos que no se publican y las señales que no se muestran: los que su familia
+    marca como privados y su configuración no abre (ADR 0019). Una comisión no sale del equipo de
+    quien la liquida por estar en el mapa."""
+    out: dict = {}
+    for x in entradas:
+        for cmd, senales in (x.get("privados") or {}).items():
+            d = out.setdefault(x["area"], {"comandos": set(), "senales": set()})
+            d["comandos"].add(cmd)
+            d["senales"] |= set(senales)
+    return out
+
+
 def historia(entradas: list) -> dict:
     """Las corridas de todos los agentes del mapa en una sola línea de tiempo, y de cada caso
     desde cuándo arrastra cada señal. Todos escriben su historia con el mismo esquema, así que se
     lee igual sin importar la familia (ADR 0010)."""
     corridas, casos, instantaneas = [], {}, []
+    priv = privados_de(entradas)
     for x in entradas:
         d = x.get("_estado")
         if d is None or not d.is_dir():
@@ -724,11 +740,16 @@ def historia(entradas: list) -> dict:
             h = portafolio._historia_de(d, comandos_si_comparte(x["area"]))
         except Exception:  # un estado a medio escribir no tumba el portal
             continue
+        p = priv.get(x["area"]) or {"comandos": set(), "senales": set()}
         for c in h["corridas"]:
+            if c.get("que") in p["comandos"]:
+                continue
             corridas.append(dict(c, agente=x["area"], sobre=c.get("caso") or x.get("instancia")))
         for codigo, senales in h["casos"].items():
             destino = casos.setdefault(codigo, {})
             for s, v in senales.items():
+                if s in p["senales"]:
+                    continue
                 # El mismo caso visto por dos agentes: se queda la racha más larga, que es la
                 # que un comité necesita; el problema no empieza de nuevo porque lo mire otro.
                 if s not in destino or v["seguidas"] > destino[s]["seguidas"]:
@@ -752,6 +773,7 @@ def indice(evidencia: Path, entradas: list) -> list:
     porque son corridas anteriores al rastro o hechas sin él.
     """
     corridas, cubiertas = [], set()
+    priv = privados_de(entradas)
     for agente in PLUGIN:
         f = evidencia / agente / "corridas.json"
         if not f.is_file():
@@ -764,6 +786,8 @@ def indice(evidencia: Path, entradas: list) -> list:
         except (json.JSONDecodeError, OSError):
             continue
         for x in registros:
+            if x.get("comando") in (priv.get(agente) or {}).get("comandos", set()):
+                continue
             medidas = x.get("medidas") or []
             for m in medidas:
                 if m.get("id"):
@@ -1082,12 +1106,13 @@ def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -
                        nav(('/corridas', 'Historia'), ('', codigo)), '/corridas')
 
 
-def vista_rastro(evidencia: Path, agente: str, ident: str, hoy: str) -> tuple:
-    """La página de una corrida que dejó el arnés, servida con el árbol encima."""
+def vista_rastro(evidencia: Path, agente: str, ident: str, hoy: str, privados: set = frozenset()) -> tuple:
+    """La página de una corrida que dejó el arnés, servida con el árbol encima. La de un comando
+    privado no se sirve (ADR 0019)."""
     f = evidencia / agente / f"{ident}.html"
-    if agente not in PLUGIN or not SEGURO.match(ident) or not f.is_file():
-        return 404, error(404, f'No hay corrida {ident} de {agente}', hoy)
     que = re.sub(r"-\d+$", "", ident[11:])
+    if agente not in PLUGIN or not SEGURO.match(ident) or not f.is_file() or que in privados:
+        return 404, error(404, f'No hay corrida {ident} de {agente}', hoy)
     return 200, con_arbol(accesible(f.read_text(encoding="utf-8")), f'/corridas?agente={agente}&que={que}')
 
 
@@ -1215,6 +1240,7 @@ def resultados_de(x: dict) -> list:
         return []
     por_ambito = {}
     suyos = set((AGENTES.get(x['area']) or {}).get('ambitos') or [])
+    ocultas = {s for v in (x.get('privados') or {}).values() for s in v}
     for f in d.rglob('resultados.json'):
         rel = f.relative_to(d)
         if rel.parts[0] in ('corridas', 'peticiones', 'cache') or (suyos and rel.parts[0] not in suyos):
@@ -1228,6 +1254,9 @@ def resultados_de(x: dict) -> list:
             datos = json.loads(f.read_text(encoding='utf-8'))
         except (OSError, json.JSONDecodeError):
             continue
+        if ocultas and isinstance(datos, dict):
+            datos = dict(datos, alertas=[a for a in datos.get('alertas') or [] if a.get('signal') not in ocultas],
+                         partes={k: v for k, v in (datos.get('partes') or {}).items() if k not in (x.get('privados') or {})})
         out.append({'ambito': ambito, 'ruta': f.relative_to(d).as_posix(), 'datos': datos,
                     'escrito': dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc).isoformat(timespec='seconds')})
     return out
@@ -1240,7 +1269,7 @@ def reportes_de(x: dict) -> list:
         return []
     suyos = set((AGENTES.get(x['area']) or {}).get('ambitos') or [])
     fs = [f for f in d.rglob('reporte-*.md') if f.relative_to(d).parts[0] not in ('corridas', 'peticiones', 'cache')
-          and (not suyos or f.relative_to(d).parts[0] in suyos)]
+          and (not suyos or f.relative_to(d).parts[0] in suyos) and f.stem[len('reporte-'):] not in (x.get('privados') or {})]
     return [{'ruta': f.relative_to(d).as_posix(), 'comando': f.stem[len('reporte-'):],
              'escrito': dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc).isoformat(timespec='seconds')[:16].replace('T', ' ')}
             for f in sorted(fs, key=lambda f: (-f.stat().st_mtime, str(f)))]
@@ -1493,6 +1522,8 @@ def vista_reporte(entradas: list, area: str, instancia: str, rel: str, hoy: str)
     if raiz not in f.parents or not f.is_file():
         return 404, error(404, 'Eso no está aquí', hoy)
     comando = partes[-1][len('reporte-'):-3]
+    if comando in (x.get('privados') or {}):
+        return 404, error(404, 'Eso no está aquí', hoy)
     escrito = dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc).isoformat(timespec='minutes').replace('T', ' ')[:16]
     cuerpo = [f'<p class="entrada">{e(quien(x))} · <code class="cmd">{e(comando)}</code> · escrito por el motor el {e(escrito)}. '
               'Es el reporte tal como quedó en el estado del agente; nada de esto se redactó para el portal.</p>',
@@ -1722,7 +1753,8 @@ class Manejador(BaseHTTPRequestHandler):
         elif ruta.startswith('/corrida/'):
             partes = [urllib.parse.unquote(x) for x in ruta.split('/')[2:]]
             if len(partes) == 2 and all(SEGURO.match(x) for x in partes):
-                self.html(*vista_rastro(self.evidencia, partes[0], partes[1], self.hoy()))
+                self.html(*vista_rastro(self.evidencia, partes[0], partes[1], self.hoy(),
+                                        (privados_de(self.entradas).get(partes[0]) or {}).get('comandos', set())))
             elif len(partes) == 3 and SEGURO.match(partes[0]) and CASO.match(partes[1]) \
                     and SEGURO.match(partes[2]):
                 self.html(*vista_corrida(self.entradas, partes[0], partes[1], partes[2], self.hoy()))
@@ -2296,6 +2328,22 @@ def selftest() -> int:
            [('finanzas/900-banco', 1), ('legal/900-banco', 1), ('portafolio', 0), ('presupuesto/900-banco', 0)])
         Manejador.entradas = entradas_legado(inf, est)
 
+        # Lo privado no sale (ADR 0019): el reporte, las señales y la corrida de las comisiones.
+        ing = raiz / 'estado-comercial' / '900-banco'
+        (ing / 'ingresos' / '2026-10').mkdir(parents=True, exist_ok=True)
+        (ing / 'ingresos' / '2026-10' / 'resultados.json').write_text(json.dumps(
+            {'agente': 'valeria', 'alertas': [{'signal': 'commission_differs_from_plan', 'detail': 'Ana', 'key': 'comision:2026-10:ana'},
+                                              {'signal': 'won_without_contract', 'detail': 'OPP-101', 'key': 'contrato:OPP-101'}],
+             'partes': {'commission-check': {'comisiones': [1]}, 'won-to-invoice': {}}}), encoding='utf-8')
+        for c in ('commission-check', 'won-to-invoice'):
+            (ing / 'ingresos' / '2026-10' / f'reporte-{c}.md').write_text(f'# {c}\n', encoding='utf-8')
+        xv = {'area': 'ingresos', 'instancia': '900-banco', 'nombre': 'Banco', '_estado': ing,
+              'privados': {'commission-check': ['commission_differs_from_plan']}}
+        r_v = resultados_de(xv)[0]['datos']
+        ok('las comisiones no se publican: ni su reporte, ni su señal, ni su resultado',
+           ([r['comando'] for r in reportes_de(xv)], [a['signal'] for a in r_v['alertas']], sorted(r_v['partes'])),
+           (['won-to-invoice'], ['won_without_contract'], ['won-to-invoice']))
+        ok('y su página tampoco', vista_reporte([xv], 'ingresos', '900-banco', 'ingresos/2026-10/reporte-commission-check.md', '2026-10-20')[0], 404)
         ok('el escape impide inyectar en la confirmación',
            '<script>x</script>' not in pedir('/peticion', 'POST',
                                    urllib.parse.urlencode({'de': '<script>x</script>'}))[1], True)

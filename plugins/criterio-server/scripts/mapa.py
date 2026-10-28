@@ -61,6 +61,19 @@ def _relativa(p: Path | None, raiz: Path) -> str | None:
         return str(p)
 
 
+def privados(agente: dict, cfg: dict) -> dict:
+    """Los comandos de un agente que no se publican, con las señales que no se muestran: los que su
+    familia marca como privados y su configuración no abre (ADR 0019, las comisiones de Valeria)."""
+    out = {}
+    for cmd, p in (agente.get("privados") or {}).items():
+        v = cfg
+        for k in str(p.get("config") or "").split("."):
+            v = v.get(k) if isinstance(v, dict) else None
+        if v is not True:
+            out[cmd] = sorted(p.get("senales") or [])
+    return out
+
+
 def descubrir(raiz: Path) -> dict:
     """Las configuraciones de agente bajo `<raiz>/.criterio/`, con su estado."""
     reg = registro()
@@ -88,7 +101,7 @@ def descubrir(raiz: Path) -> dict:
             nombre = (cfg.get("organization") or {}).get("name") or (cfg.get("entity") or {}).get("name") or instancia
             e = {"id": ident, "area": a["area"], "agente": a["id"], "nombre_agente": a["nombre"], "familia": a["familia"],
                  "instancia": instancia, "nombre": nombre, "config": _relativa(f, raiz), "estado": _relativa(estado, raiz),
-                 "informe": None, "existe": bool(estado and estado.is_dir())}
+                 "informe": None, "existe": bool(estado and estado.is_dir()), "privados": privados(a, cfg)}
             if a["area"] == "portafolio":
                 e["informe"] = _relativa(_ruta(paths.get("reports"), raiz), raiz)
             docs = _ruta(paths.get("documents"), raiz)
@@ -143,6 +156,11 @@ def cargar(mapa: Path) -> tuple[dict, list[dict], Path]:
         # documentos. Rostrum la muestra en cada familia para que nadie tenga que adivinarla.
         x["_raiz"] = raiz
         x["_documentos"] = _ruta(e.get("documentos"), raiz)
+        # Lo privado se lee de la configuración de hoy, no del mapa guardado: abrir o cerrar las
+        # comisiones no pide volver a armar el mapa.
+        ag = next((a for a in registro()["agentes"] if a["area"] == e.get("area")), {})
+        cfg_ag = _leer(x["_config"]) if x["_config"] and x["_config"].is_file() else None
+        x["privados"] = privados(ag, cfg_ag) if isinstance(cfg_ag, dict) else privados(ag, {})
         entradas.append(x)
     return cfg, entradas, raiz
 
@@ -224,6 +242,11 @@ def selftest() -> int:
         config("direccion/presidencia", {"entity": {"name": "Banco de Prueba"}, "publish_rostrum": True,
                                          "paths": {"state": "estado-direccion/presidencia", "documents": "direccion/presidencia"}})
         ok("y si su configuración lo dice, entra", "direccion/presidencia" in [e["id"] for e in descubrir(raiz)["entradas"]], True)
+        # Las comisiones de Valeria no se publican salvo que su configuración lo diga (ADR 0019).
+        val = {"privados": {"commission-check": {"config": "revenue.publish_commissions", "senales": ["commission_differs_from_plan"]}}}
+        ok("un comando privado queda fuera por omisión, con sus señales",
+           privados(val, {"revenue": {}}), {"commission-check": ["commission_differs_from_plan"]})
+        ok("y la configuración lo abre", privados(val, {"revenue": {"publish_commissions": True}}), {})
     print()
     if fallas:
         print(f"{len(fallas)} falla(s)")

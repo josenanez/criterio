@@ -1,0 +1,116 @@
+{
+ "nota": "Fuente única de la hoja de ruta de la familia CSO: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. Los países que siguen se nombran en `paises`, con su código y su nombre: entran al mapa cuando pasan su ronda.",
+ "incrementos": [
+  {
+   "incremento": 1,
+   "version": "0.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CO",
+     "nombre": {
+      "es": "Colombia",
+      "en": "Colombia"
+     }
+    },
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Augusto y Valeria, construidos y probados con la ronda completa con los agentes",
+    "entra": [
+     "Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria",
+     "Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas",
+     "Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas",
+     "Colombia y México, con entidades de control"
+    ],
+    "prueba": "La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven"
+   },
+   "en": {
+    "titulo": "Augusto and Valeria, built and tested with the full round with the agents",
+    "entra": [
+     "The twelve commands, their skills and the engine, with the nine signals: Augusto's pipeline, forecast and target; Valeria's discount, contract, invoice and commission",
+     "Salesforce and HubSpot exports, and any CSV or Excel with its column mapping",
+     "What was won against Fidel's contracts and what was signed against Clara's invoices, through their records",
+     "Colombia and Mexico, with control entities"
+    ],
+    "prueba": "The round with the two agents on every entity in the material, with a key they never see"
+   }
+  },
+  {
+   "incremento": 2,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "EC",
+     "nombre": {
+      "es": "Ecuador",
+      "en": "Ecuador"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "CL",
+     "nombre": {
+      "es": "Chile",
+      "en": "Chile"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho",
+    "entra": [
+     "Los tres países que ya están en el registro de países, con su material y su ronda",
+     "Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada"
+    ],
+    "prueba": "La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas"
+   },
+   "en": {
+    "titulo": "Ecuador, Peru and Chile, and Microsoft Dynamics and Zoho",
+    "entra": [
+     "The three countries already in the country registry, with their material and their round",
+     "The Microsoft Dynamics and Zoho exports, each from its verified source"
+    ],
+    "prueba": "The round with the agents in the three countries and on the two new exports"
+   }
+  },
+  {
+   "incremento": 3,
+   "version": "1.0.0",
+   "estado": "reservada",
+   "industrias": [],
+   "es": {
+    "titulo": "La versión estable",
+    "entra": [
+     "Su alcance planeado, liberado: cada incremento anterior con su versión",
+     "Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos",
+     "El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0"
+    ],
+    "prueba": "Las dos rondas completas, publicadas con su análisis estadístico"
+   },
+   "en": {
+    "titulo": "The stable version",
+    "entra": [
+     "Its planned scope, released: every earlier increment with its version",
+     "Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data",
+     "The record schema, fixed: from here on, breaking it is a version 2.0"
+    ],
+    "prueba": "The two full rounds, published with their statistical analysis"
+   }
+  }
+ ]
+}

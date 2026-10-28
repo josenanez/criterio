@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1205",
+  "counterparty": {
+    "name": "Energía Verde S.A. E.S.P.",
+    "id": "830012005"
+  },
+  "value": 64000000,
+  "start": "2026-09-10",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-10",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1205/10-contrato/contrato.pdf"
+}

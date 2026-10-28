@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1203",
+  "counterparty": {
+    "name": "Logística Express S.A.S.",
+    "id": "830012004"
+  },
+  "value": 40000000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1203/10-contrato/contrato.pdf"
+}

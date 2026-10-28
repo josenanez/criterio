@@ -1,0 +1,218 @@
+{
+  "entidad": "Servicios Profesionales Mexicanos",
+  "industria": "servicios",
+  "pais": "MX",
+  "crm": "generico-xlsx",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [
+    "pronostico_sin_respaldo",
+    "ganado_sin_contrato",
+    "comision_distinta",
+    "cierre_cortes"
+  ],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "SPM140708QJ2",
+        "name": "Servicios Profesionales Mexicanos",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "comercial/SPM140708QJ2-servicios-profesionales-mexicanos",
+        "state": "estado-comercial/SPM140708QJ2-servicios-profesionales-mexicanos"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "generico",
+        "columns": {
+          "id": "Código",
+          "nombre": "Oportunidad",
+          "cuenta": "Cliente",
+          "etapa": "Fase",
+          "monto": "Valor estimado",
+          "cierre": "Fecha estimada de cierre",
+          "responsable": "Ejecutivo",
+          "ultima_actividad": "Última gestión",
+          "linea": "Línea"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {
+        "max_close_moves": 1
+      }
+    },
+    "valeria": {
+      "entity": {
+        "id": "SPM140708QJ2",
+        "name": "Servicios Profesionales Mexicanos",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "comercial/SPM140708QJ2-servicios-profesionales-mexicanos",
+        "state": "estado-comercial/SPM140708QJ2-servicios-profesionales-mexicanos"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "generico",
+        "columns": {
+          "id": "Código",
+          "nombre": "Oportunidad",
+          "cuenta": "Cliente",
+          "etapa": "Fase",
+          "monto": "Valor estimado",
+          "cierre": "Fecha estimada de cierre",
+          "responsable": "Ejecutivo",
+          "ultima_actividad": "Última gestión",
+          "linea": "Línea"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {
+        "max_close_moves": 1
+      },
+      "revenue": {
+        "contract_records": "estado-legal/SPM140708QJ2-servicios-profesionales-mexicanos/contratos",
+        "invoice_records": "estado-finanzas/SPM140708QJ2-servicios-profesionales-mexicanos",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-1501",
+          "type": "propuesta",
+          "amount": 1166400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1501_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1501",
+          "type": "orden_compra",
+          "amount": 1080000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-1501_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1502",
+          "type": "propuesta",
+          "amount": 1749600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1502_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1502",
+          "type": "orden_compra",
+          "amount": 1620000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-1502_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1503",
+          "type": "propuesta",
+          "amount": 2430000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1503_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1503",
+          "type": "orden_compra",
+          "amount": 2250000,
+          "date": "2026-10-28",
+          "source": "30-evidencia/OPP-1503_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1504",
+          "type": "propuesta",
+          "amount": 874800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1504_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1507",
+          "type": "propuesta",
+          "amount": 1069200,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1507_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1508",
+          "type": "propuesta",
+          "amount": 486000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1508_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1508",
+          "type": "orden_compra",
+          "amount": 450000,
+          "date": "2026-10-05",
+          "source": "30-evidencia/OPP-1508_orden-compra.pdf"
+        }
+      ],
+      "declared_forecast": {
+        "value": 4725000,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-1501",
+          "opportunity": "OPP-1501",
+          "list_amount": 1206000,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-1501_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1502",
+          "opportunity": "OPP-1502",
+          "list_amount": 1980000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-1502_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1503",
+          "opportunity": "OPP-1503",
+          "list_amount": 2610000,
+          "discount_pct": 14,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-1503_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1504"
+    },
+    {
+      "signal": "commission_differs_from_plan",
+      "key": "comision:2026-10:daniela_ochoa"
+    },
+    {
+      "signal": "forecast_unsupported",
+      "key": "pronostico:2026-10"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1508"
+    }
+  ]
+}

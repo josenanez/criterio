@@ -1,0 +1,8 @@
+Código;Oportunidad;Cliente;Fase;Valor estimado;Fecha estimada de cierre;Ejecutivo;Última gestión;Línea
+OPP-1301;Renovación de licencias;CL-1300;Ganada;72000000;10/10/2026;Elena Duarte;10/10/2026;Licencias
+OPP-1302;Proyecto de expansión;CL-1301;Compromiso;108000000;22/10/2026;Jorge Silva;14/10/2026;Servicios
+OPP-1303;Suministro anual;CL-1302;Negociación;150000000;20/11/2026;Natalia Rincón;15/10/2026;Licencias
+OPP-1304;Servicio de soporte;CL-1303;Propuesta;54000000;10/12/2026;Elena Duarte;12/10/2026;Servicios
+OPP-1305;Ampliación de contrato;CL-1304;Calificación;42000000;20/12/2026;Jorge Silva;11/10/2026;Licencias
+OPP-1306;Piloto regional;CL-1305;Negociación;36000000;30/10/2026;Natalia Rincón;13/10/2026;Servicios
+OPP-1307;Implementación por fases;CL-1306;Negociación;66000000;30/11/2026;Elena Duarte;15/10/2026;Licencias

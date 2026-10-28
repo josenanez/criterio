@@ -110,7 +110,14 @@ def check_marketplace(root: Path, f: Findings) -> tuple[dict, set[str]]:
         d.name for d in (root / "plugins").iterdir()
         if d.is_dir() and (d / ".claude-plugin" / "plugin.json").exists()
     }
-    for missing in sorted(on_disk - set(listed)):
+    # A plugin of a family still in construction stays out of the marketplace until its first
+    # release (scripts/registro.py checks it is not listed and carries its planned version).
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("registro", root / "scripts" / "registro.py")
+    registro = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(registro)
+    building = set(registro.en_construccion())
+    for missing in sorted(on_disk - set(listed) - building):
         f.error("marketplace.json", f"plugin '{missing}' exists on disk but is not listed")
     for ghost in sorted(set(listed) - on_disk):
         f.error("marketplace.json", f"plugin '{ghost}' is listed but has no manifest on disk")

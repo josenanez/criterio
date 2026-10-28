@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1503",
+  "counterparty": {
+    "name": "Transportes Bajío S.A. de C.V.",
+    "id": "CSE140505E44"
+  },
+  "value": 450000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1503/10-contrato/contrato.pdf"
+}

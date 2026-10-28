@@ -1,0 +1,193 @@
+{
+  "entidad": "Soluciones Digitales Andinas",
+  "industria": "tecnologia",
+  "pais": "CO",
+  "crm": "hubspot-csv",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [
+    "detenida",
+    "meta_lejos",
+    "firmado_sin_factura",
+    "comision_distinta",
+    "cierre_cortes"
+  ],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "900876543",
+        "name": "Soluciones Digitales Andinas",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "comercial/900876543-soluciones-digitales-andinas",
+        "state": "estado-comercial/900876543-soluciones-digitales-andinas"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "hubspot",
+        "columns": {
+          "cuenta": "Associated Company"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {
+        "max_close_moves": 1
+      }
+    },
+    "valeria": {
+      "entity": {
+        "id": "900876543",
+        "name": "Soluciones Digitales Andinas",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "comercial/900876543-soluciones-digitales-andinas",
+        "state": "estado-comercial/900876543-soluciones-digitales-andinas"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "hubspot",
+        "columns": {
+          "cuenta": "Associated Company"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {
+        "max_close_moves": 1
+      },
+      "revenue": {
+        "contract_records": "estado-legal/900876543-soluciones-digitales-andinas/contratos",
+        "invoice_records": "estado-finanzas/900876543-soluciones-digitales-andinas",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-1201",
+          "type": "propuesta",
+          "amount": 103680000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1201_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1201",
+          "type": "orden_compra",
+          "amount": 96000000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-1201_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1202",
+          "type": "propuesta",
+          "amount": 155520000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1202_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1202",
+          "type": "orden_compra",
+          "amount": 144000000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-1202_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1203",
+          "type": "propuesta",
+          "amount": 216000000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1203_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1203",
+          "type": "orden_compra",
+          "amount": 200000000,
+          "date": "2026-10-28",
+          "source": "30-evidencia/OPP-1203_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1204",
+          "type": "propuesta",
+          "amount": 77760000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1204_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1207",
+          "type": "propuesta",
+          "amount": 95040000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1207_propuesta.md"
+        }
+      ],
+      "declared_forecast": {
+        "value": 252000000,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-1201",
+          "opportunity": "OPP-1201",
+          "list_amount": 107200000,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-1201_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1202",
+          "opportunity": "OPP-1202",
+          "list_amount": 176000000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-1202_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1203",
+          "opportunity": "OPP-1203",
+          "list_amount": 232000000,
+          "discount_pct": 14,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-1203_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1204"
+    },
+    {
+      "signal": "commission_differs_from_plan",
+      "key": "comision:2026-10:paula_vega"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1205"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1205"
+    },
+    {
+      "signal": "target_vs_closed",
+      "key": "meta:2026-10"
+    }
+  ]
+}

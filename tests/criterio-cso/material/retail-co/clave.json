@@ -1,0 +1,192 @@
+{
+  "entidad": "Almacenes del Valle",
+  "industria": "retail",
+  "pais": "CO",
+  "crm": "salesforce-api",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [
+    "etapa_sin_evidencia",
+    "cierre_historial",
+    "pronostico_sin_respaldo",
+    "descuento_sin_aprobacion",
+    "ganado_sin_contrato"
+  ],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "901234567",
+        "name": "Almacenes del Valle",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "comercial/901234567-almacenes-del-valle",
+        "state": "estado-comercial/901234567-almacenes-del-valle"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "salesforce",
+        "columns": {},
+        "date_order": "dmy"
+      },
+      "thresholds": {}
+    },
+    "valeria": {
+      "entity": {
+        "id": "901234567",
+        "name": "Almacenes del Valle",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "comercial/901234567-almacenes-del-valle",
+        "state": "estado-comercial/901234567-almacenes-del-valle"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "salesforce",
+        "columns": {},
+        "date_order": "dmy"
+      },
+      "thresholds": {},
+      "revenue": {
+        "contract_records": "estado-legal/901234567-almacenes-del-valle/contratos",
+        "invoice_records": "estado-finanzas/901234567-almacenes-del-valle",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-1101",
+          "type": "propuesta",
+          "amount": 129600000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1101_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1101",
+          "type": "orden_compra",
+          "amount": 120000000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-1101_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1102",
+          "type": "propuesta",
+          "amount": 194400000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1102_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1102",
+          "type": "orden_compra",
+          "amount": 180000000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-1102_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1103",
+          "type": "propuesta",
+          "amount": 270000000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1103_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1104",
+          "type": "propuesta",
+          "amount": 97200000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1104_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1107",
+          "type": "propuesta",
+          "amount": 118800000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1107_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1108",
+          "type": "propuesta",
+          "amount": 54000000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1108_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1108",
+          "type": "orden_compra",
+          "amount": 50000000,
+          "date": "2026-10-05",
+          "source": "30-evidencia/OPP-1108_orden-compra.pdf"
+        }
+      ],
+      "declared_forecast": {
+        "value": 525000000,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-1101",
+          "opportunity": "OPP-1101",
+          "list_amount": 134000000,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-1101_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1102",
+          "opportunity": "OPP-1102",
+          "list_amount": 220000000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-1102_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1103",
+          "opportunity": "OPP-1103",
+          "list_amount": 290000000,
+          "discount_pct": 22,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-1103_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1107"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1103"
+    },
+    {
+      "signal": "forecast_unsupported",
+      "key": "pronostico:2026-10"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1103"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1108"
+    }
+  ]
+}

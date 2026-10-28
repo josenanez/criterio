@@ -21,7 +21,7 @@ habla con el otro directamente: se hablan por sus fichas.
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al abogado ni al oficial de cumplimiento, y no decide por ellos: procesa lo que la organización firmó y lo que se obligó a cumplir, y dice qué vence, qué no tiene evidencia y qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | El despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | Brasil, y después la 1.0, la versión estable: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 

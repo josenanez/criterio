@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1401",
+  "counterparty": {
+    "name": "Automotriz Norte S.A. de C.V.",
+    "id": "CMA100101A00"
+  },
+  "value": 1440000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1401/10-contrato/contrato.pdf"
+}

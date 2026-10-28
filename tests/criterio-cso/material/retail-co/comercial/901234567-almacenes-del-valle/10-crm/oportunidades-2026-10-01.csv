@@ -1,0 +1,9 @@
+Id,Name,AccountId,Amount,CloseDate,StageName,Probability,IsClosed,IsWon,LastActivityDate,OwnerId,CreatedDate,Contact_Email__c
+OPP-1101,Renovación de licencias,001A0000110000AaQZ,120000000.00,2026-10-10,Compromiso,80,false,false,2026-09-28,005A0000ana_ru,2026-08-15T10:00:00.000Z,compras@grupo_exito_.com
+OPP-1102,Proyecto de expansión,001A0000110001AaQZ,180000000.00,2026-10-25,Negociación,60,false,false,2026-09-30,005A0000luis_m,2026-08-15T10:00:00.000Z,compras@comercializa.com
+OPP-1103,Suministro anual,001A0000110002AaQZ,250000000.00,2026-11-20,Propuesta,30,false,false,2026-09-25,005A0000carla_,2026-08-15T10:00:00.000Z,compras@distribuidor.com
+OPP-1104,Servicio de soporte,001A0000110003AaQZ,90000000.00,2026-12-10,Calificación,10,false,false,2026-09-29,005A0000ana_ru,2026-08-15T10:00:00.000Z,compras@hoteles_cari.com
+OPP-1105,Ampliación de contrato,001A0000110004AaQZ,70000000.00,2026-12-20,Calificación,10,false,false,2026-09-26,005A0000luis_m,2026-08-15T10:00:00.000Z,compras@clinica_cent.com
+OPP-1106,Piloto regional,001A0000110005AaQZ,60000000.00,2026-10-30,Propuesta,30,false,false,2026-09-27,005A0000carla_,2026-08-15T10:00:00.000Z,compras@colegio_bili.com
+OPP-1107,Implementación por fases,001A0000110006AaQZ,110000000.00,2026-11-30,Negociación,60,false,false,2026-09-30,005A0000ana_ru,2026-08-15T10:00:00.000Z,compras@constructora.com
+OPP-1108,Venta de equipos,001A0000110002AaQZ,50000000.00,2026-10-05,Compromiso,80,false,false,2026-09-30,005A0000carla_,2026-08-15T10:00:00.000Z,compras@distribuidor.com

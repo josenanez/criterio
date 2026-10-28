@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1409",
+  "counterparty": {
+    "name": "Proveedor 1400 S.A.S.",
+    "id": "PRV14000101AB1"
+  },
+  "value": 480000,
+  "start": "2026-09-05",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-05",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1409/10-contrato/contrato.pdf"
+}

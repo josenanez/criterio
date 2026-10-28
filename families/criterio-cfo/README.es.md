@@ -22,7 +22,7 @@ caja— y ninguno habla con los otros directamente: se hablan por sus fichas.
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al contralor, al equipo de planeación financiera ni a la tesorería, y no decide por ellos: procesa lo que la función ya tiene y dice qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | El despliegue en una organización: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | Brasil, y después la 1.0, la versión estable: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 

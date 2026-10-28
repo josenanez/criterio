@@ -8,7 +8,7 @@ del reporte, el registro de cada corrida y las peticiones. El registro y las pet
 contrato de estado común de todos los agentes (ADR 0010): `<estado>/corridas.json` con
 `<estado>/corridas/<id>.md`, y `<estado>/peticiones/<id>.json`, con el mismo esquema que la familia
 PMO, para que Rostrum los sirva sin saber de qué familia son. Lo propio de cada función vive en su motor
-—`finanzas.py`, `legal.py`—, que importa esto. Las reglas de compromiso también viven aquí: las usan
+—`finanzas.py`, `legal.py`, `ventas.py`—, que importa esto. Las reglas de compromiso también viven aquí: las usan
 Samuel y Vera desde `portafolio.py` y las va a usar Ofelia (ADR 0012).
 
 La fuente vive en criterio-finance y `scripts/sincronizar.py` la copia a los demás plugins: un
@@ -876,7 +876,8 @@ def argumentos(descripcion: str):
 # misma `area` de families/criterio-<familia>/familia.json, y scripts/familias.py comprueba que
 # coincidan. Dos agentes que comparten el estado no comparten la configuración.
 AREA = {"criterio-finance": "finanzas", "criterio-budget": "presupuesto", "criterio-treasury": "tesoreria",
-        "criterio-legal": "legal", "criterio-compliance": "cumplimiento", "criterio-assistant": "direccion"}
+        "criterio-legal": "legal", "criterio-compliance": "cumplimiento", "criterio-assistant": "direccion",
+        "criterio-sales": "comercial", "criterio-revenue": "ingresos"}
 
 
 def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas: tuple, revisar_config, calcular,

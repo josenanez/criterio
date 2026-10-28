@@ -22,7 +22,7 @@ cash — and none talks to the others directly: they talk through their records.
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the controller, the financial planning team or treasury, and does not decide for them: it processes what the function already has and says what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | Deployment in an organisation: [the roadmap](#roadmap) |
+| **What comes next** | Brazil, and then 1.0, the stable version: [the roadmap](#roadmap) |
 
 ---
 

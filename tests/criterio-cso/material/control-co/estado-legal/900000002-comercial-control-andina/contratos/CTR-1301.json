@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1301",
+  "counterparty": {
+    "name": "Cliente Control Uno S.A.S.",
+    "id": "830013000"
+  },
+  "value": 72000000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1301/10-contrato/contrato.pdf"
+}

@@ -16,6 +16,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CFO · La función financiera | Clara, Tomás, Áurea | 0.12.1 | 0.8.0 | Incremento 6 · Brasil |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 0.12.1 | 0.8.0 | Incremento 5 · Brasil |
 | Criterio EA · Dirección | Ofelia | 0.12.1 | 0.12.0 | Incremento 2 · Los viajes, y las exportaciones de cada proveedor |
+| Criterio CSO · La función comercial | Augusto, Valeria | En construcción | — | 0.1.0 · Augusto y Valeria, construidos y probados con la ronda completa con los agentes |
 | Rostrum · el portal de todas las familias | — | 0.12.1 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -64,6 +65,14 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Incremento 2 | Siguiente | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país | La ronda con la agente sobre las exportaciones de cada proveedor |
 | 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
 
+### Criterio CSO · La función comercial
+
+| Versión | Estado | Qué entra | Prueba |
+|---|---|---|---|
+| 0.1.0 | En curso | **Augusto y Valeria, construidos y probados con la ronda completa con los agentes**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven |
+| Incremento 2 | Siguiente | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas |
+| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
+
 ## Las familias que vienen
 
 Cada una entra con su decisión de alcance: aceptada, se diseña; propuesta, espera su turno, sin fecha.
@@ -73,4 +82,3 @@ Cada una entra con su decisión de alcance: aceptada, se diseña; propuesta, esp
 | [0013](decisions/0013-scope-seguridad-ciso.md) | Seguridad de la información (CISO) | Propuesta |
 | [0014](decisions/0014-scope-auditoria-cae.md) | Auditoría interna (CAE) | Propuesta |
 | [0015](decisions/0015-scope-datos-cdo.md) | Datos (CDO) | Propuesta |
-| [0019](decisions/0019-scope-comercial-cso.md) | La función comercial (CSO) | Aceptada |

@@ -89,6 +89,8 @@ running `server-setup` again.
 | **Criterio CLO** · Contracts and compliance | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instance>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contracts and compliance | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instance>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio EA** · Executive office | Ofelia | `/criterio-assistant:ea-setup` | `.criterio/direccion/<instance>/` | `_CRITERIO_DIRECCION.txt` |
+| **Criterio CSO** · The sales function | Augusto | `/criterio-sales:sales-setup` | `.criterio/comercial/<instance>/` | `_CRITERIO_COMERCIAL.txt` |
+| **Criterio CSO** · The sales function | Valeria | `/criterio-revenue:revenue-setup` | `.criterio/ingresos/<instance>/` | `_CRITERIO_COMERCIAL.txt` |
 <!-- /servidor:familias -->
 
 Each family explains in its own documentation what it has in the portal: the

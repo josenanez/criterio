@@ -1,0 +1,39 @@
+{
+  "version": "0.1",
+  "role": "ingresos",
+  "entity": {
+    "id": "900123456",
+    "name": "Entidad de ejemplo",
+    "country": "CO",
+    "currency": "COP"
+  },
+  "paths": {
+    "documents": "comercial/900123456-entidad-de-ejemplo",
+    "state": "estado-comercial/900123456-entidad-de-ejemplo"
+  },
+  "period": "2026-10",
+  "crm": {
+    "format": "salesforce",
+    "columns": {},
+    "date_order": "dmy"
+  },
+  "revenue": {
+    "contract_records": "estado-legal/900123456-entidad-de-ejemplo/contratos",
+    "invoice_records": "estado-finanzas/900123456-entidad-de-ejemplo",
+    "publish_commissions": false
+  },
+  "thresholds": {
+    "contract_grace_days": 15,
+    "won_lookback_days": 90,
+    "invoice_days": 30,
+    "signed_lookback_days": 120,
+    "commission_tolerance": 1.0
+  },
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

@@ -90,6 +90,8 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio CLO** · Contratos y cumplimiento | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio EA** · Dirección | Ofelia | `/criterio-assistant:ea-setup` | `.criterio/direccion/<instancia>/` | `_CRITERIO_DIRECCION.txt` |
+| **Criterio CSO** · La función comercial | Augusto | `/criterio-sales:sales-setup` | `.criterio/comercial/<instancia>/` | `_CRITERIO_COMERCIAL.txt` |
+| **Criterio CSO** · La función comercial | Valeria | `/criterio-revenue:revenue-setup` | `.criterio/ingresos/<instancia>/` | `_CRITERIO_COMERCIAL.txt` |
 <!-- /servidor:familias -->
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la

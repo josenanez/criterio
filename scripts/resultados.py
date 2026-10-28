@@ -55,6 +55,10 @@ DUENIOS = [
     ("tests/criterio-clo/", "La familia"),
     ("criterio-assistant/scripts/asistente.py", "Ofelia"),
     ("tests/criterio-ea/", "Ofelia"),
+    ("criterio-sales/scripts/ventas.py", "Augusto"),
+    ("evaluar.py --agente augusto", "Augusto"),
+    ("evaluar.py --agente valeria", "Valeria"),
+    ("tests/criterio-cso/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("scripts/trafico.py", "La familia"),
@@ -426,6 +430,8 @@ PLUGIN_DE = {
     "Fidel": "criterio-legal",
     "Constanza": "criterio-compliance",
     "Ofelia": "criterio-assistant",
+    "Augusto": "criterio-sales",
+    "Valeria": "criterio-revenue",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -642,6 +648,21 @@ NO_CUBRE["criterio-assistant"] = [
      "RECURRENCE-ID. Una regla más compleja se declara como no soportada en el informe."),
 ]
 NO_CUBRE["criterio-compliance"] = list(_CLO_NO_CUBRE)
+_CSO_NO_CUBRE = [
+    ("La extracción del agente la prueba la ronda, no esta corrida",
+     "Esta corrida escribe en la ficha lo que el agente tendría que extraer —cada documento de evidencia con "
+     "su oportunidad y su tipo, el pronóstico comprometido del acta, cada cotización con su descuento y su "
+     "aprobación— y prueba el motor con esa extracción. Que el agente la haga bien sobre los mismos documentos "
+     "lo prueba la ronda con los agentes, que es el siguiente paso de la familia."),
+    ("Nada se ha corrido sobre el CRM de una organización real",
+     "Todo el material es sintético: las exportaciones de Salesforce y de HubSpot siguen los campos que "
+     "verifica su fuente, pero no salen de una cuenta real."),
+    ("Microsoft Dynamics y Zoho no se procesan todavía",
+     "Están en la hoja de ruta, cada uno con su fuente verificada; hoy entran como cualquier CRM, con su "
+     "mapeo de columnas."),
+]
+NO_CUBRE["criterio-sales"] = list(_CSO_NO_CUBRE)
+NO_CUBRE["criterio-revenue"] = list(_CSO_NO_CUBRE)
 
 QUE_ES = {
     "criterio-portfolio": ("Vera", "el agente de la PMO"),
@@ -654,6 +675,8 @@ QUE_ES = {
     "criterio-legal": ("Fidel", "el agente de contratos de la familia CLO"),
     "criterio-compliance": ("Constanza", "la agente de cumplimiento de la familia CLO"),
     "criterio-assistant": ("Ofelia", "la asistente ejecutiva de la familia EA"),
+    "criterio-sales": ("Augusto", "el agente del pronóstico de la familia CSO"),
+    "criterio-revenue": ("Valeria", "la agente de la venta a la factura de la familia CSO"),
 }
 
 
@@ -661,7 +684,8 @@ QUE_ES = {
 EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-budget": "../criterio-cfo/EVIDENCIA.md",
                 "criterio-treasury": "../criterio-cfo/EVIDENCIA.md",
                 "criterio-legal": "../criterio-clo/EVIDENCIA.md", "criterio-compliance": "../criterio-clo/EVIDENCIA.md",
-                "criterio-assistant": "../criterio-ea/EVIDENCIA.md"}
+                "criterio-assistant": "../criterio-ea/EVIDENCIA.md",
+                "criterio-sales": "../criterio-cso/EVIDENCIA.md", "criterio-revenue": "../criterio-cso/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:

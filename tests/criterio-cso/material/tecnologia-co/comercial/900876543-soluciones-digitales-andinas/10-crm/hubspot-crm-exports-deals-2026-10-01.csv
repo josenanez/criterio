@@ -1,0 +1,8 @@
+Record ID,Deal Name,Deal Stage,Pipeline,Amount,Close Date,Deal owner,Create Date,Last Activity Date,Associated Company,Associated Contact
+OPP-1201,Renovación de licencias,Compromiso,Ventas,96000000,2026-10-10 09:00,Diego Lara,2026-08-15 09:00,2026-09-28 09:00,Banco Montaña S.A.,Contacto 1 (contacto1@cliente.com)
+OPP-1202,Proyecto de expansión,Negociación,Ventas,144000000,2026-10-25 09:00,Paula Vega,2026-08-15 09:00,2026-09-30 09:00,Aseguradora Centro S.A.,Contacto 2 (contacto2@cliente.com)
+OPP-1203,Suministro anual,Propuesta,Ventas,200000000,2026-11-20 09:00,Sergio Niño,2026-08-15 09:00,2026-09-25 09:00,Telecomunicaciones Llano S.A.S.,Contacto 3 (contacto3@cliente.com)
+OPP-1204,Servicio de soporte,Propuesta,Ventas,72000000,2026-11-15 09:00,Diego Lara,2026-08-15 09:00,2026-09-29 09:00,Universidad del Río,Contacto 4 (contacto4@cliente.com)
+OPP-1205,Ampliación de contrato,Calificación,Ventas,56000000,2026-12-20 09:00,Paula Vega,2026-08-15 09:00,2026-09-12 09:00,Logística Express S.A.S.,Contacto 5 (contacto5@cliente.com)
+OPP-1206,Piloto regional,Propuesta,Ventas,48000000,2026-10-30 09:00,Sergio Niño,2026-08-15 09:00,2026-09-27 09:00,Energía Verde S.A. E.S.P.,Contacto 6 (contacto6@cliente.com)
+OPP-1207,Implementación por fases,Negociación,Ventas,88000000,2026-11-30 09:00,Diego Lara,2026-08-15 09:00,2026-09-30 09:00,Laboratorios Pacífico S.A.,Contacto 7 (contacto7@cliente.com)

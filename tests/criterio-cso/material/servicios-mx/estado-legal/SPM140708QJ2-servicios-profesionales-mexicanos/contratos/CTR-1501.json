@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1501",
+  "counterparty": {
+    "name": "Grupo Financiero Azteca S.A.",
+    "id": "CSE100101A00"
+  },
+  "value": 1080000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1501/10-contrato/contrato.pdf"
+}

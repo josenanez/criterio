@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1309",
+  "counterparty": {
+    "name": "Proveedor 1300 S.A.S.",
+    "id": "870001300"
+  },
+  "value": 24000000,
+  "start": "2026-09-05",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-05",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1309/10-contrato/contrato.pdf"
+}

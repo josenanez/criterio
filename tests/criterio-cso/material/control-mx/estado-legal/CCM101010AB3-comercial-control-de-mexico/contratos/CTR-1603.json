@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1603",
+  "counterparty": {
+    "name": "Cliente Control Pacífico S.A. de C.V.",
+    "id": "CCO140505E44"
+  },
+  "value": 350000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1603/10-contrato/contrato.pdf"
+}

@@ -1,0 +1,178 @@
+{
+  "entidad": "Comercial Control Andina",
+  "industria": "retail",
+  "pais": "CO",
+  "crm": "generico-csv",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "900000002",
+        "name": "Comercial Control Andina",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "comercial/900000002-comercial-control-andina",
+        "state": "estado-comercial/900000002-comercial-control-andina"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "generico",
+        "columns": {
+          "id": "Código",
+          "nombre": "Oportunidad",
+          "cuenta": "Cliente",
+          "etapa": "Fase",
+          "monto": "Valor estimado",
+          "cierre": "Fecha estimada de cierre",
+          "responsable": "Ejecutivo",
+          "ultima_actividad": "Última gestión",
+          "linea": "Línea"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {}
+    },
+    "valeria": {
+      "entity": {
+        "id": "900000002",
+        "name": "Comercial Control Andina",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "comercial/900000002-comercial-control-andina",
+        "state": "estado-comercial/900000002-comercial-control-andina"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "generico",
+        "columns": {
+          "id": "Código",
+          "nombre": "Oportunidad",
+          "cuenta": "Cliente",
+          "etapa": "Fase",
+          "monto": "Valor estimado",
+          "cierre": "Fecha estimada de cierre",
+          "responsable": "Ejecutivo",
+          "ultima_actividad": "Última gestión",
+          "linea": "Línea"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {},
+      "revenue": {
+        "contract_records": "estado-legal/900000002-comercial-control-andina/contratos",
+        "invoice_records": "estado-finanzas/900000002-comercial-control-andina",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-1301",
+          "type": "propuesta",
+          "amount": 77760000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1301_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1301",
+          "type": "orden_compra",
+          "amount": 72000000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-1301_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1302",
+          "type": "propuesta",
+          "amount": 116640000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1302_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1302",
+          "type": "orden_compra",
+          "amount": 108000000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-1302_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1303",
+          "type": "propuesta",
+          "amount": 162000000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1303_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1303",
+          "type": "orden_compra",
+          "amount": 150000000,
+          "date": "2026-10-28",
+          "source": "30-evidencia/OPP-1303_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1304",
+          "type": "propuesta",
+          "amount": 58320000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1304_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1307",
+          "type": "propuesta",
+          "amount": 71280000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1307_propuesta.md"
+        }
+      ],
+      "declared_forecast": {
+        "value": 189000000,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-1301",
+          "opportunity": "OPP-1301",
+          "list_amount": 80400000,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-1301_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1302",
+          "opportunity": "OPP-1302",
+          "list_amount": 132000000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-1302_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1303",
+          "opportunity": "OPP-1303",
+          "list_amount": 174000000,
+          "discount_pct": 14,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-1303_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

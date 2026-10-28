@@ -1,0 +1,21 @@
+{
+  "agente": "clara",
+  "periodo": "2026-09",
+  "partes": {
+    "einvoice-check": {
+      "periodo": "2026-09",
+      "emitidas": [
+        {
+          "numero": "FE-1603",
+          "id": "cufe-1600-3",
+          "fecha": "2026-09-12",
+          "receptor": "CCO130404D33",
+          "base": 140000,
+          "total": 162400,
+          "tipo": "factura",
+          "archivo": "2026-09/30-facturacion/emitidas/fe-1603.xml"
+        }
+      ]
+    }
+  }
+}

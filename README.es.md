@@ -8,7 +8,7 @@
 
 Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer resultado en quince minutos
 
-**Estado: las familias PMO, CFO, CLO y EA están construidas y probadas sobre material sintético, y se liberan juntas;** la versión vigente y qué cambió en cada una están en el [registro de versiones](https://www.josenanez.com/es/agents/criterio-pmo/legal). Cada cambio pasa por `scripts/verificar.py`, con cada puerta, lo que prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
+**Estado: las familias PMO, CFO, CLO y EA están construidas y probadas sobre material sintético, y cada una lleva su propia versión ([decisión 0017](docs/decisions/0017-una-version-por-familia.md));** la versión de cada familia y qué cambió en cada una están en el [registro de versiones](https://www.josenanez.com/es/agents/criterio-pmo/legal). Cada cambio pasa por `scripts/verificar.py`, con cada puerta, lo que prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
 
 ---
 
@@ -43,6 +43,7 @@ contrato de datos y se entregan trabajo unos a otros. Los de familias distintas,
 | **[criterio-cfo](families/criterio-cfo/README.es.md)** | El cierre, el control y el reporte financiero | Que el cierre deje de depender de que alguien recuerde qué falta | **Tres agentes construidos y probados:** [Clara](plugins/criterio-finance/README.es.md), [Tomás](plugins/criterio-budget/README.es.md) y [Áurea](plugins/criterio-treasury/README.es.md) |
 | **[criterio-clo](families/criterio-clo/README.es.md)** | Los contratos, el cumplimiento y el riesgo legal | Que una empresa sepa qué firmó, qué vence y a qué se obligó | **Dos agentes construidos y probados:** [Fidel](plugins/criterio-legal/README.es.md) y [Constanza](plugins/criterio-compliance/README.es.md) |
 | **[criterio-ea](families/criterio-ea/README.es.md)** | La oficina de dirección: la agenda, las sesiones de los órganos, las actas, los compromisos y la correspondencia | Que el ejecutivo llegue a cada sesión preparado y que ningún acuerdo quede sin dueño ni fecha | **Una agente construida y probada:** [Ofelia](plugins/criterio-assistant/README.es.md) |
+| **[criterio-cso](families/criterio-cso/README.es.md)** | La función comercial: el embudo del CRM, el pronóstico, la meta, los descuentos, lo ganado hasta la factura y las comisiones | Que lo que se compromete en el comité comercial tenga detrás los documentos que lo sostienen, y que ninguna venta se quede entre el cierre y la factura | **En construcción:** [Augusto](plugins/criterio-sales/README.es.md) y [Valeria](plugins/criterio-revenue/README.es.md); el motor, probado; la ronda con los agentes, el siguiente paso |
 
 **Rostrum, el portal, es uno para todas las familias.** Publica lo que los agentes ya escribieron
 —el informe de la PMO, los reportes de la CFO y de la CLO, lo que vence en todas— para quien no

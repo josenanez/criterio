@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1502",
+  "counterparty": {
+    "name": "Hospitales del Norte S.A. de C.V.",
+    "id": "CSE110202B11"
+  },
+  "value": 1620000,
+  "start": "2026-10-24",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-24",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1502/10-contrato/contrato.pdf"
+}

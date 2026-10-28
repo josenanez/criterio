@@ -61,6 +61,21 @@
       "agentes": [
         "direccion"
       ]
+    },
+    {
+      "sigla": "cso",
+      "nombre": {
+        "es": "La función comercial",
+        "en": "The sales function"
+      },
+      "estado": {
+        "es": "En construcción",
+        "en": "In construction"
+      },
+      "agentes": [
+        "comercial",
+        "ingresos"
+      ]
     }
   ],
   "agentes": [
@@ -80,6 +95,7 @@
         "es": "del latín *verus*, lo verdadero: dice lo que los documentos dicen, no lo que se reporta",
         "en": "from the Latin *verus*, “true”: she says what the documents say, not what is reported"
       },
+      "privados": {},
       "setup": "/criterio-portfolio:portfolio-setup",
       "marca": "_CRITERIO_PORTAFOLIO.txt",
       "grupos": [
@@ -201,6 +217,7 @@
         "es": "del hebreo, de la raíz de *shamá*, «escuchar»: oye lo que se dijo en la reunión y lo recuerda el viernes",
         "en": "from the Hebrew, from the root of *shama*, “to hear”: he hears what was said in the meeting and remembers it on Friday"
       },
+      "privados": {},
       "setup": "/criterio-project:pm-setup",
       "marca": "_CRITERIO_PROYECTO.txt",
       "grupos": [
@@ -282,6 +299,7 @@
         "es": "del latín *alba*, el amanecer: la luz que hay antes de que se vea nada; trabaja antes de que el proyecto exista",
         "en": "from the Latin *alba*, dawn: the light there is before anything can be seen; she works before the project exists"
       },
+      "privados": {},
       "setup": "/criterio-product:product-setup",
       "marca": "_CRITERIO_PRODUCTO.txt",
       "grupos": [
@@ -379,6 +397,7 @@
         "es": "del latín *clarus*, «claro»: que los libros digan lo mismo que los soportes",
         "en": "from the Latin *clarus*, “clear”: the books say what the supporting documents say"
       },
+      "privados": {},
       "setup": "/criterio-finance:finance-setup",
       "marca": "_CRITERIO_FINANZAS.txt",
       "grupos": [
@@ -450,6 +469,7 @@
         "es": "del arameo *t’oma*, «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución",
         "en": "from the Aramaic *t’oma*, “the twin”: puts the budget next to its twin, actual spend"
       },
+      "privados": {},
       "setup": "/criterio-budget:budget-setup",
       "marca": "_CRITERIO_FINANZAS.txt",
       "grupos": [
@@ -513,6 +533,7 @@
         "es": "del latín *aureus*, «de oro»: la caja",
         "en": "from the Latin *aureus*, “golden”: the cash"
       },
+      "privados": {},
       "setup": "/criterio-treasury:treasury-setup",
       "marca": "_CRITERIO_FINANZAS.txt",
       "grupos": [
@@ -572,6 +593,7 @@
         "es": "del latín *fides*, la palabra dada: lo firmado se cumple",
         "en": "from the Latin *fides*, the word given: what was signed is kept"
       },
+      "privados": {},
       "setup": "/criterio-legal:legal-setup",
       "marca": "_CRITERIO_LEGAL.txt",
       "grupos": [
@@ -635,6 +657,7 @@
         "es": "del latín *constantia*, «constancia»: cumplir siempre, no solo el día de la auditoría",
         "en": "from the Latin *constantia*, “constancy”: compliance every day, not only on audit day"
       },
+      "privados": {},
       "setup": "/criterio-compliance:compliance-setup",
       "marca": "_CRITERIO_LEGAL.txt",
       "grupos": [
@@ -696,6 +719,7 @@
         "es": "del griego *ōphéleia*, «ayuda»: es la que prepara",
         "en": "from the Greek *ōphéleia*, «help»: she is the one who prepares"
       },
+      "privados": {},
       "setup": "/criterio-assistant:ea-setup",
       "marca": "_CRITERIO_DIRECCION.txt",
       "grupos": [
@@ -748,6 +772,133 @@
           ]
         }
       ]
+    },
+    {
+      "id": "augusto",
+      "nombre": "Augusto",
+      "plugin": "criterio-sales",
+      "area": "comercial",
+      "ambitos": [
+        "comercial"
+      ],
+      "familia": "cso",
+      "rol": {
+        "es": "El pronóstico",
+        "en": "The forecast"
+      },
+      "titulo": "el pronóstico",
+      "origen": {
+        "es": "del latín *augur*, el que lee las señales antes de que pasen: el pronóstico contra lo que lo sostiene",
+        "en": "from the Latin *augur*, the one who reads the signs before they happen: the forecast against what backs it"
+      },
+      "privados": {},
+      "setup": "/criterio-sales:sales-setup",
+      "marca": "_CRITERIO_COMERCIAL.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "sales-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "sales-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "El pronóstico",
+          "linea": "El embudo contra su evidencia y el pronóstico contra lo que lo sostiene: cada oportunidad contra el documento que exige su etapa, las detenidas, los cierres que se corren, lo comprometido contra lo ponderado con evidencia y la meta contra lo cerrado",
+          "comandos": [
+            {
+              "id": "pipeline-scan",
+              "etiqueta": "Qué cambió en el embudo"
+            },
+            {
+              "id": "pipeline-check",
+              "etiqueta": "El embudo contra su evidencia"
+            },
+            {
+              "id": "forecast-check",
+              "etiqueta": "El pronóstico contra su respaldo"
+            },
+            {
+              "id": "target-check",
+              "etiqueta": "La meta contra lo cerrado"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "valeria",
+      "nombre": "Valeria",
+      "plugin": "criterio-revenue",
+      "area": "ingresos",
+      "ambitos": [
+        "ingresos"
+      ],
+      "familia": "cso",
+      "rol": {
+        "es": "De la venta a la factura",
+        "en": "From sale to invoice"
+      },
+      "titulo": "de la venta a la factura",
+      "origen": {
+        "es": "del latín *valere*, valer: lo que vale lo vendido cuando está firmado y facturado",
+        "en": "from the Latin *valere*, to be worth: what a sale is worth once it is signed and invoiced"
+      },
+      "privados": {
+        "commission-check": {
+          "config": "revenue.publish_commissions",
+          "senales": [
+            "commission_differs_from_plan"
+          ]
+        }
+      },
+      "setup": "/criterio-revenue:revenue-setup",
+      "marca": "_CRITERIO_COMERCIAL.txt",
+      "grupos": [
+        {
+          "titulo": "Arranque y ritmo",
+          "linea": "Instalar y saber qué toca hoy",
+          "comandos": [
+            {
+              "id": "revenue-setup",
+              "etiqueta": "Instalación"
+            },
+            {
+              "id": "revenue-wake",
+              "etiqueta": "Qué toca hoy"
+            }
+          ]
+        },
+        {
+          "titulo": "De la venta a la factura",
+          "linea": "El precio y el descuento contra su política, y lo ganado contra lo firmado y lo facturado: cada descuento contra el nivel que lo aprueba, cada venta ganada contra su contrato en las fichas de Fidel, cada contrato firmado contra su factura en las de Clara, y cada comisión contra el plan",
+          "comandos": [
+            {
+              "id": "deal-scan",
+              "etiqueta": "Qué cambió en lo vendido"
+            },
+            {
+              "id": "discount-check",
+              "etiqueta": "Los descuentos contra su política"
+            },
+            {
+              "id": "won-to-invoice",
+              "etiqueta": "De lo ganado a la factura"
+            },
+            {
+              "id": "commission-check",
+              "etiqueta": "Las comisiones contra el plan"
+            }
+          ]
+        }
+      ]
     }
   ],
   "servidor": {
@@ -791,8 +942,10 @@
     "budget_version_mismatch": "El informe usa una versión del presupuesto distinta de la aprobada",
     "cash_below_minimum": "El saldo de una cuenta o de la caja consolidada queda por debajo del mínimo que fija la política",
     "cash_vs_forecast": "El saldo real de una cuenta se aparta de su proyección más del umbral",
+    "close_date_slipped": "La fecha de cierre de una oportunidad se movió más veces de las configuradas",
     "close_task_done_without_evidence": "Una tarea figura cumplida y ningún documento la sostiene",
     "close_task_overdue": "Una tarea del checklist pasó su fecha y no tiene evidencia",
+    "commission_differs_from_plan": "La comisión liquidada no es la que da el plan sobre lo cerrado y facturado",
     "commitment_overdue": "Un compromiso venció y ningún documento lo sostiene como cumplido",
     "commitment_rescheduled": "Un compromiso se movió más veces de las configuradas",
     "committed_near_approved": "Ejecutado más comprometido se acerca a lo aprobado sin holgura",
@@ -810,11 +963,13 @@
     "declared_close_vs_evidence": "El cierre se reporta como cerrado y hay señales abiertas que ese estado no explica",
     "declared_compliance_vs_evidence": "El informe declara el cumplimiento del periodo y hay señales abiertas que ese estado no explica",
     "declared_vs_evidence": "El área se reporta dentro del presupuesto y los números no lo sostienen",
+    "discount_outside_policy": "Un descuento supera el tope de su nivel y no tiene la aprobación que pide la matriz, o ningún nivel lo cubre",
     "einvoice_amount_mismatch": "El valor o el impuesto del XML no es el del registro",
     "einvoice_duplicate": "El mismo CUFE o la misma clave de acceso aparece registrado dos veces",
     "einvoice_not_recorded": "Una factura electrónica emitida o recibida no tiene registro contable",
     "forecast_over_approved": "La proyección al cierre del año supera lo aprobado",
     "forecast_stale": "La proyección del área no se actualizó en los días configurados",
+    "forecast_unsupported": "Lo comprometido supera lo que suman las oportunidades con evidencia, ponderadas por su etapa, más de la tolerancia configurada",
     "fx_exposure_over_limit": "La posición en otra moneda, convertida con la tasa de la política, supera su límite",
     "guarantee_expires_early": "La póliza aportada vence antes de lo que exige el contrato",
     "guarantee_missing": "El contrato exige una garantía y no hay póliza aportada",
@@ -841,10 +996,15 @@
     "report_case_overdue": "Un caso del canal de denuncias pasó el plazo de respuesta configurado",
     "signatory_without_authority": "Quien aprueba un pago no tiene la facultad según la matriz de firmas, o no está en ella",
     "signed_without_authority": "Quien firmó por la entidad no tenía facultad por el tipo o el monto según la matriz de atribuciones",
+    "signed_without_invoice": "Un contrato firmado no tiene su factura en la ficha de Clara dentro del plazo de facturación",
     "spend_without_budget_line": "Hay gasto en una cuenta o centro de costo sin línea presupuestal",
+    "stage_without_evidence": "Una oportunidad está en una etapa y no tiene el documento que esa etapa exige: la propuesta enviada, la orden de compra",
+    "stalled_opportunity": "Una oportunidad abierta no tiene actividad registrada en los días configurados",
+    "target_vs_closed": "Lo cerrado al corte se aparta de la meta del periodo, prorrateada por los días transcurridos, más del umbral",
     "transfer_without_approval": "Un traslado o una modificación no tiene el acta que lo aprueba",
     "trial_balance_unbalanced": "Los débitos y los créditos del balance de comprobación no suman lo mismo",
     "unsigned_contract": "El documento no tiene la firma de las dos partes y el contrato ya empezó",
-    "variance_over_threshold": "Lo ejecutado al corte se aparta del presupuesto más del porcentaje configurado"
+    "variance_over_threshold": "Lo ejecutado al corte se aparta del presupuesto más del porcentaje configurado",
+    "won_without_contract": "Una oportunidad ganada no tiene su contrato firmado en la ficha de Fidel"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1102",
+  "counterparty": {
+    "name": "Comercializadora Norte S.A.S.",
+    "id": "830011001"
+  },
+  "value": 180000000,
+  "start": "2026-10-24",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-24",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1102/10-contrato/contrato.pdf"
+}

@@ -31,9 +31,10 @@ ORDEN = ("vera", "samuel", "alba", "rostrum")
 ORDEN_CFO = ("clara", "tomas", "aurea")
 ORDEN_CLO = ("fidel", "constanza")
 ORDEN_EA = ("ofelia",)
+ORDEN_CSO = ("augusto", "valeria")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
           "clara": "finanzas", "tomas": "presupuesto", "aurea": "tesoreria", "fidel": "legal", "constanza": "cumplimiento",
-          "ofelia": "direccion"}
+          "ofelia": "direccion", "augusto": "comercial", "valeria": "ingresos"}
 
 _PIERNAS = [("line", dict(x1=44, y1=134, x2=44, y2=158)), ("line", dict(x1=76, y1=134, x2=76, y2=158)),
             ("line", dict(x1=36, y1=160, x2=52, y2=160)), ("line", dict(x1=68, y1=160, x2=84, y2=160))]
@@ -144,6 +145,32 @@ _PIEZAS = {
         ("ln", "path", dict(d="M68 120 L72 124 L78 115"), "dia"),
         ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
     ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Augusto: la tendencia en el pecho, y el punto del pronóstico al final de la línea
+    "augusto": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "line", dict(x1=48, y1=64, x2=72, y2=64)),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+        ("ln", "line", dict(x1=38, y1=92, x2=38, y2=126)), ("ln", "line", dict(x1=38, y1=126, x2=82, y2=126)),
+        ("ln", "path", dict(d="M42 120 L52 112 L61 116 L71 104"), "traza"),
+        ("ln", "path", dict(d="M71 104 L79 97"), "pronostico"), ("led", "circle", dict(cx=79, cy=97, r=3), "punta"),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
+    # Valeria: la venta, el contrato y la factura, y cada paso se enciende cuando llega
+    "valeria": [
+        ("ln", "line", dict(x1=60, y1=8, x2=60, y2=22)), ("led", "circle", dict(cx=60, cy=6, r=4)),
+        ("ln", "rect", dict(x=22, y=22, width=76, height=56, rx=6)),
+        ("ojo", "circle", dict(cx=45, cy=46, r=6)), ("ojo", "circle", dict(cx=75, cy=46, r=6)),
+        ("ln", "path", dict(d="M48 62 Q60 70 72 62")),
+        ("ln", "rect", dict(x=30, y=84, width=60, height=50, rx=4)),
+    ] + [p for i, x in enumerate((36, 54, 72)) for p in (
+        ("ln", "rect", dict(x=x, y=94, width=12, height=16, rx=1)),
+        ("ln", "line", dict(x1=x + 3, y1=100, x2=x + 9, y2=100)),
+        ("led", "circle", dict(cx=x + 6, cy=120, r=3), f"paso.{i}"))] + [
+        ("ln", "line", dict(x1=48, y1=102, x2=54, y2=102)), ("ln", "line", dict(x1=66, y1=102, x2=72, y2=102)),
+        ("ln", "line", dict(x1=30, y1=96, x2=12, y2=112)), ("ln", "line", dict(x1=90, y1=96, x2=108, y2=112)),
+    ] + [("ln", t, a) for t, a in _PIERNAS],
     "rostrum": [
         ("ln", "rect", dict(x=18, y=14, width=84, height=146, rx=3)),
         ("ln", "circle", dict(cx=42, cy=40, r=14)), ("ln", "circle", dict(cx=78, cy=40, r=14)),
@@ -211,6 +238,12 @@ GESTOS = {
     "marca":    {"tipo": "trazo", "dura": 2.4, "paso": .4, "claves": [(0, 1), (.15, 0), (.8, 0), (.85, 1), (1, 1)]},
     # Ofelia: el día de la agenda se marca cuando queda preparado
     "dia":      {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.3, 1), (.5, 0), (.9, 0), (1, 1)]},
+    # Augusto: la tendencia se traza, el pronóstico la sigue y su punto se enciende
+    "traza":    {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.3, 0), (.85, 0), (.9, 1), (1, 1)]},
+    "pronostico": {"tipo": "trazo", "dura": 2.4, "claves": [(0, 1), (.3, 1), (.45, 0), (.85, 0), (.9, 1), (1, 1)]},
+    "punta":    {"tipo": "opacidad", "dura": 2.4, "claves": [(0, .3), (.45, .3), (.5, 1), (.85, 1), (.9, .3), (1, .3)]},
+    # Valeria: la venta, el contrato y la factura se encienden uno detrás de otro
+    "paso":     {"tipo": "opacidad", "dura": 2.4, "paso": .4, "claves": [(0, .3), (.15, 1), (.8, 1), (.85, .3), (1, .3)]},
     # Rostrum: los carretes giran y las luces corren
     "gira":     {"tipo": "xy", "dura": 1.6, "paso": .4, "claves": _orbita(5)},
     "corre":    {"tipo": "opacidad", "dura": 1.2, "paso": .24, "claves": [(0, 1), (.2, 1), (.2, .3), (1, .3)]},
@@ -408,7 +441,7 @@ def selftest() -> int:
         print(f'{"  ok  " if cond else " FALLA"} {que}')
         if not cond:
             fallas.append(que)
-    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA
+    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CSO
     ok("cada duración divide la vuelta: el GIF cierra sin salto",
        all(abs(VUELTA / g["dura"] - round(VUELTA / g["dura"])) < 1e-9 for g in GESTOS.values()))
     propios = {r: {p[3].split(".")[0] for p in _PIEZAS[r] if len(p) > 3} - set(_COMUN.values()) for r in todos}
