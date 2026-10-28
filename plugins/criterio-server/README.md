@@ -6,6 +6,10 @@
 
 **What the agents already wrote, for whoever does not open a folder.**
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**The name.** Rostrum, from the Latin *rostrum*, the speakers’ platform of the Roman forum: it holds up what is already written, where others can read it.
+<!-- /agente:nombre -->
+
 A rostrum does not measure, correct or opine: it **holds up what is already written, at the
 height of whoever is going to read it.** That is why it is called that — and if it ever computed
 anything, the name would stop being true.

@@ -8,6 +8,10 @@
 respondes por ellos. Él llega con lo que vence, los preavisos que se acercan, quién firmó con qué
 facultad y lo pagado contra lo pactado.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**El nombre.** Fidel, de *fides*: la palabra dada; lo firmado se cumple.
+<!-- /agente:nombre -->
+
 [English](README.md) · `criterio-legal` · Apache 2.0 · Una instancia por entidad
 
 **Estado: los siete comandos construidos**, los cinco skills y el motor de cálculo, probado

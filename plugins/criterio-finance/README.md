@@ -8,6 +8,10 @@
 it. She arrives with the close prepared: every task against its evidence, every account
 reconciled and every e-invoice against its entry.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**The name.** Clara, from *clarus*: the books say what the supporting documents say.
+<!-- /agente:nombre -->
+
 [Español](README.es.md) · `criterio-finance` · Apache 2.0 · One instance per entity
 
 **Status: the nine commands are built**, along with the seven skills and the calculation engine,

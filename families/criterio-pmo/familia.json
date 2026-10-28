@@ -22,6 +22,10 @@
         "en": "Project director"
       },
       "titulo": "la PMO",
+      "origen": {
+        "es": "del latín *verus*, lo verdadero: dice lo que los documentos dicen, no lo que se reporta",
+        "en": "from the Latin *verus*, “true”: she says what the documents say, not what is reported"
+      },
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -138,6 +142,10 @@
         "en": "Project manager"
       },
       "titulo": "gerente de proyecto",
+      "origen": {
+        "es": "del hebreo, de la raíz de *shamá*, «escuchar»: oye lo que se dijo en la reunión y lo recuerda el viernes",
+        "en": "from the Hebrew, from the root of *shama*, “to hear”: he hears what was said in the meeting and remembers it on Friday"
+      },
       "grupos": [
         {
           "titulo": "Arranque y ritmo",
@@ -214,6 +222,10 @@
         "en": "Product manager"
       },
       "titulo": "gerente de producto",
+      "origen": {
+        "es": "del latín *alba*, el amanecer: la luz que hay antes de que se vea nada; trabaja antes de que el proyecto exista",
+        "en": "from the Latin *alba*, dawn: the light there is before anything can be seen; she works before the project exists"
+      },
       "grupos": [
         {
           "titulo": "Arranque y ritmo",

@@ -6,6 +6,10 @@
 
 **Lo que los agentes ya escribieron, para quien no abre una carpeta.**
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**El nombre.** Rostrum, del latín *rostrum*, la tribuna del foro romano: sostiene lo que ya está escrito, donde otros puedan leerlo.
+<!-- /agente:nombre -->
+
 Una tribuna no mide, no corrige y no opina: **sostiene lo que ya está escrito, a la
 altura de quien lo va a leer.** Por eso se llama así, y si algún día calculara algo, el nombre
 dejaría de ser cierto.

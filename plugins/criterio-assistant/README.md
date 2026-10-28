@@ -8,6 +8,10 @@ governing body's next meeting with the record of each decision, the draft minute
 status of the board's commitments and the correspondence that needs a reply. **She prepares; she does
 not recommend or decide, and she never sends anything.**
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**The name.** Ofelia, from the Greek *ōphéleia*, «help»: she is the one who prepares.
+<!-- /agente:nombre -->
+
 [Español](README.es.md) · `criterio-assistant` · Apache 2.0 · One instance per executive
 
 **Status:** built, with the engine tested against the test material of four offices —a president's

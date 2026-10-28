@@ -8,6 +8,10 @@
 customer, read what the customer does not say, decide what gets built and set the price. She
 arrives with the chain of evidence assembled and the holes pointed out.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**The name.** Alba, from the Latin *alba*, dawn: the light there is before anything can be seen; she works before the project exists.
+<!-- /agente:nombre -->
+
 [Español](README.es.md) · `criterio-product` · Apache 2.0 · One instance per product
 
 **Status: the eleven commands are built**, twelve skills, and the register's arithmetic verified

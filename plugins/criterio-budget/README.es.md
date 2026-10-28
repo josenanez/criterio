@@ -8,6 +8,10 @@
 respondes ante el comité. Él llega con lo aprobado contra lo ejecutado y lo comprometido, la
 proyección al cierre del año con su supuesto escrito y cada traslado con su acta.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**El nombre.** Tomás, «el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución.
+<!-- /agente:nombre -->
+
 [English](README.md) · `criterio-budget` · Apache 2.0 · Una instancia por entidad
 
 **Estado: los siete comandos construidos**, los seis skills y el motor de cálculo, probado contra

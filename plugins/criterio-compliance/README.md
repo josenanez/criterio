@@ -8,6 +8,10 @@
 only on audit day.** You answer for compliance. She arrives with what is met with evidence, what
 is declared met without it and what is overdue.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**The name.** Constanza, from *constantia*: compliance every day, not only on audit day.
+<!-- /agente:nombre -->
+
 [Español](README.es.md) · `criterio-compliance` · Apache 2.0 · One instance per entity
 
 **Status: the seven commands are built**, along with the six skills and the calculation engine,

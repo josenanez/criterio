@@ -7,6 +7,10 @@
 **Samuel remembers what was promised in your meeting.** You go to the committee, negotiate and
 unblock. He arrives with the week ready and with the list of what was said and not done.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**The name.** Samuel, from the Hebrew, from the root of *shama*, “to hear”: he hears what was said in the meeting and remembers it on Friday.
+<!-- /agente:nombre -->
+
 [Español](README.es.md) · `criterio-project` · Apache 2.0 · One instance per project
 
 **Status: the nine commands are built**, along with the eight skills of the method and the

@@ -76,6 +76,10 @@
         "en": "Project director"
       },
       "titulo": "la PMO",
+      "origen": {
+        "es": "del latín *verus*, lo verdadero: dice lo que los documentos dicen, no lo que se reporta",
+        "en": "from the Latin *verus*, “true”: she says what the documents say, not what is reported"
+      },
       "setup": "/criterio-portfolio:portfolio-setup",
       "marca": "_CRITERIO_PORTAFOLIO.txt",
       "grupos": [
@@ -193,6 +197,10 @@
         "en": "Project manager"
       },
       "titulo": "gerente de proyecto",
+      "origen": {
+        "es": "del hebreo, de la raíz de *shamá*, «escuchar»: oye lo que se dijo en la reunión y lo recuerda el viernes",
+        "en": "from the Hebrew, from the root of *shama*, “to hear”: he hears what was said in the meeting and remembers it on Friday"
+      },
       "setup": "/criterio-project:pm-setup",
       "marca": "_CRITERIO_PROYECTO.txt",
       "grupos": [
@@ -270,6 +278,10 @@
         "en": "Product manager"
       },
       "titulo": "gerente de producto",
+      "origen": {
+        "es": "del latín *alba*, el amanecer: la luz que hay antes de que se vea nada; trabaja antes de que el proyecto exista",
+        "en": "from the Latin *alba*, dawn: the light there is before anything can be seen; she works before the project exists"
+      },
       "setup": "/criterio-product:product-setup",
       "marca": "_CRITERIO_PRODUCTO.txt",
       "grupos": [
@@ -363,6 +375,10 @@
         "en": "Controller"
       },
       "titulo": "el cierre",
+      "origen": {
+        "es": "de *clarus*: que los libros digan lo mismo que los soportes",
+        "en": "from *clarus*: the books say what the supporting documents say"
+      },
       "setup": "/criterio-finance:finance-setup",
       "marca": "_CRITERIO_FINANZAS.txt",
       "grupos": [
@@ -430,6 +446,10 @@
         "en": "FP&A"
       },
       "titulo": "el presupuesto",
+      "origen": {
+        "es": "«el gemelo»: pone el presupuesto al lado de su gemelo, la ejecución",
+        "en": "“the twin”: puts the budget next to its twin, actual spend"
+      },
       "setup": "/criterio-budget:budget-setup",
       "marca": "_CRITERIO_FINANZAS.txt",
       "grupos": [
@@ -489,6 +509,10 @@
         "en": "Treasury"
       },
       "titulo": "la tesorería",
+      "origen": {
+        "es": "del latín *aureus*, «de oro»: la caja",
+        "en": "from the Latin *aureus*, “golden”: the cash"
+      },
       "setup": "/criterio-treasury:treasury-setup",
       "marca": "_CRITERIO_FINANZAS.txt",
       "grupos": [
@@ -544,6 +568,10 @@
         "en": "Contracts"
       },
       "titulo": "los contratos",
+      "origen": {
+        "es": "de *fides*: la palabra dada; lo firmado se cumple",
+        "en": "from *fides*: the word given; what was signed is kept"
+      },
       "setup": "/criterio-legal:legal-setup",
       "marca": "_CRITERIO_LEGAL.txt",
       "grupos": [
@@ -603,6 +631,10 @@
         "en": "Compliance"
       },
       "titulo": "el cumplimiento",
+      "origen": {
+        "es": "de *constantia*: cumplir siempre, no solo el día de la auditoría",
+        "en": "from *constantia*: compliance every day, not only on audit day"
+      },
       "setup": "/criterio-compliance:compliance-setup",
       "marca": "_CRITERIO_LEGAL.txt",
       "grupos": [
@@ -660,6 +692,10 @@
         "en": "Executive assistant"
       },
       "titulo": "la oficina de dirección",
+      "origen": {
+        "es": "del griego *ōphéleia*, «ayuda»: es la que prepara",
+        "en": "from the Greek *ōphéleia*, «help»: she is the one who prepares"
+      },
       "setup": "/criterio-assistant:ea-setup",
       "marca": "_CRITERIO_DIRECCION.txt",
       "grupos": [
@@ -724,6 +760,10 @@
       "en": "The portal"
     },
     "titulo": "el portal",
+    "origen": {
+      "es": "del latín *rostrum*, la tribuna del foro romano: sostiene lo que ya está escrito, donde otros puedan leerlo",
+      "en": "from the Latin *rostrum*, the speakers’ platform of the Roman forum: it holds up what is already written, where others can read it"
+    },
     "grupos": [
       {
         "titulo": "El portal",

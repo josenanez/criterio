@@ -9,6 +9,10 @@ la entidad. Ella llega con cada cuenta contra su mínimo y su proyección, cada 
 contra quién puede aprobarlo, la exposición cambiaria contra su límite y cada covenant calculado
 desde el balance que cierra Clara.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**El nombre.** Áurea, del latín *aureus*, «de oro»: la caja.
+<!-- /agente:nombre -->
+
 [English](README.md) · `criterio-treasury` · Apache 2.0 · Una instancia por entidad
 
 **Estado: construida y probada sobre material sintético** de cuatro países —Colombia, Ecuador, Perú

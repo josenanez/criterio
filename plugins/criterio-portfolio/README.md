@@ -7,6 +7,10 @@
 **A second brain for whoever answers for the whole portfolio.** It reads the documentation your PMO
 already has and says what changed, what contradicts what, and what has gone quiet for weeks.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**The name.** Vera, from the Latin *verus*, “true”: she says what the documents say, not what is reported.
+<!-- /agente:nombre -->
+
 [Español](README.es.md) · Apache 2.0 · One instance per project office · Installs in four clicks
 
 **Status: the sixteen commands are built**, along with the ten skills of the method and the

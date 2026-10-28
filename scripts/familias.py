@@ -687,6 +687,8 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
 
 SERVIDOR = {"id": "rostrum", "nombre": "Rostrum", "plugin": "criterio-server", "area": "rostrum",
             "rol": {"es": "El portal", "en": "The portal"}, "titulo": "el portal",
+            "origen": {"es": "del latín *rostrum*, la tribuna del foro romano: sostiene lo que ya está escrito, donde otros puedan leerlo",
+                       "en": "from the Latin *rostrum*, the speakers’ platform of the Roman forum: it holds up what is already written, where others can read it"},
             "grupos": [{"titulo": "El portal", "linea": "El mapa de las familias y el servidor que las publica",
                         "comandos": [{"id": "server-setup", "etiqueta": "El mapa de las familias"},
                                      {"id": "server-start", "etiqueta": "Levantar el portal"}]}]}
@@ -757,8 +759,11 @@ def agentes_json() -> tuple[str, list[str]]:
             dest = _raiz().DESTINO.get(a["plugin"]) or {}
             agentes.append({"id": a["id"], "nombre": a["nombre"], "plugin": a["plugin"], "area": a["area"],
                             "ambitos": a.get("ambitos") or [], "familia": sigla, "rol": a["rol"], "titulo": a.get("titulo") or a["rol"]["es"].lower(),
+                            "origen": a.get("origen"),
                             "setup": dest.get("setup"), "marca": dest.get("marca"), "grupos": grupos})
     for a in agentes + [SERVIDOR]:
+        if not all((a.get("origen") or {}).get(i) for i in ("es", "en")):
+            err.append(f"{a['nombre']}: falta de dónde viene su nombre (origen, en los dos idiomas)")
         existentes = {x.stem for x in (P / a["plugin"] / "commands").glob("*.md")}
         en_grupos = [c["id"] for g in a["grupos"] for c in g["comandos"]]
         if len(en_grupos) != len(set(en_grupos)):
@@ -822,6 +827,35 @@ def familias_servidor(reg: dict, i: str) -> str:
     return "\n".join(filas)
 
 
+def nombre_md(a: dict, i: str) -> str:
+    """De dónde viene el nombre del agente, en su README: sale de su familia.json (o, para
+    Rostrum, de SERVIDOR), que es la misma fuente de la página de su familia y del portal."""
+    return (f"**El nombre.** {a['nombre']}, {a['origen']['es']}." if i == "es"
+            else f"**The name.** {a['nombre']}, {a['origen']['en']}.")
+
+
+def nombres_readme(check: bool) -> list[str]:
+    """El bloque «El nombre» del README de cada agente de cada familia, y del de Rostrum."""
+    err = []
+    CLAVE[0] = "agente"
+    for a in [x for fa in todas() if construida(fa) for x in fa["agentes"]] + [SERVIDOR]:
+        if not all((a.get("origen") or {}).get(i) for i in ("es", "en")):
+            continue
+        for nombre, i in (("README.es.md", "es"), ("README.md", "en")):
+            ruta = P / a["plugin"] / nombre
+            if not ruta.is_file():
+                continue
+            actual = ruta.read_text(encoding="utf-8")
+            nuevo = poner(actual, "nombre", nombre_md(a, i), ruta)
+            if nuevo != actual:
+                if check:
+                    err.append(f"{ruta.relative_to(RAIZ)}: el nombre no es el de su familia.json; corre scripts/familias.py")
+                else:
+                    ruta.write_text(nuevo, encoding="utf-8")
+                    print(f"  {ruta.relative_to(RAIZ)}")
+    return err
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
@@ -835,6 +869,7 @@ def main() -> int:
     contenido, e_ag = agentes_json()
     errores += [f"AGENTES · {e}" for e in e_ag]
     errores += [f"PREGUNTAS · {e}" for e in revisar_preguntas()]
+    errores += [f"NOMBRES · {e}" for e in nombres_readme(args.check)]
     destino = P / "criterio-server" / "scripts" / "agentes.json"
     if destino.parent.is_dir():
         actual = destino.read_text(encoding="utf-8") if destino.exists() else ""

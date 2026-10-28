@@ -341,7 +341,7 @@ dice eso sin tener que explicarlo.
 | Pieza | Nombre | De dónde viene | La frase |
 |---|---|---|---|
 | Agente PMO | **Vera** | latín *verus*, lo verdadero | *Vera dice lo que los documentos dicen, no lo que se reporta* |
-| Agente Project Manager | **Samuel** | «el que escuchó» | *Samuel oyó lo que se dijo en la reunión, y lo recuerda el viernes* |
+| Agente Project Manager | **Samuel** | hebreo, de la raíz de *shamá*, «escuchar» | *Samuel oyó lo que se dijo en la reunión, y lo recuerda el viernes* |
 | Agente Product Manager | **Alba** | el amanecer, antes de que haya luz | *Alba trabaja antes de que el proyecto exista* |
 | El servidor | **Rostrum** | una tribuna | *Sostiene lo que ya está escrito, donde otros puedan leerlo* |
 
@@ -350,7 +350,7 @@ un nombre de persona **cuyo significado apunta al oficio que su familia extiende
 que poder terminar la frase «X hace esto, y no opina». Si no la termina, está mal elegido.
 
 Samuel es el que mejor lo muestra: la función central de ese agente es **el compromiso
-dicho y no cumplido**, y el nombre significa literalmente «el que escuchó».
+dicho y no cumplido**, y el nombre viene de la raíz hebrea de *shamá*, «escuchar».
 
 Las familias que vengan eligen con la misma regla y con las referencias de su propio
 gremio — **CFO** con Mateo, patrono de contadores y banqueros, o Luca por Pacioli; **CLO**

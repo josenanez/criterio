@@ -7,6 +7,10 @@
 **Samuel se acuerda de lo que se prometió en tu reunión.** Tú vas al comité, negocias y
 desbloqueas. Él llega con la semana lista y con la lista de lo que se dijo y no se hizo.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**El nombre.** Samuel, del hebreo, de la raíz de *shamá*, «escuchar»: oye lo que se dijo en la reunión y lo recuerda el viernes.
+<!-- /agente:nombre -->
+
 [English](README.md) · `criterio-project` · Apache 2.0 · Una instancia por proyecto
 
 **Estado: los nueve comandos construidos**, los ocho skills del método y la aritmética

@@ -7,6 +7,10 @@
 **Un segundo cerebro para quien responde por el portafolio completo.** Lee la documentación que tu PMO ya
 tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**El nombre.** Vera, del latín *verus*, lo verdadero: dice lo que los documentos dicen, no lo que se reporta.
+<!-- /agente:nombre -->
+
 [English](README.md) · Apache 2.0 · Una instancia por oficina de proyectos · Se instala en cuatro clics
 
 **Estado: los dieciséis comandos construidos**, los diez skills del método y la aritmética

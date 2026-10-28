@@ -35,7 +35,7 @@ record.
 The capability has more than one agent because the organisation has more than one role.
 They carry people's names because **they are capabilities that extend people**, and each
 name's meaning points at what it does: **Vera** — from *verus*, the true — says what the
-documents say rather than what gets reported; **Samuel** — "he who heard" — remembers on
+documents say rather than what gets reported; **Samuel** — from *shama*, "to hear" — remembers on
 Friday what was said in the meeting; **Alba** — daybreak — works before the project
 dawns.
 

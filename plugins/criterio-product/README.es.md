@@ -8,6 +8,10 @@
 cliente, lees lo que el cliente no dice, decides qué se construye y pones el precio. Ella
 llega con la cadena de evidencia armada y los huecos señalados.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**El nombre.** Alba, del latín *alba*, el amanecer: la luz que hay antes de que se vea nada; trabaja antes de que el proyecto exista.
+<!-- /agente:nombre -->
+
 [English](README.md) · `criterio-product` · Apache 2.0 · Una instancia por producto
 
 **Estado: los once comandos construidos**, doce skills, y la aritmética del registro

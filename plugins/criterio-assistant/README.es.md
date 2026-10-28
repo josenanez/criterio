@@ -8,6 +8,10 @@ la próxima sesión de cada órgano con la ficha de cada decisión, el borrador 
 el estado de los compromisos de dirección y la correspondencia que pide respuesta. **Prepara; no
 recomienda ni decide, y nunca envía nada.**
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**El nombre.** Ofelia, del griego *ōphéleia*, «ayuda»: es la que prepara.
+<!-- /agente:nombre -->
+
 [English](README.md) · `criterio-assistant` · Apache 2.0 · Una instancia por ejecutivo
 
 **Estado:** construida, con el motor probado contra el material de prueba de cuatro oficinas —una

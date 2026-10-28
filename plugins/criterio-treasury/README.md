@@ -9,6 +9,10 @@ She arrives with each account against its minimum and projection, each scheduled
 who may approve it, currency exposure against its limit and each covenant calculated from the
 books Clara closes.
 
+<!-- agente:nombre · generado por scripts/familias.py; no se edita a mano -->
+**The name.** Áurea, from the Latin *aureus*, “golden”: the cash.
+<!-- /agente:nombre -->
+
 [Español](README.es.md) · `criterio-treasury` · Apache 2.0 · One instance per entity
 
 **Status: built and tested on synthetic material** from four countries —Colombia, Ecuador, Peru and

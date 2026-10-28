@@ -34,7 +34,7 @@ quien vigila el portafolio— y ninguno habla con otro directamente: se hablan p
 La capacidad tiene más de un agente porque la organización tiene más de un rol. Llevan nombre
 de persona porque **son capacidades extendidas de personas**, y el significado de cada
 nombre apunta a lo que hace: **Vera** —de *verus*, lo verdadero— dice lo que los documentos
-dicen y no lo que se reporta; **Samuel** —«el que escuchó»— recuerda el viernes lo que se
+dicen y no lo que se reporta; **Samuel** —de *shamá*, «escuchar»— recuerda el viernes lo que se
 dijo en la reunión; **Alba** trabaja antes de que amanezca el proyecto.
 
 **Los tres se instalan hoy**, cada uno con su propio plugin, y comparten el mismo contrato
