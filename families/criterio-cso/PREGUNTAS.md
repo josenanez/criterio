@@ -72,8 +72,8 @@ On the AI platform's infrastructure, not only on your machine. Confirm it is adm
 
 ### Is it ready to use?
 
-Not yet: it is in construction. The engine passes its deterministic test on synthetic material from Colombia and Mexico; the round with the agents, with a key they never see, is what declares it tested, and its first version, the laboratory one, comes out with it.
+Not yet: it is in construction. The engine passes its deterministic test on synthetic material from Colombia and Mexico; the round with the agents, with a key they never see, is what declares it tested, and its first version, 0.1.0, comes out with it.
 
-### When does 1.0 arrive?
+### When will it be stable?
 
-When Criterio declares it, with the three conditions of decision 0018: its planned scope released, two full rounds in a row with no new defects, and the record schema fixed.
+When its evidence says so (decision 0020): the floor of the 95% confidence margin at 95% or higher, for signals and data, over each entity's most recent run in the material, and no signal in the controls. The code calculates it from the rounds; the version number does not say it.

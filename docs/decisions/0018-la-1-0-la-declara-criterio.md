@@ -1,6 +1,10 @@
 # 0018 · La 1.0 de cada familia la declara Criterio
 
-**Fecha:** 2026-10-28 · **Estado:** aceptada el 2026-10-28 · **Modifica:** la hoja de ruta de cada familia y 0017
+**Fecha:** 2026-10-28 · **Estado:** reemplazada el 2026-10-28 por la [0020](0020-laboratorio-estable-y-diez-versiones.md) · **Modifica:** la hoja de ruta de cada familia y 0017
+
+> **Reemplazada.** La 1.0 ya no es «la versión estable»: si una versión es estable o de laboratorio lo
+> dice su evidencia, con el piso del margen del 95 %, y cada número entero tiene diez versiones
+> (decisión 0020). Se conserva como se escribió.
 
 ## Contexto
 

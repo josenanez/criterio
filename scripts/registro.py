@@ -3,8 +3,8 @@
 """El registro de versiones de Criterio: qué cambió, qué términos rigen, qué versión tiene cada familia, y su huella.
 
     python3 scripts/registro.py historia                  arma las entradas de las versiones ya publicadas, desde git
-    python3 scripts/registro.py liberar 0.13.0 --familia pmo=0.13.0 [--familia cfo=0.12.2] --destacado "…" [--etiquetar]
-    python3 scripts/registro.py liberar 0.12.1 --todas     todas las familias a la misma versión (un cambio común, como los términos)
+    python3 scripts/registro.py liberar 1.0.0 --familia pmo=1.0.0 [--familia cso=0.1.0] --destacado "…" [--etiquetar]
+    python3 scripts/registro.py liberar 1.0.1 --todas      todas las familias liberadas suben una corrección (un cambio común, como los términos)
     python3 scripts/registro.py verificar                 puerta
 
 **Una versión por familia (decisión 0017).** Cada familia —PMO, CFO, CLO, EA y Rostrum— lleva su
@@ -12,6 +12,12 @@ propio número en sus plugins, y sube solo cuando ella cambia. El número del ma
 catálogo: sube con cada entrada del registro. Cada entrada nueva anota la versión de cada familia
 (`familias`), la de cada plugin (`versiones`) y cuáles se liberaron en ella (`liberadas`); las
 entradas anteriores a la decisión tienen una sola versión para todo, y así se leen.
+
+**Diez versiones por entero y una etiqueta de calidad (decisión 0020).** Cada número entero tiene
+diez versiones, de x.0 a x.9, y después de la x.9 viene la x+1.0; las correcciones, el tercer
+número, no cuentan. La 0.10, la 0.11 y la 0.12 son las únicas excepciones: quien está ahí sube a la
+1.0.0. `liberar` falla con una versión que no siga la regla, y anota en la entrada la calidad de cada
+familia que libera —laboratorio o estable—, que calcula `scripts/calidad.py` desde la evidencia.
 
 **La entrada y la etiqueta apuntan al mismo punto.** Desde la 0.3.9 cada entrada guarda su
 etiqueta (`v0.3.9`), y `liberar --etiquetar` hace el commit de la versión y crea la etiqueta
@@ -229,6 +235,26 @@ def clave(v: str) -> tuple:
     return tuple(int(x) for x in v.split("."))
 
 
+def sigue(previa: str | None, nueva: str) -> str | None:
+    """Por qué `nueva` no puede seguir a `previa`, o None si puede (decisión 0020): una corrección
+    sube el tercer número; una versión sube el segundo hasta el 9; después del 9 —o de la 0.10, la
+    0.11 y la 0.12, las excepciones—, la siguiente es el entero que sigue con .0.0."""
+    n = clave(nueva)
+    if len(n) != 3:
+        return f"{nueva} no tiene la forma x.y.z"
+    if previa is None:
+        return None if n[0] == 0 and n[1] <= 9 and n[2] == 0 else f"una familia nueva empieza en una 0.y.0 con y hasta 9, no en {nueva}"
+    p = clave(previa)
+    if n[:2] == p[:2] and n[2] > p[2]:
+        return None
+    if p[1] < 9 and n == (p[0], p[1] + 1, 0):
+        return None
+    if p[1] >= 9 and n == (p[0] + 1, 0, 0):
+        return None
+    siguiente = f"{p[0] + 1}.0.0" if p[1] >= 9 else f"{p[0]}.{p[1] + 1}.0"
+    return f"después de la {previa} viene la {siguiente} o una corrección {p[0]}.{p[1]}.{p[2] + 1}; {nueva} no sigue la regla de diez versiones por entero"
+
+
 def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiquetar: bool = False) -> int:
     reg = leer()
     if any(e["version"] == v for e in reg["versiones"]):
@@ -243,11 +269,20 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
         if sigla not in fam:
             print(f"no hay una familia «{sigla}»: las familias son {', '.join(fam)}")
             return 1
-        if previa and clave(fv) <= clave(version_de_familia(previa, sigla)):
-            print(f"{sigla} está en {version_de_familia(previa, sigla)}: {fv} no la sube")
+        anterior = version_de_familia(previa, sigla) if previa and ("familias" not in previa or sigla in previa["familias"]) else None
+        if previa and anterior and clave(fv) <= clave(anterior):
+            print(f"{sigla} está en {anterior}: {fv} no la sube")
+            return 1
+        motivo = sigue(anterior, fv)
+        if motivo:
+            print(f"{sigla}: {motivo}")
             return 1
     if previa and clave(v) <= clave(previa["version"]):
         print(f"el catálogo está en {previa['version']}: {v} no lo sube")
+        return 1
+    motivo = sigue(previa["version"] if previa else None, v)
+    if motivo:
+        print(f"el catálogo: {motivo}")
         return 1
     poner_versiones(v, por_familia)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "sincronizar.py")], check=True,
@@ -269,8 +304,13 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     actuales = {s: por_familia.get(s, version_de_familia(previa, s) if previa else v) for s in fam
                 if s in por_familia or not previa or "familias" not in previa or s in previa["familias"]}
     versiones = {pl: actuales[s] for s, pls in fam.items() if s in actuales for pl in pls}
+    # La calidad de cada familia que se libera, desde su evidencia (decisión 0020): no se escribe a mano.
+    sys.path.insert(0, str(RAIZ / "scripts"))
+    import calidad as Q
+    calidades = {s: Q.calidad(s) for s in sorted(por_familia) if s != "rostrum"}
     e = sellar({"version": v, "fecha": dt.date.today().isoformat(), "commit": None, "base": base,
                 "etiqueta": f"v{v}", "familias": actuales, "liberadas": sorted(por_familia), "versiones": versiones,
+                "calidad": calidades,
                 "terminos": terminos_en(None), "plugins": huellas_en(None),
                 "destacados": destacados, "cambios": cambios, "aceptacion": ACEPTACION_AHORA,
                 "anterior": previa["sha256"] if previa else None})
@@ -323,6 +363,20 @@ def verificar() -> int:
         if actual != ultima["version"]:
             problemas.append(f"la versión publicada es {actual} y la última registrada es {ultima['version']}: "
                              f"una versión sin registro no se libera")
+        # Desde la 0.12.1, la última antes de la decisión 0020, cada entrada sigue la regla de diez
+        # versiones por entero: el catálogo y cada familia que se libera.
+        vs = reg["versiones"]
+        for prev, e in zip(vs, vs[1:]):
+            if clave(prev["version"]) < (0, 12, 1):
+                continue
+            m = sigue(prev["version"], e["version"])
+            if m:
+                problemas.append(f"la entrada {e['version']}: el catálogo: {m}")
+            for s in e.get("liberadas") or []:
+                ant = (prev.get("familias") or {}).get(s)
+                m = sigue(ant, e["familias"][s])
+                if m:
+                    problemas.append(f"la entrada {e['version']}: {s}: {m}")
         # Cada plugin, en la versión de su familia según la última entrada; el de una familia en
         # construcción, en la que le planea su hoja de ruta, y fuera del marketplace.
         construccion = en_construccion()
@@ -381,7 +435,8 @@ def main() -> int:
     ap.add_argument("--destacado", action="append", default=[])
     ap.add_argument("--familia", action="append", default=[], metavar="SIGLA=VERSION",
                     help="una familia que se libera y su versión nueva; se repite por familia")
-    ap.add_argument("--todas", action="store_true", help="todas las familias a la versión del catálogo")
+    ap.add_argument("--todas", action="store_true",
+                    help="cada familia liberada sube una corrección de su versión: un cambio común, como los términos")
     ap.add_argument("--etiquetar", action="store_true",
                     help="hace el commit de la versión y crea su etiqueta sobre él")
     a = ap.parse_args()
@@ -390,11 +445,19 @@ def main() -> int:
     if a.accion == "verificar":
         return verificar()
     if not a.version or not re.fullmatch(r"\d+\.\d+\.\d+", a.version):
-        ap.error("liberar necesita la versión del catálogo, como 0.13.0")
-    por_familia = {s: a.version for s in familias()} if a.todas else {}
+        ap.error("liberar necesita la versión del catálogo, como 1.0.0")
+    por_familia = {}
+    if a.todas:
+        # Un cambio común sube una corrección en cada familia liberada; una en construcción sigue fuera.
+        ultima = (leer()["versiones"] or [{}])[-1]
+        for s in familias():
+            if "familias" in ultima and s not in ultima["familias"]:
+                continue
+            x, y, z = clave(version_de_familia(ultima, s))
+            por_familia[s] = f"{x}.{y}.{z + 1}"
     for x in a.familia:
         if not re.fullmatch(r"[a-z]+=\d+\.\d+\.\d+", x):
-            ap.error(f"--familia va como sigla=versión, por ejemplo cfo=0.13.0: «{x}»")
+            ap.error(f"--familia va como sigla=versión, por ejemplo cfo=1.0.0: «{x}»")
         s, fv = x.split("=")
         por_familia[s] = fv
     return liberar(a.version, por_familia, a.destacado, a.etiquetar)

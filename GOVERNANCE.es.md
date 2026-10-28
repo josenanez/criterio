@@ -33,9 +33,11 @@ Nada se publica hasta que sus propios criterios pasen, y el resultado se publica
 
 `MAYOR.MENOR.PARCHE`, **uno por familia** (decisión 0017): la PMO, la CFO, la CLO, la EA y Rostrum llevan cada una su número, el mismo en todos sus plugins, y sube solo cuando ella cambia. El marketplace lleva el número del catálogo, que sube con cada entrada del registro. `scripts/registro.py verificar` hace cumplir que cada plugin esté en la versión que el registro le da a su familia.
 
-- **Parche** — redacción, todo lo que no cambia la salida.
-- **Menor** — un skill o comando nuevo, o comportamiento distinto.
-- **Mayor** — cambia el esquema de una ficha, o se reestructura el repositorio.
+- **Parche** — redacción, correcciones, todo lo que no cambia lo que la familia procesa; no cuenta entre las diez versiones.
+- **Menor** — cada incremento de la familia: un país, una industria, un skill o un comando nuevo, o comportamiento distinto. **Diez por número entero** (decisión 0020): de x.0 a x.9.
+- **Mayor** — el que sigue a la x.9. La 0.10, la 0.11 y la 0.12 son las únicas excepciones, y quien está ahí sube a la 1.0. Un cambio que rompe el esquema de una ficha se declara en la entrada del registro y en las notas de la versión; ya no lo dice el número.
+
+**Laboratorio o estable lo dice la evidencia, no el número** (decisión 0020): una versión es estable si la corrida más reciente de cada entidad de su material tiene el piso del margen del 95 % en 95 % o más, en señales y en datos, y ningún control levanta una señal; si no, sale como laboratorio. Lo calcula `scripts/calidad.py` y el registro lo anota en cada liberación.
 
 Los términos se versionan aparte. Un cambio en `TERMS.md` sube su versión y obliga a aceptar de nuevo en la siguiente corrida.
 

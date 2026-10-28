@@ -346,8 +346,8 @@ Probada en 6 industrias de Suramérica, con 13 proyectos por industria en la úl
 | Minería (oro y cobre) | Probada · rondas 1–11 | Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje |
 | Construcción e infraestructura | Probada · rondas 11 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
 | Oil & gas | Probada · rondas 11 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
-| Telecomunicaciones | Incremento 5 · versión 0.13.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
-| Logística | Incremento 5 · versión 0.13.0 | Implantaciones en varios centros con una operación que no se detiene |
+| Telecomunicaciones | Incremento 5 · versión 1.0.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
+| Logística | Incremento 5 · versión 1.0.0 | Implantaciones en varios centros con una operación que no se detiene |
 
 <!-- /industrias -->
 
@@ -363,9 +363,8 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 0.7.0 | Liberada | **Cronogramas de Microsoft Project**<br>· El XML de Project como cronograma: tareas, hitos, línea base, avance, predecesoras y recursos; el .mpp donde haya Java y MPXJ<br>· La estructura de carpetas recomendada<br>· El contraste entre la ficha del gerente y la de la PMO como lo define el skill<br>· El análisis estadístico, regenerado con cada prueba<br>· Esta hoja de ruta, desde una sola fuente | 4 industrias, 80 proyectos |
 | 0.8.0 | Liberada | **Rostrum para todas las familias, y la CFO y la CLO**<br>· Rostrum, un plugin propio para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· Las familias CFO y CLO, con el motor probado y una primera ronda con el agente | La verifica la prueba de la 0.9.0 |
 | 0.9.0 | Liberada | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones | 6 industrias |
-| 0.13.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
-| 0.14.0 | Siguiente | **Rostrum**<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
-| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
+| 1.0.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
+| 1.1.0 | Siguiente | **Rostrum**<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
 
 <!-- /hoja de ruta -->
 

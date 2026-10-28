@@ -54,9 +54,9 @@ No. Hoy el único canal de vuelta es el que tú eliges: un issue en GitHub. Comp
 
 ## Versiones y licencia
 
-### ¿Por qué la versión todavía no es 1.0?
+### ¿Es una versión estable?
 
-Porque la 1.0 es la versión estable, y Criterio la declara cuando la familia cumple tres condiciones (decisión 0018): su alcance planeado liberado, dos rondas completas seguidas sin defectos nuevos y con el piso del margen de confianza del 95 % en 95 % o más, y el esquema de la ficha fijo. Para la PMO, la 1.0 viene después de la 0.13.0 y la 0.14.0.
+Sí. Lo dice la evidencia, no el número (decisión 0020): una versión es estable cuando su ronda más reciente tiene el piso del margen de confianza del 95 % en 95 % o más en cada agente —la precisión y la cobertura de Vera, los compromisos de Samuel, la cobertura de Alba— y ningún proyecto de control levanta una alerta; si no, es de laboratorio. Cada número entero tiene diez versiones: la PMO pasó la 0.9, y su próxima versión, con telecomunicaciones y logística, es la 1.0.
 
 ### ¿Cuánto cuesta?
 

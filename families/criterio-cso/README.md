@@ -22,7 +22,7 @@ and Clara through theirs.
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the head of sales or their team, and does not decide for them: it does not set targets, approve discounts, settle commissions, contact customers or rate whoever sells |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | The round with the agents, and the first laboratory version: [the roadmap](#roadmap) |
+| **What comes next** | The round with the agents, and its first version, 0.1.0: [the roadmap](#roadmap) |
 
 ---
 
@@ -258,7 +258,6 @@ The family grows in increments. Each one is a version with its full test and its
 |---|---|---|---|
 | 0.1.0 | In progress | **Augusto and Valeria, built and tested with the full round with the agents**<br>· The twelve commands, their skills and the engine, with the nine signals: Augusto's pipeline, forecast and target; Valeria's discount, contract, invoice and commission<br>· Salesforce and HubSpot exports, and any CSV or Excel with its column mapping<br>· What was won against Fidel's contracts and what was signed against Clara's invoices, through their records<br>· Colombia and Mexico, with control entities | The round with the two agents on every entity in the material, with a key they never see |
 | Increment 2 | Next | **Ecuador, Peru and Chile, and Microsoft Dynamics and Zoho**<br>· The three countries already in the country registry, with their material and their round<br>· The Microsoft Dynamics and Zoho exports, each from its verified source | The round with the agents in the three countries and on the two new exports |
-| 1.0.0 | Reserved | **The stable version**<br>· Its planned scope, released: every earlier increment with its version<br>· Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data<br>· The record schema, fixed: from here on, breaking it is a version 2.0 | The two full rounds, published with their statistical analysis |
 
 <!-- /hoja de ruta -->
 

@@ -270,7 +270,6 @@ The family grows in increments. Each one is a version with its full test and its
 |---|---|---|---|
 | 0.12.0 | Released | **Ofelia, built and tested with the full round with the agent**<br>· Ofelia's nine commands, her skills and the engine: the .ics calendar with recurrences and the clock change, saved email, the governing bodies' meetings and commitments with Samuel's rules<br>· She prepares each decision with its options and evidence, without ranking or recommending<br>· Colombia and Ecuador, in a president's office and a general manager's office, and two control offices | Round 1: Ofelia on the four offices, 14 of 14 signals and 76 of 78 data points, with one extra signal in a control; every defect it found, with its fix and its verification |
 | Increment 2 | Next | **Travel, and each provider's exports**<br>· Itineraries against the calendar<br>· The .ics that Outlook and Google Calendar export and Outlook's .msg email, each with its material: what really changes from one office to another, not the country | The round with the agent on each provider's exports |
-| 1.0.0 | Reserved | **The stable version**<br>· Its planned scope, released: every earlier increment with its version<br>· Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data<br>· The record schema, fixed: from here on, breaking it is a version 2.0 | The two full rounds, published with their statistical analysis |
 
 <!-- /hoja de ruta -->
 

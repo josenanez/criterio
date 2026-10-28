@@ -72,8 +72,8 @@ En la infraestructura de la plataforma de IA, no solo en tu equipo. Confirma que
 
 ### ¿Está lista para usar?
 
-Todavía no: está en construcción. El motor pasa su prueba determinista sobre material sintético de Colombia y México; la ronda con los agentes, con una clave que no ven, es lo que la declara probada, y con ella sale su primera versión, la de laboratorio.
+Todavía no: está en construcción. El motor pasa su prueba determinista sobre material sintético de Colombia y México; la ronda con los agentes, con una clave que no ven, es lo que la declara probada, y con ella sale su primera versión, la 0.1.0.
 
-### ¿Cuándo llega la 1.0?
+### ¿Cuándo será estable?
 
-Cuando Criterio la declare, con las tres condiciones de la decisión 0018: su alcance planeado liberado, dos rondas completas seguidas sin defectos nuevos, y el esquema de la ficha fijo.
+Cuando su evidencia lo diga (decisión 0020): el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos, sobre la corrida más reciente de cada entidad del material, y ninguna señal en los controles. Lo calcula el código desde las rondas; el número de la versión no lo dice.

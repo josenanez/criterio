@@ -33,9 +33,11 @@ Nothing is released until its own criteria pass, and the result of that run is p
 
 `MAJOR.MINOR.PATCH`, **one per family** (decision 0017): the PMO, the CFO, the CLO, the EA and Rostrum each carry their own number, the same across all their plugins, and it only goes up when that family changes. The marketplace carries the catalogue number, which goes up with every entry of the register. `scripts/registro.py verificar` enforces that every plugin is at the version the register gives its family.
 
-- **Patch** — wording fixes, anything that does not change the output.
-- **Minor** — a new skill or command, or changed behaviour.
-- **Major** — a record schema changes, or the repository is restructured.
+- **Patch** — wording, fixes, anything that does not change what the family processes; it does not count among the ten versions.
+- **Minor** — each increment of the family: a country, an industry, a new skill or command, or changed behaviour. **Ten per whole number** (decision 0020): from x.0 to x.9.
+- **Major** — the one after x.9. 0.10, 0.11 and 0.12 are the only exceptions, and whoever is there goes up to 1.0. A change that breaks a record schema is declared in the register entry and in the version notes; the number no longer says it.
+
+**Laboratory or stable is said by the evidence, not the number** (decision 0020): a version is stable if each entity's most recent run in its material has the floor of the 95% margin at 95% or more, for signals and data, and no control raises a signal; otherwise it comes out as laboratory. `scripts/calidad.py` calculates it and the register records it on every release.
 
 The terms are versioned separately. A change to `TERMS.md` bumps its version and triggers re-acceptance on the next run.
 

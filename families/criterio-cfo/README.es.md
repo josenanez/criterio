@@ -22,7 +22,7 @@ caja— y ninguno habla con los otros directamente: se hablan por sus fichas.
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al contralor, al equipo de planeación financiera ni a la tesorería, y no decide por ellos: procesa lo que la función ya tiene y dice qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | Brasil, y después la 1.0, la versión estable: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | Brasil, en la 1.0: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -376,7 +376,6 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 0.11.0 | Liberada | **Chile**<br>· El lector de la factura electrónica de Chile, el DTE del SII (F-16), con el RUT y su dígito verificador<br>· El IVA del 19 % (F-17) y las NIIF que adoptó el Colegio de Contadores (F-18)<br>· Material de retail, minería y una entidad de control de Chile | La ronda 5: los tres agentes sobre las tres entidades de Chile, 26 de 26 señales, ninguna de más y 24 de 24 datos |
 | 0.12.0 | Liberada | **México**<br>· El lector del CFDI 4.0 del SAT, desde su guía de llenado (F-19), con el RFC<br>· El IVA del 16 % del catálogo de la guía y el marco NIIF o NIF de cada entidad (F-20)<br>· Material de banca, retail y una entidad de control de México | La ronda 6: los tres agentes sobre las tres entidades de México, 27 de 27 señales, ninguna de más y 24 de 24 datos |
 | Incremento 6 | Siguiente | **Brasil**<br>· Su entrada en el registro de países, el lector de su factura electrónica y sus fuentes verificadas<br>· Se marca en el mapa cuando pasa su ronda | La ronda con los agentes en Brasil |
-| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
 
 <!-- /hoja de ruta -->
 
@@ -417,7 +416,9 @@ sobre la documentación de una organización real.**
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 
-La familia quedó probada con la ronda completa con el agente. Lo siguiente es Brasil, y después la
-1.0, la versión estable, que Criterio declara con las condiciones de la
-[decisión 0018](../../docs/decisions/0018-la-1-0-la-declara-criterio.md). Las decisiones que siguen
-abiertas, en el [diseño](DISENO.es.md#decisiones-abiertas).
+La familia quedó probada con la ronda completa con el agente, y su evidencia la hace **estable**:
+la corrida más reciente de cada una de sus entidades tiene el piso del margen del 95 % en 95 % o más,
+en señales y en datos, y ningún control levantó una señal
+([decisión 0020](../../docs/decisions/0020-laboratorio-estable-y-diez-versiones.md); lo calcula
+`scripts/calidad.py`). Lo siguiente es Brasil, en la 1.0. Las decisiones que siguen abiertas, en el
+[diseño](DISENO.es.md#decisiones-abiertas).

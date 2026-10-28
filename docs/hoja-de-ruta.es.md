@@ -5,18 +5,19 @@
 Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde la hoja de ruta de cada familia (`families/criterio-<sigla>/hoja-de-ruta.json`), el registro de versiones (`registro/versiones.json`) y las decisiones de alcance (`docs/decisions/`): no se edita a mano.
 
 - **Cada familia lleva su propia versión** (decisión 0017) y sube solo cuando ella cambia.
-- **La primera liberación de cada familia es su versión de laboratorio:** probada sobre material sintético y lista para usar; quien prefiera empezar con ella puede hacerlo.
+- **Diez versiones por entero** (decisión 0020): de x.0 a x.9, y después la x+1.0. La 0.10, la 0.11 y la 0.12 son las únicas excepciones: quien está ahí sube a la 1.0.
+- **Laboratorio o estable lo dice la evidencia, no el número:** estable, si la corrida más reciente de cada entidad del material tiene el piso del margen del 95 % en 95 % o más, en señales y en datos, y ningún control levanta una señal; si no, laboratorio. Lo calcula `scripts/calidad.py`.
 - **Un incremento es una versión con su prueba completa** y su análisis estadístico, con las mismas métricas que las anteriores.
 
 ## Dónde está cada familia hoy
 
-| Familia | Agentes | Versión | Laboratorio | Lo siguiente |
+| Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
-| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 0.12.1 | 0.6.0 | 0.13.0 · Telecomunicaciones y logística |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 0.12.1 | 0.8.0 | Incremento 6 · Brasil |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 0.12.1 | 0.8.0 | Incremento 5 · Brasil |
-| Criterio EA · Dirección | Ofelia | 0.12.1 | 0.12.0 | Incremento 2 · Los viajes, y las exportaciones de cada proveedor |
-| Criterio CSO · La función comercial | Augusto, Valeria | En construcción | — | 0.1.0 · Augusto y Valeria, construidos y probados con la ronda completa con los agentes |
+| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 0.12.1 | Estable | 1.0.0 · Telecomunicaciones y logística |
+| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 0.12.1 | Estable | Incremento 6 · Brasil |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 0.12.1 | Estable | Incremento 5 · Brasil |
+| Criterio EA · Dirección | Ofelia | 0.12.1 | Laboratorio | Incremento 2 · Los viajes, y las exportaciones de cada proveedor |
+| Criterio CSO · La función comercial | Augusto, Valeria | En construcción | Laboratorio | 0.1.0 · Augusto y Valeria, construidos y probados con la ronda completa con los agentes |
 | Rostrum · el portal de todas las familias | — | 0.12.1 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -29,9 +30,8 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.7.0 | Liberada | **Cronogramas de Microsoft Project**<br>· El XML de Project como cronograma: tareas, hitos, línea base, avance, predecesoras y recursos; el .mpp donde haya Java y MPXJ<br>· La estructura de carpetas recomendada<br>· El contraste entre la ficha del gerente y la de la PMO como lo define el skill<br>· El análisis estadístico, regenerado con cada prueba<br>· Esta hoja de ruta, desde una sola fuente | 4 industrias, 80 proyectos |
 | 0.8.0 | Liberada | **Rostrum para todas las familias, y la CFO y la CLO**<br>· Rostrum, un plugin propio para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· Las familias CFO y CLO, con el motor probado y una primera ronda con el agente | La verifica la prueba de la 0.9.0 |
 | 0.9.0 | Liberada | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones | 6 industrias |
-| 0.13.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
-| 0.14.0 | Siguiente | **Rostrum**<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
-| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
+| 1.0.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
+| 1.1.0 | Siguiente | **Rostrum**<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
 
 ### Criterio CFO · La función financiera
 
@@ -43,7 +43,6 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.11.0 | Liberada | **Chile**<br>· El lector de la factura electrónica de Chile, el DTE del SII (F-16), con el RUT y su dígito verificador<br>· El IVA del 19 % (F-17) y las NIIF que adoptó el Colegio de Contadores (F-18)<br>· Material de retail, minería y una entidad de control de Chile | La ronda 5: los tres agentes sobre las tres entidades de Chile, 26 de 26 señales, ninguna de más y 24 de 24 datos |
 | 0.12.0 | Liberada | **México**<br>· El lector del CFDI 4.0 del SAT, desde su guía de llenado (F-19), con el RFC<br>· El IVA del 16 % del catálogo de la guía y el marco NIIF o NIF de cada entidad (F-20)<br>· Material de banca, retail y una entidad de control de México | La ronda 6: los tres agentes sobre las tres entidades de México, 27 de 27 señales, ninguna de más y 24 de 24 datos |
 | Incremento 6 | Siguiente | **Brasil**<br>· Su entrada en el registro de países, el lector de su factura electrónica y sus fuentes verificadas<br>· Se marca en el mapa cuando pasa su ronda | La ronda con los agentes en Brasil |
-| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
 
 ### Criterio CLO · Contratos y cumplimiento
 
@@ -54,8 +53,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.11.0 | Liberada | **Perú y Chile**<br>· Material de banca, minería y control de Perú, y de retail, minería y control de Chile, con la identificación fiscal de cada país<br>· Una obligación atada a la terminación vence en la terminación vigente, la del último otrosí (CLO-10) | La ronda 4: Fidel y Constanza sobre las seis entidades de Perú y Chile, 37 de 37 señales, ninguna de más y 812 de 813 datos; el que faltó, corregido y verificado |
 | 0.12.0 | Liberada | **México**<br>· Material de banca, retail y control de México, con el RFC de cada contraparte<br>· La fecha de una obligación atada a la terminación es la del último otrosí: lo dice la skill y el motor lo revisa en la ficha (CLO-11) | La ronda 5: Fidel y Constanza sobre las tres entidades de México, 20 de 20 señales, ninguna de más y 395 de 396 datos; el que faltó, corregido y verificado |
 | Incremento 5 | Siguiente | **Brasil**<br>· Sus fuentes legales verificadas y su material de prueba<br>· Se marca en el mapa cuando pasa su ronda | La ronda con los agentes en Brasil |
-| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
-| Incremento 7 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
+| Incremento 6 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
 
 ### Criterio EA · Dirección
 
@@ -63,7 +61,6 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 |---|---|---|---|
 | 0.12.0 | Liberada | **Ofelia, construida y probada con la ronda completa con la agente**<br>· Los nueve comandos de Ofelia, sus skills y el motor: la agenda .ics con repeticiones y cambio de hora, el correo guardado, las sesiones de los órganos y los compromisos con las reglas de Samuel<br>· Prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar<br>· Colombia y Ecuador, en la oficina de una presidencia y de una gerencia general, y dos oficinas de control | La ronda 1: Ofelia sobre las cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con una señal de más en un control; cada defecto que encontró, con su corrección y su verificación |
 | Incremento 2 | Siguiente | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país | La ronda con la agente sobre las exportaciones de cada proveedor |
-| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
 
 ### Criterio CSO · La función comercial
 
@@ -71,7 +68,6 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 |---|---|---|---|
 | 0.1.0 | En curso | **Augusto y Valeria, construidos y probados con la ronda completa con los agentes**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven |
 | Incremento 2 | Siguiente | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas |
-| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
 
 ## Las familias que vienen
 

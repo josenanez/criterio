@@ -21,7 +21,7 @@ habla con el otro directamente: se hablan por sus fichas.
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al abogado ni al oficial de cumplimiento, y no decide por ellos: procesa lo que la organización firmó y lo que se obligó a cumplir, y dice qué vence, qué no tiene evidencia y qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | Brasil, y después la 1.0, la versión estable: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | Brasil, en la 1.0: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -375,8 +375,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 0.11.0 | Liberada | **Perú y Chile**<br>· Material de banca, minería y control de Perú, y de retail, minería y control de Chile, con la identificación fiscal de cada país<br>· Una obligación atada a la terminación vence en la terminación vigente, la del último otrosí (CLO-10) | La ronda 4: Fidel y Constanza sobre las seis entidades de Perú y Chile, 37 de 37 señales, ninguna de más y 812 de 813 datos; el que faltó, corregido y verificado |
 | 0.12.0 | Liberada | **México**<br>· Material de banca, retail y control de México, con el RFC de cada contraparte<br>· La fecha de una obligación atada a la terminación es la del último otrosí: lo dice la skill y el motor lo revisa en la ficha (CLO-11) | La ronda 5: Fidel y Constanza sobre las tres entidades de México, 20 de 20 señales, ninguna de más y 395 de 396 datos; el que faltó, corregido y verificado |
 | Incremento 5 | Siguiente | **Brasil**<br>· Sus fuentes legales verificadas y su material de prueba<br>· Se marca en el mapa cuando pasa su ronda | La ronda con los agentes en Brasil |
-| 1.0.0 | Reservada | **La versión estable**<br>· Su alcance planeado, liberado: cada incremento anterior con su versión<br>· Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos<br>· El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0 | Las dos rondas completas, publicadas con su análisis estadístico |
-| Incremento 7 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
+| Incremento 6 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
 
 <!-- /hoja de ruta -->
 
@@ -413,8 +412,10 @@ sobre la documentación de una organización real.**
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 
-La familia quedó probada con la ronda completa con el agente. Lo siguiente es Brasil, y después la
-1.0, la versión estable, que Criterio declara con las condiciones de la
-[decisión 0018](../../docs/decisions/0018-la-1-0-la-declara-criterio.md); los contratos públicos, con
-sus propias reglas, vienen después. Las decisiones que siguen abiertas,
+La familia quedó probada con la ronda completa con el agente, y su evidencia la hace **estable**:
+la corrida más reciente de cada una de sus entidades tiene el piso del margen del 95 % en 95 % o más,
+en señales y en datos, y ningún control levantó una señal
+([decisión 0020](../../docs/decisions/0020-laboratorio-estable-y-diez-versiones.md); lo calcula
+`scripts/calidad.py`). Lo siguiente es Brasil, en la 1.0; los contratos públicos, con sus propias
+reglas, vienen después. Las decisiones que siguen abiertas,
 en el [diseño](DISENO.es.md#decisiones-abiertas).

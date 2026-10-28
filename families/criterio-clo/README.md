@@ -21,7 +21,7 @@ talks to the other directly: they talk through their records.
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the lawyer or the compliance officer, and does not decide for them: it processes what the organisation signed and what it committed to comply with, and says what falls due, what has no evidence and what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | Brazil, and then 1.0, the stable version: [the roadmap](#roadmap) |
+| **What comes next** | Brazil, in 1.0: [the roadmap](#roadmap) |
 
 ---
 
@@ -373,8 +373,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 0.11.0 | Released | **Peru and Chile**<br>· Material for banking, mining and control in Peru, and for retail, mining and control in Chile, with each country's tax ID<br>· An obligation tied to termination falls due on the current end date, the one in the latest amendment (CLO-10) | Round 4: Fidel and Constanza on the six entities of Peru and Chile, 37 of 37 signals, none extra and 812 of 813 data points; the one missed, fixed and verified |
 | 0.12.0 | Released | **Mexico**<br>· Material for banking, retail and control in Mexico, with each counterparty's RFC<br>· The date of an obligation tied to termination is the latest amendment's: the skill says so and the engine checks it in the record (CLO-11) | Round 5: Fidel and Constanza on the three Mexican entities, 20 of 20 signals, none extra and 395 of 396 data points; the one missed, fixed and verified |
 | Increment 5 | Next | **Brazil**<br>· Its verified legal sources and its test material<br>· It is marked on the map when it passes its round | The round with the agents in Brazil |
-| 1.0.0 | Reserved | **The stable version**<br>· Its planned scope, released: every earlier increment with its version<br>· Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data<br>· The record schema, fixed: from here on, breaking it is a version 2.0 | The two full rounds, published with their statistical analysis |
-| Increment 7 | Reserved | **Public contracts**<br>· Their own rules on publication and guarantees | Its own material, as every increment |
+| Increment 6 | Reserved | **Public contracts**<br>· Their own rules on publication and guarantees | Its own material, as every increment |
 
 <!-- /hoja de ruta -->
 
@@ -411,7 +410,8 @@ documentation.**
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /clo:estado -->
 
-The family was declared tested with the full round with the agent. Next comes Brazil, and then 1.0,
-the stable version, which Criterio declares under the conditions of
-[decision 0018](../../docs/decisions/0018-la-1-0-la-declara-criterio.md); public contracts, with
-their own rules, come later. The decisions still open, in the [design](DISENO.md#open-decisions).
+The family was declared tested with the full round with the agent, and its evidence makes it
+**stable**: each of its entities' most recent run has the floor of the 95% margin at 95% or more, for
+signals and data, and no control raised a signal
+([decision 0020](../../docs/decisions/0020-laboratorio-estable-y-diez-versiones.md); `scripts/calidad.py`
+calculates it). Next comes Brazil, in 1.0; public contracts, with their own rules, come later. The decisions still open, in the [design](DISENO.md#open-decisions).

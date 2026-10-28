@@ -95,7 +95,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 
 The 1 rounds used 12.5 million tokens: 11.3 million in the graded runs and 1.2 in the ones repeated after fixing a defect. On average, 1.6 million per entity.
 
-The material is synthetic. Version 1.0, the stable one, is declared by Criterio when the family closes its planned scope and two full rounds in a row hold with no new defects (decision 0018).
+The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020).
 
 ---
 

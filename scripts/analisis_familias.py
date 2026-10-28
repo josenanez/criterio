@@ -252,8 +252,8 @@ def secciones(sigla: str):
          if f(i) else
          f"The {len(rondas)} rounds used {dec(tot / 1e6, i)} million tokens: {dec(T['tokens'] / 1e6, i)} million in the graded runs and "
          f"{dec(T['repetidos'] / 1e6, i)} in the ones repeated after fixing a defect. On average, {dec(T['tokens'] / 1e6 / T['corridas'], i)} million per entity."),
-        ("El material es sintético. La 1.0, la versión estable, la declara Criterio cuando la familia cierra su alcance planeado y dos rondas completas seguidas se sostienen sin defectos nuevos (decisión 0018)."
-         if f(i) else "The material is synthetic. Version 1.0, the stable one, is declared by Criterio when the family closes its planned scope and two full rounds in a row hold with no new defects (decision 0018)."),
+        ("El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
+         if f(i) else "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."),
     ] for i in L}})
 
     meta = {"generado_desde": f"tests/evidencias/familias/{sigla}", "ultima_ronda": U, "completa": completa, "rondas": rondas}

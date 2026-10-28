@@ -345,8 +345,8 @@ Tested in 6 South American industries, with 13 projects per industry in the late
 | Mining (gold and copper) | Tested · rounds 1–11 | Engineering, licences and permits, installation; plant shutdowns; engineering and installation vendors |
 | Construction and infrastructure | Tested · rounds 11 | MS Project schedules, change orders, contractors, physical against financial progress |
 | Oil & gas | Tested · rounds 11 | Capital megaprojects, contractors, permits and process safety |
-| Telecommunications | Increment 5 · version 0.13.0 | Many rollouts in parallel, vendors and permits: portfolio scale |
-| Logistics | Increment 5 · version 0.13.0 | Roll-outs across several sites while operations never stop |
+| Telecommunications | Increment 5 · version 1.0.0 | Many rollouts in parallel, vendors and permits: portfolio scale |
+| Logistics | Increment 5 · version 1.0.0 | Roll-outs across several sites while operations never stop |
 
 <!-- /industrias -->
 
@@ -362,9 +362,8 @@ The family grows in increments. Each one is a version with its full test and its
 | 0.7.0 | Released | **Microsoft Project schedules**<br>· Project XML as a schedule: tasks, milestones, baseline, progress, predecessors and resources; .mpp where Java and MPXJ are present<br>· The recommended folder structure<br>· The contrast between the manager's record and the PMO's, as the skill defines it<br>· The statistical analysis, regenerated with every test<br>· This roadmap, from a single source | 4 industries, 80 projects |
 | 0.8.0 | Released | **Rostrum for every family, and the CFO and CLO families**<br>· Rostrum, a plugin of its own for every family, with a menu per family and a home that says what needs attention today, WCAG 2.2 AA checked with axe-core<br>· The root folder each agent searches for and, with permission, marks<br>· The CFO and CLO families, with the engine tested and a first round with the agent | Verified by the 0.9.0 test |
 | 0.9.0 | Released | **Construction and infrastructure, and oil & gas**<br>· Two new industries, with their own projects, documents and situations | 6 industries |
-| 0.13.0 | Next | **Telecommunications and logistics**<br>· Two new industries: portfolio scale and operations that never stop | 8 industries |
-| 0.14.0 | Next | **Rostrum**<br>· Gantt of baseline against current, milestones and progress curve | 8 industries |
-| 1.0.0 | Reserved | **The stable version**<br>· Its planned scope, released: every earlier increment with its version<br>· Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data<br>· The record schema, fixed: from here on, breaking it is a version 2.0 | The two full rounds, published with their statistical analysis |
+| 1.0.0 | Next | **Telecommunications and logistics**<br>· Two new industries: portfolio scale and operations that never stop | 8 industries |
+| 1.1.0 | Next | **Rostrum**<br>· Gantt of baseline against current, milestones and progress curve | 8 industries |
 
 <!-- /hoja de ruta -->
 

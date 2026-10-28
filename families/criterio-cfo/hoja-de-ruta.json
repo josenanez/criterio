@@ -173,30 +173,6 @@
     ],
     "prueba": "The round with the agents in Brazil"
    }
-  },
-  {
-   "incremento": 7,
-   "version": "1.0.0",
-   "estado": "reservada",
-   "industrias": [],
-   "es": {
-    "titulo": "La versión estable",
-    "entra": [
-     "Su alcance planeado, liberado: cada incremento anterior con su versión",
-     "Dos rondas completas seguidas sin defectos nuevos, sin señales de más en los controles y con el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos",
-     "El esquema de la ficha, fijo: desde aquí, romperlo es una versión 2.0"
-    ],
-    "prueba": "Las dos rondas completas, publicadas con su análisis estadístico"
-   },
-   "en": {
-    "titulo": "The stable version",
-    "entra": [
-     "Its planned scope, released: every earlier increment with its version",
-     "Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data",
-     "The record schema, fixed: from here on, breaking it is a version 2.0"
-    ],
-    "prueba": "The two full rounds, published with their statistical analysis"
-   }
   }
  ]
 }

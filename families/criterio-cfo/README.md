@@ -22,7 +22,7 @@ cash — and none talks to the others directly: they talk through their records.
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the controller, the financial planning team or treasury, and does not decide for them: it processes what the function already has and says what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | Brazil, and then 1.0, the stable version: [the roadmap](#roadmap) |
+| **What comes next** | Brazil, in 1.0: [the roadmap](#roadmap) |
 
 ---
 
@@ -376,7 +376,6 @@ The family grows in increments. Each one is a version with its full test and its
 | 0.11.0 | Released | **Chile**<br>· The reader for Chile's electronic invoice, the SII DTE (F-16), with the RUT and its check digit<br>· The 19% VAT (F-17) and the IFRS adopted by the Colegio de Contadores (F-18)<br>· Material for retail, mining and a control entity in Chile | Round 5: the three agents on the three Chilean entities, 26 of 26 signals, none extra and 24 of 24 data points |
 | 0.12.0 | Released | **Mexico**<br>· The reader for the SAT's CFDI 4.0, from its filling guide (F-19), with the RFC<br>· The 16% VAT from the guide's catalogue and each entity's IFRS or NIF framework (F-20)<br>· Material for banking, retail and a control entity in Mexico | Round 6: the three agents on the three Mexican entities, 27 of 27 signals, none extra and 24 of 24 data points |
 | Increment 6 | Next | **Brazil**<br>· Its entry in the country registry, the reader for its electronic invoice and its verified sources<br>· It is marked on the map when it passes its round | The round with the agents in Brazil |
-| 1.0.0 | Reserved | **The stable version**<br>· Its planned scope, released: every earlier increment with its version<br>· Two full rounds in a row with no new defects, no extra signals in the control entities and the floor of the 95% confidence margin at 95% or higher, for signals and for data<br>· The record schema, fixed: from here on, breaking it is a version 2.0 | The two full rounds, published with their statistical analysis |
 
 <!-- /hoja de ruta -->
 
@@ -417,7 +416,8 @@ documentation.**
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 
-The family was declared tested with the full round with the agent. Next comes Brazil, and then 1.0,
-the stable version, which Criterio declares under the conditions of
-[decision 0018](../../docs/decisions/0018-la-1-0-la-declara-criterio.md). The decisions still open, in the
-[design](DISENO.md#open-decisions).
+The family was declared tested with the full round with the agent, and its evidence makes it
+**stable**: each of its entities' most recent run has the floor of the 95% margin at 95% or more, for
+signals and data, and no control raised a signal
+([decision 0020](../../docs/decisions/0020-laboratorio-estable-y-diez-versiones.md); `scripts/calidad.py`
+calculates it). Next comes Brazil, in 1.0. The decisions still open, in the [design](DISENO.md#open-decisions).

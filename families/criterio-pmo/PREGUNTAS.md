@@ -56,7 +56,7 @@ No. Today the only way back is the one you choose: an issue on GitHub. Sharing f
 
 ### Why is the version not 1.0 yet?
 
-Because 1.0 is the stable version, and Criterio declares it when the family meets three conditions (decision 0018): its planned scope released, two full rounds in a row with no new defects and the floor of the 95% confidence margin at 95% or higher, and the record schema fixed. For the PMO, 1.0 comes after 0.13.0 and 0.14.0.
+Yes. The evidence says so, not the number (decision 0020): a version is stable when its most recent round has the floor of the 95% confidence margin at 95% or higher for every agent —Vera's precision and coverage, Samuel's commitments, Alba's coverage— and no control project raises an alert; otherwise it is laboratory. Each whole number has ten versions: the PMO passed 0.9, and its next version, with telecommunications and logistics, is 1.0.
 
 ### How much does it cost?
 
