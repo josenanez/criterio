@@ -53,6 +53,9 @@ todas las familias. Su menú tiene una entrada por familia, así que crece sin a
 página cumple WCAG 2.2 AA, comprobado con Chromium y axe-core a cuatro anchos de pantalla
 ([cómo se prueba](plugins/criterio-server/README.es.md#cómo-se-verifica)).
 
+**Cada familia lleva su propia versión** ([ADR 0017](docs/decisions/0017-una-version-por-familia.md)), y
+[la hoja de ruta de todas](docs/hoja-de-ruta.es.md) dice en qué versión va cada una, qué sigue y qué familias vienen.
+
 **La lista no está cerrada.** Una familia entra cuando alguien que ejerce esa capacidad
 quiere construirla, y el formato está en [CONTRIBUTING.es.md](CONTRIBUTING.es.md).
 

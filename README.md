@@ -53,6 +53,9 @@ says what needs attention today across every family. Its menu has one entry per 
 without getting longer. Every page meets WCAG 2.2 AA, checked with Chromium and axe-core at four
 screen widths ([how it is tested](plugins/criterio-server/README.md#how-it-is-verified)).
 
+**Each family carries its own version** ([ADR 0017](docs/decisions/0017-una-version-por-familia.md)), and
+[the roadmap of all of them](docs/hoja-de-ruta.md) says which version each one is at, what comes next and which families are coming.
+
 **The list is not closed.** A family joins when somebody who performs that capability
 wants to build it, and the format is in [CONTRIBUTING.md](CONTRIBUTING.md).
 
