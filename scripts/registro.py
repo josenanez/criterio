@@ -249,6 +249,18 @@ def poner_versiones(catalogo: str, por_familia: dict[str, str]) -> None:
             _poner(RAIZ / "plugins" / pl / ".claude-plugin" / "plugin.json", v)
 
 
+def _numeros(v):
+    """Un número entero se anota como entero, no como 95.0: la huella de la entrada se recalcula fuera
+    de Python —el portal la verifica en JavaScript—, y allá 95.0 y 95 se escriben igual."""
+    if isinstance(v, dict):
+        return {k: _numeros(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [_numeros(x) for x in v]
+    if isinstance(v, float) and v.is_integer():
+        return int(v)
+    return v
+
+
 def clave(v: str) -> tuple:
     return tuple(int(x) for x in v.split("."))
 
@@ -290,7 +302,7 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     # La calidad de cada familia que se libera, desde su evidencia (decisión 0020): no se escribe a mano.
     sys.path.insert(0, str(RAIZ / "scripts"))
     import calidad as Q
-    calidades = {s: Q.calidad(s) for s in sorted(por_familia) if s != "rostrum"}
+    calidades = {s: _numeros(Q.calidad(s)) for s in sorted(por_familia) if s != "rostrum"}
     for sigla, fv in por_familia.items():
         if sigla not in fam:
             print(f"no hay una familia «{sigla}»: las familias son {', '.join(fam)}")
@@ -421,6 +433,8 @@ def verificar() -> int:
                 if pl in listados:
                     problemas.append(f"{pl} es de una familia en construcción y está en el marketplace: se publica con su primera liberación")
                 continue
+            if pl not in listados:
+                problemas.append(f"{pl} es de una familia liberada y no está en el marketplace: se publica desde su primera liberación (decisión 0021)")
             if pv != version_de_plugin(ultima, pl):
                 problemas.append(f"{pl} está en {pv} y la última entrada lo registra en {version_de_plugin(ultima, pl)}")
         # Solo se lanza lo que está publicado: una familia con `lanzamiento` tiene su entrada.
