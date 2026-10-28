@@ -487,7 +487,7 @@
         "constanza": "El cumplimiento",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: construida y probada. El motor pasa su prueba determinista contra material sintético de cuatro industrias y dos entidades de control, y los agentes pasaron la ronda completa sobre las seis entidades, con una clave que no ven. El siguiente paso es su primer uso sobre la documentación de una organización concreta.",
+      "nota": "Estado de la familia: construida y probada sobre material sintético de cinco países —Colombia, Ecuador, Perú, Chile y México—. El motor pasa su prueba determinista contra las quince entidades del material, y los dos agentes pasaron sus rondas con una clave que no ven. Lo siguiente es Brasil.",
       "guion": [
         {
           "cabeza": true,
@@ -533,7 +533,7 @@
         "constanza": "Compliance",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: built and tested. The engine passes its deterministic test against synthetic material from four industries and two control entities, and the agents passed the full round on the six entities, with a key they never see. The next step is its first use on a specific organisation’s documentation.",
+      "nota": "Where the family stands: built and tested on synthetic material from five countries —Colombia, Ecuador, Peru, Chile and Mexico—. The engine passes its deterministic test against the fifteen entities in the material, and the two agents passed their rounds with a key they never see. Next is Brazil.",
       "guion": [
         {
           "cabeza": true,

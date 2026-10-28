@@ -318,7 +318,7 @@
         "ofelia": "La oficina de dirección",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: construida y probada. El motor pasa su prueba determinista contra cuatro oficinas sintéticas —dos con defectos sembrados y dos de control— y la agente pasó la ronda completa con una clave que no ve. El siguiente paso es su primer uso sobre la oficina de un ejecutivo concreto.",
+      "nota": "Estado de la familia: construida y probada. El motor pasa su prueba determinista contra cuatro oficinas sintéticas —dos con defectos sembrados y dos de control— y la agente pasó la ronda completa con una clave que no ve. Lo siguiente son los viajes y las exportaciones de cada proveedor.",
       "guion": [
         {
           "cabeza": true,
@@ -358,7 +358,7 @@
         "ofelia": "The executive office",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: built and tested. The engine passes its deterministic test against four synthetic offices —two with seeded defects and two controls— and the agent passed the full round with a key she never sees. The next step is her first use on a specific executive's office.",
+      "nota": "Where the family stands: built and tested. The engine passes its deterministic test against four synthetic offices —two with seeded defects and two controls— and the agent passed the full round with a key she never sees. Next are travel and the exports of each provider.",
       "guion": [
         {
           "cabeza": true,

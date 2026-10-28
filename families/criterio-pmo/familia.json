@@ -327,7 +327,7 @@
         "alba": "Un producto",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: probada ronda a ronda sobre datos de prueba de entidades financieras (bancos y cooperativas), retail, minería, construcción e infraestructura, y petróleo y gas de Suramérica, construidos para ser más exigentes que la documentación habitual de esas organizaciones. El siguiente paso es su primer uso sobre la documentación de una organización concreta.",
+      "nota": "Estado de la familia: probada ronda a ronda sobre datos de prueba de entidades financieras (bancos y cooperativas), retail, minería, construcción e infraestructura, y petróleo y gas de Suramérica, construidos para ser más exigentes que la documentación habitual de esas organizaciones. Lo siguiente es la 0.13.0: telecomunicaciones y logística.",
       "guion": [
         {
           "cabeza": true,
@@ -379,7 +379,7 @@
         "alba": "One product",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: tested round after round on test data from financial entities (banks and cooperatives), retail, mining, construction and infrastructure, and oil and gas in South America, built to be more demanding than those organisations’ usual documentation. The next step is its first use on a specific organisation’s documentation.",
+      "nota": "Where the family stands: tested round after round on test data from financial entities (banks and cooperatives), retail, mining, construction and infrastructure, and oil and gas in South America, built to be more demanding than those organisations’ usual documentation. Next is 0.13.0: telecommunications and logistics.",
       "guion": [
         {
           "cabeza": true,
