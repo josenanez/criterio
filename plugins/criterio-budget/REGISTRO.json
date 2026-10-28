@@ -1182,6 +1182,105 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "5c192bc2d2758a5143b9a7334cad3310a291627dc85c5ecc4b09c76e19f811f8",
       "sha256": "614c237575e22d8b0a31d756bcd69ce12df7420842fb3ca5c79ec29b4deb539f"
+    },
+    {
+      "version": "1.0.0",
+      "fecha": "2026-10-28",
+      "commit": null,
+      "base": "7633bfa7",
+      "etiqueta": "v1.0.0",
+      "familias": {
+        "cfo": "0.12.1",
+        "clo": "0.12.1",
+        "cso": "0.1.0",
+        "ea": "0.12.1",
+        "pmo": "0.12.1",
+        "rostrum": "0.12.1"
+      },
+      "liberadas": [
+        "cso"
+      ],
+      "versiones": {
+        "criterio-budget": "0.12.1",
+        "criterio-finance": "0.12.1",
+        "criterio-treasury": "0.12.1",
+        "criterio-compliance": "0.12.1",
+        "criterio-legal": "0.12.1",
+        "criterio-revenue": "0.1.0",
+        "criterio-sales": "0.1.0",
+        "criterio-assistant": "0.12.1",
+        "criterio-portfolio": "0.12.1",
+        "criterio-product": "0.12.1",
+        "criterio-project": "0.12.1",
+        "criterio-server": "0.12.1"
+      },
+      "calidad": {
+        "cso": {
+          "etiqueta": "laboratorio",
+          "ronda": null,
+          "pisos": {},
+          "motivo": [
+            "sin ronda con los agentes"
+          ],
+          "umbral": 95
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "5007fa908676cb2c16aa508d84959df3b124f1cfae10e45851680a108882c5e8",
+        "criterio-budget": "aedec8edbff73659b15ab8596837597a8a995d9862238d569cecf8ac1ca810e1",
+        "criterio-compliance": "b595a7b603e8f24643ee7a96ed9ddb8e7521bf00de73fb482632565070ff89ba",
+        "criterio-finance": "c98590a659082fa074b33262907abf680bfba811b870bc2f45ee7170646602b9",
+        "criterio-legal": "779702059695ce50451558a71b7dce3a8d0747dc91d9d16e00358fcdb9ba9524",
+        "criterio-portfolio": "55cdc117cce0bc5d35f78e361f5c2752897dd978186c34abfe715a18fb7314b4",
+        "criterio-product": "458ad2bf98c1feebedf765aa912cf902e091be665688be1ceb080186503e9d50",
+        "criterio-project": "a786ff83da830aab066606df97eeb32979a4ba3fcd637581ae4669b40a1f34ef",
+        "criterio-revenue": "780df29b9961498479fc81514d33d7c07048c09005273f7c4afd5cc3c8156505",
+        "criterio-sales": "79cd322da0c7742cb373bf0798490731c86cfe1df39916998f57467fff1e7ac0",
+        "criterio-server": "e1bdaa7e872cfa17ad42cd9fa34f1c920f6512629ff428307c788ef0894a993c",
+        "criterio-treasury": "bfe2c74d597b6fe1636ef03d9da269c418102191057c185e1eb1658ba9556623"
+      },
+      "destacados": [
+        "La CSO, la función comercial, entra al marketplace en su 0.1.0: Augusto y Valeria, con el motor probado; de laboratorio y sin lanzar (decisión 0021)",
+        "Laboratorio o estable lo dice la evidencia, y cada número entero tiene diez versiones (decisión 0020)",
+        "Se publica desde la primera versión, se lanza en una fecha y el lanzamiento abre la 1.0 de cada familia (decisión 0021)"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "La hoja de ruta de todas las familias en un documento: docs/hoja-de-ruta.es.md y .md, generada por hoja.py desde cada hoja de ruta, el registro y las decisiones de alcance",
+        "Resultados de la corrida",
+        "La 1.0 de cada familia la declara Criterio (ADR 0018): la versión estable, con su alcance planeado liberado, dos rondas completas seguidas sin defectos nuevos y el esquema de la ficha fijo; el uso en una organización es una invitación, no una puerta",
+        "Análisis de CFO, CLO y EA: la 1.0 la declara Criterio (ADR 0018)",
+        "Alcance de la función comercial, CSO (ADR 0019): dos agentes —el pronóstico, y de la venta a la factura—, sus señales, lo que nunca hacen y tres cifras verificadas; la hoja de ruta completa lista las familias aceptadas y propuestas que vienen",
+        "Resultados de la corrida",
+        "El nombre de cada agente, explicado en su README desde su familia.json: Vera, Samuel y Alba traen su origen, y Rostrum el suyo; Samuel viene de la raíz hebrea de shamá, «escuchar»; la puerta de las familias falla si a un agente le falta",
+        "El origen de Clara, Tomás, Fidel y Constanza dice su lengua, como el de los demás",
+        "La nota de la impresora de cada familia dice su estado de hoy y lo que sigue en su hoja de ruta, no el uso en una organización (ADR 0018)",
+        "Criterio CSO, la función comercial, en construcción: Augusto (el pronóstico) y Valeria (de la venta a la factura), con su motor ventas.py, las nueve señales y los lectores de Salesforce, HubSpot y cualquier CRM con su mapeo; material de Colombia y México con su clave; Clara deja sus facturas emitidas para que Valeria las cruce; el registro trata a una familia en construcción fuera del marketplace; Rostrum no publica las comisiones salvo que la configuración lo diga (ADR 0019)",
+        "Resultados de la corrida",
+        "La ronda con los agentes sabe dónde dejan Augusto y Valeria sus fichas y sus resultados",
+        "Laboratorio o estable lo dice la evidencia, y diez versiones por entero (ADR 0020, reemplaza la 0018): scripts/calidad.py calcula la etiqueta de cada familia con el piso del margen del 95 % sobre la corrida más reciente de cada entidad de su material, no de una sola ronda; registro.py la anota en cada liberación y hace cumplir que después de la x.9 venga la x+1.0, con la 0.10 a la 0.12 como únicas excepciones; la hoja de ruta muestra la calidad y la PMO sube a la 1.0",
+        "Resultados de la corrida",
+        "La calidad de cada familia, también como datos para el portal (calidad.py --json)",
+        "La siguiente versión de cada familia, con la regla de la 0020: la CFO, la CLO y la EA van a la 1.0.0 y la CSO a la 0.2.0",
+        "calidad.py --json dice también cuántos casos pide el piso, para que el portal diga por qué una familia es de laboratorio",
+        "Se publica desde la primera versión, se lanza en una fecha y el lanzamiento abre la 1.0 (ADR 0021): lanzamiento en familia.json (PMO, semana del 19 de octubre; CFO, del 26), registro.py exige la 1.0.0 a una familia lanzada y estable, y la CSO se reordena: 0.1.0 con el motor probado, 0.2.0 con la ronda y 73 señales",
+        "hoja.py: una familia que nace después de la decisión 0017 solo tiene las versiones que el registro le anota, no las del catálogo de antes",
+        "registro.py: el plugin de una familia liberada tiene que estar en el marketplace, y la calidad anota sus enteros como enteros, para que la huella se recalcule igual en el portal",
+        "Augusto y Valeria dicen el documento y el cargo como se leen —«la orden de compra», «gerente general»— y el porcentaje con el decimal del país, sin «22.0 %»",
+        "registro.py liberar: una familia entra al marketplace con su primera liberación, cada plugin con su descripción y la categoría de su familia.json (decisión 0021)",
+        "La CSO dice lo que es en cada lugar: de laboratorio y sin lanzar, en su 0.1.0, que ya se instala; la ronda con los agentes, en la 0.2.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "614c237575e22d8b0a31d756bcd69ce12df7420842fb3ca5c79ec29b4deb539f",
+      "sha256": "8c4b870cd22aa805c7fcf1b83da519963edf3736404092ae04996a98b3b1c222"
     }
   ]
 }

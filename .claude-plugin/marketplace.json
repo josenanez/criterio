@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "criterio",
-  "version": "0.12.1",
+  "version": "1.0.0",
   "description": "Plugins de IA que razonan con la normativa de Suramérica y con el estado real de un portafolio. AI plugins that reason with South American law and with the real state of a project portfolio.",
   "owner": {
     "name": "José Francisco Ñáñez",
@@ -61,6 +61,18 @@
       "description": "Ofelia, la asistente ejecutiva: la agenda del ejecutivo contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos de dirección y la correspondencia que pide respuesta. Procesa exportaciones, no cuentas; prepara, no recomienda ni decide, y nunca envía.",
       "source": "./plugins/criterio-assistant",
       "category": "productivity"
+    },
+    {
+      "name": "criterio-revenue",
+      "description": "Valeria, de la venta a la factura: cada descuento contra su política, cada venta ganada contra su contrato en las fichas de Fidel, cada contrato firmado contra su factura en las de Clara y cada comisión contra el plan. Cada cifra la calcula el código y cada dato cita su documento; no aprueba descuentos ni liquida comisiones.",
+      "source": "./plugins/criterio-revenue",
+      "category": "sales"
+    },
+    {
+      "name": "criterio-sales",
+      "description": "Augusto, el pronóstico: el embudo del CRM contra su evidencia —cada oportunidad contra el documento que exige su etapa, las detenidas y los cierres que se corren— y el pronóstico comprometido contra lo que lo sostiene, con la meta contra lo cerrado. Procesa exportaciones de Salesforce, de HubSpot o de cualquier CRM en CSV o Excel; nunca escribe en el CRM ni califica a quien vende.",
+      "source": "./plugins/criterio-sales",
+      "category": "sales"
     },
     {
       "name": "criterio-server",
