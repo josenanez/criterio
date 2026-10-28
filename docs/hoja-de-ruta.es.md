@@ -17,7 +17,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CFO · La función financiera | Clara, Tomás, Áurea | 0.12.1 | Estable | 1.0.0 · Brasil |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 0.12.1 | Estable | 1.0.0 · Brasil |
 | Criterio EA · Dirección | Ofelia | 0.12.1 | Laboratorio | 1.0.0 · Los viajes, y las exportaciones de cada proveedor |
-| Criterio CSO · La función comercial | Augusto, Valeria | En construcción | Laboratorio | 0.1.0 · Augusto y Valeria, construidos, con el motor probado |
+| Criterio CSO · La función comercial | Augusto, Valeria | 0.1.0 | Laboratorio | 0.2.0 · La ronda completa con los agentes |
 | Rostrum · el portal de todas las familias | — | 0.12.1 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -66,7 +66,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
-| 0.1.0 | En curso | **Augusto y Valeria, construidos, con el motor probado**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | El motor contra la clave de todo el material: seis entidades de Colombia y México, con sus controles |
+| 0.1.0 | Liberada | **Augusto y Valeria, construidos, con el motor probado**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | El motor contra la clave de todo el material: seis entidades de Colombia y México, con sus controles |
 | 0.2.0 | Siguiente | **La ronda completa con los agentes**<br>· Augusto y Valeria corren sus comandos sobre todas las entidades del material, con una clave que no ven<br>· El material siembra al menos 73 señales: lo que pide un piso del 95 % sin fallas (decisión 0020)<br>· Cada defecto que encuentre la ronda, con su corrección y su verificación | La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven |
 | Incremento 3 | Reservada | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas |
 
