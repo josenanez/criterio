@@ -4,6 +4,7 @@
 
     python3 scripts/calidad.py              la etiqueta de cada familia y lo que la sostiene
     python3 scripts/calidad.py --selftest   la regla sobre casos conocidos, y la numeración
+    python3 scripts/calidad.py --json       la etiqueta de cada familia como datos, para el portal
 
 **La regla (decisión 0020).** Una versión es **estable** si su evidencia con los agentes —cada entidad
 del material con su corrida más reciente, sea de la ronda que sea— cumple las tres condiciones; si
@@ -139,6 +140,10 @@ def selftest() -> int:
 def main() -> int:
     if "--selftest" in sys.argv:
         return selftest()
+    if "--json" in sys.argv:
+        # Para quien la publica —el portal—: la misma etiqueta, sin recalcularla allá.
+        print(json.dumps({s: calidad(s) for s in siglas()}, ensure_ascii=False, indent=1))
+        return 0
     for s in siglas():
         c = calidad(s)
         pisos = " · ".join(f"{k} {v:.1f} %" for k, v in c["pisos"].items()) or "—"
