@@ -225,8 +225,14 @@ def main() -> int:
         # Las versiones de esta familia en el registro: cada familia lleva la suya (decisión 0017);
         # una entrada anterior a la decisión tiene una sola versión para todas.
         # Una familia que no está en la última entrada todavía no se ha liberado: ninguna versión es suya.
+        # Las entradas anteriores a la decisión son de las familias que ya estaban en la primera que
+        # anota una versión por familia; una familia que nació después solo tiene las suyas.
         liberada = f["sigla"] in entradas[-1].get("familias", {f["sigla"]: None})
-        registradas = {e.get("familias", {}).get(f["sigla"], e["version"]) for e in entradas} if liberada else set()
+        primera = next((e["familias"] for e in entradas if "familias" in e), {})
+        antigua = f["sigla"] in primera
+        registradas = ({e["familias"][f["sigla"]] if "familias" in e else e["version"] for e in entradas
+                        if ("familias" in e and f["sigla"] in e["familias"]) or ("familias" not in e and antigua)}
+                       if liberada else set())
         h = json.loads(f["fuente"].read_text(encoding="utf-8"))
         ind = json.loads(f["industrias"].read_text(encoding="utf-8")) if f["industrias"].is_file() else {"industrias": []}
         errores += [f"{f['sigla'].upper()} · {e}" for e in errores_de(h, ind, registradas)]
