@@ -2,9 +2,10 @@
 
 # criterio-cso · el diseño de la familia
 
-**Estado: en construcción.** Los doce comandos, los ocho skills y el motor de cálculo se construyen
-sobre el núcleo común; el motor pasa su prueba determinista contra el material de Colombia y México
-(`tests/criterio-cso/`), y la ronda con los agentes es el siguiente paso. Alcance en
+**Estado: de laboratorio, sin lanzar (versión 0.1.0).** Los doce comandos, los ocho skills y el motor
+de cálculo se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el
+material de Colombia y México (`tests/criterio-cso/`), y la ronda con los agentes es el siguiente
+paso, en la 0.2.0. Alcance en
 [ADR 0019](../../docs/decisions/0019-scope-comercial-cso.md).
 
 **Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, sus fichas y sus invariantes, la estructura de carpetas, Rostrum, la cadencia, las pruebas y la hoja de ruta están en su [página](README.es.md).

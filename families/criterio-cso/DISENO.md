@@ -2,9 +2,10 @@
 
 # criterio-cso · the family's design
 
-**Status: in construction.** The twelve commands, the eight skills and the calculation engine are
-built on the common core; the engine passes its deterministic test against the material from
-Colombia and Mexico (`tests/criterio-cso/`), and the round with the agents is the next step. Scope
+**Status: laboratory, not yet launched (version 0.1.0).** The twelve commands, the eight skills and
+the calculation engine are built on the common core; the engine passes its deterministic test
+against the material from Colombia and Mexico (`tests/criterio-cso/`), and the round with the agents
+is the next step, in 0.2.0. Scope
 in [ADR 0019](../../docs/decisions/0019-scope-comercial-cso.md).
 
 **This is the family's design sheet**: the documents it processes, the signals the code calculates, every command with its input, process and report, and the decisions taken. What the family does, how it installs, its records and invariants, the folder structure, Rostrum, the cadence, the tests and the roadmap are on its [page](README.md).

@@ -427,7 +427,7 @@
         "valeria": "De la venta a la factura",
         "rostrum": "El portal"
       },
-      "nota": "Estado de la familia: en construcción. El motor, con su prueba determinista sobre material sintético de Colombia y México; la ronda con los agentes es el siguiente paso.",
+      "nota": "Estado de la familia: de laboratorio y sin lanzar, en su versión 0.1.0. El motor, con su prueba determinista sobre material sintético de Colombia y México; la ronda con los agentes llega en la 0.2.0.",
       "guion": [
         {
           "cabeza": true,
@@ -473,7 +473,7 @@
         "valeria": "From sale to invoice",
         "rostrum": "The portal"
       },
-      "nota": "Where the family stands: in construction. The engine, with its deterministic test on synthetic material from Colombia and Mexico; the round with the agents is the next step.",
+      "nota": "Where the family stands: laboratory and not yet launched, in its version 0.1.0. The engine, with its deterministic test on synthetic material from Colombia and Mexico; the round with the agents comes in 0.2.0.",
       "guion": [
         {
           "cabeza": true,

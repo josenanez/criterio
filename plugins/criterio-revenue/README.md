@@ -15,10 +15,10 @@ against the plan.
 
 [Español](README.es.md) · `criterio-revenue` · Apache 2.0 · One instance per entity
 
-**Status: in construction.** The six commands, the six skills and the calculation engine, tested
-against synthetic material from Colombia and Mexico with a key the agent never sees and one control
-entity per country. **The round with the agent is the next step**, and until then it is not published
-in the marketplace. Nothing is announced as finished until the
+**Status: laboratory, not yet launched (version 0.1.0).** The six commands, the six skills and the
+calculation engine, tested against synthetic material from Colombia and Mexico with a key the agent
+never sees and one control entity per country. It can already be installed from the marketplace.
+**The round with the agent is the next step**, in 0.2.0. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
 
 **This page reads on its own.** Valeria works without Augusto: if you only answer for the sale through to the invoice, everything is here, tests included. The family —how she meets Augusto, Fidel, Clara and Rostrum— is in the

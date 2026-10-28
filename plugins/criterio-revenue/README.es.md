@@ -15,10 +15,10 @@ plan.
 
 [English](README.md) · `criterio-revenue` · Apache 2.0 · Una instancia por entidad
 
-**Estado: en construcción.** Los seis comandos, los seis skills y el motor de cálculo, probado
-contra material sintético de Colombia y México con una clave que el agente no ve y una entidad de
-control por país. **La ronda con el agente es el siguiente paso**, y hasta entonces no se publica en
-el marketplace. Nada se anuncia como terminado hasta que pasen los
+**Estado: de laboratorio, sin lanzar (versión 0.1.0).** Los seis comandos, los seis skills y el
+motor de cálculo, probado contra material sintético de Colombia y México con una clave que el agente
+no ve y una entidad de control por país. Ya se puede instalar desde el marketplace. **La ronda con el
+agente es el siguiente paso**, en la 0.2.0. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
 
 **Esta página se lee sola.** Valeria funciona sin Augusto: si solo respondes por la venta hasta la
