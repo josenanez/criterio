@@ -2,6 +2,7 @@
   "nota": "Fuente única de los agentes, los comandos y las señales de la familia CFO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-familias.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json. `area` es la carpeta de la configuración del agente (`.criterio/<area>/`) y `ambitos`, las carpetas de su estado que son suyas cuando comparte el estado con el otro agente de la familia (ADR 0010).",
   "sigla": "cfo",
   "orden": 20,
+  "lanzamiento": "2026-10-26",
   "adr": "0006-scope-cfo.md",
   "nombre": {
     "es": "La función financiera",

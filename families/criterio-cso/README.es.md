@@ -17,12 +17,12 @@ Clara por las de ellos.
 | **Objetivo** | Que lo que se compromete en el comité comercial tenga detrás los documentos que lo sostienen, y que ninguna venta se quede entre el cierre y la factura |
 | **Compuesta por** | [Augusto](../../plugins/criterio-sales/README.es.md) · [Valeria](../../plugins/criterio-revenue/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define el rol, el formato de cada exportación del CRM y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | En construcción: el motor, con su prueba determinista sobre material sintético de Colombia y México; la ronda con los agentes, el siguiente paso. **Todavía no se publica en el marketplace** |
+| **Estado** | De laboratorio, sin lanzar: se publica en el marketplace desde su versión 0.1.0, con el motor probado sobre material sintético de Colombia y México; la ronda con los agentes es el siguiente paso. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Exportaciones, nunca sistemas: ningún agente se conecta al CRM ni escribe en él |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al responsable comercial ni a su equipo, y no decide por ellos: no fija metas, no aprueba descuentos, no liquida comisiones, no contacta clientes y no califica a quien vende |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | La ronda con los agentes, y su primera versión, la 0.1.0: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | La ronda completa con los agentes, en la 0.2.0: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -163,8 +163,8 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 
 ## Instalación de la familia
 
-**La familia está en construcción y todavía no se publica en el marketplace.** Cuando pase su ronda
-con los agentes, cada uno será un plugin que se instala solo:
+**La familia es de laboratorio y todavía no se lanza, pero ya se puede instalar.** Cada agente es un
+plugin que se instala solo:
 
 ```
 /plugin marketplace add josenanez/criterio
@@ -256,8 +256,9 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
-| 0.1.0 | En curso | **Augusto y Valeria, construidos y probados con la ronda completa con los agentes**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven |
-| 0.2.0 | Siguiente | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas |
+| 0.1.0 | En curso | **Augusto y Valeria, construidos, con el motor probado**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | El motor contra la clave de todo el material: seis entidades de Colombia y México, con sus controles |
+| 0.2.0 | Siguiente | **La ronda completa con los agentes**<br>· Augusto y Valeria corren sus comandos sobre todas las entidades del material, con una clave que no ven<br>· El material siembra al menos 73 señales: lo que pide un piso del 95 % sin fallas (decisión 0020)<br>· Cada defecto que encuentre la ronda, con su corrección y su verificación | La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven |
+| Incremento 3 | Reservada | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas |
 
 <!-- /hoja de ruta -->
 
@@ -280,9 +281,11 @@ Ocho skills distintos entre los dos agentes. **Los que comparten son copias lite
 
 ## Estado
 
-**Los dos están en construcción.** El motor pasa su prueba determinista; la ronda con los agentes
-sobre el mismo material es lo que la declara probada, y con ella sale su primera versión, la de
-laboratorio.
+**Los dos son de laboratorio.** Su versión 0.1.0 trae el motor, que pasa su prueba determinista
+sobre todo el material; la ronda con los agentes sobre el mismo material, con una clave que no ven,
+es lo que la declara probada, y sale con la 0.2.0. Laboratorio o estable lo dice la evidencia
+(decisión 0020), y el día que se lance la familia, si es estable, su versión es la 1.0.0 (decisión
+0021).
 
 <!-- cso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |

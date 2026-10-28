@@ -17,12 +17,12 @@ and Clara through theirs.
 | **Goal** | That what is committed in the sales committee has the documents that back it, and that no sale gets stuck between the close and the invoice |
 | **Made up of** | [Augusto](../../plugins/criterio-sales/README.md) · [Valeria](../../plugins/criterio-revenue/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The framework that defines the role, each CRM export's format and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **Status** | In construction: the engine, with its deterministic test on synthetic material from Colombia and Mexico; the round with the agents, the next step. **Not yet published in the marketplace** |
+| **Status** | Laboratory, not yet launched: published in the marketplace from version 0.1.0, with the engine tested on synthetic material from Colombia and Mexico; the round with the agents is the next step. **Not yet tested on the documentation of a specific organisation** |
 | **Approach** | Exports, never systems: no agent connects to the CRM or writes to it |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the head of sales or their team, and does not decide for them: it does not set targets, approve discounts, settle commissions, contact customers or rate whoever sells |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | The round with the agents, and its first version, 0.1.0: [the roadmap](#roadmap) |
+| **What comes next** | The full round with the agents, in 0.2.0: [the roadmap](#roadmap) |
 
 ---
 
@@ -163,8 +163,8 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
-**The family is in construction and not yet published in the marketplace.** Once it passes its round
-with the agents, each one will be a plugin that installs on its own:
+**The family is a laboratory one and not yet launched, but it can already be installed.** Each agent
+is a plugin that installs on its own:
 
 ```
 /plugin marketplace add josenanez/criterio
@@ -256,8 +256,9 @@ The family grows in increments. Each one is a version with its full test and its
 
 | Version | Status | What goes in | Test |
 |---|---|---|---|
-| 0.1.0 | In progress | **Augusto and Valeria, built and tested with the full round with the agents**<br>· The twelve commands, their skills and the engine, with the nine signals: Augusto's pipeline, forecast and target; Valeria's discount, contract, invoice and commission<br>· Salesforce and HubSpot exports, and any CSV or Excel with its column mapping<br>· What was won against Fidel's contracts and what was signed against Clara's invoices, through their records<br>· Colombia and Mexico, with control entities | The round with the two agents on every entity in the material, with a key they never see |
-| 0.2.0 | Next | **Ecuador, Peru and Chile, and Microsoft Dynamics and Zoho**<br>· The three countries already in the country registry, with their material and their round<br>· The Microsoft Dynamics and Zoho exports, each from its verified source | The round with the agents in the three countries and on the two new exports |
+| 0.1.0 | In progress | **Augusto and Valeria, built, with the engine tested**<br>· The twelve commands, their skills and the engine, with the nine signals: Augusto's pipeline, forecast and target; Valeria's discount, contract, invoice and commission<br>· Salesforce and HubSpot exports, and any CSV or Excel with its column mapping<br>· What was won against Fidel's contracts and what was signed against Clara's invoices, through their records<br>· Colombia and Mexico, with control entities | The engine against the key of all the material: six entities from Colombia and Mexico, with their controls |
+| 0.2.0 | Next | **The full round with the agents**<br>· Augusto and Valeria run their commands on every entity in the material, with a key they never see<br>· The material seeds at least 73 signals: what a 95% floor with no misses needs (decision 0020)<br>· Every defect the round finds, with its fix and its verification | The round with the two agents on every entity in the material, with a key they never see |
+| Increment 3 | Reserved | **Ecuador, Peru and Chile, and Microsoft Dynamics and Zoho**<br>· The three countries already in the country registry, with their material and their round<br>· The Microsoft Dynamics and Zoho exports, each from its verified source | The round with the agents in the three countries and on the two new exports |
 
 <!-- /hoja de ruta -->
 
@@ -280,9 +281,11 @@ Eight distinct skills across the two agents. **The ones they share are literal c
 
 ## Status
 
-**Both are in construction.** The engine passes its deterministic test; the round with the agents on
-the same material is what declares it tested, and its first version, the laboratory one, comes out
-with it.
+**Both are laboratory ones.** Their version 0.1.0 brings the engine, which passes its deterministic
+test on all the material; the round with the agents on the same material, with a key they never see,
+is what declares it tested, and it comes with 0.2.0. Laboratory or stable is said by the evidence
+(decision 0020), and on the day the family is launched, if it is stable, its version is 1.0.0
+(decision 0021).
 
 <!-- cso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |

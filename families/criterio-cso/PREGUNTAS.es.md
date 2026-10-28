@@ -72,7 +72,7 @@ En la infraestructura de la plataforma de IA, no solo en tu equipo. Confirma que
 
 ### ¿Está lista para usar?
 
-Todavía no: está en construcción. El motor pasa su prueba determinista sobre material sintético de Colombia y México; la ronda con los agentes, con una clave que no ven, es lo que la declara probada, y con ella sale su primera versión, la 0.1.0.
+Se puede instalar desde su versión 0.1.0, como versión de laboratorio y sin lanzar todavía. El motor pasa su prueba determinista sobre material sintético de Colombia y México; la ronda con los agentes, con una clave que no ven, es lo que la declara probada, y sale con la 0.2.0.
 
 ### ¿Cuándo será estable?
 

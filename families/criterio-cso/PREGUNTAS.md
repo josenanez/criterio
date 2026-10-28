@@ -72,7 +72,7 @@ On the AI platform's infrastructure, not only on your machine. Confirm it is adm
 
 ### Is it ready to use?
 
-Not yet: it is in construction. The engine passes its deterministic test on synthetic material from Colombia and Mexico; the round with the agents, with a key they never see, is what declares it tested, and its first version, 0.1.0, comes out with it.
+It can be installed from version 0.1.0, as a laboratory version not yet launched. The engine passes its deterministic test on synthetic material from Colombia and Mexico; the round with the agents, with a key they never see, is what declares it tested, and it comes with 0.2.0.
 
 ### When will it be stable?
 

@@ -129,6 +129,9 @@ def selftest() -> int:
     ok("de la 1.8 a la 1.9", R.sigue("1.8.0", "1.9.0"), None)
     ok("después de la 1.9 viene la 2.0", (R.sigue("1.9.0", "1.10.0") is not None, R.sigue("1.9.3", "2.0.0")), (True, None))
     ok("no se salta a la 1.0 antes de la 0.9", R.sigue("0.3.0", "1.0.0") is not None, True)
+    ok("una familia lanzada y estable abre la 1.0 desde cualquier 0.y (decisión 0021)", R.sigue("0.2.0", "1.0.0", abre=True), None)
+    ok("y sin lanzar sigue su década", R.sigue("0.2.0", "1.0.0") is not None, True)
+    ok("abrir la 1.0 no salta a la 2.0", R.sigue("1.3.0", "2.0.0", abre=True) is not None, True)
     ok("una familia nueva empieza en una 0.y.0", (R.sigue(None, "0.1.0"), R.sigue(None, "1.0.0") is not None), (None, True))
     for s in siglas():
         c = calidad(s)

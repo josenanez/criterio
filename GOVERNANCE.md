@@ -39,6 +39,8 @@ Nothing is released until its own criteria pass, and the result of that run is p
 
 **Laboratory or stable is said by the evidence, not the number** (decision 0020): a version is stable if each entity's most recent run in its material has the floor of the 95% margin at 95% or more, for signals and data, and no control raises a signal; otherwise it comes out as laboratory. `scripts/calidad.py` calculates it and the register records it on every release.
 
+**Published from the first version, launched on a date** (decision 0021): a family enters the marketplace and the portal with its first release, and is marked «Runs today» the week of its launch, which `lanzamiento` in its `familia.json` states. A launched family moves to 1.0.0 in its first stable version.
+
 The terms are versioned separately. A change to `TERMS.md` bumps its version and triggers re-acceptance on the next run.
 
 ## Decisions

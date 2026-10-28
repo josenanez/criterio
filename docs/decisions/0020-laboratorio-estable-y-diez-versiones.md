@@ -1,6 +1,6 @@
 # 0020 · Laboratorio o estable lo dice la evidencia, y diez versiones por entero
 
-**Fecha:** 2026-10-28 · **Estado:** aceptada el 2026-10-28 · **Modifica:** 0017 · **Reemplaza:** 0018
+**Fecha:** 2026-10-28 · **Estado:** aceptada el 2026-10-28; modificada el 2026-10-28 por la [0021](0021-publicar-lanzar-y-abrir-la-1-0.md) · **Modifica:** 0017 · **Reemplaza:** 0018
 
 ## Contexto
 
@@ -66,7 +66,8 @@ siguiente puede volver a ser estable. Ninguna familia se bloquea.
 - **Las únicas excepciones son la 0.10, la 0.11 y la 0.12** de la PMO, la CFO, la CLO y la EA. El
   registro no se reescribe, y esas versiones se quedan como están. La próxima liberación de cada una
   de esas familias es su **1.0.0**, y desde ahí se cumple la regla.
-- **La CSO empieza en la 0.1.0** y recorre su década completa.
+- **La CSO empieza en la 0.1.0.** La decisión 0021 cambia lo que sigue: no recorre su década
+  completa para llegar a la 1.0, la abre su lanzamiento si es estable.
 - **Rostrum** está en la 0.12.1, como las cuatro familias. Su próxima liberación es la 1.0.0.
 
 `scripts/registro.py liberar` falla con una versión que no siga la regla.

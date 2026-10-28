@@ -2,6 +2,7 @@
   "nota": "Fuente única de los agentes de la familia PMO para el servidor: scripts/familias.py la escribe, con las otras familias, en plugins/criterio-server/scripts/agentes.json. Cada comando que existe en el plugin tiene que estar aquí, en su grupo y con su nombre para quien no programa.",
   "sigla": "pmo",
   "orden": 10,
+  "lanzamiento": "2026-10-19",
   "adr": "0005-scope-pmo-only.md",
   "nombre": {
     "es": "Gobierno de proyectos",

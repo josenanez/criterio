@@ -39,6 +39,8 @@ Nada se publica hasta que sus propios criterios pasen, y el resultado se publica
 
 **Laboratorio o estable lo dice la evidencia, no el número** (decisión 0020): una versión es estable si la corrida más reciente de cada entidad de su material tiene el piso del margen del 95 % en 95 % o más, en señales y en datos, y ningún control levanta una señal; si no, sale como laboratorio. Lo calcula `scripts/calidad.py` y el registro lo anota en cada liberación.
 
+**Se publica desde la primera versión y se lanza en una fecha** (decisión 0021): una familia entra al marketplace y al portal con su primera liberación, y se marca «Corre hoy» la semana de su lanzamiento, que dice `lanzamiento` en su `familia.json`. Una familia lanzada sube a la 1.0.0 en su primera versión estable.
+
 Los términos se versionan aparte. Un cambio en `TERMS.md` sube su versión y obliga a aceptar de nuevo en la siguiente corrida.
 
 ## Decisiones

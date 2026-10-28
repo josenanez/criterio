@@ -19,6 +19,12 @@ número, no cuentan. La 0.10, la 0.11 y la 0.12 son las únicas excepciones: qui
 1.0.0. `liberar` falla con una versión que no siga la regla, y anota en la entrada la calidad de cada
 familia que libera —laboratorio o estable—, que calcula `scripts/calidad.py` desde la evidencia.
 
+**El lanzamiento abre la 1.0 (decisión 0021).** Una familia se publica —en el marketplace y en el
+portal— desde su primera liberación, y se lanza la semana que dice su `familia.json` en
+`lanzamiento`, el único dato que se escribe a mano. Una familia lanzada sube a la 1.0.0 en su
+primera versión estable, venga de la 0.y que venga: `liberar` falla si no lo hace. Una corrección
+—el tercer número— sí puede salir antes.
+
 **La entrada y la etiqueta apuntan al mismo punto.** Desde la 0.3.9 cada entrada guarda su
 etiqueta (`v0.3.9`), y `liberar --etiquetar` hace el commit de la versión y crea la etiqueta
 sobre ese commit, que es el que contiene la entrada. Las entradas anteriores anotan el commit
@@ -83,6 +89,18 @@ def en_construccion() -> dict[str, str]:
         v = next((i["version"] for i in h["incrementos"] if i["estado"] != "liberada" and i["version"]), None)
         out.update({pl: v for pl in pls})
     return out
+
+
+def lanzamiento(sigla: str) -> str | None:
+    """La semana en que se lanza la familia, de su familia.json (decisión 0021), o None si todavía no
+    se lanza. Es el único dato de la familia que se escribe a mano: lo decide quien la lanza."""
+    f = RAIZ / "families" / f"criterio-{sigla}" / "familia.json"
+    return json.loads(f.read_text(encoding="utf-8")).get("lanzamiento") if f.is_file() else None
+
+
+def lanzada(sigla: str, hoy: str | None = None) -> bool:
+    l = lanzamiento(sigla)
+    return bool(l) and l <= (hoy or dt.date.today().isoformat())
 
 
 def version_de_familia(e: dict, sigla: str) -> str:
@@ -235,16 +253,20 @@ def clave(v: str) -> tuple:
     return tuple(int(x) for x in v.split("."))
 
 
-def sigue(previa: str | None, nueva: str) -> str | None:
+def sigue(previa: str | None, nueva: str, abre: bool = False) -> str | None:
     """Por qué `nueva` no puede seguir a `previa`, o None si puede (decisión 0020): una corrección
     sube el tercer número; una versión sube el segundo hasta el 9; después del 9 —o de la 0.10, la
-    0.11 y la 0.12, las excepciones—, la siguiente es el entero que sigue con .0.0."""
+    0.11 y la 0.12, las excepciones—, la siguiente es el entero que sigue con .0.0. Con `abre`
+    —una familia lanzada en su primera versión estable (decisión 0021)—, de cualquier 0.y se sube a
+    la 1.0.0."""
     n = clave(nueva)
     if len(n) != 3:
         return f"{nueva} no tiene la forma x.y.z"
     if previa is None:
         return None if n[0] == 0 and n[1] <= 9 and n[2] == 0 else f"una familia nueva empieza en una 0.y.0 con y hasta 9, no en {nueva}"
     p = clave(previa)
+    if abre and p[0] == 0 and n == (1, 0, 0):
+        return None
     if n[:2] == p[:2] and n[2] > p[2]:
         return None
     if p[1] < 9 and n == (p[0], p[1] + 1, 0):
@@ -265,6 +287,10 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     if not por_familia:
         print("una versión libera al menos una familia: --familia sigla=versión o --todas")
         return 1
+    # La calidad de cada familia que se libera, desde su evidencia (decisión 0020): no se escribe a mano.
+    sys.path.insert(0, str(RAIZ / "scripts"))
+    import calidad as Q
+    calidades = {s: Q.calidad(s) for s in sorted(por_familia) if s != "rostrum"}
     for sigla, fv in por_familia.items():
         if sigla not in fam:
             print(f"no hay una familia «{sigla}»: las familias son {', '.join(fam)}")
@@ -273,7 +299,15 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
         if previa and anterior and clave(fv) <= clave(anterior):
             print(f"{sigla} está en {anterior}: {fv} no la sube")
             return 1
-        motivo = sigue(anterior, fv)
+        # Una familia lanzada y estable que todavía está en una 0.y abre su 1.0 (decisión 0021).
+        abre = (sigla != "rostrum" and lanzada(sigla) and anterior is not None and clave(anterior)[0] == 0
+                and calidades[sigla]["etiqueta"] == "estable")
+        correccion = anterior is not None and clave(fv)[:2] == clave(anterior)[:2]
+        if abre and fv != "1.0.0" and not correccion:
+            print(f"{sigla} está lanzada y es estable: su versión siguiente es la 1.0.0, no la {fv}; "
+                  f"una corrección {'.'.join(map(str, clave(anterior)[:2]))}.z sí puede salir (decisión 0021)")
+            return 1
+        motivo = sigue(anterior, fv, abre)
         if motivo:
             print(f"{sigla}: {motivo}")
             return 1
@@ -304,10 +338,6 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     actuales = {s: por_familia.get(s, version_de_familia(previa, s) if previa else v) for s in fam
                 if s in por_familia or not previa or "familias" not in previa or s in previa["familias"]}
     versiones = {pl: actuales[s] for s, pls in fam.items() if s in actuales for pl in pls}
-    # La calidad de cada familia que se libera, desde su evidencia (decisión 0020): no se escribe a mano.
-    sys.path.insert(0, str(RAIZ / "scripts"))
-    import calidad as Q
-    calidades = {s: Q.calidad(s) for s in sorted(por_familia) if s != "rostrum"}
     e = sellar({"version": v, "fecha": dt.date.today().isoformat(), "commit": None, "base": base,
                 "etiqueta": f"v{v}", "familias": actuales, "liberadas": sorted(por_familia), "versiones": versiones,
                 "calidad": calidades,
@@ -374,7 +404,8 @@ def verificar() -> int:
                 problemas.append(f"la entrada {e['version']}: el catálogo: {m}")
             for s in e.get("liberadas") or []:
                 ant = (prev.get("familias") or {}).get(s)
-                m = sigue(ant, e["familias"][s])
+                abre = (e.get("calidad") or {}).get(s, {}).get("etiqueta") == "estable" and lanzada(s, e["fecha"])
+                m = sigue(ant, e["familias"][s], abre)
                 if m:
                     problemas.append(f"la entrada {e['version']}: {s}: {m}")
         # Cada plugin, en la versión de su familia según la última entrada; el de una familia en
@@ -392,6 +423,15 @@ def verificar() -> int:
                 continue
             if pv != version_de_plugin(ultima, pl):
                 problemas.append(f"{pl} está en {pv} y la última entrada lo registra en {version_de_plugin(ultima, pl)}")
+        # Solo se lanza lo que está publicado: una familia con `lanzamiento` tiene su entrada.
+        for s in familias():
+            l = lanzamiento(s)
+            if l is None:
+                continue
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(l)):
+                problemas.append(f"{s}: «lanzamiento» va como una fecha AAAA-MM-DD, no «{l}»")
+            elif "familias" in ultima and s not in ultima["familias"]:
+                problemas.append(f"{s} tiene lanzamiento ({l}) y no tiene ninguna versión liberada: se lanza lo que está publicado")
         registrados = {pl for pls in familias().values() for pl in pls}
         for f in sorted((RAIZ / "plugins").glob("*/.claude-plugin/plugin.json")):
             if f.parent.parent.name not in registrados:

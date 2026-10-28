@@ -23,30 +23,55 @@
     }
    ],
    "es": {
-    "titulo": "Augusto y Valeria, construidos y probados con la ronda completa con los agentes",
+    "titulo": "Augusto y Valeria, construidos, con el motor probado",
     "entra": [
      "Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria",
      "Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas",
      "Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas",
      "Colombia y México, con entidades de control"
     ],
-    "prueba": "La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven"
+    "prueba": "El motor contra la clave de todo el material: seis entidades de Colombia y México, con sus controles"
    },
    "en": {
-    "titulo": "Augusto and Valeria, built and tested with the full round with the agents",
+    "titulo": "Augusto and Valeria, built, with the engine tested",
     "entra": [
      "The twelve commands, their skills and the engine, with the nine signals: Augusto's pipeline, forecast and target; Valeria's discount, contract, invoice and commission",
      "Salesforce and HubSpot exports, and any CSV or Excel with its column mapping",
      "What was won against Fidel's contracts and what was signed against Clara's invoices, through their records",
      "Colombia and Mexico, with control entities"
     ],
-    "prueba": "The round with the two agents on every entity in the material, with a key they never see"
+    "prueba": "The engine against the key of all the material: six entities from Colombia and Mexico, with their controls"
    }
   },
   {
    "incremento": 2,
    "version": "0.2.0",
    "estado": "siguiente",
+   "industrias": [],
+   "paises": [],
+   "es": {
+    "titulo": "La ronda completa con los agentes",
+    "entra": [
+     "Augusto y Valeria corren sus comandos sobre todas las entidades del material, con una clave que no ven",
+     "El material siembra al menos 73 señales: lo que pide un piso del 95 % sin fallas (decisión 0020)",
+     "Cada defecto que encuentre la ronda, con su corrección y su verificación"
+    ],
+    "prueba": "La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven"
+   },
+   "en": {
+    "titulo": "The full round with the agents",
+    "entra": [
+     "Augusto and Valeria run their commands on every entity in the material, with a key they never see",
+     "The material seeds at least 73 signals: what a 95% floor with no misses needs (decision 0020)",
+     "Every defect the round finds, with its fix and its verification"
+    ],
+    "prueba": "The round with the two agents on every entity in the material, with a key they never see"
+   }
+  },
+  {
+   "incremento": 3,
+   "version": null,
+   "estado": "reservada",
    "industrias": [],
    "paises": [
     {
