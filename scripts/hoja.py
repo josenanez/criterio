@@ -132,7 +132,7 @@ T = {
            "cab": "| Familia | Agentes | Versión | Laboratorio | Lo siguiente |", "sep": "|---|---|---|---|---|",
            "sinSigue": "—", "porFamilia": "## Cada familia, incremento por incremento",
            "vienen": "## Las familias que vienen",
-           "vienenLead": "Cada una entra con su decisión de alcance; mientras esté propuesta, no tiene fecha.",
+           "vienenLead": "Cada una entra con su decisión de alcance: aceptada, se diseña; propuesta, espera su turno, sin fecha.",
            "cabV": "| Decisión | Familia | Estado |", "rostrum": "Rostrum · el portal de todas las familias",
            "estadoADR": {"propuesta": "Propuesta", "aceptada": "Aceptada"}},
     "en": {"titulo": "# Criterio's roadmap", "otro": "[Español](hoja-de-ruta.es.md)",
@@ -148,7 +148,7 @@ T = {
            "cab": "| Family | Agents | Version | Laboratory | Next |", "sep": "|---|---|---|---|---|",
            "sinSigue": "—", "porFamilia": "## Each family, increment by increment",
            "vienen": "## The families to come",
-           "vienenLead": "Each one comes in with its scope decision; while it is proposed, it has no date.",
+           "vienenLead": "Each one comes in with its scope decision: accepted, it is being designed; proposed, it waits its turn, with no date.",
            "cabV": "| Decision | Family | Status |", "rostrum": "Rostrum · the portal for every family",
            "estadoADR": {"propuesta": "Proposed", "aceptada": "Accepted"}},
 }
@@ -179,12 +179,13 @@ def completa(idioma: str, entradas: list) -> str:
     for d in sorted((RAIZ / "docs" / "decisions").glob("*-scope-*.md")):
         texto = d.read_text(encoding="utf-8")
         estado = (re.search(r"\*\*Estado:\*\* (\w+)", texto) or [None, ""])[1]
-        if estado != "propuesta":
-            continue
         cab = texto.splitlines()[0].lstrip("# ")
         num, _, resto = cab.partition(" · ")
-        m = re.search(r" a (.+ \(\w+\))$", resto)        # «…: el alcance se amplía a datos (CDO)»
-        familia = (m.group(1)[0].upper() + m.group(1)[1:]) if m else resto.split(": ", 1)[-1]
+        m = re.search(r" a (.+ \((\w+)\))$", resto)      # «…: el alcance se amplía a datos (CDO)»
+        # Una familia que viene: su alcance está propuesto o aceptado, y todavía no tiene su carpeta.
+        if estado not in ("propuesta", "aceptada") or not m or (RAIZ / "families" / f"criterio-{m.group(2).lower()}").is_dir():
+            continue
+        familia = m.group(1)[0].upper() + m.group(1)[1:]
         vienen.append(f"| [{num}](decisions/{d.name}) | {familia} | {t['estadoADR'].get(estado, estado)} |")
     partes = [t["titulo"], "", t["otro"], "", t["intro"], "", *[f"- {r}" for r in t["reglas"]], "",
               t["resumen"], "", t["cab"], t["sep"], *filas, "", t["porFamilia"], "", *secciones]

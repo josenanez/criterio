@@ -66,10 +66,11 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 ## Las familias que vienen
 
-Cada una entra con su decisión de alcance; mientras esté propuesta, no tiene fecha.
+Cada una entra con su decisión de alcance: aceptada, se diseña; propuesta, espera su turno, sin fecha.
 
 | Decisión | Familia | Estado |
 |---|---|---|
 | [0013](decisions/0013-scope-seguridad-ciso.md) | Seguridad de la información (CISO) | Propuesta |
 | [0014](decisions/0014-scope-auditoria-cae.md) | Auditoría interna (CAE) | Propuesta |
 | [0015](decisions/0015-scope-datos-cdo.md) | Datos (CDO) | Propuesta |
+| [0019](decisions/0019-scope-comercial-cso.md) | La función comercial (CSO) | Aceptada |
