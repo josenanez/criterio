@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""El registro de versiones de la familia de agentes: qué cambió, qué términos la rigen, y su huella.
+"""El registro de versiones de Criterio: qué cambió, qué términos rigen, qué versión tiene cada familia, y su huella.
 
     python3 scripts/registro.py historia                  arma las entradas de las versiones ya publicadas, desde git
-    python3 scripts/registro.py liberar 0.3.9 --destacado "…" [--destacado "…"] [--etiquetar]
+    python3 scripts/registro.py liberar 0.13.0 --familia pmo=0.13.0 [--familia cfo=0.12.2] --destacado "…" [--etiquetar]
+    python3 scripts/registro.py liberar 0.12.1 --todas     todas las familias a la misma versión (un cambio común, como los términos)
     python3 scripts/registro.py verificar                 puerta
+
+**Una versión por familia (decisión 0017).** Cada familia —PMO, CFO, CLO, EA y Rostrum— lleva su
+propio número en sus plugins, y sube solo cuando ella cambia. El número del marketplace es el del
+catálogo: sube con cada entrada del registro. Cada entrada nueva anota la versión de cada familia
+(`familias`), la de cada plugin (`versiones`) y cuáles se liberaron en ella (`liberadas`); las
+entradas anteriores a la decisión tienen una sola versión para todo, y así se leen.
 
 **La entrada y la etiqueta apuntan al mismo punto.** Desde la 0.3.9 cada entrada guarda su
 etiqueta (`v0.3.9`), y `liberar --etiquetar` hace el commit de la versión y crea la etiqueta
@@ -41,6 +48,25 @@ MARKET = RAIZ / ".claude-plugin" / "marketplace.json"
 ACEPTACION_ANTES = "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante"
 ACEPTACION_AHORA = ("una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 "
                     "de los términos y del comprobante, y bitácora encadenada")
+
+
+def familias() -> dict[str, list[str]]:
+    """Qué plugins forman cada familia, de su familia.json. Rostrum, que sirve a todas, es la suya."""
+    out = {}
+    for f in sorted((RAIZ / "families").glob("criterio-*/familia.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        out[d["sigla"]] = sorted({a["plugin"] for a in d["agentes"]})
+    out["rostrum"] = ["criterio-server"]
+    return out
+
+
+def version_de_familia(e: dict, sigla: str) -> str:
+    """La versión de una familia en una entrada; antes de la decisión 0017, la única de la entrada."""
+    return e.get("familias", {}).get(sigla, e["version"])
+
+
+def version_de_plugin(e: dict, plugin: str) -> str:
+    return e.get("versiones", {}).get(plugin, e["version"])
 
 
 def git(*a: str) -> str:
@@ -164,24 +190,47 @@ def historia() -> int:
     return 0
 
 
-def poner_version(v: str) -> list[str]:
-    tocados = []
-    for f in [MARKET, *sorted((RAIZ / "plugins").glob("*/.claude-plugin/plugin.json"))]:
-        t = f.read_text(encoding="utf-8")
-        n = re.sub(r'("version":\s*")[^"]+(")', rf"\g<1>{v}\g<2>", t, count=1)
-        if n != t:
-            f.write_text(n, encoding="utf-8")
-            tocados.append(f.relative_to(RAIZ).as_posix())
-    return tocados
+def _poner(f: Path, v: str) -> None:
+    t = f.read_text(encoding="utf-8")
+    n = re.sub(r'("version":\s*")[^"]+(")', rf"\g<1>{v}\g<2>", t, count=1)
+    if n != t:
+        f.write_text(n, encoding="utf-8")
 
 
-def liberar(v: str, destacados: list[str], etiquetar: bool = False) -> int:
+def poner_versiones(catalogo: str, por_familia: dict[str, str]) -> None:
+    """El catálogo en el marketplace y, en cada familia que se libera, su versión en sus plugins."""
+    _poner(MARKET, catalogo)
+    fam = familias()
+    for sigla, v in por_familia.items():
+        for pl in fam[sigla]:
+            _poner(RAIZ / "plugins" / pl / ".claude-plugin" / "plugin.json", v)
+
+
+def clave(v: str) -> tuple:
+    return tuple(int(x) for x in v.split("."))
+
+
+def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiquetar: bool = False) -> int:
     reg = leer()
     if any(e["version"] == v for e in reg["versiones"]):
         print(f"la versión {v} ya está registrada: una versión no se registra dos veces")
         return 1
     previa = reg["versiones"][-1] if reg["versiones"] else None
-    poner_version(v)
+    fam = familias()
+    if not por_familia:
+        print("una versión libera al menos una familia: --familia sigla=versión o --todas")
+        return 1
+    for sigla, fv in por_familia.items():
+        if sigla not in fam:
+            print(f"no hay una familia «{sigla}»: las familias son {', '.join(fam)}")
+            return 1
+        if previa and clave(fv) <= clave(version_de_familia(previa, sigla)):
+            print(f"{sigla} está en {version_de_familia(previa, sigla)}: {fv} no la sube")
+            return 1
+    if previa and clave(v) <= clave(previa["version"]):
+        print(f"el catálogo está en {previa['version']}: {v} no lo sube")
+        return 1
+    poner_versiones(v, por_familia)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "sincronizar.py")], check=True,
                    capture_output=True)
     base = git("rev-parse", "--short", "HEAD").strip()
@@ -196,26 +245,32 @@ def liberar(v: str, destacados: list[str], etiquetar: bool = False) -> int:
             break
     rango = f"{desde}..HEAD" if desde else "HEAD"
     cambios = git("log", "--reverse", "--format=%s", rango).splitlines()
+    # La versión de cada familia y de cada plugin después de esta entrada.
+    actuales = {s: por_familia.get(s, version_de_familia(previa, s) if previa else v) for s in fam}
+    versiones = {pl: actuales[s] for s, pls in fam.items() for pl in pls}
     e = sellar({"version": v, "fecha": dt.date.today().isoformat(), "commit": None, "base": base,
-                "etiqueta": f"v{v}",
+                "etiqueta": f"v{v}", "familias": actuales, "liberadas": sorted(por_familia), "versiones": versiones,
                 "terminos": terminos_en(None), "plugins": huellas_en(None),
                 "destacados": destacados, "cambios": cambios, "aceptacion": ACEPTACION_AHORA,
                 "anterior": previa["sha256"] if previa else None})
     reg["versiones"].append(e)
     escribir(reg)
-    # La hoja de ruta dice «liberada» de la versión que acaba de entrar al registro, y su
-    # sección del README se regenera: las dos cosas pasan en el mismo commit.
-    # La de cada familia: una versión entra con lo de todas las familias que la llevan.
-    for hoja in sorted((RAIZ / "families").glob("criterio-*/hoja-de-ruta.json")):
+    # La hoja de ruta de cada familia liberada dice «liberada» de su versión, y su sección del
+    # README se regenera: las dos cosas pasan en el mismo commit.
+    for sigla, fv in por_familia.items():
+        hoja = RAIZ / "families" / f"criterio-{sigla}" / "hoja-de-ruta.json"
+        if not hoja.is_file():
+            continue
         h = json.loads(hoja.read_text(encoding="utf-8"))
         for i in h["incrementos"]:
-            if i["version"] == v:
+            if i["version"] == fv:
                 i["estado"] = "liberada"
         hoja.write_text(json.dumps(h, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "hoja.py")], check=True, capture_output=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "sincronizar.py")], check=True,
                    capture_output=True)
-    print(f"  {v} registrada · base {base} · {len(cambios)} cambios desde la anterior · sha256 {e['sha256'][:16]}…")
+    print(f"  {v} registrada · {', '.join(f'{s} {fv}' for s, fv in sorted(por_familia.items()))} · base {base} · "
+          f"{len(cambios)} cambios desde la anterior · sha256 {e['sha256'][:16]}…")
     if not etiquetar:
         print(f"  Haz el commit de la versión y crea la etiqueta sobre él: git tag v{v}")
         return 0
@@ -247,10 +302,16 @@ def verificar() -> int:
         if actual != ultima["version"]:
             problemas.append(f"la versión publicada es {actual} y la última registrada es {ultima['version']}: "
                              f"una versión sin registro no se libera")
+        # Cada plugin, en la versión de su familia según la última entrada.
         for f in sorted((RAIZ / "plugins").glob("*/.claude-plugin/plugin.json")):
+            pl = f.parent.parent.name
             pv = json.loads(f.read_text(encoding="utf-8")).get("version")
-            if pv != actual:
-                problemas.append(f"{f.parent.parent.name} está en {pv} y el market en {actual}")
+            if pv != version_de_plugin(ultima, pl):
+                problemas.append(f"{pl} está en {pv} y la última entrada lo registra en {version_de_plugin(ultima, pl)}")
+        registrados = {pl for pls in familias().values() for pl in pls}
+        for f in sorted((RAIZ / "plugins").glob("*/.claude-plugin/plugin.json")):
+            if f.parent.parent.name not in registrados:
+                problemas.append(f"{f.parent.parent.name} no pertenece a ninguna familia: falta en su familia.json")
         t = terminos_en(None)
         if t["sha256"] != ultima["terminos"]["sha256"]:
             problemas.append("los términos cambiaron después de la última versión registrada: "
@@ -286,6 +347,9 @@ def main() -> int:
     ap.add_argument("accion", choices=["historia", "liberar", "verificar"])
     ap.add_argument("version", nargs="?")
     ap.add_argument("--destacado", action="append", default=[])
+    ap.add_argument("--familia", action="append", default=[], metavar="SIGLA=VERSION",
+                    help="una familia que se libera y su versión nueva; se repite por familia")
+    ap.add_argument("--todas", action="store_true", help="todas las familias a la versión del catálogo")
     ap.add_argument("--etiquetar", action="store_true",
                     help="hace el commit de la versión y crea su etiqueta sobre él")
     a = ap.parse_args()
@@ -294,8 +358,14 @@ def main() -> int:
     if a.accion == "verificar":
         return verificar()
     if not a.version or not re.fullmatch(r"\d+\.\d+\.\d+", a.version):
-        ap.error("liberar necesita la versión, como 0.3.8")
-    return liberar(a.version, a.destacado, a.etiquetar)
+        ap.error("liberar necesita la versión del catálogo, como 0.13.0")
+    por_familia = {s: a.version for s in familias()} if a.todas else {}
+    for x in a.familia:
+        if not re.fullmatch(r"[a-z]+=\d+\.\d+\.\d+", x):
+            ap.error(f"--familia va como sigla=versión, por ejemplo cfo=0.13.0: «{x}»")
+        s, fv = x.split("=")
+        por_familia[s] = fv
+    return liberar(a.version, por_familia, a.destacado, a.etiquetar)
 
 
 if __name__ == "__main__":

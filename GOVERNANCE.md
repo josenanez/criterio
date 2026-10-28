@@ -31,7 +31,7 @@ Nothing is released until its own criteria pass, and the result of that run is p
 
 ## Versioning
 
-`MAJOR.MINOR.PATCH`, shared by the marketplace and every plugin — there is no independent per-plugin versioning, and the validator enforces that they match.
+`MAJOR.MINOR.PATCH`, **one per family** (decision 0017): the PMO, the CFO, the CLO, the EA and Rostrum each carry their own number, the same across all their plugins, and it only goes up when that family changes. The marketplace carries the catalogue number, which goes up with every entry of the register. `scripts/registro.py verificar` enforces that every plugin is at the version the register gives its family.
 
 - **Patch** — wording fixes, anything that does not change the output.
 - **Minor** — a new skill or command, or changed behaviour.

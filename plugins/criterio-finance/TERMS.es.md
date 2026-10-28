@@ -1,6 +1,6 @@
 # Términos de uso
 
-[English](TERMS.md) · Versión 1.2 · 2026-10-20
+[English](TERMS.md) · Versión 1.3 · 2026-10-28
 
 Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos. Si no los acepta, no lo instale.
 
@@ -10,7 +10,7 @@ Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos
 
 Criterio produce **borradores de trabajo**. No es asesoría y no crea relación profesional alguna entre usted y el mantenedor o cualquier aportante.
 
-Cada versión pasa una validación interna antes de publicarse: pruebas automáticas del código en cada cambio, y rondas en las que los tres agentes ejecutan todos sus comandos sobre datos de prueba sintéticos, construidos a partir de proyectos reales de entidades financieras, retail y minería, sin datos de ninguna organización. Lo que produce cada agente se compara con una clave de respuestas, y los resultados —con su margen de confianza, los defectos encontrados y su corrección— se publican en la evidencia de pruebas y en la nota legal: https://www.josenanez.com/es/agents/criterio-pmo.
+Cada versión pasa una validación interna antes de publicarse: pruebas automáticas del código en cada cambio, y rondas en las que los agentes de cada familia ejecutan sus comandos sobre material de prueba sintético de varias industrias y países, con entidades de control en las que cualquier señal es una falla, sin datos de ninguna organización. Lo que produce cada agente se compara con una clave de respuestas, y los resultados —con su margen de confianza, los defectos encontrados y su corrección— se publican en la evidencia de pruebas de cada familia, en https://www.josenanez.com/es/agents, y en la nota legal.
 
 ## 2. La verificación es suya
 
@@ -42,19 +42,19 @@ Apache 2.0 no concede derechos sobre marcas. "Criterio" y el nombre del mantened
 
 ## 8. Cómo se registra la aceptación
 
-**Una aceptación por versión.** Cada versión de la familia de agentes pide aceptar estos términos, también cuando su texto no cambió: instalar Criterio o actualizarlo a una versión nueva exige una aceptación nueva. Hasta que la aceptación de la versión instalada quede registrada, el plugin responde preguntas pero no produce análisis ni informes. No la asume, no la infiere de que usted siga conversando y no la registra sin un sí explícito.
+**Una aceptación por versión.** Cada familia de agentes —la PMO, la CFO, la CLO, la EA y Rostrum— lleva su propio número de versión, y cada versión de una familia pide aceptar estos términos, también cuando su texto no cambió: instalar Criterio o actualizarlo a una versión nueva exige una aceptación nueva. Hasta que la aceptación de la versión instalada quede registrada, el plugin responde preguntas pero no produce análisis ni informes. No la asume, no la infiere de que usted siga conversando y no la registra sin un sí explícito.
 
 **Un comprobante que es suyo.** Al aceptar, el plugin deja en su equipo, en `.criterio/terminos/`, un comprobante en Markdown y otro en PDF con su nombre, la fecha, la versión de la familia, la versión de estos términos, su huella SHA-256 y la entrada del registro de versiones, seguidos del texto completo que aceptó. Los comprobantes anteriores se conservan: la sucesión de aceptaciones es la trazabilidad. El detalle técnico está en `docs/acceptance.md`, en el repositorio.
 
 **Integridad.** Todo comprobante conserva su integridad y no puede modificarse. Su huella SHA-256 (SHA-2 de 256 bits) queda registrada en la configuración, en el registro de aceptaciones y en un archivo `.sha256` que lo acompaña; cualquier cambio, por mínimo que sea, produce otra huella y le quita validez como constancia. Lo mismo vale para estos términos: su huella se publica con cada versión.
 
-**Nota legal y registro de versiones.** La nota legal de la familia de agentes y el registro de versiones —qué cambió en cada una, qué términos la rigen y su huella— se publican en https://www.josenanez.com/es/agents/criterio-pmo/legal. Cada entrada del registro lleva la huella de la anterior, así que una entrada alterada o quitada se nota.
+**Nota legal y registro de versiones.** La nota legal de Criterio y el registro de versiones —qué cambió en cada una, en qué versión queda cada familia, qué términos la rigen y su huella— se publican en https://www.josenanez.com/es/agents/criterio-pmo/legal. Cada entrada del registro lleva la huella de la anterior, así que una entrada alterada o quitada se nota.
 
 Todo informe que genere el plugin lleva el descargo y el estado de las fichas que usó, para que la advertencia viaje con el documento y no se quede en este repositorio.
 
 ## 9. Cambios a estos términos
 
-Estos términos están versionados. Un cambio sube la versión y la fecha al inicio de este archivo y queda en el registro de versiones con su huella. Como cada versión de la familia se acepta de nuevo, un cambio en los términos llega a quien usa Criterio en la siguiente actualización.
+Estos términos están versionados. Un cambio sube la versión y la fecha al inicio de este archivo y queda en el registro de versiones con su huella. Un cambio en los términos sube la versión de todas las familias, y como cada versión se acepta de nuevo, llega a quien usa cualquiera de ellas en la siguiente actualización.
 
 ## En corto
 

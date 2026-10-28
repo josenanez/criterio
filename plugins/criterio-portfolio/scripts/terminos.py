@@ -73,11 +73,14 @@ def terminos(idioma: str = "es", raiz: Path = RAIZ_PLUGIN) -> dict:
 
 
 def entrada_registro(version: str, raiz: Path = RAIZ_PLUGIN) -> dict | None:
+    """La entrada del registro donde este plugin llegó a su versión. Cada familia lleva su número
+    (decisión 0017): una entrada nueva anota la versión de cada plugin; una anterior, una sola."""
     f = raiz / "REGISTRO.json"
     if not f.is_file():
         return None
+    plugin = instalado(raiz).get("plugin")
     for e in json.loads(f.read_text(encoding="utf-8")).get("versiones", []):
-        if e.get("version") == version:
+        if e.get("versiones", {}).get(plugin, e.get("version")) == version:
             return e
     return None
 
@@ -85,7 +88,7 @@ def entrada_registro(version: str, raiz: Path = RAIZ_PLUGIN) -> dict | None:
 # ---------------------------------------------------------------- la configuración
 
 def carpeta_terminos(config: Path) -> Path:
-    """`.criterio/terminos/`, junto a la configuración de cualquiera de los tres agentes."""
+    """`.criterio/terminos/`, junto a la configuración de cualquier agente."""
     for p in [config.resolve().parent, *config.resolve().parents]:
         if p.name == ".criterio":
             return p / "terminos"

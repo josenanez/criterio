@@ -117,11 +117,14 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args()
-    registradas = {v["version"] for v in json.loads(REGISTRO.read_text(encoding="utf-8"))["versiones"]}
+    entradas = json.loads(REGISTRO.read_text(encoding="utf-8"))["versiones"]
     errores, resumen = [], []
     for f in FAMILIAS:
         if not f["fuente"].is_file():
             continue
+        # Las versiones de esta familia en el registro: cada familia lleva la suya (decisión 0017);
+        # una entrada anterior a la decisión tiene una sola versión para todas.
+        registradas = {e.get("familias", {}).get(f["sigla"], e["version"]) for e in entradas}
         h = json.loads(f["fuente"].read_text(encoding="utf-8"))
         ind = json.loads(f["industrias"].read_text(encoding="utf-8")) if f["industrias"].is_file() else {"industrias": []}
         errores += [f"{f['sigla'].upper()} · {e}" for e in errores_de(h, ind, registradas)]

@@ -10,8 +10,9 @@ Standard library only.
 Structure checks:
   - marketplace.json: required fields, semver, every listed plugin exists on disk,
     every plugin directory with a manifest is listed
-  - plugin.json: required fields, name matches directory, semver, version matches
-    the marketplace, licence declared
+  - plugin.json: required fields, name matches directory, semver, licence declared.
+    Each family carries its own version (decision 0017); that every plugin is at the
+    version its family has in the register is checked by scripts/registro.py
   - skills: SKILL.md present, front matter with name + description,
     name matches the directory
   - commands: front matter with description + argument-hint
@@ -124,7 +125,7 @@ def check_marketplace(root: Path, f: Findings) -> tuple[dict, set[str]]:
     return data, on_disk
 
 
-def check_plugin(root: Path, name: str, market_version: str, f: Findings) -> dict:
+def check_plugin(root: Path, name: str, f: Findings) -> dict:
     base = root / "plugins" / name
     manifest = load_json(base / ".claude-plugin" / "plugin.json", f) or {}
 
@@ -136,8 +137,6 @@ def check_plugin(root: Path, name: str, market_version: str, f: Findings) -> dic
     version = str(manifest.get("version", ""))
     if version and not RE_SEMVER.match(version):
         f.error(f"{name}/plugin.json", f"version '{version}' is not semver")
-    if version and market_version and version != market_version:
-        f.error(f"{name}/plugin.json", f"version {version} differs from the marketplace ({market_version})")
 
     skills: list[str] = []
     for d in sorted((base / "skills").iterdir()) if (base / "skills").is_dir() else []:
@@ -230,7 +229,7 @@ def main() -> int:
 
     market, on_disk = check_marketplace(root, f)
     market_version = str(market.get("version", ""))
-    plugins = [check_plugin(root, name, market_version, f) for name in sorted(on_disk)]
+    plugins = [check_plugin(root, name, f) for name in sorted(on_disk)]
     check_consistency(root, plugins, f)
 
     if args.json:

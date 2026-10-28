@@ -31,7 +31,7 @@ Nada se publica hasta que sus propios criterios pasen, y el resultado se publica
 
 ## Versionado
 
-`MAYOR.MENOR.PARCHE`, compartido entre el marketplace y todos los plugins — no hay versionado independiente por plugin, y el validador lo hace cumplir.
+`MAYOR.MENOR.PARCHE`, **uno por familia** (decisión 0017): la PMO, la CFO, la CLO, la EA y Rostrum llevan cada una su número, el mismo en todos sus plugins, y sube solo cuando ella cambia. El marketplace lleva el número del catálogo, que sube con cada entrada del registro. `scripts/registro.py verificar` hace cumplir que cada plugin esté en la versión que el registro le da a su familia.
 
 - **Parche** — redacción, todo lo que no cambia la salida.
 - **Menor** — un skill o comando nuevo, o comportamiento distinto.

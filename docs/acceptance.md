@@ -4,9 +4,9 @@ A disclaimer in a repository is read by no one. Criterio ships no professional s
 
 ## Layer 1 — Gate in the local configuration, one acceptance per version
 
-**Every version of the family is accepted again**, even when the terms did not change. Installing Criterio or updating it to a new version requires a new acceptance; earlier ones are kept. The succession of dated acceptances —who, which version, which text— is the trail.
+**Every version of a family is accepted again**, even when the terms did not change. Each family —PMO, CFO, CLO, EA and Rostrum— carries its own version number (decision 0017), so a release of one family does not ask the others to accept again. Installing Criterio or updating it to a new version requires a new acceptance; earlier ones are kept. The succession of dated acceptances —who, which version, which text— is the trail.
 
-The setup command of each agent shows the short form (the "In short" / "En corto" section of the terms file that ships inside the plugin), asks for an explicit yes and the person's name, and records it with one script call, the same in the three agents:
+The setup command of each agent shows the short form (the "In short" / "En corto" section of the terms file that ships inside the plugin), asks for an explicit yes and the person's name, and records it with one script call, the same in every agent:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" aceptar --config .criterio/portafolio/config.json --por "Nombre Apellido"
@@ -21,27 +21,27 @@ That call writes, deterministically and without the model:
 
 ```json
 "terms_accepted": {
-  "version": "1.2",
-  "date": "2026-10-15",
+  "version": "1.3",
+  "date": "2026-10-28",
   "by": "Nombre Apellido",
-  "family_version": "0.3.8",
+  "family_version": "0.12.1",
   "plugin": "criterio-portfolio",
   "terms_file": "TERMS.es.md",
   "terms_sha256": "<SHA-256 of the terms file shown>",
   "register_sha256": "<SHA-256 of the version-register entry>",
-  "receipt_md": ".criterio/terminos/aceptacion-criterio-portfolio-0.3.8-2026-10-15.md",
+  "receipt_md": ".criterio/terminos/aceptacion-criterio-portfolio-0.12.1-2026-10-28.md",
   "receipt_md_sha256": "<SHA-256 of the Markdown receipt>",
-  "receipt_pdf": ".criterio/terminos/aceptacion-criterio-portfolio-0.3.8-2026-10-15.pdf",
+  "receipt_pdf": ".criterio/terminos/aceptacion-criterio-portfolio-0.12.1-2026-10-28.pdf",
   "receipt_pdf_sha256": "<SHA-256 of the PDF receipt>",
-  "legal_notice": "https://www.josenanez.com/es/agents/criterio-pmo/legal#v0.3.8"
+  "legal_notice": "https://www.josenanez.com/es/agents/criterio-pmo/legal#v0.12.1"
 }
 ```
 
 **The gate is code, not a promise.** `config` and `corrida-inicio` —which every command calls before it starts— check that the acceptance is for the installed family version, that the terms fingerprint is that of the terms file shipped in the plugin, and that both receipts are there with the fingerprint recorded. If any of the three fails, the command stops and says why: answer questions, show the short form, ask for an explicit yes, record it with `aceptar`, start again. Acceptance is never assumed, never inferred from the user continuing, and never written without the user saying yes.
 
-**Integrity.** A receipt keeps its integrity and may not be modified: any change, however small, produces another SHA-256 and voids it as a record. The same holds for the terms and for the version register: their fingerprints are published with each version in the legal notice of the family, at https://www.josenanez.com/es/agents/criterio-pmo/legal, which the maintainer controls.
+**Integrity.** A receipt keeps its integrity and may not be modified: any change, however small, produces another SHA-256 and voids it as a record. The same holds for the terms and for the version register: their fingerprints are published with each version in Criterio's legal notice, at https://www.josenanez.com/es/agents/criterio-pmo/legal, which the maintainer controls.
 
-**The version register.** `registro/versiones.json` (copied byte for byte into every plugin as `REGISTRO.json`) records each version like a patent register: date, commit, what changed, which terms govern it with their SHA-256, the fingerprint of what each agent does, and the SHA-256 of the previous entry. `scripts/registro.py verificar` is a gate: a modified entry, a broken chain, a released version with no entry, or terms changed without a new version all fail it. From 0.3.9 every entry also carries its git tag, and `registro.py liberar <version> --etiquetar` makes the release commit and creates the tag on it, so the entry and the tag point to the same commit; the gate fails if a tag points to a commit that does not contain its entry. Earlier entries record the commit where each version was born: the `v0.3.6` tag, created by hand, marks a later commit of the same version, and `v0.3.8` marks the commit that registered it.
+**The version register.** `registro/versiones.json` (copied byte for byte into every plugin as `REGISTRO.json`) records each version like a patent register: date, commit, what changed, which version each family and each plugin is at and which families were released (from 0.12.1, decision 0017), which terms govern it with their SHA-256, the fingerprint of what each agent does, and the SHA-256 of the previous entry. `scripts/registro.py verificar` is a gate: a modified entry, a broken chain, a released version with no entry, or terms changed without a new version all fail it. From 0.3.9 every entry also carries its git tag, and `registro.py liberar <version> --etiquetar` makes the release commit and creates the tag on it, so the entry and the tag point to the same commit; the gate fails if a tag points to a commit that does not contain its entry. Earlier entries record the commit where each version was born: the `v0.3.6` tag, created by hand, marks a later commit of the same version, and `v0.3.8` marks the commit that registered it.
 
 **Short form shown at the gate** (Spanish, from `TERMS.es.md`; the English one is in `TERMS.md`):
 
