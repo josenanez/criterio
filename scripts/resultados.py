@@ -78,6 +78,7 @@ DUENIOS = [
     ("tests/coherencia.py", "La familia"),
     ("tests/contratos.py", "La familia"),
     ("tests/banco.py", "La familia"),
+    ("tests/cronograma.py", "Rostrum"),
     ("tests/ronda.py", "La familia"),
     ("scripts/validate_plugins.py", "La familia"),
     ("scripts/sincronizar.py", "La familia"),

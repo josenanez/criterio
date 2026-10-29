@@ -1,0 +1,835 @@
+{
+  "nota": "Escrito por tests/cronograma.py: el Gantt y la curva de Rostrum sobre las fichas de la corrida más reciente de cada industria. No se edita a mano.",
+  "industrias": 8,
+  "proyectos": 104,
+  "con_gantt": 104,
+  "lineas_base": 130,
+  "hitos": 365,
+  "fallas": 0,
+  "por_industria": [
+    {
+      "industria": "bancos",
+      "ronda": 11,
+      "corte": "2026-10-23",
+      "proyectos": 13,
+      "con_gantt": 13,
+      "lineas_base": 15,
+      "hitos": 51,
+      "con_fallas": [],
+      "detalle": [
+        {
+          "codigo": "PRY-199",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-200",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-201",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-202",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-203",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-204",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-205",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-206",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-207",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-208",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-209",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-210",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-211",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        }
+      ]
+    },
+    {
+      "industria": "construccion",
+      "ronda": 11,
+      "corte": "2026-10-22",
+      "proyectos": 13,
+      "con_gantt": 13,
+      "lineas_base": 16,
+      "hitos": 46,
+      "con_fallas": [],
+      "detalle": [
+        {
+          "codigo": "PRY-199",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-200",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-201",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-202",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-203",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-204",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-205",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-206",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-207",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-208",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-209",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-210",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-211",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        }
+      ]
+    },
+    {
+      "industria": "cooperativas",
+      "ronda": 11,
+      "corte": "2026-10-23",
+      "proyectos": 13,
+      "con_gantt": 13,
+      "lineas_base": 16,
+      "hitos": 45,
+      "con_fallas": [],
+      "detalle": [
+        {
+          "codigo": "PRY-199",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-200",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-201",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-202",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-203",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-204",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-205",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-206",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-207",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-208",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-209",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-210",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-211",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        }
+      ]
+    },
+    {
+      "industria": "logistica",
+      "ronda": 12,
+      "corte": "2026-10-28",
+      "proyectos": 13,
+      "con_gantt": 13,
+      "lineas_base": 16,
+      "hitos": 36,
+      "con_fallas": [],
+      "detalle": [
+        {
+          "codigo": "PRY-199",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-200",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-201",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-202",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-203",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-204",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-205",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-206",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-207",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-208",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-209",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-210",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-211",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        }
+      ]
+    },
+    {
+      "industria": "mineria",
+      "ronda": 11,
+      "corte": "2026-10-22",
+      "proyectos": 13,
+      "con_gantt": 13,
+      "lineas_base": 20,
+      "hitos": 48,
+      "con_fallas": [],
+      "detalle": [
+        {
+          "codigo": "PRY-199",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-200",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-201",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-202",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-203",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-204",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-205",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-206",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-207",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-208",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-209",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-210",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-211",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        }
+      ]
+    },
+    {
+      "industria": "oil-gas",
+      "ronda": 11,
+      "corte": "2026-10-22",
+      "proyectos": 13,
+      "con_gantt": 13,
+      "lineas_base": 13,
+      "hitos": 44,
+      "con_fallas": [],
+      "detalle": [
+        {
+          "codigo": "PRY-199",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-200",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-201",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-202",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-203",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-204",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-205",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-206",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-207",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-208",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-209",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-210",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-211",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        }
+      ]
+    },
+    {
+      "industria": "retail",
+      "ronda": 11,
+      "corte": "2026-10-23",
+      "proyectos": 13,
+      "con_gantt": 13,
+      "lineas_base": 16,
+      "hitos": 44,
+      "con_fallas": [],
+      "detalle": [
+        {
+          "codigo": "PRY-199",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-200",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-201",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-202",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-203",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-204",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-205",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-206",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-207",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-208",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-209",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-210",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-211",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        }
+      ]
+    },
+    {
+      "industria": "telecomunicaciones",
+      "ronda": 12,
+      "corte": "2026-10-28",
+      "proyectos": 13,
+      "con_gantt": 13,
+      "lineas_base": 18,
+      "hitos": 51,
+      "con_fallas": [],
+      "detalle": [
+        {
+          "codigo": "PRY-199",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-200",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-201",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-202",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-203",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-204",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 3,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-205",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-206",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-207",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 4,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-208",
+          "dibuja": true,
+          "lineas_base": 1,
+          "hitos": 0,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-209",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-210",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        },
+        {
+          "codigo": "PRY-211",
+          "dibuja": true,
+          "lineas_base": 2,
+          "hitos": 5,
+          "fallas": []
+        }
+      ]
+    }
+  ]
+}

@@ -13,7 +13,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
-| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 0.12.1 | Estable | 1.0.0 · Telecomunicaciones y logística |
+| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 0.12.1 | Estable | 1.0.0 · Telecomunicaciones y logística, y el cronograma en Rostrum |
 | Criterio CFO · La función financiera | Clara, Tomás, Áurea | 0.12.1 | Estable | 1.0.0 · Brasil |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 0.12.1 | Estable | 1.0.0 · Brasil |
 | Criterio EA · Dirección | Ofelia | 0.12.1 | Laboratorio | 1.0.0 · Los viajes, y las exportaciones de cada proveedor |
@@ -30,8 +30,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.7.0 | Liberada | **Cronogramas de Microsoft Project**<br>· El XML de Project como cronograma: tareas, hitos, línea base, avance, predecesoras y recursos; el .mpp donde haya Java y MPXJ<br>· La estructura de carpetas recomendada<br>· El contraste entre la ficha del gerente y la de la PMO como lo define el skill<br>· El análisis estadístico, regenerado con cada prueba<br>· Esta hoja de ruta, desde una sola fuente | 4 industrias, 80 proyectos |
 | 0.8.0 | Liberada | **Rostrum para todas las familias, y la CFO y la CLO**<br>· Rostrum, un plugin propio para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· Las familias CFO y CLO, con el motor probado y una primera ronda con el agente | La verifica la prueba de la 0.9.0 |
 | 0.9.0 | Liberada | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones | 6 industrias |
-| 1.0.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | La ronda con los agentes en las dos industrias nuevas, con los 38 comandos; las seis anteriores, con su corrida de la ronda 11 |
-| 1.1.0 | Siguiente | **Rostrum**<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
+| 1.0.0 | Siguiente | **Telecomunicaciones y logística, y el cronograma en Rostrum**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene<br>· Rostrum: el Gantt de línea base contra vigente, los hitos y la curva de avance en la página de cada proyecto | La ronda con los agentes en las dos industrias nuevas, con los 38 comandos; las seis anteriores, con su corrida de la ronda 11. El Gantt y la curva, sobre las fichas de las 8 industrias |
 
 ### Criterio CFO · La función financiera
 

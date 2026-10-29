@@ -109,38 +109,20 @@
     "logistica"
    ],
    "es": {
-    "titulo": "Telecomunicaciones y logística",
+    "titulo": "Telecomunicaciones y logística, y el cronograma en Rostrum",
     "entra": [
-     "Dos industrias nuevas: la escala del portafolio y la operación que no se detiene"
+     "Dos industrias nuevas: la escala del portafolio y la operación que no se detiene",
+     "Rostrum: el Gantt de línea base contra vigente, los hitos y la curva de avance en la página de cada proyecto"
     ],
-    "prueba": "La ronda con los agentes en las dos industrias nuevas, con los 38 comandos; las seis anteriores, con su corrida de la ronda 11"
+    "prueba": "La ronda con los agentes en las dos industrias nuevas, con los 38 comandos; las seis anteriores, con su corrida de la ronda 11. El Gantt y la curva, sobre las fichas de las 8 industrias"
    },
    "en": {
-    "titulo": "Telecommunications and logistics",
+    "titulo": "Telecommunications and logistics, and the schedule in Rostrum",
     "entra": [
-     "Two new industries: portfolio scale and operations that never stop"
+     "Two new industries: portfolio scale and operations that never stop",
+     "Rostrum: the Gantt of baseline against current, the milestones and the progress curve on every project page"
     ],
-    "prueba": "The round with the agents on the two new industries, with all 38 commands; the six earlier ones, with their round 11 run"
-   }
-  },
-  {
-   "incremento": 6,
-   "version": "1.1.0",
-   "estado": "siguiente",
-   "industrias": [],
-   "es": {
-    "titulo": "Rostrum",
-    "entra": [
-     "Gantt de línea base contra vigente, hitos y curva de avance"
-    ],
-    "prueba": "8 industrias"
-   },
-   "en": {
-    "titulo": "Rostrum",
-    "entra": [
-     "Gantt of baseline against current, milestones and progress curve"
-    ],
-    "prueba": "8 industries"
+    "prueba": "The round with the agents on the two new industries, with all 38 commands; the six earlier ones, with their round 11 run. The Gantt and the curve, on the records of all 8 industries"
    }
   }
  ]

@@ -56,6 +56,8 @@ PUERTAS = [
      "Que cada defecto registrado diga su origen, su corrección y dónde se verificó"),
     ("material", [sys.executable, str(RAIZ / "tests/banco.py"), "verificar"],
      "Que cada calificación del agente salga de sus conteos, con intervalo y origen"),
+    ("código", [sys.executable, str(RAIZ / "tests/cronograma.py"), "--revisar"],
+     "Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria"),
     ("material", [sys.executable, str(RAIZ / "tests/sintetico/funcionalidades.py"),
                   "--verificar"],
      "Que cada comando declare qué produce y qué deja escrito"),
