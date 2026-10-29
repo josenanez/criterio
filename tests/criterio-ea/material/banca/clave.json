@@ -132,9 +132,318 @@
       "status": "pending"
      }
     ]
+   },
+   "comite-de-presidencia-2026-10-05": {
+    "organ": "comite-de-presidencia",
+    "date": "2026-10-05",
+    "agreements": [
+     {
+      "id": "A-1",
+      "what": "Renovar las pólizas de la sede",
+      "who": null,
+      "due": "2026-12-10",
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 8"
+     },
+     {
+      "id": "A-2",
+      "what": "Publicar el informe de sostenibilidad",
+      "who": null,
+      "due": "2026-12-10",
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 9"
+     },
+     {
+      "id": "A-3",
+      "what": "Actualizar el manual de compras",
+      "who": null,
+      "due": "2026-12-10",
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 10"
+     },
+     {
+      "id": "A-4",
+      "what": "Revisar el tablero de indicadores",
+      "who": null,
+      "due": "2026-12-10",
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 11"
+     },
+     {
+      "id": "A-5",
+      "what": "Cerrar el proyecto de nómina",
+      "who": null,
+      "due": "2026-12-10",
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 12"
+     },
+     {
+      "id": "A-6",
+      "what": "Definir el plan de capacitación",
+      "who": null,
+      "due": "2026-12-10",
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 13"
+     },
+     {
+      "id": "A-7",
+      "what": "Ajustar el presupuesto de mercadeo",
+      "who": "Diana Cruz",
+      "due": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 14"
+     },
+     {
+      "id": "A-8",
+      "what": "Contratar la consultoría de procesos",
+      "who": "Felipe Duarte",
+      "due": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 15"
+     },
+     {
+      "id": "A-9",
+      "what": "Migrar el archivo documental",
+      "who": "Andrés Vela",
+      "due": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 16"
+     },
+     {
+      "id": "A-10",
+      "what": "Renovar las pólizas de la sede",
+      "who": "Diana Cruz",
+      "due": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 17"
+     },
+     {
+      "id": "A-11",
+      "what": "Publicar el informe de sostenibilidad",
+      "who": "Felipe Duarte",
+      "due": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 18"
+     }
+    ],
+    "commitments": [
+     {
+      "id": "C-1",
+      "who": "Diana Cruz",
+      "what": "Entregar el informe 1 de seguimiento",
+      "due_date": "2026-10-12",
+      "original_due_date": "2026-10-12",
+      "reschedules": [],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 21"
+     },
+     {
+      "id": "C-2",
+      "who": "Felipe Duarte",
+      "what": "Entregar el informe 2 de seguimiento",
+      "due_date": "2026-10-13",
+      "original_due_date": "2026-10-13",
+      "reschedules": [],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 22"
+     },
+     {
+      "id": "C-3",
+      "who": "Laura Gómez",
+      "what": "Entregar el informe 3 de seguimiento",
+      "due_date": "2026-10-14",
+      "original_due_date": "2026-10-14",
+      "reschedules": [],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 23"
+     },
+     {
+      "id": "C-4",
+      "who": "Andrés Vela",
+      "what": "Entregar el informe 4 de seguimiento",
+      "due_date": "2026-10-15",
+      "original_due_date": "2026-10-15",
+      "reschedules": [],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 24"
+     },
+     {
+      "id": "C-5",
+      "who": "Diana Cruz",
+      "what": "Entregar el informe 5 de seguimiento",
+      "due_date": "2026-10-16",
+      "original_due_date": "2026-10-16",
+      "reschedules": [],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 25"
+     },
+     {
+      "id": "C-6",
+      "who": "Felipe Duarte",
+      "what": "Entregar el informe 6 de seguimiento",
+      "due_date": "2026-10-17",
+      "original_due_date": "2026-10-17",
+      "reschedules": [],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 26"
+     },
+     {
+      "id": "C-7",
+      "who": "Laura Gómez",
+      "what": "Presentar el plan 7 de mejora",
+      "due_date": "2026-12-04",
+      "original_due_date": "2026-09-15",
+      "reschedules": [
+       {
+        "due_date": "2026-09-30",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 27"
+       },
+       {
+        "due_date": "2026-10-20",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 27"
+       },
+       {
+        "due_date": "2026-12-04",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 27"
+       }
+      ],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 27"
+     },
+     {
+      "id": "C-8",
+      "who": "Andrés Vela",
+      "what": "Presentar el plan 8 de mejora",
+      "due_date": "2026-12-05",
+      "original_due_date": "2026-09-15",
+      "reschedules": [
+       {
+        "due_date": "2026-09-30",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 28"
+       },
+       {
+        "due_date": "2026-10-20",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 28"
+       },
+       {
+        "due_date": "2026-12-05",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 28"
+       }
+      ],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 28"
+     },
+     {
+      "id": "C-9",
+      "who": "Diana Cruz",
+      "what": "Presentar el plan 9 de mejora",
+      "due_date": "2026-12-06",
+      "original_due_date": "2026-09-15",
+      "reschedules": [
+       {
+        "due_date": "2026-09-30",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 29"
+       },
+       {
+        "due_date": "2026-10-20",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 29"
+       },
+       {
+        "due_date": "2026-12-06",
+        "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 29"
+       }
+      ],
+      "state": "open",
+      "evidence": null,
+      "source": "organos/comite-de-presidencia/2026-10-05/40-acta/acta-firmada.md, línea 29"
+     }
+    ],
+    "decisions": [
+     {
+      "id": "D-1",
+      "decision": "Proveedor de la mesa de ayuda",
+      "source": "organos/comite-de-presidencia/2026-10-05/20-material/propuesta-1.md",
+      "options": [
+       {
+        "option": "Continuar como hoy",
+        "evidence": [
+         {
+          "archivo": "organos/comite-de-presidencia/2026-10-05/20-material/propuesta-1.md"
+         }
+        ]
+       },
+       {
+        "option": "Cambiar de proveedor",
+        "evidence": [
+         {
+          "archivo": "organos/comite-de-presidencia/2026-10-05/20-material/propuesta-1.md"
+         }
+        ]
+       }
+      ],
+      "missing": [],
+      "deadline": "2026-11-03",
+      "deadline_source": "organos/comite-de-presidencia/2026-10-05/20-material/propuesta-1.md, línea 3",
+      "status": "pending"
+     },
+     {
+      "id": "D-2",
+      "decision": "Sede de la oficina regional",
+      "source": "organos/comite-de-presidencia/2026-10-05/20-material/propuesta-2.md",
+      "options": [
+       {
+        "option": "Continuar como hoy",
+        "evidence": [
+         {
+          "archivo": "organos/comite-de-presidencia/2026-10-05/20-material/propuesta-2.md"
+         }
+        ]
+       },
+       {
+        "option": "Cambiar de proveedor",
+        "evidence": [
+         {
+          "archivo": "organos/comite-de-presidencia/2026-10-05/20-material/propuesta-2.md"
+         }
+        ]
+       }
+      ],
+      "missing": [],
+      "deadline": "2026-11-04",
+      "deadline_source": "organos/comite-de-presidencia/2026-10-05/20-material/propuesta-2.md, línea 3",
+      "status": "pending"
+     }
+    ]
    }
   },
   "correspondencia": {
+   "2026-10-14-solicitud-1": {
+    "file": "20-correspondencia/2026-10-14-solicitud-1.eml",
+    "asks_reply": true,
+    "due": "2026-10-20",
+    "routine": false
+   },
+   "2026-10-15-solicitud-2": {
+    "file": "20-correspondencia/2026-10-15-solicitud-2.eml",
+    "asks_reply": true,
+    "due": "2026-10-21",
+    "routine": false
+   },
+   "2026-10-16-solicitud-3": {
+    "file": "20-correspondencia/2026-10-16-solicitud-3.eml",
+    "asks_reply": true,
+    "due": "2026-10-22",
+    "routine": false
+   },
+   "2026-10-17-solicitud-4": {
+    "file": "20-correspondencia/2026-10-17-solicitud-4.eml",
+    "asks_reply": true,
+    "due": "2026-10-23",
+    "routine": false
+   },
+   "2026-10-18-solicitud-5": {
+    "file": "20-correspondencia/2026-10-18-solicitud-5.eml",
+    "asks_reply": true,
+    "due": "2026-10-24",
+    "routine": false
+   },
    "2026-10-08-supervisor": {
     "file": "20-correspondencia/2026-10-08-supervisor.eml",
     "asks_reply": true,
@@ -158,7 +467,51 @@
  "esperado": [
   {
    "signal": "agreement_without_date",
+   "key": "acuerdo-fecha:comite-de-presidencia:2026-10-05:A-10"
+  },
+  {
+   "signal": "agreement_without_date",
+   "key": "acuerdo-fecha:comite-de-presidencia:2026-10-05:A-11"
+  },
+  {
+   "signal": "agreement_without_date",
+   "key": "acuerdo-fecha:comite-de-presidencia:2026-10-05:A-7"
+  },
+  {
+   "signal": "agreement_without_date",
+   "key": "acuerdo-fecha:comite-de-presidencia:2026-10-05:A-8"
+  },
+  {
+   "signal": "agreement_without_date",
+   "key": "acuerdo-fecha:comite-de-presidencia:2026-10-05:A-9"
+  },
+  {
+   "signal": "agreement_without_date",
    "key": "acuerdo-fecha:junta-directiva:2026-09-24:A-3"
+  },
+  {
+   "signal": "agreement_without_owner",
+   "key": "acuerdo-responsable:comite-de-presidencia:2026-10-05:A-1"
+  },
+  {
+   "signal": "agreement_without_owner",
+   "key": "acuerdo-responsable:comite-de-presidencia:2026-10-05:A-2"
+  },
+  {
+   "signal": "agreement_without_owner",
+   "key": "acuerdo-responsable:comite-de-presidencia:2026-10-05:A-3"
+  },
+  {
+   "signal": "agreement_without_owner",
+   "key": "acuerdo-responsable:comite-de-presidencia:2026-10-05:A-4"
+  },
+  {
+   "signal": "agreement_without_owner",
+   "key": "acuerdo-responsable:comite-de-presidencia:2026-10-05:A-5"
+  },
+  {
+   "signal": "agreement_without_owner",
+   "key": "acuerdo-responsable:comite-de-presidencia:2026-10-05:A-6"
   },
   {
    "signal": "agreement_without_owner",
@@ -166,7 +519,43 @@
   },
   {
    "signal": "commitment_overdue",
+   "key": "compromiso:comite-de-presidencia:2026-10-05:C-1"
+  },
+  {
+   "signal": "commitment_overdue",
+   "key": "compromiso:comite-de-presidencia:2026-10-05:C-2"
+  },
+  {
+   "signal": "commitment_overdue",
+   "key": "compromiso:comite-de-presidencia:2026-10-05:C-3"
+  },
+  {
+   "signal": "commitment_overdue",
+   "key": "compromiso:comite-de-presidencia:2026-10-05:C-4"
+  },
+  {
+   "signal": "commitment_overdue",
+   "key": "compromiso:comite-de-presidencia:2026-10-05:C-5"
+  },
+  {
+   "signal": "commitment_overdue",
+   "key": "compromiso:comite-de-presidencia:2026-10-05:C-6"
+  },
+  {
+   "signal": "commitment_overdue",
    "key": "compromiso:junta-directiva:2026-09-24:C-1"
+  },
+  {
+   "signal": "commitment_rescheduled",
+   "key": "reprogramado:comite-de-presidencia:2026-10-05:C-7"
+  },
+  {
+   "signal": "commitment_rescheduled",
+   "key": "reprogramado:comite-de-presidencia:2026-10-05:C-8"
+  },
+  {
+   "signal": "commitment_rescheduled",
+   "key": "reprogramado:comite-de-presidencia:2026-10-05:C-9"
   },
   {
    "signal": "commitment_rescheduled",
@@ -175,6 +564,34 @@
   {
    "signal": "correspondence_unanswered",
    "key": "correo:2026-10-08-supervisor"
+  },
+  {
+   "signal": "correspondence_unanswered",
+   "key": "correo:2026-10-14-solicitud-1"
+  },
+  {
+   "signal": "correspondence_unanswered",
+   "key": "correo:2026-10-15-solicitud-2"
+  },
+  {
+   "signal": "correspondence_unanswered",
+   "key": "correo:2026-10-16-solicitud-3"
+  },
+  {
+   "signal": "correspondence_unanswered",
+   "key": "correo:2026-10-17-solicitud-4"
+  },
+  {
+   "signal": "correspondence_unanswered",
+   "key": "correo:2026-10-18-solicitud-5"
+  },
+  {
+   "signal": "decision_deadline",
+   "key": "decision:comite-de-presidencia:2026-10-05:D-1"
+  },
+  {
+   "signal": "decision_deadline",
+   "key": "decision:comite-de-presidencia:2026-10-05:D-2"
   },
   {
    "signal": "decision_deadline",
@@ -186,7 +603,23 @@
   },
   {
    "signal": "meeting_conflict",
+   "key": "cruce:2026-11-03:cruce-a4-1|cruce-b4-1"
+  },
+  {
+   "signal": "meeting_conflict",
    "key": "cruce:2026-11-03:matriz-1|tesoreria-1"
+  },
+  {
+   "signal": "meeting_conflict",
+   "key": "cruce:2026-11-04:cruce-a1-1|cruce-b1-1"
+  },
+  {
+   "signal": "meeting_conflict",
+   "key": "cruce:2026-11-05:cruce-a2-1|cruce-b2-1"
+  },
+  {
+   "signal": "meeting_conflict",
+   "key": "cruce:2026-11-06:cruce-a3-1|cruce-b3-1"
   },
   {
    "signal": "meeting_without_material",

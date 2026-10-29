@@ -15,6 +15,12 @@ reunión semanal en otra zona horaria que solo se cruza después del cambio de h
 libre y uno cancelado que no cruzan, una agenda vieja que no da cruces, un borrador puesto en
 `40-acta/` que no cuenta como acta y una carpeta excluida que no se procesa.
 
+**El lote: la muestra que pide el piso.** Cada oficina de industria trae además un lote de las
+señales que se repiten —el acuerdo sin responsable o sin fecha, el compromiso vencido o movido, la
+decisión con su plazo cerca, el correo sin respuesta, el cruce de la agenda y la sesión sin acta—,
+casi todas en una sesión más del comité, con su acta firmada. Así el material siembra 73 señales o
+más: lo que pide un piso del 95 % sin fallas (decisión 0020).
+
 Nada de esto pertenece a una organización: los nombres, las cifras y las personas los escribe
 este archivo. El material sale igual byte a byte cada vez.
 """
@@ -92,6 +98,13 @@ def oficina(o: dict) -> dict:
         ev.append(vevent(f"tesoreria-{o['n']}", "Revisión con tesorería", "20261020T090000", "20261020T093000", tz, "RRULE:FREQ=WEEKLY;COUNT=6\r\n"))
         a, b = sorted([f"matriz-{o['n']}", f"tesoreria-{o['n']}"])
         esperado.append(("meeting_conflict", f"cruce:2026-11-03:{a}|{b}"))
+    for j in range((o.get("lote") or {}).get("cruce", 0)):   # el lote: dos reuniones que se cruzan, un día distinto cada una
+        dia = ["20261104", "20261105", "20261106", "20261103"][j]
+        x, y = f"cruce-a{j + 1}-{o['n']}", f"cruce-b{j + 1}-{o['n']}"
+        ev.append(vevent(x, f"Reunión con la firma auditora {j + 1}", f"{dia}T150000", f"{dia}T160000", tz))
+        ev.append(vevent(y, f"Visita del cliente {j + 1}", f"{dia}T153000", f"{dia}T163000", tz))
+        a, b = sorted([x, y])
+        esperado.append(("meeting_conflict", f"cruce:{dia[:4]}-{dia[4:6]}-{dia[6:]}:{a}|{b}"))
     fecha_exp = "2026-10-12" if "agenda_vieja" in s else "2026-10-25"
     if "agenda_vieja" in s:
         # Una agenda vieja con un cruce: el motor avisa y no lo cuenta.
@@ -223,6 +236,78 @@ def oficina(o: dict) -> dict:
     oficina_mail = f"presidencia@{dom}"
     def guardar(nombre, texto):
         escribir(corr / nombre, texto)
+
+    # El lote: una sesión más del comité, con su acta firmada, y lo que se repite en ella.
+    lote = o.get("lote") or {}
+    if lote:
+        f_l = "2026-10-05"
+        k_l = f"{com}:{f_l}"
+        ruta_l = f"organos/{com}/{f_l}/40-acta/acta-firmada.md"
+        mat_l = f"organos/{com}/{f_l}/20-material"
+        temas = ["Renovar las pólizas de la sede", "Publicar el informe de sostenibilidad", "Actualizar el manual de compras",
+                 "Revisar el tablero de indicadores", "Cerrar el proyecto de nómina", "Definir el plan de capacitación",
+                 "Ajustar el presupuesto de mercadeo", "Contratar la consultoría de procesos", "Migrar el archivo documental"]
+        lineas = [f"# Acta de la sesión de {com.replace('-', ' ')} del {f_l}", "", f"Asistentes: {', '.join(p[:4])}.", "Quórum verificado.",
+                  "", "## Acuerdos", ""]
+        ag, cm, dc = [], [], []
+        n = 0
+        for tipo in ("sin_responsable", "sin_fecha"):
+            for j in range(lote.get(f"acuerdo_{tipo}", 0)):
+                n += 1
+                qu, quien, cuando = temas[(n - 1) % len(temas)], None if tipo == "sin_responsable" else p[1 + n % 3], None if tipo == "sin_fecha" else "2026-12-10"
+                lineas.append(f"{n}. {qu}. Responsable: {quien or 'sin responsable en el acta'}. Fecha: {cuando or 'por definir'}.")
+                ag.append({"id": f"A-{n}", "what": qu, "who": quien, "due": cuando, "source": f"{ruta_l}, línea {len(lineas)}"})
+                esperado.append(("agreement_without_owner" if tipo == "sin_responsable" else "agreement_without_date",
+                                 f"acuerdo-{'responsable' if tipo == 'sin_responsable' else 'fecha'}:{k_l}:A-{n}"))
+        lineas += ["", "## Compromisos"]
+        c = 0
+        for j in range(lote.get("compromiso_vencido", 0)):
+            c += 1
+            due = f"2026-10-{12 + j:02d}"
+            quien, qu = p[1 + c % 4], f"Entregar el informe {c} de seguimiento"
+            lineas.append(f"- {quien} se compromete a {qu.lower()} el {due}.")
+            cm.append({"id": f"C-{c}", "who": quien, "what": qu, "due_date": due, "original_due_date": due, "reschedules": [],
+                       "state": "open", "evidence": None, "source": f"{ruta_l}, línea {len(lineas)}"})
+            esperado.append(("commitment_overdue", f"compromiso:{k_l}:C-{c}"))
+        for j in range(lote.get("compromiso_movido", 0)):
+            c += 1
+            quien, qu = p[1 + c % 4], f"Presentar el plan {c} de mejora"
+            lineas.append(f"- {quien} presentará {qu[9:].lower()}. Comprometido para el 2026-09-15, se movió al 2026-09-30, luego al "
+                          f"2026-10-20 y hoy queda para el 2026-12-{4 + j:02d}.")
+            fuente = f"{ruta_l}, línea {len(lineas)}"
+            cm.append({"id": f"C-{c}", "who": quien, "what": qu, "due_date": f"2026-12-{4 + j:02d}", "original_due_date": "2026-09-15",
+                       "reschedules": [{"due_date": "2026-09-30", "source": fuente}, {"due_date": "2026-10-20", "source": fuente},
+                                       {"due_date": f"2026-12-{4 + j:02d}", "source": fuente}],
+                       "state": "open", "evidence": None, "source": fuente})
+            esperado.append(("commitment_rescheduled", f"reprogramado:{k_l}:C-{c}"))
+        lineas += ["", "## Decisiones pendientes"]
+        for j in range(lote.get("decision_con_plazo", 0)):
+            plazo, doc = f"2026-11-{3 + j:02d}", f"{mat_l}/propuesta-{j + 1}.md"
+            asunto = ["Proveedor de la mesa de ayuda", "Sede de la oficina regional", "Aseguradora de la flota"][j % 3]
+            lineas.append(f"- {asunto}: el material plantea dos opciones. Se decide antes del {plazo}.")
+            escribir(docs / doc, f"# Propuesta: {asunto.lower()}\n\nLa decisión vence el {plazo}.\n\nOpción 1 · Continuar como hoy.\n"
+                                 "Opción 2 · Cambiar de proveedor.\n")
+            dc.append({"id": f"D-{j + 1}", "decision": asunto, "source": doc,
+                       "options": [{"option": "Continuar como hoy", "evidence": [{"archivo": doc}]},
+                                   {"option": "Cambiar de proveedor", "evidence": [{"archivo": doc}]}],
+                       "missing": [], "deadline": plazo, "deadline_source": f"{doc}, línea 3", "status": "pending"})
+            esperado.append(("decision_deadline", f"decision:{k_l}:D-{j + 1}"))
+        lineas += ["", f"Firmada por {p[0]}, presidente de la sesión, y {p[4]}, secretaria.", ""]
+        sesion(com, f_l, acta="\n".join(lineas))
+        reuniones[f"{com}-{f_l}"] = {"organ": com, "date": f_l, "agreements": ag, "commitments": cm, "decisions": dc}
+        # Las sesiones extraordinarias del comité que no tienen acta firmada pasados quince días.
+        for j in range(lote.get("sin_acta", 0)):
+            f_s = f"2026-09-{25 + j * 2:02d}"
+            sesion(com, f_s, notas=f"Notas de la sesión extraordinaria del {f_s}.\n")
+            esperado.append(("meeting_without_minutes", f"acta:{com}:{f_s}"))
+        # Los correos que piden respuesta, con el plazo vencido y sin respuesta.
+        for j in range(lote.get("correo_sin_respuesta", 0)):
+            stem = f"2026-10-{14 + j:02d}-solicitud-{j + 1}"
+            guardar(f"{stem}.eml", eml(f"<sol{j + 1}@proveedor.test>", "Proveedor <ventas@proveedor.test>", oficina_mail,
+                    f"Wed, {14 + j:02d} Oct 2026 09:00:00 -0500", f"Solicitud {j + 1}: confirmación de condiciones",
+                    f"Buenos días:\n\nLes agradecemos confirmar las condiciones del contrato {j + 1} antes del 2026-10-{20 + j:02d}.\n\nGracias."))
+            correspondencia[stem] = {"file": f"20-correspondencia/{stem}.eml", "asks_reply": True, "due": f"2026-10-{20 + j:02d}", "routine": False}
+            esperado.append(("correspondence_unanswered", f"correo:{stem}"))
     guardar("2026-10-08-supervisor.eml", eml(f"<req45@supervisor.test>", "Oficios <oficios@supervisor.test>", oficina_mail,
             "Thu, 08 Oct 2026 09:00:00 -0500", "Requerimiento 45: cartera reestructurada",
             "Señor presidente:\n\nSolicitamos el detalle de la cartera reestructurada del tercer trimestre.\n"
@@ -275,12 +360,16 @@ OFICINAS = [
      "organos": [("junta-directiva", "Nueve miembros", "último jueves de cada mes"), ("comite-de-presidencia", "Los vicepresidentes", "lunes")],
      "personas": ("Marta Ríos", "Andrés Vela", "Diana Cruz", "Felipe Duarte", "Laura Gómez"),
      "siembra": ["cruce_directo", "cruce_cambio_de_hora", "sin_material", "sin_acta", "acuerdo_sin_responsable", "acuerdo_sin_fecha",
-                 "compromiso_vencido", "compromiso_movido", "decision_con_plazo", "correo_sin_respuesta"]},
+                 "compromiso_vencido", "compromiso_movido", "decision_con_plazo", "correo_sin_respuesta"],
+     "lote": {"acuerdo_sin_responsable": 6, "acuerdo_sin_fecha": 5, "compromiso_vencido": 6, "compromiso_movido": 3,
+              "decision_con_plazo": 2, "correo_sin_respuesta": 5, "cruce": 4}},
     {"carpeta": "cooperativas", "industria": "cooperativas", "pais": "EC", "id": "1790012345001", "nombre": "Cooperativa Sierra Alta", "n": 2,
      "ejecutivo": "Gerencia general", "ejecutivo_slug": "gerencia-general", "tz": "America/Guayaquil", "dominio": "sierraalta.test",
      "organos": [("consejo-de-administracion", "Siete vocales", "tercer jueves de cada mes"), ("comite-de-gerencia", "Las jefaturas", "lunes")],
      "personas": ("Patricio Andrade", "Gabriela Mora", "Esteban Jácome", "Verónica Paz", "Rosa Quishpe"),
-     "siembra": ["agenda_vieja", "borrador_en_acta", "acuerdo_sin_responsable", "compromiso_vencido", "correo_sin_respuesta", "carpeta_excluida"]},
+     "siembra": ["agenda_vieja", "borrador_en_acta", "acuerdo_sin_responsable", "compromiso_vencido", "correo_sin_respuesta", "carpeta_excluida"],
+     "lote": {"acuerdo_sin_responsable": 6, "acuerdo_sin_fecha": 6, "compromiso_vencido": 6, "compromiso_movido": 3,
+              "decision_con_plazo": 2, "correo_sin_respuesta": 5, "sin_acta": 3}},
     {"carpeta": "control-co", "industria": "retail", "pais": "CO", "id": "900000001", "nombre": "Distribuidora Control", "n": 3,
      "ejecutivo": "Gerencia general", "ejecutivo_slug": "gerencia-general", "tz": "America/Bogota", "dominio": "control.test",
      "organos": [("junta-directiva", "Cinco miembros", "último jueves de cada mes"), ("comite-de-gerencia", "Las direcciones", "lunes")],

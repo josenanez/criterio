@@ -60,7 +60,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
 | 0.12.0 | Liberada | **Ofelia, construida y probada con la ronda completa con la agente**<br>· Los nueve comandos de Ofelia, sus skills y el motor: la agenda .ics con repeticiones y cambio de hora, el correo guardado, las sesiones de los órganos y los compromisos con las reglas de Samuel<br>· Prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar<br>· Colombia y Ecuador, en la oficina de una presidencia y de una gerencia general, y dos oficinas de control | La ronda 1: Ofelia sobre las cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con una señal de más en un control; cada defecto que encontró, con su corrección y su verificación |
-| 1.0.0 | Siguiente | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país | La ronda con la agente sobre las exportaciones de cada proveedor |
+| 1.0.0 | Siguiente | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país<br>· El material siembra al menos 73 señales, lo que pide un piso del 95 % sin fallas (decisión 0020), y la ronda con la agente vuelve a correr sobre todo él | La ronda con la agente sobre las exportaciones de cada proveedor |
 
 ### Criterio CSO · La función comercial
 

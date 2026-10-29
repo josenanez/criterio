@@ -34,7 +34,8 @@
     "titulo": "Los viajes, y las exportaciones de cada proveedor",
     "entra": [
      "Los itinerarios contra la agenda",
-     "El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país"
+     "El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país",
+     "El material siembra al menos 73 señales, lo que pide un piso del 95 % sin fallas (decisión 0020), y la ronda con la agente vuelve a correr sobre todo él"
     ],
     "prueba": "La ronda con la agente sobre las exportaciones de cada proveedor"
    },
@@ -42,7 +43,8 @@
     "titulo": "Travel, and each provider's exports",
     "entra": [
      "Itineraries against the calendar",
-     "The .ics that Outlook and Google Calendar export and Outlook's .msg email, each with its material: what really changes from one office to another, not the country"
+     "The .ics that Outlook and Google Calendar export and Outlook's .msg email, each with its material: what really changes from one office to another, not the country",
+     "The material seeds at least 73 signals, what a 95% floor with no misses needs (decision 0020), and the round with the agent runs again on all of it"
     ],
     "prueba": "The round with the agent on each provider's exports"
    }

@@ -9,16 +9,37 @@ correos son sintéticos.
 
 | Carpeta del material | País | La oficina | Defectos sembrados | Señales esperadas |
 |---|---|---|---:|---:|
-| `banca` | Colombia | La presidencia de una entidad financiera | 10 | 10 |
-| `cooperativas` | Ecuador | La gerencia general de una cooperativa | 6 | 4 |
+| `banca` | Colombia | La presidencia de una entidad financiera | 10 + 31 | 41 |
+| `cooperativas` | Ecuador | La gerencia general de una cooperativa | 6 + 31 | 35 |
 | `control-co` | Colombia | Una gerencia general | 0 | 0 |
 | `control-ec` | Ecuador | Una presidencia | 0 | 0 |
+
+En total, **76 señales sembradas**: más de las 73 que pide un piso del 95 % sin fallas (decisión
+0020). Cada defecto sembrado es la siembra —la señal una vez— más el lote de la oficina.
 
 Las dos de `cooperativas` que no dan señal son reglas, no señales: la agenda vieja y la carpeta
 excluida. Cada oficina trae su carpeta al 26 de octubre de 2026: la referencia con sus dos órganos
 y la ficha de la oficina, la agenda exportada en .ics, la sesión pasada de la junta con su acta
 firmada —tres acuerdos, dos compromisos y una decisión pendiente con su propuesta—, la próxima
-sesión de la junta, dos sesiones del comité y cuatro correos guardados.
+sesión de la junta, dos sesiones del comité y cuatro correos guardados, además de su lote.
+
+## El lote
+
+Las señales que se repiten se siembran además en un lote: casi todas en una sesión más del comité,
+la del 5 de octubre, con su acta firmada, y en correos y reuniones propios.
+
+| Defecto del lote | Señal | banca | cooperativas |
+|---|---|---:|---:|
+| Un acuerdo del acta sin responsable | `agreement_without_owner` | 6 | 6 |
+| Un acuerdo del acta sin fecha | `agreement_without_date` | 5 | 6 |
+| Un compromiso vencido entre el 12 y el 17 de octubre, sin un documento que lo sostenga | `commitment_overdue` | 6 | 6 |
+| Un compromiso movido tres veces | `commitment_rescheduled` | 3 | 3 |
+| Una decisión pendiente con su plazo el 3 o el 4 de noviembre | `decision_deadline` | 2 | 2 |
+| Un correo que pide respuesta, con el plazo vencido y sin respuesta | `correspondence_unanswered` | 5 | 5 |
+| Dos reuniones que se cruzan, un día distinto cada par | `meeting_conflict` | 4 | — |
+| Una sesión extraordinaria del comité sin acta firmada pasados quince días | `meeting_without_minutes` | — | 3 |
+
+La agenda de `cooperativas` es vieja: ahí un cruce no se cuenta, y por eso su lote no trae cruces.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 
