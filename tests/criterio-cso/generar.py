@@ -23,6 +23,14 @@ documentos escritos: la evidencia de cada oportunidad, el pronóstico comprometi
 cotización. El motor no la ve; `evaluar.py` compara lo que el motor levanta contra ella, y una señal
 de más cuenta igual que una de menos.
 
+**El lote: la muestra que pide el piso.** Además de la siembra, que pone cada señal una vez, cada
+entidad de industria trae un lote de oportunidades, cotizaciones y contratos con las señales que se
+repiten de una oportunidad a otra —la etapa sin su documento, la detenida, el cierre que se corre, el
+descuento fuera de política, la venta ganada sin contrato y el contrato firmado sin factura—, cada
+una con su propio cliente. Así el material siembra 73 señales o más: lo que pide un piso del 95 %
+sin fallas (decisión 0020). Las del lote cierran en diciembre o son de clientes nuevos, para no
+mover el pronóstico, la meta ni las comisiones de la siembra.
+
 **Las entidades de control no tienen ningún defecto**, y sí los casos que se parecen a uno: un
 cierre que se corrió una sola vez, un descuento alto aprobado por un cargo superior, un contrato
 firmado cuyo plazo de facturación todavía no vence, un proveedor sin factura —no es un cliente—, un
@@ -62,12 +70,14 @@ ENTIDADES = [
      "u": 10_000_000, "n0": 1100, "crm": "salesforce-api", "personas": ("Ana Ruiz", "Luis Mora", "Carla Peña"),
      "clientes": ["Grupo Éxito Andino S.A.", "Comercializadora Norte S.A.S.", "Distribuidora Sur S.A.S.", "Hoteles Caribe S.A.",
                   "Clínica Central S.A.S.", "Colegio Bilingüe S.A.S.", "Constructora Andes S.A.S."],
-     "siembra": ["etapa_sin_evidencia", "cierre_historial", "pronostico_sin_respaldo", "descuento_sin_aprobacion", "ganado_sin_contrato"]},
+     "siembra": ["etapa_sin_evidencia", "cierre_historial", "pronostico_sin_respaldo", "descuento_sin_aprobacion", "ganado_sin_contrato"],
+     "lote": {"etapa_sin_evidencia": 4, "detenida": 3, "cierre_historial": 3, "descuento_sin_aprobacion": 2, "ganado_sin_contrato": 2, "firmado_sin_factura": 2}},
     {"carpeta": "tecnologia-co", "industria": "tecnologia", "pais": "CO", "id": "900876543", "nombre": "Soluciones Digitales Andinas", "moneda": "COP",
      "u": 8_000_000, "n0": 1200, "crm": "hubspot-csv", "personas": ("Diego Lara", "Paula Vega", "Sergio Niño"),
      "clientes": ["Banco Montaña S.A.", "Aseguradora Centro S.A.", "Telecomunicaciones Llano S.A.S.", "Universidad del Río",
                   "Logística Express S.A.S.", "Energía Verde S.A. E.S.P.", "Laboratorios Pacífico S.A."],
-     "siembra": ["detenida", "meta_lejos", "firmado_sin_factura", "comision_distinta", "cierre_cortes"]},
+     "siembra": ["detenida", "meta_lejos", "firmado_sin_factura", "comision_distinta", "cierre_cortes"],
+     "lote": {"etapa_sin_evidencia": 3, "detenida": 3, "cierre_cortes": 3, "firmado_sin_factura": 3, "descuento_sin_aprobacion": 2, "ganado_sin_contrato": 1}},
     {"carpeta": "control-co", "industria": "retail", "pais": "CO", "id": "900000002", "nombre": "Comercial Control Andina", "moneda": "COP",
      "u": 6_000_000, "n0": 1300, "crm": "generico-csv", "personas": ("Elena Duarte", "Jorge Silva", "Natalia Rincón"),
      "clientes": ["Cliente Control Uno S.A.S.", "Cliente Control Dos S.A.S.", "Cliente Control Tres S.A.", "Cliente Control Cuatro S.A.S.",
@@ -78,12 +88,14 @@ ENTIDADES = [
      "clientes": ["Automotriz Norte S.A. de C.V.", "Electrodomésticos del Centro S.A. de C.V.", "Empaques Querétaro S.A. de C.V.",
                   "Ferretera Nacional S.A. de C.V.", "Agroindustrias Jalisco S.A. de C.V.", "Plásticos Monterrey S.A. de C.V.",
                   "Construcciones Puebla S.A. de C.V."],
-     "siembra": ["detenida", "etapa_sin_evidencia", "meta_lejos", "firmado_sin_factura", "descuento_fuera_de_matriz"]},
+     "siembra": ["detenida", "etapa_sin_evidencia", "meta_lejos", "firmado_sin_factura", "descuento_fuera_de_matriz"],
+     "lote": {"etapa_sin_evidencia": 4, "detenida": 4, "firmado_sin_factura": 3, "descuento_fuera_de_matriz": 2, "ganado_sin_contrato": 2}},
     {"carpeta": "servicios-mx", "industria": "servicios", "pais": "MX", "id": "SPM140708QJ2", "nombre": "Servicios Profesionales Mexicanos", "moneda": "MXN",
      "u": 90_000, "n0": 1500, "crm": "generico-xlsx", "personas": ("Fernando Ruiz", "Daniela Ochoa", "Alberto Cano"),
      "clientes": ["Grupo Financiero Azteca S.A.", "Hospitales del Norte S.A. de C.V.", "Retail Moderno S.A. de C.V.", "Minera Sonora S.A. de C.V.",
                   "Transportes Bajío S.A. de C.V.", "Alimentos Yucatán S.A. de C.V.", "Turismo Riviera S.A. de C.V."],
-     "siembra": ["pronostico_sin_respaldo", "ganado_sin_contrato", "comision_distinta", "cierre_cortes"]},
+     "siembra": ["pronostico_sin_respaldo", "ganado_sin_contrato", "comision_distinta", "cierre_cortes"],
+     "lote": {"etapa_sin_evidencia": 3, "detenida": 3, "cierre_cortes": 3, "ganado_sin_contrato": 3, "descuento_sin_aprobacion": 2, "firmado_sin_factura": 1}},
     {"carpeta": "control-mx", "industria": "servicios", "pais": "MX", "id": "CCM101010AB3", "nombre": "Comercial Control de México", "moneda": "MXN",
      "u": 70_000, "n0": 1600, "crm": "hubspot-xlsx", "personas": ("Isabel Méndez", "Óscar Delgado", "Teresa Fuentes"),
      "clientes": ["Cliente Control Norte S.A. de C.V.", "Cliente Control Centro S.A. de C.V.", "Cliente Control Sur S.A. de C.V.",
@@ -119,6 +131,14 @@ def cuenta_crm(e: dict, i: int) -> str:
 
 def d(s: str) -> dt.date:
     return dt.date.fromisoformat(s)
+
+
+def con_lote(e: dict) -> dict:
+    """La entidad con un cliente nuevo por cada caso del lote que lo necesita: una venta ganada sin
+    contrato y un contrato sin factura no pueden ser de un cliente que ya tiene contrato o factura."""
+    n = sum(v for k, v in (e.get("lote") or {}).items() if k in ("ganado_sin_contrato", "firmado_sin_factura"))
+    forma = "S.A. de C.V." if e["pais"] == "MX" else "S.A.S."
+    return dict(e, clientes=e["clientes"] + [f"Cliente Comercial {e['n0'] + 50 + i} {forma}" for i in range(n)])
 
 
 # ================================================================ el escenario de cada entidad
@@ -209,6 +229,59 @@ def escenario(e: dict) -> dict:
     if "comision_distinta" in s:        # se liquidó sobre un monto que no es el de la venta
         liq[p2] = 20 * u * TASA / 100
         esperado.append(("commission_differs_from_plan", f"comision:{PERIODO}:{N.norm(responsable(e, p2))}"))
+    # El lote: las señales que se repiten, cada una en su oportunidad, su cotización o su contrato.
+    lote, k, nuevo = e.get("lote") or {}, 20, 7
+    for _ in range(lote.get("etapa_sin_evidencia", 0)):      # en compromiso, con la propuesta y sin la orden de compra
+        ops.append({"k": k, "nombre": f"Pedido marco {k}", "c": k % 7, "resp": p1, "monto": (8 + k % 5) * u,
+                    "cortes": [("Negociación", "2026-12-12", "2026-09-30"), ("Compromiso", "2026-12-12", "2026-10-15"), ("Compromiso", "2026-12-12", "2026-10-30")]})
+        evid[op(k)] = ["propuesta"]
+        esperado.append(("stage_without_evidence", f"etapa:{op(k)}"))
+        k += 1
+    for _ in range(lote.get("detenida", 0)):                 # sin actividad desde el 5 de septiembre
+        ops.append({"k": k, "nombre": f"Prospecto {k}", "c": k % 7, "resp": p2, "monto": (5 + k % 4) * u,
+                    "cortes": [("Calificación", "2026-12-18", "2026-09-05")] * 3})
+        esperado.append(("stalled_opportunity", f"detenida:{op(k)}"))
+        k += 1
+    for _ in range(lote.get("cierre_historial", 0)):         # el historial de Salesforce: tres veces
+        ops.append({"k": k, "nombre": f"Renovación anual {k}", "c": k % 7, "resp": p1, "monto": (6 + k % 3) * u,
+                    "cortes": [("Calificación", "2026-12-01", "2026-09-29"), ("Calificación", "2026-12-01", "2026-10-14"), ("Calificación", "2026-12-20", "2026-10-31")],
+                    "historia": [("2026-11-08", "2026-11-20"), ("2026-11-20", "2026-12-01"), ("2026-12-01", "2026-12-20")]})
+        esperado.append(("close_date_slipped", f"corre:{op(k)}"))
+        k += 1
+    for _ in range(lote.get("cierre_cortes", 0)):            # dos veces de un corte a otro, con el umbral de una
+        ops.append({"k": k, "nombre": f"Licencias adicionales {k}", "c": k % 7, "resp": p1, "monto": (6 + k % 3) * u,
+                    "cortes": [("Calificación", "2026-11-20", "2026-09-29"), ("Calificación", "2026-12-04", "2026-10-14"), ("Calificación", "2026-12-18", "2026-10-31")]})
+        esperado.append(("close_date_slipped", f"corre:{op(k)}"))
+        k += 1
+    for sig in ("descuento_sin_aprobacion", "descuento_fuera_de_matriz"):
+        for _ in range(lote.get(sig, 0)):                    # cada cotización, en su oportunidad en negociación
+            ops.append({"k": k, "nombre": f"Cotización especial {k}", "c": k % 7, "resp": p2, "monto": (9 + k % 4) * u,
+                        "cortes": [("Propuesta", "2026-12-10", "2026-09-28"), ("Negociación", "2026-12-10", "2026-10-13"), ("Negociación", "2026-12-10", "2026-10-29")]})
+            evid[op(k)] = ["propuesta"]
+            n = len(cot) + 1
+            cot.append({"n": n, "k": k, "lista": (10 + k % 4) * u, "pct": 22 if sig == "descuento_sin_aprobacion" else 35,
+                        "aprobo": "Marta Gil" if sig == "descuento_sin_aprobacion" else "Ricardo Paz",
+                        "cargo": "Gerente comercial" if sig == "descuento_sin_aprobacion" else "Gerente general", "fecha": "2026-10-21"})
+            esperado.append(("discount_outside_policy", f"descuento:COT-{n0 + n}"))
+            k += 1
+    for j in range(lote.get("ganado_sin_contrato", 0)):      # ganada en octubre con un cliente nuevo, sin contrato
+        cierre = f"2026-10-{6 + j:02d}"
+        ops.append({"k": k, "nombre": f"Venta directa {k}", "c": nuevo, "resp": p3, "monto": (3 + j) * u,
+                    "cortes": [("Compromiso", cierre, "2026-09-30"), ("Ganada", cierre, cierre), ("Ganada", cierre, cierre)]})
+        evid[op(k)] = ["propuesta", "orden_compra"]
+        cerrado += (3 + j) * u
+        esperado.append(("won_without_contract", f"contrato:{op(k)}"))
+        k += 1
+        nuevo += 1
+    for j in range(lote.get("firmado_sin_factura", 0)):      # firmado en septiembre con un cliente nuevo, sin factura
+        code = f"CTR-{n0 + 30 + j}"
+        contratos.append({"code": code, "c": nuevo, "firmado": f"2026-09-{8 + j:02d}", "valor": (3 + j) * u})
+        esperado.append(("signed_without_invoice", f"factura:{code}"))
+        nuevo += 1
+    if lote.get("ganado_sin_contrato"):                      # lo ganado del lote entra al comprometido y a la meta
+        comite["comprometido"] = round(cerrado * (1.5 if "pronostico_sin_respaldo" in s else 1.05))
+        comite["mejor"] = round(cerrado * 1.6)
+        meta = round(cerrado * (1.4 if "meta_lejos" in s else 1.05))
     return {"ops": ops, "evid": evid, "comite": comite, "meta": meta, "cot": cot, "contratos": contratos, "facturas": facturas,
             "liq": liq, "esperado": esperado, "umbrales": umbrales, "op": op}
 
@@ -294,6 +367,7 @@ def mon(x: float, e: dict) -> str:
 
 
 def una(e: dict) -> dict:
+    e = con_lote(e)
     esc = escenario(e)
     base = SALIDA / e["carpeta"]
     nombre_dir = f"{e['id']}-{N.norm(e['nombre']).replace('_', '-')}"

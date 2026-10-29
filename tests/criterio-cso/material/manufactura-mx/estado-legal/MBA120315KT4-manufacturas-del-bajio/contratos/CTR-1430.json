@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1430",
+  "counterparty": {
+    "name": "Cliente Comercial 1452 S.A. de C.V.",
+    "id": "CMA190110J92"
+  },
+  "value": 360000,
+  "start": "2026-09-08",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-08",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1430/10-contrato/contrato.pdf"
+}

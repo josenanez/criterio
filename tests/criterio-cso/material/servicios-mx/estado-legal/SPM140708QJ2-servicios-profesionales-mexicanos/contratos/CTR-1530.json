@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1530",
+  "counterparty": {
+    "name": "Cliente Comercial 1553 S.A. de C.V.",
+    "id": "CSE200211K103"
+  },
+  "value": 270000,
+  "start": "2026-09-08",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-08",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1530/10-contrato/contrato.pdf"
+}

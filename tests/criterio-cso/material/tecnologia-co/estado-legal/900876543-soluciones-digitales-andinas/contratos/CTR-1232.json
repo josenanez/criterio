@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1232",
+  "counterparty": {
+    "name": "Cliente Comercial 1253 S.A.S.",
+    "id": "830012010"
+  },
+  "value": 40000000,
+  "start": "2026-09-10",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-10",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1232/10-contrato/contrato.pdf"
+}

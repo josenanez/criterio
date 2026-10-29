@@ -108,10 +108,80 @@
           "amount": 1425600,
           "date": "2026-09-18",
           "source": "30-evidencia/OPP-1407_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1420",
+          "type": "propuesta",
+          "amount": 1036800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1420_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1421",
+          "type": "propuesta",
+          "amount": 1166400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1421_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1422",
+          "type": "propuesta",
+          "amount": 1296000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1422_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1423",
+          "type": "propuesta",
+          "amount": 1425600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1423_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1428",
+          "type": "propuesta",
+          "amount": 1166400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1428_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1429",
+          "type": "propuesta",
+          "amount": 1296000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1429_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1430",
+          "type": "propuesta",
+          "amount": 388800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1430_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1430",
+          "type": "orden_compra",
+          "amount": 360000,
+          "date": "2026-10-06",
+          "source": "30-evidencia/OPP-1430_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1431",
+          "type": "propuesta",
+          "amount": 518400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1431_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1431",
+          "type": "orden_compra",
+          "amount": 480000,
+          "date": "2026-10-07",
+          "source": "30-evidencia/OPP-1431_orden-compra.pdf"
         }
       ],
       "declared_forecast": {
-        "value": 3780000,
+        "value": 4662000,
         "date": "2026-10-02",
         "source": "20-comite/acta-comite-2026-10-02.docx"
       },
@@ -148,6 +218,26 @@
           "approver_role": "gerente general",
           "approved_on": "2026-10-20",
           "source": "40-cotizaciones/COT-1403_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1404",
+          "opportunity": "OPP-1428",
+          "list_amount": 1200000,
+          "discount_pct": 35,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-1404_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1405",
+          "opportunity": "OPP-1429",
+          "list_amount": 1320000,
+          "discount_pct": 35,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-1405_cotizacion.pdf"
         }
       ],
       "questions": []
@@ -159,20 +249,80 @@
       "key": "descuento:COT-1403"
     },
     {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1404"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1405"
+    },
+    {
       "signal": "signed_without_invoice",
       "key": "factura:CTR-1405"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1430"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1431"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1432"
     },
     {
       "signal": "stage_without_evidence",
       "key": "etapa:OPP-1403"
     },
     {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1420"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1421"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1422"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1423"
+    },
+    {
       "signal": "stalled_opportunity",
       "key": "detenida:OPP-1405"
     },
     {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1424"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1425"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1426"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1427"
+    },
+    {
       "signal": "target_vs_closed",
       "key": "meta:2026-10"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1430"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1431"
     }
   ]
 }

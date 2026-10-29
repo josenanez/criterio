@@ -9,18 +9,21 @@ cifras son sintéticos.
 
 | Carpeta del material | País | Industria | Exportación del CRM | Defectos sembrados | Señales esperadas |
 |---|---|---|---|---:|---:|
-| `retail-co` | Colombia | Retail | Salesforce por API, en CSV, con el historial de campos | 5 | 5 |
-| `tecnologia-co` | Colombia | Tecnología | HubSpot, en CSV | 5 | 5 |
+| `retail-co` | Colombia | Retail | Salesforce por API, en CSV, con el historial de campos | 5 + 16 | 21 |
+| `tecnologia-co` | Colombia | Tecnología | HubSpot, en CSV | 5 + 15 | 20 |
 | `control-co` | Colombia | Retail | Un CRM cualquiera, en CSV, con su mapeo de columnas | 0 | 0 |
-| `manufactura-mx` | México | Manufactura | Salesforce desde un informe, en CSV, con las fechas mes/día | 5 | 5 |
-| `servicios-mx` | México | Servicios | Un CRM cualquiera, en Excel, con su mapeo de columnas | 4 | 4 |
+| `manufactura-mx` | México | Manufactura | Salesforce desde un informe, en CSV, con las fechas mes/día | 5 + 15 | 20 |
+| `servicios-mx` | México | Servicios | Un CRM cualquiera, en Excel, con su mapeo de columnas | 4 + 15 | 19 |
 | `control-mx` | México | Servicios | HubSpot, en Excel | 0 | 0 |
+
+En total, **80 señales sembradas**: más de las 73 que pide un piso del 95 % sin fallas (decisión
+0020). Cada defecto sembrado es la siembra —la señal una vez— más el lote de la entidad.
 
 Cada entidad trae su carpeta comercial al 5 de noviembre de 2026, con octubre cerrado: la tabla de
 etapas, las metas, la matriz de descuentos, la tabla de cuentas y el plan de comisiones; tres
 exportaciones del CRM —el 1 y el 16 de octubre y el 3 de noviembre—; el acta del comité del 2 de
 octubre, en Word, con el pronóstico comprometido; la evidencia de cada oportunidad —la propuesta en
-Markdown, la orden de compra en PDF—; tres cotizaciones en PDF; y la liquidación de comisiones de
+Markdown, la orden de compra en PDF—; las cotizaciones en PDF; y la liquidación de comisiones de
 octubre. Trae además, como las dejarían los otros agentes, las fichas de los contratos de Fidel y
 las facturas emitidas de los cierres de septiembre y octubre de Clara.
 
@@ -39,6 +42,23 @@ las facturas emitidas de los cierres de septiembre y octubre de Clara.
 | Una venta ganada el 5 de octubre sin contrato en las fichas de Fidel | `won_without_contract` | retail-co, servicios-mx |
 | Un contrato firmado con un cliente el 10 de septiembre sin factura en las fichas de Clara hasta el 10 de octubre | `signed_without_invoice` | tecnologia-co, manufactura-mx |
 | Una comisión liquidada sobre un monto que no es el de la venta | `commission_differs_from_plan` | tecnologia-co, servicios-mx |
+
+## El lote
+
+Las señales que se repiten de una oportunidad a otra se siembran además en un lote, cada una en su
+propia oportunidad, cotización o contrato. Las del lote cierran en diciembre o son de clientes
+nuevos: no mueven el pronóstico, la meta ni las comisiones de la siembra.
+
+| Defecto del lote | Señal | retail-co | tecnologia-co | manufactura-mx | servicios-mx |
+|---|---|---:|---:|---:|---:|
+| Una oportunidad en compromiso con la propuesta y sin la orden de compra | `stage_without_evidence` | 4 | 3 | 4 | 3 |
+| Una oportunidad sin actividad desde el 5 de septiembre | `stalled_opportunity` | 3 | 3 | 4 | 3 |
+| Una fecha de cierre corrida tres veces, según el historial de Salesforce | `close_date_slipped` | 3 | — | — | — |
+| Una fecha de cierre corrida dos veces de un corte a otro, con el umbral de una | `close_date_slipped` | — | 3 | — | 3 |
+| Un 22 % del nivel 3 aprobado por el cargo del nivel 2 | `discount_outside_policy` | 2 | 2 | — | 2 |
+| Un 35 % que ningún nivel cubre | `discount_outside_policy` | — | — | 2 | — |
+| Una venta ganada en octubre con un cliente nuevo, sin contrato | `won_without_contract` | 2 | 1 | 2 | 3 |
+| Un contrato firmado en septiembre con un cliente nuevo, sin factura | `signed_without_invoice` | 2 | 3 | 3 | 1 |
 
 ## Lo que se parece a un defecto y no lo es
 

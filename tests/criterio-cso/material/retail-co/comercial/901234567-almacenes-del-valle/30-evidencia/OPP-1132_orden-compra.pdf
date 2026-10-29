@@ -1,0 +1,40 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /Lang (es) /ViewerPreferences << /DisplayDocTitle true >> >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Length 297 >>
+stream
+BT /F1 14 Tf 50 774 Td (Orden de compra) Tj ET
+BT /F1 10 Tf 50 755 Td (Emitida por: Cliente Comercial 1150 S.A.S.) Tj ET
+BT /F1 10 Tf 50 740 Td (Referencia de la oportunidad: OPP-1132) Tj ET
+BT /F1 10 Tf 50 725 Td (Fecha: 2026-10-06) Tj ET
+BT /F1 10 Tf 50 710 Td (Valor total: $ 30.000.000) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Title (Orden de compra) /Producer (Criterio) >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000116 00000 n 
+0000000173 00000 n 
+0000000270 00000 n 
+0000000617 00000 n 
+0000000743 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R /Info 6 0 R >>
+startxref
+810
+%%EOF

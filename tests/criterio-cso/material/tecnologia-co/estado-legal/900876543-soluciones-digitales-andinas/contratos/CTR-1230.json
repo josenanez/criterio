@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1230",
+  "counterparty": {
+    "name": "Cliente Comercial 1251 S.A.S.",
+    "id": "830012008"
+  },
+  "value": 24000000,
+  "start": "2026-09-08",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-08",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1230/10-contrato/contrato.pdf"
+}

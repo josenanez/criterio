@@ -123,10 +123,59 @@
           "amount": 95040000,
           "date": "2026-09-18",
           "source": "30-evidencia/OPP-1207_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1220",
+          "type": "propuesta",
+          "amount": 69120000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1220_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1221",
+          "type": "propuesta",
+          "amount": 77760000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1221_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1222",
+          "type": "propuesta",
+          "amount": 86400000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1222_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1229",
+          "type": "propuesta",
+          "amount": 86400000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1229_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1230",
+          "type": "propuesta",
+          "amount": 95040000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1230_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1231",
+          "type": "propuesta",
+          "amount": 25920000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1231_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1231",
+          "type": "orden_compra",
+          "amount": 24000000,
+          "date": "2026-10-06",
+          "source": "30-evidencia/OPP-1231_orden-compra.pdf"
         }
       ],
       "declared_forecast": {
-        "value": 252000000,
+        "value": 277200000,
         "date": "2026-10-02",
         "source": "20-comite/acta-comite-2026-10-02.docx"
       },
@@ -163,6 +212,26 @@
           "approver_role": "gerente general",
           "approved_on": "2026-10-20",
           "source": "40-cotizaciones/COT-1203_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1204",
+          "opportunity": "OPP-1229",
+          "list_amount": 88000000,
+          "discount_pct": 22,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-1204_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1205",
+          "opportunity": "OPP-1230",
+          "list_amount": 96000000,
+          "discount_pct": 22,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-1205_cotizacion.pdf"
         }
       ],
       "questions": []
@@ -174,20 +243,80 @@
       "key": "corre:OPP-1204"
     },
     {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1226"
+    },
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1227"
+    },
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1228"
+    },
+    {
       "signal": "commission_differs_from_plan",
       "key": "comision:2026-10:paula_vega"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1204"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1205"
     },
     {
       "signal": "signed_without_invoice",
       "key": "factura:CTR-1205"
     },
     {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1230"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1231"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1232"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1220"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1221"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1222"
+    },
+    {
       "signal": "stalled_opportunity",
       "key": "detenida:OPP-1205"
     },
     {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1223"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1224"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1225"
+    },
+    {
       "signal": "target_vs_closed",
       "key": "meta:2026-10"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1231"
     }
   ]
 }
