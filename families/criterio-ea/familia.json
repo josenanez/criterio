@@ -1,6 +1,7 @@
 {
   "nota": "Fuente única de la agente, los comandos y las señales de la familia EA: scripts/familias.py escribe sus tablas en DISENO.es.md, en el README de la familia y en el del plugin, y el portal publica su soporte con scripts/criterio-familias.mjs.",
   "sigla": "ea",
+  "lanzamiento": "2026-10-26",
   "orden": 40,
   "adr": "0012-scope-asistente-ejecutivo.md",
   "nombre": {

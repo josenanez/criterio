@@ -75,7 +75,7 @@ corrida de la ronda 11, y el motor se prueba sobre todo el material con cada cam
 | PMO | Semana del 2026-10-19 | Estable | 1.0.0 |
 | CFO | Semana del 2026-10-26 | Estable | 1.0.0 |
 | CLO | Sin lanzar | Estable | 1.0.0, por la excepción de la 0.12 |
-| EA | Sin lanzar | Laboratorio | 1.0.0, por la excepción de la 0.12 |
+| EA | Semana del 2026-10-26 | Laboratorio | Se lanza con su 0.12.1; su primera versión estable, la 1.0.0 |
 | CSO | Sin lanzar | Laboratorio | Se publica en la 0.1.0; la 0.2.0 trae su ronda |
 
 ## Consecuencias
@@ -83,7 +83,7 @@ corrida de la ronda 11, y el motor se prueba sobre todo el material con cada cam
 - La CSO sale al marketplace y al portal con su versión 0.1.0: el motor probado, como laboratorio y
   sin lanzar. Su ronda con los agentes se instala igual que la de las demás familias, y pasa a la
   0.2.0, junto con un material que siembra al menos 73 señales.
-- La CLO y la EA dejan de marcar «Corre hoy» hasta la semana de su lanzamiento. Siguen publicadas y
-  se pueden instalar.
+- La CLO deja de marcar «Corre hoy» hasta la semana de su lanzamiento. Sigue publicada y se puede
+  instalar. La EA se lanza la semana del 2026-10-26 con su versión de laboratorio.
 - La decisión 0020 queda modificada en un punto: la CSO no tiene que recorrer su década completa para
   llegar a la 1.0; la abre su lanzamiento, si es estable.
