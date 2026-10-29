@@ -402,7 +402,8 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
         return 0
     # El commit de la versión lleva el registro, los números de versión y las copias; la
     # etiqueta va sobre ese commit, el que contiene la entrada.
-    git("add", "registro", ".claude-plugin", "plugins", "families")
+    # La hoja de ruta de todas las familias, docs/hoja-de-ruta.*, también la regenera hoja.py.
+    git("add", "registro", ".claude-plugin", "plugins", "families", "docs/hoja-de-ruta.md", "docs/hoja-de-ruta.es.md")
     git("commit", "-q", "-m", f"Release {v}, entered in the version register")
     git("tag", "-a", f"v{v}", "-m", f"Criterio {v} · entrada SHA-256 {e['sha256']}")
     print(f"  commit {git('rev-parse', '--short', 'HEAD').strip()} y etiqueta v{v}. "
