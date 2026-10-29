@@ -13,61 +13,66 @@
 <line x1="60" x2="700" y1="110.0" y2="110.0" stroke="#2b2b28"/><text x="52" y="114.0" text-anchor="end" fill="#8a867e">100 %</text>
 <line x1="60" x2="700" y1="112.2" y2="112.2" stroke="#8a867e" stroke-dasharray="4 4"/><text x="706" y="116.2" fill="#8a867e">99 %</text>
 <text x="60.0" y="350" text-anchor="middle" fill="#8a867e">R1</text>
-<text x="124.0" y="350" text-anchor="middle" fill="#8a867e">R2</text>
-<text x="188.0" y="350" text-anchor="middle" fill="#8a867e">R3</text>
-<text x="252.0" y="350" text-anchor="middle" fill="#8a867e">R4</text>
-<text x="316.0" y="350" text-anchor="middle" fill="#8a867e">R5</text>
-<text x="380.0" y="350" text-anchor="middle" fill="#8a867e">R6</text>
-<text x="444.0" y="350" text-anchor="middle" fill="#8a867e">R7</text>
-<text x="508.0" y="350" text-anchor="middle" fill="#8a867e">R8</text>
-<text x="572.0" y="350" text-anchor="middle" fill="#8a867e">R9</text>
-<text x="636.0" y="350" text-anchor="middle" fill="#8a867e">R10</text>
-<text x="700.0" y="350" text-anchor="middle" fill="#8a867e">R11</text>
-<path d="M60.0,114.6 L124.0,116.6 L188.0,113.5 L252.0,112.9 L316.0,114.8 L380.0,110.0 L444.0,110.0 L508.0,110.9 L572.0,110.9 L636.0,110.0 L700.0,110.0" fill="none" stroke="#d5a84b" stroke-width="2.5"/>
+<text x="118.2" y="350" text-anchor="middle" fill="#8a867e">R2</text>
+<text x="176.4" y="350" text-anchor="middle" fill="#8a867e">R3</text>
+<text x="234.5" y="350" text-anchor="middle" fill="#8a867e">R4</text>
+<text x="292.7" y="350" text-anchor="middle" fill="#8a867e">R5</text>
+<text x="350.9" y="350" text-anchor="middle" fill="#8a867e">R6</text>
+<text x="409.1" y="350" text-anchor="middle" fill="#8a867e">R7</text>
+<text x="467.3" y="350" text-anchor="middle" fill="#8a867e">R8</text>
+<text x="525.5" y="350" text-anchor="middle" fill="#8a867e">R9</text>
+<text x="583.6" y="350" text-anchor="middle" fill="#8a867e">R10</text>
+<text x="641.8" y="350" text-anchor="middle" fill="#8a867e">R11</text>
+<text x="700.0" y="350" text-anchor="middle" fill="#8a867e">R12</text>
+<path d="M60.0,114.6 L118.2,116.6 L176.4,113.5 L234.5,112.9 L292.7,114.8 L350.9,110.0 L409.1,110.0 L467.3,110.9 L525.5,110.9 L583.6,110.0 L641.8,110.0 L700.0,110.0" fill="none" stroke="#d5a84b" stroke-width="2.5"/>
 <circle cx="60.0" cy="114.6" r="3.5" fill="#d5a84b"/>
-<circle cx="124.0" cy="116.6" r="3.5" fill="#d5a84b"/>
-<circle cx="188.0" cy="113.5" r="3.5" fill="#d5a84b"/>
-<circle cx="252.0" cy="112.9" r="3.5" fill="#d5a84b"/>
-<circle cx="316.0" cy="114.8" r="3.5" fill="#d5a84b"/>
-<circle cx="380.0" cy="110.0" r="3.5" fill="#d5a84b"/>
-<circle cx="444.0" cy="110.0" r="3.5" fill="#d5a84b"/>
-<circle cx="508.0" cy="110.9" r="3.5" fill="#d5a84b"/>
-<circle cx="572.0" cy="110.9" r="3.5" fill="#d5a84b"/>
-<circle cx="636.0" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="118.2" cy="116.6" r="3.5" fill="#d5a84b"/>
+<circle cx="176.4" cy="113.5" r="3.5" fill="#d5a84b"/>
+<circle cx="234.5" cy="112.9" r="3.5" fill="#d5a84b"/>
+<circle cx="292.7" cy="114.8" r="3.5" fill="#d5a84b"/>
+<circle cx="350.9" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="409.1" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="467.3" cy="110.9" r="3.5" fill="#d5a84b"/>
+<circle cx="525.5" cy="110.9" r="3.5" fill="#d5a84b"/>
+<circle cx="583.6" cy="110.0" r="3.5" fill="#d5a84b"/>
+<circle cx="641.8" cy="110.0" r="3.5" fill="#d5a84b"/>
 <circle cx="700.0" cy="110.0" r="3.5" fill="#d5a84b"/>
-<path d="M60.0,165.0 L124.0,146.7 L188.0,160.8 L252.0,118.4 L316.0,114.2 L380.0,112.0 L444.0,110.0 L508.0,110.0 L572.0,110.0 L636.0,110.0 L700.0,110.0" fill="none" stroke="#4f86c6" stroke-width="2.5"/>
+<path d="M60.0,165.0 L118.2,146.7 L176.4,160.8 L234.5,118.4 L292.7,114.2 L350.9,112.0 L409.1,110.0 L467.3,110.0 L525.5,110.0 L583.6,110.0 L641.8,110.0 L700.0,110.0" fill="none" stroke="#4f86c6" stroke-width="2.5"/>
 <circle cx="60.0" cy="165.0" r="3.5" fill="#4f86c6"/>
-<circle cx="124.0" cy="146.7" r="3.5" fill="#4f86c6"/>
-<circle cx="188.0" cy="160.8" r="3.5" fill="#4f86c6"/>
-<circle cx="252.0" cy="118.4" r="3.5" fill="#4f86c6"/>
-<circle cx="316.0" cy="114.2" r="3.5" fill="#4f86c6"/>
-<circle cx="380.0" cy="112.0" r="3.5" fill="#4f86c6"/>
-<circle cx="444.0" cy="110.0" r="3.5" fill="#4f86c6"/>
-<circle cx="508.0" cy="110.0" r="3.5" fill="#4f86c6"/>
-<circle cx="572.0" cy="110.0" r="3.5" fill="#4f86c6"/>
-<circle cx="636.0" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="118.2" cy="146.7" r="3.5" fill="#4f86c6"/>
+<circle cx="176.4" cy="160.8" r="3.5" fill="#4f86c6"/>
+<circle cx="234.5" cy="118.4" r="3.5" fill="#4f86c6"/>
+<circle cx="292.7" cy="114.2" r="3.5" fill="#4f86c6"/>
+<circle cx="350.9" cy="112.0" r="3.5" fill="#4f86c6"/>
+<circle cx="409.1" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="467.3" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="525.5" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="583.6" cy="110.0" r="3.5" fill="#4f86c6"/>
+<circle cx="641.8" cy="110.0" r="3.5" fill="#4f86c6"/>
 <circle cx="700.0" cy="110.0" r="3.5" fill="#4f86c6"/>
-<path d="M60.0,330.0 L124.0,135.5 L188.0,111.5 L252.0,126.5 L316.0,110.0 L380.0,110.0 L444.0,110.0 L508.0,110.0 L572.0,110.0 L636.0,110.0 L700.0,110.0" fill="none" stroke="#3f9a6a" stroke-width="2.5"/>
+<path d="M60.0,330.0 L118.2,135.5 L176.4,111.5 L234.5,126.5 L292.7,110.0 L350.9,110.0 L409.1,110.0 L467.3,110.0 L525.5,110.0 L583.6,110.0 L641.8,110.0 L700.0,110.0" fill="none" stroke="#3f9a6a" stroke-width="2.5"/>
 <circle cx="60.0" cy="330.0" r="3.5" fill="#3f9a6a"/>
-<circle cx="124.0" cy="135.5" r="3.5" fill="#3f9a6a"/>
-<circle cx="188.0" cy="111.5" r="3.5" fill="#3f9a6a"/>
-<circle cx="252.0" cy="126.5" r="3.5" fill="#3f9a6a"/>
-<circle cx="316.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
-<circle cx="380.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
-<circle cx="444.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
-<circle cx="508.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
-<circle cx="572.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
-<circle cx="636.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="118.2" cy="135.5" r="3.5" fill="#3f9a6a"/>
+<circle cx="176.4" cy="111.5" r="3.5" fill="#3f9a6a"/>
+<circle cx="234.5" cy="126.5" r="3.5" fill="#3f9a6a"/>
+<circle cx="292.7" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="350.9" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="409.1" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="467.3" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="525.5" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="583.6" cy="110.0" r="3.5" fill="#3f9a6a"/>
+<circle cx="641.8" cy="110.0" r="3.5" fill="#3f9a6a"/>
 <circle cx="700.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
-<path d="M124.0,154.4 L188.0,111.8 L252.0,110.4 L316.0,110.0 L380.0,110.2 L444.0,110.0 L508.0,111.5 L572.0,110.0 L636.0,110.0 L700.0,110.2" fill="none" stroke="#a46fc9" stroke-width="2.5"/>
-<circle cx="124.0" cy="154.4" r="3.5" fill="#a46fc9"/>
-<circle cx="188.0" cy="111.8" r="3.5" fill="#a46fc9"/>
-<circle cx="252.0" cy="110.4" r="3.5" fill="#a46fc9"/>
-<circle cx="316.0" cy="110.0" r="3.5" fill="#a46fc9"/>
-<circle cx="380.0" cy="110.2" r="3.5" fill="#a46fc9"/>
-<circle cx="444.0" cy="110.0" r="3.5" fill="#a46fc9"/>
-<circle cx="508.0" cy="111.5" r="3.5" fill="#a46fc9"/>
-<circle cx="572.0" cy="110.0" r="3.5" fill="#a46fc9"/>
-<circle cx="636.0" cy="110.0" r="3.5" fill="#a46fc9"/>
-<circle cx="700.0" cy="110.2" r="3.5" fill="#a46fc9"/>
+<path d="M118.2,154.4 L176.4,111.8 L234.5,110.4 L292.7,110.0 L350.9,110.2 L409.1,110.0 L467.3,111.5 L525.5,110.0 L583.6,110.0 L641.8,110.2 L700.0,110.0" fill="none" stroke="#a46fc9" stroke-width="2.5"/>
+<circle cx="118.2" cy="154.4" r="3.5" fill="#a46fc9"/>
+<circle cx="176.4" cy="111.8" r="3.5" fill="#a46fc9"/>
+<circle cx="234.5" cy="110.4" r="3.5" fill="#a46fc9"/>
+<circle cx="292.7" cy="110.0" r="3.5" fill="#a46fc9"/>
+<circle cx="350.9" cy="110.2" r="3.5" fill="#a46fc9"/>
+<circle cx="409.1" cy="110.0" r="3.5" fill="#a46fc9"/>
+<circle cx="467.3" cy="111.5" r="3.5" fill="#a46fc9"/>
+<circle cx="525.5" cy="110.0" r="3.5" fill="#a46fc9"/>
+<circle cx="583.6" cy="110.0" r="3.5" fill="#a46fc9"/>
+<circle cx="641.8" cy="110.2" r="3.5" fill="#a46fc9"/>
+<circle cx="700.0" cy="110.0" r="3.5" fill="#a46fc9"/>
 </svg>

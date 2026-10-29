@@ -8,7 +8,7 @@
     python3 tests/banco.py verificar
     python3 tests/banco.py tabla
 
-Entornos: bancos, cooperativas, retail, mineria, construccion, oil-gas (`tests/sintetico/sectores.py`).
+Entornos: bancos, cooperativas, retail, mineria, construccion, oil-gas, telecomunicaciones, logistica (`tests/sintetico/sectores.py`).
 
 **Qué mide.** La cadena completa: el comando que el modelo ejecuta, los skills que carga y
 las fichas que escribe leyendo documentos; después el script calcula las señales sobre

@@ -8354,5 +8354,326 @@
   "errores": {},
   "origen": null,
   "nota": "ronda 11"
+ },
+ {
+  "id": "2026-10-28-telecomunicaciones-vera-53",
+  "fecha": "2026-10-28",
+  "corte": "2026-10-28",
+  "entorno": "telecomunicaciones",
+  "industria": "Empresas de telecomunicaciones de Suramérica",
+  "etiqueta": "Empresas de telecomunicaciones de Suramérica · redes móviles, fibra y servicios empresariales",
+  "material": "ronda-12",
+  "agente": "vera",
+  "version": "1.0.0",
+  "tipo": "primera",
+  "codigo": "543d1e4b",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 70,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   94.8,
+   100.0
+  ],
+  "ic_cobertura": [
+   94.8,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    10,
+    0,
+    0
+   ],
+   "PRY-201": [
+    9,
+    0,
+    0
+   ],
+   "PRY-202": [
+    6,
+    0,
+    0
+   ],
+   "PRY-203": [
+    0,
+    0,
+    0
+   ],
+   "PRY-204": [
+    2,
+    0,
+    0
+   ],
+   "PRY-205": [
+    2,
+    0,
+    0
+   ],
+   "PRY-206": [
+    5,
+    0,
+    0
+   ],
+   "PRY-207": [
+    4,
+    0,
+    0
+   ],
+   "PRY-208": [
+    0,
+    0,
+    0
+   ],
+   "PRY-209": [
+    5,
+    0,
+    0
+   ],
+   "PRY-210": [
+    6,
+    0,
+    0
+   ],
+   "PRY-211": [
+    21,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "commitment_overdue": {
+    "aciertos": 9,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_rescheduled": {
+    "aciertos": 7,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 20,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 7,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "rebaseline_unauthorized": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_cost": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 5,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_accepted_without_evidence": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_deliverable_late": {
+    "aciertos": 10,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_invoiced_over_accepted": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "vendor_invoiced_without_delivery": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 12"
+ },
+ {
+  "id": "2026-10-28-logistica-vera-54",
+  "fecha": "2026-10-28",
+  "corte": "2026-10-28",
+  "entorno": "logistica",
+  "industria": "Empresas de logística de Suramérica",
+  "etiqueta": "Empresas de logística de Suramérica · centros de distribución, transporte y última milla",
+  "material": "ronda-12",
+  "agente": "vera",
+  "version": "1.0.0",
+  "tipo": "primera",
+  "codigo": "543d1e4b",
+  "modelo": "claude-sonnet-5-5",
+  "proyectos": 13,
+  "fichas": 13,
+  "aciertos": 49,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "precision": 100.0,
+  "cobertura": 100.0,
+  "ic_precision": [
+   92.7,
+   100.0
+  ],
+  "ic_cobertura": [
+   92.7,
+   100.0
+  ],
+  "controles": 1,
+  "controles_limpios": 1,
+  "por_caso": {
+   "PRY-199": [
+    0,
+    0,
+    0
+   ],
+   "PRY-200": [
+    3,
+    0,
+    0
+   ],
+   "PRY-201": [
+    4,
+    0,
+    0
+   ],
+   "PRY-202": [
+    6,
+    0,
+    0
+   ],
+   "PRY-203": [
+    1,
+    0,
+    0
+   ],
+   "PRY-204": [
+    13,
+    0,
+    0
+   ],
+   "PRY-205": [
+    5,
+    0,
+    0
+   ],
+   "PRY-206": [
+    5,
+    0,
+    0
+   ],
+   "PRY-207": [
+    6,
+    0,
+    0
+   ],
+   "PRY-208": [
+    4,
+    0,
+    0
+   ],
+   "PRY-209": [
+    2,
+    0,
+    0
+   ],
+   "PRY-210": [
+    0,
+    0,
+    0
+   ],
+   "PRY-211": [
+    0,
+    0,
+    0
+   ]
+  },
+  "por_senal": {
+   "change_without_baseline": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_overdue": {
+    "aciertos": 9,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_rescheduled": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "commitment_undated": {
+    "aciertos": 3,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "declared_vs_evidence": {
+    "aciertos": 7,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "milestone_met_without_evidence": {
+    "aciertos": 16,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "progress_vs_plan": {
+    "aciertos": 5,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "rebaseline_unauthorized": {
+    "aciertos": 1,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "silent": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   },
+   "variance_time": {
+    "aciertos": 2,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0
+   }
+  },
+  "errores": {},
+  "origen": null,
+  "nota": "ronda 12"
  }
 ]

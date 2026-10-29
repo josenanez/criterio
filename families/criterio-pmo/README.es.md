@@ -336,7 +336,7 @@ con cada ronda, y `verificar.py` comprueba que diga lo que dice la evidencia.
 
 <!-- industrias: generado por scripts/industrias.py desde industrias.json; no se edita a mano -->
 
-Probada en 6 industrias de Suramérica, con 13 proyectos por industria en la última ronda. Las siguientes entran de dos en dos, cada una con su versión y su ronda completa.
+Probada en 8 industrias de Suramérica, con 13 proyectos por industria en la última ronda. Las siguientes entran de dos en dos, cada una con su versión y su ronda completa.
 
 | Industria | Estado | Qué trae a las pruebas |
 |---|---|---|
@@ -346,8 +346,8 @@ Probada en 6 industrias de Suramérica, con 13 proyectos por industria en la úl
 | Minería (oro y cobre) | Probada · rondas 1–11 | Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje |
 | Construcción e infraestructura | Probada · rondas 11 | Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero |
 | Oil & gas | Probada · rondas 11 | Megaproyectos de capital, contratistas, permisos y seguridad industrial |
-| Telecomunicaciones | Incremento 5 · versión 1.0.0 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
-| Logística | Incremento 5 · versión 1.0.0 | Implantaciones en varios centros con una operación que no se detiene |
+| Telecomunicaciones | Probada · rondas 12 | Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio |
+| Logística | Probada · rondas 12 | Implantaciones en varios centros con una operación que no se detiene |
 
 <!-- /industrias -->
 
@@ -363,7 +363,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 0.7.0 | Liberada | **Cronogramas de Microsoft Project**<br>· El XML de Project como cronograma: tareas, hitos, línea base, avance, predecesoras y recursos; el .mpp donde haya Java y MPXJ<br>· La estructura de carpetas recomendada<br>· El contraste entre la ficha del gerente y la de la PMO como lo define el skill<br>· El análisis estadístico, regenerado con cada prueba<br>· Esta hoja de ruta, desde una sola fuente | 4 industrias, 80 proyectos |
 | 0.8.0 | Liberada | **Rostrum para todas las familias, y la CFO y la CLO**<br>· Rostrum, un plugin propio para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· Las familias CFO y CLO, con el motor probado y una primera ronda con el agente | La verifica la prueba de la 0.9.0 |
 | 0.9.0 | Liberada | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones | 6 industrias |
-| 1.0.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | 8 industrias |
+| 1.0.0 | Siguiente | **Telecomunicaciones y logística**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene | La ronda con los agentes en las dos industrias nuevas, con los 38 comandos; las seis anteriores, con su corrida de la ronda 11 |
 | 1.1.0 | Siguiente | **Rostrum**<br>· Gantt de línea base contra vigente, hitos y curva de avance | 8 industrias |
 
 <!-- /hoja de ruta -->

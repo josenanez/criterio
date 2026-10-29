@@ -4,9 +4,9 @@ documentación de una organización del sector.
 
     python3 tests/sintetico/simulador.py <carpeta> --dia 1 --sector cooperativas
 
-Seis entornos, en cinco industrias de Suramérica: entidades financieras (bancos y
-cooperativas de ahorro y crédito), retail, minería, construcción e infraestructura, y
-petróleo y gas. No hay una empresa con nombre detrás
+Ocho entornos, en siete industrias de Suramérica: entidades financieras (bancos y
+cooperativas de ahorro y crédito), retail, minería, construcción e infraestructura,
+petróleo y gas, telecomunicaciones y logística. No hay una empresa con nombre detrás
 de ninguno: es documentación representativa del sector, y así se presenta.
 
 **El motor es uno; los hechos y el papel, de cada entorno.** Las reglas que deciden
@@ -405,18 +405,138 @@ OIL_GAS = {
     "CONTROL_PRD": "Solicitud de dotación de campo",
 }
 
-# Las seis, y la industria a la que pertenece cada una. Los bancos conservan la semilla
+TELECOMUNICACIONES = {
+    "ETIQUETA": "Empresas de telecomunicaciones de Suramérica · redes móviles, fibra y servicios empresariales",
+    "AREAS": ["Ingeniería de red", "Despliegue", "Operaciones de red", "Tecnología", "Regulatorio",
+              "Compras", "Mercadeo", "Servicio al cliente", "Finanzas", "Seguridad de la información"],
+    "COMITES": ["Comité de Red", "Comité de Inversiones", "Comité de Producto",
+                "Comité de Cambios", "Comité Regulatorio"],
+    "TEMAS_PRY": [
+        ("Despliegue de 5G en ciudades intermedias", "planes 5G"), ("Fibra hasta el hogar fase 3", "internet por fibra"),
+        ("Modernización de la red de transporte", None), ("Migración del core de voz a la nube", None),
+        ("Torres compartidas en zonas rurales", "arriendo de torres"), ("Portabilidad numérica en línea", None),
+        ("Centro de operaciones de red unificado", None), ("Facturación convergente", None),
+        ("Red privada para empresas", "redes privadas"), ("Apagado de la red 3G", None),
+        ("Conectividad para colegios públicos", None), ("Plataforma de internet de las cosas", "conectividad IoT"),
+        ("Cable submarino regional", None), ("Autogestión en la aplicación móvil", None),
+        ("Centros de datos de borde", "colocación en el borde"), ("Renovación de enlaces de microondas", None),
+        ("Televisión por protocolo de internet", "televisión IP"), ("Antifraude de llamadas", None),
+        ("Inventario de red georreferenciado", None), ("Plan de cobertura de carreteras", None),
+    ],
+    "TEMAS_PRD": [
+        "Planes 5G", "Internet por fibra", "Arriendo de torres", "Redes privadas", "Conectividad IoT",
+        "Colocación en el borde", "Televisión IP", "Planes prepago", "Planes empresariales",
+        "Roaming regional", "Telefonía fija IP", "Seguridad gestionada", "Enlaces dedicados",
+        "Nube para pymes", "Venta de equipos a plazos", "Seguro de equipos", "Mensajería masiva",
+        "Wifi para eventos", "Servicio técnico a domicilio", "Recarga en tiendas",
+    ],
+    "FASES": ("Diseño de red aprobado", "Permisos de instalación obtenidos", "Sitios construidos",
+              "Integración con la red", "Lanzamiento comercial", "Cierre y entrega a operaciones"),
+    "AVANCES": (
+        "Se ajustó el plan de sitios con el proveedor de infraestructura",
+        "Se acordó con operaciones cómo se miden las pruebas de aceptación de cada sitio",
+        "La alcaldía detuvo la instalación de antenas en dos barrios durante diez días",
+        "Se reprogramó la llegada de los equipos de radio por demoras en la aduana",
+        "El equipo perdió dos semanas por rotación del gerente de despliegue",
+        "Se levantó un hallazgo de seguridad en trabajo en torres",
+        "La prueba de velocidad en campo no alcanzó el valor pactado y se repite",
+        "Se recibió el concepto del regulador sobre el uso del espectro",
+    ),
+    "RIESGOS": (
+        "Permisos municipales para instalar antenas",
+        "Subasta de espectro aplazada por el regulador",
+        "Concentración del conocimiento en una sola persona",
+        "Cambio en la norma de compartición de infraestructura que puede mover el alcance",
+        "El proveedor no ha confirmado la fecha de la última entrega",
+    ),
+    "PROVEEDORES": ("Infraestructura de Torres del Sur S.A.S.", "Redes y Radio Andinas Ltda.",
+                    "Fibra Óptica del Pacífico S.A.S.", "Integración de Red Ltda.",
+                    "Obras Civiles de Telecomunicaciones", "Soporte de Red Continental"),
+    "ENTREGABLES_PROV": ("Suministro de antenas y radios", "Bolsa de horas de ingeniería",
+                         "Tendido de fibra óptica", "Soporte del primer trimestre",
+                         "Capacitación a técnicos de campo"),
+    "SUPUESTOS": ("Los permisos municipales salen a tiempo", "El espectro se asigna en la fecha prevista",
+                  "La demanda de planes crece como dice el caso", "El proveedor cumple el tiempo pactado",
+                  "El tipo de cambio de los equipos se sostiene"),
+    "SEGMENTOS": ["Hogares", "Pymes", "Grandes empresas", "Gobierno", "Operadores mayoristas"],
+    "CONTROL_PRY": "Cambio de mobiliario de la sala de espera",
+    "CONTROL_PRD": "Solicitud de uniformes de técnicos",
+}
+
+LOGISTICA = {
+    "ETIQUETA": "Empresas de logística de Suramérica · centros de distribución, transporte y última milla",
+    "AREAS": ["Operaciones", "Centros de distribución", "Transporte", "Tecnología", "Comercial",
+              "Compras", "Seguridad y Salud en el Trabajo", "Comercio exterior", "Finanzas", "Calidad"],
+    "COMITES": ["Comité de Operaciones", "Comité de Inversiones", "Comité de Clientes",
+                "Comité de Seguridad", "Comité de Tecnología"],
+    "TEMAS_PRY": [
+        ("Centro de distribución del norte", "almacenamiento para terceros"), ("Sistema de gestión de bodegas", None),
+        ("Flota eléctrica de última milla", "entregas en el día"), ("Ruteo dinámico de vehículos", None),
+        ("Cross docking en el puerto", "cross docking"), ("Seguimiento satelital de la flota", None),
+        ("Clasificadora automática de paquetes", None), ("Portal de clientes con trazabilidad", None),
+        ("Cadena de frío para farmacéuticos", "logística de frío"), ("Consolidación de cargas regionales", None),
+        ("Puntos de recogida en estaciones", "puntos de recogida"), ("Facturación electrónica de fletes", None),
+        ("Bodega aduanera en zona franca", "depósito aduanero"), ("Control de inventario con radiofrecuencia", None),
+        ("Logística inversa para comercio electrónico", "devoluciones"), ("Patio de contenedores", None),
+        ("Mantenimiento predictivo de montacargas", None), ("Integración con transportadores aliados", None),
+        ("Tablero de nivel de servicio", None), ("Plan de continuidad de la operación", None),
+    ],
+    "TEMAS_PRD": [
+        "Almacenamiento para terceros", "Entregas en el día", "Cross docking", "Logística de frío",
+        "Puntos de recogida", "Depósito aduanero", "Devoluciones", "Transporte de carga masiva",
+        "Paquetería empresarial", "Distribución a tiendas", "Agenciamiento aduanero", "Seguro de mercancía",
+        "Empaque y etiquetado", "Transporte refrigerado", "Logística para eventos", "Arriendo de montacargas",
+        "Gestión de inventario en sitio", "Carga consolidada internacional", "Mensajería urbana",
+        "Almacenamiento de documentos",
+    ],
+    "FASES": ("Diseño de la operación aprobado", "Permisos de operación obtenidos", "Adecuación de la bodega terminada",
+              "Pruebas con carga real", "Arranque de la operación", "Estabilización y entrega a operaciones"),
+    "AVANCES": (
+        "Se ajustó el plan de arranque con el cliente ancla",
+        "Se acordó con operaciones cómo se mide el nivel de servicio de cada ruta",
+        "Un paro de transportadores detuvo los despachos durante seis días",
+        "Se reprogramó la llegada de las estanterías por demoras del importador",
+        "El equipo perdió dos semanas por rotación del jefe de bodega",
+        "Se levantó un hallazgo de seguridad en la operación de montacargas",
+        "La prueba de exactitud de inventario no alcanzó el valor pactado y se repite",
+        "Se recibió el concepto de la autoridad aduanera sobre la bodega",
+    ),
+    "RIESGOS": (
+        "Paros de transportadores en las vías principales",
+        "Temporada alta que no permite detener la operación",
+        "Concentración del conocimiento en una sola persona",
+        "Cambio en la norma de pesos y dimensiones que puede mover el alcance",
+        "El proveedor no ha confirmado la fecha de la última entrega",
+    ),
+    "PROVEEDORES": ("Estanterías Industriales del Valle S.A.S.", "Sistemas de Bodega Andinos Ltda.",
+                    "Flotas Eléctricas del Sur S.A.S.", "Integración Logística Ltda.",
+                    "Montacargas y Equipos del Norte", "Soporte Logístico Continental"),
+    "ENTREGABLES_PROV": ("Suministro de estanterías", "Bolsa de horas de ingeniería",
+                         "Arriendo de vehículos eléctricos", "Soporte del primer trimestre",
+                         "Capacitación a operarios de bodega"),
+    "SUPUESTOS": ("El cliente ancla mantiene sus volúmenes", "Los permisos de operación salen a tiempo",
+                  "La operación actual no se detiene durante el arranque", "El proveedor cumple el tiempo pactado",
+                  "El precio del combustible se sostiene"),
+    "SEGMENTOS": ["Comercio electrónico", "Retail", "Industria", "Farmacéuticas", "Importadores"],
+    "CONTROL_PRY": "Pintura de la portería",
+    "CONTROL_PRD": "Solicitud de chalecos reflectivos",
+}
+
+# Las ocho, y la industria a la que pertenece cada una. Los bancos conservan la semilla
 # de siempre, así que corp-demo no cambia.
 PERFILES = {"bancos": BANCOS, "cooperativas": COOPERATIVAS, "retail": RETAIL, "mineria": MINERIA,
-            "construccion": CONSTRUCCION, "oil-gas": OIL_GAS}
+            "construccion": CONSTRUCCION, "oil-gas": OIL_GAS, "telecomunicaciones": TELECOMUNICACIONES,
+            "logistica": LOGISTICA}
 INDUSTRIA = {"bancos": "Entidades financieras (bancos y cooperativas) de Suramérica",
              "cooperativas": "Entidades financieras (bancos y cooperativas) de Suramérica",
              "retail": "Empresas de retail de Suramérica",
              "mineria": "Empresas mineras de Suramérica",
              "construccion": "Empresas de construcción e infraestructura de Suramérica",
-             "oil-gas": "Empresas de petróleo y gas de Suramérica"}
+             "oil-gas": "Empresas de petróleo y gas de Suramérica",
+             "telecomunicaciones": "Empresas de telecomunicaciones de Suramérica",
+             "logistica": "Empresas de logística de Suramérica"}
 SEMILLA = {"bancos": 0, "cooperativas": 362867, "retail": 104729, "mineria": 224737,
-           "construccion": 512927, "oil-gas": 690143}
+           "construccion": 512927, "oil-gas": 690143, "telecomunicaciones": 815681, "logistica": 937219}
 
 
 def selftest() -> list:

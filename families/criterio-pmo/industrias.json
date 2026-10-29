@@ -19,10 +19,10 @@
     {"id": "oil-gas", "estado": "probada",
      "es": {"nombre": "Oil & gas", "trae": "Megaproyectos de capital, contratistas, permisos y seguridad industrial"},
      "en": {"nombre": "Oil & gas", "trae": "Capital megaprojects, contractors, permits and process safety"}},
-    {"id": "telecomunicaciones", "estado": "siguiente",
+    {"id": "telecomunicaciones", "estado": "probada",
      "es": {"nombre": "Telecomunicaciones", "trae": "Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio"},
      "en": {"nombre": "Telecommunications", "trae": "Many rollouts in parallel, vendors and permits: portfolio scale"}},
-    {"id": "logistica", "estado": "siguiente",
+    {"id": "logistica", "estado": "probada",
      "es": {"nombre": "Logística", "trae": "Implantaciones en varios centros con una operación que no se detiene"},
      "en": {"nombre": "Logistics", "trae": "Roll-outs across several sites while operations never stop"}}
   ]

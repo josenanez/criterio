@@ -1,0 +1,236 @@
+{
+ "ronda": "ronda-12",
+ "fecha": "2026-10-28",
+ "industrias": [
+  {
+   "entorno": "logistica",
+   "comandos": 38,
+   "completos": 38,
+   "contratos": 38,
+   "fugas": 0,
+   "minutos": 44,
+   "tokens": 29049164,
+   "documentos": {
+    "total": 132,
+    "por_formato": {
+     "md": 82,
+     "docx": 22,
+     "pdf": 13,
+     "xlsx": 6,
+     "xml": 5,
+     "txt": 2,
+     "csv": 1,
+     "json": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-28-logistica-vera-54",
+    "aciertos": 49,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     92.7,
+     100.0
+    ],
+    "ic_cobertura": [
+     92.7,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "1.0.0"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2027-01-14",
+     "encontrado": "2027-01-14",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 35,
+    "esperados": 35,
+    "reportados": 35
+   },
+   "rostrum": {
+    "pasan": 529,
+    "total": 529,
+    "pantalla": true
+   }
+  },
+  {
+   "entorno": "telecomunicaciones",
+   "comandos": 38,
+   "completos": 38,
+   "contratos": 38,
+   "fugas": 0,
+   "minutos": 46,
+   "tokens": 28714111,
+   "documentos": {
+    "total": 154,
+    "por_formato": {
+     "md": 79,
+     "docx": 38,
+     "pdf": 16,
+     "xlsx": 9,
+     "txt": 4,
+     "xml": 4,
+     "csv": 3,
+     "json": 1
+    }
+   },
+   "proyectos": 13,
+   "vera": {
+    "id": "2026-10-28-telecomunicaciones-vera-53",
+    "aciertos": 70,
+    "falsos_positivos": 0,
+    "falsos_negativos": 0,
+    "precision": 100.0,
+    "cobertura": 100.0,
+    "ic_precision": [
+     94.8,
+     100.0
+    ],
+    "ic_cobertura": [
+     94.8,
+     100.0
+    ],
+    "controles": 1,
+    "controles_limpios": 1,
+    "version": "1.0.0"
+   },
+   "samuel": {
+    "correctos": 27,
+    "total": 27,
+    "cierre": {
+     "esperado": "2026-11-05",
+     "encontrado": "2026-11-05",
+     "ok": true
+    }
+   },
+   "alba": {
+    "aciertos": 26,
+    "esperados": 26,
+    "reportados": 26
+   },
+   "rostrum": {
+    "pasan": 543,
+    "total": 543,
+    "pantalla": true
+   }
+  }
+ ],
+ "vera": {
+  "aciertos": 119,
+  "falsos_positivos": 0,
+  "falsos_negativos": 0,
+  "proyectos": 26,
+  "ic_precision": [
+   96.9,
+   100.0
+  ],
+  "ic_cobertura": [
+   96.9,
+   100.0
+  ],
+  "controles": 2,
+  "controles_limpios": 2
+ },
+ "senales": [
+  {
+   "senal": "milestone_met_without_evidence",
+   "aciertos": 36,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_overdue",
+   "aciertos": 18,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "progress_vs_plan",
+   "aciertos": 12,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_rescheduled",
+   "aciertos": 10,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "declared_vs_evidence",
+   "aciertos": 10,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_deliverable_late",
+   "aciertos": 10,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_time",
+   "aciertos": 7,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "commitment_undated",
+   "aciertos": 5,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "rebaseline_unauthorized",
+   "aciertos": 4,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "silent",
+   "aciertos": 2,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "variance_cost",
+   "aciertos": 1,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_accepted_without_evidence",
+   "aciertos": 1,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_invoiced_over_accepted",
+   "aciertos": 1,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "vendor_invoiced_without_delivery",
+   "aciertos": 1,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  },
+  {
+   "senal": "change_without_baseline",
+   "aciertos": 1,
+   "falsos_positivos": 0,
+   "falsos_negativos": 0
+  }
+ ]
+}

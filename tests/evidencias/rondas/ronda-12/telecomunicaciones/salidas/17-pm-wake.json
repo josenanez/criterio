@@ -1,0 +1,29 @@
+{
+ "n": 17,
+ "agente": "samuel",
+ "comando": "pm-wake",
+ "argumento": "",
+ "inicio": "2026-10-29T01:44:29",
+ "estado": "success",
+ "error": false,
+ "segundos": 53,
+ "turnos": 17,
+ "tokens": 748139,
+ "tokens_salida": 5155,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-28-pm-wake-1.html",
+   ".criterio/corridas/proyecto/2026-10-28-pm-wake-1.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/cadencia.json",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/2026-10-28-pm-wake-1.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/salida-pm-wake.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas.json"
+  ],
+  "borrados": []
+ }
+}

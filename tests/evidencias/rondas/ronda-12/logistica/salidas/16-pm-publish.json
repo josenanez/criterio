@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-29T02:30:40",
+ "estado": "success",
+ "error": false,
+ "segundos": 44,
+ "turnos": 13,
+ "tokens": 722783,
+ "tokens_salida": 3767,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-28-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-28-pm-publish-1.md",
+   "documentos/proyectos/PRY-204-cross-docking-en-el-puerto/00-gobierno/ficha-pm.json",
+   "estado/PRY-204-cross-docking-en-el-puerto/corridas/2026-10-28-pm-publish-1.md",
+   "estado/PRY-204-cross-docking-en-el-puerto/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-204-cross-docking-en-el-puerto/corridas.json"
+  ],
+  "borrados": []
+ }
+}

@@ -1,0 +1,21 @@
+{
+ "entorno": "telecomunicaciones",
+ "ronda": 12,
+ "hoy": "2026-10-28",
+ "prd": "PRD-306",
+ "prd_carpeta": "PRD-306",
+ "prd_otro": "PRD-300",
+ "req": "REQ-4600",
+ "pry_sam": "PRY-211",
+ "sam_carpeta": "PRY-211-plataforma-de-internet-de-las-cosas",
+ "notas": "documentos/proyectos/PRY-211-plataforma-de-internet-de-las-cosas/2026-10-28-notas-reunion.txt",
+ "status": "PRY-201",
+ "health": "PRY-200",
+ "budget": "PRY-210",
+ "vendor": "PRY-200",
+ "change": "PRY-200",
+ "history": "PRY-206",
+ "charter": "PRY-203",
+ "closure": "PRY-200",
+ "producto_vista": "internet por fibra"
+}

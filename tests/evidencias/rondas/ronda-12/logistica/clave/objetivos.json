@@ -1,0 +1,21 @@
+{
+ "entorno": "logistica",
+ "ronda": 12,
+ "hoy": "2026-10-28",
+ "prd": "PRD-303",
+ "prd_carpeta": "PRD-303",
+ "prd_otro": "PRD-302",
+ "req": "REQ-4300",
+ "pry_sam": "PRY-204",
+ "sam_carpeta": "PRY-204-cross-docking-en-el-puerto",
+ "notas": "documentos/proyectos/PRY-204-cross-docking-en-el-puerto/2026-10-28-notas-reunion.txt",
+ "status": "PRY-207",
+ "health": "PRY-202",
+ "budget": "portafolio",
+ "vendor": "PRY-207",
+ "change": "PRY-205",
+ "history": "PRY-200",
+ "charter": "PRY-210",
+ "closure": "PRY-202",
+ "producto_vista": "entregas en el día"
+}

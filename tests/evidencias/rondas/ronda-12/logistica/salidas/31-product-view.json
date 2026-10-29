@@ -1,0 +1,28 @@
+{
+ "n": 31,
+ "agente": "vera",
+ "comando": "product-view",
+ "argumento": "entregas en el día",
+ "inicio": "2026-10-29T02:52:42",
+ "estado": "success",
+ "error": false,
+ "segundos": 51,
+ "turnos": 11,
+ "tokens": 500380,
+ "tokens_salida": 5180,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/portafolio/2026-10-28-product-view-1.html",
+   ".criterio/corridas/portafolio/2026-10-28-product-view-1.md",
+   "estado/corridas/2026-10-28-product-view-1.md",
+   "estado/corridas/salida-product-view.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/portafolio/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/corridas.json"
+  ],
+  "borrados": []
+ }
+}

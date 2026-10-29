@@ -1,0 +1,28 @@
+{
+ "n": 15,
+ "agente": "samuel",
+ "comando": "pm-escalate",
+ "argumento": "",
+ "inicio": "2026-10-29T01:42:28",
+ "estado": "success",
+ "error": false,
+ "segundos": 80,
+ "turnos": 16,
+ "tokens": 572430,
+ "tokens_salida": 9229,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-28-pm-escalate-1.html",
+   ".criterio/corridas/proyecto/2026-10-28-pm-escalate-1.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/2026-10-28-pm-escalate-1.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/salida-pm-escalate.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas.json"
+  ],
+  "borrados": []
+ }
+}

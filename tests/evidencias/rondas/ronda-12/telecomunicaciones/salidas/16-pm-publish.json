@@ -1,0 +1,29 @@
+{
+ "n": 16,
+ "agente": "samuel",
+ "comando": "pm-publish",
+ "argumento": "confirmar",
+ "inicio": "2026-10-29T01:43:48",
+ "estado": "success",
+ "error": false,
+ "segundos": 41,
+ "turnos": 13,
+ "tokens": 686926,
+ "tokens_salida": 3601,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-28-pm-publish-1.html",
+   ".criterio/corridas/proyecto/2026-10-28-pm-publish-1.md",
+   "documentos/proyectos/PRY-211-plataforma-de-internet-de-las-cosas/00-gobierno/ficha-pm.json",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/2026-10-28-pm-publish-1.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/salida-pm-publish.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas.json"
+  ],
+  "borrados": []
+ }
+}

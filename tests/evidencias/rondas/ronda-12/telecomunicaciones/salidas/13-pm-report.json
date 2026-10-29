@@ -1,0 +1,29 @@
+{
+ "n": 13,
+ "agente": "samuel",
+ "comando": "pm-report",
+ "argumento": "",
+ "inicio": "2026-10-29T01:40:00",
+ "estado": "success",
+ "error": false,
+ "segundos": 64,
+ "turnos": 14,
+ "tokens": 624699,
+ "tokens_salida": 7048,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-28-pm-report-1.html",
+   ".criterio/corridas/proyecto/2026-10-28-pm-report-1.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/2026-10-28-pm-report-1.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/salida-pm-report.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/snapshots/2026-10-28.json"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas.json"
+  ],
+  "borrados": []
+ }
+}

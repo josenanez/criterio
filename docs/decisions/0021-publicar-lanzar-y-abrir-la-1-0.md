@@ -60,6 +60,14 @@ fecha de lanzamiento y ninguna versión liberada.
 El número del catálogo solo ordena las entradas del registro: sigue la regla de diez versiones por
 entero, sin relación con el lanzamiento de ninguna familia.
 
+### 5. La PMO se mide como las demás familias
+
+La calidad de la PMO sale de la corrida más reciente de cada industria, sea de la ronda que sea, y
+no solo de su ronda más reciente: es la regla de la decisión 0020 para las demás familias. Una ronda
+que agrega industrias corre en ellas los 38 comandos y no obliga a repetir las que ya pasaron. La
+ronda 12, la de la 1.0.0, corre telecomunicaciones y logística; las seis anteriores siguen con su
+corrida de la ronda 11, y el motor se prueba sobre todo el material con cada cambio.
+
 ## Las familias hoy
 
 | Familia | Lanzamiento | Calidad | La versión siguiente |

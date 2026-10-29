@@ -1,0 +1,2923 @@
+{
+ "dia": 3,
+ "creada": "2026-10-14",
+ "sector": "telecomunicaciones",
+ "ronda": 12,
+ "etiqueta": "Empresas de telecomunicaciones de Suramérica · redes móviles, fibra y servicios empresariales",
+ "proyectos": [
+  {
+   "codigo": "PRY-200",
+   "nombre": "Despliegue de 5G en ciudades intermedias",
+   "carpeta": "PRY-200-despliegue-de-5g-en-ciudades-intermedias",
+   "profundidad": "completa",
+   "area": "Mercadeo",
+   "comite": "Comité de Cambios",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Óscar Ramírez",
+   "producto": "planes 5G",
+   "aprobacion": "2025-06-03",
+   "inicio": "2025-06-13",
+   "cierre": "2025-12-19",
+   "presupuesto": 3300000000,
+   "comprometido": 2493745794,
+   "ejecutado": 1136310608,
+   "proyeccion": 3425145140,
+   "proveedores": [
+    {
+     "nombre": "Fibra Óptica del Pacífico S.A.S.",
+     "ref": "CT-478",
+     "firma": "2025-06-06",
+     "entregables": [
+      {
+       "que": "Suministro de antenas y radios",
+       "vence": "2025-08-04",
+       "estado": "recibido",
+       "monto": 265897752,
+       "acta": "2025-08-14"
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2025-09-25",
+       "estado": "recibido",
+       "monto": 265897752,
+       "acta": null
+      },
+      {
+       "que": "Tendido de fibra óptica",
+       "vence": "2025-11-16",
+       "estado": "pendiente",
+       "monto": 265897752,
+       "acta": null
+      }
+     ],
+     "facturado": 531795504,
+     "fecha_factura": "2026-10-11"
+    },
+    {
+     "nombre": "Soporte de Red Continental",
+     "ref": "CT-235",
+     "firma": "2025-05-26",
+     "entregables": [
+      {
+       "que": "Suministro de antenas y radios",
+       "vence": "2025-08-04",
+       "estado": "recibido",
+       "monto": 265104460,
+       "acta": "2025-08-18"
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2025-09-25",
+       "estado": "pendiente",
+       "monto": 265104460,
+       "acta": null
+      },
+      {
+       "que": "Tendido de fibra óptica",
+       "vence": "2025-11-16",
+       "estado": "pendiente",
+       "monto": 265104460,
+       "acta": null
+      }
+     ],
+     "facturado": 265104460,
+     "fecha_factura": "2026-09-21"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2025-07-20",
+     "vigente": "2025-07-20",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2025-08-27",
+     "vigente": "2025-08-27",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2025-10-04",
+     "vigente": "2025-10-04",
+     "cerrado": true,
+     "recibo": "2026-10-16"
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2025-11-11",
+     "vigente": "2025-11-11",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Lanzamiento comercial",
+     "base": "2025-12-19",
+     "vigente": "2025-12-19",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Carlos Peña",
+     "que": "Entregar el punto 26",
+     "fechas": [
+      "2026-10-06"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-19"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 59,
+    "fecha": "2026-10-17"
+   },
+   "ultimo_doc": "2026-10-16",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-19"
+  },
+  {
+   "codigo": "PRY-201",
+   "nombre": "Fibra hasta el hogar fase 3",
+   "carpeta": "PRY-201-fibra-hasta-el-hogar-fase-3",
+   "profundidad": "completa",
+   "area": "Mercadeo",
+   "comite": "Comité de Cambios",
+   "patrocinador": "Natalia Ospina",
+   "gerente": "Javier Hoyos",
+   "producto": "internet por fibra",
+   "aprobacion": "2025-08-19",
+   "inicio": "2025-08-29",
+   "cierre": "2026-09-02",
+   "presupuesto": 6800000000,
+   "comprometido": 3572592598,
+   "ejecutado": 3369704705,
+   "proyeccion": 6982625535,
+   "proveedores": [
+    {
+     "nombre": "Infraestructura de Torres del Sur S.A.S.",
+     "ref": "CT-801",
+     "firma": "2025-08-19",
+     "entregables": [
+      {
+       "que": "Suministro de antenas y radios",
+       "vence": "2025-12-08",
+       "estado": "en curso",
+       "monto": 653587258,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-03-20",
+       "estado": "en curso",
+       "monto": 653587258,
+       "acta": null
+      },
+      {
+       "que": "Tendido de fibra óptica",
+       "vence": "2026-06-29",
+       "estado": "en curso",
+       "monto": 653587258,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": null
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2025-11-10",
+     "vigente": "2025-11-10",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-01-23",
+     "vigente": "2026-01-23",
+     "cerrado": true,
+     "recibo": "2026-10-22"
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2026-04-07",
+     "vigente": "2026-04-07",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2026-06-20",
+     "vigente": "2026-06-20",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Lanzamiento comercial",
+     "base": "2026-09-02",
+     "vigente": "2026-09-02",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Beatriz Cuéllar",
+     "que": "Entregar el punto 16",
+     "fechas": [
+      "2026-10-31"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-23"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 51,
+    "fecha": "2026-10-17"
+   },
+   "ultimo_doc": "2026-10-25",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-23"
+  },
+  {
+   "codigo": "PRY-202",
+   "nombre": "Modernización de la red de transporte",
+   "carpeta": "PRY-202-modernización-de-la-red-de-transporte",
+   "profundidad": "completa",
+   "area": "Compras",
+   "comite": "Comité de Cambios",
+   "patrocinador": "Ricardo Salas",
+   "gerente": "Carlos Peña",
+   "producto": null,
+   "aprobacion": "2025-07-08",
+   "inicio": "2025-07-18",
+   "cierre": "2026-03-18",
+   "presupuesto": 4200000000,
+   "comprometido": 2747834267,
+   "ejecutado": 914788857,
+   "proyeccion": 3924582812,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2025-09-04",
+     "vigente": "2025-09-04",
+     "cerrado": true,
+     "recibo": "2026-10-25"
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2025-10-23",
+     "vigente": "2025-10-23",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2025-12-11",
+     "vigente": "2025-12-11",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2026-01-28",
+     "vigente": "2026-01-28",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Lanzamiento comercial",
+     "base": "2026-03-18",
+     "vigente": "2026-03-18",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 52,
+    "fecha": "2026-10-25"
+   },
+   "ultimo_doc": "2026-10-25",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-25"
+  },
+  {
+   "codigo": "PRY-203",
+   "nombre": "Migración del core de voz a la nube",
+   "carpeta": "PRY-203-migración-del-core-de-voz-a-la-nube",
+   "profundidad": "minima",
+   "area": "Mercadeo",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Javier Hoyos",
+   "gerente": "Mauricio Pérez",
+   "producto": null,
+   "aprobacion": "2025-11-30",
+   "inicio": "2025-12-10",
+   "cierre": "2026-11-27",
+   "presupuesto": 1200000000,
+   "comprometido": 467181006,
+   "ejecutado": 484949082,
+   "proyeccion": 1235285263,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-06-04",
+     "vigente": "2026-06-04",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-11-27",
+     "vigente": "2026-11-27",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 59,
+    "fecha": "2026-10-18"
+   },
+   "ultimo_doc": "2026-10-18",
+   "silencioso": true,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-18"
+  },
+  {
+   "codigo": "PRY-204",
+   "nombre": "Torres compartidas en zonas rurales",
+   "carpeta": "PRY-204-torres-compartidas-en-zonas-rurales",
+   "profundidad": "delgada",
+   "area": "Finanzas",
+   "comite": "Comité de Cambios",
+   "patrocinador": "Beatriz Cuéllar",
+   "gerente": "María Restrepo",
+   "producto": "arriendo de torres",
+   "aprobacion": "2026-01-16",
+   "inicio": "2026-01-26",
+   "cierre": "2027-04-21",
+   "presupuesto": 9500000000,
+   "comprometido": 3724858243,
+   "ejecutado": 2903191099,
+   "proyeccion": 9916556237,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-06-25",
+     "vigente": "2026-06-25",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-11-22",
+     "vigente": "2026-11-22",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2027-04-21",
+     "vigente": "2027-04-21",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Jorge Medina",
+     "que": "Entregar el punto 8",
+     "fechas": [
+      "2026-10-20"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-28"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 38,
+    "fecha": "2026-10-26"
+   },
+   "ultimo_doc": "2026-10-28",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-28"
+  },
+  {
+   "codigo": "PRY-205",
+   "nombre": "Portabilidad numérica en línea",
+   "carpeta": "PRY-205-portabilidad-numérica-en-línea",
+   "profundidad": "media",
+   "area": "Seguridad de la información",
+   "comite": "Comité de Cambios",
+   "patrocinador": "Jorge Medina",
+   "gerente": "Diana Molina",
+   "producto": null,
+   "aprobacion": "2026-01-03",
+   "inicio": "2026-01-13",
+   "cierre": "2027-04-14",
+   "presupuesto": 9500000000,
+   "comprometido": 6628351364,
+   "ejecutado": 1749683488,
+   "proyeccion": 9295399324,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-05-07",
+     "vigente": "2026-05-07",
+     "cerrado": true,
+     "recibo": "2026-10-23"
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-08-29",
+     "vigente": "2026-08-29",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2026-12-21",
+     "vigente": "2026-12-21",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2027-04-14",
+     "vigente": "2027-07-27",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Liliana Torres",
+     "que": "Entregar el punto 34",
+     "fechas": [
+      "2026-11-03",
+      "2026-11-07"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-21"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 104,
+     "autorizado": true,
+     "fecha": "2026-10-20"
+    }
+   ],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 48,
+    "fecha": "2026-10-23"
+   },
+   "ultimo_doc": "2026-10-23",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-23"
+  },
+  {
+   "codigo": "PRY-206",
+   "nombre": "Centro de operaciones de red unificado",
+   "carpeta": "PRY-206-centro-de-operaciones-de-red-unificado",
+   "profundidad": "completa",
+   "area": "Seguridad de la información",
+   "comite": "Comité de Producto",
+   "patrocinador": "Diana Molina",
+   "gerente": "Javier Hoyos",
+   "producto": null,
+   "aprobacion": "2026-03-18",
+   "inicio": "2026-03-28",
+   "cierre": "2027-09-14",
+   "presupuesto": 4200000000,
+   "comprometido": 1789744389,
+   "ejecutado": 1953080928,
+   "proyeccion": 4261219163,
+   "proveedores": [
+    {
+     "nombre": "Redes y Radio Andinas Ltda.",
+     "ref": "CT-381",
+     "firma": "2026-03-08",
+     "entregables": [
+      {
+       "que": "Suministro de antenas y radios",
+       "vence": "2026-07-23",
+       "estado": "recibido",
+       "monto": 187360587,
+       "acta": "2026-08-02"
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-11-18",
+       "estado": "en curso",
+       "monto": 187360587,
+       "acta": null
+      },
+      {
+       "que": "Tendido de fibra óptica",
+       "vence": "2027-03-16",
+       "estado": "en curso",
+       "monto": 187360587,
+       "acta": null
+      },
+      {
+       "que": "Soporte del primer trimestre",
+       "vence": "2027-07-12",
+       "estado": "en curso",
+       "monto": 187360587,
+       "acta": null
+      }
+     ],
+     "facturado": 267686057,
+     "fecha_factura": "2026-09-22"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-07-13",
+     "vigente": "2026-07-13",
+     "cerrado": true,
+     "recibo": "2026-10-16"
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-10-28",
+     "vigente": "2026-10-28",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2027-02-12",
+     "vigente": "2027-02-12",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2027-05-30",
+     "vigente": "2027-05-30",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Lanzamiento comercial",
+     "base": "2027-09-14",
+     "vigente": "2027-12-16",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Ricardo Salas",
+     "que": "Entregar el punto 35",
+     "fechas": [
+      "2026-10-25"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-26"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 93,
+     "autorizado": false,
+     "fecha": "2026-10-19"
+    }
+   ],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 65,
+    "fecha": "2026-10-25"
+   },
+   "ultimo_doc": "2026-10-26",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-26"
+  },
+  {
+   "codigo": "PRY-207",
+   "nombre": "Facturación convergente",
+   "carpeta": "PRY-207-facturación-convergente",
+   "profundidad": "media",
+   "area": "Compras",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Sandra Gil",
+   "gerente": "Liliana Torres",
+   "producto": null,
+   "aprobacion": "2025-06-16",
+   "inicio": "2025-06-26",
+   "cierre": "2026-01-03",
+   "presupuesto": 1200000000,
+   "comprometido": 862850414,
+   "ejecutado": 512570966,
+   "proyeccion": 1257252472,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2025-08-12",
+     "vigente": "2025-08-12",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2025-09-29",
+     "vigente": "2025-09-29",
+     "cerrado": true,
+     "recibo": "2026-10-15"
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2025-11-16",
+     "vigente": "2025-11-16",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2026-01-03",
+     "vigente": "2026-01-03",
+     "cerrado": true,
+     "recibo": "2026-10-27"
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Ricardo Salas",
+     "que": "Entregar el punto 5",
+     "fechas": [
+      "2026-10-15",
+      "2026-11-11"
+     ],
+     "cumplido": true,
+     "dicho": "2026-10-20"
+    },
+    {
+     "quien": "Laura Vélez",
+     "que": "Entregar el punto 23",
+     "fechas": [
+      "2026-11-22"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-23"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 35,
+    "fecha": "2026-10-20"
+   },
+   "ultimo_doc": "2026-10-28",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-27"
+  },
+  {
+   "codigo": "PRY-208",
+   "nombre": "Red privada para empresas",
+   "carpeta": "PRY-208-red-privada-para-empresas",
+   "profundidad": "minima",
+   "area": "Mercadeo",
+   "comite": "Comité de Cambios",
+   "patrocinador": "María Restrepo",
+   "gerente": "Felipe Arango",
+   "producto": "redes privadas",
+   "aprobacion": "2025-09-21",
+   "inicio": "2025-10-01",
+   "cierre": "2026-04-14",
+   "presupuesto": 3300000000,
+   "comprometido": 1246115336,
+   "ejecutado": 1057657328,
+   "proyeccion": 3320169600,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-01-06",
+     "vigente": "2026-01-06",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-04-14",
+     "vigente": "2026-06-29",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 76,
+     "autorizado": false,
+     "fecha": "2026-10-28"
+    }
+   ],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 79,
+    "fecha": "2026-10-21"
+   },
+   "ultimo_doc": "2026-10-24",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-28"
+  },
+  {
+   "codigo": "PRY-209",
+   "nombre": "Apagado de la red 3G",
+   "carpeta": "PRY-209-apagado-de-la-red-3g",
+   "profundidad": "completa",
+   "area": "Despliegue",
+   "comite": "Comité de Cambios",
+   "patrocinador": "Jorge Medina",
+   "gerente": "Liliana Torres",
+   "producto": null,
+   "aprobacion": "2026-03-14",
+   "inicio": "2026-03-24",
+   "cierre": "2027-01-20",
+   "presupuesto": 18000000000,
+   "comprometido": 13909432543,
+   "ejecutado": 9506759546,
+   "proyeccion": 18234395866,
+   "proveedores": [
+    {
+     "nombre": "Obras Civiles de Telecomunicaciones",
+     "ref": "CT-604",
+     "firma": "2026-03-08",
+     "entregables": [
+      {
+       "que": "Suministro de antenas y radios",
+       "vence": "2026-06-15",
+       "estado": "pendiente",
+       "monto": 1164831714,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-09-06",
+       "estado": "pendiente",
+       "monto": 1164831714,
+       "acta": null
+      },
+      {
+       "que": "Tendido de fibra óptica",
+       "vence": "2026-11-28",
+       "estado": "pendiente",
+       "monto": 1164831714,
+       "acta": null
+      }
+     ],
+     "facturado": 1164831714,
+     "fecha_factura": "2026-10-04"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-05-23",
+     "vigente": "2026-05-23",
+     "cerrado": true,
+     "recibo": "2026-10-23"
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-07-23",
+     "vigente": "2026-07-23",
+     "cerrado": true,
+     "recibo": "2026-10-17"
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2026-09-21",
+     "vigente": "2026-09-21",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2026-11-21",
+     "vigente": "2026-11-21",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Lanzamiento comercial",
+     "base": "2027-01-20",
+     "vigente": "2027-04-12",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el punto 21",
+     "fechas": [
+      "2026-10-10"
+     ],
+     "cumplido": true,
+     "dicho": "2026-10-20"
+    },
+    {
+     "quien": "Jorge Medina",
+     "que": "Entregar el punto 35",
+     "fechas": [
+      "2026-11-03"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-25"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 82,
+     "autorizado": true,
+     "fecha": "2026-10-25"
+    }
+   ],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 87,
+    "fecha": "2026-10-26"
+   },
+   "ultimo_doc": "2026-10-26",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-26"
+  },
+  {
+   "codigo": "PRY-210",
+   "nombre": "Conectividad para colegios públicos",
+   "carpeta": "PRY-210-conectividad-para-colegios-públicos",
+   "profundidad": "completa",
+   "area": "Tecnología",
+   "comite": "Comité de Cambios",
+   "patrocinador": "Mauricio Pérez",
+   "gerente": "Felipe Arango",
+   "producto": null,
+   "aprobacion": "2026-05-14",
+   "inicio": "2026-05-24",
+   "cierre": "2027-07-28",
+   "presupuesto": 3300000000,
+   "comprometido": 1565215894,
+   "ejecutado": 1847276551,
+   "proyeccion": 3951444314,
+   "proveedores": [],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-08-18",
+     "vigente": "2026-08-18",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-11-12",
+     "vigente": "2026-11-12",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2027-02-06",
+     "vigente": "2027-02-06",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2027-05-03",
+     "vigente": "2027-05-03",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Lanzamiento comercial",
+     "base": "2027-07-28",
+     "vigente": "2027-11-15",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Natalia Ospina",
+     "que": "Entregar el punto 16",
+     "fechas": [
+      null
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-26"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 110,
+     "autorizado": false,
+     "fecha": "2026-10-27"
+    }
+   ],
+   "declarado": {
+    "estado": "rojo",
+    "pct": 50,
+    "fecha": "2026-10-28"
+   },
+   "ultimo_doc": "2026-10-23",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-28"
+  },
+  {
+   "codigo": "PRY-211",
+   "nombre": "Plataforma de internet de las cosas",
+   "carpeta": "PRY-211-plataforma-de-internet-de-las-cosas",
+   "profundidad": "completa",
+   "area": "Mercadeo",
+   "comite": "Comité de Inversiones",
+   "patrocinador": "Ricardo Salas",
+   "gerente": "Jorge Medina",
+   "producto": "conectividad IoT",
+   "aprobacion": "2026-01-05",
+   "inicio": "2026-01-15",
+   "cierre": "2026-07-26",
+   "presupuesto": 3300000000,
+   "comprometido": 1710711399,
+   "ejecutado": 1847540267,
+   "proyeccion": 3037162738,
+   "proveedores": [
+    {
+     "nombre": "Obras Civiles de Telecomunicaciones",
+     "ref": "CT-707",
+     "firma": "2025-12-29",
+     "entregables": [
+      {
+       "que": "Suministro de antenas y radios",
+       "vence": "2026-03-26",
+       "estado": "pendiente",
+       "monto": 371745399,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2026-06-05",
+       "estado": "en curso",
+       "monto": 371745399,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": null
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-02-22",
+     "vigente": "2026-02-22",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2026-04-02",
+     "vigente": "2026-04-02",
+     "cerrado": true,
+     "recibo": "2026-10-16"
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2026-05-10",
+     "vigente": "2026-05-10",
+     "cerrado": true,
+     "recibo": "2026-10-28"
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2026-06-18",
+     "vigente": "2026-06-18",
+     "cerrado": true,
+     "recibo": null
+    },
+    {
+     "nombre": "Lanzamiento comercial",
+     "base": "2026-07-26",
+     "vigente": "2026-11-05",
+     "cerrado": true,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Óscar Ramírez",
+     "que": "Entregar el punto 25",
+     "fechas": [
+      "2026-11-04",
+      "2026-11-15"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-15"
+    },
+    {
+     "quien": "Beatriz Cuéllar",
+     "que": "Entregar el punto 14",
+     "fechas": [
+      "2026-10-19"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-27"
+    }
+   ],
+   "lineas_base": 2,
+   "cambios": [
+    {
+     "ref": "CC-01",
+     "dias": 102,
+     "autorizado": false,
+     "fecha": "2026-10-17"
+    }
+   ],
+   "declarado": {
+    "estado": "amarillo",
+    "pct": 49,
+    "fecha": "2026-10-28"
+   },
+   "ultimo_doc": "2026-10-23",
+   "silencioso": false,
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-28"
+  },
+  {
+   "codigo": "PRY-199",
+   "nombre": "Cambio de mobiliario de la sala de espera",
+   "carpeta": "PRY-199-cambio-de-mobiliario-de-la-sala-de-espera",
+   "profundidad": "completa",
+   "area": "Ingeniería de red",
+   "comite": "Comité de Red",
+   "patrocinador": "María Restrepo",
+   "gerente": "Andrés Lozano",
+   "producto": "PRD-299",
+   "aprobacion": "2026-06-20",
+   "inicio": "2026-06-30",
+   "cierre": "2027-12-27",
+   "presupuesto": 2400000000,
+   "comprometido": 1080000000,
+   "ejecutado": 720000000,
+   "proyeccion": 2400000000,
+   "proveedores": [
+    {
+     "nombre": "Infraestructura de Torres del Sur S.A.S.",
+     "ref": "CT-199",
+     "firma": "2026-06-20",
+     "entregables": [
+      {
+       "que": "Suministro de antenas y radios",
+       "vence": "2026-11-27",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Bolsa de horas de ingeniería",
+       "vence": "2027-04-26",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      },
+      {
+       "que": "Tendido de fibra óptica",
+       "vence": "2027-09-23",
+       "estado": "pendiente",
+       "monto": 144000000,
+       "acta": null
+      }
+     ],
+     "facturado": 0,
+     "fecha_factura": "2026-10-16"
+    }
+   ],
+   "hitos": [
+    {
+     "nombre": "Diseño de red aprobado",
+     "base": "2026-10-17",
+     "vigente": "2026-10-17",
+     "cerrado": true,
+     "recibo": "2026-10-20"
+    },
+    {
+     "nombre": "Permisos de instalación obtenidos",
+     "base": "2027-02-03",
+     "vigente": "2027-02-03",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Sitios construidos",
+     "base": "2027-05-23",
+     "vigente": "2027-05-23",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Integración con la red",
+     "base": "2027-09-09",
+     "vigente": "2027-09-09",
+     "cerrado": false,
+     "recibo": null
+    },
+    {
+     "nombre": "Lanzamiento comercial",
+     "base": "2027-12-27",
+     "vigente": "2027-12-27",
+     "cerrado": false,
+     "recibo": null
+    }
+   ],
+   "compromisos": [
+    {
+     "quien": "Diana Molina",
+     "que": "Entregar el tablero de seguimiento",
+     "fechas": [
+      "2026-10-08"
+     ],
+     "cumplido": true,
+     "dicho": "2026-10-03"
+    },
+    {
+     "quien": "Carlos Peña",
+     "que": "Presentar el cierre de la fase",
+     "fechas": [
+      "2026-11-17"
+     ],
+     "cumplido": false,
+     "dicho": "2026-10-24"
+    }
+   ],
+   "lineas_base": 1,
+   "cambios": [],
+   "declarado": {
+    "estado": "verde",
+    "pct": 20,
+    "fecha": "2026-10-26"
+   },
+   "ultimo_doc": "2026-10-26",
+   "silencioso": false,
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-26"
+  }
+ ],
+ "productos": [
+  {
+   "codigo": "PRD-300",
+   "nombre": "Planes 5G",
+   "carpeta": "PRD-300",
+   "profundidad": "media",
+   "gerente": "Sandra Gil",
+   "segmento": "Hogares",
+   "fecha": "2026-04-20",
+   "entrevista": "2026-06-23",
+   "requerimientos": [
+    {
+     "id": "REQ-4000",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4001",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4002",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4003",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4004",
+     "estado": "propuesto",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4005",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4006",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4007",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4008",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4009",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4010",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4011",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4012",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4013",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2035",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-10-15",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El espectro se asigna en la fecha prevista",
+     "desde": "2026-08-28",
+     "verificado": false
+    }
+   ],
+   "declarado": 242251,
+   "medido": null,
+   "corte": "2026-09-23",
+   "ultimo_doc": "2026-10-23",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-23"
+  },
+  {
+   "codigo": "PRD-301",
+   "nombre": "Internet por fibra",
+   "carpeta": "PRD-301",
+   "profundidad": "completa",
+   "gerente": "Liliana Torres",
+   "segmento": "Operadores mayoristas",
+   "fecha": "2025-10-16",
+   "entrevista": "2026-05-16",
+   "requerimientos": [
+    {
+     "id": "REQ-4100",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4101",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4102",
+     "estado": "propuesto",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4103",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4104",
+     "estado": "propuesto",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4105",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4106",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4107",
+     "estado": "propuesto",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4108",
+     "estado": "propuesto",
+     "doliente": "Andrés Lozano",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4109",
+     "estado": "propuesto",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-03-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4110",
+     "estado": "propuesto",
+     "doliente": "Jorge Medina",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-09-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4111",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4112",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4113",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4114",
+     "estado": "propuesto",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4115",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2030",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-10-07",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-05-01",
+     "verificado": true,
+     "evidencia_fecha": "2026-08-28",
+     "evidencia": "la medición del piloto del 2026-08-28"
+    }
+   ],
+   "declarado": 52949,
+   "medido": 42727,
+   "corte": "2026-10-21",
+   "ultimo_doc": "2026-10-24",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-24"
+  },
+  {
+   "codigo": "PRD-302",
+   "nombre": "Arriendo de torres",
+   "carpeta": "PRD-302",
+   "profundidad": "completa",
+   "gerente": "Carlos Peña",
+   "segmento": "Operadores mayoristas",
+   "fecha": "2025-11-02",
+   "entrevista": "2025-12-08",
+   "requerimientos": [
+    {
+     "id": "REQ-4200",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4201",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-07",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4202",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4203",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4204",
+     "estado": "propuesto",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4205",
+     "estado": "propuesto",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4206",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4207",
+     "estado": "propuesto",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4208",
+     "estado": "propuesto",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4209",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-07",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4210",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4211",
+     "estado": "propuesto",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4212",
+     "estado": "propuesto",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-04",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4213",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4214",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-08",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4215",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2037",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-10-11",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La demanda de planes crece como dice el caso",
+     "desde": "2026-07-24",
+     "verificado": true,
+     "evidencia_fecha": "2026-08-24",
+     "evidencia": "el concepto jurídico de cumplimiento del 2026-08-24"
+    }
+   ],
+   "declarado": 92480,
+   "medido": 80881,
+   "corte": "2026-10-22",
+   "ultimo_doc": "2026-10-28",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-28"
+  },
+  {
+   "codigo": "PRD-303",
+   "nombre": "Redes privadas",
+   "carpeta": "PRD-303",
+   "profundidad": "completa",
+   "gerente": "Javier Hoyos",
+   "segmento": "Operadores mayoristas",
+   "fecha": "2025-12-31",
+   "entrevista": "2026-02-01",
+   "requerimientos": [
+    {
+     "id": "REQ-4300",
+     "estado": "propuesto",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4301",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-08",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4302",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4303",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4304",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4305",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4306",
+     "estado": "aceptado",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4307",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4308",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4309",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4310",
+     "estado": "propuesto",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4311",
+     "estado": "propuesto",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4312",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-07",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4313",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4314",
+     "estado": "propuesto",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4315",
+     "estado": "propuesto",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2030",
+     "estado": "aceptado",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-10-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2038",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-10-08",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La demanda de planes crece como dice el caso",
+     "desde": "2026-05-21",
+     "verificado": true,
+     "evidencia_fecha": "2026-06-16",
+     "evidencia": "la medición del piloto del 2026-06-16"
+    }
+   ],
+   "declarado": 55427,
+   "medido": 55613,
+   "corte": "2026-10-25",
+   "ultimo_doc": "2026-10-27",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-27"
+  },
+  {
+   "codigo": "PRD-304",
+   "nombre": "Conectividad IoT",
+   "carpeta": "PRD-304",
+   "profundidad": "media",
+   "gerente": "Natalia Ospina",
+   "segmento": "Grandes empresas",
+   "fecha": "2025-10-15",
+   "entrevista": "2026-03-19",
+   "requerimientos": [
+    {
+     "id": "REQ-4400",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-08",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4401",
+     "estado": "propuesto",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4402",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-03-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4403",
+     "estado": "propuesto",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4404",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4405",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-21",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4406",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4407",
+     "estado": "aceptado",
+     "doliente": null,
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-04-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4408",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4409",
+     "estado": "aceptado",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4410",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4411",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4412",
+     "estado": "propuesto",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-09-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4413",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-27",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El tipo de cambio de los equipos se sostiene",
+     "desde": "2026-08-15",
+     "verificado": false
+    }
+   ],
+   "declarado": 167875,
+   "medido": 116075,
+   "corte": "2026-10-23",
+   "ultimo_doc": "2026-10-23",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-23"
+  },
+  {
+   "codigo": "PRD-305",
+   "nombre": "Colocación en el borde",
+   "carpeta": "PRD-305",
+   "profundidad": "media",
+   "gerente": "Camilo Beltrán",
+   "segmento": "Operadores mayoristas",
+   "fecha": "2026-05-02",
+   "entrevista": "2026-01-29",
+   "requerimientos": [
+    {
+     "id": "REQ-4500",
+     "estado": "propuesto",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-09-13",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4501",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4502",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-07",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4503",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4504",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4505",
+     "estado": "propuesto",
+     "doliente": "Óscar Ramírez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4506",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4507",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-22",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4508",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4509",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4510",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4511",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4512",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4513",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-13",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La demanda de planes crece como dice el caso",
+     "desde": "2026-04-06",
+     "verificado": true,
+     "evidencia_fecha": "2026-09-28",
+     "evidencia": "el concepto jurídico de cumplimiento del 2026-09-28"
+    }
+   ],
+   "declarado": 122019,
+   "medido": null,
+   "corte": "2026-10-05",
+   "ultimo_doc": "2026-10-28",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-28"
+  },
+  {
+   "codigo": "PRD-306",
+   "nombre": "Televisión IP",
+   "carpeta": "PRD-306",
+   "profundidad": "delgada",
+   "gerente": "Gustavo Neira",
+   "segmento": "Grandes empresas",
+   "fecha": "2026-03-07",
+   "entrevista": "2025-09-25",
+   "requerimientos": [
+    {
+     "id": "REQ-4600",
+     "estado": "aceptado",
+     "doliente": "Beatriz Cuéllar",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-07-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4601",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4602",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-06-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4603",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-06",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4604",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-26",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4605",
+     "estado": "propuesto",
+     "doliente": null,
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-07",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4606",
+     "estado": "aceptado",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-23",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4607",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4608",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4609",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-16",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4610",
+     "estado": "aceptado",
+     "doliente": "Sandra Gil",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4611",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-22",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El proveedor cumple el tiempo pactado",
+     "desde": "2026-08-11",
+     "verificado": true,
+     "evidencia_fecha": "2026-09-19",
+     "evidencia": "el documento técnico del proveedor del 2026-09-19"
+    }
+   ],
+   "declarado": 100016,
+   "medido": null,
+   "corte": "2026-10-04",
+   "ultimo_doc": "2026-10-25",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-25"
+  },
+  {
+   "codigo": "PRD-307",
+   "nombre": "Planes prepago",
+   "carpeta": "PRD-307",
+   "profundidad": "media",
+   "gerente": "Javier Hoyos",
+   "segmento": "Operadores mayoristas",
+   "fecha": "2025-10-07",
+   "entrevista": "2025-12-10",
+   "requerimientos": [
+    {
+     "id": "REQ-4700",
+     "estado": "aceptado",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4701",
+     "estado": "propuesto",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4702",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4703",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-22",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4704",
+     "estado": "propuesto",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4705",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-03-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4706",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-12",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4707",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4708",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4709",
+     "estado": "propuesto",
+     "doliente": "Natalia Ospina",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-06-30",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4710",
+     "estado": "propuesto",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-17",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4711",
+     "estado": "propuesto",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-09",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4712",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4713",
+     "estado": "propuesto",
+     "doliente": "Paula Céspedes",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-26",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "El espectro se asigna en la fecha prevista",
+     "desde": "2026-09-24",
+     "verificado": false
+    }
+   ],
+   "declarado": 103332,
+   "medido": 76597,
+   "corte": "2026-10-18",
+   "ultimo_doc": "2026-10-17",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-18"
+  },
+  {
+   "codigo": "PRD-308",
+   "nombre": "Planes empresariales",
+   "carpeta": "PRD-308",
+   "profundidad": "media",
+   "gerente": "Gustavo Neira",
+   "segmento": "Operadores mayoristas",
+   "fecha": "2025-12-16",
+   "entrevista": "2026-02-06",
+   "requerimientos": [
+    {
+     "id": "REQ-4800",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-14",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4801",
+     "estado": "propuesto",
+     "doliente": "Diana Molina",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-18",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4802",
+     "estado": "aceptado",
+     "doliente": "Laura Vélez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-05-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4803",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4804",
+     "estado": "propuesto",
+     "doliente": "Camilo Beltrán",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-25",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4805",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-28",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4806",
+     "estado": "aceptado",
+     "doliente": "Elena Duarte",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4807",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4808",
+     "estado": "propuesto",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-15",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4809",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-08-19",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4810",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-04-03",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4811",
+     "estado": "aceptado",
+     "doliente": "Jorge Medina",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4812",
+     "estado": "propuesto",
+     "doliente": "Liliana Torres",
+     "criterio": true,
+     "evidencia": false,
+     "desde": "2026-08-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4813",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-20",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-2035",
+     "estado": "aceptado",
+     "doliente": "Mauricio Pérez",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-10-14",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Los permisos municipales salen a tiempo",
+     "desde": "2026-10-09",
+     "verificado": true,
+     "evidencia_fecha": "2026-10-12",
+     "evidencia": "el documento técnico del proveedor del 2026-10-12"
+    }
+   ],
+   "declarado": 68049,
+   "medido": 60464,
+   "corte": "2026-10-21",
+   "ultimo_doc": "2026-10-28",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-28"
+  },
+  {
+   "codigo": "PRD-309",
+   "nombre": "Roaming regional",
+   "carpeta": "PRD-309",
+   "profundidad": "media",
+   "gerente": "Camilo Beltrán",
+   "segmento": "Grandes empresas",
+   "fecha": "2025-10-31",
+   "entrevista": "2026-03-22",
+   "requerimientos": [
+    {
+     "id": "REQ-4900",
+     "estado": "propuesto",
+     "doliente": "Mauricio Pérez",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-07-05",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4901",
+     "estado": "aceptado",
+     "doliente": "Gustavo Neira",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4902",
+     "estado": "propuesto",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-24",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4903",
+     "estado": "aceptado",
+     "doliente": "Javier Hoyos",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-10",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4904",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-04-02",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4905",
+     "estado": "aceptado",
+     "doliente": "Rubén Cárdenas",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-07-11",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4906",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-07-31",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4907",
+     "estado": "aceptado",
+     "doliente": "Ricardo Salas",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-29",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4908",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-06-19",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4909",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-05-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4910",
+     "estado": "propuesto",
+     "doliente": "Felipe Arango",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-05-19",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4911",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-08-27",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4912",
+     "estado": "aceptado",
+     "doliente": "Natalia Ospina",
+     "criterio": false,
+     "evidencia": false,
+     "desde": "2026-07-01",
+     "proyecto": null
+    },
+    {
+     "id": "REQ-4913",
+     "estado": "propuesto",
+     "doliente": "Javier Hoyos",
+     "criterio": false,
+     "evidencia": true,
+     "desde": "2026-05-19",
+     "proyecto": null
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "La demanda de planes crece como dice el caso",
+     "desde": "2026-04-20",
+     "verificado": true,
+     "evidencia_fecha": "2026-08-12",
+     "evidencia": "el documento técnico del proveedor del 2026-08-12"
+    }
+   ],
+   "declarado": 57186,
+   "medido": null,
+   "corte": "2026-09-28",
+   "ultimo_doc": "2026-10-24",
+   "docs": [],
+   "semana": 3,
+   "ultimo_escrito": "2026-10-24"
+  },
+  {
+   "codigo": "PRD-299",
+   "nombre": "Solicitud de uniformes de técnicos",
+   "carpeta": "PRD-299",
+   "profundidad": "completa",
+   "gerente": "Felipe Arango",
+   "segmento": "Personas",
+   "fecha": "2026-07-30",
+   "entrevista": "2026-08-29",
+   "requerimientos": [
+    {
+     "id": "REQ-9000",
+     "estado": "aceptado",
+     "doliente": "María Restrepo",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-18",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9001",
+     "estado": "aceptado",
+     "doliente": "Andrés Lozano",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-09-08",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9002",
+     "estado": "aceptado",
+     "doliente": "Diana Molina",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-29",
+     "proyecto": "PRY-199"
+    },
+    {
+     "id": "REQ-9003",
+     "estado": "aceptado",
+     "doliente": "Carlos Peña",
+     "criterio": true,
+     "evidencia": true,
+     "desde": "2026-08-19",
+     "proyecto": "PRY-199"
+    }
+   ],
+   "supuestos": [
+    {
+     "que": "Los permisos municipales salen a tiempo",
+     "desde": "2026-09-08",
+     "verificado": true,
+     "evidencia_fecha": "2026-10-04",
+     "evidencia": "el documento técnico del proveedor del 2026-10-04"
+    }
+   ],
+   "declarado": 120000,
+   "medido": 120000,
+   "corte": "2026-10-22",
+   "ultimo_doc": "2026-10-25",
+   "docs": [],
+   "semana": 0,
+   "ultimo_escrito": "2026-10-25"
+  }
+ ]
+}

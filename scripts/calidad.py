@@ -15,8 +15,8 @@ no, es de **laboratorio**:
 3. ninguna entidad de control levantó una señal: una sola es laboratorio, sea cual sea el margen.
 
 En la familia PMO, cada agente cuenta por separado: la precisión y la cobertura de Vera, los
-compromisos de Samuel y la cobertura de Alba, y los proyectos de control sin alertas, en su ronda
-más reciente, que corre todo su material. Una familia con una entidad que nunca corrió con los
+compromisos de Samuel y la cobertura de Alba, y los proyectos de control sin alertas, con la
+corrida más reciente de cada industria, como en las demás familias (decisión 0021). Una familia con una entidad que nunca corrió con los
 agentes es de laboratorio: no hay con qué sostener otra cosa.
 
 El piso exige muestra: sin fallas, un 95 % pide al menos 73 casos (`casos_minimos`). Una familia que
@@ -46,17 +46,28 @@ def casos_minimos(umbral: float = UMBRAL, fallas: int = 0) -> int:
 
 
 def _pmo() -> dict:
+    """Las cifras de la PMO con la misma regla que las demás familias (decisiones 0020 y 0021): cada
+    industria con su corrida más reciente, sea de la ronda que sea. Una ronda que agrega industrias
+    no obliga a repetir las que ya pasaron; cada agente cuenta por separado."""
     import analisis as A
     R, U, *_ = A.calcular()
-    vic = U.get("vera_ic") or {}
-    pisos = {
-        "Vera · precisión": (vic.get("ic_precision") or [0.0])[0],
-        "Vera · cobertura": (vic.get("ic_cobertura") or [0.0])[0],
-        "Samuel · compromisos": A.wilson(U["sok"], U["stot"])[0] if U["stot"] else 0.0,
-        "Alba · cobertura": A.wilson(U["atp"], U["aesp"])[0] if U["aesp"] else 0.0,
-    }
-    sucios = (U["ctrl"] or 0) - (U["limpios"] or 0)
-    return {"ronda": U["n"], "version_medida": U["version"], "pisos": pisos, "controles_con_senal": sucios, "completa": True}
+    ultima = {}
+    for r in R:
+        for e, x in r["por_industria"].items():
+            ultima[e] = (r["n"], r["version"], x)
+    xs = [x for _, _, x in ultima.values()]
+    s = lambda f: sum(f(x) or 0 for x in xs)  # noqa: E731
+    vtp, vfp, vfn = s(lambda x: x["vera"]["aciertos"]), s(lambda x: x["vera"]["falsos_positivos"]), s(lambda x: x["vera"]["falsos_negativos"])
+    sok, stot = s(lambda x: x["samuel"]["correctos"]), s(lambda x: x["samuel"]["total"])
+    atp, aesp = s(lambda x: x["alba"]["aciertos"]), s(lambda x: x["alba"]["esperados"])
+    ctrl, limpios = s(lambda x: x["vera"].get("controles")), s(lambda x: x["vera"].get("controles_limpios"))
+    w = lambda k, n: A.wilson(k, n)[0] if n else 0.0  # noqa: E731
+    pisos = {"Vera · precisión": w(vtp, vtp + vfp), "Vera · cobertura": w(vtp, vtp + vfn),
+             "Samuel · compromisos": w(sok, stot), "Alba · cobertura": w(atp, aesp)}
+    rondas = sorted({n for n, _, _ in ultima.values()})
+    return {"ronda": max(rondas), "rondas": rondas, "version_medida": U["version"], "pisos": pisos,
+            "controles_con_senal": ctrl - limpios, "completa": True,
+            "casos": {"señales": vtp + vfn, "datos": stot + aesp}, "industrias": len(ultima)}
 
 
 def _familia(sigla: str) -> dict | None:

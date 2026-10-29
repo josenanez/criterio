@@ -1,0 +1,26 @@
+{
+ "n": 10,
+ "agente": "samuel",
+ "comando": "pm-minutes",
+ "argumento": "documentos/proyectos/PRY-211-plataforma-de-internet-de-las-cosas/2026-10-28-notas-reunion.txt",
+ "inicio": "2026-10-29T01:18:22",
+ "estado": "success",
+ "error": false,
+ "segundos": 64,
+ "turnos": 17,
+ "tokens": 747811,
+ "tokens_salida": 7226,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corrida-en-curso.json",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/2026-10-28-pm-minutes-1.md",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas/salida-pm-minutes.md"
+  ],
+  "modificados": [
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-211-plataforma-de-internet-de-las-cosas/corridas.json"
+  ],
+  "borrados": []
+ }
+}

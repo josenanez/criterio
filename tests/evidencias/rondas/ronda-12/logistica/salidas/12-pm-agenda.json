@@ -1,0 +1,28 @@
+{
+ "n": 12,
+ "agente": "samuel",
+ "comando": "pm-agenda",
+ "argumento": "",
+ "inicio": "2026-10-29T02:26:15",
+ "estado": "success",
+ "error": false,
+ "segundos": 76,
+ "turnos": 14,
+ "tokens": 536765,
+ "tokens_salida": 9757,
+ "modelo": "claude-sonnet-5-5",
+ "cambios": {
+  "nuevos": [
+   ".criterio/corridas/proyecto/2026-10-28-pm-agenda-1.html",
+   ".criterio/corridas/proyecto/2026-10-28-pm-agenda-1.md",
+   "estado/PRY-204-cross-docking-en-el-puerto/corridas/2026-10-28-pm-agenda-1.md",
+   "estado/PRY-204-cross-docking-en-el-puerto/corridas/salida-pm-agenda.md"
+  ],
+  "modificados": [
+   ".criterio/corridas/proyecto/corridas.json",
+   ".criterio/en-curso/692b0e4d-0e89-5e8d-a391-2cabbf233557.json",
+   "estado/PRY-204-cross-docking-en-el-puerto/corridas.json"
+  ],
+  "borrados": []
+ }
+}
