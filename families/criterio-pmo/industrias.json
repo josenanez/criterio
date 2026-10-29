@@ -1,29 +1,117 @@
 {
-  "nota": "Fuente única de las industrias de prueba de la familia: la leen el README de la familia (scripts/industrias.py) y la página de josenanez.com (scripts/criterio-industrias.mjs del portal). Una industria «probada» tiene perfil en tests/sintetico/sectores.py y corre en la última ronda; una «siguiente» todavía no, y su versión es la del incremento de hoja-de-ruta.json que la nombra.",
+  "nota": "Fuente única de las industrias de prueba de la familia: la leen el README de la familia (scripts/industrias.py) y la página de josenanez.com (scripts/criterio-industrias.mjs del portal). Una industria «probada» tiene perfil en tests/sintetico/sectores.py y corre en la última ronda; una «siguiente» todavía no, y su versión es la del incremento de hoja-de-ruta.json que la nombra. `corto` es el nombre de la industria en una tabla o en una lista: lo usan el análisis (scripts/analisis.py) y el portal.",
   "industrias": [
-    {"id": "bancos", "estado": "probada",
-     "es": {"nombre": "Entidades financieras · bancos", "trae": "Core de depósitos, originación digital, nube y Open Banking; comités de transformación, arquitectura y riesgos"},
-     "en": {"nombre": "Financial institutions · banks", "trae": "Deposit core, digital origination, cloud and Open Banking; transformation, architecture and risk committees"}},
-    {"id": "cooperativas", "estado": "probada",
-     "es": {"nombre": "Entidades financieras · cooperativas", "trae": "Consejo de Administración y comité de crédito; core cooperativo, libranza y aportes; asociados urbanos y rurales"},
-     "en": {"nombre": "Financial institutions · credit unions", "trae": "Board of directors and credit committee; cooperative core, payroll loans and member contributions; urban and rural members"}},
-    {"id": "retail", "estado": "probada",
-     "es": {"nombre": "Retail", "trae": "Tienda en línea, fidelización y centros de distribución; integración con el ERP y congelamiento de cambios en temporada alta"},
-     "en": {"nombre": "Retail", "trae": "Online store, loyalty and distribution centres; ERP integration and change freezes in peak season"}},
-    {"id": "mineria", "estado": "probada",
-     "es": {"nombre": "Minería (oro y cobre)", "trae": "Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje"},
-     "en": {"nombre": "Mining (gold and copper)", "trae": "Engineering, licences and permits, installation; plant shutdowns; engineering and installation vendors"}},
-    {"id": "construccion", "estado": "probada",
-     "es": {"nombre": "Construcción e infraestructura", "trae": "Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero"},
-     "en": {"nombre": "Construction and infrastructure", "trae": "MS Project schedules, change orders, contractors, physical against financial progress"}},
-    {"id": "oil-gas", "estado": "probada",
-     "es": {"nombre": "Oil & gas", "trae": "Megaproyectos de capital, contratistas, permisos y seguridad industrial"},
-     "en": {"nombre": "Oil & gas", "trae": "Capital megaprojects, contractors, permits and process safety"}},
-    {"id": "telecomunicaciones", "estado": "probada",
-     "es": {"nombre": "Telecomunicaciones", "trae": "Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio"},
-     "en": {"nombre": "Telecommunications", "trae": "Many rollouts in parallel, vendors and permits: portfolio scale"}},
-    {"id": "logistica", "estado": "probada",
-     "es": {"nombre": "Logística", "trae": "Implantaciones en varios centros con una operación que no se detiene"},
-     "en": {"nombre": "Logistics", "trae": "Roll-outs across several sites while operations never stop"}}
+    {
+      "id": "bancos",
+      "estado": "probada",
+      "es": {
+        "corto": "Banca",
+        "nombre": "Entidades financieras · bancos",
+        "trae": "Core de depósitos, originación digital, nube y Open Banking; comités de transformación, arquitectura y riesgos"
+      },
+      "en": {
+        "corto": "Banking",
+        "nombre": "Financial institutions · banks",
+        "trae": "Deposit core, digital origination, cloud and Open Banking; transformation, architecture and risk committees"
+      }
+    },
+    {
+      "id": "cooperativas",
+      "estado": "probada",
+      "es": {
+        "corto": "Cooperativas",
+        "nombre": "Entidades financieras · cooperativas",
+        "trae": "Consejo de Administración y comité de crédito; core cooperativo, libranza y aportes; asociados urbanos y rurales"
+      },
+      "en": {
+        "corto": "Credit unions",
+        "nombre": "Financial institutions · credit unions",
+        "trae": "Board of directors and credit committee; cooperative core, payroll loans and member contributions; urban and rural members"
+      }
+    },
+    {
+      "id": "retail",
+      "estado": "probada",
+      "es": {
+        "corto": "Retail",
+        "nombre": "Retail",
+        "trae": "Tienda en línea, fidelización y centros de distribución; integración con el ERP y congelamiento de cambios en temporada alta"
+      },
+      "en": {
+        "corto": "Retail",
+        "nombre": "Retail",
+        "trae": "Online store, loyalty and distribution centres; ERP integration and change freezes in peak season"
+      }
+    },
+    {
+      "id": "mineria",
+      "estado": "probada",
+      "es": {
+        "corto": "Minería",
+        "nombre": "Minería (oro y cobre)",
+        "trae": "Ingeniería, licencias y permisos, montaje; paradas de planta; proveedores de ingeniería y montaje"
+      },
+      "en": {
+        "corto": "Mining",
+        "nombre": "Mining (gold and copper)",
+        "trae": "Engineering, licences and permits, installation; plant shutdowns; engineering and installation vendors"
+      }
+    },
+    {
+      "id": "construccion",
+      "estado": "probada",
+      "es": {
+        "corto": "Construcción",
+        "nombre": "Construcción e infraestructura",
+        "trae": "Cronogramas de MS Project, órdenes de cambio, contratistas, avance físico contra financiero"
+      },
+      "en": {
+        "corto": "Construction",
+        "nombre": "Construction and infrastructure",
+        "trae": "MS Project schedules, change orders, contractors, physical against financial progress"
+      }
+    },
+    {
+      "id": "oil-gas",
+      "estado": "probada",
+      "es": {
+        "corto": "Petróleo y gas",
+        "nombre": "Oil & gas",
+        "trae": "Megaproyectos de capital, contratistas, permisos y seguridad industrial"
+      },
+      "en": {
+        "corto": "Oil & gas",
+        "nombre": "Oil & gas",
+        "trae": "Capital megaprojects, contractors, permits and process safety"
+      }
+    },
+    {
+      "id": "telecomunicaciones",
+      "estado": "probada",
+      "es": {
+        "corto": "Telecomunicaciones",
+        "nombre": "Telecomunicaciones",
+        "trae": "Muchos despliegues en paralelo, proveedores y permisos: la escala del portafolio"
+      },
+      "en": {
+        "corto": "Telecommunications",
+        "nombre": "Telecommunications",
+        "trae": "Many rollouts in parallel, vendors and permits: portfolio scale"
+      }
+    },
+    {
+      "id": "logistica",
+      "estado": "probada",
+      "es": {
+        "corto": "Logística",
+        "nombre": "Logística",
+        "trae": "Implantaciones en varios centros con una operación que no se detiene"
+      },
+      "en": {
+        "corto": "Logistics",
+        "nombre": "Logistics",
+        "trae": "Roll-outs across several sites while operations never stop"
+      }
+    }
   ]
 }

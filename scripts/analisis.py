@@ -32,10 +32,9 @@ SALIDA = RAIZ / "families" / "criterio-pmo" / "analisis"
 REPO = "https://github.com/josenanez/criterio"
 L = ("es", "en")
 
-INDUSTRIA = {"bancos": ("Banca", "Banking"), "cooperativas": ("Cooperativas", "Credit unions"),
-             "retail": ("Retail", "Retail"), "mineria": ("Minería", "Mining"),
-             "construccion": ("Construcción", "Construction"), "oil-gas": ("Oil & gas", "Oil & gas"),
-             "telecomunicaciones": ("Telecomunicaciones", "Telecommunications"), "logistica": ("Logística", "Logistics")}
+# El nombre corto de cada industria, de families/criterio-pmo/industrias.json: el mismo que usa el portal.
+INDUSTRIA = {i["id"]: (i["es"]["corto"], i["en"]["corto"])
+             for i in json.loads((RAIZ / "families" / "criterio-pmo" / "industrias.json").read_text(encoding="utf-8"))["industrias"]}
 SENAL = {
     "milestone_met_without_evidence": ("Hito dado por cumplido sin evidencia", "Milestone marked met with no evidence"),
     "milestone_overdue": ("Hito vencido", "Overdue milestone"),
@@ -332,7 +331,7 @@ def secciones():
                                 "en": ["Industry", "Vera · precision", "Vera · coverage", "Samuel", "Alba · coverage", "Alba · precision", "Rostrum"]},
                         "filas": {i: [[INDUSTRIA[e][0 if f(i) else 1], pct(I["vtp"], I["vtp"] + I["vfp"], i), pct(I["vtp"], I["vtp"] + I["vfn"], i),
                                        pct(I["sok"], I["stot"], i), pct(I["atp"], I["aesp"], i), pct(I["atp_rep"], I["arep"], i), pct(I["rp"], I["rt"], i)]
-                                      for e, I in ind.items()] for i in L}}})
+                                      for e, I in sorted(ind.items(), key=lambda kv: list(INDUSTRIA).index(kv[0]))] for i in L}}})
 
     # 7 · por tipo de alerta
     orden = sorted(senales.items(), key=lambda kv: (kv[1]["tp"] == 0, -kv[1]["tp"], -kv[1]["fp"]))
