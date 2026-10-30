@@ -60,7 +60,7 @@
   {
    "incremento": 2,
    "version": "0.2.0",
-   "estado": "en curso",
+   "estado": "reservada",
    "industrias": [],
    "es": {
     "titulo": "La ronda de los tres agentes",
@@ -81,8 +81,8 @@
   },
   {
    "incremento": 3,
-   "version": null,
-   "estado": "siguiente",
+   "version": "0.3.0",
+   "estado": "en curso",
    "industrias": [],
    "es": {
     "titulo": "Los escáneres, cada uno desde su fuente",

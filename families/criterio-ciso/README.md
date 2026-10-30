@@ -17,7 +17,7 @@ the entity's folder and reference, and each writes only its own.
 | **Goal** | That what the organisation committed to in its policy —review, fix, notify, test— has behind it the documents that show it did, and on time |
 | **Made up of** | [Alexis](../../plugins/criterio-security/README.md) · [Guillermo](../../plugins/criterio-vulnerability/README.md) · [Amparo](../../plugins/criterio-resilience/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The international frameworks that order the family, the format of every file the engine processes and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **Status** | Laboratory, not yet launched: published in the marketplace from version 0.1.0, with the engine tested on synthetic banking, retail, healthcare and technology material; the round with the agents is the next step. **Not yet tested on a specific organisation's documentation** |
+| **Status** | Laboratory, not yet launched (0.2.0): the engine tested on synthetic banking, retail, healthcare and technology material, and the first round with the three agents on all six entities, 100 of 100 signals and none extra; the extracted fields are still too few for a 95 % floor. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Documents and exports, never systems: no agent runs a scan or connects to a console |
 | **Commitment** | Generating, spreading and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the security lead or their team, and does not decide for them: it accepts no risks, declares no control met, approves no exceptions, notifies no one, rates no maturity and certifies against no standard |
@@ -263,8 +263,8 @@ The family grows in increments. Each one is a version with its full test and its
 | Version | Status | What goes in | Test |
 |---|---|---|---|
 | 0.1.0 | Released | **Alexis, Guillermo and Amparo, built, with the engine tested**<br>· The commands, their seven skills and the engine, with the sixteen signals: Alexis's controls, access, third parties and risks; Guillermo's vulnerabilities, KEV catalog and coverage; Amparo's incidents, notifications and tests<br>· Any scanner export in CSV or Excel with its column mapping, severity from CVSS v4.0 and CISA's KEV catalog<br>· What is never opened: credentials, keys and backups, excluded by default<br>· Banking, retail, healthcare and technology material, with two control entities | The engine against the key of all the material: six entities from four industries, with their controls |
-| 0.2.0 | In progress | **The round of the three agents**<br>· The round with Alexis, Guillermo and Amparo on all the material, with the key they never see<br>· The defects it finds, with their fix and their verification | The full round, with the 95% confidence floor on signals and data (decision 0020) |
-| Increment 3 | Next | **The scanners, each from its source**<br>· The export format of Tenable, Qualys, Rapid7 and Microsoft Defender, each from its verified source, as Dynamics and Zoho entered the CCO | Their material and their round, with the same metrics |
+| 0.2.0 | Reserved | **The round of the three agents**<br>· The round with Alexis, Guillermo and Amparo on all the material, with the key they never see<br>· The defects it finds, with their fix and their verification | The full round, with the 95% confidence floor on signals and data (decision 0020) |
+| 0.3.0 | In progress | **The scanners, each from its source**<br>· The export format of Tenable, Qualys, Rapid7 and Microsoft Defender, each from its verified source, as Dynamics and Zoho entered the CCO | Their material and their round, with the same metrics |
 
 <!-- /hoja de ruta -->
 
@@ -286,9 +286,10 @@ Seven distinct skills across the three agents. **The ones they share are literal
 
 ## Status
 
-**All three are laboratory ones.** Their version 0.1.0 brings the engine, which passes its
-deterministic test on all the material; the round with the agents on the same material, with a key they
-never see, is what declares it tested, and it comes with 0.2.0. Laboratory or stable is said by the
+**All three are laboratory ones.** Their version 0.2.0 brings the engine, which passes its
+deterministic test on all the material, and the first round with the agents on the same material, with a
+key they never see: 100 of 100 signals and none extra, with a floor of 96.3 %; the 48 extracted fields
+give a floor of 92.5 %, below the 95 % that stable requires. Laboratory or stable is said by the
 evidence (decision 0020), and on the day the family is launched, if it is stable, its version is 1.0.0
 (decision 0021).
 

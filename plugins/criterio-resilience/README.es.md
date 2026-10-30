@@ -13,7 +13,7 @@ Tú respondes por la respuesta a incidentes y por la continuidad. Ella llega con
 
 [English](README.md) · `criterio-resilience` · Apache 2.0 · Una instancia por entidad
 
-**Estado: de laboratorio, sin lanzar (versión 0.1.0).** El motor de cálculo, probado contra material sintético de cuatro industrias con una clave que el agente no ve y dos entidades de control. Ya se puede instalar desde el marketplace. **La ronda con el agente es el siguiente paso**, en la 0.2.0. Nada se anuncia como terminado hasta que pasen los [criterios de aceptación](ACCEPTANCE.md).
+**Estado: de laboratorio, sin lanzar (versión 0.2.0).** El motor de cálculo, probado contra material sintético de cuatro industrias con una clave que el agente no ve y dos entidades de control, y la primera ronda con los tres agentes sobre las seis entidades: 100 de 100 señales, ninguna de más. Sigue de laboratorio porque los datos extraídos son todavía pocos para un piso del 95 %. Ya se puede instalar desde el marketplace. Nada se anuncia como terminado hasta que pasen los [criterios de aceptación](ACCEPTANCE.md).
 
 **Esta página se lee sola.** Amparo funciona sin los otros dos agentes de la familia. La familia —cómo se encuentran entre sí y con Rostrum— está en la [familia criterio-ciso](../../families/criterio-ciso/README.es.md).
 

@@ -18,7 +18,7 @@ suyo.
 | **Objetivo** | Que lo que la organización se comprometió a hacer en su política —revisar, corregir, notificar, probar— tenga detrás los documentos que muestran que lo hizo, y a tiempo |
 | **Compuesta por** | [Alexis](../../plugins/criterio-security/README.es.md) · [Guillermo](../../plugins/criterio-vulnerability/README.es.md) · [Amparo](../../plugins/criterio-resilience/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | Los marcos internacionales que ordenan la familia, el formato de cada archivo que procesa el motor y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | De laboratorio, sin lanzar: se publica en el marketplace desde su versión 0.1.0, con el motor probado sobre material sintético de banca, retail, salud y tecnología; la ronda con los agentes es el siguiente paso. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | De laboratorio, sin lanzar (0.2.0): el motor probado sobre material sintético de banca, retail, salud y tecnología, y la primera ronda con los tres agentes sobre las seis entidades, 100 de 100 señales y ninguna de más; los datos extraídos son todavía pocos para un piso del 95 %. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Documentos y exportaciones, nunca sistemas: ningún agente corre un escaneo ni se conecta a una consola |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al responsable de seguridad ni a su equipo, y no decide por ellos: no acepta riesgos, no declara cumplido un control, no aprueba excepciones, no notifica a nadie, no califica la madurez y no certifica contra ninguna norma |
@@ -268,8 +268,8 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
 | 0.1.0 | Liberada | **Alexis, Guillermo y Amparo, construidos, con el motor probado**<br>· Los comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo<br>· Cualquier exportación de escáner en CSV o Excel con su mapeo de columnas, la severidad desde el CVSS v4.0 y el catálogo KEV de CISA<br>· Lo que nunca se abre: credenciales, llaves y respaldos, excluidos por omisión<br>· Material de banca, retail, salud y tecnología, con dos entidades de control | El motor contra la clave de todo el material: seis entidades de cuatro industrias, con sus controles |
-| 0.2.0 | En curso | **La ronda de los tres agentes**<br>· La ronda con Alexis, Guillermo y Amparo sobre todo el material, con la clave que no ven<br>· Los defectos que encuentre, con su corrección y su verificación | La ronda completa, con el piso del margen del 95 % en señales y en datos (decisión 0020) |
-| Incremento 3 | Siguiente | **Los escáneres, cada uno desde su fuente**<br>· El formato de exportación de Tenable, Qualys, Rapid7 y Microsoft Defender, cada uno desde su fuente verificada, como entraron Dynamics y Zoho en la CCO | Su material y su ronda, con las mismas métricas |
+| 0.2.0 | Reservada | **La ronda de los tres agentes**<br>· La ronda con Alexis, Guillermo y Amparo sobre todo el material, con la clave que no ven<br>· Los defectos que encuentre, con su corrección y su verificación | La ronda completa, con el piso del margen del 95 % en señales y en datos (decisión 0020) |
+| 0.3.0 | En curso | **Los escáneres, cada uno desde su fuente**<br>· El formato de exportación de Tenable, Qualys, Rapid7 y Microsoft Defender, cada uno desde su fuente verificada, como entraron Dynamics y Zoho en la CCO | Su material y su ronda, con las mismas métricas |
 
 <!-- /hoja de ruta -->
 
@@ -291,9 +291,10 @@ Siete skills distintos entre los tres agentes. **Los que comparten son copias li
 
 ## Estado
 
-**Los tres son de laboratorio.** Su versión 0.1.0 trae el motor, que pasa su prueba determinista
-sobre todo el material; la ronda con los agentes sobre el mismo material, con una clave que no ven,
-es lo que la declara probada, y sale con la 0.2.0. Laboratorio o estable lo dice la evidencia
+**Los tres son de laboratorio.** Su versión 0.2.0 trae el motor, que pasa su prueba determinista
+sobre todo el material, y la primera ronda con los agentes sobre el mismo material, con una clave que
+no ven: 100 de 100 señales y ninguna de más, con un piso del 96,3 %; los 48 datos extraídos dan un
+piso del 92,5 %, por debajo del 95 % que pide estable. Laboratorio o estable lo dice la evidencia
 (decisión 0020), y el día que se lance la familia, si es estable, su versión es la 1.0.0 (decisión
 0021).
 

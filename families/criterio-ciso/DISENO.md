@@ -2,10 +2,10 @@
 
 # criterio-ciso · the family design
 
-**Status: laboratory, not yet launched (version 0.1.0).** The twenty-three commands, the seven skills and the calculation
+**Status: laboratory, not yet launched (version 0.2.0).** The twenty-three commands, the seven skills and the calculation
 engine are built on the common core; the engine passes its deterministic test against the banking,
-retail, healthcare and technology material (`tests/criterio-ciso/`), and the round with the agents is the
-next step, in 0.2.0. Scope in [ADR 0023](../../docs/decisions/0023-la-familia-ciso.md) (Spanish).
+retail, healthcare and technology material (`tests/criterio-ciso/`), and the first round with the agents,
+on all six entities, raises 100 of 100 signals and none extra. Scope in [ADR 0023](../../docs/decisions/0023-la-familia-ciso.md) (Spanish).
 
 **This is the family's design sheet**: the documents it processes, the signals the code calculates, each
 command with its input, process and report, and the decisions taken. What the family does, how it is
