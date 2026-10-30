@@ -1,0 +1,570 @@
+{
+  "entidad": "Instituto Público de Fomento Andino",
+  "industria": "publica",
+  "pais": "CO",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "publicacion_tarde",
+      "sin_publicacion",
+      "garantia_baja"
+    ],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "899999101",
+        "name": "Instituto Público de Fomento Andino",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "legal/899999101-instituto-publico-de-fomento-andino",
+        "state": "estado-legal/899999101-instituto-publico-de-fomento-andino"
+      },
+      "public_procurement": {
+        "public": true,
+        "guarantee_threshold": null
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "899999101",
+        "name": "Instituto Público de Fomento Andino",
+        "country": "CO",
+        "currency": "COP"
+      },
+      "paths": {
+        "documents": "legal/899999101-instituto-publico-de-fomento-andino",
+        "state": "estado-legal/899999101-instituto-publico-de-fomento-andino"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-1901": {
+        "code": "CTR-1901",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Tecnología Pública S.A.S.",
+          "id": "800019001"
+        },
+        "value": 480000000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Adriana Morales",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Tecnología Pública S.A.S.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/20-garantias/poliza-cumplimiento.md",
+            "amount": 38400000.0,
+            "delivered_on": "2025-12-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Tecnología Pública S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Tecnología Pública S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Tecnología Pública S.A.S.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/10-contrato/contrato.md",
+        "public": {
+          "system": "SECOP II",
+          "published_on": "2025-12-31",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-1902": {
+        "code": "CTR-1902",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Suministros del Estado S.A.S.",
+          "id": "800019002"
+        },
+        "value": 240000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Hernán Vargas",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Suministros del Estado S.A.S.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 60000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Hernán Vargas",
+            "source": "contratos/CTR-1902-suministros-del-estado-s-a-s/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1902-suministros-del-estado-s-a-s/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1902-suministros-del-estado-s-a-s/20-garantias/poliza-cumplimiento.md",
+            "amount": 24000000.0,
+            "delivered_on": "2025-06-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-1902-suministros-del-estado-s-a-s/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Suministros del Estado S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1902-suministros-del-estado-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Suministros del Estado S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1902-suministros-del-estado-s-a-s/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1902-suministros-del-estado-s-a-s/10-contrato/contrato.md",
+        "public": {
+          "system": "SECOP II",
+          "published_on": null,
+          "modality": "licitación pública",
+          "source": null
+        }
+      },
+      "CTR-1903": {
+        "code": "CTR-1903",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Inmuebles Oficiales S.A.",
+          "id": "800019003"
+        },
+        "value": 360000000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Adriana Morales",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Inmuebles Oficiales S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1903-inmuebles-oficiales-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1903-inmuebles-oficiales-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 36000000.0,
+            "delivered_on": "2025-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-1903-inmuebles-oficiales-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Inmuebles Oficiales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1903-inmuebles-oficiales-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Inmuebles Oficiales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1903-inmuebles-oficiales-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1903-inmuebles-oficiales-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SECOP II",
+          "published_on": "2025-01-30",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-1903-inmuebles-oficiales-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-1904": {
+        "code": "CTR-1904",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Software Institucional S.A.S.",
+          "id": "800019004"
+        },
+        "value": 180000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Hernán Vargas",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Software Institucional S.A.S.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1904-software-institucional-s-a-s/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1904-software-institucional-s-a-s/20-garantias/poliza-cumplimiento.md",
+            "amount": 18000000.0,
+            "delivered_on": "2026-02-28"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-1904-software-institucional-s-a-s/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Software Institucional S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1904-software-institucional-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Software Institucional S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1904-software-institucional-s-a-s/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1904-software-institucional-s-a-s/10-contrato/contrato.md",
+        "public": {
+          "system": "SECOP II",
+          "published_on": "2026-03-04",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-1904-software-institucional-s-a-s/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-1905": {
+        "code": "CTR-1905",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultoría Estatal S.A.S.",
+          "id": "800019005"
+        },
+        "value": 120000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Hernán Vargas",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultoría Estatal S.A.S.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/20-garantias/poliza-cumplimiento.md",
+            "amount": 12000000.0,
+            "delivered_on": "2026-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultoría Estatal S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultoría Estatal S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/10-contrato/contrato.md",
+        "public": {
+          "system": "SECOP II",
+          "published_on": "2026-01-30",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-1906": {
+        "code": "CTR-1906",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Público S.A.S.",
+          "id": "800019006"
+        },
+        "value": 300000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Adriana Morales",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Público S.A.S.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1906-mantenimiento-publico-s-a-s/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-1906-mantenimiento-publico-s-a-s/20-garantias/poliza-cumplimiento.md",
+            "amount": 24000000.0,
+            "delivered_on": "2025-09-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-1906-mantenimiento-publico-s-a-s/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Público S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1906-mantenimiento-publico-s-a-s/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Público S.A.S.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1906-mantenimiento-publico-s-a-s/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1906-mantenimiento-publico-s-a-s/10-contrato/contrato.md",
+        "public": {
+          "system": "SECOP II",
+          "published_on": "2025-10-06",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-1906-mantenimiento-publico-s-a-s/10-contrato/constancia-publicacion.md"
+        }
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "public_contract_not_published",
+      "key": "publicacion:CTR-1902"
+    },
+    {
+      "signal": "public_contract_not_published",
+      "key": "publicacion:CTR-1904"
+    },
+    {
+      "signal": "public_contract_not_published",
+      "key": "publicacion:CTR-1906"
+    },
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-1901"
+    },
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-1906"
+    }
+  ]
+}

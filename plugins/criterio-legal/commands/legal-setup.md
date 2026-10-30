@@ -46,8 +46,9 @@ Reporta en tres líneas: cuántos contratos hay en `contratos/`, si está el reg
 2. **La matriz de atribuciones**: quién firma qué tipo de contrato y hasta qué monto, en el modelo de **signing-authority**. Si no existe, el chequeo de facultades queda sin hacer, y se dice.
 3. **Con cuántos días de anticipación** quiere el aviso de un vencimiento y de un preaviso. Propón los de `config.example.json`: son configuración, no norma.
 4. **La antigüedad máxima del certificado** de existencia y representación de la contraparte al firmar.
-5. **Dónde guardo lo que voy encontrando.** Propón `estado-legal/<entidad>`. **Nunca dentro de la carpeta de documentos.**
-6. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" terminos --config <config>` y muestra **tal cual** su `en_corto`, con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta.
+5. **Si la entidad es pública** y contrata bajo la ley de contratación pública de su país. Con un sí, `public_procurement.public` es `true`, y el motor revisa cada contrato contra esa ley: la publicación en el sistema nacional y la garantía de cumplimiento. En Ecuador y en Chile el mínimo de la garantía se exige desde un umbral que cambia con el presupuesto del Estado o con la UTM: pregunta cuál es hoy y regístralo en `public_procurement.guarantee_threshold`, en la moneda de la entidad. Si no es pública, nada de esto aplica.
+6. **Dónde guardo lo que voy encontrando.** Propón `estado-legal/<entidad>`. **Nunca dentro de la carpeta de documentos.**
+7. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/legal.py" terminos --config <config>` y muestra **tal cual** su `en_corto`, con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta.
 
 **Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_LEGAL.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
 

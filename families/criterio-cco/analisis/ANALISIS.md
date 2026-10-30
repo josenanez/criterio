@@ -19,7 +19,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |   |   |
 |---|---|
 | Rounds | 2; the most recent, round 2, is partial |
-| Material | Retail · Chile, Retail · Ecuador, manufactura · Peru, servicios · Peru, tecnologia · Chile, tecnologia · Ecuador |
+| Material | Manufacturing · Peru, Retail · Chile, Retail · Ecuador, Services · Peru, Technology · Chile, Technology · Ecuador |
 | Control entities | Control · Chile, Control · Ecuador, Control · Peru |
 | Entity runs | 20 |
 | Seeded signals | 236 |
@@ -58,12 +58,12 @@ A round that does not run every entity is partial: the first, small one, before 
 
 | Material | Agents | Signals | Extra | Extraction | Tokens |
 |---|---|---|---|---|---|
+| Manufacturing · Peru | Augusto, Valeria | 20 of 20 | 0 | 5 of 5 | 3.2 M |
 | Retail · Chile | Augusto, Valeria | 19 of 19 | 0 | 5 of 5 | 3.2 M |
 | Retail · Ecuador | Augusto, Valeria | 18 of 18 | 0 | 5 of 5 | 3.2 M |
-| manufactura · Peru | Augusto, Valeria | 20 of 20 | 0 | 5 of 5 | 3.2 M |
-| servicios · Peru | Augusto, Valeria | 20 of 20 | 0 | 5 of 5 | 3.1 M |
-| tecnologia · Chile | Augusto, Valeria | 20 of 20 | 0 | 5 of 5 | 3 M |
-| tecnologia · Ecuador | Augusto, Valeria | 20 of 20 | 0 | 5 of 5 | 3.1 M |
+| Services · Peru | Augusto, Valeria | 20 of 20 | 0 | 5 of 5 | 3.1 M |
+| Technology · Chile | Augusto, Valeria | 20 of 20 | 0 | 5 of 5 | 3 M |
+| Technology · Ecuador | Augusto, Valeria | 20 of 20 | 0 | 5 of 5 | 3.1 M |
 | Control · Chile | Augusto, Valeria | 0 of 0 | 0 | 5 of 5 | 2.6 M |
 | Control · Ecuador | Augusto, Valeria | 0 of 0 | 0 | 5 of 5 | 3.1 M |
 | Control · Peru | Augusto, Valeria | 0 of 0 | 1 | 5 of 5 | 2.9 M |
@@ -77,14 +77,14 @@ A round that does not run every entity is partial: the first, small one, before 
 |---|---|---|---|---|---|
 | 1 | Control · Mexico | Extra signal | ["commission_differs_from_plan", "comision:2026-10:isabel_mendez"] | — | — |
 | 1 | Control · Mexico | Extra signal | ["commission_differs_from_plan", "comision:2026-10:oscar_delgado"] | — | — |
-| 1 | servicios · Mexico | Signal missed | ["close_date_slipped", "corre:OPP-1504"] | — | — |
-| 1 | servicios · Mexico | Signal missed | ["close_date_slipped", "corre:OPP-1526"] | — | — |
-| 1 | servicios · Mexico | Signal missed | ["close_date_slipped", "corre:OPP-1527"] | — | — |
-| 1 | servicios · Mexico | Signal missed | ["close_date_slipped", "corre:OPP-1528"] | — | — |
-| 1 | tecnologia · Colombia | Signal missed | ["close_date_slipped", "corre:OPP-1204"] | — | — |
-| 1 | tecnologia · Colombia | Signal missed | ["close_date_slipped", "corre:OPP-1226"] | — | — |
-| 1 | tecnologia · Colombia | Signal missed | ["close_date_slipped", "corre:OPP-1227"] | — | — |
-| 1 | tecnologia · Colombia | Signal missed | ["close_date_slipped", "corre:OPP-1228"] | — | — |
+| 1 | Services · Mexico | Signal missed | ["close_date_slipped", "corre:OPP-1504"] | — | — |
+| 1 | Services · Mexico | Signal missed | ["close_date_slipped", "corre:OPP-1526"] | — | — |
+| 1 | Services · Mexico | Signal missed | ["close_date_slipped", "corre:OPP-1527"] | — | — |
+| 1 | Services · Mexico | Signal missed | ["close_date_slipped", "corre:OPP-1528"] | — | — |
+| 1 | Technology · Colombia | Signal missed | ["close_date_slipped", "corre:OPP-1204"] | — | — |
+| 1 | Technology · Colombia | Signal missed | ["close_date_slipped", "corre:OPP-1226"] | — | — |
+| 1 | Technology · Colombia | Signal missed | ["close_date_slipped", "corre:OPP-1227"] | — | — |
+| 1 | Technology · Colombia | Signal missed | ["close_date_slipped", "corre:OPP-1228"] | — | — |
 | 2 | Control · Peru | Extra signal | ["stalled_opportunity", "detenida:OPP-2205"] | CCO-4 | Agent instructions |
 
 ## Defects

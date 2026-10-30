@@ -273,7 +273,7 @@ configured, and how often it makes sense for it to run.**
 | **Instances** | One per entity | One per entity |
 | **Configured with** | `/criterio-legal:legal-setup` | `/criterio-compliance:compliance-setup` |
 | **How long that takes** | Fifteen minutes | Fifteen minutes |
-| **What you have to tell it** | Entity and NIT or RUC, country, the signing-authority matrix in `00-referencia/`, how many days ahead an expiry or a notice period is flagged, the maximum age of the counterparty's certificate and who decides to renew | Entity, country, the obligations matrix in `00-referencia/` in the defined model (F-01), the period, the channel's response deadline, the days to assess a new regulation and, if the organisation uses Fidel, where his records are |
+| **What you have to tell it** | Entity and NIT or RUC, country, the signing-authority matrix in `00-referencia/`, how many days ahead an expiry or a notice period is flagged, the maximum age of the counterparty's certificate, who decides to renew and whether the entity is public | Entity, country, the obligations matrix in `00-referencia/` in the defined model (F-01), the period, the channel's response deadline, the days to assess a new regulation and, if the organisation uses Fidel, where his records are |
 | **Where it lands** | `.criterio/legal/<entity>/config.json`, written by the command | `.criterio/cumplimiento/<entity>/config.json`, written by the command |
 | **The one you put on a clock** | `/criterio-legal:legal-wake` | `/criterio-compliance:compliance-wake` |
 | **What it does each day** | Decides what is due: the expiries and notice periods entering the window, new documents and a weekly review | Decides what is due: obligations falling due within the window, new documents and a weekly review |
@@ -373,7 +373,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 0.11.0 | Released | **Peru and Chile**<br>· Material for banking, mining and control in Peru, and for retail, mining and control in Chile, with each country's tax ID<br>· An obligation tied to termination falls due on the current end date, the one in the latest amendment (CLO-10) | Round 4: Fidel and Constanza on the six entities of Peru and Chile, 37 of 37 signals, none extra and 812 of 813 data points; the one missed, fixed and verified |
 | 0.12.0 | Released | **Mexico**<br>· Material for banking, retail and control in Mexico, with each counterparty's RFC<br>· The date of an obligation tied to termination is the latest amendment's: the skill says so and the engine checks it in the record (CLO-11) | Round 5: Fidel and Constanza on the three Mexican entities, 20 of 20 signals, none extra and 395 of 396 data points; the one missed, fixed and verified |
 | 1.0.0 | Released | **Brazil**<br>· Its verified legal sources and its test material<br>· Documents in Portuguese: the engine processes them like those of the other countries | Round 6 with both agents in Brazil, with the documents in Portuguese: 20 of 20 signals, none extra, and 395 of 396 data points; the defect it found, in the harness, with its fix |
-| Increment 6 | Reserved | **Public contracts**<br>· Their own rules on publication and guarantees | Its own material, as every increment |
+| 1.1.0 | Reserved | **Public contracts**<br>· The publication and guarantee rules of each registered country's public procurement law, each with its source: the deadline to publish the contract in the national system, the minimum performance guarantee —its cap, in Brazil— and its timely delivery, in Mexico<br>· One public test entity per country, with its publication records and its guarantee policies | Its own material, as every increment |
 
 <!-- /hoja de ruta -->
 
@@ -405,8 +405,8 @@ documentation.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Fidel** · Contracts | `criterio-legal` · 7 commands, 5 skills | The engine, tested; with the agent, every entitie in the material, up to round 6 · [results](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Compliance | `criterio-compliance` · 7 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 6 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contracts | `criterio-legal` · 7 commands, 5 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Compliance | `criterio-compliance` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /clo:estado -->
 

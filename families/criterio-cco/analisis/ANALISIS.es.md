@@ -19,7 +19,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |   |   |
 |---|---|
 | Rondas | 2; la más reciente, la 2, es parcial |
-| Material | Retail · Chile, Retail · Ecuador, manufactura · Perú, servicios · Perú, tecnologia · Chile, tecnologia · Ecuador |
+| Material | Manufactura · Perú, Retail · Chile, Retail · Ecuador, Servicios · Perú, Tecnología · Chile, Tecnología · Ecuador |
 | Entidades de control | Control · Chile, Control · Ecuador, Control · Perú |
 | Corridas de una entidad | 20 |
 | Señales sembradas | 236 |
@@ -58,12 +58,12 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
+| Manufactura · Perú | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,2 M |
 | Retail · Chile | Augusto, Valeria | 19 de 19 | 0 | 5 de 5 | 3,2 M |
 | Retail · Ecuador | Augusto, Valeria | 18 de 18 | 0 | 5 de 5 | 3,2 M |
-| manufactura · Perú | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,2 M |
-| servicios · Perú | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,1 M |
-| tecnologia · Chile | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3 M |
-| tecnologia · Ecuador | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,1 M |
+| Servicios · Perú | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,1 M |
+| Tecnología · Chile | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3 M |
+| Tecnología · Ecuador | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,1 M |
 | Control · Chile | Augusto, Valeria | 0 de 0 | 0 | 5 de 5 | 2,6 M |
 | Control · Ecuador | Augusto, Valeria | 0 de 0 | 0 | 5 de 5 | 3,1 M |
 | Control · Perú | Augusto, Valeria | 0 de 0 | 1 | 5 de 5 | 2,9 M |
@@ -77,14 +77,14 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 |---|---|---|---|---|---|
 | 1 | Control · México | Señal de más | ["commission_differs_from_plan", "comision:2026-10:isabel_mendez"] | — | — |
 | 1 | Control · México | Señal de más | ["commission_differs_from_plan", "comision:2026-10:oscar_delgado"] | — | — |
-| 1 | servicios · México | Señal no encontrada | ["close_date_slipped", "corre:OPP-1504"] | — | — |
-| 1 | servicios · México | Señal no encontrada | ["close_date_slipped", "corre:OPP-1526"] | — | — |
-| 1 | servicios · México | Señal no encontrada | ["close_date_slipped", "corre:OPP-1527"] | — | — |
-| 1 | servicios · México | Señal no encontrada | ["close_date_slipped", "corre:OPP-1528"] | — | — |
-| 1 | tecnologia · Colombia | Señal no encontrada | ["close_date_slipped", "corre:OPP-1204"] | — | — |
-| 1 | tecnologia · Colombia | Señal no encontrada | ["close_date_slipped", "corre:OPP-1226"] | — | — |
-| 1 | tecnologia · Colombia | Señal no encontrada | ["close_date_slipped", "corre:OPP-1227"] | — | — |
-| 1 | tecnologia · Colombia | Señal no encontrada | ["close_date_slipped", "corre:OPP-1228"] | — | — |
+| 1 | Servicios · México | Señal no encontrada | ["close_date_slipped", "corre:OPP-1504"] | — | — |
+| 1 | Servicios · México | Señal no encontrada | ["close_date_slipped", "corre:OPP-1526"] | — | — |
+| 1 | Servicios · México | Señal no encontrada | ["close_date_slipped", "corre:OPP-1527"] | — | — |
+| 1 | Servicios · México | Señal no encontrada | ["close_date_slipped", "corre:OPP-1528"] | — | — |
+| 1 | Tecnología · Colombia | Señal no encontrada | ["close_date_slipped", "corre:OPP-1204"] | — | — |
+| 1 | Tecnología · Colombia | Señal no encontrada | ["close_date_slipped", "corre:OPP-1226"] | — | — |
+| 1 | Tecnología · Colombia | Señal no encontrada | ["close_date_slipped", "corre:OPP-1227"] | — | — |
+| 1 | Tecnología · Colombia | Señal no encontrada | ["close_date_slipped", "corre:OPP-1228"] | — | — |
 | 2 | Control · Perú | Señal de más | ["stalled_opportunity", "detenida:OPP-2205"] | CCO-4 | Instrucciones del agente |
 
 ## Defectos

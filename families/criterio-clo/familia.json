@@ -48,14 +48,14 @@
           "n": 0,
           "es": {
             "etiqueta": "Instalación",
-            "entrada": "La carpeta raíz. Preguntas: entidad y NIT o RUC, país, la matriz de atribuciones de `00-referencia/`, con cuántos días de anticipación se avisa un vencimiento o un preaviso, la antigüedad máxima del certificado de la contraparte y quién decide renovar",
+            "entrada": "La carpeta raíz. Preguntas: entidad y NIT o RUC, país, la matriz de atribuciones de `00-referencia/`, con cuántos días de anticipación se avisa un vencimiento o un preaviso, la antigüedad máxima del certificado de la contraparte, quién decide renovar y si la entidad es pública",
             "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
             "reporte": "Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas",
             "entrega": "La configuración, el inventario y las primeras fichas de los contratos"
           },
           "en": {
             "etiqueta": "Setup",
-            "entrada": "The root folder. Questions: entity and NIT or RUC, country, the signing-authority matrix in `00-referencia/`, how many days ahead an expiry or a notice period is flagged, the maximum age of the counterparty's certificate and who decides to renew",
+            "entrada": "The root folder. Questions: entity and NIT or RUC, country, the signing-authority matrix in `00-referencia/`, how many days ahead an expiry or a notice period is flagged, the maximum age of the counterparty's certificate, who decides to renew and whether the entity is public",
             "proceso": "Inventory of what is there; compares the folder with the recommended structure; creates, moves or renames nothing",
             "reporte": "Configuration saved; inventory by folder; the contracts in `contratos/` against those in the register; the first records",
             "entrega": "The configuration, the inventory and the first contract records"
@@ -240,6 +240,26 @@
           "id": "guarantee_expires_early",
           "es": "La póliza aportada vence antes de lo que exige el contrato",
           "en": "The policy provided expires earlier than the contract requires"
+        },
+        {
+          "id": "public_contract_not_published",
+          "es": "Un contrato de una entidad pública no se publicó en el sistema nacional dentro del plazo de la ley de su país",
+          "en": "A public entity's contract was not published in the national system within its country's legal deadline"
+        },
+        {
+          "id": "public_guarantee_below_law",
+          "es": "La garantía de cumplimiento de un contrato público es menor que el mínimo de la ley de su país",
+          "en": "A public contract's performance guarantee is below its country's legal minimum"
+        },
+        {
+          "id": "public_guarantee_over_cap",
+          "es": "La garantía exigida en un contrato público supera el tope de la ley de su país",
+          "en": "The guarantee required in a public contract exceeds its country's legal cap"
+        },
+        {
+          "id": "public_guarantee_late",
+          "es": "La garantía de cumplimiento de un contrato público se entregó después del plazo de la ley de su país",
+          "en": "A public contract's performance guarantee was delivered after its country's legal deadline"
         }
       ],
       "area": "legal",

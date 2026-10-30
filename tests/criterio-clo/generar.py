@@ -197,6 +197,44 @@ ENTIDADES = [
      "contrapartes": ["Transportes Controle Ltda.", "Insumos Controle Ltda.", "Armazéns Controle S.A.", "Software Controle Ltda.",
                       "Assessoria Controle Ltda.", "Manutenção Controle Ltda.", "Limpeza Controle Ltda."],
      "fidel": [], "constanza": []},
+    # Las entidades públicas (incremento 6): contratan bajo la ley de contratación pública de su país.
+    # Solo Fidel se prueba en ellas; cada una trae sus casos que se parecen a un defecto y no lo son.
+    {"carpeta": "publica-co", "industria": "publica", "pais": "CO", "id": "899999101", "nombre": "Instituto Público de Fomento Andino", "moneda": "COP",
+     "u": 60_000_000, "n0": 1900, "publica": True,
+     "personas": ("Adriana Morales", "Hernán Vargas", "Liliana Cortés"),
+     "contrapartes": ["Tecnología Pública S.A.S.", "Suministros del Estado S.A.S.", "Inmuebles Oficiales S.A.", "Software Institucional S.A.S.",
+                      "Consultoría Estatal S.A.S.", "Mantenimiento Público S.A.S.", "Vigilancia Oficial S.A.S."],
+     "fidel": ["publicacion_tarde", "sin_publicacion", "garantia_baja"], "constanza": []},
+    {"carpeta": "publica-ec", "industria": "publica", "pais": "EC", "id": "1760001230001", "nombre": "Empresa Pública Sierra Norte EP", "moneda": "USD",
+     "u": 40_000, "n0": 2000, "publica": True, "umbral": 2.5,
+     "personas": ("Mónica Arias", "Fabián Torres", "Cristina Lema"),
+     "contrapartes": ["Tecnología del Estado S.A.", "Provisiones Públicas Cía. Ltda.", "Edificaciones Oficiales S.A.", "Sistemas Públicos Cía. Ltda.",
+                      "Asesoría Pública Cía. Ltda.", "Mantenimiento Estatal S.A.", "Seguridad Pública Privada S.A."],
+     "fidel": ["garantia_baja"], "constanza": []},
+    {"carpeta": "publica-pe", "industria": "publica", "pais": "PE", "id": ruc(20, 91, 1), "nombre": "Organismo Público del Rímac", "moneda": "PEN",
+     "u": 120_000, "n0": 2100, "publica": True,
+     "personas": ("Gloria Chávez", "Renzo Paredes", "Patricia Llosa"),
+     "contrapartes": ["Tecnología Estatal S.A.C.", "Útiles Públicos S.A.C.", "Inmuebles del Estado S.A.", "Licencias Públicas S.A.C.",
+                      "Consultoría Pública S.A.C.", "Mantenimiento del Estado E.I.R.L.", "Seguridad Estatal S.A.C."],
+     "fidel": ["garantia_baja"], "constanza": []},
+    {"carpeta": "publica-cl", "industria": "publica", "pais": "CL", "id": rut(61999010), "nombre": "Servicio Público del Maipo", "moneda": "CLP",
+     "u": 25_000_000, "n0": 2200, "publica": True, "umbral": 2.5,
+     "personas": ("Carolina Reyes", "Sebastián Muñoz", "Valentina Soto"),
+     "contrapartes": ["Tecnología Fiscal SpA", "Insumos Públicos SpA", "Inmobiliaria Fiscal S.A.", "Software Público SpA",
+                      "Consultora Pública SpA", "Mantención Fiscal SpA", "Seguridad Pública SpA"],
+     "fidel": ["publicacion_tarde", "garantia_baja"], "constanza": []},
+    {"carpeta": "publica-mx", "industria": "publica", "pais": "MX", "id": rfc("OPB", "150301", "AB9"), "nombre": "Organismo Público del Bajío", "moneda": "MXN",
+     "u": 600_000, "n0": 2300, "publica": True,
+     "personas": ("Laura Jiménez", "Arturo Castañeda", "Beatriz Navarro"),
+     "contrapartes": ["Tecnología Gubernamental S.A. de C.V.", "Suministros Públicos S.A. de C.V.", "Inmuebles Federales S.A. de C.V.",
+                      "Licencias Públicas S.A. de C.V.", "Consultoría Gubernamental S.C.", "Mantenimiento Federal S.A. de C.V.", "Seguridad Pública S.A. de C.V."],
+     "fidel": ["garantia_tarde"], "constanza": []},
+    {"carpeta": "publica-br", "industria": "publica", "pais": "BR", "id": cnpj(45678912), "nombre": "Empresa Pública Paulista", "moneda": "BRL",
+     "u": 150_000, "n0": 2400, "publica": True,
+     "personas": ("Fernanda Lima", "Ricardo Alves", "Juliana Costa"),
+     "contrapartes": ["Tecnologia Pública Ltda.", "Suprimentos do Estado Ltda.", "Imóveis Oficiais S.A.", "Software Institucional Ltda.",
+                      "Consultoria Pública Ltda.", "Manutenção Pública Ltda.", "Vigilância Oficial Ltda."],
+     "fidel": ["publicacion_tarde", "sin_publicacion", "garantia_sobre_tope"], "constanza": []},
 ]
 
 d = dt.date.fromisoformat
@@ -351,8 +389,78 @@ def contrato(e: dict, i: int, b: dict) -> dict:
                                 "signed_by": e["personas"][o["firma"]], "source": f"{carpeta}/10-contrato/{doc_('otrosi', 'aditivo')}-1.md"})
     if b.get("decision"):
         c["decision"] = dict(b["decision"], source=f"{carpeta}/40-ejecucion/{doc_('acta', 'ata')}-comite-contratos.md")
-    return {"ficha": c, "carpeta": carpeta, "registro": True, "estado_registro": None, "valor_registro": None,
-            "pagos_factor": 0.3, "pago_tarde": False, "garantia_meses": 4, "sin_evidencia": set(), "cumplimiento": b.get("cumplimiento", False)}
+    x = {"ficha": c, "carpeta": carpeta, "registro": True, "estado_registro": None, "valor_registro": None,
+         "pagos_factor": 0.3, "pago_tarde": False, "garantia_meses": 4, "sin_evidencia": set(), "cumplimiento": b.get("cumplimiento", False)}
+    if e.get("publica"):
+        x["publica"] = publica_limpia(e, i)
+    return x
+
+
+# ================================================================ la contratación pública (incremento 6)
+
+# Lo que el material cumple, en cada país: la garantía en el mínimo de la ley (en el tope, en Brasil)
+# y la publicación en el último día del plazo, donde la ley lo fija. Los casos que se parecen a un
+# defecto y no lo son están en la frontera de la regla.
+SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP"}
+PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05}
+
+
+def publica_limpia(e: dict, i: int) -> dict:
+    """Cómo se publicó y se garantizó el contrato i de una entidad pública, sin defectos. En Chile el
+    quinto es de trato directo y se publica al día siguiente; en Brasil el cuarto es contratación
+    directa, al noveno día hábil, y el quinto lleva una garantía del 8 % justificada."""
+    pais = e["pais"]
+    directa = (pais == "CL" and i == 5) or (pais == "BR" and i == 4)
+    pub = {"CO": ("habiles", 3), "BR": ("habiles", 9 if directa else 18), "CL": ("naturales", 1 if directa else 6)}.get(pais, ("naturales", 5))
+    pct = PORCENTAJE[pais]
+    if pais == "BR" and i == 5:
+        pct = 0.08
+    if e.get("umbral") and i == 5:          # bajo el umbral de la garantía: la de un 1 % no es defecto
+        pct = 0.01
+    return {"directa": directa, "pub": pub, "sin_pub": False, "pct": pct, "justificada": pais == "BR" and i == 5, "entrega": 10 if pais == "MX" else 4}
+
+
+def sembrar_publica(e: dict, cs: list[dict], esperado: list) -> None:
+    s, pais = e["fidel"], e["pais"]
+    code = lambda k: cs[k - 1]["ficha"]["code"]  # noqa: E731
+    if "publicacion_tarde" in s:        # publicado después del plazo: dos contratos, o el de trato directo / contratación directa
+        for k in ((4, 6) if pais == "CO" else (5,) if pais == "CL" else (4,)):
+            x = cs[k - 1]["publica"]
+            x["pub"] = (x["pub"][0], {"CO": 6, "CL": 3, "BR": 13}[pais])
+            esperado.append(("public_contract_not_published", f"publicacion:{code(k)}"))
+    if "sin_publicacion" in s:          # sin constancia de publicación
+        cs[1]["publica"]["sin_pub"] = True
+        esperado.append(("public_contract_not_published", f"publicacion:{code(2)}"))
+    if "garantia_baja" in s:            # dos puntos por debajo del mínimo de la ley
+        for k in ((1, 6) if pais in ("CO", "PE") else (1, 3)):
+            cs[k - 1]["publica"]["pct"] = PORCENTAJE[pais] - 0.02
+            esperado.append(("public_guarantee_below_law", f"garantia-ley:{code(k)}"))
+    if "garantia_sobre_tope" in s:      # un 8 % sin justificar, sobre el tope del 5 %
+        for k in (3, 6):
+            cs[k - 1]["publica"]["pct"] = 0.08
+            esperado.append(("public_guarantee_over_cap", f"garantia-tope:{code(k)}"))
+    if "garantia_tarde" in s:           # entregada a los 16 días naturales
+        for k in (2, 4, 6):
+            cs[k - 1]["publica"]["entrega"] = 16
+            esperado.append(("public_guarantee_late", f"garantia-entrega:{code(k)}"))
+
+
+def completar_publica(e: dict, x: dict) -> None:
+    """La constancia de publicación y el valor y la entrega de la garantía, en la ficha."""
+    c, pb = x["ficha"], x["publica"]
+    firmado = d(c["signed_on"])
+    tipo, n = pb["pub"]
+    publicado = None if pb["sin_pub"] else (L.dia_habil(firmado, n, set()) if tipo == "habiles" else firmado + dt.timedelta(days=n))
+    modalidad = doc("contratación directa" if pb["directa"] and e["pais"] != "CL" else "trato directo" if pb["directa"] else "licitación pública",
+                    "contratação direta" if pb["directa"] else "licitação")
+    c["public"] = {"system": SISTEMA[e["pais"]], "published_on": iso(publicado) if publicado else None, "modality": modalidad,
+                   "source": f"{x['carpeta']}/10-contrato/{doc('constancia-publicacion', 'comprovante-divulgacao')}.md" if publicado else None}
+    for g in c["guarantees_provided"]:
+        if g["type"] == "cumplimiento":
+            g["amount"] = round(c["value"] * pb["pct"], 2)
+            g["delivered_on"] = iso(firmado + dt.timedelta(days=pb["entrega"]))
+            if pb["justificada"]:
+                g["justified"] = True
 
 
 def completar(x: dict) -> None:
@@ -372,6 +480,7 @@ def completar(x: dict) -> None:
     if "cumplimiento" not in tipos and x["garantia_meses"] is not None:
         c["guarantees_provided"].append({"type": "cumplimiento", "until": iso(L.sumar_meses(fin, x["garantia_meses"])), "insurer": "Aseguradora Sintética S.A.",
                                          "source": f"{x['carpeta']}/20-garantias/{doc_('poliza-cumplimiento', 'apolice-cumprimento')}.md"})
+
 
 
 def pagos(x: dict) -> list[tuple[dt.date, float]]:
@@ -489,12 +598,35 @@ Assinado pelas duas partes: {o['signed_by']}, pela empresa, e o representante le
 Tomador: {c['counterparty']['name']}. Asegurado: {e['nombre']}. Contrato {c['code']}.
 
 Aseguradora: {g['insurer']}. Vigencia hasta el {g['until']}.
-""", f"""
+""" + (f"""
+Valor asegurado: {g['amount']:,.2f} {e['moneda']}. Recibida por la entidad el {g['delivered_on']}.
+""" if g.get("amount") is not None else "") + ("""
+El contrato justifica una garantía mayor que la habitual por la complejidad técnica y los riesgos del servicio (cláusula 9).
+""" if g.get("justified") else ""), f"""
 # Apólice de seguro-garantia de {tipo_pt}
 
 Tomador: {c['counterparty']['name']}. Segurado: {e['nombre']}. Contrato {c['code']}.
 
 Seguradora: {tr(g['insurer'])}. Vigência até {g['until']}.
+""" + (f"""
+Valor segurado: {g['amount']:,.2f} {e['moneda']}. Recebida pela entidade em {g['delivered_on']}.
+""" if g.get("amount") is not None else "") + ("""
+O contrato justifica uma garantia maior que a habitual pela complexidade técnica e pelos riscos do serviço (cláusula 9).
+""" if g.get("justified") else "")))
+    pb = c.get("public") or {}
+    if pb.get("published_on"):
+        md(base / "10-contrato" / doc("constancia-publicacion.md", "comprovante-divulgacao.md"), doc(f"""
+# Constancia de publicación
+
+Sistema: {pb['system']}. Proceso del contrato {c['code']}, {OBJETO[c['type']].lower()}, con {c['counterparty']['name']}.
+
+Modalidad: {pb['modality']}. Fecha de publicación del contrato: {pb['published_on']}.
+""", f"""
+# Comprovante de divulgação
+
+Portal: {pb['system']}. Contrato {c['code']}, com {c['counterparty']['name']}.
+
+Modalidade: {pb['modality']}. Data de divulgação do contrato: {pb['published_on']}.
 """))
     cert = c["counterparty_certificate"]
     md(base / "30-contraparte" / doc("certificado.md", "certidao.md"), doc(f"""
@@ -684,11 +816,15 @@ def generar(e: dict) -> dict:
     # Fidel
     cs = [contrato(e, i, b) for i, b in enumerate(BASE, 1)]
     sembrar_fidel(e, cs, esperado)
+    if e.get("publica"):
+        sembrar_publica(e, cs, esperado)
     if e["carpeta"] == "control-ec":   # el control de Ecuador decide su preaviso: renovar, con acta
         cs[3]["ficha"].update(end="2026-12-31", notice_days=60, decision={"action": "renovar", "date": "2026-09-25",
                                                                           "source": f"{cs[3]['carpeta']}/40-ejecucion/acta-comite-contratos.md"})
     for x in cs:
         completar(x)
+        if x.get("publica"):
+            completar_publica(e, x)
     for x in cs:
         documentos_contrato(docs, e, x)
     registro = [["codigo", "contraparte", "objeto", "tipo", "valor", "inicio", "terminacion", "estado", "responsable"]]
@@ -781,9 +917,24 @@ Situação do período: **{'cumprido' if declara == 'cumplido' else 'com ressalv
 
     entidad = {"id": e["id"], "name": e["nombre"], "country": e["pais"], "currency": e["moneda"]}
     rutas = {"documents": f"legal/{ent_dir}", "state": f"estado-legal/{ent_dir}"}
+    publica = None
+    if e.get("publica"):
+        umbral_ = round(e["umbral"] * u, 2) if e.get("umbral") else None
+        publica = {"public": True, "guarantee_threshold": umbral_}
+        md(docs / "00-referencia" / doc("politica-contratacion.md", "politica-contratacao.md"), doc(f"""
+# Política de contratación
+
+{e['nombre']} es una entidad pública: contrata bajo la ley de contratación pública de su país y publica sus contratos en {SISTEMA[e['pais']]}.
+""" + (f"""
+El umbral desde el cual se exige la garantía de cumplimiento es hoy de {umbral_:,.2f} {e['moneda']}.
+""" if umbral_ else ""), f"""
+# Política de contratação
+
+{e['nombre']} é uma empresa pública: contrata sob a lei de licitações e contratos e divulga seus contratos no {SISTEMA[e['pais']]}.
+"""))
     clave = {"entidad": e["nombre"], "industria": e["industria"], "pais": e["pais"], "hoy": iso(HOY), "periodo": PERIODO,
              "siembra": {"fidel": e["fidel"], "constanza": e["constanza"]},
-             "config": {"fidel": {"entity": entidad, "paths": rutas},
+             "config": {"fidel": dict({"entity": entidad, "paths": rutas}, **({"public_procurement": publica} if publica else {})),
                         "constanza": {"entity": entidad, "paths": rutas, "period": PERIODO,
                                       "compliance": {"contract_records": f"estado-legal/{ent_dir}/contratos"}}},
              "extraccion": {"contratos": {x["ficha"]["code"]: x["ficha"] for x in cs}, "cumplimiento": ext},

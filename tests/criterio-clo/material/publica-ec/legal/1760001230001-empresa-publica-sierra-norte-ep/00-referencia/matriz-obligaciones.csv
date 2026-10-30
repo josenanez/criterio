@@ -1,0 +1,9 @@
+id,obligacion,fuente,tipo,responsable,periodicidad,dia_limite,evidencia_esperada,criticidad,estado
+OB-01,Reporte mensual de operaciones al supervisor,N-2026-01 · Resolución sintética 001 de 2026,reporte,Fabián Torres,mensual,día 10,Archivo que empieza por OB-01,alta,
+OB-02,Conciliación de la base de clientes vinculados,Política P-02,registro,Fabián Torres,mensual,D+5,Archivo que empieza por OB-02,media,
+OB-03,Informe trimestral del comité de riesgos,Política P-01,reporte,Mónica Arias,trimestral,día 20,Archivo que empieza por OB-03,alta,
+OB-04,Certificación anual de la junta,"Estatutos, artículo 40",certificación,Mónica Arias,anual,2026-12-31,Archivo que empieza por OB-04,media,
+OB-05,Capacitación mensual del personal nuevo,Política P-03,capacitación,Cristina Lema,mensual,día 20,Archivo que empieza por OB-05,baja,
+OB-06,Reporte de operaciones del contratista de tecnología,Contrato CTR-2001 OBL-3,reporte,Fabián Torres,mensual,día 5,Archivo que empieza por OB-06,alta,
+OB-07,Revisión semestral de la matriz de riesgos,Política P-01,registro,Mónica Arias,semestral,día 30,Archivo que empieza por OB-07,media,
+OB-08,Actualización de datos de proveedores críticos,Política P-04,registro,Cristina Lema,mensual,día 8,Archivo que empieza por OB-08,media,

@@ -1,0 +1,560 @@
+{
+  "entidad": "Organismo Público del Bajío",
+  "industria": "publica",
+  "pais": "MX",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "garantia_tarde"
+    ],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "OPB150301AB9",
+        "name": "Organismo Público del Bajío",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "legal/OPB150301AB9-organismo-publico-del-bajio",
+        "state": "estado-legal/OPB150301AB9-organismo-publico-del-bajio"
+      },
+      "public_procurement": {
+        "public": true,
+        "guarantee_threshold": null
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "OPB150301AB9",
+        "name": "Organismo Público del Bajío",
+        "country": "MX",
+        "currency": "MXN"
+      },
+      "paths": {
+        "documents": "legal/OPB150301AB9-organismo-publico-del-bajio",
+        "state": "estado-legal/OPB150301AB9-organismo-publico-del-bajio"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/OPB150301AB9-organismo-publico-del-bajio/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-2301": {
+        "code": "CTR-2301",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Tecnología Gubernamental S.A. de C.V.",
+          "id": "PRV130202B31"
+        },
+        "value": 4800000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Laura Jiménez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Tecnología Gubernamental S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2301-tecnologia-gubernamental-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2301-tecnologia-gubernamental-s-a-de-c-v/20-garantias/poliza-cumplimiento.md",
+            "amount": 480000.0,
+            "delivered_on": "2026-01-06"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-2301-tecnologia-gubernamental-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Tecnología Gubernamental S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2301-tecnologia-gubernamental-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Tecnología Gubernamental S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2301-tecnologia-gubernamental-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Tecnología Gubernamental S.A. de C.V.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-2301-tecnologia-gubernamental-s-a-de-c-v/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2301-tecnologia-gubernamental-s-a-de-c-v/10-contrato/contrato.md",
+        "public": {
+          "system": "Compras MX",
+          "published_on": "2026-01-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2301-tecnologia-gubernamental-s-a-de-c-v/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2302": {
+        "code": "CTR-2302",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Suministros Públicos S.A. de C.V.",
+          "id": "PRV130303C32"
+        },
+        "value": 2400000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Arturo Castañeda",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Suministros Públicos S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 600000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Arturo Castañeda",
+            "source": "contratos/CTR-2302-suministros-publicos-s-a-de-c-v/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2302-suministros-publicos-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2302-suministros-publicos-s-a-de-c-v/20-garantias/poliza-cumplimiento.md",
+            "amount": 240000.0,
+            "delivered_on": "2025-07-12"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-2302-suministros-publicos-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Suministros Públicos S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2302-suministros-publicos-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Suministros Públicos S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2302-suministros-publicos-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2302-suministros-publicos-s-a-de-c-v/10-contrato/contrato.md",
+        "public": {
+          "system": "Compras MX",
+          "published_on": "2025-07-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2302-suministros-publicos-s-a-de-c-v/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2303": {
+        "code": "CTR-2303",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Inmuebles Federales S.A. de C.V.",
+          "id": "PRV130404D33"
+        },
+        "value": 3600000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Laura Jiménez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Inmuebles Federales S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2303-inmuebles-federales-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2303-inmuebles-federales-s-a-de-c-v/20-garantias/poliza-cumplimiento.md",
+            "amount": 360000.0,
+            "delivered_on": "2025-02-06"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-2303-inmuebles-federales-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Inmuebles Federales S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2303-inmuebles-federales-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Inmuebles Federales S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2303-inmuebles-federales-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2303-inmuebles-federales-s-a-de-c-v/10-contrato/contrato.md",
+        "public": {
+          "system": "Compras MX",
+          "published_on": "2025-02-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2303-inmuebles-federales-s-a-de-c-v/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2304": {
+        "code": "CTR-2304",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Licencias Públicas S.A. de C.V.",
+          "id": "PRV130505E34"
+        },
+        "value": 1800000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Arturo Castañeda",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Licencias Públicas S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2304-licencias-publicas-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2304-licencias-publicas-s-a-de-c-v/20-garantias/poliza-cumplimiento.md",
+            "amount": 180000.0,
+            "delivered_on": "2026-03-12"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-2304-licencias-publicas-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Licencias Públicas S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2304-licencias-publicas-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Licencias Públicas S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2304-licencias-publicas-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2304-licencias-publicas-s-a-de-c-v/10-contrato/contrato.md",
+        "public": {
+          "system": "Compras MX",
+          "published_on": "2026-03-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2304-licencias-publicas-s-a-de-c-v/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2305": {
+        "code": "CTR-2305",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultoría Gubernamental S.C.",
+          "id": "PRV130606F35"
+        },
+        "value": 1200000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Arturo Castañeda",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultoría Gubernamental S.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2305-consultoria-gubernamental-s-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2305-consultoria-gubernamental-s-c/20-garantias/poliza-cumplimiento.md",
+            "amount": 120000.0,
+            "delivered_on": "2026-02-06"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-2305-consultoria-gubernamental-s-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultoría Gubernamental S.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2305-consultoria-gubernamental-s-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultoría Gubernamental S.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2305-consultoria-gubernamental-s-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-2305-consultoria-gubernamental-s-c/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-2305-consultoria-gubernamental-s-c/10-contrato/contrato.md",
+        "public": {
+          "system": "Compras MX",
+          "published_on": "2026-02-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2305-consultoria-gubernamental-s-c/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2306": {
+        "code": "CTR-2306",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Federal S.A. de C.V.",
+          "id": "PRV130707G36"
+        },
+        "value": 3000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Laura Jiménez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Federal S.A. de C.V.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2306-mantenimiento-federal-s-a-de-c-v/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2306-mantenimiento-federal-s-a-de-c-v/20-garantias/poliza-cumplimiento.md",
+            "amount": 300000.0,
+            "delivered_on": "2025-10-12"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-2306-mantenimiento-federal-s-a-de-c-v/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Federal S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2306-mantenimiento-federal-s-a-de-c-v/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Federal S.A. de C.V.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2306-mantenimiento-federal-s-a-de-c-v/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2306-mantenimiento-federal-s-a-de-c-v/10-contrato/contrato.md",
+        "public": {
+          "system": "Compras MX",
+          "published_on": "2025-10-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2306-mantenimiento-federal-s-a-de-c-v/10-contrato/constancia-publicacion.md"
+        }
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "public_guarantee_late",
+      "key": "garantia-entrega:CTR-2302"
+    },
+    {
+      "signal": "public_guarantee_late",
+      "key": "garantia-entrega:CTR-2304"
+    },
+    {
+      "signal": "public_guarantee_late",
+      "key": "garantia-entrega:CTR-2306"
+    }
+  ]
+}

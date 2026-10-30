@@ -100,6 +100,7 @@ SEVERIDAD = {
     "compliance_done_without_evidence": 2, "regulatory_change_unassessed": 2, "applicable_norm_not_in_matrix": 2,
     "contract_obligation_not_in_matrix": 2, "register_differs_from_contract": 3, "counterparty_certificate_stale": 3,
     "compliance_evidence_stale": 3, "obligation_without_owner": 3, "obligation_without_source": 3, "policy_review_overdue": 3,
+    "public_contract_not_published": 1, "public_guarantee_below_law": 1, "public_guarantee_over_cap": 2, "public_guarantee_late": 2,
 }
 N.SEVERIDAD.update(SEVERIDAD)
 VENTANA = {"mensual": 1, "bimestral": 2, "trimestral": 3, "semestral": 6, "anual": 12}
@@ -396,12 +397,15 @@ def fidel(cfg: dict, hoy: dt.date) -> dict:
             elif exigida and fecha(ap.get("until")) and fecha(ap["until"]) < exigida:
                 al.append(alerta("guarantee_expires_early", f"{code}: la póliza de {g.get('type')} vence el {ap['until']} y el contrato la exige hasta el {iso(exigida)}",
                                  {"archivo": ap.get("source")}, dias=(exigida - fecha(ap["until"])).days, clave=f"garantia:{code}:{tipo}"))
+    publicos = contratacion_publica(cfg, fichas, hoy, al) if (cfg.get("public_procurement") or {}).get("public") else []
     partes = {
         "contract-register": {"contratos": filas_registro},
         "obligations-calendar": {"calendario": sorted((x for x in calendario if x["fecha"]), key=lambda x: x["fecha"])},
         "authority-check": {"firmas": firmas},
         "contract-execution": {"contratos": ejecucion},
     }
+    if publicos:
+        partes["public-contracts"] = {"contratos": publicos}
     # Lo que vence, para Rostrum (ADR 0010): del calendario, entre 30 días atrás y 90 adelante, sin
     # las obligaciones que ya tienen su evidencia ni los preavisos que alguien ya decidió.
     vence = [{"fecha": x["fecha"], "que": x["que"], "caso": x["codigo"], "comando": "obligations-calendar",
@@ -627,14 +631,82 @@ def revisar_ficha_cumplimiento(f: dict) -> list[str]:
     return p
 
 
+# ================================================================ Fidel · la contratación pública
+
+# Las garantías que la ley de contratación pública mide: la de cumplimiento, como la llame cada país.
+CUMPLIMIENTO = ("cumplimiento", "fiel_cumplimiento", "fiel_y_oportuno_cumplimiento", "cumprimento", "execucao", "garantia_de_execucao")
+
+
+def contratacion_publica(cfg: dict, fichas: dict, hoy: dt.date, al: list) -> list[dict]:
+    """Los contratos de una entidad pública contra la ley de contratación pública de su país, del
+    registro de países (`contratacion_publica`, con su fuente en families/criterio-clo/fuentes.json):
+    la publicación en el sistema nacional dentro del plazo, el mínimo de la garantía de cumplimiento
+    —o su tope, en Brasil— y su entrega a tiempo. No opina: compara la ficha con la regla."""
+    regla = N.PAISES[N.pais_de(cfg)].get("contratacion_publica") or {}
+    pub, gar = regla.get("publicacion") or {}, regla.get("garantia") or {}
+    umbral_gar = numero((cfg.get("public_procurement") or {}).get("guarantee_threshold"))
+    feriados = set(cfg.get("holidays") or [])
+    tol = umbral(cfg, "amount_tolerance")
+    out = []
+    for code, c in sorted(fichas.items()):
+        p = c.get("public") or {}
+        firmado = fecha(c.get("signed_on"))
+        directa = N.canon(p.get("modality")) in ("directa", "contratacion_directa", "trato_directo", "adjudicacion_directa", "contratacao_direta")
+        fila = {"codigo": code, "sistema": p.get("system") or regla.get("sistema"), "publicado": p.get("published_on"),
+                "limite_publicacion": None, "garantia": None, "regla_garantia": None}
+        # La publicación, donde la ley fija un plazo.
+        if pub and firmado and (directa or not pub.get("solo_directa")):
+            plazo = pub["plazo_directa"] if directa and pub.get("plazo_directa") else pub["plazo"]
+            limite = dia_habil(firmado, plazo, feriados) if pub.get("dias") == "habiles" else firmado + dt.timedelta(days=plazo)
+            fila["limite_publicacion"] = iso(limite)
+            publicado = fecha(p.get("published_on"))
+            cita = {"archivo": p.get("source") or c.get("source")}
+            if publicado and publicado > limite:
+                al.append(alerta("public_contract_not_published", f"{code}: se publicó en {fila['sistema']} el {iso(publicado)}, y la ley pide hacerlo a más tardar el {iso(limite)} ({plazo} días {'hábiles' if pub.get('dias') == 'habiles' else 'naturales'} desde la firma)",
+                                 cita, dias=(publicado - limite).days, clave=f"publicacion:{code}"))
+            elif not publicado and hoy > limite:
+                al.append(alerta("public_contract_not_published", f"{code}: no hay constancia de publicación en {fila['sistema']}, y la ley pedía hacerlo a más tardar el {iso(limite)}",
+                                 cita, dias=(hoy - limite).days, clave=f"publicacion:{code}"))
+        # La garantía de cumplimiento contra el mínimo, el tope o el plazo de entrega de la ley.
+        g = next((x for x in c.get("guarantees_provided") or [] if N.canon(x.get("type")) in CUMPLIMIENTO), None)
+        base = numero(c.get("value")) or 0.0
+        monto = numero((g or {}).get("amount"))
+        fila["garantia"] = redondo(monto) if monto is not None else None
+        cita_g = {"archivo": (g or {}).get("source") or c.get("source")}
+        aplica = not (gar.get("umbral") and umbral_gar is not None and base < umbral_gar)
+        if gar.get("minimo") and aplica:
+            minimo = base * gar["minimo"]
+            fila["regla_garantia"] = f"mínimo {gar['minimo'] * 100:g} % del valor: {mon(minimo)}"
+            if (monto or 0.0) < minimo - tol:
+                al.append(alerta("public_guarantee_below_law", f"{code}: la garantía de cumplimiento es de {mon(monto or 0.0)} y la ley pide al menos el {gar['minimo'] * 100:g} % del valor del contrato, {mon(minimo)}",
+                                 cita_g, minimo - (monto or 0.0), clave=f"garantia-ley:{code}"))
+        if gar.get("maximo") and monto is not None:
+            tope = base * (gar["maximo_justificado"] if (g or {}).get("justified") and gar.get("maximo_justificado") else gar["maximo"])
+            fila["regla_garantia"] = f"tope {gar['maximo'] * 100:g} % del valor, {gar.get('maximo_justificado', gar['maximo']) * 100:g} % justificado: {mon(tope)}"
+            if monto > tope + tol:
+                al.append(alerta("public_guarantee_over_cap", f"{code}: la garantía exigida es de {mon(monto)} y la ley la limita a {mon(tope)}" + ("" if (g or {}).get("justified") else ", sin una justificación por la complejidad y los riesgos"),
+                                 cita_g, monto - tope, clave=f"garantia-tope:{code}"))
+        if gar.get("entrega") and firmado:
+            limite_g = firmado + dt.timedelta(days=gar["entrega"])
+            fila["regla_garantia"] = f"entregada a más tardar el {iso(limite_g)}"
+            entregada = fecha((g or {}).get("delivered_on"))
+            if (entregada and entregada > limite_g) or (not entregada and hoy > limite_g):
+                al.append(alerta("public_guarantee_late", f"{code}: la garantía de cumplimiento " + (f"se entregó el {iso(entregada)}" if entregada else "no se ha entregado") +
+                                 f", y la ley pide entregarla a más tardar el {iso(limite_g)}, {gar['entrega']} días naturales después de la firma",
+                                 cita_g, dias=((entregada or hoy) - limite_g).days, clave=f"garantia-entrega:{code}"))
+        out.append(fila)
+    return out
+
+
 # ================================================================ el reporte
 
 NOMBRE = {"fidel": "Fidel", "constanza": "Constanza"}
 SENALES_DE = {
-    "contract-register": {"register_mismatch", "register_differs_from_contract", "contract_expired_active"},
+    "contract-register": {"register_mismatch", "register_differs_from_contract", "contract_expired_active", "public_contract_not_published"},
     "obligations-calendar": {"contract_expiring", "notice_deadline_near", "renewal_notice_missed", "contract_obligation_overdue"},
     "authority-check": {"signed_without_authority", "unsigned_contract", "counterparty_certificate_stale"},
-    "contract-execution": {"payments_over_value", "payment_after_termination", "guarantee_missing", "guarantee_expires_early"},
+    "contract-execution": {"payments_over_value", "payment_after_termination", "guarantee_missing", "guarantee_expires_early",
+                           "public_guarantee_below_law", "public_guarantee_over_cap", "public_guarantee_late"},
     "compliance-status": {"compliance_obligation_overdue", "compliance_done_without_evidence", "compliance_evidence_stale",
                           "obligation_without_owner", "obligation_without_source", "declared_compliance_vs_evidence",
                           "contract_obligation_not_in_matrix"},
@@ -770,6 +842,40 @@ def selftest() -> int:
     hoy = dt.date(2026, 10, 6)
     ok("un país fuera del registro se rechaza", bool(N.revisar_pais({"country": "XX"})), True)
     ok("los países del registro pasan", [c for c in N.PAISES if N.revisar_pais({"country": c})], [])
+    # La contratación pública, contra la ley de cada país del registro.
+    def pub(pais, ficha, umbral_=None):
+        al_ = []
+        cfg_ = {"entity": {"country": pais}, "public_procurement": {"public": True, "guarantee_threshold": umbral_}}
+        contratacion_publica(cfg_, {ficha["code"]: ficha}, hoy, al_)
+        return sorted(x["signal"] for x in al_)
+    base_ = {"code": "CTR-9", "value": 100_000, "signed_on": "2026-09-01"}
+    gar_ = lambda m, **k: [dict({"type": "cumplimiento", "amount": m, "source": "p.md"}, **k)]  # noqa: E731
+    ok("Colombia: publicado al tercer día hábil y garantía del 10 %, sin señal",
+       pub("CO", dict(base_, public={"published_on": "2026-09-04"}, guarantees_provided=gar_(10_000))), [])
+    ok("Colombia: publicado al cuarto día hábil y garantía del 8 %: las dos",
+       pub("CO", dict(base_, public={"published_on": "2026-09-07"}, guarantees_provided=gar_(8_000))),
+       ["public_contract_not_published", "public_guarantee_below_law"])
+    ok("Colombia: sin constancia de publicación pasado el plazo",
+       pub("CO", dict(base_, guarantees_provided=gar_(10_000))), ["public_contract_not_published"])
+    ok("Ecuador: bajo el umbral de la configuración, el 5 % no se exige",
+       pub("EC", dict(base_, guarantees_provided=gar_(1_000)), umbral_=200_000), [])
+    ok("Ecuador: sobre el umbral, un 3 % no alcanza",
+       pub("EC", dict(base_, guarantees_provided=gar_(3_000)), umbral_=50_000), ["public_guarantee_below_law"])
+    ok("Chile: trato directo publicado al día siguiente, sin señal; dos días después, sí",
+       [pub("CL", dict(base_, public={"modality": "trato directo", "published_on": f}, guarantees_provided=gar_(5_000))) for f in ("2026-09-02", "2026-09-03")],
+       [[], ["public_contract_not_published"]])
+    ok("Chile: una licitación no tiene plazo de publicación en días",
+       pub("CL", dict(base_, public={"modality": "licitación"}, guarantees_provided=gar_(5_000))), [])
+    ok("México: la garantía entregada a los diez días naturales, sin señal; a los once, sí",
+       [pub("MX", dict(base_, guarantees_provided=gar_(10_000, delivered_on=f))) for f in ("2026-09-11", "2026-09-12")],
+       [[], ["public_guarantee_late"]])
+    ok("Brasil: divulgado en el día hábil 20 con garantía del 5 %, sin señal",
+       pub("BR", dict(base_, public={"modality": "licitação", "published_on": "2026-09-29"}, guarantees_provided=gar_(5_000))), [])
+    ok("Brasil: contratación directa divulgada en el día hábil 11, y una garantía del 8 % sin justificar",
+       pub("BR", dict(base_, public={"modality": "contratação direta", "published_on": "2026-09-16"}, guarantees_provided=gar_(8_000))),
+       ["public_contract_not_published", "public_guarantee_over_cap"])
+    ok("Brasil: el 8 % justificado está dentro del tope del 10 %",
+       pub("BR", dict(base_, public={"modality": "licitação", "published_on": "2026-09-10"}, guarantees_provided=gar_(8_000, justified=True))), [])
     ok("sumar meses al fin de mes", sumar_meses(dt.date(2026, 1, 31), 1), dt.date(2026, 2, 28))
     ok("día 15 del mes siguiente", _limite_obligacion("día 15", "2026-09", set()), dt.date(2026, 10, 15))
     ok("D+5 en días hábiles", _limite_obligacion("D+5", "2026-09", set()), dt.date(2026, 10, 7))

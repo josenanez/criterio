@@ -155,20 +155,22 @@
   },
   {
    "incremento": 6,
-   "version": null,
+   "version": "1.1.0",
    "estado": "reservada",
    "industrias": [],
    "es": {
     "titulo": "Los contratos públicos",
     "entra": [
-     "Sus propias reglas de publicación y de garantías"
+     "Las reglas de publicación y de garantía de la ley de contratación pública de cada país del registro, cada una con su fuente: el plazo para publicar el contrato en el sistema nacional, el mínimo de la garantía de cumplimiento —su tope, en Brasil— y su entrega a tiempo, en México",
+     "Una entidad pública de prueba por país, con sus constancias de publicación y sus pólizas"
     ],
     "prueba": "Su propio material, como cada incremento"
    },
    "en": {
     "titulo": "Public contracts",
     "entra": [
-     "Their own rules on publication and guarantees"
+     "The publication and guarantee rules of each registered country's public procurement law, each with its source: the deadline to publish the contract in the national system, the minimum performance guarantee —its cap, in Brazil— and its timely delivery, in Mexico",
+     "One public test entity per country, with its publication records and its guarantee policies"
     ],
     "prueba": "Its own material, as every increment"
    }

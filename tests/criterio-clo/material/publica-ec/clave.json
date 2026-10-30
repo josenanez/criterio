@@ -1,0 +1,556 @@
+{
+  "entidad": "Empresa Pública Sierra Norte EP",
+  "industria": "publica",
+  "pais": "EC",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "garantia_baja"
+    ],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "1760001230001",
+        "name": "Empresa Pública Sierra Norte EP",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/1760001230001-empresa-publica-sierra-norte-ep",
+        "state": "estado-legal/1760001230001-empresa-publica-sierra-norte-ep"
+      },
+      "public_procurement": {
+        "public": true,
+        "guarantee_threshold": 100000.0
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "1760001230001",
+        "name": "Empresa Pública Sierra Norte EP",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/1760001230001-empresa-publica-sierra-norte-ep",
+        "state": "estado-legal/1760001230001-empresa-publica-sierra-norte-ep"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/1760001230001-empresa-publica-sierra-norte-ep/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-2001": {
+        "code": "CTR-2001",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Tecnología del Estado S.A.",
+          "id": "800020001"
+        },
+        "value": 320000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Mónica Arias",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Tecnología del Estado S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2001-tecnologia-del-estado-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2001-tecnologia-del-estado-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 9600.0,
+            "delivered_on": "2025-12-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-2001-tecnologia-del-estado-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Tecnología del Estado S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2001-tecnologia-del-estado-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Tecnología del Estado S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2001-tecnologia-del-estado-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Tecnología del Estado S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-2001-tecnologia-del-estado-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2001-tecnologia-del-estado-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SOCE · COMPRASPÚBLICAS",
+          "published_on": "2026-01-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2001-tecnologia-del-estado-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2002": {
+        "code": "CTR-2002",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Provisiones Públicas Cía. Ltda.",
+          "id": "800020002"
+        },
+        "value": 160000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fabián Torres",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Provisiones Públicas Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 40000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Fabián Torres",
+            "source": "contratos/CTR-2002-provisiones-publicas-cia-ltda/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2002-provisiones-publicas-cia-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2002-provisiones-publicas-cia-ltda/20-garantias/poliza-cumplimiento.md",
+            "amount": 8000.0,
+            "delivered_on": "2025-06-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-2002-provisiones-publicas-cia-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Provisiones Públicas Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2002-provisiones-publicas-cia-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Provisiones Públicas Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2002-provisiones-publicas-cia-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2002-provisiones-publicas-cia-ltda/10-contrato/contrato.md",
+        "public": {
+          "system": "SOCE · COMPRASPÚBLICAS",
+          "published_on": "2025-07-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2002-provisiones-publicas-cia-ltda/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2003": {
+        "code": "CTR-2003",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Edificaciones Oficiales S.A.",
+          "id": "800020003"
+        },
+        "value": 240000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Mónica Arias",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Edificaciones Oficiales S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2003-edificaciones-oficiales-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2003-edificaciones-oficiales-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 7200.0,
+            "delivered_on": "2025-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-2003-edificaciones-oficiales-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Edificaciones Oficiales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2003-edificaciones-oficiales-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Edificaciones Oficiales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2003-edificaciones-oficiales-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2003-edificaciones-oficiales-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SOCE · COMPRASPÚBLICAS",
+          "published_on": "2025-02-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2003-edificaciones-oficiales-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2004": {
+        "code": "CTR-2004",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Sistemas Públicos Cía. Ltda.",
+          "id": "800020004"
+        },
+        "value": 120000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Fabián Torres",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sistemas Públicos Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2004-sistemas-publicos-cia-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2004-sistemas-publicos-cia-ltda/20-garantias/poliza-cumplimiento.md",
+            "amount": 6000.0,
+            "delivered_on": "2026-02-28"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-2004-sistemas-publicos-cia-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Sistemas Públicos Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2004-sistemas-publicos-cia-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Sistemas Públicos Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2004-sistemas-publicos-cia-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2004-sistemas-publicos-cia-ltda/10-contrato/contrato.md",
+        "public": {
+          "system": "SOCE · COMPRASPÚBLICAS",
+          "published_on": "2026-03-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2004-sistemas-publicos-cia-ltda/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2005": {
+        "code": "CTR-2005",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Asesoría Pública Cía. Ltda.",
+          "id": "800020005"
+        },
+        "value": 80000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fabián Torres",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Asesoría Pública Cía. Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2005-asesoria-publica-cia-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2005-asesoria-publica-cia-ltda/20-garantias/poliza-cumplimiento.md",
+            "amount": 800.0,
+            "delivered_on": "2026-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-2005-asesoria-publica-cia-ltda/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Asesoría Pública Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2005-asesoria-publica-cia-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Asesoría Pública Cía. Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2005-asesoria-publica-cia-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-2005-asesoria-publica-cia-ltda/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-2005-asesoria-publica-cia-ltda/10-contrato/contrato.md",
+        "public": {
+          "system": "SOCE · COMPRASPÚBLICAS",
+          "published_on": "2026-02-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2005-asesoria-publica-cia-ltda/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2006": {
+        "code": "CTR-2006",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Estatal S.A.",
+          "id": "800020006"
+        },
+        "value": 200000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Mónica Arias",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Estatal S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2006-mantenimiento-estatal-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2006-mantenimiento-estatal-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 10000.0,
+            "delivered_on": "2025-09-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-2006-mantenimiento-estatal-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Estatal S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2006-mantenimiento-estatal-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Estatal S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2006-mantenimiento-estatal-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2006-mantenimiento-estatal-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SOCE · COMPRASPÚBLICAS",
+          "published_on": "2025-10-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2006-mantenimiento-estatal-s-a/10-contrato/constancia-publicacion.md"
+        }
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-2001"
+    },
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-2003"
+    }
+  ]
+}

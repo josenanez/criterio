@@ -31,8 +31,30 @@ Lo que el contrato exige —`guarantees_required` de la ficha— contra lo que d
 
 Los tipos se escriben igual en lo exigido y en lo aportado —`cumplimiento`, `calidad`, `salarios`, `responsabilidad civil`…— para que crucen. Si la póliza los llama de otra forma, se pregunta.
 
+## Los contratos de una entidad pública
+
+Si la configuración dice que la entidad es pública (`public_procurement.public`), el motor revisa cada contrato contra la ley de contratación pública de su país, del registro de países (`contratacion_publica`). Cada regla tiene su fuente en `families/criterio-clo/FUENTES.es.md`:
+
+| País | La publicación | La garantía de cumplimiento |
+|---|---|---|
+| Colombia | En el SECOP, dentro de los 3 días hábiles siguientes a la firma (F-03) | Al menos el 10 % del valor del contrato (F-04) |
+| Ecuador | — | El 5 % del valor, desde el umbral de la configuración (F-05) |
+| Perú | — | El 10 % del monto del contrato original (F-06) |
+| Chile | En trato directo, dentro de las 24 horas siguientes (F-07) | El 5 % del precio adjudicado, desde el umbral de la configuración (F-08) |
+| México | — | Entregada a más tardar diez días naturales después de la firma (F-09) |
+| Brasil | En el PNCP, dentro de 20 días hábiles si hubo licitación o 10 si fue contratación directa (F-10) | Hasta el 5 % del valor inicial, o hasta el 10 % si está justificada (F-10) |
+
+La ficha del contrato trae `public` —el sistema, la fecha de publicación (`published_on`) de la constancia de `10-contrato/`, la modalidad (`modality`: licitación o directa) y la cita— y, en la garantía aportada, el valor asegurado (`amount`), la fecha de entrega (`delivered_on`) y, en Brasil, si el contrato justifica más del 5 % (`justified`). Los días hábiles se cuentan sin sábados, domingos ni los festivos de la configuración.
+
+| Señal | Cuándo |
+|---|---|
+| `public_contract_not_published` | El contrato se publicó después del plazo, o no hay constancia y el plazo ya pasó |
+| `public_guarantee_below_law` | La garantía de cumplimiento es menor que el mínimo de la ley |
+| `public_guarantee_over_cap` | La garantía exigida supera el tope de la ley (Brasil) |
+| `public_guarantee_late` | La garantía se entregó, o sigue sin entregarse, después del plazo de la ley (México) |
+
 ## Lo que nunca se hace
 
 - Opinar si un sobrecosto está justificado o si una póliza cubre un riesgo: se muestra la diferencia y la fecha.
-- Calificar a la aseguradora o el monto asegurado.
+- Calificar a la aseguradora, o el monto asegurado fuera de lo que fija la ley de contratación pública de un contrato público.
 - Sumar o restar a mano: todo monto sale de `legal.py`.

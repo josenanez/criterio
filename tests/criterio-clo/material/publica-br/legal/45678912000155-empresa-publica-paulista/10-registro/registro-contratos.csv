@@ -1,0 +1,7 @@
+codigo,contraparte,objeto,tipo,valor,inicio,termino,situacao,responsavel
+CTR-2401,Tecnologia Pública Ltda.,Prestação de serviços de operação tecnológica,serviços,1200000.00,2026-01-01,2027-03-31,vigente,Ricardo Alves
+CTR-2402,Suprimentos do Estado Ltda.,Fornecimento de papelaria e material de escritório,fornecimento,750000.00,2025-07-01,2027-12-31,vigente,Ricardo Alves
+CTR-2403,Imóveis Oficiais S.A.,Locação da sede principal,locação,900000.00,2025-02-01,2026-12-31,vigente,Ricardo Alves
+CTR-2404,Software Institucional Ltda.,Licença de uso de software,licença,450000.00,2026-03-01,2027-02-28,vigente,Ricardo Alves
+CTR-2405,Consultoria Pública Ltda.,Consultoria em processos,consultoria,300000.00,2026-02-01,2026-11-20,vigente,Ricardo Alves
+CTR-2406,Manutenção Pública Ltda.,Manutenção preventiva das instalações,manutenção,750000.00,2025-10-01,2026-07-31,encerrado,Ricardo Alves

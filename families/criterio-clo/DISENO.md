@@ -102,6 +102,10 @@ citation.
 | `payment_after_termination` | There are payments dated after the contract's end |
 | `guarantee_missing` | The contract requires a guarantee and none was provided |
 | `guarantee_expires_early` | The policy provided expires earlier than the contract requires |
+| `public_contract_not_published` | A public entity's contract was not published in the national system within its country's legal deadline |
+| `public_guarantee_below_law` | A public contract's performance guarantee is below its country's legal minimum |
+| `public_guarantee_over_cap` | The guarantee required in a public contract exceeds its country's legal cap |
+| `public_guarantee_late` | A public contract's performance guarantee was delivered after its country's legal deadline |
 
 **Constanza · Compliance**
 
@@ -145,7 +149,7 @@ not declare the compliance status.
 <!-- clo:comandos-fidel · generado por scripts/familias.py; no se edita a mano -->
 | # | Command | Input | Process (calculated by the code) | Report |
 |---|---|---|---|---|
-| 0 | `legal-setup` | The root folder. Questions: entity and NIT or RUC, country, the signing-authority matrix in `00-referencia/`, how many days ahead an expiry or a notice period is flagged, the maximum age of the counterparty's certificate and who decides to renew | Inventory of what is there; compares the folder with the recommended structure; creates, moves or renames nothing | Configuration saved; inventory by folder; the contracts in `contratos/` against those in the register; the first records |
+| 0 | `legal-setup` | The root folder. Questions: entity and NIT or RUC, country, the signing-authority matrix in `00-referencia/`, how many days ahead an expiry or a notice period is flagged, the maximum age of the counterparty's certificate, who decides to renew and whether the entity is public | Inventory of what is there; compares the folder with the recommended structure; creates, moves or renames nothing | Configuration saved; inventory by folder; the contracts in `contratos/` against those in the register; the first records |
 | 1 | `contract-scan` | The whole `contratos/` and `10-registro/` | Extracts each document's text with its fingerprint and only reprocesses what changed; the agent takes to each contract's record its parties, value, dates, renewal, notice period, signatories, amendments, guarantees and obligations, every data point with its citation; the engine validates the record | What changed; which contracts are new; the new signals; what could not be processed and why |
 | 2 | `contract-register` | `10-registro/registro-contratos` and the records | Matches the register with the folders and the records: contract with no register entry, register entry with no document, declared status against the end date, and the register's value and dates against what the document says | Per contract: declared status and status by its dates, and every difference between the register and the document |
 | 3 | `obligations-calendar` | The records and each contract's `40-ejecucion/` | End date, deadline for the non-renewal notice (end date minus the notice days) and every dated obligation against its evidence in `40-ejecucion/`, with its id at the start of the name | The calendar for the coming days: expiries, notice periods and obligations; what is overdue without evidence and the notice periods that passed without a decision |

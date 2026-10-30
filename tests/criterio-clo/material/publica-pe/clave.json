@@ -1,0 +1,556 @@
+{
+  "entidad": "Organismo Público del Rímac",
+  "industria": "publica",
+  "pais": "PE",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "garantia_baja"
+    ],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "20910000013",
+        "name": "Organismo Público del Rímac",
+        "country": "PE",
+        "currency": "PEN"
+      },
+      "paths": {
+        "documents": "legal/20910000013-organismo-publico-del-rimac",
+        "state": "estado-legal/20910000013-organismo-publico-del-rimac"
+      },
+      "public_procurement": {
+        "public": true,
+        "guarantee_threshold": null
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "20910000013",
+        "name": "Organismo Público del Rímac",
+        "country": "PE",
+        "currency": "PEN"
+      },
+      "paths": {
+        "documents": "legal/20910000013-organismo-publico-del-rimac",
+        "state": "estado-legal/20910000013-organismo-publico-del-rimac"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/20910000013-organismo-publico-del-rimac/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-2101": {
+        "code": "CTR-2101",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Tecnología Estatal S.A.C.",
+          "id": "202100000024"
+        },
+        "value": 960000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Gloria Chávez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Tecnología Estatal S.A.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2101-tecnologia-estatal-s-a-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2101-tecnologia-estatal-s-a-c/20-garantias/poliza-cumplimiento.md",
+            "amount": 76800.0,
+            "delivered_on": "2025-12-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-2101-tecnologia-estatal-s-a-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Tecnología Estatal S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2101-tecnologia-estatal-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Tecnología Estatal S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2101-tecnologia-estatal-s-a-c/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Tecnología Estatal S.A.C.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-2101-tecnologia-estatal-s-a-c/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2101-tecnologia-estatal-s-a-c/10-contrato/contrato.md",
+        "public": {
+          "system": "SEACE",
+          "published_on": "2026-01-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2101-tecnologia-estatal-s-a-c/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2102": {
+        "code": "CTR-2102",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Útiles Públicos S.A.C.",
+          "id": "202100000034"
+        },
+        "value": 480000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Renzo Paredes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Útiles Públicos S.A.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 120000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Renzo Paredes",
+            "source": "contratos/CTR-2102-utiles-publicos-s-a-c/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2102-utiles-publicos-s-a-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2102-utiles-publicos-s-a-c/20-garantias/poliza-cumplimiento.md",
+            "amount": 48000.0,
+            "delivered_on": "2025-06-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-2102-utiles-publicos-s-a-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Útiles Públicos S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2102-utiles-publicos-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Útiles Públicos S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2102-utiles-publicos-s-a-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2102-utiles-publicos-s-a-c/10-contrato/contrato.md",
+        "public": {
+          "system": "SEACE",
+          "published_on": "2025-07-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2102-utiles-publicos-s-a-c/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2103": {
+        "code": "CTR-2103",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Inmuebles del Estado S.A.",
+          "id": "202100000044"
+        },
+        "value": 720000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Gloria Chávez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Inmuebles del Estado S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2103-inmuebles-del-estado-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2103-inmuebles-del-estado-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 72000.0,
+            "delivered_on": "2025-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-2103-inmuebles-del-estado-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Inmuebles del Estado S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2103-inmuebles-del-estado-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Inmuebles del Estado S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2103-inmuebles-del-estado-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2103-inmuebles-del-estado-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SEACE",
+          "published_on": "2025-02-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2103-inmuebles-del-estado-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2104": {
+        "code": "CTR-2104",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Licencias Públicas S.A.C.",
+          "id": "202100000054"
+        },
+        "value": 360000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Renzo Paredes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Licencias Públicas S.A.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2104-licencias-publicas-s-a-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2104-licencias-publicas-s-a-c/20-garantias/poliza-cumplimiento.md",
+            "amount": 36000.0,
+            "delivered_on": "2026-02-28"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-2104-licencias-publicas-s-a-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Licencias Públicas S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2104-licencias-publicas-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Licencias Públicas S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2104-licencias-publicas-s-a-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2104-licencias-publicas-s-a-c/10-contrato/contrato.md",
+        "public": {
+          "system": "SEACE",
+          "published_on": "2026-03-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2104-licencias-publicas-s-a-c/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2105": {
+        "code": "CTR-2105",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultoría Pública S.A.C.",
+          "id": "202100000064"
+        },
+        "value": 240000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Renzo Paredes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultoría Pública S.A.C.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2105-consultoria-publica-s-a-c/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2105-consultoria-publica-s-a-c/20-garantias/poliza-cumplimiento.md",
+            "amount": 24000.0,
+            "delivered_on": "2026-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-2105-consultoria-publica-s-a-c/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultoría Pública S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2105-consultoria-publica-s-a-c/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultoría Pública S.A.C.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2105-consultoria-publica-s-a-c/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-2105-consultoria-publica-s-a-c/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-2105-consultoria-publica-s-a-c/10-contrato/contrato.md",
+        "public": {
+          "system": "SEACE",
+          "published_on": "2026-02-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2105-consultoria-publica-s-a-c/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2106": {
+        "code": "CTR-2106",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento del Estado E.I.R.L.",
+          "id": "202100000074"
+        },
+        "value": 600000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Gloria Chávez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento del Estado E.I.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2106-mantenimiento-del-estado-e-i-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2106-mantenimiento-del-estado-e-i-r-l/20-garantias/poliza-cumplimiento.md",
+            "amount": 48000.0,
+            "delivered_on": "2025-09-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-2106-mantenimiento-del-estado-e-i-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento del Estado E.I.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2106-mantenimiento-del-estado-e-i-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento del Estado E.I.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2106-mantenimiento-del-estado-e-i-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2106-mantenimiento-del-estado-e-i-r-l/10-contrato/contrato.md",
+        "public": {
+          "system": "SEACE",
+          "published_on": "2025-10-01",
+          "modality": "licitación pública",
+          "source": "contratos/CTR-2106-mantenimiento-del-estado-e-i-r-l/10-contrato/constancia-publicacion.md"
+        }
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-2101"
+    },
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-2106"
+    }
+  ]
+}

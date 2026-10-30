@@ -99,6 +99,10 @@ declara el informe de cumplimiento y las normas nuevas de un boletín. Cada dato
 | `payment_after_termination` | Hay pagos con fecha posterior a la terminación del contrato |
 | `guarantee_missing` | El contrato exige una garantía y no hay póliza aportada |
 | `guarantee_expires_early` | La póliza aportada vence antes de lo que exige el contrato |
+| `public_contract_not_published` | Un contrato de una entidad pública no se publicó en el sistema nacional dentro del plazo de la ley de su país |
+| `public_guarantee_below_law` | La garantía de cumplimiento de un contrato público es menor que el mínimo de la ley de su país |
+| `public_guarantee_over_cap` | La garantía exigida en un contrato público supera el tope de la ley de su país |
+| `public_guarantee_late` | La garantía de cumplimiento de un contrato público se entregó después del plazo de la ley de su país |
 
 **Constanza · Cumplimiento**
 
@@ -141,7 +145,7 @@ denuncias ni procesa datos de quién denunció; no declara el estado del cumplim
 <!-- clo:comandos-fidel · generado por scripts/familias.py; no se edita a mano -->
 | # | Comando | Entrada | Proceso (lo calcula el código) | Reporte |
 |---|---|---|---|---|
-| 0 | `legal-setup` | La carpeta raíz. Preguntas: entidad y NIT o RUC, país, la matriz de atribuciones de `00-referencia/`, con cuántos días de anticipación se avisa un vencimiento o un preaviso, la antigüedad máxima del certificado de la contraparte y quién decide renovar | Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada | Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas |
+| 0 | `legal-setup` | La carpeta raíz. Preguntas: entidad y NIT o RUC, país, la matriz de atribuciones de `00-referencia/`, con cuántos días de anticipación se avisa un vencimiento o un preaviso, la antigüedad máxima del certificado de la contraparte, quién decide renovar y si la entidad es pública | Inventario de lo que hay; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada | Configuración guardada; inventario por carpeta; los contratos de `contratos/` contra los del registro; las primeras fichas |
 | 1 | `contract-scan` | `contratos/` completo y `10-registro/` | Extrae el texto de cada documento con su huella y solo reprocesa lo que cambió; el agente lleva a la ficha de cada contrato sus partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones, cada dato con su cita; el motor valida la ficha | Qué cambió; qué contratos son nuevos; las señales nuevas; lo que no se pudo procesar y por qué |
 | 2 | `contract-register` | `10-registro/registro-contratos` y las fichas | Cruza el registro con las carpetas y con las fichas: contrato sin registro, registro sin documento, estado declarado contra la fecha de terminación, y el valor y las fechas del registro contra lo que dice el documento | Por contrato: estado declarado y estado según sus fechas, y cada diferencia entre el registro y el documento |
 | 3 | `obligations-calendar` | Las fichas y `40-ejecucion/` de cada contrato | Fecha de terminación, fecha límite del preaviso de no renovación (terminación menos los días de preaviso) y cada obligación con fecha contra su evidencia en `40-ejecucion/`, con su id al inicio del nombre | El calendario de los próximos días: vencimientos, preavisos y obligaciones; lo vencido sin evidencia y los preavisos que pasaron sin decisión |

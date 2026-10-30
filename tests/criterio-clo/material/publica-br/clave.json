@@ -1,0 +1,567 @@
+{
+  "entidad": "Empresa Pública Paulista",
+  "industria": "publica",
+  "pais": "BR",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "publicacion_tarde",
+      "sin_publicacion",
+      "garantia_sobre_tope"
+    ],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "45678912000155",
+        "name": "Empresa Pública Paulista",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "legal/45678912000155-empresa-publica-paulista",
+        "state": "estado-legal/45678912000155-empresa-publica-paulista"
+      },
+      "public_procurement": {
+        "public": true,
+        "guarantee_threshold": null
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "45678912000155",
+        "name": "Empresa Pública Paulista",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "legal/45678912000155-empresa-publica-paulista",
+        "state": "estado-legal/45678912000155-empresa-publica-paulista"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/45678912000155-empresa-publica-paulista/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-2401": {
+        "code": "CTR-2401",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Tecnologia Pública Ltda.",
+          "id": "02400001000159"
+        },
+        "value": 1200000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Fernanda Lima",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Tecnologia Pública Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2401-tecnologia-publica-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-2401-tecnologia-publica-ltda/20-garantias/apolice-cumprimento.md",
+            "amount": 60000.0,
+            "delivered_on": "2025-12-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-2401-tecnologia-publica-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Tecnologia Pública Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2401-tecnologia-publica-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-03-31",
+            "who": "Tecnologia Pública Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2401-tecnologia-publica-ltda/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Relatório de operações ao responsável de compliance",
+            "due": "2026-09-30",
+            "who": "Tecnologia Pública Ltda.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-2401-tecnologia-publica-ltda/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2401-tecnologia-publica-ltda/10-contrato/contrato.md",
+        "public": {
+          "system": "PNCP",
+          "published_on": "2026-01-21",
+          "modality": "licitação",
+          "source": "contratos/CTR-2401-tecnologia-publica-ltda/10-contrato/comprovante-divulgacao.md"
+        }
+      },
+      "CTR-2402": {
+        "code": "CTR-2402",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Suprimentos do Estado Ltda.",
+          "id": "02400002000101"
+        },
+        "value": 600000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ricardo Alves",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Suprimentos do Estado Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 150000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Ricardo Alves",
+            "source": "contratos/CTR-2402-suprimentos-do-estado-ltda/10-contrato/aditivo-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2402-suprimentos-do-estado-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-2402-suprimentos-do-estado-ltda/20-garantias/apolice-cumprimento.md",
+            "amount": 30000.0,
+            "delivered_on": "2025-06-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-2402-suprimentos-do-estado-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Suprimentos do Estado Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2402-suprimentos-do-estado-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-12-31",
+            "who": "Suprimentos do Estado Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2402-suprimentos-do-estado-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2402-suprimentos-do-estado-ltda/10-contrato/contrato.md",
+        "public": {
+          "system": "PNCP",
+          "published_on": null,
+          "modality": "licitação",
+          "source": null
+        }
+      },
+      "CTR-2403": {
+        "code": "CTR-2403",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Imóveis Oficiais S.A.",
+          "id": "02400003000148"
+        },
+        "value": 900000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fernanda Lima",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Imóveis Oficiais S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2403-imoveis-oficiais-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-2403-imoveis-oficiais-s-a/20-garantias/apolice-cumprimento.md",
+            "amount": 72000.0,
+            "delivered_on": "2025-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-2403-imoveis-oficiais-s-a/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Imóveis Oficiais S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2403-imoveis-oficiais-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-12-31",
+            "who": "Imóveis Oficiais S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2403-imoveis-oficiais-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2403-imoveis-oficiais-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "PNCP",
+          "published_on": "2025-02-20",
+          "modality": "licitação",
+          "source": "contratos/CTR-2403-imoveis-oficiais-s-a/10-contrato/comprovante-divulgacao.md"
+        }
+      },
+      "CTR-2404": {
+        "code": "CTR-2404",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Software Institucional Ltda.",
+          "id": "02400004000192"
+        },
+        "value": 450000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Ricardo Alves",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Software Institucional Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2404-software-institucional-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-2404-software-institucional-ltda/20-garantias/apolice-cumprimento.md",
+            "amount": 22500.0,
+            "delivered_on": "2026-02-28"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-2404-software-institucional-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Software Institucional Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2404-software-institucional-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-02-28",
+            "who": "Software Institucional Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2404-software-institucional-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2404-software-institucional-ltda/10-contrato/contrato.md",
+        "public": {
+          "system": "PNCP",
+          "published_on": "2026-03-13",
+          "modality": "contratação direta",
+          "source": "contratos/CTR-2404-software-institucional-ltda/10-contrato/comprovante-divulgacao.md"
+        }
+      },
+      "CTR-2405": {
+        "code": "CTR-2405",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultoria Pública Ltda.",
+          "id": "02400005000137"
+        },
+        "value": 300000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ricardo Alves",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultoria Pública Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2405-consultoria-publica-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-2405-consultoria-publica-ltda/20-garantias/apolice-cumprimento.md",
+            "amount": 24000.0,
+            "delivered_on": "2026-01-31",
+            "justified": true
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-2405-consultoria-publica-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Consultoria Pública Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2405-consultoria-publica-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-11-20",
+            "who": "Consultoria Pública Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2405-consultoria-publica-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-2405-consultoria-publica-ltda/40-ejecucion/ata-comite-contratos.md"
+        },
+        "source": "contratos/CTR-2405-consultoria-publica-ltda/10-contrato/contrato.md",
+        "public": {
+          "system": "PNCP",
+          "published_on": "2026-02-20",
+          "modality": "licitação",
+          "source": "contratos/CTR-2405-consultoria-publica-ltda/10-contrato/comprovante-divulgacao.md"
+        }
+      },
+      "CTR-2406": {
+        "code": "CTR-2406",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Manutenção Pública Ltda.",
+          "id": "02400006000181"
+        },
+        "value": 750000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fernanda Lima",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Manutenção Pública Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2406-manutencao-publica-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-2406-manutencao-publica-ltda/20-garantias/apolice-cumprimento.md",
+            "amount": 60000.0,
+            "delivered_on": "2025-09-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-2406-manutencao-publica-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-07-06",
+            "who": "Manutenção Pública Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2406-manutencao-publica-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-07-31",
+            "who": "Manutenção Pública Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2406-manutencao-publica-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2406-manutencao-publica-ltda/10-contrato/contrato.md",
+        "public": {
+          "system": "PNCP",
+          "published_on": "2025-10-22",
+          "modality": "licitação",
+          "source": "contratos/CTR-2406-manutencao-publica-ltda/10-contrato/comprovante-divulgacao.md"
+        }
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/relatorio-compliance-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletim-2026-09.md, item 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "public_contract_not_published",
+      "key": "publicacion:CTR-2402"
+    },
+    {
+      "signal": "public_contract_not_published",
+      "key": "publicacion:CTR-2404"
+    },
+    {
+      "signal": "public_guarantee_over_cap",
+      "key": "garantia-tope:CTR-2403"
+    },
+    {
+      "signal": "public_guarantee_over_cap",
+      "key": "garantia-tope:CTR-2406"
+    }
+  ]
+}

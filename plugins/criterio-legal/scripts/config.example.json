@@ -29,5 +29,9 @@
   },
   "execution": {
     "workers": 1
+  },
+  "public_procurement": {
+    "public": false,
+    "guarantee_threshold": null
   }
 }

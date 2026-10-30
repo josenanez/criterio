@@ -46,7 +46,8 @@ for _d in sorted((RAIZ / "families").glob("criterio-*/familia.json")):
         FAM[_f["sigla"]] = {"titulo": (f"familia {_f['sigla'].upper()}", f"{_f['sigla'].upper()} family"),
                             "agentes": {a["id"]: a["nombre"] for a in _f["agentes"]}}
 INDUSTRIA = {"banca": ("Banca", "Banking"), "cooperativas": ("Cooperativas", "Credit unions"), "retail": ("Retail", "Retail"),
-             "mineria": ("Minería", "Mining"), "control": ("Control", "Control")}
+             "mineria": ("Minería", "Mining"), "manufactura": ("Manufactura", "Manufacturing"), "servicios": ("Servicios", "Services"),
+             "tecnologia": ("Tecnología", "Technology"), "publica": ("Entidad pública", "Public entity"), "control": ("Control", "Control")}
 # Los nombres de los países salen del registro único del motor, no de aquí.
 PAIS = {p["codigo"]: (p["nombre"]["es"], p["nombre"]["en"]) for p in json.loads(
     (RAIZ / "plugins" / "criterio-finance" / "scripts" / "paises.json").read_text(encoding="utf-8"))["paises"]}

@@ -22,6 +22,18 @@
     ],
     "iva": 0.19,
     "impuesto": "IVA"
+   },
+   "contratacion_publica": {
+    "sistema": "SECOP II",
+    "publicacion": {
+     "plazo": 3,
+     "dias": "habiles",
+     "fuente": "F-03"
+    },
+    "garantia": {
+     "minimo": 0.1,
+     "fuente": "F-04"
+    }
    }
   },
   {
@@ -45,6 +57,14 @@
     ],
     "iva": 0.15,
     "impuesto": "IVA"
+   },
+   "contratacion_publica": {
+    "sistema": "SOCE · COMPRASPÚBLICAS",
+    "garantia": {
+     "minimo": 0.05,
+     "umbral": true,
+     "fuente": "F-05"
+    }
    }
   },
   {
@@ -68,6 +88,13 @@
     ],
     "iva": 0.18,
     "impuesto": "IGV"
+   },
+   "contratacion_publica": {
+    "sistema": "SEACE",
+    "garantia": {
+     "minimo": 0.1,
+     "fuente": "F-06"
+    }
    }
   },
   {
@@ -91,6 +118,20 @@
     ],
     "iva": 0.19,
     "impuesto": "IVA"
+   },
+   "contratacion_publica": {
+    "sistema": "Mercado Público",
+    "publicacion": {
+     "plazo": 1,
+     "dias": "naturales",
+     "solo_directa": true,
+     "fuente": "F-07"
+    },
+    "garantia": {
+     "minimo": 0.05,
+     "umbral": true,
+     "fuente": "F-08"
+    }
    }
   },
   {
@@ -114,6 +155,14 @@
     ],
     "iva": 0.16,
     "impuesto": "IVA"
+   },
+   "contratacion_publica": {
+    "sistema": "Compras MX",
+    "garantia": {
+     "entrega": 10,
+     "dias": "naturales",
+     "fuente": "F-09"
+    }
    }
   },
   {
@@ -139,6 +188,20 @@
     "iva": 0.18,
     "impuesto": "ICMS",
     "emisor": "SEFAZ"
+   },
+   "contratacion_publica": {
+    "sistema": "PNCP",
+    "publicacion": {
+     "plazo": 20,
+     "plazo_directa": 10,
+     "dias": "habiles",
+     "fuente": "F-10"
+    },
+    "garantia": {
+     "maximo": 0.05,
+     "maximo_justificado": 0.1,
+     "fuente": "F-10"
+    }
    }
   }
  ]

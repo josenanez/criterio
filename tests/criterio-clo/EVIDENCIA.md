@@ -27,6 +27,12 @@ sintéticos.
 | `banca-br` | Brasil | banca | 10 | 10 |
 | `retail-br` | Brasil | retail | 10 | 10 |
 | `control-br` | Brasil | — | 0 | 0 |
+| `publica-co` | Colombia | entidad pública | 3 | 5 |
+| `publica-ec` | Ecuador | entidad pública | 1 | 2 |
+| `publica-pe` | Perú | entidad pública | 1 | 2 |
+| `publica-cl` | Chile | entidad pública | 2 | 3 |
+| `publica-mx` | México | entidad pública | 1 | 3 |
+| `publica-br` | Brasil | entidad pública | 3 | 4 |
 
 Cada una trae su carpeta legal al 6 de octubre de 2026: la matriz de atribuciones y la de
 obligaciones, el registro de contratos y la exportación de pagos, el índice de políticas con
@@ -43,6 +49,39 @@ obrigações, el registro de contratos y de pagamentos, las políticas, el bolet
 relatório de compliance. La ficha guarda sus valores como los define el skill —el tipo de contrato,
 la garantía, la parte, la decisión—, y el arnés acepta el mismo valor dicho en portugués; lo que es
 texto del documento —lo que se entrega, el cargo de quien firma— va en la clave como lo dice él.
+
+**Las entidades públicas (incremento 6).** Seis entidades, una por país, contratan bajo la ley de
+contratación pública de su país. Traen la misma carpeta que las demás, más:
+
+- la política de contratación de `00-referencia/`, que dice que la entidad es pública y, en Ecuador
+  y Chile, el umbral desde el cual se exige la garantía;
+- la constancia de publicación de cada contrato, en `10-contrato/`;
+- en cada póliza, el valor asegurado y la fecha en que la entidad la recibió.
+
+Solo Fidel corre sobre ellas. Las reglas son las de `contratacion_publica` del registro de países, cada
+una con su fuente (F-03 a F-10 de la familia).
+
+| Entidad | Lo que se siembra | Señal |
+|---|---|---|
+| publica-co | Dos contratos publicados en el SECOP al sexto día hábil, uno sin constancia de publicación, y dos garantías del 8 % | `public_contract_not_published` ×3, `public_guarantee_below_law` ×2 |
+| publica-ec | Dos garantías del 3 %, sobre el umbral | `public_guarantee_below_law` ×2 |
+| publica-pe | Dos garantías del 8 % del monto original | `public_guarantee_below_law` ×2 |
+| publica-cl | El contrato de trato directo, publicado a los tres días, y dos garantías del 3 % | `public_contract_not_published`, `public_guarantee_below_law` ×2 |
+| publica-mx | Tres garantías entregadas a los dieciséis días naturales | `public_guarantee_late` ×3 |
+| publica-br | La contratación directa, divulgada en el PNCP al día hábil 13, un contrato sin comprovante, y dos garantías del 8 % sin justificar | `public_contract_not_published` ×2, `public_guarantee_over_cap` ×2 |
+
+**Lo que se parece a un defecto y no lo es**, en las mismas seis:
+
+- **Al límite del plazo.** Cada contrato se publica en el último día del plazo: el tercer día hábil en
+  Colombia, el día 18 o el 9 en Brasil, y al día siguiente el trato directo de Chile.
+- **Al límite de la garantía.** Cada garantía está en el mínimo exacto de la ley, o en el tope en
+  Brasil.
+- **Por debajo del umbral.** En Ecuador y en Chile, un contrato bajo el umbral lleva una garantía del
+  1 %: la ley no la exige.
+- **Justificada.** En Brasil, una garantía del 8 % justificada por la complejidad y los riesgos está
+  dentro del tope del 10 %.
+- **Sin plazo.** En Chile, una licitación publicada al sexto día: la ley no fija un plazo en días.
+- **La garantía de México.** Entregada justo al décimo día natural.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 
@@ -108,3 +147,14 @@ informe del periodo o el boletín y lo registre bien en la ficha lo prueba la ro
 agente, sobre este mismo material y contra esta misma clave. Tampoco prueba que el agente se
 abstenga de opinar sobre la validez de un contrato: eso es una regla de los comandos, y la
 pone a prueba la ronda.
+
+**De los contratos públicos.**
+
+- **Los festivos de cada país** al contar los días hábiles: el material no los trae, y el motor
+  descuenta los que diga la configuración.
+- **El plazo de la garantía que fije la convocatoria en México**: la ley lo pone por encima de sus
+  diez días naturales, y el motor solo aplica los diez.
+- **La vigencia de la garantía de Colombia hasta la liquidación**: la vigencia la sigue comparando el
+  motor con lo que exige el contrato.
+- **Los contratos públicos con un valor sobre 1.000.000 de SMMLV en Colombia**, que tienen otro mínimo.
+

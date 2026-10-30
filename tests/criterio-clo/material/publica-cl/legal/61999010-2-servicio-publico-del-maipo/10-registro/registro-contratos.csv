@@ -1,0 +1,7 @@
+codigo,contraparte,objeto,tipo,valor,inicio,terminacion,estado,responsable
+CTR-2201,Tecnología Fiscal SpA,Prestación de servicios de operación tecnológica,servicios,200000000.00,2026-01-01,2027-03-31,vigente,Sebastián Muñoz
+CTR-2202,Insumos Públicos SpA,Suministro de papelería e insumos de oficina,suministro,125000000.00,2025-07-01,2027-12-31,vigente,Sebastián Muñoz
+CTR-2203,Inmobiliaria Fiscal S.A.,Arrendamiento de la sede principal,arrendamiento,150000000.00,2025-02-01,2026-12-31,vigente,Sebastián Muñoz
+CTR-2204,Software Público SpA,Licencia de uso de software,licencia,75000000.00,2026-03-01,2027-02-28,vigente,Sebastián Muñoz
+CTR-2205,Consultora Pública SpA,Consultoría en procesos,consultoria,50000000.00,2026-02-01,2026-11-20,vigente,Sebastián Muñoz
+CTR-2206,Mantención Fiscal SpA,Mantenimiento preventivo de instalaciones,mantenimiento,125000000.00,2025-10-01,2026-07-31,terminado,Sebastián Muñoz
