@@ -1,0 +1,20 @@
+{
+  "entidad": "Almacenes del Valle de Sula",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4405661,
+  "senales": {
+    "esperadas": 13,
+    "acertadas": 13,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 200,
+    "bien": 200,
+    "mal": []
+  }
+}

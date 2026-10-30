@@ -1,0 +1,20 @@
+{
+  "entidad": "Comercial Control de Honduras",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 5507063,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 212,
+    "bien": 212,
+    "mal": []
+  }
+}

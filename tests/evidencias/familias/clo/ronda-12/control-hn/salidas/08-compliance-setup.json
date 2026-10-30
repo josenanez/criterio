@@ -1,0 +1,39 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/08010007330150-comercial-control-de-honduras",
+  "inicio": "2026-10-30T21:46:36",
+  "estado": "success",
+  "error": false,
+  "segundos": 59,
+  "turnos": 23,
+  "tokens": 913708,
+  "tokens_salida": 7898,
+  "costo_usd": 0.32381610000000005,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-30-compliance-setup-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-30-compliance-setup-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/cumplimiento/08010007330150/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.2.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.2.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.2.0-2026-10-06.sha256",
+      "estado-legal/08010007330150-comercial-control-de-honduras/cache/cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md.md",
+      "estado-legal/08010007330150-comercial-control-de-honduras/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/08010007330150-comercial-control-de-honduras/corridas/salida-compliance-setup.md",
+      "estado-legal/08010007330150-comercial-control-de-honduras/cumplimiento/2026-09/ficha.json",
+      "estado-legal/08010007330150-comercial-control-de-honduras/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/08010007330150-comercial-control-de-honduras/cumplimiento/2026-09/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/08010007330150-comercial-control-de-honduras/cache/manifest.json",
+      "estado-legal/08010007330150-comercial-control-de-honduras/corridas.json"
+    ],
+    "borrados": []
+  }
+}

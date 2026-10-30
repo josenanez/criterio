@@ -259,17 +259,19 @@
         "clara"
       ],
       "origen": "codigo",
-      "commit": null,
-      "estado": "por-verificar",
+      "commit": "0ec883e8",
+      "estado": "verificado",
       "es": {
         "que": "En la instalación de Honduras, `cuentas` no propuso ninguna cuenta: buscaba las facturas en XML, y las de Honduras son documentos que el agente extrae a la ficha. Clara dedujo las cuentas del mayor y acertó, pero sin el respaldo del motor.",
-        "correccion": "`cuentas` toma las facturas de Honduras de la ficha del cierre con `--state`, y sin ellas dice que primero se extraen; la instalación lo pide así. Los reportes dicen «en la factura», no «en el XML», cuando la factura es un documento."
+        "correccion": "`cuentas` toma las facturas de Honduras de la ficha del cierre con `--state`, y sin ellas dice que primero se extraen; la instalación lo pide así. Los reportes dicen «en la factura», no «en el XML», cuando la factura es un documento. Se verificó en retail de Honduras, instalada después de la corrección: las cuentas salieron de las facturas de la ficha."
       },
       "en": {
         "que": "In the Honduras setup, `cuentas` proposed no account: it looked for XML invoices, and Honduran invoices are documents the agent extracts to the record. Clara inferred the accounts from the ledger and got them right, but without the engine behind her.",
-        "correccion": "`cuentas` takes the Honduran invoices from the close record with `--state`, and without them it says they are extracted first; the setup asks for that. Reports say «on the invoice», not «in the XML», when the invoice is a document."
+        "correccion": "`cuentas` takes the Honduran invoices from the close record with `--state`, and without them it says they are extracted first; the setup asks for that. Reports say «on the invoice», not «in the XML», when the invoice is a document. Verified on the Honduran retail entity, set up after the fix: the accounts came from the invoices in the record."
       },
-      "fallas": []
+      "fallas": [],
+      "verificacion": "retail-hn",
+      "ronda_verificacion": 12
     }
   ]
 }

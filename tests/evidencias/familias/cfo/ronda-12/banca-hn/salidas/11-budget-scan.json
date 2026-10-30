@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T19:00:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 63,
+  "turnos": 16,
+  "tokens": 626582,
+  "tokens_salida": 4422,
+  "costo_usd": 0.2141138,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/08010004578120-banco-de-occidente-sintetico/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/08010004578120-banco-de-occidente-sintetico/corridas/salida-budget-scan.md",
+      "estado-finanzas/08010004578120-banco-de-occidente-sintetico/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/08010004578120-banco-de-occidente-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

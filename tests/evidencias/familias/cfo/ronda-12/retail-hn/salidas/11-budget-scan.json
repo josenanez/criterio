@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T21:29:24",
+  "estado": "success",
+  "error": false,
+  "segundos": 43,
+  "turnos": 16,
+  "tokens": 670833,
+  "tokens_salida": 5075,
+  "costo_usd": 0.22037800000000005,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/08010006129040-almacenes-del-valle-de-sula/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/08010006129040-almacenes-del-valle-de-sula/corridas/salida-budget-scan.md",
+      "estado-finanzas/08010006129040-almacenes-del-valle-de-sula/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/08010006129040-almacenes-del-valle-de-sula/corridas.json"
+    ],
+    "borrados": []
+  }
+}

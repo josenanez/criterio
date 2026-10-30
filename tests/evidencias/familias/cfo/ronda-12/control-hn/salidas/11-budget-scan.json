@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T21:35:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 40,
+  "turnos": 16,
+  "tokens": 720750,
+  "tokens_salida": 3542,
+  "costo_usd": 0.19137930000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/08010007330150-comercial-control-de-honduras/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/08010007330150-comercial-control-de-honduras/corridas/salida-budget-scan.md",
+      "estado-finanzas/08010007330150-comercial-control-de-honduras/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/08010007330150-comercial-control-de-honduras/corridas.json"
+    ],
+    "borrados": []
+  }
+}

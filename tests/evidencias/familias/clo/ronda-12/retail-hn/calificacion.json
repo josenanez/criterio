@@ -1,0 +1,19 @@
+{
+  "entidad": "Almacenes del Valle de Sula",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3291057,
+  "senales": {
+    "esperadas": 10,
+    "acertadas": 10,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 153,
+    "bien": 153,
+    "mal": []
+  }
+}

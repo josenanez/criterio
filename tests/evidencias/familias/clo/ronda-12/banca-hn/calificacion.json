@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco de Occidente Sintético",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 2978659,
+  "senales": {
+    "esperadas": 10,
+    "acertadas": 10,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T21:38:22",
+  "estado": "success",
+  "error": false,
+  "segundos": 56,
+  "turnos": 16,
+  "tokens": 804212,
+  "tokens_salida": 6055,
+  "costo_usd": 0.3219522,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/contratos/reporte-contract-scan.md",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/corridas/salida-contract-scan.md",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/contratos/CTR-4001.json",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/contratos/CTR-4002.json",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/contratos/CTR-4003.json",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/contratos/CTR-4004.json",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/contratos/CTR-4005.json",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/contratos/CTR-4006.json",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/contratos/resultados.json",
+      "estado-legal/08010004578120-banco-de-occidente-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T21:44:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 36,
+  "turnos": 11,
+  "tokens": 496435,
+  "tokens_salida": 4378,
+  "costo_usd": 0.16836779999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-30-compliance-scan-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-30-compliance-scan-1.md",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/cache/30-normativa/registro-normativo.csv.md",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/corridas/2026-10-06-compliance-scan-1.md",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/corridas/salida-compliance-scan.md",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/cumplimiento/2026-09/reporte-compliance-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/cache/manifest.json",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/corridas.json"
+    ],
+    "borrados": []
+  }
+}

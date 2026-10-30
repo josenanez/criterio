@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Control de Honduras",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3543719,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

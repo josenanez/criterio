@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CLO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 11 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 12 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 11, parcial, sobre 4 de las 43 entidades del material: 23 de 23 señales sembradas encontradas (margen del 95 %: 85,6–100 %) y 0 de más; 569 de 569 datos extraídos bien (100 %, margen del 95 %: 99,3–100 %); y 1 de 1 entidades de control sin ninguna señal.
+La ronda más reciente, la 12, parcial, sobre 4 de las 43 entidades del material: 22 de 22 señales sembradas encontradas (margen del 95 %: 85,1–100 %) y 0 de más; 569 de 569 datos extraídos bien (100 %, margen del 95 %: 99,3–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–11, 243 de 243 señales encontradas, 0 de más y 6455 de 6474 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–12, 265 de 265 señales encontradas, 0 de más y 7024 de 7043 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 11; la más reciente, la 11, es parcial |
-| Material | Banca · Costa Rica, Entidad pública · Costa Rica, Retail · Costa Rica |
-| Entidades de control | Control · Costa Rica |
-| Corridas de una entidad | 47 |
-| Señales sembradas | 243 |
-| Datos calificados | 6474 |
+| Rondas | 12; la más reciente, la 12, es parcial |
+| Material | Banca · Honduras, Entidad pública · Honduras, Retail · Honduras |
+| Entidades de control | Control · Honduras |
+| Corridas de una entidad | 51 |
+| Señales sembradas | 265 |
+| Datos calificados | 7043 |
 
-## Resultados acumulados · rondas 1–11
+## Resultados acumulados · rondas 1–12
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 243 de 243 | 100 % | 98,4–100 % |
-| Señales · precisión | 243 de 243 | 100 % | 98,4–100 % |
-| Extracción · datos correctos | 6455 de 6474 | 99,7 % | 99,5–99,9 % |
-| Control · sin ninguna señal | 15 de 15 | 100 % | 79,6–100 % |
+| Señales · cobertura | 265 de 265 | 100 % | 98,5–100 % |
+| Señales · precisión | 265 de 265 | 100 % | 98,5–100 % |
+| Extracción · datos correctos | 7024 de 7043 | 99,7 % | 99,5–99,9 % |
+| Control · sin ninguna señal | 16 de 16 | 100 % | 80,6–100 % |
 
 ## Evolución por ronda
 
@@ -53,28 +53,29 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 9 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 11,9 M | 0 |
 | 10 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 9,9 M | 0 |
 | 11 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 12,6 M | 0 |
+| 12 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 11,8 M | 0 |
 
-## La ronda más reciente · ronda 11
+## La ronda más reciente · ronda 12
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 23 de 23 | 100 % | 85,6–100 % |
-| Señales · precisión | 23 de 23 | 100 % | 85,6–100 % |
+| Señales · cobertura | 22 de 22 | 100 % | 85,1–100 % |
+| Señales · precisión | 22 de 22 | 100 % | 85,1–100 % |
 | Extracción · datos correctos | 569 de 569 | 100 % | 99,3–100 % |
 | Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
 
-## Por industria y país · ronda 11
+## Por industria y país · ronda 12
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Costa Rica | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,3 M |
-| Entidad pública · Costa Rica | Fidel | 3 de 3 | 0 | 152 de 152 | 2 M |
-| Retail · Costa Rica | Constanza, Fidel | 10 de 10 | 0 | 153 de 153 | 3,6 M |
-| Control · Costa Rica | Constanza, Fidel | 0 de 0 | 0 | 132 de 132 | 3,6 M |
+| Banca · Honduras | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3 M |
+| Entidad pública · Honduras | Fidel | 2 de 2 | 0 | 152 de 152 | 1,9 M |
+| Retail · Honduras | Constanza, Fidel | 10 de 10 | 0 | 153 de 153 | 3,3 M |
+| Control · Honduras | Constanza, Fidel | 0 de 0 | 0 | 132 de 132 | 3,5 M |
 
-## Lo que falló, uno por uno · rondas 1–11
+## Lo que falló, uno por uno · rondas 1–12
 
-19 fallas en 47 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+19 fallas en 51 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -119,7 +120,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 11 rondas usaron 178,6 millones de tokens: 176,2 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 3,7 millones por entidad.
+Las 12 rondas usaron 190,4 millones de tokens: 187,9 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 3,7 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

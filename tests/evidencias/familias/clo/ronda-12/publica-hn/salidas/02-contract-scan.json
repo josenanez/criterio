@@ -1,0 +1,31 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T21:49:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 10,
+  "tokens": 484955,
+  "tokens_salida": 3463,
+  "costo_usd": 0.19295330000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-30-contract-scan-1.html",
+      ".criterio/corridas/legal/2026-10-30-contract-scan-1.md",
+      "estado-legal/08010003991010-instituto-publico-de-occidente/contratos/reporte-contract-scan.md",
+      "estado-legal/08010003991010-instituto-publico-de-occidente/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/08010003991010-instituto-publico-de-occidente/corridas/salida-contract-scan.md",
+      "estado-legal/08010003991010-instituto-publico-de-occidente/indice.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/08010003991010-instituto-publico-de-occidente/corridas.json"
+    ],
+    "borrados": []
+  }
+}

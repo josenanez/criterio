@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T21:42:22",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 15,
+  "tokens": 769204,
+  "tokens_salida": 4188,
+  "costo_usd": 0.2549543,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/contratos/reporte-contract-scan.md",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/corridas/salida-contract-scan.md",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/08010006129040-almacenes-del-valle-de-sula/corridas.json"
+    ],
+    "borrados": []
+  }
+}

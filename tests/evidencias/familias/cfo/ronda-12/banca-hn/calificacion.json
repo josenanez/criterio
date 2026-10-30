@@ -1,0 +1,20 @@
+{
+  "entidad": "Banco de Occidente Sintético",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4476473,
+  "senales": {
+    "esperadas": 14,
+    "acertadas": 14,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 213,
+    "bien": 213,
+    "mal": []
+  }
+}

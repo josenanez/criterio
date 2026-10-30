@@ -1,0 +1,30 @@
+{
+  "n": 18,
+  "agente": "aurea",
+  "comando": "treasury-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T21:30:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 36,
+  "turnos": 9,
+  "tokens": 394502,
+  "tokens_salida": 3491,
+  "costo_usd": 0.1576653,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-10-30-treasury-scan-1.html",
+      ".criterio/corridas/tesoreria/2026-10-30-treasury-scan-1.md",
+      "estado-finanzas/08010006129040-almacenes-del-valle-de-sula/corridas/2026-10-06-treasury-scan-1.md",
+      "estado-finanzas/08010006129040-almacenes-del-valle-de-sula/corridas/salida-treasury-scan.md",
+      "estado-finanzas/08010006129040-almacenes-del-valle-de-sula/tesoreria/2026-09/reporte-treasury-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/08010006129040-almacenes-del-valle-de-sula/corridas.json"
+    ],
+    "borrados": []
+  }
+}
