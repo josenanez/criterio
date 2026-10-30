@@ -1,4 +1,4 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cso-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cso-claro.svg" alt="Criterio CSO · The sales function" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cco-claro.svg" alt="Criterio CCO · The commercial function" height="48"></picture>
 
 # Valeria · from sale to invoice
 
@@ -22,7 +22,7 @@ never sees and one control entity per country. It can already be installed from 
 [acceptance criteria](ACCEPTANCE.md) pass.
 
 **This page reads on its own.** Valeria works without Augusto: if you only answer for the sale through to the invoice, everything is here, tests included. The family —how she meets Augusto, Fidel, Clara and Rostrum— is in the
-[criterio-cso family](../../families/criterio-cso/README.md).
+[criterio-cco family](../../families/criterio-cco/README.md).
 
 ---
 
@@ -45,7 +45,7 @@ with its invoice**, and recalculating every commission with the plan.
 asks for, which won sale has no signed contract, which signed contract was not invoiced in time and which
 settled commission is not the one the plan gives.
 
-<!-- cso:comandos · generado por scripts/familias.py; no se edita a mano -->
+<!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
 ### The six commands
 
 > They are typed with the plugin prefix: `/criterio-revenue:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
@@ -58,13 +58,13 @@ settled commission is not the one the plan gives.
 | `/criterio-revenue:won-to-invoice` | From won to signed to invoiced: what was left along the way |
 | `/criterio-revenue:commission-check` | Every settled commission against the one the plan gives |
 | `/criterio-revenue:revenue-wake` | What is due today from sale to invoice; if nothing is due, it stays quiet |
-<!-- /cso:comandos -->
+<!-- /cco:comandos -->
 
 `revenue-setup` comes first because the others need it, and `revenue-wake` is the one you put on a clock.
 Between them, the four that prepare the work: what changed in what was sold, discounts against their policy,
 what was won through to the invoice and commissions against the plan.
 
-<!-- cso:skills · generado por scripts/familias.py; no se edita a mano -->
+<!-- cco:skills · generado por scripts/familias.py; no se edita a mano -->
 ### The six skills
 
 They load on their own when the subject comes up. They are the knowledge the commands share, and they are consulted like a manual.
@@ -77,7 +77,7 @@ They load on their own when the subject comes up. They are the knowledge the com
 | `discount-policy` | How the discount matrix is read: the level that covers each discount, the approval it asks for and why a higher role also gives it | Own |
 | `sales-intake` | The recommended structure of the sales folder, what goes in each folder and which agent uses it, and how exports and evidence are named | Copy of Augusto's |
 | `won-to-cash` | Crossing what was won with Fidel's contracts and Clara's invoices by the account's tax id, without processing their documents again | Own |
-<!-- /cso:skills -->
+<!-- /cco:skills -->
 
 ## What it is for
 
@@ -117,7 +117,7 @@ If you answer for the forecast rather than the sale through to the invoice, your
 
 `/criterio-revenue:revenue-setup` does not ask you to tidy anything before starting. It looks at the
 entity's sales folder, compares it with the
-[recommended structure](../../families/criterio-cso/README.md#the-recommended-folder-structure), checks that
+[recommended structure](../../families/criterio-cco/README.md#the-recommended-folder-structure), checks that
 every won account has the customer's tax id in the accounts table, looks for Fidel's and Clara's records and
 asks the questions no document answers: within how many days a contract is invoiced, whether commissions are
 published. Within the first fifteen minutes it shows what was won against what was signed and invoiced.
@@ -153,19 +153,19 @@ recalculates each commission, the same result every time. **It is a literal copy
 import**, with the `sales-intake` and `crm-exports` skills: an installed plugin has to run on its own.
 `scripts/sincronizar.py --check` fails if a copy drifts.
 
-Every source used is in [`families/criterio-cso/FUENTES.es.md`](../../families/criterio-cso/FUENTES.es.md)
+Every source used is in [`families/criterio-cco/FUENTES.es.md`](../../families/criterio-cco/FUENTES.es.md)
 (Spanish), with its version, link and status.
 
 ### How it is verified
 
 ```
 python3 scripts/ventas.py selftest                       the engine
-python3 tests/criterio-cso/generar.py                    the Colombia and Mexico material
-python3 tests/criterio-cso/evaluar.py --agente valeria   every signal against the key
+python3 tests/criterio-cco/generar.py                    the Colombia and Mexico material
+python3 tests/criterio-cco/evaluar.py --agente valeria   every signal against the key
 ```
 
 **How the last run went, generated from the run itself:**
 [`tests/criterio-revenue/RESULTADOS.md`](../../tests/criterio-revenue/RESULTADOS.md). What is seeded in each
-entity and **what the material does not test**, in [`EVIDENCIA.md`](../../tests/criterio-cso/EVIDENCIA.md).
+entity and **what the material does not test**, in [`EVIDENCIA.md`](../../tests/criterio-cco/EVIDENCIA.md).
 The design, with each command's input, process and report, in the
-[family's design](../../families/criterio-cso/DISENO.md).
+[family's design](../../families/criterio-cco/DISENO.md).

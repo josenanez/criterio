@@ -3,7 +3,7 @@
 """El registro de versiones de Criterio: qué cambió, qué términos rigen, qué versión tiene cada familia, y su huella.
 
     python3 scripts/registro.py historia                  arma las entradas de las versiones ya publicadas, desde git
-    python3 scripts/registro.py liberar 1.0.0 --familia pmo=1.0.0 [--familia cso=0.1.0] --destacado "…" [--etiquetar]
+    python3 scripts/registro.py liberar 1.0.0 --familia pmo=1.0.0 [--familia cco=0.1.0] --destacado "…" [--etiquetar]
     python3 scripts/registro.py liberar 1.0.1 --todas      todas las familias liberadas suben una corrección (un cambio común, como los términos)
     python3 scripts/registro.py verificar                 puerta
 

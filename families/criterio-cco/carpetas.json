@@ -1,0 +1,102 @@
+{
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CCO: scripts/familias.py la escribe en DISENO.es.md, en el skill sales-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "comercial/",
+    "es": "Una carpeta por entidad, con el NIT o el RFC al inicio del nombre. Dentro, la referencia de la función comercial, las exportaciones del CRM con su fecha, el comité, la evidencia de cada oportunidad, las cotizaciones y las liquidaciones de comisiones.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the commercial function's reference, the CRM exports with their date, the committee, each opportunity's evidence, the quotes and the commission settlements."
+  },
+  "niveles": [
+    {
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que la organización lleva para toda la función comercial",
+      "en": "What the organisation keeps for the whole sales function",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "agentes": [
+            "augusto",
+            "valeria"
+          ],
+          "es": "La tabla de etapas —el documento que exige cada una y su probabilidad—, las metas del año, la matriz de descuentos, el plan de comisiones y la tabla de cuentas con la identificación de cada cliente",
+          "en": "The stage table —the document each stage requires and its probability—, the year's targets, the discount matrix, the commission plan and the accounts table with each customer's tax id",
+          "patrones": [
+            "^etapas",
+            "^metas",
+            "^matriz_descuentos",
+            "^plan_comisiones",
+            "^cuentas",
+            "^lista_precios"
+          ]
+        },
+        {
+          "carpeta": "10-crm",
+          "agentes": [
+            "augusto",
+            "valeria"
+          ],
+          "es": "Las exportaciones de oportunidades del CRM, en CSV o Excel, con la fecha de la exportación en el nombre, y el historial de la fecha de cierre si el CRM lo exporta",
+          "en": "The CRM's opportunity exports, in CSV or Excel, with the export date in the name, and the close-date history if the CRM exports it",
+          "patrones": [
+            "^oportunidades",
+            "^opportunit",
+            "^deals",
+            "^hubspot",
+            "^historial",
+            "^history"
+          ]
+        },
+        {
+          "carpeta": "20-comite",
+          "agentes": [
+            "augusto"
+          ],
+          "es": "Las actas y los paquetes del comité comercial, con el pronóstico que se compromete para el periodo",
+          "en": "The sales committee's minutes and packs, with the forecast committed for the period",
+          "patrones": [
+            "^acta",
+            "^comite",
+            "^pronostico"
+          ]
+        },
+        {
+          "carpeta": "30-evidencia",
+          "agentes": [
+            "augusto"
+          ],
+          "es": "Las propuestas enviadas, las órdenes de compra y las actas de aceptación, con el id de la oportunidad al inicio del nombre",
+          "en": "The proposals sent, the purchase orders and the acceptance records, with the opportunity id at the start of the name",
+          "patrones": []
+        },
+        {
+          "carpeta": "40-cotizaciones",
+          "agentes": [
+            "valeria"
+          ],
+          "es": "Las cotizaciones y los pedidos con su precio, su descuento y su aprobación, con el id de la cotización al inicio del nombre",
+          "en": "The quotes and orders with their price, discount and approval, with the quote id at the start of the name",
+          "patrones": [
+            "^cot",
+            "^pedido"
+          ]
+        },
+        {
+          "carpeta": "50-comisiones",
+          "agentes": [
+            "valeria"
+          ],
+          "es": "La liquidación de comisiones de cada periodo, con el periodo en el nombre",
+          "en": "Each period's commission settlement, with the period in the name",
+          "patrones": [
+            "^liquidacion"
+          ]
+        }
+      ]
+    }
+  ],
+  "estado": {
+    "carpeta": "estado-comercial/",
+    "es": "Lo que escriben Augusto y Valeria: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Augusto and Valeria write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
+  }
+}

@@ -31,7 +31,7 @@ ORDEN = ("vera", "samuel", "alba", "rostrum")
 ORDEN_CFO = ("clara", "tomas", "aurea")
 ORDEN_CLO = ("fidel", "constanza")
 ORDEN_EA = ("ofelia",)
-ORDEN_CSO = ("augusto", "valeria")
+ORDEN_CCO = ("augusto", "valeria")
 AGENTE = {"vera": "portafolio", "samuel": "proyecto", "alba": "producto", "rostrum": None,
           "clara": "finanzas", "tomas": "presupuesto", "aurea": "tesoreria", "fidel": "legal", "constanza": "cumplimiento",
           "ofelia": "direccion", "augusto": "comercial", "valeria": "ingresos"}
@@ -441,7 +441,7 @@ def selftest() -> int:
         print(f'{"  ok  " if cond else " FALLA"} {que}')
         if not cond:
             fallas.append(que)
-    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CSO
+    todos = ORDEN + ORDEN_CFO + ORDEN_CLO + ORDEN_EA + ORDEN_CCO
     ok("cada duración divide la vuelta: el GIF cierra sin salto",
        all(abs(VUELTA / g["dura"] - round(VUELTA / g["dura"])) < 1e-9 for g in GESTOS.values()))
     propios = {r: {p[3].split(".")[0] for p in _PIEZAS[r] if len(p) > 3} - set(_COMUN.values()) for r in todos}

@@ -1,6 +1,6 @@
 # Resultado de las pruebas · Augusto
 
-**el agente del pronóstico de la familia CSO** · plugin `criterio-sales`
+**el agente del pronóstico de la familia CCO** · plugin `criterio-sales`
 
 Corrida del 2026-10-29, sobre el commit `c5e916d9`, con cambios en el árbol todavía sin confirmar. **2 puertas · 31 comprobaciones · todas en verde.**
 
@@ -11,7 +11,7 @@ Corrida del 2026-10-29, sobre el commit `c5e916d9`, con cambios en el árbol tod
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
 | `criterio-sales/ventas.py selftest` | El motor de Augusto y Valeria: los lectores de Salesforce, de HubSpot y de cualquier CRM, las fechas mes/día y una entidad mínima con todo mal | 24 | 119 ms | verde |
-| `criterio-cso/evaluar.py` | Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles | 7 | 297 ms | verde |
+| `criterio-cco/evaluar.py` | Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles | 7 | 297 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -32,7 +32,7 @@ Ninguno todavía. La evidencia se registra con `tests/sintetico/evidencia.py`.
 
 ## Qué material se usó, y qué prueba cada pieza
 
-El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál es su control negativo— está en [`EVIDENCIA.md`](../criterio-cso/EVIDENCIA.md), que se escribe a mano y no se genera.
+El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál es su control negativo— está en [`EVIDENCIA.md`](../criterio-cco/EVIDENCIA.md), que se escribe a mano y no se genera.
 
 **El control negativo es la mitad del valor de estas pruebas.** Un agente que encuentra hallazgos donde no los hay es un generador de ruido, y eso no se detecta mirando solo los casos que sí fallan.
 
@@ -71,7 +71,7 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `scripts/soporte.py` | Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas | — | verde |
 | `criterio-cfo/generar.py` | El material CFO: cuatro industrias y dos entidades de control, con su clave | — | verde |
 | `criterio-clo/generar.py` | El material CLO: cuatro industrias y dos entidades de control, con su clave | — | verde |
-| `criterio-cso/generar.py` | El material CSO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave | — | verde |
+| `criterio-cco/generar.py` | El material CCO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave | — | verde |
 | `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
 

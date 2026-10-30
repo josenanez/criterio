@@ -1,0 +1,519 @@
+{
+  "nota": "Fuente única de los agentes, los comandos y las señales de la familia CCO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-familias.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json. `area` es la carpeta de la configuración del agente (`.criterio/<area>/`) y `ambitos`, las carpetas de su estado que son suyas cuando comparte el estado con el otro agente de la familia (ADR 0010).",
+  "sigla": "cco",
+  "orden": 50,
+  "categoria": "sales",
+  "adr": "0019-scope-comercial-cso.md",
+  "nombre": {
+    "es": "La función comercial",
+    "en": "The commercial function"
+  },
+  "estado": {
+    "es": "Construida · laboratorio",
+    "en": "Built · laboratory"
+  },
+  "generador": {
+    "cifras_en": "augusto",
+    "intake": {
+      "skill": "criterio-sales/sales-intake",
+      "texto": "Las exportaciones del CRM tienen un solo lugar, `10-crm/`: Augusto procesa el embudo y Valeria toma de ahí lo ganado para cruzarlo con los contratos y las facturas."
+    },
+    "estructuras": [
+      "criterio-sales",
+      "criterio-revenue"
+    ],
+    "motor": "criterio-sales/scripts/ventas.py",
+    "lectores": {
+      "CAMPOS_SALESFORCE": [
+        "F-02"
+      ],
+      "CAMPOS_SALESFORCE_HISTORIA": [
+        "F-03"
+      ],
+      "CAMPOS_HUBSPOT": [
+        "F-04"
+      ],
+      "CAMPOS_DYNAMICS": [
+        "F-06"
+      ],
+      "CAMPOS_ZOHO": [
+        "F-08",
+        "F-09"
+      ]
+    }
+  },
+  "instancia": {
+    "es": "Una por entidad",
+    "en": "One per entity"
+  },
+  "agentes": [
+    {
+      "id": "augusto",
+      "nombre": "Augusto",
+      "plugin": "criterio-sales",
+      "rol": {
+        "es": "El pronóstico",
+        "en": "The forecast"
+      },
+      "titulo": "el pronóstico",
+      "origen": {
+        "es": "del latín *augur*, el que lee las señales antes de que pasen: el pronóstico contra lo que lo sostiene",
+        "en": "from the Latin *augur*, the one who reads the signs before they happen: the forecast against what backs it"
+      },
+      "hace": {
+        "es": "El embudo contra su evidencia y el pronóstico contra lo que lo sostiene: cada oportunidad contra el documento que exige su etapa, las detenidas, los cierres que se corren, lo comprometido contra lo ponderado con evidencia y la meta contra lo cerrado",
+        "en": "The pipeline against its evidence and the forecast against what backs it: every opportunity against the document its stage requires, the stalled ones, the close dates that slip, what was committed against what is weighted with evidence, and the target against what closed"
+      },
+      "comandos": [
+        {
+          "id": "sales-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, de qué CRM sale la exportación de `10-crm/` —Salesforce, HubSpot, Dynamics 365, Zoho u otro, en CSV o Excel— y, si es otro, qué columna trae cada dato, la tabla de etapas de `00-referencia/` con el documento que exige cada una y su probabilidad, cuántos días sin actividad detienen una oportunidad y cuántas veces puede correrse un cierre",
+            "proceso": "Inventario de lo que hay; reconoce el formato de cada exportación por sus columnas (F-02, F-04); compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; cada exportación con su formato, su fecha y sus oportunidades; las columnas que faltan; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y el formato de cada exportación del CRM"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period, which CRM the export in `10-crm/` comes from —Salesforce, HubSpot, Dynamics 365, Zoho or another, in CSV or Excel— and, if another, which column carries each field, the stage table in `00-referencia/` with the document each stage requires and its probability, how many days without activity stall an opportunity and how many times a close date may slip",
+            "proceso": "Inventory of what is there; recognises each export's format by its columns (F-02, F-04); compares the folder with the recommended structure; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; each export with its format, its date and its opportunities; the missing columns; the period's first record",
+            "entrega": "The configuration, the inventory and the format of each CRM export"
+          }
+        },
+        {
+          "id": "pipeline-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en el embudo",
+            "entrada": "`10-crm/` completo, `20-comite/` y `30-evidencia/`",
+            "proceso": "El código procesa cada exportación con su fecha y compara cada oportunidad con la exportación anterior: etapa, monto y fecha de cierre; el agente lleva a la ficha del periodo cada documento de `30-evidencia/` —la propuesta, la orden de compra, el acta de aceptación— con su oportunidad, su tipo, su monto y su fecha, y el pronóstico comprometido del acta del comité, cada dato con su cita; el motor valida la ficha",
+            "reporte": "Qué cambió entre la exportación anterior y la última; las oportunidades nuevas, ganadas y perdidas; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día, con lo que cambió en el embudo y las señales nuevas"
+          },
+          "en": {
+            "etiqueta": "What changed in the pipeline",
+            "entrada": "The whole `10-crm/`, `20-comite/` and `30-evidencia/`",
+            "proceso": "The code processes each export with its date and compares every opportunity with the previous export: stage, amount and close date; the agent takes to the period record every document in `30-evidencia/` —the proposal, the purchase order, the acceptance record— with its opportunity, type, amount and date, and the committed forecast from the committee minutes, every data point with its citation; the engine validates the record",
+            "reporte": "What changed between the previous export and the latest; new, won and lost opportunities; the new signals; what could not be processed and why",
+            "entrega": "The period record up to date, with what changed in the pipeline and the new signals"
+          }
+        },
+        {
+          "id": "pipeline-check",
+          "n": 2,
+          "es": {
+            "etiqueta": "El embudo contra su evidencia",
+            "entrada": "La última exportación de `10-crm/`, las anteriores, la tabla de etapas de `00-referencia/` y la ficha del periodo",
+            "proceso": "Cada oportunidad abierta contra el documento que exige su etapa; los días desde su última actividad; las veces que su fecha de cierre se corrió entre una exportación y otra, o en el historial de campos si llega",
+            "reporte": "Las oportunidades sin el documento de su etapa, las detenidas y las que corrieron su cierre, cada una con su cita; sin calificar a quien la lleva",
+            "entrega": "Cada oportunidad contra su evidencia: la que no la tiene, la detenida y la que corre su cierre"
+          },
+          "en": {
+            "etiqueta": "The pipeline against its evidence",
+            "entrada": "The latest export in `10-crm/`, the earlier ones, the stage table in `00-referencia/` and the period record",
+            "proceso": "Every open opportunity against the document its stage requires; the days since its last activity; the times its close date slipped from one export to the next, or in the field history if it arrives",
+            "reporte": "The opportunities without their stage's document, the stalled ones and the ones whose close date slipped, each with its citation; without rating whoever owns it",
+            "entrega": "Every opportunity against its evidence: the one without it, the stalled one and the one whose close date slips"
+          }
+        },
+        {
+          "id": "forecast-check",
+          "n": 3,
+          "es": {
+            "etiqueta": "El pronóstico contra su respaldo",
+            "entrada": "El pronóstico comprometido de la ficha, la última exportación de `10-crm/` y la tabla de etapas de `00-referencia/`",
+            "proceso": "Lo cerrado del periodo más las oportunidades abiertas que cierran en él con la evidencia de su etapa, cada una por su monto y la probabilidad de su etapa, contra lo comprometido; la diferencia contra la tolerancia configurada",
+            "reporte": "Lo comprometido, lo cerrado, lo ponderado con evidencia y lo ponderado sin ella; la diferencia; las oportunidades que lo sostienen y las que no",
+            "entrega": "El pronóstico comprometido contra lo que lo sostiene, oportunidad por oportunidad"
+          },
+          "en": {
+            "etiqueta": "The forecast against its backing",
+            "entrada": "The committed forecast in the record, the latest export in `10-crm/` and the stage table in `00-referencia/`",
+            "proceso": "What closed in the period plus the open opportunities closing in it with their stage's evidence, each at its amount and its stage's probability, against what was committed; the difference against the configured tolerance",
+            "reporte": "What was committed, what closed, what is weighted with evidence and what is weighted without it; the difference; the opportunities that back it and those that do not",
+            "entrega": "The committed forecast against what backs it, opportunity by opportunity"
+          }
+        },
+        {
+          "id": "target-check",
+          "n": 4,
+          "es": {
+            "etiqueta": "La meta contra lo cerrado",
+            "entrada": "Las metas de `00-referencia/` y la última exportación de `10-crm/`",
+            "proceso": "Lo ganado con cierre en el periodo hasta la fecha de corte contra la meta del periodo prorrateada por los días transcurridos, por línea si la meta la trae; la diferencia contra el umbral configurado",
+            "reporte": "La meta, lo esperado al corte, lo cerrado y la diferencia por línea; nunca por persona",
+            "entrega": "La meta del periodo contra lo cerrado al corte, por línea"
+          },
+          "en": {
+            "etiqueta": "The target against what closed",
+            "entrada": "The targets in `00-referencia/` and the latest export in `10-crm/`",
+            "proceso": "What was won with a close date in the period up to the cut-off date against the period's target prorated by the days elapsed, by line if the target has one; the difference against the configured threshold",
+            "reporte": "The target, what was expected at the cut-off, what closed and the difference by line; never by person",
+            "entrega": "The period's target against what closed at the cut-off, by line"
+          }
+        },
+        {
+          "id": "sales-wake",
+          "n": 5,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y la ficha",
+            "proceso": "Decide qué toca: una exportación nueva en `10-crm/`, un acta nueva del comité, el cierre del periodo que se acerca y una revisión semanal",
+            "reporte": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+            "entrega": "Lo que toca hoy en el embudo; si no toca nada, se calla"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the record",
+            "proceso": "Decides what is due: a new export in `10-crm/`, new committee minutes, the period's end coming up and a weekly review",
+            "reporte": "What ran and what it found; if nothing is due, it stays quiet",
+            "entrega": "What is due today in the pipeline; if nothing is due, it stays quiet"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "stage_without_evidence",
+          "es": "Una oportunidad está en una etapa y no tiene el documento que esa etapa exige: la propuesta enviada, la orden de compra",
+          "en": "An opportunity is in a stage and does not have the document that stage requires: the proposal sent, the purchase order"
+        },
+        {
+          "id": "stalled_opportunity",
+          "es": "Una oportunidad abierta no tiene actividad registrada en los días configurados",
+          "en": "An open opportunity has no recorded activity within the configured days"
+        },
+        {
+          "id": "close_date_slipped",
+          "es": "La fecha de cierre de una oportunidad se movió más veces de las configuradas",
+          "en": "An opportunity's close date moved more times than configured"
+        },
+        {
+          "id": "forecast_unsupported",
+          "es": "Lo comprometido supera lo que suman las oportunidades con evidencia, ponderadas por su etapa, más de la tolerancia configurada",
+          "en": "What was committed exceeds what the opportunities with evidence add up to, weighted by their stage, by more than the configured tolerance"
+        },
+        {
+          "id": "target_vs_closed",
+          "es": "Lo cerrado al corte se aparta de la meta del periodo, prorrateada por los días transcurridos, más del umbral",
+          "en": "What closed at the cut-off departs from the period's target, prorated by the days elapsed, by more than the threshold"
+        }
+      ],
+      "area": "comercial",
+      "ambitos": [
+        "comercial"
+      ],
+      "nunca": {
+        "es": "No escribe en el CRM, no contacta a un cliente, no fija ni cambia una meta y no califica a las personas del equipo: dice qué oportunidad no tiene evidencia, no quién vende mejor",
+        "en": "It does not write to the CRM, does not contact a customer, does not set or change a target and does not rate the people on the team: it says which opportunity has no evidence, not who sells best"
+      },
+      "marco": [
+        "F-01"
+      ]
+    },
+    {
+      "id": "valeria",
+      "nombre": "Valeria",
+      "plugin": "criterio-revenue",
+      "ella": true,
+      "rol": {
+        "es": "De la venta a la factura",
+        "en": "From sale to invoice"
+      },
+      "titulo": "de la venta a la factura",
+      "origen": {
+        "es": "del latín *valere*, valer: lo que vale lo vendido cuando está firmado y facturado",
+        "en": "from the Latin *valere*, to be worth: what a sale is worth once it is signed and invoiced"
+      },
+      "hace": {
+        "es": "El precio y el descuento contra su política, y lo ganado contra lo firmado y lo facturado: cada descuento contra el nivel que lo aprueba, cada venta ganada contra su contrato en las fichas de Fidel, cada contrato firmado contra su factura en las de Clara, y cada comisión contra el plan",
+        "en": "Price and discount against their policy, and what was won against what was signed and invoiced: every discount against the level that approves it, every won sale against its contract in Fidel's records, every signed contract against its invoice in Clara's, and every commission against the plan"
+      },
+      "comandos": [
+        {
+          "id": "revenue-setup",
+          "n": 0,
+          "es": {
+            "etiqueta": "Instalación",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, la matriz de descuentos, el plan de comisiones y la tabla de cuentas de `00-referencia/`, dónde están las fichas de los contratos de Fidel y las de la facturación de Clara, y en cuántos días se factura un contrato firmado",
+            "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; comprueba que cada cuenta ganada tenga su identificación en la tabla de cuentas; no crea, mueve ni renombra nada",
+            "reporte": "Configuración guardada; inventario por carpeta; las cuentas sin identificación; si encontró las fichas de Fidel y de Clara; la primera ficha del periodo",
+            "entrega": "La configuración, el inventario y las cuentas que faltan para cruzar con Fidel y Clara"
+          },
+          "en": {
+            "etiqueta": "Setup",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period, the discount matrix, the commission plan and the accounts table in `00-referencia/`, where Fidel's contract records and Clara's invoicing records are, and within how many days a signed contract is invoiced",
+            "proceso": "Inventory of what is there; compares the folder with the recommended structure; checks that every won account has its tax id in the accounts table; creates, moves or renames nothing",
+            "reporte": "Configuration saved; inventory by folder; the accounts without a tax id; whether it found Fidel's and Clara's records; the period's first record",
+            "entrega": "The configuration, the inventory and the accounts still missing to cross with Fidel and Clara"
+          }
+        },
+        {
+          "id": "deal-scan",
+          "n": 1,
+          "es": {
+            "etiqueta": "Qué cambió en lo vendido",
+            "entrada": "`40-cotizaciones/` completo y la última exportación de `10-crm/`",
+            "proceso": "Reprocesa solo lo que cambió; el agente lleva a la ficha del periodo cada cotización o pedido con su oportunidad, su precio de lista, su descuento y quién lo aprobó con qué cargo y en qué fecha, cada dato con su cita; el motor valida la ficha",
+            "reporte": "Qué cambió; qué cotizaciones son nuevas; las señales nuevas; lo que no se pudo procesar y por qué",
+            "entrega": "La ficha del periodo al día, con las cotizaciones nuevas y las señales nuevas"
+          },
+          "en": {
+            "etiqueta": "What changed in what was sold",
+            "entrada": "The whole `40-cotizaciones/` and the latest export in `10-crm/`",
+            "proceso": "Only reprocesses what changed; the agent takes to the period record every quote or order with its opportunity, list price, discount and who approved it, in what role and on what date, every data point with its citation; the engine validates the record",
+            "reporte": "What changed; which quotes are new; the new signals; what could not be processed and why",
+            "entrega": "The period record up to date, with the new quotes and the new signals"
+          }
+        },
+        {
+          "id": "discount-check",
+          "n": 2,
+          "es": {
+            "etiqueta": "Los descuentos contra su política",
+            "entrada": "La matriz de descuentos de `00-referencia/` y la ficha del periodo",
+            "proceso": "Cada descuento contra el nivel de la matriz que lo cubre y la aprobación que ese nivel pide; un descuento que ningún nivel cubre siempre se señala",
+            "reporte": "Cada cotización con su descuento, su nivel, la aprobación que pide y la que tiene; las que quedan fuera de la política, con su cita",
+            "entrega": "Cada descuento contra su política y su aprobación"
+          },
+          "en": {
+            "etiqueta": "Discounts against their policy",
+            "entrada": "The discount matrix in `00-referencia/` and the period record",
+            "proceso": "Every discount against the level of the matrix that covers it and the approval that level asks for; a discount no level covers is always flagged",
+            "reporte": "Every quote with its discount, its level, the approval it asks for and the one it has; those outside the policy, with their citation",
+            "entrega": "Every discount against its policy and its approval"
+          }
+        },
+        {
+          "id": "won-to-invoice",
+          "n": 3,
+          "es": {
+            "etiqueta": "De lo ganado a la factura",
+            "entrada": "La última exportación de `10-crm/`, la tabla de cuentas de `00-referencia/`, las fichas de los contratos de Fidel y las de la facturación de Clara",
+            "proceso": "Cada oportunidad ganada contra un contrato firmado con su cliente en las fichas de Fidel; cada contrato firmado con un cliente contra una factura emitida a ese cliente en las fichas de Clara, dentro del plazo de facturación",
+            "reporte": "Lo ganado sin contrato y lo firmado sin factura, cada uno con su cita en el CRM y en la ficha del otro agente; los contratos no se vuelven a procesar",
+            "entrega": "De lo ganado a lo firmado y a lo facturado: lo que se quedó en el camino"
+          },
+          "en": {
+            "etiqueta": "From won to invoiced",
+            "entrada": "The latest export in `10-crm/`, the accounts table in `00-referencia/`, Fidel's contract records and Clara's invoicing records",
+            "proceso": "Every won opportunity against a signed contract with its customer in Fidel's records; every contract signed with a customer against an invoice issued to that customer in Clara's records, within the invoicing period",
+            "reporte": "What was won without a contract and what was signed without an invoice, each with its citation in the CRM and in the other agent's record; contracts are not processed again",
+            "entrega": "From won to signed to invoiced: what was left along the way"
+          }
+        },
+        {
+          "id": "commission-check",
+          "n": 4,
+          "es": {
+            "etiqueta": "Las comisiones contra el plan",
+            "entrada": "El plan de comisiones de `00-referencia/`, la liquidación del periodo de `50-comisiones/`, la última exportación de `10-crm/` y las fichas de la facturación de Clara",
+            "proceso": "Lo que el plan da sobre lo ganado en el periodo y ya facturado, por responsable de la oportunidad y por línea, contra lo que se liquidó; la diferencia contra la tolerancia configurada",
+            "reporte": "Por responsable: lo que da el plan, lo liquidado y la diferencia, con las oportunidades que forman la base; no se publica en Rostrum salvo que la configuración lo diga",
+            "entrega": "Cada comisión liquidada contra la que da el plan"
+          },
+          "en": {
+            "etiqueta": "Commissions against the plan",
+            "entrada": "The commission plan in `00-referencia/`, the period's settlement in `50-comisiones/`, the latest export in `10-crm/` and Clara's invoicing records",
+            "proceso": "What the plan gives on what was won in the period and already invoiced, by opportunity owner and by line, against what was settled; the difference against the configured tolerance",
+            "reporte": "By owner: what the plan gives, what was settled and the difference, with the opportunities that make up the base; not published in Rostrum unless the configuration says so",
+            "entrega": "Every settled commission against the one the plan gives"
+          },
+          "privado": {
+            "config": "revenue.publish_commissions",
+            "senales": [
+              "commission_differs_from_plan"
+            ]
+          }
+        },
+        {
+          "id": "revenue-wake",
+          "n": 5,
+          "es": {
+            "etiqueta": "Qué toca hoy",
+            "entrada": "La configuración y la ficha",
+            "proceso": "Decide qué toca: cotizaciones nuevas, una oportunidad ganada sin contrato ni factura cuando vence su plazo, la liquidación del periodo cuando llega y una revisión semanal",
+            "reporte": "Lo que corrió y lo que encontró; si no toca nada, se calla",
+            "entrega": "Lo que toca hoy de la venta a la factura; si no toca nada, se calla"
+          },
+          "en": {
+            "etiqueta": "What is due today",
+            "entrada": "The configuration and the record",
+            "proceso": "Decides what is due: new quotes, a won opportunity without a contract or an invoice when its deadline arrives, the period's settlement when it arrives and a weekly review",
+            "reporte": "What ran and what it found; if nothing is due, it stays quiet",
+            "entrega": "What is due today from sale to invoice; if nothing is due, it stays quiet"
+          }
+        }
+      ],
+      "senales": [
+        {
+          "id": "discount_outside_policy",
+          "es": "Un descuento supera el tope de su nivel y no tiene la aprobación que pide la matriz, o ningún nivel lo cubre",
+          "en": "A discount exceeds its level's cap without the approval the matrix asks for, or no level covers it"
+        },
+        {
+          "id": "won_without_contract",
+          "es": "Una oportunidad ganada no tiene su contrato firmado en la ficha de Fidel",
+          "en": "A won opportunity has no signed contract in Fidel's record"
+        },
+        {
+          "id": "signed_without_invoice",
+          "es": "Un contrato firmado no tiene su factura en la ficha de Clara dentro del plazo de facturación",
+          "en": "A signed contract has no invoice in Clara's record within the invoicing period"
+        },
+        {
+          "id": "commission_differs_from_plan",
+          "es": "La comisión liquidada no es la que da el plan sobre lo cerrado y facturado",
+          "en": "The settled commission is not the one the plan gives on what was closed and invoiced"
+        }
+      ],
+      "area": "ingresos",
+      "ambitos": [
+        "ingresos"
+      ],
+      "nunca": {
+        "es": "No escribe en el CRM, no aprueba un descuento ni una excepción de precio y no liquida ni corrige una comisión: dice dónde la liquidación no es la del plan",
+        "en": "It does not write to the CRM, does not approve a discount or a price exception and does not settle or correct a commission: it says where the settlement is not the plan's"
+      },
+      "marco": [
+        "F-01"
+      ]
+    }
+  ],
+  "skills": {
+    "sales-intake": {
+      "es": "La estructura recomendada de la carpeta comercial, qué va en cada carpeta y qué agente la usa, y cómo se nombran las exportaciones y la evidencia",
+      "en": "The recommended structure of the sales folder, what goes in each folder and which agent uses it, and how exports and evidence are named"
+    },
+    "crm-exports": {
+      "es": "Cómo se procesa cada exportación del CRM: Salesforce por sus nombres de campo o sus etiquetas, HubSpot por sus propiedades, Dynamics 365 y Zoho por sus columnas, y cualquier CSV o Excel con su mapeo de columnas; la tabla de etapas y el historial de la fecha de cierre",
+      "en": "How each CRM export is processed: Salesforce by its field names or labels, HubSpot by its properties, Dynamics 365 and Zoho by their columns, and any CSV or Excel with its column mapping; the stage table and the close-date history"
+    },
+    "pipeline-record": {
+      "es": "La ficha del periodo de Augusto: cada documento de evidencia con su oportunidad, su tipo, su monto y su fecha, y el pronóstico comprometido del acta del comité, cada dato con su cita",
+      "en": "Augusto's period record: every evidence document with its opportunity, type, amount and date, and the committed forecast from the committee minutes, every data point with its citation"
+    },
+    "forecast-backing": {
+      "es": "El pronóstico ponderado por etapa con y sin evidencia, la meta prorrateada por los días del periodo y por qué nunca se compara a las personas",
+      "en": "The stage-weighted forecast with and without evidence, the target prorated by the days in the period, and why people are never compared"
+    },
+    "deal-record": {
+      "es": "La ficha del periodo de Valeria: cada cotización o pedido con su oportunidad, su precio de lista, su descuento y su aprobación, cada dato con su cita",
+      "en": "Valeria's period record: every quote or order with its opportunity, list price, discount and approval, every data point with its citation"
+    },
+    "discount-policy": {
+      "es": "Cómo se lee la matriz de descuentos: el nivel que cubre cada descuento, la aprobación que pide y por qué un cargo superior también la da",
+      "en": "How the discount matrix is read: the level that covers each discount, the approval it asks for and why a higher role also gives it"
+    },
+    "won-to-cash": {
+      "es": "El cruce de lo ganado con los contratos de Fidel y las facturas de Clara por la identificación de la cuenta, sin volver a procesar sus documentos",
+      "en": "Crossing what was won with Fidel's contracts and Clara's invoices by the account's tax id, without processing their documents again"
+    },
+    "commission-plan": {
+      "es": "Cómo se calcula la comisión que da el plan sobre lo ganado y facturado, y por qué no se publica en Rostrum por omisión",
+      "en": "How the commission the plan gives on what was won and invoiced is calculated, and why it is not published in Rostrum by default"
+    }
+  },
+  "impresora": {
+    "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica y docs/video la graba; no se copia a mano.",
+    "bots": [
+      "augusto",
+      "valeria",
+      "rostrum"
+    ],
+    "es": {
+      "eyebrow": "Criterio · Familia CCO",
+      "titulo": "Dos agentes para la función comercial",
+      "sub": "Procesan las exportaciones del CRM, las cotizaciones y la liquidación de comisiones, y dicen qué pronóstico no tiene respaldo y qué venta no llegó a la factura.",
+      "ficha": "LAS FICHAS DE LA ENTIDAD",
+      "fichaNota": "El único contrato. Augusto y Valeria no se hablan entre sí: se hablan por sus fichas, y con Fidel y Clara por las de ellos.",
+      "roles": {
+        "augusto": "El pronóstico",
+        "valeria": "De la venta a la factura",
+        "rostrum": "El portal"
+      },
+      "nota": "Estado de la familia: sin lanzar, en su versión 0.3.0. El motor, con su prueba determinista sobre material sintético de Colombia, México, Ecuador, Perú y Chile, y las exportaciones de Salesforce, HubSpot, Dynamics 365 y Zoho; los dos agentes pasaron sus dos rondas con una clave que no ven.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · FAMILIA CCO"
+        },
+        {
+          "texto": "La función comercial con dos agentes. Cada uno extiende a una persona del área comercial; ninguno la reemplaza."
+        },
+        {
+          "quien": "augusto",
+          "tag": "AUGUSTO · EL PRONÓSTICO",
+          "texto": "Pone el embudo al lado de su evidencia: cada oportunidad contra el documento que exige su etapa, las detenidas, los cierres que se corren, lo comprometido contra lo que lo sostiene y la meta contra lo cerrado. Procesa todas las oportunidades, no una muestra. No califica a quien vende."
+        },
+        {
+          "quien": "valeria",
+          "tag": "VALERIA · DE LA VENTA A LA FACTURA",
+          "texto": "Pone cada venta al lado de su política, su contrato y su factura: el descuento contra el nivel que lo aprueba, lo ganado contra lo que firmó Fidel, lo firmado contra lo que facturó Clara y la comisión contra el plan. No aprueba un descuento ni liquida una comisión."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · EL PORTAL",
+          "texto": "Publica lo que Augusto y Valeria escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. Las comisiones no salen ahí salvo que la configuración lo diga. No recalcula nada."
+        },
+        {
+          "quien": "ficha",
+          "tag": "LA REGLA",
+          "texto": "Valeria toma los contratos de las fichas de Fidel y las facturas de las de Clara, sin volver a procesarlos. El pronóstico, el descuento y la meta son siempre de una persona."
+        },
+        {
+          "cabeza": true,
+          "texto": "FIN DE LA IMPRESIÓN."
+        }
+      ]
+    },
+    "en": {
+      "eyebrow": "Criterio · CCO family",
+      "titulo": "Two agents for the commercial function",
+      "sub": "They process the CRM exports, the quotes and the commission settlement, and tell you which forecast has no backing and which sale never reached the invoice.",
+      "ficha": "THE ENTITY’S RECORDS",
+      "fichaNota": "The only contract. Augusto and Valeria never talk to each other: they talk through their records, and with Fidel and Clara through theirs.",
+      "roles": {
+        "augusto": "The forecast",
+        "valeria": "From sale to invoice",
+        "rostrum": "The portal"
+      },
+      "nota": "Where the family stands: not yet launched, in its version 0.3.0. The engine, with its deterministic test on synthetic material from Colombia, Mexico, Ecuador, Peru and Chile, and the Salesforce, HubSpot, Dynamics 365 and Zoho exports; both agents passed their two rounds with a key they never see.",
+      "guion": [
+        {
+          "cabeza": true,
+          "texto": "CRITERIO · CCO FAMILY"
+        },
+        {
+          "texto": "The commercial function with two agents. Each one extends one person in sales; neither replaces them."
+        },
+        {
+          "quien": "augusto",
+          "tag": "AUGUSTO · THE FORECAST",
+          "texto": "Puts the pipeline next to its evidence: every opportunity against the document its stage requires, the stalled ones, the close dates that slip, what was committed against what backs it and the target against what closed. He processes every opportunity, not a sample. He does not rate whoever sells."
+        },
+        {
+          "quien": "valeria",
+          "tag": "VALERIA · FROM SALE TO INVOICE",
+          "texto": "Puts every sale next to its policy, its contract and its invoice: the discount against the level that approves it, what was won against what Fidel signed, what was signed against what Clara invoiced and the commission against the plan. She does not approve a discount or settle a commission."
+        },
+        {
+          "quien": "rostrum",
+          "tag": "ROSTRUM · THE PORTAL",
+          "texto": "Publishes what Augusto and Valeria wrote —their reports, what is due, their signals— and takes the questions of whoever will not open a folder. Commissions do not appear there unless the configuration says so. It recalculates nothing."
+        },
+        {
+          "quien": "ficha",
+          "tag": "THE RULE",
+          "texto": "Valeria takes the contracts from Fidel's records and the invoices from Clara's, without processing them again. The forecast, the discount and the target always belong to a person."
+        },
+        {
+          "cabeza": true,
+          "texto": "END OF PRINTOUT."
+        }
+      ]
+    }
+  }
+}

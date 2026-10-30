@@ -100,15 +100,15 @@ SCRIPTS_CLO = {
         "legal.py": "el motor de los dos: Constanza toma de las fichas de Fidel las obligaciones de los contratos",
     },
 }
-# La familia CSO tiene su propio motor, con fuente en criterio-sales: Valeria toma de las mismas
+# La familia CCO tiene su propio motor, con fuente en criterio-sales: Valeria toma de las mismas
 # exportaciones del CRM lo ganado que Augusto procesa en el embudo.
-FUENTE_CSO = RAIZ / "plugins" / "criterio-sales" / "scripts"
-SCRIPTS_CSO = {
+FUENTE_CCO = RAIZ / "plugins" / "criterio-sales" / "scripts"
+SCRIPTS_CCO = {
     "criterio-revenue": {
         "ventas.py": "el motor de los dos: Valeria toma lo ganado de las mismas exportaciones que procesa Augusto",
     },
 }
-SKILLS_CSO = {
+SKILLS_CCO = {
     "criterio-revenue": {
         "sales-intake": "los mismos documentos y la misma estructura",
         "crm-exports": "las mismas exportaciones del CRM, leídas igual",
@@ -243,7 +243,7 @@ def revisar(escribir: bool) -> int:
 
     for fuente_dir, origen_plugin, tabla in ((FUENTE_CFO, "criterio-finance", SCRIPTS_CFO),
                                              (FUENTE_CLO, "criterio-legal", SCRIPTS_CLO),
-                                             (FUENTE_CSO, "criterio-sales", SCRIPTS_CSO)):
+                                             (FUENTE_CCO, "criterio-sales", SCRIPTS_CCO)):
         for plugin, archivos in sorted(tabla.items()):
             for nombre, porque in sorted(archivos.items()):
                 origen = fuente_dir / nombre
@@ -260,7 +260,7 @@ def revisar(escribir: bool) -> int:
     for fuente_dir, origen_plugin, tabla in ((FUENTE.parent, "criterio-portfolio", SKILLS),
                                              (FUENTE_CFO.parent, "criterio-finance", SKILLS_CFO),
                                              (FUENTE_CLO.parent, "criterio-legal", SKILLS_CLO),
-                                             (FUENTE_CSO.parent, "criterio-sales", SKILLS_CSO)):
+                                             (FUENTE_CCO.parent, "criterio-sales", SKILLS_CCO)):
         for plugin, skills in sorted(tabla.items()):
             for nombre, porque in sorted(skills.items()):
                 carpeta = fuente_dir / "skills" / nombre

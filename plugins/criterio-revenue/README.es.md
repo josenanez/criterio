@@ -1,4 +1,4 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cso-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cso-claro.svg" alt="Criterio CSO · La función comercial" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cco-claro.svg" alt="Criterio CCO · La función comercial" height="48"></picture>
 
 # Valeria · de la venta a la factura
 
@@ -23,7 +23,7 @@ agente es el siguiente paso**, en la 0.2.0. Nada se anuncia como terminado hasta
 
 **Esta página se lee sola.** Valeria funciona sin Augusto: si solo respondes por la venta hasta la
 factura, aquí está todo, incluidas sus pruebas. La familia —cómo se encuentra con Augusto, con Fidel, con Clara y con Rostrum— está en
-la [familia criterio-cso](../../families/criterio-cso/README.es.md).
+la [familia criterio-cco](../../families/criterio-cco/README.es.md).
 
 ---
 
@@ -46,7 +46,7 @@ factura**, y recalcular cada comisión con el plan.
 que pide su nivel, qué venta ganada no tiene contrato firmado, qué contrato firmado no se facturó en
 su plazo y qué comisión liquidada no es la que da el plan.
 
-<!-- cso:comandos · generado por scripts/familias.py; no se edita a mano -->
+<!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
 ### Los seis comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-revenue:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
@@ -59,13 +59,13 @@ su plazo y qué comisión liquidada no es la que da el plan.
 | `/criterio-revenue:won-to-invoice` | De lo ganado a lo firmado y a lo facturado: lo que se quedó en el camino |
 | `/criterio-revenue:commission-check` | Cada comisión liquidada contra la que da el plan |
 | `/criterio-revenue:revenue-wake` | Lo que toca hoy de la venta a la factura; si no toca nada, se calla |
-<!-- /cso:comandos -->
+<!-- /cco:comandos -->
 
 `revenue-setup` va primero porque los demás lo necesitan, y `revenue-wake` es el que se le pone a un
 reloj. Entre los dos, los cuatro que preparan el trabajo: qué cambió en lo vendido, los descuentos
 contra su política, lo ganado hasta la factura y las comisiones contra el plan.
 
-<!-- cso:skills · generado por scripts/familias.py; no se edita a mano -->
+<!-- cco:skills · generado por scripts/familias.py; no se edita a mano -->
 ### Los seis skills
 
 Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se consultan como un manual.
@@ -78,7 +78,7 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 | `discount-policy` | Cómo se lee la matriz de descuentos: el nivel que cubre cada descuento, la aprobación que pide y por qué un cargo superior también la da | Propio |
 | `sales-intake` | La estructura recomendada de la carpeta comercial, qué va en cada carpeta y qué agente la usa, y cómo se nombran las exportaciones y la evidencia | Copia de Augusto |
 | `won-to-cash` | El cruce de lo ganado con los contratos de Fidel y las facturas de Clara por la identificación de la cuenta, sin volver a procesar sus documentos | Propio |
-<!-- /cso:skills -->
+<!-- /cco:skills -->
 
 ## Para qué sirve
 
@@ -120,7 +120,7 @@ Si respondes por el pronóstico y no por lo vendido hasta la factura, lo tuyo es
 
 `/criterio-revenue:revenue-setup` no te pide que ordenes nada antes de empezar. Mira la carpeta
 comercial de la entidad, la compara con la
-[estructura recomendada](../../families/criterio-cso/README.es.md#la-estructura-de-carpetas-recomendada),
+[estructura recomendada](../../families/criterio-cco/README.es.md#la-estructura-de-carpetas-recomendada),
 revisa que cada cuenta ganada tenga la identificación del cliente en la tabla de cuentas, busca las
 fichas de Fidel y de Clara y hace las preguntas que ningún documento responde: en cuántos días se
 factura un contrato, si las comisiones se publican. En los primeros quince minutos deja ver lo ganado
@@ -160,19 +160,19 @@ los skills `sales-intake` y `crm-exports`: un plugin instalado tiene que correr 
 `scripts/sincronizar.py --check` falla si alguna copia se separa.
 
 Cada fuente que se usa está en
-[`families/criterio-cso/FUENTES.es.md`](../../families/criterio-cso/FUENTES.es.md), con su versión, su
+[`families/criterio-cco/FUENTES.es.md`](../../families/criterio-cco/FUENTES.es.md), con su versión, su
 enlace y su estado.
 
 ### Cómo se verifica
 
 ```
 python3 scripts/ventas.py selftest                       el motor
-python3 tests/criterio-cso/generar.py                    el material de Colombia y México
-python3 tests/criterio-cso/evaluar.py --agente valeria   cada señal contra la clave
+python3 tests/criterio-cco/generar.py                    el material de Colombia y México
+python3 tests/criterio-cco/evaluar.py --agente valeria   cada señal contra la clave
 ```
 
 **Cómo salió la última corrida, generado desde la corrida misma:**
 [`tests/criterio-revenue/RESULTADOS.md`](../../tests/criterio-revenue/RESULTADOS.md). Qué se siembra en
 cada entidad y **qué no prueba el material**, en
-[`EVIDENCIA.md`](../../tests/criterio-cso/EVIDENCIA.md). El diseño, con la entrada, el proceso y el
-reporte de cada comando, en el [diseño de la familia](../../families/criterio-cso/DISENO.es.md).
+[`EVIDENCIA.md`](../../tests/criterio-cco/EVIDENCIA.md). El diseño, con la entrada, el proceso y el
+reporte de cada comando, en el [diseño de la familia](../../families/criterio-cco/DISENO.es.md).

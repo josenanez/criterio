@@ -17,7 +17,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.0.0 | Estable | — |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.0.0 | Estable | — |
 | Criterio EA · Dirección | Ofelia | 1.0.0 | Estable | — |
-| Criterio CSO · La función comercial | Augusto, Valeria | 0.2.0 | Laboratorio | — |
+| Criterio CCO · La función comercial | Augusto, Valeria | 0.2.0 | Estable | — |
 | Rostrum · el portal de todas las familias | — | 1.0.0 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -61,13 +61,13 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.12.0 | Liberada | **Ofelia, construida y probada con la ronda completa con la agente**<br>· Los nueve comandos de Ofelia, sus skills y el motor: la agenda .ics con repeticiones y cambio de hora, el correo guardado, las sesiones de los órganos y los compromisos con las reglas de Samuel<br>· Prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar<br>· Colombia y Ecuador, en la oficina de una presidencia y de una gerencia general, y dos oficinas de control | La ronda 1: Ofelia sobre las cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con una señal de más en un control; cada defecto que encontró, con su corrección y su verificación |
 | 1.0.0 | Liberada | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país<br>· El material siembra al menos 73 señales, lo que pide un piso del 95 % sin fallas (decisión 0020), y la ronda con la agente vuelve a correr sobre todo él | La ronda 2 con la agente sobre las cuatro oficinas, cada una con su proveedor —Outlook o Google—: 85 de 85 señales y 144 de 146 datos en la primera corrida, ninguna señal en los controles; el defecto que encontró, en el material, con su corrección y su verificación |
 
-### Criterio CSO · La función comercial
+### Criterio CCO · La función comercial
 
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
 | 0.1.0 | Liberada | **Augusto y Valeria, construidos, con el motor probado**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | El motor contra la clave de todo el material: seis entidades de Colombia y México, con sus controles |
 | 0.2.0 | Liberada | **La ronda completa con los agentes**<br>· Augusto y Valeria corren sus comandos sobre todas las entidades del material, con una clave que no ven<br>· El material siembra al menos 73 señales: lo que pide un piso del 95 % sin fallas (decisión 0020)<br>· Cada defecto que encuentre la ronda, con su corrección y su verificación | La ronda 1 con los dos agentes sobre las seis entidades del material: 72 de 80 señales sembradas y 30 de 30 datos en la primera corrida, con dos señales de más en un control, y 80 de 80 sin ninguna de más después de verificar las correcciones; los tres defectos que encontró, con su corrección y su verificación |
-| Incremento 3 | Reservada | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda con los agentes en los tres países y sobre las dos exportaciones nuevas |
+| 0.3.0 | Reservada | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda 2 con los dos agentes sobre las nueve entidades de Ecuador, Perú y Chile, tres con Dynamics y tres con Zoho: 117 de 117 señales sembradas y 45 de 45 datos en la primera corrida, con una señal de más en un control; el defecto que encontró, en las instrucciones, con su corrección y su verificación |
 
 ## Las familias que vienen
 
@@ -78,3 +78,4 @@ Cada una entra con su decisión de alcance: aceptada, se diseña; propuesta, esp
 | [0013](decisions/0013-scope-seguridad-ciso.md) | Seguridad de la información (CISO) | Propuesta |
 | [0014](decisions/0014-scope-auditoria-cae.md) | Auditoría interna (CAE) | Propuesta |
 | [0015](decisions/0015-scope-datos-cdo.md) | Datos (CDO) | Propuesta |
+| [0019](decisions/0019-scope-comercial-cso.md) | La función comercial (CSO) | Aceptada |

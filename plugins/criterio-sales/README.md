@@ -1,4 +1,4 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cso-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cso-claro.svg" alt="Criterio CSO · The sales function" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cco-claro.svg" alt="Criterio CCO · The commercial function" height="48"></picture>
 
 # Augusto · the forecast
 
@@ -22,7 +22,7 @@ never sees and one control entity per country. It can already be installed from 
 [acceptance criteria](ACCEPTANCE.md) pass.
 
 **This page reads on its own.** Augusto works without Valeria: if you only answer for the forecast, everything is here, tests included. The family —how he meets Valeria and Rostrum— is in the
-[criterio-cso family](../../families/criterio-cso/README.md).
+[criterio-cco family](../../families/criterio-cco/README.md).
 
 ---
 
@@ -46,7 +46,7 @@ with no proposal sent, which one has had no activity for weeks, which one slippe
 how much of what was committed is backed by documents and how what closed is doing against the target at the
 cut-off.
 
-<!-- cso:comandos · generado por scripts/familias.py; no se edita a mano -->
+<!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
 ### The six commands
 
 > They are typed with the plugin prefix: `/criterio-sales:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
@@ -59,13 +59,13 @@ cut-off.
 | `/criterio-sales:forecast-check` | The committed forecast against what backs it, opportunity by opportunity |
 | `/criterio-sales:target-check` | The period's target against what closed at the cut-off, by line |
 | `/criterio-sales:sales-wake` | What is due today in the pipeline; if nothing is due, it stays quiet |
-<!-- /cso:comandos -->
+<!-- /cco:comandos -->
 
 `sales-setup` comes first because the others need it, and `sales-wake` is the one you put on a clock.
 Between them, the four that prepare the work: what changed in the pipeline, the pipeline against its
 evidence, the forecast against its backing and the target against what closed.
 
-<!-- cso:skills · generado por scripts/familias.py; no se edita a mano -->
+<!-- cco:skills · generado por scripts/familias.py; no se edita a mano -->
 ### The four skills
 
 They load on their own when the subject comes up. They are the knowledge the commands share, and they are consulted like a manual.
@@ -76,17 +76,17 @@ They load on their own when the subject comes up. They are the knowledge the com
 | `forecast-backing` | The stage-weighted forecast with and without evidence, the target prorated by the days in the period, and why people are never compared | Own |
 | `pipeline-record` | Augusto's period record: every evidence document with its opportunity, type, amount and date, and the committed forecast from the committee minutes, every data point with its citation | Own |
 | `sales-intake` | The recommended structure of the sales folder, what goes in each folder and which agent uses it, and how exports and evidence are named | Own · also in Valeria |
-<!-- /cso:skills -->
+<!-- /cco:skills -->
 
 ## What it costs today
 
-<!-- cso:cifras · generado por scripts/familias.py; no se edita a mano -->
+<!-- cco:cifras · generado por scripts/familias.py; no se edita a mano -->
 | Figure | Source |
 |---|---|
 | **4 in 5** sales and finance leaders missed at least one quarterly sales forecast in the past year; 52% of sales leaders say their forecast is off by 10% or more | [Xactly con Regina Corso Consulting, 2024 Sales Forecasting Benchmark Report, 2024](https://www.xactlycorp.com/sites/default/files/file/2024-07/2024_sales_forecasting_benchmark_report.pdf) — 405 sales, finance and revenue operations professionals in North America, 19 to 28 March 2024 |
 | **28%** of their week is what a seller spends selling; 72% goes to other tasks, above all managing deals and entering data | [Salesforce, State of Sales, quinta edición, 2022](https://www.salesforce.com/news/stories/sales-research-2023/) — 7,775 sales professionals in 38 countries across North America, Latin America, Asia-Pacific and Europe, 24 August to 30 September 2022 |
 | **84%** of sales leaders say sales analytics had less influence on performance than expected; 44% point to poor data quality | [Gartner, 2023](https://www.gartner.com/en/newsroom/press-releases/2024-02-06-gartner-survey-finds-sales-analytics-has-less-influence-on-sales-performance-than-what-leadership-expected) — 303 sales leaders, July 2023 |
-<!-- /cso:cifras -->
+<!-- /cco:cifras -->
 
 ## What it is for
 
@@ -126,7 +126,7 @@ If you answer for the sale through to the invoice rather than the forecast, your
 
 `/criterio-sales:sales-setup` does not ask you to tidy anything before starting. It looks at the entity's
 sales folder, compares it with the
-[recommended structure](../../families/criterio-cso/README.md#the-recommended-folder-structure), recognises
+[recommended structure](../../families/criterio-cco/README.md#the-recommended-folder-structure), recognises
 each CRM export's format —Salesforce, HubSpot or another— and asks the questions no document answers:
 which column carries each field if the CRM is not one of the two, the stage table, the days without
 activity. Within the first fifteen minutes it shows the pipeline against its evidence.
@@ -161,19 +161,19 @@ weights the pipeline by stage and prorates the target, the same result every tim
 copied to `criterio-revenue` with the `sales-intake` and `crm-exports` skills; `scripts/sincronizar.py --check`
 fails if a copy drifts.
 
-Every source used is in [`families/criterio-cso/FUENTES.es.md`](../../families/criterio-cso/FUENTES.es.md)
+Every source used is in [`families/criterio-cco/FUENTES.es.md`](../../families/criterio-cco/FUENTES.es.md)
 (Spanish), with its version, link and status.
 
 ### How it is verified
 
 ```
 python3 scripts/ventas.py selftest                       the engine
-python3 tests/criterio-cso/generar.py                    the Colombia and Mexico material
-python3 tests/criterio-cso/evaluar.py --agente augusto   every signal against the key
+python3 tests/criterio-cco/generar.py                    the Colombia and Mexico material
+python3 tests/criterio-cco/evaluar.py --agente augusto   every signal against the key
 ```
 
 **How the last run went, generated from the run itself:**
 [`tests/criterio-sales/RESULTADOS.md`](../../tests/criterio-sales/RESULTADOS.md). What is seeded in each
-entity and **what the material does not test**, in [`EVIDENCIA.md`](../../tests/criterio-cso/EVIDENCIA.md).
+entity and **what the material does not test**, in [`EVIDENCIA.md`](../../tests/criterio-cco/EVIDENCIA.md).
 The design, with each command's input, process and report, in the
-[family's design](../../families/criterio-cso/DISENO.md).
+[family's design](../../families/criterio-cco/DISENO.md).

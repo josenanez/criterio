@@ -63,10 +63,10 @@
       ]
     },
     {
-      "sigla": "cso",
+      "sigla": "cco",
       "nombre": {
         "es": "La función comercial",
-        "en": "The sales function"
+        "en": "The commercial function"
       },
       "estado": {
         "es": "Construida · laboratorio",
@@ -781,7 +781,7 @@
       "ambitos": [
         "comercial"
       ],
-      "familia": "cso",
+      "familia": "cco",
       "rol": {
         "es": "El pronóstico",
         "en": "The forecast"
@@ -841,7 +841,7 @@
       "ambitos": [
         "ingresos"
       ],
-      "familia": "cso",
+      "familia": "cco",
       "rol": {
         "es": "De la venta a la factura",
         "en": "From sale to invoice"

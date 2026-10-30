@@ -48,7 +48,7 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "sembrado": "tests/criterio-cco: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
     "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
    }
   },
@@ -91,7 +91,7 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "sembrado": "tests/criterio-cco: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
     "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
    }
   },
@@ -128,7 +128,7 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "sembrado": "tests/criterio-cco: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
     "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
    }
   },
@@ -167,7 +167,7 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "sembrado": "tests/criterio-cco: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
     "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
    }
   },
@@ -206,7 +206,7 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "sembrado": "tests/criterio-cco: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
     "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
    }
   },
@@ -249,7 +249,7 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "tests/criterio-cso: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
+    "sembrado": "tests/criterio-cco: las exportaciones, la evidencia y las cotizaciones de cada entidad con su clave",
     "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
    }
   }

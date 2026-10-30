@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""El motor de la familia CSO: lo que calcula el código para Augusto y para Valeria.
+"""El motor de la familia CCO: lo que calcula el código para Augusto y para Valeria.
 
     python3 ventas.py <acción> [opciones]       python3 ventas.py --help
 
@@ -22,7 +22,7 @@ por la etiqueta o el nombre lógico de cada columna (F-06, F-07), Zoho CRM por l
 campo (F-08, F-09), y cualquier otro CRM en CSV o Excel con el mapeo de columnas que deja el setup.
 Cada campo que se procesa de uno de esos CRM está en `CAMPOS_SALESFORCE`,
 `CAMPOS_SALESFORCE_HISTORIA`, `CAMPOS_HUBSPOT`, `CAMPOS_DYNAMICS` y `CAMPOS_ZOHO`, con el
-identificador con que lo verifica su fuente en families/criterio-cso/fuentes.json; la puerta de las
+identificador con que lo verifica su fuente en families/criterio-cco/fuentes.json; la puerta de las
 familias falla si el motor usa uno que no está verificado.
 
 **Lo que cruza familias va por las fichas** (ADR 0019): el contrato lo dice la ficha de Fidel y la
@@ -56,7 +56,7 @@ ESTRUCTURA = AQUI / "estructura.json"
 # ================================================================ las exportaciones del CRM
 
 # Cada campo que el lector procesa, con el identificador con que lo verifica su fuente: la clave es
-# el campo en families/criterio-cso/fuentes.json; el valor, el dato canónico y las cabeceras con
+# el campo en families/criterio-cco/fuentes.json; el valor, el dato canónico y las cabeceras con
 # que llega —el nombre del campo de la API o de Data Loader, y su etiqueta en un informe—, ya
 # normalizadas (minúscula, sin tildes, con guion bajo).
 CAMPOS_SALESFORCE = {
@@ -554,7 +554,7 @@ def revisar_config(cfg: dict, rol: str) -> list[str]:
     if fmt not in (None, "salesforce", "hubspot", "dynamics", "zoho", "generico"):
         p.append("crm.format es salesforce, hubspot, dynamics, zoho o generico")
     # En HubSpot la empresa asociada va en su propia columna, con un nombre que la exportación no
-    # fija (F-05): sin decir cuál es, lo ganado no se cruza con lo facturado (CSO-3).
+    # fija (F-05): sin decir cuál es, lo ganado no se cruza con lo facturado (CCO-3).
     if fmt == "hubspot" and not ((cfg.get("crm") or {}).get("columns") or {}).get("cuenta"):
         p.append("crm.columns.cuenta vacío: en HubSpot la empresa asociada va en su propia columna; di cuál es con su cabecera tal cual")
     if rol == "valeria":
@@ -948,7 +948,7 @@ SENALES_DE = {
 
 def reporte(r: dict, comando: str, version: str) -> str:
     return marco_reporte(r, comando, version, agente=NOMBRE.get(r.get("agente"), r.get("agente")), senales=SENALES_DE.get(comando),
-                         alcance=f"periodo {r['periodo']}", cuerpo=_cuerpo, familia="criterio-cso")
+                         alcance=f"periodo {r['periodo']}", cuerpo=_cuerpo, familia="criterio-cco")
 
 
 def _cuerpo(r: dict, comando: str, p: dict | None) -> list[str]:

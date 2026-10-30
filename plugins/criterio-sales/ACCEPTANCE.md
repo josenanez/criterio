@@ -1,12 +1,12 @@
 # Acceptance criteria — criterio-sales
 
-Verified on synthetic material in `tests/criterio-cso/`, with a key the agent never sees and two control entities that must raise nothing.
+Verified on synthetic material in `tests/criterio-cco/`, with a key the agent never sees and two control entities that must raise nothing.
 
 ## 1. Arithmetic
 
 - [ ] Every opportunity, forecast and target figure in a report comes from `ventas.py`; none is typed by the model.
 - [ ] Each CRM export is read from its verified source (Salesforce F-02 and F-03, HubSpot F-04) or from the column mapping; an unrecognised one is reported, not guessed.
-- [ ] Every planted signal in each entity is raised, and the control entities raise none (`tests/criterio-cso/evaluar.py --agente augusto`).
+- [ ] Every planted signal in each entity is raised, and the control entities raise none (`tests/criterio-cco/evaluar.py --agente augusto`).
 
 ## 2. People decide
 

@@ -1,5 +1,5 @@
 {
-  "generado": "por scripts/familias.py desde families/criterio-cso/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "generado": "por scripts/familias.py desde families/criterio-cco/familia.json; generado por scripts/familias.py; no se edita a mano",
   "senales": {
     "stage_without_evidence": "Una oportunidad está en una etapa y no tiene el documento que esa etapa exige: la propuesta enviada, la orden de compra",
     "stalled_opportunity": "Una oportunidad abierta no tiene actividad registrada en los días configurados",

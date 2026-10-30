@@ -53,7 +53,7 @@ FAMILIAS = {
     "clo": {"resultados": {"fidel": "contratos/resultados.json", "constanza": "cumplimiento/{periodo}/resultados.json"},
             "fichas": {"contratos": ("fidel", "contratos/{k}.json"), "cumplimiento": ("constanza", "cumplimiento/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
-    "cso": {"resultados": {"augusto": "comercial/{periodo}/resultados.json", "valeria": "ingresos/{periodo}/resultados.json"},
+    "cco": {"resultados": {"augusto": "comercial/{periodo}/resultados.json", "valeria": "ingresos/{periodo}/resultados.json"},
             "fichas": {"comercial": ("augusto", "comercial/{periodo}/ficha.json"), "ingresos": ("valeria", "ingresos/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
     "ea": {"resultados": {"ofelia": "resultados.json"},
@@ -272,7 +272,7 @@ def _igual(esperado, obtenido, espacio=None) -> bool:
                    for k, v in esperado.items())
     if isinstance(esperado, list) and isinstance(obtenido, list):
         # Una lista de registros —la evidencia de cada oportunidad— no tiene orden: cada registro de
-        # la clave se empareja con uno distinto de la ficha, esté donde esté (CSO-1).
+        # la clave se empareja con uno distinto de la ficha, esté donde esté (CCO-1).
         if len(esperado) != len(obtenido):
             return False
         libres = list(range(len(obtenido)))

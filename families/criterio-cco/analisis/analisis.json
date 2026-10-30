@@ -1,0 +1,886 @@
+{
+ "meta": {
+  "generado_desde": "tests/evidencias/familias/cco",
+  "ultima_ronda": 2,
+  "completa": false,
+  "rondas": [
+   1,
+   2
+  ]
+ },
+ "secciones": [
+  {
+   "id": "resumen",
+   "titulo": {
+    "es": "En una mirada",
+    "en": "At a glance"
+   },
+   "parrafos": {
+    "es": [
+     "La ronda más reciente, la 2, parcial, sobre 9 de las 15 entidades del material: 117 de 117 señales sembradas encontradas (margen del 95 %: 96,8–100 %) y 0 de más; 45 de 45 datos extraídos bien (100 %, margen del 95 %: 92,1–100 %); y 3 de 3 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–2, 228 de 236 señales encontradas, 3 de más y 100 de 100 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+    ],
+    "en": [
+     "The most recent round, round 2, partial, on 9 of the material's 15 entities: 117 of 117 seeded signals found (95% margin: 96.8–100%) and 0 extra; 45 of 45 data items extracted right (100%, 95% margin: 92.1–100%); and 3 of 3 control entities with no signal at all.",
+     "Across rounds 1–2, 228 of 236 signals found, 3 extra and 100 of 100 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+    ]
+   }
+  },
+  {
+   "id": "metodo",
+   "titulo": {
+    "es": "Qué se probó y cómo",
+    "en": "What was tested and how"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "",
+      ""
+     ],
+     "en": [
+      "",
+      ""
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Rondas",
+       "2; la más reciente, la 2, es parcial"
+      ],
+      [
+       "Material",
+       "Retail · Chile, Retail · Ecuador, manufactura · Perú, servicios · Perú, tecnologia · Chile, tecnologia · Ecuador"
+      ],
+      [
+       "Entidades de control",
+       "Control · Chile, Control · Ecuador, Control · Perú"
+      ],
+      [
+       "Corridas de una entidad",
+       "20"
+      ],
+      [
+       "Señales sembradas",
+       "236"
+      ],
+      [
+       "Datos calificados",
+       "100"
+      ]
+     ],
+     "en": [
+      [
+       "Rounds",
+       "2; the most recent, round 2, is partial"
+      ],
+      [
+       "Material",
+       "Retail · Chile, Retail · Ecuador, manufactura · Peru, servicios · Peru, tecnologia · Chile, tecnologia · Ecuador"
+      ],
+      [
+       "Control entities",
+       "Control · Chile, Control · Ecuador, Control · Peru"
+      ],
+      [
+       "Entity runs",
+       "20"
+      ],
+      [
+       "Seeded signals",
+       "236"
+      ],
+      [
+       "Data items graded",
+       "100"
+      ]
+     ]
+    }
+   },
+   "parrafos": {
+    "es": [
+     "En cada entidad corren el setup y el procesamiento de Augusto y Valeria —los comandos que procesan los documentos y escriben las fichas—, con un tope de tokens fijado antes de empezar, sobre un material que trae su clave aparte, que nadie ve. Los demás comandos calculan sobre esas fichas con el motor, que se prueba con cada cambio del repositorio. Las señales se comparan por su nombre y su clave; la extracción, campo por campo, contra lo que traen los documentos escritos. Las entidades de control no tienen ningún defecto sembrado: cualquier señal en ellas es una falla.",
+     "Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que levantó, cuántas eran correctas. Margen del 95 %: intervalo de confianza de Wilson sobre los casos."
+    ],
+    "en": [
+     "On each entity, Augusto and Valeria run their setup and processing —the commands that process the documents and write the records—, with a token cap set before starting, on material whose key is kept apart and never seen. The other commands calculate on those records with the engine, which is tested on every change to the repository. Signals are compared by name and key; extraction, field by field, against what the written documents say. Control entities carry no seeded defect: any signal in them is a failure.",
+     "Coverage: of the seeded signals, how many were found. Precision: of those raised, how many were right. 95% margin: Wilson confidence interval over the cases."
+    ]
+   }
+  },
+  {
+   "id": "acumulado",
+   "titulo": {
+    "es": "Resultados acumulados · rondas 1–2",
+    "en": "Cumulative results · rounds 1–2"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Métrica",
+      "Casos",
+      "Resultado",
+      "Margen del 95 %"
+     ],
+     "en": [
+      "Measure",
+      "Cases",
+      "Result",
+      "95% margin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Señales · cobertura",
+       "228 de 236",
+       "96,6 %",
+       "93,4–98,3 %"
+      ],
+      [
+       "Señales · precisión",
+       "228 de 231",
+       "98,7 %",
+       "96,2–99,6 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "100 de 100",
+       "100 %",
+       "96,3–100 %"
+      ],
+      [
+       "Control · sin ninguna señal",
+       "6 de 8",
+       "75 %",
+       "40,9–92,9 %"
+      ]
+     ],
+     "en": [
+      [
+       "Signals · coverage",
+       "228 of 236",
+       "96.6%",
+       "93.4–98.3%"
+      ],
+      [
+       "Signals · precision",
+       "228 of 231",
+       "98.7%",
+       "96.2–99.6%"
+      ],
+      [
+       "Extraction · data right",
+       "100 of 100",
+       "100%",
+       "96.3–100%"
+      ],
+      [
+       "Control · with no signal",
+       "6 of 8",
+       "75%",
+       "40.9–92.9%"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "evolucion",
+   "titulo": {
+    "es": "Evolución por ronda",
+    "en": "Round by round"
+   },
+   "imagen": {
+    "es": "evolucion-es.svg",
+    "en": "evolucion-en.svg"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Ronda",
+      "Entidades",
+      "Señales · cobertura",
+      "Señales · precisión",
+      "Extracción",
+      "Control sin señales",
+      "Tokens",
+      "Defectos"
+     ],
+     "en": [
+      "Round",
+      "Entities",
+      "Signals · coverage",
+      "Signals · precision",
+      "Extraction",
+      "Control with no signal",
+      "Tokens",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "1",
+       "10",
+       "93,3 %",
+       "98,2 %",
+       "100 %",
+       "3 de 4",
+       "30,9 M",
+       "3"
+      ],
+      [
+       "2",
+       "10",
+       "100 %",
+       "99,2 %",
+       "100 %",
+       "3 de 4",
+       "30,4 M",
+       "1"
+      ]
+     ],
+     "en": [
+      [
+       "1",
+       "10",
+       "93.3%",
+       "98.2%",
+       "100%",
+       "3 of 4",
+       "30.9 M",
+       "3"
+      ],
+      [
+       "2",
+       "10",
+       "100%",
+       "99.2%",
+       "100%",
+       "3 of 4",
+       "30.4 M",
+       "1"
+      ]
+     ]
+    }
+   },
+   "parrafos": {
+    "es": [
+     "Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes."
+    ],
+    "en": [
+     "A round that does not run every entity is partial: the first, small one, before the complete one, or a verification round, which repeats the runs a fixed defect left pending."
+    ]
+   }
+  },
+  {
+   "id": "ultima",
+   "titulo": {
+    "es": "La ronda más reciente · ronda 2",
+    "en": "The most recent round · round 2"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Métrica",
+      "Casos",
+      "Resultado",
+      "Margen del 95 %"
+     ],
+     "en": [
+      "Measure",
+      "Cases",
+      "Result",
+      "95% margin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Señales · cobertura",
+       "117 de 117",
+       "100 %",
+       "96,8–100 %"
+      ],
+      [
+       "Señales · precisión",
+       "117 de 117",
+       "100 %",
+       "96,8–100 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "45 de 45",
+       "100 %",
+       "92,1–100 %"
+      ],
+      [
+       "Control · sin ninguna señal",
+       "3 de 3",
+       "100 %",
+       "43,8–100 %"
+      ]
+     ],
+     "en": [
+      [
+       "Signals · coverage",
+       "117 of 117",
+       "100%",
+       "96.8–100%"
+      ],
+      [
+       "Signals · precision",
+       "117 of 117",
+       "100%",
+       "96.8–100%"
+      ],
+      [
+       "Extraction · data right",
+       "45 of 45",
+       "100%",
+       "92.1–100%"
+      ],
+      [
+       "Control · with no signal",
+       "3 of 3",
+       "100%",
+       "43.8–100%"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "industrias",
+   "titulo": {
+    "es": "Por industria y país · ronda 2",
+    "en": "By industry and country · round 2"
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Material",
+      "Agentes",
+      "Señales",
+      "De más",
+      "Extracción",
+      "Tokens"
+     ],
+     "en": [
+      "Material",
+      "Agents",
+      "Signals",
+      "Extra",
+      "Extraction",
+      "Tokens"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Retail · Chile",
+       "Augusto, Valeria",
+       "19 de 19",
+       "0",
+       "5 de 5",
+       "3,2 M"
+      ],
+      [
+       "Retail · Ecuador",
+       "Augusto, Valeria",
+       "18 de 18",
+       "0",
+       "5 de 5",
+       "3,2 M"
+      ],
+      [
+       "manufactura · Perú",
+       "Augusto, Valeria",
+       "20 de 20",
+       "0",
+       "5 de 5",
+       "3,2 M"
+      ],
+      [
+       "servicios · Perú",
+       "Augusto, Valeria",
+       "20 de 20",
+       "0",
+       "5 de 5",
+       "3,1 M"
+      ],
+      [
+       "tecnologia · Chile",
+       "Augusto, Valeria",
+       "20 de 20",
+       "0",
+       "5 de 5",
+       "3 M"
+      ],
+      [
+       "tecnologia · Ecuador",
+       "Augusto, Valeria",
+       "20 de 20",
+       "0",
+       "5 de 5",
+       "3,1 M"
+      ],
+      [
+       "Control · Chile",
+       "Augusto, Valeria",
+       "0 de 0",
+       "0",
+       "5 de 5",
+       "2,6 M"
+      ],
+      [
+       "Control · Ecuador",
+       "Augusto, Valeria",
+       "0 de 0",
+       "0",
+       "5 de 5",
+       "3,1 M"
+      ],
+      [
+       "Control · Perú",
+       "Augusto, Valeria",
+       "0 de 0",
+       "1",
+       "5 de 5",
+       "2,9 M"
+      ],
+      [
+       "Control · Perú",
+       "Augusto, Valeria",
+       "0 de 0",
+       "0",
+       "5 de 5",
+       "2,9 M"
+      ]
+     ],
+     "en": [
+      [
+       "Retail · Chile",
+       "Augusto, Valeria",
+       "19 of 19",
+       "0",
+       "5 of 5",
+       "3.2 M"
+      ],
+      [
+       "Retail · Ecuador",
+       "Augusto, Valeria",
+       "18 of 18",
+       "0",
+       "5 of 5",
+       "3.2 M"
+      ],
+      [
+       "manufactura · Peru",
+       "Augusto, Valeria",
+       "20 of 20",
+       "0",
+       "5 of 5",
+       "3.2 M"
+      ],
+      [
+       "servicios · Peru",
+       "Augusto, Valeria",
+       "20 of 20",
+       "0",
+       "5 of 5",
+       "3.1 M"
+      ],
+      [
+       "tecnologia · Chile",
+       "Augusto, Valeria",
+       "20 of 20",
+       "0",
+       "5 of 5",
+       "3 M"
+      ],
+      [
+       "tecnologia · Ecuador",
+       "Augusto, Valeria",
+       "20 of 20",
+       "0",
+       "5 of 5",
+       "3.1 M"
+      ],
+      [
+       "Control · Chile",
+       "Augusto, Valeria",
+       "0 of 0",
+       "0",
+       "5 of 5",
+       "2.6 M"
+      ],
+      [
+       "Control · Ecuador",
+       "Augusto, Valeria",
+       "0 of 0",
+       "0",
+       "5 of 5",
+       "3.1 M"
+      ],
+      [
+       "Control · Peru",
+       "Augusto, Valeria",
+       "0 of 0",
+       "1",
+       "5 of 5",
+       "2.9 M"
+      ],
+      [
+       "Control · Peru",
+       "Augusto, Valeria",
+       "0 of 0",
+       "0",
+       "5 of 5",
+       "2.9 M"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "senales",
+   "titulo": {
+    "es": "Lo que falló, uno por uno · rondas 1–2",
+    "en": "What failed, one by one · rounds 1–2"
+   },
+   "parrafos": {
+    "es": [
+     "11 fallas en 20 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+    ],
+    "en": [
+     "11 failures in 20 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+    ]
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Ronda",
+      "Material",
+      "Qué",
+      "Dónde",
+      "Defecto",
+      "Origen"
+     ],
+     "en": [
+      "Round",
+      "Material",
+      "What",
+      "Where",
+      "Defect",
+      "Origin"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "1",
+       "Control · México",
+       "Señal de más",
+       "[\"commission_differs_from_plan\", \"comision:2026-10:isabel_mendez\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "Control · México",
+       "Señal de más",
+       "[\"commission_differs_from_plan\", \"comision:2026-10:oscar_delgado\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "servicios · México",
+       "Señal no encontrada",
+       "[\"close_date_slipped\", \"corre:OPP-1504\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "servicios · México",
+       "Señal no encontrada",
+       "[\"close_date_slipped\", \"corre:OPP-1526\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "servicios · México",
+       "Señal no encontrada",
+       "[\"close_date_slipped\", \"corre:OPP-1527\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "servicios · México",
+       "Señal no encontrada",
+       "[\"close_date_slipped\", \"corre:OPP-1528\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "tecnologia · Colombia",
+       "Señal no encontrada",
+       "[\"close_date_slipped\", \"corre:OPP-1204\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "tecnologia · Colombia",
+       "Señal no encontrada",
+       "[\"close_date_slipped\", \"corre:OPP-1226\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "tecnologia · Colombia",
+       "Señal no encontrada",
+       "[\"close_date_slipped\", \"corre:OPP-1227\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "tecnologia · Colombia",
+       "Señal no encontrada",
+       "[\"close_date_slipped\", \"corre:OPP-1228\"]",
+       "—",
+       "—"
+      ],
+      [
+       "2",
+       "Control · Perú",
+       "Señal de más",
+       "[\"stalled_opportunity\", \"detenida:OPP-2205\"]",
+       "CCO-4",
+       "Instrucciones del agente"
+      ]
+     ],
+     "en": [
+      [
+       "1",
+       "Control · Mexico",
+       "Extra signal",
+       "[\"commission_differs_from_plan\", \"comision:2026-10:isabel_mendez\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "Control · Mexico",
+       "Extra signal",
+       "[\"commission_differs_from_plan\", \"comision:2026-10:oscar_delgado\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "servicios · Mexico",
+       "Signal missed",
+       "[\"close_date_slipped\", \"corre:OPP-1504\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "servicios · Mexico",
+       "Signal missed",
+       "[\"close_date_slipped\", \"corre:OPP-1526\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "servicios · Mexico",
+       "Signal missed",
+       "[\"close_date_slipped\", \"corre:OPP-1527\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "servicios · Mexico",
+       "Signal missed",
+       "[\"close_date_slipped\", \"corre:OPP-1528\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "tecnologia · Colombia",
+       "Signal missed",
+       "[\"close_date_slipped\", \"corre:OPP-1204\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "tecnologia · Colombia",
+       "Signal missed",
+       "[\"close_date_slipped\", \"corre:OPP-1226\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "tecnologia · Colombia",
+       "Signal missed",
+       "[\"close_date_slipped\", \"corre:OPP-1227\"]",
+       "—",
+       "—"
+      ],
+      [
+       "1",
+       "tecnologia · Colombia",
+       "Signal missed",
+       "[\"close_date_slipped\", \"corre:OPP-1228\"]",
+       "—",
+       "—"
+      ],
+      [
+       "2",
+       "Control · Peru",
+       "Extra signal",
+       "[\"stalled_opportunity\", \"detenida:OPP-2205\"]",
+       "CCO-4",
+       "Agent instructions"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "defectos",
+   "titulo": {
+    "es": "Defectos",
+    "en": "Defects"
+   },
+   "imagen": {
+    "es": "defectos-es.svg",
+    "en": "defectos-en.svg"
+   },
+   "parrafos": {
+    "es": [
+     "4 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 4 verificados y 0 por verificar. 2 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+    ],
+    "en": [
+     "4 defects logged, each with its origin, its fix and the run that verified it: 4 verified and 0 to verify. 2 came from the material, the key or the test harness, not from the agents."
+    ]
+   },
+   "tabla": {
+    "cab": {
+     "es": [
+      "Origen",
+      "Defectos"
+     ],
+     "en": [
+      "Origin",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Arnés de pruebas",
+       "1"
+      ],
+      [
+       "Material de prueba",
+       "1"
+      ],
+      [
+       "Código",
+       "1"
+      ],
+      [
+       "Instrucciones del agente",
+       "1"
+      ]
+     ],
+     "en": [
+      [
+       "Test harness",
+       "1"
+      ],
+      [
+       "Test material",
+       "1"
+      ],
+      [
+       "Code",
+       "1"
+      ],
+      [
+       "Agent instructions",
+       "1"
+      ]
+     ]
+    }
+   },
+   "tabla2": {
+    "cab": {
+     "es": [
+      "Agente",
+      "Defectos"
+     ],
+     "en": [
+      "Agent",
+      "Defects"
+     ]
+    },
+    "filas": {
+     "es": [
+      [
+       "Augusto",
+       "3"
+      ],
+      [
+       "Valeria",
+       "1"
+      ]
+     ],
+     "en": [
+      [
+       "Augusto",
+       "3"
+      ],
+      [
+       "Valeria",
+       "1"
+      ]
+     ]
+    }
+   }
+  },
+  {
+   "id": "consumo",
+   "titulo": {
+    "es": "Consumo y próximo paso",
+    "en": "Cost and next step"
+   },
+   "parrafos": {
+    "es": [
+     "Las 2 rondas usaron 61,3 millones de tokens: 61,3 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 3,1 millones por entidad.",
+     "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
+    ],
+    "en": [
+     "The 2 rounds used 61.3 million tokens: 61.3 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 3.1 million per entity.",
+     "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
+    ]
+   }
+  }
+ ]
+}

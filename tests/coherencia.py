@@ -83,7 +83,7 @@ FINANZAS = RAIZ / "plugins" / "criterio-finance" / "scripts" / "finanzas.py"
 LEGAL = RAIZ / "plugins" / "criterio-legal" / "scripts" / "legal.py"
 # La familia EA calcula en el motor de Ofelia.
 ASISTENTE = RAIZ / "plugins" / "criterio-assistant" / "scripts" / "asistente.py"
-# La familia CSO calcula en el motor de Augusto y Valeria.
+# La familia CCO calcula en el motor de Augusto y Valeria.
 VENTAS = RAIZ / "plugins" / "criterio-sales" / "scripts" / "ventas.py"
 NUCLEO = RAIZ / "plugins" / "criterio-finance" / "scripts" / "nucleo.py"
 # Rostrum tiene su mapa, y los nombres que la documentación del servidor usa resuelven ahí.

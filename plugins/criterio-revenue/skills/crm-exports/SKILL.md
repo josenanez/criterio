@@ -19,7 +19,7 @@ description: "Cómo se procesa cada exportación del CRM: Salesforce por el nomb
 | **Zoho CRM** | Las columnas `Deal Name` y `Closing Date` | `Record ID`, `Deal Name`, `Account Name`, `Amount`, `Closing Date`, `Stage`, `Probability`, `Deal Owner` | F-08, F-09 |
 | **Cualquier otro** | Ninguna de las anteriores | Las columnas en español más comunes —`id`, `nombre`, `cuenta`, `etapa`, `monto`, `cierre`, `responsable`, `ultima_actividad`, `linea`— y lo que diga el mapeo | — |
 
-Las fuentes, con su versión y su fecha de consulta, en `families/criterio-cso/FUENTES.es.md`. Un campo que no esté ahí verificado no se procesa.
+Las fuentes, con su versión y su fecha de consulta, en `families/criterio-cco/FUENTES.es.md`. Un campo que no esté ahí verificado no se procesa.
 
 **Cuatro datos son obligatorios** en cualquier formato: el id de la oportunidad, la etapa, el monto y la fecha de cierre. Sin uno de ellos la exportación no se procesa, y el motor dice cuál falta.
 

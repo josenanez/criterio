@@ -58,7 +58,7 @@ DUENIOS = [
     ("criterio-sales/scripts/ventas.py", "Augusto"),
     ("evaluar.py --agente augusto", "Augusto"),
     ("evaluar.py --agente valeria", "Valeria"),
-    ("tests/criterio-cso/", "La familia"),
+    ("tests/criterio-cco/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("scripts/calidad.py", "La familia"),
@@ -677,8 +677,8 @@ QUE_ES = {
     "criterio-legal": ("Fidel", "el agente de contratos de la familia CLO"),
     "criterio-compliance": ("Constanza", "la agente de cumplimiento de la familia CLO"),
     "criterio-assistant": ("Ofelia", "la asistente ejecutiva de la familia EA"),
-    "criterio-sales": ("Augusto", "el agente del pronóstico de la familia CSO"),
-    "criterio-revenue": ("Valeria", "la agente de la venta a la factura de la familia CSO"),
+    "criterio-sales": ("Augusto", "el agente del pronóstico de la familia CCO"),
+    "criterio-revenue": ("Valeria", "la agente de la venta a la factura de la familia CCO"),
 }
 
 
@@ -687,7 +687,7 @@ EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-bu
                 "criterio-treasury": "../criterio-cfo/EVIDENCIA.md",
                 "criterio-legal": "../criterio-clo/EVIDENCIA.md", "criterio-compliance": "../criterio-clo/EVIDENCIA.md",
                 "criterio-assistant": "../criterio-ea/EVIDENCIA.md",
-                "criterio-sales": "../criterio-cso/EVIDENCIA.md", "criterio-revenue": "../criterio-cso/EVIDENCIA.md"}
+                "criterio-sales": "../criterio-cco/EVIDENCIA.md", "criterio-revenue": "../criterio-cco/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:

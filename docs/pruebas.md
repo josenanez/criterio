@@ -167,7 +167,7 @@ Que la documentación y el código digan lo mismo, que el marketplace esté comp
 | `scripts/soporte.py` | Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas | — | 55 ms | verde |
 | `criterio-cfo/generar.py` | El material CFO: cuatro industrias y dos entidades de control, con su clave | — | 1223 ms | verde |
 | `criterio-clo/generar.py` | El material CLO: cuatro industrias y dos entidades de control, con su clave | — | 710 ms | verde |
-| `criterio-cso/generar.py` | El material CSO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave | — | 220 ms | verde |
+| `criterio-cco/generar.py` | El material CCO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave | — | 220 ms | verde |
 | `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | 258 ms | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | 235 ms | verde |
 

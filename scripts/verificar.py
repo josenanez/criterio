@@ -153,11 +153,11 @@ PUERTAS = [
      "Que Ofelia levante cada señal sembrada en la oficina, ninguna en los controles, y cumpla las reglas de la operación real"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-sales/scripts/ventas.py"), "selftest"],
      "El motor de Augusto y Valeria: los lectores de Salesforce, de HubSpot y de cualquier CRM, las fechas mes/día y una entidad mínima con todo mal"),
-    ("material", [sys.executable, str(RAIZ / "tests/criterio-cso/generar.py")],
-     "El material CSO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave"),
-    ("material", [sys.executable, str(RAIZ / "tests/criterio-cso/evaluar.py"), "--agente", "augusto"],
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-cco/generar.py")],
+     "El material CCO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave"),
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-cco/evaluar.py"), "--agente", "augusto"],
      "Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles"),
-    ("material", [sys.executable, str(RAIZ / "tests/criterio-cso/evaluar.py"), "--agente", "valeria"],
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-cco/evaluar.py"), "--agente", "valeria"],
      "Que Valeria levante cada señal sembrada de la venta a la factura, y ninguna en los controles ni un dato de contacto"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/familias.py"), "--check"],
      "Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar"),
@@ -228,7 +228,7 @@ def main() -> int:
     print("\nQué prueba cada corrida y qué no, en tests/criterio-portfolio/EVIDENCIA.md,")
     print("tests/criterio-project/EVIDENCIA.md, tests/criterio-product/EVIDENCIA.md,")
     print("tests/criterio-cfo/EVIDENCIA.md, tests/criterio-clo/EVIDENCIA.md, tests/criterio-ea/EVIDENCIA.md")
-    print("y tests/criterio-cso/EVIDENCIA.md —")
+    print("y tests/criterio-cco/EVIDENCIA.md —")
     print("incluido lo que todavía no se ha probado.")
     return 0
 

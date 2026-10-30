@@ -1,12 +1,12 @@
 # Acceptance criteria — criterio-revenue
 
-Verified on synthetic material in `tests/criterio-cso/`, with a key the agent never sees and two control entities that must raise nothing.
+Verified on synthetic material in `tests/criterio-cco/`, with a key the agent never sees and two control entities that must raise nothing.
 
 ## 1. Arithmetic
 
 - [ ] Every discount, contract, invoice and commission figure in a report comes from `ventas.py`; none is typed by the model.
 - [ ] Contracts are taken from Fidel's records and invoices from Clara's; no contract or electronic invoice is processed again (ADR 0019).
-- [ ] Every planted signal in each entity is raised, and the control entities raise none (`tests/criterio-cso/evaluar.py --agente valeria`).
+- [ ] Every planted signal in each entity is raised, and the control entities raise none (`tests/criterio-cco/evaluar.py --agente valeria`).
 
 ## 2. People decide
 

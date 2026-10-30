@@ -74,10 +74,10 @@ DESTINO = {
     "criterio-assistant": {"familia": "ea", "busca": "raiz", "marca": "_CRITERIO_DIRECCION.txt",
                            "que": "la carpeta de la oficina de un ejecutivo", "agentes": "Ofelia",
                            "setup": "/criterio-assistant:ea-setup"},
-    "criterio-sales": {"familia": "cso", "busca": "raiz", "marca": "_CRITERIO_COMERCIAL.txt",
+    "criterio-sales": {"familia": "cco", "busca": "raiz", "marca": "_CRITERIO_COMERCIAL.txt",
                        "que": "la carpeta comercial de una entidad", "agentes": "Augusto y Valeria",
                        "setup": "/criterio-sales:sales-setup"},
-    "criterio-revenue": {"familia": "cso", "busca": "raiz", "marca": "_CRITERIO_COMERCIAL.txt",
+    "criterio-revenue": {"familia": "cco", "busca": "raiz", "marca": "_CRITERIO_COMERCIAL.txt",
                          "que": "la carpeta comercial de una entidad", "agentes": "Augusto y Valeria",
                          "setup": "/criterio-revenue:revenue-setup"},
 }
