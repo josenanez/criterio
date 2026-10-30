@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Control del Istmo",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3240680,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

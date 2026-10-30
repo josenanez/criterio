@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:37:30",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 15,
+  "tokens": 684629,
+  "tokens_salida": 5963,
+  "costo_usd": 0.22719099999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/155731001-2-2016-banco-istmeno/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/155731001-2-2016-banco-istmeno/corridas/salida-budget-scan.md",
+      "estado-finanzas/155731001-2-2016-banco-istmeno/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/155731001-2-2016-banco-istmeno/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco Istmeño",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3413804,
+  "senales": {
+    "esperadas": 10,
+    "acertadas": 10,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

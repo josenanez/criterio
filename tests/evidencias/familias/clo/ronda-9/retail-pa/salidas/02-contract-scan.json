@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T15:02:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 76,
+  "turnos": 16,
+  "tokens": 890148,
+  "tokens_salida": 4685,
+  "costo_usd": 0.3074667,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/155791002-2-2017-almacenes-del-canal/contratos/reporte-contract-scan.md",
+      "estado-legal/155791002-2-2017-almacenes-del-canal/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/155791002-2-2017-almacenes-del-canal/corridas/salida-contract-scan.md",
+      "estado-legal/155791002-2-2017-almacenes-del-canal/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/155791002-2-2017-almacenes-del-canal/corridas.json"
+    ],
+    "borrados": []
+  }
+}

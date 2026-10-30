@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:44:00",
+  "estado": "success",
+  "error": false,
+  "segundos": 73,
+  "turnos": 14,
+  "tokens": 622244,
+  "tokens_salida": 5531,
+  "costo_usd": 0.2159465,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/155791002-2-2017-almacenes-del-canal/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/155791002-2-2017-almacenes-del-canal/corridas/salida-budget-scan.md",
+      "estado-finanzas/155791002-2-2017-almacenes-del-canal/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/155791002-2-2017-almacenes-del-canal/corridas.json"
+    ],
+    "borrados": []
+  }
+}

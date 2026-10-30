@@ -1,0 +1,35 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T15:13:19",
+  "estado": "success",
+  "error": false,
+  "segundos": 78,
+  "turnos": 15,
+  "tokens": 806191,
+  "tokens_salida": 7012,
+  "costo_usd": 0.31256510000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos/reporte-contract-scan.md",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/corridas/salida-contract-scan.md",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos/CTR-3201.json",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos/CTR-3202.json",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos/CTR-3203.json",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos/CTR-3204.json",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos/CTR-3205.json",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos/CTR-3206.json",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos/resultados.json",
+      "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

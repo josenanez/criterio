@@ -1,0 +1,20 @@
+{
+  "entidad": "Banco Istmeño",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 3829401,
+  "senales": {
+    "esperadas": 16,
+    "acertadas": 16,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

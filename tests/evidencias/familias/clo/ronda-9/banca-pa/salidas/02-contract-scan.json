@@ -1,0 +1,38 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:56:43",
+  "estado": "success",
+  "error": false,
+  "segundos": 104,
+  "turnos": 21,
+  "tokens": 898192,
+  "tokens_salida": 11155,
+  "costo_usd": 0.3778466000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-30-contract-scan-1.html",
+      ".criterio/corridas/legal/2026-10-30-contract-scan-1.md",
+      ".criterio/corridas/legal/corridas.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/contratos/reporte-contract-scan.md",
+      "estado-legal/155731001-2-2016-banco-istmeno/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/155731001-2-2016-banco-istmeno/corridas/salida-contract-scan.md",
+      "estado-legal/155731001-2-2016-banco-istmeno/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/contratos/CTR-2901.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/contratos/CTR-2902.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/contratos/CTR-2903.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/contratos/CTR-2904.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/contratos/CTR-2905.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/contratos/CTR-2906.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/contratos/resultados.json",
+      "estado-legal/155731001-2-2016-banco-istmeno/corridas.json"
+    ],
+    "borrados": []
+  }
+}

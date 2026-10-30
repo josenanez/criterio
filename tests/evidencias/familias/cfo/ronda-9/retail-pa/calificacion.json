@@ -1,0 +1,20 @@
+{
+  "entidad": "Almacenes del Canal",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4330951,
+  "senales": {
+    "esperadas": 11,
+    "acertadas": 11,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}
