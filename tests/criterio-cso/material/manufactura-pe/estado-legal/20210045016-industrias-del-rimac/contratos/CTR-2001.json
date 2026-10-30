@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2001",
+  "counterparty": {
+    "name": "Minera Andahuaylas S.A.A.",
+    "id": "20200001002"
+  },
+  "value": 480000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2001/10-contrato/contrato.pdf"
+}

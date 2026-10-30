@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1802",
+  "counterparty": {
+    "name": "Seguros Equinoccio S.A.",
+    "id": "1791800028001"
+  },
+  "value": 216000,
+  "start": "2026-10-24",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-24",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1802/10-contrato/contrato.pdf"
+}

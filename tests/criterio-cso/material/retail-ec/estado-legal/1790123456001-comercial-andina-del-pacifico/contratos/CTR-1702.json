@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1702",
+  "counterparty": {
+    "name": "Distribuidora Costa Cía. Ltda.",
+    "id": "1791700015001"
+  },
+  "value": 270000,
+  "start": "2026-10-24",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-24",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1702/10-contrato/contrato.pdf"
+}

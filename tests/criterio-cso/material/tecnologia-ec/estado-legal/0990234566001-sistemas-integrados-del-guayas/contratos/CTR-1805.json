@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1805",
+  "counterparty": {
+    "name": "Eléctrica Andina S.A.",
+    "id": "1791800060001"
+  },
+  "value": 96000,
+  "start": "2026-09-10",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-10",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1805/10-contrato/contrato.pdf"
+}

@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1832",
+  "counterparty": {
+    "name": "Cliente Comercial 1853 S.A.",
+    "id": "1791800117001"
+  },
+  "value": 60000,
+  "start": "2026-09-10",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-10",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1832/10-contrato/contrato.pdf"
+}

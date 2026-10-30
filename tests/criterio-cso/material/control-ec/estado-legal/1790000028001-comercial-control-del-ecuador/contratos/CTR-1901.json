@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1901",
+  "counterparty": {
+    "name": "Cliente Control Quito S.A.",
+    "id": "1791900006001"
+  },
+  "value": 120000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1901/10-contrato/contrato.pdf"
+}

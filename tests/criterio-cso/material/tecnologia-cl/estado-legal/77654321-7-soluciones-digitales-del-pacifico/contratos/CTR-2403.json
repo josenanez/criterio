@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2403",
+  "counterparty": {
+    "name": "Logística Antofagasta SpA",
+    "id": "78024004-0"
+  },
+  "value": 45000000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2403/10-contrato/contrato.pdf"
+}

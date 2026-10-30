@@ -26,9 +26,11 @@ cada cotización con su descuento y su aprobación— lo extrae el agente a su f
 código lo cruza.
 
 **Las exportaciones, desde su fuente.** Salesforce por el nombre de cada campo o su etiqueta (F-02,
-y su historial F-03), HubSpot por la etiqueta de cada propiedad (F-04, F-05), y cualquier otro CRM
-en CSV o Excel con el mapeo de columnas que deja el setup. Cada campo que se procesa de Salesforce o
-de HubSpot está en `CAMPOS_SALESFORCE`, `CAMPOS_SALESFORCE_HISTORIA` y `CAMPOS_HUBSPOT`, con el
+y su historial F-03), HubSpot por la etiqueta de cada propiedad (F-04, F-05), Dynamics 365 Sales
+por la etiqueta o el nombre lógico de cada columna (F-06, F-07), Zoho CRM por la etiqueta de cada
+campo (F-08, F-09), y cualquier otro CRM en CSV o Excel con el mapeo de columnas que deja el setup.
+Cada campo que se procesa de uno de esos CRM está en `CAMPOS_SALESFORCE`,
+`CAMPOS_SALESFORCE_HISTORIA`, `CAMPOS_HUBSPOT`, `CAMPOS_DYNAMICS` y `CAMPOS_ZOHO`, con el
 identificador con que lo verifica su fuente en families/criterio-cso/fuentes.json; la puerta de las
 familias falla si el motor usa uno que no está verificado.
 
@@ -103,6 +105,38 @@ CAMPOS_HUBSPOT = {
     "Forecast category": ("categoria", ["forecast_category"]),
     "Currency": ("moneda", ["currency"]),
 }
+# Dynamics 365 Sales: la exportación a Excel de una vista de oportunidades trae la etiqueta de cada
+# columna de la tabla (F-06, F-07), o su nombre lógico si sale por la API. El estado —abierta, ganada
+# o perdida— lo dice «Status» (statecode: Open, Won, Lost); la etapa del proceso de la entidad,
+# «Pipeline Phase». La cuenta llega con el nombre del registro asociado.
+CAMPOS_DYNAMICS = {
+    "opportunityid": ("id", ["opportunityid", "opportunity"]),
+    "name": ("nombre", ["name", "topic"]),
+    "parentaccountid": ("cuenta", ["parentaccountid", "account", "customerid", "potential_customer"]),
+    "estimatedvalue": ("monto", ["estimatedvalue", "est_revenue"]),
+    "estimatedclosedate": ("cierre", ["estimatedclosedate", "est_close_date"]),
+    "stepname": ("etapa", ["stepname", "pipeline_phase"]),
+    "statecode": ("estado", ["statecode", "status"]),
+    "closeprobability": ("probabilidad", ["closeprobability", "probability"]),
+    "msdyn_forecastcategory": ("categoria", ["msdyn_forecastcategory", "forecast_category"]),
+    "ownerid": ("responsable", ["ownerid", "owner"]),
+    "transactioncurrencyid": ("moneda", ["transactioncurrencyid", "currency"]),
+}
+# Zoho CRM: la exportación del módulo de negocios trae la etiqueta de cada campo estándar (F-08) y,
+# si no se quita, el id del registro (F-09). La última actividad no está entre los campos estándar
+# de la fuente: si la exportación la trae, la dice el mapeo del setup.
+CAMPOS_ZOHO = {
+    "Record ID": ("id", ["record_id"]),
+    "Deal Name": ("nombre", ["deal_name"]),
+    "Account Name": ("cuenta", ["account_name"]),
+    "Amount": ("monto", ["amount"]),
+    "Closing Date": ("cierre", ["closing_date"]),
+    "Stage": ("etapa", ["stage"]),
+    "Probability": ("probabilidad", ["probability"]),
+    "Deal Owner": ("responsable", ["deal_owner"]),
+}
+# El estado de Dynamics (statecode), como lo exporta: el valor de la opción o su etiqueta.
+ESTADO_GANADA, ESTADO_PERDIDA = {"won", "1", "ganada", "ganado"}, {"lost", "2", "perdida", "perdido"}
 # Cualquier otro CRM: las cabeceras en español más comunes; el resto lo dice el mapeo del setup.
 CAMPOS_GENERICO = {
     "id": ["id", "id_oportunidad", "oportunidad_id", "codigo", "codigo_oportunidad"],
@@ -124,10 +158,16 @@ FECHA_EN_NOMBRE = re.compile(r"(\d{4})[-_](\d{2})[-_](\d{2})")
 
 def formato(cabecera: list[str]) -> str:
     """El CRM de una exportación, por sus columnas: HubSpot trae «Deal Stage» y «Record ID»;
-    Salesforce, «StageName» (API) o «Stage» con «Close Date» (un informe). Lo demás es genérico."""
+    Dynamics, la fecha estimada de cierre («Est. close date» o `estimatedclosedate`); Zoho, «Deal
+    Name» con «Closing Date»; Salesforce, «StageName» (API) o «Stage» con «Close Date» (un
+    informe). Lo demás es genérico."""
     c = set(cabecera)
     if "deal_stage" in c and "record_id" in c:
         return "hubspot"
+    if c & {"estimatedclosedate", "est_close_date"}:
+        return "dynamics"
+    if "closing_date" in c and "deal_name" in c:
+        return "zoho"
     if "stagename" in c or ("stage" in c and "close_date" in c):
         return "salesforce"
     if {"field", "oldvalue"} <= c or {"field", "old_value"} <= c:
@@ -139,7 +179,8 @@ def _mapa(cab: list[str], fmt: str, columnas: dict | None) -> dict[str, int]:
     """El índice de cada dato canónico en la cabecera. El mapeo de la configuración manda sobre
     todo: dice, por ejemplo, qué columna trae la empresa asociada en HubSpot o la línea de negocio."""
     out: dict[str, int] = {}
-    tabla = {"salesforce": CAMPOS_SALESFORCE, "hubspot": CAMPOS_HUBSPOT, "historia": CAMPOS_SALESFORCE_HISTORIA}.get(fmt)
+    tabla = {"salesforce": CAMPOS_SALESFORCE, "hubspot": CAMPOS_HUBSPOT, "dynamics": CAMPOS_DYNAMICS, "zoho": CAMPOS_ZOHO,
+             "historia": CAMPOS_SALESFORCE_HISTORIA}.get(fmt)
     variantes = {canon: cs for canon, cs in tabla.values()} if tabla else dict(CAMPOS_GENERICO)
     for canon, col in (columnas or {}).items():
         if norm(col) in cab:
@@ -158,7 +199,7 @@ def _cabecera(filas: list[list[str]]) -> int:
     """La primera fila que parece una cabecera: la que trae una etapa o un campo de historial."""
     for i, f in enumerate(filas[:15]):
         n = {norm(x) for x in f}
-        if n & {"stagename", "stage", "deal_stage", "etapa", "fase", "field"} or n & set(CAMPOS_GENERICO["etapa"]):
+        if n & {"stagename", "stage", "deal_stage", "pipeline_phase", "stepname", "etapa", "fase", "field"} or n & set(CAMPOS_GENERICO["etapa"]):
             return i
     return 0
 
@@ -350,10 +391,14 @@ def _cuentas(cfg: dict, no_proc: list) -> dict[str, str]:
 
 def oportunidad(f: dict, fmt: str, et: dict) -> dict:
     """Una fila de la exportación, con su estado —abierta, ganada o perdida— y su probabilidad, de
-    la tabla de etapas. Si la exportación trae ganada y cerrada (Salesforce), esas mandan."""
+    la tabla de etapas. Si la exportación trae ganada y cerrada (Salesforce) o el estado (Dynamics),
+    esos mandan."""
     e = et.get(norm(f.get("etapa"))) or {}
     tipo = e.get("tipo", ABIERTA)
-    if "ganada" in f and str(f.get("ganada")).strip():
+    if str(f.get("estado") or "").strip():          # Dynamics: el statecode manda
+        est = norm(f["estado"])
+        tipo = GANADA if est in ESTADO_GANADA else PERDIDA if est in ESTADO_PERDIDA else ABIERTA
+    elif "ganada" in f and str(f.get("ganada")).strip():
         ganada = norm(f["ganada"]) in VERDAD
         cerrada = norm(f.get("cerrada")) in VERDAD if "cerrada" in f else ganada
         tipo = GANADA if ganada else PERDIDA if cerrada else ABIERTA
@@ -509,8 +554,8 @@ def revisar_config(cfg: dict, rol: str) -> list[str]:
     if not re.fullmatch(r"\d{4}-\d{2}", str(cfg.get("period") or "")):
         p.append("period vacío: el periodo comercial que se evalúa, AAAA-MM")
     fmt = (cfg.get("crm") or {}).get("format")
-    if fmt not in (None, "salesforce", "hubspot", "generico"):
-        p.append("crm.format es salesforce, hubspot o generico")
+    if fmt not in (None, "salesforce", "hubspot", "dynamics", "zoho", "generico"):
+        p.append("crm.format es salesforce, hubspot, dynamics, zoho o generico")
     # En HubSpot la empresa asociada va en su propia columna, con un nombre que la exportación no
     # fija (F-05): sin decir cuál es, lo ganado no se cruza con lo facturado (CSO-3).
     if fmt == "hubspot" and not ((cfg.get("crm") or {}).get("columns") or {}).get("cuenta"):
@@ -676,7 +721,7 @@ def augusto(cfg: dict, periodo: str, hoy: dt.date) -> dict:
 
 
 def _fuentes(cortes: list[dict]) -> list[str]:
-    f = {"salesforce": "F-02", "hubspot": "F-04"}
+    f = {"salesforce": "F-02", "hubspot": "F-04", "dynamics": "F-06", "zoho": "F-08"}
     return sorted({f[c["formato"]] for c in cortes if c["formato"] in f})
 
 
@@ -1057,6 +1102,13 @@ def selftest() -> int:
                                                                "crm": {"format": "hubspot", "columns": {}}}, "augusto")), True)
     ok("Salesforce por API", formato(["id", "name", "stagename", "closedate", "amount"]), "salesforce")
     ok("Salesforce por un informe", formato(["opportunity_id", "stage", "close_date", "amount"]), "salesforce")
+    ok("Dynamics por su exportación a Excel", formato(["topic", "account", "est_revenue", "est_close_date", "pipeline_phase", "status"]), "dynamics")
+    ok("Dynamics por su API", formato(["opportunityid", "name", "estimatedvalue", "estimatedclosedate", "stepname", "statecode"]), "dynamics")
+    ok("Zoho por su exportación", formato(["record_id", "deal_name", "account_name", "amount", "closing_date", "stage"]), "zoho")
+    ok("en Dynamics el estado manda sobre la etapa: Won es ganada",
+       oportunidad({"id": "1", "etapa": "Negociación", "estado": "Won", "monto": "10", "_fila": 2}, "dynamics", {})["tipo"], GANADA)
+    ok("en Dynamics, Lost es perdida y Open sigue abierta",
+       [oportunidad({"id": "1", "etapa": "x", "estado": v, "monto": "1", "_fila": 2}, "dynamics", {})["tipo"] for v in ("Lost", "Open")], [PERDIDA, ABIERTA])
     ok("el historial de campos", formato(["opportunityid", "field", "oldvalue", "newvalue"]), "historia")
     ok("lo demás es genérico", formato(["codigo", "etapa", "valor", "fecha_cierre"]), "generico")
     ok("10/20/2026 es mes, día", orden_fechas(["10/20/2026", "11/02/2026"]), "mdy")

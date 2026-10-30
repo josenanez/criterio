@@ -1,0 +1,334 @@
+{
+  "entidad": "Comercial Andina del Pacífico",
+  "industria": "retail",
+  "pais": "EC",
+  "crm": "dynamics-xlsx",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [
+    "etapa_sin_evidencia",
+    "detenida",
+    "pronostico_sin_respaldo",
+    "descuento_sin_aprobacion",
+    "ganado_sin_contrato"
+  ],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "1790123456001",
+        "name": "Comercial Andina del Pacífico",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "comercial/1790123456001-comercial-andina-del-pacifico",
+        "state": "estado-comercial/1790123456001-comercial-andina-del-pacifico"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "dynamics",
+        "columns": {},
+        "date_order": "dmy"
+      },
+      "thresholds": {}
+    },
+    "valeria": {
+      "entity": {
+        "id": "1790123456001",
+        "name": "Comercial Andina del Pacífico",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "comercial/1790123456001-comercial-andina-del-pacifico",
+        "state": "estado-comercial/1790123456001-comercial-andina-del-pacifico"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "dynamics",
+        "columns": {},
+        "date_order": "dmy"
+      },
+      "thresholds": {},
+      "revenue": {
+        "contract_records": "estado-legal/1790123456001-comercial-andina-del-pacifico/contratos",
+        "invoice_records": "estado-finanzas/1790123456001-comercial-andina-del-pacifico",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-1701",
+          "type": "propuesta",
+          "amount": 194400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1701_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1701",
+          "type": "orden_compra",
+          "amount": 180000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-1701_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1702",
+          "type": "propuesta",
+          "amount": 291600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1702_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1702",
+          "type": "orden_compra",
+          "amount": 270000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-1702_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1703",
+          "type": "propuesta",
+          "amount": 405000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1703_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1704",
+          "type": "propuesta",
+          "amount": 145800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1704_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1707",
+          "type": "propuesta",
+          "amount": 178200,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1707_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1708",
+          "type": "propuesta",
+          "amount": 81000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1708_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1708",
+          "type": "orden_compra",
+          "amount": 75000,
+          "date": "2026-10-05",
+          "source": "30-evidencia/OPP-1708_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1720",
+          "type": "propuesta",
+          "amount": 129600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1720_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1721",
+          "type": "propuesta",
+          "amount": 145800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1721_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1722",
+          "type": "propuesta",
+          "amount": 162000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1722_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1723",
+          "type": "propuesta",
+          "amount": 178200,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1723_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1727",
+          "type": "propuesta",
+          "amount": 194400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1727_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1728",
+          "type": "propuesta",
+          "amount": 145800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1728_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1729",
+          "type": "propuesta",
+          "amount": 48600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1729_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1729",
+          "type": "orden_compra",
+          "amount": 45000,
+          "date": "2026-10-06",
+          "source": "30-evidencia/OPP-1729_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1730",
+          "type": "propuesta",
+          "amount": 64800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1730_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1730",
+          "type": "orden_compra",
+          "amount": 60000,
+          "date": "2026-10-07",
+          "source": "30-evidencia/OPP-1730_orden-compra.pdf"
+        }
+      ],
+      "declared_forecast": {
+        "value": 945000,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-1701",
+          "opportunity": "OPP-1701",
+          "list_amount": 201000,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-1701_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1702",
+          "opportunity": "OPP-1702",
+          "list_amount": 330000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-1702_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1703",
+          "opportunity": "OPP-1703",
+          "list_amount": 435000,
+          "discount_pct": 22,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-1703_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1704",
+          "opportunity": "OPP-1727",
+          "list_amount": 195000,
+          "discount_pct": 22,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-1704_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1705",
+          "opportunity": "OPP-1728",
+          "list_amount": 150000,
+          "discount_pct": 22,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-1705_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1703"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1704"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1705"
+    },
+    {
+      "signal": "forecast_unsupported",
+      "key": "pronostico:2026-10"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1730"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1731"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1703"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1720"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1721"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1722"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1723"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1705"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1724"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1725"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1726"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1708"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1729"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1730"
+    }
+  ]
+}

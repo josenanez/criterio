@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2409",
+  "counterparty": {
+    "name": "Proveedor 2400 SpA",
+    "id": "79002400-1"
+  },
+  "value": 36000000,
+  "start": "2026-09-05",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-05",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2409/10-contrato/contrato.pdf"
+}

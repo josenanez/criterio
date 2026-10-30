@@ -215,7 +215,7 @@ personas identificables (ADR 0019).
 | **Instancias** | Una por entidad | Una por entidad |
 | **Se configura con** | `/criterio-sales:sales-setup` | `/criterio-revenue:revenue-setup` |
 | **Cuánto tarda eso** | Quince minutos | Quince minutos |
-| **Qué le tienes que decir** | Entidad y NIT o RFC, país, el periodo, de qué CRM sale la exportación de `10-crm/` —Salesforce, HubSpot u otro, en CSV o Excel— y, si es otro, qué columna trae cada dato, la tabla de etapas de `00-referencia/` con el documento que exige cada una y su probabilidad, cuántos días sin actividad detienen una oportunidad y cuántas veces puede correrse un cierre | Entidad y NIT o RFC, país, el periodo, la matriz de descuentos, el plan de comisiones y la tabla de cuentas de `00-referencia/`, dónde están las fichas de los contratos de Fidel y las de la facturación de Clara, y en cuántos días se factura un contrato firmado |
+| **Qué le tienes que decir** | Entidad y su identificación fiscal, país, el periodo, de qué CRM sale la exportación de `10-crm/` —Salesforce, HubSpot, Dynamics 365, Zoho u otro, en CSV o Excel— y, si es otro, qué columna trae cada dato, la tabla de etapas de `00-referencia/` con el documento que exige cada una y su probabilidad, cuántos días sin actividad detienen una oportunidad y cuántas veces puede correrse un cierre | Entidad y su identificación fiscal, país, el periodo, la matriz de descuentos, el plan de comisiones y la tabla de cuentas de `00-referencia/`, dónde están las fichas de los contratos de Fidel y las de la facturación de Clara, y en cuántos días se factura un contrato firmado |
 | **Dónde queda** | `.criterio/comercial/<entidad>/config.json`, escrito por el comando | `.criterio/ingresos/<entidad>/config.json`, escrito por el comando |
 | **El que se le pone a un reloj** | `/criterio-sales:sales-wake` | `/criterio-revenue:revenue-wake` |
 | **Qué toca cada día** | Decide qué toca: una exportación nueva en `10-crm/`, un acta nueva del comité, el cierre del periodo que se acerca y una revisión semanal | Decide qué toca: cotizaciones nuevas, una oportunidad ganada sin contrato ni factura cuando vence su plazo, la liquidación del periodo cuando llega y una revisión semanal |
@@ -290,8 +290,8 @@ es lo que la declara probada, y sale con la 0.2.0. Laboratorio o estable lo dice
 <!-- cso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Augusto** · El pronóstico | `criterio-sales` · 6 comandos, 4 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 1 · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · De la venta a la factura | `criterio-revenue` · 6 comandos, 6 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 1 · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · El pronóstico | `criterio-sales` · 6 comandos, 4 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · De la venta a la factura | `criterio-revenue` · 6 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cso:estado -->
 

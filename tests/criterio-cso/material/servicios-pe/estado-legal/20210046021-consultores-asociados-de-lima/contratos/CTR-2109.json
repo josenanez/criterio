@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2109",
+  "counterparty": {
+    "name": "Proveedor 2100 S.A.C.",
+    "id": "20210009001"
+  },
+  "value": 120000,
+  "start": "2026-09-05",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-05",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2109/10-contrato/contrato.pdf"
+}

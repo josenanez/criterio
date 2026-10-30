@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2309",
+  "counterparty": {
+    "name": "Proveedor 2300 SpA",
+    "id": "79002300-5"
+  },
+  "value": 48000000,
+  "start": "2026-09-05",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-05",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2309/10-contrato/contrato.pdf"
+}

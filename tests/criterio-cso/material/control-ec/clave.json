@@ -1,0 +1,158 @@
+{
+  "entidad": "Comercial Control del Ecuador",
+  "industria": "retail",
+  "pais": "EC",
+  "crm": "salesforce-informe",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "1790000028001",
+        "name": "Comercial Control del Ecuador",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "comercial/1790000028001-comercial-control-del-ecuador",
+        "state": "estado-comercial/1790000028001-comercial-control-del-ecuador"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "salesforce",
+        "columns": {},
+        "date_order": "mdy"
+      },
+      "thresholds": {}
+    },
+    "valeria": {
+      "entity": {
+        "id": "1790000028001",
+        "name": "Comercial Control del Ecuador",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "comercial/1790000028001-comercial-control-del-ecuador",
+        "state": "estado-comercial/1790000028001-comercial-control-del-ecuador"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "salesforce",
+        "columns": {},
+        "date_order": "mdy"
+      },
+      "thresholds": {},
+      "revenue": {
+        "contract_records": "estado-legal/1790000028001-comercial-control-del-ecuador/contratos",
+        "invoice_records": "estado-finanzas/1790000028001-comercial-control-del-ecuador",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-1901",
+          "type": "propuesta",
+          "amount": 129600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1901_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1901",
+          "type": "orden_compra",
+          "amount": 120000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-1901_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1902",
+          "type": "propuesta",
+          "amount": 194400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1902_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1902",
+          "type": "orden_compra",
+          "amount": 180000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-1902_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1903",
+          "type": "propuesta",
+          "amount": 270000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1903_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1903",
+          "type": "orden_compra",
+          "amount": 250000,
+          "date": "2026-10-28",
+          "source": "30-evidencia/OPP-1903_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1904",
+          "type": "propuesta",
+          "amount": 97200,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1904_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1907",
+          "type": "propuesta",
+          "amount": 118800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1907_propuesta.md"
+        }
+      ],
+      "declared_forecast": {
+        "value": 315000,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-1901",
+          "opportunity": "OPP-1901",
+          "list_amount": 134000,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-1901_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1902",
+          "opportunity": "OPP-1902",
+          "list_amount": 220000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-1902_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1903",
+          "opportunity": "OPP-1903",
+          "list_amount": 290000,
+          "discount_pct": 14,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-1903_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

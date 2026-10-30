@@ -35,7 +35,7 @@ import ventas as V  # noqa: E402
 
 MATERIAL = AQUI / "material"
 FORMATO = {"salesforce-api": "salesforce", "salesforce-informe": "salesforce", "hubspot-csv": "hubspot", "hubspot-xlsx": "hubspot",
-           "generico-csv": "generico", "generico-xlsx": "generico"}
+           "generico-csv": "generico", "generico-xlsx": "generico", "dynamics-xlsx": "dynamics", "zoho-csv": "zoho", "zoho-xlsx": "zoho"}
 
 
 def evaluar(carpeta: Path) -> dict:

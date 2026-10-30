@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1730",
+  "counterparty": {
+    "name": "Cliente Comercial 1752 S.A.",
+    "id": "1791700104001"
+  },
+  "value": 45000,
+  "start": "2026-09-08",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-08",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1730/10-contrato/contrato.pdf"
+}

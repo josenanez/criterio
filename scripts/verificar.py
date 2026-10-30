@@ -15,6 +15,7 @@ dependencia, la propiedad que hace auditable a este repositorio se habría roto.
 from __future__ import annotations
 
 import argparse
+import shutil
 import subprocess
 import sys
 import time
@@ -200,6 +201,11 @@ def main() -> int:
 
     print("\nCriterio · verificación completa")
     print("La librería estándar y nada más.\n")
+    # El extracto bancario en PDF del material de la CFO se lee con pdftotext, de poppler, como lo
+    # lee el motor en el equipo de quien lo usa. Sin él, esas puertas fallan y aquí se dice por qué.
+    if not shutil.which("pdftotext"):
+        print(color("Falta pdftotext (poppler): las puertas que leen un PDF van a fallar. "
+                    "Instálalo con `brew install poppler` (macOS) o `apt install poppler-utils` (Linux).\n", ROJO))
 
     resultados, seccion = [], None
     for nombre, cmd, porque in PUERTAS:

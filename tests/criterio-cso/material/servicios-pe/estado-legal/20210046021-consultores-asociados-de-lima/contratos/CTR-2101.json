@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2101",
+  "counterparty": {
+    "name": "Financiera Inca S.A.",
+    "id": "20210001001"
+  },
+  "value": 360000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2101/10-contrato/contrato.pdf"
+}

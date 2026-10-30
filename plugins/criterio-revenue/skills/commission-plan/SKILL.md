@@ -15,7 +15,7 @@ Lo que da el plan es la suma, oportunidad por oportunidad, de su monto por la ta
 
 `50-comisiones/liquidacion-<AAAA-MM>` trae lo que se liquidó a cada responsable. `commission_differs_from_plan` se levanta cuando la diferencia supera `commission_tolerance` (1 por omisión), hacia arriba o hacia abajo, y cuando el plan da una comisión que la liquidación no trae.
 
-El responsable es el de la oportunidad en el CRM —`OwnerId` en Salesforce, `Deal owner` en HubSpot—, y la liquidación lo nombra igual. Si lo nombra de otra forma, se dice; no se emparejan por parecido.
+El responsable es el de la oportunidad en el CRM —`OwnerId` en Salesforce, `Deal owner` en HubSpot, `Owner` en Dynamics, `Deal Owner` en Zoho—, y la liquidación lo nombra igual. Si lo nombra de otra forma, se dice; no se emparejan por parecido.
 
 ## Por qué no se publica
 

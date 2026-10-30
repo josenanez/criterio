@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2102",
+  "counterparty": {
+    "name": "Clínica San Borja S.A.C.",
+    "id": "20210001019"
+  },
+  "value": 540000,
+  "start": "2026-10-24",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-24",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2102/10-contrato/contrato.pdf"
+}

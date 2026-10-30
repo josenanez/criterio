@@ -1,0 +1,335 @@
+{
+  "entidad": "Industrias del Rímac",
+  "industria": "manufactura",
+  "pais": "PE",
+  "crm": "salesforce-api",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [
+    "cierre_historial",
+    "etapa_sin_evidencia",
+    "descuento_fuera_de_matriz",
+    "ganado_sin_contrato",
+    "pronostico_sin_respaldo"
+  ],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "20210045016",
+        "name": "Industrias del Rímac",
+        "country": "PE",
+        "currency": "PEN"
+      },
+      "paths": {
+        "documents": "comercial/20210045016-industrias-del-rimac",
+        "state": "estado-comercial/20210045016-industrias-del-rimac"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "salesforce",
+        "columns": {},
+        "date_order": "dmy"
+      },
+      "thresholds": {}
+    },
+    "valeria": {
+      "entity": {
+        "id": "20210045016",
+        "name": "Industrias del Rímac",
+        "country": "PE",
+        "currency": "PEN"
+      },
+      "paths": {
+        "documents": "comercial/20210045016-industrias-del-rimac",
+        "state": "estado-comercial/20210045016-industrias-del-rimac"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "salesforce",
+        "columns": {},
+        "date_order": "dmy"
+      },
+      "thresholds": {},
+      "revenue": {
+        "contract_records": "estado-legal/20210045016-industrias-del-rimac/contratos",
+        "invoice_records": "estado-finanzas/20210045016-industrias-del-rimac",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-2001",
+          "type": "propuesta",
+          "amount": 518400,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2001_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2001",
+          "type": "orden_compra",
+          "amount": 480000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-2001_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-2002",
+          "type": "propuesta",
+          "amount": 777600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2002_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2002",
+          "type": "orden_compra",
+          "amount": 720000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-2002_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-2003",
+          "type": "propuesta",
+          "amount": 1080000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2003_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2004",
+          "type": "propuesta",
+          "amount": 388800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2004_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2007",
+          "type": "propuesta",
+          "amount": 475200,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2007_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2008",
+          "type": "propuesta",
+          "amount": 216000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2008_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2008",
+          "type": "orden_compra",
+          "amount": 200000,
+          "date": "2026-10-05",
+          "source": "30-evidencia/OPP-2008_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-2020",
+          "type": "propuesta",
+          "amount": 345600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2020_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2021",
+          "type": "propuesta",
+          "amount": 388800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2021_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2022",
+          "type": "propuesta",
+          "amount": 432000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2022_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2029",
+          "type": "propuesta",
+          "amount": 432000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2029_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2030",
+          "type": "propuesta",
+          "amount": 475200,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2030_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2031",
+          "type": "propuesta",
+          "amount": 129600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2031_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2031",
+          "type": "orden_compra",
+          "amount": 120000,
+          "date": "2026-10-06",
+          "source": "30-evidencia/OPP-2031_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-2032",
+          "type": "propuesta",
+          "amount": 172800,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-2032_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-2032",
+          "type": "orden_compra",
+          "amount": 160000,
+          "date": "2026-10-07",
+          "source": "30-evidencia/OPP-2032_orden-compra.pdf"
+        }
+      ],
+      "declared_forecast": {
+        "value": 2520000,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-2001",
+          "opportunity": "OPP-2001",
+          "list_amount": 536000,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-2001_cotizacion.pdf"
+        },
+        {
+          "id": "COT-2002",
+          "opportunity": "OPP-2002",
+          "list_amount": 880000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-2002_cotizacion.pdf"
+        },
+        {
+          "id": "COT-2003",
+          "opportunity": "OPP-2003",
+          "list_amount": 1160000,
+          "discount_pct": 35,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-2003_cotizacion.pdf"
+        },
+        {
+          "id": "COT-2004",
+          "opportunity": "OPP-2029",
+          "list_amount": 440000,
+          "discount_pct": 35,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-2004_cotizacion.pdf"
+        },
+        {
+          "id": "COT-2005",
+          "opportunity": "OPP-2030",
+          "list_amount": 480000,
+          "discount_pct": 35,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-2005_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-2007"
+    },
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-2026"
+    },
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-2027"
+    },
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-2028"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-2003"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-2004"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-2005"
+    },
+    {
+      "signal": "forecast_unsupported",
+      "key": "pronostico:2026-10"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-2030"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-2031"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-2003"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-2020"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-2021"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-2022"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-2023"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-2024"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-2025"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-2008"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-2031"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-2032"
+    }
+  ]
+}

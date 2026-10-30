@@ -73,7 +73,7 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 
 | Skill | Qué encapsula | De quién es |
 |---|---|---|
-| `crm-exports` | Cómo se procesa cada exportación del CRM: Salesforce por sus nombres de campo o sus etiquetas, HubSpot por sus propiedades, y cualquier CSV o Excel con su mapeo de columnas; la tabla de etapas y el historial de la fecha de cierre | Propio · también en Valeria |
+| `crm-exports` | Cómo se procesa cada exportación del CRM: Salesforce por sus nombres de campo o sus etiquetas, HubSpot por sus propiedades, Dynamics 365 y Zoho por sus columnas, y cualquier CSV o Excel con su mapeo de columnas; la tabla de etapas y el historial de la fecha de cierre | Propio · también en Valeria |
 | `forecast-backing` | El pronóstico ponderado por etapa con y sin evidencia, la meta prorrateada por los días del periodo y por qué nunca se compara a las personas | Propio |
 | `pipeline-record` | La ficha del periodo de Augusto: cada documento de evidencia con su oportunidad, su tipo, su monto y su fecha, y el pronóstico comprometido del acta del comité, cada dato con su cita | Propio |
 | `sales-intake` | La estructura recomendada de la carpeta comercial, qué va en cada carpeta y qué agente la usa, y cómo se nombran las exportaciones y la evidencia | Propio · también en Valeria |

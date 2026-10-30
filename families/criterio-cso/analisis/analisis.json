@@ -2,7 +2,7 @@
  "meta": {
   "generado_desde": "tests/evidencias/familias/cso",
   "ultima_ronda": 1,
-  "completa": true,
+  "completa": false,
   "rondas": [
    1
   ]
@@ -16,11 +16,11 @@
    },
    "parrafos": {
     "es": [
-     "La ronda completa más reciente, la 1, sobre las 6 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 30 de 30 datos extraídos bien (100 %, margen del 95 %: 88,6–100 %); y 2 de 2 entidades de control sin ninguna señal.",
+     "La ronda más reciente, la 1, parcial, sobre 6 de las 15 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 30 de 30 datos extraídos bien (100 %, margen del 95 %: 88,6–100 %); y 2 de 2 entidades de control sin ninguna señal.",
      "Sumando las rondas 1–1, 111 de 119 señales encontradas, 2 de más y 50 de 50 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent complete round, round 1, on the material's 6 entities: 80 of 80 seeded signals found (95% margin: 95.4–100%) and 0 extra; 30 of 30 data items extracted right (100%, 95% margin: 88.6–100%); and 2 of 2 control entities with no signal at all.",
+     "The most recent round, round 1, partial, on 6 of the material's 15 entities: 80 of 80 seeded signals found (95% margin: 95.4–100%) and 0 extra; 30 of 30 data items extracted right (100%, 95% margin: 88.6–100%); and 2 of 2 control entities with no signal at all.",
      "Across rounds 1–1, 111 of 119 signals found, 2 extra and 50 of 50 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
@@ -46,7 +46,7 @@
      "es": [
       [
        "Rondas",
-       "1; la completa más reciente es la 1"
+       "1; la más reciente, la 1, es parcial"
       ],
       [
        "Material",
@@ -72,7 +72,7 @@
      "en": [
       [
        "Rounds",
-       "1; the most recent complete one is round 1"
+       "1; the most recent, round 1, is partial"
       ],
       [
        "Material",
@@ -244,13 +244,21 @@
       ]
      ]
     }
+   },
+   "parrafos": {
+    "es": [
+     "Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes."
+    ],
+    "en": [
+     "A round that does not run every entity is partial: the first, small one, before the complete one, or a verification round, which repeats the runs a fixed defect left pending."
+    ]
    }
   },
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda completa más reciente · ronda 1",
-    "en": "The most recent complete round · round 1"
+    "es": "La ronda más reciente · ronda 1",
+    "en": "The most recent round · round 1"
    },
    "tabla": {
     "cab": {

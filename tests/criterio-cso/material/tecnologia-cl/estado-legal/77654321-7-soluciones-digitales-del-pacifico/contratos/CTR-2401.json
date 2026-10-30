@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2401",
+  "counterparty": {
+    "name": "Banco Cordillera S.A.",
+    "id": "78024000-8"
+  },
+  "value": 108000000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2401/10-contrato/contrato.pdf"
+}

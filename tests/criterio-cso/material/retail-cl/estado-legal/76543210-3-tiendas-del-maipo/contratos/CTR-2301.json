@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2301",
+  "counterparty": {
+    "name": "Supermercados Austral S.A.",
+    "id": "78023000-2"
+  },
+  "value": 144000000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2301/10-contrato/contrato.pdf"
+}

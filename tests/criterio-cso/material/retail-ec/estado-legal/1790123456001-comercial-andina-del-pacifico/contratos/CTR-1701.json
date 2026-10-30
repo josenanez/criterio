@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1701",
+  "counterparty": {
+    "name": "Supermercados Sierra S.A.",
+    "id": "1791700007001"
+  },
+  "value": 180000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1701/10-contrato/contrato.pdf"
+}

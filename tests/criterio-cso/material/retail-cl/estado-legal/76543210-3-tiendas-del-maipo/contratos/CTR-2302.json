@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2302",
+  "counterparty": {
+    "name": "Distribuidora Biobío SpA",
+    "id": "78023001-0"
+  },
+  "value": 216000000,
+  "start": "2026-10-24",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-24",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2302/10-contrato/contrato.pdf"
+}

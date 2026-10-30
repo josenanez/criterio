@@ -72,7 +72,7 @@ They load on their own when the subject comes up. They are the knowledge the com
 
 | Skill | What it encapsulates | Whose it is |
 |---|---|---|
-| `crm-exports` | How each CRM export is processed: Salesforce by its field names or labels, HubSpot by its properties, and any CSV or Excel with its column mapping; the stage table and the close-date history | Own · also in Valeria |
+| `crm-exports` | How each CRM export is processed: Salesforce by its field names or labels, HubSpot by its properties, Dynamics 365 and Zoho by their columns, and any CSV or Excel with its column mapping; the stage table and the close-date history | Own · also in Valeria |
 | `forecast-backing` | The stage-weighted forecast with and without evidence, the target prorated by the days in the period, and why people are never compared | Own |
 | `pipeline-record` | Augusto's period record: every evidence document with its opportunity, type, amount and date, and the committed forecast from the committee minutes, every data point with its citation | Own |
 | `sales-intake` | The recommended structure of the sales folder, what goes in each folder and which agent uses it, and how exports and evidence are named | Own · also in Valeria |

@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2501",
+  "counterparty": {
+    "name": "Cliente Control Santiago SpA",
+    "id": "78025000-3"
+  },
+  "value": 96000000,
+  "start": "2026-10-13",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-13",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2501/10-contrato/contrato.pdf"
+}

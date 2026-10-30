@@ -25,6 +25,10 @@ ella hasta verificarla ([ADR 0019](../../docs/decisions/0019-scope-comercial-cso
 | F-03 | Salesforce · Object Reference · OpportunityFieldHistory | La página de la versión 192.0 de la referencia | [developer.salesforce.com](https://developer.salesforce.com/docs/atlas.en-us.192.0.object_reference.meta/object_reference/sforce_api_objects_opportunityfieldhistory.htm) | 2026-10-28 | Verificada: El historial de campos de una oportunidad: el campo que cambió, el valor anterior y el nuevo. Se consultó la página de la versión 192.0, que avisa que hay una más nueva; se vuelve a consultar la vigente antes de liberar el lector | Las veces que se corrió la fecha de cierre, cuando el CRM exporta el historial |
 | F-04 | HubSpot · HubSpot's default deal properties | Artículo actualizado el 29 de septiembre de 2026 | [knowledge.hubspot.com](https://knowledge.hubspot.com/properties/hubspots-default-deal-properties) | 2026-10-28 | Verificada: Las propiedades por omisión de un negocio con su etiqueta, que es la cabecera de la exportación. El artículo no da el nombre interno de cada una. La cuenta asociada sale en su propia columna (F-05), con un nombre que el artículo no fija: la configuración dice cuál es | El lector de la exportación de negocios de HubSpot |
 | F-05 | HubSpot · Export records | Artículo actualizado el 2 de abril de 2026 | [knowledge.hubspot.com](https://knowledge.hubspot.com/import-and-export/export-records) | 2026-10-28 | Verificada: La exportación sale en CSV, XLSX o XLS; cada objeto asociado va en su propia columna, con el id y el nombre del registro asociado. El lector procesa CSV y XLSX | Los formatos de la exportación de HubSpot y la columna de la cuenta asociada |
+| F-06 | Microsoft · Dynamics 365 · Opportunity table/entity reference | Página actualizada el 19 de septiembre de 2026 | [learn.microsoft.com](https://learn.microsoft.com/en-ca/dynamics365/developer/reference/entities/opportunity) | 2026-10-30 | Verificada: El nombre lógico de cada columna de la oportunidad, su etiqueta, su tipo y, en las listas, el valor y la etiqueta de cada opción. statecode: 0 Open, 1 Won, 2 Lost; salesstage: Qualify, Develop, Propose, Close; msdyn_forecastcategory: Pipeline, Best case, Committed, Omitted, Won, Lost. La etapa del proceso de cada organización va en stepname («Pipeline Phase») | El lector de la exportación de oportunidades de Dynamics 365 Sales |
+| F-07 | Microsoft · Power Apps · Export data to Excel | Página actualizada el 5 de agosto de 2025 | [learn.microsoft.com](https://learn.microsoft.com/en-us/power-apps/user/export-data-excel) | 2026-10-30 | Verificada: La exportación sale en .xlsx, en el formato que se ve en la aplicación: una fecha sale como fecha, sin la hora; una moneda, como número, sin el símbolo; un número, sin separador de miles. La fuente no dice si la cabecera es la etiqueta de la columna: el lector acepta la etiqueta y el nombre lógico, y el setup puede mapear cualquier otra | El formato de la exportación de Dynamics 365 Sales |
+| F-08 | Zoho CRM · Standard Fields in Deals | La página publicada al 30 de octubre de 2026; no muestra fecha de actualización | [help.zoho.com](https://help.zoho.com/portal/kb/articles/standard-fields-deals) | 2026-10-30 | Verificada: Los campos estándar del módulo de negocios con su etiqueta y su tipo. Deal Name, Account Name, Closing Date y Stage son obligatorios. La última actividad no está en la lista: si la exportación la trae, la dice el mapeo del setup | El lector de la exportación de negocios de Zoho CRM |
+| F-09 | Zoho CRM · Export CRM Data | La página publicada al 30 de octubre de 2026; no muestra fecha de actualización | [help.zoho.com](https://help.zoho.com/portal/en/kb/crm/data-administration/export-data/articles/export-crm-data) | 2026-10-30 | Verificada: Cada módulo se exporta en CSV (hasta 200.000 registros) o XLSX (hasta 50.000), con los campos del módulo y de hasta cinco módulos relacionados; el id del registro va en la exportación salvo que quien exporta lo excluya. La fuente no fija el formato de la fecha: lo resuelve el lector con `crm.date_order` | Los formatos de la exportación de Zoho CRM y su id de registro |
 
 ## Los campos que procesa el motor
 
@@ -75,6 +79,40 @@ puerta falla si el motor usa uno que no está, o uno por verificar.
 | Deal probability | la probabilidad de cerrar | Verificado |
 | Forecast category | Not forecasted, Pipeline, Best case, Commit o Closed won | Verificado |
 | Currency | la moneda del valor del negocio | Verificado |
+
+**F-06 · Microsoft · Dynamics 365 · Opportunity table/entity reference**
+
+| Id | Campo | Estado |
+|---|---|---|
+| opportunityid | el identificador único de la oportunidad («Opportunity») | Verificado |
+| name | el tema de la oportunidad («Topic») | Verificado |
+| parentaccountid | la cuenta («Account»); customerid es el cliente potencial («Potential Customer»), cuenta o contacto | Verificado |
+| estimatedvalue | el ingreso estimado («Est. revenue») | Verificado |
+| estimatedclosedate | la fecha estimada de cierre («Est. close date»), solo fecha | Verificado |
+| stepname | la fase del proceso de venta («Pipeline Phase»), texto | Verificado |
+| statecode | el estado («Status»): Open, Won o Lost | Verificado |
+| closeprobability | la probabilidad («Probability»), de 0 a 100 | Verificado |
+| msdyn_forecastcategory | la categoría del pronóstico («Forecast category») | Verificado |
+| ownerid | el propietario («Owner»), un usuario o un equipo | Verificado |
+| transactioncurrencyid | la moneda («Currency») | Verificado |
+
+**F-08 · Zoho CRM · Standard Fields in Deals**
+
+| Id | Campo | Estado |
+|---|---|---|
+| Deal Name | el nombre del negocio, obligatorio | Verificado |
+| Account Name | la cuenta del negocio, obligatoria | Verificado |
+| Amount | el valor esperado cuando se cierre | Verificado |
+| Closing Date | la fecha esperada de cierre, obligatoria | Verificado |
+| Stage | la etapa de venta, obligatoria | Verificado |
+| Probability | la probabilidad de ganarlo | Verificado |
+| Deal Owner | el usuario a quien está asignado | Verificado |
+
+**F-09 · Zoho CRM · Export CRM Data**
+
+| Id | Campo | Estado |
+|---|---|---|
+| Record ID | el id del registro, salvo que se excluya de la exportación | Verificado |
 
 ## Cifras de terceros
 

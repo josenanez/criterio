@@ -1,0 +1,20 @@
+Record ID,Deal Name,Account Name,Amount,Closing Date,Stage,Probability,Deal Owner,Last Activity Time,Contact Name
+OPP-1801,Renovación de licencias,Banco del Litoral S.A.,144000.00,10/10/2026,Ganada,100,Andrés Mosquera,10/10/2026 10:30,Contacto 1
+OPP-1802,Proyecto de expansión,Seguros Equinoccio S.A.,216000.00,22/10/2026,Ganada,100,Valeria Zambrano,22/10/2026 10:30,Contacto 2
+OPP-1803,Suministro anual,Telecomunicaciones Austro S.A.,300000.00,20/11/2026,Compromiso,80,Hugo Paredes,30/10/2026 10:30,Contacto 3
+OPP-1804,Servicio de soporte,Universidad del Pacífico,108000.00,15/12/2026,Propuesta,30,Andrés Mosquera,29/10/2026 10:30,Contacto 4
+OPP-1805,Ampliación de contrato,Logística Portuaria S.A.,84000.00,20/12/2026,Calificación,10,Valeria Zambrano,12/09/2026 10:30,Contacto 5
+OPP-1806,Piloto regional,Eléctrica Andina S.A.,72000.00,28/10/2026,Perdida,0,Hugo Paredes,28/10/2026 10:30,Contacto 6
+OPP-1807,Implementación por fases,Laboratorios Amazonía S.A.,132000.00,18/12/2026,Negociación,60,Andrés Mosquera,31/10/2026 10:30,Contacto 7
+OPP-1820,Pedido marco 20,Laboratorios Amazonía S.A.,96000.00,12/12/2026,Compromiso,80,Andrés Mosquera,30/10/2026 10:30,Contacto 7
+OPP-1821,Pedido marco 21,Banco del Litoral S.A.,108000.00,12/12/2026,Compromiso,80,Andrés Mosquera,30/10/2026 10:30,Contacto 1
+OPP-1822,Pedido marco 22,Seguros Equinoccio S.A.,120000.00,12/12/2026,Compromiso,80,Andrés Mosquera,30/10/2026 10:30,Contacto 2
+OPP-1823,Prospecto 23,Telecomunicaciones Austro S.A.,96000.00,18/12/2026,Calificación,10,Valeria Zambrano,05/09/2026 10:30,Contacto 3
+OPP-1824,Prospecto 24,Universidad del Pacífico,60000.00,18/12/2026,Calificación,10,Valeria Zambrano,05/09/2026 10:30,Contacto 4
+OPP-1825,Prospecto 25,Logística Portuaria S.A.,72000.00,18/12/2026,Calificación,10,Valeria Zambrano,05/09/2026 10:30,Contacto 5
+OPP-1826,Licencias adicionales 26,Eléctrica Andina S.A.,96000.00,18/12/2026,Calificación,10,Andrés Mosquera,31/10/2026 10:30,Contacto 6
+OPP-1827,Licencias adicionales 27,Laboratorios Amazonía S.A.,72000.00,18/12/2026,Calificación,10,Andrés Mosquera,31/10/2026 10:30,Contacto 7
+OPP-1828,Licencias adicionales 28,Banco del Litoral S.A.,84000.00,18/12/2026,Calificación,10,Andrés Mosquera,31/10/2026 10:30,Contacto 1
+OPP-1829,Cotización especial 29,Seguros Equinoccio S.A.,120000.00,10/12/2026,Negociación,60,Valeria Zambrano,29/10/2026 10:30,Contacto 2
+OPP-1830,Cotización especial 30,Telecomunicaciones Austro S.A.,132000.00,10/12/2026,Negociación,60,Valeria Zambrano,29/10/2026 10:30,Contacto 3
+OPP-1831,Venta directa 31,Cliente Comercial 1850 S.A.,36000.00,06/10/2026,Ganada,100,Hugo Paredes,06/10/2026 10:30,Contacto 8

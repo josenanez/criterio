@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2203",
+  "counterparty": {
+    "name": "Cliente Control Cusco S.A.C.",
+    "id": "20220001041"
+  },
+  "value": 125000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2203/10-contrato/contrato.pdf"
+}

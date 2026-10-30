@@ -1,0 +1,22 @@
+Id,Name,AccountId,Amount,CloseDate,StageName,Probability,IsClosed,IsWon,LastActivityDate,OwnerId,CreatedDate,Contact_Email__c
+OPP-2001,Renovación de licencias,001A0000200000AaQZ,480000.00,2026-10-10,Ganada,100,true,true,2026-10-10,005A0000carmen,2026-08-15T10:00:00.000Z,compras@minera_andah.com
+OPP-2002,Proyecto de expansión,001A0000200001AaQZ,720000.00,2026-10-22,Ganada,100,true,true,2026-10-22,005A0000javier,2026-08-15T10:00:00.000Z,compras@pesquera_del.com
+OPP-2003,Suministro anual,001A0000200002AaQZ,1000000.00,2026-11-20,Compromiso,80,false,false,2026-10-30,005A0000lorena,2026-08-15T10:00:00.000Z,compras@constructora.com
+OPP-2004,Servicio de soporte,001A0000200003AaQZ,360000.00,2026-12-15,Propuesta,30,false,false,2026-10-29,005A0000carmen,2026-08-15T10:00:00.000Z,compras@agroexportad.com
+OPP-2005,Ampliación de contrato,001A0000200004AaQZ,280000.00,2026-12-20,Calificación,10,false,false,2026-10-27,005A0000javier,2026-08-15T10:00:00.000Z,compras@textiles_gam.com
+OPP-2006,Piloto regional,001A0000200005AaQZ,240000.00,2026-10-28,Perdida,0,true,false,2026-10-28,005A0000lorena,2026-08-15T10:00:00.000Z,compras@cementos_del.com
+OPP-2007,Implementación por fases,001A0000200006AaQZ,440000.00,2026-12-18,Negociación,60,false,false,2026-10-31,005A0000carmen,2026-08-15T10:00:00.000Z,compras@envases_call.com
+OPP-2008,Venta de equipos,001A0000200002AaQZ,200000.00,2026-10-05,Ganada,100,true,true,2026-10-05,005A0000lorena,2026-08-15T10:00:00.000Z,compras@constructora.com
+OPP-2020,Pedido marco 20,001A0000200006AaQZ,320000.00,2026-12-12,Compromiso,80,false,false,2026-10-30,005A0000carmen,2026-08-15T10:00:00.000Z,compras@envases_call.com
+OPP-2021,Pedido marco 21,001A0000200000AaQZ,360000.00,2026-12-12,Compromiso,80,false,false,2026-10-30,005A0000carmen,2026-08-15T10:00:00.000Z,compras@minera_andah.com
+OPP-2022,Pedido marco 22,001A0000200001AaQZ,400000.00,2026-12-12,Compromiso,80,false,false,2026-10-30,005A0000carmen,2026-08-15T10:00:00.000Z,compras@pesquera_del.com
+OPP-2023,Prospecto 23,001A0000200002AaQZ,320000.00,2026-12-18,Calificación,10,false,false,2026-09-05,005A0000javier,2026-08-15T10:00:00.000Z,compras@constructora.com
+OPP-2024,Prospecto 24,001A0000200003AaQZ,200000.00,2026-12-18,Calificación,10,false,false,2026-09-05,005A0000javier,2026-08-15T10:00:00.000Z,compras@agroexportad.com
+OPP-2025,Prospecto 25,001A0000200004AaQZ,240000.00,2026-12-18,Calificación,10,false,false,2026-09-05,005A0000javier,2026-08-15T10:00:00.000Z,compras@textiles_gam.com
+OPP-2026,Renovación anual 26,001A0000200005AaQZ,320000.00,2026-12-20,Calificación,10,false,false,2026-10-31,005A0000carmen,2026-08-15T10:00:00.000Z,compras@cementos_del.com
+OPP-2027,Renovación anual 27,001A0000200006AaQZ,240000.00,2026-12-20,Calificación,10,false,false,2026-10-31,005A0000carmen,2026-08-15T10:00:00.000Z,compras@envases_call.com
+OPP-2028,Renovación anual 28,001A0000200000AaQZ,280000.00,2026-12-20,Calificación,10,false,false,2026-10-31,005A0000carmen,2026-08-15T10:00:00.000Z,compras@minera_andah.com
+OPP-2029,Cotización especial 29,001A0000200001AaQZ,400000.00,2026-12-10,Negociación,60,false,false,2026-10-29,005A0000javier,2026-08-15T10:00:00.000Z,compras@pesquera_del.com
+OPP-2030,Cotización especial 30,001A0000200002AaQZ,440000.00,2026-12-10,Negociación,60,false,false,2026-10-29,005A0000javier,2026-08-15T10:00:00.000Z,compras@constructora.com
+OPP-2031,Venta directa 31,001A0000200007AaQZ,120000.00,2026-10-06,Ganada,100,true,true,2026-10-06,005A0000lorena,2026-08-15T10:00:00.000Z,compras@cliente_come.com
+OPP-2032,Venta directa 32,001A0000200008AaQZ,160000.00,2026-10-07,Ganada,100,true,true,2026-10-07,005A0000lorena,2026-08-15T10:00:00.000Z,compras@cliente_come.com

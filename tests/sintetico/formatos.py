@@ -136,6 +136,57 @@ def _col(i: int) -> str:
     return s
 
 
+def a_xlsx_tipado(filas: list[list], destino: Path, hoja: str = "Hoja1") -> None:
+    """Un .xlsx con celdas tipadas, como lo exporta una aplicación y no una hoja escrita a mano: un
+    número va como número, una fecha (`datetime.date`) como fecha —su serie de Excel con el formato
+    de fecha corta— y lo demás como texto."""
+    import datetime as _dt
+    xml_filas = []
+    for r, fila in enumerate(filas, start=1):
+        celdas = []
+        for c, v in enumerate(fila):
+            ref = f"{_col(c)}{r}"
+            if isinstance(v, bool) or v is None or v == "":
+                if v not in (None, ""):
+                    celdas.append(f'<c r="{ref}" t="inlineStr"><is><t>{str(v).upper()}</t></is></c>')
+            elif isinstance(v, _dt.date):
+                celdas.append(f'<c r="{ref}" s="1"><v>{(v - _dt.date(1899, 12, 30)).days}</v></c>')
+            elif isinstance(v, (int, float)):
+                celdas.append(f'<c r="{ref}"><v>{v}</v></c>')
+            else:
+                celdas.append(f'<c r="{ref}" t="inlineStr"><is><t>{escape(str(v))}</t></is></c>')
+        xml_filas.append(f'<row r="{r}">{"".join(celdas)}</row>')
+    S = 'xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"'
+    R = 'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"'
+    with zipfile.ZipFile(destino, "w", zipfile.ZIP_DEFLATED) as z:
+        z.writestr(_fijo("[Content_Types].xml"),
+                   '<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+                   '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>'
+                   '<Default Extension="xml" ContentType="application/xml"/>'
+                   '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
+                   '<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>'
+                   '<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/></Types>')
+        z.writestr(_fijo("_rels/.rels"),
+                   '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+                   '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>')
+        z.writestr(_fijo("xl/workbook.xml"),
+                   f'<?xml version="1.0" encoding="UTF-8"?><workbook {S} {R}><sheets>'
+                   f'<sheet name="{escape(hoja)}" sheetId="1" r:id="rId1"/></sheets></workbook>')
+        z.writestr(_fijo("xl/_rels/workbook.xml.rels"),
+                   '<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+                   '<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>'
+                   '<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>')
+        # El estilo 1 es la fecha corta (numFmtId 14), el que lleva una celda de fecha.
+        z.writestr(_fijo("xl/styles.xml"),
+                   f'<?xml version="1.0" encoding="UTF-8"?><styleSheet {S}><fonts count="1"><font/></fonts>'
+                   '<fills count="1"><fill/></fills><borders count="1"><border/></borders>'
+                   '<cellStyleXfs count="1"><xf/></cellStyleXfs>'
+                   '<cellXfs count="2"><xf/><xf numFmtId="14" applyNumberFormat="1"/></cellXfs></styleSheet>')
+        z.writestr(_fijo("xl/worksheets/sheet1.xml"),
+                   f'<?xml version="1.0" encoding="UTF-8"?><worksheet {S}><sheetData>'
+                   f'{"".join(xml_filas)}</sheetData></worksheet>')
+
+
 def a_xlsx(csv_texto: str, destino: Path, hoja: str = "Cronograma") -> None:
     import csv
     filas = list(csv.reader(csv_texto.splitlines()))

@@ -215,7 +215,7 @@ identifiable people (ADR 0019).
 | **Instances** | One per entity | One per entity |
 | **Configured with** | `/criterio-sales:sales-setup` | `/criterio-revenue:revenue-setup` |
 | **How long that takes** | Fifteen minutes | Fifteen minutes |
-| **What you have to tell it** | Entity and NIT or RFC, country, the period, which CRM the export in `10-crm/` comes from —Salesforce, HubSpot or another, in CSV or Excel— and, if another, which column carries each field, the stage table in `00-referencia/` with the document each stage requires and its probability, how many days without activity stall an opportunity and how many times a close date may slip | Entity and NIT or RFC, country, the period, the discount matrix, the commission plan and the accounts table in `00-referencia/`, where Fidel's contract records and Clara's invoicing records are, and within how many days a signed contract is invoiced |
+| **What you have to tell it** | Entity and its tax ID, country, the period, which CRM the export in `10-crm/` comes from —Salesforce, HubSpot, Dynamics 365, Zoho or another, in CSV or Excel— and, if another, which column carries each field, the stage table in `00-referencia/` with the document each stage requires and its probability, how many days without activity stall an opportunity and how many times a close date may slip | Entity and its tax ID, country, the period, the discount matrix, the commission plan and the accounts table in `00-referencia/`, where Fidel's contract records and Clara's invoicing records are, and within how many days a signed contract is invoiced |
 | **Where it lands** | `.criterio/comercial/<entity>/config.json`, written by the command | `.criterio/ingresos/<entity>/config.json`, written by the command |
 | **The one you put on a clock** | `/criterio-sales:sales-wake` | `/criterio-revenue:revenue-wake` |
 | **What it does each day** | Decides what is due: a new export in `10-crm/`, new committee minutes, the period's end coming up and a weekly review | Decides what is due: new quotes, a won opportunity without a contract or an invoice when its deadline arrives, the period's settlement when it arrives and a weekly review |
@@ -290,8 +290,8 @@ is what declares it tested, and it comes with 0.2.0. Laboratory or stable is sai
 <!-- cso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Augusto** · The forecast | `criterio-sales` · 6 commands, 4 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · From sale to invoice | `criterio-revenue` · 6 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · The forecast | `criterio-sales` · 6 commands, 4 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · From sale to invoice | `criterio-revenue` · 6 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cso:estado -->
 

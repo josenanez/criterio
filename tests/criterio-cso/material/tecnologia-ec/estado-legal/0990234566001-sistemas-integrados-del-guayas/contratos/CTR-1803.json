@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1803",
+  "counterparty": {
+    "name": "Logística Portuaria S.A.",
+    "id": "1791800052001"
+  },
+  "value": 60000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1803/10-contrato/contrato.pdf"
+}

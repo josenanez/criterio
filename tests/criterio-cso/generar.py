@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""El material de prueba de la familia CSO: dos industrias por país y una entidad de control.
+"""El material de prueba de la familia CSO: dos industrias por país y una entidad de control, en
+Colombia, México, Ecuador, Perú y Chile.
 
     python3 tests/criterio-cso/generar.py          escribe tests/criterio-cso/material/
 
@@ -14,8 +15,11 @@ octubre. Trae también, como las dejarían los otros agentes, las fichas de los 
 (`estado-finanzas/`).
 
 Los formatos se reparten: Salesforce por API con su historial de campos, Salesforce desde un
-informe con las fechas mes/día, HubSpot en CSV y en Excel, y dos CRM cualquiera con su mapeo de
-columnas, uno en CSV y otro en Excel. Colombia y México, dos industrias y un control por país.
+informe con las fechas mes/día, HubSpot en CSV y en Excel, dos CRM cualquiera con su mapeo de
+columnas, uno en CSV y otro en Excel, Dynamics 365 Sales en su exportación a Excel —con la fecha
+como fecha y el monto como número, sin la última actividad— y Zoho CRM en CSV y en Excel, con la
+última actividad en una columna que dice el mapeo. Cada país trae dos industrias y un control, y
+cada formato nuevo está en una entidad de control.
 
 **La clave la escribe este archivo, no el motor.** Cada defecto se siembra a propósito y su señal
 esperada queda escrita en `clave.json`, junto con lo que el agente tendría que extraer de los
@@ -65,6 +69,47 @@ PROB = {e[0]: e[2] for e in ETAPAS}
 NIVELES = [("1", 10, "ninguno"), ("2", 20, "gerente comercial"), ("3", 30, "gerente general")]
 TASA = 3.0
 
+# Lo que cambia de un país a otro en el material: la forma de la sociedad de un cliente nuevo, el
+# prefijo de un teléfono y cómo se escribe una cifra. El IVA de cada factura sale del registro de países.
+FORMA = {"CO": "S.A.S.", "MX": "S.A. de C.V.", "EC": "S.A.", "PE": "S.A.C.", "CL": "SpA"}
+PREFIJO = {"CO": "+57 601", "MX": "+57 601", "EC": "+593 2", "PE": "+51 1", "CL": "+56 2"}
+SIMBOLO = {"PE": "S/"}
+
+
+def ruc_pe(tipo: int, semilla: int, i: int) -> str:
+    """Un RUC peruano ficticio de once dígitos con su dígito verificador por módulo 11, como el del
+    material de la CFO y la CLO. Ninguno corresponde a una empresa."""
+    base = f"{tipo:02d}{semilla:02d}{i:06d}"
+    r = 11 - sum(int(d) * w for d, w in zip(base, (5, 4, 3, 2, 7, 6, 5, 4, 3, 2))) % 11
+    return base + str({10: 0, 11: 1}.get(r, r))
+
+
+def rut(cuerpo: int) -> str:
+    """Un RUT chileno ficticio con su dígito verificador por módulo 11 (10 es K y 11 es 0), como el
+    del material de la CFO y la CLO. Ninguno corresponde a una empresa."""
+    total, f = 0, 2
+    for ch in reversed(str(cuerpo)):
+        total += int(ch) * f
+        f = 2 if f == 7 else f + 1
+    v = 11 - total % 11
+    return f"{cuerpo}-{ {10: 'K', 11: '0'}.get(v, str(v)) }"
+
+
+def ruc_ec(provincia: int, n: int, i: int = 0) -> str:
+    """Un RUC ecuatoriano ficticio de sociedad privada: la provincia, el 9, seis dígitos, el dígito
+    verificador por módulo 11 y el 001 del establecimiento. Un número cuyo dígito sería 10 no
+    existe: se salta, y el i-ésimo válido desde n es siempre el mismo y nunca se repite. Ninguno
+    corresponde a una empresa."""
+    while True:
+        base = f"{provincia:02d}9{n:06d}"
+        r = 11 - sum(int(c) * w for c, w in zip(base, (4, 3, 2, 7, 6, 5, 4, 3, 2))) % 11
+        if r != 10:
+            if i == 0:
+                return f"{base}{0 if r == 11 else r}001"
+            i -= 1
+        n += 1
+
+
 ENTIDADES = [
     {"carpeta": "retail-co", "industria": "retail", "pais": "CO", "id": "901234567", "nombre": "Almacenes del Valle", "moneda": "COP",
      "u": 10_000_000, "n0": 1100, "crm": "salesforce-api", "personas": ("Ana Ruiz", "Luis Mora", "Carla Peña"),
@@ -102,6 +147,57 @@ ENTIDADES = [
                   "Cliente Control Golfo S.A. de C.V.", "Cliente Control Pacífico S.A. de C.V.", "Cliente Control Bajío S.A. de C.V.",
                   "Cliente Control Occidente S.A. de C.V."],
      "siembra": []},
+    {"carpeta": "retail-ec", "industria": "retail", "pais": "EC", "id": ruc_ec(17, 12345), "nombre": "Comercial Andina del Pacífico", "moneda": "USD",
+     "u": 15_000, "n0": 1700, "crm": "dynamics-xlsx", "personas": ("Gabriela Andrade", "Esteban Villacís", "Rosa Cevallos"),
+     "clientes": ["Supermercados Sierra S.A.", "Distribuidora Costa Cía. Ltda.", "Farmacias del Valle S.A.", "Hoteles Galápagos S.A.",
+                  "Clínica Pichincha S.A.", "Unidad Educativa Andes", "Constructora Chimborazo S.A."],
+     "siembra": ["etapa_sin_evidencia", "detenida", "pronostico_sin_respaldo", "descuento_sin_aprobacion", "ganado_sin_contrato"],
+     "lote": {"etapa_sin_evidencia": 4, "detenida": 3, "descuento_sin_aprobacion": 2, "ganado_sin_contrato": 2, "firmado_sin_factura": 2}},
+    {"carpeta": "tecnologia-ec", "industria": "tecnologia", "pais": "EC", "id": ruc_ec(9, 23456), "nombre": "Sistemas Integrados del Guayas", "moneda": "USD",
+     "u": 12_000, "n0": 1800, "crm": "zoho-csv", "personas": ("Andrés Mosquera", "Valeria Zambrano", "Hugo Paredes"),
+     "clientes": ["Banco del Litoral S.A.", "Seguros Equinoccio S.A.", "Telecomunicaciones Austro S.A.", "Universidad del Pacífico",
+                  "Logística Portuaria S.A.", "Eléctrica Andina S.A.", "Laboratorios Amazonía S.A."],
+     "siembra": ["detenida", "meta_lejos", "firmado_sin_factura", "comision_distinta", "cierre_cortes"],
+     "lote": {"etapa_sin_evidencia": 3, "detenida": 3, "cierre_cortes": 3, "firmado_sin_factura": 3, "descuento_sin_aprobacion": 2, "ganado_sin_contrato": 1}},
+    {"carpeta": "control-ec", "industria": "retail", "pais": "EC", "id": ruc_ec(17, 2), "nombre": "Comercial Control del Ecuador", "moneda": "USD",
+     "u": 10_000, "n0": 1900, "crm": "salesforce-informe", "personas": ("Mónica Salazar", "Patricio León", "Silvia Vera"),
+     "clientes": ["Cliente Control Quito S.A.", "Cliente Control Guayaquil S.A.", "Cliente Control Cuenca S.A.", "Cliente Control Manta S.A.",
+                  "Cliente Control Loja S.A.", "Cliente Control Ambato S.A.", "Cliente Control Ibarra S.A."],
+     "siembra": []},
+    {"carpeta": "manufactura-pe", "industria": "manufactura", "pais": "PE", "id": ruc_pe(20, 21, 4501), "nombre": "Industrias del Rímac", "moneda": "PEN",
+     "u": 40_000, "n0": 2000, "crm": "salesforce-api", "personas": ("Carmen Quispe", "Javier Huamán", "Lorena Paz"),
+     "clientes": ["Minera Andahuaylas S.A.A.", "Pesquera del Sur S.A.C.", "Constructora Arequipa S.A.C.", "Agroexportadora Ica S.A.C.",
+                  "Textiles Gamarra S.A.C.", "Cementos del Norte S.A.A.", "Envases Callao S.A.C."],
+     "siembra": ["cierre_historial", "etapa_sin_evidencia", "descuento_fuera_de_matriz", "ganado_sin_contrato", "pronostico_sin_respaldo"],
+     "lote": {"etapa_sin_evidencia": 3, "detenida": 3, "cierre_historial": 3, "descuento_fuera_de_matriz": 2, "ganado_sin_contrato": 2, "firmado_sin_factura": 2}},
+    {"carpeta": "servicios-pe", "industria": "servicios", "pais": "PE", "id": ruc_pe(20, 21, 4602), "nombre": "Consultores Asociados de Lima", "moneda": "PEN",
+     "u": 30_000, "n0": 2100, "crm": "dynamics-xlsx", "personas": ("Ricardo Flores", "Milagros Torres", "César Rojas"),
+     "clientes": ["Financiera Inca S.A.", "Clínica San Borja S.A.C.", "Retail Miraflores S.A.C.", "Minera Cajamarca S.A.A.",
+                  "Transportes Lurín S.A.C.", "Alimentos Chiclayo S.A.C.", "Turismo Cusco S.A.C."],
+     "siembra": ["meta_lejos", "firmado_sin_factura", "comision_distinta", "cierre_cortes", "descuento_sin_aprobacion"],
+     "lote": {"etapa_sin_evidencia": 3, "detenida": 3, "cierre_cortes": 3, "ganado_sin_contrato": 2, "descuento_sin_aprobacion": 2, "firmado_sin_factura": 2}},
+    {"carpeta": "control-pe", "industria": "servicios", "pais": "PE", "id": ruc_pe(20, 21, 4703), "nombre": "Comercial Control del Perú", "moneda": "PEN",
+     "u": 25_000, "n0": 2200, "crm": "zoho-csv", "personas": ("Diana Mendoza", "Raúl Vargas", "Fiorella Ríos"),
+     "clientes": ["Cliente Control Lima S.A.C.", "Cliente Control Callao S.A.C.", "Cliente Control Trujillo S.A.C.", "Cliente Control Piura S.A.C.",
+                  "Cliente Control Cusco S.A.C.", "Cliente Control Tacna S.A.C.", "Cliente Control Iquitos S.A.C."],
+     "siembra": []},
+    {"carpeta": "retail-cl", "industria": "retail", "pais": "CL", "id": rut(76543210), "nombre": "Tiendas del Maipo", "moneda": "CLP",
+     "u": 12_000_000, "n0": 2300, "crm": "zoho-xlsx", "personas": ("Francisca Muñoz", "Tomás Contreras", "Josefina Rojas"),
+     "clientes": ["Supermercados Austral S.A.", "Distribuidora Biobío SpA", "Farmacias Valparaíso S.A.", "Hoteles Patagonia S.A.",
+                  "Clínica Providencia SpA", "Colegio Los Andes SpA", "Constructora Atacama S.A."],
+     "siembra": ["etapa_sin_evidencia", "detenida", "pronostico_sin_respaldo", "ganado_sin_contrato", "descuento_fuera_de_matriz"],
+     "lote": {"etapa_sin_evidencia": 4, "detenida": 3, "firmado_sin_factura": 3, "descuento_fuera_de_matriz": 2, "ganado_sin_contrato": 2}},
+    {"carpeta": "tecnologia-cl", "industria": "tecnologia", "pais": "CL", "id": rut(77654321), "nombre": "Soluciones Digitales del Pacífico", "moneda": "CLP",
+     "u": 9_000_000, "n0": 2400, "crm": "hubspot-csv", "personas": ("Ignacio Soto", "Camila Fuentes", "Matías Pérez"),
+     "clientes": ["Banco Cordillera S.A.", "Aseguradora Sur S.A.", "Telecomunicaciones Norte SpA", "Universidad del Maule",
+                  "Logística Antofagasta SpA", "Energía Solar Atacama S.A.", "Laboratorios Araucanía S.A."],
+     "siembra": ["meta_lejos", "comision_distinta", "cierre_cortes", "firmado_sin_factura", "descuento_sin_aprobacion"],
+     "lote": {"etapa_sin_evidencia": 3, "detenida": 3, "cierre_cortes": 3, "firmado_sin_factura": 2, "ganado_sin_contrato": 2, "descuento_sin_aprobacion": 2}},
+    {"carpeta": "control-cl", "industria": "retail", "pais": "CL", "id": rut(76000002), "nombre": "Comercial Control de Chile", "moneda": "CLP",
+     "u": 8_000_000, "n0": 2500, "crm": "dynamics-xlsx", "personas": ("Paula Sepúlveda", "Rodrigo Araya", "Constanza Vidal"),
+     "clientes": ["Cliente Control Santiago SpA", "Cliente Control Valparaíso SpA", "Cliente Control Concepción SpA", "Cliente Control Temuco SpA",
+                  "Cliente Control La Serena SpA", "Cliente Control Iquique SpA", "Cliente Control Puerto Montt SpA"],
+     "siembra": []},
 ]
 
 
@@ -110,7 +206,18 @@ def tid(e: dict, i: int) -> str:
     RFC de persona moral de doce posiciones. Ninguno corresponde a una empresa."""
     if e["pais"] == "MX":
         return f"C{e['carpeta'][:2].upper()}{10 + i:02d}0{1 + i % 9}{1 + i:02d}{chr(65 + i)}{i}{i % 7}"
+    if e["pais"] == "EC":
+        return ruc_ec(17, e["n0"] * 100, i)
+    if e["pais"] == "PE":
+        return ruc_pe(20, e["n0"] // 100, 100 + i)
+    if e["pais"] == "CL":
+        return rut(78000000 + e["n0"] * 10 + i)
     return f"{830000000 + e['n0'] * 10 + i}"
+
+
+def id_proveedor(e: dict) -> str:
+    return {"CO": f"{870000000 + e['n0']}", "MX": f"PRV{e['n0']}0101AB1", "EC": ruc_ec(9, e["n0"]),
+            "PE": ruc_pe(20, e["n0"] // 100, 900), "CL": rut(79000000 + e["n0"])}[e["pais"]]
 
 
 def responsable(e: dict, nombre: str) -> str:
@@ -120,11 +227,11 @@ def responsable(e: dict, nombre: str) -> str:
 
 
 def cuenta_crm(e: dict, i: int) -> str:
-    """El id de la cuenta como lo exporta cada CRM: el de Salesforce es de 18 caracteres; HubSpot
-    exporta el nombre de la empresa asociada; un CRM cualquiera, su código."""
+    """El id de la cuenta como lo exporta cada CRM: el de Salesforce es de 18 caracteres; HubSpot,
+    Dynamics y Zoho exportan el nombre del registro asociado; un CRM cualquiera, su código."""
     if e["crm"].startswith("salesforce"):
         return f"001A0000{e['n0']:04d}{i:02d}AaQ"[:18].ljust(18, "Z")
-    if e["crm"].startswith("hubspot"):
+    if e["crm"].startswith(("hubspot", "dynamics", "zoho")):
         return e["clientes"][i]
     return f"CL-{e['n0'] + i}"
 
@@ -137,7 +244,7 @@ def con_lote(e: dict) -> dict:
     """La entidad con un cliente nuevo por cada caso del lote que lo necesita: una venta ganada sin
     contrato y un contrato sin factura no pueden ser de un cliente que ya tiene contrato o factura."""
     n = sum(v for k, v in (e.get("lote") or {}).items() if k in ("ganado_sin_contrato", "firmado_sin_factura"))
-    forma = "S.A. de C.V." if e["pais"] == "MX" else "S.A.S."
+    forma = FORMA[e["pais"]]
     return dict(e, clientes=e["clientes"] + [f"Cliente Comercial {e['n0'] + 50 + i} {forma}" for i in range(n)])
 
 
@@ -161,7 +268,10 @@ def escenario(e: dict) -> dict:
         {"k": 4, "nombre": "Servicio de soporte", "c": 3, "resp": p1, "monto": 9 * u,
          "cortes": [("Calificación", "2026-12-10", "2026-09-29"), ("Propuesta", "2026-12-10", "2026-10-12"), ("Propuesta", "2026-12-15", "2026-10-29")]},
         {"k": 5, "nombre": "Ampliación de contrato", "c": 4, "resp": p2, "monto": 7 * u,
-         "cortes": [("Calificación", "2026-12-20", "2026-09-26"), ("Calificación", "2026-12-20", "2026-10-11"), ("Calificación", "2026-12-20", "2026-10-27")]},
+         "cortes": [("Calificación", "2026-12-20", "2026-09-26"), ("Calificación", "2026-12-20", "2026-10-11"), ("Calificación", "2026-12-20", "2026-10-27")],
+         # Una exportación sin la última actividad (Dynamics): la gestión se ve en el monto, que se
+         # revisa en cada corte; sin eso, la oportunidad que se gestiona parecería detenida.
+         **({"montos": [7 * u, 7.5 * u, 8 * u]} if e["crm"].startswith("dynamics") else {})},
         {"k": 6, "nombre": "Piloto regional", "c": 5, "resp": p3, "monto": 6 * u,
          "cortes": [("Propuesta", "2026-10-30", "2026-09-27"), ("Negociación", "2026-10-30", "2026-10-13"), ("Perdida", "2026-10-28", "2026-10-28")]},
         # Un cierre que se corrió una vez: el parecido a una señal, en todas las entidades.
@@ -192,8 +302,9 @@ def escenario(e: dict) -> dict:
     if "etapa_sin_evidencia" in s:      # en compromiso, sin la orden de compra
         evid[op(3)] = ["propuesta"]
         esperado.append(("stage_without_evidence", f"etapa:{op(3)}"))
-    if "detenida" in s:                 # sin actividad desde septiembre
+    if "detenida" in s:                 # sin actividad desde septiembre: ni gestión ni cambio de monto
         ops[4]["cortes"] = [(st, ci, "2026-09-12") for st, ci, _ in ops[4]["cortes"]]
+        ops[4].pop("montos", None)
         esperado.append(("stalled_opportunity", f"detenida:{op(5)}"))
     if "cierre_historial" in s:         # el historial de Salesforce: tres veces
         ops[6]["historia"] = [("2026-10-31", "2026-11-15"), ("2026-11-15", "2026-11-30"), ("2026-11-30", "2026-12-18")]
@@ -288,8 +399,15 @@ def escenario(e: dict) -> dict:
 
 # ================================================================ cómo exporta cada CRM
 
-def fmt_fecha(x: str, crm: str) -> str:
+def fmt_fecha(x: str, crm: str):
+    """La fecha como la exporta cada CRM. Dynamics la exporta a Excel como fecha, sin la hora (F-07);
+    Zoho no fija el formato (F-09): el material la trae día/mes, como la configura una organización
+    de la región, con la hora en la última actividad."""
     f = d(x)
+    if crm.startswith("dynamics"):
+        return f
+    if crm.startswith("zoho"):
+        return f"{f.day:02d}/{f.month:02d}/{f.year}"
     if crm == "salesforce-informe":
         return f"{f.month}/{f.day}/{f.year}"
     if crm.startswith("hubspot"):
@@ -305,6 +423,15 @@ def exportacion(e: dict, esc: dict, corte: int) -> list[list]:
     for o in esc["ops"]:
         st, ci, act = o["cortes"][corte]
         oid, c = esc["op"](o["k"]), o["c"]
+        monto = (o.get("montos") or [o["monto"]] * 3)[corte]
+        if crm.startswith("dynamics"):
+            filas.append([oid, o["nombre"], cuenta_crm(e, c), round(monto, 2), fmt_fecha(ci, crm), st,
+                          "Won" if st == "Ganada" else "Lost" if st == "Perdida" else "Open", PROB[st], o["resp"], e["moneda"]])
+            continue
+        if crm.startswith("zoho"):
+            filas.append([oid, o["nombre"], cuenta_crm(e, c), round(monto) if crm.endswith("xlsx") else f"{monto:.2f}", fmt_fecha(ci, crm),
+                          st, PROB[st], o["resp"], f"{fmt_fecha(act, crm)} 10:30", f"Contacto {c + 1}"])
+            continue
         if crm == "salesforce-api":
             filas.append([oid, o["nombre"], cuenta_crm(e, c), f"{o['monto']:.2f}", fmt_fecha(ci, crm), st, PROB[st],
                           "true" if st in ("Ganada", "Perdida") else "false", "true" if st == "Ganada" else "false",
@@ -325,18 +452,26 @@ def exportacion(e: dict, esc: dict, corte: int) -> list[list]:
                                   "Last Activity", "Owner ID", "Created Date"],
            "hubspot": ["Record ID", "Deal Name", "Deal Stage", "Pipeline", "Amount", "Close Date", "Deal owner", "Create Date",
                        "Last Activity Date", "Associated Company", "Associated Contact"],
+           "dynamics": ["Opportunity", "Topic", "Account", "Est. revenue", "Est. close date", "Pipeline Phase", "Status", "Probability",
+                        "Owner", "Currency"],
+           "zoho": ["Record ID", "Deal Name", "Account Name", "Amount", "Closing Date", "Stage", "Probability", "Deal Owner",
+                    "Last Activity Time", "Contact Name"],
            "generico": ["Código", "Oportunidad", "Cliente", "Fase", "Valor estimado", "Fecha estimada de cierre", "Ejecutivo",
                         "Última gestión", "Línea"]}
-    return [cab["hubspot" if crm.startswith("hubspot") else "generico" if crm.startswith("generico") else crm]] + filas
+    fam = next((x for x in ("hubspot", "generico", "dynamics", "zoho") if crm.startswith(x)), crm)
+    return [cab[fam]] + filas
 
 
 def columnas_crm(e: dict) -> dict:
-    """El mapeo que deja el setup: el de un CRM cualquiera, la empresa asociada de HubSpot y la línea."""
+    """El mapeo que deja el setup: el de un CRM cualquiera, la empresa asociada de HubSpot, la
+    última actividad de Zoho y la línea."""
     if e["crm"].startswith("generico"):
         return {"id": "Código", "nombre": "Oportunidad", "cuenta": "Cliente", "etapa": "Fase", "monto": "Valor estimado",
                 "cierre": "Fecha estimada de cierre", "responsable": "Ejecutivo", "ultima_actividad": "Última gestión", "linea": "Línea"}
     if e["crm"].startswith("hubspot"):
         return {"cuenta": "Associated Company"}
+    if e["crm"].startswith("zoho"):
+        return {"ultima_actividad": "Last Activity Time"}
     return {}
 
 
@@ -362,8 +497,10 @@ def md(ruta: Path, texto: str) -> Path:
 
 
 def mon(x: float, e: dict) -> str:
+    """Una cifra como la escribe un documento del país: el punto de miles donde la coma es el
+    decimal (Colombia, Chile) y el símbolo de su moneda."""
     t = f"{x:,.0f}"
-    return "$ " + (t.replace(",", ".") if e["pais"] == "CO" else t)
+    return SIMBOLO.get(e["pais"], "$") + " " + (t.replace(",", ".") if N.PAISES[e["pais"]]["decimal"] == "," else t)
 
 
 def una(e: dict) -> dict:
@@ -372,7 +509,7 @@ def una(e: dict) -> dict:
     base = SALIDA / e["carpeta"]
     nombre_dir = f"{e['id']}-{N.norm(e['nombre']).replace('_', '-')}"
     docs = base / "comercial" / nombre_dir
-    sep = ";" if e["pais"] == "CO" else ","
+    sep = ";" if N.PAISES[e["pais"]]["decimal"] == "," else ","  # donde la coma es el decimal, el punto y coma separa
     _csv(docs / "00-referencia" / "etapas.csv", [["etapa", "orden", "probabilidad", "exige", "tipo"]] + [list(x) for x in ETAPAS], sep)
     _csv(docs / "00-referencia" / "metas.csv", [["periodo", "meta"], ["2026-09", esc["meta"]], [PERIODO, esc["meta"]], ["2026-11", esc["meta"]]], sep)
     _csv(docs / "00-referencia" / "matriz-descuentos.csv", [["nivel", "tope", "aprueba"]] + [list(x) for x in NIVELES], sep)
@@ -390,7 +527,13 @@ def una(e: dict) -> dict:
     # Las tres exportaciones, en el formato de su CRM.
     for k, corte in enumerate(CORTES):
         filas = exportacion(e, esc, k)
-        if e["crm"].endswith("xlsx"):
+        if e["crm"].startswith(("dynamics", "zoho")) and e["crm"].endswith("xlsx"):
+            # Una aplicación exporta celdas tipadas: el monto como número y, en Dynamics, la fecha como fecha (F-07).
+            nombre = ("Deals_" + corte.isoformat().replace("-", "_")) if e["crm"].startswith("zoho") else f"oportunidades-{corte.isoformat()}"
+            ruta = docs / "10-crm" / f"{nombre}.xlsx"
+            ruta.parent.mkdir(parents=True, exist_ok=True)
+            FMT.a_xlsx_tipado(filas, ruta, hoja="Deals" if e["crm"].startswith("zoho") else "Oportunidades")
+        elif e["crm"].endswith("xlsx"):
             ruta = docs / "10-crm" / f"oportunidades-{corte.isoformat()}.xlsx"
             ruta.parent.mkdir(parents=True, exist_ok=True)
             import io
@@ -398,8 +541,9 @@ def una(e: dict) -> dict:
             csv.writer(texto).writerows([[str(x) for x in f] for f in filas])
             FMT.a_xlsx(texto.getvalue(), ruta, hoja="Oportunidades")
         else:
-            nombre = ("hubspot-crm-exports-deals-" if e["crm"].startswith("hubspot") else "oportunidades-") + corte.isoformat() + ".csv"
-            _csv(docs / "10-crm" / nombre, filas, "," if e["crm"].startswith(("salesforce", "hubspot")) else sep)
+            nombre = ("hubspot-crm-exports-deals-" + corte.isoformat() if e["crm"].startswith("hubspot") else
+                      "Deals_" + corte.isoformat().replace("-", "_") if e["crm"].startswith("zoho") else "oportunidades-" + corte.isoformat()) + ".csv"
+            _csv(docs / "10-crm" / nombre, filas, "," if e["crm"].startswith(("salesforce", "hubspot", "zoho")) else sep)
     hist = [(esc["op"](o["k"]), a, b) for o in esc["ops"] for a, b in o.get("historia", [])]
     if e["crm"] == "salesforce-api":
         _csv(docs / "10-crm" / f"historial-{CORTES[-1].isoformat()}.csv",
@@ -436,7 +580,7 @@ todas las negociaciones abiertas, es de {mon(esc['comite']['mejor'], e)}; no se 
             if tipo == "propuesta":
                 texto = (f"# Propuesta comercial\n\nOportunidad: {oid} · {o['nombre']}\nCliente: {cliente}\n"
                          f"Fecha de envío: {fecha_doc}\nValor de la propuesta: {mon(monto, e)}\n\n"
-                         f"Contacto del cliente: compras@{N.norm(cliente)[:10]}.com · +57 601 555 01{o['k']:02d}\n")
+                         f"Contacto del cliente: compras@{N.norm(cliente)[:10]}.com · {PREFIJO[e['pais']]} 555 01{o['k']:02d}\n")
             else:
                 texto = (f"# Orden de compra\n\nEmitida por: {cliente}\nReferencia de la oportunidad: {oid}\n"
                          f"Fecha: {fecha_doc}\nValor total: {mon(monto, e)}\n")
@@ -465,7 +609,7 @@ Descuento: {q['pct']} %
     # Las fichas de Fidel y de Clara, como ellos las escriben.
     legal = base / "estado-legal" / nombre_dir / "contratos"
     for c in esc["contratos"]:
-        cp = ({"name": f"Proveedor {e['n0']} S.A.S.", "id": f"{870000000 + e['n0']}" if e["pais"] == "CO" else f"PRV{e['n0']}0101AB1"}
+        cp = ({"name": f"Proveedor {e['n0']} {FORMA[e['pais']]}", "id": id_proveedor(e)}
               if c.get("proveedor") else {"name": e["clientes"][c["c"]], "id": tid(e, c["c"])})
         N.escribir_json(legal / f"{c['code']}.json", {
             "code": c["code"], "counterparty": cp, "value": c["valor"], "start": c["firmado"], "end": "2027-12-31",
@@ -473,14 +617,14 @@ Descuento: {q['pct']} %
     fin = base / "estado-finanzas" / nombre_dir / "cierre"
     for per in ("2026-09", PERIODO):
         emitidas = [{"numero": f"FE-{e['n0'] + f['n']}", "id": f"cufe-{e['n0']}-{f['n']}", "fecha": f["fecha"], "receptor": tid(e, f["c"]),
-                     "base": f["base"], "total": round(f["base"] * (1.19 if e["pais"] == "CO" else 1.16)), "tipo": "factura",
+                     "base": f["base"], "total": round(f["base"] * (1 + N.PAISES[e["pais"]]["factura"]["iva"])), "tipo": "factura",
                      "archivo": f"{per}/30-facturacion/emitidas/fe-{e['n0'] + f['n']}.xml"}
                     for f in esc["facturas"] if f["periodo"] == per]
         N.escribir_json(fin / per / "resultados.json", {"agente": "clara", "periodo": per,
                                                         "partes": {"einvoice-check": {"periodo": per, "emitidas": emitidas}}})
     ent = {"id": e["id"], "name": e["nombre"], "country": e["pais"], "currency": e["moneda"]}
     paths = {"documents": f"comercial/{nombre_dir}", "state": f"estado-comercial/{nombre_dir}"}
-    fmt = "salesforce" if e["crm"].startswith("salesforce") else "hubspot" if e["crm"].startswith("hubspot") else "generico"
+    fmt = next((x for x in ("salesforce", "hubspot", "dynamics", "zoho") if e["crm"].startswith(x)), "generico")
     crm = {"format": fmt, "columns": columnas_crm(e), "date_order": "mdy" if e["crm"] == "salesforce-informe" else "dmy"}
     clave = {
         "entidad": e["nombre"], "industria": e["industria"], "pais": e["pais"], "crm": e["crm"], "hoy": HOY.isoformat(), "periodo": PERIODO,

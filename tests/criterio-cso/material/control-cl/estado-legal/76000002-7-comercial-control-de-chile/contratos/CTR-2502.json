@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2502",
+  "counterparty": {
+    "name": "Cliente Control Valparaíso SpA",
+    "id": "78025001-1"
+  },
+  "value": 144000000,
+  "start": "2026-10-24",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-24",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2502/10-contrato/contrato.pdf"
+}

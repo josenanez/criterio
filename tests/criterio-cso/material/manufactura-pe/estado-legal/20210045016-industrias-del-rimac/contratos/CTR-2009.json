@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2009",
+  "counterparty": {
+    "name": "Proveedor 2000 S.A.C.",
+    "id": "20200009003"
+  },
+  "value": 160000,
+  "start": "2026-09-05",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-05",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2009/10-contrato/contrato.pdf"
+}

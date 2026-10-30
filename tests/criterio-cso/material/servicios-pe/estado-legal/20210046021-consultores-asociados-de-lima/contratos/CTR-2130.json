@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2130",
+  "counterparty": {
+    "name": "Cliente Comercial 2152 S.A.C.",
+    "id": "20210001094"
+  },
+  "value": 90000,
+  "start": "2026-09-08",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-08",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2130/10-contrato/contrato.pdf"
+}

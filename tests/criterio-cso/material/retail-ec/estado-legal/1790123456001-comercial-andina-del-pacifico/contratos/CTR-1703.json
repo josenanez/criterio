@@ -1,0 +1,13 @@
+{
+  "code": "CTR-1703",
+  "counterparty": {
+    "name": "Clínica Pichincha S.A.",
+    "id": "1791700058001"
+  },
+  "value": 75000,
+  "start": "2026-10-20",
+  "end": "2027-12-31",
+  "signed_on": "2026-10-20",
+  "signed_by_both": true,
+  "source": "contratos/CTR-1703/10-contrato/contrato.pdf"
+}

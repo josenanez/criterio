@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2405",
+  "counterparty": {
+    "name": "Energía Solar Atacama S.A.",
+    "id": "78024005-9"
+  },
+  "value": 72000000,
+  "start": "2026-09-10",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-10",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2405/10-contrato/contrato.pdf"
+}

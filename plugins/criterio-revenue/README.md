@@ -72,7 +72,7 @@ They load on their own when the subject comes up. They are the knowledge the com
 | Skill | What it encapsulates | Whose it is |
 |---|---|---|
 | `commission-plan` | How the commission the plan gives on what was won and invoiced is calculated, and why it is not published in Rostrum by default | Own |
-| `crm-exports` | How each CRM export is processed: Salesforce by its field names or labels, HubSpot by its properties, and any CSV or Excel with its column mapping; the stage table and the close-date history | Copy of Augusto's |
+| `crm-exports` | How each CRM export is processed: Salesforce by its field names or labels, HubSpot by its properties, Dynamics 365 and Zoho by their columns, and any CSV or Excel with its column mapping; the stage table and the close-date history | Copy of Augusto's |
 | `deal-record` | Valeria's period record: every quote or order with its opportunity, list price, discount and approval, every data point with its citation | Own |
 | `discount-policy` | How the discount matrix is read: the level that covers each discount, the approval it asks for and why a higher role also gives it | Own |
 | `sales-intake` | The recommended structure of the sales folder, what goes in each folder and which agent uses it, and how exports and evidence are named | Copy of Augusto's |

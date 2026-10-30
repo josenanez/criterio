@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2031",
+  "counterparty": {
+    "name": "Cliente Comercial 2053 S.A.C.",
+    "id": "20200001100"
+  },
+  "value": 160000,
+  "start": "2026-09-09",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-09",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2031/10-contrato/contrato.pdf"
+}

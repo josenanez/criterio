@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2131",
+  "counterparty": {
+    "name": "Cliente Comercial 2153 S.A.C.",
+    "id": "20210001108"
+  },
+  "value": 120000,
+  "start": "2026-09-09",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-09",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2131/10-contrato/contrato.pdf"
+}

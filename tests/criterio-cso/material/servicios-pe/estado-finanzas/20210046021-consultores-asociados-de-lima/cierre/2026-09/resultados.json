@@ -1,0 +1,21 @@
+{
+  "agente": "clara",
+  "periodo": "2026-09",
+  "partes": {
+    "einvoice-check": {
+      "periodo": "2026-09",
+      "emitidas": [
+        {
+          "numero": "FE-2103",
+          "id": "cufe-2100-3",
+          "fecha": "2026-09-12",
+          "receptor": "20210001035",
+          "base": 60000,
+          "total": 70800,
+          "tipo": "factura",
+          "archivo": "2026-09/30-facturacion/emitidas/fe-2103.xml"
+        }
+      ]
+    }
+  }
+}

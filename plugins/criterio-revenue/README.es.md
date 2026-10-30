@@ -73,7 +73,7 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 | Skill | Qué encapsula | De quién es |
 |---|---|---|
 | `commission-plan` | Cómo se calcula la comisión que da el plan sobre lo ganado y facturado, y por qué no se publica en Rostrum por omisión | Propio |
-| `crm-exports` | Cómo se procesa cada exportación del CRM: Salesforce por sus nombres de campo o sus etiquetas, HubSpot por sus propiedades, y cualquier CSV o Excel con su mapeo de columnas; la tabla de etapas y el historial de la fecha de cierre | Copia de Augusto |
+| `crm-exports` | Cómo se procesa cada exportación del CRM: Salesforce por sus nombres de campo o sus etiquetas, HubSpot por sus propiedades, Dynamics 365 y Zoho por sus columnas, y cualquier CSV o Excel con su mapeo de columnas; la tabla de etapas y el historial de la fecha de cierre | Copia de Augusto |
 | `deal-record` | La ficha del periodo de Valeria: cada cotización o pedido con su oportunidad, su precio de lista, su descuento y su aprobación, cada dato con su cita | Propio |
 | `discount-policy` | Cómo se lee la matriz de descuentos: el nivel que cubre cada descuento, la aprobación que pide y por qué un cargo superior también la da | Propio |
 | `sales-intake` | La estructura recomendada de la carpeta comercial, qué va en cada carpeta y qué agente la usa, y cómo se nombran las exportaciones y la evidencia | Copia de Augusto |

@@ -1,0 +1,322 @@
+{
+  "entidad": "Sistemas Integrados del Guayas",
+  "industria": "tecnologia",
+  "pais": "EC",
+  "crm": "zoho-csv",
+  "hoy": "2026-11-05",
+  "periodo": "2026-10",
+  "siembra": [
+    "detenida",
+    "meta_lejos",
+    "firmado_sin_factura",
+    "comision_distinta",
+    "cierre_cortes"
+  ],
+  "config": {
+    "augusto": {
+      "entity": {
+        "id": "0990234566001",
+        "name": "Sistemas Integrados del Guayas",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "comercial/0990234566001-sistemas-integrados-del-guayas",
+        "state": "estado-comercial/0990234566001-sistemas-integrados-del-guayas"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "zoho",
+        "columns": {
+          "ultima_actividad": "Last Activity Time"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {
+        "max_close_moves": 1
+      }
+    },
+    "valeria": {
+      "entity": {
+        "id": "0990234566001",
+        "name": "Sistemas Integrados del Guayas",
+        "country": "EC",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "comercial/0990234566001-sistemas-integrados-del-guayas",
+        "state": "estado-comercial/0990234566001-sistemas-integrados-del-guayas"
+      },
+      "period": "2026-10",
+      "crm": {
+        "format": "zoho",
+        "columns": {
+          "ultima_actividad": "Last Activity Time"
+        },
+        "date_order": "dmy"
+      },
+      "thresholds": {
+        "max_close_moves": 1
+      },
+      "revenue": {
+        "contract_records": "estado-legal/0990234566001-sistemas-integrados-del-guayas/contratos",
+        "invoice_records": "estado-finanzas/0990234566001-sistemas-integrados-del-guayas",
+        "publish_commissions": false
+      }
+    }
+  },
+  "extraccion": {
+    "comercial": {
+      "evidence": [
+        {
+          "opportunity": "OPP-1801",
+          "type": "propuesta",
+          "amount": 155520,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1801_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1801",
+          "type": "orden_compra",
+          "amount": 144000,
+          "date": "2026-10-10",
+          "source": "30-evidencia/OPP-1801_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1802",
+          "type": "propuesta",
+          "amount": 233280,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1802_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1802",
+          "type": "orden_compra",
+          "amount": 216000,
+          "date": "2026-10-22",
+          "source": "30-evidencia/OPP-1802_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1803",
+          "type": "propuesta",
+          "amount": 324000,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1803_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1803",
+          "type": "orden_compra",
+          "amount": 300000,
+          "date": "2026-10-28",
+          "source": "30-evidencia/OPP-1803_orden-compra.pdf"
+        },
+        {
+          "opportunity": "OPP-1804",
+          "type": "propuesta",
+          "amount": 116640,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1804_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1807",
+          "type": "propuesta",
+          "amount": 142560,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1807_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1820",
+          "type": "propuesta",
+          "amount": 103680,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1820_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1821",
+          "type": "propuesta",
+          "amount": 116640,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1821_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1822",
+          "type": "propuesta",
+          "amount": 129600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1822_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1829",
+          "type": "propuesta",
+          "amount": 129600,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1829_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1830",
+          "type": "propuesta",
+          "amount": 142560,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1830_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1831",
+          "type": "propuesta",
+          "amount": 38880,
+          "date": "2026-09-18",
+          "source": "30-evidencia/OPP-1831_propuesta.md"
+        },
+        {
+          "opportunity": "OPP-1831",
+          "type": "orden_compra",
+          "amount": 36000,
+          "date": "2026-10-06",
+          "source": "30-evidencia/OPP-1831_orden-compra.pdf"
+        }
+      ],
+      "declared_forecast": {
+        "value": 415800,
+        "date": "2026-10-02",
+        "source": "20-comite/acta-comite-2026-10-02.docx"
+      },
+      "questions": []
+    },
+    "ingresos": {
+      "quotes": [
+        {
+          "id": "COT-1801",
+          "opportunity": "OPP-1801",
+          "list_amount": 160800,
+          "discount_pct": 10,
+          "approved_by": null,
+          "approver_role": null,
+          "approved_on": null,
+          "source": "40-cotizaciones/COT-1801_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1802",
+          "opportunity": "OPP-1802",
+          "list_amount": 264000,
+          "discount_pct": 18,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-05",
+          "source": "40-cotizaciones/COT-1802_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1803",
+          "opportunity": "OPP-1803",
+          "list_amount": 348000,
+          "discount_pct": 14,
+          "approved_by": "Ricardo Paz",
+          "approver_role": "gerente general",
+          "approved_on": "2026-10-20",
+          "source": "40-cotizaciones/COT-1803_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1804",
+          "opportunity": "OPP-1829",
+          "list_amount": 132000,
+          "discount_pct": 22,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-1804_cotizacion.pdf"
+        },
+        {
+          "id": "COT-1805",
+          "opportunity": "OPP-1830",
+          "list_amount": 144000,
+          "discount_pct": 22,
+          "approved_by": "Marta Gil",
+          "approver_role": "gerente comercial",
+          "approved_on": "2026-10-21",
+          "source": "40-cotizaciones/COT-1805_cotizacion.pdf"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1804"
+    },
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1826"
+    },
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1827"
+    },
+    {
+      "signal": "close_date_slipped",
+      "key": "corre:OPP-1828"
+    },
+    {
+      "signal": "commission_differs_from_plan",
+      "key": "comision:2026-10:valeria_zambrano"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1804"
+    },
+    {
+      "signal": "discount_outside_policy",
+      "key": "descuento:COT-1805"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1805"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1830"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1831"
+    },
+    {
+      "signal": "signed_without_invoice",
+      "key": "factura:CTR-1832"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1820"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1821"
+    },
+    {
+      "signal": "stage_without_evidence",
+      "key": "etapa:OPP-1822"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1805"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1823"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1824"
+    },
+    {
+      "signal": "stalled_opportunity",
+      "key": "detenida:OPP-1825"
+    },
+    {
+      "signal": "target_vs_closed",
+      "key": "meta:2026-10"
+    },
+    {
+      "signal": "won_without_contract",
+      "key": "contrato:OPP-1831"
+    }
+  ]
+}

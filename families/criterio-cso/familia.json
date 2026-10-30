@@ -32,6 +32,13 @@
       ],
       "CAMPOS_HUBSPOT": [
         "F-04"
+      ],
+      "CAMPOS_DYNAMICS": [
+        "F-06"
+      ],
+      "CAMPOS_ZOHO": [
+        "F-08",
+        "F-09"
       ]
     }
   },
@@ -63,14 +70,14 @@
           "n": 0,
           "es": {
             "etiqueta": "Instalación",
-            "entrada": "La carpeta raíz. Preguntas: entidad y NIT o RFC, país, el periodo, de qué CRM sale la exportación de `10-crm/` —Salesforce, HubSpot u otro, en CSV o Excel— y, si es otro, qué columna trae cada dato, la tabla de etapas de `00-referencia/` con el documento que exige cada una y su probabilidad, cuántos días sin actividad detienen una oportunidad y cuántas veces puede correrse un cierre",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, de qué CRM sale la exportación de `10-crm/` —Salesforce, HubSpot, Dynamics 365, Zoho u otro, en CSV o Excel— y, si es otro, qué columna trae cada dato, la tabla de etapas de `00-referencia/` con el documento que exige cada una y su probabilidad, cuántos días sin actividad detienen una oportunidad y cuántas veces puede correrse un cierre",
             "proceso": "Inventario de lo que hay; reconoce el formato de cada exportación por sus columnas (F-02, F-04); compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
             "reporte": "Configuración guardada; inventario por carpeta; cada exportación con su formato, su fecha y sus oportunidades; las columnas que faltan; la primera ficha del periodo",
             "entrega": "La configuración, el inventario y el formato de cada exportación del CRM"
           },
           "en": {
             "etiqueta": "Setup",
-            "entrada": "The root folder. Questions: entity and NIT or RFC, country, the period, which CRM the export in `10-crm/` comes from —Salesforce, HubSpot or another, in CSV or Excel— and, if another, which column carries each field, the stage table in `00-referencia/` with the document each stage requires and its probability, how many days without activity stall an opportunity and how many times a close date may slip",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period, which CRM the export in `10-crm/` comes from —Salesforce, HubSpot, Dynamics 365, Zoho or another, in CSV or Excel— and, if another, which column carries each field, the stage table in `00-referencia/` with the document each stage requires and its probability, how many days without activity stall an opportunity and how many times a close date may slip",
             "proceso": "Inventory of what is there; recognises each export's format by its columns (F-02, F-04); compares the folder with the recommended structure; creates, moves or renames nothing",
             "reporte": "Configuration saved; inventory by folder; each export with its format, its date and its opportunities; the missing columns; the period's first record",
             "entrega": "The configuration, the inventory and the format of each CRM export"
@@ -230,14 +237,14 @@
           "n": 0,
           "es": {
             "etiqueta": "Instalación",
-            "entrada": "La carpeta raíz. Preguntas: entidad y NIT o RFC, país, el periodo, la matriz de descuentos, el plan de comisiones y la tabla de cuentas de `00-referencia/`, dónde están las fichas de los contratos de Fidel y las de la facturación de Clara, y en cuántos días se factura un contrato firmado",
+            "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, la matriz de descuentos, el plan de comisiones y la tabla de cuentas de `00-referencia/`, dónde están las fichas de los contratos de Fidel y las de la facturación de Clara, y en cuántos días se factura un contrato firmado",
             "proceso": "Inventario de lo que hay; compara la carpeta con la estructura recomendada; comprueba que cada cuenta ganada tenga su identificación en la tabla de cuentas; no crea, mueve ni renombra nada",
             "reporte": "Configuración guardada; inventario por carpeta; las cuentas sin identificación; si encontró las fichas de Fidel y de Clara; la primera ficha del periodo",
             "entrega": "La configuración, el inventario y las cuentas que faltan para cruzar con Fidel y Clara"
           },
           "en": {
             "etiqueta": "Setup",
-            "entrada": "The root folder. Questions: entity and NIT or RFC, country, the period, the discount matrix, the commission plan and the accounts table in `00-referencia/`, where Fidel's contract records and Clara's invoicing records are, and within how many days a signed contract is invoiced",
+            "entrada": "The root folder. Questions: entity and its tax ID, country, the period, the discount matrix, the commission plan and the accounts table in `00-referencia/`, where Fidel's contract records and Clara's invoicing records are, and within how many days a signed contract is invoiced",
             "proceso": "Inventory of what is there; compares the folder with the recommended structure; checks that every won account has its tax id in the accounts table; creates, moves or renames nothing",
             "reporte": "Configuration saved; inventory by folder; the accounts without a tax id; whether it found Fidel's and Clara's records; the period's first record",
             "entrega": "The configuration, the inventory and the accounts still missing to cross with Fidel and Clara"
@@ -381,8 +388,8 @@
       "en": "The recommended structure of the sales folder, what goes in each folder and which agent uses it, and how exports and evidence are named"
     },
     "crm-exports": {
-      "es": "Cómo se procesa cada exportación del CRM: Salesforce por sus nombres de campo o sus etiquetas, HubSpot por sus propiedades, y cualquier CSV o Excel con su mapeo de columnas; la tabla de etapas y el historial de la fecha de cierre",
-      "en": "How each CRM export is processed: Salesforce by its field names or labels, HubSpot by its properties, and any CSV or Excel with its column mapping; the stage table and the close-date history"
+      "es": "Cómo se procesa cada exportación del CRM: Salesforce por sus nombres de campo o sus etiquetas, HubSpot por sus propiedades, Dynamics 365 y Zoho por sus columnas, y cualquier CSV o Excel con su mapeo de columnas; la tabla de etapas y el historial de la fecha de cierre",
+      "en": "How each CRM export is processed: Salesforce by its field names or labels, HubSpot by its properties, Dynamics 365 and Zoho by their columns, and any CSV or Excel with its column mapping; the stage table and the close-date history"
     },
     "pipeline-record": {
       "es": "La ficha del periodo de Augusto: cada documento de evidencia con su oportunidad, su tipo, su monto y su fecha, y el pronóstico comprometido del acta del comité, cada dato con su cita",

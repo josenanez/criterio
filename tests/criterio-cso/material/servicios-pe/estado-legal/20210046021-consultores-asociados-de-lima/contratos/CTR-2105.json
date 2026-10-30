@@ -1,0 +1,13 @@
+{
+  "code": "CTR-2105",
+  "counterparty": {
+    "name": "Alimentos Chiclayo S.A.C.",
+    "id": "20210001051"
+  },
+  "value": 240000,
+  "start": "2026-09-10",
+  "end": "2027-12-31",
+  "signed_on": "2026-09-10",
+  "signed_by_both": true,
+  "source": "contratos/CTR-2105/10-contrato/contrato.pdf"
+}
