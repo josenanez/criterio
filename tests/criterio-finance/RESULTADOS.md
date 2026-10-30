@@ -2,7 +2,7 @@
 
 **la agente contralora de la familia CFO** · plugin `criterio-finance`
 
-Corrida del 2026-10-29, sobre el commit `c5e916d9`, con cambios en el árbol todavía sin confirmar. **2 puertas · 89 comprobaciones · todas en verde.**
+Corrida del 2026-10-29, sobre el commit `840acdf0`, con cambios en el árbol todavía sin confirmar. **2 puertas · 89 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-29, sobre el commit `c5e916d9`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-finance/finanzas.py selftest` | El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima | 70 | 262 ms | verde |
-| `criterio-cfo/evaluar.py` | Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles | 19 | 1670 ms | verde |
+| `criterio-finance/finanzas.py selftest` | El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima | 70 | 272 ms | verde |
+| `criterio-cfo/evaluar.py` | Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles | 19 | 1569 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

@@ -2,7 +2,7 @@
 
 **la agente de la venta a la factura de la familia CCO** · plugin `criterio-revenue`
 
-Corrida del 2026-10-29, sobre el commit `c5e916d9`, con cambios en el árbol todavía sin confirmar. **1 puertas · 7 comprobaciones · todas en verde.**
+Corrida del 2026-10-29, sobre el commit `840acdf0`, con cambios en el árbol todavía sin confirmar. **1 puertas · 16 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-10-29, sobre el commit `c5e916d9`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-cco/evaluar.py` | Que Valeria levante cada señal sembrada de la venta a la factura, y ninguna en los controles ni un dato de contacto | 7 | 226 ms | verde |
+| `criterio-cco/evaluar.py` | Que Valeria levante cada señal sembrada de la venta a la factura, y ninguna en los controles ni un dato de contacto | 16 | 535 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
