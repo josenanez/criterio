@@ -1,6 +1,6 @@
 {
   "name": "criterio-security",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Alexis, el gobierno y los controles: la declaración de aplicabilidad contra la evidencia de cada control, las revisiones de acceso, las evaluaciones de terceros críticos y las aceptaciones de riesgo vencidas. Procesa los documentos y las tablas de la organización; nunca acepta un riesgo, declara cumplido un control ni abre credenciales, llaves o respaldos.",
   "author": {
     "name": "José Francisco Ñáñez",

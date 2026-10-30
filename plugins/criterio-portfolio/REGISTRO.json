@@ -2019,6 +2019,231 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "ebd703c1c0ab385933e778b404dfe03400fc2d504582e223a21ad56ab7ab95f4",
       "sha256": "7d8f22da7e1d62a4d353e9af57b9e9cd12e287f1d82bceda3de346ef20a98dc9"
+    },
+    {
+      "version": "1.8.0",
+      "fecha": "2026-10-30",
+      "commit": null,
+      "base": "953000e6",
+      "etiqueta": "v1.8.0",
+      "familias": {
+        "cco": "0.3.1",
+        "cfo": "1.2.0",
+        "ciso": "0.2.0",
+        "clo": "1.3.0",
+        "ea": "1.0.1",
+        "pmo": "1.0.1",
+        "rostrum": "1.0.1"
+      },
+      "liberadas": [
+        "cco",
+        "cfo",
+        "ciso",
+        "clo",
+        "ea",
+        "pmo",
+        "rostrum"
+      ],
+      "versiones": {
+        "criterio-revenue": "0.3.1",
+        "criterio-sales": "0.3.1",
+        "criterio-budget": "1.2.0",
+        "criterio-finance": "1.2.0",
+        "criterio-treasury": "1.2.0",
+        "criterio-resilience": "0.2.0",
+        "criterio-security": "0.2.0",
+        "criterio-vulnerability": "0.2.0",
+        "criterio-compliance": "1.3.0",
+        "criterio-legal": "1.3.0",
+        "criterio-assistant": "1.0.1",
+        "criterio-portfolio": "1.0.1",
+        "criterio-product": "1.0.1",
+        "criterio-project": "1.0.1",
+        "criterio-server": "1.0.1"
+      },
+      "calidad": {
+        "cco": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 197,
+            "datos": 75
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98,
+            "Datos extraídos": 95.1
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "cfo": {
+          "etiqueta": "estable",
+          "ronda": 12,
+          "rondas": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "casos": {
+            "señales": 284,
+            "datos": 871
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.6,
+            "Datos extraídos": 99.3
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ciso": {
+          "etiqueta": "laboratorio",
+          "ronda": 1,
+          "rondas": [
+            1
+          ],
+          "casos": {
+            "señales": 100,
+            "datos": 48
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 96.3,
+            "Datos extraídos": 92.5
+          },
+          "motivo": [
+            "Datos extraídos: piso de 92.5 %, por debajo del 95 %"
+          ],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "clo": {
+          "etiqueta": "estable",
+          "ronda": 12,
+          "rondas": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "casos": {
+            "señales": 242,
+            "datos": 5971
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.4,
+            "Datos extraídos": 99.8
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ea": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            2
+          ],
+          "casos": {
+            "señales": 85,
+            "datos": 146
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95.6,
+            "Datos extraídos": 97.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "pmo": {
+          "etiqueta": "estable",
+          "ronda": 12,
+          "rondas": [
+            11,
+            12
+          ],
+          "casos": {
+            "señales": 500,
+            "datos": 481
+          },
+          "version_medida": "1.0.0",
+          "pisos": {
+            "Vera · precisión": 99.2,
+            "Vera · cobertura": 99.2,
+            "Samuel · compromisos": 98.2,
+            "Alba · cobertura": 98.5
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "e423a4181f503f1413d5f24f6140bccf281776251527a6f686bc26ec272bc20f",
+        "criterio-budget": "45d7a95a21a9141cd674a257be8ac53b620092c84ea8d9558c62ba73b0b77f73",
+        "criterio-compliance": "f847d543ab51661a2458fdcb5c645dca797b2aba6d47ee1c66acf476cb812884",
+        "criterio-finance": "3575202062b128265a27a6957e61bc0897b8486bddfe69cebc4b08565db85517",
+        "criterio-legal": "8335a9286bdd3cb241bb4750171b6f2ad0fedc7f674a273ae3669b15f0aa89d3",
+        "criterio-portfolio": "4bb90539b5bc4dab270db4f08a230aeffa2f19dec7554ecf16aca87e9ece2ee6",
+        "criterio-product": "d90fa381537c55b687706d21cd6e1e8c84b7016db2dad39a117a06a9b7526205",
+        "criterio-project": "d966758cfcd2611d7618bf60eacbdb290c2a82ccaccb6584d49b96ed56b67ec6",
+        "criterio-resilience": "f490c93664147cab749f3244a9a47312052fb1baf30dfb5024dc4b6050378174",
+        "criterio-revenue": "1873f811bc3200f30cb209d7578fda069dce013a15b89f40f936c88c56119810",
+        "criterio-sales": "3599b4c3d87de6e065d874cc0334908135a91ee9d18990d3fac848cf31a84765",
+        "criterio-security": "4176c6a32cc0b35cd4601b73ee24e4858701e994e4f5f70ad62274a79b7f0595",
+        "criterio-server": "2e0c988b1b200744286ccfb3047a10ac3115870c44d203ec75482245b8df3299",
+        "criterio-treasury": "522dfae92dae86af0fff3be861f4e8ff89ff48f05c7829736a2156b6d8f16c46",
+        "criterio-vulnerability": "b26f40485535c757921cc05975490d1ac92cae415931b25fa42e85a4a4ee8fa4"
+      },
+      "destacados": [
+        "Honduras en la CFO y la CLO, la primera ronda de la CISO y compartir hallazgos en cada agente"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "Honduras, construida (decisión 0024): la factura como documento —el agente extrae a la ficha del cierre la CAI, el rango autorizado, la fecha límite y el correlativo NNN-NNN-NN-NNNNNNNN, y el motor los valida (F-37, Acuerdo 481-2017, arts. 3, 10 y 11)—, el ISV al 15 % (F-38) y el perfil NIIF (F-39); la señal nueva invoice_outside_authorization; la garantía de cumplimiento del 15 % en HonduCompras (F-14 de la CLO, Decreto 74-2001, art. 100). Material de la CFO (banca, retail y control) y de la CLO (más una entidad pública); los motores levantan cada señal sembrada, ninguna de más. El skill de facturas y einvoice-check nombran ya todos los países del registro",
+        "Compartir hallazgos (decisión 0025): /share-findings en cada agente, con compartir.py —un resumen sin datos armado desde el rastro local, la pregunta siempre y, con un sí, el enlace a la plantilla de hallazgo que abre la persona—; su compuerta siembra datos de una entidad y falla si salen. La ronda deja fuera los comandos comunes, sin cambiar los números de los demás.",
+        "La descripción de Clara en el marketplace nombra la factura de cada país del registro, no solo las cinco primeras",
+        "Ronda 1 de la CISO con Alexis, Guillermo y Amparo: banca, retail, salud y tecnología, 100 de 100 señales y ninguna de más, 32 de 32 datos con CISO-1 corregido; los dos controles, 0 señales de más y un dato mal cada uno (CISO-3, por verificar). CISO-3: lo que el motor excluye no va a la lista de lo revisado. El arnés lee la siembra de la CISO",
+        "CFO-12: cuentas toma las facturas de Honduras de la ficha del cierre (--state) y la instalación lo pide; los reportes dicen «en la factura» cuando no hay XML; el marco del setup remite a las fuentes de cada país",
+        "CISO-4: convertir no abre ni copia lo que el motor de la CISO excluye —credenciales, llaves y respaldos—; van al manifiesto con su motivo, y la prueba del motor lo exige",
+        "Ronda 12 de la CFO y de la CLO, Honduras: la CFO 27 de 27 señales y 625 de 625 datos, con la factura en PDF y su CAI; la CLO, con su entidad pública, 22 de 22 señales y 569 de 569 datos; ninguna de más. CFO-12 verificado en retail. La CFO y la CLO vuelven a estables",
+        "Ronda 1 de la CISO completa: los dos controles, repetidos con CISO-3 corregido, 0 señales de más y 8 de 8 datos cada uno; CISO-3 y CISO-4 verificados. La CISO sigue de laboratorio: 100 señales con piso del 96,3 %, y 48 datos con piso del 92,5 %, por debajo del 95 %",
+        "CISO 0.2.0, CFO 1.2.0 y CLO 1.3.0: la hoja de ruta reserva sus incrementos, la CISO abre el de los escáneres y sus páginas dicen 0.2.0 con su ronda; notas del catálogo 1.8.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "7d8f22da7e1d62a4d353e9af57b9e9cd12e287f1d82bceda3de346ef20a98dc9",
+      "sha256": "ba60d01458efabbb075dbc95fdd9d102d6fbc896d3d6c73e3f0412bd9a3708db"
     }
   ]
 }

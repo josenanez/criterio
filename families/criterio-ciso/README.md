@@ -263,7 +263,7 @@ The family grows in increments. Each one is a version with its full test and its
 | Version | Status | What goes in | Test |
 |---|---|---|---|
 | 0.1.0 | Released | **Alexis, Guillermo and Amparo, built, with the engine tested**<br>· The commands, their seven skills and the engine, with the sixteen signals: Alexis's controls, access, third parties and risks; Guillermo's vulnerabilities, KEV catalog and coverage; Amparo's incidents, notifications and tests<br>· Any scanner export in CSV or Excel with its column mapping, severity from CVSS v4.0 and CISA's KEV catalog<br>· What is never opened: credentials, keys and backups, excluded by default<br>· Banking, retail, healthcare and technology material, with two control entities | The engine against the key of all the material: six entities from four industries, with their controls |
-| 0.2.0 | Reserved | **The round of the three agents**<br>· The round with Alexis, Guillermo and Amparo on all the material, with the key they never see<br>· The defects it finds, with their fix and their verification | The full round, with the 95% confidence floor on signals and data (decision 0020) |
+| 0.2.0 | Released | **The round of the three agents**<br>· The round with Alexis, Guillermo and Amparo on all the material, with the key they never see<br>· The defects it finds, with their fix and their verification | The full round, with the 95% confidence floor on signals and data (decision 0020) |
 | 0.3.0 | In progress | **The scanners, each from its source**<br>· The export format of Tenable, Qualys, Rapid7 and Microsoft Defender, each from its verified source, as Dynamics and Zoho entered the CCO | Their material and their round, with the same metrics |
 
 <!-- /hoja de ruta -->
