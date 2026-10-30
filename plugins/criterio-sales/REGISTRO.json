@@ -1882,6 +1882,143 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "4dcb25432855983a17b5b20f4c7368570306c4f000d591b37ccb008d1eb467c5",
       "sha256": "ebd703c1c0ab385933e778b404dfe03400fc2d504582e223a21ad56ab7ab95f4"
+    },
+    {
+      "version": "1.7.0",
+      "fecha": "2026-10-30",
+      "commit": null,
+      "base": "f684e042",
+      "etiqueta": "v1.7.0",
+      "familias": {
+        "cco": "0.3.0",
+        "cfo": "1.1.0",
+        "ciso": "0.1.0",
+        "clo": "1.2.0",
+        "ea": "1.0.0",
+        "pmo": "1.0.0",
+        "rostrum": "1.0.0"
+      },
+      "liberadas": [
+        "cfo",
+        "clo"
+      ],
+      "versiones": {
+        "criterio-revenue": "0.3.0",
+        "criterio-sales": "0.3.0",
+        "criterio-budget": "1.1.0",
+        "criterio-finance": "1.1.0",
+        "criterio-treasury": "1.1.0",
+        "criterio-resilience": "0.1.0",
+        "criterio-security": "0.1.0",
+        "criterio-vulnerability": "0.1.0",
+        "criterio-compliance": "1.2.0",
+        "criterio-legal": "1.2.0",
+        "criterio-assistant": "1.0.0",
+        "criterio-portfolio": "1.0.0",
+        "criterio-product": "1.0.0",
+        "criterio-project": "1.0.0",
+        "criterio-server": "1.0.0"
+      },
+      "calidad": {
+        "cfo": {
+          "etiqueta": "estable",
+          "ronda": 11,
+          "rondas": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "casos": {
+            "señales": 257,
+            "datos": 246
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.5,
+            "Datos extraídos": 97.7
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "clo": {
+          "etiqueta": "estable",
+          "ronda": 11,
+          "rondas": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "casos": {
+            "señales": 220,
+            "datos": 5402
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.2,
+            "Datos extraídos": 99.8
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "41a962281669adff9067a6f998b8b9d96f237b2bc57e1395e6583e23da3c735d",
+        "criterio-budget": "e79c4c6f00d07ef42b8e2b7f51b0eaf6debe065c5d4e8e4a104408534043993d",
+        "criterio-compliance": "ad273844b3a5fbf8ff02693fd86984a7b1248cca0e684afce2ae28abcf68f2f5",
+        "criterio-finance": "25b6d07d034cff56d3ce77a6d66da6749788d0db81b6627659cdcd810c25c926",
+        "criterio-legal": "46478eef6ddd81ed2da5d29e032970fd22ead09d9155d65f4f6826e2ea873960",
+        "criterio-portfolio": "0667487912e62b44baecadab6ffdd662631d9b47cf43cba085a2c9fe57e30d75",
+        "criterio-product": "4d7fd05290bbe64a2010ee53fee35c1414ca51f73f9d01f54b6547869dc8724e",
+        "criterio-project": "ea0349f39c773d66dcc268bc260d8625c998865e991104c4f84a4468902c566e",
+        "criterio-resilience": "246caab09731ad705abf25fab5d61bd6edf39994cb2c89921b1ae5ae19e16dec",
+        "criterio-revenue": "ef99647292c739527502882a6417a7375dd90416ddf6ba67960359aaf7b9cb5b",
+        "criterio-sales": "de1bee65b47b8de6cda18d20058bacd53b1836126b7fed33cb25a010373ae1d9",
+        "criterio-security": "b7a97e6485c2a338195fffaf9c30e3eb25d15a2edc160537802a33974ae4c790",
+        "criterio-server": "f268b3c44868a601057ed257ff89d28a9996f2ff5a5038031f65dfe618f606ba",
+        "criterio-treasury": "3412249b854faca6263f45462b0183d18e4fb46b803aca0e8886e5c65fbcf6df",
+        "criterio-vulnerability": "f7e7d837f6899c29347d5408622ec0c70d13be410fd95cf3aaa6c37fc50c03dd"
+      },
+      "destacados": [
+        "La CFO y la CLO suman Argentina, Panamá, Guatemala y Costa Rica, con una ronda limpia por país"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "Ronda 9 de la CFO y de la CLO, Panamá: la CFO 27 de 27 señales y 24 de 24 datos; la CLO, con su entidad pública, 24 de 24 señales y 569 de 569 datos; ninguna de más y ningún defecto",
+        "Costa Rica, construida: el lector del comprobante electrónico 4.4 de Hacienda (F-34, Anexos y Estructuras de noviembre de 2024) por su clave de cincuenta posiciones, el IVA al 13 % (F-35, Ley 9635, art. 10), el perfil NIIF (F-36) y la garantía de cumplimiento de la Ley 9986 (F-13 de la CLO, art. 44): entre el 5 % y el 10 % del monto adjudicado. Material de la CFO (banca, retail y control) y de la CLO (banca, retail, control y una entidad pública); los motores levantan cada señal sembrada, ninguna de más. El incremento de los países suma Costa Rica",
+        "Honduras, propuesta (decisión 0024): el SAR no publica un esquema de factura electrónica; la factura entra como documento con su CAI, su rango autorizado y su fecha límite de emisión (Acuerdo 481-2017, art. 10), y una señal nueva para la factura recibida fuera de su autorización",
+        "Honduras: fuentes verificadas en la propuesta (Acuerdo 481-2017, ISV, garantía del 15 %)",
+        "Ronda 10 de la CFO y de la CLO, Guatemala: la CFO 24 de 24 señales y 25 de 25 datos; la CLO 20 de 20 señales y 396 de 396 datos; ninguna de más y ningún defecto",
+        "Las plantillas de defecto y de hallazgo listan las seis familias con sus agentes (faltaban EA, CCO, CISO y Áurea); la lista sale de cada familia.json y la compuerta de estructura falla si se desactualiza",
+        "Compartir hallazgos, propuesta (decisión 0025): un resumen sin datos armado por el motor desde el rastro local, que la persona ve completo, con la pregunta siempre y el enlace a la plantilla que abre ella; nada se envía",
+        "Decisiones 0024 (Honduras) y 0025 (compartir hallazgos) aceptadas por José Francisco Ñáñez",
+        "Ronda 11 de la CFO y de la CLO, Costa Rica: la CFO 25 de 25 señales y 25 de 25 datos; la CLO, con su entidad pública, 23 de 23 señales y 569 de 569 datos; ninguna de más y ningún defecto. Todas las entidades del material tienen su corrida: la CFO y la CLO vuelven a estables",
+        "CFO 1.1.0 y CLO 1.2.0: la hoja de ruta reserva el incremento de Argentina, Panamá, Guatemala y Costa Rica y abre el de Honduras; notas del catálogo 1.7.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "ebd703c1c0ab385933e778b404dfe03400fc2d504582e223a21ad56ab7ab95f4",
+      "sha256": "7d8f22da7e1d62a4d353e9af57b9e9cd12e287f1d82bceda3de346ef20a98dc9"
     }
   ]
 }
