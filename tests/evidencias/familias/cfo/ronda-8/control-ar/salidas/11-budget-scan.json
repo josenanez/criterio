@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:12:35",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 14,
+  "tokens": 682451,
+  "tokens_salida": 3385,
+  "costo_usd": 0.2013808,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/30702173554-comercial-control-del-plata/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/corridas/salida-budget-scan.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/30702173554-comercial-control-del-plata/corridas.json"
+    ],
+    "borrados": []
+  }
+}

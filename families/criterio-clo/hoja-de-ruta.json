@@ -177,7 +177,7 @@
   },
   {
    "incremento": 7,
-   "version": null,
+   "version": "1.2.0",
    "estado": "en curso",
    "industrias": [],
    "paises": [
@@ -187,66 +187,14 @@
       "es": "Argentina",
       "en": "Argentina"
      }
-    }
-   ],
-   "es": {
-    "titulo": "Argentina",
-    "entra": [
-     "Su entrada en el registro de países, con la identificación fiscal de cada contraparte",
-     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados",
-     "Una entidad pública, con la regla de publicación y de garantía de su ley de contratación pública"
-    ],
-    "prueba": "La ronda con Fidel y Constanza en Argentina"
-   },
-   "en": {
-    "titulo": "Argentina",
-    "entra": [
-     "Its entry in the country registry, with each counterparty's tax ID",
-     "Three test entities, one of them a control with no seeded defects",
-     "A public entity, with the publication and guarantee rule of its public procurement law"
-    ],
-    "prueba": "The round with Fidel and Constanza in Argentina"
-   }
-  },
-  {
-   "incremento": 8,
-   "version": null,
-   "estado": "siguiente",
-   "industrias": [],
-   "paises": [
+    },
     {
      "codigo": "PA",
      "nombre": {
       "es": "Panamá",
       "en": "Panama"
      }
-    }
-   ],
-   "es": {
-    "titulo": "Panamá",
-    "entra": [
-     "Su entrada en el registro de países, con la identificación fiscal de cada contraparte",
-     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados",
-     "Una entidad pública, con la regla de publicación y de garantía de su ley de contratación pública"
-    ],
-    "prueba": "La ronda con Fidel y Constanza en Panamá"
-   },
-   "en": {
-    "titulo": "Panama",
-    "entra": [
-     "Its entry in the country registry, with each counterparty's tax ID",
-     "Three test entities, one of them a control with no seeded defects",
-     "A public entity, with the publication and guarantee rule of its public procurement law"
-    ],
-    "prueba": "The round with Fidel and Constanza in Panama"
-   }
-  },
-  {
-   "incremento": 9,
-   "version": null,
-   "estado": "siguiente",
-   "industrias": [],
-   "paises": [
+    },
     {
      "codigo": "GT",
      "nombre": {
@@ -256,20 +204,22 @@
     }
    ],
    "es": {
-    "titulo": "Guatemala",
+    "titulo": "Argentina, Panamá y Guatemala",
     "entra": [
      "Su entrada en el registro de países, con la identificación fiscal de cada contraparte",
-     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+     "La regla de publicación y de garantía de la ley de contratación pública de Argentina y de Panamá, cada una con su fuente, y una entidad pública de prueba en cada uno",
+     "Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados"
     ],
-    "prueba": "La ronda con Fidel y Constanza en Guatemala"
+    "prueba": "Las rondas 8, 9 y 10 con Fidel y Constanza, una por país"
    },
    "en": {
-    "titulo": "Guatemala",
+    "titulo": "Argentina, Panama and Guatemala",
     "entra": [
-     "Its entry in the country registry, with each counterparty's tax ID",
-     "Three test entities, one of them a control with no seeded defects"
+     "Their entry in the country registry, with each counterparty's tax ID",
+     "The publication and guarantee rule of the public procurement law of Argentina and Panama, each with its source, and a public test entity in each",
+     "Three test entities per country, one of them a control with no seeded defects"
     ],
-    "prueba": "The round with Fidel and Constanza in Guatemala"
+    "prueba": "Rounds 8, 9 and 10 with Fidel and Constanza, one per country"
    }
   }
  ]

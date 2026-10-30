@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:31:44",
+  "estado": "success",
+  "error": false,
+  "segundos": 89,
+  "turnos": 30,
+  "tokens": 1011765,
+  "tokens_salida": 6737,
+  "costo_usd": 0.37547600000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/30699991011-organismo-publico-del-litoral/contratos/reporte-contract-scan.md",
+      "estado-legal/30699991011-organismo-publico-del-litoral/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/30699991011-organismo-publico-del-litoral/corridas/salida-contract-scan.md",
+      "estado-legal/30699991011-organismo-publico-del-litoral/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/30699991011-organismo-publico-del-litoral/corridas.json"
+    ],
+    "borrados": []
+  }
+}

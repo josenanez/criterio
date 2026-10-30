@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:16:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 16,
+  "tokens": 864413,
+  "tokens_salida": 4160,
+  "costo_usd": 0.30104519999999996,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/30718174607-banco-del-rio-de-la-plata-sintetico/contratos/reporte-contract-scan.md",
+      "estado-legal/30718174607-banco-del-rio-de-la-plata-sintetico/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/30718174607-banco-del-rio-de-la-plata-sintetico/corridas/salida-contract-scan.md",
+      "estado-legal/30718174607-banco-del-rio-de-la-plata-sintetico/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/30718174607-banco-del-rio-de-la-plata-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

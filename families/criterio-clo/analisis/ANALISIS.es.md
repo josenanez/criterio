@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CLO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 7 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 8 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 7, parcial, sobre 6 de las 35 entidades del material: 19 de 19 señales sembradas encontradas (margen del 95 %: 83,1–100 %) y 0 de más; 911 de 912 datos extraídos bien (99,9 %, margen del 95 %: 99,3–100 %); y 0 de 0 entidades de control sin ninguna señal.
+La ronda más reciente, la 8, parcial, sobre 4 de las 35 entidades del material: 25 de 25 señales sembradas encontradas (margen del 95 %: 86,6–100 %) y 0 de más; 548 de 548 datos extraídos bien (100 %, margen del 95 %: 99,3–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–7, 151 de 151 señales encontradas, 0 de más y 4373 de 4392 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–8, 176 de 176 señales encontradas, 0 de más y 4921 de 4940 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 7; la más reciente, la 7, es parcial |
-| Material | Entidad pública · Brasil, Entidad pública · Chile, Entidad pública · Colombia, Entidad pública · Ecuador, Entidad pública · México, Entidad pública · Perú |
-| Entidades de control |  |
-| Corridas de una entidad | 32 |
-| Señales sembradas | 151 |
-| Datos calificados | 4392 |
+| Rondas | 8; la más reciente, la 8, es parcial |
+| Material | Banca · Argentina, Entidad pública · Argentina, Retail · Argentina |
+| Entidades de control | Control · Argentina |
+| Corridas de una entidad | 36 |
+| Señales sembradas | 176 |
+| Datos calificados | 4940 |
 
-## Resultados acumulados · rondas 1–7
+## Resultados acumulados · rondas 1–8
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 151 de 151 | 100 % | 97,5–100 % |
-| Señales · precisión | 151 de 151 | 100 % | 97,5–100 % |
-| Extracción · datos correctos | 4373 de 4392 | 99,6 % | 99,3–99,8 % |
-| Control · sin ninguna señal | 11 de 11 | 100 % | 74,1–100 % |
+| Señales · cobertura | 176 de 176 | 100 % | 97,8–100 % |
+| Señales · precisión | 176 de 176 | 100 % | 97,8–100 % |
+| Extracción · datos correctos | 4921 de 4940 | 99,6 % | 99,4–99,8 % |
+| Control · sin ninguna señal | 12 de 12 | 100 % | 75,7–100 % |
 
 ## Evolución por ronda
 
@@ -49,31 +49,29 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 5 | 4 | 100 % | 100 % | 99,8 % | 2 de 2 | 12,1 M | 1 |
 | 6 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 9,3 M | 1 |
 | 7 | 7 | 100 % | 100 % | 99,7 % | 0 de 0 | 13,5 M | 2 |
+| 8 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 11,5 M | 0 |
 
-## La ronda más reciente · ronda 7
+## La ronda más reciente · ronda 8
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 19 de 19 | 100 % | 83,1–100 % |
-| Señales · precisión | 19 de 19 | 100 % | 83,1–100 % |
-| Extracción · datos correctos | 911 de 912 | 99,9 % | 99,3–100 % |
-| Control · sin ninguna señal | 0 de 0 | — | — |
+| Señales · cobertura | 25 de 25 | 100 % | 86,6–100 % |
+| Señales · precisión | 25 de 25 | 100 % | 86,6–100 % |
+| Extracción · datos correctos | 548 de 548 | 100 % | 99,3–100 % |
+| Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
 
-## Por industria y país · ronda 7
+## Por industria y país · ronda 8
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Entidad pública · Brasil | Fidel | 4 de 4 | 0 | 150 de 152 | 1,9 M |
-| Entidad pública · Brasil | Fidel | 4 de 4 | 0 | 152 de 152 | 1,8 M |
-| Entidad pública · Chile | Fidel | 3 de 3 | 0 | 152 de 152 | 1,8 M |
-| Entidad pública · Colombia | Fidel | 5 de 5 | 0 | 151 de 152 | 1,9 M |
-| Entidad pública · Ecuador | Fidel | 2 de 2 | 0 | 152 de 152 | 2,2 M |
-| Entidad pública · México | Fidel | 3 de 3 | 0 | 152 de 152 | 2,1 M |
-| Entidad pública · Perú | Fidel | 2 de 2 | 0 | 152 de 152 | 1,9 M |
+| Banca · Argentina | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,1 M |
+| Entidad pública · Argentina | Fidel | 5 de 5 | 0 | 152 de 152 | 2,1 M |
+| Retail · Argentina | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,3 M |
+| Control · Argentina | Constanza, Fidel | 0 de 0 | 0 | 132 de 132 | 3 M |
 
-## Lo que falló, uno por uno · rondas 1–7
+## Lo que falló, uno por uno · rondas 1–8
 
-19 fallas en 32 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+19 fallas en 36 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -118,7 +116,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 7 rondas usaron 132,8 millones de tokens: 130,4 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 4,1 millones por entidad.
+Las 8 rondas usaron 144,3 millones de tokens: 141,8 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 3,9 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

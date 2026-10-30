@@ -1,0 +1,18 @@
+{
+  "entidad": "Organismo Público del Litoral",
+  "agentes": [
+    "fidel"
+  ],
+  "tokens": 2080428,
+  "senales": {
+    "esperadas": 5,
+    "acertadas": 5,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 152,
+    "bien": 152,
+    "mal": []
+  }
+}

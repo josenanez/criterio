@@ -1,0 +1,32 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:24:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 52,
+  "turnos": 11,
+  "tokens": 494544,
+  "tokens_salida": 3841,
+  "costo_usd": 0.1612478,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-30-compliance-scan-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-30-compliance-scan-1.md",
+      "estado-legal/30714520780-almacenes-del-plata/cache/30-normativa/registro-normativo.csv.md",
+      "estado-legal/30714520780-almacenes-del-plata/corridas/2026-10-06-compliance-scan-1.md",
+      "estado-legal/30714520780-almacenes-del-plata/corridas/salida-compliance-scan.md",
+      "estado-legal/30714520780-almacenes-del-plata/cumplimiento/2026-09/reporte-compliance-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/30714520780-almacenes-del-plata/cache/manifest.json",
+      "estado-legal/30714520780-almacenes-del-plata/corridas.json"
+    ],
+    "borrados": []
+  }
+}

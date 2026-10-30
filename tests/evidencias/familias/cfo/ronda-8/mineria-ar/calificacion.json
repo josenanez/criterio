@@ -1,0 +1,20 @@
+{
+  "entidad": "Minera Cordillera de Cuyo",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4348757,
+  "senales": {
+    "esperadas": 12,
+    "acertadas": 12,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 9,
+    "bien": 9,
+    "mal": []
+  }
+}

@@ -176,7 +176,7 @@
   },
   {
    "incremento": 7,
-   "version": null,
+   "version": "1.1.0",
    "estado": "en curso",
    "industrias": [],
    "paises": [
@@ -186,62 +186,14 @@
       "es": "Argentina",
       "en": "Argentina"
      }
-    }
-   ],
-   "es": {
-    "titulo": "Argentina",
-    "entra": [
-     "Su entrada en el registro de países, el lector de el comprobante electrónico de ARCA, con su CAE y sus fuentes verificadas",
-     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
-    ],
-    "prueba": "La ronda con los tres agentes en Argentina"
-   },
-   "en": {
-    "titulo": "Argentina",
-    "entra": [
-     "Its entry in the country registry, the reader for the ARCA electronic voucher, with its CAE and its verified sources",
-     "Three test entities, one of them a control with no seeded defects"
-    ],
-    "prueba": "The round with the three agents in Argentina"
-   }
-  },
-  {
-   "incremento": 8,
-   "version": null,
-   "estado": "siguiente",
-   "industrias": [],
-   "paises": [
+    },
     {
      "codigo": "PA",
      "nombre": {
       "es": "Panamá",
       "en": "Panama"
      }
-    }
-   ],
-   "es": {
-    "titulo": "Panamá",
-    "entra": [
-     "Su entrada en el registro de países, el lector de la factura electrónica de la DGI, con su CUFE y sus fuentes verificadas",
-     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
-    ],
-    "prueba": "La ronda con los tres agentes en Panamá"
-   },
-   "en": {
-    "titulo": "Panama",
-    "entra": [
-     "Its entry in the country registry, the reader for the DGI electronic invoice, with its CUFE and its verified sources",
-     "Three test entities, one of them a control with no seeded defects"
-    ],
-    "prueba": "The round with the three agents in Panama"
-   }
-  },
-  {
-   "incremento": 9,
-   "version": null,
-   "estado": "siguiente",
-   "industrias": [],
-   "paises": [
+    },
     {
      "codigo": "GT",
      "nombre": {
@@ -251,20 +203,22 @@
     }
    ],
    "es": {
-    "titulo": "Guatemala",
+    "titulo": "Argentina, Panamá y Guatemala",
     "entra": [
-     "Su entrada en el registro de países, el lector de la factura electrónica en línea de la SAT, con su número de autorización y sus fuentes verificadas",
-     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+     "Su entrada en el registro de países, con sus fuentes verificadas",
+     "Los lectores de su factura electrónica: el comprobante de ARCA con su CAE, la factura de la DGI con su CUFE y la FEL de la SAT con su número de autorización",
+     "Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados"
     ],
-    "prueba": "La ronda con los tres agentes en Guatemala"
+    "prueba": "Las rondas 8, 9 y 10 con los tres agentes, una por país"
    },
    "en": {
-    "titulo": "Guatemala",
+    "titulo": "Argentina, Panama and Guatemala",
     "entra": [
-     "Its entry in the country registry, the reader for the SAT online electronic invoice, with its authorization number and its verified sources",
-     "Three test entities, one of them a control with no seeded defects"
+     "Their entry in the country registry, with their verified sources",
+     "The readers for their electronic invoices: the ARCA voucher with its CAE, the DGI invoice with its CUFE and the SAT FEL with its authorization number",
+     "Three test entities per country, one of them a control with no seeded defects"
     ],
-    "prueba": "The round with the three agents in Guatemala"
+    "prueba": "Rounds 8, 9 and 10 with the three agents, one per country"
    }
   }
  ]

@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:06:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 14,
+  "tokens": 691368,
+  "tokens_salida": 5762,
+  "costo_usd": 0.23424440000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/30709031143-minera-cordillera-de-cuyo/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/30709031143-minera-cordillera-de-cuyo/corridas/salida-budget-scan.md",
+      "estado-finanzas/30709031143-minera-cordillera-de-cuyo/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/30709031143-minera-cordillera-de-cuyo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

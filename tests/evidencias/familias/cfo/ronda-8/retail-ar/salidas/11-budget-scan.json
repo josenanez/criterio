@@ -1,0 +1,30 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T13:58:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 111,
+  "turnos": 14,
+  "tokens": 565390,
+  "tokens_salida": 4887,
+  "costo_usd": 0.20605000000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-30-budget-scan-1.html",
+      ".criterio/corridas/presupuesto/2026-10-30-budget-scan-1.md",
+      ".criterio/corridas/presupuesto/corridas.json",
+      "estado-finanzas/30714520780-almacenes-del-plata/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/30714520780-almacenes-del-plata/corridas/salida-budget-scan.md",
+      "estado-finanzas/30714520780-almacenes-del-plata/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/30714520780-almacenes-del-plata/corridas.json"
+    ],
+    "borrados": []
+  }
+}

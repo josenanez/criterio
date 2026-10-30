@@ -1,0 +1,39 @@
+{
+  "n": 2,
+  "agente": "clara",
+  "comando": "close-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T14:10:42",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 16,
+  "tokens": 696214,
+  "tokens_salida": 2904,
+  "costo_usd": 0.19472699999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/40-soportes/C-01-soporte.pdf.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/40-soportes/C-02-soporte.pdf.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/40-soportes/C-03-soporte.pdf.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/40-soportes/C-04-soporte.md.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/40-soportes/C-05-soporte.md.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/40-soportes/correo-estado-del-cierre.md.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/50-auditoria/requerimientos/pbc-2026-09.csv.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/50-auditoria/respuestas/R-01-respuesta.md.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/50-auditoria/respuestas/R-02-respuesta.md.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/2026-09/50-auditoria/respuestas/R-03-respuesta.docx.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cache/manifest.json",
+      "estado-finanzas/30702173554-comercial-control-del-plata/cierre/2026-09/reporte-close-scan.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/corridas/2026-10-06-close-scan-1.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/corridas/salida-close-scan.md",
+      "estado-finanzas/30702173554-comercial-control-del-plata/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/30702173554-comercial-control-del-plata/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -38,6 +38,10 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-7 | [publica-ec](ronda-7/publica-ec/) | publica · EC | fidel | 2 de 2 · 0 de más | 152 de 152 | 2.16 M |
 | ronda-7 | [publica-mx](ronda-7/publica-mx/) | publica · MX | fidel | 3 de 3 · 0 de más | 152 de 152 | 2.08 M |
 | ronda-7 | [publica-pe](ronda-7/publica-pe/) | publica · PE | fidel | 2 de 2 · 0 de más | 152 de 152 | 1.86 M |
+| ronda-8 | [banca-ar](ronda-8/banca-ar/) | banca · AR | constanza, fidel | 10 de 10 · 0 de más | 132 de 132 | 3.09 M |
+| ronda-8 | [control-ar](ronda-8/control-ar/) | control · AR | constanza, fidel | 0 de 0 · 0 de más | 132 de 132 | 3.00 M |
+| ronda-8 | [publica-ar](ronda-8/publica-ar/) | publica · AR | fidel | 5 de 5 · 0 de más | 152 de 152 | 2.08 M |
+| ronda-8 | [retail-ar](ronda-8/retail-ar/) | retail · AR | constanza, fidel | 10 de 10 · 0 de más | 132 de 132 | 3.32 M |
 
 ## Los defectos que encontraron
 
