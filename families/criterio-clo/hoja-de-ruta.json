@@ -201,25 +201,32 @@
       "es": "Guatemala",
       "en": "Guatemala"
      }
+    },
+    {
+     "codigo": "CR",
+     "nombre": {
+      "es": "Costa Rica",
+      "en": "Costa Rica"
+     }
     }
    ],
    "es": {
-    "titulo": "Argentina, Panamá y Guatemala",
+    "titulo": "Argentina, Panamá, Guatemala y Costa Rica",
     "entra": [
      "Su entrada en el registro de países, con la identificación fiscal de cada contraparte",
-     "La regla de publicación y de garantía de la ley de contratación pública de Argentina y de Panamá, cada una con su fuente, y una entidad pública de prueba en cada uno",
+     "La regla de publicación y de garantía de la ley de contratación pública de Argentina, de Panamá y de Costa Rica, cada una con su fuente, y una entidad pública de prueba en cada uno",
      "Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados"
     ],
-    "prueba": "Las rondas 8, 9 y 10 con Fidel y Constanza, una por país"
+    "prueba": "Las rondas 8 a 11 con Fidel y Constanza, una por país"
    },
    "en": {
-    "titulo": "Argentina, Panama and Guatemala",
+    "titulo": "Argentina, Panama, Guatemala and Costa Rica",
     "entra": [
      "Their entry in the country registry, with each counterparty's tax ID",
-     "The publication and guarantee rule of the public procurement law of Argentina and Panama, each with its source, and a public test entity in each",
+     "The publication and guarantee rule of the public procurement law of Argentina, Panama and Costa Rica, each with its source, and a public test entity in each",
      "Three test entities per country, one of them a control with no seeded defects"
     ],
-    "prueba": "Rounds 8, 9 and 10 with Fidel and Constanza, one per country"
+    "prueba": "Rounds 8 to 11 with Fidel and Constanza, one per country"
    }
   }
  ]

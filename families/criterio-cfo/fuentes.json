@@ -923,6 +923,88 @@
           "estado": "verificada",
           "nota": "Dice: «Los contribuyentes afectos a las disposiciones de esta ley pagarán el impuesto con una tarifa del doce por ciento (12%) sobre la base imponible»",
           "uso": "La tarifa del IVA de Guatemala en el material"
+        },
+        {
+          "id": "F-34",
+          "fuente": "Ministerio de Hacienda de Costa Rica · Anexos y Estructuras para la Emisión de Comprobantes Electrónicos",
+          "version": "Versión 4.4, Dirección General de Tributación, noviembre de 2024",
+          "enlaces": [
+            [
+              "hacienda.go.cr",
+              "https://www.hacienda.go.cr/"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "El documento lo trajo José Francisco Ñáñez. Confirmados en el anexo 1: la clave de cincuenta posiciones, el consecutivo de veinte, la fecha de emisión, la identificación del emisor y del receptor (nota 4: la cédula jurídica, de diez caracteres), y en el resumen la moneda con su tipo de cambio, la venta neta, el total de impuesto y el total del comprobante; el espacio de nombres de cada comprobante es el de cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4. La respuesta de Hacienda (MensajeHacienda: 1 aceptado, 2 aceptación parcial, 3 rechazado, nota 11) no la procesa esta versión",
+          "uso": "Lector de la factura electrónica de Costa Rica y material de prueba",
+          "campos": [
+            {
+              "id": "A1-RAIZ",
+              "campo": "FacturaElectronica y NotaCreditoElectronica, con su espacio de nombres de la versión 4.4",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-CLAVE",
+              "campo": "Clave · cincuenta posiciones",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-CONSECUTIVO",
+              "campo": "NumeroConsecutivo · veinte posiciones",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-FECHA",
+              "campo": "FechaEmision · fecha y hora",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-EMISOR",
+              "campo": "Emisor/Identificacion/Numero",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-RECEPTOR",
+              "campo": "Receptor/Identificacion/Numero",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-MONEDA",
+              "campo": "ResumenFactura/CodigoTipoMoneda · CodigoMoneda y TipoCambio",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-VENTANETA",
+              "campo": "ResumenFactura/TotalVentaNeta",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-IMPUESTO",
+              "campo": "ResumenFactura/TotalImpuesto",
+              "estado": "verificado"
+            },
+            {
+              "id": "A1-TOTAL",
+              "campo": "ResumenFactura/TotalComprobante",
+              "estado": "verificado"
+            }
+          ]
+        },
+        {
+          "id": "F-35",
+          "fuente": "Costa Rica · Ley 9635, Fortalecimiento de las Finanzas Públicas, título I, Ley del Impuesto sobre el Valor Agregado, artículo 10",
+          "version": "El texto que trajo José Francisco Ñáñez",
+          "enlaces": [
+            [
+              "hacienda.go.cr",
+              "https://www.hacienda.go.cr/"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Dice: «La tarifa del impuesto es del trece por ciento (13%) para todas las operaciones sujetas al pago del impuesto». En el comprobante es el código de tarifa 08, la tarifa general del 13 % (F-34, nota de las tarifas)",
+          "uso": "La tarifa del IVA de Costa Rica en el material"
         }
       ]
     },
@@ -1095,6 +1177,21 @@
           "estado": "verificada",
           "nota": "Dice: los bancos y aseguradoras siguen los manuales de la Superintendencia de Bancos, no las NIIF; el colegio de contadores adoptó las NIIF y la NIIF para las PYMES, sin fuerza de ley, y la SAT acepta también estados con base fiscal. Por eso el material de Guatemala es de retail y minería, no de banca",
           "uso": "El marco contable de cada entidad de Guatemala en el material"
+        },
+        {
+          "id": "F-36",
+          "fuente": "IFRS Foundation · perfil de jurisdicción de Costa Rica",
+          "version": "actualizado el 8 de febrero de 2017",
+          "enlaces": [
+            [
+              "ifrs.org",
+              "https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/costa-rica-ifrs-profile.pdf"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Dice: las empresas que cotizan y todas las reguladas por el CONASSIF —entidades financieras, aseguradoras, fondos— usan las NIIF completas; las demás pueden usar la NIIF para las PYMES o las NIIF completas",
+          "uso": "El marco contable de cada entidad de Costa Rica en el material"
         }
       ]
     }

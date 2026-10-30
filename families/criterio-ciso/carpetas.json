@@ -1,157 +1,157 @@
 {
- "nota": "Fuente única de la estructura de carpetas recomendada de la familia CISO: scripts/familias.py la escribe en DISENO.es.md, en el skill security-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
- "raiz": {
-  "carpeta": "seguridad/",
-  "es": "Una carpeta por entidad, con su identificación fiscal al inicio del nombre. Dentro, las políticas y los registros de referencia, la evidencia de cada control, las revisiones de acceso, las evaluaciones de terceros, el registro de riesgos, las exportaciones del escáner, la remediación, los incidentes, sus revisiones y las pruebas de continuidad. Nunca credenciales, llaves ni respaldos: el motor los excluye.",
-  "en": "One folder per entity, with its tax id at the start of the name. Inside it, the policies and reference registers, each control's evidence, the access reviews, the third-party assessments, the risk register, the scanner exports, the remediation, the incidents, their reviews and the continuity tests. Never credentials, keys or backups: the engine excludes them."
- },
- "niveles": [
-  {
-   "id": "entidad",
-   "carpeta": "<entidad>/",
-   "es": "Lo que la organización lleva para toda la seguridad de la información",
-   "en": "What the organisation keeps for all of its information security",
-   "carpetas": [
+  "nota": "Fuente única de la estructura de carpetas recomendada de la familia CISO: scripts/familias.py la escribe en DISENO.es.md, en el skill security-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
+  "raiz": {
+    "carpeta": "seguridad/",
+    "es": "Una carpeta por entidad, con su identificación fiscal al inicio del nombre. Dentro, las políticas y los registros de referencia, la evidencia de cada control, las revisiones de acceso, las evaluaciones de terceros, el registro de riesgos, las exportaciones del escáner, la remediación, los incidentes, sus revisiones y las pruebas de continuidad. Nunca credenciales, llaves ni respaldos: el motor los excluye.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the policies and reference registers, each control's evidence, the access reviews, the third-party assessments, the risk register, the scanner exports, the remediation, the incidents, their reviews and the continuity tests. Never credentials, keys or backups: the engine excludes them."
+  },
+  "niveles": [
     {
-     "carpeta": "00-referencia",
-     "agentes": [
-      "alexis",
-      "guillermo",
-      "amparo"
-     ],
-     "es": "Las políticas —de seguridad, de gestión de vulnerabilidades y de respuesta a incidentes—, la declaración de aplicabilidad, la tabla de sistemas, el registro de terceros, el inventario de activos, la matriz de notificaciones y el calendario de continuidad",
-     "en": "The policies —security, vulnerability management and incident response—, the statement of applicability, the systems table, the third-party register, the asset inventory, the notification matrix and the continuity calendar",
-     "patrones": [
-      "^politica",
-      "^declaracion",
-      "^soa",
-      "^aplicabilidad",
-      "^sistemas",
-      "^terceros",
-      "^inventario",
-      "^activos",
-      "^matriz_notificaciones",
-      "^calendario"
-     ]
-    },
-    {
-     "carpeta": "10-controles",
-     "agentes": [
-      "alexis"
-     ],
-     "es": "La evidencia de cada control, con el número del control al inicio del nombre y el periodo que cubre: el informe, el registro, la captura o el acta que dice que el control operó",
-     "en": "Each control's evidence, with the control number at the start of the name and the period it covers: the report, log, screenshot or minutes that show the control operated",
-     "patrones": [
-      "^a_\\d",
-      "^\\d_\\d"
-     ]
-    },
-    {
-     "carpeta": "20-accesos",
-     "agentes": [
-      "alexis"
-     ],
-     "es": "Las revisiones de acceso de cada sistema, con el sistema y la fecha en el nombre",
-     "en": "Each system's access reviews, with the system and the date in the name",
-     "patrones": [
-      "^revision_accesos",
-      "^access_review"
-     ]
-    },
-    {
-     "carpeta": "30-terceros",
-     "agentes": [
-      "alexis"
-     ],
-     "es": "Las evaluaciones de seguridad de cada tercero: el cuestionario, el informe o la certificación que entregó, con su fecha",
-     "en": "Each third party's security assessments: the questionnaire, report or attestation it delivered, with its date",
-     "patrones": [
-      "^evaluacion",
-      "^assessment"
-     ]
-    },
-    {
-     "carpeta": "40-riesgos",
-     "agentes": [
-      "alexis"
-     ],
-     "es": "El registro de riesgos, con la decisión sobre cada uno, quién aceptó y hasta cuándo, y el documento de cada aceptación",
-     "en": "The risk register, with the decision on each risk, who accepted it and until when, and each acceptance's document",
-     "patrones": [
-      "^registro_riesgos",
-      "^riesgos",
-      "^aceptacion"
-     ]
-    },
-    {
-     "carpeta": "50-escaneos",
-     "agentes": [
-      "guillermo"
-     ],
-     "es": "Las exportaciones del escáner de vulnerabilidades, en CSV o Excel, con la fecha del escaneo en el nombre, y el catálogo KEV de CISA tal como se descarga",
-     "en": "The vulnerability scanner's exports, in CSV or Excel, with the scan date in the name, and CISA's KEV catalog as downloaded",
-     "patrones": [
-      "^escaneo",
-      "^scan",
-      "^known_exploited",
-      "^kev"
-     ]
-    },
-    {
-     "carpeta": "60-remediacion",
-     "agentes": [
-      "guillermo"
-     ],
-     "es": "El seguimiento de la remediación —cada vulnerabilidad con su estado y su fecha de cierre— y el registro de excepciones con su aprobación y su vencimiento",
-     "en": "The remediation tracker —each vulnerability with its status and closing date— and the exceptions register with its approval and expiry",
-     "patrones": [
-      "^seguimiento",
-      "^remediacion",
-      "^excepciones"
-     ]
-    },
-    {
-     "carpeta": "70-incidentes",
-     "agentes": [
-      "amparo"
-     ],
-     "es": "El informe de cada incidente, con su línea de tiempo —la detección, la contención y el cierre— y cada notificación que se hizo, con su constancia",
-     "en": "Each incident's report, with its timeline —detection, containment and closure— and every notification made, with its record",
-     "patrones": [
-      "^inc",
-      "^incidente"
-     ]
-    },
-    {
-     "carpeta": "80-revisiones",
-     "agentes": [
-      "amparo"
-     ],
-     "es": "La revisión posterior de cada incidente: las lecciones aprendidas y las acciones que salen de ellas",
-     "en": "Each incident's post-incident review: the lessons learned and the actions that come out of them",
-     "patrones": [
-      "^revision",
-      "^lecciones"
-     ]
-    },
-    {
-     "carpeta": "90-continuidad",
-     "agentes": [
-      "amparo"
-     ],
-     "es": "El informe de cada prueba del plan de continuidad, del de recuperación y de cada restauración de un respaldo, con su fecha y su resultado",
-     "en": "The report of each test of the continuity plan, of the recovery plan and of each backup restore, with its date and its result",
-     "patrones": [
-      "^prueba",
-      "^test"
-     ]
+      "id": "entidad",
+      "carpeta": "<entidad>/",
+      "es": "Lo que la organización lleva para toda la seguridad de la información",
+      "en": "What the organisation keeps for all of its information security",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "agentes": [
+            "alexis",
+            "guillermo",
+            "amparo"
+          ],
+          "es": "Las políticas —de seguridad, de gestión de vulnerabilidades y de respuesta a incidentes—, la declaración de aplicabilidad, la tabla de sistemas, el registro de terceros, el inventario de activos, la matriz de notificaciones y el calendario de continuidad",
+          "en": "The policies —security, vulnerability management and incident response—, the statement of applicability, the systems table, the third-party register, the asset inventory, the notification matrix and the continuity calendar",
+          "patrones": [
+            "^politica",
+            "^declaracion",
+            "^soa",
+            "^aplicabilidad",
+            "^sistemas",
+            "^terceros",
+            "^inventario",
+            "^activos",
+            "^matriz_notificaciones",
+            "^calendario"
+          ]
+        },
+        {
+          "carpeta": "10-controles",
+          "agentes": [
+            "alexis"
+          ],
+          "es": "La evidencia de cada control, con el número del control al inicio del nombre y el periodo que cubre: el informe, el registro, la captura o el acta que dice que el control operó",
+          "en": "Each control's evidence, with the control number at the start of the name and the period it covers: the report, log, screenshot or minutes that show the control operated",
+          "patrones": [
+            "^a_\\d",
+            "^\\d_\\d"
+          ]
+        },
+        {
+          "carpeta": "20-accesos",
+          "agentes": [
+            "alexis"
+          ],
+          "es": "Las revisiones de acceso de cada sistema, con el sistema y la fecha en el nombre",
+          "en": "Each system's access reviews, with the system and the date in the name",
+          "patrones": [
+            "^revision_accesos",
+            "^access_review"
+          ]
+        },
+        {
+          "carpeta": "30-terceros",
+          "agentes": [
+            "alexis"
+          ],
+          "es": "Las evaluaciones de seguridad de cada tercero: el cuestionario, el informe o la certificación que entregó, con su fecha",
+          "en": "Each third party's security assessments: the questionnaire, report or attestation it delivered, with its date",
+          "patrones": [
+            "^evaluacion",
+            "^assessment"
+          ]
+        },
+        {
+          "carpeta": "40-riesgos",
+          "agentes": [
+            "alexis"
+          ],
+          "es": "El registro de riesgos, con la decisión sobre cada uno, quién aceptó y hasta cuándo, y el documento de cada aceptación",
+          "en": "The risk register, with the decision on each risk, who accepted it and until when, and each acceptance's document",
+          "patrones": [
+            "^registro_riesgos",
+            "^riesgos",
+            "^aceptacion"
+          ]
+        },
+        {
+          "carpeta": "50-escaneos",
+          "agentes": [
+            "guillermo"
+          ],
+          "es": "Las exportaciones del escáner de vulnerabilidades, en CSV o Excel, con la fecha del escaneo en el nombre, y el catálogo KEV de CISA tal como se descarga",
+          "en": "The vulnerability scanner's exports, in CSV or Excel, with the scan date in the name, and CISA's KEV catalog as downloaded",
+          "patrones": [
+            "^escaneo",
+            "^scan",
+            "^known_exploited",
+            "^kev"
+          ]
+        },
+        {
+          "carpeta": "60-remediacion",
+          "agentes": [
+            "guillermo"
+          ],
+          "es": "El seguimiento de la remediación —cada vulnerabilidad con su estado y su fecha de cierre— y el registro de excepciones con su aprobación y su vencimiento",
+          "en": "The remediation tracker —each vulnerability with its status and closing date— and the exceptions register with its approval and expiry",
+          "patrones": [
+            "^seguimiento",
+            "^remediacion",
+            "^excepciones"
+          ]
+        },
+        {
+          "carpeta": "70-incidentes",
+          "agentes": [
+            "amparo"
+          ],
+          "es": "El informe de cada incidente, con su línea de tiempo —la detección, la contención y el cierre— y cada notificación que se hizo, con su constancia",
+          "en": "Each incident's report, with its timeline —detection, containment and closure— and every notification made, with its record",
+          "patrones": [
+            "^inc",
+            "^incidente"
+          ]
+        },
+        {
+          "carpeta": "80-revisiones",
+          "agentes": [
+            "amparo"
+          ],
+          "es": "La revisión posterior de cada incidente: las lecciones aprendidas y las acciones que salen de ellas",
+          "en": "Each incident's post-incident review: the lessons learned and the actions that come out of them",
+          "patrones": [
+            "^revision",
+            "^lecciones"
+          ]
+        },
+        {
+          "carpeta": "90-continuidad",
+          "agentes": [
+            "amparo"
+          ],
+          "es": "El informe de cada prueba del plan de continuidad, del de recuperación y de cada restauración de un respaldo, con su fecha y su resultado",
+          "en": "The report of each test of the continuity plan, of the recovery plan and of each backup restore, with its date and its result",
+          "patrones": [
+            "^prueba",
+            "^test"
+          ]
+        }
+      ]
     }
-   ]
+  ],
+  "estado": {
+    "carpeta": "estado-seguridad/",
+    "es": "Lo que escriben Alexis, Guillermo y Amparo: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
+    "en": "What Alexis, Guillermo and Amparo write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
   }
- ],
- "estado": {
-  "carpeta": "estado-seguridad/",
-  "es": "Lo que escriben Alexis, Guillermo y Amparo: la configuración, la ficha de cada periodo, los informes y los índices. Ninguna persona lo edita, y ningún agente escribe fuera de aquí",
-  "en": "What Alexis, Guillermo and Amparo write: the configuration, each period's record, the reports and the indexes. No person edits it, and no agent writes anywhere else"
- }
 }

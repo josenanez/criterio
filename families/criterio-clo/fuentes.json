@@ -207,6 +207,21 @@
           "estado": "verificada",
           "nota": "Ejecutoriada la adjudicación de un acto de más de cincuenta mil balboas (B/.50 000.00), la entidad requiere la fianza de cumplimiento del contrato, conforme al pliego de cargos; su vigencia es la ejecución del contrato y su liquidación, más el término de los vicios redhibitorios. La ley no fija el porcentaje de la fianza —lo fija el pliego—, salvo el 10 % en la subasta en reversa, ni un plazo en días para publicar el contrato en PanamaCompra",
           "uso": "La fianza de cumplimiento que exige la ley en un contrato público de Panamá"
+        },
+        {
+          "id": "F-13",
+          "fuente": "Costa Rica · Ley 9986, Ley General de Contratación Pública, artículos 44 y 100",
+          "version": "El texto publicado que trajo José Francisco Ñáñez",
+          "enlaces": [
+            [
+              "pgrweb.go.cr",
+              "http://www.pgrweb.go.cr/scij/"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Artículo 44: la garantía de cumplimiento es exigible en los contratos de la licitación mayor y la menor, y facultativa en la reducida; «se establecerá entre un cinco por ciento (5%) y un diez por ciento (10%) del monto de la adjudicación, conforme lo defina el pliego», y si el pliego no la define, se rinde por el 5 %. Artículo 100: el contrato se perfecciona con la adjudicación firme y la garantía rendida. Todo el procedimiento corre en el sistema digital unificado (SICOP), sin un plazo en días para publicar el contrato",
+          "uso": "El mínimo y el tope de la garantía de cumplimiento de un contrato público de Costa Rica"
         }
       ]
     }

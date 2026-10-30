@@ -43,6 +43,8 @@ ella hasta verificarla ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regl
 | F-30 | SAT de Guatemala · FEL, esquema GT_Documento 0.2.1 | El esquema publicado en el repositorio «Catalogo-FEL» de la cuenta notificacioneselectfel en GitHub («Esquema y catálogos - FEL»), con el espacio de nombres http://www.sat.gob.gt/dte/fel/0.2.0; actualizado el 14 de octubre de 2026 | [github.com](https://github.com/notificacioneselectfel/Catalogo-FEL/tree/main/XSD) | 2026-10-30 | Verificada: El enlace lo dio José Francisco Ñáñez. Confirmados en el esquema: GTDocumento/SAT/DTE/DatosEmision con DatosGenerales (Tipo, FechaHoraEmision, CodigoMoneda), Emisor (NITEmisor), Receptor (IDReceptor), Totales con TotalImpuestos/TotalImpuesto (NombreCorto, TotalMontoImpuesto) y GranTotal; y Certificacion/NumeroAutorizacion con Serie y Numero. El tipo FACT es la factura y NCRE la nota de crédito | Lector de la FEL de Guatemala; material de prueba |
 | F-31 | SAT de Guatemala · FEL, Reglas y validaciones | Versión 2.1, octubre de 2026 | [sat.gob.gt](https://portal.sat.gob.gt/portal/) | 2026-10-30 | Verificada: El PDF lo trajo José Francisco Ñáñez. Confirmados: los tipos de DTE con la factura (FACT, base legal Decreto 27-92, artículo 29, literal a) en 1.2; las validaciones de la fecha y hora de emisión (2.2.1), del NIT del emisor (2.2.2), del ID del receptor (2.2.4), del monto de cada impuesto (2.4.2) y del gran total (2.19.2) | Las reglas de la FEL que respaldan los campos del lector |
 | F-32 | Guatemala · Decreto 27-92, Ley del Impuesto al Valor Agregado, artículo 10 | El texto con sus reformas que trajo José Francisco Ñáñez | [sat.gob.gt](https://portal.sat.gob.gt/portal/) | 2026-10-30 | Verificada: Dice: «Los contribuyentes afectos a las disposiciones de esta ley pagarán el impuesto con una tarifa del doce por ciento (12%) sobre la base imponible» | La tarifa del IVA de Guatemala en el material |
+| F-34 | Ministerio de Hacienda de Costa Rica · Anexos y Estructuras para la Emisión de Comprobantes Electrónicos | Versión 4.4, Dirección General de Tributación, noviembre de 2024 | [hacienda.go.cr](https://www.hacienda.go.cr/) | 2026-10-30 | Verificada: El documento lo trajo José Francisco Ñáñez. Confirmados en el anexo 1: la clave de cincuenta posiciones, el consecutivo de veinte, la fecha de emisión, la identificación del emisor y del receptor (nota 4: la cédula jurídica, de diez caracteres), y en el resumen la moneda con su tipo de cambio, la venta neta, el total de impuesto y el total del comprobante; el espacio de nombres de cada comprobante es el de cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4. La respuesta de Hacienda (MensajeHacienda: 1 aceptado, 2 aceptación parcial, 3 rechazado, nota 11) no la procesa esta versión | Lector de la factura electrónica de Costa Rica y material de prueba |
+| F-35 | Costa Rica · Ley 9635, Fortalecimiento de las Finanzas Públicas, título I, Ley del Impuesto sobre el Valor Agregado, artículo 10 | El texto que trajo José Francisco Ñáñez | [hacienda.go.cr](https://www.hacienda.go.cr/) | 2026-10-30 | Verificada: Dice: «La tarifa del impuesto es del trece por ciento (13%) para todas las operaciones sujetas al pago del impuesto». En el comprobante es el código de tarifa 08, la tarifa general del 13 % (F-34, nota de las tarifas) | La tarifa del IVA de Costa Rica en el material |
 
 ## Marco contable
 
@@ -58,6 +60,7 @@ ella hasta verificarla ([ADR 0006](../../docs/decisions/0006-scope-cfo.md), regl
 | F-26 | IFRS Foundation · perfil de jurisdicción de Argentina | actualizado el 27 de diciembre de 2023 | [ifrs.org](https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/argentina-ifrs-profile.pdf) | 2026-10-30 | Verificada: Dice: las empresas que cotizan bajo la CNV presentan sus estados en NIIF desde los ejercicios que empiezan el 1 de enero de 2012; los bancos aplican el marco del BCRA, convergido con las NIIF desde 2018, y las aseguradoras el de su superintendencia; las demás entidades eligen entre las NIIF, la NIIF para las PYMES o las normas argentinas de la FACPCE | El marco contable de cada entidad de Argentina en el material |
 | F-29 | IFRS Foundation · perfil de jurisdicción de Panamá | actualizado el 13 de septiembre de 2023 | [ifrs.org](https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/panama-ifrs-profile.pdf) | 2026-10-30 | Verificada: Dice: las empresas que cotizan en bolsa y los bancos bajo la Superintendencia (Acuerdo 6-2012) usan las NIIF; las demás pueden usarlas o, si son PYMES, la NIIF para las PYMES (Resolución 03-2010) | El marco contable de cada entidad de Panamá en el material |
 | F-33 | IFRS Foundation · perfil de jurisdicción de Guatemala | actualizado el 16 de junio de 2016 | [ifrs.org](https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/guatemala-ifrs-profile.pdf) | 2026-10-30 | Verificada: Dice: los bancos y aseguradoras siguen los manuales de la Superintendencia de Bancos, no las NIIF; el colegio de contadores adoptó las NIIF y la NIIF para las PYMES, sin fuerza de ley, y la SAT acepta también estados con base fiscal. Por eso el material de Guatemala es de retail y minería, no de banca | El marco contable de cada entidad de Guatemala en el material |
+| F-36 | IFRS Foundation · perfil de jurisdicción de Costa Rica | actualizado el 8 de febrero de 2017 | [ifrs.org](https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/costa-rica-ifrs-profile.pdf) | 2026-10-30 | Verificada: Dice: las empresas que cotizan y todas las reguladas por el CONASSIF —entidades financieras, aseguradoras, fondos— usan las NIIF completas; las demás pueden usar la NIIF para las PYMES o las NIIF completas | El marco contable de cada entidad de Costa Rica en el material |
 
 ## Los campos que procesa el motor
 
@@ -221,6 +224,21 @@ puerta falla si el motor usa uno que no está, o uno por verificar.
 | XSD-IMPUESTO | DatosEmision/Totales/TotalImpuestos/TotalImpuesto · @NombreCorto IVA y @TotalMontoImpuesto (Reglas y validaciones 2.1, 2.4.2) | Verificado |
 | XSD-GRANTOTAL | DatosEmision/Totales/GranTotal · el total del documento, con sus impuestos (Reglas y validaciones 2.1, 2.19.2) | Verificado |
 | XSD-AUTORIZACION | Certificacion/NumeroAutorizacion · el UUID de la autorización, con @Serie y @Numero (GT_Documento 0.2.1) | Verificado |
+
+**F-34 · Ministerio de Hacienda de Costa Rica · Anexos y Estructuras para la Emisión de Comprobantes Electrónicos**
+
+| Id | Campo | Estado |
+|---|---|---|
+| A1-RAIZ | FacturaElectronica y NotaCreditoElectronica, con su espacio de nombres de la versión 4.4 | Verificado |
+| A1-CLAVE | Clave · cincuenta posiciones | Verificado |
+| A1-CONSECUTIVO | NumeroConsecutivo · veinte posiciones | Verificado |
+| A1-FECHA | FechaEmision · fecha y hora | Verificado |
+| A1-EMISOR | Emisor/Identificacion/Numero | Verificado |
+| A1-RECEPTOR | Receptor/Identificacion/Numero | Verificado |
+| A1-MONEDA | ResumenFactura/CodigoTipoMoneda · CodigoMoneda y TipoCambio | Verificado |
+| A1-VENTANETA | ResumenFactura/TotalVentaNeta | Verificado |
+| A1-IMPUESTO | ResumenFactura/TotalImpuesto | Verificado |
+| A1-TOTAL | ResumenFactura/TotalComprobante | Verificado |
 
 ## Cifras de terceros
 

@@ -1,0 +1,611 @@
+{
+  "entidad": "Almacenes de la Meseta",
+  "industria": "retail",
+  "pais": "CR",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "contrato_por_vencer",
+      "otrosi_sin_facultad",
+      "registro_distinto",
+      "sin_garantia",
+      "contrato_sin_registro"
+    ],
+    "constanza": [
+      "sin_fuente",
+      "evidencia_vieja",
+      "caso_vencido",
+      "cumplida_sin_evidencia",
+      "politica_vencida"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "3101612904",
+        "name": "Almacenes de la Meseta",
+        "country": "CR",
+        "currency": "CRC"
+      },
+      "paths": {
+        "documents": "legal/3101612904-almacenes-de-la-meseta",
+        "state": "estado-legal/3101612904-almacenes-de-la-meseta"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "3101612904",
+        "name": "Almacenes de la Meseta",
+        "country": "CR",
+        "currency": "CRC"
+      },
+      "paths": {
+        "documents": "legal/3101612904-almacenes-de-la-meseta",
+        "state": "estado-legal/3101612904-almacenes-de-la-meseta"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/3101612904-almacenes-de-la-meseta/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-3701": {
+        "code": "CTR-3701",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística del Pacífico Central S.A.",
+          "id": "3101370001"
+        },
+        "value": 176000000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "José Pablo Mora",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística del Pacífico Central S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3701-logistica-del-pacifico-central-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3701-logistica-del-pacifico-central-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-3701-logistica-del-pacifico-central-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Logística del Pacífico Central S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3701-logistica-del-pacifico-central-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Logística del Pacífico Central S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3701-logistica-del-pacifico-central-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Logística del Pacífico Central S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-3701-logistica-del-pacifico-central-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3701-logistica-del-pacifico-central-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3702": {
+        "code": "CTR-3702",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Empaques de Heredia S.A.",
+          "id": "3101370002"
+        },
+        "value": 88000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Andrea Jiménez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Empaques de Heredia S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 154000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Andrea Jiménez",
+            "source": "contratos/CTR-3702-empaques-de-heredia-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3702-empaques-de-heredia-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3702-empaques-de-heredia-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-3702-empaques-de-heredia-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Empaques de Heredia S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3702-empaques-de-heredia-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Empaques de Heredia S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3702-empaques-de-heredia-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3702-empaques-de-heredia-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3703": {
+        "code": "CTR-3703",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Centro Comercial del Oeste S.A.",
+          "id": "3101370003"
+        },
+        "value": 132000000,
+        "start": "2025-02-01",
+        "end": "2026-11-25",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "José Pablo Mora",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Centro Comercial del Oeste S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3703-centro-comercial-del-oeste-s-a/10-contrato/contrato.md, cláusula 9"
+          },
+          {
+            "type": "calidad",
+            "months_after_end": 12,
+            "source": "contratos/CTR-3703-centro-comercial-del-oeste-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-25",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3703-centro-comercial-del-oeste-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-3703-centro-comercial-del-oeste-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Centro Comercial del Oeste S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3703-centro-comercial-del-oeste-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-25",
+            "who": "Centro Comercial del Oeste S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3703-centro-comercial-del-oeste-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3703-centro-comercial-del-oeste-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3704": {
+        "code": "CTR-3704",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Pagos en Línea S.A.",
+          "id": "3101370004"
+        },
+        "value": 66000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Andrea Jiménez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Pagos en Línea S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3704-pagos-en-linea-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3704-pagos-en-linea-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-3704-pagos-en-linea-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Pagos en Línea S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3704-pagos-en-linea-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Pagos en Línea S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3704-pagos-en-linea-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3704-pagos-en-linea-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3705": {
+        "code": "CTR-3705",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Mercadeo Integral S.A.",
+          "id": "3101370005"
+        },
+        "value": 44000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Andrea Jiménez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mercadeo Integral S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3705-mercadeo-integral-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3705-mercadeo-integral-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-3705-mercadeo-integral-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Mercadeo Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3705-mercadeo-integral-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Mercadeo Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3705-mercadeo-integral-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-3705-mercadeo-integral-s-a/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-3705-mercadeo-integral-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3706": {
+        "code": "CTR-3706",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Refrigeración Comercial S.A.",
+          "id": "3101370006"
+        },
+        "value": 110000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "José Pablo Mora",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Refrigeración Comercial S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3706-refrigeracion-comercial-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3706-refrigeracion-comercial-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-3706-refrigeracion-comercial-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Refrigeración Comercial S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3706-refrigeracion-comercial-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Refrigeración Comercial S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3706-refrigeracion-comercial-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3706-refrigeracion-comercial-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3707": {
+        "code": "CTR-3707",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Vigilancia Integral S.A.",
+          "id": "3101370007"
+        },
+        "value": 66000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Andrea Jiménez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Vigilancia Integral S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3707-vigilancia-integral-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3707-vigilancia-integral-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-3707-vigilancia-integral-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Vigilancia Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3707-vigilancia-integral-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Vigilancia Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3707-vigilancia-integral-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3707-vigilancia-integral-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "compliance_evidence_stale",
+      "key": "stale:OB-11"
+    },
+    {
+      "signal": "contract_expiring",
+      "key": "vence:CTR-3703"
+    },
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-3703:calidad"
+    },
+    {
+      "signal": "obligation_without_source",
+      "key": "fuente:OB-13"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:P-03"
+    },
+    {
+      "signal": "register_differs_from_contract",
+      "key": "difiere:CTR-3702"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "carpeta:CTR-3707"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-3702:OT-1"
+    }
+  ]
+}

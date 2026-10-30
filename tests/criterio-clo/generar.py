@@ -91,6 +91,12 @@ def nit_gt(n: int) -> str:
     return base + ("K" if r == 10 else str(r))
 
 
+def cedula_cr(n: int) -> str:
+    """Una cédula jurídica de Costa Rica ficticia, de diez caracteres, la misma del material de la CFO.
+    Ninguna corresponde a una empresa."""
+    return f"3101{n % 1000000:06d}"
+
+
 def cnpj(raiz: int) -> str:
     """Un CNPJ ficticio con sus dos dígitos verificadores por módulo 11, el mismo del material de la
     CFO. Ninguno corresponde a una empresa."""
@@ -118,6 +124,8 @@ def id_contraparte(e: dict, i: int) -> str:
         return ruc_pa(e["n0"] * 100 + i)
     if e["pais"] == "GT":
         return nit_gt(e["n0"] * 1000 + i)
+    if e["pais"] == "CR":
+        return cedula_cr(e["n0"] * 100 + i)
     return f"{800000000 + e['n0'] * 10 + i}"
 
 SALIDA = AQUI / "material"
@@ -282,6 +290,24 @@ ENTIDADES = [
      "contrapartes": ["Transportes Control S.A.", "Insumos Control S.A.", "Bodegas Control S.A.", "Software Control S.A.",
                       "Asesores Control S.A.", "Mantenimiento Control S.A.", "Limpieza Control S.A."],
      "fidel": [], "constanza": []},
+    # Costa Rica, con la cédula jurídica de cada contraparte, en colones.
+    {"carpeta": "banca-cr", "industria": "banca", "pais": "CR", "id": cedula_cr(457812), "nombre": "Banco del Valle Central Sintético", "moneda": "CRC", "u": 30_000_000, "n0": 3600,
+     "personas": ("Mariana Solís", "Esteban Vargas", "Gabriela Quesada"),
+     "contrapartes": ["Sistemas Financieros del Valle S.A.", "Papelería Nacional S.A.", "Inmobiliaria Escazú S.A.", "Licencias Digitales S.A.",
+                      "Consultores de la Meseta S.A.", "Mantenimiento Integral S.A.", "Seguridad Tica S.A."],
+     "fidel": ["preaviso_vencido", "firma_sin_facultad", "pagos_de_mas", "garantia_corta", "obligacion_contrato_vencida"],
+     "constanza": ["obligacion_vencida", "sin_responsable", "norma_sin_evaluar", "informe_declara_cumplido", "obligacion_contrato_fuera"]},
+    {"carpeta": "retail-cr", "industria": "retail", "pais": "CR", "id": cedula_cr(612904), "nombre": "Almacenes de la Meseta", "moneda": "CRC", "u": 22_000_000, "n0": 3700,
+     "personas": ("José Pablo Mora", "Andrea Jiménez", "Luis Diego Rojas"),
+     "contrapartes": ["Logística del Pacífico Central S.A.", "Empaques de Heredia S.A.", "Centro Comercial del Oeste S.A.", "Pagos en Línea S.A.",
+                      "Mercadeo Integral S.A.", "Refrigeración Comercial S.A.", "Vigilancia Integral S.A."],
+     "fidel": ["contrato_por_vencer", "otrosi_sin_facultad", "registro_distinto", "sin_garantia", "contrato_sin_registro"],
+     "constanza": ["sin_fuente", "evidencia_vieja", "caso_vencido", "cumplida_sin_evidencia", "politica_vencida"]},
+    {"carpeta": "control-cr", "industria": "retail", "pais": "CR", "id": cedula_cr(733015), "nombre": "Comercial Control de Costa Rica", "moneda": "CRC", "u": 18_000_000, "n0": 3800,
+     "personas": ("Carolina Arias", "Fernando Chaves", "Daniela Méndez"),
+     "contrapartes": ["Transportes Control S.A.", "Insumos Control S.A.", "Bodegas Control S.A.", "Software Control S.A.",
+                      "Asesores Control S.A.", "Mantenimiento Control S.A.", "Limpieza Control S.A."],
+     "fidel": [], "constanza": []},
     # Las entidades públicas (incremento 6): contratan bajo la ley de contratación pública de su país.
     # Solo Fidel se prueba en ellas; cada una trae sus casos que se parecen a un defecto y no lo son.
     {"carpeta": "publica-co", "industria": "publica", "pais": "CO", "id": "899999101", "nombre": "Instituto Público de Fomento Andino", "moneda": "COP",
@@ -330,6 +356,11 @@ ENTIDADES = [
      "contrapartes": ["Tecnología Gubernamental S.A.", "Suministros del Estado S.A.", "Edificaciones Oficiales S.A.", "Software Público S.A.",
                       "Consultoría Estatal S.A.", "Mantenimiento Público S.A.", "Vigilancia Oficial S.A."],
      "fidel": ["sin_fianza"], "constanza": []},
+    {"carpeta": "publica-cr", "industria": "publica", "pais": "CR", "id": cedula_cr(399101), "nombre": "Instituto Público de la Meseta", "moneda": "CRC", "u": 15_000_000, "n0": 3900, "publica": True,
+     "personas": ("Lucía Brenes", "Mauricio Céspedes", "Natalia Ulate"),
+     "contrapartes": ["Tecnología Gubernamental S.A.", "Suministros del Estado S.A.", "Edificaciones Oficiales S.A.", "Software Público S.A.",
+                      "Consultoría Estatal S.A.", "Mantenimiento Público S.A.", "Vigilancia Oficial S.A."],
+     "fidel": ["garantia_baja", "garantia_sobre_tope"], "constanza": []},
 ]
 
 d = dt.date.fromisoformat
@@ -497,8 +528,8 @@ def contrato(e: dict, i: int, b: dict) -> dict:
 # y la publicación en el último día del plazo, donde la ley lo fija. Los casos que se parecen a un
 # defecto y no lo son están en la frontera de la regla.
 SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP", "AR": "COMPR.AR",
-           "PA": "PanamaCompra"}
-PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10}
+           "PA": "PanamaCompra", "CR": "SICOP"}
+PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10, "CR": 0.05}
 
 
 def publica_limpia(e: dict, i: int) -> dict:
@@ -534,9 +565,9 @@ def sembrar_publica(e: dict, cs: list[dict], esperado: list) -> None:
         for k in ((1, 6) if pais in ("CO", "PE") else (1, 3)):
             cs[k - 1]["publica"]["pct"] = PORCENTAJE[pais] - 0.02
             esperado.append(("public_guarantee_below_law", f"garantia-ley:{code(k)}"))
-    if "garantia_sobre_tope" in s:      # un 8 % sin justificar, sobre el tope del 5 %
-        for k in (3, 6):
-            cs[k - 1]["publica"]["pct"] = 0.08
+    if "garantia_sobre_tope" in s:      # sobre el tope de la ley y sin justificar: un 8 % en Brasil (tope 5 %), un 12 % en Costa Rica (tope 10 %)
+        for k in ((6,) if "garantia_baja" in s else (3, 6)):
+            cs[k - 1]["publica"]["pct"] = {"CR": 0.12}.get(pais, 0.08)
             esperado.append(("public_guarantee_over_cap", f"garantia-tope:{code(k)}"))
     if "sin_fianza" in s:               # Panamá: dos contratos de más de B/.50 000 sin la fianza de cumplimiento que exige la ley
         for k in (1, 3):

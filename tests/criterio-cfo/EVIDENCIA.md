@@ -35,6 +35,9 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 | `retail-gt` | Guatemala | retail | 11 | 12 |
 | `mineria-gt` | Guatemala | minería | 11 | 12 |
 | `control-gt` | Guatemala | — | 0 | 0 |
+| `banca-cr` | Costa Rica | banca | 8 | 13 |
+| `retail-cr` | Costa Rica | retail | 8 | 12 |
+| `control-cr` | Costa Rica | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos
@@ -78,6 +81,13 @@ el DTE certificado de la versión 0.2.1 del esquema (F-30): `GTDocumento` con el
 autorización que asigna el certificador, la serie y el número, el NIT de cada parte y los totales,
 con el IVA al 12 % (F-32) y las reglas de validación de la SAT (F-31). El lector identifica cada
 factura por su número de autorización. El marco contable de cada una sale de su perfil NIIF (F-33).
+
+**Costa Rica, con el comprobante electrónico 4.4 de Hacienda.** Las tres entidades de Costa Rica traen
+la factura electrónica de la versión 4.4 (F-34): `FacturaElectronica` con su clave de cincuenta
+posiciones, el consecutivo, la cédula jurídica de cada parte y el resumen con la venta neta, el total de
+impuesto y el total del comprobante, con el IVA a la tarifa general del 13 % (F-35). El lector identifica
+cada factura por su clave; una nota de crédito se identifica y no cruza. Las entidades reguladas por el
+CONASSIF usan las NIIF completas (F-36): por eso Costa Rica entra con banca y retail.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 

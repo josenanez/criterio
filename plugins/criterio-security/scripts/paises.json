@@ -295,6 +295,39 @@
     "impuesto": "IVA",
     "emisor": "SAT"
    }
+  },
+  {
+   "codigo": "CR",
+   "nombre": {
+    "es": "Costa Rica",
+    "en": "Costa Rica"
+   },
+   "id_fiscal": "cédula jurídica",
+   "moneda": "CRC",
+   "decimal": ",",
+   "factura": {
+    "lector": "cr",
+    "fuentes": [
+     "F-34",
+     "F-35"
+    ],
+    "clave": "clave numérica (cincuenta posiciones)",
+    "tolerancia": [
+     0.01,
+     0.01
+    ],
+    "iva": 0.13,
+    "impuesto": "IVA",
+    "emisor": "Ministerio de Hacienda"
+   },
+   "contratacion_publica": {
+    "sistema": "SICOP",
+    "garantia": {
+     "minimo": 0.05,
+     "maximo": 0.1,
+     "fuente": "F-13"
+    }
+   }
   }
  ]
 }

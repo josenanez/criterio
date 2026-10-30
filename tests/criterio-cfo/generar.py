@@ -123,6 +123,14 @@ ENTIDADES = [
      "siembra": ["registro_sin_factura", "xml_duplicado", "comision_sin_registrar", "requerimiento_en_carta", "requerimiento_vencido",
                  "traslado_sin_acta", "proyeccion_vieja", "version_distinta"]},
     {"carpeta": "control-gt", "industria": "retail", "pais": "GT", "id": F.nit_gt(9721735), "nombre": "Comercial Control de Guatemala", "moneda": "GTQ", "escala": 10_000, "semilla": 97, "siembra": []},
+    # Costa Rica: banca y retail —las entidades del CONASSIF usan las NIIF completas (F-36)—, con el comprobante 4.4 (F-34).
+    {"carpeta": "banca-cr", "industria": "banca", "pais": "CR", "id": F.cedula_cr(457812), "nombre": "Banco del Valle Central Sintético", "moneda": "CRC", "escala": 1_000_000, "semilla": 101,
+     "siembra": ["balance_descuadrado", "comision_sin_registrar", "iva_distinto", "requerimiento_en_carta", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "traslado_sin_acta"]},
+    {"carpeta": "retail-cr", "industria": "retail", "pais": "CR", "id": F.cedula_cr(612904), "nombre": "Almacenes de la Meseta", "moneda": "CRC", "escala": 750_000, "semilla": 103,
+     "siembra": ["registro_sin_factura", "xml_duplicado", "cheque_viejo", "cierre_declarado", "requerimiento_vencido",
+                 "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite"]},
+    {"carpeta": "control-cr", "industria": "retail", "pais": "CR", "id": F.cedula_cr(733015), "nombre": "Comercial Control de Costa Rica", "moneda": "CRC", "escala": 600_000, "semilla": 107, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -419,6 +427,8 @@ TESORERIA = {
     "retail-pa": ["pago_sin_aprobacion", "caja_desviada", "vencimiento_cercano"],  # en dólares: sin exposición cambiaria al dólar
     "retail-gt": ["exposicion", "pago_sin_aprobacion", "vencimiento_cercano"],
     "mineria-gt": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
+    "banca-cr": ["exposicion", "firmante_sin_facultad", "covenant_riesgo"],
+    "retail-cr": ["caja_bajo_minimo", "pago_sin_aprobacion", "vencimiento_cercano"],
 }
 
 
@@ -449,7 +459,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
         # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
-        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450, "GTQ": 7.7}.get(e["moneda"], 1)
+        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450, "GTQ": 7.7, "CRC": 505}.get(e["moneda"], 1)
         politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
@@ -548,6 +558,8 @@ def generar(e: dict) -> dict:
             return F.ruc_pa(e["semilla"] * 1000 + i)
         if lector == "fel":
             return F.nit_gt(e["semilla"] * 100000 + i)
+        if lector == "cr":
+            return F.cedula_cr(e["semilla"] * 1000 + i)
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
@@ -565,6 +577,8 @@ def generar(e: dict) -> dict:
             return f"{'001' if prefijo == '99' else '002'}-{i:010d}"
         if lector == "fel":                                    # F-30: la serie y el número de la autorización
             return f"{'A1F0' if prefijo == '99' else 'B2E0'}{e['semilla']:02d}AB-{1000000 + i}"
+        if lector == "cr":                                     # F-34: sucursal, terminal, tipo 01 y número de diez
+            return f"{'001' if prefijo == '99' else '002'}0000101{i:010d}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
@@ -590,6 +604,8 @@ def generar(e: dict) -> dict:
         if lector == "fel":
             serie, nro = numero.split("-")
             return F.factura_fel(serie, int(nro), fecha.isoformat(), emisor, receptor, base, iva)
+        if lector == "cr":
+            return F.factura_cr(numero, fecha.isoformat(), emisor, receptor, base, iva)
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 

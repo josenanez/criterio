@@ -160,6 +160,18 @@ CAMPOS_FEL = {
     "XSD-GRANTOTAL": "DatosEmision/Totales/GranTotal · el total del documento, con sus impuestos (Reglas y validaciones 2.1, 2.19.2)",
     "XSD-AUTORIZACION": "Certificacion/NumeroAutorizacion · el UUID de la autorización, con @Serie y @Numero (GT_Documento 0.2.1)",
 }
+CAMPOS_CR = {
+    "A1-RAIZ": "FacturaElectronica · espacio de nombres https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica; NotaCreditoElectronica en el suyo (Anexos y Estructuras 4.4, anexo 1)",
+    "A1-CLAVE": "Clave · campo fijo de cincuenta posiciones (anexo 1, II.a)",
+    "A1-CONSECUTIVO": "NumeroConsecutivo · campo fijo de veinte posiciones (anexo 1, II.a)",
+    "A1-FECHA": "FechaEmision · fecha y hora RFC 3339 (anexo 1, II.a)",
+    "A1-EMISOR": "Emisor/Identificacion/Numero · la cédula del emisor (anexo 1, II.a; nota 4)",
+    "A1-RECEPTOR": "Receptor/Identificacion/Numero · la cédula del receptor (anexo 1, II.a; nota 4)",
+    "A1-MONEDA": "ResumenFactura/CodigoTipoMoneda · CodigoMoneda y TipoCambio (anexo 1, II.c)",
+    "A1-VENTANETA": "ResumenFactura/TotalVentaNeta · la venta neta (anexo 1, II.c)",
+    "A1-IMPUESTO": "ResumenFactura/TotalImpuesto · el total de impuesto (anexo 1, II.c)",
+    "A1-TOTAL": "ResumenFactura/TotalComprobante · el total del comprobante (anexo 1, II.c)",
+}
 TIPOS_SRI = {"01": "factura", "03": "liquidación de compra", "04": "nota de crédito",
              "05": "nota de débito", "06": "guía de remisión", "07": "comprobante de retención"}
 
@@ -506,6 +518,28 @@ def _fel(raiz) -> dict:
     return d
 
 
+def _cr(raiz, nombre: str) -> dict:
+    """El comprobante electrónico de Costa Rica (F-34, Anexos y Estructuras 4.4 del Ministerio de
+    Hacienda): `FacturaElectronica` o `NotaCreditoElectronica`, con su clave de cincuenta posiciones,
+    el consecutivo de veinte, la fecha de emisión, la cédula del emisor y la del receptor, y el
+    resumen con la moneda, la venta neta, el total de impuesto y el total del comprobante. Solo la
+    factura cruza valores; la nota de crédito se identifica y no cruza. La base es la venta neta y el
+    impuesto, el total de impuesto (el IVA a la tarifa general del 13 %, F-35)."""
+    emi, rec, res = _h(raiz, "Emisor"), _h(raiz, "Receptor"), _h(raiz, "ResumenFactura")
+    num = lambda n: _t(_h(n, "Identificacion"), "Numero") if n is not None and _h(n, "Identificacion") is not None else None  # noqa: E731
+    factura = nombre == "FacturaElectronica"
+    d = {
+        "pais": PAIS_DEL_LECTOR["cr"], "lector": "cr", "fuente": "F-34",
+        "tipo": "factura" if factura else "nota de crédito",
+        "numero": _t(raiz, "NumeroConsecutivo"), "fecha": iso(fecha((_t(raiz, "FechaEmision") or "")[:10])),
+        "emisor": ident(num(emi)), "receptor": ident(num(rec)),
+        "base": numero(_t(res, "TotalVentaNeta")), "iva": numero(_t(res, "TotalImpuesto")) or 0.0,
+        "total": numero(_t(res, "TotalComprobante")), "valores": factura,
+    }
+    d["id"] = _t(raiz, "Clave") or f"{d['emisor']}-{d['numero']}"
+    return d
+
+
 def leer_factura(ruta: Path) -> dict:
     """Una factura o nota electrónica de cualquier país del registro, con o sin su contenedor."""
     try:
@@ -552,6 +586,8 @@ def leer_factura(ruta: Path) -> dict:
         return _dgipa(raiz)
     if nombre == "GTDocumento":                                  # F-30: la FEL de Guatemala
         return _fel(raiz)
+    if nombre in ("FacturaElectronica", "NotaCreditoElectronica") and "comprobanteselectronicos.go.cr" in raiz.tag:   # F-34
+        return _cr(raiz, nombre)
     return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
 
 
@@ -2243,6 +2279,36 @@ def factura_dgipa(pto: str, nro: int, fecha_: str, emisor: str, receptor: str, n
             f'<dVTot>{total:.2f}</dVTot><dTotRec>{total:.2f}</dTotRec><iPzPag>2</iPzPag><dNroItems>1</dNroItems><dVTotItems>{total:.2f}</dVTotItems></gTot></rFE>')
 
 
+def cedula_cr(n: int) -> str:
+    """Una cédula jurídica de Costa Rica ficticia, de diez caracteres, con el prefijo 3-101 de las
+    sociedades anónimas (F-34, nota 4). Ninguna corresponde a una empresa."""
+    return f"3101{n % 1000000:06d}"
+
+
+def factura_cr(consecutivo: str, fecha_: str, emisor: str, receptor: str, base: float, iva: float) -> str:
+    """Una factura electrónica de Costa Rica en la versión 4.4, con lo que procesa el lector (F-34),
+    para las pruebas y el material. La clave tiene sus cincuenta posiciones: el país, la fecha, la
+    cédula del emisor en doce, el consecutivo, la situación y el código de seguridad."""
+    a, m, dd = fecha_[2:4], fecha_[5:7], fecha_[8:10]
+    seguridad = f"{int(hashlib.sha256(f'{emisor}{consecutivo}'.encode()).hexdigest(), 16) % 10**8:08d}"
+    clave = f"506{dd}{m}{a}{emisor.zfill(12)}{consecutivo}1{seguridad}"
+    total = round(base + iva, 2)
+    ns = "https://cdn.comprobanteselectronicos.go.cr/xml-schemas/v4.4/facturaElectronica"
+    return (f'<?xml version="1.0" encoding="UTF-8"?>\n<FacturaElectronica xmlns="{ns}">'
+            f'<Clave>{clave}</Clave><ProveedorSistemas>{emisor}</ProveedorSistemas><CodigoActividadEmisor>620100</CodigoActividadEmisor>'
+            f'<NumeroConsecutivo>{consecutivo}</NumeroConsecutivo><FechaEmision>{fecha_}T10:00:00-06:00</FechaEmision>'
+            f'<Emisor><Nombre>EMISOR DE PRUEBA</Nombre><Identificacion><Tipo>02</Tipo><Numero>{emisor}</Numero></Identificacion></Emisor>'
+            f'<Receptor><Nombre>RECEPTOR DE PRUEBA</Nombre><Identificacion><Tipo>02</Tipo><Numero>{receptor}</Numero></Identificacion></Receptor>'
+            '<CondicionVenta>01</CondicionVenta><DetalleServicio><LineaDetalle><NumeroLinea>1</NumeroLinea><Cantidad>1</Cantidad>'
+            f'<UnidadMedida>Sp</UnidadMedida><Detalle>Servicio</Detalle><PrecioUnitario>{base:.5f}</PrecioUnitario><MontoTotal>{base:.5f}</MontoTotal>'
+            f'<SubTotal>{base:.5f}</SubTotal><BaseImponible>{base:.5f}</BaseImponible><Impuesto><Codigo>01</Codigo><CodigoTarifaIVA>08</CodigoTarifaIVA>'
+            f'<Tarifa>13</Tarifa><Monto>{iva:.5f}</Monto></Impuesto><ImpuestoNeto>{iva:.5f}</ImpuestoNeto><MontoTotalLinea>{total:.5f}</MontoTotalLinea>'
+            '</LineaDetalle></DetalleServicio><ResumenFactura><CodigoTipoMoneda><CodigoMoneda>CRC</CodigoMoneda><TipoCambio>1</TipoCambio></CodigoTipoMoneda>'
+            f'<TotalServGravados>{base:.5f}</TotalServGravados><TotalGravado>{base:.5f}</TotalGravado><TotalVenta>{base:.5f}</TotalVenta>'
+            f'<TotalVentaNeta>{base:.5f}</TotalVentaNeta><TotalImpuesto>{iva:.5f}</TotalImpuesto><TotalComprobante>{total:.5f}</TotalComprobante>'
+            '</ResumenFactura></FacturaElectronica>')
+
+
 def nit_gt(n: int) -> str:
     """Un NIT de Guatemala ficticio, con un último carácter calculado por módulo 11 (10 es K) para que
     tenga la forma de uno real. El lector no lo valida. Ninguno corresponde a una empresa."""
@@ -2432,6 +2498,13 @@ def selftest() -> int:
            (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"], f["valores"]),
            ("fel", "factura", "A1B2C3D4-123456", ident(nit_gt(1234567)), ident(nit_gt(7654321)), 10000.0, 1200.0, 11200.0, "2026-09-15", True))
         ok("FEL de Guatemala: se identifica por el UUID de su autorización", len(f["id"]), 36)
+        f = leer_factura_texto(factura_cr("00100001010000004521", "2026-09-15", cedula_cr(101), cedula_cr(202), 10000.0, 1300.0), t)
+        ok("Costa Rica 4.4: la factura electrónica, con la venta neta, el impuesto y el total",
+           (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"], f["valores"]),
+           ("cr", "factura", "00100001010000004521", ident(cedula_cr(101)), ident(cedula_cr(202)), 10000.0, 1300.0, 11300.0, "2026-09-15", True))
+        ok("Costa Rica 4.4: se identifica por su clave de cincuenta posiciones", (len(f["id"]), f["id"][:3]), (50, "506"))
+        nc = factura_cr("00100001030000000007", "2026-09-15", cedula_cr(101), cedula_cr(202), 10.0, 1.3).replace("FacturaElectronica", "NotaCreditoElectronica")
+        ok("Costa Rica 4.4: la nota de crédito se identifica y no cruza valores", (leer_factura_texto(nc, t)["tipo"], leer_factura_texto(nc, t)["valores"]), ("nota de crédito", False))
         ok("SAT: un CFDI de otra versión no se lee como 4.0", "error" in leer_factura_texto(factura_sat("A", "1", "2026-09-15", "ABC260101AA1", "XYZ250505BB2", 1, 0.16).replace('Version="4.0"', 'Version="3.3"'), t), True)
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"
