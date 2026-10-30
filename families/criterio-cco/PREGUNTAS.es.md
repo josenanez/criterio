@@ -72,8 +72,8 @@ En la infraestructura de la plataforma de IA, no solo en tu equipo. Confirma que
 
 ### ¿Está lista para usar?
 
-Se puede instalar desde su versión 0.1.0, como versión de laboratorio y sin lanzar todavía. El motor pasa su prueba determinista sobre material sintético de Colombia y México; la ronda con los agentes, con una clave que no ven, es lo que la declara probada, y sale con la 0.2.0.
+Sí: se puede instalar, en su versión 0.3.0, y todavía no se ha lanzado. El motor pasa su prueba determinista sobre material sintético de Colombia, México, Ecuador, Perú y Chile. Los dos agentes pasaron sus dos rondas con una clave que no ven.
 
-### ¿Cuándo será estable?
+### ¿Es estable?
 
-Cuando su evidencia lo diga (decisión 0020): el piso del margen de confianza del 95 % en 95 % o más, en señales y en datos, sobre la corrida más reciente de cada entidad del material, y ninguna señal en los controles. Lo calcula el código desde las rondas; el número de la versión no lo dice.
+Sí, desde la 0.3.0, porque su evidencia lo dice (decisión 0020): con las dos rondas, el piso del margen de confianza del 95 % es 98,0 % en señales y 95,1 % en datos, sobre la corrida más reciente de cada entidad del material, y ningún control levanta una señal. Lo calcula el código desde las rondas; el número de la versión no lo dice.

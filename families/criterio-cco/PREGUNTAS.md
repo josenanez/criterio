@@ -72,8 +72,8 @@ On the AI platform's infrastructure, not only on your machine. Confirm it is adm
 
 ### Is it ready to use?
 
-It can be installed from version 0.1.0, as a laboratory version not yet launched. The engine passes its deterministic test on synthetic material from Colombia and Mexico; the round with the agents, with a key they never see, is what declares it tested, and it comes with 0.2.0.
+Yes: it can be installed, in its version 0.3.0, and it has not been launched yet. The engine passes its deterministic test on synthetic material from Colombia, Mexico, Ecuador, Peru and Chile. Both agents passed their two rounds with a key they never see.
 
-### When will it be stable?
+### Is it stable?
 
-When its evidence says so (decision 0020): the floor of the 95% confidence margin at 95% or higher, for signals and data, over each entity's most recent run in the material, and no signal in the controls. The code calculates it from the rounds; the version number does not say it.
+Yes, since 0.3.0, because its evidence says so (decision 0020): with both rounds, the floor of the 95% confidence margin is 98.0% for signals and 95.1% for data, over each entity's most recent run in the material, and no control raises a signal. The code calculates it from the rounds; the version number does not say it.
