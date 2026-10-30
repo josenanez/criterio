@@ -61,15 +61,15 @@
         "alexis"
       ],
       "origen": "instrucciones",
-      "commit": null,
-      "estado": "por-verificar",
+      "commit": "3bd3af0e",
+      "estado": "verificado",
       "es": {
         "que": "En las dos entidades de control, Alexis anotó en la lista de lo revisado las credenciales, la llave y el respaldo que el motor excluye. No los abrió —su motivo dice «no se abre»—, pero la lista dejó de ser lo que se miró y se descartó, y el dato se calificó como mal.",
-        "correccion": "El skill de la ficha de Alexis, y el de la de Amparo, dicen que lo que el motor excluye no va a esa lista: ya lo lista `seguridad.py excluidos`, que es lo que cita el reporte. Se repiten la instalación y el barrido de Alexis en los dos controles."
+        "correccion": "El skill de la ficha de Alexis, y el de la de Amparo, dicen que lo que el motor excluye no va a esa lista: ya lo lista `seguridad.py excluidos`, que es lo que cita el reporte. Se repitieron la instalación y el barrido de Alexis en los dos controles: 8 de 8 datos en cada uno."
       },
       "en": {
         "que": "In both control entities, Alexis listed among what was reviewed the credentials, the key and the backup that the engine excludes. She did not open them —her reason says «not opened»—, but the list stopped being what was looked at and set aside, and the field was graded as wrong.",
-        "correccion": "The skill for Alexis's record, and the one for Amparo's, say that what the engine excludes does not go on that list: `seguridad.py excluidos` already lists it, and that is what the report cites. Alexis's setup and scan are repeated on both controls."
+        "correccion": "The skill for Alexis's record, and the one for Amparo's, say that what the engine excludes does not go on that list: `seguridad.py excluidos` already lists it, and that is what the report cites. Alexis's setup and scan were repeated on both controls: 8 of 8 fields on each."
       },
       "fallas": [
         [
@@ -82,7 +82,9 @@
           "control-mx",
           "seguridad · reviewed"
         ]
-      ]
+      ],
+      "verificacion": "control-mx",
+      "ronda_verificacion": 1
     },
     {
       "id": "CISO-4",
@@ -92,17 +94,19 @@
         "guillermo"
       ],
       "origen": "codigo",
-      "commit": null,
-      "estado": "por-verificar",
+      "commit": "21363181",
+      "estado": "verificado",
       "es": {
         "que": "Guillermo lo reportó en su instalación: `convertir` dejó en el caché una copia en texto de un archivo de credenciales que el motor ya había excluido. El agente no la abrió, pero la exclusión de credenciales, llaves y respaldos tiene que valer también para la conversión.",
-        "correccion": "`convertir` recibe del motor de la CISO la lista de excluidos y no abre ni copia ninguno: van al manifiesto como no convertidos, con su motivo. La prueba del motor lo exige."
+        "correccion": "`convertir` recibe del motor de la CISO la lista de excluidos y no abre ni copia ninguno: van al manifiesto como no convertidos, con su motivo. La prueba del motor lo exige. Se verificó con el motor instalado después de la corrección, sobre el control de Colombia: la credencial quedó en el manifiesto como excluida y sin copia."
       },
       "en": {
         "que": "Guillermo reported it during his setup: `convertir` left in the cache a text copy of a credentials file the engine had already excluded. The agent did not open it, but the exclusion of credentials, keys and backups has to hold for conversion as well.",
-        "correccion": "`convertir` receives the CISO engine's list of excluded files and neither opens nor copies any: they go to the manifest as not converted, with their reason. The engine's test requires it."
+        "correccion": "`convertir` receives the CISO engine's list of excluded files and neither opens nor copies any: they go to the manifest as not converted, with their reason. The engine's test requires it. Verified with the engine installed after the fix, on the Colombian control: the credential stayed in the manifest as excluded and was not copied."
       },
-      "fallas": []
+      "fallas": [],
+      "verificacion": "control-co",
+      "ronda_verificacion": 1
     }
   ]
 }

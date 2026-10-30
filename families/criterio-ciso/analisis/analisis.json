@@ -2,7 +2,7 @@
  "meta": {
   "generado_desde": "tests/evidencias/familias/ciso",
   "ultima_ronda": 1,
-  "completa": false,
+  "completa": true,
   "rondas": [
    1
   ]
@@ -16,12 +16,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 1, parcial, sobre 4 de las 6 entidades del material: 100 de 100 señales sembradas encontradas (margen del 95 %: 96,3–100 %) y 0 de más; 32 de 32 datos extraídos bien (100 %, margen del 95 %: 89,2–100 %); y 0 de 0 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–1, 100 de 100 señales encontradas, 0 de más y 32 de 32 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda completa más reciente, la 1, sobre las 6 entidades del material: 100 de 100 señales sembradas encontradas (margen del 95 %: 96,3–100 %) y 0 de más; 48 de 48 datos extraídos bien (100 %, margen del 95 %: 92,5–100 %); y 2 de 2 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–1, 100 de 100 señales encontradas, 0 de más y 48 de 48 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 1, partial, on 4 of the material's 6 entities: 100 of 100 seeded signals found (95% margin: 96.3–100%) and 0 extra; 32 of 32 data items extracted right (100%, 95% margin: 89.2–100%); and 0 of 0 control entities with no signal at all.",
-     "Across rounds 1–1, 100 of 100 signals found, 0 extra and 32 of 32 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent complete round, round 1, on the material's 6 entities: 100 of 100 seeded signals found (95% margin: 96.3–100%) and 0 extra; 48 of 48 data items extracted right (100%, 95% margin: 92.5–100%); and 2 of 2 control entities with no signal at all.",
+     "Across rounds 1–1, 100 of 100 signals found, 0 extra and 48 of 48 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -46,7 +46,7 @@
      "es": [
       [
        "Rondas",
-       "1; la más reciente, la 1, es parcial"
+       "1; la completa más reciente es la 1"
       ],
       [
        "Material",
@@ -54,11 +54,11 @@
       ],
       [
        "Entidades de control",
-       ""
+       "Control · Colombia, Control · México"
       ],
       [
        "Corridas de una entidad",
-       "4"
+       "6"
       ],
       [
        "Señales sembradas",
@@ -66,13 +66,13 @@
       ],
       [
        "Datos calificados",
-       "32"
+       "48"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "1; the most recent, round 1, is partial"
+       "1; the most recent complete one is round 1"
       ],
       [
        "Material",
@@ -80,11 +80,11 @@
       ],
       [
        "Control entities",
-       ""
+       "Control · Colombia, Control · Mexico"
       ],
       [
        "Entity runs",
-       "4"
+       "6"
       ],
       [
        "Seeded signals",
@@ -92,7 +92,7 @@
       ],
       [
        "Data items graded",
-       "32"
+       "48"
       ]
      ]
     }
@@ -145,15 +145,15 @@
       ],
       [
        "Extracción · datos correctos",
-       "32 de 32",
+       "48 de 48",
        "100 %",
-       "89,2–100 %"
+       "92,5–100 %"
       ],
       [
        "Control · sin ninguna señal",
-       "0 de 0",
-       "—",
-       "—"
+       "2 de 2",
+       "100 %",
+       "34,2–100 %"
       ]
      ],
      "en": [
@@ -171,15 +171,15 @@
       ],
       [
        "Extraction · data right",
-       "32 of 32",
+       "48 of 48",
        "100%",
-       "89.2–100%"
+       "92.5–100%"
       ],
       [
        "Control · with no signal",
-       "0 of 0",
-       "—",
-       "—"
+       "2 of 2",
+       "100%",
+       "34.2–100%"
       ]
      ]
     }
@@ -222,43 +222,35 @@
      "es": [
       [
        "1",
-       "4",
+       "6",
        "100 %",
        "100 %",
        "100 %",
-       "0 de 0",
-       "21,4 M",
+       "2 de 2",
+       "31,9 M",
        "4"
       ]
      ],
      "en": [
       [
        "1",
-       "4",
+       "6",
        "100%",
        "100%",
        "100%",
-       "0 of 0",
-       "21.4 M",
+       "2 of 2",
+       "31.9 M",
        "4"
       ]
      ]
     }
-   },
-   "parrafos": {
-    "es": [
-     "Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes."
-    ],
-    "en": [
-     "A round that does not run every entity is partial: the first, small one, before the complete one, or a verification round, which repeats the runs a fixed defect left pending."
-    ]
    }
   },
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda más reciente · ronda 1",
-    "en": "The most recent round · round 1"
+    "es": "La ronda completa más reciente · ronda 1",
+    "en": "The most recent complete round · round 1"
    },
    "tabla": {
     "cab": {
@@ -291,15 +283,15 @@
       ],
       [
        "Extracción · datos correctos",
-       "32 de 32",
+       "48 de 48",
        "100 %",
-       "89,2–100 %"
+       "92,5–100 %"
       ],
       [
        "Control · sin ninguna señal",
-       "0 de 0",
-       "—",
-       "—"
+       "2 de 2",
+       "100 %",
+       "34,2–100 %"
       ]
      ],
      "en": [
@@ -317,15 +309,15 @@
       ],
       [
        "Extraction · data right",
-       "32 of 32",
+       "48 of 48",
        "100%",
-       "89.2–100%"
+       "92.5–100%"
       ],
       [
        "Control · with no signal",
-       "0 of 0",
-       "—",
-       "—"
+       "2 of 2",
+       "100%",
+       "34.2–100%"
       ]
      ]
     }
@@ -389,6 +381,22 @@
        "0",
        "8 de 8",
        "6 M"
+      ],
+      [
+       "Control · Colombia",
+       "Alexis, Amparo, Guillermo",
+       "0 de 0",
+       "0",
+       "8 de 8",
+       "5,3 M"
+      ],
+      [
+       "Control · México",
+       "Alexis, Amparo, Guillermo",
+       "0 de 0",
+       "0",
+       "8 de 8",
+       "5,2 M"
       ]
      ],
      "en": [
@@ -423,6 +431,22 @@
        "0",
        "8 of 8",
        "6 M"
+      ],
+      [
+       "Control · Colombia",
+       "Alexis, Amparo, Guillermo",
+       "0 of 0",
+       "0",
+       "8 of 8",
+       "5.3 M"
+      ],
+      [
+       "Control · Mexico",
+       "Alexis, Amparo, Guillermo",
+       "0 of 0",
+       "0",
+       "8 of 8",
+       "5.2 M"
       ]
      ]
     }
@@ -479,10 +503,10 @@
    },
    "parrafos": {
     "es": [
-     "4 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 2 verificados y 2 por verificar. 1 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "4 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 4 verificados y 0 por verificar. 1 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "4 defects logged, each with its origin, its fix and the run that verified it: 2 verified and 2 to verify. 1 came from the material, the key or the test harness, not from the agents."
+     "4 defects logged, each with its origin, its fix and the run that verified it: 4 verified and 0 to verify. 1 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -578,11 +602,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 1 rondas usaron 21,4 millones de tokens: 21,4 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 5,4 millones por entidad.",
+     "Las 1 rondas usaron 31,9 millones de tokens: 31,9 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 5,3 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 1 rounds used 21.4 million tokens: 21.4 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 5.4 million per entity.",
+     "The 1 rounds used 31.9 million tokens: 31.9 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 5.3 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

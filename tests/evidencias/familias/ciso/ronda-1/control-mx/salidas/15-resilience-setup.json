@@ -1,0 +1,47 @@
+{
+  "n": 15,
+  "agente": "amparo",
+  "comando": "resilience-setup",
+  "argumento": "seguridad/ccm090101ab3-comercial-control-sintetica",
+  "inicio": "2026-10-30T18:50:05",
+  "estado": "success",
+  "error": false,
+  "segundos": 136,
+  "turnos": 31,
+  "tokens": 1149831,
+  "tokens_salida": 11092,
+  "costo_usd": 0.4074719000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/resiliencia/2026-10-30-resilience-setup-1.html",
+      ".criterio/corridas/resiliencia/2026-10-30-resilience-setup-1.md",
+      ".criterio/corridas/resiliencia/corridas.json",
+      ".criterio/resiliencia/ccm090101ab3/config.json",
+      ".criterio/terminos/aceptacion-criterio-resilience-0.1.0-2026-10-15.md",
+      ".criterio/terminos/aceptacion-criterio-resilience-0.1.0-2026-10-15.pdf",
+      ".criterio/terminos/aceptacion-criterio-resilience-0.1.0-2026-10-15.sha256",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/70-incidentes/INC-CCM-101_informe.docx.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/70-incidentes/INC-CCM-101_notificacion-comision-supervisora.pdf.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/70-incidentes/INC-CCM-101_notificacion-comite-de-riesgos.pdf.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/80-revisiones/INC-CCM-101_revision.md.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/90-continuidad/prueba_plan-de-continuidad-del-negocio_2026-03-15.pdf.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/90-continuidad/prueba_recuperacion-del-centro-de-datos-alterno_2026-05-10.pdf.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/90-continuidad/prueba_restauracion-de-la-base-de-clientes_2026-07-01.pdf.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/90-continuidad/prueba_restauracion-del-correo-corporativo_2026-08-20.pdf.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/90-continuidad/prueba_restauracion-del-erp-comercial_2026-08-01.pdf.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/corridas/2026-10-15-resilience-setup-1.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/corridas/salida-resilience-setup.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/resiliencia/2026-10/ficha.json",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/resiliencia/2026-10/reporte-incident-timeline.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/resiliencia/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/cache/manifest.json",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

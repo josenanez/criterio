@@ -1,0 +1,28 @@
+{
+  "n": 16,
+  "agente": "amparo",
+  "comando": "resilience-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T18:43:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 87,
+  "turnos": 17,
+  "tokens": 721928,
+  "tokens_salida": 4605,
+  "costo_usd": 0.24036970000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-seguridad/900777888-cooperativa-control-sintetica/corridas/2026-10-15-resilience-scan-1.md",
+      "estado-seguridad/900777888-cooperativa-control-sintetica/corridas/salida-resilience-scan.md",
+      "estado-seguridad/900777888-cooperativa-control-sintetica/resiliencia/2026-10/reporte-resilience-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/900777888-cooperativa-control-sintetica/corridas.json",
+      "estado-seguridad/900777888-cooperativa-control-sintetica/indice.json"
+    ],
+    "borrados": []
+  }
+}

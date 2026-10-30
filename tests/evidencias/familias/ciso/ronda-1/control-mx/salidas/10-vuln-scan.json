@@ -1,0 +1,30 @@
+{
+  "n": 10,
+  "agente": "guillermo",
+  "comando": "vuln-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T18:48:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 70,
+  "turnos": 14,
+  "tokens": 609338,
+  "tokens_salida": 4590,
+  "costo_usd": 0.18835550000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-10-30-vuln-scan-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-10-30-vuln-scan-1.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/corridas/2026-10-15-vuln-scan-1.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/corridas/salida-vuln-scan.md",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/vulnerabilidades/2026-10/reporte-vuln-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/ccm090101ab3-comercial-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

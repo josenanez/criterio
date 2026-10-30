@@ -1,0 +1,25 @@
+{
+  "n": 2,
+  "agente": "alexis",
+  "comando": "security-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T21:51:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 43,
+  "turnos": 19,
+  "tokens": 783446,
+  "tokens_salida": 4849,
+  "costo_usd": 0.2533907,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-seguridad/900777888-cooperativa-control-sintetica/corridas/2026-10-15-security-scan-2.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}
