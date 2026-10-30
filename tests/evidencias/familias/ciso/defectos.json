@@ -83,6 +83,26 @@
           "seguridad · reviewed"
         ]
       ]
+    },
+    {
+      "id": "CISO-4",
+      "ronda": 1,
+      "carpeta": "banca-co",
+      "agentes": [
+        "guillermo"
+      ],
+      "origen": "codigo",
+      "commit": null,
+      "estado": "por-verificar",
+      "es": {
+        "que": "Guillermo lo reportó en su instalación: `convertir` dejó en el caché una copia en texto de un archivo de credenciales que el motor ya había excluido. El agente no la abrió, pero la exclusión de credenciales, llaves y respaldos tiene que valer también para la conversión.",
+        "correccion": "`convertir` recibe del motor de la CISO la lista de excluidos y no abre ni copia ninguno: van al manifiesto como no convertidos, con su motivo. La prueba del motor lo exige."
+      },
+      "en": {
+        "que": "Guillermo reported it during his setup: `convertir` left in the cache a text copy of a credentials file the engine had already excluded. The agent did not open it, but the exclusion of credentials, keys and backups has to hold for conversion as well.",
+        "correccion": "`convertir` receives the CISO engine's list of excluded files and neither opens nor copies any: they go to the manifest as not converted, with their reason. The engine's test requires it."
+      },
+      "fallas": []
     }
   ]
 }

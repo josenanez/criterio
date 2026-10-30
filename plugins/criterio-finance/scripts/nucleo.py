@@ -933,7 +933,7 @@ AREA = {"criterio-finance": "finanzas", "criterio-budget": "presupuesto", "crite
 
 
 def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas: tuple, revisar_config, calcular,
-              reporte, despertar) -> int:
+              reporte, despertar, excluir=None) -> int:
     """Las acciones que todos los motores hacen igual. Las propias de cada uno las atiende el motor
     antes de llegar aquí."""
     import sys
@@ -990,7 +990,9 @@ def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas
         sys.path.insert(0, str(aqui))
         import texto
         cfg, _ = cargar_config(a.config)
-        print(json.dumps(texto.convertir(cfg["_docs"], cfg["_estado"] / "cache", a.caso), ensure_ascii=False, indent=2)[:20000])
+        # Lo que el motor excluye —credenciales, llaves, respaldos— no se convierte (CISO-4).
+        fuera = set(excluir(cfg["_docs"], cfg)) if excluir else set()
+        print(json.dumps(texto.convertir(cfg["_docs"], cfg["_estado"] / "cache", a.caso, fuera), ensure_ascii=False, indent=2)[:20000])
         return 0
     if not a.config:
         ap.error("--config es obligatorio")

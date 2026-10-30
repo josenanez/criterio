@@ -228,7 +228,7 @@
        "100 %",
        "0 de 0",
        "21,4 M",
-       "3"
+       "4"
       ]
      ],
      "en": [
@@ -240,7 +240,7 @@
        "100%",
        "0 of 0",
        "21.4 M",
-       "3"
+       "4"
       ]
      ]
     }
@@ -479,10 +479,10 @@
    },
    "parrafos": {
     "es": [
-     "3 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 2 verificados y 1 por verificar. 1 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "4 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 2 verificados y 2 por verificar. 1 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "3 defects logged, each with its origin, its fix and the run that verified it: 2 verified and 1 to verify. 1 came from the material, the key or the test harness, not from the agents."
+     "4 defects logged, each with its origin, its fix and the run that verified it: 2 verified and 2 to verify. 1 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -499,11 +499,11 @@
     "filas": {
      "es": [
       [
-       "Arnés de pruebas",
-       "1"
+       "Código",
+       "2"
       ],
       [
-       "Código",
+       "Arnés de pruebas",
        "1"
       ],
       [
@@ -513,11 +513,11 @@
      ],
      "en": [
       [
-       "Test harness",
-       "1"
+       "Code",
+       "2"
       ],
       [
-       "Code",
+       "Test harness",
        "1"
       ],
       [
@@ -550,7 +550,7 @@
       ],
       [
        "Guillermo",
-       "1"
+       "2"
       ]
      ],
      "en": [
@@ -564,7 +564,7 @@
       ],
       [
        "Guillermo",
-       "1"
+       "2"
       ]
      ]
     }

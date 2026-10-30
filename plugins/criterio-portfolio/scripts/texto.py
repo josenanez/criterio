@@ -582,9 +582,13 @@ SIN_SOPORTE = {
 
 # ---------------------------------------------------------------- correr
 
-def convertir(docs: Path, cache: Path, solo: str | None = None) -> dict:
+def convertir(docs: Path, cache: Path, solo: str | None = None, excluir: set | None = None) -> dict:
+    """Convierte a texto los documentos de `docs` en `cache`. `excluir` son las rutas, relativas a
+    `docs`, que no se abren: las credenciales, llaves y respaldos que el motor de la CISO deja fuera
+    (CISO-4). Van al manifiesto como no convertidas, con su motivo, y no dejan copia en el caché."""
     cache.mkdir(parents=True, exist_ok=True)
     manifiesto, formatos = [], {}
+    excluir = excluir or set()
 
     for ruta in sorted(docs.rglob("*")):
         if not ruta.is_file() or ruta.name in IGNORAR or ruta.name.startswith("."):
@@ -595,6 +599,10 @@ def convertir(docs: Path, cache: Path, solo: str | None = None) -> dict:
         ext = ruta.suffix.lower()
         formatos[ext] = formatos.get(ext, 0) + 1
         fila = {"path": str(rel), "format": ext}
+        if str(rel) in excluir:
+            fila.update(converter=None, ok=False, reason="excluido: no se abre")
+            manifiesto.append(fila)
+            continue
 
         try:
             if ext in NATIVO:

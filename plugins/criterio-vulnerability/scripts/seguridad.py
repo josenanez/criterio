@@ -1147,7 +1147,8 @@ def main() -> int:
         print(json.dumps(salida, ensure_ascii=False, indent=2))
         return 0 if not t.faltan else 1
     return N.despachar(a, ap, aqui=AQUI, rol=_rol(), estructura_json=ESTRUCTURA, subcarpetas=tuple(SUB.values()),
-                       revisar_config=revisar_config, calcular=calcular, reporte=reporte, despertar=despertar)
+                       revisar_config=revisar_config, calcular=calcular, reporte=reporte, despertar=despertar,
+                       excluir=lambda docs, cfg: [x["archivo"] for x in excluidos(docs, cfg)])
 
 
 # ================================================================ la prueba del motor
@@ -1190,6 +1191,14 @@ def selftest() -> int:
         (docs / "10-controles" / "A.5.15_control-acceso_2026-03.pdf").write_text("acceso", encoding="utf-8")
         ok("las llaves y las credenciales se excluyen por omisión", [x["archivo"] for x in excluidos(docs, {})],
            ["10-controles/credenciales-vpn.txt", "10-controles/servidor.pem"])
+        sys.path.insert(0, str(AQUI))
+        import texto
+        cache = Path(t) / "cache-convertir"
+        man = texto.convertir(docs, cache, "10-controles", {x["archivo"] for x in excluidos(docs, {})})
+        ok("convertir no deja copia de una credencial ni de una llave (CISO-4)",
+           (sorted(p.name for p in cache.rglob("*.md") if p.name.startswith(("credenciales", "servidor"))),
+            sorted(f["path"] for f in man["files"] if f.get("reason") == "excluido: no se abre")),
+           ([], ["10-controles/credenciales-vpn.txt", "10-controles/servidor.pem"]))
         ref.mkdir(parents=True)
         _xlsx(ref / "declaracion-aplicabilidad.xlsx", [["Control", "Nombre", "Aplicable", "Estado", "Responsable", "Periodicidad"],
                                                       ["A.5.15", "Control de acceso", "Sí", "Implementado", "Ana", "trimestral"],

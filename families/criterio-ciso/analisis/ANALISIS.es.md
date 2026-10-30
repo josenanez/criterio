@@ -42,7 +42,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
-| 1 | 4 | 100 % | 100 % | 100 % | 0 de 0 | 21,4 M | 3 |
+| 1 | 4 | 100 % | 100 % | 100 % | 0 de 0 | 21,4 M | 4 |
 
 ## La ronda más reciente · ronda 1
 
@@ -73,19 +73,19 @@ Ninguna falla.
 
 ![Defectos](defectos-es.svg)
 
-3 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 2 verificados y 1 por verificar. 1 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
+4 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 2 verificados y 2 por verificar. 1 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
 
 | Origen | Defectos |
 |---|---|
+| Código | 2 |
 | Arnés de pruebas | 1 |
-| Código | 1 |
 | Instrucciones del agente | 1 |
 
 | Agente | Defectos |
 |---|---|
 | Amparo | 2 |
 | Alexis | 2 |
-| Guillermo | 1 |
+| Guillermo | 2 |
 
 ## Consumo y próximo paso
 

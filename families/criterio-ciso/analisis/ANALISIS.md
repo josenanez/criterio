@@ -42,7 +42,7 @@ A round that does not run every entity is partial: the first, small one, before 
 
 | Round | Entities | Signals · coverage | Signals · precision | Extraction | Control with no signal | Tokens | Defects |
 |---|---|---|---|---|---|---|---|
-| 1 | 4 | 100% | 100% | 100% | 0 of 0 | 21.4 M | 3 |
+| 1 | 4 | 100% | 100% | 100% | 0 of 0 | 21.4 M | 4 |
 
 ## The most recent round · round 1
 
@@ -73,19 +73,19 @@ No failures.
 
 ![Defects](defectos-en.svg)
 
-3 defects logged, each with its origin, its fix and the run that verified it: 2 verified and 1 to verify. 1 came from the material, the key or the test harness, not from the agents.
+4 defects logged, each with its origin, its fix and the run that verified it: 2 verified and 2 to verify. 1 came from the material, the key or the test harness, not from the agents.
 
 | Origin | Defects |
 |---|---|
+| Code | 2 |
 | Test harness | 1 |
-| Code | 1 |
 | Agent instructions | 1 |
 
 | Agent | Defects |
 |---|---|
 | Amparo | 2 |
 | Alexis | 2 |
-| Guillermo | 1 |
+| Guillermo | 2 |
 
 ## Cost and next step
 
