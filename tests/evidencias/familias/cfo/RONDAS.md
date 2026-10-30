@@ -8,6 +8,9 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 |---|---|---|---|---|---|---|
 | ronda-1 | [banca](ronda-1/banca/) | banca · CO | clara, tomas | 13 de 13 · 0 de más | 8 de 8 | 8.78 M + 0.82 M repetidos |
 | ronda-1 | [control-co](ronda-1/control-co/) | control · CO | clara, tomas | 0 de 0 · 0 de más | 8 de 8 | 8.54 M |
+| ronda-10 | [control-gt](ronda-10/control-gt/) | control · GT | aurea, clara, tomas | 0 de 0 · 0 de más | 8 de 8 | 3.89 M |
+| ronda-10 | [mineria-gt](ronda-10/mineria-gt/) | mineria · GT | aurea, clara, tomas | 12 de 12 · 0 de más | 9 de 9 | 4.25 M |
+| ronda-10 | [retail-gt](ronda-10/retail-gt/) | retail · GT | aurea, clara, tomas | 12 de 12 · 0 de más | 8 de 8 | 4.54 M |
 | ronda-2 | [banca](ronda-2/banca/) | banca · CO | clara, tomas | 13 de 13 · 0 de más | 8 de 8 | 8.40 M |
 | ronda-2 | [control-co](ronda-2/control-co/) | control · CO | clara, tomas | 0 de 0 · 0 de más | 8 de 8 | 8.39 M |
 | ronda-2 | [control-ec](ronda-2/control-ec/) | control · EC | clara, tomas | 0 de 0 · 0 de más | 8 de 8 | 8.52 M |

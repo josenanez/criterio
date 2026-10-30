@@ -1,0 +1,29 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:07:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 10,
+  "tokens": 494604,
+  "tokens_salida": 3217,
+  "costo_usd": 0.15224870000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/52934187-almacenes-del-altiplano/cache/30-normativa/registro-normativo.csv.md",
+      "estado-legal/52934187-almacenes-del-altiplano/corridas/2026-10-06-compliance-scan-1.md",
+      "estado-legal/52934187-almacenes-del-altiplano/corridas/salida-compliance-scan.md",
+      "estado-legal/52934187-almacenes-del-altiplano/cumplimiento/2026-09/reporte-compliance-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/52934187-almacenes-del-altiplano/cache/manifest.json",
+      "estado-legal/52934187-almacenes-del-altiplano/corridas.json"
+    ],
+    "borrados": []
+  }
+}

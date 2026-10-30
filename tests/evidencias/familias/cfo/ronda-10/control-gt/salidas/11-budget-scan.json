@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T16:55:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 15,
+  "tokens": 664230,
+  "tokens_salida": 3229,
+  "costo_usd": 0.1801951,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/97217352-comercial-control-de-guatemala/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/97217352-comercial-control-de-guatemala/corridas/salida-budget-scan.md",
+      "estado-finanzas/97217352-comercial-control-de-guatemala/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/97217352-comercial-control-de-guatemala/corridas.json"
+    ],
+    "borrados": []
+  }
+}

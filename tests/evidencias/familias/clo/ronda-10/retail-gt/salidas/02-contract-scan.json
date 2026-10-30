@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:04:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 85,
+  "turnos": 18,
+  "tokens": 968681,
+  "tokens_salida": 4283,
+  "costo_usd": 0.3256453,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/52934187-almacenes-del-altiplano/contratos/reporte-contract-scan.md",
+      "estado-legal/52934187-almacenes-del-altiplano/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/52934187-almacenes-del-altiplano/corridas/salida-contract-scan.md",
+      "estado-legal/52934187-almacenes-del-altiplano/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/52934187-almacenes-del-altiplano/corridas.json"
+    ],
+    "borrados": []
+  }
+}

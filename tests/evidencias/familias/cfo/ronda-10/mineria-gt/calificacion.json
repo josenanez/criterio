@@ -1,0 +1,20 @@
+{
+  "entidad": "Minera del Motagua",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4252242,
+  "senales": {
+    "esperadas": 12,
+    "acertadas": 12,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 9,
+    "bien": 9,
+    "mal": []
+  }
+}

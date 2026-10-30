@@ -1,7 +1,7 @@
 {
  "meta": {
   "generado_desde": "tests/evidencias/familias/cfo",
-  "ultima_ronda": 9,
+  "ultima_ronda": 10,
   "completa": false,
   "rondas": [
    1,
@@ -12,7 +12,8 @@
    6,
    7,
    8,
-   9
+   9,
+   10
   ]
  },
  "secciones": [
@@ -24,12 +25,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 9, parcial, sobre 3 de las 30 entidades del material: 27 de 27 señales sembradas encontradas (margen del 95 %: 87,5–100 %) y 0 de más; 24 de 24 datos extraídos bien (100 %, margen del 95 %: 86,2–100 %); y 1 de 1 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–9, 306 de 306 señales encontradas, 0 de más y 292 de 294 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda más reciente, la 10, parcial, sobre 3 de las 30 entidades del material: 24 de 24 señales sembradas encontradas (margen del 95 %: 86,2–100 %) y 0 de más; 25 de 25 datos extraídos bien (100 %, margen del 95 %: 86,6–100 %); y 1 de 1 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–10, 330 de 330 señales encontradas, 0 de más y 317 de 319 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 9, partial, on 3 of the material's 30 entities: 27 of 27 seeded signals found (95% margin: 87.5–100%) and 0 extra; 24 of 24 data items extracted right (100%, 95% margin: 86.2–100%); and 1 of 1 control entities with no signal at all.",
-     "Across rounds 1–9, 306 of 306 signals found, 0 extra and 292 of 294 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent round, round 10, partial, on 3 of the material's 30 entities: 24 of 24 seeded signals found (95% margin: 86.2–100%) and 0 extra; 25 of 25 data items extracted right (100%, 95% margin: 86.6–100%); and 1 of 1 control entities with no signal at all.",
+     "Across rounds 1–10, 330 of 330 signals found, 0 extra and 317 of 319 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -54,53 +55,53 @@
      "es": [
       [
        "Rondas",
-       "9; la más reciente, la 9, es parcial"
+       "10; la más reciente, la 10, es parcial"
       ],
       [
        "Material",
-       "Banca · Panamá, Retail · Panamá"
+       "Minería · Guatemala, Retail · Guatemala"
       ],
       [
        "Entidades de control",
-       "Control · Panamá"
+       "Control · Guatemala"
       ],
       [
        "Corridas de una entidad",
-       "36"
+       "39"
       ],
       [
        "Señales sembradas",
-       "306"
+       "330"
       ],
       [
        "Datos calificados",
-       "294"
+       "319"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "9; the most recent, round 9, is partial"
+       "10; the most recent, round 10, is partial"
       ],
       [
        "Material",
-       "Banking · Panama, Retail · Panama"
+       "Mining · Guatemala, Retail · Guatemala"
       ],
       [
        "Control entities",
-       "Control · Panama"
+       "Control · Guatemala"
       ],
       [
        "Entity runs",
-       "36"
+       "39"
       ],
       [
        "Seeded signals",
-       "306"
+       "330"
       ],
       [
        "Data items graded",
-       "294"
+       "319"
       ]
      ]
     }
@@ -119,8 +120,8 @@
   {
    "id": "acumulado",
    "titulo": {
-    "es": "Resultados acumulados · rondas 1–9",
-    "en": "Cumulative results · rounds 1–9"
+    "es": "Resultados acumulados · rondas 1–10",
+    "en": "Cumulative results · rounds 1–10"
    },
    "tabla": {
     "cab": {
@@ -141,53 +142,53 @@
      "es": [
       [
        "Señales · cobertura",
-       "306 de 306",
+       "330 de 330",
        "100 %",
-       "98,7–100 %"
+       "98,8–100 %"
       ],
       [
        "Señales · precisión",
-       "306 de 306",
+       "330 de 330",
        "100 %",
-       "98,7–100 %"
+       "98,8–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "292 de 294",
-       "99,3 %",
-       "97,5–99,9 %"
+       "317 de 319",
+       "99,4 %",
+       "97,7–99,9 %"
       ],
       [
        "Control · sin ninguna señal",
-       "12 de 12",
+       "13 de 13",
        "100 %",
-       "75,7–100 %"
+       "77,1–100 %"
       ]
      ],
      "en": [
       [
        "Signals · coverage",
-       "306 of 306",
+       "330 of 330",
        "100%",
-       "98.7–100%"
+       "98.8–100%"
       ],
       [
        "Signals · precision",
-       "306 of 306",
+       "330 of 330",
        "100%",
-       "98.7–100%"
+       "98.8–100%"
       ],
       [
        "Extraction · data right",
-       "292 of 294",
-       "99.3%",
-       "97.5–99.9%"
+       "317 of 319",
+       "99.4%",
+       "97.7–99.9%"
       ],
       [
        "Control · with no signal",
-       "12 of 12",
+       "13 of 13",
        "100%",
-       "75.7–100%"
+       "77.1–100%"
       ]
      ]
     }
@@ -317,6 +318,16 @@
        "1 de 1",
        "12,8 M",
        "0"
+      ],
+      [
+       "10",
+       "3",
+       "100 %",
+       "100 %",
+       "100 %",
+       "1 de 1",
+       "12,7 M",
+       "0"
       ]
      ],
      "en": [
@@ -409,6 +420,16 @@
        "1 of 1",
        "12.8 M",
        "0"
+      ],
+      [
+       "10",
+       "3",
+       "100%",
+       "100%",
+       "100%",
+       "1 of 1",
+       "12.7 M",
+       "0"
       ]
      ]
     }
@@ -425,8 +446,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda más reciente · ronda 9",
-    "en": "The most recent round · round 9"
+    "es": "La ronda más reciente · ronda 10",
+    "en": "The most recent round · round 10"
    },
    "tabla": {
     "cab": {
@@ -447,21 +468,21 @@
      "es": [
       [
        "Señales · cobertura",
-       "27 de 27",
-       "100 %",
-       "87,5–100 %"
-      ],
-      [
-       "Señales · precisión",
-       "27 de 27",
-       "100 %",
-       "87,5–100 %"
-      ],
-      [
-       "Extracción · datos correctos",
        "24 de 24",
        "100 %",
        "86,2–100 %"
+      ],
+      [
+       "Señales · precisión",
+       "24 de 24",
+       "100 %",
+       "86,2–100 %"
+      ],
+      [
+       "Extracción · datos correctos",
+       "25 de 25",
+       "100 %",
+       "86,6–100 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -473,21 +494,21 @@
      "en": [
       [
        "Signals · coverage",
-       "27 of 27",
-       "100%",
-       "87.5–100%"
-      ],
-      [
-       "Signals · precision",
-       "27 of 27",
-       "100%",
-       "87.5–100%"
-      ],
-      [
-       "Extraction · data right",
        "24 of 24",
        "100%",
        "86.2–100%"
+      ],
+      [
+       "Signals · precision",
+       "24 of 24",
+       "100%",
+       "86.2–100%"
+      ],
+      [
+       "Extraction · data right",
+       "25 of 25",
+       "100%",
+       "86.6–100%"
       ],
       [
        "Control · with no signal",
@@ -502,8 +523,8 @@
   {
    "id": "industrias",
    "titulo": {
-    "es": "Por industria y país · ronda 9",
-    "en": "By industry and country · round 9"
+    "es": "Por industria y país · ronda 10",
+    "en": "By industry and country · round 10"
    },
    "tabla": {
     "cab": {
@@ -527,54 +548,54 @@
     "filas": {
      "es": [
       [
-       "Banca · Panamá",
+       "Minería · Guatemala",
        "Áurea, Clara, Tomás",
-       "16 de 16",
+       "12 de 12",
        "0",
-       "8 de 8",
-       "3,8 M"
-      ],
-      [
-       "Retail · Panamá",
-       "Áurea, Clara, Tomás",
-       "11 de 11",
-       "0",
-       "8 de 8",
+       "9 de 9",
        "4,3 M"
       ],
       [
-       "Control · Panamá",
+       "Retail · Guatemala",
+       "Áurea, Clara, Tomás",
+       "12 de 12",
+       "0",
+       "8 de 8",
+       "4,5 M"
+      ],
+      [
+       "Control · Guatemala",
        "Áurea, Clara, Tomás",
        "0 de 0",
        "0",
        "8 de 8",
-       "4,7 M"
+       "3,9 M"
       ]
      ],
      "en": [
       [
-       "Banking · Panama",
+       "Mining · Guatemala",
        "Áurea, Clara, Tomás",
-       "16 of 16",
+       "12 of 12",
        "0",
-       "8 of 8",
-       "3.8 M"
-      ],
-      [
-       "Retail · Panama",
-       "Áurea, Clara, Tomás",
-       "11 of 11",
-       "0",
-       "8 of 8",
+       "9 of 9",
        "4.3 M"
       ],
       [
-       "Control · Panama",
+       "Retail · Guatemala",
+       "Áurea, Clara, Tomás",
+       "12 of 12",
+       "0",
+       "8 of 8",
+       "4.5 M"
+      ],
+      [
+       "Control · Guatemala",
        "Áurea, Clara, Tomás",
        "0 of 0",
        "0",
        "8 of 8",
-       "4.7 M"
+       "3.9 M"
       ]
      ]
     }
@@ -583,15 +604,15 @@
   {
    "id": "senales",
    "titulo": {
-    "es": "Lo que falló, uno por uno · rondas 1–9",
-    "en": "What failed, one by one · rounds 1–9"
+    "es": "Lo que falló, uno por uno · rondas 1–10",
+    "en": "What failed, one by one · rounds 1–10"
    },
    "parrafos": {
     "es": [
-     "2 fallas en 36 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "2 fallas en 39 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "2 failures in 36 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "2 failures in 39 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -788,11 +809,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 9 rondas usaron 199,3 millones de tokens: 188,6 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,2 millones por entidad.",
+     "Las 10 rondas usaron 212 millones de tokens: 201,3 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,2 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 9 rounds used 199.3 million tokens: 188.6 million in the graded runs and 10.7 in the ones repeated after fixing a defect. On average, 5.2 million per entity.",
+     "The 10 rounds used 212 million tokens: 201.3 million in the graded runs and 10.7 in the ones repeated after fixing a defect. On average, 5.2 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

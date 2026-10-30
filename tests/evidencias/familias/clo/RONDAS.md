@@ -9,6 +9,9 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-1 | [banca](ronda-1/banca/) | banca · CO | constanza, fidel | 10 de 10 · 0 de más | 132 de 132 | 7.49 M + 0.39 M repetidos |
 | ronda-1 | [control-co](ronda-1/control-co/) | control · CO | constanza, fidel | 0 de 0 · 0 de más | 126 de 132 | 7.91 M + 2.06 M repetidos |
 | ronda-1 | [control-co-fidel](ronda-1/control-co-fidel/) | control · CO | fidel | 0 de 0 · 0 de más | 128 de 128 | 3.71 M |
+| ronda-10 | [banca-gt](ronda-10/banca-gt/) | banca · GT | constanza, fidel | 10 de 10 · 0 de más | 132 de 132 | 2.97 M |
+| ronda-10 | [control-gt](ronda-10/control-gt/) | control · GT | constanza, fidel | 0 de 0 · 0 de más | 132 de 132 | 3.59 M |
+| ronda-10 | [retail-gt](ronda-10/retail-gt/) | retail · GT | constanza, fidel | 10 de 10 · 0 de más | 132 de 132 | 3.33 M |
 | ronda-2 | [banca](ronda-2/banca/) | banca · CO | constanza, fidel | 10 de 10 · 0 de más | 131 de 132 | 7.93 M |
 | ronda-2 | [control-co](ronda-2/control-co/) | control · CO | constanza, fidel | 0 de 0 · 0 de más | 128 de 132 | 5.30 M |
 | ronda-2 | [control-ec](ronda-2/control-ec/) | control · EC | constanza, fidel | 0 de 0 · 0 de más | 134 de 134 | 7.72 M |

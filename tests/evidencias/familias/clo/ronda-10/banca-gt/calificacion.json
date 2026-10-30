@@ -1,0 +1,19 @@
+{
+  "entidad": "Banco del Altiplano Sintético",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 2966044,
+  "senales": {
+    "esperadas": 10,
+    "acertadas": 10,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CLO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 9 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 10 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 9, parcial, sobre 4 de las 39 entidades del material: 24 de 24 señales sembradas encontradas (margen del 95 %: 86,2–100 %) y 0 de más; 569 de 569 datos extraídos bien (100 %, margen del 95 %: 99,3–100 %); y 1 de 1 entidades de control sin ninguna señal.
+La ronda más reciente, la 10, parcial, sobre 3 de las 39 entidades del material: 20 de 20 señales sembradas encontradas (margen del 95 %: 83,8–100 %) y 0 de más; 396 de 396 datos extraídos bien (100 %, margen del 95 %: 99–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–9, 200 de 200 señales encontradas, 0 de más y 5490 de 5509 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–10, 220 de 220 señales encontradas, 0 de más y 5886 de 5905 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 9; la más reciente, la 9, es parcial |
-| Material | Banca · Panamá, Entidad pública · Panamá, Retail · Panamá |
-| Entidades de control | Control · Panamá |
-| Corridas de una entidad | 40 |
-| Señales sembradas | 200 |
-| Datos calificados | 5509 |
+| Rondas | 10; la más reciente, la 10, es parcial |
+| Material | Banca · Guatemala, Retail · Guatemala |
+| Entidades de control | Control · Guatemala |
+| Corridas de una entidad | 43 |
+| Señales sembradas | 220 |
+| Datos calificados | 5905 |
 
-## Resultados acumulados · rondas 1–9
+## Resultados acumulados · rondas 1–10
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 200 de 200 | 100 % | 98,1–100 % |
-| Señales · precisión | 200 de 200 | 100 % | 98,1–100 % |
-| Extracción · datos correctos | 5490 de 5509 | 99,7 % | 99,4–99,8 % |
-| Control · sin ninguna señal | 13 de 13 | 100 % | 77,1–100 % |
+| Señales · cobertura | 220 de 220 | 100 % | 98,2–100 % |
+| Señales · precisión | 220 de 220 | 100 % | 98,2–100 % |
+| Extracción · datos correctos | 5886 de 5905 | 99,7 % | 99,4–99,8 % |
+| Control · sin ninguna señal | 14 de 14 | 100 % | 78,4–100 % |
 
 ## Evolución por ronda
 
@@ -51,28 +51,28 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 7 | 7 | 100 % | 100 % | 99,7 % | 0 de 0 | 13,5 M | 2 |
 | 8 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 11,5 M | 0 |
 | 9 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 11,9 M | 0 |
+| 10 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 9,9 M | 0 |
 
-## La ronda más reciente · ronda 9
+## La ronda más reciente · ronda 10
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 24 de 24 | 100 % | 86,2–100 % |
-| Señales · precisión | 24 de 24 | 100 % | 86,2–100 % |
-| Extracción · datos correctos | 569 de 569 | 100 % | 99,3–100 % |
+| Señales · cobertura | 20 de 20 | 100 % | 83,8–100 % |
+| Señales · precisión | 20 de 20 | 100 % | 83,8–100 % |
+| Extracción · datos correctos | 396 de 396 | 100 % | 99–100 % |
 | Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
 
-## Por industria y país · ronda 9
+## Por industria y país · ronda 10
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Panamá | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,4 M |
-| Entidad pública · Panamá | Fidel | 4 de 4 | 0 | 152 de 152 | 1,7 M |
-| Retail · Panamá | Constanza, Fidel | 10 de 10 | 0 | 153 de 153 | 3,5 M |
-| Control · Panamá | Constanza, Fidel | 0 de 0 | 0 | 132 de 132 | 3,2 M |
+| Banca · Guatemala | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3 M |
+| Retail · Guatemala | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,3 M |
+| Control · Guatemala | Constanza, Fidel | 0 de 0 | 0 | 132 de 132 | 3,6 M |
 
-## Lo que falló, uno por uno · rondas 1–9
+## Lo que falló, uno por uno · rondas 1–10
 
-19 fallas en 40 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+19 fallas en 43 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -117,7 +117,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 9 rondas usaron 156,2 millones de tokens: 153,7 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 3,8 millones por entidad.
+Las 10 rondas usaron 166,1 millones de tokens: 163,6 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 3,8 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

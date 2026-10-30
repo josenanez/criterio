@@ -1,0 +1,30 @@
+{
+  "n": 18,
+  "agente": "aurea",
+  "comando": "treasury-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T16:57:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 44,
+  "turnos": 9,
+  "tokens": 390281,
+  "tokens_salida": 2355,
+  "costo_usd": 0.1279164,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-10-30-treasury-scan-1.html",
+      ".criterio/corridas/tesoreria/2026-10-30-treasury-scan-1.md",
+      "estado-finanzas/97217352-comercial-control-de-guatemala/corridas/2026-10-06-treasury-scan-1.md",
+      "estado-finanzas/97217352-comercial-control-de-guatemala/corridas/salida-treasury-scan.md",
+      "estado-finanzas/97217352-comercial-control-de-guatemala/tesoreria/2026-09/reporte-treasury-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/97217352-comercial-control-de-guatemala/corridas.json"
+    ],
+    "borrados": []
+  }
+}

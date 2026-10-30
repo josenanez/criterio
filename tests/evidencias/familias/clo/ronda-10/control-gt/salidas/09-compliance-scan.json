@@ -1,0 +1,30 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:12:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 58,
+  "turnos": 15,
+  "tokens": 674535,
+  "tokens_salida": 3584,
+  "costo_usd": 0.19457210000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/61077291-comercial-control-de-guatemala/cache/30-normativa/boletin-2026-09.md.md",
+      "estado-legal/61077291-comercial-control-de-guatemala/cache/30-normativa/registro-normativo.csv.md",
+      "estado-legal/61077291-comercial-control-de-guatemala/corridas/2026-10-06-compliance-scan-1.md",
+      "estado-legal/61077291-comercial-control-de-guatemala/corridas/salida-compliance-scan.md",
+      "estado-legal/61077291-comercial-control-de-guatemala/cumplimiento/2026-09/reporte-compliance-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/61077291-comercial-control-de-guatemala/cache/manifest.json",
+      "estado-legal/61077291-comercial-control-de-guatemala/corridas.json"
+    ],
+    "borrados": []
+  }
+}

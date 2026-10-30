@@ -1,0 +1,20 @@
+{
+  "entidad": "Almacenes del Altiplano",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4542696,
+  "senales": {
+    "esperadas": 12,
+    "acertadas": 12,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}
