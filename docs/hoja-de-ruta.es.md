@@ -17,7 +17,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.0.0 | Estable | — |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.0.0 | Estable | — |
 | Criterio EA · Dirección | Ofelia | 1.0.0 | Estable | — |
-| Criterio CCO · La función comercial | Augusto, Valeria | 0.2.0 | Estable | — |
+| Criterio CCO · La función comercial | Augusto, Valeria | 0.3.0 | Estable | — |
 | Rostrum · el portal de todas las familias | — | 1.0.0 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -67,7 +67,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 |---|---|---|---|
 | 0.1.0 | Liberada | **Augusto y Valeria, construidos, con el motor probado**<br>· Los doce comandos, sus skills y el motor, con las nueve señales: el embudo, el pronóstico y la meta de Augusto; el descuento, el contrato, la factura y la comisión de Valeria<br>· Las exportaciones de Salesforce y de HubSpot, y cualquier CSV o Excel con su mapeo de columnas<br>· Lo ganado contra los contratos de Fidel y lo firmado contra las facturas de Clara, por sus fichas<br>· Colombia y México, con entidades de control | El motor contra la clave de todo el material: seis entidades de Colombia y México, con sus controles |
 | 0.2.0 | Liberada | **La ronda completa con los agentes**<br>· Augusto y Valeria corren sus comandos sobre todas las entidades del material, con una clave que no ven<br>· El material siembra al menos 73 señales: lo que pide un piso del 95 % sin fallas (decisión 0020)<br>· Cada defecto que encuentre la ronda, con su corrección y su verificación | La ronda 1 con los dos agentes sobre las seis entidades del material: 72 de 80 señales sembradas y 30 de 30 datos en la primera corrida, con dos señales de más en un control, y 80 de 80 sin ninguna de más después de verificar las correcciones; los tres defectos que encontró, con su corrección y su verificación |
-| 0.3.0 | Reservada | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda 2 con los dos agentes sobre las nueve entidades de Ecuador, Perú y Chile, tres con Dynamics y tres con Zoho: 117 de 117 señales sembradas y 45 de 45 datos en la primera corrida, con una señal de más en un control; el defecto que encontró, en las instrucciones, con su corrección y su verificación |
+| 0.3.0 | Liberada | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda 2 con los dos agentes sobre las nueve entidades de Ecuador, Perú y Chile, tres con Dynamics y tres con Zoho: 117 de 117 señales sembradas y 45 de 45 datos en la primera corrida, con una señal de más en un control; el defecto que encontró, en las instrucciones, con su corrección y su verificación |
 
 ## Las familias que vienen
 

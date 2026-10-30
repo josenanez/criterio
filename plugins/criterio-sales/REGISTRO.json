@@ -1612,6 +1612,95 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "6002b80429eb52a5b44f616c8728089fb96a2c1b8fdf3af192c699ef01546810",
       "sha256": "8825d8bdad7f55651dd248515607e5c9c6a19aecf321216d66a0dbb903c09b29"
+    },
+    {
+      "version": "1.4.0",
+      "fecha": "2026-10-29",
+      "commit": null,
+      "base": "269c4f1a",
+      "etiqueta": "v1.4.0",
+      "familias": {
+        "cco": "0.3.0",
+        "cfo": "1.0.0",
+        "clo": "1.0.0",
+        "ea": "1.0.0",
+        "pmo": "1.0.0",
+        "rostrum": "1.0.0"
+      },
+      "liberadas": [
+        "cco"
+      ],
+      "versiones": {
+        "criterio-revenue": "0.3.0",
+        "criterio-sales": "0.3.0",
+        "criterio-budget": "1.0.0",
+        "criterio-finance": "1.0.0",
+        "criterio-treasury": "1.0.0",
+        "criterio-compliance": "1.0.0",
+        "criterio-legal": "1.0.0",
+        "criterio-assistant": "1.0.0",
+        "criterio-portfolio": "1.0.0",
+        "criterio-product": "1.0.0",
+        "criterio-project": "1.0.0",
+        "criterio-server": "1.0.0"
+      },
+      "calidad": {
+        "cco": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 197,
+            "datos": 75
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98,
+            "Datos extraídos": 95.1
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "83446ff58c29215fe3734e94ceca164111196d4ed2ce5466bc25f478aba8cc8b",
+        "criterio-budget": "90a0d200c3eb7642c5b1f43fb3bcbbd2e360fb69bd8fcc61bb7db04b18e907e8",
+        "criterio-compliance": "eae2a101edd85497d650933a91025ab2dc8420339621c46e1d36b02eb1b64e3f",
+        "criterio-finance": "7afaa4a03f9e158400d5908ccb584b5fdd41ed8cb1d45fdaa21fafa377f4b310",
+        "criterio-legal": "2b09dae13350aeb7b638b8bb7cb0eb6341c0ad6cf2ffc6ecbf5f77477ae12a54",
+        "criterio-portfolio": "e66c8644ecdadbbce6055d4e405191359c3cd5e86e3b68aa4ba0b0e0aea75b52",
+        "criterio-product": "1f32f639a88a4174570c60596b025803b547c3e3c3009c708ad9a9889653313f",
+        "criterio-project": "4c50a2d41d2ff3e84efd8add564205245e9d85b1cae668ada3b332727e49b262",
+        "criterio-revenue": "62f674e9443b862c68b3d098ef21b7d1eb49b86e092a410a3b7dcfca57ae8943",
+        "criterio-sales": "bcffb43f7459ceb0e78daaf77151a9295ed3322614b43e22a9f92f1921e1211b",
+        "criterio-server": "61639a84a48c7cec87eb8b959bd3b4a498a5ce8ff3c29a25b574d9b387858069",
+        "criterio-treasury": "2c59f25554e53cdefd2e288422535a29182158c679e3ee267d3806ad59d25c89"
+      },
+      "destacados": [
+        "La familia comercial es la CCO y abre su 0.3.0: Ecuador, Perú y Chile, con Dynamics 365 y Zoho, y estable"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "CSO incremento 3, construido: el motor procesa la exportación de Dynamics 365 Sales (F-06, F-07) y la de Zoho CRM (F-08, F-09), cada una desde su fuente; material de Ecuador, Perú y Chile, dos industrias y un control por país, con 117 señales sembradas que el motor levanta todas, sin ninguna de más. verificar.py avisa si falta pdftotext",
+        "CSO-4: en Zoho la última actividad no es un campo estándar; si la exportación trae una columna que la parece y no está mapeada, exportacion lo pregunta con su propuesta, y el setup la registra",
+        "Ronda 2 de la CSO, Ecuador, Perú y Chile: 117 de 117 señales y 45 de 45 datos en la primera corrida, con una señal de más en el control de Perú (CSO-4); verificada sin ninguna. El registro lee las entradas selladas con las siglas de hoy (RENOMBRADAS)",
+        "La familia comercial es la CCO · La función comercial, por Chief Commercial Officer (decisión 0022): carpetas, material, evidencia, marca e imágenes con la sigla nueva; los defectos CSO-1 a CSO-4 son CCO-1 a CCO-4; el registro sellado no se reescribe. Hoja de ruta de la 0.3.0 con su prueba y notas de la 1.4.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "8825d8bdad7f55651dd248515607e5c9c6a19aecf321216d66a0dbb903c09b29",
+      "sha256": "98fe923bb1e428cfcc4222c1ecd1ea67e3a32e4328ad621f54b6746ecae1da89"
     }
   ]
 }

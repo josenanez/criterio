@@ -1,6 +1,6 @@
 {
   "name": "criterio-revenue",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Valeria, de la venta a la factura: cada descuento contra su política, cada venta ganada contra su contrato en las fichas de Fidel, cada contrato firmado contra su factura en las de Clara y cada comisión contra el plan. Cada cifra la calcula el código y cada dato cita su documento; no aprueba descuentos ni liquida comisiones.",
   "author": {
     "name": "José Francisco Ñáñez",
