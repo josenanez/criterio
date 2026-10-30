@@ -93,9 +93,6 @@ CAMPOS_HUBSPOT = {
     "Deal probability": ("probabilidad", ["deal_probability"]),
     "Forecast category": ("categoria", ["forecast_category"]),
     "Currency": ("moneda", ["currency"]),
-    # La empresa asociada, con el nombre que le pone HubSpot al exportar los negocios; si la cuenta
-    # va en otra columna, el mapeo del setup manda (CSO-3).
-    "Associated Company": ("cuenta", ["associated_company", "associated_company_primary"]),
 }
 # Cualquier otro CRM: las cabeceras en español más comunes; el resto lo dice el mapeo del setup.
 CAMPOS_GENERICO = {
@@ -505,6 +502,10 @@ def revisar_config(cfg: dict, rol: str) -> list[str]:
     fmt = (cfg.get("crm") or {}).get("format")
     if fmt not in (None, "salesforce", "hubspot", "generico"):
         p.append("crm.format es salesforce, hubspot o generico")
+    # En HubSpot la empresa asociada va en su propia columna, con un nombre que la exportación no
+    # fija (F-05): sin decir cuál es, lo ganado no se cruza con lo facturado (CSO-3).
+    if fmt == "hubspot" and not ((cfg.get("crm") or {}).get("columns") or {}).get("cuenta"):
+        p.append("crm.columns.cuenta vacío: en HubSpot la empresa asociada va en su propia columna; di cuál es con su cabecera tal cual")
     if rol == "valeria":
         rv = cfg.get("revenue") or {}
         for k in ("contract_records", "invoice_records"):
@@ -1042,9 +1043,9 @@ def selftest() -> int:
     hoy = dt.date(2026, 10, 20)
     ok("los países del registro pasan", [c for c in N.PAISES if N.revisar_pais({"country": c})], [])
     ok("HubSpot se reconoce por sus columnas", formato(["record_id", "deal_name", "deal_stage", "close_date", "amount"]), "hubspot")
-    ok("HubSpot: la empresa asociada se reconoce sin mapeo, y el mapeo manda",
-       (_mapa(["record_id", "deal_stage", "associated_company"], "hubspot", None).get("cuenta"),
-        _mapa(["record_id", "deal_stage", "associated_company", "empresa"], "hubspot", {"cuenta": "Empresa"}).get("cuenta")), (2, 3))
+    ok("HubSpot sin la columna de la empresa asociada: la configuración no pasa",
+       any("crm.columns.cuenta" in x for x in revisar_config({"entity": {"id": "1", "name": "x", "country": "CO"}, "period": "2026-10",
+                                                               "crm": {"format": "hubspot", "columns": {}}}, "augusto")), True)
     ok("Salesforce por API", formato(["id", "name", "stagename", "closedate", "amount"]), "salesforce")
     ok("Salesforce por un informe", formato(["opportunity_id", "stage", "close_date", "amount"]), "salesforce")
     ok("el historial de campos", formato(["opportunityid", "field", "oldvalue", "newvalue"]), "historia")

@@ -110,11 +110,17 @@ def secciones(sigla: str):
     # Sin una ronda que cubra todo el material de hoy —porque entró una industria o un país—, la
     # cabecera es la más reciente y dice que es parcial: no se llama completa a lo que no lo es.
     completa = U in completas
-    cual = {"es": (f"La ronda completa más reciente, la {U}, sobre las {len(por[U])} entidades del material" if completa else
-                   f"La ronda más reciente, la {U}, parcial, sobre {len(por[U])} de las {len(ENT)} entidades del material"),
-            "en": (f"The most recent complete round, round {U}, on the material's {len(por[U])} entities" if completa else
-                   f"The most recent round, round {U}, partial, on {len(por[U])} of the material's {len(ENT)} entities")}
-    T, UT = suma(C), suma(por[U])
+    # Una entidad cuenta una vez: con su corrida más reciente de la ronda. La verificación que se
+    # repitió tras corregir un defecto reemplaza a la primera, como en scripts/calidad.py.
+    ultimas = {}
+    for c in sorted(por[U], key=lambda c: c["carpeta"]):
+        ultimas[RF._material(sigla, c["carpeta"])] = c
+    n_ent = len(ultimas)
+    cual = {"es": (f"La ronda completa más reciente, la {U}, sobre las {n_ent} entidades del material" if completa else
+                   f"La ronda más reciente, la {U}, parcial, sobre {n_ent} de las {len(ENT)} entidades del material"),
+            "en": (f"The most recent complete round, round {U}, on the material's {n_ent} entities" if completa else
+                   f"The most recent round, round {U}, partial, on {n_ent} of the material's {len(ENT)} entities")}
+    T, UT = suma(C), suma(list(ultimas.values()))
     tramo = {"es": f"rondas {rondas[0]}–{rondas[-1]}", "en": f"rounds {rondas[0]}–{rondas[-1]}"}
     S = []
     prec = lambda t: (t["acertadas"], t["acertadas"] + t["de_mas"])
