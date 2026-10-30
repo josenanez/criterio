@@ -1,232 +1,255 @@
 {
-  "nota": "Los defectos que encontraron las rondas con el agente de la familia CFO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
-  "defectos": [
-    {
-      "id": "CFO-1",
-      "ronda": 1,
-      "carpeta": "banca",
-      "agentes": [
-        "tomas"
-      ],
-      "origen": "instrucciones",
-      "commit": "7ba9570",
-      "estado": "verificado",
-      "verificacion": "banca",
-      "es": {
-        "que": "Tomás proponía la ruta de las fichas de la PMO sin buscarlas antes, y el motor no avisaba cuando no encontraba ninguna.",
-        "correccion": "Tomás busca las fichas antes de proponer la ruta y el motor dice cuando no hay ninguna. La instalación se repitió en banca y dio lo esperado."
-      },
-      "en": {
-        "que": "Tomás proposed the path to the PMO records without looking for them first, and the engine said nothing when it found none.",
-        "correccion": "Tomás looks for the records before proposing the path and the engine says when there are none. Setup was rerun on banking and gave the expected result."
-      }
-    },
-    {
-      "id": "CFO-2",
-      "ronda": 1,
-      "carpeta": "banca",
-      "agentes": [],
-      "origen": "arnes",
-      "commit": "7ba9570",
-      "estado": "verificado",
-      "es": {
-        "que": "La calificación no igualaba una cifra escrita de otra forma y rechazaba un texto correcto con más detalle que la clave.",
-        "correccion": "La calificación iguala las cifras y acepta el texto que contiene lo que pide la clave. Verificado en la ronda 2: 48 de 49 datos en las seis entidades."
-      },
-      "en": {
-        "que": "Grading did not match a figure written another way and rejected a correct text with more detail than the key.",
-        "correccion": "Grading matches figures and accepts text that contains what the key asks for. Verified in round 2: 48 of 49 data points across the six entities."
-      },
-      "verificacion": "banca",
-      "ronda_verificacion": 2
-    },
-    {
-      "id": "CFO-3",
-      "ronda": 1,
-      "carpeta": "control-co",
-      "agentes": [
-        "clara",
-        "tomas"
-      ],
-      "origen": "codigo",
-      "commit": "39e892d",
-      "estado": "verificado",
-      "es": {
-        "que": "Un cambio de carpeta del agente hacía que el motor escribiera el estado y las señales en otra parte: resolvía las rutas desde la sesión y no desde la carpeta de .criterio.",
-        "correccion": "El motor resuelve las rutas desde la carpeta de .criterio y la calificación solo toma el estado que dice la configuración. Verificado en la ronda 2: ninguna señal de más en los dos controles."
-      },
-      "en": {
-        "que": "When the agent changed folder, the engine wrote state and signals somewhere else: it resolved paths from the session, not from the .criterio folder.",
-        "correccion": "The engine resolves paths from the .criterio folder and grading only takes the state the configuration names. Verified in round 2: no extra signals in either control."
-      },
-      "verificacion": "control-co",
-      "ronda_verificacion": 2
-    },
-    {
-      "id": "CFO-4",
-      "ronda": 2,
-      "carpeta": "mineria",
-      "agentes": [
-        "tomas"
-      ],
-      "origen": "arnes",
-      "commit": "96935cc",
-      "estado": "verificado",
-      "es": {
-        "que": "La calificación compara el compromiso del comité como texto: la clave dice «Revisar el contrato de vigilancia» y Tomás escribió «Administración revisa el contrato de vigilancia antes del próximo comité», el mismo compromiso con el mismo responsable y la misma acta. Por eso minería da 8 de 9 y no 9.",
-        "correccion": "La calificación acepta un what con las palabras de la clave, salvo la conjugación, solo cuando su cita y lo demás del registro coinciden. Verificado volviendo a calificar la salida original de minería de la ronda 2: 9 de 9 datos; las demás entidades no cambian."
-      },
-      "en": {
-        "que": "Grading compares the committee commitment as text: the key says “Revisar el contrato de vigilancia” and Tomás wrote “Administración revisa el contrato de vigilancia antes del próximo comité”, the same commitment with the same owner and the same minutes. That is why mining scores 8 of 9 and not 9.",
-        "correccion": "Grading accepts a what with the key’s words, conjugation aside, only when its citation and the rest of the record match. Verified by re-grading the original round 2 mining output: 9 of 9 data points; the other entities do not change."
-      },
-      "verificacion": "mineria",
-      "ronda_verificacion": 3,
-      "fallas": [
-        [
-          2,
-          "mineria",
-          "presupuesto · committee_commitments"
-        ]
-      ]
-    },
-    {
-      "id": "CFO-5",
-      "ronda": 3,
-      "carpeta": "banca-pe",
-      "agentes": [
-        "aurea"
-      ],
-      "origen": "material",
-      "commit": "fe751d3",
-      "estado": "verificado",
-      "es": {
-        "que": "La cuenta en dólares solo estaba en la clave: ningún documento decía su moneda. Áurea lo dijo así en la instalación, dejó las monedas vacías y no levantó la exposición cambiaria.",
-        "correccion": "Cada extracto del material trae su moneda, como lo imprime el banco, y el motor la toma del extracto cuando la configuración no la dice. Se repitió la instalación y el escaneo de Áurea en banca de Perú: levantó la exposición."
-      },
-      "en": {
-        "que": "The dollar account was only in the key: no document stated its currency. Áurea said so during setup, left the currencies empty and did not raise the FX exposure.",
-        "correccion": "Every statement in the material carries its currency, as the bank prints it, and the engine takes it from the statement when the configuration does not set it. Áurea's setup and scan were rerun on Peru banking: she raised the exposure."
-      },
-      "verificacion": "banca-pe",
-      "ronda_verificacion": 3,
-      "fallas": []
-    },
-    {
-      "id": "CFO-6",
-      "ronda": 3,
-      "carpeta": "banca-pe",
-      "agentes": [
-        "tomas"
-      ],
-      "origen": "instrucciones",
-      "commit": "fe751d3",
-      "estado": "verificado",
-      "es": {
-        "que": "Tomás no llevó a la ficha el correo en que Administración dice que va dentro del presupuesto, y no se levantó la declaración contra la evidencia. En las otras entidades sí lo llevó.",
-        "correccion": "El motor devuelve en record_issues cada escrito de proyecciones o actas que la ficha no cita, y el agente lo extrae o lo anota en reviewed con su motivo. Se repitió Tomás en banca de Perú: llevó el correo y levantó la señal."
-      },
-      "en": {
-        "que": "Tomás did not take to the record the email in which Administration says it is within budget, so the declaration-against-evidence signal was not raised. In the other entities he did.",
-        "correccion": "The engine returns in record_issues every written document in forecasts or minutes that the record does not cite, and the agent extracts it or notes it in reviewed with its reason. Tomás was rerun on Peru banking: he took the email and raised the signal."
-      },
-      "verificacion": "banca-pe",
-      "ronda_verificacion": 3,
-      "fallas": [
-        [
-          3,
-          "banca-pe",
-          "presupuesto · area_statements"
-        ]
-      ]
-    },
-    {
-      "id": "CFO-7",
-      "ronda": 3,
-      "carpeta": "banca-pe",
-      "agentes": [
-        "tomas"
-      ],
-      "origen": "instrucciones",
-      "commit": "67898bb",
-      "estado": "verificado",
-      "es": {
-        "que": "Al repetir la instalación, Tomás fijó la versión 1 como aprobada porque ningún acta dice «se aprueba la versión 2», aunque la 2 nace de un traslado aprobado. Eso levantó 10 señales de más contra la versión de las proyecciones.",
-        "correccion": "La instalación dice que la vigente es la versión más reciente y que cada cambio lo revisa el motor contra su acta; Tomás no fija la versión por su cuenta. Se repitió en banca de Perú: ninguna señal de más."
-      },
-      "en": {
-        "que": "When setup was rerun, Tomás set version 1 as approved because no minutes say “version 2 is approved”, although version 2 comes from an approved transfer. That raised 10 extra signals against the forecasts' version.",
-        "correccion": "Setup now says the current version is the most recent one and that the engine checks each change against its minutes; Tomás does not set the version on his own. Rerun on Peru banking: no extra signal."
-      },
-      "verificacion": "banca-pe",
-      "ronda_verificacion": 3,
-      "fallas": []
-    },
-    {
-      "id": "CFO-8",
-      "ronda": 4,
-      "carpeta": "cooperativas",
-      "agentes": [
-        "clara"
-      ],
-      "origen": "instrucciones",
-      "commit": "d4afcde",
-      "estado": "verificado",
-      "es": {
-        "que": "En la instalación, Clara tomó como cuentas de compras las que empiezan por 51 y 53, por su nombre. La 5305 es de gastos financieros, y una comisión bancaria salió como compra sin factura electrónica: una señal de más.",
-        "correccion": "El motor propone las cuentas que cruzan las facturas desde los datos —las del mayor que registran el número de una factura del periodo—, y Clara no agrega por su cuenta un prefijo que ninguna factura sostiene. Con esa propuesta el motor da exactamente la clave en las nueve entidades. Se repitió la instalación y el escaneo de Clara en cooperativas: ninguna señal de más."
-      },
-      "en": {
-        "que": "During setup, Clara took the accounts starting with 51 and 53 as purchases, by their name. 5305 is financial expenses, and a bank fee came out as a purchase without an e-invoice: one extra signal.",
-        "correccion": "The engine proposes the invoice-matching accounts from the data —the ledger accounts that record the number of an invoice of the period—, and Clara does not add on her own a prefix no invoice supports. With that proposal the engine matches the key exactly on all nine entities. Clara's setup and scan were rerun on credit unions: no extra signal."
-      },
-      "verificacion": "cooperativas",
-      "ronda_verificacion": 4,
-      "fallas": []
-    },
-    {
-      "id": "CFO-9",
-      "ronda": 4,
-      "carpeta": "retail",
-      "agentes": [
-        "clara"
-      ],
-      "origen": "material",
-      "commit": "d4afcde",
-      "estado": "verificado",
-      "es": {
-        "que": "Clara agregó inventarios a las cuentas que se concilian, sin auxiliar en ningún periodo, y salió una conciliación desactualizada de más. Ningún documento decía cuáles se concilian cada mes: la clave lo daba por sabido.",
-        "correccion": "El material trae los auxiliares de agosto, como los tiene un área financiera, y Clara propone las cuentas con auxiliar en este periodo o en el anterior. Se repitió la instalación y el escaneo de Clara en retail: ninguna señal de más."
-      },
-      "en": {
-        "que": "Clara added inventories to the accounts to reconcile, with no subledger in any period, and an extra stale-reconciliation signal came out. No document said which accounts are reconciled each month: the key took it for granted.",
-        "correccion": "The material carries August's subledgers, as a finance function has them, and Clara proposes the accounts with a subledger this period or the previous one. Clara's setup and scan were rerun on retail: no extra signal."
-      },
-      "verificacion": "retail",
-      "ronda_verificacion": 4,
-      "fallas": []
-    },
-    {
-      "id": "CFO-10",
-      "ronda": 4,
-      "carpeta": "banca-pe",
-      "agentes": [
-        "aurea"
-      ],
-      "origen": "material",
-      "commit": "d4afcde",
-      "estado": "verificado",
-      "es": {
-        "que": "La política de prueba traía la tasa del dólar en 1, y Áurea dedujo de ahí que la moneda funcional era el dólar. La cuenta en dólares dejó de ser extranjera y no se levantó la exposición cambiaria.",
-        "correccion": "La tasa de referencia del material es del orden de la real para la moneda de la entidad, y Áurea toma la moneda funcional de la entidad, no de la política. Se repitió la instalación y el escaneo de Áurea en banca de Perú y en retail: levantó la exposición en las dos."
-      },
-      "en": {
-        "que": "The test policy had the dollar rate at 1, and Áurea inferred from it that the functional currency was the dollar. The dollar account stopped being foreign and the FX exposure was not raised.",
-        "correccion": "The material's reference rate is of the order of the real one for the entity's currency, and Áurea takes the functional currency from the entity, not from the policy. Áurea's setup and scan were rerun on Peru banking and on retail: she raised the exposure in both."
-      },
-      "verificacion": "banca-pe",
-      "ronda_verificacion": 4,
-      "fallas": []
-    }
-  ]
+ "nota": "Los defectos que encontraron las rondas con el agente de la familia CFO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+ "defectos": [
+  {
+   "id": "CFO-1",
+   "ronda": 1,
+   "carpeta": "banca",
+   "agentes": [
+    "tomas"
+   ],
+   "origen": "instrucciones",
+   "commit": "7ba9570",
+   "estado": "verificado",
+   "verificacion": "banca",
+   "es": {
+    "que": "Tomás proponía la ruta de las fichas de la PMO sin buscarlas antes, y el motor no avisaba cuando no encontraba ninguna.",
+    "correccion": "Tomás busca las fichas antes de proponer la ruta y el motor dice cuando no hay ninguna. La instalación se repitió en banca y dio lo esperado."
+   },
+   "en": {
+    "que": "Tomás proposed the path to the PMO records without looking for them first, and the engine said nothing when it found none.",
+    "correccion": "Tomás looks for the records before proposing the path and the engine says when there are none. Setup was rerun on banking and gave the expected result."
+   }
+  },
+  {
+   "id": "CFO-2",
+   "ronda": 1,
+   "carpeta": "banca",
+   "agentes": [],
+   "origen": "arnes",
+   "commit": "7ba9570",
+   "estado": "verificado",
+   "es": {
+    "que": "La calificación no igualaba una cifra escrita de otra forma y rechazaba un texto correcto con más detalle que la clave.",
+    "correccion": "La calificación iguala las cifras y acepta el texto que contiene lo que pide la clave. Verificado en la ronda 2: 48 de 49 datos en las seis entidades."
+   },
+   "en": {
+    "que": "Grading did not match a figure written another way and rejected a correct text with more detail than the key.",
+    "correccion": "Grading matches figures and accepts text that contains what the key asks for. Verified in round 2: 48 of 49 data points across the six entities."
+   },
+   "verificacion": "banca",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CFO-3",
+   "ronda": 1,
+   "carpeta": "control-co",
+   "agentes": [
+    "clara",
+    "tomas"
+   ],
+   "origen": "codigo",
+   "commit": "39e892d",
+   "estado": "verificado",
+   "es": {
+    "que": "Un cambio de carpeta del agente hacía que el motor escribiera el estado y las señales en otra parte: resolvía las rutas desde la sesión y no desde la carpeta de .criterio.",
+    "correccion": "El motor resuelve las rutas desde la carpeta de .criterio y la calificación solo toma el estado que dice la configuración. Verificado en la ronda 2: ninguna señal de más en los dos controles."
+   },
+   "en": {
+    "que": "When the agent changed folder, the engine wrote state and signals somewhere else: it resolved paths from the session, not from the .criterio folder.",
+    "correccion": "The engine resolves paths from the .criterio folder and grading only takes the state the configuration names. Verified in round 2: no extra signals in either control."
+   },
+   "verificacion": "control-co",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CFO-4",
+   "ronda": 2,
+   "carpeta": "mineria",
+   "agentes": [
+    "tomas"
+   ],
+   "origen": "arnes",
+   "commit": "96935cc",
+   "estado": "verificado",
+   "es": {
+    "que": "La calificación compara el compromiso del comité como texto: la clave dice «Revisar el contrato de vigilancia» y Tomás escribió «Administración revisa el contrato de vigilancia antes del próximo comité», el mismo compromiso con el mismo responsable y la misma acta. Por eso minería da 8 de 9 y no 9.",
+    "correccion": "La calificación acepta un what con las palabras de la clave, salvo la conjugación, solo cuando su cita y lo demás del registro coinciden. Verificado volviendo a calificar la salida original de minería de la ronda 2: 9 de 9 datos; las demás entidades no cambian."
+   },
+   "en": {
+    "que": "Grading compares the committee commitment as text: the key says “Revisar el contrato de vigilancia” and Tomás wrote “Administración revisa el contrato de vigilancia antes del próximo comité”, the same commitment with the same owner and the same minutes. That is why mining scores 8 of 9 and not 9.",
+    "correccion": "Grading accepts a what with the key’s words, conjugation aside, only when its citation and the rest of the record match. Verified by re-grading the original round 2 mining output: 9 of 9 data points; the other entities do not change."
+   },
+   "verificacion": "mineria",
+   "ronda_verificacion": 3,
+   "fallas": [
+    [
+     2,
+     "mineria",
+     "presupuesto · committee_commitments"
+    ]
+   ]
+  },
+  {
+   "id": "CFO-5",
+   "ronda": 3,
+   "carpeta": "banca-pe",
+   "agentes": [
+    "aurea"
+   ],
+   "origen": "material",
+   "commit": "fe751d3",
+   "estado": "verificado",
+   "es": {
+    "que": "La cuenta en dólares solo estaba en la clave: ningún documento decía su moneda. Áurea lo dijo así en la instalación, dejó las monedas vacías y no levantó la exposición cambiaria.",
+    "correccion": "Cada extracto del material trae su moneda, como lo imprime el banco, y el motor la toma del extracto cuando la configuración no la dice. Se repitió la instalación y el escaneo de Áurea en banca de Perú: levantó la exposición."
+   },
+   "en": {
+    "que": "The dollar account was only in the key: no document stated its currency. Áurea said so during setup, left the currencies empty and did not raise the FX exposure.",
+    "correccion": "Every statement in the material carries its currency, as the bank prints it, and the engine takes it from the statement when the configuration does not set it. Áurea's setup and scan were rerun on Peru banking: she raised the exposure."
+   },
+   "verificacion": "banca-pe",
+   "ronda_verificacion": 3,
+   "fallas": []
+  },
+  {
+   "id": "CFO-6",
+   "ronda": 3,
+   "carpeta": "banca-pe",
+   "agentes": [
+    "tomas"
+   ],
+   "origen": "instrucciones",
+   "commit": "fe751d3",
+   "estado": "verificado",
+   "es": {
+    "que": "Tomás no llevó a la ficha el correo en que Administración dice que va dentro del presupuesto, y no se levantó la declaración contra la evidencia. En las otras entidades sí lo llevó.",
+    "correccion": "El motor devuelve en record_issues cada escrito de proyecciones o actas que la ficha no cita, y el agente lo extrae o lo anota en reviewed con su motivo. Se repitió Tomás en banca de Perú: llevó el correo y levantó la señal."
+   },
+   "en": {
+    "que": "Tomás did not take to the record the email in which Administration says it is within budget, so the declaration-against-evidence signal was not raised. In the other entities he did.",
+    "correccion": "The engine returns in record_issues every written document in forecasts or minutes that the record does not cite, and the agent extracts it or notes it in reviewed with its reason. Tomás was rerun on Peru banking: he took the email and raised the signal."
+   },
+   "verificacion": "banca-pe",
+   "ronda_verificacion": 3,
+   "fallas": [
+    [
+     3,
+     "banca-pe",
+     "presupuesto · area_statements"
+    ]
+   ]
+  },
+  {
+   "id": "CFO-7",
+   "ronda": 3,
+   "carpeta": "banca-pe",
+   "agentes": [
+    "tomas"
+   ],
+   "origen": "instrucciones",
+   "commit": "67898bb",
+   "estado": "verificado",
+   "es": {
+    "que": "Al repetir la instalación, Tomás fijó la versión 1 como aprobada porque ningún acta dice «se aprueba la versión 2», aunque la 2 nace de un traslado aprobado. Eso levantó 10 señales de más contra la versión de las proyecciones.",
+    "correccion": "La instalación dice que la vigente es la versión más reciente y que cada cambio lo revisa el motor contra su acta; Tomás no fija la versión por su cuenta. Se repitió en banca de Perú: ninguna señal de más."
+   },
+   "en": {
+    "que": "When setup was rerun, Tomás set version 1 as approved because no minutes say “version 2 is approved”, although version 2 comes from an approved transfer. That raised 10 extra signals against the forecasts' version.",
+    "correccion": "Setup now says the current version is the most recent one and that the engine checks each change against its minutes; Tomás does not set the version on his own. Rerun on Peru banking: no extra signal."
+   },
+   "verificacion": "banca-pe",
+   "ronda_verificacion": 3,
+   "fallas": []
+  },
+  {
+   "id": "CFO-8",
+   "ronda": 4,
+   "carpeta": "cooperativas",
+   "agentes": [
+    "clara"
+   ],
+   "origen": "instrucciones",
+   "commit": "d4afcde",
+   "estado": "verificado",
+   "es": {
+    "que": "En la instalación, Clara tomó como cuentas de compras las que empiezan por 51 y 53, por su nombre. La 5305 es de gastos financieros, y una comisión bancaria salió como compra sin factura electrónica: una señal de más.",
+    "correccion": "El motor propone las cuentas que cruzan las facturas desde los datos —las del mayor que registran el número de una factura del periodo—, y Clara no agrega por su cuenta un prefijo que ninguna factura sostiene. Con esa propuesta el motor da exactamente la clave en las nueve entidades. Se repitió la instalación y el escaneo de Clara en cooperativas: ninguna señal de más."
+   },
+   "en": {
+    "que": "During setup, Clara took the accounts starting with 51 and 53 as purchases, by their name. 5305 is financial expenses, and a bank fee came out as a purchase without an e-invoice: one extra signal.",
+    "correccion": "The engine proposes the invoice-matching accounts from the data —the ledger accounts that record the number of an invoice of the period—, and Clara does not add on her own a prefix no invoice supports. With that proposal the engine matches the key exactly on all nine entities. Clara's setup and scan were rerun on credit unions: no extra signal."
+   },
+   "verificacion": "cooperativas",
+   "ronda_verificacion": 4,
+   "fallas": []
+  },
+  {
+   "id": "CFO-9",
+   "ronda": 4,
+   "carpeta": "retail",
+   "agentes": [
+    "clara"
+   ],
+   "origen": "material",
+   "commit": "d4afcde",
+   "estado": "verificado",
+   "es": {
+    "que": "Clara agregó inventarios a las cuentas que se concilian, sin auxiliar en ningún periodo, y salió una conciliación desactualizada de más. Ningún documento decía cuáles se concilian cada mes: la clave lo daba por sabido.",
+    "correccion": "El material trae los auxiliares de agosto, como los tiene un área financiera, y Clara propone las cuentas con auxiliar en este periodo o en el anterior. Se repitió la instalación y el escaneo de Clara en retail: ninguna señal de más."
+   },
+   "en": {
+    "que": "Clara added inventories to the accounts to reconcile, with no subledger in any period, and an extra stale-reconciliation signal came out. No document said which accounts are reconciled each month: the key took it for granted.",
+    "correccion": "The material carries August's subledgers, as a finance function has them, and Clara proposes the accounts with a subledger this period or the previous one. Clara's setup and scan were rerun on retail: no extra signal."
+   },
+   "verificacion": "retail",
+   "ronda_verificacion": 4,
+   "fallas": []
+  },
+  {
+   "id": "CFO-10",
+   "ronda": 4,
+   "carpeta": "banca-pe",
+   "agentes": [
+    "aurea"
+   ],
+   "origen": "material",
+   "commit": "d4afcde",
+   "estado": "verificado",
+   "es": {
+    "que": "La política de prueba traía la tasa del dólar en 1, y Áurea dedujo de ahí que la moneda funcional era el dólar. La cuenta en dólares dejó de ser extranjera y no se levantó la exposición cambiaria.",
+    "correccion": "La tasa de referencia del material es del orden de la real para la moneda de la entidad, y Áurea toma la moneda funcional de la entidad, no de la política. Se repitió la instalación y el escaneo de Áurea en banca de Perú y en retail: levantó la exposición en las dos."
+   },
+   "en": {
+    "que": "The test policy had the dollar rate at 1, and Áurea inferred from it that the functional currency was the dollar. The dollar account stopped being foreign and the FX exposure was not raised.",
+    "correccion": "The material's reference rate is of the order of the real one for the entity's currency, and Áurea takes the functional currency from the entity, not from the policy. Áurea's setup and scan were rerun on Peru banking and on retail: she raised the exposure in both."
+   },
+   "verificacion": "banca-pe",
+   "ronda_verificacion": 4,
+   "fallas": []
+  },
+  {
+   "id": "CFO-11",
+   "ronda": 7,
+   "carpeta": "retail-br",
+   "agentes": [
+    "clara",
+    "tomas"
+   ],
+   "origen": "clave",
+   "commit": "5016bed3",
+   "estado": "verificado",
+   "verificacion": "control-br",
+   "ronda_verificacion": 7,
+   "es": {
+    "que": "La clave de las entidades de Brasil traducía al portugués valores que la ficha guarda igual en cualquier idioma —el estado declarado del cierre, el «dentro» de un área y el estado de un compromiso del comité—. Clara y Tomás los escribieron como los define el skill, y se calificaron como mal.",
+    "correccion": "La clave guarda esos valores como los define el skill, y el arnés acepta el mismo valor dicho en portugués. Las tres corridas de Brasil se volvieron a calificar con la clave corregida, sin repetir comandos."
+   },
+   "en": {
+    "que": "The key for the Brazilian entities translated into Portuguese values that the record keeps the same in any language —the declared close status, an area's «within» and a committee commitment's status—. Clara and Tomás wrote them as the skill defines them, and they were graded as wrong.",
+    "correccion": "The key keeps those values as the skill defines them, and the harness accepts the same value said in Portuguese. The three Brazilian runs were regraded with the corrected key, with no commands repeated."
+   },
+   "fallas": []
+  }
+ ]
 }

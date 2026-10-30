@@ -24,6 +24,9 @@ sintéticos.
 | `banca-mx` | México | banca | 10 | 10 |
 | `retail-mx` | México | retail | 10 | 10 |
 | `control-mx` | México | — | 0 | 0 |
+| `banca-br` | Brasil | banca | 10 | 10 |
+| `retail-br` | Brasil | retail | 10 | 10 |
+| `control-br` | Brasil | — | 0 | 0 |
 
 Cada una trae su carpeta legal al 6 de octubre de 2026: la matriz de atribuciones y la de
 obligaciones, el registro de contratos y la exportación de pagos, el índice de políticas con
@@ -32,6 +35,14 @@ carpeta —el contrato, un otrosí que adiciona el valor y cambia la terminació
 certificado de la contraparte, la evidencia de cada obligación y, en uno, el acta que decide su
 renovación— y tres periodos de cumplimiento, de julio a septiembre, con la evidencia de cada
 obligación y el informe del periodo.
+
+**Brasil, en portugués.** Las tres entidades de Brasil traen la misma carpeta en portugués, como la
+tiene una empresa de allá: el contrato con sus cláusulas, el termo aditivo, la apólice de
+seguro-garantia, la certidão de la Junta Comercial, la ata del comité, la matriz de alçadas y la de
+obrigações, el registro de contratos y de pagamentos, las políticas, el boletim normativo y el
+relatório de compliance. La ficha guarda sus valores como los define el skill —el tipo de contrato,
+la garantía, la parte, la decisión—, y el arnés acepta el mismo valor dicho en portugués; lo que es
+texto del documento —lo que se entrega, el cargo de quien firma— va en la clave como lo dice él.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 

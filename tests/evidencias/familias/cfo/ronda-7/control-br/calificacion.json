@@ -1,0 +1,28 @@
+{
+  "entidad": "Comercial Controle Paulista",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4319246,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 7,
+    "mal": [
+      {
+        "ficha": "cierre",
+        "campo": "declared.status",
+        "esperado": "en curso",
+        "obtenido": "en andamento",
+        "bien": false
+      }
+    ]
+  }
+}

@@ -204,6 +204,11 @@ FRASES_PT.sort(key=lambda x: -len(x[0]))
 EXACTAS_PT = dict(FRASES_PT)
 
 
+# Los valores de la ficha que el skill define y el agente escribe igual en cualquier idioma: la
+# clave no los traduce (CFO-11).
+VALORES_DE_FICHA = {"en curso", "cerrado", "pendiente", "cumplida", "dentro", "abierto"}
+
+
 def tr(v):
     """Una celda o un texto en el idioma de la entidad: la frase entera si está, si no cada frase
     conocida dentro del texto, de la más larga a la más corta."""
@@ -966,7 +971,7 @@ def generar(e: dict) -> dict:
         for viejo, nuevo in sorted(renombrar_pt(docs).items(), key=lambda x: -len(x[0])):
             texto = texto.replace(viejo, nuevo)
         for a, b in FRASES_PT:
-            if len(a) > 4:
+            if len(a) > 4 and a not in VALORES_DE_FICHA:
                 texto = texto.replace(f'"{a}"', f'"{b}"').replace(f":{a}:", f":{b}:").replace(f":{a}\"", f":{b}\"")
                 texto = texto.replace(f":{F.norm(a)}:", f":{F.norm(b)}:").replace(f":{F.norm(a)}\"", f":{F.norm(b)}\"")
         LANG[0] = "es"

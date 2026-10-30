@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T02:39:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 54,
+  "turnos": 16,
+  "tokens": 733560,
+  "tokens_salida": 5905,
+  "costo_usd": 0.22915019999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/28903114000160-mineracao-serra-azul/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/28903114000160-mineracao-serra-azul/corridas/salida-budget-scan.md",
+      "estado-finanzas/28903114000160-mineracao-serra-azul/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/28903114000160-mineracao-serra-azul/corridas.json"
+    ],
+    "borrados": []
+  }
+}

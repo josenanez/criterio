@@ -1,0 +1,27 @@
+{
+  "n": 18,
+  "agente": "aurea",
+  "comando": "treasury-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T02:36:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 32,
+  "turnos": 9,
+  "tokens": 392521,
+  "tokens_salida": 3391,
+  "costo_usd": 0.15542029999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/31452078000170-lojas-paulistas/corridas/2026-10-06-treasury-scan-1.md",
+      "estado-finanzas/31452078000170-lojas-paulistas/corridas/salida-treasury-scan.md",
+      "estado-finanzas/31452078000170-lojas-paulistas/tesoreria/2026-09/reporte-treasury-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/31452078000170-lojas-paulistas/corridas.json"
+    ],
+    "borrados": []
+  }
+}

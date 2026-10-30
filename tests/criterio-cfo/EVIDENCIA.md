@@ -23,13 +23,17 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 | `banca-mx` | México | banca | 12 | 16 |
 | `retail-mx` | México | retail | 11 | 11 |
 | `control-mx` | México | — | 0 | 0 |
+| `retail-br` | Brasil | retail | 11 | 12 |
+| `mineria-br` | Brasil | minería | 11 | 12 |
+| `control-br` | Brasil | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos
 cuentas bancarias con su extracto —que dice su moneda— y su auxiliar de libros, las facturas electrónicas emitidas y
 recibidas —con la estructura de la DIAN (F-01) en Colombia, dentro de su contenedor, y la del
 SRI (F-04, F-09) en Ecuador, dentro de su respuesta de autorización, la UBL 2.1 de la SUNAT
-(F-13) en Perú, el DTE del SII (F-16) en Chile y el CFDI 4.0 del SAT (F-19) en México—, el checklist del cierre
+(F-13) en Perú, el DTE del SII (F-16) en Chile, el CFDI 4.0 del SAT (F-19) en México y la NF-e (F-21) en Brasil,
+con el ICMS dentro del valor de la nota y la alícuota de São Paulo (F-22)—, el checklist del cierre
 con sus soportes, el índice de requerimientos del auditor con sus respuestas, dos versiones del
 presupuesto, los compromisos, las proyecciones de cada área, las actas y la ficha del proyecto
 de la familia PMO que ejecuta una de las líneas. Para Áurea, además, la política de tesorería, la
@@ -39,6 +43,13 @@ pagos y el flujo proyectado en `60-tesoreria/`.
 Los formatos son los de un área financiera real: parte de las tablas en Excel, con números y
 fechas de verdad; parte de las actas, los soportes y las respuestas al auditor en Word y PDF; y
 algunos extractos en PDF con texto, como los entrega el banco, que el motor procesa por columnas.
+
+**Brasil, en portugués.** Las tres entidades de Brasil traen sus documentos como los tiene una
+empresa de allá: las cabeceras de las tablas (`data`, `conta`, `histórico`, `débito`, `crédito`),
+los nombres de los archivos (`livro-razao`, `balancete`, `extrato`, `orcamento-2026`), las cuentas,
+las áreas y las líneas del orçamento, las atas, los e-mails, la carta del auditor y las personas.
+La estructura de carpetas es la de la plataforma. Los bancos de Brasil facturan sus servicios con la
+nota fiscal de servicios de su municipio, no con la NF-e: por eso Brasil entra con retail y minería.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 
@@ -94,6 +105,13 @@ además que la diferencia sin explicar de cada cuenta bancaria sea cero, que el 
 donde no se sembró el descuadre y que cada factura cruce con su registro o tenga su señal.
 
 ## Lo que no prueba
+
+- **La NF-e completa.** El lector procesa la identificación, las partes y los totales del Anexo I
+  del MOC 7.0 (F-21). El protocolo de autorización de la SEFAZ y el dígito verificador de la chave
+  no se validan en esta versión: su regla está en el MOC, Visión General, que no se consultó. Los
+  campos del IBS y la CBS de la reforma tributaria no se procesan: en esta versión no son
+  obligatorios en producción.
+- **La nota fiscal de servicios.** La de cada municipio de Brasil no se procesa todavía.
 
 La extracción. Que el agente procese el acta de traslado, el correo que declara el cierre o la carta
 del auditor y lo registre bien en la ficha lo prueba la ronda con el agente, sobre este mismo
