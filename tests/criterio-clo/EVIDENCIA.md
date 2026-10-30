@@ -33,6 +33,9 @@ sintéticos.
 | `banca-pa` | Panamá | banca | 10 | 10 |
 | `retail-pa` | Panamá | retail | 10 | 10 |
 | `control-pa` | Panamá | — | 0 | 0 |
+| `banca-gt` | Guatemala | banca | 10 | 10 |
+| `retail-gt` | Guatemala | retail | 10 | 10 |
+| `control-gt` | Guatemala | — | 0 | 0 |
 | `publica-co` | Colombia | entidad pública | 3 | 5 |
 | `publica-ec` | Ecuador | entidad pública | 1 | 2 |
 | `publica-pe` | Perú | entidad pública | 1 | 2 |
@@ -66,6 +69,7 @@ contratación pública de su país. Traen la misma carpeta que las demás, más:
 - la constancia de publicación de cada contrato, en `10-contrato/`;
 - en cada póliza, el valor asegurado y la fecha en que la entidad la recibió.
 
+Guatemala todavía no tiene la suya: su regla espera el reglamento de la ley de contrataciones del Estado.
 Solo Fidel corre sobre ellas. Las reglas son las de `contratacion_publica` del registro de países, cada
 una con su fuente (F-03 a F-10 de la familia).
 

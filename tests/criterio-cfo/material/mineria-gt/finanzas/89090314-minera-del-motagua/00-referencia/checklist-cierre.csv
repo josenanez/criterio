@@ -1,0 +1,10 @@
+id;tarea;area;responsable;dia_limite;depende_de;evidencia_esperada;criticidad;estado
+C-01;Cerrar los módulos de ventas, compras e inventarios;Contabilidad;Lucía Mora;D+1;;Soporte firmado;alta;cumplida
+C-02;Conciliar cada cuenta bancaria;Tesorería;Andrés Paz;D+2;C-01;Soporte firmado;alta;cumplida
+C-03;Cruzar las facturas emitidas con las ventas;Contabilidad;Lucía Mora;D+2;C-01;Soporte firmado;alta;cumplida
+C-04;Conciliar cartera contra su auxiliar;Contabilidad;Marta Ríos;D+3;C-01;Soporte firmado;alta;cumplida
+C-05;Registrar provisiones y causaciones;Contabilidad;Jorge Vela;D+3;C-01;Soporte firmado;media;cumplida
+C-06;Preparar los papeles de trabajo de impuestos;Impuestos;Elena Cruz;D+5;C-03;Soporte firmado;alta;en curso
+C-07;Cuadrar el balance de comprobación;Contabilidad;Lucía Mora;D+5;C-02 C-04 C-05;Soporte firmado;alta;en curso
+C-08;Revisar el cierre y sus soportes;Contraloría;Sofía León;D+6;C-07;Soporte firmado;alta;en curso
+C-09;Aprobar el cierre del periodo;Contraloría;Sofía León;D+7;C-08;Soporte firmado;alta;en curso

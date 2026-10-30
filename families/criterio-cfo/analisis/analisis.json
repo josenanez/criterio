@@ -22,11 +22,11 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 7, parcial, sobre 3 de las 24 entidades del material: 24 de 24 señales sembradas encontradas (margen del 95 %: 86,2–100 %) y 0 de más; 24 de 25 datos extraídos bien (96 %, margen del 95 %: 80,4–99,3 %); y 1 de 1 entidades de control sin ninguna señal.",
+     "La ronda más reciente, la 7, parcial, sobre 3 de las 27 entidades del material: 24 de 24 señales sembradas encontradas (margen del 95 %: 86,2–100 %) y 0 de más; 24 de 25 datos extraídos bien (96 %, margen del 95 %: 80,4–99,3 %); y 1 de 1 entidades de control sin ninguna señal.",
      "Sumando las rondas 1–7, 255 de 255 señales encontradas, 0 de más y 243 de 245 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 7, partial, on 3 of the material's 24 entities: 24 of 24 seeded signals found (95% margin: 86.2–100%) and 0 extra; 24 of 25 data items extracted right (96%, 95% margin: 80.4–99.3%); and 1 of 1 control entities with no signal at all.",
+     "The most recent round, round 7, partial, on 3 of the material's 27 entities: 24 of 24 seeded signals found (95% margin: 86.2–100%) and 0 extra; 24 of 25 data items extracted right (96%, 95% margin: 80.4–99.3%); and 1 of 1 control entities with no signal at all.",
      "Across rounds 1–7, 255 of 255 signals found, 0 extra and 243 of 245 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }

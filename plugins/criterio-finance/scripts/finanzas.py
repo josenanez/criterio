@@ -150,6 +150,16 @@ CAMPOS_DGIPA = {
     "p82-ISC": "gTot/dTotISC · el total del ISC (D04, p. 82)",
     "p83-TOTAL": "gTot/dVTot · el valor total de la factura (D09, p. 83)",
 }
+CAMPOS_FEL = {
+    "XSD-RAIZ": "GTDocumento/SAT/DTE · el documento tributario electrónico, espacio de nombres http://www.sat.gob.gt/dte/fel/0.2.0 (GT_Documento 0.2.1)",
+    "XSD-TIPO": "DatosEmision/DatosGenerales/@Tipo · FACT es factura; NCRE, nota de crédito (GT_Documento 0.2.1; Reglas y validaciones 2.1, 1.2)",
+    "XSD-FECHA": "DatosEmision/DatosGenerales/@FechaHoraEmision (Reglas y validaciones 2.1, 2.2.1)",
+    "XSD-EMISOR": "DatosEmision/Emisor/@NITEmisor (Reglas y validaciones 2.1, 2.2.2)",
+    "XSD-RECEPTOR": "DatosEmision/Receptor/@IDReceptor · el NIT o el documento del receptor (Reglas y validaciones 2.1, 2.2.4)",
+    "XSD-IMPUESTO": "DatosEmision/Totales/TotalImpuestos/TotalImpuesto · @NombreCorto IVA y @TotalMontoImpuesto (Reglas y validaciones 2.1, 2.4.2)",
+    "XSD-GRANTOTAL": "DatosEmision/Totales/GranTotal · el total del documento, con sus impuestos (Reglas y validaciones 2.1, 2.19.2)",
+    "XSD-AUTORIZACION": "Certificacion/NumeroAutorizacion · el UUID de la autorización, con @Serie y @Numero (GT_Documento 0.2.1)",
+}
 TIPOS_SRI = {"01": "factura", "03": "liquidación de compra", "04": "nota de crédito",
              "05": "nota de débito", "06": "guía de remisión", "07": "comprobante de retención"}
 
@@ -462,6 +472,40 @@ def _dgipa(raiz) -> dict:
     return d
 
 
+def _fel(raiz) -> dict:
+    """La FEL de Guatemala (F-30, el esquema GT_Documento 0.2.1 de la SAT, y F-31, Reglas y
+    validaciones 2.1): `GTDocumento/SAT/DTE` con los datos generales —el tipo, la fecha y la moneda—,
+    el NIT del emisor y el documento del receptor como atributos, los totales con cada impuesto por su
+    nombre corto y el gran total, y la certificación con el número de autorización, su serie y su
+    número. El gran total trae los impuestos adentro: la base es el gran total sin ellos; el IVA es el
+    impuesto de nombre corto IVA y los demás se leen como otros impuestos. Solo la factura (FACT)
+    cruza valores en esta versión."""
+    em = next((x for x in raiz.iter() if _local(x.tag) == "DatosEmision"), None)
+    gen, emi, rec, tot = _h(em, "DatosGenerales"), _h(em, "Emisor"), _h(em, "Receptor"), _h(em, "Totales")
+    aut = next((x for x in raiz.iter() if _local(x.tag) == "NumeroAutorizacion"), None)
+    tipo = (gen.attrib.get("Tipo") if gen is not None else "") or ""
+    iva = otros = 0.0
+    for ti in (x for x in (tot.iter() if tot is not None else []) if _local(x.tag) == "TotalImpuesto"):
+        m = numero(ti.attrib.get("TotalMontoImpuesto")) or 0.0
+        if (ti.attrib.get("NombreCorto") or "").upper() == "IVA":
+            iva += m
+        else:
+            otros += m
+    total = numero(_t(tot, "GranTotal"))
+    numero_ = f"{aut.attrib.get('Serie')}-{aut.attrib.get('Numero')}" if aut is not None else None
+    d = {
+        "pais": PAIS_DEL_LECTOR["fel"], "lector": "fel", "fuente": "F-30",
+        "tipo": "factura" if tipo == "FACT" else ("nota_credito" if tipo == "NCRE" else f"tipo {tipo}"),
+        "numero": numero_, "fecha": iso(fecha(((gen.attrib.get("FechaHoraEmision") if gen is not None else "") or "")[:10])),
+        "emisor": ident(emi.attrib.get("NITEmisor")) if emi is not None else None,
+        "receptor": ident(rec.attrib.get("IDReceptor")) if rec is not None else None,
+        "base": round(total - iva - otros, 2) if total is not None else None, "iva": round(iva, 2), "otros_impuestos": round(otros, 2),
+        "total": total, "valores": tipo == "FACT",
+    }
+    d["id"] = (aut.text or "").strip() if aut is not None and (aut.text or "").strip() else f"{d['emisor']}-{numero_}"
+    return d
+
+
 def leer_factura(ruta: Path) -> dict:
     """Una factura o nota electrónica de cualquier país del registro, con o sin su contenedor."""
     try:
@@ -506,6 +550,8 @@ def leer_factura(ruta: Path) -> dict:
         return _wsfe(raiz)
     if nombre == "rFE":                                          # F-27: la factura electrónica de Panamá
         return _dgipa(raiz)
+    if nombre == "GTDocumento":                                  # F-30: la FEL de Guatemala
+        return _fel(raiz)
     return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
 
 
@@ -2197,6 +2243,37 @@ def factura_dgipa(pto: str, nro: int, fecha_: str, emisor: str, receptor: str, n
             f'<dVTot>{total:.2f}</dVTot><dTotRec>{total:.2f}</dTotRec><iPzPag>2</iPzPag><dNroItems>1</dNroItems><dVTotItems>{total:.2f}</dVTotItems></gTot></rFE>')
 
 
+def nit_gt(n: int) -> str:
+    """Un NIT de Guatemala ficticio, con un último carácter calculado por módulo 11 (10 es K) para que
+    tenga la forma de uno real. El lector no lo valida. Ninguno corresponde a una empresa."""
+    base = str(n)
+    r = (11 - sum(int(c) * (i + 2) for i, c in enumerate(reversed(base))) % 11) % 11
+    return base + ("K" if r == 10 else str(r))
+
+
+def factura_fel(serie: str, numero_: int, fecha_: str, emisor: str, receptor: str, base: float, iva: float) -> str:
+    """Una FEL de Guatemala, factura (FACT), certificada, con lo que procesa el lector (F-30), para las
+    pruebas y el material. El gran total trae el IVA adentro."""
+    total = round(base + iva, 2)
+    uuid = hashlib.sha256(f"{serie}{numero_}{emisor}".encode()).hexdigest().upper()
+    uuid = f"{uuid[:8]}-{uuid[8:12]}-{uuid[12:16]}-{uuid[16:20]}-{uuid[20:32]}"
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<dte:GTDocumento xmlns:dte="http://www.sat.gob.gt/dte/fel/0.2.0" Version="0.1">'
+            '<dte:SAT ClaseDocumento="dte"><dte:DTE ID="DatosCertificados"><dte:DatosEmision ID="DatosEmision">'
+            f'<dte:DatosGenerales Tipo="FACT" FechaHoraEmision="{fecha_}T10:00:00-06:00" CodigoMoneda="GTQ"/>'
+            f'<dte:Emisor NITEmisor="{emisor}" NombreEmisor="EMISOR DE PRUEBA" CodigoEstablecimiento="1" AfiliacionIVA="GEN"/>'
+            f'<dte:Receptor IDReceptor="{receptor}" NombreReceptor="RECEPTOR DE PRUEBA"/>'
+            '<dte:Items><dte:Item NumeroLinea="1" BienOServicio="S"><dte:Cantidad>1</dte:Cantidad><dte:Descripcion>Servicio</dte:Descripcion>'
+            f'<dte:PrecioUnitario>{total:.2f}</dte:PrecioUnitario><dte:Precio>{total:.2f}</dte:Precio><dte:Descuento>0</dte:Descuento>'
+            f'<dte:Impuestos><dte:Impuesto><dte:NombreCorto>IVA</dte:NombreCorto><dte:CodigoUnidadGravable>1</dte:CodigoUnidadGravable>'
+            f'<dte:MontoGravable>{base:.2f}</dte:MontoGravable><dte:MontoImpuesto>{iva:.2f}</dte:MontoImpuesto></dte:Impuesto></dte:Impuestos>'
+            f'<dte:Total>{total:.2f}</dte:Total></dte:Item></dte:Items>'
+            f'<dte:Totales><dte:TotalImpuestos><dte:TotalImpuesto NombreCorto="IVA" TotalMontoImpuesto="{iva:.2f}"/></dte:TotalImpuestos>'
+            f'<dte:GranTotal>{total:.2f}</dte:GranTotal></dte:Totales></dte:DatosEmision></dte:DTE>'
+            f'<dte:Certificacion><dte:NITCertificador>12521337</dte:NITCertificador><dte:NombreCertificador>CERTIFICADOR DE PRUEBA</dte:NombreCertificador>'
+            f'<dte:NumeroAutorizacion Serie="{serie}" Numero="{numero_}">{uuid}</dte:NumeroAutorizacion>'
+            f'<dte:FechaHoraCertificacion>{fecha_}T10:00:05-06:00</dte:FechaHoraCertificacion></dte:Certificacion></dte:SAT></dte:GTDocumento>')
+
+
 def rfc(letras: str, fecha_: str, homoclave: str) -> str:
     """Un RFC de persona moral ficticio, de 12 posiciones (F-19, p. 15). Ninguno corresponde a una empresa."""
     return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
@@ -2350,6 +2427,11 @@ def selftest() -> int:
            (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"], f["valores"]),
            ("dgipa", "factura", "001-0000004521", ident(ruc_pa(101)), ident(ruc_pa(202)), 10000.0, 700.0, 10700.0, "2026-09-15", True))
         ok("DGI de Panamá: se identifica por su CUFE, sin el literal FE", (len(f["id"]), f["id"].isdigit()), (64, True))
+        f = leer_factura_texto(factura_fel("A1B2C3D4", 123456, "2026-09-15", nit_gt(1234567), nit_gt(7654321), 10000.0, 1200.0), t)
+        ok("FEL de Guatemala: la factura certificada, con el IVA dentro del gran total",
+           (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"], f["valores"]),
+           ("fel", "factura", "A1B2C3D4-123456", ident(nit_gt(1234567)), ident(nit_gt(7654321)), 10000.0, 1200.0, 11200.0, "2026-09-15", True))
+        ok("FEL de Guatemala: se identifica por el UUID de su autorización", len(f["id"]), 36)
         ok("SAT: un CFDI de otra versión no se lee como 4.0", "error" in leer_factura_texto(factura_sat("A", "1", "2026-09-15", "ABC260101AA1", "XYZ250505BB2", 1, 0.16).replace('Version="4.0"', 'Version="3.3"'), t), True)
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"

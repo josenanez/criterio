@@ -32,6 +32,9 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 | `banca-pa` | Panamá | banca | 12 | 16 |
 | `retail-pa` | Panamá | retail | 11 | 11 |
 | `control-pa` | Panamá | — | 0 | 0 |
+| `retail-gt` | Guatemala | retail | 11 | 12 |
+| `mineria-gt` | Guatemala | minería | 11 | 12 |
+| `control-gt` | Guatemala | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos
@@ -69,6 +72,12 @@ electrónica de la Ficha Técnica 1.00 (F-27): `rFE` con el CUFE, el tipo y el n
 fiscal, el RUC de cada parte y los totales, con el ITBMS al 7 % (F-28). Sus montos van en dólares, así
 que el material no les siembra exposición cambiaria. La tolerancia del país es la de la ficha: una
 diferencia menor que B/0.50 no es error.
+
+**Guatemala, con la factura electrónica en línea de la SAT.** Las tres entidades de Guatemala traen
+el DTE certificado de la versión 0.2.1 del esquema (F-30): `GTDocumento` con el número de
+autorización que asigna el certificador, la serie y el número, el NIT de cada parte y los totales,
+con el IVA al 12 % (F-32) y las reglas de validación de la SAT (F-31). El lector identifica cada
+factura por su número de autorización. El marco contable de cada una sale de su perfil NIIF (F-33).
 
 ## Lo que se siembra, y la señal que tiene que levantar
 

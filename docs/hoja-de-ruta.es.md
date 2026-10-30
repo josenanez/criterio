@@ -14,8 +14,8 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.0.0 | Estable | — |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.0.0 | Laboratorio | — |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.1.0 | Laboratorio | — |
+| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.0.0 | Laboratorio | Incremento 7 · Argentina |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.1.0 | Laboratorio | Incremento 7 · Argentina |
 | Criterio EA · Dirección | Ofelia | 1.0.0 | Estable | — |
 | Criterio CCO · La función comercial | Augusto, Valeria | 0.3.0 | Estable | — |
 | Rostrum · el portal de todas las familias | — | 1.0.0 | — | — |
@@ -42,6 +42,9 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.11.0 | Liberada | **Chile**<br>· El lector de la factura electrónica de Chile, el DTE del SII (F-16), con el RUT y su dígito verificador<br>· El IVA del 19 % (F-17) y las NIIF que adoptó el Colegio de Contadores (F-18)<br>· Material de retail, minería y una entidad de control de Chile | La ronda 5: los tres agentes sobre las tres entidades de Chile, 26 de 26 señales, ninguna de más y 24 de 24 datos |
 | 0.12.0 | Liberada | **México**<br>· El lector del CFDI 4.0 del SAT, desde su guía de llenado (F-19), con el RFC<br>· El IVA del 16 % del catálogo de la guía y el marco NIIF o NIF de cada entidad (F-20)<br>· Material de banca, retail y una entidad de control de México | La ronda 6: los tres agentes sobre las tres entidades de México, 27 de 27 señales, ninguna de más y 24 de 24 datos |
 | 1.0.0 | Liberada | **Brasil**<br>· Su entrada en el registro de países, el lector de su factura electrónica y sus fuentes verificadas<br>· Los documentos en portugués: el motor los procesa como los de los demás países | La ronda 7 con los tres agentes en Brasil, con los documentos en portugués: 24 de 24 señales, ninguna de más, y 24 de 25 datos; el defecto que encontró, en la clave, con su corrección |
+| Incremento 7 | En curso | **Argentina**<br>· Su entrada en el registro de países, el lector de el comprobante electrónico de ARCA, con su CAE y sus fuentes verificadas<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda con los tres agentes en Argentina |
+| Incremento 8 | Siguiente | **Panamá**<br>· Su entrada en el registro de países, el lector de la factura electrónica de la DGI, con su CUFE y sus fuentes verificadas<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda con los tres agentes en Panamá |
+| Incremento 9 | Siguiente | **Guatemala**<br>· Su entrada en el registro de países, el lector de la factura electrónica en línea de la SAT, con su número de autorización y sus fuentes verificadas<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda con los tres agentes en Guatemala |
 
 ### Criterio CLO · Contratos y cumplimiento
 
@@ -53,6 +56,9 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.12.0 | Liberada | **México**<br>· Material de banca, retail y control de México, con el RFC de cada contraparte<br>· La fecha de una obligación atada a la terminación es la del último otrosí: lo dice la skill y el motor lo revisa en la ficha (CLO-11) | La ronda 5: Fidel y Constanza sobre las tres entidades de México, 20 de 20 señales, ninguna de más y 395 de 396 datos; el que faltó, corregido y verificado |
 | 1.0.0 | Liberada | **Brasil**<br>· Sus fuentes legales verificadas y su material de prueba<br>· Los documentos en portugués: el motor los procesa como los de los demás países | La ronda 6 con los dos agentes en Brasil, con los documentos en portugués: 20 de 20 señales, ninguna de más, y 395 de 396 datos; el defecto que encontró, en el arnés, con su corrección |
 | 1.1.0 | Liberada | **Los contratos públicos**<br>· Las reglas de publicación y de garantía de la ley de contratación pública de cada país del registro, cada una con su fuente: el plazo para publicar el contrato en el sistema nacional, el mínimo de la garantía de cumplimiento —su tope, en Brasil— y su entrega a tiempo, en México<br>· Una entidad pública de prueba por país, con sus constancias de publicación y sus pólizas | La ronda 7 con Fidel sobre las seis entidades públicas, una por país: 19 de 19 señales, ninguna de más, y 909 de 912 datos; los dos defectos que encontró, en la clave y en las instrucciones, con su corrección y su verificación |
+| Incremento 7 | En curso | **Argentina**<br>· Su entrada en el registro de países, con la identificación fiscal de cada contraparte<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados<br>· Una entidad pública, con la regla de publicación y de garantía de su ley de contratación pública | La ronda con Fidel y Constanza en Argentina |
+| Incremento 8 | Siguiente | **Panamá**<br>· Su entrada en el registro de países, con la identificación fiscal de cada contraparte<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados<br>· Una entidad pública, con la regla de publicación y de garantía de su ley de contratación pública | La ronda con Fidel y Constanza en Panamá |
+| Incremento 9 | Siguiente | **Guatemala**<br>· Su entrada en el registro de países, con la identificación fiscal de cada contraparte<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda con Fidel y Constanza en Guatemala |
 
 ### Criterio EA · Dirección
 

@@ -836,6 +836,93 @@
           "estado": "verificada",
           "nota": "Dice: «La tarifa de este impuesto será de (7%) a partir del 1 de julio del 2010» (artículo 76 de la Ley 8 de 2010). El hospedaje y las bebidas alcohólicas van al 10 % y el tabaco al 15 %",
           "uso": "La tarifa general del ITBMS de Panamá en el material"
+        },
+        {
+          "id": "F-30",
+          "fuente": "SAT de Guatemala · FEL, esquema GT_Documento 0.2.1",
+          "version": "El esquema publicado en el repositorio «Catalogo-FEL» de la cuenta notificacioneselectfel en GitHub («Esquema y catálogos - FEL»), con el espacio de nombres http://www.sat.gob.gt/dte/fel/0.2.0; actualizado el 14 de octubre de 2026",
+          "enlaces": [
+            [
+              "github.com",
+              "https://github.com/notificacioneselectfel/Catalogo-FEL/tree/main/XSD"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "El enlace lo dio José Francisco Ñáñez. Confirmados en el esquema: GTDocumento/SAT/DTE/DatosEmision con DatosGenerales (Tipo, FechaHoraEmision, CodigoMoneda), Emisor (NITEmisor), Receptor (IDReceptor), Totales con TotalImpuestos/TotalImpuesto (NombreCorto, TotalMontoImpuesto) y GranTotal; y Certificacion/NumeroAutorizacion con Serie y Numero. El tipo FACT es la factura y NCRE la nota de crédito",
+          "uso": "Lector de la FEL de Guatemala; material de prueba",
+          "campos": [
+            {
+              "id": "XSD-RAIZ",
+              "campo": "GTDocumento/SAT/DTE · el documento tributario electrónico, espacio de nombres http://www.sat.gob.gt/dte/fel/0.2.0 (GT_Documento 0.2.1)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-TIPO",
+              "campo": "DatosEmision/DatosGenerales/@Tipo · FACT es factura; NCRE, nota de crédito (GT_Documento 0.2.1; Reglas y validaciones 2.1, 1.2)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-FECHA",
+              "campo": "DatosEmision/DatosGenerales/@FechaHoraEmision (Reglas y validaciones 2.1, 2.2.1)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-EMISOR",
+              "campo": "DatosEmision/Emisor/@NITEmisor (Reglas y validaciones 2.1, 2.2.2)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-RECEPTOR",
+              "campo": "DatosEmision/Receptor/@IDReceptor · el NIT o el documento del receptor (Reglas y validaciones 2.1, 2.2.4)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-IMPUESTO",
+              "campo": "DatosEmision/Totales/TotalImpuestos/TotalImpuesto · @NombreCorto IVA y @TotalMontoImpuesto (Reglas y validaciones 2.1, 2.4.2)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-GRANTOTAL",
+              "campo": "DatosEmision/Totales/GranTotal · el total del documento, con sus impuestos (Reglas y validaciones 2.1, 2.19.2)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-AUTORIZACION",
+              "campo": "Certificacion/NumeroAutorizacion · el UUID de la autorización, con @Serie y @Numero (GT_Documento 0.2.1)",
+              "estado": "verificado"
+            }
+          ]
+        },
+        {
+          "id": "F-31",
+          "fuente": "SAT de Guatemala · FEL, Reglas y validaciones",
+          "version": "Versión 2.1, octubre de 2026",
+          "enlaces": [
+            [
+              "sat.gob.gt",
+              "https://portal.sat.gob.gt/portal/"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "El PDF lo trajo José Francisco Ñáñez. Confirmados: los tipos de DTE con la factura (FACT, base legal Decreto 27-92, artículo 29, literal a) en 1.2; las validaciones de la fecha y hora de emisión (2.2.1), del NIT del emisor (2.2.2), del ID del receptor (2.2.4), del monto de cada impuesto (2.4.2) y del gran total (2.19.2)",
+          "uso": "Las reglas de la FEL que respaldan los campos del lector"
+        },
+        {
+          "id": "F-32",
+          "fuente": "Guatemala · Decreto 27-92, Ley del Impuesto al Valor Agregado, artículo 10",
+          "version": "El texto con sus reformas que trajo José Francisco Ñáñez",
+          "enlaces": [
+            [
+              "sat.gob.gt",
+              "https://portal.sat.gob.gt/portal/"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Dice: «Los contribuyentes afectos a las disposiciones de esta ley pagarán el impuesto con una tarifa del doce por ciento (12%) sobre la base imponible»",
+          "uso": "La tarifa del IVA de Guatemala en el material"
         }
       ]
     },
@@ -993,6 +1080,21 @@
           "estado": "verificada",
           "nota": "Dice: las empresas que cotizan en bolsa y los bancos bajo la Superintendencia (Acuerdo 6-2012) usan las NIIF; las demás pueden usarlas o, si son PYMES, la NIIF para las PYMES (Resolución 03-2010)",
           "uso": "El marco contable de cada entidad de Panamá en el material"
+        },
+        {
+          "id": "F-33",
+          "fuente": "IFRS Foundation · perfil de jurisdicción de Guatemala",
+          "version": "actualizado el 16 de junio de 2016",
+          "enlaces": [
+            [
+              "ifrs.org",
+              "https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/guatemala-ifrs-profile.pdf"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Dice: los bancos y aseguradoras siguen los manuales de la Superintendencia de Bancos, no las NIIF; el colegio de contadores adoptó las NIIF y la NIIF para las PYMES, sin fuerza de ley, y la SAT acepta también estados con base fiscal. Por eso el material de Guatemala es de retail y minería, no de banca",
+          "uso": "El marco contable de cada entidad de Guatemala en el material"
         }
       ]
     }

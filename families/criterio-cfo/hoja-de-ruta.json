@@ -173,6 +173,99 @@
     ],
     "prueba": "Round 7 with the three agents in Brazil, with the documents in Portuguese: 24 of 24 signals, none extra, and 24 of 25 data points; the defect it found, in the key, with its fix"
    }
+  },
+  {
+   "incremento": 7,
+   "version": null,
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "AR",
+     "nombre": {
+      "es": "Argentina",
+      "en": "Argentina"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Argentina",
+    "entra": [
+     "Su entrada en el registro de países, el lector de el comprobante electrónico de ARCA, con su CAE y sus fuentes verificadas",
+     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+    ],
+    "prueba": "La ronda con los tres agentes en Argentina"
+   },
+   "en": {
+    "titulo": "Argentina",
+    "entra": [
+     "Its entry in the country registry, the reader for the ARCA electronic voucher, with its CAE and its verified sources",
+     "Three test entities, one of them a control with no seeded defects"
+    ],
+    "prueba": "The round with the three agents in Argentina"
+   }
+  },
+  {
+   "incremento": 8,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PA",
+     "nombre": {
+      "es": "Panamá",
+      "en": "Panama"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Panamá",
+    "entra": [
+     "Su entrada en el registro de países, el lector de la factura electrónica de la DGI, con su CUFE y sus fuentes verificadas",
+     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+    ],
+    "prueba": "La ronda con los tres agentes en Panamá"
+   },
+   "en": {
+    "titulo": "Panama",
+    "entra": [
+     "Its entry in the country registry, the reader for the DGI electronic invoice, with its CUFE and its verified sources",
+     "Three test entities, one of them a control with no seeded defects"
+    ],
+    "prueba": "The round with the three agents in Panama"
+   }
+  },
+  {
+   "incremento": 9,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "GT",
+     "nombre": {
+      "es": "Guatemala",
+      "en": "Guatemala"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Guatemala",
+    "entra": [
+     "Su entrada en el registro de países, el lector de la factura electrónica en línea de la SAT, con su número de autorización y sus fuentes verificadas",
+     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+    ],
+    "prueba": "La ronda con los tres agentes en Guatemala"
+   },
+   "en": {
+    "titulo": "Guatemala",
+    "entra": [
+     "Its entry in the country registry, the reader for the SAT online electronic invoice, with its authorization number and its verified sources",
+     "Three test entities, one of them a control with no seeded defects"
+    ],
+    "prueba": "The round with the three agents in Guatemala"
+   }
   }
  ]
 }

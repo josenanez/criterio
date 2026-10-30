@@ -1,0 +1,9 @@
+numero;fecha;area;linea;proveedor;valor;saldo_por_ejecutar
+OC-0000;2026-09-15;Administración;Servicios públicos;89005007;45000.00;22500.00
+OC-0001;2026-09-15;Administración;Mantenimiento;89005015;30000.00;15000.00
+OC-0002;2026-09-15;Comercial;Publicidad;89005023;52500.00;26250.00
+OC-0003;2026-09-15;Comercial;Eventos;89005031;30000.00;15000.00
+OC-0004;2026-09-15;Tecnología;Licencias;8900504K;63000.00;31500.00
+OC-0005;2026-09-15;Tecnología;PRY-310;89005058;90000.00;45000.00
+OC-0006;2026-09-15;Operaciones;Transporte;89005066;64500.00;32250.00
+OC-0007;2026-09-15;Personal;Nómina;89005074;300000.00;150000.00

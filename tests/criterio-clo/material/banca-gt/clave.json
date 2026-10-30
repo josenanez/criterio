@@ -1,0 +1,543 @@
+{
+  "entidad": "Banco del Altiplano Sintético",
+  "industria": "banca",
+  "pais": "GT",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "preaviso_cerca",
+      "otrosi_sin_facultad",
+      "pagos_de_mas",
+      "sin_garantia",
+      "obligacion_contrato_vencida"
+    ],
+    "constanza": [
+      "obligacion_vencida",
+      "evidencia_vieja",
+      "norma_sin_evaluar",
+      "informe_declara_cumplido",
+      "obligacion_contrato_fuera"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "48712035",
+        "name": "Banco del Altiplano Sintético",
+        "country": "GT",
+        "currency": "GTQ"
+      },
+      "paths": {
+        "documents": "legal/48712035-banco-del-altiplano-sintetico",
+        "state": "estado-legal/48712035-banco-del-altiplano-sintetico"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "48712035",
+        "name": "Banco del Altiplano Sintético",
+        "country": "GT",
+        "currency": "GTQ"
+      },
+      "paths": {
+        "documents": "legal/48712035-banco-del-altiplano-sintetico",
+        "state": "estado-legal/48712035-banco-del-altiplano-sintetico"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/48712035-banco-del-altiplano-sintetico/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-3301": {
+        "code": "CTR-3301",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Sistemas Financieros de Guatemala S.A.",
+          "id": "33000018"
+        },
+        "value": 3600000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Ana Lucía Morales",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sistemas Financieros de Guatemala S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3301-sistemas-financieros-de-guatemala-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3301-sistemas-financieros-de-guatemala-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-3301-sistemas-financieros-de-guatemala-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Sistemas Financieros de Guatemala S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3301-sistemas-financieros-de-guatemala-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Sistemas Financieros de Guatemala S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3301-sistemas-financieros-de-guatemala-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Sistemas Financieros de Guatemala S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-3301-sistemas-financieros-de-guatemala-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3301-sistemas-financieros-de-guatemala-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3302": {
+        "code": "CTR-3302",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Papelería Nacional S.A.",
+          "id": "33000026"
+        },
+        "value": 1800000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "José Pablo Cifuentes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Papelería Nacional S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 3150000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "José Pablo Cifuentes",
+            "source": "contratos/CTR-3302-papeleria-nacional-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3302-papeleria-nacional-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3302-papeleria-nacional-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-3302-papeleria-nacional-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Papelería Nacional S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3302-papeleria-nacional-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Papelería Nacional S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3302-papeleria-nacional-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3302-papeleria-nacional-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3303": {
+        "code": "CTR-3303",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Inmobiliaria Zona Viva S.A.",
+          "id": "33000034"
+        },
+        "value": 2700000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ana Lucía Morales",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Inmobiliaria Zona Viva S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3303-inmobiliaria-zona-viva-s-a/10-contrato/contrato.md, cláusula 9"
+          },
+          {
+            "type": "calidad",
+            "months_after_end": 12,
+            "source": "contratos/CTR-3303-inmobiliaria-zona-viva-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3303-inmobiliaria-zona-viva-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-3303-inmobiliaria-zona-viva-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Inmobiliaria Zona Viva S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3303-inmobiliaria-zona-viva-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Inmobiliaria Zona Viva S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3303-inmobiliaria-zona-viva-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3303-inmobiliaria-zona-viva-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3304": {
+        "code": "CTR-3304",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Licencias Digitales S.A.",
+          "id": "33000042"
+        },
+        "value": 1350000,
+        "start": "2026-03-01",
+        "end": "2026-12-31",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "José Pablo Cifuentes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Licencias Digitales S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3304-licencias-digitales-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3304-licencias-digitales-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-3304-licencias-digitales-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Licencias Digitales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3304-licencias-digitales-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Licencias Digitales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3304-licencias-digitales-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3304-licencias-digitales-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3305": {
+        "code": "CTR-3305",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultores del Valle S.A.",
+          "id": "33000050"
+        },
+        "value": 900000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "José Pablo Cifuentes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultores del Valle S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3305-consultores-del-valle-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3305-consultores-del-valle-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-3305-consultores-del-valle-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultores del Valle S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3305-consultores-del-valle-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultores del Valle S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3305-consultores-del-valle-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-3305-consultores-del-valle-s-a/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-3305-consultores-del-valle-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3306": {
+        "code": "CTR-3306",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Integral S.A.",
+          "id": "33000069"
+        },
+        "value": 2250000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ana Lucía Morales",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Integral S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3306-mantenimiento-integral-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3306-mantenimiento-integral-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-3306-mantenimiento-integral-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3306-mantenimiento-integral-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3306-mantenimiento-integral-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3306-mantenimiento-integral-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_evidence_stale",
+      "key": "stale:OB-11"
+    },
+    {
+      "signal": "compliance_obligation_overdue",
+      "key": "oblig:OB-09"
+    },
+    {
+      "signal": "contract_obligation_not_in_matrix",
+      "key": "ctrobl:CTR-3301:OBL-3"
+    },
+    {
+      "signal": "contract_obligation_overdue",
+      "key": "obl:CTR-3304:OBL-1"
+    },
+    {
+      "signal": "declared_compliance_vs_evidence",
+      "key": "cumplimiento"
+    },
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-3303:calidad"
+    },
+    {
+      "signal": "notice_deadline_near",
+      "key": "preaviso:CTR-3304"
+    },
+    {
+      "signal": "payments_over_value",
+      "key": "pagos:CTR-3302"
+    },
+    {
+      "signal": "regulatory_change_unassessed",
+      "key": "norma:N-2026-05"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-3302:OT-1"
+    }
+  ]
+}

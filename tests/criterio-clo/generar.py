@@ -83,6 +83,14 @@ def ruc_pa(n: int) -> str:
     return f"155{n % 1000000:06d}-2-{2010 + n % 15}"
 
 
+def nit_gt(n: int) -> str:
+    """Un NIT de Guatemala ficticio con su último carácter por módulo 11 (10 es K), el mismo del
+    material de la CFO. Ninguno corresponde a una empresa."""
+    base = str(n)
+    r = (11 - sum(int(c) * (i + 2) for i, c in enumerate(reversed(base))) % 11) % 11
+    return base + ("K" if r == 10 else str(r))
+
+
 def cnpj(raiz: int) -> str:
     """Un CNPJ ficticio con sus dos dígitos verificadores por módulo 11, el mismo del material de la
     CFO. Ninguno corresponde a una empresa."""
@@ -108,6 +116,8 @@ def id_contraparte(e: dict, i: int) -> str:
         return cuit(30, 70000000 + e["n0"] * 100 + i)
     if e["pais"] == "PA":
         return ruc_pa(e["n0"] * 100 + i)
+    if e["pais"] == "GT":
+        return nit_gt(e["n0"] * 1000 + i)
     return f"{800000000 + e['n0'] * 10 + i}"
 
 SALIDA = AQUI / "material"
@@ -251,6 +261,24 @@ ENTIDADES = [
      "constanza": ["obligacion_vencida", "sin_responsable", "norma_sin_evaluar", "politica_vencida", "obligacion_contrato_fuera"]},
     {"carpeta": "control-pa", "industria": "banca", "pais": "PA", "id": ruc_pa(831003), "nombre": "Comercial Control del Istmo", "moneda": "USD", "u": 35_000, "n0": 3100,
      "personas": ("Gisela Pinzón", "Omar Rodríguez", "Marisol Vega"),
+     "contrapartes": ["Transportes Control S.A.", "Insumos Control S.A.", "Bodegas Control S.A.", "Software Control S.A.",
+                      "Asesores Control S.A.", "Mantenimiento Control S.A.", "Limpieza Control S.A."],
+     "fidel": [], "constanza": []},
+    # Guatemala, con el NIT de cada contraparte, en quetzales.
+    {"carpeta": "banca-gt", "industria": "banca", "pais": "GT", "id": nit_gt(4871203), "nombre": "Banco del Altiplano Sintético", "moneda": "GTQ", "u": 450_000, "n0": 3300,
+     "personas": ("Ana Lucía Morales", "José Pablo Cifuentes", "María Fernanda Barrios"),
+     "contrapartes": ["Sistemas Financieros de Guatemala S.A.", "Papelería Nacional S.A.", "Inmobiliaria Zona Viva S.A.", "Licencias Digitales S.A.",
+                      "Consultores del Valle S.A.", "Mantenimiento Integral S.A.", "Seguridad Chapina S.A."],
+     "fidel": ["preaviso_cerca", "otrosi_sin_facultad", "pagos_de_mas", "sin_garantia", "obligacion_contrato_vencida"],
+     "constanza": ["obligacion_vencida", "evidencia_vieja", "norma_sin_evaluar", "informe_declara_cumplido", "obligacion_contrato_fuera"]},
+    {"carpeta": "retail-gt", "industria": "retail", "pais": "GT", "id": nit_gt(5293418), "nombre": "Almacenes del Altiplano", "moneda": "GTQ", "u": 350_000, "n0": 3400,
+     "personas": ("Carlos Enrique Pérez", "Lesly Rodas", "Byron Estrada"),
+     "contrapartes": ["Logística del Pacífico S.A.", "Empaques de Mixco S.A.", "Centro Comercial Las Américas S.A.", "Pagos en Línea S.A.",
+                      "Mercadeo Integral S.A.", "Refrigeración Comercial S.A.", "Vigilancia Integral S.A."],
+     "fidel": ["contrato_por_vencer", "firma_sin_facultad", "pago_despues", "garantia_corta", "registro_sin_documento"],
+     "constanza": ["sin_fuente", "politica_vencida", "caso_vencido", "cumplida_sin_evidencia", "norma_aplica_sin_matriz"]},
+    {"carpeta": "control-gt", "industria": "retail", "pais": "GT", "id": nit_gt(6107729), "nombre": "Comercial Control de Guatemala", "moneda": "GTQ", "u": 270_000, "n0": 3500,
+     "personas": ("Silvia Monterroso", "Óscar Girón", "Karla Juárez"),
      "contrapartes": ["Transportes Control S.A.", "Insumos Control S.A.", "Bodegas Control S.A.", "Software Control S.A.",
                       "Asesores Control S.A.", "Mantenimiento Control S.A.", "Limpieza Control S.A."],
      "fidel": [], "constanza": []},

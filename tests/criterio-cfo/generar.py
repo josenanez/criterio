@@ -115,6 +115,14 @@ ENTIDADES = [
      "siembra": ["xml_duplicado", "registro_sin_factura", "consignacion_en_transito", "cierre_declarado", "requerimiento_vencido",
                  "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite"]},
     {"carpeta": "control-pa", "industria": "banca", "pais": "PA", "id": F.ruc_pa(831003), "nombre": "Comercial Control del Istmo", "moneda": "USD", "escala": 1_200, "semilla": 83, "siembra": []},
+    # Guatemala: retail y minería —los bancos siguen los manuales de su superintendencia, no las NIIF (F-33)—, con la FEL (F-30).
+    {"carpeta": "retail-gt", "industria": "retail", "pais": "GT", "id": F.nit_gt(8714520), "nombre": "Almacenes del Altiplano", "moneda": "GTQ", "escala": 12_000, "semilla": 87,
+     "siembra": ["iva_distinto", "factura_sin_registro", "cheque_viejo", "cierre_declarado", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "comprometido_al_limite"]},
+    {"carpeta": "mineria-gt", "industria": "mineria", "pais": "GT", "id": F.nit_gt(8909031), "nombre": "Minera del Motagua", "moneda": "GTQ", "escala": 25_000, "semilla": 89,
+     "siembra": ["registro_sin_factura", "xml_duplicado", "comision_sin_registrar", "requerimiento_en_carta", "requerimiento_vencido",
+                 "traslado_sin_acta", "proyeccion_vieja", "version_distinta"]},
+    {"carpeta": "control-gt", "industria": "retail", "pais": "GT", "id": F.nit_gt(9721735), "nombre": "Comercial Control de Guatemala", "moneda": "GTQ", "escala": 10_000, "semilla": 97, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -409,6 +417,8 @@ TESORERIA = {
     "mineria-ar": ["covenant_riesgo", "pago_sin_aprobacion", "vencimiento_cercano"],
     "banca-pa": ["caja_bajo_minimo", "firmante_sin_facultad", "covenant_riesgo"],
     "retail-pa": ["pago_sin_aprobacion", "caja_desviada", "vencimiento_cercano"],  # en dólares: sin exposición cambiaria al dólar
+    "retail-gt": ["exposicion", "pago_sin_aprobacion", "vencimiento_cercano"],
+    "mineria-gt": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
 }
 
 
@@ -439,7 +449,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
         # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
-        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450}.get(e["moneda"], 1)
+        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450, "GTQ": 7.7}.get(e["moneda"], 1)
         politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
@@ -536,6 +546,8 @@ def generar(e: dict) -> dict:
             return F.cuit(30, int(f"{e['semilla']:02d}{i:06d}"))
         if lector == "dgipa":
             return F.ruc_pa(e["semilla"] * 1000 + i)
+        if lector == "fel":
+            return F.nit_gt(e["semilla"] * 100000 + i)
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
@@ -551,6 +563,8 @@ def generar(e: dict) -> dict:
             return f"{'00001' if prefijo == '99' else '00002'}-{i:08d}"
         if lector == "dgipa":                                  # F-27: punto de facturación y número fiscal
             return f"{'001' if prefijo == '99' else '002'}-{i:010d}"
+        if lector == "fel":                                    # F-30: la serie y el número de la autorización
+            return f"{'A1F0' if prefijo == '99' else 'B2E0'}{e['semilla']:02d}AB-{1000000 + i}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
@@ -573,6 +587,9 @@ def generar(e: dict) -> dict:
         if lector == "dgipa":
             pto, nro = numero.split("-")
             return F.factura_dgipa(pto, int(nro), fecha.isoformat(), emisor, receptor, base, iva)
+        if lector == "fel":
+            serie, nro = numero.split("-")
+            return F.factura_fel(serie, int(nro), fecha.isoformat(), emisor, receptor, base, iva)
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 

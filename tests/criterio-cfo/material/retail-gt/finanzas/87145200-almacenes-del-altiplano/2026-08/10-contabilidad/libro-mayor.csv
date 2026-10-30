@@ -1,0 +1,17 @@
+fecha;comprobante;cuenta;tercero;documento;debito;credito;centro_costo;descripcion
+2026-08-25;G-080;5135;;;41400.00;0.00;ADM;Servicios públicos de agosto
+2026-08-25;G-080;11100501;;;0.00;41400.00;;Pago Servicios públicos
+2026-08-25;G-081;5145;;;23280.00;0.00;ADM;Mantenimiento de agosto
+2026-08-25;G-081;11100501;;;0.00;23280.00;;Pago Mantenimiento
+2026-08-25;G-082;5195;;;40740.00;0.00;COM;Publicidad de agosto
+2026-08-25;G-082;11100501;;;0.00;40740.00;;Pago Publicidad
+2026-08-25;G-083;5195;;;23280.00;0.00;EVT;Eventos de agosto
+2026-08-25;G-083;11100501;;;0.00;23280.00;;Pago Eventos
+2026-08-25;G-084;5135;;;58200.00;0.00;TEC;Licencias de agosto
+2026-08-25;G-084;11100501;;;0.00;58200.00;;Pago Licencias
+2026-08-25;G-085;5145;;;69840.00;0.00;PRY;PRY-310 de agosto
+2026-08-25;G-085;11100501;;;0.00;69840.00;;Pago PRY-310
+2026-08-25;G-086;5135;;;40740.00;0.00;OPE;Transporte de agosto
+2026-08-25;G-086;11100501;;;0.00;40740.00;;Pago Transporte
+2026-08-25;G-087;5105;;;240000.00;0.00;ADM;Nómina de agosto
+2026-08-25;G-087;11100501;;;0.00;240000.00;;Pago Nómina

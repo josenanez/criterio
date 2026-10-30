@@ -269,6 +269,32 @@
      "fuente": "F-12"
     }
    }
+  },
+  {
+   "codigo": "GT",
+   "nombre": {
+    "es": "Guatemala",
+    "en": "Guatemala"
+   },
+   "id_fiscal": "NIT",
+   "moneda": "GTQ",
+   "decimal": ".",
+   "factura": {
+    "lector": "fel",
+    "fuentes": [
+     "F-30",
+     "F-31",
+     "F-32"
+    ],
+    "clave": "número de autorización (UUID)",
+    "tolerancia": [
+     0.01,
+     0.01
+    ],
+    "iva": 0.12,
+    "impuesto": "IVA",
+    "emisor": "SAT"
+   }
   }
  ]
 }
