@@ -259,7 +259,17 @@ def _igual(esperado, obtenido, espacio=None) -> bool:
                    or (k == "what" and anclado and _mismas_palabras(v, obtenido.get(k)))
                    for k, v in esperado.items())
     if isinstance(esperado, list) and isinstance(obtenido, list):
-        return len(esperado) == len(obtenido) and all(_igual(a, b, espacio) for a, b in zip(esperado, obtenido))
+        # Una lista de registros —la evidencia de cada oportunidad— no tiene orden: cada registro de
+        # la clave se empareja con uno distinto de la ficha, esté donde esté (CSO-1).
+        if len(esperado) != len(obtenido):
+            return False
+        libres = list(range(len(obtenido)))
+        for a in esperado:
+            j = next((j for j in libres if _igual(a, obtenido[j], espacio)), None)
+            if j is None:
+                return False
+            libres.remove(j)
+        return True
     return esperado == obtenido
 
 
