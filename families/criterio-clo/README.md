@@ -405,8 +405,8 @@ documentation.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Fidel** · Contracts | `criterio-legal` · 7 commands, 5 skills | The engine, tested; with the agent, every entitie in the material, up to round 7 · [results](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Compliance | `criterio-compliance` · 7 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 7 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contracts | `criterio-legal` · 7 commands, 5 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Compliance | `criterio-compliance` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /clo:estado -->
 

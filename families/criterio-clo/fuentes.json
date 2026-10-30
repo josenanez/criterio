@@ -177,6 +177,21 @@
           "estado": "verificada",
           "nota": "La divulgación del contrato en el PNCP es condición indispensable de su eficacia: dentro de 20 días hábiles desde la firma si hubo licitación, y de 10 días hábiles si fue contratación directa (artículo 94). La garantía de ejecución es de hasta el 5 % del valor inicial del contrato, y puede subir hasta el 10 % si se justifica por la complejidad técnica y los riesgos (artículo 98)",
           "uso": "El plazo de divulgación y el tope de la garantía de un contrato público de Brasil"
+        },
+        {
+          "id": "F-11",
+          "fuente": "Argentina · Decreto 1030/2016 · Reglamento del Régimen de Contrataciones de la Administración Nacional, artículos 3, 77 y 78",
+          "version": "El texto original publicado en el Boletín Oficial el 16 de septiembre de 2016, el mismo del PDF que trajo José Francisco Ñáñez",
+          "enlaces": [
+            [
+              "argentina.gob.ar",
+              "https://www.argentina.gob.ar/normativa/nacional/decreto-1030-2016-265506/texto"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "La garantía de cumplimiento del contrato es el diez por ciento (10 %) del monto total del contrato (artículo 78, inciso b), y el cocontratante la integra dentro de los cinco días de recibida la orden de compra o de firmado el contrato; en las licitaciones internacionales, hasta veinte días (artículo 77). Los plazos del reglamento se computan en días hábiles administrativos (artículo 3). El reglamento no fija un plazo en días para publicar el contrato en COMPR.AR. Es el texto original: antes del primer uso sobre documentación real se confirma en el texto actualizado que los artículos 77 y 78 no cambiaron",
+          "uso": "El mínimo y el plazo de entrega de la garantía de cumplimiento de un contrato público de Argentina"
         }
       ]
     }

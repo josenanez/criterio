@@ -203,6 +203,40 @@
      "fuente": "F-10"
     }
    }
+  },
+  {
+   "codigo": "AR",
+   "nombre": {
+    "es": "Argentina",
+    "en": "Argentina"
+   },
+   "id_fiscal": "CUIT",
+   "moneda": "ARS",
+   "decimal": ",",
+   "factura": {
+    "lector": "wsfe",
+    "fuentes": [
+     "F-24",
+     "F-25"
+    ],
+    "clave": "CAE",
+    "tolerancia": [
+     0.01,
+     0.01
+    ],
+    "iva": 0.21,
+    "impuesto": "IVA",
+    "emisor": "ARCA"
+   },
+   "contratacion_publica": {
+    "sistema": "COMPR.AR",
+    "garantia": {
+     "minimo": 0.1,
+     "entrega": 5,
+     "dias": "habiles",
+     "fuente": "F-11"
+    }
+   }
   }
  ]
 }

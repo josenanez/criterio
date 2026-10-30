@@ -1,0 +1,7 @@
+codigo,contraparte,objeto,tipo,valor,inicio,terminacion,estado,responsable
+CTR-2701,Transportes Control S.R.L.,Prestación de servicios de operación tecnológica,servicios,40000000.00,2026-01-01,2027-03-31,vigente,Diego Medina
+CTR-2702,Insumos Control S.R.L.,Suministro de papelería e insumos de oficina,suministro,25000000.00,2025-07-01,2027-12-31,vigente,Diego Medina
+CTR-2703,Depósitos Control S.A.,Arrendamiento de la sede principal,arrendamiento,30000000.00,2025-02-01,2026-12-31,vigente,Diego Medina
+CTR-2704,Software Control S.R.L.,Licencia de uso de software,licencia,15000000.00,2026-03-01,2027-02-28,vigente,Diego Medina
+CTR-2705,Asesores Control S.R.L.,Consultoría en procesos,consultoria,10000000.00,2026-02-01,2026-11-20,vigente,Diego Medina
+CTR-2706,Mantenimiento Control S.R.L.,Mantenimiento preventivo de instalaciones,mantenimiento,25000000.00,2025-10-01,2026-07-31,terminado,Diego Medina

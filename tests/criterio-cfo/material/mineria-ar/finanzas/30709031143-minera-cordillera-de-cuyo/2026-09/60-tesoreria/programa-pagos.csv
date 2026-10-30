@@ -1,0 +1,5 @@
+id;fecha;beneficiario;valor;aprobado_por
+P-1;2026-10-08;Proveedor de servicios;15000000;Ana Ruiz
+P-2;2026-10-09;Arrendador;24000000;Ana Ruiz
+P-3;2026-10-10;Proveedor de tecnología;36000000;Ana Ruiz
+P-4;2026-10-12;Contratista de obra;90000000;Luis Mora

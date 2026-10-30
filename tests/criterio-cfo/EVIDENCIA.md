@@ -26,6 +26,9 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 | `retail-br` | Brasil | retail | 11 | 12 |
 | `mineria-br` | Brasil | minería | 11 | 12 |
 | `control-br` | Brasil | — | 0 | 0 |
+| `retail-ar` | Argentina | retail | 11 | 12 |
+| `mineria-ar` | Argentina | minería | 11 | 12 |
+| `control-ar` | Argentina | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos
@@ -50,6 +53,13 @@ los nombres de los archivos (`livro-razao`, `balancete`, `extrato`, `orcamento-2
 las áreas y las líneas del orçamento, las atas, los e-mails, la carta del auditor y las personas.
 La estructura de carpetas es la de la plataforma. Los bancos de Brasil facturan sus servicios con la
 nota fiscal de servicios de su municipio, no con la NF-e: por eso Brasil entra con retail y minería.
+
+**Argentina, con el comprobante de ARCA.** Las tres entidades de Argentina traen sus comprobantes
+electrónicos como los archiva un ERP: la solicitud `FECAESolicitar` y su respuesta con el CAE, en un
+solo archivo, con el CUIT de cada parte, el IVA al 21 % y los importes de ARCA (F-24, F-25). El
+lector los identifica por su CAE. Solo una factura aprobada cruza valores; una nota de crédito o un
+comprobante rechazado se identifican y no cruzan. El marco contable de cada una sale de su perfil
+NIIF (F-26).
 
 ## Lo que se siembra, y la señal que tiene que levantar
 

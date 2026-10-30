@@ -1,0 +1,543 @@
+{
+  "entidad": "Banco del Río de la Plata Sintético",
+  "industria": "banca",
+  "pais": "AR",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "preaviso_cerca",
+      "firma_sin_facultad",
+      "registro_distinto",
+      "sin_garantia",
+      "obligacion_contrato_vencida"
+    ],
+    "constanza": [
+      "obligacion_vencida",
+      "sin_responsable",
+      "norma_sin_evaluar",
+      "informe_declara_cumplido",
+      "obligacion_contrato_fuera"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "30718174607",
+        "name": "Banco del Río de la Plata Sintético",
+        "country": "AR",
+        "currency": "ARS"
+      },
+      "paths": {
+        "documents": "legal/30718174607-banco-del-rio-de-la-plata-sintetico",
+        "state": "estado-legal/30718174607-banco-del-rio-de-la-plata-sintetico"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "30718174607",
+        "name": "Banco del Río de la Plata Sintético",
+        "country": "AR",
+        "currency": "ARS"
+      },
+      "paths": {
+        "documents": "legal/30718174607-banco-del-rio-de-la-plata-sintetico",
+        "state": "estado-legal/30718174607-banco-del-rio-de-la-plata-sintetico"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/30718174607-banco-del-rio-de-la-plata-sintetico/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-2501": {
+        "code": "CTR-2501",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Sistemas Bancarios S.R.L.",
+          "id": "30702500016"
+        },
+        "value": 72000000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Santiago Ferreyra",
+            "role": "Director de compras",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sistemas Bancarios S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2501-sistemas-bancarios-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2501-sistemas-bancarios-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-2501-sistemas-bancarios-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Sistemas Bancarios S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2501-sistemas-bancarios-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Sistemas Bancarios S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2501-sistemas-bancarios-s-r-l/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Sistemas Bancarios S.R.L.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-2501-sistemas-bancarios-s-r-l/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2501-sistemas-bancarios-s-r-l/10-contrato/contrato.md"
+      },
+      "CTR-2502": {
+        "code": "CTR-2502",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Papelera del Sur S.R.L.",
+          "id": "30702500024"
+        },
+        "value": 36000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Florencia Díaz",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Papelera del Sur S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 9000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Florencia Díaz",
+            "source": "contratos/CTR-2502-papelera-del-sur-s-r-l/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2502-papelera-del-sur-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2502-papelera-del-sur-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-2502-papelera-del-sur-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Papelera del Sur S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2502-papelera-del-sur-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Papelera del Sur S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2502-papelera-del-sur-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2502-papelera-del-sur-s-r-l/10-contrato/contrato.md"
+      },
+      "CTR-2503": {
+        "code": "CTR-2503",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Inmobiliaria Porteña S.A.",
+          "id": "30702500032"
+        },
+        "value": 54000000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Mariano Gómez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Inmobiliaria Porteña S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2503-inmobiliaria-portena-s-a/10-contrato/contrato.md, cláusula 9"
+          },
+          {
+            "type": "calidad",
+            "months_after_end": 12,
+            "source": "contratos/CTR-2503-inmobiliaria-portena-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2503-inmobiliaria-portena-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-2503-inmobiliaria-portena-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Inmobiliaria Porteña S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2503-inmobiliaria-portena-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Inmobiliaria Porteña S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2503-inmobiliaria-portena-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2503-inmobiliaria-portena-s-a/10-contrato/contrato.md"
+      },
+      "CTR-2504": {
+        "code": "CTR-2504",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Licencias Digitales S.R.L.",
+          "id": "30702500040"
+        },
+        "value": 27000000,
+        "start": "2026-03-01",
+        "end": "2026-12-31",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Florencia Díaz",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Licencias Digitales S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2504-licencias-digitales-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2504-licencias-digitales-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-2504-licencias-digitales-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Licencias Digitales S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2504-licencias-digitales-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Licencias Digitales S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2504-licencias-digitales-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2504-licencias-digitales-s-r-l/10-contrato/contrato.md"
+      },
+      "CTR-2505": {
+        "code": "CTR-2505",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultora Integral S.R.L.",
+          "id": "30702500059"
+        },
+        "value": 18000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Florencia Díaz",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultora Integral S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2505-consultora-integral-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2505-consultora-integral-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-2505-consultora-integral-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultora Integral S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2505-consultora-integral-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultora Integral S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2505-consultora-integral-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-2505-consultora-integral-s-r-l/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-2505-consultora-integral-s-r-l/10-contrato/contrato.md"
+      },
+      "CTR-2506": {
+        "code": "CTR-2506",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Edilicio S.R.L.",
+          "id": "30702500067"
+        },
+        "value": 45000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Mariano Gómez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Edilicio S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2506-mantenimiento-edilicio-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2506-mantenimiento-edilicio-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-2506-mantenimiento-edilicio-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Edilicio S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2506-mantenimiento-edilicio-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Edilicio S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2506-mantenimiento-edilicio-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2506-mantenimiento-edilicio-s-r-l/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_obligation_overdue",
+      "key": "oblig:OB-09"
+    },
+    {
+      "signal": "contract_obligation_not_in_matrix",
+      "key": "ctrobl:CTR-2501:OBL-3"
+    },
+    {
+      "signal": "contract_obligation_overdue",
+      "key": "obl:CTR-2504:OBL-1"
+    },
+    {
+      "signal": "declared_compliance_vs_evidence",
+      "key": "cumplimiento"
+    },
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-2503:calidad"
+    },
+    {
+      "signal": "notice_deadline_near",
+      "key": "preaviso:CTR-2504"
+    },
+    {
+      "signal": "obligation_without_owner",
+      "key": "duenio:OB-12"
+    },
+    {
+      "signal": "register_differs_from_contract",
+      "key": "difiere:CTR-2502"
+    },
+    {
+      "signal": "regulatory_change_unassessed",
+      "key": "norma:N-2026-05"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-2501"
+    }
+  ]
+}

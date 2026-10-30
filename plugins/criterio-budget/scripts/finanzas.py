@@ -132,6 +132,19 @@ CAMPOS_SII = {
     "p30-IVA": "Encabezado/Totales/IVA · monto neto por la tasa (p. 30)",
     "p32-TOTAL": "Encabezado/Totales/MntTotal · neto, exento, IVA e impuestos adicionales (p. 32)",
 }
+CAMPOS_WSFE = {
+    "p26-CAB": "FeCAEReq/FeCabReq · PtoVta y CbteTipo: el punto de venta y el tipo de comprobante (p. 26 y 28)",
+    "p26-DET": "FeCAEReq/FeDetReq/FECAEDetRequest · el detalle del comprobante (p. 26)",
+    "p28-DOC": "FECAEDetRequest/DocTipo y DocNro · el documento del comprador; 80 es CUIT (p. 28 y 77)",
+    "p28-NRO": "FECAEDetRequest/CbteDesde · el número del comprobante (p. 28)",
+    "p28-FECHA": "FECAEDetRequest/CbteFch · la fecha del comprobante, aaaammdd (p. 28)",
+    "p29-TOTAL": "FECAEDetRequest/ImpTotal · el importe total: no gravado, exento, neto gravado, IVA y tributos (p. 29)",
+    "p29-NETO": "FECAEDetRequest/ImpNeto, ImpTotConc e ImpOpEx · el neto gravado, el no gravado y el exento (p. 29)",
+    "p29-IVA": "FECAEDetRequest/ImpIVA · la suma de los importes del arreglo de IVA (p. 29)",
+    "p30-TRIB": "FECAEDetRequest/ImpTrib · la suma de los importes del arreglo de tributos (p. 30)",
+    "p37-CAE": "FECAESolicitarResponse/FeDetResp/FEDetResponse · Resultado (A aprobado, R rechazado) y CAE (p. 37 y 78)",
+    "p140-TIPOS": "CbteTipo · 1, 6, 11, 51, 201, 206 y 211 son facturas; 3, 8, 13, 53, 203, 208 y 213, notas de crédito (p. 140 y 141)",
+}
 TIPOS_SRI = {"01": "factura", "03": "liquidación de compra", "04": "nota de crédito",
              "05": "nota de débito", "06": "guía de remisión", "07": "comprobante de retención"}
 
@@ -381,6 +394,46 @@ def _nfe(inf) -> dict:
     return d
 
 
+# F-24, p. 140 y 141: los tipos de comprobante de CbteTipo que son facturas y los que son notas de crédito.
+WSFE_FACTURA = {"1", "6", "11", "51", "201", "206", "211"}
+WSFE_CREDITO = {"3", "8", "13", "53", "203", "208", "213"}
+
+
+def _wsfe(raiz) -> dict:
+    """El comprobante electrónico de ARCA, Argentina (F-24, manual WSFEv1, RG 4291, proyecto FE v4.8):
+    la solicitud `FECAESolicitar` con su cabecera `FeCabReq` —el punto de venta y el tipo de
+    comprobante— y su detalle `FECAEDetRequest` —el documento del comprador (`DocTipo`, `DocNro`), el
+    número, la fecha (`CbteFch`, aaaammdd) y los importes (p. 26 a 30)—, y la respuesta con el CAE
+    (p. 37). Como lo archiva el ERP: la solicitud y su respuesta en un solo archivo. El importe neto
+    gravado, el no gravado y el exento forman la base; `ImpIVA` es el IVA y `ImpTrib`, los otros
+    tributos (p. 29 y 30). Se identifica por su CAE; sin él, por el CUIT del emisor, el tipo, el
+    punto de venta y el número. Solo una factura aprobada (`Resultado` A) cruza valores."""
+    cab = next((x for x in raiz.iter() if _local(x.tag) == "FeCabReq"), None)
+    det = next((x for x in raiz.iter() if _local(x.tag) == "FECAEDetRequest"), None)
+    resp = next((x for x in raiz.iter() if _local(x.tag) in ("FEDetResponse", "FECAEDetResponse")), None)
+    auth = next((x for x in raiz.iter() if _local(x.tag) == "Auth"), None)
+    tipo = _t(cab, "CbteTipo")
+    pto, nro = _t(cab, "PtoVta"), _t(det, "CbteDesde")
+    numero_ = f"{int(pto):05d}-{int(nro):08d}" if pto and nro and pto.isdigit() and nro.isdigit() else None
+    f = _t(det, "CbteFch") or ""
+    fecha_ = f"{f[:4]}-{f[4:6]}-{f[6:8]}" if len(f) == 8 and f.isdigit() else None
+    emisor = ident(_t(auth, "Cuit")) if auth is not None else None
+    aprobada = resp is None or (_t(resp, "Resultado") or "A").upper() == "A"
+    base = sum((numero(_t(det, k)) or 0.0) for k in ("ImpNeto", "ImpTotConc", "ImpOpEx"))
+    d = {
+        "pais": PAIS_DEL_LECTOR["wsfe"], "lector": "wsfe", "fuente": "F-24",
+        "tipo": "factura" if tipo in WSFE_FACTURA else ("nota_credito" if tipo in WSFE_CREDITO else f"tipo {tipo}"),
+        "numero": numero_, "fecha": fecha_, "emisor": emisor, "receptor": ident(_t(det, "DocNro")),
+        "base": round(base, 2), "iva": numero(_t(det, "ImpIVA")) or 0.0, "otros_impuestos": numero(_t(det, "ImpTrib")) or 0.0,
+        "total": numero(_t(det, "ImpTotal")), "valores": tipo in WSFE_FACTURA and aprobada,
+    }
+    cae = _t(resp, "CAE") if resp is not None else None
+    d["id"] = cae or f"{emisor}-{tipo}-{numero_}"
+    if not aprobada:
+        d["error"] = f"ARCA no aprobó el comprobante: Resultado {_t(resp, 'Resultado')}"
+    return d
+
+
 def leer_factura(ruta: Path) -> dict:
     """Una factura o nota electrónica de cualquier país del registro, con o sin su contenedor."""
     try:
@@ -421,6 +474,8 @@ def leer_factura(ruta: Path) -> dict:
     inf = next((x for x in raiz.iter() if _local(x.tag) == "infNFe"), None)
     if inf is not None:                                         # F-21: la NF-e, suelta o dentro de nfeProc
         return _nfe(inf)
+    if any(_local(x.tag) == "FECAEDetRequest" for x in raiz.iter()):   # F-24: el comprobante de ARCA
+        return _wsfe(raiz)
     return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
 
 
@@ -2046,6 +2101,45 @@ def factura_nfe(serie: str, nnf: str, fecha_: str, emisor: str, receptor: str, b
             '</nfeProc>')
 
 
+def cuit(prefijo: int, dni: int) -> str:
+    """Un CUIT de once dígitos con su dígito verificador por módulo 11 (pesos 5, 4, 3, 2, 7, 6, 5, 4,
+    3, 2), para que el material tenga la forma de uno real. Un número cuyo dígito sería 10 se salta.
+    Ninguno corresponde a una empresa."""
+    while True:
+        base = f"{prefijo:02d}{dni:08d}"
+        r = 11 - sum(int(c) * w for c, w in zip(base, (5, 4, 3, 2, 7, 6, 5, 4, 3, 2))) % 11
+        if r != 10:
+            return base + str(0 if r == 11 else r)
+        dni += 1
+
+
+def factura_wsfe(pto: int, nro: int, fecha_: str, emisor: str, receptor: str, neto: float, iva: float,
+                 tributos: float = 0.0, tipo: int = 1, cae: str | None = None) -> str:
+    """Un comprobante de ARCA como lo archiva el ERP: la solicitud FECAESolicitar y su respuesta con el
+    CAE, en un solo archivo (F-24, p. 26 a 37), para las pruebas y el material. Factura A (CbteTipo 1)
+    a un CUIT (DocTipo 80), con el IVA al 21 % (AlicIva Id 5, p. 77)."""
+    f = fecha_.replace("-", "")
+    total = round(neto + iva + tributos, 2)
+    cae = cae or f"{(int(emisor[-6:]) * 7919 + nro * 104729) % 10**14:014d}"
+    trib = (f"<ar:Tributos><ar:Tributo><ar:Id>99</ar:Id><ar:Desc>Ingresos brutos</ar:Desc><ar:BaseImp>{neto:.2f}</ar:BaseImp>"
+            f"<ar:Alic>{round(100 * tributos / neto, 2) if neto else 0}</ar:Alic><ar:Importe>{tributos:.2f}</ar:Importe></ar:Tributo></ar:Tributos>") if tributos else ""
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<ComprobanteAutorizado xmlns:ar="http://ar.gov.afip.dif.FEV1/">'
+            f'<ar:FECAESolicitar><ar:Auth><ar:Cuit>{emisor}</ar:Cuit></ar:Auth><ar:FeCAEReq>'
+            f'<ar:FeCabReq><ar:CantReg>1</ar:CantReg><ar:PtoVta>{pto}</ar:PtoVta><ar:CbteTipo>{tipo}</ar:CbteTipo></ar:FeCabReq>'
+            f'<ar:FeDetReq><ar:FECAEDetRequest><ar:Concepto>1</ar:Concepto><ar:DocTipo>80</ar:DocTipo><ar:DocNro>{receptor}</ar:DocNro>'
+            f'<ar:CbteDesde>{nro}</ar:CbteDesde><ar:CbteHasta>{nro}</ar:CbteHasta><ar:CbteFch>{f}</ar:CbteFch>'
+            f'<ar:ImpTotal>{total:.2f}</ar:ImpTotal><ar:ImpTotConc>0</ar:ImpTotConc><ar:ImpNeto>{neto:.2f}</ar:ImpNeto><ar:ImpOpEx>0</ar:ImpOpEx>'
+            f'<ar:ImpTrib>{tributos:.2f}</ar:ImpTrib><ar:ImpIVA>{iva:.2f}</ar:ImpIVA><ar:MonId>PES</ar:MonId><ar:MonCotiz>1</ar:MonCotiz>'
+            f'<ar:CondicionIVAReceptorId>1</ar:CondicionIVAReceptorId>{trib}'
+            f'<ar:Iva><ar:AlicIva><ar:Id>5</ar:Id><ar:BaseImp>{neto:.2f}</ar:BaseImp><ar:Importe>{iva:.2f}</ar:Importe></ar:AlicIva></ar:Iva>'
+            '</ar:FECAEDetRequest></ar:FeDetReq></ar:FeCAEReq></ar:FECAESolicitar>'
+            f'<FECAESolicitarResponse><FECAESolicitarResult><FeCabResp><Cuit>{emisor}</Cuit><PtoVta>{pto}</PtoVta><CbteTipo>{tipo}</CbteTipo>'
+            f'<FchProceso>{f}</FchProceso><CantReg>1</CantReg><Resultado>A</Resultado><Reproceso>N</Reproceso></FeCabResp>'
+            f'<FeDetResp><FEDetResponse><Concepto>1</Concepto><DocTipo>80</DocTipo><DocNro>{receptor}</DocNro><CbteDesde>{nro}</CbteDesde>'
+            f'<CbteHasta>{nro}</CbteHasta><Resultado>A</Resultado><CAE>{cae}</CAE><CbteFch>{f}</CbteFch><CAEFchVto>{f}</CAEFchVto>'
+            '</FEDetResponse></FeDetResp></FECAESolicitarResult></FECAESolicitarResponse></ComprobanteAutorizado>')
+
+
 def rfc(letras: str, fecha_: str, homoclave: str) -> str:
     """Un RFC de persona moral ficticio, de 12 posiciones (F-19, p. 15). Ninguno corresponde a una empresa."""
     return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
@@ -2183,6 +2277,17 @@ def selftest() -> int:
         ok("NF-e: una de entrada se identifica y no cruza valores",
            leer_factura_texto(factura_nfe("1", "9", "2026-09-15", cnpj(12345678), cnpj(87654321), 82.0, 18.0).replace("<tpNF>1</tpNF>", "<tpNF>0</tpNF>"), t)["valores"], False)
         ok("CNPJ: sus dos dígitos verificadores por módulo 11, como en 11.222.333/0001-81", cnpj(11222333), "11222333000181")
+        f = leer_factura_texto(factura_wsfe(12, 4521, "2026-09-15", cuit(30, 71234567), cuit(30, 50001234), 10000.0, 2100.0, 150.0), t)
+        ok("ARCA: la factura A con su IVA al 21 % y un tributo, aprobada",
+           (f["lector"], f["tipo"], f["numero"], f["receptor"], f["base"], f["iva"], f["otros_impuestos"], f["total"], f["fecha"], f["valores"]),
+           ("wsfe", "factura", "00012-00004521", cuit(30, 50001234), 10000.0, 2100.0, 150.0, 12250.0, "2026-09-15", True))
+        ok("ARCA: se identifica por su CAE, de 14 dígitos", len(f["id"]), 14)
+        ok("ARCA: una nota de crédito A se identifica y no cruza valores",
+           leer_factura_texto(factura_wsfe(12, 7, "2026-09-15", cuit(30, 71234567), cuit(30, 50001234), 100.0, 21.0, tipo=3), t)[["tipo", "valores"][0]], "nota_credito")
+        ok("ARCA: un comprobante rechazado no cruza valores",
+           leer_factura_texto(factura_wsfe(12, 8, "2026-09-15", cuit(30, 71234567), cuit(30, 50001234), 100.0, 21.0).replace(
+               "<Resultado>A</Resultado><CAE>", "<Resultado>R</Resultado><CAE>"), t)["valores"], False)
+        ok("CUIT: el dígito verificador por módulo 11, como en 20-11111111-2", cuit(20, 11111111), "20111111112")
         ok("SAT: un CFDI de otra versión no se lee como 4.0", "error" in leer_factura_texto(factura_sat("A", "1", "2026-09-15", "ABC260101AA1", "XYZ250505BB2", 1, 0.16).replace('Version="4.0"', 'Version="3.3"'), t), True)
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"

@@ -27,12 +27,16 @@ sintéticos.
 | `banca-br` | Brasil | banca | 10 | 10 |
 | `retail-br` | Brasil | retail | 10 | 10 |
 | `control-br` | Brasil | — | 0 | 0 |
+| `banca-ar` | Argentina | banca | 10 | 10 |
+| `retail-ar` | Argentina | retail | 10 | 10 |
+| `control-ar` | Argentina | — | 0 | 0 |
 | `publica-co` | Colombia | entidad pública | 3 | 5 |
 | `publica-ec` | Ecuador | entidad pública | 1 | 2 |
 | `publica-pe` | Perú | entidad pública | 1 | 2 |
 | `publica-cl` | Chile | entidad pública | 2 | 3 |
 | `publica-mx` | México | entidad pública | 1 | 3 |
 | `publica-br` | Brasil | entidad pública | 3 | 4 |
+| `publica-ar` | Argentina | entidad pública | 2 | 5 |
 
 Cada una trae su carpeta legal al 6 de octubre de 2026: la matriz de atribuciones y la de
 obligaciones, el registro de contratos y la exportación de pagos, el índice de políticas con
@@ -50,7 +54,7 @@ relatório de compliance. La ficha guarda sus valores como los define el skill �
 la garantía, la parte, la decisión—, y el arnés acepta el mismo valor dicho en portugués; lo que es
 texto del documento —lo que se entrega, el cargo de quien firma— va en la clave como lo dice él.
 
-**Las entidades públicas (incremento 6).** Seis entidades, una por país, contratan bajo la ley de
+**Las entidades públicas (incremento 6).** Siete entidades, una por país, contratan bajo la ley de
 contratación pública de su país. Traen la misma carpeta que las demás, más:
 
 - la política de contratación de `00-referencia/`, que dice que la entidad es pública y, en Ecuador
@@ -69,8 +73,9 @@ una con su fuente (F-03 a F-10 de la familia).
 | publica-cl | El contrato de trato directo, publicado a los tres días, y dos garantías del 3 % | `public_contract_not_published`, `public_guarantee_below_law` ×2 |
 | publica-mx | Tres garantías entregadas a los dieciséis días naturales | `public_guarantee_late` ×3 |
 | publica-br | La contratación directa, divulgada en el PNCP al día hábil 13, un contrato sin comprovante, y dos garantías del 8 % sin justificar | `public_contract_not_published` ×2, `public_guarantee_over_cap` ×2 |
+| publica-ar | Dos garantías del 8 %, bajo el 10 % del Decreto 1030/2016, y tres integradas al octavo día hábil, después de los cinco que da el reglamento | `public_guarantee_below_law` ×2, `public_guarantee_late` ×3 |
 
-**Lo que se parece a un defecto y no lo es**, en las mismas seis:
+**Lo que se parece a un defecto y no lo es**, en las mismas siete:
 
 - **Al límite del plazo.** Cada contrato se publica en el último día del plazo: el tercer día hábil en
   Colombia, el día 18 o el 9 en Brasil, y al día siguiente el trato directo de Chile.
@@ -81,7 +86,7 @@ una con su fuente (F-03 a F-10 de la familia).
 - **Justificada.** En Brasil, una garantía del 8 % justificada por la complejidad y los riesgos está
   dentro del tope del 10 %.
 - **Sin plazo.** En Chile, una licitación publicada al sexto día: la ley no fija un plazo en días.
-- **La garantía de México.** Entregada justo al décimo día natural.
+- **La garantía de México y la de Argentina.** Entregadas justo al décimo día natural y al quinto día hábil.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 

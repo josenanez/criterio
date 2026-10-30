@@ -687,12 +687,13 @@ def contratacion_publica(cfg: dict, fichas: dict, hoy: dt.date, al: list) -> lis
                 al.append(alerta("public_guarantee_over_cap", f"{code}: la garantía exigida es de {mon(monto)} y la ley la limita a {mon(tope)}" + ("" if (g or {}).get("justified") else ", sin una justificación por la complejidad y los riesgos"),
                                  cita_g, monto - tope, clave=f"garantia-tope:{code}"))
         if gar.get("entrega") and firmado:
-            limite_g = firmado + dt.timedelta(days=gar["entrega"])
+            habiles = gar.get("dias") == "habiles"
+            limite_g = dia_habil(firmado, gar["entrega"], feriados) if habiles else firmado + dt.timedelta(days=gar["entrega"])
             fila["regla_garantia"] = f"entregada a más tardar el {iso(limite_g)}"
             entregada = fecha((g or {}).get("delivered_on"))
             if (entregada and entregada > limite_g) or (not entregada and hoy > limite_g):
                 al.append(alerta("public_guarantee_late", f"{code}: la garantía de cumplimiento " + (f"se entregó el {iso(entregada)}" if entregada else "no se ha entregado") +
-                                 f", y la ley pide entregarla a más tardar el {iso(limite_g)}, {gar['entrega']} días naturales después de la firma",
+                                 f", y la ley pide entregarla a más tardar el {iso(limite_g)}, {gar['entrega']} días {'hábiles' if habiles else 'naturales'} después de la firma",
                                  cita_g, dias=((entregada or hoy) - limite_g).days, clave=f"garantia-entrega:{code}"))
         out.append(fila)
     return out
@@ -874,6 +875,9 @@ def selftest() -> int:
     ok("Brasil: contratación directa divulgada en el día hábil 11, y una garantía del 8 % sin justificar",
        pub("BR", dict(base_, public={"modality": "contratação direta", "published_on": "2026-09-16"}, guarantees_provided=gar_(8_000))),
        ["public_contract_not_published", "public_guarantee_over_cap"])
+    ok("Argentina: el 10 % entregado al quinto día hábil, sin señal; un 8 % al sexto, las dos",
+       [pub("AR", dict(base_, guarantees_provided=gar_(m, delivered_on=f))) for m, f in ((10_000, "2026-09-08"), (8_000, "2026-09-09"))],
+       [[], ["public_guarantee_below_law", "public_guarantee_late"]])
     ok("Brasil: el 8 % justificado está dentro del tope del 10 %",
        pub("BR", dict(base_, public={"modality": "licitação", "published_on": "2026-09-10"}, guarantees_provided=gar_(8_000, justified=True))), [])
     ok("sumar meses al fin de mes", sumar_meses(dt.date(2026, 1, 31), 1), dt.date(2026, 2, 28))

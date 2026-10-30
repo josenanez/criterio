@@ -1,0 +1,17 @@
+fecha;comprobante;cuenta;tercero;documento;debito;credito;centro_costo;descripcion
+2026-07-25;G-070;5135;;;3492000.00;0.00;ADM;Servicios públicos de julio
+2026-07-25;G-070;11100501;;;0.00;3492000.00;;Pago Servicios públicos
+2026-07-25;G-071;5145;;;2328000.00;0.00;ADM;Mantenimiento de julio
+2026-07-25;G-071;11100501;;;0.00;2328000.00;;Pago Mantenimiento
+2026-07-25;G-072;5195;;;4074000.00;0.00;COM;Publicidad de julio
+2026-07-25;G-072;11100501;;;0.00;4074000.00;;Pago Publicidad
+2026-07-25;G-073;5195;;;2328000.00;0.00;EVT;Eventos de julio
+2026-07-25;G-073;11100501;;;0.00;2328000.00;;Pago Eventos
+2026-07-25;G-074;5135;;;5820000.00;0.00;TEC;Licencias de julio
+2026-07-25;G-074;11100501;;;0.00;5820000.00;;Pago Licencias
+2026-07-25;G-075;5145;;;6984000.00;0.00;PRY;PRY-310 de julio
+2026-07-25;G-075;11100501;;;0.00;6984000.00;;Pago PRY-310
+2026-07-25;G-076;5135;;;4074000.00;0.00;OPE;Transporte de julio
+2026-07-25;G-076;11100501;;;0.00;4074000.00;;Pago Transporte
+2026-07-25;G-077;5105;;;24000000.00;0.00;ADM;Nómina de julio
+2026-07-25;G-077;11100501;;;0.00;24000000.00;;Pago Nómina

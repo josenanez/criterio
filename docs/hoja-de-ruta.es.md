@@ -14,8 +14,8 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.0.0 | Estable | — |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.0.0 | Estable | — |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.1.0 | Estable | — |
+| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.0.0 | Laboratorio | — |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.1.0 | Laboratorio | — |
 | Criterio EA · Dirección | Ofelia | 1.0.0 | Estable | — |
 | Criterio CCO · La función comercial | Augusto, Valeria | 0.3.0 | Estable | — |
 | Rostrum · el portal de todas las familias | — | 1.0.0 | — | — |

@@ -99,6 +99,14 @@ ENTIDADES = [
      "siembra": ["registro_sin_factura", "xml_duplicado", "comision_sin_registrar", "requerimiento_en_carta", "requerimiento_vencido",
                  "traslado_sin_acta", "proyeccion_vieja", "version_distinta"]},
     {"carpeta": "control-br", "industria": "retail", "pais": "BR", "id": F.cnpj(40217355), "nombre": "Comercial Controle Paulista", "moneda": "BRL", "escala": 4_000, "semilla": 43, "siembra": []},
+    # Argentina: retail y minería, con el comprobante electrónico de ARCA (F-24).
+    {"carpeta": "retail-ar", "industria": "retail", "pais": "AR", "id": F.cuit(30, 71452078), "nombre": "Almacenes del Plata", "moneda": "ARS", "escala": 1_500_000, "semilla": 61,
+     "siembra": ["iva_distinto", "registro_sin_factura", "cheque_viejo", "cierre_declarado", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "comprometido_al_limite"]},
+    {"carpeta": "mineria-ar", "industria": "mineria", "pais": "AR", "id": F.cuit(30, 70903114), "nombre": "Minera Cordillera de Cuyo", "moneda": "ARS", "escala": 3_000_000, "semilla": 67,
+     "siembra": ["factura_sin_registro", "xml_duplicado", "comision_sin_registrar", "requerimiento_en_carta", "requerimiento_vencido",
+                 "traslado_sin_acta", "proyeccion_vieja", "version_distinta"]},
+    {"carpeta": "control-ar", "industria": "retail", "pais": "AR", "id": F.cuit(30, 70217355), "nombre": "Comercial Control del Plata", "moneda": "ARS", "escala": 1_200_000, "semilla": 71, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -389,6 +397,8 @@ TESORERIA = {
     "retail-mx": ["vencimiento_cercano", "covenant_riesgo", "firmante_sin_facultad"],
     "retail-br": ["exposicion", "pago_sin_aprobacion", "vencimiento_cercano"],
     "mineria-br": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
+    "retail-ar": ["exposicion", "caja_desviada", "firmante_sin_facultad"],
+    "mineria-ar": ["covenant_riesgo", "pago_sin_aprobacion", "vencimiento_cercano"],
 }
 
 
@@ -419,7 +429,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
         # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
-        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4}.get(e["moneda"], 1)
+        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450}.get(e["moneda"], 1)
         politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
@@ -512,6 +522,8 @@ def generar(e: dict) -> dict:
             return F.rfc("PRV", f"{10 + e['semilla'] % 10:02d}{1 + i % 12:02d}{1 + i % 28:02d}", f"{chr(65 + i % 26)}{e['semilla'] % 10}{i % 10}")
         if lector == "nfe":
             return F.cnpj(int(f"{e['semilla']:02d}{i:06d}"))
+        if lector == "wsfe":
+            return F.cuit(30, int(f"{e['semilla']:02d}{i:06d}"))
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
@@ -523,6 +535,8 @@ def generar(e: dict) -> dict:
             return f"{'A' if prefijo == '99' else 'B'}{i:06d}"
         if lector == "nfe":                                    # F-21: serie y número de la NF-e
             return f"{'1' if prefijo == '99' else '2'}-{i}"
+        if lector == "wsfe":                                   # F-24: punto de venta y número del comprobante
+            return f"{'00001' if prefijo == '99' else '00002'}-{i:08d}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
@@ -539,6 +553,9 @@ def generar(e: dict) -> dict:
             serie, nnf = numero.split("-")
             vnf = base + iva
             return F.factura_nfe(serie, nnf, fecha.isoformat(), emisor, receptor, base, iva, r2(vnf * 0.0065), r2(vnf * 0.03))
+        if lector == "wsfe":
+            pto, nro = numero.split("-")
+            return F.factura_wsfe(int(pto), int(nro), fecha.isoformat(), emisor, receptor, base, iva)
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 

@@ -1,0 +1,214 @@
+{
+  "entidad": "Minera Cordillera de Cuyo",
+  "industria": "mineria",
+  "pais": "AR",
+  "hoy": "2026-10-06",
+  "siembra": [
+    "factura_sin_registro",
+    "xml_duplicado",
+    "comision_sin_registrar",
+    "requerimiento_en_carta",
+    "requerimiento_vencido",
+    "traslado_sin_acta",
+    "proyeccion_vieja",
+    "version_distinta",
+    "covenant_riesgo",
+    "pago_sin_aprobacion",
+    "vencimiento_cercano"
+  ],
+  "config": {
+    "clara": {
+      "entity": {
+        "id": "30709031143",
+        "name": "Minera Cordillera de Cuyo",
+        "country": "AR",
+        "currency": "ARS",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/30709031143-minera-cordillera-de-cuyo",
+        "state": "estado-finanzas/30709031143-minera-cordillera-de-cuyo"
+      },
+      "period": "2026-09",
+      "accounts": {
+        "sales": [
+          "4135"
+        ],
+        "purchases": [
+          "1435",
+          "5135",
+          "5145",
+          "5195"
+        ],
+        "vat_generated": [
+          "2408"
+        ],
+        "vat_deductible": [
+          "2408"
+        ],
+        "reconcile": [
+          "1305",
+          "2205"
+        ]
+      },
+      "bank_accounts": [
+        "andino-6701",
+        "pacifico-6702"
+      ],
+      "checklist": {
+        "source": "organizacion",
+        "approved": true
+      },
+      "holidays": []
+    },
+    "tomas": {
+      "entity": {
+        "id": "30709031143",
+        "name": "Minera Cordillera de Cuyo",
+        "country": "AR",
+        "currency": "ARS",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/30709031143-minera-cordillera-de-cuyo",
+        "state": "estado-finanzas/30709031143-minera-cordillera-de-cuyo"
+      },
+      "budget": {
+        "year": "2026",
+        "cut": "2026-09",
+        "pmo_records": "estado-pmo/records",
+        "expense_prefixes": [
+          "51",
+          "52"
+        ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "30709031143",
+        "name": "Minera Cordillera de Cuyo",
+        "country": "AR",
+        "currency": "ARS",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/30709031143-minera-cordillera-de-cuyo",
+        "state": "estado-finanzas/30709031143-minera-cordillera-de-cuyo"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
+      }
+    }
+  },
+  "extraccion": {
+    "cierre": {
+      "declared": {
+        "status": "en curso",
+        "source": "2026-09/40-soportes/correo-estado-del-cierre.md",
+        "date": "2026-10-05",
+        "by": "Sofía León"
+      },
+      "audit_requests": [
+        {
+          "id": "R-09",
+          "request": "Detalle de las partidas conciliatorias de más de 90 días",
+          "date": "2026-10-02",
+          "due": "2026-10-09",
+          "owner": "Andrés Paz",
+          "status": "",
+          "source": "2026-09/50-auditoria/requerimientos/carta-auditor-2026-10-02.md"
+        }
+      ]
+    },
+    "presupuesto": {
+      "minutes": [
+        {
+          "type": "aprobacion",
+          "version": 1,
+          "date": "2026-01-20",
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.docx"
+        },
+        {
+          "type": "traslado",
+          "date": "2026-06-28",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.md",
+          "movements": [
+            {
+              "from": {
+                "area": "Comercial",
+                "line": "Publicidad"
+              },
+              "to": {
+                "area": "Comercial",
+                "line": "Eventos"
+              },
+              "amount": 9000000.0
+            }
+          ]
+        }
+      ],
+      "area_statements": [],
+      "reports": [],
+      "committee_commitments": [
+        {
+          "what": "Revisar el contrato de vigilancia",
+          "owner": "Administración",
+          "status": "abierto",
+          "evidence": null,
+          "source": "presupuesto-2026/40-actas/acta-06-comite.md"
+        }
+      ]
+    }
+  },
+  "esperado": [
+    {
+      "signal": "audit_request_unanswered",
+      "key": "req:R-05"
+    },
+    {
+      "signal": "bank_unreconciled",
+      "key": "andino-6701:2026-09/20-bancos/andino-6701/extracto.xlsx:17"
+    },
+    {
+      "signal": "budget_version_mismatch",
+      "key": "version:presupuesto-2026/30-proyecciones/proyeccion-comercial-2026-09-30.csv:Comercial:Eventos"
+    },
+    {
+      "signal": "budget_version_mismatch",
+      "key": "version:presupuesto-2026/30-proyecciones/proyeccion-comercial-2026-09-30.csv:Comercial:Publicidad"
+    },
+    {
+      "signal": "covenant_at_risk",
+      "key": "covenant:credito_de_tesoreria:razon_corriente"
+    },
+    {
+      "signal": "einvoice_duplicate",
+      "key": "xml:00000257303775"
+    },
+    {
+      "signal": "einvoice_not_recorded",
+      "key": "xml:2026-09/30-facturacion/emitidas/fe-00001-00000109.xml"
+    },
+    {
+      "signal": "forecast_stale",
+      "key": "stale:Operaciones:Transporte"
+    },
+    {
+      "signal": "maturity_near",
+      "key": "vence:credito_de_tesoreria"
+    },
+    {
+      "signal": "payment_without_approval",
+      "key": "pago:P-4"
+    },
+    {
+      "signal": "transfer_without_approval",
+      "key": "traslado:2:Operaciones:Transporte"
+    },
+    {
+      "signal": "transfer_without_approval",
+      "key": "traslado:2:Tecnología:Licencias"
+    }
+  ]
+}

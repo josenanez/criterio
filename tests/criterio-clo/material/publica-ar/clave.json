@@ -1,0 +1,569 @@
+{
+  "entidad": "Organismo Público del Litoral",
+  "industria": "publica",
+  "pais": "AR",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "garantia_baja",
+      "garantia_tarde"
+    ],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "30699991011",
+        "name": "Organismo Público del Litoral",
+        "country": "AR",
+        "currency": "ARS"
+      },
+      "paths": {
+        "documents": "legal/30699991011-organismo-publico-del-litoral",
+        "state": "estado-legal/30699991011-organismo-publico-del-litoral"
+      },
+      "public_procurement": {
+        "public": true,
+        "guarantee_threshold": null
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "30699991011",
+        "name": "Organismo Público del Litoral",
+        "country": "AR",
+        "currency": "ARS"
+      },
+      "paths": {
+        "documents": "legal/30699991011-organismo-publico-del-litoral",
+        "state": "estado-legal/30699991011-organismo-publico-del-litoral"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/30699991011-organismo-publico-del-litoral/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-2801": {
+        "code": "CTR-2801",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Tecnología Estatal S.R.L.",
+          "id": "30702800028"
+        },
+        "value": 64000000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Silvina Correa",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Tecnología Estatal S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2801-tecnologia-estatal-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2801-tecnologia-estatal-s-r-l/20-garantias/poliza-cumplimiento.md",
+            "amount": 5120000.0,
+            "delivered_on": "2026-01-02"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-2801-tecnologia-estatal-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Tecnología Estatal S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2801-tecnologia-estatal-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Tecnología Estatal S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2801-tecnologia-estatal-s-r-l/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Tecnología Estatal S.R.L.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-2801-tecnologia-estatal-s-r-l/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2801-tecnologia-estatal-s-r-l/10-contrato/contrato.md",
+        "public": {
+          "system": "COMPR.AR",
+          "published_on": "2026-01-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-2801-tecnologia-estatal-s-r-l/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2802": {
+        "code": "CTR-2802",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Suministros Públicos S.R.L.",
+          "id": "30702800028"
+        },
+        "value": 32000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Pablo Ledesma",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Suministros Públicos S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 8000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Pablo Ledesma",
+            "source": "contratos/CTR-2802-suministros-publicos-s-r-l/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2802-suministros-publicos-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2802-suministros-publicos-s-r-l/20-garantias/poliza-cumplimiento.md",
+            "amount": 3200000.0,
+            "delivered_on": "2025-07-08"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-2802-suministros-publicos-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Suministros Públicos S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2802-suministros-publicos-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Suministros Públicos S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2802-suministros-publicos-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2802-suministros-publicos-s-r-l/10-contrato/contrato.md",
+        "public": {
+          "system": "COMPR.AR",
+          "published_on": "2025-07-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-2802-suministros-publicos-s-r-l/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2803": {
+        "code": "CTR-2803",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Inmuebles Oficiales S.A.",
+          "id": "30702800036"
+        },
+        "value": 48000000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Silvina Correa",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Inmuebles Oficiales S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2803-inmuebles-oficiales-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2803-inmuebles-oficiales-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 3840000.0,
+            "delivered_on": "2025-02-03"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-2803-inmuebles-oficiales-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Inmuebles Oficiales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2803-inmuebles-oficiales-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Inmuebles Oficiales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2803-inmuebles-oficiales-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2803-inmuebles-oficiales-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "COMPR.AR",
+          "published_on": "2025-02-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-2803-inmuebles-oficiales-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2804": {
+        "code": "CTR-2804",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Software Público S.R.L.",
+          "id": "30702800044"
+        },
+        "value": 24000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Pablo Ledesma",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Software Público S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2804-software-publico-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2804-software-publico-s-r-l/20-garantias/poliza-cumplimiento.md",
+            "amount": 2400000.0,
+            "delivered_on": "2026-03-06"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-2804-software-publico-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Software Público S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2804-software-publico-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Software Público S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2804-software-publico-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2804-software-publico-s-r-l/10-contrato/contrato.md",
+        "public": {
+          "system": "COMPR.AR",
+          "published_on": "2026-03-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-2804-software-publico-s-r-l/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2805": {
+        "code": "CTR-2805",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultora Estatal S.R.L.",
+          "id": "30702800052"
+        },
+        "value": 16000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Pablo Ledesma",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultora Estatal S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2805-consultora-estatal-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2805-consultora-estatal-s-r-l/20-garantias/poliza-cumplimiento.md",
+            "amount": 1600000.0,
+            "delivered_on": "2026-02-03"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-2805-consultora-estatal-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultora Estatal S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2805-consultora-estatal-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultora Estatal S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2805-consultora-estatal-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-2805-consultora-estatal-s-r-l/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-2805-consultora-estatal-s-r-l/10-contrato/contrato.md",
+        "public": {
+          "system": "COMPR.AR",
+          "published_on": "2026-02-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-2805-consultora-estatal-s-r-l/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-2806": {
+        "code": "CTR-2806",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Público S.R.L.",
+          "id": "30702800060"
+        },
+        "value": 40000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Silvina Correa",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Público S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2806-mantenimiento-publico-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2806-mantenimiento-publico-s-r-l/20-garantias/poliza-cumplimiento.md",
+            "amount": 4000000.0,
+            "delivered_on": "2025-10-08"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-2806-mantenimiento-publico-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Público S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2806-mantenimiento-publico-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Público S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2806-mantenimiento-publico-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2806-mantenimiento-publico-s-r-l/10-contrato/contrato.md",
+        "public": {
+          "system": "COMPR.AR",
+          "published_on": "2025-10-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-2806-mantenimiento-publico-s-r-l/10-contrato/constancia-publicacion.md"
+        }
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-2801"
+    },
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-2803"
+    },
+    {
+      "signal": "public_guarantee_late",
+      "key": "garantia-entrega:CTR-2802"
+    },
+    {
+      "signal": "public_guarantee_late",
+      "key": "garantia-entrega:CTR-2804"
+    },
+    {
+      "signal": "public_guarantee_late",
+      "key": "garantia-entrega:CTR-2806"
+    }
+  ]
+}

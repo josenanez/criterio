@@ -1,0 +1,538 @@
+{
+  "entidad": "Almacenes del Plata",
+  "industria": "retail",
+  "pais": "AR",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "contrato_por_vencer",
+      "otrosi_sin_facultad",
+      "pago_despues",
+      "garantia_corta",
+      "registro_sin_documento"
+    ],
+    "constanza": [
+      "sin_fuente",
+      "politica_vencida",
+      "caso_vencido",
+      "cumplida_sin_evidencia",
+      "norma_aplica_sin_matriz"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "30714520780",
+        "name": "Almacenes del Plata",
+        "country": "AR",
+        "currency": "ARS"
+      },
+      "paths": {
+        "documents": "legal/30714520780-almacenes-del-plata",
+        "state": "estado-legal/30714520780-almacenes-del-plata"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "30714520780",
+        "name": "Almacenes del Plata",
+        "country": "AR",
+        "currency": "ARS"
+      },
+      "paths": {
+        "documents": "legal/30714520780-almacenes-del-plata",
+        "state": "estado-legal/30714520780-almacenes-del-plata"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/30714520780-almacenes-del-plata/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-2601": {
+        "code": "CTR-2601",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística Rioplatense S.R.L.",
+          "id": "30702600010"
+        },
+        "value": 56000000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Lucía Benítez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística Rioplatense S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2601-logistica-rioplatense-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-05-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2601-logistica-rioplatense-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-2601-logistica-rioplatense-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Logística Rioplatense S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2601-logistica-rioplatense-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Logística Rioplatense S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2601-logistica-rioplatense-s-r-l/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Logística Rioplatense S.R.L.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-2601-logistica-rioplatense-s-r-l/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2601-logistica-rioplatense-s-r-l/10-contrato/contrato.md"
+      },
+      "CTR-2602": {
+        "code": "CTR-2602",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Envases del Litoral S.R.L.",
+          "id": "30702600029"
+        },
+        "value": 28000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Martín Acosta",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Envases del Litoral S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 49000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Martín Acosta",
+            "source": "contratos/CTR-2602-envases-del-litoral-s-r-l/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2602-envases-del-litoral-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2602-envases-del-litoral-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-2602-envases-del-litoral-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Envases del Litoral S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2602-envases-del-litoral-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Envases del Litoral S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2602-envases-del-litoral-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2602-envases-del-litoral-s-r-l/10-contrato/contrato.md"
+      },
+      "CTR-2603": {
+        "code": "CTR-2603",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Centro Comercial Norte S.A.",
+          "id": "30702600037"
+        },
+        "value": 42000000,
+        "start": "2025-02-01",
+        "end": "2026-11-25",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Lucía Benítez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Centro Comercial Norte S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2603-centro-comercial-norte-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-25",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2603-centro-comercial-norte-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-2603-centro-comercial-norte-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Centro Comercial Norte S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2603-centro-comercial-norte-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-25",
+            "who": "Centro Comercial Norte S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2603-centro-comercial-norte-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2603-centro-comercial-norte-s-a/10-contrato/contrato.md"
+      },
+      "CTR-2604": {
+        "code": "CTR-2604",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Pagos en Línea S.R.L.",
+          "id": "30702600045"
+        },
+        "value": 21000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Martín Acosta",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Pagos en Línea S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2604-pagos-en-linea-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2604-pagos-en-linea-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-2604-pagos-en-linea-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Pagos en Línea S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2604-pagos-en-linea-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Pagos en Línea S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2604-pagos-en-linea-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2604-pagos-en-linea-s-r-l/10-contrato/contrato.md"
+      },
+      "CTR-2605": {
+        "code": "CTR-2605",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Marketing Integral S.R.L.",
+          "id": "30702600053"
+        },
+        "value": 14000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Martín Acosta",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Marketing Integral S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2605-marketing-integral-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2605-marketing-integral-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-2605-marketing-integral-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Marketing Integral S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2605-marketing-integral-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Marketing Integral S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2605-marketing-integral-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-2605-marketing-integral-s-r-l/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-2605-marketing-integral-s-r-l/10-contrato/contrato.md"
+      },
+      "CTR-2606": {
+        "code": "CTR-2606",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Refrigeración Comercial S.R.L.",
+          "id": "30702600061"
+        },
+        "value": 35000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Lucía Benítez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Refrigeración Comercial S.R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2606-refrigeracion-comercial-s-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2606-refrigeracion-comercial-s-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-2606-refrigeracion-comercial-s-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Refrigeración Comercial S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2606-refrigeracion-comercial-s-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Refrigeración Comercial S.R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2606-refrigeracion-comercial-s-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2606-refrigeracion-comercial-s-r-l/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "applicable_norm_not_in_matrix",
+      "key": "aplica:N-2026-04"
+    },
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "contract_expiring",
+      "key": "vence:CTR-2603"
+    },
+    {
+      "signal": "guarantee_expires_early",
+      "key": "garantia:CTR-2601:cumplimiento"
+    },
+    {
+      "signal": "obligation_without_source",
+      "key": "fuente:OB-13"
+    },
+    {
+      "signal": "payment_after_termination",
+      "key": "pagofuera:CTR-2606"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:P-03"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "registro:CTR-2609"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-2602:OT-1"
+    }
+  ]
+}

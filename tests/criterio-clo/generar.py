@@ -66,6 +66,17 @@ def rfc(letras: str, fecha_: str, homoclave: str) -> str:
     return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
 
 
+def cuit(prefijo: int, dni: int) -> str:
+    """Un CUIT argentino ficticio de once dígitos con su dígito verificador por módulo 11, el mismo del
+    material de la CFO. Ninguno corresponde a una empresa."""
+    while True:
+        base = f"{prefijo:02d}{dni:08d}"
+        r = 11 - sum(int(c) * w for c, w in zip(base, (5, 4, 3, 2, 7, 6, 5, 4, 3, 2))) % 11
+        if r != 10:
+            return base + str(0 if r == 11 else r)
+        dni += 1
+
+
 def cnpj(raiz: int) -> str:
     """Un CNPJ ficticio con sus dos dígitos verificadores por módulo 11, el mismo del material de la
     CFO. Ninguno corresponde a una empresa."""
@@ -87,6 +98,8 @@ def id_contraparte(e: dict, i: int) -> str:
         return rfc("PRV", f"{10 + e['n0'] // 100 % 10:02d}{1 + i % 12:02d}{1 + i:02d}", f"{chr(65 + i)}{e['n0'] // 100 % 10}{i}")
     if e["pais"] == "BR":
         return cnpj(e["n0"] * 1000 + i)
+    if e["pais"] == "AR":
+        return cuit(30, 70000000 + e["n0"] * 100 + i)
     return f"{800000000 + e['n0'] * 10 + i}"
 
 SALIDA = AQUI / "material"
@@ -197,6 +210,24 @@ ENTIDADES = [
      "contrapartes": ["Transportes Controle Ltda.", "Insumos Controle Ltda.", "Armazéns Controle S.A.", "Software Controle Ltda.",
                       "Assessoria Controle Ltda.", "Manutenção Controle Ltda.", "Limpeza Controle Ltda."],
      "fidel": [], "constanza": []},
+    # Argentina, con el CUIT de cada contraparte.
+    {"carpeta": "banca-ar", "industria": "banca", "pais": "AR", "id": cuit(30, 71817460), "nombre": "Banco del Río de la Plata Sintético", "moneda": "ARS", "u": 9_000_000, "n0": 2500,
+     "personas": ("Mariano Gómez", "Florencia Díaz", "Santiago Ferreyra"),
+     "contrapartes": ["Sistemas Bancarios S.R.L.", "Papelera del Sur S.R.L.", "Inmobiliaria Porteña S.A.", "Licencias Digitales S.R.L.",
+                      "Consultora Integral S.R.L.", "Mantenimiento Edilicio S.R.L.", "Seguridad Patrimonial S.A."],
+     "fidel": ["preaviso_cerca", "firma_sin_facultad", "registro_distinto", "sin_garantia", "obligacion_contrato_vencida"],
+     "constanza": ["obligacion_vencida", "sin_responsable", "norma_sin_evaluar", "informe_declara_cumplido", "obligacion_contrato_fuera"]},
+    {"carpeta": "retail-ar", "industria": "retail", "pais": "AR", "id": cuit(30, 71452078), "nombre": "Almacenes del Plata", "moneda": "ARS", "u": 7_000_000, "n0": 2600,
+     "personas": ("Lucía Benítez", "Martín Acosta", "Valeria Sosa"),
+     "contrapartes": ["Logística Rioplatense S.R.L.", "Envases del Litoral S.R.L.", "Centro Comercial Norte S.A.", "Pagos en Línea S.R.L.",
+                      "Marketing Integral S.R.L.", "Refrigeración Comercial S.R.L.", "Vigilancia Integral S.A."],
+     "fidel": ["contrato_por_vencer", "otrosi_sin_facultad", "pago_despues", "garantia_corta", "registro_sin_documento"],
+     "constanza": ["sin_fuente", "politica_vencida", "caso_vencido", "cumplida_sin_evidencia", "norma_aplica_sin_matriz"]},
+    {"carpeta": "control-ar", "industria": "retail", "pais": "AR", "id": cuit(30, 70217355), "nombre": "Comercial Control del Plata", "moneda": "ARS", "u": 5_000_000, "n0": 2700,
+     "personas": ("Gabriela Ruiz", "Diego Medina", "Paula Herrera"),
+     "contrapartes": ["Transportes Control S.R.L.", "Insumos Control S.R.L.", "Depósitos Control S.A.", "Software Control S.R.L.",
+                      "Asesores Control S.R.L.", "Mantenimiento Control S.R.L.", "Limpieza Control S.R.L."],
+     "fidel": [], "constanza": []},
     # Las entidades públicas (incremento 6): contratan bajo la ley de contratación pública de su país.
     # Solo Fidel se prueba en ellas; cada una trae sus casos que se parecen a un defecto y no lo son.
     {"carpeta": "publica-co", "industria": "publica", "pais": "CO", "id": "899999101", "nombre": "Instituto Público de Fomento Andino", "moneda": "COP",
@@ -235,6 +266,11 @@ ENTIDADES = [
      "contrapartes": ["Tecnologia Pública Ltda.", "Suprimentos do Estado Ltda.", "Imóveis Oficiais S.A.", "Software Institucional Ltda.",
                       "Consultoria Pública Ltda.", "Manutenção Pública Ltda.", "Vigilância Oficial Ltda."],
      "fidel": ["publicacion_tarde", "sin_publicacion", "garantia_sobre_tope"], "constanza": []},
+    {"carpeta": "publica-ar", "industria": "publica", "pais": "AR", "id": cuit(30, 69999101), "nombre": "Organismo Público del Litoral", "moneda": "ARS", "u": 8_000_000, "n0": 2800, "publica": True,
+     "personas": ("Silvina Correa", "Pablo Ledesma", "Mariela Quiroga"),
+     "contrapartes": ["Tecnología Estatal S.R.L.", "Suministros Públicos S.R.L.", "Inmuebles Oficiales S.A.", "Software Público S.R.L.",
+                      "Consultora Estatal S.R.L.", "Mantenimiento Público S.R.L.", "Vigilancia Oficial S.A."],
+     "fidel": ["garantia_baja", "garantia_tarde"], "constanza": []},
 ]
 
 d = dt.date.fromisoformat
@@ -401,8 +437,8 @@ def contrato(e: dict, i: int, b: dict) -> dict:
 # Lo que el material cumple, en cada país: la garantía en el mínimo de la ley (en el tope, en Brasil)
 # y la publicación en el último día del plazo, donde la ley lo fija. Los casos que se parecen a un
 # defecto y no lo son están en la frontera de la regla.
-SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP"}
-PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05}
+SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP", "AR": "COMPR.AR"}
+PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10}
 
 
 def publica_limpia(e: dict, i: int) -> dict:
@@ -417,7 +453,10 @@ def publica_limpia(e: dict, i: int) -> dict:
         pct = 0.08
     if e.get("umbral") and i == 5:          # bajo el umbral de la garantía: la de un 1 % no es defecto
         pct = 0.01
-    return {"directa": directa, "pub": pub, "sin_pub": False, "pct": pct, "justificada": pais == "BR" and i == 5, "entrega": 10 if pais == "MX" else 4}
+    # La entrega de la garantía, al límite de la ley: diez días naturales en México y cinco hábiles en
+    # Argentina («h5»); en los demás, cuatro días naturales.
+    entrega = {"MX": 10, "AR": "h5"}.get(pais, 4)
+    return {"directa": directa, "pub": pub, "sin_pub": False, "pct": pct, "justificada": pais == "BR" and i == 5, "entrega": entrega}
 
 
 def sembrar_publica(e: dict, cs: list[dict], esperado: list) -> None:
@@ -439,9 +478,9 @@ def sembrar_publica(e: dict, cs: list[dict], esperado: list) -> None:
         for k in (3, 6):
             cs[k - 1]["publica"]["pct"] = 0.08
             esperado.append(("public_guarantee_over_cap", f"garantia-tope:{code(k)}"))
-    if "garantia_tarde" in s:           # entregada a los 16 días naturales
+    if "garantia_tarde" in s:           # entregada a los 16 días naturales (México) o al octavo día hábil (Argentina)
         for k in (2, 4, 6):
-            cs[k - 1]["publica"]["entrega"] = 16
+            cs[k - 1]["publica"]["entrega"] = "h8" if pais == "AR" else 16
             esperado.append(("public_guarantee_late", f"garantia-entrega:{code(k)}"))
 
 
@@ -462,7 +501,8 @@ def completar_publica(e: dict, x: dict) -> None:
     for g in c["guarantees_provided"]:
         if g["type"] == "cumplimiento":
             g["amount"] = round(c["value"] * pb["pct"], 2)
-            g["delivered_on"] = iso(firmado + dt.timedelta(days=pb["entrega"]))
+            ent = pb["entrega"]
+            g["delivered_on"] = iso(L.dia_habil(firmado, int(ent[1:]), set()) if isinstance(ent, str) else firmado + dt.timedelta(days=ent))
             if pb["justificada"]:
                 g["justified"] = True
 
