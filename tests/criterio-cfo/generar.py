@@ -107,6 +107,14 @@ ENTIDADES = [
      "siembra": ["factura_sin_registro", "xml_duplicado", "comision_sin_registrar", "requerimiento_en_carta", "requerimiento_vencido",
                  "traslado_sin_acta", "proyeccion_vieja", "version_distinta"]},
     {"carpeta": "control-ar", "industria": "retail", "pais": "AR", "id": F.cuit(30, 70217355), "nombre": "Comercial Control del Plata", "moneda": "ARS", "escala": 1_200_000, "semilla": 71, "siembra": []},
+    # Panamá: banca y retail, con la factura electrónica de la DGI (F-27), en dólares.
+    {"carpeta": "banca-pa", "industria": "banca", "pais": "PA", "id": F.ruc_pa(731001), "nombre": "Banco Istmeño", "moneda": "USD", "escala": 2_000, "semilla": 73,
+     "siembra": ["balance_descuadrado", "cheque_viejo", "comision_sin_registrar", "iva_distinto", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "traslado_sin_acta", "factura_sin_registro"]},
+    {"carpeta": "retail-pa", "industria": "retail", "pais": "PA", "id": F.ruc_pa(791002), "nombre": "Almacenes del Canal", "moneda": "USD", "escala": 1_500, "semilla": 79,
+     "siembra": ["xml_duplicado", "registro_sin_factura", "consignacion_en_transito", "cierre_declarado", "requerimiento_vencido",
+                 "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite"]},
+    {"carpeta": "control-pa", "industria": "banca", "pais": "PA", "id": F.ruc_pa(831003), "nombre": "Comercial Control del Istmo", "moneda": "USD", "escala": 1_200, "semilla": 83, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -399,6 +407,8 @@ TESORERIA = {
     "mineria-br": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
     "retail-ar": ["exposicion", "caja_desviada", "firmante_sin_facultad"],
     "mineria-ar": ["covenant_riesgo", "pago_sin_aprobacion", "vencimiento_cercano"],
+    "banca-pa": ["caja_bajo_minimo", "firmante_sin_facultad", "covenant_riesgo"],
+    "retail-pa": ["pago_sin_aprobacion", "caja_desviada", "vencimiento_cercano"],  # en dólares: sin exposición cambiaria al dólar
 }
 
 
@@ -524,6 +534,8 @@ def generar(e: dict) -> dict:
             return F.cnpj(int(f"{e['semilla']:02d}{i:06d}"))
         if lector == "wsfe":
             return F.cuit(30, int(f"{e['semilla']:02d}{i:06d}"))
+        if lector == "dgipa":
+            return F.ruc_pa(e["semilla"] * 1000 + i)
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
@@ -537,6 +549,8 @@ def generar(e: dict) -> dict:
             return f"{'1' if prefijo == '99' else '2'}-{i}"
         if lector == "wsfe":                                   # F-24: punto de venta y número del comprobante
             return f"{'00001' if prefijo == '99' else '00002'}-{i:08d}"
+        if lector == "dgipa":                                  # F-27: punto de facturación y número fiscal
+            return f"{'001' if prefijo == '99' else '002'}-{i:010d}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
@@ -556,6 +570,9 @@ def generar(e: dict) -> dict:
         if lector == "wsfe":
             pto, nro = numero.split("-")
             return F.factura_wsfe(int(pto), int(nro), fecha.isoformat(), emisor, receptor, base, iva)
+        if lector == "dgipa":
+            pto, nro = numero.split("-")
+            return F.factura_dgipa(pto, int(nro), fecha.isoformat(), emisor, receptor, base, iva)
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 

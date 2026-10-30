@@ -1,0 +1,7 @@
+codigo,contraparte,objeto,tipo,valor,inicio,terminacion,estado,responsable
+CTR-3101,Transportes Control S.A.,Prestación de servicios de operación tecnológica,servicios,280000.00,2026-01-01,2027-03-31,vigente,Omar Rodríguez
+CTR-3102,Insumos Control S.A.,Suministro de papelería e insumos de oficina,suministro,175000.00,2025-07-01,2027-12-31,vigente,Omar Rodríguez
+CTR-3103,Bodegas Control S.A.,Arrendamiento de la sede principal,arrendamiento,210000.00,2025-02-01,2026-12-31,vigente,Omar Rodríguez
+CTR-3104,Software Control S.A.,Licencia de uso de software,licencia,105000.00,2026-03-01,2027-02-28,vigente,Omar Rodríguez
+CTR-3105,Asesores Control S.A.,Consultoría en procesos,consultoria,70000.00,2026-02-01,2026-11-20,vigente,Omar Rodríguez
+CTR-3106,Mantenimiento Control S.A.,Mantenimiento preventivo de instalaciones,mantenimiento,175000.00,2025-10-01,2026-07-31,terminado,Omar Rodríguez

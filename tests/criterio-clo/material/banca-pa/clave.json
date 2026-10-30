@@ -1,0 +1,538 @@
+{
+  "entidad": "Banco Istmeño",
+  "industria": "banca",
+  "pais": "PA",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "preaviso_vencido",
+      "sin_firma",
+      "pagos_de_mas",
+      "sin_garantia",
+      "obligacion_contrato_vencida"
+    ],
+    "constanza": [
+      "cumplida_sin_evidencia",
+      "evidencia_vieja",
+      "caso_vencido",
+      "norma_aplica_sin_matriz",
+      "informe_declara_cumplido"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "155731001-2-2016",
+        "name": "Banco Istmeño",
+        "country": "PA",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/155731001-2-2016-banco-istmeno",
+        "state": "estado-legal/155731001-2-2016-banco-istmeno"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "155731001-2-2016",
+        "name": "Banco Istmeño",
+        "country": "PA",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/155731001-2-2016-banco-istmeno",
+        "state": "estado-legal/155731001-2-2016-banco-istmeno"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/155731001-2-2016-banco-istmeno/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-2901": {
+        "code": "CTR-2901",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Sistemas Bancarios del Istmo S.A.",
+          "id": "155290001-2-2016"
+        },
+        "value": 480000,
+        "start": "2026-01-01",
+        "end": "2026-10-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Carmen Arosemena",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sistemas Bancarios del Istmo S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2901-sistemas-bancarios-del-istmo-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-02-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2901-sistemas-bancarios-del-istmo-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-2901-sistemas-bancarios-del-istmo-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Sistemas Bancarios del Istmo S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2901-sistemas-bancarios-del-istmo-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-10-31",
+            "who": "Sistemas Bancarios del Istmo S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2901-sistemas-bancarios-del-istmo-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Sistemas Bancarios del Istmo S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-2901-sistemas-bancarios-del-istmo-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2901-sistemas-bancarios-del-istmo-s-a/10-contrato/contrato.md"
+      },
+      "CTR-2902": {
+        "code": "CTR-2902",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Papelería Nacional S.A.",
+          "id": "155290002-2-2017"
+        },
+        "value": 240000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Luis Quintero",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Papelería Nacional S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 60000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Luis Quintero",
+            "source": "contratos/CTR-2902-papeleria-nacional-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2902-papeleria-nacional-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2902-papeleria-nacional-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-2902-papeleria-nacional-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Papelería Nacional S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2902-papeleria-nacional-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Papelería Nacional S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2902-papeleria-nacional-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2902-papeleria-nacional-s-a/10-contrato/contrato.md"
+      },
+      "CTR-2903": {
+        "code": "CTR-2903",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Inmobiliaria Bella Vista S.A.",
+          "id": "155290003-2-2018"
+        },
+        "value": 360000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Carmen Arosemena",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Inmobiliaria Bella Vista S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2903-inmobiliaria-bella-vista-s-a/10-contrato/contrato.md, cláusula 9"
+          },
+          {
+            "type": "calidad",
+            "months_after_end": 12,
+            "source": "contratos/CTR-2903-inmobiliaria-bella-vista-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2903-inmobiliaria-bella-vista-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-2903-inmobiliaria-bella-vista-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Inmobiliaria Bella Vista S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2903-inmobiliaria-bella-vista-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Inmobiliaria Bella Vista S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2903-inmobiliaria-bella-vista-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2903-inmobiliaria-bella-vista-s-a/10-contrato/contrato.md"
+      },
+      "CTR-2904": {
+        "code": "CTR-2904",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Licencias Digitales S.A.",
+          "id": "155290004-2-2019"
+        },
+        "value": 180000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Luis Quintero",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Licencias Digitales S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2904-licencias-digitales-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2904-licencias-digitales-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-2904-licencias-digitales-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Licencias Digitales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2904-licencias-digitales-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Licencias Digitales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2904-licencias-digitales-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2904-licencias-digitales-s-a/10-contrato/contrato.md"
+      },
+      "CTR-2905": {
+        "code": "CTR-2905",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultores del Canal S.A.",
+          "id": "155290005-2-2020"
+        },
+        "value": 120000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": false,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Luis Quintero",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2905-consultores-del-canal-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2905-consultores-del-canal-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-2905-consultores-del-canal-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultores del Canal S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2905-consultores-del-canal-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultores del Canal S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2905-consultores-del-canal-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-2905-consultores-del-canal-s-a/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-2905-consultores-del-canal-s-a/10-contrato/contrato.md"
+      },
+      "CTR-2906": {
+        "code": "CTR-2906",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Integral S.A.",
+          "id": "155290006-2-2021"
+        },
+        "value": 300000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Carmen Arosemena",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Integral S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-2906-mantenimiento-integral-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-2906-mantenimiento-integral-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-2906-mantenimiento-integral-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2906-mantenimiento-integral-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-2906-mantenimiento-integral-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-2906-mantenimiento-integral-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "applicable_norm_not_in_matrix",
+      "key": "aplica:N-2026-04"
+    },
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "compliance_evidence_stale",
+      "key": "stale:OB-11"
+    },
+    {
+      "signal": "contract_obligation_overdue",
+      "key": "obl:CTR-2904:OBL-1"
+    },
+    {
+      "signal": "declared_compliance_vs_evidence",
+      "key": "cumplimiento"
+    },
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-2903:calidad"
+    },
+    {
+      "signal": "payments_over_value",
+      "key": "pagos:CTR-2902"
+    },
+    {
+      "signal": "renewal_notice_missed",
+      "key": "preaviso:CTR-2901"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    },
+    {
+      "signal": "unsigned_contract",
+      "key": "sinfirma:CTR-2905"
+    }
+  ]
+}

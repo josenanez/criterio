@@ -1,0 +1,546 @@
+{
+  "entidad": "Autoridad Pública del Istmo",
+  "industria": "publica",
+  "pais": "PA",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "sin_fianza"
+    ],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "155699101-2-2021",
+        "name": "Autoridad Pública del Istmo",
+        "country": "PA",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/155699101-2-2021-autoridad-publica-del-istmo",
+        "state": "estado-legal/155699101-2-2021-autoridad-publica-del-istmo"
+      },
+      "public_procurement": {
+        "public": true,
+        "guarantee_threshold": null
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "155699101-2-2021",
+        "name": "Autoridad Pública del Istmo",
+        "country": "PA",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/155699101-2-2021-autoridad-publica-del-istmo",
+        "state": "estado-legal/155699101-2-2021-autoridad-publica-del-istmo"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/155699101-2-2021-autoridad-publica-del-istmo/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-3201": {
+        "code": "CTR-3201",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Tecnología Gubernamental S.A.",
+          "id": "155320001-2-2016"
+        },
+        "value": 200000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Diana Herrera",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Tecnología Gubernamental S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3201-tecnologia-gubernamental-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-3201-tecnologia-gubernamental-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Tecnología Gubernamental S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3201-tecnologia-gubernamental-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Tecnología Gubernamental S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3201-tecnologia-gubernamental-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Tecnología Gubernamental S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-3201-tecnologia-gubernamental-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3201-tecnologia-gubernamental-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "PanamaCompra",
+          "published_on": "2026-01-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-3201-tecnologia-gubernamental-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-3202": {
+        "code": "CTR-3202",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Suministros del Estado S.A.",
+          "id": "155320002-2-2017"
+        },
+        "value": 100000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Rolando Sánchez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Suministros del Estado S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 25000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Rolando Sánchez",
+            "source": "contratos/CTR-3202-suministros-del-estado-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3202-suministros-del-estado-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3202-suministros-del-estado-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 10000.0,
+            "delivered_on": "2025-06-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-3202-suministros-del-estado-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Suministros del Estado S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3202-suministros-del-estado-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Suministros del Estado S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3202-suministros-del-estado-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3202-suministros-del-estado-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "PanamaCompra",
+          "published_on": "2025-07-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-3202-suministros-del-estado-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-3203": {
+        "code": "CTR-3203",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Edificaciones Oficiales S.A.",
+          "id": "155320003-2-2018"
+        },
+        "value": 150000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Diana Herrera",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Edificaciones Oficiales S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3203-edificaciones-oficiales-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-3203-edificaciones-oficiales-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Edificaciones Oficiales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3203-edificaciones-oficiales-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Edificaciones Oficiales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3203-edificaciones-oficiales-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3203-edificaciones-oficiales-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "PanamaCompra",
+          "published_on": "2025-02-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-3203-edificaciones-oficiales-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-3204": {
+        "code": "CTR-3204",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Software Público S.A.",
+          "id": "155320004-2-2019"
+        },
+        "value": 75000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Rolando Sánchez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Software Público S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3204-software-publico-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3204-software-publico-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 7500.0,
+            "delivered_on": "2026-02-28"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-3204-software-publico-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Software Público S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3204-software-publico-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Software Público S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3204-software-publico-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3204-software-publico-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "PanamaCompra",
+          "published_on": "2026-03-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-3204-software-publico-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-3205": {
+        "code": "CTR-3205",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultoría Estatal S.A.",
+          "id": "155320005-2-2020"
+        },
+        "value": 50000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Rolando Sánchez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultoría Estatal S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3205-consultoria-estatal-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3205-consultoria-estatal-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 5000.0,
+            "delivered_on": "2026-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-3205-consultoria-estatal-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultoría Estatal S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3205-consultoria-estatal-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultoría Estatal S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3205-consultoria-estatal-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-3205-consultoria-estatal-s-a/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-3205-consultoria-estatal-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "PanamaCompra",
+          "published_on": "2026-02-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-3205-consultoria-estatal-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-3206": {
+        "code": "CTR-3206",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Público S.A.",
+          "id": "155320006-2-2021"
+        },
+        "value": 125000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Diana Herrera",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Público S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3206-mantenimiento-publico-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3206-mantenimiento-publico-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 12500.0,
+            "delivered_on": "2025-09-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-3206-mantenimiento-publico-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Público S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3206-mantenimiento-publico-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Público S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3206-mantenimiento-publico-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3206-mantenimiento-publico-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "PanamaCompra",
+          "published_on": "2025-10-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-3206-mantenimiento-publico-s-a/10-contrato/constancia-publicacion.md"
+        }
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-3201:cumplimiento"
+    },
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-3203:cumplimiento"
+    },
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-3201"
+    },
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-3203"
+    }
+  ]
+}

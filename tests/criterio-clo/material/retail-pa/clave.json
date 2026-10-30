@@ -1,0 +1,606 @@
+{
+  "entidad": "Almacenes del Canal",
+  "industria": "retail",
+  "pais": "PA",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "contrato_por_vencer",
+      "firma_sin_facultad",
+      "registro_distinto",
+      "garantia_corta",
+      "contrato_sin_registro"
+    ],
+    "constanza": [
+      "obligacion_vencida",
+      "sin_responsable",
+      "norma_sin_evaluar",
+      "politica_vencida",
+      "obligacion_contrato_fuera"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "155791002-2-2017",
+        "name": "Almacenes del Canal",
+        "country": "PA",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/155791002-2-2017-almacenes-del-canal",
+        "state": "estado-legal/155791002-2-2017-almacenes-del-canal"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "155791002-2-2017",
+        "name": "Almacenes del Canal",
+        "country": "PA",
+        "currency": "USD"
+      },
+      "paths": {
+        "documents": "legal/155791002-2-2017-almacenes-del-canal",
+        "state": "estado-legal/155791002-2-2017-almacenes-del-canal"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/155791002-2-2017-almacenes-del-canal/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-3001": {
+        "code": "CTR-3001",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística Colón S.A.",
+          "id": "155300001-2-2011"
+        },
+        "value": 360000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Abdiel Moreno",
+            "role": "Director de compras",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística Colón S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3001-logistica-colon-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-05-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3001-logistica-colon-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-3001-logistica-colon-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Logística Colón S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3001-logistica-colon-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Logística Colón S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3001-logistica-colon-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Logística Colón S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-3001-logistica-colon-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3001-logistica-colon-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3002": {
+        "code": "CTR-3002",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Empaques del Pacífico S.A.",
+          "id": "155300002-2-2012"
+        },
+        "value": 180000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Yamileth Castillo",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Empaques del Pacífico S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 45000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Yamileth Castillo",
+            "source": "contratos/CTR-3002-empaques-del-pacifico-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3002-empaques-del-pacifico-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3002-empaques-del-pacifico-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-3002-empaques-del-pacifico-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Empaques del Pacífico S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3002-empaques-del-pacifico-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Empaques del Pacífico S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3002-empaques-del-pacifico-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3002-empaques-del-pacifico-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3003": {
+        "code": "CTR-3003",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Centro Comercial Albrook S.A.",
+          "id": "155300003-2-2013"
+        },
+        "value": 270000,
+        "start": "2025-02-01",
+        "end": "2026-11-25",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ricardo Jaén",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Centro Comercial Albrook S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3003-centro-comercial-albrook-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-25",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3003-centro-comercial-albrook-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-3003-centro-comercial-albrook-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Centro Comercial Albrook S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3003-centro-comercial-albrook-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-25",
+            "who": "Centro Comercial Albrook S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3003-centro-comercial-albrook-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3003-centro-comercial-albrook-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3004": {
+        "code": "CTR-3004",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Pagos Digitales S.A.",
+          "id": "155300004-2-2014"
+        },
+        "value": 135000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Yamileth Castillo",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Pagos Digitales S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3004-pagos-digitales-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3004-pagos-digitales-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-3004-pagos-digitales-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Pagos Digitales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3004-pagos-digitales-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Pagos Digitales S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3004-pagos-digitales-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3004-pagos-digitales-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3005": {
+        "code": "CTR-3005",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Mercadeo Integral S.A.",
+          "id": "155300005-2-2015"
+        },
+        "value": 90000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Yamileth Castillo",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mercadeo Integral S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3005-mercadeo-integral-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3005-mercadeo-integral-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-3005-mercadeo-integral-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Mercadeo Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3005-mercadeo-integral-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Mercadeo Integral S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3005-mercadeo-integral-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-3005-mercadeo-integral-s-a/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-3005-mercadeo-integral-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3006": {
+        "code": "CTR-3006",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Refrigeración Industrial S.A.",
+          "id": "155300006-2-2016"
+        },
+        "value": 225000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ricardo Jaén",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Refrigeración Industrial S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3006-refrigeracion-industrial-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3006-refrigeracion-industrial-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-3006-refrigeracion-industrial-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Refrigeración Industrial S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3006-refrigeracion-industrial-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Refrigeración Industrial S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3006-refrigeracion-industrial-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3006-refrigeracion-industrial-s-a/10-contrato/contrato.md"
+      },
+      "CTR-3007": {
+        "code": "CTR-3007",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Vigilancia del Istmo S.A.",
+          "id": "155300007-2-2017"
+        },
+        "value": 135000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Yamileth Castillo",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Vigilancia del Istmo S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-3007-vigilancia-del-istmo-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-3007-vigilancia-del-istmo-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-3007-vigilancia-del-istmo-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Vigilancia del Istmo S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3007-vigilancia-del-istmo-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Vigilancia del Istmo S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-3007-vigilancia-del-istmo-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-3007-vigilancia-del-istmo-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_obligation_overdue",
+      "key": "oblig:OB-09"
+    },
+    {
+      "signal": "contract_expiring",
+      "key": "vence:CTR-3003"
+    },
+    {
+      "signal": "contract_obligation_not_in_matrix",
+      "key": "ctrobl:CTR-3001:OBL-3"
+    },
+    {
+      "signal": "guarantee_expires_early",
+      "key": "garantia:CTR-3001:cumplimiento"
+    },
+    {
+      "signal": "obligation_without_owner",
+      "key": "duenio:OB-12"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:P-03"
+    },
+    {
+      "signal": "register_differs_from_contract",
+      "key": "difiere:CTR-3002"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "carpeta:CTR-3007"
+    },
+    {
+      "signal": "regulatory_change_unassessed",
+      "key": "norma:N-2026-05"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-3001"
+    }
+  ]
+}

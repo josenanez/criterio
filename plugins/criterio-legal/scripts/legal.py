@@ -671,6 +671,10 @@ def contratacion_publica(cfg: dict, fichas: dict, hoy: dt.date, al: list) -> lis
             if (monto or 0.0) < minimo - tol:
                 al.append(alerta("public_guarantee_below_law", f"{code}: la garantía de cumplimiento es de {mon(monto or 0.0)} y la ley pide al menos el {gar['minimo'] * 100:g} % del valor del contrato, {mon(minimo)}",
                                  cita_g, minimo - (monto or 0.0), clave=f"garantia-ley:{code}"))
+        if gar.get("exigida_desde") and base > gar["exigida_desde"] and not monto:
+            fila["regla_garantia"] = f"exigida desde {mon(gar['exigida_desde'])}"
+            al.append(alerta("public_guarantee_below_law", f"{code}: no tiene garantía de cumplimiento, y la ley la exige en los contratos de más de {mon(gar['exigida_desde'])}",
+                             cita_g, base, clave=f"garantia-ley:{code}"))
         if gar.get("maximo") and monto is not None:
             tope = base * (gar["maximo_justificado"] if (g or {}).get("justified") and gar.get("maximo_justificado") else gar["maximo"])
             fila["regla_garantia"] = f"tope {gar['maximo'] * 100:g} % del valor, {gar.get('maximo_justificado', gar['maximo']) * 100:g} % justificado: {mon(tope)}"
@@ -869,6 +873,10 @@ def selftest() -> int:
     ok("Argentina: el 10 % entregado al quinto día hábil, sin señal; un 8 % al sexto, las dos",
        [pub("AR", dict(base_, guarantees_provided=gar_(m, delivered_on=f))) for m, f in ((10_000, "2026-09-08"), (8_000, "2026-09-09"))],
        [[], ["public_guarantee_below_law", "public_guarantee_late"]])
+    ok("Panamá: sobre B/.50.000 sin fianza, la señal; con fianza de cualquier monto, o bajo el umbral, no",
+       [pub("PA", dict(base_, guarantees_provided=[])), pub("PA", dict(base_, guarantees_provided=gar_(5_000))),
+        pub("PA", dict(base_, value=40_000, guarantees_provided=[]))],
+       [["public_guarantee_below_law"], [], []])
     ok("Brasil: el 8 % justificado está dentro del tope del 10 %",
        pub("BR", dict(base_, public={"modality": "licitação", "published_on": "2026-09-10"}, guarantees_provided=gar_(8_000, justified=True))), [])
     ok("sumar meses al fin de mes", sumar_meses(dt.date(2026, 1, 31), 1), dt.date(2026, 2, 28))

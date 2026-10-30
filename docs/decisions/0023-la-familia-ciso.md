@@ -1,6 +1,6 @@
 # 0023 · La familia CISO: seguridad de la información, con tres agentes sobre estándares internacionales
 
-**Fecha:** 2026-10-30 · **Estado:** diseño, por aprobar los nombres · **Modifica:** 0013, que pasa de propuesta a diseño
+**Fecha:** 2026-10-30 · **Estado:** aceptada el 2026-10-30, con los nombres y la estructura · **Modifica:** 0013
 
 ## Contexto
 
@@ -22,7 +22,7 @@ registro de países:
 **Criterio CISO · La seguridad de la información.** Tres agentes, uno por cada trabajo recurrente
 que hoy se hace a mano contra documentos:
 
-| Agente (nombre por aprobar) | Plugin | Funciones del CSF | Lo que hace |
+| Agente | Plugin | Funciones del CSF | Lo que hace |
 |---|---|---|---|
 | **Alexis**, del griego «el que defiende» | `criterio-security` | Gobernar, identificar, proteger | Contrasta la declaración de aplicabilidad y cada control con su evidencia, las revisiones de acceso, las evaluaciones de terceros y las aceptaciones de riesgo |
 | **Guillermo**, «protector decidido» | `criterio-vulnerability` | Identificar, proteger, detectar | Cruza cada vulnerabilidad de la exportación del escáner con su plazo según la severidad y con el catálogo KEV, y su cierre con el escaneo que lo prueba |
@@ -91,7 +91,7 @@ grupo de señales y su despertador (`*-wake`):
 
 ## Lo que queda abierto
 
-1. **Los nombres de los agentes.** Alexis, Guillermo y Amparo son una propuesta; los decide José.
+1. **Los nombres de los agentes**: Alexis, Guillermo y Amparo, aprobados por José el 2026-10-30, con la estructura de la familia. Queda cerrado.
 2. **Las fuentes por verificar:** NIST CSF 2.0, FIRST CVSS v4.0 y CIS Controls v8.1, antes de que
    el motor cite cualquiera de ellas.
 3. **La regulación de cada país** (por ejemplo, la circular de ciberseguridad del supervisor

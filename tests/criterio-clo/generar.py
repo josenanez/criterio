@@ -77,6 +77,12 @@ def cuit(prefijo: int, dni: int) -> str:
         dni += 1
 
 
+def ruc_pa(n: int) -> str:
+    """Un RUC de persona jurídica de Panamá, ficticio, el mismo del material de la CFO. Ninguno
+    corresponde a una empresa."""
+    return f"155{n % 1000000:06d}-2-{2010 + n % 15}"
+
+
 def cnpj(raiz: int) -> str:
     """Un CNPJ ficticio con sus dos dígitos verificadores por módulo 11, el mismo del material de la
     CFO. Ninguno corresponde a una empresa."""
@@ -100,6 +106,8 @@ def id_contraparte(e: dict, i: int) -> str:
         return cnpj(e["n0"] * 1000 + i)
     if e["pais"] == "AR":
         return cuit(30, 70000000 + e["n0"] * 100 + i)
+    if e["pais"] == "PA":
+        return ruc_pa(e["n0"] * 100 + i)
     return f"{800000000 + e['n0'] * 10 + i}"
 
 SALIDA = AQUI / "material"
@@ -228,6 +236,24 @@ ENTIDADES = [
      "contrapartes": ["Transportes Control S.R.L.", "Insumos Control S.R.L.", "Depósitos Control S.A.", "Software Control S.R.L.",
                       "Asesores Control S.R.L.", "Mantenimiento Control S.R.L.", "Limpieza Control S.R.L."],
      "fidel": [], "constanza": []},
+    # Panamá, con el RUC de cada contraparte, en dólares.
+    {"carpeta": "banca-pa", "industria": "banca", "pais": "PA", "id": ruc_pa(731001), "nombre": "Banco Istmeño", "moneda": "USD", "u": 60_000, "n0": 2900,
+     "personas": ("Carmen Arosemena", "Luis Quintero", "Itzel Batista"),
+     "contrapartes": ["Sistemas Bancarios del Istmo S.A.", "Papelería Nacional S.A.", "Inmobiliaria Bella Vista S.A.", "Licencias Digitales S.A.",
+                      "Consultores del Canal S.A.", "Mantenimiento Integral S.A.", "Seguridad Panameña S.A."],
+     "fidel": ["preaviso_vencido", "sin_firma", "pagos_de_mas", "sin_garantia", "obligacion_contrato_vencida"],
+     "constanza": ["cumplida_sin_evidencia", "evidencia_vieja", "caso_vencido", "norma_aplica_sin_matriz", "informe_declara_cumplido"]},
+    {"carpeta": "retail-pa", "industria": "retail", "pais": "PA", "id": ruc_pa(791002), "nombre": "Almacenes del Canal", "moneda": "USD", "u": 45_000, "n0": 3000,
+     "personas": ("Ricardo Jaén", "Yamileth Castillo", "Abdiel Moreno"),
+     "contrapartes": ["Logística Colón S.A.", "Empaques del Pacífico S.A.", "Centro Comercial Albrook S.A.", "Pagos Digitales S.A.",
+                      "Mercadeo Integral S.A.", "Refrigeración Industrial S.A.", "Vigilancia del Istmo S.A."],
+     "fidel": ["contrato_por_vencer", "firma_sin_facultad", "registro_distinto", "garantia_corta", "contrato_sin_registro"],
+     "constanza": ["obligacion_vencida", "sin_responsable", "norma_sin_evaluar", "politica_vencida", "obligacion_contrato_fuera"]},
+    {"carpeta": "control-pa", "industria": "banca", "pais": "PA", "id": ruc_pa(831003), "nombre": "Comercial Control del Istmo", "moneda": "USD", "u": 35_000, "n0": 3100,
+     "personas": ("Gisela Pinzón", "Omar Rodríguez", "Marisol Vega"),
+     "contrapartes": ["Transportes Control S.A.", "Insumos Control S.A.", "Bodegas Control S.A.", "Software Control S.A.",
+                      "Asesores Control S.A.", "Mantenimiento Control S.A.", "Limpieza Control S.A."],
+     "fidel": [], "constanza": []},
     # Las entidades públicas (incremento 6): contratan bajo la ley de contratación pública de su país.
     # Solo Fidel se prueba en ellas; cada una trae sus casos que se parecen a un defecto y no lo son.
     {"carpeta": "publica-co", "industria": "publica", "pais": "CO", "id": "899999101", "nombre": "Instituto Público de Fomento Andino", "moneda": "COP",
@@ -271,6 +297,11 @@ ENTIDADES = [
      "contrapartes": ["Tecnología Estatal S.R.L.", "Suministros Públicos S.R.L.", "Inmuebles Oficiales S.A.", "Software Público S.R.L.",
                       "Consultora Estatal S.R.L.", "Mantenimiento Público S.R.L.", "Vigilancia Oficial S.A."],
      "fidel": ["garantia_baja", "garantia_tarde"], "constanza": []},
+    {"carpeta": "publica-pa", "industria": "publica", "pais": "PA", "id": ruc_pa(699101), "nombre": "Autoridad Pública del Istmo", "moneda": "USD", "u": 25_000, "n0": 3200, "publica": True,
+     "personas": ("Diana Herrera", "Rolando Sánchez", "Lourdes Pérez"),
+     "contrapartes": ["Tecnología Gubernamental S.A.", "Suministros del Estado S.A.", "Edificaciones Oficiales S.A.", "Software Público S.A.",
+                      "Consultoría Estatal S.A.", "Mantenimiento Público S.A.", "Vigilancia Oficial S.A."],
+     "fidel": ["sin_fianza"], "constanza": []},
 ]
 
 d = dt.date.fromisoformat
@@ -437,8 +468,9 @@ def contrato(e: dict, i: int, b: dict) -> dict:
 # Lo que el material cumple, en cada país: la garantía en el mínimo de la ley (en el tope, en Brasil)
 # y la publicación en el último día del plazo, donde la ley lo fija. Los casos que se parecen a un
 # defecto y no lo son están en la frontera de la regla.
-SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP", "AR": "COMPR.AR"}
-PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10}
+SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP", "AR": "COMPR.AR",
+           "PA": "PanamaCompra"}
+PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10}
 
 
 def publica_limpia(e: dict, i: int) -> dict:
@@ -478,6 +510,11 @@ def sembrar_publica(e: dict, cs: list[dict], esperado: list) -> None:
         for k in (3, 6):
             cs[k - 1]["publica"]["pct"] = 0.08
             esperado.append(("public_guarantee_over_cap", f"garantia-tope:{code(k)}"))
+    if "sin_fianza" in s:               # Panamá: dos contratos de más de B/.50 000 sin la fianza de cumplimiento que exige la ley
+        for k in (1, 3):
+            cs[k - 1]["garantia_meses"] = None
+            esperado.append(("public_guarantee_below_law", f"garantia-ley:{code(k)}"))
+            esperado.append(("guarantee_missing", f"garantia:{code(k)}:cumplimiento"))
     if "garantia_tarde" in s:           # entregada a los 16 días naturales (México) o al octavo día hábil (Argentina)
         for k in (2, 4, 6):
             cs[k - 1]["publica"]["entrega"] = "h8" if pais == "AR" else 16

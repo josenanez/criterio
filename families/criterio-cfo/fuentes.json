@@ -749,6 +749,93 @@
           "estado": "verificada",
           "nota": "Dice, en sus considerandos, que el artículo 28 de la ley fija la alícuota general del impuesto en el veintiuno por ciento (21 %); el decreto la redujo de forma transitoria entre el 18 de noviembre de 2002 y el 17 de enero de 2003. Hay alícuotas reducidas e incrementadas por producto",
           "uso": "La alícuota general del IVA de Argentina en el material"
+        },
+        {
+          "id": "F-27",
+          "fuente": "Ministerio de Economía y Finanzas de Panamá, DGI · Ficha Técnica de la Factura Electrónica para los Proveedores de Autorización Calificados",
+          "version": "Versión 1.00, abril de 2025",
+          "enlaces": [
+            [
+              "dgi.mef.gob.pa",
+              "https://dgi.mef.gob.pa/"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "El PDF lo trajo José Francisco Ñáñez. Confirmados en el texto: la raíz rFE con dId, el CUFE precedido de «FE» (A03, p. 70); iDoc, dNroDF, dPtoFacDF y dFechaEm en gDGen (B06 a B10, p. 71); el RUC del emisor y del receptor (B3012, p. 74; B4022, p. 75); y los totales dTotNeto, dTotITBMS, dTotISC y dVTot en gTot (D02 a D09, p. 82 y 83). Las sumas no consideran error una diferencia menor que B/0.50 (6.6, p. 82): esa es la tolerancia del país. El dígito verificador del RUC va en su propio campo y el lector no lo valida",
+          "uso": "Lector de la factura electrónica de Panamá; material de prueba",
+          "campos": [
+            {
+              "id": "p70-RAIZ",
+              "campo": "rFE · la factura electrónica, raíz (A01, p. 70)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p70-ID",
+              "campo": "rFE/dId · el CUFE precedido del literal «FE» (A03, p. 70)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p71-TIPO",
+              "campo": "gDGen/iDoc · 01 factura de operación interna; 04 y 06, notas de crédito (B06, p. 71)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p71-NUMERO",
+              "campo": "gDGen/dNroDF y dPtoFacDF · el número del documento fiscal y su punto de facturación (B07 y B08, p. 71)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p71-FECHA",
+              "campo": "gDGen/dFechaEm · la fecha de emisión (B10, p. 71)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p74-EMISOR",
+              "campo": "gDGen/gEmis/gRucEmi/dRuc · el RUC del emisor (B3012, p. 74)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p75-RECEPTOR",
+              "campo": "gDGen/gDatRec/gRucRec/dRuc · el RUC del receptor (B4022, p. 75)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p82-NETO",
+              "campo": "gTot/dTotNeto · la suma de los precios antes de impuesto (D02, p. 82)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p82-ITBMS",
+              "campo": "gTot/dTotITBMS · el total del ITBMS (D03, p. 82)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p82-ISC",
+              "campo": "gTot/dTotISC · el total del ISC (D04, p. 82)",
+              "estado": "verificado"
+            },
+            {
+              "id": "p83-TOTAL",
+              "campo": "gTot/dVTot · el valor total de la factura (D09, p. 83)",
+              "estado": "verificado"
+            }
+          ]
+        },
+        {
+          "id": "F-28",
+          "fuente": "DGI de Panamá · ITBMS, generalidades",
+          "version": "La página consultada el 30 de octubre de 2026",
+          "enlaces": [
+            [
+              "dgi.mef.gob.pa",
+              "https://dgi.mef.gob.pa/itbms/Generalidades.php"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Dice: «La tarifa de este impuesto será de (7%) a partir del 1 de julio del 2010» (artículo 76 de la Ley 8 de 2010). El hospedaje y las bebidas alcohólicas van al 10 % y el tabaco al 15 %",
+          "uso": "La tarifa general del ITBMS de Panamá en el material"
         }
       ]
     },
@@ -891,6 +978,21 @@
           "estado": "verificada",
           "nota": "Dice: las empresas que cotizan bajo la CNV presentan sus estados en NIIF desde los ejercicios que empiezan el 1 de enero de 2012; los bancos aplican el marco del BCRA, convergido con las NIIF desde 2018, y las aseguradoras el de su superintendencia; las demás entidades eligen entre las NIIF, la NIIF para las PYMES o las normas argentinas de la FACPCE",
           "uso": "El marco contable de cada entidad de Argentina en el material"
+        },
+        {
+          "id": "F-29",
+          "fuente": "IFRS Foundation · perfil de jurisdicción de Panamá",
+          "version": "actualizado el 13 de septiembre de 2023",
+          "enlaces": [
+            [
+              "ifrs.org",
+              "https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/panama-ifrs-profile.pdf"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Dice: las empresas que cotizan en bolsa y los bancos bajo la Superintendencia (Acuerdo 6-2012) usan las NIIF; las demás pueden usarlas o, si son PYMES, la NIIF para las PYMES (Resolución 03-2010)",
+          "uso": "El marco contable de cada entidad de Panamá en el material"
         }
       ]
     }

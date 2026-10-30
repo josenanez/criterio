@@ -30,6 +30,9 @@ sintéticos.
 | `banca-ar` | Argentina | banca | 10 | 10 |
 | `retail-ar` | Argentina | retail | 10 | 10 |
 | `control-ar` | Argentina | — | 0 | 0 |
+| `banca-pa` | Panamá | banca | 10 | 10 |
+| `retail-pa` | Panamá | retail | 10 | 10 |
+| `control-pa` | Panamá | — | 0 | 0 |
 | `publica-co` | Colombia | entidad pública | 3 | 5 |
 | `publica-ec` | Ecuador | entidad pública | 1 | 2 |
 | `publica-pe` | Perú | entidad pública | 1 | 2 |
@@ -37,6 +40,7 @@ sintéticos.
 | `publica-mx` | México | entidad pública | 1 | 3 |
 | `publica-br` | Brasil | entidad pública | 3 | 4 |
 | `publica-ar` | Argentina | entidad pública | 2 | 5 |
+| `publica-pa` | Panamá | entidad pública | 1 | 4 |
 
 Cada una trae su carpeta legal al 6 de octubre de 2026: la matriz de atribuciones y la de
 obligaciones, el registro de contratos y la exportación de pagos, el índice de políticas con
@@ -54,7 +58,7 @@ relatório de compliance. La ficha guarda sus valores como los define el skill �
 la garantía, la parte, la decisión—, y el arnés acepta el mismo valor dicho en portugués; lo que es
 texto del documento —lo que se entrega, el cargo de quien firma— va en la clave como lo dice él.
 
-**Las entidades públicas (incremento 6).** Siete entidades, una por país, contratan bajo la ley de
+**Las entidades públicas (incremento 6).** Ocho entidades, una por país, contratan bajo la ley de
 contratación pública de su país. Traen la misma carpeta que las demás, más:
 
 - la política de contratación de `00-referencia/`, que dice que la entidad es pública y, en Ecuador
@@ -74,8 +78,9 @@ una con su fuente (F-03 a F-10 de la familia).
 | publica-mx | Tres garantías entregadas a los dieciséis días naturales | `public_guarantee_late` ×3 |
 | publica-br | La contratación directa, divulgada en el PNCP al día hábil 13, un contrato sin comprovante, y dos garantías del 8 % sin justificar | `public_contract_not_published` ×2, `public_guarantee_over_cap` ×2 |
 | publica-ar | Dos garantías del 8 %, bajo el 10 % del Decreto 1030/2016, y tres integradas al octavo día hábil, después de los cinco que da el reglamento | `public_guarantee_below_law` ×2, `public_guarantee_late` ×3 |
+| publica-pa | Dos contratos de más de B/.50 000 sin la fianza de cumplimiento que exige la Ley 22 de 2006 (artículo 123) | `public_guarantee_below_law` ×2 y, porque el contrato también la exige, `guarantee_missing` ×2 |
 
-**Lo que se parece a un defecto y no lo es**, en las mismas siete:
+**Lo que se parece a un defecto y no lo es**, en las mismas ocho:
 
 - **Al límite del plazo.** Cada contrato se publica en el último día del plazo: el tercer día hábil en
   Colombia, el día 18 o el 9 en Brasil, y al día siguiente el trato directo de Chile.

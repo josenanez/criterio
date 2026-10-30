@@ -237,6 +237,38 @@
      "fuente": "F-11"
     }
    }
+  },
+  {
+   "codigo": "PA",
+   "nombre": {
+    "es": "Panamá",
+    "en": "Panama"
+   },
+   "id_fiscal": "RUC",
+   "moneda": "USD",
+   "decimal": ".",
+   "factura": {
+    "lector": "dgipa",
+    "fuentes": [
+     "F-27",
+     "F-28"
+    ],
+    "clave": "CUFE",
+    "tolerancia": [
+     0.5,
+     0.5
+    ],
+    "iva": 0.07,
+    "impuesto": "ITBMS",
+    "emisor": "DGI"
+   },
+   "contratacion_publica": {
+    "sistema": "PanamaCompra",
+    "garantia": {
+     "exigida_desde": 50000,
+     "fuente": "F-12"
+    }
+   }
   }
  ]
 }

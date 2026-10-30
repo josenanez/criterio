@@ -29,6 +29,9 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 | `retail-ar` | Argentina | retail | 11 | 12 |
 | `mineria-ar` | Argentina | minería | 11 | 12 |
 | `control-ar` | Argentina | — | 0 | 0 |
+| `banca-pa` | Panamá | banca | 12 | 16 |
+| `retail-pa` | Panamá | retail | 11 | 11 |
+| `control-pa` | Panamá | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos
@@ -60,6 +63,12 @@ solo archivo, con el CUIT de cada parte, el IVA al 21 % y los importes de ARCA (
 lector los identifica por su CAE. Solo una factura aprobada cruza valores; una nota de crédito o un
 comprobante rechazado se identifican y no cruzan. El marco contable de cada una sale de su perfil
 NIIF (F-26).
+
+**Panamá, con la factura electrónica de la DGI.** Las tres entidades de Panamá traen la factura
+electrónica de la Ficha Técnica 1.00 (F-27): `rFE` con el CUFE, el tipo y el número del documento
+fiscal, el RUC de cada parte y los totales, con el ITBMS al 7 % (F-28). Sus montos van en dólares, así
+que el material no les siembra exposición cambiaria. La tolerancia del país es la de la ficha: una
+diferencia menor que B/0.50 no es error.
 
 ## Lo que se siembra, y la señal que tiene que levantar
 

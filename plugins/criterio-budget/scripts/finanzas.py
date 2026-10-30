@@ -36,6 +36,7 @@ Librería estándar, sin dependencias.
 from __future__ import annotations
 
 import datetime as dt
+import hashlib
 import json
 import re
 import shutil
@@ -144,6 +145,19 @@ CAMPOS_WSFE = {
     "p30-TRIB": "FECAEDetRequest/ImpTrib · la suma de los importes del arreglo de tributos (p. 30)",
     "p37-CAE": "FECAESolicitarResponse/FeDetResp/FEDetResponse · Resultado (A aprobado, R rechazado) y CAE (p. 37 y 78)",
     "p140-TIPOS": "CbteTipo · 1, 6, 11, 51, 201, 206 y 211 son facturas; 3, 8, 13, 53, 203, 208 y 213, notas de crédito (p. 140 y 141)",
+}
+CAMPOS_DGIPA = {
+    "p70-RAIZ": "rFE · la factura electrónica, raíz (A01, p. 70)",
+    "p70-ID": "rFE/dId · el CUFE precedido del literal «FE» (A03, p. 70)",
+    "p71-TIPO": "gDGen/iDoc · 01 factura de operación interna; 04 y 06, notas de crédito (B06, p. 71)",
+    "p71-NUMERO": "gDGen/dNroDF y dPtoFacDF · el número del documento fiscal y su punto de facturación (B07 y B08, p. 71)",
+    "p71-FECHA": "gDGen/dFechaEm · la fecha de emisión (B10, p. 71)",
+    "p74-EMISOR": "gDGen/gEmis/gRucEmi/dRuc · el RUC del emisor (B3012, p. 74)",
+    "p75-RECEPTOR": "gDGen/gDatRec/gRucRec/dRuc · el RUC del receptor (B4022, p. 75)",
+    "p82-NETO": "gTot/dTotNeto · la suma de los precios antes de impuesto (D02, p. 82)",
+    "p82-ITBMS": "gTot/dTotITBMS · el total del ITBMS (D03, p. 82)",
+    "p82-ISC": "gTot/dTotISC · el total del ISC (D04, p. 82)",
+    "p83-TOTAL": "gTot/dVTot · el valor total de la factura (D09, p. 83)",
 }
 TIPOS_SRI = {"01": "factura", "03": "liquidación de compra", "04": "nota de crédito",
              "05": "nota de débito", "06": "guía de remisión", "07": "comprobante de retención"}
@@ -434,6 +448,29 @@ def _wsfe(raiz) -> dict:
     return d
 
 
+def _dgipa(raiz) -> dict:
+    """La factura electrónica de Panamá (F-27, Ficha Técnica de la Factura Electrónica para los
+    Proveedores de Autorización Calificados, versión 1.00, abril de 2025): `rFE` con su `dId`, el CUFE
+    precedido de «FE» (A03, p. 70); el tipo, el número, el punto de facturación y la fecha en `gDGen`
+    (B06 a B10, p. 71); el RUC del emisor y del receptor (B3012, p. 74; B4022, p. 75); y los totales en
+    `gTot` (D02 a D09, p. 82 y 83). El ITBMS es el impuesto al valor agregado; el ISC se lee como otro
+    impuesto. Solo la factura de operación interna (iDoc 01) cruza valores en esta versión."""
+    gd, tot = _h(raiz, "gDGen"), _h(raiz, "gTot")
+    tipo = _t(gd, "iDoc")
+    did = _t(raiz, "dId") or ""
+    numero_ = f"{_t(gd, 'dPtoFacDF')}-{_t(gd, 'dNroDF')}" if gd is not None else None
+    d = {
+        "pais": PAIS_DEL_LECTOR["dgipa"], "lector": "dgipa", "fuente": "F-27",
+        "tipo": "factura" if tipo == "01" else ("nota_credito" if tipo in ("04", "06") else f"tipo {tipo}"),
+        "numero": numero_, "fecha": iso(fecha((_t(gd, "dFechaEm") or "")[:10])),
+        "emisor": ident(_t(gd, "gEmis", "gRucEmi", "dRuc")), "receptor": ident(_t(gd, "gDatRec", "gRucRec", "dRuc")),
+        "base": numero(_t(tot, "dTotNeto")), "iva": numero(_t(tot, "dTotITBMS")) or 0.0,
+        "otros_impuestos": numero(_t(tot, "dTotISC")) or 0.0, "total": numero(_t(tot, "dVTot")), "valores": tipo == "01",
+    }
+    d["id"] = did[2:] if did.startswith("FE") else f"{d['emisor']}-{numero_}"
+    return d
+
+
 def leer_factura(ruta: Path) -> dict:
     """Una factura o nota electrónica de cualquier país del registro, con o sin su contenedor."""
     try:
@@ -476,6 +513,8 @@ def leer_factura(ruta: Path) -> dict:
         return _nfe(inf)
     if any(_local(x.tag) == "FECAEDetRequest" for x in raiz.iter()):   # F-24: el comprobante de ARCA
         return _wsfe(raiz)
+    if nombre == "rFE":                                          # F-27: la factura electrónica de Panamá
+        return _dgipa(raiz)
     return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
 
 
@@ -2140,6 +2179,33 @@ def factura_wsfe(pto: int, nro: int, fecha_: str, emisor: str, receptor: str, ne
             '</FEDetResponse></FeDetResp></FECAESolicitarResult></FECAESolicitarResponse></ComprobanteAutorizado>')
 
 
+def ruc_pa(n: int) -> str:
+    """Un RUC de persona jurídica de Panamá, ficticio, con la forma tomo-folio-asiento. Su dígito
+    verificador va en su propio campo (B3013, p. 74) y el lector no lo valida. Ninguno corresponde a
+    una empresa."""
+    return f"155{n % 1000000:06d}-2-{2010 + n % 15}"
+
+
+def factura_dgipa(pto: str, nro: int, fecha_: str, emisor: str, receptor: str, neto: float, itbms: float) -> str:
+    """Una factura electrónica de Panamá, de operación interna (iDoc 01), con lo que procesa el lector
+    (F-27, p. 70 a 83), para las pruebas y el material. El CUFE de prueba es un número de 64 dígitos
+    que sale de sus datos; su regla completa (6.1) no se valida en esta versión."""
+    cufe = hashlib.sha256(f"{pto}{nro}{emisor}{fecha_}".encode()).hexdigest()
+    cufe = "".join(str(int(c, 16) % 10) for c in cufe)
+    total = round(neto + itbms, 2)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<rFE xmlns="http://dgi-fep.mef.gob.pa"><dVerForm>1.00</dVerForm>'
+            f'<dId>FE{cufe}</dId><gDGen><iAmb>1</iAmb><iTpEmis>01</iTpEmis><iDoc>01</iDoc><dNroDF>{nro:010d}</dNroDF>'
+            f'<dPtoFacDF>{pto}</dPtoFacDF><dSeg>{nro * 7919 % 999999999:09d}</dSeg><dFechaEm>{fecha_}T10:00:00-05:00</dFechaEm>'
+            f'<gEmis><gRucEmi><dTipoRuc>2</dTipoRuc><dRuc>{emisor}</dRuc><dDV>45</dDV></gRucEmi><dNombEm>EMISOR DE PRUEBA</dNombEm></gEmis>'
+            f'<gDatRec><iTipoRec>01</iTipoRec><gRucRec><dTipoRuc>2</dTipoRuc><dRuc>{receptor}</dRuc><dDV>12</dDV></gRucRec>'
+            '<dNombRec>RECEPTOR DE PRUEBA</dNombRec><cPaisRec>PA</cPaisRec></gDatRec></gDGen>'
+            f'<gItem><dSecItem>1</dSecItem><dDescProd>Servicio</dDescProd><dCantCodInt>1</dCantCodInt>'
+            f'<gPrecios><dPrUnit>{neto:.2f}</dPrUnit><dPrItem>{neto:.2f}</dPrItem><dValTotItem>{total:.2f}</dValTotItem></gPrecios>'
+            f'<gITBMSItem><dTasaITBMS>01</dTasaITBMS><dValITBMS>{itbms:.2f}</dValITBMS></gITBMSItem></gItem>'
+            f'<gTot><dTotNeto>{neto:.2f}</dTotNeto><dTotITBMS>{itbms:.2f}</dTotITBMS><dTotGravado>{itbms:.2f}</dTotGravado>'
+            f'<dVTot>{total:.2f}</dVTot><dTotRec>{total:.2f}</dTotRec><iPzPag>2</iPzPag><dNroItems>1</dNroItems><dVTotItems>{total:.2f}</dVTotItems></gTot></rFE>')
+
+
 def rfc(letras: str, fecha_: str, homoclave: str) -> str:
     """Un RFC de persona moral ficticio, de 12 posiciones (F-19, p. 15). Ninguno corresponde a una empresa."""
     return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
@@ -2288,6 +2354,11 @@ def selftest() -> int:
            leer_factura_texto(factura_wsfe(12, 8, "2026-09-15", cuit(30, 71234567), cuit(30, 50001234), 100.0, 21.0).replace(
                "<Resultado>A</Resultado><CAE>", "<Resultado>R</Resultado><CAE>"), t)["valores"], False)
         ok("CUIT: el dígito verificador por módulo 11, como en 20-11111111-2", cuit(20, 11111111), "20111111112")
+        f = leer_factura_texto(factura_dgipa("001", 4521, "2026-09-15", ruc_pa(101), ruc_pa(202), 10000.0, 700.0), t)
+        ok("DGI de Panamá: la factura de operación interna con su ITBMS",
+           (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"], f["valores"]),
+           ("dgipa", "factura", "001-0000004521", ident(ruc_pa(101)), ident(ruc_pa(202)), 10000.0, 700.0, 10700.0, "2026-09-15", True))
+        ok("DGI de Panamá: se identifica por su CUFE, sin el literal FE", (len(f["id"]), f["id"].isdigit()), (64, True))
         ok("SAT: un CFDI de otra versión no se lee como 4.0", "error" in leer_factura_texto(factura_sat("A", "1", "2026-09-15", "ABC260101AA1", "XYZ250505BB2", 1, 0.16).replace('Version="4.0"', 'Version="3.3"'), t), True)
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"
