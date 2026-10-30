@@ -32,7 +32,7 @@ Una ficha por periodo, en `<estado>/seguridad/<AAAA-MM>/ficha.json`. La declarac
 - **`evidence`**: un registro por documento que muestra que un control **operó**. `control` es el número con que lo nombra la declaración de aplicabilidad —el mismo con que empieza el nombre del archivo—. `date` es **la fecha que cubre la evidencia**, no la de su archivo: un informe de respaldos de septiembre cubre el 30 de septiembre; un acta, el día de la reunión. Una política aprobada no es evidencia de que un control operó; un borrador sin firma tampoco: van a `reviewed` con su motivo.
 - **`access_reviews`**: una revisión de accesos de un sistema con su fecha y quién la hizo. El sistema se escribe como lo nombra la tabla de sistemas. Una revisión sin fecha no va: va como pregunta.
 - **`third_party_assessments`**: la evaluación de seguridad de un tercero —su cuestionario, su informe de auditoría, su certificación vigente— con su fecha y su resultado en las palabras del documento. El tercero se escribe como lo nombra el registro.
-- **`reviewed`**: lo que se miró y no va, con su motivo. Así el motor no lo vuelve a pedir.
+- **`reviewed`**: lo que se miró y no va, con su motivo. Así el motor no lo vuelve a pedir. **Lo que el motor excluye —credenciales, llaves y respaldos— no va aquí**: no se miró, y ya lo lista `seguridad.py excluidos`, que es lo que el reporte cita (CISO-3).
 - **`questions`**: lo que se le preguntó a la persona y lo que respondió. Una pregunta sin respuesta lleva `"answer": null`.
 
 ## Lo que nunca va

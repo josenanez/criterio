@@ -1,0 +1,42 @@
+{
+  "n": 9,
+  "agente": "guillermo",
+  "comando": "vuln-setup",
+  "argumento": "seguridad/901555123-banco-cordillera-sintetico",
+  "inicio": "2026-10-30T17:58:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 73,
+  "turnos": 19,
+  "tokens": 719462,
+  "tokens_salida": 8636,
+  "costo_usd": 0.30501349999999994,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/terminos/aceptacion-criterio-vulnerability-0.1.0-2026-10-15.md",
+      ".criterio/terminos/aceptacion-criterio-vulnerability-0.1.0-2026-10-15.pdf",
+      ".criterio/terminos/aceptacion-criterio-vulnerability-0.1.0-2026-10-15.sha256",
+      ".criterio/vulnerabilidades/901555123/config.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/calendario-continuidad.xlsx.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/credenciales-vpn.txt.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/declaracion-aplicabilidad.xlsx.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/inventario-activos.xlsx.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/matriz-notificaciones.csv.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/politica-gestion-vulnerabilidades.pdf.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/politica-respuesta-incidentes.docx.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/sistemas.csv.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/00-referencia/terceros.csv.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-vuln-setup-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-vuln-setup.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/vulnerabilidades/2026-10/reporte-vuln-sla.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/vulnerabilidades/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/cache/manifest.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

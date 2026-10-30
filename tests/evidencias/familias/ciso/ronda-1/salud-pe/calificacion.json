@@ -1,0 +1,20 @@
+{
+  "entidad": "Clínica del Pacífico Sintética",
+  "agentes": [
+    "alexis",
+    "amparo",
+    "guillermo"
+  ],
+  "tokens": 6049493,
+  "senales": {
+    "esperadas": 25,
+    "acertadas": 25,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 10,
+  "agente": "guillermo",
+  "comando": "vuln-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T18:00:07",
+  "estado": "success",
+  "error": false,
+  "segundos": 71,
+  "turnos": 10,
+  "tokens": 459428,
+  "tokens_salida": 6267,
+  "costo_usd": 0.20600779999999996,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-vuln-scan-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-vuln-scan.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/vulnerabilidades/2026-10/reporte-vuln-scan.md"
+    ],
+    "modificados": [
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/indice.json"
+    ],
+    "borrados": []
+  }
+}

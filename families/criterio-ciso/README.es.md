@@ -300,9 +300,9 @@ es lo que la declara probada, y sale con la 0.2.0. Laboratorio o estable lo dice
 <!-- ciso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Alexis** · El gobierno y los controles | `criterio-security` · 9 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · Las vulnerabilidades | `criterio-vulnerability` · 7 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · La respuesta y la recuperación | `criterio-resilience` · 7 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · El gobierno y los controles | `criterio-security` · 9 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · Las vulnerabilidades | `criterio-vulnerability` · 7 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · La respuesta y la recuperación | `criterio-resilience` · 7 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /ciso:estado -->
 

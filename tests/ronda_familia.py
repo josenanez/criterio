@@ -398,7 +398,10 @@ def _material(sigla: str, carpeta: str) -> str:
     mat = RAIZ / "tests" / f"criterio-{sigla}" / "material"
     ent = max((e.name for e in mat.iterdir() if carpeta == e.name or carpeta.startswith(f"{e.name}-")), key=len)
     k = _j(mat / ent / "clave.json")
-    sembrado = len(k["siembra"]) if isinstance(k["siembra"], list) else sum(len(v) for v in k["siembra"].values())
+    # La siembra es una lista (CFO, CCO), un dict por agente (CLO, EA) o, en la CISO, si la entidad
+    # trae defectos o es de control.
+    s_ = k["siembra"]
+    sembrado = (int(s_) if isinstance(s_, bool) else len(s_) if isinstance(s_, list) else sum(len(v) for v in s_.values()))
     return f"{'control' if sembrado == 0 else k['industria']} · {k['pais']}"
 
 

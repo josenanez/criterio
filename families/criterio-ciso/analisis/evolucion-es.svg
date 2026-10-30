@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" font-family="Inter, Arial, sans-serif" font-size="12">
+<rect width="760" height="380" fill="#050505"/>
+<text x="60" y="32" font-size="17" fill="#f5f4ef">Evolución por ronda</text>
+<text x="60" y="54" fill="#8a867e">Porcentaje en las entidades de cada ronda, contra la clave</text>
+<line x1="60" x2="78" y1="78" y2="78" stroke="#d5a84b" stroke-width="3"/><text x="84" y="82" fill="#f5f4ef">Señales · cobertura</text>
+<line x1="225" x2="243" y1="78" y2="78" stroke="#4f86c6" stroke-width="3"/><text x="249" y="82" fill="#f5f4ef">Señales · precisión</text>
+<line x1="390" x2="408" y1="78" y2="78" stroke="#3f9a6a" stroke-width="3"/><text x="414" y="82" fill="#f5f4ef">Extracción · datos</text>
+<line x1="60" x2="700" y1="330.0" y2="330.0" stroke="#2b2b28"/><text x="52" y="334.0" text-anchor="end" fill="#8a867e">0 %</text>
+<line x1="60" x2="700" y1="275.0" y2="275.0" stroke="#2b2b28"/><text x="52" y="279.0" text-anchor="end" fill="#8a867e">25 %</text>
+<line x1="60" x2="700" y1="220.0" y2="220.0" stroke="#2b2b28"/><text x="52" y="224.0" text-anchor="end" fill="#8a867e">50 %</text>
+<line x1="60" x2="700" y1="165.0" y2="165.0" stroke="#2b2b28"/><text x="52" y="169.0" text-anchor="end" fill="#8a867e">75 %</text>
+<line x1="60" x2="700" y1="110.0" y2="110.0" stroke="#2b2b28"/><text x="52" y="114.0" text-anchor="end" fill="#8a867e">100 %</text>
+<line x1="60" x2="700" y1="112.2" y2="112.2" stroke="#8a867e" stroke-dasharray="4 4"/><text x="706" y="116.2" fill="#8a867e">99 %</text>
+<text x="60.0" y="350" text-anchor="middle" fill="#8a867e">R1</text>
+<path d="M60.0,110.0" fill="none" stroke="#d5a84b" stroke-width="2.5"/>
+<circle cx="60.0" cy="110.0" r="3.5" fill="#d5a84b"/>
+<path d="M60.0,110.0" fill="none" stroke="#4f86c6" stroke-width="2.5"/>
+<circle cx="60.0" cy="110.0" r="3.5" fill="#4f86c6"/>
+<path d="M60.0,110.0" fill="none" stroke="#3f9a6a" stroke-width="2.5"/>
+<circle cx="60.0" cy="110.0" r="3.5" fill="#3f9a6a"/>
+</svg>

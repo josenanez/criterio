@@ -1,0 +1,31 @@
+{
+  "n": 10,
+  "agente": "guillermo",
+  "comando": "vuln-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T18:19:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 10,
+  "tokens": 454566,
+  "tokens_salida": 4424,
+  "costo_usd": 0.1663524,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-10-30-vuln-scan-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-10-30-vuln-scan-1.md",
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/corridas/2026-10-15-vuln-scan-1.md",
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/corridas/salida-vuln-scan.md",
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/vulnerabilidades/2026-10/reporte-vuln-scan.md"
+    ],
+    "modificados": [
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/corridas.json",
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/indice.json"
+    ],
+    "borrados": []
+  }
+}

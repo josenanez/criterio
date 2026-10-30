@@ -1,0 +1,28 @@
+{
+  "n": 16,
+  "agente": "amparo",
+  "comando": "resilience-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T18:21:59",
+  "estado": "success",
+  "error": false,
+  "segundos": 113,
+  "turnos": 28,
+  "tokens": 1150031,
+  "tokens_salida": 7767,
+  "costo_usd": 0.37515550000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/corridas/2026-10-15-resilience-scan-1.md",
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/corridas/salida-resilience-scan.md",
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/resiliencia/2026-10/reporte-resilience-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/cache/manifest.json",
+      "estado-seguridad/20512345678-clinica-del-pacifico-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

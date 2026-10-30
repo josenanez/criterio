@@ -1,0 +1,20 @@
+{
+  "entidad": "Banco Cordillera Sintético",
+  "agentes": [
+    "alexis",
+    "amparo",
+    "guillermo"
+  ],
+  "tokens": 5280571,
+  "senales": {
+    "esperadas": 25,
+    "acertadas": 25,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

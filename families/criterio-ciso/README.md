@@ -295,9 +295,9 @@ evidence (decision 0020), and on the day the family is launched, if it is stable
 <!-- ciso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Alexis** · Governance and controls | `criterio-security` · 9 commands, 3 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · Vulnerabilities | `criterio-vulnerability` · 7 commands, 3 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · Response and recovery | `criterio-resilience` · 7 commands, 3 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · Governance and controls | `criterio-security` · 9 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · Vulnerabilities | `criterio-vulnerability` · 7 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · Response and recovery | `criterio-resilience` · 7 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /ciso:estado -->
 

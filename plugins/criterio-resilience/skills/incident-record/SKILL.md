@@ -35,7 +35,7 @@ Una ficha por periodo, en `<estado>/resiliencia/<AAAA-MM>/ficha.json`. La matriz
 - **`personal_data`**, **`customers_affected`**: lo que dice el informe. Si no lo dice, `null` y una pregunta.
 - **`notifications`**: una por constancia —el radicado, el correo enviado, el acuse— con su destinatario, su hora y su archivo. Una notificación que el informe menciona y de la que no hay constancia va con la cita del informe y la hora que él dice.
 - **`reviews`**: la revisión posterior —las lecciones aprendidas— con su fecha y su archivo.
-- **`reviewed`**: lo que se miró y no va —un borrador, un documento que no es de un incidente—, con su archivo y su motivo. Así el motor no lo vuelve a pedir.
+- **`reviewed`**: lo que se miró y no va —un borrador, un documento que no es de un incidente—, con su archivo y su motivo. Así el motor no lo vuelve a pedir. **Lo que el motor excluye —credenciales, llaves y respaldos— no va aquí**: no se miró, y ya lo lista `seguridad.py excluidos`, que es lo que el reporte cita (CISO-3).
 
 ## Lo que nunca va
 
