@@ -16,8 +16,11 @@ body:
       label: Familia · Family
       options:
         - Criterio PMO · Vera, Samuel, Alba
-        - Criterio CFO · Clara, Tomás
+        - Criterio CFO · Clara, Tomás, Áurea
         - Criterio CLO · Fidel, Constanza
+        - Criterio EA · Ofelia
+        - Criterio CCO · Augusto, Valeria
+        - Criterio CISO · Alexis, Guillermo, Amparo
         - Rostrum
     validations:
       required: true

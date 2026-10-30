@@ -19,6 +19,8 @@ separada rompe la misma puerta que todo lo demás.
 from __future__ import annotations
 
 import argparse
+import json
+import re
 import sys
 from pathlib import Path
 
@@ -239,6 +241,28 @@ def _comparar(copia: Path, esperado: str, etiqueta: str, porque: str,
     print(f"  copiado {etiqueta}   · {porque}")
 
 
+# Las plantillas de issue llevan la lista de familias con sus agentes. Sale de cada familia.json,
+# para que una familia nueva no se quede fuera del canal por el que se comparte un hallazgo.
+PLANTILLAS = RAIZ / ".github" / "ISSUE_TEMPLATE"
+ORDEN_FAMILIAS = ["pmo", "cfo", "clo", "ea", "cco", "ciso"]
+
+
+def opciones_familias() -> list[str]:
+    familias = [json.loads(f.read_text(encoding="utf-8"))
+                for f in sorted((RAIZ / "families").glob("*/familia.json"))]
+    familias.sort(key=lambda d: (ORDEN_FAMILIAS.index(d["sigla"]) if d["sigla"] in ORDEN_FAMILIAS
+                                 else len(ORDEN_FAMILIAS), d["sigla"]))
+    return [f"Criterio {d['sigla'].upper()} · " + ", ".join(a["nombre"] for a in d["agentes"])
+            for d in familias] + ["Rostrum"]
+
+
+def plantilla_con_familias(texto: str) -> str:
+    patron = re.compile(r"(    id: familia\n    attributes:\n      label: [^\n]*\n      options:\n)"
+                        r"((?:        - [^\n]*\n)+)")
+    lineas = "".join(f"        - {o}\n" for o in opciones_familias())
+    return patron.sub(lambda m: m.group(1) + lineas, texto, count=1)
+
+
 def revisar(escribir: bool) -> int:
     estado = {"problemas": [], "tocados": [], "iguales": 0}
 
@@ -306,6 +330,13 @@ def revisar(escribir: bool) -> int:
                 continue
             _comparar(RAIZ / "plugins" / plugin / destino, origen.read_text(encoding="utf-8"),
                       f"{plugin}/{destino}", porque, escribir, 0o644, estado)
+
+    for plantilla in sorted(PLANTILLAS.glob("*.yml")):
+        texto = plantilla.read_text(encoding="utf-8")
+        if "id: familia" in texto:
+            _comparar(plantilla, plantilla_con_familias(texto),
+                      f".github/ISSUE_TEMPLATE/{plantilla.name}",
+                      "la lista de familias y agentes sale de cada familia.json", escribir, 0o644, estado)
 
     if estado["problemas"]:
         print()
