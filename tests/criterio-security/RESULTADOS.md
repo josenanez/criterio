@@ -2,7 +2,7 @@
 
 **el agente del gobierno y los controles de la familia CISO** · plugin `criterio-security`
 
-Corrida del 2026-10-30, sobre el commit `18b037db`, con cambios en el árbol todavía sin confirmar. **2 puertas · 31 comprobaciones · todas en verde.**
+Corrida del 2026-10-30, sobre el commit `e6f8438d`, con cambios en el árbol todavía sin confirmar. **2 puertas · 31 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-30, sobre el commit `18b037db`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-security/seguridad.py selftest` | El motor de Alexis, Guillermo y Amparo: la escala del CVSS, el catálogo KEV, lo que nunca se abre y una entidad mínima con todo mal | 24 | 111 ms | verde |
-| `criterio-ciso/evaluar.py` | Que Alexis levante cada señal sembrada en los controles, los accesos, los terceros y los riesgos, y ninguna en los controles | 7 | 149 ms | verde |
+| `criterio-security/seguridad.py selftest` | El motor de Alexis, Guillermo y Amparo: la escala del CVSS, el catálogo KEV, lo que nunca se abre y una entidad mínima con todo mal | 24 | 104 ms | verde |
+| `criterio-ciso/evaluar.py` | Que Alexis levante cada señal sembrada en los controles, los accesos, los terceros y los riesgos, y ninguna en los controles | 7 | 147 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 

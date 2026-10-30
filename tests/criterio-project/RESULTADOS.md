@@ -2,7 +2,7 @@
 
 **el agente del gerente de proyecto** · plugin `criterio-project`
 
-Corrida del 2026-10-30, sobre el commit `18b037db`, con cambios en el árbol todavía sin confirmar. **4 puertas · 164 comprobaciones · todas en verde.**
+Corrida del 2026-10-30, sobre el commit `e6f8438d`, con cambios en el árbol todavía sin confirmar. **4 puertas · 164 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,10 +10,10 @@ Corrida del 2026-10-30, sobre el commit `18b037db`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 83 ms | verde |
-| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 119 | 131 ms | verde |
-| `criterio-project/texto.py` | La copia de la conversión, igual | 26 | 71 ms | verde |
-| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 148 ms | verde |
+| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 58 ms | verde |
+| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 119 | 133 ms | verde |
+| `criterio-project/texto.py` | La copia de la conversión, igual | 26 | 75 ms | verde |
+| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 136 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
