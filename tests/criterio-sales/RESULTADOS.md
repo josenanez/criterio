@@ -2,7 +2,7 @@
 
 **el agente del pronóstico de la familia CSO** · plugin `criterio-sales`
 
-Corrida del 2026-10-29, sobre el commit `7b708369`, con cambios en el árbol todavía sin confirmar. **2 puertas · 31 comprobaciones · todas en verde.**
+Corrida del 2026-10-29, sobre el commit `c5e916d9`, con cambios en el árbol todavía sin confirmar. **2 puertas · 31 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-29, sobre el commit `7b708369`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-sales/ventas.py selftest` | El motor de Augusto y Valeria: los lectores de Salesforce, de HubSpot y de cualquier CRM, las fechas mes/día y una entidad mínima con todo mal | 24 | 123 ms | verde |
-| `criterio-cso/evaluar.py` | Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles | 7 | 271 ms | verde |
+| `criterio-sales/ventas.py selftest` | El motor de Augusto y Valeria: los lectores de Salesforce, de HubSpot y de cualquier CRM, las fechas mes/día y una entidad mínima con todo mal | 24 | 119 ms | verde |
+| `criterio-cso/evaluar.py` | Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles | 7 | 297 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
