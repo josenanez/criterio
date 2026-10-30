@@ -163,6 +163,8 @@ PUERTAS = [
      "Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/resultados.py"), "--selftest"],
      "Que la página de resultados no deje una puerta sin dueño"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/descargas.py"), "selftest"],
+     "el historial de descargas conserva cada día que sale de la ventana de GitHub"),
 ]
 
 VERDE, ROJO, GRIS = "\033[32m", "\033[31m", "\033[90m"

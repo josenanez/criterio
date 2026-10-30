@@ -1,0 +1,49 @@
+name: descargas
+
+# Las descargas de Criterio, día por día (scripts/descargas.py). GitHub guarda solo los últimos
+# catorce días de tráfico: este flujo los lee a diario y los suma al historial de la rama
+# `descargas`, para que ningún día se pierda. Necesita el secreto TRAFFIC_TOKEN, un token de grano
+# fino con lectura de administración sobre este repositorio; lo crea quien lo administra.
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capturar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.11"
+      - name: El historial, de la rama descargas
+        run: |
+          git fetch origin descargas:descargas 2>/dev/null || true
+          mkdir -p historial
+          if git show-ref --verify --quiet refs/heads/descargas; then
+            git --work-tree=historial checkout descargas -- descargas.csv 2>/dev/null || true
+          fi
+      - name: Capturar el día
+        env:
+          TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
+        run: python3 scripts/descargas.py capturar --csv historial/descargas.csv
+      - name: Guardar en la rama descargas
+        run: |
+          cp historial/descargas.csv /tmp/descargas.csv
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git show-ref --verify --quiet refs/heads/descargas; then
+            git checkout descargas
+          else
+            git checkout --orphan descargas
+            git rm -rf --quiet .
+          fi
+          cp /tmp/descargas.csv descargas.csv
+          git add descargas.csv
+          git diff --cached --quiet || git commit -m "Descargas al $(date -u +%F)"
+          git push origin descargas

@@ -1,6 +1,6 @@
 # 0013 · Propuesta: el alcance se amplía a seguridad de la información (CISO)
 
-**Fecha:** 2026-10-23 · **Estado:** propuesta · **Modifica:** 0012
+**Fecha:** 2026-10-23 · **Estado:** aceptada, con su diseño en la 0023 (2026-10-30) · **Modifica:** 0012
 
 ## Contexto
 
