@@ -1,6 +1,6 @@
 # 0024 · Honduras: la factura con su CAI, no un XML
 
-**Fecha:** 2026-10-30 · **Estado:** propuesta · **Modifica:** el lector de factura de la familia CFO
+**Fecha:** 2026-10-30 · **Estado:** aceptada el 2026-10-30 · **Modifica:** el lector de factura de la familia CFO
 
 ## Contexto
 
@@ -60,8 +60,11 @@ por ciento (15%) de su valor» (artículo 100), y la de mantenimiento de oferta 
 (artículo 99). La regla de la CLO entra como en los demás países, con mínimo y tope iguales al
 15 %. El sistema de publicación no está en ese texto; queda por verificar.
 
-## Lo que queda abierto
+## Lo que se decidió
 
-1. Aprobar la señal nueva y que Honduras entre sin lector XML.
+1. José Francisco Ñáñez aprobó el 30 de octubre de 2026 la señal nueva y que Honduras entre sin
+   lector XML.
 2. Si el SAR publica el formato de la factura electrónica con su CAEE, entra como un lector más,
    desde su fuente verificada, y esta decisión se modifica.
+3. Los textos son los que hay: el Acuerdo 481-2017 original. Si llega el consolidado de 2025, se
+   revisan los artículos 10 y 11 contra él.

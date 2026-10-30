@@ -1,6 +1,6 @@
 # 0025 · Compartir hallazgos: un resumen sin datos, que la persona ve completo y abre ella
 
-**Fecha:** 2026-10-30 · **Estado:** propuesta · **Modifica:** el canal de vuelta de quien instala
+**Fecha:** 2026-10-30 · **Estado:** aceptada el 2026-10-30 · **Modifica:** el canal de vuelta de quien instala
 
 ## Contexto
 
@@ -40,8 +40,8 @@ los plugins de agente (se sincroniza como `rastro.py`):
 5. **Una compuerta del repositorio** corre el motor sobre el material de prueba y falla si el
    resumen trae cualquier valor que esté en una ficha: nombres, identificaciones o cifras.
 
-## Lo que queda abierto
+## Lo que se decidió
 
-1. Aprobar el comando y su nombre.
-2. Si el resumen debe incluir también los defectos que la persona marque en Rostrum, o solo lo que
-   midió el arnés.
+1. José Francisco Ñáñez aprobó el comando y su nombre, `share-findings`, el 30 de octubre de 2026.
+2. El resumen lleva solo lo que midió el arnés. Lo que la persona quiera contar de Rostrum lo
+   escribe ella, con sus palabras, en la plantilla.
