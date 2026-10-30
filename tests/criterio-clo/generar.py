@@ -453,8 +453,12 @@ def completar_publica(e: dict, x: dict) -> None:
     publicado = None if pb["sin_pub"] else (L.dia_habil(firmado, n, set()) if tipo == "habiles" else firmado + dt.timedelta(days=n))
     modalidad = doc("contratación directa" if pb["directa"] and e["pais"] != "CL" else "trato directo" if pb["directa"] else "licitación pública",
                     "contratação direta" if pb["directa"] else "licitação")
-    c["public"] = {"system": SISTEMA[e["pais"]], "published_on": iso(publicado) if publicado else None, "modality": modalidad,
-                   "source": f"{x['carpeta']}/10-contrato/{doc('constancia-publicacion', 'comprovante-divulgacao')}.md" if publicado else None}
+    # La ficha guarda la modalidad como la define el skill —licitación o directa—, y el documento la
+    # dice como en su país (CLO-13). Sin constancia de publicación, nada de lo público está escrito.
+    c["public"] = ({"system": SISTEMA[e["pais"]], "published_on": iso(publicado), "modality": "directa" if pb["directa"] else "licitación",
+                    "source": f"{x['carpeta']}/10-contrato/{doc('constancia-publicacion', 'comprovante-divulgacao')}.md"} if publicado else
+                   {"system": None, "published_on": None, "modality": None, "source": None})
+    c["_modalidad_doc"] = modalidad
     for g in c["guarantees_provided"]:
         if g["type"] == "cumplimiento":
             g["amount"] = round(c["value"] * pb["pct"], 2)
@@ -620,13 +624,13 @@ O contrato justifica uma garantia maior que a habitual pela complexidade técnic
 
 Sistema: {pb['system']}. Proceso del contrato {c['code']}, {OBJETO[c['type']].lower()}, con {c['counterparty']['name']}.
 
-Modalidad: {pb['modality']}. Fecha de publicación del contrato: {pb['published_on']}.
+Modalidad: {c['_modalidad_doc']}. Fecha de publicación del contrato: {pb['published_on']}.
 """, f"""
 # Comprovante de divulgação
 
 Portal: {pb['system']}. Contrato {c['code']}, com {c['counterparty']['name']}.
 
-Modalidade: {pb['modality']}. Data de divulgação do contrato: {pb['published_on']}.
+Modalidade: {c['_modalidad_doc']}. Data de divulgação do contrato: {pb['published_on']}.
 """))
     cert = c["counterparty_certificate"]
     md(base / "30-contraparte" / doc("certificado.md", "certidao.md"), doc(f"""
@@ -937,7 +941,8 @@ El umbral desde el cual se exige la garantía de cumplimiento es hoy de {umbral_
              "config": {"fidel": dict({"entity": entidad, "paths": rutas}, **({"public_procurement": publica} if publica else {})),
                         "constanza": {"entity": entidad, "paths": rutas, "period": PERIODO,
                                       "compliance": {"contract_records": f"estado-legal/{ent_dir}/contratos"}}},
-             "extraccion": {"contratos": {x["ficha"]["code"]: x["ficha"] for x in cs}, "cumplimiento": ext},
+             "extraccion": {"contratos": {x["ficha"]["code"]: {k: v for k, v in x["ficha"].items() if not k.startswith("_")} for x in cs},
+                            "cumplimiento": ext},
              "esperado": sorted(({"signal": a, "key": b} for a, b in set(esperado)), key=lambda z: (z["signal"], z["key"]))}
     if LANG[0] == "pt":
         # Lo que es texto del documento va como lo dice él: lo que se entrega, el cargo de quien firma

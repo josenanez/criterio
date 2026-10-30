@@ -365,7 +365,10 @@ SINONIMOS = {
     "ativo": "activo", "em_execucao": "en_ejecucion", "mensal": "mensual", "apresentado": "presentado", "apresentada": "presentada",
     "cumprimento": "cumplimiento", "qualidade": "calidad", "sim": "si", "em_cumprimento": "en_cumplimiento", "sem_novidades": "sin_novedades",
     "servicos": "servicios", "fornecimento": "suministro", "locacao": "arrendamiento", "licenca": "licencia", "manutencao": "mantenimiento",
-    "encerrar": "terminar", "encerrado": "terminado", "em_andamento": "en_curso", "pendente": "pendiente", "aberto": "abierto", "com_ressalvas": "con_observaciones", "a_avaliar": "por_evaluar", "empresa": "entidad",
+    "encerrar": "terminar", "encerrado": "terminado", "em_andamento": "en_curso", "pendente": "pendiente", "aberto": "abierto",
+    # La modalidad de un contrato público, como la dice cada país (CLO, incremento 6).
+    "licitacao": "licitacion", "licitacion_publica": "licitacion", "licitacao_publica": "licitacion", "contratacao_direta": "directa",
+    "contratacion_directa": "directa", "trato_directo": "directa", "adjudicacion_directa": "directa", "com_ressalvas": "con_observaciones", "a_avaliar": "por_evaluar", "empresa": "entidad",
 }
 
 

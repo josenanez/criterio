@@ -127,7 +127,7 @@
         "public": {
           "system": "Mercado Público",
           "published_on": "2026-01-02",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-2201-tecnologia-fiscal-spa/10-contrato/constancia-publicacion.md"
         }
       },
@@ -213,7 +213,7 @@
         "public": {
           "system": "Mercado Público",
           "published_on": "2025-07-02",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-2202-insumos-publicos-spa/10-contrato/constancia-publicacion.md"
         }
       },
@@ -289,7 +289,7 @@
         "public": {
           "system": "Mercado Público",
           "published_on": "2025-02-02",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-2203-inmobiliaria-fiscal-s-a/10-contrato/constancia-publicacion.md"
         }
       },
@@ -365,7 +365,7 @@
         "public": {
           "system": "Mercado Público",
           "published_on": "2026-03-02",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-2204-software-publico-spa/10-contrato/constancia-publicacion.md"
         }
       },
@@ -445,7 +445,7 @@
         "public": {
           "system": "Mercado Público",
           "published_on": "2026-01-30",
-          "modality": "trato directo",
+          "modality": "directa",
           "source": "contratos/CTR-2205-consultora-publica-spa/10-contrato/constancia-publicacion.md"
         }
       },
@@ -521,7 +521,7 @@
         "public": {
           "system": "Mercado Público",
           "published_on": "2025-10-02",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-2206-mantencion-fiscal-spa/10-contrato/constancia-publicacion.md"
         }
       }

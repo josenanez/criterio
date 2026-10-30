@@ -128,7 +128,7 @@
         "public": {
           "system": "SECOP II",
           "published_on": "2025-12-31",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-1901-tecnologia-publica-s-a-s/10-contrato/constancia-publicacion.md"
         }
       },
@@ -212,9 +212,9 @@
         "decision": null,
         "source": "contratos/CTR-1902-suministros-del-estado-s-a-s/10-contrato/contrato.md",
         "public": {
-          "system": "SECOP II",
+          "system": null,
           "published_on": null,
-          "modality": "licitación pública",
+          "modality": null,
           "source": null
         }
       },
@@ -290,7 +290,7 @@
         "public": {
           "system": "SECOP II",
           "published_on": "2025-01-30",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-1903-inmuebles-oficiales-s-a/10-contrato/constancia-publicacion.md"
         }
       },
@@ -366,7 +366,7 @@
         "public": {
           "system": "SECOP II",
           "published_on": "2026-03-04",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-1904-software-institucional-s-a-s/10-contrato/constancia-publicacion.md"
         }
       },
@@ -446,7 +446,7 @@
         "public": {
           "system": "SECOP II",
           "published_on": "2026-01-30",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-1905-consultoria-estatal-s-a-s/10-contrato/constancia-publicacion.md"
         }
       },
@@ -522,7 +522,7 @@
         "public": {
           "system": "SECOP II",
           "published_on": "2025-10-06",
-          "modality": "licitación pública",
+          "modality": "licitación",
           "source": "contratos/CTR-1906-mantenimiento-publico-s-a-s/10-contrato/constancia-publicacion.md"
         }
       }

@@ -128,7 +128,7 @@
         "public": {
           "system": "PNCP",
           "published_on": "2026-01-21",
-          "modality": "licitação",
+          "modality": "licitación",
           "source": "contratos/CTR-2401-tecnologia-publica-ltda/10-contrato/comprovante-divulgacao.md"
         }
       },
@@ -212,9 +212,9 @@
         "decision": null,
         "source": "contratos/CTR-2402-suprimentos-do-estado-ltda/10-contrato/contrato.md",
         "public": {
-          "system": "PNCP",
+          "system": null,
           "published_on": null,
-          "modality": "licitação",
+          "modality": null,
           "source": null
         }
       },
@@ -290,7 +290,7 @@
         "public": {
           "system": "PNCP",
           "published_on": "2025-02-20",
-          "modality": "licitação",
+          "modality": "licitación",
           "source": "contratos/CTR-2403-imoveis-oficiais-s-a/10-contrato/comprovante-divulgacao.md"
         }
       },
@@ -366,7 +366,7 @@
         "public": {
           "system": "PNCP",
           "published_on": "2026-03-13",
-          "modality": "contratação direta",
+          "modality": "directa",
           "source": "contratos/CTR-2404-software-institucional-ltda/10-contrato/comprovante-divulgacao.md"
         }
       },
@@ -447,7 +447,7 @@
         "public": {
           "system": "PNCP",
           "published_on": "2026-02-20",
-          "modality": "licitação",
+          "modality": "licitación",
           "source": "contratos/CTR-2405-consultoria-publica-ltda/10-contrato/comprovante-divulgacao.md"
         }
       },
@@ -523,7 +523,7 @@
         "public": {
           "system": "PNCP",
           "published_on": "2025-10-22",
-          "modality": "licitação",
+          "modality": "licitación",
           "source": "contratos/CTR-2406-manutencao-publica-ltda/10-contrato/comprovante-divulgacao.md"
         }
       }
