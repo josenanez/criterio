@@ -198,7 +198,7 @@ FRASES_PT = PERSONAS_PT + [
     ("Contratista de obra", "Empreiteira"), ("Crédito de tesorería", "Capital de giro"), ("Inversión a término", "CDB"),
     ("Banco del Norte", "Banco Bandeirante"), ("Banco del Sur", "Banco do Litoral"), ("deuda", "divida"), ("inversion", "investimento"),
     ("Razón corriente", "Liquidez corrente"), ("Endeudamiento", "Endividamento"),
-    ("Revisar el contrato de vigilancia", "Revisar o contrato de vigilância"), ("abierto", "aberto"),
+    ("Revisar el contrato de vigilancia", "Revisar o contrato de vigilância"),
 ] + [(f" de {m}", f" de {n}") for m, n in zip(F.N.MESES_LARGO, F.N.MESES_LARGO_PT)]
 FRASES_PT.sort(key=lambda x: -len(x[0]))
 EXACTAS_PT = dict(FRASES_PT)
@@ -854,7 +854,9 @@ def generar(e: dict) -> dict:
        doc(f"De: Sofía León\nPara: Gerencia financiera\nFecha: 2026-10-05\nAsunto: Cierre de septiembre\n\nEl cierre de septiembre está {declarado}.",
            f"De: Sofia Leão\nPara: Diretoria financeira\nData: 2026-10-05\nAssunto: Fechamento de setembro\n\n"
            f"O fechamento de setembro está {'fechado' if declarado == 'cerrado' else 'em andamento'}."))
-    extraccion["cierre"]["declared"] = {"status": doc(declarado, "fechado" if declarado == "cerrado" else "em andamento"), "source": f"{PERIODO}/40-soportes/correo-estado-del-cierre.md", "date": "2026-10-05", "by": "Sofía León"}
+    # El estado, el «dentro» de un área y el de un compromiso son valores de la ficha, los mismos en
+    # cualquier idioma del documento (CFO-11): el agente los escribe así.
+    extraccion["cierre"]["declared"] = {"status": declarado, "source": f"{PERIODO}/40-soportes/correo-estado-del-cierre.md", "date": "2026-10-05", "by": "Sofía León"}
     if declarado == "cerrado":
         esperado.append(("declared_close_vs_evidence", "cierre"))
     reqs = [["id", "solicitud", "fecha", "fecha_limite", "responsable", "estado"],
@@ -928,7 +930,7 @@ def generar(e: dict) -> dict:
         md(pr / "30-proyecciones" / f"correo-{area.lower().replace('ó', 'o')}.md",
            doc(f"De: {area}\nFecha: 2026-10-01\n\nEl área de {area} va dentro del presupuesto.",
                f"De: {tr(area)}\nData: 2026-10-01\n\nA área de {tr(area)} está dentro do orçamento."))
-        extraccion["presupuesto"]["area_statements"].append({"area": area, "says": doc("dentro", "dentro do orçamento"), "source": f"presupuesto-{ANIO}/30-proyecciones/correo-{area.lower().replace('ó', 'o')}.md", "date": "2026-10-01"})
+        extraccion["presupuesto"]["area_statements"].append({"area": area, "says": "dentro", "source": f"presupuesto-{ANIO}/30-proyecciones/correo-{area.lower().replace('ó', 'o')}.md", "date": "2026-10-01"})
     if "area_declara_dentro" in s:
         esperado.append(("declared_vs_evidence", "declara:Administración"))
 

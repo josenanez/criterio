@@ -1,0 +1,493 @@
+{
+  "entidad": "Comercial Controle Paulista",
+  "industria": "retail",
+  "pais": "BR",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "40217355000151",
+        "name": "Comercial Controle Paulista",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "legal/40217355000151-comercial-controle-paulista",
+        "state": "estado-legal/40217355000151-comercial-controle-paulista"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "40217355000151",
+        "name": "Comercial Controle Paulista",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "legal/40217355000151-comercial-controle-paulista",
+        "state": "estado-legal/40217355000151-comercial-controle-paulista"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/40217355000151-comercial-controle-paulista/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-1801": {
+        "code": "CTR-1801",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Transportes Controle Ltda.",
+          "id": "01800001000183"
+        },
+        "value": 320000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Beatriz Lopes",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Transportes Controle Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1801-transportes-controle-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1801-transportes-controle-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-1801-transportes-controle-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Transportes Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1801-transportes-controle-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-03-31",
+            "who": "Transportes Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1801-transportes-controle-ltda/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Relatório de operações ao responsável de compliance",
+            "due": "2026-09-30",
+            "who": "Transportes Controle Ltda.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-1801-transportes-controle-ltda/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1801-transportes-controle-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1802": {
+        "code": "CTR-1802",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Insumos Controle Ltda.",
+          "id": "01800002000128"
+        },
+        "value": 160000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Rafael Mendes",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Insumos Controle Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 40000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Rafael Mendes",
+            "source": "contratos/CTR-1802-insumos-controle-ltda/10-contrato/aditivo-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1802-insumos-controle-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1802-insumos-controle-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-1802-insumos-controle-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Insumos Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1802-insumos-controle-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-12-31",
+            "who": "Insumos Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1802-insumos-controle-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1802-insumos-controle-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1803": {
+        "code": "CTR-1803",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Armazéns Controle S.A.",
+          "id": "01800003000172"
+        },
+        "value": 240000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Beatriz Lopes",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Armazéns Controle S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1803-armazens-controle-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1803-armazens-controle-s-a/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-1803-armazens-controle-s-a/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Armazéns Controle S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1803-armazens-controle-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-12-31",
+            "who": "Armazéns Controle S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1803-armazens-controle-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1803-armazens-controle-s-a/10-contrato/contrato.md"
+      },
+      "CTR-1804": {
+        "code": "CTR-1804",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Software Controle Ltda.",
+          "id": "01800004000117"
+        },
+        "value": 120000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Rafael Mendes",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Software Controle Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1804-software-controle-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1804-software-controle-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-1804-software-controle-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Software Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1804-software-controle-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-02-28",
+            "who": "Software Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1804-software-controle-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1804-software-controle-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1805": {
+        "code": "CTR-1805",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Assessoria Controle Ltda.",
+          "id": "01800005000161"
+        },
+        "value": 80000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Rafael Mendes",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Assessoria Controle Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1805-assessoria-controle-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1805-assessoria-controle-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-1805-assessoria-controle-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Assessoria Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1805-assessoria-controle-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-11-20",
+            "who": "Assessoria Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1805-assessoria-controle-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-1805-assessoria-controle-ltda/40-ejecucion/ata-comite-contratos.md"
+        },
+        "source": "contratos/CTR-1805-assessoria-controle-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1806": {
+        "code": "CTR-1806",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Manutenção Controle Ltda.",
+          "id": "01800006000106"
+        },
+        "value": 200000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Beatriz Lopes",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Manutenção Controle Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1806-manutencao-controle-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1806-manutencao-controle-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-1806-manutencao-controle-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-07-06",
+            "who": "Manutenção Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1806-manutencao-controle-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-07-31",
+            "who": "Manutenção Controle Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1806-manutencao-controle-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1806-manutencao-controle-ltda/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/relatorio-compliance-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletim-2026-09.md, item 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

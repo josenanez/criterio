@@ -1,0 +1,538 @@
+{
+  "entidad": "Lojas Paulistas",
+  "industria": "retail",
+  "pais": "BR",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "contrato_por_vencer",
+      "otrosi_sin_facultad",
+      "pago_despues",
+      "garantia_corta",
+      "registro_sin_documento"
+    ],
+    "constanza": [
+      "sin_fuente",
+      "politica_vencida",
+      "caso_vencido",
+      "cumplida_sin_evidencia",
+      "norma_aplica_sin_matriz"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "31452078000170",
+        "name": "Lojas Paulistas",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "legal/31452078000170-lojas-paulistas",
+        "state": "estado-legal/31452078000170-lojas-paulistas"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "31452078000170",
+        "name": "Lojas Paulistas",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "legal/31452078000170-lojas-paulistas",
+        "state": "estado-legal/31452078000170-lojas-paulistas"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/31452078000170-lojas-paulistas/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-1701": {
+        "code": "CTR-1701",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística Paulista Ltda.",
+          "id": "01700001000101"
+        },
+        "value": 440000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Juliana Ribeiro",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística Paulista Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1701-logistica-paulista-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-05-31",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1701-logistica-paulista-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-1701-logistica-paulista-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Logística Paulista Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1701-logistica-paulista-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-03-31",
+            "who": "Logística Paulista Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1701-logistica-paulista-ltda/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Relatório de operações ao responsável de compliance",
+            "due": "2026-09-30",
+            "who": "Logística Paulista Ltda.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-1701-logistica-paulista-ltda/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1701-logistica-paulista-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1702": {
+        "code": "CTR-1702",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Embalagens do Vale Ltda.",
+          "id": "01700002000156"
+        },
+        "value": 220000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Marcelo Tavares",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Embalagens do Vale Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 385000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Marcelo Tavares",
+            "source": "contratos/CTR-1702-embalagens-do-vale-ltda/10-contrato/aditivo-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1702-embalagens-do-vale-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1702-embalagens-do-vale-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-1702-embalagens-do-vale-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Embalagens do Vale Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1702-embalagens-do-vale-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-12-31",
+            "who": "Embalagens do Vale Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1702-embalagens-do-vale-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1702-embalagens-do-vale-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1703": {
+        "code": "CTR-1703",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Shopping Centro Sul S.A.",
+          "id": "01700003000109"
+        },
+        "value": 330000,
+        "start": "2025-02-01",
+        "end": "2026-11-25",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Juliana Ribeiro",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Shopping Centro Sul S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1703-shopping-centro-sul-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-25",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1703-shopping-centro-sul-s-a/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-1703-shopping-centro-sul-s-a/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Shopping Centro Sul S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1703-shopping-centro-sul-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-11-25",
+            "who": "Shopping Centro Sul S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1703-shopping-centro-sul-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1703-shopping-centro-sul-s-a/10-contrato/contrato.md"
+      },
+      "CTR-1704": {
+        "code": "CTR-1704",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Pagamentos Online Ltda.",
+          "id": "01700004000145"
+        },
+        "value": 165000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Marcelo Tavares",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Pagamentos Online Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1704-pagamentos-online-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1704-pagamentos-online-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-1704-pagamentos-online-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Pagamentos Online Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1704-pagamentos-online-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-02-28",
+            "who": "Pagamentos Online Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1704-pagamentos-online-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1704-pagamentos-online-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1705": {
+        "code": "CTR-1705",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Marketing Integrado Ltda.",
+          "id": "01700005000190"
+        },
+        "value": 110000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Marcelo Tavares",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Marketing Integrado Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1705-marketing-integrado-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1705-marketing-integrado-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-1705-marketing-integrado-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Marketing Integrado Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1705-marketing-integrado-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-11-20",
+            "who": "Marketing Integrado Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1705-marketing-integrado-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-1705-marketing-integrado-ltda/40-ejecucion/ata-comite-contratos.md"
+        },
+        "source": "contratos/CTR-1705-marketing-integrado-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1706": {
+        "code": "CTR-1706",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Refrigeração Comercial Ltda.",
+          "id": "01700006000134"
+        },
+        "value": 275000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Juliana Ribeiro",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Refrigeração Comercial Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1706-refrigeracao-comercial-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1706-refrigeracao-comercial-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-1706-refrigeracao-comercial-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-07-06",
+            "who": "Refrigeração Comercial Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1706-refrigeracao-comercial-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-07-31",
+            "who": "Refrigeração Comercial Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1706-refrigeracao-comercial-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1706-refrigeracao-comercial-ltda/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/relatorio-compliance-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "applicable_norm_not_in_matrix",
+      "key": "aplica:N-2026-04"
+    },
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "contract_expiring",
+      "key": "vence:CTR-1703"
+    },
+    {
+      "signal": "guarantee_expires_early",
+      "key": "garantia:CTR-1701:cumplimiento"
+    },
+    {
+      "signal": "obligation_without_source",
+      "key": "fuente:OB-13"
+    },
+    {
+      "signal": "payment_after_termination",
+      "key": "pagofuera:CTR-1706"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:P-03"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "registro:CTR-1709"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-1702:OT-1"
+    }
+  ]
+}

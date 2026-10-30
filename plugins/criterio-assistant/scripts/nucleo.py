@@ -371,6 +371,10 @@ SINONIMOS = {
     "concluida": "cumplida", "concluido": "cumplido", "feito": "hecho", "feita": "hecha", "fechada": "cerrada",
     "fechado": "cerrado", "cumprida": "cumplida", "cumprido": "cumplido", "entregue": "entregado",
     "atendido": "respondido", "atendida": "respondida", "baixa": "baja",
+    "ativo": "activo", "em_execucao": "en_ejecucion", "mensal": "mensual", "apresentado": "presentado", "apresentada": "presentada",
+    "cumprimento": "cumplimiento", "qualidade": "calidad", "sim": "si", "em_cumprimento": "en_cumplimiento", "sem_novidades": "sin_novedades",
+    "servicos": "servicios", "fornecimento": "suministro", "locacao": "arrendamiento", "licenca": "licencia", "manutencao": "mantenimiento",
+    "encerrar": "terminar", "encerrado": "terminado", "com_ressalvas": "con_observaciones", "a_avaliar": "por_evaluar", "empresa": "entidad",
 }
 
 
@@ -461,7 +465,8 @@ def rel(p: Path, base: Path) -> str:
 # es el «extrato», el flujo es el «fluxo». Los que empiezan igual —balancete, plano, programa— no
 # necesitan otro nombre.
 ARCHIVOS = {"libro": ["livro", "razao"], "extracto": ["extrato"], "mapeo": ["mapeamento"], "flujo": ["fluxo"],
-            "registro_deuda": ["registro_divida"]}
+            "registro_deuda": ["registro_divida"], "pagos": ["pagamentos"], "matriz_atribuciones": ["matriz_alcadas"],
+            "matriz_obligaciones": ["matriz_obrigacoes"]}
 
 
 def buscar(carpeta: Path, patron: str, pdf: bool = False) -> list[Path]:

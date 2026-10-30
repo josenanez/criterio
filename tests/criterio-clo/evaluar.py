@@ -54,7 +54,7 @@ def evaluar(carpeta: Path) -> dict:
     revisar = []
     if control:
         for c in rf["partes"]["contract-register"]["contratos"]:
-            if L.norm(c["estado_declarado"]) != L.norm(c["estado_fechas"]):
+            if L.N.canon(c["estado_declarado"]) != L.N.canon(c["estado_fechas"]):
                 revisar.append(f"{c['codigo']}: el registro dice {c['estado_declarado']} y las fechas, {c['estado_fechas']}")
         for c in rf["partes"]["contract-execution"]["contratos"]:
             if c["saldo"] is None or c["saldo"] < 0:

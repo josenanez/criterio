@@ -41,31 +41,32 @@ from nucleo import (  # noqa: E402
 
 ESTRUCTURA = AQUI / "estructura.json"
 
+# En español y en portugués: los registros de una entidad de Brasil llegan con sus cabeceras.
 ALIAS.update({
     "codigo": ["codigo", "codigo_contrato", "contrato", "id_contrato", "id"],
-    "contraparte": ["contraparte", "proveedor", "cliente", "tercero"],
-    "objeto": ["objeto", "descripcion"],
+    "contraparte": ["contraparte", "proveedor", "cliente", "tercero", "fornecedor", "terceiro"],
+    "objeto": ["objeto", "descripcion", "descricao"],
     "tipo": ["tipo", "tipo_contrato", "categoria"],
-    "inicio": ["inicio", "fecha_inicio", "desde_contrato"],
-    "terminacion": ["terminacion", "fecha_terminacion", "fin", "vence", "vencimiento"],
+    "inicio": ["inicio", "fecha_inicio", "desde_contrato", "data_inicio"],
+    "terminacion": ["terminacion", "fecha_terminacion", "fin", "vence", "vencimiento", "termino", "data_termino", "vencimento"],
     "contrato": ["contrato", "codigo_contrato", "codigo"],
     "cargo": ["cargo", "rol"],
-    "monto_maximo": ["monto_maximo", "tope", "limite", "cuantia"],
+    "monto_maximo": ["monto_maximo", "tope", "limite", "cuantia", "valor_maximo", "alcada"],
     "desde": ["desde", "vigente_desde"],
-    "hasta": ["hasta", "vigente_hasta"],
-    "obligacion": ["obligacion", "requisito"],
-    "fuente": ["fuente", "origen", "norma_contrato_politica"],
-    "periodicidad": ["periodicidad", "frecuencia"],
-    "politica": ["politica", "nombre_politica"],
-    "proxima_revision": ["proxima_revision", "revision", "fecha_revision"],
-    "aprobada": ["aprobada", "fecha_aprobacion"],
+    "hasta": ["hasta", "vigente_hasta", "ate", "vigente_ate"],
+    "obligacion": ["obligacion", "requisito", "obrigacao"],
+    "fuente": ["fuente", "origen", "norma_contrato_politica", "fonte", "origem"],
+    "periodicidad": ["periodicidad", "frecuencia", "periodicidade", "frequencia"],
+    "politica": ["politica", "nombre_politica", "nome_politica"],
+    "proxima_revision": ["proxima_revision", "revision", "fecha_revision", "proxima_revisao", "revisao", "data_revisao"],
+    "aprobada": ["aprobada", "fecha_aprobacion", "aprovada", "data_aprovacao"],
     "norma": ["norma", "titulo"],
-    "registrada": ["registrada", "fecha_registro"],
-    "publicada": ["publicada", "fecha_publicacion"],
-    "aplica": ["aplica"],
-    "evaluacion": ["evaluacion", "fecha_evaluacion", "evaluada"],
-    "recibido": ["recibido", "fecha_recepcion", "recepcion"],
-    "respondido": ["respondido", "fecha_respuesta", "respuesta"],
+    "registrada": ["registrada", "fecha_registro", "data_registro"],
+    "publicada": ["publicada", "fecha_publicacion", "data_publicacao"],
+    "aplica": ["aplica", "aplicavel"],
+    "evaluacion": ["evaluacion", "fecha_evaluacion", "evaluada", "avaliacao", "data_avaliacao"],
+    "recibido": ["recibido", "fecha_recepcion", "recepcion", "recebido", "data_recebimento"],
+    "respondido": ["respondido", "fecha_respuesta", "respuesta", "resposta", "data_resposta"],
 })
 
 DEFECTOS = {
@@ -93,7 +94,7 @@ SEVERIDAD = {
 }
 N.SEVERIDAD.update(SEVERIDAD)
 VENTANA = {"mensual": 1, "bimestral": 2, "trimestral": 3, "semestral": 6, "anual": 12}
-SI = ("si", "sí", "s", "yes", "true", "x", "aplica")
+SI = ("si", "sí", "s", "yes", "true", "x", "aplica", "sim")
 
 
 def umbral(cfg: dict, k: str):
@@ -200,7 +201,7 @@ def fin_efectivo(c: dict, hoy: dt.date, cfg: dict) -> dt.date | None:
     """Con renovación automática y sin decisión de terminar, el contrato se prorroga: lo dice el
     contrato, no el agente."""
     fin = fin_documentado(c)
-    dec = norm((c.get("decision") or {}).get("action"))
+    dec = N.canon((c.get("decision") or {}).get("action"))
     if fin and c.get("auto_renewal") and dec != "terminar":
         meses = int(c.get("renewal_months") or umbral(cfg, "renewal_months"))
         while fin < hoy:
@@ -253,7 +254,7 @@ def fidel(cfg: dict, hoy: dt.date) -> dict:
             fila["estado_fechas"] = "vigente" if fe and fe >= hoy else "terminado"
             fila["terminacion"] = iso(fin_documentado(c))
         if c and r:
-            if norm(r.get("estado")) in ("vigente", "activo", "en_ejecucion") and fila["estado_fechas"] == "terminado":
+            if N.canon(r.get("estado")) in ("vigente", "activo", "en_ejecucion") and fila["estado_fechas"] == "terminado":
                 al.append(alerta("contract_expired_active", f"{code}: el registro lo reporta {r.get('estado')} y terminó el {fila['terminacion']}",
                                  [r["cita"], {"archivo": c.get("source")}], clave=f"vigente:{code}"))
             vr, vf = numero(r.get("valor")), valor_total(c)
@@ -273,7 +274,7 @@ def fidel(cfg: dict, hoy: dt.date) -> dict:
     calendario = []
     for code, c in sorted(fichas.items()):
         fin = fin_documentado(c)
-        dec = norm((c.get("decision") or {}).get("action"))
+        dec = N.canon((c.get("decision") or {}).get("action"))
         cita = {"archivo": c.get("source")}
         if fin:
             calendario.append({"codigo": code, "que": "terminación", "fecha": iso(fin), "dias": (fin - hoy).days})
@@ -315,7 +316,7 @@ def fidel(cfg: dict, hoy: dt.date) -> dict:
         for f in matriz:
             if norm(f["nombre"]) != norm(nombre):
                 continue
-            if norm(f.get("tipo")) not in ("", "todos", "todas", norm(tipo)):
+            if N.canon(f.get("tipo")) not in ("", "todos", "todas", N.canon(tipo)):
                 continue
             desde, hasta = fecha(f.get("desde")), fecha(f.get("hasta"))
             if el_dia and ((desde and el_dia < desde) or (hasta and el_dia > hasta)):
@@ -326,7 +327,7 @@ def fidel(cfg: dict, hoy: dt.date) -> dict:
     for code, c in sorted(fichas.items()):
         cita = {"archivo": c.get("source")}
         inicio, firmado = fecha(c.get("start")), fecha(c.get("signed_on")) or fecha(c.get("start"))
-        propios = [s for s in c.get("signatories") or [] if norm(s.get("party")) in ("entidad", "entity", "la_entidad")]
+        propios = [s for s in c.get("signatories") or [] if N.canon(s.get("party")) in ("entidad", "entity", "la_entidad")]
         valor = numero(c.get("value")) or 0.0
         ok_ = next((s for s in propios if facultad(s.get("name"), c.get("type"), valor, firmado)), None) if matriz else True
         firmas.append({"codigo": code, "firmantes": ", ".join(s.get("name") or "?" for s in propios) or "—", "monto": redondo(valor),
@@ -375,9 +376,9 @@ def fidel(cfg: dict, hoy: dt.date) -> dict:
         if tarde:
             al.append(alerta("payment_after_termination", f"{code}: {len(tarde)} pago(s) después de la terminación del {iso(fe)}, por {mon(sum(p['valor'] for p in tarde))}",
                              [p["cita"] for p in tarde][:3], sum(p["valor"] for p in tarde), clave=f"pagofuera:{code}"))
-        aportadas = {norm(g.get("type")): g for g in c.get("guarantees_provided") or []}
+        aportadas = {N.canon(g.get("type")): g for g in c.get("guarantees_provided") or []}
         for g in c.get("guarantees_required") or []:
-            tipo = norm(g.get("type"))
+            tipo = N.canon(g.get("type"))
             exigida = fecha(g.get("until")) or (sumar_meses(fin_documentado(c), int(g["months_after_end"])) if fin_documentado(c) and g.get("months_after_end") is not None else None)
             ap = aportadas.get(tipo)
             if not ap:
@@ -451,7 +452,7 @@ def constanza(cfg: dict, periodo: str, hoy: dt.date) -> dict:
             periodos = sorted({p.name[len("cumplimiento-"):] for p in docs.iterdir() if p.is_dir() and re.fullmatch(r"cumplimiento-\d{4}-\d{2}", p.name)})
             for f in t.filas:
                 oid = str(f["id"]).strip()
-                per = norm(f["periodicidad"])
+                per = N.canon(f["periodicidad"])
                 ventana = VENTANA.get(per)
                 lim = _limite_obligacion(f["dia_limite"], periodo, feriados)
                 en = [p for p in periodos if p <= periodo]
@@ -459,9 +460,9 @@ def constanza(cfg: dict, periodo: str, hoy: dt.date) -> dict:
                 dentro = _periodos_hasta(periodo, ventana) if ventana else en
                 ev = [e for p in dentro for e in con_ev.get(p, [])]
                 previas = [p for p in en if con_ev.get(p) and p not in dentro]
-                declarada = norm(f.get("estado")) in ("cumplida", "cumplido", "hecho", "hecha", "ok", "presentado", "presentada")
+                declarada = N.canon(f.get("estado")) in ("cumplida", "cumplido", "hecho", "hecha", "ok", "presentado", "presentada")
                 o = {"id": oid, "obligacion": f["obligacion"], "fuente": f.get("fuente"), "responsable": f.get("responsable"),
-                     "periodicidad": per, "limite": iso(lim), "criticidad": norm(f.get("criticidad")) or "media", "evidencia": ev,
+                     "periodicidad": per, "limite": iso(lim), "criticidad": N.canon(f.get("criticidad")) or "media", "evidencia": ev,
                      "cita": t.cita(f, docs)}
                 if ev:
                     o["estado"] = "cumplida con evidencia"
@@ -507,7 +508,7 @@ def constanza(cfg: dict, periodo: str, hoy: dt.date) -> dict:
         rp = rp if rp.is_absolute() else Path(cfg.get("_raiz") or Path.cwd()) / rp
         for code, c in sorted(fichas_contratos(rp.parent if rp.name == "contratos" else rp).items()):
             for o in c.get("obligations") or []:
-                if norm(o.get("kind")) != "cumplimiento":
+                if N.canon(o.get("kind")) != "cumplimiento":
                     continue
                 esta = norm(code) in texto_matriz and norm(o.get("id")) in texto_matriz
                 contratos.append({"contrato": code, "obligacion": o.get("id"), "que": o.get("what"), "en_matriz": esta})
@@ -553,7 +554,7 @@ def constanza(cfg: dict, periodo: str, hoy: dt.date) -> dict:
         if not str(f.get("evaluacion") or "").strip() and reg and (hoy - reg).days > umbral(cfg, "norm_assessment_days"):
             al.append(alerta("regulatory_change_unassessed", f"{nid} · {f['norma']}: registrada el {iso(reg)}, lleva {(hoy - reg).days} días sin evaluación de impacto",
                              f["cita"], responsable=f.get("responsable"), dias=(hoy - reg).days, clave=f"norma:{nid}"))
-        if norm(f.get("aplica")) in SI and norm(nid) not in texto_matriz:
+        if N.canon(f.get("aplica")) in SI and norm(nid) not in texto_matriz:
             al.append(alerta("applicable_norm_not_in_matrix", f"{nid} · {f['norma']}: aplica y ninguna obligación de la matriz la cita",
                              f["cita"], clave=f"aplica:{nid}"))
 
@@ -574,7 +575,7 @@ def constanza(cfg: dict, periodo: str, hoy: dt.date) -> dict:
                     al.append(alerta("report_case_overdue", f"caso {f['id']}: recibido el {iso(rec)}, lleva {dias} días sin respuesta y el plazo es de {plazo}",
                                      t.cita(f, docs), dias=dias, clave=f"caso:{f['id']}"))
     dec = ficha.get("declared") or {}
-    if norm(dec.get("status")) in ("cumplido", "cumplida", "en_cumplimiento", "compliant", "sin_novedades") and al:
+    if N.canon(dec.get("status")) in ("cumplido", "cumplida", "en_cumplimiento", "compliant", "sin_novedades") and al:
         al.append(alerta("declared_compliance_vs_evidence", f"el informe declara el periodo {dec.get('status')} ({dec.get('source')}) y hay {len(al)} señales abiertas que ese estado no explica",
                          {"archivo": dec.get("source")}, clave="cumplimiento"))
     peso = {"alta": 3, "media": 2, "baja": 1}

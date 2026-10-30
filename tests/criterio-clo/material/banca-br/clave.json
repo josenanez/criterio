@@ -1,0 +1,543 @@
+{
+  "entidad": "Banco Serra Verde",
+  "industria": "banca",
+  "pais": "BR",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "preaviso_cerca",
+      "firma_sin_facultad",
+      "registro_distinto",
+      "sin_garantia",
+      "obligacion_contrato_vencida"
+    ],
+    "constanza": [
+      "obligacion_vencida",
+      "sin_responsable",
+      "norma_sin_evaluar",
+      "informe_declara_cumplido",
+      "obligacion_contrato_fuera"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "52817460000100",
+        "name": "Banco Serra Verde",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "legal/52817460000100-banco-serra-verde",
+        "state": "estado-legal/52817460000100-banco-serra-verde"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "52817460000100",
+        "name": "Banco Serra Verde",
+        "country": "BR",
+        "currency": "BRL"
+      },
+      "paths": {
+        "documents": "legal/52817460000100-banco-serra-verde",
+        "state": "estado-legal/52817460000100-banco-serra-verde"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/52817460000100-banco-serra-verde/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-1601": {
+        "code": "CTR-1601",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Sistemas Bancários Ltda.",
+          "id": "01600001000130"
+        },
+        "value": 560000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Paulo Nogueira",
+            "role": "Gerente de compras",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Sistemas Bancários Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1601-sistemas-bancarios-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1601-sistemas-bancarios-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-1601-sistemas-bancarios-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Sistemas Bancários Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1601-sistemas-bancarios-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-03-31",
+            "who": "Sistemas Bancários Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1601-sistemas-bancarios-ltda/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Relatório de operações ao responsável de compliance",
+            "due": "2026-09-30",
+            "who": "Sistemas Bancários Ltda.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-1601-sistemas-bancarios-ltda/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1601-sistemas-bancarios-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1602": {
+        "code": "CTR-1602",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Papelaria Central Ltda.",
+          "id": "01600002000184"
+        },
+        "value": 280000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fernanda Costa",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Papelaria Central Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 70000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Fernanda Costa",
+            "source": "contratos/CTR-1602-papelaria-central-ltda/10-contrato/aditivo-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1602-papelaria-central-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1602-papelaria-central-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-1602-papelaria-central-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Papelaria Central Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1602-papelaria-central-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2027-12-31",
+            "who": "Papelaria Central Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1602-papelaria-central-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1602-papelaria-central-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1603": {
+        "code": "CTR-1603",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Imobiliária Paulista S.A.",
+          "id": "01600003000129"
+        },
+        "value": 420000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ricardo Almeida",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Imobiliária Paulista S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1603-imobiliaria-paulista-s-a/10-contrato/contrato.md, cláusula 9"
+          },
+          {
+            "type": "calidad",
+            "months_after_end": 12,
+            "source": "contratos/CTR-1603-imobiliaria-paulista-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1603-imobiliaria-paulista-s-a/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-1603-imobiliaria-paulista-s-a/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Imobiliária Paulista S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1603-imobiliaria-paulista-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-12-31",
+            "who": "Imobiliária Paulista S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1603-imobiliaria-paulista-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1603-imobiliaria-paulista-s-a/10-contrato/contrato.md"
+      },
+      "CTR-1604": {
+        "code": "CTR-1604",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Licenças Digitais Ltda.",
+          "id": "01600004000173"
+        },
+        "value": 210000,
+        "start": "2026-03-01",
+        "end": "2026-12-31",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Fernanda Costa",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Licenças Digitais Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1604-licencas-digitais-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1604-licencas-digitais-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-1604-licencas-digitais-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Licenças Digitais Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1604-licencas-digitais-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-12-31",
+            "who": "Licenças Digitais Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1604-licencas-digitais-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1604-licencas-digitais-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1605": {
+        "code": "CTR-1605",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultoria Integrada Ltda.",
+          "id": "01600005000118"
+        },
+        "value": 140000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fernanda Costa",
+            "role": "Diretor financeiro",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultoria Integrada Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1605-consultoria-integrada-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1605-consultoria-integrada-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-1605-consultoria-integrada-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-09-05",
+            "who": "Consultoria Integrada Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1605-consultoria-integrada-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-11-20",
+            "who": "Consultoria Integrada Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1605-consultoria-integrada-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-1605-consultoria-integrada-ltda/40-ejecucion/ata-comite-contratos.md"
+        },
+        "source": "contratos/CTR-1605-consultoria-integrada-ltda/10-contrato/contrato.md"
+      },
+      "CTR-1606": {
+        "code": "CTR-1606",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Manutenção Predial Ltda.",
+          "id": "01600006000162"
+        },
+        "value": 350000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Ricardo Almeida",
+            "role": "Diretor-presidente",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Manutenção Predial Ltda.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-1606-manutencao-predial-ltda/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Seguradora Sintética S.A.",
+            "source": "contratos/CTR-1606-manutencao-predial-ltda/20-garantias/apolice-cumprimento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-1606-manutencao-predial-ltda/30-contraparte/certidao.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Relatório mensal de execução",
+            "due": "2026-07-06",
+            "who": "Manutenção Predial Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1606-manutencao-predial-ltda/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Relatório final e termo de encerramento",
+            "due": "2026-07-31",
+            "who": "Manutenção Predial Ltda.",
+            "kind": "entrega",
+            "source": "contratos/CTR-1606-manutencao-predial-ltda/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-1606-manutencao-predial-ltda/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/relatorio-compliance-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_obligation_overdue",
+      "key": "oblig:OB-09"
+    },
+    {
+      "signal": "contract_obligation_not_in_matrix",
+      "key": "ctrobl:CTR-1601:OBL-3"
+    },
+    {
+      "signal": "contract_obligation_overdue",
+      "key": "obl:CTR-1604:OBL-1"
+    },
+    {
+      "signal": "declared_compliance_vs_evidence",
+      "key": "cumplimiento"
+    },
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-1603:calidad"
+    },
+    {
+      "signal": "notice_deadline_near",
+      "key": "preaviso:CTR-1604"
+    },
+    {
+      "signal": "obligation_without_owner",
+      "key": "duenio:OB-12"
+    },
+    {
+      "signal": "register_differs_from_contract",
+      "key": "difiere:CTR-1602"
+    },
+    {
+      "signal": "regulatory_change_unassessed",
+      "key": "norma:N-2026-05"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-1601"
+    }
+  ]
+}

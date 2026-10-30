@@ -1,0 +1,7 @@
+codigo,contraparte,objeto,tipo,valor,inicio,termino,situacao,responsavel
+CTR-1801,Transportes Controle Ltda.,Prestação de serviços de operação tecnológica,serviços,320000.00,2026-01-01,2027-03-31,vigente,Rafael Mendes
+CTR-1802,Insumos Controle Ltda.,Fornecimento de papelaria e material de escritório,fornecimento,200000.00,2025-07-01,2027-12-31,vigente,Rafael Mendes
+CTR-1803,Armazéns Controle S.A.,Locação da sede principal,locação,240000.00,2025-02-01,2026-12-31,vigente,Rafael Mendes
+CTR-1804,Software Controle Ltda.,Licença de uso de software,licença,120000.00,2026-03-01,2027-02-28,vigente,Rafael Mendes
+CTR-1805,Assessoria Controle Ltda.,Consultoria em processos,consultoria,80000.00,2026-02-01,2026-11-20,vigente,Rafael Mendes
+CTR-1806,Manutenção Controle Ltda.,Manutenção preventiva das instalações,manutenção,200000.00,2025-10-01,2026-07-31,encerrado,Rafael Mendes

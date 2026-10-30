@@ -1,0 +1,11 @@
+id,obrigacao,fonte,tipo,responsavel,periodicidade,prazo,evidencia_esperada,criticidade,situacao
+OB-01,Relatório mensal de operações ao supervisor,N-2026-01 · Resolução sintética 001 de 2026,relatório,Fernanda Costa,mensal,día 10,Arquivo que começa com OB-01,alta,
+OB-02,Conciliação da base de clientes vinculados,Política P-02,registro,Fernanda Costa,mensal,D+5,Arquivo que começa com OB-02,media,
+OB-03,Relatório trimestral do comitê de riscos,Política P-01,relatório,Ricardo Almeida,trimestral,día 20,Arquivo que começa com OB-03,alta,
+OB-04,Certificação anual do conselho,"Estatuto social, artigo 40",certificação,Ricardo Almeida,anual,2026-12-31,Arquivo que começa com OB-04,media,
+OB-05,Treinamento mensal dos novos colaboradores,Política P-03,treinamento,Paulo Nogueira,mensal,día 20,Arquivo que começa com OB-05,baixa,
+OB-06,Relatório de operações do contratado de tecnologia,Política P-01,relatório,Fernanda Costa,mensal,día 5,Arquivo que começa com OB-06,alta,
+OB-07,Revisão semestral da matriz de riscos,Política P-01,registro,Ricardo Almeida,semestral,día 30,Arquivo que começa com OB-07,media,
+OB-08,Atualização cadastral dos fornecedores críticos,Política P-04,registro,Paulo Nogueira,mensal,día 8,Arquivo que começa com OB-08,media,
+OB-09,Relatório mensal de reclamações,Política P-02,relatório,Paulo Nogueira,mensal,día 5,Arquivo que começa com OB-09,alta,
+OB-12,Registro de conflitos de interesses,Política P-03,registro,,mensal,día 10,Arquivo que começa com OB-12,baixa,

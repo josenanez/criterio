@@ -106,7 +106,7 @@
   "extraccion": {
     "cierre": {
       "declared": {
-        "status": "fechado",
+        "status": "cerrado",
         "source": "2026-09/40-soportes/email-situacao-do-fechamento.md",
         "date": "2026-10-05",
         "by": "Sofia Leão"
@@ -142,7 +142,7 @@
       "area_statements": [
         {
           "area": "Administração",
-          "says": "dentro do orçamento",
+          "says": "dentro",
           "source": "presupuesto-2026/30-proyecciones/email-administracao.md",
           "date": "2026-10-01"
         }
@@ -152,7 +152,7 @@
         {
           "what": "Revisar o contrato de vigilância",
           "owner": "Administração",
-          "status": "aberto",
+          "status": "abierto",
           "evidence": null,
           "source": "presupuesto-2026/40-actas/ata-06-comite.md"
         }

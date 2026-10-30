@@ -40,6 +40,8 @@ import time
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(RAIZ / "plugins" / "criterio-finance" / "scripts"))
+import nucleo as NU  # noqa: E402  los valores que dicen lo mismo en español y en portugués
 
 # Lo que cambia de una familia a otra: dónde deja cada agente sus resultados y dónde está cada
 # ficha que la clave describe. `{k}` es la ficha de una por clave —la de cada contrato—.
@@ -230,7 +232,9 @@ def _misma_cita(esperada, obtenida, espacio) -> bool:
     return ra is not None and ra == rb
 
 
-VACIAS = {"de", "del", "la", "las", "el", "los", "al", "a", "y", "o", "en", "por", "para", "con", "un", "una", "su", "sus", "que", "se"}
+VACIAS = {"de", "del", "la", "las", "el", "los", "al", "a", "y", "o", "en", "por", "para", "con", "un", "una", "su", "sus", "que", "se",
+          # y en portugués, para los documentos de Brasil
+          "do", "da", "dos", "das", "os", "as", "e", "em", "no", "na", "nos", "nas", "um", "uma", "ao", "aos", "pelo", "pela", "com", "seu", "sua"}
 
 
 def _palabras(texto: str) -> set:
@@ -256,7 +260,8 @@ def _igual(esperado, obtenido, espacio=None) -> bool:
     salvo la conjugación, cuando lo demás del registro coincide. La diferencia se reporta igual."""
     esperado, obtenido = _norma(esperado), _norma(obtenido)
     if isinstance(esperado, str) and isinstance(obtenido, str):
-        return esperado.strip().lower() in obtenido.strip().lower()
+        # Un valor de la ficha dicho en el idioma del documento cuenta igual: «serviços» es «servicios».
+        return esperado.strip().lower() in obtenido.strip().lower() or NU.canon(esperado) == NU.canon(obtenido)
     if isinstance(esperado, dict) and isinstance(obtenido, dict):
         # `what` dicho con otras palabras cuenta solo si el registro tiene con qué anclarlo —su
         # cita— y todo lo demás coincide: lo exige el mismo all().

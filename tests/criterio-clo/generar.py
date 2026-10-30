@@ -66,6 +66,16 @@ def rfc(letras: str, fecha_: str, homoclave: str) -> str:
     return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
 
 
+def cnpj(raiz: int) -> str:
+    """Un CNPJ ficticio con sus dos dígitos verificadores por módulo 11, el mismo del material de la
+    CFO. Ninguno corresponde a una empresa."""
+    base = f"{raiz:08d}0001"
+    for _ in range(2):
+        r = sum(int(c) * (2 + i % 8) for i, c in enumerate(reversed(base))) % 11
+        base += "0" if r < 2 else str(11 - r)
+    return base
+
+
 def id_contraparte(e: dict, i: int) -> str:
     """La identificación de una contraparte con la forma de su país; Colombia y Ecuador conservan la
     numeración con la que se probaron."""
@@ -75,6 +85,8 @@ def id_contraparte(e: dict, i: int) -> str:
         return rut(77000000 + e["n0"] * 10 + i)
     if e["pais"] == "MX":
         return rfc("PRV", f"{10 + e['n0'] // 100 % 10:02d}{1 + i % 12:02d}{1 + i:02d}", f"{chr(65 + i)}{e['n0'] // 100 % 10}{i}")
+    if e["pais"] == "BR":
+        return cnpj(e["n0"] * 1000 + i)
     return f"{800000000 + e['n0'] * 10 + i}"
 
 SALIDA = AQUI / "material"
@@ -167,6 +179,24 @@ ENTIDADES = [
      "contrapartes": ["Transportes Control S.A. de C.V.", "Insumos Control S.A. de C.V.", "Bodegas Control S.A.", "Software Control S.A. de C.V.",
                       "Asesores Control S.C.", "Mantenimiento Control S.A. de C.V.", "Limpieza Control S.A. de C.V."],
      "fidel": [], "constanza": []},
+    # Brasil: los documentos en portugués, como los tiene una empresa de allá.
+    {"carpeta": "banca-br", "industria": "banca", "pais": "BR", "id": cnpj(52817460), "nombre": "Banco Serra Verde", "moneda": "BRL", "u": 70_000, "n0": 1600,
+     "personas": ("Ricardo Almeida", "Fernanda Costa", "Paulo Nogueira"),
+     "contrapartes": ["Sistemas Bancários Ltda.", "Papelaria Central Ltda.", "Imobiliária Paulista S.A.", "Licenças Digitais Ltda.",
+                      "Consultoria Integrada Ltda.", "Manutenção Predial Ltda.", "Segurança Patrimonial Ltda."],
+     "fidel": ["preaviso_cerca", "firma_sin_facultad", "registro_distinto", "sin_garantia", "obligacion_contrato_vencida"],
+     "constanza": ["obligacion_vencida", "sin_responsable", "norma_sin_evaluar", "informe_declara_cumplido", "obligacion_contrato_fuera"]},
+    {"carpeta": "retail-br", "industria": "retail", "pais": "BR", "id": cnpj(31452078), "nombre": "Lojas Paulistas", "moneda": "BRL", "u": 55_000, "n0": 1700,
+     "personas": ("Juliana Ribeiro", "Marcelo Tavares", "Camila Duarte"),
+     "contrapartes": ["Logística Paulista Ltda.", "Embalagens do Vale Ltda.", "Shopping Centro Sul S.A.", "Pagamentos Online Ltda.",
+                      "Marketing Integrado Ltda.", "Refrigeração Comercial Ltda.", "Vigilância Patrimonial Ltda."],
+     "fidel": ["contrato_por_vencer", "otrosi_sin_facultad", "pago_despues", "garantia_corta", "registro_sin_documento"],
+     "constanza": ["sin_fuente", "politica_vencida", "caso_vencido", "cumplida_sin_evidencia", "norma_aplica_sin_matriz"]},
+    {"carpeta": "control-br", "industria": "retail", "pais": "BR", "id": cnpj(40217355), "nombre": "Comercial Controle Paulista", "moneda": "BRL", "u": 40_000, "n0": 1800,
+     "personas": ("Beatriz Lopes", "Rafael Mendes", "Aline Barros"),
+     "contrapartes": ["Transportes Controle Ltda.", "Insumos Controle Ltda.", "Armazéns Controle S.A.", "Software Controle Ltda.",
+                      "Assessoria Controle Ltda.", "Manutenção Controle Ltda.", "Limpeza Controle Ltda."],
+     "fidel": [], "constanza": []},
 ]
 
 d = dt.date.fromisoformat
@@ -182,6 +212,8 @@ def slug(s: str) -> str:
 
 def csv_(ruta: Path, filas: list[list]) -> None:
     ruta.parent.mkdir(parents=True, exist_ok=True)
+    if LANG[0] == "pt" and filas:
+        filas = [[CAB_PT.get(c, c) for c in filas[0]]] + [[tr(v) for v in f] for f in filas[1:]]
     with ruta.open("w", newline="", encoding="utf-8") as f:
         csv.writer(f, lineterminator="\n").writerows(filas)
 
@@ -189,6 +221,76 @@ def csv_(ruta: Path, filas: list[list]) -> None:
 def md(ruta: Path, texto: str) -> None:
     ruta.parent.mkdir(parents=True, exist_ok=True)
     ruta.write_text(texto.strip() + "\n", encoding="utf-8")
+
+
+# ------------------------------------------------ Brasil: el material en portugués
+# Las entidades de Brasil traen sus documentos en portugués: las cabeceras, los registros, los
+# contratos, los aditivos, las apólices, las actas, las políticas y el informe. La clave guarda los
+# valores de la ficha como los define el skill —el tipo, la garantía, la parte, la decisión—, y el
+# arnés acepta el mismo valor dicho en portugués; lo que es texto del documento va como lo dice él.
+LANG = ["es"]
+CAB_PT = {"codigo": "codigo", "contraparte": "contraparte", "objeto": "objeto", "tipo": "tipo", "valor": "valor", "inicio": "inicio",
+          "terminacion": "termino", "estado": "situacao", "responsable": "responsavel", "contrato": "contrato", "fecha": "data",
+          "documento": "documento", "nombre": "nome", "cargo": "cargo", "monto_maximo": "valor_maximo", "desde": "desde", "hasta": "ate",
+          "id": "id", "obligacion": "obrigacao", "fuente": "fonte", "periodicidad": "periodicidade", "dia_limite": "prazo",
+          "evidencia_esperada": "evidencia_esperada", "criticidad": "criticidade", "politica": "politica", "version": "versao",
+          "aprobada": "aprovada", "proxima_revision": "proxima_revisao", "norma": "norma", "publicada": "publicada",
+          "registrada": "registrada", "aplica": "aplicavel", "evaluacion": "avaliacao", "recibido": "recebido", "respondido": "resposta"}
+FRASES_PT = [
+    ("Prestación de servicios de operación tecnológica", "Prestação de serviços de operação tecnológica"),
+    ("Suministro de papelería e insumos de oficina", "Fornecimento de papelaria e material de escritório"),
+    ("Arrendamiento de la sede principal", "Locação da sede principal"), ("Licencia de uso de software", "Licença de uso de software"),
+    ("Consultoría en procesos", "Consultoria em processos"), ("Mantenimiento preventivo de instalaciones", "Manutenção preventiva das instalações"),
+    ("servicios", "serviços"), ("suministro", "fornecimento"), ("arrendamiento", "locação"), ("licencia", "licença"),
+    ("consultoria", "consultoria"), ("mantenimiento", "manutenção"),
+    ("Gerente general", "Diretor-presidente"), ("Vicepresidente financiero", "Diretor financeiro"), ("Director de compras", "Gerente de compras"),
+    ("Informe mensual de ejecución", "Relatório mensal de execução"), ("Informe final y acta de liquidación", "Relatório final e termo de encerramento"),
+    ("Reporte de operaciones al oficial de cumplimiento", "Relatório de operações ao responsável de compliance"),
+    ("Aseguradora Sintética S.A.", "Seguradora Sintética S.A."), ("vigente", "vigente"), ("terminado", "encerrado"),
+    ("Publicidad Exterior S.A.S.", "Publicidade Exterior Ltda."), ("Publicidad en vallas", "Publicidade em outdoors"),
+    ("Reporte mensual de operaciones al supervisor", "Relatório mensal de operações ao supervisor"),
+    ("Conciliación de la base de clientes vinculados", "Conciliação da base de clientes vinculados"),
+    ("Informe trimestral del comité de riesgos", "Relatório trimestral do comitê de riscos"),
+    ("Certificación anual de la junta", "Certificação anual do conselho"),
+    ("Capacitación mensual del personal nuevo", "Treinamento mensal dos novos colaboradores"),
+    ("Reporte de operaciones del contratista de tecnología", "Relatório de operações do contratado de tecnologia"),
+    ("Revisión semestral de la matriz de riesgos", "Revisão semestral da matriz de riscos"),
+    ("Actualización de datos de proveedores críticos", "Atualização cadastral dos fornecedores críticos"),
+    ("Reporte mensual de quejas", "Relatório mensal de reclamações"), ("Declaración mensual de origen de fondos", "Declaração mensal de origem de recursos"),
+    ("Monitoreo mensual de listas restrictivas", "Monitoramento mensal de listas restritivas"),
+    ("Registro de conflictos de interés", "Registro de conflitos de interesses"), ("Reporte de regalos e invitaciones", "Relatório de brindes e convites"),
+    ("Resolución sintética", "Resolução sintética"), ("Circular sintética", "Circular sintética"), ("Estatutos, artículo 40", "Estatuto social, artigo 40"),
+    ("Política de gestión de riesgos", "Política de gestão de riscos"), ("Política de atención al cliente", "Política de atendimento ao cliente"),
+    ("Política de conflictos de interés", "Política de conflitos de interesses"),
+    ("Política de conocimiento de proveedores", "Política de conheça seu fornecedor"),
+    ("reporte", "relatório"), ("certificación", "certificação"), ("capacitación", "treinamento"),
+    ("mensual", "mensal"), ("día ", "dia "), ("baja", "baixa"), ("cumplida", "cumprida"),
+    ("por evaluar", "a avaliar"), ("sí", "sim"), ("no", "não"),
+    ("trato al cliente", "atendimento ao cliente"), ("proveedores", "fornecedores"), ("conflicto de interés", "conflito de interesses"),
+    ("cerrado", "fechado"), ("en investigación", "em investigação"), ("abierto", "aberto"),
+    ("Archivo que empieza por", "Arquivo que começa com"), ("de 2026", "de 2026"),
+]
+FRASES_PT.sort(key=lambda x: -len(x[0]))
+EXACTAS_PT = dict(FRASES_PT)
+
+
+def tr(v):
+    """Una celda en el idioma de la entidad: la frase entera si está; si no, cada frase conocida."""
+    if LANG[0] != "pt" or not isinstance(v, str) or not v:
+        return v
+    if v in EXACTAS_PT:
+        return EXACTAS_PT[v]
+    for a, b in FRASES_PT:
+        if len(a) > 6 and a in v:
+            v = v.replace(a, b)
+    return v
+
+
+def doc(es: str, pt: str) -> str:
+    return pt if LANG[0] == "pt" else es
+
+
+doc_ = doc
 
 
 # ================================================================ los contratos
@@ -239,16 +341,16 @@ def contrato(e: dict, i: int, b: dict) -> dict:
          "amendments": [],
          "guarantees_required": [{"type": "cumplimiento", "months_after_end": 4, "source": f"{doc}, cláusula 9"}],
          "guarantees_provided": [],
-         "counterparty_certificate": {"issued_on": iso(firmado - dt.timedelta(days=12)), "source": f"{carpeta}/30-contraparte/certificado.md"},
+         "counterparty_certificate": {"issued_on": iso(firmado - dt.timedelta(days=12)), "source": f"{carpeta}/30-contraparte/{doc_('certificado', 'certidao')}.md"},
          "obligations": [],
          "decision": None,
          "source": doc}
     if b.get("otrosi"):
         o = b["otrosi"]
         c["amendments"].append({"id": "OT-1", "date": o["fecha"], "added_value": o["valor"] * u, "new_end": o.get("nuevo_fin"), "signed": True,
-                                "signed_by": e["personas"][o["firma"]], "source": f"{carpeta}/10-contrato/otrosi-1.md"})
+                                "signed_by": e["personas"][o["firma"]], "source": f"{carpeta}/10-contrato/{doc_('otrosi', 'aditivo')}-1.md"})
     if b.get("decision"):
-        c["decision"] = dict(b["decision"], source=f"{carpeta}/40-ejecucion/acta-comite-contratos.md")
+        c["decision"] = dict(b["decision"], source=f"{carpeta}/40-ejecucion/{doc_('acta', 'ata')}-comite-contratos.md")
     return {"ficha": c, "carpeta": carpeta, "registro": True, "estado_registro": None, "valor_registro": None,
             "pagos_factor": 0.3, "pago_tarde": False, "garantia_meses": 4, "sin_evidencia": set(), "cumplimiento": b.get("cumplimiento", False)}
 
@@ -269,7 +371,7 @@ def completar(x: dict) -> None:
     tipos = {g["type"] for g in c["guarantees_provided"]}
     if "cumplimiento" not in tipos and x["garantia_meses"] is not None:
         c["guarantees_provided"].append({"type": "cumplimiento", "until": iso(L.sumar_meses(fin, x["garantia_meses"])), "insurer": "Aseguradora Sintética S.A.",
-                                         "source": f"{x['carpeta']}/20-garantias/poliza-cumplimiento.md"})
+                                         "source": f"{x['carpeta']}/20-garantias/{doc_('poliza-cumplimiento', 'apolice-cumprimento')}.md"})
 
 
 def pagos(x: dict) -> list[tuple[dt.date, float]]:
@@ -298,10 +400,48 @@ def documentos_contrato(docs: Path, e: dict, x: dict) -> None:
               f"Firmado el {c['signed_on']} por {ent[0]['name']}, {ent[0]['role']}, por la entidad.\n\nEspacio para la firma de la contraparte: sin firmar.")
     garantias = "\n".join(f"- Garantía de {g['type']}" + (f" vigente hasta {g['until']}." if g.get("until") else f" vigente hasta {g['months_after_end']} meses después de la terminación.")
                           for g in c["guarantees_required"])
-    md(base / "10-contrato" / "contrato.md", f"""
+    idf = N.PAISES[e['pais']]['id_fiscal']
+    if LANG[0] == "pt":
+        reno = (f"O contrato será prorrogado automaticamente por períodos de {c['renewal_months']} meses, salvo se uma das partes "
+                f"comunicar por escrito a decisão de não renová-lo com pelo menos {c['notice_days']} dias de antecedência do seu término."
+                if c["auto_renewal"] else "O contrato não é prorrogado automaticamente.")
+        firmas = ("Assinado pelas duas partes em " + c["signed_on"] + ":\n\n" + "\n".join(f"- {s['name']}, {tr(s['role'])}, pela {'empresa' if s['party'] == 'entidad' else 'contratada'}"
+                                                                                       for s in c["signatories"])
+                  if c["signed_by_both"] else
+                  f"Assinado em {c['signed_on']} por {ent[0]['name']}, {tr(ent[0]['role'])}, pela empresa.\n\nEspaço para a assinatura da contratada: sem assinatura.")
+        garantias = "\n".join(f"- Garantia de {tr(g['type']).replace('cumplimiento', 'cumprimento').replace('calidad', 'qualidade')}"
+                              + (f" vigente até {g['until']}." if g.get("until") else f" vigente até {g['months_after_end']} meses após o término.")
+                              for g in c["guarantees_required"])
+        md(base / "10-contrato" / "contrato.md", f"""
 # Contrato {c['code']}
 
-**Partes:** {e['nombre']} ({N.PAISES[e['pais']]['id_fiscal']} {e['id']}) y {c['counterparty']['name']} ({N.PAISES[e['pais']]['id_fiscal']} {c['counterparty']['id']}).
+**Partes:** {e['nombre']} ({idf} {e['id']}) e {c['counterparty']['name']} ({idf} {c['counterparty']['id']}).
+
+**Cláusula 1. Objeto.** {tr(OBJETO[c['type']])}. Tipo de contrato: {tr(c['type'])}.
+
+**Cláusula 2. Valor.** {c['value']:.0f} {e['moneda']}.
+
+**Cláusula 3. Vigência.** De {c['start']} até {c['end']}.
+
+**Cláusula 4. Renovação.** {reno}
+
+**Cláusula 5. Relatório mensal.** A contratada entrega um relatório mensal de execução; o de agosto, até {c['obligations'][0]['due']}.
+
+**Cláusula 6. Encerramento.** No término, a contratada entrega o relatório final e as partes assinam o termo de encerramento.
+""" + ("""
+**Cláusula 7. Compliance.** A contratada reporta ao responsável de compliance da empresa as operações do período, até 30 de setembro de 2026.
+""" if any(o["id"] == "OBL-3" for o in c["obligations"]) else "") + f"""
+**Cláusula 9. Garantias.** A contratada apresenta em favor da empresa:
+
+{garantias}
+
+{firmas}
+""")
+    else:
+        md(base / "10-contrato" / "contrato.md", f"""
+# Contrato {c['code']}
+
+**Partes:** {e['nombre']} ({idf} {e['id']}) y {c['counterparty']['name']} ({idf} {c['counterparty']['id']}).
 
 **Cláusula 1. Objeto.** {OBJETO[c['type']]}. Tipo de contrato: {c['type']}.
 
@@ -324,7 +464,7 @@ def documentos_contrato(docs: Path, e: dict, x: dict) -> None:
 {firmas}
 """)
     for o in c["amendments"]:
-        md(base / "10-contrato" / "otrosi-1.md", f"""
+        md(base / "10-contrato" / f"{doc_('otrosi', 'aditivo')}-1.md", doc(f"""
 # Otrosí {o['id']} al contrato {c['code']}
 
 Fecha: {o['date']}.
@@ -332,37 +472,65 @@ Fecha: {o['date']}.
 Se adiciona el valor del contrato en {o['added_value']:.0f} {e['moneda']}.""" + (f" Se modifica la terminación del contrato al {o['new_end']}." if o.get("new_end") else "") + f"""
 
 Firmado por las dos partes: {o['signed_by']}, por la entidad, y el representante legal de {c['counterparty']['name']}.
-""")
+""", f"""
+# Termo aditivo {o['id']} ao contrato {c['code']}
+
+Data: {o['date']}.
+
+O valor do contrato é acrescido em {o['added_value']:.0f} {e['moneda']}.""" + (f" O término do contrato passa a ser {o['new_end']}." if o.get("new_end") else "") + f"""
+
+Assinado pelas duas partes: {o['signed_by']}, pela empresa, e o representante legal de {c['counterparty']['name']}.
+"""))
     for g in c["guarantees_provided"]:
-        md(base / "20-garantias" / f"poliza-{slug(g['type'])}.md", f"""
+        tipo_pt = {"cumplimiento": "cumprimento", "calidad": "qualidade"}.get(g["type"], g["type"])
+        md(base / "20-garantias" / doc(f"poliza-{slug(g['type'])}.md", f"apolice-{slug(tipo_pt)}.md"), doc(f"""
 # Póliza de {g['type']}
 
 Tomador: {c['counterparty']['name']}. Asegurado: {e['nombre']}. Contrato {c['code']}.
 
 Aseguradora: {g['insurer']}. Vigencia hasta el {g['until']}.
-""")
+""", f"""
+# Apólice de seguro-garantia de {tipo_pt}
+
+Tomador: {c['counterparty']['name']}. Segurado: {e['nombre']}. Contrato {c['code']}.
+
+Seguradora: {tr(g['insurer'])}. Vigência até {g['until']}.
+"""))
     cert = c["counterparty_certificate"]
-    md(base / "30-contraparte" / "certificado.md", f"""
+    md(base / "30-contraparte" / doc("certificado.md", "certidao.md"), doc(f"""
 # Certificado de existencia y representación legal
 
 {c['counterparty']['name']}, {N.PAISES[e['pais']]['id_fiscal']} {c['counterparty']['id']}. Representante legal: Representante de {c['counterparty']['name']}.
 
 Expedido el {cert['issued_on']}.
-""")
+""", f"""
+# Certidão simplificada da Junta Comercial
+
+{c['counterparty']['name']}, {N.PAISES[e['pais']]['id_fiscal']} {c['counterparty']['id']}. Representante legal: Representante de {c['counterparty']['name']}.
+
+Emitida em {cert['issued_on']}.
+"""))
     ej = base / "40-ejecucion"
     ej.mkdir(parents=True, exist_ok=True)
     for o in c["obligations"]:
         if d(o["due"]) <= HOY and o["id"] not in x["sin_evidencia"]:
-            md(ej / f"{o['id']}_{slug(o['what'])}.md", f"# {o['what']}\n\nContrato {c['code']}. Entregado el {o['due']}.")
+            md(ej / f"{o['id']}_{slug(tr(o['what']))}.md", doc(f"# {o['what']}\n\nContrato {c['code']}. Entregado el {o['due']}.",
+                                                              f"# {tr(o['what'])}\n\nContrato {c['code']}. Entregue em {o['due']}."))
     if c.get("decision"):
         dec = c["decision"]
-        md(ej / "acta-comite-contratos.md", f"""
+        md(ej / doc("acta-comite-contratos.md", "ata-comite-contratos.md"), doc(f"""
 # Acta del comité de contratos
 
 Fecha: {dec['date']}.
 
 El comité revisó el contrato {c['code']} con {c['counterparty']['name']}, que termina el {c['end']}, y decidió **{dec['action']}lo**.
-""")
+""", f"""
+# Ata do comitê de contratos
+
+Data: {dec['date']}.
+
+O comitê revisou o contrato {c['code']} com {c['counterparty']['name']}, que termina em {c['end']}, e decidiu **{ {'renovar': 'renová-lo', 'terminar': 'encerrá-lo'}.get(dec['action'], dec['action']) }**.
+"""))
 
 
 # ================================================================ la siembra de Fidel
@@ -482,15 +650,21 @@ def sembrar_constanza(e: dict, filas: list[dict], politicas: list[list], normas:
         normas.append(["N-2026-04", "Resolución sintética 004 de 2026", "2026-05-28", "2026-06-01", "sí", "2026-06-20", p[1]])
         esperado.append(("applicable_norm_not_in_matrix", "aplica:N-2026-04"))
     if "norma_en_boletin" in s:        # llegó en un boletín del 25 de agosto y no está en el registro
-        md(docs / "30-normativa" / "boletin-2026-08.md", """
+        md(docs / "30-normativa" / doc("boletin-2026-08.md", "boletim-2026-08.md"), doc("""
 # Boletín normativo de agosto
 
 Recibido el 2026-08-25.
 
 1. Circular sintética 007 de 2026 (N-2026-07): nuevas reglas de reporte de operaciones en efectivo. Pendiente de evaluar si aplica.
-""")
+""", """
+# Boletim normativo de agosto
+
+Recebido em 2026-08-25.
+
+1. Circular sintética 007 de 2026 (N-2026-07): novas regras de comunicação de operações em espécie. Pendente de avaliar se é aplicável.
+"""))
         ext["new_rules"].append({"id": "N-2026-07", "rule": "Circular sintética 007 de 2026", "date": "2026-08-25", "applies": "por evaluar",
-                                 "source": "30-normativa/boletin-2026-08.md, punto 1"})
+                                 "source": f"30-normativa/{doc('boletin', 'boletim')}-2026-08.md, " + doc("punto 1", "item 1")})
         esperado.append(("regulatory_change_unassessed", "norma:N-2026-07"))
     if "caso_vencido" in s:
         casos.append(["C-003", "2026-08-28", "", "conflicto de interés", "abierto"])
@@ -500,6 +674,7 @@ Recibido el 2026-08-25.
 # ================================================================ una entidad
 
 def generar(e: dict) -> dict:
+    LANG[0] = "pt" if e["pais"] == "BR" else "es"
     sesion = SALIDA / e["carpeta"]
     ent_dir = f"{e['id']}-{slug(e['nombre'])}"
     docs = sesion / "legal" / ent_dir
@@ -531,8 +706,8 @@ def generar(e: dict) -> dict:
         registro.append([code, "Publicidad Exterior S.A.S.", "Publicidad en vallas", "servicios", f"{2 * u:.2f}", "2026-01-15", "2027-01-14", "vigente", p[1]])
         esperado.append(("register_mismatch", f"registro:{code}"))
     csv_(docs / "10-registro" / "registro-contratos.csv", registro)
-    csv_(docs / "10-registro" / "pagos-2026-09-30.csv", filas_pagos)
-    csv_(docs / "00-referencia" / "matriz-atribuciones.csv", [
+    csv_(docs / "10-registro" / doc("pagos-2026-09-30.csv", "pagamentos-2026-09-30.csv"), filas_pagos)
+    csv_(docs / "00-referencia" / doc("matriz-atribuciones.csv", "matriz-alcadas.csv"), [
         ["nombre", "cargo", "tipo", "monto_maximo", "desde", "hasta"],
         [p[0], "Gerente general", "todos", f"{50 * u:.0f}", "2024-01-01", ""],
         [p[1], "Vicepresidente financiero", "todos", f"{10 * u:.0f}", "2024-01-01", ""],
@@ -556,37 +731,51 @@ def generar(e: dict) -> dict:
              ["C-002", "2026-09-25", "", "proveedores", "en investigación"]]
     sembrar_constanza(e, filas, politicas, normas, casos, ext, esperado, code_c1, docs)
     if not e["constanza"]:             # en los controles, una norma recién llegada por boletín: 8 días, sin señal
-        md(docs / "30-normativa" / "boletin-2026-09.md", """
+        md(docs / "30-normativa" / doc("boletin-2026-09.md", "boletim-2026-09.md"), doc("""
 # Boletín normativo de septiembre
 
 Recibido el 2026-09-28.
 
 1. Circular sintética 009 de 2026 (N-2026-09): ajustes al formato de reporte mensual. Pendiente de evaluar si aplica.
-""")
+""", """
+# Boletim normativo de setembro
+
+Recebido em 2026-09-28.
+
+1. Circular sintética 009 de 2026 (N-2026-09): ajustes no formato do relatório mensal. Pendente de avaliar se é aplicável.
+"""))
         ext["new_rules"].append({"id": "N-2026-09", "rule": "Circular sintética 009 de 2026", "date": "2026-09-28", "applies": "por evaluar",
-                                 "source": "30-normativa/boletin-2026-09.md, punto 1"})
+                                 "source": f"30-normativa/{doc('boletin', 'boletim')}-2026-09.md, " + doc("punto 1", "item 1")})
     cab = ["id", "obligacion", "fuente", "tipo", "responsable", "periodicidad", "dia_limite", "evidencia_esperada", "criticidad", "estado"]
-    csv_(docs / "00-referencia" / "matriz-obligaciones.csv",
+    csv_(docs / "00-referencia" / doc("matriz-obligaciones.csv", "matriz-obrigacoes.csv"),
          [cab] + [[f["id"], f["obligacion"], f["fuente"], f["tipo"], f["responsable"], f["periodicidad"], f["dia_limite"],
                    f"Archivo que empieza por {f['id']}", f["criticidad"], f.get("estado", "")] for f in filas])
     for f in filas:
         for per in f["ev"]:
-            md(docs / f"cumplimiento-{per}" / "10-evidencias" / f"{f['id']}_{slug(f['obligacion'])}-{per}.md",
-               f"# {f['obligacion']}\n\nPeriodo {per}. Evidencia de {f['id']}.")
+            md(docs / f"cumplimiento-{per}" / "10-evidencias" / f"{f['id']}_{slug(tr(f['obligacion']))}-{per}.md",
+               doc(f"# {f['obligacion']}\n\nPeriodo {per}. Evidencia de {f['id']}.", f"# {tr(f['obligacion'])}\n\nPeríodo {per}. Evidência de {f['id']}."))
     csv_(docs / "20-politicas" / "indice-politicas.csv", politicas)
     for row in politicas[1:]:
-        md(docs / "20-politicas" / f"politica-{row[0].lower()}-{slug(row[1])}.md", f"# {row[1]}\n\nCódigo {row[0]}, versión {row[2]}, aprobada el {row[4]}.")
+        md(docs / "20-politicas" / f"politica-{row[0].lower()}-{slug(tr(row[1]))}.md",
+           doc(f"# {row[1]}\n\nCódigo {row[0]}, versión {row[2]}, aprobada el {row[4]}.", f"# {tr(row[1])}\n\nCódigo {row[0]}, versão {row[2]}, aprovada em {row[4]}."))
     csv_(docs / "30-normativa" / "registro-normativo.csv", normas)
     csv_(docs / "40-canal" / "casos.csv", casos)
     declara = "cumplido" if ("informe_declara_cumplido" in e["constanza"] or not e["constanza"]) else "con observaciones"
-    md(docs / "cumplimiento-2026-09" / "20-reportes" / "informe-cumplimiento-2026-09.md", f"""
+    informe = doc("informe-cumplimiento-2026-09.md", "relatorio-compliance-2026-09.md")
+    md(docs / "cumplimiento-2026-09" / "20-reportes" / informe, doc(f"""
 # Informe de cumplimiento · septiembre de 2026
 
 Fecha: 2026-10-05. Presenta: {p[1]}, oficial de cumplimiento.
 
 Estado del periodo: **{declara}**.
-""")
-    ext["declared"] = {"status": declara, "date": "2026-10-05", "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"}
+""", f"""
+# Relatório de compliance · setembro de 2026
+
+Data: 2026-10-05. Apresenta: {p[1]}, responsável de compliance.
+
+Situação do período: **{'cumprido' if declara == 'cumplido' else 'com ressalvas'}**.
+"""))
+    ext["declared"] = {"status": declara, "date": "2026-10-05", "source": f"cumplimiento-2026-09/20-reportes/{informe}"}
     if "informe_declara_cumplido" in e["constanza"]:
         esperado.append(("declared_compliance_vs_evidence", "cumplimiento"))
 
@@ -599,6 +788,18 @@ Estado del periodo: **{declara}**.
                                       "compliance": {"contract_records": f"estado-legal/{ent_dir}/contratos"}}},
              "extraccion": {"contratos": {x["ficha"]["code"]: x["ficha"] for x in cs}, "cumplimiento": ext},
              "esperado": sorted(({"signal": a, "key": b} for a, b in set(esperado)), key=lambda z: (z["signal"], z["key"]))}
+    if LANG[0] == "pt":
+        # Lo que es texto del documento va como lo dice él: lo que se entrega, el cargo de quien firma
+        # y la aseguradora. Los valores de la ficha —el tipo, la garantía, la parte, la decisión, el
+        # estado declarado— quedan como los define el skill.
+        for c in clave["extraccion"]["contratos"].values():
+            for o in c["obligations"]:
+                o["what"] = tr(o["what"])
+            for x in c["signatories"]:
+                x["role"] = tr(x["role"])
+            for g in c["guarantees_provided"]:
+                g["insurer"] = tr(g["insurer"])
+        LANG[0] = "es"
     (sesion / "clave.json").write_text(json.dumps(clave, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return clave
 
