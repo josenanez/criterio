@@ -222,6 +222,21 @@
           "estado": "verificada",
           "nota": "Artículo 44: la garantía de cumplimiento es exigible en los contratos de la licitación mayor y la menor, y facultativa en la reducida; «se establecerá entre un cinco por ciento (5%) y un diez por ciento (10%) del monto de la adjudicación, conforme lo defina el pliego», y si el pliego no la define, se rinde por el 5 %. Artículo 100: el contrato se perfecciona con la adjudicación firme y la garantía rendida. Todo el procedimiento corre en el sistema digital unificado (SICOP), sin un plazo en días para publicar el contrato",
           "uso": "El mínimo y el tope de la garantía de cumplimiento de un contrato público de Costa Rica"
+        },
+        {
+          "id": "F-14",
+          "fuente": "Honduras · Decreto 74-2001, Ley de Contratación del Estado, artículos 99 y 100; y la Política de publicación EDCA de la ONCAE",
+          "version": "El texto del decreto que trajo José Francisco Ñáñez; la política de publicación de la ONCAE, sin fecha propia, consultada en oncae.gob.hn",
+          "enlaces": [
+            [
+              "oncae.gob.hn",
+              "https://oncae.gob.hn/wp-content/uploads/2025/01/Politica_de_publicacion_EDCA_ONCAE.pdf"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Artículo 100: quien contrate con la Administración constituye una garantía de cumplimiento «equivalente al quince por ciento (15%) de su valor»; en los contratos de obra o de suministro con entregas de más de doce meses, el 15 % del valor de lo que se entrega en el año. Artículo 99: la garantía de mantenimiento de la oferta es de al menos el 2 % de su valor. La ley no fija un plazo en días para publicar el contrato. El sistema en que se publican los procesos y los contratos es HonduCompras, «de contratación y adquisiciones del estado de Honduras», según la política de publicación de la ONCAE. Es el texto original del decreto: antes del primer uso sobre documentación real se confirma en el texto vigente que los artículos 99 y 100 no cambiaron",
+          "uso": "El mínimo de la garantía de cumplimiento de un contrato público de Honduras, y el sistema en que se publica"
         }
       ]
     }

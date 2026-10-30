@@ -32,7 +32,7 @@ Reporta en dos líneas qué es nuevo, qué cambió y qué está fuera de su luga
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" convertir --config <config> --caso <parte de la ruta, por ejemplo 2026-09/50-auditoria>
 ```
 
-Las tablas —balance, mayor, extractos, auxiliares, checklist, índice del auditor— y las facturas electrónicas **no se extraen**: las procesa el motor directamente.
+Las tablas —balance, mayor, extractos, auxiliares, checklist, índice del auditor— y las facturas electrónicas en XML **no se extraen**: las procesa el motor directamente. **La excepción es Honduras**, que no tiene un esquema de factura: cada factura nueva o cambiada de `30-facturacion/` se convierte y se extrae a `invoices` de la ficha aplicando **close-record** y **einvoice-matching**, con su CAI, su rango autorizado y su fecha límite de emisión (decisión 0024).
 
 **3. Calcula y muestra:**
 

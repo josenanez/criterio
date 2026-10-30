@@ -90,6 +90,7 @@ rule 2). Where each document goes, in the [recommended folder structure](README.
 | `recorded_without_einvoice` | An entry that needs an e-invoice has none to support it |
 | `einvoice_amount_mismatch` | The XML amount or tax differs from the entry |
 | `einvoice_duplicate` | The same CUFE or access key is recorded twice |
+| `invoice_outside_authorization` | A received Honduran invoice falls outside its authorized range or was issued after its deadline: it does not support the sales-tax credit |
 | `audit_request_unanswered` | An auditor request has no supported answer |
 | `declared_close_vs_evidence` | The close is reported as closed and there are open signals that status does not explain |
 

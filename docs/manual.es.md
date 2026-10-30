@@ -540,7 +540,7 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Escribe.** `<estado>/indice.json`; `<estado>/cache/`; `<estado>/cierre/<AAAA-MM>/ficha.json`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
 
-**Skills.** **close-record**, **finance-intake**
+**Skills.** **close-record**, **einvoice-matching**, **finance-intake**
 
 ### `/criterio-finance:close-status`
 
@@ -608,9 +608,9 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Muestra.** cruce y señales
 
-**Escribe.** `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
+**Escribe.** `<estado>/cierre/<AAAA-MM>/ficha.json`; `<estado>/cierre/<AAAA-MM>/resultados.json`; `<estado>/cierre/<AAAA-MM>/reporte-<comando>.md`
 
-**Skills.** **einvoice-matching**
+**Skills.** **close-record**, **einvoice-matching**
 
 ### `/criterio-finance:audit-pack`
 

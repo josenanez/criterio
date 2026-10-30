@@ -14,8 +14,8 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.0.0 | Estable | — |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.1.0 | Estable | 1.2.0 · Honduras |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.2.0 | Estable | 1.3.0 · Honduras |
+| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.1.0 | Laboratorio | 1.2.0 · Honduras |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.2.0 | Laboratorio | 1.3.0 · Honduras |
 | Criterio EA · Dirección | Ofelia | 1.0.0 | Estable | — |
 | Criterio CCO · La función comercial | Augusto, Valeria | 0.3.0 | Estable | — |
 | Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 0.1.0 | Laboratorio | 0.2.0 · La ronda de los tres agentes |

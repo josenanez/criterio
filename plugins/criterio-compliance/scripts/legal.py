@@ -889,6 +889,9 @@ def selftest() -> int:
     ok("Costa Rica: el 5 % y el 10 % pasan; el 3 % queda bajo el mínimo y el 12 % sobre el tope (Ley 9986, art. 44)",
        [pub("CR", dict(base_, guarantees_provided=gar_(m))) for m in (5_000, 10_000, 3_000, 12_000)],
        [[], [], ["public_guarantee_below_law"], ["public_guarantee_over_cap"]])
+    ok("Honduras: el 15 % pasa, y uno mayor también; el 10 % queda bajo el mínimo (Decreto 74-2001, art. 100)",
+       [pub("HN", dict(base_, guarantees_provided=gar_(m))) for m in (15_000, 20_000, 10_000)],
+       [[], [], ["public_guarantee_below_law"]])
     ok("Brasil: el 8 % justificado está dentro del tope del 10 %",
        pub("BR", dict(base_, public={"modality": "licitação", "published_on": "2026-09-10"}, guarantees_provided=gar_(8_000, justified=True))), [])
     ok("sumar meses al fin de mes", sumar_meses(dt.date(2026, 1, 31), 1), dt.date(2026, 2, 28))

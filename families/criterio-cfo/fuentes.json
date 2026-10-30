@@ -1005,6 +1005,88 @@
           "estado": "verificada",
           "nota": "Dice: «La tarifa del impuesto es del trece por ciento (13%) para todas las operaciones sujetas al pago del impuesto». En el comprobante es el código de tarifa 08, la tarifa general del 13 % (F-34, nota de las tarifas)",
           "uso": "La tarifa del IVA de Costa Rica en el material"
+        },
+        {
+          "id": "F-37",
+          "fuente": "Honduras · Acuerdo 481-2017 de la Secretaría de Finanzas, Reglamento del Régimen de Facturación, Otros Documentos Fiscales y Registro Fiscal de Imprentas, artículos 3, 10 y 11",
+          "version": "El texto original publicado en La Gaceta n.º 34,413 del 10 de agosto de 2017, el PDF que trajo José Francisco Ñáñez",
+          "enlaces": [
+            [
+              "sar.gob.hn",
+              "https://www.sar.gob.hn/"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "El SAR no publica un esquema ni una especificación técnica de la factura electrónica (decisión 0024): la factura entra como documento. Confirmados: la CAI como serie alfanumérica generada por la Administración Tributaria (art. 3, def. 7), el rango autorizado (art. 3, def. 36), y los requisitos del formato de la factura (art. 10): el RTN del emisor, la CAI, la fecha límite de emisión vigente, el rango autorizado vigente y el número correlativo de dieciséis dígitos NNN-NNN-NN-NNNNNNNN —establecimiento (000 la casa matriz), punto de emisión, tipo de documento (01 = factura) y correlativo que empieza en 00000001—; y los que se completan al emitirla (art. 11): el RTN del cliente, la fecha de emisión, los subtotales y los impuestos discriminados por tarifa y el importe total. Es el texto original, reformado por los Acuerdos 609-2017, 725-2018 y 817-2018: antes del primer uso sobre documentación real se confirma en el texto consolidado que los artículos 10 y 11 no cambiaron",
+          "uso": "Los campos que el agente extrae de cada factura de Honduras y que el motor valida",
+          "campos": [
+            {
+              "id": "A3-CAI",
+              "campo": "Clave de Autorización de Impresión (CAI) · serie alfanumérica que genera la Administración Tributaria (art. 3, def. 7)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A3-RANGO",
+              "campo": "Rango autorizado · la cantidad de comprobantes autorizados (art. 3, def. 36; art. 10, num. 5)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A10-LIMITE",
+              "campo": "Fecha límite de emisión, vigente (art. 10, num. 4)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A10-CORRELATIVO",
+              "campo": "Número correlativo de dieciséis dígitos, NNN-NNN-NN-NNNNNNNN: establecimiento, punto de emisión, tipo de documento (01 = factura) y correlativo (art. 10, num. 7)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A10-EMISOR",
+              "campo": "Registro Tributario Nacional (RTN) del emisor (art. 10, num. 1, a)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A11-CLIENTE",
+              "campo": "Registro Tributario Nacional del cliente (art. 11, num. 1, b)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A11-FECHA",
+              "campo": "Fecha de emisión (art. 11, num. 1, c)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A11-SUBTOTAL",
+              "campo": "Subtotales sujetos a los impuestos, discriminados por tarifa (art. 11, num. 1, h)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A11-IMPUESTO",
+              "campo": "Impuestos discriminados por tarifa (art. 11, num. 1, i)",
+              "estado": "verificado"
+            },
+            {
+              "id": "A11-TOTAL",
+              "campo": "Importe total de la operación (art. 11, num. 1, k)",
+              "estado": "verificado"
+            }
+          ]
+        },
+        {
+          "id": "F-38",
+          "fuente": "Honduras · Ley del Impuesto Sobre Ventas, artículo 6",
+          "version": "El texto consolidado al 10 de junio de 2016 que trajo José Francisco Ñáñez",
+          "enlaces": [
+            [
+              "sar.gob.hn",
+              "https://www.sar.gob.hn/"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Dice: «La tasa general del impuesto es del quince por ciento (15%)». El motor comprueba con ella que el ISV extraído de la factura sea el de su subtotal gravado",
+          "uso": "La tasa del ISV de Honduras en el motor y en el material"
         }
       ]
     },
@@ -1192,6 +1274,21 @@
           "estado": "verificada",
           "nota": "Dice: las empresas que cotizan y todas las reguladas por el CONASSIF —entidades financieras, aseguradoras, fondos— usan las NIIF completas; las demás pueden usar la NIIF para las PYMES o las NIIF completas",
           "uso": "El marco contable de cada entidad de Costa Rica en el material"
+        },
+        {
+          "id": "F-39",
+          "fuente": "IFRS Foundation · perfil de jurisdicción de Honduras",
+          "version": "actualizado el 21 de febrero de 2017",
+          "enlaces": [
+            [
+              "ifrs.org",
+              "https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/honduras-ifrs-profile.pdf"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Dice: desde el 1 de enero de 2012 las entidades distintas de bancos e instituciones financieras eligen entre las NIIF completas y la NIIF para las PYMES; los bancos y las instituciones financieras que regula la CNBS siguen desde 2016 un marco basado en las NIIF, modificado por sus normas prudenciales (Circular CNBS 068/2014)",
+          "uso": "El marco contable de cada entidad de Honduras en el material"
         }
       ]
     }

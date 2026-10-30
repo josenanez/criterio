@@ -1,0 +1,7 @@
+# Otrosí OT-1 al contrato CTR-4002
+
+Fecha: 2026-05-15.
+
+Se adiciona el valor del contrato en 1500000 HNL. Se modifica la terminación del contrato al 2027-12-31.
+
+Firmado por las dos partes: Óscar Zelaya, por la entidad, y el representante legal de Papelería Hondureña, S. de R.L..

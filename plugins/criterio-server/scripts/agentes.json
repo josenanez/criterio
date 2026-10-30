@@ -1216,6 +1216,7 @@
     "incident_notification_late": "Una notificación que pide la matriz —al supervisor, a la autoridad de datos, a los clientes— se hizo tarde o no se hizo",
     "incident_response_late": "Un incidente se contuvo después del plazo de su severidad en la política, o sigue sin contener pasado ese plazo",
     "incident_without_review": "Un incidente cerrado no tiene su revisión posterior dentro del plazo",
+    "invoice_outside_authorization": "Una factura recibida de Honduras cae fuera de su rango autorizado o se emitió después de su fecha límite: no sustenta el crédito fiscal del ISV",
     "kev_past_due": "Una vulnerabilidad del catálogo KEV sigue abierta después de su fecha de corrección",
     "ledger_vs_trial_balance": "El saldo de una cuenta en el mayor no es el del balance de comprobación",
     "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados",

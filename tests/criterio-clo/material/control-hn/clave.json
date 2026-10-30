@@ -1,0 +1,493 @@
+{
+  "entidad": "Comercial Control de Honduras",
+  "industria": "retail",
+  "pais": "HN",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "08010007330150",
+        "name": "Comercial Control de Honduras",
+        "country": "HN",
+        "currency": "HNL"
+      },
+      "paths": {
+        "documents": "legal/08010007330150-comercial-control-de-honduras",
+        "state": "estado-legal/08010007330150-comercial-control-de-honduras"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "08010007330150",
+        "name": "Comercial Control de Honduras",
+        "country": "HN",
+        "currency": "HNL"
+      },
+      "paths": {
+        "documents": "legal/08010007330150-comercial-control-de-honduras",
+        "state": "estado-legal/08010007330150-comercial-control-de-honduras"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/08010007330150-comercial-control-de-honduras/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-4201": {
+        "code": "CTR-4201",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Transportes Control, S. de R.L.",
+          "id": "08010000420001"
+        },
+        "value": 7200000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Gabriela Ordóñez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Transportes Control, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4201-transportes-control-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4201-transportes-control-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-4201-transportes-control-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Transportes Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4201-transportes-control-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Transportes Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4201-transportes-control-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Transportes Control, S. de R.L.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-4201-transportes-control-s-de-r-l/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4201-transportes-control-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-4202": {
+        "code": "CTR-4202",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Insumos Control, S. de R.L.",
+          "id": "08010000420002"
+        },
+        "value": 3600000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Mario Aguilar",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Insumos Control, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 900000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Mario Aguilar",
+            "source": "contratos/CTR-4202-insumos-control-s-de-r-l/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4202-insumos-control-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4202-insumos-control-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-4202-insumos-control-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Insumos Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4202-insumos-control-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Insumos Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4202-insumos-control-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4202-insumos-control-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-4203": {
+        "code": "CTR-4203",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Bodegas Control, S. A.",
+          "id": "08010000420003"
+        },
+        "value": 5400000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Gabriela Ordóñez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Bodegas Control, S. A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4203-bodegas-control-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4203-bodegas-control-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-4203-bodegas-control-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Bodegas Control, S. A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4203-bodegas-control-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Bodegas Control, S. A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4203-bodegas-control-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4203-bodegas-control-s-a/10-contrato/contrato.md"
+      },
+      "CTR-4204": {
+        "code": "CTR-4204",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Software Control, S. de R.L.",
+          "id": "08010000420004"
+        },
+        "value": 2700000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Mario Aguilar",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Software Control, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4204-software-control-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4204-software-control-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-4204-software-control-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Software Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4204-software-control-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Software Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4204-software-control-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4204-software-control-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-4205": {
+        "code": "CTR-4205",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Asesores Control, S. de R.L.",
+          "id": "08010000420005"
+        },
+        "value": 1800000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Mario Aguilar",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Asesores Control, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4205-asesores-control-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4205-asesores-control-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-4205-asesores-control-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Asesores Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4205-asesores-control-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Asesores Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4205-asesores-control-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-4205-asesores-control-s-de-r-l/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-4205-asesores-control-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-4206": {
+        "code": "CTR-4206",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Control, S. de R.L.",
+          "id": "08010000420006"
+        },
+        "value": 4500000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Gabriela Ordóñez",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Control, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4206-mantenimiento-control-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4206-mantenimiento-control-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-4206-mantenimiento-control-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4206-mantenimiento-control-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Control, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4206-mantenimiento-control-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4206-mantenimiento-control-s-de-r-l/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": []
+}

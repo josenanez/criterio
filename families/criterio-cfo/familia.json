@@ -53,6 +53,9 @@
       ],
       "CAMPOS_CR": [
         "F-34"
+      ],
+      "CAMPOS_HN": [
+        "F-37"
       ]
     }
   },
@@ -298,6 +301,11 @@
           "id": "einvoice_duplicate",
           "es": "El mismo CUFE o la misma clave de acceso aparece registrado dos veces",
           "en": "The same CUFE or access key is recorded twice"
+        },
+        {
+          "id": "invoice_outside_authorization",
+          "es": "Una factura recibida de Honduras cae fuera de su rango autorizado o se emitió después de su fecha límite: no sustenta el crédito fiscal del ISV",
+          "en": "A received Honduran invoice falls outside its authorized range or was issued after its deadline: it does not support the sales-tax credit"
         },
         {
           "id": "audit_request_unanswered",

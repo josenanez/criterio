@@ -131,6 +131,15 @@ ENTIDADES = [
      "siembra": ["registro_sin_factura", "xml_duplicado", "cheque_viejo", "cierre_declarado", "requerimiento_vencido",
                  "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite"]},
     {"carpeta": "control-cr", "industria": "retail", "pais": "CR", "id": F.cedula_cr(733015), "nombre": "Comercial Control de Costa Rica", "moneda": "CRC", "escala": 600_000, "semilla": 107, "siembra": []},
+    # Honduras: banca —los bancos que regula la CNBS siguen las NIIF con sus normas prudenciales (F-39)— y
+    # retail, con la factura como documento: su CAI, su rango autorizado y su fecha límite (F-37, decisión 0024).
+    {"carpeta": "banca-hn", "industria": "banca", "pais": "HN", "id": F.rtn_hn(4578120), "nombre": "Banco de Occidente Sintético", "moneda": "HNL", "escala": 50_000, "semilla": 109,
+     "siembra": ["balance_descuadrado", "comision_sin_registrar", "iva_distinto", "requerimiento_en_carta", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "traslado_sin_acta", "fuera_de_fecha"]},
+    {"carpeta": "retail-hn", "industria": "retail", "pais": "HN", "id": F.rtn_hn(6129040), "nombre": "Almacenes del Valle de Sula", "moneda": "HNL", "escala": 40_000, "semilla": 113,
+     "siembra": ["registro_sin_factura", "factura_sin_registro", "cheque_viejo", "cierre_declarado", "requerimiento_vencido",
+                 "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite", "fuera_de_rango"]},
+    {"carpeta": "control-hn", "industria": "retail", "pais": "HN", "id": F.rtn_hn(7330150), "nombre": "Comercial Control de Honduras", "moneda": "HNL", "escala": 30_000, "semilla": 127, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -429,6 +438,8 @@ TESORERIA = {
     "mineria-gt": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
     "banca-cr": ["exposicion", "firmante_sin_facultad", "covenant_riesgo"],
     "retail-cr": ["caja_bajo_minimo", "pago_sin_aprobacion", "vencimiento_cercano"],
+    "banca-hn": ["exposicion", "firmante_sin_facultad", "covenant_riesgo"],
+    "retail-hn": ["caja_bajo_minimo", "pago_sin_aprobacion", "vencimiento_cercano"],
 }
 
 
@@ -459,7 +470,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
         # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
-        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450, "GTQ": 7.7, "CRC": 505}.get(e["moneda"], 1)
+        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450, "GTQ": 7.7, "CRC": 505, "HNL": 26}.get(e["moneda"], 1)
         politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
@@ -523,6 +534,27 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
     return {"treasury": {"currencies": monedas}}, s
 
 
+def factura_pdf_hn(x: dict, emisor: str, cliente: str, destino: Path) -> None:
+    """La factura de Honduras como la imprime el emisor, con los requisitos de los artículos 10 y 11
+    del Acuerdo 481-2017 (F-37): un PDF con texto, que el agente extrae a la ficha."""
+    cifra = lambda v: f"L {v:,.2f}"  # noqa: E731
+    lineas = [
+        ("FACTURA", 16), (emisor, 12), (f"RTN: {x['issuer_rtn']}", 10), ("", 10),
+        (f"CAI: {x['cai']}", 10),
+        (f"Rango autorizado: del {x['authorized_range']['from']} al {x['authorized_range']['to']}", 10),
+        (f"Fecha límite de emisión: {dt.date.fromisoformat(x['issue_deadline']).strftime('%d/%m/%Y')}", 10),
+        (f"Factura N.º {x['number']}", 12),
+        (f"Fecha de emisión: {dt.date.fromisoformat(x['date']).strftime('%d/%m/%Y')}", 10), ("", 10),
+        (f"Cliente: {cliente}", 10), (f"RTN del cliente: {x['customer_rtn']}", 10), ("", 10),
+        (f"Subtotal gravado 15 %: {cifra(x['taxable'])}", 10),
+        (f"ISV 15 %: {cifra(x['isv'])}", 10),
+        (f"Total: {cifra(x['total'])}", 12), ("", 10),
+        ("Original: Cliente · Copia: Obligado tributario emisor", 9),
+    ]
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    FMT.pdf_de_lineas(lineas, destino)
+
+
 def generar(e: dict) -> dict:
     rnd = random.Random(e["semilla"])
     s = set(e["siembra"])
@@ -534,6 +566,8 @@ def generar(e: dict) -> dict:
         tasa = tasa / (1 - tasa)
     lector = F.FACTURA[pais]["lector"]
     dian = lector == "dian"
+    # El nombre de cada parte en la factura impresa de Honduras; el de la entidad es el suyo.
+    nombre_de = lambda rtn: e["nombre"] if rtn == e["id"] else f"Suministros Sintéticos {rtn[-4:]}, S. de R.L."  # noqa: E731
     sesion = SALIDA / e["carpeta"]
     ent_dir = f"{e['id']}-{F.norm(e['nombre']).replace('_', '-')}"
     docs = sesion / "finanzas" / ent_dir
@@ -560,6 +594,8 @@ def generar(e: dict) -> dict:
             return F.nit_gt(e["semilla"] * 100000 + i)
         if lector == "cr":
             return F.cedula_cr(e["semilla"] * 1000 + i)
+        if lector == "hn":
+            return F.rtn_hn(e["semilla"] * 1000 + i)
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
@@ -579,6 +615,8 @@ def generar(e: dict) -> dict:
             return f"{'A1F0' if prefijo == '99' else 'B2E0'}{e['semilla']:02d}AB-{1000000 + i}"
         if lector == "cr":                                     # F-34: sucursal, terminal, tipo 01 y número de diez
             return f"{'001' if prefijo == '99' else '002'}0000101{i:010d}"
+        if lector == "hn":                                     # F-37, art. 10: establecimiento, punto de emisión, tipo 01 y correlativo
+            return f"{'000' if prefijo == '99' else '001'}-001-01-{i:08d}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
@@ -606,6 +644,13 @@ def generar(e: dict) -> dict:
             return F.factura_fel(serie, int(nro), fecha.isoformat(), emisor, receptor, base, iva)
         if lector == "cr":
             return F.factura_cr(numero, fecha.isoformat(), emisor, receptor, base, iva)
+        if lector == "hn":
+            # Honduras no tiene XML (decisión 0024): la factura es un PDF con su CAI, su rango autorizado
+            # y su fecha límite de emisión (F-37, art. 10), y el agente la extrae a la ficha.
+            pre = numero.rsplit("-", 1)[0]
+            return {"number": numero, "cai": F.cai_hn(f"{emisor}:{pre}"), "authorized_range": {"from": f"{pre}-00000001", "to": f"{pre}-00000500"},
+                    "issue_deadline": "2026-12-31", "date": fecha.isoformat(), "issuer_rtn": emisor, "customer_rtn": receptor,
+                    "taxable": base, "isv": iva, "total": r2(base + iva)}
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 
@@ -689,6 +734,7 @@ def generar(e: dict) -> dict:
     banco_libros = {"11100501": [], "11100502": []}            # fecha, referencia, descripción, valor
     banco_extracto = {"11100501": [], "11100502": []}
     xml_emitidas, xml_recibidas = [], []
+    ext = ".pdf" if F.FACTURA[pais].get("documento") else ".xml"
     ventas = []
     for i in range(10):
         f = dt.date(2026, 9, 2 + 3 * i if 2 + 3 * i <= 28 else 28)
@@ -700,11 +746,11 @@ def generar(e: dict) -> dict:
         if not ("factura_sin_registro" in s and i == 9):
             asentar(f, [("1305", ter, num, base + iva_libros, 0, "", "Venta"), ("4135", ter, num, 0, base, "", "Venta"),
                         ("2408", ter, num, 0, iva_libros, "", "IVA generado")], "V")
-        xml_emitidas.append((f"fe-{num}.xml", factura_xml(num, f, e["id"], ter, base, iva)))
+        xml_emitidas.append((f"fe-{num}{ext}", factura_xml(num, f, e["id"], ter, base, iva)))
         if "iva_distinto" in s and i == 4:
-            esperado.append(("einvoice_amount_mismatch", f"xml:{PERIODO}/30-facturacion/emitidas/fe-{num}.xml"))
+            esperado.append(("einvoice_amount_mismatch", f"xml:{PERIODO}/30-facturacion/emitidas/fe-{num}{ext}"))
         if "factura_sin_registro" in s and i == 9:
-            esperado.append(("einvoice_not_recorded", f"xml:{PERIODO}/30-facturacion/emitidas/fe-{num}.xml"))
+            esperado.append(("einvoice_not_recorded", f"xml:{PERIODO}/30-facturacion/emitidas/fe-{num}{ext}"))
     if "xml_duplicado" in s:
         nombre, contenido = xml_emitidas[2]
         xml_emitidas.append((nombre.replace(".xml", "-reenviada.xml"), contenido))
@@ -744,16 +790,26 @@ def generar(e: dict) -> dict:
                         ("2205", ter, num, 0, r2(base + iva), "", "Cuenta por pagar")], "C")
         if veces == 2:
             esperado += [("einvoice_duplicate", f"reg:recibidas:{F.ident(num)}"),
-                         ("einvoice_amount_mismatch", f"xml:{PERIODO}/30-facturacion/recibidas/fr-{num}.xml")]
+                         ("einvoice_amount_mismatch", f"xml:{PERIODO}/30-facturacion/recibidas/fr-{num}{ext}")]
             real[(a, l)][8] = r2(real[(a, l)][8] * 2)
         if "registro_sin_factura" in s and l == "Publicidad":
             esperado.append(("recorded_without_einvoice", f"reg:recibidas:{F.ident(num)}"))
             continue
-        xml_recibidas.append((f"fr-{num}.xml", factura_xml(num, f, ter, e["id"], base, iva)))
+        fx = factura_xml(num, f, ter, e["id"], base, iva)
+        # Honduras: una factura recibida fuera de su autorización —emitida después de su fecha límite, o
+        # con un número fuera de su rango autorizado— no sustenta el crédito fiscal del ISV (decisión 0024).
+        if isinstance(fx, dict) and "fuera_de_fecha" in s and i == 1:
+            fx["issue_deadline"] = (f - dt.timedelta(days=3)).isoformat()
+            esperado.append(("invoice_outside_authorization", f"cai:{PERIODO}/30-facturacion/recibidas/fr-{num}{ext}"))
+        if isinstance(fx, dict) and "fuera_de_rango" in s and i == 3:
+            pre = num.rsplit("-", 1)[0]
+            fx["authorized_range"] = {"from": f"{pre}-00000001", "to": f"{pre}-{int(num.rsplit('-', 1)[1]) - 5:08d}"}
+            esperado.append(("invoice_outside_authorization", f"cai:{PERIODO}/30-facturacion/recibidas/fr-{num}{ext}"))
+        xml_recibidas.append((f"fr-{num}{ext}", fx))
     if "factura_recibida_sin_registro" in s:
         num, ter, f = numero_doc("77", 290), tercero(390), dt.date(2026, 9, 27)
-        xml_recibidas.append((f"fr-{num}.xml", factura_xml(num, f, ter, e["id"], r2(2 * esc), r2(2 * esc * tasa))))
-        esperado.append(("einvoice_not_recorded", f"xml:{PERIODO}/30-facturacion/recibidas/fr-{num}.xml"))
+        xml_recibidas.append((f"fr-{num}{ext}", factura_xml(num, f, ter, e["id"], r2(2 * esc), r2(2 * esc * tasa))))
+        esperado.append(("einvoice_not_recorded", f"xml:{PERIODO}/30-facturacion/recibidas/fr-{num}{ext}"))
     # Pagos: las tres cuentas por pagar de agosto y dos compras de septiembre, con cheque.
     pagos = [(x[0] + dt.timedelta(days=30), x[1], x[2], x[3]) for x in abiertas_cxp] + [(c[0] + dt.timedelta(days=6), c[1], c[2], r2(c[3] + c[4])) for c in compras[:2]]
     for j, (f, ter, num, total) in enumerate(pagos):
@@ -887,11 +943,17 @@ def generar(e: dict) -> dict:
                 fila = next(i for i, x in enumerate(filas_ext) if i and x[2] == "Comisión de manejo") + 1
                 esperado[k] = (sig, f"{sub}:{rel_ext}:{fila}")
 
-    # Las facturas electrónicas.
-    for nombre, contenido in xml_emitidas:
-        md(p / "30-facturacion" / "emitidas" / nombre, contenido)
-    for nombre, contenido in xml_recibidas:
-        md(p / "30-facturacion" / "recibidas" / nombre, contenido)
+    # Las facturas electrónicas. Las de Honduras son documentos: un PDF con texto por factura, y lo
+    # que el agente extrae de cada uno va a la clave de la ficha del cierre (decisión 0024).
+    for lado, lista in (("emitidas", xml_emitidas), ("recibidas", xml_recibidas)):
+        for nombre, contenido in lista:
+            if isinstance(contenido, dict):
+                destino = p / "30-facturacion" / lado / nombre
+                factura_pdf_hn(contenido, nombre_de(contenido["issuer_rtn"]), nombre_de(contenido["customer_rtn"]), destino)
+                extraccion["cierre"].setdefault("invoices", {})[f"{contenido['issuer_rtn']}:{contenido['number']}"] = {
+                    **contenido, "source": f"{PERIODO}/30-facturacion/{lado}/{nombre}"}
+            else:
+                md(p / "30-facturacion" / lado / nombre, contenido)
 
     # ------------------------------------------------ el checklist, los soportes y la auditoría
     md(docs / "00-referencia" / "plan-de-cuentas.csv", doc("cuenta;nombre;naturaleza\n1;Activo;D\n2;Pasivo;C\n3;Patrimonio;C\n4;Ingresos;C\n5;Gastos;D\n6;Costos;D",

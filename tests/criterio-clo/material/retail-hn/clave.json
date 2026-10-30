@@ -1,0 +1,611 @@
+{
+  "entidad": "Almacenes del Valle de Sula",
+  "industria": "retail",
+  "pais": "HN",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "contrato_por_vencer",
+      "otrosi_sin_facultad",
+      "registro_distinto",
+      "sin_garantia",
+      "contrato_sin_registro"
+    ],
+    "constanza": [
+      "sin_fuente",
+      "evidencia_vieja",
+      "caso_vencido",
+      "cumplida_sin_evidencia",
+      "politica_vencida"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "08010006129040",
+        "name": "Almacenes del Valle de Sula",
+        "country": "HN",
+        "currency": "HNL"
+      },
+      "paths": {
+        "documents": "legal/08010006129040-almacenes-del-valle-de-sula",
+        "state": "estado-legal/08010006129040-almacenes-del-valle-de-sula"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "08010006129040",
+        "name": "Almacenes del Valle de Sula",
+        "country": "HN",
+        "currency": "HNL"
+      },
+      "paths": {
+        "documents": "legal/08010006129040-almacenes-del-valle-de-sula",
+        "state": "estado-legal/08010006129040-almacenes-del-valle-de-sula"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/08010006129040-almacenes-del-valle-de-sula/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-4101": {
+        "code": "CTR-4101",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística de Puerto Cortés, S. de R.L.",
+          "id": "08010000410001"
+        },
+        "value": 8800000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Héctor Bonilla",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística de Puerto Cortés, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4101-logistica-de-puerto-cortes-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4101-logistica-de-puerto-cortes-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-4101-logistica-de-puerto-cortes-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Logística de Puerto Cortés, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4101-logistica-de-puerto-cortes-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Logística de Puerto Cortés, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4101-logistica-de-puerto-cortes-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Logística de Puerto Cortés, S. de R.L.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-4101-logistica-de-puerto-cortes-s-de-r-l/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4101-logistica-de-puerto-cortes-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-4102": {
+        "code": "CTR-4102",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Empaques de San Pedro Sula, S. A.",
+          "id": "08010000410002"
+        },
+        "value": 4400000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "María José Funes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Empaques de San Pedro Sula, S. A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 7700000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "María José Funes",
+            "source": "contratos/CTR-4102-empaques-de-san-pedro-sula-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4102-empaques-de-san-pedro-sula-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4102-empaques-de-san-pedro-sula-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-4102-empaques-de-san-pedro-sula-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Empaques de San Pedro Sula, S. A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4102-empaques-de-san-pedro-sula-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Empaques de San Pedro Sula, S. A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4102-empaques-de-san-pedro-sula-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4102-empaques-de-san-pedro-sula-s-a/10-contrato/contrato.md"
+      },
+      "CTR-4103": {
+        "code": "CTR-4103",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Centro Comercial del Norte, S. A.",
+          "id": "08010000410003"
+        },
+        "value": 6600000,
+        "start": "2025-02-01",
+        "end": "2026-11-25",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Héctor Bonilla",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Centro Comercial del Norte, S. A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4103-centro-comercial-del-norte-s-a/10-contrato/contrato.md, cláusula 9"
+          },
+          {
+            "type": "calidad",
+            "months_after_end": 12,
+            "source": "contratos/CTR-4103-centro-comercial-del-norte-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-25",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4103-centro-comercial-del-norte-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-4103-centro-comercial-del-norte-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Centro Comercial del Norte, S. A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4103-centro-comercial-del-norte-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-25",
+            "who": "Centro Comercial del Norte, S. A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4103-centro-comercial-del-norte-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4103-centro-comercial-del-norte-s-a/10-contrato/contrato.md"
+      },
+      "CTR-4104": {
+        "code": "CTR-4104",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Pagos en Línea Hondureños, S. de R.L.",
+          "id": "08010000410004"
+        },
+        "value": 3300000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "María José Funes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Pagos en Línea Hondureños, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4104-pagos-en-linea-hondurenos-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4104-pagos-en-linea-hondurenos-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-4104-pagos-en-linea-hondurenos-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Pagos en Línea Hondureños, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4104-pagos-en-linea-hondurenos-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Pagos en Línea Hondureños, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4104-pagos-en-linea-hondurenos-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4104-pagos-en-linea-hondurenos-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-4105": {
+        "code": "CTR-4105",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Mercadeo Integral del Caribe, S. de R.L.",
+          "id": "08010000410005"
+        },
+        "value": 2200000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "María José Funes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mercadeo Integral del Caribe, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4105-mercadeo-integral-del-caribe-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4105-mercadeo-integral-del-caribe-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-4105-mercadeo-integral-del-caribe-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Mercadeo Integral del Caribe, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4105-mercadeo-integral-del-caribe-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Mercadeo Integral del Caribe, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4105-mercadeo-integral-del-caribe-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-4105-mercadeo-integral-del-caribe-s-de-r-l/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-4105-mercadeo-integral-del-caribe-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-4106": {
+        "code": "CTR-4106",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Refrigeración Comercial de Sula, S. de R.L.",
+          "id": "08010000410006"
+        },
+        "value": 5500000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Héctor Bonilla",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Refrigeración Comercial de Sula, S. de R.L.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4106-refrigeracion-comercial-de-sula-s-de-r-l/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4106-refrigeracion-comercial-de-sula-s-de-r-l/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-4106-refrigeracion-comercial-de-sula-s-de-r-l/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Refrigeración Comercial de Sula, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4106-refrigeracion-comercial-de-sula-s-de-r-l/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Refrigeración Comercial de Sula, S. de R.L.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4106-refrigeracion-comercial-de-sula-s-de-r-l/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4106-refrigeracion-comercial-de-sula-s-de-r-l/10-contrato/contrato.md"
+      },
+      "CTR-4107": {
+        "code": "CTR-4107",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Vigilancia Integral, S. A.",
+          "id": "08010000410007"
+        },
+        "value": 3300000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "María José Funes",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Vigilancia Integral, S. A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4107-vigilancia-integral-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4107-vigilancia-integral-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-4107-vigilancia-integral-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Vigilancia Integral, S. A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4107-vigilancia-integral-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Vigilancia Integral, S. A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4107-vigilancia-integral-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4107-vigilancia-integral-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "compliance_evidence_stale",
+      "key": "stale:OB-11"
+    },
+    {
+      "signal": "contract_expiring",
+      "key": "vence:CTR-4103"
+    },
+    {
+      "signal": "guarantee_missing",
+      "key": "garantia:CTR-4103:calidad"
+    },
+    {
+      "signal": "obligation_without_source",
+      "key": "fuente:OB-13"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:P-03"
+    },
+    {
+      "signal": "register_differs_from_contract",
+      "key": "difiere:CTR-4102"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "carpeta:CTR-4107"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-4102:OT-1"
+    }
+  ]
+}

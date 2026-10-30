@@ -13,6 +13,7 @@
     "recorded_without_einvoice": "Un registro que la necesita no tiene factura electrónica que lo soporte",
     "einvoice_amount_mismatch": "El valor o el impuesto del XML no es el del registro",
     "einvoice_duplicate": "El mismo CUFE o la misma clave de acceso aparece registrado dos veces",
+    "invoice_outside_authorization": "Una factura recibida de Honduras cae fuera de su rango autorizado o se emitió después de su fecha límite: no sustenta el crédito fiscal del ISV",
     "audit_request_unanswered": "Un requerimiento del auditor no tiene respuesta con soporte",
     "declared_close_vs_evidence": "El cierre se reporta como cerrado y hay señales abiertas que ese estado no explica",
     "variance_over_threshold": "Lo ejecutado al corte se aparta del presupuesto más del porcentaje configurado",

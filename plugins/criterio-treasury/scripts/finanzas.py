@@ -181,6 +181,21 @@ CAMPOS_CR = {
     "A1-IMPUESTO": "ResumenFactura/TotalImpuesto · el total de impuesto (anexo 1, II.c)",
     "A1-TOTAL": "ResumenFactura/TotalComprobante · el total del comprobante (anexo 1, II.c)",
 }
+# Honduras no publica un esquema (decisión 0024): la factura es un documento, y el agente la lleva a
+# la ficha del cierre con estos campos del Acuerdo 481-2017 (F-37). El motor no procesa un XML.
+CAMPOS_HN = {
+    "A3-CAI": "Clave de Autorización de Impresión (CAI) · serie alfanumérica que genera la Administración Tributaria (art. 3, def. 7)",
+    "A3-RANGO": "Rango autorizado · la cantidad de comprobantes autorizados (art. 3, def. 36; art. 10, num. 5)",
+    "A10-LIMITE": "Fecha límite de emisión, vigente (art. 10, num. 4)",
+    "A10-CORRELATIVO": "Número correlativo de dieciséis dígitos, NNN-NNN-NN-NNNNNNNN: establecimiento, punto de emisión, tipo de documento (01 = factura) y correlativo (art. 10, num. 7)",
+    "A10-EMISOR": "Registro Tributario Nacional (RTN) del emisor (art. 10, num. 1, a)",
+    "A11-CLIENTE": "Registro Tributario Nacional del cliente (art. 11, num. 1, b)",
+    "A11-FECHA": "Fecha de emisión (art. 11, num. 1, c)",
+    "A11-SUBTOTAL": "Subtotales sujetos a los impuestos, discriminados por tarifa (art. 11, num. 1, h)",
+    "A11-IMPUESTO": "Impuestos discriminados por tarifa (art. 11, num. 1, i)",
+    "A11-TOTAL": "Importe total de la operación (art. 11, num. 1, k)",
+}
+CORRELATIVO_HN = re.compile(r"^(\d{3})-(\d{3})-(\d{2})-(\d{8})$")
 TIPOS_SRI = {"01": "factura", "03": "liquidación de compra", "04": "nota de crédito",
              "05": "nota de débito", "06": "guía de remisión", "07": "comprobante de retención"}
 
@@ -549,6 +564,69 @@ def _cr(raiz, nombre: str) -> dict:
     return d
 
 
+def _hn(x: dict, tol_iva: float) -> dict:
+    """Una factura de Honduras, desde la ficha del cierre (decisión 0024; F-37, Acuerdo 481-2017,
+    artículos 10 y 11): el agente la extrae del documento, con su cita, y aquí se valida su forma.
+    El número correlativo es el del artículo 10 y su tipo, 01; el ISV es el 15 % de lo gravado (F-38).
+    Devuelve la factura como la de cualquier lector, con `fuera` si cae fuera de su autorización
+    —fuera del rango autorizado o emitida después de la fecha límite—, o `error` si no se procesa."""
+    num = str(x.get("number") or "").strip()
+    m = CORRELATIVO_HN.match(num)
+    if not m:
+        return {"error": f"el número {num or '(vacío)'} no tiene la forma NNN-NNN-NN-NNNNNNNN del Acuerdo 481-2017, art. 10"}
+    if m.group(3) != "01":
+        return {"solo": True, "tipo": f"documento tipo {m.group(3)}", "numero": num}
+    rango = x.get("authorized_range") or {}
+    desde, hasta = CORRELATIVO_HN.match(str(rango.get("from") or "")), CORRELATIVO_HN.match(str(rango.get("to") or ""))
+    if not (desde and hasta and x.get("cai") and x.get("issue_deadline")):
+        return {"error": f"la factura {num} no trae su CAI, su rango autorizado y su fecha límite de emisión (art. 10)"}
+    f_emi, f_lim = fecha(x.get("date")), fecha(x.get("issue_deadline"))
+    base, isv, total = numero(x.get("taxable")), numero(x.get("isv")), numero(x.get("total"))
+    if f_emi is None or base is None or isv is None:
+        return {"error": f"la factura {num} no trae su fecha de emisión, su subtotal gravado y su ISV (art. 11)"}
+    tasa = FACTURA["HN"]["iva"]
+    if abs(isv - base * tasa) > tol_iva:
+        return {"error": f"en la factura {num} el ISV ({mon(isv)}) no es el {tasa * 100:g} % del subtotal gravado ({mon(base)}): revisa la extracción"}
+    motivos = []
+    prefijo = m.group(1, 2, 3)
+    if desde.group(1, 2, 3) != prefijo or hasta.group(1, 2, 3) != prefijo or not (int(desde.group(4)) <= int(m.group(4)) <= int(hasta.group(4))):
+        motivos.append(f"está fuera del rango autorizado {rango.get('from')} a {rango.get('to')}")
+    if f_lim is None:
+        return {"error": f"la fecha límite de emisión de la factura {num} no es una fecha: {x.get('issue_deadline')}"}
+    if f_emi > f_lim:
+        motivos.append(f"se emitió el {iso(f_emi)}, después de su fecha límite de emisión, el {iso(f_lim)}")
+    return {
+        "pais": "HN", "lector": "hn", "fuente": "F-37", "tipo": "factura", "numero": num, "fecha": iso(f_emi),
+        "emisor": ident(x.get("issuer_rtn")), "receptor": ident(x.get("customer_rtn")), "base": base, "iva": isv,
+        "total": total, "valores": True, "id": f"{x['cai']}:{num}", "cai": x["cai"], "fuera": motivos,
+    }
+
+
+def facturas_documento(cfg: dict, periodo: str, ficha: dict, tol_iva: float) -> tuple[list[dict], list[dict], list[dict]]:
+    """Las facturas de un país sin esquema (Honduras): cada documento de `30-facturacion/` tiene que
+    estar en la ficha, con su cita; el que no está, no se procesó. Devuelve las leídas, las que no
+    se procesaron y las que se identificaron sin cruzar valores."""
+    docs = cfg["_docs"]
+    carpeta = docs / periodo / "30-facturacion"
+    en_ficha = {str(x.get("source") or "").split("#")[0].strip(): (k, x) for k, x in (ficha.get("invoices") or {}).items()}
+    leidas, no_proc, solo = [], [], []
+    for lado in ("emitidas", "recibidas"):
+        for p in sorted(x for x in (carpeta / lado).rglob("*") if x.is_file() and not x.name.startswith(".")) if (carpeta / lado).is_dir() else []:
+            r = rel(p, docs)
+            if r not in en_ficha:
+                no_proc.append({"archivo": r, "motivo": "la factura no está en la ficha del cierre: el agente la extrae con su CAI, su rango autorizado y su fecha límite (decisión 0024)"})
+                continue
+            d = _hn(en_ficha[r][1], tol_iva)
+            if "error" in d:
+                no_proc.append({"archivo": r, "motivo": d["error"]})
+            elif d.get("solo"):
+                solo.append({"archivo": r, "tipo": d["tipo"], "numero": d["numero"]})
+            else:
+                d["lado"], d["archivo"] = lado, r
+                leidas.append(d)
+    return leidas, no_proc, solo
+
+
 def leer_factura(ruta: Path) -> dict:
     """Una factura o nota electrónica de cualquier país del registro, con o sin su contenedor."""
     try:
@@ -678,7 +756,7 @@ def revisar_config(cfg: dict, rol: str) -> list[str]:
 SEVERIDAD = {
     "trial_balance_unbalanced": 1, "declared_close_vs_evidence": 1, "declared_vs_evidence": 1,
     "ledger_vs_trial_balance": 1, "einvoice_not_recorded": 2, "recorded_without_einvoice": 2,
-    "einvoice_amount_mismatch": 2, "einvoice_duplicate": 2, "bank_unreconciled": 2,
+    "einvoice_amount_mismatch": 2, "einvoice_duplicate": 2, "invoice_outside_authorization": 2, "bank_unreconciled": 2,
     "account_unreconciled": 2, "transfer_without_approval": 2, "forecast_over_approved": 2,
     "variance_over_threshold": 2, "budget_version_mismatch": 2, "spend_without_budget_line": 2,
     "project_budget_mismatch": 3, "committed_near_approved": 3, "close_task_overdue": 2,
@@ -1011,15 +1089,24 @@ def _empieza(cta: str, prefijos) -> bool:
     return any(str(cta).startswith(str(p)) for p in prefijos or [])
 
 
-def facturas(cfg: dict, periodo: str) -> dict:
+def facturas(cfg: dict, periodo: str, ficha: dict | None = None) -> dict:
     docs = cfg["_docs"]
     carpeta = docs / periodo / "30-facturacion"
     tol, tol_iva = tolerancias(cfg)
+    pais = N.pais_de(cfg)
     ac = cfg.get("accounts") or {}
     out = {"periodo": periodo, "facturas": 0, "alertas": [], "no_procesado": [], "solo_identidad": [],
            "sin_documento": [], "cruzadas": 0, "fuentes": sorted(FACTURA[N.pais_de(cfg)]["fuentes"])}
     leidas = []
-    for lado in ("emitidas", "recibidas"):
+    if FACTURA[pais].get("documento"):
+        leidas, out["no_procesado"], out["solo_identidad"] = facturas_documento(cfg, periodo, ficha or {}, tol_iva)
+        for d in leidas:
+            # Una factura recibida fuera de su autorización no sustenta el crédito fiscal del ISV
+            # (decisión 0024): se pone al lado del registro que la usa, si lo hay.
+            if d["lado"] == "recibidas" and d["fuera"]:
+                out["alertas"].append(alerta("invoice_outside_authorization", f"factura recibida {d['numero']} del {d['emisor']}: " + "; ".join(d["fuera"]),
+                                             {"archivo": d["archivo"]}, d.get("total"), clave=f"cai:{d['archivo']}"))
+    for lado in ("emitidas", "recibidas") if not FACTURA[pais].get("documento") else ():
         for p in sorted((carpeta / lado).rglob("*.xml")) if (carpeta / lado).is_dir() else []:
             d = leer_factura(p)
             if "error" in d:
@@ -1261,7 +1348,7 @@ def clara(cfg: dict, periodo: str, hoy: dt.date) -> dict:
     problemas = revisar_ficha_cierre(ficha)
     partes = {
         "ledger-check": cuadre(cfg, periodo), "bank-reconcile": bancos(cfg, periodo),
-        "account-reconcile": cuentas(cfg, periodo), "einvoice-check": facturas(cfg, periodo),
+        "account-reconcile": cuentas(cfg, periodo), "einvoice-check": facturas(cfg, periodo, ficha),
         "close-status": checklist(cfg, periodo, hoy), "audit-pack": auditoria(cfg, periodo, hoy, ficha),
     }
     alertas = [a for p in partes.values() for a in p["alertas"]]
@@ -1304,6 +1391,14 @@ def revisar_ficha_cierre(f: dict) -> list[str]:
     for i, q in enumerate(f.get("questions") or []):
         if not q.get("question") or "answer" not in q:
             p.append(f"questions[{i}]: lleva question y answer")
+    fs = f.get("invoices")
+    if fs is not None and not isinstance(fs, dict):
+        p.append("invoices: va por el RTN del emisor y el número correlativo, {\"08019002265431:000-001-01-00000123\": {...}}")
+    for k, x in (fs or {}).items() if isinstance(fs, dict) else ():
+        if not isinstance(x, dict) or not x.get("source"):
+            p.append(f"invoices[{k}]: cada factura lleva su source, el documento del que se extrajo")
+        elif f"{x.get('issuer_rtn')}:{x.get('number')}" != k:
+            p.append(f"invoices[{k}]: la llave es el RTN del emisor y el número correlativo, {x.get('issuer_rtn')}:{x.get('number')}")
     return p
 
 
@@ -1891,7 +1986,7 @@ SENALES_DE = {
     "ledger-check": {"trial_balance_unbalanced", "ledger_vs_trial_balance"},
     "bank-reconcile": {"bank_unreconciled", "reconciling_item_aged", "reconciliation_stale"},
     "account-reconcile": {"account_unreconciled", "reconciliation_stale"},
-    "einvoice-check": {"einvoice_not_recorded", "recorded_without_einvoice", "einvoice_amount_mismatch", "einvoice_duplicate"},
+    "einvoice-check": {"einvoice_not_recorded", "recorded_without_einvoice", "einvoice_amount_mismatch", "einvoice_duplicate", "invoice_outside_authorization"},
     "close-status": {"close_task_overdue", "close_task_done_without_evidence", "declared_close_vs_evidence"},
     "audit-pack": {"audit_request_unanswered"},
     "variance-report": {"variance_over_threshold", "committed_near_approved", "spend_without_budget_line", "declared_vs_evidence", "project_budget_mismatch"},
@@ -2294,6 +2389,18 @@ def cedula_cr(n: int) -> str:
     return f"3101{n % 1000000:06d}"
 
 
+def rtn_hn(n: int) -> str:
+    """Un RTN ficticio de catorce dígitos para el material de Honduras: el motor no valida su forma,
+    porque el Acuerdo 481-2017 no la define; solo lo compara entre la factura y los libros."""
+    return f"0801{n % 10**10:010d}"
+
+
+def cai_hn(semilla: str) -> str:
+    """Una CAI ficticia: «serie alfanumérica» (F-37, art. 3, def. 7), en seis grupos."""
+    h = hashlib.sha1(semilla.encode()).hexdigest().upper()
+    return "-".join([h[0:6], h[6:12], h[12:18], h[18:24], h[24:30], h[30:32]])
+
+
 def factura_cr(consecutivo: str, fecha_: str, emisor: str, receptor: str, base: float, iva: float) -> str:
     """Una factura electrónica de Costa Rica en la versión 4.4, con lo que procesa el lector (F-34),
     para las pruebas y el material. La clave tiene sus cincuenta posiciones: el país, la fecha, la
@@ -2514,6 +2621,23 @@ def selftest() -> int:
         ok("Costa Rica 4.4: se identifica por su clave de cincuenta posiciones", (len(f["id"]), f["id"][:3]), (50, "506"))
         nc = factura_cr("00100001030000000007", "2026-09-15", cedula_cr(101), cedula_cr(202), 10.0, 1.3).replace("FacturaElectronica", "NotaCreditoElectronica")
         ok("Costa Rica 4.4: la nota de crédito se identifica y no cruza valores", (leer_factura_texto(nc, t)["tipo"], leer_factura_texto(nc, t)["valores"]), ("nota de crédito", False))
+        hn = {"number": "000-001-01-00000120", "cai": "3E5A1C-7B2D90-4F11A8-0C6E3B-92D4F7-11", "date": "2026-09-15",
+              "authorized_range": {"from": "000-001-01-00000001", "to": "000-001-01-00000500"}, "issue_deadline": "2026-12-31",
+              "issuer_rtn": "08019002265431", "customer_rtn": "08019010017725", "taxable": 10000.0, "isv": 1500.0, "total": 11500.0}
+        f = _hn(hn, 0.01)
+        ok("Honduras: la factura desde la ficha, dentro de su autorización",
+           (f["lector"], f["tipo"], f["numero"], f["base"], f["iva"], f["total"], f["fecha"], f["fuera"], f["id"].endswith(":000-001-01-00000120")),
+           ("hn", "factura", "000-001-01-00000120", 10000.0, 1500.0, 11500.0, "2026-09-15", [], True))
+        ok("Honduras: fuera del rango autorizado y emitida después de la fecha límite",
+           len(_hn({**hn, "number": "000-001-01-00000501", "date": "2027-01-02"}, 0.01)["fuera"]), 2)
+        ok("Honduras: otro establecimiento no está en el rango", len(_hn({**hn, "number": "001-001-01-00000120"}, 0.01)["fuera"]), 1)
+        ok("Honduras: un correlativo sin la forma del artículo 10 no se procesa", "error" in _hn({**hn, "number": "0001-01-120"}, 0.01), True)
+        ok("Honduras: un tipo distinto de 01 se identifica y no cruza", _hn({**hn, "number": "000-001-03-00000007"}, 0.01).get("solo"), True)
+        ok("Honduras: un ISV que no es el 15 % de lo gravado vuelve a la extracción", "error" in _hn({**hn, "isv": 1300.0}, 0.01), True)
+        ok("Honduras: sin CAI ni rango no se procesa", "error" in _hn({**hn, "cai": ""}, 0.01), True)
+        ok("Honduras: la ficha lleva las facturas por el RTN del emisor y su número correlativo",
+           (revisar_ficha_cierre({"invoices": {"08019002265431:000-001-01-00000121": {**hn, "source": "x.pdf"}}})[0].startswith("invoices[08019002265431:000-001-01-00000121]"),
+            revisar_ficha_cierre({"invoices": {"08019002265431:000-001-01-00000120": {**hn, "source": "x.pdf"}}})), (True, []))
         ok("SAT: un CFDI de otra versión no se lee como 4.0", "error" in leer_factura_texto(factura_sat("A", "1", "2026-09-15", "ABC260101AA1", "XYZ250505BB2", 1, 0.16).replace('Version="4.0"', 'Version="3.3"'), t), True)
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"

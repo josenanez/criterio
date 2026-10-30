@@ -328,6 +328,39 @@
      "fuente": "F-13"
     }
    }
+  },
+  {
+   "codigo": "HN",
+   "nombre": {
+    "es": "Honduras",
+    "en": "Honduras"
+   },
+   "id_fiscal": "RTN",
+   "moneda": "HNL",
+   "decimal": ".",
+   "factura": {
+    "lector": "hn",
+    "documento": true,
+    "fuentes": [
+     "F-37",
+     "F-38"
+    ],
+    "clave": "CAI y número correlativo",
+    "tolerancia": [
+     0.01,
+     0.01
+    ],
+    "iva": 0.15,
+    "impuesto": "ISV",
+    "emisor": "SAR"
+   },
+   "contratacion_publica": {
+    "sistema": "HonduCompras",
+    "garantia": {
+     "minimo": 0.15,
+     "fuente": "F-14"
+    }
+   }
   }
  ]
 }

@@ -1,0 +1,466 @@
+{
+  "entidad": "Almacenes del Valle de Sula",
+  "industria": "retail",
+  "pais": "HN",
+  "hoy": "2026-10-06",
+  "siembra": [
+    "registro_sin_factura",
+    "factura_sin_registro",
+    "cheque_viejo",
+    "cierre_declarado",
+    "requerimiento_vencido",
+    "gasto_sin_linea",
+    "proyeccion_vieja",
+    "comprometido_al_limite",
+    "fuera_de_rango",
+    "caja_bajo_minimo",
+    "pago_sin_aprobacion",
+    "vencimiento_cercano"
+  ],
+  "config": {
+    "clara": {
+      "entity": {
+        "id": "08010006129040",
+        "name": "Almacenes del Valle de Sula",
+        "country": "HN",
+        "currency": "HNL",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/08010006129040-almacenes-del-valle-de-sula",
+        "state": "estado-finanzas/08010006129040-almacenes-del-valle-de-sula"
+      },
+      "period": "2026-09",
+      "accounts": {
+        "sales": [
+          "4135"
+        ],
+        "purchases": [
+          "1435",
+          "5135",
+          "5145",
+          "5195"
+        ],
+        "vat_generated": [
+          "2408"
+        ],
+        "vat_deductible": [
+          "2408"
+        ],
+        "reconcile": [
+          "1305",
+          "2205"
+        ]
+      },
+      "bank_accounts": [
+        "andino-11301",
+        "pacifico-11302"
+      ],
+      "checklist": {
+        "source": "organizacion",
+        "approved": true
+      },
+      "holidays": []
+    },
+    "tomas": {
+      "entity": {
+        "id": "08010006129040",
+        "name": "Almacenes del Valle de Sula",
+        "country": "HN",
+        "currency": "HNL",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/08010006129040-almacenes-del-valle-de-sula",
+        "state": "estado-finanzas/08010006129040-almacenes-del-valle-de-sula"
+      },
+      "budget": {
+        "year": "2026",
+        "cut": "2026-09",
+        "pmo_records": "estado-pmo/records",
+        "expense_prefixes": [
+          "51",
+          "52"
+        ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "08010006129040",
+        "name": "Almacenes del Valle de Sula",
+        "country": "HN",
+        "currency": "HNL",
+        "approver": "Sofía León"
+      },
+      "paths": {
+        "documents": "finanzas/08010006129040-almacenes-del-valle-de-sula",
+        "state": "estado-finanzas/08010006129040-almacenes-del-valle-de-sula"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
+      }
+    }
+  },
+  "extraccion": {
+    "cierre": {
+      "invoices": {
+        "08010006129040:000-001-01-00000100": {
+          "number": "000-001-01-00000100",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-02",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113100",
+          "taxable": 270000.0,
+          "isv": 40500.0,
+          "total": 310500.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000100.pdf"
+        },
+        "08010006129040:000-001-01-00000101": {
+          "number": "000-001-01-00000101",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-05",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113101",
+          "taxable": 210000.0,
+          "isv": 31500.0,
+          "total": 241500.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000101.pdf"
+        },
+        "08010006129040:000-001-01-00000102": {
+          "number": "000-001-01-00000102",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-08",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113102",
+          "taxable": 170000.0,
+          "isv": 25500.0,
+          "total": 195500.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000102.pdf"
+        },
+        "08010006129040:000-001-01-00000103": {
+          "number": "000-001-01-00000103",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-11",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113103",
+          "taxable": 230000.0,
+          "isv": 34500.0,
+          "total": 264500.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000103.pdf"
+        },
+        "08010006129040:000-001-01-00000104": {
+          "number": "000-001-01-00000104",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-14",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113104",
+          "taxable": 380000.0,
+          "isv": 57000.0,
+          "total": 437000.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000104.pdf"
+        },
+        "08010006129040:000-001-01-00000105": {
+          "number": "000-001-01-00000105",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-17",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113105",
+          "taxable": 100000.0,
+          "isv": 15000.0,
+          "total": 115000.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000105.pdf"
+        },
+        "08010006129040:000-001-01-00000106": {
+          "number": "000-001-01-00000106",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-20",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113106",
+          "taxable": 370000.0,
+          "isv": 55500.0,
+          "total": 425500.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000106.pdf"
+        },
+        "08010006129040:000-001-01-00000107": {
+          "number": "000-001-01-00000107",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-23",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113107",
+          "taxable": 120000.0,
+          "isv": 18000.0,
+          "total": 138000.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000107.pdf"
+        },
+        "08010006129040:000-001-01-00000108": {
+          "number": "000-001-01-00000108",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-26",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113108",
+          "taxable": 190000.0,
+          "isv": 28500.0,
+          "total": 218500.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000108.pdf"
+        },
+        "08010006129040:000-001-01-00000109": {
+          "number": "000-001-01-00000109",
+          "cai": "5D5A59-BB9813-C9D546-F2790B-7600B3-D0",
+          "authorized_range": {
+            "from": "000-001-01-00000001",
+            "to": "000-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-28",
+          "issuer_rtn": "08010006129040",
+          "customer_rtn": "08010000113109",
+          "taxable": 140000.0,
+          "isv": 21000.0,
+          "total": 161000.0,
+          "source": "2026-09/30-facturacion/emitidas/fe-000-001-01-00000109.pdf"
+        },
+        "08010000113300:001-001-01-00000200": {
+          "number": "001-001-01-00000200",
+          "cai": "4245A3-03755A-FFE1C7-0C4B69-0218AB-D1",
+          "authorized_range": {
+            "from": "001-001-01-00000001",
+            "to": "001-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-05",
+          "issuer_rtn": "08010000113300",
+          "customer_rtn": "08010006129040",
+          "taxable": 116400.0,
+          "isv": 17460.0,
+          "total": 133860.0,
+          "source": "2026-09/30-facturacion/recibidas/fr-001-001-01-00000200.pdf"
+        },
+        "08010000113301:001-001-01-00000201": {
+          "number": "001-001-01-00000201",
+          "cai": "6DD833-1CC005-73C213-64EE25-E6F8E0-19",
+          "authorized_range": {
+            "from": "001-001-01-00000001",
+            "to": "001-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-07",
+          "issuer_rtn": "08010000113301",
+          "customer_rtn": "08010006129040",
+          "taxable": 77600.0,
+          "isv": 11640.0,
+          "total": 89240.0,
+          "source": "2026-09/30-facturacion/recibidas/fr-001-001-01-00000201.pdf"
+        },
+        "08010000113303:001-001-01-00000203": {
+          "number": "001-001-01-00000203",
+          "cai": "64E751-C76D73-98507C-29EAB2-936A6E-7C",
+          "authorized_range": {
+            "from": "001-001-01-00000001",
+            "to": "001-001-01-00000198"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-11",
+          "issuer_rtn": "08010000113303",
+          "customer_rtn": "08010006129040",
+          "taxable": 77600.0,
+          "isv": 11640.0,
+          "total": 89240.0,
+          "source": "2026-09/30-facturacion/recibidas/fr-001-001-01-00000203.pdf"
+        },
+        "08010000113304:001-001-01-00000204": {
+          "number": "001-001-01-00000204",
+          "cai": "3AB7D3-41A8A4-7BC687-A22EBF-4E4594-B8",
+          "authorized_range": {
+            "from": "001-001-01-00000001",
+            "to": "001-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-13",
+          "issuer_rtn": "08010000113304",
+          "customer_rtn": "08010006129040",
+          "taxable": 194000.0,
+          "isv": 29100.0,
+          "total": 223100.0,
+          "source": "2026-09/30-facturacion/recibidas/fr-001-001-01-00000204.pdf"
+        },
+        "08010000113305:001-001-01-00000205": {
+          "number": "001-001-01-00000205",
+          "cai": "BB1627-48B04F-56196A-9FFEF5-0488C3-A9",
+          "authorized_range": {
+            "from": "001-001-01-00000001",
+            "to": "001-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-15",
+          "issuer_rtn": "08010000113305",
+          "customer_rtn": "08010006129040",
+          "taxable": 232800.0,
+          "isv": 34920.0,
+          "total": 267720.0,
+          "source": "2026-09/30-facturacion/recibidas/fr-001-001-01-00000205.pdf"
+        },
+        "08010000113306:001-001-01-00000206": {
+          "number": "001-001-01-00000206",
+          "cai": "AC0291-B294AD-9B5789-D86B1C-BBBDCB-45",
+          "authorized_range": {
+            "from": "001-001-01-00000001",
+            "to": "001-001-01-00000500"
+          },
+          "issue_deadline": "2026-12-31",
+          "date": "2026-09-17",
+          "issuer_rtn": "08010000113306",
+          "customer_rtn": "08010006129040",
+          "taxable": 135800.0,
+          "isv": 20370.0,
+          "total": 156170.0,
+          "source": "2026-09/30-facturacion/recibidas/fr-001-001-01-00000206.pdf"
+        }
+      },
+      "declared": {
+        "status": "cerrado",
+        "source": "2026-09/40-soportes/correo-estado-del-cierre.md",
+        "date": "2026-10-05",
+        "by": "Sofía León"
+      }
+    },
+    "presupuesto": {
+      "minutes": [
+        {
+          "type": "aprobacion",
+          "version": 1,
+          "date": "2026-01-20",
+          "source": "presupuesto-2026/40-actas/acta-01-aprobacion.md"
+        },
+        {
+          "type": "traslado",
+          "date": "2026-06-28",
+          "source": "presupuesto-2026/40-actas/acta-05-traslado.docx",
+          "movements": [
+            {
+              "from": {
+                "area": "Comercial",
+                "line": "Publicidad"
+              },
+              "to": {
+                "area": "Comercial",
+                "line": "Eventos"
+              },
+              "amount": 120000.0
+            }
+          ]
+        }
+      ],
+      "area_statements": [],
+      "reports": [],
+      "committee_commitments": [
+        {
+          "what": "Revisar el contrato de vigilancia",
+          "owner": "Administración",
+          "status": "abierto",
+          "evidence": null,
+          "source": "presupuesto-2026/40-actas/acta-06-comite.docx"
+        }
+      ]
+    }
+  },
+  "esperado": [
+    {
+      "signal": "audit_request_unanswered",
+      "key": "req:R-05"
+    },
+    {
+      "signal": "bank_unreconciled",
+      "key": "andino-11301:2026-09/20-bancos/andino-11301/auxiliar-libros.csv:2"
+    },
+    {
+      "signal": "cash_below_minimum",
+      "key": "caja:andino-11301"
+    },
+    {
+      "signal": "committed_near_approved",
+      "key": "com:Administración:Mantenimiento"
+    },
+    {
+      "signal": "declared_close_vs_evidence",
+      "key": "cierre"
+    },
+    {
+      "signal": "einvoice_not_recorded",
+      "key": "xml:2026-09/30-facturacion/emitidas/fe-000-001-01-00000109.pdf"
+    },
+    {
+      "signal": "forecast_stale",
+      "key": "stale:Operaciones:Transporte"
+    },
+    {
+      "signal": "invoice_outside_authorization",
+      "key": "cai:2026-09/30-facturacion/recibidas/fr-001-001-01-00000203.pdf"
+    },
+    {
+      "signal": "maturity_near",
+      "key": "vence:credito_de_tesoreria"
+    },
+    {
+      "signal": "payment_without_approval",
+      "key": "pago:P-4"
+    },
+    {
+      "signal": "reconciling_item_aged",
+      "key": "andino-11301:2026-09/20-bancos/andino-11301/auxiliar-libros.csv:2"
+    },
+    {
+      "signal": "recorded_without_einvoice",
+      "key": "reg:recibidas:10010100000202"
+    },
+    {
+      "signal": "spend_without_budget_line",
+      "key": "sinlinea:2026-08:5135:ZZZ"
+    }
+  ]
+}

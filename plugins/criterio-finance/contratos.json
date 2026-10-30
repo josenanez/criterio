@@ -73,6 +73,7 @@
    "reglas": {
     "skills": [
      "close-record",
+     "einvoice-matching",
      "finance-intake"
     ],
     "script": [
@@ -257,15 +258,18 @@
    "salida": {
     "muestra": "cruce y señales",
     "escribe": [
+     "<estado>/cierre/<AAAA-MM>/ficha.json",
      "<estado>/cierre/<AAAA-MM>/resultados.json",
      "<estado>/cierre/<AAAA-MM>/reporte-<comando>.md"
     ]
    },
    "reglas": {
     "skills": [
+     "close-record",
      "einvoice-matching"
     ],
     "script": [
+     "convertir",
      "corrida",
      "factura",
      "reporte",
@@ -278,8 +282,8 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "factura sin registro, registro sin factura, diferencia de IVA, CUFE duplicado, registro en dos asientos",
-    "esperado": "einvoice_* de la clave"
+    "sembrado": "factura sin registro, registro sin factura, diferencia de IVA, CUFE duplicado, registro en dos asientos; en Honduras, una factura recibida fuera de su autorización",
+    "esperado": "einvoice_* e invoice_outside_authorization de la clave"
    }
   },
   "audit-pack": {
@@ -421,7 +425,8 @@
     "einvoice_not_recorded",
     "recorded_without_einvoice",
     "einvoice_amount_mismatch",
-    "einvoice_duplicate"
+    "einvoice_duplicate",
+    "invoice_outside_authorization"
    ]
   },
   "audit-support": {

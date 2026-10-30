@@ -38,6 +38,9 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 | `banca-cr` | Costa Rica | banca | 8 | 13 |
 | `retail-cr` | Costa Rica | retail | 8 | 12 |
 | `control-cr` | Costa Rica | — | 0 | 0 |
+| `banca-hn` | Honduras | banca | 9 | 14 |
+| `retail-hn` | Honduras | retail | 9 | 13 |
+| `control-hn` | Honduras | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos
@@ -89,6 +92,16 @@ impuesto y el total del comprobante, con el IVA a la tarifa general del 13 % (F-
 cada factura por su clave; una nota de crédito se identifica y no cruza. Las entidades reguladas por el
 CONASSIF usan las NIIF completas (F-36): por eso Costa Rica entra con banca y retail.
 
+**Honduras, con la factura como documento.** El SAR no publica un esquema (decisión 0024): las tres
+entidades de Honduras traen cada factura en PDF con texto, con los requisitos de los artículos 10 y 11 del
+Acuerdo 481-2017 (F-37): la CAI, el rango autorizado, la fecha límite de emisión, el número correlativo
+`NNN-NNN-NN-NNNNNNNN`, el RTN de cada parte, el subtotal gravado, el ISV al 15 % (F-38) y el total. El
+agente extrae cada factura a la ficha del cierre, y la clave de cada entidad trae esa extracción en
+`extraccion.cierre.invoices`. Banca recibe una factura emitida después de su fecha límite y retail, una
+con el número fuera de su rango autorizado: las dos levantan `invoice_outside_authorization`. Los bancos
+que regula la CNBS siguen las NIIF con sus normas prudenciales y las demás entidades eligen entre las
+NIIF completas y la NIIF para las PYMES (F-39): por eso Honduras entra con banca y retail.
+
 ## Lo que se siembra, y la señal que tiene que levantar
 
 La columna «Dónde» nombra las entidades de Colombia, Ecuador y Perú. Las de Chile y México siembran los mismos casos con su propio lector de factura; la lista exacta de cada una está en su clave, `material/<entidad>/clave.json`, en `siembra` y `esperado`.
@@ -108,6 +121,7 @@ La columna «Dónde» nombra las entidades de Colombia, Ecuador y Perú. Las de 
 | Una compra registrada sin su factura | `recorded_without_einvoice` | cooperativas, minería de Perú |
 | La misma factura en dos archivos | `einvoice_duplicate` | retail, banca de Perú |
 | La misma compra registrada en dos asientos | `einvoice_duplicate`, `einvoice_amount_mismatch` | retail |
+| Una factura recibida de Honduras emitida después de su fecha límite, o fuera de su rango autorizado | `invoice_outside_authorization` | banca y retail de Honduras |
 | Una tarea marcada cumplida sin su soporte | `close_task_done_without_evidence` | banca, minería, banca de Perú |
 | Una tarea vencida sin soporte | `close_task_overdue` | cooperativas, minería |
 | El cierre declarado cerrado con señales abiertas | `declared_close_vs_evidence` | retail, banca de Perú |
@@ -129,7 +143,7 @@ La columna «Dónde» nombra las entidades de Colombia, Ecuador y Perú. Las de 
 | La razón corriente a 5 % de su límite, calculada desde el balance | `covenant_at_risk` | banca, minería, minería de Perú |
 | El crédito de tesorería que vence en 20 días | `maturity_near` | cooperativas, retail, banca de Perú |
 
-Las 30 señales de la familia se siembran al menos una vez. **Los controles no tienen ningún
+Las 31 señales de la familia se siembran al menos una vez. **Los controles no tienen ningún
 defecto**: un traslado aprobado con su acta, partidas que cruzan por referencia y por fecha,
 facturas en su contenedor, tareas con su soporte y áreas que se declaran dentro del presupuesto
 y lo están. Cualquier señal ahí es una falla.

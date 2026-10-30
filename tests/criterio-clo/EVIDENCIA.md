@@ -39,6 +39,9 @@ sintéticos.
 | `banca-cr` | Costa Rica | banca | 10 | 10 |
 | `retail-cr` | Costa Rica | retail | 10 | 10 |
 | `control-cr` | Costa Rica | — | 0 | 0 |
+| `banca-hn` | Honduras | banca | 10 | 10 |
+| `retail-hn` | Honduras | retail | 10 | 10 |
+| `control-hn` | Honduras | — | 0 | 0 |
 | `publica-co` | Colombia | entidad pública | 3 | 5 |
 | `publica-ec` | Ecuador | entidad pública | 1 | 2 |
 | `publica-pe` | Perú | entidad pública | 1 | 2 |
@@ -48,6 +51,7 @@ sintéticos.
 | `publica-ar` | Argentina | entidad pública | 2 | 5 |
 | `publica-pa` | Panamá | entidad pública | 1 | 4 |
 | `publica-cr` | Costa Rica | entidad pública | 2 | 3 |
+| `publica-hn` | Honduras | entidad pública | 1 | 2 |
 
 Cada una trae su carpeta legal al 6 de octubre de 2026: la matriz de atribuciones y la de
 obligaciones, el registro de contratos y la exportación de pagos, el índice de políticas con
@@ -65,7 +69,7 @@ relatório de compliance. La ficha guarda sus valores como los define el skill �
 la garantía, la parte, la decisión—, y el arnés acepta el mismo valor dicho en portugués; lo que es
 texto del documento —lo que se entrega, el cargo de quien firma— va en la clave como lo dice él.
 
-**Las entidades públicas (incremento 6).** Nueve entidades, una por país, contratan bajo la ley de
+**Las entidades públicas (incremento 6).** Diez entidades, una por país, contratan bajo la ley de
 contratación pública de su país. Traen la misma carpeta que las demás, más:
 
 - la política de contratación de `00-referencia/`, que dice que la entidad es pública y, en Ecuador
@@ -75,7 +79,7 @@ contratación pública de su país. Traen la misma carpeta que las demás, más:
 
 Guatemala todavía no tiene la suya: su regla espera el reglamento de la ley de contrataciones del Estado.
 Solo Fidel corre sobre ellas. Las reglas son las de `contratacion_publica` del registro de países, cada
-una con su fuente (F-03 a F-10 de la familia).
+una con su fuente (F-03 a F-14 de la familia).
 
 | Entidad | Lo que se siembra | Señal |
 |---|---|---|
@@ -88,8 +92,9 @@ una con su fuente (F-03 a F-10 de la familia).
 | publica-ar | Dos garantías del 8 %, bajo el 10 % del Decreto 1030/2016, y tres integradas al octavo día hábil, después de los cinco que da el reglamento | `public_guarantee_below_law` ×2, `public_guarantee_late` ×3 |
 | publica-pa | Dos contratos de más de B/.50 000 sin la fianza de cumplimiento que exige la Ley 22 de 2006 (artículo 123) | `public_guarantee_below_law` ×2 y, porque el contrato también la exige, `guarantee_missing` ×2 |
 | publica-cr | Dos garantías del 3 %, bajo el 5 % que la Ley 9986 da cuando el pliego no lo fija, y una del 12 %, sobre el tope del 10 % (artículo 44) | `public_guarantee_below_law` ×2, `public_guarantee_over_cap` |
+| publica-hn | Dos garantías del 13 %, bajo el 15 % del Decreto 74-2001 (artículo 100) | `public_guarantee_below_law` ×2 |
 
-**Lo que se parece a un defecto y no lo es**, en las mismas ocho:
+**Lo que se parece a un defecto y no lo es**, en las mismas entidades:
 
 - **Al límite del plazo.** Cada contrato se publica en el último día del plazo: el tercer día hábil en
   Colombia, el día 18 o el 9 en Brasil, y al día siguiente el trato directo de Chile.

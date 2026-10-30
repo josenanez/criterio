@@ -97,6 +97,12 @@ def cedula_cr(n: int) -> str:
     return f"3101{n % 1000000:06d}"
 
 
+def rtn_hn(n: int) -> str:
+    """Un RTN de Honduras ficticio, de catorce dígitos, el mismo del material de la CFO. Ninguno
+    corresponde a una empresa."""
+    return f"0801{n % 10**10:010d}"
+
+
 def cnpj(raiz: int) -> str:
     """Un CNPJ ficticio con sus dos dígitos verificadores por módulo 11, el mismo del material de la
     CFO. Ninguno corresponde a una empresa."""
@@ -126,6 +132,8 @@ def id_contraparte(e: dict, i: int) -> str:
         return nit_gt(e["n0"] * 1000 + i)
     if e["pais"] == "CR":
         return cedula_cr(e["n0"] * 100 + i)
+    if e["pais"] == "HN":
+        return rtn_hn(e["n0"] * 100 + i)
     return f"{800000000 + e['n0'] * 10 + i}"
 
 SALIDA = AQUI / "material"
@@ -361,6 +369,29 @@ ENTIDADES = [
      "contrapartes": ["Tecnología Gubernamental S.A.", "Suministros del Estado S.A.", "Edificaciones Oficiales S.A.", "Software Público S.A.",
                       "Consultoría Estatal S.A.", "Mantenimiento Público S.A.", "Vigilancia Oficial S.A."],
      "fidel": ["garantia_baja", "garantia_sobre_tope"], "constanza": []},
+    # Honduras, con el RTN de cada contraparte, en lempiras; la garantía de cumplimiento del 15 % (Decreto 74-2001, art. 100).
+    {"carpeta": "banca-hn", "industria": "banca", "pais": "HN", "id": rtn_hn(4578120), "nombre": "Banco de Occidente Sintético", "moneda": "HNL", "u": 1_500_000, "n0": 4000,
+     "personas": ("Karla Mejía", "Óscar Zelaya", "Ana Lucía Pineda"),
+     "contrapartes": ["Sistemas Financieros de Occidente, S. de R.L.", "Papelería Hondureña, S. de R.L.", "Inmobiliaria Copán, S. A.", "Licencias Digitales del Norte, S. de R.L.",
+                      "Consultores de Comayagua, S. de R.L.", "Mantenimiento Integral Catracho, S. de R.L.", "Seguridad del Valle, S. A."],
+     "fidel": ["preaviso_vencido", "firma_sin_facultad", "pagos_de_mas", "garantia_corta", "obligacion_contrato_vencida"],
+     "constanza": ["obligacion_vencida", "sin_responsable", "norma_sin_evaluar", "informe_declara_cumplido", "obligacion_contrato_fuera"]},
+    {"carpeta": "retail-hn", "industria": "retail", "pais": "HN", "id": rtn_hn(6129040), "nombre": "Almacenes del Valle de Sula", "moneda": "HNL", "u": 1_100_000, "n0": 4100,
+     "personas": ("Héctor Bonilla", "María José Funes", "Ricardo Lagos Paz"),
+     "contrapartes": ["Logística de Puerto Cortés, S. de R.L.", "Empaques de San Pedro Sula, S. A.", "Centro Comercial del Norte, S. A.", "Pagos en Línea Hondureños, S. de R.L.",
+                      "Mercadeo Integral del Caribe, S. de R.L.", "Refrigeración Comercial de Sula, S. de R.L.", "Vigilancia Integral, S. A."],
+     "fidel": ["contrato_por_vencer", "otrosi_sin_facultad", "registro_distinto", "sin_garantia", "contrato_sin_registro"],
+     "constanza": ["sin_fuente", "evidencia_vieja", "caso_vencido", "cumplida_sin_evidencia", "politica_vencida"]},
+    {"carpeta": "control-hn", "industria": "retail", "pais": "HN", "id": rtn_hn(7330150), "nombre": "Comercial Control de Honduras", "moneda": "HNL", "u": 900_000, "n0": 4200,
+     "personas": ("Gabriela Ordóñez", "Mario Aguilar", "Daniela Castellanos"),
+     "contrapartes": ["Transportes Control, S. de R.L.", "Insumos Control, S. de R.L.", "Bodegas Control, S. A.", "Software Control, S. de R.L.",
+                      "Asesores Control, S. de R.L.", "Mantenimiento Control, S. de R.L.", "Limpieza Control, S. A."],
+     "fidel": [], "constanza": []},
+    {"carpeta": "publica-hn", "industria": "publica", "pais": "HN", "id": rtn_hn(3991010), "nombre": "Instituto Público de Occidente", "moneda": "HNL", "u": 750_000, "n0": 4300, "publica": True,
+     "personas": ("Lourdes Cáceres", "Javier Midence", "Patricia Rivera"),
+     "contrapartes": ["Tecnología Gubernamental, S. de R.L.", "Suministros del Estado, S. A.", "Edificaciones Oficiales, S. de R.L.", "Software Público, S. de R.L.",
+                      "Consultoría Estatal, S. de R.L.", "Mantenimiento Público, S. de R.L.", "Vigilancia Oficial, S. A."],
+     "fidel": ["garantia_baja"], "constanza": []},
 ]
 
 d = dt.date.fromisoformat
@@ -528,8 +559,8 @@ def contrato(e: dict, i: int, b: dict) -> dict:
 # y la publicación en el último día del plazo, donde la ley lo fija. Los casos que se parecen a un
 # defecto y no lo son están en la frontera de la regla.
 SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP", "AR": "COMPR.AR",
-           "PA": "PanamaCompra", "CR": "SICOP"}
-PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10, "CR": 0.05}
+           "PA": "PanamaCompra", "CR": "SICOP", "HN": "HonduCompras"}
+PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10, "CR": 0.05, "HN": 0.15}
 
 
 def publica_limpia(e: dict, i: int) -> dict:
