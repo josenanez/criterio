@@ -1,6 +1,6 @@
 {
   "name": "criterio-compliance",
-  "version": "0.12.1",
+  "version": "1.0.0",
   "description": "Constanza, el cumplimiento: la matriz de obligaciones de la organización contra su evidencia, periodo a periodo, las obligaciones de cumplimiento de los contratos, las políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de denuncias. Las obligaciones las define la organización y cada dato cita su documento.",
   "author": {
     "name": "José Francisco Ñáñez",

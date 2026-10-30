@@ -1,6 +1,6 @@
 {
   "name": "criterio-finance",
-  "version": "0.12.1",
+  "version": "1.0.0",
   "description": "Clara, la contralora: el cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica de la DIAN, del SRI, de la SUNAT, del SII y del SAT contra la contabilidad y el paquete del auditor. El marco contable adoptado en cada país; cada cifra la calcula el código y cada dato cita su documento.",
   "author": {
     "name": "José Francisco Ñáñez",

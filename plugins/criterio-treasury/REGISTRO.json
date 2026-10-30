@@ -1496,6 +1496,122 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "fe0843c049ab690441f7a88732cefa9710bd2d023e5972d496d537042b82535a",
       "sha256": "6002b80429eb52a5b44f616c8728089fb96a2c1b8fdf3af192c699ef01546810"
+    },
+    {
+      "version": "1.3.0",
+      "fecha": "2026-10-29",
+      "commit": null,
+      "base": "145726f2",
+      "etiqueta": "v1.3.0",
+      "familias": {
+        "cfo": "1.0.0",
+        "clo": "1.0.0",
+        "cso": "0.2.0",
+        "ea": "1.0.0",
+        "pmo": "1.0.0",
+        "rostrum": "1.0.0"
+      },
+      "liberadas": [
+        "cfo",
+        "clo"
+      ],
+      "versiones": {
+        "criterio-budget": "1.0.0",
+        "criterio-finance": "1.0.0",
+        "criterio-treasury": "1.0.0",
+        "criterio-compliance": "1.0.0",
+        "criterio-legal": "1.0.0",
+        "criterio-revenue": "0.2.0",
+        "criterio-sales": "0.2.0",
+        "criterio-assistant": "1.0.0",
+        "criterio-portfolio": "1.0.0",
+        "criterio-product": "1.0.0",
+        "criterio-project": "1.0.0",
+        "criterio-server": "1.0.0"
+      },
+      "calidad": {
+        "cfo": {
+          "etiqueta": "estable",
+          "ronda": 7,
+          "rondas": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "casos": {
+            "señales": 157,
+            "datos": 147
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 97.6,
+            "Datos extraídos": 96.2
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "clo": {
+          "etiqueta": "estable",
+          "ronda": 6,
+          "rondas": [
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "casos": {
+            "señales": 109,
+            "datos": 2408
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 96.5,
+            "Datos extraídos": 99.6
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "e252542c8561cae0362d311ed49e13cd1bb9709be73f747b3f5ecf5f807e4f8b",
+        "criterio-budget": "6ef71205c349e66cf914c33c993a64b26898bbc7057a84890cae2a41fb470e19",
+        "criterio-compliance": "6404c855a9c667f3d919f3bfe47a093cb526b92f4855782401e479b0e444019a",
+        "criterio-finance": "e79b4b3949f3c195f02235a4ee922bdef7b64f37812ee4d1c3bf2978c9940c24",
+        "criterio-legal": "cd77b4f5aebde04d5709e60bd4bb96a265be80efb456c4ddeba69514b4b39bdc",
+        "criterio-portfolio": "64160d8b84952c7fc8b14f68e587f9c99f99a911d78db39271d649cd70544e3a",
+        "criterio-product": "efe9e926acd5046685793baf334dae7ced861b2c6fd76c037d886061a27fbd07",
+        "criterio-project": "3c8b334cd7ca5dcb863e448e919b56f3e114de104ed535fd784974e377239184",
+        "criterio-revenue": "5e723146554a7429558b53fbc075ba7b74c8a5e2c8ce27352d4682475d7a7741",
+        "criterio-sales": "b35df22ef0e557dde4bb7fef4be805a2e4b98015f4126882140833eb5769c38a",
+        "criterio-server": "7b67346aeaa6cd6231a4f6c322d62d8b6c1b2bb41e9f8b3abe39f3ede34e307c",
+        "criterio-treasury": "681628481f8494ac8c889edf81356c71869d23877ab9bf1aa2a1aee8e4bdea9a"
+      },
+      "destacados": [
+        "La CFO y la CLO abren su 1.0.0: Brasil, con los documentos en portugués"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "CLO Brasil, construida: el motor de Fidel y Constanza procesa los registros en portugués y compara los valores de la ficha en cualquiera de los dos idiomas; material de un banco, un retail y un control, con contratos, aditivos, apólices, certidões, atas, políticas y relatório de compliance en portugués: 20 señales, el motor las levanta todas. La clave de la CFO guarda los valores de la ficha como los define el skill (CFO-11); el arnés acepta el mismo valor dicho en portugués",
+        "Ronda 7 de la CFO, Brasil: 24 de 24 señales, ninguna de más, y 24 de 25 datos; la clave guarda los valores de la ficha como los define el skill (CFO-11); EVIDENCIA de la CFO y la CLO con Brasil",
+        "CFO-11: el commit de su corrección",
+        "Arnés de las rondas de familia: una cita a un «item» numerado, como la escribe un documento en portugués, señala el mismo renglón que su «punto» (CLO-12)",
+        "Ronda 6 de la CLO, Brasil: 20 de 20 señales, ninguna de más, y 396 de 396 datos tras CLO-12; la factura de Brasil la emite la SEFAZ; la CFO y la CLO cuentan seis países; notas de la 1.3.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "6002b80429eb52a5b44f616c8728089fb96a2c1b8fdf3af192c699ef01546810",
+      "sha256": "8825d8bdad7f55651dd248515607e5c9c6a19aecf321216d66a0dbb903c09b29"
     }
   ]
 }
