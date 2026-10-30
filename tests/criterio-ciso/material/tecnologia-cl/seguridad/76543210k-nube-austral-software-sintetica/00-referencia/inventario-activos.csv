@@ -1,0 +1,11 @@
+activo;tipo;criticidad;responsable;alcance
+nub-web-01;servidor;alta;Jefe de infraestructura;sí
+nub-app-01;servidor;media;Jefe de infraestructura;sí
+nub-db-01;servidor;alta;Jefe de infraestructura;sí
+nub-fw-borde-01;red;alta;Jefe de infraestructura;sí
+nub-vpn-01;red;media;Jefe de infraestructura;sí
+nub-ad-01;servidor;alta;Jefe de infraestructura;sí
+nub-correo-01;servidor;media;Jefe de infraestructura;sí
+nub-backup-01;servidor;media;Jefe de infraestructura;sí
+nub-ws-finanzas-01;estación;media;Jefe de infraestructura;sí
+nub-laptop-gerencia;estación;baja;Gerencia;no

@@ -15,11 +15,13 @@ plan.
 
 [English](README.md) · `criterio-revenue` · Apache 2.0 · Una instancia por entidad
 
-**Estado: de laboratorio, sin lanzar (versión 0.1.0).** Los seis comandos, los seis skills y el
-motor de cálculo, probado contra material sintético de Colombia y México con una clave que el agente
-no ve y una entidad de control por país. Ya se puede instalar desde el marketplace. **La ronda con el
-agente es el siguiente paso**, en la 0.2.0. Nada se anuncia como terminado hasta que pasen los
-[criterios de aceptación](ACCEPTANCE.md).
+**Estado: estable, sin lanzar (versión 0.3.0).** Los seis comandos, los seis skills y el motor de
+cálculo, probados contra material sintético de Colombia, México, Ecuador, Perú y Chile —con las
+exportaciones de Salesforce, HubSpot, Dynamics 365, Zoho y cualquier CRM con su mapeo— con una clave
+que el agente no ve y una entidad de control por país. Pasó sus dos rondas con los agentes: con todas
+ellas, el piso del margen del 95 % es 98,0 % en señales y 95,1 % en datos. Se instala desde el
+marketplace; su lanzamiento está pendiente. Los [criterios de aceptación](ACCEPTANCE.md) siguen
+siendo la regla.
 
 **Esta página se lee sola.** Valeria funciona sin Augusto: si solo respondes por la venta hasta la
 factura, aquí está todo, incluidas sus pruebas. La familia —cómo se encuentra con Augusto, con Fidel, con Clara y con Rostrum— está en

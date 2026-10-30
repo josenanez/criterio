@@ -1,0 +1,273 @@
+{
+ "entidad": "Comercial Control Sintética",
+ "industria": "retail",
+ "pais": "MX",
+ "escaner": "espanol-xlsx",
+ "hoy": "2026-10-15",
+ "periodo": "2026-10",
+ "siembra": false,
+ "excluidos": [
+  "00-referencia/credenciales-vpn.txt",
+  "10-controles/A.8.24_certificados/servidor-web.pem",
+  "90-continuidad/respaldo-correo-2026-06-20.zip"
+ ],
+ "config": {
+  "alexis": {
+   "entity": {
+    "id": "CCM090101AB3",
+    "name": "Comercial Control Sintética",
+    "country": "MX",
+    "currency": "MXN"
+   },
+   "paths": {
+    "documents": "seguridad/ccm090101ab3-comercial-control-sintetica",
+    "state": "estado-seguridad/ccm090101ab3-comercial-control-sintetica"
+   },
+   "period": "2026-10"
+  },
+  "guillermo": {
+   "entity": {
+    "id": "CCM090101AB3",
+    "name": "Comercial Control Sintética",
+    "country": "MX",
+    "currency": "MXN"
+   },
+   "paths": {
+    "documents": "seguridad/ccm090101ab3-comercial-control-sintetica",
+    "state": "estado-seguridad/ccm090101ab3-comercial-control-sintetica"
+   },
+   "period": "2026-10",
+   "vulnerability": {
+    "sla_days": {
+     "critica": 15,
+     "alta": 30,
+     "media": 90,
+     "baja": 180
+    },
+    "publish": false
+   },
+   "scanner": {
+    "columns": {}
+   },
+   "thresholds": {
+    "scan_window_days": 30
+   }
+  },
+  "amparo": {
+   "entity": {
+    "id": "CCM090101AB3",
+    "name": "Comercial Control Sintética",
+    "country": "MX",
+    "currency": "MXN"
+   },
+   "paths": {
+    "documents": "seguridad/ccm090101ab3-comercial-control-sintetica",
+    "state": "estado-seguridad/ccm090101ab3-comercial-control-sintetica"
+   },
+   "period": "2026-10",
+   "incident": {
+    "containment_hours": {
+     "critica": 6,
+     "alta": 24,
+     "media": 72,
+     "baja": 168
+    },
+    "review_days": 15
+   }
+  }
+ },
+ "extraccion": {
+  "seguridad": {
+   "evidence": [
+    {
+     "control": "A.5.1",
+     "date": "2026-02-20",
+     "source": "10-controles/A.5.1_politicas-de-seguridad-de-la-informacion_2026-02.pdf"
+    },
+    {
+     "control": "A.5.9",
+     "date": "2026-07-31",
+     "source": "10-controles/A.5.9_inventario-de-informacion-y-otros-activos_2026-07.md"
+    },
+    {
+     "control": "A.5.15",
+     "date": "2026-09-30",
+     "source": "10-controles/A.5.15_control-de-acceso_2026-09.docx"
+    },
+    {
+     "control": "A.5.18",
+     "date": "2026-08-15",
+     "source": "10-controles/A.5.18_derechos-de-acceso_2026-08.pdf"
+    },
+    {
+     "control": "A.5.19",
+     "date": "2026-03-15",
+     "source": "10-controles/A.5.19_seguridad-en-las-relaciones-con-proveedores_2026-03.md"
+    },
+    {
+     "control": "A.5.24",
+     "date": "2026-01-30",
+     "source": "10-controles/A.5.24_preparacion-para-la-gestion-de-incidentes_2026-01.docx"
+    },
+    {
+     "control": "A.5.30",
+     "date": "2026-04-10",
+     "source": "10-controles/A.5.30_preparacion-de-las-tic-para-la-continuidad_2026-04.pdf"
+    },
+    {
+     "control": "A.8.7",
+     "date": "2026-09-30",
+     "source": "10-controles/A.8.7_proteccion-contra-el-malware_2026-09.md"
+    },
+    {
+     "control": "A.8.8",
+     "date": "2026-09-30",
+     "source": "10-controles/A.8.8_gestion-de-las-vulnerabilidades-tecnicas_2026-09.docx"
+    },
+    {
+     "control": "A.8.13",
+     "date": "2026-09-30",
+     "source": "10-controles/A.8.13_copias-de-seguridad-de-la-informacion_2026-09.pdf"
+    },
+    {
+     "control": "A.8.15",
+     "date": "2026-09-30",
+     "source": "10-controles/A.8.15_registro-de-eventos_2026-09.md"
+    },
+    {
+     "control": "A.8.16",
+     "date": "2026-09-15",
+     "source": "10-controles/A.8.16_actividades-de-seguimiento_2026-09.docx"
+    },
+    {
+     "control": "A.8.24",
+     "date": "2026-05-20",
+     "source": "10-controles/A.8.24_uso-de-la-criptografia_2026-05.pdf"
+    }
+   ],
+   "access_reviews": [
+    {
+     "system": "ERP comercial",
+     "date": "2026-08-10",
+     "reviewer": "Jefe de seguridad de la información",
+     "source": "20-accesos/revision-accesos_erp-comercial_2026-08-10.pdf"
+    },
+    {
+     "system": "Correo corporativo",
+     "date": "2026-05-02",
+     "reviewer": "Jefe de seguridad de la información",
+     "source": "20-accesos/revision-accesos_correo-corporativo_2026-05-02.pdf"
+    },
+    {
+     "system": "Directorio activo",
+     "date": "2026-07-20",
+     "reviewer": "Jefe de seguridad de la información",
+     "source": "20-accesos/revision-accesos_directorio-activo_2026-07-20.pdf"
+    },
+    {
+     "system": "Portal de clientes",
+     "date": "2026-06-01",
+     "reviewer": "Jefe de seguridad de la información",
+     "source": "20-accesos/revision-accesos_portal-de-clientes_2026-06-01.pdf"
+    }
+   ],
+   "third_party_assessments": [
+    {
+     "third_party": "Nube Andina Servicios",
+     "date": "2026-02-10",
+     "result": "sin hallazgos",
+     "source": "30-terceros/evaluacion_nube-andina-servicios_2026-02-10.pdf"
+    },
+    {
+     "third_party": "Pasarela de Pagos Sintética",
+     "date": "2025-11-20",
+     "result": "con observaciones",
+     "source": "30-terceros/evaluacion_pasarela-de-pagos-sintetica_2025-11-20.pdf"
+    },
+    {
+     "third_party": "Mesa de Ayuda Externa",
+     "date": "2026-04-01",
+     "result": "sin hallazgos",
+     "source": "30-terceros/evaluacion_mesa-de-ayuda-externa_2026-04-01.pdf"
+    }
+   ],
+   "reviewed": [
+    {
+     "source": "10-controles/A.8.28_borrador-guia-codificacion.docx"
+    }
+   ],
+   "questions": []
+  },
+  "vulnerabilidades": {
+   "questions": []
+  },
+  "resiliencia": {
+   "incidents": [
+    {
+     "id": "INC-CCM-101",
+     "severity": "crítica",
+     "detected_at": "2026-09-03T09:10",
+     "contained_at": "2026-09-03T14:40",
+     "closed_on": "2026-09-08",
+     "personal_data": false,
+     "customers_affected": false,
+     "notifications": [
+      {
+       "to": "Comisión supervisora",
+       "at": "2026-09-04T09:10",
+       "source": "70-incidentes/INC-CCM-101_notificacion-comision-supervisora.pdf"
+      },
+      {
+       "to": "Comité de riesgos",
+       "at": "2026-09-03T15:10",
+       "source": "70-incidentes/INC-CCM-101_notificacion-comite-de-riesgos.pdf"
+      }
+     ],
+     "source": "70-incidentes/INC-CCM-101_informe.docx"
+    }
+   ],
+   "reviews": [
+    {
+     "incident": "INC-CCM-101",
+     "date": "2026-09-12",
+     "source": "80-revisiones/INC-CCM-101_revision.md"
+    }
+   ],
+   "tests": [
+    {
+     "test": "Plan de continuidad del negocio",
+     "date": "2026-03-15",
+     "result": "exitosa",
+     "source": "90-continuidad/prueba_plan-de-continuidad-del-negocio_2026-03-15.pdf"
+    },
+    {
+     "test": "Recuperación del centro de datos alterno",
+     "date": "2026-05-10",
+     "result": "exitosa",
+     "source": "90-continuidad/prueba_recuperacion-del-centro-de-datos-alterno_2026-05-10.pdf"
+    },
+    {
+     "test": "Restauración del erp comercial",
+     "date": "2026-08-01",
+     "result": "con observaciones",
+     "source": "90-continuidad/prueba_restauracion-del-erp-comercial_2026-08-01.pdf"
+    },
+    {
+     "test": "Restauración del correo corporativo",
+     "date": "2026-08-20",
+     "result": "exitosa",
+     "source": "90-continuidad/prueba_restauracion-del-correo-corporativo_2026-08-20.pdf"
+    },
+    {
+     "test": "Restauración de la base de clientes",
+     "date": "2026-07-01",
+     "result": "exitosa",
+     "source": "90-continuidad/prueba_restauracion-de-la-base-de-clientes_2026-07-01.pdf"
+    }
+   ],
+   "reviewed": [],
+   "questions": []
+  }
+ },
+ "esperado": []
+}

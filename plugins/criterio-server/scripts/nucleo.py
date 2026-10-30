@@ -937,7 +937,8 @@ def argumentos(descripcion: str):
 # coincidan. Dos agentes que comparten el estado no comparten la configuración.
 AREA = {"criterio-finance": "finanzas", "criterio-budget": "presupuesto", "criterio-treasury": "tesoreria",
         "criterio-legal": "legal", "criterio-compliance": "cumplimiento", "criterio-assistant": "direccion",
-        "criterio-sales": "comercial", "criterio-revenue": "ingresos"}
+        "criterio-sales": "comercial", "criterio-revenue": "ingresos", "criterio-security": "seguridad",
+        "criterio-vulnerability": "vulnerabilidades", "criterio-resilience": "resiliencia"}
 
 
 def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas: tuple, revisar_config, calcular,

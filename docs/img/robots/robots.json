@@ -2245,6 +2245,510 @@
    ],
    "quieto": false
   },
+  "alexis": {
+   "piezas": [
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 60,
+      "y1": 8,
+      "x2": 60,
+      "y2": 22
+     }
+    },
+    {
+     "tipo": "led",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 60,
+      "cy": 6,
+      "r": 4
+     },
+     "gesto": "led",
+     "trazo": false
+    },
+    {
+     "tipo": "ln",
+     "elemento": "rect",
+     "attrs": {
+      "x": 22,
+      "y": 22,
+      "width": 76,
+      "height": 56,
+      "rx": 6
+     }
+    },
+    {
+     "tipo": "ojo",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 45,
+      "cy": 46,
+      "r": 6
+     },
+     "gesto": "parpadeo",
+     "trazo": false
+    },
+    {
+     "tipo": "ojo",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 75,
+      "cy": 46,
+      "r": 6
+     },
+     "gesto": "parpadeo",
+     "trazo": false
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 48,
+      "y1": 64,
+      "x2": 72,
+      "y2": 64
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "rect",
+     "attrs": {
+      "x": 30,
+      "y": 84,
+      "width": 60,
+      "height": 50,
+      "rx": 4
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "path",
+     "attrs": {
+      "d": "M60 90 L78 96 L78 110 Q78 122 60 129 Q42 122 42 110 L42 96 Z"
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "path",
+     "attrs": {
+      "d": "M51 110 L58 117 L70 102"
+     },
+     "gesto": "valida",
+     "trazo": true
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 30,
+      "y1": 96,
+      "x2": 12,
+      "y2": 112
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 90,
+      "y1": 96,
+      "x2": 108,
+      "y2": 112
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 44,
+      "y1": 134,
+      "x2": 44,
+      "y2": 158
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 76,
+      "y1": 134,
+      "x2": 76,
+      "y2": 158
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 36,
+      "y1": 160,
+      "x2": 52,
+      "y2": 160
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 68,
+      "y1": 160,
+      "x2": 84,
+      "y2": 160
+     }
+    }
+   ],
+   "quieto": false
+  },
+  "guillermo": {
+   "piezas": [
+    {
+     "tipo": "ln",
+     "elemento": "path",
+     "attrs": {
+      "d": "M36 22 L28 10"
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "path",
+     "attrs": {
+      "d": "M84 22 L92 10"
+     }
+    },
+    {
+     "tipo": "led",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 27,
+      "cy": 8,
+      "r": 3.5
+     },
+     "gesto": "led",
+     "trazo": false
+    },
+    {
+     "tipo": "led",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 93,
+      "cy": 8,
+      "r": 3.5
+     },
+     "gesto": "led",
+     "trazo": false,
+     "retraso": 0.4
+    },
+    {
+     "tipo": "ln",
+     "elemento": "rect",
+     "attrs": {
+      "x": 22,
+      "y": 22,
+      "width": 76,
+      "height": 56,
+      "rx": 6
+     }
+    },
+    {
+     "tipo": "ojo",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 45,
+      "cy": 46,
+      "r": 6
+     },
+     "gesto": "parpadeo",
+     "trazo": false
+    },
+    {
+     "tipo": "ojo",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 75,
+      "cy": 46,
+      "r": 6
+     },
+     "gesto": "parpadeo",
+     "trazo": false
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 48,
+      "y1": 64,
+      "x2": 72,
+      "y2": 64
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "rect",
+     "attrs": {
+      "x": 30,
+      "y": 84,
+      "width": 60,
+      "height": 50,
+      "rx": 4
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "rect",
+     "attrs": {
+      "x": 38,
+      "y": 92,
+      "width": 44,
+      "height": 34,
+      "rx": 2
+     }
+    },
+    {
+     "tipo": "led",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 50,
+      "cy": 104,
+      "r": 2
+     },
+     "gesto": "led",
+     "trazo": false
+    },
+    {
+     "tipo": "led",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 68,
+      "cy": 116,
+      "r": 2
+     },
+     "gesto": "led",
+     "trazo": false,
+     "retraso": 0.4
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 40,
+      "y1": 96,
+      "x2": 80,
+      "y2": 96
+     },
+     "gesto": "escanea",
+     "trazo": false
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 30,
+      "y1": 96,
+      "x2": 12,
+      "y2": 112
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 90,
+      "y1": 96,
+      "x2": 108,
+      "y2": 112
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 44,
+      "y1": 134,
+      "x2": 44,
+      "y2": 158
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 76,
+      "y1": 134,
+      "x2": 76,
+      "y2": 158
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 36,
+      "y1": 160,
+      "x2": 52,
+      "y2": 160
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 68,
+      "y1": 160,
+      "x2": 84,
+      "y2": 160
+     }
+    }
+   ],
+   "quieto": false
+  },
+  "amparo": {
+   "piezas": [
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 60,
+      "y1": 8,
+      "x2": 60,
+      "y2": 22
+     }
+    },
+    {
+     "tipo": "led",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 60,
+      "cy": 6,
+      "r": 4
+     },
+     "gesto": "led",
+     "trazo": false
+    },
+    {
+     "tipo": "ln",
+     "elemento": "rect",
+     "attrs": {
+      "x": 22,
+      "y": 22,
+      "width": 76,
+      "height": 56,
+      "rx": 6
+     }
+    },
+    {
+     "tipo": "ojo",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 45,
+      "cy": 46,
+      "r": 6
+     },
+     "gesto": "parpadeo",
+     "trazo": false
+    },
+    {
+     "tipo": "ojo",
+     "elemento": "circle",
+     "attrs": {
+      "cx": 75,
+      "cy": 46,
+      "r": 6
+     },
+     "gesto": "parpadeo",
+     "trazo": false
+    },
+    {
+     "tipo": "ln",
+     "elemento": "path",
+     "attrs": {
+      "d": "M48 62 Q60 70 72 62"
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "rect",
+     "attrs": {
+      "x": 30,
+      "y": 84,
+      "width": 60,
+      "height": 50,
+      "rx": 4
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "path",
+     "attrs": {
+      "d": "M36 110 L47 110 L52 98 L58 122 L63 104 L67 110 L84 110"
+     },
+     "gesto": "latido",
+     "trazo": true
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 30,
+      "y1": 96,
+      "x2": 12,
+      "y2": 112
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 90,
+      "y1": 96,
+      "x2": 108,
+      "y2": 112
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 44,
+      "y1": 134,
+      "x2": 44,
+      "y2": 158
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 76,
+      "y1": 134,
+      "x2": 76,
+      "y2": 158
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 36,
+      "y1": 160,
+      "x2": 52,
+      "y2": 160
+     }
+    },
+    {
+     "tipo": "ln",
+     "elemento": "line",
+     "attrs": {
+      "x1": 68,
+      "y1": 160,
+      "x2": 84,
+      "y2": 160
+     }
+    }
+   ],
+   "quieto": false
+  },
   "rostrum": {
    "piezas": [
     {
@@ -2413,7 +2917,7 @@
    "quieto": true
   }
  },
- "css": "@keyframes cr-cuerpo{0%{transform:translate(0px,-0px)}12.5%{transform:translate(0px,-1.148px)}25%{transform:translate(0px,-2.121px)}37.5%{transform:translate(0px,-2.772px)}50%{transform:translate(0px,-3px)}62.5%{transform:translate(0px,-2.772px)}75%{transform:translate(0px,-2.121px)}87.5%{transform:translate(0px,-1.148px)}100%{transform:translate(0px,-0px)}}.cr-anima .g-cuerpo{animation:cr-cuerpo 1.6s linear 3}.cr-anima:hover .g-cuerpo,a:hover>.cr-anima .g-cuerpo,a:focus-visible>.cr-anima .g-cuerpo{animation-iteration-count:infinite}@keyframes cr-parpadeo{0%{opacity:1}90%{opacity:1}93%{opacity:0.1}96%{opacity:1}100%{opacity:1}}.cr-anima .g-parpadeo{animation:cr-parpadeo 4.8s linear 1}.cr-anima:hover .g-parpadeo,a:hover>.cr-anima .g-parpadeo,a:focus-visible>.cr-anima .g-parpadeo{animation-iteration-count:infinite}@keyframes cr-led{0%{opacity:1}50%{opacity:1}50%{opacity:0.35}100%{opacity:0.35}}.cr-anima .g-led{animation:cr-led 0.8s linear 6}.cr-anima:hover .g-led,a:hover>.cr-anima .g-led,a:focus-visible>.cr-anima .g-led{animation-iteration-count:infinite}@keyframes cr-mira{0%{transform:translate(0px,0px)}20%{transform:translate(-6px,0px)}45%{transform:translate(-6px,0px)}65%{transform:translate(6px,0px)}85%{transform:translate(6px,0px)}100%{transform:translate(0px,0px)}}.cr-anima .g-mira{animation:cr-mira 4.8s linear 1}.cr-anima:hover .g-mira,a:hover>.cr-anima .g-mira,a:focus-visible>.cr-anima .g-mira{animation-iteration-count:infinite}@keyframes cr-escribe{0%{stroke-dashoffset:1}25%{stroke-dashoffset:0}80%{stroke-dashoffset:0}85%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-escribe{animation:cr-escribe 2.4s linear 2}.cr-anima:hover .g-escribe,a:hover>.cr-anima .g-escribe,a:focus-visible>.cr-anima .g-escribe{animation-iteration-count:infinite}@keyframes cr-sale{0%{transform:translate(0px,5px)}40%{transform:translate(0px,0px)}80%{transform:translate(0px,0px)}100%{transform:translate(0px,5px)}}.cr-anima .g-sale{animation:cr-sale 2.4s linear 2}.cr-anima:hover .g-sale,a:hover>.cr-anima .g-sale,a:focus-visible>.cr-anima .g-sale{animation-iteration-count:infinite}@keyframes cr-lupa{0%{transform:translate(0px,0px)}25%{transform:translate(-4px,3px)}50%{transform:translate(-4px,3px)}75%{transform:translate(2px,-1px)}100%{transform:translate(0px,0px)}}.cr-anima .g-lupa{animation:cr-lupa 4.8s linear 1}.cr-anima:hover .g-lupa,a:hover>.cr-anima .g-lupa,a:focus-visible>.cr-anima .g-lupa{animation-iteration-count:infinite}@keyframes cr-cuadra{0%{stroke-dashoffset:1}35%{stroke-dashoffset:1}55%{stroke-dashoffset:0}90%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}.cr-anima .g-cuadra{animation:cr-cuadra 2.4s linear 2}.cr-anima:hover .g-cuadra,a:hover>.cr-anima .g-cuadra,a:focus-visible>.cr-anima .g-cuadra{animation-iteration-count:infinite}@keyframes cr-barra{0%{stroke-dashoffset:1}30%{stroke-dashoffset:0}80%{stroke-dashoffset:0}95%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-barra{animation:cr-barra 2.4s linear 2}.cr-anima:hover .g-barra,a:hover>.cr-anima .g-barra,a:focus-visible>.cr-anima .g-barra{animation-iteration-count:infinite}@keyframes cr-perilla{0%{transform:translate(0px,0px)}8.33333%{transform:translate(-0.938px,3.5px)}16.6667%{transform:translate(-3.5px,6.062px)}25%{transform:translate(-7px,7px)}33.3333%{transform:translate(-10.5px,6.062px)}41.6667%{transform:translate(-13.062px,3.5px)}50%{transform:translate(-14px,0px)}58.3333%{transform:translate(-13.062px,-3.5px)}66.6667%{transform:translate(-10.5px,-6.062px)}75%{transform:translate(-7px,-7px)}83.3333%{transform:translate(-3.5px,-6.062px)}91.6667%{transform:translate(-0.938px,-3.5px)}100%{transform:translate(0px,-0px)}}.cr-anima .g-perilla{animation:cr-perilla 2.4s linear 2}.cr-anima:hover .g-perilla,a:hover>.cr-anima .g-perilla,a:focus-visible>.cr-anima .g-perilla{animation-iteration-count:infinite}@keyframes cr-firma{0%{stroke-dashoffset:1}35%{stroke-dashoffset:0}85%{stroke-dashoffset:0}90%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-firma{animation:cr-firma 2.4s linear 2}.cr-anima:hover .g-firma,a:hover>.cr-anima .g-firma,a:focus-visible>.cr-anima .g-firma{animation-iteration-count:infinite}@keyframes cr-sello{0%{opacity:0.3}40%{opacity:0.3}45%{opacity:1}85%{opacity:1}90%{opacity:0.3}100%{opacity:0.3}}.cr-anima .g-sello{animation:cr-sello 2.4s linear 2}.cr-anima:hover .g-sello,a:hover>.cr-anima .g-sello,a:focus-visible>.cr-anima .g-sello{animation-iteration-count:infinite}@keyframes cr-visor{0%{transform:translate(0px,0px)}25%{transform:translate(-3px,0px)}75%{transform:translate(3px,0px)}100%{transform:translate(0px,0px)}}.cr-anima .g-visor{animation:cr-visor 2.4s linear 2}.cr-anima:hover .g-visor,a:hover>.cr-anima .g-visor,a:focus-visible>.cr-anima .g-visor{animation-iteration-count:infinite}@keyframes cr-marca{0%{stroke-dashoffset:1}15%{stroke-dashoffset:0}80%{stroke-dashoffset:0}85%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-marca{animation:cr-marca 2.4s linear 2}.cr-anima:hover .g-marca,a:hover>.cr-anima .g-marca,a:focus-visible>.cr-anima .g-marca{animation-iteration-count:infinite}@keyframes cr-dia{0%{stroke-dashoffset:1}30%{stroke-dashoffset:1}50%{stroke-dashoffset:0}90%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}.cr-anima .g-dia{animation:cr-dia 2.4s linear 2}.cr-anima:hover .g-dia,a:hover>.cr-anima .g-dia,a:focus-visible>.cr-anima .g-dia{animation-iteration-count:infinite}@keyframes cr-traza{0%{stroke-dashoffset:1}30%{stroke-dashoffset:0}85%{stroke-dashoffset:0}90%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-traza{animation:cr-traza 2.4s linear 2}.cr-anima:hover .g-traza,a:hover>.cr-anima .g-traza,a:focus-visible>.cr-anima .g-traza{animation-iteration-count:infinite}@keyframes cr-pronostico{0%{stroke-dashoffset:1}30%{stroke-dashoffset:1}45%{stroke-dashoffset:0}85%{stroke-dashoffset:0}90%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-pronostico{animation:cr-pronostico 2.4s linear 2}.cr-anima:hover .g-pronostico,a:hover>.cr-anima .g-pronostico,a:focus-visible>.cr-anima .g-pronostico{animation-iteration-count:infinite}@keyframes cr-punta{0%{opacity:0.3}45%{opacity:0.3}50%{opacity:1}85%{opacity:1}90%{opacity:0.3}100%{opacity:0.3}}.cr-anima .g-punta{animation:cr-punta 2.4s linear 2}.cr-anima:hover .g-punta,a:hover>.cr-anima .g-punta,a:focus-visible>.cr-anima .g-punta{animation-iteration-count:infinite}@keyframes cr-paso{0%{opacity:0.3}15%{opacity:1}80%{opacity:1}85%{opacity:0.3}100%{opacity:0.3}}.cr-anima .g-paso{animation:cr-paso 2.4s linear 2}.cr-anima:hover .g-paso,a:hover>.cr-anima .g-paso,a:focus-visible>.cr-anima .g-paso{animation-iteration-count:infinite}@keyframes cr-gira{0%{transform:translate(0px,0px)}8.33333%{transform:translate(-0.67px,2.5px)}16.6667%{transform:translate(-2.5px,4.33px)}25%{transform:translate(-5px,5px)}33.3333%{transform:translate(-7.5px,4.33px)}41.6667%{transform:translate(-9.33px,2.5px)}50%{transform:translate(-10px,0px)}58.3333%{transform:translate(-9.33px,-2.5px)}66.6667%{transform:translate(-7.5px,-4.33px)}75%{transform:translate(-5px,-5px)}83.3333%{transform:translate(-2.5px,-4.33px)}91.6667%{transform:translate(-0.67px,-2.5px)}100%{transform:translate(0px,-0px)}}.cr-anima .g-gira{animation:cr-gira 1.6s linear 3}.cr-anima:hover .g-gira,a:hover>.cr-anima .g-gira,a:focus-visible>.cr-anima .g-gira{animation-iteration-count:infinite}@keyframes cr-corre{0%{opacity:1}20%{opacity:1}20%{opacity:0.3}100%{opacity:0.3}}.cr-anima .g-corre{animation:cr-corre 1.2s linear 4}.cr-anima:hover .g-corre,a:hover>.cr-anima .g-corre,a:focus-visible>.cr-anima .g-corre{animation-iteration-count:infinite}@media (prefers-reduced-motion: reduce){.cr-anima *{animation:none!important;stroke-dashoffset:0!important;transform:none!important;opacity:1!important}}}",
+ "css": "@keyframes cr-cuerpo{0%{transform:translate(0px,-0px)}12.5%{transform:translate(0px,-1.148px)}25%{transform:translate(0px,-2.121px)}37.5%{transform:translate(0px,-2.772px)}50%{transform:translate(0px,-3px)}62.5%{transform:translate(0px,-2.772px)}75%{transform:translate(0px,-2.121px)}87.5%{transform:translate(0px,-1.148px)}100%{transform:translate(0px,-0px)}}.cr-anima .g-cuerpo{animation:cr-cuerpo 1.6s linear 3}.cr-anima:hover .g-cuerpo,a:hover>.cr-anima .g-cuerpo,a:focus-visible>.cr-anima .g-cuerpo{animation-iteration-count:infinite}@keyframes cr-parpadeo{0%{opacity:1}90%{opacity:1}93%{opacity:0.1}96%{opacity:1}100%{opacity:1}}.cr-anima .g-parpadeo{animation:cr-parpadeo 4.8s linear 1}.cr-anima:hover .g-parpadeo,a:hover>.cr-anima .g-parpadeo,a:focus-visible>.cr-anima .g-parpadeo{animation-iteration-count:infinite}@keyframes cr-led{0%{opacity:1}50%{opacity:1}50%{opacity:0.35}100%{opacity:0.35}}.cr-anima .g-led{animation:cr-led 0.8s linear 6}.cr-anima:hover .g-led,a:hover>.cr-anima .g-led,a:focus-visible>.cr-anima .g-led{animation-iteration-count:infinite}@keyframes cr-mira{0%{transform:translate(0px,0px)}20%{transform:translate(-6px,0px)}45%{transform:translate(-6px,0px)}65%{transform:translate(6px,0px)}85%{transform:translate(6px,0px)}100%{transform:translate(0px,0px)}}.cr-anima .g-mira{animation:cr-mira 4.8s linear 1}.cr-anima:hover .g-mira,a:hover>.cr-anima .g-mira,a:focus-visible>.cr-anima .g-mira{animation-iteration-count:infinite}@keyframes cr-escribe{0%{stroke-dashoffset:1}25%{stroke-dashoffset:0}80%{stroke-dashoffset:0}85%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-escribe{animation:cr-escribe 2.4s linear 2}.cr-anima:hover .g-escribe,a:hover>.cr-anima .g-escribe,a:focus-visible>.cr-anima .g-escribe{animation-iteration-count:infinite}@keyframes cr-sale{0%{transform:translate(0px,5px)}40%{transform:translate(0px,0px)}80%{transform:translate(0px,0px)}100%{transform:translate(0px,5px)}}.cr-anima .g-sale{animation:cr-sale 2.4s linear 2}.cr-anima:hover .g-sale,a:hover>.cr-anima .g-sale,a:focus-visible>.cr-anima .g-sale{animation-iteration-count:infinite}@keyframes cr-lupa{0%{transform:translate(0px,0px)}25%{transform:translate(-4px,3px)}50%{transform:translate(-4px,3px)}75%{transform:translate(2px,-1px)}100%{transform:translate(0px,0px)}}.cr-anima .g-lupa{animation:cr-lupa 4.8s linear 1}.cr-anima:hover .g-lupa,a:hover>.cr-anima .g-lupa,a:focus-visible>.cr-anima .g-lupa{animation-iteration-count:infinite}@keyframes cr-cuadra{0%{stroke-dashoffset:1}35%{stroke-dashoffset:1}55%{stroke-dashoffset:0}90%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}.cr-anima .g-cuadra{animation:cr-cuadra 2.4s linear 2}.cr-anima:hover .g-cuadra,a:hover>.cr-anima .g-cuadra,a:focus-visible>.cr-anima .g-cuadra{animation-iteration-count:infinite}@keyframes cr-barra{0%{stroke-dashoffset:1}30%{stroke-dashoffset:0}80%{stroke-dashoffset:0}95%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-barra{animation:cr-barra 2.4s linear 2}.cr-anima:hover .g-barra,a:hover>.cr-anima .g-barra,a:focus-visible>.cr-anima .g-barra{animation-iteration-count:infinite}@keyframes cr-perilla{0%{transform:translate(0px,0px)}8.33333%{transform:translate(-0.938px,3.5px)}16.6667%{transform:translate(-3.5px,6.062px)}25%{transform:translate(-7px,7px)}33.3333%{transform:translate(-10.5px,6.062px)}41.6667%{transform:translate(-13.062px,3.5px)}50%{transform:translate(-14px,0px)}58.3333%{transform:translate(-13.062px,-3.5px)}66.6667%{transform:translate(-10.5px,-6.062px)}75%{transform:translate(-7px,-7px)}83.3333%{transform:translate(-3.5px,-6.062px)}91.6667%{transform:translate(-0.938px,-3.5px)}100%{transform:translate(0px,-0px)}}.cr-anima .g-perilla{animation:cr-perilla 2.4s linear 2}.cr-anima:hover .g-perilla,a:hover>.cr-anima .g-perilla,a:focus-visible>.cr-anima .g-perilla{animation-iteration-count:infinite}@keyframes cr-firma{0%{stroke-dashoffset:1}35%{stroke-dashoffset:0}85%{stroke-dashoffset:0}90%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-firma{animation:cr-firma 2.4s linear 2}.cr-anima:hover .g-firma,a:hover>.cr-anima .g-firma,a:focus-visible>.cr-anima .g-firma{animation-iteration-count:infinite}@keyframes cr-sello{0%{opacity:0.3}40%{opacity:0.3}45%{opacity:1}85%{opacity:1}90%{opacity:0.3}100%{opacity:0.3}}.cr-anima .g-sello{animation:cr-sello 2.4s linear 2}.cr-anima:hover .g-sello,a:hover>.cr-anima .g-sello,a:focus-visible>.cr-anima .g-sello{animation-iteration-count:infinite}@keyframes cr-visor{0%{transform:translate(0px,0px)}25%{transform:translate(-3px,0px)}75%{transform:translate(3px,0px)}100%{transform:translate(0px,0px)}}.cr-anima .g-visor{animation:cr-visor 2.4s linear 2}.cr-anima:hover .g-visor,a:hover>.cr-anima .g-visor,a:focus-visible>.cr-anima .g-visor{animation-iteration-count:infinite}@keyframes cr-marca{0%{stroke-dashoffset:1}15%{stroke-dashoffset:0}80%{stroke-dashoffset:0}85%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-marca{animation:cr-marca 2.4s linear 2}.cr-anima:hover .g-marca,a:hover>.cr-anima .g-marca,a:focus-visible>.cr-anima .g-marca{animation-iteration-count:infinite}@keyframes cr-dia{0%{stroke-dashoffset:1}30%{stroke-dashoffset:1}50%{stroke-dashoffset:0}90%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}.cr-anima .g-dia{animation:cr-dia 2.4s linear 2}.cr-anima:hover .g-dia,a:hover>.cr-anima .g-dia,a:focus-visible>.cr-anima .g-dia{animation-iteration-count:infinite}@keyframes cr-traza{0%{stroke-dashoffset:1}30%{stroke-dashoffset:0}85%{stroke-dashoffset:0}90%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-traza{animation:cr-traza 2.4s linear 2}.cr-anima:hover .g-traza,a:hover>.cr-anima .g-traza,a:focus-visible>.cr-anima .g-traza{animation-iteration-count:infinite}@keyframes cr-pronostico{0%{stroke-dashoffset:1}30%{stroke-dashoffset:1}45%{stroke-dashoffset:0}85%{stroke-dashoffset:0}90%{stroke-dashoffset:1}100%{stroke-dashoffset:1}}.cr-anima .g-pronostico{animation:cr-pronostico 2.4s linear 2}.cr-anima:hover .g-pronostico,a:hover>.cr-anima .g-pronostico,a:focus-visible>.cr-anima .g-pronostico{animation-iteration-count:infinite}@keyframes cr-punta{0%{opacity:0.3}45%{opacity:0.3}50%{opacity:1}85%{opacity:1}90%{opacity:0.3}100%{opacity:0.3}}.cr-anima .g-punta{animation:cr-punta 2.4s linear 2}.cr-anima:hover .g-punta,a:hover>.cr-anima .g-punta,a:focus-visible>.cr-anima .g-punta{animation-iteration-count:infinite}@keyframes cr-paso{0%{opacity:0.3}15%{opacity:1}80%{opacity:1}85%{opacity:0.3}100%{opacity:0.3}}.cr-anima .g-paso{animation:cr-paso 2.4s linear 2}.cr-anima:hover .g-paso,a:hover>.cr-anima .g-paso,a:focus-visible>.cr-anima .g-paso{animation-iteration-count:infinite}@keyframes cr-valida{0%{stroke-dashoffset:1}35%{stroke-dashoffset:1}55%{stroke-dashoffset:0}90%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}.cr-anima .g-valida{animation:cr-valida 2.4s linear 2}.cr-anima:hover .g-valida,a:hover>.cr-anima .g-valida,a:focus-visible>.cr-anima .g-valida{animation-iteration-count:infinite}@keyframes cr-escanea{0%{transform:translate(0px,0px)}45%{transform:translate(0px,26px)}55%{transform:translate(0px,26px)}100%{transform:translate(0px,0px)}}.cr-anima .g-escanea{animation:cr-escanea 2.4s linear 2}.cr-anima:hover .g-escanea,a:hover>.cr-anima .g-escanea,a:focus-visible>.cr-anima .g-escanea{animation-iteration-count:infinite}@keyframes cr-latido{0%{stroke-dashoffset:1}60%{stroke-dashoffset:0}85%{stroke-dashoffset:0}100%{stroke-dashoffset:1}}.cr-anima .g-latido{animation:cr-latido 1.2s linear 4}.cr-anima:hover .g-latido,a:hover>.cr-anima .g-latido,a:focus-visible>.cr-anima .g-latido{animation-iteration-count:infinite}@keyframes cr-gira{0%{transform:translate(0px,0px)}8.33333%{transform:translate(-0.67px,2.5px)}16.6667%{transform:translate(-2.5px,4.33px)}25%{transform:translate(-5px,5px)}33.3333%{transform:translate(-7.5px,4.33px)}41.6667%{transform:translate(-9.33px,2.5px)}50%{transform:translate(-10px,0px)}58.3333%{transform:translate(-9.33px,-2.5px)}66.6667%{transform:translate(-7.5px,-4.33px)}75%{transform:translate(-5px,-5px)}83.3333%{transform:translate(-2.5px,-4.33px)}91.6667%{transform:translate(-0.67px,-2.5px)}100%{transform:translate(0px,-0px)}}.cr-anima .g-gira{animation:cr-gira 1.6s linear 3}.cr-anima:hover .g-gira,a:hover>.cr-anima .g-gira,a:focus-visible>.cr-anima .g-gira{animation-iteration-count:infinite}@keyframes cr-corre{0%{opacity:1}20%{opacity:1}20%{opacity:0.3}100%{opacity:0.3}}.cr-anima .g-corre{animation:cr-corre 1.2s linear 4}.cr-anima:hover .g-corre,a:hover>.cr-anima .g-corre,a:focus-visible>.cr-anima .g-corre{animation-iteration-count:infinite}@media (prefers-reduced-motion: reduce){.cr-anima *{animation:none!important;stroke-dashoffset:0!important;transform:none!important;opacity:1!important}}}",
  "vuelta": 4.8,
  "simbolo": {
   "corchete": "M27 11H17.5Q11 11 11 17.5V46.5Q11 53 17.5 53H27",

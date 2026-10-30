@@ -159,6 +159,16 @@ PUERTAS = [
      "Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-cco/evaluar.py"), "--agente", "valeria"],
      "Que Valeria levante cada señal sembrada de la venta a la factura, y ninguna en los controles ni un dato de contacto"),
+    ("código", [sys.executable, str(RAIZ / "plugins/criterio-security/scripts/seguridad.py"), "selftest"],
+     "El motor de Alexis, Guillermo y Amparo: la escala del CVSS, el catálogo KEV, lo que nunca se abre y una entidad mínima con todo mal"),
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-ciso/generar.py")],
+     "El material CISO: banca, retail, salud y tecnología y dos controles, cada uno con su escáner, lo que nunca se abre y su clave"),
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-ciso/evaluar.py"), "--agente", "alexis"],
+     "Que Alexis levante cada señal sembrada en los controles, los accesos, los terceros y los riesgos, y ninguna en los controles"),
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-ciso/evaluar.py"), "--agente", "guillermo"],
+     "Que Guillermo levante cada señal sembrada en las vulnerabilidades, y ninguna en los controles"),
+    ("material", [sys.executable, str(RAIZ / "tests/criterio-ciso/evaluar.py"), "--agente", "amparo"],
+     "Que Amparo levante cada señal sembrada en los incidentes y las pruebas, y ninguna en los controles"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/familias.py"), "--check"],
      "Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/resultados.py"), "--selftest"],
@@ -229,8 +239,8 @@ def main() -> int:
     print(color(f"{total} puertas en verde", VERDE))
     print("\nQué prueba cada corrida y qué no, en tests/criterio-portfolio/EVIDENCIA.md,")
     print("tests/criterio-project/EVIDENCIA.md, tests/criterio-product/EVIDENCIA.md,")
-    print("tests/criterio-cfo/EVIDENCIA.md, tests/criterio-clo/EVIDENCIA.md, tests/criterio-ea/EVIDENCIA.md")
-    print("y tests/criterio-cco/EVIDENCIA.md —")
+    print("tests/criterio-cfo/EVIDENCIA.md, tests/criterio-clo/EVIDENCIA.md, tests/criterio-ea/EVIDENCIA.md,")
+    print("tests/criterio-cco/EVIDENCIA.md y tests/criterio-ciso/EVIDENCIA.md —")
     print("incluido lo que todavía no se ha probado.")
     return 0
 

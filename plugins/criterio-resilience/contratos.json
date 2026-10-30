@@ -1,0 +1,294 @@
+{
+ "comandos": {
+  "resilience-setup": {
+   "funcion": "La configuración, con los plazos de la política.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Configuración guardada, con los plazos y su cita; inventario por carpeta; las columnas que faltan; la primera ficha del periodo",
+    "escribe": [
+     "<estado>/resiliencia/<AAAA-MM>/ficha.json",
+     ".criterio/resiliencia/<entidad>/config.json",
+     "<estado>/ (init)",
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     ".criterio/terminos/ (aceptar)",
+     "<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)",
+     "<estado>/resiliencia/<AAAA-MM>/resultados.json",
+     "<estado>/resiliencia/<AAAA-MM>/reporte-resilience-setup.md",
+     "<estado>/corridas/salida-resilience-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "continuity-record",
+     "incident-record",
+     "security-intake"
+    ],
+    "script": [
+     "aceptar",
+     "buscar-raiz",
+     "compute",
+     "config",
+     "convertir",
+     "corrida",
+     "excluidos",
+     "init",
+     "inventario",
+     "marcar-raiz",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "resilience-scan": {
+   "funcion": "La ficha del periodo al día, con los incidentes, las revisiones y las pruebas nuevas.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/resiliencia/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+    "escribe": [
+     "<estado>/resiliencia/<AAAA-MM>/ficha.json",
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     "<estado>/resiliencia/<AAAA-MM>/resultados.json",
+     "<estado>/resiliencia/<AAAA-MM>/reporte-resilience-scan.md",
+     "<estado>/corridas/salida-resilience-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "continuity-record",
+     "incident-record",
+     "security-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "excluidos",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "incident-timeline": {
+   "funcion": "Cada incidente contra el plazo de su severidad y su revisión.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/resiliencia/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Los incidentes contenidos fuera de plazo o sin contener, y los cerrados sin revisión o revisados tarde, con su cita",
+    "escribe": [
+     "<estado>/resiliencia/<AAAA-MM>/resultados.json",
+     "<estado>/resiliencia/<AAAA-MM>/reporte-incident-timeline.md",
+     "<estado>/corridas/salida-incident-timeline.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "incident-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "notifications": {
+   "funcion": "Cada notificación que pide la matriz, a tiempo, tarde o sin hacer.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/resiliencia/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Las notificaciones tardías y las que no se hicieron, con su destinatario, su norma y su cita",
+    "escribe": [
+     "<estado>/resiliencia/<AAAA-MM>/resultados.json",
+     "<estado>/resiliencia/<AAAA-MM>/reporte-notifications.md",
+     "<estado>/corridas/salida-notifications.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "incident-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "continuity-tests": {
+   "funcion": "Cada prueba contra su calendario.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/resiliencia/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Las pruebas vencidas o sin ninguna, separadas las de restauración, con su cita",
+    "escribe": [
+     "<estado>/resiliencia/<AAAA-MM>/resultados.json",
+     "<estado>/resiliencia/<AAAA-MM>/reporte-continuity-tests.md",
+     "<estado>/corridas/salida-continuity-tests.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "continuity-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "resilience-wake": {
+   "funcion": "Lo que tocaba hoy, corrido.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "<estado>/corridas/",
+     "<estado>/peticiones/",
+     "config"
+    ]
+   },
+   "salida": {
+    "muestra": "Qué corrió y por qué, o que no tocaba nada",
+    "escribe": [
+     "<estado>/resiliencia/<AAAA-MM>/resultados.json",
+     "<estado>/resiliencia/<AAAA-MM>/reporte-resilience-wake.md",
+     "<estado>/corridas/salida-resilience-wake.md",
+     "<estado>/peticiones/<id>.json (responder)"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "corrida",
+     "despertar",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  }
+ },
+ "skills": {
+  "continuity-record": {
+   "decide": "Cada prueba del calendario con su fecha y su resultado.",
+   "escribe": [
+    "tests"
+   ],
+   "alimenta": [
+    "continuity_test_overdue",
+    "restore_test_overdue"
+   ]
+  },
+  "incident-record": {
+   "decide": "Cada incidente con su severidad, su línea de tiempo con hora, sus notificaciones con su constancia y su revisión posterior.",
+   "escribe": [
+    "incidents",
+    "reviews",
+    "reviewed",
+    "questions"
+   ],
+   "alimenta": [
+    "incident_response_late",
+    "incident_notification_late",
+    "incident_without_review"
+   ]
+  },
+  "security-intake": {
+   "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo y qué nunca se abre.",
+   "escribe": [],
+   "alimenta": [
+    "control_without_evidence",
+    "asset_not_scanned",
+    "continuity_test_overdue"
+   ]
+  }
+ },
+ "por_descripcion": {}
+}

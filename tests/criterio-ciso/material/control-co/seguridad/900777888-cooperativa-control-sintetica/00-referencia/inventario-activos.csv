@@ -1,0 +1,11 @@
+activo;tipo;criticidad;responsable;alcance
+ctl-web-01;servidor;alta;Jefe de infraestructura;sí
+ctl-app-01;servidor;media;Jefe de infraestructura;sí
+ctl-db-01;servidor;alta;Jefe de infraestructura;sí
+ctl-fw-borde-01;red;alta;Jefe de infraestructura;sí
+ctl-vpn-01;red;media;Jefe de infraestructura;sí
+ctl-ad-01;servidor;alta;Jefe de infraestructura;sí
+ctl-correo-01;servidor;media;Jefe de infraestructura;sí
+ctl-backup-01;servidor;media;Jefe de infraestructura;sí
+ctl-ws-finanzas-01;estación;media;Jefe de infraestructura;sí
+ctl-laptop-gerencia;estación;baja;Gerencia;no

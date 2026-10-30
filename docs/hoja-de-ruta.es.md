@@ -18,6 +18,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.1.0 | Laboratorio | 1.2.0 · Argentina, Panamá y Guatemala |
 | Criterio EA · Dirección | Ofelia | 1.0.0 | Estable | — |
 | Criterio CCO · La función comercial | Augusto, Valeria | 0.3.0 | Estable | — |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | En construcción | Laboratorio | 0.1.0 · Alexis, Guillermo y Amparo, construidos, con el motor probado |
 | Rostrum · el portal de todas las familias | — | 1.0.0 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -71,13 +72,20 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.2.0 | Liberada | **La ronda completa con los agentes**<br>· Augusto y Valeria corren sus comandos sobre todas las entidades del material, con una clave que no ven<br>· El material siembra al menos 73 señales: lo que pide un piso del 95 % sin fallas (decisión 0020)<br>· Cada defecto que encuentre la ronda, con su corrección y su verificación | La ronda 1 con los dos agentes sobre las seis entidades del material: 72 de 80 señales sembradas y 30 de 30 datos en la primera corrida, con dos señales de más en un control, y 80 de 80 sin ninguna de más después de verificar las correcciones; los tres defectos que encontró, con su corrección y su verificación |
 | 0.3.0 | Liberada | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda 2 con los dos agentes sobre las nueve entidades de Ecuador, Perú y Chile, tres con Dynamics y tres con Zoho: 117 de 117 señales sembradas y 45 de 45 datos en la primera corrida, con una señal de más en un control; el defecto que encontró, en las instrucciones, con su corrección y su verificación |
 
+### Criterio CISO · La seguridad de la información
+
+| Versión | Estado | Qué entra | Prueba |
+|---|---|---|---|
+| 0.1.0 | En curso | **Alexis, Guillermo y Amparo, construidos, con el motor probado**<br>· Los veinte comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo<br>· Cualquier exportación de escáner en CSV o Excel con su mapeo de columnas, la severidad desde el CVSS v4.0 y el catálogo KEV de CISA<br>· Lo que nunca se abre: credenciales, llaves y respaldos, excluidos por omisión<br>· Material de banca, retail, salud y tecnología, con dos entidades de control | El motor contra la clave de todo el material: seis entidades de cuatro industrias, con sus controles |
+| 0.2.0 | Siguiente | **La ronda de los tres agentes**<br>· La ronda con Alexis, Guillermo y Amparo sobre todo el material, con la clave que no ven<br>· Los defectos que encuentre, con su corrección y su verificación | La ronda completa, con el piso del margen del 95 % en señales y en datos (decisión 0020) |
+| Incremento 3 | Siguiente | **Los escáneres, cada uno desde su fuente**<br>· El formato de exportación de Tenable, Qualys, Rapid7 y Microsoft Defender, cada uno desde su fuente verificada, como entraron Dynamics y Zoho en la CCO | Su material y su ronda, con las mismas métricas |
+
 ## Las familias que vienen
 
 Cada una entra con su decisión de alcance: aceptada, se diseña; propuesta, espera su turno, sin fecha.
 
 | Decisión | Familia | Estado |
 |---|---|---|
-| [0013](decisions/0013-scope-seguridad-ciso.md) | Seguridad de la información (CISO) | Aceptada |
 | [0014](decisions/0014-scope-auditoria-cae.md) | Auditoría interna (CAE) | Propuesta |
 | [0015](decisions/0015-scope-datos-cdo.md) | Datos (CDO) | Propuesta |
 | [0019](decisions/0019-scope-comercial-cso.md) | La función comercial (CSO) | Aceptada |

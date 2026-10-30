@@ -92,6 +92,9 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio EA** · Dirección | Ofelia | `/criterio-assistant:ea-setup` | `.criterio/direccion/<instancia>/` | `_CRITERIO_DIRECCION.txt` |
 | **Criterio CCO** · La función comercial | Augusto | `/criterio-sales:sales-setup` | `.criterio/comercial/<instancia>/` | `_CRITERIO_COMERCIAL.txt` |
 | **Criterio CCO** · La función comercial | Valeria | `/criterio-revenue:revenue-setup` | `.criterio/ingresos/<instancia>/` | `_CRITERIO_COMERCIAL.txt` |
+| **Criterio CISO** · La seguridad de la información | Alexis | `/criterio-security:security-setup` | `.criterio/seguridad/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |
+| **Criterio CISO** · La seguridad de la información | Guillermo | `/criterio-vulnerability:vuln-setup` | `.criterio/vulnerabilidades/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |
+| **Criterio CISO** · La seguridad de la información | Amparo | `/criterio-resilience:resilience-setup` | `.criterio/resiliencia/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |
 <!-- /servidor:familias -->
 
 Cada familia cuenta en su propia documentación qué tiene en el portal: la

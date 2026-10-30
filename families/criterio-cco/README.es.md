@@ -17,12 +17,12 @@ Clara por las de ellos.
 | **Objetivo** | Que lo que se compromete en el comité comercial tenga detrás los documentos que lo sostienen, y que ninguna venta se quede entre el cierre y la factura |
 | **Compuesta por** | [Augusto](../../plugins/criterio-sales/README.es.md) · [Valeria](../../plugins/criterio-revenue/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define el rol, el formato de cada exportación del CRM y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | De laboratorio, sin lanzar: se publica en el marketplace desde su versión 0.1.0, con el motor probado sobre material sintético de Colombia y México; la ronda con los agentes es el siguiente paso. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Estable, sin lanzar, en su versión 0.3.0: el motor probado sobre material sintético de Colombia, México, Ecuador, Perú y Chile, y los dos agentes, con sus dos rondas. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Exportaciones, nunca sistemas: ningún agente se conecta al CRM ni escribe en él |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al responsable comercial ni a su equipo, y no decide por ellos: no fija metas, no aprueba descuentos, no liquida comisiones, no contacta clientes y no califica a quien vende |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | La ronda completa con los agentes, en la 0.2.0: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | Su lanzamiento, que abre la 1.0.0: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -163,7 +163,7 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 
 ## Instalación de la familia
 
-**La familia es de laboratorio y todavía no se lanza, pero ya se puede instalar.** Cada agente es un
+**La familia es estable y todavía no se lanza, pero ya se puede instalar.** Cada agente es un
 plugin que se instala solo:
 
 ```
@@ -281,11 +281,10 @@ Ocho skills distintos entre los dos agentes. **Los que comparten son copias lite
 
 ## Estado
 
-**Los dos son de laboratorio.** Su versión 0.1.0 trae el motor, que pasa su prueba determinista
-sobre todo el material; la ronda con los agentes sobre el mismo material, con una clave que no ven,
-es lo que la declara probada, y sale con la 0.2.0. Laboratorio o estable lo dice la evidencia
-(decisión 0020), y el día que se lance la familia, si es estable, su versión es la 1.0.0 (decisión
-0021).
+**Los dos son estables.** Su versión 0.3.0 trae el motor, que pasa su prueba determinista sobre todo
+el material, y las dos rondas con los agentes sobre el mismo material, con una clave que no ven: el piso
+del margen del 95 % es 98,0 % en señales y 95,1 % en datos. Laboratorio o estable lo dice la evidencia
+(decisión 0020), y el día que se lance la familia su versión es la 1.0.0 (decisión 0021).
 
 <!-- cco:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |

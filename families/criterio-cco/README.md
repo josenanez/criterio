@@ -17,12 +17,12 @@ and Clara through theirs.
 | **Goal** | That what is committed in the sales committee has the documents that back it, and that no sale gets stuck between the close and the invoice |
 | **Made up of** | [Augusto](../../plugins/criterio-sales/README.md) · [Valeria](../../plugins/criterio-revenue/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The framework that defines the role, each CRM export's format and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **Status** | Laboratory, not yet launched: published in the marketplace from version 0.1.0, with the engine tested on synthetic material from Colombia and Mexico; the round with the agents is the next step. **Not yet tested on the documentation of a specific organisation** |
+| **Status** | Stable, not yet launched, in its version 0.3.0: the engine tested on synthetic material from Colombia, Mexico, Ecuador, Peru and Chile, and the two agents, with their two rounds. **Not yet tested on the documentation of a specific organisation** |
 | **Approach** | Exports, never systems: no agent connects to the CRM or writes to it |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the head of sales or their team, and does not decide for them: it does not set targets, approve discounts, settle commissions, contact customers or rate whoever sells |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | The full round with the agents, in 0.2.0: [the roadmap](#roadmap) |
+| **What comes next** | Its launch, which opens 1.0.0: [the roadmap](#roadmap) |
 
 ---
 
@@ -163,7 +163,7 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
-**The family is a laboratory one and not yet launched, but it can already be installed.** Each agent
+**The family is stable and not yet launched, but it can already be installed.** Each agent
 is a plugin that installs on its own:
 
 ```
@@ -281,11 +281,10 @@ Eight distinct skills across the two agents. **The ones they share are literal c
 
 ## Status
 
-**Both are laboratory ones.** Their version 0.1.0 brings the engine, which passes its deterministic
-test on all the material; the round with the agents on the same material, with a key they never see,
-is what declares it tested, and it comes with 0.2.0. Laboratory or stable is said by the evidence
-(decision 0020), and on the day the family is launched, if it is stable, its version is 1.0.0
-(decision 0021).
+**Both are stable.** Their version 0.3.0 brings the engine, which passes its deterministic test on all
+the material, and the two rounds with the agents on the same material, with a key they never see: the
+95% confidence floor is 98.0% on signals and 95.1% on data. Laboratory or stable is said by the evidence
+(decision 0020), and on the day the family is launched its version is 1.0.0 (decision 0021).
 
 <!-- cco:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |

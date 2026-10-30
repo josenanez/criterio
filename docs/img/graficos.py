@@ -147,6 +147,7 @@ T = {
         'clo_fr': 'Sé qué firmaste, qué vence, y a qué te obligaste.',
         'ea_fr': 'Preparo cada sesión con lo que dicen los documentos, y no decido por nadie.',
         'cco_fr': 'Pongo el pronóstico al lado de lo que lo sostiene, y cada venta al lado de su factura.',
+        'ciso_fr': 'Pongo cada control al lado de su evidencia, y cada plazo al lado de lo que se hizo.',
         'disponible': 'Disponible',
         # ── tarjetas sociales (1200 × 630): el título de cada página y una línea de lo que hacen ──
         'og': {'pmo': ('Extiende la capacidad de tu PMO',
@@ -159,6 +160,8 @@ T = {
                       'Ofelia procesa la agenda, las actas y la correspondencia, y prepara cada decisión sin recomendar. Nunca envía nada.'),
                'cco': ('La función comercial, contra sus documentos',
                        'Augusto y Valeria procesan las exportaciones del CRM, las cotizaciones y las comisiones, y dicen qué pronóstico no tiene respaldo y qué venta no llegó a la factura.'),
+               'ciso': ('La seguridad de la información, contra sus documentos',
+                        'Alexis, Guillermo y Amparo procesan la declaración de aplicabilidad, el escáner y los incidentes, y dicen qué control no tiene evidencia y qué plazo no se cumplió.'),
                'rostrum': ('Rostrum, el portal de todas las familias',
                            'Lo que pide atención hoy, lo último de cada motor, lo que vence y dónde trabaja cada agente. No calcula ni escribe.')},
         # ── los robots ──
@@ -173,7 +176,10 @@ T = {
                'constanza': ('Constanza', 'Cumplimiento', 'Para quien responde por cada obligación y su evidencia.', 'El cumplimiento'),
                'ofelia': ('Ofelia', 'Asistente ejecutiva', 'Para quien asiste al ejecutivo y prepara cada sesión.', 'La dirección'),
                'augusto': ('Augusto', 'El pronóstico', 'Para quien responde por el pronóstico y el comité comercial.', 'El pronóstico'),
-               'valeria': ('Valeria', 'De la venta a la factura', 'Para quien responde por lo vendido hasta que se factura.', 'La venta a la factura')},
+               'valeria': ('Valeria', 'De la venta a la factura', 'Para quien responde por lo vendido hasta que se factura.', 'La venta a la factura'),
+               'alexis': ('Alexis', 'Los controles', 'Para quien responde por la seguridad de la información y sus controles.', 'Los controles'),
+               'guillermo': ('Guillermo', 'Las vulnerabilidades', 'Para quien responde por corregir lo que encuentra el escáner.', 'Las vulnerabilidades'),
+               'amparo': ('Amparo', 'La respuesta', 'Para quien responde por los incidentes y la continuidad.', 'La respuesta')},
         'en_prueba': 'Construida · en prueba',
         'declarada': 'Capacidad declarada',
         'construccion': 'En construcción',
@@ -276,6 +282,7 @@ T = {
         'clo_fr': 'I know what you signed, what expires, and what you committed to.',
         'ea_fr': 'I prepare every meeting with what the documents say, and decide for no one.',
         'cco_fr': 'I put the forecast next to what backs it, and every sale next to its invoice.',
+        'ciso_fr': 'I put every control next to its evidence, and every deadline next to what was done.',
         'disponible': 'Available',
         'og': {'pmo': ('Extend your PMO’s capacity',
                        'Vera, Samuel and Alba process every project’s documentation, compute variances and alerts, and prepare the committee material.'),
@@ -287,6 +294,8 @@ T = {
                       'Ofelia processes the calendar, the minutes and the correspondence, and prepares each decision without recommending. She never sends anything.'),
                'cco': ('The commercial function, against its documents',
                        'Augusto and Valeria process the CRM exports, the quotes and the commissions, and say which forecast has no backing and which sale never reached the invoice.'),
+               'ciso': ('Information security, against its documents',
+                        'Alexis, Guillermo and Amparo process the statement of applicability, the scanner and the incidents, and say which control has no evidence and which deadline was missed.'),
                'rostrum': ('Rostrum, the portal for every family',
                            'What needs attention today, the latest from each engine, what falls due and where each agent works. It calculates and writes nothing.')},
         'en_prueba': 'Built · in testing',
@@ -302,7 +311,10 @@ T = {
                'constanza': ('Constanza', 'Compliance', 'For whoever answers for every obligation and its evidence.', 'Compliance'),
                'ofelia': ('Ofelia', 'Executive assistant', 'For whoever assists the executive and prepares every meeting.', 'The executive office'),
                'augusto': ('Augusto', 'The forecast', 'For whoever answers for the forecast and the sales committee.', 'The forecast'),
-               'valeria': ('Valeria', 'From sale to invoice', 'For whoever answers for what was sold until it is invoiced.', 'Sale to invoice')},
+               'valeria': ('Valeria', 'From sale to invoice', 'For whoever answers for what was sold until it is invoiced.', 'Sale to invoice'),
+               'alexis': ('Alexis', 'The controls', 'For whoever answers for information security and its controls.', 'The controls'),
+               'guillermo': ('Guillermo', 'Vulnerabilities', 'For whoever answers for fixing what the scanner finds.', 'Vulnerabilities'),
+               'amparo': ('Amparo', 'Response', 'For whoever answers for incidents and continuity.', 'Response')},
         'declarada': 'Declared capability',
         'construccion': 'Being built',
         'sin_construir': 'Not built',
@@ -737,7 +749,7 @@ def marca():
 
 # ══════════════════════════════════════════════════════════════════ tarjetas sociales
 
-OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA, 'cco': trazos.ORDEN_CCO,
+OG_ROBOTS = {'pmo': trazos.ORDEN[:3], 'cfo': trazos.ORDEN_CFO, 'clo': trazos.ORDEN_CLO, 'ea': trazos.ORDEN_EA, 'cco': trazos.ORDEN_CCO, 'ciso': trazos.ORDEN_CISO,
              'rostrum': ('rostrum', trazos.ORDEN[0], trazos.ORDEN_CFO[0], trazos.ORDEN_CLO[0])}
 
 
@@ -1380,7 +1392,7 @@ if __name__ == '__main__':
     for idioma, t in T.items():
         print(idioma)
         # el estado de cada familia es el de su familia.json, por medio del registro
-        for sg in ('pmo', 'cfo', 'clo', 'ea', 'cco'):
+        for sg in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso'):
             guardar(emblema(t, sg.upper(), FAMILIA[sg]['nombre'][idioma], t[f'{sg}_fr'], FAMILIA[sg]['estado'][idioma]), idioma, f'{sg}.png')
         guardar(familia(t), idioma, 'familia.png')
         # las tres figuras de la PMO, con la misma forma, para la CFO y la CLO
@@ -1389,7 +1401,7 @@ if __name__ == '__main__':
             guardar(familia(tf, agentes_de(sg, tf), compartidos_de(sg)), idioma, f'familia-{sg}.png')
             guardar(flujo(tf), idioma, f'flujo-{sg}.png')
             guardar(contrato(tf), idioma, f'contrato-{sg}.png')
-        for clave in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'rostrum'):
+        for clave in ('pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso', 'rostrum'):
             guardar(tarjeta_social(t, clave, idioma), idioma, f'og-{clave}.png')
         guardar(flujo(t), idioma, 'flujo.png')
         guardar(contrato(t), idioma, 'contrato.png')
@@ -1398,12 +1410,12 @@ if __name__ == '__main__':
         guardar(cadencia(t), idioma, 'cadencia.png')
         guardar(instalacion(t), idioma, 'instalacion.png')
         guardar(servidor(t), idioma, 'servidor.png')
-        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO:
+        for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO:
             guardar_gif(tarjeta(t, nombre), idioma, f'robot-{nombre}.gif')
     # El trazo de cada robot, solo y con su gesto, para que el portal lo dibuje sin copiarlo.
     # Es un SVG animado: se mueve igual en un README, en el portal y en Rostrum.
     os.makedirs(os.path.join(AQUI, 'robots'), exist_ok=True)
-    for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO:
+    for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO:
         with open(os.path.join(AQUI, 'robots', f'{nombre}.svg'), 'w', encoding='utf-8') as fh:
             fh.write(trazos.svg(nombre, ORO, ORO, animado=True) + '\n')
     # Y como datos, para quien dibuja el robot con su propio marcado: la impresora del portal.

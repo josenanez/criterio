@@ -1,0 +1,3 @@
+vulnerabilidad;activo;aprobada_por;aprobada_el;vence
+TLS-DEBIL;cli-app-01;Jefe de seguridad de la información;2026-06-15;2026-12-31
+CVE-2099-12003;cli-db-01;Gerente de tecnología;2026-07-01;2026-09-30

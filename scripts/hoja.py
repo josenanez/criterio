@@ -56,6 +56,8 @@ FAMILIAS = [
                     "en": ("README.md", "## Roadmap", "## The family's six skills")}),
     _familia("cco", {"es": ("README.es.md", "## Hoja de ruta", "## Los ocho skills de la familia"),
                      "en": ("README.md", "## Roadmap", "## The family's eight skills")}),
+    _familia("ciso", {"es": ("README.es.md", "## Hoja de ruta", "## Los siete skills de la familia"),
+                      "en": ("README.md", "## Roadmap", "## The family's seven skills")}),
 ]
 
 

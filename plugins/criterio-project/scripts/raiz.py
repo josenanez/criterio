@@ -80,6 +80,15 @@ DESTINO = {
     "criterio-revenue": {"familia": "cco", "busca": "raiz", "marca": "_CRITERIO_COMERCIAL.txt",
                          "que": "la carpeta comercial de una entidad", "agentes": "Augusto y Valeria",
                          "setup": "/criterio-revenue:revenue-setup"},
+    "criterio-security": {"familia": "ciso", "busca": "raiz", "marca": "_CRITERIO_SEGURIDAD.txt",
+        "que": "la carpeta de seguridad de la información de una entidad", "agentes": "Alexis, Guillermo y Amparo",
+        "setup": "/criterio-security:security-setup"},
+    "criterio-vulnerability": {"familia": "ciso", "busca": "raiz", "marca": "_CRITERIO_SEGURIDAD.txt",
+        "que": "la carpeta de seguridad de la información de una entidad", "agentes": "Alexis, Guillermo y Amparo",
+        "setup": "/criterio-vulnerability:vuln-setup"},
+    "criterio-resilience": {"familia": "ciso", "busca": "raiz", "marca": "_CRITERIO_SEGURIDAD.txt",
+        "que": "la carpeta de seguridad de la información de una entidad", "agentes": "Alexis, Guillermo y Amparo",
+        "setup": "/criterio-resilience:resilience-setup"},
 }
 # Lo que no se recorre: lo que no es de la organización, y el estado de los agentes.
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".venv", ".next", "Library", "Applications"}

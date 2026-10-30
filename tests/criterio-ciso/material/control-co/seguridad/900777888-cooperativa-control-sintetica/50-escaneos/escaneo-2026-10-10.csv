@@ -1,0 +1,13 @@
+Host;Plugin ID;CVE;Name;Risk;CVSS v4.0 Base Score;First Found
+ctl-web-01;19506;;Información del escaneo;None;;
+ctl-app-01;19506;;Información del escaneo;None;;
+ctl-db-01;19506;;Información del escaneo;None;;
+ctl-fw-borde-01;19506;;Información del escaneo;None;;
+ctl-ad-01;19506;;Información del escaneo;None;;
+ctl-correo-01;19506;;Información del escaneo;None;;
+ctl-backup-01;19506;;Información del escaneo;None;;
+ctl-prueba-07;19506;;Información del escaneo;None;;
+ctl-vpn-01;19506;;Información del escaneo;None;;
+ctl-web-01;31001;CVE-2099-11001;Cabecera de seguridad ausente;Low;3.1;2026-10-10
+ctl-app-01;40001;TLS-DEBIL;Suites de cifrado débiles;Low;3.1;2026-02-01
+ctl-web-01;31003;CVE-2099-11003;Desbordamiento en el servidor web;Medium;5.3;2026-10-10

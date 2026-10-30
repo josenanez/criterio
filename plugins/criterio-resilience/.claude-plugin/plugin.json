@@ -1,0 +1,21 @@
+{
+  "name": "criterio-resilience",
+  "version": "0.1.0",
+  "description": "Amparo, la respuesta y la recuperación: cada incidente contra el plazo de contención de su severidad, cada notificación de la matriz contra la que se hizo, la revisión posterior y las pruebas de continuidad y de restauración contra su calendario. Nunca notifica a nadie ni ejecuta una prueba.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "seguridad",
+    "security",
+    "incidentes",
+    "incident-response",
+    "continuidad",
+    "business-continuity",
+    "respaldos",
+    "notificaciones"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-ciso",
+  "license": "Apache-2.0"
+}

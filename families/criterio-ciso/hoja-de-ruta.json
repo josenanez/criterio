@@ -1,0 +1,103 @@
+{
+ "nota": "Fuente única de la hoja de ruta de la familia CISO: la escriben scripts/hoja.py en el README de la familia y, en josenanez.com, scripts/criterio-hoja-de-ruta.mjs del portal. Un incremento lleva versión cuando entra en una; «liberada» solo si esa versión está en registro/versiones.json. La familia se define sobre estándares internacionales, no sobre la ley de cada país: el país de cada entidad de prueba solo fija su identificación fiscal.",
+ "incrementos": [
+  {
+   "incremento": 1,
+   "version": "0.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "CO",
+     "nombre": {
+      "es": "Colombia",
+      "en": "Colombia"
+     }
+    },
+    {
+     "codigo": "MX",
+     "nombre": {
+      "es": "México",
+      "en": "Mexico"
+     }
+    },
+    {
+     "codigo": "PE",
+     "nombre": {
+      "es": "Perú",
+      "en": "Peru"
+     }
+    },
+    {
+     "codigo": "CL",
+     "nombre": {
+      "es": "Chile",
+      "en": "Chile"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Alexis, Guillermo y Amparo, construidos, con el motor probado",
+    "entra": [
+     "Los veinte comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo",
+     "Cualquier exportación de escáner en CSV o Excel con su mapeo de columnas, la severidad desde el CVSS v4.0 y el catálogo KEV de CISA",
+     "Lo que nunca se abre: credenciales, llaves y respaldos, excluidos por omisión",
+     "Material de banca, retail, salud y tecnología, con dos entidades de control"
+    ],
+    "prueba": "El motor contra la clave de todo el material: seis entidades de cuatro industrias, con sus controles"
+   },
+   "en": {
+    "titulo": "Alexis, Guillermo and Amparo, built, with the engine tested",
+    "entra": [
+     "The twenty commands, their seven skills and the engine, with the sixteen signals: Alexis's controls, access, third parties and risks; Guillermo's vulnerabilities, KEV catalog and coverage; Amparo's incidents, notifications and tests",
+     "Any scanner export in CSV or Excel with its column mapping, severity from CVSS v4.0 and CISA's KEV catalog",
+     "What is never opened: credentials, keys and backups, excluded by default",
+     "Banking, retail, healthcare and technology material, with two control entities"
+    ],
+    "prueba": "The engine against the key of all the material: six entities from four industries, with their controls"
+   }
+  },
+  {
+   "incremento": 2,
+   "version": "0.2.0",
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "La ronda de los tres agentes",
+    "entra": [
+     "La ronda con Alexis, Guillermo y Amparo sobre todo el material, con la clave que no ven",
+     "Los defectos que encuentre, con su corrección y su verificación"
+    ],
+    "prueba": "La ronda completa, con el piso del margen del 95 % en señales y en datos (decisión 0020)"
+   },
+   "en": {
+    "titulo": "The round of the three agents",
+    "entra": [
+     "The round with Alexis, Guillermo and Amparo on all the material, with the key they never see",
+     "The defects it finds, with their fix and their verification"
+    ],
+    "prueba": "The full round, with the 95% confidence floor on signals and data (decision 0020)"
+   }
+  },
+  {
+   "incremento": 3,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Los escáneres, cada uno desde su fuente",
+    "entra": [
+     "El formato de exportación de Tenable, Qualys, Rapid7 y Microsoft Defender, cada uno desde su fuente verificada, como entraron Dynamics y Zoho en la CCO"
+    ],
+    "prueba": "Su material y su ronda, con las mismas métricas"
+   },
+   "en": {
+    "titulo": "The scanners, each from its source",
+    "entra": [
+     "The export format of Tenable, Qualys, Rapid7 and Microsoft Defender, each from its verified source, as Dynamics and Zoho entered the CCO"
+    ],
+    "prueba": "Their material and their round, with the same metrics"
+   }
+  }
+ ]
+}

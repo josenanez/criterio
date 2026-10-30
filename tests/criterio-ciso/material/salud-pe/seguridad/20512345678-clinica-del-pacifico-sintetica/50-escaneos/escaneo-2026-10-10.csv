@@ -1,0 +1,18 @@
+Equipo afectado;Regla;Identificador;Descripción;Criticidad del hallazgo;Puntuación;Detectado desde
+cli-web-01;19506;;Información del escaneo;Info;;
+cli-app-01;19506;;Información del escaneo;Info;;
+cli-db-01;19506;;Información del escaneo;Info;;
+cli-fw-borde-01;19506;;Información del escaneo;Info;;
+cli-ad-01;19506;;Información del escaneo;Info;;
+cli-correo-01;19506;;Información del escaneo;Info;;
+cli-backup-01;19506;;Información del escaneo;Info;;
+cli-prueba-07;19506;;Información del escaneo;Info;;
+cli-web-01;31001;CVE-2099-11001;Cabecera de seguridad ausente;Baja;3.1;2026-10-10
+cli-app-01;40001;TLS-DEBIL;Suites de cifrado débiles;Baja;3.1;2026-02-01
+cli-web-01;31003;CVE-2099-11003;Desbordamiento en el servidor web;Moderada;5.3;2026-10-10
+cli-web-01;32001;CVE-2099-12001;Ejecución remota en el portal;Urgente;9.8;2026-08-20
+cli-fw-borde-01;32002;CVE-2099-12002;Omisión de autenticación en el cortafuegos;Importante;8.1;2026-09-20
+cli-db-01;32003;CVE-2099-12003;Escalamiento en el motor de base de datos;Moderada;5.3;2026-06-01
+cli-backup-01;32004;CVE-2099-12004;Servicio de respaldo expuesto;Moderada;5.3;2026-09-20
+cli-correo-01;32005;CVE-2099-12005;Inyección en el servidor de correo;Importante;8.1;2026-09-20
+cli-ad-01;32006;CVE-2099-12006;Delegación insegura en el directorio;Urgente;9.8;2026-09-20

@@ -1,0 +1,755 @@
+{
+ "nota": "Fuente única de los agentes, los comandos y las señales de la familia CISO: scripts/familias.py escribe sus tablas en DISENO.es.md y el portal las publica con scripts/criterio-familias.mjs. Cada carpeta citada entre comillas invertidas tiene que existir en carpetas.json. `area` es la carpeta de la configuración del agente (`.criterio/<area>/`) y `ambitos`, las carpetas de su estado que son suyas cuando comparte el estado con los otros agentes de la familia (ADR 0010).",
+ "sigla": "ciso",
+ "orden": 60,
+ "categoria": "security",
+ "adr": "0023-la-familia-ciso.md",
+ "nombre": {
+  "es": "La seguridad de la información",
+  "en": "Information security"
+ },
+ "estado": {
+  "es": "Construida · en prueba",
+  "en": "Built · in testing"
+ },
+ "generador": {
+  "cifras_en": "alexis",
+  "intake": {
+   "skill": "criterio-security/security-intake",
+   "texto": "La referencia tiene un solo lugar, `00-referencia/`, y los tres agentes la usan: Alexis procesa los controles, Guillermo las vulnerabilidades y Amparo los incidentes y las pruebas."
+  },
+  "estructuras": [
+   "criterio-security",
+   "criterio-vulnerability",
+   "criterio-resilience"
+  ],
+  "motor": "criterio-security/scripts/seguridad.py",
+  "lectores": {
+   "CAMPOS_KEV": [
+    "F-06"
+   ]
+  }
+ },
+ "instancia": {
+  "es": "Una por entidad",
+  "en": "One per entity"
+ },
+ "agentes": [
+  {
+   "id": "alexis",
+   "nombre": "Alexis",
+   "plugin": "criterio-security",
+   "rol": {
+    "es": "El gobierno y los controles",
+    "en": "Governance and controls"
+   },
+   "titulo": "el gobierno y los controles",
+   "origen": {
+    "es": "del griego *Aléxios*, «el que defiende»: cada control contra la evidencia de que operó",
+    "en": "from the Greek *Aléxios*, “the one who defends”: every control against the evidence that it operated"
+   },
+   "hace": {
+    "es": "La declaración de aplicabilidad contra la evidencia: cada control aplicable con su responsable y la evidencia de que operó en su periodicidad, las revisiones de acceso de cada sistema, las evaluaciones de cada tercero crítico y las aceptaciones de riesgo que pasaron su fecha",
+    "en": "The statement of applicability against the evidence: every applicable control with its owner and the evidence that it operated within its frequency, each system's access reviews, each critical third party's assessments and the risk acceptances past their date"
+   },
+   "comandos": [
+    {
+     "id": "security-setup",
+     "n": 0,
+     "es": {
+      "etiqueta": "Instalación",
+      "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, dónde está la declaración de aplicabilidad de `00-referencia/` y qué columna trae el control, si aplica, su estado, su responsable y su periodicidad, la tabla de sistemas con la frecuencia de su revisión de accesos, el registro de terceros con los críticos y la frecuencia de su evaluación, y el registro de riesgos de `40-riesgos/`",
+      "proceso": "Inventario de lo que hay; lista lo que excluye por ser una credencial, una llave o un respaldo; reconoce las columnas de cada tabla; compara la carpeta con la estructura recomendada; no crea, mueve ni renombra nada",
+      "reporte": "Configuración guardada; inventario por carpeta; lo excluido y por qué; las columnas que faltan; la primera ficha del periodo",
+      "entrega": "La configuración, el inventario y lo que se excluyó"
+     },
+     "en": {
+      "etiqueta": "Setup",
+      "entrada": "The root folder. Questions: entity and its tax ID, country, the period, where the statement of applicability in `00-referencia/` is and which column carries the control, whether it applies, its status, its owner and its frequency, the systems table with how often their access is reviewed, the third-party register with the critical ones and how often they are assessed, and the risk register in `40-riesgos/`",
+      "proceso": "Inventory of what is there; lists what it excludes as a credential, key or backup; recognises each table's columns; compares the folder with the recommended structure; creates, moves or renames nothing",
+      "reporte": "Configuration saved; inventory by folder; what was excluded and why; the missing columns; the period's first record",
+      "entrega": "The configuration, the inventory and what was excluded"
+     }
+    },
+    {
+     "id": "security-scan",
+     "n": 1,
+     "es": {
+      "etiqueta": "Qué cambió en la seguridad",
+      "entrada": "`10-controles/`, `20-accesos/` y `30-terceros/` completos",
+      "proceso": "El agente lleva a la ficha del periodo cada evidencia de `10-controles/` con su control y la fecha que cubre, cada revisión de `20-accesos/` con su sistema, su fecha y quién revisó, y cada evaluación de `30-terceros/` con su tercero, su fecha y su resultado, cada dato con su cita; el motor valida la ficha y dice qué documento no está en ella",
+      "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+      "entrega": "La ficha del periodo al día, con la evidencia nueva y las señales nuevas"
+     },
+     "en": {
+      "etiqueta": "What changed in security",
+      "entrada": "The whole `10-controles/`, `20-accesos/` and `30-terceros/`",
+      "proceso": "The agent takes to the period record each piece of evidence in `10-controles/` with its control and the date it covers, each review in `20-accesos/` with its system, its date and who reviewed it, and each assessment in `30-terceros/` with its third party, its date and its result, every data point with its citation; the engine validates the record and says which document is not in it",
+      "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+      "entrega": "The period record up to date, with the new evidence and the new signals"
+     }
+    },
+    {
+     "id": "soa-status",
+     "n": 2,
+     "es": {
+      "etiqueta": "La declaración de aplicabilidad",
+      "entrada": "La declaración de aplicabilidad de `00-referencia/`",
+      "proceso": "Cada control de la declaración con si aplica, su estado, su responsable y su periodicidad; el motor no califica la madurez ni declara cumplido un control",
+      "reporte": "Los controles aplicables sin responsable, con su fila; la declaración completa",
+      "entrega": "Cada control aplicable con su responsable"
+     },
+     "en": {
+      "etiqueta": "The statement of applicability",
+      "entrada": "The statement of applicability in `00-referencia/`",
+      "proceso": "Each control in the statement with whether it applies, its status, its owner and its frequency; the engine does not rate maturity or declare a control met",
+      "reporte": "The applicable controls without an owner, with their row; the full statement",
+      "entrega": "Each applicable control with its owner"
+     }
+    },
+    {
+     "id": "control-evidence",
+     "n": 3,
+     "es": {
+      "etiqueta": "Los controles contra su evidencia",
+      "entrada": "La declaración de aplicabilidad y la ficha del periodo",
+      "proceso": "Cada control aplicable que figura implementado contra la evidencia de la ficha: si tiene alguna, y si la más reciente cae dentro de su periodicidad",
+      "reporte": "Los controles sin evidencia y los que tienen la evidencia vencida, cada uno con su cita y su responsable",
+      "entrega": "Cada control contra la evidencia de que operó"
+     },
+     "en": {
+      "etiqueta": "Controls against their evidence",
+      "entrada": "The statement of applicability and the period record",
+      "proceso": "Each applicable control marked as implemented against the evidence in the record: whether it has any, and whether the latest falls within its frequency",
+      "reporte": "The controls without evidence and those whose evidence has lapsed, each with its citation and its owner",
+      "entrega": "Each control against the evidence that it operated"
+     }
+    },
+    {
+     "id": "access-reviews",
+     "n": 4,
+     "es": {
+      "etiqueta": "Las revisiones de acceso",
+      "entrada": "La tabla de sistemas de `00-referencia/` y la ficha del periodo",
+      "proceso": "Cada sistema contra la frecuencia de su revisión de accesos: la última revisión de la ficha y cuándo tocaba la siguiente",
+      "reporte": "Los sistemas con la revisión vencida o sin ninguna, con su cita",
+      "entrega": "Cada sistema con su revisión de accesos al día o vencida"
+     },
+     "en": {
+      "etiqueta": "Access reviews",
+      "entrada": "The systems table in `00-referencia/` and the period record",
+      "proceso": "Each system against how often its access must be reviewed: the latest review in the record and when the next one was due",
+      "reporte": "The systems with an overdue review or none at all, with their citation",
+      "entrega": "Each system with its access review current or overdue"
+     }
+    },
+    {
+     "id": "third-parties",
+     "n": 5,
+     "es": {
+      "etiqueta": "Los terceros críticos",
+      "entrada": "El registro de terceros de `00-referencia/` y la ficha del periodo",
+      "proceso": "Cada tercero crítico contra la frecuencia de su evaluación de seguridad: la última de la ficha, su resultado y cuándo tocaba la siguiente",
+      "reporte": "Los terceros críticos con la evaluación vencida o sin ninguna, con su cita",
+      "entrega": "Cada tercero crítico con su evaluación al día o vencida"
+     },
+     "en": {
+      "etiqueta": "Critical third parties",
+      "entrada": "The third-party register in `00-referencia/` and the period record",
+      "proceso": "Each critical third party against how often its security must be assessed: the latest assessment in the record, its result and when the next one was due",
+      "reporte": "The critical third parties with an overdue assessment or none at all, with their citation",
+      "entrega": "Each critical third party with its assessment current or overdue"
+     }
+    },
+    {
+     "id": "risk-register",
+     "n": 6,
+     "es": {
+      "etiqueta": "El registro de riesgos",
+      "entrada": "El registro de riesgos de `40-riesgos/`",
+      "proceso": "Cada riesgo con su decisión; los aceptados contra su fecha de revisión. El agente no acepta ni cierra un riesgo",
+      "reporte": "Las aceptaciones que pasaron su fecha de revisión, con quién las aceptó y su fila",
+      "entrega": "Cada aceptación de riesgo contra su fecha de revisión"
+     },
+     "en": {
+      "etiqueta": "The risk register",
+      "entrada": "The risk register in `40-riesgos/`",
+      "proceso": "Each risk with its decision; the accepted ones against their review date. The agent never accepts or closes a risk",
+      "reporte": "The acceptances past their review date, with who accepted them and their row",
+      "entrega": "Each risk acceptance against its review date"
+     }
+    },
+    {
+     "id": "security-wake",
+     "n": 7,
+     "es": {
+      "etiqueta": "Qué toca hoy",
+      "entrada": "El estado y los documentos nuevos",
+      "proceso": "Si hay documentos nuevos o pasó una semana, la revisión completa; si hay señales abiertas, el reporte de su grupo; una pregunta que alguien dejó en Rostrum",
+      "reporte": "Qué corrió y por qué, o que no tocaba nada",
+      "entrega": "Lo que tocaba hoy, corrido"
+     },
+     "en": {
+      "etiqueta": "What's due today",
+      "entrada": "The state and the new documents",
+      "proceso": "If there are new documents or a week has passed, the full review; if there are open signals, their group's report; a question somebody left in Rostrum",
+      "reporte": "What ran and why, or that nothing was due",
+      "entrega": "What was due today, run"
+     }
+    }
+   ],
+   "senales": [
+    {
+     "id": "control_without_evidence",
+     "es": "Un control aplicable de la declaración figura implementado y no tiene ninguna evidencia de que operó",
+     "en": "An applicable control in the statement is marked as implemented and has no evidence that it operated"
+    },
+    {
+     "id": "control_evidence_stale",
+     "es": "La evidencia más reciente de un control periódico es anterior a su periodicidad",
+     "en": "The latest evidence of a periodic control is older than its frequency"
+    },
+    {
+     "id": "soa_control_unassigned",
+     "es": "Un control aplicable no tiene responsable",
+     "en": "An applicable control has no owner"
+    },
+    {
+     "id": "access_review_overdue",
+     "es": "La revisión de accesos de un sistema pasó su fecha, o no hay ninguna",
+     "en": "A system's access review is past its date, or there is none"
+    },
+    {
+     "id": "third_party_assessment_overdue",
+     "es": "La evaluación de seguridad de un tercero crítico pasó su fecha, o no hay ninguna",
+     "en": "A critical third party's security assessment is past its date, or there is none"
+    },
+    {
+     "id": "risk_acceptance_expired",
+     "es": "Una aceptación de riesgo pasó su fecha de revisión",
+     "en": "A risk acceptance is past its review date"
+    }
+   ],
+   "area": "seguridad",
+   "ambitos": [
+    "seguridad"
+   ],
+   "nunca": {
+    "es": "No acepta un riesgo, no declara cumplido un control, no califica la madurez de la organización ni la certifica contra la ISO/IEC 27001, y no abre credenciales, llaves ni respaldos",
+    "en": "It does not accept a risk, does not declare a control met, does not rate the organisation's maturity or certify it against ISO/IEC 27001, and does not open credentials, keys or backups"
+   },
+   "marco": [
+    "F-01",
+    "F-02"
+   ]
+  },
+  {
+   "id": "guillermo",
+   "nombre": "Guillermo",
+   "plugin": "criterio-vulnerability",
+   "rol": {
+    "es": "Las vulnerabilidades",
+    "en": "Vulnerabilities"
+   },
+   "titulo": "las vulnerabilidades",
+   "origen": {
+    "es": "del germánico *Wilhelm*, «protector decidido»: cada vulnerabilidad contra el plazo para corregirla",
+    "en": "from the Germanic *Wilhelm*, “resolute protector”: every vulnerability against the deadline to fix it"
+   },
+   "hace": {
+    "es": "Cada vulnerabilidad de las exportaciones del escáner contra el plazo de su severidad en la política, el catálogo KEV, las excepciones aprobadas, los cierres que ningún escaneo prueba y los activos del inventario que ningún escaneo cubre",
+    "en": "Every vulnerability in the scanner exports against its severity's deadline in the policy, the KEV catalog, the approved exceptions, the closures no scan proves and the inventory assets no scan covers"
+   },
+   "comandos": [
+    {
+     "id": "vuln-setup",
+     "n": 0,
+     "es": {
+      "etiqueta": "Instalación",
+      "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, los plazos de corrección de cada severidad que da la política de gestión de vulnerabilidades de `00-referencia/`, de qué escáner salen las exportaciones de `50-escaneos/` y, si sus columnas no se reconocen, qué columna trae el activo, la vulnerabilidad, la severidad o el puntaje CVSS y la primera detección, cuántos días sin escaneo dejan un activo sin cobertura y si sus reportes se publican en Rostrum",
+      "proceso": "Inventario de lo que hay; lista lo que excluye; reconoce las columnas de cada exportación del escáner y del catálogo KEV (F-06); el agente extrae de la política los plazos de cada severidad, con su cita; no crea, mueve ni renombra nada",
+      "reporte": "Configuración guardada, con los plazos y su cita; inventario por carpeta; cada exportación con su fecha, sus activos y sus hallazgos; las columnas que faltan",
+      "entrega": "La configuración, con los plazos de la política, y el formato de cada exportación"
+     },
+     "en": {
+      "etiqueta": "Setup",
+      "entrada": "The root folder. Questions: entity and its tax ID, country, the period, the remediation deadline for each severity in the vulnerability management policy in `00-referencia/`, which scanner produces the exports in `50-escaneos/` and, if their columns are not recognised, which column carries the asset, the vulnerability, the severity or the CVSS score and the first detection, how many days without a scan leave an asset uncovered, and whether its reports are published in Rostrum",
+      "proceso": "Inventory of what is there; lists what it excludes; recognises the columns of each scanner export and of the KEV catalog (F-06); the agent extracts each severity's deadline from the policy, with its citation; creates, moves or renames nothing",
+      "reporte": "Configuration saved, with the deadlines and their citation; inventory by folder; each export with its date, its assets and its findings; the missing columns",
+      "entrega": "The configuration, with the policy's deadlines, and the format of each export"
+     }
+    },
+    {
+     "id": "vuln-scan",
+     "n": 1,
+     "es": {
+      "etiqueta": "Qué cambió en las vulnerabilidades",
+      "entrada": "`50-escaneos/` y `60-remediacion/` completos",
+      "proceso": "El código procesa cada exportación con su fecha: lo abierto es lo que encontró el último escaneo de cada activo, con la fecha de su primera detección; la severidad es la del escáner o, si solo trae el puntaje, la de la escala del CVSS (F-05); cruza el catálogo KEV (F-06), el seguimiento y las excepciones",
+      "reporte": "Los escaneos con sus activos y sus hallazgos; lo abierto; el catálogo KEV que se usó; las señales nuevas; lo que no se pudo procesar y por qué",
+      "entrega": "Lo abierto al día, con las señales nuevas"
+     },
+     "en": {
+      "etiqueta": "What changed in vulnerabilities",
+      "entrada": "The whole `50-escaneos/` and `60-remediacion/`",
+      "proceso": "The code processes each export with its date: what is open is what each asset's latest scan found, with the date it was first detected; the severity is the scanner's or, if it only gives the score, the CVSS scale's (F-05); it crosses the KEV catalog (F-06), the tracker and the exceptions",
+      "reporte": "The scans with their assets and findings; what is open; the KEV catalog used; the new signals; what could not be processed and why",
+      "entrega": "What is open, up to date, with the new signals"
+     },
+     "privado": {
+      "config": "vulnerability.publish",
+      "senales": [
+       "vuln_past_sla",
+       "vuln_exception_expired",
+       "kev_past_due",
+       "asset_not_scanned",
+       "vuln_closed_without_rescan"
+      ]
+     }
+    },
+    {
+     "id": "vuln-sla",
+     "n": 2,
+     "es": {
+      "etiqueta": "Las vulnerabilidades contra su plazo",
+      "entrada": "Las exportaciones de `50-escaneos/`, las excepciones de `60-remediacion/` y los plazos de la configuración",
+      "proceso": "Cada vulnerabilidad abierta contra el plazo de su severidad, contado desde su primera detección; una excepción vigente la suspende; una excepción vencida sobre algo que sigue abierto es una señal",
+      "reporte": "Las vulnerabilidades fuera de plazo y las excepciones vencidas, cada una con su activo, su severidad, sus días y su cita",
+      "entrega": "Cada vulnerabilidad abierta contra el plazo de la política"
+     },
+     "en": {
+      "etiqueta": "Vulnerabilities against their deadline",
+      "entrada": "The exports in `50-escaneos/`, the exceptions in `60-remediacion/` and the deadlines in the configuration",
+      "proceso": "Each open vulnerability against its severity's deadline, counted from its first detection; a current exception suspends it; an expired exception on something still open is a signal",
+      "reporte": "The vulnerabilities past their deadline and the expired exceptions, each with its asset, its severity, its days and its citation",
+      "entrega": "Each open vulnerability against the policy's deadline"
+     },
+     "privado": {
+      "config": "vulnerability.publish",
+      "senales": [
+       "vuln_past_sla",
+       "vuln_exception_expired"
+      ]
+     }
+    },
+    {
+     "id": "kev-check",
+     "n": 3,
+     "es": {
+      "etiqueta": "Lo explotado: el catálogo KEV",
+      "entrada": "Las exportaciones de `50-escaneos/` y el catálogo KEV de CISA (F-06)",
+      "proceso": "Cada vulnerabilidad abierta cuyo CVE está en el catálogo, contra la fecha de corrección que trae el catálogo; dice si se conoce su uso en ransomware",
+      "reporte": "Las vulnerabilidades del catálogo que siguen abiertas después de su fecha, con su activo y su cita",
+      "entrega": "Cada vulnerabilidad explotada que sigue abierta"
+     },
+     "en": {
+      "etiqueta": "What is exploited: the KEV catalog",
+      "entrada": "The exports in `50-escaneos/` and CISA's KEV catalog (F-06)",
+      "proceso": "Each open vulnerability whose CVE is in the catalog, against the remediation date the catalog gives; says whether its use in ransomware is known",
+      "reporte": "The catalog's vulnerabilities still open past their date, with their asset and their citation",
+      "entrega": "Each exploited vulnerability still open"
+     },
+     "privado": {
+      "config": "vulnerability.publish",
+      "senales": [
+       "kev_past_due"
+      ]
+     }
+    },
+    {
+     "id": "scan-coverage",
+     "n": 4,
+     "es": {
+      "etiqueta": "La cobertura de los escaneos",
+      "entrada": "El inventario de activos de `00-referencia/`, las exportaciones de `50-escaneos/` y el seguimiento de `60-remediacion/`",
+      "proceso": "Cada activo del inventario en alcance contra el último escaneo que lo incluye y la ventana configurada; cada vulnerabilidad cerrada en el seguimiento contra los escaneos posteriores a su cierre",
+      "reporte": "Los activos sin escaneo en la ventana; los cierres que ningún escaneo posterior prueba o que el escaneo sigue encontrando; lo escaneado fuera del inventario",
+      "entrega": "Cada activo con su escaneo, y cada cierre con el escaneo que lo prueba"
+     },
+     "en": {
+      "etiqueta": "Scan coverage",
+      "entrada": "The asset inventory in `00-referencia/`, the exports in `50-escaneos/` and the tracker in `60-remediacion/`",
+      "proceso": "Each in-scope inventory asset against the latest scan that includes it and the configured window; each vulnerability closed in the tracker against the scans after its closure",
+      "reporte": "The assets with no scan in the window; the closures no later scan proves or that the scan still finds; what was scanned outside the inventory",
+      "entrega": "Each asset with its scan, and each closure with the scan that proves it"
+     },
+     "privado": {
+      "config": "vulnerability.publish",
+      "senales": [
+       "asset_not_scanned",
+       "vuln_closed_without_rescan"
+      ]
+     }
+    },
+    {
+     "id": "vuln-wake",
+     "n": 5,
+     "es": {
+      "etiqueta": "Qué toca hoy",
+      "entrada": "El estado y los documentos nuevos",
+      "proceso": "Si llegó una exportación, un catálogo o un seguimiento nuevo, o pasó una semana, la revisión completa; si hay señales abiertas, el reporte de su grupo; una pregunta que alguien dejó en Rostrum",
+      "reporte": "Qué corrió y por qué, o que no tocaba nada",
+      "entrega": "Lo que tocaba hoy, corrido"
+     },
+     "en": {
+      "etiqueta": "What's due today",
+      "entrada": "The state and the new documents",
+      "proceso": "If a new export, catalog or tracker arrived, or a week has passed, the full review; if there are open signals, their group's report; a question somebody left in Rostrum",
+      "reporte": "What ran and why, or that nothing was due",
+      "entrega": "What was due today, run"
+     }
+    }
+   ],
+   "senales": [
+    {
+     "id": "vuln_past_sla",
+     "es": "Una vulnerabilidad sigue abierta después del plazo de su severidad en la política, sin una excepción vigente",
+     "en": "A vulnerability is still open past its severity's deadline in the policy, with no current exception"
+    },
+    {
+     "id": "kev_past_due",
+     "es": "Una vulnerabilidad del catálogo KEV sigue abierta después de su fecha de corrección",
+     "en": "A vulnerability in the KEV catalog is still open past its remediation date"
+    },
+    {
+     "id": "vuln_closed_without_rescan",
+     "es": "Una vulnerabilidad figura cerrada y ningún escaneo posterior la da por corregida",
+     "en": "A vulnerability is marked closed and no later scan shows it fixed"
+    },
+    {
+     "id": "vuln_exception_expired",
+     "es": "Una excepción a la corrección pasó su vencimiento y la vulnerabilidad sigue abierta",
+     "en": "A remediation exception is past its expiry and the vulnerability is still open"
+    },
+    {
+     "id": "asset_not_scanned",
+     "es": "Un activo del inventario no aparece en ningún escaneo de la ventana configurada",
+     "en": "An inventory asset does not appear in any scan within the configured window"
+    }
+   ],
+   "area": "vulnerabilidades",
+   "ambitos": [
+    "vulnerabilidades"
+   ],
+   "nunca": {
+    "es": "No corre un escaneo, no se conecta a un sistema ni a una consola, no aprueba una excepción y no publica en Rostrum las vulnerabilidades abiertas salvo que la configuración lo diga",
+    "en": "It does not run a scan, does not connect to a system or a console, does not approve an exception and does not publish open vulnerabilities in Rostrum unless the configuration says so"
+   },
+   "marco": [
+    "F-01",
+    "F-02"
+   ]
+  },
+  {
+   "id": "amparo",
+   "nombre": "Amparo",
+   "plugin": "criterio-resilience",
+   "rol": {
+    "es": "La respuesta y la recuperación",
+    "en": "Response and recovery"
+   },
+   "titulo": "la respuesta y la recuperación",
+   "ella": true,
+   "origen": {
+    "es": "del latín *ante parare*, «prevenir, proteger»: cada incidente contra los plazos que se comprometieron",
+    "en": "from the Latin *ante parare*, “to prepare ahead, to protect”: every incident against the deadlines that were committed"
+   },
+   "hace": {
+    "es": "Cada incidente contra los plazos de la política y la matriz de notificaciones: la contención de su severidad, cada notificación al supervisor, a la autoridad de datos o a los clientes, y su revisión posterior; y las pruebas de continuidad, de recuperación y de restauración contra su calendario",
+    "en": "Every incident against the policy's deadlines and the notification matrix: its severity's containment, each notification to the supervisor, the data authority or the customers, and its post-incident review; and the continuity, recovery and restore tests against their calendar"
+   },
+   "comandos": [
+    {
+     "id": "resilience-setup",
+     "n": 0,
+     "es": {
+      "etiqueta": "Instalación",
+      "entrada": "La carpeta raíz. Preguntas: entidad y su identificación fiscal, país, el periodo, los plazos de contención de cada severidad y los días para la revisión posterior que da la política de respuesta a incidentes de `00-referencia/`, la matriz de notificaciones con cada destinatario, cuándo aplica y su plazo, y el calendario de continuidad con cada prueba, su tipo y su frecuencia",
+      "proceso": "Inventario de lo que hay; lista lo que excluye; el agente extrae de la política los plazos de cada severidad y el de la revisión posterior, con su cita; reconoce las columnas de la matriz y del calendario; no crea, mueve ni renombra nada",
+      "reporte": "Configuración guardada, con los plazos y su cita; inventario por carpeta; las columnas que faltan; la primera ficha del periodo",
+      "entrega": "La configuración, con los plazos de la política"
+     },
+     "en": {
+      "etiqueta": "Setup",
+      "entrada": "The root folder. Questions: entity and its tax ID, country, the period, the containment deadline for each severity and the days for the post-incident review in the incident response policy in `00-referencia/`, the notification matrix with each recipient, when it applies and its deadline, and the continuity calendar with each test, its type and its frequency",
+      "proceso": "Inventory of what is there; lists what it excludes; the agent extracts each severity's deadline and the post-incident review's from the policy, with their citation; recognises the matrix's and the calendar's columns; creates, moves or renames nothing",
+      "reporte": "Configuration saved, with the deadlines and their citation; inventory by folder; the missing columns; the period's first record",
+      "entrega": "The configuration, with the policy's deadlines"
+     }
+    },
+    {
+     "id": "resilience-scan",
+     "n": 1,
+     "es": {
+      "etiqueta": "Qué cambió en la respuesta",
+      "entrada": "`70-incidentes/`, `80-revisiones/` y `90-continuidad/` completos",
+      "proceso": "El agente lleva a la ficha del periodo cada incidente de `70-incidentes/` con su severidad, la detección, la contención y el cierre con su hora, si hubo datos personales o clientes afectados, y cada notificación con su destinatario, su hora y su constancia; cada revisión de `80-revisiones/` y cada prueba de `90-continuidad/` con su fecha y su resultado; cada dato con su cita (F-04); el motor valida la ficha",
+      "reporte": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+      "entrega": "La ficha del periodo al día, con los incidentes, las revisiones y las pruebas nuevas"
+     },
+     "en": {
+      "etiqueta": "What changed in response",
+      "entrada": "The whole `70-incidentes/`, `80-revisiones/` and `90-continuidad/`",
+      "proceso": "The agent takes to the period record each incident in `70-incidentes/` with its severity, the detection, containment and closure with their time, whether personal data or customers were affected, and each notification with its recipient, its time and its record; each review in `80-revisiones/` and each test in `90-continuidad/` with its date and result; every data point with its citation (F-04); the engine validates the record",
+      "reporte": "What went into the record; the documents not yet in it; the new signals; what could not be processed and why",
+      "entrega": "The period record up to date, with the new incidents, reviews and tests"
+     }
+    },
+    {
+     "id": "incident-timeline",
+     "n": 2,
+     "es": {
+      "etiqueta": "La línea de tiempo de cada incidente",
+      "entrada": "La ficha del periodo y los plazos de la configuración",
+      "proceso": "Cada incidente: las horas de la detección a la contención contra el plazo de su severidad, y su revisión posterior contra los días de la política desde el cierre",
+      "reporte": "Los incidentes contenidos fuera de plazo o sin contener, y los cerrados sin revisión o revisados tarde, con su cita",
+      "entrega": "Cada incidente contra el plazo de su severidad y su revisión"
+     },
+     "en": {
+      "etiqueta": "Each incident's timeline",
+      "entrada": "The period record and the deadlines in the configuration",
+      "proceso": "Each incident: the hours from detection to containment against its severity's deadline, and its post-incident review against the policy's days from closure",
+      "reporte": "The incidents contained late or not contained, and the closed ones without a review or reviewed late, with their citation",
+      "entrega": "Each incident against its severity's deadline and its review"
+     }
+    },
+    {
+     "id": "notifications",
+     "n": 3,
+     "es": {
+      "etiqueta": "Las notificaciones",
+      "entrada": "La matriz de notificaciones de `00-referencia/` y la ficha del periodo",
+      "proceso": "Cada incidente contra cada fila de la matriz que le aplica —por su severidad, por los datos personales o por los clientes afectados—: la notificación registrada y su hora contra el plazo desde la detección. El agente no notifica a nadie",
+      "reporte": "Las notificaciones tardías y las que no se hicieron, con su destinatario, su norma y su cita",
+      "entrega": "Cada notificación que pide la matriz, a tiempo, tarde o sin hacer"
+     },
+     "en": {
+      "etiqueta": "Notifications",
+      "entrada": "The notification matrix in `00-referencia/` and the period record",
+      "proceso": "Each incident against every row of the matrix that applies to it —by its severity, personal data or affected customers—: the recorded notification and its time against the deadline from detection. The agent notifies no one",
+      "reporte": "The late notifications and the ones never made, with their recipient, their rule and their citation",
+      "entrega": "Each notification the matrix requires, on time, late or not made"
+     }
+    },
+    {
+     "id": "continuity-tests",
+     "n": 4,
+     "es": {
+      "etiqueta": "Las pruebas de continuidad",
+      "entrada": "El calendario de continuidad de `00-referencia/` y la ficha del periodo",
+      "proceso": "Cada prueba del calendario —el plan de continuidad, el de recuperación, la restauración de cada respaldo crítico— contra su frecuencia: la última de la ficha, su resultado y cuándo tocaba la siguiente",
+      "reporte": "Las pruebas vencidas o sin ninguna, separadas las de restauración, con su cita",
+      "entrega": "Cada prueba contra su calendario"
+     },
+     "en": {
+      "etiqueta": "Continuity tests",
+      "entrada": "The continuity calendar in `00-referencia/` and the period record",
+      "proceso": "Each test in the calendar —the continuity plan, the recovery plan, each critical backup's restore— against its frequency: the latest in the record, its result and when the next one was due",
+      "reporte": "The tests that are overdue or never done, with restores apart, with their citation",
+      "entrega": "Each test against its calendar"
+     }
+    },
+    {
+     "id": "resilience-wake",
+     "n": 5,
+     "es": {
+      "etiqueta": "Qué toca hoy",
+      "entrada": "El estado y los documentos nuevos",
+      "proceso": "Si llegó un incidente, una revisión o una prueba nueva, o pasó una semana, la revisión completa; si hay señales abiertas, el reporte de su grupo; una pregunta que alguien dejó en Rostrum",
+      "reporte": "Qué corrió y por qué, o que no tocaba nada",
+      "entrega": "Lo que tocaba hoy, corrido"
+     },
+     "en": {
+      "etiqueta": "What's due today",
+      "entrada": "The state and the new documents",
+      "proceso": "If a new incident, review or test arrived, or a week has passed, the full review; if there are open signals, their group's report; a question somebody left in Rostrum",
+      "reporte": "What ran and why, or that nothing was due",
+      "entrega": "What was due today, run"
+     }
+    }
+   ],
+   "senales": [
+    {
+     "id": "incident_response_late",
+     "es": "Un incidente se contuvo después del plazo de su severidad en la política, o sigue sin contener pasado ese plazo",
+     "en": "An incident was contained after its severity's deadline in the policy, or is still not contained past it"
+    },
+    {
+     "id": "incident_notification_late",
+     "es": "Una notificación que pide la matriz —al supervisor, a la autoridad de datos, a los clientes— se hizo tarde o no se hizo",
+     "en": "A notification the matrix requires —to the supervisor, the data authority, the customers— was made late or not at all"
+    },
+    {
+     "id": "incident_without_review",
+     "es": "Un incidente cerrado no tiene su revisión posterior dentro del plazo",
+     "en": "A closed incident has no post-incident review within the deadline"
+    },
+    {
+     "id": "continuity_test_overdue",
+     "es": "La prueba del plan de continuidad o de recuperación pasó su fecha, o no hay ninguna",
+     "en": "The continuity or recovery plan test is past its date, or there is none"
+    },
+    {
+     "id": "restore_test_overdue",
+     "es": "La prueba de restauración de un respaldo crítico pasó su fecha, o no hay ninguna",
+     "en": "A critical backup's restore test is past its date, or there is none"
+    }
+   ],
+   "area": "resiliencia",
+   "ambitos": [
+    "resiliencia"
+   ],
+   "nunca": {
+    "es": "No notifica a nadie, no declara ni cierra un incidente, no ejecuta un plan de continuidad ni una restauración, y no abre respaldos",
+    "en": "It notifies no one, does not declare or close an incident, does not run a continuity plan or a restore, and does not open backups"
+   },
+   "marco": [
+    "F-01",
+    "F-04"
+   ]
+  }
+ ],
+ "skills": {
+  "security-intake": {
+   "es": "La estructura recomendada de la carpeta de seguridad, qué va en cada carpeta y qué agente la usa, cómo se nombran la evidencia y las exportaciones, y qué nunca se deja ahí",
+   "en": "The recommended structure of the security folder, what goes in each folder and which agent uses it, how evidence and exports are named, and what is never left there"
+  },
+  "control-evidence-record": {
+   "es": "Cómo se lleva a la ficha la evidencia de un control, una revisión de accesos y la evaluación de un tercero: qué cuenta como evidencia, la fecha que cubre y la cita",
+   "en": "How a control's evidence, an access review and a third-party assessment go into the record: what counts as evidence, the date it covers and the citation"
+  },
+  "soa-and-risks": {
+   "es": "La declaración de aplicabilidad y el registro de riesgos: sus columnas, qué es un control aplicable e implementado, la periodicidad y qué es una aceptación de riesgo con su fecha de revisión",
+   "en": "The statement of applicability and the risk register: their columns, what an applicable and implemented control is, the frequency, and what a risk acceptance with its review date is"
+  },
+  "scanner-exports": {
+   "es": "Las exportaciones del escáner y el catálogo KEV: las columnas que se reconocen, el mapeo para las demás, la severidad desde el puntaje CVSS (F-05) y qué es lo abierto",
+   "en": "The scanner exports and the KEV catalog: the columns that are recognised, the mapping for the rest, the severity from the CVSS score (F-05) and what counts as open"
+  },
+  "vuln-policy": {
+   "es": "Los plazos de corrección de la política, cómo se extraen con su cita, las excepciones con su aprobación y su vencimiento, y por qué los informes de vulnerabilidades no se publican por omisión",
+   "en": "The policy's remediation deadlines, how they are extracted with their citation, the exceptions with their approval and expiry, and why vulnerability reports are not published by default"
+  },
+  "incident-record": {
+   "es": "Cómo se lleva un incidente a la ficha: su severidad, la detección, la contención y el cierre con su hora, los datos personales y los clientes afectados, cada notificación con su constancia y su revisión posterior",
+   "en": "How an incident goes into the record: its severity, the detection, containment and closure with their time, personal data and affected customers, each notification with its record and its post-incident review"
+  },
+  "continuity-record": {
+   "es": "El calendario de continuidad y cómo se lleva a la ficha cada prueba —de continuidad, de recuperación, de restauración— con su fecha y su resultado",
+   "en": "The continuity calendar and how each test —continuity, recovery, restore— goes into the record with its date and its result"
+  }
+ },
+ "impresora": {
+  "comentario": "La impresora del portal: lo que la hoja dice de cada agente. scripts/criterio-familias.mjs la publica y docs/video la graba; no se copia a mano.",
+  "bots": [
+   "alexis",
+   "guillermo",
+   "amparo",
+   "rostrum"
+  ],
+  "es": {
+   "eyebrow": "Criterio · Familia CISO",
+   "titulo": "Tres agentes para la seguridad de la información",
+   "sub": "Procesan la declaración de aplicabilidad, las exportaciones del escáner y los informes de incidentes y de pruebas, y dicen qué control no tiene evidencia, qué vulnerabilidad pasó su plazo y qué notificación no se hizo a tiempo.",
+   "ficha": "LAS FICHAS DE LA ENTIDAD",
+   "fichaNota": "El único contrato. Alexis, Guillermo y Amparo no se hablan entre sí: comparten la carpeta y la referencia, y cada uno escribe solo su ficha.",
+   "roles": {
+    "alexis": "Los controles",
+    "guillermo": "Las vulnerabilidades",
+    "amparo": "La respuesta",
+    "rostrum": "El portal"
+   },
+   "nota": "Estado de la familia: en construcción, en su versión 0.1.0. El motor, con su prueba determinista sobre material sintético de banca, retail, salud y tecnología, con dos entidades de control; la ronda con los tres agentes es el siguiente paso.",
+   "guion": [
+    {
+     "cabeza": true,
+     "texto": "CRITERIO · FAMILIA CISO"
+    },
+    {
+     "texto": "La seguridad de la información con tres agentes, ordenados por el NIST CSF 2.0. Cada uno extiende a una persona del área; ninguno la reemplaza."
+    },
+    {
+     "quien": "alexis",
+     "tag": "ALEXIS · LOS CONTROLES",
+     "texto": "Pone cada control aplicable de la declaración al lado de la evidencia de que operó, y dice qué revisión de accesos, qué evaluación de un tercero crítico y qué aceptación de riesgo venció. No acepta riesgos ni declara cumplido un control."
+    },
+    {
+     "quien": "guillermo",
+     "tag": "GUILLERMO · LAS VULNERABILIDADES",
+     "texto": "Pone cada hallazgo del escáner al lado del plazo de su severidad en la política, del catálogo KEV de lo que se explota y del escaneo que prueba su cierre. No corre escaneos ni aprueba excepciones."
+    },
+    {
+     "quien": "amparo",
+     "tag": "AMPARO · LA RESPUESTA",
+     "texto": "Pone cada incidente al lado del plazo de contención de su severidad y de cada notificación que pide la matriz, y cada prueba de continuidad al lado de su calendario. No notifica a nadie."
+    },
+    {
+     "quien": "rostrum",
+     "tag": "ROSTRUM · EL PORTAL",
+     "texto": "Publica lo que los tres escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. Lo de vulnerabilidades no sale ahí salvo que la configuración lo diga. No recalcula nada."
+    },
+    {
+     "quien": "ficha",
+     "tag": "LA REGLA",
+     "texto": "Los plazos son de la organización: salen de su política, su matriz y sus registros. Credenciales, llaves y respaldos no se abren nunca."
+    },
+    {
+     "cabeza": true,
+     "texto": "FIN DE LA IMPRESIÓN."
+    }
+   ]
+  },
+  "en": {
+   "eyebrow": "Criterio · CISO family",
+   "titulo": "Three agents for information security",
+   "sub": "They process the statement of applicability, the scanner exports and the incident and test reports, and tell you which control has no evidence, which vulnerability is past its deadline and which notification was not made on time.",
+   "ficha": "THE ENTITY’S RECORDS",
+   "fichaNota": "The only contract. Alexis, Guillermo and Amparo never talk to each other: they share the folder and the reference, and each writes only its own record.",
+   "roles": {
+    "alexis": "The controls",
+    "guillermo": "Vulnerabilities",
+    "amparo": "Response",
+    "rostrum": "The portal"
+   },
+   "nota": "Where the family stands: under construction, in its version 0.1.0. The engine, with its deterministic test on synthetic banking, retail, healthcare and technology material, with two control entities; the round with the three agents is the next step.",
+   "guion": [
+    {
+     "cabeza": true,
+     "texto": "CRITERIO · CISO FAMILY"
+    },
+    {
+     "texto": "Information security with three agents, ordered by the NIST CSF 2.0. Each extends a person in the area; none replaces them."
+    },
+    {
+     "quien": "alexis",
+     "tag": "ALEXIS · THE CONTROLS",
+     "texto": "Puts every applicable control in the statement next to the evidence that it operated, and says which access review, critical third-party assessment and risk acceptance lapsed. Accepts no risks and declares no control met."
+    },
+    {
+     "quien": "guillermo",
+     "tag": "GUILLERMO · VULNERABILITIES",
+     "texto": "Puts every scanner finding next to its severity's deadline in the policy, the KEV catalog of what is exploited and the scan that proves its closure. Runs no scans and approves no exceptions."
+    },
+    {
+     "quien": "amparo",
+     "tag": "AMPARO · RESPONSE",
+     "texto": "Puts every incident next to its severity's containment deadline and every notification the matrix requires, and every continuity test next to its calendar. Notifies no one."
+    },
+    {
+     "quien": "rostrum",
+     "tag": "ROSTRUM · THE PORTAL",
+     "texto": "Publishes what the three wrote —their reports, what falls due, their signals— and takes the questions from whoever will not open a folder. Vulnerability findings do not go there unless the configuration says so. Recalculates nothing."
+    },
+    {
+     "quien": "ficha",
+     "tag": "THE RULE",
+     "texto": "The deadlines are the organisation's: they come from its policy, matrix and registers. Credentials, keys and backups are never opened."
+    },
+    {
+     "cabeza": true,
+     "texto": "END OF PRINT."
+    }
+   ]
+  }
+ }
+}

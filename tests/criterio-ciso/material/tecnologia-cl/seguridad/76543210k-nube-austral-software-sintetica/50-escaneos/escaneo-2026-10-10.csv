@@ -1,0 +1,18 @@
+Host;Plugin ID;CVE;Name;Risk;CVSS v4.0 Base Score;First Found
+nub-web-01;19506;;Información del escaneo;;0.0;
+nub-app-01;19506;;Información del escaneo;;0.0;
+nub-db-01;19506;;Información del escaneo;;0.0;
+nub-fw-borde-01;19506;;Información del escaneo;;0.0;
+nub-ad-01;19506;;Información del escaneo;;0.0;
+nub-correo-01;19506;;Información del escaneo;;0.0;
+nub-backup-01;19506;;Información del escaneo;;0.0;
+nub-prueba-07;19506;;Información del escaneo;;0.0;
+nub-web-01;31001;CVE-2099-11001;Cabecera de seguridad ausente;;3.1;2026-10-10
+nub-app-01;40001;TLS-DEBIL;Suites de cifrado débiles;;3.1;2026-02-01
+nub-web-01;31003;CVE-2099-11003;Desbordamiento en el servidor web;;5.3;2026-10-10
+nub-web-01;32001;CVE-2099-12001;Ejecución remota en el portal;;9.8;2026-08-20
+nub-fw-borde-01;32002;CVE-2099-12002;Omisión de autenticación en el cortafuegos;;8.1;2026-09-20
+nub-db-01;32003;CVE-2099-12003;Escalamiento en el motor de base de datos;;5.3;2026-06-01
+nub-backup-01;32004;CVE-2099-12004;Servicio de respaldo expuesto;;5.3;2026-09-20
+nub-correo-01;32005;CVE-2099-12005;Inyección en el servidor de correo;;8.1;2026-09-20
+nub-ad-01;32006;CVE-2099-12006;Delegación insegura en el directorio;;9.8;2026-09-20

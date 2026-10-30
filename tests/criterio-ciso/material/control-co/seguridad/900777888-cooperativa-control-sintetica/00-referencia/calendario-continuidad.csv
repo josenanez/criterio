@@ -1,0 +1,6 @@
+prueba;tipo;sistema;frecuencia_dias;responsable
+Plan de continuidad del negocio;continuidad;Toda la entidad;365;Gerente de riesgos
+Recuperación del centro de datos alterno;recuperación;Centro de datos;180;Jefe de infraestructura
+Restauración del core de la cooperativa;restauración;Core de la cooperativa;90;Jefe de infraestructura
+Restauración del correo corporativo;restauración;Correo corporativo;90;Jefe de infraestructura
+Restauración de la base de clientes;restauración;Base de clientes;180;Jefe de infraestructura

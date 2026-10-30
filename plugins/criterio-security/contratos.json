@@ -1,0 +1,370 @@
+{
+ "comandos": {
+  "security-setup": {
+   "funcion": "La configuración, el inventario y lo que se excluyó.",
+   "entrada": {
+    "argumento": "[ruta de la carpeta de la entidad] o vacío",
+    "lee": [
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Configuración guardada; inventario por carpeta; lo excluido y por qué; las columnas que faltan; la primera ficha del periodo",
+    "escribe": [
+     "<estado>/seguridad/<AAAA-MM>/ficha.json",
+     ".criterio/seguridad/<entidad>/config.json",
+     "<estado>/ (init)",
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     ".criterio/terminos/ (aceptar)",
+     "<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)",
+     "<estado>/seguridad/<AAAA-MM>/resultados.json",
+     "<estado>/seguridad/<AAAA-MM>/reporte-security-setup.md",
+     "<estado>/corridas/salida-security-setup.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "control-evidence-record",
+     "security-intake",
+     "soa-and-risks"
+    ],
+    "script": [
+     "aceptar",
+     "buscar-raiz",
+     "compute",
+     "config",
+     "convertir",
+     "corrida",
+     "excluidos",
+     "init",
+     "inventario",
+     "marcar-raiz",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "security-scan": {
+   "funcion": "La ficha del periodo al día, con la evidencia nueva y las señales nuevas.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/seguridad/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué",
+    "escribe": [
+     "<estado>/seguridad/<AAAA-MM>/ficha.json",
+     "<estado>/indice.json",
+     "<estado>/cache/",
+     "<estado>/seguridad/<AAAA-MM>/resultados.json",
+     "<estado>/seguridad/<AAAA-MM>/reporte-security-scan.md",
+     "<estado>/corridas/salida-security-scan.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "control-evidence-record",
+     "security-intake"
+    ],
+    "script": [
+     "compute",
+     "convertir",
+     "corrida",
+     "excluidos",
+     "inventario",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "soa-status": {
+   "funcion": "Cada control aplicable con su responsable.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/seguridad/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Los controles aplicables sin responsable, con su fila; la declaración completa",
+    "escribe": [
+     "<estado>/seguridad/<AAAA-MM>/resultados.json",
+     "<estado>/seguridad/<AAAA-MM>/reporte-soa-status.md",
+     "<estado>/corridas/salida-soa-status.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "soa-and-risks"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "control-evidence": {
+   "funcion": "Cada control contra la evidencia de que operó.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/seguridad/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Los controles sin evidencia y los que tienen la evidencia vencida, cada uno con su cita y su responsable",
+    "escribe": [
+     "<estado>/seguridad/<AAAA-MM>/resultados.json",
+     "<estado>/seguridad/<AAAA-MM>/reporte-control-evidence.md",
+     "<estado>/corridas/salida-control-evidence.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "control-evidence-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "access-reviews": {
+   "funcion": "Cada sistema con su revisión de accesos al día o vencida.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/seguridad/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Los sistemas con la revisión vencida o sin ninguna, con su cita",
+    "escribe": [
+     "<estado>/seguridad/<AAAA-MM>/resultados.json",
+     "<estado>/seguridad/<AAAA-MM>/reporte-access-reviews.md",
+     "<estado>/corridas/salida-access-reviews.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "control-evidence-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "third-parties": {
+   "funcion": "Cada tercero crítico con su evaluación al día o vencida.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/seguridad/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Los terceros críticos con la evaluación vencida o sin ninguna, con su cita",
+    "escribe": [
+     "<estado>/seguridad/<AAAA-MM>/resultados.json",
+     "<estado>/seguridad/<AAAA-MM>/reporte-third-parties.md",
+     "<estado>/corridas/salida-third-parties.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "control-evidence-record"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "risk-register": {
+   "funcion": "Cada aceptación de riesgo contra su fecha de revisión.",
+   "entrada": {
+    "argumento": "[AAAA-MM] o vacío",
+    "lee": [
+     "<estado>/seguridad/<AAAA-MM>/ficha.json",
+     "config",
+     "documentos de la entidad"
+    ]
+   },
+   "salida": {
+    "muestra": "Las aceptaciones que pasaron su fecha de revisión, con quién las aceptó y su fila",
+    "escribe": [
+     "<estado>/seguridad/<AAAA-MM>/resultados.json",
+     "<estado>/seguridad/<AAAA-MM>/reporte-risk-register.md",
+     "<estado>/corridas/salida-risk-register.md"
+    ]
+   },
+   "reglas": {
+    "skills": [
+     "soa-and-risks"
+    ],
+    "script": [
+     "corrida",
+     "reporte",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  },
+  "security-wake": {
+   "funcion": "Lo que tocaba hoy, corrido.",
+   "entrada": {
+    "argumento": "[AAAA-MM-DD para simular otro día]",
+    "lee": [
+     "<estado>/corridas/",
+     "<estado>/peticiones/",
+     "config"
+    ]
+   },
+   "salida": {
+    "muestra": "Qué corrió y por qué, o que no tocaba nada",
+    "escribe": [
+     "<estado>/seguridad/<AAAA-MM>/resultados.json",
+     "<estado>/seguridad/<AAAA-MM>/reporte-security-wake.md",
+     "<estado>/corridas/salida-security-wake.md",
+     "<estado>/peticiones/<id>.json (responder)"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "corrida",
+     "despertar",
+     "reporte",
+     "responder",
+     "terminos"
+    ],
+    "calcula": true
+   },
+   "corrida": {
+    "caso": true,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "tests/criterio-ciso: las tablas, los documentos y las exportaciones de cada entidad con su clave",
+    "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
+   }
+  }
+ },
+ "skills": {
+  "control-evidence-record": {
+   "decide": "Cada evidencia de un control con la fecha que cubre, cada revisión de accesos y cada evaluación de un tercero, con su cita.",
+   "escribe": [
+    "evidence",
+    "access_reviews",
+    "third_party_assessments",
+    "reviewed",
+    "questions"
+   ],
+   "alimenta": [
+    "control_without_evidence",
+    "control_evidence_stale",
+    "access_review_overdue",
+    "third_party_assessment_overdue"
+   ]
+  },
+  "security-intake": {
+   "decide": "Qué documento es una tabla que procesa el motor y cuál se extrae a la ficha; dónde va cada archivo y qué nunca se abre.",
+   "escribe": [],
+   "alimenta": [
+    "control_without_evidence",
+    "asset_not_scanned",
+    "continuity_test_overdue"
+   ]
+  },
+  "soa-and-risks": {
+   "decide": "Qué control es aplicable e implementado, su responsable y su periodicidad, y qué es una aceptación de riesgo con su fecha de revisión.",
+   "escribe": [],
+   "alimenta": [
+    "soa_control_unassigned",
+    "control_evidence_stale",
+    "risk_acceptance_expired"
+   ]
+  }
+ },
+ "por_descripcion": {}
+}

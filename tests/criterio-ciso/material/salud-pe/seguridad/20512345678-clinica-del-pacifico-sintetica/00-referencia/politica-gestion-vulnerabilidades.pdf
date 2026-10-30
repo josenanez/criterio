@@ -1,0 +1,52 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R /Lang (es) /ViewerPreferences << /DisplayDocTitle true >> >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Length 1380 >>
+stream
+BT /F1 14 Tf 50 774 Td (Pol\355tica de gesti\363n de vulnerabilidades t\351cnicas) Tj ET
+BT /F1 10 Tf 50 755 Td (Cl\355nica del Pac\355fico Sint\351tica \267 versi\363n 3 \267 aprobada por el comit\351 de seguridad) Tj ET
+BT /F1 12 Tf 50 724 Td (1. Objetivo) Tj ET
+BT /F1 10 Tf 50 707 Td (Establecer c\363mo se identifican, priorizan y corrigen las vulnerabilidades t\351cnicas de los) Tj ET
+BT /F1 10 Tf 50 692 Td (activos de informaci\363n.) Tj ET
+BT /F1 12 Tf 50 661 Td (4. Plazos de correcci\363n) Tj ET
+BT /F1 10 Tf 50 644 Td (Cada vulnerabilidad se corrige dentro del plazo que corresponde a su severidad, contado) Tj ET
+BT /F1 10 Tf 50 629 Td (desde su primera detecci\363n:) Tj ET
+BT /F1 10 Tf 50 614 Td (- Cr\355tica: 10 d\355as calendario.) Tj ET
+BT /F1 10 Tf 50 599 Td (- Alta: 30 d\355as calendario.) Tj ET
+BT /F1 10 Tf 50 584 Td (- Media: 90 d\355as calendario.) Tj ET
+BT /F1 10 Tf 50 569 Td (- Baja: 180 d\355as calendario.) Tj ET
+BT /F1 10 Tf 50 554 Td (La severidad es la que asigna el esc\341ner. Una excepci\363n al plazo la aprueba el jefe de) Tj ET
+BT /F1 10 Tf 50 539 Td (seguridad de la informaci\363n o el gerente de tecnolog\355a, por escrito y con fecha de) Tj ET
+BT /F1 10 Tf 50 524 Td (vencimiento.) Tj ET
+BT /F1 12 Tf 50 493 Td (5. Escaneo) Tj ET
+BT /F1 10 Tf 50 476 Td (Todo activo del inventario en alcance se escanea al menos una vez al mes.) Tj ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Title (Pol\355tica de gesti\363n de vulnerabilidades t\351cnicas) /Producer (Criterio) >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000116 00000 n 
+0000000173 00000 n 
+0000000270 00000 n 
+0000001701 00000 n 
+0000001827 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R /Info 6 0 R >>
+startxref
+1936
+%%EOF

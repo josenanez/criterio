@@ -1,0 +1,34 @@
+{
+  "version": "0.1",
+  "role": "resiliencia",
+  "entity": {
+    "id": "900123456",
+    "name": "Entidad de ejemplo",
+    "country": "CO",
+    "currency": "COP"
+  },
+  "paths": {
+    "documents": "seguridad/900123456-entidad-de-ejemplo",
+    "state": "estado-seguridad/900123456-entidad-de-ejemplo"
+  },
+  "period": "2026-10",
+  "incident": {
+    "containment_hours": {
+      "critica": 4,
+      "alta": 24,
+      "media": 72,
+      "baja": 168
+    },
+    "review_days": 15
+  },
+  "exclude": {
+    "extensions": []
+  },
+  "columns": {},
+  "report": {
+    "language": "es"
+  },
+  "execution": {
+    "workers": 1
+  }
+}

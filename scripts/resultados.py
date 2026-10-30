@@ -59,6 +59,11 @@ DUENIOS = [
     ("evaluar.py --agente augusto", "Augusto"),
     ("evaluar.py --agente valeria", "Valeria"),
     ("tests/criterio-cco/", "La familia"),
+    ("criterio-security/scripts/seguridad.py", "Alexis"),
+    ("evaluar.py --agente alexis", "Alexis"),
+    ("evaluar.py --agente guillermo", "Guillermo"),
+    ("evaluar.py --agente amparo", "Amparo"),
+    ("tests/criterio-ciso/", "La familia"),
     ("criterio-portfolio/scripts/terminos.py", "La familia"),
     ("scripts/registro.py", "La familia"),
     ("scripts/calidad.py", "La familia"),
@@ -435,6 +440,9 @@ PLUGIN_DE = {
     "Ofelia": "criterio-assistant",
     "Augusto": "criterio-sales",
     "Valeria": "criterio-revenue",
+    "Alexis": "criterio-security",
+    "Guillermo": "criterio-vulnerability",
+    "Amparo": "criterio-resilience",
 }
 
 # Qué no cubre la corrida de cada agente. Va en el mismo archivo que los resultados y no
@@ -666,6 +674,21 @@ _CSO_NO_CUBRE = [
 ]
 NO_CUBRE["criterio-sales"] = list(_CSO_NO_CUBRE)
 NO_CUBRE["criterio-revenue"] = list(_CSO_NO_CUBRE)
+_CISO_NO_CUBRE = [
+    ("La extracción del agente la prueba la ronda, no esta corrida",
+     "Esta corrida escribe en la ficha lo que el agente tendría que extraer —la evidencia de cada control, las "
+     "revisiones y las evaluaciones, cada incidente con su línea de tiempo y sus notificaciones, cada prueba— y "
+     "los plazos que el setup toma de cada política, y prueba el motor con esa extracción. Que el agente la haga "
+     "bien sobre los mismos documentos lo prueba la ronda con los agentes, que es el siguiente paso de la familia."),
+    ("Nada se ha corrido sobre la documentación de seguridad de una organización real",
+     "Todo el material es sintético, y sus CVE llevan el año 2099 para que ninguno se confunda con una "
+     "vulnerabilidad real."),
+    ("Los formatos propios de un escáner no se procesan todavía",
+     "Tenable, Qualys, Rapid7 y Microsoft Defender están en la hoja de ruta, cada uno con su fuente verificada; "
+     "hoy entran como cualquier CSV o Excel, con su mapeo de columnas."),
+]
+for _p in ("criterio-security", "criterio-vulnerability", "criterio-resilience"):
+    NO_CUBRE[_p] = list(_CISO_NO_CUBRE)
 
 QUE_ES = {
     "criterio-portfolio": ("Vera", "el agente de la PMO"),
@@ -680,6 +703,9 @@ QUE_ES = {
     "criterio-assistant": ("Ofelia", "la asistente ejecutiva de la familia EA"),
     "criterio-sales": ("Augusto", "el agente del pronóstico de la familia CCO"),
     "criterio-revenue": ("Valeria", "la agente de la venta a la factura de la familia CCO"),
+    "criterio-security": ("Alexis", "el agente del gobierno y los controles de la familia CISO"),
+    "criterio-vulnerability": ("Guillermo", "el agente de las vulnerabilidades de la familia CISO"),
+    "criterio-resilience": ("Amparo", "la agente de la respuesta y la recuperación de la familia CISO"),
 }
 
 
@@ -688,7 +714,9 @@ EVIDENCIA_DE = {"criterio-finance": "../criterio-cfo/EVIDENCIA.md", "criterio-bu
                 "criterio-treasury": "../criterio-cfo/EVIDENCIA.md",
                 "criterio-legal": "../criterio-clo/EVIDENCIA.md", "criterio-compliance": "../criterio-clo/EVIDENCIA.md",
                 "criterio-assistant": "../criterio-ea/EVIDENCIA.md",
-                "criterio-sales": "../criterio-cco/EVIDENCIA.md", "criterio-revenue": "../criterio-cco/EVIDENCIA.md"}
+                "criterio-sales": "../criterio-cco/EVIDENCIA.md", "criterio-revenue": "../criterio-cco/EVIDENCIA.md",
+                "criterio-security": "../criterio-ciso/EVIDENCIA.md", "criterio-vulnerability": "../criterio-ciso/EVIDENCIA.md",
+                "criterio-resilience": "../criterio-ciso/EVIDENCIA.md"}
 
 
 def por_agente(filas: list, rapido: bool) -> list:

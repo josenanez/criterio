@@ -1,0 +1,4 @@
+ticket;activo;vulnerabilidad;estado;fecha_cierre
+TK-201;tda-app-01;CVE-2099-11002;Cerrada;2026-09-01
+TK-202;tda-backup-01;CVE-2099-12004;Cerrada;2026-10-12
+TK-203;tda-correo-01;CVE-2099-12005;Resuelta;2026-09-25

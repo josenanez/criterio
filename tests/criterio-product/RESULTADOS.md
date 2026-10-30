@@ -2,7 +2,7 @@
 
 **el agente del gerente de producto** · plugin `criterio-product`
 
-Corrida del 2026-10-30, sobre el commit `8524b960`, con cambios en el árbol todavía sin confirmar. **3 puertas · 107 comprobaciones · todas en verde.**
+Corrida del 2026-10-30, sobre el commit `18b037db`, con cambios en el árbol todavía sin confirmar. **3 puertas · 107 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,9 +10,9 @@ Corrida del 2026-10-30, sobre el commit `8524b960`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 40 ms | verde |
-| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 128 ms | verde |
-| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 342 ms | verde |
+| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 51 ms | verde |
+| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 91 ms | verde |
+| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 383 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -69,14 +69,14 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 11 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
 | `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 264 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 307 | verde |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
 | `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | verde |
 | `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | verde |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
-| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 18 | verde |
+| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 19 | verde |
 | `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
 | `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
@@ -85,7 +85,9 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-cfo/generar.py` | El material CFO: cuatro industrias y dos entidades de control, con su clave | — | verde |
 | `criterio-clo/generar.py` | El material CLO: cuatro industrias y dos entidades de control, con su clave | — | verde |
 | `criterio-cco/generar.py` | El material CCO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave | — | verde |
+| `criterio-ciso/generar.py` | El material CISO: banca, retail, salud y tecnología y dos controles, cada uno con su escáner, lo que nunca se abre y su clave | — | verde |
 | `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
+| `scripts/descargas.py selftest` | el historial de descargas conserva cada día que sale de la ventana de GitHub | 7 | verde |
 
 El conjunto de los tres agentes, en [`docs/pruebas.md`](../../docs/pruebas.md) — y con gráficas, para abrir en un navegador, en [`pruebas.html`](../../docs/pruebas.html). Todo corre con la librería estándar y sin instalar nada.

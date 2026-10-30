@@ -1,0 +1,95 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-ciso/carpetas.json; no se edita a mano",
+  "niveles": [
+    {
+      "id": "entidad",
+      "ruta": null,
+      "profundidad": 1,
+      "etiqueta": "",
+      "carpetas": [
+        {
+          "carpeta": "00-referencia",
+          "patrones": [
+            "^politica",
+            "^declaracion",
+            "^soa",
+            "^aplicabilidad",
+            "^sistemas",
+            "^terceros",
+            "^inventario",
+            "^activos",
+            "^matriz_notificaciones",
+            "^calendario"
+          ]
+        },
+        {
+          "carpeta": "10-controles",
+          "patrones": [
+            "^a_\\d",
+            "^\\d_\\d"
+          ]
+        },
+        {
+          "carpeta": "20-accesos",
+          "patrones": [
+            "^revision_accesos",
+            "^access_review"
+          ]
+        },
+        {
+          "carpeta": "30-terceros",
+          "patrones": [
+            "^evaluacion",
+            "^assessment"
+          ]
+        },
+        {
+          "carpeta": "40-riesgos",
+          "patrones": [
+            "^registro_riesgos",
+            "^riesgos",
+            "^aceptacion"
+          ]
+        },
+        {
+          "carpeta": "50-escaneos",
+          "patrones": [
+            "^escaneo",
+            "^scan",
+            "^known_exploited",
+            "^kev"
+          ]
+        },
+        {
+          "carpeta": "60-remediacion",
+          "patrones": [
+            "^seguimiento",
+            "^remediacion",
+            "^excepciones"
+          ]
+        },
+        {
+          "carpeta": "70-incidentes",
+          "patrones": [
+            "^inc",
+            "^incidente"
+          ]
+        },
+        {
+          "carpeta": "80-revisiones",
+          "patrones": [
+            "^revision",
+            "^lecciones"
+          ]
+        },
+        {
+          "carpeta": "90-continuidad",
+          "patrones": [
+            "^prueba",
+            "^test"
+          ]
+        }
+      ]
+    }
+  ]
+}

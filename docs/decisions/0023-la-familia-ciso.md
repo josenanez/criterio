@@ -1,6 +1,6 @@
 # 0023 · La familia CISO: seguridad de la información, con tres agentes sobre estándares internacionales
 
-**Fecha:** 2026-10-30 · **Estado:** aceptada el 2026-10-30, con los nombres y la estructura · **Modifica:** 0013
+**Fecha:** 2026-10-30 · **Estado:** aceptada el 2026-10-30, con los nombres y la estructura; construida en la 0.1.0 · **Modifica:** 0013
 
 ## Contexto
 
@@ -11,11 +11,11 @@ registro de países:
 
 | Marco | Qué aporta | Estado de la fuente |
 |---|---|---|
-| NIST Cybersecurity Framework 2.0 (26 de febrero de 2024) | Las seis funciones: gobernar, identificar, proteger, detectar, responder y recuperar. Ordena la familia | Por verificar en la publicación de NIST |
+| NIST Cybersecurity Framework 2.0 (26 de febrero de 2024) | Las seis funciones: gobernar, identificar, proteger, detectar, responder y recuperar. Ordena la familia | Verificada en la publicación de NIST (F-02) |
 | ISO/IEC 27001:2022 | El sistema de gestión, la declaración de aplicabilidad y los controles del anexo A, cada uno con su evidencia | Norma de pago: se citan el número y el nombre de cada control, nunca su texto |
 | NIST SP 800-61 Rev. 3 (3 de abril de 2025) | La respuesta a incidentes como perfil comunitario del CSF 2.0 | Verificada en csrc.nist.gov |
-| CISA, BOD 22-01 y su catálogo KEV | Lo explotado se corrige en dos semanas, o en seis meses si su CVE es anterior a 2021 | Verificada en cisa.gov |
-| FIRST CVSS v4.0 y CIS Controls v8.1 | La severidad de una vulnerabilidad y las salvaguardas de referencia | Por verificar |
+| El catálogo KEV de CISA | Lo que se está explotando, con la fecha de corrección que trae el catálogo | El archivo, verificado en el espejo oficial de CISA (F-06). La BOD 22-01, que fijaba esas fechas, la revocó la BOD 26-04 del 10 de junio de 2026 (F-07, por verificar en cisa.gov); las dos obligan a las agencias federales de los Estados Unidos |
+| FIRST CVSS v4.0 | La severidad de una vulnerabilidad desde su puntaje | Verificada en first.org (F-05). Los CIS Controls v8.1 no entran: el motor no los necesita |
 
 ## Decisión
 
@@ -92,8 +92,9 @@ grupo de señales y su despertador (`*-wake`):
 ## Lo que queda abierto
 
 1. **Los nombres de los agentes**: Alexis, Guillermo y Amparo, aprobados por José el 2026-10-30, con la estructura de la familia. Queda cerrado.
-2. **Las fuentes por verificar:** NIST CSF 2.0, FIRST CVSS v4.0 y CIS Controls v8.1, antes de que
-   el motor cite cualquiera de ellas.
+2. **Las fuentes:** el NIST CSF 2.0, el CVSS v4.0 y el archivo del catálogo KEV quedaron verificados el
+   2026-10-30. La ISO/IEC 27001 (F-03) y la BOD 26-04 (F-07) siguen por verificar, y el motor no se apoya
+   en ninguna de las dos.
 3. **La regulación de cada país** (por ejemplo, la circular de ciberseguridad del supervisor
    financiero de Colombia): entra a la matriz de notificaciones de la organización. El motor no la
    trae.

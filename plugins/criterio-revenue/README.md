@@ -15,11 +15,12 @@ against the plan.
 
 [Español](README.es.md) · `criterio-revenue` · Apache 2.0 · One instance per entity
 
-**Status: laboratory, not yet launched (version 0.1.0).** The six commands, the six skills and the
-calculation engine, tested against synthetic material from Colombia and Mexico with a key the agent
-never sees and one control entity per country. It can already be installed from the marketplace.
-**The round with the agent is the next step**, in 0.2.0. Nothing is announced as finished until the
-[acceptance criteria](ACCEPTANCE.md) pass.
+**Status: stable, not yet launched (version 0.3.0).** The six commands, the six skills and the
+calculation engine, tested against synthetic material from Colombia, Mexico, Ecuador, Peru and Chile
+—with Salesforce, HubSpot, Dynamics 365, Zoho and any CRM with its mapping— with a key the agent never
+sees and one control entity per country. It passed its two rounds with the agents: across all of them,
+the 95% confidence floor is 98.0% on signals and 95.1% on data. It installs from the marketplace; its
+launch is pending. The [acceptance criteria](ACCEPTANCE.md) are still the rule.
 
 **This page reads on its own.** Valeria works without Augusto: if you only answer for the sale through to the invoice, everything is here, tests included. The family —how she meets Augusto, Fidel, Clara and Rostrum— is in the
 [criterio-cco family](../../families/criterio-cco/README.md).

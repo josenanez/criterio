@@ -1,0 +1,43 @@
+{
+  "generado": "por scripts/familias.py desde families/criterio-ciso/familia.json; generado por scripts/familias.py; no se edita a mano",
+  "senales": {
+    "control_without_evidence": "Un control aplicable de la declaración figura implementado y no tiene ninguna evidencia de que operó",
+    "control_evidence_stale": "La evidencia más reciente de un control periódico es anterior a su periodicidad",
+    "soa_control_unassigned": "Un control aplicable no tiene responsable",
+    "access_review_overdue": "La revisión de accesos de un sistema pasó su fecha, o no hay ninguna",
+    "third_party_assessment_overdue": "La evaluación de seguridad de un tercero crítico pasó su fecha, o no hay ninguna",
+    "risk_acceptance_expired": "Una aceptación de riesgo pasó su fecha de revisión",
+    "vuln_past_sla": "Una vulnerabilidad sigue abierta después del plazo de su severidad en la política, sin una excepción vigente",
+    "kev_past_due": "Una vulnerabilidad del catálogo KEV sigue abierta después de su fecha de corrección",
+    "vuln_closed_without_rescan": "Una vulnerabilidad figura cerrada y ningún escaneo posterior la da por corregida",
+    "vuln_exception_expired": "Una excepción a la corrección pasó su vencimiento y la vulnerabilidad sigue abierta",
+    "asset_not_scanned": "Un activo del inventario no aparece en ningún escaneo de la ventana configurada",
+    "incident_response_late": "Un incidente se contuvo después del plazo de su severidad en la política, o sigue sin contener pasado ese plazo",
+    "incident_notification_late": "Una notificación que pide la matriz —al supervisor, a la autoridad de datos, a los clientes— se hizo tarde o no se hizo",
+    "incident_without_review": "Un incidente cerrado no tiene su revisión posterior dentro del plazo",
+    "continuity_test_overdue": "La prueba del plan de continuidad o de recuperación pasó su fecha, o no hay ninguna",
+    "restore_test_overdue": "La prueba de restauración de un respaldo crítico pasó su fecha, o no hay ninguna"
+  },
+  "comandos": {
+    "security-setup": "Instalación",
+    "security-scan": "Qué cambió en la seguridad",
+    "soa-status": "La declaración de aplicabilidad",
+    "control-evidence": "Los controles contra su evidencia",
+    "access-reviews": "Las revisiones de acceso",
+    "third-parties": "Los terceros críticos",
+    "risk-register": "El registro de riesgos",
+    "security-wake": "Qué toca hoy",
+    "vuln-setup": "Instalación",
+    "vuln-scan": "Qué cambió en las vulnerabilidades",
+    "vuln-sla": "Las vulnerabilidades contra su plazo",
+    "kev-check": "Lo explotado: el catálogo KEV",
+    "scan-coverage": "La cobertura de los escaneos",
+    "vuln-wake": "Qué toca hoy",
+    "resilience-setup": "Instalación",
+    "resilience-scan": "Qué cambió en la respuesta",
+    "incident-timeline": "La línea de tiempo de cada incidente",
+    "notifications": "Las notificaciones",
+    "continuity-tests": "Las pruebas de continuidad",
+    "resilience-wake": "Qué toca hoy"
+  }
+}

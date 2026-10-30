@@ -91,6 +91,9 @@ running `server-setup` again.
 | **Criterio EA** · Executive office | Ofelia | `/criterio-assistant:ea-setup` | `.criterio/direccion/<instance>/` | `_CRITERIO_DIRECCION.txt` |
 | **Criterio CCO** · The commercial function | Augusto | `/criterio-sales:sales-setup` | `.criterio/comercial/<instance>/` | `_CRITERIO_COMERCIAL.txt` |
 | **Criterio CCO** · The commercial function | Valeria | `/criterio-revenue:revenue-setup` | `.criterio/ingresos/<instance>/` | `_CRITERIO_COMERCIAL.txt` |
+| **Criterio CISO** · Information security | Alexis | `/criterio-security:security-setup` | `.criterio/seguridad/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
+| **Criterio CISO** · Information security | Guillermo | `/criterio-vulnerability:vuln-setup` | `.criterio/vulnerabilidades/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
+| **Criterio CISO** · Information security | Amparo | `/criterio-resilience:resilience-setup` | `.criterio/resiliencia/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
 <!-- /servidor:familias -->
 
 Each family explains in its own documentation what it has in the portal: the
