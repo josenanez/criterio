@@ -379,6 +379,14 @@ def una(e: dict) -> dict:
     _csv(docs / "00-referencia" / "cuentas.csv", [["cuenta", "nombre", "identificacion"]] +
          [[cuenta_crm(e, i), c, tid(e, i)] for i, c in enumerate(e["clientes"])], sep)
     _csv(docs / "00-referencia" / "plan-comisiones.csv", [["linea", "tasa"], ["todas", TASA]], sep)
+    # La política comercial: los dos umbrales que el setup pregunta, escritos donde la entidad los
+    # tiene. Sin ella, un umbral distinto del de omisión solo estaba en la clave (CSO-2).
+    mueve = esc["umbrales"].get("max_close_moves", 2)
+    md(docs / "00-referencia" / "politica-comercial.md",
+       "# Política comercial\n\n"
+       "1. Una oportunidad abierta sin ninguna gestión en 30 días se considera detenida y se revisa en el comité comercial.\n"
+       f"2. La fecha estimada de cierre de una oportunidad puede correrse hasta {mueve} {'vez' if mueve == 1 else 'veces'}; "
+       "si se corre una vez más, la oportunidad se revisa en el comité comercial.\n")
     # Las tres exportaciones, en el formato de su CRM.
     for k, corte in enumerate(CORTES):
         filas = exportacion(e, esc, k)
