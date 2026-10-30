@@ -17,7 +17,7 @@ the entity's folder and reference, and each writes only its own.
 | **Goal** | That what the organisation committed to in its policy —review, fix, notify, test— has behind it the documents that show it did, and on time |
 | **Made up of** | [Alexis](../../plugins/criterio-security/README.md) · [Guillermo](../../plugins/criterio-vulnerability/README.md) · [Amparo](../../plugins/criterio-resilience/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The international frameworks that order the family, the format of every file the engine processes and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **Status** | Under construction, version 0.1.0: the engine tested on synthetic banking, retail, healthcare and technology material; the round with the agents is the next step. **Not yet tested on a specific organisation's documentation** |
+| **Status** | Laboratory, not yet launched: published in the marketplace from version 0.1.0, with the engine tested on synthetic banking, retail, healthcare and technology material; the round with the agents is the next step. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Documents and exports, never systems: no agent runs a scan or connects to a console |
 | **Commitment** | Generating, spreading and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the security lead or their team, and does not decide for them: it accepts no risks, declares no control met, approves no exceptions, notifies no one, rates no maturity and certifies against no standard |
@@ -167,8 +167,8 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
-**The family is under construction and not yet published in the marketplace.** When it ships, each
-agent will be a plugin that installs on its own:
+**The family is a laboratory one and not yet launched, but it can already be installed.** Each agent
+is a plugin that installs on its own:
 
 ```
 /plugin marketplace add josenanez/criterio
@@ -262,8 +262,8 @@ The family grows in increments. Each one is a version with its full test and its
 
 | Version | Status | What goes in | Test |
 |---|---|---|---|
-| 0.1.0 | In progress | **Alexis, Guillermo and Amparo, built, with the engine tested**<br>· The twenty commands, their seven skills and the engine, with the sixteen signals: Alexis's controls, access, third parties and risks; Guillermo's vulnerabilities, KEV catalog and coverage; Amparo's incidents, notifications and tests<br>· Any scanner export in CSV or Excel with its column mapping, severity from CVSS v4.0 and CISA's KEV catalog<br>· What is never opened: credentials, keys and backups, excluded by default<br>· Banking, retail, healthcare and technology material, with two control entities | The engine against the key of all the material: six entities from four industries, with their controls |
-| 0.2.0 | Next | **The round of the three agents**<br>· The round with Alexis, Guillermo and Amparo on all the material, with the key they never see<br>· The defects it finds, with their fix and their verification | The full round, with the 95% confidence floor on signals and data (decision 0020) |
+| 0.1.0 | Reserved | **Alexis, Guillermo and Amparo, built, with the engine tested**<br>· The twenty commands, their seven skills and the engine, with the sixteen signals: Alexis's controls, access, third parties and risks; Guillermo's vulnerabilities, KEV catalog and coverage; Amparo's incidents, notifications and tests<br>· Any scanner export in CSV or Excel with its column mapping, severity from CVSS v4.0 and CISA's KEV catalog<br>· What is never opened: credentials, keys and backups, excluded by default<br>· Banking, retail, healthcare and technology material, with two control entities | The engine against the key of all the material: six entities from four industries, with their controls |
+| 0.2.0 | In progress | **The round of the three agents**<br>· The round with Alexis, Guillermo and Amparo on all the material, with the key they never see<br>· The defects it finds, with their fix and their verification | The full round, with the 95% confidence floor on signals and data (decision 0020) |
 | Increment 3 | Next | **The scanners, each from its source**<br>· The export format of Tenable, Qualys, Rapid7 and Microsoft Defender, each from its verified source, as Dynamics and Zoho entered the CCO | Their material and their round, with the same metrics |
 
 <!-- /hoja de ruta -->
@@ -286,7 +286,7 @@ Seven distinct skills across the three agents. **The ones they share are literal
 
 ## Status
 
-**All three are under construction.** Their version 0.1.0 brings the engine, which passes its
+**All three are laboratory ones.** Their version 0.1.0 brings the engine, which passes its
 deterministic test on all the material; the round with the agents on the same material, with a key they
 never see, is what declares it tested, and it comes with 0.2.0. Laboratory or stable is said by the
 evidence (decision 0020), and on the day the family is launched, if it is stable, its version is 1.0.0

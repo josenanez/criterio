@@ -68,7 +68,7 @@ On the infrastructure of the AI platform the agent runs on, not only on your mac
 
 ### Is it ready to use?
 
-Not yet. It is under construction, in its version 0.1.0: the engine is tested on synthetic banking, retail, healthcare and technology material, with a key it never sees and two control entities. The round with the three agents is the next step.
+It can be installed, and it is a laboratory one, in its version 0.1.0: the engine is tested on synthetic banking, retail, healthcare and technology material, with a key it never sees and two control entities. The round with the three agents is the next step.
 
 ### Is it stable?
 

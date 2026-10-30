@@ -13,7 +13,7 @@ You answer for information security and its management system. He comes with eve
 
 [Español](README.es.md) · `criterio-security` · Apache 2.0 · One instance per entity
 
-**Status: under construction (version 0.1.0).** The calculation engine, tested against synthetic material from four industries with a key the agent never sees and two control entities. **The round with the agent is the next step**, in 0.2.0. Nothing is announced as finished until it passes the [acceptance criteria](ACCEPTANCE.md).
+**Status: laboratory, not yet launched (version 0.1.0).** The calculation engine, tested against synthetic material from four industries with a key the agent never sees and two control entities. It can already be installed from the marketplace. **The round with the agent is the next step**, in 0.2.0. Nothing is announced as finished until it passes the [acceptance criteria](ACCEPTANCE.md).
 
 **This page stands on its own.** Alexis works without the family's other two agents. The family —how they meet each other and Rostrum— is in the [criterio-ciso family](../../families/criterio-ciso/README.md).
 
@@ -91,7 +91,7 @@ And one that has to be said out loud: **your documents are processed on the AI p
 
 ## Installation and setup
 
-**Not in the marketplace yet**: it ships with its first version. Then:
+**Already in the marketplace**, laboratory and not yet launched:
 
 ```
 /plugin marketplace add josenanez/criterio

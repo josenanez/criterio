@@ -4,7 +4,7 @@
   {
    "incremento": 1,
    "version": "0.1.0",
-   "estado": "en curso",
+   "estado": "reservada",
    "industrias": [],
    "paises": [
     {
@@ -60,7 +60,7 @@
   {
    "incremento": 2,
    "version": "0.2.0",
-   "estado": "siguiente",
+   "estado": "en curso",
    "industrias": [],
    "es": {
     "titulo": "La ronda de los tres agentes",
