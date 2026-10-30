@@ -1379,6 +1379,123 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "8c4b870cd22aa805c7fcf1b83da519963edf3736404092ae04996a98b3b1c222",
       "sha256": "fe0843c049ab690441f7a88732cefa9710bd2d023e5972d496d537042b82535a"
+    },
+    {
+      "version": "1.2.0",
+      "fecha": "2026-10-29",
+      "commit": null,
+      "base": "39b6350f",
+      "etiqueta": "v1.2.0",
+      "familias": {
+        "cfo": "0.12.1",
+        "clo": "0.12.1",
+        "cso": "0.2.0",
+        "ea": "1.0.0",
+        "pmo": "1.0.0",
+        "rostrum": "1.0.0"
+      },
+      "liberadas": [
+        "cso",
+        "ea"
+      ],
+      "versiones": {
+        "criterio-budget": "0.12.1",
+        "criterio-finance": "0.12.1",
+        "criterio-treasury": "0.12.1",
+        "criterio-compliance": "0.12.1",
+        "criterio-legal": "0.12.1",
+        "criterio-revenue": "0.2.0",
+        "criterio-sales": "0.2.0",
+        "criterio-assistant": "1.0.0",
+        "criterio-portfolio": "1.0.0",
+        "criterio-product": "1.0.0",
+        "criterio-project": "1.0.0",
+        "criterio-server": "1.0.0"
+      },
+      "calidad": {
+        "cso": {
+          "etiqueta": "laboratorio",
+          "ronda": 1,
+          "rondas": [
+            1
+          ],
+          "casos": {
+            "señales": 80,
+            "datos": 30
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95.4,
+            "Datos extraídos": 88.6
+          },
+          "motivo": [
+            "Datos extraídos: piso de 88.6 %, por debajo del 95 %"
+          ],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ea": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            2
+          ],
+          "casos": {
+            "señales": 85,
+            "datos": 146
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95.6,
+            "Datos extraídos": 97.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "71a9d31c4c303917a643a821a3b281bcdba649178a91009724e0eccbbc1406e0",
+        "criterio-budget": "d74a0f48a44f155e0a9f864e8d3528261a49d1f74cfe39dfe984cded531e54d7",
+        "criterio-compliance": "c6eea3eec99ff40d5c1171ffc81da04a49977aa76766134665925338dfa75757",
+        "criterio-finance": "5dd8d2307d690618ead5f563b7e52b0ee851999589ff2400198e2ad47dc6d601",
+        "criterio-legal": "a790ef43dcd14d03e7a205c3279a00d7949ebfb6eec10d27d2605c6b47d80701",
+        "criterio-portfolio": "aba7b106558f4f771ea5878dfe68bd25b98fd3774e0d7b06c0d2b283fab5216c",
+        "criterio-product": "4b46ca052aa60db5c3acb63c7cd7dd839b8d441cdd925c6b64c0746535c62b53",
+        "criterio-project": "4de1747c0d9cd8d7cdd31f36d34aad444db12fda721d7fc72e8f0ff9a0650b89",
+        "criterio-revenue": "31ba8dbdf073a1f6ae57aa2dbf3e26914f0a0e945d5264613337c878d040cd8a",
+        "criterio-sales": "50e62b10b4cfbdc496ec410c5e902b9164fe6c598932c806ad401f30d63eaeb0",
+        "criterio-server": "5be508662614a097d0d779a598144c12a5c676a21c4f97d5fbbf5ed9c0b4688c",
+        "criterio-treasury": "d90e56de8d02349d30dea140e755db8dd369945ddc30bc3f2dd4a6ed63c4f947"
+      },
+      "destacados": [
+        "La EA abre su 1.0.0: los viajes contra la agenda, Outlook y Google Calendar, y el .msg",
+        "La CSO, con su primera ronda con los agentes"
+      ],
+      "cambios": [
+        "registro.py liberar: el commit de la versión lleva también la hoja de ruta de todas las familias, que regenera hoja.py",
+        "Resultados de la corrida",
+        "PMO: la nota de la impresora con las ocho industrias probadas",
+        "Arnés de las rondas de familia: una lista de registros de la ficha se califica sin orden, cada registro de la clave contra uno distinto (CSO-1)",
+        "EA 1.0.0, construida: el .msg de Outlook se procesa en todos los plugins (archivo compuesto de Microsoft, sin dependencias); la agenda como la exportan Outlook —zonas de Windows, libre propio— y Google Calendar —zona del calendario, ocurrencia cancelada—; los viajes: travel-record y tres señales, el vuelo fuera de la agenda, la reunión durante un vuelo y la presencial en casa estando de viaje; material por proveedor con 85 señales",
+        "Material de la CSO: la política comercial con los dos umbrales que pregunta el setup; un umbral distinto del de omisión solo estaba en la clave (CSO-2)",
+        "Valeria y Augusto reconocen la empresa asociada con el nombre que le pone HubSpot al exportar, sin depender del mapeo del setup; el mapeo sigue mandando (CSO-3)",
+        "CSO-3, la corrección que queda: con HubSpot la configuración no pasa sin la columna de la empresa asociada, porque su nombre no lo fija la fuente (F-05); se retira el nombre por omisión. El análisis de cada familia cuenta una vez cada entidad, con su corrida más reciente de la ronda",
+        "Material de la EA: cada propuesta del lote con sus dos opciones y lo que cuesta cada una, completa; la sede regional traía las opciones de un proveedor y ninguna cifra (EA-9)",
+        "CFO Brasil, construida: el lector de la NF-e (MOC 7.0, Anexo I, verificado campo por campo), el CNPJ con sus dígitos y el ICMS dentro del valor de la nota; el motor procesa documentos en portugués —cabeceras, meses, nombres de archivo y estados—, para todas las familias; Brasil entra al registro de países; material de retail y minería de São Paulo y un control, en portugués: 24 señales, el motor las levanta todas",
+        "Ronda 2 de la EA y ronda 1 de la CSO, publicadas con sus defectos y verificaciones; hojas de ruta y notas del catálogo 1.2.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "fe0843c049ab690441f7a88732cefa9710bd2d023e5972d496d537042b82535a",
+      "sha256": "6002b80429eb52a5b44f616c8728089fb96a2c1b8fdf3af192c699ef01546810"
     }
   ]
 }
