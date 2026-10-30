@@ -1,325 +1,347 @@
 {
-  "nota": "Los defectos que encontraron las rondas con el agente de la familia CLO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
-  "defectos": [
-    {
-      "id": "CLO-1",
-      "ronda": 1,
-      "carpeta": "banca",
-      "agentes": [
-        "constanza"
-      ],
-      "origen": "codigo",
-      "commit": "f80f39f",
-      "estado": "verificado",
-      "verificacion": "banca",
-      "es": {
-        "que": "Constanza no tomaba las fichas de Fidel del estado compartido cuando la configuración no las nombraba, y las rutas de las fichas no se resolvían desde la carpeta de .criterio.",
-        "correccion": "Constanza las toma del estado compartido y las rutas se resuelven desde .criterio. El estado del cumplimiento se repitió en banca: 10 de 10 señales."
-      },
-      "en": {
-        "que": "Constanza did not take Fidel’s records from the shared state when the configuration did not name them, and record paths were not resolved from the .criterio folder.",
-        "correccion": "Constanza takes them from the shared state and paths are resolved from .criterio. Compliance status was rerun on banking: 10 of 10 signals."
-      }
-    },
-    {
-      "id": "CLO-2",
-      "ronda": 1,
-      "agentes": [],
-      "origen": "arnes",
-      "commit": "f80f39f",
-      "estado": "verificado",
-      "es": {
-        "que": "La calificación contaba señales de un periodo distinto del de la clave y las preguntas que el agente escribe de suyo.",
-        "correccion": "La ronda califica solo el periodo de la clave y no las preguntas propias del agente. Verificado en la ronda 2: ninguna señal de más en las seis entidades."
-      },
-      "en": {
-        "que": "Grading counted signals from a period other than the key’s and the questions the agent writes on its own.",
-        "correccion": "The round grades only the key’s period, not the agent’s own questions. Verified in round 2: no extra signals across the six entities."
-      },
-      "verificacion": "banca",
-      "ronda_verificacion": 2
-    },
-    {
-      "id": "CLO-3",
-      "ronda": 1,
-      "carpeta": "control-co",
-      "agentes": [
-        "constanza"
-      ],
-      "origen": "codigo",
-      "commit": "4df0442",
-      "estado": "verificado",
-      "verificacion": "cooperativas",
-      "es": {
-        "que": "Constanza usó la configuración de Fidel: el motor no rechazaba la configuración de otro agente.",
-        "correccion": "El motor rechaza la configuración de otro agente y familias.py comprueba que cada carpeta sea la de familia.json. Verificado en la ronda 2: Constanza trabajó con la suya en cinco entidades."
-      },
-      "en": {
-        "que": "Constanza used Fidel’s configuration: the engine did not reject another agent’s configuration.",
-        "correccion": "The engine rejects another agent’s configuration and familias.py checks each folder against familia.json. Verified in round 2: Constanza worked with her own on five entities."
-      },
-      "ronda_verificacion": 2
-    },
-    {
-      "id": "CLO-4",
-      "ronda": 1,
-      "carpeta": "control-co",
-      "agentes": [
-        "fidel"
-      ],
-      "origen": "instrucciones",
-      "commit": "df6a04b",
-      "estado": "verificado",
-      "verificacion": "control-co-fidel",
-      "es": {
-        "que": "Fidel dejaba fuera de la ficha las obligaciones que vencen al final del contrato, como el informe final o el acta de liquidación: faltó una en cada uno de los cinco contratos.",
-        "correccion": "La skill de la ficha pide todas las obligaciones con fecha, en el orden de sus cláusulas. Fidel se corrió de nuevo sobre el control: 128 de 128 datos; en la ronda 2, todas las obligaciones de los seis materiales están en las fichas."
-      },
-      "en": {
-        "que": "Fidel left out of the record the obligations due at the end of the contract, such as the final report or the settlement minutes: one was missing in each of the five contracts.",
-        "correccion": "The record skill asks for every dated obligation, in clause order. Fidel was rerun on the control: 128 of 128 data points; in round 2, every obligation across the six materials is in the records."
-      },
-      "fallas": [
-        [
-          1,
-          "control-co",
-          "contratos/CTR-501 · obligations"
-        ],
-        [
-          1,
-          "control-co",
-          "contratos/CTR-502 · obligations"
-        ],
-        [
-          1,
-          "control-co",
-          "contratos/CTR-503 · obligations"
-        ],
-        [
-          1,
-          "control-co",
-          "contratos/CTR-504 · obligations"
-        ],
-        [
-          1,
-          "control-co",
-          "contratos/CTR-505 · obligations"
-        ]
-      ]
-    },
-    {
-      "id": "CLO-5",
-      "ronda": 1,
-      "carpeta": "control-co",
-      "agentes": [
-        "constanza"
-      ],
-      "origen": "arnes",
-      "commit": "db293b9",
-      "estado": "verificado",
-      "es": {
-        "que": "La calificación compara la cita como texto: Constanza citó «línea 5» y la clave «punto 1», que son el mismo renglón del boletín. Por eso el control da 126 de 132 y no 127.",
-        "correccion": "La calificación acepta la cita que señala el mismo renglón del mismo archivo que la clave. Verificado volviendo a calificar la salida original del control de Colombia de la ronda 1 con la calificación corregida: la cita «línea 5» cuenta como bien y el resultado pasa de 126 a 127 de 132. En la ronda 3, Constanza citó «punto 1»."
-      },
-      "en": {
-        "que": "Grading compares the citation as text: Constanza cited “line 5” and the key “item 1”, which are the same line of the bulletin. That is why the control scores 126 of 132 and not 127.",
-        "correccion": "Grading accepts a citation that points to the same line of the same file as the key. Verified by re-grading the original round 1 output of the Colombian control with the corrected grading: the “line 5” citation counts as correct and the result goes from 126 to 127 of 132. In round 3, Constanza cited “item 1”."
-      },
-      "verificacion": "control-co",
-      "ronda_verificacion": 3,
-      "fallas": [
-        [
-          1,
-          "control-co",
-          "cumplimiento · new_rules"
-        ]
-      ]
-    },
-    {
-      "id": "CLO-6",
-      "ronda": 2,
-      "carpeta": "control-co",
-      "agentes": [
-        "constanza"
-      ],
-      "origen": "instrucciones",
-      "commit": "f075160",
-      "estado": "verificado",
-      "es": {
-        "que": "En el control de Colombia, Constanza no escribió su configuración: el setup decía «deja la configuración escrita» sin decir que la escribe el agente, y ella paró porque ningún comando del motor la crea. Sin configuración, sus comandos no calcularon nada: los 4 datos de la ficha del periodo faltan, y ese control no prueba sus falsas alarmas en esta ronda.",
-        "correccion": "Los cuatro setup (Clara, Tomás, Fidel y Constanza) dicen que la configuración la escribe el agente con la forma de config.example.json, que init prepara el estado y config la valida. Verificado en la ronda 3: Constanza escribió su configuración en el control de Colombia y su ficha del periodo trae los 4 datos."
-      },
-      "en": {
-        "que": "On the Colombian control, Constanza did not write her configuration: setup said “leave the configuration written” without saying the agent writes it, and she stopped because no engine command creates it. Without a configuration her commands computed nothing: the 4 data points of the period record are missing, and that control does not test her false alarms in this round.",
-        "correccion": "All four setups (Clara, Tomás, Fidel and Constanza) say the agent writes the configuration in the shape of config.example.json, that init prepares the state and config validates it. Verified in round 3: Constanza wrote her configuration on the Colombian control and her period record carries the 4 data points."
-      },
-      "verificacion": "control-co-verificacion",
-      "ronda_verificacion": 3,
-      "fallas": [
-        [
-          2,
-          "control-co",
-          "cumplimiento · declared.status"
-        ],
-        [
-          2,
-          "control-co",
-          "cumplimiento · declared.date"
-        ],
-        [
-          2,
-          "control-co",
-          "cumplimiento · declared.source"
-        ],
-        [
-          2,
-          "control-co",
-          "cumplimiento · new_rules"
-        ]
-      ]
-    },
-    {
-      "id": "CLO-7",
-      "ronda": 2,
-      "carpeta": "mineria",
-      "agentes": [
-        "fidel"
-      ],
-      "origen": "clave",
-      "commit": "f075160",
-      "estado": "verificado",
-      "es": {
-        "que": "La clave de un contrato sin la firma de la contraparte seguía listando a la contraparte como firmante. Fidel, con razón, listó solo a quien firmó.",
-        "correccion": "El generador deja en la clave solo a quien firmó; cambia únicamente la clave de minería. Verificado en la ronda 3: Fidel sobre minería, 128 de 128 datos."
-      },
-      "en": {
-        "que": "The key of a contract without the counterparty’s signature still listed the counterparty as a signatory. Fidel, rightly, listed only who signed.",
-        "correccion": "The generator keeps only who signed in the key; only the mining key changes. Verified in round 3: Fidel on mining, 128 of 128 data points."
-      },
-      "verificacion": "mineria-fidel",
-      "ronda_verificacion": 3,
-      "fallas": [
-        [
-          2,
-          "mineria",
-          "contratos/CTR-405 · signatories"
-        ]
-      ]
-    },
-    {
-      "id": "CLO-8",
-      "ronda": 2,
-      "carpeta": "mineria",
-      "agentes": [
-        "fidel"
-      ],
-      "origen": "instrucciones",
-      "commit": "f075160",
-      "estado": "verificado",
-      "es": {
-        "que": "En ese mismo contrato, Fidel dejó vacía la fecha de firma: la skill no decía qué fecha va cuando solo firmó una parte.",
-        "correccion": "La skill de la ficha dice que la fecha es la de la firma que trae el documento, aunque sea de una sola parte, y que signed_by_both dice que falta la otra. Verificado en la ronda 3: Fidel sobre minería, 128 de 128 datos."
-      },
-      "en": {
-        "que": "On that same contract, Fidel left the signing date empty: the skill did not say which date applies when only one party signed.",
-        "correccion": "The record skill says the date is that of the signature the document carries, even if only one party signed, and that signed_by_both says the other is missing. Verified in round 3: Fidel on mining, 128 of 128 data points."
-      },
-      "verificacion": "mineria-fidel",
-      "ronda_verificacion": 3,
-      "fallas": [
-        [
-          2,
-          "mineria",
-          "contratos/CTR-405 · signed_on"
-        ]
-      ]
-    },
-    {
-      "id": "CLO-9",
-      "ronda": 2,
-      "carpeta": "banca",
-      "agentes": [
-        "fidel"
-      ],
-      "origen": "arnes",
-      "commit": "96935cc",
-      "estado": "verificado",
-      "es": {
-        "que": "El mismo caso que CFO-4: la clave dice «Reporte de operaciones al oficial de cumplimiento» y Fidel escribió «Reporte de operaciones del periodo al oficial de cumplimiento». La calificación lo cuenta como error porque compara el texto contenido, no el sentido. Se repitió en la ronda 3, en el control de Colombia: es el único dato que falló ahí (131 de 132).",
-        "correccion": "La misma corrección que CFO-4. Verificado volviendo a calificar las salidas originales: banca de la ronda 2, 132 de 132, y el control de Colombia de la ronda 3, 132 de 132; las demás entidades no cambian."
-      },
-      "en": {
-        "que": "The same case as CFO-4: the key says “Reporte de operaciones al oficial de cumplimiento” and Fidel wrote “Reporte de operaciones del periodo al oficial de cumplimiento”. Grading counts it as an error because it compares contained text, not meaning. It recurred in round 3, on the Colombian control: the only data point that failed there (131 of 132).",
-        "correccion": "The same fix as CFO-4. Verified by re-grading the original outputs: round 2 banking, 132 of 132, and round 3 Colombian control, 132 of 132; the other entities do not change."
-      },
-      "verificacion": "banca",
-      "ronda_verificacion": 3,
-      "fallas": [
-        [
-          2,
-          "banca",
-          "contratos/CTR-101 · obligations"
-        ],
-        [
-          3,
-          "control-co-verificacion",
-          "contratos/CTR-501 · obligations"
-        ]
-      ]
-    },
-    {
-      "id": "CLO-10",
-      "ronda": 4,
-      "carpeta": "control-pe",
-      "agentes": [
-        "fidel"
-      ],
-      "origen": "instrucciones",
-      "commit": "9a616a3",
-      "estado": "verificado",
-      "verificacion": "control-pe-fidel",
-      "es": {
-        "que": "En un contrato cuyo otrosí movió la terminación del 2027-06-30 al 2027-12-31, Fidel dejó el informe final y el acta de liquidación con la fecha original. La terminación sí quedó bien: solo la obligación atada a ella no la siguió.",
-        "correccion": "La skill de la ficha dice que una obligación atada a la terminación vence en la terminación vigente, la del último otrosí. Fidel se corrió de nuevo sobre el control de Perú: 128 de 128 datos; las entidades de Chile, corridas ya con la corrección, dan 132 de 132."
-      },
-      "en": {
-        "que": "In a contract whose amendment moved the end date from 2027-06-30 to 2027-12-31, Fidel left the final report and the settlement minutes on the original date. The end date itself was right: only the obligation tied to it did not follow.",
-        "correccion": "The record skill says an obligation tied to termination falls due on the current end date, the one in the latest amendment. Fidel was rerun on the Peruvian control: 128 of 128 data points; the Chilean entities, already run with the fix, give 132 of 132."
-      },
-      "fallas": [
-        [
-          4,
-          "control-pe",
-          "contratos/CTR-902 · obligations"
-        ]
-      ]
-    },
-    {
-      "id": "CLO-11",
-      "ronda": 5,
-      "carpeta": "control-mx",
-      "agentes": [
-        "fidel"
-      ],
-      "origen": "instrucciones",
-      "commit": "c482f137",
-      "estado": "verificado",
-      "verificacion": "control-mx-fidel",
-      "es": {
-        "que": "La misma falla de CLO-10 en el control de México: el otrosí movió la terminación del 2027-06-30 al 2027-12-31 y Fidel dejó el informe final con la fecha original. La causa estaba en la skill de la ficha: decía que esa fecha es «la misma que va en `end`», y `end` es la terminación original.",
-        "correccion": "La skill dice ahora que la fecha es la del `new_end` del último otrosí, no la de `end`; el motor dice como problema de la ficha una obligación que vence en la terminación original cuando un otrosí la movió, y `contract-scan` la corrige antes de calcular. Fidel se corrió de nuevo sobre el control de México: 128 de 128 datos."
-      },
-      "en": {
-        "que": "The same failure as CLO-10 in the Mexican control: the amendment moved the end date from 2027-06-30 to 2027-12-31 and Fidel left the final report on the original date. The cause was in the record skill: it said that date is «the same as `end`», and `end` is the original end date.",
-        "correccion": "The skill now says the date is the latest amendment's `new_end`, not `end`; the engine reports as a record issue an obligation falling due on the original end date when an amendment moved it, and `contract-scan` corrects it before calculating. Fidel was rerun on the Mexican control: 128 of 128 data points."
-      },
-      "fallas": [
-        [
-          5,
-          "control-mx",
-          "contratos/CTR-1502 · obligations"
-        ]
-      ]
-    }
-  ]
+ "nota": "Los defectos que encontraron las rondas con el agente de la familia CLO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+ "defectos": [
+  {
+   "id": "CLO-1",
+   "ronda": 1,
+   "carpeta": "banca",
+   "agentes": [
+    "constanza"
+   ],
+   "origen": "codigo",
+   "commit": "f80f39f",
+   "estado": "verificado",
+   "verificacion": "banca",
+   "es": {
+    "que": "Constanza no tomaba las fichas de Fidel del estado compartido cuando la configuración no las nombraba, y las rutas de las fichas no se resolvían desde la carpeta de .criterio.",
+    "correccion": "Constanza las toma del estado compartido y las rutas se resuelven desde .criterio. El estado del cumplimiento se repitió en banca: 10 de 10 señales."
+   },
+   "en": {
+    "que": "Constanza did not take Fidel’s records from the shared state when the configuration did not name them, and record paths were not resolved from the .criterio folder.",
+    "correccion": "Constanza takes them from the shared state and paths are resolved from .criterio. Compliance status was rerun on banking: 10 of 10 signals."
+   }
+  },
+  {
+   "id": "CLO-2",
+   "ronda": 1,
+   "agentes": [],
+   "origen": "arnes",
+   "commit": "f80f39f",
+   "estado": "verificado",
+   "es": {
+    "que": "La calificación contaba señales de un periodo distinto del de la clave y las preguntas que el agente escribe de suyo.",
+    "correccion": "La ronda califica solo el periodo de la clave y no las preguntas propias del agente. Verificado en la ronda 2: ninguna señal de más en las seis entidades."
+   },
+   "en": {
+    "que": "Grading counted signals from a period other than the key’s and the questions the agent writes on its own.",
+    "correccion": "The round grades only the key’s period, not the agent’s own questions. Verified in round 2: no extra signals across the six entities."
+   },
+   "verificacion": "banca",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CLO-3",
+   "ronda": 1,
+   "carpeta": "control-co",
+   "agentes": [
+    "constanza"
+   ],
+   "origen": "codigo",
+   "commit": "4df0442",
+   "estado": "verificado",
+   "verificacion": "cooperativas",
+   "es": {
+    "que": "Constanza usó la configuración de Fidel: el motor no rechazaba la configuración de otro agente.",
+    "correccion": "El motor rechaza la configuración de otro agente y familias.py comprueba que cada carpeta sea la de familia.json. Verificado en la ronda 2: Constanza trabajó con la suya en cinco entidades."
+   },
+   "en": {
+    "que": "Constanza used Fidel’s configuration: the engine did not reject another agent’s configuration.",
+    "correccion": "The engine rejects another agent’s configuration and familias.py checks each folder against familia.json. Verified in round 2: Constanza worked with her own on five entities."
+   },
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CLO-4",
+   "ronda": 1,
+   "carpeta": "control-co",
+   "agentes": [
+    "fidel"
+   ],
+   "origen": "instrucciones",
+   "commit": "df6a04b",
+   "estado": "verificado",
+   "verificacion": "control-co-fidel",
+   "es": {
+    "que": "Fidel dejaba fuera de la ficha las obligaciones que vencen al final del contrato, como el informe final o el acta de liquidación: faltó una en cada uno de los cinco contratos.",
+    "correccion": "La skill de la ficha pide todas las obligaciones con fecha, en el orden de sus cláusulas. Fidel se corrió de nuevo sobre el control: 128 de 128 datos; en la ronda 2, todas las obligaciones de los seis materiales están en las fichas."
+   },
+   "en": {
+    "que": "Fidel left out of the record the obligations due at the end of the contract, such as the final report or the settlement minutes: one was missing in each of the five contracts.",
+    "correccion": "The record skill asks for every dated obligation, in clause order. Fidel was rerun on the control: 128 of 128 data points; in round 2, every obligation across the six materials is in the records."
+   },
+   "fallas": [
+    [
+     1,
+     "control-co",
+     "contratos/CTR-501 · obligations"
+    ],
+    [
+     1,
+     "control-co",
+     "contratos/CTR-502 · obligations"
+    ],
+    [
+     1,
+     "control-co",
+     "contratos/CTR-503 · obligations"
+    ],
+    [
+     1,
+     "control-co",
+     "contratos/CTR-504 · obligations"
+    ],
+    [
+     1,
+     "control-co",
+     "contratos/CTR-505 · obligations"
+    ]
+   ]
+  },
+  {
+   "id": "CLO-5",
+   "ronda": 1,
+   "carpeta": "control-co",
+   "agentes": [
+    "constanza"
+   ],
+   "origen": "arnes",
+   "commit": "db293b9",
+   "estado": "verificado",
+   "es": {
+    "que": "La calificación compara la cita como texto: Constanza citó «línea 5» y la clave «punto 1», que son el mismo renglón del boletín. Por eso el control da 126 de 132 y no 127.",
+    "correccion": "La calificación acepta la cita que señala el mismo renglón del mismo archivo que la clave. Verificado volviendo a calificar la salida original del control de Colombia de la ronda 1 con la calificación corregida: la cita «línea 5» cuenta como bien y el resultado pasa de 126 a 127 de 132. En la ronda 3, Constanza citó «punto 1»."
+   },
+   "en": {
+    "que": "Grading compares the citation as text: Constanza cited “line 5” and the key “item 1”, which are the same line of the bulletin. That is why the control scores 126 of 132 and not 127.",
+    "correccion": "Grading accepts a citation that points to the same line of the same file as the key. Verified by re-grading the original round 1 output of the Colombian control with the corrected grading: the “line 5” citation counts as correct and the result goes from 126 to 127 of 132. In round 3, Constanza cited “item 1”."
+   },
+   "verificacion": "control-co",
+   "ronda_verificacion": 3,
+   "fallas": [
+    [
+     1,
+     "control-co",
+     "cumplimiento · new_rules"
+    ]
+   ]
+  },
+  {
+   "id": "CLO-6",
+   "ronda": 2,
+   "carpeta": "control-co",
+   "agentes": [
+    "constanza"
+   ],
+   "origen": "instrucciones",
+   "commit": "f075160",
+   "estado": "verificado",
+   "es": {
+    "que": "En el control de Colombia, Constanza no escribió su configuración: el setup decía «deja la configuración escrita» sin decir que la escribe el agente, y ella paró porque ningún comando del motor la crea. Sin configuración, sus comandos no calcularon nada: los 4 datos de la ficha del periodo faltan, y ese control no prueba sus falsas alarmas en esta ronda.",
+    "correccion": "Los cuatro setup (Clara, Tomás, Fidel y Constanza) dicen que la configuración la escribe el agente con la forma de config.example.json, que init prepara el estado y config la valida. Verificado en la ronda 3: Constanza escribió su configuración en el control de Colombia y su ficha del periodo trae los 4 datos."
+   },
+   "en": {
+    "que": "On the Colombian control, Constanza did not write her configuration: setup said “leave the configuration written” without saying the agent writes it, and she stopped because no engine command creates it. Without a configuration her commands computed nothing: the 4 data points of the period record are missing, and that control does not test her false alarms in this round.",
+    "correccion": "All four setups (Clara, Tomás, Fidel and Constanza) say the agent writes the configuration in the shape of config.example.json, that init prepares the state and config validates it. Verified in round 3: Constanza wrote her configuration on the Colombian control and her period record carries the 4 data points."
+   },
+   "verificacion": "control-co-verificacion",
+   "ronda_verificacion": 3,
+   "fallas": [
+    [
+     2,
+     "control-co",
+     "cumplimiento · declared.status"
+    ],
+    [
+     2,
+     "control-co",
+     "cumplimiento · declared.date"
+    ],
+    [
+     2,
+     "control-co",
+     "cumplimiento · declared.source"
+    ],
+    [
+     2,
+     "control-co",
+     "cumplimiento · new_rules"
+    ]
+   ]
+  },
+  {
+   "id": "CLO-7",
+   "ronda": 2,
+   "carpeta": "mineria",
+   "agentes": [
+    "fidel"
+   ],
+   "origen": "clave",
+   "commit": "f075160",
+   "estado": "verificado",
+   "es": {
+    "que": "La clave de un contrato sin la firma de la contraparte seguía listando a la contraparte como firmante. Fidel, con razón, listó solo a quien firmó.",
+    "correccion": "El generador deja en la clave solo a quien firmó; cambia únicamente la clave de minería. Verificado en la ronda 3: Fidel sobre minería, 128 de 128 datos."
+   },
+   "en": {
+    "que": "The key of a contract without the counterparty’s signature still listed the counterparty as a signatory. Fidel, rightly, listed only who signed.",
+    "correccion": "The generator keeps only who signed in the key; only the mining key changes. Verified in round 3: Fidel on mining, 128 of 128 data points."
+   },
+   "verificacion": "mineria-fidel",
+   "ronda_verificacion": 3,
+   "fallas": [
+    [
+     2,
+     "mineria",
+     "contratos/CTR-405 · signatories"
+    ]
+   ]
+  },
+  {
+   "id": "CLO-8",
+   "ronda": 2,
+   "carpeta": "mineria",
+   "agentes": [
+    "fidel"
+   ],
+   "origen": "instrucciones",
+   "commit": "f075160",
+   "estado": "verificado",
+   "es": {
+    "que": "En ese mismo contrato, Fidel dejó vacía la fecha de firma: la skill no decía qué fecha va cuando solo firmó una parte.",
+    "correccion": "La skill de la ficha dice que la fecha es la de la firma que trae el documento, aunque sea de una sola parte, y que signed_by_both dice que falta la otra. Verificado en la ronda 3: Fidel sobre minería, 128 de 128 datos."
+   },
+   "en": {
+    "que": "On that same contract, Fidel left the signing date empty: the skill did not say which date applies when only one party signed.",
+    "correccion": "The record skill says the date is that of the signature the document carries, even if only one party signed, and that signed_by_both says the other is missing. Verified in round 3: Fidel on mining, 128 of 128 data points."
+   },
+   "verificacion": "mineria-fidel",
+   "ronda_verificacion": 3,
+   "fallas": [
+    [
+     2,
+     "mineria",
+     "contratos/CTR-405 · signed_on"
+    ]
+   ]
+  },
+  {
+   "id": "CLO-9",
+   "ronda": 2,
+   "carpeta": "banca",
+   "agentes": [
+    "fidel"
+   ],
+   "origen": "arnes",
+   "commit": "96935cc",
+   "estado": "verificado",
+   "es": {
+    "que": "El mismo caso que CFO-4: la clave dice «Reporte de operaciones al oficial de cumplimiento» y Fidel escribió «Reporte de operaciones del periodo al oficial de cumplimiento». La calificación lo cuenta como error porque compara el texto contenido, no el sentido. Se repitió en la ronda 3, en el control de Colombia: es el único dato que falló ahí (131 de 132).",
+    "correccion": "La misma corrección que CFO-4. Verificado volviendo a calificar las salidas originales: banca de la ronda 2, 132 de 132, y el control de Colombia de la ronda 3, 132 de 132; las demás entidades no cambian."
+   },
+   "en": {
+    "que": "The same case as CFO-4: the key says “Reporte de operaciones al oficial de cumplimiento” and Fidel wrote “Reporte de operaciones del periodo al oficial de cumplimiento”. Grading counts it as an error because it compares contained text, not meaning. It recurred in round 3, on the Colombian control: the only data point that failed there (131 of 132).",
+    "correccion": "The same fix as CFO-4. Verified by re-grading the original outputs: round 2 banking, 132 of 132, and round 3 Colombian control, 132 of 132; the other entities do not change."
+   },
+   "verificacion": "banca",
+   "ronda_verificacion": 3,
+   "fallas": [
+    [
+     2,
+     "banca",
+     "contratos/CTR-101 · obligations"
+    ],
+    [
+     3,
+     "control-co-verificacion",
+     "contratos/CTR-501 · obligations"
+    ]
+   ]
+  },
+  {
+   "id": "CLO-10",
+   "ronda": 4,
+   "carpeta": "control-pe",
+   "agentes": [
+    "fidel"
+   ],
+   "origen": "instrucciones",
+   "commit": "9a616a3",
+   "estado": "verificado",
+   "verificacion": "control-pe-fidel",
+   "es": {
+    "que": "En un contrato cuyo otrosí movió la terminación del 2027-06-30 al 2027-12-31, Fidel dejó el informe final y el acta de liquidación con la fecha original. La terminación sí quedó bien: solo la obligación atada a ella no la siguió.",
+    "correccion": "La skill de la ficha dice que una obligación atada a la terminación vence en la terminación vigente, la del último otrosí. Fidel se corrió de nuevo sobre el control de Perú: 128 de 128 datos; las entidades de Chile, corridas ya con la corrección, dan 132 de 132."
+   },
+   "en": {
+    "que": "In a contract whose amendment moved the end date from 2027-06-30 to 2027-12-31, Fidel left the final report and the settlement minutes on the original date. The end date itself was right: only the obligation tied to it did not follow.",
+    "correccion": "The record skill says an obligation tied to termination falls due on the current end date, the one in the latest amendment. Fidel was rerun on the Peruvian control: 128 of 128 data points; the Chilean entities, already run with the fix, give 132 of 132."
+   },
+   "fallas": [
+    [
+     4,
+     "control-pe",
+     "contratos/CTR-902 · obligations"
+    ]
+   ]
+  },
+  {
+   "id": "CLO-11",
+   "ronda": 5,
+   "carpeta": "control-mx",
+   "agentes": [
+    "fidel"
+   ],
+   "origen": "instrucciones",
+   "commit": "c482f137",
+   "estado": "verificado",
+   "verificacion": "control-mx-fidel",
+   "es": {
+    "que": "La misma falla de CLO-10 en el control de México: el otrosí movió la terminación del 2027-06-30 al 2027-12-31 y Fidel dejó el informe final con la fecha original. La causa estaba en la skill de la ficha: decía que esa fecha es «la misma que va en `end`», y `end` es la terminación original.",
+    "correccion": "La skill dice ahora que la fecha es la del `new_end` del último otrosí, no la de `end`; el motor dice como problema de la ficha una obligación que vence en la terminación original cuando un otrosí la movió, y `contract-scan` la corrige antes de calcular. Fidel se corrió de nuevo sobre el control de México: 128 de 128 datos."
+   },
+   "en": {
+    "que": "The same failure as CLO-10 in the Mexican control: the amendment moved the end date from 2027-06-30 to 2027-12-31 and Fidel left the final report on the original date. The cause was in the record skill: it said that date is «the same as `end`», and `end` is the original end date.",
+    "correccion": "The skill now says the date is the latest amendment's `new_end`, not `end`; the engine reports as a record issue an obligation falling due on the original end date when an amendment moved it, and `contract-scan` corrects it before calculating. Fidel was rerun on the Mexican control: 128 of 128 data points."
+   },
+   "fallas": [
+    [
+     5,
+     "control-mx",
+     "contratos/CTR-1502 · obligations"
+    ]
+   ]
+  },
+  {
+   "id": "CLO-12",
+   "ronda": 6,
+   "carpeta": "control-br",
+   "agentes": [
+    "constanza"
+   ],
+   "origen": "arnes",
+   "commit": "ebe223e1",
+   "estado": "verificado",
+   "verificacion": "control-br",
+   "ronda_verificacion": 6,
+   "es": {
+    "que": "Constanza citó la norma del boletim en su línea, y la clave la cita por su «item 1», como lo numera un documento en portugués. El arnés sabía resolver un «punto» numerado, no un «item», y calificó la cita como distinta.",
+    "correccion": "Una cita a un «item» numerado señala el mismo renglón que su «punto». La corrida del control de Brasil se volvió a calificar, sin repetir comandos: 132 de 132 datos."
+   },
+   "en": {
+    "que": "Constanza cited the rule in the bulletin by its line, and the key cites it by its «item 1», as a document in Portuguese numbers it. The harness knew how to resolve a numbered «punto», not an «item», and graded the citation as different.",
+    "correccion": "A citation to a numbered «item» points to the same line as its «punto». The Brazilian control's run was regraded, with no commands repeated: 132 of 132 data points."
+   },
+   "fallas": []
+  }
+ ]
 }

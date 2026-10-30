@@ -1,0 +1,19 @@
+{
+  "entidad": "Lojas Paulistas",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 2882810,
+  "senales": {
+    "esperadas": 10,
+    "acertadas": 10,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

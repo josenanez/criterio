@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T02:47:45",
+  "estado": "success",
+  "error": false,
+  "segundos": 78,
+  "turnos": 42,
+  "tokens": 1008217,
+  "tokens_salida": 7856,
+  "costo_usd": 0.3766715,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/52817460000100-banco-serra-verde/contratos/reporte-contract-scan.md",
+      "estado-legal/52817460000100-banco-serra-verde/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/52817460000100-banco-serra-verde/corridas/salida-contract-scan.md",
+      "estado-legal/52817460000100-banco-serra-verde/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/52817460000100-banco-serra-verde/corridas.json"
+    ],
+    "borrados": []
+  }
+}

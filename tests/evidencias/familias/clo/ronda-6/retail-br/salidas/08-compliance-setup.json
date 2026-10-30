@@ -1,0 +1,39 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/31452078000170-lojas-paulistas",
+  "inicio": "2026-10-30T02:53:00",
+  "estado": "success",
+  "error": false,
+  "segundos": 52,
+  "turnos": 20,
+  "tokens": 722316,
+  "tokens_salida": 5998,
+  "costo_usd": 0.2825795,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-29-compliance-setup-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-29-compliance-setup-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/cumplimiento/31452078000170/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.12.1-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.12.1-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.12.1-2026-10-06.sha256",
+      "estado-legal/31452078000170-lojas-paulistas/cache/cumplimiento-2026-09/20-reportes/relatorio-compliance-2026-09.md.md",
+      "estado-legal/31452078000170-lojas-paulistas/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/31452078000170-lojas-paulistas/corridas/salida-compliance-setup.md",
+      "estado-legal/31452078000170-lojas-paulistas/cumplimiento/2026-09/ficha.json",
+      "estado-legal/31452078000170-lojas-paulistas/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/31452078000170-lojas-paulistas/cumplimiento/2026-09/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/31452078000170-lojas-paulistas/cache/manifest.json",
+      "estado-legal/31452078000170-lojas-paulistas/corridas.json"
+    ],
+    "borrados": []
+  }
+}

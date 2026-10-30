@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T02:52:12",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 19,
+  "tokens": 868848,
+  "tokens_salida": 4119,
+  "costo_usd": 0.2943434999999999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/31452078000170-lojas-paulistas/contratos/reporte-contract-scan.md",
+      "estado-legal/31452078000170-lojas-paulistas/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/31452078000170-lojas-paulistas/corridas/salida-contract-scan.md",
+      "estado-legal/31452078000170-lojas-paulistas/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/31452078000170-lojas-paulistas/corridas.json"
+    ],
+    "borrados": []
+  }
+}

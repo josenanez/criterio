@@ -1,0 +1,40 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/52817460000100-banco-serra-verde",
+  "inicio": "2026-10-30T02:49:03",
+  "estado": "success",
+  "error": false,
+  "segundos": 74,
+  "turnos": 19,
+  "tokens": 926294,
+  "tokens_salida": 7129,
+  "costo_usd": 0.3322154,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-29-compliance-setup-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-29-compliance-setup-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/cumplimiento/52817460000100/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.12.1-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.12.1-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-0.12.1-2026-10-06.sha256",
+      "estado-legal/52817460000100-banco-serra-verde/cache/cumplimiento-2026-09/20-reportes/relatorio-compliance-2026-09.md.md",
+      "estado-legal/52817460000100-banco-serra-verde/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/52817460000100-banco-serra-verde/corridas/salida-compliance-setup.md",
+      "estado-legal/52817460000100-banco-serra-verde/cumplimiento/2026-09/ficha.json",
+      "estado-legal/52817460000100-banco-serra-verde/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/52817460000100-banco-serra-verde/cumplimiento/2026-09/resultados.json",
+      "legal/52817460000100-banco-serra-verde/_CRITERIO_LEGAL.txt"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/52817460000100-banco-serra-verde/cache/manifest.json",
+      "estado-legal/52817460000100-banco-serra-verde/corridas.json"
+    ],
+    "borrados": []
+  }
+}

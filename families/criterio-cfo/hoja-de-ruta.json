@@ -161,17 +161,17 @@
     "titulo": "Brasil",
     "entra": [
      "Su entrada en el registro de países, el lector de su factura electrónica y sus fuentes verificadas",
-     "Se marca en el mapa cuando pasa su ronda"
+     "Los documentos en portugués: el motor los procesa como los de los demás países"
     ],
-    "prueba": "La ronda con los agentes en Brasil"
+    "prueba": "La ronda 7 con los tres agentes en Brasil, con los documentos en portugués: 24 de 24 señales, ninguna de más, y 24 de 25 datos; el defecto que encontró, en la clave, con su corrección"
    },
    "en": {
     "titulo": "Brazil",
     "entra": [
      "Its entry in the country registry, the reader for its electronic invoice and its verified sources",
-     "It is marked on the map when it passes its round"
+     "Documents in Portuguese: the engine processes them like those of the other countries"
     ],
-    "prueba": "The round with the agents in Brazil"
+    "prueba": "Round 7 with the three agents in Brazil, with the documents in Portuguese: 24 of 24 signals, none extra, and 24 of 25 data points; the defect it found, in the key, with its fix"
    }
   }
  ]

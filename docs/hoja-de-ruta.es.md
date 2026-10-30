@@ -14,8 +14,8 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.0.0 | Estable | — |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 0.12.1 | Laboratorio | 1.0.0 · Brasil |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 0.12.1 | Laboratorio | 1.0.0 · Brasil |
+| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 0.12.1 | Estable | 1.0.0 · Brasil |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 0.12.1 | Estable | 1.0.0 · Brasil |
 | Criterio EA · Dirección | Ofelia | 1.0.0 | Estable | — |
 | Criterio CSO · La función comercial | Augusto, Valeria | 0.2.0 | Laboratorio | — |
 | Rostrum · el portal de todas las familias | — | 1.0.0 | — | — |
@@ -41,7 +41,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.10.0 | Liberada | **Áurea, Perú y los formatos de un área financiera real**<br>· Áurea, el tercer agente: la caja, los pagos y la deuda contra su política<br>· Perú, con el lector de la factura electrónica de la SUNAT desde su guía oficial<br>· El material de prueba en Excel, Word y PDF, como lo tiene un área financiera, y el extracto bancario en PDF procesado por el motor | La ronda 4, completa: los tres agentes sobre las nueve entidades de Colombia, Ecuador y Perú, con los defectos que encontraron sus rondas corregidos y verificados |
 | 0.11.0 | Liberada | **Chile**<br>· El lector de la factura electrónica de Chile, el DTE del SII (F-16), con el RUT y su dígito verificador<br>· El IVA del 19 % (F-17) y las NIIF que adoptó el Colegio de Contadores (F-18)<br>· Material de retail, minería y una entidad de control de Chile | La ronda 5: los tres agentes sobre las tres entidades de Chile, 26 de 26 señales, ninguna de más y 24 de 24 datos |
 | 0.12.0 | Liberada | **México**<br>· El lector del CFDI 4.0 del SAT, desde su guía de llenado (F-19), con el RFC<br>· El IVA del 16 % del catálogo de la guía y el marco NIIF o NIF de cada entidad (F-20)<br>· Material de banca, retail y una entidad de control de México | La ronda 6: los tres agentes sobre las tres entidades de México, 27 de 27 señales, ninguna de más y 24 de 24 datos |
-| 1.0.0 | Siguiente | **Brasil**<br>· Su entrada en el registro de países, el lector de su factura electrónica y sus fuentes verificadas<br>· Se marca en el mapa cuando pasa su ronda | La ronda con los agentes en Brasil |
+| 1.0.0 | Siguiente | **Brasil**<br>· Su entrada en el registro de países, el lector de su factura electrónica y sus fuentes verificadas<br>· Los documentos en portugués: el motor los procesa como los de los demás países | La ronda 7 con los tres agentes en Brasil, con los documentos en portugués: 24 de 24 señales, ninguna de más, y 24 de 25 datos; el defecto que encontró, en la clave, con su corrección |
 
 ### Criterio CLO · Contratos y cumplimiento
 
@@ -51,7 +51,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.9.0 | Liberada | **La ronda completa con el agente**<br>· Fidel y Constanza corren sus comandos sobre el material de las cuatro industrias, como la PMO en cada ronda<br>· Lo que solo trae cada contrato —partes, valor, fechas, renovación, preaviso, firmantes, otrosíes, garantías y obligaciones—, extraído y calificado contra la clave<br>· Con la ronda completa, la familia se declara probada | 4 industrias y 2 entidades de control, con la clave que el agente no ve |
 | 0.11.0 | Liberada | **Perú y Chile**<br>· Material de banca, minería y control de Perú, y de retail, minería y control de Chile, con la identificación fiscal de cada país<br>· Una obligación atada a la terminación vence en la terminación vigente, la del último otrosí (CLO-10) | La ronda 4: Fidel y Constanza sobre las seis entidades de Perú y Chile, 37 de 37 señales, ninguna de más y 812 de 813 datos; el que faltó, corregido y verificado |
 | 0.12.0 | Liberada | **México**<br>· Material de banca, retail y control de México, con el RFC de cada contraparte<br>· La fecha de una obligación atada a la terminación es la del último otrosí: lo dice la skill y el motor lo revisa en la ficha (CLO-11) | La ronda 5: Fidel y Constanza sobre las tres entidades de México, 20 de 20 señales, ninguna de más y 395 de 396 datos; el que faltó, corregido y verificado |
-| 1.0.0 | Siguiente | **Brasil**<br>· Sus fuentes legales verificadas y su material de prueba<br>· Se marca en el mapa cuando pasa su ronda | La ronda con los agentes en Brasil |
+| 1.0.0 | Siguiente | **Brasil**<br>· Sus fuentes legales verificadas y su material de prueba<br>· Los documentos en portugués: el motor los procesa como los de los demás países | La ronda 6 con los dos agentes en Brasil, con los documentos en portugués: 20 de 20 señales, ninguna de más, y 395 de 396 datos; el defecto que encontró, en el arnés, con su corrección |
 | Incremento 6 | Reservada | **Los contratos públicos**<br>· Sus propias reglas de publicación y de garantías | Su propio material, como cada incremento |
 
 ### Criterio EA · Dirección

@@ -140,17 +140,17 @@
     "titulo": "Brasil",
     "entra": [
      "Sus fuentes legales verificadas y su material de prueba",
-     "Se marca en el mapa cuando pasa su ronda"
+     "Los documentos en portugués: el motor los procesa como los de los demás países"
     ],
-    "prueba": "La ronda con los agentes en Brasil"
+    "prueba": "La ronda 6 con los dos agentes en Brasil, con los documentos en portugués: 20 de 20 señales, ninguna de más, y 395 de 396 datos; el defecto que encontró, en el arnés, con su corrección"
    },
    "en": {
     "titulo": "Brazil",
     "entra": [
      "Its verified legal sources and its test material",
-     "It is marked on the map when it passes its round"
+     "Documents in Portuguese: the engine processes them like those of the other countries"
     ],
-    "prueba": "The round with the agents in Brazil"
+    "prueba": "Round 6 with both agents in Brazil, with the documents in Portuguese: 20 of 20 signals, none extra, and 395 of 396 data points; the defect it found, in the harness, with its fix"
    }
   },
   {

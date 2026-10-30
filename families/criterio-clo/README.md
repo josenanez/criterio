@@ -372,7 +372,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 0.9.0 | Released | **The full round with the agent**<br>· Fidel and Constanza run their commands on the material of the four industries, as the PMO does in every round<br>· What only each contract carries —parties, value, dates, renewal, notice period, signatories, amendments, guarantees and obligations—, extracted and graded against the key<br>· With a full round, the family is declared tested | 4 industries and 2 control entities, with the key the agent never sees |
 | 0.11.0 | Released | **Peru and Chile**<br>· Material for banking, mining and control in Peru, and for retail, mining and control in Chile, with each country's tax ID<br>· An obligation tied to termination falls due on the current end date, the one in the latest amendment (CLO-10) | Round 4: Fidel and Constanza on the six entities of Peru and Chile, 37 of 37 signals, none extra and 812 of 813 data points; the one missed, fixed and verified |
 | 0.12.0 | Released | **Mexico**<br>· Material for banking, retail and control in Mexico, with each counterparty's RFC<br>· The date of an obligation tied to termination is the latest amendment's: the skill says so and the engine checks it in the record (CLO-11) | Round 5: Fidel and Constanza on the three Mexican entities, 20 of 20 signals, none extra and 395 of 396 data points; the one missed, fixed and verified |
-| 1.0.0 | Next | **Brazil**<br>· Its verified legal sources and its test material<br>· It is marked on the map when it passes its round | The round with the agents in Brazil |
+| 1.0.0 | Next | **Brazil**<br>· Its verified legal sources and its test material<br>· Documents in Portuguese: the engine processes them like those of the other countries | Round 6 with both agents in Brazil, with the documents in Portuguese: 20 of 20 signals, none extra, and 395 of 396 data points; the defect it found, in the harness, with its fix |
 | Increment 6 | Reserved | **Public contracts**<br>· Their own rules on publication and guarantees | Its own material, as every increment |
 
 <!-- /hoja de ruta -->
@@ -405,8 +405,8 @@ documentation.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Fidel** · Contracts | `criterio-legal` · 7 commands, 5 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Compliance | `criterio-compliance` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contracts | `criterio-legal` · 7 commands, 5 skills | The engine, tested; with the agent, every entitie in the material, up to round 6 · [results](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Compliance | `criterio-compliance` · 7 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 6 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /clo:estado -->
 
