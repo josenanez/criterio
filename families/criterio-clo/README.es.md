@@ -375,7 +375,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 0.11.0 | Liberada | **Perú y Chile**<br>· Material de banca, minería y control de Perú, y de retail, minería y control de Chile, con la identificación fiscal de cada país<br>· Una obligación atada a la terminación vence en la terminación vigente, la del último otrosí (CLO-10) | La ronda 4: Fidel y Constanza sobre las seis entidades de Perú y Chile, 37 de 37 señales, ninguna de más y 812 de 813 datos; el que faltó, corregido y verificado |
 | 0.12.0 | Liberada | **México**<br>· Material de banca, retail y control de México, con el RFC de cada contraparte<br>· La fecha de una obligación atada a la terminación es la del último otrosí: lo dice la skill y el motor lo revisa en la ficha (CLO-11) | La ronda 5: Fidel y Constanza sobre las tres entidades de México, 20 de 20 señales, ninguna de más y 395 de 396 datos; el que faltó, corregido y verificado |
 | 1.0.0 | Liberada | **Brasil**<br>· Sus fuentes legales verificadas y su material de prueba<br>· Los documentos en portugués: el motor los procesa como los de los demás países | La ronda 6 con los dos agentes en Brasil, con los documentos en portugués: 20 de 20 señales, ninguna de más, y 395 de 396 datos; el defecto que encontró, en el arnés, con su corrección |
-| 1.1.0 | Reservada | **Los contratos públicos**<br>· Las reglas de publicación y de garantía de la ley de contratación pública de cada país del registro, cada una con su fuente: el plazo para publicar el contrato en el sistema nacional, el mínimo de la garantía de cumplimiento —su tope, en Brasil— y su entrega a tiempo, en México<br>· Una entidad pública de prueba por país, con sus constancias de publicación y sus pólizas | Su propio material, como cada incremento |
+| 1.1.0 | Reservada | **Los contratos públicos**<br>· Las reglas de publicación y de garantía de la ley de contratación pública de cada país del registro, cada una con su fuente: el plazo para publicar el contrato en el sistema nacional, el mínimo de la garantía de cumplimiento —su tope, en Brasil— y su entrega a tiempo, en México<br>· Una entidad pública de prueba por país, con sus constancias de publicación y sus pólizas | La ronda 7 con Fidel sobre las seis entidades públicas, una por país: 19 de 19 señales, ninguna de más, y 909 de 912 datos; los dos defectos que encontró, en la clave y en las instrucciones, con su corrección y su verificación |
 
 <!-- /hoja de ruta -->
 
@@ -407,8 +407,8 @@ sobre la documentación de una organización real.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Fidel** · Contratos | `criterio-legal` · 7 comandos, 5 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Cumplimiento | `criterio-compliance` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contratos | `criterio-legal` · 7 comandos, 5 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 7 · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Cumplimiento | `criterio-compliance` · 7 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 7 · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 

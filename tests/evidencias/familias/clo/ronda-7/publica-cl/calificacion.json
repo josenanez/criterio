@@ -1,0 +1,18 @@
+{
+  "entidad": "Servicio Público del Maipo",
+  "agentes": [
+    "fidel"
+  ],
+  "tokens": 1810120,
+  "senales": {
+    "esperadas": 3,
+    "acertadas": 3,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 152,
+    "bien": 152,
+    "mal": []
+  }
+}

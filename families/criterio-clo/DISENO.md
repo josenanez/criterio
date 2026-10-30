@@ -214,10 +214,11 @@ Only verified figures go in, with their source, year and sample; they are in [`F
 - The plugins: `criterio-legal` for Fidel, the one already declared, and `criterio-compliance` for
   Constanza. José, 2026-10-20.
 - No legal opinion in the first version. José, 2026-10-20.
+- Public contracts enter in 1.1.0: those of a public entity, against the publication and the
+  guarantee set by its country's public procurement law, each rule with its source. A rule of the
+  law is not a legal opinion: the record is compared with it. José, 2026-10-30.
 
 ## Open decisions
 
 1. A recommended obligations matrix per industry, and who reviews it before offering it as anything
    more than a draft.
-2. Public contracts, with their own rules on publication and guarantees, are left for another
-   version.

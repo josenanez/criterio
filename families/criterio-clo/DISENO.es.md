@@ -210,10 +210,11 @@ Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.e
 - Los plugins: `criterio-legal` para Fidel, el que ya estaba declarado, y `criterio-compliance`
   para Constanza. José, 2026-10-20.
 - Sin opinión jurídica en la primera versión. José, 2026-10-20.
+- Los contratos públicos entran en la 1.1.0: los de una entidad pública, contra la publicación y la
+  garantía que fija la ley de contratación pública de su país, cada regla con su fuente. Una regla
+  de la ley no es una opinión jurídica: se compara la ficha con ella. José, 2026-10-30.
 
 ## Decisiones abiertas
 
 1. Un modelo recomendado de matriz de obligaciones por industria, y quién lo revisa antes de
    proponerlo como algo más que un borrador.
-2. Los contratos públicos, con sus propias reglas de publicación y de garantías, quedan para otra
-   versión.

@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T11:36:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 60,
+  "turnos": 19,
+  "tokens": 968879,
+  "tokens_salida": 3787,
+  "costo_usd": 0.31167940000000005,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/1760001230001-empresa-publica-sierra-norte-ep/contratos/reporte-contract-scan.md",
+      "estado-legal/1760001230001-empresa-publica-sierra-norte-ep/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/1760001230001-empresa-publica-sierra-norte-ep/corridas/salida-contract-scan.md",
+      "estado-legal/1760001230001-empresa-publica-sierra-norte-ep/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/1760001230001-empresa-publica-sierra-norte-ep/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "entidad": "Empresa Pública Paulista",
+  "agentes": [
+    "fidel"
+  ],
+  "tokens": 1859942,
+  "senales": {
+    "esperadas": 4,
+    "acertadas": 4,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 152,
+    "bien": 150,
+    "mal": [
+      {
+        "ficha": "contratos/CTR-2402",
+        "campo": "public.system",
+        "esperado": null,
+        "obtenido": "PNCP",
+        "bien": false
+      },
+      {
+        "ficha": "contratos/CTR-2402",
+        "campo": "public.source",
+        "esperado": null,
+        "obtenido": "00-referencia/politica-contratacao.md",
+        "bien": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T11:42:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 59,
+  "turnos": 16,
+  "tokens": 886797,
+  "tokens_salida": 3274,
+  "costo_usd": 0.3051474,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/61999010-2-servicio-publico-del-maipo/contratos/reporte-contract-scan.md",
+      "estado-legal/61999010-2-servicio-publico-del-maipo/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/61999010-2-servicio-publico-del-maipo/corridas/salida-contract-scan.md",
+      "estado-legal/61999010-2-servicio-publico-del-maipo/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/61999010-2-servicio-publico-del-maipo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

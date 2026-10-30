@@ -1,7 +1,7 @@
 {
  "meta": {
   "generado_desde": "tests/evidencias/familias/clo",
-  "ultima_ronda": 6,
+  "ultima_ronda": 7,
   "completa": false,
   "rondas": [
    1,
@@ -9,7 +9,8 @@
    3,
    4,
    5,
-   6
+   6,
+   7
   ]
  },
  "secciones": [
@@ -21,12 +22,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 6, parcial, sobre 3 de las 24 entidades del material: 20 de 20 señales sembradas encontradas (margen del 95 %: 83,8–100 %) y 0 de más; 396 de 396 datos extraídos bien (100 %, margen del 95 %: 99–100 %); y 1 de 1 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–6, 128 de 128 señales encontradas, 0 de más y 3312 de 3328 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda más reciente, la 7, parcial, sobre 6 de las 24 entidades del material: 19 de 19 señales sembradas encontradas (margen del 95 %: 83,1–100 %) y 0 de más; 911 de 912 datos extraídos bien (99,9 %, margen del 95 %: 99,3–100 %); y 0 de 0 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–7, 151 de 151 señales encontradas, 0 de más y 4373 de 4392 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 6, partial, on 3 of the material's 24 entities: 20 of 20 seeded signals found (95% margin: 83.8–100%) and 0 extra; 396 of 396 data items extracted right (100%, 95% margin: 99–100%); and 1 of 1 control entities with no signal at all.",
-     "Across rounds 1–6, 128 of 128 signals found, 0 extra and 3312 of 3328 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent round, round 7, partial, on 6 of the material's 24 entities: 19 of 19 seeded signals found (95% margin: 83.1–100%) and 0 extra; 911 of 912 data items extracted right (99.9%, 95% margin: 99.3–100%); and 0 of 0 control entities with no signal at all.",
+     "Across rounds 1–7, 151 of 151 signals found, 0 extra and 4373 of 4392 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -51,53 +52,53 @@
      "es": [
       [
        "Rondas",
-       "6; la más reciente, la 6, es parcial"
+       "7; la más reciente, la 7, es parcial"
       ],
       [
        "Material",
-       "Banca · Brasil, Retail · Brasil"
+       "Entidad pública · Brasil, Entidad pública · Chile, Entidad pública · Colombia, Entidad pública · Ecuador, Entidad pública · México, Entidad pública · Perú"
       ],
       [
        "Entidades de control",
-       "Control · Brasil"
+       ""
       ],
       [
        "Corridas de una entidad",
-       "25"
+       "32"
       ],
       [
        "Señales sembradas",
-       "128"
+       "151"
       ],
       [
        "Datos calificados",
-       "3328"
+       "4392"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "6; the most recent, round 6, is partial"
+       "7; the most recent, round 7, is partial"
       ],
       [
        "Material",
-       "Banking · Brazil, Retail · Brazil"
+       "Public entity · Brazil, Public entity · Chile, Public entity · Colombia, Public entity · Ecuador, Public entity · Mexico, Public entity · Peru"
       ],
       [
        "Control entities",
-       "Control · Brazil"
+       ""
       ],
       [
        "Entity runs",
-       "25"
+       "32"
       ],
       [
        "Seeded signals",
-       "128"
+       "151"
       ],
       [
        "Data items graded",
-       "3328"
+       "4392"
       ]
      ]
     }
@@ -116,8 +117,8 @@
   {
    "id": "acumulado",
    "titulo": {
-    "es": "Resultados acumulados · rondas 1–6",
-    "en": "Cumulative results · rounds 1–6"
+    "es": "Resultados acumulados · rondas 1–7",
+    "en": "Cumulative results · rounds 1–7"
    },
    "tabla": {
     "cab": {
@@ -138,21 +139,21 @@
      "es": [
       [
        "Señales · cobertura",
-       "128 de 128",
+       "151 de 151",
        "100 %",
-       "97–100 %"
+       "97,5–100 %"
       ],
       [
        "Señales · precisión",
-       "128 de 128",
+       "151 de 151",
        "100 %",
-       "97–100 %"
+       "97,5–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "3312 de 3328",
-       "99,5 %",
-       "99,2–99,8 %"
+       "4373 de 4392",
+       "99,6 %",
+       "99,3–99,8 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -164,21 +165,21 @@
      "en": [
       [
        "Signals · coverage",
-       "128 of 128",
+       "151 of 151",
        "100%",
-       "97–100%"
+       "97.5–100%"
       ],
       [
        "Signals · precision",
-       "128 of 128",
+       "151 of 151",
        "100%",
-       "97–100%"
+       "97.5–100%"
       ],
       [
        "Extraction · data right",
-       "3312 of 3328",
-       "99.5%",
-       "99.2–99.8%"
+       "4373 of 4392",
+       "99.6%",
+       "99.3–99.8%"
       ],
       [
        "Control · with no signal",
@@ -284,6 +285,16 @@
        "1 de 1",
        "9,3 M",
        "1"
+      ],
+      [
+       "7",
+       "7",
+       "100 %",
+       "100 %",
+       "99,7 %",
+       "0 de 0",
+       "13,5 M",
+       "2"
       ]
      ],
      "en": [
@@ -346,6 +357,16 @@
        "1 of 1",
        "9.3 M",
        "1"
+      ],
+      [
+       "7",
+       "7",
+       "100%",
+       "100%",
+       "99.7%",
+       "0 of 0",
+       "13.5 M",
+       "2"
       ]
      ]
     }
@@ -362,8 +383,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda más reciente · ronda 6",
-    "en": "The most recent round · round 6"
+    "es": "La ronda más reciente · ronda 7",
+    "en": "The most recent round · round 7"
    },
    "tabla": {
     "cab": {
@@ -384,53 +405,53 @@
      "es": [
       [
        "Señales · cobertura",
-       "20 de 20",
+       "19 de 19",
        "100 %",
-       "83,8–100 %"
+       "83,1–100 %"
       ],
       [
        "Señales · precisión",
-       "20 de 20",
+       "19 de 19",
        "100 %",
-       "83,8–100 %"
+       "83,1–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "396 de 396",
-       "100 %",
-       "99–100 %"
+       "911 de 912",
+       "99,9 %",
+       "99,3–100 %"
       ],
       [
        "Control · sin ninguna señal",
-       "1 de 1",
-       "100 %",
-       "20,6–100 %"
+       "0 de 0",
+       "—",
+       "—"
       ]
      ],
      "en": [
       [
        "Signals · coverage",
-       "20 of 20",
+       "19 of 19",
        "100%",
-       "83.8–100%"
+       "83.1–100%"
       ],
       [
        "Signals · precision",
-       "20 of 20",
+       "19 of 19",
        "100%",
-       "83.8–100%"
+       "83.1–100%"
       ],
       [
        "Extraction · data right",
-       "396 of 396",
-       "100%",
-       "99–100%"
+       "911 of 912",
+       "99.9%",
+       "99.3–100%"
       ],
       [
        "Control · with no signal",
-       "1 of 1",
-       "100%",
-       "20.6–100%"
+       "0 of 0",
+       "—",
+       "—"
       ]
      ]
     }
@@ -439,8 +460,8 @@
   {
    "id": "industrias",
    "titulo": {
-    "es": "Por industria y país · ronda 6",
-    "en": "By industry and country · round 6"
+    "es": "Por industria y país · ronda 7",
+    "en": "By industry and country · round 7"
    },
    "tabla": {
     "cab": {
@@ -464,54 +485,118 @@
     "filas": {
      "es": [
       [
-       "Banca · Brasil",
-       "Constanza, Fidel",
-       "10 de 10",
+       "Entidad pública · Brasil",
+       "Fidel",
+       "4 de 4",
        "0",
-       "132 de 132",
-       "3,3 M"
+       "150 de 152",
+       "1,9 M"
       ],
       [
-       "Retail · Brasil",
-       "Constanza, Fidel",
-       "10 de 10",
+       "Entidad pública · Brasil",
+       "Fidel",
+       "4 de 4",
        "0",
-       "132 de 132",
-       "2,9 M"
+       "152 de 152",
+       "1,8 M"
       ],
       [
-       "Control · Brasil",
-       "Constanza, Fidel",
-       "0 de 0",
+       "Entidad pública · Chile",
+       "Fidel",
+       "3 de 3",
        "0",
-       "132 de 132",
-       "3,1 M"
+       "152 de 152",
+       "1,8 M"
+      ],
+      [
+       "Entidad pública · Colombia",
+       "Fidel",
+       "5 de 5",
+       "0",
+       "151 de 152",
+       "1,9 M"
+      ],
+      [
+       "Entidad pública · Ecuador",
+       "Fidel",
+       "2 de 2",
+       "0",
+       "152 de 152",
+       "2,2 M"
+      ],
+      [
+       "Entidad pública · México",
+       "Fidel",
+       "3 de 3",
+       "0",
+       "152 de 152",
+       "2,1 M"
+      ],
+      [
+       "Entidad pública · Perú",
+       "Fidel",
+       "2 de 2",
+       "0",
+       "152 de 152",
+       "1,9 M"
       ]
      ],
      "en": [
       [
-       "Banking · Brazil",
-       "Constanza, Fidel",
-       "10 of 10",
+       "Public entity · Brazil",
+       "Fidel",
+       "4 of 4",
        "0",
-       "132 of 132",
-       "3.3 M"
+       "150 of 152",
+       "1.9 M"
       ],
       [
-       "Retail · Brazil",
-       "Constanza, Fidel",
-       "10 of 10",
+       "Public entity · Brazil",
+       "Fidel",
+       "4 of 4",
        "0",
-       "132 of 132",
-       "2.9 M"
+       "152 of 152",
+       "1.8 M"
       ],
       [
-       "Control · Brazil",
-       "Constanza, Fidel",
-       "0 of 0",
+       "Public entity · Chile",
+       "Fidel",
+       "3 of 3",
        "0",
-       "132 of 132",
-       "3.1 M"
+       "152 of 152",
+       "1.8 M"
+      ],
+      [
+       "Public entity · Colombia",
+       "Fidel",
+       "5 of 5",
+       "0",
+       "151 of 152",
+       "1.9 M"
+      ],
+      [
+       "Public entity · Ecuador",
+       "Fidel",
+       "2 of 2",
+       "0",
+       "152 of 152",
+       "2.2 M"
+      ],
+      [
+       "Public entity · Mexico",
+       "Fidel",
+       "3 of 3",
+       "0",
+       "152 of 152",
+       "2.1 M"
+      ],
+      [
+       "Public entity · Peru",
+       "Fidel",
+       "2 of 2",
+       "0",
+       "152 of 152",
+       "1.9 M"
       ]
      ]
     }
@@ -520,15 +605,15 @@
   {
    "id": "senales",
    "titulo": {
-    "es": "Lo que falló, uno por uno · rondas 1–6",
-    "en": "What failed, one by one · rounds 1–6"
+    "es": "Lo que falló, uno por uno · rondas 1–7",
+    "en": "What failed, one by one · rounds 1–7"
    },
    "parrafos": {
     "es": [
-     "16 fallas en 25 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "19 fallas en 32 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "16 failures in 25 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 4 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "19 failures in 32 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 4 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -679,6 +764,30 @@
        "contratos/CTR-1502 · obligations",
        "CLO-11",
        "Instrucciones del agente"
+      ],
+      [
+       "7",
+       "Entidad pública · Brasil",
+       "Dato calificado como mal",
+       "contratos/CTR-2402 · public.system",
+       "CLO-14",
+       "Instrucciones del agente"
+      ],
+      [
+       "7",
+       "Entidad pública · Brasil",
+       "Dato calificado como mal",
+       "contratos/CTR-2402 · public.source",
+       "CLO-14",
+       "Instrucciones del agente"
+      ],
+      [
+       "7",
+       "Entidad pública · Colombia",
+       "Dato calificado como mal",
+       "contratos/CTR-1902 · end",
+       "—",
+       "—"
       ]
      ],
      "en": [
@@ -809,6 +918,30 @@
        "contratos/CTR-1502 · obligations",
        "CLO-11",
        "Agent instructions"
+      ],
+      [
+       "7",
+       "Public entity · Brazil",
+       "Data item graded wrong",
+       "contratos/CTR-2402 · public.system",
+       "CLO-14",
+       "Agent instructions"
+      ],
+      [
+       "7",
+       "Public entity · Brazil",
+       "Data item graded wrong",
+       "contratos/CTR-2402 · public.source",
+       "CLO-14",
+       "Agent instructions"
+      ],
+      [
+       "7",
+       "Public entity · Colombia",
+       "Data item graded wrong",
+       "contratos/CTR-1902 · end",
+       "—",
+       "—"
       ]
      ]
     }
@@ -826,10 +959,10 @@
    },
    "parrafos": {
     "es": [
-     "12 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 12 verificados y 0 por verificar. 5 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "14 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 14 verificados y 0 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "12 defects logged, each with its origin, its fix and the run that verified it: 12 verified and 0 to verify. 5 came from the material, the key or the test harness, not from the agents."
+     "14 defects logged, each with its origin, its fix and the run that verified it: 14 verified and 0 to verify. 6 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -847,7 +980,7 @@
      "es": [
       [
        "Instrucciones del agente",
-       "5"
+       "6"
       ],
       [
        "Arnés de pruebas",
@@ -859,13 +992,13 @@
       ],
       [
        "Clave de calificación",
-       "1"
+       "2"
       ]
      ],
      "en": [
       [
        "Agent instructions",
-       "5"
+       "6"
       ],
       [
        "Test harness",
@@ -877,7 +1010,7 @@
       ],
       [
        "Grading key",
-       "1"
+       "2"
       ]
      ]
     }
@@ -897,7 +1030,7 @@
      "es": [
       [
        "Fidel",
-       "6"
+       "8"
       ],
       [
        "Constanza",
@@ -911,7 +1044,7 @@
      "en": [
       [
        "Fidel",
-       "6"
+       "8"
       ],
       [
        "Constanza",
@@ -933,11 +1066,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 6 rondas usaron 119,3 millones de tokens: 116,8 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 4,7 millones por entidad.",
+     "Las 7 rondas usaron 132,8 millones de tokens: 130,4 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 4,1 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 6 rounds used 119.3 million tokens: 116.8 million in the graded runs and 2.4 in the ones repeated after fixing a defect. On average, 4.7 million per entity.",
+     "The 7 rounds used 132.8 million tokens: 130.4 million in the graded runs and 2.4 in the ones repeated after fixing a defect. On average, 4.1 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

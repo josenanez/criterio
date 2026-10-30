@@ -1,0 +1,26 @@
+{
+  "entidad": "Instituto Público de Fomento Andino",
+  "agentes": [
+    "fidel"
+  ],
+  "tokens": 1913035,
+  "senales": {
+    "esperadas": 5,
+    "acertadas": 5,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 152,
+    "bien": 151,
+    "mal": [
+      {
+        "ficha": "contratos/CTR-1902",
+        "campo": "end",
+        "esperado": "2027-06-30",
+        "obtenido": "2026-06-30",
+        "bien": false
+      }
+    ]
+  }
+}

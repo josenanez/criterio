@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T11:45:18",
+  "estado": "success",
+  "error": false,
+  "segundos": 65,
+  "turnos": 19,
+  "tokens": 975162,
+  "tokens_salida": 4448,
+  "costo_usd": 0.32332489999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/OPB150301AB9-organismo-publico-del-bajio/contratos/reporte-contract-scan.md",
+      "estado-legal/OPB150301AB9-organismo-publico-del-bajio/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/OPB150301AB9-organismo-publico-del-bajio/corridas/salida-contract-scan.md",
+      "estado-legal/OPB150301AB9-organismo-publico-del-bajio/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/OPB150301AB9-organismo-publico-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

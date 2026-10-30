@@ -1,0 +1,38 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T11:33:43",
+  "estado": "success",
+  "error": false,
+  "segundos": 89,
+  "turnos": 19,
+  "tokens": 991618,
+  "tokens_salida": 7958,
+  "costo_usd": 0.3814697999999999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-10-30-contract-scan-1.html",
+      ".criterio/corridas/legal/2026-10-30-contract-scan-1.md",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos/reporte-contract-scan.md",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/corridas/salida-contract-scan.md",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/indice.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos/CTR-1901.json",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos/CTR-1902.json",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos/CTR-1903.json",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos/CTR-1904.json",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos/CTR-1905.json",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos/CTR-1906.json",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/contratos/resultados.json",
+      "estado-legal/899999101-instituto-publico-de-fomento-andino/corridas.json"
+    ],
+    "borrados": []
+  }
+}

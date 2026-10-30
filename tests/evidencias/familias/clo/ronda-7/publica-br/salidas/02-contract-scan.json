@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T11:48:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 14,
+  "tokens": 715381,
+  "tokens_salida": 3614,
+  "costo_usd": 0.2607102,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/45678912000155-empresa-publica-paulista/contratos/reporte-contract-scan.md",
+      "estado-legal/45678912000155-empresa-publica-paulista/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/45678912000155-empresa-publica-paulista/corridas/salida-contract-scan.md",
+      "estado-legal/45678912000155-empresa-publica-paulista/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/45678912000155-empresa-publica-paulista/corridas.json"
+    ],
+    "borrados": []
+  }
+}
