@@ -1794,6 +1794,94 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "98fe923bb1e428cfcc4222c1ecd1ea67e3a32e4328ad621f54b6746ecae1da89",
       "sha256": "4dcb25432855983a17b5b20f4c7368570306c4f000d591b37ccb008d1eb467c5"
+    },
+    {
+      "version": "1.6.0",
+      "fecha": "2026-10-30",
+      "commit": null,
+      "base": "bd06fd01",
+      "etiqueta": "v1.6.0",
+      "familias": {
+        "cco": "0.3.0",
+        "cfo": "1.0.0",
+        "ciso": "0.1.0",
+        "clo": "1.1.0",
+        "ea": "1.0.0",
+        "pmo": "1.0.0",
+        "rostrum": "1.0.0"
+      },
+      "liberadas": [
+        "ciso"
+      ],
+      "versiones": {
+        "criterio-revenue": "0.3.0",
+        "criterio-sales": "0.3.0",
+        "criterio-budget": "1.0.0",
+        "criterio-finance": "1.0.0",
+        "criterio-treasury": "1.0.0",
+        "criterio-resilience": "0.1.0",
+        "criterio-security": "0.1.0",
+        "criterio-vulnerability": "0.1.0",
+        "criterio-compliance": "1.1.0",
+        "criterio-legal": "1.1.0",
+        "criterio-assistant": "1.0.0",
+        "criterio-portfolio": "1.0.0",
+        "criterio-product": "1.0.0",
+        "criterio-project": "1.0.0",
+        "criterio-server": "1.0.0"
+      },
+      "calidad": {
+        "ciso": {
+          "etiqueta": "laboratorio",
+          "ronda": null,
+          "pisos": {},
+          "motivo": [
+            "sin ronda con los agentes"
+          ],
+          "umbral": 95
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "41a962281669adff9067a6f998b8b9d96f237b2bc57e1395e6583e23da3c735d",
+        "criterio-budget": "d84f6eb34f02ac740b8436ed25c957b9e2291f2e9a4eef7fc53f4080b7129185",
+        "criterio-compliance": "a7efa50e59b876b5220858c1abe5ca50b4b948436f0f23e8940cf11baf8f06f0",
+        "criterio-finance": "7930763fa20cdd3dc4c141ac942421dd2d963f7b9d547227d8d7c03588e76c20",
+        "criterio-legal": "a5b0334b357a6a1f3c1fae059cd45fdc45c1e48b19b9de87bfc287f666655267",
+        "criterio-portfolio": "0667487912e62b44baecadab6ffdd662631d9b47cf43cba085a2c9fe57e30d75",
+        "criterio-product": "4d7fd05290bbe64a2010ee53fee35c1414ca51f73f9d01f54b6547869dc8724e",
+        "criterio-project": "ea0349f39c773d66dcc268bc260d8625c998865e991104c4f84a4468902c566e",
+        "criterio-resilience": "246caab09731ad705abf25fab5d61bd6edf39994cb2c89921b1ae5ae19e16dec",
+        "criterio-revenue": "ef99647292c739527502882a6417a7375dd90416ddf6ba67960359aaf7b9cb5b",
+        "criterio-sales": "de1bee65b47b8de6cda18d20058bacd53b1836126b7fed33cb25a010373ae1d9",
+        "criterio-security": "b7a97e6485c2a338195fffaf9c30e3eb25d15a2edc160537802a33974ae4c790",
+        "criterio-server": "f268b3c44868a601057ed257ff89d28a9996f2ff5a5038031f65dfe618f606ba",
+        "criterio-treasury": "bfb4ccf796ccd5778ab9078d442fe443260a13538e9b27de226f8d4b3d229d14",
+        "criterio-vulnerability": "f7e7d837f6899c29347d5408622ec0c70d13be410fd95cf3aaa6c37fc50c03dd"
+      },
+      "destacados": [
+        "Entra la CISO 0.1.0, de laboratorio: Alexis, Guillermo y Amparo ponen cada control, cada vulnerabilidad y cada incidente al lado de los plazos de la organización"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "Argentina, construida: el lector del comprobante electrónico de ARCA (F-24, manual WSFEv1 RG 4291, FE v4.8), el IVA al 21 % (F-25), el perfil NIIF (F-26), el CUIT con su dígito, y la garantía de cumplimiento del Decreto 1030/2016 (F-11): el 10 % del contrato, integrada en cinco días hábiles. Material de la CFO (retail, minería y control) y de la CLO (banca, retail, control y una entidad pública); los motores levantan cada señal sembrada, ninguna de más",
+        "Las descargas, día por día: scripts/descargas.py guarda cada día del tráfico de GitHub, que solo conserva catorce, y suma el historial; un flujo diario lo guarda en la rama descargas. La CISO, diseñada (decisión 0023): Alexis, Guillermo y Amparo; la 0013, aceptada",
+        "Panamá, construida: el lector de la factura electrónica de la DGI (F-27, Ficha Técnica 1.00), el ITBMS al 7 % (F-28), el perfil NIIF (F-29) y la fianza de cumplimiento que la Ley 22 de 2006 exige desde B/.50 000 (F-12). Material de la CFO (banca, retail y control) y de la CLO (banca, retail, control y una entidad pública); los motores levantan cada señal sembrada, ninguna de más",
+        "Guatemala: el lector de la FEL, sus fuentes y su material para la CFO y la CLO",
+        "Ronda 8 de la CFO y de la CLO, Argentina: la CFO 24 de 24 señales y 25 de 25 datos; la CLO, con su entidad pública, 25 de 25 señales y 548 de 548 datos; ninguna de más y ningún defecto. Argentina, Panamá y Guatemala, un solo incremento por familia: la calidad se mide cuando cada entidad del material tiene su corrida",
+        "Criterio CISO, la seguridad de la información, construida (decisión 0023): Alexis (el gobierno y los controles), Guillermo (las vulnerabilidades) y Amparo (la respuesta y la recuperación), con su motor seguridad.py y las dieciséis señales; el NIST CSF 2.0, el CVSS v4.0 y el catálogo KEV verificados en su fuente; credenciales, llaves y respaldos excluidos por omisión; lo de vulnerabilidades fuera de Rostrum salvo que la configuración lo diga. Material de banca, retail, salud y tecnología con dos controles: 100 señales en la clave, el motor levanta todas y ninguna de más. La BOD 22-01 está revocada (BOD 26-04): el motor toma la fecha que trae el catálogo. La CCO dice en todas sus páginas que es estable, en su 0.3.0",
+        "CISO 0.1.0, de laboratorio: sus páginas dicen que se instala desde el marketplace, la hoja de ruta reserva la 0.1.0 y la ronda queda en curso; notas del catálogo 1.6.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "4dcb25432855983a17b5b20f4c7368570306c4f000d591b37ccb008d1eb467c5",
+      "sha256": "ebd703c1c0ab385933e778b404dfe03400fc2d504582e223a21ad56ab7ab95f4"
     }
   ]
 }

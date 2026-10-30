@@ -18,7 +18,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.1.0 | Laboratorio | 1.2.0 · Argentina, Panamá y Guatemala |
 | Criterio EA · Dirección | Ofelia | 1.0.0 | Estable | — |
 | Criterio CCO · La función comercial | Augusto, Valeria | 0.3.0 | Estable | — |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | En construcción | Laboratorio | 0.2.0 · La ronda de los tres agentes |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 0.1.0 | Laboratorio | 0.2.0 · La ronda de los tres agentes |
 | Rostrum · el portal de todas las familias | — | 1.0.0 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -76,7 +76,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
-| 0.1.0 | Reservada | **Alexis, Guillermo y Amparo, construidos, con el motor probado**<br>· Los veinte comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo<br>· Cualquier exportación de escáner en CSV o Excel con su mapeo de columnas, la severidad desde el CVSS v4.0 y el catálogo KEV de CISA<br>· Lo que nunca se abre: credenciales, llaves y respaldos, excluidos por omisión<br>· Material de banca, retail, salud y tecnología, con dos entidades de control | El motor contra la clave de todo el material: seis entidades de cuatro industrias, con sus controles |
+| 0.1.0 | Liberada | **Alexis, Guillermo y Amparo, construidos, con el motor probado**<br>· Los veinte comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo<br>· Cualquier exportación de escáner en CSV o Excel con su mapeo de columnas, la severidad desde el CVSS v4.0 y el catálogo KEV de CISA<br>· Lo que nunca se abre: credenciales, llaves y respaldos, excluidos por omisión<br>· Material de banca, retail, salud y tecnología, con dos entidades de control | El motor contra la clave de todo el material: seis entidades de cuatro industrias, con sus controles |
 | 0.2.0 | En curso | **La ronda de los tres agentes**<br>· La ronda con Alexis, Guillermo y Amparo sobre todo el material, con la clave que no ven<br>· Los defectos que encuentre, con su corrección y su verificación | La ronda completa, con el piso del margen del 95 % en señales y en datos (decisión 0020) |
 | Incremento 3 | Siguiente | **Los escáneres, cada uno desde su fuente**<br>· El formato de exportación de Tenable, Qualys, Rapid7 y Microsoft Defender, cada uno desde su fuente verificada, como entraron Dynamics y Zoho en la CCO | Su material y su ronda, con las mismas métricas |
 

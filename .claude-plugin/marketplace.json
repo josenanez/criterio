@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "criterio",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Plugins de IA que razonan con la normativa de Suramérica y con el estado real de un portafolio. AI plugins that reason with South American law and with the real state of a project portfolio.",
   "owner": {
     "name": "José Francisco Ñáñez",
@@ -73,6 +73,24 @@
       "description": "Augusto, el pronóstico: el embudo del CRM contra su evidencia —cada oportunidad contra el documento que exige su etapa, las detenidas y los cierres que se corren— y el pronóstico comprometido contra lo que lo sostiene, con la meta contra lo cerrado. Procesa exportaciones de Salesforce, de HubSpot o de cualquier CRM en CSV o Excel; nunca escribe en el CRM ni califica a quien vende.",
       "source": "./plugins/criterio-sales",
       "category": "sales"
+    },
+    {
+      "name": "criterio-resilience",
+      "description": "Amparo, la respuesta y la recuperación: cada incidente contra el plazo de contención de su severidad, cada notificación de la matriz contra la que se hizo, la revisión posterior y las pruebas de continuidad y de restauración contra su calendario. Nunca notifica a nadie ni ejecuta una prueba.",
+      "source": "./plugins/criterio-resilience",
+      "category": "security"
+    },
+    {
+      "name": "criterio-security",
+      "description": "Alexis, el gobierno y los controles: la declaración de aplicabilidad contra la evidencia de cada control, las revisiones de acceso, las evaluaciones de terceros críticos y las aceptaciones de riesgo vencidas. Procesa los documentos y las tablas de la organización; nunca acepta un riesgo, declara cumplido un control ni abre credenciales, llaves o respaldos.",
+      "source": "./plugins/criterio-security",
+      "category": "security"
+    },
+    {
+      "name": "criterio-vulnerability",
+      "description": "Guillermo, las vulnerabilidades: cada hallazgo de las exportaciones del escáner contra el plazo de su severidad en la política, el catálogo KEV de CISA, las excepciones vencidas, los cierres que ningún escaneo prueba y los activos sin escanear. Nunca corre un escaneo ni publica lo abierto en Rostrum sin que la configuración lo diga.",
+      "source": "./plugins/criterio-vulnerability",
+      "category": "security"
     },
     {
       "name": "criterio-server",
