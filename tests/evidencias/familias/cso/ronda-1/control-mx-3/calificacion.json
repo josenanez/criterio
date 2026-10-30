@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Control de México",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 2885726,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

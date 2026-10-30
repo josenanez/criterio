@@ -8,7 +8,7 @@ No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera c
 
 La ronda completa más reciente, la 1, sobre las 6 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 30 de 30 datos extraídos bien (100 %, margen del 95 %: 88,6–100 %); y 2 de 2 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–1, 111 de 119 señales encontradas, 2 de más y 45 de 45 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–1, 111 de 119 señales encontradas, 2 de más y 50 de 50 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -21,9 +21,9 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 | Rondas | 1; la completa más reciente es la 1 |
 | Material | Retail · Colombia, manufactura · México, servicios · México, tecnologia · Colombia |
 | Entidades de control | Control · Colombia, Control · México |
-| Corridas de una entidad | 9 |
+| Corridas de una entidad | 10 |
 | Señales sembradas | 119 |
-| Datos calificados | 45 |
+| Datos calificados | 50 |
 
 ## Resultados acumulados · rondas 1–1
 
@@ -31,8 +31,8 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 |---|---|---|---|
 | Señales · cobertura | 111 de 119 | 93,3 % | 87,2–96,6 % |
 | Señales · precisión | 111 de 113 | 98,2 % | 93,7–99,6 % |
-| Extracción · datos correctos | 45 de 45 | 100 % | 92,1–100 % |
-| Control · sin ninguna señal | 2 de 3 | 66,7 % | 20,7–93,9 % |
+| Extracción · datos correctos | 50 de 50 | 100 % | 92,8–100 % |
+| Control · sin ninguna señal | 3 de 4 | 75 % | 30–95,5 % |
 
 ## Evolución por ronda
 
@@ -40,7 +40,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
-| 1 | 9 | 93,3 % | 98,2 % | 100 % | 2 de 3 | 28 M | 3 |
+| 1 | 10 | 93,3 % | 98,2 % | 100 % | 3 de 4 | 30,9 M | 3 |
 
 ## La ronda completa más reciente · ronda 1
 
@@ -64,10 +64,11 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 | Control · Colombia | Augusto, Valeria | 0 de 0 | 0 | 5 de 5 | 3,2 M |
 | Control · México | Augusto, Valeria | 0 de 0 | 2 | 5 de 5 | 2,9 M |
 | Control · México | Augusto, Valeria | 0 de 0 | 0 | 5 de 5 | 2,9 M |
+| Control · México | Augusto, Valeria | 0 de 0 | 0 | 5 de 5 | 2,9 M |
 
 ## Lo que falló, uno por uno · rondas 1–1
 
-10 fallas en 9 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+10 fallas en 10 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -86,7 +87,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 ![Defectos](defectos-es.svg)
 
-3 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 2 verificados y 1 por verificar. 2 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
+3 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 3 verificados y 0 por verificar. 2 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
 
 | Origen | Defectos |
 |---|---|
@@ -101,7 +102,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 ## Consumo y próximo paso
 
-Las 1 rondas usaron 28 millones de tokens: 28 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 3,1 millones por entidad.
+Las 1 rondas usaron 30,9 millones de tokens: 30,9 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 3,1 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

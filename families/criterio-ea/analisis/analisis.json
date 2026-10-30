@@ -17,12 +17,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda completa más reciente, la 2, sobre las 4 entidades del material: 85 de 85 señales sembradas encontradas (margen del 95 %: 95,6–100 %) y 0 de más; 144 de 146 datos extraídos bien (98,6 %, margen del 95 %: 95,1–99,7 %); y 2 de 2 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–2, 103 de 103 señales encontradas, 1 de más y 280 de 285 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda completa más reciente, la 2, sobre las 4 entidades del material: 85 de 85 señales sembradas encontradas (margen del 95 %: 95,6–100 %) y 0 de más; 146 de 146 datos extraídos bien (100 %, margen del 95 %: 97,4–100 %); y 2 de 2 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–2, 188 de 188 señales encontradas, 1 de más y 376 de 381 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent complete round, round 2, on the material's 4 entities: 85 of 85 seeded signals found (95% margin: 95.6–100%) and 0 extra; 144 of 146 data items extracted right (98.6%, 95% margin: 95.1–99.7%); and 2 of 2 control entities with no signal at all.",
-     "Across rounds 1–2, 103 of 103 signals found, 1 extra and 280 of 285 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent complete round, round 2, on the material's 4 entities: 85 of 85 seeded signals found (95% margin: 95.6–100%) and 0 extra; 146 of 146 data items extracted right (100%, 95% margin: 97.4–100%); and 2 of 2 control entities with no signal at all.",
+     "Across rounds 1–2, 188 of 188 signals found, 1 extra and 376 of 381 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -59,15 +59,15 @@
       ],
       [
        "Corridas de una entidad",
-       "11"
+       "13"
       ],
       [
        "Señales sembradas",
-       "103"
+       "188"
       ],
       [
        "Datos calificados",
-       "285"
+       "381"
       ]
      ],
      "en": [
@@ -85,15 +85,15 @@
       ],
       [
        "Entity runs",
-       "11"
+       "13"
       ],
       [
        "Seeded signals",
-       "103"
+       "188"
       ],
       [
        "Data items graded",
-       "285"
+       "381"
       ]
      ]
     }
@@ -134,21 +134,21 @@
      "es": [
       [
        "Señales · cobertura",
-       "103 de 103",
+       "188 de 188",
        "100 %",
-       "96,4–100 %"
+       "97,9–100 %"
       ],
       [
        "Señales · precisión",
-       "103 de 104",
-       "99 %",
-       "94,7–99,9 %"
+       "188 de 189",
+       "99,5 %",
+       "97–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "280 de 285",
-       "98,2 %",
-       "95,9–99,3 %"
+       "376 de 381",
+       "98,7 %",
+       "96,9–99,5 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -160,21 +160,21 @@
      "en": [
       [
        "Signals · coverage",
-       "103 of 103",
+       "188 of 188",
        "100%",
-       "96.4–100%"
+       "97.9–100%"
       ],
       [
        "Signals · precision",
-       "103 of 104",
-       "99%",
-       "94.7–99.9%"
+       "188 of 189",
+       "99.5%",
+       "97–100%"
       ],
       [
        "Extraction · data right",
-       "280 of 285",
-       "98.2%",
-       "95.9–99.3%"
+       "376 of 381",
+       "98.7%",
+       "96.9–99.5%"
       ],
       [
        "Control · with no signal",
@@ -233,13 +233,13 @@
       ],
       [
        "2",
-       "4",
+       "6",
        "100 %",
        "100 %",
-       "98,6 %",
+       "99,2 %",
        "2 de 2",
-       "6,4 M",
-       "0"
+       "9,9 M",
+       "1"
       ]
      ],
      "en": [
@@ -255,13 +255,13 @@
       ],
       [
        "2",
-       "4",
+       "6",
        "100%",
        "100%",
-       "98.6%",
+       "99.2%",
        "2 of 2",
-       "6.4 M",
-       "0"
+       "9.9 M",
+       "1"
       ]
      ]
     }
@@ -304,9 +304,9 @@
       ],
       [
        "Extracción · datos correctos",
-       "144 de 146",
-       "98,6 %",
-       "95,1–99,7 %"
+       "146 de 146",
+       "100 %",
+       "97,4–100 %"
       ],
       [
        "Control · sin ninguna señal",
@@ -330,9 +330,9 @@
       ],
       [
        "Extraction · data right",
-       "144 of 146",
-       "98.6%",
-       "95.1–99.7%"
+       "146 of 146",
+       "100%",
+       "97.4–100%"
       ],
       [
        "Control · with no signal",
@@ -380,12 +380,28 @@
        "1,6 M"
       ],
       [
+       "Banca · Colombia",
+       "Ofelia",
+       "50 de 50",
+       "0",
+       "51 de 51",
+       "1,6 M"
+      ],
+      [
        "Cooperativas · Ecuador",
        "Ofelia",
        "35 de 35",
        "0",
        "44 de 45",
        "1,6 M"
+      ],
+      [
+       "Cooperativas · Ecuador",
+       "Ofelia",
+       "35 de 35",
+       "0",
+       "45 de 45",
+       "1,9 M"
       ],
       [
        "Control · Colombia",
@@ -414,12 +430,28 @@
        "1.6 M"
       ],
       [
+       "Banking · Colombia",
+       "Ofelia",
+       "50 of 50",
+       "0",
+       "51 of 51",
+       "1.6 M"
+      ],
+      [
        "Credit unions · Ecuador",
        "Ofelia",
        "35 of 35",
        "0",
        "44 of 45",
        "1.6 M"
+      ],
+      [
+       "Credit unions · Ecuador",
+       "Ofelia",
+       "35 of 35",
+       "0",
+       "45 of 45",
+       "1.9 M"
       ],
       [
        "Control · Colombia",
@@ -449,10 +481,10 @@
    },
    "parrafos": {
     "es": [
-     "6 fallas en 11 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "6 fallas en 13 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 2 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "6 failures in 11 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "6 failures in 13 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 2 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -513,16 +545,16 @@
        "Banca · Colombia",
        "Dato calificado como mal",
        "reuniones/comite-de-presidencia-2026-10-05 · decisions",
-       "—",
-       "—"
+       "EA-9",
+       "Material de prueba"
       ],
       [
        "2",
        "Cooperativas · Ecuador",
        "Dato calificado como mal",
        "reuniones/comite-de-gerencia-2026-10-05 · decisions",
-       "—",
-       "—"
+       "EA-9",
+       "Material de prueba"
       ]
      ],
      "en": [
@@ -563,16 +595,16 @@
        "Banking · Colombia",
        "Data item graded wrong",
        "reuniones/comite-de-presidencia-2026-10-05 · decisions",
-       "—",
-       "—"
+       "EA-9",
+       "Test material"
       ],
       [
        "2",
        "Credit unions · Ecuador",
        "Data item graded wrong",
        "reuniones/comite-de-gerencia-2026-10-05 · decisions",
-       "—",
-       "—"
+       "EA-9",
+       "Test material"
       ]
      ]
     }
@@ -590,10 +622,10 @@
    },
    "parrafos": {
     "es": [
-     "8 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 8 verificados y 0 por verificar. 2 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "9 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 9 verificados y 0 por verificar. 3 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "8 defects logged, each with its origin, its fix and the run that verified it: 8 verified and 0 to verify. 2 came from the material, the key or the test harness, not from the agents."
+     "9 defects logged, each with its origin, its fix and the run that verified it: 9 verified and 0 to verify. 3 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -624,6 +656,10 @@
       [
        "Arnés de pruebas",
        "1"
+      ],
+      [
+       "Material de prueba",
+       "1"
       ]
      ],
      "en": [
@@ -641,6 +677,10 @@
       ],
       [
        "Test harness",
+       "1"
+      ],
+      [
+       "Test material",
        "1"
       ]
      ]
@@ -661,13 +701,13 @@
      "es": [
       [
        "Ofelia",
-       "8"
+       "9"
       ]
      ],
      "en": [
       [
        "Ofelia",
-       "8"
+       "9"
       ]
      ]
     }
@@ -681,11 +721,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 2 rondas usaron 18,9 millones de tokens: 17,7 millones en las corridas calificadas y 1,2 en las que se repitieron después de corregir un defecto. En promedio, 1,6 millones por entidad.",
+     "Las 2 rondas usaron 22,3 millones de tokens: 21,1 millones en las corridas calificadas y 1,2 en las que se repitieron después de corregir un defecto. En promedio, 1,6 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 2 rounds used 18.9 million tokens: 17.7 million in the graded runs and 1.2 in the ones repeated after fixing a defect. On average, 1.6 million per entity.",
+     "The 2 rounds used 22.3 million tokens: 21.1 million in the graded runs and 1.2 in the ones repeated after fixing a defect. On average, 1.6 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

@@ -13,6 +13,12 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-1 | [control-ec](ronda-1/control-ec/) | control · EC | ofelia | 0 de 0 · 0 de más | 22 de 22 | 1.48 M |
 | ronda-1 | [cooperativas](ronda-1/cooperativas/) | cooperativas · EC | ofelia | 4 de 4 · 0 de más | 16 de 17 | 1.67 M |
 | ronda-1 | [cooperativas-ofelia](ronda-1/cooperativas-ofelia/) | cooperativas · EC | ofelia | 4 de 4 · 0 de más | 17 de 17 | 1.84 M |
+| ronda-2 | [banca](ronda-2/banca/) | banca · CO | ofelia | 50 de 50 · 0 de más | 50 de 51 | 1.64 M |
+| ronda-2 | [banca-2](ronda-2/banca-2/) | banca · CO | ofelia | 50 de 50 · 0 de más | 51 de 51 | 1.60 M |
+| ronda-2 | [control-co](ronda-2/control-co/) | control · CO | ofelia | 0 de 0 · 0 de más | 25 de 25 | 1.93 M |
+| ronda-2 | [control-ec](ronda-2/control-ec/) | control · EC | ofelia | 0 de 0 · 0 de más | 25 de 25 | 1.20 M |
+| ronda-2 | [cooperativas](ronda-2/cooperativas/) | cooperativas · EC | ofelia | 35 de 35 · 0 de más | 44 de 45 | 1.62 M |
+| ronda-2 | [cooperativas-2](ronda-2/cooperativas-2/) | cooperativas · EC | ofelia | 35 de 35 · 0 de más | 45 de 45 | 1.87 M |
 
 ## Los defectos que encontraron
 
@@ -28,3 +34,4 @@ Cada uno con su origen y el commit que lo corrige, desde `defectos.json`. Se da 
 | EA-6 | 1 | cooperativas | las instrucciones del agente | Las citas de los acuerdos llevaban delante la carpeta de la oficina —`direccion/gerencia-general/organos/…`—, así que no se abrían desde la oficina. | La skill dice que cada cita va relativa a la carpeta de la oficina, y el motor dice como problema de la ficha una cita que no está ahí, para que se corrija antes de calcular. Ofelia se corrió de nuevo sobre la cooperativa: 17 de 17 datos. | d11470ea | corregido y verificado |
 | EA-7 | 1 | control-co | las instrucciones del agente | En el control de Colombia, Ofelia dejó abierto un compromiso cuyo cumplimiento estaba en el material de la sesión, y el motor levantó un compromiso vencido que no lo era. | La skill de la ficha dice que, antes de dejar abierto un compromiso vencido, se busca su evidencia en el material de las sesiones del órgano, y `ea-scan` lo repite. Ofelia se corrió de nuevo sobre el control de Colombia: ninguna señal de más y el compromiso, cumplido con su evidencia. | d11470ea | corregido y verificado |
 | EA-8 | 1 | control-co-ofelia | las instrucciones del agente | En la corrida que verificó EA-7, Ofelia agregó a lo que falta saber de una decisión un hecho que el acta ya dice: que se decide en la próxima sesión. | La skill de la decisión dice que en `missing` va solo lo que el material no responde, no lo que los documentos ya dicen. Ofelia se corrió de nuevo sobre el control de Colombia: ninguna señal de más y 22 de 22 datos. | d11470ea | corregido y verificado |
+| EA-9 | 2 | banca | los datos de prueba | Las propuestas del lote no traían cifras, y la de la sede regional traía las mismas opciones que la del proveedor: «continuar como hoy» y «cambiar de proveedor». Ofelia lo dijo en lo que falta saber de cada decisión, y tenía razón; la clave esperaba que no faltara nada. | Cada propuesta trae sus dos opciones, propias del asunto, con lo que cuesta cada una, y dice que las ofertas están completas. Se repitieron la instalación y el procesamiento en banca y en cooperativas: 50 de 50 y 35 de 35 señales, y 51 de 51 y 45 de 45 datos. | 10bb31d7 | corregido y verificado |

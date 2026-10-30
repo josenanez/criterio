@@ -56,7 +56,7 @@
      "El material siembra al menos 73 señales: lo que pide un piso del 95 % sin fallas (decisión 0020)",
      "Cada defecto que encuentre la ronda, con su corrección y su verificación"
     ],
-    "prueba": "La ronda con los dos agentes sobre todas las entidades del material, con una clave que no ven"
+    "prueba": "La ronda 1 con los dos agentes sobre las seis entidades del material: 72 de 80 señales sembradas y 30 de 30 datos en la primera corrida, con dos señales de más en un control, y 80 de 80 sin ninguna de más después de verificar las correcciones; los tres defectos que encontró, con su corrección y su verificación"
    },
    "en": {
     "titulo": "The full round with the agents",
@@ -65,7 +65,7 @@
      "The material seeds at least 73 signals: what a 95% floor with no misses needs (decision 0020)",
      "Every defect the round finds, with its fix and its verification"
     ],
-    "prueba": "The round with the two agents on every entity in the material, with a key they never see"
+    "prueba": "Round 1 with both agents on the material's six entities: 72 of 80 seeded signals and 30 of 30 data points on the first run, with two extra signals in a control, and 80 of 80 with none extra after verifying the fixes; the three defects it found, with their fix and their verification"
    }
   },
   {

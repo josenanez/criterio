@@ -17,11 +17,11 @@
    "parrafos": {
     "es": [
      "La ronda completa más reciente, la 1, sobre las 6 entidades del material: 80 de 80 señales sembradas encontradas (margen del 95 %: 95,4–100 %) y 0 de más; 30 de 30 datos extraídos bien (100 %, margen del 95 %: 88,6–100 %); y 2 de 2 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–1, 111 de 119 señales encontradas, 2 de más y 45 de 45 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "Sumando las rondas 1–1, 111 de 119 señales encontradas, 2 de más y 50 de 50 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
      "The most recent complete round, round 1, on the material's 6 entities: 80 of 80 seeded signals found (95% margin: 95.4–100%) and 0 extra; 30 of 30 data items extracted right (100%, 95% margin: 88.6–100%); and 2 of 2 control entities with no signal at all.",
-     "Across rounds 1–1, 111 of 119 signals found, 2 extra and 45 of 45 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "Across rounds 1–1, 111 of 119 signals found, 2 extra and 50 of 50 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -58,7 +58,7 @@
       ],
       [
        "Corridas de una entidad",
-       "9"
+       "10"
       ],
       [
        "Señales sembradas",
@@ -66,7 +66,7 @@
       ],
       [
        "Datos calificados",
-       "45"
+       "50"
       ]
      ],
      "en": [
@@ -84,7 +84,7 @@
       ],
       [
        "Entity runs",
-       "9"
+       "10"
       ],
       [
        "Seeded signals",
@@ -92,7 +92,7 @@
       ],
       [
        "Data items graded",
-       "45"
+       "50"
       ]
      ]
     }
@@ -145,15 +145,15 @@
       ],
       [
        "Extracción · datos correctos",
-       "45 de 45",
+       "50 de 50",
        "100 %",
-       "92,1–100 %"
+       "92,8–100 %"
       ],
       [
        "Control · sin ninguna señal",
-       "2 de 3",
-       "66,7 %",
-       "20,7–93,9 %"
+       "3 de 4",
+       "75 %",
+       "30–95,5 %"
       ]
      ],
      "en": [
@@ -171,15 +171,15 @@
       ],
       [
        "Extraction · data right",
-       "45 of 45",
+       "50 of 50",
        "100%",
-       "92.1–100%"
+       "92.8–100%"
       ],
       [
        "Control · with no signal",
-       "2 of 3",
-       "66.7%",
-       "20.7–93.9%"
+       "3 of 4",
+       "75%",
+       "30–95.5%"
       ]
      ]
     }
@@ -222,24 +222,24 @@
      "es": [
       [
        "1",
-       "9",
+       "10",
        "93,3 %",
        "98,2 %",
        "100 %",
-       "2 de 3",
-       "28 M",
+       "3 de 4",
+       "30,9 M",
        "3"
       ]
      ],
      "en": [
       [
        "1",
-       "9",
+       "10",
        "93.3%",
        "98.2%",
        "100%",
-       "2 of 3",
-       "28 M",
+       "3 of 4",
+       "30.9 M",
        "3"
       ]
      ]
@@ -421,6 +421,14 @@
        "0",
        "5 de 5",
        "2,9 M"
+      ],
+      [
+       "Control · México",
+       "Augusto, Valeria",
+       "0 de 0",
+       "0",
+       "5 de 5",
+       "2,9 M"
       ]
      ],
      "en": [
@@ -495,6 +503,14 @@
        "0",
        "5 of 5",
        "2.9 M"
+      ],
+      [
+       "Control · Mexico",
+       "Augusto, Valeria",
+       "0 of 0",
+       "0",
+       "5 of 5",
+       "2.9 M"
       ]
      ]
     }
@@ -508,10 +524,10 @@
    },
    "parrafos": {
     "es": [
-     "10 fallas en 9 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "10 fallas en 10 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "10 failures in 9 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "10 failures in 10 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -713,10 +729,10 @@
    },
    "parrafos": {
     "es": [
-     "3 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 2 verificados y 1 por verificar. 2 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "3 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 3 verificados y 0 por verificar. 2 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "3 defects logged, each with its origin, its fix and the run that verified it: 2 verified and 1 to verify. 2 came from the material, the key or the test harness, not from the agents."
+     "3 defects logged, each with its origin, its fix and the run that verified it: 3 verified and 0 to verify. 2 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -804,11 +820,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 1 rondas usaron 28 millones de tokens: 28 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 3,1 millones por entidad.",
+     "Las 1 rondas usaron 30,9 millones de tokens: 30,9 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 3,1 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 1 rounds used 28 million tokens: 28 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 3.1 million per entity.",
+     "The 1 rounds used 30.9 million tokens: 30.9 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 3.1 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

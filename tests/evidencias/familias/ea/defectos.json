@@ -1,191 +1,224 @@
 {
-  "nota": "Los defectos que encontraron las rondas con la agente de la familia EA, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
-  "defectos": [
-    {
-      "id": "EA-1",
-      "ronda": 1,
-      "carpeta": "banca",
-      "agentes": [
-        "ofelia"
-      ],
-      "origen": "codigo",
-      "commit": "d11470ea",
-      "estado": "verificado",
-      "verificacion": "banca",
-      "es": {
-        "que": "El setup se detuvo: el motor exigía la identificación fiscal de la entidad, y ningún documento de la oficina la trae. Ofelia no la inventó y dejó la configuración sin validar.",
-        "correccion": "La oficina se identifica por su ejecutivo: el motor ya no pide la identificación fiscal y el encabezado del reporte no la muestra si falta. Los dos comandos se repitieron en banca: 10 de 10 señales y 17 de 17 datos."
-      },
-      "en": {
-        "que": "Setup stopped: the engine required the entity's tax ID, and no document in the office carries it. Ofelia did not invent it and left the configuration unvalidated.",
-        "correccion": "The office is identified by its executive: the engine no longer asks for the tax ID and the report header does not show it when missing. Both commands were repeated on banking: 10 of 10 signals and 17 of 17 data points."
-      },
-      "fallas": []
-    },
-    {
-      "id": "EA-2",
-      "ronda": 1,
-      "carpeta": "banca",
-      "agentes": [
-        "ofelia"
-      ],
-      "origen": "codigo",
-      "commit": "d11470ea",
-      "estado": "verificado",
-      "verificacion": "banca",
-      "es": {
-        "que": "El inventario marcó la agenda .ics como «formato no soportado», aunque el motor de Ofelia la procesa.",
-        "correccion": "El inventario toma como legibles los formatos que la estructura de la familia declara como suyos por su extensión. Verificado en la repetición de banca."
-      },
-      "en": {
-        "que": "The inventory flagged the .ics calendar as an «unsupported format», although Ofelia's engine processes it.",
-        "correccion": "The inventory treats as readable the formats the family's structure declares as its own by extension. Verified in the banking repeat."
-      },
-      "fallas": []
-    },
-    {
-      "id": "EA-3",
-      "ronda": 1,
-      "carpeta": "banca",
-      "agentes": [
-        "ofelia"
-      ],
-      "origen": "instrucciones",
-      "commit": "d11470ea",
-      "estado": "verificado",
-      "verificacion": "banca",
-      "es": {
-        "que": "Las citas de los acuerdos y los compromisos nombraban la sección y no el renglón: «Compromisos, primer punto».",
-        "correccion": "Las skills dicen que cada cita señala un renglón —`línea N` o `punto N`— y que el texto citado entre « » la acompaña, no la reemplaza. Verificado en la repetición de banca."
-      },
-      "en": {
-        "que": "The citations of the agreements and commitments named the section, not the line: «Commitments, first item».",
-        "correccion": "The skills say each citation points to a line —`line N` or `item N`— and that quoted text goes with it, not instead. Verified in the banking repeat."
-      },
-      "fallas": []
-    },
-    {
-      "id": "EA-4",
-      "ronda": 1,
-      "carpeta": "banca",
-      "agentes": [
-        "ofelia"
-      ],
-      "origen": "clave",
-      "commit": "d11470ea",
-      "estado": "verificado",
-      "verificacion": "banca",
-      "es": {
-        "que": "La clave contradecía dos skills: citaba la decisión en el acta que la aplaza, cuando decision-brief la cita donde la escribe el material, y daba por rutinario pedir una reunión con el ejecutivo, cuando correspondence-record solo da por rutinaria una cita ya aprobada.",
-        "correccion": "La clave sigue ahora a las skills. Ofelia había hecho las dos cosas bien."
-      },
-      "en": {
-        "que": "The key contradicted two skills: it cited the decision in the minutes that defer it, while decision-brief cites it where the material writes it, and it took a request for a meeting with the executive as routine, while correspondence-record only takes an already approved appointment as routine.",
-        "correccion": "The key now follows the skills. Ofelia had done both right."
-      },
-      "fallas": []
-    },
-    {
-      "id": "EA-5",
-      "ronda": 1,
-      "carpeta": "banca",
-      "agentes": [
-        "ofelia"
-      ],
-      "origen": "arnes",
-      "commit": "d11470ea",
-      "estado": "verificado",
-      "verificacion": "banca",
-      "es": {
-        "que": "El arnés no reconocía como la misma cita una que nombra la sección antes del punto —«Acuerdos, punto 1»— ni una que cita el texto del renglón entre « ».",
-        "correccion": "`tests/ronda_familia.py` resuelve el renglón por «línea N», por «punto N» aunque venga tras la sección, o por el texto citado, y lo aplica también a la cita del plazo."
-      },
-      "en": {
-        "que": "The harness did not recognise as the same citation one that names the section before the item —«Agreements, item 1»— or one that quotes the line's text in « ».",
-        "correccion": "`tests/ronda_familia.py` resolves the line by «line N», by «item N» even after the section, or by the quoted text, and also applies it to the deadline's citation."
-      },
-      "fallas": []
-    },
-    {
-      "id": "EA-6",
-      "ronda": 1,
-      "carpeta": "cooperativas",
-      "agentes": [
-        "ofelia"
-      ],
-      "origen": "instrucciones",
-      "commit": "d11470ea",
-      "estado": "verificado",
-      "verificacion": "cooperativas-ofelia",
-      "es": {
-        "que": "Las citas de los acuerdos llevaban delante la carpeta de la oficina —`direccion/gerencia-general/organos/…`—, así que no se abrían desde la oficina.",
-        "correccion": "La skill dice que cada cita va relativa a la carpeta de la oficina, y el motor dice como problema de la ficha una cita que no está ahí, para que se corrija antes de calcular. Ofelia se corrió de nuevo sobre la cooperativa: 17 de 17 datos."
-      },
-      "en": {
-        "que": "The citations of the agreements carried the office folder in front —`direccion/gerencia-general/organos/…`—, so they did not open from the office.",
-        "correccion": "The skill says each citation is relative to the office folder, and the engine reports a citation that is not there as a record issue, to be corrected before calculating. Ofelia was rerun on the credit union: 17 of 17 data points."
-      },
-      "fallas": [
-        [
-          1,
-          "cooperativas",
-          "reuniones/consejo-de-administracion-2026-09-24 · agreements"
-        ]
-      ]
-    },
-    {
-      "id": "EA-7",
-      "ronda": 1,
-      "carpeta": "control-co",
-      "agentes": [
-        "ofelia"
-      ],
-      "origen": "instrucciones",
-      "commit": "d11470ea",
-      "estado": "verificado",
-      "verificacion": "control-co-ofelia",
-      "es": {
-        "que": "En el control de Colombia, Ofelia dejó abierto un compromiso cuyo cumplimiento estaba en el material de la sesión, y el motor levantó un compromiso vencido que no lo era.",
-        "correccion": "La skill de la ficha dice que, antes de dejar abierto un compromiso vencido, se busca su evidencia en el material de las sesiones del órgano, y `ea-scan` lo repite. Ofelia se corrió de nuevo sobre el control de Colombia: ninguna señal de más y el compromiso, cumplido con su evidencia."
-      },
-      "en": {
-        "que": "In the Colombian control, Ofelia left open a commitment whose completion was in the meeting's material, and the engine raised an overdue commitment that was not.",
-        "correccion": "The record skill says that, before leaving an overdue commitment open, its evidence is looked for in the governing body's meeting material, and `ea-scan` repeats it. Ofelia was rerun on the Colombian control: no extra signal and the commitment met with its evidence."
-      },
-      "fallas": [
-        [
-          1,
-          "control-co",
-          "reuniones/junta-directiva-2026-09-24 · commitments"
-        ]
-      ]
-    },
-    {
-      "id": "EA-8",
-      "ronda": 1,
-      "carpeta": "control-co-ofelia",
-      "agentes": [
-        "ofelia"
-      ],
-      "origen": "instrucciones",
-      "commit": "d11470ea",
-      "estado": "verificado",
-      "es": {
-        "que": "En la corrida que verificó EA-7, Ofelia agregó a lo que falta saber de una decisión un hecho que el acta ya dice: que se decide en la próxima sesión.",
-        "correccion": "La skill de la decisión dice que en `missing` va solo lo que el material no responde, no lo que los documentos ya dicen. Ofelia se corrió de nuevo sobre el control de Colombia: ninguna señal de más y 22 de 22 datos."
-      },
-      "en": {
-        "que": "In the run that verified EA-7, Ofelia added to what is still unknown about a decision a fact the minutes already state: that it is decided at the next meeting.",
-        "correccion": "The decision skill says `missing` holds only what the material does not answer, not what the documents already say. Ofelia was rerun on the Colombian control: no extra signal and 22 of 22 data points."
-      },
-      "fallas": [
-        [
-          1,
-          "control-co-ofelia",
-          "reuniones/junta-directiva-2026-09-24 · decisions"
-        ]
-      ],
-      "verificacion": "control-co-ofelia-2"
-    }
-  ]
+ "nota": "Los defectos que encontraron las rondas con la agente de la familia EA, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+ "defectos": [
+  {
+   "id": "EA-1",
+   "ronda": 1,
+   "carpeta": "banca",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "codigo",
+   "commit": "d11470ea",
+   "estado": "verificado",
+   "verificacion": "banca",
+   "es": {
+    "que": "El setup se detuvo: el motor exigía la identificación fiscal de la entidad, y ningún documento de la oficina la trae. Ofelia no la inventó y dejó la configuración sin validar.",
+    "correccion": "La oficina se identifica por su ejecutivo: el motor ya no pide la identificación fiscal y el encabezado del reporte no la muestra si falta. Los dos comandos se repitieron en banca: 10 de 10 señales y 17 de 17 datos."
+   },
+   "en": {
+    "que": "Setup stopped: the engine required the entity's tax ID, and no document in the office carries it. Ofelia did not invent it and left the configuration unvalidated.",
+    "correccion": "The office is identified by its executive: the engine no longer asks for the tax ID and the report header does not show it when missing. Both commands were repeated on banking: 10 of 10 signals and 17 of 17 data points."
+   },
+   "fallas": []
+  },
+  {
+   "id": "EA-2",
+   "ronda": 1,
+   "carpeta": "banca",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "codigo",
+   "commit": "d11470ea",
+   "estado": "verificado",
+   "verificacion": "banca",
+   "es": {
+    "que": "El inventario marcó la agenda .ics como «formato no soportado», aunque el motor de Ofelia la procesa.",
+    "correccion": "El inventario toma como legibles los formatos que la estructura de la familia declara como suyos por su extensión. Verificado en la repetición de banca."
+   },
+   "en": {
+    "que": "The inventory flagged the .ics calendar as an «unsupported format», although Ofelia's engine processes it.",
+    "correccion": "The inventory treats as readable the formats the family's structure declares as its own by extension. Verified in the banking repeat."
+   },
+   "fallas": []
+  },
+  {
+   "id": "EA-3",
+   "ronda": 1,
+   "carpeta": "banca",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "instrucciones",
+   "commit": "d11470ea",
+   "estado": "verificado",
+   "verificacion": "banca",
+   "es": {
+    "que": "Las citas de los acuerdos y los compromisos nombraban la sección y no el renglón: «Compromisos, primer punto».",
+    "correccion": "Las skills dicen que cada cita señala un renglón —`línea N` o `punto N`— y que el texto citado entre « » la acompaña, no la reemplaza. Verificado en la repetición de banca."
+   },
+   "en": {
+    "que": "The citations of the agreements and commitments named the section, not the line: «Commitments, first item».",
+    "correccion": "The skills say each citation points to a line —`line N` or `item N`— and that quoted text goes with it, not instead. Verified in the banking repeat."
+   },
+   "fallas": []
+  },
+  {
+   "id": "EA-4",
+   "ronda": 1,
+   "carpeta": "banca",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "clave",
+   "commit": "d11470ea",
+   "estado": "verificado",
+   "verificacion": "banca",
+   "es": {
+    "que": "La clave contradecía dos skills: citaba la decisión en el acta que la aplaza, cuando decision-brief la cita donde la escribe el material, y daba por rutinario pedir una reunión con el ejecutivo, cuando correspondence-record solo da por rutinaria una cita ya aprobada.",
+    "correccion": "La clave sigue ahora a las skills. Ofelia había hecho las dos cosas bien."
+   },
+   "en": {
+    "que": "The key contradicted two skills: it cited the decision in the minutes that defer it, while decision-brief cites it where the material writes it, and it took a request for a meeting with the executive as routine, while correspondence-record only takes an already approved appointment as routine.",
+    "correccion": "The key now follows the skills. Ofelia had done both right."
+   },
+   "fallas": []
+  },
+  {
+   "id": "EA-5",
+   "ronda": 1,
+   "carpeta": "banca",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "arnes",
+   "commit": "d11470ea",
+   "estado": "verificado",
+   "verificacion": "banca",
+   "es": {
+    "que": "El arnés no reconocía como la misma cita una que nombra la sección antes del punto —«Acuerdos, punto 1»— ni una que cita el texto del renglón entre « ».",
+    "correccion": "`tests/ronda_familia.py` resuelve el renglón por «línea N», por «punto N» aunque venga tras la sección, o por el texto citado, y lo aplica también a la cita del plazo."
+   },
+   "en": {
+    "que": "The harness did not recognise as the same citation one that names the section before the item —«Agreements, item 1»— or one that quotes the line's text in « ».",
+    "correccion": "`tests/ronda_familia.py` resolves the line by «line N», by «item N» even after the section, or by the quoted text, and also applies it to the deadline's citation."
+   },
+   "fallas": []
+  },
+  {
+   "id": "EA-6",
+   "ronda": 1,
+   "carpeta": "cooperativas",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "instrucciones",
+   "commit": "d11470ea",
+   "estado": "verificado",
+   "verificacion": "cooperativas-ofelia",
+   "es": {
+    "que": "Las citas de los acuerdos llevaban delante la carpeta de la oficina —`direccion/gerencia-general/organos/…`—, así que no se abrían desde la oficina.",
+    "correccion": "La skill dice que cada cita va relativa a la carpeta de la oficina, y el motor dice como problema de la ficha una cita que no está ahí, para que se corrija antes de calcular. Ofelia se corrió de nuevo sobre la cooperativa: 17 de 17 datos."
+   },
+   "en": {
+    "que": "The citations of the agreements carried the office folder in front —`direccion/gerencia-general/organos/…`—, so they did not open from the office.",
+    "correccion": "The skill says each citation is relative to the office folder, and the engine reports a citation that is not there as a record issue, to be corrected before calculating. Ofelia was rerun on the credit union: 17 of 17 data points."
+   },
+   "fallas": [
+    [
+     1,
+     "cooperativas",
+     "reuniones/consejo-de-administracion-2026-09-24 · agreements"
+    ]
+   ]
+  },
+  {
+   "id": "EA-7",
+   "ronda": 1,
+   "carpeta": "control-co",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "instrucciones",
+   "commit": "d11470ea",
+   "estado": "verificado",
+   "verificacion": "control-co-ofelia",
+   "es": {
+    "que": "En el control de Colombia, Ofelia dejó abierto un compromiso cuyo cumplimiento estaba en el material de la sesión, y el motor levantó un compromiso vencido que no lo era.",
+    "correccion": "La skill de la ficha dice que, antes de dejar abierto un compromiso vencido, se busca su evidencia en el material de las sesiones del órgano, y `ea-scan` lo repite. Ofelia se corrió de nuevo sobre el control de Colombia: ninguna señal de más y el compromiso, cumplido con su evidencia."
+   },
+   "en": {
+    "que": "In the Colombian control, Ofelia left open a commitment whose completion was in the meeting's material, and the engine raised an overdue commitment that was not.",
+    "correccion": "The record skill says that, before leaving an overdue commitment open, its evidence is looked for in the governing body's meeting material, and `ea-scan` repeats it. Ofelia was rerun on the Colombian control: no extra signal and the commitment met with its evidence."
+   },
+   "fallas": [
+    [
+     1,
+     "control-co",
+     "reuniones/junta-directiva-2026-09-24 · commitments"
+    ]
+   ]
+  },
+  {
+   "id": "EA-8",
+   "ronda": 1,
+   "carpeta": "control-co-ofelia",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "instrucciones",
+   "commit": "d11470ea",
+   "estado": "verificado",
+   "es": {
+    "que": "En la corrida que verificó EA-7, Ofelia agregó a lo que falta saber de una decisión un hecho que el acta ya dice: que se decide en la próxima sesión.",
+    "correccion": "La skill de la decisión dice que en `missing` va solo lo que el material no responde, no lo que los documentos ya dicen. Ofelia se corrió de nuevo sobre el control de Colombia: ninguna señal de más y 22 de 22 datos."
+   },
+   "en": {
+    "que": "In the run that verified EA-7, Ofelia added to what is still unknown about a decision a fact the minutes already state: that it is decided at the next meeting.",
+    "correccion": "The decision skill says `missing` holds only what the material does not answer, not what the documents already say. Ofelia was rerun on the Colombian control: no extra signal and 22 of 22 data points."
+   },
+   "fallas": [
+    [
+     1,
+     "control-co-ofelia",
+     "reuniones/junta-directiva-2026-09-24 · decisions"
+    ]
+   ],
+   "verificacion": "control-co-ofelia-2"
+  },
+  {
+   "id": "EA-9",
+   "ronda": 2,
+   "carpeta": "banca",
+   "agentes": [
+    "ofelia"
+   ],
+   "origen": "material",
+   "commit": "10bb31d7",
+   "estado": "verificado",
+   "verificacion": "banca-2",
+   "ronda_verificacion": 2,
+   "es": {
+    "que": "Las propuestas del lote no traían cifras, y la de la sede regional traía las mismas opciones que la del proveedor: «continuar como hoy» y «cambiar de proveedor». Ofelia lo dijo en lo que falta saber de cada decisión, y tenía razón; la clave esperaba que no faltara nada.",
+    "correccion": "Cada propuesta trae sus dos opciones, propias del asunto, con lo que cuesta cada una, y dice que las ofertas están completas. Se repitieron la instalación y el procesamiento en banca y en cooperativas: 50 de 50 y 35 de 35 señales, y 51 de 51 y 45 de 45 datos."
+   },
+   "en": {
+    "que": "The batch's proposals carried no figures, and the regional office one had the same options as the vendor one: «carry on as today» and «change vendor». Ofelia said so in what is still unknown for each decision, and she was right; the key expected nothing to be missing.",
+    "correccion": "Each proposal carries its two options, specific to the matter, with what each one costs, and says the offers are complete. Setup and processing were repeated on banking and on cooperatives: 50 of 50 and 35 of 35 signals, and 51 of 51 and 45 of 45 data points."
+   },
+   "fallas": [
+    [
+     2,
+     "banca",
+     "reuniones/comite-de-presidencia-2026-10-05 · decisions"
+    ],
+    [
+     2,
+     "cooperativas",
+     "reuniones/comite-de-gerencia-2026-10-05 · decisions"
+    ]
+   ]
+  }
+ ]
 }

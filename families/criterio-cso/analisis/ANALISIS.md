@@ -8,7 +8,7 @@ Not edited by hand: every figure comes from the evidence and the analysis is reg
 
 The most recent complete round, round 1, on the material's 6 entities: 80 of 80 seeded signals found (95% margin: 95.4–100%) and 0 extra; 30 of 30 data items extracted right (100%, 95% margin: 88.6–100%); and 2 of 2 control entities with no signal at all.
 
-Across rounds 1–1, 111 of 119 signals found, 2 extra and 45 of 45 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases.
+Across rounds 1–1, 111 of 119 signals found, 2 extra and 50 of 50 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases.
 
 ## What was tested and how
 
@@ -21,9 +21,9 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 | Rounds | 1; the most recent complete one is round 1 |
 | Material | Retail · Colombia, manufactura · Mexico, servicios · Mexico, tecnologia · Colombia |
 | Control entities | Control · Colombia, Control · Mexico |
-| Entity runs | 9 |
+| Entity runs | 10 |
 | Seeded signals | 119 |
-| Data items graded | 45 |
+| Data items graded | 50 |
 
 ## Cumulative results · rounds 1–1
 
@@ -31,8 +31,8 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 |---|---|---|---|
 | Signals · coverage | 111 of 119 | 93.3% | 87.2–96.6% |
 | Signals · precision | 111 of 113 | 98.2% | 93.7–99.6% |
-| Extraction · data right | 45 of 45 | 100% | 92.1–100% |
-| Control · with no signal | 2 of 3 | 66.7% | 20.7–93.9% |
+| Extraction · data right | 50 of 50 | 100% | 92.8–100% |
+| Control · with no signal | 3 of 4 | 75% | 30–95.5% |
 
 ## Round by round
 
@@ -40,7 +40,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 
 | Round | Entities | Signals · coverage | Signals · precision | Extraction | Control with no signal | Tokens | Defects |
 |---|---|---|---|---|---|---|---|
-| 1 | 9 | 93.3% | 98.2% | 100% | 2 of 3 | 28 M | 3 |
+| 1 | 10 | 93.3% | 98.2% | 100% | 3 of 4 | 30.9 M | 3 |
 
 ## The most recent complete round · round 1
 
@@ -64,10 +64,11 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 | Control · Colombia | Augusto, Valeria | 0 of 0 | 0 | 5 of 5 | 3.2 M |
 | Control · Mexico | Augusto, Valeria | 0 of 0 | 2 | 5 of 5 | 2.9 M |
 | Control · Mexico | Augusto, Valeria | 0 of 0 | 0 | 5 of 5 | 2.9 M |
+| Control · Mexico | Augusto, Valeria | 0 of 0 | 0 | 5 of 5 | 2.9 M |
 
 ## What failed, one by one · rounds 1–1
 
-10 failures in 9 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right.
+10 failures in 10 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 0 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right.
 
 | Round | Material | What | Where | Defect | Origin |
 |---|---|---|---|---|---|
@@ -86,7 +87,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 
 ![Defects](defectos-en.svg)
 
-3 defects logged, each with its origin, its fix and the run that verified it: 2 verified and 1 to verify. 2 came from the material, the key or the test harness, not from the agents.
+3 defects logged, each with its origin, its fix and the run that verified it: 3 verified and 0 to verify. 2 came from the material, the key or the test harness, not from the agents.
 
 | Origin | Defects |
 |---|---|
@@ -101,7 +102,7 @@ Coverage: of the seeded signals, how many were found. Precision: of those raised
 
 ## Cost and next step
 
-The 1 rounds used 28 million tokens: 28 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 3.1 million per entity.
+The 1 rounds used 30.9 million tokens: 30.9 million in the graded runs and 0 in the ones repeated after fixing a defect. On average, 3.1 million per entity.
 
 The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020).
 

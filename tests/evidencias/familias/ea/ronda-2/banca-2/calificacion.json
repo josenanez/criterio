@@ -1,0 +1,18 @@
+{
+  "entidad": "Banco Andino",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 1601933,
+  "senales": {
+    "esperadas": 50,
+    "acertadas": 50,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 51,
+    "bien": 51,
+    "mal": []
+  }
+}
