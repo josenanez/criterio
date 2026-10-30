@@ -47,13 +47,15 @@ Con su salida, reporta en tres líneas: cuántos archivos, qué periodos y años
 **2. Las preguntas**, una a la vez y solo las que el inventario no respondió:
 
 1. **La entidad:** nombre, identificación fiscal (NIT, RUC, RUT, RFC u otra), país y moneda. Los países que soporta esta versión son los del registro del motor; si das otro, la revisión de la configuración dice cuáles son.
-2. **El marco:** el grupo NIIF en Colombia (F-05), el marco que aplica en Ecuador (F-06) las NIIF que oficializa el Consejo Normativo de Contabilidad en Perú (F-15) , las que adoptó el Colegio de Contadores en Chile (F-18) o, en México, las NIIF o las NIF del CINIF, según la entidad (F-20). Solo se registra: Clara no opina sobre tratamientos.
+2. **El marco:** el que adoptó el país de la entidad para ella, con su fuente en la sección del marco contable de `families/criterio-cfo/FUENTES.es.md` —el grupo NIIF en Colombia (F-05), las NIIF o las NIF del CINIF en México (F-20), las NIIF con las normas prudenciales de la CNBS para un banco de Honduras (F-39)…—. Solo se registra: Clara no opina sobre tratamientos.
 3. **El periodo que se está cerrando.** Propón el último que tenga `10-contabilidad/`.
 4. **Las cuentas que cruzan las facturas:** los prefijos de ventas, compras, IVA generado e IVA descontable. **Propón los que salen de los datos**, no del nombre de la cuenta:
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" cuentas --docs <carpeta de la entidad> --period <AAAA-MM>
 ```
+
+En Honduras las facturas no son XML (decisión 0024): extráelas primero a `invoices` de la ficha del cierre aplicando **close-record**, y agrega `--state <estado>` para que el motor las tome de ahí.
 
 Devuelve las cuentas donde el mayor registra el número de una factura del periodo, con cuántas facturas sostienen cada una. Propón esas, dilo así, y la persona confirma o agrega. **No agregues por tu cuenta un prefijo que ninguna factura sostiene**: una cuenta de compras de más hace que cada gasto sin factura —una comisión, un interés— salga como compra sin factura electrónica.
 5. **Las cuentas que se concilian contra auxiliar** —cartera, proveedores, inventarios, activos fijos, intercompañías— y las cuentas bancarias que se esperan cada mes. Propón las que tienen auxiliar en `10-contabilidad/auxiliares/` de este periodo o del anterior: una que lo tuvo el mes pasado y ahora no sigue en la lista, y su falta es la señal. **No agregues por tu cuenta una cuenta sin auxiliar en ninguno de los dos**: la persona la agrega si se concilia.

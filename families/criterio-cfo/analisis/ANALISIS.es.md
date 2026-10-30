@@ -84,20 +84,20 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ![Defectos](defectos-es.svg)
 
-11 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 11 verificados y 0 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
+12 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 11 verificados y 1 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
 
 | Origen | Defectos |
 |---|---|
 | Instrucciones del agente | 4 |
 | Material de prueba | 3 |
 | Arnés de pruebas | 2 |
-| Código | 1 |
+| Código | 2 |
 | Clave de calificación | 1 |
 
 | Agente | Defectos |
 |---|---|
 | Tomás | 6 |
-| Clara | 4 |
+| Clara | 5 |
 | Áurea | 2 |
 | Ninguno | 1 |
 

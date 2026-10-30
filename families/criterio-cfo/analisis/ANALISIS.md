@@ -84,20 +84,20 @@ A round that does not run every entity is partial: the first, small one, before 
 
 ![Defects](defectos-en.svg)
 
-11 defects logged, each with its origin, its fix and the run that verified it: 11 verified and 0 to verify. 6 came from the material, the key or the test harness, not from the agents.
+12 defects logged, each with its origin, its fix and the run that verified it: 11 verified and 1 to verify. 6 came from the material, the key or the test harness, not from the agents.
 
 | Origin | Defects |
 |---|---|
 | Agent instructions | 4 |
 | Test material | 3 |
 | Test harness | 2 |
-| Code | 1 |
+| Code | 2 |
 | Grading key | 1 |
 
 | Agent | Defects |
 |---|---|
 | Tomás | 6 |
-| Clara | 4 |
+| Clara | 5 |
 | Áurea | 2 |
 | None | 1 |
 

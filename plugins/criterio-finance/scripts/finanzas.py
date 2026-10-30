@@ -866,7 +866,7 @@ def mayor(cfg: dict, periodo: str) -> Tabla | None:
     return None if t.faltan else t
 
 
-def cuentas_de_factura(docs: Path, periodo: str) -> dict:
+def cuentas_de_factura(docs: Path, periodo: str, ficha: dict | None = None) -> dict:
     """Las cuentas que cruzan las facturas, sacadas de los datos y no del nombre de la cuenta: las
     del mayor que registran el número de una factura del periodo. En cada registro, la línea por la
     base es de ventas o compras, la del impuesto es del IVA o IGV, y la del total —cartera,
@@ -884,6 +884,15 @@ def cuentas_de_factura(docs: Path, periodo: str) -> dict:
             d = leer_factura(p)
             if "error" not in d and d.get("valores", True) and d.get("base") is not None:
                 facturas[lado][ident(d["numero"])] = d
+    # Honduras no tiene XML (decisión 0024): las facturas salen de la ficha del cierre, ya extraídas.
+    for x in ((ficha or {}).get("invoices") or {}).values():
+        lado = next((l for l in lados if f"/30-facturacion/{l}/" in str(x.get("source") or "")), None)
+        d = _hn(x, 0.01) if lado and isinstance(x, dict) else {"error": "sin lado"}
+        if "error" not in d and not d.get("solo"):
+            facturas[lado][ident(d["numero"])] = d
+    if not any(facturas.values()) and any((docs / periodo / "30-facturacion").rglob("*.pdf")):
+        return {"error": "las facturas del periodo no son XML: en Honduras se extraen primero a la ficha del cierre "
+                         "(close-record) y las cuentas se proponen con --state"}
     out = {k: Counter() for par in lados.values() for k in par}
     for f in my.filas:
         doc, cta = ident(f.get("documento")), str(f.get("cuenta") or "").strip()
@@ -1157,6 +1166,7 @@ def facturas(cfg: dict, periodo: str, ficha: dict | None = None) -> dict:
             r["asientos"].add(str(f["comprobante"]).strip())
         r["citas"].append(my.cita(f, docs))
     vistos = set()
+    en_doc = "la factura" if FACTURA[pais].get("documento") else "el XML"
     for d in leidas:
         if d["tipo"] not in ("factura", "nota de crédito", "liquidación de compra") or not d.get("valores", True):
             out["solo_identidad"].append({"archivo": d["archivo"], "tipo": d["tipo"], "numero": d["numero"]})
@@ -1175,13 +1185,13 @@ def facturas(cfg: dict, periodo: str, ficha: dict | None = None) -> dict:
         if abs(db) > tol or abs(di) > tol_iva:
             partes = []
             if abs(db) > tol:
-                partes.append(f"base {mon(signo * (d['base'] or 0))} en el XML y {mon(r['base'])} en libros")
+                partes.append(f"base {mon(signo * (d['base'] or 0))} en {en_doc} y {mon(r['base'])} en libros")
             if abs(di) > tol_iva:
-                partes.append(f"{FACTURA[d['pais']]['impuesto']} {mon(signo * (d['iva'] or 0))} en el XML y {mon(r['iva'])} en libros")
+                partes.append(f"{FACTURA[d['pais']]['impuesto']} {mon(signo * (d['iva'] or 0))} en {en_doc} y {mon(r['iva'])} en libros")
             out["alertas"].append(alerta("einvoice_amount_mismatch", f"{d['tipo']} {d['numero']}: " + "; ".join(partes),
                                          [{"archivo": d["archivo"]}] + r["citas"][:3], db + di, clave=f"xml:{d['archivo']}"))
         if tercero and r["terceros"] and tercero not in r["terceros"]:
-            out["no_procesado"].append({"archivo": d["archivo"], "motivo": f"el tercero del registro ({', '.join(sorted(r['terceros']))}) no es el del XML ({tercero}): cruzado por número, para revisar"})
+            out["no_procesado"].append({"archivo": d["archivo"], "motivo": f"el tercero del registro ({', '.join(sorted(r['terceros']))}) no es el de {en_doc} ({tercero}): cruzado por número, para revisar"})
         if len(r["asientos"]) > 1:
             out["alertas"].append(alerta("einvoice_duplicate", f"{d['tipo']} {d['numero']} registrada en {len(r['asientos'])} asientos ({', '.join(sorted(r['asientos']))})",
                                          r["citas"][:4], r["base"], clave=f"reg:{d['lado']}:{ident(d['numero'])}"))
@@ -2176,8 +2186,9 @@ def main() -> int:
         return 0
     if a.action == "cuentas":
         if not a.docs or not a.period:
-            ap.error("cuentas: --docs <carpeta de la entidad> --period AAAA-MM")
-        print(json.dumps(cuentas_de_factura(Path(a.docs), a.period), ensure_ascii=False, indent=2))
+            ap.error("cuentas: --docs <carpeta de la entidad> --period AAAA-MM [--state <estado>, con las facturas ya en la ficha]")
+        ficha = leer_json(Path(a.state) / "cierre" / a.period / "ficha.json", {}) if a.state else {}
+        print(json.dumps(cuentas_de_factura(Path(a.docs), a.period, ficha or {}), ensure_ascii=False, indent=2))
         return 0
     return N.despachar(a, ap, aqui=AQUI, rol=_rol(), estructura_json=ESTRUCTURA, subcarpetas=("cierre", "presupuesto", "tesoreria"),
                        revisar_config=revisar_config, calcular=calcular, reporte=reporte, despertar=despertar)

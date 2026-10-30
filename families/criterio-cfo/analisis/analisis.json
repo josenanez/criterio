@@ -707,10 +707,10 @@
    },
    "parrafos": {
     "es": [
-     "11 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 11 verificados y 0 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
+     "12 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 11 verificados y 1 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes."
     ],
     "en": [
-     "11 defects logged, each with its origin, its fix and the run that verified it: 11 verified and 0 to verify. 6 came from the material, the key or the test harness, not from the agents."
+     "12 defects logged, each with its origin, its fix and the run that verified it: 11 verified and 1 to verify. 6 came from the material, the key or the test harness, not from the agents."
     ]
    },
    "tabla": {
@@ -740,7 +740,7 @@
       ],
       [
        "Código",
-       "1"
+       "2"
       ],
       [
        "Clave de calificación",
@@ -762,7 +762,7 @@
       ],
       [
        "Code",
-       "1"
+       "2"
       ],
       [
        "Grading key",
@@ -790,7 +790,7 @@
       ],
       [
        "Clara",
-       "4"
+       "5"
       ],
       [
        "Áurea",
@@ -808,7 +808,7 @@
       ],
       [
        "Clara",
-       "4"
+       "5"
       ],
       [
        "Áurea",
