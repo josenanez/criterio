@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:36:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 94,
+  "turnos": 16,
+  "tokens": 748670,
+  "tokens_salida": 4647,
+  "costo_usd": 0.311,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/contratos/reporte-contract-scan.md",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/corridas/salida-contract-scan.md",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

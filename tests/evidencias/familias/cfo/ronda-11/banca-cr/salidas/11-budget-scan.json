@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:17:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 15,
+  "tokens": 675363,
+  "tokens_salida": 5839,
+  "costo_usd": 0.2189449,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas/salida-budget-scan.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

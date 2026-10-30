@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Control de Costa Rica",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3620858,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

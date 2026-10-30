@@ -1,0 +1,20 @@
+{
+  "entidad": "Banco del Valle Central Sintético",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 3989492,
+  "senales": {
+    "esperadas": 13,
+    "acertadas": 13,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 9,
+    "bien": 9,
+    "mal": []
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "n": 10,
+  "agente": "tomas",
+  "comando": "budget-setup",
+  "argumento": "finanzas/3101457812-banco-del-valle-central-sintetico",
+  "inicio": "2026-10-30T17:15:42",
+  "estado": "success",
+  "error": false,
+  "segundos": 79,
+  "turnos": 21,
+  "tokens": 906123,
+  "tokens_salida": 7531,
+  "costo_usd": 0.3156374,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-10-30-budget-setup-1.html",
+      ".criterio/corridas/presupuesto/2026-10-30-budget-setup-1.md",
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/presupuesto/3101457812/config.json",
+      ".criterio/terminos/aceptacion-criterio-budget-1.0.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-budget-1.0.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-budget-1.0.0-2026-10-06.sha256",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/presupuesto-2026/40-actas/acta-01-aprobacion.docx.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/presupuesto-2026/40-actas/acta-05-traslado.md.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/presupuesto-2026/40-actas/acta-06-comite.docx.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas/2026-10-06-budget-setup-1.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas/salida-budget-setup.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/presupuesto/2026/ficha.json",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/presupuesto/2026/reporte-variance-report.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/presupuesto/2026/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/manifest.json",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

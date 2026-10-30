@@ -1,0 +1,37 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/3101457812-banco-del-valle-central-sintetico",
+  "inicio": "2026-10-30T17:37:48",
+  "estado": "success",
+  "error": false,
+  "segundos": 106,
+  "turnos": 25,
+  "tokens": 980492,
+  "tokens_salida": 9150,
+  "costo_usd": 0.34409039999999996,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/cumplimiento/3101457812/config.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.1.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.1.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.1.0-2026-10-06.sha256",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/cache/cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md.md",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/corridas/salida-compliance-setup.md",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/cumplimiento/2026-09/ficha.json",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/cumplimiento/2026-09/resultados.json",
+      "legal/3101457812-banco-del-valle-central-sintetico/_CRITERIO_LEGAL.txt"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/cache/manifest.json",
+      "estado-legal/3101457812-banco-del-valle-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

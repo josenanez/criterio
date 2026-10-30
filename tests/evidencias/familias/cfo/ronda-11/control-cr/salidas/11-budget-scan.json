@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:30:56",
+  "estado": "success",
+  "error": false,
+  "segundos": 63,
+  "turnos": 13,
+  "tokens": 559099,
+  "tokens_salida": 3492,
+  "costo_usd": 0.186127,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/3101733015-comercial-control-de-costa-rica/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/3101733015-comercial-control-de-costa-rica/corridas/salida-budget-scan.md",
+      "estado-finanzas/3101733015-comercial-control-de-costa-rica/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/3101733015-comercial-control-de-costa-rica/corridas.json",
+      "estado-finanzas/3101733015-comercial-control-de-costa-rica/indice.json"
+    ],
+    "borrados": []
+  }
+}

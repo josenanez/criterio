@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:48:45",
+  "estado": "success",
+  "error": false,
+  "segundos": 64,
+  "turnos": 23,
+  "tokens": 926676,
+  "tokens_salida": 4669,
+  "costo_usd": 0.29707310000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/3101733015-comercial-control-de-costa-rica/contratos/reporte-contract-scan.md",
+      "estado-legal/3101733015-comercial-control-de-costa-rica/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/3101733015-comercial-control-de-costa-rica/corridas/salida-contract-scan.md",
+      "estado-legal/3101733015-comercial-control-de-costa-rica/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/3101733015-comercial-control-de-costa-rica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

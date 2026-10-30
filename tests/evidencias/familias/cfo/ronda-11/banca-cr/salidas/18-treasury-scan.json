@@ -1,0 +1,30 @@
+{
+  "n": 18,
+  "agente": "aurea",
+  "comando": "treasury-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:19:06",
+  "estado": "success",
+  "error": false,
+  "segundos": 44,
+  "turnos": 9,
+  "tokens": 394134,
+  "tokens_salida": 3429,
+  "costo_usd": 0.1444255,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-10-30-treasury-scan-1.html",
+      ".criterio/corridas/tesoreria/2026-10-30-treasury-scan-1.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas/2026-10-06-treasury-scan-1.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas/salida-treasury-scan.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/tesoreria/2026-09/reporte-treasury-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

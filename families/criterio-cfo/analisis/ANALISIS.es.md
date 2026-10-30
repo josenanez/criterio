@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CFO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 10 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 11 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 10, parcial, sobre 3 de las 30 entidades del material: 24 de 24 señales sembradas encontradas (margen del 95 %: 86,2–100 %) y 0 de más; 25 de 25 datos extraídos bien (100 %, margen del 95 %: 86,6–100 %); y 1 de 1 entidades de control sin ninguna señal.
+La ronda más reciente, la 11, parcial, sobre 3 de las 30 entidades del material: 25 de 25 señales sembradas encontradas (margen del 95 %: 86,6–100 %) y 0 de más; 25 de 25 datos extraídos bien (100 %, margen del 95 %: 86,6–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–10, 330 de 330 señales encontradas, 0 de más y 317 de 319 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–11, 355 de 355 señales encontradas, 0 de más y 342 de 344 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 10; la más reciente, la 10, es parcial |
-| Material | Minería · Guatemala, Retail · Guatemala |
-| Entidades de control | Control · Guatemala |
-| Corridas de una entidad | 39 |
-| Señales sembradas | 330 |
-| Datos calificados | 319 |
+| Rondas | 11; la más reciente, la 11, es parcial |
+| Material | Banca · Costa Rica, Retail · Costa Rica |
+| Entidades de control | Control · Costa Rica |
+| Corridas de una entidad | 42 |
+| Señales sembradas | 355 |
+| Datos calificados | 344 |
 
-## Resultados acumulados · rondas 1–10
+## Resultados acumulados · rondas 1–11
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 330 de 330 | 100 % | 98,8–100 % |
-| Señales · precisión | 330 de 330 | 100 % | 98,8–100 % |
-| Extracción · datos correctos | 317 de 319 | 99,4 % | 97,7–99,9 % |
-| Control · sin ninguna señal | 13 de 13 | 100 % | 77,1–100 % |
+| Señales · cobertura | 355 de 355 | 100 % | 98,9–100 % |
+| Señales · precisión | 355 de 355 | 100 % | 98,9–100 % |
+| Extracción · datos correctos | 342 de 344 | 99,4 % | 97,9–99,9 % |
+| Control · sin ninguna señal | 14 de 14 | 100 % | 78,4–100 % |
 
 ## Evolución por ronda
 
@@ -52,27 +52,28 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 8 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 12,3 M | 0 |
 | 9 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 12,8 M | 0 |
 | 10 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 12,7 M | 0 |
+| 11 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 11,9 M | 0 |
 
-## La ronda más reciente · ronda 10
+## La ronda más reciente · ronda 11
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 24 de 24 | 100 % | 86,2–100 % |
-| Señales · precisión | 24 de 24 | 100 % | 86,2–100 % |
+| Señales · cobertura | 25 de 25 | 100 % | 86,6–100 % |
+| Señales · precisión | 25 de 25 | 100 % | 86,6–100 % |
 | Extracción · datos correctos | 25 de 25 | 100 % | 86,6–100 % |
 | Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
 
-## Por industria y país · ronda 10
+## Por industria y país · ronda 11
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Minería · Guatemala | Áurea, Clara, Tomás | 12 de 12 | 0 | 9 de 9 | 4,3 M |
-| Retail · Guatemala | Áurea, Clara, Tomás | 12 de 12 | 0 | 8 de 8 | 4,5 M |
-| Control · Guatemala | Áurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 3,9 M |
+| Banca · Costa Rica | Áurea, Clara, Tomás | 13 de 13 | 0 | 9 de 9 | 4 M |
+| Retail · Costa Rica | Áurea, Clara, Tomás | 12 de 12 | 0 | 8 de 8 | 3,9 M |
+| Control · Costa Rica | Áurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 3,9 M |
 
-## Lo que falló, uno por uno · rondas 1–10
+## Lo que falló, uno por uno · rondas 1–11
 
-2 fallas en 39 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+2 fallas en 42 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -102,7 +103,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 10 rondas usaron 212 millones de tokens: 201,3 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,2 millones por entidad.
+Las 11 rondas usaron 223,8 millones de tokens: 213,1 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,1 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

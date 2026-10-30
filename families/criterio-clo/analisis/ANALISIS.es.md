@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CLO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 10 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 11 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 10, parcial, sobre 3 de las 39 entidades del material: 20 de 20 señales sembradas encontradas (margen del 95 %: 83,8–100 %) y 0 de más; 396 de 396 datos extraídos bien (100 %, margen del 95 %: 99–100 %); y 1 de 1 entidades de control sin ninguna señal.
+La ronda más reciente, la 11, parcial, sobre 4 de las 39 entidades del material: 23 de 23 señales sembradas encontradas (margen del 95 %: 85,6–100 %) y 0 de más; 569 de 569 datos extraídos bien (100 %, margen del 95 %: 99,3–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–10, 220 de 220 señales encontradas, 0 de más y 5886 de 5905 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–11, 243 de 243 señales encontradas, 0 de más y 6455 de 6474 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 10; la más reciente, la 10, es parcial |
-| Material | Banca · Guatemala, Retail · Guatemala |
-| Entidades de control | Control · Guatemala |
-| Corridas de una entidad | 43 |
-| Señales sembradas | 220 |
-| Datos calificados | 5905 |
+| Rondas | 11; la más reciente, la 11, es parcial |
+| Material | Banca · Costa Rica, Entidad pública · Costa Rica, Retail · Costa Rica |
+| Entidades de control | Control · Costa Rica |
+| Corridas de una entidad | 47 |
+| Señales sembradas | 243 |
+| Datos calificados | 6474 |
 
-## Resultados acumulados · rondas 1–10
+## Resultados acumulados · rondas 1–11
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 220 de 220 | 100 % | 98,2–100 % |
-| Señales · precisión | 220 de 220 | 100 % | 98,2–100 % |
-| Extracción · datos correctos | 5886 de 5905 | 99,7 % | 99,4–99,8 % |
-| Control · sin ninguna señal | 14 de 14 | 100 % | 78,4–100 % |
+| Señales · cobertura | 243 de 243 | 100 % | 98,4–100 % |
+| Señales · precisión | 243 de 243 | 100 % | 98,4–100 % |
+| Extracción · datos correctos | 6455 de 6474 | 99,7 % | 99,5–99,9 % |
+| Control · sin ninguna señal | 15 de 15 | 100 % | 79,6–100 % |
 
 ## Evolución por ronda
 
@@ -52,27 +52,29 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 8 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 11,5 M | 0 |
 | 9 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 11,9 M | 0 |
 | 10 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 9,9 M | 0 |
+| 11 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 12,6 M | 0 |
 
-## La ronda más reciente · ronda 10
+## La ronda más reciente · ronda 11
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 20 de 20 | 100 % | 83,8–100 % |
-| Señales · precisión | 20 de 20 | 100 % | 83,8–100 % |
-| Extracción · datos correctos | 396 de 396 | 100 % | 99–100 % |
+| Señales · cobertura | 23 de 23 | 100 % | 85,6–100 % |
+| Señales · precisión | 23 de 23 | 100 % | 85,6–100 % |
+| Extracción · datos correctos | 569 de 569 | 100 % | 99,3–100 % |
 | Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
 
-## Por industria y país · ronda 10
+## Por industria y país · ronda 11
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Guatemala | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3 M |
-| Retail · Guatemala | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,3 M |
-| Control · Guatemala | Constanza, Fidel | 0 de 0 | 0 | 132 de 132 | 3,6 M |
+| Banca · Costa Rica | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,3 M |
+| Entidad pública · Costa Rica | Fidel | 3 de 3 | 0 | 152 de 152 | 2 M |
+| Retail · Costa Rica | Constanza, Fidel | 10 de 10 | 0 | 153 de 153 | 3,6 M |
+| Control · Costa Rica | Constanza, Fidel | 0 de 0 | 0 | 132 de 132 | 3,6 M |
 
-## Lo que falló, uno por uno · rondas 1–10
+## Lo que falló, uno por uno · rondas 1–11
 
-19 fallas en 43 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+19 fallas en 47 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -117,7 +119,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 10 rondas usaron 166,1 millones de tokens: 163,6 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 3,8 millones por entidad.
+Las 11 rondas usaron 178,6 millones de tokens: 176,2 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 3,7 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

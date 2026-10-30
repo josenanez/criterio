@@ -1,0 +1,38 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:45:32",
+  "estado": "success",
+  "error": false,
+  "segundos": 79,
+  "turnos": 16,
+  "tokens": 719693,
+  "tokens_salida": 4765,
+  "costo_usd": 0.2083148,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-10-30-compliance-scan-1.html",
+      ".criterio/corridas/cumplimiento/2026-10-30-compliance-scan-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cache/30-normativa/registro-normativo.csv.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cache/cumplimiento-2026-09/10-evidencias/OB-01_reporte-mensual-de-operaciones-al-superv-2026-09.md.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cache/cumplimiento-2026-09/10-evidencias/OB-02_conciliacion-de-la-base-de-clientes-vinc-2026-09.md.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cache/cumplimiento-2026-09/10-evidencias/OB-03_informe-trimestral-del-comite-de-riesgos-2026-09.md.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cache/cumplimiento-2026-09/10-evidencias/OB-06_reporte-de-operaciones-del-contratista-d-2026-09.md.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cache/cumplimiento-2026-09/10-evidencias/OB-08_actualizacion-de-datos-de-proveedores-cr-2026-09.md.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cache/cumplimiento-2026-09/10-evidencias/OB-13_reporte-de-regalos-e-invitaciones-2026-09.md.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/corridas/2026-10-06-compliance-scan-1.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/corridas/salida-compliance-scan.md",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cumplimiento/2026-09/reporte-compliance-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/3101612904-almacenes-de-la-meseta/cache/manifest.json",
+      "estado-legal/3101612904-almacenes-de-la-meseta/corridas.json"
+    ],
+    "borrados": []
+  }
+}

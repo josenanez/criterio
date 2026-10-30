@@ -1,0 +1,39 @@
+{
+  "n": 2,
+  "agente": "clara",
+  "comando": "close-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T17:14:40",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 14,
+  "tokens": 706060,
+  "tokens_salida": 5252,
+  "costo_usd": 0.2310858,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/40-soportes/C-01-soporte.pdf.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/40-soportes/C-03-soporte.pdf.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/40-soportes/C-04-soporte.pdf.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/40-soportes/C-05-soporte.md.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/40-soportes/correo-estado-del-cierre.md.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/50-auditoria/requerimientos/carta-auditor-2026-10-02.md.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/50-auditoria/requerimientos/pbc-2026-09.csv.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/50-auditoria/respuestas/R-01-respuesta.docx.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/50-auditoria/respuestas/R-02-respuesta.docx.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/2026-09/50-auditoria/respuestas/R-03-respuesta.md.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cache/manifest.json",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/cierre/2026-09/reporte-close-scan.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas/2026-10-06-close-scan-1.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas/salida-close-scan.md",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/3101457812-banco-del-valle-central-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
