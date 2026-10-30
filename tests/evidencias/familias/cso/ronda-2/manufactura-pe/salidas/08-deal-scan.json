@@ -1,0 +1,34 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T03:39:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 67,
+  "turnos": 20,
+  "tokens": 927923,
+  "tokens_salida": 7674,
+  "costo_usd": 0.2886569,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/20210045016-industrias-del-rimac/cache/40-cotizaciones/COT-2001_cotizacion.pdf.md",
+      "estado-comercial/20210045016-industrias-del-rimac/cache/40-cotizaciones/COT-2002_cotizacion.pdf.md",
+      "estado-comercial/20210045016-industrias-del-rimac/cache/40-cotizaciones/COT-2003_cotizacion.pdf.md",
+      "estado-comercial/20210045016-industrias-del-rimac/cache/40-cotizaciones/COT-2004_cotizacion.pdf.md",
+      "estado-comercial/20210045016-industrias-del-rimac/cache/40-cotizaciones/COT-2005_cotizacion.pdf.md",
+      "estado-comercial/20210045016-industrias-del-rimac/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/20210045016-industrias-del-rimac/corridas/salida-deal-scan.md",
+      "estado-comercial/20210045016-industrias-del-rimac/ingresos/2026-10/ficha.json",
+      "estado-comercial/20210045016-industrias-del-rimac/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/20210045016-industrias-del-rimac/cache/manifest.json",
+      "estado-comercial/20210045016-industrias-del-rimac/corridas.json",
+      "estado-comercial/20210045016-industrias-del-rimac/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

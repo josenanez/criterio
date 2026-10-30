@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T04:03:30",
+  "estado": "success",
+  "error": false,
+  "segundos": 48,
+  "turnos": 16,
+  "tokens": 721934,
+  "tokens_salida": 5199,
+  "costo_usd": 0.2526625,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/77654321-7-soluciones-digitales-del-pacifico/cache/20-comite/acta-comite-2026-10-02.docx.md",
+      "estado-comercial/77654321-7-soluciones-digitales-del-pacifico/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/77654321-7-soluciones-digitales-del-pacifico/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/77654321-7-soluciones-digitales-del-pacifico/corridas/salida-pipeline-scan.md",
+      "estado-comercial/77654321-7-soluciones-digitales-del-pacifico/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/77654321-7-soluciones-digitales-del-pacifico/cache/manifest.json",
+      "estado-comercial/77654321-7-soluciones-digitales-del-pacifico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

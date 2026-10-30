@@ -1,0 +1,32 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T04:08:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 43,
+  "turnos": 16,
+  "tokens": 669646,
+  "tokens_salida": 4166,
+  "costo_usd": 0.196409,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/40-cotizaciones/COT-2501_cotizacion.pdf.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/40-cotizaciones/COT-2502_cotizacion.pdf.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/40-cotizaciones/COT-2503_cotizacion.pdf.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas/salida-deal-scan.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/ingresos/2026-10/ficha.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/manifest.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

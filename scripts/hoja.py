@@ -20,6 +20,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import registro as R  # noqa: E402  (las siglas de hoy en las entradas selladas, decisión 0022)
+
 RAIZ = Path(__file__).resolve().parent.parent
 REGISTRO = RAIZ / "registro" / "versiones.json"
 INICIO = "<!-- hoja de ruta: generado por scripts/hoja.py desde hoja-de-ruta.json; no se edita a mano -->"
@@ -217,7 +220,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
     args = ap.parse_args()
-    entradas = json.loads(REGISTRO.read_text(encoding="utf-8"))["versiones"]
+    entradas = [R.vista(e) for e in json.loads(REGISTRO.read_text(encoding="utf-8"))["versiones"]]
     errores, resumen = [], []
     for f in FAMILIAS:
         if not f["fuente"].is_file():

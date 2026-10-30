@@ -1,0 +1,32 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T04:14:58",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 17,
+  "tokens": 727343,
+  "tokens_salida": 4352,
+  "costo_usd": 0.20850900000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/40-cotizaciones/COT-2201_cotizacion.pdf.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/40-cotizaciones/COT-2202_cotizacion.pdf.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/40-cotizaciones/COT-2203_cotizacion.pdf.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas/salida-deal-scan.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/ingresos/2026-10/ficha.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/manifest.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Andina del Pacífico",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 3233316,
+  "senales": {
+    "esperadas": 18,
+    "acertadas": 18,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

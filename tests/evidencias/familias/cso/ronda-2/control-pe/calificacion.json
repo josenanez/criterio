@@ -1,0 +1,24 @@
+{
+  "entidad": "Comercial Control del Perú",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 2926229,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [
+      [
+        "stalled_opportunity",
+        "detenida:OPP-2205"
+      ]
+    ],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

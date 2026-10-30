@@ -1,0 +1,32 @@
+{
+  "n": 7,
+  "agente": "valeria",
+  "comando": "revenue-setup",
+  "argumento": "comercial/20210047035-comercial-control-del-peru",
+  "inicio": "2026-10-30T04:14:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 47,
+  "turnos": 13,
+  "tokens": 506407,
+  "tokens_salida": 6035,
+  "costo_usd": 0.21680170000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/ingresos/20210047035-comercial-control-del-peru/config.json",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.sha256",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas/2026-11-05-revenue-setup-1.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas/salida-revenue-setup.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/ingresos/2026-10/reporte-won-to-invoice.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/ingresos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T03:28:11",
+  "estado": "success",
+  "error": false,
+  "segundos": 50,
+  "turnos": 16,
+  "tokens": 684478,
+  "tokens_salida": 5654,
+  "costo_usd": 0.23765369999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/cache/40-cotizaciones/COT-1701_cotizacion.pdf.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/cache/40-cotizaciones/COT-1702_cotizacion.pdf.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/cache/40-cotizaciones/COT-1703_cotizacion.pdf.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/cache/40-cotizaciones/COT-1704_cotizacion.pdf.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/cache/40-cotizaciones/COT-1705_cotizacion.pdf.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/corridas/salida-deal-scan.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/ingresos/2026-10/ficha.json",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/cache/manifest.json",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/corridas.json",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

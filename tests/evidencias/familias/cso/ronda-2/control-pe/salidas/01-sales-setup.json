@@ -1,0 +1,42 @@
+{
+  "n": 1,
+  "agente": "augusto",
+  "comando": "sales-setup",
+  "argumento": "comercial/20210047035-comercial-control-del-peru",
+  "inicio": "2026-10-30T03:44:36",
+  "estado": "success",
+  "error": false,
+  "segundos": 57,
+  "turnos": 18,
+  "tokens": 742158,
+  "tokens_salida": 7383,
+  "costo_usd": 0.2888567,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/comercial/20210047035/config.json",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/20-comite/acta-comite-2026-10-02.docx.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/30-evidencia/OPP-2201_orden-compra.pdf.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/30-evidencia/OPP-2201_propuesta.md.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/30-evidencia/OPP-2202_orden-compra.pdf.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/30-evidencia/OPP-2202_propuesta.md.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/30-evidencia/OPP-2203_orden-compra.pdf.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/30-evidencia/OPP-2203_propuesta.md.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/30-evidencia/OPP-2204_propuesta.md.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/30-evidencia/OPP-2207_propuesta.md.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/cache/manifest.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/comercial/2026-10/ficha.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/comercial/2026-10/reporte-pipeline-check.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/comercial/2026-10/resultados.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas.json",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas/2026-11-05-sales-setup-1.md",
+      "estado-comercial/20210047035-comercial-control-del-peru/corridas/salida-sales-setup.md"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

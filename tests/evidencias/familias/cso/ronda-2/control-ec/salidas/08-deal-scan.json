@@ -1,0 +1,32 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T03:35:40",
+  "estado": "success",
+  "error": false,
+  "segundos": 46,
+  "turnos": 14,
+  "tokens": 676977,
+  "tokens_salida": 3918,
+  "costo_usd": 0.1968827,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/40-cotizaciones/COT-1901_cotizacion.pdf.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/40-cotizaciones/COT-1902_cotizacion.pdf.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/40-cotizaciones/COT-1903_cotizacion.pdf.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas/salida-deal-scan.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/ingresos/2026-10/ficha.json",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/manifest.json",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas.json",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

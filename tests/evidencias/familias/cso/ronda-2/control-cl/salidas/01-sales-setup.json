@@ -1,0 +1,42 @@
+{
+  "n": 1,
+  "agente": "augusto",
+  "comando": "sales-setup",
+  "argumento": "comercial/76000002-7-comercial-control-de-chile",
+  "inicio": "2026-10-30T04:05:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 68,
+  "turnos": 29,
+  "tokens": 801657,
+  "tokens_salida": 8787,
+  "costo_usd": 0.311241,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/comercial/76000002-7/config.json",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/20-comite/acta-comite-2026-10-02.docx.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/30-evidencia/OPP-2501_orden-compra.pdf.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/30-evidencia/OPP-2501_propuesta.md.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/30-evidencia/OPP-2502_orden-compra.pdf.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/30-evidencia/OPP-2502_propuesta.md.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/30-evidencia/OPP-2503_orden-compra.pdf.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/30-evidencia/OPP-2503_propuesta.md.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/30-evidencia/OPP-2504_propuesta.md.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/30-evidencia/OPP-2507_propuesta.md.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/cache/manifest.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/comercial/2026-10/ficha.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/comercial/2026-10/reporte-pipeline-check.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/comercial/2026-10/resultados.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas/2026-11-05-sales-setup-1.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas/salida-sales-setup.md"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

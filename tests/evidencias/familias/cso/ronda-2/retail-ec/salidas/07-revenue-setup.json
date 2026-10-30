@@ -1,0 +1,32 @@
+{
+  "n": 7,
+  "agente": "valeria",
+  "comando": "revenue-setup",
+  "argumento": "comercial/1790123456001-comercial-andina-del-pacifico",
+  "inicio": "2026-10-30T03:27:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 66,
+  "turnos": 25,
+  "tokens": 823365,
+  "tokens_salida": 9221,
+  "costo_usd": 0.3180127,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/ingresos/1790123456001-comercial-andina-del-pacifico/config.json",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.sha256",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/corridas/2026-11-05-revenue-setup-1.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/corridas/salida-revenue-setup.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/ingresos/2026-10/reporte-won-to-invoice.md",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/ingresos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/1790123456001-comercial-andina-del-pacifico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "n": 7,
+  "agente": "valeria",
+  "comando": "revenue-setup",
+  "argumento": "comercial/76000002-7-comercial-control-de-chile",
+  "inicio": "2026-10-30T04:07:42",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 10,
+  "tokens": 437681,
+  "tokens_salida": 4825,
+  "costo_usd": 0.20462309999999995,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/ingresos/76000002-7/config.json",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.2.0-2026-11-05.sha256",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas/2026-11-05-revenue-setup-1.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas/salida-revenue-setup.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/ingresos/2026-10/reporte-won-to-invoice.md",
+      "estado-comercial/76000002-7-comercial-control-de-chile/ingresos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/76000002-7-comercial-control-de-chile/corridas.json"
+    ],
+    "borrados": []
+  }
+}

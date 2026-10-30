@@ -1,0 +1,42 @@
+{
+  "n": 1,
+  "agente": "augusto",
+  "comando": "sales-setup",
+  "argumento": "comercial/1790000028001-comercial-control-del-ecuador",
+  "inicio": "2026-10-30T03:32:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 67,
+  "turnos": 24,
+  "tokens": 894323,
+  "tokens_salida": 8678,
+  "costo_usd": 0.32725190000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/comercial/1790000028001-comercial-control-del-ecuador/config.json",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-sales-0.2.0-2026-11-05.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/20-comite/acta-comite-2026-10-02.docx.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/30-evidencia/OPP-1901_orden-compra.pdf.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/30-evidencia/OPP-1901_propuesta.md.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/30-evidencia/OPP-1902_orden-compra.pdf.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/30-evidencia/OPP-1902_propuesta.md.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/30-evidencia/OPP-1903_orden-compra.pdf.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/30-evidencia/OPP-1903_propuesta.md.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/30-evidencia/OPP-1904_propuesta.md.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/30-evidencia/OPP-1907_propuesta.md.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/cache/manifest.json",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/comercial/2026-10/ficha.json",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/comercial/2026-10/reporte-pipeline-check.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/comercial/2026-10/resultados.json",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas.json",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas/2026-11-05-sales-setup-1.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas/salida-sales-setup.md"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

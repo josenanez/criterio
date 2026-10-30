@@ -1,0 +1,27 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T03:30:31",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 16,
+  "tokens": 716707,
+  "tokens_salida": 5060,
+  "costo_usd": 0.24208610000000005,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/0990234566001-sistemas-integrados-del-guayas/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/0990234566001-sistemas-integrados-del-guayas/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/0990234566001-sistemas-integrados-del-guayas/corridas/salida-pipeline-scan.md",
+      "estado-comercial/0990234566001-sistemas-integrados-del-guayas/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/0990234566001-sistemas-integrados-del-guayas/corridas.json"
+    ],
+    "borrados": []
+  }
+}

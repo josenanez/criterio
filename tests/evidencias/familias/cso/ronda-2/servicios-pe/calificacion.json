@@ -1,0 +1,19 @@
+{
+  "entidad": "Consultores Asociados de Lima",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 3123588,
+  "senales": {
+    "esperadas": 20,
+    "acertadas": 20,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

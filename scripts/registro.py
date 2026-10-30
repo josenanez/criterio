@@ -77,7 +77,7 @@ def en_construccion() -> dict[str, str]:
     les planea: la primera que no dice «liberada». Una familia en construcción no está en el
     marketplace, y entra al registro con su primera liberación (`--familia sigla=versión`)."""
     reg = leer()
-    ultima = reg["versiones"][-1] if reg["versiones"] else {}
+    ultima = vista(reg["versiones"][-1]) if reg["versiones"] else {}
     if "familias" not in ultima:
         return {}
     out = {}
@@ -103,9 +103,28 @@ def lanzada(sigla: str, hoy: str | None = None) -> bool:
     return bool(l) and l <= (hoy or dt.date.today().isoformat())
 
 
+# Las familias que cambiaron de sigla (decisión 0022): una entrada sellada no se reescribe, así que su
+# sigla de entonces se lee con la de hoy. La CSO de las 0.1.0 y 0.2.0 es la CCO.
+RENOMBRADAS = {"cso": "cco"}
+
+
+def vista(e: dict | None) -> dict | None:
+    """Una entrada del registro con las siglas de hoy, para leerla; la huella se calcula siempre
+    sobre la entrada como se selló."""
+    if not e:
+        return e
+    c = dict(e)
+    for k in ("familias", "calidad"):
+        if isinstance(c.get(k), dict):
+            c[k] = {RENOMBRADAS.get(s, s): v for s, v in c[k].items()}
+    if "liberadas" in c:
+        c["liberadas"] = [RENOMBRADAS.get(s, s) for s in c["liberadas"]]
+    return c
+
+
 def version_de_familia(e: dict, sigla: str) -> str:
     """La versión de una familia en una entrada; antes de la decisión 0017, la única de la entrada."""
-    return e.get("familias", {}).get(sigla, e["version"])
+    return vista(e).get("familias", {}).get(sigla, e["version"])
 
 
 def version_de_plugin(e: dict, plugin: str) -> str:
@@ -317,7 +336,7 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     if any(e["version"] == v for e in reg["versiones"]):
         print(f"la versión {v} ya está registrada: una versión no se registra dos veces")
         return 1
-    previa = reg["versiones"][-1] if reg["versiones"] else None
+    previa = vista(reg["versiones"][-1]) if reg["versiones"] else None
     fam = familias()
     if not por_familia:
         print("una versión libera al menos una familia: --familia sigla=versión o --todas")
@@ -432,7 +451,7 @@ def verificar() -> int:
         # Desde la 0.12.1, la última antes de la decisión 0020, cada entrada sigue la regla de diez
         # versiones por entero: el catálogo y cada familia que se libera.
         vs = reg["versiones"]
-        for prev, e in zip(vs, vs[1:]):
+        for prev, e in zip(map(vista, vs), map(vista, vs[1:])):
             if clave(prev["version"]) < (0, 12, 1):
                 continue
             m = sigue(prev["version"], e["version"])
@@ -527,7 +546,7 @@ def main() -> int:
     por_familia = {}
     if a.todas:
         # Un cambio común sube una corrección en cada familia liberada; una en construcción sigue fuera.
-        ultima = (leer()["versiones"] or [{}])[-1]
+        ultima = vista((leer()["versiones"] or [{}])[-1])
         for s in familias():
             if "familias" in ultima and s not in ultima["familias"]:
                 continue

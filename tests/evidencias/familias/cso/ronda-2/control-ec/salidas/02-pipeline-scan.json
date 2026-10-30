@@ -1,0 +1,27 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T03:34:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 46,
+  "turnos": 17,
+  "tokens": 747669,
+  "tokens_salida": 3760,
+  "costo_usd": 0.2110728,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas/salida-pipeline-scan.md",
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/1790000028001-comercial-control-del-ecuador/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T03:49:18",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 14,
+  "tokens": 629544,
+  "tokens_salida": 4201,
+  "costo_usd": 0.24514980000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/76543210-3-tiendas-del-maipo/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/76543210-3-tiendas-del-maipo/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/76543210-3-tiendas-del-maipo/corridas/salida-pipeline-scan.md",
+      "estado-comercial/76543210-3-tiendas-del-maipo/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/76543210-3-tiendas-del-maipo/corridas.json"
+    ],
+    "borrados": []
+  }
+}

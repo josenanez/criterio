@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T03:41:47",
+  "estado": "success",
+  "error": false,
+  "segundos": 51,
+  "turnos": 16,
+  "tokens": 728269,
+  "tokens_salida": 5702,
+  "costo_usd": 0.26250710000000005,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/20210046021-consultores-asociados-de-lima/cache/20-comite/acta-comite-2026-10-02.docx.md",
+      "estado-comercial/20210046021-consultores-asociados-de-lima/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/20210046021-consultores-asociados-de-lima/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/20210046021-consultores-asociados-de-lima/corridas/salida-pipeline-scan.md",
+      "estado-comercial/20210046021-consultores-asociados-de-lima/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/20210046021-consultores-asociados-de-lima/cache/manifest.json",
+      "estado-comercial/20210046021-consultores-asociados-de-lima/corridas.json"
+    ],
+    "borrados": []
+  }
+}
