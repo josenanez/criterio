@@ -2,7 +2,7 @@
 
 **la agente de la respuesta y la recuperación de la familia CISO** · plugin `criterio-resilience`
 
-Corrida del 2026-10-30, sobre el commit `acbe92c1`, con cambios en el árbol todavía sin confirmar. **1 puertas · 7 comprobaciones · todas en verde.**
+Corrida del 2026-10-30, sobre el commit `d445dea0`, con cambios en el árbol todavía sin confirmar. **1 puertas · 7 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 

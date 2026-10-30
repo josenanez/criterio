@@ -2,7 +2,7 @@
 
 **la agente de tesorería de la familia CFO** · plugin `criterio-treasury`
 
-Corrida del 2026-10-30, sobre el commit `acbe92c1`, con cambios en el árbol todavía sin confirmar. **2 puertas · 129 comprobaciones · todas en verde.**
+Corrida del 2026-10-30, sobre el commit `d445dea0`, con cambios en el árbol todavía sin confirmar. **2 puertas · 129 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-30, sobre el commit `acbe92c1`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-treasury/finanzas.py selftest` | La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima | 95 | 166 ms | verde |
-| `criterio-cfo/evaluar.py` | El motor de Áurea contra la clave: caja, pagos, exposición, vencimientos y covenants en cuatro industrias, y nada en los controles | 34 | 2133 ms | verde |
+| `criterio-treasury/finanzas.py selftest` | La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima | 95 | 199 ms | verde |
+| `criterio-cfo/evaluar.py` | El motor de Áurea contra la clave: caja, pagos, exposición, vencimientos y covenants en cuatro industrias, y nada en los controles | 34 | 2466 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
