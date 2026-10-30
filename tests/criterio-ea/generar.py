@@ -405,15 +405,23 @@ def oficina(o: dict) -> dict:
                        "state": "open", "evidence": None, "source": fuente})
             esperado.append(("commitment_rescheduled", f"reprogramado:{k_l}:C-{c}"))
         lineas += ["", "## Decisiones pendientes"]
+        # Cada propuesta con sus dos opciones y lo que cuesta cada una, completa: no le falta nada
+        # para decidir (EA-9: una sede regional traía las opciones de un proveedor y ninguna cifra).
+        propuestas = [("Proveedor de la mesa de ayuda", "Renovar con el proveedor actual por tres años, a 18.000 al mes",
+                       "Contratar al proveedor que ganó la cotización, a 15.500 al mes"),
+                      ("Sede de la oficina regional", "Mantener la sede actual, con un canon de 42.000 al mes",
+                       "Trasladarse a la sede nueva del centro, con un canon de 47.500 al mes"),
+                      ("Aseguradora de la flota", "Renovar con la aseguradora actual, con una prima anual de 96.000",
+                       "Cambiar a la aseguradora que cotizó, con una prima anual de 88.000")]
         for j in range(lote.get("decision_con_plazo", 0)):
             plazo, doc = f"2026-11-{3 + j:02d}", f"{mat_l}/propuesta-{j + 1}.md"
-            asunto = ["Proveedor de la mesa de ayuda", "Sede de la oficina regional", "Aseguradora de la flota"][j % 3]
+            asunto, op1, op2 = propuestas[j % 3]
             lineas.append(f"- {asunto}: el material plantea dos opciones. Se decide antes del {plazo}.")
-            escribir(docs / doc, f"# Propuesta: {asunto.lower()}\n\nLa decisión vence el {plazo}.\n\nOpción 1 · Continuar como hoy.\n"
-                                 "Opción 2 · Cambiar de proveedor.\n")
+            escribir(docs / doc, f"# Propuesta: {asunto.lower()}\n\nLa decisión vence el {plazo}.\n\nOpción 1 · {op1}.\n"
+                                 f"Opción 2 · {op2}.\n\nLas dos ofertas están completas, por escrito y vigentes hasta el plazo.\n")
             dc.append({"id": f"D-{j + 1}", "decision": asunto, "source": doc,
-                       "options": [{"option": "Continuar como hoy", "evidence": [{"archivo": doc}]},
-                                   {"option": "Cambiar de proveedor", "evidence": [{"archivo": doc}]}],
+                       "options": [{"option": op1, "evidence": [{"archivo": doc}]},
+                                   {"option": op2, "evidence": [{"archivo": doc}]}],
                        "missing": [], "deadline": plazo, "deadline_source": f"{doc}, línea 3", "status": "pending"})
             esperado.append(("decision_deadline", f"decision:{k_l}:D-{j + 1}"))
         lineas += ["", f"Firmada por {p[0]}, presidente de la sesión, y {p[4]}, secretaria.", ""]
