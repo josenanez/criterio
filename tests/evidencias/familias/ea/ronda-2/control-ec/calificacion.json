@@ -1,0 +1,18 @@
+{
+  "entidad": "Comercial Control",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 1202424,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 25,
+    "bien": 25,
+    "mal": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T01:41:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 16,
+  "tokens": 722627,
+  "tokens_salida": 4909,
+  "costo_usd": 0.2499192,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/900876543-soluciones-digitales-andinas/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/corridas/salida-pipeline-scan.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/900876543-soluciones-digitales-andinas/corridas.json"
+    ],
+    "borrados": []
+  }
+}

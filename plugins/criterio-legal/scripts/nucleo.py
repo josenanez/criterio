@@ -316,45 +316,77 @@ def filas_de(ruta: Path) -> list[list[str]]:
     raise ValueError(f"{ruta.name}: una tabla llega en .csv, .xlsx o un PDF con texto, no en {ext}")
 
 
-# Los nombres con que llega cada columna en las exportaciones. La organización puede fijar
-# los suyos en la configuración (`columns`); si no, se detectan por el nombre.
+# Los nombres con que llega cada columna en las exportaciones, en español, portugués e inglés. La
+# organización puede fijar los suyos en la configuración (`columns`); si no, se detectan por el nombre.
 ALIAS = {
-    "cuenta": ["cuenta", "codigo", "codigo_cuenta", "cta", "cuenta_contable", "account"],
-    "nombre": ["nombre", "nombre_cuenta", "descripcion_cuenta", "account_name"],
-    "naturaleza": ["naturaleza", "nature"],
+    "cuenta": ["cuenta", "codigo", "codigo_cuenta", "cta", "cuenta_contable", "account", "conta", "codigo_conta", "conta_contabil"],
+    "nombre": ["nombre", "nombre_cuenta", "descripcion_cuenta", "account_name", "nome", "nome_conta", "descricao_conta"],
+    "naturaleza": ["naturaleza", "nature", "natureza"],
     "saldo_inicial": ["saldo_inicial", "saldo_anterior", "opening_balance"],
     "debito": ["debito", "debitos", "debe", "cargos", "debit"],
     "credito": ["credito", "creditos", "haber", "abonos", "credit"],
-    "saldo_final": ["saldo_final", "nuevo_saldo", "saldo", "closing_balance", "balance"],
-    "fecha": ["fecha", "fecha_movimiento", "fecha_contable", "fecha_documento", "date"],
-    "tercero": ["tercero", "nit", "ruc", "identificacion", "id_tercero", "nit_tercero"],
-    "documento": ["documento", "numero_documento", "num_documento", "factura", "doc", "numero"],
-    "comprobante": ["comprobante", "asiento", "numero_asiento", "voucher"],
-    "centro_costo": ["centro_costo", "centro_de_costo", "cc", "cost_center"],
-    "descripcion": ["descripcion", "detalle", "concepto", "description"],
+    "saldo_final": ["saldo_final", "nuevo_saldo", "saldo", "closing_balance", "balance", "saldo_atual"],
+    "fecha": ["fecha", "fecha_movimiento", "fecha_contable", "fecha_documento", "date", "data", "data_lancamento", "data_movimento"],
+    "tercero": ["tercero", "nit", "ruc", "identificacion", "id_tercero", "nit_tercero", "terceiro", "cnpj", "cpf_cnpj"],
+    "documento": ["documento", "numero_documento", "num_documento", "factura", "doc", "numero", "nota_fiscal"],
+    "comprobante": ["comprobante", "asiento", "numero_asiento", "voucher", "lancamento", "numero_lancamento"],
+    "centro_costo": ["centro_costo", "centro_de_costo", "cc", "cost_center", "centro_de_custo", "centro_custo"],
+    "descripcion": ["descripcion", "detalle", "concepto", "description", "historico", "descricao"],
     "referencia": ["referencia", "ref", "numero_referencia", "reference"],
     "valor": ["valor", "monto", "importe", "amount"],
-    "moneda": ["moneda", "divisa", "currency"],
-    "id": ["id", "codigo_tarea", "tarea_id"],
-    "tarea": ["tarea", "actividad", "task"],
-    "area": ["area", "gerencia", "unidad"],
-    "responsable": ["responsable", "owner", "encargado"],
-    "dia_limite": ["dia_limite", "fecha_limite", "vence", "due"],
-    "depende_de": ["depende_de", "dependencias", "predecesoras"],
+    "moneda": ["moneda", "divisa", "currency", "moeda"],
+    "id": ["id", "codigo_tarea", "tarea_id", "codigo_tarefa"],
+    "tarea": ["tarea", "actividad", "task", "tarefa", "atividade"],
+    "area": ["area", "gerencia", "unidad", "unidade"],
+    "responsable": ["responsable", "owner", "encargado", "responsavel"],
+    "dia_limite": ["dia_limite", "fecha_limite", "vence", "due", "prazo", "data_limite", "dia_limite_util"],
+    "depende_de": ["depende_de", "dependencias", "predecesoras", "predecessoras"],
     "evidencia_esperada": ["evidencia_esperada", "evidencia"],
-    "criticidad": ["criticidad", "prioridad"],
-    "estado": ["estado", "status"],
-    "solicitud": ["solicitud", "requerimiento", "request"],
-    "linea": ["linea", "linea_presupuestal", "rubro", "line"],
+    "criticidad": ["criticidad", "prioridad", "criticidade", "prioridade"],
+    "estado": ["estado", "status", "situacao"],
+    "solicitud": ["solicitud", "requerimiento", "request", "solicitacao"],
+    "linea": ["linea", "linea_presupuestal", "rubro", "line", "linha", "rubrica"],
     "total": ["total", "total_anual", "anual"],
-    "proveedor": ["proveedor", "vendor"],
-    "saldo": ["saldo_por_ejecutar", "saldo_pendiente", "pendiente", "saldo"],
-    "proyeccion": ["proyeccion", "proyeccion_cierre", "forecast"],
-    "version": ["version", "version_presupuesto"],
+    "proveedor": ["proveedor", "vendor", "fornecedor"],
+    "saldo": ["saldo_por_ejecutar", "saldo_pendiente", "pendiente", "saldo", "saldo_a_executar", "saldo_pendente"],
+    "proyeccion": ["proyeccion", "proyeccion_cierre", "forecast", "projecao", "projecao_fechamento"],
+    "version": ["version", "version_presupuesto", "versao"],
+    # La tesorería: la política, la matriz de firmas, el registro de la deuda y el programa de pagos.
+    "concepto": ["concepto", "conceito"],
+    "monto_maximo": ["monto_maximo", "valor_maximo", "limite_maximo"],
+    "cargo": ["cargo"],
+    "obligacion": ["obligacion", "obrigacao"],
+    "vencimiento": ["vencimiento", "vencimento"],
+    "contraparte": ["contraparte"],
+    "tipo": ["tipo"],
+    "beneficiario": ["beneficiario"],
+    "aprobado_por": ["aprobado_por", "aprovado_por"],
+    "saldo_proyectado": ["saldo_proyectado", "saldo_projetado"],
 }
+# Los valores que dicen lo mismo en portugués que en español: el concepto de una regla de la
+# política, el tipo de una obligación, el estado declarado de una tarea o de un requerimiento.
+SINONIMOS = {
+    "caixa_minimo": "caja_minima", "caixa_minima": "caja_minima", "aprovadores": "aprobadores",
+    "limite_exposicao": "limite_exposicion", "taxa": "tasa", "divida": "deuda", "investimento": "inversion",
+    "concluida": "cumplida", "concluido": "cumplido", "feito": "hecho", "feita": "hecha", "fechada": "cerrada",
+    "fechado": "cerrado", "cumprida": "cumplida", "cumprido": "cumplido", "entregue": "entregado",
+    "atendido": "respondido", "atendida": "respondida", "baixa": "baja",
+}
+
+
+def canon(v) -> str:
+    """Un valor comparable en cualquiera de los idiomas del registro: «concluída» es «cumplida»."""
+    n = norm(v)
+    return SINONIMOS.get(n, n)
+
+
 MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
 MESES_LARGO = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
                "septiembre", "octubre", "noviembre", "diciembre"]
+# En portugués: los mismos meses, con otro nombre.
+MESES_PT = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"]
+MESES_LARGO_PT = ["janeiro", "fevereiro", "marco", "abril", "maio", "junho", "julho", "agosto",
+                  "setembro", "outubro", "novembro", "dezembro"]
 
 
 def _mes_de(cab: str) -> int | None:
@@ -363,6 +395,9 @@ def _mes_de(cab: str) -> int | None:
         return MESES.index(n) + 1
     if n in MESES_LARGO:
         return MESES_LARGO.index(n) + 1
+    for lista in (MESES_PT, MESES_LARGO_PT):
+        if n in lista:
+            return lista.index(n) + 1
     m = re.fullmatch(r"m_?(\d{1,2})|mes_?(\d{1,2})", n)
     if m:
         k = int(m[1] or m[2])
@@ -422,15 +457,23 @@ def rel(p: Path, base: Path) -> str:
         return str(p)
 
 
+# El nombre de un archivo en portugués: el libro mayor es el «livro razão» o la «razão», el extracto
+# es el «extrato», el flujo es el «fluxo». Los que empiezan igual —balancete, plano, programa— no
+# necesitan otro nombre.
+ARCHIVOS = {"libro": ["livro", "razao"], "extracto": ["extrato"], "mapeo": ["mapeamento"], "flujo": ["fluxo"],
+            "registro_deuda": ["registro_divida"]}
+
+
 def buscar(carpeta: Path, patron: str, pdf: bool = False) -> list[Path]:
     """Los archivos de tabla de una carpeta cuyo nombre empieza por el patrón. Con `pdf`, también
     el PDF —el extracto que el banco entrega así—, después de cualquier CSV o Excel."""
     if not carpeta.is_dir():
         return []
     tipos = (".csv", ".xlsx", ".pdf") if pdf else (".csv", ".xlsx")
+    patrones = [norm(patron)] + ARCHIVOS.get(norm(patron), [])
     return sorted((p for p in carpeta.iterdir()
                    if p.is_file() and not p.name.startswith(".") and p.suffix.lower() in tipos
-                   and norm(p.stem).startswith(norm(patron))),
+                   and any(norm(p.stem).startswith(x) for x in patrones)),
                   key=lambda p: (p.suffix.lower() == ".pdf", p.name))
 
 

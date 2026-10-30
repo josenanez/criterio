@@ -1,0 +1,71 @@
+{
+ "nota": "Los defectos que encontraron las rondas con los agentes de la familia CSO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+ "defectos": [
+  {
+   "id": "CSO-1",
+   "ronda": 1,
+   "carpeta": "retail-co",
+   "agentes": [
+    "augusto"
+   ],
+   "origen": "arnes",
+   "commit": "13b91ad2",
+   "estado": "verificado",
+   "verificacion": "manufactura-mx",
+   "ronda_verificacion": 1,
+   "es": {
+    "que": "El arnés calificaba la evidencia de la ficha comercial como mal porque Augusto la escribió en otro orden: las diecinueve propuestas y órdenes de compra estaban todas, con su monto, su fecha y su cita.",
+    "correccion": "Una lista de registros de la ficha se califica sin orden: cada registro de la clave contra uno distinto de la ficha. La primera corrida de retail se volvió a calificar con la regla nueva, sin repetir comandos, y las demás entidades se calificaron con ella."
+   },
+   "en": {
+    "que": "The harness graded the evidence in the sales record as wrong because Augusto wrote it in a different order: all nineteen proposals and purchase orders were there, with their amount, date and citation.",
+    "correccion": "A list of records in the record is graded without order: each record in the key against a different one in the record. Retail's first run was regraded under the new rule, with no commands repeated, and the other entities were graded with it."
+   },
+   "fallas": []
+  },
+  {
+   "id": "CSO-2",
+   "ronda": 1,
+   "carpeta": "servicios-mx",
+   "agentes": [
+    "augusto"
+   ],
+   "origen": "material",
+   "commit": "30197756",
+   "estado": "verificado",
+   "verificacion": "servicios-mx-2",
+   "ronda_verificacion": 1,
+   "es": {
+    "que": "En servicios de México y en tecnología de Colombia, la clave esperaba que una fecha de cierre corrida dos veces se señalara, con un umbral de una vez que ningún documento de la entidad decía. Augusto tomó el umbral de omisión, dos veces, y no levantó las cuatro oportunidades de cada entidad.",
+    "correccion": "Cada entidad trae su política comercial en 00-referencia/ con los dos umbrales que pregunta el setup. Se repitieron la instalación y el procesamiento de los dos agentes en las dos entidades: 19 de 19 y 20 de 20 señales, ninguna de más."
+   },
+   "en": {
+    "que": "In Mexican services and Colombian technology, the key expected a close date moved twice to be flagged, under a threshold of once that no document of the entity stated. Augusto took the default threshold, twice, and did not raise the four opportunities in each entity.",
+    "correccion": "Each entity carries its sales policy in 00-referencia/ with the two thresholds the setup asks for. Both agents' setup and processing were repeated on the two entities: 19 of 19 and 20 of 20 signals, none extra."
+   },
+   "fallas": []
+  },
+  {
+   "id": "CSO-3",
+   "ronda": 1,
+   "carpeta": "control-mx",
+   "agentes": [
+    "valeria"
+   ],
+   "origen": "codigo",
+   "commit": "5aefad59",
+   "estado": "por-verificar",
+   "verificacion": "control-mx-3",
+   "ronda_verificacion": 1,
+   "es": {
+    "que": "En el control de México, con la exportación de HubSpot, la configuración quedó sin la columna de la empresa asociada. Sin ella Valeria no cruzó lo ganado con lo facturado, el plan dio cero y las dos liquidaciones de comisiones salieron como diferencias: dos señales de más en un control. En tecnología de Colombia, con el mismo HubSpot, sí la mapeó.",
+    "correccion": "Primero el motor reconoció la columna por el nombre «Associated Company», y la corrida control-mx-2 salió limpia; pero la fuente de HubSpot (F-05) no fija ese nombre, y se retiró. La corrección que queda está en la configuración: con HubSpot, sin la columna de la empresa asociada la configuración no pasa, y el setup tiene que decir cuál es."
+   },
+   "en": {
+    "que": "In the Mexican control, with the HubSpot export, the configuration was left without the associated-company column. Without it Valeria did not match what was won against what was invoiced, the plan came out at zero and the two commission settlements came out as differences: two extra signals in a control. In Colombian technology, with the same HubSpot, she did map it.",
+    "correccion": "First the engine recognised the column by the name «Associated Company», and run control-mx-2 came out clean; but HubSpot's source (F-05) does not fix that name, and it was withdrawn. The fix that stays is in the configuration: with HubSpot, without the associated-company column the configuration does not pass, and the setup has to say which one it is."
+   },
+   "fallas": []
+  }
+ ]
+}

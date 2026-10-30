@@ -410,9 +410,9 @@ sobre la documentación de una organización real.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 6 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 6 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Tesorería | `criterio-treasury` · 6 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 6 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Contralor | `criterio-finance` · 9 comandos, 7 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 7 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Tesorería | `criterio-treasury` · 6 comandos, 2 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 

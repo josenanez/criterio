@@ -1,0 +1,17 @@
+data;lancamento;conta;cnpj;documento;debito;credito;centro_de_custo;historico
+2026-04-25;G-040;5135;;;11640.00;0.00;ADM;Serviços públicos de abril
+2026-04-25;G-040;11100501;;;0.00;11640.00;;Pagamento Serviços públicos
+2026-04-25;G-041;5145;;;7760.00;0.00;ADM;Manutenção de abril
+2026-04-25;G-041;11100501;;;0.00;7760.00;;Pagamento Manutenção
+2026-04-25;G-042;5195;;;15520.00;0.00;COM;Publicidade de abril
+2026-04-25;G-042;11100501;;;0.00;15520.00;;Pagamento Publicidade
+2026-04-25;G-043;5195;;;5820.00;0.00;EVT;Eventos de abril
+2026-04-25;G-043;11100501;;;0.00;5820.00;;Pagamento Eventos
+2026-04-25;G-044;5135;;;19400.00;0.00;TEC;Licenças de abril
+2026-04-25;G-044;11100501;;;0.00;19400.00;;Pagamento Licenças
+2026-04-25;G-045;5145;;;23280.00;0.00;PRY;PRY-310 de abril
+2026-04-25;G-045;11100501;;;0.00;23280.00;;Pagamento PRY-310
+2026-04-25;G-046;5135;;;13580.00;0.00;OPE;Transporte de abril
+2026-04-25;G-046;11100501;;;0.00;13580.00;;Pagamento Transporte
+2026-04-25;G-047;5105;;;80000.00;0.00;ADM;Folha de pagamento de abril
+2026-04-25;G-047;11100501;;;0.00;80000.00;;Pagamento Folha de pagamento

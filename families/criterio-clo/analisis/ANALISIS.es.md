@@ -6,7 +6,7 @@ No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera c
 
 ## En una mirada
 
-La ronda más reciente, la 5, parcial, sobre 4 de las 15 entidades del material: 20 de 20 señales sembradas encontradas (margen del 95 %: 83,8–100 %) y 0 de más; 523 de 524 datos extraídos bien (99,8 %, margen del 95 %: 98,9–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 5, parcial, sobre 3 de las 15 entidades del material: 20 de 20 señales sembradas encontradas (margen del 95 %: 83,8–100 %) y 0 de más; 392 de 392 datos extraídos bien (100 %, margen del 95 %: 99–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
 Sumando las rondas 1–5, 108 de 108 señales encontradas, 0 de más y 2916 de 2932 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
@@ -54,8 +54,8 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 |---|---|---|---|
 | Señales · cobertura | 20 de 20 | 100 % | 83,8–100 % |
 | Señales · precisión | 20 de 20 | 100 % | 83,8–100 % |
-| Extracción · datos correctos | 523 de 524 | 99,8 % | 98,9–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Extracción · datos correctos | 392 de 392 | 100 % | 99–100 % |
+| Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
 
 ## Por industria y país · ronda 5
 

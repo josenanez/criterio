@@ -290,8 +290,8 @@ es lo que la declara probada, y sale con la 0.2.0. Laboratorio o estable lo dice
 <!-- cso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Augusto** · El pronóstico | `criterio-sales` · 6 comandos, 4 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · De la venta a la factura | `criterio-revenue` · 6 comandos, 6 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · El pronóstico | `criterio-sales` · 6 comandos, 4 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 1 · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · De la venta a la factura | `criterio-revenue` · 6 comandos, 6 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 1 · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cso:estado -->
 

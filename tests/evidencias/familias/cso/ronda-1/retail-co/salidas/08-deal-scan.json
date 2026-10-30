@@ -1,0 +1,34 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T01:30:47",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 15,
+  "tokens": 646469,
+  "tokens_salida": 7020,
+  "costo_usd": 0.26267200000000007,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/901234567-almacenes-del-valle/cache/40-cotizaciones/COT-1101_cotizacion.pdf.md",
+      "estado-comercial/901234567-almacenes-del-valle/cache/40-cotizaciones/COT-1102_cotizacion.pdf.md",
+      "estado-comercial/901234567-almacenes-del-valle/cache/40-cotizaciones/COT-1103_cotizacion.pdf.md",
+      "estado-comercial/901234567-almacenes-del-valle/cache/40-cotizaciones/COT-1104_cotizacion.pdf.md",
+      "estado-comercial/901234567-almacenes-del-valle/cache/40-cotizaciones/COT-1105_cotizacion.pdf.md",
+      "estado-comercial/901234567-almacenes-del-valle/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/901234567-almacenes-del-valle/corridas/salida-deal-scan.md",
+      "estado-comercial/901234567-almacenes-del-valle/ingresos/2026-10/ficha.json",
+      "estado-comercial/901234567-almacenes-del-valle/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/901234567-almacenes-del-valle/cache/manifest.json",
+      "estado-comercial/901234567-almacenes-del-valle/corridas.json",
+      "estado-comercial/901234567-almacenes-del-valle/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

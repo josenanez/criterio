@@ -90,6 +90,15 @@ ENTIDADES = [
      "siembra": ["xml_duplicado", "registro_sin_factura", "consignacion_en_transito", "cierre_declarado", "requerimiento_vencido",
                  "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite"]},
     {"carpeta": "control-mx", "industria": "banca", "pais": "MX", "id": F.rfc("CCM", "120615", "R59"), "nombre": "Comercial Control Centro", "moneda": "MXN", "escala": 12_000, "semilla": 19, "siembra": []},
+    # Brasil: retail y minería de São Paulo, con sus documentos en portugués. Los bancos de Brasil
+    # facturan sus servicios con la nota fiscal de servicios de cada municipio, no con la NF-e.
+    {"carpeta": "retail-br", "industria": "retail", "pais": "BR", "id": F.cnpj(31452078), "nombre": "Lojas Paulistas", "moneda": "BRL", "escala": 5_000, "semilla": 29,
+     "siembra": ["iva_distinto", "factura_sin_registro", "cheque_viejo", "cierre_declarado", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "comprometido_al_limite"]},
+    {"carpeta": "mineria-br", "industria": "mineria", "pais": "BR", "id": F.cnpj(28903114), "nombre": "Mineração Serra Azul", "moneda": "BRL", "escala": 10_000, "semilla": 31,
+     "siembra": ["registro_sin_factura", "xml_duplicado", "comision_sin_registrar", "requerimiento_en_carta", "requerimiento_vencido",
+                 "traslado_sin_acta", "proyeccion_vieja", "version_distinta"]},
+    {"carpeta": "control-br", "industria": "retail", "pais": "BR", "id": F.cnpj(40217355), "nombre": "Comercial Controle Paulista", "moneda": "BRL", "escala": 4_000, "semilla": 43, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -115,6 +124,8 @@ def r2(x: float) -> float:
 
 def csv_(ruta: Path, filas: list[list]) -> None:
     ruta.parent.mkdir(parents=True, exist_ok=True)
+    if LANG[0] == "pt" and filas:
+        filas = [[CAB_PT.get(c, c) for c in filas[0]]] + [[tr(v) for v in f] for f in filas[1:]]
     with open(ruta, "w", newline="", encoding="utf-8") as f:
         csv.writer(f, delimiter=";", lineterminator="\n").writerows([[("" if v is None else (f"{v:.2f}" if isinstance(v, float) else v)) for v in fila] for fila in filas])
 
@@ -122,6 +133,122 @@ def csv_(ruta: Path, filas: list[list]) -> None:
 def md(ruta: Path, texto: str) -> None:
     ruta.parent.mkdir(parents=True, exist_ok=True)
     ruta.write_text(texto.strip() + "\n", encoding="utf-8")
+
+
+# ------------------------------------------------ Brasil: el material en portugués
+# Las entidades de Brasil traen sus documentos en portugués, como los tiene una empresa de allá: las
+# cabeceras de las tablas, los nombres de los archivos, las cuentas, las áreas, las descripciones,
+# las actas, los correos y las personas. La estructura de carpetas es la de la plataforma. El
+# material se arma con el mismo código para todos los países y se traduce al escribirlo; la clave
+# se traduce igual, así que lo que espera es lo que dicen los documentos.
+LANG = ["es"]
+CAB_PT = {"fecha": "data", "comprobante": "lancamento", "cuenta": "conta", "tercero": "cnpj", "documento": "documento",
+          "debito": "debito", "credito": "credito", "centro_costo": "centro_de_custo", "descripcion": "historico",
+          "nombre": "nome", "naturaleza": "natureza", "saldo_inicial": "saldo_inicial", "saldo_final": "saldo_final",
+          "valor": "valor", "saldo": "saldo", "referencia": "referencia", "moneda": "moeda", "area": "area", "linea": "linha",
+          "total": "total", "id": "id", "tarea": "tarefa", "responsable": "responsavel", "dia_limite": "prazo",
+          "depende_de": "depende_de", "evidencia_esperada": "evidencia_esperada", "criticidad": "criticidade", "estado": "situacao",
+          "solicitud": "solicitacao", "fecha_limite": "data_limite", "numero": "numero", "proveedor": "fornecedor",
+          "saldo_por_ejecutar": "saldo_a_executar", "proyeccion": "projecao", "version": "versao", "concepto": "conceito",
+          "monto_maximo": "valor_maximo", "cargo": "cargo", "saldo_proyectado": "saldo_projetado", "beneficiario": "beneficiario",
+          "aprobado_por": "aprovado_por", "obligacion": "obrigacao", "tipo": "tipo", "contraparte": "contraparte",
+          "vencimiento": "vencimento", "indicador": "indicador", "numerador": "numerador", "denominador": "denominador",
+          "operador": "operador", "limite": "limite"}
+CAB_PT.update(dict(zip(F.MESES, F.N.MESES_PT)))
+PERSONAS_PT = [("Sofía León", "Sofia Leão"), ("Lucía Mora", "Luciana Moraes"), ("Andrés Paz", "André Pacheco"),
+               ("Marta Ríos", "Marta Rios"), ("Jorge Vela", "Jorge Veloso"), ("Elena Cruz", "Helena Cruz"),
+               ("Ana Ruiz", "Ana Ruas"), ("Luis Mora", "Luís Moura"), ("Carlos Paz", "Carlos Peixoto")]
+FRASES_PT = PERSONAS_PT + [
+    ("Administración", "Administração"), ("Tecnología", "Tecnologia"), ("Operaciones", "Operações"), ("Personal", "Pessoal"),
+    ("Servicios públicos", "Serviços públicos"), ("Mantenimiento", "Manutenção"), ("Publicidad", "Publicidade"), ("Eventos", "Eventos"),
+    ("Licencias", "Licenças"), ("Transporte", "Transporte"), ("Nómina", "Folha de pagamento"),
+    ("Bancos · cuenta 1", "Bancos · conta 1"), ("Bancos · cuenta 2", "Bancos · conta 2"), ("Clientes", "Clientes"), ("Inventarios", "Estoques"),
+    ("Proveedores", "Fornecedores"), ("IVA por pagar", "ICMS a recolher"), ("Salarios por pagar", "Salários a pagar"), ("Capital", "Capital social"),
+    ("Ventas", "Vendas"), ("Gastos de personal", "Despesas com pessoal"), ("Servicios", "Serviços"), ("Diversos", "Diversos"),
+    ("Gastos financieros", "Despesas financeiras"),
+    ("Servicio sin centro de costo", "Serviço sem centro de custo"), ("IVA generado", "ICMS a recolher"), ("IVA descontable", "ICMS a recuperar"),
+    ("Cuenta por pagar", "Conta a pagar"), ("Nómina de septiembre", "Folha de pagamento de setembro"), ("Nómina por pagar", "Folha a pagar"),
+    ("Pago de nómina", "Pagamento da folha"), ("Débito nómina", "Débito folha de pagamento"), ("Traslado entre cuentas", "Transferência entre contas"),
+    ("Traslado recibido", "Transferência recebida"), ("Traslado enviado", "Transferência enviada"), ("Comisión bancaria", "Tarifa bancária"),
+    ("Comisión de manejo", "Tarifa de manutenção de conta"), ("Transferencia recibida", "Transferência recebida"),
+    ("Ajuste registrado después del balance", "Ajuste lançado depois do balancete"), ("sin cobrar", "não compensado"), ("pagado", "compensado"),
+    ("Venta", "Venda"), ("Cobro", "Recebimento"), ("Pago", "Pagamento"), ("Cheque", "Cheque"),
+    ("Cobro ", "Recebimento "), ("Pago ", "Pagamento "),
+    ("Cerrar los módulos de ventas, compras e inventarios", "Fechar os módulos de vendas, compras e estoques"),
+    ("Conciliar cada cuenta bancaria", "Conciliar cada conta bancária"),
+    ("Cruzar las facturas emitidas con las ventas", "Conferir as notas fiscais emitidas com as vendas"),
+    ("Conciliar cartera contra su auxiliar", "Conciliar contas a receber com o razão auxiliar"),
+    ("Registrar provisiones y causaciones", "Lançar provisões e apropriações"),
+    ("Preparar los papeles de trabajo de impuestos", "Preparar os papéis de trabalho de tributos"),
+    ("Cuadrar el balance de comprobación", "Fechar o balancete de verificação"),
+    ("Revisar el cierre y sus soportes", "Revisar o fechamento e seus comprovantes"),
+    ("Aprobar el cierre del periodo", "Aprovar o fechamento do período"),
+    ("Contabilidad", "Contabilidade"), ("Tesorería", "Tesouraria"), ("Impuestos", "Tributos"), ("Contraloría", "Controladoria"),
+    ("Soporte firmado", "Comprovante assinado"), ("cumplida", "concluída"), ("en curso", "em andamento"), ("pendiente", "pendente"),
+    ("baja", "baixa"),
+    ("Conciliaciones bancarias de septiembre", "Conciliações bancárias de setembro"),
+    ("Auxiliar de cartera con antigüedad", "Razão auxiliar de contas a receber por vencimento"),
+    ("Detalle de facturas emitidas", "Detalhe das notas fiscais emitidas"),
+    ("Actas del comité de presupuesto", "Atas do comitê de orçamento"),
+    ("Contratos de los proveedores principales", "Contratos dos principais fornecedores"),
+    ("Detalle de las partidas conciliatorias de más de 90 días", "Detalhe dos itens de conciliação com mais de 90 dias"),
+    ("caja_minima", "caixa_minimo"), ("aprobadores", "aprovadores"), ("limite_exposicion", "limite_exposicao"), ("tasa", "taxa"),
+    ("Tesorera", "Tesoureira"), ("Gerente financiero", "Gerente financeiro"), ("Contralora", "Controller"),
+    ("Proveedor de servicios", "Fornecedor de serviços"), ("Arrendador", "Locador"), ("Proveedor de tecnología", "Fornecedor de tecnologia"),
+    ("Contratista de obra", "Empreiteira"), ("Crédito de tesorería", "Capital de giro"), ("Inversión a término", "CDB"),
+    ("Banco del Norte", "Banco Bandeirante"), ("Banco del Sur", "Banco do Litoral"), ("deuda", "divida"), ("inversion", "investimento"),
+    ("Razón corriente", "Liquidez corrente"), ("Endeudamiento", "Endividamento"),
+    ("Revisar el contrato de vigilancia", "Revisar o contrato de vigilância"), ("abierto", "aberto"),
+] + [(f" de {m}", f" de {n}") for m, n in zip(F.N.MESES_LARGO, F.N.MESES_LARGO_PT)]
+FRASES_PT.sort(key=lambda x: -len(x[0]))
+EXACTAS_PT = dict(FRASES_PT)
+
+
+def tr(v):
+    """Una celda o un texto en el idioma de la entidad: la frase entera si está, si no cada frase
+    conocida dentro del texto, de la más larga a la más corta."""
+    if LANG[0] != "pt" or not isinstance(v, str) or not v:
+        return v
+    if v in EXACTAS_PT:
+        return EXACTAS_PT[v]
+    for a, b in FRASES_PT:
+        if len(a) > 4 and a in v:
+            v = v.replace(a, b)
+    return v
+
+
+# Los archivos con su nombre en portugués; la carpeta es la de la plataforma.
+ARCHIVOS_PT = [("libro-mayor", "livro-razao"), ("balance-comprobacion", "balancete"), ("auxiliar-libros", "auxiliar-livros"),
+               ("extracto", "extrato"), ("2205-proveedores", "2205-fornecedores"), ("checklist-cierre", "checklist-fechamento"),
+               ("correo-estado-del-cierre", "email-situacao-do-fechamento"), ("-soporte", "-suporte"), ("-respuesta", "-resposta"),
+               ("presupuesto-2026-v", "orcamento-2026-v"), ("mapeo-presupuesto", "mapeamento-orcamento"), ("compromisos-", "compromissos-"),
+               ("proyeccion-", "projecao-"), ("correo-administracion", "email-administracao"), ("acta-01-aprobacion", "ata-01-aprovacao"),
+               ("acta-05-traslado", "ata-05-remanejamento"), ("acta-06-comite", "ata-06-comite"), ("plan-de-cuentas", "plano-de-contas"),
+               ("politica-tesoreria", "politica-tesouraria"), ("matriz-firmas", "matriz-assinaturas"), ("registro-deuda", "registro-divida"),
+               ("flujo-proyectado", "fluxo-projetado"), ("programa-pagos", "programa-pagamentos"),
+               ("-administracion-", "-administracao-"), ("-operaciones-", "-operacoes-"), ("-personal-", "-pessoal-")]
+
+
+def renombrar_pt(docs: Path) -> dict[str, str]:
+    """Cada archivo con su nombre en portugués. Devuelve {ruta vieja: ruta nueva}, relativas a la
+    carpeta de la entidad, para que la clave cite el archivo como queda."""
+    cambios = {}
+    for f in sorted(docs.rglob("*")):
+        if not f.is_file():
+            continue
+        nombre = f.name
+        for a, b in ARCHIVOS_PT:
+            nombre = nombre.replace(a, b)
+        if nombre != f.name:
+            nuevo = f.with_name(nombre)
+            f.rename(nuevo)
+            cambios[f.relative_to(docs).as_posix()] = nuevo.relative_to(docs).as_posix()
+    return cambios
+
+
+def doc(es: str, pt: str) -> str:
+    """Un documento escrito en el idioma de la entidad."""
+    return pt if LANG[0] == "pt" else es
 
 
 # Qué pasa a qué formato, y en qué proporción. Las tablas que una organización lleva en Excel —el
@@ -194,7 +321,7 @@ def a_pdf_extracto(origen: Path, destino: Path) -> None:
     with open(origen, encoding="utf-8") as fh:
         filas = list(csv.reader(fh, delimiter=";"))
     cab = filas[0]
-    num = {i for i, c in enumerate(cab) if c in ("valor", "saldo", "debito", "credito")}
+    num = {i for i, c in enumerate(cab) if c in ("valor", "saldo", "debito", "credito")}     # iguales en portugués
     cuerpo = [[_cifra(v) if i in num and v else v for i, v in enumerate(f)] for f in filas[1:]]
     # El ancho de cada columna sale de su texto más largo, con aire entre una y otra: un banco no
     # imprime una celda pegada a la siguiente.
@@ -204,7 +331,8 @@ def a_pdf_extracto(origen: Path, destino: Path) -> None:
         ancho = largo + 18
         xs.append((x + largo, "d") if i in num else (x, "i"))
         x += ancho
-    titulo = [f"Extracto de cuenta · {origen.parent.name}", f"Periodo {origen.parent.parent.parent.name}"]
+    titulo = ([f"Extrato da conta · {origen.parent.name}", f"Período {origen.parent.parent.parent.name}"] if LANG[0] == "pt" else
+              [f"Extracto de cuenta · {origen.parent.name}", f"Periodo {origen.parent.parent.parent.name}"])
     F.N._pdf_tabla(destino, titulo, [[c.capitalize() for c in cab]] + cuerpo, xs)
 
 
@@ -254,6 +382,8 @@ TESORERIA = {
     "mineria-cl": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
     "banca-mx": ["exposicion", "caja_desviada", "pago_sin_aprobacion"],
     "retail-mx": ["vencimiento_cercano", "covenant_riesgo", "firmante_sin_facultad"],
+    "retail-br": ["exposicion", "pago_sin_aprobacion", "vencimiento_cercano"],
+    "mineria-br": ["covenant_riesgo", "caja_bajo_minimo", "firmante_sin_facultad"],
 }
 
 
@@ -284,7 +414,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
         # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
-        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5}.get(e["moneda"], 1)
+        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4}.get(e["moneda"], 1)
         politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
@@ -352,10 +482,15 @@ def generar(e: dict) -> dict:
     rnd = random.Random(e["semilla"])
     s = set(e["siembra"])
     pais, esc, tasa = e["pais"], e["escala"], TASA[e["pais"]]
+    LANG[0] = "pt" if pais == "BR" else "es"
+    if pais == "BR":
+        # El ICMS forma parte del valor de la operación (F-21, I11, p. 18): la alícuota es sobre el valor
+        # con el impuesto, y sobre la base sin él es t / (1 − t).
+        tasa = tasa / (1 - tasa)
     lector = F.FACTURA[pais]["lector"]
     dian = lector == "dian"
     sesion = SALIDA / e["carpeta"]
-    ent_dir = f"{e['id']}-{e['nombre'].lower().replace(' ', '-').replace('ó', 'o').replace('í', 'i').replace('á', 'a')}"
+    ent_dir = f"{e['id']}-{F.norm(e['nombre']).replace('_', '-')}"
     docs = sesion / "finanzas" / ent_dir
     p = docs / PERIODO
     pr = docs / f"presupuesto-{ANIO}"
@@ -370,6 +505,8 @@ def generar(e: dict) -> dict:
             return F.rut(77000000 + e["semilla"] * 1000 + i)
         if lector == "sat":
             return F.rfc("PRV", f"{10 + e['semilla'] % 10:02d}{1 + i % 12:02d}{1 + i % 28:02d}", f"{chr(65 + i % 26)}{e['semilla'] % 10}{i % 10}")
+        if lector == "nfe":
+            return F.cnpj(int(f"{e['semilla']:02d}{i:06d}"))
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
@@ -379,6 +516,8 @@ def generar(e: dict) -> dict:
             return f"{1 if prefijo == '99' else 2}{i:06d}"
         if lector == "sat":                                    # F-19: serie y folio de control interno
             return f"{'A' if prefijo == '99' else 'B'}{i:06d}"
+        if lector == "nfe":                                    # F-21: serie y número de la NF-e
+            return f"{'1' if prefijo == '99' else '2'}-{i}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
     def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
@@ -391,6 +530,10 @@ def generar(e: dict) -> dict:
             return F.factura_sii(numero, fecha.isoformat(), emisor, receptor, base, iva)
         if lector == "sat":
             return F.factura_sat(numero[0], numero[1:], fecha.isoformat(), emisor, receptor, base, iva)
+        if lector == "nfe":
+            serie, nnf = numero.split("-")
+            vnf = base + iva
+            return F.factura_nfe(serie, nnf, fecha.isoformat(), emisor, receptor, base, iva, r2(vnf * 0.0065), r2(vnf * 0.03))
         estab, pto, sec = numero.split("-")
         return F.factura_sri(fecha, emisor, estab, pto, sec, receptor, base, iva)
 
@@ -629,7 +772,8 @@ def generar(e: dict) -> dict:
     assert "cuenta_sin_auxiliar" in s or "registro_doble" in s or abs(sum(x[3] for x in cxp) - saldo_final["2205"]) < 0.01, (e["carpeta"], "proveedores")
 
     # Los bancos: el extracto y el auxiliar de libros, con su saldo corrido.
-    subcarpetas = {"11100501": f"andino-{e['semilla']:02d}01", "11100502": f"pacifico-{e['semilla']:02d}02"}
+    subcarpetas = ({"11100501": f"bandeirante-{e['semilla']:02d}01", "11100502": f"litoral-{e['semilla']:02d}02"} if LANG[0] == "pt" else
+                   {"11100501": f"andino-{e['semilla']:02d}01", "11100502": f"pacifico-{e['semilla']:02d}02"})
     for cta, sub in subcarpetas.items():
         lib = sorted(banco_libros[cta], key=lambda x: (x[0], x[1]))
         ext = sorted(banco_extracto[cta], key=lambda x: (x[0], x[1]))
@@ -678,7 +822,8 @@ def generar(e: dict) -> dict:
         md(p / "30-facturacion" / "recibidas" / nombre, contenido)
 
     # ------------------------------------------------ el checklist, los soportes y la auditoría
-    md(docs / "00-referencia" / "plan-de-cuentas.csv", "cuenta;nombre;naturaleza\n1;Activo;D\n2;Pasivo;C\n3;Patrimonio;C\n4;Ingresos;C\n5;Gastos;D\n6;Costos;D")
+    md(docs / "00-referencia" / "plan-de-cuentas.csv", doc("cuenta;nombre;naturaleza\n1;Activo;D\n2;Pasivo;C\n3;Patrimonio;C\n4;Ingresos;C\n5;Gastos;D\n6;Costos;D",
+                                                            "conta;nome;natureza\n1;Ativo;D\n2;Passivo;C\n3;Patrimônio líquido;C\n4;Receitas;C\n5;Despesas;D\n6;Custos;D"))
     tareas = [
         ("C-01", "Cerrar los módulos de ventas, compras e inventarios", "Contabilidad", "Lucía Mora", "D+1", "", "alta"),
         ("C-02", "Conciliar cada cuenta bancaria", "Tesorería", "Andrés Paz", "D+2", "C-01", "alta"),
@@ -699,14 +844,17 @@ def generar(e: dict) -> dict:
         estado = "cumplida" if vence and tid not in vencida else ("en curso" if not vence else "pendiente")
         filas.append([tid, t, a, r, lim, dep, "Soporte firmado", cri, estado])
         if vence and tid not in vencida and tid not in sin_soporte:
-            md(p / "40-soportes" / f"{tid}-soporte.md", f"# {tid} · {t}\n\nFirmado por {r} el {lim_d.isoformat()}.")
+            md(p / "40-soportes" / f"{tid}-soporte.md", doc(f"# {tid} · {t}\n\nFirmado por {r} el {lim_d.isoformat()}.",
+                                                           f"# {tid} · {tr(t)}\n\nAssinado por {tr(r)} em {lim_d.isoformat()}."))
     csv_(docs / "00-referencia" / "checklist-cierre.csv", filas)
     esperado += [("close_task_done_without_evidence", f"tarea:{t}") for t in sorted(sin_soporte)]
     esperado += [("close_task_overdue", f"tarea:{t}") for t in sorted(vencida)]
     declarado = "cerrado" if "cierre_declarado" in s else "en curso"
     md(p / "40-soportes" / "correo-estado-del-cierre.md",
-       f"De: Sofía León\nPara: Gerencia financiera\nFecha: 2026-10-05\nAsunto: Cierre de septiembre\n\nEl cierre de septiembre está {declarado}.")
-    extraccion["cierre"]["declared"] = {"status": declarado, "source": f"{PERIODO}/40-soportes/correo-estado-del-cierre.md", "date": "2026-10-05", "by": "Sofía León"}
+       doc(f"De: Sofía León\nPara: Gerencia financiera\nFecha: 2026-10-05\nAsunto: Cierre de septiembre\n\nEl cierre de septiembre está {declarado}.",
+           f"De: Sofia Leão\nPara: Diretoria financeira\nData: 2026-10-05\nAssunto: Fechamento de setembro\n\n"
+           f"O fechamento de setembro está {'fechado' if declarado == 'cerrado' else 'em andamento'}."))
+    extraccion["cierre"]["declared"] = {"status": doc(declarado, "fechado" if declarado == "cerrado" else "em andamento"), "source": f"{PERIODO}/40-soportes/correo-estado-del-cierre.md", "date": "2026-10-05", "by": "Sofía León"}
     if declarado == "cerrado":
         esperado.append(("declared_close_vs_evidence", "cierre"))
     reqs = [["id", "solicitud", "fecha", "fecha_limite", "responsable", "estado"],
@@ -717,7 +865,7 @@ def generar(e: dict) -> dict:
             ["R-05", "Contratos de los proveedores principales", "2026-10-01", "2026-10-02" if "requerimiento_vencido" in s else "2026-10-08", "Jorge Vela", ""]]
     for rid in ("R-01", "R-02", "R-03"):
         if not ("requerimiento_sin_soporte" in s and rid == "R-03"):
-            md(p / "50-auditoria" / "respuestas" / f"{rid}-respuesta.md", f"# {rid}\n\nEntregado el 2026-10-03.")
+            md(p / "50-auditoria" / "respuestas" / f"{rid}-respuesta.md", doc(f"# {rid}\n\nEntregado el 2026-10-03.", f"# {rid}\n\nEntregue em 2026-10-03."))
     csv_(p / "50-auditoria" / "requerimientos" / "pbc-2026-09.csv", reqs)
     if "requerimiento_sin_soporte" in s:
         esperado.append(("audit_request_unanswered", "req:R-03"))
@@ -725,7 +873,8 @@ def generar(e: dict) -> dict:
         esperado.append(("audit_request_unanswered", "req:R-05"))
     if "requerimiento_en_carta" in s:
         md(p / "50-auditoria" / "requerimientos" / "carta-auditor-2026-10-02.md",
-           "# Carta del auditor\n\nFecha: 2026-10-02\n\nR-09 · Detalle de las partidas conciliatorias de más de 90 días. Fecha límite: 2026-10-09. Responsable: Andrés Paz.")
+           doc("# Carta del auditor\n\nFecha: 2026-10-02\n\nR-09 · Detalle de las partidas conciliatorias de más de 90 días. Fecha límite: 2026-10-09. Responsable: Andrés Paz.",
+               "# Carta do auditor\n\nData: 2026-10-02\n\nR-09 · Detalhe dos itens de conciliação com mais de 90 dias. Prazo: 2026-10-09. Responsável: André Pacheco."))
         extraccion["cierre"]["audit_requests"] = [{"id": "R-09", "request": "Detalle de las partidas conciliatorias de más de 90 días", "date": "2026-10-02",
                                                    "due": "2026-10-09", "owner": "Andrés Paz", "status": "", "source": f"{PERIODO}/50-auditoria/requerimientos/carta-auditor-2026-10-02.md"}]
 
@@ -759,11 +908,14 @@ def generar(e: dict) -> dict:
         if fecha == "2026-07-15":
             esperado += [("forecast_stale", f"stale:{a}:{l}") for a, l, *_ in LINEAS if a == area]
         csv_(pr / "30-proyecciones" / f"proyeccion-{area.lower().replace('í', 'i').replace('ó', 'o')}-{fecha}.csv", filas)
-    md(pr / "40-actas" / "acta-01-aprobacion.md", "# Acta 01 · Comité de presupuesto\n\nFecha: 2026-01-20\n\nSe aprueba el presupuesto 2026, versión 1.")
+    md(pr / "40-actas" / "acta-01-aprobacion.md", doc("# Acta 01 · Comité de presupuesto\n\nFecha: 2026-01-20\n\nSe aprueba el presupuesto 2026, versión 1.",
+                                                     "# Ata 01 · Comitê de orçamento\n\nData: 2026-01-20\n\nAprovado o orçamento de 2026, versão 1."))
     md(pr / "40-actas" / "acta-05-traslado.md",
-       f"# Acta 05 · Comité de presupuesto\n\nFecha: 2026-06-28\n\nSe aprueba trasladar {T * 6:,.2f} de Comercial · Publicidad a Comercial · Eventos, de julio a diciembre.")
+       doc(f"# Acta 05 · Comité de presupuesto\n\nFecha: 2026-06-28\n\nSe aprueba trasladar {T * 6:,.2f} de Comercial · Publicidad a Comercial · Eventos, de julio a diciembre.",
+           f"# Ata 05 · Comitê de orçamento\n\nData: 2026-06-28\n\nAprovado o remanejamento de {_cifra(T * 6)} de Comercial · Publicidade para Comercial · Eventos, de julho a dezembro."))
     md(pr / "40-actas" / "acta-06-comite.md",
-       "# Acta 06 · Comité de presupuesto\n\nFecha: 2026-09-10\n\nCompromiso: Administración revisa el contrato de vigilancia antes del próximo comité.")
+       doc("# Acta 06 · Comité de presupuesto\n\nFecha: 2026-09-10\n\nCompromiso: Administración revisa el contrato de vigilancia antes del próximo comité.",
+           "# Ata 06 · Comitê de orçamento\n\nData: 2026-09-10\n\nCompromisso: a Administração revisa o contrato de vigilância antes do próximo comitê."))
     extraccion["presupuesto"]["minutes"] = [
         {"type": "aprobacion", "version": 1, "date": "2026-01-20", "source": f"presupuesto-{ANIO}/40-actas/acta-01-aprobacion.md"},
         {"type": "traslado", "date": "2026-06-28", "source": f"presupuesto-{ANIO}/40-actas/acta-05-traslado.md",
@@ -773,8 +925,10 @@ def generar(e: dict) -> dict:
                                                           "evidence": None, "source": f"presupuesto-{ANIO}/40-actas/acta-06-comite.md"}]
     declaran = ["Administración"] if ("area_declara_dentro" in s or not e["siembra"]) else []
     for area in declaran:
-        md(pr / "30-proyecciones" / f"correo-{area.lower().replace('ó', 'o')}.md", f"De: {area}\nFecha: 2026-10-01\n\nEl área de {area} va dentro del presupuesto.")
-        extraccion["presupuesto"]["area_statements"].append({"area": area, "says": "dentro", "source": f"presupuesto-{ANIO}/30-proyecciones/correo-{area.lower().replace('ó', 'o')}.md", "date": "2026-10-01"})
+        md(pr / "30-proyecciones" / f"correo-{area.lower().replace('ó', 'o')}.md",
+           doc(f"De: {area}\nFecha: 2026-10-01\n\nEl área de {area} va dentro del presupuesto.",
+               f"De: {tr(area)}\nData: 2026-10-01\n\nA área de {tr(area)} está dentro do orçamento."))
+        extraccion["presupuesto"]["area_statements"].append({"area": area, "says": doc("dentro", "dentro do orçamento"), "source": f"presupuesto-{ANIO}/30-proyecciones/correo-{area.lower().replace('ó', 'o')}.md", "date": "2026-10-01"})
     if "area_declara_dentro" in s:
         esperado.append(("declared_vs_evidence", "declara:Administración"))
 
@@ -803,6 +957,17 @@ def generar(e: dict) -> dict:
     texto = json.dumps(clave, ensure_ascii=False, indent=2)
     for viejo, nuevo in sorted(formatos_reales(docs, e["carpeta"]).items(), key=lambda x: -len(x[0])):
         texto = texto.replace(viejo, nuevo)
+    if LANG[0] == "pt":
+        # La clave dice lo que dicen los documentos: los archivos con su nombre en portugués, y las
+        # áreas, las líneas, las personas y los conceptos como los escriben ellos, también en las
+        # claves de las señales, que llevan algunos nombres normalizados.
+        for viejo, nuevo in sorted(renombrar_pt(docs).items(), key=lambda x: -len(x[0])):
+            texto = texto.replace(viejo, nuevo)
+        for a, b in FRASES_PT:
+            if len(a) > 4:
+                texto = texto.replace(f'"{a}"', f'"{b}"').replace(f":{a}:", f":{b}:").replace(f":{a}\"", f":{b}\"")
+                texto = texto.replace(f":{F.norm(a)}:", f":{F.norm(b)}:").replace(f":{F.norm(a)}\"", f":{F.norm(b)}\"")
+        LANG[0] = "es"
     (sesion / "clave.json").write_text(texto + "\n", encoding="utf-8")
     return json.loads(texto)
 

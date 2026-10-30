@@ -1,0 +1,27 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T01:33:28",
+  "estado": "success",
+  "error": false,
+  "segundos": 55,
+  "turnos": 15,
+  "tokens": 746671,
+  "tokens_salida": 6942,
+  "costo_usd": 0.285258,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/salida-pipeline-scan.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

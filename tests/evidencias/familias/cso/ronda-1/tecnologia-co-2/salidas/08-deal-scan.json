@@ -1,0 +1,34 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T01:59:35",
+  "estado": "success",
+  "error": false,
+  "segundos": 51,
+  "turnos": 15,
+  "tokens": 571027,
+  "tokens_salida": 6213,
+  "costo_usd": 0.2190469,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/900876543-soluciones-digitales-andinas/cache/40-cotizaciones/COT-1201_cotizacion.pdf.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/cache/40-cotizaciones/COT-1202_cotizacion.pdf.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/cache/40-cotizaciones/COT-1203_cotizacion.pdf.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/cache/40-cotizaciones/COT-1204_cotizacion.pdf.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/cache/40-cotizaciones/COT-1205_cotizacion.pdf.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/corridas/salida-deal-scan.md",
+      "estado-comercial/900876543-soluciones-digitales-andinas/ingresos/2026-10/ficha.json",
+      "estado-comercial/900876543-soluciones-digitales-andinas/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/900876543-soluciones-digitales-andinas/cache/manifest.json",
+      "estado-comercial/900876543-soluciones-digitales-andinas/corridas.json",
+      "estado-comercial/900876543-soluciones-digitales-andinas/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

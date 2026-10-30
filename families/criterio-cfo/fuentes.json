@@ -560,6 +560,108 @@
        "estado": "verificado"
       }
      ]
+    },
+    {
+     "id": "F-21",
+     "fuente": "ENCAT y CONFAZ · Manual de Orientação do Contribuinte, Anexo I: Leiaute e Regras de Validação da NF-e e da NFC-e",
+     "version": "MOC 7.0, noviembre de 2020 (publicado por el Ato COTEPE/ICMS 69/2020)",
+     "enlaces": [
+      [
+       "confaz.fazenda.gov.br",
+       "https://www.confaz.fazenda.gov.br/legislacao/arquivo-manuais/moc7-anexo-i-leiaute-e-rv.pdf"
+      ]
+     ],
+     "consultada": "2026-10-30",
+     "estado": "verificada",
+     "nota": "Confirmados en el texto: infNFe con su Id, la chave de acesso precedida de «NFe»; cUF, cNF, mod 55, serie, nNF, dhEmi y tpNF en ide; el CNPJ del emitente y del destinatario; el valor bruto del producto, que trae el ICMS adentro; y los totales de ICMSTot. La regla completa del dígito verificador de la chave está en el MOC, Visión General (item 5.4), que no se consultó: el lector no lo valida. El protocolo de autorización tampoco está en este anexo y no se procesa. Los campos del IBS y la CBS de la reforma tributaria no son obligatorios en producción en esta versión (NT 2025.002 v1.51, sin fecha fija). Se vuelve a consultar antes del primer uso sobre documentación real",
+     "uso": "Lector de la NF-e de Brasil",
+     "campos": [
+      {
+       "id": "p8-A03",
+       "campo": "infNFe/@Id · la chave de acesso precedida del literal «NFe», 47 posiciones (p. 8)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p8-B02",
+       "campo": "ide/cUF · código de la UF del emitente, tabla del IBGE (p. 8)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p8-B06",
+       "campo": "ide/mod · 55 = NF-e; 65 = NFC-e (p. 8)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p9-B07",
+       "campo": "ide/serie · serie del documento (p. 9)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p9-B08",
+       "campo": "ide/nNF · número del documento, 1 a 9 dígitos (p. 9)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p9-B09",
+       "campo": "ide/dhEmi · fecha y hora de emisión, AAAA-MM-DDThh:mm:ssTZD (p. 9)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p9-B11",
+       "campo": "ide/tpNF · 0 = entrada; 1 = salida (p. 9)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p10-B23",
+       "campo": "ide/cDV · dígito verificador de la chave, módulo 11 con base 2 a 9 (p. 10)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p12-C02",
+       "campo": "emit/CNPJ · CNPJ del emitente, 14 posiciones (p. 12)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p14-E02",
+       "campo": "dest/CNPJ · CNPJ o CPF del destinatario (p. 14)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p18-I11",
+       "campo": "prod/vProd · valor total bruto; el valor del ICMS forma parte de él (p. 18)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p58-W04",
+       "campo": "ICMSTot/vICMS · valor total del ICMS (p. 58)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p58-W13",
+       "campo": "ICMSTot/vPIS y vCOFINS · valor del PIS y de la COFINS (p. 58)",
+       "estado": "verificado"
+      },
+      {
+       "id": "p59-W16",
+       "campo": "ICMSTot/vNF · valor total de la NF-e (p. 59)",
+       "estado": "verificado"
+      }
+     ]
+    },
+    {
+     "id": "F-22",
+     "fuente": "Secretaria da Fazenda e Planejamento de São Paulo · RICMS/SP (Decreto 45.490/2000), artículo 52, inciso I",
+     "version": "Redacción del caput por el Decreto 61.838 del 18 de febrero de 2016, con los incisos mantenidos",
+     "enlaces": [
+      [
+       "legislacao.fazenda.sp.gov.br",
+       "https://legislacao.fazenda.sp.gov.br/Paginas/art052.aspx"
+      ]
+     ],
+     "consultada": "2026-10-30",
+     "estado": "verificada",
+     "nota": "Dice: «nas operações ou prestações internas, ainda que iniciadas no exterior, 18% (dezoito por cento)». Es la alícuota general de São Paulo; cada estado tiene la suya y hay alícuotas específicas por producto. Las entidades del material son de São Paulo",
+     "uso": "La alícuota del ICMS del material de prueba"
     }
    ]
   },
@@ -671,6 +773,21 @@
      "consultada": "2026-10-27",
      "estado": "verificada",
      "nota": "Dice: las empresas listadas usan NIIF, salvo las instituciones financieras y las aseguradoras, que siguen las NIF mexicanas con los requisitos de la CNBV y la CNSF; las no listadas pueden usar NIIF, y la mayoría usa las NIF que emite el CINIF; México no adoptó la NIIF para las PYMES. Es el único de los países del registro donde una entidad no listada va, por lo común, por un marco distinto de las NIIF. Qué marco aplica la entidad se pregunta, no se supone",
+     "uso": "Pregunta de `finance-setup` sobre el marco de la entidad"
+    },
+    {
+     "id": "F-23",
+     "fuente": "IFRS Foundation · perfil de jurisdicción de Brasil",
+     "version": "actualizado el 7 de mayo de 2026",
+     "enlaces": [
+      [
+       "ifrs.org",
+       "https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/brazil-ifrs-profile.pdf"
+      ]
+     ],
+     "consultada": "2026-10-30",
+     "estado": "verificada",
+     "nota": "Dice: las empresas registradas en la CVM con deuda o acciones negociadas presentan sus estados consolidados en NIIF desde los ejercicios que cierran el 31 de diciembre de 2010; el CPC emite en portugués normas idénticas a las del IASB y la convergencia es completa; las entidades sin responsabilidad pública presentan bajo las prácticas contables brasileñas, convergidas; y las instituciones financieras reguladas por el Banco Central presentan sus estados separados con las prácticas del Banco Central. Qué marco aplica la entidad se pregunta, no se supone",
      "uso": "Pregunta de `finance-setup` sobre el marco de la entidad"
     }
    ]

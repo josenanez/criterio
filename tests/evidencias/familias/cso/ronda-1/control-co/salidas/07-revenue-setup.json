@@ -1,0 +1,32 @@
+{
+  "n": 7,
+  "agente": "valeria",
+  "comando": "revenue-setup",
+  "argumento": "comercial/900000002-comercial-control-andina",
+  "inicio": "2026-10-30T01:46:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 52,
+  "turnos": 13,
+  "tokens": 673244,
+  "tokens_salida": 5915,
+  "costo_usd": 0.2535716,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/ingresos/900000002-comercial-control-andina/config.json",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.sha256",
+      "estado-comercial/900000002-comercial-control-andina/corridas/2026-11-05-revenue-setup-1.md",
+      "estado-comercial/900000002-comercial-control-andina/corridas/salida-revenue-setup.md",
+      "estado-comercial/900000002-comercial-control-andina/ingresos/2026-10/reporte-won-to-invoice.md",
+      "estado-comercial/900000002-comercial-control-andina/ingresos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/900000002-comercial-control-andina/corridas.json"
+    ],
+    "borrados": []
+  }
+}

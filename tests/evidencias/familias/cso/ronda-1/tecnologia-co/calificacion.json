@@ -1,0 +1,36 @@
+{
+  "entidad": "Soluciones Digitales Andinas",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 3458123,
+  "senales": {
+    "esperadas": 20,
+    "acertadas": 16,
+    "de_mas": [],
+    "faltantes": [
+      [
+        "close_date_slipped",
+        "corre:OPP-1204"
+      ],
+      [
+        "close_date_slipped",
+        "corre:OPP-1226"
+      ],
+      [
+        "close_date_slipped",
+        "corre:OPP-1227"
+      ],
+      [
+        "close_date_slipped",
+        "corre:OPP-1228"
+      ]
+    ]
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

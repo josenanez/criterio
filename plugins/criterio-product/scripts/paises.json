@@ -115,6 +115,30 @@
     "iva": 0.16,
     "impuesto": "IVA"
    }
+  },
+  {
+   "codigo": "BR",
+   "nombre": {
+    "es": "Brasil",
+    "en": "Brazil"
+   },
+   "id_fiscal": "CNPJ",
+   "moneda": "BRL",
+   "decimal": ",",
+   "factura": {
+    "lector": "nfe",
+    "fuentes": [
+     "F-21",
+     "F-22"
+    ],
+    "clave": "chave de acesso de 44 dígitos",
+    "tolerancia": [
+     0.01,
+     0.01
+    ],
+    "iva": 0.18,
+    "impuesto": "ICMS"
+   }
   }
  ]
 }

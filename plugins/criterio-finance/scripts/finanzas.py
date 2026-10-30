@@ -341,6 +341,37 @@ def _sii(doc) -> dict:
     return d
 
 
+def _nfe(inf) -> dict:
+    """La NF-e de Brasil (F-21, MOC 7.0, Anexo I): `infNFe` con su `Id`, la chave de acesso precedida
+    de «NFe» (A03, p. 8); el modelo, la serie, el número, la fecha y el tipo de operación en `ide`
+    (B06 a B11, p. 8 y 9); el CNPJ del emitente y del destinatario (C02, p. 12; E02, p. 14); y los
+    totales en `total/ICMSTot` (W02 a W16, p. 58 y 59). El ICMS forma parte del valor de la operación
+    (I11, p. 18): el valor total de la nota (vNF) ya lo trae, y la base que cruza con las cuentas de
+    ventas o de compras es ese valor sin el ICMS, que va aparte en las cuentas del impuesto. El PIS y
+    la COFINS se leen como otros impuestos. Solo el modelo 55 de salida (tpNF 1) cruza valores; la
+    autorización de la SEFAZ (el protocolo) no se procesa en esta versión."""
+    ide, emit, dest = _h(inf, "ide"), _h(inf, "emit"), _h(inf, "dest")
+    tot = _h(inf, "total", "ICMSTot")
+    chave = (inf.attrib.get("Id") or "")[3:] if (inf.attrib.get("Id") or "").startswith("NFe") else None
+    mod, tp = _t(ide, "mod"), _t(ide, "tpNF")
+    vnf = numero(_t(tot, "vNF")) if tot is not None else None
+    icms = (numero(_t(tot, "vICMS")) or 0.0) if tot is not None else 0.0
+    otros = sum((numero(_t(tot, k)) or 0.0) for k in ("vPIS", "vCOFINS")) if tot is not None else 0.0
+    factura = mod == "55" and tp == "1"                        # F-21, B06 p. 8: 55 · NF-e; B11 p. 9: 1 · saída
+    numero_ = f"{_t(ide, 'serie')}-{_t(ide, 'nNF')}" if ide is not None else None
+    receptor = ident(_t(dest, "CNPJ") or _t(dest, "CPF")) if dest is not None else None
+    d = {
+        "pais": PAIS_DEL_LECTOR["nfe"], "lector": "nfe", "fuente": "F-21",
+        "tipo": "factura" if factura else (f"modelo {mod}" if mod != "55" else "nota de entrada"),
+        "numero": numero_, "fecha": iso(fecha((_t(ide, "dhEmi") or "")[:10])),
+        "emisor": ident(_t(emit, "CNPJ")) if emit is not None else None, "receptor": receptor,
+        "base": round(vnf - icms, 2) if vnf is not None else None, "iva": round(icms, 2),
+        "otros_impuestos": round(otros, 2), "total": vnf, "valores": factura,
+    }
+    d["id"] = chave or f"{d['emisor']}-{numero_}"
+    return d
+
+
 def leer_factura(ruta: Path) -> dict:
     """Una factura o nota electrónica de cualquier país del registro, con o sin su contenedor."""
     try:
@@ -378,6 +409,9 @@ def leer_factura(ruta: Path) -> dict:
         return _sat(raiz)
     if any(_local(x.tag) == "Encabezado" for x in raiz.iter()):   # F-16: el DTE del SII
         return _sii(raiz)
+    inf = next((x for x in raiz.iter() if _local(x.tag) == "infNFe"), None)
+    if inf is not None:                                         # F-21: la NF-e, suelta o dentro de nfeProc
+        return _nfe(inf)
     return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
 
 
@@ -936,9 +970,9 @@ def checklist(cfg: dict, periodo: str, hoy: dt.date) -> dict:
     for f in t.filas:
         tid = str(f["id"]).strip()
         ev = [rel(p, docs) for p in archivos if norm(p.name).startswith(norm(tid) + "_") or norm(p.stem) == norm(tid)]
-        declarada = norm(f.get("estado")) in ("cumplida", "cumplido", "hecho", "hecha", "completada", "completado", "cerrada", "ok", "done")
+        declarada = N.canon(f.get("estado")) in ("cumplida", "cumplido", "hecho", "hecha", "completada", "completado", "cerrada", "ok", "done")
         tareas[tid] = {"id": tid, "tarea": f["tarea"], "area": f.get("area"), "responsable": f["responsable"],
-                       "limite": iso(_limite(f["dia_limite"], periodo, feriados)), "criticidad": norm(f.get("criticidad")) or "media",
+                       "limite": iso(_limite(f["dia_limite"], periodo, feriados)), "criticidad": N.canon(f.get("criticidad")) or "media",
                        "depende_de": [x.strip() for x in re.split(r"[,;\s]+", str(f.get("depende_de") or "")) if x.strip()],
                        "evidencia_esperada": f.get("evidencia_esperada"), "declarada_cumplida": declarada,
                        "evidencia": ev, "cita": t.cita(f, docs)}
@@ -1004,12 +1038,12 @@ def auditoria(cfg: dict, periodo: str, hoy: dt.date, ficha: dict) -> dict:
         for x in t.filas:
             rid = str(x["id"]).strip()
             reqs[rid] = {"id": rid, "solicitud": x["solicitud"], "fecha": iso(fecha(x.get("fecha"))), "limite": iso(fecha(x.get("dia_limite"))),
-                         "responsable": x.get("responsable"), "declarado": norm(x.get("estado")), "cita": t.cita(x, docs)}
+                         "responsable": x.get("responsable"), "declarado": N.canon(x.get("estado")), "cita": t.cita(x, docs)}
     for r in (ficha.get("audit_requests") or []):
         rid = str(r.get("id") or "").strip()
         if rid and rid not in reqs:
             reqs[rid] = {"id": rid, "solicitud": r.get("request"), "fecha": r.get("date"), "limite": r.get("due"),
-                         "responsable": r.get("owner"), "declarado": norm(r.get("status")), "cita": {"archivo": r.get("source")}}
+                         "responsable": r.get("owner"), "declarado": N.canon(r.get("status")), "cita": {"archivo": r.get("source")}}
     resp = base / "respuestas"
     archivos = sorted(p for p in resp.rglob("*") if p.is_file() and not p.name.startswith(".")) if resp.is_dir() else []
     for rid, r in sorted(reqs.items()):
@@ -1047,7 +1081,7 @@ def clara(cfg: dict, periodo: str, hoy: dt.date) -> dict:
     }
     alertas = [a for p in partes.values() for a in p["alertas"]]
     dec = (ficha.get("declared") or {})
-    if norm(dec.get("status")) in ("cerrado", "cerrada", "closed"):
+    if N.canon(dec.get("status")) in ("cerrado", "cerrada", "closed"):
         abiertas = [a for a in alertas]
         if abiertas:
             alertas.append(alerta("declared_close_vs_evidence",
@@ -1343,7 +1377,7 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
                                   {"archivo": inf.get("source")}, clave=f"version:{inf.get('source')}"))
     # Lo que cada área declara, contra los números.
     for dcl in (ficha.get("area_statements") or []):
-        if norm(dcl.get("says")) not in ("dentro", "dentro_del_presupuesto", "within", "within_budget", "en_presupuesto"):
+        if norm(dcl.get("says")) not in ("dentro", "dentro_del_presupuesto", "within", "within_budget", "en_presupuesto", "dentro_do_orcamento"):
             continue
         area = str(dcl.get("area") or "").strip()
         fs = [f for f in filas if f["area"] == area]
@@ -1462,7 +1496,7 @@ def politica(cfg: dict) -> dict:
     if t is None:
         return out
     for f in t.filas:
-        c, ref, v = norm(f["concepto"]).replace(" ", "_"), str(f["referencia"]).strip(), numero(f["valor"])
+        c, ref, v = N.canon(f["concepto"]).replace(" ", "_"), str(f["referencia"]).strip(), numero(f["valor"])
         if v is None:
             continue
         cita = t.cita(f, cfg["_docs"])
@@ -1606,7 +1640,7 @@ def deuda(cfg: dict, periodo: str, hoy: dt.date) -> dict:
         for f in rd.filas:
             v = fecha(f["vencimiento"])
             dias = (v - hoy).days if v else None
-            out["obligaciones"].append({"obligacion": f["obligacion"], "tipo": f.get("tipo") or "deuda", "contraparte": f.get("contraparte"),
+            out["obligaciones"].append({"obligacion": f["obligacion"], "tipo": N.canon(f.get("tipo")) or "deuda", "contraparte": f.get("contraparte"),
                                         "saldo": numero(f.get("saldo")), "moneda": f.get("moneda"), "vence": iso(v), "dias": dias,
                                         "cita": rd.cita(f, docs)})
             if dias is not None and 0 <= dias <= dias_max:
@@ -1950,6 +1984,59 @@ def factura_sat(serie: str, folio: str, fecha_: str, emisor: str, receptor: str,
             '</cfdi:Comprobante>')
 
 
+def cnpj(raiz: str) -> str:
+    """Un CNPJ con sus dos dígitos verificadores por módulo 11 (pesos de 2 a 9 de derecha a izquierda;
+    un resto de 0 o 1 da 0), para que el material tenga la forma de uno real. Ninguno corresponde a una
+    empresa: la raíz de ocho dígitos la pone el material."""
+    base = f"{int(raiz):08d}0001"
+    for _ in range(2):
+        tot = sum(int(c) * (2 + i % 8) for i, c in enumerate(reversed(base)))
+        r = tot % 11
+        base += "0" if r < 2 else str(11 - r)
+    return base
+
+
+def chave_nfe(cuf: str, fecha_: str, emisor: str, serie: str, nnf: str, cnf: str) -> str:
+    """La chave de acesso de 44 dígitos de una NF-e de prueba, en el orden de sus campos (F-21: cUF B02,
+    año y mes, CNPJ C02, mod B06, serie B07, nNF B08, tpEmis B22, cNF B03 y cDV B23). El dígito
+    verificador es el módulo 11 que pide B23; su regla completa está en el MOC, Visión General, y el
+    lector no lo valida en esta versión."""
+    k = f"{cuf}{fecha_[2:4]}{fecha_[5:7]}{emisor:0>14}55{int(serie):03d}{int(nnf):09d}1{int(cnf):08d}"
+    tot = sum(int(c) * (2 + i % 8) for i, c in enumerate(reversed(k)))
+    r = tot % 11
+    return k + ("0" if r < 2 else str(11 - r))
+
+
+def factura_nfe(serie: str, nnf: str, fecha_: str, emisor: str, receptor: str, base: float, icms: float,
+                pis: float = 0.0, cofins: float = 0.0, cuf: str = "35", cmun: str = "3550308") -> str:
+    """Una NF-e modelo 55 de salida, autorizada, con lo que procesa el lector (F-21), para las pruebas y
+    el material: el ICMS va dentro del valor de la operación (I11, p. 18), así que vProd y vNF son la
+    base más el ICMS, y el ICMS es la alícuota sobre ese valor."""
+    vnf = round(base + icms, 2)
+    alic = round(100 * icms / vnf, 2) if vnf else 0.0
+    ch = chave_nfe(cuf, fecha_, emisor, serie, nnf, f"{int(nnf) * 7 % 10**8:08d}")
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="4.00">'
+            f'<NFe><infNFe Id="NFe{ch}" versao="4.00"><ide><cUF>{cuf}</cUF><cNF>{ch[35:43]}</cNF><natOp>Venda de mercadoria</natOp>'
+            f'<mod>55</mod><serie>{int(serie)}</serie><nNF>{int(nnf)}</nNF><dhEmi>{fecha_}T10:00:00-03:00</dhEmi><tpNF>1</tpNF>'
+            f'<idDest>1</idDest><cMunFG>{cmun}</cMunFG><tpImp>1</tpImp><tpEmis>1</tpEmis><cDV>{ch[-1]}</cDV><tpAmb>1</tpAmb>'
+            '<finNFe>1</finNFe><indFinal>0</indFinal><indPres>9</indPres><procEmi>0</procEmi><verProc>1.0</verProc></ide>'
+            f'<emit><CNPJ>{emisor}</CNPJ><xNome>EMITENTE DE TESTE</xNome><enderEmit><xLgr>Rua de Teste</xLgr><nro>100</nro>'
+            f'<xBairro>Centro</xBairro><cMun>{cmun}</cMun><xMun>Sao Paulo</xMun><UF>SP</UF></enderEmit><IE>110042490114</IE><CRT>3</CRT></emit>'
+            f'<dest><CNPJ>{receptor}</CNPJ><xNome>DESTINATARIO DE TESTE</xNome><indIEDest>1</indIEDest></dest>'
+            f'<det nItem="1"><prod><cProd>001</cProd><cEAN>SEM GTIN</cEAN><xProd>Mercadoria</xProd><NCM>84713012</NCM><CFOP>5102</CFOP>'
+            f'<uCom>UN</uCom><qCom>1.0000</qCom><vUnCom>{vnf:.2f}</vUnCom><vProd>{vnf:.2f}</vProd><cEANTrib>SEM GTIN</cEANTrib><uTrib>UN</uTrib>'
+            f'<qTrib>1.0000</qTrib><vUnTrib>{vnf:.2f}</vUnTrib><indTot>1</indTot></prod>'
+            f'<imposto><ICMS><ICMS00><orig>0</orig><CST>00</CST><modBC>3</modBC><vBC>{vnf:.2f}</vBC><pICMS>{alic:.2f}</pICMS><vICMS>{icms:.2f}</vICMS></ICMS00></ICMS>'
+            f'<PIS><PISAliq><CST>01</CST><vBC>{vnf:.2f}</vBC><pPIS>0.65</pPIS><vPIS>{pis:.2f}</vPIS></PISAliq></PIS>'
+            f'<COFINS><COFINSAliq><CST>01</CST><vBC>{vnf:.2f}</vBC><pCOFINS>3.00</pCOFINS><vCOFINS>{cofins:.2f}</vCOFINS></COFINSAliq></COFINS></imposto></det>'
+            f'<total><ICMSTot><vBC>{vnf:.2f}</vBC><vICMS>{icms:.2f}</vICMS><vICMSDeson>0.00</vICMSDeson><vFCP>0.00</vFCP><vBCST>0.00</vBCST><vST>0.00</vST>'
+            f'<vFCPST>0.00</vFCPST><vFCPSTRet>0.00</vFCPSTRet><vProd>{vnf:.2f}</vProd><vFrete>0.00</vFrete><vSeg>0.00</vSeg><vDesc>0.00</vDesc><vII>0.00</vII>'
+            f'<vIPI>0.00</vIPI><vIPIDevol>0.00</vIPIDevol><vPIS>{pis:.2f}</vPIS><vCOFINS>{cofins:.2f}</vCOFINS><vOutro>0.00</vOutro><vNF>{vnf:.2f}</vNF></ICMSTot></total>'
+            '<transp><modFrete>9</modFrete></transp><pag><detPag><tPag>15</tPag><vPag>' f'{vnf:.2f}' '</vPag></detPag></pag></infNFe></NFe>'
+            f'<protNFe versao="4.00"><infProt><tpAmb>1</tpAmb><chNFe>{ch}</chNFe><cStat>100</cStat><xMotivo>Autorizado o uso da NF-e</xMotivo></infProt></protNFe>'
+            '</nfeProc>')
+
+
 def rfc(letras: str, fecha_: str, homoclave: str) -> str:
     """Un RFC de persona moral ficticio, de 12 posiciones (F-19, p. 15). Ninguno corresponde a una empresa."""
     return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
@@ -2078,6 +2165,15 @@ def selftest() -> int:
         ok("SAT: el CFDI 4.0 de ingreso con su IVA", (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"]),
            ("sat", "factura", "A1001", "ABC260101AA1", "XYZ250505BB2", 10000.0, 1600.0, 11600.0, "2026-09-15"))
         ok("SAT: el CFDI se identifica por el RFC del emisor, la serie y el folio", f["id"], "ABC260101AA1-A1001")
+        f = leer_factura_texto(factura_nfe("1", "4521", "2026-09-15", cnpj(12345678), cnpj(87654321), 8200.0, 1800.0, 65.0, 300.0), t)
+        ok("NF-e: modelo 55 de salida, con el ICMS dentro del valor de la nota",
+           (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["otros_impuestos"], f["total"], f["fecha"]),
+           ("nfe", "factura", "1-4521", cnpj(12345678), cnpj(87654321), 8200.0, 1800.0, 365.0, 10000.0, "2026-09-15"))
+        ok("NF-e: se identifica por su chave de acesso, de 44 dígitos, con el CNPJ del emitente adentro",
+           (len(f["id"]), f["id"][6:20] == cnpj(12345678)), (44, True))
+        ok("NF-e: una de entrada se identifica y no cruza valores",
+           leer_factura_texto(factura_nfe("1", "9", "2026-09-15", cnpj(12345678), cnpj(87654321), 82.0, 18.0).replace("<tpNF>1</tpNF>", "<tpNF>0</tpNF>"), t)["valores"], False)
+        ok("CNPJ: sus dos dígitos verificadores por módulo 11, como en 11.222.333/0001-81", cnpj(11222333), "11222333000181")
         ok("SAT: un CFDI de otra versión no se lee como 4.0", "error" in leer_factura_texto(factura_sat("A", "1", "2026-09-15", "ABC260101AA1", "XYZ250505BB2", 1, 0.16).replace('Version="4.0"', 'Version="3.3"'), t), True)
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"

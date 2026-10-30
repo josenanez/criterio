@@ -1,0 +1,6 @@
+id;solicitacao;data;data_limite;responsavel;situacao
+R-01;Conciliações bancárias de setembro;2026-10-01;2026-10-03;André Pacheco;respondido
+R-02;Razão auxiliar de contas a receber por vencimento;2026-10-01;2026-10-03;Marta Rios;respondido
+R-03;Detalhe das notas fiscais emitidas;2026-10-01;2026-10-03;Luciana Moraes;respondido
+R-04;Atas do comitê de orçamento;2026-10-02;2026-10-09;Sofia Leão;
+R-05;Contratos dos principais fornecedores;2026-10-01;2026-10-08;Jorge Veloso;

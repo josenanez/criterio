@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Control Andina",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 3191830,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

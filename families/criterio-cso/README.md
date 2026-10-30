@@ -290,8 +290,8 @@ is what declares it tested, and it comes with 0.2.0. Laboratory or stable is sai
 <!-- cso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Augusto** · The forecast | `criterio-sales` · 6 commands, 4 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · From sale to invoice | `criterio-revenue` · 6 commands, 6 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · The forecast | `criterio-sales` · 6 commands, 4 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · From sale to invoice | `criterio-revenue` · 6 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cso:estado -->
 

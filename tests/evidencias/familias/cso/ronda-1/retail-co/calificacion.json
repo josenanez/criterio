@@ -1,0 +1,19 @@
+{
+  "entidad": "Almacenes del Valle",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 2821554,
+  "senales": {
+    "esperadas": 21,
+    "acertadas": 21,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

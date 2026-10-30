@@ -1,0 +1,10 @@
+id;tarefa;area;responsavel;prazo;depende_de;evidencia_esperada;criticidade;situacao
+C-01;Fechar os módulos de vendas, compras e estoques;Contabilidade;Luciana Moraes;D+1;;Comprovante assinado;alta;concluída
+C-02;Conciliar cada conta bancária;Tesouraria;André Pacheco;D+2;C-01;Comprovante assinado;alta;concluída
+C-03;Conferir as notas fiscais emitidas com as vendas;Contabilidade;Luciana Moraes;D+2;C-01;Comprovante assinado;alta;concluída
+C-04;Conciliar contas a receber com o razão auxiliar;Contabilidade;Marta Rios;D+3;C-01;Comprovante assinado;alta;concluída
+C-05;Lançar provisões e apropriações;Contabilidade;Jorge Veloso;D+3;C-01;Comprovante assinado;media;concluída
+C-06;Preparar os papéis de trabalho de tributos;Tributos;Helena Cruz;D+5;C-03;Comprovante assinado;alta;em andamento
+C-07;Fechar o balancete de verificação;Contabilidade;Luciana Moraes;D+5;C-02 C-04 C-05;Comprovante assinado;alta;em andamento
+C-08;Revisar o fechamento e seus comprovantes;Controladoria;Sofia Leão;D+6;C-07;Comprovante assinado;alta;em andamento
+C-09;Aprovar o fechamento do período;Controladoria;Sofia Leão;D+7;C-08;Comprovante assinado;alta;em andamento

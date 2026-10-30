@@ -1,0 +1,17 @@
+data;lancamento;conta;cnpj;documento;debito;credito;centro_de_custo;historico
+2026-07-25;G-070;5135;;;11640.00;0.00;ADM;Serviços públicos de julho
+2026-07-25;G-070;11100501;;;0.00;11640.00;;Pagamento Serviços públicos
+2026-07-25;G-071;5145;;;7760.00;0.00;ADM;Manutenção de julho
+2026-07-25;G-071;11100501;;;0.00;7760.00;;Pagamento Manutenção
+2026-07-25;G-072;5195;;;13580.00;0.00;COM;Publicidade de julho
+2026-07-25;G-072;11100501;;;0.00;13580.00;;Pagamento Publicidade
+2026-07-25;G-073;5195;;;7760.00;0.00;EVT;Eventos de julho
+2026-07-25;G-073;11100501;;;0.00;7760.00;;Pagamento Eventos
+2026-07-25;G-074;5135;;;19400.00;0.00;TEC;Licenças de julho
+2026-07-25;G-074;11100501;;;0.00;19400.00;;Pagamento Licenças
+2026-07-25;G-075;5145;;;23280.00;0.00;PRY;PRY-310 de julho
+2026-07-25;G-075;11100501;;;0.00;23280.00;;Pagamento PRY-310
+2026-07-25;G-076;5135;;;13580.00;0.00;OPE;Transporte de julho
+2026-07-25;G-076;11100501;;;0.00;13580.00;;Pagamento Transporte
+2026-07-25;G-077;5105;;;80000.00;0.00;ADM;Folha de pagamento de julho
+2026-07-25;G-077;11100501;;;0.00;80000.00;;Pagamento Folha de pagamento

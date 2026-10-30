@@ -1,0 +1,19 @@
+{
+  "entidad": "Servicios Profesionales Mexicanos",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 3269381,
+  "senales": {
+    "esperadas": 19,
+    "acertadas": 19,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

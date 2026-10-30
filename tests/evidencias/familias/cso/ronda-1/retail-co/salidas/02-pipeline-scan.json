@@ -1,0 +1,29 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T01:29:05",
+  "estado": "success",
+  "error": false,
+  "segundos": 50,
+  "turnos": 13,
+  "tokens": 666459,
+  "tokens_salida": 5293,
+  "costo_usd": 0.2687001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/901234567-almacenes-del-valle/cache/20-comite/acta-comite-2026-10-02.docx.md",
+      "estado-comercial/901234567-almacenes-del-valle/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/901234567-almacenes-del-valle/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/901234567-almacenes-del-valle/corridas/salida-pipeline-scan.md",
+      "estado-comercial/901234567-almacenes-del-valle/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/901234567-almacenes-del-valle/cache/manifest.json",
+      "estado-comercial/901234567-almacenes-del-valle/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T01:47:15",
+  "estado": "success",
+  "error": false,
+  "segundos": 44,
+  "turnos": 14,
+  "tokens": 672602,
+  "tokens_salida": 3791,
+  "costo_usd": 0.19674400000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/900000002-comercial-control-andina/cache/40-cotizaciones/COT-1301_cotizacion.pdf.md",
+      "estado-comercial/900000002-comercial-control-andina/cache/40-cotizaciones/COT-1302_cotizacion.pdf.md",
+      "estado-comercial/900000002-comercial-control-andina/cache/40-cotizaciones/COT-1303_cotizacion.pdf.md",
+      "estado-comercial/900000002-comercial-control-andina/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/900000002-comercial-control-andina/corridas/salida-deal-scan.md",
+      "estado-comercial/900000002-comercial-control-andina/ingresos/2026-10/ficha.json",
+      "estado-comercial/900000002-comercial-control-andina/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/900000002-comercial-control-andina/cache/manifest.json",
+      "estado-comercial/900000002-comercial-control-andina/corridas.json",
+      "estado-comercial/900000002-comercial-control-andina/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

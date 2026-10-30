@@ -1,0 +1,28 @@
+{
+  "entidad": "Comercial Control de México",
+  "agentes": [
+    "augusto",
+    "valeria"
+  ],
+  "tokens": 2905899,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [
+      [
+        "commission_differs_from_plan",
+        "comision:2026-10:isabel_mendez"
+      ],
+      [
+        "commission_differs_from_plan",
+        "comision:2026-10:oscar_delgado"
+      ]
+    ],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 5,
+    "bien": 5,
+    "mal": []
+  }
+}

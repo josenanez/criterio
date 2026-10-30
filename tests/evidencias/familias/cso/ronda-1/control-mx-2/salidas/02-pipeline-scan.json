@@ -1,0 +1,27 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T02:01:44",
+  "estado": "success",
+  "error": false,
+  "segundos": 39,
+  "turnos": 12,
+  "tokens": 577692,
+  "tokens_salida": 4022,
+  "costo_usd": 0.1962949,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas/salida-pipeline-scan.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

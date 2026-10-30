@@ -1,0 +1,149 @@
+{
+  "entidad": "Comercial Controle Paulista",
+  "industria": "retail",
+  "pais": "BR",
+  "hoy": "2026-10-06",
+  "siembra": [],
+  "config": {
+    "clara": {
+      "entity": {
+        "id": "40217355000151",
+        "name": "Comercial Controle Paulista",
+        "country": "BR",
+        "currency": "BRL",
+        "approver": "Sofia Leão"
+      },
+      "paths": {
+        "documents": "finanzas/40217355000151-comercial-controle-paulista",
+        "state": "estado-finanzas/40217355000151-comercial-controle-paulista"
+      },
+      "period": "2026-09",
+      "accounts": {
+        "sales": [
+          "4135"
+        ],
+        "purchases": [
+          "1435",
+          "5135",
+          "5145",
+          "5195"
+        ],
+        "vat_generated": [
+          "2408"
+        ],
+        "vat_deductible": [
+          "2408"
+        ],
+        "reconcile": [
+          "1305",
+          "2205"
+        ]
+      },
+      "bank_accounts": [
+        "bandeirante-4301",
+        "litoral-4302"
+      ],
+      "checklist": {
+        "source": "organizacion",
+        "approved": true
+      },
+      "holidays": []
+    },
+    "tomas": {
+      "entity": {
+        "id": "40217355000151",
+        "name": "Comercial Controle Paulista",
+        "country": "BR",
+        "currency": "BRL",
+        "approver": "Sofia Leão"
+      },
+      "paths": {
+        "documents": "finanzas/40217355000151-comercial-controle-paulista",
+        "state": "estado-finanzas/40217355000151-comercial-controle-paulista"
+      },
+      "budget": {
+        "year": "2026",
+        "cut": "2026-09",
+        "pmo_records": "estado-pmo/records",
+        "expense_prefixes": [
+          "51",
+          "52"
+        ]
+      }
+    },
+    "aurea": {
+      "entity": {
+        "id": "40217355000151",
+        "name": "Comercial Controle Paulista",
+        "country": "BR",
+        "currency": "BRL",
+        "approver": "Sofia Leão"
+      },
+      "paths": {
+        "documents": "finanzas/40217355000151-comercial-controle-paulista",
+        "state": "estado-finanzas/40217355000151-comercial-controle-paulista"
+      },
+      "period": "2026-09",
+      "treasury": {
+        "currencies": {}
+      }
+    }
+  },
+  "extraccion": {
+    "cierre": {
+      "declared": {
+        "status": "em andamento",
+        "source": "2026-09/40-soportes/email-situacao-do-fechamento.md",
+        "date": "2026-10-05",
+        "by": "Sofia Leão"
+      }
+    },
+    "presupuesto": {
+      "minutes": [
+        {
+          "type": "aprobacion",
+          "version": 1,
+          "date": "2026-01-20",
+          "source": "presupuesto-2026/40-actas/ata-01-aprovacao.docx"
+        },
+        {
+          "type": "traslado",
+          "date": "2026-06-28",
+          "source": "presupuesto-2026/40-actas/ata-05-remanejamento.md",
+          "movements": [
+            {
+              "from": {
+                "area": "Comercial",
+                "line": "Publicidade"
+              },
+              "to": {
+                "area": "Comercial",
+                "line": "Eventos"
+              },
+              "amount": 12000.0
+            }
+          ]
+        }
+      ],
+      "area_statements": [
+        {
+          "area": "Administração",
+          "says": "dentro do orçamento",
+          "source": "presupuesto-2026/30-proyecciones/email-administracao.md",
+          "date": "2026-10-01"
+        }
+      ],
+      "reports": [],
+      "committee_commitments": [
+        {
+          "what": "Revisar o contrato de vigilância",
+          "owner": "Administração",
+          "status": "aberto",
+          "evidence": null,
+          "source": "presupuesto-2026/40-actas/ata-06-comite.docx"
+        }
+      ]
+    }
+  },
+  "esperado": []
+}

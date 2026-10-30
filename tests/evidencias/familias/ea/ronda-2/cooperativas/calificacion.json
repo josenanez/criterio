@@ -1,0 +1,146 @@
+{
+  "entidad": "Cooperativa Sierra Alta",
+  "agentes": [
+    "ofelia"
+  ],
+  "tokens": 1622220,
+  "senales": {
+    "esperadas": 35,
+    "acertadas": 35,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 45,
+    "bien": 44,
+    "mal": [
+      {
+        "ficha": "reuniones/comite-de-gerencia-2026-10-05",
+        "campo": "decisions",
+        "esperado": [
+          {
+            "id": "D-1",
+            "decision": "Proveedor de la mesa de ayuda",
+            "source": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-1.md",
+            "options": [
+              {
+                "option": "Continuar como hoy",
+                "evidence": [
+                  {
+                    "archivo": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-1.md"
+                  }
+                ]
+              },
+              {
+                "option": "Cambiar de proveedor",
+                "evidence": [
+                  {
+                    "archivo": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-1.md"
+                  }
+                ]
+              }
+            ],
+            "missing": [],
+            "deadline": "2026-11-03",
+            "deadline_source": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-1.md, línea 3",
+            "status": "pending"
+          },
+          {
+            "id": "D-2",
+            "decision": "Sede de la oficina regional",
+            "source": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-2.md",
+            "options": [
+              {
+                "option": "Continuar como hoy",
+                "evidence": [
+                  {
+                    "archivo": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-2.md"
+                  }
+                ]
+              },
+              {
+                "option": "Cambiar de proveedor",
+                "evidence": [
+                  {
+                    "archivo": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-2.md"
+                  }
+                ]
+              }
+            ],
+            "missing": [],
+            "deadline": "2026-11-04",
+            "deadline_source": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-2.md, línea 3",
+            "status": "pending"
+          }
+        ],
+        "obtenido": [
+          {
+            "id": "D-1",
+            "decision": "Proveedor de la mesa de ayuda",
+            "source": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-1.md, línea 1",
+            "options": [
+              {
+                "option": "Continuar como hoy",
+                "evidence": [
+                  {
+                    "archivo": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-1.md",
+                    "linea": 5
+                  }
+                ]
+              },
+              {
+                "option": "Cambiar de proveedor",
+                "evidence": [
+                  {
+                    "archivo": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-1.md",
+                    "linea": 6
+                  }
+                ]
+              }
+            ],
+            "missing": [
+              "El material no trae ofertas, costos ni nombres de proveedores para ninguna de las dos opciones"
+            ],
+            "deadline": "2026-11-03",
+            "deadline_source": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-1.md, línea 3: «La decisión vence el 2026-11-03»",
+            "status": "pending",
+            "minutes_source": "organos/comite-de-gerencia/2026-10-05/40-acta/acta-firmada.md, línea 33"
+          },
+          {
+            "id": "D-2",
+            "decision": "Sede de la oficina regional",
+            "source": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-2.md, línea 1",
+            "options": [
+              {
+                "option": "Continuar como hoy",
+                "evidence": [
+                  {
+                    "archivo": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-2.md",
+                    "linea": 5
+                  }
+                ]
+              },
+              {
+                "option": "Cambiar de proveedor",
+                "evidence": [
+                  {
+                    "archivo": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-2.md",
+                    "linea": 6
+                  }
+                ]
+              }
+            ],
+            "missing": [
+              "El material no dice qué sede se evalúa ni qué alternativa hay; las dos opciones repiten el texto de la propuesta de la mesa de ayuda («Cambiar de proveedor»)"
+            ],
+            "deadline": "2026-11-04",
+            "deadline_source": "organos/comite-de-gerencia/2026-10-05/20-material/propuesta-2.md, línea 3: «La decisión vence el 2026-11-04»",
+            "status": "pending",
+            "minutes_source": "organos/comite-de-gerencia/2026-10-05/40-acta/acta-firmada.md, línea 34"
+          }
+        ],
+        "bien": false
+      }
+    ]
+  }
+}

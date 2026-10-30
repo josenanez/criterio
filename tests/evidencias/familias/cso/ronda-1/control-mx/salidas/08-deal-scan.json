@@ -1,0 +1,32 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-10-30T01:50:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 37,
+  "turnos": 14,
+  "tokens": 573700,
+  "tokens_salida": 3298,
+  "costo_usd": 0.18897769999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/cache/40-cotizaciones/COT-1601_cotizacion.pdf.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/cache/40-cotizaciones/COT-1602_cotizacion.pdf.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/cache/40-cotizaciones/COT-1603_cotizacion.pdf.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas/salida-deal-scan.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/ingresos/2026-10/ficha.json",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/cache/manifest.json",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas.json",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

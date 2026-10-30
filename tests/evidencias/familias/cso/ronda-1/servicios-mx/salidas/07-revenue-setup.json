@@ -1,0 +1,32 @@
+{
+  "n": 7,
+  "agente": "valeria",
+  "comando": "revenue-setup",
+  "argumento": "comercial/SPM140708QJ2-servicios-profesionales-mexicanos",
+  "inicio": "2026-10-30T01:38:06",
+  "estado": "success",
+  "error": false,
+  "segundos": 60,
+  "turnos": 19,
+  "tokens": 705563,
+  "tokens_salida": 7868,
+  "costo_usd": 0.287963,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/ingresos/SPM140708QJ2/config.json",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.sha256",
+      "estado-comercial/SPM140708QJ2-servicios-profesionales-mexicanos/corridas/2026-11-05-revenue-setup-1.md",
+      "estado-comercial/SPM140708QJ2-servicios-profesionales-mexicanos/corridas/salida-revenue-setup.md",
+      "estado-comercial/SPM140708QJ2-servicios-profesionales-mexicanos/ingresos/2026-10/reporte-won-to-invoice.md",
+      "estado-comercial/SPM140708QJ2-servicios-profesionales-mexicanos/ingresos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/SPM140708QJ2-servicios-profesionales-mexicanos/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,17 @@
+data;referencia;historico;valor;saldo;moeda
+2026-09-05;1-100;Transferência recebida;42682.93;2682.93;BRL
+2026-09-05;1-91;Transferência recebida;37500.00;40182.93;BRL
+2026-09-06;TRF0007;Transferência recebida;20000.00;60182.93;BRL
+2026-09-08;TRF0001;Transferência recebida;121951.22;182134.15;BRL
+2026-09-10;1-102;Transferência recebida;39634.15;221768.30;BRL
+2026-09-13;CH-0600;Cheque CH-0600 compensado;-30000.00;191768.30;BRL
+2026-09-13;CH-0603;Cheque CH-0603 compensado;-35487.80;156280.50;BRL
+2026-09-14;CH-0601;Cheque CH-0601 compensado;-20000.00;136280.50;BRL
+2026-09-14;TRF0003;Transferência recebida;82317.07;218597.57;BRL
+2026-09-15;CH-0602;Cheque CH-0602 compensado;-15000.00;203597.57;BRL
+2026-09-15;CH-0604;Cheque CH-0604 compensado;-23658.54;179939.03;BRL
+2026-09-19;1-105;Transferência recebida;97560.98;277500.01;BRL
+2026-09-23;TRF0005;Transferência recebida;103658.54;381158.55;BRL
+2026-09-25;1-107;Transferência recebida;42682.93;423841.48;BRL
+2026-09-27;TRASLADO-09;Transferência enviada;-250000.00;173841.48;BRL
+2026-09-30;;Tarifa de manutenção de conta;-4000.00;169841.48;BRL

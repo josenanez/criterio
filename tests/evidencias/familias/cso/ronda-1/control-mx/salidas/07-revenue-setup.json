@@ -1,0 +1,32 @@
+{
+  "n": 7,
+  "agente": "valeria",
+  "comando": "revenue-setup",
+  "argumento": "comercial/CCM101010AB3-comercial-control-de-mexico",
+  "inicio": "2026-10-30T01:49:48",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 20,
+  "tokens": 639423,
+  "tokens_salida": 5991,
+  "costo_usd": 0.2522602,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/ingresos/CCM101010AB3/config.json",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.md",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.pdf",
+      ".criterio/terminos/aceptacion-criterio-revenue-0.1.0-2026-11-05.sha256",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas/2026-11-05-revenue-setup-1.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas/salida-revenue-setup.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/ingresos/2026-10/reporte-won-to-invoice.md",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/ingresos/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-comercial/CCM101010AB3-comercial-control-de-mexico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
