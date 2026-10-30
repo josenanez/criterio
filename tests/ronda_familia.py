@@ -196,7 +196,7 @@ def _renglon(texto: str, lugar: str):
     m = re.fullmatch(r"\s*l[ií]nea\s+(\d+)\s*(:.*)?", lugar, re.I | re.S)
     if m:
         return int(m.group(1))
-    m = re.search(r"\bpunto\s+(\d+)\b", lugar, re.I)
+    m = re.search(r"\b(?:punto|item|ítem)\s+(\d+)\b", lugar, re.I)     # «item» en portugués (CLO-12)
     if m:
         for i, linea in enumerate(texto.splitlines(), start=1):
             if re.match(rf"\s*{m.group(1)}[.)]\s", linea):
