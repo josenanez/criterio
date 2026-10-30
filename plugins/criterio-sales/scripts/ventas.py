@@ -247,6 +247,12 @@ def leer_exportacion(ruta: Path, cfg: dict) -> dict:
     else:
         faltan = [k for k in REQUERIDOS if k not in mapa]
     out = {"ruta": ruta, "formato": fmt, "fecha": fecha_de_nombre(ruta), "faltan": faltan, "filas": [], "columnas": sorted(mapa)}
+    # Una columna que parece la última actividad y no está mapeada (Zoho no la tiene entre sus campos
+    # estándar, F-08): sin ella, lo que no cambió de un corte a otro se da por detenido (CCO-4).
+    if fmt != "historia" and "ultima_actividad" not in mapa:
+        usadas = set(mapa.values())
+        out["actividad_sin_mapear"] = [filas[i][j] for j, c in enumerate(cab)
+                                       if j not in usadas and ("activ" in c or "gestion" in c)]
     if faltan:
         return out
     cuerpo = [f for f in filas[i + 1:] if any(str(x).strip() for x in f)]
@@ -1066,8 +1072,14 @@ def main() -> int:
         if a.config:
             cfg, _ = N.cargar_config(a.config)
         e = leer_exportacion(a.file, cfg)
-        print(json.dumps({"formato": e.get("formato"), "fecha": iso(e.get("fecha")), "faltan": e.get("faltan"), "error": e.get("error"),
-                          "filas": len(e.get("filas") or [])}, ensure_ascii=False, indent=2))
+        salida = {"formato": e.get("formato"), "fecha": iso(e.get("fecha")), "faltan": e.get("faltan"), "error": e.get("error"),
+                  "filas": len(e.get("filas") or [])}
+        if e.get("actividad_sin_mapear"):
+            col = e["actividad_sin_mapear"][0]
+            salida["pregunta"] = (f"La exportación trae «{col}» y la última actividad no está mapeada. Si es la fecha de la última "
+                                  f"gestión de cada oportunidad, regístrala en crm.columns.ultima_actividad; sin ella, una "
+                                  f"oportunidad que no cambió de un corte a otro se da por detenida aunque se gestione.")
+        print(json.dumps(salida, ensure_ascii=False, indent=2))
         return 0 if not e.get("error") and not e.get("faltan") else 1
     return N.despachar(a, ap, aqui=AQUI, rol=_rol(), estructura_json=ESTRUCTURA, subcarpetas=("comercial", "ingresos"),
                        revisar_config=revisar_config, calcular=calcular, reporte=reporte, despertar=despertar)
@@ -1096,6 +1108,13 @@ def selftest() -> int:
     ok("Dynamics por su exportación a Excel", formato(["topic", "account", "est_revenue", "est_close_date", "pipeline_phase", "status"]), "dynamics")
     ok("Dynamics por su API", formato(["opportunityid", "name", "estimatedvalue", "estimatedclosedate", "stepname", "statecode"]), "dynamics")
     ok("Zoho por su exportación", formato(["record_id", "deal_name", "account_name", "amount", "closing_date", "stage"]), "zoho")
+    with tempfile.TemporaryDirectory() as tmp:
+        z = Path(tmp) / "Deals_2026_10_01.csv"
+        _csv(z, [["Record ID", "Deal Name", "Account Name", "Amount", "Closing Date", "Stage", "Last Activity Time"],
+                 ["OPP-1", "Uno", "Cliente", "100", "01/12/2026", "Propuesta", "20/09/2026 10:30"]])
+        ok("Zoho: la última actividad sin mapear se pregunta (CCO-4)", leer_exportacion(z, {"crm": {}}).get("actividad_sin_mapear"), ["Last Activity Time"])
+        ok("Zoho: mapeada, no se pregunta",
+           leer_exportacion(z, {"crm": {"columns": {"ultima_actividad": "Last Activity Time"}}}).get("actividad_sin_mapear"), None)
     ok("en Dynamics el estado manda sobre la etapa: Won es ganada",
        oportunidad({"id": "1", "etapa": "Negociación", "estado": "Won", "monto": "10", "_fila": 2}, "dynamics", {})["tipo"], GANADA)
     ok("en Dynamics, Lost es perdida y Open sigue abierta",
