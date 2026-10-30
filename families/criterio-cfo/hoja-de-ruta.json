@@ -177,7 +177,7 @@
   {
    "incremento": 7,
    "version": "1.1.0",
-   "estado": "en curso",
+   "estado": "reservada",
    "industrias": [],
    "paises": [
     {
@@ -226,6 +226,41 @@
      "Three test entities per country, one of them a control with no seeded defects"
     ],
     "prueba": "Rounds 8 to 11 with the three agents, one per country"
+   }
+  },
+  {
+   "incremento": 8,
+   "version": "1.2.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "HN",
+     "nombre": {
+      "es": "Honduras",
+      "en": "Honduras"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Honduras",
+    "entra": [
+     "Su entrada en el registro de países, con sus fuentes verificadas",
+     "La factura como documento, sin XML: el agente extrae el CAI, el rango autorizado, la fecha límite de emisión y el número correlativo, y el motor los valida (decisión 0024)",
+     "Una señal nueva: la factura recibida fuera de su rango autorizado o emitida después de su fecha límite",
+     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+    ],
+    "prueba": "La ronda 12 con los tres agentes"
+   },
+   "en": {
+    "titulo": "Honduras",
+    "entra": [
+     "Its entry in the country registry, with its verified sources",
+     "The invoice as a document, with no XML: the agent extracts the CAI, the authorized range, the issue deadline and the sequential number, and the engine validates them (decision 0024)",
+     "A new signal: the received invoice outside its authorized range or issued after its deadline",
+     "Three test entities, one of them a control with no seeded defects"
+    ],
+    "prueba": "Round 12 with the three agents"
    }
   }
  ]

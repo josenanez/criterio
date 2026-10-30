@@ -178,7 +178,7 @@
   {
    "incremento": 7,
    "version": "1.2.0",
-   "estado": "en curso",
+   "estado": "reservada",
    "industrias": [],
    "paises": [
     {
@@ -227,6 +227,39 @@
      "Three test entities per country, one of them a control with no seeded defects"
     ],
     "prueba": "Rounds 8 to 11 with Fidel and Constanza, one per country"
+   }
+  },
+  {
+   "incremento": 8,
+   "version": "1.3.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "HN",
+     "nombre": {
+      "es": "Honduras",
+      "en": "Honduras"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Honduras",
+    "entra": [
+     "Su entrada en el registro de países, con el RTN de cada contraparte",
+     "La garantía de cumplimiento de la Ley de Contratación del Estado, del 15 % (Decreto 74-2001, art. 100), y una entidad pública de prueba",
+     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+    ],
+    "prueba": "La ronda 12 con Fidel y Constanza"
+   },
+   "en": {
+    "titulo": "Honduras",
+    "entra": [
+     "Its entry in the country registry, with each counterparty's RTN",
+     "The performance guarantee of the State Procurement Law, 15 % (Decree 74-2001, art. 100), and a public test entity",
+     "Three test entities, one of them a control with no seeded defects"
+    ],
+    "prueba": "Round 12 with Fidel and Constanza"
    }
   }
  ]
