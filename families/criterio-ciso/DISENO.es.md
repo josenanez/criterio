@@ -2,7 +2,7 @@
 
 # criterio-ciso · el diseño de la familia
 
-**Estado: de laboratorio, sin lanzar (versión 0.1.0).** Los veinte comandos, los siete skills y el motor de cálculo
+**Estado: de laboratorio, sin lanzar (versión 0.1.0).** Los veintitrés comandos, los siete skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de banca,
 retail, salud y tecnología (`tests/criterio-ciso/`), y la ronda con los agentes es el siguiente paso, en
 la 0.2.0. Alcance en [ADR 0023](../../docs/decisions/0023-la-familia-ciso.md).
@@ -152,6 +152,7 @@ llaves ni respaldos.
 | 5 | `third-parties` | El registro de terceros de `00-referencia/` y la ficha del periodo | Cada tercero crítico contra la frecuencia de su evaluación de seguridad: la última de la ficha, su resultado y cuándo tocaba la siguiente | Los terceros críticos con la evaluación vencida o sin ninguna, con su cita |
 | 6 | `risk-register` | El registro de riesgos de `40-riesgos/` | Cada riesgo con su decisión; los aceptados contra su fecha de revisión. El agente no acepta ni cierra un riesgo | Las aceptaciones que pasaron su fecha de revisión, con quién las aceptó y su fila |
 | 7 | `security-wake` | El estado y los documentos nuevos | Si hay documentos nuevos o pasó una semana, la revisión completa; si hay señales abiertas, el reporte de su grupo; una pregunta que alguien dejó en Rostrum | Qué corrió y por qué, o que no tocaba nada |
+| 8 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /ciso:comandos-alexis -->
 
 ## Los comandos de Guillermo, en orden de importancia
@@ -165,6 +166,7 @@ llaves ni respaldos.
 | 3 | `kev-check` | Las exportaciones de `50-escaneos/` y el catálogo KEV de CISA (F-06) | Cada vulnerabilidad abierta cuyo CVE está en el catálogo, contra la fecha de corrección que trae el catálogo; dice si se conoce su uso en ransomware | Las vulnerabilidades del catálogo que siguen abiertas después de su fecha, con su activo y su cita |
 | 4 | `scan-coverage` | El inventario de activos de `00-referencia/`, las exportaciones de `50-escaneos/` y el seguimiento de `60-remediacion/` | Cada activo del inventario en alcance contra el último escaneo que lo incluye y la ventana configurada; cada vulnerabilidad cerrada en el seguimiento contra los escaneos posteriores a su cierre | Los activos sin escaneo en la ventana; los cierres que ningún escaneo posterior prueba o que el escaneo sigue encontrando; lo escaneado fuera del inventario |
 | 5 | `vuln-wake` | El estado y los documentos nuevos | Si llegó una exportación, un catálogo o un seguimiento nuevo, o pasó una semana, la revisión completa; si hay señales abiertas, el reporte de su grupo; una pregunta que alguien dejó en Rostrum | Qué corrió y por qué, o que no tocaba nada |
+| 6 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /ciso:comandos-guillermo -->
 
 Los reportes de Guillermo no se publican en Rostrum salvo que `vulnerability.publish` lo diga.
@@ -180,6 +182,7 @@ Los reportes de Guillermo no se publican en Rostrum salvo que `vulnerability.pub
 | 3 | `notifications` | La matriz de notificaciones de `00-referencia/` y la ficha del periodo | Cada incidente contra cada fila de la matriz que le aplica —por su severidad, por los datos personales o por los clientes afectados—: la notificación registrada y su hora contra el plazo desde la detección. El agente no notifica a nadie | Las notificaciones tardías y las que no se hicieron, con su destinatario, su norma y su cita |
 | 4 | `continuity-tests` | El calendario de continuidad de `00-referencia/` y la ficha del periodo | Cada prueba del calendario —el plan de continuidad, el de recuperación, la restauración de cada respaldo crítico— contra su frecuencia: la última de la ficha, su resultado y cuándo tocaba la siguiente | Las pruebas vencidas o sin ninguna, separadas las de restauración, con su cita |
 | 5 | `resilience-wake` | El estado y los documentos nuevos | Si llegó un incidente, una revisión o una prueba nueva, o pasó una semana, la revisión completa; si hay señales abiertas, el reporte de su grupo; una pregunta que alguien dejó en Rostrum | Qué corrió y por qué, o que no tocaba nada |
+| 6 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /ciso:comandos-amparo -->
 
 ## El formato común de los reportes

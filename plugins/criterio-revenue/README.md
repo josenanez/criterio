@@ -15,7 +15,7 @@ against the plan.
 
 [Español](README.es.md) · `criterio-revenue` · Apache 2.0 · One instance per entity
 
-**Status: stable, not yet launched (version 0.3.0).** The six commands, the six skills and the
+**Status: stable, not yet launched (version 0.3.0).** The seven commands, the six skills and the
 calculation engine, tested against synthetic material from Colombia, Mexico, Ecuador, Peru and Chile
 —with Salesforce, HubSpot, Dynamics 365, Zoho and any CRM with its mapping— with a key the agent never
 sees and one control entity per country. It passed its two rounds with the agents: across all of them,
@@ -47,7 +47,7 @@ asks for, which won sale has no signed contract, which signed contract was not i
 settled commission is not the one the plan gives.
 
 <!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The six commands
+### The seven commands
 
 > They are typed with the plugin prefix: `/criterio-revenue:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -59,6 +59,7 @@ settled commission is not the one the plan gives.
 | `/criterio-revenue:won-to-invoice` | From won to signed to invoiced: what was left along the way |
 | `/criterio-revenue:commission-check` | Every settled commission against the one the plan gives |
 | `/criterio-revenue:revenue-wake` | What is due today from sale to invoice; if nothing is due, it stays quiet |
+| `/criterio-revenue:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /cco:comandos -->
 
 `revenue-setup` comes first because the others need it, and `revenue-wake` is the one you put on a clock.

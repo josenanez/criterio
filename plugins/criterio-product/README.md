@@ -65,6 +65,7 @@ building**.
 | `/criterio-product:product-publish` | Publishes your record where the other products can read it |
 | `/criterio-product:product-overlap` | Where you step on another product: the same metric counted twice, the same project, the same segment |
 | `/criterio-product:product-wake` | **The one you put on a clock.** What crossed a threshold without anybody doing anything |
+| `/criterio-product:share-findings` | **Share findings, always asking.** A summary with no data of what ran; with a yes, the link to the finding template, which you open. Nothing is sent |
 
 ### The twelve skills
 

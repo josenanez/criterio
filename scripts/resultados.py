@@ -71,6 +71,7 @@ DUENIOS = [
     ("criterio-server/scripts/", "Rostrum"),
     ("criterio-portfolio/scripts/raiz.py", "La familia"),
     ("criterio-portfolio/scripts/rastro.py", "La familia"),
+    ("criterio-portfolio/scripts/compartir.py", "La familia"),
     ("criterio-portfolio/scripts/informe.py", "Vera"),
     ("criterio-portfolio/scripts/portafolio.py", "Vera"),
     ("criterio-portfolio/scripts/texto.py", "Vera"),

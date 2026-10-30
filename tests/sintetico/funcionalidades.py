@@ -100,6 +100,9 @@ FUNCIONALIDADES = {
                         "la corrida", CORRIDAS),
     "product-publish": ("El registro publicado donde el portafolio lo cruce",
                         "el registro publicado y la corrida", FICHA),
+    # ── Todos los agentes · compartir hallazgos, siempre preguntando (decisión 0025)
+    "share-findings": ("Un resumen sin datos de lo que corrió y, con un sí, el enlace a la plantilla de hallazgo",
+                       "la corrida, que escribe el arnés", CORRIDAS),
 }
 
 

@@ -235,10 +235,14 @@ def carpetas_md(ca: dict, fa: dict, i: str = "es") -> str:
 NUMEROS = {
     "es": {1: "un", 2: "dos", 3: "tres", 4: "cuatro", 5: "cinco", 6: "seis", 7: "siete", 8: "ocho", 9: "nueve",
            10: "diez", 11: "once", 12: "doce", 13: "trece", 14: "catorce", 15: "quince", 16: "dieciséis",
-           17: "diecisiete", 18: "dieciocho", 19: "diecinueve", 20: "veinte"},
+           17: "diecisiete", 18: "dieciocho", 19: "diecinueve", 20: "veinte", 21: "veintiún", 22: "veintidós",
+           23: "veintitrés", 24: "veinticuatro", 25: "veinticinco", 26: "veintiséis", 27: "veintisiete",
+           28: "veintiocho", 29: "veintinueve", 30: "treinta"},
     "en": {1: "one", 2: "two", 3: "three", 4: "four", 5: "five", 6: "six", 7: "seven", 8: "eight", 9: "nine",
            10: "ten", 11: "eleven", 12: "twelve", 13: "thirteen", 14: "fourteen", 15: "fifteen", 16: "sixteen",
-           17: "seventeen", 18: "eighteen", 19: "nineteen", 20: "twenty"},
+           17: "seventeen", 18: "eighteen", 19: "nineteen", 20: "twenty", 21: "twenty-one", 22: "twenty-two",
+           23: "twenty-three", 24: "twenty-four", 25: "twenty-five", 26: "twenty-six", 27: "twenty-seven",
+           28: "twenty-eight", 29: "twenty-nine", 30: "thirty"},
 }
 
 
@@ -551,7 +555,7 @@ def revisar_skills(fa: dict) -> list[str]:
 # Cada cifra de comandos o de skills escrita en palabras tiene que ser una que cuenta el código:
 # la del plugin en su página, la de la familia o la de uno de sus agentes en las de la familia.
 # «Los dos comandos de reloj» no cuenta los comandos de nadie: es el de cada agente.
-_CUENTA = re.compile(r"\b([a-záéíóúñ]+) (comandos|commands|skills)\b(?! de reloj)", re.I)
+_CUENTA = re.compile(r"\b([a-záéíóúñ]+(?:-[a-z]+)?) (comandos|commands|skills)\b(?! de reloj)", re.I)
 
 
 def revisar_cuentas(fa: dict) -> list[str]:

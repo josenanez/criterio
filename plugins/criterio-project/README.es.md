@@ -63,6 +63,7 @@ nombrado.
 | `/criterio-project:pm-plan` | El primer borrador del plan y la WBS desde el acta, **sin comprometer ninguna fecha** |
 | `/criterio-project:pm-escalate` | Lo que excede tu autoridad, como pregunta cerrada, con a quién alcanza calculado |
 | `/criterio-project:pm-wake` | **El que se le pone a un reloj.** Mira qué toca según tu reunión, y si no toca nada se calla |
+| `/criterio-project:share-findings` | **Compartir hallazgos, siempre preguntando.** Un resumen sin datos de lo que corrió; con un sí, el enlace a la plantilla de hallazgo, que abres tú. Nada se envía |
 
 Tres de ellos son un ciclo, y por eso están: **el que arma la agenda antes recibe la minuta
 después.** Sin la agenda la reunión hereda el orden del día de la semana pasada; sin el acta,

@@ -14,7 +14,7 @@ signed with what authority and what was paid against what was agreed.
 
 [Español](README.es.md) · `criterio-legal` · Apache 2.0 · One instance per entity
 
-**Status: the seven commands are built**, along with the five skills and the calculation engine,
+**Status: the eight commands are built**, along with the five skills and the calculation engine,
 tested against synthetic material from four industries with a key the agent never sees and one
 control entity per country. **The agent's extraction passed the [full round](../../tests/evidencias/familias/clo/RONDAS.md)** on the six entities; nothing has been run yet on an organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
@@ -48,7 +48,7 @@ register reports as in force when it has already ended, who signed beyond their 
 required guarantee has no policy and what was paid above the value with its amendments.
 
 <!-- clo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The seven commands
+### The eight commands
 
 > They are typed with the plugin prefix: `/criterio-legal:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -61,6 +61,7 @@ required guarantee has no policy and what was paid above the value with its amen
 | `/criterio-legal:authority-check` | Who signed each contract and with what authority |
 | `/criterio-legal:contract-execution` | Payments against the agreed value, and guarantees against what was required |
 | `/criterio-legal:legal-wake` | What the contracts need today; silent when nothing does |
+| `/criterio-legal:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /clo:comandos -->
 
 `legal-setup` goes first because the others need it, and `legal-wake` is the one you put on a

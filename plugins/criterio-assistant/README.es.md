@@ -34,7 +34,7 @@ modo de Ofelia, no un agente aparte.
 ## Qué hace
 
 <!-- ea:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los nueve comandos
+### Los diez comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-assistant:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -49,6 +49,7 @@ modo de Ofelia, no un agente aparte.
 | `/criterio-assistant:ea-mail` | La correspondencia que pide respuesta, con sus borradores |
 | `/criterio-assistant:ea-weekly` | El resumen de la semana: lo que llegó, lo que vence y lo que falta preparar |
 | `/criterio-assistant:ea-wake` | Lo que toca hoy en la oficina; si no toca nada, se calla |
+| `/criterio-assistant:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /ea:comandos -->
 
 <!-- ea:skills · generado por scripts/familias.py; no se edita a mano -->

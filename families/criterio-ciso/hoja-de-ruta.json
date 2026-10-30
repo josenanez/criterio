@@ -39,7 +39,7 @@
    "es": {
     "titulo": "Alexis, Guillermo y Amparo, construidos, con el motor probado",
     "entra": [
-     "Los veinte comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo",
+     "Los comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo",
      "Cualquier exportación de escáner en CSV o Excel con su mapeo de columnas, la severidad desde el CVSS v4.0 y el catálogo KEV de CISA",
      "Lo que nunca se abre: credenciales, llaves y respaldos, excluidos por omisión",
      "Material de banca, retail, salud y tecnología, con dos entidades de control"
@@ -49,7 +49,7 @@
    "en": {
     "titulo": "Alexis, Guillermo and Amparo, built, with the engine tested",
     "entra": [
-     "The twenty commands, their seven skills and the engine, with the sixteen signals: Alexis's controls, access, third parties and risks; Guillermo's vulnerabilities, KEV catalog and coverage; Amparo's incidents, notifications and tests",
+     "The commands, their seven skills and the engine, with the sixteen signals: Alexis's controls, access, third parties and risks; Guillermo's vulnerabilities, KEV catalog and coverage; Amparo's incidents, notifications and tests",
      "Any scanner export in CSV or Excel with its column mapping, severity from CVSS v4.0 and CISA's KEV catalog",
      "What is never opened: credentials, keys and backups, excluded by default",
      "Banking, retail, healthcare and technology material, with two control entities"

@@ -2083,14 +2083,14 @@ def selftest() -> int:
         ok('el robot del agente hace su gesto, con la hoja de los gestos una sola vez y quieto si se pide',
            ('cr-anima' in vera and 'g-mira' in vera and vera.count('@keyframes cr-mira') == 1
             and 'prefers-reduced-motion' in vera), True)
-        ok('la página del agente lleva sus 16 funciones, corran o no',
-           cod == 200 and vera.count('<code class="cmd">/criterio-portfolio:') == 16, True)
+        ok('la página del agente lleva sus 17 funciones, corran o no',
+           cod == 200 and vera.count('<code class="cmd">/criterio-portfolio:') == 17, True)
         ok('cada una con nombre que se entiende y su grupo explicado',
            'Barrido: una ficha por proyecto' in vera
            and 'Instalar, saber qué toca hoy' in vera, True)
         ok('y las de Samuel y Alba también',
-           pedir('/agente/proyecto')[1].count('<code class="cmd">/criterio-project:') == 9
-           and pedir('/agente/producto')[1].count('<code class="cmd">/criterio-product:') == 11, True)
+           pedir('/agente/proyecto')[1].count('<code class="cmd">/criterio-project:') == 10
+           and pedir('/agente/producto')[1].count('<code class="cmd">/criterio-product:') == 12, True)
         ok('un agente que no existe responde 404', pedir('/agente/nadie')[0], 404)
         cod, arr = pedir('/arrastres')
         ok('lo que se arrastra tiene página propia, con la señal en palabras y su código debajo',
@@ -2312,8 +2312,8 @@ def selftest() -> int:
         ok(f'las {len(vistas_)} páginas enlazadas tienen un h1, el salto al contenido, main, título e idioma',
            (len(vistas_) > 30, malas), (True, []))
         cod, fidel = pedir('/agente/legal')
-        ok('la página de Fidel lleva sus siete comandos y sus reportes',
-           cod == 200 and fidel.count('<code class="cmd">/criterio-legal:') == 7 and 'Sus reportes' in fidel, True)
+        ok('la página de Fidel lleva sus ocho comandos y sus reportes',
+           cod == 200 and fidel.count('<code class="cmd">/criterio-legal:') == 8 and 'Sus reportes' in fidel, True)
         cod, _r = pedir('/peticion', 'POST', urllib.parse.urlencode({'para': 'legal/900-banco', 'texto': '¿Quién decide CTR-104?'}))
         ok('la petición llega al estado del agente que se eligió, y a ningún otro',
            (cod, len(pendientes(raiz / 'estado-legal' / '900-banco')), len(pendientes(raiz / 'pmo' / 'estado'))), (200, 1, 0))

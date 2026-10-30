@@ -2,7 +2,7 @@
 
 **el agente del pronóstico de la familia CCO** · plugin `criterio-sales`
 
-Corrida del 2026-10-30, sobre el commit `ccb09272`, con cambios en el árbol todavía sin confirmar. **2 puertas · 47 comprobaciones · todas en verde.**
+Corrida del 2026-10-30, sobre el commit `acbe92c1`, con cambios en el árbol todavía sin confirmar. **2 puertas · 47 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-10-30, sobre el commit `ccb09272`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-sales/ventas.py selftest` | El motor de Augusto y Valeria: los lectores de Salesforce, de HubSpot y de cualquier CRM, las fechas mes/día y una entidad mínima con todo mal | 31 | 74 ms | verde |
-| `criterio-cco/evaluar.py` | Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles | 16 | 335 ms | verde |
+| `criterio-sales/ventas.py selftest` | El motor de Augusto y Valeria: los lectores de Salesforce, de HubSpot y de cualquier CRM, las fechas mes/día y una entidad mínima con todo mal | 31 | 80 ms | verde |
+| `criterio-cco/evaluar.py` | Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles | 16 | 478 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -25,7 +25,7 @@ Va aquí y no en un anexo. Un resultado de pruebas que solo dice lo que pasó es
 
 ## Los comandos, corridos por un agente de verdad
 
-**0 de 6.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
+**0 de 7.** Un comando sin evidencia registrada no se probó: no se cuenta como aprobado y no se redondea. Los verificados como estructura —existen, declaran, y no invocan un skill que no esté— son otra cosa.
 
 Ninguno todavía. La evidencia se registra con `tests/sintetico/evidencia.py`.
 
@@ -51,12 +51,13 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `tests/ronda.py verificar` | Que cada defecto registrado diga su origen, su corrección y dónde se verificó | 1 | verde |
 | `tests/banco.py verificar` | Que cada calificación del agente salga de sus conteos, con intervalo y origen | 1 | verde |
 | `sintetico/funcionalidades.py` | Que cada comando declare qué produce y qué deja escrito | 1 | verde |
-| `criterio-portfolio/rastro.py` | Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras | 20 | verde |
+| `criterio-portfolio/rastro.py` | Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras | 21 | verde |
+| `criterio-portfolio/compartir.py` | Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025) | 6 | verde |
 | `criterio-portfolio/terminos.py` | Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256 | 14 | verde |
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 11 | verde |
 | `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
 | `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 309 | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 349 | verde |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |

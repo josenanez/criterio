@@ -217,9 +217,9 @@ lives. **Each agent page stands on its own** — somebody can install one withou
 <!-- cfo:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | What it answers for | What it never does | Its page | Its tests |
 |---|---|---|---|---|
-| **Clara** · controller | The monthly close with its checklist and evidence, bank and account reconciliations, e-invoices against the books, and the auditor's package | It does not post entries, does not sign and does not declare the close status | [criterio-finance](../../plugins/criterio-finance/README.md) · 9 commands, 7 skills | [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | The approved budget against actual and committed spend, the year-end forecast, budget transfers and the budget committee pack | It does not approve transfers, does not recommend the committee's decision and does not declare any area's status | [criterio-budget](../../plugins/criterio-budget/README.md) · 7 commands, 6 skills | [results](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · treasury | Cash against its minimum and projection, each scheduled payment against who may approve it, currency exposure against its limit, and debt against its maturity and its covenants | It does not move money, make payments or log into a bank portal, and it does not recommend an investment, a financing or a hedge | [criterio-treasury](../../plugins/criterio-treasury/README.md) · 6 commands, 2 skills | [results](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · controller | The monthly close with its checklist and evidence, bank and account reconciliations, e-invoices against the books, and the auditor's package | It does not post entries, does not sign and does not declare the close status | [criterio-finance](../../plugins/criterio-finance/README.md) · 10 commands, 7 skills | [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | The approved budget against actual and committed spend, the year-end forecast, budget transfers and the budget committee pack | It does not approve transfers, does not recommend the committee's decision and does not declare any area's status | [criterio-budget](../../plugins/criterio-budget/README.md) · 8 commands, 6 skills | [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · treasury | Cash against its minimum and projection, each scheduled payment against who may approve it, currency exposure against its limit, and debt against its maturity and its covenants | It does not move money, make payments or log into a bank portal, and it does not recommend an investment, a financing or a hedge | [criterio-treasury](../../plugins/criterio-treasury/README.md) · 7 commands, 2 skills | [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /cfo:familia-agentes -->
 
@@ -278,8 +278,8 @@ configured, and how often it makes sense for it to run.**
 | **How long that takes** | Fifteen minutes | Fifteen minutes | Fifteen minutes |
 | **What you have to tell it** | Entity and NIT, RUC, RUT or RFC, country, IFRS group (F-05, F-06, F-15, F-18, F-20), ERP, currency, period, thresholds, who approves, chart of accounts | Entity, budget year, areas or cost centres with their owner, the approved version and its minutes, the mapping of accounts to budget lines (in `00-referencia/`), the variance thresholds and, if the organisation uses the PMO family, where its records are | Entity and period, the accounts in another currency, the thresholds for deviation, maturity and covenant margin, where the state is kept and the terms |
 | **Where it lands** | `.criterio/finanzas/<entity>/config.json`, written by the command | `.criterio/presupuesto/<entity>/config.json`, written by the command | `.criterio/tesoreria/<entity>/config.json`, written by the command |
-| **The one you put on a clock** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` | `/criterio-treasury:treasury-wake` |
-| **What it does each day** | Decides what is due by cadence: daily during the close window, weekly outside it | Decides what is due by cadence: when a new period appears in `10-contabilidad/`, before each committee and once a week for commitments | Decides what is due: payments in the next five days, obligations entering their maturity window and a weekly review |
+| **The one you put on a clock** | `/criterio-finance:share-findings` | `/criterio-budget:share-findings` | `/criterio-treasury:share-findings` |
+| **What it does each day** | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) |
 | **What wakes it besides the clock** | A question somebody left in Rostrum | A question somebody left in Rostrum | A question somebody left in Rostrum |
 <!-- /cfo:configuracion -->
 
@@ -412,9 +412,9 @@ documentation.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 9 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 7 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Treasury | `criterio-treasury` · 6 commands, 2 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 10 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 8 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Treasury | `criterio-treasury` · 7 commands, 2 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 

@@ -69,6 +69,7 @@ explica, y a quién alcanza mover un proyecto.
 | `/criterio-portfolio:product-view` | El estado de un producto a través de todos los proyectos que lo construyen |
 | `/criterio-portfolio:project-charter` | Revisa o redacta el acta, señalando qué falta y qué consecuencia tiene |
 | `/criterio-portfolio:project-closure` | Cierra contra el criterio de éxito pactado, con lecciones que se puedan sustentar |
+| `/criterio-portfolio:share-findings` | **Compartir hallazgos, siempre preguntando.** Un resumen sin datos de lo que corrió; con un sí, el enlace a la plantilla de hallazgo, que abres tú. Nada se envía |
 
 ### Los diez skills
 

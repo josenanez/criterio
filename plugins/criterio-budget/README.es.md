@@ -14,7 +14,7 @@ proyección al cierre del año con su supuesto escrito y cada traslado con su ac
 
 [English](README.md) · `criterio-budget` · Apache 2.0 · Una instancia por entidad
 
-**Estado: los siete comandos construidos**, los seis skills y el motor de cálculo, probado contra
+**Estado: los ocho comandos construidos**, los seis skills y el motor de cálculo, probado contra
 material sintético de cuatro industrias con una clave que el agente no ve y una entidad de
 control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
@@ -47,7 +47,7 @@ cayó en una cuenta sin línea presupuestal y qué proyecto tiene en su ficha ot
 asignado al área.
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los siete comandos
+### Los ocho comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-budget:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -60,6 +60,7 @@ asignado al área.
 | `/criterio-budget:transfer-log` | Cada traslado con su acta, y los que no la tienen |
 | `/criterio-budget:budget-committee-pack` | El material del comité de presupuesto como paquete de decisiones |
 | `/criterio-budget:budget-wake` | Lo que toca hoy en el presupuesto; si no toca nada, se calla |
+| `/criterio-budget:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /cfo:comandos -->
 
 `budget-setup` va primero porque los demás lo necesitan, y `budget-wake` es el que se le pone a un

@@ -214,6 +214,16 @@
               "etiqueta": "Un producto y sus proyectos"
             }
           ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
         }
       ]
     },
@@ -294,6 +304,16 @@
             {
               "id": "pm-publish",
               "etiqueta": "Publicar la ficha"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -392,6 +412,16 @@
               "etiqueta": "Publicar la ficha"
             }
           ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
         }
       ]
     },
@@ -426,8 +456,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "finance-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -462,6 +492,10 @@
             {
               "id": "audit-pack",
               "etiqueta": "Paquete del auditor"
+            },
+            {
+              "id": "finance-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -498,8 +532,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "budget-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -526,6 +560,10 @@
             {
               "id": "budget-committee-pack",
               "etiqueta": "Paquete del comité de presupuesto"
+            },
+            {
+              "id": "budget-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -562,8 +600,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "treasury-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -586,6 +624,10 @@
             {
               "id": "debt-watch",
               "etiqueta": "La deuda y sus covenants"
+            },
+            {
+              "id": "treasury-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -622,8 +664,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "legal-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -650,6 +692,10 @@
             {
               "id": "contract-execution",
               "etiqueta": "Pagos y garantías"
+            },
+            {
+              "id": "legal-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -686,8 +732,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "compliance-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -714,6 +760,10 @@
             {
               "id": "reports-cases",
               "etiqueta": "Canal de denuncias"
+            },
+            {
+              "id": "compliance-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -748,8 +798,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "ea-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -784,6 +834,10 @@
             {
               "id": "ea-weekly",
               "etiqueta": "Resumen de la semana"
+            },
+            {
+              "id": "ea-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -820,8 +874,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "sales-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -844,6 +898,10 @@
             {
               "id": "target-check",
               "etiqueta": "La meta contra lo cerrado"
+            },
+            {
+              "id": "sales-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -887,8 +945,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "revenue-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -911,6 +969,10 @@
             {
               "id": "commission-check",
               "etiqueta": "Las comisiones contra el plan"
+            },
+            {
+              "id": "revenue-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -947,8 +1009,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "security-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -979,6 +1041,10 @@
             {
               "id": "risk-register",
               "etiqueta": "El registro de riesgos"
+            },
+            {
+              "id": "security-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -1046,8 +1112,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "vuln-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -1070,6 +1136,10 @@
             {
               "id": "scan-coverage",
               "etiqueta": "La cobertura de los escaneos"
+            },
+            {
+              "id": "vuln-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }
@@ -1106,8 +1176,8 @@
               "etiqueta": "Instalación"
             },
             {
-              "id": "resilience-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         },
@@ -1130,6 +1200,10 @@
             {
               "id": "continuity-tests",
               "etiqueta": "Las pruebas de continuidad"
+            },
+            {
+              "id": "resilience-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         }

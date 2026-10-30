@@ -34,7 +34,7 @@ Ofelia, not a separate agent.
 ## What it does
 
 <!-- ea:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The nine commands
+### The ten commands
 
 > They are typed with the plugin prefix: `/criterio-assistant:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -49,6 +49,7 @@ Ofelia, not a separate agent.
 | `/criterio-assistant:ea-mail` | The correspondence that needs a reply, with its drafts |
 | `/criterio-assistant:ea-weekly` | The weekly summary: what arrived, what is due and what still needs preparing |
 | `/criterio-assistant:ea-wake` | What the office needs today; silent when nothing does |
+| `/criterio-assistant:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /ea:comandos -->
 
 <!-- ea:skills · generado por scripts/familias.py; no se edita a mano -->

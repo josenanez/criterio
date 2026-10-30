@@ -14,7 +14,7 @@ stated assumption and every transfer with its minutes.
 
 [Español](README.es.md) · `criterio-budget` · Apache 2.0 · One instance per entity
 
-**Status: the seven commands are built**, along with the six skills and the calculation engine,
+**Status: the eight commands are built**, along with the six skills and the calculation engine,
 tested against synthetic material from four industries with a key the agent never sees and one
 control entity per country. **The agent's extraction passed the [full round](../../tests/evidencias/familias/cfo/RONDAS.md)** on the six entities; nothing has been run yet on an organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
@@ -47,7 +47,7 @@ spend landed on an account with no budget line and which project carries in its 
 other than the one assigned to the area.
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The seven commands
+### The eight commands
 
 > They are typed with the plugin prefix: `/criterio-budget:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -60,6 +60,7 @@ other than the one assigned to the area.
 | `/criterio-budget:transfer-log` | Every transfer with its approval minutes, and those without |
 | `/criterio-budget:budget-committee-pack` | The budget committee material as a decision pack |
 | `/criterio-budget:budget-wake` | What the budget needs today; silent when nothing does |
+| `/criterio-budget:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /cfo:comandos -->
 
 `budget-setup` goes first because the others need it, and `budget-wake` is the one you put on a

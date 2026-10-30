@@ -1,0 +1,19 @@
+{
+  "nota": "Lo escribe scripts/sincronizar.py desde cada familia.json; no se edita a mano. Lo lee compartir.py.",
+  "familias": {
+    "criterio-assistant": "Criterio EA · Ofelia",
+    "criterio-budget": "Criterio CFO · Clara, Tomás, Áurea",
+    "criterio-compliance": "Criterio CLO · Fidel, Constanza",
+    "criterio-finance": "Criterio CFO · Clara, Tomás, Áurea",
+    "criterio-legal": "Criterio CLO · Fidel, Constanza",
+    "criterio-portfolio": "Criterio PMO · Vera, Samuel, Alba",
+    "criterio-product": "Criterio PMO · Vera, Samuel, Alba",
+    "criterio-project": "Criterio PMO · Vera, Samuel, Alba",
+    "criterio-resilience": "Criterio CISO · Alexis, Guillermo, Amparo",
+    "criterio-revenue": "Criterio CCO · Augusto, Valeria",
+    "criterio-sales": "Criterio CCO · Augusto, Valeria",
+    "criterio-security": "Criterio CISO · Alexis, Guillermo, Amparo",
+    "criterio-treasury": "Criterio CFO · Clara, Tomás, Áurea",
+    "criterio-vulnerability": "Criterio CISO · Alexis, Guillermo, Amparo"
+  }
+}

@@ -180,7 +180,7 @@ un archivo de configuración a mano.**
 <!-- ea:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
 |---|---|---|---|---|
-| **Ofelia** · asistente ejecutiva | El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta | No envía, no agenda, no acepta ni mueve nada; no recomienda una opción, no prioriza por el ejecutivo, no declara cumplido un compromiso sin evidencia y no evalúa a una persona ni a un área | [criterio-assistant](../../plugins/criterio-assistant/README.es.md) · 9 comandos, 7 skills | [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · asistente ejecutiva | El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta | No envía, no agenda, no acepta ni mueve nada; no recomienda una opción, no prioriza por el ejecutivo, no declara cumplido un compromiso sin evidencia y no evalúa a una persona ni a un área | [criterio-assistant](../../plugins/criterio-assistant/README.es.md) · 10 comandos, 7 skills | [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ea:familia-agentes -->
 
@@ -210,8 +210,8 @@ acceso que la organización ya tiene.
 | **Cuánto tarda eso** | Quince minutos |
 | **Qué le tienes que decir** | El ejecutivo y quién lo asiste, los órganos de `00-referencia`, las carpetas excluidas, los umbrales —días antes de una sesión para el material, días para el acta, cambios de fecha que cuentan, antigüedad máxima de la agenda—, si publica en Rostrum y los términos |
 | **Dónde queda** | `.criterio/direccion/<ejecutivo>/config.json`, escrito por el comando |
-| **El que se le pone a un reloj** | `/criterio-assistant:ea-wake` |
-| **Qué toca cada día** | Decide qué toca: las sesiones que entran en la ventana, las actas pendientes, los plazos de la correspondencia y una revisión semanal |
+| **El que se le pone a un reloj** | `/criterio-assistant:share-findings` |
+| **Qué toca cada día** | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) |
 | **Qué lo despierta además del reloj** | Una pregunta que alguien dejó en Rostrum |
 <!-- /ea:configuracion -->
 
@@ -268,7 +268,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
-| 0.12.0 | Liberada | **Ofelia, construida y probada con la ronda completa con la agente**<br>· Los nueve comandos de Ofelia, sus skills y el motor: la agenda .ics con repeticiones y cambio de hora, el correo guardado, las sesiones de los órganos y los compromisos con las reglas de Samuel<br>· Prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar<br>· Colombia y Ecuador, en la oficina de una presidencia y de una gerencia general, y dos oficinas de control | La ronda 1: Ofelia sobre las cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con una señal de más en un control; cada defecto que encontró, con su corrección y su verificación |
+| 0.12.0 | Liberada | **Ofelia, construida y probada con la ronda completa con la agente**<br>· Los comandos de Ofelia, sus skills y el motor: la agenda .ics con repeticiones y cambio de hora, el correo guardado, las sesiones de los órganos y los compromisos con las reglas de Samuel<br>· Prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar<br>· Colombia y Ecuador, en la oficina de una presidencia y de una gerencia general, y dos oficinas de control | La ronda 1: Ofelia sobre las cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con una señal de más en un control; cada defecto que encontró, con su corrección y su verificación |
 | 1.0.0 | Liberada | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país<br>· El material siembra al menos 73 señales, lo que pide un piso del 95 % sin fallas (decisión 0020), y la ronda con la agente vuelve a correr sobre todo él | La ronda 2 con la agente sobre las cuatro oficinas, cada una con su proveedor —Outlook o Google—: 85 de 85 señales y 144 de 146 datos en la primera corrida, ninguna señal en los controles; el defecto que encontró, en el material, con su corrección y su verificación |
 
 <!-- /hoja de ruta -->
@@ -298,7 +298,7 @@ sintético, no sobre la oficina de un ejecutivo real.**
 <!-- ea:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 9 comandos, 7 skills | El motor, probado; con la agente, todas las oficinas del material, hasta la ronda 1 · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 10 comandos, 7 skills | El motor, probado; con la agente, todas las oficinas del material, hasta la ronda 1 · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /ea:estado -->
 

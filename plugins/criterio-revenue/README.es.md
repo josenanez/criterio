@@ -15,7 +15,7 @@ plan.
 
 [English](README.md) · `criterio-revenue` · Apache 2.0 · Una instancia por entidad
 
-**Estado: estable, sin lanzar (versión 0.3.0).** Los seis comandos, los seis skills y el motor de
+**Estado: estable, sin lanzar (versión 0.3.0).** Los siete comandos, los seis skills y el motor de
 cálculo, probados contra material sintético de Colombia, México, Ecuador, Perú y Chile —con las
 exportaciones de Salesforce, HubSpot, Dynamics 365, Zoho y cualquier CRM con su mapeo— con una clave
 que el agente no ve y una entidad de control por país. Pasó sus dos rondas con los agentes: con todas
@@ -49,7 +49,7 @@ que pide su nivel, qué venta ganada no tiene contrato firmado, qué contrato fi
 su plazo y qué comisión liquidada no es la que da el plan.
 
 <!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los seis comandos
+### Los siete comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-revenue:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -61,6 +61,7 @@ su plazo y qué comisión liquidada no es la que da el plan.
 | `/criterio-revenue:won-to-invoice` | De lo ganado a lo firmado y a lo facturado: lo que se quedó en el camino |
 | `/criterio-revenue:commission-check` | Cada comisión liquidada contra la que da el plan |
 | `/criterio-revenue:revenue-wake` | Lo que toca hoy de la venta a la factura; si no toca nada, se calla |
+| `/criterio-revenue:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /cco:comandos -->
 
 `revenue-setup` va primero porque los demás lo necesitan, y `revenue-wake` es el que se le pone a un

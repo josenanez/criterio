@@ -73,6 +73,9 @@ for pl, c in contratos.items():
 # ---------------------------------------------------------------- comandos
 for pl, script in PLUGINS.items():
     cli = acciones_cli(P / pl / "scripts" / script)
+    # share-findings llama a compartir.py, el mismo en todos los agentes (decisión 0025).
+    if (P / pl / "scripts" / "compartir.py").is_file():
+        cli |= acciones_cli(P / pl / "scripts" / "compartir.py")
     existentes = {f.stem for f in (P / pl / "commands").glob("*.md")}
     skills_dir = {d.name for d in (P / pl / "skills").iterdir() if d.is_dir()} if (P / pl / "skills").is_dir() else set()
     cc = contratos[pl]["comandos"]

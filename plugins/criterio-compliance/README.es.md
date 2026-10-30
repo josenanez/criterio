@@ -14,7 +14,7 @@ con evidencia, lo que se declara cumplido sin ella y lo que venció.
 
 [English](README.md) · `criterio-compliance` · Apache 2.0 · Una instancia por entidad
 
-**Estado: los siete comandos construidos**, los seis skills y el motor de cálculo, probado contra
+**Estado: los ocho comandos construidos**, los seis skills y el motor de cálculo, probado contra
 material sintético de cuatro industrias con una clave que el agente no ve y una entidad de
 control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/clo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
@@ -47,7 +47,7 @@ pasó su fecha de revisión, qué norma nueva lleva días sin evaluar y qué cas
 plazo de respuesta.
 
 <!-- clo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los siete comandos
+### Los ocho comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-compliance:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -60,6 +60,7 @@ plazo de respuesta.
 | `/criterio-compliance:regulatory-watch` | Las normas nuevas con su evaluación, y las que aplican sin obligación |
 | `/criterio-compliance:reports-cases` | Los casos del canal de denuncias contra su plazo |
 | `/criterio-compliance:compliance-wake` | Lo que toca hoy en el cumplimiento; si no toca nada, se calla |
+| `/criterio-compliance:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /clo:comandos -->
 
 `compliance-setup` va primero porque los demás lo necesitan, y `compliance-wake` es el que se le

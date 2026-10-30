@@ -1,6 +1,6 @@
 # Manual de los comandos de Criterio
 
-Los 83 comandos de las familias PMO, CFO, CLO y EA y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros, Tomás lleva el presupuesto y Áurea la tesorería—, la CLO —Fidel lleva los contratos y Constanza el cumplimiento— y la EA —Ofelia prepara la oficina del ejecutivo—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
+Los 92 comandos de las familias PMO, CFO, CLO y EA y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros, Tomás lleva el presupuesto y Áurea la tesorería—, la CLO —Fidel lleva los contratos y Constanza el cumplimiento— y la EA —Ofelia prepara la oficina del ejecutivo—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
 
 Este manual se genera con `scripts/manual.py` desde la tabla del README de cada plugin y su `contratos.json`, el mismo contrato que las pruebas comparan contra cada corrida. No se edita a mano.
 
@@ -158,6 +158,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **assumption-tracking**, **document-intake**, **product-health**
 
+### `/criterio-product:share-findings`
+
+**Qué hace.** **Compartir hallazgos, siempre preguntando.** Un resumen sin datos de lo que corrió; con un sí, el enlace a la plantilla de hallazgo, que abres tú. Nada se envía
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
 ## Samuel · un proyecto
 
 ### `/criterio-project:pm-setup`
@@ -285,6 +297,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `<estado>/cadencia.json`; `<estado>/records/<código>.json (commitments, solo si el barrido trae una minuta)`
 
 **Skills.** **commitment-tracking**, **document-intake**
+
+### `/criterio-project:share-findings`
+
+**Qué hace.** **Compartir hallazgos, siempre preguntando.** Un resumen sin datos de lo que corrió; con un sí, el enlace a la plantilla de hallazgo, que abres tú. Nada se envía
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
 
 ## Vera · el portafolio
 
@@ -512,6 +536,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **baseline-variance**, **governance-artifacts**
 
+### `/criterio-portfolio:share-findings`
+
+**Qué hace.** **Compartir hallazgos, siempre preguntando.** Un resumen sin datos de lo que corrió; con un sí, el enlace a la plantilla de hallazgo, que abres tú. Nada se envía
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
 ## Clara · el cierre
 
 ### `/criterio-finance:finance-setup`
@@ -640,6 +676,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **finance-intake**
 
+### `/criterio-finance:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
 ## Tomás · el presupuesto
 
 ### `/criterio-budget:budget-setup`
@@ -740,6 +788,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **finance-intake**
 
+### `/criterio-budget:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
 ## Áurea · la tesorería
 
 ### `/criterio-treasury:treasury-setup`
@@ -825,6 +885,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `<estado>/indice.json`; `<estado>/tesoreria/<AAAA-MM>/resultados.json`; `<estado>/tesoreria/<AAAA-MM>/reporte-<comando>.md`; `<estado>/peticiones/<id>.json (responder)`
 
 **Skills.** **finance-intake**
+
+### `/criterio-treasury:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
 
 ## Fidel · los contratos
 
@@ -926,6 +998,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **legal-intake**
 
+### `/criterio-legal:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
 ## Constanza · el cumplimiento
 
 ### `/criterio-compliance:compliance-setup`
@@ -1025,6 +1109,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `<estado>/indice.json`; `<estado>/cumplimiento/<AAAA-MM>/resultados.json`; `<estado>/cumplimiento/<AAAA-MM>/reporte-compliance-status.md`; `<estado>/corridas/salida-compliance-wake.md`; `<estado>/peticiones/<id>.json (responder)`
 
 **Skills.** **legal-intake**
+
+### `/criterio-compliance:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
 
 ## Ofelia · la oficina de dirección
 
@@ -1147,6 +1243,18 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Muestra.** lo que corrió y lo que encontró, o una línea si no toca nada
 
 **Escribe.** `<estado>/corridas/`
+
+### `/criterio-assistant:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
 
 ## Rostrum · el portal de todas las familias
 

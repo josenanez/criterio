@@ -65,6 +65,7 @@ construyendo**.
 | `/criterio-product:product-publish` | Publica tu ficha donde los demás productos la puedan leer |
 | `/criterio-product:product-overlap` | Dónde te pisas con otro producto: la misma métrica contada dos veces, el mismo proyecto, el mismo segmento |
 | `/criterio-product:product-wake` | **El que se le pone a un reloj.** Lo que cruzó un umbral sin que nadie hiciera nada |
+| `/criterio-product:share-findings` | **Compartir hallazgos, siempre preguntando.** Un resumen sin datos de lo que corrió; con un sí, el enlace a la plantilla de hallazgo, que abres tú. Nada se envía |
 
 ### Los doce skills
 

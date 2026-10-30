@@ -2,7 +2,7 @@
 
 # criterio-clo · el diseño de la familia
 
-**Estado: construida y probada sobre material sintético.** Los catorce comandos, los diez skills y el motor de cálculo están
+**Estado: construida y probada sobre material sintético.** Los dieciséis comandos, los diez skills y el motor de cálculo están
 construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y dos
 entidades de control (`tests/criterio-clo/`), y los agentes pasaron la ronda completa sobre las seis entidades ([las rondas](../../tests/evidencias/familias/clo/RONDAS.md)).
 Alcance en [ADR 0009](../../docs/decisions/0009-scope-clo.md).
@@ -152,6 +152,7 @@ denuncias ni procesa datos de quién denunció; no declara el estado del cumplim
 | 4 | `authority-check` | Las fichas, `00-referencia/matriz-atribuciones` y `30-contraparte/` | Cada firmante de la entidad contra su facultad a la fecha de firma, por tipo y monto, otrosíes incluidos; los documentos sin la firma de las dos partes; el certificado de la contraparte contra la antigüedad configurada a la fecha de firma | Por contrato: quién firmó, su facultad y el monto; los que no tienen firma de las dos partes; los certificados vencidos; sin opinión sobre la validez del contrato |
 | 5 | `contract-execution` | `10-registro/pagos`, las fichas y `20-garantias/` | Lo pagado contra el valor más los otrosíes; los pagos después de la terminación; las garantías exigidas contra las aportadas y su vigencia contra la que exige el contrato | Por contrato: valor, pagado, saldo y último pago; cada garantía exigida con la aportada y su vigencia |
 | 6 | `legal-wake` | La configuración y las fichas | Decide qué toca: los vencimientos y preavisos que entran en la ventana, los documentos nuevos y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
+| 7 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /clo:comandos-fidel -->
 
 ## Los comandos de Constanza, en orden de importancia
@@ -166,6 +167,7 @@ denuncias ni procesa datos de quién denunció; no declara el estado del cumplim
 | 4 | `regulatory-watch` | `30-normativa/registro-normativo` y las normas nuevas de la ficha | Cada norma registrada contra su evaluación de impacto en los días configurados; las que aplican sin una obligación en la matriz | Las normas sin evaluar y las que aplican sin obligación en la matriz; sin opinión sobre el alcance de ninguna norma |
 | 5 | `reports-cases` | `40-canal/casos` | Cada caso contra el plazo de respuesta configurado | Los casos abiertos por antigüedad y los que pasaron su plazo; sin datos de quién denunció |
 | 6 | `compliance-wake` | La configuración y la ficha | Decide qué toca: las obligaciones que vencen en la ventana, los documentos nuevos y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
+| 7 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /clo:comandos-constanza -->
 
 ## El formato común de los reportes

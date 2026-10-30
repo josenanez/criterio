@@ -14,7 +14,7 @@ is declared met without it and what is overdue.
 
 [Español](README.es.md) · `criterio-compliance` · Apache 2.0 · One instance per entity
 
-**Status: the seven commands are built**, along with the six skills and the calculation engine,
+**Status: the eight commands are built**, along with the six skills and the calculation engine,
 tested against synthetic material from four industries with a key the agent never sees and one
 control entity per country. **The agent's extraction passed the [full round](../../tests/evidencias/familias/clo/RONDAS.md)** on the six entities; nothing has been run yet on an organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
@@ -47,7 +47,7 @@ policy passed its review date, which new regulation has gone days without assess
 channel case passed its response deadline.
 
 <!-- clo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The seven commands
+### The eight commands
 
 > They are typed with the plugin prefix: `/criterio-compliance:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -60,6 +60,7 @@ channel case passed its response deadline.
 | `/criterio-compliance:regulatory-watch` | New rules with their assessment, and the applicable ones without an obligation |
 | `/criterio-compliance:reports-cases` | Whistleblowing cases against their deadline |
 | `/criterio-compliance:compliance-wake` | What compliance needs today; silent when nothing does |
+| `/criterio-compliance:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /clo:comandos -->
 
 `compliance-setup` goes first because the others need it, and `compliance-wake` is the one you put

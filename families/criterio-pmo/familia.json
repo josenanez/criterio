@@ -127,6 +127,16 @@
               "etiqueta": "Un producto y sus proyectos"
             }
           ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
+            }
+          ]
         }
       ],
       "marco": [
@@ -205,6 +215,16 @@
             {
               "id": "pm-publish",
               "etiqueta": "Publicar la ficha"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -299,6 +319,16 @@
             {
               "id": "product-publish",
               "etiqueta": "Publicar la ficha"
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
+            {
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }

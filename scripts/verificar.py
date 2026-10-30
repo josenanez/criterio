@@ -77,6 +77,8 @@ PUERTAS = [
      "Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide"),
     ("código", [sys.executable, str(PMO / "rastro.py"), "--selftest"],
      "Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras"),
+    ("código", [sys.executable, str(PMO / "compartir.py"), "--selftest"],
+     "Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025)"),
     ("código", [sys.executable, str(PMO / "terminos.py"), "--selftest"],
      "Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256"),
     ("código", [sys.executable, str(PMO / "raiz.py"), "--selftest"],

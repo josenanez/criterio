@@ -27,6 +27,7 @@
     "third-parties": "Los terceros críticos",
     "risk-register": "El registro de riesgos",
     "security-wake": "Qué toca hoy",
+    "share-findings": "Compartir hallazgos",
     "vuln-setup": "Instalación",
     "vuln-scan": "Qué cambió en las vulnerabilidades",
     "vuln-sla": "Las vulnerabilidades contra su plazo",

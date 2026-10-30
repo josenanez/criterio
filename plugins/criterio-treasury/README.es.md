@@ -34,7 +34,7 @@ una misma ocupación (11-3031.01), y por eso Áurea vive en la familia CFO y no 
 ## Qué hace
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los seis comandos
+### Los siete comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-treasury:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -46,6 +46,7 @@ una misma ocupación (11-3031.01), y por eso Áurea vive en la familia CFO y no 
 | `/criterio-treasury:payment-check` | Cada pago programado contra quién puede aprobarlo |
 | `/criterio-treasury:debt-watch` | La deuda contra su vencimiento y lo que exige su contrato |
 | `/criterio-treasury:treasury-wake` | Lo que toca hoy en la tesorería; si no toca nada, se calla |
+| `/criterio-treasury:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /cfo:comandos -->
 
 <!-- cfo:skills · generado por scripts/familias.py; no se edita a mano -->

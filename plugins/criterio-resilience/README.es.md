@@ -36,7 +36,7 @@ Tú respondes por la respuesta a incidentes y por la continuidad. Ella llega con
 **Lo que puede responder que hoy cuesta una reconstrucción a mano:** qué incidente se contuvo fuera de plazo, qué notificación al supervisor se hizo tarde o no se hizo, qué incidente cerrado no tiene su revisión, y qué respaldo crítico lleva meses sin una prueba de restauración.
 
 <!-- ciso:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los seis comandos
+### Los siete comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-resilience:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -48,6 +48,7 @@ Tú respondes por la respuesta a incidentes y por la continuidad. Ella llega con
 | `/criterio-resilience:notifications` | Cada notificación que pide la matriz, a tiempo, tarde o sin hacer |
 | `/criterio-resilience:continuity-tests` | Cada prueba contra su calendario |
 | `/criterio-resilience:resilience-wake` | Lo que tocaba hoy, corrido |
+| `/criterio-resilience:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /ciso:comandos -->
 
 `resilience-setup` va primero porque los demás lo necesitan, y `resilience-wake` es el que se le pone a un reloj. Entre los dos, los cuatro que preparan el trabajo: qué cambió, la línea de tiempo, las notificaciones y las pruebas.

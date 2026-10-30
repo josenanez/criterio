@@ -36,7 +36,7 @@ You answer for incident response and continuity. She comes with every incident a
 **What it can answer that takes a manual reconstruction today:** which incident was contained late, which notification to the supervisor was late or never made, which closed incident has no review, and which critical backup has gone months without a restore test.
 
 <!-- ciso:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The six commands
+### The seven commands
 
 > They are typed with the plugin prefix: `/criterio-resilience:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -48,6 +48,7 @@ You answer for incident response and continuity. She comes with every incident a
 | `/criterio-resilience:notifications` | Each notification the matrix requires, on time, late or not made |
 | `/criterio-resilience:continuity-tests` | Each test against its calendar |
 | `/criterio-resilience:resilience-wake` | What was due today, run |
+| `/criterio-resilience:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /ciso:comandos -->
 
 `resilience-setup` comes first because the others need it, and `resilience-wake` is the one you put on a clock. Between them, the four that prepare the work: what changed, the timeline, notifications and tests.

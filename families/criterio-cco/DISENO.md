@@ -2,7 +2,7 @@
 
 # criterio-cco · the family's design
 
-**Status: stable, not yet launched (version 0.3.0).** The twelve commands, the eight skills and the
+**Status: stable, not yet launched (version 0.3.0).** The fourteen commands, the eight skills and the
 calculation engine are built on the common core; the engine passes its deterministic test against the
 material from Colombia, Mexico, Ecuador, Peru and Chile (`tests/criterio-cco/`), and the two agents
 passed their two rounds: the 95% confidence floor is 98.0% on signals and 95.1% on data. Scope in
@@ -133,6 +133,7 @@ it does not settle or correct a commission; it does not rate or compare the peop
 | 3 | `forecast-check` | The committed forecast in the record, the latest export in `10-crm/` and the stage table in `00-referencia/` | What closed in the period plus the open opportunities closing in it with their stage's evidence, each at its amount and its stage's probability, against what was committed; the difference against the configured tolerance | What was committed, what closed, what is weighted with evidence and what is weighted without it; the difference; the opportunities that back it and those that do not |
 | 4 | `target-check` | The targets in `00-referencia/` and the latest export in `10-crm/` | What was won with a close date in the period up to the cut-off date against the period's target prorated by the days elapsed, by line if the target has one; the difference against the configured threshold | The target, what was expected at the cut-off, what closed and the difference by line; never by person |
 | 5 | `sales-wake` | The configuration and the record | Decides what is due: a new export in `10-crm/`, new committee minutes, the period's end coming up and a weekly review | What ran and what it found; if nothing is due, it stays quiet |
+| 6 | `share-findings` | The local trail of this agent's runs, in `.criterio/corridas/` | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The summary as is and, with a yes, the link to the repository's finding template, which the person opens |
 <!-- /cco:comandos-augusto -->
 
 ## Valeria's commands, in order of importance
@@ -146,6 +147,7 @@ it does not settle or correct a commission; it does not rate or compare the peop
 | 3 | `won-to-invoice` | The latest export in `10-crm/`, the accounts table in `00-referencia/`, Fidel's contract records and Clara's invoicing records | Every won opportunity against a signed contract with its customer in Fidel's records; every contract signed with a customer against an invoice issued to that customer in Clara's records, within the invoicing period | What was won without a contract and what was signed without an invoice, each with its citation in the CRM and in the other agent's record; contracts are not processed again |
 | 4 | `commission-check` | The commission plan in `00-referencia/`, the period's settlement in `50-comisiones/`, the latest export in `10-crm/` and Clara's invoicing records | What the plan gives on what was won in the period and already invoiced, by opportunity owner and by line, against what was settled; the difference against the configured tolerance | By owner: what the plan gives, what was settled and the difference, with the opportunities that make up the base; not published in Rostrum unless the configuration says so |
 | 5 | `revenue-wake` | The configuration and the record | Decides what is due: new quotes, a won opportunity without a contract or an invoice when its deadline arrives, the period's settlement when it arrives and a weekly review | What ran and what it found; if nothing is due, it stays quiet |
+| 6 | `share-findings` | The local trail of this agent's runs, in `.criterio/corridas/` | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The summary as is and, with a yes, the link to the repository's finding template, which the person opens |
 <!-- /cco:comandos-valeria -->
 
 ## The common report format

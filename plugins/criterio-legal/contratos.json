@@ -295,6 +295,35 @@
         "sembrado": "tests/criterio-clo: los contratos de cada industria con su clave",
         "esperado": "las señales de la clave del comando, ninguna de más; en los controles, ninguna"
       }
+    },
+    "share-findings": {
+      "funcion": "Arma un resumen sin datos de las corridas de este agente y pregunta si se quiere compartir; nada se envía (decisión 0025).",
+      "entrada": {
+        "argumento": "vacío",
+        "lee": [
+          ".criterio/corridas/<área>/corridas.json"
+        ]
+      },
+      "salida": {
+        "muestra": "el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo",
+        "escribe": []
+      },
+      "reglas": {
+        "skills": [],
+        "script": [
+          "enlace",
+          "resumen"
+        ],
+        "calcula": false
+      },
+      "corrida": {
+        "caso": false,
+        "tambien": []
+      },
+      "prueba": {
+        "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
+        "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
+      }
     }
   },
   "skills": {

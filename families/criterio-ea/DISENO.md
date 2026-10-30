@@ -111,6 +111,7 @@ a team.
 | 6 | `ea-mail` | The correspondence records | Computes what needs a reply and its deadline; for routine items, the language model (LLM) writes a draft reply | What needs a reply and by when; the drafts in `90-borradores`. It never sends |
 | 7 | `ea-weekly` | The configuration and the records | Gathers what arrived, what is due and what still needs preparing | A single summary a week; not published to Rostrum unless the configuration says so |
 | 8 | `ea-wake` | The configuration and the records | Decides what is due: the meetings entering the window, pending minutes, correspondence deadlines and a weekly review | What ran and what it found; if nothing is due, it stays silent |
+| 9 | `share-findings` | The local trail of this agent's runs, in `.criterio/corridas/` | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The summary as is and, with a yes, the link to the repository's finding template, which the person opens |
 <!-- /ea:comandos-ofelia -->
 
 ## Rules for real operation

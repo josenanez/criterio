@@ -62,6 +62,7 @@ has named.
 | `/criterio-project:pm-plan` | The first draft of the plan and the WBS from the charter, **without committing to any date** |
 | `/criterio-project:pm-escalate` | What exceeds your authority, as a closed question, with who it reaches computed |
 | `/criterio-project:pm-wake` | **The one you put on a clock.** Looks at what is due according to your meeting, and if nothing is due it stays quiet |
+| `/criterio-project:share-findings` | **Share findings, always asking.** A summary with no data of what ran; with a yes, the link to the finding template, which you open. Nothing is sent |
 
 Three of them are a cycle, and that is why they are there: **the one that builds the agenda
 before receives the minutes after.** Without the agenda the meeting inherits last week's order

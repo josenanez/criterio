@@ -181,7 +181,7 @@ by hand.**
 <!-- ea:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | What it answers for | What it never does | Its page | Its tests |
 |---|---|---|---|---|
-| **Ofelia** · executive assistant | The executive's day to day: the calendar against their commitments, the preparation of each governing-body meeting with the record of each decision, the draft minutes, the follow-up of commitments and the correspondence that needs a reply | It does not send, schedule, accept or move anything; it does not recommend an option, prioritise for the executive, declare a commitment done without evidence or evaluate a person or a team | [criterio-assistant](../../plugins/criterio-assistant/README.md) · 9 commands, 7 skills | [results](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · executive assistant | The executive's day to day: the calendar against their commitments, the preparation of each governing-body meeting with the record of each decision, the draft minutes, the follow-up of commitments and the correspondence that needs a reply | It does not send, schedule, accept or move anything; it does not recommend an option, prioritise for the executive, declare a commitment done without evidence or evaluate a person or a team | [criterio-assistant](../../plugins/criterio-assistant/README.md) · 10 commands, 7 skills | [results](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ea:familia-agentes -->
 
@@ -211,8 +211,8 @@ control the organisation already has.
 | **How long that takes** | Fifteen minutes |
 | **What you have to tell it** | The executive and who assists them, the governing bodies in `00-referencia`, the excluded folders, the thresholds —days before a meeting for the materials, days for the minutes, date changes that count, maximum age of the calendar—, whether it publishes to Rostrum and the terms |
 | **Where it lands** | `.criterio/direccion/<executive>/config.json`, written by the command |
-| **The one you put on a clock** | `/criterio-assistant:ea-wake` |
-| **What it does each day** | Decides what is due: the meetings entering the window, pending minutes, correspondence deadlines and a weekly review |
+| **The one you put on a clock** | `/criterio-assistant:share-findings` |
+| **What it does each day** | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) |
 | **What wakes it besides the clock** | A question somebody left in Rostrum |
 <!-- /ea:configuracion -->
 
@@ -270,7 +270,7 @@ The family grows in increments. Each one is a version with its full test and its
 
 | Version | Status | What goes in | Test |
 |---|---|---|---|
-| 0.12.0 | Released | **Ofelia, built and tested with the full round with the agent**<br>· Ofelia's nine commands, her skills and the engine: the .ics calendar with recurrences and the clock change, saved email, the governing bodies' meetings and commitments with Samuel's rules<br>· She prepares each decision with its options and evidence, without ranking or recommending<br>· Colombia and Ecuador, in a president's office and a general manager's office, and two control offices | Round 1: Ofelia on the four offices, 14 of 14 signals and 76 of 78 data points, with one extra signal in a control; every defect it found, with its fix and its verification |
+| 0.12.0 | Released | **Ofelia, built and tested with the full round with the agent**<br>· Ofelia's commands, her skills and the engine: the .ics calendar with recurrences and the clock change, saved email, the governing bodies' meetings and commitments with Samuel's rules<br>· She prepares each decision with its options and evidence, without ranking or recommending<br>· Colombia and Ecuador, in a president's office and a general manager's office, and two control offices | Round 1: Ofelia on the four offices, 14 of 14 signals and 76 of 78 data points, with one extra signal in a control; every defect it found, with its fix and its verification |
 | 1.0.0 | Released | **Travel, and each provider's exports**<br>· Itineraries against the calendar<br>· The .ics that Outlook and Google Calendar export and Outlook's .msg email, each with its material: what really changes from one office to another, not the country<br>· The material seeds at least 73 signals, what a 95% floor with no misses needs (decision 0020), and the round with the agent runs again on all of it | Round 2 with the agent on the four offices, each with its provider —Outlook or Google—: 85 of 85 signals and 144 of 146 data points on the first run, no signal in the controls; the defect it found, in the material, with its fix and its verification |
 
 <!-- /hoja de ruta -->
@@ -300,7 +300,7 @@ a real executive's office.**
 <!-- ea:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Ofelia** · Executive assistant | `criterio-assistant` · 9 commands, 7 skills | The engine, tested; with the agent, every office in the material, up to round 1 · [results](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · Executive assistant | `criterio-assistant` · 10 commands, 7 skills | The engine, tested; with the agent, every office in the material, up to round 1 · [results](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /ea:estado -->
 

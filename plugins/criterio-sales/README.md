@@ -15,7 +15,7 @@ it and the target against what closed.
 
 [Español](README.es.md) · `criterio-sales` · Apache 2.0 · One instance per entity
 
-**Status: stable, not yet launched (version 0.3.0).** The six commands, the four skills and the
+**Status: stable, not yet launched (version 0.3.0).** The seven commands, the four skills and the
 calculation engine, tested against synthetic material from Colombia, Mexico, Ecuador, Peru and Chile
 —with Salesforce, HubSpot, Dynamics 365, Zoho and any CRM with its mapping— with a key the agent never
 sees and one control entity per country. It passed its two rounds with the agents: across all of them,
@@ -48,7 +48,7 @@ how much of what was committed is backed by documents and how what closed is doi
 cut-off.
 
 <!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The six commands
+### The seven commands
 
 > They are typed with the plugin prefix: `/criterio-sales:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -60,6 +60,7 @@ cut-off.
 | `/criterio-sales:forecast-check` | The committed forecast against what backs it, opportunity by opportunity |
 | `/criterio-sales:target-check` | The period's target against what closed at the cut-off, by line |
 | `/criterio-sales:sales-wake` | What is due today in the pipeline; if nothing is due, it stays quiet |
+| `/criterio-sales:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /cco:comandos -->
 
 `sales-setup` comes first because the others need it, and `sales-wake` is the one you put on a clock.

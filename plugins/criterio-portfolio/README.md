@@ -69,6 +69,7 @@ and who is reached when a project moves.
 | `/criterio-portfolio:product-view` | A product's state across all the projects building it |
 | `/criterio-portfolio:project-charter` | Reviews or drafts the charter, pointing out what is missing and what follows from that |
 | `/criterio-portfolio:project-closure` | Closes against the agreed success criteria, with lessons that can be supported |
+| `/criterio-portfolio:share-findings` | **Share findings, always asking.** A summary with no data of what ran; with a yes, the link to the finding template, which you open. Nothing is sent |
 
 ### The ten skills
 

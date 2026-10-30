@@ -2,7 +2,7 @@
 
 # criterio-cco · el diseño de la familia
 
-**Estado: estable, sin lanzar (versión 0.3.0).** Los doce comandos, los ocho skills y el motor de
+**Estado: estable, sin lanzar (versión 0.3.0).** Los catorce comandos, los ocho skills y el motor de
 cálculo se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de
 Colombia, México, Ecuador, Perú y Chile (`tests/criterio-cco/`), y los dos agentes pasaron sus dos
 rondas: el piso del margen del 95 % es 98,0 % en señales y 95,1 % en datos. Alcance en
@@ -135,6 +135,7 @@ comisión; no califica ni compara a las personas del equipo.
 | 3 | `forecast-check` | El pronóstico comprometido de la ficha, la última exportación de `10-crm/` y la tabla de etapas de `00-referencia/` | Lo cerrado del periodo más las oportunidades abiertas que cierran en él con la evidencia de su etapa, cada una por su monto y la probabilidad de su etapa, contra lo comprometido; la diferencia contra la tolerancia configurada | Lo comprometido, lo cerrado, lo ponderado con evidencia y lo ponderado sin ella; la diferencia; las oportunidades que lo sostienen y las que no |
 | 4 | `target-check` | Las metas de `00-referencia/` y la última exportación de `10-crm/` | Lo ganado con cierre en el periodo hasta la fecha de corte contra la meta del periodo prorrateada por los días transcurridos, por línea si la meta la trae; la diferencia contra el umbral configurado | La meta, lo esperado al corte, lo cerrado y la diferencia por línea; nunca por persona |
 | 5 | `sales-wake` | La configuración y la ficha | Decide qué toca: una exportación nueva en `10-crm/`, un acta nueva del comité, el cierre del periodo que se acerca y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
+| 6 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /cco:comandos-augusto -->
 
 ## Los comandos de Valeria, en orden de importancia
@@ -148,6 +149,7 @@ comisión; no califica ni compara a las personas del equipo.
 | 3 | `won-to-invoice` | La última exportación de `10-crm/`, la tabla de cuentas de `00-referencia/`, las fichas de los contratos de Fidel y las de la facturación de Clara | Cada oportunidad ganada contra un contrato firmado con su cliente en las fichas de Fidel; cada contrato firmado con un cliente contra una factura emitida a ese cliente en las fichas de Clara, dentro del plazo de facturación | Lo ganado sin contrato y lo firmado sin factura, cada uno con su cita en el CRM y en la ficha del otro agente; los contratos no se vuelven a procesar |
 | 4 | `commission-check` | El plan de comisiones de `00-referencia/`, la liquidación del periodo de `50-comisiones/`, la última exportación de `10-crm/` y las fichas de la facturación de Clara | Lo que el plan da sobre lo ganado en el periodo y ya facturado, por responsable de la oportunidad y por línea, contra lo que se liquidó; la diferencia contra la tolerancia configurada | Por responsable: lo que da el plan, lo liquidado y la diferencia, con las oportunidades que forman la base; no se publica en Rostrum salvo que la configuración lo diga |
 | 5 | `revenue-wake` | La configuración y la ficha | Decide qué toca: cotizaciones nuevas, una oportunidad ganada sin contrato ni factura cuando vence su plazo, la liquidación del periodo cuando llega y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
+| 6 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /cco:comandos-valeria -->
 
 ## El formato común de los reportes

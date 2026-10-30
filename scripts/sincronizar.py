@@ -71,6 +71,12 @@ SCRIPTS["criterio-server"] = {
     "terminos.py": "la aceptación de los términos se registra igual en todos los agentes",
     "raiz.py": "el mapa dice si la raíz de cada agente está marcada",
 }
+# Compartir hallazgos (decisión 0025): el mismo script y el mismo comando en cada agente, con la
+# lista de familias que usa la plantilla de hallazgo. El servidor no es un agente: no lo lleva.
+AGENTES_COMPARTIR = tuple(p for p in SCRIPTS if p != "criterio-server")
+for _p in AGENTES_COMPARTIR:
+    SCRIPTS[_p]["compartir.py"] = "compartir hallazgos se arma igual en todos los agentes, desde su rastro (decisión 0025)"
+COMANDO_COMPARTIR = RAIZ / "plugins" / "criterio-portfolio" / "commands" / "share-findings.md"
 # El arnés de cada agente: el mismo `hooks.json` que llama a su copia de `rastro.py`.
 HOOKS = ("criterio-finance", "criterio-budget", "criterio-treasury", "criterio-legal", "criterio-compliance", "criterio-assistant",
          "criterio-sales", "criterio-revenue", "criterio-security", "criterio-vulnerability", "criterio-resilience")
@@ -317,6 +323,11 @@ def revisar(escribir: bool) -> int:
                               origen.stat().st_mode, estado)
 
     hooks = FUENTE.parent / "hooks" / "hooks.json"
+    # Un plugin con el hook y sin su área en el rastro dispara el hook y no deja corrida (CISO-2).
+    texto_rastro = (FUENTE / "rastro.py").read_text(encoding="utf-8")
+    for plugin in HOOKS:
+        if f'"{plugin}":' not in texto_rastro.split("NOMBRE = ", 1)[0]:
+            estado["problemas"].append(f"{plugin} lleva el hook del rastro y rastro.py no sabe cuál es su área (AGENTE)")
     for plugin in HOOKS:
         _comparar(RAIZ / "plugins" / plugin / "hooks" / "hooks.json", hooks.read_text(encoding="utf-8"),
                   f"{plugin}/hooks/hooks.json", "el arnés llama a su copia de rastro.py, como en la familia PMO",
@@ -330,6 +341,23 @@ def revisar(escribir: bool) -> int:
                 continue
             _comparar(RAIZ / "plugins" / plugin / destino, origen.read_text(encoding="utf-8"),
                       f"{plugin}/{destino}", porque, escribir, 0o644, estado)
+
+    # compartir.json: plugin → la familia como la lista la plantilla de hallazgo, para el enlace.
+    por_plugin = {}
+    for f in sorted((RAIZ / "families").glob("*/familia.json")):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        etiqueta = f"Criterio {d['sigla'].upper()} · " + ", ".join(a["nombre"] for a in d["agentes"])
+        for a in d["agentes"]:
+            por_plugin[a["plugin"]] = etiqueta
+    compartir = json.dumps({"nota": "Lo escribe scripts/sincronizar.py desde cada familia.json; no se edita a mano. Lo lee compartir.py.",
+                            "familias": {p: por_plugin[p] for p in sorted(por_plugin)}}, ensure_ascii=False, indent=2) + "\n"
+    for plugin in ("criterio-portfolio",) + AGENTES_COMPARTIR:
+        _comparar(RAIZ / "plugins" / plugin / "scripts" / "compartir.json", compartir, f"{plugin}/scripts/compartir.json",
+                  "la familia de cada plugin, como la lista la plantilla de hallazgo", escribir, 0o644, estado)
+        if plugin != "criterio-portfolio":
+            texto = COMANDO_COMPARTIR.read_text(encoding="utf-8")
+            _comparar(RAIZ / "plugins" / plugin / "commands" / "share-findings.md", texto, f"{plugin}/commands/share-findings.md",
+                      "el mismo comando de compartir hallazgos en cada agente (decisión 0025)", escribir, 0o644, estado)
 
     for plantilla in sorted(PLANTILLAS.glob("*.yml")):
         texto = plantilla.read_text(encoding="utf-8")

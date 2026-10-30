@@ -37,8 +37,9 @@ los plugins de agente (se sincroniza como `rastro.py`):
 4. **Con un sí, el agente no envía nada.** El motor arma el enlace a la plantilla de hallazgo, con
    la familia y el resumen ya escritos en sus campos. La persona lo abre, agrega lo que quiera con
    sus palabras y decide si lo publica.
-5. **Una compuerta del repositorio** corre el motor sobre el material de prueba y falla si el
-   resumen trae cualquier valor que esté en una ficha: nombres, identificaciones o cifras.
+5. **Una compuerta del repositorio** (`compartir.py --selftest`) siembra en el rastro el nombre, la
+   identificación y una cifra de una entidad —en el argumento, en la nota y en una llave de señal— y
+   falla si cualquiera de ellos aparece en el resumen o en el enlace.
 
 ## Lo que se decidió
 

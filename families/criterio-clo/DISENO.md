@@ -2,7 +2,7 @@
 
 # criterio-clo · the family design
 
-**Status: built and tested on synthetic material.** The fourteen commands, the ten skills and the calculation engine are
+**Status: built and tested on synthetic material.** The sixteen commands, the ten skills and the calculation engine are
 built; the engine passes its deterministic test against the material of four industries and two
 control entities (`tests/criterio-clo/`), and the agents passed the full round on the six entities ([the rounds](../../tests/evidencias/familias/clo/RONDAS.md)). Scope in
 [ADR 0009](../../docs/decisions/0009-scope-clo.md).
@@ -156,6 +156,7 @@ not declare the compliance status.
 | 4 | `authority-check` | The records, `00-referencia/matriz-atribuciones` and `30-contraparte/` | Each of the entity's signatories against their authority on the signing date, by type and amount, amendments included; documents without both parties' signatures; the counterparty's certificate against the configured age on the signing date | Per contract: who signed, their authority and the amount; those without both parties' signatures; expired certificates; no opinion on the contract's validity |
 | 5 | `contract-execution` | `10-registro/pagos`, the records and `20-garantias/` | What was paid against the value plus amendments; payments after the end date; the guarantees required against those provided, and their validity against what the contract requires | Per contract: value, paid, balance and last payment; each required guarantee with the one provided and its validity |
 | 6 | `legal-wake` | The configuration and the records | Decides what is due: the expiries and notice periods entering the window, new documents and a weekly review | What ran and what it found; if nothing is due, it stays silent |
+| 7 | `share-findings` | The local trail of this agent's runs, in `.criterio/corridas/` | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The summary as is and, with a yes, the link to the repository's finding template, which the person opens |
 <!-- /clo:comandos-fidel -->
 
 ## Constanza's commands, in order of importance
@@ -170,6 +171,7 @@ not declare the compliance status.
 | 4 | `regulatory-watch` | `30-normativa/registro-normativo` and the new regulations in the record | Each registered regulation against its impact assessment within the configured days; those that apply without an obligation in the matrix | Regulations not yet assessed and those that apply without an obligation in the matrix; no opinion on the scope of any regulation |
 | 5 | `reports-cases` | `40-canal/casos` | Each case against the configured response deadline | Open cases by age and those past their deadline; no data about who reported |
 | 6 | `compliance-wake` | The configuration and the record | Decides what is due: obligations falling due within the window, new documents and a weekly review | What ran and what it found; if nothing is due, it stays silent |
+| 7 | `share-findings` | The local trail of this agent's runs, in `.criterio/corridas/` | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The summary as is and, with a yes, the link to the repository's finding template, which the person opens |
 <!-- /clo:comandos-constanza -->
 
 ## The common report format

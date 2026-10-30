@@ -14,7 +14,7 @@ facultad y lo pagado contra lo pactado.
 
 [English](README.md) · `criterio-legal` · Apache 2.0 · Una instancia por entidad
 
-**Estado: los siete comandos construidos**, los cinco skills y el motor de cálculo, probado
+**Estado: los ocho comandos construidos**, los cinco skills y el motor de cálculo, probado
 contra material sintético de cuatro industrias con una clave que el agente no ve y una entidad
 de control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/clo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
@@ -47,7 +47,7 @@ vigente cuando ya terminó, quién firmó por encima de su facultad, qué garant
 póliza y qué se pagó por encima del valor con sus otrosíes.
 
 <!-- clo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los siete comandos
+### Los ocho comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-legal:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -60,6 +60,7 @@ póliza y qué se pagó por encima del valor con sus otrosíes.
 | `/criterio-legal:authority-check` | Quién firmó cada contrato y con qué facultad |
 | `/criterio-legal:contract-execution` | Lo pagado contra lo pactado, y las garantías contra lo exigido |
 | `/criterio-legal:legal-wake` | Lo que toca hoy en los contratos; si no toca nada, se calla |
+| `/criterio-legal:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /clo:comandos -->
 
 `legal-setup` va primero porque los demás lo necesitan, y `legal-wake` es el que se le pone a un

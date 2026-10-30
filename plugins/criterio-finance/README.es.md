@@ -14,7 +14,7 @@ factura electrónica contra su registro.
 
 [English](README.md) · `criterio-finance` · Apache 2.0 · Una instancia por entidad
 
-**Estado: los nueve comandos construidos**, los siete skills y el motor de cálculo, probado
+**Estado: los diez comandos construidos**, los siete skills y el motor de cálculo, probado
 contra material sintético de cuatro industrias con una clave que el agente no ve y una entidad
 de control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
@@ -48,7 +48,7 @@ SRI o de la SUNAT no tiene registro —o qué registro no tiene factura—, qué
 y qué requerimiento del auditor sigue sin respuesta con soporte.
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los nueve comandos
+### Los diez comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-finance:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -63,6 +63,7 @@ y qué requerimiento del auditor sigue sin respuesta con soporte.
 | `/criterio-finance:einvoice-check` | Todas las facturas electrónicas del periodo contra la contabilidad, no una muestra |
 | `/criterio-finance:audit-pack` | El índice del paquete del auditor, con el estado de cada requerimiento |
 | `/criterio-finance:finance-wake` | Lo que toca hoy en el cierre; si no toca nada, se calla |
+| `/criterio-finance:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /cfo:comandos -->
 
 `finance-setup` va primero porque los demás lo necesitan, y `finance-wake` es el que se le pone a

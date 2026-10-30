@@ -48,10 +48,13 @@ from pathlib import Path
 AGENTE = {"criterio-portfolio": "portafolio", "criterio-project": "proyecto",
           "criterio-product": "producto", "criterio-finance": "finanzas",
           "criterio-budget": "presupuesto", "criterio-treasury": "tesoreria", "criterio-legal": "legal",
-          "criterio-compliance": "cumplimiento", "criterio-assistant": "direccion"}
+          "criterio-compliance": "cumplimiento", "criterio-assistant": "direccion",
+          "criterio-sales": "comercial", "criterio-revenue": "ingresos", "criterio-security": "seguridad",
+          "criterio-vulnerability": "vulnerabilidades", "criterio-resilience": "resiliencia"}
 NOMBRE = {"portafolio": "Vera", "proyecto": "Samuel", "producto": "Alba", "finanzas": "Clara",
           "presupuesto": "Tomás", "tesoreria": "Áurea", "legal": "Fidel", "cumplimiento": "Constanza",
-          "direccion": "Ofelia"}
+          "direccion": "Ofelia", "comercial": "Augusto", "ingresos": "Valeria", "seguridad": "Alexis",
+          "vulnerabilidades": "Guillermo", "resiliencia": "Amparo"}
 INVOCACION = re.compile(r"^\s*/(criterio-[a-z]+):([a-z0-9-]+)\s*(.*)$", re.S)
 CASO = re.compile(r"\b([A-Z]{2,5}-\d{2,})\b")
 SALTAR = {".git", "node_modules", ".criterio", "__pycache__", ".next", ".venv"}
@@ -556,6 +559,11 @@ def selftest() -> int:
         parar(dict(s2, last_assistant_message="CTR-101 vence en 45 días."), "legal")
         ok("un comando de Fidel queda en el rastro de su área",
            any((cwd / ".criterio" / "corridas" / "legal").glob("*-obligations-calendar-1.html")), True)
+        s3 = {"cwd": str(cwd), "session_id": "s-ciso"}
+        enviar(dict(s3, user_input="/criterio-security:soa-status"), "seguridad")
+        parar(dict(s3, last_assistant_message="A.5.15 sin evidencia."), "seguridad")
+        ok("un comando de Alexis, de la CISO, queda en el rastro de su área (CISO-2)",
+           any((cwd / ".criterio" / "corridas" / "seguridad").glob("*-soa-status-1.html")), True)
         enviar(dict(s2, user_input="/criterio-legal:obligations-calendar"), "finanzas")
         ok("y el hook de Clara no lo registra como suyo",
            (cwd / ".criterio" / "corridas" / "finanzas").exists(), False)

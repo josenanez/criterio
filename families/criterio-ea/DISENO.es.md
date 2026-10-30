@@ -109,6 +109,7 @@ correos originales; no evalúa a una persona ni a un área.
 | 6 | `ea-mail` | Las fichas de la correspondencia | Calcula qué pide respuesta y su plazo; para lo rutinario, el modelo de lenguaje (LLM) escribe un borrador de respuesta | Lo que pide respuesta y para cuándo; los borradores en `90-borradores`. Nunca envía |
 | 7 | `ea-weekly` | La configuración y las fichas | Reúne lo que llegó, lo que vence y lo que falta preparar | Un solo resumen a la semana; no se publica en Rostrum salvo que la configuración lo diga |
 | 8 | `ea-wake` | La configuración y las fichas | Decide qué toca: las sesiones que entran en la ventana, las actas pendientes, los plazos de la correspondencia y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
+| 9 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /ea:comandos-ofelia -->
 
 ## Las reglas para la operación real

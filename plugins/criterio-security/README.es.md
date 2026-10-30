@@ -36,7 +36,7 @@ Tú respondes por la seguridad de la información y por su sistema de gestión. 
 **Lo que puede responder que hoy cuesta días antes de una auditoría:** qué control figura implementado y no tiene ninguna evidencia, cuál la tiene vencida, qué sistema lleva meses sin revisión de accesos, qué tercero crítico no se ha evaluado y qué riesgo aceptado nadie volvió a mirar.
 
 <!-- ciso:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los ocho comandos
+### Los nueve comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-security:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -50,6 +50,7 @@ Tú respondes por la seguridad de la información y por su sistema de gestión. 
 | `/criterio-security:third-parties` | Cada tercero crítico con su evaluación al día o vencida |
 | `/criterio-security:risk-register` | Cada aceptación de riesgo contra su fecha de revisión |
 | `/criterio-security:security-wake` | Lo que tocaba hoy, corrido |
+| `/criterio-security:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /ciso:comandos -->
 
 `security-setup` va primero porque los demás lo necesitan, y `security-wake` es el que se le pone a un reloj. Entre los dos, los seis que preparan el trabajo: qué cambió, la declaración, los controles contra su evidencia, los accesos, los terceros y los riesgos.

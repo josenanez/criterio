@@ -36,7 +36,7 @@ You answer for information security and its management system. He comes with eve
 **What it can answer that takes days today before an audit:** which control is marked as implemented and has no evidence, which one's evidence has lapsed, which system has gone months without an access review, which critical third party has not been assessed and which accepted risk nobody looked at again.
 
 <!-- ciso:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The eight commands
+### The nine commands
 
 > They are typed with the plugin prefix: `/criterio-security:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -50,6 +50,7 @@ You answer for information security and its management system. He comes with eve
 | `/criterio-security:third-parties` | Each critical third party with its assessment current or overdue |
 | `/criterio-security:risk-register` | Each risk acceptance against its review date |
 | `/criterio-security:security-wake` | What was due today, run |
+| `/criterio-security:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /ciso:comandos -->
 
 `security-setup` comes first because the others need it, and `security-wake` is the one you put on a clock. Between them, the six that prepare the work: what changed, the statement, controls against their evidence, access, third parties and risks.

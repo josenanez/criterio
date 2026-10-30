@@ -15,7 +15,7 @@ que lo sostiene y la meta contra lo cerrado.
 
 [English](README.md) · `criterio-sales` · Apache 2.0 · Una instancia por entidad
 
-**Estado: estable, sin lanzar (versión 0.3.0).** Los seis comandos, los cuatro skills y el motor de
+**Estado: estable, sin lanzar (versión 0.3.0).** Los siete comandos, los cuatro skills y el motor de
 cálculo, probados contra material sintético de Colombia, México, Ecuador, Perú y Chile —con las
 exportaciones de Salesforce, HubSpot, Dynamics 365, Zoho y cualquier CRM con su mapeo— con una clave
 que el agente no ve y una entidad de control por país. Pasó sus dos rondas con los agentes: con todas
@@ -50,7 +50,7 @@ cuánto de lo comprometido tiene respaldo en los documentos y cómo va lo cerrad
 corte.
 
 <!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los seis comandos
+### Los siete comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-sales:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
@@ -62,6 +62,7 @@ corte.
 | `/criterio-sales:forecast-check` | El pronóstico comprometido contra lo que lo sostiene, oportunidad por oportunidad |
 | `/criterio-sales:target-check` | La meta del periodo contra lo cerrado al corte, por línea |
 | `/criterio-sales:sales-wake` | Lo que toca hoy en el embudo; si no toca nada, se calla |
+| `/criterio-sales:share-findings` | Un resumen sin datos para compartir, solo si dices que sí |
 <!-- /cco:comandos -->
 
 `sales-setup` va primero porque los demás lo necesitan, y `sales-wake` es el que se le pone a un

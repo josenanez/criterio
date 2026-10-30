@@ -2,7 +2,7 @@
 
 # criterio-ciso · the family design
 
-**Status: laboratory, not yet launched (version 0.1.0).** The twenty commands, the seven skills and the calculation
+**Status: laboratory, not yet launched (version 0.1.0).** The twenty-three commands, the seven skills and the calculation
 engine are built on the common core; the engine passes its deterministic test against the banking,
 retail, healthcare and technology material (`tests/criterio-ciso/`), and the round with the agents is the
 next step, in 0.2.0. Scope in [ADR 0023](../../docs/decisions/0023-la-familia-ciso.md) (Spanish).
@@ -151,6 +151,7 @@ does not open credentials, keys or backups.
 | 5 | `third-parties` | The third-party register in `00-referencia/` and the period record | Each critical third party against how often its security must be assessed: the latest assessment in the record, its result and when the next one was due | The critical third parties with an overdue assessment or none at all, with their citation |
 | 6 | `risk-register` | The risk register in `40-riesgos/` | Each risk with its decision; the accepted ones against their review date. The agent never accepts or closes a risk | The acceptances past their review date, with who accepted them and their row |
 | 7 | `security-wake` | The state and the new documents | If there are new documents or a week has passed, the full review; if there are open signals, their group's report; a question somebody left in Rostrum | What ran and why, or that nothing was due |
+| 8 | `share-findings` | The local trail of this agent's runs, in `.criterio/corridas/` | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The summary as is and, with a yes, the link to the repository's finding template, which the person opens |
 <!-- /ciso:comandos-alexis -->
 
 ## Guillermo's commands, in order of importance
@@ -164,6 +165,7 @@ does not open credentials, keys or backups.
 | 3 | `kev-check` | The exports in `50-escaneos/` and CISA's KEV catalog (F-06) | Each open vulnerability whose CVE is in the catalog, against the remediation date the catalog gives; says whether its use in ransomware is known | The catalog's vulnerabilities still open past their date, with their asset and their citation |
 | 4 | `scan-coverage` | The asset inventory in `00-referencia/`, the exports in `50-escaneos/` and the tracker in `60-remediacion/` | Each in-scope inventory asset against the latest scan that includes it and the configured window; each vulnerability closed in the tracker against the scans after its closure | The assets with no scan in the window; the closures no later scan proves or that the scan still finds; what was scanned outside the inventory |
 | 5 | `vuln-wake` | The state and the new documents | If a new export, catalog or tracker arrived, or a week has passed, the full review; if there are open signals, their group's report; a question somebody left in Rostrum | What ran and why, or that nothing was due |
+| 6 | `share-findings` | The local trail of this agent's runs, in `.criterio/corridas/` | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The summary as is and, with a yes, the link to the repository's finding template, which the person opens |
 <!-- /ciso:comandos-guillermo -->
 
 Guillermo's reports are not published in Rostrum unless `vulnerability.publish` says so.
@@ -179,6 +181,7 @@ Guillermo's reports are not published in Rostrum unless `vulnerability.publish` 
 | 3 | `notifications` | The notification matrix in `00-referencia/` and the period record | Each incident against every row of the matrix that applies to it —by its severity, personal data or affected customers—: the recorded notification and its time against the deadline from detection. The agent notifies no one | The late notifications and the ones never made, with their recipient, their rule and their citation |
 | 4 | `continuity-tests` | The continuity calendar in `00-referencia/` and the period record | Each test in the calendar —the continuity plan, the recovery plan, each critical backup's restore— against its frequency: the latest in the record, its result and when the next one was due | The tests that are overdue or never done, with restores apart, with their citation |
 | 5 | `resilience-wake` | The state and the new documents | If a new incident, review or test arrived, or a week has passed, the full review; if there are open signals, their group's report; a question somebody left in Rostrum | What ran and why, or that nothing was due |
+| 6 | `share-findings` | The local trail of this agent's runs, in `.criterio/corridas/` | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The summary as is and, with a yes, the link to the repository's finding template, which the person opens |
 <!-- /ciso:comandos-amparo -->
 
 ## The common report format

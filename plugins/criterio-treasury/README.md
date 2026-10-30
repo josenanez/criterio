@@ -34,7 +34,7 @@ single occupation (11-3031.01), which is why Áurea lives in the CFO family and 
 ## What it does
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The six commands
+### The seven commands
 
 > They are typed with the plugin prefix: `/criterio-treasury:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
@@ -46,6 +46,7 @@ single occupation (11-3031.01), which is why Áurea lives in the CFO family and 
 | `/criterio-treasury:payment-check` | Each scheduled payment against who may approve it |
 | `/criterio-treasury:debt-watch` | Debt against its maturity and what its contract requires |
 | `/criterio-treasury:treasury-wake` | What treasury needs today; silent when nothing does |
+| `/criterio-treasury:share-findings` | A summary with no data to share, only if you say yes |
 <!-- /cfo:comandos -->
 
 <!-- cfo:skills · generado por scripts/familias.py; no se edita a mano -->

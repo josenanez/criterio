@@ -2,7 +2,7 @@
 
 # criterio-cfo · el diseño de la familia
 
-**Estado: construida y probada sobre material sintético.** Los veintidós comandos, los trece skills y el motor de cálculo
+**Estado: construida y probada sobre material sintético.** Los veinticinco comandos, los trece skills y el motor de cálculo
 están construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y
 dos entidades de control (`tests/criterio-cfo/`), y los agentes pasaron la ronda completa sobre las seis entidades ([las rondas](../../tests/evidencias/familias/cfo/RONDAS.md)).
 Alcance en [ADR 0006](../../docs/decisions/0006-scope-cfo.md); cómo se reparte el trabajo entre el
@@ -192,6 +192,7 @@ recomendada, hace las preguntas que ningún documento responde y deja la configu
 | 6 | `einvoice-check` | `30-facturacion/` y los registros contables de las cuentas que la configuración asocia a ventas y compras | Procesa cada XML con la estructura oficial (F-01, F-04, F-13, F-16, F-19); cruza por número, NIT, RUC, RUT o RFC y valor, y detecta duplicados por CUFE, clave de acceso, serie y número o folio | Facturas sin registro, registros sin factura, diferencias de valor o de impuesto, duplicados; sin opinión fiscal: lo que es criterio tributario queda como pregunta para la persona |
 | 7 | `audit-pack` | `50-auditoria/` y la ficha | Cruza cada requerimiento con su respuesta y sus soportes | El índice del paquete: requerimiento, respuesta, soporte citado y estado (respondido con soporte, respondido sin soporte, sin responder, vencido); no mueve ni copia archivos |
 | 8 | `finance-wake` | La configuración y la ficha | Decide qué toca según la cadencia: a diario durante la ventana del cierre, semanal fuera de ella | Lo que corrió y lo que encontró; si no toca nada, se calla |
+| 9 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /cfo:comandos-clara -->
 
 ### La conciliación contable
@@ -218,6 +219,7 @@ supuesto escrito, y la decisión del comité la toma una persona.
 | 4 | `transfer-log` | Las versiones de `10-aprobado/` y las actas de `40-actas/` | Compara cada versión con la anterior, línea por línea: cada cambio de valor es un traslado, una adición o una reducción; lo cruza con el acta que lo aprueba por fecha, valor y líneas de origen y destino | El registro: fecha, origen, destino, valor, acta y estado (con acta, sin acta, acta sin cambio aplicado); los traslados dejan igual el total, y las adiciones y reducciones se muestran aparte |
 | 5 | `budget-committee-pack` | Las fichas, `variance-report`, `forecast` y `transfer-log` del corte, y el acta del comité anterior en `40-actas/` | Arma los puntos de decisión: líneas sobre el umbral, proyecciones sobre lo aprobado, traslados sin acta y los compromisos del comité anterior con su evidencia | El paquete en el formato común: cada decisión con su cifra, su cita y quién la toma; los compromisos del acta anterior con su estado; no recomienda la decisión |
 | 6 | `budget-wake` | La configuración y las fichas | Decide qué toca según la cadencia: cuando aparece un periodo nuevo en `10-contabilidad/`, antes de cada comité y una vez por semana para los compromisos | Lo que corrió y lo que encontró; si no toca nada, se calla |
+| 7 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /cfo:comandos-tomas -->
 
 ## Los comandos de Áurea, en orden de importancia
@@ -233,6 +235,7 @@ supuesto escrito, y la decisión del comité la toma una persona.
 | 3 | `payment-check` | El programa de pagos, la política y la matriz de firmas | Cada pago contra las aprobaciones que pide la política para su monto y contra la facultad de cada quien lo aprobó | Por pago: valor, quién aprobó y cuántas aprobaciones pide; los que no las tienen y quién firmó sin facultad |
 | 4 | `debt-watch` | El registro de la deuda, los covenants y el balance del periodo que cierra Clara | Los días que le faltan a cada obligación e inversión; cada covenant calculado desde el balance, contra su límite | Los covenants con su valor, su límite y su estado; las obligaciones por vencimiento |
 | 5 | `treasury-wake` | La configuración y las tablas | Decide qué toca: los pagos de los próximos cinco días, las obligaciones que entran en su ventana de vencimiento y una revisión semanal | Lo que corrió y lo que encontró; si no toca nada, se calla |
+| 6 | `share-findings` | El rastro local de las corridas de este agente, en `.criterio/corridas/` | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El resumen tal cual y, con un sí, el enlace a la plantilla de hallazgo del repositorio, que abre la persona |
 <!-- /cfo:comandos-aurea -->
 
 ## Lo que se reusa de la familia PMO

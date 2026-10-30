@@ -66,6 +66,10 @@ FAMILIAS = {
                       "viajes": ("ofelia", "viajes/{k}.json")},
            "periodos": lambda c: {}},
 }
+# Los comandos que todos los agentes tienen y que no trabajan sobre el material: compartir hallazgos
+# pregunta siempre y no produce nada que calificar (decisión 0025). No entran en la ronda, y los
+# números de los demás comandos no cambian por ellos.
+COMUNES = {"share-findings"}
 # Lo que el agente escribe de suyo y no extrae de un documento: no se califica contra la clave.
 PROPIOS = {"questions"}
 
@@ -74,7 +78,8 @@ def familia(sigla: str) -> dict:
     fa = json.loads((RAIZ / "families" / f"criterio-{sigla}" / "familia.json").read_text(encoding="utf-8"))
     return dict(FAMILIAS[sigla], sigla=sigla, material=RAIZ / "tests" / f"criterio-{sigla}" / "material",
                 de={a["id"]: {x["id"] for x in a["senales"]} for a in fa["agentes"]},
-                orden=[(a["id"], a["plugin"], c["id"]) for a in fa["agentes"] for c in sorted(a["comandos"], key=lambda c: c["n"])])
+                orden=[(a["id"], a["plugin"], c["id"]) for a in fa["agentes"]
+                       for c in sorted(a["comandos"], key=lambda c: c["n"]) if c["id"] not in COMUNES])
 
 
 def de_carpeta(carpeta: Path) -> dict:
@@ -264,6 +269,10 @@ def _igual(esperado, obtenido, espacio=None) -> bool:
     el mismo renglón del mismo archivo también; y un `what` con las mismas palabras de la clave,
     salvo la conjugación, cuando lo demás del registro coincide. La diferencia se reporta igual."""
     esperado, obtenido = _norma(esperado), _norma(obtenido)
+    # Una lista que la clave espera vacía —nada revisado, ninguna pregunta— dice lo mismo que el campo
+    # ausente en la ficha (CISO-1): ninguna de las dos tiene un dato que calificar.
+    if esperado == [] and obtenido is None:
+        return True
     if isinstance(esperado, str) and isinstance(obtenido, str):
         # Un valor de la ficha dicho en el idioma del documento cuenta igual: «serviços» es «servicios».
         return esperado.strip().lower() in obtenido.strip().lower() or NU.canon(esperado) == NU.canon(obtenido)
