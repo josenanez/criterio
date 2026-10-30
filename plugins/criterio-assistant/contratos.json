@@ -47,14 +47,15 @@
    }
   },
   "ea-scan": {
-   "funcion": "Las fichas de las reuniones, de la correspondencia y de la agenda",
+   "funcion": "Las fichas de las reuniones, de la correspondencia, de los viajes y de la agenda",
    "entrada": {
     "argumento": "[órgano o fecha] o vacío",
     "lee": [
      "config",
      "agenda .ics",
      "sesiones de organos/",
-     "correos .eml"
+     "correos .eml y .msg",
+     "itinerarios de 30-viajes/"
     ]
    },
    "salida": {
@@ -62,6 +63,7 @@
     "escribe": [
      "<estado>/reuniones/<órgano>-<AAAA-MM-DD>.json",
      "<estado>/correspondencia/<correo>.json",
+     "<estado>/viajes/<itinerario>.json",
      "<estado>/resultados.json",
      "<estado>/reporte-ea-scan.md"
     ]
@@ -72,7 +74,8 @@
      "correspondence-record",
      "decision-brief",
      "ea-intake",
-     "meeting-record"
+     "meeting-record",
+     "travel-record"
     ],
     "script": [
      "agenda",
@@ -95,17 +98,18 @@
    }
   },
   "ea-agenda": {
-   "funcion": "La semana del ejecutivo: cruces, sesiones sin material y sesiones sin acta",
+   "funcion": "La semana del ejecutivo: cruces, viajes contra la agenda, sesiones sin material y sesiones sin acta",
    "entrada": {
     "argumento": "[días] o vacío",
     "lee": [
      "config",
      "agenda .ics",
-     "fichas de las reuniones"
+     "fichas de las reuniones",
+     "fichas de los viajes"
     ]
    },
    "salida": {
-    "muestra": "la semana: cruces, sesiones sin material y sin acta",
+    "muestra": "la semana: cruces, viajes contra la agenda, sesiones sin material y sin acta",
     "escribe": [
      "<estado>/resultados.json",
      "<estado>/reporte-ea-agenda.md"
@@ -127,8 +131,8 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "un cruce directo, uno tras el cambio de hora y una agenda vieja",
-    "esperado": "meeting_conflict de la clave y ningún cruce con la agenda vieja"
+    "sembrado": "un cruce directo, uno tras el cambio de hora, una agenda vieja, un vuelo fuera de la agenda, una reunión durante un vuelo y una presencial en casa durante el viaje",
+    "esperado": "meeting_conflict y las señales de viaje de la clave, y ningún cruce con la agenda vieja"
    }
   },
   "ea-prep": {
@@ -413,6 +417,18 @@
     "commitment_overdue",
     "commitment_rescheduled",
     "commitment_undated"
+   ]
+  },
+  "travel-record": {
+   "decide": "Qué vuelos trae un itinerario, con su número, su ruta, y su salida y su llegada con fecha, hora y zona.",
+   "escribe": [
+    "trip",
+    "flights"
+   ],
+   "alimenta": [
+    "meeting_during_flight",
+    "meeting_while_away",
+    "trip_not_in_agenda"
    ]
   }
  },

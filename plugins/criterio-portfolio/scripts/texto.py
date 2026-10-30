@@ -11,7 +11,8 @@ con el skill project-record. Aquí solo se saca el texto de adentro del archivo.
 
 Librería estándar, sin dependencias. Eso es posible porque `.docx`, `.xlsx` y
 `.pptx` son archivos ZIP con XML adentro, y `zipfile` y `xml.etree` vienen con
-Python. El cronograma de Microsoft Project guardado como XML también es XML, y se
+Python. El correo .msg de Outlook es un archivo compuesto de Microsoft (MS-CFB) con las
+propiedades del mensaje adentro (MS-OXMSG), y también se procesa aquí, con `struct`. El cronograma de Microsoft Project guardado como XML también es XML, y se
 procesa como cronograma: tareas, hitos, líneas base, predecesoras y recursos. El PDF
 necesita `pdftotext`, y el `.mpp` binario de Project necesita Java con MPXJ; sin eso,
 se declara cómo guardarlo para que se procese.
@@ -30,7 +31,9 @@ import argparse
 import hashlib
 import json
 import re
+import datetime as _dt
 import shutil
+import struct
 import subprocess
 import sys
 import xml.etree.ElementTree as ET
@@ -336,14 +339,241 @@ def de_mpp(ruta: Path):
         return de_project(destino), None
 
 
+
+# ---------------------------------------------------------------- el .msg de Outlook
+# Un .msg es un archivo compuesto de Microsoft (MS-CFB): un pequeño sistema de archivos con
+# sectores, una tabla de asignación (FAT) y un directorio en árbol. Adentro, cada propiedad del
+# mensaje es un flujo «__substg1.0_<id><tipo>» y las de tamaño fijo —las fechas— van juntas en
+# «__properties_version1.0» (MS-OXMSG). Se lee lo que procesa el código: quién, a quién, cuándo,
+# el asunto, el identificador y a qué responde; y el cuerpo, para la agente.
+
+_FIN, _LIBRE = 0xFFFFFFFE, 0xFFFFFFFF
+
+
+def _cfb(datos: bytes) -> dict:
+    """Los flujos de un archivo compuesto, por ruta («a/b/c»). Falla con un mensaje si no lo es."""
+    if datos[:8] != bytes.fromhex("D0CF11E0A1B11AE1"):
+        raise ValueError("no es un archivo compuesto de Microsoft")
+    sec = 1 << struct.unpack_from("<H", datos, 0x1E)[0]
+    mini = 1 << struct.unpack_from("<H", datos, 0x20)[0]
+    n_fat, dir1, corte, minifat1, n_minifat, difat1, n_difat = struct.unpack_from("<IIxxxxIIIII", datos, 0x2C)
+
+    def sector(n):
+        return datos[(n + 1) * sec:(n + 2) * sec]
+    difat = list(struct.unpack_from("<109I", datos, 0x4C))
+    n = difat1
+    for _ in range(n_difat):
+        if n in (_FIN, _LIBRE):
+            break
+        s_ = sector(n)
+        difat += list(struct.unpack_from(f"<{sec // 4 - 1}I", s_))
+        n = struct.unpack_from("<I", s_, sec - 4)[0]
+    fat: list[int] = []
+    for f in difat[:n_fat]:
+        fat += list(struct.unpack_from(f"<{sec // 4}I", sector(f)))
+
+    def cadena(ini, tabla, limite=1 << 20):
+        out, n = [], ini
+        while n not in (_FIN, _LIBRE) and n < len(tabla) and len(out) < limite:
+            out.append(n)
+            n = tabla[n]
+        return out
+    directorio = b"".join(sector(x) for x in cadena(dir1, fat))
+    entradas = []
+    for i in range(len(directorio) // 128):
+        e = directorio[i * 128:(i + 1) * 128]
+        largo = struct.unpack_from("<H", e, 64)[0]
+        nombre = e[:max(largo - 2, 0)].decode("utf-16-le", "replace")
+        tipo = e[66]
+        izq, der, hijo = struct.unpack_from("<III", e, 68)
+        inicio, tam = struct.unpack_from("<IQ", e, 116)
+        if sec == 512:
+            tam &= 0xFFFFFFFF
+        entradas.append({"nombre": nombre, "tipo": tipo, "izq": izq, "der": der, "hijo": hijo, "inicio": inicio, "tam": tam})
+    raiz = entradas[0]
+    flujo_mini = b"".join(sector(x) for x in cadena(raiz["inicio"], fat))[:raiz["tam"]]
+    minifat: list[int] = []
+    for x in cadena(minifat1, fat):
+        minifat += list(struct.unpack_from(f"<{sec // 4}I", sector(x)))
+
+    def contenido(e):
+        if e["tam"] < corte:
+            return b"".join(flujo_mini[x * mini:(x + 1) * mini] for x in cadena(e["inicio"], minifat))[:e["tam"]]
+        return b"".join(sector(x) for x in cadena(e["inicio"], fat))[:e["tam"]]
+    flujos: dict[str, bytes] = {}
+
+    def hijos(i, ruta, vistos):
+        # Los hermanos son un árbol: se recorre entero, sin suponer que está balanceado.
+        pila = [i]
+        while pila:
+            j = pila.pop()
+            if j in (_LIBRE, _FIN) or j >= len(entradas) or j in vistos:
+                continue
+            vistos.add(j)
+            e = entradas[j]
+            pila += [e["izq"], e["der"]]
+            r = f"{ruta}/{e['nombre']}" if ruta else e["nombre"]
+            if e["tipo"] == 2:
+                flujos[r] = contenido(e)
+            elif e["tipo"] == 1:
+                hijos(e["hijo"], r, vistos)
+    hijos(raiz["hijo"], "", set())
+    return flujos
+
+
+def _filetime(v: int):
+    return _dt.datetime(1601, 1, 1, tzinfo=_dt.timezone.utc) + _dt.timedelta(microseconds=v // 10) if v else None
+
+
+def leer_msg(ruta: Path) -> dict:
+    """Los encabezados y el cuerpo de un .msg: lo mismo que se toma de un .eml."""
+    flujos = _cfb(Path(ruta).read_bytes())
+
+    def texto(pid, base="__substg1.0_"):
+        for tipo, cod in (("001F", "utf-16-le"), ("001E", "cp1252")):
+            b = flujos.get(f"{base}{pid}{tipo}")
+            if b is not None:
+                return b.decode(cod, "replace").rstrip("\x00")
+        return ""
+    fijas = {}
+    props = flujos.get("__properties_version1.0", b"")
+    for k in range(32, len(props) - 15, 16):
+        etiqueta, _, valor = struct.unpack_from("<IIQ", props, k)
+        fijas[etiqueta >> 16] = (etiqueta & 0xFFFF, valor)
+    fecha_ = None
+    for pid in (0x0039, 0x0E06):                       # cuándo se envió; si no, cuándo llegó
+        if pid in fijas and fijas[pid][0] == 0x0040:
+            fecha_ = _filetime(fijas[pid][1])
+            break
+    para, copia = [], []
+    for r in sorted({k.split("/")[0] for k in flujos if k.startswith("__recip_version1.0_")}):
+        dir_ = texto("39FE", f"{r}/__substg1.0_") or texto("3003", f"{r}/__substg1.0_")
+        rp = flujos.get(f"{r}/__properties_version1.0", b"")
+        tipo = 1
+        for k in range(8, len(rp) - 15, 16):
+            etq, _, v = struct.unpack_from("<IIQ", rp, k)
+            if etq >> 16 == 0x0C15:
+                tipo = v & 0xFFFFFFFF
+        (para if tipo == 1 else copia).append(dir_.lower())
+    de = (texto("5D01") or texto("0C1F") or texto("0065")).lower()
+    cabeceras = texto("007D")                          # los encabezados de internet, si llegó por correo
+    return {"id": texto("1035").strip(), "de": de, "para": [x for x in para if x], "copia": [x for x in copia if x],
+            "asunto": texto("0037"), "fecha": fecha_, "responde_a": re.findall(r"<[^>]+>", texto("1042") + " " + texto("1039")),
+            "cuerpo": texto("1000"), "cabeceras": cabeceras}
+
+
+def de_msg(ruta: Path) -> str:
+    m = leer_msg(ruta)
+    cabeza = [f"**De:** {m['de']}", f"**Para:** {', '.join(m['para'])}",
+              f"**Fecha:** {m['fecha'].isoformat() if m['fecha'] else ''}", f"**Asunto:** {m['asunto']}"]
+    return "\n".join(cabeza) + "\n\n" + (m["cuerpo"] or "")
+
+
+def escribir_msg(ruta: Path, *, mid: str, de: str, para: list, asunto: str, fecha, cuerpo: str, responde: str | None = None) -> None:
+    """Un .msg mínimo y válido (MS-CFB versión 3, con su flujo mini): lo usan las pruebas para tener
+    correos de Outlook sin depender de Outlook. Todo flujo cabe en el flujo mini (menos de 4.096 bytes)."""
+    def u(x):
+        return x.encode("utf-16-le")
+    raiz = {"__substg1.0_0037001F": u(asunto), "__substg1.0_1000001F": u(cuerpo), "__substg1.0_1035001F": u(mid),
+            "__substg1.0_0C1F001F": u(de), "__substg1.0_5D01001F": u(de), "__substg1.0_001A001F": u("IPM.Note"),
+            "__substg1.0_0E04001F": u("; ".join(para))}
+    if responde:
+        raiz["__substg1.0_1042001F"] = u(responde)
+        raiz["__substg1.0_1039001F"] = u(responde)
+    ft = int((fecha - _dt.datetime(1601, 1, 1, tzinfo=_dt.timezone.utc)).total_seconds() * 10_000_000)
+    raiz["__properties_version1.0"] = (struct.pack("<8xIIII8x", len(para), 0, len(para), 0)
+                                       + struct.pack("<IIQ", (0x0039 << 16) | 0x0040, 2, ft)
+                                       + struct.pack("<IIQ", (0x0E06 << 16) | 0x0040, 2, ft))
+    nodos = [("Root Entry", 5, None), ]                # (nombre, tipo, contenido | hijos)
+    arbol = {"": dict(raiz)}
+    for i, d in enumerate(para):
+        arbol[f"__recip_version1.0_#{i:08X}"] = {"__substg1.0_39FE001F": u(d), "__substg1.0_3001001F": u(d),
+                                                  "__properties_version1.0": struct.pack("<8x") + struct.pack("<IIQ", (0x0C15 << 16) | 0x0003, 2, 1)}
+    # El directorio: la raíz, sus flujos, las carpetas de destinatarios y sus flujos.
+    entradas = [{"nombre": "Root Entry", "tipo": 5, "datos": b"", "hijos": []}]
+
+    def agregar(nombre, tipo, datos=b""):
+        entradas.append({"nombre": nombre, "tipo": tipo, "datos": datos, "hijos": []})
+        return len(entradas) - 1
+    for k, v in raiz.items():
+        entradas[0]["hijos"].append(agregar(k, 2, v))
+    for k, d in arbol.items():
+        if not k:
+            continue
+        j = agregar(k, 1)
+        entradas[0]["hijos"].append(j)
+        for kk, vv in d.items():
+            entradas[j]["hijos"].append(agregar(kk, 2, vv))
+    # El flujo mini, en bloques de 64 bytes.
+    mini, minifat = b"", []
+    for e in entradas[1:]:
+        if e["tipo"] != 2:
+            continue
+        n = max(1, -(-len(e["datos"]) // 64)) if e["datos"] else 0
+        e["inicio"] = len(mini) // 64 if n else _FIN
+        for k in range(n):
+            minifat.append(len(mini) // 64 + 1 if k < n - 1 else _FIN)
+            mini += e["datos"][k * 64:(k + 1) * 64].ljust(64, b"\x00")
+    clave = lambda e: (len(e["nombre"]), e["nombre"].upper())  # noqa: E731
+
+    def enlazar(hijos):
+        # Hermanos en orden, cada uno a la derecha del anterior: un árbol válido de búsqueda.
+        orden = sorted(hijos, key=lambda j: clave(entradas[j]))
+        for a, b in zip(orden, orden[1:]):
+            entradas[a]["der"] = b
+        return orden[0] if orden else _LIBRE
+    for e in entradas:
+        e["hijo"] = enlazar(e["hijos"]) if e["hijos"] else _LIBRE
+    S = 512
+    sectores: list[bytes] = []
+
+    def poner(datos):
+        ini = len(sectores)
+        for k in range(0, max(len(datos), 1), S):
+            sectores.append(datos[k:k + S].ljust(S, b"\x00"))
+        return ini, len(sectores) - ini
+    mini_ini, mini_n = poner(mini)
+    mf = b"".join(struct.pack("<I", x) for x in minifat) + b"\xff" * 4 * ((-len(minifat)) % (S // 4))
+    mf_ini, mf_n = poner(mf)
+    dirb = b""
+    for i, e in enumerate(entradas):
+        nb = u(e["nombre"]) + b"\x00\x00"
+        es_raiz = i == 0
+        dirb += (nb.ljust(64, b"\x00") + struct.pack("<HBB", len(nb), e["tipo"], 1)
+                 + struct.pack("<III", e.get("izq", _LIBRE), e.get("der", _LIBRE), e["hijo"]) + b"\x00" * 36
+                 + struct.pack("<IQ", mini_ini if es_raiz else e.get("inicio", 0) if e["tipo"] == 2 else 0,
+                               len(mini) if es_raiz else len(e["datos"])))
+    dirb += b"\x00" * ((-len(dirb)) % S)
+    dir_ini, dir_n = poner(dirb)
+    # La FAT: cuántos sectores ocupa ella misma depende de cuántos hay en total.
+    n_fat = 1
+    while (len(sectores) + n_fat) > n_fat * (S // 4):
+        n_fat += 1
+    fat = [_LIBRE] * (n_fat * (S // 4))
+    for ini, n in ((mini_ini, mini_n), (mf_ini, mf_n), (dir_ini, dir_n)):
+        for k in range(n):
+            fat[ini + k] = ini + k + 1 if k < n - 1 else _FIN
+    fat_ini = len(sectores)
+    for k in range(n_fat):
+        fat[fat_ini + k] = 0xFFFFFFFD
+    for k in range(n_fat):
+        sectores.append(b"".join(struct.pack("<I", x) for x in fat[k * (S // 4):(k + 1) * (S // 4)]))
+    difat = [fat_ini + k for k in range(n_fat)] + [_LIBRE] * (109 - n_fat)
+    cab = (bytes.fromhex("D0CF11E0A1B11AE1") + b"\x00" * 16 + struct.pack("<HHHHH", 0x3E, 3, 0xFFFE, 9, 6) + b"\x00" * 6
+           + struct.pack("<IIIIIIIII", 0, n_fat, dir_ini, 0, 4096, mf_ini, mf_n, _FIN, 0)
+           + struct.pack("<109I", *difat))
+    Path(ruta).parent.mkdir(parents=True, exist_ok=True)
+    Path(ruta).write_bytes(cab + b"".join(sectores))
+
+
+
 CONVERTIDORES = {
     ".docx": ("docx", de_docx), ".xlsx": ("xlsx", de_xlsx), ".pptx": ("pptx", de_pptx),
     ".html": ("marcado", de_marcado), ".htm": ("marcado", de_marcado),
-    ".eml": ("eml", de_eml),
+    ".eml": ("eml", de_eml), ".msg": ("msg", de_msg),
 }
 
 SIN_SOPORTE = {
-    ".msg": "formato propietario de Outlook. Guárdalo como .eml y se lee.",
     ".doc": "Word anterior a 2007. Guárdalo como .docx y se lee.",
     ".xls": "Excel anterior a 2007. Guárdalo como .xlsx y se lee.",
     ".zip": "un contenedor: descomprímelo en la carpeta.",
@@ -453,7 +683,10 @@ def selftest() -> int:
 
     (docs / "minuta.md").write_text("# Minuta\n\nCarlos se compromete al viernes.\n",
                                     encoding="utf-8")
-    (docs / "reporte.msg").write_bytes(b"binario de outlook")
+    (docs / "binario.msg").write_bytes(b"binario de outlook")
+    escribir_msg(docs / "reporte.msg", mid="<r1@banco.test>", de="gerencia@banco.test", para=["pmo@banco.test"],
+                 asunto="Reporte de avance", fecha=_dt.datetime(2026, 10, 20, 14, 0, tzinfo=_dt.timezone.utc),
+                 cuerpo="El hito de integración se movió al 2026-12-04.", responde="<s1@banco.test>")
 
     # El XML que guarda Microsoft Project: un resumen, dos tareas y un hito con línea base,
     # predecesora, avance y un recurso asignado.
@@ -483,8 +716,8 @@ def selftest() -> int:
     leer = lambda p: (tmp / "cache" / por_ruta[p]["cached"]).read_text(encoding="utf-8")
 
     pruebas = [
-        ("documentos vistos", r["documents"], 8),
-        ("convertidos", r["converted"], 6),
+        ("documentos vistos", r["documents"], 9),
+        ("convertidos", r["converted"], 7),
         ("ilegibles declarados", r["unreadable"], 2),
         ("project · se reconoce", por_ruta["cronograma.xml"]["converter"], "project"),
         ("project · la tarea, su fin y su avance", "| 2 | 2 | Migración | 2026-03-09 | 2026-08-28 | — | 40% |" in leer("cronograma.xml"), True),
@@ -502,8 +735,12 @@ def selftest() -> int:
         ("xlsx · valor numérico", "1850000000" in leer("presupuesto.xlsx"), True),
         ("pptx · texto de la lámina", "ampliar el alcance" in leer("comite.pptx"), True),
         ("md · pasa nativo", por_ruta["minuta.md"]["converter"], "nativo"),
-        ("msg · se declara", por_ruta["reporte.msg"]["ok"], False),
-        ("msg · con la razón", "Outlook" in por_ruta["reporte.msg"]["reason"], True),
+        ("msg · el cuerpo", "2026-12-04" in leer("reporte.msg"), True),
+        ("msg · el asunto", "Reporte de avance" in leer("reporte.msg"), True),
+        ("msg · los encabezados", (lambda m: (m["de"], m["para"], m["id"], m["responde_a"], m["fecha"].isoformat()))(leer_msg(docs / "reporte.msg")),
+         ("gerencia@banco.test", ["pmo@banco.test"], "<r1@banco.test>", ["<s1@banco.test>", "<s1@banco.test>"], "2026-10-20T14:00:00+00:00")),
+        ("msg · uno que no es compuesto se declara", por_ruta["binario.msg"]["ok"], False),
+        ("msg · con la razón", "compuesto" in por_ruta["binario.msg"]["reason"], True),
         ("caché · <estado>/cache/texto", cache_valido(Path("estado/cache/texto")), True),
         ("caché · rechaza <estado>/texto", cache_valido(Path("estado/texto")), False),
     ]

@@ -9,7 +9,10 @@
     "commitment_overdue": "Un compromiso venció y ningún documento lo sostiene como cumplido",
     "commitment_rescheduled": "Un compromiso se movió más veces de las configuradas",
     "correspondence_unanswered": "Un correo guardado pide respuesta y su plazo venció sin una respuesta guardada",
-    "decision_deadline": "Una decisión pendiente tiene una fecha que la fija dentro de los días configurados"
+    "decision_deadline": "Una decisión pendiente tiene una fecha que la fija dentro de los días configurados",
+    "meeting_during_flight": "Una reunión de la agenda cae durante un vuelo del itinerario del ejecutivo",
+    "meeting_while_away": "Una reunión presencial en la ciudad del ejecutivo cae mientras el itinerario lo tiene de viaje en otra",
+    "trip_not_in_agenda": "Un vuelo del itinerario no está en la agenda: ese tiempo se ve libre"
   },
   "comandos": {
     "ea-setup": "Instalación",

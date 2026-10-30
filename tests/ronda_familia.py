@@ -55,7 +55,8 @@ FAMILIAS = {
             "fichas": {"comercial": ("augusto", "comercial/{periodo}/ficha.json"), "ingresos": ("valeria", "ingresos/{periodo}/ficha.json")},
             "periodos": lambda c: {"periodo": c["periodo"]}},
     "ea": {"resultados": {"ofelia": "resultados.json"},
-           "fichas": {"reuniones": ("ofelia", "reuniones/{k}.json"), "correspondencia": ("ofelia", "correspondencia/{k}.json")},
+           "fichas": {"reuniones": ("ofelia", "reuniones/{k}.json"), "correspondencia": ("ofelia", "correspondencia/{k}.json"),
+                      "viajes": ("ofelia", "viajes/{k}.json")},
            "periodos": lambda c: {}},
 }
 # Lo que el agente escribe de suyo y no extrae de un documento: no se califica contra la clave.
@@ -168,9 +169,15 @@ def correr(a) -> int:
 
 
 def _norma(x):
-    """3000000.0 y 3000000 son la misma cifra; un texto vacío y un campo vacío son lo mismo."""
+    """3000000.0 y 3000000 son la misma cifra; un texto vacío y un campo vacío son lo mismo; y
+    2026-11-03T06:00-05:00 y 2026-11-03T06:00:00-05:00 son el mismo instante."""
     if isinstance(x, str) and not x.strip():
         return None
+    if isinstance(x, str) and re.fullmatch(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?([+-]\d{2}:\d{2}|Z)", x.strip()):
+        try:
+            return dt.datetime.fromisoformat(x.strip().replace("Z", "+00:00")).isoformat(timespec="minutes")
+        except ValueError:
+            return x
     if isinstance(x, float) and x.is_integer():
         return int(x)
     if isinstance(x, dict):

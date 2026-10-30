@@ -128,6 +128,7 @@ direccion/
     ├── 00-referencia/
     ├── 10-agenda/
     ├── 20-correspondencia/
+    ├── 30-viajes/
     ├── 90-borradores/
     └── organos/<órgano>/<AAAA-MM-DD>/
         ├── 10-convocatoria/
@@ -143,7 +144,8 @@ estado-direccion/
 |---|---|---|
 | `00-referencia/` | The governing bodies being followed —board, executive committee, board committees—, their members and their meeting calendar | Ofelia |
 | `10-agenda/` | The calendar exports in .ics, with the export date in the name | Ofelia |
-| `20-correspondencia/` | The emails saved as files, one per message | Ofelia |
+| `20-correspondencia/` | The emails saved as files, one per message: .eml, or Outlook's .msg | Ofelia |
+| `30-viajes/` | The itinerary of each trip —the agency's, the airline ticket—, one per trip, with the departure date in the name | Ofelia |
 | `90-borradores/` | The only place among the documents where Ofelia writes: draft minutes and draft replies, with «BORRADOR» in the name | Ofelia |
 
 **`organos/<órgano>/<AAAA-MM-DD>/`** · One meeting of a governing body, with its date as the folder name
@@ -179,7 +181,7 @@ by hand.**
 <!-- ea:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | What it answers for | What it never does | Its page | Its tests |
 |---|---|---|---|---|
-| **Ofelia** · executive assistant | The executive's day to day: the calendar against their commitments, the preparation of each governing-body meeting with the record of each decision, the draft minutes, the follow-up of commitments and the correspondence that needs a reply | It does not send, schedule, accept or move anything; it does not recommend an option, prioritise for the executive, declare a commitment done without evidence or evaluate a person or a team | [criterio-assistant](../../plugins/criterio-assistant/README.md) · 9 commands, 6 skills | [results](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · executive assistant | The executive's day to day: the calendar against their commitments, the preparation of each governing-body meeting with the record of each decision, the draft minutes, the follow-up of commitments and the correspondence that needs a reply | It does not send, schedule, accept or move anything; it does not recommend an option, prioritise for the executive, declare a commitment done without evidence or evaluate a person or a team | [criterio-assistant](../../plugins/criterio-assistant/README.md) · 9 commands, 7 skills | [results](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ea:familia-agentes -->
 
@@ -273,10 +275,10 @@ The family grows in increments. Each one is a version with its full test and its
 
 <!-- /hoja de ruta -->
 
-## The family's six skills
+## The family's seven skills
 
 <!-- ea:skills-familia · generado por scripts/familias.py; no se edita a mano -->
-Six skills, all of them Ofelia's.
+Seven skills, all of them Ofelia's.
 
 | Skill | Ofelia |
 |---|:--:|
@@ -286,6 +288,7 @@ Six skills, all of them Ofelia's.
 | `ea-intake` | ● |
 | `meeting-record` | ● |
 | `minutes-draft` | ● |
+| `travel-record` | ● |
 <!-- /ea:skills-familia -->
 
 ## Status
@@ -297,7 +300,7 @@ a real executive's office.**
 <!-- ea:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Ofelia** · Executive assistant | `criterio-assistant` · 9 commands, 6 skills | The engine, tested; with the agent, every office in the material, up to round 1 · [results](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · Executive assistant | `criterio-assistant` · 9 commands, 7 skills | The engine, tested; with the agent, every office in the material, up to round 1 · [results](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /ea:estado -->
 

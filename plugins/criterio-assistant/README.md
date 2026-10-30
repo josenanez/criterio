@@ -42,7 +42,7 @@ Ofelia, not a separate agent.
 |---|---|
 | `/criterio-assistant:ea-setup` | The configuration, the inventory and the governing bodies with their meetings |
 | `/criterio-assistant:ea-scan` | The records of the meetings, the correspondence and the calendar |
-| `/criterio-assistant:ea-agenda` | The executive's week: conflicts, meetings without materials and meetings without minutes |
+| `/criterio-assistant:ea-agenda` | The executive's week: conflicts, trips against the calendar, meetings without materials and meetings without minutes |
 | `/criterio-assistant:ea-prep` | The meeting pack, with the record of each decision |
 | `/criterio-assistant:ea-minutes` | The draft minutes, with each agreement and commitment cited |
 | `/criterio-assistant:ea-commitments` | The status of the executive commitments, by governing body and by owner |
@@ -52,7 +52,7 @@ Ofelia, not a separate agent.
 <!-- /ea:comandos -->
 
 <!-- ea:skills · generado por scripts/familias.py; no se edita a mano -->
-### The six skills
+### The seven skills
 
 They load on their own when the subject comes up. They are the knowledge the commands share, and they are consulted like a manual.
 
@@ -64,6 +64,7 @@ They load on their own when the subject comes up. They are the knowledge the com
 | `ea-intake` | Which documents Ofelia processes, where each one goes, what the code processes directly —the .ics calendar and email headers— and what the agent extracts to the record | Own |
 | `meeting-record` | A meeting record: agenda, agreements with owner and date, commitments with their history and pending decisions, each item with its citation | Own |
 | `minutes-draft` | Draft minutes from notes or a transcript, each agreement cited and «BORRADOR» in the name and text | Own |
+| `travel-record` | A trip record: each flight in the itinerary with its number, its route, and its departure and arrival with date, time and time zone, each one with its citation | Own |
 <!-- /ea:skills -->
 
 ## What it is for

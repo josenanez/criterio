@@ -976,6 +976,8 @@
     "ledger_vs_trial_balance": "El saldo de una cuenta en el mayor no es el del balance de comprobación",
     "maturity_near": "Una obligación de deuda o una inversión vence dentro de los días configurados",
     "meeting_conflict": "Dos reuniones del ejecutivo se cruzan en la agenda exportada",
+    "meeting_during_flight": "Una reunión de la agenda cae durante un vuelo del itinerario del ejecutivo",
+    "meeting_while_away": "Una reunión presencial en la ciudad del ejecutivo cae mientras el itinerario lo tiene de viaje en otra",
     "meeting_without_material": "A los días configurados de una sesión de un órgano, su material no está en la carpeta",
     "meeting_without_minutes": "Pasados los días configurados de una sesión, su acta firmada no está",
     "notice_deadline_near": "La fecha límite del preaviso de no renovación de un contrato con renovación automática cae dentro de los días configurados",
@@ -1003,6 +1005,7 @@
     "target_vs_closed": "Lo cerrado al corte se aparta de la meta del periodo, prorrateada por los días transcurridos, más del umbral",
     "transfer_without_approval": "Un traslado o una modificación no tiene el acta que lo aprueba",
     "trial_balance_unbalanced": "Los débitos y los créditos del balance de comprobación no suman lo mismo",
+    "trip_not_in_agenda": "Un vuelo del itinerario no está en la agenda: ese tiempo se ve libre",
     "unsigned_contract": "El documento no tiene la firma de las dos partes y el contrato ya empezó",
     "variance_over_threshold": "Lo ejecutado al corte se aparta del presupuesto más del porcentaje configurado",
     "won_without_contract": "Una oportunidad ganada no tiene su contrato firmado en la ficha de Fidel"

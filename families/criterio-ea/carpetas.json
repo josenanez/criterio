@@ -40,10 +40,24 @@
           "agentes": [
             "ofelia"
           ],
-          "es": "Los correos guardados como archivo, uno por mensaje",
-          "en": "The emails saved as files, one per message",
+          "es": "Los correos guardados como archivo, uno por mensaje: .eml, o .msg de Outlook",
+          "en": "The emails saved as files, one per message: .eml, or Outlook's .msg",
           "patrones": [
-            "\\.eml$"
+            "\\.eml$",
+            "\\.msg$"
+          ]
+        },
+        {
+          "carpeta": "30-viajes",
+          "agentes": [
+            "ofelia"
+          ],
+          "es": "Los itinerarios de cada viaje —el de la agencia, el pasaje de la aerolínea—, uno por viaje, con la fecha de salida en el nombre",
+          "en": "The itinerary of each trip —the agency's, the airline ticket—, one per trip, with the departure date in the name",
+          "patrones": [
+            "itinerario",
+            "pasaje",
+            "viaje"
           ]
         },
         {

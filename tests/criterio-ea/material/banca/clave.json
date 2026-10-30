@@ -36,6 +36,7 @@
    }
   }
  },
+ "proveedor": "outlook",
  "extraccion": {
   "reuniones": {
    "junta-directiva-2026-09-24": {
@@ -415,52 +416,120 @@
   },
   "correspondencia": {
    "2026-10-14-solicitud-1": {
-    "file": "20-correspondencia/2026-10-14-solicitud-1.eml",
+    "file": "20-correspondencia/2026-10-14-solicitud-1.msg",
     "asks_reply": true,
     "due": "2026-10-20",
     "routine": false
    },
    "2026-10-15-solicitud-2": {
-    "file": "20-correspondencia/2026-10-15-solicitud-2.eml",
+    "file": "20-correspondencia/2026-10-15-solicitud-2.msg",
     "asks_reply": true,
     "due": "2026-10-21",
     "routine": false
    },
    "2026-10-16-solicitud-3": {
-    "file": "20-correspondencia/2026-10-16-solicitud-3.eml",
+    "file": "20-correspondencia/2026-10-16-solicitud-3.msg",
     "asks_reply": true,
     "due": "2026-10-22",
     "routine": false
    },
    "2026-10-17-solicitud-4": {
-    "file": "20-correspondencia/2026-10-17-solicitud-4.eml",
+    "file": "20-correspondencia/2026-10-17-solicitud-4.msg",
     "asks_reply": true,
     "due": "2026-10-23",
     "routine": false
    },
    "2026-10-18-solicitud-5": {
-    "file": "20-correspondencia/2026-10-18-solicitud-5.eml",
+    "file": "20-correspondencia/2026-10-18-solicitud-5.msg",
     "asks_reply": true,
     "due": "2026-10-24",
     "routine": false
    },
    "2026-10-08-supervisor": {
-    "file": "20-correspondencia/2026-10-08-supervisor.eml",
+    "file": "20-correspondencia/2026-10-08-supervisor.msg",
     "asks_reply": true,
     "due": "2026-10-20",
     "routine": false
    },
    "2026-10-12-cliente": {
-    "file": "20-correspondencia/2026-10-12-cliente.eml",
+    "file": "20-correspondencia/2026-10-12-cliente.msg",
     "asks_reply": true,
     "due": "2026-10-16",
     "routine": false
    },
    "2026-10-21-boletin": {
-    "file": "20-correspondencia/2026-10-21-boletin.eml",
+    "file": "20-correspondencia/2026-10-21-boletin.msg",
     "asks_reply": false,
     "due": null,
     "routine": false
+   }
+  },
+  "viajes": {
+   "UIO-itinerario-quito": {
+    "file": "30-viajes/UIO-itinerario-quito.md",
+    "trip": "Quito",
+    "flights": [
+     {
+      "flight": "AV 9341",
+      "from": "Bogotá",
+      "to": "Quito",
+      "depart": "2026-11-03T06:00-05:00",
+      "arrive": "2026-11-03T07:35-05:00",
+      "source": "30-viajes/UIO-itinerario-quito.md, línea 8"
+     },
+     {
+      "flight": "AV 9342",
+      "from": "Quito",
+      "to": "Bogotá",
+      "depart": "2026-11-05T18:00-05:00",
+      "arrive": "2026-11-05T19:35-05:00",
+      "source": "30-viajes/UIO-itinerario-quito.md, línea 9"
+     }
+    ]
+   },
+   "MDE-itinerario-medellin": {
+    "file": "30-viajes/MDE-itinerario-medellin.md",
+    "trip": "Medellín",
+    "flights": [
+     {
+      "flight": "AV 9210",
+      "from": "Bogotá",
+      "to": "Medellín",
+      "depart": "2026-10-27T06:00-05:00",
+      "arrive": "2026-10-27T07:00-05:00",
+      "source": "30-viajes/MDE-itinerario-medellin.md, línea 8"
+     },
+     {
+      "flight": "AV 9217",
+      "from": "Medellín",
+      "to": "Bogotá",
+      "depart": "2026-10-27T19:00-05:00",
+      "arrive": "2026-10-27T20:00-05:00",
+      "source": "30-viajes/MDE-itinerario-medellin.md, línea 9"
+     }
+    ]
+   },
+   "CLO-itinerario-cali": {
+    "file": "30-viajes/CLO-itinerario-cali.md",
+    "trip": "Cali",
+    "flights": [
+     {
+      "flight": "AV 9520",
+      "from": "Bogotá",
+      "to": "Cali",
+      "depart": "2026-10-28T06:30-05:00",
+      "arrive": "2026-10-28T07:30-05:00",
+      "source": "30-viajes/CLO-itinerario-cali.md, línea 8"
+     },
+     {
+      "flight": "AV 9527",
+      "from": "Cali",
+      "to": "Bogotá",
+      "depart": "2026-10-28T20:00-05:00",
+      "arrive": "2026-10-28T21:00-05:00",
+      "source": "30-viajes/CLO-itinerario-cali.md, línea 9"
+     }
+    ]
    }
   }
  },
@@ -622,12 +691,48 @@
    "key": "cruce:2026-11-06:cruce-a3-1|cruce-b3-1"
   },
   {
+   "signal": "meeting_during_flight",
+   "key": "vuelo:AV9217:calificadora-1"
+  },
+  {
+   "signal": "meeting_during_flight",
+   "key": "vuelo:AV9342:gremio-1"
+  },
+  {
+   "signal": "meeting_while_away",
+   "key": "fuera:2026-10-27:sindicato-1"
+  },
+  {
+   "signal": "meeting_while_away",
+   "key": "fuera:2026-10-28:principal-1"
+  },
+  {
+   "signal": "meeting_while_away",
+   "key": "fuera:2026-11-04:riesgos-1"
+  },
+  {
    "signal": "meeting_without_material",
    "key": "material:junta-directiva:2026-10-29"
   },
   {
    "signal": "meeting_without_minutes",
    "key": "acta:comite-de-presidencia:2026-09-21"
+  },
+  {
+   "signal": "trip_not_in_agenda",
+   "key": "viaje-agenda:AV9210:2026-10-27"
+  },
+  {
+   "signal": "trip_not_in_agenda",
+   "key": "viaje-agenda:AV9341:2026-11-03"
+  },
+  {
+   "signal": "trip_not_in_agenda",
+   "key": "viaje-agenda:AV9520:2026-10-28"
+  },
+  {
+   "signal": "trip_not_in_agenda",
+   "key": "viaje-agenda:AV9527:2026-10-28"
   }
  ]
 }

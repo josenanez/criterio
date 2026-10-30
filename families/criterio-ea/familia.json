@@ -87,14 +87,14 @@
           "n": 1,
           "es": {
             "etiqueta": "Procesar",
-            "entrada": "La agenda de `10-agenda`, cada sesión de `organos/` y la correspondencia de `20-correspondencia` (F-02, F-03)",
-            "proceso": "El código normaliza la agenda —repeticiones y zonas horarias— y los correos; el modelo de lenguaje (LLM) extrae de actas, notas y correos los acuerdos, los compromisos y lo que se pide, cada uno con su cita",
+            "entrada": "La agenda de `10-agenda`, cada sesión de `organos/`, la correspondencia de `20-correspondencia` y los itinerarios de `30-viajes` (F-02, F-03)",
+            "proceso": "El código normaliza la agenda —repeticiones y zonas horarias— y los correos; el modelo de lenguaje (LLM) extrae de actas, notas y correos los acuerdos, los compromisos y lo que se pide, y de cada itinerario sus vuelos, cada uno con su cita",
             "reporte": "Las fichas nuevas y las que cambiaron; lo que no se pudo procesar y por qué",
-            "entrega": "Las fichas de las reuniones, de la correspondencia y de la agenda"
+            "entrega": "Las fichas de las reuniones, de la correspondencia, de los viajes y de la agenda"
           },
           "en": {
             "etiqueta": "Process",
-            "entrada": "The calendar in `10-agenda`, each meeting in `organos/` and the correspondence in `20-correspondencia` (F-02, F-03)",
+            "entrada": "The calendar in `10-agenda`, each meeting in `organos/`, the correspondence in `20-correspondencia` and the itineraries in `30-viajes` (F-02, F-03)",
             "proceso": "The code normalises the calendar —recurrences and time zones— and the emails; the language model (LLM) extracts from minutes, notes and emails the agreements, the commitments and what is being asked, each with its citation",
             "reporte": "The new records and those that changed; what could not be processed and why",
             "entrega": "The records of the meetings, the correspondence and the calendar"
@@ -105,17 +105,17 @@
           "n": 2,
           "es": {
             "etiqueta": "La semana",
-            "entrada": "La ficha de la agenda y las de las reuniones",
-            "proceso": "Cruza la semana del ejecutivo contra sus sesiones y sus compromisos; si la exportación es más vieja que el umbral, avisa y no calcula cruces",
-            "reporte": "Los cruces, las sesiones sin material y las sesiones sin acta, con la fecha de la exportación",
-            "entrega": "La semana del ejecutivo: cruces, sesiones sin material y sesiones sin acta"
+            "entrada": "La ficha de la agenda, las de las reuniones y las de los viajes",
+            "proceso": "Cruza la semana del ejecutivo contra sus sesiones, sus compromisos y los vuelos de sus viajes; si la exportación es más vieja que el umbral, avisa y no calcula cruces",
+            "reporte": "Los cruces, las reuniones que caen durante un vuelo o en su ciudad estando de viaje, los vuelos que no están en la agenda, las sesiones sin material y las sesiones sin acta, con la fecha de la exportación",
+            "entrega": "La semana del ejecutivo: cruces, viajes contra la agenda, sesiones sin material y sesiones sin acta"
           },
           "en": {
             "etiqueta": "The week",
-            "entrada": "The calendar record and the meeting records",
-            "proceso": "Checks the executive's week against their meetings and commitments; if the export is older than the threshold, it says so and computes no conflicts",
-            "reporte": "The conflicts, the meetings without materials and those without minutes, with the export date",
-            "entrega": "The executive's week: conflicts, meetings without materials and meetings without minutes"
+            "entrada": "The calendar record, the meeting records and the trip records",
+            "proceso": "Checks the executive's week against their meetings, their commitments and the flights of their trips; if the export is older than the threshold, it says so and computes no conflicts",
+            "reporte": "The conflicts, the meetings that fall during a flight or in the home city while travelling, the flights missing from the calendar, the meetings without materials and those without minutes, with the export date",
+            "entrega": "The executive's week: conflicts, trips against the calendar, meetings without materials and meetings without minutes"
           }
         },
         {
@@ -272,6 +272,21 @@
           "id": "decision_deadline",
           "es": "Una decisión pendiente tiene una fecha que la fija dentro de los días configurados",
           "en": "A pending decision has a date that sets it within the configured days"
+        },
+        {
+          "id": "meeting_during_flight",
+          "es": "Una reunión de la agenda cae durante un vuelo del itinerario del ejecutivo",
+          "en": "A meeting in the calendar falls during a flight in the executive's itinerary"
+        },
+        {
+          "id": "meeting_while_away",
+          "es": "Una reunión presencial en la ciudad del ejecutivo cae mientras el itinerario lo tiene de viaje en otra",
+          "en": "An in-person meeting in the executive's home city falls while the itinerary has them travelling in another city"
+        },
+        {
+          "id": "trip_not_in_agenda",
+          "es": "Un vuelo del itinerario no está en la agenda: ese tiempo se ve libre",
+          "en": "A flight in the itinerary is not in the calendar: that time looks free"
         }
       ],
       "ella": true
@@ -301,6 +316,10 @@
     "commitment-tracking": {
       "es": "El compromiso vencido sin evidencia, el que nadie fechó y el que se movió una y otra vez: las reglas de Samuel",
       "en": "The commitment overdue without evidence, the one nobody dated and the one moved again and again: Samuel's rules"
+    },
+    "travel-record": {
+      "es": "La ficha de un viaje: cada vuelo del itinerario con su número, su ruta, y su salida y su llegada con fecha, hora y zona, cada uno con su cita",
+      "en": "A trip record: each flight in the itinerary with its number, its route, and its departure and arrival with date, time and time zone, each one with its citation"
     }
   },
   "impresora": {

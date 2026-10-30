@@ -25,6 +25,7 @@
    }
   }
  },
+ "proveedor": "outlook",
  "extraccion": {
   "reuniones": {
    "junta-directiva-2026-09-24": {
@@ -132,22 +133,46 @@
   },
   "correspondencia": {
    "2026-10-08-supervisor": {
-    "file": "20-correspondencia/2026-10-08-supervisor.eml",
+    "file": "20-correspondencia/2026-10-08-supervisor.msg",
     "asks_reply": true,
     "due": "2026-10-20",
     "routine": false
    },
    "2026-10-12-cliente": {
-    "file": "20-correspondencia/2026-10-12-cliente.eml",
+    "file": "20-correspondencia/2026-10-12-cliente.msg",
     "asks_reply": true,
     "due": "2026-10-16",
     "routine": false
    },
    "2026-10-21-boletin": {
-    "file": "20-correspondencia/2026-10-21-boletin.eml",
+    "file": "20-correspondencia/2026-10-21-boletin.msg",
     "asks_reply": false,
     "due": null,
     "routine": false
+   }
+  },
+  "viajes": {
+   "MDE-itinerario-medellin": {
+    "file": "30-viajes/MDE-itinerario-medellin.md",
+    "trip": "Medellín",
+    "flights": [
+     {
+      "flight": "LA 4021",
+      "from": "Bogotá",
+      "to": "Medellín",
+      "depart": "2026-11-04T06:30-05:00",
+      "arrive": "2026-11-04T07:30-05:00",
+      "source": "30-viajes/MDE-itinerario-medellin.md, línea 8"
+     },
+     {
+      "flight": "LA 4030",
+      "from": "Medellín",
+      "to": "Bogotá",
+      "depart": "2026-11-04T18:30-05:00",
+      "arrive": "2026-11-04T19:30-05:00",
+      "source": "30-viajes/MDE-itinerario-medellin.md, línea 9"
+     }
+    ]
    }
   }
  },

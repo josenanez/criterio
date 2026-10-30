@@ -7,15 +7,24 @@ correos son sintéticos.
 
 ## Las oficinas
 
-| Carpeta del material | País | La oficina | Defectos sembrados | Señales esperadas |
-|---|---|---|---:|---:|
-| `banca` | Colombia | La presidencia de una entidad financiera | 10 + 31 | 41 |
-| `cooperativas` | Ecuador | La gerencia general de una cooperativa | 6 + 31 | 35 |
-| `control-co` | Colombia | Una gerencia general | 0 | 0 |
-| `control-ec` | Ecuador | Una presidencia | 0 | 0 |
+| Carpeta del material | País | Proveedor | La oficina | Defectos sembrados | Señales esperadas |
+|---|---|---|---|---:|---:|
+| `banca` | Colombia | Outlook | La presidencia de una entidad financiera | 10 + 31 + 9 | 50 |
+| `cooperativas` | Ecuador | Google | La gerencia general de una cooperativa | 6 + 31 | 35 |
+| `control-co` | Colombia | Outlook | Una gerencia general | 0 | 0 |
+| `control-ec` | Ecuador | Google | Una presidencia | 0 | 0 |
 
-En total, **76 señales sembradas**: más de las 73 que pide un piso del 95 % sin fallas (decisión
-0020). Cada defecto sembrado es la siembra —la señal una vez— más el lote de la oficina.
+En total, **85 señales sembradas**: más de las 73 que pide un piso del 95 % sin fallas (decisión
+0020). Cada defecto sembrado es la siembra —la señal una vez— más el lote de la oficina y, en
+`banca`, los nueve de sus tres viajes.
+
+**Cada oficina con su proveedor.** Lo que de verdad cambia de una oficina a otra no es el país sino
+de dónde exporta. Las de Outlook traen la agenda como la exporta Outlook —la zona con su nombre de
+Windows («SA Pacific Standard Time», «Eastern Standard Time»), el estado «libre» con
+`X-MICROSOFT-CDO-BUSYSTATUS` y el día completo marcado aparte— y cada correo como un `.msg`, el
+archivo compuesto de Outlook. Las de Google traen la agenda como la exporta Google Calendar —los
+eventos únicos en UTC, la zona del calendario en el encabezado y la ocurrencia cancelada de una
+serie como un evento aparte— y los correos en `.eml`.
 
 Las dos de `cooperativas` que no dan señal son reglas, no señales: la agenda vieja y la carpeta
 excluida. Cada oficina trae su carpeta al 26 de octubre de 2026: la referencia con sus dos órganos
@@ -41,6 +50,31 @@ la del 5 de octubre, con su acta firmada, y en correos y reuniones propios.
 
 La agenda de `cooperativas` es vieja: ahí un cruce no se cuenta, y por eso su lote no trae cruces.
 
+## Los viajes
+
+Cada oficina trae en `30-viajes/` el itinerario de la agencia de cada viaje, con cada vuelo, su
+ruta, y su salida y su llegada en la hora local de cada ciudad con su desfase. La agente lleva cada
+vuelo a la ficha del viaje; el motor lo cruza con la agenda.
+
+| Viaje | Lo sembrado | Señal | Dónde |
+|---|---|---|---|
+| Quito, del 3 al 5 de noviembre | El vuelo de ida no está en la agenda | `trip_not_in_agenda` | banca |
+| | El comité de riesgos, presencial en la sede de Bogotá, el 4 de noviembre | `meeting_while_away` | banca |
+| | La cena del gremio, en Bogotá, empieza durante el vuelo de vuelta | `meeting_during_flight` | banca |
+| Medellín, el 27 de octubre | El vuelo de ida no está en la agenda | `trip_not_in_agenda` | banca |
+| | La reunión con el sindicato, presencial en la sede de Bogotá | `meeting_while_away` | banca |
+| | Una llamada durante el vuelo de vuelta | `meeting_during_flight` | banca |
+| Cali, el 28 de octubre | Ninguno de los dos vuelos está en la agenda | `trip_not_in_agenda` × 2 | banca |
+| | La visita a la oficina principal, presencial en Bogotá | `meeting_while_away` | banca |
+
+Lo que se parece a un defecto y no lo es: en el viaje a Quito, una reunión en Quito y un comité por
+Microsoft Teams; el vuelo de vuelta en la agenda, que no se cruza como reunión. En `control-co`, un
+viaje a Medellín con los dos vuelos en la agenda, una visita a la planta en Medellín y un comité
+por Teams. En `control-ec`, un viaje a Santiago de Chile —la llegada en la hora de Santiago, dos
+horas más que Quito en noviembre— con una reunión allá y un directorio por Google Meet. En
+`cooperativas`, un viaje a Guayaquil con los dos vuelos fuera de la agenda y una asamblea en Quito:
+su agenda es vieja, y entonces el viaje no se cruza.
+
 ## Lo que se siembra, y la señal que tiene que levantar
 
 | Defecto | Señal | Dónde |
@@ -65,6 +99,9 @@ La agenda de `cooperativas` es vieja: ahí un cruce no se cuenta, y por eso su l
 | Un borrador en `40-acta/` | Lo dice como no procesado y la sesión sigue sin acta | cooperativas |
 | Un correo en `20-correspondencia/personal/`, excluida, que pide respuesta con el plazo vencido | No se procesa ni se menciona como pendiente | cooperativas |
 | Un bloque de concentración marcado como libre y una visita cancelada, a la misma hora que otras reuniones | No cruzan | todas |
+| Una reunión de seguimiento dentro del bloque libre —en Outlook, libre por su `X-MICROSOFT-CDO-BUSYSTATUS`— | No cruza | control-co, control-ec |
+| La ocurrencia del comité del 26 de octubre, cancelada como un evento aparte, y un desayuno a esa hora | No cruzan | control-ec |
+| Los correos en `.msg`, con su respuesta guardada también en `.msg` | El motor los lee como un `.eml` y la respuesta cierra el pedido | banca, control-co |
 | Un día completo sin reuniones | No cruza con nada | todas |
 | El informe | No se publica en Rostrum: la configuración no lo dice | todas |
 
@@ -80,12 +117,13 @@ sola vez. **Cualquier señal en un control es una falla.**
 
 - **La oficina de un ejecutivo real.** Nada de esto se ha corrido sobre la agenda, las actas o la
   correspondencia de una organización.
-- **Los formatos de exportación de cada proveedor de calendario y de correo.** El .ics y el .eml del
-  material siguen sus normas (F-02, F-03); una exportación con extensiones propias de un proveedor
-  puede traer lo que el lector no procesa, y entonces lo declara.
+- **Todas las variantes de cada proveedor.** El material trae lo que Outlook y Google Calendar
+  ponen distinto en el .ics y el .msg de Outlook; una exportación con otra extensión propia puede
+  traer lo que el lector no procesa, y entonces lo declara. Las zonas con nombre de Windows son las
+  de la región y las de las casas matrices más comunes; una que no está se declara.
 - **Las repeticiones fuera de lo soportado.** Diarias, semanales por día y mensuales por día del mes,
   con intervalo, conteo, fecha final, excepciones y ocurrencias movidas; cualquier otra se declara,
   no se adivina.
-- **Los correos .msg.** La estructura los acepta en `20-correspondencia/`; el motor procesa .eml.
-- **Los viajes.** Los itinerarios contra la agenda son el incremento 2.
+- **Un itinerario sin la zona de sus horas.** Si el documento no la dice, el vuelo queda sin esa
+  hora y no se cruza: el motor lo pide en la ficha.
 - **Otras oficinas de otros países.** Ofelia no procesa nada propio de un país; el material es de Colombia y Ecuador, con una tercera zona horaria, y lo que falta probar son las exportaciones de cada proveedor, no los países.

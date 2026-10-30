@@ -1044,27 +1044,27 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 ### `/criterio-assistant:ea-scan`
 
-**Qué hace.** Las fichas de las reuniones, de la correspondencia y de la agenda
+**Qué hace.** Las fichas de las reuniones, de la correspondencia, de los viajes y de la agenda
 
 **Argumento.** `[órgano o fecha] o vacío`
 
-**Procesa.** config; agenda .ics; `sesiones de organos/`; correos .eml
+**Procesa.** config; agenda .ics; `sesiones de organos/`; correos .eml y .msg; `itinerarios de 30-viajes/`
 
 **Muestra.** las fichas nuevas y cambiadas, las señales
 
-**Escribe.** `<estado>/reuniones/<órgano>-<AAAA-MM-DD>.json`; `<estado>/correspondencia/<correo>.json`; `<estado>/resultados.json`; `<estado>/reporte-ea-scan.md`
+**Escribe.** `<estado>/reuniones/<órgano>-<AAAA-MM-DD>.json`; `<estado>/correspondencia/<correo>.json`; `<estado>/viajes/<itinerario>.json`; `<estado>/resultados.json`; `<estado>/reporte-ea-scan.md`
 
-**Skills.** **commitment-tracking**, **correspondence-record**, **decision-brief**, **ea-intake**, **meeting-record**
+**Skills.** **commitment-tracking**, **correspondence-record**, **decision-brief**, **ea-intake**, **meeting-record**, **travel-record**
 
 ### `/criterio-assistant:ea-agenda`
 
-**Qué hace.** La semana del ejecutivo: cruces, sesiones sin material y sesiones sin acta
+**Qué hace.** La semana del ejecutivo: cruces, viajes contra la agenda, sesiones sin material y sesiones sin acta
 
 **Argumento.** `[días] o vacío`
 
-**Procesa.** config; agenda .ics; fichas de las reuniones
+**Procesa.** config; agenda .ics; fichas de las reuniones; fichas de los viajes
 
-**Muestra.** la semana: cruces, sesiones sin material y sin acta
+**Muestra.** la semana: cruces, viajes contra la agenda, sesiones sin material y sin acta
 
 **Escribe.** `<estado>/resultados.json`; `<estado>/reporte-ea-agenda.md`
 

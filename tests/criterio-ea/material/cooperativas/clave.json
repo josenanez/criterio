@@ -34,6 +34,7 @@
    }
   }
  },
+ "proveedor": "google",
  "extraccion": {
   "reuniones": {
    "consejo-de-administracion-2026-09-24": {
@@ -458,6 +459,30 @@
     "asks_reply": false,
     "due": null,
     "routine": false
+   }
+  },
+  "viajes": {
+   "GYE-itinerario-guayaquil": {
+    "file": "30-viajes/GYE-itinerario-guayaquil.md",
+    "trip": "Guayaquil",
+    "flights": [
+     {
+      "flight": "LA 1405",
+      "from": "Quito",
+      "to": "Guayaquil",
+      "depart": "2026-11-03T07:00-05:00",
+      "arrive": "2026-11-03T07:50-05:00",
+      "source": "30-viajes/GYE-itinerario-guayaquil.md, línea 8"
+     },
+     {
+      "flight": "LA 1412",
+      "from": "Guayaquil",
+      "to": "Quito",
+      "depart": "2026-11-04T19:00-05:00",
+      "arrive": "2026-11-04T19:50-05:00",
+      "source": "30-viajes/GYE-itinerario-guayaquil.md, línea 9"
+     }
+    ]
    }
   }
  },

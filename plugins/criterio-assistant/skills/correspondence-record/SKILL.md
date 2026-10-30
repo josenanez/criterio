@@ -5,7 +5,7 @@ description: "Cómo se lleva a la ficha un correo guardado: si pide respuesta, q
 
 # La ficha de un correo
 
-Una por correo guardado que no salió de la oficina, en `<estado>/correspondencia/<nombre del archivo sin extensión>.json`:
+Una por correo guardado —`.eml`, o `.msg` de Outlook— que no salió de la oficina, en `<estado>/correspondencia/<nombre del archivo sin extensión>.json`:
 
 ```json
 {

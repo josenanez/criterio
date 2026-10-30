@@ -1,5 +1,5 @@
 ---
-description: Procesa la agenda, las sesiones de los órganos y la correspondencia, y escribe las fichas con cada dato citado
+description: Procesa la agenda, las sesiones de los órganos, la correspondencia y los viajes, y escribe las fichas con cada dato citado
 argument-hint: "[órgano o fecha] o vacío para todo"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
 ---
@@ -36,13 +36,15 @@ Si la exportación es más vieja que el umbral, el motor lo avisa y no calcula c
 
 **3. Lo nuevo o cambiado se extrae a la ficha de su sesión**, `<estado>/reuniones/<órgano>-<AAAA-MM-DD>.json`, aplicando **meeting-record**: de la convocatoria, el orden del día; del acta firmada, los acuerdos y los compromisos; y de cada punto que pide una decisión, su ficha con **decision-brief**. Los compromisos siguen **commitment-tracking**: cada uno es del acta donde nació, uno movido lleva su historia en `reschedules` y uno vencido se busca en el material antes de dejarlo abierto. Los de proyecto son de Samuel: se citan, no se copian.
 
-**4. Cada correo guardado tiene su ficha**, `<estado>/correspondencia/<nombre del archivo sin extensión>.json`, aplicando **correspondence-record**: si pide respuesta, qué pide y para cuándo, con su cita. Los encabezados —quién, cuándo, a qué responde— los procesa el motor.
+**4. Cada correo guardado —.eml, o .msg de Outlook— tiene su ficha**, `<estado>/correspondencia/<nombre del archivo sin extensión>.json`, aplicando **correspondence-record**: si pide respuesta, qué pide y para cuándo, con su cita. Los encabezados —quién, cuándo, a qué responde— los procesa el motor.
+
+**5. Cada itinerario de `30-viajes/` tiene su ficha**, `<estado>/viajes/<nombre del archivo sin extensión>.json`, aplicando **travel-record**: cada vuelo con su número, su ruta, y su salida y su llegada con fecha, hora y zona, con su cita. El cruce contra la agenda lo hace el motor.
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" convertir --config <config>
 ```
 
-**5. Calcula y muestra:**
+**6. Calcula y muestra:**
 
 ```
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" compute --config <config>
@@ -64,5 +66,5 @@ Lo último, siempre. Escribe en `<estado>/corridas/salida-ea-scan.md` **lo que l
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/asistente.py" corrida --config <config> --what ea-scan \
     --salida <estado>/corridas/salida-ea-scan.md \
     --caso <órgano o «todo»> \
-    --nota "sesiones y correos nuevos o cambiados, señales"
+    --nota "sesiones, correos y viajes nuevos o cambiados, señales"
 ```

@@ -21,28 +21,91 @@ decisión con su plazo cerca, el correo sin respuesta, el cruce de la agenda y l
 casi todas en una sesión más del comité, con su acta firmada. Así el material siembra 73 señales o
 más: lo que pide un piso del 95 % sin fallas (decisión 0020).
 
+**Cada oficina con su proveedor (1.0.0).** Lo que de verdad cambia de una oficina a otra no es el
+país sino de dónde exporta: las de Outlook traen la agenda como la exporta Outlook —la zona con su
+nombre de Windows, el estado «libre» propio, el día completo marcado aparte— y los correos en .msg;
+las de Google traen la agenda como la exporta Google Calendar —las horas en UTC, la zona del
+calendario en el encabezado y la ocurrencia cancelada de una serie como un evento aparte— y los
+correos en .eml.
+
+**Los viajes (1.0.0).** Cada oficina trae los itinerarios de sus viajes en `30-viajes/`, y la
+agenda los muestra o no: el vuelo que no está en la agenda, la reunión que cae durante un vuelo y
+la reunión presencial en la ciudad del ejecutivo mientras está de viaje. En los controles todo
+cuadra: los vuelos están en la agenda, la reunión de esos días es virtual o en la ciudad del viaje.
+
 Nada de esto pertenece a una organización: los nombres, las cifras y las personas los escribe
 este archivo. El material sale igual byte a byte cada vez.
 """
 from __future__ import annotations
 
 import datetime as dt
+import email
+import email.policy
+import email.utils
 import json
 import shutil
+import sys
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 AQUI = Path(__file__).resolve().parent
 RAIZ = AQUI.parent.parent
 SALIDA = AQUI / "material"
 HOY = dt.date(2026, 10, 26)
+sys.path.insert(0, str(RAIZ / "plugins" / "criterio-portfolio" / "scripts"))
+import texto  # noqa: E402  el escritor de .msg de las pruebas
 
-CABECERA_ICS = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Criterio//Material de prueba//ES\r\nCALSCALE:GREGORIAN\r\n"
+# Cómo exporta cada proveedor el encabezado del calendario y el nombre de cada zona.
+CABECERA = {
+    "outlook": "BEGIN:VCALENDAR\r\nPRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN\r\nVERSION:2.0\r\nMETHOD:PUBLISH\r\n"
+               "X-MS-OLK-FORCEINSPECTOROPEN:TRUE\r\n",
+    "google": "BEGIN:VCALENDAR\r\nPRODID:-//Google Inc//Google Calendar 70.9054//EN\r\nVERSION:2.0\r\nCALSCALE:GREGORIAN\r\n"
+              "METHOD:PUBLISH\r\nX-WR-CALNAME:{nombre}\r\nX-WR-TIMEZONE:{tz}\r\n",
+}
+WINDOWS = {"America/Bogota": "SA Pacific Standard Time", "America/Guayaquil": "SA Pacific Standard Time",
+           "America/New_York": "Eastern Standard Time"}
+PROVEEDOR = ["outlook"]
 
 
-def vevent(uid, resumen, ini, fin, tz=None, extra=""):
-    p = f";TZID={tz}" if tz else ""
+def _zona_outlook(tz):
+    return (f"BEGIN:VTIMEZONE\r\nTZID:{WINDOWS[tz]}\r\nBEGIN:STANDARD\r\nDTSTART:16010101T000000\r\n"
+            "TZOFFSETFROM:-0500\r\nTZOFFSETTO:-0500\r\nEND:STANDARD\r\nEND:VTIMEZONE\r\n")
+
+
+def vevent(uid, resumen, ini, fin, tz=None, extra="", lugar=None):
+    """Un evento como lo exporta el proveedor de la oficina. Outlook: la zona con su nombre de
+    Windows, el día completo marcado aparte y el estado «libre» propio. Google: un evento único en
+    UTC; una serie, con su zona."""
+    prov = PROVEEDOR[0]
+    if lugar:
+        extra += "LOCATION:" + lugar.replace(",", "\\,") + "\r\n"
+    if prov == "outlook":
+        extra = extra.replace("TRANSP:TRANSPARENT\r\n", "X-MICROSOFT-CDO-BUSYSTATUS:FREE\r\n")
+        if "X-MICROSOFT-CDO-BUSYSTATUS" not in extra:
+            extra += "X-MICROSOFT-CDO-BUSYSTATUS:BUSY\r\n"
+        if not tz:
+            extra += "X-MICROSOFT-CDO-ALLDAYEVENT:TRUE\r\n"
+            return (f"BEGIN:VEVENT\r\nUID:{uid}\r\nDTSTAMP:20261025T120000Z\r\nSUMMARY:{resumen}\r\n"
+                    f"DTSTART;VALUE=DATE:{ini}\r\nDTEND;VALUE=DATE:{fin}\r\n{extra}END:VEVENT\r\n")
+        p = f";TZID={WINDOWS[tz]}"
+    elif tz and "RRULE" not in extra and "RECURRENCE-ID" not in extra:
+        z = ZoneInfo(tz)
+        utc = lambda x: dt.datetime.strptime(x, "%Y%m%dT%H%M%S").replace(tzinfo=z).astimezone(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")  # noqa: E731
+        ini, fin, p = utc(ini), utc(fin), ""
+    else:
+        p = f";TZID={tz}" if tz else ";VALUE=DATE"
     return (f"BEGIN:VEVENT\r\nUID:{uid}\r\nDTSTAMP:20261025T120000Z\r\nSUMMARY:{resumen}\r\n"
             f"DTSTART{p}:{ini}\r\nDTEND{p}:{fin}\r\n{extra}END:VEVENT\r\n")
+
+
+def calendario(o, eventos):
+    prov = o["proveedor"]
+    if prov == "outlook":
+        zonas = sorted({WINDOWS[o["tz"]]} | ({WINDOWS["America/New_York"]} if any("Eastern Standard Time" in e for e in eventos) else set()))
+        cab = CABECERA["outlook"] + "".join(_zona_outlook(next(k for k, v in WINDOWS.items() if v == z)) for z in zonas)
+    else:
+        cab = CABECERA["google"].format(nombre=o["ejecutivo"], tz=o["tz"])
+    return cab + "".join(eventos) + "END:VCALENDAR\r\n"
 
 
 def eml(mid, de, para, fecha, asunto, cuerpo, responde=None):
@@ -51,14 +114,64 @@ def eml(mid, de, para, fecha, asunto, cuerpo, responde=None):
             "MIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\n\n" + cuerpo + "\n")
 
 
-def escribir(p: Path, texto: str) -> None:
+def escribir(p: Path, contenido: str) -> None:
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_bytes(texto.encode("utf-8"))
+    if p.suffix == ".eml" and PROVEEDOR[0] == "outlook":
+        # En una oficina de Outlook el correo guardado es un .msg, con los mismos encabezados.
+        m = email.message_from_string(contenido, policy=email.policy.default)
+        para = [a for _, a in email.utils.getaddresses([str(m["To"] or "")])]
+        ref = str(m["In-Reply-To"] or "").strip() or None
+        texto.escribir_msg(p.with_suffix(".msg"), mid=str(m["Message-ID"]), de=email.utils.parseaddr(str(m["From"]))[1], para=para,
+                           asunto=str(m["Subject"]), fecha=email.utils.parsedate_to_datetime(str(m["Date"])),
+                           cuerpo=m.get_content().rstrip("\n"), responde=ref)
+        return
+    p.write_bytes(contenido.encode("utf-8"))
+
+
+MESES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+
+
+def itinerarios(o: dict, docs: Path, ev: list, esperado: list) -> dict:
+    """Los itinerarios de la oficina en 30-viajes/, los vuelos que están en la agenda y las
+    reuniones de esos días. La clave dice qué señal levanta cada cosa, no la deduce el motor."""
+    tz = ZoneInfo(o["tz"])
+    vieja = "agenda_vieja" in o["siembra"]
+    fichas = {}
+    for v in o.get("viajes") or []:
+        stem = f"{v['vuelos'][0][4][:10]}-itinerario-{v['slug']}"
+        archivo = f"30-viajes/{stem}.md"
+        lineas = [f"# Itinerario · {o['ejecutivo']} · {v['destino']}", "",
+                  f"Agencia: {v['agencia']} · Reserva {v['reserva']}", f"Pasajero: {o['personas'][0]}", "",
+                  "| Vuelo | Ruta | Sale | Llega |", "|---|---|---|---|"]
+        vuelos = []
+        for (codigo, de, de_cod, a, a_cod, sale, off_s, llega, off_l), en_ag in zip(v["vuelos"], v["en_agenda"]):
+            ms, ml = dt.datetime.fromisoformat(sale + off_s), dt.datetime.fromisoformat(llega + off_l)
+            hora = lambda m, off, ciudad: f"{m.day} {MESES[m.month - 1]} {m.year}, {m:%H:%M} hora de {ciudad} (UTC{off[:3].replace('-', '−')})"  # noqa: E731
+            lineas.append(f"| {codigo} | {de} ({de_cod}) → {a} ({a_cod}) | {hora(ms, off_s, de)} | {hora(ml, off_l, a)} |")
+            vuelos.append({"flight": codigo, "from": de, "to": a, "depart": ms.isoformat(timespec="minutes"),
+                           "arrive": ml.isoformat(timespec="minutes"), "source": f"{archivo}, línea {len(lineas)}"})
+            local = lambda m: m.astimezone(tz).strftime("%Y%m%dT%H%M%S")  # noqa: E731
+            if en_ag:
+                ev.append(vevent(f"vuelo-{codigo.replace(' ', '')}-{o['n']}", f"Vuelo {codigo} {de}–{a}", local(ms), local(ml), o["tz"]))
+            elif not vieja:
+                esperado.append(("trip_not_in_agenda", f"viaje-agenda:{codigo.replace(' ', '')}:{ms.astimezone(tz).date().isoformat()}"))
+        lineas += ["", f"Equipaje: una maleta de bodega por trayecto. Los horarios son los de la aerolínea, en la hora local de cada ciudad.", ""]
+        escribir(docs / archivo, "\n".join(lineas))
+        for uid, resumen, ini, fin, lugar, senal in v.get("reuniones") or []:
+            ev.append(vevent(f"{uid}-{o['n']}", resumen, ini, fin, o["tz"], lugar=lugar))
+            if senal and not vieja:
+                tipo, ref = senal
+                esperado.append((tipo, f"vuelo:{ref}:{uid}-{o['n']}" if tipo == "meeting_during_flight"
+                                 else f"fuera:{ini[:4]}-{ini[4:6]}-{ini[6:8]}:{uid}-{o['n']}"))
+        fichas[stem] = {"file": archivo, "trip": v["destino"], "flights": vuelos}
+    return fichas
 
 
 def oficina(o: dict) -> dict:
     """Una oficina: escribe sus documentos y devuelve su clave."""
     base = SALIDA / o["carpeta"]
+    PROVEEDOR[0] = o["proveedor"]
+    ext = ".msg" if o["proveedor"] == "outlook" else ".eml"
     docs_rel = f"direccion/{o['ejecutivo_slug']}"
     docs = base / docs_rel
     s = set(o["siembra"])
@@ -86,6 +199,16 @@ def oficina(o: dict) -> dict:
         vevent(f"junta-{o['n']}", "Sesión de la junta", "20261029T140000", "20261029T170000", tz),
         vevent(f"almuerzo-{o['n']}", "Almuerzo con el comité de auditoría", "20261030T123000", "20261030T140000", tz),
     ]
+    if not s:
+        # Los controles: una reunión dentro del bloque libre no se cruza con él.
+        ev.append(vevent(f"seguimiento-{o['n']}", "Reunión de seguimiento", "20261027T090000", "20261027T100000", tz))
+    if not s and o["proveedor"] == "google":
+        # Google: la ocurrencia cancelada del comité del 26 de octubre va como un evento aparte; el
+        # desayuno de esa hora no se cruza con ella.
+        ev.append(f"BEGIN:VEVENT\r\nUID:comite-{o['n']}\r\nRECURRENCE-ID;TZID={tz}:20261026T080000\r\nDTSTAMP:20261025T120000Z\r\n"
+                  f"SUMMARY:Comité de presidencia\r\nSTATUS:CANCELLED\r\nDTSTART;TZID={tz}:20261026T080000\r\n"
+                  f"DTEND;TZID={tz}:20261026T093000\r\nEND:VEVENT\r\n")
+        ev.append(vevent(f"desayuno-{o['n']}", "Desayuno con la calificadora", "20261026T083000", "20261026T093000", tz))
     if "cruce_directo" in s:
         ev.append(vevent(f"regulador-{o['n']}", "Visita del supervisor", "20261029T153000", "20261029T163000", tz))
         a, b = sorted([f"junta-{o['n']}", f"regulador-{o['n']}"])
@@ -109,7 +232,8 @@ def oficina(o: dict) -> dict:
     if "agenda_vieja" in s:
         # Una agenda vieja con un cruce: el motor avisa y no lo cuenta.
         ev.append(vevent(f"viejo-{o['n']}", "Reunión que se cruza en la agenda vieja", "20261029T150000", "20261029T160000", tz))
-    escribir(docs / "10-agenda" / f"agenda-{fecha_exp}.ics", CABECERA_ICS + "".join(ev) + "END:VCALENDAR\r\n")
+    viajes = itinerarios(o, docs, ev, esperado)
+    escribir(docs / "10-agenda" / f"agenda-{fecha_exp}.ics", calendario(o, ev))
 
     def sesion(organo, fecha, convocatoria=True, material=True, notas=None, acta=None, borrador_en_acta=False):
         d = docs / "organos" / organo / fecha
@@ -339,6 +463,8 @@ def oficina(o: dict) -> dict:
     (docs / "90-borradores").mkdir(parents=True, exist_ok=True)
     escribir(docs / "90-borradores" / "LEEME.txt", "Aquí deja Ofelia sus borradores, con BORRADOR en el nombre.\n")
 
+    for c in correspondencia.values():
+        c["file"] = c["file"][:-4] + ext
     cfg = {"entity": {"name": o["nombre"], "country": o["pais"]},
            "executive": {"name": o["ejecutivo"]}, "timezone": tz, "office_emails": [oficina_mail],
            "excluded_folders": ["20-correspondencia/personal"] if "carpeta_excluida" in s else [],
@@ -348,7 +474,8 @@ def oficina(o: dict) -> dict:
     # texto de las opciones más allá de lo que el documento dice tal cual.
     clave = {"entidad": o["nombre"], "industria": o["industria"], "pais": o["pais"], "hoy": HOY.isoformat(),
              "siembra": sorted(s), "config": {"ofelia": cfg},
-             "extraccion": {"reuniones": reuniones, "correspondencia": correspondencia},
+             "proveedor": o["proveedor"],
+             "extraccion": {"reuniones": reuniones, "correspondencia": correspondencia, "viajes": viajes},
              "esperado": [{"signal": a, "key": b} for a, b in sorted(esperado)]}
     (base / "clave.json").write_text(json.dumps(clave, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     return clave
@@ -356,7 +483,25 @@ def oficina(o: dict) -> dict:
 
 OFICINAS = [
     {"carpeta": "banca", "industria": "banca", "pais": "CO", "id": "900123456", "nombre": "Banco Andino", "n": 1,
-     "ejecutivo": "Presidencia", "ejecutivo_slug": "presidencia", "tz": "America/Bogota", "dominio": "bancoandino.test",
+     "ejecutivo": "Presidencia", "ejecutivo_slug": "presidencia", "tz": "America/Bogota", "dominio": "bancoandino.test", "proveedor": "outlook",
+     "viajes": [
+         {"slug": "quito", "destino": "Quito", "agencia": "Rutas del Valle", "reserva": "QX7P2L", "en_agenda": [False, True],
+          "vuelos": [("AV 9341", "Bogotá", "BOG", "Quito", "UIO", "2026-11-03T06:00", "-05:00", "2026-11-03T07:35", "-05:00"),
+                     ("AV 9342", "Quito", "UIO", "Bogotá", "BOG", "2026-11-05T18:00", "-05:00", "2026-11-05T19:35", "-05:00")],
+          "reuniones": [("riesgos", "Comité de riesgos", "20261104T100000", "20261104T110000", "Sala de juntas, sede principal, Bogotá", ("meeting_while_away", None)),
+                        ("corresponsal", "Reunión con el banco corresponsal", "20261104T113000", "20261104T123000", "Av. Amazonas, Quito", None),
+                        ("credito", "Comité de crédito", "20261104T080000", "20261104T090000", "Microsoft Teams", None),
+                        ("gremio", "Cena de la junta del gremio", "20261105T183000", "20261105T200000", "Club El Nogal, Bogotá", ("meeting_during_flight", "AV9342"))]},
+         {"slug": "medellin", "destino": "Medellín", "agencia": "Rutas del Valle", "reserva": "MD4K9T", "en_agenda": [False, True],
+          "vuelos": [("AV 9210", "Bogotá", "BOG", "Medellín", "MDE", "2026-10-27T06:00", "-05:00", "2026-10-27T07:00", "-05:00"),
+                     ("AV 9217", "Medellín", "MDE", "Bogotá", "BOG", "2026-10-27T19:00", "-05:00", "2026-10-27T20:00", "-05:00")],
+          "reuniones": [("sindicato", "Reunión con el sindicato", "20261027T110000", "20261027T120000", "Sede principal, Bogotá", ("meeting_while_away", None)),
+                        ("calificadora", "Llamada con la calificadora", "20261027T191500", "20261027T194500", None, ("meeting_during_flight", "AV9217"))]},
+         {"slug": "cali", "destino": "Cali", "agencia": "Rutas del Valle", "reserva": "CL8H3W", "en_agenda": [False, False],
+          "vuelos": [("AV 9520", "Bogotá", "BOG", "Cali", "CLO", "2026-10-28T06:30", "-05:00", "2026-10-28T07:30", "-05:00"),
+                     ("AV 9527", "Cali", "CLO", "Bogotá", "BOG", "2026-10-28T20:00", "-05:00", "2026-10-28T21:00", "-05:00")],
+          "reuniones": [("principal", "Visita a la oficina principal", "20261028T140000", "20261028T150000", "Oficina principal, Bogotá", ("meeting_while_away", None))]},
+     ],
      "organos": [("junta-directiva", "Nueve miembros", "último jueves de cada mes"), ("comite-de-presidencia", "Los vicepresidentes", "lunes")],
      "personas": ("Marta Ríos", "Andrés Vela", "Diana Cruz", "Felipe Duarte", "Laura Gómez"),
      "siembra": ["cruce_directo", "cruce_cambio_de_hora", "sin_material", "sin_acta", "acuerdo_sin_responsable", "acuerdo_sin_fecha",
@@ -364,18 +509,39 @@ OFICINAS = [
      "lote": {"acuerdo_sin_responsable": 6, "acuerdo_sin_fecha": 5, "compromiso_vencido": 6, "compromiso_movido": 3,
               "decision_con_plazo": 2, "correo_sin_respuesta": 5, "cruce": 4}},
     {"carpeta": "cooperativas", "industria": "cooperativas", "pais": "EC", "id": "1790012345001", "nombre": "Cooperativa Sierra Alta", "n": 2,
-     "ejecutivo": "Gerencia general", "ejecutivo_slug": "gerencia-general", "tz": "America/Guayaquil", "dominio": "sierraalta.test",
+     "ejecutivo": "Gerencia general", "ejecutivo_slug": "gerencia-general", "tz": "America/Guayaquil", "dominio": "sierraalta.test", "proveedor": "google",
+     # La agenda es vieja: el viaje no se cruza con ella, aunque falte un vuelo y una reunión caiga en casa.
+     "viajes": [
+         {"slug": "guayaquil", "destino": "Guayaquil", "agencia": "Pacífico Viajes", "reserva": "GY2M8R", "en_agenda": [False, False],
+          "vuelos": [("LA 1405", "Quito", "UIO", "Guayaquil", "GYE", "2026-11-03T07:00", "-05:00", "2026-11-03T07:50", "-05:00"),
+                     ("LA 1412", "Guayaquil", "GYE", "Quito", "UIO", "2026-11-04T19:00", "-05:00", "2026-11-04T19:50", "-05:00")],
+          "reuniones": [("socios", "Asamblea de socios", "20261104T100000", "20261104T120000", "Auditorio, matriz, Quito", None)]},
+     ],
      "organos": [("consejo-de-administracion", "Siete vocales", "tercer jueves de cada mes"), ("comite-de-gerencia", "Las jefaturas", "lunes")],
      "personas": ("Patricio Andrade", "Gabriela Mora", "Esteban Jácome", "Verónica Paz", "Rosa Quishpe"),
      "siembra": ["agenda_vieja", "borrador_en_acta", "acuerdo_sin_responsable", "compromiso_vencido", "correo_sin_respuesta", "carpeta_excluida"],
      "lote": {"acuerdo_sin_responsable": 6, "acuerdo_sin_fecha": 6, "compromiso_vencido": 6, "compromiso_movido": 3,
               "decision_con_plazo": 2, "correo_sin_respuesta": 5, "sin_acta": 3}},
     {"carpeta": "control-co", "industria": "retail", "pais": "CO", "id": "900000001", "nombre": "Distribuidora Control", "n": 3,
-     "ejecutivo": "Gerencia general", "ejecutivo_slug": "gerencia-general", "tz": "America/Bogota", "dominio": "control.test",
+     "ejecutivo": "Gerencia general", "ejecutivo_slug": "gerencia-general", "tz": "America/Bogota", "dominio": "control.test", "proveedor": "outlook",
+     "viajes": [
+         {"slug": "medellin", "destino": "Medellín", "agencia": "Rutas del Valle", "reserva": "MC5T1Z", "en_agenda": [True, True],
+          "vuelos": [("LA 4021", "Bogotá", "BOG", "Medellín", "MDE", "2026-11-04T06:30", "-05:00", "2026-11-04T07:30", "-05:00"),
+                     ("LA 4030", "Medellín", "MDE", "Bogotá", "BOG", "2026-11-04T18:30", "-05:00", "2026-11-04T19:30", "-05:00")],
+          "reuniones": [("planta", "Visita a la planta", "20261104T090000", "20261104T110000", "Planta de Itagüí, Medellín", None),
+                        ("ventas", "Comité de ventas", "20261104T140000", "20261104T150000", "Microsoft Teams", None)]},
+     ],
      "organos": [("junta-directiva", "Cinco miembros", "último jueves de cada mes"), ("comite-de-gerencia", "Las direcciones", "lunes")],
      "personas": ("Elena Duarte", "Jorge Silva", "Natalia Rincón", "Camilo Prieto", "Sara León"), "siembra": []},
     {"carpeta": "control-ec", "industria": "cooperativas", "pais": "EC", "id": "1790000001001", "nombre": "Comercial Control", "n": 4,
-     "ejecutivo": "Presidencia", "ejecutivo_slug": "presidencia", "tz": "America/Guayaquil", "dominio": "controlec.test",
+     "ejecutivo": "Presidencia", "ejecutivo_slug": "presidencia", "tz": "America/Guayaquil", "dominio": "controlec.test", "proveedor": "google",
+     "viajes": [
+         {"slug": "santiago", "destino": "Santiago de Chile", "agencia": "Pacífico Viajes", "reserva": "SC9B4N", "en_agenda": [True, True],
+          "vuelos": [("LA 1441", "Quito", "UIO", "Santiago de Chile", "SCL", "2026-11-05T08:00", "-05:00", "2026-11-05T14:10", "-03:00"),
+                     ("LA 1446", "Santiago de Chile", "SCL", "Quito", "UIO", "2026-11-06T18:00", "-03:00", "2026-11-06T21:15", "-05:00")],
+          "reuniones": [("distribuidor", "Reunión con el distribuidor", "20261105T140000", "20261105T150000", "Las Condes, Santiago de Chile", None),
+                        ("directorio-v", "Directorio extraordinario", "20261106T090000", "20261106T100000", "https://meet.google.com/abc-defg-hij", None)]},
+     ],
      "organos": [("directorio", "Cinco directores", "último jueves de cada mes"), ("comite-ejecutivo", "Las gerencias", "lunes")],
      "personas": ("Fernanda Vaca", "Diego Herrera", "Paola Cevallos", "Iván Torres", "Mónica Ruiz"), "siembra": []},
 ]

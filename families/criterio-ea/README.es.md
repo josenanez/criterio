@@ -127,6 +127,7 @@ direccion/
     ├── 00-referencia/
     ├── 10-agenda/
     ├── 20-correspondencia/
+    ├── 30-viajes/
     ├── 90-borradores/
     └── organos/<órgano>/<AAAA-MM-DD>/
         ├── 10-convocatoria/
@@ -142,7 +143,8 @@ estado-direccion/
 |---|---|---|
 | `00-referencia/` | Los órganos que se siguen —junta, comité de presidencia, comités de la junta—, quién los integra y su calendario de sesiones | Ofelia |
 | `10-agenda/` | Las exportaciones de la agenda en .ics, con la fecha de la exportación en el nombre | Ofelia |
-| `20-correspondencia/` | Los correos guardados como archivo, uno por mensaje | Ofelia |
+| `20-correspondencia/` | Los correos guardados como archivo, uno por mensaje: .eml, o .msg de Outlook | Ofelia |
+| `30-viajes/` | Los itinerarios de cada viaje —el de la agencia, el pasaje de la aerolínea—, uno por viaje, con la fecha de salida en el nombre | Ofelia |
 | `90-borradores/` | Lo único que escribe Ofelia entre los documentos: borradores de actas y de respuestas, con «BORRADOR» en el nombre | Ofelia |
 
 **`organos/<órgano>/<AAAA-MM-DD>/`** · Una sesión de un órgano, con su fecha como nombre de la carpeta
@@ -178,7 +180,7 @@ un archivo de configuración a mano.**
 <!-- ea:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
 |---|---|---|---|---|
-| **Ofelia** · asistente ejecutiva | El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta | No envía, no agenda, no acepta ni mueve nada; no recomienda una opción, no prioriza por el ejecutivo, no declara cumplido un compromiso sin evidencia y no evalúa a una persona ni a un área | [criterio-assistant](../../plugins/criterio-assistant/README.es.md) · 9 comandos, 6 skills | [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · asistente ejecutiva | El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta | No envía, no agenda, no acepta ni mueve nada; no recomienda una opción, no prioriza por el ejecutivo, no declara cumplido un compromiso sin evidencia y no evalúa a una persona ni a un área | [criterio-assistant](../../plugins/criterio-assistant/README.es.md) · 9 comandos, 7 skills | [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ea:familia-agentes -->
 
@@ -271,10 +273,10 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 
 <!-- /hoja de ruta -->
 
-## Los seis skills de la familia
+## Los siete skills de la familia
 
 <!-- ea:skills-familia · generado por scripts/familias.py; no se edita a mano -->
-Seis skills, todos de Ofelia.
+Siete skills, todos de Ofelia.
 
 | Skill | Ofelia |
 |---|:--:|
@@ -284,6 +286,7 @@ Seis skills, todos de Ofelia.
 | `ea-intake` | ● |
 | `meeting-record` | ● |
 | `minutes-draft` | ● |
+| `travel-record` | ● |
 <!-- /ea:skills-familia -->
 
 ## Estado
@@ -295,7 +298,7 @@ sintético, no sobre la oficina de un ejecutivo real.**
 <!-- ea:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 9 comandos, 6 skills | El motor, probado; con la agente, todas las oficinas del material, hasta la ronda 1 · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 9 comandos, 7 skills | El motor, probado; con la agente, todas las oficinas del material, hasta la ronda 1 · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /ea:estado -->
 

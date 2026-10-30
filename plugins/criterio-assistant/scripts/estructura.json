@@ -23,7 +23,16 @@
         {
           "carpeta": "20-correspondencia",
           "patrones": [
-            "\\.eml$"
+            "\\.eml$",
+            "\\.msg$"
+          ]
+        },
+        {
+          "carpeta": "30-viajes",
+          "patrones": [
+            "itinerario",
+            "pasaje",
+            "viaje"
           ]
         },
         {

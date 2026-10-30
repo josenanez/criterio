@@ -41,6 +41,8 @@ def evaluar(carpeta: Path) -> dict:
             A.escribir_json(estado / "reuniones" / f"{k}.json", f)
         for k, f in clave["extraccion"]["correspondencia"].items():
             A.escribir_json(estado / "correspondencia" / f"{k}.json", f)
+        for k, f in (clave["extraccion"].get("viajes") or {}).items():
+            A.escribir_json(estado / "viajes" / f"{k}.json", f)
         cfg = dict(cfg0, _docs=carpeta / cfg0["paths"]["documents"], _estado=estado)
         problemas = A.revisar_config(cfg, "ofelia")
         r = A.ofelia(cfg, hoy)

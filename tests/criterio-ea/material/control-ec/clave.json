@@ -25,6 +25,7 @@
    }
   }
  },
+ "proveedor": "google",
  "extraccion": {
   "reuniones": {
    "directorio-2026-09-24": {
@@ -148,6 +149,30 @@
     "asks_reply": false,
     "due": null,
     "routine": false
+   }
+  },
+  "viajes": {
+   "SCL-itinerario-santiago": {
+    "file": "30-viajes/SCL-itinerario-santiago.md",
+    "trip": "Santiago de Chile",
+    "flights": [
+     {
+      "flight": "LA 1441",
+      "from": "Quito",
+      "to": "Santiago de Chile",
+      "depart": "2026-11-05T08:00-05:00",
+      "arrive": "2026-11-05T14:10-03:00",
+      "source": "30-viajes/SCL-itinerario-santiago.md, línea 8"
+     },
+     {
+      "flight": "LA 1446",
+      "from": "Santiago de Chile",
+      "to": "Quito",
+      "depart": "2026-11-06T18:00-03:00",
+      "arrive": "2026-11-06T21:15-05:00",
+      "source": "30-viajes/SCL-itinerario-santiago.md, línea 9"
+     }
+    ]
    }
   }
  },

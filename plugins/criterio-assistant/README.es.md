@@ -41,8 +41,8 @@ modo de Ofelia, no un agente aparte.
 | Comando | Qué hace |
 |---|---|
 | `/criterio-assistant:ea-setup` | La configuración, el inventario y los órganos con sus sesiones |
-| `/criterio-assistant:ea-scan` | Las fichas de las reuniones, de la correspondencia y de la agenda |
-| `/criterio-assistant:ea-agenda` | La semana del ejecutivo: cruces, sesiones sin material y sesiones sin acta |
+| `/criterio-assistant:ea-scan` | Las fichas de las reuniones, de la correspondencia, de los viajes y de la agenda |
+| `/criterio-assistant:ea-agenda` | La semana del ejecutivo: cruces, viajes contra la agenda, sesiones sin material y sesiones sin acta |
 | `/criterio-assistant:ea-prep` | El paquete de la sesión, con la ficha de cada decisión |
 | `/criterio-assistant:ea-minutes` | El borrador del acta, con cada acuerdo y compromiso citado |
 | `/criterio-assistant:ea-commitments` | El estado de los compromisos de dirección, por órgano y por responsable |
@@ -52,7 +52,7 @@ modo de Ofelia, no un agente aparte.
 <!-- /ea:comandos -->
 
 <!-- ea:skills · generado por scripts/familias.py; no se edita a mano -->
-### Los seis skills
+### Los siete skills
 
 Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos comparten, y se consultan como un manual.
 
@@ -64,6 +64,7 @@ Se cargan solos cuando el tema aparece. Son el conocimiento que los comandos com
 | `ea-intake` | Qué documentos procesa Ofelia, dónde va cada uno, qué procesa el código directamente —la agenda .ics y los encabezados del correo— y qué extrae la agente a la ficha | Propio |
 | `meeting-record` | La ficha de una sesión: orden del día, acuerdos con su responsable y su fecha, compromisos con su historia y decisiones pendientes, cada dato con su cita | Propio |
 | `minutes-draft` | El borrador del acta desde las notas o la transcripción, con cada acuerdo citado y «BORRADOR» en el nombre y en el texto | Propio |
+| `travel-record` | La ficha de un viaje: cada vuelo del itinerario con su número, su ruta, y su salida y su llegada con fecha, hora y zona, cada uno con su cita | Propio |
 <!-- /ea:skills -->
 
 ## Para qué sirve
