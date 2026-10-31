@@ -21,7 +21,8 @@
      5.0
     ],
     "iva": 0.19,
-    "impuesto": "IVA"
+    "impuesto": "IVA",
+    "emisor": "DIAN"
    },
    "contratacion_publica": {
     "sistema": "SECOP II",
@@ -56,7 +57,8 @@
      0.01
     ],
     "iva": 0.15,
-    "impuesto": "IVA"
+    "impuesto": "IVA",
+    "emisor": "SRI"
    },
    "contratacion_publica": {
     "sistema": "SOCE · COMPRASPÚBLICAS",
@@ -87,7 +89,8 @@
      0.01
     ],
     "iva": 0.18,
-    "impuesto": "IGV"
+    "impuesto": "IGV",
+    "emisor": "SUNAT"
    },
    "contratacion_publica": {
     "sistema": "SEACE",
@@ -117,7 +120,8 @@
      1.0
     ],
     "iva": 0.19,
-    "impuesto": "IVA"
+    "impuesto": "IVA",
+    "emisor": "SII"
    },
    "contratacion_publica": {
     "sistema": "Mercado Público",
@@ -154,7 +158,8 @@
      0.01
     ],
     "iva": 0.16,
-    "impuesto": "IVA"
+    "impuesto": "IVA",
+    "emisor": "SAT"
    },
    "contratacion_publica": {
     "sistema": "Compras MX",

@@ -350,17 +350,29 @@ the signal it has to raise, in the same detail, **and what the material does not
 [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish). The whole set across every
 family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**The rounds with the agent.** Round 1 ran on banking and the Colombian control; round 2, the full one, on the six entities of Colombia and Ecuador; round 3 added Áurea and Peru, and round 4 ran the three agents on the nine entities: 80 of 80 signals with none extra and 74 of 74 data points; round 5 added Chile: 26 of 26 signals and 24 of 24 data points; round 6 added Mexico: 27 of 27 signals and 24 of 24 data points. Every defect the rounds found is fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md). **The statistical analysis of the rounds** —coverage and precision of the signals, the data extracted and the 95% margin of each, their evolution round by round, by industry and country, each failure with the defect that explains it and its origin— in [`analisis/ANALISIS.md`](analisis/ANALISIS.md). [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) generates it from the round evidence, and `verificar.py` checks that it says what the evidence says.
+**The rounds with the agent.** Each country comes in with its round, on every entity of its material; the table of [the countries tested](#the-countries-tested) says when each one came in and what its entities gave. Every defect the rounds found is fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md). **The statistical analysis of the rounds** —coverage and precision of the signals, the data extracted and the 95% margin of each, their evolution round by round, by industry and country, each failure with the defect that explains it and its origin— in [`analisis/ANALISIS.md`](analisis/ANALISIS.md). [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) generates it from the round evidence, and `verificar.py` checks that it says what the evidence says.
 
-## The test industries
+<!-- países probados: generado por scripts/paises_probados.py desde la evidencia de las rondas; no se edita a mano -->
+## The countries tested
 
-Four Latin American industries and one control entity per country: **banking and retail in
-Colombia**, with the DIAN XML; **cooperatives and mining in Ecuador**, with the SRI's; **banking and
-mining in Peru**, with SUNAT's; **retail and mining in Chile**, with the SII's DTE, and **banking and
-retail in Mexico**, with the SAT's CFDI. Each
-one carries the close of a month and the budget of the year. The entities, the planted defects
-and the signals expected of each, in
-[`tests/criterio-cfo/EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish).
+11 countries, in the order they came in, with every entity of their material —one control, with no seeded defect, in each country—. The signals and fields are those of each entity's latest run with all its agents; the rounds also count the verifications. The entities, seeded defects and expected signals, in [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish); every run with its cost and grade, in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md).
+
+| Country | Since | Material entities | Rounds | Signals | Fields | The invoice and its tax |
+|---|---|---|---|---:|---:|---|
+| **Colombia** | round 1 | banking, retail, control | 1–4 | 28 of 28 | 24 of 24 | DIAN · IVA at 19 % (F-01) |
+| **Ecuador** | round 2 | cooperatives, mining, control | 2, 4 | 28 of 28 | 25 of 25 | SRI · IVA at 15 % (F-04) |
+| **Peru** | round 3 | banking, mining, control | 3–4 | 24 of 24 | 25 of 25 | SUNAT · IGV at 18 % (F-13) |
+| **Chile** | round 5 | retail, mining, control | 5 | 26 of 26 | 24 of 24 | SII · IVA at 19 % (F-16) |
+| **Mexico** | round 6 | banking, retail, control | 6 | 27 of 27 | 24 of 24 | SAT · IVA at 16 % (F-19) |
+| **Brazil** | round 7 | retail, mining, control | 7 | 24 of 24 | 24 of 25 | SEFAZ · ICMS at 18 % (F-21, F-22) |
+| **Argentina** | round 8 | retail, mining, control | 8 | 24 of 24 | 25 of 25 | ARCA · IVA at 21 % (F-24, F-25) |
+| **Panama** | round 9 | banking, retail, control | 9 | 27 of 27 | 24 of 24 | DGI · ITBMS at 7 % (F-27, F-28) |
+| **Guatemala** | round 10 | retail, mining, control | 10 | 24 of 24 | 25 of 25 | SAT · IVA at 12 % (F-30, F-31, F-32) |
+| **Costa Rica** | round 11 | banking, retail, control | 11 | 25 of 25 | 25 of 25 | Ministerio de Hacienda · IVA at 13 % (F-34, F-35) |
+| **Honduras** | round 12 | banking, retail, control | 12 | 27 of 27 | 625 of 625 | SAR · ISV at 15 % (F-37, F-38) |
+<!-- /países probados -->
+
+Each entity carries the close of a month, the year's budget and its treasury.
 
 ## Roadmap
 

@@ -113,6 +113,8 @@ PUERTAS = [
      "Que el manual diga lo que dicen los README y los contratos"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/industrias.py"), "--check"],
      "Que las industrias del README salgan de su fuente y que «probada» sea cierto"),
+    ("estructura", [sys.executable, str(RAIZ / "scripts/paises_probados.py"), "--check"],
+     "Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/carpetas.py"), "--check"],
      "Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/calidad.py"), "--selftest"],

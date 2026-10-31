@@ -350,17 +350,29 @@ señal que tiene que levantar, con el mismo detalle, **y qué no prueba el mater
 [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md). El conjunto de todas las familias, en
 [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**Las rondas con el agente.** La ronda 1 corrió sobre banca y el control de Colombia; la 2, completa, sobre las seis entidades de Colombia y Ecuador: 37 de 37 señales sin una de más y 808 de 815 datos; la 3 verificó las correcciones; la 4 sumó a Perú y Chile, sus seis entidades: 37 de 37 señales sin una de más y 812 de 813 datos; la 5 sumó a México, sus tres entidades: 20 de 20 señales sin una de más y 395 de 396 datos. Los 11 defectos que encontraron las rondas están corregidos y verificados. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md). **El análisis estadístico de las rondas** —cobertura y precisión de las señales, los datos extraídos y el margen del 95 % de cada uno, su evolución ronda a ronda, por industria y país, cada falla con el defecto que la explica y su origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) desde la evidencia de las rondas, y `verificar.py` comprueba que diga lo que dice la evidencia.
+**Las rondas con el agente.** Cada país entra con su ronda, sobre todas las entidades de su material; la tabla de [los países probados](#los-países-probados) dice cuándo entró cada uno y lo que dieron sus entidades. Cada defecto que encontraron las rondas está corregido y verificado. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md). **El análisis estadístico de las rondas** —cobertura y precisión de las señales, los datos extraídos y el margen del 95 % de cada uno, su evolución ronda a ronda, por industria y país, cada falla con el defecto que la explica y su origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) desde la evidencia de las rondas, y `verificar.py` comprueba que diga lo que dice la evidencia.
 
-## Las industrias de prueba
+<!-- países probados: generado por scripts/paises_probados.py desde la evidencia de las rondas; no se edita a mano -->
+## Los países probados
 
-Cuatro industrias de América Latina y una entidad de control por país: **banca y retail en
-Colombia**, **cooperativas y minería en Ecuador**, **banca y minería en Perú**, **retail y minería en
-Chile** y **banca y retail en México**. Cada una trae su carpeta legal con seis
-contratos —cada uno con su otrosí, su póliza, el certificado de la contraparte y la evidencia de
-sus obligaciones— y tres periodos de cumplimiento. Las entidades, los defectos sembrados y las
-señales esperadas de cada una, en
-[`tests/criterio-clo/EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md).
+11 países, en el orden en que entraron, con todas las entidades de su material —una de control, sin ningún defecto sembrado, en cada país—. Las señales y los datos son los de la corrida más reciente de cada entidad con todos sus agentes; las rondas cuentan también las verificaciones. Las entidades, los defectos sembrados y las señales esperadas, en [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md); cada corrida con su costo y su calificación, en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md).
+
+| País | Desde | Entidades del material | Rondas | Señales | Datos | La contratación pública |
+|---|---|---|---|---:|---:|---|
+| **Colombia** | ronda 1 | banca, retail, entidad pública, control | 1–3, 7 | 24 de 24 | 545 de 548 | SECOP II · publicación en 3 días hábiles · garantía mínima del 10 % (F-03, F-04) |
+| **Ecuador** | ronda 2 | cooperativas, minería, entidad pública, control | 2–3, 7 | 20 de 20 | 569 de 571 | SOCE · COMPRASPÚBLICAS · garantía mínima del 5 %, sobre el umbral de la política (F-05) |
+| **Perú** | ronda 4 | banca, minería, entidad pública, control | 4, 7 | 21 de 21 | 568 de 569 | SEACE · garantía mínima del 10 % (F-06) |
+| **Chile** | ronda 4 | retail, minería, entidad pública, control | 4, 7 | 21 de 21 | 548 de 548 | Mercado Público · publicación en 1 días naturales · garantía mínima del 5 %, sobre el umbral de la política (F-07, F-08) |
+| **México** | ronda 5 | banca, retail, entidad pública, control | 5, 7 | 23 de 23 | 547 de 548 | Compras MX · garantía entregada en 10 días naturales (F-09) |
+| **Brasil** | ronda 6 | banca, retail, entidad pública, control | 6–7 | 24 de 24 | 548 de 548 | PNCP · publicación en 20 días hábiles (10 en la directa) · garantía hasta el 5 %, hasta el 10 % justificada (F-10) |
+| **Argentina** | ronda 8 | banca, retail, entidad pública, control | 8 | 25 de 25 | 548 de 548 | COMPR.AR · garantía mínima del 10 % · garantía entregada en 5 días hábiles (F-11) |
+| **Panamá** | ronda 9 | banca, retail, entidad pública, control | 9 | 24 de 24 | 569 de 569 | PanamaCompra · garantía exigida desde 50 000 (F-12) |
+| **Guatemala** | ronda 10 | banca, retail, control | 10 | 20 de 20 | 396 de 396 | Sin entidad pública: la regla de la garantía no está entre las fuentes verificadas |
+| **Costa Rica** | ronda 11 | banca, retail, entidad pública, control | 11 | 23 de 23 | 569 de 569 | SICOP · garantía mínima del 5 % · garantía hasta el 10 % (F-13) |
+| **Honduras** | ronda 12 | banca, retail, entidad pública, control | 12 | 22 de 22 | 569 de 569 | HonduCompras · garantía mínima del 15 % (F-14) |
+<!-- /países probados -->
+
+Cada entidad trae su carpeta legal con seis contratos —cada uno con su otrosí, su póliza, el certificado de la contraparte y la evidencia de sus obligaciones— y tres periodos de cumplimiento; la entidad pública, además, la constancia de publicación de cada contrato.
 
 ## Hoja de ruta
 

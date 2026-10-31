@@ -350,17 +350,29 @@ tiene que levantar, con el mismo detalle, **y qué no prueba el material**, en
 [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md). El conjunto de todas las familias, en
 [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**Las rondas con el agente.** La ronda 1 corrió sobre banca y el control de Colombia; la 2, completa, sobre las seis entidades de Colombia y Ecuador; la 3 sumó a Áurea y a Perú, y la 4 corrió los tres agentes sobre las nueve entidades: 80 de 80 señales sin una de más y 74 de 74 datos; la 5 sumó a Chile: 26 de 26 señales y 24 de 24 datos; la 6 sumó a México: 27 de 27 señales y 24 de 24 datos. Cada defecto que encontraron las rondas está corregido y verificado. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md). **El análisis estadístico de las rondas** —cobertura y precisión de las señales, los datos extraídos y el margen del 95 % de cada uno, su evolución ronda a ronda, por industria y país, cada falla con el defecto que la explica y su origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) desde la evidencia de las rondas, y `verificar.py` comprueba que diga lo que dice la evidencia.
+**Las rondas con el agente.** Cada país entra con su ronda, sobre todas las entidades de su material; la tabla de [los países probados](#los-países-probados) dice cuándo entró cada uno y lo que dieron sus entidades. Cada defecto que encontraron las rondas está corregido y verificado. Cada salida, su costo, su calificación, los comandos que se repitieron tras corregir un defecto y cada defecto con su origen y su commit están en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md). **El análisis estadístico de las rondas** —cobertura y precisión de las señales, los datos extraídos y el margen del 95 % de cada uno, su evolución ronda a ronda, por industria y país, cada falla con el defecto que la explica y su origen— en [`analisis/ANALISIS.es.md`](analisis/ANALISIS.es.md). Lo genera [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) desde la evidencia de las rondas, y `verificar.py` comprueba que diga lo que dice la evidencia.
 
-## Las industrias de prueba
+<!-- países probados: generado por scripts/paises_probados.py desde la evidencia de las rondas; no se edita a mano -->
+## Los países probados
 
-Cuatro industrias de América Latina y una entidad de control por país: **banca y retail en
-Colombia**, con el XML de la DIAN; **cooperativas y minería en Ecuador**, con el del SRI; **banca y
-minería en Perú**, con el de la SUNAT; **retail y minería en Chile**, con el DTE del SII, y **banca y
-retail en México**, con el CFDI del SAT. Cada
-una trae el cierre de un mes y el presupuesto del año.
-Las entidades, los defectos sembrados y las señales esperadas de cada una, en
-[`tests/criterio-cfo/EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md).
+11 países, en el orden en que entraron, con todas las entidades de su material —una de control, sin ningún defecto sembrado, en cada país—. Las señales y los datos son los de la corrida más reciente de cada entidad con todos sus agentes; las rondas cuentan también las verificaciones. Las entidades, los defectos sembrados y las señales esperadas, en [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md); cada corrida con su costo y su calificación, en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md).
+
+| País | Desde | Entidades del material | Rondas | Señales | Datos | La factura y su impuesto |
+|---|---|---|---|---:|---:|---|
+| **Colombia** | ronda 1 | banca, retail, control | 1–4 | 28 de 28 | 24 de 24 | DIAN · CUFE · IVA del 19 % (F-01) |
+| **Ecuador** | ronda 2 | cooperativas, minería, control | 2, 4 | 28 de 28 | 25 de 25 | SRI · número de clave de acceso · IVA del 15 % (F-04) |
+| **Perú** | ronda 3 | banca, minería, control | 3–4 | 24 de 24 | 25 de 25 | SUNAT · RUC, tipo, serie y número · IGV del 18 % (F-13) |
+| **Chile** | ronda 5 | retail, minería, control | 5 | 26 de 26 | 24 de 24 | SII · RUT del emisor, tipo y folio · IVA del 19 % (F-16) |
+| **México** | ronda 6 | banca, retail, control | 6 | 27 de 27 | 24 de 24 | SAT · RFC del emisor, serie y folio · IVA del 16 % (F-19) |
+| **Brasil** | ronda 7 | retail, minería, control | 7 | 24 de 24 | 24 de 25 | SEFAZ · chave de acesso de 44 dígitos · ICMS del 18 % (F-21, F-22) |
+| **Argentina** | ronda 8 | retail, minería, control | 8 | 24 de 24 | 25 de 25 | ARCA · CAE · IVA del 21 % (F-24, F-25) |
+| **Panamá** | ronda 9 | banca, retail, control | 9 | 27 de 27 | 24 de 24 | DGI · CUFE · ITBMS del 7 % (F-27, F-28) |
+| **Guatemala** | ronda 10 | retail, minería, control | 10 | 24 de 24 | 25 de 25 | SAT · número de autorización (UUID) · IVA del 12 % (F-30, F-31, F-32) |
+| **Costa Rica** | ronda 11 | banca, retail, control | 11 | 25 de 25 | 25 de 25 | Ministerio de Hacienda · clave numérica (cincuenta posiciones) · IVA del 13 % (F-34, F-35) |
+| **Honduras** | ronda 12 | banca, retail, control | 12 | 27 de 27 | 625 de 625 | SAR · CAI y número correlativo · ISV del 15 % (F-37, F-38) |
+<!-- /países probados -->
+
+Cada entidad trae el cierre de un mes, el presupuesto del año y su tesorería.
 
 ## Hoja de ruta
 

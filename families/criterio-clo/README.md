@@ -348,17 +348,29 @@ entity and the signal it has to raise, in the same detail, **and what the materi
 test**, in [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md) (Spanish). The whole set across
 every family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 
-**The rounds with the agent.** Round 1 ran on banking and the Colombian control; round 2, the full one, on the six entities of Colombia and Ecuador: 37 of 37 signals with none extra and 808 of 815 data points; round 3 verified the fixes; round 4 added Peru and Chile, their six entities: 37 of 37 signals with none extra and 812 of 813 data points; round 5 added Mexico, its three entities: 20 of 20 signals with none extra and 395 of 396 data points. The 11 defects the rounds found are fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md). **The statistical analysis of the rounds** —coverage and precision of the signals, the data extracted and the 95% margin of each, their evolution round by round, by industry and country, each failure with the defect that explains it and its origin— in [`analisis/ANALISIS.md`](analisis/ANALISIS.md). [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) generates it from the round evidence, and `verificar.py` checks that it says what the evidence says.
+**The rounds with the agent.** Each country comes in with its round, on every entity of its material; the table of [the countries tested](#the-countries-tested) says when each one came in and what its entities gave. Every defect the rounds found is fixed and verified. Every output, its cost, its grading, the commands repeated after a defect was fixed and every defect with its origin and commit are in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md). **The statistical analysis of the rounds** —coverage and precision of the signals, the data extracted and the 95% margin of each, their evolution round by round, by industry and country, each failure with the defect that explains it and its origin— in [`analisis/ANALISIS.md`](analisis/ANALISIS.md). [`scripts/analisis_familias.py`](../../scripts/analisis_familias.py) generates it from the round evidence, and `verificar.py` checks that it says what the evidence says.
 
-## The test industries
+<!-- países probados: generado por scripts/paises_probados.py desde la evidencia de las rondas; no se edita a mano -->
+## The countries tested
 
-Four Latin American industries and one control entity per country: **banking and retail in
-Colombia**, **cooperatives and mining in Ecuador**, **banking and mining in Peru**, **retail and mining
-in Chile** and **banking and retail in Mexico**. Each one carries its legal folder with
-six contracts —each with its amendment, its policy, the counterparty certificate and the evidence
-of its obligations— and three compliance periods. The entities, the planted defects and the
-signals expected of each, in
-[`tests/criterio-clo/EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md) (Spanish).
+11 countries, in the order they came in, with every entity of their material —one control, with no seeded defect, in each country—. The signals and fields are those of each entity's latest run with all its agents; the rounds also count the verifications. The entities, seeded defects and expected signals, in [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md) (Spanish); every run with its cost and grade, in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md).
+
+| Country | Since | Material entities | Rounds | Signals | Fields | Public procurement |
+|---|---|---|---|---:|---:|---|
+| **Colombia** | round 1 | banking, retail, public entity, control | 1–3, 7 | 24 of 24 | 545 of 548 | SECOP II · published within 3 business days · minimum guarantee of 10 % (F-03, F-04) |
+| **Ecuador** | round 2 | cooperatives, mining, public entity, control | 2–3, 7 | 20 of 20 | 569 of 571 | SOCE · COMPRASPÚBLICAS · minimum guarantee of 5 %, above the policy threshold (F-05) |
+| **Peru** | round 4 | banking, mining, public entity, control | 4, 7 | 21 of 21 | 568 of 569 | SEACE · minimum guarantee of 10 % (F-06) |
+| **Chile** | round 4 | retail, mining, public entity, control | 4, 7 | 21 of 21 | 548 of 548 | Mercado Público · published within 1 calendar days · minimum guarantee of 5 %, above the policy threshold (F-07, F-08) |
+| **Mexico** | round 5 | banking, retail, public entity, control | 5, 7 | 23 of 23 | 547 of 548 | Compras MX · guarantee lodged within 10 calendar days (F-09) |
+| **Brazil** | round 6 | banking, retail, public entity, control | 6–7 | 24 of 24 | 548 of 548 | PNCP · published within 20 business days (10 for direct awards) · guarantee up to 5 %, up to 10 % when justified (F-10) |
+| **Argentina** | round 8 | banking, retail, public entity, control | 8 | 25 of 25 | 548 of 548 | COMPR.AR · minimum guarantee of 10 % · guarantee lodged within 5 business days (F-11) |
+| **Panama** | round 9 | banking, retail, public entity, control | 9 | 24 of 24 | 569 of 569 | PanamaCompra · guarantee required from 50 000 (F-12) |
+| **Guatemala** | round 10 | banking, retail, control | 10 | 20 of 20 | 396 of 396 | No public entity: the guarantee rule is not among the verified sources |
+| **Costa Rica** | round 11 | banking, retail, public entity, control | 11 | 23 of 23 | 569 of 569 | SICOP · minimum guarantee of 5 % · guarantee up to 10 % (F-13) |
+| **Honduras** | round 12 | banking, retail, public entity, control | 12 | 22 of 22 | 569 of 569 | HonduCompras · minimum guarantee of 15 % (F-14) |
+<!-- /países probados -->
+
+Each entity carries its legal folder with six contracts —each with its amendment, its policy, the counterparty certificate and the evidence of its obligations— and three compliance periods; the public entity also carries each contract's publication record.
 
 ## Roadmap
 
