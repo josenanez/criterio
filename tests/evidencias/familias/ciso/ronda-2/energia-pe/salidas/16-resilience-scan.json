@@ -1,0 +1,27 @@
+{
+  "n": 16,
+  "agente": "amparo",
+  "comando": "resilience-scan",
+  "argumento": "",
+  "inicio": "2026-10-31T03:04:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 20,
+  "tokens": 670316,
+  "tokens_salida": 6651,
+  "costo_usd": 0.2729086,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-seguridad/20587654321-energia-andina-sintetica/corridas/2026-10-15-resilience-scan-1.md",
+      "estado-seguridad/20587654321-energia-andina-sintetica/corridas/salida-resilience-scan.md",
+      "estado-seguridad/20587654321-energia-andina-sintetica/resiliencia/2026-10/reporte-resilience-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/20587654321-energia-andina-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

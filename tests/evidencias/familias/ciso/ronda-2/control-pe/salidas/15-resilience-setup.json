@@ -1,0 +1,47 @@
+{
+  "n": 15,
+  "agente": "amparo",
+  "comando": "resilience-setup",
+  "argumento": "seguridad/20599887766-distribuidora-control-sintetica",
+  "inicio": "2026-10-31T11:30:59",
+  "estado": "success",
+  "error": false,
+  "segundos": 74,
+  "turnos": 30,
+  "tokens": 1174171,
+  "tokens_salida": 9400,
+  "costo_usd": 0.3779332000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/resiliencia/2026-10-31-resilience-setup-1.html",
+      ".criterio/corridas/resiliencia/2026-10-31-resilience-setup-1.md",
+      ".criterio/corridas/resiliencia/corridas.json",
+      ".criterio/resiliencia/20599887766/config.json",
+      ".criterio/terminos/aceptacion-criterio-resilience-0.2.0-2026-10-15.md",
+      ".criterio/terminos/aceptacion-criterio-resilience-0.2.0-2026-10-15.pdf",
+      ".criterio/terminos/aceptacion-criterio-resilience-0.2.0-2026-10-15.sha256",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/70-incidentes/INC-DCS-101_informe.docx.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/70-incidentes/INC-DCS-101_notificacion-comite-de-riesgos.pdf.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/70-incidentes/INC-DCS-101_notificacion-organismo-supervisor-de-energia.pdf.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/80-revisiones/INC-DCS-101_revision.md.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/90-continuidad/prueba_plan-de-continuidad-del-negocio_2026-03-15.pdf.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/90-continuidad/prueba_recuperacion-del-centro-de-datos-alterno_2026-05-10.pdf.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/90-continuidad/prueba_restauracion-de-la-base-de-clientes_2026-07-01.pdf.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/90-continuidad/prueba_restauracion-del-correo-corporativo_2026-08-20.pdf.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/90-continuidad/prueba_restauracion-del-sistema-comercial_2026-08-01.pdf.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/corridas/2026-10-15-resilience-setup-1.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/corridas/salida-resilience-setup.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/resiliencia/2026-10/ficha.json",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/resiliencia/2026-10/reporte-incident-timeline.md",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/resiliencia/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/cache/manifest.json",
+      "estado-seguridad/20599887766-distribuidora-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

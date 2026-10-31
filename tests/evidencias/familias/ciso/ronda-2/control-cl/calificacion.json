@@ -1,0 +1,20 @@
+{
+  "entidad": "Aseguradora Control Sintética",
+  "agentes": [
+    "alexis",
+    "amparo",
+    "guillermo"
+  ],
+  "tokens": 4549288,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

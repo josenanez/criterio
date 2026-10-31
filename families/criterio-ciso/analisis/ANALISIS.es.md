@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CISO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ciso/` · ronda más reciente: 1 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ciso/` · ronda más reciente: 2 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 1, parcial, sobre 6 de las 10 entidades del material: 100 de 100 señales sembradas encontradas (margen del 95 %: 96,3–100 %) y 0 de más; 48 de 48 datos extraídos bien (100 %, margen del 95 %: 92,5–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 2, parcial, sobre 4 de las 10 entidades del material: 48 de 48 señales sembradas encontradas (margen del 95 %: 92,5–100 %) y 0 de más; 32 de 32 datos extraídos bien (100 %, margen del 95 %: 89,2–100 %); y 2 de 2 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–1, 100 de 100 señales encontradas, 0 de más y 48 de 48 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–2, 148 de 148 señales encontradas, 0 de más y 80 de 80 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 1; la más reciente, la 1, es parcial |
-| Material | Banca · Colombia, Retail · México, Tecnología · Chile, salud · Perú |
-| Entidades de control | Control · Colombia, Control · México |
-| Corridas de una entidad | 6 |
-| Señales sembradas | 100 |
-| Datos calificados | 48 |
+| Rondas | 2; la más reciente, la 2, es parcial |
+| Material | energia · Perú, seguros · Chile |
+| Entidades de control | Control · Chile, Control · Perú |
+| Corridas de una entidad | 10 |
+| Señales sembradas | 148 |
+| Datos calificados | 80 |
 
-## Resultados acumulados · rondas 1–1
+## Resultados acumulados · rondas 1–2
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 100 de 100 | 100 % | 96,3–100 % |
-| Señales · precisión | 100 de 100 | 100 % | 96,3–100 % |
-| Extracción · datos correctos | 48 de 48 | 100 % | 92,5–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · cobertura | 148 de 148 | 100 % | 97,4–100 % |
+| Señales · precisión | 148 de 148 | 100 % | 97,4–100 % |
+| Extracción · datos correctos | 80 de 80 | 100 % | 95,4–100 % |
+| Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
 
@@ -43,28 +43,27 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
 | 1 | 6 | 100 % | 100 % | 100 % | 2 de 2 | 31,9 M | 4 |
+| 2 | 4 | 100 % | 100 % | 100 % | 2 de 2 | 20,1 M | 0 |
 
-## La ronda más reciente · ronda 1
+## La ronda más reciente · ronda 2
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 100 de 100 | 100 % | 96,3–100 % |
-| Señales · precisión | 100 de 100 | 100 % | 96,3–100 % |
-| Extracción · datos correctos | 48 de 48 | 100 % | 92,5–100 % |
+| Señales · cobertura | 48 de 48 | 100 % | 92,5–100 % |
+| Señales · precisión | 48 de 48 | 100 % | 92,5–100 % |
+| Extracción · datos correctos | 32 de 32 | 100 % | 89,2–100 % |
 | Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
 
-## Por industria y país · ronda 1
+## Por industria y país · ronda 2
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Colombia | Alexis, Amparo, Guillermo | 25 de 25 | 0 | 8 de 8 | 5,3 M |
-| Retail · México | Alexis, Amparo, Guillermo | 25 de 25 | 0 | 8 de 8 | 5,1 M |
-| Tecnología · Chile | Alexis, Amparo, Guillermo | 25 de 25 | 0 | 8 de 8 | 5 M |
-| salud · Perú | Alexis, Amparo, Guillermo | 25 de 25 | 0 | 8 de 8 | 6 M |
-| Control · Colombia | Alexis, Amparo, Guillermo | 0 de 0 | 0 | 8 de 8 | 5,3 M |
-| Control · México | Alexis, Amparo, Guillermo | 0 de 0 | 0 | 8 de 8 | 5,2 M |
+| energia · Perú | Alexis, Amparo, Guillermo | 25 de 25 | 0 | 8 de 8 | 5 M |
+| seguros · Chile | Alexis, Amparo, Guillermo | 23 de 23 | 0 | 8 de 8 | 5,4 M |
+| Control · Chile | Alexis, Amparo, Guillermo | 0 de 0 | 0 | 8 de 8 | 4,5 M |
+| Control · Perú | Alexis, Amparo, Guillermo | 0 de 0 | 0 | 8 de 8 | 5,2 M |
 
-## Lo que falló, uno por uno · rondas 1–1
+## Lo que falló, uno por uno · rondas 1–2
 
 Ninguna falla.
 
@@ -91,7 +90,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 1 rondas usaron 31,9 millones de tokens: 31,9 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 5,3 millones por entidad.
+Las 2 rondas usaron 52,1 millones de tokens: 52,1 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 5,2 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

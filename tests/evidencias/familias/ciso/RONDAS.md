@@ -12,6 +12,10 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-1 | [retail-mx](ronda-1/retail-mx/) | retail · MX | alexis, amparo, guillermo | 25 de 25 · 0 de más | 8 de 8 | 5.09 M |
 | ronda-1 | [salud-pe](ronda-1/salud-pe/) | salud · PE | alexis, amparo, guillermo | 25 de 25 · 0 de más | 8 de 8 | 6.05 M |
 | ronda-1 | [tecnologia-cl](ronda-1/tecnologia-cl/) | tecnologia · CL | alexis, amparo, guillermo | 25 de 25 · 0 de más | 8 de 8 | 5.01 M |
+| ronda-2 | [control-cl](ronda-2/control-cl/) | control · CL | alexis, amparo, guillermo | 0 de 0 · 0 de más | 8 de 8 | 4.55 M |
+| ronda-2 | [control-pe](ronda-2/control-pe/) | control · PE | alexis, amparo, guillermo | 0 de 0 · 0 de más | 8 de 8 | 5.19 M |
+| ronda-2 | [energia-pe](ronda-2/energia-pe/) | energia · PE | alexis, amparo, guillermo | 25 de 25 · 0 de más | 8 de 8 | 5.03 M |
+| ronda-2 | [seguros-cl](ronda-2/seguros-cl/) | seguros · CL | alexis, amparo, guillermo | 23 de 23 · 0 de más | 8 de 8 | 5.36 M |
 
 ## Los defectos que encontraron
 

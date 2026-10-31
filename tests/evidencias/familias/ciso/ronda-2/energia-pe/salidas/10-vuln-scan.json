@@ -1,0 +1,31 @@
+{
+  "n": 10,
+  "agente": "guillermo",
+  "comando": "vuln-scan",
+  "argumento": "",
+  "inicio": "2026-10-31T03:02:17",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 11,
+  "tokens": 514794,
+  "tokens_salida": 6965,
+  "costo_usd": 0.22028360000000005,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-10-30-vuln-scan-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-10-30-vuln-scan-1.md",
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      "estado-seguridad/20587654321-energia-andina-sintetica/corridas/2026-10-15-vuln-scan-1.md",
+      "estado-seguridad/20587654321-energia-andina-sintetica/corridas/salida-vuln-scan.md",
+      "estado-seguridad/20587654321-energia-andina-sintetica/vulnerabilidades/2026-10/reporte-vuln-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/20587654321-energia-andina-sintetica/corridas.json",
+      "estado-seguridad/20587654321-energia-andina-sintetica/indice.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "entidad": "Seguros del Sur Sintéticos",
+  "agentes": [
+    "alexis",
+    "amparo",
+    "guillermo"
+  ],
+  "tokens": 5364145,
+  "senales": {
+    "esperadas": 23,
+    "acertadas": 23,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

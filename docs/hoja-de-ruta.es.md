@@ -18,7 +18,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.3.0 | Laboratorio | 1.4.0 · Paraguay |
 | Criterio EA · Dirección | Ofelia | 1.0.1 | Estable | — |
 | Criterio CCO · La función comercial | Augusto, Valeria | 0.3.1 | Estable | — |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 0.2.0 | Laboratorio | 0.3.0 · Los escáneres de Tenable y de Microsoft Defender, cada uno desde su fuente |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 0.2.0 | Estable | 0.3.0 · Los escáneres de Tenable y de Microsoft Defender, cada uno desde su fuente |
 | Rostrum · el portal de todas las familias | — | 1.0.1 | — | — |
 
 ## Cada familia, incremento por incremento
