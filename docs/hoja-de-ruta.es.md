@@ -18,7 +18,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.3.0 | Estable | — |
 | Criterio EA · Dirección | Ofelia | 1.0.1 | Estable | — |
 | Criterio CCO · La función comercial | Augusto, Valeria | 0.3.1 | Estable | — |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 0.2.0 | Laboratorio | 0.3.0 · Los escáneres, cada uno desde su fuente |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 0.2.0 | Laboratorio | 0.3.0 · Los escáneres de Tenable y de Microsoft Defender, cada uno desde su fuente |
 | Rostrum · el portal de todas las familias | — | 1.0.1 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -80,7 +80,8 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 |---|---|---|---|
 | 0.1.0 | Liberada | **Alexis, Guillermo y Amparo, construidos, con el motor probado**<br>· Los comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo<br>· Cualquier exportación de escáner en CSV o Excel con su mapeo de columnas, la severidad desde el CVSS v4.0 y el catálogo KEV de CISA<br>· Lo que nunca se abre: credenciales, llaves y respaldos, excluidos por omisión<br>· Material de banca, retail, salud y tecnología, con dos entidades de control | El motor contra la clave de todo el material: seis entidades de cuatro industrias, con sus controles |
 | 0.2.0 | Liberada | **La ronda de los tres agentes**<br>· La ronda con Alexis, Guillermo y Amparo sobre todo el material, con la clave que no ven<br>· Los defectos que encuentre, con su corrección y su verificación | La ronda completa, con el piso del margen del 95 % en señales y en datos (decisión 0020) |
-| 0.3.0 | En curso | **Los escáneres, cada uno desde su fuente**<br>· El formato de exportación de Tenable, Qualys, Rapid7 y Microsoft Defender, cada uno desde su fuente verificada, como entraron Dynamics y Zoho en la CCO | Su material y su ronda, con las mismas métricas |
+| 0.3.0 | En curso | **Los escáneres de Tenable y de Microsoft Defender, cada uno desde su fuente**<br>· La exportación de hallazgos de Tenable Vulnerability Management, con su estado (F-08), y la de vulnerabilidades por dispositivo de Microsoft Defender, en JSON (F-09), cada una desde su documentación verificada<br>· Cuatro entidades más: energía y seguros, con una de control para cada fabricante | La ronda 2 con los tres agentes, sobre las cuatro entidades nuevas |
+| Incremento 4 | Siguiente | **Qualys y Rapid7, cuando tengan su fuente**<br>· El formato de exportación de Qualys y de Rapid7, cada uno desde una fuente verificada de lo que exporta | Su material y su ronda |
 
 ## Las familias que vienen
 

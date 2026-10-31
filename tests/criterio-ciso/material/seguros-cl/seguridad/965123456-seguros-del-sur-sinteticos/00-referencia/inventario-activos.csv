@@ -1,0 +1,11 @@
+activo;tipo;criticidad;responsable;alcance
+seg-web-01;servidor;alta;Jefe de infraestructura;sí
+seg-app-01;servidor;media;Jefe de infraestructura;sí
+seg-db-01;servidor;alta;Jefe de infraestructura;sí
+seg-fw-borde-01;red;alta;Jefe de infraestructura;sí
+seg-vpn-01;red;media;Jefe de infraestructura;sí
+seg-ad-01;servidor;alta;Jefe de infraestructura;sí
+seg-correo-01;servidor;media;Jefe de infraestructura;sí
+seg-backup-01;servidor;media;Jefe de infraestructura;sí
+seg-ws-finanzas-01;estación;media;Jefe de infraestructura;sí
+seg-laptop-gerencia;estación;baja;Gerencia;no

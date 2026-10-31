@@ -191,6 +191,139 @@
           "estado": "por verificar",
           "nota": "Se conoce por el aviso de FedRAMP y por fuentes secundarias; la página de CISA no se pudo consultar. Obliga a las agencias federales de los Estados Unidos, no a las organizaciones de la región. El motor no aplica sus plazos: toma la fecha de corrección que trae el catálogo (F-06) y los plazos de la política de la organización",
           "uso": "El contexto de la fecha de corrección del catálogo KEV"
+        },
+        {
+          "id": "F-08",
+          "fuente": "Tenable · Tenable Vulnerability Management, Findings Export Fields and Associated CSV Keys",
+          "version": "La documentación en línea de Tenable Vulnerability Management, con su página de estados de una vulnerabilidad",
+          "enlaces": [
+            [
+              "docs.tenable.com",
+              "https://docs.tenable.com/vulnerability-management/Content/Explore/export-findings-csv-keys.htm"
+            ],
+            [
+              "Vulnerability States",
+              "https://docs.tenable.com/vulnerability-management/Content/Explore/Findings/VulnerabilityStates.htm"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Confirmadas las claves CSV de la exportación de hallazgos: asset.name, asset.display_ipv4_address, definition.id (Plugin ID), definition.name, definition.cve, severity —la severidad basada en el CVSS—, definition.cvss3.base_score, definition.cvss4.base_score, first_observed («la fecha en que un escaneo encontró por primera vez la vulnerabilidad en un activo»), last_seen y state. Los estados: New y Active la detectan; Fixed, «detectada en un host, pero ya no la detecta»; Resurfaced, corregida y detectada otra vez",
+          "uso": "La exportación de Tenable: Guillermo la reconoce por sus columnas, y un hallazgo en estado Fixed no cuenta como abierto",
+          "campos": [
+            {
+              "id": "TVM-ASSET",
+              "campo": "asset.name · Asset Name",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-IPV4",
+              "campo": "asset.display_ipv4_address · IPv4 Address",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-PLUGIN",
+              "campo": "definition.id · Plugin ID",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-NOMBRE",
+              "campo": "definition.name · Plugin Name",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-CVE",
+              "campo": "definition.cve · CVE",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-SEVERIDAD",
+              "campo": "severity · Severity, la severidad basada en el CVSS",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-CVSS3",
+              "campo": "definition.cvss3.base_score · CVSSv3 Base Score",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-CVSS4",
+              "campo": "definition.cvss4.base_score · CVSSv4 Base Score",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-PRIMERA",
+              "campo": "first_observed · First Seen, la fecha en que un escaneo la encontró por primera vez en el activo",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-ULTIMA",
+              "campo": "last_seen · Last Seen",
+              "estado": "verificado"
+            },
+            {
+              "id": "TVM-ESTADO",
+              "campo": "state · State: New, Active, Resurfaced o Fixed —detectada antes y ya no—",
+              "estado": "verificado"
+            }
+          ]
+        },
+        {
+          "id": "F-09",
+          "fuente": "Microsoft · Microsoft Defender Vulnerability Management, Export software vulnerabilities assessment per device",
+          "version": "La página de Microsoft Learn actualizada el 24 de noviembre de 2025",
+          "enlaces": [
+            [
+              "learn.microsoft.com",
+              "https://learn.microsoft.com/en-my/defender-endpoint/api/get-assessment-software-vulnerabilities"
+            ]
+          ],
+          "consultada": "2026-10-30",
+          "estado": "verificada",
+          "nota": "Confirmadas las propiedades de la exportación completa por dispositivo: DeviceId, DeviceName, CveId, VulnerabilitySeverityLevel, CvssScore, FirstSeenTimestamp, LastSeenTimestamp, SoftwareName, SoftwareVendor, SoftwareVersion, RecommendedSecurityUpdate y ExploitabilityLevel; por respuesta JSON paginada o por archivos JSON multilínea comprimidos con GZIP (.json.gz). La exportación lista las vulnerabilidades de cada dispositivo, no los dispositivos escaneados: un equipo sin vulnerabilidades no aparece. El estado (New, Fixed, Updated) solo está en la exportación delta, que esta versión no procesa",
+          "uso": "La exportación de Defender: Guillermo la procesa en JSON, sin calcular con ella la cobertura del inventario",
+          "campos": [
+            {
+              "id": "MDVM-DEVICE",
+              "campo": "DeviceName · el nombre del dispositivo (con DeviceId)",
+              "estado": "verificado"
+            },
+            {
+              "id": "MDVM-CVE",
+              "campo": "CveId",
+              "estado": "verificado"
+            },
+            {
+              "id": "MDVM-SEVERIDAD",
+              "campo": "VulnerabilitySeverityLevel",
+              "estado": "verificado"
+            },
+            {
+              "id": "MDVM-CVSS",
+              "campo": "CvssScore",
+              "estado": "verificado"
+            },
+            {
+              "id": "MDVM-PRIMERA",
+              "campo": "FirstSeenTimestamp",
+              "estado": "verificado"
+            },
+            {
+              "id": "MDVM-ULTIMA",
+              "campo": "LastSeenTimestamp",
+              "estado": "verificado"
+            },
+            {
+              "id": "MDVM-SOFTWARE",
+              "campo": "SoftwareName, SoftwareVendor y SoftwareVersion",
+              "estado": "verificado"
+            },
+            {
+              "id": "MDVM-ARCHIVOS",
+              "campo": "la exportación por archivos: JSON multilínea comprimido con GZIP (.json.gz)",
+              "estado": "verificado"
+            }
+          ]
         }
       ]
     }

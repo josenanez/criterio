@@ -27,6 +27,12 @@
     "lectores": {
       "CAMPOS_KEV": [
         "F-06"
+      ],
+      "CAMPOS_TENABLE": [
+        "F-08"
+      ],
+      "CAMPOS_DEFENDER": [
+        "F-09"
       ]
     }
   },

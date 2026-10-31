@@ -415,16 +415,16 @@
    "key": "cierre:nub_correo_01:CVE-2099-12005"
   },
   {
+   "signal": "vuln_past_sla",
+   "key": "sla:nub_ad_01:CVE-2099-12006"
+  },
+  {
    "signal": "asset_not_scanned",
    "key": "cobertura:nub_vpn_01"
   },
   {
    "signal": "asset_not_scanned",
    "key": "cobertura:nub_ws_finanzas_01"
-  },
-  {
-   "signal": "vuln_past_sla",
-   "key": "sla:nub_ad_01:CVE-2099-12006"
   },
   {
    "signal": "incident_response_late",

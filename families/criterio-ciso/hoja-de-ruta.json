@@ -85,18 +85,40 @@
    "estado": "en curso",
    "industrias": [],
    "es": {
-    "titulo": "Los escáneres, cada uno desde su fuente",
+    "titulo": "Los escáneres de Tenable y de Microsoft Defender, cada uno desde su fuente",
     "entra": [
-     "El formato de exportación de Tenable, Qualys, Rapid7 y Microsoft Defender, cada uno desde su fuente verificada, como entraron Dynamics y Zoho en la CCO"
+     "La exportación de hallazgos de Tenable Vulnerability Management, con su estado (F-08), y la de vulnerabilidades por dispositivo de Microsoft Defender, en JSON (F-09), cada una desde su documentación verificada",
+     "Cuatro entidades más: energía y seguros, con una de control para cada fabricante"
     ],
-    "prueba": "Su material y su ronda, con las mismas métricas"
+    "prueba": "La ronda 2 con los tres agentes, sobre las cuatro entidades nuevas"
    },
    "en": {
-    "titulo": "The scanners, each from its source",
+    "titulo": "The Tenable and Microsoft Defender scanners, each from its source",
     "entra": [
-     "The export format of Tenable, Qualys, Rapid7 and Microsoft Defender, each from its verified source, as Dynamics and Zoho entered the CCO"
+     "The Tenable Vulnerability Management findings export, with its state (F-08), and the Microsoft Defender per-device vulnerabilities export, in JSON (F-09), each from its verified documentation",
+     "Four more entities: energy and insurance, with a control entity for each vendor"
     ],
-    "prueba": "Their material and their round, with the same metrics"
+    "prueba": "Round 2 with the three agents, on the four new entities"
+   }
+  },
+  {
+   "incremento": 4,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Qualys y Rapid7, cuando tengan su fuente",
+    "entra": [
+     "El formato de exportación de Qualys y de Rapid7, cada uno desde una fuente verificada de lo que exporta"
+    ],
+    "prueba": "Su material y su ronda"
+   },
+   "en": {
+    "titulo": "Qualys and Rapid7, once they have their source",
+    "entra": [
+     "The Qualys and Rapid7 export formats, each from a verified source of what it exports"
+    ],
+    "prueba": "Their material and their round"
    }
   }
  ]

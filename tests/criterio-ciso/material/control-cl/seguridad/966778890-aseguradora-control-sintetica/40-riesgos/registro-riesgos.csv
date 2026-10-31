@@ -1,0 +1,5 @@
+riesgo;descripcion;decision;aceptado_por;revision
+R-01;Sistema heredado sin soporte del fabricante;Aceptar;Gerente general;2026-12-31
+R-02;Correo sin doble factor para proveedores;Mitigar;;2026-12-31
+R-03;Respaldo fuera de sitio a más de 24 horas;Aceptar;Comité de riesgos;2027-03-31
+R-04;Equipos personales en la red de invitados;Aceptar;Gerente de tecnología;2026-10-15

@@ -118,6 +118,24 @@ ENTIDADES = [
      "sla": {"critica": 15, "alta": 30, "media": 90, "baja": 180}, "contencion": {"critica": 6, "alta": 24, "media": 72, "baja": 168}, "revision": 15,
      "escaner": "espanol-xlsx", "excel": True, "pref": "ccm", "sistema": "ERP comercial",
      "supervisor": "Comisión supervisora", "datos": "Autoridad de protección de datos", "siembra": False},
+    # Los formatos de los fabricantes (incremento 3): Tenable Vulnerability Management en CSV (F-08) y
+    # Microsoft Defender en JSON comprimido (F-09), con una entidad de control cada uno.
+    {"carpeta": "energia-pe", "industria": "energia", "pais": "PE", "id": "20587654321", "nombre": "Energía Andina Sintética", "moneda": "PEN",
+     "sla": {"critica": 15, "alta": 30, "media": 90, "baja": 180}, "contencion": {"critica": 4, "alta": 24, "media": 72, "baja": 168}, "revision": 15,
+     "escaner": "tenable-csv", "excel": True, "pref": "ena", "sistema": "Sistema de despacho",
+     "supervisor": "Organismo supervisor de energía", "datos": "Autoridad de protección de datos", "siembra": True},
+    {"carpeta": "seguros-cl", "industria": "seguros", "pais": "CL", "id": "96512345-6", "nombre": "Seguros del Sur Sintéticos", "moneda": "CLP",
+     "sla": {"critica": 10, "alta": 30, "media": 60, "baja": 120}, "contencion": {"critica": 4, "alta": 12, "media": 48, "baja": 120}, "revision": 14,
+     "escaner": "defender-json", "excel": False, "pref": "seg", "sistema": "Sistema de pólizas",
+     "supervisor": "Comisión para el mercado financiero", "datos": "Autoridad de protección de datos", "siembra": True},
+    {"carpeta": "control-pe", "industria": "energia", "pais": "PE", "id": "20599887766", "nombre": "Distribuidora Control Sintética", "moneda": "PEN",
+     "sla": {"critica": 15, "alta": 30, "media": 90, "baja": 180}, "contencion": {"critica": 6, "alta": 24, "media": 72, "baja": 168}, "revision": 15,
+     "escaner": "tenable-csv", "excel": False, "pref": "dcs", "sistema": "Sistema comercial",
+     "supervisor": "Organismo supervisor de energía", "datos": "Autoridad de protección de datos", "siembra": False},
+    {"carpeta": "control-cl", "industria": "seguros", "pais": "CL", "id": "96677889-0", "nombre": "Aseguradora Control Sintética", "moneda": "CLP",
+     "sla": {"critica": 15, "alta": 30, "media": 90, "baja": 180}, "contencion": {"critica": 6, "alta": 24, "media": 72, "baja": 168}, "revision": 15,
+     "escaner": "defender-json", "excel": True, "pref": "acs", "sistema": "Sistema de siniestros",
+     "supervisor": "Comisión para el mercado financiero", "datos": "Autoridad de protección de datos", "siembra": False},
 ]
 
 # ================================================================ Alexis
@@ -235,13 +253,18 @@ CABECERAS = {
     "espanol-xlsx": ["Activo", "Id", "Vulnerabilidad", "Título", "Severidad", "Puntaje CVSS", "Primera detección"],
     "mapeo-csv": ["Equipo afectado", "Regla", "Identificador", "Descripción", "Criticidad del hallazgo", "Puntuación", "Detectado desde"],
     "puntaje-csv": ["Host", "Plugin ID", "CVE", "Name", "Risk", "CVSS v4.0 Base Score", "First Found"],
+    # Las claves CSV de la exportación de hallazgos de Tenable Vulnerability Management (F-08).
+    "tenable-csv": ["asset.name", "asset.display_ipv4_address", "definition.id", "definition.name", "definition.cve", "severity",
+                    "definition.cvss4.base_score", "first_observed", "last_seen", "state"],
 }
 MAPEO = {"mapeo-csv": {"activo": "Equipo afectado", "vulnerabilidad": "Identificador", "titulo": "Descripción",
                        "severidad": "Criticidad del hallazgo", "cvss": "Puntuación", "primera": "Detectado desde"}}
 SEV_TEXTO = {"ingles-csv": {"critica": "Critical", "alta": "High", "media": "Medium", "baja": "Low", "ninguna": "None"},
              "espanol-xlsx": {"critica": "Crítica", "alta": "Alta", "media": "Media", "baja": "Baja", "ninguna": "Informativa"},
              "mapeo-csv": {"critica": "Urgente", "alta": "Importante", "media": "Moderada", "baja": "Baja", "ninguna": "Info"},
-             "puntaje-csv": {s: "" for s in ("critica", "alta", "media", "baja", "ninguna")}}
+             "puntaje-csv": {s: "" for s in ("critica", "alta", "media", "baja", "ninguna")},
+             "tenable-csv": {"critica": "critical", "alta": "high", "media": "medium", "baja": "low", "ninguna": "info"},
+             "defender-json": {"critica": "Critical", "alta": "High", "media": "Medium", "baja": "Low", "ninguna": ""}}
 PUNTAJE = {"critica": "9.8", "alta": "8.1", "media": "5.3", "baja": "3.1", "ninguna": "0.0"}
 
 
@@ -263,6 +286,8 @@ def guillermo(e: dict, docs: Path) -> tuple[dict, list]:
     if not siembra:
         base[1] = base[1] + ["vpn-01", "ws-finanzas-01"]     # en el control, la VPN y la estación se escanean en la ventana
         base[2] = base[2] + ["vpn-01"]
+    # Defender lista vulnerabilidades, no equipos (F-09): sin filas informativas, y la cobertura no se calcula.
+    defender = e["escaner"] == "defender-json"
     hallazgos = [
         # vulnerabilidad sana: baja, reciente
         ("web-01", cve(11001), "Cabecera de seguridad ausente", "baja", "2026-10-10", (2,)),
@@ -273,8 +298,9 @@ def guillermo(e: dict, docs: Path) -> tuple[dict, list]:
         # del catálogo KEV, con su fecha de corrección después de hoy
         ("web-01", cve(11003), "Desbordamiento en el servidor web", "media", "2026-10-10", (2,)),
     ]
+    # En Tenable, un hallazgo sin CVE se nombra por su Plugin ID (F-08): la excepción también.
     excepciones = [["vulnerabilidad", "activo", "aprobada_por", "aprobada_el", "vence"],
-                   ["TLS-DEBIL", a("app-01"), "Jefe de seguridad de la información", "2026-06-15", "2026-12-31"]]
+                   ["40001" if e["escaner"] == "tenable-csv" else "TLS-DEBIL", a("app-01"), "Jefe de seguridad de la información", "2026-06-15", "2026-12-31"]]
     seguimiento = [["ticket", "activo", "vulnerabilidad", "estado", "fecha_cierre"],
                    ["TK-201", a("app-01"), cve(11002), "Cerrada", "2026-09-01"]]          # el escaneo del 20 de septiembre lo prueba
     kev = [("11003", "Servidor Web Sintético", "Desbordamiento en el servidor web", "2026-10-08", "2026-10-29", "Unknown")]
@@ -296,22 +322,48 @@ def guillermo(e: dict, docs: Path) -> tuple[dict, list]:
                      ("vuln_exception_expired", f"excepcion:{cve(12003)}:{n('db-01')}"), ("vuln_past_sla", f"sla:{n('db-01')}:{cve(12003)}"),
                      ("vuln_closed_without_rescan", f"cierre:{n('backup-01')}:{cve(12004)}"),
                      ("vuln_closed_without_rescan", f"cierre:{n('correo-01')}:{cve(12005)}"),
-                     ("asset_not_scanned", f"cobertura:{n('vpn-01')}"), ("asset_not_scanned", f"cobertura:{n('ws-finanzas-01')}"),
                      ("vuln_past_sla", f"sla:{n('ad-01')}:{cve(12006)}")]
-    cab = CABECERAS[e["escaner"]]
+        if not defender:
+            esperado += [("asset_not_scanned", f"cobertura:{n('vpn-01')}"), ("asset_not_scanned", f"cobertura:{n('ws-finanzas-01')}")]
+    cab = CABECERAS.get(e["escaner"])
     sev = SEV_TEXTO[e["escaner"]]
+    ip = {x: f"10.20.0.{i + 10}" for i, x in enumerate(activos + ["prueba-07"])}
     for k, f in enumerate(ESCANEOS):
-        filas = [cab]
-        for x in base[k]:
-            filas.append([a(x), "19506", "", "Información del escaneo", sev["ninguna"], "" if e["escaner"] != "puntaje-csv" else "0.0", ""])
-        for (x, v, tit, s, primera, en) in hallazgos:
-            if k in en:
+        filas, objetos = [cab], []
+        if e["escaner"] == "tenable-csv":
+            for x in base[k]:
+                filas.append([a(x), ip[x], "19506", "Nessus Scan Information", "", sev["ninguna"], "", "", f"{f}T09:00:00Z", "active"])
+            for (x, v, tit, s, primera, en) in hallazgos:
                 pid = str(30000 + int(re.sub(r"\D", "", v)[-4:] or 0)) if v.startswith("CVE") else "40001"
-                filas.append([a(x), pid, v, tit, sev[s], PUNTAJE[s], primera])
+                # Tenable deja el hallazgo que ya no detecta en estado «fixed» (F-08): prueba el escaneo, no está abierto.
+                estado = "active" if k in en else ("fixed" if k > max(en) else None)
+                if estado:
+                    filas.append([a(x), ip[x], pid, tit, v if v.startswith("CVE") else "", sev[s], PUNTAJE[s], f"{primera}T09:00:00Z", f"{f}T09:00:00Z", estado])
+        elif defender:
+            for (x, v, tit, s, primera, en) in hallazgos:
+                if k in en:
+                    objetos.append({"DeviceId": slug(a(x)), "DeviceName": a(x), "CveId": v, "VulnerabilitySeverityLevel": sev[s],
+                                    "CvssScore": float(PUNTAJE[s]), "FirstSeenTimestamp": f"{primera}T09:00:00Z", "LastSeenTimestamp": f"{f}T09:00:00Z",
+                                    "SoftwareName": slug(tit), "SoftwareVendor": "proveedor-sintetico", "SoftwareVersion": "1.0"})
+        else:
+            for x in base[k]:
+                filas.append([a(x), "19506", "", "Información del escaneo", sev["ninguna"], "" if e["escaner"] != "puntaje-csv" else "0.0", ""])
+            for (x, v, tit, s, primera, en) in hallazgos:
+                if k in en:
+                    pid = str(30000 + int(re.sub(r"\D", "", v)[-4:] or 0)) if v.startswith("CVE") else "40001"
+                    filas.append([a(x), pid, v, tit, sev[s], PUNTAJE[s], primera])
         nombre = f"escaneo-{f}"
         (docs / "50-escaneos").mkdir(parents=True, exist_ok=True)
         if e["escaner"] == "espanol-xlsx":
             FMT.a_xlsx_tipado(filas, docs / "50-escaneos" / f"{nombre}.xlsx", "Hallazgos")
+        elif defender:
+            # La exportación por archivos de Defender: JSON multilínea comprimido con GZIP, con fecha fija.
+            import gzip
+            texto = "".join(json.dumps(o, ensure_ascii=False) + "\n" for o in objetos).encode("utf-8")
+            with open(docs / "50-escaneos" / f"{nombre}.json.gz", "wb") as fh, gzip.GzipFile(fileobj=fh, mode="wb", mtime=0, filename="") as gz:
+                gz.write(texto)
+        elif e["escaner"] == "tenable-csv":
+            (docs / "50-escaneos" / f"{nombre}.csv").write_text("\n".join(",".join(c) for c in filas) + "\n", encoding="utf-8")
         else:
             csv_(docs / "50-escaneos" / f"{nombre}.csv", filas)
     cat = [["cveID", "vendorProject", "product", "vulnerabilityName", "dateAdded", "shortDescription", "requiredAction", "dueDate",

@@ -85,6 +85,9 @@ def excluidos(docs: Path, cfg: dict) -> list[dict]:
         if not p.is_file():
             continue
         motivo = None
+        # La exportación por archivos de Defender (F-09) es JSON comprimido: en 50-escaneos/ no es un respaldo.
+        if p.name.lower().endswith(".json.gz") and "50-escaneos" in p.relative_to(docs).parts:
+            continue
         if p.suffix.lower() in ext:
             motivo = f"excluido por omisión: {p.suffix.lower()} es una llave, una credencial o un respaldo"
         elif EXCLUIDOS["nombres"].match(norm(p.stem) if not p.name.startswith(".") else p.name):
@@ -104,9 +107,10 @@ class Hoja:
     """Una tabla con sus columnas canónicas, por su cabecera o por el mapeo de la configuración, y
     la fila de origen de cada dato para citarla."""
 
-    def __init__(self, ruta: Path, requeridas: list[str], opcionales: list[str], alias: dict, columnas: dict | None = None):
+    def __init__(self, ruta: Path, requeridas: list[str], opcionales: list[str], alias: dict, columnas: dict | None = None,
+                 filas: list | None = None):
         self.ruta, self.faltan, self.filas, self.mapa = ruta, [], [], {}
-        filas = filas_de(ruta)
+        filas = filas_de(ruta) if filas is None else filas
         fijas = {k: norm(v) for k, v in (columnas or {}).items() if v}
         cand = {c: ([fijas[c]] if c in fijas else alias.get(c, [c])) for c in list(requeridas) + list(opcionales)}
         inicio = 0
@@ -276,14 +280,78 @@ CAMPOS_KEV = {
 # La exportación de un escáner: ninguna marca entra en la 0.1.0 (ADR 0023). Las cabeceras de uso
 # común, y el mapeo del setup (`scanner.columns`) para lo que no coincida.
 ALIAS_ESCANER = {
-    "activo": ["activo", "host", "hostname", "asset", "asset_name", "ip", "ip_address", "direccion_ip", "dns_name", "netbios_name", "equipo"],
-    "vulnerabilidad": ["cve", "cves", "cve_id", "vulnerabilidad", "vulnerability_id", "plugin_id", "plugin", "qid", "id_vulnerabilidad"],
-    "titulo": ["titulo", "title", "name", "plugin_name", "vulnerability", "nombre", "vulnerability_title"],
-    "severidad": ["severidad", "severity", "risk", "riesgo", "risk_factor"],
-    "cvss": ["cvss", "cvss_score", "cvss_base_score", "cvss_v4", "cvss_v4_0_base_score", "cvss_v3_base_score", "cvss_v3", "puntaje_cvss"],
-    "primera": ["primera_deteccion", "first_found", "first_seen", "first_detected", "first_discovered", "detectada"],
-    "fecha": ["fecha_escaneo", "scan_date", "fecha", "last_seen", "last_found"],
+    "activo": ["activo", "host", "hostname", "asset", "asset_name", "devicename", "ip", "ip_address", "direccion_ip", "dns_name", "netbios_name", "equipo"],
+    "vulnerabilidad": ["cve", "cves", "cve_id", "cveid", "definition_cve", "vulnerabilidad", "vulnerability_id", "plugin_id", "definition_id", "plugin", "qid", "id_vulnerabilidad"],
+    "titulo": ["titulo", "title", "name", "plugin_name", "definition_name", "vulnerability", "nombre", "vulnerability_title"],
+    "severidad": ["severidad", "severity", "vulnerabilityseveritylevel", "risk", "riesgo", "risk_factor"],
+    "cvss": ["cvss", "cvss_score", "cvssscore", "cvss_base_score", "cvss_v4", "cvss_v4_0_base_score", "definition_cvss4_base_score",
+             "cvss_v3_base_score", "definition_cvss3_base_score", "cvss_v3", "puntaje_cvss"],
+    "primera": ["primera_deteccion", "first_found", "first_seen", "first_observed", "firstseentimestamp", "first_detected", "first_discovered", "detectada"],
+    "fecha": ["fecha_escaneo", "scan_date", "fecha", "last_seen", "lastseentimestamp", "last_found"],
+    "estado": ["estado", "state", "status"],
+    # El identificador del fabricante, para el hallazgo sin CVE: Plugin ID en Tenable (F-08), QID en Qualys.
+    "plugin": ["plugin_id", "definition_id", "plugin", "qid"],
 }
+# Los formatos de los fabricantes, cada uno con su fuente y con las columnas que lo identifican.
+# Tenable: la exportación CSV de hallazgos de Tenable Vulnerability Management (F-08): un hallazgo en
+# estado «fixed» ya no se detecta, y no cuenta como abierto. Microsoft Defender: la exportación de
+# vulnerabilidades de software por dispositivo (F-09), en JSON —por respuesta o por archivos .json.gz—,
+# que lista las vulnerabilidades encontradas y no todos los equipos: no dice qué equipo se escaneó.
+CAMPOS_TENABLE = {
+    "TVM-ASSET": "asset.name · Asset Name",
+    "TVM-IPV4": "asset.display_ipv4_address · IPv4 Address",
+    "TVM-PLUGIN": "definition.id · Plugin ID",
+    "TVM-NOMBRE": "definition.name · Plugin Name",
+    "TVM-CVE": "definition.cve · CVE",
+    "TVM-SEVERIDAD": "severity · Severity, la severidad basada en el CVSS",
+    "TVM-CVSS3": "definition.cvss3.base_score · CVSSv3 Base Score",
+    "TVM-CVSS4": "definition.cvss4.base_score · CVSSv4 Base Score",
+    "TVM-PRIMERA": "first_observed · First Seen, la fecha en que un escaneo la encontró por primera vez en el activo",
+    "TVM-ULTIMA": "last_seen · Last Seen",
+    "TVM-ESTADO": "state · State: New, Active, Resurfaced o Fixed —detectada antes y ya no—",
+}
+CAMPOS_DEFENDER = {
+    "MDVM-DEVICE": "DeviceName · el nombre del dispositivo (con DeviceId)",
+    "MDVM-CVE": "CveId",
+    "MDVM-SEVERIDAD": "VulnerabilitySeverityLevel",
+    "MDVM-CVSS": "CvssScore",
+    "MDVM-PRIMERA": "FirstSeenTimestamp",
+    "MDVM-ULTIMA": "LastSeenTimestamp",
+    "MDVM-SOFTWARE": "SoftwareName, SoftwareVendor y SoftwareVersion",
+    "MDVM-ARCHIVOS": "la exportación por archivos: JSON multilínea comprimido con GZIP (.json.gz)",
+}
+FORMATOS_ESCANER = [
+    ("Tenable Vulnerability Management", "F-08", {"asset_name", "definition_id"}, True),
+    ("Microsoft Defender Vulnerability Management", "F-09", {"devicename", "cveid"}, False),
+]
+FIJADO = {"fixed", "corregida", "corregido", "remediada"}
+
+
+def filas_json(ruta: Path) -> list[list]:
+    """Una exportación en JSON como tabla: un objeto por línea (la de archivos de Defender, .json.gz) o
+    una respuesta con su lista en «value». La cabecera son las llaves, en el orden en que aparecen."""
+    import gzip
+    abrir = gzip.open if ruta.suffix.lower() == ".gz" else open
+    with abrir(ruta, "rt", encoding="utf-8") as fh:
+        texto = fh.read()
+    try:
+        d = json.loads(texto)
+        objetos = (d["value"] if "value" in d else [d]) if isinstance(d, dict) else d
+    except json.JSONDecodeError:
+        objetos = [json.loads(x) for x in texto.splitlines() if x.strip()]
+    cab: list[str] = []
+    for o in objetos:
+        cab += [k for k in o if k not in cab]
+    return [cab] + [["" if o.get(k) is None else str(o.get(k)) for k in cab] for o in objetos if isinstance(o, dict)]
+
+
+def formato_escaner(cabecera: list) -> tuple[str | None, str | None, bool]:
+    """El fabricante de una exportación, por sus columnas: su nombre, su fuente y si dice qué equipos se escanearon."""
+    cab = {norm(x) for x in cabecera}
+    for nombre, fuente, firma, cubre in FORMATOS_ESCANER:
+        if firma <= cab:
+            return nombre, fuente, cubre
+    return None, None, True
 CVE = re.compile(r"CVE-\d{4}-\d{4,}", re.I)
 
 
@@ -331,10 +399,16 @@ def escaneos(docs: Path, cfg: dict, no_proc: list, excl: list) -> list[dict]:
     for p in sorted(carpeta.iterdir()) if carpeta.is_dir() else []:
         if not p.is_file() or p.name.startswith(".") or es_kev(p) or _excluido(p, excl, docs):
             continue
-        if p.suffix.lower() not in (".csv", ".xlsx"):
-            no_proc.append({"archivo": rel(p, docs), "motivo": "una exportación del escáner se procesa en CSV o Excel"})
+        es_json = p.suffix.lower() == ".json" or p.name.lower().endswith(".json.gz")
+        if p.suffix.lower() not in (".csv", ".xlsx") and not es_json:
+            no_proc.append({"archivo": rel(p, docs), "motivo": "una exportación del escáner se procesa en CSV, Excel o, la de Defender, en JSON"})
             continue
-        t = Hoja(p, ["activo", "vulnerabilidad"], ["titulo", "severidad", "cvss", "primera", "fecha"], ALIAS_ESCANER, cols)
+        try:
+            crudas = filas_json(p) if es_json else None
+        except (OSError, ValueError) as err:
+            no_proc.append({"archivo": rel(p, docs), "motivo": f"el JSON no se pudo leer: {err}"})
+            continue
+        t = Hoja(p, ["activo", "vulnerabilidad"], ["titulo", "severidad", "cvss", "primera", "fecha", "estado", "plugin"], ALIAS_ESCANER, cols, crudas)
         if t.faltan:
             no_proc.append({"archivo": rel(p, docs), "motivo": f"faltan las columnas {', '.join(t.faltan)}: dilas en scanner.columns"})
             continue
@@ -343,18 +417,24 @@ def escaneos(docs: Path, cfg: dict, no_proc: list, excl: list) -> list[dict]:
         if not f:
             no_proc.append({"archivo": rel(p, docs), "motivo": "sin la fecha del escaneo, en el nombre del archivo o en una columna"})
             continue
-        filas = []
+        filas, activos = [], set()
         sin_sev = 0
         for x in t.filas:
+            activos.add(norm(x["activo"]))
+            # Un hallazgo que el escáner ya no detecta (Tenable, «fixed», F-08) prueba que el activo se
+            # escaneó, y no está abierto.
+            if norm(x.get("estado")) in FIJADO:
+                continue
             s = severidad(x.get("severidad"), x.get("cvss"))
             if s is None:
                 sin_sev += 1
-            filas.append({"activo": str(x["activo"]).strip(), "a": norm(x["activo"]), "vuln": vuln_id(x["vulnerabilidad"]),
+            filas.append({"activo": str(x["activo"]).strip(), "a": norm(x["activo"]), "vuln": vuln_id(x["vulnerabilidad"]) or str(x.get("plugin") or "").strip(),
                           "cves": cves(x["vulnerabilidad"]) or cves(x.get("titulo")), "titulo": x.get("titulo") or "",
                           "sev": s, "primera": fecha(x.get("primera")), "cita": t.cita(x, docs)})
         if sin_sev:
             no_proc.append({"archivo": rel(p, docs), "motivo": f"{sin_sev} filas sin severidad ni puntaje CVSS: no se les aplica un plazo"})
-        out.append({"archivo": rel(p, docs), "fecha": f, "filas": filas, "activos": {x["a"] for x in filas}})
+        nombre, fuente, cubre = formato_escaner(t.cabecera)
+        out.append({"archivo": rel(p, docs), "fecha": f, "filas": filas, "activos": activos, "formato": nombre, "fuente": fuente, "cubre": cubre})
     return sorted(out, key=lambda e: (e["fecha"], e["archivo"]))
 
 
@@ -651,8 +731,13 @@ def guillermo(cfg: dict, periodo: str, hoy: dt.date) -> dict:
 
     # Lo abierto: lo que encontró el último escaneo de cada activo.
     ultimo: dict[str, dict] = {}
+    vistos_sin_cobertura: set = set()
     for e in scans:
-        for a in e["activos"]:
+        # Una exportación que solo lista vulnerabilidades (Defender, F-09) es el estado de todos los
+        # equipos que ha listado: el que ya no aparece no tiene ninguna abierta.
+        if not e["cubre"]:
+            vistos_sin_cobertura |= e["activos"]
+        for a in (e["activos"] if e["cubre"] else vistos_sin_cobertura):
             ultimo[a] = e
     primera: dict[tuple, dt.date] = {}
     for e in scans:
@@ -724,7 +809,9 @@ def guillermo(cfg: dict, periodo: str, hoy: dt.date) -> dict:
         if not cerro:
             no_proc.append({"archivo": rel(t.ruta, docs), "motivo": f"fila {x['_fila']}: cerrada sin fecha de cierre"})
             continue
-        despues = [e for e in scans if e["fecha"] > cerro and a in e["activos"]]
+        # Una exportación que no dice qué equipos se escanearon (Defender, F-09) prueba el cierre si ya no
+        # trae la vulnerabilidad en ese activo.
+        despues = [e for e in scans if e["fecha"] > cerro and (a in e["activos"] or not e["cubre"])]
         sigue = next((e for e in despues if any(y["a"] == a and y["vuln"] == v and y["sev"] not in (None, "ninguna") for y in e["filas"])), None)
         cierres.append({"ticket": x.get("ticket") or "", "activo": x["activo"], "vulnerabilidad": v, "cerrada": iso(cerro),
                         "escaneo_posterior": iso(despues[0]["fecha"]) if despues else None, "sigue": iso(sigue["fecha"]) if sigue else None})
@@ -742,13 +829,18 @@ def guillermo(cfg: dict, periodo: str, hoy: dt.date) -> dict:
     cobertura = []
     inv = leer_tabla(docs, "00-referencia", ("inventario", "activos"), ["activo"], ["alcance", "criticidad", "responsable", "tipo"], ALIAS_ACTIVOS,
                      cols.get("assets"), no_proc, "el inventario de activos")
-    inventariados = set()
-    for x in inv.filas if inv else []:
+    # Solo cuentan las exportaciones que dicen qué equipos se escanearon: la de Defender lista
+    # vulnerabilidades, y un equipo sin ninguna no aparece en ella (F-09).
+    cubren = [e for e in scans if e["cubre"]]
+    if scans and not cubren:
+        no_proc.append({"archivo": "50-escaneos/", "motivo": "las exportaciones de Microsoft Defender listan vulnerabilidades, no los equipos escaneados: "
+                                                             "la cobertura del inventario no se calcula sin otra exportación que lo diga"})
+    inventariados = {norm(x["activo"]) for x in (inv.filas if inv else [])}
+    for x in inv.filas if inv and (cubren or not scans) else []:
         a = norm(x["activo"])
-        inventariados.add(a)
         if x.get("alcance") not in (None, "") and not si(x["alcance"]):
             continue
-        visto = max((e["fecha"] for e in scans if a in e["activos"]), default=None)
+        visto = max((e["fecha"] for e in cubren if a in e["activos"]), default=None)
         cobertura.append({"activo": x["activo"], "criticidad": x.get("criticidad") or "", "ultimo_escaneo": iso(visto),
                           "en_ventana": bool(visto and visto >= desde)})
         if not visto or visto < desde:
@@ -757,9 +849,9 @@ def guillermo(cfg: dict, periodo: str, hoy: dt.date) -> dict:
                              dias=(hoy - visto).days if visto else None, clave=f"cobertura:{a}"))
     fuera = sorted({x["activo"] for e in scans for x in e["filas"] if x["a"] not in inventariados}) if inv else []
 
-    fuentes = ["F-05"] + (["F-06"] if kev else [])
+    fuentes = ["F-05"] + (["F-06"] if kev else []) + sorted({e["fuente"] for e in scans if e["fuente"]})
     partes = {
-        "vuln-scan": {"escaneos": [{"archivo": e["archivo"], "fecha": iso(e["fecha"]), "activos": len(e["activos"]),
+        "vuln-scan": {"escaneos": [{"archivo": e["archivo"], "fecha": iso(e["fecha"]), "activos": len(e["activos"]), "formato": e["formato"], "fuente": e["fuente"],
                                     "hallazgos": sum(1 for x in e["filas"] if x["sev"] not in (None, "ninguna"))} for e in scans],
                       "kev": {"archivo": kev_archivo, "entradas": len(kev)}, "abiertas": len(abiertas), "excluidos": excl,
                       "fuentes": fuentes, "publicar": publicar},
@@ -1179,6 +1271,28 @@ def selftest() -> int:
        any("vulnerability.sla_days" in x for x in revisar_config({"entity": {"id": "1", "name": "x", "country": "CO"}, "period": "2026-10"}, "guillermo")), True)
     ok("Amparo sin los plazos de contención: la configuración no pasa",
        any("incident.containment_hours" in x for x in revisar_config({"entity": {"id": "1", "name": "x", "country": "CO"}, "period": "2026-10"}, "amparo")), True)
+    # Los formatos de los fabricantes (F-08, F-09).
+    with tempfile.TemporaryDirectory() as tmp:
+        import gzip
+        d = Path(tmp) / "docs"
+        (d / "50-escaneos").mkdir(parents=True)
+        (d / "50-escaneos" / "tenable-2026-10-01.csv").write_text(
+            "asset.name,asset.display_ipv4_address,definition.id,definition.name,definition.cve,severity,definition.cvss4.base_score,first_observed,last_seen,state\n"
+            "web-01,10.0.0.1,1001,Falla A,CVE-2099-0001,high,8.1,2026-08-01T10:00:00Z,2026-10-01T10:00:00Z,Active\n"
+            "db-01,10.0.0.2,1002,Falla B,CVE-2099-0002,critical,9.8,2026-07-01T10:00:00Z,2026-10-01T10:00:00Z,Fixed\n", encoding="utf-8")
+        with gzip.open(d / "50-escaneos" / "defender-2026-10-02.json.gz", "wt", encoding="utf-8") as fh:
+            fh.write(json.dumps({"DeviceId": "a1", "DeviceName": "app-01", "CveId": "CVE-2099-0003", "VulnerabilitySeverityLevel": "Critical",
+                                 "CvssScore": 9.8, "FirstSeenTimestamp": "2026-09-01T00:00:00Z", "LastSeenTimestamp": "2026-10-02T00:00:00Z",
+                                 "SoftwareName": "servidor", "SoftwareVendor": "sintetico", "SoftwareVersion": "1.0"}) + "\n")
+        np_: list = []
+        es = escaneos(d, {}, np_, [])
+        ok("Tenable (F-08): se reconoce por sus columnas, y el hallazgo «fixed» no está abierto pero el activo sí se escaneó",
+           [(e["formato"], e["fuente"], e["cubre"], [x["vuln"] for x in e["filas"]], sorted(e["activos"])) for e in es if e["fuente"] == "F-08"],
+           [("Tenable Vulnerability Management", "F-08", True, ["CVE-2099-0001"], ["db_01", "web_01"])])
+        ok("Defender (F-09): el JSON comprimido, con su severidad y su primera detección; no dice qué equipos se escanearon",
+           [(e["formato"], e["cubre"], [(x["a"], x["vuln"], x["sev"], x["primera"]) for x in e["filas"]]) for e in es if e["fuente"] == "F-09"],
+           [("Microsoft Defender Vulnerability Management", False, [("app_01", "CVE-2099-0003", "critica", dt.date(2026, 9, 1))])])
+        ok("sin filas que no se pudieron procesar", np_, [])
     with tempfile.TemporaryDirectory() as tmp:
         t = Path(tmp)
         docs, est = t / "seguridad" / "e1", t / "estado" / "e1"

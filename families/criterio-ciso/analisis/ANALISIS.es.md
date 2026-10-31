@@ -1,12 +1,12 @@
 # Análisis estadístico de las pruebas · familia CISO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ciso/` · ronda completa más reciente: 1 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ciso/` · ronda más reciente: 1 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda completa más reciente, la 1, sobre las 6 entidades del material: 100 de 100 señales sembradas encontradas (margen del 95 %: 96,3–100 %) y 0 de más; 48 de 48 datos extraídos bien (100 %, margen del 95 %: 92,5–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 1, parcial, sobre 6 de las 10 entidades del material: 100 de 100 señales sembradas encontradas (margen del 95 %: 96,3–100 %) y 0 de más; 48 de 48 datos extraídos bien (100 %, margen del 95 %: 92,5–100 %); y 2 de 2 entidades de control sin ninguna señal.
 
 Sumando las rondas 1–1, 100 de 100 señales encontradas, 0 de más y 48 de 48 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
@@ -18,7 +18,7 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 1; la completa más reciente es la 1 |
+| Rondas | 1; la más reciente, la 1, es parcial |
 | Material | Banca · Colombia, Retail · México, Tecnología · Chile, salud · Perú |
 | Entidades de control | Control · Colombia, Control · México |
 | Corridas de una entidad | 6 |
@@ -38,11 +38,13 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 ![Evolución por ronda](evolucion-es.svg)
 
+Una ronda que no corre todas las entidades es parcial: la primera, pequeña, antes de la completa, o una de verificación, que repite las corridas que un defecto corregido dejó pendientes.
+
 | Ronda | Entidades | Señales · cobertura | Señales · precisión | Extracción | Control sin señales | Tokens | Defectos |
 |---|---|---|---|---|---|---|---|
 | 1 | 6 | 100 % | 100 % | 100 % | 2 de 2 | 31,9 M | 4 |
 
-## La ronda completa más reciente · ronda 1
+## La ronda más reciente · ronda 1
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|

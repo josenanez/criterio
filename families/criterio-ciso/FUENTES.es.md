@@ -32,6 +32,8 @@ ella hasta verificarla ([ADR 0023](../../docs/decisions/0023-la-familia-ciso.md)
 | F-05 | FIRST · Common Vulnerability Scoring System v4.0 · Specification Document | CVSS 4.0, publicado el 1 de noviembre de 2023; documento versión 1.2 | [first.org](https://www.first.org/cvss/specification-document) | 2026-10-30 | Verificada: La escala cualitativa de severidad (tabla 22): ninguna 0.0, baja 0.1–3.9, media 4.0–6.9, alta 7.0–8.9 y crítica 9.0–10.0. El documento dice que su uso es opcional. El motor la usa solo cuando la exportación del escáner trae el puntaje y no la severidad | La severidad de una vulnerabilidad desde su puntaje CVSS |
 | F-06 | CISA · Known Exploited Vulnerabilities Catalog · el archivo CSV | El archivo publicado al 28 de octubre de 2026, con doce columnas | [github.com/cisagov/kev-data](https://github.com/cisagov/kev-data) | 2026-10-30 | Verificada: Se verificó la cabecera del archivo en el espejo oficial de CISA (cisagov/kev-data, actualización del 28 de octubre de 2026): la columna forensicTriage es nueva respecto de versiones anteriores. El motor procesa el archivo como lo descarga la organización; nunca se conecta a internet | El lector del catálogo KEV de Guillermo |
 | F-07 | CISA · Binding Operational Directive 26-04 · Prioritizing Security Updates Based on Risk | Emitida el 10 de junio de 2026; revoca y reemplaza la BOD 22-01 | [fedramp.gov](https://www.fedramp.gov/notices/0014/) | 2026-10-30 | Por verificar: Se conoce por el aviso de FedRAMP y por fuentes secundarias; la página de CISA no se pudo consultar. Obliga a las agencias federales de los Estados Unidos, no a las organizaciones de la región. El motor no aplica sus plazos: toma la fecha de corrección que trae el catálogo (F-06) y los plazos de la política de la organización | El contexto de la fecha de corrección del catálogo KEV |
+| F-08 | Tenable · Tenable Vulnerability Management, Findings Export Fields and Associated CSV Keys | La documentación en línea de Tenable Vulnerability Management, con su página de estados de una vulnerabilidad | [docs.tenable.com](https://docs.tenable.com/vulnerability-management/Content/Explore/export-findings-csv-keys.htm) · [Vulnerability States](https://docs.tenable.com/vulnerability-management/Content/Explore/Findings/VulnerabilityStates.htm) | 2026-10-30 | Verificada: Confirmadas las claves CSV de la exportación de hallazgos: asset.name, asset.display_ipv4_address, definition.id (Plugin ID), definition.name, definition.cve, severity —la severidad basada en el CVSS—, definition.cvss3.base_score, definition.cvss4.base_score, first_observed («la fecha en que un escaneo encontró por primera vez la vulnerabilidad en un activo»), last_seen y state. Los estados: New y Active la detectan; Fixed, «detectada en un host, pero ya no la detecta»; Resurfaced, corregida y detectada otra vez | La exportación de Tenable: Guillermo la reconoce por sus columnas, y un hallazgo en estado Fixed no cuenta como abierto |
+| F-09 | Microsoft · Microsoft Defender Vulnerability Management, Export software vulnerabilities assessment per device | La página de Microsoft Learn actualizada el 24 de noviembre de 2025 | [learn.microsoft.com](https://learn.microsoft.com/en-my/defender-endpoint/api/get-assessment-software-vulnerabilities) | 2026-10-30 | Verificada: Confirmadas las propiedades de la exportación completa por dispositivo: DeviceId, DeviceName, CveId, VulnerabilitySeverityLevel, CvssScore, FirstSeenTimestamp, LastSeenTimestamp, SoftwareName, SoftwareVendor, SoftwareVersion, RecommendedSecurityUpdate y ExploitabilityLevel; por respuesta JSON paginada o por archivos JSON multilínea comprimidos con GZIP (.json.gz). La exportación lista las vulnerabilidades de cada dispositivo, no los dispositivos escaneados: un equipo sin vulnerabilidades no aparece. El estado (New, Fixed, Updated) solo está en la exportación delta, que esta versión no procesa | La exportación de Defender: Guillermo la procesa en JSON, sin calcular con ella la cobertura del inventario |
 
 ## Los campos que procesa el motor
 
@@ -54,6 +56,35 @@ puerta falla si el motor usa uno que no está, o uno por verificar.
 | forensicTriage | Si pide triaje forense: Yes o No | Verificado |
 | notes | Las notas y sus enlaces | Verificado |
 | cwes | Las debilidades CWE | Verificado |
+
+**F-08 · Tenable · Tenable Vulnerability Management, Findings Export Fields and Associated CSV Keys**
+
+| Id | Campo | Estado |
+|---|---|---|
+| TVM-ASSET | asset.name · Asset Name | Verificado |
+| TVM-IPV4 | asset.display_ipv4_address · IPv4 Address | Verificado |
+| TVM-PLUGIN | definition.id · Plugin ID | Verificado |
+| TVM-NOMBRE | definition.name · Plugin Name | Verificado |
+| TVM-CVE | definition.cve · CVE | Verificado |
+| TVM-SEVERIDAD | severity · Severity, la severidad basada en el CVSS | Verificado |
+| TVM-CVSS3 | definition.cvss3.base_score · CVSSv3 Base Score | Verificado |
+| TVM-CVSS4 | definition.cvss4.base_score · CVSSv4 Base Score | Verificado |
+| TVM-PRIMERA | first_observed · First Seen, la fecha en que un escaneo la encontró por primera vez en el activo | Verificado |
+| TVM-ULTIMA | last_seen · Last Seen | Verificado |
+| TVM-ESTADO | state · State: New, Active, Resurfaced o Fixed —detectada antes y ya no— | Verificado |
+
+**F-09 · Microsoft · Microsoft Defender Vulnerability Management, Export software vulnerabilities assessment per device**
+
+| Id | Campo | Estado |
+|---|---|---|
+| MDVM-DEVICE | DeviceName · el nombre del dispositivo (con DeviceId) | Verificado |
+| MDVM-CVE | CveId | Verificado |
+| MDVM-SEVERIDAD | VulnerabilitySeverityLevel | Verificado |
+| MDVM-CVSS | CvssScore | Verificado |
+| MDVM-PRIMERA | FirstSeenTimestamp | Verificado |
+| MDVM-ULTIMA | LastSeenTimestamp | Verificado |
+| MDVM-SOFTWARE | SoftwareName, SoftwareVendor y SoftwareVersion | Verificado |
+| MDVM-ARCHIVOS | la exportación por archivos: JSON multilínea comprimido con GZIP (.json.gz) | Verificado |
 
 ## Cifras de terceros
 

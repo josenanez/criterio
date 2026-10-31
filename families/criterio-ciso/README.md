@@ -264,7 +264,8 @@ The family grows in increments. Each one is a version with its full test and its
 |---|---|---|---|
 | 0.1.0 | Released | **Alexis, Guillermo and Amparo, built, with the engine tested**<br>· The commands, their seven skills and the engine, with the sixteen signals: Alexis's controls, access, third parties and risks; Guillermo's vulnerabilities, KEV catalog and coverage; Amparo's incidents, notifications and tests<br>· Any scanner export in CSV or Excel with its column mapping, severity from CVSS v4.0 and CISA's KEV catalog<br>· What is never opened: credentials, keys and backups, excluded by default<br>· Banking, retail, healthcare and technology material, with two control entities | The engine against the key of all the material: six entities from four industries, with their controls |
 | 0.2.0 | Released | **The round of the three agents**<br>· The round with Alexis, Guillermo and Amparo on all the material, with the key they never see<br>· The defects it finds, with their fix and their verification | The full round, with the 95% confidence floor on signals and data (decision 0020) |
-| 0.3.0 | In progress | **The scanners, each from its source**<br>· The export format of Tenable, Qualys, Rapid7 and Microsoft Defender, each from its verified source, as Dynamics and Zoho entered the CCO | Their material and their round, with the same metrics |
+| 0.3.0 | In progress | **The Tenable and Microsoft Defender scanners, each from its source**<br>· The Tenable Vulnerability Management findings export, with its state (F-08), and the Microsoft Defender per-device vulnerabilities export, in JSON (F-09), each from its verified documentation<br>· Four more entities: energy and insurance, with a control entity for each vendor | Round 2 with the three agents, on the four new entities |
+| Increment 4 | Next | **Qualys and Rapid7, once they have their source**<br>· The Qualys and Rapid7 export formats, each from a verified source of what it exports | Their material and their round |
 
 <!-- /hoja de ruta -->
 
@@ -296,9 +297,9 @@ evidence (decision 0020), and on the day the family is launched, if it is stable
 <!-- ciso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Alexis** · Governance and controls | `criterio-security` · 9 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · Vulnerabilities | `criterio-vulnerability` · 7 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · Response and recovery | `criterio-resilience` · 7 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 1 · [results](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · Governance and controls | `criterio-security` · 9 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · Vulnerabilities | `criterio-vulnerability` · 7 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · Response and recovery | `criterio-resilience` · 7 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /ciso:estado -->
 

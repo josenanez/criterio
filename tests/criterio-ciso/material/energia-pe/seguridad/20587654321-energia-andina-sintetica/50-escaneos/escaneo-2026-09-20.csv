@@ -1,0 +1,17 @@
+asset.name,asset.display_ipv4_address,definition.id,definition.name,definition.cve,severity,definition.cvss4.base_score,first_observed,last_seen,state
+ena-web-01,10.20.0.10,19506,Nessus Scan Information,,info,,,2026-09-20T09:00:00Z,active
+ena-app-01,10.20.0.11,19506,Nessus Scan Information,,info,,,2026-09-20T09:00:00Z,active
+ena-db-01,10.20.0.12,19506,Nessus Scan Information,,info,,,2026-09-20T09:00:00Z,active
+ena-fw-borde-01,10.20.0.13,19506,Nessus Scan Information,,info,,,2026-09-20T09:00:00Z,active
+ena-ad-01,10.20.0.15,19506,Nessus Scan Information,,info,,,2026-09-20T09:00:00Z,active
+ena-correo-01,10.20.0.16,19506,Nessus Scan Information,,info,,,2026-09-20T09:00:00Z,active
+ena-backup-01,10.20.0.17,19506,Nessus Scan Information,,info,,,2026-09-20T09:00:00Z,active
+ena-prueba-07,10.20.0.19,19506,Nessus Scan Information,,info,,,2026-09-20T09:00:00Z,active
+ena-app-01,10.20.0.11,31002,Biblioteca de plantillas desactualizada,CVE-2099-11002,high,8.1,2026-08-20T09:00:00Z,2026-09-20T09:00:00Z,fixed
+ena-app-01,10.20.0.11,40001,Suites de cifrado débiles,,low,3.1,2026-02-01T09:00:00Z,2026-09-20T09:00:00Z,active
+ena-web-01,10.20.0.10,32001,Ejecución remota en el portal,CVE-2099-12001,critical,9.8,2026-08-20T09:00:00Z,2026-09-20T09:00:00Z,active
+ena-fw-borde-01,10.20.0.13,32002,Omisión de autenticación en el cortafuegos,CVE-2099-12002,high,8.1,2026-09-20T09:00:00Z,2026-09-20T09:00:00Z,active
+ena-db-01,10.20.0.12,32003,Escalamiento en el motor de base de datos,CVE-2099-12003,medium,5.3,2026-06-01T09:00:00Z,2026-09-20T09:00:00Z,active
+ena-backup-01,10.20.0.17,32004,Servicio de respaldo expuesto,CVE-2099-12004,medium,5.3,2026-09-20T09:00:00Z,2026-09-20T09:00:00Z,active
+ena-correo-01,10.20.0.16,32005,Inyección en el servidor de correo,CVE-2099-12005,high,8.1,2026-09-20T09:00:00Z,2026-09-20T09:00:00Z,active
+ena-ad-01,10.20.0.15,32006,Delegación insegura en el directorio,CVE-2099-12006,critical,9.8,2026-09-20T09:00:00Z,2026-09-20T09:00:00Z,active

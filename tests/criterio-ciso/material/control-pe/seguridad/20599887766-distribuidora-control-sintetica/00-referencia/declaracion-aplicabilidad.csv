@@ -1,0 +1,16 @@
+Control;Nombre;Aplicable;Estado;Responsable;Periodicidad;Justificación
+A.5.1;Políticas de seguridad de la información;Sí;Implementado;Jefe de seguridad de la información;anual;
+A.5.9;Inventario de información y otros activos;Sí;Implementado;Gerente de tecnología;semestral;
+A.5.15;Control de acceso;Sí;Implementado;Oficial de cumplimiento;trimestral;
+A.5.18;Derechos de acceso;Sí;Implementado;Jefe de infraestructura;trimestral;
+A.5.19;Seguridad en las relaciones con proveedores;Sí;Implementado;Jefe de seguridad de la información;anual;
+A.5.24;Preparación para la gestión de incidentes;Sí;Implementado;Gerente de tecnología;anual;
+A.5.30;Preparación de las TIC para la continuidad;Sí;Implementado;Oficial de cumplimiento;anual;
+A.8.7;Protección contra el malware;Sí;Implementado;Jefe de infraestructura;mensual;
+A.8.8;Gestión de las vulnerabilidades técnicas;Sí;Implementado;Jefe de seguridad de la información;mensual;
+A.8.13;Copias de seguridad de la información;Sí;Implementado;Gerente de tecnología;mensual;
+A.8.15;Registro de eventos;Sí;Implementado;Oficial de cumplimiento;mensual;
+A.8.16;Actividades de seguimiento;Sí;Implementado;Jefe de infraestructura;mensual;
+A.8.24;Uso de la criptografía;Sí;Implementado;Jefe de seguridad de la información;anual;
+A.7.4;Seguimiento de la seguridad física;No;;;;Los servidores están en la nube del proveedor
+A.8.28;Codificación segura;Sí;En implementación;Gerente de tecnología;anual;

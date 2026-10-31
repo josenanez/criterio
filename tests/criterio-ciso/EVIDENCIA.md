@@ -15,6 +15,10 @@ los CVE llevan el año 2099 para que ninguno se confunda con una vulnerabilidad 
 | `tecnologia-cl` | Chile | tecnología | CSV con el puntaje CVSS y sin la severidad: sale de la escala del CVSS v4.0 (F-05) | 25 |
 | `control-co` | Colombia | — | CSV, cabeceras en inglés | 0 |
 | `control-mx` | México | — | Excel, cabeceras en español | 0 |
+| `energia-pe` | Perú | energía | La exportación de hallazgos de Tenable Vulnerability Management (F-08), con sus claves CSV y su estado | 25 |
+| `seguros-cl` | Chile | seguros | La exportación de Microsoft Defender por archivos (F-09): JSON multilínea en `.json.gz` | 23 |
+| `control-pe` | Perú | — | Tenable (F-08) | 0 |
+| `control-cl` | Chile | — | Microsoft Defender (F-09) | 0 |
 
 Cada una trae su carpeta de seguridad al 15 de octubre de 2026, con el periodo de octubre: la política
 de gestión de vulnerabilidades en PDF y la de respuesta a incidentes en Word, con sus plazos, distintos
@@ -25,6 +29,13 @@ registro de riesgos; tres exportaciones del escáner —el 20 de agosto, el 20 d
 octubre— y el catálogo KEV con las doce columnas que publica CISA (F-06); el seguimiento de la
 remediación y las excepciones; y los incidentes del trimestre, cada uno con su informe, la constancia
 de cada notificación y su revisión, y el informe de cada prueba de continuidad.
+
+**Los dos fabricantes (incremento 3).** En las entidades de Tenable, el hallazgo que el escaneo ya no
+detecta sigue en la exportación en estado `fixed`: prueba que el activo se escaneó y no está abierto, y
+la excepción del hallazgo sin CVE se nombra por su Plugin ID. En las de Defender, la exportación solo
+trae las vulnerabilidades de cada equipo: no hay filas informativas, la cobertura del inventario no se
+calcula —el motor lo dice— y por eso no se siembran los dos activos sin escanear; `seguros-cl` espera
+23 señales y no 25. Un `.json.gz` en `50-escaneos/` es la exportación de Defender, no un respaldo.
 
 **Lo que nunca se abre, en cada entidad:** una llave privada (`.pem`), un archivo de credenciales y un
 respaldo comprimido (`.zip`). El motor los excluye, cada reporte los nombra, y `evaluar.py` comprueba
@@ -80,6 +91,10 @@ Está en todas las entidades, y las de control no traen nada más:
   mismo material.
 - **El mapeo del escáner de `salud-pe`.** La clave trae el mapeo que tendría que dejar el setup; que el
   agente lo pregunte y lo registre bien, también lo prueba la ronda.
-- **Los formatos propios de un escáner** —Tenable, Qualys, Rapid7, Microsoft Defender—: entran en su
-  incremento, cada uno desde su fuente.
+- **Qualys y Rapid7.** Sus formatos propios no tienen todavía una fuente verificada: la documentación
+  pública de Qualys describe el CSV que se importa, no el que se exporta, y la de Rapid7 InsightVM, una
+  exportación en Parquet. Mientras tanto, sus exportaciones en CSV o Excel se procesan por sus columnas
+  o con su mapeo.
+- **La exportación delta de Defender**, con su estado New, Fixed o Updated: esta versión procesa la
+  completa.
 - **La documentación de una organización real.** Nada de esto se ha corrido todavía sobre ella.

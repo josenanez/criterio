@@ -64,7 +64,9 @@ def evaluar(carpeta: Path, agentes: list[str]) -> dict:
                 revisar.append(f"{ag}: excluyó {excl} y la clave dice {sorted(clave['excluidos'])}")
             if "NO-ES-UNA-LLAVE" in json.dumps(r, ensure_ascii=False, default=str) or "no-es-una-clave" in json.dumps(r, ensure_ascii=False, default=str):
                 revisar.append(f"{ag}: un resultado guarda el contenido de algo excluido")
-            otros = [x for x in r["no_procesado"] if not x["motivo"].startswith("excluido")]
+            # Con solo exportaciones de Defender la cobertura no se calcula, y el motor lo dice (F-09): es lo esperado.
+            otros = [x for x in r["no_procesado"] if not x["motivo"].startswith("excluido")
+                     and not (clave["escaner"] == "defender-json" and x["motivo"].startswith("las exportaciones de Microsoft Defender"))]
             if otros:
                 revisar.append(f"{ag}: no procesó {otros}")
             if ag == "guillermo":
