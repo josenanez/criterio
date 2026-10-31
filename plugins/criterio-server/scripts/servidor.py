@@ -949,16 +949,19 @@ def atencion(entradas: list, hoy: str) -> dict:
     except ValueError:
         en30 = ''
     filas = pendientes_con_fecha(entradas)
-    senales = {}
+    senales, privadas = {}, set()
     for x in entradas:
         s_ = FAMILIA_DE.get(x['area'])
-        n = sum(_senales(r) for r in resultados_de(x))
+        res = resultados_de(x)
+        n = sum(_senales(r) for r in res)
+        if any(r.get('privadas') for r in res):
+            privadas.add(s_)
         if x['area'] == 'portafolio':
             n += (ultima_pmo(x) or {}).get('hallazgos') or 0
         senales[s_] = senales.get(s_, 0) + n
     return {'pasadas': sum(1 for f_, *_ in filas if f_ and f_ < hoy),
             'pronto': sum(1 for f_, *_ in filas if f_ and hoy <= f_ <= en30),
-            'total': len(filas), 'senales': senales,
+            'total': len(filas), 'senales': senales, 'privadas': privadas,
             'peticiones': sum(len(pendientes(x['_estado'], ROBOT_DE.get(x['area']))) for x in entradas
                               if x.get('_estado') is not None and x['_estado'].is_dir())}
 
@@ -1254,10 +1257,14 @@ def resultados_de(x: dict) -> list:
             datos = json.loads(f.read_text(encoding='utf-8'))
         except (OSError, json.JSONDecodeError):
             continue
+        # Lo privado no sale (ADR 0019, ADR 0023), pero la página no puede decir «sin señales» de un
+        # reporte cuyas señales se dejaron fuera: se sabe que hubo, no cuántas ni cuáles.
+        privadas = False
         if ocultas and isinstance(datos, dict):
+            privadas = any(a.get('signal') in ocultas for a in datos.get('alertas') or [])
             datos = dict(datos, alertas=[a for a in datos.get('alertas') or [] if a.get('signal') not in ocultas],
                          partes={k: v for k, v in (datos.get('partes') or {}).items() if k not in (x.get('privados') or {})})
-        out.append({'ambito': ambito, 'ruta': f.relative_to(d).as_posix(), 'datos': datos,
+        out.append({'ambito': ambito, 'ruta': f.relative_to(d).as_posix(), 'datos': datos, 'privadas': privadas,
                     'escrito': dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc).isoformat(timespec='seconds')})
     return out
 
@@ -1273,6 +1280,13 @@ def reportes_de(x: dict) -> list:
     return [{'ruta': f.relative_to(d).as_posix(), 'comando': f.stem[len('reporte-'):],
              'escrito': dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc).isoformat(timespec='seconds')[:16].replace('T', ' ')}
             for f in sorted(fs, key=lambda f: (-f.stat().st_mtime, str(f)))]
+
+
+def privadas_de_agente(a: str) -> str:
+    """La frase que reemplaza a las señales que el portal deja fuera: por qué no están y dónde se leen."""
+    claves = sorted({v.get('config') for v in ((AGENTES.get(a) or {}).get('privados') or {}).values() if v.get('config')})
+    porque = 'la configuración no lo abre' + (' (' + ', '.join(f'<code>{e(c)}</code>' for c in claves) + ')' if claves else '')
+    return f'Tiene señales que no se publican en este portal: {porque}. Se leen en el reporte, en la carpeta del agente.'
 
 
 def ruta_reporte(x: dict, rel: str) -> str:
@@ -1314,7 +1328,10 @@ def tarjeta_familia(s_: str, entradas: list, at: dict, fr: dict) -> str:
             hoy_tiene += f' · {informe.plural(ult["hallazgos"], "señal", "señales")} en el barrido del {ult.get("fecha")}'
     else:
         n_s = at['senales'].get(s_, 0)
-        hoy_tiene = informe.plural(n_s, 'señal abierta', 'señales abiertas') if n_s else 'Sin señales abiertas'
+        hoy_tiene = (informe.plural(n_s, 'señal abierta', 'señales abiertas') if n_s else
+                     'Sus señales no se publican aquí' if s_ in at.get('privadas', ()) else 'Sin señales abiertas')
+        if n_s and s_ in at.get('privadas', ()):
+            hoy_tiene += ' y otras que no se publican aquí'
     return (f'<a class="fam-card" href="/familia/{e(s_)}"><span class="q">{logo_familia(s_, 30)}</span>'
             f'<span class="t">{e(f_["nombre"]["es"])}</span><span class="caras">{caras}</span>'
             f'<span class="d">{e(hoy_tiene)}</span></a>')
@@ -1459,7 +1476,8 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
                               f'<p>Calculado por el motor el <b>{e(d.get("hoy") or "—")}</b>, escrito el '
                               f'{e(r["escrito"][:16].replace("T", " "))}. '
                               + (f'<b>{informe.plural(len(alertas), "señal abierta", "señales abiertas")}</b>.'
-                                 if alertas else 'Sin señales abiertas.') + '</p>')
+                                 if alertas else '' if r.get('privadas') else 'Sin señales abiertas.')
+                              + (f' {privadas_de_agente(a)}' if r.get('privadas') else '') + '</p>')
                 if alertas:
                     cuerpo.append(f'<details class="senales"><summary>Ver {"la señal" if len(alertas) == 1 else "las " + str(len(alertas)) + " señales"}</summary><ul>')
                     for al in alertas[:60]:
@@ -2344,6 +2362,21 @@ def selftest() -> int:
            ([r['comando'] for r in reportes_de(xv)], [a['signal'] for a in r_v['alertas']], sorted(r_v['partes'])),
            (['won-to-invoice'], ['won_without_contract'], ['won-to-invoice']))
         ok('y su página tampoco', vista_reporte([xv], 'ingresos', '900-banco', 'ingresos/2026-10/reporte-commission-check.md', '2026-10-20')[0], 404)
+        ok('se sabe que hubo señales privadas, no cuáles', resultados_de(xv)[0]['privadas'], True)
+        # Guillermo: todas sus señales son privadas por omisión (ADR 0023). La página no dice «sin
+        # señales abiertas»: dice que las hay fuera del portal y qué configuración las abre.
+        vul = raiz / 'estado-seguridad' / '900-banco'
+        (vul / 'vulnerabilidades' / '2026-10').mkdir(parents=True, exist_ok=True)
+        (vul / 'vulnerabilidades' / '2026-10' / 'resultados.json').write_text(json.dumps(
+            {'agente': 'guillermo', 'periodo': '2026-10', 'alertas': [{'signal': 'vuln_past_sla', 'detail': 'srv-01 · CVE-2099-1', 'key': 'sla:1'}],
+             'partes': {'vuln-sla': {}}}), encoding='utf-8')
+        xg = {'area': 'vulnerabilidades', 'instancia': '900-banco', 'nombre': 'Banco', '_estado': vul,
+              'privados': {'vuln-sla': ['vuln_past_sla', 'vuln_exception_expired']}}
+        pg = vista_familia([xg], 'ciso', '2026-10-20')[1]
+        ok('la página de la CISO no dice «sin señales» de lo que deja fuera, ni muestra la vulnerabilidad',
+           ('Sin señales abiertas' in pg, 'no se publican en este portal' in pg, 'vulnerability.publish' in pg, 'CVE-2099-1' in pg),
+           (False, True, True, False))
+        ok('y su tarjeta en la portada tampoco', 'Sus señales no se publican aquí' in tarjeta_familia('ciso', [xg], atencion([xg], '2026-10-20'), {}), True)
         ok('el escape impide inyectar en la confirmación',
            '<script>x</script>' not in pedir('/peticion', 'POST',
                                    urllib.parse.urlencode({'de': '<script>x</script>'}))[1], True)
