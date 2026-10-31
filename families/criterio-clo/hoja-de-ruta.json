@@ -261,6 +261,39 @@
     ],
     "prueba": "Round 12 with Fidel and Constanza"
    }
+  },
+  {
+   "incremento": 9,
+   "version": "1.4.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PY",
+     "nombre": {
+      "es": "Paraguay",
+      "en": "Paraguay"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Paraguay",
+    "entra": [
+     "Su entrada en el registro de países, con el RUC de cada contraparte",
+     "Sin entidad pública: la regla de la garantía de la ley de contrataciones públicas no está entre las fuentes verificadas",
+     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+    ],
+    "prueba": "La ronda 13 con Fidel y Constanza"
+   },
+   "en": {
+    "titulo": "Paraguay",
+    "entra": [
+     "Its entry in the country registry, with each counterparty's RUC",
+     "No public entity: the guarantee rule of the public procurement law is not among the verified sources",
+     "Three test entities, one of them a control with no seeded defects"
+    ],
+    "prueba": "Round 13 with Fidel and Constanza"
+   }
   }
  ]
 }

@@ -172,6 +172,20 @@ CAMPOS_CR = {
     "A1-IMPUESTO": "ResumenFactura/TotalImpuesto · el total de impuesto (anexo 1, II.c)",
     "A1-TOTAL": "ResumenFactura/TotalComprobante · el total del comprobante (anexo 1, II.c)",
 }
+CAMPOS_SIFEN = {
+    "XSD-RAIZ": "rDE/DE · el documento electrónico, espacio de nombres http://ekuatia.set.gov.py/sifen/xsd; suelto, en su rDE firmado o dentro de un envío (DE_v150.xsd y el XML de ejemplo FE_v150)",
+    "XSD-CDC": "DE/@Id · el CDC, código de control de cuarenta y cuatro posiciones (tCDC, DE_Types_v150.xsd)",
+    "C002-TIPO": "gTimb/iTiDE · 1 factura electrónica; 4 autofactura; 5 nota de crédito; 6 nota de débito; 7 nota de remisión (C002)",
+    "C004-TIMBRADO": "gTimb/dNumTim · el número del timbrado, de ocho dígitos (C004)",
+    "C005-NUMERO": "gTimb/dEst, dPunExp y dNumDoc · establecimiento, punto de expedición y número del documento, de siete con ceros a la izquierda (C005 a C007)",
+    "C008-VIGENCIA": "gTimb/dFeIniT · el inicio de la vigencia del timbrado, AAAA-MM-DD (C008)",
+    "D002-FECHA": "gDatGralOpe/dFeEmiDE · la fecha y hora de emisión (D002)",
+    "D101-EMISOR": "gDatGralOpe/gEmis/dRucEm y dDVEmi · el RUC del emisor y su dígito verificador por módulo 11 (D101 y D102)",
+    "D206-RECEPTOR": "gDatGralOpe/gDatRec/dRucRec · el RUC del receptor contribuyente, iNatRec 1 (D201, D206 y D207)",
+    "XSD-RECEPTOR-ID": "gDatGralOpe/gDatRec/dNumIDRec · el documento del receptor que no es contribuyente (tgDatRec, DE_v150.xsd)",
+    "F014-TOTAL": "gTotSub/dTotGralOpe · el total general de la operación (F014)",
+    "F017-IVA": "gTotSub/dTotIVA · la liquidación total del IVA; sin ella, dIVA5 más dIVA10, el IVA al 5 % y al 10 % (F015 a F017)",
+}
 # Honduras no publica un esquema (decisión 0024): la factura es un documento, y el agente la lleva a
 # la ficha del cierre con estos campos del Acuerdo 481-2017 (F-37). El motor no procesa un XML.
 CAMPOS_HN = {
@@ -555,6 +569,40 @@ def _cr(raiz, nombre: str) -> dict:
     return d
 
 
+def _sifen(de) -> dict:
+    """El documento electrónico de Paraguay (F-40, el Manual Técnico SIFEN v150 de la DNIT, y F-41,
+    su esquema XSD v150 y el XML de ejemplo de la SET): `DE` en su espacio de nombres, con el CDC en
+    su atributo `Id`; en `gTimb`, el tipo, el timbrado con el inicio de su vigencia, el
+    establecimiento, el punto de expedición y el número; en `gDatGralOpe`, la fecha de emisión y el
+    RUC del emisor y del receptor; y en `gTotSub`, el total general y el IVA. El valor de cada ítem
+    trae el IVA adentro —la base gravada sale de dividirlo por 1,1 al 10 % o por 1,05 al 5 % (E735)—:
+    la base es el total general sin el IVA, a cualquier tasa. Solo la factura electrónica (iTiDE 1)
+    cruza valores. SIFEN rechaza el documento emitido fuera de la vigencia del timbrado (validación
+    1103); el esquema v150 trae solo su inicio (dFeFinT está comentado), así que el lector señala la
+    emisión anterior a ese inicio, en `fuera`."""
+    tim, gen, tot = _h(de, "gTimb"), _h(de, "gDatGralOpe"), _h(de, "gTotSub")
+    emi, rec = _h(gen, "gEmis"), _h(gen, "gDatRec")
+    tipo = _t(tim, "iTiDE") or ""
+    numero_ = f"{_t(tim, 'dEst')}-{_t(tim, 'dPunExp')}-{_t(tim, 'dNumDoc')}" if tim is not None else None
+    total, iva = numero(_t(tot, "dTotGralOpe")), numero(_t(tot, "dTotIVA"))
+    if iva is None:
+        iva = (numero(_t(tot, "dIVA5")) or 0.0) + (numero(_t(tot, "dIVA10")) or 0.0)
+    f_emi, f_ini = fecha((_t(gen, "dFeEmiDE") or "")[:10]), fecha(_t(tim, "dFeIniT"))
+    timbrado = _t(tim, "dNumTim")
+    d = {
+        "pais": PAIS_DEL_LECTOR["sifen"], "lector": "sifen", "fuente": "F-40",
+        "tipo": {"1": "factura", "4": "autofactura", "5": "nota de crédito", "6": "nota de débito", "7": "nota de remisión"}.get(tipo, f"tipo {tipo}"),
+        "numero": numero_, "fecha": iso(f_emi), "timbrado": timbrado,
+        "emisor": ident(_t(emi, "dRucEm")), "receptor": ident(_t(rec, "dRucRec") or _t(rec, "dNumIDRec")),
+        "base": round(total - iva, 2) if total is not None else None, "iva": round(iva, 2),
+        "total": total, "valores": tipo == "1", "fuera": [],
+    }
+    if f_emi and f_ini and f_emi < f_ini:
+        d["fuera"].append(f"se emitió el {iso(f_emi)}, antes del inicio de la vigencia de su timbrado {timbrado}, el {iso(f_ini)} (validación 1103)")
+    d["id"] = de.attrib.get("Id") or f"{d['emisor']}-{timbrado}-{numero_}"
+    return d
+
+
 def _hn(x: dict, tol_iva: float) -> dict:
     """Una factura de Honduras, desde la ficha del cierre (decisión 0024; F-37, Acuerdo 481-2017,
     artículos 10 y 11): el agente la extrae del documento, con su cita, y aquí se valida su forma.
@@ -666,6 +714,9 @@ def leer_factura(ruta: Path) -> dict:
         return _fel(raiz)
     if nombre in ("FacturaElectronica", "NotaCreditoElectronica") and "comprobanteselectronicos.go.cr" in raiz.tag:   # F-34
         return _cr(raiz, nombre)
+    de = next((x for x in raiz.iter() if x.tag == "{http://ekuatia.set.gov.py/sifen/xsd}DE"), None)
+    if de is not None:                                           # F-41: el DE de SIFEN, suelto, en su rDE o en un envío
+        return _sifen(de)
     return {"error": f"no es una factura electrónica de ningún país del registro (raíz {nombre})"}
 
 
@@ -1100,12 +1151,6 @@ def facturas(cfg: dict, periodo: str, ficha: dict | None = None) -> dict:
     leidas = []
     if FACTURA[pais].get("documento"):
         leidas, out["no_procesado"], out["solo_identidad"] = facturas_documento(cfg, periodo, ficha or {}, tol_iva)
-        for d in leidas:
-            # Una factura recibida fuera de su autorización no sustenta el crédito fiscal del ISV
-            # (decisión 0024): se pone al lado del registro que la usa, si lo hay.
-            if d["lado"] == "recibidas" and d["fuera"]:
-                out["alertas"].append(alerta("invoice_outside_authorization", f"factura recibida {d['numero']} del {d['emisor']}: " + "; ".join(d["fuera"]),
-                                             {"archivo": d["archivo"]}, d.get("total"), clave=f"cai:{d['archivo']}"))
     for lado in ("emitidas", "recibidas") if not FACTURA[pais].get("documento") else ():
         for p in sorted((carpeta / lado).rglob("*.xml")) if (carpeta / lado).is_dir() else []:
             d = leer_factura(p)
@@ -1117,6 +1162,14 @@ def facturas(cfg: dict, periodo: str, ficha: dict | None = None) -> dict:
                 continue
             d["lado"], d["archivo"] = lado, rel(p, docs)
             leidas.append(d)
+    for d in leidas:
+        # Una factura recibida fuera de su autorización —en Honduras, fuera de su rango o después de su
+        # fecha límite, y no sustenta el crédito fiscal del ISV (decisión 0024); en Paraguay, emitida
+        # antes de la vigencia de su timbrado, que SIFEN rechaza (F-40, validación 1103)— se pone al
+        # lado del registro que la usa, si lo hay.
+        if d["lado"] == "recibidas" and d.get("fuera"):
+            out["alertas"].append(alerta("invoice_outside_authorization", f"factura recibida {d['numero']} del {d['emisor']}: " + "; ".join(d["fuera"]),
+                                         {"archivo": d["archivo"]}, d.get("total"), clave=f"{'timbrado' if d['lector'] == 'sifen' else 'cai'}:{d['archivo']}"))
     out["facturas"] = len(leidas)
     # Las facturas emitidas del periodo, para quien las cruza sin volver a procesarlas: Valeria, de la
     # familia CCO, pone cada contrato firmado con un cliente al lado de su factura (ADR 0019).
@@ -2458,6 +2511,83 @@ def factura_fel(serie: str, numero_: int, fecha_: str, emisor: str, receptor: st
             f'<dte:FechaHoraCertificacion>{fecha_}T10:00:05-06:00</dte:FechaHoraCertificacion></dte:Certificacion></dte:SAT></dte:GTDocumento>')
 
 
+def _dv_sifen(digitos: str) -> int | None:
+    """El verificador por módulo 11 de SIFEN (D102, F-40): factores de 2 a 11 de derecha a izquierda,
+    y 11 menos el resto. Reproduce los tres del XML de ejemplo (F-41): el del RUC del emisor, el del
+    receptor y el del CDC. Los restos 0 y 1 no aparecen en el ejemplo: devuelve None y el material no
+    los usa."""
+    total, f = 0, 2
+    for c in reversed(digitos):
+        total += int(c) * f
+        f = 2 if f == 11 else f + 1
+    r = total % 11
+    return None if r < 2 else 11 - r
+
+
+def ruc_py(n: int) -> str:
+    """Un RUC de Paraguay ficticio, de ocho dígitos con su verificador por módulo 11 (D101 y D102,
+    F-40), escrito como se imprime: 88001234-5. El lector no lo valida. Ninguno corresponde a una
+    empresa."""
+    while True:
+        base = f"88{n % 10**6:06d}"
+        dv = _dv_sifen(base)
+        if dv is not None:
+            return f"{base}-{dv}"
+        n += 1
+
+
+def factura_sifen(est: str, pto: str, nro: int, fecha_: str, emisor: str, receptor: str, base: float, iva: float,
+                  inicio_timbrado: str = "2026-01-02") -> str:
+    """Un documento electrónico de Paraguay, factura electrónica (iTiDE 1) en guaraníes, con lo que
+    procesa el lector (F-40) y el anidamiento del esquema y del XML de ejemplo (F-41), para las pruebas
+    y el material. El emisor y el receptor van como `RUC-DV`. El CDC sigue la composición del ejemplo:
+    el tipo, el RUC y su verificador, el establecimiento, el punto, el número, el tipo de contribuyente,
+    la fecha, el tipo de emisión, el código de seguridad y su verificador. El valor del ítem trae el
+    IVA adentro (E735). Sin la firma ni el QR, que el lector no procesa."""
+    ruc_e, dv_e = emisor.split("-")
+    ruc_r, dv_r = receptor.split("-")
+    total = round(base + iva, 2)
+    tasa = 5 if base and abs(iva - base * 0.05) < abs(iva - base * 0.1) else 10
+    m = lambda x: f"{x:.0f}" if float(x).is_integer() else f"{x:.2f}"  # noqa: E731  · el guaraní, entero
+    h = int(hashlib.sha256(f"{est}{pto}{nro}{emisor}".encode()).hexdigest(), 16)
+    timbrado = f"{10000000 + h % 89999999:08d}"
+    seg = h % 10**9
+    while True:
+        cdc = f"01{ruc_e}{dv_e}{est}{pto}{nro:07d}2{fecha_.replace('-', '')}1{seg:09d}"
+        dv = _dv_sifen(cdc)
+        if dv is not None:
+            break
+        seg = (seg + 1) % 10**9
+    sub = f"<dSub{tasa}>{m(total)}</dSub{tasa}>"
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<rDE xmlns="http://ekuatia.set.gov.py/sifen/xsd"><dVerFor>150</dVerFor>'
+            f'<DE Id="{cdc}{dv}"><dDVId>{dv}</dDVId><dFecFirma>{fecha_}T10:00:00</dFecFirma><dSisFact>1</dSisFact>'
+            f'<gOpeDE><iTipEmi>1</iTipEmi><dDesTipEmi>Normal</dDesTipEmi><dCodSeg>{seg:09d}</dCodSeg></gOpeDE>'
+            f'<gTimb><iTiDE>1</iTiDE><dDesTiDE>Factura electrónica</dDesTiDE><dNumTim>{timbrado}</dNumTim><dEst>{est}</dEst>'
+            f'<dPunExp>{pto}</dPunExp><dNumDoc>{nro:07d}</dNumDoc><dFeIniT>{inicio_timbrado}</dFeIniT></gTimb>'
+            f'<gDatGralOpe><dFeEmiDE>{fecha_}T10:00:00</dFeEmiDE><gOpeCom><iTipTra>2</iTipTra><dDesTipTra>Prestación de servicios</dDesTipTra>'
+            '<iTImp>1</iTImp><dDesTImp>IVA</dDesTImp><cMoneOpe>PYG</cMoneOpe><dDesMoneOpe>Guarani</dDesMoneOpe></gOpeCom>'
+            f'<gEmis><dRucEm>{ruc_e}</dRucEm><dDVEmi>{dv_e}</dDVEmi><iTipCont>2</iTipCont><dNomEmi>EMISOR DE PRUEBA</dNomEmi>'
+            '<dDirEmi>CALLE DE PRUEBA</dDirEmi><dNumCas>1</dNumCas><cDepEmi>1</cDepEmi><dDesDepEmi>CAPITAL</dDesDepEmi>'
+            '<cCiuEmi>1</cCiuEmi><dDesCiuEmi>ASUNCION (DISTRITO)</dDesCiuEmi><dTelEmi>000000000</dTelEmi><dEmailE>prueba@example.com</dEmailE>'
+            '<gActEco><cActEco>00000</cActEco><dDesActEco>ACTIVIDAD DE PRUEBA</dDesActEco></gActEco></gEmis>'
+            '<gDatRec><iNatRec>1</iNatRec><iTiOpe>1</iTiOpe><cPaisRec>PRY</cPaisRec><dDesPaisRe>Paraguay</dDesPaisRe><iTiContRec>2</iTiContRec>'
+            f'<dRucRec>{ruc_r}</dRucRec><dDVRec>{dv_r}</dDVRec><dNomRec>RECEPTOR DE PRUEBA</dNomRec></gDatRec></gDatGralOpe>'
+            '<gDtipDE><gCamFE><iIndPres>1</iIndPres><dDesIndPres>Operación presencial</dDesIndPres></gCamFE>'
+            '<gCamCond><iCondOpe>2</iCondOpe><dDCondOpe>Crédito</dDCondOpe><gPagCred><iCondCred>1</iCondCred><dDCondCred>Plazo</dDCondCred>'
+            '<dPlazoCre>30 días</dPlazoCre></gPagCred></gCamCond>'
+            '<gCamItem><dCodInt>SRV-1</dCodInt><dDesProSer>SERVICIO</dDesProSer><cUniMed>77</cUniMed><dDesUniMed>UNI</dDesUniMed><dCantProSer>1</dCantProSer>'
+            f'<gValorItem><dPUniProSer>{m(total)}</dPUniProSer><dTotBruOpeItem>{m(total)}</dTotBruOpeItem><gValorRestaItem><dDescItem>0</dDescItem>'
+            f'<dTotOpeItem>{m(total)}</dTotOpeItem></gValorRestaItem></gValorItem>'
+            f'<gCamIVA><iAfecIVA>1</iAfecIVA><dDesAfecIVA>Gravado IVA</dDesAfecIVA><dPropIVA>100</dPropIVA><dTasaIVA>{tasa}</dTasaIVA>'
+            f'<dBasGravIVA>{m(base)}</dBasGravIVA><dLiqIVAItem>{m(iva)}</dLiqIVAItem></gCamIVA></gCamItem></gDtipDE>'
+            f'<gTotSub><dSubExe>0</dSubExe><dSubExo>0</dSubExo>{sub}<dTotOpe>{m(total)}</dTotOpe><dTotDesc>0</dTotDesc>'
+            '<dTotDescGlotem>0</dTotDescGlotem><dTotAntItem>0</dTotAntItem><dTotAnt>0</dTotAnt><dPorcDescTotal>0</dPorcDescTotal>'
+            f'<dDescTotal>0</dDescTotal><dAnticipo>0</dAnticipo><dRedon>0</dRedon><dTotGralOpe>{m(total)}</dTotGralOpe>'
+            f'<dIVA5>{m(iva if tasa == 5 else 0)}</dIVA5><dIVA10>{m(iva if tasa == 10 else 0)}</dIVA10><dTotIVA>{m(iva)}</dTotIVA>'
+            f'<dBaseGrav5>{m(base if tasa == 5 else 0)}</dBaseGrav5><dBaseGrav10>{m(base if tasa == 10 else 0)}</dBaseGrav10>'
+            f'<dTBasGraIVA>{m(base)}</dTBasGraIVA></gTotSub></DE></rDE>')
+
+
 def rfc(letras: str, fecha_: str, homoclave: str) -> str:
     """Un RFC de persona moral ficticio, de 12 posiciones (F-19, p. 15). Ninguno corresponde a una empresa."""
     return f"{letras[:3].upper()}{fecha_}{homoclave[:3].upper()}"
@@ -2623,6 +2753,28 @@ def selftest() -> int:
         ok("Costa Rica 4.4: se identifica por su clave de cincuenta posiciones", (len(f["id"]), f["id"][:3]), (50, "506"))
         nc = factura_cr("00100001030000000007", "2026-09-15", cedula_cr(101), cedula_cr(202), 10.0, 1.3).replace("FacturaElectronica", "NotaCreditoElectronica")
         ok("Costa Rica 4.4: la nota de crédito se identifica y no cruza valores", (leer_factura_texto(nc, t)["tipo"], leer_factura_texto(nc, t)["valores"]), ("nota de crédito", False))
+        # El XML de ejemplo de la SET (F-41): los verificadores del RUC del emisor, del receptor y del CDC.
+        ok("SIFEN: el módulo 11 reproduce los tres verificadores del ejemplo",
+           (_dv_sifen("80013884"), _dv_sifen("80002201"), _dv_sifen("0180013884800100112345641201812181781979223")), (8, 7, 9))
+        ok("SIFEN: el RUC ficticio lleva su verificador, y salta los restos que el ejemplo no muestra",
+           (ruc_py(1235), _dv_sifen("88001234"), ruc_py(1234)), ("88001235-8", None, "88001235-8"))
+        py = factura_sifen("001", "002", 4521, "2026-09-15", ruc_py(101), ruc_py(202), 1000000.0, 100000.0)
+        f = leer_factura_texto(py, t)
+        ok("SIFEN de Paraguay: la factura electrónica, con el IVA dentro del total general",
+           (f["lector"], f["tipo"], f["numero"], f["emisor"], f["receptor"], f["base"], f["iva"], f["total"], f["fecha"], f["valores"], f["fuera"]),
+           ("sifen", "factura", "001-002-0004521", ident(ruc_py(101)[:8]), ident(ruc_py(202)[:8]), 1000000.0, 100000.0, 1100000.0, "2026-09-15", True, []))
+        ok("SIFEN de Paraguay: se identifica por su CDC de cuarenta y cuatro posiciones, con su verificador",
+           (len(f["id"]), f["id"][:11], _dv_sifen(f["id"][:43]) == int(f["id"][43])), (44, "01" + ruc_py(101).replace("-", ""), True))
+        ok("SIFEN de Paraguay: el IVA al 5 % también se lee", leer_factura_texto(factura_sifen("001", "001", 7, "2026-09-15", ruc_py(101), ruc_py(202), 1000000.0, 50000.0), t)["iva"], 50000.0)
+        envio = ('<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"><soap:Body><rEnviDe xmlns="http://ekuatia.set.gov.py/sifen/xsd">'
+                 f'<dId>100</dId><xDE>{py.split(chr(10), 1)[1]}</xDE></rEnviDe></soap:Body></soap:Envelope>')
+        ok("SIFEN de Paraguay: dentro de su envío, como el XML de ejemplo", leer_factura_texto(envio, t)["id"], f["id"])
+        ok("SIFEN de Paraguay: la nota de crédito se identifica y no cruza valores",
+           (lambda g: (g["tipo"], g["valores"]))(leer_factura_texto(py.replace("<iTiDE>1</iTiDE>", "<iTiDE>5</iTiDE>"), t)), ("nota de crédito", False))
+        fuera = leer_factura_texto(factura_sifen("001", "002", 4522, "2026-09-15", ruc_py(101), ruc_py(202), 1000.0, 100.0, inicio_timbrado="2026-09-20"), t)["fuera"]
+        ok("SIFEN de Paraguay: emitida antes de la vigencia de su timbrado (validación 1103)", (len(fuera), "1103" in fuera[0]), (1, True))
+        ok("SIFEN de Paraguay: el día en que empieza la vigencia ya es vigente",
+           leer_factura_texto(factura_sifen("001", "002", 4523, "2026-09-15", ruc_py(101), ruc_py(202), 1000.0, 100.0, inicio_timbrado="2026-09-15"), t)["fuera"], [])
         hn = {"number": "000-001-01-00000120", "cai": "3E5A1C-7B2D90-4F11A8-0C6E3B-92D4F7-11", "date": "2026-09-15",
               "authorized_range": {"from": "000-001-01-00000001", "to": "000-001-01-00000500"}, "issue_deadline": "2026-12-31",
               "issuer_rtn": "08019002265431", "customer_rtn": "08019010017725", "taxable": 10000.0, "isv": 1500.0, "total": 11500.0}

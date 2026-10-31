@@ -22,7 +22,7 @@ Cada XML de `30-facturacion/` se procesa con la estructura oficial de su país �
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" convertir --config <config> --caso <AAAA-MM>/30-facturacion
 ```
 
-El motor valida esos datos y levanta `invoice_outside_authorization` en la factura recibida fuera de su autorización.
+El motor valida esos datos y levanta `invoice_outside_authorization` en la factura recibida fuera de su autorización. En Paraguay la levanta desde el XML: la factura recibida emitida antes del inicio de la vigencia de su timbrado.
 
 ## Flujo
 

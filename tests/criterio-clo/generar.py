@@ -103,6 +103,20 @@ def rtn_hn(n: int) -> str:
     return f"0801{n % 10**10:010d}"
 
 
+def ruc_py(n: int) -> str:
+    """Un RUC de Paraguay ficticio, de ocho dígitos con su verificador por módulo 11, el mismo del
+    material de la CFO (F-40 de la CFO, D101 y D102). Ninguno corresponde a una empresa."""
+    while True:
+        base = f"88{n % 10**6:06d}"
+        total, f = 0, 2
+        for c in reversed(base):
+            total += int(c) * f
+            f = 2 if f == 11 else f + 1
+        if total % 11 >= 2:
+            return f"{base}-{11 - total % 11}"
+        n += 1
+
+
 def cnpj(raiz: int) -> str:
     """Un CNPJ ficticio con sus dos dígitos verificadores por módulo 11, el mismo del material de la
     CFO. Ninguno corresponde a una empresa."""
@@ -134,6 +148,8 @@ def id_contraparte(e: dict, i: int) -> str:
         return cedula_cr(e["n0"] * 100 + i)
     if e["pais"] == "HN":
         return rtn_hn(e["n0"] * 100 + i)
+    if e["pais"] == "PY":
+        return ruc_py(e["n0"] * 100 + i)
     return f"{800000000 + e['n0'] * 10 + i}"
 
 SALIDA = AQUI / "material"
@@ -392,6 +408,25 @@ ENTIDADES = [
      "contrapartes": ["Tecnología Gubernamental, S. de R.L.", "Suministros del Estado, S. A.", "Edificaciones Oficiales, S. de R.L.", "Software Público, S. de R.L.",
                       "Consultoría Estatal, S. de R.L.", "Mantenimiento Público, S. de R.L.", "Vigilancia Oficial, S. A."],
      "fidel": ["garantia_baja"], "constanza": []},
+    # Paraguay, con el RUC de cada contraparte, en guaraníes. Sin entidad pública: la regla de la garantía
+    # de la ley de contrataciones públicas no está entre las fuentes verificadas.
+    {"carpeta": "banca-py", "industria": "banca", "pais": "PY", "id": ruc_py(457812), "nombre": "Banco del Tebicuary Sintético", "moneda": "PYG", "u": 450_000_000, "n0": 4400,
+     "personas": ("Liz Benítez", "Hugo Duarte", "Rossana Giménez"),
+     "contrapartes": ["Sistemas Financieros del Guairá Sintética S.A.", "Papelería del Centro Sintética S.A.", "Inmobiliaria Carmelitas Sintética S.A.", "Licencias Digitales Sintética S.A.",
+                      "Consultores de Itapúa Sintética S.A.", "Mantenimiento Integral Sintética S.A.", "Seguridad del Este Sintética S.A."],
+     "fidel": ["preaviso_cerca", "otrosi_sin_facultad", "pagos_de_mas", "sin_garantia", "obligacion_contrato_vencida"],
+     "constanza": ["obligacion_vencida", "evidencia_vieja", "norma_sin_evaluar", "informe_declara_cumplido", "obligacion_contrato_fuera"]},
+    {"carpeta": "retail-py", "industria": "retail", "pais": "PY", "id": ruc_py(612904), "nombre": "Distribuidora del Ybytyruzú Sintética", "moneda": "PYG", "u": 330_000_000, "n0": 4500,
+     "personas": ("Fátima Ayala", "Osvaldo Ramírez", "Celeste Villalba"),
+     "contrapartes": ["Logística del Chaco Sintética S.A.", "Empaques de Luque Sintética S.A.", "Centro Comercial del Sur Sintética S.A.", "Pagos en Línea Sintética S.A.",
+                      "Mercadeo Integral Sintética S.A.", "Refrigeración Comercial Sintética S.A.", "Vigilancia Integral Sintética S.A."],
+     "fidel": ["contrato_por_vencer", "firma_sin_facultad", "pago_despues", "garantia_corta", "registro_sin_documento"],
+     "constanza": ["sin_fuente", "politica_vencida", "caso_vencido", "cumplida_sin_evidencia", "norma_aplica_sin_matriz"]},
+    {"carpeta": "control-py", "industria": "retail", "pais": "PY", "id": ruc_py(733015), "nombre": "Comercial Control del Paraguay Sintética", "moneda": "PYG", "u": 270_000_000, "n0": 4600,
+     "personas": ("Mirta Cabrera", "Néstor Ortiz", "Gloria Franco"),
+     "contrapartes": ["Transportes Control Sintética S.A.", "Insumos Control Sintética S.A.", "Bodegas Control Sintética S.A.", "Software Control Sintética S.A.",
+                      "Asesores Control Sintética S.A.", "Mantenimiento Control Sintética S.A.", "Limpieza Control Sintética S.A."],
+     "fidel": [], "constanza": []},
 ]
 
 d = dt.date.fromisoformat

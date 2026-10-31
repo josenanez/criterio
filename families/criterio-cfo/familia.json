@@ -56,6 +56,10 @@
       ],
       "CAMPOS_HN": [
         "F-37"
+      ],
+      "CAMPOS_SIFEN": [
+        "F-40",
+        "F-41"
       ]
     }
   },
@@ -322,8 +326,8 @@
         },
         {
           "id": "invoice_outside_authorization",
-          "es": "Una factura recibida de Honduras cae fuera de su rango autorizado o se emitió después de su fecha límite: no sustenta el crédito fiscal del ISV",
-          "en": "A received Honduran invoice falls outside its authorized range or was issued after its deadline: it does not support the sales-tax credit"
+          "es": "Una factura recibida cae fuera de su autorización: en Honduras, fuera de su rango autorizado o emitida después de su fecha límite, y no sustenta el crédito fiscal del ISV; en Paraguay, emitida antes de la vigencia de su timbrado, y SIFEN la rechaza",
+          "en": "A received invoice falls outside its authorization: in Honduras, outside its authorized range or issued after its deadline, and it does not support the sales-tax credit; in Paraguay, issued before its timbrado took effect, and SIFEN rejects it"
         },
         {
           "id": "audit_request_unanswered",

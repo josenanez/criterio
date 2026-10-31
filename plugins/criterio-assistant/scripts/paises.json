@@ -366,6 +366,31 @@
      "fuente": "F-14"
     }
    }
+  },
+  {
+   "codigo": "PY",
+   "nombre": {
+    "es": "Paraguay",
+    "en": "Paraguay"
+   },
+   "id_fiscal": "RUC",
+   "moneda": "PYG",
+   "decimal": ",",
+   "factura": {
+    "lector": "sifen",
+    "fuentes": [
+     "F-40",
+     "F-41"
+    ],
+    "clave": "CDC (cuarenta y cuatro posiciones)",
+    "tolerancia": [
+     1.0,
+     1.0
+    ],
+    "iva": 0.1,
+    "impuesto": "IVA",
+    "emisor": "DNIT"
+   }
   }
  ]
 }

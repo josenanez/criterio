@@ -140,6 +140,16 @@ ENTIDADES = [
      "siembra": ["registro_sin_factura", "factura_sin_registro", "cheque_viejo", "cierre_declarado", "requerimiento_vencido",
                  "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite", "fuera_de_rango"]},
     {"carpeta": "control-hn", "industria": "retail", "pais": "HN", "id": F.rtn_hn(7330150), "nombre": "Comercial Control de Honduras", "moneda": "HNL", "escala": 30_000, "semilla": 127, "siembra": []},
+    # Paraguay: banca —el informe de su auditor se refiere a las normas del Banco Central del Paraguay, no
+    # a las NIIF— y retail —las normas nacionales del Consejo, basadas en las NIIF— (F-42), con el
+    # documento electrónico de SIFEN (F-40, F-41), en guaraníes enteros.
+    {"carpeta": "banca-py", "industria": "banca", "pais": "PY", "id": F.ruc_py(457812), "nombre": "Banco del Tebicuary Sintético", "moneda": "PYG", "escala": 15_000_000, "semilla": 131,
+     "siembra": ["balance_descuadrado", "cheque_viejo", "comision_sin_registrar", "iva_distinto", "tarea_sin_soporte",
+                 "desviacion", "area_declara_dentro", "traslado_sin_acta", "factura_sin_registro"]},
+    {"carpeta": "retail-py", "industria": "retail", "pais": "PY", "id": F.ruc_py(612904), "nombre": "Distribuidora del Ybytyruzú Sintética", "moneda": "PYG", "escala": 10_000_000, "semilla": 137,
+     "siembra": ["xml_duplicado", "registro_sin_factura", "consignacion_en_transito", "cierre_declarado", "requerimiento_vencido",
+                 "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite", "timbrado_no_vigente"]},
+    {"carpeta": "control-py", "industria": "retail", "pais": "PY", "id": F.ruc_py(733015), "nombre": "Comercial Control del Paraguay Sintética", "moneda": "PYG", "escala": 8_000_000, "semilla": 139, "siembra": []},
 ]
 
 # Las líneas del presupuesto: área, línea, cuenta, centro de costo y el aprobado mensual en
@@ -440,6 +450,8 @@ TESORERIA = {
     "retail-cr": ["caja_bajo_minimo", "pago_sin_aprobacion", "vencimiento_cercano"],
     "banca-hn": ["exposicion", "firmante_sin_facultad", "covenant_riesgo"],
     "retail-hn": ["caja_bajo_minimo", "pago_sin_aprobacion", "vencimiento_cercano"],
+    "banca-py": ["exposicion", "firmante_sin_facultad", "covenant_riesgo"],
+    "retail-py": ["caja_bajo_minimo", "pago_sin_aprobacion", "vencimiento_cercano"],
 }
 
 
@@ -470,7 +482,7 @@ def tesoreria(e: dict, docs: Path, esperado: list) -> tuple[dict, list]:
         monedas[c] = "USD"
         # Una tasa de referencia del orden de la real para la moneda funcional: con 1, la política
         # parecía decir que la funcional era el dólar (CFO-10). Es material de prueba, no una cotización.
-        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450, "GTQ": 7.7, "CRC": 505, "HNL": 26}.get(e["moneda"], 1)
+        tasa = {"COP": 4000, "PEN": 3.75, "CLP": 950, "MXN": 18.5, "BRL": 5.4, "ARS": 1450, "GTQ": 7.7, "CRC": 505, "HNL": 26, "PYG": 7500}.get(e["moneda"], 1)
         politica += [["tasa", "USD", tasa], ["limite_exposicion", "USD", r2(abs(saldos[c]) * tasa * 0.5)]]
         esperado.append(("fx_exposure_over_limit", "exposicion:USD"))
     # Cada extracto dice su moneda, como lo imprime el banco: es de donde la toma una tesorería, y el
@@ -596,6 +608,8 @@ def generar(e: dict) -> dict:
             return F.cedula_cr(e["semilla"] * 1000 + i)
         if lector == "hn":
             return F.rtn_hn(e["semilla"] * 1000 + i)
+        if lector == "sifen":
+            return F.ruc_py(e["semilla"] * 1000 + i)
         return (f"8{e['semilla']:02d}{i:06d}" if dian else f"17{e['semilla']:02d}{i:06d}001")
 
     def numero_doc(prefijo: str, i: int) -> str:
@@ -617,9 +631,11 @@ def generar(e: dict) -> dict:
             return f"{'001' if prefijo == '99' else '002'}0000101{i:010d}"
         if lector == "hn":                                     # F-37, art. 10: establecimiento, punto de emisión, tipo 01 y correlativo
             return f"{'000' if prefijo == '99' else '001'}-001-01-{i:08d}"
+        if lector == "sifen":                                  # F-40, C005 a C007: establecimiento, punto de expedición y número de siete
+            return f"{'001' if prefijo == '99' else '002'}-001-{i:07d}"
         return f"SETP{prefijo}{i:06d}" if dian else f"{'001' if prefijo == '99' else '002'}-001-{i:09d}"
 
-    def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float) -> str:
+    def factura_xml(numero: str, fecha: dt.date, emisor: str, receptor: str, base: float, iva: float, **kw) -> str:
         if dian:
             cufe = hashlib.sha384(f"{numero}{emisor}{base}".encode()).hexdigest()
             return F.contenedor_dian(F.factura_dian(numero, cufe, fecha.isoformat(), emisor, receptor, base, iva))
@@ -644,6 +660,9 @@ def generar(e: dict) -> dict:
             return F.factura_fel(serie, int(nro), fecha.isoformat(), emisor, receptor, base, iva)
         if lector == "cr":
             return F.factura_cr(numero, fecha.isoformat(), emisor, receptor, base, iva)
+        if lector == "sifen":
+            est, pto, nro = numero.split("-")
+            return F.factura_sifen(est, pto, int(nro), fecha.isoformat(), emisor, receptor, base, iva, **kw)
         if lector == "hn":
             # Honduras no tiene XML (decisión 0024): la factura es un PDF con su CAI, su rango autorizado
             # y su fecha límite de emisión (F-37, art. 10), y el agente la extrae a la ficha.
@@ -795,7 +814,12 @@ def generar(e: dict) -> dict:
         if "registro_sin_factura" in s and l == "Publicidad":
             esperado.append(("recorded_without_einvoice", f"reg:recibidas:{F.ident(num)}"))
             continue
-        fx = factura_xml(num, f, ter, e["id"], base, iva)
+        # Paraguay: SIFEN rechaza el documento emitido fuera de la vigencia de su timbrado (F-40,
+        # validación 1103); el esquema v150 trae su inicio, y aquí empieza después de la emisión.
+        timbrado_no_vigente = "timbrado_no_vigente" in s and i == 1
+        fx = factura_xml(num, f, ter, e["id"], base, iva, **({"inicio_timbrado": (f + dt.timedelta(days=3)).isoformat()} if timbrado_no_vigente else {}))
+        if timbrado_no_vigente:
+            esperado.append(("invoice_outside_authorization", f"timbrado:{PERIODO}/30-facturacion/recibidas/fr-{num}{ext}"))
         # Honduras: una factura recibida fuera de su autorización —emitida después de su fecha límite, o
         # con un número fuera de su rango autorizado— no sustenta el crédito fiscal del ISV (decisión 0024).
         if isinstance(fx, dict) and "fuera_de_fecha" in s and i == 1:

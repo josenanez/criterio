@@ -42,6 +42,9 @@ sintéticos.
 | `banca-hn` | Honduras | banca | 10 | 10 |
 | `retail-hn` | Honduras | retail | 10 | 10 |
 | `control-hn` | Honduras | — | 0 | 0 |
+| `banca-py` | Paraguay | banca | 10 | 10 |
+| `retail-py` | Paraguay | retail | 10 | 10 |
+| `control-py` | Paraguay | — | 0 | 0 |
 | `publica-co` | Colombia | entidad pública | 3 | 5 |
 | `publica-ec` | Ecuador | entidad pública | 1 | 2 |
 | `publica-pe` | Perú | entidad pública | 1 | 2 |
@@ -78,6 +81,7 @@ contratación pública de su país. Traen la misma carpeta que las demás, más:
 - en cada póliza, el valor asegurado y la fecha en que la entidad la recibió.
 
 Guatemala todavía no tiene la suya: su regla espera el reglamento de la ley de contrataciones del Estado.
+Paraguay tampoco: la regla de la garantía de su ley de contrataciones públicas no está entre las fuentes verificadas.
 Solo Fidel corre sobre ellas. Las reglas son las de `contratacion_publica` del registro de países, cada
 una con su fuente (F-03 a F-14 de la familia).
 

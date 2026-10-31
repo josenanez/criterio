@@ -390,6 +390,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 1.1.0 | Liberada | **Los contratos públicos**<br>· Las reglas de publicación y de garantía de la ley de contratación pública de cada país del registro, cada una con su fuente: el plazo para publicar el contrato en el sistema nacional, el mínimo de la garantía de cumplimiento —su tope, en Brasil— y su entrega a tiempo, en México<br>· Una entidad pública de prueba por país, con sus constancias de publicación y sus pólizas | La ronda 7 con Fidel sobre las seis entidades públicas, una por país: 19 de 19 señales, ninguna de más, y 909 de 912 datos; los dos defectos que encontró, en la clave y en las instrucciones, con su corrección y su verificación |
 | 1.2.0 | Liberada | **Argentina, Panamá, Guatemala y Costa Rica**<br>· Su entrada en el registro de países, con la identificación fiscal de cada contraparte<br>· La regla de publicación y de garantía de la ley de contratación pública de Argentina, de Panamá y de Costa Rica, cada una con su fuente, y una entidad pública de prueba en cada uno<br>· Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados | Las rondas 8 a 11 con Fidel y Constanza, una por país |
 | 1.3.0 | Liberada | **Honduras**<br>· Su entrada en el registro de países, con el RTN de cada contraparte<br>· La garantía de cumplimiento de la Ley de Contratación del Estado, del 15 % (Decreto 74-2001, art. 100), y una entidad pública de prueba<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 12 con Fidel y Constanza |
+| 1.4.0 | En curso | **Paraguay**<br>· Su entrada en el registro de países, con el RUC de cada contraparte<br>· Sin entidad pública: la regla de la garantía de la ley de contrataciones públicas no está entre las fuentes verificadas<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con Fidel y Constanza |
 
 <!-- /hoja de ruta -->
 
@@ -421,8 +422,8 @@ sobre la documentación de una organización real.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Fidel** · Contratos | `criterio-legal` · 8 comandos, 5 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 12 · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Cumplimiento | `criterio-compliance` · 8 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 12 · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contratos | `criterio-legal` · 8 comandos, 5 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Cumplimiento | `criterio-compliance` · 8 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 

@@ -47,7 +47,7 @@ Con su salida, reporta en tres líneas: cuántos archivos, qué periodos y años
 **2. Las preguntas**, una a la vez y solo las que el inventario no respondió:
 
 1. **La entidad:** nombre, identificación fiscal (NIT, RUC, RUT, RFC u otra), país y moneda. Los países que soporta esta versión son los del registro del motor; si das otro, la revisión de la configuración dice cuáles son.
-2. **El marco:** el que adoptó el país de la entidad para ella, con su fuente en la sección del marco contable de `families/criterio-cfo/FUENTES.es.md` —el grupo NIIF en Colombia (F-05), las NIIF o las NIF del CINIF en México (F-20), las NIIF con las normas prudenciales de la CNBS para un banco de Honduras (F-39)…—. Solo se registra: Clara no opina sobre tratamientos.
+2. **El marco:** el que adoptó el país de la entidad para ella, con su fuente en la sección del marco contable de `families/criterio-cfo/FUENTES.es.md` —el grupo NIIF en Colombia (F-05), las NIIF o las NIF del CINIF en México (F-20), las NIIF con las normas prudenciales de la CNBS para un banco de Honduras (F-39), las normas del Banco Central del Paraguay para un banco de Paraguay (F-42)…—. Solo se registra: Clara no opina sobre tratamientos.
 3. **El periodo que se está cerrando.** Propón el último que tenga `10-contabilidad/`.
 4. **Las cuentas que cruzan las facturas:** los prefijos de ventas, compras, IVA generado e IVA descontable. **Propón los que salen de los datos**, no del nombre de la cuenta:
 

@@ -41,6 +41,9 @@ escribe el generador al sembrar cada defecto; el motor no la ve.
 | `banca-hn` | Honduras | banca | 9 | 14 |
 | `retail-hn` | Honduras | retail | 9 | 13 |
 | `control-hn` | Honduras | — | 0 | 0 |
+| `banca-py` | Paraguay | banca | 9 | 16 |
+| `retail-py` | Paraguay | retail | 9 | 12 |
+| `control-py` | Paraguay | — | 0 | 0 |
 
 Cada una trae el cierre de septiembre de 2026 y el presupuesto del año: balance de
 comprobación, libro mayor de enero a septiembre, auxiliares de cartera y de proveedores, dos
@@ -102,6 +105,20 @@ con el número fuera de su rango autorizado: las dos levantan `invoice_outside_a
 que regula la CNBS siguen las NIIF con sus normas prudenciales y las demás entidades eligen entre las
 NIIF completas y la NIIF para las PYMES (F-39): por eso Honduras entra con banca y retail.
 
+**Paraguay, con el documento electrónico de SIFEN.** Las tres entidades de Paraguay traen la factura
+electrónica del Manual Técnico SIFEN 150 de la DNIT (F-40) con el anidamiento de su esquema XSD 150
+(F-41): `rDE` con el `DE`, su CDC de cuarenta y cuatro posiciones en el atributo `Id`, el timbrado con el
+inicio de su vigencia, el establecimiento, el punto de expedición y el número, el RUC de cada parte con su
+dígito verificador por módulo 11 y los totales, en guaraníes enteros, con el IVA dentro del valor de cada
+ítem. El material lleva el IVA al 10 %, la tasa general; el 5 % existe (E734) y el lector toma el IVA total
+a cualquier tasa. El lector identifica cada factura por su CDC; una nota de crédito se identifica y no
+cruza. Retail recibe una factura emitida antes de la vigencia de su timbrado, que SIFEN rechaza
+(validación 1103): levanta `invoice_outside_authorization`. El esquema 150 trae solo el inicio de esa
+vigencia, así que la emisión posterior a su fin no se puede señalar desde el XML. El informe del auditor
+de un banco se refiere a las normas del Banco Central del Paraguay y las demás entidades aplican las
+normas nacionales del Consejo de Contadores Públicos, basadas en las NIIF (F-42): Paraguay entra con
+banca y retail.
+
 ## Lo que se siembra, y la señal que tiene que levantar
 
 La columna «Dónde» nombra las entidades de Colombia, Ecuador y Perú. Las de Chile y México siembran los mismos casos con su propio lector de factura; la lista exacta de cada una está en su clave, `material/<entidad>/clave.json`, en `siembra` y `esperado`.
@@ -122,6 +139,7 @@ La columna «Dónde» nombra las entidades de Colombia, Ecuador y Perú. Las de 
 | La misma factura en dos archivos | `einvoice_duplicate` | retail, banca de Perú |
 | La misma compra registrada en dos asientos | `einvoice_duplicate`, `einvoice_amount_mismatch` | retail |
 | Una factura recibida de Honduras emitida después de su fecha límite, o fuera de su rango autorizado | `invoice_outside_authorization` | banca y retail de Honduras |
+| Una factura recibida de Paraguay emitida antes de la vigencia de su timbrado | `invoice_outside_authorization` | retail de Paraguay |
 | Una tarea marcada cumplida sin su soporte | `close_task_done_without_evidence` | banca, minería, banca de Perú |
 | Una tarea vencida sin soporte | `close_task_overdue` | cooperativas, minería |
 | El cierre declarado cerrado con señales abiertas | `declared_close_vs_evidence` | retail, banca de Perú |
@@ -164,6 +182,9 @@ donde no se sembró el descuadre y que cada factura cruce con su registro o teng
   campos del IBS y la CBS de la reforma tributaria no se procesan: en esta versión no son
   obligatorios en producción.
 - **La nota fiscal de servicios.** La de cada municipio de Brasil no se procesa todavía.
+- **El documento electrónico de Paraguay completo.** El lector no valida el dígito verificador del CDC
+  ni el del RUC, ni la firma, el QR o la respuesta de SIFEN; del timbrado, solo el inicio de su
+  vigencia, el único que trae el esquema 150 (F-41). El material no trae ítems al 5 % ni exentos.
 
 La extracción. Que el agente procese el acta de traslado, el correo que declara el cierre o la carta
 del auditor y lo registre bien en la ficha lo prueba la ronda con el agente, sobre este mismo

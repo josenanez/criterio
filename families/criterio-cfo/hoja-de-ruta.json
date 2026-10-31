@@ -262,6 +262,41 @@
     ],
     "prueba": "Round 12 with the three agents"
    }
+  },
+  {
+   "incremento": 9,
+   "version": "1.3.0",
+   "estado": "en curso",
+   "industrias": [],
+   "paises": [
+    {
+     "codigo": "PY",
+     "nombre": {
+      "es": "Paraguay",
+      "en": "Paraguay"
+     }
+    }
+   ],
+   "es": {
+    "titulo": "Paraguay",
+    "entra": [
+     "Su entrada en el registro de países, con sus fuentes verificadas",
+     "El lector del documento electrónico de SIFEN, desde el manual técnico 150 de la DNIT y su esquema (F-40 y F-41), por su CDC de cuarenta y cuatro posiciones, con el IVA a cualquiera de sus tasas",
+     "La factura recibida emitida antes de la vigencia de su timbrado, que SIFEN rechaza (validación 1103), en la señal de la factura fuera de su autorización",
+     "Tres entidades de prueba, una de ellas de control, sin defectos sembrados"
+    ],
+    "prueba": "La ronda 13 con los tres agentes"
+   },
+   "en": {
+    "titulo": "Paraguay",
+    "entra": [
+     "Its entry in the country registry, with its verified sources",
+     "The reader for the SIFEN electronic document, from the DNIT technical manual 150 and its schema (F-40 and F-41), by its forty-four-position CDC, with VAT at any of its rates",
+     "A received invoice issued before its timbrado took effect, which SIFEN rejects (validation 1103), in the signal for the invoice outside its authorization",
+     "Three test entities, one of them a control with no seeded defects"
+    ],
+    "prueba": "Round 13 with the three agents"
+   }
   }
  ]
 }

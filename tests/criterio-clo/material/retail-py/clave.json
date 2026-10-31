@@ -1,0 +1,538 @@
+{
+  "entidad": "Distribuidora del Ybytyruzú Sintética",
+  "industria": "retail",
+  "pais": "PY",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "contrato_por_vencer",
+      "firma_sin_facultad",
+      "pago_despues",
+      "garantia_corta",
+      "registro_sin_documento"
+    ],
+    "constanza": [
+      "sin_fuente",
+      "politica_vencida",
+      "caso_vencido",
+      "cumplida_sin_evidencia",
+      "norma_aplica_sin_matriz"
+    ]
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "88612904-4",
+        "name": "Distribuidora del Ybytyruzú Sintética",
+        "country": "PY",
+        "currency": "PYG"
+      },
+      "paths": {
+        "documents": "legal/88612904-4-distribuidora-del-ybytyruzu-sintetica",
+        "state": "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica"
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "88612904-4",
+        "name": "Distribuidora del Ybytyruzú Sintética",
+        "country": "PY",
+        "currency": "PYG"
+      },
+      "paths": {
+        "documents": "legal/88612904-4-distribuidora-del-ybytyruzu-sintetica",
+        "state": "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-4501": {
+        "code": "CTR-4501",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Logística del Chaco Sintética S.A.",
+          "id": "88450001-2"
+        },
+        "value": 2640000000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Celeste Villalba",
+            "role": "Director de compras",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Logística del Chaco Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4501-logistica-del-chaco-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-05-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4501-logistica-del-chaco-sintetica-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-4501-logistica-del-chaco-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Logística del Chaco Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4501-logistica-del-chaco-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Logística del Chaco Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4501-logistica-del-chaco-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Logística del Chaco Sintética S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-4501-logistica-del-chaco-sintetica-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4501-logistica-del-chaco-sintetica-s-a/10-contrato/contrato.md"
+      },
+      "CTR-4502": {
+        "code": "CTR-4502",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Empaques de Luque Sintética S.A.",
+          "id": "88450003-9"
+        },
+        "value": 1320000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Osvaldo Ramírez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Empaques de Luque Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 330000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Osvaldo Ramírez",
+            "source": "contratos/CTR-4502-empaques-de-luque-sintetica-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4502-empaques-de-luque-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4502-empaques-de-luque-sintetica-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-4502-empaques-de-luque-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Empaques de Luque Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4502-empaques-de-luque-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Empaques de Luque Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4502-empaques-de-luque-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4502-empaques-de-luque-sintetica-s-a/10-contrato/contrato.md"
+      },
+      "CTR-4503": {
+        "code": "CTR-4503",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Centro Comercial del Sur Sintética S.A.",
+          "id": "88450003-9"
+        },
+        "value": 1980000000,
+        "start": "2025-02-01",
+        "end": "2026-11-25",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fátima Ayala",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Centro Comercial del Sur Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4503-centro-comercial-del-sur-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-25",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4503-centro-comercial-del-sur-sintetica-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-4503-centro-comercial-del-sur-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Centro Comercial del Sur Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4503-centro-comercial-del-sur-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-25",
+            "who": "Centro Comercial del Sur Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4503-centro-comercial-del-sur-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4503-centro-comercial-del-sur-sintetica-s-a/10-contrato/contrato.md"
+      },
+      "CTR-4504": {
+        "code": "CTR-4504",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Pagos en Línea Sintética S.A.",
+          "id": "88450004-7"
+        },
+        "value": 990000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Osvaldo Ramírez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Pagos en Línea Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4504-pagos-en-linea-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4504-pagos-en-linea-sintetica-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-4504-pagos-en-linea-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Pagos en Línea Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4504-pagos-en-linea-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Pagos en Línea Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4504-pagos-en-linea-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4504-pagos-en-linea-sintetica-s-a/10-contrato/contrato.md"
+      },
+      "CTR-4505": {
+        "code": "CTR-4505",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Mercadeo Integral Sintética S.A.",
+          "id": "88450005-5"
+        },
+        "value": 660000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Osvaldo Ramírez",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mercadeo Integral Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4505-mercadeo-integral-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4505-mercadeo-integral-sintetica-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-4505-mercadeo-integral-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Mercadeo Integral Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4505-mercadeo-integral-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Mercadeo Integral Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4505-mercadeo-integral-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-4505-mercadeo-integral-sintetica-s-a/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-4505-mercadeo-integral-sintetica-s-a/10-contrato/contrato.md"
+      },
+      "CTR-4506": {
+        "code": "CTR-4506",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Refrigeración Comercial Sintética S.A.",
+          "id": "88450006-3"
+        },
+        "value": 1650000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Fátima Ayala",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Refrigeración Comercial Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4506-refrigeracion-comercial-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4506-refrigeracion-comercial-sintetica-s-a/20-garantias/poliza-cumplimiento.md"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-4506-refrigeracion-comercial-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Refrigeración Comercial Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4506-refrigeracion-comercial-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Refrigeración Comercial Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4506-refrigeracion-comercial-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4506-refrigeracion-comercial-sintetica-s-a/10-contrato/contrato.md"
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "con observaciones",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "applicable_norm_not_in_matrix",
+      "key": "aplica:N-2026-04"
+    },
+    {
+      "signal": "compliance_done_without_evidence",
+      "key": "oblig:OB-10"
+    },
+    {
+      "signal": "contract_expiring",
+      "key": "vence:CTR-4503"
+    },
+    {
+      "signal": "guarantee_expires_early",
+      "key": "garantia:CTR-4501:cumplimiento"
+    },
+    {
+      "signal": "obligation_without_source",
+      "key": "fuente:OB-13"
+    },
+    {
+      "signal": "payment_after_termination",
+      "key": "pagofuera:CTR-4506"
+    },
+    {
+      "signal": "policy_review_overdue",
+      "key": "politica:P-03"
+    },
+    {
+      "signal": "register_mismatch",
+      "key": "registro:CTR-4509"
+    },
+    {
+      "signal": "report_case_overdue",
+      "key": "caso:C-003"
+    },
+    {
+      "signal": "signed_without_authority",
+      "key": "firma:CTR-4501"
+    }
+  ]
+}

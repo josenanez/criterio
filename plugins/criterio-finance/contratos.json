@@ -282,7 +282,7 @@
     "tambien": []
    },
    "prueba": {
-    "sembrado": "factura sin registro, registro sin factura, diferencia de IVA, CUFE duplicado, registro en dos asientos; en Honduras, una factura recibida fuera de su autorización",
+    "sembrado": "factura sin registro, registro sin factura, diferencia de IVA, CUFE duplicado, registro en dos asientos; en Honduras y en Paraguay, una factura recibida fuera de su autorización",
     "esperado": "einvoice_* e invoice_outside_authorization de la clave"
    }
   },

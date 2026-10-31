@@ -1087,6 +1087,108 @@
           "estado": "verificada",
           "nota": "Dice: «La tasa general del impuesto es del quince por ciento (15%)». El motor comprueba con ella que el ISV extraído de la factura sea el de su subtotal gravado",
           "uso": "La tasa del ISV de Honduras en el motor y en el material"
+        },
+        {
+          "id": "F-40",
+          "fuente": "DNIT de Paraguay · Manual Técnico del Sistema Integrado de Facturación Electrónica Nacional (SIFEN)",
+          "version": "Versión 150, 10 de septiembre de 2019; el PDF de 217 páginas listado en la documentación técnica de e-Kuatia",
+          "enlaces": [
+            [
+              "dnit.gov.py",
+              "https://www.dnit.gov.py/documents/20123/420592/Manual+T%C3%A9cnico+Versi%C3%B3n+150.pdf/e706f7c7-6d93-21d4-b45b-5d22d07b2d22?t=1687362295907"
+            ],
+            [
+              "dnit.gov.py",
+              "https://www.dnit.gov.py/web/e-kuatia/documentacion-tecnica"
+            ]
+          ],
+          "consultada": "2026-10-31",
+          "estado": "verificada",
+          "nota": "El PDF lo descargó José Francisco Ñáñez. Confirmados: en el timbrado (pp. 63-64), el tipo de documento (C002: 1 factura electrónica, 4 autofactura, 5 nota de crédito, 6 nota de débito, 7 nota de remisión), el número del timbrado (C004), el establecimiento, el punto de expedición y el número de siete con ceros a la izquierda (C005 a C007) y el inicio y el fin de su vigencia (C008 y C009); en los datos generales (pp. 65 a 71), la fecha de emisión (D002), el RUC del emisor con su dígito verificador por módulo 11 (D101 y D102) y el del receptor contribuyente (D201, D206 y D207); en el IVA de cada ítem (p. 90), las tasas del 0, el 5 y el 10 % (E734) y la base gravada, que divide el valor del ítem por 1,1 al 10 % y por 1,05 al 5 % (E735): el valor trae el IVA adentro; en los totales (pp. 104-105), el total general (F014), el IVA al 5 y al 10 % (F015 y F016) y su total (F017); y la validación 1103 (pp. 160-161): SIFEN rechaza el documento cuya fecha de emisión no está dentro de la vigencia del timbrado. El IVA de Paraguay no es una sola tasa: el registro de países lleva el 10 % como la general del material, y el lector toma el IVA total del documento, a cualquier tasa. La tolerancia del cuadre es de un guaraní: el material trae los montos en guaraníes enteros",
+          "uso": "Lector del documento electrónico de Paraguay, la tasa del IVA del material y la regla del timbrado",
+          "campos": [
+            {
+              "id": "C002-TIPO",
+              "campo": "gTimb/iTiDE · 1 factura electrónica; 4 autofactura; 5 nota de crédito; 6 nota de débito; 7 nota de remisión (C002)",
+              "estado": "verificado"
+            },
+            {
+              "id": "C004-TIMBRADO",
+              "campo": "gTimb/dNumTim · el número del timbrado, de ocho dígitos (C004)",
+              "estado": "verificado"
+            },
+            {
+              "id": "C005-NUMERO",
+              "campo": "gTimb/dEst, dPunExp y dNumDoc · establecimiento, punto de expedición y número del documento, de siete con ceros a la izquierda (C005 a C007)",
+              "estado": "verificado"
+            },
+            {
+              "id": "C008-VIGENCIA",
+              "campo": "gTimb/dFeIniT · el inicio de la vigencia del timbrado, AAAA-MM-DD (C008)",
+              "estado": "verificado"
+            },
+            {
+              "id": "D002-FECHA",
+              "campo": "gDatGralOpe/dFeEmiDE · la fecha y hora de emisión (D002)",
+              "estado": "verificado"
+            },
+            {
+              "id": "D101-EMISOR",
+              "campo": "gDatGralOpe/gEmis/dRucEm y dDVEmi · el RUC del emisor y su dígito verificador por módulo 11 (D101 y D102)",
+              "estado": "verificado"
+            },
+            {
+              "id": "D206-RECEPTOR",
+              "campo": "gDatGralOpe/gDatRec/dRucRec · el RUC del receptor contribuyente, iNatRec 1 (D201, D206 y D207)",
+              "estado": "verificado"
+            },
+            {
+              "id": "F014-TOTAL",
+              "campo": "gTotSub/dTotGralOpe · el total general de la operación (F014)",
+              "estado": "verificado"
+            },
+            {
+              "id": "F017-IVA",
+              "campo": "gTotSub/dTotIVA · la liquidación total del IVA; sin ella, dIVA5 más dIVA10, el IVA al 5 % y al 10 % (F015 a F017)",
+              "estado": "verificado"
+            }
+          ]
+        },
+        {
+          "id": "F-41",
+          "fuente": "SET de Paraguay · esquema XSD del documento electrónico, versión 150, y su XML de ejemplo de la factura electrónica",
+          "version": "DE_v150.xsd y DE_Types_v150.xsd del 10 de septiembre de 2019, y FE_v150_20190910.xml, publicados en la carpeta docs/set de la librería rshk-jsifenlib de Roshka y Taxare, que lista la documentación técnica de la DNIT",
+          "enlaces": [
+            [
+              "github.com",
+              "https://github.com/roshkadev/rshk-jsifenlib"
+            ],
+            [
+              "dnit.gov.py",
+              "https://www.dnit.gov.py/web/e-kuatia/documentacion-tecnica"
+            ]
+          ],
+          "consultada": "2026-10-31",
+          "estado": "verificada",
+          "nota": "Fuente técnica auxiliar del lector: de aquí salen el elemento raíz, el espacio de nombres y el anidamiento. Confirmados en el esquema: rDE con dVerFor 150 y el DE, en el espacio de nombres http://ekuatia.set.gov.py/sifen/xsd; el CDC como atributo Id del DE, de cuarenta y cuatro posiciones (tCDC); gTimb, gDatGralOpe con gEmis y gDatRec —con dNumIDRec para el receptor que no es contribuyente—, gDtipDE y gTotSub; y que el fin de la vigencia del timbrado (dFeFinT) está comentado en la versión 150: el documento trae solo su inicio, y el lector señala la emisión anterior a él. El XML de ejemplo trae el DE dentro de rDE, de rEnviDe y de un sobre SOAP, y su CDC encadena el tipo, el RUC con su verificador, el establecimiento, el punto, el número, el tipo de contribuyente, la fecha, el tipo de emisión, el código de seguridad y un verificador; el módulo 11 con factores de 2 a 11 reproduce los verificadores de sus dos RUC y de su CDC. Sus totales vienen en cero: el ejemplo sirve para la estructura, no para los montos. El documento sintético del material valida contra este esquema, sin la firma ni el QR",
+          "uso": "Lector del documento electrónico de Paraguay; material de prueba",
+          "campos": [
+            {
+              "id": "XSD-RAIZ",
+              "campo": "rDE/DE · el documento electrónico, espacio de nombres http://ekuatia.set.gov.py/sifen/xsd; suelto, en su rDE firmado o dentro de un envío (DE_v150.xsd y el XML de ejemplo FE_v150)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-CDC",
+              "campo": "DE/@Id · el CDC, código de control de cuarenta y cuatro posiciones (tCDC, DE_Types_v150.xsd)",
+              "estado": "verificado"
+            },
+            {
+              "id": "XSD-RECEPTOR-ID",
+              "campo": "gDatGralOpe/gDatRec/dNumIDRec · el documento del receptor que no es contribuyente (tgDatRec, DE_v150.xsd)",
+              "estado": "verificado"
+            }
+          ]
         }
       ]
     },
@@ -1289,6 +1391,21 @@
           "estado": "verificada",
           "nota": "Dice: desde el 1 de enero de 2012 las entidades distintas de bancos e instituciones financieras eligen entre las NIIF completas y la NIIF para las PYMES; los bancos y las instituciones financieras que regula la CNBS siguen desde 2016 un marco basado en las NIIF, modificado por sus normas prudenciales (Circular CNBS 068/2014)",
           "uso": "El marco contable de cada entidad de Honduras en el material"
+        },
+        {
+          "id": "F-42",
+          "fuente": "IFRS Foundation · perfil de jurisdicción de Paraguay",
+          "version": "actualizado el 24 de mayo de 2024",
+          "enlaces": [
+            [
+              "ifrs.org",
+              "https://www.ifrs.org/content/dam/ifrs/publications/jurisdictions/pdf-profiles/paraguay-ifrs-profile.pdf"
+            ]
+          ],
+          "consultada": "2026-10-31",
+          "estado": "verificada",
+          "nota": "Dice: las NIIF se permiten y muy pocas empresas las aplican; una empresa que cotiza sigue las NIIF, los US GAAP o las normas del Consejo de Contadores Públicos del Paraguay (Resolución CNV 35/23); el informe del auditor de las entidades financieras y de las aseguradoras se refiere a las normas, los reglamentos y las disposiciones contables del Banco Central del Paraguay; las demás aplican las normas nacionales del Consejo, «basadas en las NIIF», o normas de orientación tributaria, y la NIIF para las PYMES no se adoptó. Por eso el marco de un banco de Paraguay en el material es el del Banco Central, no las NIIF",
+          "uso": "El marco contable de cada entidad de Paraguay en el material"
         }
       ]
     }

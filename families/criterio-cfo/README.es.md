@@ -390,6 +390,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 1.0.0 | Liberada | **Brasil**<br>· Su entrada en el registro de países, el lector de su factura electrónica y sus fuentes verificadas<br>· Los documentos en portugués: el motor los procesa como los de los demás países | La ronda 7 con los tres agentes en Brasil, con los documentos en portugués: 24 de 24 señales, ninguna de más, y 24 de 25 datos; el defecto que encontró, en la clave, con su corrección |
 | 1.1.0 | Liberada | **Argentina, Panamá, Guatemala y Costa Rica**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· Los lectores de su factura electrónica: el comprobante de ARCA con su CAE, la factura de la DGI con su CUFE, la FEL de la SAT con su número de autorización y el comprobante 4.4 de Hacienda con su clave<br>· Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados | Las rondas 8 a 11 con los tres agentes, una por país |
 | 1.2.0 | Liberada | **Honduras**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· La factura como documento, sin XML: el agente extrae el CAI, el rango autorizado, la fecha límite de emisión y el número correlativo, y el motor los valida (decisión 0024)<br>· Una señal nueva: la factura recibida fuera de su rango autorizado o emitida después de su fecha límite<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 12 con los tres agentes |
+| 1.3.0 | En curso | **Paraguay**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· El lector del documento electrónico de SIFEN, desde el manual técnico 150 de la DNIT y su esquema (F-40 y F-41), por su CDC de cuarenta y cuatro posiciones, con el IVA a cualquiera de sus tasas<br>· La factura recibida emitida antes de la vigencia de su timbrado, que SIFEN rechaza (validación 1103), en la señal de la factura fuera de su autorización<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con los tres agentes |
 
 <!-- /hoja de ruta -->
 
@@ -424,9 +425,9 @@ sobre la documentación de una organización real.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Clara** · Contralor | `criterio-finance` · 10 comandos, 7 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 12 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 8 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 12 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Tesorería | `criterio-treasury` · 7 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 12 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Contralor | `criterio-finance` · 10 comandos, 7 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 8 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Tesorería | `criterio-treasury` · 7 comandos, 2 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 
