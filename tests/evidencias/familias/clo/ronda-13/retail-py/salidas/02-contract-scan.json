@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-11-02T13:45:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 75,
+  "turnos": 16,
+  "tokens": 886282,
+  "tokens_salida": 4540,
+  "costo_usd": 0.3114439,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/contratos/reporte-contract-scan.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/salida-contract-scan.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

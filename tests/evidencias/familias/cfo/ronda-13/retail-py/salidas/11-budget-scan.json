@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-11-02T13:25:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 86,
+  "turnos": 14,
+  "tokens": 630243,
+  "tokens_salida": 4955,
+  "costo_usd": 0.20790829999999996,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/salida-budget-scan.md",
+      "estado-finanzas/88612904-4-distribuidora-del-ybytyruzu-sintetica/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

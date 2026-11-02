@@ -1,0 +1,19 @@
+{
+  "entidad": "Distribuidora del Ybytyruzú Sintética",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3198271,
+  "senales": {
+    "esperadas": 10,
+    "acertadas": 10,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}

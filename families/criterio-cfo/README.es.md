@@ -355,7 +355,7 @@ tiene que levantar, con el mismo detalle, **y qué no prueba el material**, en
 <!-- países probados: generado por scripts/paises_probados.py desde la evidencia de las rondas; no se edita a mano -->
 ## Los países probados
 
-11 países, en el orden en que entraron, con todas las entidades de su material —una de control, sin ningún defecto sembrado, en cada país—. Las señales y los datos son los de la corrida más reciente de cada entidad con todos sus agentes; las rondas cuentan también las verificaciones. Las entidades, los defectos sembrados y las señales esperadas, en [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md); cada corrida con su costo y su calificación, en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md).
+12 países, en el orden en que entraron, con todas las entidades de su material —una de control, sin ningún defecto sembrado, en cada país—. Las señales y los datos son los de la corrida más reciente de cada entidad con todos sus agentes; las rondas cuentan también las verificaciones. Las entidades, los defectos sembrados y las señales esperadas, en [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md); cada corrida con su costo y su calificación, en [las rondas de la familia](../../tests/evidencias/familias/cfo/RONDAS.md).
 
 | País | Desde | Entidades del material | Rondas | Señales | Datos | La factura y su impuesto |
 |---|---|---|---|---:|---:|---|
@@ -370,6 +370,7 @@ tiene que levantar, con el mismo detalle, **y qué no prueba el material**, en
 | **Guatemala** | ronda 10 | retail, minería, control | 10 | 24 de 24 | 25 de 25 | SAT · número de autorización (UUID) · IVA del 12 % (F-30, F-31, F-32) |
 | **Costa Rica** | ronda 11 | banca, retail, control | 11 | 25 de 25 | 25 de 25 | Ministerio de Hacienda · clave numérica (cincuenta posiciones) · IVA del 13 % (F-34, F-35) |
 | **Honduras** | ronda 12 | banca, retail, control | 12 | 27 de 27 | 625 de 625 | SAR · CAI y número correlativo · ISV del 15 % (F-37, F-38) |
+| **Paraguay** | ronda 13 | banca, retail, control | 13 | 28 de 28 | 24 de 24 | DNIT · CDC (cuarenta y cuatro posiciones) · IVA del 10 % (F-40, F-41) |
 <!-- /países probados -->
 
 Cada entidad trae el cierre de un mes, el presupuesto del año y su tesorería.
@@ -425,9 +426,9 @@ sobre la documentación de una organización real.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Clara** · Contralor | `criterio-finance` · 10 comandos, 7 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 8 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Tesorería | `criterio-treasury` · 7 comandos, 2 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Contralor | `criterio-finance` · 10 comandos, 7 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 8 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Tesorería | `criterio-treasury` · 7 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 

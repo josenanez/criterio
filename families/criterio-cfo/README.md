@@ -355,7 +355,7 @@ family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 <!-- países probados: generado por scripts/paises_probados.py desde la evidencia de las rondas; no se edita a mano -->
 ## The countries tested
 
-11 countries, in the order they came in, with every entity of their material —one control, with no seeded defect, in each country—. The signals and fields are those of each entity's latest run with all its agents; the rounds also count the verifications. The entities, seeded defects and expected signals, in [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish); every run with its cost and grade, in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md).
+12 countries, in the order they came in, with every entity of their material —one control, with no seeded defect, in each country—. The signals and fields are those of each entity's latest run with all its agents; the rounds also count the verifications. The entities, seeded defects and expected signals, in [`EVIDENCIA.md`](../../tests/criterio-cfo/EVIDENCIA.md) (Spanish); every run with its cost and grade, in [the family's rounds](../../tests/evidencias/familias/cfo/RONDAS.md).
 
 | Country | Since | Material entities | Rounds | Signals | Fields | The invoice and its tax |
 |---|---|---|---|---:|---:|---|
@@ -370,6 +370,7 @@ family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 | **Guatemala** | round 10 | retail, mining, control | 10 | 24 of 24 | 25 of 25 | SAT · IVA at 12 % (F-30, F-31, F-32) |
 | **Costa Rica** | round 11 | banking, retail, control | 11 | 25 of 25 | 25 of 25 | Ministerio de Hacienda · IVA at 13 % (F-34, F-35) |
 | **Honduras** | round 12 | banking, retail, control | 12 | 27 of 27 | 625 of 625 | SAR · ISV at 15 % (F-37, F-38) |
+| **Paraguay** | round 13 | banking, retail, control | 13 | 28 of 28 | 24 of 24 | DNIT · IVA at 10 % (F-40, F-41) |
 <!-- /países probados -->
 
 Each entity carries the close of a month, the year's budget and its treasury.
@@ -425,9 +426,9 @@ documentation.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 10 commands, 7 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 8 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Treasury | `criterio-treasury` · 7 commands, 2 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 10 commands, 7 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 8 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Treasury | `criterio-treasury` · 7 commands, 2 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /cfo:estado -->
 

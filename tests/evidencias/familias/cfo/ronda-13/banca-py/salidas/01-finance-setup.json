@@ -1,0 +1,36 @@
+{
+  "n": 1,
+  "agente": "clara",
+  "comando": "finance-setup",
+  "argumento": "finanzas/88457812-7-banco-del-tebicuary-sintetico",
+  "inicio": "2026-10-31T11:57:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 62,
+  "turnos": 20,
+  "tokens": 878717,
+  "tokens_salida": 7895,
+  "costo_usd": 0.32508050000000005,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-10-31-finance-setup-1.html",
+      ".criterio/corridas/finanzas/2026-10-31-finance-setup-1.md",
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/finanzas/88457812-7-banco-del-tebicuary-sintetico/config.json",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-10-06.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/cierre/2026-09/ficha.json",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/cierre/2026-09/reporte-close-status.md",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/cierre/2026-09/resultados.json",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/corridas.json",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/corridas/2026-10-06-finance-setup-1.md",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/corridas/salida-finance-setup.md"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

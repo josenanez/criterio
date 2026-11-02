@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-11-02T13:50:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 83,
+  "turnos": 23,
+  "tokens": 784210,
+  "tokens_salida": 4569,
+  "costo_usd": 0.2768408,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/contratos/reporte-contract-scan.md",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/corridas/salida-contract-scan.md",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

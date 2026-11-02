@@ -1,0 +1,20 @@
+{
+  "entidad": "Banco del Tebicuary Sintético",
+  "agentes": [
+    "aurea",
+    "clara",
+    "tomas"
+  ],
+  "tokens": 4408320,
+  "senales": {
+    "esperadas": 16,
+    "acertadas": 16,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

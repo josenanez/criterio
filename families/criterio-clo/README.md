@@ -353,7 +353,7 @@ every family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 <!-- países probados: generado por scripts/paises_probados.py desde la evidencia de las rondas; no se edita a mano -->
 ## The countries tested
 
-11 countries, in the order they came in, with every entity of their material —one control, with no seeded defect, in each country—. The signals and fields are those of each entity's latest run with all its agents; the rounds also count the verifications. The entities, seeded defects and expected signals, in [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md) (Spanish); every run with its cost and grade, in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md).
+12 countries, in the order they came in, with every entity of their material —one control, with no seeded defect, in each country—. The signals and fields are those of each entity's latest run with all its agents; the rounds also count the verifications. The entities, seeded defects and expected signals, in [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md) (Spanish); every run with its cost and grade, in [the family's rounds](../../tests/evidencias/familias/clo/RONDAS.md).
 
 | Country | Since | Material entities | Rounds | Signals | Fields | Public procurement |
 |---|---|---|---|---:|---:|---|
@@ -368,6 +368,7 @@ every family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 | **Guatemala** | round 10 | banking, retail, control | 10 | 20 of 20 | 396 of 396 | No public entity: the guarantee rule is not among the verified sources |
 | **Costa Rica** | round 11 | banking, retail, public entity, control | 11 | 23 of 23 | 569 of 569 | SICOP · minimum guarantee of 5 % · guarantee up to 10 % (F-13) |
 | **Honduras** | round 12 | banking, retail, public entity, control | 12 | 22 of 22 | 569 of 569 | HonduCompras · minimum guarantee of 15 % (F-14) |
+| **Paraguay** | round 13 | banking, retail, control | 13 | 20 of 20 | 396 of 396 | No public entity: the guarantee rule is not among the verified sources |
 <!-- /países probados -->
 
 Each entity carries its legal folder with six contracts —each with its amendment, its policy, the counterparty certificate and the evidence of its obligations— and three compliance periods; the public entity also carries each contract's publication record.
@@ -420,8 +421,8 @@ documentation.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Fidel** · Contracts | `criterio-legal` · 8 commands, 5 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Compliance | `criterio-compliance` · 8 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contracts | `criterio-legal` · 8 commands, 5 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Compliance | `criterio-compliance` · 8 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /clo:estado -->
 

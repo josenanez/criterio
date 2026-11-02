@@ -355,7 +355,7 @@ señal que tiene que levantar, con el mismo detalle, **y qué no prueba el mater
 <!-- países probados: generado por scripts/paises_probados.py desde la evidencia de las rondas; no se edita a mano -->
 ## Los países probados
 
-11 países, en el orden en que entraron, con todas las entidades de su material —una de control, sin ningún defecto sembrado, en cada país—. Las señales y los datos son los de la corrida más reciente de cada entidad con todos sus agentes; las rondas cuentan también las verificaciones. Las entidades, los defectos sembrados y las señales esperadas, en [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md); cada corrida con su costo y su calificación, en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md).
+12 países, en el orden en que entraron, con todas las entidades de su material —una de control, sin ningún defecto sembrado, en cada país—. Las señales y los datos son los de la corrida más reciente de cada entidad con todos sus agentes; las rondas cuentan también las verificaciones. Las entidades, los defectos sembrados y las señales esperadas, en [`EVIDENCIA.md`](../../tests/criterio-clo/EVIDENCIA.md); cada corrida con su costo y su calificación, en [las rondas de la familia](../../tests/evidencias/familias/clo/RONDAS.md).
 
 | País | Desde | Entidades del material | Rondas | Señales | Datos | La contratación pública |
 |---|---|---|---|---:|---:|---|
@@ -370,6 +370,7 @@ señal que tiene que levantar, con el mismo detalle, **y qué no prueba el mater
 | **Guatemala** | ronda 10 | banca, retail, control | 10 | 20 de 20 | 396 de 396 | Sin entidad pública: la regla de la garantía no está entre las fuentes verificadas |
 | **Costa Rica** | ronda 11 | banca, retail, entidad pública, control | 11 | 23 de 23 | 569 de 569 | SICOP · garantía mínima del 5 % · garantía hasta el 10 % (F-13) |
 | **Honduras** | ronda 12 | banca, retail, entidad pública, control | 12 | 22 de 22 | 569 de 569 | HonduCompras · garantía mínima del 15 % (F-14) |
+| **Paraguay** | ronda 13 | banca, retail, control | 13 | 20 de 20 | 396 de 396 | Sin entidad pública: la regla de la garantía no está entre las fuentes verificadas |
 <!-- /países probados -->
 
 Cada entidad trae su carpeta legal con seis contratos —cada uno con su otrosí, su póliza, el certificado de la contraparte y la evidencia de sus obligaciones— y tres periodos de cumplimiento; la entidad pública, además, la constancia de publicación de cada contrato.
@@ -422,8 +423,8 @@ sobre la documentación de una organización real.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Fidel** · Contratos | `criterio-legal` · 8 comandos, 5 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Cumplimiento | `criterio-compliance` · 8 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contratos | `criterio-legal` · 8 comandos, 5 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Cumplimiento | `criterio-compliance` · 8 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 

@@ -1,0 +1,34 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-11-02T13:42:12",
+  "estado": "success",
+  "error": false,
+  "segundos": 91,
+  "turnos": 17,
+  "tokens": 725466,
+  "tokens_salida": 5708,
+  "costo_usd": 0.23526690000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/cache/30-normativa/registro-normativo.csv.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/cache/cumplimiento-2026-09/10-evidencias/OB-01_reporte-mensual-de-operaciones-al-superv-2026-09.md.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/cache/cumplimiento-2026-09/10-evidencias/OB-02_conciliacion-de-la-base-de-clientes-vinc-2026-09.md.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/cache/cumplimiento-2026-09/10-evidencias/OB-03_informe-trimestral-del-comite-de-riesgos-2026-09.md.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/cache/cumplimiento-2026-09/10-evidencias/OB-06_reporte-de-operaciones-del-contratista-d-2026-09.md.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/cache/cumplimiento-2026-09/10-evidencias/OB-08_actualizacion-de-datos-de-proveedores-cr-2026-09.md.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/corridas/2026-10-06-compliance-scan-1.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/corridas/salida-compliance-scan.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/cumplimiento/2026-09/reporte-compliance-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/cache/manifest.json",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

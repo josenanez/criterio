@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-11-02T13:39:28",
+  "estado": "success",
+  "error": false,
+  "segundos": 87,
+  "turnos": 18,
+  "tokens": 946626,
+  "tokens_salida": 4701,
+  "costo_usd": 0.32806160000000006,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/contratos/reporte-contract-scan.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/corridas/salida-contract-scan.md",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/indice.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88457812-7-banco-del-tebicuary-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

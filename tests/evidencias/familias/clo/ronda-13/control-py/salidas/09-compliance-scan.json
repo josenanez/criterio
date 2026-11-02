@@ -1,0 +1,30 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-11-02T13:53:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 17,
+  "tokens": 668882,
+  "tokens_salida": 3690,
+  "costo_usd": 0.1939642,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/cache/30-normativa/boletin-2026-09.md.md",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/cache/30-normativa/registro-normativo.csv.md",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/corridas/2026-10-06-compliance-scan-1.md",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/corridas/salida-compliance-scan.md",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/cumplimiento/2026-09/reporte-compliance-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/cache/manifest.json",
+      "estado-legal/88733016-9-comercial-control-del-paraguay-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

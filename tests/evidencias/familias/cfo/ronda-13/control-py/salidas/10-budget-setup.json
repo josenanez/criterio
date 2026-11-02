@@ -1,0 +1,41 @@
+{
+  "n": 10,
+  "agente": "tomas",
+  "comando": "budget-setup",
+  "argumento": "finanzas/88733016-9-comercial-control-del-paraguay-sintetica",
+  "inicio": "2026-11-02T13:32:13",
+  "estado": "success",
+  "error": false,
+  "segundos": 106,
+  "turnos": 20,
+  "tokens": 861786,
+  "tokens_salida": 8616,
+  "costo_usd": 0.333427,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-11-02-budget-setup-1.html",
+      ".criterio/corridas/presupuesto/2026-11-02-budget-setup-1.md",
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/presupuesto/88733016-9-comercial-control-del-paraguay-sintetica/config.json",
+      ".criterio/terminos/aceptacion-criterio-budget-1.2.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-budget-1.2.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-budget-1.2.0-2026-10-06.sha256",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/cache/presupuesto-2026/40-actas/acta-01-aprobacion.docx.md",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/cache/presupuesto-2026/40-actas/acta-05-traslado.md.md",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/cache/presupuesto-2026/40-actas/acta-06-comite.docx.md",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/corridas/2026-10-06-budget-setup-1.md",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/corridas/salida-budget-setup.md",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/presupuesto/2026/ficha.json",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/presupuesto/2026/reporte-variance-report.md",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/presupuesto/2026/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/cache/manifest.json",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-11-02T13:18:07",
+  "estado": "success",
+  "error": false,
+  "segundos": 81,
+  "turnos": 16,
+  "tokens": 688048,
+  "tokens_salida": 4828,
+  "costo_usd": 0.22988010000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/corridas/salida-budget-scan.md",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/88457812-7-banco-del-tebicuary-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

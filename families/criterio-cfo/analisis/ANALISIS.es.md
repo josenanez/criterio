@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CFO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 12 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 13 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 12, parcial, sobre 3 de las 36 entidades del material: 27 de 27 señales sembradas encontradas (margen del 95 %: 87,5–100 %) y 0 de más; 625 de 625 datos extraídos bien (100 %, margen del 95 %: 99,3–100 %); y 1 de 1 entidades de control sin ninguna señal.
+La ronda más reciente, la 13, parcial, sobre 3 de las 36 entidades del material: 28 de 28 señales sembradas encontradas (margen del 95 %: 87,9–100 %) y 0 de más; 24 de 24 datos extraídos bien (100 %, margen del 95 %: 86,2–100 %); y 1 de 1 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–12, 382 de 382 señales encontradas, 0 de más y 967 de 969 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–13, 410 de 410 señales encontradas, 0 de más y 991 de 993 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,21 +18,21 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 12; la más reciente, la 12, es parcial |
-| Material | Banca · Honduras, Retail · Honduras |
-| Entidades de control | Control · Honduras |
-| Corridas de una entidad | 45 |
-| Señales sembradas | 382 |
-| Datos calificados | 969 |
+| Rondas | 13; la más reciente, la 13, es parcial |
+| Material | Banca · Paraguay, Retail · Paraguay |
+| Entidades de control | Control · Paraguay |
+| Corridas de una entidad | 48 |
+| Señales sembradas | 410 |
+| Datos calificados | 993 |
 
-## Resultados acumulados · rondas 1–12
+## Resultados acumulados · rondas 1–13
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 382 de 382 | 100 % | 99–100 % |
-| Señales · precisión | 382 de 382 | 100 % | 99–100 % |
-| Extracción · datos correctos | 967 de 969 | 99,8 % | 99,2–100 % |
-| Control · sin ninguna señal | 15 de 15 | 100 % | 79,6–100 % |
+| Señales · cobertura | 410 de 410 | 100 % | 99–100 % |
+| Señales · precisión | 410 de 410 | 100 % | 99–100 % |
+| Extracción · datos correctos | 991 de 993 | 99,8 % | 99,2–100 % |
+| Control · sin ninguna señal | 16 de 16 | 100 % | 80,6–100 % |
 
 ## Evolución por ronda
 
@@ -54,27 +54,28 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 10 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 12,7 M | 0 |
 | 11 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 11,9 M | 0 |
 | 12 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 14,4 M | 1 |
+| 13 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 12,1 M | 0 |
 
-## La ronda más reciente · ronda 12
+## La ronda más reciente · ronda 13
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 27 de 27 | 100 % | 87,5–100 % |
-| Señales · precisión | 27 de 27 | 100 % | 87,5–100 % |
-| Extracción · datos correctos | 625 de 625 | 100 % | 99,3–100 % |
+| Señales · cobertura | 28 de 28 | 100 % | 87,9–100 % |
+| Señales · precisión | 28 de 28 | 100 % | 87,9–100 % |
+| Extracción · datos correctos | 24 de 24 | 100 % | 86,2–100 % |
 | Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
 
-## Por industria y país · ronda 12
+## Por industria y país · ronda 13
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Honduras | Áurea, Clara, Tomás | 14 de 14 | 0 | 213 de 213 | 4,5 M |
-| Retail · Honduras | Áurea, Clara, Tomás | 13 de 13 | 0 | 200 de 200 | 4,4 M |
-| Control · Honduras | Áurea, Clara, Tomás | 0 de 0 | 0 | 212 de 212 | 5,5 M |
+| Banca · Paraguay | Áurea, Clara, Tomás | 16 de 16 | 0 | 8 de 8 | 4,4 M |
+| Retail · Paraguay | Áurea, Clara, Tomás | 12 de 12 | 0 | 8 de 8 | 3,9 M |
+| Control · Paraguay | Áurea, Clara, Tomás | 0 de 0 | 0 | 8 de 8 | 3,8 M |
 
-## Lo que falló, uno por uno · rondas 1–12
+## Lo que falló, uno por uno · rondas 1–13
 
-2 fallas en 45 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+2 fallas en 48 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -104,7 +105,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 12 rondas usaron 238,2 millones de tokens: 227,5 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,1 millones por entidad.
+Las 13 rondas usaron 250,3 millones de tokens: 239,6 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

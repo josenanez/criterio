@@ -1,0 +1,39 @@
+{
+  "n": 1,
+  "agente": "clara",
+  "comando": "finance-setup",
+  "argumento": "finanzas/88733016-9-comercial-control-del-paraguay-sintetica",
+  "inicio": "2026-11-02T13:29:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 97,
+  "turnos": 14,
+  "tokens": 685088,
+  "tokens_salida": 8093,
+  "costo_usd": 0.3030255,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-11-02-finance-setup-1.html",
+      ".criterio/corridas/finanzas/2026-11-02-finance-setup-1.md",
+      ".criterio/corridas/finanzas/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/finanzas/88733016-9-comercial-control-del-paraguay-sintetica/config.json",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-10-06.sha256",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-11-02.md",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-11-02.pdf",
+      ".criterio/terminos/aceptacion-criterio-finance-1.2.0-2026-11-02.sha256",
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/cierre/2026-09/ficha.json",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/cierre/2026-09/reporte-close-status.md",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/cierre/2026-09/resultados.json",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/corridas.json",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/corridas/2026-10-06-finance-setup-1.md",
+      "estado-finanzas/88733016-9-comercial-control-del-paraguay-sintetica/corridas/salida-finance-setup.md"
+    ],
+    "modificados": [],
+    "borrados": []
+  }
+}

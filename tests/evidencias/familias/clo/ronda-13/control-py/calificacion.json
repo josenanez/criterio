@@ -1,0 +1,19 @@
+{
+  "entidad": "Comercial Control del Paraguay Sintética",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 3357679,
+  "senales": {
+    "esperadas": 0,
+    "acertadas": 0,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 132,
+    "bien": 132,
+    "mal": []
+  }
+}
