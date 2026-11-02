@@ -13,13 +13,13 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
-| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.0.1 | Estable | — |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.2.0 | Estable | — |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.3.0 | Estable | — |
-| Criterio EA · Dirección | Ofelia | 1.0.1 | Estable | — |
-| Criterio CCO · La función comercial | Augusto, Valeria | 0.3.1 | Estable | — |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 0.2.0 | Estable | Incremento 4 · Qualys y Rapid7, cuando tengan su fuente |
-| Rostrum · el portal de todas las familias | — | 1.0.1 | — | — |
+| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.0.2 | Estable | — |
+| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.3.0 | Estable | — |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.4.0 | Estable | — |
+| Criterio EA · Dirección | Ofelia | 1.0.2 | Estable | — |
+| Criterio CCO · La función comercial | Augusto, Valeria | 0.3.2 | Estable | — |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 0.3.0 | Estable | Incremento 4 · Qualys y Rapid7, cuando tengan su fuente |
+| Rostrum · el portal de todas las familias | — | 1.0.2 | — | — |
 
 ## Cada familia, incremento por incremento
 
@@ -45,7 +45,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.0.0 | Liberada | **Brasil**<br>· Su entrada en el registro de países, el lector de su factura electrónica y sus fuentes verificadas<br>· Los documentos en portugués: el motor los procesa como los de los demás países | La ronda 7 con los tres agentes en Brasil, con los documentos en portugués: 24 de 24 señales, ninguna de más, y 24 de 25 datos; el defecto que encontró, en la clave, con su corrección |
 | 1.1.0 | Liberada | **Argentina, Panamá, Guatemala y Costa Rica**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· Los lectores de su factura electrónica: el comprobante de ARCA con su CAE, la factura de la DGI con su CUFE, la FEL de la SAT con su número de autorización y el comprobante 4.4 de Hacienda con su clave<br>· Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados | Las rondas 8 a 11 con los tres agentes, una por país |
 | 1.2.0 | Liberada | **Honduras**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· La factura como documento, sin XML: el agente extrae el CAI, el rango autorizado, la fecha límite de emisión y el número correlativo, y el motor los valida (decisión 0024)<br>· Una señal nueva: la factura recibida fuera de su rango autorizado o emitida después de su fecha límite<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 12 con los tres agentes |
-| 1.3.0 | Reservada | **Paraguay**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· El lector del documento electrónico de SIFEN, desde el manual técnico 150 de la DNIT y su esquema (F-40 y F-41), por su CDC de cuarenta y cuatro posiciones, con el IVA a cualquiera de sus tasas<br>· La factura recibida emitida antes de la vigencia de su timbrado, que SIFEN rechaza (validación 1103), en la señal de la factura fuera de su autorización<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con los tres agentes |
+| 1.3.0 | Liberada | **Paraguay**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· El lector del documento electrónico de SIFEN, desde el manual técnico 150 de la DNIT y su esquema (F-40 y F-41), por su CDC de cuarenta y cuatro posiciones, con el IVA a cualquiera de sus tasas<br>· La factura recibida emitida antes de la vigencia de su timbrado, que SIFEN rechaza (validación 1103), en la señal de la factura fuera de su autorización<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con los tres agentes |
 
 ### Criterio CLO · Contratos y cumplimiento
 
@@ -59,7 +59,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.1.0 | Liberada | **Los contratos públicos**<br>· Las reglas de publicación y de garantía de la ley de contratación pública de cada país del registro, cada una con su fuente: el plazo para publicar el contrato en el sistema nacional, el mínimo de la garantía de cumplimiento —su tope, en Brasil— y su entrega a tiempo, en México<br>· Una entidad pública de prueba por país, con sus constancias de publicación y sus pólizas | La ronda 7 con Fidel sobre las seis entidades públicas, una por país: 19 de 19 señales, ninguna de más, y 909 de 912 datos; los dos defectos que encontró, en la clave y en las instrucciones, con su corrección y su verificación |
 | 1.2.0 | Liberada | **Argentina, Panamá, Guatemala y Costa Rica**<br>· Su entrada en el registro de países, con la identificación fiscal de cada contraparte<br>· La regla de publicación y de garantía de la ley de contratación pública de Argentina, de Panamá y de Costa Rica, cada una con su fuente, y una entidad pública de prueba en cada uno<br>· Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados | Las rondas 8 a 11 con Fidel y Constanza, una por país |
 | 1.3.0 | Liberada | **Honduras**<br>· Su entrada en el registro de países, con el RTN de cada contraparte<br>· La garantía de cumplimiento de la Ley de Contratación del Estado, del 15 % (Decreto 74-2001, art. 100), y una entidad pública de prueba<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 12 con Fidel y Constanza |
-| 1.4.0 | Reservada | **Paraguay**<br>· Su entrada en el registro de países, con el RUC de cada contraparte<br>· Sin entidad pública: la regla de la garantía de la ley de contrataciones públicas no está entre las fuentes verificadas<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con Fidel y Constanza |
+| 1.4.0 | Liberada | **Paraguay**<br>· Su entrada en el registro de países, con el RUC de cada contraparte<br>· Sin entidad pública: la regla de la garantía de la ley de contrataciones públicas no está entre las fuentes verificadas<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con Fidel y Constanza |
 
 ### Criterio EA · Dirección
 
@@ -82,7 +82,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 |---|---|---|---|
 | 0.1.0 | Liberada | **Alexis, Guillermo y Amparo, construidos, con el motor probado**<br>· Los comandos, sus siete skills y el motor, con las dieciséis señales: los controles, los accesos, los terceros y los riesgos de Alexis; las vulnerabilidades, el catálogo KEV y la cobertura de Guillermo; los incidentes, las notificaciones y las pruebas de Amparo<br>· Cualquier exportación de escáner en CSV o Excel con su mapeo de columnas, la severidad desde el CVSS v4.0 y el catálogo KEV de CISA<br>· Lo que nunca se abre: credenciales, llaves y respaldos, excluidos por omisión<br>· Material de banca, retail, salud y tecnología, con dos entidades de control | El motor contra la clave de todo el material: seis entidades de cuatro industrias, con sus controles |
 | 0.2.0 | Liberada | **La ronda de los tres agentes**<br>· La ronda con Alexis, Guillermo y Amparo sobre todo el material, con la clave que no ven<br>· Los defectos que encuentre, con su corrección y su verificación | La ronda completa, con el piso del margen del 95 % en señales y en datos (decisión 0020) |
-| 0.3.0 | Reservada | **Los escáneres de Tenable y de Microsoft Defender, cada uno desde su fuente**<br>· La exportación de hallazgos de Tenable Vulnerability Management, con su estado (F-08), y la de vulnerabilidades por dispositivo de Microsoft Defender, en JSON (F-09), cada una desde su documentación verificada<br>· Cuatro entidades más: energía y seguros, con una de control para cada fabricante | La ronda 2 con los tres agentes, sobre las cuatro entidades nuevas |
+| 0.3.0 | Liberada | **Los escáneres de Tenable y de Microsoft Defender, cada uno desde su fuente**<br>· La exportación de hallazgos de Tenable Vulnerability Management, con su estado (F-08), y la de vulnerabilidades por dispositivo de Microsoft Defender, en JSON (F-09), cada una desde su documentación verificada<br>· Cuatro entidades más: energía y seguros, con una de control para cada fabricante | La ronda 2 con los tres agentes, sobre las cuatro entidades nuevas |
 | Incremento 4 | Siguiente | **Qualys y Rapid7, cuando tengan su fuente**<br>· El formato de exportación de Qualys y de Rapid7, cada uno desde una fuente verificada de lo que exporta | Su material y su ronda |
 
 ## Las familias que vienen

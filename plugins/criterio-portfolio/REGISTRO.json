@@ -2244,6 +2244,228 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "7d8f22da7e1d62a4d353e9af57b9e9cd12e287f1d82bceda3de346ef20a98dc9",
       "sha256": "ba60d01458efabbb075dbc95fdd9d102d6fbc896d3d6c73e3f0412bd9a3708db"
+    },
+    {
+      "version": "1.9.0",
+      "fecha": "2026-11-02",
+      "commit": null,
+      "base": "6ff08bdf",
+      "etiqueta": "v1.9.0",
+      "familias": {
+        "cco": "0.3.2",
+        "cfo": "1.3.0",
+        "ciso": "0.3.0",
+        "clo": "1.4.0",
+        "ea": "1.0.2",
+        "pmo": "1.0.2",
+        "rostrum": "1.0.2"
+      },
+      "liberadas": [
+        "cco",
+        "cfo",
+        "ciso",
+        "clo",
+        "ea",
+        "pmo",
+        "rostrum"
+      ],
+      "versiones": {
+        "criterio-revenue": "0.3.2",
+        "criterio-sales": "0.3.2",
+        "criterio-budget": "1.3.0",
+        "criterio-finance": "1.3.0",
+        "criterio-treasury": "1.3.0",
+        "criterio-resilience": "0.3.0",
+        "criterio-security": "0.3.0",
+        "criterio-vulnerability": "0.3.0",
+        "criterio-compliance": "1.4.0",
+        "criterio-legal": "1.4.0",
+        "criterio-assistant": "1.0.2",
+        "criterio-portfolio": "1.0.2",
+        "criterio-product": "1.0.2",
+        "criterio-project": "1.0.2",
+        "criterio-server": "1.0.2"
+      },
+      "calidad": {
+        "cco": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 197,
+            "datos": 75
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98,
+            "Datos extraídos": 95.1
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "cfo": {
+          "etiqueta": "estable",
+          "ronda": 13,
+          "rondas": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "casos": {
+            "señales": 312,
+            "datos": 895
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.7,
+            "Datos extraídos": 99.3
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ciso": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 148,
+            "datos": 80
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 97.4,
+            "Datos extraídos": 95.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "clo": {
+          "etiqueta": "estable",
+          "ronda": 13,
+          "rondas": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "casos": {
+            "señales": 262,
+            "datos": 6367
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.5,
+            "Datos extraídos": 99.8
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ea": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            2
+          ],
+          "casos": {
+            "señales": 85,
+            "datos": 146
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95.6,
+            "Datos extraídos": 97.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "pmo": {
+          "etiqueta": "estable",
+          "ronda": 12,
+          "rondas": [
+            11,
+            12
+          ],
+          "casos": {
+            "señales": 500,
+            "datos": 481
+          },
+          "version_medida": "1.0.0",
+          "pisos": {
+            "Vera · precisión": 99.2,
+            "Vera · cobertura": 99.2,
+            "Samuel · compromisos": 98.2,
+            "Alba · cobertura": 98.5
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "e423a4181f503f1413d5f24f6140bccf281776251527a6f686bc26ec272bc20f",
+        "criterio-budget": "5ecca3ea48ff36cead57cfb777601b3ac14eb46f9a227cc46440c93aa96ecb28",
+        "criterio-compliance": "f847d543ab51661a2458fdcb5c645dca797b2aba6d47ee1c66acf476cb812884",
+        "criterio-finance": "cc38ed8ff8e755d5c83ff0fbb115881214f467544e955836a38eae3e5402338f",
+        "criterio-legal": "8335a9286bdd3cb241bb4750171b6f2ad0fedc7f674a273ae3669b15f0aa89d3",
+        "criterio-portfolio": "4bb90539b5bc4dab270db4f08a230aeffa2f19dec7554ecf16aca87e9ece2ee6",
+        "criterio-product": "d90fa381537c55b687706d21cd6e1e8c84b7016db2dad39a117a06a9b7526205",
+        "criterio-project": "d966758cfcd2611d7618bf60eacbdb290c2a82ccaccb6584d49b96ed56b67ec6",
+        "criterio-resilience": "eb3e9c3a7864c2fb630bc2dd3a937689ac16c1645a3455c477e3ed7e422c3979",
+        "criterio-revenue": "1873f811bc3200f30cb209d7578fda069dce013a15b89f40f936c88c56119810",
+        "criterio-sales": "3599b4c3d87de6e065d874cc0334908135a91ee9d18990d3fac848cf31a84765",
+        "criterio-security": "7f2941e741fce638f7242f6c1fbe579fd394dd1027cc4630b6da72c694934d6e",
+        "criterio-server": "825c13301a764d6d9797c171b7bac38871bcdcfa30391dc40ceb6f274d9f5d5a",
+        "criterio-treasury": "52f87f9f9d802ec8fa40d9ed44987cc4a319215f61835dbb6e0e7743a58c2092",
+        "criterio-vulnerability": "f1ddd8412e67f8fdba3f0ca6be7a00bf1cdf5ebfec2e8c1e004b124b65c13eba"
+      },
+      "destacados": [],
+      "cambios": [
+        "Resultados de la corrida",
+        "Los países probados de la CFO y de la CLO, en una tabla de cada README que sale de la evidencia: el país, la ronda en que entró, las entidades de su material, sus rondas, las señales y los datos de la corrida completa más reciente de cada entidad, y lo propio del país —la factura y su impuesto, o la regla de la contratación pública— con su fuente. Reemplaza la prosa de las industrias y de las rondas, que se había quedado en México; su compuerta falla si la tabla no cuadra. El registro de países nombra la autoridad de la factura de los once",
+        "CISO, incremento de los escáneres: la exportación de hallazgos de Tenable Vulnerability Management (F-08) —sus claves CSV, y el estado Fixed, que no está abierto— y la de vulnerabilidades por dispositivo de Microsoft Defender en JSON y .json.gz (F-09), que no dice qué equipos se escanearon: con ella la cobertura no se calcula y un equipo que ya no aparece no tiene nada abierto. El motor dice el fabricante de cada exportación; el hallazgo sin CVE se nombra por su Plugin ID. Cuatro entidades más —energía y seguros, con su control—; el motor levanta las 148 señales, ninguna de más. Qualys y Rapid7 esperan una fuente verificada de lo que exportan",
+        "Rostrum: no dice «sin señales» de lo que deja fuera por privado",
+        "Paraguay, construida: el lector del documento electrónico de SIFEN (F-40, Manual Técnico 150 de la DNIT; F-41, su esquema XSD 150 y el XML de ejemplo de la SET) por su CDC de cuarenta y cuatro posiciones, con el IVA total a cualquiera de sus tasas —el 10 % general del material; el 5 % existe (E734)— y la base como el total general sin él (E735); la factura recibida emitida antes de la vigencia de su timbrado, que SIFEN rechaza (validación 1103), en invoice_outside_authorization, que ya no es solo de Honduras; el perfil NIIF (F-42). Material de la CFO (banca, retail y control) y de la CLO (banca, retail y control, sin entidad pública: la regla de la garantía de su ley de contrataciones públicas no está entre las fuentes verificadas); los motores levantan cada señal sembrada, ninguna de más. La hoja de ruta abre el incremento de Paraguay en la CFO (1.3.0) y en la CLO (1.4.0)",
+        "Ronda 2 de la CISO, los escáneres: 48 de 48 señales y 32 de 32 datos, ninguna de más",
+        "Ronda 13 de la CFO y de la CLO, Paraguay: la CFO 28 de 28 señales y 24 de 24 datos; la CLO 20 de 20 señales y 396 de 396 datos; ninguna de más y ningún defecto. Todas las entidades del material tienen su corrida: la CFO y la CLO vuelven a estables",
+        "CFO 1.3.0, CLO 1.4.0 y CISO 0.3.0: la hoja de ruta reserva Paraguay y los escáneres; notas del catálogo 1.9.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "ba60d01458efabbb075dbc95fdd9d102d6fbc896d3d6c73e3f0412bd9a3708db",
+      "sha256": "192a963fa7f3ecd9d1e724ae55e5d48971d6532aa97503b7cdd564472fdb26ff"
     }
   ]
 }
