@@ -103,6 +103,26 @@
   },
   {
    "incremento": 4,
+   "version": "1.0.0",
+   "estado": "reservada",
+   "industrias": [],
+   "es": {
+    "titulo": "El lanzamiento: la 1.0.0",
+    "entra": [
+     "La familia se lanza estable, con sus rondas 1 y 2: la semana de su lanzamiento su versión es la 1.0.0 (decisión 0021)"
+    ],
+    "prueba": "Las rondas 1 y 2 con los tres agentes: 148 señales y 80 datos, con un piso del 97,4 % en las señales y del 95,4 % en los datos"
+   },
+   "en": {
+    "titulo": "The launch: 1.0.0",
+    "entra": [
+     "The family launches stable, with its rounds 1 and 2: in its launch week its version is 1.0.0 (decision 0021)"
+    ],
+    "prueba": "Rounds 1 and 2 with the three agents: 148 signals and 80 data items, with a floor of 97.4 % in the signals and 95.4 % in the data"
+   }
+  },
+  {
+   "incremento": 5,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

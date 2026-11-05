@@ -112,6 +112,26 @@
     ],
     "prueba": "Round 2 with both agents on the nine entities of Ecuador, Peru and Chile, three on Dynamics and three on Zoho: 117 of 117 seeded signals and 45 of 45 data items on the first run, with one extra signal in a control; the defect it found, in the instructions, with its fix and its verification"
    }
+  },
+  {
+   "incremento": 4,
+   "version": "1.0.0",
+   "estado": "reservada",
+   "industrias": [],
+   "es": {
+    "titulo": "El lanzamiento: la 1.0.0",
+    "entra": [
+     "La familia se lanza estable, con sus rondas 1 y 2: la semana de su lanzamiento su versión es la 1.0.0 (decisión 0021)"
+    ],
+    "prueba": "Las rondas 1 y 2 con los dos agentes: 197 señales y 75 datos, con un piso del 98,0 % en las señales y del 95,1 % en los datos"
+   },
+   "en": {
+    "titulo": "The launch: 1.0.0",
+    "entra": [
+     "The family launches stable, with its rounds 1 and 2: in its launch week its version is 1.0.0 (decision 0021)"
+    ],
+    "prueba": "Rounds 1 and 2 with both agents: 197 signals and 75 data items, with a floor of 98.0 % in the signals and 95.1 % in the data"
+   }
   }
  ]
 }
