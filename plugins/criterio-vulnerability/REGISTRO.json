@@ -2466,6 +2466,119 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "ba60d01458efabbb075dbc95fdd9d102d6fbc896d3d6c73e3f0412bd9a3708db",
       "sha256": "192a963fa7f3ecd9d1e724ae55e5d48971d6532aa97503b7cdd564472fdb26ff"
+    },
+    {
+      "version": "2.0.0",
+      "fecha": "2026-11-05",
+      "commit": null,
+      "base": "56447eb5",
+      "etiqueta": "v2.0.0",
+      "familias": {
+        "cco": "1.0.0",
+        "cfo": "1.3.0",
+        "ciso": "1.0.0",
+        "clo": "1.4.0",
+        "ea": "1.0.2",
+        "pmo": "1.0.2",
+        "rostrum": "1.0.2"
+      },
+      "liberadas": [
+        "cco",
+        "ciso"
+      ],
+      "versiones": {
+        "criterio-revenue": "1.0.0",
+        "criterio-sales": "1.0.0",
+        "criterio-budget": "1.3.0",
+        "criterio-finance": "1.3.0",
+        "criterio-treasury": "1.3.0",
+        "criterio-resilience": "1.0.0",
+        "criterio-security": "1.0.0",
+        "criterio-vulnerability": "1.0.0",
+        "criterio-compliance": "1.4.0",
+        "criterio-legal": "1.4.0",
+        "criterio-assistant": "1.0.2",
+        "criterio-portfolio": "1.0.2",
+        "criterio-product": "1.0.2",
+        "criterio-project": "1.0.2",
+        "criterio-server": "1.0.2"
+      },
+      "calidad": {
+        "cco": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 197,
+            "datos": 75
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98,
+            "Datos extraídos": 95.1
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ciso": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 148,
+            "datos": 80
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 97.4,
+            "Datos extraídos": 95.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "e423a4181f503f1413d5f24f6140bccf281776251527a6f686bc26ec272bc20f",
+        "criterio-budget": "5ecca3ea48ff36cead57cfb777601b3ac14eb46f9a227cc46440c93aa96ecb28",
+        "criterio-compliance": "f847d543ab51661a2458fdcb5c645dca797b2aba6d47ee1c66acf476cb812884",
+        "criterio-finance": "cc38ed8ff8e755d5c83ff0fbb115881214f467544e955836a38eae3e5402338f",
+        "criterio-legal": "8335a9286bdd3cb241bb4750171b6f2ad0fedc7f674a273ae3669b15f0aa89d3",
+        "criterio-portfolio": "4bb90539b5bc4dab270db4f08a230aeffa2f19dec7554ecf16aca87e9ece2ee6",
+        "criterio-product": "d90fa381537c55b687706d21cd6e1e8c84b7016db2dad39a117a06a9b7526205",
+        "criterio-project": "d966758cfcd2611d7618bf60eacbdb290c2a82ccaccb6584d49b96ed56b67ec6",
+        "criterio-resilience": "eb3e9c3a7864c2fb630bc2dd3a937689ac16c1645a3455c477e3ed7e422c3979",
+        "criterio-revenue": "1873f811bc3200f30cb209d7578fda069dce013a15b89f40f936c88c56119810",
+        "criterio-sales": "3599b4c3d87de6e065d874cc0334908135a91ee9d18990d3fac848cf31a84765",
+        "criterio-security": "7f2941e741fce638f7242f6c1fbe579fd394dd1027cc4630b6da72c694934d6e",
+        "criterio-server": "825c13301a764d6d9797c171b7bac38871bcdcfa30391dc40ceb6f274d9f5d5a",
+        "criterio-treasury": "52f87f9f9d802ec8fa40d9ed44987cc4a319215f61835dbb6e0e7743a58c2092",
+        "criterio-vulnerability": "f1ddd8412e67f8fdba3f0ca6be7a00bf1cdf5ebfec2e8c1e004b124b65c13eba"
+      },
+      "destacados": [],
+      "cambios": [
+        "Resultados de la corrida",
+        "Los flujos de GitHub sin acciones de terceros, y las estrellas y los forks de cada día",
+        "La CLO, la CCO y la CISO se lanzan la semana del 5 de noviembre: la CCO y la CISO, estables, abren su 1.0.0 (decisión 0021); notas del catálogo 2.0.0"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "192a963fa7f3ecd9d1e724ae55e5d48971d6532aa97503b7cdd564472fdb26ff",
+      "sha256": "453e8c921cb8e053be4f7d6f5af2af4e1664458de3c73814157bdcfa900c4b89"
     }
   ]
 }
