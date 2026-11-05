@@ -2,7 +2,7 @@
 
 **el agente de FP&A de la familia CFO** · plugin `criterio-budget`
 
-Corrida del 2026-11-04, sobre el commit `afaf31a6`, con cambios en el árbol todavía sin confirmar. **1 puertas · 37 comprobaciones · todas en verde.**
+Corrida del 2026-11-05, sobre el commit `7c3cfc07`, con cambios en el árbol todavía sin confirmar. **1 puertas · 37 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-11-04, sobre el commit `afaf31a6`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-cfo/evaluar.py` | Que Tomás levante cada señal sembrada en el presupuesto, y ninguna en los controles | 37 | 2922 ms | verde |
+| `criterio-cfo/evaluar.py` | Que Tomás levante cada señal sembrada en el presupuesto, y ninguna en los controles | 37 | 1915 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
