@@ -2,7 +2,7 @@
 
 **el agente del pronóstico de la familia CCO** · plugin `criterio-sales`
 
-Corrida del 2026-11-05, sobre el commit `7c3cfc07`, con cambios en el árbol todavía sin confirmar. **2 puertas · 47 comprobaciones · todas en verde.**
+Corrida del 2026-11-05, sobre el commit `5e476af7`, con cambios en el árbol todavía sin confirmar. **2 puertas · 47 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,8 +10,8 @@ Corrida del 2026-11-05, sobre el commit `7c3cfc07`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-sales/ventas.py selftest` | El motor de Augusto y Valeria: los lectores de Salesforce, de HubSpot y de cualquier CRM, las fechas mes/día y una entidad mínima con todo mal | 31 | 80 ms | verde |
-| `criterio-cco/evaluar.py` | Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles | 16 | 361 ms | verde |
+| `criterio-sales/ventas.py selftest` | El motor de Augusto y Valeria: los lectores de Salesforce, de HubSpot y de cualquier CRM, las fechas mes/día y una entidad mínima con todo mal | 31 | 74 ms | verde |
+| `criterio-cco/evaluar.py` | Que Augusto levante cada señal sembrada en el embudo, el pronóstico y la meta, y ninguna en los controles | 16 | 300 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -77,6 +77,6 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-ciso/generar.py` | El material CISO: banca, retail, salud y tecnología y dos controles, cada uno con su escáner, lo que nunca se abre y su clave | — | verde |
 | `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | verde |
 | `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | verde |
-| `scripts/descargas.py selftest` | el historial de descargas conserva cada día que sale de la ventana de GitHub | 12 | verde |
+| `scripts/descargas.py selftest` | el historial de descargas conserva cada día que sale de la ventana de GitHub | 14 | verde |
 
 El conjunto de los tres agentes, en [`docs/pruebas.md`](../../docs/pruebas.md) — y con gráficas, para abrir en un navegador, en [`pruebas.html`](../../docs/pruebas.html). Todo corre con la librería estándar y sin instalar nada.

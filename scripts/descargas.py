@@ -95,9 +95,9 @@ def por_dia(clones: dict, vistas: dict) -> dict[str, dict]:
 def _celda(k: str, v: str | None):
     if k in ("fecha", "capturado"):
         return v or ""
-    if v in (None, ""):
-        return None if k in ACUMULADOS else 0
-    return int(v)
+    # Una celda vacía es un dato que no se leyó, no un cero: el tráfico de un día sin token, las
+    # estrellas de un día sin captura.
+    return None if v in (None, "") else int(v)
 
 
 def leer(csv_: Path) -> dict[str, dict]:
@@ -118,7 +118,7 @@ def fusionar(historial: dict[str, dict], nuevos: dict[str, dict], hoy: str, repo
         previo = out.get(fecha) or {}
         out[fecha] = dict({k: previo.get(k) for k in ACUMULADOS}, **v, fecha=fecha, capturado=hoy)
     if repo is not None:
-        fila = out.setdefault(hoy, dict({k: 0 for k in TRAFICO}, fecha=hoy))
+        fila = out.setdefault(hoy, dict({k: None for k in TRAFICO}, fecha=hoy))
         fila.update(repo, capturado=hoy)
     return dict(sorted(out.items()))
 
@@ -137,16 +137,18 @@ def resumen(filas: dict[str, dict], hoy: dt.date) -> dict:
     únicos de GitHub son por día: sumarlos cuenta dos veces a quien volvió otro día, así que el
     resumen dice clonaciones, no personas."""
     siete = {(hoy - dt.timedelta(days=k)).isoformat() for k in range(1, 8)}
+    c = lambda v, k="clonaciones": v.get(k) or 0
     meses: dict[str, int] = {}
     for f, v in filas.items():
-        meses[f[:7]] = meses.get(f[:7], 0) + v["clonaciones"]
+        meses[f[:7]] = meses.get(f[:7], 0) + c(v)
     ultimo = next((v for v in reversed(filas.values()) if v.get("estrellas") is not None), None)
     return {"desde": next(iter(filas), None), "dias": len(filas),
-            "clonaciones": sum(v["clonaciones"] for v in filas.values()),
+            "clonaciones": sum(c(v) for v in filas.values()),
+            "dias_sin_trafico": sorted(f for f, v in filas.items() if v.get("clonaciones") is None),
             "estrellas": ultimo and ultimo["estrellas"], "forks": ultimo and ultimo["forks"],
             "estrellas_y_forks_al": ultimo and ultimo["fecha"],
-            "visitas": sum(v["visitas"] for v in filas.values()),
-            "ultimos_7_dias": sum(v["clonaciones"] for f, v in filas.items() if f in siete),
+            "visitas": sum(c(v, "visitas") for v in filas.values()),
+            "ultimos_7_dias": sum(c(v) for f, v in filas.items() if f in siete),
             "por_mes": meses}
 
 
@@ -172,6 +174,8 @@ def selftest() -> int:
     h = fusionar(h, {}, "2026-10-31", {"estrellas": 3, "forks": 1})
     ok("las estrellas y los forks van al día de la captura", (h["2026-10-31"]["estrellas"], h["2026-10-31"]["forks"]), (3, 1))
     ok("un día sin captura queda sin estrellas", h["2026-10-30"]["estrellas"], None)
+    ok("un día que solo tiene estrellas no inventa un tráfico de cero", h["2026-10-31"]["clonaciones"], None)
+    ok("y el resumen lo dice como un día sin tráfico", resumen(h, dt.date(2026, 11, 1))["dias_sin_trafico"], ["2026-10-31"])
     c3 = {"clones": [{"timestamp": "2026-10-31T00:00:00Z", "count": 7, "uniques": 2}]}
     h = fusionar(h, por_dia(c3, {"views": []}), "2026-11-01", {"estrellas": 4, "forks": 1})
     ok("la lectura del tráfico de un día no borra sus estrellas", (h["2026-10-31"]["clonaciones"], h["2026-10-31"]["estrellas"]), (7, 3))

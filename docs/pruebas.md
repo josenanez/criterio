@@ -2,9 +2,9 @@
 
 Esta página sale de una corrida, no de un resumen escrito a mano. Cada cifra viene de ejecutar el mismo comando que corre `scripts/verificar.py` y contar las comprobaciones que ese comando imprimió. Con la librería estándar y sin instalar nada.
 
-Corrida del 2026-11-05, sobre el commit `7c3cfc07`, con cambios en el árbol todavía sin confirmar.
+Corrida del 2026-11-05, sobre el commit `5e476af7`, con cambios en el árbol todavía sin confirmar.
 
-**72 de 72 puertas en verde · 1774 comprobaciones · 30 corpus, cada uno con su control negativo · 42.7 s la corrida entera.**
+**72 de 72 puertas en verde · 1776 comprobaciones · 30 corpus, cada uno con su control negativo · 48.4 s la corrida entera.**
 
 > La versión con gráficas, para abrir en un navegador, está en [`pruebas.html`](pruebas.html). Esta es la misma corrida, legible en GitHub.
 
@@ -21,9 +21,9 @@ Comprobaciones por dueño. Los tamaños no son comparables entre sí y no preten
 | **Clara** | `████████` | 142 |
 | **Tomás** | `██` | 37 |
 | **Áurea** | `████████` | 142 |
-| **Fidel** | `█████` | 82 |
+| **Fidel** | `████` | 82 |
 | **Constanza** | `███` | 47 |
-| **La familia** | `████████████████████████████` | 510 |
+| **La familia** | `████████████████████████████` | 512 |
 
 ## Vera · Agente PMO
 
@@ -31,11 +31,11 @@ Del latín *verus*: lo verdadero. Dice lo que los documentos dicen, no lo que se
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 83 ms | verde |
-| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 119 | 105 ms | verde |
-| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 26 | 56 ms | verde |
-| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 32 | 50 ms | verde |
-| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 397 ms | verde |
+| `criterio-portfolio/generar.py` | El portafolio sintético: seis proyectos, con un control negativo | — | 76 ms | verde |
+| `criterio-portfolio/portafolio.py selftest` | La aritmética, la cadencia, la cola y el contraste entre las dos fichas | 119 | 215 ms | verde |
+| `criterio-portfolio/texto.py` | Leer .docx, .xlsx, .pptx y .eml sin dependencias | 26 | 53 ms | verde |
+| `criterio-portfolio/informe.py` | El informe: concordancia, formato de cifra, y que ninguna ruta salga en crudo | 32 | 46 ms | verde |
+| `criterio-portfolio/grade.py` | Vera contra respuestas escritas a mano, incluido el control negativo | 79 | 437 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-portfolio/RESULTADOS.md`](../tests/criterio-portfolio/RESULTADOS.md).
 
@@ -45,10 +45,10 @@ Su análisis propio, con qué material se usó y qué no cubre, en [`tests/crite
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 71 ms | verde |
-| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 119 | 97 ms | verde |
-| `criterio-project/texto.py` | La copia de la conversión, igual | 26 | 60 ms | verde |
-| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 111 ms | verde |
+| `criterio-project/generar.py` | Un proyecto visto desde adentro: dos proyectos, siete minutas | — | 60 ms | verde |
+| `criterio-project/portafolio.py selftest` | La copia de la aritmética corre sola, sin tocar el otro plugin | 119 | 127 ms | verde |
+| `criterio-project/texto.py` | La copia de la conversión, igual | 26 | 62 ms | verde |
+| `criterio-project/grade.py` | Samuel contra respuestas escritas leyendo las minutas | 19 | 104 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-project/RESULTADOS.md`](../tests/criterio-project/RESULTADOS.md).
 
@@ -58,9 +58,9 @@ El amanecer: la luz que hay antes de que se vea nada. Trabaja antes de que exist
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 48 ms | verde |
-| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 82 ms | verde |
-| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 288 ms | verde |
+| `criterio-product/generar.py` | Lo que hay antes del proyecto: dos productos, con un control negativo | — | 54 ms | verde |
+| `criterio-product/producto.py selftest` | El registro de requerimiento: evidencia, supuestos, trazas y la cifra del negocio | 64 | 78 ms | verde |
+| `criterio-product/grade.py` | Alba contra respuestas escritas leyendo la definición y las entrevistas | 43 | 307 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-product/RESULTADOS.md`](../tests/criterio-product/RESULTADOS.md).
 
@@ -70,9 +70,9 @@ Una tribuna. Sostiene lo que todos los agentes ya escribieron, donde el equipo p
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `tests/cronograma.py` | Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria | — | 347 ms | verde |
-| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 102 | 1194 ms | verde |
-| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 17 | 43 ms | verde |
+| `tests/cronograma.py` | Que el Gantt y la curva de Rostrum digan lo que el motor calcula, en la corrida más reciente de cada industria | — | 712 ms | verde |
+| `criterio-server/servidor.py` | Rostrum: rutas, que no se salga de lo que sirve, que no escriba la ficha, y las tres familias en un portal | 102 | 1268 ms | verde |
+| `criterio-server/mapa.py` | El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado | 17 | 58 ms | verde |
 | `criterio-server/robots.py` | Los robots: cada uno con el gesto de su oficio, el mismo en el navegador y en el GIF, y quieto si se pide | 15 | 30 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-server/RESULTADOS.md`](../tests/criterio-server/RESULTADOS.md).
@@ -83,8 +83,8 @@ De *clarus*: que los libros digan lo mismo que los soportes. Cierra el mes contr
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-finance/finanzas.py selftest` | El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima | 105 | 170 ms | verde |
-| `criterio-cfo/evaluar.py` | Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles | 37 | 1906 ms | verde |
+| `criterio-finance/finanzas.py selftest` | El motor de Clara y Tomás: números, fechas, lectores de la DIAN y del SRI, y una entidad mínima | 105 | 162 ms | verde |
+| `criterio-cfo/evaluar.py` | Que Clara levante cada señal sembrada en el cierre, y ninguna en los controles | 37 | 1835 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-finance/RESULTADOS.md`](../tests/criterio-finance/RESULTADOS.md).
 
@@ -94,7 +94,7 @@ Su análisis propio, con qué material se usó y qué no cubre, en [`tests/crite
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-cfo/evaluar.py` | Que Tomás levante cada señal sembrada en el presupuesto, y ninguna en los controles | 37 | 1915 ms | verde |
+| `criterio-cfo/evaluar.py` | Que Tomás levante cada señal sembrada en el presupuesto, y ninguna en los controles | 37 | 2013 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-budget/RESULTADOS.md`](../tests/criterio-budget/RESULTADOS.md).
 
@@ -104,8 +104,8 @@ De *aureus*, de oro: la caja. Pone la caja, los pagos y la deuda al lado de su p
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-treasury/finanzas.py selftest` | La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima | 105 | 177 ms | verde |
-| `criterio-cfo/evaluar.py` | El motor de Áurea contra la clave: caja, pagos, exposición, vencimientos y covenants en cuatro industrias, y nada en los controles | 37 | 1874 ms | verde |
+| `criterio-treasury/finanzas.py selftest` | La copia de Áurea del motor: caja, pagos, exposición, vencimientos y covenants sobre una entidad mínima | 105 | 253 ms | verde |
+| `criterio-cfo/evaluar.py` | El motor de Áurea contra la clave: caja, pagos, exposición, vencimientos y covenants en cuatro industrias, y nada en los controles | 37 | 1966 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-treasury/RESULTADOS.md`](../tests/criterio-treasury/RESULTADOS.md).
 
@@ -115,8 +115,8 @@ De *fides*: la palabra dada. Pone lo firmado al lado de lo que está pasando.
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-legal/legal.py selftest` | El motor de Fidel y Constanza: fechas, prórrogas, plazos y una entidad mínima con todo mal | 35 | 60 ms | verde |
-| `criterio-clo/evaluar.py` | Que Fidel levante cada señal sembrada en los contratos, y ninguna en los controles | 47 | 765 ms | verde |
+| `criterio-legal/legal.py selftest` | El motor de Fidel y Constanza: fechas, prórrogas, plazos y una entidad mínima con todo mal | 35 | 93 ms | verde |
+| `criterio-clo/evaluar.py` | Que Fidel levante cada señal sembrada en los contratos, y ninguna en los controles | 47 | 786 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-legal/RESULTADOS.md`](../tests/criterio-legal/RESULTADOS.md).
 
@@ -126,7 +126,7 @@ De *constantia*: cada obligación con su evidencia, todos los días y no solo el
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-clo/evaluar.py` | Que Constanza levante cada señal sembrada en el cumplimiento, y ninguna en los controles | 47 | 770 ms | verde |
+| `criterio-clo/evaluar.py` | Que Constanza levante cada señal sembrada en el cumplimiento, y ninguna en los controles | 47 | 724 ms | verde |
 
 Su análisis propio, con qué material se usó y qué no cubre, en [`tests/criterio-compliance/RESULTADOS.md`](../tests/criterio-compliance/RESULTADOS.md).
 
@@ -136,44 +136,44 @@ Que la documentación y el código digan lo mismo, que el marketplace esté comp
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `sintetico/corpus.py` | El motor del material: la estructura de referencia y las cuatro disposiciones | 31 | 30 ms | verde |
-| `sintetico/sectores.py` | Tres industrias con el mismo motor de hechos: finanzas, retail y minería | — | 14 ms | verde |
-| `sintetico/formatos.py` | El material en Word, Excel y PDF, y que el plugin lo lea | — | 71 ms | verde |
-| `sintetico/disposiciones.py` | Que el recorrido encuentre los mismos documentos sin importar cómo estén | 16 | 94 ms | verde |
-| `sintetico/cobertura.py` | Que ninguna señal se quede sin disparar sin que esté declarado por qué | 3 | 308 ms | verde |
-| `sintetico/resumen.py` | El resumen de las corridas diarias: precisión, cobertura y qué se movió | — | 35 ms | verde |
-| `sintetico/regresion.py verificar` | La regresión del motor: cinco semanas de una organización, en cada cambio | 1 | 23668 ms | verde |
+| `sintetico/corpus.py` | El motor del material: la estructura de referencia y las cuatro disposiciones | 31 | 38 ms | verde |
+| `sintetico/sectores.py` | Tres industrias con el mismo motor de hechos: finanzas, retail y minería | — | 16 ms | verde |
+| `sintetico/formatos.py` | El material en Word, Excel y PDF, y que el plugin lo lea | — | 81 ms | verde |
+| `sintetico/disposiciones.py` | Que el recorrido encuentre los mismos documentos sin importar cómo estén | 16 | 84 ms | verde |
+| `sintetico/cobertura.py` | Que ninguna señal se quede sin disparar sin que esté declarado por qué | 3 | 627 ms | verde |
+| `sintetico/resumen.py` | El resumen de las corridas diarias: precisión, cobertura y qué se movió | — | 33 ms | verde |
+| `sintetico/regresion.py verificar` | La regresión del motor: cinco semanas de una organización, en cada cambio | 1 | 22613 ms | verde |
 | `sintetico/evidencia.py verificar` | Que el registro de comandos no prometa una evidencia que no está | 1 | 35 ms | verde |
-| `tests/ronda.py verificar` | Que cada defecto registrado diga su origen, su corrección y dónde se verificó | 1 | 73 ms | verde |
-| `tests/banco.py verificar` | Que cada calificación del agente salga de sus conteos, con intervalo y origen | 1 | 42 ms | verde |
-| `sintetico/funcionalidades.py` | Que cada comando declare qué produce y qué deja escrito | 1 | 24 ms | verde |
-| `criterio-portfolio/rastro.py` | Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras | 21 | 71 ms | verde |
-| `criterio-portfolio/compartir.py` | Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025) | 6 | 53 ms | verde |
-| `criterio-portfolio/terminos.py` | Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256 | 14 | 63 ms | verde |
-| `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 11 | 62 ms | verde |
-| `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | 160 ms | verde |
-| `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | 29 ms | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 349 | 504 ms | verde |
-| `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | 91 ms | verde |
-| `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | 50 ms | verde |
-| `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | 56 ms | verde |
-| `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | 29 ms | verde |
-| `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | 27 ms | verde |
-| `scripts/paises_probados.py` | Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas | — | 52 ms | verde |
-| `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | 26 ms | verde |
-| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 19 | 125 ms | verde |
-| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | 227 ms | verde |
-| `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | 38 ms | verde |
-| `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | 378 ms | verde |
-| `scripts/compatibilidad.py` | Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9 | — | 803 ms | verde |
-| `scripts/soporte.py` | Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas | — | 37 ms | verde |
-| `criterio-cfo/generar.py` | El material CFO: cuatro industrias y dos entidades de control, con su clave | — | 1215 ms | verde |
-| `criterio-clo/generar.py` | El material CLO: cuatro industrias y dos entidades de control, con su clave | — | 806 ms | verde |
-| `criterio-cco/generar.py` | El material CCO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave | — | 255 ms | verde |
-| `criterio-ciso/generar.py` | El material CISO: banca, retail, salud y tecnología y dos controles, cada uno con su escáner, lo que nunca se abre y su clave | — | 214 ms | verde |
-| `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | 258 ms | verde |
-| `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | 225 ms | verde |
-| `scripts/descargas.py selftest` | el historial de descargas conserva cada día que sale de la ventana de GitHub | 12 | 57 ms | verde |
+| `tests/ronda.py verificar` | Que cada defecto registrado diga su origen, su corrección y dónde se verificó | 1 | 76 ms | verde |
+| `tests/banco.py verificar` | Que cada calificación del agente salga de sus conteos, con intervalo y origen | 1 | 41 ms | verde |
+| `sintetico/funcionalidades.py` | Que cada comando declare qué produce y qué deja escrito | 1 | 34 ms | verde |
+| `criterio-portfolio/rastro.py` | Que el arnés deje la página de cada corrida, con lo que el agente mostró y sus cifras | 21 | 60 ms | verde |
+| `criterio-portfolio/compartir.py` | Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025) | 6 | 39 ms | verde |
+| `criterio-portfolio/terminos.py` | Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256 | 14 | 45 ms | verde |
+| `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 11 | 53 ms | verde |
+| `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | 2100 ms | verde |
+| `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | 33 ms | verde |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 349 | 2617 ms | verde |
+| `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | 93 ms | verde |
+| `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | 56 ms | verde |
+| `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | 69 ms | verde |
+| `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | 36 ms | verde |
+| `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | 371 ms | verde |
+| `scripts/paises_probados.py` | Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas | — | 361 ms | verde |
+| `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | 37 ms | verde |
+| `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 19 | 245 ms | verde |
+| `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | 273 ms | verde |
+| `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | 45 ms | verde |
+| `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | 469 ms | verde |
+| `scripts/compatibilidad.py` | Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9 | — | 941 ms | verde |
+| `scripts/soporte.py` | Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas | — | 50 ms | verde |
+| `criterio-cfo/generar.py` | El material CFO: cuatro industrias y dos entidades de control, con su clave | — | 1776 ms | verde |
+| `criterio-clo/generar.py` | El material CLO: cuatro industrias y dos entidades de control, con su clave | — | 642 ms | verde |
+| `criterio-cco/generar.py` | El material CCO: dos industrias y un control por país en Colombia y México, cada uno con la exportación de su CRM y su clave | — | 236 ms | verde |
+| `criterio-ciso/generar.py` | El material CISO: banca, retail, salud y tecnología y dos controles, cada uno con su escáner, lo que nunca se abre y su clave | — | 226 ms | verde |
+| `scripts/familias.py` | Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar | — | 216 ms | verde |
+| `scripts/resultados.py` | Que la página de resultados no deje una puerta sin dueño | 16 | 335 ms | verde |
+| `scripts/descargas.py selftest` | el historial de descargas conserva cada día que sale de la ventana de GitHub | 14 | 50 ms | verde |
 
 ## Lo que esta corrida no cubre
 
