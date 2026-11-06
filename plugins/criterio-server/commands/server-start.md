@@ -55,6 +55,7 @@ Di qué hay y a quién le sirve cada cosa. Lo que aparece depende del mapa:
 | `/familia/cfo`, `/familia/clo` | Cada familia: lo último que escribió el motor de cada agente, sus señales abiertas y sus reportes | El contralor, el área de FP&A, el área legal, el oficial de cumplimiento |
 | `/reporte/…` | Un reporte tal como lo escribió el motor | Quien responde por él |
 | `/vence` | Lo pendiente con fecha, de todas las familias: contratos, obligaciones, tareas del cierre, el comité | La gerencia |
+| `/resumen/<familia>` | El resumen ejecutivo de una familia en una página que se imprime o se guarda como PDF: sus señales, lo vencido y lo que vence en 30 días | La presidencia, el comité, el patrocinador |
 | `/caso/<código>` | Todo lo que los agentes han hecho sobre un proyecto, un producto o un contrato | Quien pregunta por ese caso |
 | `/corridas` | La historia de todas las corridas, de todos los agentes | Quien audita |
 | `/estado.json` | De cuándo es lo de cada agente y cuántas peticiones tiene abiertas | Un mecanismo, no una persona |
@@ -92,6 +93,10 @@ Y lo que **no** hay que pedir, porque conviene decirlo: no toca ninguna carpeta 
 
 Para que arranque solo, ofrece la forma que corresponda al sistema —`launchd` en macOS, `systemd` en Linux, el Programador de tareas en Windows— con la ruta absoluta del intérprete y del mapa. **No inventes rutas:** pregunta o tómalas del mapa.
 
+Para quien administra el servidor hay una guía completa —el código en una ruta que no cambia con
+cada versión, las tres formas de arranque, el proxy y cómo comprobarlo—: dale el enlace,
+https://github.com/josenanez/criterio/blob/main/docs/rostrum-en-servidor.es.md.
+
 ## La cola de peticiones
 
 La portada tiene un formulario con un **«Para quién»**: cada agente e instancia del mapa. No contesta a nadie en el momento: **escribe la petición en `<estado>/peticiones/` del agente elegido**, y ahí se queda hasta que ese agente despierte.
@@ -111,4 +116,4 @@ Dilo antes de que lo pregunten, no después:
 
 ## Cierre
 
-Cierra diciendo **qué enlace le pasa a quién**: `/` al patrocinador, `/familia/clo` al área legal, `/vence` a la gerencia. Di también de cuándo es lo que cada uno va a ver. La portada lo dice sola, pero conviene que la persona lo sepa antes de mandar el enlace.
+Cierra diciendo **qué enlace le pasa a quién**: `/` al patrocinador, `/familia/clo` al área legal, `/vence` a la gerencia, `/resumen/cfo` a la presidencia para llevar al comité. Di también de cuándo es lo que cada uno va a ver. La portada lo dice sola, pero conviene que la persona lo sepa antes de mandar el enlace.

@@ -1445,6 +1445,7 @@ def vista_familia(entradas: list, sigla: str, hoy: str) -> tuple:
     if sigla == 'pmo':
         return 200, familia_pmo(f, entradas, hoy)
     cuerpo = [cabeza_familia(sigla),
+              f'<p class="entrada"><a href="/resumen/{e(sigla)}">El resumen ejecutivo, en una página que se imprime</a>.</p>',
               f'<p class="entrada">{e(f["estado"]["es"])}. Lo que sigue es lo '
               'último que escribió el motor de cada agente, con la fecha en que lo escribió: aquí no se '
               'recalcula nada. Cada reporte se abre tal como lo dejó el agente.</p>',
@@ -1515,7 +1516,9 @@ def familia_pmo(f: dict, entradas: list, hoy: str) -> str:
     cuerpo = [cabeza_familia('pmo'),
               f'<p class="entrada">{e(f["estado"]["es"])}. El informe de la PMO lo produce Vera; '
               'aquí se sirve tal como lo dejó, sin recalcular nada.</p>',
-              trabaja_en([x for x in entradas if FAMILIA_DE.get(x['area']) == 'pmo']), '<div class="puertas">']
+              trabaja_en([x for x in entradas if FAMILIA_DE.get(x['area']) == 'pmo']),
+              '<p class="entrada"><a href="/resumen/pmo">El resumen ejecutivo, en una página que se imprime</a>.</p>',
+              '<div class="puertas">']
     cuerpo += [f'<a class="puerta" href="{r}"><span class="t">{e(t)}</span><p class="d">{e(d_)}</p></a>'
                for r, t, d_ in vistas]
     cuerpo.append('</div><h2>Sus agentes</h2>')
@@ -1526,6 +1529,88 @@ def familia_pmo(f: dict, entradas: list, hoy: str) -> str:
     cuerpo.append(seccion_donde([x for x in entradas if FAMILIA_DE.get(x['area']) == 'pmo']))
     return pagina(f'{nombre_familia("pmo")} · {f["nombre"]["es"]}', "".join(cuerpo), hoy,
                   nav(('', nombre_familia('pmo'))), '/familia/pmo')
+
+
+RESUMEN_CSS = f"""<style>
+.ej-cifras{{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 10px}}
+.ej-ag{{width:100%;border-collapse:collapse;margin:8px 0 4px}}
+.ej-ag td{{vertical-align:top;padding:7px 8px;border-top:1px solid {informe.FILETE_SUAVE}}}
+.ej-ag td.n{{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}}
+.ej-pie{{font-size:.82rem;color:{informe.APAGADO};margin-top:12px}}
+@page{{size:A4;margin:14mm}}
+@media print{{
+  .con-arbol > .lado,.lado,.arbol,.menu-boton,.menu-caja,.migas{{display:none!important}}
+  .hoja{{padding:0!important}}
+  body{{font-size:10.5pt}}
+  .ej-imprimir{{display:none}}
+}}
+</style>"""
+
+
+def vista_resumen(entradas: list, sigla: str, hoy: str) -> tuple:
+    """El resumen ejecutivo de una familia, en una página que se imprime: lo que cada motor dejó,
+    contado y ordenado. No recalcula nada: las cifras son las de la familia y las de lo que vence."""
+    if sigla not in FAMILIAS:
+        return 404, error(404, f'No hay familia {sigla}', hoy)
+    f = FAMILIAS[sigla]
+    suyas = [x for x in entradas if FAMILIA_DE.get(x['area']) == sigla]
+    if not suyas:
+        return 404, error(404, f'{nombre_familia(sigla)}, {f["nombre"]["es"].lower()}, no está en el mapa de este portal', hoy)
+    hoy_d = hoy[:10]
+    try:
+        en30 = (dt.date.fromisoformat(hoy_d) + dt.timedelta(days=30)).isoformat()
+    except ValueError:
+        en30 = ''
+    filas = pendientes_con_fecha(suyas)
+    pasadas = [r for r in filas if r[0] and r[0] < hoy_d]
+    pronto = [r for r in filas if r[0] and hoy_d <= r[0] <= en30]
+    lineas, total, privadas = [], 0, False
+    for a in f["agentes"]:
+        for x in [x for x in suyas if x['area'] == a]:
+            res = resultados_de(x)
+            privadas = privadas or any(r.get('privadas') for r in res)
+            cuenta = {}
+            for r in res:
+                for al in (r['datos'].get('alertas') or []):
+                    s_ = al.get('signal') or ''
+                    cuenta[s_] = cuenta.get(s_, 0) + 1
+            n = sum(cuenta.values())
+            fecha = max((r['datos'].get('hoy') or r['escrito'][:10] for r in res), default='')
+            if a == 'portafolio':
+                ult = ultima_pmo(x) or {}
+                n += ult.get('hallazgos') or 0
+                fecha = fecha or (ult.get('fecha') or '')
+            total += n
+            top = sorted(cuenta.items(), key=lambda kv: (-kv[1], kv[0]))[:3]
+            que = '; '.join(f'{e((SENAL.get(s_) or s_))} ({k})' for s_, k in top) if top else (
+                'Ver su informe' if a == 'portafolio' and n else 'Sin señales abiertas' if fecha else 'Todavía no ha corrido')
+            lineas.append(f'<tr><td><b>{e(quien(x))}</b><br><span class="cita">{e(AGENTES[a]["titulo"])}</span></td>'
+                          f'<td class="n">{n}</td><td>{que}</td><td class="n">{e(fecha or "—")}</td></tr>')
+    cuerpo = [RESUMEN_CSS, cabeza_familia(sigla),
+              f'<p class="entrada"><b>Resumen ejecutivo al {e(hoy_d)}.</b> Lo que dejó el motor de cada agente, '
+              'contado: aquí no se recalcula nada, y cada fila dice cuándo calculó su agente.</p>',
+              '<div class="ej-cifras">'
+              f'<div class="cifra"><span class="n">{total}</span><span class="q">señales abiertas</span></div>'
+              f'<div class="cifra{" mala" if pasadas else ""}"><span class="n">{len(pasadas)}</span><span class="q">con la fecha ya pasada</span></div>'
+              f'<div class="cifra"><span class="n">{len(pronto)}</span><span class="q">vencen en 30 días</span></div></div>',
+              '<table class="ej-ag"><thead><tr><th>Agente</th><th>Señales</th><th>Las que más se repiten</th>'
+              '<th>Calculado</th></tr></thead><tbody>', *lineas, '</tbody></table>']
+    primero = (pasadas + pronto)[:6]
+    if primero:
+        cuerpo.append('<h2>Lo primero que vence</h2><table class="ej-ag"><tbody>')
+        for fecha_, x, v, _ in primero:
+            pas = fecha_ < hoy_d
+            cuerpo.append(f'<tr><td class="n">{e(fecha_)}{"<br><span class=" + chr(34) + "cita" + chr(34) + ">ya pasó</span>" if pas else ""}</td>'
+                          f'<td>{e(v.get("que"))}' + (f' · {e(v["caso"])}' if v.get('caso') else '') + '</td>'
+                          f'<td>{e(NOMBRE.get(x["area"], x["area"]))}</td></tr>')
+        cuerpo.append('</tbody></table>')
+    cuerpo.append('<p class="ej-pie">Borrador de trabajo, no una decisión: cada cifra sale de los documentos que procesó '
+                  'su agente, y su detalle está en la página de la familia y en lo que vence.'
+                  + (' Hay señales que la configuración no publica en este portal.' if privadas else '') + '</p>'
+                  f'<p class="ej-imprimir aviso">Para llevarlo a una reunión: imprime esta página o guárdala como PDF; '
+                  f'cabe en una hoja. El detalle: <a href="/familia/{e(sigla)}">la familia</a> · <a href="/vence">lo que vence</a>.</p>')
+    return 200, pagina(f'{nombre_familia(sigla)} · resumen ejecutivo', "".join(cuerpo), hoy,
+                       nav((f'/familia/{sigla}', nombre_familia(sigla)), ('', 'Resumen ejecutivo')), f'/familia/{sigla}')
 
 
 def vista_reporte(entradas: list, area: str, instancia: str, rel: str, hoy: str) -> tuple:
@@ -1755,6 +1840,8 @@ class Manejador(BaseHTTPRequestHandler):
             self.html(*vista_familia(self.entradas, ruta[len('/familia/'):], self.hoy()))
         elif ruta == '/vence':
             self.html(*vista_vence(self.entradas, self.hoy()))
+        elif ruta.startswith('/resumen/'):
+            self.html(*vista_resumen(self.entradas, ruta[len('/resumen/'):], self.hoy()))
         elif ruta.startswith('/reporte/'):
             partes = [urllib.parse.unquote(x) for x in ruta.split('/')[2:]]
             if len(partes) >= 3 and SEGURO.match(partes[0]) and CASO.match(partes[1]):
@@ -2286,6 +2373,10 @@ def selftest() -> int:
            ('id="donde"' in clara and str((raiz / 'finanzas' / '900-banco').resolve()) in clara.replace('<wbr>', ''),
             'id="donde"' in pedir('/familia/pmo')[1]), (True, True))
         ok('la portada dice qué carpeta sirve', str(raiz.resolve()) in port.replace('<wbr>', ''), True)
+        cod_r, res_ = pedir('/resumen/cfo')
+        ok('el resumen ejecutivo de una familia: una página que se imprime, con sus cifras y su fecha',
+           (cod_r, 'Resumen ejecutivo al' in res_, '@page' in res_, 'señales abiertas' in res_,
+            '/resumen/cfo' in fam, pedir('/resumen/nadie')[0]), (200, True, True, True, True, 404))
         cod_pmo, pmo_ = pedir('/familia/pmo')
         ok('una familia que no existe es 404; la PMO tiene su página de familia con sus cuatro vistas',
            (pedir('/familia/cxo')[0], cod_pmo, all(r in pmo_ for r in ('href="/pmo"', 'href="/decisiones"',

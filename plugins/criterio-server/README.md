@@ -267,7 +267,9 @@ tomorrow.
 
 **Left running.** It lives on a machine of the organisation and the sponsor has a stable link. That is
 where the value is, and also the conversation. `--abierto` makes it listen beyond the
-machine, and the program warns you at startup.
+machine, and the program warns you at startup. How to leave it running on a server —the code at a
+path that does not change, systemd, launchd or Windows, the proxy and how to check it— is in
+[Rostrum on a server](../../docs/rostrum-en-servidor.md).
 
 ### What to ask for
 
@@ -317,6 +319,7 @@ From here down is for whoever is going to publish it.
 | `/familia/<code>` | A family: each agent with the latest it wrote and its reports | Whoever answers for that function |
 | `/reporte/<area>/<instance>/<file>` | A report as the engine wrote it | Whoever answers for it |
 | `/vence` | Everything pending with a date, across every family | Management |
+| `/resumen/<familia>` | A family's executive summary, on one printable page | The president and the committee |
 | `/corridas` | The history of **every agent**, and what is being carried | Everyone |
 | `/corridas?agente=&que=&caso=` | One agent's, one command's or one case's; it is where the tree's branches lead | Whoever tests |
 | `/agente/<area>` | What each agent does, function by function, how many times each ran, and its reports | Everyone |

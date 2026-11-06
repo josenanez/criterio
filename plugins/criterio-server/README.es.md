@@ -264,7 +264,9 @@ mañana.
 
 **Que quede corriendo.** Vive en una máquina de la organización y el patrocinador tiene un
 enlace estable. Es donde está el valor, y también la conversación. `--abierto` hace que
-escuche fuera del equipo, y el programa lo advierte al arrancar.
+escuche fuera del equipo, y el programa lo advierte al arrancar. Cómo dejarlo corriendo en un
+servidor —el código en una ruta que no cambia, systemd, launchd o Windows, el proxy y cómo
+comprobarlo— está en [Rostrum en un servidor](../../docs/rostrum-en-servidor.es.md).
 
 ### Qué hay que pedir
 
@@ -314,6 +316,7 @@ De aquí para abajo es para quien lo va a publicar.
 | `/familia/<sigla>` | Una familia: cada agente con lo último que escribió y sus reportes | Quien responde por esa función |
 | `/reporte/<área>/<instancia>/<archivo>` | Un reporte tal como lo escribió el motor | Quien responde por él |
 | `/vence` | Lo pendiente con fecha, de todas las familias | La gerencia |
+| `/resumen/<familia>` | El resumen ejecutivo de una familia, en una página que se imprime | La presidencia y el comité |
 | `/corridas` | La historia de **todos los agentes**, y qué se arrastra | Todos |
 | `/corridas?agente=&que=&caso=` | Las de un agente, un comando o un caso; es a donde llevan las ramas del árbol | Quien prueba |
 | `/agente/<área>` | Qué hace cada agente, función por función, cuántas veces corrió cada una y sus reportes | Todos |
