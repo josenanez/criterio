@@ -92,52 +92,105 @@
     "alcance": [
       {
         "es": [
+          "Cierre",
+          "Tareas del checklist vencidas o marcadas cumplidas sin soporte, y un cierre reportado como cerrado con señales abiertas"
+        ],
+        "en": [
+          "Close",
+          "Checklist tasks overdue or marked done without support, and a close reported as closed with open signals"
+        ],
+        "senales": [
+          "close_task_overdue",
+          "close_task_done_without_evidence",
+          "declared_close_vs_evidence"
+        ]
+      },
+      {
+        "es": [
           "Conciliación",
-          "Bancos y cuentas: cada partida abierta, con sus días de antigüedad"
+          "Movimientos del extracto sin registro, partidas con más días de los permitidos y saldos del mayor que no cuadran con el balance o el auxiliar"
         ],
         "en": [
           "Reconciliation",
-          "Banks and accounts: every open item, with its days outstanding"
+          "Statement movements with no entry, items older than allowed and ledger balances that do not match the trial balance or the subledger"
+        ],
+        "senales": [
+          "bank_unreconciled",
+          "reconciling_item_aged",
+          "reconciliation_stale",
+          "account_unreconciled",
+          "ledger_vs_trial_balance",
+          "trial_balance_unbalanced"
         ]
       },
       {
         "es": [
           "Factura electrónica",
-          "12 países: cada factura contra la contabilidad"
+          "En 12 países: facturas sin registro contable, registros sin factura, valores o impuestos distintos y facturas duplicadas"
         ],
         "en": [
           "E-invoicing",
-          "12 countries: every invoice against the books"
+          "In 12 countries: invoices with no entry, entries with no invoice, different amounts or taxes and duplicate invoices"
+        ],
+        "senales": [
+          "einvoice_not_recorded",
+          "recorded_without_einvoice",
+          "einvoice_amount_mismatch",
+          "einvoice_duplicate",
+          "invoice_outside_authorization"
         ]
       },
       {
         "es": [
           "Presupuesto",
-          "Ejecución contra lo aprobado, por línea, y proyección al cierre del año"
+          "Desviaciones sobre el umbral, gasto sin línea presupuestal, traslados sin acta y proyecciones que superan lo aprobado"
         ],
         "en": [
           "Budget",
-          "Execution against what was approved, by line, and the year-end projection"
+          "Variances over the threshold, spending with no budget line, transfers with no approving minutes and projections above what was approved"
+        ],
+        "senales": [
+          "variance_over_threshold",
+          "committed_near_approved",
+          "forecast_over_approved",
+          "forecast_stale",
+          "transfer_without_approval",
+          "budget_version_mismatch",
+          "spend_without_budget_line",
+          "declared_vs_evidence",
+          "project_budget_mismatch"
         ]
       },
       {
         "es": [
           "Tesorería",
-          "Cada pago contra quién lo aprobó; cada covenant calculado desde el balance"
+          "Pagos sin las aprobaciones que pide su monto o aprobados sin facultad, caja bajo el mínimo y covenants en riesgo"
         ],
         "en": [
           "Treasury",
-          "Every payment against who approved it; every covenant computed from the balance sheet"
+          "Payments without the approvals their amount requires or approved without authority, cash below the minimum and covenants at risk"
+        ],
+        "senales": [
+          "cash_below_minimum",
+          "cash_vs_forecast",
+          "fx_exposure_over_limit",
+          "payment_without_approval",
+          "signatory_without_authority",
+          "covenant_at_risk",
+          "maturity_near"
         ]
       },
       {
         "es": [
           "Auditoría",
-          "Cada requerimiento del auditor con su soporte"
+          "Requerimientos del auditor sin una respuesta con soporte"
         ],
         "en": [
           "Audit",
-          "Every auditor request with its support"
+          "Auditor requests without an answer backed by support"
+        ],
+        "senales": [
+          "audit_request_unanswered"
         ]
       }
     ]

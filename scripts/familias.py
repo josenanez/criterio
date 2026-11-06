@@ -1240,9 +1240,15 @@ def revisar_nivel_c() -> list[str]:
         for i in n.get("portada", {}).get("cifras", []):
             if cifras.get(i) != "verificada":
                 errores.append(f"{s}: `nivel_c.portada` cita {i}, que no está verificada en fuentes.json")
+        propias = [x["id"] if isinstance(x, dict) else x for a in fam["agentes"] for x in a.get("senales", [])]
+        en_filas = [i for x in n.get("alcance", []) for i in x.get("senales", [])]
         for x in n.get("alcance", []):
             if len(x.get("es", [])) != 2 or len(x.get("en", [])) != 2:
                 errores.append(f"{s}: `nivel_c.alcance` con una fila sin título y texto en los dos idiomas")
+        # Cada señal de la familia cae en una sola fila del alcance: la portada cuenta lo que detecta cada función.
+        if n.get("alcance") and sorted(en_filas) != sorted(propias):
+            errores.append(f"{s}: `nivel_c.alcance` no reparte cada señal de la familia en una sola fila "
+                           f"(faltan {sorted(set(propias) - set(en_filas))}, sobran {sorted(set(en_filas) - set(propias))})")
         for x in n.get("con", []):
             if len(x.get("es", [])) != 2 or len(x.get("en", [])) != 2:
                 errores.append(f"{s}: `nivel_c.con` con una entrada sin título y texto en los dos idiomas")
