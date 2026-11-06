@@ -94,7 +94,7 @@ for instance:
 /reload-plugins
 ```
 
-The same with `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` and `criterio-ea`. To
+The same with `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` and `criterio-ea`, **one per line**: `/plugin install` takes one plugin at a time. To
 check it, `/plugin` → Installed: the family, each of its agents and `criterio-server` must be there.
 If only the family is there, it is step 1.
 
@@ -123,6 +123,7 @@ Without it, `/plugin marketplace update criterio` brings it by hand.
 | `Failed to load marketplace "claude-plugins-official"` … `Invalid schema` | It is Anthropic's official catalogue, which an old Claude Code no longer understands, and it stops any plugin from installing | Update Claude Code (step 1). If you cannot right now: `/plugin marketplace remove claude-plugins-official` |
 | `Unknown skill: criterio-server:server-demo` or `Unknown command` | The plugin did not install —look at the install message— or it installed and its commands have not loaded | If the install failed, the row above. If not, `/reload-plugins`, or close and reopen Claude |
 | `Unknown command: /criterio-server:clara` | Each agent is called with the prefix of **its own** plugin, and it has to be installed: Rostrum does not bring the agents | Install the family (`/plugin install criterio-cfo@criterio`, `/reload-plugins`) and call it with its prefix: `/criterio-finance:clara`. In the demo, open Claude inside `criterio-demo` |
+| `Marketplace "criterio," not found` | Several plugins were typed on one line: `/plugin install` takes one at a time, and reads the comma as part of the name | One `/plugin install` per plugin, each on its own line: `/plugin install criterio-cco@criterio`, then `/plugin install criterio-ciso@criterio` |
 | `Plugins changed. Run /reload-plugins to activate.` | Something was installed or updated | `/reload-plugins` |
 | `1 error during load. Run /doctor for details.` | A plugin or a marketplace did not load | `/doctor` says which. If it is `claude-plugins-official`, the third row |
 | The family installed and its setup says an agent is missing | Claude Code older than 2.1.110 | Step 1, or install that agent on its own: `/plugin install <its plugin>@criterio` |
