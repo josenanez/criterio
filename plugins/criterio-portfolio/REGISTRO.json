@@ -3041,6 +3041,88 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "7287fd7de59b67be8c8e5d490ba8bb855c98605912b48d2ec7cd3f2131506c72",
       "sha256": "b2e00d4ab2385795e3dca7f0ed327301c6d4a9653136cb9da61323613a878723"
+    },
+    {
+      "version": "2.3.0",
+      "fecha": "2026-11-06",
+      "commit": null,
+      "base": "214baf17",
+      "etiqueta": "v2.3.0",
+      "familias": {
+        "cco": "1.2.0",
+        "cfo": "1.5.0",
+        "ciso": "1.2.0",
+        "clo": "1.6.0",
+        "ea": "1.2.0",
+        "pmo": "1.2.0",
+        "rostrum": "1.2.0"
+      },
+      "liberadas": [
+        "rostrum"
+      ],
+      "versiones": {
+        "criterio-cco": "1.2.0",
+        "criterio-revenue": "1.2.0",
+        "criterio-sales": "1.2.0",
+        "criterio-budget": "1.5.0",
+        "criterio-cfo": "1.5.0",
+        "criterio-finance": "1.5.0",
+        "criterio-treasury": "1.5.0",
+        "criterio-ciso": "1.2.0",
+        "criterio-resilience": "1.2.0",
+        "criterio-security": "1.2.0",
+        "criterio-vulnerability": "1.2.0",
+        "criterio-clo": "1.6.0",
+        "criterio-compliance": "1.6.0",
+        "criterio-legal": "1.6.0",
+        "criterio-assistant": "1.2.0",
+        "criterio-ea": "1.2.0",
+        "criterio-pmo": "1.2.0",
+        "criterio-portfolio": "1.2.0",
+        "criterio-product": "1.2.0",
+        "criterio-project": "1.2.0",
+        "criterio-server": "1.2.0"
+      },
+      "calidad": {},
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "fbaf6f9098665560f6b87bd0c86a2c7a58da1f4b66561d064d52783e5fe33035",
+        "criterio-budget": "072aa67695713fc5cbc888f68a59273f6b28f376b780938d677355c6f1c162e5",
+        "criterio-cco": "9270cd2b99d0c1ee4c3c58572b951d74aae7777efed2254c6d6980d6e1e728b8",
+        "criterio-cfo": "ae770c04a7c7d8587631d9356cf0cc648f0e391e0a69faf114ca9ac1c9051407",
+        "criterio-ciso": "098bdee8f30ca731aeec4cb7404938c6ecb8c97b099b8057443c88c3ae0d2f21",
+        "criterio-clo": "17f35497b7b59d5706d9c86cc77f5f3faa6c2f7cb63347340f89f98202672883",
+        "criterio-compliance": "23a6635e641072db02cb7767e58785e167ab655eeeb15a50ea61494d3e8d10b9",
+        "criterio-finance": "917c8ae608dd3e1bd34e55df796925ca202ec481a10f9536b329c2388a173ec4",
+        "criterio-legal": "414574ac37248d81d2f50ff75b8370ccdcf28a7fdb423c42f947e0f5bedb369f",
+        "criterio-pmo": "86d6dff2eb259d6e1feda7283d7bd86010211a7c42cc3876a7e7333fce658dff",
+        "criterio-portfolio": "231724d6bb1efd387f0ebcfc370aa6e0bf691cc557492a81306c7871ab8882aa",
+        "criterio-product": "6ec0a934bc35af76a8a9a00755a3dbfa91d0d9db30ee39f1f181a37c20dc6899",
+        "criterio-project": "8ab3672f77e4c5eef54f2a4b3310330b25f58b7a26af897d7bafde0e7198556e",
+        "criterio-resilience": "4189fc228df048e27edc8762e00835b3081c68a6fc0725b02bc5f0c0e96a5efd",
+        "criterio-revenue": "5a8770a2adba86d53abb53b9a408b5b70934b8ca3175338e0371a9c96be934f7",
+        "criterio-sales": "1ad3da55c18601b1f63c3f2be651d5a2b32de86259937a67455220a5576ddca8",
+        "criterio-security": "be0e7dbd7c6ceb818a33e4e936e40f18ce5d9c70a00de5d626dfddcd0754d9f2",
+        "criterio-server": "a6f949744d945500dd18c811fef44aba121ac12d3bb10c13dda45b3c63688e55",
+        "criterio-treasury": "fc4428c9c1e655418032c5ad61c00d8cd2f968b5e9a6cbb7e66dc36edd9e54cf",
+        "criterio-vulnerability": "122d0013d421466da3af35fdf61cd84e30946efe828c0789a58057b5cf6244a8"
+      },
+      "destacados": [
+        "Rostrum: el resumen ejecutivo de cada familia en una página que se imprime, y la guía para dejarlo corriendo en un servidor"
+      ],
+      "cambios": [
+        "Rostrum: el resumen ejecutivo de cada familia en una página, y la guía para dejarlo en un servidor"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "b2e00d4ab2385795e3dca7f0ed327301c6d4a9653136cb9da61323613a878723",
+      "sha256": "3dbb0c6ef34b9ac7f30eee3e7620a018ce1960669d0b6895fa622d00fb9d0cbc"
     }
   ]
 }
