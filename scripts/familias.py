@@ -1235,6 +1235,14 @@ def revisar_nivel_c() -> list[str]:
         for i in n.get("cifras", []):
             if cifras.get(i) != "verificada":
                 errores.append(f"{s}: `nivel_c.cifras` cita {i}, que no está verificada en fuentes.json")
+        # La portada de la familia (en prueba con la CFO): dos cifras de terceros, verificadas, y el alcance
+        # de lo que hace, una fila por función, en los dos idiomas.
+        for i in n.get("portada", {}).get("cifras", []):
+            if cifras.get(i) != "verificada":
+                errores.append(f"{s}: `nivel_c.portada` cita {i}, que no está verificada en fuentes.json")
+        for x in n.get("alcance", []):
+            if len(x.get("es", [])) != 2 or len(x.get("en", [])) != 2:
+                errores.append(f"{s}: `nivel_c.alcance` con una fila sin título y texto en los dos idiomas")
         for x in n.get("con", []):
             if len(x.get("es", [])) != 2 or len(x.get("en", [])) != 2:
                 errores.append(f"{s}: `nivel_c.con` con una entrada sin título y texto en los dos idiomas")

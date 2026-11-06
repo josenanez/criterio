@@ -82,6 +82,64 @@
       "C-05",
       "C-04",
       "C-02"
+    ],
+    "portada": {
+      "cifras": [
+        "C-03",
+        "C-05"
+      ]
+    },
+    "alcance": [
+      {
+        "es": [
+          "Conciliación",
+          "Bancos y cuentas: cada partida abierta, con sus días de antigüedad"
+        ],
+        "en": [
+          "Reconciliation",
+          "Banks and accounts: every open item, with its days outstanding"
+        ]
+      },
+      {
+        "es": [
+          "Factura electrónica",
+          "12 países: cada factura contra la contabilidad"
+        ],
+        "en": [
+          "E-invoicing",
+          "12 countries: every invoice against the books"
+        ]
+      },
+      {
+        "es": [
+          "Presupuesto",
+          "Ejecución contra lo aprobado, por línea, y proyección al cierre del año"
+        ],
+        "en": [
+          "Budget",
+          "Execution against what was approved, by line, and the year-end projection"
+        ]
+      },
+      {
+        "es": [
+          "Tesorería",
+          "Cada pago contra quién lo aprobó; cada covenant calculado desde el balance"
+        ],
+        "en": [
+          "Treasury",
+          "Every payment against who approved it; every covenant computed from the balance sheet"
+        ]
+      },
+      {
+        "es": [
+          "Auditoría",
+          "Cada requerimiento del auditor con su soporte"
+        ],
+        "en": [
+          "Audit",
+          "Every auditor request with its support"
+        ]
+      }
     ]
   },
   "generador": {
