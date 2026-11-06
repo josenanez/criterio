@@ -32,7 +32,7 @@ Lo primero que corre quien responde por la respuesta a incidentes y la continuid
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/seguridad.py" buscar-raiz --docs <carpeta de la sesión>
 ```
 
-Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras. Si una está marcada con `_CRITERIO_SEGURIDAD.txt`, va primero. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras. Si una está marcada con `_CRITERIO_SEGURIDAD.txt`, va primero. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
 
 **1. Mira antes de preguntar, y di qué no vas a abrir:**
 

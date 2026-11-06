@@ -38,7 +38,7 @@ Lo primero que corre la tesorería después de instalar. Al terminar ha visto **
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" buscar-raiz --docs <carpeta de la sesión>
 ```
 
-Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras. Si una está marcada con `_CRITERIO_FINANZAS.txt`, va primero: es la carpeta que ya usan Clara y Tomás. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras. Si una está marcada con `_CRITERIO_FINANZAS.txt`, va primero: es la carpeta que ya usan Clara y Tomás. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines.
 
 **1. Mira antes de preguntar.** El inventario lo da el motor:
 

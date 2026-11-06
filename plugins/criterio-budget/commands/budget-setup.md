@@ -36,7 +36,7 @@ Lo primero que corre el responsable de FP&A después de instalar. Al terminar ha
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" buscar-raiz --docs <carpeta de la sesión>
 ```
 
-Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«tiene `00-referencia/` y nueve periodos»—. Si una está marcada con `_CRITERIO_FINANZAS.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«tiene `00-referencia/` y nueve periodos»—. Si una está marcada con `_CRITERIO_FINANZAS.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
 
 **1. Mira antes de preguntar.** El inventario lo da el motor:
 
