@@ -1,0 +1,445 @@
+{
+ "nota": "Los pedidos en palabras de la prueba de las entradas (decisión 0027): lo que se le escribe a cada agente y lo que tiene que hacer. Los corre tests/entradas/correr.py contra Claude Code real.",
+ "pedidos": [
+  {
+   "id": "C1",
+   "agente": "vera",
+   "plugin": "criterio-portfolio",
+   "pedido": "/criterio-portfolio:vera",
+   "espera": {
+    "menu": true
+   },
+   "como": "Muestra lo que sabe hacer, por grupos, y pregunta"
+  },
+  {
+   "id": "C2",
+   "agente": "vera",
+   "plugin": "criterio-portfolio",
+   "pedido": "/criterio-portfolio:vera arma el informe del portafolio",
+   "espera": {
+    "comando": "criterio-portfolio:portfolio-report"
+   },
+   "como": "`portfolio-report`"
+  },
+  {
+   "id": "C3",
+   "agente": "vera",
+   "plugin": "criterio-portfolio",
+   "pedido": "/criterio-portfolio:vera cómo va el presupuesto de PRY-003",
+   "espera": {
+    "comando": "criterio-portfolio:budget-tracking"
+   },
+   "como": "`budget-tracking`"
+  },
+  {
+   "id": "C4",
+   "agente": "vera",
+   "plugin": "criterio-portfolio",
+   "pedido": "/criterio-portfolio:vera qué pasa con PRY-002",
+   "espera": {
+    "pregunta": true
+   },
+   "como": "Ambiguo: pregunta entre estado del proyecto y diagnóstico"
+  },
+  {
+   "id": "C5",
+   "agente": "vera",
+   "plugin": "criterio-portfolio",
+   "pedido": "/criterio-portfolio:vera procesa la minuta de la reunión de seguimiento de PRY-101",
+   "espera": {
+    "entrada": "criterio-project:samuel"
+   },
+   "como": "Es de Samuel: `/criterio-project:samuel`"
+  },
+  {
+   "id": "C6",
+   "agente": "samuel",
+   "plugin": "criterio-project",
+   "pedido": "/criterio-project:samuel procesa la última minuta de PRY-101",
+   "espera": {
+    "comando": "criterio-project:pm-minutes"
+   },
+   "como": "`pm-minutes`"
+  },
+  {
+   "id": "C7",
+   "agente": "samuel",
+   "plugin": "criterio-project",
+   "pedido": "/criterio-project:samuel qué compromisos están vencidos",
+   "espera": {
+    "comando": "criterio-project:pm-commitments"
+   },
+   "como": "`pm-commitments`"
+  },
+  {
+   "id": "C8",
+   "agente": "samuel",
+   "plugin": "criterio-project",
+   "pedido": "/criterio-project:samuel consolida el portafolio",
+   "espera": {
+    "entrada": "criterio-portfolio:vera"
+   },
+   "como": "Es de Vera: `/criterio-portfolio:vera`"
+  },
+  {
+   "id": "C9",
+   "agente": "alba",
+   "plugin": "criterio-product",
+   "pedido": "/criterio-product:alba contrasta la definición de PRD-QR con la evidencia",
+   "espera": {
+    "comando": "criterio-product:product-definition"
+   },
+   "como": "`product-definition`"
+  },
+  {
+   "id": "C10",
+   "agente": "alba",
+   "plugin": "criterio-product",
+   "pedido": "/criterio-product:alba arma el caso de negocio de PRD-NOMINA",
+   "espera": {
+    "comando": "criterio-product:product-business-case"
+   },
+   "como": "`product-business-case`"
+  },
+  {
+   "id": "C11",
+   "agente": "alba",
+   "plugin": "criterio-product",
+   "pedido": "/criterio-product:alba qué proyectos construyen lo mismo",
+   "espera": {
+    "comando": "criterio-product:product-overlap"
+   },
+   "como": "`product-overlap`"
+  },
+  {
+   "id": "C12",
+   "agente": "clara",
+   "plugin": "criterio-finance",
+   "pedido": "/criterio-finance:clara",
+   "espera": {
+    "menu": true
+   },
+   "como": "Muestra lo que sabe hacer y pregunta"
+  },
+  {
+   "id": "C13",
+   "agente": "clara",
+   "plugin": "criterio-finance",
+   "pedido": "/criterio-finance:clara concilia el banco de septiembre",
+   "espera": {
+    "comando": "criterio-finance:bank-reconcile"
+   },
+   "como": "`bank-reconcile`"
+  },
+  {
+   "id": "C14",
+   "agente": "clara",
+   "plugin": "criterio-finance",
+   "pedido": "/criterio-finance:clara revisa las facturas electrónicas de septiembre",
+   "espera": {
+    "comando": "criterio-finance:einvoice-check"
+   },
+   "como": "`einvoice-check`"
+  },
+  {
+   "id": "C15",
+   "agente": "clara",
+   "plugin": "criterio-finance",
+   "pedido": "/criterio-finance:clara revisa las cuentas",
+   "espera": {
+    "pregunta": true
+   },
+   "como": "Ambiguo: pregunta entre conciliación bancaria y de cuentas"
+  },
+  {
+   "id": "C16",
+   "agente": "clara",
+   "plugin": "criterio-finance",
+   "pedido": "/criterio-finance:clara cómo va el presupuesto",
+   "espera": {
+    "entrada": "criterio-budget:tomas"
+   },
+   "como": "Es de Tomás: `/criterio-budget:tomas`"
+  },
+  {
+   "id": "C17",
+   "agente": "tomas",
+   "plugin": "criterio-budget",
+   "pedido": "/criterio-budget:tomas ejecución contra presupuesto de septiembre",
+   "espera": {
+    "comando": "criterio-budget:variance-report"
+   },
+   "como": "`variance-report`"
+  },
+  {
+   "id": "C18",
+   "agente": "tomas",
+   "plugin": "criterio-budget",
+   "pedido": "/criterio-budget:tomas proyección al cierre del año",
+   "espera": {
+    "comando": "criterio-budget:forecast"
+   },
+   "como": "`forecast`"
+  },
+  {
+   "id": "C19",
+   "agente": "tomas",
+   "plugin": "criterio-budget",
+   "pedido": "/criterio-budget:tomas cuánta caja tenemos",
+   "espera": {
+    "entrada": "criterio-treasury:aurea"
+   },
+   "como": "Es de Áurea: `/criterio-treasury:aurea`"
+  },
+  {
+   "id": "C20",
+   "agente": "aurea",
+   "plugin": "criterio-treasury",
+   "pedido": "/criterio-treasury:aurea posición de caja",
+   "espera": {
+    "comando": "criterio-treasury:cash-position"
+   },
+   "como": "`cash-position`"
+  },
+  {
+   "id": "C21",
+   "agente": "aurea",
+   "plugin": "criterio-treasury",
+   "pedido": "/criterio-treasury:aurea revisa los pagos programados de esta semana",
+   "espera": {
+    "comando": "criterio-treasury:payment-check"
+   },
+   "como": "`payment-check`"
+  },
+  {
+   "id": "C22",
+   "agente": "aurea",
+   "plugin": "criterio-treasury",
+   "pedido": "/criterio-treasury:aurea vencimientos de la deuda y covenants",
+   "espera": {
+    "comando": "criterio-treasury:debt-watch"
+   },
+   "como": "`debt-watch`"
+  },
+  {
+   "id": "C23",
+   "agente": "fidel",
+   "plugin": "criterio-legal",
+   "pedido": "/criterio-legal:fidel qué contratos vencen en los próximos 60 días",
+   "espera": {
+    "comando": "criterio-legal:obligations-calendar"
+   },
+   "como": "`obligations-calendar`"
+  },
+  {
+   "id": "C24",
+   "agente": "fidel",
+   "plugin": "criterio-legal",
+   "pedido": "/criterio-legal:fidel quién podía firmar cada contrato",
+   "espera": {
+    "comando": "criterio-legal:authority-check"
+   },
+   "como": "`authority-check`"
+  },
+  {
+   "id": "C25",
+   "agente": "fidel",
+   "plugin": "criterio-legal",
+   "pedido": "/criterio-legal:fidel cómo vamos con el cumplimiento regulatorio",
+   "espera": {
+    "entrada": "criterio-compliance:constanza"
+   },
+   "como": "Es de Constanza: `/criterio-compliance:constanza`"
+  },
+  {
+   "id": "C26",
+   "agente": "constanza",
+   "plugin": "criterio-compliance",
+   "pedido": "/criterio-compliance:constanza qué normas nuevas nos aplican",
+   "espera": {
+    "comando": "criterio-compliance:regulatory-watch"
+   },
+   "como": "`regulatory-watch`"
+  },
+  {
+   "id": "C27",
+   "agente": "constanza",
+   "plugin": "criterio-compliance",
+   "pedido": "/criterio-compliance:constanza denuncias abiertas",
+   "espera": {
+    "comando": "criterio-compliance:reports-cases"
+   },
+   "como": "`reports-cases`"
+  },
+  {
+   "id": "C28",
+   "agente": "constanza",
+   "plugin": "criterio-compliance",
+   "pedido": "/criterio-compliance:constanza quién firma este contrato",
+   "espera": {
+    "entrada": "criterio-legal:fidel"
+   },
+   "como": "Es de Fidel: `/criterio-legal:fidel`"
+  },
+  {
+   "id": "C29",
+   "agente": "ofelia",
+   "plugin": "criterio-assistant",
+   "pedido": "/criterio-assistant:ofelia la agenda de las próximas dos semanas",
+   "espera": {
+    "comando": "criterio-assistant:ea-agenda"
+   },
+   "como": "`ea-agenda`"
+  },
+  {
+   "id": "C30",
+   "agente": "ofelia",
+   "plugin": "criterio-assistant",
+   "pedido": "/criterio-assistant:ofelia prepara la próxima junta",
+   "espera": {
+    "comando": "criterio-assistant:ea-prep"
+   },
+   "como": "`ea-prep`"
+  },
+  {
+   "id": "C31",
+   "agente": "ofelia",
+   "plugin": "criterio-assistant",
+   "pedido": "/criterio-assistant:ofelia qué correos esperan respuesta",
+   "espera": {
+    "comando": "criterio-assistant:ea-mail"
+   },
+   "como": "`ea-mail`"
+  },
+  {
+   "id": "C32",
+   "agente": "ofelia",
+   "plugin": "criterio-assistant",
+   "pedido": "/criterio-assistant:ofelia envía el acta a la junta",
+   "espera": {
+    "ninguno": true
+   },
+   "como": "Ninguno: dice que no envía nada"
+  },
+  {
+   "id": "C33",
+   "agente": "augusto",
+   "plugin": "criterio-sales",
+   "pedido": "/criterio-sales:augusto qué oportunidades del embudo no tienen respaldo",
+   "espera": {
+    "comando": "criterio-sales:pipeline-check"
+   },
+   "como": "`pipeline-check`"
+  },
+  {
+   "id": "C34",
+   "agente": "augusto",
+   "plugin": "criterio-sales",
+   "pedido": "/criterio-sales:augusto se sostiene el pronóstico del trimestre",
+   "espera": {
+    "comando": "criterio-sales:forecast-check"
+   },
+   "como": "`forecast-check`"
+  },
+  {
+   "id": "C35",
+   "agente": "augusto",
+   "plugin": "criterio-sales",
+   "pedido": "/criterio-sales:augusto descuentos fuera de la matriz",
+   "espera": {
+    "entrada": "criterio-revenue:valeria"
+   },
+   "como": "Es de Valeria: `/criterio-revenue:valeria`"
+  },
+  {
+   "id": "C36",
+   "agente": "valeria",
+   "plugin": "criterio-revenue",
+   "pedido": "/criterio-revenue:valeria contratos ganados sin factura",
+   "espera": {
+    "comando": "criterio-revenue:won-to-invoice"
+   },
+   "como": "`won-to-invoice`"
+  },
+  {
+   "id": "C37",
+   "agente": "valeria",
+   "plugin": "criterio-revenue",
+   "pedido": "/criterio-revenue:valeria comisiones del mes",
+   "espera": {
+    "comando": "criterio-revenue:commission-check"
+   },
+   "como": "`commission-check`"
+  },
+  {
+   "id": "C38",
+   "agente": "alexis",
+   "plugin": "criterio-security",
+   "pedido": "/criterio-security:alexis estado de la declaración de aplicabilidad",
+   "espera": {
+    "comando": "criterio-security:soa-status"
+   },
+   "como": "`soa-status`"
+  },
+  {
+   "id": "C39",
+   "agente": "alexis",
+   "plugin": "criterio-security",
+   "pedido": "/criterio-security:alexis revisiones de acceso pendientes",
+   "espera": {
+    "comando": "criterio-security:access-reviews"
+   },
+   "como": "`access-reviews`"
+  },
+  {
+   "id": "C40",
+   "agente": "alexis",
+   "plugin": "criterio-security",
+   "pedido": "/criterio-security:alexis vulnerabilidades fuera de plazo",
+   "espera": {
+    "entrada": "criterio-vulnerability:guillermo"
+   },
+   "como": "Es de Guillermo: `/criterio-vulnerability:guillermo`"
+  },
+  {
+   "id": "C41",
+   "agente": "guillermo",
+   "plugin": "criterio-vulnerability",
+   "pedido": "/criterio-vulnerability:guillermo vulnerabilidades fuera de plazo",
+   "espera": {
+    "comando": "criterio-vulnerability:vuln-sla"
+   },
+   "como": "`vuln-sla`"
+  },
+  {
+   "id": "C42",
+   "agente": "guillermo",
+   "plugin": "criterio-vulnerability",
+   "pedido": "/criterio-vulnerability:guillermo cuáles están en el catálogo KEV",
+   "espera": {
+    "comando": "criterio-vulnerability:kev-check"
+   },
+   "como": "`kev-check`"
+  },
+  {
+   "id": "C43",
+   "agente": "amparo",
+   "plugin": "criterio-resilience",
+   "pedido": "/criterio-resilience:amparo a quién había que notificar y en qué plazo",
+   "espera": {
+    "comando": "criterio-resilience:notifications"
+   },
+   "como": "`notifications`"
+  },
+  {
+   "id": "C44",
+   "agente": "amparo",
+   "plugin": "criterio-resilience",
+   "pedido": "/criterio-resilience:amparo pruebas de continuidad vencidas",
+   "espera": {
+    "comando": "criterio-resilience:continuity-tests"
+   },
+   "como": "`continuity-tests`"
+  }
+ ]
+}

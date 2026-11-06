@@ -34,5 +34,6 @@ reciba el pedido en palabras y lleve al comando que corresponde.
 - Quien instala un agente aprende un solo nombre, el del agente, y lo demás se lo dice el agente.
 - Los nombres de los comandos existentes no cambian: quien ya los usa los sigue usando.
 - La elección del comando la hace el modelo de lenguaje (LLM) sobre la tabla generada; la tabla
-  es verificable, la elección todavía no. **Por probar:** una ronda con pedidos en palabras por
-  cada grupo, uno ambiguo y uno de otro agente de la familia, contra la elección esperada.
+  es verificable; la elección se prueba con `tests/entradas/correr.py`, que corre los pedidos de
+  `tests/entradas/pedidos.json` —uno por grupo, ambiguos y de otro agente— contra Claude Code real y
+  escribe el acierto con su intervalo del 95 %.
