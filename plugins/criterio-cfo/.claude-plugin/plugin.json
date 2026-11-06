@@ -1,6 +1,6 @@
 {
   "name": "criterio-cfo",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "La familia CFO completa —la función financiera—: instala de una vez a Clara, Tomás y Áurea y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cfo:cfo-setup.",
   "author": {
     "name": "José Francisco Ñáñez",
