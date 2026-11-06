@@ -19,6 +19,9 @@ dependencias a los de la familia y a Rostrum, el portal de todas las familias
 /plugin install criterio-clo@criterio
 ```
 
+Necesita Claude Code 2.1.110 o posterior: antes, se instala solo este plugin, sin sus agentes, y no
+avisa. Si algo falla, [la instalación paso a paso](../../docs/instalacion.es.md).
+
 Después, un solo comando los configura a todos en la misma conversación:
 
 ```

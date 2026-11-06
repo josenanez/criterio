@@ -18,6 +18,9 @@ family's agents and Rostrum, the portal for every family, as dependencies
 /plugin install criterio-ea@criterio
 ```
 
+It needs Claude Code 2.1.110 or later: before it, only this plugin installs, without its agents,
+and it says nothing. If something fails, [the installation step by step](../../docs/instalacion.md).
+
 Then its setup:
 
 ```

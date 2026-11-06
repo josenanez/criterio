@@ -30,6 +30,11 @@ Invócalos tú, con la herramienta que corre los comandos. Si no puedes invocar 
 persona exactamente cuál escribir y espera a que termine. Si el argumento trae una ruta, pásasela
 al primero.
 
+**Si el setup de un agente no existe, el agente no está instalado**: casi siempre es un Claude Code
+anterior a la 2.1.110, que instala el plugin de la familia sin sus agentes. Dilo en una línea, con
+las dos salidas —actualizar con `claude update`, fuera de Claude, o instalar ese agente con
+`/plugin install <su plugin>@criterio`— y sigue con el siguiente.
+
 **En la PMO, Samuel y Alba son una instancia por proyecto y por producto.** Después de Vera, pregunta
 una sola vez por cuáles proyectos y cuáles productos quiere la persona configurar ahora, con la lista
 que encontró Vera, y corre el setup de Samuel o de Alba una vez por cada uno. «Ninguno por ahora» es

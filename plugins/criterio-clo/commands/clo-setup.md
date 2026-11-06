@@ -29,6 +29,11 @@ Invócalos tú, con la herramienta que corre los comandos. Si no puedes invocar 
 persona exactamente cuál escribir y espera a que termine. Si el argumento trae una ruta, pásasela
 al primero.
 
+**Si el setup de un agente no existe, el agente no está instalado**: casi siempre es un Claude Code
+anterior a la 2.1.110, que instala el plugin de la familia sin sus agentes. Dilo en una línea, con
+las dos salidas —actualizar con `claude update`, fuera de Claude, o instalar ese agente con
+`/plugin install <su plugin>@criterio`— y sigue con el siguiente.
+
 **2. Lo que ya se respondió no se vuelve a preguntar.** El primer setup encuentra la carpeta, la
 entidad y dónde guardar el estado. Antes de cada setup siguiente, di en una línea lo que ya quedó
 fijado: ese setup lo toma de la conversación y solo pide confirmarlo.

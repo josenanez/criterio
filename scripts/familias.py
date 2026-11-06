@@ -773,6 +773,9 @@ def con_entrada(a: dict, grupos: list[dict]) -> list[dict]:
 # sus páginas salen de aquí, de los mismos agentes que publica Rostrum. Y el reloj (decisión 0028):
 # lo que toca hoy, en una tarea programada que el setup ofrece al final y crea solo con un sí.
 RELOJ = {"cron": "0 7 * * 1-5", "dice": "los días hábiles a las 7:00"}
+# La versión de Claude Code desde la que instalar un plugin instala sus `dependencies`: probada con la
+# 2.1.109, que instala solo el plugin de la familia, y con la 2.1.110, que instala sus agentes.
+MIN_CLAUDE = "2.1.110"
 
 
 def frente(plugin: str, comando: str) -> dict:
@@ -885,6 +888,11 @@ con su motor y sus validaciones. Aquí solo se ordena el recorrido.
 Invócalos tú, con la herramienta que corre los comandos. Si no puedes invocar un comando, dile a la
 persona exactamente cuál escribir y espera a que termine. Si el argumento trae una ruta, pásasela
 al primero.
+
+**Si el setup de un agente no existe, el agente no está instalado**: casi siempre es un Claude Code
+anterior a la {MIN_CLAUDE}, que instala el plugin de la familia sin sus agentes. Dilo en una línea, con
+las dos salidas —actualizar con `claude update`, fuera de Claude, o instalar ese agente con
+`/plugin install <su plugin>@criterio`— y sigue con el siguiente.
 {PMO_INSTANCIAS if sigla == "pmo" else ""}
 **2. Lo que ya se respondió no se vuelve a preguntar.** El primer setup encuentra la carpeta, la
 entidad y dónde guardar el estado. Antes de cada setup siguiente, di en una línea lo que ya quedó
@@ -937,6 +945,9 @@ dependencias a los de la familia y a Rostrum, el portal de todas las familias
 /plugin install criterio-{s}@criterio
 ```
 
+Necesita Claude Code {MIN_CLAUDE} o posterior: antes, se instala solo este plugin, sin sus agentes, y no
+avisa. Si algo falla, [la instalación paso a paso](../../docs/instalacion.es.md).
+
 {despues}
 **El primer resultado** lo da el setup de cada agente, sobre tus propios documentos, antes de terminar.
 
@@ -974,6 +985,9 @@ family's agents and Rostrum, the portal for every family, as dependencies
 /plugin marketplace add josenanez/criterio
 /plugin install criterio-{s}@criterio
 ```
+
+It needs Claude Code {MIN_CLAUDE} or later: before it, only this plugin installs, without its agents,
+and it says nothing. If something fails, [the installation step by step](../../docs/instalacion.md).
 
 {despues}
 **The first result** comes from each agent's setup, on your own documents, before it finishes.
@@ -1200,6 +1214,12 @@ def main() -> int:
     contenido, e_ag = agentes_json()
     errores += [f"AGENTES · {e}" for e in e_ag]
     errores += [f"PREGUNTAS · {e}" for e in revisar_preguntas()]
+    # La versión mínima de Claude Code se escribe en varias páginas; todas dicen la de MIN_CLAUDE.
+    for pag in [RAIZ / "README.es.md", RAIZ / "README.md", *sorted((RAIZ / "families").glob("criterio-*/README*.md")),
+                *sorted((RAIZ / "docs" / "decisions").glob("*.md")), RAIZ / "docs" / "instalacion.es.md", RAIZ / "docs" / "instalacion.md"]:
+        for v in re.findall(r"Claude Code (\d+\.\d+\.\d+) (?:o posterior|or later)", pag.read_text(encoding="utf-8")):
+            if v != MIN_CLAUDE:
+                errores.append(f"{pag.relative_to(RAIZ)} pide Claude Code {v} y la mínima es la {MIN_CLAUDE}")
     errores += [f"NOMBRES · {e}" for e in nombres_readme(args.check)]
     destino = P / "criterio-server" / "scripts" / "agentes.json"
     if destino.parent.is_dir():

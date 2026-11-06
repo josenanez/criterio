@@ -164,6 +164,8 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
+It needs Claude Code 2.1.110 or later; if something fails, [the installation step by step](../../docs/instalacion.md).
+
 **The family installs at once.** The `criterio-ea` plugin brings the agent and Rostrum, and
 `/criterio-assistant:ea-setup` configures her.
 

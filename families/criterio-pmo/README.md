@@ -152,6 +152,8 @@ One folder per project and one per product, each starting with its code: `PRY-10
 
 ## Installing the family
 
+It needs Claude Code 2.1.110 or later; if something fails, [the installation step by step](../../docs/instalacion.md).
+
 **The family installs at once.** The `criterio-pmo` plugin brings its agents and Rostrum, and
 `/criterio-pmo:pmo-setup` configures them in order, in a single conversation: what was already
 answered is not asked again.

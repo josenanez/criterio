@@ -1,0 +1,98 @@
+# Instalar Criterio, paso a paso
+
+[English](instalacion.md)
+
+Seis pasos, de Claude Code al día hasta la familia configurada. Al final están los errores que
+aparecen en la práctica, con lo que dice la pantalla y qué hacer.
+
+## 1 · Claude Code al día: la 2.1.110 o posterior
+
+Desde la 2.1.110, instalar una familia instala también sus agentes y a Rostrum. **Antes, se instala
+solo el plugin de la familia, sin sus agentes, y no avisa.** Se revisa en la terminal, fuera de Claude:
+
+```
+claude --version
+```
+
+Si es anterior, se actualiza, también fuera de Claude:
+
+```
+claude update
+```
+
+Si responde `Insufficient permissions to install update`, ve a [los errores](#los-errores-que-aparecen).
+En **Claude Cowork** no hay que hacer nada: la aplicación se actualiza sola.
+
+## 2 · Agregar el marketplace, una vez
+
+Dentro de Claude Code:
+
+```
+/plugin marketplace add josenanez/criterio
+```
+
+En **Claude Cowork**: Personalizar → Explorar plugins → Personal → **+** → Agregar marketplace desde
+GitHub → `josenanez/criterio`.
+
+## 3 · La demostración, antes de abrir tus documentos
+
+Opcional, y recomendable: una organización de prueba con los agentes de seis familias ya corridos y
+Rostrum sobre ella, en unos cinco minutos. Ábrela en una carpeta vacía:
+
+```
+mkdir -p ~/criterio-demostracion && cd ~/criterio-demostracion && claude
+```
+
+Y dentro:
+
+```
+/plugin install criterio-server@criterio
+/reload-plugins
+/criterio-server:server-demo
+```
+
+## 4 · Instalar la familia
+
+En la carpeta donde está la documentación de tu función, abre Claude e instala la familia. La CFO,
+por ejemplo:
+
+```
+/plugin install criterio-cfo@criterio
+/reload-plugins
+```
+
+Lo mismo con `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` y `criterio-ea`. Para
+comprobarlo, `/plugin` → Installed: tiene que estar la familia, cada uno de sus agentes y
+`criterio-server`. Si solo está la familia, es el paso 1.
+
+## 5 · Configurarla, en una conversación
+
+```
+/criterio-cfo:cfo-setup
+```
+
+Corre el setup de cada agente en orden, pregunta una sola vez lo que comparten, pide los términos de
+cada agente y, al final, ofrece la tarea programada para lo que toca cada día. Después, a cada
+agente se le pide en palabras, por su nombre: `/criterio-finance:clara cómo va el cierre`.
+
+## 6 · Recibir cada versión nueva
+
+Se publica una versión cada viernes. Para que llegue sola, una vez: `/plugin` → Marketplaces →
+criterio → Enable auto-update. Claude Code la deja apagada en los marketplaces que no son de
+Anthropic. Sin ella, `/plugin marketplace update criterio` la trae a mano.
+
+## Los errores que aparecen
+
+| Lo que dice la pantalla | Por qué | Qué hacer |
+|---|---|---|
+| `Insufficient permissions to install update` o `Insufficient permissions for auto-updates` | Claude Code se instaló con npm como administrador, y actualizarlo pide permisos que tu usuario no tiene | `sudo claude update`, que pide la contraseña del equipo. O, mejor, `claude install`: la instalación nativa se actualiza sola, sin `sudo` |
+| `Auto-update failed · Try claude doctor or npm i -g @anthropic-ai/claude-code` | La actualización automática no pudo instalarse, casi siempre por lo mismo de la fila anterior | Lo mismo de la fila anterior |
+| `Failed to load marketplace "claude-plugins-official"` … `Invalid schema` | Es el catálogo oficial de Anthropic, que una versión vieja de Claude Code ya no entiende, y corta la instalación de cualquier plugin | Actualiza Claude Code (paso 1). Si no puedes ahora: `/plugin marketplace remove claude-plugins-official` |
+| `Unknown skill: criterio-server:server-demo` o `Unknown command` | El plugin no se instaló —mira el mensaje de la instalación— o se instaló y sus comandos no se han cargado | Si la instalación falló, la fila anterior. Si no, `/reload-plugins`, o cierra y abre Claude |
+| `Plugins changed. Run /reload-plugins to activate.` | Se instaló o se actualizó algo | `/reload-plugins` |
+| `1 error during load. Run /doctor for details.` | Un plugin o un marketplace no cargó | `/doctor` dice cuál. Si es `claude-plugins-official`, la tercera fila |
+| La familia se instaló y su setup dice que un agente no está | Claude Code anterior a la 2.1.110 | Paso 1, o instala ese agente solo: `/plugin install <su plugin>@criterio` |
+| La versión nueva no llega | La actualización automática está apagada | Paso 6 |
+
+Si aparece otro error, [ábrelo como issue](https://github.com/josenanez/criterio/issues) con lo que
+dice la pantalla, tal cual: entra a esta tabla.

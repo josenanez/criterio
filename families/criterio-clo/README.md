@@ -188,6 +188,8 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
+It needs Claude Code 2.1.110 or later; if something fails, [the installation step by step](../../docs/instalacion.md).
+
 **The family installs at once.** The `criterio-clo` plugin brings its agents and Rostrum, and
 `/criterio-clo:clo-setup` configures them in order, in a single conversation: what was already
 answered is not asked again.

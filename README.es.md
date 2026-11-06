@@ -84,7 +84,16 @@ cada uno.
 
 ## Instalación
 
-El marketplace se agrega una vez, y después se instala lo que haga falta.
+Necesita Claude Code 2.1.110 o posterior; el paso a paso, con cada error y qué hacer, está en
+[Instalar Criterio, paso a paso](docs/instalacion.es.md). El
+marketplace se agrega una vez, y después se instala lo que haga falta.
+
+```
+/plugin marketplace add josenanez/criterio
+```
+
+**En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
+marketplace desde GitHub → `josenanez/criterio`.
 
 **Para verlo funcionar antes de abrir tus documentos**, la demostración: una organización de prueba
 con los agentes de seis familias ya corridos y Rostrum sobre ella, en unos cinco minutos.
@@ -93,13 +102,6 @@ con los agentes de seis familias ya corridos y Rostrum sobre ella, en unos cinco
 /plugin install criterio-server@criterio
 /criterio-server:server-demo
 ```
-
-```
-/plugin marketplace add josenanez/criterio
-```
-
-**En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
-marketplace desde GitHub → `josenanez/criterio`.
 
 **Para recibir cada versión nueva**, activa una vez la actualización automática: en /plugin,
 Marketplaces → criterio → Enable auto-update. Claude Code la deja apagada en los marketplaces que no
@@ -117,6 +119,11 @@ Lo mismo con `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` y `
 agente se le pide en tus palabras, por su nombre: `/criterio-finance:clara`, `/criterio-budget:tomas`… Si
 solo necesitas un agente, se instala solo: qué agente sirve a qué rol lo explica cada familia, por
 ejemplo la de gobierno de proyectos en [criterio-pmo](families/criterio-pmo/README.es.md#instalación-de-la-familia).
+
+### Si la instalación no sale
+
+El paso a paso —de Claude Code al día hasta la familia configurada— y cada error que aparece en la
+práctica, con lo que dice la pantalla y qué hacer, están en [Instalar Criterio, paso a paso](docs/instalacion.es.md).
 
 ## Apache 2.0 — qué entregamos y a qué invitamos
 

@@ -41,6 +41,10 @@ configure con un solo setup.
    exactamente los agentes de su `familia.json` más Rostrum, y que cada una esté en el marketplace.
 7. **Instalar un agente suelto sigue igual.** Nadie que solo quiera a Clara instala la familia.
 
-## Lo que queda por decidir
+## Consecuencias
 
-- Los nombres: `criterio-<sigla>` para el plugin y `<sigla>-setup` para su comando.
+- Los nombres quedaron como se propusieron: `criterio-<sigla>` para el plugin y `<sigla>-setup` para
+  su comando.
+- **Necesita Claude Code 2.1.110 o posterior.** Probado el 6 de noviembre de 2026: la 2.1.109 y las
+  anteriores instalan solo el plugin de la familia, sin sus agentes, y no avisan. La versión mínima vive
+  en `scripts/familias.py` (`MIN_CLAUDE`) y su `--check` rompe si una página dice otra.

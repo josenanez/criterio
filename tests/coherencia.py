@@ -201,7 +201,9 @@ if SRV.exists():
     sys.path.insert(0, str(SRV.parent))
     rutas = {r.lstrip("/").split("/")[0] for r in __import__("servidor").RUTAS}
 
-faltantes = {m for m in re.findall(r"`/([a-z][a-z-]{3,30})`", todo)} - comandos - rutas
+# Los comandos propios de Claude Code no son de ningún plugin: la guía de instalación los nombra.
+NATIVOS = {"reload-plugins", "plugin", "doctor", "exit"}
+faltantes = {m for m in re.findall(r"`/([a-z][a-z-]{3,30})`", todo)} - comandos - rutas - NATIVOS
 for m in sorted(faltantes):
     decir(FALLA, f"la documentación promete /{m} y el comando no existe")
 

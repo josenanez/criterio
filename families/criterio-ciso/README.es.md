@@ -171,6 +171,8 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 
 ## Instalación de la familia
 
+Necesita Claude Code 2.1.110 o posterior; si algo falla, [la instalación paso a paso](../../docs/instalacion.es.md).
+
 **La familia se instala de una vez.** El plugin `criterio-ciso` trae a sus agentes y a Rostrum, y
 `/criterio-ciso:ciso-setup` los configura en orden, en una sola conversación: lo que ya se respondió
 no se vuelve a preguntar.

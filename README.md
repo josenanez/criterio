@@ -83,7 +83,16 @@ What changes between them is **the rhythm of the conversation**, and that is on 
 
 ## Installation
 
+It needs Claude Code 2.1.110 or later; the step by step, with every error and what to do, is in
+[Installing Criterio, step by step](docs/instalacion.md).
 The marketplace is added once, and after that you install what you need.
+
+```
+/plugin marketplace add josenanez/criterio
+```
+
+**In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace
+from GitHub → `josenanez/criterio`.
 
 **To see it working before opening your own documents**, the demo: a test organisation with the
 agents of six families already run and Rostrum on it, in about five minutes.
@@ -92,13 +101,6 @@ agents of six families already run and Rostrum on it, in about five minutes.
 /plugin install criterio-server@criterio
 /criterio-server:server-demo
 ```
-
-```
-/plugin marketplace add josenanez/criterio
-```
-
-**In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace
-from GitHub → `josenanez/criterio`.
 
 **To receive every new version**, turn on auto-update once: in /plugin, Marketplaces → criterio
 → Enable auto-update. Claude Code leaves it off for marketplaces that are not Anthropic's, and
@@ -116,6 +118,11 @@ The same with `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` an
 you ask each agent in your own words, by name: `/criterio-finance:clara`, `/criterio-budget:tomas`… If
 you only need one agent, it installs on its own: which agent serves which role is explained by each
 family, for instance the project governance one in [criterio-pmo](families/criterio-pmo/README.md#installing-the-family).
+
+### If installation does not work
+
+The step by step —from an up-to-date Claude Code to the family configured— and every error that shows
+up in practice, with what the screen says and what to do, are in [Installing Criterio, step by step](docs/instalacion.md).
 
 ## Apache 2.0 — what we give and what we invite
 
