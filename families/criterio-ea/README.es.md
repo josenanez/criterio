@@ -188,7 +188,7 @@ un archivo de configuración a mano.**
 | | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
 |---|---|---|---|---|
 | **Ofelia** · asistente ejecutiva | El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta | No envía, no agenda, no acepta ni mueve nada; no recomienda una opción, no prioriza por el ejecutivo, no declara cumplido un compromiso sin evidencia y no evalúa a una persona ni a un área | [criterio-assistant](../../plugins/criterio-assistant/README.es.md) · 11 comandos, 7 skills | [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
-| **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
+| **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 3 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ea:familia-agentes -->
 
 Los comandos, uno por uno —qué hacen, qué reciben, qué procesan y qué escriben—, están en el
@@ -308,7 +308,7 @@ sintético, no sobre la oficina de un ejecutivo real.**
 | Agente | Se instala | Su prueba |
 |---|---|---|
 | **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 11 comandos, 7 skills | El motor, probado; con la agente, todas las oficinas del material, hasta la ronda 1 · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
-| **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
+| **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 <!-- /ea:estado -->
 
 Los viajes —los itinerarios contra la agenda— y las exportaciones de cada proveedor vienen en el incremento 2; el

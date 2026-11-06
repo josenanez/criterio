@@ -192,9 +192,9 @@ su detalle. **Cada página de agente se lee sola** — alguien puede instalar un
 | **Vera** · el portafolio | El portafolio completo: consolidar, contrastar lo declarado contra la evidencia, y armar el material del comité | No declara el estado de ningún proyecto, y no prioriza la demanda | [criterio-portfolio](../../plugins/criterio-portfolio/README.es.md) · 17 comandos, 10 skills | [resultados](../../tests/criterio-portfolio/RESULTADOS.md) |
 | **Samuel** · un proyecto | Lo que la reunión deja escrito: el compromiso dicho y no cumplido, el plan contra la evidencia, y el informe listo salvo una línea | No declara el estado de su proyecto, y no va a la reunión | [criterio-project](../../plugins/criterio-project/README.es.md) · 10 comandos, 8 skills | [resultados](../../tests/criterio-project/RESULTADOS.md) |
 | **Alba** · un producto | Lo que hay antes del proyecto: la definición contra la evidencia de demanda, el registro de requerimientos, y el acta con la que nace la ficha | No decide qué se construye, y no habla con el cliente | [criterio-product](../../plugins/criterio-product/README.es.md) · 12 comandos, 12 skills | [resultados](../../tests/criterio-product/RESULTADOS.md) |
-| **Rostrum** · el servidor | Publicar el informe donde el equipo lo lea, y recibir la petición de quien no abre una carpeta | **No escribe nunca la ficha**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
+| **Rostrum** · el servidor | Publicar el informe donde el equipo lo lea, y recibir la petición de quien no abre una carpeta | **No escribe nunca la ficha**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 3 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 
-Los 39 comandos de la familia y los 2 de Rostrum, uno por uno —qué hacen, qué reciben, qué leen y qué escriben— están en el [manual de los comandos](../../docs/manual.es.md), y las respuestas a lo que más se pregunta, en las [preguntas frecuentes](PREGUNTAS.es.md).
+Los 39 comandos de la familia y los 3 de Rostrum, uno por uno —qué hacen, qué reciben, qué leen y qué escriben— están en el [manual de los comandos](../../docs/manual.es.md), y las respuestas a lo que más se pregunta, en las [preguntas frecuentes](PREGUNTAS.es.md).
 
 **La frontera es la misma para los tres y no es una recomendación: es una restricción del
 camino de escritura.** Ninguno escribe el estado declarado de un proyecto. Esa línea la escribe
@@ -416,7 +416,7 @@ documentación real de una organización.**
 | **Vera** · PMO | `criterio-portfolio` · 17 comandos, 10 skills | **sin filas abiertas** |
 | **Samuel** · proyecto | `criterio-project` · 10 comandos, 8 skills | **sin filas abiertas** |
 | **Alba** · producto | `criterio-product` · 12 comandos, 12 skills | **sin filas abiertas** |
-| **Rostrum** · el servidor | `criterio-server` · 2 comandos, para todas las familias | — |
+| **Rostrum** · el servidor | `criterio-server` · 3 comandos, para todas las familias | — |
 
 **Ninguna de las tres hojas de diseño tiene ya una fila en «Falta» o en «Parcial».** Lo que
 sigue pendiente no es construcción.

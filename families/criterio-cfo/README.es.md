@@ -232,7 +232,7 @@ página de agente se lee sola** — alguien puede instalar uno sin el otro.
 | **Clara** · contralor | El cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, la factura electrónica contra la contabilidad y el paquete para el auditor | No registra asientos, no firma y no declara el estado del cierre | [criterio-finance](../../plugins/criterio-finance/README.es.md) · 11 comandos, 7 skills | [resultados](../../tests/criterio-finance/RESULTADOS.md) |
 | **Tomás** · FP&A | El presupuesto aprobado contra lo ejecutado y lo comprometido, la proyección al cierre del año, los traslados y el material del comité de presupuesto | No aprueba traslados, no recomienda la decisión del comité y no declara el estado de ningún área | [criterio-budget](../../plugins/criterio-budget/README.es.md) · 9 comandos, 6 skills | [resultados](../../tests/criterio-budget/RESULTADOS.md) |
 | **Áurea** · tesorería | La caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants | No mueve dinero, no hace pagos, no entra a un portal bancario y no recomienda una inversión, un financiamiento ni una cobertura | [criterio-treasury](../../plugins/criterio-treasury/README.es.md) · 8 comandos, 2 skills | [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
-| **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
+| **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 3 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /cfo:familia-agentes -->
 
 Los comandos, uno por uno —qué hacen, qué reciben, qué procesan y qué escriben—, están en el
@@ -442,7 +442,7 @@ sobre la documentación de una organización real.**
 | **Clara** · Contralor | `criterio-finance` · 11 comandos, 7 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
 | **Tomás** · FP&A | `criterio-budget` · 9 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
 | **Áurea** · Tesorería | `criterio-treasury` · 8 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
-| **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
+| **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 
 La familia quedó probada con la ronda completa con el agente, y su evidencia la hace **estable**:

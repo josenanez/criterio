@@ -173,6 +173,8 @@ PUERTAS = [
      "Que Guillermo levante cada señal sembrada en las vulnerabilidades, y ninguna en los controles"),
     ("material", [sys.executable, str(RAIZ / "tests/criterio-ciso/evaluar.py"), "--agente", "amparo"],
      "Que Amparo levante cada señal sembrada en los incidentes y las pruebas, y ninguna en los controles"),
+    ("material", [sys.executable, str(RAIZ / "scripts/demo.py"), "--check"],
+     "La demostración: una organización de prueba con los agentes ya corridos, la que sale del material y de los motores"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/familias.py"), "--check"],
      "Que el diseño de cada familia salga de sus fuentes y no se apoye en una por verificar"),
     ("estructura", [sys.executable, str(RAIZ / "scripts/resultados.py"), "--selftest"],

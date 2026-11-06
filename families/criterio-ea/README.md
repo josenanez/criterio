@@ -189,7 +189,7 @@ by hand.**
 | | What it answers for | What it never does | Its page | Its tests |
 |---|---|---|---|---|
 | **Ofelia** · executive assistant | The executive's day to day: the calendar against their commitments, the preparation of each governing-body meeting with the record of each decision, the draft minutes, the follow-up of commitments and the correspondence that needs a reply | It does not send, schedule, accept or move anything; it does not recommend an option, prioritise for the executive, declare a commitment done without evidence or evaluate a person or a team | [criterio-assistant](../../plugins/criterio-assistant/README.md) · 11 commands, 7 skills | [results](../../tests/criterio-assistant/RESULTADOS.md) |
-| **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
+| **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 3 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ea:familia-agentes -->
 
 The commands, one by one —what they do, what they take, what they process and what they write—, are
@@ -310,7 +310,7 @@ a real executive's office.**
 | Agent | Installs as | Its test |
 |---|---|---|
 | **Ofelia** · Executive assistant | `criterio-assistant` · 11 commands, 7 skills | The engine, tested; with the agent, every office in the material, up to round 1 · [results](../../tests/criterio-assistant/RESULTADOS.md) |
-| **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
+| **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 <!-- /ea:estado -->
 
 Travel —itineraries against the calendar— and each provider's exports come in increment 2; the first use

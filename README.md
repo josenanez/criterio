@@ -85,6 +85,14 @@ What changes between them is **the rhythm of the conversation**, and that is on 
 
 The marketplace is added once, and after that you install what you need.
 
+**To see it working before opening your own documents**, the demo: a test organisation with the
+agents of six families already run and Rostrum on it, in about five minutes.
+
+```
+/plugin install criterio-server@criterio
+/criterio-server:server-demo
+```
+
 ```
 /plugin marketplace add josenanez/criterio
 ```

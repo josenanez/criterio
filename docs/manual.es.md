@@ -1,6 +1,6 @@
 # Manual de los comandos de Criterio
 
-Los 101 comandos de las familias PMO, CFO, CLO y EA y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros, Tomás lleva el presupuesto y Áurea la tesorería—, la CLO —Fidel lleva los contratos y Constanza el cumplimiento— y la EA —Ofelia prepara la oficina del ejecutivo—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
+Los 144 comandos de las familias PMO, CFO, CLO, CCO, CISO y EA y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros, Tomás lleva el presupuesto y Áurea la tesorería—, la CLO —Fidel lleva los contratos y Constanza el cumplimiento—, la CCO —Augusto el pronóstico y Valeria de la venta a la factura—, la CISO —Alexis el gobierno y los controles, Guillermo las vulnerabilidades y Amparo la respuesta y la recuperación— y la EA —Ofelia prepara la oficina del ejecutivo—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
 
 Este manual se genera con `scripts/manual.py` desde la tabla del README de cada plugin y su `contratos.json`, el mismo contrato que las pruebas comparan contra cada corrida. No se edita a mano.
 
@@ -1202,6 +1202,568 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Escribe.** nada: no escribe
 
+## Augusto · el pronóstico
+
+### `/criterio-sales:sales-setup`
+
+**Qué hace.** La configuración, el inventario y el formato de cada exportación del CRM
+
+**Argumento.** `[ruta de la carpeta de la entidad] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** Configuración guardada; inventario por carpeta; cada exportación con su formato, su fecha y sus oportunidades; las columnas que faltan; la primera ficha del periodo
+
+**Escribe.** `<estado>/comercial/<AAAA-MM>/ficha.json`; `.criterio/comercial/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_COMERCIAL.txt (marcar-raiz, con permiso)`; `<estado>/comercial/<AAAA-MM>/resultados.json`; `<estado>/comercial/<AAAA-MM>/reporte-sales-setup.md`; `<estado>/corridas/salida-sales-setup.md`
+
+**Skills.** **crm-exports**, **pipeline-record**, **sales-intake**
+
+### `/criterio-sales:augusto`
+
+**Qué hace.** Lo que necesites, en tus palabras: Augusto elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
+### `/criterio-sales:pipeline-scan`
+
+**Qué hace.** La ficha del periodo al día, con lo que cambió en el embudo y las señales nuevas
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `10-crm/`; `20-comite/`; `30-evidencia/`; `<estado>/indice.json`
+
+**Muestra.** Qué cambió entre la exportación anterior y la última; las oportunidades nuevas, ganadas y perdidas; las señales nuevas; lo que no se pudo procesar y por qué
+
+**Escribe.** `<estado>/comercial/<AAAA-MM>/ficha.json`; `<estado>/comercial/<AAAA-MM>/resultados.json`; `<estado>/comercial/<AAAA-MM>/reporte-pipeline-scan.md`; `<estado>/corridas/salida-pipeline-scan.md`
+
+**Skills.** **crm-exports**, **pipeline-record**, **sales-intake**
+
+### `/criterio-sales:pipeline-check`
+
+**Qué hace.** Cada oportunidad contra su evidencia: la que no la tiene, la detenida y la que corre su cierre
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `10-crm/`; `00-referencia/etapas`; `<estado>/comercial/<AAAA-MM>/ficha.json`
+
+**Muestra.** Las oportunidades sin el documento de su etapa, las detenidas y las que corrieron su cierre, cada una con su cita; sin calificar a quien la lleva
+
+**Escribe.** `<estado>/comercial/<AAAA-MM>/resultados.json`; `<estado>/comercial/<AAAA-MM>/reporte-pipeline-check.md`; `<estado>/corridas/salida-pipeline-check.md`
+
+**Skills.** **crm-exports**
+
+### `/criterio-sales:forecast-check`
+
+**Qué hace.** El pronóstico comprometido contra lo que lo sostiene, oportunidad por oportunidad
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `10-crm/`; `00-referencia/etapas`; `<estado>/comercial/<AAAA-MM>/ficha.json`
+
+**Muestra.** Lo comprometido, lo cerrado, lo ponderado con evidencia y lo ponderado sin ella; la diferencia; las oportunidades que lo sostienen y las que no
+
+**Escribe.** `<estado>/comercial/<AAAA-MM>/resultados.json`; `<estado>/comercial/<AAAA-MM>/reporte-forecast-check.md`; `<estado>/corridas/salida-forecast-check.md`
+
+**Skills.** **forecast-backing**
+
+### `/criterio-sales:target-check`
+
+**Qué hace.** La meta del periodo contra lo cerrado al corte, por línea
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `10-crm/`; `00-referencia/metas`
+
+**Muestra.** La meta, lo esperado al corte, lo cerrado y la diferencia por línea; nunca por persona
+
+**Escribe.** `<estado>/comercial/<AAAA-MM>/resultados.json`; `<estado>/comercial/<AAAA-MM>/reporte-target-check.md`; `<estado>/corridas/salida-target-check.md`
+
+**Skills.** **forecast-backing**
+
+### `/criterio-sales:sales-wake`
+
+**Qué hace.** Lo que toca hoy en el embudo; si no toca nada, se calla
+
+**Argumento.** `[AAAA-MM-DD para simular otro día]`
+
+**Procesa.** `<estado>/corridas/`; `<estado>/peticiones/`; config
+
+**Muestra.** Lo que corrió y lo que encontró; si no toca nada, se calla
+
+**Escribe.** `<estado>/comercial/<AAAA-MM>/resultados.json`; `<estado>/comercial/<AAAA-MM>/reporte-sales-wake.md`; `<estado>/corridas/salida-sales-wake.md`; `<estado>/indice.json`; `<estado>/peticiones/<id>.json (responder)`
+
+**Skills.** **sales-intake**
+
+### `/criterio-sales:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
+## Valeria · de la venta a la factura
+
+### `/criterio-revenue:revenue-setup`
+
+**Qué hace.** La configuración, el inventario y las cuentas que faltan para cruzar con Fidel y Clara
+
+**Argumento.** `[ruta de la carpeta de la entidad] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** Configuración guardada; inventario por carpeta; las cuentas sin identificación; si encontró las fichas de Fidel y de Clara; la primera ficha del periodo
+
+**Escribe.** `.criterio/ingresos/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_COMERCIAL.txt (marcar-raiz, con permiso)`; `<estado>/ingresos/<AAAA-MM>/resultados.json`; `<estado>/ingresos/<AAAA-MM>/reporte-revenue-setup.md`; `<estado>/corridas/salida-revenue-setup.md`
+
+**Skills.** **crm-exports**, **sales-intake**, **won-to-cash**
+
+### `/criterio-revenue:valeria`
+
+**Qué hace.** Lo que necesites, en tus palabras: Valeria elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
+### `/criterio-revenue:deal-scan`
+
+**Qué hace.** La ficha del periodo al día, con las cotizaciones nuevas y las señales nuevas
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `40-cotizaciones/`; `10-crm/`; `<estado>/indice.json`
+
+**Muestra.** Qué cambió; qué cotizaciones son nuevas; las señales nuevas; lo que no se pudo procesar y por qué
+
+**Escribe.** `<estado>/ingresos/<AAAA-MM>/ficha.json`; `<estado>/ingresos/<AAAA-MM>/resultados.json`; `<estado>/ingresos/<AAAA-MM>/reporte-deal-scan.md`; `<estado>/corridas/salida-deal-scan.md`
+
+**Skills.** **deal-record**, **sales-intake**
+
+### `/criterio-revenue:discount-check`
+
+**Qué hace.** Cada descuento contra su política y su aprobación
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `00-referencia/matriz-descuentos`; `<estado>/ingresos/<AAAA-MM>/ficha.json`
+
+**Muestra.** Cada cotización con su descuento, su nivel, la aprobación que pide y la que tiene; las que quedan fuera de la política, con su cita
+
+**Escribe.** `<estado>/ingresos/<AAAA-MM>/resultados.json`; `<estado>/ingresos/<AAAA-MM>/reporte-discount-check.md`; `<estado>/corridas/salida-discount-check.md`
+
+**Skills.** **discount-policy**
+
+### `/criterio-revenue:won-to-invoice`
+
+**Qué hace.** De lo ganado a lo firmado y a lo facturado: lo que se quedó en el camino
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `10-crm/`; `00-referencia/cuentas`; `fichas de Fidel: <estado-legal>/contratos/`; `fichas de Clara: <estado-finanzas>/cierre/`
+
+**Muestra.** Lo ganado sin contrato y lo firmado sin factura, cada uno con su cita en el CRM y en la ficha del otro agente; los contratos no se vuelven a procesar
+
+**Escribe.** `<estado>/ingresos/<AAAA-MM>/resultados.json`; `<estado>/ingresos/<AAAA-MM>/reporte-won-to-invoice.md`; `<estado>/corridas/salida-won-to-invoice.md`
+
+**Skills.** **won-to-cash**
+
+### `/criterio-revenue:commission-check`
+
+**Qué hace.** Cada comisión liquidada contra la que da el plan
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `00-referencia/plan-comisiones`; `50-comisiones/`; `10-crm/`; `fichas de Clara: <estado-finanzas>/cierre/`
+
+**Muestra.** Por responsable: lo que da el plan, lo liquidado y la diferencia, con las oportunidades que forman la base; no se publica en Rostrum salvo que la configuración lo diga
+
+**Escribe.** `<estado>/ingresos/<AAAA-MM>/resultados.json`; `<estado>/ingresos/<AAAA-MM>/reporte-commission-check.md`; `<estado>/corridas/salida-commission-check.md`
+
+**Skills.** **commission-plan**
+
+### `/criterio-revenue:revenue-wake`
+
+**Qué hace.** Lo que toca hoy de la venta a la factura; si no toca nada, se calla
+
+**Argumento.** `[AAAA-MM-DD para simular otro día]`
+
+**Procesa.** `<estado>/corridas/`; `<estado>/peticiones/`; config
+
+**Muestra.** Lo que corrió y lo que encontró; si no toca nada, se calla
+
+**Escribe.** `<estado>/ingresos/<AAAA-MM>/resultados.json`; `<estado>/ingresos/<AAAA-MM>/reporte-revenue-wake.md`; `<estado>/corridas/salida-revenue-wake.md`; `<estado>/indice.json`; `<estado>/peticiones/<id>.json (responder)`
+
+**Skills.** **sales-intake**
+
+### `/criterio-revenue:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
+## Alexis · el gobierno y los controles
+
+### `/criterio-security:security-setup`
+
+**Qué hace.** La configuración, el inventario y lo que se excluyó
+
+**Argumento.** `[ruta de la carpeta de la entidad] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** Configuración guardada; inventario por carpeta; lo excluido y por qué; las columnas que faltan; la primera ficha del periodo
+
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; `.criterio/seguridad/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)`; `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-security-setup.md`; `<estado>/corridas/salida-security-setup.md`
+
+**Skills.** **control-evidence-record**, **security-intake**, **soa-and-risks**
+
+### `/criterio-security:alexis`
+
+**Qué hace.** Lo que necesites, en tus palabras: Alexis elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
+### `/criterio-security:security-scan`
+
+**Qué hace.** La ficha del periodo al día, con la evidencia nueva y las señales nuevas
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué
+
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-security-scan.md`; `<estado>/corridas/salida-security-scan.md`
+
+**Skills.** **control-evidence-record**, **security-intake**
+
+### `/criterio-security:soa-status`
+
+**Qué hace.** Cada control aplicable con su responsable
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Los controles aplicables sin responsable, con su fila; la declaración completa
+
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-soa-status.md`; `<estado>/corridas/salida-soa-status.md`
+
+**Skills.** **soa-and-risks**
+
+### `/criterio-security:control-evidence`
+
+**Qué hace.** Cada control contra la evidencia de que operó
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Los controles sin evidencia y los que tienen la evidencia vencida, cada uno con su cita y su responsable
+
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-control-evidence.md`; `<estado>/corridas/salida-control-evidence.md`
+
+**Skills.** **control-evidence-record**
+
+### `/criterio-security:access-reviews`
+
+**Qué hace.** Cada sistema con su revisión de accesos al día o vencida
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Los sistemas con la revisión vencida o sin ninguna, con su cita
+
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-access-reviews.md`; `<estado>/corridas/salida-access-reviews.md`
+
+**Skills.** **control-evidence-record**
+
+### `/criterio-security:third-parties`
+
+**Qué hace.** Cada tercero crítico con su evaluación al día o vencida
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Los terceros críticos con la evaluación vencida o sin ninguna, con su cita
+
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-third-parties.md`; `<estado>/corridas/salida-third-parties.md`
+
+**Skills.** **control-evidence-record**
+
+### `/criterio-security:risk-register`
+
+**Qué hace.** Cada aceptación de riesgo contra su fecha de revisión
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/seguridad/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Las aceptaciones que pasaron su fecha de revisión, con quién las aceptó y su fila
+
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-risk-register.md`; `<estado>/corridas/salida-risk-register.md`
+
+**Skills.** **soa-and-risks**
+
+### `/criterio-security:security-wake`
+
+**Qué hace.** Lo que tocaba hoy, corrido
+
+**Argumento.** `[AAAA-MM-DD para simular otro día]`
+
+**Procesa.** `<estado>/corridas/`; `<estado>/peticiones/`; config
+
+**Muestra.** Qué corrió y por qué, o que no tocaba nada
+
+**Escribe.** `<estado>/seguridad/<AAAA-MM>/resultados.json`; `<estado>/seguridad/<AAAA-MM>/reporte-security-wake.md`; `<estado>/corridas/salida-security-wake.md`; `<estado>/peticiones/<id>.json (responder)`
+
+### `/criterio-security:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
+## Guillermo · las vulnerabilidades
+
+### `/criterio-vulnerability:vuln-setup`
+
+**Qué hace.** La configuración, con los plazos de la política, y el formato de cada exportación
+
+**Argumento.** `[ruta de la carpeta de la entidad] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** Configuración guardada, con los plazos y su cita; inventario por carpeta; cada exportación con su fecha, sus activos y sus hallazgos; las columnas que faltan
+
+**Escribe.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; `.criterio/vulnerabilidades/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)`; `<estado>/vulnerabilidades/<AAAA-MM>/resultados.json`; `<estado>/vulnerabilidades/<AAAA-MM>/reporte-vuln-setup.md`; `<estado>/corridas/salida-vuln-setup.md`
+
+**Skills.** **scanner-exports**, **security-intake**, **vuln-policy**
+
+### `/criterio-vulnerability:guillermo`
+
+**Qué hace.** Lo que necesites, en tus palabras: Guillermo elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
+### `/criterio-vulnerability:vuln-scan`
+
+**Qué hace.** Lo abierto al día, con las señales nuevas
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Los escaneos con sus activos y sus hallazgos; lo abierto; el catálogo KEV que se usó; las señales nuevas; lo que no se pudo procesar y por qué
+
+**Escribe.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/vulnerabilidades/<AAAA-MM>/resultados.json`; `<estado>/vulnerabilidades/<AAAA-MM>/reporte-vuln-scan.md`; `<estado>/corridas/salida-vuln-scan.md`
+
+**Skills.** **scanner-exports**, **security-intake**
+
+### `/criterio-vulnerability:vuln-sla`
+
+**Qué hace.** Cada vulnerabilidad abierta contra el plazo de la política
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Las vulnerabilidades fuera de plazo y las excepciones vencidas, cada una con su activo, su severidad, sus días y su cita
+
+**Escribe.** `<estado>/vulnerabilidades/<AAAA-MM>/resultados.json`; `<estado>/vulnerabilidades/<AAAA-MM>/reporte-vuln-sla.md`; `<estado>/corridas/salida-vuln-sla.md`
+
+**Skills.** **vuln-policy**
+
+### `/criterio-vulnerability:kev-check`
+
+**Qué hace.** Cada vulnerabilidad explotada que sigue abierta
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Las vulnerabilidades del catálogo que siguen abiertas después de su fecha, con su activo y su cita
+
+**Escribe.** `<estado>/vulnerabilidades/<AAAA-MM>/resultados.json`; `<estado>/vulnerabilidades/<AAAA-MM>/reporte-kev-check.md`; `<estado>/corridas/salida-kev-check.md`
+
+**Skills.** **scanner-exports**
+
+### `/criterio-vulnerability:scan-coverage`
+
+**Qué hace.** Cada activo con su escaneo, y cada cierre con el escaneo que lo prueba
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Los activos sin escaneo en la ventana; los cierres que ningún escaneo posterior prueba o que el escaneo sigue encontrando; lo escaneado fuera del inventario
+
+**Escribe.** `<estado>/vulnerabilidades/<AAAA-MM>/ficha.json`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/vulnerabilidades/<AAAA-MM>/resultados.json`; `<estado>/vulnerabilidades/<AAAA-MM>/reporte-scan-coverage.md`; `<estado>/corridas/salida-scan-coverage.md`
+
+**Skills.** **scanner-exports**
+
+### `/criterio-vulnerability:vuln-wake`
+
+**Qué hace.** Lo que tocaba hoy, corrido
+
+**Argumento.** `[AAAA-MM-DD para simular otro día]`
+
+**Procesa.** `<estado>/corridas/`; `<estado>/peticiones/`; config
+
+**Muestra.** Qué corrió y por qué, o que no tocaba nada
+
+**Escribe.** `<estado>/vulnerabilidades/<AAAA-MM>/resultados.json`; `<estado>/vulnerabilidades/<AAAA-MM>/reporte-vuln-wake.md`; `<estado>/corridas/salida-vuln-wake.md`; `<estado>/peticiones/<id>.json (responder)`
+
+### `/criterio-vulnerability:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
+## Amparo · la respuesta y la recuperación
+
+### `/criterio-resilience:resilience-setup`
+
+**Qué hace.** La configuración, con los plazos de la política
+
+**Argumento.** `[ruta de la carpeta de la entidad] o vacío`
+
+**Procesa.** documentos de la entidad
+
+**Muestra.** Configuración guardada, con los plazos y su cita; inventario por carpeta; las columnas que faltan; la primera ficha del periodo
+
+**Escribe.** `<estado>/resiliencia/<AAAA-MM>/ficha.json`; `.criterio/resiliencia/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `.criterio/terminos/ (aceptar)`; `<raíz>/_CRITERIO_SEGURIDAD.txt (marcar-raiz, con permiso)`; `<estado>/resiliencia/<AAAA-MM>/resultados.json`; `<estado>/resiliencia/<AAAA-MM>/reporte-resilience-setup.md`; `<estado>/corridas/salida-resilience-setup.md`
+
+**Skills.** **continuity-record**, **incident-record**, **security-intake**
+
+### `/criterio-resilience:amparo`
+
+**Qué hace.** Lo que necesites, en tus palabras: Amparo elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
+### `/criterio-resilience:resilience-scan`
+
+**Qué hace.** La ficha del periodo al día, con los incidentes, las revisiones y las pruebas nuevas
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/resiliencia/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Lo que entró a la ficha; los documentos que todavía no están en ella; las señales nuevas; lo que no se pudo procesar y por qué
+
+**Escribe.** `<estado>/resiliencia/<AAAA-MM>/ficha.json`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/resiliencia/<AAAA-MM>/resultados.json`; `<estado>/resiliencia/<AAAA-MM>/reporte-resilience-scan.md`; `<estado>/corridas/salida-resilience-scan.md`
+
+**Skills.** **continuity-record**, **incident-record**, **security-intake**
+
+### `/criterio-resilience:incident-timeline`
+
+**Qué hace.** Cada incidente contra el plazo de su severidad y su revisión
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/resiliencia/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Los incidentes contenidos fuera de plazo o sin contener, y los cerrados sin revisión o revisados tarde, con su cita
+
+**Escribe.** `<estado>/resiliencia/<AAAA-MM>/resultados.json`; `<estado>/resiliencia/<AAAA-MM>/reporte-incident-timeline.md`; `<estado>/corridas/salida-incident-timeline.md`
+
+**Skills.** **incident-record**
+
+### `/criterio-resilience:notifications`
+
+**Qué hace.** Cada notificación que pide la matriz, a tiempo, tarde o sin hacer
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/resiliencia/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Las notificaciones tardías y las que no se hicieron, con su destinatario, su norma y su cita
+
+**Escribe.** `<estado>/resiliencia/<AAAA-MM>/resultados.json`; `<estado>/resiliencia/<AAAA-MM>/reporte-notifications.md`; `<estado>/corridas/salida-notifications.md`
+
+**Skills.** **incident-record**
+
+### `/criterio-resilience:continuity-tests`
+
+**Qué hace.** Cada prueba contra su calendario
+
+**Argumento.** `[AAAA-MM] o vacío`
+
+**Procesa.** `<estado>/resiliencia/<AAAA-MM>/ficha.json`; config; documentos de la entidad
+
+**Muestra.** Las pruebas vencidas o sin ninguna, separadas las de restauración, con su cita
+
+**Escribe.** `<estado>/resiliencia/<AAAA-MM>/resultados.json`; `<estado>/resiliencia/<AAAA-MM>/reporte-continuity-tests.md`; `<estado>/corridas/salida-continuity-tests.md`
+
+**Skills.** **continuity-record**
+
+### `/criterio-resilience:resilience-wake`
+
+**Qué hace.** Lo que tocaba hoy, corrido
+
+**Argumento.** `[AAAA-MM-DD para simular otro día]`
+
+**Procesa.** `<estado>/corridas/`; `<estado>/peticiones/`; config
+
+**Muestra.** Qué corrió y por qué, o que no tocaba nada
+
+**Escribe.** `<estado>/resiliencia/<AAAA-MM>/resultados.json`; `<estado>/resiliencia/<AAAA-MM>/reporte-resilience-wake.md`; `<estado>/corridas/salida-resilience-wake.md`; `<estado>/peticiones/<id>.json (responder)`
+
+### `/criterio-resilience:share-findings`
+
+**Qué hace.** Un resumen sin datos para compartir, solo si dices que sí
+
+**Argumento.** `vacío`
+
+**Procesa.** `.criterio/corridas/<área>/corridas.json`
+
+**Muestra.** el resumen tal cual, la pregunta y, con un sí, el enlace a la plantilla de hallazgo
+
+**Escribe.** nada: no escribe
+
 ## Ofelia · la oficina de dirección
 
 ### `/criterio-assistant:ea-setup`
@@ -1371,3 +1933,15 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Muestra.** las direcciones del portal y qué se pide para publicarlo
 
 **Escribe.** `<estado>/peticiones/<id>.json (el servidor, por cada petición)`
+
+### `/criterio-server:server-demo`
+
+**Qué hace.** La demostración en cinco minutos: una organización de prueba con los agentes de seis familias ya corridos, y Rostrum sobre ella, sin procesar ningún documento tuyo
+
+**Argumento.** `[carpeta donde dejarla] o vacío`
+
+**Procesa.** `demo/criterio-demo.zip, que viene con el plugin`
+
+**Muestra.** dónde quedó, los términos de Rostrum y el recorrido en cuatro enlaces
+
+**Escribe.** `<carpeta>/criterio-demo/ (la demostración)`; `<carpeta>/criterio-demo/.criterio/terminos/ (el comprobante)`

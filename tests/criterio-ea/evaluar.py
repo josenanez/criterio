@@ -31,18 +31,24 @@ sys.path.insert(0, str(RAIZ / "plugins" / "criterio-assistant" / "scripts"))
 import asistente as A  # noqa: E402
 
 
+def sembrar(clave: dict, estado: Path) -> None:
+    """Lo que la agente extrae de la oficina, escrito en el estado: lo mismo para la prueba del
+    motor y para la demostración (scripts/demo.py)."""
+    for k, f in clave["extraccion"]["reuniones"].items():
+        A.escribir_json(estado / "reuniones" / f"{k}.json", f)
+    for k, f in clave["extraccion"]["correspondencia"].items():
+        A.escribir_json(estado / "correspondencia" / f"{k}.json", f)
+    for k, f in (clave["extraccion"].get("viajes") or {}).items():
+        A.escribir_json(estado / "viajes" / f"{k}.json", f)
+
+
 def evaluar(carpeta: Path) -> dict:
     clave = json.loads((carpeta / "clave.json").read_text(encoding="utf-8"))
     hoy = dt.date.fromisoformat(clave["hoy"])
     cfg0 = clave["config"]["ofelia"]
     with tempfile.TemporaryDirectory() as tmp:
         estado = Path(tmp) / "estado"
-        for k, f in clave["extraccion"]["reuniones"].items():
-            A.escribir_json(estado / "reuniones" / f"{k}.json", f)
-        for k, f in clave["extraccion"]["correspondencia"].items():
-            A.escribir_json(estado / "correspondencia" / f"{k}.json", f)
-        for k, f in (clave["extraccion"].get("viajes") or {}).items():
-            A.escribir_json(estado / "viajes" / f"{k}.json", f)
+        sembrar(clave, estado)
         cfg = dict(cfg0, _docs=carpeta / cfg0["paths"]["documents"], _estado=estado)
         problemas = A.revisar_config(cfg, "ofelia")
         r = A.ofelia(cfg, hoy)

@@ -198,7 +198,7 @@ de agente se lee sola.**
 |---|---|---|---|---|
 | **Augusto** · el pronóstico | El embudo contra su evidencia y el pronóstico contra lo que lo sostiene: cada oportunidad contra el documento que exige su etapa, las detenidas, los cierres que se corren, lo comprometido contra lo ponderado con evidencia y la meta contra lo cerrado | No escribe en el CRM, no contacta a un cliente, no fija ni cambia una meta y no califica a las personas del equipo: dice qué oportunidad no tiene evidencia, no quién vende mejor | [criterio-sales](../../plugins/criterio-sales/README.es.md) · 8 comandos, 4 skills | [resultados](../../tests/criterio-sales/RESULTADOS.md) |
 | **Valeria** · de la venta a la factura | El precio y el descuento contra su política, y lo ganado contra lo firmado y lo facturado: cada descuento contra el nivel que lo aprueba, cada venta ganada contra su contrato en las fichas de Fidel, cada contrato firmado contra su factura en las de Clara, y cada comisión contra el plan | No escribe en el CRM, no aprueba un descuento ni una excepción de precio y no liquida ni corrige una comisión: dice dónde la liquidación no es la del plan | [criterio-revenue](../../plugins/criterio-revenue/README.es.md) · 8 comandos, 6 skills | [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
-| **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
+| **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 3 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /cco:familia-agentes -->
 
 Su entrada, su proceso y su reporte, con las señales que calcula el motor, en el
@@ -304,7 +304,7 @@ Laboratorio o estable lo dice la evidencia (decisión 0020).
 |---|---|---|
 | **Augusto** · El pronóstico | `criterio-sales` · 8 comandos, 4 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
 | **Valeria** · De la venta a la factura | `criterio-revenue` · 8 comandos, 6 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
-| **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
+| **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 <!-- /cco:estado -->
 
 Las decisiones que siguen abiertas, en el [diseño](DISENO.es.md#decisiones-abiertas).

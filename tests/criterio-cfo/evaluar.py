@@ -35,6 +35,13 @@ import finanzas as F  # noqa: E402
 MATERIAL = AQUI / "material"
 
 
+def sembrar(clave: dict, estado: Path) -> None:
+    """Lo que el agente extrae de los documentos, escrito en el estado: la misma ficha para la
+    prueba del motor y para la demostración (scripts/demo.py)."""
+    F.escribir_json(estado / "cierre" / clave["config"]["clara"]["period"] / "ficha.json", clave["extraccion"]["cierre"])
+    F.escribir_json(estado / "presupuesto" / str(clave["config"]["tomas"]["budget"]["year"]) / "ficha.json", clave["extraccion"]["presupuesto"])
+
+
 def evaluar(carpeta: Path) -> dict:
     clave = json.loads((carpeta / "clave.json").read_text(encoding="utf-8"))
     hoy = dt.date.fromisoformat(clave["hoy"])
@@ -45,8 +52,7 @@ def evaluar(carpeta: Path) -> dict:
         tomas_cfg = json.loads(json.dumps(clave["config"]["tomas"]))
         tomas_cfg["budget"]["pmo_records"] = str(carpeta / tomas_cfg["budget"]["pmo_records"])
         cfg_t = dict(tomas_cfg, _docs=docs, _estado=estado)
-        F.escribir_json(estado / "cierre" / cfg_c["period"] / "ficha.json", clave["extraccion"]["cierre"])
-        F.escribir_json(estado / "presupuesto" / cfg_t["budget"]["year"] / "ficha.json", clave["extraccion"]["presupuesto"])
+        sembrar(clave, estado)
         rc = F.clara(cfg_c, cfg_c["period"], hoy)
         rt = F.tomas(cfg_t, cfg_t["budget"]["year"], cfg_t["budget"]["cut"], hoy)
         cfg_a = dict(clave["config"]["aurea"], _docs=docs, _estado=estado)

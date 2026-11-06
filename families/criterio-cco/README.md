@@ -198,7 +198,7 @@ The same for each piece: what it answers for, what it does not do, and where all
 |---|---|---|---|---|
 | **Augusto** · the forecast | The pipeline against its evidence and the forecast against what backs it: every opportunity against the document its stage requires, the stalled ones, the close dates that slip, what was committed against what is weighted with evidence, and the target against what closed | It does not write to the CRM, does not contact a customer, does not set or change a target and does not rate the people on the team: it says which opportunity has no evidence, not who sells best | [criterio-sales](../../plugins/criterio-sales/README.md) · 8 commands, 4 skills | [results](../../tests/criterio-sales/RESULTADOS.md) |
 | **Valeria** · from sale to invoice | Price and discount against their policy, and what was won against what was signed and invoiced: every discount against the level that approves it, every won sale against its contract in Fidel's records, every signed contract against its invoice in Clara's, and every commission against the plan | It does not write to the CRM, does not approve a discount or a price exception and does not settle or correct a commission: it says where the settlement is not the plan's | [criterio-revenue](../../plugins/criterio-revenue/README.md) · 8 commands, 6 skills | [results](../../tests/criterio-revenue/RESULTADOS.md) |
-| **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
+| **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 3 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /cco:familia-agentes -->
 
 Their input, process and report, with the signals the engine calculates, in the
@@ -304,7 +304,7 @@ the material, and the two rounds with the agents on the same material, with a ke
 |---|---|---|
 | **Augusto** · The forecast | `criterio-sales` · 8 commands, 4 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-sales/RESULTADOS.md) |
 | **Valeria** · From sale to invoice | `criterio-revenue` · 8 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-revenue/RESULTADOS.md) |
-| **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
+| **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 <!-- /cco:estado -->
 
 The decisions still open, in the [design](DISENO.md#open-decisions).

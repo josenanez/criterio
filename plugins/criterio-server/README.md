@@ -46,6 +46,7 @@ changes how it gets used — **it lets anyone leave any agent a written question
 |---|---|
 | `/criterio-server:server-setup` | The map: which agents of which families are in the working folder and where each one's state is |
 | `/criterio-server:server-start` | The portal running on the map, and what to ask the organisation for to publish it |
+| `/criterio-server:server-demo` | The five-minute demo: a test organisation with the agents of six families already run, and Rostrum on it, without processing any document of yours |
 
 ## Install
 

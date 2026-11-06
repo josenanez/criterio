@@ -42,6 +42,11 @@ AGENTES = [
     ("criterio-treasury", {"es": ("Áurea", "la tesorería"), "en": ("Áurea", "treasury")}),
     ("criterio-legal", {"es": ("Fidel", "los contratos"), "en": ("Fidel", "the contracts")}),
     ("criterio-compliance", {"es": ("Constanza", "el cumplimiento"), "en": ("Constanza", "compliance")}),
+    ("criterio-sales", {"es": ("Augusto", "el pronóstico"), "en": ("Augusto", "the forecast")}),
+    ("criterio-revenue", {"es": ("Valeria", "de la venta a la factura"), "en": ("Valeria", "from sale to invoice")}),
+    ("criterio-security", {"es": ("Alexis", "el gobierno y los controles"), "en": ("Alexis", "governance and controls")}),
+    ("criterio-vulnerability", {"es": ("Guillermo", "las vulnerabilidades"), "en": ("Guillermo", "vulnerabilities")}),
+    ("criterio-resilience", {"es": ("Amparo", "la respuesta y la recuperación"), "en": ("Amparo", "response and recovery")}),
     ("criterio-assistant", {"es": ("Ofelia", "la oficina de dirección"), "en": ("Ofelia", "the executive office")}),
     ("criterio-server", {"es": ("Rostrum", "el portal de todas las familias"), "en": ("Rostrum", "the portal for every family")}),
 ]
@@ -51,10 +56,12 @@ FILA = re.compile(r"^\| `/(criterio-[a-z]+):([a-z-]+)` \| (.+?) \|\s*$")
 TXT = {
     "es": {
         "titulo": "# Manual de los comandos de Criterio",
-        "intro": ("Los {n} comandos de las familias PMO, CFO, CLO y EA y de Rostrum. Primero la PMO, en el orden en que la "
-                  "usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; "
+        "intro": ("Los {n} comandos de las familias PMO, CFO, CLO, CCO, CISO y EA y de Rostrum. Primero la PMO, en el orden "
+                  "en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; "
                   "después la CFO —Clara cierra los libros, Tomás lleva el presupuesto y Áurea la tesorería—, "
-                  "la CLO —Fidel lleva los contratos y Constanza el cumplimiento— y la EA —Ofelia prepara la "
+                  "la CLO —Fidel lleva los contratos y Constanza el cumplimiento—, la CCO —Augusto el pronóstico y "
+                  "Valeria de la venta a la factura—, la CISO —Alexis el gobierno y los controles, Guillermo las "
+                  "vulnerabilidades y Amparo la respuesta y la recuperación— y la EA —Ofelia prepara la "
                   "oficina del ejecutivo—; y al final Rostrum, que publica lo de "
                   "todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el "
                   "resto.\n\n"
@@ -72,10 +79,12 @@ TXT = {
     },
     "en": {
         "titulo": "# Criterio command manual",
-        "intro": ("The {n} commands of the PMO, CFO, CLO and EA families and Rostrum. First the PMO, in the order it uses "
-                  "them: Alba defines the product, Samuel runs a project and Vera consolidates the portfolio; "
+        "intro": ("The {n} commands of the PMO, CFO, CLO, CCO, CISO and EA families and Rostrum. First the PMO, in the order "
+                  "it uses them: Alba defines the product, Samuel runs a project and Vera consolidates the portfolio; "
                   "then the CFO family —Clara closes the books, Tomás runs the budget and Áurea treasury—, the "
-                  "CLO family —Fidel handles the contracts and Constanza compliance— and the EA family —Ofelia "
+                  "CLO family —Fidel handles the contracts and Constanza compliance—, the CCO family —Augusto the "
+                  "forecast and Valeria from sale to invoice—, the CISO family —Alexis governance and controls, "
+                  "Guillermo vulnerabilities and Amparo response and recovery— and the EA family —Ofelia "
                   "prepares the executive's office—; and at the end Rostrum, which "
                   "publishes all of them. Each command is typed with its plugin prefix; autocomplete does the "
                   "rest.\n\n"

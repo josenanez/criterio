@@ -66,6 +66,38 @@
     "sembrado": "servidor.py --selftest: la PMO sola y las tres familias en un mapa",
     "esperado": "cada ruta responde; ningún archivo fuera de lo que toca; la petición solo en el estado elegido"
    }
+  },
+  "server-demo": {
+   "funcion": "Deja una organización de prueba con los agentes de seis familias ya corridos y levanta Rostrum sobre ella; no procesa ningún documento de la persona (decisión 0029).",
+   "entrada": {
+    "argumento": "[carpeta donde dejarla] o vacío",
+    "lee": [
+     "demo/criterio-demo.zip, que viene con el plugin"
+    ]
+   },
+   "salida": {
+    "muestra": "dónde quedó, los términos de Rostrum y el recorrido en cuatro enlaces",
+    "escribe": [
+     "<carpeta>/criterio-demo/ (la demostración)",
+     "<carpeta>/criterio-demo/.criterio/terminos/ (el comprobante)"
+    ]
+   },
+   "reglas": {
+    "skills": [],
+    "script": [
+     "aceptar",
+     "terminos"
+    ],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "scripts/demo.py arma la organización desde el material de cada familia y los motores",
+    "esperado": "scripts/demo.py --check: el zip es el que sale del material, byte a byte; servidor.py sirve cada ruta sobre él"
+   }
   }
  },
  "skills": {},

@@ -1358,6 +1358,10 @@
           {
             "id": "server-start",
             "etiqueta": "Levantar el portal"
+          },
+          {
+            "id": "server-demo",
+            "etiqueta": "La demostración"
           }
         ]
       }

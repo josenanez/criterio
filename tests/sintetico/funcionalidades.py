@@ -68,6 +68,8 @@ FUNCIONALIDADES = {
                      "el mapa en .criterio/rostrum/config.json", PORTAL),
     "server-start": ("Rostrum sirviendo lo que escribieron los agentes y recibiendo preguntas",
                      "las peticiones en <estado>/peticiones/ de cada agente", PORTAL),
+    "server-demo": ("Una organización de prueba con los agentes ya corridos y Rostrum sobre ella",
+                    "la carpeta criterio-demo, con el comprobante de los términos", PORTAL),
     # ── Samuel · el proyecto
     "pm-setup": ("El agente listo sobre un proyecto", "la configuración y la corrida", CORRIDAS),
     "pm-wake": ("Lo que toca hoy en este proyecto", "la fecha en cadencia.json", CORRIDAS),

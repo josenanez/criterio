@@ -383,6 +383,8 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     poner_versiones(v, por_familia)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "sincronizar.py")], check=True,
                    capture_output=True)
+    # La demostración lleva la versión de cada motor en sus reportes: se arma con las versiones nuevas.
+    subprocess.run([sys.executable, str(RAIZ / "scripts" / "demo.py")], check=True, capture_output=True)
     base = git("rev-parse", "--short", "HEAD").strip()
     # Desde dónde contar los cambios: la etiqueta de la anterior si existe (es el commit que la
     # registró), si no el commit donde nació, si no el commit sobre el que se liberó.

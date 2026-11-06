@@ -47,6 +47,7 @@ que cambia cómo se usa— **deja dejarle preguntas escritas a cualquier agente*
 |---|---|
 | `/criterio-server:server-setup` | El mapa: qué agentes de qué familias hay en la carpeta de trabajo y dónde está el estado de cada uno |
 | `/criterio-server:server-start` | El portal levantado sobre el mapa, y qué pedirle a la organización para publicarlo |
+| `/criterio-server:server-demo` | La demostración en cinco minutos: una organización de prueba con los agentes de seis familias ya corridos, y Rostrum sobre ella, sin procesar ningún documento tuyo |
 
 ## Instalación
 

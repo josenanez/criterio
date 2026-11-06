@@ -228,7 +228,7 @@ lives. **Each agent page stands on its own** — somebody can install one withou
 |---|---|---|---|---|
 | **Fidel** · contracts | What was signed and on what terms: the contract register against its documents, expiries and renewal notices, obligations with their evidence, who signed with what authority, and what was paid against what was agreed and its guarantees | It does not interpret clauses, does not rule on a contract's validity and does not decide to renew or terminate | [criterio-legal](../../plugins/criterio-legal/README.md) · 9 commands, 5 skills | [results](../../tests/criterio-legal/RESULTADOS.md) |
 | **Constanza** · compliance | The organisation's obligations matrix against its evidence, policy reviews, new rules with their assessment, the whistleblowing channel with its deadlines, and the compliance obligations that contracts carry | It does not define obligations, does not say what a regulation requires and does not process who reported | [criterio-compliance](../../plugins/criterio-compliance/README.md) · 9 commands, 6 skills | [results](../../tests/criterio-compliance/RESULTADOS.md) |
-| **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
+| **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 3 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /clo:familia-agentes -->
 
 The commands, one by one —what each does and which skills it uses—, are in the
@@ -435,7 +435,7 @@ documentation.**
 |---|---|---|
 | **Fidel** · Contracts | `criterio-legal` · 9 commands, 5 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-legal/RESULTADOS.md) |
 | **Constanza** · Compliance | `criterio-compliance` · 9 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
-| **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
+| **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 <!-- /clo:estado -->
 
 The family was declared tested with the full round with the agent, and its evidence makes it

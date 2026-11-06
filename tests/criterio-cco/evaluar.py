@@ -38,13 +38,19 @@ FORMATO = {"salesforce-api": "salesforce", "salesforce-informe": "salesforce", "
            "generico-csv": "generico", "generico-xlsx": "generico", "dynamics-xlsx": "dynamics", "zoho-csv": "zoho", "zoho-xlsx": "zoho"}
 
 
+def sembrar(clave: dict, estado: Path) -> None:
+    """Lo que los agentes extraen de las exportaciones, escrito en el estado: lo mismo para la
+    prueba del motor y para la demostración (scripts/demo.py)."""
+    V.escribir_json(estado / "comercial" / clave["periodo"] / "ficha.json", clave["extraccion"]["comercial"])
+    V.escribir_json(estado / "ingresos" / clave["periodo"] / "ficha.json", clave["extraccion"]["ingresos"])
+
+
 def evaluar(carpeta: Path) -> dict:
     clave = json.loads((carpeta / "clave.json").read_text(encoding="utf-8"))
     hoy, periodo = dt.date.fromisoformat(clave["hoy"]), clave["periodo"]
     with tempfile.TemporaryDirectory() as tmp:
         estado = Path(tmp) / "estado"
-        V.escribir_json(estado / "comercial" / periodo / "ficha.json", clave["extraccion"]["comercial"])
-        V.escribir_json(estado / "ingresos" / periodo / "ficha.json", clave["extraccion"]["ingresos"])
+        sembrar(clave, estado)
         cfg_a = json.loads(json.dumps(clave["config"]["augusto"]))
         cfg_v = json.loads(json.dumps(clave["config"]["valeria"]))
         docs = carpeta / cfg_a["paths"]["documents"]

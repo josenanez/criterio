@@ -231,7 +231,7 @@ lives. **Each agent page stands on its own** — somebody can install one withou
 | **Clara** · controller | The monthly close with its checklist and evidence, bank and account reconciliations, e-invoices against the books, and the auditor's package | It does not post entries, does not sign and does not declare the close status | [criterio-finance](../../plugins/criterio-finance/README.md) · 11 commands, 7 skills | [results](../../tests/criterio-finance/RESULTADOS.md) |
 | **Tomás** · FP&A | The approved budget against actual and committed spend, the year-end forecast, budget transfers and the budget committee pack | It does not approve transfers, does not recommend the committee's decision and does not declare any area's status | [criterio-budget](../../plugins/criterio-budget/README.md) · 9 commands, 6 skills | [results](../../tests/criterio-budget/RESULTADOS.md) |
 | **Áurea** · treasury | Cash against its minimum and projection, each scheduled payment against who may approve it, currency exposure against its limit, and debt against its maturity and its covenants | It does not move money, make payments or log into a bank portal, and it does not recommend an investment, a financing or a hedge | [criterio-treasury](../../plugins/criterio-treasury/README.md) · 8 commands, 2 skills | [results](../../tests/criterio-treasury/RESULTADOS.md) |
-| **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
+| **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 3 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /cfo:familia-agentes -->
 
 The commands, one by one —what each does and which skills it uses—, are in the
@@ -442,7 +442,7 @@ documentation.**
 | **Clara** · Controller | `criterio-finance` · 11 commands, 7 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-finance/RESULTADOS.md) |
 | **Tomás** · FP&A | `criterio-budget` · 9 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-budget/RESULTADOS.md) |
 | **Áurea** · Treasury | `criterio-treasury` · 8 commands, 2 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
-| **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
+| **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 <!-- /cfo:estado -->
 
 The family was declared tested with the full round with the agent, and its evidence makes it

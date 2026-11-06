@@ -35,15 +35,21 @@ import legal as L  # noqa: E402
 MATERIAL = AQUI / "material"
 
 
+def sembrar(clave: dict, estado: Path) -> None:
+    """Lo que los agentes extraen de los documentos, escrito en el estado: lo mismo para la prueba
+    del motor y para la demostración (scripts/demo.py)."""
+    for code, ficha in clave["extraccion"]["contratos"].items():
+        L.escribir_json(estado / "contratos" / f"{code}.json", ficha)
+    L.escribir_json(estado / "cumplimiento" / clave["periodo"] / "ficha.json", clave["extraccion"]["cumplimiento"])
+
+
 def evaluar(carpeta: Path) -> dict:
     clave = json.loads((carpeta / "clave.json").read_text(encoding="utf-8"))
     hoy = dt.date.fromisoformat(clave["hoy"])
     with tempfile.TemporaryDirectory() as tmp:
         estado = Path(tmp) / "estado"
         docs = carpeta / clave["config"]["fidel"]["paths"]["documents"]
-        for code, ficha in clave["extraccion"]["contratos"].items():
-            L.escribir_json(estado / "contratos" / f"{code}.json", ficha)
-        L.escribir_json(estado / "cumplimiento" / clave["periodo"] / "ficha.json", clave["extraccion"]["cumplimiento"])
+        sembrar(clave, estado)
         cfg_f = dict(clave["config"]["fidel"], _docs=docs, _estado=estado)
         cfg_c = json.loads(json.dumps(clave["config"]["constanza"]))
         cfg_c["compliance"]["contract_records"] = str(estado / "contratos")

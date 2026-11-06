@@ -100,6 +100,7 @@ DUENIOS = [
     ("scripts/familias.py", "La familia"),
     ("scripts/resultados.py", "La familia"),
     ("scripts/descargas.py", "La familia"),
+    ("scripts/demo.py", "Rostrum"),
 ]
 
 QUIEN = {

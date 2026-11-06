@@ -41,14 +41,20 @@ DE = {a["id"]: {s["id"] for s in a["senales"]} for a in FAMILIA["agentes"]}
 MOTOR = {"alexis": S.alexis, "guillermo": S.guillermo, "amparo": S.amparo}
 
 
+def sembrar(clave: dict, estado: Path) -> None:
+    """Lo que los agentes extraen de los documentos, escrito en el estado: lo mismo para la prueba
+    del motor y para la demostración (scripts/demo.py)."""
+    for sub, ficha in clave["extraccion"].items():
+        S.escribir_json(estado / sub / clave["periodo"] / "ficha.json", ficha)
+
+
 def evaluar(carpeta: Path, agentes: list[str]) -> dict:
     clave = json.loads((carpeta / "clave.json").read_text(encoding="utf-8"))
     hoy, periodo = dt.date.fromisoformat(clave["hoy"]), clave["periodo"]
     revisar, obtenido, issues = [], set(), []
     with tempfile.TemporaryDirectory() as tmp:
         estado = Path(tmp) / "estado"
-        for sub, ficha in clave["extraccion"].items():
-            S.escribir_json(estado / sub / periodo / "ficha.json", ficha)
+        sembrar(clave, estado)
         for ag in agentes:
             cfg = json.loads(json.dumps(clave["config"][ag]))
             docs = carpeta / cfg["paths"]["documents"]

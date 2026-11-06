@@ -1537,12 +1537,17 @@ RESUMEN_CSS = f"""<style>
 .ej-ag td{{vertical-align:top;padding:7px 8px;border-top:1px solid {informe.FILETE_SUAVE}}}
 .ej-ag td.n{{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}}
 .ej-pie{{font-size:.82rem;color:{informe.APAGADO};margin-top:12px}}
-@page{{size:A4;margin:14mm}}
+@page{{size:A4;margin:10mm}}
 @media print{{
-  .con-arbol > .lado,.lado,.arbol,.menu-boton,.menu-caja,.migas{{display:none!important}}
+  .con-arbol > .lado,.lado,.arbol,.menu-boton,.menu-caja,.migas,footer.pie,.ej-imprimir{{display:none!important}}
   .hoja{{padding:0!important}}
-  body{{font-size:10.5pt}}
-  .ej-imprimir{{display:none}}
+  body{{font-size:9pt;line-height:1.35}}
+  h1,.fam-h1{{margin:0!important}}
+  .fn-h1,.entrada{{margin:.2em 0!important}}
+  h2{{font-size:1.05rem;margin:.6em 0 .2em!important}}
+  .cifra{{padding:6px 10px!important}}
+  .cifra .n{{font-size:1.4rem!important}}
+  .ej-ag td{{padding:4px 6px}}
 }}
 </style>"""
 
@@ -1565,10 +1570,12 @@ def vista_resumen(entradas: list, sigla: str, hoy: str) -> tuple:
     pasadas = [r for r in filas if r[0] and r[0] < hoy_d]
     pronto = [r for r in filas if r[0] and hoy_d <= r[0] <= en30]
     lineas, total, privadas = [], 0, False
+    entidades = sorted({x.get('nombre') for x in suyas if x.get('nombre')})
     for a in f["agentes"]:
         for x in [x for x in suyas if x['area'] == a]:
             res = resultados_de(x)
-            privadas = privadas or any(r.get('privadas') for r in res)
+            ocultas = any(r.get('privadas') for r in res)
+            privadas = privadas or ocultas
             cuenta = {}
             for r in res:
                 for al in (r['datos'].get('alertas') or []):
@@ -1583,11 +1590,17 @@ def vista_resumen(entradas: list, sigla: str, hoy: str) -> tuple:
             total += n
             top = sorted(cuenta.items(), key=lambda kv: (-kv[1], kv[0]))[:3]
             que = '; '.join(f'{e((SENAL.get(s_) or s_))} ({k})' for s_, k in top) if top else (
-                'Ver su informe' if a == 'portafolio' and n else 'Sin señales abiertas' if fecha else 'Todavía no ha corrido')
-            lineas.append(f'<tr><td><b>{e(quien(x))}</b><br><span class="cita">{e(AGENTES[a]["titulo"])}</span></td>'
+                'Ver su informe' if a == 'portafolio' and n else
+                'Sus señales no se publican en este portal' if ocultas else
+                'Sin señales abiertas' if fecha else 'Todavía no ha corrido')
+            if top and ocultas:
+                que += '; y otras que no se publican en este portal'
+            nombre_ = quien(x) if len(entidades) > 1 else NOMBRE.get(a, a)
+            lineas.append(f'<tr><td><b>{e(nombre_)}</b><br><span class="cita">{e(AGENTES[a]["titulo"])}</span></td>'
                           f'<td class="n">{n}</td><td>{que}</td><td class="n">{e(fecha or "—")}</td></tr>')
     cuerpo = [RESUMEN_CSS, cabeza_familia(sigla),
-              f'<p class="entrada"><b>Resumen ejecutivo al {e(hoy_d)}.</b> Lo que dejó el motor de cada agente, '
+              f'<p class="entrada"><b>Resumen ejecutivo al {e(hoy_d)}</b>'
+              + (f' · {e(entidades[0])}' if len(entidades) == 1 else '') + '. Lo que dejó el motor de cada agente, '
               'contado: aquí no se recalcula nada, y cada fila dice cuándo calculó su agente.</p>',
               '<div class="ej-cifras">'
               f'<div class="cifra"><span class="n">{total}</span><span class="q">señales abiertas</span></div>'
@@ -1595,13 +1608,13 @@ def vista_resumen(entradas: list, sigla: str, hoy: str) -> tuple:
               f'<div class="cifra"><span class="n">{len(pronto)}</span><span class="q">vencen en 30 días</span></div></div>',
               '<table class="ej-ag"><thead><tr><th>Agente</th><th>Señales</th><th>Las que más se repiten</th>'
               '<th>Calculado</th></tr></thead><tbody>', *lineas, '</tbody></table>']
-    primero = (pasadas + pronto)[:6]
+    primero = (pasadas + pronto)[:5]
     if primero:
         cuerpo.append('<h2>Lo primero que vence</h2><table class="ej-ag"><tbody>')
         for fecha_, x, v, _ in primero:
             pas = fecha_ < hoy_d
             cuerpo.append(f'<tr><td class="n">{e(fecha_)}{"<br><span class=" + chr(34) + "cita" + chr(34) + ">ya pasó</span>" if pas else ""}</td>'
-                          f'<td>{e(v.get("que"))}' + (f' · {e(v["caso"])}' if v.get('caso') else '') + '</td>'
+                          f'<td>{e(v.get("que"))}' + (f' · {e(v["caso"])}' if v.get('caso') and str(v['caso']) not in str(v.get('que')) else '') + '</td>'
                           f'<td>{e(NOMBRE.get(x["area"], x["area"]))}</td></tr>')
         cuerpo.append('</tbody></table>')
     cuerpo.append('<p class="ej-pie">Borrador de trabajo, no una decisión: cada cifra sale de los documentos que procesó '

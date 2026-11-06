@@ -1744,7 +1744,9 @@ def tomas(cfg: dict, anio: str, corte: str, hoy: dt.date) -> dict:
             code = ((ficha_p.get("identity") or {}).get("code") or {}).get("value")
             apr = numero(((ficha_p.get("money") or {}).get("approved") or {}).get("value"))
             linea = next((f for f in filas if code and ident(f["linea"]) == ident(code)), None)
-            proyectos.append({"codigo": code, "ficha": str(r), "aprobado_ficha": apr, "asignado_area": linea["aprobado"] if linea else None})
+            # La ruta de la ficha, relativa a la carpeta raíz: el resultado no lleva rutas del equipo.
+            proyectos.append({"codigo": code, "ficha": N.rel(r, Path(cfg.get("_raiz") or Path.cwd())), "aprobado_ficha": apr,
+                              "asignado_area": linea["aprobado"] if linea else None})
             if linea and apr is not None and abs(apr - (linea["aprobado"] or 0)) > 0.5:
                 alertas.append(alerta("project_budget_mismatch", f"{code}: la ficha del proyecto dice {mon(apr)} y el área tiene asignado {mon(linea['aprobado'])}",
                                       [{"archivo": r.name}] + linea["cita"][:1], apr - linea["aprobado"], clave=f"pry:{code}"))

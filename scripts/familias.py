@@ -342,7 +342,8 @@ def familia_agentes(fa: dict, i: str) -> str:
                  f"{celda(a['nunca'][i])} | [{a['plugin']}]({_readme(a['plugin'], i)}) · {cs} | "
                  f"[{res}](../../tests/{a['plugin']}/RESULTADOS.md) |")
     r = ROSTRUM[i]
-    dos = "2 comandos, uno para todas las familias" if i == "es" else "2 commands, one for every family"
+    n_srv = len(list((P / "criterio-server" / "commands").glob("*.md")))
+    dos = f"{n_srv} comandos, uno para todas las familias" if i == "es" else f"{n_srv} commands, one for every family"
     l.append(f"| **Rostrum** · {r['rol']} | {r['hace']} | {r['nunca']} | [criterio-server]({_readme('criterio-server', i)}) · "
              f"{dos} | [{res}](../../tests/criterio-server/RESULTADOS.md) |")
     return "\n".join(l)
@@ -451,7 +452,8 @@ def estado_familia(fa: dict, i: str) -> str:
         l.append(f"| **{a['nombre']}** · {a['rol'][i]} | `{a['plugin']}` · {cs} | {pr} · "
                  f"[{'resultados' if i == 'es' else 'results'}](../../tests/{a['plugin']}/RESULTADOS.md) |")
     l.append(f"| **Rostrum** · {ROSTRUM[i]['rol']} | `criterio-server` · "
-             f"{'2 comandos, para todas las familias' if i == 'es' else '2 commands, for every family'} | — |")
+             f"{len(list((P / 'criterio-server' / 'commands').glob('*.md')))} "
+             f"{'comandos, para todas las familias' if i == 'es' else 'commands, for every family'} | — |")
     return "\n".join(l)
 
 
@@ -1010,7 +1012,8 @@ SERVIDOR = {"id": "rostrum", "nombre": "Rostrum", "plugin": "criterio-server", "
                        "en": "from the Latin *rostrum*, the speakers’ platform of the Roman forum: it holds up what is already written, where others can read it"},
             "grupos": [{"titulo": "El portal", "linea": "El mapa de las familias y el servidor que las publica",
                         "comandos": [{"id": "server-setup", "etiqueta": "El mapa de las familias"},
-                                     {"id": "server-start", "etiqueta": "Levantar el portal"}]}]}
+                                     {"id": "server-start", "etiqueta": "Levantar el portal"},
+                                     {"id": "server-demo", "etiqueta": "La demostración"}]}]}
 
 
 # Las palabras que la impresora no dice: los agentes no «leen», procesan, calculan y preparan.

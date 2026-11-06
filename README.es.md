@@ -86,6 +86,14 @@ cada uno.
 
 El marketplace se agrega una vez, y después se instala lo que haga falta.
 
+**Para verlo funcionar antes de abrir tus documentos**, la demostración: una organización de prueba
+con los agentes de seis familias ya corridos y Rostrum sobre ella, en unos cinco minutos.
+
+```
+/plugin install criterio-server@criterio
+/criterio-server:server-demo
+```
+
 ```
 /plugin marketplace add josenanez/criterio
 ```
