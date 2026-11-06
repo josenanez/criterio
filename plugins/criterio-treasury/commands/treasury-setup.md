@@ -24,6 +24,8 @@ Lo primero que corre la tesorería después de instalar. Al terminar ha visto **
 - **No preguntes lo que puedes ver**: qué cuentas tienen extracto, qué periodos hay, si están la política, la matriz de firmas y el registro de la deuda.
 - **Quince minutos** hasta que vea su primera posición de caja.
 
+**Lo que ya se respondió en esta conversación no se vuelve a preguntar** (decisión 0026). Si el setup de la familia o el de otro agente ya fijó la carpeta, la entidad o dónde guardar el estado, propónlo como respuesta y pide solo que se confirme. Los términos sí son de cada agente: muéstralos y pide su propio sí.
+
 ## Flujo
 
 **0. Preséntate, en una línea**

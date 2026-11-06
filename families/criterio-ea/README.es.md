@@ -163,9 +163,13 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 
 ## Instalación de la familia
 
+**La familia se instala de una vez.** El plugin `criterio-ea` trae a la agente y a Rostrum, y
+`/criterio-assistant:ea-setup` la configura.
+
 ```
 /plugin marketplace add josenanez/criterio
-/plugin install criterio-assistant@criterio
+/plugin install criterio-ea@criterio
+/criterio-assistant:ea-setup
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar

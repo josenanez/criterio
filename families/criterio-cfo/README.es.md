@@ -190,14 +190,22 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 
 ## Instalación de la familia
 
-Cada agente es un plugin y se instala solo. **No hace falta instalarlos todos**: se instala el
-que resuelve el rol que tienes.
+**La familia se instala de una vez.** El plugin `criterio-cfo` trae a sus agentes y a Rostrum, y
+`/criterio-cfo:cfo-setup` los configura en orden, en una sola conversación: lo que ya se respondió
+no se vuelve a preguntar.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-cfo@criterio
+/criterio-cfo:cfo-setup
+```
 
-/plugin install criterio-finance@criterio     si cierras los libros
-/plugin install criterio-budget@criterio      si llevas el presupuesto
+**Si solo necesitas un agente**, se instala solo y basta su propio setup:
+
+```
+/plugin install criterio-finance@criterio         si cierras los libros
+/plugin install criterio-budget@criterio          si llevas el presupuesto
+/plugin install criterio-treasury@criterio        si llevas la caja
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar

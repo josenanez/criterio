@@ -22,6 +22,8 @@ Lo primero que corre un contralor después de instalar. Al terminar ha visto **e
 - **No preguntes lo que puedes ver.** Qué periodos hay, qué bancos, qué columnas trae cada exportación: eso lo dice el inventario.
 - **Quince minutos.** Si al cuarto de hora no ha visto su cierre, el comando falló aunque haya terminado.
 
+**Lo que ya se respondió en esta conversación no se vuelve a preguntar** (decisión 0026). Si el setup de la familia o el de otro agente ya fijó la carpeta, la entidad o dónde guardar el estado, propónlo como respuesta y pide solo que se confirme. Los términos sí son de cada agente: muéstralos y pide su propio sí.
+
 ## Flujo
 
 **0. Preséntate, en una línea**

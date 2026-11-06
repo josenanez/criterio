@@ -167,12 +167,19 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
-**The family is a laboratory one and not yet launched, but it can already be installed.** Each agent
-is a plugin that installs on its own:
+**The family installs at once.** The `criterio-ciso` plugin brings its agents and Rostrum, and
+`/criterio-ciso:ciso-setup` configures them in order, in a single conversation: what was already
+answered is not asked again.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-ciso@criterio
+/criterio-ciso:ciso-setup
+```
 
+**If you only need one agent**, it installs on its own and its own setup is enough:
+
+```
 /plugin install criterio-security@criterio        if you answer for the controls
 /plugin install criterio-vulnerability@criterio   if you answer for vulnerabilities
 /plugin install criterio-resilience@criterio      if you answer for incidents and continuity

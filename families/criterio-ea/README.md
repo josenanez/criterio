@@ -164,9 +164,13 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
+**The family installs at once.** The `criterio-ea` plugin brings the agent and Rostrum, and
+`/criterio-assistant:ea-setup` configures her.
+
 ```
 /plugin marketplace add josenanez/criterio
-/plugin install criterio-assistant@criterio
+/plugin install criterio-ea@criterio
+/criterio-assistant:ea-setup
 ```
 
 **In Claude Cowork** — Customize → Browse plugins → Personal → **+** → Add marketplace from GitHub

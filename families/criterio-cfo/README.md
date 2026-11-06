@@ -189,14 +189,22 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
-Each agent is a plugin and installs on its own. **You do not need both**: install the one that
-covers the role you have.
+**The family installs at once.** The `criterio-cfo` plugin brings its agents and Rostrum, and
+`/criterio-cfo:cfo-setup` configures them in order, in a single conversation: what was already
+answered is not asked again.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-cfo@criterio
+/criterio-cfo:cfo-setup
+```
 
-/plugin install criterio-finance@criterio     if you close the books
-/plugin install criterio-budget@criterio      if you run the budget
+**If you only need one agent**, it installs on its own and its own setup is enough:
+
+```
+/plugin install criterio-finance@criterio         if you close the books
+/plugin install criterio-budget@criterio          if you run the budget
+/plugin install criterio-treasury@criterio        if you run treasury
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from

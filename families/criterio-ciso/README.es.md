@@ -171,12 +171,19 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 
 ## Instalación de la familia
 
-**La familia es de laboratorio y todavía no se lanza, pero ya se puede instalar.** Cada agente es un
-plugin que se instala solo:
+**La familia se instala de una vez.** El plugin `criterio-ciso` trae a sus agentes y a Rostrum, y
+`/criterio-ciso:ciso-setup` los configura en orden, en una sola conversación: lo que ya se respondió
+no se vuelve a preguntar.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-ciso@criterio
+/criterio-ciso:ciso-setup
+```
 
+**Si solo necesitas un agente**, se instala solo y basta su propio setup:
+
+```
 /plugin install criterio-security@criterio        si respondes por los controles
 /plugin install criterio-vulnerability@criterio   si respondes por las vulnerabilidades
 /plugin install criterio-resilience@criterio      si respondes por los incidentes y la continuidad

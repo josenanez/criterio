@@ -151,15 +151,22 @@ Una carpeta por proyecto y una por producto, cada una empezando por su código: 
 
 ## Instalación de la familia
 
-Cada agente es un plugin y se instala solo. **No hace falta instalar los tres**: se instala el
-que resuelve el rol que tienes.
+**La familia se instala de una vez.** El plugin `criterio-pmo` trae a sus agentes y a Rostrum, y
+`/criterio-pmo:pmo-setup` los configura en orden, en una sola conversación: lo que ya se respondió
+no se vuelve a preguntar.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-pmo@criterio
+/criterio-pmo:pmo-setup
+```
 
-/plugin install criterio-portfolio@criterio      si gestionas el portafolio
-/plugin install criterio-project@criterio       si gestionas un proyecto
-/plugin install criterio-product@criterio  si defines un producto
+**Si solo necesitas un agente**, se instala solo y basta su propio setup:
+
+```
+/plugin install criterio-portfolio@criterio       si gestionas el portafolio
+/plugin install criterio-project@criterio         si gestionas un proyecto
+/plugin install criterio-product@criterio         si defines un producto
 ```
 
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar

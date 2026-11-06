@@ -163,14 +163,21 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 
 ## Instalación de la familia
 
-**La familia es estable y todavía no se lanza, pero ya se puede instalar.** Cada agente es un
-plugin que se instala solo:
+**La familia se instala de una vez.** El plugin `criterio-cco` trae a sus agentes y a Rostrum, y
+`/criterio-cco:cco-setup` los configura en orden, en una sola conversación: lo que ya se respondió
+no se vuelve a preguntar.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-cco@criterio
+/criterio-cco:cco-setup
+```
 
-/plugin install criterio-sales@criterio     si respondes por el pronóstico
-/plugin install criterio-revenue@criterio   si respondes por la venta hasta la factura
+**Si solo necesitas un agente**, se instala solo y basta su propio setup:
+
+```
+/plugin install criterio-sales@criterio           si respondes por el pronóstico
+/plugin install criterio-revenue@criterio         si respondes por la venta hasta la factura
 ```
 
 Después de instalar, cada agente tiene su propio comando de instalación que mira la carpeta, reconoce

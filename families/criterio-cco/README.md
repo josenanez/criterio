@@ -163,14 +163,21 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
-**The family is stable and not yet launched, but it can already be installed.** Each agent
-is a plugin that installs on its own:
+**The family installs at once.** The `criterio-cco` plugin brings its agents and Rostrum, and
+`/criterio-cco:cco-setup` configures them in order, in a single conversation: what was already
+answered is not asked again.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-cco@criterio
+/criterio-cco:cco-setup
+```
 
-/plugin install criterio-sales@criterio     if you answer for the forecast
-/plugin install criterio-revenue@criterio   if you answer for the sale through to the invoice
+**If you only need one agent**, it installs on its own and its own setup is enough:
+
+```
+/plugin install criterio-sales@criterio           if you answer for the forecast
+/plugin install criterio-revenue@criterio         if you answer for the sale through to the invoice
 ```
 
 After installing, each agent has its own setup command that looks at the folder, recognises each CRM

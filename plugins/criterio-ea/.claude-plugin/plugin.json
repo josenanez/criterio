@@ -1,0 +1,20 @@
+{
+  "name": "criterio-ea",
+  "version": "1.0.2",
+  "description": "La familia EA completa —Dirección—: instala de una vez a Ofelia y a Rostrum, el portal de todas las familias.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "criterio",
+    "familia",
+    "ea"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-ea",
+  "license": "Apache-2.0",
+  "dependencies": [
+    "criterio-assistant",
+    "criterio-server"
+  ]
+}

@@ -97,8 +97,17 @@ marketplace desde GitHub → `josenanez/criterio`.
 Marketplaces → criterio → Enable auto-update. Claude Code la deja apagada en los marketplaces que no
 son de Anthropic, y sin ella la versión instalada no cambia sola.
 
-**Qué instalar depende del rol que tengas, y eso lo explica cada familia.** Para la de
-gobierno de proyectos, en [criterio-pmo](families/criterio-pmo/README.es.md#instalación-de-la-familia).
+**Una familia se instala de una vez.** El plugin de la familia trae sus agentes y Rostrum, y
+su setup los configura en orden sin volver a preguntar lo que ya se respondió:
+
+```
+/plugin install criterio-cfo@criterio
+/criterio-cfo:cfo-setup
+```
+
+Lo mismo con `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` y `criterio-ea`. Si
+solo necesitas un agente, se instala solo: qué agente sirve a qué rol lo explica cada familia, por
+ejemplo la de gobierno de proyectos en [criterio-pmo](families/criterio-pmo/README.es.md#instalación-de-la-familia).
 
 ## Apache 2.0 — qué entregamos y a qué invitamos
 

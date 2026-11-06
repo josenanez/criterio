@@ -96,8 +96,17 @@ from GitHub → `josenanez/criterio`.
 → Enable auto-update. Claude Code leaves it off for marketplaces that are not Anthropic's, and
 without it the installed version does not change on its own.
 
-**What to install depends on the role you have, and each family explains that.** For the
-project governance one, see [criterio-pmo](families/criterio-pmo/README.md#installing-the-family).
+**A family installs at once.** The family plugin brings its agents and Rostrum, and its setup
+configures them in order without asking again what was already answered:
+
+```
+/plugin install criterio-cfo@criterio
+/criterio-cfo:cfo-setup
+```
+
+The same with `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` and `criterio-ea`. If
+you only need one agent, it installs on its own: which agent serves which role is explained by each
+family, for instance the project governance one in [criterio-pmo](families/criterio-pmo/README.md#installing-the-family).
 
 ## Apache 2.0 — what we give and what we invite
 

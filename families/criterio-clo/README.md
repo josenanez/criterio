@@ -188,14 +188,21 @@ A file without the expected format is not guessed: it is reported with what it l
 
 ## Installing the family
 
-Each agent is a plugin and installs on its own. **You do not need both**: install the one that
-covers the role you have.
+**The family installs at once.** The `criterio-clo` plugin brings its agents and Rostrum, and
+`/criterio-clo:clo-setup` configures them in order, in a single conversation: what was already
+answered is not asked again.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-clo@criterio
+/criterio-clo:clo-setup
+```
 
-/plugin install criterio-legal@criterio        if you handle the contracts
-/plugin install criterio-compliance@criterio   if you answer for compliance
+**If you only need one agent**, it installs on its own and its own setup is enough:
+
+```
+/plugin install criterio-legal@criterio           if you handle the contracts
+/plugin install criterio-compliance@criterio      if you answer for compliance
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from

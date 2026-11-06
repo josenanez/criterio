@@ -31,6 +31,8 @@ Estas reglas importan más que el orden de los pasos:
 - **Nada de jerga.** Ni umbral, ni ficha, ni línea base, ni JSON. Se dice "cada cuánto quieres que te avise" y "dónde guardo lo que voy encontrando".
 - **Quince minutos.** Si al cuarto de hora la persona no ha visto un resultado sobre sus documentos, el comando falló aunque haya terminado.
 
+**Lo que ya se respondió en esta conversación no se vuelve a preguntar** (decisión 0026). Si el setup de la familia o el de otro agente ya fijó la carpeta, la entidad o dónde guardar el estado, propónlo como respuesta y pide solo que se confirme. Los términos sí son de cada agente: muéstralos y pide su propio sí.
+
 ## Flujo
 
 **0. Preséntate, en una línea**

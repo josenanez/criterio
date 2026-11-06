@@ -9,6 +9,12 @@
   },
   "plugins": [
     {
+      "name": "criterio-pmo",
+      "description": "La familia PMO completa, gobierno de proyectos: instala de una vez a Vera, Samuel y Alba y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-pmo:pmo-setup.",
+      "source": "./plugins/criterio-pmo",
+      "category": "project-management"
+    },
+    {
       "name": "criterio-portfolio",
       "description": "Oficina de proyectos: consolidación de portafolio, estado contra plan, RAID, control de cambios, proveedores, presupuesto, comité y cierre. Procesa la documentación que ya existe y dice qué cambió, qué se contradice y qué lleva semanas en silencio.",
       "source": "./plugins/criterio-portfolio",
@@ -27,6 +33,12 @@
       "category": "product-management"
     },
     {
+      "name": "criterio-clo",
+      "description": "La familia CLO completa, contratos y cumplimiento: instala de una vez a Fidel y Constanza y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-clo:clo-setup.",
+      "source": "./plugins/criterio-clo",
+      "category": "legal"
+    },
+    {
       "name": "criterio-legal",
       "description": "Fidel, los contratos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías. Cada fecha y cada monto los calcula el código y cada dato cita su documento. Sin opinión jurídica.",
       "source": "./plugins/criterio-legal",
@@ -37,6 +49,12 @@
       "description": "Constanza, el cumplimiento: la matriz de obligaciones de la organización contra su evidencia, periodo a periodo, las obligaciones de cumplimiento de los contratos, las políticas por revisar, las normas nuevas sin evaluar y los plazos del canal de denuncias. Las obligaciones las define la organización y cada dato cita su documento.",
       "source": "./plugins/criterio-compliance",
       "category": "legal"
+    },
+    {
+      "name": "criterio-cfo",
+      "description": "La familia CFO completa, la función financiera: instala de una vez a Clara, Tomás y Áurea y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cfo:cfo-setup.",
+      "source": "./plugins/criterio-cfo",
+      "category": "finance"
     },
     {
       "name": "criterio-finance",
@@ -57,10 +75,22 @@
       "category": "finance"
     },
     {
+      "name": "criterio-ea",
+      "description": "La familia EA completa, la oficina del presidente: instala de una vez a Ofelia y a Rostrum, el portal de todas las familias.",
+      "source": "./plugins/criterio-ea",
+      "category": "productivity"
+    },
+    {
       "name": "criterio-assistant",
       "description": "Ofelia, la asistente ejecutiva: la agenda del ejecutivo contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos de dirección y la correspondencia que pide respuesta. Procesa exportaciones, no cuentas; prepara, no recomienda ni decide, y nunca envía.",
       "source": "./plugins/criterio-assistant",
       "category": "productivity"
+    },
+    {
+      "name": "criterio-cco",
+      "description": "La familia CCO completa, la función comercial: instala de una vez a Augusto y Valeria y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cco:cco-setup.",
+      "source": "./plugins/criterio-cco",
+      "category": "sales"
     },
     {
       "name": "criterio-revenue",
@@ -73,6 +103,12 @@
       "description": "Augusto, el pronóstico: el embudo del CRM contra su evidencia —cada oportunidad contra el documento que exige su etapa, las detenidas y los cierres que se corren— y el pronóstico comprometido contra lo que lo sostiene, con la meta contra lo cerrado. Procesa exportaciones de Salesforce, de HubSpot o de cualquier CRM en CSV o Excel; nunca escribe en el CRM ni califica a quien vende.",
       "source": "./plugins/criterio-sales",
       "category": "sales"
+    },
+    {
+      "name": "criterio-ciso",
+      "description": "La familia CISO completa, la seguridad de la información: instala de una vez a Alexis, Guillermo y Amparo y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-ciso:ciso-setup.",
+      "source": "./plugins/criterio-ciso",
+      "category": "security"
     },
     {
       "name": "criterio-resilience",

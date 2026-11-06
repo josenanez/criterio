@@ -1,0 +1,22 @@
+{
+  "name": "criterio-pmo",
+  "version": "1.0.2",
+  "description": "La familia PMO completa —gobierno de proyectos—: instala de una vez a Vera, Samuel y Alba y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-pmo:pmo-setup.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "criterio",
+    "familia",
+    "pmo"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-pmo",
+  "license": "Apache-2.0",
+  "dependencies": [
+    "criterio-portfolio",
+    "criterio-project",
+    "criterio-product",
+    "criterio-server"
+  ]
+}

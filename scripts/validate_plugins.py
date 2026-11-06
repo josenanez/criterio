@@ -22,6 +22,10 @@ Reference checks:
   - a command may reference skills of its OWN plugin only; plugins install
     independently, so a cross-plugin reference breaks
 
+Family checks (decision 0026):
+  - the whole-family plugin, criterio-<sigla>, ships no skills and no scripts, and its
+    dependencies are exactly its familia.json agents plus Rostrum, each one in the marketplace
+
 Consistency checks (the docs must not drift from the disk):
   - the plugin README lists every skill and command it ships
   - the terms version quoted in docs/acceptance.md matches TERMS.md
@@ -193,6 +197,27 @@ def check_plugin(root: Path, name: str, f: Findings) -> dict:
     return {"name": name, "skills": skills, "commands": commands}
 
 
+def check_families(root: Path, listed: set[str], f: Findings) -> None:
+    """The whole-family plugin (decision 0026): its dependencies are its agents plus Rostrum."""
+    for fj in sorted((root / "families").glob("criterio-*/familia.json")):
+        fam = json.loads(fj.read_text(encoding="utf-8"))
+        name = f"criterio-{fam['sigla']}"
+        base = root / "plugins" / name
+        if not base.is_dir():
+            continue
+        manifest = load_json(base / ".claude-plugin" / "plugin.json", f) or {}
+        expected = {a["plugin"] for a in fam["agentes"]} | {"criterio-server"}
+        deps = {d if isinstance(d, str) else d.get("name") for d in manifest.get("dependencies", [])}
+        for missing in sorted(expected - deps):
+            f.error(f"{name}/plugin.json", f"the family depends on '{missing}' and does not declare it")
+        for extra in sorted(deps - expected):
+            f.error(f"{name}/plugin.json", f"'{extra}' is not an agent of the family nor Rostrum")
+        for dep in sorted(deps - listed):
+            f.error(f"{name}/plugin.json", f"dependency '{dep}' is not in the marketplace")
+        if (base / "skills").exists() or (base / "scripts").exists():
+            f.error(name, "the whole-family plugin ships no skills and no scripts: they belong to its agents")
+
+
 def check_consistency(root: Path, plugins: list[dict], f: Findings) -> None:
     # The plugin's pages, not only its README. A plugin that ships a family page and an
     # agent page documents its commands across both, and that is still the plugin
@@ -237,6 +262,7 @@ def main() -> int:
     market, on_disk = check_marketplace(root, f)
     market_version = str(market.get("version", ""))
     plugins = [check_plugin(root, name, f) for name in sorted(on_disk)]
+    check_families(root, {p.get("name") for p in market.get("plugins", [])}, f)
     check_consistency(root, plugins, f)
 
     if args.json:

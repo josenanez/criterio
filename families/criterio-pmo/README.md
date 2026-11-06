@@ -152,15 +152,22 @@ One folder per project and one per product, each starting with its code: `PRY-10
 
 ## Installing the family
 
-Each agent is a plugin and installs on its own. **You do not need all three**: install the one
-that covers the role you have.
+**The family installs at once.** The `criterio-pmo` plugin brings its agents and Rostrum, and
+`/criterio-pmo:pmo-setup` configures them in order, in a single conversation: what was already
+answered is not asked again.
 
 ```
 /plugin marketplace add josenanez/criterio
+/plugin install criterio-pmo@criterio
+/criterio-pmo:pmo-setup
+```
 
-/plugin install criterio-portfolio@criterio      if you run the portfolio
-/plugin install criterio-project@criterio       if you run a project
-/plugin install criterio-product@criterio  if you define a product
+**If you only need one agent**, it installs on its own and its own setup is enough:
+
+```
+/plugin install criterio-portfolio@criterio       if you run the portfolio
+/plugin install criterio-project@criterio         if you run a project
+/plugin install criterio-product@criterio         if you define a product
 ```
 
 **In Claude Cowork** — Customise → Explore plugins → Personal → **+** → Add marketplace from

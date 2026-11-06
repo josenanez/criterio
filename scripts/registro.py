@@ -63,11 +63,13 @@ ACEPTACION_AHORA = ("una aceptación por versión, con comprobante en Markdown y
 
 
 def familias() -> dict[str, list[str]]:
-    """Qué plugins forman cada familia, de su familia.json. Rostrum, que sirve a todas, es la suya."""
+    """Qué plugins forman cada familia: los de sus agentes, de su familia.json, y el de la familia
+    completa, `criterio-<sigla>`, si existe (decisión 0026). Rostrum, que sirve a todas, es la suya."""
     out = {}
     for f in sorted((RAIZ / "families").glob("criterio-*/familia.json")):
         d = json.loads(f.read_text(encoding="utf-8"))
-        out[d["sigla"]] = sorted({a["plugin"] for a in d["agentes"]})
+        completa = {f"criterio-{d['sigla']}"} if (RAIZ / "plugins" / f"criterio-{d['sigla']}").is_dir() else set()
+        out[d["sigla"]] = sorted({a["plugin"] for a in d["agentes"]} | completa)
     out["rostrum"] = ["criterio-server"]
     return out
 
@@ -128,7 +130,13 @@ def version_de_familia(e: dict, sigla: str) -> str:
 
 
 def version_de_plugin(e: dict, plugin: str) -> str:
-    return e.get("versiones", {}).get(plugin, e["version"])
+    """La versión de un plugin en una entrada. Uno que la entrada no anota todavía —el de la familia
+    completa, que llegó después (decisión 0026)— va en la versión de su familia."""
+    v = e.get("versiones", {}).get(plugin)
+    if v:
+        return v
+    sigla = next((s for s, pls in familias().items() if plugin in pls), None)
+    return version_de_familia(e, sigla) if sigla else e["version"]
 
 
 def git(*a: str) -> str:

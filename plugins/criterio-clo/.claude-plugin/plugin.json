@@ -1,0 +1,21 @@
+{
+  "name": "criterio-clo",
+  "version": "1.4.0",
+  "description": "La familia CLO completa —contratos y cumplimiento—: instala de una vez a Fidel y Constanza y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-clo:clo-setup.",
+  "author": {
+    "name": "José Francisco Ñáñez",
+    "url": "https://josenanez.com"
+  },
+  "keywords": [
+    "criterio",
+    "familia",
+    "clo"
+  ],
+  "homepage": "https://josenanez.com/agents/criterio-clo",
+  "license": "Apache-2.0",
+  "dependencies": [
+    "criterio-legal",
+    "criterio-compliance",
+    "criterio-server"
+  ]
+}
