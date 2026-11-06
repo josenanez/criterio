@@ -15,9 +15,21 @@
   },
   "nivel_c": {
     "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "para": {
-      "es": "Contrasta los controles, los accesos, las vulnerabilidades y los incidentes contra su evidencia: qué controles no se sostienen, qué vulnerabilidades están fuera de plazo o en el catálogo KEV, y a quién había que notificar un incidente y en qué plazo.",
-      "en": "It checks controls, access, vulnerabilities and incidents against their evidence: which controls do not hold, which vulnerabilities are past their deadline or in the KEV catalogue, and whom an incident had to be notified to and by when."
+    "hace": {
+      "es": [
+        "Contrasta cada control de la declaración de aplicabilidad con su evidencia.",
+        "Revisa los accesos, los terceros críticos y el registro de riesgos.",
+        "Controla las vulnerabilidades contra su plazo y el catálogo KEV.",
+        "Mide la cobertura de los escaneos.",
+        "Reconstruye cada incidente y verifica las notificaciones y las pruebas de continuidad."
+      ],
+      "en": [
+        "Checks every control in the statement of applicability against its evidence.",
+        "Reviews access, critical third parties and the risk register.",
+        "Tracks vulnerabilities against their deadline and the KEV catalogue.",
+        "Measures scan coverage.",
+        "Rebuilds each incident and checks notifications and continuity tests."
+      ]
     },
     "con": [
       {

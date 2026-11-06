@@ -14,9 +14,21 @@
   },
   "nivel_c": {
     "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "para": {
-      "es": "Contrasta lo que reporta cada proyecto contra la evidencia de sus documentos —cronogramas, minutas, presupuestos— y le dice al comité qué verdes no se sostienen, qué compromisos vencieron y qué proyectos construyen lo mismo.",
-      "en": "It checks what each project reports against the evidence in its documents —schedules, minutes, budgets— and tells the committee which greens do not hold, which commitments are overdue and which projects build the same thing."
+    "hace": {
+      "es": [
+        "Contrasta lo que reporta cada proyecto con sus documentos.",
+        "Arma el informe del portafolio y el paquete del comité.",
+        "Levanta las minutas y sigue cada compromiso hasta su cierre.",
+        "Controla el presupuesto, los proveedores, los riesgos y los cambios de cada proyecto.",
+        "Define el producto y detecta los proyectos que construyen lo mismo."
+      ],
+      "en": [
+        "Checks what each project reports against its documents.",
+        "Builds the portfolio report and the committee pack.",
+        "Takes the minutes and follows every commitment until it closes.",
+        "Tracks each project's budget, vendors, risks and changes.",
+        "Defines the product and spots projects that build the same thing."
+      ]
     },
     "con": [
       {

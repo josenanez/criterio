@@ -15,9 +15,21 @@
   },
   "nivel_c": {
     "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "para": {
-      "es": "Contrasta el embudo y el pronóstico contra la evidencia de cada oportunidad, y sigue lo ganado hasta el contrato, la factura y la comisión, con cada descuento contra la matriz aprobada.",
-      "en": "It checks the pipeline and the forecast against each opportunity's evidence, and follows what was won to the contract, the invoice and the commission, with each discount against the approved matrix."
+    "hace": {
+      "es": [
+        "Contrasta cada oportunidad del embudo con la evidencia que exige su etapa.",
+        "Verifica qué sostiene el pronóstico comprometido.",
+        "Compara la meta con lo cerrado, por línea.",
+        "Revisa cada descuento contra la matriz aprobada.",
+        "Sigue lo ganado hasta el contrato, la factura y la comisión."
+      ],
+      "en": [
+        "Checks every pipeline opportunity against the evidence its stage requires.",
+        "Verifies what supports the committed forecast.",
+        "Compares the target with what closed, by line.",
+        "Reviews every discount against the approved matrix.",
+        "Follows what was won to the contract, the invoice and the commission."
+      ]
     },
     "con": [
       {

@@ -1224,8 +1224,9 @@ def revisar_nivel_c() -> list[str]:
         fu = f.parent / "fuentes.json"
         estado = {x["id"]: x.get("estado") for sec in json.loads(fu.read_text(encoding="utf-8"))["secciones"]
                   for x in sec.get("fuentes", []) if "id" in x} if fu.exists() else {}
-        if not (n.get("para", {}).get("es") and n.get("para", {}).get("en")):
-            errores.append(f"{s}: `nivel_c.para` sin los dos idiomas")
+        hace = n.get("hace", {})
+        if not (hace.get("es") and len(hace.get("es", [])) == len(hace.get("en", [])) <= 5):
+            errores.append(f"{s}: `nivel_c.hace` lleva hasta cinco líneas, las mismas en los dos idiomas")
         if not n.get("con"):
             errores.append(f"{s}: `nivel_c.con` vacío: con qué trabaja la familia")
         cifras = {c["id"]: c.get("estado") for c in json.loads(fu.read_text(encoding="utf-8")).get("cifras", [])} if fu.exists() else {}

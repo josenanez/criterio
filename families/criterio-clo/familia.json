@@ -14,9 +14,21 @@
   },
   "nivel_c": {
     "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "para": {
-      "es": "Procesa cada contrato y su historia —otrosíes, garantías, pagos— para decir qué vence, quién podía firmarlo y qué obligaciones siguen abiertas, y mide el programa de cumplimiento contra la ISO 37301.",
-      "en": "It processes each contract and its history —amendments, guarantees, payments— to say what falls due, who could sign it and which obligations remain open, and measures the compliance programme against ISO 37301."
+    "hace": {
+      "es": [
+        "Mantiene el registro de contratos con sus vencimientos, preavisos y obligaciones.",
+        "Verifica quién tenía facultad para firmar cada contrato.",
+        "Cruza los pagos y las garantías con lo pactado.",
+        "Mide el programa de cumplimiento contra la ISO 37301 y sus políticas.",
+        "Identifica las normas nuevas que aplican y sigue el canal de denuncias."
+      ],
+      "en": [
+        "Keeps the contract register with its expiries, notice periods and obligations.",
+        "Checks who had authority to sign each contract.",
+        "Matches payments and guarantees with what was agreed.",
+        "Measures the compliance programme against ISO 37301 and its policies.",
+        "Identifies the new regulations that apply and follows the reporting channel."
+      ]
     },
     "con": [
       {

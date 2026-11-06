@@ -14,9 +14,21 @@
   },
   "nivel_c": {
     "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "para": {
-      "es": "Lleva la agenda, las sesiones de junta y de comité y los correos que esperan respuesta del despacho, con sus compromisos; prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar.",
-      "en": "It keeps the office's agenda, board and committee sessions and the emails awaiting a reply, with their commitments; it prepares each decision with its options and its evidence, without ranking them or recommending."
+    "hace": {
+      "es": [
+        "Ordena la agenda y detecta los cruces, también durante los viajes.",
+        "Prepara cada sesión de junta y de comité con su material.",
+        "Prepara el acta y sigue cada compromiso con su responsable y su fecha.",
+        "Identifica los correos que esperan respuesta.",
+        "Resume la semana para el ejecutivo."
+      ],
+      "en": [
+        "Organises the agenda and spots clashes, also while travelling.",
+        "Prepares each board and committee session with its materials.",
+        "Prepares the minutes and follows each commitment with its owner and date.",
+        "Identifies the emails awaiting a reply.",
+        "Summarises the week for the executive."
+      ]
     },
     "con": [
       {
