@@ -48,6 +48,30 @@
     ],
     "prueba": "Round 2 with the agent on the four offices, each with its provider —Outlook or Google—: 85 of 85 signals and 144 of 146 data points on the first run, no signal in the controls; the defect it found, in the material, with its fix and its verification"
    }
+  },
+  {
+   "incremento": 3,
+   "version": "1.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "es": {
+    "titulo": "La familia de una vez, y cada agente en palabras",
+    "entra": [
+     "La familia se instala con un solo plugin, criterio-ea, que trae a sus agentes y a Rostrum (decisión 0026)",
+     "Su setup no vuelve a preguntar lo que ya se respondió en la conversación",
+     "A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027)"
+    ],
+    "prueba": "La verificación completa; la elección del comando, en la prueba de las entradas"
+   },
+   "en": {
+    "titulo": "The family at once, and each agent in words",
+    "entra": [
+     "The family installs with a single plugin, criterio-ea, which brings its agents and Rostrum (decision 0026)",
+     "Its setup does not ask again what was already answered in the conversation",
+     "Each agent is asked in words, by name, and runs the command that does it (decision 0027)"
+    ],
+    "prueba": "The full verification; the choice of command, in the entry test"
+   }
   }
  ]
 }

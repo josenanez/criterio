@@ -124,6 +124,30 @@
     ],
     "prueba": "The round with the agents on the two new industries, with all 38 commands; the six earlier ones, with their round 11 run. The Gantt and the curve, on the records of all 8 industries"
    }
+  },
+  {
+   "incremento": 6,
+   "version": "1.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "es": {
+    "titulo": "La familia de una vez, y cada agente en palabras",
+    "entra": [
+     "La familia se instala con un solo plugin, criterio-pmo, que trae a sus agentes y a Rostrum (decisión 0026)",
+     "Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió",
+     "A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027)"
+    ],
+    "prueba": "La verificación completa; la elección del comando, en la prueba de las entradas"
+   },
+   "en": {
+    "titulo": "The family at once, and each agent in words",
+    "entra": [
+     "The family installs with a single plugin, criterio-pmo, which brings its agents and Rostrum (decision 0026)",
+     "Its setup configures them all in one conversation, without asking again what was already answered",
+     "Each agent is asked in words, by name, and runs the command that does it (decision 0027)"
+    ],
+    "prueba": "The full verification; the choice of command, in the entry test"
+   }
   }
  ]
 }

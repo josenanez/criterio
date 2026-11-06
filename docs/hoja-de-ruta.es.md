@@ -13,12 +13,12 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
-| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.0.2 | Estable | — |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.3.0 | Estable | — |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.4.0 | Estable | — |
-| Criterio EA · Dirección | Ofelia | 1.0.2 | Estable | — |
-| Criterio CCO · La función comercial | Augusto, Valeria | 1.0.0 | Estable | — |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.0.0 | Estable | Incremento 5 · Qualys y Rapid7, cuando tengan su fuente |
+| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.0.2 | Estable | 1.1.0 · La familia de una vez, y cada agente en palabras |
+| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.3.0 | Estable | 1.4.0 · La familia de una vez, y cada agente en palabras |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.4.0 | Estable | 1.5.0 · La familia de una vez, y cada agente en palabras |
+| Criterio EA · Dirección | Ofelia | 1.0.2 | Estable | 1.1.0 · La familia de una vez, y cada agente en palabras |
+| Criterio CCO · La función comercial | Augusto, Valeria | 1.0.0 | Estable | 1.1.0 · La familia de una vez, y cada agente en palabras |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.0.0 | Estable | 1.1.0 · La familia de una vez, y cada agente en palabras |
 | Rostrum · el portal de todas las familias | — | 1.0.2 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -32,6 +32,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.8.0 | Liberada | **Rostrum para todas las familias, y la CFO y la CLO**<br>· Rostrum, un plugin propio para todas las familias, con un menú por familia y un inicio que dice qué pide atención hoy, WCAG 2.2 AA comprobado con axe-core<br>· La carpeta raíz que cada agente busca y, con permiso, marca<br>· Las familias CFO y CLO, con el motor probado y una primera ronda con el agente | La verifica la prueba de la 0.9.0 |
 | 0.9.0 | Liberada | **Construcción e infraestructura, y oil & gas**<br>· Dos industrias nuevas, con sus propios proyectos, documentos y situaciones | 6 industrias |
 | 1.0.0 | Liberada | **Telecomunicaciones y logística, y el cronograma en Rostrum**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene<br>· Rostrum: el Gantt de línea base contra vigente, los hitos y la curva de avance en la página de cada proyecto | La ronda con los agentes en las dos industrias nuevas, con los 38 comandos; las seis anteriores, con su corrida de la ronda 11. El Gantt y la curva, sobre las fichas de las 8 industrias |
+| 1.1.0 | En curso | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-pmo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 
 ### Criterio CFO · La función financiera
 
@@ -46,6 +47,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.1.0 | Liberada | **Argentina, Panamá, Guatemala y Costa Rica**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· Los lectores de su factura electrónica: el comprobante de ARCA con su CAE, la factura de la DGI con su CUFE, la FEL de la SAT con su número de autorización y el comprobante 4.4 de Hacienda con su clave<br>· Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados | Las rondas 8 a 11 con los tres agentes, una por país |
 | 1.2.0 | Liberada | **Honduras**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· La factura como documento, sin XML: el agente extrae el CAI, el rango autorizado, la fecha límite de emisión y el número correlativo, y el motor los valida (decisión 0024)<br>· Una señal nueva: la factura recibida fuera de su rango autorizado o emitida después de su fecha límite<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 12 con los tres agentes |
 | 1.3.0 | Liberada | **Paraguay**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· El lector del documento electrónico de SIFEN, desde el manual técnico 150 de la DNIT y su esquema (F-40 y F-41), por su CDC de cuarenta y cuatro posiciones, con el IVA a cualquiera de sus tasas<br>· La factura recibida emitida antes de la vigencia de su timbrado, que SIFEN rechaza (validación 1103), en la señal de la factura fuera de su autorización<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con los tres agentes |
+| 1.4.0 | En curso | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-cfo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 
 ### Criterio CLO · Contratos y cumplimiento
 
@@ -60,6 +62,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.2.0 | Liberada | **Argentina, Panamá, Guatemala y Costa Rica**<br>· Su entrada en el registro de países, con la identificación fiscal de cada contraparte<br>· La regla de publicación y de garantía de la ley de contratación pública de Argentina, de Panamá y de Costa Rica, cada una con su fuente, y una entidad pública de prueba en cada uno<br>· Tres entidades de prueba por país, una de ellas de control, sin defectos sembrados | Las rondas 8 a 11 con Fidel y Constanza, una por país |
 | 1.3.0 | Liberada | **Honduras**<br>· Su entrada en el registro de países, con el RTN de cada contraparte<br>· La garantía de cumplimiento de la Ley de Contratación del Estado, del 15 % (Decreto 74-2001, art. 100), y una entidad pública de prueba<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 12 con Fidel y Constanza |
 | 1.4.0 | Liberada | **Paraguay**<br>· Su entrada en el registro de países, con el RUC de cada contraparte<br>· Sin entidad pública: la regla de la garantía de la ley de contrataciones públicas no está entre las fuentes verificadas<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con Fidel y Constanza |
+| 1.5.0 | En curso | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-clo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 
 ### Criterio EA · Dirección
 
@@ -67,6 +70,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 |---|---|---|---|
 | 0.12.0 | Liberada | **Ofelia, construida y probada con la ronda completa con la agente**<br>· Los comandos de Ofelia, sus skills y el motor: la agenda .ics con repeticiones y cambio de hora, el correo guardado, las sesiones de los órganos y los compromisos con las reglas de Samuel<br>· Prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar<br>· Colombia y Ecuador, en la oficina de una presidencia y de una gerencia general, y dos oficinas de control | La ronda 1: Ofelia sobre las cuatro oficinas, 14 de 14 señales y 76 de 78 datos, con una señal de más en un control; cada defecto que encontró, con su corrección y su verificación |
 | 1.0.0 | Liberada | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país<br>· El material siembra al menos 73 señales, lo que pide un piso del 95 % sin fallas (decisión 0020), y la ronda con la agente vuelve a correr sobre todo él | La ronda 2 con la agente sobre las cuatro oficinas, cada una con su proveedor —Outlook o Google—: 85 de 85 señales y 144 de 146 datos en la primera corrida, ninguna señal en los controles; el defecto que encontró, en el material, con su corrección y su verificación |
+| 1.1.0 | En curso | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-ea, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup no vuelve a preguntar lo que ya se respondió en la conversación<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 
 ### Criterio CCO · La función comercial
 
@@ -76,6 +80,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.2.0 | Liberada | **La ronda completa con los agentes**<br>· Augusto y Valeria corren sus comandos sobre todas las entidades del material, con una clave que no ven<br>· El material siembra al menos 73 señales: lo que pide un piso del 95 % sin fallas (decisión 0020)<br>· Cada defecto que encuentre la ronda, con su corrección y su verificación | La ronda 1 con los dos agentes sobre las seis entidades del material: 72 de 80 señales sembradas y 30 de 30 datos en la primera corrida, con dos señales de más en un control, y 80 de 80 sin ninguna de más después de verificar las correcciones; los tres defectos que encontró, con su corrección y su verificación |
 | 0.3.0 | Liberada | **Ecuador, Perú y Chile, y Microsoft Dynamics y Zoho**<br>· Los tres países que ya están en el registro de países, con su material y su ronda<br>· Las exportaciones de Microsoft Dynamics y de Zoho, cada una desde su fuente verificada | La ronda 2 con los dos agentes sobre las nueve entidades de Ecuador, Perú y Chile, tres con Dynamics y tres con Zoho: 117 de 117 señales sembradas y 45 de 45 datos en la primera corrida, con una señal de más en un control; el defecto que encontró, en las instrucciones, con su corrección y su verificación |
 | 1.0.0 | Liberada | **El lanzamiento: la 1.0.0**<br>· La familia se lanza estable, con sus rondas 1 y 2: la semana de su lanzamiento su versión es la 1.0.0 (decisión 0021) | Las rondas 1 y 2 con los dos agentes: 197 señales y 75 datos, con un piso del 98,0 % en las señales y del 95,1 % en los datos |
+| 1.1.0 | En curso | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-cco, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 
 ### Criterio CISO · La seguridad de la información
 
@@ -85,7 +90,8 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 0.2.0 | Liberada | **La ronda de los tres agentes**<br>· La ronda con Alexis, Guillermo y Amparo sobre todo el material, con la clave que no ven<br>· Los defectos que encuentre, con su corrección y su verificación | La ronda completa, con el piso del margen del 95 % en señales y en datos (decisión 0020) |
 | 0.3.0 | Liberada | **Los escáneres de Tenable y de Microsoft Defender, cada uno desde su fuente**<br>· La exportación de hallazgos de Tenable Vulnerability Management, con su estado (F-08), y la de vulnerabilidades por dispositivo de Microsoft Defender, en JSON (F-09), cada una desde su documentación verificada<br>· Cuatro entidades más: energía y seguros, con una de control para cada fabricante | La ronda 2 con los tres agentes, sobre las cuatro entidades nuevas |
 | 1.0.0 | Liberada | **El lanzamiento: la 1.0.0**<br>· La familia se lanza estable, con sus rondas 1 y 2: la semana de su lanzamiento su versión es la 1.0.0 (decisión 0021) | Las rondas 1 y 2 con los tres agentes: 148 señales y 80 datos, con un piso del 97,4 % en las señales y del 95,4 % en los datos |
-| Incremento 5 | Siguiente | **Qualys y Rapid7, cuando tengan su fuente**<br>· El formato de exportación de Qualys y de Rapid7, cada uno desde una fuente verificada de lo que exporta | Su material y su ronda |
+| 1.1.0 | En curso | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-ciso, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
+| Incremento 6 | Siguiente | **Qualys y Rapid7, cuando tengan su fuente**<br>· El formato de exportación de Qualys y de Rapid7, cada uno desde una fuente verificada de lo que exporta | Su material y su ronda |
 
 ## Las familias que vienen
 

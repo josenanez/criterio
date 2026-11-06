@@ -1,6 +1,6 @@
 # 0027 · A cada agente se le pide en palabras, por su nombre
 
-**Fecha:** 2026-11-06 · **Estado:** propuesta · **Modifica:** la forma de entrar a cada agente; no cambia ningún comando existente
+**Fecha:** 2026-11-06 · **Estado:** aceptada el 2026-11-06 · **Modifica:** la forma de entrar a cada agente; no cambia ningún comando existente
 
 ## Contexto
 
@@ -12,7 +12,7 @@ decir es lo que necesita: «concilia las cuentas de octubre», «qué contratos 
 José Francisco Ñáñez pidió el 6 de noviembre de 2026 un comando de entrada por agente que
 reciba el pedido en palabras y lleve al comando que corresponde.
 
-## Propuesta
+## Decisión
 
 1. **Cada agente tiene un comando con su nombre:** `/criterio-portfolio:vera`,
    `/criterio-finance:clara`, `/criterio-legal:fidel`… Sin argumento, muestra lo que el agente

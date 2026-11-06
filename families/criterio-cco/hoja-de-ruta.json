@@ -132,6 +132,30 @@
     ],
     "prueba": "Rounds 1 and 2 with both agents: 197 signals and 75 data items, with a floor of 98.0 % in the signals and 95.1 % in the data"
    }
+  },
+  {
+   "incremento": 5,
+   "version": "1.1.0",
+   "estado": "en curso",
+   "industrias": [],
+   "es": {
+    "titulo": "La familia de una vez, y cada agente en palabras",
+    "entra": [
+     "La familia se instala con un solo plugin, criterio-cco, que trae a sus agentes y a Rostrum (decisión 0026)",
+     "Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió",
+     "A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027)"
+    ],
+    "prueba": "La verificación completa; la elección del comando, en la prueba de las entradas"
+   },
+   "en": {
+    "titulo": "The family at once, and each agent in words",
+    "entra": [
+     "The family installs with a single plugin, criterio-cco, which brings its agents and Rostrum (decision 0026)",
+     "Its setup configures them all in one conversation, without asking again what was already answered",
+     "Each agent is asked in words, by name, and runs the command that does it (decision 0027)"
+    ],
+    "prueba": "The full verification; the choice of command, in the entry test"
+   }
   }
  ]
 }

@@ -1,6 +1,6 @@
 # 0026 · Una familia se instala de una vez y se configura en una sola conversación
 
-**Fecha:** 2026-11-06 · **Estado:** propuesta · **Modifica:** la instalación de cada familia y la regla de las referencias entre plugins
+**Fecha:** 2026-11-06 · **Estado:** aceptada el 2026-11-06 · **Modifica:** la instalación de cada familia y la regla de las referencias entre plugins
 
 ## Contexto
 
@@ -18,7 +18,7 @@ separado.
 José Francisco Ñáñez pidió el 6 de noviembre de 2026 que una familia se instale de una vez y se
 configure con un solo setup.
 
-## Propuesta
+## Decisión
 
 1. **Un plugin por familia, `criterio-<sigla>`**, sin skills ni motor. Declara como dependencias
    los plugins de los agentes de su `familia.json` y Rostrum (`criterio-server`). Instalar
