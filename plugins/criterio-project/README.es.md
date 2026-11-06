@@ -182,8 +182,7 @@ el día después pide la minuta, una vez por semana arma el informe, y **si no t
 produce nada.** Callarse cuando no pasó nada no es una omisión — es la única razón por la que
 un agente que corre todos los días sigue instalado el mes siguiente.
 
-Ponerlo en un reloj es del lado de tu organización: una tarea programada en Cowork, o el
-programador del sistema en Claude Code. **Y si no quieren corridas desatendidas** —en un banco
+El setup ofrece ponerlo en un reloj —una tarea programada en Cowork, o el programador del sistema en Claude Code— y lo crea solo con un sí (decisión 0028). **Y si no quieren corridas desatendidas** —en un banco
 es una respuesta razonable— la cadencia sigue diciendo qué toca, corrida a mano. Lo que se
 pierde es que avise sin que nadie pregunte.
 

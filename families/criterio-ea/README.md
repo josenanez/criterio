@@ -218,8 +218,8 @@ control the organisation already has.
 | **How long that takes** | Fifteen minutes |
 | **What you have to tell it** | The executive and who assists them, the governing bodies in `00-referencia`, the excluded folders, the thresholds —days before a meeting for the materials, days for the minutes, date changes that count, maximum age of the calendar—, whether it publishes to Rostrum and the terms |
 | **Where it lands** | `.criterio/direccion/<executive>/config.json`, written by the command |
-| **The one you put on a clock** | `/criterio-assistant:share-findings` |
-| **What it does each day** | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) |
+| **The one you put on a clock** | `/criterio-assistant:ea-wake` |
+| **What it does each day** | Decides what is due: the meetings entering the window, pending minutes, correspondence deadlines and a weekly review |
 | **What wakes it besides the clock** | A question somebody left in Rostrum |
 <!-- /ea:configuracion -->
 
@@ -236,9 +236,9 @@ is no news teaches people to ignore her.
 
 ### What is **not** scheduled
 
-**She does not schedule herself.** She brings the command a clock invokes, and the clock lives
+**She is not scheduled without a yes.** She brings the command a clock invokes, and the clock lives
 outside the plugin —a Claude Cowork scheduled task, or the operating system's scheduler invoking
-Claude non-interactively—. If the office does not want unattended runs, the commands work run by
+Claude non-interactively—, and Ofelia's setup offers to set it up and creates it only with a yes (decision 0028). If the office does not want unattended runs, the commands work run by
 hand.
 
 ## The family's tests

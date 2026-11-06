@@ -289,8 +289,8 @@ configured, and how often it makes sense for it to run.**
 | **How long that takes** | Fifteen minutes | Fifteen minutes | Fifteen minutes |
 | **What you have to tell it** | Entity and NIT, RUC, RUT or RFC, country, IFRS group (F-05, F-06, F-15, F-18, F-20), ERP, currency, period, thresholds, who approves, chart of accounts | Entity, budget year, areas or cost centres with their owner, the approved version and its minutes, the mapping of accounts to budget lines (in `00-referencia/`), the variance thresholds and, if the organisation uses the PMO family, where its records are | Entity and period, the accounts in another currency, the thresholds for deviation, maturity and covenant margin, where the state is kept and the terms |
 | **Where it lands** | `.criterio/finanzas/<entity>/config.json`, written by the command | `.criterio/presupuesto/<entity>/config.json`, written by the command | `.criterio/tesoreria/<entity>/config.json`, written by the command |
-| **The one you put on a clock** | `/criterio-finance:share-findings` | `/criterio-budget:share-findings` | `/criterio-treasury:share-findings` |
-| **What it does each day** | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) |
+| **The one you put on a clock** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` | `/criterio-treasury:treasury-wake` |
+| **What it does each day** | Decides what is due by cadence: daily during the close window, weekly outside it | Decides what is due by cadence: when a new period appears in `10-contabilidad/`, before each committee and once a week for commitments | Decides what is due: payments in the next five days, obligations entering their maturity window and a weekly review |
 | **What wakes it besides the clock** | A question somebody left in Rostrum | A question somebody left in Rostrum | A question somebody left in Rostrum |
 <!-- /cfo:configuracion -->
 
@@ -323,9 +323,9 @@ there is news nobody opens it.
 
 ### What is **not** scheduled
 
-**None of them schedules itself.** Each ships the command a clock invokes, and the clock lives
+**None of them is scheduled without a yes.** Each ships the command a clock invokes, and the clock lives
 outside the plugin — a Claude Cowork scheduled task, or the operating system's scheduler invoking
-Claude non-interactively. Somebody has to set it up, once.
+Claude non-interactively. The family setup offers to set it up, once for all of them, and creates it only with a yes (decision 0028).
 
 And for it to run with nobody watching, two things are needed that do not depend on this
 repository: **that the session can run without approving each step**, and **that the folder is

@@ -130,8 +130,7 @@ Revisé el registro: [N] requerimientos, nada cruzó un umbral desde el [fecha].
 
 ## Cómo se programa
 
-Esto no se programa solo: alguien tiene que ponerlo en un reloj, y ese reloj vive fuera del
-plugin.
+El setup ofrece ponerlo en un reloj y lo crea solo con un sí (decisión 0028). Si no se creó ahí, el reloj vive fuera del plugin.
 
 **Claude Cowork** — una tarea programada que invoque este comando con la cadencia que salió
 de `/product-setup`. **Semanal alcanza**: los umbrales de un producto se miden en meses, y

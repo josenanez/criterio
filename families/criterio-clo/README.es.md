@@ -287,8 +287,8 @@ falta configurado, y cada cuánto tiene sentido que corra.**
 | **Cuánto tarda eso** | Quince minutos | Quince minutos |
 | **Qué le tienes que decir** | Entidad y NIT o RUC, país, la matriz de atribuciones de `00-referencia/`, con cuántos días de anticipación se avisa un vencimiento o un preaviso, la antigüedad máxima del certificado de la contraparte, quién decide renovar y si la entidad es pública | Entidad, país, la matriz de obligaciones de `00-referencia/` en el modelo definido (F-01), el periodo, el plazo de respuesta del canal, los días para evaluar una norma nueva y, si la organización usa a Fidel, dónde están sus fichas |
 | **Dónde queda** | `.criterio/legal/<entidad>/config.json`, escrito por el comando | `.criterio/cumplimiento/<entidad>/config.json`, escrito por el comando |
-| **El que se le pone a un reloj** | `/criterio-legal:share-findings` | `/criterio-compliance:share-findings` |
-| **Qué toca cada día** | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) |
+| **El que se le pone a un reloj** | `/criterio-legal:legal-wake` | `/criterio-compliance:compliance-wake` |
+| **Qué toca cada día** | Decide qué toca: los vencimientos y preavisos que entran en la ventana, los documentos nuevos y una revisión semanal | Decide qué toca: las obligaciones que vencen en la ventana, los documentos nuevos y una revisión semanal |
 | **Qué lo despierta además del reloj** | Una pregunta que alguien dejó en Rostrum | Una pregunta que alguien dejó en Rostrum |
 <!-- /clo:configuracion -->
 
@@ -321,9 +321,9 @@ sí hay novedad ya nadie lo abre.
 
 ### Qué es lo que **no** está programado
 
-**Ninguno de los dos se programa solo.** Los dos traen el comando que un reloj invoca, y el reloj
+**Ninguno de los dos se programa sin un sí.** Los dos traen el comando que un reloj invoca, y el reloj
 vive fuera del plugin — una tarea programada de Claude Cowork, o el programador del sistema
-operativo invocando Claude en modo no interactivo. Alguien tiene que ponerlo, una vez.
+operativo invocando Claude en modo no interactivo. El setup de la familia ofrece ponerlo, una vez para todos, y lo crea solo con un sí (decisión 0028).
 
 Y para que corra sin nadie delante hacen falta dos cosas que no dependen de este repositorio:
 **que la sesión pueda correr sin aprobar cada paso**, y **que la carpeta esté montada cuando el

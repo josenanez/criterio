@@ -167,8 +167,7 @@ python3 scripts/finanzas.py despertar --config <file>
 
 And `/criterio-budget:budget-wake` is the command the clock invokes: it does what is due, answers
 first the questions somebody left in Rostrum, and **if nothing is due it produces nothing.**
-Putting it on a clock is on your organisation's side: a scheduled task in Cowork, or the system's
-scheduler in Claude Code. If unattended runs are not welcome, the cadence still says what is due,
+The setup offers to put it on a clock —a scheduled task in Cowork, or the system's scheduler in Claude Code— and creates it only with a yes (decision 0028). If unattended runs are not welcome, the cadence still says what is due,
 run by hand.
 
 **And if you want each area owner to see their actuals without asking you for them**, the family

@@ -217,8 +217,8 @@ acceso que la organización ya tiene.
 | **Cuánto tarda eso** | Quince minutos |
 | **Qué le tienes que decir** | El ejecutivo y quién lo asiste, los órganos de `00-referencia`, las carpetas excluidas, los umbrales —días antes de una sesión para el material, días para el acta, cambios de fecha que cuentan, antigüedad máxima de la agenda—, si publica en Rostrum y los términos |
 | **Dónde queda** | `.criterio/direccion/<ejecutivo>/config.json`, escrito por el comando |
-| **El que se le pone a un reloj** | `/criterio-assistant:share-findings` |
-| **Qué toca cada día** | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) |
+| **El que se le pone a un reloj** | `/criterio-assistant:ea-wake` |
+| **Qué toca cada día** | Decide qué toca: las sesiones que entran en la ventana, las actas pendientes, los plazos de la correspondencia y una revisión semanal |
 | **Qué lo despierta además del reloj** | Una pregunta que alguien dejó en Rostrum |
 <!-- /ea:configuracion -->
 
@@ -235,9 +235,9 @@ que no hay novedad enseña a ignorarla.
 
 ### Qué es lo que **no** está programado
 
-**No se programa sola.** Trae el comando que un reloj invoca, y el reloj vive fuera del plugin —una
+**No se programa sin un sí.** Trae el comando que un reloj invoca, y el reloj vive fuera del plugin —una
 tarea programada de Claude Cowork, o el programador del sistema operativo invocando Claude en modo
-no interactivo—. Si la oficina no quiere corridas desatendidas, los comandos sirven corridos a mano.
+no interactivo—, y el setup de Ofelia ofrece ponerlo y lo crea solo con un sí (decisión 0028). Si la oficina no quiere corridas desatendidas, los comandos sirven corridos a mano.
 
 ## Las pruebas de la familia
 

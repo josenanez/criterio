@@ -180,9 +180,7 @@ python3 scripts/legal.py despertar --config <archivo>
 ```
 
 Y `/criterio-legal:legal-wake` es el comando que el reloj invoca: hace lo que toca, responde
-primero las preguntas que alguien dejó en Rostrum, y **si no toca nada no produce nada.** Ponerlo
-en un reloj es del lado de tu organización: una tarea programada en Cowork, o el programador del
-sistema en Claude Code. Si no quieren corridas desatendidas, la cadencia sigue diciendo qué toca,
+primero las preguntas que alguien dejó en Rostrum, y **si no toca nada no produce nada.** El setup ofrece ponerlo en un reloj —una tarea programada en Cowork, o el programador del sistema en Claude Code— y lo crea solo con un sí (decisión 0028). Si no quieren corridas desatendidas, la cadencia sigue diciendo qué toca,
 corrida a mano.
 
 **Y si quieres que el director legal vea lo que vence sin pedírtelo**, la familia tiene un portal

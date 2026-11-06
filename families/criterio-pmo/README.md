@@ -289,10 +289,9 @@ there is news nobody opens it.
 
 ### What is **not** scheduled
 
-Worth saying here and not in a footnote: **none of the three schedules itself.** All three ship
+Worth saying here and not in a footnote: **none of the three is scheduled without a yes.** All three ship
 the command a clock invokes, and the clock lives outside the plugin — a Claude Cowork scheduled
-task, or the operating system's scheduler invoking Claude non-interactively. Somebody has to
-set it up, once, and each clock command explains how.
+task, or the operating system's scheduler invoking Claude non-interactively. The family setup offers to set it up, once for all three, and creates it only with a yes (decision 0028); each clock command explains the rest.
 
 And for it to run with nobody watching, two things are needed that do not depend on this
 repository: **that the session can run without approving each step**, and **that the folder is

@@ -131,8 +131,7 @@ Eso es todo. Sin encabezados, sin tablas, sin resumen de lo que no pasó.
 
 ## Cómo se programa
 
-Esto no se programa solo: alguien tiene que ponerlo en un reloj, y ese reloj vive fuera del
-plugin. Ofrece el camino que corresponda:
+El setup ofrece ponerlo en un reloj y lo crea solo con un sí (decisión 0028). Si no se creó ahí, el reloj vive fuera del plugin. Ofrece el camino que corresponda:
 
 **Claude Cowork** — una tarea programada que invoque este comando con la cadencia que salió
 de `/portfolio-setup`. Si el barrido diario está activo, diaria.

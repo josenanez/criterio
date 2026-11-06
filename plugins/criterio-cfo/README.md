@@ -26,7 +26,9 @@ Then one command sets them all up in the same conversation:
 /criterio-cfo:cfo-setup
 ```
 
-It runs each agent's setup in order and asks only once what they share —the folder, the entity and where the state is kept—. Each agent shows its own terms and asks for its own yes.
+It runs each agent's setup in order and asks only once what they share —the folder, the entity and where
+the state is kept—. Each agent shows its own terms and asks for its own yes. At the end it offers a scheduled
+task for what is due each day, and creates it only with a yes.
 
 | Command | What it does |
 |---|---|
@@ -35,8 +37,8 @@ It runs each agent's setup in order and asks only once what they share —the fo
 **The first result** comes from each agent's setup, on your own documents, before it finishes.
 
 **What it never does.** It writes no configuration: each agent's own setup writes its own. It
-accepts the terms for nobody: each agent shows them and asks for its own yes. And it adds nothing to
-what each agent does or refuses to do: what each one never does is on its page.
+accepts the terms for nobody: each agent shows them and asks for its own yes. And it adds nothing
+to what each agent does or refuses to do: what each one never does is on its page.
 
 **Only need one agent?** Install it on its own, with its plugin: the family is not needed. Everything
 about each agent —what it does, what it does not, its commands and its tests— is on its page and in

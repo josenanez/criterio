@@ -102,6 +102,38 @@ python3 "${CLAUDE_PLUGIN_ROOT}/scripts/finanzas.py" reporte --config <config> --
 **Cuándo vuelvo:** cuando haya pagos programados en los próximos días, cuando una obligación entre en su ventana de vencimiento y una vez por semana.
 ```
 
+<!-- reloj · generado por scripts/familias.py; no se edita a mano -->
+## El reloj: lo que toca hoy, sin que nadie se acuerde
+
+**Si este setup corre dentro del de su familia, aquí no se ofrece nada:** la familia ofrece al final
+una sola tarea para todos sus agentes ([decisión 0028](../../../docs/decisions/0028-el-setup-ofrece-el-reloj.md)).
+Si corre solo, pregunta:
+
+> ¿Quieres que Áurea revise solo lo que toca cada día? Te propongo una tarea programada
+> los días hábiles a las 7:00: decide según su frecuencia si le toca algo y, si no, se calla.
+> Solo procesa y escribe en el estado de Criterio; no envía nada.
+
+**Solo con un sí explícito**, y a la hora que la persona confirme o cambie. Según dónde corres:
+
+- **Si tienes una herramienta para crear tareas programadas** —en Cowork, la de las tareas
+  programadas de la app—, créala para la carpeta raíz, con la hora confirmada y esta instrucción:
+  «En esta carpeta, corre /criterio-treasury:treasury-wake. Solo procesa y escribe en el estado de Criterio; no envíes nada. Si un paso necesita un permiso que no tienes, detente y déjalo dicho.»
+- **Si no** —Claude Code en una terminal—, usa el programador del equipo. Busca la ruta de Claude
+  con `which claude`, crea `.criterio/reloj/` en la carpeta raíz, muestra la línea completa y, con
+  un sí, agrégala a `crontab`. El equipo tiene que estar encendido a esa hora.
+
+  ```
+  0 7 * * 1-5 cd "<carpeta raíz>" && "<ruta de claude>" -p "En esta carpeta, corre /criterio-treasury:treasury-wake. Solo procesa y escribe en el estado de Criterio; no envíes nada. Si un paso necesita un permiso que no tienes, detente y déjalo dicho." --allowedTools "Skill,Read,Glob,Grep,Write,Edit,Bash(python3:*),Bash(ls:*),Bash(mkdir:*)" >> ".criterio/reloj/aurea.log" 2>&1
+  ```
+
+**Después de cada versión nueva, la tarea se detiene** hasta que alguien acepte los términos de esa
+versión en una sesión con la persona presente: una aceptación por versión, nunca desatendida. Dilo
+al crearla.
+
+**Si la persona dice que no**, di en una línea cómo se corre a mano: `/criterio-treasury:treasury-wake`.
+Y en la salida, en «Cuándo vuelvo», di si quedó la tarea, a qué hora y dónde, o «sin reloj».
+<!-- /reloj -->
+
 ## Deja la corrida registrada
 
 Lo último, siempre. Escribe en `<estado>/corridas/salida-treasury-setup.md` **lo que le mostraste a la persona, tal cual y entero**, y registra la corrida:

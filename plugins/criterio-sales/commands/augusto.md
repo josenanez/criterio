@@ -38,12 +38,12 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-sales:sales-setup` | Deja a Augusto listo sobre una entidad — mira la carpeta comercial, reconoce cada exportación del CRM y muestra el primer resultado |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-sales:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-sales:sales-wake` | Lo que toca hoy en el embudo — una exportación nueva, un acta del comité, el cierre del periodo — y si no toca nada, se calla |
 | El pronóstico · Qué cambió en el embudo | `/criterio-sales:pipeline-scan` | Procesa lo que cambió en las exportaciones del CRM y en la evidencia, actualiza la ficha del periodo y dice qué señales nuevas aparecieron |
 | El pronóstico · El embudo contra su evidencia | `/criterio-sales:pipeline-check` | Cada oportunidad contra la evidencia de su etapa: la que no la tiene, la detenida y la que corre su cierre |
 | El pronóstico · El pronóstico contra su respaldo | `/criterio-sales:forecast-check` | El pronóstico comprometido contra lo que lo sostiene: lo cerrado y lo ponderado con evidencia, oportunidad por oportunidad |
 | El pronóstico · La meta contra lo cerrado | `/criterio-sales:target-check` | La meta del periodo contra lo cerrado al corte, por línea y nunca por persona |
-| El pronóstico · Qué toca hoy | `/criterio-sales:sales-wake` | Lo que toca hoy en el embudo — una exportación nueva, un acta del comité, el cierre del periodo — y si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-sales:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

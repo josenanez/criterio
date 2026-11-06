@@ -290,11 +290,10 @@ que sí hay novedad ya nadie lo abre.
 
 ### Qué es lo que **no** está programado
 
-Conviene decirlo aquí y no en una nota al pie: **ninguno de los tres se programa solo.**
+Conviene decirlo aquí y no en una nota al pie: **ninguno de los tres se programa sin un sí.**
 Los tres traen el comando que un reloj invoca, y el reloj vive fuera del plugin — una tarea
 programada de Claude Cowork, o el programador del sistema operativo invocando Claude en
-modo no interactivo. Alguien tiene que ponerlo, una vez, y cada comando de reloj explica
-cómo.
+modo no interactivo. El setup de la familia ofrece ponerlo, una vez para los tres, y lo crea solo con un sí (decisión 0028); cada comando de reloj explica el resto.
 
 Y para que corra sin nadie delante hacen falta dos cosas que no dependen de este
 repositorio: **que la sesión pueda correr sin aprobar cada paso**, y **que la carpeta esté

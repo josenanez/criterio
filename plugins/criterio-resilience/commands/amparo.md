@@ -38,12 +38,12 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-resilience:resilience-setup` | Deja a Amparo listo sobre una entidad — mira la carpeta de seguridad, lista lo que excluye, toma los plazos de la política de respuesta y muestra el primer resultado |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-resilience:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-resilience:resilience-wake` | Lo que toca hoy en la respuesta — un incidente nuevo, una notificación pendiente, una prueba que vence — y si no toca nada, se calla |
 | La respuesta y la recuperación · Qué cambió en la respuesta | `/criterio-resilience:resilience-scan` | Procesa los incidentes, las revisiones y las pruebas nuevas, los lleva a la ficha del periodo y dice qué señales nuevas aparecieron |
 | La respuesta y la recuperación · La línea de tiempo de cada incidente | `/criterio-resilience:incident-timeline` | Cada incidente contra el plazo de contención de su severidad y su revisión posterior contra los días de la política |
 | La respuesta y la recuperación · Las notificaciones | `/criterio-resilience:notifications` | Cada notificación que pide la matriz, contra la que se hizo: a tiempo, tarde o sin hacer |
 | La respuesta y la recuperación · Las pruebas de continuidad | `/criterio-resilience:continuity-tests` | Cada prueba de continuidad, de recuperación y de restauración contra su calendario |
-| La respuesta y la recuperación · Qué toca hoy | `/criterio-resilience:resilience-wake` | Lo que toca hoy en la respuesta — un incidente nuevo, una notificación pendiente, una prueba que vence — y si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-resilience:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

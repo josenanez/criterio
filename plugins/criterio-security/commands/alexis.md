@@ -38,14 +38,14 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-security:security-setup` | Deja a Alexis listo sobre una entidad — mira la carpeta de seguridad, lista lo que excluye, reconoce la declaración de aplicabilidad y muestra el primer resultado |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-security:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-security:security-wake` | Lo que toca hoy en los controles — evidencia nueva, una revisión o una evaluación que vence — y si no toca nada, se calla |
 | El gobierno y los controles · Qué cambió en la seguridad | `/criterio-security:security-scan` | Procesa lo que cambió en la carpeta de seguridad, lleva la evidencia nueva a la ficha del periodo y dice qué señales nuevas aparecieron |
 | El gobierno y los controles · La declaración de aplicabilidad | `/criterio-security:soa-status` | Cada control de la declaración de aplicabilidad con si aplica, su estado y su responsable: el aplicable sin responsable |
 | El gobierno y los controles · Los controles contra su evidencia | `/criterio-security:control-evidence` | Cada control aplicable contra la evidencia de que operó: el que no tiene ninguna y el que la tiene vencida |
 | El gobierno y los controles · Las revisiones de acceso | `/criterio-security:access-reviews` | Cada sistema contra la frecuencia de su revisión de accesos: la vencida y la que nunca se hizo |
 | El gobierno y los controles · Los terceros críticos | `/criterio-security:third-parties` | Cada tercero crítico contra la frecuencia de su evaluación de seguridad: la vencida y la que nunca se hizo |
 | El gobierno y los controles · El registro de riesgos | `/criterio-security:risk-register` | Cada aceptación de riesgo contra su fecha de revisión: la que venció |
-| El gobierno y los controles · Qué toca hoy | `/criterio-security:security-wake` | Lo que toca hoy en los controles — evidencia nueva, una revisión o una evaluación que vence — y si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-security:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

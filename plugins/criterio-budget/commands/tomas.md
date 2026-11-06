@@ -38,13 +38,13 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-budget:budget-setup` | Deja a Tomás listo sobre el presupuesto de una entidad — mira la carpeta, hace las preguntas que ningún documento responde y muestra la primera ejecución contra lo aprobado |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-budget:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-budget:budget-wake` | Lo que toca hoy en el presupuesto — contabilidad nueva, comité cerca o la revisión semanal de compromisos — y si no toca nada, se calla |
 | FP&A · Qué cambió en el presupuesto | `/criterio-budget:budget-scan` | Procesa presupuesto, ejecución, compromisos, proyecciones y actas, actualiza cada ficha y dice qué señales nuevas aparecieron |
 | FP&A · Ejecución contra aprobado | `/criterio-budget:variance-report` | Aprobado, ejecutado, comprometido, disponible y desviación por área y línea, contra la versión aprobada |
 | FP&A · Proyección al cierre del año | `/criterio-budget:forecast` | La proyección al cierre del año: la del área y dos calculadas, al ritmo y al plan, cada una con su supuesto escrito |
 | FP&A · Traslados y sus actas | `/criterio-budget:transfer-log` | Cada traslado, adición o reducción del presupuesto con el acta que lo aprueba, y los que no la tienen |
 | FP&A · Paquete del comité de presupuesto | `/criterio-budget:budget-committee-pack` | El material del comité de presupuesto como paquete de decisiones: cada una con su cifra, su cita y quién la toma |
-| FP&A · Qué toca hoy | `/criterio-budget:budget-wake` | Lo que toca hoy en el presupuesto — contabilidad nueva, comité cerca o la revisión semanal de compromisos — y si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-budget:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

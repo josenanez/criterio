@@ -125,8 +125,7 @@ Eso es todo. Sin encabezados y sin resumen de lo que no pasó.
 
 ## Cómo se programa
 
-Esto no se programa solo: alguien tiene que ponerlo en un reloj, y ese reloj vive fuera del
-plugin.
+El setup ofrece ponerlo en un reloj y lo crea solo con un sí (decisión 0028). Si no se creó ahí, el reloj vive fuera del plugin.
 
 **Claude Cowork** — una tarea programada que invoque este comando con la cadencia que salió
 de `/pm-setup`. Con el barrido diario activo, diaria; si no, el día anterior a la reunión y

@@ -472,8 +472,8 @@
               "etiqueta": "Pídeselo a Clara"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "finance-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -508,10 +508,16 @@
             {
               "id": "audit-pack",
               "etiqueta": "Paquete del auditor"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "finance-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -552,8 +558,8 @@
               "etiqueta": "Pídeselo a Tomás"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "budget-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -580,10 +586,16 @@
             {
               "id": "budget-committee-pack",
               "etiqueta": "Paquete del comité de presupuesto"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "budget-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -624,8 +636,8 @@
               "etiqueta": "Pídeselo a Áurea"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "treasury-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -648,10 +660,16 @@
             {
               "id": "debt-watch",
               "etiqueta": "La deuda y sus covenants"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "treasury-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -692,8 +710,8 @@
               "etiqueta": "Pídeselo a Fidel"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "legal-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -720,10 +738,16 @@
             {
               "id": "contract-execution",
               "etiqueta": "Pagos y garantías"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "legal-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -764,8 +788,8 @@
               "etiqueta": "Pídeselo a Constanza"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "compliance-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -792,10 +816,16 @@
             {
               "id": "reports-cases",
               "etiqueta": "Canal de denuncias"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "compliance-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -834,8 +864,8 @@
               "etiqueta": "Pídeselo a Ofelia"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "ea-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -870,10 +900,16 @@
             {
               "id": "ea-weekly",
               "etiqueta": "Resumen de la semana"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "ea-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -914,8 +950,8 @@
               "etiqueta": "Pídeselo a Augusto"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "sales-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -938,10 +974,16 @@
             {
               "id": "target-check",
               "etiqueta": "La meta contra lo cerrado"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "sales-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -989,8 +1031,8 @@
               "etiqueta": "Pídeselo a Valeria"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "revenue-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -1013,10 +1055,16 @@
             {
               "id": "commission-check",
               "etiqueta": "Las comisiones contra el plan"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "revenue-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -1057,8 +1105,8 @@
               "etiqueta": "Pídeselo a Alexis"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "security-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -1089,10 +1137,16 @@
             {
               "id": "risk-register",
               "etiqueta": "El registro de riesgos"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "security-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -1164,8 +1218,8 @@
               "etiqueta": "Pídeselo a Guillermo"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "vuln-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -1188,10 +1242,16 @@
             {
               "id": "scan-coverage",
               "etiqueta": "La cobertura de los escaneos"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "vuln-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }
@@ -1232,8 +1292,8 @@
               "etiqueta": "Pídeselo a Amparo"
             },
             {
-              "id": "share-findings",
-              "etiqueta": "Compartir hallazgos"
+              "id": "resilience-wake",
+              "etiqueta": "Qué toca hoy"
             }
           ]
         },
@@ -1256,10 +1316,16 @@
             {
               "id": "continuity-tests",
               "etiqueta": "Las pruebas de continuidad"
-            },
+            }
+          ]
+        },
+        {
+          "titulo": "Compartir",
+          "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+          "comandos": [
             {
-              "id": "resilience-wake",
-              "etiqueta": "Qué toca hoy"
+              "id": "share-findings",
+              "etiqueta": "Compartir hallazgos"
             }
           ]
         }

@@ -38,7 +38,7 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-finance:finance-setup` | Deja a Clara lista sobre una entidad — mira la carpeta, hace las preguntas que ningún documento responde y muestra el primer estado del cierre |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-finance:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-finance:finance-wake` | Lo que toca hoy en el cierre según su ventana — a diario mientras dura, semanal fuera de ella — y si no toca nada, se calla |
 | Contralor · Qué cambió en el cierre | `/criterio-finance:close-scan` | Procesa lo que cambió en el periodo, actualiza la ficha del cierre y dice qué señales nuevas aparecieron |
 | Contralor · Estado del cierre | `/criterio-finance:close-status` | El estado del cierre: lo declarado contra lo evidenciado, tarea por tarea del checklist, con la ruta crítica |
 | Contralor · Conciliación bancaria | `/criterio-finance:bank-reconcile` | La conciliación de cada cuenta bancaria del periodo, con sus partidas abiertas por antigüedad y la diferencia sin explicar |
@@ -46,7 +46,7 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Contralor · Cuadre del balance y el mayor | `/criterio-finance:ledger-check` | El cuadre del balance de comprobación y del libro mayor, cuenta por cuenta, y los saldos contrarios a su naturaleza |
 | Contralor · Facturas electrónicas | `/criterio-finance:einvoice-check` | Todas las facturas electrónicas del periodo contra la contabilidad —no una muestra—: sin registro, registros sin factura, diferencias y duplicados |
 | Contralor · Paquete del auditor | `/criterio-finance:audit-pack` | El índice del paquete del auditor: cada requerimiento con su respuesta, su soporte y su estado; no mueve ni copia archivos |
-| Contralor · Qué toca hoy | `/criterio-finance:finance-wake` | Lo que toca hoy en el cierre según su ventana — a diario mientras dura, semanal fuera de ella — y si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-finance:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

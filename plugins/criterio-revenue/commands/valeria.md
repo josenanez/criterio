@@ -38,12 +38,12 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-revenue:revenue-setup` | Deja a Valeria lista sobre una entidad — mira la carpeta comercial, reconoce cada exportación del CRM y muestra el primer resultado |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-revenue:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-revenue:revenue-wake` | Lo que toca hoy de la venta a la factura — cotizaciones nuevas, un contrato o una factura que no llegó, la liquidación — y si no toca nada, se calla |
 | De la venta a la factura · Qué cambió en lo vendido | `/criterio-revenue:deal-scan` | Procesa las cotizaciones y los pedidos nuevos, actualiza la ficha del periodo y dice qué señales nuevas aparecieron |
 | De la venta a la factura · Los descuentos contra su política | `/criterio-revenue:discount-check` | Cada descuento contra el nivel de la matriz que lo cubre y la aprobación que ese nivel pide |
 | De la venta a la factura · De lo ganado a la factura | `/criterio-revenue:won-to-invoice` | De lo ganado a lo firmado y a lo facturado: lo ganado sin contrato en las fichas de Fidel y lo firmado sin factura en las de Clara |
 | De la venta a la factura · Las comisiones contra el plan | `/criterio-revenue:commission-check` | Cada comisión liquidada contra la que da el plan sobre lo ganado y facturado |
-| De la venta a la factura · Qué toca hoy | `/criterio-revenue:revenue-wake` | Lo que toca hoy de la venta a la factura — cotizaciones nuevas, un contrato o una factura que no llegó, la liquidación — y si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-revenue:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

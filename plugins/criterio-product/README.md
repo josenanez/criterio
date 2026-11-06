@@ -187,8 +187,7 @@ requirement nobody decides — and **if nothing crossed it produces nothing.** S
 nothing happened is not an omission — it is the only reason an agent that runs every week is
 still installed the following month.
 
-Putting it on a clock is on your organisation's side: a scheduled task in Cowork, or the
-system's scheduler in Claude Code. **And if unattended runs are not welcome** — in a bank that is
+The setup offers to put it on a clock —a scheduled task in Cowork, or the system's scheduler in Claude Code— and creates it only with a yes (decision 0028). **And if unattended runs are not welcome** — in a bank that is
 a reasonable answer — the cadence still says what is due, run by hand. What you lose is being
 told without anyone asking.
 

@@ -3,6 +3,7 @@ description: Configura la familia CFO de una vez — Clara, Tomás y Áurea — 
 argument-hint: "[ruta de la carpeta] o vacío"
 allowed-tools: Skill, Read, Glob
 ---
+<!-- generado desde families/criterio-cfo/familia.json por scripts/familias.py; no se edita a mano -->
 
 # /cfo-setup — La familia CFO, de una vez
 
@@ -17,7 +18,7 @@ con su motor y sus validaciones. Aquí solo se ordena el recorrido.
 
 **0. Preséntate, en una línea.**
 
-> Vamos a dejar lista la familia CFO: Clara, el cierre, Tomás, el presupuesto y Áurea, la tesorería. Lo que comparten te lo pregunto una sola vez.
+> Vamos a dejar lista la familia CFO: Clara, el cierre; Tomás, el presupuesto; Áurea, la tesorería. Lo que comparten te lo pregunto una sola vez.
 
 **1. Corre el setup de cada agente, en este orden**, uno después del otro y en esta misma conversación:
 
@@ -42,3 +43,30 @@ línea y sigue con el siguiente.
 **5. Al final, la familia en una tabla:** una fila por agente —configurado o saltado— con el primer
 resultado que mostró su setup, en sus palabras. Y el siguiente paso, en una línea: para verlo fuera de
 la conversación, `/criterio-server:server-setup` publica lo de la familia en Rostrum.
+
+**6. El reloj, una tarea para la familia** ([decisión 0028](../../../docs/decisions/0028-el-setup-ofrece-el-reloj.md)).
+Solo con los agentes que quedaron configurados; los saltados no entran. Pregunta:
+
+> ¿Quieres que Clara, Tomás y Áurea revisen solo lo que toca cada día? Te propongo una tarea programada
+> los días hábiles a las 7:00: cada uno decide según su frecuencia si le toca algo y, si no, se calla.
+> Solo procesa y escribe en el estado de Criterio; no envía nada.
+
+**Solo con un sí explícito**, y a la hora que la persona confirme o cambie. Según dónde corres:
+
+- **Si tienes una herramienta para crear tareas programadas** —en Cowork, la de las tareas
+  programadas de la app—, créala para la carpeta raíz, con la hora confirmada y esta instrucción:
+  «En esta carpeta, corre en orden /criterio-finance:finance-wake, /criterio-budget:budget-wake y /criterio-treasury:treasury-wake. Solo procesa y escribe en el estado de Criterio; no envíes nada. Si un paso necesita un permiso que no tienes, detente y déjalo dicho.»
+- **Si no** —Claude Code en una terminal—, usa el programador del equipo. Busca la ruta de Claude
+  con `which claude`, crea `.criterio/reloj/` en la carpeta raíz, muestra la línea completa y, con
+  un sí, agrégala a `crontab`. El equipo tiene que estar encendido a esa hora.
+
+  ```
+  0 7 * * 1-5 cd "<carpeta raíz>" && "<ruta de claude>" -p "En esta carpeta, corre en orden /criterio-finance:finance-wake, /criterio-budget:budget-wake y /criterio-treasury:treasury-wake. Solo procesa y escribe en el estado de Criterio; no envíes nada. Si un paso necesita un permiso que no tienes, detente y déjalo dicho." --allowedTools "Skill,Read,Glob,Grep,Write,Edit,Bash(python3:*),Bash(ls:*),Bash(mkdir:*)" >> ".criterio/reloj/cfo.log" 2>&1
+  ```
+
+**Después de cada versión nueva, la tarea se detiene** hasta que alguien acepte los términos de esa
+versión en una sesión con la persona presente: una aceptación por versión, nunca desatendida. Dilo
+al crearla.
+
+**Si la persona dice que no**, di en una línea cómo se corre a mano: `/criterio-finance:finance-wake`, `/criterio-budget:budget-wake` y `/criterio-treasury:treasury-wake`.
+Y en la tabla del final, una fila más: la tarea, con su hora y dónde quedó, o «sin reloj».

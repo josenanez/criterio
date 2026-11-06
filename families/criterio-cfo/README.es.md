@@ -290,8 +290,8 @@ falta configurado, y cada cuánto tiene sentido que corra.**
 | **Cuánto tarda eso** | Quince minutos | Quince minutos | Quince minutos |
 | **Qué le tienes que decir** | Entidad y NIT, RUC, RUT o RFC, país, grupo NIIF (F-05, F-06, F-15, F-18, F-20), ERP, moneda, periodo, umbrales, quién aprueba, plan de cuentas | Entidad, año presupuestal, áreas o centros de costo con su responsable, la versión aprobada y su acta, el mapeo de cuentas a líneas presupuestales (en `00-referencia/`), los umbrales de desviación y, si la organización usa la familia PMO, dónde están sus fichas | Entidad y periodo, las cuentas en otra moneda, los umbrales de desviación, de vencimiento y del margen del covenant, dónde guarda el estado y los términos |
 | **Dónde queda** | `.criterio/finanzas/<entidad>/config.json`, escrito por el comando | `.criterio/presupuesto/<entidad>/config.json`, escrito por el comando | `.criterio/tesoreria/<entidad>/config.json`, escrito por el comando |
-| **El que se le pone a un reloj** | `/criterio-finance:share-findings` | `/criterio-budget:share-findings` | `/criterio-treasury:share-findings` |
-| **Qué toca cada día** | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) | El código arma un resumen sin datos —el plugin y su versión, cada comando con cuántas veces corrió y su duración mediana, cada señal por su código con cuántas veces salió— y pregunta siempre si se quiere compartir; nada se envía (decisión 0025) |
+| **El que se le pone a un reloj** | `/criterio-finance:finance-wake` | `/criterio-budget:budget-wake` | `/criterio-treasury:treasury-wake` |
+| **Qué toca cada día** | Decide qué toca según la cadencia: a diario durante la ventana del cierre, semanal fuera de ella | Decide qué toca según la cadencia: cuando aparece un periodo nuevo en `10-contabilidad/`, antes de cada comité y una vez por semana para los compromisos | Decide qué toca: los pagos de los próximos cinco días, las obligaciones que entran en su ventana de vencimiento y una revisión semanal |
 | **Qué lo despierta además del reloj** | Una pregunta que alguien dejó en Rostrum | Una pregunta que alguien dejó en Rostrum | Una pregunta que alguien dejó en Rostrum |
 <!-- /cfo:configuracion -->
 
@@ -323,9 +323,9 @@ sí hay novedad ya nadie lo abre.
 
 ### Qué es lo que **no** está programado
 
-**Ninguno se programa solo.** Cada uno trae el comando que un reloj invoca, y el reloj
+**Ninguno se programa sin un sí.** Cada uno trae el comando que un reloj invoca, y el reloj
 vive fuera del plugin — una tarea programada de Claude Cowork, o el programador del sistema
-operativo invocando Claude en modo no interactivo. Alguien tiene que ponerlo, una vez.
+operativo invocando Claude en modo no interactivo. El setup de la familia ofrece ponerlo, una vez para todos, y lo crea solo con un sí (decisión 0028).
 
 Y para que corra sin nadie delante hacen falta dos cosas que no dependen de este repositorio:
 **que la sesión pueda correr sin aprobar cada paso**, y **que la carpeta esté montada cuando el

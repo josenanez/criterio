@@ -27,8 +27,8 @@ Then its setup:
 **The first result** comes from each agent's setup, on your own documents, before it finishes.
 
 **What it never does.** It writes no configuration: each agent's own setup writes its own. It
-accepts the terms for nobody: each agent shows them and asks for its own yes. And it adds nothing to
-what each agent does or refuses to do: what each one never does is on its page.
+accepts the terms for nobody: each agent shows them and asks for its own yes. And it adds nothing
+to what each agent does or refuses to do: what each one never does is on its page.
 
 **Only need one agent?** Install it on its own, with its plugin: the family is not needed. Everything
 about each agent —what it does, what it does not, its commands and its tests— is on its page and in

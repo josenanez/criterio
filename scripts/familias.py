@@ -354,8 +354,10 @@ def _mayus(t: str) -> str:
 
 def configuracion(fa: dict, i: str) -> str:
     """Dónde se ve cada agente, qué le hace falta configurado y cada cuánto corre: sale de sus
-    comandos, el primero y el último de cada uno."""
+    comandos: el primero, el setup, y el de su reloj."""
     ag = fa["agentes"]
+    # El del reloj es el `-wake`, no el último: desde la decisión 0025, el último es share-findings.
+    reloj = {a["id"]: next(c for c in a["comandos"] if c["id"].endswith("-wake")) for a in ag}
     fila = lambda k, xs: f"| **{k}** | " + " | ".join(xs) + " |"
     # La carpeta de cada instancia: la entidad, salvo que la familia diga otra (la EA, el ejecutivo).
     ent = (fa.get("carpeta_instancia") or {"es": "entidad", "en": "entity"})[i]
@@ -367,8 +369,8 @@ def configuracion(fa: dict, i: str) -> str:
              fila("Cuánto tarda eso", ["Quince minutos" for a in ag]),
              fila("Qué le tienes que decir", [celda(_mayus(a["comandos"][0][i]["entrada"].split("Preguntas: ", 1)[-1])) for a in ag]),
              fila("Dónde queda", [f"`.criterio/{a['area']}/<{ent}>/config.json`, escrito por el comando" for a in ag]),
-             fila("El que se le pone a un reloj", [f"`/{a['plugin']}:{a['comandos'][-1]['id']}`" for a in ag]),
-             fila("Qué toca cada día", [celda(a["comandos"][-1][i]["proceso"]) for a in ag]),
+             fila("El que se le pone a un reloj", [f"`/{a['plugin']}:{reloj[a['id']]['id']}`" for a in ag]),
+             fila("Qué toca cada día", [celda(reloj[a["id"]][i]["proceso"]) for a in ag]),
              fila("Qué lo despierta además del reloj", ["Una pregunta que alguien dejó en Rostrum" for a in ag])]
     else:
         l = ["| | " + " | ".join(a["nombre"] for a in ag) + " |", "|---|" + "---|" * len(ag),
@@ -378,8 +380,8 @@ def configuracion(fa: dict, i: str) -> str:
              fila("How long that takes", ["Fifteen minutes" for a in ag]),
              fila("What you have to tell it", [celda(_mayus(a["comandos"][0][i]["entrada"].split("Questions: ", 1)[-1])) for a in ag]),
              fila("Where it lands", [f"`.criterio/{a['area']}/<{ent}>/config.json`, written by the command" for a in ag]),
-             fila("The one you put on a clock", [f"`/{a['plugin']}:{a['comandos'][-1]['id']}`" for a in ag]),
-             fila("What it does each day", [celda(a["comandos"][-1][i]["proceso"]) for a in ag]),
+             fila("The one you put on a clock", [f"`/{a['plugin']}:{reloj[a['id']]['id']}`" for a in ag]),
+             fila("What it does each day", [celda(reloj[a["id"]][i]["proceso"]) for a in ag]),
              fila("What wakes it besides the clock", ["A question somebody left in Rostrum" for a in ag])]
     return "\n".join(l)
 
@@ -763,6 +765,243 @@ def con_entrada(a: dict, grupos: list[dict]) -> list[dict]:
     return grupos
 
 
+# ---------------------------------------------------------------- la familia de una vez y su reloj
+
+# El plugin de cada familia, criterio-<sigla>, no tiene agentes propios (decisión 0026): su setup y
+# sus páginas salen de aquí, de los mismos agentes que publica Rostrum. Y el reloj (decisión 0028):
+# lo que toca hoy, en una tarea programada que el setup ofrece al final y crea solo con un sí.
+RELOJ = {"cron": "0 7 * * 1-5", "dice": "los días hábiles a las 7:00"}
+
+
+def frente(plugin: str, comando: str) -> dict:
+    texto = (P / plugin / "commands" / f"{comando}.md").read_text(encoding="utf-8")
+    return {k.strip(): v.strip().strip('"') for k, _, v in
+            (l.partition(":") for l in texto.split("\n---", 1)[0].splitlines()[1:]) if _}
+
+
+def wake_de(a: dict) -> str:
+    return next(c["id"] for g in a["grupos"] for c in g["comandos"] if c["id"].endswith("-wake"))
+
+
+def y_es(xs: list[str]) -> str:
+    return ", ".join(xs[:-1]) + " y " + xs[-1] if len(xs) > 1 else xs[0]
+
+
+def reloj_md(agentes: list[dict], nombre: str, familia: bool) -> str:
+    """El paso del reloj: una tarea programada para los agentes dados, con un sí explícito."""
+    wakes = [f"/{a['plugin']}:{wake_de(a)}" for a in agentes]
+    # Samuel y Alba son una instancia por proyecto y por producto: su reloj corre una vez por cada uno.
+    dest = _raiz().DESTINO
+    pasos = [w + (f" una vez por cada {dest[a['plugin']]['nivel']} configurado, con su código"
+                  if dest.get(a["plugin"], {}).get("busca") == "caso" else "")
+             for a, w in zip(agentes, wakes)]
+    quien = y_es([a["nombre"] for a in agentes])
+    herramientas = ["Skill"]
+    for a in agentes:
+        for h in frente(a["plugin"], wake_de(a)).get("allowed-tools", "").split(", "):
+            if h and h not in herramientas:
+                herramientas.append(h)
+    instruccion = (f"En esta carpeta, corre {'en orden ' if len(pasos) > 1 else ''}{y_es(pasos)}. Solo procesa y escribe en el estado de "
+                   "Criterio; no envíes nada. Si un paso necesita un permiso que no tienes, detente y déjalo dicho.")
+    cron = (f'{RELOJ["cron"]} cd "<carpeta raíz>" && "<ruta de claude>" -p "{instruccion}" '
+            f'--allowedTools "{",".join(herramientas)}" >> ".criterio/reloj/{nombre}.log" 2>&1')
+    l = []
+    if familia:
+        l += [f"**6. El reloj, una tarea para la familia** ([decisión 0028](../../../docs/decisions/0028-el-setup-ofrece-el-reloj.md)).",
+              "Solo con los agentes que quedaron configurados; los saltados no entran. Pregunta:"]
+    else:
+        l += ["## El reloj: lo que toca hoy, sin que nadie se acuerde", "",
+              "**Si este setup corre dentro del de su familia, aquí no se ofrece nada:** la familia ofrece al final",
+              "una sola tarea para todos sus agentes ([decisión 0028](../../../docs/decisions/0028-el-setup-ofrece-el-reloj.md)).",
+              f"Si corre solo, pregunta:"]
+    l += ["",
+          f"> ¿Quieres que {quien} {'revisen' if len(agentes) > 1 else 'revise'} solo lo que toca cada día? Te propongo una tarea programada",
+          f"> {RELOJ['dice']}: {'cada uno decide' if len(agentes) > 1 else 'decide'} según su frecuencia si le toca algo y, si no, se calla.",
+          "> Solo procesa y escribe en el estado de Criterio; no envía nada.",
+          "",
+          "**Solo con un sí explícito**, y a la hora que la persona confirme o cambie. Según dónde corres:",
+          "",
+          "- **Si tienes una herramienta para crear tareas programadas** —en Cowork, la de las tareas",
+          "  programadas de la app—, créala para la carpeta raíz, con la hora confirmada y esta instrucción:",
+          f"  «{instruccion}»",
+          "- **Si no** —Claude Code en una terminal—, usa el programador del equipo. Busca la ruta de Claude",
+          "  con `which claude`, crea `.criterio/reloj/` en la carpeta raíz, muestra la línea completa y, con",
+          "  un sí, agrégala a `crontab`. El equipo tiene que estar encendido a esa hora.",
+          "",
+          "  ```",
+          f"  {cron}",
+          "  ```",
+          "",
+          "**Después de cada versión nueva, la tarea se detiene** hasta que alguien acepte los términos de esa",
+          "versión en una sesión con la persona presente: una aceptación por versión, nunca desatendida. Dilo",
+          "al crearla.",
+          "",
+          f"**Si la persona dice que no**, di en una línea cómo se corre a mano: {y_es([f'`{w}`' for w in wakes])}.",
+          ("Y en la tabla del final, una fila más: la tarea, con su hora y dónde quedó, o «sin reloj»." if familia else
+           "Y en la salida, en «Cuándo vuelvo», di si quedó la tarea, a qué hora y dónde, o «sin reloj».")]
+    return "\n".join(l)
+
+
+PMO_INSTANCIAS = """
+**En la PMO, Samuel y Alba son una instancia por proyecto y por producto.** Después de Vera, pregunta
+una sola vez por cuáles proyectos y cuáles productos quiere la persona configurar ahora, con la lista
+que encontró Vera, y corre el setup de Samuel o de Alba una vez por cada uno. «Ninguno por ahora» es
+una respuesta válida: se configuran después, cuando se necesiten.
+"""
+
+
+def familia_setup_md(sigla: str, agentes: list[dict]) -> str:
+    S = sigla.upper()
+    nombres = [a["nombre"] for a in agentes]
+    lineas = "\n".join(f"{i}. **{a['nombre']}** — `{a['setup']}`" for i, a in enumerate(agentes, 1))
+    return f"""---
+description: Configura la familia {S} de una vez — {y_es(nombres)} — en una sola conversación, con lo común preguntado una sola vez
+argument-hint: "[ruta de la carpeta] o vacío"
+allowed-tools: Skill, Read, Glob
+---
+<!-- generado desde families/criterio-{sigla}/familia.json por scripts/familias.py; no se edita a mano -->
+
+# /{sigla}-setup — La familia {S}, de una vez
+
+Instalar `criterio-{sigla}` instaló a {y_es([f"{a['nombre']} (`{a['plugin']}`)" for a in agentes])}, y a Rostrum
+(`criterio-server`). Este comando los deja listos en una sola conversación: lo que comparten se
+pregunta una vez, y cada agente pregunta solo lo suyo.
+
+**Este comando no escribe ninguna configuración.** La de cada agente la escribe su propio setup,
+con su motor y sus validaciones. Aquí solo se ordena el recorrido.
+
+## Flujo
+
+**0. Preséntate, en una línea.**
+
+> Vamos a dejar lista la familia {S}: {"; ".join(f"{a['nombre']}, {a['titulo']}" for a in agentes)}. Lo que comparten te lo pregunto una sola vez.
+
+**1. Corre el setup de cada agente, en este orden**, uno después del otro y en esta misma conversación:
+
+{lineas}
+
+Invócalos tú, con la herramienta que corre los comandos. Si no puedes invocar un comando, dile a la
+persona exactamente cuál escribir y espera a que termine. Si el argumento trae una ruta, pásasela
+al primero.
+{PMO_INSTANCIAS if sigla == "pmo" else ""}
+**2. Lo que ya se respondió no se vuelve a preguntar.** El primer setup encuentra la carpeta, la
+entidad y dónde guardar el estado. Antes de cada setup siguiente, di en una línea lo que ya quedó
+fijado: ese setup lo toma de la conversación y solo pide confirmarlo.
+
+**3. Los términos los muestra cada setup.** No los resumas, no los agrupes y no los aceptes por la
+persona: cada agente pide su propio sí.
+
+**4. Si la persona no quiere uno de los agentes, sáltalo.** Cada agente funciona solo. Dilo en una
+línea y sigue con el siguiente.
+
+**5. Al final, la familia en una tabla:** una fila por agente —configurado o saltado— con el primer
+resultado que mostró su setup, en sus palabras. Y el siguiente paso, en una línea: para verlo fuera de
+la conversación, `/criterio-server:server-setup` publica lo de la familia en Rostrum.
+
+{reloj_md(agentes, sigla, True)}
+"""
+
+
+def familia_readme(fa: dict, agentes: list[dict], i: str) -> str:
+    s, S = fa["sigla"], fa["sigla"].upper()
+    multi = len(agentes) > 1
+    setup = f"/criterio-{s}:{s}-setup" if multi else agentes[0]["setup"]
+    adr = "../../docs/decisions/0026-una-familia-se-instala-de-una-vez.md"
+    if i == "es":
+        filas = "\n".join(f"| **{a['nombre']}** | {a['titulo']} | `{a['plugin']}` | `{a['setup']}` |" for a in agentes)
+        despues = (f"Después, un solo comando los configura a todos en la misma conversación:\n\n```\n{setup}\n```\n\n"
+                   "Corre el setup de cada agente en orden y pregunta una sola vez lo que comparten —la carpeta, la entidad y dónde\n"
+                   "se guarda el estado—. Los términos los muestra cada agente, y cada uno pide su propio sí. Al final ofrece una\n"
+                   "tarea programada para lo que toca cada día, y la crea solo con un sí.\n\n"
+                   f"| Comando | Qué hace |\n|---|---|\n| `{setup}` | Configura la familia de una vez: corre el setup de cada agente en orden, con lo común preguntado una sola vez |\n"
+                   if multi else f"Después, su setup:\n\n```\n{setup}\n```\n")
+        return f"""# Criterio {S} · {fa['nombre']['es']} · la familia completa
+
+[English](README.md) · `criterio-{s}` · Apache 2.0
+
+**Instala la familia {S} de una vez.** Este plugin no tiene agentes propios: trae como
+dependencias a los de la familia y a Rostrum, el portal de todas las familias
+([ADR 0026]({adr})).
+
+| Agente | De qué responde | Plugin | Su setup |
+|---|---|---|---|
+{filas}
+| **Rostrum** | el portal de todas las familias | `criterio-server` | `/criterio-server:server-setup` |
+
+## Instalación
+
+```
+/plugin marketplace add josenanez/criterio
+/plugin install criterio-{s}@criterio
+```
+
+{despues}
+**El primer resultado** lo da el setup de cada agente, sobre tus propios documentos, antes de terminar.
+
+**Lo que nunca hace.** No escribe ninguna configuración: la de cada agente la escribe su propio
+setup. No acepta los términos por nadie: cada agente los muestra y pide su propio sí. Y no agrega
+nada a lo que cada agente hace o se niega a hacer: lo que cada uno nunca hace está en su página.
+
+**¿Solo necesitas un agente?** Instálalo solo, con su plugin: la familia no hace falta. Todo lo de
+cada agente —qué hace, qué no hace, sus comandos y sus pruebas— está en su página y en la
+[familia {S}](../../families/criterio-{s}/README.es.md).
+"""
+    filas = "\n".join(f"| **{a['nombre']}** | `{a['plugin']}` | `{a['setup']}` |" for a in agentes)
+    despues = (f"Then one command sets them all up in the same conversation:\n\n```\n{setup}\n```\n\n"
+               "It runs each agent's setup in order and asks only once what they share —the folder, the entity and where\n"
+               "the state is kept—. Each agent shows its own terms and asks for its own yes. At the end it offers a scheduled\n"
+               "task for what is due each day, and creates it only with a yes.\n\n"
+               f"| Command | What it does |\n|---|---|\n| `{setup}` | Sets the family up at once: runs each agent's setup in order, asking only once what they share |\n"
+               if multi else f"Then its setup:\n\n```\n{setup}\n```\n")
+    return f"""# Criterio {S} · {fa['nombre']['en']} · the whole family
+
+[Español](README.es.md) · `criterio-{s}` · Apache 2.0
+
+**Install the {S} family at once.** This plugin has no agents of its own: it brings the
+family's agents and Rostrum, the portal for every family, as dependencies
+([ADR 0026]({adr})).
+
+| Agent | Plugin | Its setup |
+|---|---|---|
+{filas}
+| **Rostrum** | `criterio-server` | `/criterio-server:server-setup` |
+
+## Install
+
+```
+/plugin marketplace add josenanez/criterio
+/plugin install criterio-{s}@criterio
+```
+
+{despues}
+**The first result** comes from each agent's setup, on your own documents, before it finishes.
+
+**What it never does.** It writes no configuration: each agent's own setup writes its own. It
+accepts the terms for nobody: each agent shows them and asks for its own yes. And it adds nothing
+to what each agent does or refuses to do: what each one never does is on its page.
+
+**Only need one agent?** Install it on its own, with its plugin: the family is not needed. Everything
+about each agent —what it does, what it does not, its commands and its tests— is on its page and in
+the [{S} family](../../families/criterio-{s}/README.md).
+"""
+
+
+def poner_reloj(texto: str, contenido: str, ruta: Path) -> str:
+    """El bloque del reloj en el setup de un agente: antes de registrar la corrida, que va al final."""
+    pre, fin = "<!-- reloj · ", "<!-- /reloj -->"
+    bloque = f"{pre}generado por scripts/familias.py; no se edita a mano -->\n{contenido}\n{fin}\n\n"
+    if pre in texto:
+        a = texto.index(pre)
+        b = texto.index(fin, a) + len(fin)
+        b = b + 2 if texto[b:b + 2] == "\n\n" else b
+        return texto[:a] + bloque + texto[b:]
+    ancla = "## Deja la corrida registrada"
+    if ancla not in texto:
+        raise SystemExit(f"{ruta.relative_to(RAIZ)}: falta «{ancla}», donde va el reloj")
+    a = texto.index(ancla)
+    return texto[:a] + bloque + texto[a:]
+
+
 # ---------------------------------------------------------------- los agentes, para Rostrum
 
 SERVIDOR = {"id": "rostrum", "nombre": "Rostrum", "plugin": "criterio-server", "area": "rostrum",
@@ -828,12 +1067,18 @@ def agentes_json() -> tuple[str, list[str]]:
             if "grupos" in a:
                 grupos = a["grupos"]
             else:
+                # Como en la PMO: arranque y ritmo (el setup y el reloj), el oficio, y compartir.
                 por_n = sorted(a["comandos"], key=lambda c: c["n"])
-                ritmo = [por_n[0], por_n[-1]]
+                et = lambda c: {"id": c["id"], "etiqueta": c["es"]["etiqueta"]}
+                ritmo = [por_n[0]] + [c for c in por_n if c["id"].endswith("-wake")]
+                compartir = [c for c in por_n if c["id"] == "share-findings"]
+                oficio = [c for c in por_n if c not in ritmo and c not in compartir]
                 grupos = [{"titulo": "Arranque y ritmo", "linea": "Instalar y saber qué toca hoy",
-                           "comandos": [{"id": c["id"], "etiqueta": c["es"]["etiqueta"]} for c in ritmo]},
-                          {"titulo": a["rol"]["es"], "linea": a["hace"]["es"],
-                           "comandos": [{"id": c["id"], "etiqueta": c["es"]["etiqueta"]} for c in por_n[1:-1]]}]
+                           "comandos": [et(c) for c in ritmo]},
+                          {"titulo": a["rol"]["es"], "linea": a["hace"]["es"], "comandos": [et(c) for c in oficio]}]
+                if compartir:
+                    grupos.append({"titulo": "Compartir", "linea": "Un resumen sin datos de lo que corrió, solo si dices que sí",
+                                   "comandos": [et(c) for c in compartir]})
             # El setup y la marca de su carpeta raíz son de raiz.py (ADR 0011): aquí solo se copian,
             # para que Rostrum y el portal digan cómo entra cada agente al mapa sin escribirlo a mano.
             dest = _raiz().DESTINO.get(a["plugin"]) or {}
@@ -974,6 +1219,30 @@ def main() -> int:
             else:
                 ruta.write_text(nuevo, encoding="utf-8")
                 print(f"  {ruta.relative_to(RAIZ)}")
+    # La familia de una vez (decisión 0026) y el reloj de cada agente (decisión 0028).
+    for fa in todas():
+        if not construida(fa):
+            continue
+        agentes = [x for x in reg["agentes"] if x["familia"] == fa["sigla"]]
+        base = P / f"criterio-{fa['sigla']}"
+        salidas = []
+        if base.is_dir():
+            salidas += [(base / "README.es.md", familia_readme(fa, agentes, "es")),
+                        (base / "README.md", familia_readme(fa, agentes, "en"))]
+            if len(agentes) > 1:
+                salidas.append((base / "commands" / f"{fa['sigla']}-setup.md", familia_setup_md(fa["sigla"], agentes)))
+        for a in agentes:
+            ruta = P / a["plugin"] / "commands" / f"{a['setup'].split(':')[1]}.md"
+            salidas.append((ruta, poner_reloj(ruta.read_text(encoding="utf-8"), reloj_md([a], a["id"], False), ruta)))
+        for ruta, nuevo in salidas:
+            actual = ruta.read_text(encoding="utf-8") if ruta.exists() else ""
+            if actual != nuevo:
+                if args.check:
+                    errores.append(f"{ruta.relative_to(RAIZ)}: no es lo que sale de las familias; corre scripts/familias.py")
+                else:
+                    ruta.parent.mkdir(parents=True, exist_ok=True)
+                    ruta.write_text(nuevo, encoding="utf-8")
+                    print(f"  {ruta.relative_to(RAIZ)}")
     # En el README de Rostrum, cómo entra cada familia al mapa: sale de las mismas familias.
     CLAVE[0] = "servidor"
     for nombre, i in (("README.es.md", "es"), ("README.md", "en")):

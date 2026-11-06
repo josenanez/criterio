@@ -38,13 +38,13 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-compliance:compliance-setup` | Deja a Constanza lista sobre una entidad — mira la carpeta, revisa la matriz de obligaciones y muestra el primer estado del cumplimiento |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-compliance:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-compliance:compliance-wake` | Lo que toca hoy en el cumplimiento — obligaciones que vencen en la semana, documentos nuevos — y si no toca nada, se calla |
 | Cumplimiento · Qué cambió en el cumplimiento | `/criterio-compliance:compliance-scan` | Procesa lo que cambió en la carpeta de cumplimiento, actualiza la ficha y dice qué señales nuevas aparecieron |
 | Cumplimiento · Estado del cumplimiento | `/criterio-compliance:compliance-status` | El estado del cumplimiento: cada obligación de la matriz contra su evidencia, declarado contra evidenciado |
 | Cumplimiento · Políticas por revisar | `/criterio-compliance:policy-review` | Cada política con su próxima revisión y su responsable, y las que tienen la revisión vencida |
 | Cumplimiento · Normas nuevas | `/criterio-compliance:regulatory-watch` | Las normas nuevas con su evaluación de impacto, y las que aplican sin obligación en la matriz |
 | Cumplimiento · Canal de denuncias | `/criterio-compliance:reports-cases` | Los casos del canal de denuncias contra el plazo de respuesta configurado, sin datos de quién denunció |
-| Cumplimiento · Qué toca hoy | `/criterio-compliance:compliance-wake` | Lo que toca hoy en el cumplimiento — obligaciones que vencen en la semana, documentos nuevos — y si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-compliance:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

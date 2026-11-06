@@ -38,13 +38,13 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-legal:legal-setup` | Deja a Fidel listo sobre una entidad — mira la carpeta de contratos, hace las preguntas que ningún documento responde y arma las primeras fichas |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-legal:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-legal:legal-wake` | Lo que toca hoy en los contratos — vencimientos y preavisos que entran en la ventana, documentos nuevos — y si no toca nada, se calla |
 | Contratos · Qué cambió en los contratos | `/criterio-legal:contract-scan` | Procesa lo que cambió en los contratos, actualiza la ficha de cada uno y dice qué señales nuevas aparecieron |
 | Contratos · Registro de contratos | `/criterio-legal:contract-register` | El registro de contratos contra lo que dicen los documentos: contratos sin registro, registros sin documento, estados y valores que no cuadran |
 | Contratos · Vencimientos, preavisos y obligaciones | `/criterio-legal:obligations-calendar` | Los vencimientos, los preavisos de renovación y las obligaciones de cada contrato, con lo que venció sin evidencia |
 | Contratos · Firmas y facultades | `/criterio-legal:authority-check` | Quién firmó cada contrato y con qué facultad según la matriz de atribuciones, qué no tiene la firma de las dos partes y qué certificado estaba vencido |
 | Contratos · Pagos y garantías | `/criterio-legal:contract-execution` | Lo pagado contra el valor pactado y sus otrosíes, los pagos después de la terminación y cada garantía contra la vigencia que exige el contrato |
-| Contratos · Qué toca hoy | `/criterio-legal:legal-wake` | Lo que toca hoy en los contratos — vencimientos y preavisos que entran en la ventana, documentos nuevos — y si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-legal:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

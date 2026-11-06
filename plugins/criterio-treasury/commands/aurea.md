@@ -38,12 +38,12 @@ periodo, un proyecto, una ruta—, lo pide el propio comando.
 | Para | Comando | Qué hace |
 |---|---|---|
 | Arranque y ritmo · Instalación | `/criterio-treasury:treasury-setup` | Deja a Áurea lista sobre la tesorería de una entidad — mira la carpeta, hace las preguntas que ningún documento responde y muestra la primera posición de caja |
-| Arranque y ritmo · Compartir hallazgos | `/criterio-treasury:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
+| Arranque y ritmo · Qué toca hoy | `/criterio-treasury:treasury-wake` | Lo que toca hoy en la tesorería: pagos de los próximos días, obligaciones por vencer y una revisión semanal; si no toca nada, se calla |
 | Tesorería · Qué cambió en la tesorería | `/criterio-treasury:treasury-scan` | Procesa extractos, programa de pagos, flujo proyectado y el registro de deuda, y dice qué señales nuevas aparecieron en la tesorería |
 | Tesorería · La posición de caja | `/criterio-treasury:cash-position` | La caja de cada cuenta contra su mínimo y su proyección, la consolidada y la exposición en otras monedas contra su límite |
 | Tesorería · Los pagos y quién los aprueba | `/criterio-treasury:payment-check` | Cada pago programado contra los aprobadores que pide la política para su monto y contra la matriz de firmas |
 | Tesorería · La deuda y sus covenants | `/criterio-treasury:debt-watch` | La deuda y las inversiones contra su vencimiento, y cada covenant calculado desde el balance del periodo que cierra Clara |
-| Tesorería · Qué toca hoy | `/criterio-treasury:treasury-wake` | Lo que toca hoy en la tesorería: pagos de los próximos días, obligaciones por vencer y una revisión semanal; si no toca nada, se calla |
+| Compartir · Compartir hallazgos | `/criterio-treasury:share-findings` | Arma un resumen sin datos de lo que corrió este agente en esta carpeta y pregunta si quieres compartirlo; nada se envía |
 
 ## Los otros agentes de la familia
 

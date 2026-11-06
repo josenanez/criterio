@@ -26,7 +26,9 @@ Después, un solo comando los configura a todos en la misma conversación:
 /criterio-ciso:ciso-setup
 ```
 
-Corre el setup de cada agente en orden y pregunta una sola vez lo que comparten —la carpeta, la entidad y dónde se guarda el estado—. Los términos los muestra cada agente, y cada uno pide su propio sí.
+Corre el setup de cada agente en orden y pregunta una sola vez lo que comparten —la carpeta, la entidad y dónde
+se guarda el estado—. Los términos los muestra cada agente, y cada uno pide su propio sí. Al final ofrece una
+tarea programada para lo que toca cada día, y la crea solo con un sí.
 
 | Comando | Qué hace |
 |---|---|

@@ -205,8 +205,7 @@ recomputes the projects touched. The **committee report**, which lands with the 
 configured so you can react to what it finds. And the **confirmation**, five fields per run —
 the ones that age worst: sponsor, manager, approved budget, closing date and scope.
 
-Putting it on a clock is on your organisation's side: a scheduled task in Cowork, or the
-system's scheduler in Claude Code. **And if unattended runs are not welcome** — in a bank that
+The setup offers to put it on a clock —a scheduled task in Cowork, or the system's scheduler in Claude Code— and creates it only with a yes (decision 0028). **And if unattended runs are not welcome** — in a bank that
 is a reasonable answer — the cadence still says what is due, run by hand. What you lose is
 being told without anyone asking.
 

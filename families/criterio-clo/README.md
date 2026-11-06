@@ -285,8 +285,8 @@ configured, and how often it makes sense for it to run.**
 | **How long that takes** | Fifteen minutes | Fifteen minutes |
 | **What you have to tell it** | Entity and NIT or RUC, country, the signing-authority matrix in `00-referencia/`, how many days ahead an expiry or a notice period is flagged, the maximum age of the counterparty's certificate, who decides to renew and whether the entity is public | Entity, country, the obligations matrix in `00-referencia/` in the defined model (F-01), the period, the channel's response deadline, the days to assess a new regulation and, if the organisation uses Fidel, where his records are |
 | **Where it lands** | `.criterio/legal/<entity>/config.json`, written by the command | `.criterio/cumplimiento/<entity>/config.json`, written by the command |
-| **The one you put on a clock** | `/criterio-legal:share-findings` | `/criterio-compliance:share-findings` |
-| **What it does each day** | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) | The code builds a summary with no data —the plugin and its version, each command with how many times it ran and its median duration, each signal by its code with how many times it came up— and always asks whether you want to share it; nothing is sent (decision 0025) |
+| **The one you put on a clock** | `/criterio-legal:legal-wake` | `/criterio-compliance:compliance-wake` |
+| **What it does each day** | Decides what is due: the expiries and notice periods entering the window, new documents and a weekly review | Decides what is due: obligations falling due within the window, new documents and a weekly review |
 | **What wakes it besides the clock** | A question somebody left in Rostrum | A question somebody left in Rostrum |
 <!-- /clo:configuracion -->
 
@@ -320,9 +320,9 @@ there is news nobody opens it.
 
 ### What is **not** scheduled
 
-**Neither of them schedules itself.** Both ship the command a clock invokes, and the clock lives
+**Neither of them is scheduled without a yes.** Both ship the command a clock invokes, and the clock lives
 outside the plugin — a Claude Cowork scheduled task, or the operating system's scheduler invoking
-Claude non-interactively. Somebody has to set it up, once.
+Claude non-interactively. The family setup offers to set it up, once for all of them, and creates it only with a yes (decision 0028).
 
 And for it to run with nobody watching, two things are needed that do not depend on this
 repository: **that the session can run without approving each step**, and **that the folder is
