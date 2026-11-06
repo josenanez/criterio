@@ -116,7 +116,7 @@ This is what is worth being clear about before installing it, and it is not in s
 
 - **It does not write in your folders.** It reads your documents; reports and records go to a
   state folder you choose.
-- **It does not decide.** It produces working drafts. It frames the decision as a question with
+- **It does not decide.** It gives the analysis of the decision. It frames it as a question with
   its options; who decides, and on what assumption, belongs to whoever has the authority.
 - **It does not declare a project's status.** The manager does. The agent shows him what
   against, and the difference between the two is the system's most valuable finding.

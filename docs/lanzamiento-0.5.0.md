@@ -42,6 +42,6 @@ No false alert from Vera. The seven she missed are one failure, in one mining pr
 
 ## Before using it
 
-Every version is accepted again: the agent shows the terms, asks for an explicit yes and leaves a receipt in Markdown and PDF with the SHA-256 fingerprint of the terms. It produces working drafts, not decisions, and no agent writes a project's declared status.
+Every version is accepted again: the agent shows the terms, asks for an explicit yes and leaves a receipt in Markdown and PDF with the SHA-256 fingerprint of the terms. It gives analysis tested against the evidence and the decision belongs to whoever signs it, and no agent writes a project's declared status.
 
 Install: `/plugin marketplace add josenanez/criterio`, or in Claude Cowork, Customise → Explore plugins → Personal → + → `josenanez/criterio`.

@@ -1617,8 +1617,8 @@ def vista_resumen(entradas: list, sigla: str, hoy: str) -> tuple:
                           f'<td>{e(v.get("que"))}' + (f' · {e(v["caso"])}' if v.get('caso') and str(v['caso']) not in str(v.get('que')) else '') + '</td>'
                           f'<td>{e(NOMBRE.get(x["area"], x["area"]))}</td></tr>')
         cuerpo.append('</tbody></table>')
-    cuerpo.append('<p class="ej-pie">Borrador de trabajo, no una decisión: cada cifra sale de los documentos que procesó '
-                  'su agente, y su detalle está en la página de la familia y en lo que vence.'
+    cuerpo.append('<p class="ej-pie">Análisis contrastado contra la evidencia, para la decisión de quien la firma: cada '
+                  'cifra sale de los documentos que procesó su agente, y su detalle está en la página de la familia y en lo que vence.'
                   + (' Hay señales que la configuración no publica en este portal.' if privadas else '') + '</p>'
                   f'<p class="ej-imprimir aviso">Para llevarlo a una reunión: imprime esta página o guárdala como PDF; '
                   f'cabe en una hoja. El detalle: <a href="/familia/{e(sigla)}">la familia</a> · <a href="/vence">lo que vence</a>.</p>')

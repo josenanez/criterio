@@ -21,7 +21,7 @@ That call writes, deterministically and without the model:
 
 ```json
 "terms_accepted": {
-  "version": "1.3",
+  "version": "1.4",
   "date": "2026-10-28",
   "by": "Nombre Apellido",
   "family_version": "0.12.1",
@@ -45,17 +45,17 @@ That call writes, deterministically and without the model:
 
 **Short form shown at the gate** (Spanish, from `TERMS.es.md`; the English one is in `TERMS.md`):
 
-> Criterio produce borradores de trabajo, no decisiones ni asesoría. Procesa los documentos que usted le indique y dice lo que muestran; no sabe lo que se habló fuera de ellos. Puede equivocarse, y por eso cada dato viene con la cita del documento de donde salió: la verificación es suya. Sus documentos se procesan en la infraestructura de la plataforma de IA, no solo en su equipo. Cada versión se prueba antes de publicarse; garantía y responsabilidad: licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
+> Criterio entrega a la dirección análisis contrastado contra la evidencia: cada cifra, cada señal y cada vencimiento con la cita del documento del que sale. No sustituye el juicio de quien decide ni la asesoría profesional: la decisión, y su verificación, son de quien la firma. Procesa los documentos que usted le indique y dice lo que muestran; lo que se acordó fuera de ellos no lo conoce. Lo ejecuta un modelo de lenguaje (LLM), que puede equivocarse, y por eso ningún dato llega sin su fuente. Sus documentos se procesan en la infraestructura de la plataforma de IA donde lo ejecuta, no solo en su equipo. Cada versión se prueba antes de publicarse y su evidencia es pública; la garantía y la responsabilidad son las de la licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
 
 ## Layer 2 — Footer on every generated report
 
 Every report, spreadsheet or document the plugin produces carries, at the end:
 
 ```
-Generado con Criterio <versión> · borrador de trabajo, según los documentos leídos
+Generado con Criterio <versión> · análisis contrastado contra la evidencia, según los documentos procesados
 Fichas aplicadas: 14 proyectos · último barrido 2026-09-18
 Campos sin dato en este análisis: 6 · contradicciones abiertas: 2
-Verificar contra la fuente antes de decidir. Términos: <enlace al repositorio>
+La decisión, y su verificación, son de quien la firma. Términos: <enlace al repositorio>
 ```
 
 The document circulates by email and lands in a board pack. The warning travels with it or it does not exist.
@@ -64,7 +64,7 @@ The footer is written in the language of the report, not in English.
 
 ## Layer 3 — Banner at the start of the run
 
-Before the first finding, the analysis states which records it loaded, when they were last refreshed, and that the output is a working draft. If a record is stale, or a project has no record at all, it says so here rather than at the end.
+Before the first finding, the analysis states which records it loaded, when they were last refreshed, and that the output is analysis for a decision that belongs to whoever signs it. If a record is stale, or a project has no record at all, it says so here rather than at the end.
 
 Cheap, visible, and lost in a long thread — which is why it is not the only layer.
 

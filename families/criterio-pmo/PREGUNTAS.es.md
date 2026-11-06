@@ -10,7 +10,7 @@ Procesan lo que la oficina de proyectos ya escribió. Vera arma una ficha por pr
 
 ### ¿Reemplazan a la PMO?
 
-No. Preparan borradores de trabajo y dicen qué cambió, qué se contradice y qué ningún documento sostiene. Ningún agente declara el estado de un proyecto: lo declara una persona.
+No. Preparan el análisis contrastado contra la evidencia y dicen qué cambió, qué se contradice y qué ningún documento sostiene. Ningún agente declara el estado de un proyecto: lo declara una persona.
 
 ### ¿Qué necesito para usarlos?
 

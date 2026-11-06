@@ -50,6 +50,6 @@ Cifras de terceros, verificadas contra el texto de quien las publica, en [`FUENT
 
 ## Antes de usarla
 
-Cada versión se acepta de nuevo: el agente muestra los términos, pide un sí explícito y deja un comprobante con la huella SHA-256 de los términos. Produce borradores de trabajo, no decisiones.
+Cada versión se acepta de nuevo: el agente muestra los términos, pide un sí explícito y deja un comprobante con la huella SHA-256 de los términos. Entrega análisis contrastado contra la evidencia; la decisión es de quien la firma.
 
 Instalación: `/plugin marketplace add josenanez/criterio`, y después `criterio-finance` para Clara, `criterio-budget` para Tomás y `criterio-treasury` para Áurea. En Claude Cowork: Personalizar → Explorar plugins → Personal → + → `josenanez/criterio`.

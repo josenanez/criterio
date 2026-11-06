@@ -1,6 +1,6 @@
 # Terms of use
 
-[Español](TERMS.es.md) · Version 1.3 · 2026-10-28
+[Español](TERMS.es.md) · Version 1.4 · 2026-11-06
 
 By installing, deploying, testing or running Criterio, you accept these terms. If you do not accept them, do not install it.
 
@@ -8,13 +8,13 @@ By installing, deploying, testing or running Criterio, you accept these terms. I
 
 ## 1. Not advice; every version is tested before it is published
 
-Criterio produces **working drafts**. It is not advice and creates no professional relationship of any kind between you and the maintainer or any contributor.
+Criterio gives **analysis tested against the evidence** to whoever decides: every data point with a citation to the document it comes from. It is not advice, it does not replace the judgement of whoever decides, and it creates no professional relationship of any kind between you and the maintainer or any contributor.
 
 Every version goes through an internal validation before it is published: automated tests of the code on every change, and rounds in which each family's agents run their commands on synthetic test material from several industries and countries, with control entities where any signal is a failure, with no data from any organisation. What each agent produces is compared with an answer key, and the results —with their confidence margin, the defects found and their fix— are published in each family's test evidence, at https://www.josenanez.com/agents, and in the legal notice.
 
-## 2. Verification is yours
+## 2. The decision, and its verification, belong to whoever signs it
 
-You are responsible for verifying every output before using it to decide, sign, report, escalate or advise. The citations exist so that verification is possible; they are not a substitute for it.
+Before using an analysis from Criterio to decide, sign, report, escalate or advise, you verify it against its sources and answer for that decision. The citations exist so that verification takes seconds; they are not a substitute for it.
 
 ## 3. What it can and cannot know
 
@@ -42,7 +42,7 @@ Apache 2.0 grants no trademark rights. "Criterio" and the maintainer's name may 
 
 ## 8. How acceptance is recorded
 
-**One acceptance per version.** Each agent family —the PMO, the CFO, the CLO, the EA and Rostrum— carries its own version number, and every version of a family asks you to accept these terms, even when their text did not change: installing Criterio or updating it to a new version requires a new acceptance. Until the acceptance for the installed version is recorded, the plugin answers questions but produces no analysis and no report. It never assumes it, never infers it from you continuing the conversation, and never records it without an explicit yes.
+**One acceptance per version.** Each agent family —the PMO, the CFO, the CLO, the CCO, the CISO, the EA and Rostrum— carries its own version number, and every version of a family asks you to accept these terms, even when their text did not change: installing Criterio or updating it to a new version requires a new acceptance. Until the acceptance for the installed version is recorded, the plugin answers questions but produces no analysis and no report. It never assumes it, never infers it from you continuing the conversation, and never records it without an explicit yes.
 
 **A receipt that is yours.** On acceptance, the plugin leaves on your machine, in `.criterio/terminos/`, a Markdown receipt and a PDF receipt with your name, the date, the family version, the version of these terms, their SHA-256 fingerprint and the version-register entry, followed by the full text you accepted. Earlier receipts are kept: the succession of acceptances is the trail. The technical detail is in `docs/acceptance.md`, in the repository.
 
@@ -60,7 +60,7 @@ These terms are versioned. A change bumps the version and the date at the top of
 
 This is what the plugin shows you before asking you to accept:
 
-> Criterio produces working drafts, not decisions or advice. It processes the documents you point it to and says what they show; it does not know what was said outside them. It can be wrong, which is why every data point comes with a citation to the document it came from: verification is yours. Your documents are processed on the AI platform's infrastructure, not only on your machine. Every version is tested before it is published; warranty and liability: Apache 2.0 licence. Every version is accepted again and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
+> Criterio gives management analysis tested against the evidence: every figure, every signal and every deadline with a citation to the document it comes from. It does not replace the judgement of whoever decides, nor professional advice: the decision, and its verification, belong to whoever signs it. It processes the documents you point it to and says what they show; what was agreed outside them it does not know. It is run by a language model (LLM), which can be wrong, which is why no data point arrives without its source. Your documents are processed on the infrastructure of the AI platform where you run it, not only on your machine. Every version is tested before it is published and its evidence is public; warranty and liability are those of the Apache 2.0 licence. Every version is accepted again and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
 
 ---
 

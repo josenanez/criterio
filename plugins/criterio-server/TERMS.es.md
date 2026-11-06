@@ -1,6 +1,6 @@
 # Términos de uso
 
-[English](TERMS.md) · Versión 1.3 · 2026-10-28
+[English](TERMS.md) · Versión 1.4 · 2026-11-06
 
 Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos. Si no los acepta, no lo instale.
 
@@ -8,13 +8,13 @@ Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos
 
 ## 1. No es asesoría; cada versión se prueba antes de publicarse
 
-Criterio produce **borradores de trabajo**. No es asesoría y no crea relación profesional alguna entre usted y el mantenedor o cualquier aportante.
+Criterio entrega **análisis contrastado contra la evidencia** para quien decide: cada dato con la cita del documento del que sale. No es asesoría, no sustituye el juicio de quien decide y no crea relación profesional alguna entre usted y el mantenedor o cualquier aportante.
 
 Cada versión pasa una validación interna antes de publicarse: pruebas automáticas del código en cada cambio, y rondas en las que los agentes de cada familia ejecutan sus comandos sobre material de prueba sintético de varias industrias y países, con entidades de control en las que cualquier señal es una falla, sin datos de ninguna organización. Lo que produce cada agente se compara con una clave de respuestas, y los resultados —con su margen de confianza, los defectos encontrados y su corrección— se publican en la evidencia de pruebas de cada familia, en https://www.josenanez.com/es/agents, y en la nota legal.
 
-## 2. La verificación es suya
+## 2. La decisión, y su verificación, son de quien la firma
 
-Usted es responsable de verificar toda salida antes de usarla para decidir, firmar, reportar, escalar o asesorar. Las citas existen para que la verificación sea posible; no la sustituyen.
+Antes de usar un análisis de Criterio para decidir, firmar, reportar, escalar o asesorar, usted lo verifica contra sus fuentes y responde por esa decisión. Las citas existen para que la verificación tome segundos; no la sustituyen.
 
 ## 3. Qué puede y qué no puede saber
 
@@ -42,7 +42,7 @@ Apache 2.0 no concede derechos sobre marcas. "Criterio" y el nombre del mantened
 
 ## 8. Cómo se registra la aceptación
 
-**Una aceptación por versión.** Cada familia de agentes —la PMO, la CFO, la CLO, la EA y Rostrum— lleva su propio número de versión, y cada versión de una familia pide aceptar estos términos, también cuando su texto no cambió: instalar Criterio o actualizarlo a una versión nueva exige una aceptación nueva. Hasta que la aceptación de la versión instalada quede registrada, el plugin responde preguntas pero no produce análisis ni informes. No la asume, no la infiere de que usted siga conversando y no la registra sin un sí explícito.
+**Una aceptación por versión.** Cada familia de agentes —la PMO, la CFO, la CLO, la CCO, la CISO, la EA y Rostrum— lleva su propio número de versión, y cada versión de una familia pide aceptar estos términos, también cuando su texto no cambió: instalar Criterio o actualizarlo a una versión nueva exige una aceptación nueva. Hasta que la aceptación de la versión instalada quede registrada, el plugin responde preguntas pero no produce análisis ni informes. No la asume, no la infiere de que usted siga conversando y no la registra sin un sí explícito.
 
 **Un comprobante que es suyo.** Al aceptar, el plugin deja en su equipo, en `.criterio/terminos/`, un comprobante en Markdown y otro en PDF con su nombre, la fecha, la versión de la familia, la versión de estos términos, su huella SHA-256 y la entrada del registro de versiones, seguidos del texto completo que aceptó. Los comprobantes anteriores se conservan: la sucesión de aceptaciones es la trazabilidad. El detalle técnico está en `docs/acceptance.md`, en el repositorio.
 
@@ -60,7 +60,7 @@ Estos términos están versionados. Un cambio sube la versión y la fecha al ini
 
 Esto es lo que el plugin le muestra antes de pedirle que acepte:
 
-> Criterio produce borradores de trabajo, no decisiones ni asesoría. Procesa los documentos que usted le indique y dice lo que muestran; no sabe lo que se habló fuera de ellos. Puede equivocarse, y por eso cada dato viene con la cita del documento de donde salió: la verificación es suya. Sus documentos se procesan en la infraestructura de la plataforma de IA, no solo en su equipo. Cada versión se prueba antes de publicarse; garantía y responsabilidad: licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
+> Criterio entrega a la dirección análisis contrastado contra la evidencia: cada cifra, cada señal y cada vencimiento con la cita del documento del que sale. No sustituye el juicio de quien decide ni la asesoría profesional: la decisión, y su verificación, son de quien la firma. Procesa los documentos que usted le indique y dice lo que muestran; lo que se acordó fuera de ellos no lo conoce. Lo ejecuta un modelo de lenguaje (LLM), que puede equivocarse, y por eso ningún dato llega sin su fuente. Sus documentos se procesan en la infraestructura de la plataforma de IA donde lo ejecuta, no solo en su equipo. Cada versión se prueba antes de publicarse y su evidencia es pública; la garantía y la responsabilidad son las de la licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
 
 ---
 

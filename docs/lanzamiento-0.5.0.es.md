@@ -42,6 +42,6 @@ Ninguna alerta falsa de Vera. Las siete que le faltaron son una sola falla, en u
 
 ## Antes de usarla
 
-Cada versión se acepta de nuevo: el agente muestra los términos, pide un sí explícito y deja un comprobante en Markdown y PDF con la huella SHA-256 de los términos. Produce borradores de trabajo, no decisiones, y ningún agente escribe el estado declarado de un proyecto.
+Cada versión se acepta de nuevo: el agente muestra los términos, pide un sí explícito y deja un comprobante en Markdown y PDF con la huella SHA-256 de los términos. Entrega análisis contrastado contra la evidencia y la decisión es de quien la firma, y ningún agente escribe el estado declarado de un proyecto.
 
 Instalación: `/plugin marketplace add josenanez/criterio`, o en Claude Cowork, Personalizar → Explorar plugins → Personal → + → `josenanez/criterio`.

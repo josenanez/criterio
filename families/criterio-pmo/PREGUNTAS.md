@@ -10,7 +10,7 @@ They process what the project office has already written. Vera builds one record
 
 ### Do they replace the PMO?
 
-No. They prepare working drafts and say what changed, what contradicts what and what no document supports. No agent declares a project's status: a person does.
+No. They prepare the analysis tested against the evidence and say what changed, what contradicts what and what no document supports. No agent declares a project's status: a person does.
 
 ### What do I need to use them?
 

@@ -138,7 +138,7 @@ práctica, con lo que dice la pantalla y qué hacer, están en [Instalar Criteri
 
 **Lo que no afirmamos**
 
-Esto produce borradores de trabajo, no decisiones. Cada versión pasa una validación interna antes de publicarse, y su evidencia es pública. Los agentes saben lo que se escribió, no lo que se habló fuera de los documentos. Lee el [descargo](DISCLAIMER.es.md) antes de instalar: usarlo implica aceptar los [términos](TERMS.es.md).
+Criterio entrega análisis contrastado contra la evidencia; la decisión, y su verificación, son de quien la firma. Cada versión pasa una validación interna antes de publicarse, y su evidencia es pública. Los agentes saben lo que se escribió, no lo que se acordó fuera de los documentos. Lee el [descargo](DISCLAIMER.es.md) antes de instalar: usarlo implica aceptar los [términos](TERMS.es.md).
 
 ---
 

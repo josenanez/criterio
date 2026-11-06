@@ -50,6 +50,6 @@ Third-party figures, verified against the publisher's text, in [`FUENTES.es.md`]
 
 ## Before you use it
 
-Each version is accepted again: the agent shows the terms, asks for an explicit yes and leaves a receipt with the terms' SHA-256 fingerprint. It produces working drafts, not decisions.
+Each version is accepted again: the agent shows the terms, asks for an explicit yes and leaves a receipt with the terms' SHA-256 fingerprint. It gives analysis tested against the evidence; the decision belongs to whoever signs it.
 
 Installation: `/plugin marketplace add josenanez/criterio`, then `criterio-finance` for Clara, `criterio-budget` for Tomás and `criterio-treasury` for Áurea. In Claude Cowork: Customise → Explore plugins → Personal → + → `josenanez/criterio`.

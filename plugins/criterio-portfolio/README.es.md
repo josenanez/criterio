@@ -115,7 +115,7 @@ Esto es lo que conviene tener claro antes de instalarlo, y no está en letra peq
 
 - **No escribe en tus carpetas.** Lee tus documentos; los informes y las fichas van a una
   carpeta de estado que tú eliges.
-- **No decide.** Produce borradores de trabajo. Formula la decisión como pregunta con sus
+- **No decide.** Entrega el análisis de la decisión. La formula como pregunta con sus
   opciones; quién decide y asumiendo qué es de quien tiene la facultad.
 - **No declara el estado de un proyecto.** Eso lo hace el gerente. El agente le muestra
   contra qué, y la diferencia entre las dos cosas es el hallazgo de más valor del sistema.

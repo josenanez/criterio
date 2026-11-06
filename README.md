@@ -137,7 +137,7 @@ up in practice, with what the screen says and what to do, are in [Installing Cri
 
 **What we do not claim**
 
-This produces working drafts, not decisions. Every version goes through an internal validation before it is published, and its evidence is public. The agents know what was written, not what was said outside the documents. Read the [disclaimer](DISCLAIMER.md) before installing: using it means accepting the [terms](TERMS.md).
+Criterio gives analysis tested against the evidence; the decision, and its verification, belong to whoever signs it. Every version goes through an internal validation before it is published, and its evidence is public. The agents know what was written, not what was agreed outside the documents. Read the [disclaimer](DISCLAIMER.md) before installing: using it means accepting the [terms](TERMS.md).
 
 ---
 

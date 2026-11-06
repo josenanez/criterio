@@ -541,9 +541,9 @@ def pagina(titulo, cuerpo, hoy, nav=''):
 <body><a class="saltar" href="#contenido">Saltar al contenido</a><div class="hoja"><main id="contenido" tabindex="-1">{nav}{tablas(cuerpo)}</main>
 <footer class="pie">
 Producido por <strong>Vera</strong>, el agente PMO de Criterio, el {e(hoy)}.
-Esto es un <strong>borrador de trabajo, no una decisión</strong>: cada dato lleva la cita del
-documento del que salió para que se pueda verificar, y «no está dicho en ninguna parte» es un
-hallazgo válido. El agente sabe lo que se escribió, no lo que se habló fuera de los documentos.
+Es <strong>análisis contrastado contra la evidencia, para la decisión de quien la firma</strong>: cada
+dato lleva la cita del documento del que salió para que se verifique, y «no está dicho en ninguna
+parte» es un hallazgo. El agente sabe lo que se escribió, no lo que se acordó fuera de los documentos.
 </footer>{DESLIZA}</div></body></html>
 """
 
