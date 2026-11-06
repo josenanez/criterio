@@ -1,6 +1,6 @@
 {
   "name": "criterio-ciso",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "La familia CISO completa —la seguridad de la información—: instala de una vez a Alexis, Guillermo y Amparo y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-ciso:ciso-setup.",
   "author": {
     "name": "José Francisco Ñáñez",
