@@ -13,7 +13,7 @@
     "en": "Built · tested"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
     "para": {
       "es": "Procesa cada contrato y su historia —otrosíes, garantías, pagos— para decir qué vence, quién podía firmarlo y qué obligaciones siguen abiertas, y mide el programa de cumplimiento contra la ISO 37301.",
       "en": "It processes each contract and its history —amendments, guarantees, payments— to say what falls due, who could sign it and which obligations remain open, and measures the compliance programme against ISO 37301."
@@ -22,33 +22,33 @@
       {
         "es": [
           "Contratos",
-          "En Word o PDF con capa de texto, con sus otrosíes, pólizas y anexos, y el registro de contratos que lleva la organización"
+          "Word y PDF, con otrosíes, pólizas y anexos"
         ],
         "en": [
           "Contracts",
-          "In Word or PDF with a text layer, with their amendments, policies and annexes, and the contract register the organisation keeps"
+          "Word and PDF, with amendments, policies and annexes"
         ],
         "fuentes": []
       },
       {
         "es": [
-          "Del ERP",
-          "La exportación de pagos por contrato, para cruzarlos con lo pactado"
+          "ERP",
+          "Los pagos por contrato, desde lo que exporta"
         ],
         "en": [
-          "From the ERP",
-          "The export of payments per contract, to match them with what was agreed"
+          "ERP",
+          "Payments per contract, from what it exports"
         ],
         "fuentes": []
       },
       {
         "es": [
           "Contratación pública",
-          "La regla de publicación y de garantía de la ley de cada país del registro, cada una desde su norma"
+          "La ley de cada país del registro, con su norma"
         ],
         "en": [
           "Public procurement",
-          "The publication and guarantee rule of each registered country's law, each from its statute"
+          "Each registered country's law, with its statute"
         ],
         "fuentes": [
           "F-03",
@@ -65,6 +65,11 @@
           "F-14"
         ]
       }
+    ],
+    "cifras": [
+      "C-01",
+      "C-02",
+      "C-04"
     ]
   },
   "generador": {

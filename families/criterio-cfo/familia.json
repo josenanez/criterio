@@ -13,7 +13,7 @@
     "en": "Built · tested"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
     "para": {
       "es": "Cierra el periodo contra la evidencia: concilia bancos y cuentas, cruza la factura electrónica con la contabilidad, mide la ejecución contra el presupuesto y la caja, los pagos y la deuda contra su política.",
       "en": "It closes the period against the evidence: it reconciles banks and accounts, matches the e-invoice with the books, measures execution against the budget, and cash, payments and debt against their policy."
@@ -21,23 +21,23 @@
     "con": [
       {
         "es": [
-          "Del ERP, cualquiera",
-          "El balance de comprobación, el libro mayor, los auxiliares y los compromisos que exporta, en Excel o CSV: el motor reconoce las columnas por su nombre"
+          "ERP",
+          "Cualquiera, desde lo que exporta: balance, mayor y auxiliares"
         ],
         "en": [
-          "From any ERP",
-          "The trial balance, the general ledger, the subsidiary ledgers and the commitments it exports, in Excel or CSV: the engine recognises the columns by name"
+          "ERP",
+          "Any, from what it exports: trial balance, ledger and subledgers"
         ],
         "fuentes": []
       },
       {
         "es": [
-          "Factura electrónica de doce países",
-          "Colombia (DIAN), Ecuador (SRI), Perú (SUNAT), Chile (SII), México (SAT), Brasil (NF-e), Argentina (ARCA), Panamá (DGI), Guatemala (FEL), Costa Rica (Hacienda), Honduras y Paraguay (SIFEN), cada una desde su especificación oficial"
+          "Factura electrónica",
+          "12 países: DIAN, SRI, SUNAT, SII, SAT, NF-e, ARCA, DGI, FEL, Hacienda, Honduras y SIFEN"
         ],
         "en": [
-          "E-invoices from twelve countries",
-          "Colombia (DIAN), Ecuador (SRI), Peru (SUNAT), Chile (SII), Mexico (SAT), Brazil (NF-e), Argentina (ARCA), Panama (DGI), Guatemala (FEL), Costa Rica (Hacienda), Honduras and Paraguay (SIFEN), each from its official specification"
+          "E-invoicing",
+          "12 countries: DIAN, SRI, SUNAT, SII, SAT, NF-e, ARCA, DGI, FEL, Hacienda, Honduras and SIFEN"
         ],
         "fuentes": [
           "F-01",
@@ -57,14 +57,19 @@
       {
         "es": [
           "Bancos y tesorería",
-          "El extracto de cada cuenta con su auxiliar, el programa de pagos con quién aprobó cada uno y el flujo de caja proyectado"
+          "Extractos, programa de pagos y flujo de caja"
         ],
         "en": [
           "Banks and treasury",
-          "Each account's statement with its ledger, the payment run with who approved each payment, and the projected cash flow"
+          "Statements, payment run and cash flow"
         ],
         "fuentes": []
       }
+    ],
+    "cifras": [
+      "C-05",
+      "C-04",
+      "C-02"
     ]
   },
   "generador": {

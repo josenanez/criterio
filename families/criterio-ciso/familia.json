@@ -14,7 +14,7 @@
     "en": "Built · in testing"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
     "para": {
       "es": "Contrasta los controles, los accesos, las vulnerabilidades y los incidentes contra su evidencia: qué controles no se sostienen, qué vulnerabilidades están fuera de plazo o en el catálogo KEV, y a quién había que notificar un incidente y en qué plazo.",
       "en": "It checks controls, access, vulnerabilities and incidents against their evidence: which controls do not hold, which vulnerabilities are past their deadline or in the KEV catalogue, and whom an incident had to be notified to and by when."
@@ -23,11 +23,11 @@
       {
         "es": [
           "Escáneres",
-          "Tenable Vulnerability Management y Microsoft Defender Vulnerability Management, cada uno desde la documentación del fabricante; cualquier otro, en CSV o Excel con su mapeo de columnas"
+          "Tenable y Microsoft Defender; cualquier otro, en CSV o Excel"
         ],
         "en": [
           "Scanners",
-          "Tenable Vulnerability Management and Microsoft Defender Vulnerability Management, each from the vendor's documentation; any other, in CSV or Excel with its column mapping"
+          "Tenable and Microsoft Defender; any other, in CSV or Excel"
         ],
         "fuentes": [
           "F-08",
@@ -37,11 +37,11 @@
       {
         "es": [
           "Catálogo y severidad",
-          "El catálogo KEV de CISA y la severidad desde el CVSS v4.0 de FIRST"
+          "KEV de CISA y CVSS v4.0"
         ],
         "en": [
           "Catalogue and severity",
-          "CISA's KEV catalogue and severity from FIRST's CVSS v4.0"
+          "CISA KEV and CVSS v4.0"
         ],
         "fuentes": [
           "F-06",
@@ -51,17 +51,22 @@
       {
         "es": [
           "Marcos",
-          "El NIST CSF 2.0 y la respuesta a incidentes del NIST SP 800-61 Rev. 3"
+          "NIST CSF 2.0 y NIST SP 800-61"
         ],
         "en": [
           "Frameworks",
-          "NIST CSF 2.0 and incident response per NIST SP 800-61 Rev. 3"
+          "NIST CSF 2.0 and NIST SP 800-61"
         ],
         "fuentes": [
           "F-02",
           "F-04"
         ]
       }
+    ],
+    "cifras": [
+      "C-01",
+      "C-03",
+      "C-02"
     ]
   },
   "generador": {

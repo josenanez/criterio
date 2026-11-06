@@ -13,7 +13,7 @@
     "en": "Built · tested"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
     "para": {
       "es": "Contrasta lo que reporta cada proyecto contra la evidencia de sus documentos —cronogramas, minutas, presupuestos— y le dice al comité qué verdes no se sostienen, qué compromisos vencieron y qué proyectos construyen lo mismo.",
       "en": "It checks what each project reports against the evidence in its documents —schedules, minutes, budgets— and tells the committee which greens do not hold, which commitments are overdue and which projects build the same thing."
@@ -22,25 +22,30 @@
       {
         "es": [
           "Cronogramas",
-          "Microsoft Project en XML —tareas, hitos, línea base, avance, predecesoras y recursos—, el .mpp donde haya Java y MPXJ, y el cronograma en Excel o CSV"
+          "Microsoft Project (XML y .mpp), Excel y CSV"
         ],
         "en": [
           "Schedules",
-          "Microsoft Project XML —tasks, milestones, baseline, progress, predecessors and resources—, the .mpp where Java and MPXJ are available, and the schedule in Excel or CSV"
+          "Microsoft Project (XML and .mpp), Excel and CSV"
         ],
         "fuentes": []
       },
       {
         "es": [
-          "Documentos del proyecto",
-          "Minutas, informes, actas y presupuestos en Word, Excel, PowerPoint y PDF con capa de texto; el PDF escaneado necesita OCR antes"
+          "Documentos",
+          "Word, Excel, PowerPoint y PDF con texto"
         ],
         "en": [
-          "Project documents",
-          "Minutes, reports, records and budgets in Word, Excel, PowerPoint and PDF with a text layer; a scanned PDF needs OCR first"
+          "Documents",
+          "Word, Excel, PowerPoint and PDF with text"
         ],
         "fuentes": []
       }
+    ],
+    "cifras": [
+      "C-01",
+      "C-04",
+      "C-02"
     ]
   },
   "agentes": [

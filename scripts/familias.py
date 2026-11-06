@@ -1209,7 +1209,8 @@ def nombres_readme(check: bool) -> list[str]:
 
 def revisar_nivel_c() -> list[str]:
     """Lo que hace cada familia para quien dirige la función (`nivel_c` de su familia.json), que el
-    portal publica en «Qué hace»: en los dos idiomas, y cada fuente que cita existe y está verificada."""
+    portal publica en «Qué hace»: en los dos idiomas, y cada fuente y cada cifra que cita existe y
+    está verificada."""
     errores = []
     for f in sorted((RAIZ / "families").glob("criterio-*/familia.json")):
         fam = json.loads(f.read_text(encoding="utf-8"))
@@ -1227,6 +1228,12 @@ def revisar_nivel_c() -> list[str]:
             errores.append(f"{s}: `nivel_c.para` sin los dos idiomas")
         if not n.get("con"):
             errores.append(f"{s}: `nivel_c.con` vacío: con qué trabaja la familia")
+        cifras = {c["id"]: c.get("estado") for c in json.loads(fu.read_text(encoding="utf-8")).get("cifras", [])} if fu.exists() else {}
+        if len(n.get("cifras", [])) != 3:
+            errores.append(f"{s}: `nivel_c.cifras` lleva las tres cifras de terceros que dicen por qué importa")
+        for i in n.get("cifras", []):
+            if cifras.get(i) != "verificada":
+                errores.append(f"{s}: `nivel_c.cifras` cita {i}, que no está verificada en fuentes.json")
         for x in n.get("con", []):
             if len(x.get("es", [])) != 2 or len(x.get("en", [])) != 2:
                 errores.append(f"{s}: `nivel_c.con` con una entrada sin título y texto en los dos idiomas")
