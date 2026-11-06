@@ -34,13 +34,14 @@ modo de Ofelia, no un agente aparte.
 ## Qué hace
 
 <!-- ea:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los diez comandos
+### Los once comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-assistant:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-assistant:ea-setup` | La configuración, el inventario y los órganos con sus sesiones |
+| `/criterio-assistant:ofelia` | Lo que necesites, en tus palabras: Ofelia elige el comando que lo resuelve y lo corre |
 | `/criterio-assistant:ea-scan` | Las fichas de las reuniones, de la correspondencia, de los viajes y de la agenda |
 | `/criterio-assistant:ea-agenda` | La semana del ejecutivo: cruces, viajes contra la agenda, sesiones sin material y sesiones sin acta |
 | `/criterio-assistant:ea-prep` | El paquete de la sesión, con la ficha de cada decisión |

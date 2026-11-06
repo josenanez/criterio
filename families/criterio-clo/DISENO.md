@@ -2,7 +2,7 @@
 
 # criterio-clo · the family design
 
-**Status: built and tested on synthetic material.** The sixteen commands, the ten skills and the calculation engine are
+**Status: built and tested on synthetic material.** The eighteen commands, the ten skills and the calculation engine are
 built; the engine passes its deterministic test against the material of four industries and two
 control entities (`tests/criterio-clo/`), and the agents passed the full round on the six entities ([the rounds](../../tests/evidencias/familias/clo/RONDAS.md)). Scope in
 [ADR 0009](../../docs/decisions/0009-scope-clo.md).

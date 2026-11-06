@@ -200,6 +200,9 @@ no se vuelve a preguntar.
 /criterio-clo:clo-setup
 ```
 
+Después, a cada agente se le pide en tus palabras, sin saber cómo se llama cada comando: `/criterio-legal:fidel`, `/criterio-compliance:constanza`
+([decisión 0027](../../docs/decisions/0027-cada-agente-se-pide-en-palabras.md)).
+
 **Si solo necesitas un agente**, se instala solo y basta su propio setup:
 
 ```
@@ -225,8 +228,8 @@ página de agente se lee sola** — alguien puede instalar uno sin el otro.
 <!-- clo:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
 |---|---|---|---|---|
-| **Fidel** · contratos | Lo firmado y en qué términos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías | No interpreta cláusulas, no califica la validez de un contrato y no decide renovar ni terminar | [criterio-legal](../../plugins/criterio-legal/README.es.md) · 8 comandos, 5 skills | [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · cumplimiento | La matriz de obligaciones de la organización contra su evidencia, la revisión de las políticas, las normas nuevas con su evaluación, el canal de denuncias con sus plazos y las obligaciones de cumplimiento que traen los contratos | No define obligaciones, no dice qué exige una norma y no procesa quién denunció | [criterio-compliance](../../plugins/criterio-compliance/README.es.md) · 8 comandos, 6 skills | [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · contratos | Lo firmado y en qué términos: el registro de contratos contra sus documentos, los vencimientos y los preavisos de renovación, las obligaciones con su evidencia, quién firmó con qué facultad y lo pagado contra lo pactado y sus garantías | No interpreta cláusulas, no califica la validez de un contrato y no decide renovar ni terminar | [criterio-legal](../../plugins/criterio-legal/README.es.md) · 9 comandos, 5 skills | [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · cumplimiento | La matriz de obligaciones de la organización contra su evidencia, la revisión de las políticas, las normas nuevas con su evaluación, el canal de denuncias con sus plazos y las obligaciones de cumplimiento que traen los contratos | No define obligaciones, no dice qué exige una norma y no procesa quién denunció | [criterio-compliance](../../plugins/criterio-compliance/README.es.md) · 9 comandos, 6 skills | [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /clo:familia-agentes -->
 
@@ -430,8 +433,8 @@ sobre la documentación de una organización real.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Fidel** · Contratos | `criterio-legal` · 8 comandos, 5 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Cumplimiento | `criterio-compliance` · 8 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contratos | `criterio-legal` · 9 comandos, 5 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Cumplimiento | `criterio-compliance` · 9 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 

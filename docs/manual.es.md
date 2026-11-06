@@ -1,6 +1,6 @@
 # Manual de los comandos de Criterio
 
-Los 92 comandos de las familias PMO, CFO, CLO y EA y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros, Tomás lleva el presupuesto y Áurea la tesorería—, la CLO —Fidel lleva los contratos y Constanza el cumplimiento— y la EA —Ofelia prepara la oficina del ejecutivo—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
+Los 101 comandos de las familias PMO, CFO, CLO y EA y de Rostrum. Primero la PMO, en el orden en que la usa: Alba define el producto, Samuel ejecuta un proyecto y Vera consolida el portafolio; después la CFO —Clara cierra los libros, Tomás lleva el presupuesto y Áurea la tesorería—, la CLO —Fidel lleva los contratos y Constanza el cumplimiento— y la EA —Ofelia prepara la oficina del ejecutivo—; y al final Rostrum, que publica lo de todas. Cada comando se escribe con el prefijo de su plugin; el autocompletado hace el resto.
 
 Este manual se genera con `scripts/manual.py` desde la tabla del README de cada plugin y su `contratos.json`, el mismo contrato que las pruebas comparan contra cada corrida. No se edita a mano.
 
@@ -19,6 +19,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `.criterio/producto/<código>/config.json`; `<estado>/ (init)`; `<estado>/producto.json`; `<estado>/requirements/<REQ>.json`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`; `<raíz>/_CRITERIO_PRODUCTO.txt (marcar-raiz, con permiso)`
 
 **Skills.** **demand-evidence**, **document-intake**, **product-metrics**, **requirement-record**
+
+### `/criterio-product:alba`
+
+**Qué hace.** **Pídeselo a Alba en tus palabras.** Dices lo que necesitas y Alba elige el comando que lo resuelve y lo corre; sin argumento, te muestra lo que sabe hacer
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
 
 ### `/criterio-product:product-discovery`
 
@@ -186,6 +196,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **commitment-tracking**, **document-intake**, **project-record**
 
+### `/criterio-project:samuel`
+
+**Qué hace.** **Pídeselo a Samuel en tus palabras.** Dices lo que necesitas y Samuel elige el comando que lo resuelve y lo corre; sin argumento, te muestra lo que sabe hacer
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
 ### `/criterio-project:pm-agenda`
 
 **Qué hace.** La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover
@@ -325,6 +345,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `.criterio/portafolio/config.json`; `<estado>/ (init)`; `<estado>/records/<código>.json (tres)`; `.criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)`; `<raíz>/_CRITERIO_PORTAFOLIO.txt (marcar-raiz, con permiso)`
 
 **Skills.** **commitment-tracking**, **document-intake**, **portfolio-health**, **project-record**
+
+### `/criterio-portfolio:vera`
+
+**Qué hace.** **Pídeselo a Vera en tus palabras.** Dices lo que necesitas y Vera elige el comando que lo resuelve y lo corre; sin argumento, te muestra lo que sabe hacer
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
 
 ### `/criterio-portfolio:portfolio-wake`
 
@@ -564,6 +594,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **close-checklist**, **close-record**, **finance-intake**
 
+### `/criterio-finance:clara`
+
+**Qué hace.** Lo que necesites, en tus palabras: Clara elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
 ### `/criterio-finance:close-scan`
 
 **Qué hace.** La ficha del cierre al día, con lo que cambió y las señales nuevas
@@ -704,6 +744,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **budget-record**, **finance-intake**
 
+### `/criterio-budget:tomas`
+
+**Qué hace.** Lo que necesites, en tus palabras: Tomás elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
 ### `/criterio-budget:budget-scan`
 
 **Qué hace.** Las fichas del presupuesto al día, con lo que cambió y las señales nuevas
@@ -816,6 +866,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **finance-intake**
 
+### `/criterio-treasury:aurea`
+
+**Qué hace.** Lo que necesites, en tus palabras: Áurea elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
 ### `/criterio-treasury:treasury-scan`
 
 **Qué hace.** La tesorería al día, con lo que cambió y las señales nuevas
@@ -913,6 +973,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `.criterio/legal/<entidad>/config.json`; `<estado>/ (init)`; `<estado>/indice.json`; `<estado>/cache/`; `<estado>/contratos/<código>.json`; `.criterio/terminos/ (aceptar)`; `<estado>/contratos/resultados.json`; `<estado>/contratos/reporte-obligations-calendar.md`; `<estado>/corridas/salida-legal-setup.md`; `<raíz>/_CRITERIO_LEGAL.txt (marcar-raiz, con permiso)`
 
 **Skills.** **contract-record**, **legal-intake**, **signing-authority**
+
+### `/criterio-legal:fidel`
+
+**Qué hace.** Lo que necesites, en tus palabras: Fidel elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
 
 ### `/criterio-legal:contract-scan`
 
@@ -1026,6 +1096,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 
 **Skills.** **compliance-record**, **legal-intake**, **obligations-matrix**
 
+### `/criterio-compliance:constanza`
+
+**Qué hace.** Lo que necesites, en tus palabras: Constanza elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
+
 ### `/criterio-compliance:compliance-scan`
 
 **Qué hace.** La ficha del cumplimiento al día, con lo que cambió y las señales nuevas
@@ -1137,6 +1217,16 @@ Este manual se genera con `scripts/manual.py` desde la tabla del README de cada 
 **Escribe.** `.criterio/direccion/<ejecutivo>/config.json`; `<estado>/ (init)`; `.criterio/terminos/ (aceptar)`; `<estado>/resultados.json`; `<estado>/reporte-ea-setup.md`; `<raíz>/_CRITERIO_DIRECCION.txt (marcar-raiz, con permiso)`
 
 **Skills.** **ea-intake**
+
+### `/criterio-assistant:ofelia`
+
+**Qué hace.** Lo que necesites, en tus palabras: Ofelia elige el comando que lo resuelve y lo corre
+
+**Argumento.** `[lo que necesitas, en tus palabras] o vacío`
+
+**Muestra.** qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta
+
+**Escribe.** nada: no escribe
 
 ### `/criterio-assistant:ea-scan`
 

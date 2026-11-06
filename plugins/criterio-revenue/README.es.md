@@ -15,7 +15,7 @@ plan.
 
 [English](README.md) · `criterio-revenue` · Apache 2.0 · Una instancia por entidad
 
-**Estado: estable, sin lanzar (versión 0.3.0).** Los siete comandos, los seis skills y el motor de
+**Estado: estable, sin lanzar (versión 0.3.0).** Los ocho comandos, los seis skills y el motor de
 cálculo, probados contra material sintético de Colombia, México, Ecuador, Perú y Chile —con las
 exportaciones de Salesforce, HubSpot, Dynamics 365, Zoho y cualquier CRM con su mapeo— con una clave
 que el agente no ve y una entidad de control por país. Pasó sus dos rondas con los agentes: con todas
@@ -49,13 +49,14 @@ que pide su nivel, qué venta ganada no tiene contrato firmado, qué contrato fi
 su plazo y qué comisión liquidada no es la que da el plan.
 
 <!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los siete comandos
+### Los ocho comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-revenue:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-revenue:revenue-setup` | La configuración, el inventario y las cuentas que faltan para cruzar con Fidel y Clara |
+| `/criterio-revenue:valeria` | Lo que necesites, en tus palabras: Valeria elige el comando que lo resuelve y lo corre |
 | `/criterio-revenue:deal-scan` | La ficha del periodo al día, con las cotizaciones nuevas y las señales nuevas |
 | `/criterio-revenue:discount-check` | Cada descuento contra su política y su aprobación |
 | `/criterio-revenue:won-to-invoice` | De lo ganado a lo firmado y a lo facturado: lo que se quedó en el camino |

@@ -34,13 +34,14 @@ Ofelia, not a separate agent.
 ## What it does
 
 <!-- ea:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The ten commands
+### The eleven commands
 
 > They are typed with the plugin prefix: `/criterio-assistant:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-assistant:ea-setup` | The configuration, the inventory and the governing bodies with their meetings |
+| `/criterio-assistant:ofelia` | Whatever you need, in your own words: Ofelia picks the command that does it and runs it |
 | `/criterio-assistant:ea-scan` | The records of the meetings, the correspondence and the calendar |
 | `/criterio-assistant:ea-agenda` | The executive's week: conflicts, trips against the calendar, meetings without materials and meetings without minutes |
 | `/criterio-assistant:ea-prep` | The meeting pack, with the record of each decision |

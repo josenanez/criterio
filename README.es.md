@@ -105,7 +105,8 @@ su setup los configura en orden sin volver a preguntar lo que ya se respondió:
 /criterio-cfo:cfo-setup
 ```
 
-Lo mismo con `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` y `criterio-ea`. Si
+Lo mismo con `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` y `criterio-ea`. Después, a cada
+agente se le pide en tus palabras, por su nombre: `/criterio-finance:clara`, `/criterio-budget:tomas`… Si
 solo necesitas un agente, se instala solo: qué agente sirve a qué rol lo explica cada familia, por
 ejemplo la de gobierno de proyectos en [criterio-pmo](families/criterio-pmo/README.es.md#instalación-de-la-familia).
 

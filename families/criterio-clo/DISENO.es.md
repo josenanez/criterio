@@ -2,7 +2,7 @@
 
 # criterio-clo · el diseño de la familia
 
-**Estado: construida y probada sobre material sintético.** Los dieciséis comandos, los diez skills y el motor de cálculo están
+**Estado: construida y probada sobre material sintético.** Los dieciocho comandos, los diez skills y el motor de cálculo están
 construidos; el motor pasa su prueba determinista contra el material de cuatro industrias y dos
 entidades de control (`tests/criterio-clo/`), y los agentes pasaron la ronda completa sobre las seis entidades ([las rondas](../../tests/evidencias/familias/clo/RONDAS.md)).
 Alcance en [ADR 0009](../../docs/decisions/0009-scope-clo.md).

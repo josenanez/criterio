@@ -15,7 +15,7 @@ que lo sostiene y la meta contra lo cerrado.
 
 [English](README.md) · `criterio-sales` · Apache 2.0 · Una instancia por entidad
 
-**Estado: estable, sin lanzar (versión 0.3.0).** Los siete comandos, los cuatro skills y el motor de
+**Estado: estable, sin lanzar (versión 0.3.0).** Los ocho comandos, los cuatro skills y el motor de
 cálculo, probados contra material sintético de Colombia, México, Ecuador, Perú y Chile —con las
 exportaciones de Salesforce, HubSpot, Dynamics 365, Zoho y cualquier CRM con su mapeo— con una clave
 que el agente no ve y una entidad de control por país. Pasó sus dos rondas con los agentes: con todas
@@ -50,13 +50,14 @@ cuánto de lo comprometido tiene respaldo en los documentos y cómo va lo cerrad
 corte.
 
 <!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los siete comandos
+### Los ocho comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-sales:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-sales:sales-setup` | La configuración, el inventario y el formato de cada exportación del CRM |
+| `/criterio-sales:augusto` | Lo que necesites, en tus palabras: Augusto elige el comando que lo resuelve y lo corre |
 | `/criterio-sales:pipeline-scan` | La ficha del periodo al día, con lo que cambió en el embudo y las señales nuevas |
 | `/criterio-sales:pipeline-check` | Cada oportunidad contra su evidencia: la que no la tiene, la detenida y la que corre su cierre |
 | `/criterio-sales:forecast-check` | El pronóstico comprometido contra lo que lo sostiene, oportunidad por oportunidad |

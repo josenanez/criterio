@@ -14,7 +14,7 @@ llega con la cadena de evidencia armada y los huecos señalados.
 
 [English](README.md) · `criterio-product` · Apache 2.0 · Una instancia por producto
 
-**Estado: los once comandos construidos**, doce skills, y la aritmética del registro
+**Estado: los doce comandos construidos**, doce skills, y la aritmética del registro
 verificada con 64 comprobaciones. **Lo que todavía no se ha probado: el registro sobre la
 documentación real de un producto** — la extracción desde entrevistas y casos de negocio no
 se ha ejercitado fuera de material sintético. Nada se anuncia como terminado hasta que pasen
@@ -48,13 +48,14 @@ dicha en ninguna parte**, qué supuesto lleva meses sin verificarse, dónde el c
 afirma un número que la métrica no sostiene, y qué se decidió construir que **nadie está
 construyendo**.
 
-### Los once comandos
+### Los doce comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-product:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-product:product-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y contrasta la definición que ya tengas |
+| `/criterio-product:alba` | **Pídeselo a Alba en tus palabras.** Dices lo que necesitas y Alba elige el comando que lo resuelve y lo corre; sin argumento, te muestra lo que sabe hacer |
 | `/criterio-product:product-discovery` | Entrevistas y tickets en temas con la cita de quién lo dijo, y el tema que lleva meses dicho sin que nadie lo convierta en nada |
 | `/criterio-product:product-requirements` | El registro con sus vacíos: sin doliente, sin criterio, aceptado sin que nadie lo pidiera, y lo que nadie decide |
 | `/criterio-product:product-definition` | La definición contra la evidencia de demanda, y dónde el negocio y los datos no coinciden |

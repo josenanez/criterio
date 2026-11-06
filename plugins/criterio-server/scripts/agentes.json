@@ -124,6 +124,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "vera",
+              "etiqueta": "Pídeselo a Vera"
+            },
+            {
               "id": "portfolio-wake",
               "etiqueta": "Qué toca hoy"
             }
@@ -256,6 +260,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "samuel",
+              "etiqueta": "Pídeselo a Samuel"
+            },
+            {
               "id": "pm-wake",
               "etiqueta": "Qué toca hoy"
             },
@@ -346,6 +354,10 @@
             {
               "id": "product-setup",
               "etiqueta": "Instalación"
+            },
+            {
+              "id": "alba",
+              "etiqueta": "Pídeselo a Alba"
             },
             {
               "id": "product-wake",
@@ -456,6 +468,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "clara",
+              "etiqueta": "Pídeselo a Clara"
+            },
+            {
               "id": "share-findings",
               "etiqueta": "Compartir hallazgos"
             }
@@ -532,6 +548,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "tomas",
+              "etiqueta": "Pídeselo a Tomás"
+            },
+            {
               "id": "share-findings",
               "etiqueta": "Compartir hallazgos"
             }
@@ -600,6 +620,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "aurea",
+              "etiqueta": "Pídeselo a Áurea"
+            },
+            {
               "id": "share-findings",
               "etiqueta": "Compartir hallazgos"
             }
@@ -662,6 +686,10 @@
             {
               "id": "legal-setup",
               "etiqueta": "Instalación"
+            },
+            {
+              "id": "fidel",
+              "etiqueta": "Pídeselo a Fidel"
             },
             {
               "id": "share-findings",
@@ -732,6 +760,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "constanza",
+              "etiqueta": "Pídeselo a Constanza"
+            },
+            {
               "id": "share-findings",
               "etiqueta": "Compartir hallazgos"
             }
@@ -796,6 +828,10 @@
             {
               "id": "ea-setup",
               "etiqueta": "Instalación"
+            },
+            {
+              "id": "ofelia",
+              "etiqueta": "Pídeselo a Ofelia"
             },
             {
               "id": "share-findings",
@@ -874,6 +910,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "augusto",
+              "etiqueta": "Pídeselo a Augusto"
+            },
+            {
               "id": "share-findings",
               "etiqueta": "Compartir hallazgos"
             }
@@ -945,6 +985,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "valeria",
+              "etiqueta": "Pídeselo a Valeria"
+            },
+            {
               "id": "share-findings",
               "etiqueta": "Compartir hallazgos"
             }
@@ -1007,6 +1051,10 @@
             {
               "id": "security-setup",
               "etiqueta": "Instalación"
+            },
+            {
+              "id": "alexis",
+              "etiqueta": "Pídeselo a Alexis"
             },
             {
               "id": "share-findings",
@@ -1112,6 +1160,10 @@
               "etiqueta": "Instalación"
             },
             {
+              "id": "guillermo",
+              "etiqueta": "Pídeselo a Guillermo"
+            },
+            {
               "id": "share-findings",
               "etiqueta": "Compartir hallazgos"
             }
@@ -1174,6 +1226,10 @@
             {
               "id": "resilience-setup",
               "etiqueta": "Instalación"
+            },
+            {
+              "id": "amparo",
+              "etiqueta": "Pídeselo a Amparo"
             },
             {
               "id": "share-findings",

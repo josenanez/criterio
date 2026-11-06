@@ -36,13 +36,14 @@ You answer for incident response and continuity. She comes with every incident a
 **What it can answer that takes a manual reconstruction today:** which incident was contained late, which notification to the supervisor was late or never made, which closed incident has no review, and which critical backup has gone months without a restore test.
 
 <!-- ciso:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The seven commands
+### The eight commands
 
 > They are typed with the plugin prefix: `/criterio-resilience:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-resilience:resilience-setup` | The configuration, with the policy's deadlines |
+| `/criterio-resilience:amparo` | Whatever you need, in your own words: Amparo picks the command that does it and runs it |
 | `/criterio-resilience:resilience-scan` | The period record up to date, with the new incidents, reviews and tests |
 | `/criterio-resilience:incident-timeline` | Each incident against its severity's deadline and its review |
 | `/criterio-resilience:notifications` | Each notification the matrix requires, on time, late or not made |

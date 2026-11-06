@@ -14,7 +14,7 @@ proyección al cierre del año con su supuesto escrito y cada traslado con su ac
 
 [English](README.md) · `criterio-budget` · Apache 2.0 · Una instancia por entidad
 
-**Estado: los ocho comandos construidos**, los seis skills y el motor de cálculo, probado contra
+**Estado: los nueve comandos construidos**, los seis skills y el motor de cálculo, probado contra
 material sintético de cuatro industrias con una clave que el agente no ve y una entidad de
 control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
@@ -47,13 +47,14 @@ cayó en una cuenta sin línea presupuestal y qué proyecto tiene en su ficha ot
 asignado al área.
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los ocho comandos
+### Los nueve comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-budget:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-budget:budget-setup` | La configuración, el inventario y la primera ficha del presupuesto de cada área |
+| `/criterio-budget:tomas` | Lo que necesites, en tus palabras: Tomás elige el comando que lo resuelve y lo corre |
 | `/criterio-budget:budget-scan` | Las fichas del presupuesto al día, con lo que cambió y las señales nuevas |
 | `/criterio-budget:variance-report` | Aprobado, ejecutado, comprometido, disponible y desviación por área y cuenta |
 | `/criterio-budget:forecast` | La proyección al cierre del año, con su supuesto declarado |

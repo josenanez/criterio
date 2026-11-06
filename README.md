@@ -104,7 +104,8 @@ configures them in order without asking again what was already answered:
 /criterio-cfo:cfo-setup
 ```
 
-The same with `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` and `criterio-ea`. If
+The same with `criterio-pmo`, `criterio-clo`, `criterio-cco`, `criterio-ciso` and `criterio-ea`. After that,
+you ask each agent in your own words, by name: `/criterio-finance:clara`, `/criterio-budget:tomas`… If
 you only need one agent, it installs on its own: which agent serves which role is explained by each
 family, for instance the project governance one in [criterio-pmo](families/criterio-pmo/README.md#installing-the-family).
 

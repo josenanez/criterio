@@ -13,7 +13,7 @@ unblock. He arrives with the week ready and with the list of what was said and n
 
 [Español](README.es.md) · `criterio-project` · Apache 2.0 · One instance per project
 
-**Status: the nine commands are built**, along with the eight skills of the method and the
+**Status: the ten commands are built**, along with the eight skills of the method and the
 arithmetic verified against a corpus with answers written by hand. **What has not been tested
 yet: extraction over a real organisation's documentation** — the corpus seeds the record, so the
 document → model → record chain has not been exercised. Nothing is announced as finished until
@@ -47,13 +47,14 @@ citation from the minutes, what fell due with no evidence in the file, and **wha
 rescheduled meeting after meeting** — which is not a tracking problem, it is a blockage nobody
 has named.
 
-### The nine commands
+### The ten commands
 
 > They are typed with the plugin prefix: `/criterio-project:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-project:pm-setup` | **The first thing you run.** Looks at your folder, asks four questions and reads your last minutes |
+| `/criterio-project:samuel` | **Ask Samuel in your own words.** You say what you need and Samuel picks the command that does it and runs it; with no argument, shows what it can do |
 | `/criterio-project:pm-agenda` | The agenda with the items that need somebody in the room, and with what this meeting cannot move |
 | `/criterio-project:pm-minutes` | The minutes over the transcript or the notes, with everything attributed to a person |
 | `/criterio-project:pm-commitments` | Who promised what, what fell due with no evidence, and what keeps being rescheduled meeting after meeting |

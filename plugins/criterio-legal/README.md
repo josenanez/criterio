@@ -14,7 +14,7 @@ signed with what authority and what was paid against what was agreed.
 
 [Español](README.es.md) · `criterio-legal` · Apache 2.0 · One instance per entity
 
-**Status: the eight commands are built**, along with the five skills and the calculation engine,
+**Status: the nine commands are built**, along with the five skills and the calculation engine,
 tested against synthetic material from four industries with a key the agent never sees and one
 control entity per country. **The agent's extraction passed the [full round](../../tests/evidencias/familias/clo/RONDAS.md)** on the six entities; nothing has been run yet on an organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
@@ -48,13 +48,14 @@ register reports as in force when it has already ended, who signed beyond their 
 required guarantee has no policy and what was paid above the value with its amendments.
 
 <!-- clo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The eight commands
+### The nine commands
 
 > They are typed with the plugin prefix: `/criterio-legal:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-legal:legal-setup` | The configuration, the inventory and the first contract records |
+| `/criterio-legal:fidel` | Whatever you need, in your own words: Fidel picks the command that does it and runs it |
 | `/criterio-legal:contract-scan` | The contract records up to date, with what changed and the new signals |
 | `/criterio-legal:contract-register` | The contract register against what the documents say |
 | `/criterio-legal:obligations-calendar` | Expiries, notices and obligations, with what is overdue without evidence |

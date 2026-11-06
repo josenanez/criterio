@@ -34,13 +34,14 @@ single occupation (11-3031.01), which is why Áurea lives in the CFO family and 
 ## What it does
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The seven commands
+### The eight commands
 
 > They are typed with the plugin prefix: `/criterio-treasury:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-treasury:treasury-setup` | The configuration, the inventory and the first cash position |
+| `/criterio-treasury:aurea` | Whatever you need, in your own words: Áurea picks the command that does it and runs it |
 | `/criterio-treasury:treasury-scan` | Treasury up to date, with what changed and the new signals |
 | `/criterio-treasury:cash-position` | Each account's cash against its minimum and projection, and the currency exposure |
 | `/criterio-treasury:payment-check` | Each scheduled payment against who may approve it |

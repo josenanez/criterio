@@ -14,7 +14,7 @@ facultad y lo pagado contra lo pactado.
 
 [English](README.md) · `criterio-legal` · Apache 2.0 · Una instancia por entidad
 
-**Estado: los ocho comandos construidos**, los cinco skills y el motor de cálculo, probado
+**Estado: los nueve comandos construidos**, los cinco skills y el motor de cálculo, probado
 contra material sintético de cuatro industrias con una clave que el agente no ve y una entidad
 de control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/clo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
@@ -47,13 +47,14 @@ vigente cuando ya terminó, quién firmó por encima de su facultad, qué garant
 póliza y qué se pagó por encima del valor con sus otrosíes.
 
 <!-- clo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los ocho comandos
+### Los nueve comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-legal:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-legal:legal-setup` | La configuración, el inventario y las primeras fichas de los contratos |
+| `/criterio-legal:fidel` | Lo que necesites, en tus palabras: Fidel elige el comando que lo resuelve y lo corre |
 | `/criterio-legal:contract-scan` | Las fichas de los contratos al día, con lo que cambió y las señales nuevas |
 | `/criterio-legal:contract-register` | El registro de contratos contra lo que dicen los documentos |
 | `/criterio-legal:obligations-calendar` | Vencimientos, preavisos y obligaciones, con lo que venció sin evidencia |

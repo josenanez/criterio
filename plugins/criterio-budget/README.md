@@ -14,7 +14,7 @@ stated assumption and every transfer with its minutes.
 
 [Español](README.es.md) · `criterio-budget` · Apache 2.0 · One instance per entity
 
-**Status: the eight commands are built**, along with the six skills and the calculation engine,
+**Status: the nine commands are built**, along with the six skills and the calculation engine,
 tested against synthetic material from four industries with a key the agent never sees and one
 control entity per country. **The agent's extraction passed the [full round](../../tests/evidencias/familias/cfo/RONDAS.md)** on the six entities; nothing has been run yet on an organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
@@ -47,13 +47,14 @@ spend landed on an account with no budget line and which project carries in its 
 other than the one assigned to the area.
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The eight commands
+### The nine commands
 
 > They are typed with the plugin prefix: `/criterio-budget:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-budget:budget-setup` | The configuration, the inventory and each area's first budget record |
+| `/criterio-budget:tomas` | Whatever you need, in your own words: Tomás picks the command that does it and runs it |
 | `/criterio-budget:budget-scan` | The budget records up to date, with what changed and the new signals |
 | `/criterio-budget:variance-report` | Approved, actual, committed, available and variance by area and account |
 | `/criterio-budget:forecast` | The year-end forecast, with its stated assumption |

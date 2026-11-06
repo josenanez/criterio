@@ -34,13 +34,14 @@ una misma ocupación (11-3031.01), y por eso Áurea vive en la familia CFO y no 
 ## Qué hace
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los siete comandos
+### Los ocho comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-treasury:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-treasury:treasury-setup` | La configuración, el inventario y la primera posición de caja |
+| `/criterio-treasury:aurea` | Lo que necesites, en tus palabras: Áurea elige el comando que lo resuelve y lo corre |
 | `/criterio-treasury:treasury-scan` | La tesorería al día, con lo que cambió y las señales nuevas |
 | `/criterio-treasury:cash-position` | La caja de cada cuenta contra su mínimo y su proyección, y la exposición cambiaria |
 | `/criterio-treasury:payment-check` | Cada pago programado contra quién puede aprobarlo |

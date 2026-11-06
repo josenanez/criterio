@@ -15,7 +15,7 @@ against the plan.
 
 [Español](README.es.md) · `criterio-revenue` · Apache 2.0 · One instance per entity
 
-**Status: stable, not yet launched (version 0.3.0).** The seven commands, the six skills and the
+**Status: stable, not yet launched (version 0.3.0).** The eight commands, the six skills and the
 calculation engine, tested against synthetic material from Colombia, Mexico, Ecuador, Peru and Chile
 —with Salesforce, HubSpot, Dynamics 365, Zoho and any CRM with its mapping— with a key the agent never
 sees and one control entity per country. It passed its two rounds with the agents: across all of them,
@@ -47,13 +47,14 @@ asks for, which won sale has no signed contract, which signed contract was not i
 settled commission is not the one the plan gives.
 
 <!-- cco:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The seven commands
+### The eight commands
 
 > They are typed with the plugin prefix: `/criterio-revenue:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-revenue:revenue-setup` | The configuration, the inventory and the accounts still missing to cross with Fidel and Clara |
+| `/criterio-revenue:valeria` | Whatever you need, in your own words: Valeria picks the command that does it and runs it |
 | `/criterio-revenue:deal-scan` | The period record up to date, with the new quotes and the new signals |
 | `/criterio-revenue:discount-check` | Every discount against its policy and its approval |
 | `/criterio-revenue:won-to-invoice` | From won to signed to invoiced: what was left along the way |

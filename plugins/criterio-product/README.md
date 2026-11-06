@@ -14,7 +14,7 @@ arrives with the chain of evidence assembled and the holes pointed out.
 
 [Español](README.es.md) · `criterio-product` · Apache 2.0 · One instance per product
 
-**Status: the eleven commands are built**, twelve skills, and the register's arithmetic verified
+**Status: the twelve commands are built**, twelve skills, and the register's arithmetic verified
 with 64 checks. **What has not been tested yet: the register over a real product's
 documentation** — extraction from interviews and business cases has not been exercised outside
 synthetic material. Nothing is announced as finished until the
@@ -48,13 +48,14 @@ anywhere**, which assumption has gone months without being verified, where the b
 asserts a number the metric does not support, and what was decided to be built that **nobody is
 building**.
 
-### The eleven commands
+### The twelve commands
 
 > They are typed with the plugin prefix: `/criterio-product:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-product:product-setup` | **The first thing you run.** Looks at your folder, asks four questions and contrasts the definition you already have |
+| `/criterio-product:alba` | **Ask Alba in your own words.** You say what you need and Alba picks the command that does it and runs it; with no argument, shows what it can do |
 | `/criterio-product:product-discovery` | Interviews and tickets into themes with the citation of who said it, and the theme that has gone months said without anybody turning it into anything |
 | `/criterio-product:product-requirements` | The register with its gaps: no owner, no acceptance criteria, accepted without anybody asking for it, and what nobody decides |
 | `/criterio-product:product-definition` | The definition against the evidence of demand, and where the business and the data do not match |

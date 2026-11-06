@@ -2,7 +2,7 @@
 
 # criterio-ciso · el diseño de la familia
 
-**Estado: de laboratorio, sin lanzar (versión 0.2.0).** Los veintitrés comandos, los siete skills y el motor de cálculo
+**Estado: estable, lanzada (versión 1.0.0).** Los veintiséis comandos, los siete skills y el motor de cálculo
 se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de banca,
 retail, salud y tecnología (`tests/criterio-ciso/`), y la primera ronda con los agentes, sobre las seis
 entidades, levanta 100 de 100 señales y ninguna de más. Alcance en [ADR 0023](../../docs/decisions/0023-la-familia-ciso.md).

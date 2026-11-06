@@ -14,7 +14,7 @@ is declared met without it and what is overdue.
 
 [Español](README.es.md) · `criterio-compliance` · Apache 2.0 · One instance per entity
 
-**Status: the eight commands are built**, along with the six skills and the calculation engine,
+**Status: the nine commands are built**, along with the six skills and the calculation engine,
 tested against synthetic material from four industries with a key the agent never sees and one
 control entity per country. **The agent's extraction passed the [full round](../../tests/evidencias/familias/clo/RONDAS.md)** on the six entities; nothing has been run yet on an organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
@@ -47,13 +47,14 @@ policy passed its review date, which new regulation has gone days without assess
 channel case passed its response deadline.
 
 <!-- clo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The eight commands
+### The nine commands
 
 > They are typed with the plugin prefix: `/criterio-compliance:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-compliance:compliance-setup` | The configuration, the reviewed matrix and the first compliance status |
+| `/criterio-compliance:constanza` | Whatever you need, in your own words: Constanza picks the command that does it and runs it |
 | `/criterio-compliance:compliance-scan` | The compliance record up to date, with what changed and the new signals |
 | `/criterio-compliance:compliance-status` | Compliance status: declared against evidenced, obligation by obligation |
 | `/criterio-compliance:policy-review` | Every policy with its next review, and the overdue ones |

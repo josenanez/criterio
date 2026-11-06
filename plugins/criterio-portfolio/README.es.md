@@ -13,7 +13,7 @@ tiene y dice qué cambió, qué se contradice y qué lleva semanas en silencio.
 
 [English](README.md) · Apache 2.0 · Una instancia por oficina de proyectos · Se instala en cuatro clics
 
-**Estado: los dieciséis comandos construidos**, los diez skills del método y la aritmética
+**Estado: los diecisiete comandos construidos**, los diez skills del método y la aritmética
 verificada sobre un corpus con respuestas escritas a mano. **Lo que todavía no se ha probado:
 la extracción sobre la documentación real de una organización.** Nada se anuncia como
 terminado hasta que pasen los [criterios de aceptación](DISENO.es.md#criterios-de-aceptación).
@@ -47,13 +47,14 @@ corrida anterior, qué se contradice entre dos documentos del mismo proyecto, qu
 semanas en silencio, cuántos de los que reportan verde tienen evidencia que ese verde no
 explica, y a quién alcanza mover un proyecto.
 
-### Los dieciséis comandos
+### Los diecisiete comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-portfolio:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-portfolio:portfolio-setup` | **Lo primero que se corre.** Mira tus carpetas, hace cinco preguntas y produce el primer informe sobre tus propios documentos |
+| `/criterio-portfolio:vera` | **Pídeselo a Vera en tus palabras.** Dices lo que necesitas y Vera elige el comando que lo resuelve y lo corre; sin argumento, te muestra lo que sabe hacer |
 | `/criterio-portfolio:portfolio-wake` | **Lo que el reloj invoca.** Mira qué toca hoy, lo hace, y si no toca nada se calla |
 | `/criterio-portfolio:document-index` | Qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver |
 | `/criterio-portfolio:portfolio-scan` | Lee la carpeta y produce o actualiza una ficha por proyecto. Puerta de entrada |

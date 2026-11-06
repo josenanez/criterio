@@ -13,7 +13,7 @@ desbloqueas. Él llega con la semana lista y con la lista de lo que se dijo y no
 
 [English](README.md) · `criterio-project` · Apache 2.0 · Una instancia por proyecto
 
-**Estado: los nueve comandos construidos**, los ocho skills del método y la aritmética
+**Estado: los diez comandos construidos**, los ocho skills del método y la aritmética
 verificada sobre un corpus con respuestas escritas a mano. **Lo que todavía no se ha
 probado: la extracción sobre la documentación real de una organización** — el corpus
 siembra la ficha, así que la cadena documento → modelo → ficha no se ha ejercitado. Nada se
@@ -48,13 +48,14 @@ cita de la minuta, qué venció sin evidencia en el expediente, y **qué se vien
 reunión tras reunión** — que no es un problema de seguimiento, es un bloqueo que nadie ha
 nombrado.
 
-### Los nueve comandos
+### Los diez comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-project:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-project:pm-setup` | **Lo primero que se corre.** Mira tu carpeta, hace cuatro preguntas y lee tu última minuta |
+| `/criterio-project:samuel` | **Pídeselo a Samuel en tus palabras.** Dices lo que necesitas y Samuel elige el comando que lo resuelve y lo corre; sin argumento, te muestra lo que sabe hacer |
 | `/criterio-project:pm-agenda` | La agenda con los puntos que necesitan a alguien en la sala, y con lo que esta reunión no puede mover |
 | `/criterio-project:pm-minutes` | El acta sobre la transcripción o las notas, con cada cosa atribuida a una persona |
 | `/criterio-project:pm-commitments` | Quién prometió qué, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión |

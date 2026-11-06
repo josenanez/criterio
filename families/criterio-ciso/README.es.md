@@ -18,7 +18,7 @@ suyo.
 | **Objetivo** | Que lo que la organización se comprometió a hacer en su política —revisar, corregir, notificar, probar— tenga detrás los documentos que muestran que lo hizo, y a tiempo |
 | **Compuesta por** | [Alexis](../../plugins/criterio-security/README.es.md) · [Guillermo](../../plugins/criterio-vulnerability/README.es.md) · [Amparo](../../plugins/criterio-resilience/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | Los marcos internacionales que ordenan la familia, el formato de cada archivo que procesa el motor y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | De laboratorio, sin lanzar (0.2.0): el motor probado sobre material sintético de banca, retail, salud y tecnología, y la primera ronda con los tres agentes sobre las seis entidades, 100 de 100 señales y ninguna de más; los datos extraídos son todavía pocos para un piso del 95 %. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Estable, lanzada en su versión 1.0.0: el motor probado sobre material sintético de banca, retail, salud y tecnología, y las rondas 1 y 2 con los tres agentes: 148 señales y 80 datos, con un piso del 97,4 % en las señales y del 95,4 % en los datos. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Documentos y exportaciones, nunca sistemas: ningún agente corre un escaneo ni se conecta a una consola |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al responsable de seguridad ni a su equipo, y no decide por ellos: no acepta riesgos, no declara cumplido un control, no aprueba excepciones, no notifica a nadie, no califica la madurez y no certifica contra ninguna norma |
@@ -181,6 +181,9 @@ no se vuelve a preguntar.
 /criterio-ciso:ciso-setup
 ```
 
+Después, a cada agente se le pide en tus palabras, sin saber cómo se llama cada comando: `/criterio-security:alexis`, `/criterio-vulnerability:guillermo`, `/criterio-resilience:amparo`
+([decisión 0027](../../docs/decisions/0027-cada-agente-se-pide-en-palabras.md)).
+
 **Si solo necesitas un agente**, se instala solo y basta su propio setup:
 
 ```
@@ -202,9 +205,9 @@ agente se lee sola.**
 <!-- ciso:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
 |---|---|---|---|---|
-| **Alexis** · el gobierno y los controles | La declaración de aplicabilidad contra la evidencia: cada control aplicable con su responsable y la evidencia de que operó en su periodicidad, las revisiones de acceso de cada sistema, las evaluaciones de cada tercero crítico y las aceptaciones de riesgo que pasaron su fecha | No acepta un riesgo, no declara cumplido un control, no califica la madurez de la organización ni la certifica contra la ISO/IEC 27001, y no abre credenciales, llaves ni respaldos | [criterio-security](../../plugins/criterio-security/README.es.md) · 9 comandos, 3 skills | [resultados](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · las vulnerabilidades | Cada vulnerabilidad de las exportaciones del escáner contra el plazo de su severidad en la política, el catálogo KEV, las excepciones aprobadas, los cierres que ningún escaneo prueba y los activos del inventario que ningún escaneo cubre | No corre un escaneo, no se conecta a un sistema ni a una consola, no aprueba una excepción y no publica en Rostrum las vulnerabilidades abiertas salvo que la configuración lo diga | [criterio-vulnerability](../../plugins/criterio-vulnerability/README.es.md) · 7 comandos, 3 skills | [resultados](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · la respuesta y la recuperación | Cada incidente contra los plazos de la política y la matriz de notificaciones: la contención de su severidad, cada notificación al supervisor, a la autoridad de datos o a los clientes, y su revisión posterior; y las pruebas de continuidad, de recuperación y de restauración contra su calendario | No notifica a nadie, no declara ni cierra un incidente, no ejecuta un plan de continuidad ni una restauración, y no abre respaldos | [criterio-resilience](../../plugins/criterio-resilience/README.es.md) · 7 comandos, 3 skills | [resultados](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · el gobierno y los controles | La declaración de aplicabilidad contra la evidencia: cada control aplicable con su responsable y la evidencia de que operó en su periodicidad, las revisiones de acceso de cada sistema, las evaluaciones de cada tercero crítico y las aceptaciones de riesgo que pasaron su fecha | No acepta un riesgo, no declara cumplido un control, no califica la madurez de la organización ni la certifica contra la ISO/IEC 27001, y no abre credenciales, llaves ni respaldos | [criterio-security](../../plugins/criterio-security/README.es.md) · 10 comandos, 3 skills | [resultados](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · las vulnerabilidades | Cada vulnerabilidad de las exportaciones del escáner contra el plazo de su severidad en la política, el catálogo KEV, las excepciones aprobadas, los cierres que ningún escaneo prueba y los activos del inventario que ningún escaneo cubre | No corre un escaneo, no se conecta a un sistema ni a una consola, no aprueba una excepción y no publica en Rostrum las vulnerabilidades abiertas salvo que la configuración lo diga | [criterio-vulnerability](../../plugins/criterio-vulnerability/README.es.md) · 8 comandos, 3 skills | [resultados](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · la respuesta y la recuperación | Cada incidente contra los plazos de la política y la matriz de notificaciones: la contención de su severidad, cada notificación al supervisor, a la autoridad de datos o a los clientes, y su revisión posterior; y las pruebas de continuidad, de recuperación y de restauración contra su calendario | No notifica a nadie, no declara ni cierra un incidente, no ejecuta un plan de continuidad ni una restauración, y no abre respaldos | [criterio-resilience](../../plugins/criterio-resilience/README.es.md) · 8 comandos, 3 skills | [resultados](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ciso:familia-agentes -->
 
@@ -300,19 +303,17 @@ Siete skills distintos entre los tres agentes. **Los que comparten son copias li
 
 ## Estado
 
-**Los tres son de laboratorio.** Su versión 0.2.0 trae el motor, que pasa su prueba determinista
-sobre todo el material, y la primera ronda con los agentes sobre el mismo material, con una clave que
-no ven: 100 de 100 señales y ninguna de más, con un piso del 96,3 %; los 48 datos extraídos dan un
-piso del 92,5 %, por debajo del 95 % que pide estable. Laboratorio o estable lo dice la evidencia
-(decisión 0020), y el día que se lance la familia, si es estable, su versión es la 1.0.0 (decisión
-0021).
+**Los tres son estables.** Su versión 1.0.0, la del lanzamiento (decisión 0021), trae el motor, que
+pasa su prueba determinista sobre todo el material, y las rondas 1 y 2 con los agentes sobre el mismo
+material, con una clave que no ven: 148 señales y 80 datos, con un piso del 97,4 % en las señales y del
+95,4 % en los datos. Laboratorio o estable lo dice la evidencia (decisión 0020).
 
 <!-- ciso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Alexis** · El gobierno y los controles | `criterio-security` · 9 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · Las vulnerabilidades | `criterio-vulnerability` · 7 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · La respuesta y la recuperación | `criterio-resilience` · 7 comandos, 3 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · El gobierno y los controles | `criterio-security` · 10 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · Las vulnerabilidades | `criterio-vulnerability` · 8 comandos, 3 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · La respuesta y la recuperación | `criterio-resilience` · 8 comandos, 3 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /ciso:estado -->
 

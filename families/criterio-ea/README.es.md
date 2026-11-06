@@ -172,6 +172,9 @@ Un archivo sin el formato esperado no se adivina: se reporta con lo que le falta
 /criterio-assistant:ea-setup
 ```
 
+Después, a la agente se le pide en tus palabras, sin saber cómo se llama cada comando: `/criterio-assistant:ofelia`
+([decisión 0027](../../docs/decisions/0027-cada-agente-se-pide-en-palabras.md)).
+
 **En Claude Cowork** — Personalizar → Explorar plugins → Personal → **+** → Agregar
 marketplace desde GitHub → `josenanez/criterio`.
 
@@ -184,7 +187,7 @@ un archivo de configuración a mano.**
 <!-- ea:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
 |---|---|---|---|---|
-| **Ofelia** · asistente ejecutiva | El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta | No envía, no agenda, no acepta ni mueve nada; no recomienda una opción, no prioriza por el ejecutivo, no declara cumplido un compromiso sin evidencia y no evalúa a una persona ni a un área | [criterio-assistant](../../plugins/criterio-assistant/README.es.md) · 10 comandos, 7 skills | [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · asistente ejecutiva | El día a día del ejecutivo: la agenda contra sus compromisos, la preparación de cada sesión de un órgano con la ficha de cada decisión, el borrador del acta, el seguimiento de los compromisos y la correspondencia que pide respuesta | No envía, no agenda, no acepta ni mueve nada; no recomienda una opción, no prioriza por el ejecutivo, no declara cumplido un compromiso sin evidencia y no evalúa a una persona ni a un área | [criterio-assistant](../../plugins/criterio-assistant/README.es.md) · 11 comandos, 7 skills | [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ea:familia-agentes -->
 
@@ -302,7 +305,7 @@ sintético, no sobre la oficina de un ejecutivo real.**
 <!-- ea:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 10 comandos, 7 skills | El motor, probado; con la agente, todas las oficinas del material, hasta la ronda 1 · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
+| **Ofelia** · Asistente ejecutiva | `criterio-assistant` · 11 comandos, 7 skills | El motor, probado; con la agente, todas las oficinas del material, hasta la ronda 1 · [resultados](../../tests/criterio-assistant/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /ea:estado -->
 

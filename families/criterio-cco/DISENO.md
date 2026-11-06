@@ -2,7 +2,7 @@
 
 # criterio-cco · the family's design
 
-**Status: stable, not yet launched (version 0.3.0).** The fourteen commands, the eight skills and the
+**Status: stable, launched (version 1.0.0).** The sixteen commands, the eight skills and the
 calculation engine are built on the common core; the engine passes its deterministic test against the
 material from Colombia, Mexico, Ecuador, Peru and Chile (`tests/criterio-cco/`), and the two agents
 passed their two rounds: the 95% confidence floor is 98.0% on signals and 95.1% on data. Scope in

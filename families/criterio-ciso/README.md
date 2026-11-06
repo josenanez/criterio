@@ -17,7 +17,7 @@ the entity's folder and reference, and each writes only its own.
 | **Goal** | That what the organisation committed to in its policy —review, fix, notify, test— has behind it the documents that show it did, and on time |
 | **Made up of** | [Alexis](../../plugins/criterio-security/README.md) · [Guillermo](../../plugins/criterio-vulnerability/README.md) · [Amparo](../../plugins/criterio-resilience/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The international frameworks that order the family, the format of every file the engine processes and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **Status** | Laboratory, not yet launched (0.2.0): the engine tested on synthetic banking, retail, healthcare and technology material, and the first round with the three agents on all six entities, 100 of 100 signals and none extra; the extracted fields are still too few for a 95 % floor. **Not yet tested on a specific organisation's documentation** |
+| **Status** | Stable, launched in its version 1.0.0: the engine tested on synthetic banking, retail, healthcare and technology material, and rounds 1 and 2 with the three agents: 148 signals and 80 data items, with a floor of 97.4 % in the signals and 95.4 % in the data. **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Documents and exports, never systems: no agent runs a scan or connects to a console |
 | **Commitment** | Generating, spreading and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the security lead or their team, and does not decide for them: it accepts no risks, declares no control met, approves no exceptions, notifies no one, rates no maturity and certifies against no standard |
@@ -177,6 +177,9 @@ answered is not asked again.
 /criterio-ciso:ciso-setup
 ```
 
+After that, you ask each agent in your own words, without knowing what each command is called: `/criterio-security:alexis`, `/criterio-vulnerability:guillermo`, `/criterio-resilience:amparo`
+([decision 0027](../../docs/decisions/0027-cada-agente-se-pide-en-palabras.md)).
+
 **If you only need one agent**, it installs on its own and its own setup is enough:
 
 ```
@@ -198,9 +201,9 @@ agent page stands on its own.**
 <!-- ciso:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | What it answers for | What it never does | Its page | Its tests |
 |---|---|---|---|---|
-| **Alexis** · governance and controls | The statement of applicability against the evidence: every applicable control with its owner and the evidence that it operated within its frequency, each system's access reviews, each critical third party's assessments and the risk acceptances past their date | It does not accept a risk, does not declare a control met, does not rate the organisation's maturity or certify it against ISO/IEC 27001, and does not open credentials, keys or backups | [criterio-security](../../plugins/criterio-security/README.md) · 9 commands, 3 skills | [results](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · vulnerabilities | Every vulnerability in the scanner exports against its severity's deadline in the policy, the KEV catalog, the approved exceptions, the closures no scan proves and the inventory assets no scan covers | It does not run a scan, does not connect to a system or a console, does not approve an exception and does not publish open vulnerabilities in Rostrum unless the configuration says so | [criterio-vulnerability](../../plugins/criterio-vulnerability/README.md) · 7 commands, 3 skills | [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · response and recovery | Every incident against the policy's deadlines and the notification matrix: its severity's containment, each notification to the supervisor, the data authority or the customers, and its post-incident review; and the continuity, recovery and restore tests against their calendar | It notifies no one, does not declare or close an incident, does not run a continuity plan or a restore, and does not open backups | [criterio-resilience](../../plugins/criterio-resilience/README.md) · 7 commands, 3 skills | [results](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · governance and controls | The statement of applicability against the evidence: every applicable control with its owner and the evidence that it operated within its frequency, each system's access reviews, each critical third party's assessments and the risk acceptances past their date | It does not accept a risk, does not declare a control met, does not rate the organisation's maturity or certify it against ISO/IEC 27001, and does not open credentials, keys or backups | [criterio-security](../../plugins/criterio-security/README.md) · 10 commands, 3 skills | [results](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · vulnerabilities | Every vulnerability in the scanner exports against its severity's deadline in the policy, the KEV catalog, the approved exceptions, the closures no scan proves and the inventory assets no scan covers | It does not run a scan, does not connect to a system or a console, does not approve an exception and does not publish open vulnerabilities in Rostrum unless the configuration says so | [criterio-vulnerability](../../plugins/criterio-vulnerability/README.md) · 8 commands, 3 skills | [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · response and recovery | Every incident against the policy's deadlines and the notification matrix: its severity's containment, each notification to the supervisor, the data authority or the customers, and its post-incident review; and the continuity, recovery and restore tests against their calendar | It notifies no one, does not declare or close an incident, does not run a continuity plan or a restore, and does not open backups | [criterio-resilience](../../plugins/criterio-resilience/README.md) · 8 commands, 3 skills | [results](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · the portal | Publishing what the agents write where the team will see it, and taking the question from whoever will not open a folder | **Never writes the state or recalculates anything**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /ciso:familia-agentes -->
 
@@ -295,19 +298,17 @@ Seven distinct skills across the three agents. **The ones they share are literal
 
 ## Status
 
-**All three are laboratory ones.** Their version 0.2.0 brings the engine, which passes its
-deterministic test on all the material, and the first round with the agents on the same material, with a
-key they never see: 100 of 100 signals and none extra, with a floor of 96.3 %; the 48 extracted fields
-give a floor of 92.5 %, below the 95 % that stable requires. Laboratory or stable is said by the
-evidence (decision 0020), and on the day the family is launched, if it is stable, its version is 1.0.0
-(decision 0021).
+**All three are stable.** Their version 1.0.0, the launch one (decision 0021), brings the engine, which
+passes its deterministic test on all the material, and rounds 1 and 2 with the agents on the same
+material, with a key they never see: 148 signals and 80 data items, with a floor of 97.4 % in the
+signals and 95.4 % in the data. Laboratory or stable is said by the evidence (decision 0020).
 
 <!-- ciso:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Alexis** · Governance and controls | `criterio-security` · 9 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-security/RESULTADOS.md) |
-| **Guillermo** · Vulnerabilities | `criterio-vulnerability` · 7 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
-| **Amparo** · Response and recovery | `criterio-resilience` · 7 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-resilience/RESULTADOS.md) |
+| **Alexis** · Governance and controls | `criterio-security` · 10 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-security/RESULTADOS.md) |
+| **Guillermo** · Vulnerabilities | `criterio-vulnerability` · 8 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-vulnerability/RESULTADOS.md) |
+| **Amparo** · Response and recovery | `criterio-resilience` · 8 commands, 3 skills | The engine, tested; with the agent, every entitie in the material, up to round 2 · [results](../../tests/criterio-resilience/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 2 commands, for every family | — |
 <!-- /ciso:estado -->
 

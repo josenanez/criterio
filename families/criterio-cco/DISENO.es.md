@@ -2,7 +2,7 @@
 
 # criterio-cco · el diseño de la familia
 
-**Estado: estable, sin lanzar (versión 0.3.0).** Los catorce comandos, los ocho skills y el motor de
+**Estado: estable, lanzada (versión 1.0.0).** Los dieciséis comandos, los ocho skills y el motor de
 cálculo se construyen sobre el núcleo común; el motor pasa su prueba determinista contra el material de
 Colombia, México, Ecuador, Perú y Chile (`tests/criterio-cco/`), y los dos agentes pasaron sus dos
 rondas: el piso del margen del 95 % es 98,0 % en señales y 95,1 % en datos. Alcance en

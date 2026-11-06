@@ -36,13 +36,14 @@ Tú respondes por la respuesta a incidentes y por la continuidad. Ella llega con
 **Lo que puede responder que hoy cuesta una reconstrucción a mano:** qué incidente se contuvo fuera de plazo, qué notificación al supervisor se hizo tarde o no se hizo, qué incidente cerrado no tiene su revisión, y qué respaldo crítico lleva meses sin una prueba de restauración.
 
 <!-- ciso:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los siete comandos
+### Los ocho comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-resilience:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-resilience:resilience-setup` | La configuración, con los plazos de la política |
+| `/criterio-resilience:amparo` | Lo que necesites, en tus palabras: Amparo elige el comando que lo resuelve y lo corre |
 | `/criterio-resilience:resilience-scan` | La ficha del periodo al día, con los incidentes, las revisiones y las pruebas nuevas |
 | `/criterio-resilience:incident-timeline` | Cada incidente contra el plazo de su severidad y su revisión |
 | `/criterio-resilience:notifications` | Cada notificación que pide la matriz, a tiempo, tarde o sin hacer |

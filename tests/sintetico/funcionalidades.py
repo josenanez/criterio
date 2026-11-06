@@ -103,6 +103,10 @@ FUNCIONALIDADES = {
     # ── Todos los agentes · compartir hallazgos, siempre preguntando (decisión 0025)
     "share-findings": ("Un resumen sin datos de lo que corrió y, con un sí, el enlace a la plantilla de hallazgo",
                        "la corrida, que escribe el arnés", CORRIDAS),
+    # ── la entrada de cada agente (decisión 0027): no escribe nada propio; lo deja el comando que corre
+    "vera": ("El comando que resuelve el pedido, dicho en una línea y corrido", "la corrida del comando que eligió", CORRIDAS),
+    "samuel": ("El comando que resuelve el pedido, dicho en una línea y corrido", "la corrida del comando que eligió", CORRIDAS),
+    "alba": ("El comando que resuelve el pedido, dicho en una línea y corrido", "la corrida del comando que eligió", CORRIDAS),
 }
 
 

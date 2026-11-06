@@ -36,13 +36,14 @@ You answer for information security and its management system. He comes with eve
 **What it can answer that takes days today before an audit:** which control is marked as implemented and has no evidence, which one's evidence has lapsed, which system has gone months without an access review, which critical third party has not been assessed and which accepted risk nobody looked at again.
 
 <!-- ciso:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The nine commands
+### The ten commands
 
 > They are typed with the plugin prefix: `/criterio-security:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-security:security-setup` | The configuration, the inventory and what was excluded |
+| `/criterio-security:alexis` | Whatever you need, in your own words: Alexis picks the command that does it and runs it |
 | `/criterio-security:security-scan` | The period record up to date, with the new evidence and the new signals |
 | `/criterio-security:soa-status` | Each applicable control with its owner |
 | `/criterio-security:control-evidence` | Each control against the evidence that it operated |

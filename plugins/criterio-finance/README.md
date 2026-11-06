@@ -14,7 +14,7 @@ reconciled and every e-invoice against its entry.
 
 [Español](README.es.md) · `criterio-finance` · Apache 2.0 · One instance per entity
 
-**Status: the ten commands are built**, along with the seven skills and the calculation engine,
+**Status: the eleven commands are built**, along with the seven skills and the calculation engine,
 tested against synthetic material from four industries with a key the agent never sees and one
 control entity per country. **The agent's extraction passed the [full round](../../tests/evidencias/familias/cfo/RONDAS.md)** on the six entities; nothing has been run yet on an organisation's documents. Nothing is announced as finished until the
 [acceptance criteria](ACCEPTANCE.md) pass.
@@ -47,13 +47,14 @@ entry —or which entry has no invoice—, which account does not tie out with i
 auditor request is still without a supported answer.
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### The ten commands
+### The eleven commands
 
 > They are typed with the plugin prefix: `/criterio-finance:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-finance:finance-setup` | The configuration, the folder inventory and the first close record |
+| `/criterio-finance:clara` | Whatever you need, in your own words: Clara picks the command that does it and runs it |
 | `/criterio-finance:close-scan` | The close record up to date, with what changed and the new signals |
 | `/criterio-finance:close-status` | The close status: declared against evidenced, task by task |
 | `/criterio-finance:bank-reconcile` | Each bank account reconciled, with its open items by age |

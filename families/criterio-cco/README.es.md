@@ -17,7 +17,7 @@ Clara por las de ellos.
 | **Objetivo** | Que lo que se compromete en el comité comercial tenga detrás los documentos que lo sostienen, y que ninguna venta se quede entre el cierre y la factura |
 | **Compuesta por** | [Augusto](../../plugins/criterio-sales/README.es.md) · [Valeria](../../plugins/criterio-revenue/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define el rol, el formato de cada exportación del CRM y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | Estable, sin lanzar, en su versión 0.3.0: el motor probado sobre material sintético de Colombia, México, Ecuador, Perú y Chile, y los dos agentes, con sus dos rondas. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Estable, lanzada en su versión 1.0.0: el motor probado sobre material sintético de Colombia, México, Ecuador, Perú y Chile, y los dos agentes, con sus dos rondas. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Exportaciones, nunca sistemas: ningún agente se conecta al CRM ni escribe en él |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al responsable comercial ni a su equipo, y no decide por ellos: no fija metas, no aprueba descuentos, no liquida comisiones, no contacta clientes y no califica a quien vende |
@@ -173,6 +173,9 @@ no se vuelve a preguntar.
 /criterio-cco:cco-setup
 ```
 
+Después, a cada agente se le pide en tus palabras, sin saber cómo se llama cada comando: `/criterio-sales:augusto`, `/criterio-revenue:valeria`
+([decisión 0027](../../docs/decisions/0027-cada-agente-se-pide-en-palabras.md)).
+
 **Si solo necesitas un agente**, se instala solo y basta su propio setup:
 
 ```
@@ -193,8 +196,8 @@ de agente se lee sola.**
 <!-- cco:familia-agentes · generado por scripts/familias.py; no se edita a mano -->
 | | De qué responde | Lo que nunca hace | Su página | Sus pruebas |
 |---|---|---|---|---|
-| **Augusto** · el pronóstico | El embudo contra su evidencia y el pronóstico contra lo que lo sostiene: cada oportunidad contra el documento que exige su etapa, las detenidas, los cierres que se corren, lo comprometido contra lo ponderado con evidencia y la meta contra lo cerrado | No escribe en el CRM, no contacta a un cliente, no fija ni cambia una meta y no califica a las personas del equipo: dice qué oportunidad no tiene evidencia, no quién vende mejor | [criterio-sales](../../plugins/criterio-sales/README.es.md) · 7 comandos, 4 skills | [resultados](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · de la venta a la factura | El precio y el descuento contra su política, y lo ganado contra lo firmado y lo facturado: cada descuento contra el nivel que lo aprueba, cada venta ganada contra su contrato en las fichas de Fidel, cada contrato firmado contra su factura en las de Clara, y cada comisión contra el plan | No escribe en el CRM, no aprueba un descuento ni una excepción de precio y no liquida ni corrige una comisión: dice dónde la liquidación no es la del plan | [criterio-revenue](../../plugins/criterio-revenue/README.es.md) · 7 comandos, 6 skills | [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · el pronóstico | El embudo contra su evidencia y el pronóstico contra lo que lo sostiene: cada oportunidad contra el documento que exige su etapa, las detenidas, los cierres que se corren, lo comprometido contra lo ponderado con evidencia y la meta contra lo cerrado | No escribe en el CRM, no contacta a un cliente, no fija ni cambia una meta y no califica a las personas del equipo: dice qué oportunidad no tiene evidencia, no quién vende mejor | [criterio-sales](../../plugins/criterio-sales/README.es.md) · 8 comandos, 4 skills | [resultados](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · de la venta a la factura | El precio y el descuento contra su política, y lo ganado contra lo firmado y lo facturado: cada descuento contra el nivel que lo aprueba, cada venta ganada contra su contrato en las fichas de Fidel, cada contrato firmado contra su factura en las de Clara, y cada comisión contra el plan | No escribe en el CRM, no aprueba un descuento ni una excepción de precio y no liquida ni corrige una comisión: dice dónde la liquidación no es la del plan | [criterio-revenue](../../plugins/criterio-revenue/README.es.md) · 8 comandos, 6 skills | [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · el portal | Publicar lo que escriben los agentes donde el equipo lo vea, y recibir la pregunta de quien no abre una carpeta | **No escribe en el estado ni recalcula nada**, y no decide nada | [criterio-server](../../plugins/criterio-server/README.es.md) · 2 comandos, uno para todas las familias | [resultados](../../tests/criterio-server/RESULTADOS.md) |
 <!-- /cco:familia-agentes -->
 
@@ -289,16 +292,16 @@ Ocho skills distintos entre los dos agentes. **Los que comparten son copias lite
 
 ## Estado
 
-**Los dos son estables.** Su versión 0.3.0 trae el motor, que pasa su prueba determinista sobre todo
-el material, y las dos rondas con los agentes sobre el mismo material, con una clave que no ven: el piso
-del margen del 95 % es 98,0 % en señales y 95,1 % en datos. Laboratorio o estable lo dice la evidencia
-(decisión 0020), y el día que se lance la familia su versión es la 1.0.0 (decisión 0021).
+**Los dos son estables.** Su versión 1.0.0, la del lanzamiento (decisión 0021), trae el motor, que pasa
+su prueba determinista sobre todo el material, y las dos rondas con los agentes sobre el mismo material,
+con una clave que no ven: el piso del margen del 95 % es 98,0 % en señales y 95,1 % en datos.
+Laboratorio o estable lo dice la evidencia (decisión 0020).
 
 <!-- cco:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Augusto** · El pronóstico | `criterio-sales` · 7 comandos, 4 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
-| **Valeria** · De la venta a la factura | `criterio-revenue` · 7 comandos, 6 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
+| **Augusto** · El pronóstico | `criterio-sales` · 8 comandos, 4 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-sales/RESULTADOS.md) |
+| **Valeria** · De la venta a la factura | `criterio-revenue` · 8 comandos, 6 skills | El motor, probado; con la agente, todas las entidades del material, hasta la ronda 2 · [resultados](../../tests/criterio-revenue/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 2 comandos, para todas las familias | — |
 <!-- /cco:estado -->
 

@@ -13,7 +13,7 @@ already has and says what changed, what contradicts what, and what has gone quie
 
 [Español](README.es.md) · Apache 2.0 · One instance per project office · Installs in four clicks
 
-**Status: the sixteen commands are built**, along with the ten skills of the method and the
+**Status: the seventeen commands are built**, along with the ten skills of the method and the
 arithmetic verified against a corpus with answers written by hand. **What has not been tested
 yet: extraction over a real organisation's documentation.** Nothing is announced as finished
 until the [acceptance criteria](DISENO.es.md#criterios-de-aceptación) pass.
@@ -47,13 +47,14 @@ previous run, what contradicts what between two documents of the same project, w
 quiet for weeks, how many of those reporting green carry evidence that green does not explain,
 and who is reached when a project moves.
 
-### The sixteen commands
+### The seventeen commands
 
 > They are typed with the plugin prefix: `/criterio-portfolio:` and autocomplete does the rest. It is the only form that resolves in a Claude Code session.
 
 | Command | What it does |
 |---|---|
 | `/criterio-portfolio:portfolio-setup` | **The first thing you run.** Looks at your folders, asks five questions and produces the first report over your own documents |
+| `/criterio-portfolio:vera` | **Ask Vera in your own words.** You say what you need and Vera picks the command that does it and runs it; with no argument, shows what it can do |
 | `/criterio-portfolio:portfolio-wake` | **What the clock invokes.** Looks at what is due today, does it, and if nothing is due it stays quiet |
 | `/criterio-portfolio:document-index` | Which documents really changed, what has to be re-read and which citations stopped resolving |
 | `/criterio-portfolio:portfolio-scan` | Reads the folder and produces or updates one record per project. The front door |

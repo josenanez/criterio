@@ -36,13 +36,14 @@ Tú respondes por la seguridad de la información y por su sistema de gestión. 
 **Lo que puede responder que hoy cuesta días antes de una auditoría:** qué control figura implementado y no tiene ninguna evidencia, cuál la tiene vencida, qué sistema lleva meses sin revisión de accesos, qué tercero crítico no se ha evaluado y qué riesgo aceptado nadie volvió a mirar.
 
 <!-- ciso:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los nueve comandos
+### Los diez comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-security:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-security:security-setup` | La configuración, el inventario y lo que se excluyó |
+| `/criterio-security:alexis` | Lo que necesites, en tus palabras: Alexis elige el comando que lo resuelve y lo corre |
 | `/criterio-security:security-scan` | La ficha del periodo al día, con la evidencia nueva y las señales nuevas |
 | `/criterio-security:soa-status` | Cada control aplicable con su responsable |
 | `/criterio-security:control-evidence` | Cada control contra la evidencia de que operó |

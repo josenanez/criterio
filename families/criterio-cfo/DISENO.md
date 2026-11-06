@@ -2,7 +2,7 @@
 
 # criterio-cfo · the family design
 
-**Status: built and tested on synthetic material.** The 22 commands, the thirteen skills and the calculation
+**Status: built and tested on synthetic material.** The twenty-eight commands, the thirteen skills and the calculation
 engine are built; the engine passes its deterministic test against the material of four industries
 and two control entities (`tests/criterio-cfo/`), and the agents passed the full round on the six entities ([the rounds](../../tests/evidencias/familias/cfo/RONDAS.md)).
 Scope in [ADR 0006](../../docs/decisions/0006-scope-cfo.md); how the work is split between the

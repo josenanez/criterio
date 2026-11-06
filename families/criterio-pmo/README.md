@@ -162,6 +162,9 @@ answered is not asked again.
 /criterio-pmo:pmo-setup
 ```
 
+After that, you ask each agent in your own words, without knowing what each command is called: `/criterio-portfolio:vera`, `/criterio-project:samuel`, `/criterio-product:alba`
+([decision 0027](../../docs/decisions/0027-cada-agente-se-pide-en-palabras.md)).
+
 **If you only need one agent**, it installs on its own and its own setup is enough:
 
 ```
@@ -188,12 +191,12 @@ the others.
 
 | | What it answers for | What it never does | Its page | Its tests |
 |---|---|---|---|---|
-| **Vera** · the portfolio | The whole portfolio: consolidating, contrasting what is declared against the evidence, and building the committee pack | Does not declare any project's status, and does not prioritise demand | [criterio-portfolio](../../plugins/criterio-portfolio/README.md) · 16 commands, 10 skills | [results](../../tests/criterio-portfolio/RESULTADOS.md) |
-| **Samuel** · one project | What the meeting leaves written: the commitment said and not kept, the plan against the evidence, and the report ready but for one line | Does not declare his project's status, and does not attend the meeting | [criterio-project](../../plugins/criterio-project/README.md) · 9 commands, 8 skills | [results](../../tests/criterio-project/RESULTADOS.md) |
-| **Alba** · one product | What exists before the project: the definition against the evidence of demand, the requirement register, and the charter the record is born with | Does not decide what gets built, and does not talk to the customer | [criterio-product](../../plugins/criterio-product/README.md) · 11 commands, 12 skills | [results](../../tests/criterio-product/RESULTADOS.md) |
+| **Vera** · the portfolio | The whole portfolio: consolidating, contrasting what is declared against the evidence, and building the committee pack | Does not declare any project's status, and does not prioritise demand | [criterio-portfolio](../../plugins/criterio-portfolio/README.md) · 17 commands, 10 skills | [results](../../tests/criterio-portfolio/RESULTADOS.md) |
+| **Samuel** · one project | What the meeting leaves written: the commitment said and not kept, the plan against the evidence, and the report ready but for one line | Does not declare his project's status, and does not attend the meeting | [criterio-project](../../plugins/criterio-project/README.md) · 10 commands, 8 skills | [results](../../tests/criterio-project/RESULTADOS.md) |
+| **Alba** · one product | What exists before the project: the definition against the evidence of demand, the requirement register, and the charter the record is born with | Does not decide what gets built, and does not talk to the customer | [criterio-product](../../plugins/criterio-product/README.md) · 12 commands, 12 skills | [results](../../tests/criterio-product/RESULTADOS.md) |
 | **Rostrum** · the server | Publishing the report where the team will read it, and taking the request from whoever will not open a folder | **Never writes the record**, and decides nothing | [criterio-server](../../plugins/criterio-server/README.md) · 2 commands, one for every family | [results](../../tests/criterio-server/RESULTADOS.md) |
 
-The family's 36 commands and Rostrum's 2, one by one —what each does and which skills it uses— are in the [command manual](../../docs/manual.md), and the answers to what people ask most, in the [FAQ](PREGUNTAS.md).
+The family's 39 commands and Rostrum's 2, one by one —what each does and which skills it uses— are in the [command manual](../../docs/manual.md), and the answers to what people ask most, in the [FAQ](PREGUNTAS.md).
 
 **The boundary is the same for all three, and it is not a recommendation: it is a restriction of
 the write path.** None of them writes a project's declared status. A person writes that line,
@@ -408,9 +411,9 @@ documentation.**
 
 | Agent | Installs as | The A and B tables of its design |
 |---|---|---|
-| **Vera** · PMO | `criterio-portfolio` · 16 commands, 10 skills | **no open rows** |
-| **Samuel** · project | `criterio-project` · 9 commands, 8 skills | **no open rows** |
-| **Alba** · product | `criterio-product` · 11 commands, 12 skills | **no open rows** |
+| **Vera** · PMO | `criterio-portfolio` · 17 commands, 10 skills | **no open rows** |
+| **Samuel** · project | `criterio-project` · 10 commands, 8 skills | **no open rows** |
+| **Alba** · product | `criterio-product` · 12 commands, 12 skills | **no open rows** |
 | **Rostrum** · the server | `criterio-server` · 2 commands, for every family | — |
 
 **None of the three design sheets has a row left in "missing" or "partial".** What remains

@@ -256,13 +256,14 @@ def skills_de(plugin: str) -> list[str]:
 
 
 def cuenta(a: dict) -> tuple[int, int]:
-    return len(a["comandos"]), len(skills_de(a["plugin"]))
+    """Los comandos del agente, con su entrada, y sus skills."""
+    return len(a["comandos"]) + 1, len(skills_de(a["plugin"]))
 
 
 def comandos_readme(a: dict, i: str) -> str:
     """La tabla de comandos de la página del agente, con la forma de las de la familia PMO: el
     comando con su prefijo y lo que entrega. De aquí la toma también el manual de los comandos."""
-    n = len(a["comandos"])
+    n = len(a["comandos"]) + 1
     if i == "es":
         l = [f"### Los {palabra(n, i)} comandos", "",
              f"> Se escriben con el prefijo del plugin: `/{a['plugin']}:` y autocompletar hace el resto. Es la única "
@@ -271,8 +272,9 @@ def comandos_readme(a: dict, i: str) -> str:
         l = [f"### The {palabra(n, i)} commands", "",
              f"> They are typed with the plugin prefix: `/{a['plugin']}:` and autocomplete does the rest. It is the "
              "only form that resolves in a Claude Code session.", "", "| Command | What it does |", "|---|---|"]
-    l += [f"| `/{a['plugin']}:{c['id']}` | {celda(c[i]['entrega'])} |" for c in a["comandos"]]
-    return "\n".join(l)
+    filas = [f"| `/{a['plugin']}:{c['id']}` | {celda(c[i]['entrega'])} |" for c in a["comandos"]]
+    filas.insert(1, f"| `/{a['plugin']}:{a['id']}` | {ENTRADA[i][1].format(n=a['nombre'])} |")
+    return "\n".join(l + filas)
 
 
 def duenio(skill: str, fa: dict) -> dict:
@@ -561,7 +563,7 @@ _CUENTA = re.compile(r"\b([a-záéíóúñ]+(?:-[a-z]+)?) (comandos|commands|ski
 def revisar_cuentas(fa: dict) -> list[str]:
     err = []
     a_n = {i: {v: k for k, v in NUMEROS[i].items()} for i in ("es", "en")}
-    familia = (sum(len(a["comandos"]) for a in fa["agentes"]), len(fa.get("skills") or {}))
+    familia = (sum(cuenta(a)[0] for a in fa["agentes"]), len(fa.get("skills") or {}))
     paginas = [(F["dir"] / n, i, [familia] + [cuenta(a) for a in fa["agentes"]])
                for n, i in (("README.es.md", "es"), ("README.md", "en"), ("DISENO.es.md", "es"), ("DISENO.md", "en"))]
     paginas += [(P / a["plugin"] / n, i, [cuenta(a)]) for a in fa["agentes"]
@@ -684,7 +686,81 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
         else:
             ruta.write_text(nuevo, encoding="utf-8")
             print(f"  {ruta.relative_to(RAIZ)}")
-    return [f"{clave.upper()} · {e}" for e in errores], sum(len(a["comandos"]) for a in fa["agentes"]), len(salidas)
+    return [f"{clave.upper()} · {e}" for e in errores], sum(cuenta(a)[0] for a in fa["agentes"]), len(salidas)
+
+
+# ---------------------------------------------------------------- la entrada de cada agente
+
+# Cada agente tiene un comando con su nombre —/criterio-finance:clara— que recibe lo que la persona
+# necesita en sus palabras y corre el comando que lo resuelve (decisión 0027). No tiene texto propio:
+# su tabla sale de los grupos del agente y de la descripción de cada comando, así que un comando que
+# cambia de descripción cambia aquí, y --check rompe si alguien lo editó a mano.
+ENTRADA = {"es": ("Pídeselo a {n}", "Lo que necesites, en tus palabras: {n} elige el comando que lo resuelve y lo corre"),
+           "en": ("Ask {n}", "Whatever you need, in your own words: {n} picks the command that does it and runs it")}
+
+
+def descripcion(plugin: str, comando: str) -> str:
+    texto = (P / plugin / "commands" / f"{comando}.md").read_text(encoding="utf-8")
+    m = re.search(r"^description:\s*(.+)$", texto.split("\n---", 1)[0], re.M)
+    return m.group(1).strip().strip('"') if m else ""
+
+
+def entrada_md(a: dict, familia: list[dict]) -> str:
+    """El comando de entrada del agente, desde sus grupos (los de agentes.json) y sus pares."""
+    n, pl = a["nombre"], a["plugin"]
+    filas = [f"| {celda(g['titulo'])} · {celda(c['etiqueta'])} | `/{pl}:{c['id']}` | {celda(descripcion(pl, c['id']))} |"
+             for g in a["grupos"] for c in g["comandos"] if c["id"] != a["id"]]
+    pares = [f"| {x['nombre']} · {x['titulo']} | `/{x['plugin']}:{x['id']}` |" for x in familia if x is not a]
+    l = ["---",
+         f"description: Pídeselo a {n} ({a['rol']['es']}) en tus palabras — dice qué comando lo resuelve y lo corre",
+         'argument-hint: "[lo que necesitas, en tus palabras] o vacío"',
+         "allowed-tools: Skill, Read, Glob",
+         "---",
+         f"<!-- generado desde families/criterio-{a['familia']}/familia.json y la descripción de cada comando, por scripts/familias.py; no se edita a mano -->",
+         "",
+         f"# /{a['id']} — {ENTRADA['es'][0].format(n=n)}",
+         "",
+         f"Quien trabaja con {n} no tiene que saber cómo se llama cada comando: dice lo que necesita y este",
+         "comando lo lleva al que corresponde. **No hace el trabajo por su cuenta y no escribe nada**: lo hace",
+         "el comando elegido, con su motor y sus reglas.",
+         "",
+         "## Flujo",
+         "",
+         f"**1. Sin argumento**, muestra en una pantalla lo que {n} sabe hacer —los grupos de la tabla de abajo,",
+         "con sus etiquetas y sin nombres de comando— y pregunta qué necesita la persona.",
+         "",
+         "**2. Con argumento, elige de la tabla el comando que lo resuelve:**",
+         "",
+         "- **Uno claro:** di en una línea cuál vas a correr y por qué —«Esto es *<etiqueta>*: corro",
+         "  `/<comando>`»— y córrelo con la herramienta que corre los comandos, pasándole como argumento lo que",
+         "  del pedido le sirva. Si no puedes invocarlo, dile a la persona exactamente qué escribir.",
+         "- **Dos posibles:** pregunta cuál, con las dos etiquetas. No adivines.",
+         f"- **Es de otro agente de la familia:** dilo en una línea y da su entrada, de la segunda tabla.",
+         "- **Ninguno:** dilo en una línea. No improvises el trabajo con lo que hay en la conversación.",
+         "",
+         "**Un comando a la vez, sin subagentes en paralelo.**",
+         "",
+         "**3. Lo que el pedido no dice no se inventa.** Si el comando necesita un dato que el pedido no trae —un",
+         "periodo, un proyecto, una ruta—, lo pide el propio comando.",
+         "",
+         "**4. Si el comando elegido responde que falta la configuración**, ofrece",
+         f"`{a['setup']}` y no corras nada más.",
+         "",
+         f"## Lo que {n} sabe hacer",
+         "",
+         "| Para | Comando | Qué hace |",
+         "|---|---|---|",
+         *filas]
+    if pares:
+        l += ["", "## Los otros agentes de la familia", "", "| Agente | Su entrada |", "|---|---|", *pares]
+    return "\n".join(l) + "\n"
+
+
+def con_entrada(a: dict, grupos: list[dict]) -> list[dict]:
+    """Los grupos del agente con su entrada en el primero, justo después de la instalación."""
+    grupos = [dict(g, comandos=list(g["comandos"])) for g in grupos]
+    grupos[0]["comandos"].insert(1, {"id": a["id"], "etiqueta": ENTRADA["es"][0].format(n=a["nombre"])})
+    return grupos
 
 
 # ---------------------------------------------------------------- los agentes, para Rostrum
@@ -767,7 +843,7 @@ def agentes_json() -> tuple[str, list[str]]:
                             # Lo que no se publica en Rostrum salvo que la configuración lo diga (ADR 0019): el
                             # comando, la clave de la configuración que lo abre y las señales que no se muestran.
                             "privados": {c["id"]: c["privado"] for c in a.get("comandos") or [] if c.get("privado")},
-                            "setup": dest.get("setup"), "marca": dest.get("marca"), "grupos": grupos})
+                            "setup": dest.get("setup"), "marca": dest.get("marca"), "grupos": con_entrada(a, grupos)})
     for a in agentes + [SERVIDOR]:
         if not all((a.get("origen") or {}).get(i) for i in ("es", "en")):
             err.append(f"{a['nombre']}: falta de dónde viene su nombre (origen, en los dos idiomas)")
@@ -886,8 +962,19 @@ def main() -> int:
             else:
                 destino.write_text(contenido, encoding="utf-8")
                 print(f"  {destino.relative_to(RAIZ)}")
-    # En el README de Rostrum, cómo entra cada familia al mapa: sale de las mismas familias.
     reg = json.loads(contenido)
+    # La entrada de cada agente, desde lo mismo que publica Rostrum.
+    for a in reg["agentes"]:
+        ruta = P / a["plugin"] / "commands" / f"{a['id']}.md"
+        nuevo = entrada_md(a, [x for x in reg["agentes"] if x["familia"] == a["familia"]])
+        actual = ruta.read_text(encoding="utf-8") if ruta.exists() else ""
+        if actual != nuevo:
+            if args.check:
+                errores.append(f"{ruta.relative_to(RAIZ)}: no es lo que sale de las familias; corre scripts/familias.py")
+            else:
+                ruta.write_text(nuevo, encoding="utf-8")
+                print(f"  {ruta.relative_to(RAIZ)}")
+    # En el README de Rostrum, cómo entra cada familia al mapa: sale de las mismas familias.
     CLAVE[0] = "servidor"
     for nombre, i in (("README.es.md", "es"), ("README.md", "en")):
         ruta = P / "criterio-server" / nombre

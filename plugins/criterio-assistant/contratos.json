@@ -386,6 +386,30 @@
     "sembrado": "un rastro con el nombre, la identificación y una cifra de una entidad en el argumento, la nota y una llave de señal",
     "esperado": "compartir.py --selftest: el resumen cuenta comandos y señales y no lleva ninguno de esos valores"
    }
+  },
+  "ofelia": {
+   "funcion": "Recibe en palabras de la persona lo que necesita de Ofelia y corre el comando que lo resuelve; no hace el trabajo por su cuenta ni escribe nada (decisión 0027).",
+   "entrada": {
+    "argumento": "[lo que necesitas, en tus palabras] o vacío",
+    "lee": []
+   },
+   "salida": {
+    "muestra": "qué comando corre y por qué; sin argumento, lo que el agente sabe hacer; con dos posibles, la pregunta",
+    "escribe": []
+   },
+   "reglas": {
+    "skills": [],
+    "script": [],
+    "calcula": false
+   },
+   "corrida": {
+    "caso": false,
+    "tambien": []
+   },
+   "prueba": {
+    "sembrado": "un pedido en palabras de la persona por cada grupo del agente, uno que encaja en dos comandos y uno que es de otro agente de la familia",
+    "esperado": "corre el comando de su grupo; en el ambiguo pregunta con las dos etiquetas; en el ajeno da la entrada del otro agente; la tabla la comprueba scripts/familias.py --check"
+   }
   }
  },
  "skills": {

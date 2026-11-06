@@ -14,7 +14,7 @@ factura electrónica contra su registro.
 
 [English](README.md) · `criterio-finance` · Apache 2.0 · Una instancia por entidad
 
-**Estado: los diez comandos construidos**, los siete skills y el motor de cálculo, probado
+**Estado: los once comandos construidos**, los siete skills y el motor de cálculo, probado
 contra material sintético de cuatro industrias con una clave que el agente no ve y una entidad
 de control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/cfo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
@@ -48,13 +48,14 @@ SRI o de la SUNAT no tiene registro —o qué registro no tiene factura—, qué
 y qué requerimiento del auditor sigue sin respuesta con soporte.
 
 <!-- cfo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los diez comandos
+### Los once comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-finance:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-finance:finance-setup` | La configuración, el inventario de la carpeta y la primera ficha del cierre |
+| `/criterio-finance:clara` | Lo que necesites, en tus palabras: Clara elige el comando que lo resuelve y lo corre |
 | `/criterio-finance:close-scan` | La ficha del cierre al día, con lo que cambió y las señales nuevas |
 | `/criterio-finance:close-status` | El estado del cierre: declarado contra evidenciado, tarea por tarea |
 | `/criterio-finance:bank-reconcile` | La conciliación de cada cuenta bancaria, con sus partidas abiertas por antigüedad |

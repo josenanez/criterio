@@ -14,7 +14,7 @@ con evidencia, lo que se declara cumplido sin ella y lo que venció.
 
 [English](README.md) · `criterio-compliance` · Apache 2.0 · Una instancia por entidad
 
-**Estado: los ocho comandos construidos**, los seis skills y el motor de cálculo, probado contra
+**Estado: los nueve comandos construidos**, los seis skills y el motor de cálculo, probado contra
 material sintético de cuatro industrias con una clave que el agente no ve y una entidad de
 control por país. **La extracción del agente pasó la [ronda completa](../../tests/evidencias/familias/clo/RONDAS.md)** sobre las seis entidades; nada se ha corrido aún sobre los documentos de una organización. Nada se anuncia como terminado hasta que pasen los
 [criterios de aceptación](ACCEPTANCE.md).
@@ -47,13 +47,14 @@ pasó su fecha de revisión, qué norma nueva lleva días sin evaluar y qué cas
 plazo de respuesta.
 
 <!-- clo:comandos · generado por scripts/familias.py; no se edita a mano -->
-### Los ocho comandos
+### Los nueve comandos
 
 > Se escriben con el prefijo del plugin: `/criterio-compliance:` y autocompletar hace el resto. Es la única forma que resuelve en una sesión de Claude Code.
 
 | Comando | Qué hace |
 |---|---|
 | `/criterio-compliance:compliance-setup` | La configuración, la matriz revisada y el primer estado del cumplimiento |
+| `/criterio-compliance:constanza` | Lo que necesites, en tus palabras: Constanza elige el comando que lo resuelve y lo corre |
 | `/criterio-compliance:compliance-scan` | La ficha del cumplimiento al día, con lo que cambió y las señales nuevas |
 | `/criterio-compliance:compliance-status` | El estado del cumplimiento: declarado contra evidenciado, obligación por obligación |
 | `/criterio-compliance:policy-review` | Cada política con su próxima revisión, y las vencidas |
