@@ -740,6 +740,8 @@ def entrada_md(a: dict, familia: list[dict]) -> str:
          "  —«revisa», «qué pasa con», «cómo va»— que no nombra lo que distingue a dos comandos es de dos",
          "  posibles aunque uno parezca más probable. No adivines: correr el equivocado cuesta más que una",
          "  pregunta.",
+         "- **Pero si el pedido nombra lo que distingue a uno** —«el embudo», «el banco», «las facturas»,",
+         "  la palabra de su etiqueta—, es ese, aunque otro toque el mismo tema: no preguntes.",
          "- **Uno solo:** di en una línea cuál vas a correr y por qué —«Esto es *<etiqueta>*: corro",
          "  `/<comando>`»— y córrelo con la herramienta que corre los comandos, pasándole como argumento lo que",
          "  del pedido le sirva. Si no puedes invocarlo, dile a la persona exactamente qué escribir.",

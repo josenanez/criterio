@@ -3,7 +3,7 @@
 """La prueba de las entradas: cada agente, pedido en palabras, contra Claude Code real.
 
     python3 tests/entradas/correr.py --carpeta ~/Projects/criterio-prueba
-    python3 tests/entradas/correr.py --carpeta ~/Projects/criterio-prueba --solo clara
+    python3 tests/entradas/correr.py --carpeta ~/Projects/criterio-prueba --solo clara   # reemplaza solo sus filas
     python3 tests/entradas/correr.py --resumen tests/entradas/resultados.json
 
 La entrada de cada agente (decisión 0027) elige el comando que resuelve el pedido. Esa elección la
@@ -152,10 +152,19 @@ def main() -> int:
         filas.append({"id": p["id"], "pedido": p["pedido"], "como": p["como"], "ok": ok, "resultado": que,
                       "segundos": r["segundos"], "texto": r["texto"]})
         print(f"  {'✅' if ok else '❌'} {p['id']:4} {p['pedido'][:70]:70} → {que} ({r['segundos']} s)", flush=True)
+    nuevas = filas
+    # Con --solo, las filas de ese agente reemplazan las suyas en la corrida anterior: el resultado
+    # sigue siendo de los 44 pedidos, no de un subconjunto.
+    previo = AQUI / "resultados.json"
+    if a.solo and previo.exists():
+        nuevas_ids = {f["id"] for f in filas}
+        filas = [f if f["id"] not in nuevas_ids else next(x for x in nuevas if x["id"] == f["id"])
+                 for f in json.loads(previo.read_text(encoding="utf-8"))["filas"]]
+        filas += [f for f in nuevas if f["id"] not in {x["id"] for x in filas}]
     escribir(filas, AQUI)
     k = sum(f["ok"] for f in filas)
     print(f"\n  {k} de {len(filas)} · RESULTADOS.md y resultados.json en {AQUI}")
-    return 0 if k == len(filas) else 1
+    return 0 if all(f["ok"] for f in nuevas) and k == len(filas) else 1
 
 
 if __name__ == "__main__":
