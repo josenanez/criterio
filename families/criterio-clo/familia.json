@@ -12,6 +12,61 @@
     "es": "Construida · probada",
     "en": "Built · tested"
   },
+  "nivel_c": {
+    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "para": {
+      "es": "Procesa cada contrato y su historia —otrosíes, garantías, pagos— para decir qué vence, quién podía firmarlo y qué obligaciones siguen abiertas, y mide el programa de cumplimiento contra la ISO 37301.",
+      "en": "It processes each contract and its history —amendments, guarantees, payments— to say what falls due, who could sign it and which obligations remain open, and measures the compliance programme against ISO 37301."
+    },
+    "con": [
+      {
+        "es": [
+          "Contratos",
+          "En Word o PDF con capa de texto, con sus otrosíes, pólizas y anexos, y el registro de contratos que lleva la organización"
+        ],
+        "en": [
+          "Contracts",
+          "In Word or PDF with a text layer, with their amendments, policies and annexes, and the contract register the organisation keeps"
+        ],
+        "fuentes": []
+      },
+      {
+        "es": [
+          "Del ERP",
+          "La exportación de pagos por contrato, para cruzarlos con lo pactado"
+        ],
+        "en": [
+          "From the ERP",
+          "The export of payments per contract, to match them with what was agreed"
+        ],
+        "fuentes": []
+      },
+      {
+        "es": [
+          "Contratación pública",
+          "La regla de publicación y de garantía de la ley de cada país del registro, cada una desde su norma"
+        ],
+        "en": [
+          "Public procurement",
+          "The publication and guarantee rule of each registered country's law, each from its statute"
+        ],
+        "fuentes": [
+          "F-03",
+          "F-04",
+          "F-05",
+          "F-06",
+          "F-07",
+          "F-08",
+          "F-09",
+          "F-10",
+          "F-11",
+          "F-12",
+          "F-13",
+          "F-14"
+        ]
+      }
+    ]
+  },
   "generador": {
     "cifras_en": "fidel",
     "intake": {

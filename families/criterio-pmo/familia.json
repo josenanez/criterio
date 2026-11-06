@@ -12,6 +12,37 @@
     "es": "Construida · probada",
     "en": "Built · tested"
   },
+  "nivel_c": {
+    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "para": {
+      "es": "Contrasta lo que reporta cada proyecto contra la evidencia de sus documentos —cronogramas, minutas, presupuestos— y le dice al comité qué verdes no se sostienen, qué compromisos vencieron y qué proyectos construyen lo mismo.",
+      "en": "It checks what each project reports against the evidence in its documents —schedules, minutes, budgets— and tells the committee which greens do not hold, which commitments are overdue and which projects build the same thing."
+    },
+    "con": [
+      {
+        "es": [
+          "Cronogramas",
+          "Microsoft Project en XML —tareas, hitos, línea base, avance, predecesoras y recursos—, el .mpp donde haya Java y MPXJ, y el cronograma en Excel o CSV"
+        ],
+        "en": [
+          "Schedules",
+          "Microsoft Project XML —tasks, milestones, baseline, progress, predecessors and resources—, the .mpp where Java and MPXJ are available, and the schedule in Excel or CSV"
+        ],
+        "fuentes": []
+      },
+      {
+        "es": [
+          "Documentos del proyecto",
+          "Minutas, informes, actas y presupuestos en Word, Excel, PowerPoint y PDF con capa de texto; el PDF escaneado necesita OCR antes"
+        ],
+        "en": [
+          "Project documents",
+          "Minutes, reports, records and budgets in Word, Excel, PowerPoint and PDF with a text layer; a scanned PDF needs OCR first"
+        ],
+        "fuentes": []
+      }
+    ]
+  },
   "agentes": [
     {
       "id": "vera",

@@ -13,6 +13,57 @@
     "es": "Construida · probada",
     "en": "Built · tested"
   },
+  "nivel_c": {
+    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "para": {
+      "es": "Contrasta el embudo y el pronóstico contra la evidencia de cada oportunidad, y sigue lo ganado hasta el contrato, la factura y la comisión, con cada descuento contra la matriz aprobada.",
+      "en": "It checks the pipeline and the forecast against each opportunity's evidence, and follows what was won to the contract, the invoice and the commission, with each discount against the approved matrix."
+    },
+    "con": [
+      {
+        "es": [
+          "Del CRM",
+          "Salesforce, HubSpot, Microsoft Dynamics 365 y Zoho CRM: su exportación de oportunidades y de historial, cada una desde la documentación del fabricante"
+        ],
+        "en": [
+          "From the CRM",
+          "Salesforce, HubSpot, Microsoft Dynamics 365 and Zoho CRM: their opportunity and history exports, each from the vendor's documentation"
+        ],
+        "fuentes": [
+          "F-02",
+          "F-03",
+          "F-04",
+          "F-05",
+          "F-06",
+          "F-07",
+          "F-08",
+          "F-09"
+        ]
+      },
+      {
+        "es": [
+          "Cualquier otro CRM",
+          "Su exportación en CSV o Excel, con el mapeo de columnas que el setup registra"
+        ],
+        "en": [
+          "Any other CRM",
+          "Its export in CSV or Excel, with the column mapping the setup records"
+        ],
+        "fuentes": []
+      },
+      {
+        "es": [
+          "Lo que respalda cada venta",
+          "Propuestas, órdenes de compra, cotizaciones con su aprobación, actas del comité comercial y la liquidación de comisiones"
+        ],
+        "en": [
+          "What backs each sale",
+          "Proposals, purchase orders, quotes with their approval, sales committee minutes and the commission settlement"
+        ],
+        "fuentes": []
+      }
+    ]
+  },
   "generador": {
     "cifras_en": "augusto",
     "intake": {

@@ -12,6 +12,61 @@
     "es": "Construida · probada",
     "en": "Built · tested"
   },
+  "nivel_c": {
+    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "para": {
+      "es": "Cierra el periodo contra la evidencia: concilia bancos y cuentas, cruza la factura electrónica con la contabilidad, mide la ejecución contra el presupuesto y la caja, los pagos y la deuda contra su política.",
+      "en": "It closes the period against the evidence: it reconciles banks and accounts, matches the e-invoice with the books, measures execution against the budget, and cash, payments and debt against their policy."
+    },
+    "con": [
+      {
+        "es": [
+          "Del ERP, cualquiera",
+          "El balance de comprobación, el libro mayor, los auxiliares y los compromisos que exporta, en Excel o CSV: el motor reconoce las columnas por su nombre"
+        ],
+        "en": [
+          "From any ERP",
+          "The trial balance, the general ledger, the subsidiary ledgers and the commitments it exports, in Excel or CSV: the engine recognises the columns by name"
+        ],
+        "fuentes": []
+      },
+      {
+        "es": [
+          "Factura electrónica de doce países",
+          "Colombia (DIAN), Ecuador (SRI), Perú (SUNAT), Chile (SII), México (SAT), Brasil (NF-e), Argentina (ARCA), Panamá (DGI), Guatemala (FEL), Costa Rica (Hacienda), Honduras y Paraguay (SIFEN), cada una desde su especificación oficial"
+        ],
+        "en": [
+          "E-invoices from twelve countries",
+          "Colombia (DIAN), Ecuador (SRI), Peru (SUNAT), Chile (SII), Mexico (SAT), Brazil (NF-e), Argentina (ARCA), Panama (DGI), Guatemala (FEL), Costa Rica (Hacienda), Honduras and Paraguay (SIFEN), each from its official specification"
+        ],
+        "fuentes": [
+          "F-01",
+          "F-04",
+          "F-13",
+          "F-16",
+          "F-19",
+          "F-21",
+          "F-24",
+          "F-27",
+          "F-30",
+          "F-34",
+          "F-37",
+          "F-40"
+        ]
+      },
+      {
+        "es": [
+          "Bancos y tesorería",
+          "El extracto de cada cuenta con su auxiliar, el programa de pagos con quién aprobó cada uno y el flujo de caja proyectado"
+        ],
+        "en": [
+          "Banks and treasury",
+          "Each account's statement with its ledger, the payment run with who approved each payment, and the projected cash flow"
+        ],
+        "fuentes": []
+      }
+    ]
+  },
   "generador": {
     "cifras_en": "clara",
     "intake": {

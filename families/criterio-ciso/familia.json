@@ -13,6 +13,57 @@
     "es": "Construida · en prueba",
     "en": "Built · in testing"
   },
+  "nivel_c": {
+    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "para": {
+      "es": "Contrasta los controles, los accesos, las vulnerabilidades y los incidentes contra su evidencia: qué controles no se sostienen, qué vulnerabilidades están fuera de plazo o en el catálogo KEV, y a quién había que notificar un incidente y en qué plazo.",
+      "en": "It checks controls, access, vulnerabilities and incidents against their evidence: which controls do not hold, which vulnerabilities are past their deadline or in the KEV catalogue, and whom an incident had to be notified to and by when."
+    },
+    "con": [
+      {
+        "es": [
+          "Escáneres",
+          "Tenable Vulnerability Management y Microsoft Defender Vulnerability Management, cada uno desde la documentación del fabricante; cualquier otro, en CSV o Excel con su mapeo de columnas"
+        ],
+        "en": [
+          "Scanners",
+          "Tenable Vulnerability Management and Microsoft Defender Vulnerability Management, each from the vendor's documentation; any other, in CSV or Excel with its column mapping"
+        ],
+        "fuentes": [
+          "F-08",
+          "F-09"
+        ]
+      },
+      {
+        "es": [
+          "Catálogo y severidad",
+          "El catálogo KEV de CISA y la severidad desde el CVSS v4.0 de FIRST"
+        ],
+        "en": [
+          "Catalogue and severity",
+          "CISA's KEV catalogue and severity from FIRST's CVSS v4.0"
+        ],
+        "fuentes": [
+          "F-06",
+          "F-05"
+        ]
+      },
+      {
+        "es": [
+          "Marcos",
+          "El NIST CSF 2.0 y la respuesta a incidentes del NIST SP 800-61 Rev. 3"
+        ],
+        "en": [
+          "Frameworks",
+          "NIST CSF 2.0 and incident response per NIST SP 800-61 Rev. 3"
+        ],
+        "fuentes": [
+          "F-02",
+          "F-04"
+        ]
+      }
+    ]
+  },
   "generador": {
     "cifras_en": "alexis",
     "intake": {

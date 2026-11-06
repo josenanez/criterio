@@ -12,6 +12,52 @@
     "es": "Construida · probada",
     "en": "Built · tested"
   },
+  "nivel_c": {
+    "comentario": "Lo que hace la familia para quien dirige la función y con qué trabaja: lo publica el portal en «Qué hace». Cada fuente que se cita existe en fuentes.json y está verificada; lo comprueba scripts/familias.py --check.",
+    "para": {
+      "es": "Lleva la agenda, las sesiones de junta y de comité y los correos que esperan respuesta del despacho, con sus compromisos; prepara cada decisión con sus opciones y su evidencia, sin ordenarlas ni recomendar.",
+      "en": "It keeps the office's agenda, board and committee sessions and the emails awaiting a reply, with their commitments; it prepares each decision with its options and its evidence, without ranking them or recommending."
+    },
+    "con": [
+      {
+        "es": [
+          "Calendario",
+          "El .ics que exportan Outlook y Google Calendar, con sus repeticiones y sus cambios de hora"
+        ],
+        "en": [
+          "Calendar",
+          "The .ics that Outlook and Google Calendar export, with recurrences and time changes"
+        ],
+        "fuentes": [
+          "F-02"
+        ]
+      },
+      {
+        "es": [
+          "Correo",
+          "Los correos guardados como archivo, uno por mensaje: .eml, o .msg de Outlook"
+        ],
+        "en": [
+          "Email",
+          "Emails saved as files, one per message: .eml, or Outlook .msg"
+        ],
+        "fuentes": [
+          "F-03"
+        ]
+      },
+      {
+        "es": [
+          "Órganos de gobierno",
+          "La convocatoria, el material, las notas y el acta firmada de cada sesión, y los itinerarios de cada viaje"
+        ],
+        "en": [
+          "Governing bodies",
+          "The notice, the materials, the notes and the signed minutes of each session, and the itinerary of each trip"
+        ],
+        "fuentes": []
+      }
+    ]
+  },
   "instancia": {
     "es": "Una por ejecutivo",
     "en": "One per executive"
