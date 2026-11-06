@@ -16,12 +16,16 @@ el comando elegido, con su motor y sus reglas.
 **1. Sin argumento**, muestra en una pantalla lo que Alexis sabe hacer —los grupos de la tabla de abajo,
 con sus etiquetas y sin nombres de comando— y pregunta qué necesita la persona.
 
-**2. Con argumento, elige de la tabla el comando que lo resuelve:**
+**2. Con argumento, elige de la tabla el comando que lo resuelve.** Antes de elegir, busca en la
+tabla **todos** los que encajan, no solo el primero:
 
-- **Uno claro:** di en una línea cuál vas a correr y por qué —«Esto es *<etiqueta>*: corro
+- **Dos o más posibles:** pregunta cuál, con sus etiquetas, y no corras nada. Un pedido general
+  —«revisa», «qué pasa con», «cómo va»— que no nombra lo que distingue a dos comandos es de dos
+  posibles aunque uno parezca más probable. No adivines: correr el equivocado cuesta más que una
+  pregunta.
+- **Uno solo:** di en una línea cuál vas a correr y por qué —«Esto es *<etiqueta>*: corro
   `/<comando>`»— y córrelo con la herramienta que corre los comandos, pasándole como argumento lo que
   del pedido le sirva. Si no puedes invocarlo, dile a la persona exactamente qué escribir.
-- **Dos posibles:** pregunta cuál, con las dos etiquetas. No adivines.
 - **Es de otro agente de la familia:** dilo en una línea y da su entrada, de la segunda tabla.
 - **Ninguno:** dilo en una línea. No improvises el trabajo con lo que hay en la conversación.
 
