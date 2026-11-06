@@ -8,20 +8,49 @@ show up in practice, with what the screen says and what to do.
 ## 1 · Claude Code up to date: 2.1.110 or later
 
 From 2.1.110 on, installing a family also installs its agents and Rostrum. **Before it, only the family
-plugin installs, without its agents, and it says nothing.** Check it in the terminal, outside Claude:
+plugin installs, without its agents, and it says nothing.** This whole step happens in the terminal,
+**outside Claude**: if it is open, leave with `/exit`.
+
+**1.1 · Check the version.**
 
 ```
 claude --version
 ```
 
-If it is older, update it, also outside Claude:
+If it says 2.1.110 or more, go on to step 2.
+
+**1.2 · Update it.**
 
 ```
 claude update
 ```
 
-If it answers `Insufficient permissions to install update`, go to [the errors](#the-errors-that-show-up).
-In **Claude Cowork** there is nothing to do: the app updates itself.
+**1.3 · If it answers `Insufficient permissions to install update`**, Claude Code was installed as
+administrator and your user cannot update it. There are two ways out:
+
+- **With administrator permissions**, once: it asks for your computer's password.
+
+  ```
+  sudo claude update
+  ```
+
+- **With the native installation**, the recommended one: from then on it updates itself, without
+  asking for the password again.
+
+  ```
+  claude install
+  ```
+
+If your version does not have `claude update` either, `npm i -g @anthropic-ai/claude-code@latest`,
+with `sudo` in front if it answers the same about permissions.
+
+**1.4 · Check** it is now on 2.1.110 or more:
+
+```
+claude --version
+```
+
+In **Claude Cowork** none of this is needed: the app updates itself.
 
 ## 2 · Add the marketplace, once
 
