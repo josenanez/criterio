@@ -2579,6 +2579,239 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "192a963fa7f3ecd9d1e724ae55e5d48971d6532aa97503b7cdd564472fdb26ff",
       "sha256": "453e8c921cb8e053be4f7d6f5af2af4e1664458de3c73814157bdcfa900c4b89"
+    },
+    {
+      "version": "2.1.0",
+      "fecha": "2026-11-06",
+      "commit": null,
+      "base": "af87ba3b",
+      "etiqueta": "v2.1.0",
+      "familias": {
+        "cco": "1.1.0",
+        "cfo": "1.4.0",
+        "ciso": "1.1.0",
+        "clo": "1.5.0",
+        "ea": "1.1.0",
+        "pmo": "1.1.0",
+        "rostrum": "1.1.0"
+      },
+      "liberadas": [
+        "cco",
+        "cfo",
+        "ciso",
+        "clo",
+        "ea",
+        "pmo",
+        "rostrum"
+      ],
+      "versiones": {
+        "criterio-cco": "1.1.0",
+        "criterio-revenue": "1.1.0",
+        "criterio-sales": "1.1.0",
+        "criterio-budget": "1.4.0",
+        "criterio-cfo": "1.4.0",
+        "criterio-finance": "1.4.0",
+        "criterio-treasury": "1.4.0",
+        "criterio-ciso": "1.1.0",
+        "criterio-resilience": "1.1.0",
+        "criterio-security": "1.1.0",
+        "criterio-vulnerability": "1.1.0",
+        "criterio-clo": "1.5.0",
+        "criterio-compliance": "1.5.0",
+        "criterio-legal": "1.5.0",
+        "criterio-assistant": "1.1.0",
+        "criterio-ea": "1.1.0",
+        "criterio-pmo": "1.1.0",
+        "criterio-portfolio": "1.1.0",
+        "criterio-product": "1.1.0",
+        "criterio-project": "1.1.0",
+        "criterio-server": "1.1.0"
+      },
+      "calidad": {
+        "cco": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 197,
+            "datos": 75
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98,
+            "Datos extraídos": 95.1
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "cfo": {
+          "etiqueta": "estable",
+          "ronda": 13,
+          "rondas": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "casos": {
+            "señales": 312,
+            "datos": 895
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.7,
+            "Datos extraídos": 99.3
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ciso": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 148,
+            "datos": 80
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 97.4,
+            "Datos extraídos": 95.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "clo": {
+          "etiqueta": "estable",
+          "ronda": 13,
+          "rondas": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "casos": {
+            "señales": 262,
+            "datos": 6367
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.5,
+            "Datos extraídos": 99.8
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ea": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            2
+          ],
+          "casos": {
+            "señales": 85,
+            "datos": 146
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95.6,
+            "Datos extraídos": 97.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "pmo": {
+          "etiqueta": "estable",
+          "ronda": 12,
+          "rondas": [
+            11,
+            12
+          ],
+          "casos": {
+            "señales": 500,
+            "datos": 481
+          },
+          "version_medida": "1.0.0",
+          "pisos": {
+            "Vera · precisión": 99.2,
+            "Vera · cobertura": 99.2,
+            "Samuel · compromisos": 98.2,
+            "Alba · cobertura": 98.5
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.3",
+        "fecha": "2026-10-28",
+        "sha256": {
+          "es": "af83e6e855d68d958b528f811ab97e2e6d637f191a6d2b2e51c770198fbf0f67",
+          "en": "101d6b29739a255f56c5652d8407642339f5b47648b68a5035c38558946afe9b"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "4cbe3c31ead3b3a2d23303e955b6ba4e92321aca8991b55a0f60e9428640a53d",
+        "criterio-budget": "b86bc1f6142fcb8c15d2d2ed3201ebde6141a6320894e382283296249cf3db4b",
+        "criterio-cco": "71e7062c25ad547843a14cc2b929f9919cf5da8f53493070f22b240bd53aa50f",
+        "criterio-cfo": "843daa6b54679a66c46394008cc0ee53aef4ce3b162c1d952abf3387c2e3a963",
+        "criterio-ciso": "8b00fc80f90dc4c6cc3667a460bb1dfb8c99cdc3ed48ababf550dbd5348e2bf9",
+        "criterio-clo": "b92183301f45e1b574b53a4c19a6076ec364075e0b171bf8e6cb32a88c532d96",
+        "criterio-compliance": "35185e5f77d0dbdc276c2b8bfbf9ee3848c9deb61028972ba48d1091c68e95c9",
+        "criterio-finance": "723c538fa59813be7fb6003131d23b345bc4efa41147f9c861e3160f525d7b98",
+        "criterio-legal": "3c303425dbdca02748626a45b9341786375611ea7e5b8e7be47340ee93b52825",
+        "criterio-pmo": "bfe6cb479974415f4eb259d3fb847abd1419c58718286245dfe20bad6e1738fa",
+        "criterio-portfolio": "d51d46d006304566831d899dc5c05271227767a7de1c3291842da8563d520f92",
+        "criterio-product": "e37ff54f9a2b54e22d4d87acd2ca67d0bc94a0bff3949cad157d4dc6b3efefb1",
+        "criterio-project": "2f72071a5de4cea743bca5e4745a2bfc1f031716c39762cef4904b22fd5586d0",
+        "criterio-resilience": "5aa074858aac2c58b78e5092ad705caa5b975c16bfa994a6950707bd781205ae",
+        "criterio-revenue": "40e47a25865157a7f0e6c9059dd412d74d94f624087ff9520a898c88f22a6ce4",
+        "criterio-sales": "e0c001352f040579c52c1652a654b85d3afbbae4adf1787094fc63cf6ecac767",
+        "criterio-security": "2dd8277f979e0b37c002411f6e9f202cc6ca02928bb4b9969bbac91fca69cd56",
+        "criterio-server": "2678aa1042da87baf2ec6af117248ee0df5a183c27131057ac62dc85d5096a79",
+        "criterio-treasury": "478eb5fc3736535ba46aa152ecb7d70c54bd1614a56f79a70b08924be561bb0f",
+        "criterio-vulnerability": "529c1134c89dd70011e811078d859478439096b4ed5c51332c68e0bcf9d27884"
+      },
+      "destacados": [
+        "Una familia se instala de una vez, con criterio-<sigla> y su setup, y a cada agente se le pide en palabras, por su nombre (decisiones 0026 y 0027)"
+      ],
+      "cambios": [
+        "Resultados de la corrida",
+        "Descargas: un día sin tráfico leído queda vacío, no en cero; sin Dependabot, que ya no tiene qué vigilar",
+        "Una familia se instala de una vez: criterio-<sigla> trae sus agentes y Rostrum, y <sigla>-setup los configura en una conversación",
+        "Video: vite 6.4.5, que cierra la alerta moderada GHSA-8g5g-mxqh-grgj (server.fs.deny); solo la usa la grabación local, no se distribuye",
+        "A cada agente se le pide en palabras: /criterio-finance:clara y los otros trece",
+        "Decisiones 0026 y 0027 aceptadas, y su incremento en la hoja de ruta de cada familia"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "453e8c921cb8e053be4f7d6f5af2af4e1664458de3c73814157bdcfa900c4b89",
+      "sha256": "7287fd7de59b67be8c8e5d490ba8bb855c98605912b48d2ec7cd3f2131506c72"
     }
   ]
 }
