@@ -70,11 +70,18 @@ Di de cuándo es el material: los agentes calcularon entre septiembre y noviembr
 aparece como «ya pasó» es la fecha de hoy contra la del material. **La oficina de Ofelia no está en
 el portal:** por omisión no se publica, y es a propósito.
 
-**6. El siguiente paso, en dos líneas:**
+**6. El siguiente paso.** La demostración instala solo a Rostrum: los agentes no están instalados todavía.
+Dilo así, en tres pasos:
 
-- Para probar a un agente en palabras sobre este material, abre Claude en `criterio-demo` y pídeselo
-  por su nombre: `/criterio-finance:clara cómo va el cierre`. Cada agente pide sus términos.
-- Para tus propios documentos: `/plugin install criterio-<familia>@criterio` y su setup.
+1. **Instalar la familia que se quiere probar**, en esta misma sesión, que es la que mantiene Rostrum
+   levantado: `/plugin install criterio-cfo@criterio` y después `/reload-plugins`.
+2. **Abrir Claude en la carpeta de la demostración**, en otra ventana de la terminal:
+   `cd <carpeta>/criterio-demo && claude`. La configuración de cada agente está ahí.
+3. **Pedírselo al agente por su nombre**, con el prefijo de su propio plugin, no el de Rostrum:
+   `/criterio-finance:clara cómo va el cierre`. Cada agente pide sus términos.
+
+Para sus propios documentos, lo mismo en la carpeta de su función: `/plugin install criterio-<familia>@criterio`
+y su setup.
 
 ## Lo que no hace
 

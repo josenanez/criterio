@@ -51,6 +51,10 @@ Y dentro:
 /criterio-server:server-demo
 ```
 
+La demostración instala solo a Rostrum. Para pedirle algo a un agente sobre ese material, instala su
+familia en la misma sesión (`/plugin install criterio-cfo@criterio` y `/reload-plugins`), abre Claude en
+otra ventana dentro de `criterio-demo` y pídeselo por su nombre: `/criterio-finance:clara cómo va el cierre`.
+
 ## 4 · Instalar la familia
 
 En la carpeta donde está la documentación de tu función, abre Claude e instala la familia. La CFO,
@@ -89,6 +93,7 @@ Anthropic. Sin ella, `/plugin marketplace update criterio` la trae a mano.
 | `Auto-update failed · Try claude doctor or npm i -g @anthropic-ai/claude-code` | La actualización automática no pudo instalarse, casi siempre por lo mismo de la fila anterior | Lo mismo de la fila anterior |
 | `Failed to load marketplace "claude-plugins-official"` … `Invalid schema` | Es el catálogo oficial de Anthropic, que una versión vieja de Claude Code ya no entiende, y corta la instalación de cualquier plugin | Actualiza Claude Code (paso 1). Si no puedes ahora: `/plugin marketplace remove claude-plugins-official` |
 | `Unknown skill: criterio-server:server-demo` o `Unknown command` | El plugin no se instaló —mira el mensaje de la instalación— o se instaló y sus comandos no se han cargado | Si la instalación falló, la fila anterior. Si no, `/reload-plugins`, o cierra y abre Claude |
+| `Unknown command: /criterio-server:clara` | Cada agente se llama con el prefijo de **su** plugin, y tiene que estar instalado: Rostrum no trae a los agentes | Instala la familia (`/plugin install criterio-cfo@criterio`, `/reload-plugins`) y llámalo con su prefijo: `/criterio-finance:clara`. En la demostración, abre Claude dentro de `criterio-demo` |
 | `Plugins changed. Run /reload-plugins to activate.` | Se instaló o se actualizó algo | `/reload-plugins` |
 | `1 error during load. Run /doctor for details.` | Un plugin o un marketplace no cargó | `/doctor` dice cuál. Si es `claude-plugins-official`, la tercera fila |
 | La familia se instaló y su setup dice que un agente no está | Claude Code anterior a la 2.1.110 | Paso 1, o instala ese agente solo: `/plugin install <su plugin>@criterio` |

@@ -51,6 +51,10 @@ And inside:
 /criterio-server:server-demo
 ```
 
+The demo installs only Rostrum. To ask an agent something on that material, install its family in the
+same session (`/plugin install criterio-cfo@criterio` and `/reload-plugins`), open Claude in another
+window inside `criterio-demo` and ask it by name: `/criterio-finance:clara how is the close going`.
+
 ## 4 · Install the family
 
 In the folder that holds your function's documentation, open Claude and install the family. The CFO,
@@ -89,6 +93,7 @@ Without it, `/plugin marketplace update criterio` brings it by hand.
 | `Auto-update failed · Try claude doctor or npm i -g @anthropic-ai/claude-code` | The automatic update could not install, almost always for the reason in the row above | The same as the row above |
 | `Failed to load marketplace "claude-plugins-official"` … `Invalid schema` | It is Anthropic's official catalogue, which an old Claude Code no longer understands, and it stops any plugin from installing | Update Claude Code (step 1). If you cannot right now: `/plugin marketplace remove claude-plugins-official` |
 | `Unknown skill: criterio-server:server-demo` or `Unknown command` | The plugin did not install —look at the install message— or it installed and its commands have not loaded | If the install failed, the row above. If not, `/reload-plugins`, or close and reopen Claude |
+| `Unknown command: /criterio-server:clara` | Each agent is called with the prefix of **its own** plugin, and it has to be installed: Rostrum does not bring the agents | Install the family (`/plugin install criterio-cfo@criterio`, `/reload-plugins`) and call it with its prefix: `/criterio-finance:clara`. In the demo, open Claude inside `criterio-demo` |
 | `Plugins changed. Run /reload-plugins to activate.` | Something was installed or updated | `/reload-plugins` |
 | `1 error during load. Run /doctor for details.` | A plugin or a marketplace did not load | `/doctor` says which. If it is `claude-plugins-official`, the third row |
 | The family installed and its setup says an agent is missing | Claude Code older than 2.1.110 | Step 1, or install that agent on its own: `/plugin install <its plugin>@criterio` |
