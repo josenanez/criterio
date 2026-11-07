@@ -34,33 +34,44 @@
       {
         "es": [
           "Contratos",
-          "Word y PDF, con otrosíes, pólizas y anexos"
+          "Word (.docx) y PDF con texto, con sus otrosíes, pólizas y certificados de la contraparte"
         ],
         "en": [
           "Contracts",
-          "Word and PDF, with amendments, policies and annexes"
+          "Word (.docx) and PDF with text, with their amendments, policies and counterparty certificates"
         ],
         "fuentes": []
       },
       {
         "es": [
           "ERP",
-          "Los pagos por contrato, desde lo que exporta"
+          "Cualquier marca, desde su exportación de pagos por contrato a Excel o CSV"
         ],
         "en": [
           "ERP",
-          "Payments per contract, from what it exports"
+          "Any brand, from its export of payments per contract to Excel or CSV"
+        ],
+        "fuentes": []
+      },
+      {
+        "es": [
+          "Hojas de cálculo",
+          "Excel o CSV: registro de contratos, matriz de atribuciones, matriz de obligaciones, índice de políticas, registro normativo y casos del canal de denuncias"
+        ],
+        "en": [
+          "Spreadsheets",
+          "Excel or CSV: contract register, authority matrix, obligations matrix, policy index, regulatory register and reporting-channel cases"
         ],
         "fuentes": []
       },
       {
         "es": [
           "Contratación pública",
-          "La ley de cada país del registro, con su norma"
+          "La ley de 10 países: Colombia (SECOP), Ecuador, Perú, Chile (ChileCompra), México, Brasil, Argentina, Panamá, Costa Rica y Honduras"
         ],
         "en": [
           "Public procurement",
-          "Each registered country's law, with its statute"
+          "The law of 10 countries: Colombia (SECOP), Ecuador, Peru, Chile (ChileCompra), Mexico, Brazil, Argentina, Panama, Costa Rica and Honduras"
         ],
         "fuentes": [
           "F-03",
@@ -76,12 +87,146 @@
           "F-13",
           "F-14"
         ]
+      },
+      {
+        "es": [
+          "Marco de cumplimiento",
+          "ISO 37301:2021"
+        ],
+        "en": [
+          "Compliance framework",
+          "ISO 37301:2021"
+        ],
+        "fuentes": [
+          "F-01"
+        ]
       }
     ],
     "cifras": [
       "C-01",
       "C-02",
       "C-04"
+    ],
+    "portada": {
+      "cifras": [
+        "C-01",
+        "C-02"
+      ]
+    },
+    "alcance": [
+      {
+        "es": [
+          "Vencimientos",
+          "Contratos que vencen sin decisión, preavisos de no renovación por vencer o ya vencidos, y contratos vencidos que el registro reporta vigentes"
+        ],
+        "en": [
+          "Expiries",
+          "Contracts expiring with no decision, non-renewal notices about to lapse or already lapsed, and expired contracts the register reports as active"
+        ],
+        "senales": [
+          "contract_expiring",
+          "notice_deadline_near",
+          "renewal_notice_missed",
+          "contract_expired_active"
+        ]
+      },
+      {
+        "es": [
+          "Registro",
+          "Contratos sin registro o registros sin documento, y valores o fechas del registro distintos de los del contrato"
+        ],
+        "en": [
+          "Register",
+          "Contracts with no register entry or entries with no document, and register values or dates that differ from the contract"
+        ],
+        "senales": [
+          "register_mismatch",
+          "register_differs_from_contract"
+        ]
+      },
+      {
+        "es": [
+          "Firmas",
+          "Firmas sin facultad por tipo o monto, contratos sin la firma de las dos partes y certificados de la contraparte vencidos al firmar"
+        ],
+        "en": [
+          "Signatures",
+          "Signatures without authority by type or amount, contracts without both parties' signatures and counterparty certificates out of date at signing"
+        ],
+        "senales": [
+          "signed_without_authority",
+          "unsigned_contract",
+          "counterparty_certificate_stale"
+        ]
+      },
+      {
+        "es": [
+          "Pagos y garantías",
+          "Pagos por encima del valor pactado o posteriores a la terminación, garantías que faltan o vencen antes de lo exigido, y obligaciones del contrato vencidas"
+        ],
+        "en": [
+          "Payments and guarantees",
+          "Payments above the agreed value or after termination, guarantees missing or expiring early, and contract obligations overdue"
+        ],
+        "senales": [
+          "payments_over_value",
+          "payment_after_termination",
+          "guarantee_missing",
+          "guarantee_expires_early",
+          "contract_obligation_overdue"
+        ]
+      },
+      {
+        "es": [
+          "Contratación pública",
+          "En 10 países: contratos no publicados en plazo y garantías por debajo del mínimo de ley, sobre su tope o entregadas tarde"
+        ],
+        "en": [
+          "Public procurement",
+          "In 10 countries: contracts not published on time and guarantees below the legal minimum, over its cap or delivered late"
+        ],
+        "senales": [
+          "public_contract_not_published",
+          "public_guarantee_below_law",
+          "public_guarantee_over_cap",
+          "public_guarantee_late"
+        ]
+      },
+      {
+        "es": [
+          "Cumplimiento",
+          "Obligaciones vencidas, cumplidas sin evidencia o sin responsable ni fuente, y un cumplimiento declarado con señales abiertas"
+        ],
+        "en": [
+          "Compliance",
+          "Obligations overdue, marked done without evidence or with no owner or source, and compliance declared with open signals"
+        ],
+        "senales": [
+          "compliance_obligation_overdue",
+          "compliance_done_without_evidence",
+          "compliance_evidence_stale",
+          "obligation_without_owner",
+          "obligation_without_source",
+          "declared_compliance_vs_evidence",
+          "contract_obligation_not_in_matrix"
+        ]
+      },
+      {
+        "es": [
+          "Normas y denuncias",
+          "Normas nuevas sin evaluación o sin obligación en la matriz, políticas con revisión vencida y casos del canal de denuncias fuera de plazo"
+        ],
+        "en": [
+          "Regulation and reports",
+          "New regulations unassessed or with no obligation in the matrix, policies overdue for review and reporting-channel cases past their deadline"
+        ],
+        "senales": [
+          "regulatory_change_unassessed",
+          "applicable_norm_not_in_matrix",
+          "policy_review_overdue",
+          "report_case_overdue"
+        ]
+      }
     ]
   },
   "generador": {

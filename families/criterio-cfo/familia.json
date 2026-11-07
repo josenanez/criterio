@@ -34,22 +34,22 @@
       {
         "es": [
           "ERP",
-          "Cualquiera, desde lo que exporta: balance, mayor y auxiliares"
+          "Cualquier marca, desde su exportación a Excel o CSV: balance de comprobación, libro mayor, auxiliares y compromisos"
         ],
         "en": [
           "ERP",
-          "Any, from what it exports: trial balance, ledger and subledgers"
+          "Any brand, from its Excel or CSV export: trial balance, general ledger, subledgers and commitments"
         ],
         "fuentes": []
       },
       {
         "es": [
           "Factura electrónica",
-          "12 países: DIAN, SRI, SUNAT, SII, SAT, NF-e, ARCA, DGI, FEL, Hacienda, Honduras y SIFEN"
+          "DIAN (Colombia) · SRI (Ecuador) · SUNAT (Perú) · SII (Chile) · SAT (México) · NF-e (Brasil) · ARCA (Argentina) · DGI (Panamá) · FEL (Guatemala) · Hacienda (Costa Rica) · SAR (Honduras) · SIFEN (Paraguay)"
         ],
         "en": [
           "E-invoicing",
-          "12 countries: DIAN, SRI, SUNAT, SII, SAT, NF-e, ARCA, DGI, FEL, Hacienda, Honduras and SIFEN"
+          "DIAN (Colombia) · SRI (Ecuador) · SUNAT (Peru) · SII (Chile) · SAT (Mexico) · NF-e (Brazil) · ARCA (Argentina) · DGI (Panama) · FEL (Guatemala) · Hacienda (Costa Rica) · SAR (Honduras) · SIFEN (Paraguay)"
         ],
         "fuentes": [
           "F-01",
@@ -68,12 +68,34 @@
       },
       {
         "es": [
-          "Bancos y tesorería",
-          "Extractos, programa de pagos y flujo de caja"
+          "Bancos",
+          "Extractos de cualquier banco en Excel o CSV"
         ],
         "en": [
-          "Banks and treasury",
-          "Statements, payment run and cash flow"
+          "Banks",
+          "Statements from any bank in Excel or CSV"
+        ],
+        "fuentes": []
+      },
+      {
+        "es": [
+          "Hojas de cálculo",
+          "Excel: checklist de cierre, presupuesto aprobado, programa de pagos y matriz de firmas"
+        ],
+        "en": [
+          "Spreadsheets",
+          "Excel: close checklist, approved budget, payment run and signature matrix"
+        ],
+        "fuentes": []
+      },
+      {
+        "es": [
+          "Documentos",
+          "Word y PDF con texto: actas del comité y requerimientos del auditor"
+        ],
+        "en": [
+          "Documents",
+          "Word and PDF with text: committee minutes and auditor requests"
         ],
         "fuentes": []
       }
