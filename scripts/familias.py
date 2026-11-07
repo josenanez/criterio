@@ -1224,22 +1224,36 @@ def revisar_nivel_c() -> list[str]:
         fu = f.parent / "fuentes.json"
         estado = {x["id"]: x.get("estado") for sec in json.loads(fu.read_text(encoding="utf-8"))["secciones"]
                   for x in sec.get("fuentes", []) if "id" in x} if fu.exists() else {}
-        hace = n.get("hace", {})
-        if not (hace.get("es") and len(hace.get("es", [])) == len(hace.get("en", [])) <= 5):
-            errores.append(f"{s}: `nivel_c.hace` lleva hasta cinco líneas, las mismas en los dos idiomas")
-        if not n.get("con"):
-            errores.append(f"{s}: `nivel_c.con` vacío: con qué trabaja la familia")
         cifras = {c["id"]: c.get("estado") for c in json.loads(fu.read_text(encoding="utf-8")).get("cifras", [])} if fu.exists() else {}
-        if len(n.get("cifras", [])) != 3:
-            errores.append(f"{s}: `nivel_c.cifras` lleva las tres cifras de terceros que dicen por qué importa")
-        for i in n.get("cifras", []):
-            if cifras.get(i) != "verificada":
-                errores.append(f"{s}: `nivel_c.cifras` cita {i}, que no está verificada en fuentes.json")
-        # La portada de la familia (en prueba con la CFO): dos cifras de terceros, verificadas, y el alcance
-        # de lo que hace, una fila por función, en los dos idiomas.
-        for i in n.get("portada", {}).get("cifras", []):
-            if cifras.get(i) != "verificada":
-                errores.append(f"{s}: `nivel_c.portada` cita {i}, que no está verificada en fuentes.json")
+        portada = n.get("portada")
+        if portada:
+            # La portada en un solo bloque: hasta cinco filas —función, qué hace, con qué se integra—, cada
+            # una con sus fuentes verificadas, y dos cifras de terceros con su texto corto.
+            filas = portada.get("filas", [])
+            if not 1 <= len(filas) <= 5:
+                errores.append(f"{s}: `nivel_c.portada.filas` lleva de una a cinco filas")
+            for x in filas:
+                if len(x.get("es", [])) != 3 or len(x.get("en", [])) != 3:
+                    errores.append(f"{s}: `nivel_c.portada.filas` con una fila sin función, qué hace y con qué, en los dos idiomas")
+                for i in x.get("fuentes", []):
+                    if estado.get(i) != "verificada":
+                        errores.append(f"{s}: `nivel_c.portada` cita {i}, que no está verificada en fuentes.json")
+            if len(portada.get("cifras", [])) != 2:
+                errores.append(f"{s}: `nivel_c.portada.cifras` lleva dos cifras de terceros")
+            for c in portada.get("cifras", []):
+                if cifras.get(c.get("id")) != "verificada" or not (c.get("es") and c.get("en")):
+                    errores.append(f"{s}: `nivel_c.portada` cita {c.get('id')}: verificada en fuentes.json y con su texto corto en los dos idiomas")
+        else:
+            hace = n.get("hace", {})
+            if not (hace.get("es") and len(hace.get("es", [])) == len(hace.get("en", [])) <= 5):
+                errores.append(f"{s}: `nivel_c.hace` lleva hasta cinco líneas, las mismas en los dos idiomas")
+            if not n.get("con"):
+                errores.append(f"{s}: `nivel_c.con` vacío: con qué trabaja la familia")
+            if len(n.get("cifras", [])) != 3:
+                errores.append(f"{s}: `nivel_c.cifras` lleva las tres cifras de terceros que dicen por qué importa")
+            for i in n.get("cifras", []):
+                if cifras.get(i) != "verificada":
+                    errores.append(f"{s}: `nivel_c.cifras` cita {i}, que no está verificada en fuentes.json")
         propias = [x["id"] if isinstance(x, dict) else x for a in fam["agentes"] for x in a.get("senales", [])]
         en_filas = [i for x in n.get("alcance", []) for i in x.get("senales", [])]
         for x in n.get("alcance", []):

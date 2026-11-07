@@ -13,104 +13,101 @@
     "en": "Built · tested"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "hace": {
-      "es": [
-        "Mantiene el registro de contratos con sus vencimientos, preavisos y obligaciones.",
-        "Verifica quién tenía facultad para firmar cada contrato.",
-        "Cruza los pagos y las garantías con lo pactado.",
-        "Mide el programa de cumplimiento contra la ISO 37301 y sus políticas.",
-        "Identifica las normas nuevas que aplican y sigue el canal de denuncias."
-      ],
-      "en": [
-        "Keeps the contract register with its expiries, notice periods and obligations.",
-        "Checks who had authority to sign each contract.",
-        "Matches payments and guarantees with what was agreed.",
-        "Measures the compliance programme against ISO 37301 and its policies.",
-        "Identifies the new regulations that apply and follows the reporting channel."
-      ]
-    },
-    "con": [
-      {
-        "es": [
-          "Contratos",
-          "Word (.docx) y PDF con texto, con sus otrosíes, pólizas y certificados de la contraparte"
-        ],
-        "en": [
-          "Contracts",
-          "Word (.docx) and PDF with text, with their amendments, policies and counterparty certificates"
-        ],
-        "fuentes": []
-      },
-      {
-        "es": [
-          "ERP",
-          "Cualquier marca, desde su exportación de pagos por contrato a Excel o CSV"
-        ],
-        "en": [
-          "ERP",
-          "Any brand, from its export of payments per contract to Excel or CSV"
-        ],
-        "fuentes": []
-      },
-      {
-        "es": [
-          "Hojas de cálculo",
-          "Excel o CSV: registro de contratos, matriz de atribuciones, matriz de obligaciones, índice de políticas, registro normativo y casos del canal de denuncias"
-        ],
-        "en": [
-          "Spreadsheets",
-          "Excel or CSV: contract register, authority matrix, obligations matrix, policy index, regulatory register and reporting-channel cases"
-        ],
-        "fuentes": []
-      },
-      {
-        "es": [
-          "Contratación pública",
-          "La ley de 10 países: Colombia (SECOP), Ecuador, Perú, Chile (ChileCompra), México, Brasil, Argentina, Panamá, Costa Rica y Honduras"
-        ],
-        "en": [
-          "Public procurement",
-          "The law of 10 countries: Colombia (SECOP), Ecuador, Peru, Chile (ChileCompra), Mexico, Brazil, Argentina, Panama, Costa Rica and Honduras"
-        ],
-        "fuentes": [
-          "F-03",
-          "F-04",
-          "F-05",
-          "F-06",
-          "F-07",
-          "F-08",
-          "F-09",
-          "F-10",
-          "F-11",
-          "F-12",
-          "F-13",
-          "F-14"
-        ]
-      },
-      {
-        "es": [
-          "Marco de cumplimiento",
-          "ISO 37301:2021"
-        ],
-        "en": [
-          "Compliance framework",
-          "ISO 37301:2021"
-        ],
-        "fuentes": [
-          "F-01"
-        ]
-      }
-    ],
-    "cifras": [
-      "C-01",
-      "C-02",
-      "C-04"
-    ],
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
     "portada": {
       "cifras": [
-        "C-01",
-        "C-02"
+        {
+          "id": "C-01",
+          "es": "del valor de los contratos se pierde por mala gestión",
+          "en": "of contract value lost to poor management"
+        },
+        {
+          "id": "C-02",
+          "es": "no encuentra con facilidad sus propios contratos",
+          "en": "struggle to find their own contracts"
+        }
+      ],
+      "filas": [
+        {
+          "es": [
+            "Contratos",
+            "Vencimientos, preavisos y obligaciones",
+            "Word y PDF · registro en Excel"
+          ],
+          "en": [
+            "Contracts",
+            "Expiries, notice periods and obligations",
+            "Word and PDF · register in Excel"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Firmas",
+            "Quién tenía facultad para firmar",
+            "Matriz de atribuciones en Excel"
+          ],
+          "en": [
+            "Signatures",
+            "Who had authority to sign",
+            "Authority matrix in Excel"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Pagos y garantías",
+            "Pagos y pólizas contra lo pactado",
+            "ERP en Excel o CSV · pólizas en PDF"
+          ],
+          "en": [
+            "Payments and guarantees",
+            "Payments and policies against the contract",
+            "ERP in Excel or CSV · policies in PDF"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Contratación pública",
+            "Publicación y garantías según la ley",
+            "SECOP · ChileCompra · 10 países"
+          ],
+          "en": [
+            "Public procurement",
+            "Publication and guarantees under the law",
+            "SECOP · ChileCompra · 10 countries"
+          ],
+          "fuentes": [
+            "F-03",
+            "F-04",
+            "F-05",
+            "F-06",
+            "F-07",
+            "F-08",
+            "F-09",
+            "F-10",
+            "F-11",
+            "F-12",
+            "F-13",
+            "F-14"
+          ]
+        },
+        {
+          "es": [
+            "Cumplimiento",
+            "Programa, normas nuevas y canal de denuncias",
+            "ISO 37301 · matrices en Excel"
+          ],
+          "en": [
+            "Compliance",
+            "Programme, new regulations and reporting channel",
+            "ISO 37301 · matrices in Excel"
+          ],
+          "fuentes": [
+            "F-01"
+          ]
+        }
       ]
     },
     "alcance": [

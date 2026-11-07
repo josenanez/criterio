@@ -13,102 +13,99 @@
     "en": "Built · tested"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "hace": {
-      "es": [
-        "Concilia los bancos y las cuentas contra sus soportes.",
-        "Cruza cada factura electrónica con la contabilidad.",
-        "Compara la ejecución con el presupuesto y proyecta el cierre del año.",
-        "Revisa los pagos, la caja y la deuda contra la política y los covenants.",
-        "Prepara el paquete para el auditor."
-      ],
-      "en": [
-        "Reconciles banks and accounts against their support.",
-        "Matches every e-invoice with the books.",
-        "Compares execution with the budget and projects the year-end close.",
-        "Reviews payments, cash and debt against the policy and the covenants.",
-        "Prepares the auditor's pack."
-      ]
-    },
-    "con": [
-      {
-        "es": [
-          "ERP",
-          "Cualquier marca, desde su exportación a Excel o CSV: balance de comprobación, libro mayor, auxiliares y compromisos"
-        ],
-        "en": [
-          "ERP",
-          "Any brand, from its Excel or CSV export: trial balance, general ledger, subledgers and commitments"
-        ],
-        "fuentes": []
-      },
-      {
-        "es": [
-          "Factura electrónica",
-          "DIAN (Colombia) · SRI (Ecuador) · SUNAT (Perú) · SII (Chile) · SAT (México) · NF-e (Brasil) · ARCA (Argentina) · DGI (Panamá) · FEL (Guatemala) · Hacienda (Costa Rica) · SAR (Honduras) · SIFEN (Paraguay)"
-        ],
-        "en": [
-          "E-invoicing",
-          "DIAN (Colombia) · SRI (Ecuador) · SUNAT (Peru) · SII (Chile) · SAT (Mexico) · NF-e (Brazil) · ARCA (Argentina) · DGI (Panama) · FEL (Guatemala) · Hacienda (Costa Rica) · SAR (Honduras) · SIFEN (Paraguay)"
-        ],
-        "fuentes": [
-          "F-01",
-          "F-04",
-          "F-13",
-          "F-16",
-          "F-19",
-          "F-21",
-          "F-24",
-          "F-27",
-          "F-30",
-          "F-34",
-          "F-37",
-          "F-40"
-        ]
-      },
-      {
-        "es": [
-          "Bancos",
-          "Extractos de cualquier banco en Excel o CSV"
-        ],
-        "en": [
-          "Banks",
-          "Statements from any bank in Excel or CSV"
-        ],
-        "fuentes": []
-      },
-      {
-        "es": [
-          "Hojas de cálculo",
-          "Excel: checklist de cierre, presupuesto aprobado, programa de pagos y matriz de firmas"
-        ],
-        "en": [
-          "Spreadsheets",
-          "Excel: close checklist, approved budget, payment run and signature matrix"
-        ],
-        "fuentes": []
-      },
-      {
-        "es": [
-          "Documentos",
-          "Word y PDF con texto: actas del comité y requerimientos del auditor"
-        ],
-        "en": [
-          "Documents",
-          "Word and PDF with text: committee minutes and auditor requests"
-        ],
-        "fuentes": []
-      }
-    ],
-    "cifras": [
-      "C-05",
-      "C-04",
-      "C-02"
-    ],
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
     "portada": {
       "cifras": [
-        "C-03",
-        "C-05"
+        {
+          "id": "C-03",
+          "es": "mediana del cierre anual",
+          "en": "median annual close"
+        },
+        {
+          "id": "C-05",
+          "es": "sufrió fraude o intento de fraude en pagos",
+          "en": "suffered payment fraud or an attempt"
+        }
+      ],
+      "filas": [
+        {
+          "es": [
+            "Conciliación",
+            "Bancos y cuentas contra sus soportes",
+            "Extractos de cualquier banco · ERP en Excel o CSV"
+          ],
+          "en": [
+            "Reconciliation",
+            "Banks and accounts against their support",
+            "Statements from any bank · ERP in Excel or CSV"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Factura electrónica",
+            "Cada factura contra la contabilidad",
+            "DIAN · SRI · SUNAT · SII · SAT · NF-e · ARCA · DGI · FEL · Hacienda · SAR · SIFEN"
+          ],
+          "en": [
+            "E-invoicing",
+            "Every invoice against the books",
+            "DIAN · SRI · SUNAT · SII · SAT · NF-e · ARCA · DGI · FEL · Hacienda · SAR · SIFEN"
+          ],
+          "fuentes": [
+            "F-01",
+            "F-04",
+            "F-13",
+            "F-16",
+            "F-19",
+            "F-21",
+            "F-24",
+            "F-27",
+            "F-30",
+            "F-34",
+            "F-37",
+            "F-40"
+          ]
+        },
+        {
+          "es": [
+            "Presupuesto",
+            "Ejecución contra lo aprobado y proyección al cierre",
+            "ERP y presupuesto en Excel"
+          ],
+          "en": [
+            "Budget",
+            "Execution against approved, and year-end projection",
+            "ERP and budget in Excel"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Tesorería",
+            "Pagos, caja y deuda contra la política",
+            "Programa de pagos y matriz de firmas en Excel"
+          ],
+          "en": [
+            "Treasury",
+            "Payments, cash and debt against policy",
+            "Payment run and signature matrix in Excel"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Auditoría",
+            "El paquete para el auditor",
+            "Requerimientos en Word y PDF"
+          ],
+          "en": [
+            "Audit",
+            "The auditor's pack",
+            "Requests in Word and PDF"
+          ],
+          "fuentes": []
+        }
       ]
     },
     "alcance": [
