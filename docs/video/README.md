@@ -29,12 +29,13 @@ el componente y esa hoja, los monta en una página propia y graba (el video de Y
 `IDIOMAS=es` solo ese idioma.
 
 **El video de YouTube** ([`src/youtube.jsx`](src/youtube.jsx), en [`youtube.html`](youtube.html))
-presenta la familia y después a cada agente, con Rostrum al final: el rol que dirige la función,
-las dos cifras de terceros del costo del problema, lo que hace cada función y con qué se integra,
-cada agente con lo que hace, lo que detecta y sus señales con más casos probados, Rostrum, el piso
-de la prueba con sus entidades y países, y los tres pasos de la instalación. Solo los rótulos y los
+presenta la familia y después a cada agente, con Rostrum al final: el rol que dirige la función, lo
+que hace cada función y con qué se integra, cada agente con lo que hace, lo que detecta y sus señales
+con más casos probados, Rostrum, dónde se probó —el mapa con sus países y sus industrias—, el piso
+de la prueba con sus casos y entidades, y los tres pasos de la instalación. Solo los rótulos y los
 tiempos se escriben ahí: los textos y las cifras son los que el portal publica del repositorio
-—`nivel_c` de cada `familia.json`, las rondas, la hoja de ruta, la impresora y la instalación—, y
+—`nivel_c` de cada `familia.json`, las rondas, la hoja de ruta, la impresora, los países, las
+industrias, el mapa y la instalación—, y
 `grabar.mjs` trae esos archivos del portal, igual que el componente de la impresora. Se dibuja
 cuadro por cuadro (30 por segundo): la página pone cada animación, también los gestos de los
 robots, en el segundo exacto de cada cuadro, así que sale parejo en cualquier máquina. La PMO

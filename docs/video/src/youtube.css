@@ -24,14 +24,9 @@ p { margin: 0; }
 .yt-h1 { font: 500 150px/1.02 var(--font-inter-tight); letter-spacing: -.045em; margin: 10px 0 0; }
 .yt-h2 { font: 500 84px/1.05 var(--font-inter-tight); letter-spacing: -.04em; margin: 0 0 70px; }
 
-/* Las cifras */
-.yt-cifras { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 40px; }
-.yt-cifra { border-top: 2px solid var(--tinta); padding-top: 40px; }
-.yt-valor { font: 500 190px/1 var(--font-inter-tight); letter-spacing: -.05em; }
-.yt-valor.grande { font-size: 260px; }
-.yt-corto { font-size: 46px; line-height: 1.25; margin-top: 28px; max-width: 760px; color: var(--texto); }
-.yt.oscuro .yt-corto { color: rgba(255,255,255,.8); }
-.yt-fuente { font-size: 24px; margin-top: 30px; color: var(--apagado); }
+/* La prueba: la cifra grande */
+.yt-valor { font: 500 260px/1 var(--font-inter-tight); letter-spacing: -.05em; }
+.yt-corto { font-size: 46px; line-height: 1.25; max-width: 760px; color: rgba(255,255,255,.8); }
 
 /* La tabla de funciones */
 .yt-tabla { margin-top: 10px; }
@@ -69,8 +64,19 @@ p { margin: 0; }
 .yt-tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 70px; background: #2b2b28; border: 2px solid #2b2b28; }
 .yt-tres div { background: var(--tinta); padding: 34px 40px; }
 .yt-tres .v { font: 500 88px/1 var(--font-inter-tight); letter-spacing: -.04em; }
-.yt-tres .k { font-size: 26px; color: rgba(255,255,255,.7); margin-top: 14px; }
-.yt-nota { font-size: 30px; color: var(--oro-claro); margin-top: 44px; }
+.yt-tres .k { font-size: 26px; line-height: 1.3; color: rgba(255,255,255,.7); margin-top: 14px; }
+
+/* Dónde se probó */
+.yt-donde { display: grid; grid-template-columns: 560px 1fr; gap: 110px; align-items: start; }
+.yt-mapa { width: 560px; height: auto; display: block; }
+.yt-mapa .base { fill: #e4e1d8; stroke: var(--papel); stroke-width: 1; }
+.yt-mapa .probado { fill: var(--oro); stroke: var(--papel); stroke-width: 1; }
+.yt-h2.corto { margin-bottom: 36px; }
+.yt-paises { list-style: none; padding: 0; margin: 0 0 54px; display: grid; grid-template-columns: repeat(3, auto); gap: 12px 48px; justify-content: start; font-size: 32px; color: var(--texto); }
+.yt-sectores { display: flex; flex-wrap: wrap; gap: 18px 44px; font: 600 36px/1 var(--font-inter-tight); letter-spacing: -.02em; }
+.yt-sectores span { display: flex; align-items: center; gap: 14px; }
+.yt-sectores svg { width: 52px; height: 52px; fill: none; stroke: var(--tinta); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.yt-control { font-size: 28px; color: var(--apagado); margin-top: 26px; }
 
 /* La instalación */
 .yt-pasos { list-style: none; padding: 0; margin: 10px 0 0; }

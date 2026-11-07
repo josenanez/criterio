@@ -33,7 +33,7 @@ const TRAER = {
   portal: ['CriterioFamily.tsx', 'CriterioLogo.tsx', 'criterioPrueba.ts', 'criterioSetupFamilias.ts']
     .map((f) => path.join('components', 'criterio', f)),
   lib: ['criterioImpresora', 'criterioNivelC', 'criterioRondas', 'criterioHojaDeRuta', 'criterioIndustrias', 'criterioRegistro',
-    'criterioPaises', 'criterioCfo', 'criterioClo', 'criterioEa', 'criterioCco', 'criterioCiso'].map((f) => path.join('lib', `${f}.ts`)),
+    'criterioPaises', 'criterioSectores', 'criterioMapaGeo', 'criterioCfo', 'criterioClo', 'criterioEa', 'criterioCco', 'criterioCiso'].map((f) => path.join('lib', `${f}.ts`)),
 };
 for (const [destino, archivos] of Object.entries(TRAER)) {
   fs.mkdirSync(path.join(AQUI, 'src', destino), { recursive: true });

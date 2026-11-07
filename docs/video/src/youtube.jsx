@@ -9,14 +9,17 @@ import { CRITERIO_CLO } from './lib/criterioClo';
 import { CRITERIO_EA } from './lib/criterioEa';
 import { CRITERIO_CCO } from './lib/criterioCco';
 import { CRITERIO_CISO } from './lib/criterioCiso';
+import { CRITERIO_RONDAS } from './lib/criterioRondas';
+import { CRITERIO_PAISES } from './lib/criterioPaises';
+import { CRITERIO_SECTORES } from './lib/criterioSectores';
+import { CRITERIO_MAPA_GEO } from './lib/criterioMapaGeo';
 import { casosDe, pisoDe, resumenPrueba } from './portal/criterioPrueba';
 import { PASOS_INSTALAR, SETUP_FAMILIAS, versionDe } from './portal/criterioSetupFamilias';
 import { Robot } from './portal/CriterioFamily';
 import { CriterioLogo, CriterioSimbolo } from './portal/CriterioLogo';
 
-/* El video de cada familia para YouTube, 1920×1080: la familia —su rol, el costo del problema y lo
-   que hace cada función—, cada agente con lo que hace y lo que detecta, Rostrum, la prueba y cómo
-   se instala. Solo se escriben aquí los rótulos y los tiempos: cada texto y cada cifra salen de lo
+/* El video de cada familia para YouTube, 1920×1080: la familia —su rol y lo que hace cada función—,
+   cada agente con lo que hace y lo que detecta, Rostrum, dónde se probó, la prueba y cómo se instala. Solo se escriben aquí los rótulos y los tiempos: cada texto y cada cifra salen de lo
    que el portal publica desde el repositorio (grabar.mjs trae esos archivos), así que una cifra que
    cambia en el repositorio cambia en el video la próxima vez que se graba.
 
@@ -27,7 +30,10 @@ const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CR
 
 const TEXTO = {
   es: {
-    problema: 'El costo del problema',
+    donde: 'Dónde se probó',
+    paisesN: (n) => `${n} ${n === 1 ? 'país' : 'países'}`,
+    industrias: 'Industrias',
+    control: (n) => `y ${n} entidades de control`,
     funciones: 'Lo que hace',
     columnas: ['Función', 'Qué hace', 'Con qué se integra'],
     familia: (n) => `${['', 'Una agente', 'Dos agentes', 'Tres agentes', 'Cuatro agentes'][n] || `${n} agentes`} y un portal`,
@@ -38,13 +44,15 @@ const TEXTO = {
     prueba: 'La prueba',
     piso: 'de lo que debía detectarse, detectado como mínimo, con 95 % de confianza',
     entidades: 'entidades de prueba',
-    paises: 'países',
-    controles: (k, n) => `${k} de ${n} entidades de control sin una sola alarma falsa`,
+    controles: (n) => `de ${n} entidades de control, sin una sola alarma falsa`,
     version: (v) => `Versión ${v}`,
     licencia: 'Código abierto · Apache 2.0',
   },
   en: {
-    problema: 'The cost of the problem',
+    donde: 'Where it was tested',
+    paisesN: (n) => `${n} ${n === 1 ? 'country' : 'countries'}`,
+    industrias: 'Industries',
+    control: (n) => `and ${n} control entities`,
     funciones: 'What it does',
     columnas: ['Function', 'What it does', 'Works with'],
     familia: (n) => `${['', 'One agent', 'Two agents', 'Three agents', 'Four agents'][n] || `${n} agents`} and a portal`,
@@ -55,8 +63,7 @@ const TEXTO = {
     prueba: 'The proof',
     piso: 'of what had to be caught, caught at least, with 95% confidence',
     entidades: 'test entities',
-    paises: 'countries',
-    controles: (k, n) => `${k} of ${n} control entities without a single false alarm`,
+    controles: (n) => `of ${n} control entities, without a single false alarm`,
     version: (v) => `Version ${v}`,
     licencia: 'Open source · Apache 2.0',
   },
@@ -97,26 +104,7 @@ function escenas(sigla, l) {
     ),
   });
 
-  // 2 · El costo del problema: las dos cifras de terceros de la portada.
-  lista.push({
-    dura: 12,
-    render: (lt) => (
-      <div>
-        <Eyebrow>{t.problema}</Eyebrow>
-        <div className="yt-cifras">
-          {P.cifras.map((c, i) => (
-            <div key={c.id} className="yt-cifra" style={sube(lt, 0.6 + i * 3.2, 0.8)}>
-              <p className="yt-valor">{c.valor[l]}</p>
-              <p className="yt-corto">{c.corto[l]}</p>
-              <p className="yt-fuente">{c.fuente.split(',')[0]}, {c.anio}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-  });
-
-  // 3 · Lo que hace: una fila por función, con qué se integra.
+  // 2 · Lo que hace: una fila por función, con qué se integra.
   const paso = 3.2;
   lista.push({
     dura: 3 + P.filas.length * paso + 2,
@@ -139,7 +127,7 @@ function escenas(sigla, l) {
     ),
   });
 
-  // 4 · La familia: sus agentes y Rostrum.
+  // 3 · La familia: sus agentes y Rostrum.
   const bots = [...agentes.map((a) => a.id), 'rostrum'];
   const nombre = (id) => (id === 'rostrum' ? 'Rostrum' : agentes.find((a) => a.id === id).nombre);
   lista.push({
@@ -161,7 +149,7 @@ function escenas(sigla, l) {
     ),
   });
 
-  // 5 · Cada agente: quién es, lo que hace y lo que detecta, con las señales que más casos tienen.
+  // 4 · Cada agente: quién es, lo que hace y lo que detecta, con las señales que más casos tienen.
   for (const a of agentes) {
     const ids = a.senales.map((s) => s.id);
     const casos = casosDe(sigla, ids);
@@ -197,7 +185,7 @@ function escenas(sigla, l) {
     });
   }
 
-  // 6 · Rostrum, al final: lo mismo que dice en la impresora de la familia.
+  // 5 · Rostrum, al final: lo mismo que dice en la impresora de la familia.
   const rostrum = imp.guion.find((g) => g.quien === 'rostrum');
   lista.push({
     dura: 13,
@@ -217,7 +205,61 @@ function escenas(sigla, l) {
     ),
   });
 
-  // 7 · La prueba: el piso que cita la portada y dónde se probó.
+  // 6 · Dónde se probó: cada país de sus entidades, encendido en el mapa, y sus industrias. La EA no
+  // lleva mapa, como en su página: su prueba se cuenta en oficinas, no en países.
+  const D = CRITERIO_RONDAS[sigla];
+  const orden = (c) => CRITERIO_PAISES.findIndex((p) => p.codigo === c);
+  const codigos = [...new Set(D.entidades.map((e) => e.pais))].sort((a, b) => orden(a) - orden(b));
+  const nombrePais = (c) => CRITERIO_PAISES.find((p) => p.codigo === c)?.nombre[l] ?? c;
+  const sectores = [...new Set(D.entidades.filter((e) => !e.control).map((e) => e.industria))].map((id) => {
+    const x = CRITERIO_SECTORES.find((y) => y.id === id);
+    if (!x) throw new Error(`La industria ${id} no está en lib/criterioSectores.ts`);
+    return x;
+  });
+  const enControl = D.entidades.filter((e) => e.control).length;
+  const conMapa = sigla !== 'ea';
+  const enciende = (k) => 0.8 + k * 0.35;
+  lista.push({
+    dura: 12,
+    render: (lt) => (
+      <div className={conMapa ? 'yt-donde' : ''}>
+        {conMapa ? (
+          <svg viewBox={CRITERIO_MAPA_GEO.viewBox} className="yt-mapa" aria-hidden="true">
+            {CRITERIO_MAPA_GEO.paises.map((g) => {
+              const k = codigos.indexOf(g.codigo);
+              return (
+                <g key={g.codigo}>
+                  <path d={g.d} className="base" />
+                  {k >= 0 ? <path d={g.d} className="probado" style={{ opacity: suave(entre((lt - enciende(k)) / 0.5)) }} /> : null}
+                </g>
+              );
+            })}
+          </svg>
+        ) : null}
+        <div>
+          <Eyebrow>{t.donde}</Eyebrow>
+          <h2 className="yt-h2 corto" style={sube(lt, 0.3)}>{t.paisesN(codigos.length)}</h2>
+          <ul className="yt-paises">
+            {codigos.map((c, k) => <li key={c} style={sube(lt, enciende(k), 0.5)}>{nombrePais(c)}</li>)}
+          </ul>
+          <div style={sube(lt, enciende(codigos.length) + 0.6)}>
+            <Eyebrow>{t.industrias}</Eyebrow>
+            <div className="yt-sectores">
+              {sectores.map((x) => (
+                <span key={x.id}>
+                  <svg viewBox="0 0 48 48" aria-hidden="true"><path d={x.icono} /></svg>
+                  {x.nombre[l]}
+                </span>
+              ))}
+            </div>
+            {enControl ? <p className="yt-control">{t.control(enControl)}</p> : null}
+          </div>
+        </div>
+      </div>
+    ),
+  });
+
+  // 7 · La prueba: el piso que cita la portada, sobre cuántos casos y entidades.
   const piso = pisoDe(sigla);
   const r = resumenPrueba(sigla);
   if (piso) {
@@ -232,14 +274,14 @@ function escenas(sigla, l) {
             <p className="yt-corto">{t.piso}</p>
           </div>
           <div className="yt-tres">
-            {[[fmt(r.senales[1]), t.casos('').trim()], [fmt(r.entidades), t.entidades], [fmt(r.paises), t.paises]].map(([v, k], i) => (
+            {[[fmt(r.senales[1]), t.casos('').trim()], [fmt(r.entidades), t.entidades],
+              ...(r.controles[1] ? [[fmt(r.controles[0]), t.controles(r.controles[1])]] : [])].map(([v, k], i) => (
               <div key={k} style={sube(lt, 2.4 + i * 0.8)}>
                 <p className="v">{v}</p>
                 <p className="k">{k}</p>
               </div>
             ))}
           </div>
-          {r.controles[1] ? <p className="yt-nota" style={sube(lt, 5.5)}>{t.controles(r.controles[0], r.controles[1])}</p> : null}
         </div>
       ),
     });
