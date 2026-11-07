@@ -30,7 +30,7 @@ if (!process.env.PORTAL) {
 // Lo que se trae del portal: los componentes que se dibujan tal cual y las tablas que el portal
 // genera del repositorio. Van a src/portal y src/lib, que no se versionan.
 const TRAER = {
-  portal: ['CriterioFamily.tsx', 'CriterioLogo.tsx', 'criterioPrueba.ts', 'criterioSetupFamilias.ts']
+  portal: ['CriterioFamily.tsx', 'CriterioLogo.tsx', 'criterioPrueba.ts', 'criterioSetupFamilias.ts', 'criterioAgentTabsFamilias.ts', 'criterioCalculatorFamilias.ts']
     .map((f) => path.join('components', 'criterio', f)),
   lib: ['criterioImpresora', 'criterioNivelC', 'criterioRondas', 'criterioHojaDeRuta', 'criterioIndustrias', 'criterioRegistro',
     'criterioPaises', 'criterioSectores', 'criterioMapaGeo', 'criterioCfo', 'criterioClo', 'criterioEa', 'criterioCco', 'criterioCiso'].map((f) => path.join('lib', `${f}.ts`)),

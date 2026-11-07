@@ -23,23 +23,25 @@ el componente y esa hoja, los monta en una página propia y graba (el video de Y
 | [`../img/es/robots-cfo.gif`](../img/es/robots-cfo.gif) · [`../img/en/robots-cfo.gif`](../img/en/robots-cfo.gif) | Igual, la CFO | El diseño de la familia CFO |
 | [`../img/es/robots-clo.gif`](../img/es/robots-clo.gif) · [`../img/en/robots-clo.gif`](../img/en/robots-clo.gif) | Igual, la CLO | El diseño de la familia CLO |
 | [`../img/es/robots-ea.gif`](../img/es/robots-ea.gif) · [`../img/en/robots-ea.gif`](../img/en/robots-ea.gif) | Igual, la EA | La página de la familia EA |
-| `youtube/criterio-<familia>-youtube-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, unos dos minutos y medio | El canal de YouTube; no se versiona (pesa decenas de megas) |
+| `youtube/criterio-<familia>-youtube-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, unos noventa segundos | El canal de YouTube; no se versiona (pesa decenas de megas) |
 
 `FAMILIAS=cfo,clo` graba solo esas; `PIEZAS=youtube` solo el video de YouTube (o `video`, `gif`);
 `IDIOMAS=es` solo ese idioma.
 
 **El video de YouTube** ([`src/youtube.jsx`](src/youtube.jsx), en [`youtube.html`](youtube.html))
-presenta la familia y después a cada agente, con Rostrum al final: el rol que dirige la función, lo
-que hace cada función y con qué se integra, cada agente con lo que hace, lo que detecta y sus señales
-con más casos probados, Rostrum, dónde se probó —el mapa con sus países y sus industrias—, el piso
-de la prueba con sus casos y entidades, y los tres pasos de la instalación. Solo los rótulos y los
-tiempos se escriben ahí: los textos y las cifras son los que el portal publica del repositorio
-—`nivel_c` de cada `familia.json`, las rondas, la hoja de ruta, la impresora, los países, las
-industrias, el mapa y la instalación—, y
-`grabar.mjs` trae esos archivos del portal, igual que el componente de la impresora. Se dibuja
-cuadro por cuadro (30 por segundo): la página pone cada animación, también los gestos de los
-robots, en el segundo exacto de cada cuadro, así que sale parejo en cualquier máquina. La PMO
-todavía no tiene el suyo: el portal no publica sus agentes en una tabla como las de las demás.
+dura unos noventa segundos, una idea por pantalla, en el orden de la página de la familia: un
+hallazgo de los datos de prueba que se escribe solo; el rol, lo que hace cada función y con qué se
+integra; dónde se probó —el mapa que se enciende país por país, con sus industrias—; los agentes;
+las tareas que hoy hace el equipo y que los agentes preparan; la evidencia —el piso, lo que detecta
+cada función, los controles y los defectos—; cada agente escribiendo lo que encontró; Rostrum; y la
+versión con los tres pasos de la instalación. Solo los rótulos, los tiempos y qué agente abre se
+escriben ahí: los textos y las cifras son los que el portal publica del repositorio —`nivel_c` de
+cada `familia.json`, las rondas, la hoja de ruta, la impresora, los países, las industrias, el
+mapa, la calculadora, las capturas de Rostrum de cada agente y la instalación—, y `grabar.mjs`
+trae esos archivos del portal, igual que el componente de la impresora. Se dibuja cuadro por cuadro
+(30 por segundo): la página pone cada animación, también los gestos de los robots, en el segundo
+exacto de cada cuadro, así que sale parejo en cualquier máquina. La PMO todavía no tiene el suyo:
+el portal no publica sus agentes en una tabla como las de las demás.
 
 Si cambia el texto de la impresora, se cambia en `familia.json`, el portal lo vuelve a publicar y se vuelve a grabar. No
 se edita ni el GIF ni el video a mano, y [`graficos.py`](../img/graficos.py) no dibuja

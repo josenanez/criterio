@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { flushSync } from 'react-dom';
 import './youtube.css';
 import { CRITERIO_NIVEL_C } from './lib/criterioNivelC';
-import { IMPRESORA, ROBOTS, ROSTRUM } from './lib/criterioImpresora';
+import { IMPRESORA } from './lib/criterioImpresora';
 import { CRITERIO_CFO } from './lib/criterioCfo';
 import { CRITERIO_CLO } from './lib/criterioClo';
 import { CRITERIO_EA } from './lib/criterioEa';
@@ -15,55 +15,64 @@ import { CRITERIO_SECTORES } from './lib/criterioSectores';
 import { CRITERIO_MAPA_GEO } from './lib/criterioMapaGeo';
 import { casosDe, pisoDe, resumenPrueba } from './portal/criterioPrueba';
 import { PASOS_INSTALAR, SETUP_FAMILIAS, versionDe } from './portal/criterioSetupFamilias';
+import { AGENT_TABS_FAMILIAS } from './portal/criterioAgentTabsFamilias';
+import { CALC_FAMILIAS } from './portal/criterioCalculatorFamilias';
 import { Robot } from './portal/CriterioFamily';
 import { CriterioLogo, CriterioSimbolo } from './portal/CriterioLogo';
 
-/* El video de cada familia para YouTube, 1920×1080: la familia —su rol y lo que hace cada función—,
-   cada agente con lo que hace y lo que detecta, Rostrum, dónde se probó, la prueba y cómo se instala. Solo se escriben aquí los rótulos y los tiempos: cada texto y cada cifra salen de lo
-   que el portal publica desde el repositorio (grabar.mjs trae esos archivos), así que una cifra que
-   cambia en el repositorio cambia en el video la próxima vez que se graba.
+/* El video de cada familia para YouTube, 1920×1080, en unos noventa segundos y en el orden de su
+   página: un hallazgo de entrada; el rol y lo que hace cada función, con qué se integra; dónde se
+   probó; los agentes; la capacidad que hoy se va en el trabajo que preparan; la evidencia; cada
+   agente con lo que encontró; Rostrum; la versión y la instalación. Una idea por pantalla.
+
+   Solo se escriben aquí los rótulos, los tiempos y qué agente abre el video: cada texto y cada cifra
+   salen de lo que el portal publica desde el repositorio (grabar.mjs trae esos archivos), así que lo
+   que cambia en el repositorio cambia en el video la próxima vez que se graba.
 
    El tiempo no corre solo: grabar.mjs llama a window.__ir(segundo) cuadro por cuadro, y cada
    animación —también los gestos de los robots— se dibuja en ese segundo exacto. */
 
 const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO };
 
+// El agente cuyo hallazgo abre el video: el primero que dice su captura de Rostrum en la página.
+const GANCHO = { cfo: 'aurea' };
+
 const TEXTO = {
   es: {
+    prueba: 'Datos de prueba de banca',
+    detecto: (n) => `${n} lo detectó antes de la decisión.`,
     donde: 'Dónde se probó',
-    paisesN: (n) => `${n} ${n === 1 ? 'país' : 'países'}`,
-    industrias: 'Industrias',
-    control: (n) => `y ${n} entidades de control`,
-    funciones: 'Lo que hace',
-    columnas: ['Función', 'Qué hace', 'Con qué se integra'],
-    familia: (n) => `${['', 'Una agente', 'Dos agentes', 'Tres agentes', 'Cuatro agentes'][n] || `${n} agentes`} y un portal`,
-    hace: 'Lo que hace',
-    detecta: 'Lo que detecta antes de la decisión',
-    senales: (n) => `${n} señales`,
-    casos: (n) => `${n} casos probados`,
-    prueba: 'La prueba',
-    piso: 'de lo que debía detectarse, detectado como mínimo, con 95 % de confianza',
+    paises: 'países',
     entidades: 'entidades de prueba',
-    controles: (n) => `de ${n} entidades de control, sin una sola alarma falsa`,
+    control: (n) => `y ${n} entidades de control`,
+    familia: (n) => `${['', 'Una agente', 'Dos agentes', 'Tres agentes', 'Cuatro agentes'][n] || `${n} agentes`} y un portal`,
+    capacidad: 'Lo que hoy hace tu equipo, a mano',
+    calcula: '¿Cuánto le cuesta? Calcúlalo con tus números en la página.',
+    evidencia: 'La evidencia',
+    piso: 'detectado como mínimo, con 95 % de confianza',
+    casos: 'casos probados',
+    controles: (k, n) => `${k} de ${n} entidades de control sin una sola alarma falsa`,
+    defectos: (n, r, k) => (k === n ? `${n} defectos encontrados en ${r} rondas: todos corregidos y verificados` : `${n} defectos encontrados en ${r} rondas: ${k} corregidos y verificados`),
+    encontro: 'Lo que encontró',
     version: (v) => `Versión ${v}`,
     licencia: 'Código abierto · Apache 2.0',
   },
   en: {
+    prueba: 'Banking test data',
+    detecto: (n) => `${n} caught it before the decision.`,
     donde: 'Where it was tested',
-    paisesN: (n) => `${n} ${n === 1 ? 'country' : 'countries'}`,
-    industrias: 'Industries',
-    control: (n) => `and ${n} control entities`,
-    funciones: 'What it does',
-    columnas: ['Function', 'What it does', 'Works with'],
-    familia: (n) => `${['', 'One agent', 'Two agents', 'Three agents', 'Four agents'][n] || `${n} agents`} and a portal`,
-    hace: 'What it does',
-    detecta: 'What it catches before the decision',
-    senales: (n) => `${n} signals`,
-    casos: (n) => `${n} cases tested`,
-    prueba: 'The proof',
-    piso: 'of what had to be caught, caught at least, with 95% confidence',
+    paises: 'countries',
     entidades: 'test entities',
-    controles: (n) => `of ${n} control entities, without a single false alarm`,
+    control: (n) => `and ${n} control entities`,
+    familia: (n) => `${['', 'One agent', 'Two agents', 'Three agents', 'Four agents'][n] || `${n} agents`} and a portal`,
+    capacidad: 'What your team does by hand today',
+    calcula: 'What does it cost? Work it out with your numbers on the page.',
+    evidencia: 'The evidence',
+    piso: 'caught at least, with 95% confidence',
+    casos: 'cases tested',
+    controles: (k, n) => `${k} of ${n} control entities without a single false alarm`,
+    defectos: (n, r, k) => (k === n ? `${n} defects found in ${r} rounds: all fixed and verified` : `${n} defects found in ${r} rounds: ${k} fixed and verified`),
+    encontro: 'What it found',
     version: (v) => `Version ${v}`,
     licencia: 'Open source · Apache 2.0',
   },
@@ -72,142 +81,77 @@ const TEXTO = {
 // Lo que aparece, aparece así: sube y se enciende en medio segundo.
 const entre = (x) => Math.min(1, Math.max(0, x));
 const suave = (x) => 1 - (1 - x) ** 3;
-const sube = (lt, desde, dura = 0.6) => {
-  const p = suave(entre((lt - desde) / dura));
+const avance = (lt, desde, dura) => suave(entre((lt - desde) / dura));
+const sube = (lt, desde, dura = 0.5) => {
+  const p = avance(lt, desde, dura);
   return { opacity: p, transform: `translateY(${(1 - p) * 28}px)` };
 };
+// El texto que se escribe solo, a tantos caracteres por segundo, con su cursor.
+const escribe = (texto, lt, desde, cps = 40) => texto.slice(0, Math.max(0, Math.floor((lt - desde) * cps)));
+const cursor = (texto, lt, desde, cps = 40) => (lt >= desde && escribe(texto, lt, desde, cps).length < texto.length ? <span className="yt-cursor" /> : null);
 
-function Eyebrow({ children, oscuro }) {
-  return <p className={`yt-eyebrow ${oscuro ? 'oscuro' : ''}`}>{children}</p>;
+function Eyebrow({ children, oscuro, style }) {
+  return <p className={`yt-eyebrow ${oscuro ? 'oscuro' : ''}`} style={style}>{children}</p>;
 }
 
 function escenas(sigla, l) {
   const t = TEXTO[l];
   const fmt = (n, d = 0) => new Intl.NumberFormat(l === 'es' ? 'es-CO' : 'en-US', { maximumFractionDigits: d, minimumFractionDigits: d }).format(n);
-  const pct = (v) => (l === 'es' ? `${fmt(v, 1)} %` : `${fmt(v, 1)}%`);
-  const N = CRITERIO_NIVEL_C[sigla];
-  const P = N.portada;
+  const pct = (v, d = 1) => (l === 'es' ? `${fmt(v, d)} %` : `${fmt(v, d)}%`);
+  const P = CRITERIO_NIVEL_C[sigla].portada;
   const imp = IMPRESORA[sigla][l];
   const agentes = AGENTES[sigla].agentes;
+  const tabs = AGENT_TABS_FAMILIAS[sigla][l].agents;
+  const D = CRITERIO_RONDAS[sigla];
   const lista = [];
 
-  // 1 · El rol. Esta escena y el cierre llevan el logotipo grande: sin la marca del pie.
+  // 1 · El hallazgo que abre: el primero de la captura de Rostrum del agente elegido, en los datos de prueba.
+  const quien = tabs.find((a) => a.id === GANCHO[sigla]) ?? tabs[0];
+  const hallazgo = quien.caption.split(': ')[1].split(', ')[0];
+  const gancho = hallazgo.charAt(0).toUpperCase() + hallazgo.slice(1) + '.';
   lista.push({
     dura: 6,
+    oscuro: true,
     sinMarca: true,
     render: (lt) => (
       <div className="yt-centro">
-        <div style={sube(lt, 0.2)} className="yt-logo"><CriterioLogo locale={l} sigla={sigla} /></div>
-        <Eyebrow><span style={sube(lt, 0.8)}>{ROBOTS.promesa[l]}</span></Eyebrow>
-        <h1 className="yt-h1" style={sube(lt, 1.3, 0.9)}>{P.rol}</h1>
+        <Eyebrow oscuro style={sube(lt, 0.1)}>{t.prueba}</Eyebrow>
+        <p className="yt-gancho">{escribe(gancho, lt, 0.4, 32)}{cursor(gancho, lt, 0.4, 32)}</p>
+        <p className="yt-detecto" style={sube(lt, 0.6 + gancho.length / 32)}>{t.detecto(quien.name)}</p>
       </div>
     ),
   });
 
-  // 2 · Lo que hace: una fila por función, con qué se integra.
-  const paso = 3.2;
+  // 2 · El rol y lo que hace cada función; abajo pasan los nombres con los que se integra.
+  const marcas = [...new Set(P.filas.flatMap((x) => x[l][2].split(' · ')))];
+  const paso = 1.7;
   lista.push({
-    dura: 3 + P.filas.length * paso + 2,
+    dura: 2.2 + P.filas.length * paso + 2.4,
     render: (lt) => (
       <div>
-        <Eyebrow>{t.funciones}</Eyebrow>
-        <div className="yt-tabla">
-          <div className="yt-fila yt-cabeza" style={sube(lt, 0.4)}>
-            {t.columnas.map((c) => <span key={c}>{c}</span>)}
-          </div>
+        <div className="yt-rolfila" style={sube(lt, 0.1)}>
+          <CriterioLogo locale={l} sigla={sigla} conFuncion={false} />
+        </div>
+        <h1 className="yt-h1" style={sube(lt, 0.3, 0.7)}>{P.rol}</h1>
+        <div className="yt-funciones">
           {P.filas.map((x, i) => (
-            <div key={x.es[0]} className="yt-fila" style={sube(lt, 1.6 + i * paso)}>
-              <span className="f">{x[l][0]}</span>
-              <span className="q">{x[l][1]}</span>
-              <span className="c">{x[l][2]}</span>
+            <div key={x.es[0]} style={sube(lt, 2.2 + i * paso)}>
+              <b>{x[l][0]}</b>
+              <span>{x[l][1]}</span>
             </div>
           ))}
         </div>
-      </div>
-    ),
-  });
-
-  // 3 · La familia: sus agentes y Rostrum.
-  const bots = [...agentes.map((a) => a.id), 'rostrum'];
-  const nombre = (id) => (id === 'rostrum' ? 'Rostrum' : agentes.find((a) => a.id === id).nombre);
-  lista.push({
-    dura: 7,
-    render: (lt) => (
-      <div>
-        <Eyebrow>{`Criterio ${sigla.toUpperCase()}`}</Eyebrow>
-        <h2 className="yt-h2" style={sube(lt, 0.3)}>{t.familia(agentes.length)}</h2>
-        <div className="yt-bots">
-          {bots.map((id, i) => (
-            <div key={id} className="yt-bot" style={sube(lt, 1 + i * 0.5)}>
-              <Robot kind={id} vivo />
-              <p className="n">{nombre(id)}</p>
-              <p className="r">{imp.roles[id]}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    ),
-  });
-
-  // 4 · Cada agente: quién es, lo que hace y lo que detecta, con las señales que más casos tienen.
-  for (const a of agentes) {
-    const ids = a.senales.map((s) => s.id);
-    const casos = casosDe(sigla, ids);
-    const top = [...a.senales].sort((x, y) => casosDe(sigla, [y.id]) - casosDe(sigla, [x.id])).slice(0, 3);
-    lista.push({
-      dura: 22,
-      render: (lt) => (
-        <div className="yt-agente">
-          <div className="yt-quien" style={sube(lt, 0.2)}>
-            <div className="yt-bot grande"><Robot kind={a.id} vivo /></div>
-            <p className="yt-nombre">{a.nombre}</p>
-            <p className="yt-rol">{a.rol[l]} · {imp.roles[a.id]}</p>
-            <p className="yt-origen" style={sube(lt, 1.2)}>{a.origen[l]}</p>
-          </div>
-          <div className="yt-que">
-            <Eyebrow><span style={sube(lt, 1.6)}>{t.hace}</span></Eyebrow>
-            <p className="yt-hace" style={sube(lt, 2)}>{a.hace[l]}</p>
-            <div style={sube(lt, 7)}>
-              <Eyebrow>{t.detecta}</Eyebrow>
-              <p className="yt-conteo">{t.senales(a.senales.length)} · {t.casos(fmt(casos))}</p>
-            </div>
-            <ul className="yt-senales">
-              {top.map((s, i) => (
-                <li key={s.id} style={sube(lt, 9 + i * 2.6)}>
-                  <span>{s[l]}</span>
-                  <b>{fmt(casosDe(sigla, [s.id]))}</b>
-                </li>
-              ))}
-            </ul>
+        <div className="yt-cinta" style={{ opacity: avance(lt, 2.2, 0.8) }}>
+          <div style={{ transform: `translateX(${-lt * 90}px)` }}>
+            {[...marcas, ...marcas, ...marcas].map((m, i) => <span key={i}>{m}</span>)}
           </div>
         </div>
-      ),
-    });
-  }
-
-  // 5 · Rostrum, al final: lo mismo que dice en la impresora de la familia.
-  const rostrum = imp.guion.find((g) => g.quien === 'rostrum');
-  lista.push({
-    dura: 13,
-    render: (lt) => (
-      <div className="yt-agente">
-        <div className="yt-quien" style={sube(lt, 0.2)}>
-          <div className="yt-bot grande"><Robot kind="rostrum" vivo /></div>
-          <p className="yt-nombre">Rostrum</p>
-          <p className="yt-rol">{imp.roles.rostrum}</p>
-          <p className="yt-origen" style={sube(lt, 1.2)}>{ROSTRUM.origen[l]}</p>
-        </div>
-        <div className="yt-que">
-          <Eyebrow><span style={sube(lt, 1.6)}>{t.hace}</span></Eyebrow>
-          <p className="yt-hace" style={sube(lt, 2)}>{rostrum.texto}</p>
-        </div>
       </div>
     ),
   });
 
-  // 6 · Dónde se probó: cada país de sus entidades, encendido en el mapa, y sus industrias. La EA no
-  // lleva mapa, como en su página: su prueba se cuenta en oficinas, no en países.
-  const D = CRITERIO_RONDAS[sigla];
+  // 3 · Dónde se probó: los países se encienden en el mapa mientras suben las cuentas. La EA no lleva
+  // mapa, como en su página: su prueba se cuenta en oficinas, no en países.
   const orden = (c) => CRITERIO_PAISES.findIndex((p) => p.codigo === c);
   const codigos = [...new Set(D.entidades.map((e) => e.pais))].sort((a, b) => orden(a) - orden(b));
   const nombrePais = (c) => CRITERIO_PAISES.find((p) => p.codigo === c)?.nombre[l] ?? c;
@@ -218,9 +162,10 @@ function escenas(sigla, l) {
   });
   const enControl = D.entidades.filter((e) => e.control).length;
   const conMapa = sigla !== 'ea';
-  const enciende = (k) => 0.8 + k * 0.35;
+  const enciende = (k) => 0.6 + k * 0.28;
+  const finPaises = enciende(codigos.length);
   lista.push({
-    dura: 12,
+    dura: 10,
     render: (lt) => (
       <div className={conMapa ? 'yt-donde' : ''}>
         {conMapa ? (
@@ -230,7 +175,7 @@ function escenas(sigla, l) {
               return (
                 <g key={g.codigo}>
                   <path d={g.d} className="base" />
-                  {k >= 0 ? <path d={g.d} className="probado" style={{ opacity: suave(entre((lt - enciende(k)) / 0.5)) }} /> : null}
+                  {k >= 0 ? <path d={g.d} className="probado" style={{ opacity: avance(lt, enciende(k), 0.4) }} /> : null}
                 </g>
               );
             })}
@@ -238,66 +183,163 @@ function escenas(sigla, l) {
         ) : null}
         <div>
           <Eyebrow>{t.donde}</Eyebrow>
-          <h2 className="yt-h2 corto" style={sube(lt, 0.3)}>{t.paisesN(codigos.length)}</h2>
-          <ul className="yt-paises">
-            {codigos.map((c, k) => <li key={c} style={sube(lt, enciende(k), 0.5)}>{nombrePais(c)}</li>)}
-          </ul>
-          <div style={sube(lt, enciende(codigos.length) + 0.6)}>
-            <Eyebrow>{t.industrias}</Eyebrow>
-            <div className="yt-sectores">
-              {sectores.map((x) => (
-                <span key={x.id}>
-                  <svg viewBox="0 0 48 48" aria-hidden="true"><path d={x.icono} /></svg>
-                  {x.nombre[l]}
-                </span>
-              ))}
-            </div>
-            {enControl ? <p className="yt-control">{t.control(enControl)}</p> : null}
+          <div className="yt-cuentas">
+            <div><p className="v">{fmt(Math.round(codigos.length * avance(lt, 0.6, finPaises - 0.6)))}</p><p className="k">{t.paises}</p></div>
+            <div><p className="v">{fmt(Math.round(D.entidades.length * avance(lt, 0.6, finPaises - 0.6)))}</p><p className="k">{t.entidades}</p></div>
           </div>
+          <p className="yt-paises">
+            {codigos.map((c, k) => <span key={c} style={{ opacity: avance(lt, enciende(k), 0.3) }}>{nombrePais(c)}</span>)}
+          </p>
+          <div className="yt-sectores" style={sube(lt, finPaises + 0.3)}>
+            {sectores.map((x) => (
+              <span key={x.id}>
+                <svg viewBox="0 0 48 48" aria-hidden="true"><path d={x.icono} /></svg>
+                {x.nombre[l]}
+              </span>
+            ))}
+          </div>
+          {enControl ? <p className="yt-control" style={sube(lt, finPaises + 0.8)}>{t.control(enControl)}</p> : null}
         </div>
       </div>
     ),
   });
 
-  // 7 · La prueba: el piso que cita la portada, sobre cuántos casos y entidades.
+  // 4 · Los agentes y Rostrum, que se encienden uno a uno.
+  const bots = [...agentes.map((a) => a.id), 'rostrum'];
+  const nombre = (id) => (id === 'rostrum' ? 'Rostrum' : agentes.find((a) => a.id === id).nombre);
+  lista.push({
+    dura: 6,
+    render: (lt) => (
+      <div>
+        <h2 className="yt-h2" style={sube(lt, 0.2)}>{t.familia(agentes.length)}</h2>
+        <div className="yt-bots">
+          {bots.map((id, i) => (
+            <div key={id} className="yt-bot" style={sube(lt, 0.8 + i * 0.6)}>
+              <Robot kind={id} vivo />
+              <p className="n">{nombre(id)}</p>
+              <p className="r">{imp.roles[id]}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    ),
+  });
+
+  // 5 · La capacidad: las tareas que hoy hace el equipo y que los agentes preparan, que se marcan una a
+  // una; el costo lo pone cada quien en la calculadora de la página.
+  const calc = CALC_FAMILIAS[sigla];
+  const tareas = calc.ids.flatMap((id) => calc[l].agents[id].tasks.slice(0, 2));
+  lista.push({
+    dura: 8.5,
+    render: (lt) => (
+      <div>
+        <Eyebrow>{t.capacidad}</Eyebrow>
+        <ul className="yt-tareas">
+          {tareas.map((x, i) => (
+            <li key={x} style={sube(lt, 0.4 + i * 0.55)}>
+              <span className="marca" style={{ opacity: avance(lt, 0.7 + i * 0.55, 0.3) }}>✓</span>
+              {x}
+            </li>
+          ))}
+        </ul>
+        <p className="yt-calcula" style={sube(lt, 0.8 + tareas.length * 0.55)}>{t.calcula}</p>
+      </div>
+    ),
+  });
+
+  // 6 · La evidencia: el piso que cita la portada, lo que detecta cada función con sus casos, los controles
+  // y los defectos.
   const piso = pisoDe(sigla);
   const r = resumenPrueba(sigla);
-  if (piso) {
-    lista.push({
-      dura: 12,
-      oscuro: true,
-      render: (lt) => (
-        <div>
-          <Eyebrow oscuro>{t.prueba}</Eyebrow>
-          <div className="yt-piso" style={sube(lt, 0.4, 0.9)}>
-            <p className="yt-valor grande">{pct(piso.piso)}</p>
+  const filas = (CRITERIO_NIVEL_C[sigla].alcance ?? []).map((x) => ({ f: x[l][0], n: casosDe(sigla, x.senales) }));
+  const mayor = Math.max(1, ...filas.map((x) => x.n));
+  const rondas = new Set(D.rondas.map((x) => x.ronda)).size;
+  const verificados = D.defectos.filter((d) => d.estado === 'verificado').length;
+  lista.push({
+    dura: 14,
+    oscuro: true,
+    render: (lt) => (
+      <div>
+        <Eyebrow oscuro>{t.evidencia}</Eyebrow>
+        <div className="yt-piso">
+          <p className="yt-valor">{piso ? pct(piso.piso * avance(lt, 0.3, 1.6)) : null}</p>
+          <div style={sube(lt, 1.2)}>
             <p className="yt-corto">{t.piso}</p>
+            <p className="yt-sub">{fmt(r.senales[1])} {t.casos}</p>
           </div>
-          <div className="yt-tres">
-            {[[fmt(r.senales[1]), t.casos('').trim()], [fmt(r.entidades), t.entidades],
-              ...(r.controles[1] ? [[fmt(r.controles[0]), t.controles(r.controles[1])]] : [])].map(([v, k], i) => (
-              <div key={k} style={sube(lt, 2.4 + i * 0.8)}>
-                <p className="v">{v}</p>
-                <p className="k">{k}</p>
+        </div>
+        <div className="yt-barras">
+          {filas.map((x, i) => {
+            const p = avance(lt, 3 + i * 0.5, 1);
+            return (
+              <div key={x.f} style={{ opacity: avance(lt, 3 + i * 0.5, 0.3) }}>
+                <span className="f">{x.f}</span>
+                <span className="b"><i style={{ width: `${(100 * x.n * p) / mayor}%` }} /></span>
+                <span className="n">{fmt(Math.round(x.n * p))}</span>
               </div>
-            ))}
+            );
+          })}
+        </div>
+        <div className="yt-sello" style={sube(lt, 3.8 + filas.length * 0.5)}>
+          {r.controles[1] ? <p>{t.controles(r.controles[0], r.controles[1])}</p> : null}
+          {D.defectos.length ? <p>{t.defectos(D.defectos.length, rondas, verificados)}</p> : null}
+        </div>
+      </div>
+    ),
+  });
+
+  // 7 · Cada agente, con lo que encontró en los datos de prueba: la captura de Rostrum de su página.
+  for (const a of tabs) {
+    lista.push({
+      dura: 7,
+      render: (lt) => (
+        <div className="yt-agente">
+          <div className="yt-quien" style={sube(lt, 0.1)}>
+            <div className="yt-bot grande"><Robot kind={a.id} vivo /></div>
+            <p className="yt-nombre">{a.name}</p>
+            <p className="yt-rol">{a.role}</p>
+          </div>
+          <div>
+            <Eyebrow style={sube(lt, 0.3)}>{t.encontro}</Eyebrow>
+            <p className="yt-hallazgo">{escribe(a.caption, lt, 0.6, 55)}{cursor(a.caption, lt, 0.6, 55)}</p>
           </div>
         </div>
       ),
     });
   }
 
-  // 8 · Cómo se instala: los mismos tres pasos y comandos de la página de la familia.
+  // 8 · Rostrum: lo mismo que dice en la impresora de la familia.
+  const rostrum = imp.guion.find((g) => g.quien === 'rostrum');
+  lista.push({
+    dura: 5.5,
+    render: (lt) => (
+      <div className="yt-agente">
+        <div className="yt-quien" style={sube(lt, 0.1)}>
+          <div className="yt-bot grande"><Robot kind="rostrum" vivo /></div>
+          <p className="yt-nombre">Rostrum</p>
+          <p className="yt-rol">{imp.roles.rostrum}</p>
+        </div>
+        <p className="yt-hace" style={sube(lt, 0.5)}>{rostrum.texto}</p>
+      </div>
+    ),
+  });
+
+  // 9 · La versión y la instalación: los mismos tres pasos y comandos de la página.
   const pasos = PASOS_INSTALAR[l];
   const code = SETUP_FAMILIAS[sigla][l].code;
   lista.push({
-    dura: 13,
+    dura: 11,
+    oscuro: true,
+    sinMarca: true,
     render: (lt) => (
       <div>
-        <Eyebrow>{pasos.eyebrow}</Eyebrow>
+        <div className="yt-rolfila" style={sube(lt, 0.1)}>
+          <CriterioLogo locale={l} sigla={sigla} oscuro conFuncion={false} />
+          <span className="yt-version">{t.version(versionDe(sigla))} · {t.licencia}</span>
+        </div>
         <ol className="yt-pasos">
           {[pasos.marketplace, pasos.familia, pasos.configurar].map((p, i) => (
-            <li key={p} style={sube(lt, 0.6 + i * 2.4)}>
+            <li key={p} style={sube(lt, 0.6 + i * 1.2)}>
               <span className="i">{i + 1}</span>
               <div>
                 <p className="p">{p}</p>
@@ -306,20 +348,7 @@ function escenas(sigla, l) {
             </li>
           ))}
         </ol>
-      </div>
-    ),
-  });
-
-  // 9 · El cierre.
-  lista.push({
-    dura: 7,
-    oscuro: true,
-    sinMarca: true,
-    render: (lt) => (
-      <div className="yt-centro">
-        <div className="yt-logo" style={sube(lt, 0.2)}><CriterioLogo locale={l} sigla={sigla} oscuro /></div>
-        <p className="yt-url" style={sube(lt, 0.9)}>josenanez.com/agents/criterio-{sigla}</p>
-        <p className="yt-pie" style={sube(lt, 1.4)}>{t.version(versionDe(sigla))} · {t.licencia}</p>
+        <p className="yt-url" style={sube(lt, 4.6)}>josenanez.com/agents/criterio-{sigla}</p>
       </div>
     ),
   });
@@ -328,15 +357,16 @@ function escenas(sigla, l) {
 
 const q = new URLSearchParams(location.search);
 const idioma = q.get('l') === 'en' ? 'en' : 'es';
-const familia = q.get('f') in AGENTES ? q.get('f') : 'cfo';
+const familia = q.get('f') in GANCHO ? q.get('f') : 'cfo';
 const ESCENAS = escenas(familia, idioma);
 const INICIOS = ESCENAS.reduce((a, e) => [...a, a[a.length - 1] + e.dura], [0]);
 const TOTAL = INICIOS[INICIOS.length - 1];
-const FUNDIDO = 0.45;
+const FUNDIDO = 0.35;
 
 function Video() {
   const [t, setT] = useState(0);
   window.__duracion = TOTAL;
+  window.__inicios = INICIOS;
   window.__ir = (s) => {
     flushSync(() => setT(s));
     // Los gestos de los robots, en ese mismo segundo.

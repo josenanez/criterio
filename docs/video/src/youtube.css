@@ -9,33 +9,48 @@
 html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: var(--papel); font-family: var(--font-inter), Arial, sans-serif; color: var(--tinta); }
 p { margin: 0; }
 
-.yt { position: relative; width: 1920px; height: 1080px; background: var(--papel); }
+.yt { position: relative; width: 1920px; height: 1080px; background: var(--papel); overflow: hidden; }
 .yt.oscuro { background: var(--tinta); color: #fff; }
-.yt-escena { position: absolute; inset: 0; padding: 120px 150px 0; box-sizing: border-box; }
-.yt-centro { height: 840px; display: flex; flex-direction: column; justify-content: center; }
+.yt-escena { position: absolute; inset: 0; padding: 110px 150px 0; box-sizing: border-box; }
+.yt-centro { height: 860px; display: flex; flex-direction: column; justify-content: center; }
 .yt-marca { position: absolute; left: 150px; bottom: 56px; display: flex; align-items: center; gap: 12px; font: 600 22px/1 var(--font-inter-tight); letter-spacing: -.01em; color: var(--apagado); }
 .yt.oscuro .yt-marca { color: #8a867e; }
 .yt-avance { position: absolute; left: 0; bottom: 0; height: 6px; background: var(--oro); }
 .yt.oscuro .yt-avance { background: var(--oro-claro); }
 
-.yt-eyebrow { font-size: 22px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--oro); margin-bottom: 34px; }
+.yt-eyebrow { font-size: 22px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--oro); margin-bottom: 30px; }
 .yt-eyebrow.oscuro { color: var(--oro-claro); }
-.yt-logo { zoom: 2; margin-bottom: 30px; }
-.yt-h1 { font: 500 150px/1.02 var(--font-inter-tight); letter-spacing: -.045em; margin: 10px 0 0; }
+.yt-h1 { font: 500 132px/1.02 var(--font-inter-tight); letter-spacing: -.045em; margin: 22px 0 0; }
 .yt-h2 { font: 500 84px/1.05 var(--font-inter-tight); letter-spacing: -.04em; margin: 0 0 70px; }
+.yt-cursor { display: inline-block; width: .5em; height: .9em; margin-left: 6px; vertical-align: -0.08em; background: var(--oro-claro); }
+.yt-rolfila { display: flex; align-items: center; gap: 40px; zoom: 1.4; }
 
-/* La prueba: la cifra grande */
-.yt-valor { font: 500 260px/1 var(--font-inter-tight); letter-spacing: -.05em; }
-.yt-corto { font-size: 46px; line-height: 1.25; max-width: 760px; color: rgba(255,255,255,.8); }
+/* El hallazgo que abre */
+.yt-gancho { font: 500 88px/1.12 var(--font-inter-tight); letter-spacing: -.035em; max-width: 1560px; min-height: 300px; }
+.yt-detecto { font-size: 40px; color: var(--oro-claro); margin-top: 40px; }
 
-/* La tabla de funciones */
-.yt-tabla { margin-top: 10px; }
-.yt-fila { display: grid; grid-template-columns: 360px 1fr 1fr; gap: 48px; padding: 26px 0; border-bottom: 1px solid var(--linea); align-items: baseline; }
-.yt-fila .f { font: 600 38px/1.2 var(--font-inter-tight); letter-spacing: -.02em; }
-.yt-fila .q { font-size: 32px; line-height: 1.3; color: var(--texto); }
-.yt-fila .c { font-size: 26px; line-height: 1.35; color: var(--apagado); }
-.yt-cabeza { border-bottom: 2px solid var(--tinta); padding: 0 0 16px; }
-.yt-cabeza span { font-size: 18px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--apagado); }
+/* El rol y sus funciones */
+.yt-funciones { margin-top: 56px; display: grid; gap: 18px; }
+.yt-funciones div { display: grid; grid-template-columns: 470px 1fr; gap: 40px; align-items: baseline; }
+.yt-funciones b { font: 600 52px/1.1 var(--font-inter-tight); letter-spacing: -.03em; }
+.yt-funciones span { font-size: 34px; line-height: 1.25; color: var(--texto); }
+.yt-cinta { position: absolute; left: 0; right: 0; bottom: 120px; overflow: hidden; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); padding: 18px 0; }
+.yt-cinta div { display: flex; gap: 64px; white-space: nowrap; padding-left: 150px; }
+.yt-cinta span { font: 600 30px/1 var(--font-inter-tight); letter-spacing: .02em; color: var(--apagado); }
+
+/* Dónde se probó */
+.yt-donde { display: grid; grid-template-columns: 560px 1fr; gap: 110px; align-items: start; }
+.yt-mapa { width: 560px; height: auto; display: block; }
+.yt-mapa .base { fill: #e4e1d8; stroke: var(--papel); stroke-width: 1; }
+.yt-mapa .probado { fill: var(--oro); stroke: var(--papel); stroke-width: 1; }
+.yt-cuentas { display: flex; gap: 90px; }
+.yt-cuentas .v { font: 500 150px/1 var(--font-inter-tight); letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.yt-cuentas .k { font-size: 30px; color: var(--texto); margin-top: 10px; }
+.yt-paises { display: flex; flex-wrap: wrap; gap: 6px 26px; margin: 40px 0 46px; font-size: 30px; color: var(--texto); max-width: 1000px; }
+.yt-sectores { display: flex; flex-wrap: wrap; gap: 18px 44px; font: 600 36px/1 var(--font-inter-tight); letter-spacing: -.02em; }
+.yt-sectores span { display: flex; align-items: center; gap: 14px; }
+.yt-sectores svg { width: 52px; height: 52px; fill: none; stroke: var(--tinta); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.yt-control { font-size: 28px; color: var(--apagado); margin-top: 26px; }
 
 /* Los robots: el trazo de robots.py, en tinta sobre papel y en oro cuando trabajan */
 .yt-bot svg { width: 100%; height: auto; display: block; overflow: visible; }
@@ -43,48 +58,43 @@ p { margin: 0; }
 .yt-bot .ojo, .yt-bot .led { fill: var(--oro); stroke: none; }
 .yt-bot .cr-anima * { animation-iteration-count: infinite !important; }
 .yt-bots { display: flex; gap: 90px; align-items: flex-end; }
-.yt-bots .yt-bot { width: 220px; text-align: center; }
-.yt-bots .n { font: 600 40px/1 var(--font-inter-tight); margin-top: 24px; }
-.yt-bots .r { font-size: 18px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--oro); margin-top: 12px; }
+.yt-bots .yt-bot { width: 230px; text-align: center; }
+.yt-bots .n { font: 600 44px/1 var(--font-inter-tight); margin-top: 24px; }
+.yt-bots .r { font-size: 20px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--oro); margin-top: 12px; }
+
+/* La capacidad */
+.yt-tareas { list-style: none; padding: 0; margin: 0; }
+.yt-tareas li { display: flex; align-items: baseline; gap: 26px; font: 500 44px/1.2 var(--font-inter-tight); letter-spacing: -.02em; padding: 16px 0; border-bottom: 1px solid var(--linea); }
+.yt-tareas .marca { color: var(--oro); font-weight: 700; width: 40px; }
+.yt-calcula { font: 600 46px/1.2 var(--font-inter-tight); letter-spacing: -.02em; color: var(--oro); margin-top: 46px; }
+
+/* La evidencia */
+.yt-piso { display: grid; grid-template-columns: 820px 1fr; gap: 50px; align-items: center; }
+.yt-valor { font: 500 230px/1 var(--font-inter-tight); letter-spacing: -.05em; font-variant-numeric: tabular-nums; }
+.yt-corto { font-size: 44px; line-height: 1.25; color: rgba(255,255,255,.85); }
+.yt-sub { font-size: 32px; color: var(--oro-claro); margin-top: 18px; }
+.yt-barras { margin-top: 50px; display: grid; gap: 14px; }
+.yt-barras div { display: grid; grid-template-columns: 420px 1fr 110px; gap: 30px; align-items: center; }
+.yt-barras .f { font: 600 32px/1 var(--font-inter-tight); }
+.yt-barras .b { height: 20px; background: #2b2b28; }
+.yt-barras .b i { display: block; height: 100%; background: var(--oro-claro); }
+.yt-barras .n { font: 500 36px/1 var(--font-inter-tight); text-align: right; font-variant-numeric: tabular-nums; }
+.yt-sello { margin-top: 44px; display: grid; gap: 10px; font-size: 32px; color: var(--oro-claro); }
 
 /* Cada agente */
-.yt-agente { display: grid; grid-template-columns: 520px 1fr; gap: 110px; }
-.yt-bot.grande { width: 250px; }
+.yt-agente { display: grid; grid-template-columns: 440px 1fr; gap: 110px; align-items: center; height: 860px; }
+.yt-bot.grande { width: 260px; }
 .yt-nombre { font: 500 112px/1 var(--font-inter-tight); letter-spacing: -.045em; margin-top: 34px; }
-.yt-rol { font-size: 22px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--oro); margin-top: 20px; line-height: 1.4; }
-.yt-origen { font-size: 26px; line-height: 1.45; color: var(--apagado); margin-top: 26px; font-style: italic; }
-.yt-hace { font: 500 44px/1.3 var(--font-inter-tight); letter-spacing: -.02em; margin-bottom: 56px; }
-.yt-conteo { font-size: 30px; color: var(--texto); margin-top: -14px; }
-.yt-senales { list-style: none; padding: 0; margin: 26px 0 0; }
-.yt-senales li { display: flex; justify-content: space-between; gap: 40px; padding: 18px 0; border-bottom: 1px solid var(--linea); font-size: 28px; line-height: 1.3; color: var(--texto); }
-.yt-senales b { font: 500 36px/1 var(--font-inter-tight); color: var(--tinta); white-space: nowrap; }
+.yt-rol { font-size: 22px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--oro); margin-top: 20px; }
+.yt-hallazgo { font: 500 50px/1.28 var(--font-inter-tight); letter-spacing: -.02em; min-height: 450px; }
+.yt-hace { font: 500 50px/1.28 var(--font-inter-tight); letter-spacing: -.02em; }
+.yt-hallazgo .yt-cursor { background: var(--oro); }
 
-/* La prueba */
-.yt-piso { display: grid; grid-template-columns: auto 1fr; gap: 70px; align-items: center; }
-.yt-tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 70px; background: #2b2b28; border: 2px solid #2b2b28; }
-.yt-tres div { background: var(--tinta); padding: 34px 40px; }
-.yt-tres .v { font: 500 88px/1 var(--font-inter-tight); letter-spacing: -.04em; }
-.yt-tres .k { font-size: 26px; line-height: 1.3; color: rgba(255,255,255,.7); margin-top: 14px; }
-
-/* Dónde se probó */
-.yt-donde { display: grid; grid-template-columns: 560px 1fr; gap: 110px; align-items: start; }
-.yt-mapa { width: 560px; height: auto; display: block; }
-.yt-mapa .base { fill: #e4e1d8; stroke: var(--papel); stroke-width: 1; }
-.yt-mapa .probado { fill: var(--oro); stroke: var(--papel); stroke-width: 1; }
-.yt-h2.corto { margin-bottom: 36px; }
-.yt-paises { list-style: none; padding: 0; margin: 0 0 54px; display: grid; grid-template-columns: repeat(3, auto); gap: 12px 48px; justify-content: start; font-size: 32px; color: var(--texto); }
-.yt-sectores { display: flex; flex-wrap: wrap; gap: 18px 44px; font: 600 36px/1 var(--font-inter-tight); letter-spacing: -.02em; }
-.yt-sectores span { display: flex; align-items: center; gap: 14px; }
-.yt-sectores svg { width: 52px; height: 52px; fill: none; stroke: var(--tinta); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-.yt-control { font-size: 28px; color: var(--apagado); margin-top: 26px; }
-
-/* La instalación */
-.yt-pasos { list-style: none; padding: 0; margin: 10px 0 0; }
-.yt-pasos li { display: grid; grid-template-columns: 90px 1fr; gap: 30px; padding: 34px 0; border-bottom: 1px solid var(--linea); }
-.yt-pasos .i { font: 500 64px/1 var(--font-inter-tight); color: var(--oro); }
-.yt-pasos .p { font: 600 44px/1.15 var(--font-inter-tight); letter-spacing: -.02em; }
-.yt-pasos code { display: inline-block; margin-top: 18px; font: 500 32px/1.3 ui-monospace, Menlo, monospace; background: var(--tinta); color: #fff; padding: 14px 22px; }
-
-/* El cierre */
-.yt-url { font: 500 76px/1.1 var(--font-inter-tight); letter-spacing: -.03em; color: var(--oro-claro); margin-top: 30px; }
-.yt-pie { font-size: 30px; color: rgba(255,255,255,.7); margin-top: 30px; }
+/* La versión y la instalación */
+.yt-version { font-size: 22px; color: rgba(255,255,255,.7); }
+.yt-pasos { list-style: none; padding: 0; margin: 50px 0 0; }
+.yt-pasos li { display: grid; grid-template-columns: 90px 1fr; gap: 30px; padding: 24px 0; border-bottom: 1px solid #2b2b28; }
+.yt-pasos .i { font: 500 64px/1 var(--font-inter-tight); color: var(--oro-claro); }
+.yt-pasos .p { font: 600 40px/1.15 var(--font-inter-tight); letter-spacing: -.02em; }
+.yt-pasos code { display: inline-block; margin-top: 14px; font: 500 32px/1.3 ui-monospace, Menlo, monospace; background: #2b2b28; color: #fff; padding: 12px 20px; }
+.yt-url { font: 500 70px/1.1 var(--font-inter-tight); letter-spacing: -.03em; color: var(--oro-claro); margin-top: 44px; }
