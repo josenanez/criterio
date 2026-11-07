@@ -213,8 +213,9 @@ for m in sorted(faltantes):
 # la que uno no mira.
 print("\nImágenes referenciadas")
 rotas, total = [], 0
+# Las dependencias que instala `npm ci` en docs/video no son documentación de Criterio.
 for md in sorted(list(RAIZ.glob("*.md")) + list(RAIZ.glob("plugins/*/*.md"))
-                 + list(RAIZ.glob("docs/**/*.md"))):
+                 + [m for m in RAIZ.glob("docs/**/*.md") if "node_modules" not in m.parts]):
     for ruta in re.findall(r"!\[[^\]]*\]\(([^)]+)\)", md.read_text(encoding="utf-8")):
         total += 1
         if not (md.parent / ruta).resolve().exists():

@@ -13,8 +13,9 @@
     "en": "Built · tested"
   },
   "nivel_c": {
-    "comentario": "La portada de la familia, en un solo bloque para el nivel C: una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: el rol que la dirige, que es el título de su página y de su video; una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
     "portada": {
+      "rol": "Chief Financial Officer",
       "cifras": [
         {
           "id": "C-03",

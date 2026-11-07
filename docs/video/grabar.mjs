@@ -1,12 +1,15 @@
 // Graba la impresora de cada familia desde el componente del portal, que es el dueño de la
 // animación: components/criterio/CriterioFamily.tsx, con la hoja que el portal publica en
-// lib/criterioImpresora.ts desde families/*/familia.json. Nada se copia a mano. Salen:
+// lib/criterioImpresora.ts desde families/*/familia.json. Y el video de cada familia para YouTube
+// (src/youtube.jsx), con lo que el portal publica de ella. Nada se copia a mano. Salen:
 //
 //   docs/video/criterio-{pmo,cfo}-familia-{es,en}.mp4   vertical 4:5, 1080×1350, para LinkedIn
 //   docs/img/{es,en}/robots.gif                   la PMO, apaisado, 1120 px, para los README
 //   docs/img/{es,en}/robots-{cfo,clo,ea}.gif       la CFO, la CLO y la EA, igual
+//   docs/video/youtube/criterio-<familia>-youtube-{es,en}.mp4   1920×1080, para YouTube (no se versiona)
 //
 // Uso (desde docs/video):  npm ci && PORTAL=<carpeta del portal> npm run grabar
+// FAMILIAS=cfo,clo graba solo esas; PIEZAS=youtube (o video, gif) solo esas piezas; IDIOMAS=es solo ese.
 // Pide ffmpeg en el PATH. El navegador es el de Playwright (npx playwright install chromium);
 // CHROMIUM apunta a otro ejecutable si se quiere.
 
@@ -24,17 +27,25 @@ if (!process.env.PORTAL) {
   console.error('Falta PORTAL: la carpeta del portal, donde está components/criterio/CriterioFamily.tsx');
   process.exit(1);
 }
-const componente = path.resolve(process.env.PORTAL, 'components', 'criterio', 'CriterioFamily.tsx');
-const hoja = path.resolve(process.env.PORTAL, 'lib', 'criterioImpresora.ts');
-for (const f of [componente, hoja]) {
-  if (!fs.existsSync(f)) {
-    console.error(`No está ${f}; en el portal, node scripts/criterio-familias.mjs`);
-    process.exit(1);
+// Lo que se trae del portal: los componentes que se dibujan tal cual y las tablas que el portal
+// genera del repositorio. Van a src/portal y src/lib, que no se versionan.
+const TRAER = {
+  portal: ['CriterioFamily.tsx', 'CriterioLogo.tsx', 'criterioPrueba.ts', 'criterioSetupFamilias.ts']
+    .map((f) => path.join('components', 'criterio', f)),
+  lib: ['criterioImpresora', 'criterioNivelC', 'criterioRondas', 'criterioHojaDeRuta', 'criterioIndustrias', 'criterioRegistro',
+    'criterioPaises', 'criterioCfo', 'criterioClo', 'criterioEa', 'criterioCco', 'criterioCiso'].map((f) => path.join('lib', `${f}.ts`)),
+};
+for (const [destino, archivos] of Object.entries(TRAER)) {
+  fs.mkdirSync(path.join(AQUI, 'src', destino), { recursive: true });
+  for (const f of archivos) {
+    const origen = path.resolve(process.env.PORTAL, f);
+    if (!fs.existsSync(origen)) {
+      console.error(`No está ${origen}; en el portal, node scripts/criterio-familias.mjs`);
+      process.exit(1);
+    }
+    fs.copyFileSync(origen, path.join(AQUI, 'src', destino, path.basename(f)));
   }
 }
-fs.copyFileSync(componente, path.join(AQUI, 'src', 'CriterioFamily.tsx'));
-fs.mkdirSync(path.join(AQUI, 'src', 'lib'), { recursive: true });
-fs.copyFileSync(hoja, path.join(AQUI, 'src', 'lib', 'criterioImpresora.ts'));
 if (spawnSync('ffmpeg', ['-version']).status !== 0) {
   console.error('Falta ffmpeg en el PATH');
   process.exit(1);
@@ -45,15 +56,22 @@ if (spawnSync('ffmpeg', ['-version']).status !== 0) {
 // ni encabezado, solo el piso y la hoja: el README ya tiene su propio título.
 // El video es de la PMO y de la CFO: su tarjeta final lleva las cifras de sus rondas. Las familias
 // CFO, CLO y EA salen en GIF. FAMILIAS=cfo,clo graba solo esas.
-const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo,ea').split(',');
+const FAMILIAS = (process.env.FAMILIAS || 'pmo,cfo,clo,ea,cco,ciso').split(',');
+const PIEZAS = (process.env.PIEZAS || 'video,gif,youtube').split(',');
+const IDIOMAS = (process.env.IDIOMAS || 'es,en').split(',');
 // Las familias con video, cada una con su tarjeta final en src/main.jsx.
 const VIDEOS = ['pmo', 'cfo'];
+// Las familias con video de YouTube: las que el portal publica con sus agentes (lib/criterio<Sigla>.ts).
+const YOUTUBE = ['cfo', 'clo', 'ea', 'cco', 'ciso'];
 const TOMAS = [
-  ...VIDEOS.flatMap((familia) => ['es', 'en'].map((idioma) =>
+  ...VIDEOS.flatMap((familia) => IDIOMAS.map((idioma) =>
     ({ familia, idioma, tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 }))),
-  ...['pmo', 'cfo', 'clo', 'ea'].flatMap((familia) => ['es', 'en'].map((idioma) =>
+  ...['pmo', 'cfo', 'clo', 'ea'].flatMap((familia) => IDIOMAS.map((idioma) =>
     ({ familia, idioma, tipo: 'gif', ancho: 1280, alto: 568, zoom: 1 }))),
-].filter((t) => FAMILIAS.includes(t.familia));
+  ...YOUTUBE.flatMap((familia) => IDIOMAS.map((idioma) =>
+    ({ familia, idioma, tipo: 'youtube', ancho: 1920, alto: 1080 }))),
+].filter((t) => FAMILIAS.includes(t.familia) && PIEZAS.includes(t.tipo));
+const CUADROS = 30;
 const FIN = /FIN DE LA IMPRESIÓN|END OF PRINTOUT/;
 
 function ffmpeg(args) {
@@ -157,12 +175,40 @@ function gif(toma, { carpeta, tiempos }) {
   return salida;
 }
 
+// El video de YouTube se dibuja cuadro por cuadro: la página pone cada animación en el segundo exacto
+// (window.__ir) y se toma la foto. Sale parejo aunque la máquina sea lenta.
+async function youtube(navegador, url, toma) {
+  const carpeta = path.join(AQUI, 'cuadros', `${toma.familia}-youtube-${toma.idioma}`);
+  fs.rmSync(carpeta, { recursive: true, force: true });
+  fs.mkdirSync(carpeta, { recursive: true });
+  const pagina = await navegador.newPage({ viewport: { width: toma.ancho, height: toma.alto } });
+  await pagina.goto(`${url}youtube.html?l=${toma.idioma}&f=${toma.familia}`, { waitUntil: 'networkidle' });
+  await pagina.evaluate(() => document.fonts.ready);
+  const total = await pagina.evaluate(() => window.__duracion);
+  const n = Math.round(total * CUADROS);
+  for (let i = 0; i < n; i++) {
+    await pagina.evaluate((s) => window.__ir(s), i / CUADROS);
+    await pagina.screenshot({ path: path.join(carpeta, `${String(i).padStart(5, '0')}.jpg`), type: 'jpeg', quality: 92 });
+  }
+  await pagina.close();
+  fs.mkdirSync(path.join(AQUI, 'youtube'), { recursive: true });
+  const salida = path.join(AQUI, 'youtube', `criterio-${toma.familia}-youtube-${toma.idioma}.mp4`);
+  ffmpeg(['-framerate', String(CUADROS), '-i', path.join(carpeta, '%05d.jpg'),
+    '-vf', 'format=yuv420p', '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-movflags', '+faststart', salida]);
+  return { salida, cuadros: n, segundos: total };
+}
+
 const servidor = await createServer({ root: AQUI, configFile: path.join(AQUI, 'vite.config.js'), server: { port: 0, strictPort: false } });
 await servidor.listen();
 const url = servidor.resolvedUrls.local[0];
 const navegador = await chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
 try {
   for (const toma of TOMAS) {
+    if (toma.tipo === 'youtube') {
+      const r = await youtube(navegador, url, toma);
+      console.log(`${path.relative(RAIZ, r.salida)}  ${r.cuadros} cuadros, ${r.segundos} s, ${Math.round(fs.statSync(r.salida).size / 1024)} KB`);
+      continue;
+    }
     const cuadros = await grabar(navegador, url, toma);
     const salida = toma.tipo === 'video' ? video(toma, cuadros) : gif(toma, cuadros);
     const seg = (cuadros.tiempos.at(-1) - cuadros.tiempos[0]).toFixed(1);

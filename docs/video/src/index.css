@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@source "./CriterioFamily.tsx";  /* explícito: la copia está en .gitignore y Tailwind no lee lo ignorado */
+@source "./portal";  /* explícito: las copias del portal están en .gitignore y Tailwind no lee lo ignorado */
 @import "@fontsource-variable/inter";
 @import "@fontsource-variable/inter-tight";
 

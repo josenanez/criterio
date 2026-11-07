@@ -1209,7 +1209,7 @@ def nombres_readme(check: bool) -> list[str]:
 
 def revisar_nivel_c() -> list[str]:
     """La portada de cada familia para quien dirige la función (`nivel_c` de su familia.json), que el
-    portal publica en un solo bloque: hasta cinco filas —función, qué hace, con qué se integra— con
+    portal publica en un solo bloque: el rol que dirige la función, hasta cinco filas —función, qué hace, con qué se integra— con
     sus fuentes verificadas, dos cifras de terceros con su texto corto, y en `alcance` lo que detecta
     cada función, con cada señal de la familia en una sola fila."""
     errores = []
@@ -1227,6 +1227,8 @@ def revisar_nivel_c() -> list[str]:
         datos = json.loads(fu.read_text(encoding="utf-8")) if fu.exists() else {}
         estado = {x["id"]: x.get("estado") for sec in datos.get("secciones", []) for x in sec.get("fuentes", []) if "id" in x}
         cifras = {c["id"]: c.get("estado") for c in datos.get("cifras", [])}
+        if not (isinstance(portada.get("rol"), str) and portada["rol"].strip()):
+            errores.append(f"{s}: `nivel_c.portada.rol` vacío: el rol que dirige la función, título de su página")
         filas = portada.get("filas", [])
         if not 1 <= len(filas) <= 5:
             errores.append(f"{s}: `nivel_c.portada.filas` lleva de una a cinco filas")

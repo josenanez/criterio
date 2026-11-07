@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { CriterioFamily } from './CriterioFamily';
+import { CriterioFamily } from './portal/CriterioFamily';
 import { IMPRESORA } from './lib/criterioImpresora';
 
 // La tarjeta final del video de cada familia que tiene video. Las cifras son las de la evidencia
