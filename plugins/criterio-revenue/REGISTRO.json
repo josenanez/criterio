@@ -3464,6 +3464,248 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "5513bffbe2cd62f7529a3765a0d26f137fc2e649bbe5691853487c662e72dbb4",
       "sha256": "af4e248255d3da847bdb4bdbf62fb7456fbdf89266e96c1ea8c959ab7b264904"
+    },
+    {
+      "version": "2.6.0",
+      "fecha": "2026-11-07",
+      "commit": null,
+      "base": "1897f01c",
+      "etiqueta": "v2.6.0",
+      "familias": {
+        "cco": "1.2.2",
+        "cfo": "1.5.3",
+        "ciso": "1.2.2",
+        "clo": "1.6.2",
+        "ea": "1.2.2",
+        "pmo": "1.2.2",
+        "rostrum": "1.3.2"
+      },
+      "liberadas": [
+        "cco",
+        "cfo",
+        "ciso",
+        "clo",
+        "ea",
+        "pmo",
+        "rostrum"
+      ],
+      "versiones": {
+        "criterio-cco": "1.2.2",
+        "criterio-revenue": "1.2.2",
+        "criterio-sales": "1.2.2",
+        "criterio-budget": "1.5.3",
+        "criterio-cfo": "1.5.3",
+        "criterio-finance": "1.5.3",
+        "criterio-treasury": "1.5.3",
+        "criterio-ciso": "1.2.2",
+        "criterio-resilience": "1.2.2",
+        "criterio-security": "1.2.2",
+        "criterio-vulnerability": "1.2.2",
+        "criterio-clo": "1.6.2",
+        "criterio-compliance": "1.6.2",
+        "criterio-legal": "1.6.2",
+        "criterio-assistant": "1.2.2",
+        "criterio-ea": "1.2.2",
+        "criterio-pmo": "1.2.2",
+        "criterio-portfolio": "1.2.2",
+        "criterio-product": "1.2.2",
+        "criterio-project": "1.2.2",
+        "criterio-server": "1.3.2"
+      },
+      "calidad": {
+        "cco": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 197,
+            "datos": 75
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98,
+            "Datos extraídos": 95.1
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "cfo": {
+          "etiqueta": "estable",
+          "ronda": 13,
+          "rondas": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "casos": {
+            "señales": 312,
+            "datos": 895
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.7,
+            "Datos extraídos": 99.3
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ciso": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 148,
+            "datos": 80
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 97.4,
+            "Datos extraídos": 95.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "clo": {
+          "etiqueta": "estable",
+          "ronda": 13,
+          "rondas": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "casos": {
+            "señales": 262,
+            "datos": 6367
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.5,
+            "Datos extraídos": 99.8
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ea": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            2
+          ],
+          "casos": {
+            "señales": 85,
+            "datos": 146
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95.6,
+            "Datos extraídos": 97.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "pmo": {
+          "etiqueta": "estable",
+          "ronda": 12,
+          "rondas": [
+            11,
+            12
+          ],
+          "casos": {
+            "señales": 500,
+            "datos": 481
+          },
+          "version_medida": "1.0.0",
+          "pisos": {
+            "Vera · precisión": 99.2,
+            "Vera · cobertura": 99.2,
+            "Samuel · compromisos": 98.2,
+            "Alba · cobertura": 98.5
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.4",
+        "fecha": "2026-11-06",
+        "sha256": {
+          "es": "753b92889fc8388772e3e6788ecb626c6c7d89e48821669360e9277fc1d14eb8",
+          "en": "03c0cd621f9c8eeab385f3684ccbe6be1bc34479f83a799e2cca3f9538d87c79"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "57d0c8eaa7f4d3aaf2db523a969512c33c29ab2e06860c22ba5b4d898af66ea7",
+        "criterio-budget": "4aecf253ea9ff7b08a118b369e341d07b285b6a880c3853fc52c84265c93c3c4",
+        "criterio-cco": "2168d0b80c391f10e1ce22e4186e41b638bed9679713a47d92e5e4aa948a4046",
+        "criterio-cfo": "16b967da71febad479f10de8e164c77b4c9377174b17956ddea7170cb6c2d02c",
+        "criterio-ciso": "f188fb42c525d2b082cc732f0d20ce50683af0d6dff52d6b91fd52ce64130551",
+        "criterio-clo": "8e8bfcf69d155a19a8e6398407b053a581922753eb3771ed4c806daa541f4f50",
+        "criterio-compliance": "ce6831f148297025f5f00536e530a3605e81b5eed15824c31d3b74556c9fe56a",
+        "criterio-finance": "e35e1ae793e9a5a36149b095d7d9468254123204752a53306d676d55bc774ed9",
+        "criterio-legal": "520fd7734091c08165b1225e25ed5305314a0a51aca6d6811736f99e4fa7b356",
+        "criterio-pmo": "82ebcaa45a26d3766c94a67dbf9f2f74596e8cdbe93fcbff9bbe69516c0b5c91",
+        "criterio-portfolio": "64bffd3cb09e42aa40f4331333b07ba322b2290c493f03232982c5d4af01fc9a",
+        "criterio-product": "015b2b8a25977056f2309cd13e6f0e71b1d7dcde8d185b253ff1f5cc9778fa9e",
+        "criterio-project": "db0a2238f6102f8308c8421ecccd2de0ed7c50928a682c04e4154828c6d59632",
+        "criterio-resilience": "6ca87c81142d9a093bf2f31179866bde39c549388d3f36d84f96a4897e6016fd",
+        "criterio-revenue": "bb9d98ca1ce0611efd256d62de934393176c32ef9e5fcd720c3788eeeaacdcea",
+        "criterio-sales": "38fb413af9f082473344049570f5b6e80c743b4cbc607e76b2e18a169cab2784",
+        "criterio-security": "8b32afb118b47eeeeb6b9acadae8da56b7005efa0d41e7e596a9feea9fe71152",
+        "criterio-server": "17205ef763e34270dd7b383f34bee9873a5b8832cbba9cc9acf15a707226d888",
+        "criterio-treasury": "b61d75f9271a821a50e81043dcae805fd0492bb897776e9165db122ade15e78d",
+        "criterio-vulnerability": "071fb6543966f395e2ed9f88051cf630480b5ad61b8af3825bdfe802040d66d8"
+      },
+      "destacados": [
+        "La entrada de cada familia: un pedido que nombra lo que distingue a un comando va a ese comando, sin preguntar"
+      ],
+      "cambios": [
+        "La demostración dice cómo probar a un agente: instalar su familia y llamarlo con el prefijo de su plugin",
+        "La instalación: el paso 1 en cuatro, con la actualización como administrador o con la instalación nativa",
+        "La instalación: un plugin por línea, y el error de varios en una sola línea en la tabla",
+        "Los setups: con una sola carpeta candidata, la pregunta va en el texto y no como una lista de una opción",
+        "La prueba de las entradas, automática: los 44 pedidos en palabras contra Claude Code real",
+        "Las entradas: con un pedido general que encaja en dos comandos, pregunta antes de correr",
+        "Cada familia dice qué hace para el nivel C y con qué trabaja, con cada fuente verificada",
+        "Las entradas: si el pedido nombra lo que distingue a un comando, es ese, y --solo reemplaza solo sus filas",
+        "«Qué hace» para el nivel C, en pocas palabras: con qué se integra y tres cifras de por qué importa",
+        "Qué hace cada familia, en hasta cinco líneas que empiezan por el verbo",
+        "La portada de la CFO, con datos: dos cifras del problema y el alcance de cada función",
+        "El alcance de la CFO, por lo que detecta: cada función con sus señales",
+        "CFO y CLO: con qué trabajan por tipo de producto y con sus nombres; la portada y el alcance de la CLO",
+        "CFO y CLO: la portada en un solo bloque, una fila por función y dos cifras con su texto corto",
+        "La portada en un solo bloque en todas las familias: PMO, EA, CCO y CISO"
+      ],
+      "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "af4e248255d3da847bdb4bdbf62fb7456fbdf89266e96c1ea8c959ab7b264904",
+      "sha256": "75a54e81174540b23ea5987df5a0ffba2f6ecddcedd7b357f493d5123515aa32"
     }
   ]
 }
