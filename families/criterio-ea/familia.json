@@ -13,66 +13,153 @@
     "en": "Built · tested"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "hace": {
-      "es": [
-        "Ordena la agenda y detecta los cruces, también durante los viajes.",
-        "Prepara cada sesión de junta y de comité con su material.",
-        "Prepara el acta y sigue cada compromiso con su responsable y su fecha.",
-        "Identifica los correos que esperan respuesta.",
-        "Resume la semana para el ejecutivo."
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
+    "portada": {
+      "cifras": [
+        {
+          "id": "C-02",
+          "es": "dice que los próximos pasos de una reunión no quedan claros",
+          "en": "say the next steps of a meeting are unclear"
+        },
+        {
+          "id": "C-01",
+          "es": "del tiempo de trabajo se va en reuniones, correo y chat",
+          "en": "of working time goes to meetings, email and chat"
+        }
       ],
-      "en": [
-        "Organises the agenda and spots clashes, also while travelling.",
-        "Prepares each board and committee session with its materials.",
-        "Prepares the minutes and follows each commitment with its owner and date.",
-        "Identifies the emails awaiting a reply.",
-        "Summarises the week for the executive."
+      "filas": [
+        {
+          "es": [
+            "Agenda",
+            "Cruces de reuniones, también durante los viajes",
+            "Outlook · Google Calendar (.ics)"
+          ],
+          "en": [
+            "Calendar",
+            "Meeting clashes, also while travelling",
+            "Outlook · Google Calendar (.ics)"
+          ],
+          "fuentes": [
+            "F-02"
+          ]
+        },
+        {
+          "es": [
+            "Juntas y comités",
+            "Cada sesión con su material y su acta",
+            "Convocatorias, material y actas"
+          ],
+          "en": [
+            "Boards and committees",
+            "Every session with its materials and minutes",
+            "Notices, materials and minutes"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Compromisos",
+            "Cada acuerdo con responsable y fecha, hasta su cierre",
+            "Actas y notas de reunión"
+          ],
+          "en": [
+            "Commitments",
+            "Every agreement with owner and date, until it closes",
+            "Minutes and meeting notes"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Correo",
+            "Lo que espera respuesta y las decisiones con plazo",
+            "Outlook (.msg) · .eml"
+          ],
+          "en": [
+            "Email",
+            "What awaits a reply and decisions with a deadline",
+            "Outlook (.msg) · .eml"
+          ],
+          "fuentes": [
+            "F-03"
+          ]
+        },
+        {
+          "es": [
+            "Semana",
+            "El resumen para el ejecutivo",
+            "Agenda, correo y actas"
+          ],
+          "en": [
+            "Week",
+            "The summary for the executive",
+            "Calendar, email and minutes"
+          ],
+          "fuentes": []
+        }
       ]
     },
-    "con": [
+    "alcance": [
       {
         "es": [
-          "Calendario",
-          "Outlook y Google Calendar (.ics)"
+          "Agenda",
+          "Reuniones que se cruzan, reuniones durante un vuelo o fuera de la ciudad y vuelos que no están en la agenda"
         ],
         "en": [
           "Calendar",
-          "Outlook and Google Calendar (.ics)"
+          "Overlapping meetings, meetings during a flight or out of town, and flights missing from the calendar"
         ],
-        "fuentes": [
-          "F-02"
+        "senales": [
+          "meeting_conflict",
+          "meeting_during_flight",
+          "meeting_while_away",
+          "trip_not_in_agenda"
         ]
       },
       {
         "es": [
-          "Correo",
-          "Outlook (.msg) y .eml"
+          "Juntas y comités",
+          "Sesiones sin su material a tiempo y sesiones sin acta firmada"
         ],
         "en": [
-          "Email",
-          "Outlook (.msg) and .eml"
+          "Boards and committees",
+          "Sessions without their materials on time and sessions without signed minutes"
         ],
-        "fuentes": [
-          "F-03"
+        "senales": [
+          "meeting_without_material",
+          "meeting_without_minutes"
         ]
       },
       {
         "es": [
-          "Órganos de gobierno",
-          "Convocatorias, material, notas y actas"
+          "Compromisos",
+          "Acuerdos sin responsable o sin fecha, compromisos vencidos sin soporte y compromisos que se reprograman de más"
         ],
         "en": [
-          "Governing bodies",
-          "Notices, materials, notes and minutes"
+          "Commitments",
+          "Agreements with no owner or date, overdue commitments with no support and commitments moved too often"
         ],
-        "fuentes": []
+        "senales": [
+          "agreement_without_owner",
+          "agreement_without_date",
+          "commitment_overdue",
+          "commitment_rescheduled"
+        ]
+      },
+      {
+        "es": [
+          "Correo y decisiones",
+          "Correos con plazo vencido sin respuesta y decisiones pendientes con fecha próxima"
+        ],
+        "en": [
+          "Email and decisions",
+          "Emails past their deadline with no reply and pending decisions with a close date"
+        ],
+        "senales": [
+          "correspondence_unanswered",
+          "decision_deadline"
+        ]
       }
-    ],
-    "cifras": [
-      "C-01",
-      "C-02",
-      "C-03"
     ]
   },
   "instancia": {

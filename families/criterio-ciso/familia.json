@@ -14,71 +14,189 @@
     "en": "Built · in testing"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "hace": {
-      "es": [
-        "Contrasta cada control de la declaración de aplicabilidad con su evidencia.",
-        "Revisa los accesos, los terceros críticos y el registro de riesgos.",
-        "Controla las vulnerabilidades contra su plazo y el catálogo KEV.",
-        "Mide la cobertura de los escaneos.",
-        "Reconstruye cada incidente y verifica las notificaciones y las pruebas de continuidad."
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
+    "portada": {
+      "cifras": [
+        {
+          "id": "C-01",
+          "es": "de las brechas empezó por una vulnerabilidad explotada",
+          "en": "of breaches began with an exploited vulnerability"
+        },
+        {
+          "id": "C-03",
+          "es": "de las brechas involucró a un tercero",
+          "en": "of breaches involved a third party"
+        }
       ],
-      "en": [
-        "Checks every control in the statement of applicability against its evidence.",
-        "Reviews access, critical third parties and the risk register.",
-        "Tracks vulnerabilities against their deadline and the KEV catalogue.",
-        "Measures scan coverage.",
-        "Rebuilds each incident and checks notifications and continuity tests."
+      "filas": [
+        {
+          "es": [
+            "Controles",
+            "Cada control de la declaración de aplicabilidad, contra su evidencia",
+            "NIST CSF 2.0 · declaración de aplicabilidad en Excel"
+          ],
+          "en": [
+            "Controls",
+            "Every control in the statement of applicability, against its evidence",
+            "NIST CSF 2.0 · statement of applicability in Excel"
+          ],
+          "fuentes": [
+            "F-02"
+          ]
+        },
+        {
+          "es": [
+            "Accesos y terceros",
+            "Revisiones de acceso, terceros críticos y riesgos aceptados",
+            "Registros en Excel o CSV"
+          ],
+          "en": [
+            "Access and third parties",
+            "Access reviews, critical third parties and accepted risks",
+            "Registers in Excel or CSV"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Vulnerabilidades",
+            "Cada una contra su plazo y el catálogo KEV",
+            "Tenable · Microsoft Defender · KEV de CISA · CVSS v4.0"
+          ],
+          "en": [
+            "Vulnerabilities",
+            "Each one against its deadline and the KEV catalogue",
+            "Tenable · Microsoft Defender · CISA KEV · CVSS v4.0"
+          ],
+          "fuentes": [
+            "F-08",
+            "F-09",
+            "F-06",
+            "F-05"
+          ]
+        },
+        {
+          "es": [
+            "Escaneos",
+            "Cobertura sobre el inventario de activos",
+            "Tenable · Microsoft Defender · cualquier otro en CSV o Excel"
+          ],
+          "en": [
+            "Scanning",
+            "Coverage of the asset inventory",
+            "Tenable · Microsoft Defender · any other in CSV or Excel"
+          ],
+          "fuentes": [
+            "F-08",
+            "F-09"
+          ]
+        },
+        {
+          "es": [
+            "Incidentes y continuidad",
+            "Respuesta, notificaciones y pruebas de continuidad",
+            "NIST SP 800-61"
+          ],
+          "en": [
+            "Incidents and continuity",
+            "Response, notifications and continuity tests",
+            "NIST SP 800-61"
+          ],
+          "fuentes": [
+            "F-04"
+          ]
+        }
       ]
     },
-    "con": [
+    "alcance": [
       {
         "es": [
-          "Escáneres",
-          "Tenable y Microsoft Defender; cualquier otro, en CSV o Excel"
+          "Controles",
+          "Controles sin evidencia o con evidencia vencida, y controles de la declaración sin responsable"
         ],
         "en": [
-          "Scanners",
-          "Tenable and Microsoft Defender; any other, in CSV or Excel"
+          "Controls",
+          "Controls without evidence or with stale evidence, and controls in the statement with no owner"
         ],
-        "fuentes": [
-          "F-08",
-          "F-09"
+        "senales": [
+          "control_without_evidence",
+          "control_evidence_stale",
+          "soa_control_unassigned"
         ]
       },
       {
         "es": [
-          "Catálogo y severidad",
-          "KEV de CISA y CVSS v4.0"
+          "Accesos, terceros y riesgos",
+          "Revisiones de acceso y evaluaciones de terceros vencidas, y aceptaciones de riesgo expiradas"
         ],
         "en": [
-          "Catalogue and severity",
-          "CISA KEV and CVSS v4.0"
+          "Access, third parties and risk",
+          "Overdue access reviews and third-party assessments, and expired risk acceptances"
         ],
-        "fuentes": [
-          "F-06",
-          "F-05"
+        "senales": [
+          "access_review_overdue",
+          "third_party_assessment_overdue",
+          "risk_acceptance_expired"
         ]
       },
       {
         "es": [
-          "Marcos",
-          "NIST CSF 2.0 y NIST SP 800-61"
+          "Vulnerabilidades",
+          "Vulnerabilidades fuera de plazo o del KEV vencidas, cerradas sin reescaneo y excepciones expiradas"
         ],
         "en": [
-          "Frameworks",
-          "NIST CSF 2.0 and NIST SP 800-61"
+          "Vulnerabilities",
+          "Vulnerabilities past their deadline or overdue KEV, closed without a rescan and expired exceptions"
         ],
-        "fuentes": [
-          "F-02",
-          "F-04"
+        "senales": [
+          "vuln_past_sla",
+          "kev_past_due",
+          "vuln_closed_without_rescan",
+          "vuln_exception_expired"
+        ]
+      },
+      {
+        "es": [
+          "Escaneos",
+          "Activos del inventario que no se escanearon"
+        ],
+        "en": [
+          "Scanning",
+          "Inventory assets that were not scanned"
+        ],
+        "senales": [
+          "asset_not_scanned"
+        ]
+      },
+      {
+        "es": [
+          "Incidentes",
+          "Respuesta y notificación fuera de plazo, e incidentes sin revisión posterior"
+        ],
+        "en": [
+          "Incidents",
+          "Late response and notification, and incidents with no post-incident review"
+        ],
+        "senales": [
+          "incident_response_late",
+          "incident_notification_late",
+          "incident_without_review"
+        ]
+      },
+      {
+        "es": [
+          "Continuidad",
+          "Pruebas de continuidad y de restauración vencidas"
+        ],
+        "en": [
+          "Continuity",
+          "Overdue continuity and restore tests"
+        ],
+        "senales": [
+          "continuity_test_overdue",
+          "restore_test_overdue"
         ]
       }
-    ],
-    "cifras": [
-      "C-01",
-      "C-03",
-      "C-02"
     ]
   },
   "generador": {

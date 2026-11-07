@@ -14,60 +14,155 @@
     "en": "Built · tested"
   },
   "nivel_c": {
-    "comentario": "Lo que hace la familia para quien dirige la función, con qué trabaja —en pocas palabras, con los nombres— y las tres cifras de terceros que dicen por qué importa: lo publica el portal en «Qué hace». Cada fuente y cada cifra existen en fuentes.json y están verificadas; lo comprueba scripts/familias.py --check.",
-    "hace": {
-      "es": [
-        "Contrasta cada oportunidad del embudo con la evidencia que exige su etapa.",
-        "Verifica qué sostiene el pronóstico comprometido.",
-        "Compara la meta con lo cerrado, por línea.",
-        "Revisa cada descuento contra la matriz aprobada.",
-        "Sigue lo ganado hasta el contrato, la factura y la comisión."
+    "comentario": "La portada de la familia, en un solo bloque para el nivel C: una fila por función —qué hace y con qué se integra— y dos cifras de terceros con su texto corto. Lo que detecta cada función va en `alcance`, con sus señales, y lo publica la evidencia. Cada fuente y cada cifra están verificadas en fuentes.json; lo comprueba scripts/familias.py --check.",
+    "portada": {
+      "cifras": [
+        {
+          "id": "C-01",
+          "es": "líderes de ventas y finanzas falló al menos un pronóstico trimestral",
+          "en": "sales and finance leaders missed at least one quarterly forecast"
+        },
+        {
+          "id": "C-02",
+          "es": "de la semana de un vendedor se dedica a vender",
+          "en": "of a seller's week is spent selling"
+        }
       ],
-      "en": [
-        "Checks every pipeline opportunity against the evidence its stage requires.",
-        "Verifies what supports the committed forecast.",
-        "Compares the target with what closed, by line.",
-        "Reviews every discount against the approved matrix.",
-        "Follows what was won to the contract, the invoice and the commission."
+      "filas": [
+        {
+          "es": [
+            "Embudo",
+            "Cada oportunidad contra la evidencia que exige su etapa",
+            "Salesforce · HubSpot · Dynamics 365 · Zoho · CSV o Excel"
+          ],
+          "en": [
+            "Pipeline",
+            "Every opportunity against the evidence its stage requires",
+            "Salesforce · HubSpot · Dynamics 365 · Zoho · CSV or Excel"
+          ],
+          "fuentes": [
+            "F-02",
+            "F-03",
+            "F-04",
+            "F-05",
+            "F-06",
+            "F-07",
+            "F-08",
+            "F-09"
+          ]
+        },
+        {
+          "es": [
+            "Pronóstico",
+            "Lo que sostiene el pronóstico comprometido",
+            "Exportación del CRM"
+          ],
+          "en": [
+            "Forecast",
+            "What supports the committed forecast",
+            "CRM export"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Meta",
+            "La meta contra lo cerrado, por línea",
+            "Meta en Excel · exportación del CRM"
+          ],
+          "en": [
+            "Target",
+            "The target against what closed, by line",
+            "Target in Excel · CRM export"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Descuentos",
+            "Cada descuento contra la matriz aprobada",
+            "Cotizaciones · matriz de descuentos en Excel"
+          ],
+          "en": [
+            "Discounts",
+            "Every discount against the approved matrix",
+            "Quotes · discount matrix in Excel"
+          ],
+          "fuentes": []
+        },
+        {
+          "es": [
+            "Contrato y comisión",
+            "Lo ganado hasta el contrato, la factura y la comisión",
+            "Órdenes de compra · contratos · plan de comisiones"
+          ],
+          "en": [
+            "Contract and commission",
+            "What was won, through to contract, invoice and commission",
+            "Purchase orders · contracts · commission plan"
+          ],
+          "fuentes": []
+        }
       ]
     },
-    "con": [
+    "alcance": [
       {
         "es": [
-          "CRM",
-          "Salesforce, HubSpot, Microsoft Dynamics 365 y Zoho; cualquier otro, en CSV o Excel"
+          "Embudo",
+          "Oportunidades en una etapa sin su evidencia, detenidas más días de los permitidos o con la fecha de cierre corrida"
         ],
         "en": [
-          "CRM",
-          "Salesforce, HubSpot, Microsoft Dynamics 365 and Zoho; any other, in CSV or Excel"
+          "Pipeline",
+          "Opportunities in a stage without its evidence, stalled longer than allowed or with a slipped close date"
         ],
-        "fuentes": [
-          "F-02",
-          "F-03",
-          "F-04",
-          "F-05",
-          "F-06",
-          "F-07",
-          "F-08",
-          "F-09"
+        "senales": [
+          "stage_without_evidence",
+          "stalled_opportunity",
+          "close_date_slipped"
         ]
       },
       {
         "es": [
-          "Evidencia de la venta",
-          "Propuestas, órdenes de compra, cotizaciones y comisiones"
+          "Pronóstico y meta",
+          "Pronóstico comprometido sin soporte y meta contra lo cerrado"
         ],
         "en": [
-          "Sales evidence",
-          "Proposals, purchase orders, quotes and commissions"
+          "Forecast and target",
+          "Committed forecast without support and target against what closed"
         ],
-        "fuentes": []
+        "senales": [
+          "forecast_unsupported",
+          "target_vs_closed"
+        ]
+      },
+      {
+        "es": [
+          "Descuentos",
+          "Descuentos fuera de la matriz aprobada"
+        ],
+        "en": [
+          "Discounts",
+          "Discounts outside the approved matrix"
+        ],
+        "senales": [
+          "discount_outside_policy"
+        ]
+      },
+      {
+        "es": [
+          "Contrato, factura y comisión",
+          "Ganadas sin contrato, firmadas sin factura y comisiones que no cuadran con el plan"
+        ],
+        "en": [
+          "Contract, invoice and commission",
+          "Won without contract, signed without invoice and commissions that do not match the plan"
+        ],
+        "senales": [
+          "won_without_contract",
+          "signed_without_invoice",
+          "commission_differs_from_plan"
+        ]
       }
-    ],
-    "cifras": [
-      "C-01",
-      "C-02",
-      "C-03"
     ]
   },
   "generador": {

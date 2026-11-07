@@ -1208,9 +1208,10 @@ def nombres_readme(check: bool) -> list[str]:
 
 
 def revisar_nivel_c() -> list[str]:
-    """Lo que hace cada familia para quien dirige la función (`nivel_c` de su familia.json), que el
-    portal publica en «Qué hace»: en los dos idiomas, y cada fuente y cada cifra que cita existe y
-    está verificada."""
+    """La portada de cada familia para quien dirige la función (`nivel_c` de su familia.json), que el
+    portal publica en un solo bloque: hasta cinco filas —función, qué hace, con qué se integra— con
+    sus fuentes verificadas, dos cifras de terceros con su texto corto, y en `alcance` lo que detecta
+    cada función, con cada señal de la familia en una sola fila."""
     errores = []
     for f in sorted((RAIZ / "families").glob("criterio-*/familia.json")):
         fam = json.loads(f.read_text(encoding="utf-8"))
@@ -1218,59 +1219,38 @@ def revisar_nivel_c() -> list[str]:
             continue
         n = fam.get("nivel_c")
         s = f.parent.name
-        if not n:
-            errores.append(f"{s}: familia.json no trae `nivel_c`, lo que hace la familia para el nivel C")
+        portada = (n or {}).get("portada")
+        if not portada:
+            errores.append(f"{s}: familia.json no trae `nivel_c.portada`, la portada para el nivel C")
             continue
         fu = f.parent / "fuentes.json"
-        estado = {x["id"]: x.get("estado") for sec in json.loads(fu.read_text(encoding="utf-8"))["secciones"]
-                  for x in sec.get("fuentes", []) if "id" in x} if fu.exists() else {}
-        cifras = {c["id"]: c.get("estado") for c in json.loads(fu.read_text(encoding="utf-8")).get("cifras", [])} if fu.exists() else {}
-        portada = n.get("portada")
-        if portada:
-            # La portada en un solo bloque: hasta cinco filas —función, qué hace, con qué se integra—, cada
-            # una con sus fuentes verificadas, y dos cifras de terceros con su texto corto.
-            filas = portada.get("filas", [])
-            if not 1 <= len(filas) <= 5:
-                errores.append(f"{s}: `nivel_c.portada.filas` lleva de una a cinco filas")
-            for x in filas:
-                if len(x.get("es", [])) != 3 or len(x.get("en", [])) != 3:
-                    errores.append(f"{s}: `nivel_c.portada.filas` con una fila sin función, qué hace y con qué, en los dos idiomas")
-                for i in x.get("fuentes", []):
-                    if estado.get(i) != "verificada":
-                        errores.append(f"{s}: `nivel_c.portada` cita {i}, que no está verificada en fuentes.json")
-            if len(portada.get("cifras", [])) != 2:
-                errores.append(f"{s}: `nivel_c.portada.cifras` lleva dos cifras de terceros")
-            for c in portada.get("cifras", []):
-                if cifras.get(c.get("id")) != "verificada" or not (c.get("es") and c.get("en")):
-                    errores.append(f"{s}: `nivel_c.portada` cita {c.get('id')}: verificada en fuentes.json y con su texto corto en los dos idiomas")
-        else:
-            hace = n.get("hace", {})
-            if not (hace.get("es") and len(hace.get("es", [])) == len(hace.get("en", [])) <= 5):
-                errores.append(f"{s}: `nivel_c.hace` lleva hasta cinco líneas, las mismas en los dos idiomas")
-            if not n.get("con"):
-                errores.append(f"{s}: `nivel_c.con` vacío: con qué trabaja la familia")
-            if len(n.get("cifras", [])) != 3:
-                errores.append(f"{s}: `nivel_c.cifras` lleva las tres cifras de terceros que dicen por qué importa")
-            for i in n.get("cifras", []):
-                if cifras.get(i) != "verificada":
-                    errores.append(f"{s}: `nivel_c.cifras` cita {i}, que no está verificada en fuentes.json")
+        datos = json.loads(fu.read_text(encoding="utf-8")) if fu.exists() else {}
+        estado = {x["id"]: x.get("estado") for sec in datos.get("secciones", []) for x in sec.get("fuentes", []) if "id" in x}
+        cifras = {c["id"]: c.get("estado") for c in datos.get("cifras", [])}
+        filas = portada.get("filas", [])
+        if not 1 <= len(filas) <= 5:
+            errores.append(f"{s}: `nivel_c.portada.filas` lleva de una a cinco filas")
+        for x in filas:
+            if len(x.get("es", [])) != 3 or len(x.get("en", [])) != 3:
+                errores.append(f"{s}: `nivel_c.portada.filas` con una fila sin función, qué hace y con qué, en los dos idiomas")
+            for i in x.get("fuentes", []):
+                if estado.get(i) != "verificada":
+                    errores.append(f"{s}: `nivel_c.portada` cita {i}, que no está verificada en fuentes.json")
+        if len(portada.get("cifras", [])) != 2:
+            errores.append(f"{s}: `nivel_c.portada.cifras` lleva dos cifras de terceros")
+        for c in portada.get("cifras", []):
+            if cifras.get(c.get("id")) != "verificada" or not (c.get("es") and c.get("en")):
+                errores.append(f"{s}: `nivel_c.portada` cita {c.get('id')}: verificada en fuentes.json y con su texto corto en los dos idiomas")
         propias = [x["id"] if isinstance(x, dict) else x for a in fam["agentes"] for x in a.get("senales", [])]
         en_filas = [i for x in n.get("alcance", []) for i in x.get("senales", [])]
         for x in n.get("alcance", []):
             if len(x.get("es", [])) != 2 or len(x.get("en", [])) != 2:
                 errores.append(f"{s}: `nivel_c.alcance` con una fila sin título y texto en los dos idiomas")
-        # Cada señal de la familia cae en una sola fila del alcance: la portada cuenta lo que detecta cada función.
-        if n.get("alcance") and sorted(en_filas) != sorted(propias):
+        # Cada señal de la familia cae en una sola fila del alcance: la evidencia cuenta lo que detecta cada función.
+        if sorted(en_filas) != sorted(propias):
             errores.append(f"{s}: `nivel_c.alcance` no reparte cada señal de la familia en una sola fila "
                            f"(faltan {sorted(set(propias) - set(en_filas))}, sobran {sorted(set(en_filas) - set(propias))})")
-        for x in n.get("con", []):
-            if len(x.get("es", [])) != 2 or len(x.get("en", [])) != 2:
-                errores.append(f"{s}: `nivel_c.con` con una entrada sin título y texto en los dos idiomas")
-            for i in x.get("fuentes", []):
-                if estado.get(i) != "verificada":
-                    errores.append(f"{s}: `nivel_c` cita {i}, que no está verificada en fuentes.json")
     return errores
-
 
 def main() -> int:
     ap = argparse.ArgumentParser()
