@@ -4,6 +4,7 @@
 
     python3 scripts/descargas.py capturar --csv descargas.csv     lee el tráfico de GitHub y lo suma al historial
     python3 scripts/descargas.py resumen --csv descargas.csv      el acumulado, los últimos siete días y cada mes
+    python3 scripts/descargas.py cifra --csv descargas.csv        la cifra de siempre, en una línea
     python3 scripts/descargas.py selftest
 
 **GitHub guarda solo los últimos catorce días.** La cifra que muestra la pestaña de tráfico —las
@@ -133,7 +134,8 @@ def escribir(csv_: Path, filas: dict[str, dict]) -> None:
 
 
 def resumen(filas: dict[str, dict], hoy: dt.date) -> dict:
-    """El acumulado del historial, los últimos siete días completos y la suma de cada mes. Los
+    """El acumulado del historial, su promedio por día con tráfico leído, los últimos siete días
+    completos con su récord y la suma de cada mes. Los
     únicos de GitHub son por día: sumarlos cuenta dos veces a quien volvió otro día, así que el
     resumen dice clonaciones, no personas."""
     siete = {(hoy - dt.timedelta(days=k)).isoformat() for k in range(1, 8)}
@@ -142,14 +144,30 @@ def resumen(filas: dict[str, dict], hoy: dt.date) -> dict:
     for f, v in filas.items():
         meses[f[:7]] = meses.get(f[:7], 0) + c(v)
     ultimo = next((v for v in reversed(filas.values()) if v.get("estrellas") is not None), None)
-    return {"desde": next(iter(filas), None), "dias": len(filas),
+    leidos = {f: v for f, v in filas.items() if v.get("clonaciones") is not None}
+    semana = [(f, v["clonaciones"]) for f, v in leidos.items() if f in siete]
+    record = max(semana, key=lambda x: (x[1], x[0]), default=None)
+    return {"desde": next(iter(filas), None), "hasta": max(leidos, default=None), "dias": len(filas),
             "clonaciones": sum(c(v) for v in filas.values()),
+            "dias_con_trafico": len(leidos),
+            "promedio_diario": round(sum(c(v) for v in leidos.values()) / len(leidos), 1) if leidos else 0,
+            "record_7_dias": {"fecha": record[0], "clonaciones": record[1]} if record else None,
             "dias_sin_trafico": sorted(f for f, v in filas.items() if v.get("clonaciones") is None),
             "estrellas": ultimo and ultimo["estrellas"], "forks": ultimo and ultimo["forks"],
             "estrellas_y_forks_al": ultimo and ultimo["fecha"],
             "visitas": sum(c(v, "visitas") for v in filas.values()),
             "ultimos_7_dias": sum(c(v) for f, v in filas.items() if f in siete),
             "por_mes": meses}
+
+
+def cifra(r: dict) -> str:
+    """La cifra que se da siempre, igual cada vez: el acumulado, el promedio por día con tráfico leído y
+    el récord de los últimos siete días completos. Son clonaciones, no personas."""
+    rec = r["record_7_dias"]
+    fmt = lambda n, d=0: f"{n:,.{d}f}".replace(",", "§").replace(".", ",").replace("§", ".")
+    return (f"Descargas al {r['hasta']}: {fmt(r['clonaciones'])} acumuladas · {fmt(r['promedio_diario'], 1)} por día en "
+            f"promedio ({r['dias_con_trafico']} días) · récord de la última semana: "
+            + (f"{fmt(rec['clonaciones'])}, el {rec['fecha']}" if rec else "sin tráfico leído"))
 
 
 def selftest() -> int:
@@ -171,6 +189,10 @@ def selftest() -> int:
     ok("un día que sigue en la ventana toma su última lectura", h["2026-10-29"]["clonaciones"], 80)
     ok("el acumulado suma el historial, no la ventana", resumen(h, dt.date(2026, 10, 31))["clonaciones"], 190)
     ok("los últimos siete días completos", resumen(h, dt.date(2026, 10, 31))["ultimos_7_dias"], 90)
+    ok("el promedio, sobre los días con tráfico leído", resumen(h, dt.date(2026, 10, 31))["promedio_diario"], 63.3)
+    ok("el récord de la semana, con su fecha", resumen(h, dt.date(2026, 10, 31))["record_7_dias"], {"fecha": "2026-10-29", "clonaciones": 80})
+    ok("la cifra, en una línea", cifra(resumen(h, dt.date(2026, 10, 31))),
+       "Descargas al 2026-10-30: 190 acumuladas · 63,3 por día en promedio (3 días) · récord de la última semana: 80, el 2026-10-29")
     h = fusionar(h, {}, "2026-10-31", {"estrellas": 3, "forks": 1})
     ok("las estrellas y los forks van al día de la captura", (h["2026-10-31"]["estrellas"], h["2026-10-31"]["forks"]), (3, 1))
     ok("un día sin captura queda sin estrellas", h["2026-10-30"]["estrellas"], None)
@@ -194,7 +216,7 @@ def selftest() -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Las descargas de Criterio, día por día.")
-    ap.add_argument("accion", choices=["capturar", "resumen", "selftest"])
+    ap.add_argument("accion", choices=["capturar", "resumen", "cifra", "selftest"])
     ap.add_argument("--csv", type=Path, default=Path("descargas.csv"))
     ap.add_argument("--repo", default=REPO)
     a = ap.parse_args()
@@ -215,7 +237,11 @@ def main() -> int:
         escribir(a.csv, filas)
         print(f"{len(nuevos)} días de tráfico leídos de GitHub · {repo['estrellas']} estrellas y {repo['forks']} forks · "
               f"{len(filas)} días en el historial")
+    if a.accion == "cifra":
+        print(cifra(resumen(filas, hoy)))
+        return 0
     print(json.dumps(resumen(filas, hoy), ensure_ascii=False, indent=2))
+    print(cifra(resumen(filas, hoy)))
     return 0
 
 
