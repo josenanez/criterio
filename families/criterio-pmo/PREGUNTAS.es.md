@@ -64,7 +64,7 @@ Nada. Es código abierto bajo Apache 2.0: úsalo en tu organización sin pedir p
 
 ### ¿Qué acepto antes de usarlo?
 
-Los términos de cada versión. El agente los muestra, pide un sí explícito y deja un comprobante en Markdown y PDF con la huella SHA-256 de los términos. Cada versión nueva se acepta de nuevo.
+Los términos. El agente los muestra, pide un sí explícito y deja un comprobante en Markdown y PDF con la huella SHA-256 de los términos. Al actualizar a una versión nueva no se piden de nuevo, salvo que su texto cambie.
 
 ## Ayuda
 

@@ -4,8 +4,7 @@
 
 **Two agents and a portal, around their records.** Each one extends a different person in the sales
 function —whoever answers for the forecast and whoever answers for what was sold, all the way to the
-invoice— and neither talks to the other directly: they talk through their records, and with Fidel
-and Clara through theirs.
+invoice— and each one leaves its result in its record, where the other, Fidel and Clara start from.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
 
@@ -92,8 +91,8 @@ Every data point cites the document it comes from and its date. "Not found" is a
 
 ### The seven invariants
 
-1. **The agents never talk to each other.** They talk through their records, and with Fidel and
-   Clara through theirs.
+1. **Each agent leaves its result in its record, and the others start from it.** Fidel's and
+   Clara's too.
 2. **Rostrum, the portal, does not write.** It serves what the engine already wrote and says so with
    its date; it recalculates nothing. Commissions do not appear there unless the configuration says
    so.

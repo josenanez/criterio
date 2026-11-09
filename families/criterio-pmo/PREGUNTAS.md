@@ -64,7 +64,7 @@ Nothing. It is open source under Apache 2.0: use it in your organisation without
 
 ### What do I accept before using it?
 
-The terms of each version. The agent shows them, asks for an explicit yes and leaves a receipt in Markdown and PDF with the SHA-256 fingerprint of the terms. Every new version is accepted again.
+The terms. The agent shows them, asks for an explicit yes and leaves a receipt in Markdown and PDF with the SHA-256 fingerprint of the terms. Updating to a new version does not ask again, unless their text changes.
 
 ## Help
 

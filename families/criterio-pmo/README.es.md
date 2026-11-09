@@ -4,7 +4,8 @@
 
 **Tres agentes y un servidor, alrededor de un solo contrato de datos.** Cada uno extiende
 a una persona distinta de la cadena —quien define el producto, quien ejecuta el proyecto,
-quien vigila el portafolio— y ninguno habla con otro directamente: se hablan por la ficha.
+quien vigila el portafolio—, y cada uno deja su resultado en la ficha del proyecto, de donde parten
+los demás.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
 
@@ -65,8 +66,8 @@ que dice estar construyendo su producto de verdad lo esté.
 
 Lo que **no** hay en ese dibujo es tan importante como lo que hay:
 
-- **Ninguna flecha entre dos agentes.** Todas pasan por un documento. Dos agentes que se
-  hablan directo son dos agentes que hay que desplegar juntos.
+- **Ninguna flecha entre dos agentes.** Todas pasan por un documento. Dos agentes conectados
+  directamente son dos agentes que hay que desplegar juntos.
 - **Ninguna flecha de vuelta desde Rostrum a la ficha.** El servidor no escribe.
 - **Ninguna flecha que escriba el estado declarado.** Esa la escribe una persona, en los tres
   sitios donde aparece.
@@ -85,7 +86,7 @@ entrega cierra con el acta de constitución, que es el certificado de nacimiento
 
 ### Las siete invariantes
 
-1. **Los agentes no se hablan entre sí.** Se hablan por la ficha.
+1. **Cada agente deja su resultado en la ficha, y los demás parten de ella.**
 2. **Rostrum, el servidor, no escribe.**
 3. **La fuente puede cambiar; la ficha no.** Un adaptador nuevo llena los mismos campos.
 4. **Declarado y evidenciado nunca se fusionan**, venga de archivo o de base de datos.
@@ -181,7 +182,7 @@ Después de instalar, cada agente tiene su propio comando de instalación que mi
 hace unas pocas preguntas y produce un primer resultado sobre tus propios documentos. **Nadie
 edita un archivo de configuración a mano.**
 
-Y si instalas más de uno, se encuentran solos: **no hay nada que conectar.** Se hablan por la
+Y si instalas más de uno, se encuentran solos: **no hay nada que conectar.** Cada uno parte de la
 ficha, que es un documento en la carpeta del proyecto.
 
 ## De qué responde cada agente, y dónde está su detalle

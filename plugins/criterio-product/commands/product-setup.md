@@ -222,9 +222,9 @@ Si corre solo, pregunta:
   0 7 * * 1-5 cd "<carpeta raíz>" && "<ruta de claude>" -p "En esta carpeta, corre /criterio-product:product-wake una vez por cada producto configurado, con su código. Solo procesa y escribe en el estado de Criterio; no envíes nada. Si un paso necesita un permiso que no tienes, detente y déjalo dicho." --allowedTools "Skill,Read,Glob,Grep,Write,Edit,Bash(python3:*),Bash(ls:*),Bash(mkdir:*),Bash(mv -n:*)" >> ".criterio/reloj/alba.log" 2>&1
   ```
 
-**Después de cada versión nueva, la tarea se detiene** hasta que alguien acepte los términos de esa
-versión en una sesión con la persona presente: una aceptación por versión, nunca desatendida. Dilo
-al crearla.
+**Si los términos cambian, la tarea se detiene** hasta que alguien acepte el texto nuevo en una
+sesión con la persona presente: una aceptación nunca es desatendida. Una versión nueva con los
+mismos términos sigue sola. Dilo al crearla.
 
 **Si la persona dice que no**, di en una línea cómo se corre a mano: `/criterio-product:product-wake`.
 Y en la salida, en «Cuándo vuelvo», di si quedó la tarea, a qué hora y dónde, o «sin reloj».

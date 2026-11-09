@@ -68,9 +68,9 @@ Solo con los agentes que quedaron configurados; los saltados no entran. Pregunta
   0 7 * * 1-5 cd "<carpeta raíz>" && "<ruta de claude>" -p "En esta carpeta, corre en orden /criterio-legal:legal-wake y /criterio-compliance:compliance-wake. Solo procesa y escribe en el estado de Criterio; no envíes nada. Si un paso necesita un permiso que no tienes, detente y déjalo dicho." --allowedTools "Skill,Read,Glob,Grep,Write,Edit,Bash(python3:*),Bash(ls:*),Bash(mkdir:*)" >> ".criterio/reloj/clo.log" 2>&1
   ```
 
-**Después de cada versión nueva, la tarea se detiene** hasta que alguien acepte los términos de esa
-versión en una sesión con la persona presente: una aceptación por versión, nunca desatendida. Dilo
-al crearla.
+**Si los términos cambian, la tarea se detiene** hasta que alguien acepte el texto nuevo en una
+sesión con la persona presente: una aceptación nunca es desatendida. Una versión nueva con los
+mismos términos sigue sola. Dilo al crearla.
 
 **Si la persona dice que no**, di en una línea cómo se corre a mano: `/criterio-legal:legal-wake` y `/criterio-compliance:compliance-wake`.
 Y en la tabla del final, una fila más: la tarea, con su hora y dónde quedó, o «sin reloj».

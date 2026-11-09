@@ -900,7 +900,7 @@
       "titulo": "Tres agentes para la seguridad de la información",
       "sub": "Procesan la declaración de aplicabilidad, las exportaciones del escáner y los informes de incidentes y de pruebas, y dicen qué control no tiene evidencia, qué vulnerabilidad pasó su plazo y qué notificación no se hizo a tiempo.",
       "ficha": "LAS FICHAS DE LA ENTIDAD",
-      "fichaNota": "El único contrato. Alexis, Guillermo y Amparo no se hablan entre sí: comparten la carpeta y la referencia, y cada uno escribe solo su ficha.",
+      "fichaNota": "Alexis, Guillermo y Amparo comparten la carpeta y la referencia; cada uno escribe solo su ficha, con su cita.",
       "roles": {
         "alexis": "Los controles",
         "guillermo": "Las vulnerabilidades",
@@ -952,7 +952,7 @@
       "titulo": "Three agents for information security",
       "sub": "They process the statement of applicability, the scanner exports and the incident and test reports, and tell you which control has no evidence, which vulnerability is past its deadline and which notification was not made on time.",
       "ficha": "THE ENTITY’S RECORDS",
-      "fichaNota": "The only contract. Alexis, Guillermo and Amparo never talk to each other: they share the folder and the reference, and each writes only its own record.",
+      "fichaNota": "Alexis, Guillermo and Amparo share the folder and the reference; each writes only its own record, with its citation.",
       "roles": {
         "alexis": "The controls",
         "guillermo": "Vulnerabilities",

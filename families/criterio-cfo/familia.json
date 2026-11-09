@@ -985,7 +985,7 @@
       "titulo": "La oficina del CFO, con más capacidad",
       "sub": "Procesan los libros, los soportes, el presupuesto y la caja como estén, y dicen qué cuadra, qué no y qué no tiene soporte.",
       "ficha": "LAS FICHAS DE LA ENTIDAD",
-      "fichaNota": "El único contrato. Clara, Tomás y Áurea no se hablan entre sí: se hablan por sus fichas.",
+      "fichaNota": "Clara, Tomás y Áurea dejan aquí su resultado, con su cita; cada uno parte de lo que dejan los otros.",
       "roles": {
         "clara": "El cierre",
         "tomas": "El presupuesto",
@@ -1037,7 +1037,7 @@
       "titulo": "The CFO's office, with more capacity",
       "sub": "They process the books, the supporting documents, the budget and the cash as they are, and tell you what ties out, what does not and what has no support.",
       "ficha": "THE ENTITY’S RECORDS",
-      "fichaNota": "The only contract. Clara, Tomás and Áurea never talk to each other: they talk through their records.",
+      "fichaNota": "Clara, Tomás and Áurea leave their results here, with their citations; each starts from what the others leave.",
       "roles": {
         "clara": "The close",
         "tomas": "The budget",

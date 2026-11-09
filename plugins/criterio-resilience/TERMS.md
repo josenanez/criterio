@@ -1,6 +1,6 @@
 # Terms of use
 
-[Español](TERMS.es.md) · Version 1.4 · 2026-11-06
+[Español](TERMS.es.md) · Version 1.5 · 2026-11-09
 
 By installing, deploying, testing or running Criterio, you accept these terms. If you do not accept them, do not install it.
 
@@ -42,7 +42,7 @@ Apache 2.0 grants no trademark rights. "Criterio" and the maintainer's name may 
 
 ## 8. How acceptance is recorded
 
-**One acceptance per version.** Each agent family —the PMO, the CFO, the CLO, the CCO, the CISO, the EA and Rostrum— carries its own version number, and every version of a family asks you to accept these terms, even when their text did not change: installing Criterio or updating it to a new version requires a new acceptance. Until the acceptance for the installed version is recorded, the plugin answers questions but produces no analysis and no report. It never assumes it, never infers it from you continuing the conversation, and never records it without an explicit yes.
+**One acceptance, as long as these terms do not change.** You accept these terms once, when you set Criterio up. That acceptance stays in force when you update any family to a new version, as long as the text of these terms is the same: updating does not ask you to accept again. We recommend always using the latest stable version of each family, which is the one that is tested and published with its evidence. Until the acceptance is recorded, the plugin answers questions but produces no analysis and no report. It never assumes it, never infers it from you continuing the conversation, and never records it without an explicit yes.
 
 **A receipt that is yours.** On acceptance, the plugin leaves on your machine, in `.criterio/terminos/`, a Markdown receipt and a PDF receipt with your name, the date, the family version, the version of these terms, their SHA-256 fingerprint and the version-register entry, followed by the full text you accepted. Earlier receipts are kept: the succession of acceptances is the trail. The technical detail is in `docs/acceptance.md`, in the repository.
 
@@ -54,13 +54,13 @@ Every report the plugin generates carries the disclaimer and the state of the re
 
 ## 9. Changes to these terms
 
-These terms are versioned. A change bumps the version and the date at the top of this file and enters the version register with its fingerprint. A change to the terms bumps the version of every family, and since every version is accepted again, it reaches whoever uses any of them on the next update.
+These terms are versioned. A change bumps the version and the date at the top of this file and enters the version register with its fingerprint. No change to these terms applies to you without your express acceptance: when the text changes, the plugin shows it to you and asks you to accept it before producing any analysis or report, and leaves a new receipt. If you do not accept it, you can keep using the version you already accepted.
 
 ## In short
 
 This is what the plugin shows you before asking you to accept:
 
-> Criterio gives management analysis tested against the evidence: every figure, every signal and every deadline with a citation to the document it comes from. It does not replace the judgement of whoever decides, nor professional advice: the decision, and its verification, belong to whoever signs it. It processes the documents you point it to and says what they show; what was agreed outside them it does not know. It is run by a language model (LLM), which can be wrong, which is why no data point arrives without its source. Your documents are processed on the infrastructure of the AI platform where you run it, not only on your machine. Every version is tested before it is published and its evidence is public; warranty and liability are those of the Apache 2.0 licence. Every version is accepted again and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
+> Criterio gives management analysis tested against the evidence: every figure, every signal and every deadline with a citation to the document it comes from. It does not replace the judgement of whoever decides, nor professional advice: the decision, and its verification, belong to whoever signs it. It processes the documents you point it to and says what they show; what was agreed outside them it does not know. It is run by a language model (LLM), which can be wrong, which is why no data point arrives without its source. Your documents are processed on the infrastructure of the AI platform where you run it, not only on your machine. Every version is tested before it is published and its evidence is public; warranty and liability are those of the Apache 2.0 licence. It is accepted once and leaves a receipt in Markdown and PDF with its SHA-256 fingerprint; updating does not ask you to accept again unless these terms change. Full terms and legal notice: https://www.josenanez.com/agents/criterio-pmo/legal
 
 ---
 

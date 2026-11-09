@@ -436,7 +436,7 @@
       "titulo": "Tres agentes y un portal para la oficina de proyectos",
       "sub": "Procesan lo que tu organización ya escribió, preparan el trabajo de la oficina de proyectos y dicen qué cambió, qué se contradice y qué ningún documento sostiene.",
       "ficha": "LA FICHA DEL PROYECTO",
-      "fichaNota": "El único contrato. Los agentes no se hablan entre sí: se hablan por ella.",
+      "fichaNota": "Cada agente deja aquí su resultado, con su cita; los demás parten de ahí.",
       "roles": {
         "vera": "El portafolio",
         "samuel": "Un proyecto",
@@ -475,7 +475,7 @@
         {
           "quien": "ficha",
           "tag": "LA REGLA",
-          "texto": "Ningún agente habla con otro. Se hablan por la ficha del proyecto, y el estado declarado lo escribe siempre una persona."
+          "texto": "Cada agente deja su resultado en la ficha del proyecto, y el estado declarado lo escribe siempre una persona."
         },
         {
           "cabeza": true,
@@ -488,7 +488,7 @@
       "titulo": "Three agents and a portal for the project office",
       "sub": "They process what your organisation already wrote, prepare the project office’s work and tell you what changed, what contradicts itself and what no document supports.",
       "ficha": "THE PROJECT RECORD",
-      "fichaNota": "The only contract. The agents never talk to each other: they talk through it.",
+      "fichaNota": "Each agent leaves its result here, with its citation; the others start from there.",
       "roles": {
         "vera": "The portfolio",
         "samuel": "One project",
@@ -527,7 +527,7 @@
         {
           "quien": "ficha",
           "tag": "THE RULE",
-          "texto": "No agent talks to another. They talk through the project record, and the declared status is always written by a person."
+          "texto": "Each agent leaves its result in the project record, and the declared status is always written by a person."
         },
         {
           "cabeza": true,

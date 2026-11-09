@@ -3,8 +3,8 @@
 # criterio-clo · the legal function family
 
 **Two agents and a portal, around their records.** Each one extends a different person in the
-legal function — whoever handles the contracts and whoever answers for compliance — and neither
-talks to the other directly: they talk through their records.
+legal function — whoever handles the contracts and whoever answers for compliance — and each one
+leaves its result in its record, where the other starts from.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
 
@@ -89,7 +89,7 @@ Every data point cites the document it comes from and its date. "Not found" is a
 
 ### The seven invariants
 
-1. **The agents do not talk to each other.** They talk through their records: Constanza takes
+1. **Each agent leaves its result in its record, and the other starts from it.** Constanza takes
    from Fidel's the compliance obligations of the contracts.
 2. **Rostrum, the portal, does not write.** It serves what the engine already wrote and says so
    with its date; it recalculates nothing.

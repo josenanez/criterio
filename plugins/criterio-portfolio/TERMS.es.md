@@ -1,6 +1,6 @@
 # Términos de uso
 
-[English](TERMS.md) · Versión 1.4 · 2026-11-06
+[English](TERMS.md) · Versión 1.5 · 2026-11-09
 
 Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos. Si no los acepta, no lo instale.
 
@@ -42,7 +42,7 @@ Apache 2.0 no concede derechos sobre marcas. "Criterio" y el nombre del mantened
 
 ## 8. Cómo se registra la aceptación
 
-**Una aceptación por versión.** Cada familia de agentes —la PMO, la CFO, la CLO, la CCO, la CISO, la EA y Rostrum— lleva su propio número de versión, y cada versión de una familia pide aceptar estos términos, también cuando su texto no cambió: instalar Criterio o actualizarlo a una versión nueva exige una aceptación nueva. Hasta que la aceptación de la versión instalada quede registrada, el plugin responde preguntas pero no produce análisis ni informes. No la asume, no la infiere de que usted siga conversando y no la registra sin un sí explícito.
+**Una aceptación, mientras estos términos no cambien.** Usted acepta estos términos una vez, al configurar Criterio. Esa aceptación sigue vigente cuando actualiza a versiones nuevas de cualquier familia, mientras el texto de estos términos sea el mismo: actualizar no le pide aceptar de nuevo. Le recomendamos usar siempre la última versión estable de cada familia, que es la que se prueba y se publica con su evidencia. Hasta que la aceptación quede registrada, el plugin responde preguntas pero no produce análisis ni informes. No la asume, no la infiere de que usted siga conversando y no la registra sin un sí explícito.
 
 **Un comprobante que es suyo.** Al aceptar, el plugin deja en su equipo, en `.criterio/terminos/`, un comprobante en Markdown y otro en PDF con su nombre, la fecha, la versión de la familia, la versión de estos términos, su huella SHA-256 y la entrada del registro de versiones, seguidos del texto completo que aceptó. Los comprobantes anteriores se conservan: la sucesión de aceptaciones es la trazabilidad. El detalle técnico está en `docs/acceptance.md`, en el repositorio.
 
@@ -54,13 +54,13 @@ Todo informe que genere el plugin lleva el descargo y el estado de las fichas qu
 
 ## 9. Cambios a estos términos
 
-Estos términos están versionados. Un cambio sube la versión y la fecha al inicio de este archivo y queda en el registro de versiones con su huella. Un cambio en los términos sube la versión de todas las familias, y como cada versión se acepta de nuevo, llega a quien usa cualquiera de ellas en la siguiente actualización.
+Estos términos están versionados. Un cambio sube la versión y la fecha al inicio de este archivo y queda en el registro de versiones con su huella. Ningún cambio a estos términos rige para usted sin su aceptación expresa: cuando el texto cambia, el plugin se lo muestra y le pide aceptarlo antes de producir análisis o informes, y deja un comprobante nuevo. Si no lo acepta, puede seguir usando la versión que ya aceptó.
 
 ## En corto
 
 Esto es lo que el plugin le muestra antes de pedirle que acepte:
 
-> Criterio entrega a la dirección análisis contrastado contra la evidencia: cada cifra, cada señal y cada vencimiento con la cita del documento del que sale. No sustituye el juicio de quien decide ni la asesoría profesional: la decisión, y su verificación, son de quien la firma. Procesa los documentos que usted le indique y dice lo que muestran; lo que se acordó fuera de ellos no lo conoce. Lo ejecuta un modelo de lenguaje (LLM), que puede equivocarse, y por eso ningún dato llega sin su fuente. Sus documentos se procesan en la infraestructura de la plataforma de IA donde lo ejecuta, no solo en su equipo. Cada versión se prueba antes de publicarse y su evidencia es pública; la garantía y la responsabilidad son las de la licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
+> Criterio entrega a la dirección análisis contrastado contra la evidencia: cada cifra, cada señal y cada vencimiento con la cita del documento del que sale. No sustituye el juicio de quien decide ni la asesoría profesional: la decisión, y su verificación, son de quien la firma. Procesa los documentos que usted le indique y dice lo que muestran; lo que se acordó fuera de ellos no lo conoce. Lo ejecuta un modelo de lenguaje (LLM), que puede equivocarse, y por eso ningún dato llega sin su fuente. Sus documentos se procesan en la infraestructura de la plataforma de IA donde lo ejecuta, no solo en su equipo. Cada versión se prueba antes de publicarse y su evidencia es pública; la garantía y la responsabilidad son las de la licencia Apache 2.0. Se acepta una vez y deja un comprobante en Markdown y PDF con su huella SHA-256; actualizar no pide aceptar de nuevo, salvo que estos términos cambien. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
 
 ---
 

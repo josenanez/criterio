@@ -4,8 +4,7 @@
 
 **Dos agentes y un portal, alrededor de sus fichas.** Cada uno extiende a una persona distinta de
 la función comercial —quien responde por el pronóstico y quien responde por lo vendido hasta la
-factura— y ninguno habla con el otro directamente: se hablan por sus fichas, y con Fidel y con
-Clara por las de ellos.
+factura—, y cada uno deja su resultado en su ficha, de donde parten el otro, Fidel y Clara.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
 
@@ -94,8 +93,8 @@ Cada dato cita el documento del que sale y su fecha. «No encontrado» es una re
 
 ### Las siete invariantes
 
-1. **Los agentes no se hablan entre sí.** Se hablan por sus fichas, y con Fidel y Clara por las de
-   ellos.
+1. **Cada agente deja su resultado en su ficha, y los demás parten de ella.** También las de Fidel
+   y Clara.
 2. **Rostrum, el portal, no escribe.** Sirve lo que el motor ya escribió y lo dice con su fecha; no
    recalcula nada. Las comisiones no salen ahí salvo que la configuración lo diga.
 3. **Exportaciones, nunca sistemas.** Ningún agente se conecta al CRM, y ninguno escribe en él.

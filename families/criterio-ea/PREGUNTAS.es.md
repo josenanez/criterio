@@ -64,4 +64,4 @@ Se procesan en la plataforma de IA donde corre la agente, como cualquier convers
 
 ### ¿Qué queda guardado y dónde?
 
-En tu equipo: las fichas de las sesiones y de la correspondencia, los reportes, los borradores, el registro de cada corrida y el comprobante de aceptación de los términos, que cada versión pide de nuevo.
+En tu equipo: las fichas de las sesiones y de la correspondencia, los reportes, los borradores, el registro de cada corrida y el comprobante de aceptación de los términos.

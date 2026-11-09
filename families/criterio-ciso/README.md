@@ -4,8 +4,8 @@
 
 **Three agents and a portal, around their records.** Each one extends a different person in
 information security —whoever answers for the controls, whoever answers for vulnerabilities and whoever
-answers for incident response and continuity— and none of them talks to the others directly: they share
-the entity's folder and reference, and each writes only its own.
+answers for incident response and continuity— and they share the
+entity's folder and reference: each one writes only its own record.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
 
@@ -92,8 +92,7 @@ Every data point cites the document it comes from and its date. “Not found” 
 
 ### The seven invariants
 
-1. **The agents do not talk to each other.** They share the folder and the reference; each writes only
-   its own record.
+1. **Each agent writes only its own record.** They share the entity's folder and reference.
 2. **Rostrum, the portal, does not write.** It serves what the engine already wrote and states its date;
    it recalculates nothing. Vulnerability findings do not go there unless the configuration says so.
 3. **Documents, never systems.** No agent runs a scan or connects to a console or the internet.

@@ -3,8 +3,8 @@
 # criterio-clo · la familia de la función legal
 
 **Dos agentes y un portal, alrededor de sus fichas.** Cada uno extiende a una persona distinta
-de la función legal —quien lleva los contratos y quien responde por el cumplimiento— y ninguno
-habla con el otro directamente: se hablan por sus fichas.
+de la función legal —quien lleva los contratos y quien responde por el cumplimiento—, y cada uno
+deja su resultado en su ficha, de donde parte el otro.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
 
@@ -90,8 +90,8 @@ Cada dato cita el documento del que sale y su fecha. «No encontrado» es una re
 
 ### Las siete invariantes
 
-1. **Los agentes no se hablan entre sí.** Se hablan por sus fichas: Constanza toma de las de
-   Fidel las obligaciones de cumplimiento de los contratos.
+1. **Cada agente deja su resultado en su ficha, y el otro parte de ella.** Constanza toma de las
+   de Fidel las obligaciones de cumplimiento de los contratos.
 2. **Rostrum, el portal, no escribe.** Sirve lo que el motor ya escribió y lo dice con su fecha;
    no recalcula nada.
 3. **Cada contrato tiene un solo lugar**, su carpeta en `contratos/`: Fidel la procesa y

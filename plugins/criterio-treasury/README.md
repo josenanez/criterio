@@ -135,7 +135,7 @@ nothing is, it stays quiet.**
 
 ## Working with the others
 
-Áurea does not talk to Clara or Tomás: they find each other through the entity's state.
+Áurea works from what Clara and Tomás leave in the entity's state, and they from what she leaves.
 
 | With whom | What happens |
 |---|---|

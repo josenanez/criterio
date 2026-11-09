@@ -46,7 +46,7 @@ languages, into `FUENTES.es.md`, into the family page, into the plugins' READMEs
 | Compliance | **Constanza** — from the Latin *constantia*, “constancy”: compliance every day, not only on audit day | `criterio-compliance` | The organisation's obligations matrix against its evidence, policy reviews, new rules with their assessment, the whistleblowing channel with its deadlines, and the compliance obligations that contracts carry |
 <!-- /clo:agentes -->
 
-As in the PMO and CFO families, the two never talk to each other: they talk through their records.
+As in the PMO and CFO families, each one leaves its result in its record, and the other starts from it.
 Constanza takes from Fidel's records the compliance obligations that the contracts bring. The records and the
 invariants that govern them, on the [family page](README.md#the-two-agents-and-their-records).
 

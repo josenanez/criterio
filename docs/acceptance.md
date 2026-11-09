@@ -2,9 +2,9 @@
 
 A disclaimer in a repository is read by no one. Criterio ships no professional sign-off, so the warning has to reach the person who runs it and the person who later receives the document. Four layers do that. Every skill in every plugin implements all four.
 
-## Layer 1 — Gate in the local configuration, one acceptance per version
+## Layer 1 — Gate in the local configuration, one acceptance while the terms do not change
 
-**Every version of a family is accepted again**, even when the terms did not change. Each family —PMO, CFO, CLO, EA and Rostrum— carries its own version number (decision 0017), so a release of one family does not ask the others to accept again. Installing Criterio or updating it to a new version requires a new acceptance; earlier ones are kept. The succession of dated acceptances —who, which version, which text— is the trail.
+**One acceptance stays in force while the text of the terms does not change** (decision 0030). Installing Criterio asks for it; updating any family to a new version does not, as long as the terms are the same text —the gate compares the SHA-256 of the accepted text with that of the installed one, not the family version. When the terms change, their fingerprint changes and the new text is accepted again with an express yes: no change to the terms applies without it, which is what the strictest consumer laws in Criterio's countries require against unilateral modification. Earlier receipts are kept. The succession of dated acceptances —who, which version, which text— is the trail.
 
 The setup command of each agent shows the short form (the "In short" / "En corto" section of the terms file that ships inside the plugin), asks for an explicit yes and the person's name, and records it with one script call, the same in every agent:
 
@@ -21,7 +21,7 @@ That call writes, deterministically and without the model:
 
 ```json
 "terms_accepted": {
-  "version": "1.4",
+  "version": "1.5",
   "date": "2026-10-28",
   "by": "Nombre Apellido",
   "family_version": "0.12.1",
@@ -45,7 +45,7 @@ That call writes, deterministically and without the model:
 
 **Short form shown at the gate** (Spanish, from `TERMS.es.md`; the English one is in `TERMS.md`):
 
-> Criterio entrega a la dirección análisis contrastado contra la evidencia: cada cifra, cada señal y cada vencimiento con la cita del documento del que sale. No sustituye el juicio de quien decide ni la asesoría profesional: la decisión, y su verificación, son de quien la firma. Procesa los documentos que usted le indique y dice lo que muestran; lo que se acordó fuera de ellos no lo conoce. Lo ejecuta un modelo de lenguaje (LLM), que puede equivocarse, y por eso ningún dato llega sin su fuente. Sus documentos se procesan en la infraestructura de la plataforma de IA donde lo ejecuta, no solo en su equipo. Cada versión se prueba antes de publicarse y su evidencia es pública; la garantía y la responsabilidad son las de la licencia Apache 2.0. Cada versión se acepta de nuevo y deja un comprobante en Markdown y PDF con su huella SHA-256. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
+> Criterio entrega a la dirección análisis contrastado contra la evidencia: cada cifra, cada señal y cada vencimiento con la cita del documento del que sale. No sustituye el juicio de quien decide ni la asesoría profesional: la decisión, y su verificación, son de quien la firma. Procesa los documentos que usted le indique y dice lo que muestran; lo que se acordó fuera de ellos no lo conoce. Lo ejecuta un modelo de lenguaje (LLM), que puede equivocarse, y por eso ningún dato llega sin su fuente. Sus documentos se procesan en la infraestructura de la plataforma de IA donde lo ejecuta, no solo en su equipo. Cada versión se prueba antes de publicarse y su evidencia es pública; la garantía y la responsabilidad son las de la licencia Apache 2.0. Se acepta una vez y deja un comprobante en Markdown y PDF con su huella SHA-256; actualizar no pide aceptar de nuevo, salvo que estos términos cambien. Términos completos y nota legal: https://www.josenanez.com/es/agents/criterio-pmo/legal
 
 ## Layer 2 — Footer on every generated report
 

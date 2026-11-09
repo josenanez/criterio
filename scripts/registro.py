@@ -58,7 +58,7 @@ RAIZ = Path(__file__).resolve().parent.parent
 FUENTE = RAIZ / "registro" / "versiones.json"
 MARKET = RAIZ / ".claude-plugin" / "marketplace.json"
 ACEPTACION_ANTES = "versión de los términos, fecha y nombre en la configuración; sin huella ni comprobante"
-ACEPTACION_AHORA = ("una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 "
+ACEPTACION_AHORA = ("una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 "
                     "de los términos y del comprobante, y bitácora encadenada")
 
 

@@ -5,7 +5,7 @@
 **Cada cifra que firma el CFO, sostenida por su evidencia.** La familia extiende la oficina del CFO
 con tres agentes y un portal, alrededor de sus fichas. Cada uno extiende a una persona distinta
 de la función financiera —quien cierra los libros, quien lleva el presupuesto y quien cuida la
-caja— y ninguno habla con los otros directamente: se hablan por sus fichas.
+caja—, y cada uno deja su resultado en su ficha, de donde parten los demás.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
 
@@ -92,7 +92,7 @@ Cada dato cita el documento del que sale y su fecha. «No encontrado» es una re
 
 ### Las siete invariantes
 
-1. **Los agentes no se hablan entre sí.** Se hablan por sus fichas.
+1. **Cada agente deja su resultado en su ficha, y los demás parten de ella.**
 2. **Rostrum, el portal, no escribe.** Sirve lo que el motor ya escribió y lo dice con su fecha;
    no recalcula nada.
 3. **Cada documento tiene un solo lugar.** La contabilidad del periodo vive en

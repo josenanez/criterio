@@ -64,4 +64,4 @@ They are processed on the AI platform where the agent runs, like any conversatio
 
 ### What is kept and where?
 
-On your computer: the meeting and correspondence records, the reports, the drafts, the log of each run and the receipt for accepting the terms, which each version asks for again.
+On your computer: the meeting and correspondence records, the reports, the drafts, the log of each run and the receipt for accepting the terms.

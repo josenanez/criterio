@@ -6,10 +6,12 @@
     python3 terminos.py aceptar --config <config> --por "Nombre Apellido" [--idioma es|en]
     python3 terminos.py --selftest
 
-**Una aceptación por versión.** Cada versión de la familia pide aceptar de nuevo, aunque
-el texto de los términos no haya cambiado: instalar o actualizar a una versión nueva
-exige una aceptación nueva. Lo que queda es una sucesión fechada —quién aceptó, qué
-versión, qué texto— y esa sucesión es la trazabilidad.
+**Una aceptación por texto de los términos, no por versión.** Se acepta al instalar, y
+actualizar a una versión nueva no pide aceptar de nuevo mientras el texto de los términos sea
+el mismo. Si el texto cambia, cambia su huella y se pide aceptar el texto nuevo: un cambio a los
+términos nunca rige sin un sí expreso, como exigen las leyes de consumo más estrictas de los
+países de Criterio contra la modificación unilateral. Lo que queda es una sucesión fechada
+—quién aceptó, qué versión, qué texto— y esa sucesión es la trazabilidad.
 
 **El texto se amarra por su huella.** Un número de versión dice qué se aceptó solo si
 nadie cambió el texto sin subirlo. La huella SHA-256 del archivo de términos que se le
@@ -123,11 +125,10 @@ def estado(config: Path, raiz: Path = RAIZ_PLUGIN) -> dict:
     if not a:
         out["motivos"].append("no hay aceptación registrada")
     else:
-        if a.get("family_version") != inst["version"]:
-            out["motivos"].append(f"la aceptación es de la versión {a.get('family_version') or 'sin versión'} "
-                                  f"y la instalada es la {inst['version']}: cada versión se acepta de nuevo")
+        # Rige la huella del texto aceptado, no la versión de la familia: una actualización con los
+        # mismos términos sigue vigente; un texto nuevo pide su propio sí.
         if a.get("terms_sha256") != t["sha256"]:
-            out["motivos"].append("la huella de los términos aceptados no es la de los términos instalados")
+            out["motivos"].append("los términos cambiaron desde la aceptación registrada: el texto nuevo se acepta de nuevo")
         base = config.resolve().parent
         for k in ("receipt_md", "receipt_pdf"):
             ruta = a.get(k)
@@ -164,8 +165,8 @@ TEXTO = {
         "comprobar": "Para comprobarlo, en la carpeta del comprobante:",
         "mac": "macOS o Linux",
         "win": "Windows: `certutil -hashfile {f} SHA256`, y comparar con el archivo `.sha256`",
-        "cada": ("Cada versión de la familia pide aceptar de nuevo, aunque el texto de los términos no haya cambiado, "
-                 "y deja un comprobante nuevo. Los anteriores se conservan."),
+        "cada": ("Esta aceptación sigue vigente al actualizar a versiones nuevas mientras el texto de los términos sea el mismo. "
+                 "Si el texto cambia, se pide aceptarlo de nuevo y queda un comprobante nuevo. Los anteriores se conservan."),
         "aceptados": "Términos aceptados",
     },
     "en": {
@@ -184,8 +185,8 @@ TEXTO = {
         "comprobar": "To check it, in the receipt's folder:",
         "mac": "macOS or Linux",
         "win": "Windows: `certutil -hashfile {f} SHA256`, and compare with the `.sha256` file",
-        "cada": ("Every version of the family asks for acceptance again, even when the terms did not change, "
-                 "and leaves a new receipt. Earlier ones are kept."),
+        "cada": ("This acceptance stays in force when you update to new versions as long as the text of the terms is the same. "
+                 "If the text changes, you are asked to accept it again and a new receipt is left. Earlier ones are kept."),
         "aceptados": "Terms accepted",
     },
 }
@@ -407,8 +408,10 @@ def selftest() -> int:
             ok("un comprobante tocado deja de valer", estado(cfg, raiz)["vigente"], False)
             (raiz / ".claude-plugin" / "plugin.json").write_text('{"name": "criterio-x", "version": "9.2.0"}')
             r2 = aceptar(cfg, "Ana Pérez", hoy=dt.date(2026, 10, 15), raiz=raiz)
-            ok("una versión nueva pide otra aceptación, y la deja aparte", r2["comprobante_md"] != r["comprobante_md"], True)
+            ok("una aceptación nueva queda aparte", r2["comprobante_md"] != r["comprobante_md"], True)
             ok("el comprobante anterior se conserva", Path(r["comprobante_pdf"]).is_file(), True)
+            (raiz / ".claude-plugin" / "plugin.json").write_text('{"name": "criterio-x", "version": "9.3.0"}')
+            ok("actualizar con los mismos términos no pide otra aceptación", estado(cfg, raiz)["vigente"], True)
             ok("la bitácora queda encadenada", bitacora_intacta(carpeta_terminos(cfg)), [])
             b = carpeta_terminos(cfg) / "aceptaciones.json"
             datos = json.loads(b.read_text(encoding="utf-8"))

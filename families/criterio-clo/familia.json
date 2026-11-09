@@ -753,7 +753,7 @@
       "titulo": "Dos agentes para los contratos y el cumplimiento",
       "sub": "Procesan lo que la empresa firmó y lo que se comprometió a cumplir, y dicen qué vence, qué no cuadra y qué no tiene evidencia.",
       "ficha": "LAS FICHAS DE LA ENTIDAD",
-      "fichaNota": "El único contrato. Fidel y Constanza no se hablan entre sí: se hablan por sus fichas.",
+      "fichaNota": "Fidel y Constanza dejan aquí su resultado, con su cita; cada uno parte de lo que deja el otro.",
       "roles": {
         "fidel": "Los contratos",
         "constanza": "El cumplimiento",
@@ -799,7 +799,7 @@
       "titulo": "Two agents for contracts and compliance",
       "sub": "They process what the company signed and what it committed to comply with, and tell you what is expiring, what does not match and what has no evidence.",
       "ficha": "THE ENTITY’S RECORDS",
-      "fichaNota": "The only contract. Fidel and Constanza never talk to each other: they talk through their records.",
+      "fichaNota": "Fidel and Constanza leave their results here, with their citations; each starts from what the other leaves.",
       "roles": {
         "fidel": "Contracts",
         "constanza": "Compliance",

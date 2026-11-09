@@ -49,7 +49,7 @@ in the structure or if it relies on a source still to be verified.
 | Treasury | **Áurea** — from the Latin *aureus*, “golden”: the cash | `criterio-treasury` | Cash against its minimum and projection, each scheduled payment against who may approve it, currency exposure against its limit, and debt against its maturity and its covenants |
 <!-- /cfo:agentes -->
 
-As in the PMO family, the two never talk to each other: they talk through their records. The records and the invariants that govern them, on the [family page](README.md#the-agents-and-their-records).
+As in the PMO family, each agent leaves its result in its record, and the others start from it. The records and the invariants that govern them, on the [family page](README.md#the-agents-and-their-records).
 
 ## The documents they process
 

@@ -44,7 +44,7 @@ escriben aquí: salen de [`familia.json`](familia.json), [`carpetas.json`](carpe
 | Cumplimiento | **Constanza** — del latín *constantia*, «constancia»: cumplir siempre, no solo el día de la auditoría | `criterio-compliance` | La matriz de obligaciones de la organización contra su evidencia, la revisión de las políticas, las normas nuevas con su evaluación, el canal de denuncias con sus plazos y las obligaciones de cumplimiento que traen los contratos |
 <!-- /clo:agentes -->
 
-Como en las familias PMO y CFO, los dos no se hablan entre sí: se hablan por sus fichas. Constanza
+Como en las familias PMO y CFO, cada uno deja su resultado en su ficha, y el otro parte de ella. Constanza
 toma de las fichas de Fidel las obligaciones de cumplimiento que traen los contratos. Las fichas y las
 invariantes que las gobiernan, en la [página de la familia](README.es.md#los-dos-agentes-y-sus-fichas).
 

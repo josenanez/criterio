@@ -843,9 +843,9 @@ def reloj_md(agentes: list[dict], nombre: str, familia: bool) -> str:
           f"  {cron}",
           "  ```",
           "",
-          "**Después de cada versión nueva, la tarea se detiene** hasta que alguien acepte los términos de esa",
-          "versión en una sesión con la persona presente: una aceptación por versión, nunca desatendida. Dilo",
-          "al crearla.",
+          "**Si los términos cambian, la tarea se detiene** hasta que alguien acepte el texto nuevo en una",
+          "sesión con la persona presente: una aceptación nunca es desatendida. Una versión nueva con los",
+          "mismos términos sigue sola. Dilo al crearla.",
           "",
           f"**Si la persona dice que no**, di en una línea cómo se corre a mano: {y_es([f'`{w}`' for w in wakes])}.",
           ("Y en la tabla del final, una fila más: la tarea, con su hora y dónde quedó, o «sin reloj»." if familia else

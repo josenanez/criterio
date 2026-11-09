@@ -4,8 +4,8 @@
 
 **Three agents and a server, around a single data contract.** Each one extends a different
 person in the chain — whoever defines the product, whoever runs the project, whoever
-watches the portfolio — and none of them talks to another directly: they talk through the
-record.
+watches the portfolio — and each one leaves its result in the project record, where the others
+start from.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
 
@@ -87,7 +87,7 @@ it.** Its delivery closes with the charter, which is the record's birth certific
 
 ### The seven invariants
 
-1. **The agents do not talk to each other.** They talk through the record.
+1. **Each agent leaves its result in the record, and the others start from it.**
 2. **Rostrum, the server, does not write.**
 3. **The source can change; the record cannot.** A new adapter fills the same fields.
 4. **Declared and evidenced never merge**, whether they came from a file or a database.
@@ -182,8 +182,8 @@ After installing, each agent has its own setup command that looks at your folder
 questions and produces a first result over your own documents. **Nobody edits a configuration
 file by hand.**
 
-And if you install more than one, they find each other: **there is nothing to connect.** They
-talk through the record, which is a document in the project's folder.
+And if you install more than one, they find each other: **there is nothing to connect.** Each one
+starts from the record, which is a document in the project's folder.
 
 ## What each agent answers for, and where its detail lives
 

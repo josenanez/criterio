@@ -4,9 +4,8 @@
 
 **Tres agentes y un portal, alrededor de sus fichas.** Cada uno extiende a una persona distinta de
 la seguridad de la información —quien responde por los controles, quien responde por las
-vulnerabilidades y quien responde por la respuesta a incidentes y la continuidad— y ninguno habla con
-los otros directamente: comparten la carpeta y la referencia de la entidad, y cada uno escribe solo lo
-suyo.
+vulnerabilidades y quien responde por la respuesta a incidentes y la continuidad— y comparten la
+carpeta y la referencia de la entidad: cada uno escribe solo su ficha.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
 
@@ -95,8 +94,7 @@ Cada dato cita el documento del que sale y su fecha. «No encontrado» es una re
 
 ### Las siete invariantes
 
-1. **Los agentes no se hablan entre sí.** Comparten la carpeta y la referencia; cada uno escribe solo su
-   ficha.
+1. **Cada agente escribe solo su ficha.** Comparten la carpeta y la referencia de la entidad.
 2. **Rostrum, el portal, no escribe.** Sirve lo que el motor ya escribió y lo dice con su fecha; no
    recalcula nada. Lo de vulnerabilidades no sale ahí salvo que la configuración lo diga.
 3. **Documentos, nunca sistemas.** Ningún agente corre un escaneo, se conecta a una consola o a internet.

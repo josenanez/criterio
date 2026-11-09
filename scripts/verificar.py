@@ -80,7 +80,7 @@ PUERTAS = [
     ("código", [sys.executable, str(PMO / "compartir.py"), "--selftest"],
      "Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025)"),
     ("código", [sys.executable, str(PMO / "terminos.py"), "--selftest"],
-     "Los términos: una aceptación por versión, con comprobante en Markdown y PDF y su huella SHA-256"),
+     "Los términos: una aceptación mientras su texto no cambie, con comprobante en Markdown y PDF y su huella SHA-256"),
     ("código", [sys.executable, str(PMO / "raiz.py"), "--selftest"],
      "La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso"),
     ("material", [sys.executable, str(RAIZ / "scripts/registro.py"), "verificar"],

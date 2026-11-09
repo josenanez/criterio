@@ -5,7 +5,7 @@
 **Every figure the CFO signs, backed by its evidence.** The family extends the CFO's office with
 three agents and a portal, around their records. Each one extends a different person in the
 finance function — whoever closes the books, whoever runs the budget and whoever looks after the
-cash — and none talks to the others directly: they talk through their records.
+cash — and each one leaves its result in its record, where the others start from.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
 
@@ -93,7 +93,7 @@ Every data point cites the document it comes from and its date. "Not found" is a
 
 ### The seven invariants
 
-1. **The agents do not talk to each other.** They talk through their records.
+1. **Each agent leaves its result in its record, and the others start from it.**
 2. **Rostrum, the portal, does not write.** It serves what the engine already wrote and says so
    with its date; it recalculates nothing.
 3. **Each document has one place.** The period's books live in `10-contabilidad/`: Clara closes

@@ -618,7 +618,7 @@
       "titulo": "Dos agentes para la función comercial",
       "sub": "Procesan las exportaciones del CRM, las cotizaciones y la liquidación de comisiones, y dicen qué pronóstico no tiene respaldo y qué venta no llegó a la factura.",
       "ficha": "LAS FICHAS DE LA ENTIDAD",
-      "fichaNota": "El único contrato. Augusto y Valeria no se hablan entre sí: se hablan por sus fichas, y con Fidel y Clara por las de ellos.",
+      "fichaNota": "Augusto y Valeria dejan aquí su resultado, con su cita; parten de lo que deja el otro y de las fichas de Fidel y Clara.",
       "roles": {
         "augusto": "El pronóstico",
         "valeria": "De la venta a la factura",
@@ -664,7 +664,7 @@
       "titulo": "Two agents for the commercial function",
       "sub": "They process the CRM exports, the quotes and the commission settlement, and tell you which forecast has no backing and which sale never reached the invoice.",
       "ficha": "THE ENTITY’S RECORDS",
-      "fichaNota": "The only contract. Augusto and Valeria never talk to each other: they talk through their records, and with Fidel and Clara through theirs.",
+      "fichaNota": "Augusto and Valeria leave their results here, with their citations; they start from what the other leaves and from Fidel’s and Clara’s records.",
       "roles": {
         "augusto": "The forecast",
         "valeria": "From sale to invoice",

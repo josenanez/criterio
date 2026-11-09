@@ -48,7 +48,7 @@ en la estructura o si se apoya en una fuente por verificar.
 | Tesorería | **Áurea** — del latín *aureus*, «de oro»: la caja | `criterio-treasury` | La caja contra su mínimo y su proyección, cada pago programado contra quién puede aprobarlo, la exposición cambiaria contra su límite, y la deuda contra su vencimiento y sus covenants |
 <!-- /cfo:agentes -->
 
-Como en la familia PMO, los agentes no se hablan entre sí: se hablan por sus fichas. Las fichas y las invariantes que las gobiernan, en la [página de la familia](README.es.md#los-agentes-y-sus-fichas).
+Como en la familia PMO, cada agente deja su resultado en su ficha, y los demás parten de ella. Las fichas y las invariantes que las gobiernan, en la [página de la familia](README.es.md#los-agentes-y-sus-fichas).
 
 ## Los documentos que procesan
 
