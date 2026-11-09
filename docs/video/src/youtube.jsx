@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import { flushSync } from 'react-dom';
+import React from 'react';
 import './youtube.css';
+import { Eyebrow, avance, cursor, escribe, montar, sube } from './tiempo';
 import { CRITERIO_NIVEL_C } from './lib/criterioNivelC';
 import { IMPRESORA } from './lib/criterioImpresora';
 import { CRITERIO_CFO } from './lib/criterioCfo';
@@ -18,7 +17,7 @@ import { PASOS_INSTALAR, SETUP_FAMILIAS, versionDe } from './portal/criterioSetu
 import { AGENT_TABS_FAMILIAS } from './portal/criterioAgentTabsFamilias';
 import { CALC_FAMILIAS } from './portal/criterioCalculatorFamilias';
 import { Robot } from './portal/CriterioFamily';
-import { CriterioLogo, CriterioSimbolo } from './portal/CriterioLogo';
+import { CriterioLogo } from './portal/CriterioLogo';
 
 /* El video de cada familia para YouTube, 1920×1080, en unos noventa segundos y en el orden de su
    página: un hallazgo de entrada; el rol y lo que hace cada función, con qué se integra; dónde se
@@ -27,10 +26,8 @@ import { CriterioLogo, CriterioSimbolo } from './portal/CriterioLogo';
 
    Solo se escriben aquí los rótulos, los tiempos y qué agente abre el video: cada texto y cada cifra
    salen de lo que el portal publica desde el repositorio (grabar.mjs trae esos archivos), así que lo
-   que cambia en el repositorio cambia en el video la próxima vez que se graba.
-
-   El tiempo no corre solo: grabar.mjs llama a window.__ir(segundo) cuadro por cuadro, y cada
-   animación —también los gestos de los robots— se dibuja en ese segundo exacto. */
+   que cambia en el repositorio cambia en el video la próxima vez que se graba. El reloj y cómo
+   aparece cada cosa están en tiempo.jsx, que comparte con el video de Criterio. */
 
 const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO };
 
@@ -77,22 +74,6 @@ const TEXTO = {
     licencia: 'Open source · Apache 2.0',
   },
 };
-
-// Lo que aparece, aparece así: sube y se enciende en medio segundo.
-const entre = (x) => Math.min(1, Math.max(0, x));
-const suave = (x) => 1 - (1 - x) ** 3;
-const avance = (lt, desde, dura) => suave(entre((lt - desde) / dura));
-const sube = (lt, desde, dura = 0.5) => {
-  const p = avance(lt, desde, dura);
-  return { opacity: p, transform: `translateY(${(1 - p) * 28}px)` };
-};
-// El texto que se escribe solo, a tantos caracteres por segundo, con su cursor.
-const escribe = (texto, lt, desde, cps = 40) => texto.slice(0, Math.max(0, Math.floor((lt - desde) * cps)));
-const cursor = (texto, lt, desde, cps = 40) => (lt >= desde && escribe(texto, lt, desde, cps).length < texto.length ? <span className="yt-cursor" /> : null);
-
-function Eyebrow({ children, oscuro, style }) {
-  return <p className={`yt-eyebrow ${oscuro ? 'oscuro' : ''}`} style={style}>{children}</p>;
-}
 
 function escenas(sigla, l) {
   const t = TEXTO[l];
@@ -360,40 +341,4 @@ function escenas(sigla, l) {
 const q = new URLSearchParams(location.search);
 const idioma = q.get('l') === 'en' ? 'en' : 'es';
 const familia = q.get('f') in GANCHO ? q.get('f') : 'cfo';
-const ESCENAS = escenas(familia, idioma);
-const INICIOS = ESCENAS.reduce((a, e) => [...a, a[a.length - 1] + e.dura], [0]);
-const TOTAL = INICIOS[INICIOS.length - 1];
-const FUNDIDO = 0.35;
-
-function Video() {
-  const [t, setT] = useState(0);
-  window.__duracion = TOTAL;
-  window.__inicios = INICIOS;
-  window.__ir = (s) => {
-    flushSync(() => setT(s));
-    // Los gestos de los robots, en ese mismo segundo.
-    for (const a of document.getAnimations()) {
-      a.pause();
-      a.currentTime = s * 1000;
-    }
-  };
-  const i = Math.max(0, INICIOS.findIndex((x, k) => t >= x && t < INICIOS[k + 1]));
-  const e = ESCENAS[i];
-  const lt = t - INICIOS[i];
-  // Cada escena entra y sale fundida; la primera ya está al empezar.
-  const opacidad = Math.min(i === 0 ? 1 : entre(lt / FUNDIDO), entre((e.dura - lt) / FUNDIDO));
-  return (
-    <div className={`yt ${e.oscuro ? 'oscuro' : ''}`}>
-      <div className="yt-escena" style={{ opacity: opacidad }}>{e.render(lt)}</div>
-      {e.sinMarca ? null : (
-        <div className="yt-marca">
-          <CriterioSimbolo size={30} color={e.oscuro ? '#d5a84b' : '#8a6327'} />
-          <span>Criterio {familia.toUpperCase()}</span>
-        </div>
-      )}
-      <div className="yt-avance" style={{ width: `${(100 * t) / TOTAL}%` }} />
-    </div>
-  );
-}
-
-createRoot(document.getElementById('root')).render(<Video />);
+montar(escenas(familia, idioma), `Criterio ${familia.toUpperCase()}`);

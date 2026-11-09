@@ -241,7 +241,10 @@ def main() -> int:
         print(cifra(resumen(filas, hoy)))
         return 0
     print(json.dumps(resumen(filas, hoy), ensure_ascii=False, indent=2))
-    print(cifra(resumen(filas, hoy)))
+    if a.accion == "capturar":
+        # En el registro del flujo diario, la cifra de siempre debajo del detalle. `resumen` da solo el
+        # JSON, que lee el video de Criterio (docs/video/grabar.mjs).
+        print(cifra(resumen(filas, hoy)))
     return 0
 
 

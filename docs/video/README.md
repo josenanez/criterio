@@ -24,8 +24,9 @@ el componente y esa hoja, los monta en una página propia y graba (el video de Y
 | [`../img/es/robots-clo.gif`](../img/es/robots-clo.gif) · [`../img/en/robots-clo.gif`](../img/en/robots-clo.gif) | Igual, la CLO | El diseño de la familia CLO |
 | [`../img/es/robots-ea.gif`](../img/es/robots-ea.gif) · [`../img/en/robots-ea.gif`](../img/en/robots-ea.gif) | Igual, la EA | La página de la familia EA |
 | `youtube/criterio-<familia>-youtube-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, unos noventa segundos | El canal de YouTube; no se versiona (pesa decenas de megas) |
+| `youtube/criterio-youtube-{es,en}.mp4` | Igual, el de Criterio completo | El canal de YouTube; no se versiona |
 
-`FAMILIAS=cfo,clo` graba solo esas; `PIEZAS=youtube` solo el video de YouTube (o `video`, `gif`);
+`FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`);
 `IDIOMAS=es` solo ese idioma.
 
 **El video de YouTube** ([`src/youtube.jsx`](src/youtube.jsx), en [`youtube.html`](youtube.html))
@@ -55,3 +56,14 @@ La tarjeta final de cada video lleva las cifras de la evidencia publicada: la PM
 
 Pide ffmpeg en el `PATH`. `CHROMIUM` apunta a otro navegador si no se usa el de
 Playwright. Los cuadros intermedios quedan en `cuadros/`, que no se versiona.
+
+**El video de Criterio** ([`src/criterio.jsx`](src/criterio.jsx), en [`criterio.html`](criterio.html))
+sigue la página de agentes: qué es, la pirámide de hoy y la de ahora, las familias que corren hoy,
+dónde se probó, las descargas, la evidencia de cada familia, cómo se despliega, hacia dónde va —el
+mapa de la empresa por capas— y la invitación a instalar. Las descargas son solo el promedio diario
+desde el lanzamiento: un total o una fecha envejecen al día siguiente. Las calcula
+`scripts/descargas.py resumen` sobre la rama `descargas` (o el CSV de `DESCARGAS`); sin ellas, el
+video no se graba. Tampoco lleva versión ni cuántas familias faltan: la versión cambia con cada
+liberación, y el mapa es dirección, no un número cerrado. Los textos que comparte con la página
+(el titular, la pirámide y las etapas) están en `components/agents/agentsTextos.ts` del portal. El
+reloj de los dos videos está en [`src/tiempo.jsx`](src/tiempo.jsx).
