@@ -37,7 +37,6 @@ const TEXTO = {
     evidencia: 'La evidencia',
     piso: 'detectado como mínimo, con 95 % de confianza',
     rumbo: 'Hacia dónde vamos',
-    siguiente: 'siguiente',
     instala: 'Instala Criterio.',
     instalaSub: 'Empieza por la función que más te cuesta hoy.',
     licencia: 'Código abierto · Apache 2.0',
@@ -56,7 +55,6 @@ const TEXTO = {
     evidencia: 'The evidence',
     piso: 'caught at least, with 95% confidence',
     rumbo: 'Where we are going',
-    siguiente: 'next',
     instala: 'Install Criterio.',
     instalaSub: 'Start with the function that costs you most today.',
     licencia: 'Open source · Apache 2.0',
@@ -257,8 +255,9 @@ function escenas(l) {
     ),
   });
 
-  // 8 · Hacia dónde vamos: el mapa de la empresa por capas, con lo que corre, lo siguiente y la dirección.
-  // Sin contar lo que falta: el mapa es dirección, no un número cerrado.
+  // 8 · Hacia dónde vamos: el mapa de la empresa por capas, con lo que corre y la dirección. Sin
+  // prioridades ni conteo de lo que falta: el mapa es dirección, no un compromiso (decisión del 9 de
+  // noviembre de 2026).
   const nombreDe = (f) => (f.sigla ? f.sigla.toUpperCase() : typeof f.clave === 'string' ? f.clave : f.clave[l]);
   lista.push({
     dura: 10,
@@ -270,14 +269,11 @@ function escenas(l) {
             <div key={c.id} style={sube(lt, 0.4 + i * 0.5)}>
               <p className="c">{c.nombre[l]}</p>
               <div className="fs">
-                {c.familias.map((f) => {
-                  const estado = corre(f) ? 'corre' : f.siguiente ? 'sigue' : 'dir';
-                  return (
-                    <span key={nombreDe(f)} className={estado}>
-                      {nombreDe(f)}{estado === 'sigue' ? <em>{t.siguiente}</em> : null}
-                    </span>
-                  );
-                })}
+                {c.familias.map((f) => (
+                  <span key={nombreDe(f)} className={corre(f) ? 'corre' : 'dir'}>
+                    {nombreDe(f)}
+                  </span>
+                ))}
               </div>
             </div>
           ))}

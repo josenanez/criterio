@@ -13,7 +13,7 @@ import { CRITERIO_PAISES } from './lib/criterioPaises';
 import { CRITERIO_SECTORES } from './lib/criterioSectores';
 import { CRITERIO_MAPA_GEO } from './lib/criterioMapaGeo';
 import { casosDe, pisoDe, resumenPrueba } from './portal/criterioPrueba';
-import { PASOS_INSTALAR, SETUP_FAMILIAS, versionDe } from './portal/criterioSetupFamilias';
+import { PASOS_INSTALAR, SETUP_FAMILIAS } from './portal/criterioSetupFamilias';
 import { AGENT_TABS_FAMILIAS } from './portal/criterioAgentTabsFamilias';
 import { CALC_FAMILIAS } from './portal/criterioCalculatorFamilias';
 import { Robot } from './portal/CriterioFamily';
@@ -51,7 +51,6 @@ const TEXTO = {
     controles: (k, n) => `${k} de ${n} entidades de control sin una sola alarma falsa`,
     defectos: (n, r, k) => (k === n ? `${n} defectos encontrados en ${r} rondas: todos corregidos y verificados` : `${n} defectos encontrados en ${r} rondas: ${k} corregidos y verificados`),
     encontro: 'Lo que encontró',
-    version: (v) => `Versión ${v}`,
     licencia: 'Código abierto · Apache 2.0',
   },
   en: {
@@ -70,7 +69,6 @@ const TEXTO = {
     controles: (k, n) => `${k} of ${n} control entities without a single false alarm`,
     defectos: (n, r, k) => (k === n ? `${n} defects found in ${r} rounds: all fixed and verified` : `${n} defects found in ${r} rounds: ${k} fixed and verified`),
     encontro: 'What it found',
-    version: (v) => `Version ${v}`,
     licencia: 'Open source · Apache 2.0',
   },
 };
@@ -307,7 +305,8 @@ function escenas(sigla, l) {
     ),
   });
 
-  // 9 · La versión y la instalación: los mismos tres pasos y comandos de la página.
+  // 9 · La instalación: los mismos tres pasos y comandos de la página. Sin la versión: envejece con la
+  // siguiente liberación.
   const pasos = PASOS_INSTALAR[l];
   const code = SETUP_FAMILIAS[sigla][l].code;
   lista.push({
@@ -318,7 +317,7 @@ function escenas(sigla, l) {
       <div>
         <div className="yt-rolfila" style={sube(lt, 0.1)}>
           <CriterioLogo locale={l} sigla={sigla} oscuro conFuncion={false} />
-          <span className="yt-version">{t.version(versionDe(sigla))} · {t.licencia}</span>
+          <span className="yt-version">{t.licencia}</span>
         </div>
         <ol className="yt-pasos">
           {[pasos.marketplace, pasos.familia, pasos.configurar].map((p, i) => (

@@ -34,8 +34,8 @@ dura unos noventa segundos, una idea por pantalla, en el orden de la página de 
 hallazgo de los datos de prueba que se escribe solo; el rol, lo que hace cada función y con qué se
 integra; dónde se probó —el mapa que se enciende país por país, con sus industrias—; los agentes;
 las tareas que hoy hace el equipo y que los agentes preparan; la evidencia —el piso, lo que detecta
-cada función, los controles y los defectos—; cada agente escribiendo lo que encontró; Rostrum; y la
-versión con los tres pasos de la instalación. Solo los rótulos, los tiempos y qué agente abre se
+cada función, los controles y los defectos—; cada agente escribiendo lo que encontró; Rostrum; y los
+tres pasos de la instalación, sin la versión, que cambia con cada liberación. Solo los rótulos, los tiempos y qué agente abre se
 escriben ahí: los textos y las cifras son los que el portal publica del repositorio —`nivel_c` de
 cada `familia.json`, las rondas, la hoja de ruta, la impresora, los países, las industrias, el
 mapa, la calculadora, las capturas de Rostrum de cada agente y la instalación—, y `grabar.mjs`
@@ -63,7 +63,7 @@ dónde se probó, las descargas, la evidencia de cada familia, cómo se desplieg
 mapa de la empresa por capas— y la invitación a instalar. Las descargas son solo el promedio diario
 desde el lanzamiento: un total o una fecha envejecen al día siguiente. Las calcula
 `scripts/descargas.py resumen` sobre la rama `descargas` (o el CSV de `DESCARGAS`); sin ellas, el
-video no se graba. Tampoco lleva versión ni cuántas familias faltan: la versión cambia con cada
-liberación, y el mapa es dirección, no un número cerrado. Los textos que comparte con la página
+video no se graba. Tampoco lleva versión, cuántas familias faltan ni cuáles siguen: la versión cambia
+con cada liberación, y el mapa es dirección, no un número cerrado ni un orden comprometido. Los textos que comparte con la página
 (el titular, la pirámide y las etapas) están en `components/agents/agentsTextos.ts` del portal. El
 reloj de los dos videos está en [`src/tiempo.jsx`](src/tiempo.jsx).
