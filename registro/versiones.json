@@ -3706,6 +3706,241 @@
       "aceptacion": "una aceptación por versión, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "af4e248255d3da847bdb4bdbf62fb7456fbdf89266e96c1ea8c959ab7b264904",
       "sha256": "75a54e81174540b23ea5987df5a0ffba2f6ecddcedd7b357f493d5123515aa32"
+    },
+    {
+      "version": "2.7.0",
+      "fecha": "2026-11-09",
+      "commit": null,
+      "base": "251c2b46",
+      "etiqueta": "v2.7.0",
+      "familias": {
+        "cco": "1.2.3",
+        "cfo": "1.5.4",
+        "ciso": "1.2.3",
+        "clo": "1.6.3",
+        "ea": "1.2.3",
+        "pmo": "1.2.3",
+        "rostrum": "1.3.3"
+      },
+      "liberadas": [
+        "cco",
+        "cfo",
+        "ciso",
+        "clo",
+        "ea",
+        "pmo",
+        "rostrum"
+      ],
+      "versiones": {
+        "criterio-cco": "1.2.3",
+        "criterio-revenue": "1.2.3",
+        "criterio-sales": "1.2.3",
+        "criterio-budget": "1.5.4",
+        "criterio-cfo": "1.5.4",
+        "criterio-finance": "1.5.4",
+        "criterio-treasury": "1.5.4",
+        "criterio-ciso": "1.2.3",
+        "criterio-resilience": "1.2.3",
+        "criterio-security": "1.2.3",
+        "criterio-vulnerability": "1.2.3",
+        "criterio-clo": "1.6.3",
+        "criterio-compliance": "1.6.3",
+        "criterio-legal": "1.6.3",
+        "criterio-assistant": "1.2.3",
+        "criterio-ea": "1.2.3",
+        "criterio-pmo": "1.2.3",
+        "criterio-portfolio": "1.2.3",
+        "criterio-product": "1.2.3",
+        "criterio-project": "1.2.3",
+        "criterio-server": "1.3.3"
+      },
+      "calidad": {
+        "cco": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 197,
+            "datos": 75
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98,
+            "Datos extraídos": 95.1
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "cfo": {
+          "etiqueta": "estable",
+          "ronda": 13,
+          "rondas": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "casos": {
+            "señales": 312,
+            "datos": 895
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.7,
+            "Datos extraídos": 99.3
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ciso": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            1,
+            2
+          ],
+          "casos": {
+            "señales": 148,
+            "datos": 80
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 97.4,
+            "Datos extraídos": 95.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "clo": {
+          "etiqueta": "estable",
+          "ronda": 13,
+          "rondas": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "casos": {
+            "señales": 262,
+            "datos": 6367
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.5,
+            "Datos extraídos": 99.8
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ea": {
+          "etiqueta": "estable",
+          "ronda": 2,
+          "rondas": [
+            2
+          ],
+          "casos": {
+            "señales": 85,
+            "datos": 146
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95.6,
+            "Datos extraídos": 97.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "pmo": {
+          "etiqueta": "estable",
+          "ronda": 12,
+          "rondas": [
+            11,
+            12
+          ],
+          "casos": {
+            "señales": 500,
+            "datos": 481
+          },
+          "version_medida": "1.0.0",
+          "pisos": {
+            "Vera · precisión": 99.2,
+            "Vera · cobertura": 99.2,
+            "Samuel · compromisos": 98.2,
+            "Alba · cobertura": 98.5
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.5",
+        "fecha": "2026-11-09",
+        "sha256": {
+          "es": "e26eb70ac0593b1e01a3f28e5433b46cb0467b83a9e6107b81366aa78a0cd82f",
+          "en": "47e41bd08e9a757469fc52308d8f1e56b36ca2e89f273dc58cee7270ccc09e16"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "bbac75001b515a9eb90408eed179cb1dd293c92769d373f0cd230ca150bc8bfd",
+        "criterio-budget": "32a0bbd288de2595627126046dad9e4e531e2e2b2f893754153167ea61a0c0e0",
+        "criterio-cco": "77f36c516c0db0c17c96a481e0881e2b824af8d24451bbc98996fa1c2cf77086",
+        "criterio-cfo": "def9741c4681e98ef0eb4ba0668309d07c3757364dab1d4a26c42b898e20bed6",
+        "criterio-ciso": "87485f4d03bc699ea3069dd5ed68f3d632d9a823267889e6c969c74d930a3473",
+        "criterio-clo": "834413bbd34fb5d39b3120e33f8a093400b2e62e4f1189a63fed4b7be81c6e13",
+        "criterio-compliance": "54b9d5d3a3bf9700f9e6c7df0756c639fc1016614ed17bbdfca2622c894e347d",
+        "criterio-finance": "7f7dd5b60f1274b9da1f0726b0756b8c908399125d3047494457dd9eafbeab9f",
+        "criterio-legal": "72ad2a190411b7f2b95ed37c27a8312de90439c155909d05debed786daf5b6a2",
+        "criterio-pmo": "7416f95d4653b5b838256dce9a403fecf381a7983336aa18854703889c871689",
+        "criterio-portfolio": "cde15b2b13afb660fb28bda4c65ce6f42b198ef2806630a6ea7e2c1666956f7b",
+        "criterio-product": "87ca701189ec839175ebfbe19358c52c44e6ef1941c1c7ab97e2d4308d7eb8cc",
+        "criterio-project": "411a3320d98c0308f7e6d876711deb9ff46872b1ed7259d394a380318b4fa687",
+        "criterio-resilience": "0038d201a67b9c717ae7f5e3b26d4471d781728c1eb2eacb2c70bbc8404785cd",
+        "criterio-revenue": "fd2c851bb1a50758c4ab859c39d4f96e84fc9b420685f71e518da327de98dc5e",
+        "criterio-sales": "c844c3b397dbac13173428e04aba9d64cb2eb020a8eea8c29f5220384b90156b",
+        "criterio-security": "41bc63724f4c335550a4a53dc34138600187ee3588b179da17cda99d19ea56c6",
+        "criterio-server": "a4d8776004bb8c70268eb8836af40383a2f594ab0c07446548464af82f7872f0",
+        "criterio-treasury": "10cadf53a8f745698e97c9af2b1ea61641df8da3ec55513e7507717b2f4fc1ad",
+        "criterio-vulnerability": "c06e67d2fa0b39a6c4956335d7b390ce47b3f43767a40d9f8cc107ed13f911f6"
+      },
+      "destacados": [
+        "Términos 1.5: una aceptación mientras los términos no cambien; actualizar no pide aceptar de nuevo"
+      ],
+      "cambios": [
+        "El video de cada familia para YouTube, desde lo que el portal publica",
+        "El video de YouTube: sin el costo del problema, con dónde se probó",
+        "El video de YouTube, en el orden de la página y con ritmo para el nivel C",
+        "Las descargas, siempre con la misma cifra: acumulado, promedio diario y récord",
+        "El video de YouTube para las cinco familias, en los dos idiomas",
+        "El video de Criterio completo, para YouTube",
+        "grabar.mjs: sin recarga ni vigilancia de archivos durante la grabación",
+        "Términos 1.5: una aceptación mientras los términos no cambien; las fichas, en claro"
+      ],
+      "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "75a54e81174540b23ea5987df5a0ffba2f6ecddcedd7b357f493d5123515aa32",
+      "sha256": "e2ff4758b852754716bf757013113f2647744d6ac04a0ab40e37e3f4d993ddcd"
     }
   ]
 }

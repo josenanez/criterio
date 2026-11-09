@@ -1,6 +1,6 @@
 {
   "name": "criterio-cco",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "La familia CCO completa —la función comercial—: instala de una vez a Augusto y Valeria y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cco:cco-setup.",
   "author": {
     "name": "José Francisco Ñáñez",

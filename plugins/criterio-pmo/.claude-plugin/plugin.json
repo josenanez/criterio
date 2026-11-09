@@ -1,6 +1,6 @@
 {
   "name": "criterio-pmo",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "La familia PMO completa —gobierno de proyectos—: instala de una vez a Vera, Samuel y Alba y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-pmo:pmo-setup.",
   "author": {
     "name": "José Francisco Ñáñez",

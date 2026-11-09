@@ -13,13 +13,13 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
-| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.2.2 | Estable | — |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.5.3 | Estable | — |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.6.2 | Estable | — |
-| Criterio EA · Dirección | Ofelia | 1.2.2 | Estable | — |
-| Criterio CCO · La función comercial | Augusto, Valeria | 1.2.2 | Estable | — |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.2.2 | Estable | Incremento 7 · Qualys y Rapid7, cuando tengan su fuente |
-| Rostrum · el portal de todas las familias | — | 1.3.2 | — | — |
+| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.2.3 | Estable | — |
+| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.5.4 | Estable | — |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.6.3 | Estable | — |
+| Criterio EA · Dirección | Ofelia | 1.2.3 | Estable | — |
+| Criterio CCO · La función comercial | Augusto, Valeria | 1.2.3 | Estable | — |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.2.3 | Estable | Incremento 7 · Qualys y Rapid7, cuando tengan su fuente |
+| Rostrum · el portal de todas las familias | — | 1.3.3 | — | — |
 
 ## Cada familia, incremento por incremento
 
