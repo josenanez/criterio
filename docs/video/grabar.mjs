@@ -226,7 +226,9 @@ async function youtube(navegador, url, toma) {
   return { salida, cuadros: n, segundos: total };
 }
 
-const servidor = await createServer({ root: AQUI, configFile: path.join(AQUI, 'vite.config.js'), server: { port: 0, strictPort: false } });
+// Sin recarga ni vigilancia de archivos: una grabación que corre al lado copia de nuevo src/portal y
+// src/lib, y una recarga a mitad de un video lo rompe.
+const servidor = await createServer({ root: AQUI, configFile: path.join(AQUI, 'vite.config.js'), server: { port: 0, strictPort: false, hmr: false, watch: null } });
 await servidor.listen();
 const url = servidor.resolvedUrls.local[0];
 const navegador = await chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
