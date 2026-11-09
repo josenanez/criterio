@@ -35,11 +35,11 @@ import { CriterioLogo, CriterioSimbolo } from './portal/CriterioLogo';
 const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO };
 
 // El agente cuyo hallazgo abre el video: el primero que dice su captura de Rostrum en la página.
-const GANCHO = { cfo: 'aurea' };
+const GANCHO = { cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo' };
 
 const TEXTO = {
   es: {
-    prueba: 'Datos de prueba de banca',
+    prueba: 'Datos de prueba',
     detecto: (n) => `${n} lo detectó antes de la decisión.`,
     donde: 'Dónde se probó',
     paises: 'países',
@@ -58,7 +58,7 @@ const TEXTO = {
     licencia: 'Código abierto · Apache 2.0',
   },
   en: {
-    prueba: 'Banking test data',
+    prueba: 'Test data',
     detecto: (n) => `${n} caught it before the decision.`,
     donde: 'Where it was tested',
     paises: 'countries',
@@ -124,6 +124,8 @@ function escenas(sigla, l) {
 
   // 2 · El rol y lo que hace cada función; abajo pasan los nombres con los que se integra.
   const marcas = [...new Set(P.filas.flatMap((x) => x[l][2].split(' · ')))];
+  // El rol en una sola línea: un rol largo, como el del CISO, baja de tamaño para caber en el ancho.
+  const tamRol = Math.min(132, Math.floor(1600 / (0.39 * P.rol.length)));
   const paso = 1.7;
   lista.push({
     dura: 2.2 + P.filas.length * paso + 2.4,
@@ -132,7 +134,7 @@ function escenas(sigla, l) {
         <div className="yt-rolfila" style={sube(lt, 0.1)}>
           <CriterioLogo locale={l} sigla={sigla} conFuncion={false} />
         </div>
-        <h1 className="yt-h1" style={sube(lt, 0.3, 0.7)}>{P.rol}</h1>
+        <h1 className="yt-h1" style={{ ...sube(lt, 0.3, 0.7), fontSize: `${tamRol}px` }}>{P.rol}</h1>
         <div className="yt-funciones">
           {P.filas.map((x, i) => (
             <div key={x.es[0]} style={sube(lt, 2.2 + i * paso)}>

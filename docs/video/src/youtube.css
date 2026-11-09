@@ -20,7 +20,7 @@ p { margin: 0; }
 
 .yt-eyebrow { font-size: 22px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--oro); margin-bottom: 30px; }
 .yt-eyebrow.oscuro { color: var(--oro-claro); }
-.yt-h1 { font: 500 132px/1.02 var(--font-inter-tight); letter-spacing: -.045em; margin: 22px 0 0; }
+.yt-h1 { font: 500 132px/1.02 var(--font-inter-tight); letter-spacing: -.045em; margin: 22px 0 0; white-space: nowrap; }
 .yt-h2 { font: 500 84px/1.05 var(--font-inter-tight); letter-spacing: -.04em; margin: 0 0 70px; }
 .yt-cursor { display: inline-block; width: .5em; height: .9em; margin-left: 6px; vertical-align: -0.08em; background: var(--oro-claro); }
 .yt-rolfila { display: flex; align-items: center; gap: 40px; zoom: 1.4; }
@@ -30,9 +30,9 @@ p { margin: 0; }
 .yt-detecto { font-size: 40px; color: var(--oro-claro); margin-top: 40px; }
 
 /* El rol y sus funciones */
-.yt-funciones { margin-top: 56px; display: grid; gap: 18px; }
+.yt-funciones { margin-top: 50px; display: grid; gap: 14px; }
 .yt-funciones div { display: grid; grid-template-columns: 470px 1fr; gap: 40px; align-items: baseline; }
-.yt-funciones b { font: 600 52px/1.1 var(--font-inter-tight); letter-spacing: -.03em; }
+.yt-funciones b { font: 600 46px/1.1 var(--font-inter-tight); letter-spacing: -.03em; }
 .yt-funciones span { font-size: 34px; line-height: 1.25; color: var(--texto); }
 .yt-cinta { position: absolute; left: 0; right: 0; bottom: 120px; overflow: hidden; border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); padding: 18px 0; }
 .yt-cinta div { display: flex; gap: 64px; white-space: nowrap; padding-left: 150px; }
