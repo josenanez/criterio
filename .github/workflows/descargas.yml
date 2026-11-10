@@ -2,7 +2,8 @@ name: descargas
 
 # Las descargas de Criterio, día por día (scripts/descargas.py). GitHub guarda solo los últimos
 # catorce días de tráfico: este flujo los lee a diario y los suma al historial de la rama
-# `descargas`, para que ningún día se pierda, con las estrellas y los forks de cada día. El tráfico
+# `descargas`, para que ningún día se pierda, con las estrellas y los forks de cada día, y escribe ahí
+# la insignia que muestran los README: el promedio diario y las barras de cada día. El tráfico
 # necesita el secreto TRAFFIC_TOKEN, un token de grano fino con lectura de administración sobre
 # este repositorio; lo crea quien lo administra. Sin él, el flujo guarda las estrellas y los forks y
 # deja un aviso. Sin acciones de terceros: el repositorio solo admite acciones de josenanez; git y
@@ -41,9 +42,11 @@ jobs:
           TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
         run: python3 scripts/descargas.py capturar --csv historial/descargas.csv
+      - name: La insignia de los README
+        run: python3 scripts/descargas.py insignia --csv historial/descargas.csv --dir historial
       - name: Guardar en la rama descargas
         run: |
-          cp historial/descargas.csv /tmp/descargas.csv
+          mkdir -p /tmp/descargas && cp historial/descargas.csv historial/descargas-*.svg /tmp/descargas/
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if git show-ref --verify --quiet refs/heads/descargas; then
@@ -52,7 +55,7 @@ jobs:
             git checkout --orphan descargas
             git rm -rf --quiet .
           fi
-          cp /tmp/descargas.csv descargas.csv
-          git add descargas.csv
+          cp /tmp/descargas/* .
+          git add descargas.csv descargas-*.svg
           git diff --cached --quiet || git commit -m "Descargas al $(date -u +%F)"
           git push origin descargas

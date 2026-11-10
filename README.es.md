@@ -2,20 +2,26 @@
 
 # Criterio
 
-**La evidencia antes de la decisión.** Una plataforma de familias de agentes: cada familia extiende una función ejecutiva completa —gobierno de proyectos, finanzas, legal y las que vienen— con un mismo método, una marca y un portal, Rostrum.
+**La evidencia antes de la decisión.** Una plataforma de familias de agentes: cada familia cubre un área completa de la empresa —proyectos, finanzas, legal, comercial, seguridad y la oficina de la presidencia— con un mismo método, una marca y un portal, Rostrum.
 
 [English](README.md) · [Términos](TERMS.es.md) · [Descargo](DISCLAIMER.es.md) · [Cómo aportar](CONTRIBUTING.es.md)
 
 Apache 2.0 · Se instala en cuatro clics · Cada agente produce su primer resultado en quince minutos
 
-**Estado: las familias PMO, CFO, CLO y EA están construidas y probadas sobre material sintético, y cada una lleva su propia versión ([decisión 0017](docs/decisions/0017-una-version-por-familia.md));** la versión de cada familia y qué cambió en cada una están en el [registro de versiones](https://www.josenanez.com/es/agents/criterio-pmo/legal). Cada cambio pasa por `scripts/verificar.py`, con cada puerta, lo que prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/josenanez/criterio/descargas/descargas-es-oscuro.svg"><img src="https://raw.githubusercontent.com/josenanez/criterio/descargas/descargas-es-claro.svg" alt="Las descargas diarias de Criterio, en promedio, y las de cada uno de los últimos 28 días" width="520"></picture>
+
+**¿Te sirve? Dale una estrella al repositorio:** así lo encuentran otros que lo necesitan.
+
+**Estado: las seis familias —PMO, CFO, CLO, CCO, CISO y EA— están construidas y probadas sobre material sintético, y cada una lleva su propia versión ([decisión 0017](docs/decisions/0017-una-version-por-familia.md));** la versión de cada familia y qué cambió en cada una están en el [registro de versiones](https://www.josenanez.com/es/agents/criterio-pmo/legal). Cada cambio pasa por `scripts/verificar.py`, con cada puerta, lo que prueba y lo que no en [la página de resultados](docs/pruebas.md). Las cifras de fiabilidad sobre datos reales se publican cuando estén medidas, no antes. [Seguridad](SECURITY.es.md)
 
 ---
 
-| | | | |
-|:--:|:--:|:--:|:--:|
-| ![Portafolio, proyecto y producto](docs/img/es/pmo.png) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) | ![EA](docs/img/es/ea.png) |
-| **[criterio-pmo →](families/criterio-pmo/README.es.md)**<br>tres agentes | **[criterio-cfo →](families/criterio-cfo/README.es.md)**<br>Clara, Tomás y Áurea, construida y probada | **[criterio-clo →](families/criterio-clo/README.es.md)**<br>Fidel y Constanza, construida y probada | **[criterio-ea →](families/criterio-ea/README.es.md)**<br>Ofelia, construida y probada |
+| | | |
+|:--:|:--:|:--:|
+| ![Portafolio, proyecto y producto](docs/img/es/pmo.png) | ![CFO](docs/img/es/cfo.png) | ![CLO](docs/img/es/clo.png) |
+| **[criterio-pmo →](families/criterio-pmo/README.es.md)**<br>Vera, Samuel y Alba, construida y probada | **[criterio-cfo →](families/criterio-cfo/README.es.md)**<br>Clara, Tomás y Áurea, construida y probada | **[criterio-clo →](families/criterio-clo/README.es.md)**<br>Fidel y Constanza, construida y probada |
+| ![CCO](docs/img/es/cco.png) | ![CISO](docs/img/es/ciso.png) | ![EA](docs/img/es/ea.png) |
+| **[criterio-cco →](families/criterio-cco/README.es.md)**<br>Augusto y Valeria, construida y probada | **[criterio-ciso →](families/criterio-ciso/README.es.md)**<br>Alexis, Guillermo y Amparo, construida y probada | **[criterio-ea →](families/criterio-ea/README.es.md)**<br>Ofelia, construida y probada |
 
 ---
 
@@ -43,8 +49,8 @@ contrato de datos y se entregan trabajo unos a otros. Los de familias distintas,
 | **[criterio-cfo](families/criterio-cfo/README.es.md)** | El cierre, el control y el reporte financiero | Que el cierre deje de depender de que alguien recuerde qué falta | **Tres agentes construidos y probados:** [Clara](plugins/criterio-finance/README.es.md), [Tomás](plugins/criterio-budget/README.es.md) y [Áurea](plugins/criterio-treasury/README.es.md) |
 | **[criterio-clo](families/criterio-clo/README.es.md)** | Los contratos, el cumplimiento y el riesgo legal | Que una empresa sepa qué firmó, qué vence y a qué se obligó | **Dos agentes construidos y probados:** [Fidel](plugins/criterio-legal/README.es.md) y [Constanza](plugins/criterio-compliance/README.es.md) |
 | **[criterio-ea](families/criterio-ea/README.es.md)** | La oficina de dirección: la agenda, las sesiones de los órganos, las actas, los compromisos y la correspondencia | Que el ejecutivo llegue a cada sesión preparado y que ningún acuerdo quede sin dueño ni fecha | **Una agente construida y probada:** [Ofelia](plugins/criterio-assistant/README.es.md) |
-| **[criterio-cco](families/criterio-cco/README.es.md)** | La función comercial: el embudo del CRM, el pronóstico, la meta, los descuentos, lo ganado hasta la factura y las comisiones | Que lo que se compromete en el comité comercial tenga detrás los documentos que lo sostienen, y que ninguna venta se quede entre el cierre y la factura | **Dos agentes construidos y probados, sin lanzar:** [Augusto](plugins/criterio-sales/README.es.md) y [Valeria](plugins/criterio-revenue/README.es.md) |
-| **[criterio-ciso](families/criterio-ciso/README.es.md)** | La seguridad de la información: la declaración de aplicabilidad y la evidencia de cada control, las vulnerabilidades y su plazo, los incidentes, sus notificaciones y las pruebas de continuidad | Que lo que la organización se comprometió a revisar, corregir, notificar y probar tenga detrás los documentos que muestran que lo hizo, a tiempo | **De laboratorio, sin lanzar (0.2.0):** [Alexis](plugins/criterio-security/README.es.md), [Guillermo](plugins/criterio-vulnerability/README.es.md) y [Amparo](plugins/criterio-resilience/README.es.md); el motor, probado, y la primera ronda con los agentes |
+| **[criterio-cco](families/criterio-cco/README.es.md)** | El área comercial: el embudo del CRM, el pronóstico, la meta, los descuentos, lo ganado hasta la factura y las comisiones | Que lo que se compromete en el comité comercial tenga detrás los documentos que lo sostienen, y que ninguna venta se quede entre el cierre y la factura | **Dos agentes construidos y probados:** [Augusto](plugins/criterio-sales/README.es.md) y [Valeria](plugins/criterio-revenue/README.es.md) |
+| **[criterio-ciso](families/criterio-ciso/README.es.md)** | La seguridad de la información: la declaración de aplicabilidad y la evidencia de cada control, las vulnerabilidades y su plazo, los incidentes, sus notificaciones y las pruebas de continuidad | Que lo que la organización se comprometió a revisar, corregir, notificar y probar tenga detrás los documentos que muestran que lo hizo, a tiempo | **Tres agentes construidos y probados:** [Alexis](plugins/criterio-security/README.es.md), [Guillermo](plugins/criterio-vulnerability/README.es.md) y [Amparo](plugins/criterio-resilience/README.es.md) |
 
 **Rostrum, el portal, es uno para todas las familias.** Publica lo que los agentes ya escribieron
 —el informe de la PMO, los reportes de la CFO y de la CLO, lo que vence en todas— para quien no
@@ -133,7 +139,7 @@ práctica, con lo que dice la pantalla y qué hacer, están en [Instalar Criteri
 
 - Úsalo dentro de tu organización sin pedir permiso, y adáptalo a cómo trabajas.
 - Cambia los criterios: los umbrales son configuración, no código.
-- **Construye la capacidad que te falta.** Si ejerces una función que no está en la lista, su agente lo escribe quien conoce el trabajo, no quien sabe programar. El formato está en [CONTRIBUTING.es.md](CONTRIBUTING.es.md).
+- **Construye la capacidad que te falta.** Si diriges un área que no está en la lista, su agente lo escribe quien conoce el trabajo, no quien sabe programar. El formato está en [CONTRIBUTING.es.md](CONTRIBUTING.es.md).
 - Si encuentras que se equivoca, ábrelo como issue con el documento que lo demuestra. Vale más que una estrella.
 
 **Lo que no afirmamos**

@@ -2,20 +2,26 @@
 
 # Criterio
 
-**Evidence before the decision.** A platform of agent families: each family extends a complete executive function —project governance, finance, legal and those to come— with one method, one brand and one portal, Rostrum.
+**Evidence before the decision.** A platform of agent families: each family covers a complete area of the business —projects, finance, legal, sales, security and the executive office— with one method, one brand and one portal, Rostrum.
 
 [Español](README.es.md) · [Terms](TERMS.md) · [Disclaimer](DISCLAIMER.md) · [Contributing](CONTRIBUTING.md)
 
 Apache 2.0 · Four clicks to install · Each agent produces its first result in fifteen minutes
 
-**Status: the PMO, CFO, CLO and EA families are built and tested on synthetic material, and each one carries its own version ([decision 0017](docs/decisions/0017-una-version-por-familia.md));** each family's version and what changed in each one are in the [version register](https://www.josenanez.com/agents/criterio-pmo/legal). Every change goes through `scripts/verificar.py`, with each gate, what it tests and what it does not on [the results page](docs/pruebas.md) (Spanish). Reliability figures on real data are published when they are measured, not before. [Security](SECURITY.md)
+<picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/josenanez/criterio/descargas/descargas-en-oscuro.svg"><img src="https://raw.githubusercontent.com/josenanez/criterio/descargas/descargas-en-claro.svg" alt="Criterio's daily downloads on average, and those of each of the last 28 days" width="520"></picture>
+
+**Useful to you? Star the repository:** it helps others who need it find it.
+
+**Status: all six families —PMO, CFO, CLO, CCO, CISO and EA— are built and tested on synthetic material, and each one carries its own version ([decision 0017](docs/decisions/0017-una-version-por-familia.md));** each family's version and what changed in each one are in the [version register](https://www.josenanez.com/agents/criterio-pmo/legal). Every change goes through `scripts/verificar.py`, with each gate, what it tests and what it does not on [the results page](docs/pruebas.md) (Spanish). Reliability figures on real data are published when they are measured, not before. [Security](SECURITY.md)
 
 ---
 
-| | | | |
-|:--:|:--:|:--:|:--:|
-| ![Portfolio, project and product](docs/img/en/pmo.png) | ![CFO](docs/img/en/cfo.png) | ![CLO](docs/img/en/clo.png) | ![EA](docs/img/en/ea.png) |
-| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>three agents | **[criterio-cfo →](families/criterio-cfo/README.md)**<br>Clara, Tomás and Áurea, built and tested | **[criterio-clo →](families/criterio-clo/README.md)**<br>Fidel and Constanza, built and tested | **[criterio-ea →](families/criterio-ea/README.md)**<br>Ofelia, built and tested |
+| | | |
+|:--:|:--:|:--:|
+| ![Portfolio, project and product](docs/img/en/pmo.png) | ![CFO](docs/img/en/cfo.png) | ![CLO](docs/img/en/clo.png) |
+| **[criterio-pmo →](families/criterio-pmo/README.md)**<br>Vera, Samuel and Alba, built and tested | **[criterio-cfo →](families/criterio-cfo/README.md)**<br>Clara, Tomás and Áurea, built and tested | **[criterio-clo →](families/criterio-clo/README.md)**<br>Fidel and Constanza, built and tested |
+| ![CCO](docs/img/en/cco.png) | ![CISO](docs/img/en/ciso.png) | ![EA](docs/img/en/ea.png) |
+| **[criterio-cco →](families/criterio-cco/README.md)**<br>Augusto and Valeria, built and tested | **[criterio-ciso →](families/criterio-ciso/README.md)**<br>Alexis, Guillermo and Amparo, built and tested | **[criterio-ea →](families/criterio-ea/README.md)**<br>Ofelia, built and tested |
 
 ---
 
@@ -43,8 +49,8 @@ one another. Agents from different families do not.
 | **[criterio-cfo](families/criterio-cfo/README.md)** | Close, control and financial reporting | That closing the books stops depending on somebody remembering what is missing | **Three agents built and tested:** [Clara](plugins/criterio-finance/README.md), [Tomás](plugins/criterio-budget/README.md) and [Áurea](plugins/criterio-treasury/README.md) |
 | **[criterio-clo](families/criterio-clo/README.md)** | Contracts, compliance and legal risk | That a company knows what it signed, what expires and what it committed to | **Two agents built and tested:** [Fidel](plugins/criterio-legal/README.md) and [Constanza](plugins/criterio-compliance/README.md) |
 | **[criterio-ea](families/criterio-ea/README.md)** | The executive office: the calendar, the governing bodies' meetings, the minutes, the commitments and the correspondence | That the executive arrives at every meeting prepared and no agreement is left without an owner or a date | **One agent built and tested:** [Ofelia](plugins/criterio-assistant/README.md) |
-| **[criterio-cco](families/criterio-cco/README.md)** | The commercial function: the CRM pipeline, the forecast, the target, discounts, what was won through to the invoice and commissions | That what is committed in the sales committee has the documents that back it, and that no sale gets stuck between the close and the invoice | **Two agents built and tested, not yet launched:** [Augusto](plugins/criterio-sales/README.md) and [Valeria](plugins/criterio-revenue/README.md) |
-| **[criterio-ciso](families/criterio-ciso/README.md)** | Information security: the statement of applicability and each control's evidence, vulnerabilities and their deadline, incidents, their notifications and the continuity tests | That what the organisation committed to review, fix, notify and test has behind it the documents that show it did, on time | **Laboratory, not yet launched (0.2.0):** [Alexis](plugins/criterio-security/README.md), [Guillermo](plugins/criterio-vulnerability/README.md) and [Amparo](plugins/criterio-resilience/README.md); the engine, tested, and the first round with the agents |
+| **[criterio-cco](families/criterio-cco/README.md)** | The commercial area: the CRM pipeline, the forecast, the target, discounts, what was won through to the invoice and commissions | That what is committed in the sales committee has the documents that back it, and that no sale gets stuck between the close and the invoice | **Two agents built and tested:** [Augusto](plugins/criterio-sales/README.md) and [Valeria](plugins/criterio-revenue/README.md) |
+| **[criterio-ciso](families/criterio-ciso/README.md)** | Information security: the statement of applicability and each control's evidence, vulnerabilities and their deadline, incidents, their notifications and the continuity tests | That what the organisation committed to review, fix, notify and test has behind it the documents that show it did, on time | **Three agents built and tested:** [Alexis](plugins/criterio-security/README.md), [Guillermo](plugins/criterio-vulnerability/README.md) and [Amparo](plugins/criterio-resilience/README.md) |
 
 **Rostrum, the portal, is one for every family.** It publishes what the agents already wrote —the
 PMO report, the CFO and CLO reports, what falls due across all of them— for whoever does not open
@@ -132,7 +138,7 @@ up in practice, with what the screen says and what to do, are in [Installing Cri
 
 - Use it inside your organisation without asking, and adapt it to how you work.
 - Change the criteria: thresholds are configuration, not code.
-- **Build the capability you are missing.** If you practise a function that is not on the list, its agent should be written by someone who knows the work, not by someone who knows how to code. The format is in [CONTRIBUTING.md](CONTRIBUTING.md).
+- **Build the capability you are missing.** If you lead an area that is not on the list, its agent should be written by someone who knows the work, not by someone who knows how to code. The format is in [CONTRIBUTING.md](CONTRIBUTING.md).
 - If you find it wrong, open an issue with the document that proves it. That is worth more than a star.
 
 **What we do not claim**

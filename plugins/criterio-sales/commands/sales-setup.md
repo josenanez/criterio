@@ -118,6 +118,12 @@ mismos términos sigue sola. Dilo al crearla.
 
 **Si la persona dice que no**, di en una línea cómo se corre a mano: `/criterio-sales:sales-wake`.
 Y en la salida, en «Cuándo vuelvo», di si quedó la tarea, a qué hora y dónde, o «sin reloj».
+
+**Al cerrar, una línea**, solo si este setup corre solo; dentro del de su familia la dice la familia:
+
+> Si Criterio te sirve, dale una estrella en https://github.com/josenanez/criterio: así lo encuentran otros que lo necesitan.
+
+Una sola vez y sin insistir: ningún otro comando la repite.
 <!-- /reloj -->
 
 ## Deja la corrida registrada

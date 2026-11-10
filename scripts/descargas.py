@@ -5,6 +5,7 @@
     python3 scripts/descargas.py capturar --csv descargas.csv     lee el tráfico de GitHub y lo suma al historial
     python3 scripts/descargas.py resumen --csv descargas.csv      el acumulado, los últimos siete días y cada mes
     python3 scripts/descargas.py cifra --csv descargas.csv        la cifra de siempre, en una línea
+    python3 scripts/descargas.py insignia --csv descargas.csv --dir .   la insignia del README, en los dos idiomas y los dos temas
     python3 scripts/descargas.py selftest
 
 **GitHub guarda solo los últimos catorce días.** La cifra que muestra la pestaña de tráfico —las
@@ -18,7 +19,12 @@ cuántos hubo ayer: cada captura anota en la fila del día en que corre el núme
 día sin captura queda sin ese dato; no se rellena.
 
 **Cada día se guarda una sola vez, con su última lectura.** El día en curso llega incompleto y se
-corrige al día siguiente; un día que salió de la ventana de GitHub ya no cambia.
+corrige al día siguiente; un día que salió de la ventana de GitHub ya no cambia. Por eso el promedio
+y las barras de la insignia cuentan solo los días completos: hasta ayer.
+
+**La insignia del README** sale de aquí y de nada más: el promedio diario y las barras de los últimos
+veintiocho días, sin acumulados ni fechas. El flujo diario la escribe en la rama `descargas`, junto al
+CSV, y los README la toman de ahí.
 
 El tráfico pide el token de quien administra el repositorio, en la variable `TRAFFIC_TOKEN` (en
 GitHub, un secreto del repositorio con permiso de lectura de administración). Las estrellas y los
@@ -31,6 +37,7 @@ from __future__ import annotations
 import argparse
 import csv
 import datetime as dt
+import html
 import json
 import os
 import shutil
@@ -144,7 +151,8 @@ def resumen(filas: dict[str, dict], hoy: dt.date) -> dict:
     for f, v in filas.items():
         meses[f[:7]] = meses.get(f[:7], 0) + c(v)
     ultimo = next((v for v in reversed(filas.values()) if v.get("estrellas") is not None), None)
-    leidos = {f: v for f, v in filas.items() if v.get("clonaciones") is not None}
+    # El día en curso llega incompleto: el promedio cuenta hasta ayer.
+    leidos = {f: v for f, v in filas.items() if v.get("clonaciones") is not None and f < hoy.isoformat()}
     semana = [(f, v["clonaciones"]) for f, v in leidos.items() if f in siete]
     record = max(semana, key=lambda x: (x[1], x[0]), default=None)
     return {"desde": next(iter(filas), None), "hasta": max(leidos, default=None), "dias": len(filas),
@@ -168,6 +176,75 @@ def cifra(r: dict) -> str:
     return (f"Descargas al {r['hasta']}: {fmt(r['clonaciones'])} acumuladas · {fmt(r['promedio_diario'], 1)} por día en "
             f"promedio ({r['dias_con_trafico']} días) · récord de la última semana: "
             + (f"{fmt(rec['clonaciones'])}, el {rec['fecha']}" if rec else "sin tráfico leído"))
+
+
+# ---------------------------------------------------------------- la insignia del README
+
+DIAS_BARRAS = 28
+TEMAS = {
+    "claro": {"fondo": "#f5f4ef", "borde": "#d8d5cd", "cifra": "#111111", "oro": "#8a6327", "apagado": "#6b675f", "texto": "#3f4450"},
+    "oscuro": {"fondo": "#050505", "borde": "#2b2b28", "cifra": "#f5f4ef", "oro": "#d5a84b", "apagado": "#8a867e", "texto": "#c9c6bd"},
+}
+TEXTOS = {
+    "es": {"eyebrow": "DESCARGAS DIARIAS", "k": "en promedio, desde el lanzamiento",
+           "pie": f"Clonaciones del repositorio · las barras, los últimos {DIAS_BARRAS} días · se actualiza a diario",
+           "alt": "Criterio: {n} descargas diarias en promedio, desde el lanzamiento"},
+    "en": {"eyebrow": "DAILY DOWNLOADS", "k": "on average, since launch",
+           "pie": f"Repository clones · the bars, the last {DIAS_BARRAS} days · updated daily",
+           "alt": "Criterio: {n} downloads a day on average, since launch"},
+}
+FUENTE = "'Inter Tight', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+
+
+def barras(filas: dict[str, dict], hoy: dt.date) -> list[int | None]:
+    """Las clonaciones de los últimos días completos, del más viejo a ayer; un día sin tráfico leído
+    queda sin barra."""
+    return [(filas.get((hoy - dt.timedelta(days=k)).isoformat()) or {}).get("clonaciones") for k in range(DIAS_BARRAS, 0, -1)]
+
+
+def insignia(r: dict, serie: list[int | None], idioma: str, tema: str) -> str:
+    """La insignia: el promedio diario, grande, y las barras de cada día. Sin acumulados ni fechas."""
+    c, x = TEMAS[tema], TEXTOS[idioma]
+    n = f"{round(r['promedio_diario']):,}".replace(",", "." if idioma == "es" else ",")
+    W, H = 520, 156
+    x0, x1, y0, y1 = 228, 496, 30, 112
+    paso = (x1 - x0) / len(serie)
+    ancho, radio = paso * 0.68, 2.0
+    tope = max([v for v in serie if v] or [1])
+    marcas = []
+    for i, v in enumerate(serie):
+        if not v:
+            continue
+        a = max((y1 - y0) * v / tope, radio * 2)
+        bx, by = x0 + i * paso + (paso - ancho) / 2, y1 - a
+        marcas.append(f'<path d="M{bx:.1f},{y1}V{by + radio:.1f}Q{bx:.1f},{by:.1f} {bx + radio:.1f},{by:.1f}'
+                      f'H{bx + ancho - radio:.1f}Q{bx + ancho:.1f},{by:.1f} {bx + ancho:.1f},{by + radio:.1f}V{y1}Z"/>')
+    alt = html.escape(x["alt"].format(n=n))
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" role="img" aria-label="{alt}">'
+            f'<title>{alt}</title>'
+            f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="12" fill="{c["fondo"]}" stroke="{c["borde"]}"/>'
+            f'<g font-family="{FUENTE}">'
+            f'<text x="24" y="38" font-size="11" font-weight="600" letter-spacing="1.6" fill="{c["oro"]}">{x["eyebrow"]}</text>'
+            f'<text x="22" y="92" font-size="56" font-weight="600" letter-spacing="-2" fill="{c["cifra"]}">{n}</text>'
+            f'<text x="24" y="112" font-size="12.5" fill="{c["texto"]}">{html.escape(x["k"])}</text>'
+            f'<text x="24" y="138" font-size="11" fill="{c["apagado"]}">{html.escape(x["pie"])}</text>'
+            f'</g>'
+            f'<line x1="{x0}" y1="{y1 + .5}" x2="{x1}" y2="{y1 + .5}" stroke="{c["borde"]}"/>'
+            f'<g fill="{c["oro"]}">{"".join(marcas)}</g>'
+            f'</svg>\n')
+
+
+def insignias(filas: dict[str, dict], hoy: dt.date, carpeta: Path) -> list[Path]:
+    """Las cuatro: español e inglés, en tema claro y oscuro. El README elige el tema con <picture>."""
+    r, serie = resumen(filas, hoy), barras(filas, hoy)
+    carpeta.mkdir(parents=True, exist_ok=True)
+    out = []
+    for idioma in TEXTOS:
+        for tema in TEMAS:
+            p = carpeta / f"descargas-{idioma}-{tema}.svg"
+            p.write_text(insignia(r, serie, idioma, tema), encoding="utf-8")
+            out.append(p)
+    return out
 
 
 def selftest() -> int:
@@ -210,14 +287,26 @@ def selftest() -> int:
         viejo = Path(t) / "viejo.csv"
         viejo.write_text("fecha,clonaciones,clonadores_unicos,visitas,visitantes_unicos,capturado\n2026-10-20,5,2,9,3,2026-10-21\n", encoding="utf-8")
         ok("un historial anterior a las estrellas se lee con ellas vacías", (leer(viejo)["2026-10-20"]["clonaciones"], leer(viejo)["2026-10-20"]["forks"]), (5, None))
+    hi = fusionar({}, por_dia({"clones": [{"timestamp": "2026-11-08T00:00:00Z", "count": 90, "uniques": 9},
+                                          {"timestamp": "2026-11-09T00:00:00Z", "count": 70, "uniques": 7},
+                                          {"timestamp": "2026-11-10T00:00:00Z", "count": 3, "uniques": 1}]}, {"views": []}), "2026-11-10")
+    ri = resumen(hi, dt.date(2026, 11, 10))
+    ok("el promedio no cuenta el día en curso, que llega incompleto", ri["promedio_diario"], 80.0)
+    ok("las barras terminan ayer y un día sin tráfico no tiene barra", (barras(hi, dt.date(2026, 11, 10))[-2:], barras(hi, dt.date(2026, 11, 10))[0]), ([90, 70], None))
+    import xml.etree.ElementTree as ET
+    svg = insignia(ri, barras(hi, dt.date(2026, 11, 10)), "es", "oscuro")
+    ok("la insignia es un SVG válido", ET.fromstring(svg).tag, "{http://www.w3.org/2000/svg}svg")
+    ok("la insignia dice el promedio, con dos barras", (">80<" in svg, svg.count("<path")), (True, 2))
+    ok("y no dice el acumulado ni fechas", ("163" in svg, "2026" in svg), (False, False))
     print("\n" + ("OK" if not fallas else f"{len(fallas)} FALLAS"))
     return 1 if fallas else 0
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="Las descargas de Criterio, día por día.")
-    ap.add_argument("accion", choices=["capturar", "resumen", "cifra", "selftest"])
+    ap.add_argument("accion", choices=["capturar", "resumen", "cifra", "insignia", "selftest"])
     ap.add_argument("--csv", type=Path, default=Path("descargas.csv"))
+    ap.add_argument("--dir", type=Path, default=Path("."), help="dónde escribe `insignia` sus cuatro SVG")
     ap.add_argument("--repo", default=REPO)
     a = ap.parse_args()
     if a.accion == "selftest":
@@ -239,6 +328,10 @@ def main() -> int:
               f"{len(filas)} días en el historial")
     if a.accion == "cifra":
         print(cifra(resumen(filas, hoy)))
+        return 0
+    if a.accion == "insignia":
+        for p in insignias(filas, hoy, a.dir):
+            print(p)
         return 0
     print(json.dumps(resumen(filas, hoy), ensure_ascii=False, indent=2))
     if a.accion == "capturar":

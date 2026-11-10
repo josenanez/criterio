@@ -853,6 +853,20 @@ def reloj_md(agentes: list[dict], nombre: str, familia: bool) -> str:
     return "\n".join(l)
 
 
+REPOSITORIO = "https://github.com/josenanez/criterio"
+
+
+def estrella_md(familia: bool) -> str:
+    """El cierre del setup: una línea que invita a dar estrella al repositorio. La dice uno solo, la
+    familia si el setup corre dentro del de su familia, y una sola vez."""
+    linea = f"> Si Criterio te sirve, dale una estrella en {REPOSITORIO}: así lo encuentran otros que lo necesitan."
+    if familia:
+        return "\n".join(["**7. Cierra con una línea**, después de la tabla y del reloj:", "", linea, "",
+                           "Una sola vez y sin insistir: ningún otro comando la repite."])
+    return "\n".join(["**Al cerrar, una línea**, solo si este setup corre solo; dentro del de su familia la dice la familia:", "",
+                       linea, "", "Una sola vez y sin insistir: ningún otro comando la repite."])
+
+
 PMO_INSTANCIAS = """
 **En la PMO, Samuel y Alba son una instancia por proyecto y por producto.** Después de Vera, pregunta
 una sola vez por cuáles proyectos y cuáles productos quiere la persona configurar ahora, con la lista
@@ -915,6 +929,8 @@ resultado que mostró su setup, en sus palabras. Y el siguiente paso, en una lí
 la conversación, `/criterio-server:server-setup` publica lo de la familia en Rostrum.
 
 {reloj_md(agentes, sigla, True)}
+
+{estrella_md(True)}
 """
 
 
@@ -1009,7 +1025,8 @@ the [{S} family](../../families/criterio-{s}/README.md).
 
 
 def poner_reloj(texto: str, contenido: str, ruta: Path) -> str:
-    """El bloque del reloj en el setup de un agente: antes de registrar la corrida, que va al final."""
+    """El bloque del final del setup de un agente —el reloj y la línea de la estrella—: antes de
+    registrar la corrida, que va al final."""
     pre, fin = "<!-- reloj · ", "<!-- /reloj -->"
     bloque = f"{pre}generado por scripts/familias.py; no se edita a mano -->\n{contenido}\n{fin}\n\n"
     if pre in texto:
@@ -1310,7 +1327,7 @@ def main() -> int:
                 salidas.append((base / "commands" / f"{fa['sigla']}-setup.md", familia_setup_md(fa["sigla"], agentes)))
         for a in agentes:
             ruta = P / a["plugin"] / "commands" / f"{a['setup'].split(':')[1]}.md"
-            salidas.append((ruta, poner_reloj(ruta.read_text(encoding="utf-8"), reloj_md([a], a["id"], False), ruta)))
+            salidas.append((ruta, poner_reloj(ruta.read_text(encoding="utf-8"), reloj_md([a], a["id"], False) + "\n\n" + estrella_md(False), ruta)))
         for ruta, nuevo in salidas:
             actual = ruta.read_text(encoding="utf-8") if ruta.exists() else ""
             if actual != nuevo:
