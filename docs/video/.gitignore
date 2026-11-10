@@ -5,3 +5,5 @@ src/portal/
 src/lib/
 # El video de YouTube pesa decenas de megas: se sube a YouTube, no al repositorio.
 youtube/
+# La hoja animada se sube a LinkedIn; su fuente es src/hoja.jsx.
+linkedin/

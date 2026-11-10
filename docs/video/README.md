@@ -25,8 +25,9 @@ el componente y esa hoja, los monta en una página propia y graba (el video de Y
 | [`../img/es/robots-ea.gif`](../img/es/robots-ea.gif) · [`../img/en/robots-ea.gif`](../img/en/robots-ea.gif) | Igual, la EA | La página de la familia EA |
 | `youtube/criterio-<familia>-youtube-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, unos noventa segundos | El canal de YouTube; no se versiona (pesa decenas de megas) |
 | `youtube/criterio-youtube-{es,en}.mp4` | Igual, el de Criterio completo | El canal de YouTube; no se versiona |
+| `linkedin/criterio-hoja-es.mp4` | Vertical 4:5, 1080×1350, H.264, poco más de un minuto | La hoja para la dirección, animada, para el post de LinkedIn; no se versiona |
 
-`FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`);
+`FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`, `hoja`);
 `IDIOMAS=es` solo ese idioma.
 
 **El video de YouTube** ([`src/youtube.jsx`](src/youtube.jsx), en [`youtube.html`](youtube.html))
@@ -56,6 +57,15 @@ La tarjeta final de cada video lleva las cifras de la evidencia publicada: la PM
 
 Pide ffmpeg en el `PATH`. `CHROMIUM` apunta a otro navegador si no se usa el de
 Playwright. Los cuadros intermedios quedan en `cuadros/`, que no se versiona.
+
+**La hoja animada** ([`src/hoja.jsx`](src/hoja.jsx), en [`hoja.html`](hoja.html)) cuenta lo mismo que la
+hoja para la dirección del portal y en su orden: el título; cada área con su robot, lo que hacen sus
+agentes en la operación, en la gerencia y lo que le llevan al nivel C, y lo que encontraron en las
+pruebas; los países y las industrias, que se cuentan y se nombran; los estándares; la efectividad mínima
+y las descargas diarias; y la invitación. Sus textos salen del mismo JSON que escribe la hoja
+(`difusion/criterio-2-7-0/una-pagina.json` del portal, que grabar.mjs trae); los países, las industrias,
+el mapa, los pisos y las descargas, de sus dueños. Si alguna familia queda por debajo del umbral de
+estable, el video no se graba. Va en español: `PIEZAS=hoja FAMILIAS=criterio IDIOMAS=es`.
 
 **El video de Criterio** ([`src/criterio.jsx`](src/criterio.jsx), en [`criterio.html`](criterio.html))
 sigue la página de agentes: qué es, la pirámide de hoy y la de ahora, las familias que corren hoy,
