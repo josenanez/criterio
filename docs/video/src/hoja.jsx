@@ -16,7 +16,7 @@ import { CriterioLogo } from './portal/CriterioLogo';
 /* La hoja para la dirección, animada: vertical 4:5, 1080×1350, para LinkedIn. Cuenta lo mismo que la
    hoja y en su orden: el título; cada área con lo que hacen sus agentes en la operación, en la gerencia
    y lo que le llevan al nivel C, con lo que encontraron en las pruebas; los países y las industrias de
-   las pruebas, que se cuentan y se nombran; los estándares; la efectividad mínima y las descargas; y la
+   las pruebas, que se cuentan y se nombran; los estándares globales y la normativa de cada país; la efectividad mínima y las descargas; y la
    invitación.
 
    Los textos de la hoja salen de su archivo de datos en el portal (difusion/criterio-2-7-0/
@@ -126,48 +126,85 @@ function escenas() {
     ),
   });
 
-  // 4 · Las industrias: aparecen con su ícono, y la cuenta sube con cada una.
-  const aparece = (k) => 0.6 + k * 0.22;
+  // 4 · Las industrias: las de más pruebas aparecen grandes, con su ícono, y la cuenta sube con cada una;
+  // al final, las demás de las rondas, en una línea, y la cuenta llega al total.
+  const IND = HOJA.industrias;
+  const destacadas = IND.destacadas.map((id) => {
+    const x = SECTORES_PROBADOS.find((y) => y.id === id);
+    if (!x) throw new Error(`La industria ${id} no está entre las probadas`);
+    return x;
+  });
+  const resto = SECTORES_PROBADOS.length - destacadas.length;
+  const aparece = (k) => 0.7 + k * 0.3;
+  const alResto = aparece(destacadas.length) + 0.3;
   lista.push({
-    dura: 6.5,
-    render: (lt) => (
-      <div>
-        <Eyebrow style={sube(lt, 0.05)}>{t.donde}</Eyebrow>
-        <div className="hj-cuenta"><span className="v">{fmt(SECTORES_PROBADOS.filter((x, k) => lt >= aparece(k)).length)}</span><span className="k">{t.industrias}</span></div>
-        <div className="yt-sectores hj-sectores">
-          {SECTORES_PROBADOS.map((x, k) => (
-            <span key={x.id} style={sube(lt, aparece(k), 0.35)}><svg viewBox="0 0 48 48" aria-hidden="true"><path d={x.icono} /></svg>{x.nombre.es}</span>
-          ))}
+    dura: 7,
+    render: (lt) => {
+      const n = lt >= alResto ? SECTORES_PROBADOS.length : destacadas.filter((x, k) => lt >= aparece(k)).length;
+      return (
+        <div>
+          <Eyebrow style={sube(lt, 0.05)}>{t.donde}</Eyebrow>
+          <div className="hj-cuenta"><span className="v">{fmt(n)}</span><span className="k">{t.industrias}</span></div>
+          <p className="hj-destacadas" style={sube(lt, 0.4)}>{IND.destacadas_titulo}</p>
+          <div className="yt-sectores hj-sectores">
+            {destacadas.map((x, k) => (
+              <span key={x.id} style={sube(lt, aparece(k), 0.35)}><svg viewBox="0 0 48 48" aria-hidden="true"><path d={x.icono} /></svg>{x.nombre.es}</span>
+            ))}
+          </div>
+          <p className="hj-resto" style={sube(lt, alResto)}>{IND.resto.replace('{n}', resto)}</p>
         </div>
-      </div>
-    ),
+      );
+    },
   });
 
-  // 5 · Los estándares sobre los que se construye cada familia, uno a uno, y al final la factura
-  // electrónica, con cada autoridad tributaria de la portada de la CFO.
+  // 5 · Los estándares globales, uno a uno.
   const E = HOJA.estandares;
-  const facturas = CRITERIO_NIVEL_C.cfo.portada.filas.find((f) => f.es[0] === 'Factura electrónica').es[2].split(' · ');
-  const desdeFactura = 0.9 + E.lista.length * 0.55;
   lista.push({
-    dura: 8,
+    dura: 5,
     render: (lt) => (
       <div>
         <Eyebrow style={sube(lt, 0.05)}>{E.subtitulo}</Eyebrow>
         <h2 className="hj-h2" style={sube(lt, 0.2)}>{E.titulo}</h2>
         <ul className="hj-estandares">
-          {E.lista.map((x, k) => <li key={x} style={sube(lt, 0.9 + k * 0.55)}>{x}</li>)}
-          <li style={sube(lt, desdeFactura)}>
-            {E.factura}
-            <span className="hj-autoridades">
-              {facturas.map((x, k) => <span key={x} style={sube(lt, desdeFactura + 0.5 + k * 0.18, 0.3)}>{x}</span>)}
-            </span>
-          </li>
+          {E.lista.map((x, k) => <li key={x} style={sube(lt, 0.8 + k * 0.45)}>{x}</li>)}
         </ul>
       </div>
     ),
   });
 
-  // 6 · La efectividad mínima y las descargas diarias, que cuentan hasta su cifra.
+  // 6 · La normativa de cada país, contada desde las portadas: las autoridades de la factura electrónica,
+  // de la CFO, que aparecen como sellos; los países de la contratación pública, de la CLO; y la NIIF.
+  const N = E.normativa;
+  const fila = (sigla, nombre) => CRITERIO_NIVEL_C[sigla].portada.filas.find((f) => f.es[0] === nombre).es[2];
+  const autoridades = fila('cfo', 'Factura electrónica').split(' · ');
+  const paisesContratacion = Number(fila('clo', 'Contratación pública').match(/(\d+) países/)[1]);
+  lista.push({
+    dura: 8,
+    render: (lt) => (
+      <div>
+        <h2 className="hj-h2 chico" style={sube(lt, 0.1)}>{N.titulo}</h2>
+        <div className="hj-normativa">
+          <div style={sube(lt, 0.6)}>
+            <p className="v">{fmt(autoridades.length * avance(lt, 0.8, 1.2))}</p>
+            <p className="k">{N.factura.video}</p>
+            <span className="hj-autoridades">
+              {autoridades.map((x, k) => <span key={x} style={sube(lt, 1.2 + k * 0.16, 0.3)}>{x}</span>)}
+            </span>
+          </div>
+          <div style={sube(lt, 3.6)}>
+            <p className="v">{fmt(paisesContratacion * avance(lt, 3.8, 1))}</p>
+            <p className="k">{N.contratacion.video}</p>
+          </div>
+          <div style={sube(lt, 5.2)}>
+            <p className="v t">NIIF</p>
+            <p className="k">{N.niif.replace(/^la NIIF /, '')}</p>
+          </div>
+        </div>
+      </div>
+    ),
+  });
+
+  // 7 · La efectividad mínima y las descargas diarias, que cuentan hasta su cifra.
   const porDia = Math.round(DESCARGAS.promedio_diario);
   lista.push({
     dura: 6,
@@ -180,7 +217,7 @@ function escenas() {
     ),
   });
 
-  // 7 · La invitación y la página.
+  // 8 · La invitación y la página.
   lista.push({
     dura: 6,
     oscuro: true,
