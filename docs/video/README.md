@@ -61,7 +61,8 @@ Playwright. Los cuadros intermedios quedan en `cuadros/`, que no se versiona.
 **La hoja animada** ([`src/hoja.jsx`](src/hoja.jsx), en [`hoja.html`](hoja.html)) cuenta lo mismo que la
 hoja para la dirección del portal y en su orden: el título; cada área con su robot, lo que hacen sus
 agentes en la operación, en la gerencia y lo que le llevan al nivel C, y lo que encontraron en las
-pruebas; los países y las industrias, que se cuentan y se nombran; los estándares; la efectividad mínima
+pruebas; los países y las industrias, que se cuentan y se nombran; los estándares, con cada autoridad de la
+factura electrónica de la portada de la CFO; la efectividad mínima
 y las descargas diarias; y la invitación. Sus textos salen del mismo JSON que escribe la hoja
 (`difusion/criterio-2-7-0/una-pagina.json` del portal, que grabar.mjs trae); los países, las industrias,
 el mapa, los pisos y las descargas, de sus dueños. Si alguna familia queda por debajo del umbral de

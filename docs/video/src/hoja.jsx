@@ -6,6 +6,7 @@ import { ROBOTS, ROSTRUM } from './lib/criterioImpresora';
 import { CRITERIO_PAISES } from './lib/criterioPaises';
 import { CRITERIO_MAPA_GEO } from './lib/criterioMapaGeo';
 import { CRITERIO_HOJA_DE_RUTA } from './lib/criterioHojaDeRuta';
+import { CRITERIO_NIVEL_C } from './lib/criterioNivelC';
 import DESCARGAS from './lib/descargas.json';
 import HOJA from './lib/una-pagina.json';
 import { PAISES_PROBADOS, SECTORES_PROBADOS } from './portal/agentsMapa';
@@ -20,7 +21,8 @@ import { CriterioLogo } from './portal/CriterioLogo';
 
    Los textos de la hoja salen de su archivo de datos en el portal (difusion/criterio-2-7-0/
    una-pagina.json, el mismo que escribe la hoja); los agentes, de ROSTRUM; los países, las industrias y
-   el mapa, de agentsMapa.ts y de las tablas del portal; el piso de cada familia, de la hoja de ruta; las
+   el mapa, de agentsMapa.ts y de las tablas del portal; las autoridades de la factura electrónica, de la
+   portada de la CFO; el piso de cada familia, de la hoja de ruta; las
    descargas, de scripts/descargas.py. Solo los rótulos y los tiempos se escriben aquí. Va en español,
    como la hoja. */
 
@@ -141,16 +143,25 @@ function escenas() {
     ),
   });
 
-  // 5 · Los estándares sobre los que se construye cada familia, uno a uno.
+  // 5 · Los estándares sobre los que se construye cada familia, uno a uno, y al final la factura
+  // electrónica, con cada autoridad tributaria de la portada de la CFO.
   const E = HOJA.estandares;
+  const facturas = CRITERIO_NIVEL_C.cfo.portada.filas.find((f) => f.es[0] === 'Factura electrónica').es[2].split(' · ');
+  const desdeFactura = 0.9 + E.lista.length * 0.55;
   lista.push({
-    dura: 6,
+    dura: 8,
     render: (lt) => (
       <div>
         <Eyebrow style={sube(lt, 0.05)}>{E.subtitulo}</Eyebrow>
         <h2 className="hj-h2" style={sube(lt, 0.2)}>{E.titulo}</h2>
         <ul className="hj-estandares">
           {E.lista.map((x, k) => <li key={x} style={sube(lt, 0.9 + k * 0.55)}>{x}</li>)}
+          <li style={sube(lt, desdeFactura)}>
+            {E.factura}
+            <span className="hj-autoridades">
+              {facturas.map((x, k) => <span key={x} style={sube(lt, desdeFactura + 0.5 + k * 0.18, 0.3)}>{x}</span>)}
+            </span>
+          </li>
         </ul>
       </div>
     ),
