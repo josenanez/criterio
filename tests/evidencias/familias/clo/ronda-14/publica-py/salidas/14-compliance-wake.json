@@ -1,0 +1,26 @@
+{
+  "n": 14,
+  "agente": "constanza",
+  "comando": "compliance-wake",
+  "argumento": "",
+  "inicio": "2026-11-11T16:49:21",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 7,
+  "tokens": 296875,
+  "tokens_salida": 1211,
+  "costo_usd": 0.2444684,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-11-11-compliance-wake-1.html",
+      ".criterio/corridas/cumplimiento/2026-11-11-compliance-wake-1.md",
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -397,6 +397,27 @@
           "contratos/CTR-2402 · public.source"
         ]
       ]
+    },
+    {
+      "id": "CLO-15",
+      "ronda": 14,
+      "carpeta": "publica-py",
+      "agentes": [
+        "constanza"
+      ],
+      "origen": "instrucciones",
+      "commit": "",
+      "estado": "verificado",
+      "verificacion": "publica-py",
+      "ronda_verificacion": 14,
+      "es": {
+        "que": "En la norma nueva del boletín, que es un Markdown con puntos numerados, Constanza citó «p. 1» donde el documento dice punto 1. El ejemplo del skill solo mostraba citas de PDF con su página, y «p.» se lee como página.",
+        "correccion": "El skill dice con qué unidad se cita cada documento —la página en un PDF, el punto en un Markdown o un Word con puntos numerados, la hoja y la fila en una hoja de cálculo— y que «p.» es siempre página. Se repitió el procesamiento de Constanza en la entidad pública de Paraguay: 156 de 156 datos."
+      },
+      "en": {
+        "que": "For the new rule in the bulletin, a Markdown file with numbered points, Constanza cited «p. 1» where the document says point 1. The skill's example only showed PDF citations with their page, and «p.» reads as page.",
+        "correccion": "The skill states the unit each document is cited by —the page in a PDF, the point in a Markdown or Word file with numbered points, the sheet and row in a spreadsheet— and that «p.» always means page. Constanza's processing was rerun on Paraguay's public entity: 156 of 156 data points."
+      }
     }
   ]
 }

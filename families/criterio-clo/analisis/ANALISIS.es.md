@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CLO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 13 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 14 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 13, parcial, sobre 3 de las 46 entidades del material: 20 de 20 señales sembradas encontradas (margen del 95 %: 83,8–100 %) y 0 de más; 396 de 396 datos extraídos bien (100 %, margen del 95 %: 99–100 %); y 1 de 1 entidades de control sin ninguna señal.
+La ronda más reciente, la 14, parcial, sobre 1 de las 47 entidades del material: 3 de 3 señales sembradas encontradas (margen del 95 %: 43,8–100 %) y 0 de más; 156 de 156 datos extraídos bien (100 %, margen del 95 %: 97,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–13, 285 de 285 señales encontradas, 0 de más y 7420 de 7439 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–14, 288 de 288 señales encontradas, 0 de más y 7576 de 7595 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 13; la más reciente, la 13, es parcial |
-| Material | Banca · Paraguay, Retail · Paraguay |
-| Entidades de control | Control · Paraguay |
-| Corridas de una entidad | 54 |
-| Señales sembradas | 285 |
-| Datos calificados | 7439 |
+| Rondas | 14; la más reciente, la 14, es parcial |
+| Material | Entidad pública · Paraguay |
+| Entidades de control |  |
+| Corridas de una entidad | 55 |
+| Señales sembradas | 288 |
+| Datos calificados | 7595 |
 
-## Resultados acumulados · rondas 1–13
+## Resultados acumulados · rondas 1–14
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 285 de 285 | 100 % | 98,6–100 % |
-| Señales · precisión | 285 de 285 | 100 % | 98,6–100 % |
-| Extracción · datos correctos | 7420 de 7439 | 99,7 % | 99,6–99,9 % |
+| Señales · cobertura | 288 de 288 | 100 % | 98,6–100 % |
+| Señales · precisión | 288 de 288 | 100 % | 98,6–100 % |
+| Extracción · datos correctos | 7576 de 7595 | 99,7 % | 99,6–99,9 % |
 | Control · sin ninguna señal | 17 de 17 | 100 % | 81,5–100 % |
 
 ## Evolución por ronda
@@ -55,27 +55,26 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 11 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 12,6 M | 0 |
 | 12 | 4 | 100 % | 100 % | 100 % | 1 de 1 | 11,8 M | 0 |
 | 13 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 10,2 M | 0 |
+| 14 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 7,2 M | 1 |
 
-## La ronda más reciente · ronda 13
+## La ronda más reciente · ronda 14
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 20 de 20 | 100 % | 83,8–100 % |
-| Señales · precisión | 20 de 20 | 100 % | 83,8–100 % |
-| Extracción · datos correctos | 396 de 396 | 100 % | 99–100 % |
-| Control · sin ninguna señal | 1 de 1 | 100 % | 20,6–100 % |
+| Señales · cobertura | 3 de 3 | 100 % | 43,8–100 % |
+| Señales · precisión | 3 de 3 | 100 % | 43,8–100 % |
+| Extracción · datos correctos | 156 de 156 | 100 % | 97,5–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 13
+## Por industria y país · ronda 14
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Banca · Paraguay | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,7 M |
-| Retail · Paraguay | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 3,2 M |
-| Control · Paraguay | Constanza, Fidel | 0 de 0 | 0 | 132 de 132 | 3,4 M |
+| Entidad pública · Paraguay | Constanza, Fidel | 3 de 3 | 0 | 156 de 156 | 7,2 M |
 
-## Lo que falló, uno por uno · rondas 1–13
+## Lo que falló, uno por uno · rondas 1–14
 
-19 fallas en 54 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+19 fallas en 55 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -103,11 +102,11 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ![Defectos](defectos-es.svg)
 
-14 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 14 verificados y 0 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
+15 defectos registrados, cada uno con su origen, su corrección y la corrida que la verificó: 15 verificados y 0 por verificar. 6 vinieron del material, la clave o el arnés de pruebas, no de los agentes.
 
 | Origen | Defectos |
 |---|---|
-| Instrucciones del agente | 6 |
+| Instrucciones del agente | 7 |
 | Arnés de pruebas | 4 |
 | Código | 2 |
 | Clave de calificación | 2 |
@@ -115,12 +114,12 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | Agente | Defectos |
 |---|---|
 | Fidel | 8 |
-| Constanza | 5 |
+| Constanza | 6 |
 | Ninguno | 1 |
 
 ## Consumo y próximo paso
 
-Las 13 rondas usaron 200,6 millones de tokens: 198,1 millones en las corridas calificadas y 2,4 en las que se repitieron después de corregir un defecto. En promedio, 3,7 millones por entidad.
+Las 14 rondas usaron 208,4 millones de tokens: 205,3 millones en las corridas calificadas y 3 en las que se repitieron después de corregir un defecto. En promedio, 3,7 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

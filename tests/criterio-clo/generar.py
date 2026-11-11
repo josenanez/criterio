@@ -408,8 +408,8 @@ ENTIDADES = [
      "contrapartes": ["Tecnología Gubernamental, S. de R.L.", "Suministros del Estado, S. A.", "Edificaciones Oficiales, S. de R.L.", "Software Público, S. de R.L.",
                       "Consultoría Estatal, S. de R.L.", "Mantenimiento Público, S. de R.L.", "Vigilancia Oficial, S. A."],
      "fidel": ["garantia_baja"], "constanza": []},
-    # Paraguay, con el RUC de cada contraparte, en guaraníes. Sin entidad pública: la regla de la garantía
-    # de la ley de contrataciones públicas no está entre las fuentes verificadas.
+    # Paraguay, con el RUC de cada contraparte, en guaraníes; la garantía de cumplimiento entre el 5 % y el
+    # 10 % del contrato (Ley 7021/2022, art. 71).
     {"carpeta": "banca-py", "industria": "banca", "pais": "PY", "id": ruc_py(457812), "nombre": "Banco del Tebicuary Sintético", "moneda": "PYG", "u": 450_000_000, "n0": 4400,
      "personas": ("Liz Benítez", "Hugo Duarte", "Rossana Giménez"),
      "contrapartes": ["Sistemas Financieros del Guairá Sintética S.A.", "Papelería del Centro Sintética S.A.", "Inmobiliaria Carmelitas Sintética S.A.", "Licencias Digitales Sintética S.A.",
@@ -427,6 +427,11 @@ ENTIDADES = [
      "contrapartes": ["Transportes Control Sintética S.A.", "Insumos Control Sintética S.A.", "Bodegas Control Sintética S.A.", "Software Control Sintética S.A.",
                       "Asesores Control Sintética S.A.", "Mantenimiento Control Sintética S.A.", "Limpieza Control Sintética S.A."],
      "fidel": [], "constanza": []},
+    {"carpeta": "publica-py", "industria": "publica", "pais": "PY", "id": ruc_py(399201), "nombre": "Instituto Público del Guairá Sintético", "moneda": "PYG", "u": 250_000_000, "n0": 4700, "publica": True,
+     "personas": ("Andrea Fleitas", "Rubén Escobar", "Noelia Sanabria"),
+     "contrapartes": ["Tecnología Gubernamental Sintética S.A.", "Suministros del Estado Sintética S.A.", "Edificaciones Oficiales Sintética S.A.", "Software Público Sintética S.A.",
+                      "Consultoría Estatal Sintética S.A.", "Mantenimiento Público Sintética S.A.", "Vigilancia Oficial Sintética S.A."],
+     "fidel": ["garantia_baja", "garantia_sobre_tope"], "constanza": []},
 ]
 
 d = dt.date.fromisoformat
@@ -594,8 +599,8 @@ def contrato(e: dict, i: int, b: dict) -> dict:
 # y la publicación en el último día del plazo, donde la ley lo fija. Los casos que se parecen a un
 # defecto y no lo son están en la frontera de la regla.
 SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP", "AR": "COMPR.AR",
-           "PA": "PanamaCompra", "CR": "SICOP", "HN": "HonduCompras"}
-PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10, "CR": 0.05, "HN": 0.15}
+           "PA": "PanamaCompra", "CR": "SICOP", "HN": "HonduCompras", "PY": "SICP"}
+PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10, "CR": 0.05, "HN": 0.15, "PY": 0.05}
 
 
 def publica_limpia(e: dict, i: int) -> dict:
@@ -631,9 +636,9 @@ def sembrar_publica(e: dict, cs: list[dict], esperado: list) -> None:
         for k in ((1, 6) if pais in ("CO", "PE") else (1, 3)):
             cs[k - 1]["publica"]["pct"] = PORCENTAJE[pais] - 0.02
             esperado.append(("public_guarantee_below_law", f"garantia-ley:{code(k)}"))
-    if "garantia_sobre_tope" in s:      # sobre el tope de la ley y sin justificar: un 8 % en Brasil (tope 5 %), un 12 % en Costa Rica (tope 10 %)
+    if "garantia_sobre_tope" in s:      # sobre el tope de la ley y sin justificar: un 8 % en Brasil (tope 5 %), un 12 % en Costa Rica y Paraguay (tope 10 %)
         for k in ((6,) if "garantia_baja" in s else (3, 6)):
-            cs[k - 1]["publica"]["pct"] = {"CR": 0.12}.get(pais, 0.08)
+            cs[k - 1]["publica"]["pct"] = {"CR": 0.12, "PY": 0.12}.get(pais, 0.08)
             esperado.append(("public_guarantee_over_cap", f"garantia-tope:{code(k)}"))
     if "sin_fianza" in s:               # Panamá: dos contratos de más de B/.50 000 sin la fianza de cumplimiento que exige la ley
         for k in (1, 3):

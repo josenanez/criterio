@@ -15,7 +15,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 |---|---|---|---|---|
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.2.3 | Estable | — |
 | Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.5.4 | Estable | — |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.6.3 | Estable | — |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.6.3 | Estable | Incremento 12 · La entidad pública de Paraguay |
 | Criterio EA · Dirección | Ofelia | 1.2.3 | Estable | — |
 | Criterio CCO · El área comercial | Augusto, Valeria | 1.2.3 | Estable | — |
 | Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.2.3 | Estable | Incremento 7 · Qualys y Rapid7, cuando tengan su fuente |
@@ -66,6 +66,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.4.0 | Liberada | **Paraguay**<br>· Su entrada en el registro de países, con el RUC de cada contraparte<br>· Sin entidad pública: la regla de la garantía de la ley de contrataciones públicas no está entre las fuentes verificadas<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con Fidel y Constanza |
 | 1.5.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-clo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.6.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
+| Incremento 12 | Siguiente | **La entidad pública de Paraguay**<br>· La garantía de cumplimiento de su ley de contrataciones públicas, entre el 5 % y el 10 % del contrato, desde su fuente verificada (F-15, Ley 7021/2022, art. 71)<br>· Una entidad pública de prueba, con la garantía bajo el mínimo y sobre el tope sembradas: el motor levanta cada señal, ninguna de más<br>· Guatemala, cuando su ley y su reglamento vigentes estén entre las fuentes verificadas | La ronda 14 con Fidel y Constanza sobre la entidad pública de Paraguay: 3 de 3 señales y 156 de 156 datos, con su defecto corregido y verificado |
 
 ### Criterio EA · Dirección
 

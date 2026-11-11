@@ -1,0 +1,30 @@
+{
+  "n": 6,
+  "agente": "fidel",
+  "comando": "contract-execution",
+  "argumento": "",
+  "inicio": "2026-11-11T16:43:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 48,
+  "turnos": 9,
+  "tokens": 354610,
+  "tokens_salida": 4670,
+  "costo_usd": 0.3505554,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-11-11-contract-execution-1.html",
+      ".criterio/corridas/legal/2026-11-11-contract-execution-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/contratos/reporte-contract-execution.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/2026-10-06-contract-execution-1.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/salida-contract-execution.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

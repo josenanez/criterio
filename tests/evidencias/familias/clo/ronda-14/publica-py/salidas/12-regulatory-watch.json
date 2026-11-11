@@ -1,0 +1,27 @@
+{
+  "n": 12,
+  "agente": "constanza",
+  "comando": "regulatory-watch",
+  "argumento": "",
+  "inicio": "2026-11-11T16:47:58",
+  "estado": "success",
+  "error": false,
+  "segundos": 47,
+  "turnos": 12,
+  "tokens": 600613,
+  "tokens_salida": 4343,
+  "costo_usd": 0.4529194,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/2026-10-06-regulatory-watch-1.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/salida-regulatory-watch.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/cumplimiento/2026-09/reporte-regulatory-watch.md"
+    ],
+    "modificados": [
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -18,6 +18,8 @@ Una ficha por periodo, en `<estado>/cumplimiento/<AAAA-MM>/ficha.json`. Las tabl
 }
 ```
 
+**La cita dice dónde está el dato con la unidad del documento:** en un PDF, la página (`p. 3`); en un Markdown o un Word con puntos numerados, el punto (`punto 1`); en una hoja de cálculo, la hoja y la fila. «p.» es siempre página: no se usa para un punto.
+
 ## Cómo se decide cada uno
 
 - **`declared`** es lo que dice el informe del periodo o quien lo firma, con sus palabras: `cumplido`, `en cumplimiento`, `sin novedades`, `con hallazgos`. Si el informe no declara un estado, no va. **Lo declarado no se fusiona con lo evidenciado**: el motor los pone uno al lado del otro y levanta `declared_compliance_vs_evidence` cuando se declara cumplido con señales abiertas.

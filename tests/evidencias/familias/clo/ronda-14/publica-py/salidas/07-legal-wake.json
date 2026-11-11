@@ -1,0 +1,26 @@
+{
+  "n": 7,
+  "agente": "fidel",
+  "comando": "legal-wake",
+  "argumento": "",
+  "inicio": "2026-11-11T16:44:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 16,
+  "turnos": 4,
+  "tokens": 194648,
+  "tokens_salida": 774,
+  "costo_usd": 0.20175200000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-11-11-legal-wake-1.html",
+      ".criterio/corridas/legal/2026-11-11-legal-wake-1.md",
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json"
+    ],
+    "borrados": []
+  }
+}

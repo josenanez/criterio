@@ -390,6 +390,14 @@
     "iva": 0.1,
     "impuesto": "IVA",
     "emisor": "DNIT"
+   },
+   "contratacion_publica": {
+    "sistema": "SICP",
+    "garantia": {
+     "minimo": 0.05,
+     "maximo": 0.1,
+     "fuente": "F-15"
+    }
    }
   }
  ]

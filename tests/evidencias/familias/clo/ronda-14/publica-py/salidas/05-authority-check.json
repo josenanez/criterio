@@ -1,0 +1,30 @@
+{
+  "n": 5,
+  "agente": "fidel",
+  "comando": "authority-check",
+  "argumento": "",
+  "inicio": "2026-11-11T16:40:43",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 9,
+  "tokens": 395108,
+  "tokens_salida": 2946,
+  "costo_usd": 0.30270299999999994,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-11-11-authority-check-1.html",
+      ".criterio/corridas/legal/2026-11-11-authority-check-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/contratos/reporte-authority-check.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/2026-10-06-authority-check-1.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/salida-authority-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

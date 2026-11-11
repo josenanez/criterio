@@ -1,0 +1,561 @@
+{
+  "entidad": "Instituto Público del Guairá Sintético",
+  "industria": "publica",
+  "pais": "PY",
+  "hoy": "2026-10-06",
+  "periodo": "2026-09",
+  "siembra": {
+    "fidel": [
+      "garantia_baja",
+      "garantia_sobre_tope"
+    ],
+    "constanza": []
+  },
+  "config": {
+    "fidel": {
+      "entity": {
+        "id": "88399201-9",
+        "name": "Instituto Público del Guairá Sintético",
+        "country": "PY",
+        "currency": "PYG"
+      },
+      "paths": {
+        "documents": "legal/88399201-9-instituto-publico-del-guaira-sintetico",
+        "state": "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico"
+      },
+      "public_procurement": {
+        "public": true,
+        "guarantee_threshold": null
+      }
+    },
+    "constanza": {
+      "entity": {
+        "id": "88399201-9",
+        "name": "Instituto Público del Guairá Sintético",
+        "country": "PY",
+        "currency": "PYG"
+      },
+      "paths": {
+        "documents": "legal/88399201-9-instituto-publico-del-guaira-sintetico",
+        "state": "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico"
+      },
+      "period": "2026-09",
+      "compliance": {
+        "contract_records": "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/contratos"
+      }
+    }
+  },
+  "extraccion": {
+    "contratos": {
+      "CTR-4701": {
+        "code": "CTR-4701",
+        "type": "servicios",
+        "counterparty": {
+          "name": "Tecnología Gubernamental Sintética S.A.",
+          "id": "88470001-1"
+        },
+        "value": 2000000000,
+        "start": "2026-01-01",
+        "end": "2027-03-31",
+        "signed_on": "2025-12-27",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 60,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Andrea Fleitas",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Tecnología Gubernamental Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4701-tecnologia-gubernamental-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-07-31",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4701-tecnologia-gubernamental-sintetica-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 60000000.0,
+            "delivered_on": "2025-12-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-12-15",
+          "source": "contratos/CTR-4701-tecnologia-gubernamental-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Tecnología Gubernamental Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4701-tecnologia-gubernamental-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-03-31",
+            "who": "Tecnología Gubernamental Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4701-tecnologia-gubernamental-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          },
+          {
+            "id": "OBL-3",
+            "what": "Reporte de operaciones al oficial de cumplimiento",
+            "due": "2026-09-30",
+            "who": "Tecnología Gubernamental Sintética S.A.",
+            "kind": "cumplimiento",
+            "source": "contratos/CTR-4701-tecnologia-gubernamental-sintetica-s-a/10-contrato/contrato.md, cláusula 7"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4701-tecnologia-gubernamental-sintetica-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SICP",
+          "published_on": "2026-01-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-4701-tecnologia-gubernamental-sintetica-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-4702": {
+        "code": "CTR-4702",
+        "type": "suministro",
+        "counterparty": {
+          "name": "Suministros del Estado Sintética S.A.",
+          "id": "88470003-8"
+        },
+        "value": 1000000000,
+        "start": "2025-07-01",
+        "end": "2027-06-30",
+        "signed_on": "2025-06-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Rubén Escobar",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Suministros del Estado Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [
+          {
+            "id": "OT-1",
+            "date": "2026-05-15",
+            "added_value": 250000000,
+            "new_end": "2027-12-31",
+            "signed": true,
+            "signed_by": "Rubén Escobar",
+            "source": "contratos/CTR-4702-suministros-del-estado-sintetica-s-a/10-contrato/otrosi-1.md"
+          }
+        ],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4702-suministros-del-estado-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2028-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4702-suministros-del-estado-sintetica-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 50000000.0,
+            "delivered_on": "2025-06-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-06-14",
+          "source": "contratos/CTR-4702-suministros-del-estado-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Suministros del Estado Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4702-suministros-del-estado-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-12-31",
+            "who": "Suministros del Estado Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4702-suministros-del-estado-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4702-suministros-del-estado-sintetica-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SICP",
+          "published_on": "2025-07-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-4702-suministros-del-estado-sintetica-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-4703": {
+        "code": "CTR-4703",
+        "type": "arrendamiento",
+        "counterparty": {
+          "name": "Edificaciones Oficiales Sintética S.A.",
+          "id": "88470003-8"
+        },
+        "value": 1500000000,
+        "start": "2025-02-01",
+        "end": "2026-12-31",
+        "signed_on": "2025-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Andrea Fleitas",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Edificaciones Oficiales Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4703-edificaciones-oficiales-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-04-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4703-edificaciones-oficiales-sintetica-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 45000000.0,
+            "delivered_on": "2025-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-01-15",
+          "source": "contratos/CTR-4703-edificaciones-oficiales-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Edificaciones Oficiales Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4703-edificaciones-oficiales-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-12-31",
+            "who": "Edificaciones Oficiales Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4703-edificaciones-oficiales-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4703-edificaciones-oficiales-sintetica-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SICP",
+          "published_on": "2025-02-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-4703-edificaciones-oficiales-sintetica-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-4704": {
+        "code": "CTR-4704",
+        "type": "licencia",
+        "counterparty": {
+          "name": "Software Público Sintética S.A.",
+          "id": "88470004-6"
+        },
+        "value": 750000000,
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "signed_on": "2026-02-24",
+        "signed_by_both": true,
+        "auto_renewal": true,
+        "notice_days": 30,
+        "renewal_months": 12,
+        "signatories": [
+          {
+            "name": "Rubén Escobar",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Software Público Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4704-software-publico-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-06-28",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4704-software-publico-sintetica-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 37500000.0,
+            "delivered_on": "2026-02-28"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-02-12",
+          "source": "contratos/CTR-4704-software-publico-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Software Público Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4704-software-publico-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2027-02-28",
+            "who": "Software Público Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4704-software-publico-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4704-software-publico-sintetica-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SICP",
+          "published_on": "2026-03-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-4704-software-publico-sintetica-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-4705": {
+        "code": "CTR-4705",
+        "type": "consultoria",
+        "counterparty": {
+          "name": "Consultoría Estatal Sintética S.A.",
+          "id": "88470005-4"
+        },
+        "value": 500000000,
+        "start": "2026-02-01",
+        "end": "2026-11-20",
+        "signed_on": "2026-01-27",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Rubén Escobar",
+            "role": "Vicepresidente financiero",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Consultoría Estatal Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4705-consultoria-estatal-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2027-03-20",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4705-consultoria-estatal-sintetica-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 25000000.0,
+            "delivered_on": "2026-01-31"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2026-01-15",
+          "source": "contratos/CTR-4705-consultoria-estatal-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-09-05",
+            "who": "Consultoría Estatal Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4705-consultoria-estatal-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-11-20",
+            "who": "Consultoría Estatal Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4705-consultoria-estatal-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": {
+          "action": "renovar",
+          "date": "2026-09-18",
+          "source": "contratos/CTR-4705-consultoria-estatal-sintetica-s-a/40-ejecucion/acta-comite-contratos.md"
+        },
+        "source": "contratos/CTR-4705-consultoria-estatal-sintetica-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SICP",
+          "published_on": "2026-02-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-4705-consultoria-estatal-sintetica-s-a/10-contrato/constancia-publicacion.md"
+        }
+      },
+      "CTR-4706": {
+        "code": "CTR-4706",
+        "type": "mantenimiento",
+        "counterparty": {
+          "name": "Mantenimiento Público Sintética S.A.",
+          "id": "88470006-2"
+        },
+        "value": 1250000000,
+        "start": "2025-10-01",
+        "end": "2026-07-31",
+        "signed_on": "2025-09-26",
+        "signed_by_both": true,
+        "auto_renewal": false,
+        "notice_days": null,
+        "renewal_months": null,
+        "signatories": [
+          {
+            "name": "Andrea Fleitas",
+            "role": "Gerente general",
+            "party": "entidad"
+          },
+          {
+            "name": "Representante de Mantenimiento Público Sintética S.A.",
+            "role": "Representante legal",
+            "party": "contraparte"
+          }
+        ],
+        "amendments": [],
+        "guarantees_required": [
+          {
+            "type": "cumplimiento",
+            "months_after_end": 4,
+            "source": "contratos/CTR-4706-mantenimiento-publico-sintetica-s-a/10-contrato/contrato.md, cláusula 9"
+          }
+        ],
+        "guarantees_provided": [
+          {
+            "type": "cumplimiento",
+            "until": "2026-11-30",
+            "insurer": "Aseguradora Sintética S.A.",
+            "source": "contratos/CTR-4706-mantenimiento-publico-sintetica-s-a/20-garantias/poliza-cumplimiento.md",
+            "amount": 150000000.0,
+            "delivered_on": "2025-09-30"
+          }
+        ],
+        "counterparty_certificate": {
+          "issued_on": "2025-09-14",
+          "source": "contratos/CTR-4706-mantenimiento-publico-sintetica-s-a/30-contraparte/certificado.md"
+        },
+        "obligations": [
+          {
+            "id": "OBL-1",
+            "what": "Informe mensual de ejecución",
+            "due": "2026-07-06",
+            "who": "Mantenimiento Público Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4706-mantenimiento-publico-sintetica-s-a/10-contrato/contrato.md, cláusula 5"
+          },
+          {
+            "id": "OBL-2",
+            "what": "Informe final y acta de liquidación",
+            "due": "2026-07-31",
+            "who": "Mantenimiento Público Sintética S.A.",
+            "kind": "entrega",
+            "source": "contratos/CTR-4706-mantenimiento-publico-sintetica-s-a/10-contrato/contrato.md, cláusula 6"
+          }
+        ],
+        "decision": null,
+        "source": "contratos/CTR-4706-mantenimiento-publico-sintetica-s-a/10-contrato/contrato.md",
+        "public": {
+          "system": "SICP",
+          "published_on": "2025-10-01",
+          "modality": "licitación",
+          "source": "contratos/CTR-4706-mantenimiento-publico-sintetica-s-a/10-contrato/constancia-publicacion.md"
+        }
+      }
+    },
+    "cumplimiento": {
+      "declared": {
+        "status": "cumplido",
+        "date": "2026-10-05",
+        "source": "cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md"
+      },
+      "new_rules": [
+        {
+          "id": "N-2026-09",
+          "rule": "Circular sintética 009 de 2026",
+          "date": "2026-09-28",
+          "applies": "por evaluar",
+          "source": "30-normativa/boletin-2026-09.md, punto 1"
+        }
+      ],
+      "questions": []
+    }
+  },
+  "esperado": [
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-4701"
+    },
+    {
+      "signal": "public_guarantee_below_law",
+      "key": "garantia-ley:CTR-4703"
+    },
+    {
+      "signal": "public_guarantee_over_cap",
+      "key": "garantia-tope:CTR-4706"
+    }
+  ]
+}

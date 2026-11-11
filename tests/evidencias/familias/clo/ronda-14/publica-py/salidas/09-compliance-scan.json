@@ -1,0 +1,28 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-11-11T16:52:03",
+  "estado": "success",
+  "error": false,
+  "segundos": 59,
+  "turnos": 14,
+  "tokens": 688642,
+  "tokens_salida": 5118,
+  "costo_usd": 0.43339900000000003,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/2026-10-06-compliance-scan-2.md"
+    ],
+    "modificados": [
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/salida-compliance-scan.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/cumplimiento/2026-09/ficha.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/cumplimiento/2026-09/resultados.json"
+    ],
+    "borrados": []
+  }
+}

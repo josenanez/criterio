@@ -1,0 +1,19 @@
+{
+  "entidad": "Instituto Público del Guairá Sintético",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 7190436,
+  "senales": {
+    "esperadas": 3,
+    "acertadas": 3,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 156,
+    "bien": 156,
+    "mal": []
+  }
+}

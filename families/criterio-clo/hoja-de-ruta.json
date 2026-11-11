@@ -344,6 +344,31 @@
     ],
     "prueba": "The full verification; the clock, in the version test"
    }
+  },
+  {
+   "incremento": 12,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "paises": [],
+   "es": {
+    "titulo": "La entidad pública de Paraguay",
+    "entra": [
+     "La garantía de cumplimiento de su ley de contrataciones públicas, entre el 5 % y el 10 % del contrato, desde su fuente verificada (F-15, Ley 7021/2022, art. 71)",
+     "Una entidad pública de prueba, con la garantía bajo el mínimo y sobre el tope sembradas: el motor levanta cada señal, ninguna de más",
+     "Guatemala, cuando su ley y su reglamento vigentes estén entre las fuentes verificadas"
+    ],
+    "prueba": "La ronda 14 con Fidel y Constanza sobre la entidad pública de Paraguay: 3 de 3 señales y 156 de 156 datos, con su defecto corregido y verificado"
+   },
+   "en": {
+    "titulo": "Paraguay's public entity",
+    "entra": [
+     "The performance guarantee of its public procurement law, between 5% and 10% of the contract, from its verified source (F-15, Law 7021/2022, art. 71)",
+     "A public test entity, with the guarantee seeded below the minimum and over the cap: the engine raises each signal, none extra",
+     "Guatemala, once its current law and regulation are among the verified sources"
+    ],
+    "prueba": "Round 14 with Fidel and Constanza on Paraguay's public entity: 3 of 3 signals and 156 of 156 data points, with its defect fixed and verified"
+   }
   }
  ]
 }

@@ -380,7 +380,7 @@ every family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 | **Guatemala** | round 10 | banking, retail, control | 10 | 20 of 20 | 396 of 396 | No public entity: the guarantee rule is not among the verified sources |
 | **Costa Rica** | round 11 | banking, retail, public entity, control | 11 | 23 of 23 | 569 of 569 | SICOP · minimum guarantee of 5 % · guarantee up to 10 % (F-13) |
 | **Honduras** | round 12 | banking, retail, public entity, control | 12 | 22 of 22 | 569 of 569 | HonduCompras · minimum guarantee of 15 % (F-14) |
-| **Paraguay** | round 13 | banking, retail, control | 13 | 20 of 20 | 396 of 396 | No public entity: the guarantee rule is not among the verified sources |
+| **Paraguay** | round 13 | banking, retail, public entity, control | 13–14 | 23 of 23 | 552 of 552 | SICP · minimum guarantee of 5 % · guarantee up to 10 % (F-15) |
 <!-- /países probados -->
 
 Each entity carries its legal folder with six contracts —each with its amendment, its policy, the counterparty certificate and the evidence of its obligations— and three compliance periods; the public entity also carries each contract's publication record.
@@ -404,6 +404,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 1.4.0 | Released | **Paraguay**<br>· Its entry in the country registry, with each counterparty's RUC<br>· No public entity: the guarantee rule of the public procurement law is not among the verified sources<br>· Three test entities, one of them a control with no seeded defects | Round 13 with Fidel and Constanza |
 | 1.5.0 | Released | **The family at once, and each agent in words**<br>· The family installs with a single plugin, criterio-clo, which brings its agents and Rostrum (decision 0026)<br>· Its setup configures them all in one conversation, without asking again what was already answered<br>· Each agent is asked in words, by name, and runs the command that does it (decision 0027) | The full verification; the choice of command, in the entry test |
 | 1.6.0 | Released | **The clock, with a yes**<br>· At the end of the family setup, a single scheduled task that runs what is due today for each agent, on weekdays at 7:00 as a proposal (decision 0028)<br>· In Cowork, an app task; in Claude Code, the computer's scheduler; in both, only with an explicit yes<br>· The task only processes and writes to the state; it sends nothing<br>· Each agent's clock command, correctly named on the family page: it said share-findings | The full verification; the clock, in the version test |
+| Increment 12 | Next | **Paraguay's public entity**<br>· The performance guarantee of its public procurement law, between 5% and 10% of the contract, from its verified source (F-15, Law 7021/2022, art. 71)<br>· A public test entity, with the guarantee seeded below the minimum and over the cap: the engine raises each signal, none extra<br>· Guatemala, once its current law and regulation are among the verified sources | Round 14 with Fidel and Constanza on Paraguay's public entity: 3 of 3 signals and 156 of 156 data points, with its defect fixed and verified |
 
 <!-- /hoja de ruta -->
 
@@ -435,8 +436,8 @@ documentation.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Fidel** · Contracts | `criterio-legal` · 9 commands, 5 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Compliance | `criterio-compliance` · 9 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contracts | `criterio-legal` · 9 commands, 5 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Compliance | `criterio-compliance` · 9 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 <!-- /clo:estado -->
 

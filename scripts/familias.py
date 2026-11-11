@@ -586,6 +586,22 @@ def revisar_cuentas(fa: dict) -> list[str]:
     return err
 
 
+_PAISES_CONTRATACION = re.compile(r"(\d+) (?:países|countries)")
+
+
+def revisar_contratacion(fa: dict) -> list[str]:
+    """Cuántos países tiene la contratación pública de la CLO lo dice el registro único de países
+    (los que traen `contratacion_publica`), no el texto: la portada y el alcance lo citan."""
+    if fa.get("sigla") != "clo":
+        return []
+    registro = json.loads((P / "criterio-finance" / "scripts" / "paises.json").read_text(encoding="utf-8"))
+    n = sum(1 for p in registro["paises"] if p.get("contratacion_publica"))
+    texto = (F["dir"] / "familia.json").read_text(encoding="utf-8")
+    citas = {int(m.group(1)) for m in _PAISES_CONTRATACION.finditer(texto)
+             if "SECOP" in texto[max(0, m.start() - 40):m.start()] or texto[max(0, m.start() - 6):m.start()].strip() in ("En", "In")}
+    return [f"families/criterio-clo/familia.json cita {c} países de contratación pública y el registro trae {n}" for c in sorted(citas - {n})]
+
+
 def revisar_campos(fu: dict) -> list[str]:
     """Cada campo de factura que procesa el motor tiene que estar verificado en su fuente (ADR 0006, regla 2)."""
     if not F["motor"] or not F["motor"].is_file() or not F["lectores"]:
@@ -632,7 +648,7 @@ def una(clave: str, check: bool) -> tuple[list[str], int, int]:
     CLAVE[0] = clave
     fu, ca, fa = cargar("fuentes.json"), cargar("carpetas.json"), cargar("familia.json")
     hecha = construida(fa)
-    errores = revisar(fu, ca, fa) + revisar_cuentas(fa)
+    errores = revisar(fu, ca, fa) + revisar_cuentas(fa) + revisar_contratacion(fa)
     salidas: list[tuple[Path, str]] = [(F["dir"] / "FUENTES.es.md", fuentes_md(fu))]
     # El diseño, en los dos idiomas: las mismas tablas, de las mismas fuentes.
     for nombre_d, i in (("DISENO.es.md", "es"), ("DISENO.md", "en")):

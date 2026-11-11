@@ -1,0 +1,30 @@
+{
+  "n": 3,
+  "agente": "fidel",
+  "comando": "contract-register",
+  "argumento": "",
+  "inicio": "2026-11-11T16:39:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 35,
+  "turnos": 10,
+  "tokens": 444718,
+  "tokens_salida": 2763,
+  "costo_usd": 0.31232420000000005,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-11-11-contract-register-1.html",
+      ".criterio/corridas/legal/2026-11-11-contract-register-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/contratos/reporte-contract-register.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/2026-10-06-contract-register-1.md",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas/salida-contract-register.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      "estado-legal/88399201-9-instituto-publico-del-guaira-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
