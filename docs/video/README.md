@@ -26,6 +26,7 @@ el componente y esa hoja, los monta en una página propia y graba (el video de Y
 | `youtube/criterio-<familia>-youtube-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, unos noventa segundos | El canal de YouTube; no se versiona (pesa decenas de megas) |
 | `youtube/criterio-youtube-{es,en}.mp4` | Igual, el de Criterio completo | El canal de YouTube; no se versiona |
 | `linkedin/criterio-hoja-es.mp4` | Vertical 4:5, 1080×1350, H.264, poco más de un minuto | La hoja para la dirección, animada, para el post de LinkedIn; no se versiona |
+| `uso/tomas/<familia>-<idioma>/criterio-<familia>-uso-<idioma>.mp4` | Horizontal 16:9, 1920×1080, H.264, unos cinco minutos | El video de uso de cada familia: una sesión real de Claude Code, acelerada; se arma con [`uso/`](uso/README.md) y no se versiona |
 
 `FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`, `hoja`);
 `IDIOMAS=es` solo ese idioma.

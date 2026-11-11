@@ -38,7 +38,7 @@ const TEXTO = {
     piso: 'detectado como mínimo, con 95 % de confianza',
     rumbo: 'Hacia dónde vamos',
     instala: 'Instala Criterio.',
-    instalaSub: 'Empieza por la función que más te cuesta hoy.',
+    instalaSub: 'Empieza por el área que más te cuesta hoy.',
     licencia: 'Código abierto · Apache 2.0',
   },
   en: {
@@ -56,7 +56,7 @@ const TEXTO = {
     piso: 'caught at least, with 95% confidence',
     rumbo: 'Where we are going',
     instala: 'Install Criterio.',
-    instalaSub: 'Start with the function that costs you most today.',
+    instalaSub: 'Start with the area that costs you most today.',
     licencia: 'Open source · Apache 2.0',
   },
 };

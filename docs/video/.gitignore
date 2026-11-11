@@ -7,3 +7,5 @@ src/lib/
 youtube/
 # La hoja animada se sube a LinkedIn; su fuente es src/hoja.jsx.
 linkedin/
+# El video de uso: la toma, la configuración de su sesión y el video; la fuente es uso/guiones/.
+uso/tomas/

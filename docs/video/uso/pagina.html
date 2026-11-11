@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<!-- El video de uso: la terminal real a la derecha y el capítulo a la izquierda. La arma uso/render.mjs. -->
+<link rel="stylesheet" href="../node_modules/@xterm/xterm/css/xterm.css">
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/inter/index.css">
+<link rel="stylesheet" href="../node_modules/@fontsource-variable/inter-tight/index.css">
+<style>
+  :root { --negro:#050505; --crema:#f5f4ef; --oro:#d5a84b; --texto:#c9c6bd; --apagado:#8a867e; --filete:#2b2b28; }
+  html, body { margin:0; width:1920px; height:1080px; background:var(--negro); overflow:hidden;
+    font-family:"Inter Tight Variable","Inter Variable","Helvetica Neue",Arial,sans-serif; color:var(--crema); }
+  .lado { position:absolute; left:72px; top:96px; width:500px; }
+  .eyebrow { font:600 17px/1 "Inter Variable",Arial,sans-serif; letter-spacing:.16em; text-transform:uppercase; color:var(--oro); }
+  .n { margin-top:56px; font:500 132px/.9 "Inter Tight Variable",Arial,sans-serif; letter-spacing:-.05em; color:var(--oro); }
+  .titulo { margin-top:24px; font:500 46px/1.1 "Inter Tight Variable",Arial,sans-serif; letter-spacing:-.018em; }
+  .texto { margin-top:30px; font:400 26px/1.42 "Inter Tight Variable",Arial,sans-serif; color:var(--texto); min-height:220px; transition:opacity .25s; }
+  .bot { margin-top:34px; height:150px; }
+  .bot img { height:150px; }
+  .pasos { position:absolute; left:72px; bottom:72px; display:flex; gap:10px; }
+  .pasos i { width:44px; height:4px; background:var(--filete); }
+  .pasos i.on { background:var(--oro); }
+  .ventana { position:absolute; left:620px; top:96px; width:1236px; border:1px solid var(--filete); border-radius:10px; overflow:hidden; background:#0f0f0e; }
+  .barra { height:38px; display:flex; align-items:center; gap:8px; padding:0 16px; border-bottom:1px solid var(--filete); }
+  .barra i { width:12px; height:12px; border-radius:50%; background:#2b2b28; }
+  .barra span { margin-left:14px; font:500 15px/1 "Inter Variable",Arial,sans-serif; color:var(--apagado); }
+  #term { padding:12px 14px; }
+  .nota { position:absolute; left:620px; top:964px; font:500 17px/1 "Inter Variable",Arial,sans-serif; letter-spacing:.04em; color:var(--apagado); }
+  .marca { position:absolute; right:64px; top:964px; font:600 17px/1 "Inter Tight Variable",Arial,sans-serif; color:var(--apagado); }
+  .tarjeta { position:absolute; inset:0; background:var(--negro); display:none; flex-direction:column; justify-content:center; padding:0 160px; }
+  .tarjeta.on { display:flex; }
+  .tarjeta h1 { margin:28px 0 0; font:500 92px/1.02 "Inter Tight Variable",Arial,sans-serif; letter-spacing:-.045em; max-width:1400px; }
+  .tarjeta h1 span { color:var(--oro); }
+  .tarjeta p { margin:36px 0 0; font:400 32px/1.4 "Inter Tight Variable",Arial,sans-serif; color:var(--texto); max-width:1300px; }
+  .tarjeta code { display:inline-block; margin-top:48px; font:500 38px/1 "DejaVu Sans Mono",monospace; color:var(--crema); border:1px solid var(--filete); padding:22px 28px; border-radius:8px; }
+  .tarjeta .url { margin-top:40px; font:600 54px/1 "Inter Tight Variable",Arial,sans-serif; color:var(--oro); }
+  .tarjeta small { margin-top:34px; font:400 24px/1.4 "Inter Variable",Arial,sans-serif; color:var(--apagado); }
+  .robots { display:flex; gap:40px; margin-top:56px; }
+  .robots img { height:170px; }
+  .robots figure { margin:0; text-align:center; }
+  .robots figcaption { margin-top:14px; font:500 24px/1 "Inter Tight Variable",Arial,sans-serif; color:var(--crema); }
+</style></head>
+<body>
+  <div class="lado">
+    <div class="eyebrow" id="eyebrow"></div>
+    <div class="n" id="n"></div>
+    <div class="titulo" id="titulo"></div>
+    <div class="texto" id="texto"></div>
+    <div class="bot" id="bot"></div>
+  </div>
+  <div class="pasos" id="pasos"></div>
+  <div class="ventana"><div class="barra"><i></i><i></i><i></i><span id="ruta"></span></div><div id="term"></div></div>
+  <div class="nota" id="nota"></div>
+  <div class="marca">josenanez.com/es/agents</div>
+  <div class="tarjeta" id="intro"></div>
+  <div class="tarjeta" id="cierre"></div>
+<script src="../node_modules/@xterm/xterm/lib/xterm.js"></script>
+<script>
+  let term;
+  window.__preparar = (g, robots) => {
+    term = new Terminal({ cols: 120, rows: 36, fontFamily: '"DejaVu Sans Mono", monospace', fontSize: 16.8, lineHeight: 1.04,
+      cursorBlink: false, allowTransparency: false, scrollback: 0,
+      theme: { background: '#0f0f0e', foreground: '#e8e6df', cursor: '#0f0f0e' } });
+    term.open(document.getElementById('term'));
+    document.getElementById('eyebrow').textContent = g.eyebrow;
+    document.getElementById('ruta').textContent = `${g.carpeta} — Claude Code`;
+    document.getElementById('nota').textContent = g.nota;
+    const total = Math.max(...g.capitulos.map((c) => c.n));
+    document.getElementById('pasos').innerHTML = Array.from({ length: total }, () => '<i></i>').join('');
+    document.getElementById('intro').innerHTML = `<div class="eyebrow">${g.eyebrow}</div><h1>${g.intro.titulo}<br><span>${g.intro.sub}</span></h1>`
+      + `<div class="robots">${robots.map((r, i) => `<figure><img src="${r}"><figcaption>${g.intro.nombres[i]}</figcaption></figure>`).join('')}</div><p>${g.intro.texto}</p>`;
+    const c = g.cierre;
+    document.getElementById('cierre').innerHTML = `<div class="eyebrow">${g.eyebrow}</div><h1>${c.titulo}</h1>`
+      + `<code>${c.comando}</code><div class="url">${c.url}</div><small>${c.licencia}<br>${c.aviso}</small>`;
+  };
+  window.__escribir = (datos) => new Promise((ok) => term.write(datos, ok));
+  window.__capitulo = (c, bot) => {
+    document.getElementById('n').textContent = String(c.n);
+    document.getElementById('titulo').textContent = c.titulo;
+    document.getElementById('texto').textContent = c.texto;
+    document.getElementById('bot').innerHTML = bot ? `<img src="${bot}">` : '';
+    [...document.getElementById('pasos').children].forEach((el, i) => el.classList.toggle('on', i < c.n));
+  };
+  window.__tarjeta = (cual) => {
+    document.getElementById('intro').classList.toggle('on', cual === 'intro');
+    document.getElementById('cierre').classList.toggle('on', cual === 'cierre');
+  };
+</script>
+</body></html>

@@ -1,0 +1,208 @@
+{
+  "familia": "cfo",
+  "idioma": "es",
+  "titulo": "Criterio CFO · Cómo se usa la familia completa",
+  "eyebrow": "Criterio CFO · Cómo se usa",
+  "carpeta": "banco-andino",
+  "nota": "Grabación real de Claude Code · acelerada · material sintético",
+  "desde": 12.0,
+  "hasta": 1470.0,
+  "escrito": [
+    "/plugin marketplace add josenanez/criterio",
+    "/plugin install criterio-cfo@criterio",
+    "/criterio-cfo:cfo-setup",
+    "Sí, es esa.",
+    "Sí. El nombre legal es Banco Andino S.A.",
+    "Sí, confirmo.",
+    "Sí, septiembre de 2026.",
+    "Sí, son esas.",
+    "Sí, esas cuatro.",
+    "Sí, úsalo tal cual.",
+    "Sí, Sofía León aprueba. Usa los festivos de Colombia de 2026.",
+    "Sí, ahí.",
+    "Sí, acepto. Usuario de demostración.",
+    "Sí, márcala.",
+    "Sí, 2026 con corte a septiembre.",
+    "Rige la v2.",
+    "No lo tengo a mano: déjalas por nombre de área.",
+    "Sí, esos.",
+    "El próximo comité es el 10 de diciembre de 2026.",
+    "Sí, acepto. Usuario de demostración.",
+    "Sí, confirmo.",
+    "Sí, esos.",
+    "Sí, acepto. Usuario de demostración.",
+    "Por ahora no; lo corro a mano.",
+    "/criterio-treasury:aurea ¿Hay algún pago programado que no tenga las aprobaciones que pide la política?",
+    "/criterio-finance:clara ¿Qué falta para cerrar septiembre?"
+  ],
+  "ocultar": [
+    "✘ Auto-update failed · Run claude doctor"
+  ],
+  "entradas": {
+    "0": {
+      "dur": 3.0,
+      "sostener": 3.0
+    },
+    "1": {
+      "dur": 6.0,
+      "sostener": 4.0
+    },
+    "2": {
+      "sostener": 5.0
+    },
+    "3": {
+      "sostener": 5.0
+    },
+    "4": {
+      "sostener": 5.0
+    },
+    "12": {
+      "sostener": 4.5
+    },
+    "13": {
+      "anclas": [
+        [
+          432.6,
+          2.0,
+          5.0
+        ],
+        [
+          1035.3,
+          0.3,
+          0
+        ],
+        [
+          1077.3,
+          9.0,
+          6.0
+        ],
+        [
+          1117.2,
+          5.0,
+          4.5
+        ]
+      ]
+    },
+    "19": {
+      "dur": 7.0,
+      "sostener": 5.0
+    },
+    "22": {
+      "dur": 6.0,
+      "sostener": 11.0
+    },
+    "23": {
+      "dur": 4.0,
+      "sostener": 8.0
+    },
+    "24": {
+      "dur": 6.0,
+      "sostener": 10.0
+    },
+    "25": {
+      "dur": 7.0,
+      "sostener": 10.0
+    }
+  },
+  "capitulos": [
+    {
+      "desde": 12.0,
+      "n": 1,
+      "titulo": "Instalar la familia",
+      "agente": null,
+      "texto": "Dos comandos en Claude Code: el catálogo de Criterio y la familia CFO. Instala a Clara, Tomás y Áurea, y a Rostrum, el portal."
+    },
+    {
+      "desde": 105.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "clara",
+      "texto": "Clara, el cierre. Mira la carpeta, propone lo que encontró y pregunta solo lo que ningún documento dice: la entidad, el marco contable, el periodo y quién aprueba."
+    },
+    {
+      "desde": 401.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "clara",
+      "texto": "Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración."
+    },
+    {
+      "desde": 432.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "clara",
+      "texto": "Claude Code pide permiso para abrir las instrucciones del agente. Se autoriza una vez."
+    },
+    {
+      "desde": 1035.5,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "clara",
+      "texto": "El primer resultado de Clara: cada tarea del cierre contra su evidencia. La C-02 figura cumplida y no tiene soporte."
+    },
+    {
+      "desde": 1078.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "tomas",
+      "texto": "Tomás, el presupuesto. Lo que ya se respondió no se vuelve a preguntar: solo pide confirmarlo."
+    },
+    {
+      "desde": 1276.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "aurea",
+      "texto": "Áurea, la tesorería: la caja, los pagos y la deuda contra su política. Nunca mueve dinero."
+    },
+    {
+      "desde": 1343.0,
+      "n": 3,
+      "titulo": "El primer resultado, en una tabla",
+      "agente": null,
+      "texto": "Lo que encontró cada agente, con su cifra: el cierre con menos avance del que se declara, una línea 15 % por encima de lo aprobado y una cuenta bajo su mínimo."
+    },
+    {
+      "desde": 1358.5,
+      "n": 4,
+      "titulo": "El reloj, solo con un sí",
+      "agente": null,
+      "texto": "La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano."
+    },
+    {
+      "desde": 1384.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "aurea",
+      "texto": "A cada agente se le pide en lenguaje natural. Áurea encuentra un pago de 30.000.000,00 con 1 de las 2 aprobaciones que pide la política."
+    },
+    {
+      "desde": 1424.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "clara",
+      "texto": "Clara dice qué falta para cerrar septiembre: las tareas vencidas, la ruta crítica y la fuente de cada dato."
+    }
+  ],
+  "intro": {
+    "titulo": "Cómo se usa la familia CFO,",
+    "sub": "de la instalación al primer resultado.",
+    "robots": [
+      "clara",
+      "tomas",
+      "aurea"
+    ],
+    "texto": "Una sesión real de Claude Code, acelerada, sobre Banco Andino S.A., una organización de prueba con material sintético.",
+    "nombres": [
+      "Clara",
+      "Tomás",
+      "Áurea"
+    ]
+  },
+  "cierre": {
+    "titulo": "Instala Criterio.",
+    "comando": "/plugin marketplace add josenanez/criterio",
+    "url": "josenanez.com/es/agents",
+    "licencia": "Código abierto · Apache 2.0",
+    "aviso": "Grabación real de Claude Code, acelerada. Banco Andino S.A. es una organización de prueba: el material es sintético."
+  }
+}
