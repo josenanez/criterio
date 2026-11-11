@@ -1,4 +1,4 @@
-# Criterio CFO · La función financiera · la familia completa
+# Criterio CFO · El área financiera · la familia completa
 
 [English](README.md) · `criterio-cfo` · Apache 2.0
 

@@ -3,7 +3,7 @@ name: legal-intake
 description: "Qué documentos procesa la familia CLO, dónde va cada uno, qué tablas procesa el motor directamente y qué extrae el agente a la ficha. Úsalo al recorrer la carpeta legal de una entidad, al recibir un contrato, un otrosí, una póliza o una matriz nueva, al explicar dónde va un archivo o cuando una exportación no trae las columnas esperadas. Legal and compliance document intake, folder structure."
 ---
 
-# Los documentos de la función legal y de cumplimiento
+# Los documentos del área legal y de cumplimiento
 
 ## Dos clases de documento, dos formas de procesarlo
 

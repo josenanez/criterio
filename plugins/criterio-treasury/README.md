@@ -1,4 +1,4 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cfo-claro.svg" alt="Criterio CFO · The finance function" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cfo-claro.svg" alt="Criterio CFO · The finance area" height="48"></picture>
 
 # Áurea · Treasury
 
@@ -78,7 +78,7 @@ no cash minimum and no approvers by amount, and the report says so.
 
 ### What it costs today
 
-The verified figures for the finance function —with their source, year and sample— are on the
+The verified figures for the finance area —with their source, year and sample— are on the
 [family page](../../families/criterio-cfo/README.md) and in
 [`FUENTES.es.md`](../../families/criterio-cfo/FUENTES.es.md). The one that hits treasury head-on is
 payments fraud: a payment that goes out without the approvals its amount requires is exactly what

@@ -10,7 +10,7 @@ engine and the agent, in [ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-
 
 **This is the family's design sheet**: the documents it processes, the signals the code calculates, each command with its input, process and report, and the decisions taken. What the family does, how it is installed, its records and their invariants, the folder structure, Rostrum, the cadence, the tests and the roadmap are on its [page](README.md).
 
-Three agents that extend the capacity of the finance function: they prepare the work of the close, the budget and
+Three agents that extend the capacity of the finance area: they prepare the work of the close, the budget and
 treasury, and check it against all of its evidence to flag what does not tie out, what has no
 support and what is reported differently from what the documents say. The large language model
 (LLM) extracts; the code calculates; the status of the close and of the budget is always declared

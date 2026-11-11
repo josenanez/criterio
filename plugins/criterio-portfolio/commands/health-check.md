@@ -10,7 +10,7 @@ allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(
 
 > **Cómo se trabaja sin pedir permiso a cada paso:** los scripts se llaman por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/…"`, uno por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. Un comando compuesto o un script buscado por el disco pide una aprobación cada vez, y en un barrido eso son cientos. **Y sin subagentes en paralelo:** se leen hasta `execution.workers` proyectos a la vez según la configuración —1 si no lo dice, que es uno tras otro en esta misma conversación—; nunca más por decisión propia. El arnés cuenta los subagentes de cada corrida y marca la que se exceda.
 > **Antes de producir nada:** corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/portafolio.py" terminos --config <config>`. Si no está vigente —falta, es de otra versión de la familia o el texto de los términos cambió—, muestra tal cual su `en_corto` con el enlace a la nota legal, pide un sí explícito y regístralo con `portafolio.py aceptar --config <config> --por "<nombre>"`, que deja el comprobante en Markdown y PDF. Sin eso, responde preguntas pero no generes el diagnóstico.
-> Abre declarando cuántos documentos leíste y de qué fechas. Cierra con el pie de rigor.
+> Abre declarando cuántos documentos procesaste y de qué fechas. Cierra con el pie de rigor.
 
 ## Antes de leer nada
 
@@ -77,7 +77,7 @@ conteo de los tres.
 ```markdown
 ## Diagnóstico · [Proyecto] · [fecha]
 
-**Leí:** [N] documentos · [rango de fechas] · formatos: [lista]
+**Procesé:** [N] documentos · [rango de fechas] · formatos: [lista]
 **No pude leer:** [cuáles y por qué]
 
 ### Dictamen

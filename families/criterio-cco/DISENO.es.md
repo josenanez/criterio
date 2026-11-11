@@ -11,7 +11,7 @@ rondas: el piso del margen del 95 % es 98,0 % en señales y 95,1 % en datos. Alc
 
 **Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, sus fichas y sus invariantes, la estructura de carpetas, Rostrum, la cadencia, las pruebas y la hoja de ruta están en su [página](README.es.md).
 
-Dos agentes que extienden la capacidad de la función comercial: procesan las exportaciones del CRM,
+Dos agentes que extienden la capacidad del área comercial: procesan las exportaciones del CRM,
 la evidencia de cada oportunidad, las cotizaciones y la liquidación de comisiones, y las contrastan
 contra la tabla de etapas, la matriz de descuentos, el plan de comisiones y las fichas de Fidel y
 de Clara. El modelo de lenguaje (LLM) extrae; el código calcula; la decisión —el pronóstico que se
@@ -192,7 +192,7 @@ Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.e
 
 ## Decisiones cerradas
 
-- El alcance: la función comercial, con dos agentes, sus nueve señales y lo que nunca hacen (ADR
+- El alcance: el área comercial, con dos agentes, sus nueve señales y lo que nunca hacen (ADR
   0019). José, 2026-10-28.
 - Los nombres, Augusto y Valeria. José, 2026-10-28.
 - Las exportaciones: Salesforce y HubSpot con su lector, y cualquier CSV o Excel con su mapeo de

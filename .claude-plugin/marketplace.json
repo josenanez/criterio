@@ -52,7 +52,7 @@
     },
     {
       "name": "criterio-cfo",
-      "description": "La familia CFO completa, la función financiera: instala de una vez a Clara, Tomás y Áurea y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cfo:cfo-setup.",
+      "description": "La familia CFO completa, el área financiera: instala de una vez a Clara, Tomás y Áurea y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cfo:cfo-setup.",
       "source": "./plugins/criterio-cfo",
       "category": "finance"
     },
@@ -88,7 +88,7 @@
     },
     {
       "name": "criterio-cco",
-      "description": "La familia CCO completa, la función comercial: instala de una vez a Augusto y Valeria y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cco:cco-setup.",
+      "description": "La familia CCO completa, el área comercial: instala de una vez a Augusto y Valeria y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-cco:cco-setup.",
       "source": "./plugins/criterio-cco",
       "category": "sales"
     },

@@ -85,14 +85,14 @@ entidad nueva entra volviendo a correr `server-setup`.
 | **Criterio PMO** · Gobierno de proyectos | Vera | `/criterio-portfolio:portfolio-setup` | `.criterio/portafolio/` | `_CRITERIO_PORTAFOLIO.txt` |
 | **Criterio PMO** · Gobierno de proyectos | Samuel | `/criterio-project:pm-setup` | `.criterio/proyecto/<instancia>/` | `_CRITERIO_PROYECTO.txt` |
 | **Criterio PMO** · Gobierno de proyectos | Alba | `/criterio-product:product-setup` | `.criterio/producto/<instancia>/` | `_CRITERIO_PRODUCTO.txt` |
-| **Criterio CFO** · La función financiera | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
-| **Criterio CFO** · La función financiera | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
-| **Criterio CFO** · La función financiera | Áurea | `/criterio-treasury:treasury-setup` | `.criterio/tesoreria/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · El área financiera | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · El área financiera | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · El área financiera | Áurea | `/criterio-treasury:treasury-setup` | `.criterio/tesoreria/<instancia>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contratos y cumplimiento | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instancia>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio EA** · Dirección | Ofelia | `/criterio-assistant:ea-setup` | `.criterio/direccion/<instancia>/` | `_CRITERIO_DIRECCION.txt` |
-| **Criterio CCO** · La función comercial | Augusto | `/criterio-sales:sales-setup` | `.criterio/comercial/<instancia>/` | `_CRITERIO_COMERCIAL.txt` |
-| **Criterio CCO** · La función comercial | Valeria | `/criterio-revenue:revenue-setup` | `.criterio/ingresos/<instancia>/` | `_CRITERIO_COMERCIAL.txt` |
+| **Criterio CCO** · El área comercial | Augusto | `/criterio-sales:sales-setup` | `.criterio/comercial/<instancia>/` | `_CRITERIO_COMERCIAL.txt` |
+| **Criterio CCO** · El área comercial | Valeria | `/criterio-revenue:revenue-setup` | `.criterio/ingresos/<instancia>/` | `_CRITERIO_COMERCIAL.txt` |
 | **Criterio CISO** · La seguridad de la información | Alexis | `/criterio-security:security-setup` | `.criterio/seguridad/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CISO** · La seguridad de la información | Guillermo | `/criterio-vulnerability:vuln-setup` | `.criterio/vulnerabilidades/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CISO** · La seguridad de la información | Amparo | `/criterio-resilience:resilience-setup` | `.criterio/resiliencia/<instancia>/` | `_CRITERIO_SEGURIDAD.txt` |

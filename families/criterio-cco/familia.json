@@ -6,8 +6,8 @@
   "categoria": "sales",
   "adr": "0019-scope-comercial-cso.md",
   "nombre": {
-    "es": "La función comercial",
-    "en": "The commercial function"
+    "es": "El área comercial",
+    "en": "The commercial area"
   },
   "estado": {
     "es": "Construida · probada",
@@ -615,7 +615,7 @@
     ],
     "es": {
       "eyebrow": "Criterio · Familia CCO",
-      "titulo": "Dos agentes para la función comercial",
+      "titulo": "Dos agentes paral área comercial",
       "sub": "Procesan las exportaciones del CRM, las cotizaciones y la liquidación de comisiones, y dicen qué pronóstico no tiene respaldo y qué venta no llegó a la factura.",
       "ficha": "LAS FICHAS DE LA ENTIDAD",
       "fichaNota": "Augusto y Valeria dejan aquí su resultado, con su cita; parten de lo que deja el otro y de las fichas de Fidel y Clara.",
@@ -631,7 +631,7 @@
           "texto": "CRITERIO · FAMILIA CCO"
         },
         {
-          "texto": "La función comercial con dos agentes. Cada uno extiende a una persona del área comercial; ninguno la reemplaza."
+          "texto": "El área comercial con dos agentes. Cada uno extiende a una persona del área comercial; ninguno la reemplaza."
         },
         {
           "quien": "augusto",
@@ -661,7 +661,7 @@
     },
     "en": {
       "eyebrow": "Criterio · CCO family",
-      "titulo": "Two agents for the commercial function",
+      "titulo": "Two agents for the commercial area",
       "sub": "They process the CRM exports, the quotes and the commission settlement, and tell you which forecast has no backing and which sale never reached the invoice.",
       "ficha": "THE ENTITY’S RECORDS",
       "fichaNota": "Augusto and Valeria leave their results here, with their citations; they start from what the other leaves and from Fidel’s and Clara’s records.",
@@ -677,7 +677,7 @@
           "texto": "CRITERIO · CCO FAMILY"
         },
         {
-          "texto": "The commercial function with two agents. Each one extends one person in sales; neither replaces them."
+          "texto": "The commercial area with two agents. Each one extends one person in sales; neither replaces them."
         },
         {
           "quien": "augusto",

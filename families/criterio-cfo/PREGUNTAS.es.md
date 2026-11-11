@@ -6,7 +6,7 @@ Las respuestas cortas a lo que suele preguntar quien llega a la familia de cierr
 
 ### ¿Qué hacen Clara y Tomás?
 
-Procesan lo que la función financiera ya tiene. Clara, contralora, prepara el cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, cada factura electrónica contra su registro y el paquete para el auditor. Tomás, FP&A, pone el presupuesto aprobado al lado de lo ejecutado y lo comprometido, proyecta el cierre del año y prepara el material del comité de presupuesto.
+Procesan lo que el área financiera ya tiene. Clara, contralora, prepara el cierre mensual con su checklist y su evidencia, las conciliaciones bancarias y de cuentas, cada factura electrónica contra su registro y el paquete para el auditor. Tomás, FP&A, pone el presupuesto aprobado al lado de lo ejecutado y lo comprometido, proyecta el cierre del año y prepara el material del comité de presupuesto.
 
 ### ¿Reemplazan al contralor o al equipo de presupuesto?
 
@@ -24,7 +24,7 @@ Con el marco contable que adoptó cada país —las NIIF en Colombia, Ecuador, P
 
 ### ¿Qué documentos procesan?
 
-Los que la función financiera ya produce, como estén: el balance de comprobación y el libro mayor exportados del ERP, los auxiliares y extractos de bancos, las facturas electrónicas en XML, el checklist del cierre, los requerimientos del auditor, el presupuesto aprobado y sus versiones, las órdenes de compra y las actas del comité de presupuesto.
+Los que el área financiera ya produce, como estén: el balance de comprobación y el libro mayor exportados del ERP, los auxiliares y extractos de bancos, las facturas electrónicas en XML, el checklist del cierre, los requerimientos del auditor, el presupuesto aprobado y sus versiones, las órdenes de compra y las actas del comité de presupuesto.
 
 ### ¿Necesito cambiar mi ERP?
 

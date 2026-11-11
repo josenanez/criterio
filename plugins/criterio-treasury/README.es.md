@@ -1,4 +1,4 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cfo-claro.svg" alt="Criterio CFO · La función financiera" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cfo-claro.svg" alt="Criterio CFO · El área financiera" height="48"></picture>
 
 # Áurea · Tesorería
 
@@ -78,7 +78,7 @@ mínimo de caja ni aprobadores por monto, y el reporte lo dice.
 
 ### Lo que cuesta hoy
 
-Las cifras verificadas de la función financiera —con su fuente, su año y su muestra— están en la
+Las cifras verificadas del área financiera —con su fuente, su año y su muestra— están en la
 [página de la familia](../../families/criterio-cfo/README.es.md) y en
 [`FUENTES.es.md`](../../families/criterio-cfo/FUENTES.es.md). La que toca de lleno a la tesorería es
 la del fraude en pagos: un pago que sale sin las aprobaciones que pide su monto es justo lo que

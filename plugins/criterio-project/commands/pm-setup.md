@@ -78,7 +78,7 @@ las guarda necesita saberlo antes que nada.
 
 Una a la vez, cada una con su propuesta:
 
-1. **Quién eres y qué proyecto es.** Propón lo que leíste del acta de constitución.
+1. **Quién eres y qué proyecto es.** Propón lo que encontraste en el acta de constitución.
 2. **Cuándo es tu reunión de seguimiento.** De ahí sale la cadencia. Propón el día de la
    semana que veas repetido en los nombres de las minutas.
 3. **Dónde guardo lo que voy encontrando.** Propón `<raíz>/estado/<carpeta del proyecto>`
@@ -232,6 +232,8 @@ Y en la salida, en «Cuándo vuelvo», di si quedó la tarea, a qué hora y dón
 > Si Criterio te sirve, dale una estrella en https://github.com/josenanez/criterio: así lo encuentran otros que lo necesitan.
 
 Una sola vez y sin insistir: ningún otro comando la repite.
+
+**Cómo hablas de los documentos.** Los procesas, no los lees: a la persona le dices «procesé», «encontré» o «crucé contra…», nunca «leí» ni «estuve leyendo».
 <!-- /reloj -->
 
 ## Deja la corrida registrada

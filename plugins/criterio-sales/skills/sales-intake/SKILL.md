@@ -3,7 +3,7 @@ name: sales-intake
 description: "Qué documentos procesa la familia CCO, dónde va cada uno, qué tablas procesa el motor directamente y qué extrae el agente a la ficha. Úsalo al recorrer la carpeta comercial de una entidad, al recibir una exportación del CRM, una propuesta, una orden de compra, una cotización o una liquidación, al explicar dónde va un archivo o cuando una tabla no trae las columnas esperadas. Sales document intake, folder structure."
 ---
 
-# Los documentos de la función comercial
+# Los documentos del área comercial
 
 ## Dos clases de documento, dos formas de procesarlo
 
@@ -37,7 +37,7 @@ Una exportación del CRM puede traer el correo o el teléfono de un contacto. El
 <!-- cco:intake · generado por scripts/familias.py; no se edita a mano -->
 Recomendada, no obligatoria: el motor procesa la carpeta como esté, y el inventario dice qué archivo está fuera de su lugar y dónde iría (ADR 0007). Las exportaciones del CRM tienen un solo lugar, `10-crm/`: Augusto procesa el embudo y Valeria toma de ahí lo ganado para cruzarlo con los contratos y las facturas.
 
-Una carpeta por entidad, con el NIT o el RFC al inicio del nombre. Dentro, la referencia de la función comercial, las exportaciones del CRM con su fecha, el comité, la evidencia de cada oportunidad, las cotizaciones y las liquidaciones de comisiones.
+Una carpeta por entidad, con el NIT o el RFC al inicio del nombre. Dentro, la referencia del área comercial, las exportaciones del CRM con su fecha, el comité, la evidencia de cada oportunidad, las cotizaciones y las liquidaciones de comisiones.
 
 ```
 comercial/
@@ -51,7 +51,7 @@ comercial/
 estado-comercial/
 ```
 
-**`<entidad>/`** · Lo que la organización lleva para toda la función comercial
+**`<entidad>/`** · Lo que la organización lleva para todal área comercial
 
 | Carpeta | Qué va | Agente |
 |---|---|---|

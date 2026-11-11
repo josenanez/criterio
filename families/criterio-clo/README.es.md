@@ -1,9 +1,9 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-clo-oscuro.svg"><img src="../../docs/img/marca/es/criterio-clo-claro.svg" alt="Criterio CLO · Contratos y cumplimiento" height="48"></picture>
 
-# criterio-clo · la familia de la función legal
+# criterio-clo · la familia del área legal
 
 **Dos agentes y un portal, alrededor de sus fichas.** Cada uno extiende a una persona distinta
-de la función legal —quien lleva los contratos y quien responde por el cumplimiento—, y cada uno
+del área legal —quien lleva los contratos y quien responde por el cumplimiento—, y cada uno
 deja su resultado en su ficha, de donde parte el otro.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
@@ -29,7 +29,7 @@ deja su resultado en su ficha, de donde parte el otro.
 
 ![La familia: Fidel y Constanza, cada uno con sus fichas](../../docs/img/es/familia-clo.png)
 
-La función legal tiene dos roles que trabajan sobre los mismos documentos y responden por cosas
+El área legal tiene dos roles que trabajan sobre los mismos documentos y responden por cosas
 distintas, y por eso la familia tiene dos agentes. Llevan nombre de persona porque **son
 capacidades extendidas de personas**, y el significado de cada nombre apunta a lo que hace:
 **Fidel** —de *fides*, la palabra dada— cuida que lo firmado se cumpla; **Constanza** —de

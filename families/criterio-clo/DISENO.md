@@ -9,7 +9,7 @@ control entities (`tests/criterio-clo/`), and the agents passed the full round o
 
 **This is the family's design sheet**: the documents it processes, the signals the code calculates, each command with its input, process and report, and the decisions taken. What the family does, how it is installed, its records and their invariants, the folder structure, Rostrum, the cadence, the tests and the roadmap are on its [page](README.md).
 
-Two agents that extend the capacity of the legal function: they process what the company signed and
+Two agents that extend the capacity of the legal area: they process what the company signed and
 what it committed to comply with, and check it against all of its evidence to flag what falls due,
 what has no evidence, who signed without authority and what was paid outside what was agreed. The
 large language model (LLM) extracts; the code calculates; the decision —to renew, to terminate, how

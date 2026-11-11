@@ -1,4 +1,4 @@
-# Criterio CCO · The commercial function · the whole family
+# Criterio CCO · The commercial area · the whole family
 
 [Español](README.es.md) · `criterio-cco` · Apache 2.0
 

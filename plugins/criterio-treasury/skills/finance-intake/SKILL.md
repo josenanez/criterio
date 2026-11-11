@@ -4,7 +4,7 @@ description: "Qué documentos procesa la familia CFO, dónde va cada uno, qué p
 ---
 <!-- COPIA · la fuente es plugins/criterio-finance/skills/finance-intake/. La escribe scripts/sincronizar.py y no se edita aquí. -->
 
-# Los documentos de la función financiera
+# Los documentos del área financiera
 
 ## Dos clases de documento, dos formas de procesarlo
 

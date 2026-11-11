@@ -1,9 +1,9 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cco-claro.svg" alt="Criterio CCO · La función comercial" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cco-claro.svg" alt="Criterio CCO · El área comercial" height="48"></picture>
 
-# criterio-cco · la familia de la función comercial
+# criterio-cco · la familia del área comercial
 
 **Dos agentes y un portal, alrededor de sus fichas.** Cada uno extiende a una persona distinta de
-la función comercial —quien responde por el pronóstico y quien responde por lo vendido hasta la
+el área comercial —quien responde por el pronóstico y quien responde por lo vendido hasta la
 factura—, y cada uno deja su resultado en su ficha, de donde parten el otro, Fidel y Clara.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
@@ -12,7 +12,7 @@ factura—, y cada uno deja su resultado en su ficha, de donde parten el otro, F
 
 | | |
 |---|---|
-| **Alcance** | La función comercial de una entidad: el embudo del CRM contra su evidencia, el pronóstico contra lo que lo sostiene, la meta contra lo cerrado, el descuento contra su política, lo ganado contra lo firmado y lo facturado, y la comisión contra el plan |
+| **Alcance** | El área comercial de una entidad: el embudo del CRM contra su evidencia, el pronóstico contra lo que lo sostiene, la meta contra lo cerrado, el descuento contra su política, lo ganado contra lo firmado y lo facturado, y la comisión contra el plan |
 | **Objetivo** | Que lo que se compromete en el comité comercial tenga detrás los documentos que lo sostienen, y que ninguna venta se quede entre el cierre y la factura |
 | **Compuesta por** | [Augusto](../../plugins/criterio-sales/README.es.md) · [Valeria](../../plugins/criterio-revenue/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define el rol, el formato de cada exportación del CRM y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
@@ -27,7 +27,7 @@ factura—, y cada uno deja su resultado en su ficha, de donde parten el otro, F
 
 ## Qué hace la familia
 
-La función comercial tiene dos roles que trabajan sobre las mismas exportaciones del CRM y
+El área comercial tiene dos roles que trabajan sobre las mismas exportaciones del CRM y
 responden por cosas distintas, y por eso la familia tiene dos agentes. Llevan nombre de persona
 porque **son capacidades extendidas de personas**, y el significado de cada nombre apunta a lo que
 hace: **Augusto** —de *augur*, el que lee las señales antes de que pasen— pone el pronóstico al
@@ -130,7 +130,7 @@ mueven ni renombran nada en los documentos de la organización. La numeración v
 como en las demás familias.
 
 <!-- cco:carpetas · generado por scripts/familias.py; no se edita a mano -->
-Una carpeta por entidad, con el NIT o el RFC al inicio del nombre. Dentro, la referencia de la función comercial, las exportaciones del CRM con su fecha, el comité, la evidencia de cada oportunidad, las cotizaciones y las liquidaciones de comisiones.
+Una carpeta por entidad, con el NIT o el RFC al inicio del nombre. Dentro, la referencia del área comercial, las exportaciones del CRM con su fecha, el comité, la evidencia de cada oportunidad, las cotizaciones y las liquidaciones de comisiones.
 
 ```
 comercial/
@@ -144,7 +144,7 @@ comercial/
 estado-comercial/
 ```
 
-**`<entidad>/`** · Lo que la organización lleva para toda la función comercial
+**`<entidad>/`** · Lo que la organización lleva para todal área comercial
 
 | Carpeta | Qué va | Agente |
 |---|---|---|

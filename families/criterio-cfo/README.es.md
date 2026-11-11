@@ -1,10 +1,10 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cfo-claro.svg" alt="Criterio CFO · La función financiera" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cfo-claro.svg" alt="Criterio CFO · El área financiera" height="48"></picture>
 
-# criterio-cfo · la familia de la función financiera
+# criterio-cfo · la familia del área financiera
 
 **Cada cifra que firma el CFO, sostenida por su evidencia.** La familia extiende la oficina del CFO
 con tres agentes y un portal, alrededor de sus fichas. Cada uno extiende a una persona distinta
-de la función financiera —quien cierra los libros, quien lleva el presupuesto y quien cuida la
+del área financiera —quien cierra los libros, quien lleva el presupuesto y quien cuida la
 caja—, y cada uno deja su resultado en su ficha, de donde parten los demás.
 
 [English](README.md) · [← Criterio](../../README.es.md) · Apache 2.0
@@ -13,14 +13,14 @@ caja—, y cada uno deja su resultado en su ficha, de donde parten los demás.
 
 | | |
 |---|---|
-| **Alcance** | La función financiera de una entidad: los libros contra sus soportes, el presupuesto contra su ejecución y la caja, los pagos y la deuda contra su política |
+| **Alcance** | El área financiera de una entidad: los libros contra sus soportes, el presupuesto contra su ejecución y la caja, los pagos y la deuda contra su política |
 | **Objetivo** | Que el cierre deje de depender de que alguien recuerde qué falta |
 | **Compuesta por** | [Clara](../../plugins/criterio-finance/README.es.md) · [Tomás](../../plugins/criterio-budget/README.es.md) · [Áurea](../../plugins/criterio-treasury/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define cada rol y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
 | **Estado** | Construida y probada sobre material sintético de cinco países —Colombia, Ecuador, Perú, Chile y México—: el motor, contra las quince entidades del material; los tres agentes, en [las rondas con el agente](../../tests/evidencias/familias/cfo/RONDAS.md), la más reciente la 6, sobre México. **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Control y reporte |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
-| **Qué no es** | No reemplaza al contralor, al equipo de planeación financiera ni a la tesorería, y no decide por ellos: procesa lo que la función ya tiene y dice qué no cuadra |
+| **Qué no es** | No reemplaza al contralor, al equipo de planeación financiera ni a la tesorería, y no decide por ellos: procesa lo que el área ya tiene y dice qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
 | **Qué viene** | Brasil, en la 1.0: [la hoja de ruta](#hoja-de-ruta) |
 
@@ -30,7 +30,7 @@ caja—, y cada uno deja su resultado en su ficha, de donde parten los demás.
 
 ![La familia: Clara, Tomás y Áurea, una ficha cada uno](../../docs/img/es/familia-cfo.png)
 
-La función financiera tiene tres roles que trabajan sobre los mismos libros y miran cosas
+El área financiera tiene tres roles que trabajan sobre los mismos libros y miran cosas
 distintas, y por eso la familia tiene tres agentes. Llevan nombre de persona porque **son
 capacidades extendidas de personas**, y el significado de cada nombre apunta a lo que hace:
 **Clara** —de *clarus*— cuida que los libros digan lo mismo que los soportes; **Tomás** —«el
@@ -331,7 +331,7 @@ operativo invocando Claude en modo no interactivo. El setup de la familia ofrece
 
 Y para que corra sin nadie delante hacen falta dos cosas que no dependen de este repositorio:
 **que la sesión pueda correr sin aprobar cada paso**, y **que la carpeta esté montada cuando el
-reloj dispare.** Si la organización no quiere corridas desatendidas —y en una función financiera
+reloj dispare.** Si la organización no quiere corridas desatendidas —y en un área financiera
 es una respuesta razonable—, los comandos sirven corridos a mano y la cadencia sigue diciendo qué
 toca.
 

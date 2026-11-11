@@ -4,7 +4,7 @@ description: "Qué documentos procesa la familia CLO, dónde va cada uno, qué t
 ---
 <!-- COPIA · la fuente es plugins/criterio-legal/skills/legal-intake/. La escribe scripts/sincronizar.py y no se edita aquí. -->
 
-# Los documentos de la función legal y de cumplimiento
+# Los documentos del área legal y de cumplimiento
 
 ## Dos clases de documento, dos formas de procesarlo
 

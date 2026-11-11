@@ -52,8 +52,8 @@ su tiempo hasta el primer resultado y su sección de lo que nunca hace. **Si fal
 ## La marca
 
 **Criterio. La evidencia antes de la decisión.** Criterio es una **plataforma de familias de
-agentes**: cada familia extiende una función ejecutiva completa —gobierno de proyectos, finanzas,
-legal y las que vienen—, y todas comparten un método, una marca y un portal, Rostrum. No se dice
+agentes**: cada familia cubre un área completa de la empresa —proyectos, finanzas, legal, comercial,
+seguridad y la oficina de la presidencia—, y todas comparten un método, una marca y un portal, Rostrum. No se dice
 «market de agentes»: sugiere un catálogo de terceros que se compran por separado. (`/plugin
 marketplace` sigue siendo el comando con que Claude instala los plugins; eso es mecánica, no
 posicionamiento.)
@@ -63,7 +63,7 @@ posicionamiento.)
 | Nivel | Regla de nombre | Cómo se escribe |
 |---|---|---|
 | Plataforma | Criterio, sin región ni añadidos | **Criterio** |
-| Familia | Criterio + la sigla del cargo que extiende + la función en palabras | **Criterio CFO** · La función financiera |
+| Familia | Criterio + la sigla del cargo que extiende + la función en palabras | **Criterio CFO** · El área financiera |
 | Agente | Un nombre de persona cuyo significado apunta al oficio, con su rol y su robot | **Clara** · Contralora |
 | Plugin | `criterio-` + el objeto sobre el que trabaja, en inglés | `criterio-finance` |
 | Portal | Un objeto, no una persona: el mismo para todas las familias | **Rostrum** |

@@ -14,10 +14,10 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.2.3 | Estable | — |
-| Criterio CFO · La función financiera | Clara, Tomás, Áurea | 1.5.4 | Estable | — |
+| Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.5.4 | Estable | — |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.6.3 | Estable | — |
 | Criterio EA · Dirección | Ofelia | 1.2.3 | Estable | — |
-| Criterio CCO · La función comercial | Augusto, Valeria | 1.2.3 | Estable | — |
+| Criterio CCO · El área comercial | Augusto, Valeria | 1.2.3 | Estable | — |
 | Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.2.3 | Estable | Incremento 7 · Qualys y Rapid7, cuando tengan su fuente |
 | Rostrum · el portal de todas las familias | — | 1.3.3 | — | — |
 
@@ -35,7 +35,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.1.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-pmo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.2.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada | La verificación completa; el reloj, en la prueba de la versión |
 
-### Criterio CFO · La función financiera
+### Criterio CFO · El área financiera
 
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|
@@ -76,7 +76,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.1.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-ea, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup no vuelve a preguntar lo que ya se respondió en la conversación<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.2.0 | Liberada | **El reloj, con un sí**<br>· Al final de su setup, una tarea programada que corre lo que toca hoy, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
 
-### Criterio CCO · La función comercial
+### Criterio CCO · El área comercial
 
 | Versión | Estado | Qué entra | Prueba |
 |---|---|---|---|

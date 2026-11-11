@@ -2,14 +2,14 @@
   "nota": "Fuente única de la estructura de carpetas recomendada de la familia CCO: scripts/familias.py la escribe en DISENO.es.md, en el skill sales-intake y en la estructura que usa el motor; el portal la publica con scripts/criterio-familias.mjs. Es una recomendación (ADR 0007): los agentes procesan la carpeta como esté y los comandos de setup la sugieren, sin crear, mover ni renombrar nada.",
   "raiz": {
     "carpeta": "comercial/",
-    "es": "Una carpeta por entidad, con el NIT o el RFC al inicio del nombre. Dentro, la referencia de la función comercial, las exportaciones del CRM con su fecha, el comité, la evidencia de cada oportunidad, las cotizaciones y las liquidaciones de comisiones.",
-    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the commercial function's reference, the CRM exports with their date, the committee, each opportunity's evidence, the quotes and the commission settlements."
+    "es": "Una carpeta por entidad, con el NIT o el RFC al inicio del nombre. Dentro, la referencia del área comercial, las exportaciones del CRM con su fecha, el comité, la evidencia de cada oportunidad, las cotizaciones y las liquidaciones de comisiones.",
+    "en": "One folder per entity, with its tax id at the start of the name. Inside it, the commercial area's reference, the CRM exports with their date, the committee, each opportunity's evidence, the quotes and the commission settlements."
   },
   "niveles": [
     {
       "id": "entidad",
       "carpeta": "<entidad>/",
-      "es": "Lo que la organización lleva para toda la función comercial",
+      "es": "Lo que la organización lleva para todal área comercial",
       "en": "What the organisation keeps for the whole sales function",
       "carpetas": [
         {

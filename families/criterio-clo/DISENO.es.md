@@ -9,7 +9,7 @@ Alcance en [ADR 0009](../../docs/decisions/0009-scope-clo.md).
 
 **Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, sus fichas y sus invariantes, la estructura de carpetas, Rostrum, la cadencia, las pruebas y la hoja de ruta están en su [página](README.es.md).
 
-Dos agentes que extienden la capacidad de la función legal: procesan lo que la empresa firmó y lo
+Dos agentes que extienden la capacidad del área legal: procesan lo que la empresa firmó y lo
 que se obligó a cumplir, y lo contrastan contra todos los soportes para señalar qué vence, qué no
 tiene evidencia, quién firmó sin facultad y qué se pagó por fuera de lo pactado. El modelo de
 lenguaje (LLM) extrae; el código calcula; la decisión —renovar, terminar, cómo se interpreta una

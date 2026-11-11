@@ -227,10 +227,12 @@ Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.e
 - Los plugins: `criterio-security`, `criterio-vulnerability` y `criterio-resilience`.
 - La primera versión procesa cualquier exportación de escáner con su mapeo; cada producto entra después
   desde su fuente verificada.
+- La ISO/IEC 27001:2022 (F-03), verificada en iso.org: edición 3, vigente, con su enmienda de 2024. El
+  motor no cita su texto: toma los controles de la declaración de la organización. 2026-11-11.
+- La BOD 26-04 de CISA (F-07), verificada en la página de CISA: revoca la BOD 19-02 y la BOD 22-01. El
+  motor no aplica sus plazos. 2026-11-11.
 
 ## Decisiones abiertas
 
-1. El formato de exportación de Tenable, Qualys, Rapid7 y Microsoft Defender, cada uno desde su fuente.
-2. La ISO/IEC 27001:2022 (F-03) sigue por verificar: el motor no la necesita, porque toma los controles
-   de la declaración de la organización; si algún día se cita, se verifica antes.
-3. La BOD 26-04 de CISA (F-07) sigue por verificar en la página de CISA; el motor no aplica sus plazos.
+1. El formato de exportación de Qualys y Rapid7, cada uno desde su fuente; Tenable y Microsoft Defender
+   ya entraron (F-08 y F-09).

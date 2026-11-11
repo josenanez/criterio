@@ -1,6 +1,6 @@
 # FAQ · Criterio CCO
 
-Short answers to what people usually ask when they reach the commercial function family. This file is the only source: the family's page on josenanez.com reads them from here.
+Short answers to what people usually ask when they reach the commercial area family. This file is the only source: the family's page on josenanez.com reads them from here.
 
 ## What it is
 

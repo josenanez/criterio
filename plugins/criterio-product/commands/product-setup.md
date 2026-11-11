@@ -73,7 +73,7 @@ necesita saberlo antes que nada. No es un impedimento: es el primer hallazgo.
 
 **2. Cuatro preguntas**
 
-1. **Quién eres y qué producto es.** Propón lo que leíste del caso de negocio.
+1. **Quién eres y qué producto es.** Propón lo que encontraste en el caso de negocio.
 2. **Quién decide qué se construye.** Es la autoridad, y es el campo que más se pierde: sin
    él no hay acta de constitución posible, y sin acta no nace la ficha del proyecto.
 3. **Dónde guardo lo que voy encontrando.** Propón `estado-producto/<código>`, hermana de la
@@ -234,6 +234,8 @@ Y en la salida, en «Cuándo vuelvo», di si quedó la tarea, a qué hora y dón
 > Si Criterio te sirve, dale una estrella en https://github.com/josenanez/criterio: así lo encuentran otros que lo necesitan.
 
 Una sola vez y sin insistir: ningún otro comando la repite.
+
+**Cómo hablas de los documentos.** Los procesas, no los lees: a la persona le dices «procesé», «encontré» o «crucé contra…», nunca «leí» ni «estuve leyendo».
 <!-- /reloj -->
 
 ## Deja la corrida registrada

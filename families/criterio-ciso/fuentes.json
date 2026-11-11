@@ -47,17 +47,17 @@
         },
         {
           "id": "F-03",
-          "fuente": "ISO/IEC 27001:2022 · Anexo A",
-          "version": "La edición de 2022, con sus 93 controles en cuatro grupos (5 a 8)",
+          "fuente": "ISO/IEC 27001:2022 · Information security management systems — Requirements",
+          "version": "La edición 3, publicada en octubre de 2022 y vigente, con su enmienda 1 de 2024 (cambios por la acción climática); reemplaza a la edición de 2013",
           "enlaces": [
             [
               "iso.org",
               "https://www.iso.org/standard/27001"
             ]
           ],
-          "consultada": "2026-10-30",
-          "estado": "por verificar",
-          "nota": "Norma de pago: el número y el nombre de cada control se cotejaron en una fuente secundaria. El motor no los trae: toma cada control de la declaración de aplicabilidad de la organización, con el número y el nombre que ella le da, y nunca cita el texto de la norma",
+          "consultada": "2026-11-11",
+          "estado": "verificada",
+          "nota": "Se consultó la página de la norma en iso.org: su título, su edición, su estado y su enmienda. Es una norma de pago y su texto no se cita: el motor no trae sus controles, toma cada control de la declaración de aplicabilidad de la organización, con el número y el nombre que ella le da",
           "uso": "El vocabulario de la declaración de aplicabilidad que procesa Alexis"
         },
         {
@@ -180,16 +180,16 @@
         {
           "id": "F-07",
           "fuente": "CISA · Binding Operational Directive 26-04 · Prioritizing Security Updates Based on Risk",
-          "version": "Emitida el 10 de junio de 2026; revoca y reemplaza la BOD 22-01",
+          "version": "Emitida el 10 de junio de 2026; revoca y reemplaza la BOD 19-02 y la BOD 22-01",
           "enlaces": [
             [
-              "fedramp.gov",
-              "https://www.fedramp.gov/notices/0014/"
+              "cisa.gov",
+              "https://www.cisa.gov/news-events/directives/bod-26-04-prioritizing-security-updates-based-risk"
             ]
           ],
-          "consultada": "2026-10-30",
-          "estado": "por verificar",
-          "nota": "Se conoce por el aviso de FedRAMP y por fuentes secundarias; la página de CISA no se pudo consultar. Obliga a las agencias federales de los Estados Unidos, no a las organizaciones de la región. El motor no aplica sus plazos: toma la fecha de corrección que trae el catálogo (F-06) y los plazos de la política de la organización",
+          "consultada": "2026-11-11",
+          "estado": "verificada",
+          "nota": "Se consultó la directiva en la página de CISA: su fecha y las dos que revoca. Obliga a las agencias federales de los Estados Unidos, no a las organizaciones de la región. El motor no aplica sus plazos: toma la fecha de corrección que trae el catálogo (F-06) y los plazos de la política de la organización",
           "uso": "El contexto de la fecha de corrección del catálogo KEV"
         },
         {

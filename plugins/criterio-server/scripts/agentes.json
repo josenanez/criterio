@@ -20,8 +20,8 @@
     {
       "sigla": "cfo",
       "nombre": {
-        "es": "La función financiera",
-        "en": "The finance function"
+        "es": "El área financiera",
+        "en": "The finance area"
       },
       "estado": {
         "es": "Construida · probada",
@@ -65,8 +65,8 @@
     {
       "sigla": "cco",
       "nombre": {
-        "es": "La función comercial",
-        "en": "The commercial function"
+        "es": "El área comercial",
+        "en": "The commercial area"
       },
       "estado": {
         "es": "Construida · probada",

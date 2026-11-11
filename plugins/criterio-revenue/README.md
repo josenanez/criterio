@@ -1,4 +1,4 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cco-claro.svg" alt="Criterio CCO · The commercial function" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cco-claro.svg" alt="Criterio CCO · The commercial area" height="48"></picture>
 
 # Valeria · from sale to invoice
 

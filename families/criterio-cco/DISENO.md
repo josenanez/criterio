@@ -11,7 +11,7 @@ passed their two rounds: the 95% confidence floor is 98.0% on signals and 95.1% 
 
 **This is the family's design sheet**: the documents it processes, the signals the code calculates, every command with its input, process and report, and the decisions taken. What the family does, how it installs, its records and invariants, the folder structure, Rostrum, the cadence, the tests and the roadmap are on its [page](README.md).
 
-Two agents that extend the capacity of the commercial function: they process the CRM exports, each
+Two agents that extend the capacity of the commercial area: they process the CRM exports, each
 opportunity's evidence, the quotes and the commission settlement, and contrast them against the
 stage table, the discount matrix, the commission plan and Fidel's and Clara's records. The language
 model (LLM) extracts; the code calculates; the decision —the forecast that is committed, the
@@ -190,7 +190,7 @@ Only verified figures go in, with their source, year and sample; they are in [`F
 
 ## Closed decisions
 
-- The scope: the commercial function, with two agents, their nine signals and what they never do (ADR
+- The scope: the commercial area, with two agents, their nine signals and what they never do (ADR
   0019). José, 2026-10-28.
 - The names, Augusto and Valeria. José, 2026-10-28.
 - The exports: Salesforce and HubSpot with their reader, and any CSV or Excel with its column

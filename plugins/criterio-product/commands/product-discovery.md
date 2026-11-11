@@ -126,7 +126,7 @@ se busca la serie, o se declara que no existe.
 | REQ | Decía | Dice la entrevista | Las dos fuentes |
 ```
 
-**Si el material nuevo no produce ningún tema nuevo, una línea:** *«[N] piezas leídas,
+**Si el material nuevo no produce ningún tema nuevo, una línea:** *«[N] piezas procesadas,
 ningún tema que el registro no tenga ya»*. Y se acaba.
 
 ## Lo que este comando no hace

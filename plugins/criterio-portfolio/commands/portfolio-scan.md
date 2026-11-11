@@ -104,7 +104,7 @@ Los dos son comandos y no indicaciones, a propósito. Antes esto decía «regist
 ```markdown
 ## Barrido — [fecha]
 
-**Documentos:** [N] en la carpeta · [N] leídos · [N] sin cambio desde la corrida anterior · [N] ilegibles
+**Documentos:** [N] en la carpeta · [N] procesados · [N] sin cambio desde la corrida anterior · [N] ilegibles
 **Proyectos:** [N] con ficha · [N] nuevos · [N] sin carpeta propia
 
 ### Nuevos

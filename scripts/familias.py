@@ -856,15 +856,20 @@ def reloj_md(agentes: list[dict], nombre: str, familia: bool) -> str:
 REPOSITORIO = "https://github.com/josenanez/criterio"
 
 
+VOZ = ("**Cómo hablas de los documentos.** Los procesas, no los lees: a la persona le dices «procesé», "
+       "«encontré» o «crucé contra…», nunca «leí» ni «estuve leyendo».")
+
+
 def estrella_md(familia: bool) -> str:
-    """El cierre del setup: una línea que invita a dar estrella al repositorio. La dice uno solo, la
-    familia si el setup corre dentro del de su familia, y una sola vez."""
+    """El cierre del setup: una línea que invita a dar estrella al repositorio —la dice uno solo, la
+    familia si el setup corre dentro del de su familia, y una sola vez— y cómo se habla de los
+    documentos en toda la conversación (VOZ)."""
     linea = f"> Si Criterio te sirve, dale una estrella en {REPOSITORIO}: así lo encuentran otros que lo necesitan."
     if familia:
         return "\n".join(["**7. Cierra con una línea**, después de la tabla y del reloj:", "", linea, "",
-                           "Una sola vez y sin insistir: ningún otro comando la repite."])
+                           "Una sola vez y sin insistir: ningún otro comando la repite.", "", VOZ])
     return "\n".join(["**Al cerrar, una línea**, solo si este setup corre solo; dentro del de su familia la dice la familia:", "",
-                       linea, "", "Una sola vez y sin insistir: ningún otro comando la repite."])
+                       linea, "", "Una sola vez y sin insistir: ningún otro comando la repite.", "", VOZ])
 
 
 PMO_INSTANCIAS = """

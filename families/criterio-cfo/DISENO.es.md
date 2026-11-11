@@ -10,7 +10,7 @@ motor y el agente, en [ADR 0008](../../docs/decisions/0008-cfo-motor-procesa-tab
 
 **Esta es la hoja de diseño de la familia**: los documentos que procesa, las señales que calcula el código, cada comando con su entrada, su proceso y su reporte, y las decisiones tomadas. Qué hace la familia, cómo se instala, sus fichas y sus invariantes, la estructura de carpetas, Rostrum, la cadencia, las pruebas y la hoja de ruta están en su [página](README.es.md).
 
-Tres agentes que extienden la capacidad de la función financiera: preparan el trabajo del cierre,
+Tres agentes que extienden la capacidad del área financiera: preparan el trabajo del cierre,
 del presupuesto y de la tesorería, y lo contrastan contra todos los soportes para señalar qué no cuadra, qué no
 tiene soporte y qué se reporta distinto de lo que dicen los documentos. El modelo de lenguaje
 (LLM) extrae; el código calcula; el estado del cierre y del presupuesto lo declara siempre una

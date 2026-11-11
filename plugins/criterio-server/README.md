@@ -84,14 +84,14 @@ running `server-setup` again.
 | **Criterio PMO** · Project governance | Vera | `/criterio-portfolio:portfolio-setup` | `.criterio/portafolio/` | `_CRITERIO_PORTAFOLIO.txt` |
 | **Criterio PMO** · Project governance | Samuel | `/criterio-project:pm-setup` | `.criterio/proyecto/<instance>/` | `_CRITERIO_PROYECTO.txt` |
 | **Criterio PMO** · Project governance | Alba | `/criterio-product:product-setup` | `.criterio/producto/<instance>/` | `_CRITERIO_PRODUCTO.txt` |
-| **Criterio CFO** · The finance function | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instance>/` | `_CRITERIO_FINANZAS.txt` |
-| **Criterio CFO** · The finance function | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instance>/` | `_CRITERIO_FINANZAS.txt` |
-| **Criterio CFO** · The finance function | Áurea | `/criterio-treasury:treasury-setup` | `.criterio/tesoreria/<instance>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · The finance area | Clara | `/criterio-finance:finance-setup` | `.criterio/finanzas/<instance>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · The finance area | Tomás | `/criterio-budget:budget-setup` | `.criterio/presupuesto/<instance>/` | `_CRITERIO_FINANZAS.txt` |
+| **Criterio CFO** · The finance area | Áurea | `/criterio-treasury:treasury-setup` | `.criterio/tesoreria/<instance>/` | `_CRITERIO_FINANZAS.txt` |
 | **Criterio CLO** · Contracts and compliance | Fidel | `/criterio-legal:legal-setup` | `.criterio/legal/<instance>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio CLO** · Contracts and compliance | Constanza | `/criterio-compliance:compliance-setup` | `.criterio/cumplimiento/<instance>/` | `_CRITERIO_LEGAL.txt` |
 | **Criterio EA** · Executive office | Ofelia | `/criterio-assistant:ea-setup` | `.criterio/direccion/<instance>/` | `_CRITERIO_DIRECCION.txt` |
-| **Criterio CCO** · The commercial function | Augusto | `/criterio-sales:sales-setup` | `.criterio/comercial/<instance>/` | `_CRITERIO_COMERCIAL.txt` |
-| **Criterio CCO** · The commercial function | Valeria | `/criterio-revenue:revenue-setup` | `.criterio/ingresos/<instance>/` | `_CRITERIO_COMERCIAL.txt` |
+| **Criterio CCO** · The commercial area | Augusto | `/criterio-sales:sales-setup` | `.criterio/comercial/<instance>/` | `_CRITERIO_COMERCIAL.txt` |
+| **Criterio CCO** · The commercial area | Valeria | `/criterio-revenue:revenue-setup` | `.criterio/ingresos/<instance>/` | `_CRITERIO_COMERCIAL.txt` |
 | **Criterio CISO** · Information security | Alexis | `/criterio-security:security-setup` | `.criterio/seguridad/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CISO** · Information security | Guillermo | `/criterio-vulnerability:vuln-setup` | `.criterio/vulnerabilidades/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |
 | **Criterio CISO** · Information security | Amparo | `/criterio-resilience:resilience-setup` | `.criterio/resiliencia/<instance>/` | `_CRITERIO_SEGURIDAD.txt` |

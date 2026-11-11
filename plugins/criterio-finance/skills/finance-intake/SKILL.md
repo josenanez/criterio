@@ -3,7 +3,7 @@ name: finance-intake
 description: "Qué documentos procesa la familia CFO, dónde va cada uno, qué procesa el motor directamente y qué extrae el agente a la ficha. Úsalo al recorrer la carpeta de una entidad, al recibir un documento nuevo, al explicar dónde va un archivo o cuando una exportación no trae las columnas esperadas. Finance document intake, folder structure, ERP exports."
 ---
 
-# Los documentos de la función financiera
+# Los documentos del área financiera
 
 ## Dos clases de documento, dos formas de procesarlo
 

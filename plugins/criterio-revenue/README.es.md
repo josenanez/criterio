@@ -1,4 +1,4 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cco-claro.svg" alt="Criterio CCO · La función comercial" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/es/criterio-cco-oscuro.svg"><img src="../../docs/img/marca/es/criterio-cco-claro.svg" alt="Criterio CCO · El área comercial" height="48"></picture>
 
 # Valeria · de la venta a la factura
 

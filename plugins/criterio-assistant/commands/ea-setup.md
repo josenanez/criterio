@@ -128,6 +128,8 @@ Y en la salida, en «Cuándo vuelvo», di si quedó la tarea, a qué hora y dón
 > Si Criterio te sirve, dale una estrella en https://github.com/josenanez/criterio: así lo encuentran otros que lo necesitan.
 
 Una sola vez y sin insistir: ningún otro comando la repite.
+
+**Cómo hablas de los documentos.** Los procesas, no los lees: a la persona le dices «procesé», «encontré» o «crucé contra…», nunca «leí» ni «estuve leyendo».
 <!-- /reloj -->
 
 ## Deja la corrida registrada

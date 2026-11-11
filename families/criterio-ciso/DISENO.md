@@ -224,10 +224,12 @@ Only verified figures go in, with their source, year and sample; they are in [`F
 - The plugins: `criterio-security`, `criterio-vulnerability` and `criterio-resilience`.
 - The first version processes any scanner export with its mapping; each product comes later from its
   verified source.
+- ISO/IEC 27001:2022 (F-03), verified on iso.org: edition 3, current, with its 2024 amendment. The engine
+  does not cite its text: it takes the controls from the organisation's statement. 2026-11-11.
+- CISA's BOD 26-04 (F-07), verified on CISA's page: it revokes BOD 19-02 and BOD 22-01. The engine does
+  not apply its deadlines. 2026-11-11.
 
 ## Open decisions
 
-1. The export format of Tenable, Qualys, Rapid7 and Microsoft Defender, each from its source.
-2. ISO/IEC 27001:2022 (F-03) remains to be verified: the engine does not need it, because it takes the
-   controls from the organisation's statement; if it is ever cited, it is verified first.
-3. CISA's BOD 26-04 (F-07) remains to be verified on CISA's page; the engine does not apply its deadlines.
+1. The export format of Qualys and Rapid7, each from its source; Tenable and Microsoft Defender are
+   already in (F-08 and F-09).

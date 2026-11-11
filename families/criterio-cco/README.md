@@ -130,7 +130,7 @@ move or rename nothing in the organisation's documents. Numbering goes in tens, 
 families.
 
 <!-- cco:carpetas · generado por scripts/familias.py; no se edita a mano -->
-One folder per entity, with its tax id at the start of the name. Inside it, the commercial function's reference, the CRM exports with their date, the committee, each opportunity's evidence, the quotes and the commission settlements.
+One folder per entity, with its tax id at the start of the name. Inside it, the commercial area's reference, the CRM exports with their date, the committee, each opportunity's evidence, the quotes and the commission settlements.
 
 ```
 comercial/

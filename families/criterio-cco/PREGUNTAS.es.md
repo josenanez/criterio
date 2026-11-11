@@ -1,6 +1,6 @@
 # Preguntas frecuentes · Criterio CCO
 
-Las respuestas cortas a lo que suele preguntar quien llega a la familia de la función comercial. Este archivo es la única fuente: la página de la familia en josenanez.com las lee de aquí.
+Las respuestas cortas a lo que suele preguntar quien llega a la familia del área comercial. Este archivo es la única fuente: la página de la familia en josenanez.com las lee de aquí.
 
 ## Qué es
 

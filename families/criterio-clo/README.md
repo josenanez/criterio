@@ -1,9 +1,9 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-clo-oscuro.svg"><img src="../../docs/img/marca/en/criterio-clo-claro.svg" alt="Criterio CLO · Contracts and compliance" height="48"></picture>
 
-# criterio-clo · the legal function family
+# criterio-clo · the legal area family
 
 **Two agents and a portal, around their records.** Each one extends a different person in the
-legal function — whoever handles the contracts and whoever answers for compliance — and each one
+legal area — whoever handles the contracts and whoever answers for compliance — and each one
 leaves its result in its record, where the other starts from.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
@@ -29,7 +29,7 @@ leaves its result in its record, where the other starts from.
 
 ![The family: Fidel and Constanza, each with its records](../../docs/img/en/familia-clo.png)
 
-The legal function has two roles that work on the same documents and answer for different
+The legal area has two roles that work on the same documents and answer for different
 things, which is why the family has two agents. They carry a person's name because **they are
 extended capabilities of people**, and what each name means points to what it does: **Fidel**
 —from *fides*, the word given— makes sure what was signed is kept; **Constanza** —from

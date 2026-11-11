@@ -1,10 +1,10 @@
-<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cfo-claro.svg" alt="Criterio CFO · The finance function" height="48"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="../../docs/img/marca/en/criterio-cfo-oscuro.svg"><img src="../../docs/img/marca/en/criterio-cfo-claro.svg" alt="Criterio CFO · The finance area" height="48"></picture>
 
-# criterio-cfo · the finance function family
+# criterio-cfo · the finance area family
 
 **Every figure the CFO signs, backed by its evidence.** The family extends the CFO's office with
 three agents and a portal, around their records. Each one extends a different person in the
-finance function — whoever closes the books, whoever runs the budget and whoever looks after the
+finance area — whoever closes the books, whoever runs the budget and whoever looks after the
 cash — and each one leaves its result in its record, where the others start from.
 
 [Español](README.es.md) · [← Criterio](../../README.md) · Apache 2.0
@@ -13,7 +13,7 @@ cash — and each one leaves its result in its record, where the others start fr
 
 | | |
 |---|---|
-| **Scope** | The finance function of an entity: the books against their supporting documents, the budget against its execution, and cash, payments and debt against their policy |
+| **Scope** | The finance area of an entity: the books against their supporting documents, the budget against its execution, and cash, payments and debt against their policy |
 | **Objective** | That the close stops depending on someone remembering what is missing |
 | **Made of** | [Clara](../../plugins/criterio-finance/README.md) · [Tomás](../../plugins/criterio-budget/README.md) · [Áurea](../../plugins/criterio-treasury/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The framework that defines each role and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
@@ -30,7 +30,7 @@ cash — and each one leaves its result in its record, where the others start fr
 
 ![The family: Clara, Tomás and Áurea, one record each](../../docs/img/en/familia-cfo.png)
 
-The finance function has three roles that work on the same books and look at different things,
+The finance area has three roles that work on the same books and look at different things,
 which is why the family has three agents. They carry a person's name because **they are extended
 capabilities of people**, and what each name means points to what it does: **Clara** —from
 *clarus*— makes sure the books say what the supporting documents say; **Tomás** —"the twin"— puts
@@ -332,7 +332,7 @@ Claude non-interactively. The family setup offers to set it up, once for all of 
 And for it to run with nobody watching, two things are needed that do not depend on this
 repository: **that the session can run without approving each step**, and **that the folder is
 mounted when the clock fires.** If the organisation does not want unattended runs —and in a
-finance function that is a reasonable answer—, the commands work run by hand and the cadence
+finance area that is a reasonable answer—, the commands work run by hand and the cadence
 still says what is due.
 
 ## The family's tests
@@ -398,7 +398,7 @@ The family grows in increments. Each one is a version with its full test and its
 |---|---|---|---|
 | 0.8.0 | Released | **Built, with the engine tested and a first round with the agent**<br>· Clara and Tomás’s commands, their skills and the calculation engine<br>· DIAN and SRI electronic invoicing, processed from its official technical source<br>· The root folder each agent searches for and, with permission, marks<br>· The family in Rostrum, with what falls due and where each agent works<br>· The first round with the agent: Clara and Tomás on banking and the Colombian control, with the defects it found fixed | The engine, against 4 industries and 2 control entities; the agent, on banking and the Colombian control |
 | 0.9.0 | Released | **The full round with the agent**<br>· Clara and Tomás run their commands on the material of the four industries, as the PMO does in every round<br>· What only minutes, emails and auditor letters carry, extracted and graded against the key<br>· With a full round, the family is declared tested | 4 industries and 2 control entities, with the key the agent never sees |
-| 0.10.0 | Released | **Áurea, Peru and the formats of a real finance function**<br>· Áurea, the third agent: cash, payments and debt against their policy<br>· Peru, with the SUNAT e-invoice reader built from its official guide<br>· The test material in Excel, Word and PDF, as a finance function holds it, and the bank statement in PDF processed by the engine | Round 4, complete: the three agents on the nine entities of Colombia, Ecuador and Peru, with the defects their rounds found fixed and verified |
+| 0.10.0 | Released | **Áurea, Peru and the formats of a real finance function**<br>· Áurea, the third agent: cash, payments and debt against their policy<br>· Peru, with the SUNAT e-invoice reader built from its official guide<br>· The test material in Excel, Word and PDF, as a finance area holds it, and the bank statement in PDF processed by the engine | Round 4, complete: the three agents on the nine entities of Colombia, Ecuador and Peru, with the defects their rounds found fixed and verified |
 | 0.11.0 | Released | **Chile**<br>· The reader for Chile's electronic invoice, the SII DTE (F-16), with the RUT and its check digit<br>· The 19% VAT (F-17) and the IFRS adopted by the Colegio de Contadores (F-18)<br>· Material for retail, mining and a control entity in Chile | Round 5: the three agents on the three Chilean entities, 26 of 26 signals, none extra and 24 of 24 data points |
 | 0.12.0 | Released | **Mexico**<br>· The reader for the SAT's CFDI 4.0, from its filling guide (F-19), with the RFC<br>· The 16% VAT from the guide's catalogue and each entity's IFRS or NIF framework (F-20)<br>· Material for banking, retail and a control entity in Mexico | Round 6: the three agents on the three Mexican entities, 27 of 27 signals, none extra and 24 of 24 data points |
 | 1.0.0 | Released | **Brazil**<br>· Its entry in the country registry, the reader for its electronic invoice and its verified sources<br>· Documents in Portuguese: the engine processes them like those of the other countries | Round 7 with the three agents in Brazil, with the documents in Portuguese: 24 of 24 signals, none extra, and 24 of 25 data points; the defect it found, in the key, with its fix |

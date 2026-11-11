@@ -6,7 +6,7 @@ The short answers to what people usually ask when they reach the close, control 
 
 ### What do Clara and Tomás do?
 
-They process what the finance function already has. Clara, the controller, prepares the monthly close with its checklist and evidence, the bank and account reconciliations, every e-invoice against its entry and the auditor's package. Tomás, FP&A, puts the approved budget next to actual and committed spend, forecasts the year-end and prepares the budget committee's material.
+They process what the finance area already has. Clara, the controller, prepares the monthly close with its checklist and evidence, the bank and account reconciliations, every e-invoice against its entry and the auditor's package. Tomás, FP&A, puts the approved budget next to actual and committed spend, forecasts the year-end and prepares the budget committee's material.
 
 ### Do they replace the controller or the budget team?
 
@@ -24,7 +24,7 @@ With the accounting framework each country adopted —IFRS in Colombia, Ecuador,
 
 ### Which documents do they process?
 
-The ones the finance function already produces, as they are: the trial balance and general ledger exported from the ERP, bank ledgers and statements, e-invoices in XML, the close checklist, the auditor's requests, the approved budget and its versions, purchase orders and the budget committee's minutes.
+The ones the finance area already produces, as they are: the trial balance and general ledger exported from the ERP, bank ledgers and statements, e-invoices in XML, the close checklist, the auditor's requests, the approved budget and its versions, purchase orders and the budget committee's minutes.
 
 ### Do I need to change my ERP?
 
