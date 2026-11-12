@@ -13,7 +13,7 @@ import { CRITERIO_PAISES } from './lib/criterioPaises';
 import { CRITERIO_SECTORES } from './lib/criterioSectores';
 import { CRITERIO_MAPA_GEO } from './lib/criterioMapaGeo';
 import { casosDe, pisoDe, resumenPrueba } from './portal/criterioPrueba';
-import { PASOS_INSTALAR, SETUP_FAMILIAS } from './portal/criterioSetupFamilias';
+import { PASOS_INSTALAR, SETUP_FAMILIAS, codigoFamilia } from './portal/criterioSetupFamilias';
 import { AGENT_TABS_FAMILIAS } from './portal/criterioAgentTabsFamilias';
 import { CALC_FAMILIAS } from './portal/criterioCalculatorFamilias';
 import { Robot } from './portal/CriterioFamily';
@@ -30,9 +30,11 @@ import { CriterioLogo } from './portal/CriterioLogo';
    aparece cada cosa están en tiempo.jsx, que comparte con el video de Criterio. */
 
 const AGENTES = { cfo: CRITERIO_CFO, clo: CRITERIO_CLO, ea: CRITERIO_EA, cco: CRITERIO_CCO, ciso: CRITERIO_CISO };
+// La PMO no tiene una ficha de agentes como las demás: sus agentes son los de sus pestañas.
+const agentesDe = (sigla, l) => AGENTES[sigla]?.agentes ?? AGENT_TABS_FAMILIAS[sigla][l].agents.map((a) => ({ id: a.id, nombre: a.name }));
 
 // El agente cuyo hallazgo abre el video: el primero que dice su captura de Rostrum en la página.
-const GANCHO = { cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo' };
+const GANCHO = { pmo: 'vera', cfo: 'aurea', clo: 'fidel', ea: 'ofelia', cco: 'valeria', ciso: 'amparo' };
 
 const TEXTO = {
   es: {
@@ -79,14 +81,16 @@ function escenas(sigla, l) {
   const pct = (v, d = 1) => (l === 'es' ? `${fmt(v, d)} %` : `${fmt(v, d)}%`);
   const P = CRITERIO_NIVEL_C[sigla].portada;
   const imp = IMPRESORA[sigla][l];
-  const agentes = AGENTES[sigla].agentes;
+  const agentes = agentesDe(sigla, l);
   const tabs = AGENT_TABS_FAMILIAS[sigla][l].agents;
   const D = CRITERIO_RONDAS[sigla];
   const lista = [];
 
   // 1 · El hallazgo que abre: el primero de la captura de Rostrum del agente elegido, en los datos de prueba.
   const quien = tabs.find((a) => a.id === GANCHO[sigla]) ?? tabs[0];
-  const hallazgo = quien.caption.split(': ')[1].split(', ')[0];
+  // La captura de Vera cuenta el hallazgo en una oración entera; las demás lo dan antes de la primera coma.
+  const tras = quien.caption.split(': ')[1];
+  const hallazgo = sigla === 'pmo' ? tras.split('. ')[0].replace(/\.$/, '') : tras.split(', ')[0];
   const gancho = hallazgo.charAt(0).toUpperCase() + hallazgo.slice(1) + '.';
   lista.push({
     dura: 6,
@@ -134,7 +138,8 @@ function escenas(sigla, l) {
   // 3 · Dónde se probó: los países se encienden en el mapa mientras suben las cuentas. La EA no lleva
   // mapa, como en su página: su prueba se cuenta en oficinas, no en países.
   const orden = (c) => CRITERIO_PAISES.findIndex((p) => p.codigo === c);
-  const codigos = [...new Set(D.entidades.map((e) => e.pais))].sort((a, b) => orden(a) - orden(b));
+  // La PMO no se prueba por país: sus entidades no traen uno, y la cuenta de países no se muestra.
+  const codigos = [...new Set(D.entidades.map((e) => e.pais).filter(Boolean))].sort((a, b) => orden(a) - orden(b));
   const nombrePais = (c) => CRITERIO_PAISES.find((p) => p.codigo === c)?.nombre[l] ?? c;
   const sectores = [...new Set(D.entidades.filter((e) => !e.control).map((e) => e.industria))].map((id) => {
     const x = CRITERIO_SECTORES.find((y) => y.id === id);
@@ -142,9 +147,9 @@ function escenas(sigla, l) {
     return x;
   });
   const enControl = D.entidades.filter((e) => e.control).length;
-  const conMapa = sigla !== 'ea';
+  const conMapa = sigla !== 'ea' && codigos.length > 0;
   const enciende = (k) => 0.6 + k * 0.28;
-  const finPaises = enciende(codigos.length);
+  const finPaises = enciende(codigos.length || 3);
   lista.push({
     dura: 10,
     render: (lt) => (
@@ -165,7 +170,7 @@ function escenas(sigla, l) {
         <div>
           <Eyebrow>{t.donde}</Eyebrow>
           <div className="yt-cuentas">
-            <div><p className="v">{fmt(Math.round(codigos.length * avance(lt, 0.6, finPaises - 0.6)))}</p><p className="k">{t.paises}</p></div>
+            {codigos.length ? <div><p className="v">{fmt(Math.round(codigos.length * avance(lt, 0.6, finPaises - 0.6)))}</p><p className="k">{t.paises}</p></div> : null}
             <div><p className="v">{fmt(Math.round(D.entidades.length * avance(lt, 0.6, finPaises - 0.6)))}</p><p className="k">{t.entidades}</p></div>
           </div>
           <p className="yt-paises">
@@ -308,7 +313,7 @@ function escenas(sigla, l) {
   // 9 · La instalación: los mismos tres pasos y comandos de la página. Sin la versión: envejece con la
   // siguiente liberación.
   const pasos = PASOS_INSTALAR[l];
-  const code = SETUP_FAMILIAS[sigla][l].code;
+  const code = SETUP_FAMILIAS[sigla]?.[l].code ?? codigoFamilia(sigla, agentes.map((a) => a.nombre), `/criterio-${sigla}:${sigla}-setup`, l);
   lista.push({
     dura: 11,
     oscuro: true,

@@ -67,7 +67,7 @@ const IDIOMAS = (process.env.IDIOMAS || 'es,en').split(',');
 // Las familias con video, cada una con su tarjeta final en src/main.jsx.
 const VIDEOS = ['pmo', 'cfo'];
 // Las familias con video de YouTube: las que el portal publica con sus agentes (lib/criterio<Sigla>.ts).
-const YOUTUBE = ['cfo', 'clo', 'ea', 'cco', 'ciso'];
+const YOUTUBE = ['pmo', 'cfo', 'clo', 'ea', 'cco', 'ciso'];
 const TOMAS = [
   ...VIDEOS.flatMap((familia) => IDIOMAS.map((idioma) =>
     ({ familia, idioma, tipo: 'video', ancho: 1080, alto: 1350, zoom: 1.38 }))),
