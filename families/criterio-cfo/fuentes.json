@@ -1408,6 +1408,31 @@
           "uso": "El marco contable de cada entidad de Paraguay en el material"
         }
       ]
+    },
+    {
+      "id": "erp",
+      "titulo": "Exportaciones de ERP",
+      "fuentes": [
+        {
+          "id": "F-43",
+          "fuente": "Microsoft Dynamics 365 Business Central · tablas G/L Entry (movimientos de contabilidad) y G/L Account (cuentas), referencia de la aplicación base en Microsoft Learn",
+          "version": "Páginas actualizadas el 10 de agosto de 2026",
+          "enlaces": [
+            [
+              "G/L Entry",
+              "https://learn.microsoft.com/en-us/dynamics365/business-central/application/base-application/table/microsoft.finance.generalledger.ledger.g-l-entry"
+            ],
+            [
+              "G/L Account",
+              "https://learn.microsoft.com/en-us/dynamics365/business-central/application/base-application/table/microsoft.finance.generalledger.account.g-l-account"
+            ]
+          ],
+          "consultada": "2026-11-12",
+          "estado": "verificada",
+          "nota": "Las páginas dan los nombres de los campos en inglés, no los encabezados de cada idioma: el libro mayor con Posting Date, Transaction No., G/L Account No., Source No., External Document No., Debit Amount, Credit Amount, Global Dimension 1 Code y Description; el balance con No., Name, Debit Amount, Credit Amount y Balance at Date, sin saldo inicial. Una exportación en español, o con la dimensión renombrada, trae otros encabezados: el agente los pregunta una vez y los guarda en `columns`",
+          "uso": "Los nombres de esas columnas en el reconocimiento de `nucleo.py` y la entidad de prueba bc-mx, con el libro mayor y el balance en ese formato"
+        }
+      ]
     }
   ],
   "cifras": [

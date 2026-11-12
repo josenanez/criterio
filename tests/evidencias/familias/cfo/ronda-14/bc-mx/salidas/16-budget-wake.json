@@ -1,0 +1,37 @@
+{
+  "n": 16,
+  "agente": "tomas",
+  "comando": "budget-wake",
+  "argumento": "",
+  "inicio": "2026-11-12T14:04:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 63,
+  "turnos": 16,
+  "tokens": 595959,
+  "tokens_salida": 6817,
+  "costo_usd": 0.48400860000000007,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-11-12-budget-wake-1.html",
+      ".criterio/corridas/presupuesto/2026-11-12-budget-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-budget-scan-2.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-budget-wake-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-forecast-2.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-variance-report-2.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-budget-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/presupuesto/corridas.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-budget-scan.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-forecast.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-variance-report.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/presupuesto/2026/reporte-forecast.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/presupuesto/2026/reporte-variance-report.md"
+    ],
+    "borrados": []
+  }
+}

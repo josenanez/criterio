@@ -1,0 +1,30 @@
+{
+  "n": 4,
+  "agente": "clara",
+  "comando": "bank-reconcile",
+  "argumento": "",
+  "inicio": "2026-11-12T13:50:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 43,
+  "turnos": 9,
+  "tokens": 357918,
+  "tokens_salida": 4504,
+  "costo_usd": 0.3509566,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-11-12-bank-reconcile-1.html",
+      ".criterio/corridas/finanzas/2026-11-12-bank-reconcile-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/cierre/2026-09/reporte-bank-reconcile.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-bank-reconcile-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-bank-reconcile.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

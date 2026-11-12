@@ -376,7 +376,7 @@ tiene que levantar, con el mismo detalle, **y qué no prueba el material**, en
 | **Ecuador** | ronda 2 | cooperativas, minería, control | 2, 4 | 28 de 28 | 25 de 25 | SRI · número de clave de acceso · IVA del 15 % (F-04) |
 | **Perú** | ronda 3 | banca, minería, control | 3–4 | 24 de 24 | 25 de 25 | SUNAT · RUC, tipo, serie y número · IGV del 18 % (F-13) |
 | **Chile** | ronda 5 | retail, minería, control | 5 | 26 de 26 | 24 de 24 | SII · RUT del emisor, tipo y folio · IVA del 19 % (F-16) |
-| **México** | ronda 6 | banca, retail, control | 6 | 27 de 27 | 24 de 24 | SAT · RFC del emisor, serie y folio · IVA del 16 % (F-19) |
+| **México** | ronda 6 | banca, retail, control | 6, 14 | 36 de 36 | 32 de 32 | SAT · RFC del emisor, serie y folio · IVA del 16 % (F-19) |
 | **Brasil** | ronda 7 | retail, minería, control | 7 | 24 de 24 | 24 de 25 | SEFAZ · chave de acesso de 44 dígitos · ICMS del 18 % (F-21, F-22) |
 | **Argentina** | ronda 8 | retail, minería, control | 8 | 24 de 24 | 25 de 25 | ARCA · CAE · IVA del 21 % (F-24, F-25) |
 | **Panamá** | ronda 9 | banca, retail, control | 9 | 27 de 27 | 24 de 24 | DGI · CUFE · ITBMS del 7 % (F-27, F-28) |
@@ -407,6 +407,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 1.3.0 | Liberada | **Paraguay**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· El lector del documento electrónico de SIFEN, desde el manual técnico 150 de la DNIT y su esquema (F-40 y F-41), por su CDC de cuarenta y cuatro posiciones, con el IVA a cualquiera de sus tasas<br>· La factura recibida emitida antes de la vigencia de su timbrado, que SIFEN rechaza (validación 1103), en la señal de la factura fuera de su autorización<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con los tres agentes |
 | 1.4.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-cfo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.5.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
+| Incremento 12 | Siguiente | **Las exportaciones de Business Central**<br>· El libro mayor y el balance de comprobación como los exporta Microsoft Dynamics 365 Business Central, reconocidos sin preguntar: los nombres de los campos de sus tablas, desde su fuente verificada (F-43)<br>· Una entidad de prueba de México con su libro mayor y su balance en ese formato, el balance sin saldo inicial: el motor levanta cada señal, ninguna de más<br>· Siigo, Alegra, SAP Business One y Odoo, cuando sus encabezados de exportación estén entre las fuentes verificadas | La ronda 14 con Clara, Tomás y Áurea sobre la entidad de Business Central: 9 de 9 señales y 8 de 8 datos, sin preguntar ninguna columna |
 
 <!-- /hoja de ruta -->
 
@@ -441,9 +442,9 @@ sobre la documentación de una organización real.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Clara** · Contralor | `criterio-finance` · 11 comandos, 7 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 9 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Tesorería | `criterio-treasury` · 8 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 13 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Contralor | `criterio-finance` · 11 comandos, 7 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 14 · [resultados](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 9 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 14 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Tesorería | `criterio-treasury` · 8 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 14 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 <!-- /cfo:estado -->
 

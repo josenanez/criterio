@@ -1,0 +1,41 @@
+{
+  "n": 10,
+  "agente": "tomas",
+  "comando": "budget-setup",
+  "argumento": "finanzas/DNO190402B43-distribuidora-del-noroeste",
+  "inicio": "2026-11-12T13:53:51",
+  "estado": "success",
+  "error": false,
+  "segundos": 83,
+  "turnos": 20,
+  "tokens": 922403,
+  "tokens_salida": 8744,
+  "costo_usd": 0.7062144,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/presupuesto/2026-11-12-budget-setup-1.html",
+      ".criterio/corridas/presupuesto/2026-11-12-budget-setup-1.md",
+      ".criterio/corridas/presupuesto/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/presupuesto/DNO190402B43/config.json",
+      ".criterio/terminos/aceptacion-criterio-budget-1.5.4-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-budget-1.5.4-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-budget-1.5.4-2026-10-06.sha256",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/cache/manifest.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/cache/presupuesto-2026/40-actas/acta-01-aprobacion.docx.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/cache/presupuesto-2026/40-actas/acta-05-traslado.md.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/cache/presupuesto-2026/40-actas/acta-06-comite.docx.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-budget-setup-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-budget-setup.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/presupuesto/2026/ficha.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/presupuesto/2026/reporte-variance-report.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/presupuesto/2026/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

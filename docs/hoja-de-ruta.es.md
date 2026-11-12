@@ -14,7 +14,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
 | Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.2.3 | Estable | — |
-| Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.5.4 | Estable | — |
+| Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.5.4 | Estable | Incremento 12 · Las exportaciones de Business Central |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.6.3 | Estable | Incremento 12 · La entidad pública de Paraguay |
 | Criterio EA · Dirección | Ofelia | 1.2.3 | Estable | — |
 | Criterio CCO · El área comercial | Augusto, Valeria | 1.2.3 | Estable | — |
@@ -50,6 +50,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.3.0 | Liberada | **Paraguay**<br>· Su entrada en el registro de países, con sus fuentes verificadas<br>· El lector del documento electrónico de SIFEN, desde el manual técnico 150 de la DNIT y su esquema (F-40 y F-41), por su CDC de cuarenta y cuatro posiciones, con el IVA a cualquiera de sus tasas<br>· La factura recibida emitida antes de la vigencia de su timbrado, que SIFEN rechaza (validación 1103), en la señal de la factura fuera de su autorización<br>· Tres entidades de prueba, una de ellas de control, sin defectos sembrados | La ronda 13 con los tres agentes |
 | 1.4.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-cfo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.5.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
+| Incremento 12 | Siguiente | **Las exportaciones de Business Central**<br>· El libro mayor y el balance de comprobación como los exporta Microsoft Dynamics 365 Business Central, reconocidos sin preguntar: los nombres de los campos de sus tablas, desde su fuente verificada (F-43)<br>· Una entidad de prueba de México con su libro mayor y su balance en ese formato, el balance sin saldo inicial: el motor levanta cada señal, ninguna de más<br>· Siigo, Alegra, SAP Business One y Odoo, cuando sus encabezados de exportación estén entre las fuentes verificadas | La ronda 14 con Clara, Tomás y Áurea sobre la entidad de Business Central: 9 de 9 señales y 8 de 8 datos, sin preguntar ninguna columna |
 
 ### Criterio CLO · Contratos y cumplimiento
 

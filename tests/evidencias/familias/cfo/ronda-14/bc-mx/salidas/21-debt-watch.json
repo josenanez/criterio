@@ -1,0 +1,30 @@
+{
+  "n": 21,
+  "agente": "aurea",
+  "comando": "debt-watch",
+  "argumento": "",
+  "inicio": "2026-11-12T14:10:55",
+  "estado": "success",
+  "error": false,
+  "segundos": 32,
+  "turnos": 7,
+  "tokens": 300201,
+  "tokens_salida": 2800,
+  "costo_usd": 0.2858622,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-11-12-debt-watch-1.html",
+      ".criterio/corridas/tesoreria/2026-11-12-debt-watch-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-debt-watch-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-debt-watch.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/tesoreria/2026-09/reporte-debt-watch.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

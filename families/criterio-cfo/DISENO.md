@@ -283,7 +283,8 @@ Only verified figures go in, with their source, year and sample; they are in [`F
 Taken while building, with their reason; each one can be reversed by a new decision.
 
 - **The export columns** are recognised by their name and its variants; one that is not recognised
-  is asked about and stays in the configuration's `columns`. There is no template per ERP.
+  is asked about and stays in the configuration's `columns`. There is no template per ERP: the field
+  names of Business Central (F-43) are among the variants, in English.
 - **The default thresholds** are in each plugin's `config.example.json`, and setup offers them as
   configuration, not as a rule. In Colombia, the amount tolerance is the margin the DIAN annex
   allows: ±2.00 and ±5.00 for VAT (F-01, 5.2.1).

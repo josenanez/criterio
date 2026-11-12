@@ -376,7 +376,7 @@ family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 | **Ecuador** | round 2 | cooperatives, mining, control | 2, 4 | 28 of 28 | 25 of 25 | SRI · IVA at 15 % (F-04) |
 | **Peru** | round 3 | banking, mining, control | 3–4 | 24 of 24 | 25 of 25 | SUNAT · IGV at 18 % (F-13) |
 | **Chile** | round 5 | retail, mining, control | 5 | 26 of 26 | 24 of 24 | SII · IVA at 19 % (F-16) |
-| **Mexico** | round 6 | banking, retail, control | 6 | 27 of 27 | 24 of 24 | SAT · IVA at 16 % (F-19) |
+| **Mexico** | round 6 | banking, retail, control | 6, 14 | 36 of 36 | 32 of 32 | SAT · IVA at 16 % (F-19) |
 | **Brazil** | round 7 | retail, mining, control | 7 | 24 of 24 | 24 of 25 | SEFAZ · ICMS at 18 % (F-21, F-22) |
 | **Argentina** | round 8 | retail, mining, control | 8 | 24 of 24 | 25 of 25 | ARCA · IVA at 21 % (F-24, F-25) |
 | **Panama** | round 9 | banking, retail, control | 9 | 27 of 27 | 24 of 24 | DGI · ITBMS at 7 % (F-27, F-28) |
@@ -407,6 +407,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 1.3.0 | Released | **Paraguay**<br>· Its entry in the country registry, with its verified sources<br>· The reader for the SIFEN electronic document, from the DNIT technical manual 150 and its schema (F-40 and F-41), by its forty-four-position CDC, with VAT at any of its rates<br>· A received invoice issued before its timbrado took effect, which SIFEN rejects (validation 1103), in the signal for the invoice outside its authorization<br>· Three test entities, one of them a control with no seeded defects | Round 13 with the three agents |
 | 1.4.0 | Released | **The family at once, and each agent in words**<br>· The family installs with a single plugin, criterio-cfo, which brings its agents and Rostrum (decision 0026)<br>· Its setup configures them all in one conversation, without asking again what was already answered<br>· Each agent is asked in words, by name, and runs the command that does it (decision 0027) | The full verification; the choice of command, in the entry test |
 | 1.5.0 | Released | **The clock, with a yes**<br>· At the end of the family setup, a single scheduled task that runs what is due today for each agent, on weekdays at 7:00 as a proposal (decision 0028)<br>· In Cowork, an app task; in Claude Code, the computer's scheduler; in both, only with an explicit yes<br>· The task only processes and writes to the state; it sends nothing<br>· Each agent's clock command, correctly named on the family page: it said share-findings | The full verification; the clock, in the version test |
+| Increment 12 | Next | **Business Central exports**<br>· The general ledger and the trial balance as Microsoft Dynamics 365 Business Central exports them, recognised without asking: the field names of its tables, from its verified source (F-43)<br>· A Mexican test entity with its ledger and trial balance in that format, the trial balance without an opening balance: the engine raises each signal, none extra<br>· Siigo, Alegra, SAP Business One and Odoo, once their export headers are among the verified sources | Round 14 with Clara, Tomás and Áurea on the Business Central entity: 9 of 9 signals and 8 of 8 data points, without asking about any column |
 
 <!-- /hoja de ruta -->
 
@@ -441,9 +442,9 @@ documentation.**
 <!-- cfo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Clara** · Controller | `criterio-finance` · 11 commands, 7 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-finance/RESULTADOS.md) |
-| **Tomás** · FP&A | `criterio-budget` · 9 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-budget/RESULTADOS.md) |
-| **Áurea** · Treasury | `criterio-treasury` · 8 commands, 2 skills | The engine, tested; with the agent, every entitie in the material, up to round 13 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
+| **Clara** · Controller | `criterio-finance` · 11 commands, 7 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-finance/RESULTADOS.md) |
+| **Tomás** · FP&A | `criterio-budget` · 9 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-budget/RESULTADOS.md) |
+| **Áurea** · Treasury | `criterio-treasury` · 8 commands, 2 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 <!-- /cfo:estado -->
 

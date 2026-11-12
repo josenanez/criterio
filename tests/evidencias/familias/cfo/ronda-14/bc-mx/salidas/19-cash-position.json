@@ -1,0 +1,29 @@
+{
+  "n": 19,
+  "agente": "aurea",
+  "comando": "cash-position",
+  "argumento": "",
+  "inicio": "2026-11-12T14:07:30",
+  "estado": "success",
+  "error": false,
+  "segundos": 31,
+  "turnos": 9,
+  "tokens": 405965,
+  "tokens_salida": 2577,
+  "costo_usd": 0.31200599999999995,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-11-12-cash-position-1.html",
+      ".criterio/corridas/tesoreria/2026-11-12-cash-position-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-cash-position-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-cash-position.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

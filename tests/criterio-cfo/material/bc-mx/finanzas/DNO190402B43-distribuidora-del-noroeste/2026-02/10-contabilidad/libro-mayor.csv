@@ -1,0 +1,17 @@
+Posting Date;Transaction No.;G/L Account No.;Source No.;External Document No.;Debit Amount;Credit Amount;Global Dimension 1 Code;Description
+2026-02-25;G-020;5135;;;52380.00;0.00;ADM;Servicios públicos de febrero
+2026-02-25;G-020;11100501;;;0.00;52380.00;;Pago Servicios públicos
+2026-02-25;G-021;5145;;;34920.00;0.00;ADM;Mantenimiento de febrero
+2026-02-25;G-021;11100501;;;0.00;34920.00;;Pago Mantenimiento
+2026-02-25;G-022;5195;;;69840.00;0.00;COM;Publicidad de febrero
+2026-02-25;G-022;11100501;;;0.00;69840.00;;Pago Publicidad
+2026-02-25;G-023;5195;;;26190.00;0.00;EVT;Eventos de febrero
+2026-02-25;G-023;11100501;;;0.00;26190.00;;Pago Eventos
+2026-02-25;G-024;5135;;;87300.00;0.00;TEC;Licencias de febrero
+2026-02-25;G-024;11100501;;;0.00;87300.00;;Pago Licencias
+2026-02-25;G-025;5145;;;104760.00;0.00;PRY;PRY-310 de febrero
+2026-02-25;G-025;11100501;;;0.00;104760.00;;Pago PRY-310
+2026-02-25;G-026;5135;;;61110.00;0.00;OPE;Transporte de febrero
+2026-02-25;G-026;11100501;;;0.00;61110.00;;Pago Transporte
+2026-02-25;G-027;5105;;;360000.00;0.00;ADM;Nómina de febrero
+2026-02-25;G-027;11100501;;;0.00;360000.00;;Pago Nómina

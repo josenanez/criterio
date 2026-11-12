@@ -282,7 +282,8 @@ Solo entran las verificadas, con fuente, año y muestra, y están en [`FUENTES.e
 Tomadas al construir, con su razón; cada una se puede revertir con una decisión nueva.
 
 - **Las columnas de las exportaciones** se reconocen por su nombre y sus variantes; la que no se
-  reconoce se pregunta y queda en `columns` de la configuración. No hay una plantilla por ERP.
+  reconoce se pregunta y queda en `columns` de la configuración. No hay una plantilla por ERP: los
+  nombres de los campos de Business Central (F-43) están entre las variantes, en inglés.
 - **Los umbrales por defecto** están en `config.example.json` de cada plugin y el setup los
   propone como configuración, no como norma. En Colombia, la tolerancia de los valores es la
   holgura que el anexo de la DIAN permite: ±2,00 y ±5,00 en el IVA (F-01, 5.2.1).

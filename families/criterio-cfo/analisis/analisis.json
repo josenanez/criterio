@@ -1,7 +1,7 @@
 {
  "meta": {
   "generado_desde": "tests/evidencias/familias/cfo",
-  "ultima_ronda": 13,
+  "ultima_ronda": 14,
   "completa": false,
   "rondas": [
    1,
@@ -16,7 +16,8 @@
    10,
    11,
    12,
-   13
+   13,
+   14
   ]
  },
  "secciones": [
@@ -28,12 +29,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 13, parcial, sobre 3 de las 36 entidades del material: 28 de 28 señales sembradas encontradas (margen del 95 %: 87,9–100 %) y 0 de más; 24 de 24 datos extraídos bien (100 %, margen del 95 %: 86,2–100 %); y 1 de 1 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–13, 410 de 410 señales encontradas, 0 de más y 991 de 993 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda más reciente, la 14, parcial, sobre 1 de las 37 entidades del material: 9 de 9 señales sembradas encontradas (margen del 95 %: 70–100 %) y 0 de más; 8 de 8 datos extraídos bien (100 %, margen del 95 %: 67,5–100 %); y 0 de 0 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–14, 419 de 419 señales encontradas, 0 de más y 999 de 1001 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 13, partial, on 3 of the material's 36 entities: 28 of 28 seeded signals found (95% margin: 87.9–100%) and 0 extra; 24 of 24 data items extracted right (100%, 95% margin: 86.2–100%); and 1 of 1 control entities with no signal at all.",
-     "Across rounds 1–13, 410 of 410 signals found, 0 extra and 991 of 993 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent round, round 14, partial, on 1 of the material's 37 entities: 9 of 9 seeded signals found (95% margin: 70–100%) and 0 extra; 8 of 8 data items extracted right (100%, 95% margin: 67.5–100%); and 0 of 0 control entities with no signal at all.",
+     "Across rounds 1–14, 419 of 419 signals found, 0 extra and 999 of 1001 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -58,53 +59,53 @@
      "es": [
       [
        "Rondas",
-       "13; la más reciente, la 13, es parcial"
+       "14; la más reciente, la 14, es parcial"
       ],
       [
        "Material",
-       "Banca · Paraguay, Retail · Paraguay"
+       "Retail · México"
       ],
       [
        "Entidades de control",
-       "Control · Paraguay"
+       ""
       ],
       [
        "Corridas de una entidad",
-       "48"
+       "49"
       ],
       [
        "Señales sembradas",
-       "410"
+       "419"
       ],
       [
        "Datos calificados",
-       "993"
+       "1001"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "13; the most recent, round 13, is partial"
+       "14; the most recent, round 14, is partial"
       ],
       [
        "Material",
-       "Banking · Paraguay, Retail · Paraguay"
+       "Retail · Mexico"
       ],
       [
        "Control entities",
-       "Control · Paraguay"
+       ""
       ],
       [
        "Entity runs",
-       "48"
+       "49"
       ],
       [
        "Seeded signals",
-       "410"
+       "419"
       ],
       [
        "Data items graded",
-       "993"
+       "1001"
       ]
      ]
     }
@@ -123,8 +124,8 @@
   {
    "id": "acumulado",
    "titulo": {
-    "es": "Resultados acumulados · rondas 1–13",
-    "en": "Cumulative results · rounds 1–13"
+    "es": "Resultados acumulados · rondas 1–14",
+    "en": "Cumulative results · rounds 1–14"
    },
    "tabla": {
     "cab": {
@@ -145,19 +146,19 @@
      "es": [
       [
        "Señales · cobertura",
-       "410 de 410",
+       "419 de 419",
        "100 %",
        "99–100 %"
       ],
       [
        "Señales · precisión",
-       "410 de 410",
+       "419 de 419",
        "100 %",
        "99–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "991 de 993",
+       "999 de 1001",
        "99,8 %",
        "99,2–100 %"
       ],
@@ -171,19 +172,19 @@
      "en": [
       [
        "Signals · coverage",
-       "410 of 410",
+       "419 of 419",
        "100%",
        "99–100%"
       ],
       [
        "Signals · precision",
-       "410 of 410",
+       "419 of 419",
        "100%",
        "99–100%"
       ],
       [
        "Extraction · data right",
-       "991 of 993",
+       "999 of 1001",
        "99.8%",
        "99.2–100%"
       ],
@@ -361,6 +362,16 @@
        "1 de 1",
        "12,1 M",
        "0"
+      ],
+      [
+       "14",
+       "1",
+       "100 %",
+       "100 %",
+       "100 %",
+       "0 de 0",
+       "10,8 M",
+       "0"
       ]
      ],
      "en": [
@@ -493,6 +504,16 @@
        "1 of 1",
        "12.1 M",
        "0"
+      ],
+      [
+       "14",
+       "1",
+       "100%",
+       "100%",
+       "100%",
+       "0 of 0",
+       "10.8 M",
+       "0"
       ]
      ]
     }
@@ -509,8 +530,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda más reciente · ronda 13",
-    "en": "The most recent round · round 13"
+    "es": "La ronda más reciente · ronda 14",
+    "en": "The most recent round · round 14"
    },
    "tabla": {
     "cab": {
@@ -531,53 +552,53 @@
      "es": [
       [
        "Señales · cobertura",
-       "28 de 28",
+       "9 de 9",
        "100 %",
-       "87,9–100 %"
+       "70–100 %"
       ],
       [
        "Señales · precisión",
-       "28 de 28",
+       "9 de 9",
        "100 %",
-       "87,9–100 %"
+       "70–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "24 de 24",
+       "8 de 8",
        "100 %",
-       "86,2–100 %"
+       "67,5–100 %"
       ],
       [
        "Control · sin ninguna señal",
-       "1 de 1",
-       "100 %",
-       "20,6–100 %"
+       "0 de 0",
+       "—",
+       "—"
       ]
      ],
      "en": [
       [
        "Signals · coverage",
-       "28 of 28",
+       "9 of 9",
        "100%",
-       "87.9–100%"
+       "70–100%"
       ],
       [
        "Signals · precision",
-       "28 of 28",
+       "9 of 9",
        "100%",
-       "87.9–100%"
+       "70–100%"
       ],
       [
        "Extraction · data right",
-       "24 of 24",
+       "8 of 8",
        "100%",
-       "86.2–100%"
+       "67.5–100%"
       ],
       [
        "Control · with no signal",
-       "1 of 1",
-       "100%",
-       "20.6–100%"
+       "0 of 0",
+       "—",
+       "—"
       ]
      ]
     }
@@ -586,8 +607,8 @@
   {
    "id": "industrias",
    "titulo": {
-    "es": "Por industria y país · ronda 13",
-    "en": "By industry and country · round 13"
+    "es": "Por industria y país · ronda 14",
+    "en": "By industry and country · round 14"
    },
    "tabla": {
     "cab": {
@@ -611,54 +632,22 @@
     "filas": {
      "es": [
       [
-       "Banca · Paraguay",
+       "Retail · México",
        "Áurea, Clara, Tomás",
-       "16 de 16",
+       "9 de 9",
        "0",
        "8 de 8",
-       "4,4 M"
-      ],
-      [
-       "Retail · Paraguay",
-       "Áurea, Clara, Tomás",
-       "12 de 12",
-       "0",
-       "8 de 8",
-       "3,9 M"
-      ],
-      [
-       "Control · Paraguay",
-       "Áurea, Clara, Tomás",
-       "0 de 0",
-       "0",
-       "8 de 8",
-       "3,8 M"
+       "10,8 M"
       ]
      ],
      "en": [
       [
-       "Banking · Paraguay",
+       "Retail · Mexico",
        "Áurea, Clara, Tomás",
-       "16 of 16",
+       "9 of 9",
        "0",
        "8 of 8",
-       "4.4 M"
-      ],
-      [
-       "Retail · Paraguay",
-       "Áurea, Clara, Tomás",
-       "12 of 12",
-       "0",
-       "8 of 8",
-       "3.9 M"
-      ],
-      [
-       "Control · Paraguay",
-       "Áurea, Clara, Tomás",
-       "0 of 0",
-       "0",
-       "8 of 8",
-       "3.8 M"
+       "10.8 M"
       ]
      ]
     }
@@ -667,15 +656,15 @@
   {
    "id": "senales",
    "titulo": {
-    "es": "Lo que falló, uno por uno · rondas 1–13",
-    "en": "What failed, one by one · rounds 1–13"
+    "es": "Lo que falló, uno por uno · rondas 1–14",
+    "en": "What failed, one by one · rounds 1–14"
    },
    "parrafos": {
     "es": [
-     "2 fallas en 48 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "2 fallas en 49 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "2 failures in 48 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "2 failures in 49 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -872,11 +861,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 13 rondas usaron 250,3 millones de tokens: 239,6 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5 millones por entidad.",
+     "Las 14 rondas usaron 261,1 millones de tokens: 250,3 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,1 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 13 rounds used 250.3 million tokens: 239.6 million in the graded runs and 10.7 in the ones repeated after fixing a defect. On average, 5 million per entity.",
+     "The 14 rounds used 261.1 million tokens: 250.3 million in the graded runs and 10.7 in the ones repeated after fixing a defect. On average, 5.1 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

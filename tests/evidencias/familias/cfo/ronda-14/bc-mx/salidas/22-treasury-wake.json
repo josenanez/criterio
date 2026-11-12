@@ -1,0 +1,26 @@
+{
+  "n": 22,
+  "agente": "aurea",
+  "comando": "treasury-wake",
+  "argumento": "",
+  "inicio": "2026-11-12T14:11:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 6,
+  "tokens": 294444,
+  "tokens_salida": 1032,
+  "costo_usd": 0.2326458,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-11-12-treasury-wake-1.html",
+      ".criterio/corridas/tesoreria/2026-11-12-treasury-wake-1.md",
+      ".criterio/en-curso/<sesion>.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json"
+    ],
+    "borrados": []
+  }
+}

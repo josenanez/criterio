@@ -1,0 +1,17 @@
+Posting Date;Transaction No.;G/L Account No.;Source No.;External Document No.;Debit Amount;Credit Amount;Global Dimension 1 Code;Description
+2026-07-25;G-070;5135;;;52380.00;0.00;ADM;Servicios públicos de julio
+2026-07-25;G-070;11100501;;;0.00;52380.00;;Pago Servicios públicos
+2026-07-25;G-071;5145;;;34920.00;0.00;ADM;Mantenimiento de julio
+2026-07-25;G-071;11100501;;;0.00;34920.00;;Pago Mantenimiento
+2026-07-25;G-072;5195;;;61110.00;0.00;COM;Publicidad de julio
+2026-07-25;G-072;11100501;;;0.00;61110.00;;Pago Publicidad
+2026-07-25;G-073;5195;;;34920.00;0.00;EVT;Eventos de julio
+2026-07-25;G-073;11100501;;;0.00;34920.00;;Pago Eventos
+2026-07-25;G-074;5135;;;87300.00;0.00;TEC;Licencias de julio
+2026-07-25;G-074;11100501;;;0.00;87300.00;;Pago Licencias
+2026-07-25;G-075;5145;;;104760.00;0.00;PRY;PRY-310 de julio
+2026-07-25;G-075;11100501;;;0.00;104760.00;;Pago PRY-310
+2026-07-25;G-076;5135;;;61110.00;0.00;OPE;Transporte de julio
+2026-07-25;G-076;11100501;;;0.00;61110.00;;Pago Transporte
+2026-07-25;G-077;5105;;;360000.00;0.00;ADM;Nómina de julio
+2026-07-25;G-077;11100501;;;0.00;360000.00;;Pago Nómina

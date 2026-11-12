@@ -90,6 +90,10 @@ ENTIDADES = [
      "siembra": ["xml_duplicado", "registro_sin_factura", "consignacion_en_transito", "cierre_declarado", "requerimiento_vencido",
                  "gasto_sin_linea", "proyeccion_vieja", "comprometido_al_limite"]},
     {"carpeta": "control-mx", "industria": "banca", "pais": "MX", "id": F.rfc("CCM", "120615", "R59"), "nombre": "Comercial Control Centro", "moneda": "MXN", "escala": 12_000, "semilla": 19, "siembra": []},
+    # El libro mayor y el balance como los exporta Business Central (CAB_ERP), con las señales que pasan por ellos.
+    {"carpeta": "bc-mx", "industria": "retail", "pais": "MX", "id": F.rfc("DNO", "190402", "B43"), "nombre": "Distribuidora del Noroeste", "moneda": "MXN", "escala": 18_000, "semilla": 43,
+     "erp": "bc", "siembra": ["registro_doble", "asiento_fuera_del_balance", "cuenta_sin_auxiliar", "registro_sin_factura",
+                              "consignacion_en_transito", "tarea_sin_soporte", "gasto_sin_linea"]},
     # Brasil: retail y minería de São Paulo, con sus documentos en portugués. Los bancos de Brasil
     # facturan sus servicios con la nota fiscal de servicios de cada municipio, no con la NF-e.
     {"carpeta": "retail-br", "industria": "retail", "pais": "BR", "id": F.cnpj(31452078), "nombre": "Lojas Paulistas", "moneda": "BRL", "escala": 5_000, "semilla": 29,
@@ -173,8 +177,26 @@ def r2(x: float) -> float:
     return round(x + 0.0, 2)
 
 
+# ------------------------------------------------ Las exportaciones de un ERP
+# Una entidad con «erp» trae el libro mayor y el balance como los exporta ese ERP: con los nombres de sus
+# columnas y sin las que no trae. Business Central (F-43): los campos de las tablas G/L Entry y G/L
+# Account, en inglés; el balance no trae saldo inicial.
+ERP = [None]
+ERP_NOMBRE = {"bc": "Business Central"}
+CAB_ERP = {"bc": {
+    "libro-mayor": {"fecha": "Posting Date", "comprobante": "Transaction No.", "cuenta": "G/L Account No.", "tercero": "Source No.",
+                    "documento": "External Document No.", "debito": "Debit Amount", "credito": "Credit Amount",
+                    "centro_costo": "Global Dimension 1 Code", "descripcion": "Description"},
+    "balance-comprobacion": {"cuenta": "No.", "nombre": "Name", "saldo_inicial": None, "debito": "Debit Amount",
+                             "credito": "Credit Amount", "saldo_final": "Balance at Date"}}}
+
+
 def csv_(ruta: Path, filas: list[list]) -> None:
     ruta.parent.mkdir(parents=True, exist_ok=True)
+    cab = CAB_ERP.get(ERP[0], {}).get(ruta.stem)
+    if cab and filas:
+        quedan = [i for i, c in enumerate(filas[0]) if cab.get(c, c) is not None]
+        filas = [[cab.get(filas[0][i], filas[0][i]) for i in quedan]] + [[f[i] for i in quedan] for f in filas[1:]]
     if LANG[0] == "pt" and filas:
         filas = [[CAB_PT.get(c, c) for c in filas[0]]] + [[tr(v) for v in f] for f in filas[1:]]
     with open(ruta, "w", newline="", encoding="utf-8") as f:
@@ -572,6 +594,7 @@ def generar(e: dict) -> dict:
     s = set(e["siembra"])
     pais, esc, tasa = e["pais"], e["escala"], TASA[e["pais"]]
     LANG[0] = "pt" if pais == "BR" else "es"
+    ERP[0] = e.get("erp")
     if pais == "BR":
         # El ICMS forma parte del valor de la operación (F-21, I11, p. 18): la alícuota es sobre el valor
         # con el impuesto, y sobre la base sin él es t / (1 − t).
@@ -1112,7 +1135,7 @@ def generar(e: dict) -> dict:
         "aurea": {"entity": entidad, "paths": rutas, "period": PERIODO, **cfg_tesoreria},
     }
     clave = {"entidad": e["nombre"], "industria": e["industria"], "pais": pais, "hoy": HOY, "siembra": e["siembra"] + siembra_t,
-             "config": config, "extraccion": extraccion,
+             **({"erp": ERP_NOMBRE[e["erp"]]} if e.get("erp") else {}), "config": config, "extraccion": extraccion,
              "esperado": sorted(({"signal": a, "key": b} for a, b in set(esperado)), key=lambda x: (x["signal"], x["key"]))}
     texto = json.dumps(clave, ensure_ascii=False, indent=2)
     for viejo, nuevo in sorted(formatos_reales(docs, e["carpeta"]).items(), key=lambda x: -len(x[0])):

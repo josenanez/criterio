@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "tomas",
+  "comando": "budget-scan",
+  "argumento": "",
+  "inicio": "2026-11-12T14:01:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 51,
+  "turnos": 15,
+  "tokens": 692197,
+  "tokens_salida": 4576,
+  "costo_usd": 0.450655,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-budget-scan-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-budget-scan.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/presupuesto/2026/reporte-budget-scan.md"
+    ],
+    "modificados": [
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

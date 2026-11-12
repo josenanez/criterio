@@ -20,6 +20,7 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-13 | [banca-py](ronda-13/banca-py/) | banca · PY | aurea, clara, tomas | 16 de 16 · 0 de más | 8 de 8 | 4.41 M |
 | ronda-13 | [control-py](ronda-13/control-py/) | control · PY | aurea, clara, tomas | 0 de 0 · 0 de más | 8 de 8 | 3.77 M |
 | ronda-13 | [retail-py](ronda-13/retail-py/) | retail · PY | aurea, clara, tomas | 12 de 12 · 0 de más | 8 de 8 | 3.92 M |
+| ronda-14 | [bc-mx](ronda-14/bc-mx/) | retail · MX | aurea, clara, tomas | 9 de 9 · 0 de más | 8 de 8 | 10.75 M |
 | ronda-2 | [banca](ronda-2/banca/) | banca · CO | clara, tomas | 13 de 13 · 0 de más | 8 de 8 | 8.40 M |
 | ronda-2 | [control-co](ronda-2/control-co/) | control · CO | clara, tomas | 0 de 0 · 0 de más | 8 de 8 | 8.39 M |
 | ronda-2 | [control-ec](ronda-2/control-ec/) | control · EC | clara, tomas | 0 de 0 · 0 de más | 8 de 8 | 8.52 M |

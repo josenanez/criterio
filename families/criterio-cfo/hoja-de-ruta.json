@@ -347,6 +347,30 @@
     ],
     "prueba": "The full verification; the clock, in the version test"
    }
+  },
+  {
+   "incremento": 12,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Las exportaciones de Business Central",
+    "entra": [
+     "El libro mayor y el balance de comprobación como los exporta Microsoft Dynamics 365 Business Central, reconocidos sin preguntar: los nombres de los campos de sus tablas, desde su fuente verificada (F-43)",
+     "Una entidad de prueba de México con su libro mayor y su balance en ese formato, el balance sin saldo inicial: el motor levanta cada señal, ninguna de más",
+     "Siigo, Alegra, SAP Business One y Odoo, cuando sus encabezados de exportación estén entre las fuentes verificadas"
+    ],
+    "prueba": "La ronda 14 con Clara, Tomás y Áurea sobre la entidad de Business Central: 9 de 9 señales y 8 de 8 datos, sin preguntar ninguna columna"
+   },
+   "en": {
+    "titulo": "Business Central exports",
+    "entra": [
+     "The general ledger and the trial balance as Microsoft Dynamics 365 Business Central exports them, recognised without asking: the field names of its tables, from its verified source (F-43)",
+     "A Mexican test entity with its ledger and trial balance in that format, the trial balance without an opening balance: the engine raises each signal, none extra",
+     "Siigo, Alegra, SAP Business One and Odoo, once their export headers are among the verified sources"
+    ],
+    "prueba": "Round 14 with Clara, Tomás and Áurea on the Business Central entity: 9 of 9 signals and 8 of 8 data points, without asking about any column"
+   }
   }
  ]
 }
