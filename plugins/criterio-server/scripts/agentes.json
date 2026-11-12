@@ -84,8 +84,8 @@
         "en": "Information security"
       },
       "estado": {
-        "es": "Construida · en prueba",
-        "en": "Built · in testing"
+        "es": "Construida · probada",
+        "en": "Built · tested"
       },
       "agentes": [
         "seguridad",

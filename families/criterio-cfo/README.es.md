@@ -17,12 +17,12 @@ caja—, y cada uno deja su resultado en su ficha, de donde parten los demás.
 | **Objetivo** | Que el cierre deje de depender de que alguien recuerde qué falta |
 | **Compuesta por** | [Clara](../../plugins/criterio-finance/README.es.md) · [Tomás](../../plugins/criterio-budget/README.es.md) · [Áurea](../../plugins/criterio-treasury/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | El marco de trabajo que define cada rol y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | Construida y probada sobre material sintético de cinco países —Colombia, Ecuador, Perú, Chile y México—: el motor, contra las quince entidades del material; los tres agentes, en [las rondas con el agente](../../tests/evidencias/familias/cfo/RONDAS.md), la más reciente la 6, sobre México. **No se ha probado todavía sobre la documentación de una organización concreta** |
+| **Estado** | Construida y probada sobre material sintético de los países de [la tabla de países probados](#los-países-probados): el motor, contra cada entidad del material; los tres agentes, en [las rondas con el agente](../../tests/evidencias/familias/cfo/RONDAS.md). **No se ha probado todavía sobre la documentación de una organización concreta** |
 | **Enfoque** | Control y reporte |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza al contralor, al equipo de planeación financiera ni a la tesorería, y no decide por ellos: procesa lo que el área ya tiene y dice qué no cuadra |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | Brasil, en la 1.0: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | [La hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -53,7 +53,7 @@ Clara— contra su límite. **Nunca mueve dinero ni entra a un portal bancario**
 ([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)).
 
 **Clara, Tomás y Áurea se instalan hoy**, cada uno con su propio plugin, y tienen la misma deuda, escrita en
-su página: el motor y la extracción de los agentes están probados sobre material sintético de cinco países;
+su página: el motor y la extracción de los agentes están probados sobre material sintético de cada país de la tabla de países probados;
 **nada se ha probado todavía sobre los documentos de una organización.**
 
 El marco contable que adoptó cada país, con su fuente —en México, las NIIF o las NIF según la
@@ -451,5 +451,5 @@ La familia quedó probada con la ronda completa con el agente, y su evidencia la
 la corrida más reciente de cada una de sus entidades tiene el piso del margen del 95 % en 95 % o más,
 en señales y en datos, y ningún control levantó una señal
 ([decisión 0020](../../docs/decisions/0020-laboratorio-estable-y-diez-versiones.md); lo calcula
-`scripts/calidad.py`). Lo siguiente es Brasil, en la 1.0. Las decisiones que siguen abiertas, en el
+`scripts/calidad.py`). Lo que sigue está en la [hoja de ruta](#hoja-de-ruta). Las decisiones que siguen abiertas, en el
 [diseño](DISENO.es.md#decisiones-abiertas).

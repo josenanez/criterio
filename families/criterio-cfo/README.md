@@ -17,12 +17,12 @@ cash — and each one leaves its result in its record, where the others start fr
 | **Objective** | That the close stops depending on someone remembering what is missing |
 | **Made of** | [Clara](../../plugins/criterio-finance/README.md) · [Tomás](../../plugins/criterio-budget/README.md) · [Áurea](../../plugins/criterio-treasury/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The support** | The framework that defines each role and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) (Spanish) |
-| **State** | Built and tested on synthetic material from five countries —Colombia, Ecuador, Peru, Chile and Mexico—: the engine, against the fifteen entities in the material; the three agents, in [the rounds with the agent](../../tests/evidencias/familias/cfo/RONDAS.md), the latest round 6, on Mexico. **Not yet tested on a specific organisation's documentation** |
+| **State** | Built and tested on synthetic material from the countries in [the table of countries tested](#the-countries-tested): the engine, against every entity in the material; the three agents, in [the rounds with the agent](../../tests/evidencias/familias/cfo/RONDAS.md). **Not yet tested on a specific organisation's documentation** |
 | **Approach** | Control and reporting |
 | **Commitment** | Generating, sharing and preserving knowledge is a professional obligation |
 | **What it is not** | It does not replace the controller, the financial planning team or treasury, and does not decide for them: it processes what the function already has and says what does not tie out |
 | **Licence** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | Brazil, in 1.0: [the roadmap](#roadmap) |
+| **What comes next** | [The roadmap](#roadmap) |
 
 ---
 
@@ -53,7 +53,7 @@ closes— against its limit. **She never moves money or logs into a bank portal*
 ([ADR 0016](../../docs/decisions/0016-tesoreria-tercer-agente-cfo.md)).
 
 **Clara, Tomás and Áurea install today**, each with its own plugin, and all carry the same debt, written on their
-page: the engine and the agents' extraction are tested on synthetic material from five countries;
+page: the engine and the agents' extraction are tested on synthetic material from each country in the table of countries tested;
 **nothing has been tested yet on an organisation's documents.**
 
 The accounting framework each country adopted, with its source —in Mexico, IFRS or NIF depending on
@@ -451,4 +451,4 @@ The family was declared tested with the full round with the agent, and its evide
 **stable**: each of its entities' most recent run has the floor of the 95% margin at 95% or more, for
 signals and data, and no control raised a signal
 ([decision 0020](../../docs/decisions/0020-laboratorio-estable-y-diez-versiones.md); `scripts/calidad.py`
-calculates it). Next comes Brazil, in 1.0. The decisions still open, in the [design](DISENO.md#open-decisions).
+calculates it). What comes next is in the [roadmap](#roadmap). The decisions still open, in the [design](DISENO.md#open-decisions).

@@ -13,7 +13,7 @@ You answer for incident response and continuity. She comes with every incident a
 
 [Español](README.es.md) · `criterio-resilience` · Apache 2.0 · One instance per entity
 
-**Status: laboratory, not yet launched (version 0.2.0).** The calculation engine, tested against synthetic material from four industries with a key the agent never sees and two control entities, and the first round with the three agents on all six entities: 100 of 100 signals, none extra. It stays in laboratory because the extracted fields are still too few for a 95 % floor. It can already be installed from the marketplace. Nothing is announced as finished until it passes the [acceptance criteria](ACCEPTANCE.md).
+**Status: launched and stable, with the CISO family.** The calculation engine, tested against the family's synthetic material with a key the agent never sees and control entities; the three agents, in [the rounds with the agent](../../tests/evidencias/familias/ciso/RONDAS.md). **Not yet tested on a specific organisation's documentation.**
 
 **This page stands on its own.** Amparo works without the family's other two agents. The family —how they meet each other and Rostrum— is in the [criterio-ciso family](../../families/criterio-ciso/README.md).
 
