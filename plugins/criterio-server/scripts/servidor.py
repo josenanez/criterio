@@ -110,6 +110,7 @@ EXTRA = f"""
 .num{{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}}
 caption{{text-align:left;font-weight:600;padding:0 0 8px}}
 tr.total td{{border-top:1px solid {informe.FILETE}}}
+code.cmd.largo{{overflow-wrap:anywhere;white-space:normal}}
 @media (max-width:640px){{table.apila td.num{{text-align:left}} table.apila caption{{display:block;width:100%}}}}
 .con-arbol{{display:grid;grid-template-columns:320px minmax(0,1fr);min-height:100vh}}
 .lado{{position:sticky;top:0;max-height:100vh;overflow-y:auto;box-sizing:border-box;
@@ -276,10 +277,16 @@ def pagina(titulo, cuerpo, hoy, nav='', activa=''):
     # Cada página dice qué es en un `<h1>`. Las que lo traen (la portada, un error) lo ponen ellas.
     if '<h1' not in cuerpo:
         cuerpo = f'<h1>{e(titulo)}</h1>' + cuerpo
+    # Una hoja de estilo propia de una vista va en el `head`, no en el cuerpo (validador del W3C).
+    hojas = re.findall(r'<style>.*?</style>', cuerpo, flags=re.S)
+    for h_ in hojas:
+        cuerpo = cuerpo.replace(h_, '', 1)
     html_ = informe.pagina(f'{titulo} · Rostrum', cuerpo, hoy, nav).replace(
         f'Producido por <strong>Vera</strong>, el agente PMO de Criterio, el {e(hoy)}.',
         f'Servido por <strong>Rostrum</strong>, el portal de Criterio, el {e(hoy)}: lo que hay aquí lo escribió '
         f'el agente que se nombra, y no se recalculó al servirlo.', 1)
+    if hojas:
+        html_ = html_.replace('</head>', ''.join(hojas) + '</head>', 1)
     return con_arbol(html_, activa)
 
 
@@ -1066,14 +1073,17 @@ def vista_agente(todas: list, agente: str, hoy: str, entradas: list | None = Non
     cuerpo.append(AVISO_HISTORIA)
     fam = FAMILIA_DE[agente]
     return 200, pagina(f'{NOMBRE[agente]} · {TITULO[agente].split(" · ")[1]}', "".join(cuerpo), hoy,
-                       nav((f'/familia/{fam}', nombre_familia(fam)), ('', NOMBRE[agente])), f'/agente/{agente}')
+                       nav(*([(f'/familia/{fam}', nombre_familia(fam))] if any(FAMILIA_DE.get(x['area']) == fam for x in entradas or []) else []),
+                           ('', NOMBRE[agente])), f'/agente/{agente}')
 
 
-def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -> tuple:
-    """Todo lo que los tres agentes han hecho sobre un proyecto o un producto."""
+def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str, entradas: list | None = None) -> tuple:
+    """Todo lo que los agentes han hecho sobre un caso: un proyecto, un producto, un contrato, un
+    periodo. Lo que vence sobre él también cuenta: «lo que vence» enlaza a cada caso que nombra."""
     suyas = [c for c in todas if c.get("caso") == codigo]
     senales = h["casos"].get(codigo) or {}
-    if not suyas and not senales and not (informe_dir / f'{codigo}.html').is_file():
+    vence = [f for f in pendientes_con_fecha(entradas or []) if f[2].get('caso') == codigo]
+    if not suyas and not senales and not vence and not (informe_dir / f'{codigo}.html').is_file():
         return 404, error(404, f'No hay nada sobre {codigo}', hoy)
     que_es = caso_es(codigo)
     enlaces = []
@@ -1111,6 +1121,13 @@ def vista_caso(todas: list, h: dict, informe_dir: Path, codigo: str, hoy: str) -
                               f'<td>{"<a href=" + chr(34) + "/agente/" + e(quien_) + chr(34) + ">" + e(NOMBRE.get(quien_, quien_)) + "</a>" if quien_ else "—"}</td>'
                               f'<td class="nw">{e(desde)}</td><td class="n">{n_}</td></tr>')
             cuerpo.append('</tbody></table></div>')
+    if vence:
+        cuerpo += ['<h2>Lo que vence</h2>', '<div class="bloque"><table><thead><tr><th>Fecha</th><th>Agente</th>'
+                   '<th>Qué</th><th>Estado</th></tr></thead><tbody>']
+        for fecha_, x, v, _ in vence:
+            cuerpo.append(f'<tr><td class="nw">{e(fecha_)}</td><td><a href="/agente/{e(x["area"])}">{e(NOMBRE.get(x["area"], x["area"]))}</a></td>'
+                          f'<td>{e(v.get("que"))}</td><td>{e(v.get("estado") or "—")}</td></tr>')
+        cuerpo.append('</tbody></table></div>')
     cuerpo.append(AVISO_HISTORIA)
     return 200, pagina(f'{codigo} · todo lo que se ha hecho sobre este {que_es}', "".join(cuerpo), hoy,
                        nav(('/corridas', 'Historia'), ('', codigo)), '/corridas')
@@ -1715,14 +1732,17 @@ def tokens(n: int) -> str:
 ID_AGENTE = {a["id"]: a for a in REGISTRO["agentes"]}
 
 
-def quien_consume(ag: str) -> str:
-    """El agente con su enlace; el setup de una familia y Rostrum, con su nombre."""
+def quien_consume(ag: str, en_mapa: set = frozenset()) -> str:
+    """El agente, con enlace a su página si está en el mapa; el setup de una familia y Rostrum, con su nombre."""
     if ag == 'familia':
         return 'El setup de la familia'
     if ag == 'rostrum':
         return 'Rostrum'
     a = ID_AGENTE.get(ag)
-    return f'<a href="/agente/{e(a["area"])}">{e(a["nombre"])}</a> · {e(a["rol"]["es"])}' if a else e(ag)
+    if not a:
+        return e(ag)
+    nombre = f'<a href="/agente/{e(a["area"])}">{e(a["nombre"])}</a>' if a["area"] in en_mapa else e(a["nombre"])
+    return f'{nombre} · {e(a["rol"]["es"])}'
 
 
 AVISO_CACHE = ('<p class="aviso">La mayor parte es <b>lectura de caché</b>: el contexto que Claude vuelve a leer en '
@@ -1731,23 +1751,24 @@ AVISO_CACHE = ('<p class="aviso">La mayor parte es <b>lectura de caché</b>: el 
                'pero en un plan con límite de uso cuenta igual. La salida es lo que el agente escribió.</p>')
 
 
-def vista_consumo(raiz: Path | None, medir_si: bool, hoy: str) -> tuple:
+def vista_consumo(raiz: Path | None, medir_si: bool, hoy: str, entradas: list | None = None) -> tuple:
     """Los tokens de cada familia y de cada agente. Arriba, los de esta organización, que salen de
     las sesiones de Claude Code de la carpeta de trabajo y solo con un sí de la persona; abajo, lo que
     cuesta cada comando en las rondas de prueba, para tener con qué comparar. Rostrum no guarda nada:
     cuenta cada vez que se abre la página."""
+    en_mapa = {x['area'] for x in entradas or []}
     cuerpo = ['<p class="entrada">Cuántos tokens usa cada familia y cada agente. Los de esta organización salen de '
               'las sesiones de Claude Code que corrieron en su carpeta de trabajo: de cada respuesta se toma su uso '
               'y el comando que la pidió, <b>nunca el texto de la conversación</b>. Los de las pruebas salen de las '
               'rondas publicadas con los agentes.</p>', '<h2>En esta organización</h2>']
     if raiz is None:
         cuerpo.append('<div class="bloque"><p>Se mide con el mapa de Rostrum: levántalo con '
-                      '<code class="cmd">/criterio-server:server-start</code> después de '
-                      '<code class="cmd">/criterio-server:server-setup</code>.</p></div>')
+                      '<code class="cmd largo">/criterio-server:server-start</code> después de '
+                      '<code class="cmd largo">/criterio-server:server-setup</code>.</p></div>')
     elif not medir_si:
         cuerpo.append('<div class="bloque"><p>No se está midiendo: hace falta tu sí, porque las sesiones son tuyas. '
-                      '<code class="cmd">/criterio-server:server-setup</code> lo pregunta, o directamente:</p>'
-                      '<pre>python3 "${CLAUDE_PLUGIN_ROOT}/scripts/mapa.py" consumo --si --raiz &lt;carpeta de trabajo&gt;</pre>'
+                      '<code class="cmd largo">/criterio-server:server-setup</code> lo pregunta, o directamente:</p>'
+                      '<p><code class="cmd largo">python3 "${CLAUDE_PLUGIN_ROOT}/scripts/mapa.py" consumo --si --raiz &lt;carpeta de trabajo&gt;</code></p>'
                       '<p>Se mide en este equipo, sobre las sesiones de Claude Code. Las de Cowork corren en la nube '
                       'y no quedan aquí.</p></div>')
     else:
@@ -1781,8 +1802,8 @@ def vista_consumo(raiz: Path | None, medir_si: bool, hoy: str) -> tuple:
                 for cmd, x in sorted(a['comandos'].items(), key=lambda kv: -kv[1]['total']):
                     r = ((ref.get(ag) or {}).get('comandos') or {}).get(cmd)
                     vez = tokens(round(x['total'] / x['corridas'])) if x['corridas'] else '—'
-                    cuerpo.append(f'<tr><td>{quien_consume(ag)}</td><td>{e(ETIQUETA.get(cmd, cmd))}'
-                                  f'<span class="cita"><code class="cmd">{e(cmd)}</code></span></td>'
+                    cuerpo.append(f'<tr><td>{quien_consume(ag, en_mapa)}</td><td>{e(ETIQUETA.get(cmd, cmd))}'
+                                  f'<span class="cita"><code class="cmd largo">{e(cmd)}</code></span></td>'
                                   f'<td class="num">{x["corridas"]}</td><td class="num">{tokens(x["total"])}</td>'
                                   f'<td class="num">{vez}</td><td class="num">{tokens(r["mediana"]) if r else "—"}</td></tr>')
             cuerpo.append('</tbody></table></div>')
@@ -1804,11 +1825,11 @@ def vista_consumo(raiz: Path | None, medir_si: bool, hoy: str) -> tuple:
                       '<th class="num">Máximo</th><th class="num">Pasos</th></tr></thead><tbody>')
         for ag, x in suyos:
             for cmd, c in sorted(x['comandos'].items(), key=lambda kv: -kv[1]['mediana']):
-                cuerpo.append(f'<tr><td>{quien_consume(ag)}</td><td>{e(ETIQUETA.get(cmd, cmd))}'
-                              f'<span class="cita"><code class="cmd">{e(cmd)}</code></span></td>'
+                cuerpo.append(f'<tr><td>{quien_consume(ag, en_mapa)}</td><td>{e(ETIQUETA.get(cmd, cmd))}'
+                              f'<span class="cita"><code class="cmd largo">{e(cmd)}</code></span></td>'
                               f'<td class="num">{c["corridas"]}</td><td class="num">{tokens(c["mediana"])}</td>'
                               f'<td class="num">{tokens(c["maximo"])}</td><td class="num">{c["mediana_turnos"]}</td></tr>')
-            cuerpo.append(f'<tr class="total"><td>{quien_consume(ag)}</td><td>Una pasada</td><td></td>'
+            cuerpo.append(f'<tr class="total"><td>{quien_consume(ag, en_mapa)}</td><td>Una pasada</td><td></td>'
                           f'<td class="num"><b>{tokens(x["pasada"])}</b></td><td></td><td></td></tr>')
         cuerpo.append('</tbody></table></div>')
     cuerpo.append(AVISO_CACHE)
@@ -1975,7 +1996,7 @@ class Manejador(BaseHTTPRequestHandler):
         elif ruta == '/vence':
             self.html(*vista_vence(self.entradas, self.hoy()))
         elif ruta == '/consumo':
-            self.html(*vista_consumo(self.raiz, self.medir_consumo, self.hoy()))
+            self.html(*vista_consumo(self.raiz, self.medir_consumo, self.hoy(), self.entradas))
         elif ruta.startswith('/resumen/'):
             self.html(*vista_resumen(self.entradas, ruta[len('/resumen/'):], self.hoy()))
         elif ruta.startswith('/reporte/'):
@@ -1990,7 +2011,7 @@ class Manejador(BaseHTTPRequestHandler):
                 self.html(404, error(404, 'Eso no está aquí', self.hoy()))
             else:
                 self.html(*vista_caso(self.todas(), historia(self.entradas),
-                                      self.informe_dir, codigo, self.hoy()))
+                                      self.informe_dir, codigo, self.hoy(), self.entradas))
         elif ruta.startswith('/corrida/'):
             partes = [urllib.parse.unquote(x) for x in ruta.split('/')[2:]]
             if len(partes) == 2 and all(SEGURO.match(x) for x in partes):
@@ -2530,6 +2551,9 @@ def selftest() -> int:
         ok('lo que vence junta las listas de cada motor y el comité, ordenadas por fecha',
            cod == 200 and ven.index('2026-10-08') < ven.index('2026-10-15') < ven.index('2026-11-01')
            and 'Próximo comité' in ven and '/caso/CTR-104' in ven, True)
+        cod, ctr = pedir('/caso/CTR-104')
+        ok('cada caso que nombra lo que vence tiene su página, con lo que vence sobre él (auditoría 2026-11-13: 404)',
+           cod == 200 and 'límite del preaviso' in ctr, True)
         Manejador.raiz, Manejador.medir_consumo = raiz, False
         cod, cons = pedir('/consumo')
         ok('el consumo sin un sí no mide, lo dice, y muestra lo que cuesta cada comando en las pruebas',

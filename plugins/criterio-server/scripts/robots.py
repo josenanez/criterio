@@ -377,7 +377,7 @@ def css(selector: str = ".cr-anima") -> str:
                       f"a:focus-visible>{selector} .g-{base}{{animation-iteration-count:infinite}}")
     reglas.append("@media (prefers-reduced-motion: reduce){"
                   f"{selector} *{{animation:none!important;stroke-dashoffset:0!important;"
-                  "transform:none!important;opacity:1!important}}}")
+                  "transform:none!important;opacity:1!important}}")
     return "".join(reglas)
 
 
@@ -419,6 +419,9 @@ def svg(robot: str, trazo: str, acento: str, ancho: float = 120, grosor: float =
             else:
                 L = _largo(elemento, atributos)
                 extra += f' stroke-dasharray="{L:.3f} {L + 1:.3f}" stroke-dashoffset="{L * v:.3f}"'
+        if "pathLength" in extra and elemento == "line":
+            # `pathLength` es de `path`, no de `line` (validador del W3C): la misma línea, como trazo.
+            elemento, a = "path", f'd="M{atributos["x1"]} {atributos["y1"]}L{atributos["x2"]} {atributos["y2"]}"'
         partes.append(f'<{elemento} class="{cls}" {a} {est}{extra}/>')
     cuerpo = "".join(partes)
     if robot not in QUIETOS:

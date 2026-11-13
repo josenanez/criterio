@@ -35,6 +35,35 @@ estado—, y una carpeta en `.criterio/` que no es de ningún agente. Comprueba 
 - lo dejado fuera no vuelva solo;
 - una familia instalada después aparezca como nueva.
 
+## La auditoría de accesibilidad y el validador del W3C, 2026-11-13
+
+Sobre la demostración de seis familias (`plugins/criterio-server/demo/criterio-demo.zip`), con
+`accesibilidad/auditar.mjs`, que desde hoy también valida el HTML de cada página con el validador
+del W3C (Nu Html Checker 26.10.12) y levanta la demostración solo.
+
+**Antes:** 226 páginas.
+
+- 12 enlaces a un 404:
+  - 11 casos que «lo que vence» nombraba sin que ninguna corrida los tuviera (un contrato, un
+    periodo, un control);
+  - la familia EA desde la página de Ofelia, que no publica en Rostrum.
+- `/consumo`, la página nueva, se salía del ancho en el teléfono por un comando largo.
+- El validador del W3C, en cada página:
+  - la hoja de los robots cerraba una llave de más;
+  - `pathLength` en una `line` de los robots, que solo admite `path`;
+  - en cinco resúmenes ejecutivos, la hoja de estilo dentro del cuerpo y una tabla con dos `class`;
+  - en tres informes de proyecto, las tablas apiladas dos veces, con cada `data-col` repetido.
+
+**Después:** 225 páginas a 1280, 768, 390 y 320 px, sin una falla de axe (WCAG 2.0, 2.1 y 2.2 A y
+AA, y buenas prácticas), ni de teclado, ni de reflujo, ni del validador del W3C.
+
+- Un caso que nombra «lo que vence» tiene su página, con lo que vence sobre él.
+- La miga a la familia aparece solo si la familia está en el mapa, y `/consumo` enlaza solo a los
+  agentes que están en él.
+- Los robots: la llave sobrante fuera, y el trazo animado de una línea se dibuja como `path`.
+- La hoja de estilo de una vista va en el `head`; una tabla ya apilada no se vuelve a apilar y suma
+  su `class` en vez de repetirla.
+
 ## La auditoría de accesibilidad y uso, 2026-10-21
 
 Se hizo con Chromium y axe-core sobre un espacio de trabajo de demostración con salidas reales de

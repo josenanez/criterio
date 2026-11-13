@@ -433,10 +433,11 @@ volver atrás:
 - en cada página enlazada: un solo `h1`, el salto al contenido, `main`, título e idioma;
 - que los robots se paren solos en menos de cinco segundos.
 
-El recorrido completo, con Chromium y axe-core, está en
-[`tests/criterio-server/accesibilidad/`](../../tests/criterio-server/accesibilidad/). Con un
-Rostrum corriendo, `npm ci && BASE=http://127.0.0.1:<puerto> npm run auditar` recorre cada página
-enlazada a 1280, 768, 390 y 320 px. Revisa también el teclado, el menú del teléfono, el
+El recorrido completo, con Chromium, axe-core y el validador del W3C (Nu Html Checker, pide
+Java), está en [`tests/criterio-server/accesibilidad/`](../../tests/criterio-server/accesibilidad/).
+`npm ci && npm run auditar` levanta la demostración —seis familias— y recorre cada página enlazada
+a 1280, 768, 390 y 320 px, y valida su HTML; con `BASE=http://127.0.0.1:<puerto>` recorre un
+Rostrum que ya está corriendo. Revisa también el teclado, el menú del teléfono, el
 formulario y el movimiento.
 
 ## El menú, las páginas de los agentes y las de cada caso

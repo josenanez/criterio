@@ -432,10 +432,11 @@ Acceptance criteria in [ACCEPTANCE.md](ACCEPTANCE.md).
 - on every linked page: a single `h1`, the skip link, `main`, title and language;
 - that the robots stop on their own in under five seconds.
 
-The full walk, with Chromium and axe-core, is in
-[`tests/criterio-server/accesibilidad/`](../../tests/criterio-server/accesibilidad/). With
-Rostrum running, `npm ci && BASE=http://127.0.0.1:<port> npm run auditar` walks every linked page
-at 1280, 768, 390 and 320 px. It also checks the keyboard, the phone menu, the form and motion.
+The full walk, with Chromium, axe-core and the W3C validator (Nu Html Checker, needs Java), is
+in [`tests/criterio-server/accesibilidad/`](../../tests/criterio-server/accesibilidad/).
+`npm ci && npm run auditar` starts the demo —six families— and walks every linked page at 1280,
+768, 390 and 320 px, and validates its HTML; with `BASE=http://127.0.0.1:<port>` it walks a
+Rostrum that is already running. It also checks the keyboard, the phone menu, the form and motion.
 
 ## The menu, the agents' pages and the case pages
 

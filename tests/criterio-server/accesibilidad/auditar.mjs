@@ -1,7 +1,9 @@
 // Recorre un Rostrum que ya está corriendo, página por página, y dice qué no cumple.
 //
 //   cd tests/criterio-server/accesibilidad && npm ci
-//   BASE=http://127.0.0.1:8765 npm run auditar          # CAPTURAS=1 guarda una captura por vista
+//   npm run auditar                                      # levanta la demostración y la recorre
+//   BASE=http://127.0.0.1:8765 npm run auditar          # o un Rostrum que ya está corriendo
+//                                                        # CAPTURAS=1 guarda una captura por vista
 //
 // Sale con 1 si algo falla. Lo que mide:
 //   · axe-core con las reglas WCAG 2.0, 2.1 y 2.2 de nivel A y AA, y las buenas prácticas, a 1280 y 390 px
@@ -11,11 +13,33 @@
 //   · el teclado: el primer Tab es el salto al contenido, el foco se ve, el menú del teléfono se abre
 //   · que los robots se paren solos antes de cinco segundos (WCAG 2.2.2) y que el formulario no se
 //     envíe sin texto
+//   · el HTML de cada página contra el validador del W3C (Nu Html Checker, `vnu-jar`, pide Java)
 // El navegador es el de Playwright; CHROMIUM apunta a otro.
 import { chromium } from 'playwright';
 import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { execFileSync, spawn } from 'node:child_process';
+import vnuJar from 'vnu-jar';
 
-const BASE = process.env.BASE || 'http://127.0.0.1:8765';
+// Sin BASE, la demostración del plugin: seis familias sobre material sintético, en una carpeta temporal.
+let servidor = null;
+let BASE = process.env.BASE;
+if (!BASE) {
+  const repo = new URL('../../../', import.meta.url).pathname;
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'rostrum-demo-'));
+  execFileSync('python3', ['-c', 'import sys,zipfile;zipfile.ZipFile(sys.argv[1]).extractall(sys.argv[2])',
+    path.join(repo, 'plugins/criterio-server/demo/criterio-demo.zip'), tmp]);
+  const puerto = String(18765 + Math.floor(Math.random() * 1000));
+  servidor = spawn('python3', [path.join(repo, 'plugins/criterio-server/scripts/servidor.py'), '--mapa',
+    path.join(tmp, 'criterio-demo/.criterio/rostrum/config.json'), '--puerto', puerto], { stdio: 'ignore' });
+  BASE = `http://127.0.0.1:${puerto}`;
+  for (let i = 0; i < 50; i++) {
+    if (await fetch(BASE + '/estado.json').then((r) => r.ok, () => false)) break;
+    await new Promise((ok) => setTimeout(ok, 200));
+  }
+}
+const salir = (codigo) => { if (servidor) servidor.kill(); process.exit(codigo); };
 const AXE = fs.readFileSync(new URL('./node_modules/axe-core/axe.min.js', import.meta.url), 'utf8');
 // Antes de abrir el navegador: que haya un Rostrum escuchando. Si no, se dice en una línea.
 try {
@@ -25,7 +49,7 @@ try {
   console.error(`No hay un Rostrum respondiendo en ${BASE} (${e.cause?.code || e.message}).`);
   console.error('Levántalo en otra ventana de la terminal y déjalo corriendo mientras se audita:');
   console.error('  python3 <repo>/plugins/criterio-server/scripts/servidor.py --mapa .criterio/rostrum/config.json');
-  process.exit(2);
+  salir(2);
 }
 const b = await chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
 const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
@@ -96,6 +120,29 @@ if (await p.$('form.pide')) {
   await p.click('form.pide button[type=submit]');
   if (new URL(p.url()).pathname !== '/') fallas.push('el formulario se envía sin texto');
 }
+// 4 · el HTML de cada página, tal como lo sirve Rostrum, contra el validador del W3C
+const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'rostrum-w3c-'));
+const archivo = new Map();
+for (const [i, u] of paginas.entries()) {
+  const f = path.join(dir, `${i}.html`); archivo.set(f, u);
+  fs.writeFileSync(f, await (await fetch(BASE + u)).text());
+}
+let w3c;
+try {
+  w3c = execFileSync('java', ['-jar', vnuJar, '--format', 'json', '--stdout', '--exit-zero-always', ...archivo.keys()],
+    { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'], maxBuffer: 64 * 1024 * 1024 });
+} catch (e) {
+  // Sin Java no hay validación, y eso se dice como falla: no se da por bueno lo que no se revisó.
+  w3c = '';
+  fallas.push(`el validador del W3C no corrió: ${e.message.split('\n')[0]} (¿hay Java?)`);
+}
+const salida = (w3c.trim().startsWith('{') ? w3c : '') || '';
+for (const m of salida ? JSON.parse(salida).messages : []) {
+  if (m.type !== 'error') continue;
+  const u = archivo.get(decodeURI(new URL(m.url).pathname)) || m.url;
+  fallas.push(`${u} · W3C: ${m.message}${m.lastLine ? ` (línea ${m.lastLine})` : ''}`);
+}
+
 const t = await b.newPage({ viewport: { width: 390, height: 800 } });
 await t.goto(BASE + '/');
 let alcanzado = false;
@@ -108,7 +155,7 @@ await t.keyboard.press('Space');
 if ((await t.evaluate(() => getComputedStyle(document.querySelector('.arbol')).display)) === 'none') fallas.push('el menú del teléfono no se abre con el teclado');
 
 await b.close();
-console.log(`${paginas.length} páginas, a 1280, 768, 390 y 320 px`);
+console.log(`${paginas.length} páginas, a 1280, 768, 390 y 320 px, y su HTML contra el validador del W3C`);
 for (const f of fallas) console.log(`  ✗ ${f}`);
 console.log(fallas.length ? `${fallas.length} fallas` : 'todo cumple');
-process.exit(fallas.length ? 1 : 0);
+salir(fallas.length ? 1 : 0);

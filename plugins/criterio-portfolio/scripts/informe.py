@@ -492,7 +492,12 @@ def apilable(tabla: str, cols: list) -> str:
     def fila(m):
         i = iter(range(10_000))
         return re.sub(r'<td\b', lambda _: f'<td data-col="{e(cols[min(next(i), len(cols) - 1)])}"', m.group(0))
+    if 'data-col=' in tabla:
+        return tabla   # ya apilada: una página que pasa dos veces no repite atributos (validador del W3C)
     tabla = re.sub(r'<tbody>.*?</tbody>', lambda m: re.sub(r'<tr\b.*?</tr>', fila, m.group(0), flags=re.S), tabla, flags=re.S)
+    # Una sola `class`: si la tabla ya trae la suya, se le suma.
+    if re.match(r'<table\s+class="', tabla):
+        return re.sub(r'<table\s+class="', '<table class="apila ', tabla, count=1)
     return tabla.replace('<table', '<table class="apila"', 1)
 
 
@@ -502,6 +507,8 @@ def tablas(html_: str) -> str:
     out, fin, vistos = [], 0, {}
     for m in re.finditer(r'<table\b.*?</table>', html_, flags=re.S):
         antes = html_[:m.start()]
+        if re.search(r'<div class="tabla"[^>]*>\s*$', antes):
+            continue   # ya está en su caja
         titulos = re.findall(r'<h[1-4][^>]*>(.*?)</h[1-4]>', antes, re.S)
         bajo = re.sub(r'<[^>]+>', '', titulos[-1]).strip() if titulos else ''
         cols = [re.sub(r'<[^>]+>', '', c).strip() for c in re.findall(r'<th[^>]*>(.*?)</th>', m.group(0), re.S)]
