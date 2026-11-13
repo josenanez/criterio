@@ -1,6 +1,6 @@
 # 0031 · La familia CHRO: el talento, con dos agentes sobre estándares de ocupaciones y competencias
 
-**Fecha:** 2026-11-13 · **Estado:** propuesta: los nombres, la estructura y las fuentes, por aceptar ·
+**Fecha:** 2026-11-13 · **Estado:** propuesta: los nombres, aceptados por José el 2026-11-13; la estructura y las fuentes, por aceptar ·
 **Modifica:** —
 
 ## Contexto
@@ -148,7 +148,7 @@ se decide cuando se acepte esta propuesta.
 
 ## Lo que queda abierto
 
-1. **Los nombres**: Norma y Cándido, por aceptar.
+1. **Los nombres**: Norma y Cándido, aceptados por José el 2026-11-13. Queda cerrado.
 2. **Las fuentes:** todas por verificar antes de construir; el motor no se construye sobre una
    fuente sin verificar. La que falta primero es la de ESCO —versión, idiomas y licencia—, porque de
    ella sale el perfil.
