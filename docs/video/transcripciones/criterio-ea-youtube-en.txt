@@ -1,0 +1,51 @@
+0:00  Test data
+0:00  An overdue commitment with no document to back it.
+0:02  Ofelia caught it before the decision.
+0:06  Criterio EA
+0:06  Executive Assistant
+0:08  Calendar Meeting clashes, also while travelling
+0:08  Outlook Google Calendar (.ics) Notices, materials and minutes Minutes and meeting notes Outlook (.msg) .eml Calendar, email and minutes
+0:10  Boards and committees Every session with its materials and minutes
+0:11  Commitments Every agreement with owner and date, until it closes
+0:13  Email What awaits a reply and decisions with a deadline
+0:15  Week The summary for the executive
+0:19  Where it was tested
+0:19  2
+0:19  countries
+0:19  4
+0:19  test entities
+0:20  Colombia Ecuador
+0:20  Banking Credit unions
+0:21  and 2 control entities
+0:29  One agent and a portal
+0:30  Ofelia
+0:30  The executive office
+0:30  Rostrum
+0:30  The portal
+0:35  What your team does by hand today
+0:35  ✓ Checking the week’s calendar against the meetings and commitments
+0:36  ✓ Building each meeting’s pack: the agenda, the materials and the record of each decision
+0:37  What does it cost? Work it out with your numbers on the page.
+0:44  The evidence
+0:44  95.6%
+0:45  caught at least, with 95% confidence
+0:45  85cases tested
+0:46  Calendar 15
+0:47  Boards and committees 6
+0:47  Commitments 47
+0:48  Email and decisions 17
+0:49  2 of 2 control entities without a single false alarm
+0:49  9 defects found in 2 rounds: all fixed and verified
+0:58  What it found
+0:58  The president’s office as of 26 October with 10 open signals: an overdue commitment with no document to back it, a supervisor’s request with no reply and two calendar clashes, one only after the clock change.
+1:05  Publishes only if the office decides to: by default, the president's report never leaves its folder.
+1:10  Open source · Apache 2.0
+1:11  1
+1:11  Add the marketplace
+1:11  /plugin marketplace add josenanez/criterio
+1:12  Install the family
+1:12  /plugin install criterio-ea@criterio
+1:13  3
+1:13  Set up and accept the terms
+1:13  /criterio-assistant:ea-setup
+1:15  josenanez.com/agents/criterio-ea

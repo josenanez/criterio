@@ -1,0 +1,53 @@
+0:00  Datos de prueba
+0:00  De 13 proyectos, 3 reportan verde y la evidencia no lo sostiene.
+0:02  Vera lo detectó antes de la decisión.
+0:06  Criterio PMO
+0:06  Project Management Office
+0:08  Portafolio Lo reportado por cada proyecto, contra sus documentos
+0:08  Microsoft Project (XML y .mpp) Excel CSV Word PowerPoint PDF con texto Cronograma en Microsoft Project o Excel actas en Word
+0:10  Comité Informe del portafolio y paquete del comité
+0:11  Proyecto Minutas, compromisos y plan contra la línea base
+0:13  Control Presupuesto, proveedores, riesgos y cambios
+0:15  Producto Definición del producto y proyectos que construyen lo mismo
+0:19  Dónde se probó
+0:19  8
+0:19  entidades de prueba
+0:21  Banca Construcción e infraestructura Cooperativas Logística Minería Oil & gas Retail Telecomunicaciones
+0:29  Tres agentes y un portal
+0:30  Vera
+0:30  El portafolio
+0:30  Samuel
+0:30  Un proyecto
+0:31  Alba
+0:31  Un producto
+0:32  Rostrum
+0:32  El portal
+0:35  Lo que hoy hace tu equipo, a mano
+0:35  ✓ Leer la documentación de los proyectos para armar un estado
+0:36  ✓ Consolidar el informe de portafolio y el estado de cada proyecto
+0:36  ✓ Preparar la agenda de la reunión
+0:37  ✓ Redactar la minuta con acuerdos y responsables
+0:38  ✓ Ordenar entrevistas, tickets y notas por tema
+0:38  ✓ Mantener el registro de requerimientos
+0:39  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:44  La evidencia
+0:44  98,2 %
+0:45  detectado como mínimo, con 95 % de confianza
+0:45  765casos probados
+0:47  63 defectos encontrados en 12 rondas: todos corregidos y verificados
+0:58  Lo que encontró
+0:58  Cómo va el portafolio: de 13 proyectos, 3 reportan verde y la evidencia no lo sostiene. Debajo, los que llevan más días sin un documento nuevo.
+1:05  Lo que el gerente declara y lo que los documentos sustentan, lado a lado: verde al 75 %, y seis señales que ese verde no explica. El estado lo escribe él; la diferencia la muestra el agente.
+1:12  Un producto visto por encima de sus proyectos: cuándo cierra el último, cuánto suman sus presupuestos aprobados y qué dice la evidencia de cada proyecto que lo construye.
+1:19  Publica el informe donde el equipo lo lee y recibe las preguntas de quien no abre una carpeta. Nunca escribe la ficha.
+1:24  Código abierto · Apache 2.0
+1:25  1
+1:25  Agregar el marketplace
+1:25  /plugin marketplace add josenanez/criterio
+1:26  2
+1:26  Instalar la familia
+1:26  /plugin install criterio-pmo@criterio
+1:27  3
+1:27  Configurar y aceptar los términos
+1:27  /criterio-pmo:pmo-setup
+1:29  josenanez.com/agents/criterio-pmo

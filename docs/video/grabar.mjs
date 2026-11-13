@@ -231,6 +231,71 @@ async function youtube(navegador, url, toma) {
   return { salida, cuadros: n, segundos: total };
 }
 
+// La transcripción de un video, para quien no lo ve: el texto que está en pantalla, en el orden en que
+// aparece. Cada bloque de texto se sigue mientras está a la vista y queda con lo último que mostró: una
+// cifra que cuenta hasta su valor queda con su valor, y un texto que se escribe solo, completo. Lo
+// transparente o escondido no cuenta. Sale de la misma página que el video, así que dice lo mismo.
+async function transcribir(navegador, url, toma) {
+  const nombre = toma.nombre ?? (toma.familia === 'criterio' ? 'criterio-youtube' : `criterio-${toma.familia}-youtube`);
+  const pagina = await navegador.newPage({ viewport: { width: toma.ancho, height: toma.alto } });
+  await pagina.goto(`${url}${toma.pagina}?l=${toma.idioma}&f=${toma.familia}`, { waitUntil: 'networkidle' });
+  await pagina.evaluate(() => document.fonts.ready);
+  const total = await pagina.evaluate(() => window.__duracion);
+  const bloques = [];          // { s, texto }, en orden de aparición
+  const abiertos = new Map();  // id del bloque en la página → índice en `bloques`
+  for (let s = 0; s <= total + 0.01; s += 0.25) {
+    await pagina.evaluate((x) => window.__ir(x), s);
+    const visibles = await pagina.evaluate(() => {
+      window.__ids ??= new WeakMap(); window.__n ??= 0;
+      const id = (el) => { if (!window.__ids.has(el)) window.__ids.set(el, ++window.__n); return window.__ids.get(el); };
+      const ve = (el) => { for (let x = el; x && x !== document.body; x = x.parentElement) {
+        const c = getComputedStyle(x); if (c.display === 'none' || c.visibility === 'hidden' || parseFloat(c.opacity) < 0.5) return false; }
+        return true; };
+      const por = new Map(); const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      let previo = null;
+      while (w.nextNode()) {
+        const n = w.currentNode; const el = n.parentElement;
+        if (!n.textContent.trim() || el.closest('svg,script,style') || !ve(el)) continue;
+        const caja = el.closest('p,h1,h2,h3,h4,li,td,th,div');
+        const k = id(caja);
+        // Dos elementos distintos dentro de una caja se separan con un espacio.
+        por.set(k, (por.get(k) ?? '') + (por.has(k) && previo !== el ? ' ' : '') + n.textContent);
+        previo = el;
+      }
+      return [...por].map(([k, v]) => [k, v.replace(/\s+/g, ' ').trim()]);
+    });
+    const ahora = new Set();
+    for (const [k, v] of visibles) {
+      ahora.add(k);
+      if (abiertos.has(k)) bloques[abiertos.get(k)].texto = v;
+      else { abiertos.set(k, bloques.length); bloques.push({ s, texto: v }); }
+    }
+    for (const k of [...abiertos.keys()]) if (!ahora.has(k)) abiertos.delete(k);
+  }
+  await pagina.close();
+  // Una cinta que se repite para dar la vuelta se dice una vez; un bloque igual al anterior, también.
+  const una = (x) => {
+    const w = x.split(' ');
+    for (let n = 4; n >= 2; n--) {
+      if (w.length % n) continue;
+      const L = w.length / n, uno = w.slice(0, L).join(' ');
+      if (Array.from({ length: n }, (_, i) => w.slice(i * L, (i + 1) * L).join(' ')).every((y) => y === uno)) return uno;
+    }
+    return x;
+  };
+  const lineas = [];
+  for (const { s, texto } of bloques) {
+    const v = una(texto);
+    if (v && !lineas.some(([, x]) => x === v)) lineas.push([s, v]);
+  }
+  const minuto = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  const destino = path.join(AQUI, 'transcripciones');
+  fs.mkdirSync(destino, { recursive: true });
+  const salida = path.join(destino, `${nombre}-${toma.idioma}.txt`);
+  fs.writeFileSync(salida, lineas.map(([s, v]) => `${minuto(s)}  ${v}`).join('\n') + '\n');
+  return { salida, lineas: lineas.length };
+}
+
 // Sin recarga ni vigilancia de archivos: una grabación que corre al lado copia de nuevo src/portal y
 // src/lib, y una recarga a mitad de un video lo rompe.
 const servidor = await createServer({ root: AQUI, configFile: path.join(AQUI, 'vite.config.js'), server: { port: 0, strictPort: false, hmr: false, watch: null } });
@@ -239,6 +304,13 @@ const url = servidor.resolvedUrls.local[0];
 const navegador = await chromium.launch(process.env.CHROMIUM ? { executablePath: process.env.CHROMIUM } : {});
 try {
   for (const toma of TOMAS) {
+    if (process.env.TRANSCRIBIR) {
+      if (toma.tipo === 'youtube' || toma.tipo === 'criterio') {
+        const r = await transcribir(navegador, url, toma);
+        console.log(`${path.relative(RAIZ, r.salida)}  ${r.lineas} líneas`);
+      }
+      continue;
+    }
     if (toma.tipo === 'youtube' || toma.tipo === 'criterio' || toma.tipo === 'hoja') {
       const r = await youtube(navegador, url, toma);
       console.log(`${path.relative(RAIZ, r.salida)}  ${r.cuadros} cuadros, ${r.segundos} s, ${Math.round(fs.statSync(r.salida).size / 1024)} KB`);

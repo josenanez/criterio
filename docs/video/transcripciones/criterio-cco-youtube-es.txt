@@ -1,0 +1,57 @@
+0:00  Datos de prueba
+0:00  Una venta ganada por 50 millones sin su contrato firmado en las fichas de Fidel.
+0:03  Valeria lo detectó antes de la decisión.
+0:06  Criterio CCO
+0:06  Chief Commercial Officer
+0:08  Embudo Cada oportunidad contra la evidencia que exige su etapa
+0:08  Salesforce HubSpot Dynamics 365 Zoho CSV o Excel Exportación del CRM Meta en Excel exportación del CRM Cotizaciones matriz de descuentos en Excel Órdenes de compra contratos plan de comisiones
+0:10  Pronóstico Lo que sostiene el pronóstico comprometido
+0:11  Meta La meta contra lo cerrado, por línea
+0:13  Descuentos Cada descuento contra la matriz aprobada
+0:15  Contrato y comisión Lo ganado hasta el contrato, la factura y la comisión
+0:19  Dónde se probó
+0:19  5
+0:19  países
+0:19  15
+0:19  entidades de prueba
+0:20  Colombia Ecuador Perú Chile México
+0:21  Manufactura Retail Servicios Tecnología
+0:22  y 5 entidades de control
+0:29  Dos agentes y un portal
+0:30  Augusto
+0:30  El pronóstico
+0:30  Valeria
+0:30  De la venta a la factura
+0:31  Rostrum
+0:31  El portal
+0:35  Lo que hoy hace tu equipo, a mano
+0:35  ✓ Consolidar las exportaciones del CRM y ver qué cambió en el embudo
+0:36  ✓ Revisar cada oportunidad contra el documento que exige su etapa
+0:36  ✓ Revisar cada descuento contra la política y su aprobación
+0:37  ✓ Confirmar que cada venta ganada tenga su contrato firmado
+0:38  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:44  La evidencia
+0:44  98,0 %
+0:45  detectado como mínimo, con 95 % de confianza
+0:45  197casos probados
+0:46  Embudo 103
+0:47  Pronóstico y meta 10
+0:47  Descuentos 27
+0:48  Contrato, factura y comisión 57
+0:49  5 de 5 entidades de control sin una sola alarma falsa
+0:49  4 defectos encontrados en 2 rondas: todos corregidos y verificados
+0:58  Lo que encontró
+0:58  La cadena de almacenes en octubre con 3 señales abiertas: lo comprometido en el comité, 525 millones, contra 350 millones que lo sostienen; una oportunidad en «Compromiso» sin su orden de compra, y un cierre que se corrió tres veces.
+1:05  La misma cadena con 2 señales abiertas: una venta ganada por 50 millones sin su contrato firmado en las fichas de Fidel, y un descuento del 22 % que pedía la aprobación de la gerencia general y aprobó la comercial. Las comisiones no se publican.
+1:12  Publica lo que Augusto y Valeria escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. Las comisiones no salen ahí salvo que la configuración lo diga. No recalcula nada.
+1:17  Código abierto · Apache 2.0
+1:18  1
+1:18  Agregar el marketplace
+1:18  /plugin marketplace add josenanez/criterio
+1:19  2
+1:19  Instalar la familia
+1:19  /plugin install criterio-cco@criterio
+1:20  3
+1:20  Configurar y aceptar los términos
+1:20  /criterio-cco:cco-setup
+1:22  josenanez.com/agents/criterio-cco

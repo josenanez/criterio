@@ -1,0 +1,66 @@
+0:00  Test data
+0:00  A notification to the supervisor 6 hours past its deadline and another to customers that was never made.
+0:04  Amparo caught it before the decision.
+0:06  Criterio CISO
+0:06  Chief Information Security Officer
+0:08  Controls Every control in the statement of applicability, against its evidence
+0:08  NIST CSF 2.0 statement of applicability in Excel Registers in Excel or CSV Tenable Microsoft Defender CISA KEV CVSS v4.0 any other in CSV or Excel NIST SP 800-61
+0:10  Access and third parties Access reviews, critical third parties and accepted risks
+0:11  Vulnerabilities Each one against its deadline and the KEV catalogue
+0:13  Scanning Coverage of the asset inventory
+0:15  Incidents and continuity Response, notifications and continuity tests
+0:19  Where it was tested
+0:19  4
+0:19  countries
+0:19  10
+0:19  test entities
+0:20  Colombia Peru Chile Mexico
+0:21  Banking Energy Retail Healthcare Insurance Technology
+0:21  and 4 control entities
+0:29  Three agents and a portal
+0:30  Alexis
+0:30  The controls
+0:30  Guillermo
+0:30  Vulnerabilities
+0:31  Amparo
+0:31  Response
+0:32  Rostrum
+0:32  The portal
+0:35  What your team does by hand today
+0:35  ✓ Finding the evidence that each applicable control operated within its frequency
+0:36  ✓ Chasing each system’s access review
+0:36  ✓ Consolidating the scanner exports against the policy’s deadlines
+0:37  ✓ Matching what is open against CISA’s KEV catalog
+0:38  ✓ Rebuilding each incident’s timeline against the policy’s deadlines
+0:38  ✓ Checking each notification the matrix requires against the one that was made
+0:39  What does it cost? Work it out with your numbers on the page.
+0:44  The evidence
+0:44  97.4%
+0:45  caught at least, with 95% confidence
+0:45  148cases tested
+0:46  Controls 18
+0:47  Access, third parties and risk 30
+0:47  Vulnerabilities 42
+0:48  Scanning 10
+0:48  Incidents 30
+0:49  Continuity 18
+0:50  4 of 4 control entities without a single false alarm
+0:50  4 defects found in 2 rounds: all fixed and verified
+0:58  Governance and controls
+0:58  What it found
+0:58  The Colombian bank in October with 8 open signals: a control listed as implemented with no evidence that it operated, two overdue access reviews, two critical third parties without an up-to-date assessment, a risk acceptance nobody reviewed again, evidence stale for its frequency and an applicable control with no owner.
+1:05  The same bank: Guillermo raised his signals, but none appears in Rostrum, because his configuration does not open it. The page says there are some and where to read them, not how many or which.
+1:12  Response and recovery
+1:12  The same bank with 8 open signals: a notification to the supervisor 6 hours past its deadline and another to customers that was never made, two incidents contained late or not contained, one closed without a post-incident review, and one continuity test and two restore tests overdue.
+1:19  Publishes what the three wrote —their reports, what falls due, their signals— and takes the questions from whoever will not open a folder. Vulnerability findings do not go there unless the configuration says so. Recalculates nothing.
+1:24  Open source · Apache 2.0
+1:25  1
+1:25  Add the marketplace
+1:25  /plugin marketplace add josenanez/criterio
+1:26  2
+1:26  Install the family
+1:26  /plugin install criterio-ciso@criterio
+1:27  3
+1:27  Set up and accept the terms
+1:27  /criterio-ciso:ciso-setup
+1:29  josenanez.com/agents/criterio-ciso

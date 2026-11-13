@@ -1,0 +1,66 @@
+0:00  Datos de prueba
+0:00  Una notificación al supervisor 6 horas después del plazo y otra a los clientes que no se hizo.
+0:03  Amparo lo detectó antes de la decisión.
+0:06  Criterio CISO
+0:06  Chief Information Security Officer
+0:08  Controles Cada control de la declaración de aplicabilidad, contra su evidencia
+0:08  NIST CSF 2.0 declaración de aplicabilidad en Excel Registros en Excel o CSV Tenable Microsoft Defender KEV de CISA CVSS v4.0 cualquier otro en CSV o Excel NIST SP 800-61
+0:10  Accesos y terceros Revisiones de acceso, terceros críticos y riesgos aceptados
+0:11  Vulnerabilidades Cada una contra su plazo y el catálogo KEV
+0:13  Escaneos Cobertura sobre el inventario de activos
+0:15  Incidentes y continuidad Respuesta, notificaciones y pruebas de continuidad
+0:19  Dónde se probó
+0:19  4
+0:19  países
+0:19  10
+0:19  entidades de prueba
+0:20  Colombia Perú Chile México
+0:21  Banca Energía Retail Salud Seguros Tecnología
+0:21  y 4 entidades de control
+0:29  Tres agentes y un portal
+0:30  Alexis
+0:30  Los controles
+0:30  Guillermo
+0:30  Las vulnerabilidades
+0:31  Amparo
+0:31  La respuesta
+0:32  Rostrum
+0:32  El portal
+0:35  Lo que hoy hace tu equipo, a mano
+0:35  ✓ Buscar la evidencia de que cada control aplicable operó en su periodicidad
+0:36  ✓ Perseguir la revisión de accesos de cada sistema
+0:36  ✓ Consolidar las exportaciones del escáner contra los plazos de la política
+0:37  ✓ Cruzar lo abierto con el catálogo KEV de CISA
+0:38  ✓ Reconstruir la línea de tiempo de cada incidente contra los plazos de la política
+0:38  ✓ Revisar cada notificación que pide la matriz contra la que se hizo
+0:39  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:44  La evidencia
+0:44  97,4 %
+0:45  detectado como mínimo, con 95 % de confianza
+0:45  148casos probados
+0:46  Controles 18
+0:47  Accesos, terceros y riesgos 30
+0:47  Vulnerabilidades 42
+0:48  Escaneos 10
+0:48  Incidentes 30
+0:49  Continuidad 18
+0:50  4 de 4 entidades de control sin una sola alarma falsa
+0:50  4 defectos encontrados en 2 rondas: todos corregidos y verificados
+0:58  El gobierno y los controles
+0:58  Lo que encontró
+0:58  El banco de Colombia en octubre con 8 señales abiertas: un control que figura implementado sin ninguna evidencia de que operó, dos revisiones de accesos vencidas, dos terceros críticos sin su evaluación al día, una aceptación de riesgo que nadie volvió a revisar, una evidencia vencida para su periodicidad y un control aplicable si
+1:05  El mismo banco: Guillermo levantó sus señales, pero ninguna sale en Rostrum, porque su configuración no lo abre. La página dice que las hay y dónde se leen, no cuántas ni cuáles.
+1:12  La respuesta y la recuperación
+1:12  El mismo banco con 8 señales abiertas: una notificación al supervisor 6 horas después del plazo y otra a los clientes que no se hizo, dos incidentes contenidos tarde o sin contener, uno cerrado sin revisión posterior, una prueba de continuidad y dos de restauración vencidas.
+1:19  Publica lo que los tres escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. Lo de vulnerabilidades no sale ahí salvo que la configuración lo diga. No recalcula nada.
+1:24  Código abierto · Apache 2.0
+1:25  1
+1:25  Agregar el marketplace
+1:25  /plugin marketplace add josenanez/criterio
+1:26  2
+1:26  Instalar la familia
+1:26  /plugin install criterio-ciso@criterio
+1:27  3
+1:27  Configurar y aceptar los términos
+1:27  /criterio-ciso:ciso-setup
+1:29  josenanez.com/agents/criterio-ciso

@@ -1,0 +1,57 @@
+0:00  Test data
+0:00  A sale won for 50 million without its signed contract in Fidel’s records.
+0:03  Valeria caught it before the decision.
+0:06  Criterio CCO
+0:06  Chief Commercial Officer
+0:08  Pipeline Every opportunity against the evidence its stage requires
+0:08  Salesforce HubSpot Dynamics 365 Zoho CSV or Excel CRM export Target in Excel Quotes discount matrix in Excel Purchase orders contracts commission plan
+0:10  Forecast What supports the committed forecast
+0:11  Target The target against what closed, by line
+0:13  Discounts Every discount against the approved matrix
+0:15  Contract and commission What was won, through to contract, invoice and commission
+0:19  Where it was tested
+0:19  5
+0:19  countries
+0:19  15
+0:19  test entities
+0:20  Colombia Ecuador Peru Chile Mexico
+0:21  Manufacturing Retail Services Technology
+0:22  and 5 control entities
+0:29  Two agents and a portal
+0:30  Augusto
+0:30  The forecast
+0:30  Valeria
+0:30  From sale to invoice
+0:31  Rostrum
+0:31  The portal
+0:35  What your team does by hand today
+0:35  ✓ Consolidating the CRM exports and seeing what changed in the pipeline
+0:36  ✓ Checking each opportunity against the document its stage requires
+0:36  ✓ Checking each discount against the policy and its approval
+0:37  ✓ Confirming every won sale has its signed contract
+0:38  What does it cost? Work it out with your numbers on the page.
+0:44  The evidence
+0:44  98.0%
+0:45  caught at least, with 95% confidence
+0:45  197cases tested
+0:46  Pipeline 103
+0:47  Forecast and target 10
+0:47  Discounts 27
+0:48  Contract, invoice and commission 57
+0:49  5 of 5 control entities without a single false alarm
+0:49  4 defects found in 2 rounds: all fixed and verified
+0:58  What it found
+0:58  The retail chain in October with 3 open signals: what was committed in the committee, 525 million, against 350 million that back it; an opportunity at «Compromiso» without its purchase order, and a close date that slipped three times.
+1:05  The same chain with 2 open signals: a sale won for 50 million without its signed contract in Fidel’s records, and a 22% discount that needed the general manager’s approval and got the sales manager’s. Commissions are not published.
+1:12  Publishes what Augusto and Valeria wrote —their reports, what is due, their signals— and takes the questions of whoever will not open a folder. Commissions do not appear there unless the configuration says so. It recalculates nothing.
+1:17  Open source · Apache 2.0
+1:18  1
+1:18  Add the marketplace
+1:18  /plugin marketplace add josenanez/criterio
+1:19  2
+1:19  Install the family
+1:19  /plugin install criterio-cco@criterio
+1:20  3
+1:20  Set up and accept the terms
+1:20  /criterio-cco:cco-setup
+1:22  josenanez.com/agents/criterio-cco

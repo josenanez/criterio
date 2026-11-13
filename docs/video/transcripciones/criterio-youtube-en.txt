@@ -1,0 +1,81 @@
+0:00  Criterio
+0:00  The C-suite, backed by families of AI agents.
+0:03  Evidence before the decision
+0:08  From today’s pyramid to the new one
+0:08  Today
+0:08  Decides on whatever reaches it.
+0:11  Now
+0:11  Stands on its capabilities.
+0:19  6
+0:19  families
+0:19  14
+0:19  agents
+0:19  and Rostrum, the portal for all of them
+0:20  PMO
+0:20  Project Management Office
+0:20  Vera · Samuel · Alba
+0:21  CFO
+0:21  Chief Financial Officer
+0:21  Clara · Tomás · Áurea
+0:22  CLO
+0:22  Chief Legal Officer
+0:22  Fidel · Constanza
+0:22  CCO
+0:22  Chief Commercial Officer
+0:22  Augusto · Valeria
+0:23  CISO
+0:23  Chief Information Security Officer
+0:23  Alexis · Guillermo · Amparo
+0:23  EA
+0:23  Executive Assistant
+0:23  Ofelia
+0:32  Where it was tested
+0:32  12
+0:32  countries
+0:32  15
+0:32  industries
+0:32  Colombia Ecuador Peru Chile Mexico Brazil Argentina Panama Guatemala Costa Rica Honduras Paraguay
+0:36  Banking Credit unions Insurance Retail Manufacturing Services Mining Energy Oil & gas Construction and infrastructure Telecommunications Logistics Healthcare Technology Public sector
+0:42  Since launch
+0:42  83.2
+0:43  downloads a day, on average
+0:44  Repository clones on GitHub: every install or update downloads Criterio.
+0:47  The evidence
+0:47  98.2%
+0:48  98.7%
+0:48  98.5%
+0:49  98.0%
+0:49  97.4%
+0:49  95.6%
+0:50  caught at least, with 95% confidence
+0:51  Stable. Its evidence says so, not its number: the floor of the 95% margin at 95% or more, for signals and data, and no signal in the controls.
+0:57  One family at a time, each with its test.
+0:58  1
+0:58  Next, with no date
+0:58  2
+0:58  Built
+0:59  3
+0:59  Tested
+1:00  4
+1:00  Expanding
+1:01  5
+1:01  Stable
+1:02  They all go through the same stages, and none is announced before passing its own.
+1:07  Where we are going
+1:07  Business
+1:07  CCO CMO
+1:08  Operations
+1:08  COO
+1:08  People
+1:08  CHRO
+1:09  Leadership
+1:09  EA Strategy
+1:09  Governance and control
+1:09  PMO CFO CLO CAE CRO
+1:10  Technology and data
+1:10  CISO CDO CTO
+1:17  Install Criterio.
+1:18  Start with the area that costs you most today.
+1:21  /plugin marketplace add josenanez/criterio
+1:22  josenanez.com/agents
+1:23  Open source · Apache 2.0

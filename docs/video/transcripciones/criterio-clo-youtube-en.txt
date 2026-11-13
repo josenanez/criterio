@@ -1,0 +1,60 @@
+0:00  Test data
+0:00  A signature without authority for the amount.
+0:02  Fidel caught it before the decision.
+0:06  Criterio CLO
+0:06  Chief Legal Officer
+0:08  Contracts Expiries, notice periods and obligations
+0:08  Word and PDF register in Excel Authority matrix in Excel ERP in Excel or CSV policies in PDF SECOP ChileCompra 10 countries ISO 37301 matrices in Excel
+0:10  Signatures Who had authority to sign
+0:11  Payments and guarantees Payments and policies against the contract
+0:13  Public procurement Publication and guarantees under the law
+0:15  Compliance Programme, new regulations and reporting channel
+0:19  Where it was tested
+0:19  12
+0:19  countries
+0:19  46
+0:19  test entities
+0:20  Colombia Ecuador Peru Chile Mexico Brazil Argentina Panama Guatemala Costa Rica Honduras Paraguay
+0:23  Banking Credit unions Mining Public sector Retail
+0:24  and 12 control entities
+0:29  Two agents and a portal
+0:30  Fidel
+0:30  Contracts
+0:30  Constanza
+0:30  Compliance
+0:31  Rostrum
+0:31  The portal
+0:35  What your team does by hand today
+0:35  ✓ Keeping the contract register up to date with its documents
+0:36  ✓ Working out expiries and renewal notice periods
+0:36  ✓ Building the obligations matrix status against its evidence
+0:37  ✓ Following the policies due for review
+0:38  What does it cost? Work it out with your numbers on the page.
+0:44  The evidence
+0:44  98.5%
+0:45  caught at least, with 95% confidence
+0:45  262cases tested
+0:46  Expiries 24
+0:47  Register 19
+0:47  Signatures 27
+0:48  Payments and guarantees 48
+0:48  Public procurement 31
+0:49  Compliance 74
+0:49  Regulation and reports 44
+0:51  12 of 12 control entities without a single false alarm
+0:51  14 defects found in 13 rounds: all fixed and verified
+0:58  What it found
+0:58  Contracts as of 6 October with 5 open signals: a signature without authority for the amount, an overdue obligation without evidence and a non-renewal notice due in 26 days that nobody has decided on.
+1:05  September compliance with 5 open signals: an overdue obligation without evidence, a report declaring the period met with 4 signals that status does not explain, and a regulation 53 days without an impact assessment.
+1:12  Publishes what Fidel and Constanza wrote —their reports, what falls due, their signals— and takes questions from people who never open a folder. It recalculates nothing.
+1:17  Open source · Apache 2.0
+1:18  1
+1:18  Add the marketplace
+1:18  /plugin marketplace add josenanez/criterio
+1:19  2
+1:19  Install the family
+1:19  /plugin install criterio-clo@criterio
+1:20  3
+1:20  Set up and accept the terms
+1:20  /criterio-clo:clo-setup
+1:22  josenanez.com/agents/criterio-clo

@@ -1,0 +1,53 @@
+0:00  Test data
+0:00  Of 13 projects, 3 report green and the evidence does not support it.
+0:03  Vera caught it before the decision.
+0:06  Criterio PMO
+0:06  Project Management Office
+0:08  Portfolio What each project reports, against its documents
+0:08  Microsoft Project (XML and .mpp) Excel CSV Word PowerPoint PDF with text Schedule in Microsoft Project or Excel minutes in Word
+0:10  Steering committee Portfolio report and committee pack
+0:11  Project Minutes, commitments and plan against the baseline
+0:13  Control Budget, vendors, risks and changes
+0:15  Product Product definition and projects that build the same thing
+0:19  Where it was tested
+0:19  8
+0:19  test entities
+0:21  Banking Construction and infrastructure Credit unions Logistics Mining Oil & gas Retail Telecommunications
+0:29  Three agents and a portal
+0:30  Vera
+0:30  The portfolio
+0:30  Samuel
+0:30  One project
+0:31  Alba
+0:31  One product
+0:32  Rostrum
+0:32  The portal
+0:35  What your team does by hand today
+0:35  ✓ Reading project documentation to build a status
+0:36  ✓ Consolidating the portfolio report and each project’s status
+0:36  ✓ Preparing the meeting agenda
+0:37  ✓ Writing the minutes with agreements and owners
+0:38  ✓ Sorting interviews, tickets and notes into themes
+0:38  ✓ Keeping the requirements register
+0:39  What does it cost? Work it out with your numbers on the page.
+0:44  The evidence
+0:44  98.2%
+0:45  caught at least, with 95% confidence
+0:45  765cases tested
+0:47  63 defects found in 12 rounds: all fixed and verified
+0:58  What it found
+0:58  How the portfolio is doing: of 13 projects, 3 report green and the evidence does not support it. Below, the ones with the most days without a new document.
+1:05  What the manager declares and what the documents support, side by side: green at 75%, and six signals that green does not explain. He writes the status; the agent shows the difference.
+1:12  A product seen above its projects: when the last one closes, what their approved budgets add up to and what the evidence says about each project building it.
+1:19  Publishes the report where the team reads it and takes questions from people who never open a folder. Never writes the record.
+1:24  Open source · Apache 2.0
+1:25  1
+1:25  Add the marketplace
+1:25  /plugin marketplace add josenanez/criterio
+1:26  2
+1:26  Install the family
+1:26  /plugin install criterio-pmo@criterio
+1:27  3
+1:27  Set up and accept the terms
+1:27  /criterio-pmo:pmo-setup
+1:29  josenanez.com/agents/criterio-pmo

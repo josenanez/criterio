@@ -1,0 +1,64 @@
+0:00  Test data
+0:00  A 30,000,000.00 payment with 1 of the 2 approvals the policy requires.
+0:03  Áurea caught it before the decision.
+0:06  Criterio CFO
+0:06  Chief Financial Officer
+0:08  Reconciliation Banks and accounts against their support
+0:08  Statements from any bank ERP in Excel or CSV DIAN SRI SUNAT SII SAT NF-e ARCA DGI FEL Hacienda SAR SIFEN ERP and budget in Excel Payment run and signature matrix in Excel Requests in Word and PDF
+0:10  E-invoicing Every invoice against the books
+0:11  Budget Execution against approved, and year-end projection
+0:13  Treasury Payments, cash and debt against policy
+0:15  Audit The auditor's pack
+0:19  Where it was tested
+0:19  12
+0:19  countries
+0:19  36
+0:19  test entities
+0:20  Colombia Ecuador Peru Chile Mexico Brazil Argentina Panama Guatemala Costa Rica Honduras Paraguay
+0:23  Banking Credit unions Mining Retail
+0:24  and 12 control entities
+0:29  Three agents and a portal
+0:30  Clara
+0:30  The close
+0:30  Tomás
+0:30  The budget
+0:31  Áurea
+0:31  Treasury
+0:32  Rostrum
+0:32  The portal
+0:35  What your team does by hand today
+0:35  ✓ Building the close status against the checklist and its support
+0:36  ✓ Reconciling the bank accounts
+0:36  ✓ Building actuals against approved and committed
+0:37  ✓ Updating the year-end forecast
+0:38  ✓ Building the cash position against the minimum and the forecast
+0:38  ✓ Checking each scheduled payment against approvals and signatures
+0:39  What does it cost? Work it out with your numbers on the page.
+0:44  The evidence
+0:44  98.7%
+0:45  caught at least, with 95% confidence
+0:45  312cases tested
+0:46  Close 25
+0:47  Reconciliation 65
+0:47  E-invoicing 50
+0:48  Budget 88
+0:48  Treasury 71
+0:49  Audit 13
+0:50  12 of 12 control entities without a single false alarm
+0:50  12 defects found in 13 rounds: all fixed and verified
+0:58  What it found
+0:58  The September close with 8 open signals: a ledger account that differs from the trial balance, a trial balance 5,000.00 out and a bank reconciliation marked done without its support. Each signal says where it comes from.
+1:05  The 2026 budget with 5 open signals: an area reporting itself within budget with a line that does not support it, and a 4,800,000.00 transfer between two versions with no minutes approving it.
+1:12  September treasury with 3 open signals: a 30,000,000.00 payment with 1 of the 2 approvals the policy requires, an account below its minimum and a current-ratio covenant at risk, calculated from the balance sheet Clara closed.
+1:19  Publishes what Clara, Tomás and Áurea wrote —their reports, what falls due, their signals— and takes questions from people who never open a folder. It recalculates nothing.
+1:24  Open source · Apache 2.0
+1:25  1
+1:25  Add the marketplace
+1:25  /plugin marketplace add josenanez/criterio
+1:26  2
+1:26  Install the family
+1:26  /plugin install criterio-cfo@criterio
+1:27  3
+1:27  Set up and accept the terms
+1:27  /criterio-cfo:cfo-setup
+1:29  josenanez.com/agents/criterio-cfo

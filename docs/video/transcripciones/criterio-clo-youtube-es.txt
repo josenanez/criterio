@@ -1,0 +1,60 @@
+0:00  Datos de prueba
+0:00  Una firma sin facultad por el monto.
+0:02  Fidel lo detectó antes de la decisión.
+0:06  Criterio CLO
+0:06  Chief Legal Officer
+0:08  Contratos Vencimientos, preavisos y obligaciones
+0:08  Word y PDF registro en Excel Matriz de atribuciones en Excel ERP en Excel o CSV pólizas en PDF SECOP ChileCompra 10 países ISO 37301 matrices en Excel
+0:10  Firmas Quién tenía facultad para firmar
+0:11  Pagos y garantías Pagos y pólizas contra lo pactado
+0:13  Contratación pública Publicación y garantías según la ley
+0:15  Cumplimiento Programa, normas nuevas y canal de denuncias
+0:19  Dónde se probó
+0:19  12
+0:19  países
+0:19  46
+0:19  entidades de prueba
+0:20  Colombia Ecuador Perú Chile México Brasil Argentina Panamá Guatemala Costa Rica Honduras Paraguay
+0:23  Banca Cooperativas Minería Sector público Retail
+0:24  y 12 entidades de control
+0:29  Dos agentes y un portal
+0:30  Fidel
+0:30  Los contratos
+0:30  Constanza
+0:30  El cumplimiento
+0:31  Rostrum
+0:31  El portal
+0:35  Lo que hoy hace tu equipo, a mano
+0:35  ✓ Mantener el registro de contratos al día con sus documentos
+0:36  ✓ Calcular vencimientos y preavisos de renovación
+0:36  ✓ Armar el estado de la matriz de obligaciones contra su evidencia
+0:37  ✓ Seguir las políticas por revisar
+0:38  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
+0:44  La evidencia
+0:44  98,5 %
+0:45  detectado como mínimo, con 95 % de confianza
+0:45  262casos probados
+0:46  Vencimientos 24
+0:47  Registro 19
+0:47  Firmas 27
+0:48  Pagos y garantías 48
+0:48  Contratación pública 31
+0:49  Cumplimiento 74
+0:49  Normas y denuncias 44
+0:51  12 de 12 entidades de control sin una sola alarma falsa
+0:51  14 defectos encontrados en 13 rondas: todos corregidos y verificados
+0:58  Lo que encontró
+0:58  Los contratos al 6 de octubre con 5 señales abiertas: una firma sin facultad por el monto, una obligación vencida sin evidencia y un preaviso de no renovación que vence en 26 días sin que nadie haya decidido.
+1:05  El cumplimiento de septiembre con 5 señales abiertas: una obligación vencida sin evidencia, un informe que declara el periodo cumplido con 4 señales que ese estado no explica y una norma con 53 días sin evaluación de impacto.
+1:12  Publica lo que Fidel y Constanza escribieron —sus reportes, lo que vence, sus señales— y recibe las preguntas de quien no abre una carpeta. No recalcula nada.
+1:17  Código abierto · Apache 2.0
+1:18  1
+1:18  Agregar el marketplace
+1:18  /plugin marketplace add josenanez/criterio
+1:19  2
+1:19  Instalar la familia
+1:19  /plugin install criterio-clo@criterio
+1:20  3
+1:20  Configurar y aceptar los términos
+1:20  /criterio-clo:clo-setup
+1:22  josenanez.com/agents/criterio-clo
