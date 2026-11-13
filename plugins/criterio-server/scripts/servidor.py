@@ -49,6 +49,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import informe  # la paleta y la página son suyas; aquí no se vuelven a escribir
+import consumo  # los tokens de cada agente, desde las sesiones de Claude Code, solo con un sí
 import mapa  # qué agentes hay en la carpeta de trabajo y dónde está cada estado
 import portafolio  # la historia la lee él; Rostrum no calcula nada y no escribe nada
 import rastro  # la página de una corrida es del arnés
@@ -77,6 +78,7 @@ RUTAS = {
     '/familia/<sigla>': 'una familia: cada agente con lo último que escribió y sus reportes',
     '/reporte/<area>/<instancia>/<archivo>': 'un reporte tal como lo escribió el motor del agente',
     '/vence': 'lo que vence: lo que cada motor dejó con fecha y pendiente, de todas las familias',
+    '/consumo': 'los tokens de cada familia y de cada agente: los de esta organización, con un sí, y los de las pruebas',
     '/historia/<codigo>': 'la línea de tiempo de un caso: desde cuándo arrastra cada señal',
     '/corte': 'qué cambió campo por campo entre dos cortes · ?a=<fecha>&b=<fecha>',
     '/peticion': 'POST · deja una pregunta escrita para el agente',
@@ -105,6 +107,10 @@ ASUNTOS = {
 }
 
 EXTRA = f"""
+.num{{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}}
+caption{{text-align:left;font-weight:600;padding:0 0 8px}}
+tr.total td{{border-top:1px solid {informe.FILETE}}}
+@media (max-width:640px){{table.apila td.num{{text-align:left}} table.apila caption{{display:block;width:100%}}}}
 .con-arbol{{display:grid;grid-template-columns:320px minmax(0,1fr);min-height:100vh}}
 .lado{{position:sticky;top:0;max-height:100vh;overflow-y:auto;box-sizing:border-box;
   background:{informe.PANEL_ALTO};border-right:1px solid {informe.FILETE}}}
@@ -897,7 +903,8 @@ def arbol(corridas: list, activa: str = "", entradas: list | None = None, hoy: s
         out.append('</ul></details>')
     out += ['<p class="g">El rastro</p><ul>',
             li('/corridas', 'Todas las corridas', 'qué corrió, cuándo y qué encontró'),
-            li('/arrastres', 'Lo que se arrastra', 'señales que siguen corte tras corte')]
+            li('/arrastres', 'Lo que se arrastra', 'señales que siguen corte tras corte'),
+            li('/consumo', 'El consumo', 'los tokens de cada familia y cada agente')]
     if "portafolio" in areas:
         out.append(li('/corte', 'Qué cambió entre dos cortes', 'campo por campo, en los proyectos'))
     out += ['</ul>',
@@ -1696,6 +1703,118 @@ def vista_vence(entradas: list, hoy: str) -> tuple:
     return 200, pagina('Lo que vence', "".join(cuerpo), hoy, nav(('', 'Lo que vence')), '/vence')
 
 
+def tokens(n: int) -> str:
+    """Una cifra de tokens como se lee: 5,1 M; 820 mil; 640."""
+    if n >= 1_000_000:
+        return f'{n / 1e6:.1f} M'.replace('.', ',')
+    if n >= 1_000:
+        return f'{round(n / 1e3)} mil'
+    return str(n)
+
+
+ID_AGENTE = {a["id"]: a for a in REGISTRO["agentes"]}
+
+
+def quien_consume(ag: str) -> str:
+    """El agente con su enlace; el setup de una familia y Rostrum, con su nombre."""
+    if ag == 'familia':
+        return 'El setup de la familia'
+    if ag == 'rostrum':
+        return 'Rostrum'
+    a = ID_AGENTE.get(ag)
+    return f'<a href="/agente/{e(a["area"])}">{e(a["nombre"])}</a> · {e(a["rol"]["es"])}' if a else e(ag)
+
+
+AVISO_CACHE = ('<p class="aviso">La mayor parte es <b>lectura de caché</b>: el contexto que Claude vuelve a leer en '
+               'cada paso de un comando. Se cobra a una fracción del precio de la entrada —la décima parte en la '
+               '<a href="https://docs.claude.com/en/docs/build-with-claude/prompt-caching">API de Anthropic</a>—, '
+               'pero en un plan con límite de uso cuenta igual. La salida es lo que el agente escribió.</p>')
+
+
+def vista_consumo(raiz: Path | None, medir_si: bool, hoy: str) -> tuple:
+    """Los tokens de cada familia y de cada agente. Arriba, los de esta organización, que salen de
+    las sesiones de Claude Code de la carpeta de trabajo y solo con un sí de la persona; abajo, lo que
+    cuesta cada comando en las rondas de prueba, para tener con qué comparar. Rostrum no guarda nada:
+    cuenta cada vez que se abre la página."""
+    cuerpo = ['<p class="entrada">Cuántos tokens usa cada familia y cada agente. Los de esta organización salen de '
+              'las sesiones de Claude Code que corrieron en su carpeta de trabajo: de cada respuesta se toma su uso '
+              'y el comando que la pidió, <b>nunca el texto de la conversación</b>. Los de las pruebas salen de las '
+              'rondas publicadas con los agentes.</p>', '<h2>En esta organización</h2>']
+    if raiz is None:
+        cuerpo.append('<div class="bloque"><p>Se mide con el mapa de Rostrum: levántalo con '
+                      '<code class="cmd">/criterio-server:server-start</code> después de '
+                      '<code class="cmd">/criterio-server:server-setup</code>.</p></div>')
+    elif not medir_si:
+        cuerpo.append('<div class="bloque"><p>No se está midiendo: hace falta tu sí, porque las sesiones son tuyas. '
+                      '<code class="cmd">/criterio-server:server-setup</code> lo pregunta, o directamente:</p>'
+                      '<pre>python3 "${CLAUDE_PLUGIN_ROOT}/scripts/mapa.py" consumo --si --raiz &lt;carpeta de trabajo&gt;</pre>'
+                      '<p>Se mide en este equipo, sobre las sesiones de Claude Code. Las de Cowork corren en la nube '
+                      'y no quedan aquí.</p></div>')
+    else:
+        m = consumo.medir(raiz)
+        fam = consumo.por_familia(m)
+        if not m['agentes']:
+            cuerpo.append('<div class="bloque"><p>Todavía no hay sesiones de Claude Code con comandos de Criterio en '
+                          f'<code>{e(ruta_completa(raiz))}</code>.</p></div>')
+        else:
+            total = sum(x['total'] for x in fam.values())
+            salida = sum(x['salida'] for x in fam.values())
+            corr = sum(x['corridas'] for x in fam.values())
+            cuerpo.append('<div class="resumen">'
+                          f'<div class="cifra"><span class="n">{tokens(total)}</span><span class="q">tokens con Criterio</span></div>'
+                          f'<div class="cifra"><span class="n">{tokens(salida)}</span><span class="q">de ellos, escritos por los agentes</span></div>'
+                          f'<div class="cifra"><span class="n">{corr}</span><span class="q">comandos pedidos</span></div>'
+                          f'<div class="cifra"><span class="n">{m["sesiones"]}</span><span class="q">sesiones, del {e(m["desde"])} al {e(m["hasta"])}</span></div></div>')
+            cuerpo.append('<div class="bloque"><table><caption>Por familia</caption><thead><tr><th>Familia</th>'
+                          '<th class="num">Comandos</th><th class="num">Total</th><th class="num">Salida</th>'
+                          '<th class="num">Lectura de caché</th></tr></thead><tbody>')
+            for s_, x in sorted(fam.items(), key=lambda kv: -kv[1]['total']):
+                nombre = 'Rostrum' if s_ == 'rostrum' else f'{s_.upper()} · {FAMILIAS[s_]["nombre"]["es"]}' if s_ in FAMILIAS else s_
+                cuerpo.append(f'<tr><td>{e(nombre)}</td><td class="num">{x["corridas"]}</td><td class="num">{tokens(x["total"])}</td>'
+                              f'<td class="num">{tokens(x["salida"])}</td><td class="num">{tokens(x["cache_lectura"])}</td></tr>')
+            cuerpo.append('</tbody></table></div>')
+            ref = consumo.pruebas()['agentes']
+            cuerpo.append('<div class="bloque"><table><caption>Por agente y comando</caption><thead><tr><th>Agente</th>'
+                          '<th>Comando</th><th class="num">Veces</th><th class="num">Total</th><th class="num">Por vez</th>'
+                          '<th class="num">En las pruebas</th></tr></thead><tbody>')
+            for ag, a in sorted(m['agentes'].items(), key=lambda kv: (kv[1]['familia'], -kv[1]['total']['total'])):
+                for cmd, x in sorted(a['comandos'].items(), key=lambda kv: -kv[1]['total']):
+                    r = ((ref.get(ag) or {}).get('comandos') or {}).get(cmd)
+                    vez = tokens(round(x['total'] / x['corridas'])) if x['corridas'] else '—'
+                    cuerpo.append(f'<tr><td>{quien_consume(ag)}</td><td>{e(ETIQUETA.get(cmd, cmd))}'
+                                  f'<span class="cita"><code class="cmd">{e(cmd)}</code></span></td>'
+                                  f'<td class="num">{x["corridas"]}</td><td class="num">{tokens(x["total"])}</td>'
+                                  f'<td class="num">{vez}</td><td class="num">{tokens(r["mediana"]) if r else "—"}</td></tr>')
+            cuerpo.append('</tbody></table></div>')
+            if m['fuera']['total']:
+                cuerpo.append(f'<p class="aviso">Fuera de los comandos de Criterio, en la misma carpeta: '
+                              f'{tokens(m["fuera"]["total"])} tokens. No se cuentan a ningún agente.</p>')
+            cuerpo.append('<p class="aviso">Una sesión se cuenta al último comando de Criterio que se pidió en ella, '
+                          'hasta el siguiente: lo que la persona escribe después en sus palabras sigue siendo de ese agente.</p>')
+    ref = consumo.pruebas()['agentes']
+    cuerpo.append('<h2>En las pruebas</h2><p class="entrada">Lo que costó cada comando en las rondas con los agentes, '
+                  'sobre material sintético: la mediana y el máximo de las veces que corrió. <b>Una pasada</b> es la '
+                  'suma de las medianas de los comandos que corrieron en las rondas.</p>')
+    for s_ in [f["sigla"] for f in REGISTRO["familias"]]:
+        suyos = [(ag, x) for ag, x in ref.items() if x['familia'] == s_]
+        if not suyos:
+            continue
+        cuerpo.append(f'<div class="bloque"><table><caption>{e(s_.upper())} · {e(FAMILIAS[s_]["nombre"]["es"])}</caption>'
+                      '<thead><tr><th>Agente</th><th>Comando</th><th class="num">Veces</th><th class="num">Mediana</th>'
+                      '<th class="num">Máximo</th><th class="num">Pasos</th></tr></thead><tbody>')
+        for ag, x in suyos:
+            for cmd, c in sorted(x['comandos'].items(), key=lambda kv: -kv[1]['mediana']):
+                cuerpo.append(f'<tr><td>{quien_consume(ag)}</td><td>{e(ETIQUETA.get(cmd, cmd))}'
+                              f'<span class="cita"><code class="cmd">{e(cmd)}</code></span></td>'
+                              f'<td class="num">{c["corridas"]}</td><td class="num">{tokens(c["mediana"])}</td>'
+                              f'<td class="num">{tokens(c["maximo"])}</td><td class="num">{c["mediana_turnos"]}</td></tr>')
+            cuerpo.append(f'<tr class="total"><td>{quien_consume(ag)}</td><td>Una pasada</td><td></td>'
+                          f'<td class="num"><b>{tokens(x["pasada"])}</b></td><td></td><td></td></tr>')
+        cuerpo.append('</tbody></table></div>')
+    cuerpo.append(AVISO_CACHE)
+    return 200, pagina('El consumo', "".join(cuerpo), hoy, nav(('', 'El consumo')), '/consumo')
+
+
 def recibida(registro: dict, hoy: str) -> str:
     cuerpo = f"""<span class="ante">Petición recibida</span>
 <h1>Queda anotada</h1>
@@ -1741,6 +1860,8 @@ class Manejador(BaseHTTPRequestHandler):
     evidencia: Path = Path('.criterio/corridas')
     organizacion: str = ''
     callado: bool = False
+    raiz: Path | None = None        # la carpeta de trabajo, cuando hay mapa
+    medir_consumo: bool = False     # el sí de la persona para medir desde sus sesiones
 
     @property
     def pmo(self) -> dict:
@@ -1853,6 +1974,8 @@ class Manejador(BaseHTTPRequestHandler):
             self.html(*vista_familia(self.entradas, ruta[len('/familia/'):], self.hoy()))
         elif ruta == '/vence':
             self.html(*vista_vence(self.entradas, self.hoy()))
+        elif ruta == '/consumo':
+            self.html(*vista_consumo(self.raiz, self.medir_consumo, self.hoy()))
         elif ruta.startswith('/resumen/'):
             self.html(*vista_resumen(self.entradas, ruta[len('/resumen/'):], self.hoy()))
         elif ruta.startswith('/reporte/'):
@@ -1937,8 +2060,10 @@ class Manejador(BaseHTTPRequestHandler):
         self.html(200, recibida(registro, self.hoy()))
 
 
-def arrancar(entradas: list, host: str, puerto: int, org: str = '', evidencia: Path = None) -> int:
+def arrancar(entradas: list, host: str, puerto: int, org: str = '', evidencia: Path = None,
+             raiz: Path | None = None, medir_consumo: bool = False) -> int:
     Manejador.entradas = entradas
+    Manejador.raiz, Manejador.medir_consumo = raiz, medir_consumo
     Manejador.evidencia = evidencia or Path('.criterio') / 'corridas'
     Manejador.organizacion = org
     for x in entradas:
@@ -2405,6 +2530,30 @@ def selftest() -> int:
         ok('lo que vence junta las listas de cada motor y el comité, ordenadas por fecha',
            cod == 200 and ven.index('2026-10-08') < ven.index('2026-10-15') < ven.index('2026-11-01')
            and 'Próximo comité' in ven and '/caso/CTR-104' in ven, True)
+        Manejador.raiz, Manejador.medir_consumo = raiz, False
+        cod, cons = pedir('/consumo')
+        ok('el consumo sin un sí no mide, lo dice, y muestra lo que cuesta cada comando en las pruebas',
+           cod == 200 and 'No se está midiendo' in cons and 'Una pasada' in cons and '/agente/finanzas' in cons, True)
+        import os
+        sesiones = raiz.parent / 'sesiones-claude'
+        (sesiones / 'projects' / consumo.codificar(raiz.resolve())).mkdir(parents=True)
+        (sesiones / 'projects' / consumo.codificar(raiz.resolve()) / 's.jsonl').write_text('\n'.join(json.dumps(x) for x in (
+            {'type': 'user', 'sessionId': 's', 'cwd': str(raiz.resolve()), 'timestamp': '2026-11-10T10:00:00Z',
+             'message': {'content': '<command-name>/criterio-finance:close-scan</command-name>'}},
+            {'type': 'assistant', 'sessionId': 's', 'cwd': str(raiz.resolve()), 'timestamp': '2026-11-10T10:00:01Z',
+             'message': {'id': 'm', 'usage': {'input_tokens': 1000, 'output_tokens': 2500, 'cache_read_input_tokens': 700000}}})),
+            encoding='utf-8')
+        antes = os.environ.get('CLAUDE_CONFIG_DIR')
+        os.environ['CLAUDE_CONFIG_DIR'] = str(sesiones)
+        Manejador.medir_consumo = True
+        cod, cons = pedir('/consumo')
+        ok('con el sí, el consumo de la organización por familia y por agente, con su referencia de las pruebas',
+           cod == 200 and '704 mil' in cons and 'Por agente y comando' in cons and 'CFO · ' in cons, True)
+        if antes is None:
+            os.environ.pop('CLAUDE_CONFIG_DIR')
+        else:
+            os.environ['CLAUDE_CONFIG_DIR'] = antes
+        Manejador.raiz, Manejador.medir_consumo = None, False
         cod, hist = pedir('/corridas')
         ok('la historia trae las corridas de Clara con las de la PMO',
            cod == 200 and '<a href="/agente/finanzas">Clara</a>' in hist, True)
@@ -2518,10 +2667,12 @@ def main() -> int:
 
     if args.selftest:
         return selftest()
+    raiz, medir_consumo = None, False
     if args.mapa:
         cfg, entradas, raiz = mapa.cargar(args.mapa)
         org = (cfg.get('organization') or {}).get('name') or ''
         evidencia = args.evidencia or raiz / '.criterio' / 'corridas'
+        medir_consumo = bool((cfg.get('consumo') or {}).get('sesiones'))
     else:
         if not args.informe or not args.estado:
             ap.error('--mapa, o --informe y --estado para servir solo la PMO (o usa --selftest)')
@@ -2535,7 +2686,7 @@ def main() -> int:
 
     host = args.host or ('0.0.0.0' if args.abierto else '127.0.0.1')
     try:
-        return arrancar(entradas, host, args.puerto, org, evidencia)
+        return arrancar(entradas, host, args.puerto, org, evidencia, raiz, medir_consumo)
     except OSError as err:
         print(f'No se pudo levantar en {host}:{args.puerto} — {err}', file=sys.stderr)
         if getattr(err, 'errno', None) in (48, 98, 10048):

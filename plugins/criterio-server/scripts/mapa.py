@@ -133,11 +133,26 @@ def guardar(raiz: Path, sin: list[str] | None = None, organizacion: str | None =
             "organization": {"name": org} if org else {},
             "entradas": [{k: v for k, v in e.items() if k != "existe"} for e in entradas],
             "fuera": sorted(set(sin or [])), "guardado": dt.date.today().isoformat()}
+    # Volver a guardar el mapa no cambia lo que la persona decidió sobre el consumo.
+    if previo.get("consumo"):
+        mapa["consumo"] = previo["consumo"]
     f = destino(raiz)
     f.parent.mkdir(parents=True, exist_ok=True)
     f.write_text(json.dumps(mapa, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     return {"mapa": _relativa(f, raiz), "entradas": [e["id"] for e in mapa["entradas"]], "fuera": mapa["fuera"],
             "no_publica": d["no_publica"], "problemas": d["problemas"]}
+
+
+def consumo(raiz: Path, si: bool) -> dict:
+    """Si Rostrum mide el consumo de tokens desde las sesiones de Claude Code de esta carpeta. Solo con
+    un sí de la persona: las sesiones son suyas, aunque de ellas se tome solo el uso y el comando."""
+    f = destino(raiz)
+    cfg = _leer(f)
+    if not isinstance(cfg, dict):
+        raise SystemExit(f"{f} no existe: primero se guarda el mapa")
+    cfg["consumo"] = {"sesiones": si, "decidido": dt.date.today().isoformat()}
+    f.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return {"mapa": _relativa(f, raiz), "consumo": cfg["consumo"]}
 
 
 def cargar(mapa: Path) -> tuple[dict, list[dict], Path]:
@@ -241,6 +256,10 @@ def selftest() -> int:
            ("direccion/presidencia" in [e["id"] for e in d["entradas"]], d["no_publica"]), (False, ["direccion/presidencia"]))
         config("direccion/presidencia", {"entity": {"name": "Banco de Prueba"}, "publish_rostrum": True,
                                          "paths": {"state": "estado-direccion/presidencia", "documents": "direccion/presidencia"}})
+        consumo(raiz, True)
+        guardar(raiz)
+        ok("medir el consumo es un sí que se guarda, y volver a guardar el mapa no lo borra",
+           _leer(destino(raiz))["consumo"]["sesiones"], True)
         ok("y si su configuración lo dice, entra", "direccion/presidencia" in [e["id"] for e in descubrir(raiz)["entradas"]], True)
         # Las comisiones de Valeria no se publican salvo que su configuración lo diga (ADR 0019).
         val = {"privados": {"commission-check": {"config": "revenue.publish_commissions", "senales": ["commission_differs_from_plan"]}}}
@@ -257,7 +276,7 @@ def selftest() -> int:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description="El mapa de Rostrum: qué agentes hay y dónde está cada estado.")
-    ap.add_argument("action", choices=["descubrir", "guardar", "revisar", "terminos", "aceptar"], nargs="?")
+    ap.add_argument("action", choices=["descubrir", "guardar", "revisar", "terminos", "aceptar", "consumo"], nargs="?")
     ap.add_argument("--config", type=Path, default=None, help="el mapa, para los términos")
     ap.add_argument("--por", default=None)
     ap.add_argument("--idioma", default=None)
@@ -265,6 +284,8 @@ def main() -> int:
     ap.add_argument("--mapa", type=Path, default=None)
     ap.add_argument("--sin", action="append", default=[], help="una entrada que no se sirve")
     ap.add_argument("--organizacion", default=None)
+    ap.add_argument("--si", action="store_true", help="consumo: medirlo desde las sesiones de Claude Code")
+    ap.add_argument("--no", action="store_true", help="consumo: no medirlo")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
     if a.selftest:
@@ -276,6 +297,10 @@ def main() -> int:
         print(json.dumps(guardar(raiz, a.sin, a.organizacion), ensure_ascii=False, indent=2))
     elif a.action == "revisar":
         print(json.dumps(revisar(a.mapa or destino(raiz)), ensure_ascii=False, indent=2))
+    elif a.action == "consumo":
+        if a.si == a.no:
+            ap.error("consumo: --si o --no")
+        print(json.dumps(consumo(raiz, a.si), ensure_ascii=False, indent=2))
     elif a.action in ("terminos", "aceptar"):
         # Los términos se aceptan como en cualquier agente: el comprobante queda en `.criterio/terminos/`.
         sys.path.insert(0, str(AQUI))

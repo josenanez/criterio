@@ -283,6 +283,25 @@ Suele ser la mitad de la conversación, así que conviene llevarlo escrito: no n
 base de datos, ni cuenta de servicio con permisos, ni certificado propio, ni salida a
 internet, ni tocar ninguna de tus carpetas de documentación.
 
+## El consumo
+
+`/consumo` dice cuántos tokens usa cada familia y cada agente, comando por comando.
+
+- **En esta organización**, solo con un sí: `server-setup` lo pregunta y lo deja en el mapa
+  (`mapa.py consumo --si`). Sale de las sesiones de Claude Code que corrieron en la carpeta de
+  trabajo, en este equipo. De cada respuesta se toman el uso, el comando que la pidió, la fecha y
+  la carpeta; **el texto de la conversación no se guarda ni se muestra**. Una sesión se cuenta al
+  último comando de Criterio que se pidió en ella, hasta el siguiente, y sus subagentes con ella.
+  Las sesiones de Cowork corren en la nube y no quedan en el equipo.
+- **En las pruebas**, siempre: la mediana y el máximo de cada comando en las rondas publicadas, y
+  lo que cuesta una pasada por los comandos de cada agente. Lo escribe
+  `scripts/consumo_pruebas.py` del repositorio en `scripts/consumo-pruebas.json`; la verificación
+  falla si no coincide con la evidencia.
+
+Se comprobó contra lo que Claude Code informa de sí mismo: en la ronda 14 de la CFO, los 22
+comandos de Clara, Tomás y Áurea suman en `/consumo` exactamente los tokens que `claude -p`
+reportó en cada uno.
+
 ## Lo que nunca hace
 
 - **No calcula.** Sirve lo que los agentes ya escribieron en disco. Abrir la página no dispara
@@ -317,6 +336,7 @@ De aquí para abajo es para quien lo va a publicar.
 | `/familia/<sigla>` | Una familia: cada agente con lo último que escribió y sus reportes | Quien responde por esa función |
 | `/reporte/<área>/<instancia>/<archivo>` | Un reporte tal como lo escribió el motor | Quien responde por él |
 | `/vence` | Lo pendiente con fecha, de todas las familias | La gerencia |
+| `/consumo` | Los tokens de cada familia y de cada agente: los de esta organización, con un sí, y los de las pruebas | Quien paga el uso |
 | `/resumen/<familia>` | El resumen ejecutivo de una familia, en una página que se imprime | La presidencia y el comité |
 | `/corridas` | La historia de **todos los agentes**, y qué se arrastra | Todos |
 | `/corridas?agente=&que=&caso=` | Las de un agente, un comando o un caso; es a donde llevan las ramas del árbol | Quien prueba |

@@ -1,0 +1,684 @@
+{
+ "nota": "Generado por scripts/consumo_pruebas.py desde las corridas publicadas en tests/evidencias; no se edita a mano.",
+ "agentes": {
+  "augusto": {
+   "familia": "cco",
+   "comandos": {
+    "pipeline-scan": {
+     "corridas": 20,
+     "mediana": 716416,
+     "maximo": 965955,
+     "mediana_salida": 4394,
+     "mediana_turnos": 16
+    },
+    "sales-setup": {
+     "corridas": 20,
+     "mediana": 994532,
+     "maximo": 1231679,
+     "mediana_salida": 8792,
+     "mediana_turnos": 28
+    }
+   },
+   "pasada": 1710948
+  },
+  "valeria": {
+   "familia": "cco",
+   "comandos": {
+    "deal-scan": {
+     "corridas": 20,
+     "mediana": 671124,
+     "maximo": 927923,
+     "mediana_salida": 5122,
+     "mediana_turnos": 16
+    },
+    "revenue-setup": {
+     "corridas": 20,
+     "mediana": 656194,
+     "maximo": 969729,
+     "mediana_salida": 6242,
+     "mediana_turnos": 14
+    }
+   },
+   "pasada": 1327318
+  },
+  "aurea": {
+   "familia": "cfo",
+   "comandos": {
+    "cash-position": {
+     "corridas": 1,
+     "mediana": 405965,
+     "maximo": 405965,
+     "mediana_salida": 2577,
+     "mediana_turnos": 9
+    },
+    "debt-watch": {
+     "corridas": 1,
+     "mediana": 300201,
+     "maximo": 300201,
+     "mediana_salida": 2800,
+     "mediana_turnos": 7
+    },
+    "payment-check": {
+     "corridas": 1,
+     "mediana": 402334,
+     "maximo": 402334,
+     "mediana_salida": 3029,
+     "mediana_turnos": 9
+    },
+    "treasury-scan": {
+     "corridas": 41,
+     "mediana": 440260,
+     "maximo": 505176,
+     "mediana_salida": 2906,
+     "mediana_turnos": 9
+    },
+    "treasury-setup": {
+     "corridas": 41,
+     "mediana": 630290,
+     "maximo": 952910,
+     "mediana_salida": 5504,
+     "mediana_turnos": 15
+    },
+    "treasury-wake": {
+     "corridas": 1,
+     "mediana": 294444,
+     "maximo": 294444,
+     "mediana_salida": 1032,
+     "mediana_turnos": 6
+    }
+   },
+   "pasada": 2473494
+  },
+  "clara": {
+   "familia": "cfo",
+   "comandos": {
+    "account-reconcile": {
+     "corridas": 9,
+     "mediana": 390229,
+     "maximo": 441669,
+     "mediana_salida": 2844,
+     "mediana_turnos": 8
+    },
+    "audit-pack": {
+     "corridas": 9,
+     "mediana": 450440,
+     "maximo": 673109,
+     "mediana_salida": 3919,
+     "mediana_turnos": 9
+    },
+    "bank-reconcile": {
+     "corridas": 9,
+     "mediana": 342616,
+     "maximo": 456161,
+     "mediana_salida": 3356,
+     "mediana_turnos": 8
+    },
+    "close-scan": {
+     "corridas": 49,
+     "mediana": 714795,
+     "maximo": 834621,
+     "mediana_salida": 5016,
+     "mediana_turnos": 16
+    },
+    "close-status": {
+     "corridas": 9,
+     "mediana": 471286,
+     "maximo": 565542,
+     "mediana_salida": 4420,
+     "mediana_turnos": 10
+    },
+    "einvoice-check": {
+     "corridas": 9,
+     "mediana": 394647,
+     "maximo": 578911,
+     "mediana_salida": 3317,
+     "mediana_turnos": 9
+    },
+    "finance-setup": {
+     "corridas": 49,
+     "mediana": 780377,
+     "maximo": 1689365,
+     "mediana_salida": 8188,
+     "mediana_turnos": 20
+    },
+    "finance-wake": {
+     "corridas": 9,
+     "mediana": 385426,
+     "maximo": 505084,
+     "mediana_salida": 1451,
+     "mediana_turnos": 8
+    },
+    "ledger-check": {
+     "corridas": 9,
+     "mediana": 391516,
+     "maximo": 490166,
+     "mediana_salida": 3038,
+     "mediana_turnos": 9
+    }
+   },
+   "pasada": 4321332
+  },
+  "tomas": {
+   "familia": "cfo",
+   "comandos": {
+    "budget-committee-pack": {
+     "corridas": 9,
+     "mediana": 537820,
+     "maximo": 641869,
+     "mediana_salida": 4372,
+     "mediana_turnos": 13
+    },
+    "budget-scan": {
+     "corridas": 49,
+     "mediana": 673206,
+     "maximo": 899492,
+     "mediana_salida": 4677,
+     "mediana_turnos": 15
+    },
+    "budget-setup": {
+     "corridas": 49,
+     "mediana": 931572,
+     "maximo": 1304369,
+     "mediana_salida": 8812,
+     "mediana_turnos": 24
+    },
+    "budget-wake": {
+     "corridas": 9,
+     "mediana": 561783,
+     "maximo": 662835,
+     "mediana_salida": 6106,
+     "mediana_turnos": 16
+    },
+    "forecast": {
+     "corridas": 9,
+     "mediana": 392925,
+     "maximo": 449520,
+     "mediana_salida": 3828,
+     "mediana_turnos": 9
+    },
+    "transfer-log": {
+     "corridas": 9,
+     "mediana": 550617,
+     "maximo": 715467,
+     "mediana_salida": 3973,
+     "mediana_turnos": 13
+    },
+    "variance-report": {
+     "corridas": 9,
+     "mediana": 396412,
+     "maximo": 453271,
+     "mediana_salida": 4463,
+     "mediana_turnos": 9
+    }
+   },
+   "pasada": 4044335
+  },
+  "alexis": {
+   "familia": "ciso",
+   "comandos": {
+    "security-scan": {
+     "corridas": 10,
+     "mediana": 800873,
+     "maximo": 900231,
+     "mediana_salida": 4952,
+     "mediana_turnos": 19
+    },
+    "security-setup": {
+     "corridas": 10,
+     "mediana": 1341366,
+     "maximo": 1519083,
+     "mediana_salida": 11097,
+     "mediana_turnos": 32
+    }
+   },
+   "pasada": 2142239
+  },
+  "amparo": {
+   "familia": "ciso",
+   "comandos": {
+    "resilience-scan": {
+     "corridas": 10,
+     "mediana": 748232,
+     "maximo": 1150031,
+     "mediana_salida": 4606,
+     "mediana_turnos": 20
+    },
+    "resilience-setup": {
+     "corridas": 10,
+     "mediana": 1162001,
+     "maximo": 1616667,
+     "mediana_salida": 10246,
+     "mediana_turnos": 30
+    }
+   },
+   "pasada": 1910233
+  },
+  "guillermo": {
+   "familia": "ciso",
+   "comandos": {
+    "vuln-scan": {
+     "corridas": 10,
+     "mediana": 460066,
+     "maximo": 622425,
+     "mediana_salida": 4673,
+     "mediana_turnos": 10
+    },
+    "vuln-setup": {
+     "corridas": 10,
+     "mediana": 617180,
+     "maximo": 1075847,
+     "mediana_salida": 7772,
+     "mediana_turnos": 20
+    }
+   },
+   "pasada": 1077246
+  },
+  "constanza": {
+   "familia": "clo",
+   "comandos": {
+    "compliance-scan": {
+     "corridas": 40,
+     "mediana": 503752,
+     "maximo": 742675,
+     "mediana_salida": 4075,
+     "mediana_turnos": 12
+    },
+    "compliance-setup": {
+     "corridas": 40,
+     "mediana": 943347,
+     "maximo": 1362361,
+     "mediana_salida": 8288,
+     "mediana_turnos": 23
+    },
+    "compliance-status": {
+     "corridas": 10,
+     "mediana": 341941,
+     "maximo": 439890,
+     "mediana_salida": 3543,
+     "mediana_turnos": 8
+    },
+    "compliance-wake": {
+     "corridas": 10,
+     "mediana": 334856,
+     "maximo": 336479,
+     "mediana_salida": 1252,
+     "mediana_turnos": 8
+    },
+    "policy-review": {
+     "corridas": 10,
+     "mediana": 394563,
+     "maximo": 437440,
+     "mediana_salida": 2324,
+     "mediana_turnos": 10
+    },
+    "regulatory-watch": {
+     "corridas": 10,
+     "mediana": 461010,
+     "maximo": 715218,
+     "mediana_salida": 2823,
+     "mediana_turnos": 10
+    },
+    "reports-cases": {
+     "corridas": 10,
+     "mediana": 372742,
+     "maximo": 437848,
+     "mediana_salida": 2022,
+     "mediana_turnos": 8
+    }
+   },
+   "pasada": 3352211
+  },
+  "fidel": {
+   "familia": "clo",
+   "comandos": {
+    "authority-check": {
+     "corridas": 12,
+     "mediana": 384538,
+     "maximo": 436139,
+     "mediana_salida": 2508,
+     "mediana_turnos": 9
+    },
+    "contract-execution": {
+     "corridas": 12,
+     "mediana": 382464,
+     "maximo": 435806,
+     "mediana_salida": 2584,
+     "mediana_turnos": 8
+    },
+    "contract-register": {
+     "corridas": 12,
+     "mediana": 383670,
+     "maximo": 444718,
+     "mediana_salida": 2320,
+     "mediana_turnos": 9
+    },
+    "contract-scan": {
+     "corridas": 55,
+     "mediana": 882888,
+     "maximo": 1081123,
+     "mediana_salida": 4288,
+     "mediana_turnos": 17
+    },
+    "legal-setup": {
+     "corridas": 55,
+     "mediana": 1018624,
+     "maximo": 1461632,
+     "mediana_salida": 10082,
+     "mediana_turnos": 23
+    },
+    "legal-wake": {
+     "corridas": 12,
+     "mediana": 286242,
+     "maximo": 386457,
+     "mediana_salida": 958,
+     "mediana_turnos": 6
+    },
+    "obligations-calendar": {
+     "corridas": 12,
+     "mediana": 386438,
+     "maximo": 484267,
+     "mediana_salida": 2824,
+     "mediana_turnos": 9
+    }
+   },
+   "pasada": 3724864
+  },
+  "ofelia": {
+   "familia": "ea",
+   "comandos": {
+    "ea-scan": {
+     "corridas": 13,
+     "mediana": 831639,
+     "maximo": 1203177,
+     "mediana_salida": 9485,
+     "mediana_turnos": 22
+    },
+    "ea-setup": {
+     "corridas": 13,
+     "mediana": 675676,
+     "maximo": 1254587,
+     "mediana_salida": 7559,
+     "mediana_turnos": 18
+    }
+   },
+   "pasada": 1507315
+  },
+  "alba": {
+   "familia": "pmo",
+   "comandos": {
+    "product-business-case": {
+     "corridas": 48,
+     "mediana": 575274,
+     "maximo": 795722,
+     "mediana_salida": 6250,
+     "mediana_turnos": 17
+    },
+    "product-charter": {
+     "corridas": 48,
+     "mediana": 534074,
+     "maximo": 683646,
+     "mediana_salida": 6338,
+     "mediana_turnos": 15
+    },
+    "product-definition": {
+     "corridas": 48,
+     "mediana": 531852,
+     "maximo": 859453,
+     "mediana_salida": 5816,
+     "mediana_turnos": 17
+    },
+    "product-discovery": {
+     "corridas": 48,
+     "mediana": 489968,
+     "maximo": 726408,
+     "mediana_salida": 2614,
+     "mediana_turnos": 11
+    },
+    "product-overlap": {
+     "corridas": 48,
+     "mediana": 148782,
+     "maximo": 249755,
+     "mediana_salida": 459,
+     "mediana_turnos": 3
+    },
+    "product-publish": {
+     "corridas": 48,
+     "mediana": 488822,
+     "maximo": 775760,
+     "mediana_salida": 2708,
+     "mediana_turnos": 11
+    },
+    "product-requirements": {
+     "corridas": 48,
+     "mediana": 591014,
+     "maximo": 920403,
+     "mediana_salida": 5454,
+     "mediana_turnos": 13
+    },
+    "product-setup": {
+     "corridas": 48,
+     "mediana": 1356281,
+     "maximo": 2089841,
+     "mediana_salida": 13493,
+     "mediana_turnos": 27
+    },
+    "product-spec": {
+     "corridas": 48,
+     "mediana": 543072,
+     "maximo": 835356,
+     "mediana_salida": 7422,
+     "mediana_turnos": 17
+    },
+    "product-trace": {
+     "corridas": 48,
+     "mediana": 709842,
+     "maximo": 999820,
+     "mediana_salida": 5202,
+     "mediana_turnos": 15
+    },
+    "product-wake": {
+     "corridas": 48,
+     "mediana": 749642,
+     "maximo": 1244434,
+     "mediana_salida": 4788,
+     "mediana_turnos": 16
+    }
+   },
+   "pasada": 6718623
+  },
+  "samuel": {
+   "familia": "pmo",
+   "comandos": {
+    "pm-agenda": {
+     "corridas": 48,
+     "mediana": 683608,
+     "maximo": 1026120,
+     "mediana_salida": 10633,
+     "mediana_turnos": 17
+    },
+    "pm-commitments": {
+     "corridas": 48,
+     "mediana": 556121,
+     "maximo": 1234109,
+     "mediana_salida": 6238,
+     "mediana_turnos": 13
+    },
+    "pm-escalate": {
+     "corridas": 48,
+     "mediana": 617622,
+     "maximo": 811421,
+     "mediana_salida": 7032,
+     "mediana_turnos": 16
+    },
+    "pm-minutes": {
+     "corridas": 48,
+     "mediana": 626414,
+     "maximo": 823822,
+     "mediana_salida": 7256,
+     "mediana_turnos": 15
+    },
+    "pm-plan": {
+     "corridas": 48,
+     "mediana": 566002,
+     "maximo": 849296,
+     "mediana_salida": 8582,
+     "mediana_turnos": 15
+    },
+    "pm-publish": {
+     "corridas": 48,
+     "mediana": 689520,
+     "maximo": 899603,
+     "mediana_salida": 3948,
+     "mediana_turnos": 14
+    },
+    "pm-report": {
+     "corridas": 48,
+     "mediana": 639481,
+     "maximo": 823479,
+     "mediana_salida": 6455,
+     "mediana_turnos": 14
+    },
+    "pm-setup": {
+     "corridas": 48,
+     "mediana": 1524497,
+     "maximo": 2365051,
+     "mediana_salida": 21522,
+     "mediana_turnos": 34
+    },
+    "pm-wake": {
+     "corridas": 48,
+     "mediana": 620794,
+     "maximo": 1293123,
+     "mediana_salida": 4028,
+     "mediana_turnos": 14
+    }
+   },
+   "pasada": 6524059
+  },
+  "vera": {
+   "familia": "pmo",
+   "comandos": {
+    "budget-tracking": {
+     "corridas": 48,
+     "mediana": 600330,
+     "maximo": 1307231,
+     "mediana_salida": 5706,
+     "mediana_turnos": 13
+    },
+    "change-control": {
+     "corridas": 48,
+     "mediana": 625322,
+     "maximo": 982628,
+     "mediana_salida": 6819,
+     "mediana_turnos": 16
+    },
+    "document-index": {
+     "corridas": 48,
+     "mediana": 468908,
+     "maximo": 793078,
+     "mediana_salida": 3238,
+     "mediana_turnos": 10
+    },
+    "health-check": {
+     "corridas": 48,
+     "mediana": 906495,
+     "maximo": 1463825,
+     "mediana_salida": 13114,
+     "mediana_turnos": 20
+    },
+    "portfolio-report": {
+     "corridas": 48,
+     "mediana": 722348,
+     "maximo": 1118972,
+     "mediana_salida": 6946,
+     "mediana_turnos": 16
+    },
+    "portfolio-scan": {
+     "corridas": 48,
+     "mediana": 2908302,
+     "maximo": 6181131,
+     "mediana_salida": 34618,
+     "mediana_turnos": 54
+    },
+    "portfolio-server": {
+     "corridas": 40,
+     "mediana": 482444,
+     "maximo": 727273,
+     "mediana_salida": 3625,
+     "mediana_turnos": 10
+    },
+    "portfolio-setup": {
+     "corridas": 48,
+     "mediana": 1818225,
+     "maximo": 2735699,
+     "mediana_salida": 22112,
+     "mediana_turnos": 34
+    },
+    "portfolio-wake": {
+     "corridas": 48,
+     "mediana": 746240,
+     "maximo": 1241574,
+     "mediana_salida": 4626,
+     "mediana_turnos": 16
+    },
+    "product-view": {
+     "corridas": 48,
+     "mediana": 540600,
+     "maximo": 929560,
+     "mediana_salida": 5022,
+     "mediana_turnos": 12
+    },
+    "project-charter": {
+     "corridas": 48,
+     "mediana": 491684,
+     "maximo": 785969,
+     "mediana_salida": 5610,
+     "mediana_turnos": 13
+    },
+    "project-closure": {
+     "corridas": 48,
+     "mediana": 615596,
+     "maximo": 1032901,
+     "mediana_salida": 7623,
+     "mediana_turnos": 16
+    },
+    "project-history": {
+     "corridas": 48,
+     "mediana": 636658,
+     "maximo": 1056449,
+     "mediana_salida": 9598,
+     "mediana_turnos": 18
+    },
+    "raid-log": {
+     "corridas": 48,
+     "mediana": 1174895,
+     "maximo": 2176871,
+     "mediana_salida": 14296,
+     "mediana_turnos": 22
+    },
+    "status-report": {
+     "corridas": 48,
+     "mediana": 544578,
+     "maximo": 739416,
+     "mediana_salida": 5911,
+     "mediana_turnos": 13
+    },
+    "steering-pack": {
+     "corridas": 48,
+     "mediana": 1028925,
+     "maximo": 1662018,
+     "mediana_salida": 14808,
+     "mediana_turnos": 19
+    },
+    "vendor-tracking": {
+     "corridas": 48,
+     "mediana": 639824,
+     "maximo": 1037713,
+     "mediana_salida": 6422,
+     "mediana_turnos": 17
+    }
+   },
+   "pasada": 14951374
+  }
+ }
+}

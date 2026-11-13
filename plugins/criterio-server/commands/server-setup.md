@@ -36,6 +36,14 @@ Si no encontró a ningún agente, dilo en una línea y di qué falta: cada famil
 python3 "${CLAUDE_PLUGIN_ROOT}/scripts/mapa.py" aceptar --config <carpeta de trabajo>/.criterio/rostrum/config.json --por "<nombre>"
 ```
 
+**4b. El consumo.** Pregunta, una vez, si Rostrum puede medir cuántos tokens usa cada familia y cada agente desde las sesiones de Claude Code de esta carpeta, en este equipo: se toma el uso de cada respuesta y el comando que la pidió, nunca el texto de la conversación. Después del paso 5, registra lo que diga:
+
+```
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/mapa.py" consumo --si --raiz <carpeta de trabajo>
+```
+
+(`--no` si dice que no). Sin un sí, `/consumo` muestra solo lo que cuesta cada comando en las pruebas.
+
 **5. El mapa, escrito:**
 
 ```

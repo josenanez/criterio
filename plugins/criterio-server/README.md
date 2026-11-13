@@ -286,6 +286,25 @@ Usually half the conversation, so it is worth carrying written down: no database
 service account with permissions, no certificate of its own, no internet access, and
 nothing touching any of your documentation folders.
 
+## Consumption
+
+`/consumo` says how many tokens each family and each agent uses, command by command.
+
+- **In this organisation**, only with a yes: `server-setup` asks and records it in the map
+  (`mapa.py consumo --si`). It comes from the Claude Code sessions that ran in the working
+  folder, on this machine. From each response it takes the usage, the command that asked for it,
+  the date and the folder; **the text of the conversation is neither stored nor shown**. A
+  session counts towards the last Criterio command asked for in it, until the next one, and its
+  subagents with it. Cowork sessions run in the cloud and do not stay on the machine.
+- **In the tests**, always: the median and maximum of each command in the published rounds, and
+  what one pass through each agent's commands costs. `scripts/consumo_pruebas.py` in the
+  repository writes it to `scripts/consumo-pruebas.json`; the verification fails if it does not
+  match the evidence.
+
+It was checked against what Claude Code reports about itself: in round 14 of the CFO, the 22
+commands of Clara, Tomás and Áurea add up in `/consumo` to exactly the tokens `claude -p`
+reported for each one.
+
 ## What it never does
 
 - **It does not compute.** It serves what the agents already wrote to disk. Opening the page
@@ -320,6 +339,7 @@ From here down is for whoever is going to publish it.
 | `/familia/<code>` | A family: each agent with the latest it wrote and its reports | Whoever answers for that function |
 | `/reporte/<area>/<instance>/<file>` | A report as the engine wrote it | Whoever answers for it |
 | `/vence` | Everything pending with a date, across every family | Management |
+| `/consumo` | The tokens of each family and each agent: this organisation's, with a yes, and the tests' | Whoever pays for the usage |
 | `/resumen/<familia>` | A family's executive summary, on one printable page | The president and the committee |
 | `/corridas` | The history of **every agent**, and what is being carried | Everyone |
 | `/corridas?agente=&que=&caso=` | One agent's, one command's or one case's; it is where the tree's branches lead | Whoever tests |
