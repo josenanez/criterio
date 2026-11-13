@@ -13,10 +13,10 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
-| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.2.3 | Estable | — |
+| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.2.3 | Estable | Incremento 8 · Las reuniones de Claude Meetings |
 | Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.5.4 | Estable | Incremento 12 · Las exportaciones de Business Central |
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.6.3 | Estable | Incremento 12 · La entidad pública de Paraguay |
-| Criterio EA · Dirección | Ofelia | 1.2.3 | Estable | — |
+| Criterio EA · Dirección | Ofelia | 1.2.3 | Estable | Incremento 5 · Las juntas en Claude Meetings |
 | Criterio CCO · El área comercial | Augusto, Valeria | 1.2.3 | Estable | — |
 | Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.2.3 | Estable | Incremento 7 · Qualys y Rapid7, cuando tengan su fuente |
 | Rostrum · el portal de todas las familias | — | 1.3.3 | — | — |
@@ -34,6 +34,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.0.0 | Liberada | **Telecomunicaciones y logística, y el cronograma en Rostrum**<br>· Dos industrias nuevas: la escala del portafolio y la operación que no se detiene<br>· Rostrum: el Gantt de línea base contra vigente, los hitos y la curva de avance en la página de cada proyecto | La ronda con los agentes en las dos industrias nuevas, con los 38 comandos; las seis anteriores, con su corrida de la ronda 11. El Gantt y la curva, sobre las fichas de las 8 industrias |
 | 1.1.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-pmo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.2.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada | La verificación completa; el reloj, en la prueba de la versión |
+| Incremento 8 | Siguiente | **Las reuniones de Claude Meetings**<br>· La transcripción y las notas de una reunión de Claude Meetings, como una minuta más: Samuel cruza cada compromiso que quedó en ella contra su evidencia<br>· Se construye cuando Claude Meetings —en beta desde el 12 de noviembre de 2026, para Google Meet y en los planes Team y Enterprise— permita exportar la transcripción, y se prueba con una exportación real | Una ronda con Samuel sobre minutas que salen de transcripciones de Claude Meetings |
 
 ### Criterio CFO · El área financiera
 
@@ -77,6 +78,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.0.0 | Liberada | **Los viajes, y las exportaciones de cada proveedor**<br>· Los itinerarios contra la agenda<br>· El .ics que exportan Outlook y Google Calendar y el correo .msg de Outlook, cada uno con su material: lo que de verdad cambia de una oficina a otra, no el país<br>· El material siembra al menos 73 señales, lo que pide un piso del 95 % sin fallas (decisión 0020), y la ronda con la agente vuelve a correr sobre todo él | La ronda 2 con la agente sobre las cuatro oficinas, cada una con su proveedor —Outlook o Google—: 85 de 85 señales y 144 de 146 datos en la primera corrida, ninguna señal en los controles; el defecto que encontró, en el material, con su corrección y su verificación |
 | 1.1.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-ea, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup no vuelve a preguntar lo que ya se respondió en la conversación<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.2.0 | Liberada | **El reloj, con un sí**<br>· Al final de su setup, una tarea programada que corre lo que toca hoy, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
+| Incremento 5 | Siguiente | **Las juntas en Claude Meetings**<br>· La transcripción y las notas de una junta en Claude Meetings, como un documento más de la sesión: Ofelia saca cada acuerdo con su responsable y su fecha, y lo sigue hasta su cierre<br>· Se construye cuando Claude Meetings —en beta desde el 12 de noviembre de 2026, para Google Meet y en los planes Team y Enterprise— permita exportar la transcripción, y se prueba con una exportación real | Una ronda con Ofelia sobre sesiones con su transcripción de Claude Meetings |
 
 ### Criterio CCO · El área comercial
 

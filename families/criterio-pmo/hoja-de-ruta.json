@@ -172,6 +172,28 @@
     ],
     "prueba": "The full verification; the clock, in the version test"
    }
+  },
+  {
+   "incremento": 8,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Las reuniones de Claude Meetings",
+    "entra": [
+     "La transcripción y las notas de una reunión de Claude Meetings, como una minuta más: Samuel cruza cada compromiso que quedó en ella contra su evidencia",
+     "Se construye cuando Claude Meetings —en beta desde el 12 de noviembre de 2026, para Google Meet y en los planes Team y Enterprise— permita exportar la transcripción, y se prueba con una exportación real"
+    ],
+    "prueba": "Una ronda con Samuel sobre minutas que salen de transcripciones de Claude Meetings"
+   },
+   "en": {
+    "titulo": "Claude Meetings",
+    "entra": [
+     "The transcript and notes of a Claude Meetings call, as one more set of minutes: Samuel checks every commitment made in it against its evidence",
+     "It is built once Claude Meetings —in beta since 12 November 2026, for Google Meet and on the Team and Enterprise plans— can export the transcript, and it is tested on a real export"
+    ],
+    "prueba": "A round with Samuel on minutes taken from Claude Meetings transcripts"
+   }
   }
  ]
 }

@@ -98,6 +98,28 @@
     ],
     "prueba": "The full verification; the clock, in the version test"
    }
+  },
+  {
+   "incremento": 5,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Las juntas en Claude Meetings",
+    "entra": [
+     "La transcripción y las notas de una junta en Claude Meetings, como un documento más de la sesión: Ofelia saca cada acuerdo con su responsable y su fecha, y lo sigue hasta su cierre",
+     "Se construye cuando Claude Meetings —en beta desde el 12 de noviembre de 2026, para Google Meet y en los planes Team y Enterprise— permita exportar la transcripción, y se prueba con una exportación real"
+    ],
+    "prueba": "Una ronda con Ofelia sobre sesiones con su transcripción de Claude Meetings"
+   },
+   "en": {
+    "titulo": "Board meetings in Claude Meetings",
+    "entra": [
+     "The transcript and notes of a meeting in Claude Meetings, as one more document of the session: Ofelia takes each agreement with its owner and date, and follows it until it closes",
+     "It is built once Claude Meetings —in beta since 12 November 2026, for Google Meet and on the Team and Enterprise plans— can export the transcript, and it is tested on a real export"
+    ],
+    "prueba": "A round with Ofelia on sessions with their Claude Meetings transcript"
+   }
   }
  ]
 }
