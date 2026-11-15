@@ -2,6 +2,7 @@
 description: El índice del paquete del auditor: cada requerimiento con su respuesta, su soporte y su estado; no mueve ni copia archivos
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /audit-pack — El paquete del auditor

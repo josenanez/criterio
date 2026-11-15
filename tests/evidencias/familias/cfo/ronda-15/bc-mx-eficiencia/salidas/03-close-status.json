@@ -1,0 +1,29 @@
+{
+  "n": 3,
+  "agente": "clara",
+  "comando": "close-status",
+  "argumento": "",
+  "inicio": "2026-11-15T18:40:53",
+  "estado": "success",
+  "error": false,
+  "segundos": 33,
+  "turnos": 9,
+  "tokens": 409328,
+  "tokens_salida": 3805,
+  "costo_usd": 0.29120609999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/finanzas/2026-11-15-close-status-1.html",
+      ".criterio/corridas/finanzas/2026-11-15-close-status-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-close-status-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-close-status.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/finanzas/corridas.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

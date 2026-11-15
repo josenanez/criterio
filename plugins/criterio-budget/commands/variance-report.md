@@ -2,6 +2,7 @@
 description: Aprobado, ejecutado, comprometido, disponible y desviación por área y línea, contra la versión aprobada
 argument-hint: "[AAAA-MM del corte] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /variance-report — Ejecución contra presupuesto

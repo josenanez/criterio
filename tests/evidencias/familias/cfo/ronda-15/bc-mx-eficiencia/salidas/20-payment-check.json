@@ -1,0 +1,30 @@
+{
+  "n": 20,
+  "agente": "aurea",
+  "comando": "payment-check",
+  "argumento": "",
+  "inicio": "2026-11-15T18:53:03",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 7,
+  "tokens": 347201,
+  "tokens_salida": 2385,
+  "costo_usd": 0.13973560000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/tesoreria/2026-11-15-payment-check-1.html",
+      ".criterio/corridas/tesoreria/2026-11-15-payment-check-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-payment-check-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-payment-check.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/tesoreria/2026-09/reporte-payment-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/tesoreria/corridas.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

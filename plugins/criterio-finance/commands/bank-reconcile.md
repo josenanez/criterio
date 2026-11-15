@@ -2,6 +2,7 @@
 description: La conciliación de cada cuenta bancaria del periodo, con sus partidas abiertas por antigüedad y la diferencia sin explicar
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /bank-reconcile — Conciliación bancaria

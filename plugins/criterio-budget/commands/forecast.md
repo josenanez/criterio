@@ -2,6 +2,7 @@
 description: La proyección al cierre del año: la del área y dos calculadas, al ritmo y al plan, cada una con su supuesto escrito
 argument-hint: "[AAAA-MM del corte] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /forecast — La proyección al cierre del año

@@ -2,6 +2,7 @@
 description: El cuadre del balance de comprobación y del libro mayor, cuenta por cuenta, y los saldos contrarios a su naturaleza
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /ledger-check — El cuadre

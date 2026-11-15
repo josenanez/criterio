@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "clara",
+  "comando": "audit-pack",
+  "argumento": "",
+  "inicio": "2026-11-15T18:43:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 8,
+  "tokens": 401118,
+  "tokens_salida": 2398,
+  "costo_usd": 0.15071589999999999,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/cierre/2026-09/reporte-audit-pack.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-audit-pack-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-audit-pack.md"
+    ],
+    "modificados": [
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

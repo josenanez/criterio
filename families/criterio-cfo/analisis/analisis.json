@@ -1,7 +1,7 @@
 {
  "meta": {
   "generado_desde": "tests/evidencias/familias/cfo",
-  "ultima_ronda": 14,
+  "ultima_ronda": 15,
   "completa": false,
   "rondas": [
    1,
@@ -17,7 +17,8 @@
    11,
    12,
    13,
-   14
+   14,
+   15
   ]
  },
  "secciones": [
@@ -29,12 +30,12 @@
    },
    "parrafos": {
     "es": [
-     "La ronda más reciente, la 14, parcial, sobre 1 de las 37 entidades del material: 9 de 9 señales sembradas encontradas (margen del 95 %: 70–100 %) y 0 de más; 8 de 8 datos extraídos bien (100 %, margen del 95 %: 67,5–100 %); y 0 de 0 entidades de control sin ninguna señal.",
-     "Sumando las rondas 1–14, 419 de 419 señales encontradas, 0 de más y 999 de 1001 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
+     "La ronda más reciente, la 15, parcial, sobre 1 de las 37 entidades del material: 9 de 9 señales sembradas encontradas (margen del 95 %: 70–100 %) y 0 de más; 8 de 8 datos extraídos bien (100 %, margen del 95 %: 67,5–100 %); y 0 de 0 entidades de control sin ninguna señal.",
+     "Sumando las rondas 1–15, 428 de 428 señales encontradas, 0 de más y 1007 de 1009 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una."
     ],
     "en": [
-     "The most recent round, round 14, partial, on 1 of the material's 37 entities: 9 of 9 seeded signals found (95% margin: 70–100%) and 0 extra; 8 of 8 data items extracted right (100%, 95% margin: 67.5–100%); and 0 of 0 control entities with no signal at all.",
-     "Across rounds 1–14, 419 of 419 signals found, 0 extra and 999 of 1001 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
+     "The most recent round, round 15, partial, on 1 of the material's 37 entities: 9 of 9 seeded signals found (95% margin: 70–100%) and 0 extra; 8 of 8 data items extracted right (100%, 95% margin: 67.5–100%); and 0 of 0 control entities with no signal at all.",
+     "Across rounds 1–15, 428 of 428 signals found, 0 extra and 1007 of 1009 data items right. The rounds repeat the same material: they are not independent samples, and the margin is computed over each round's cases."
     ]
    }
   },
@@ -59,7 +60,7 @@
      "es": [
       [
        "Rondas",
-       "14; la más reciente, la 14, es parcial"
+       "15; la más reciente, la 15, es parcial"
       ],
       [
        "Material",
@@ -71,21 +72,21 @@
       ],
       [
        "Corridas de una entidad",
-       "49"
+       "50"
       ],
       [
        "Señales sembradas",
-       "419"
+       "428"
       ],
       [
        "Datos calificados",
-       "1001"
+       "1009"
       ]
      ],
      "en": [
       [
        "Rounds",
-       "14; the most recent, round 14, is partial"
+       "15; the most recent, round 15, is partial"
       ],
       [
        "Material",
@@ -97,15 +98,15 @@
       ],
       [
        "Entity runs",
-       "49"
+       "50"
       ],
       [
        "Seeded signals",
-       "419"
+       "428"
       ],
       [
        "Data items graded",
-       "1001"
+       "1009"
       ]
      ]
     }
@@ -124,8 +125,8 @@
   {
    "id": "acumulado",
    "titulo": {
-    "es": "Resultados acumulados · rondas 1–14",
-    "en": "Cumulative results · rounds 1–14"
+    "es": "Resultados acumulados · rondas 1–15",
+    "en": "Cumulative results · rounds 1–15"
    },
    "tabla": {
     "cab": {
@@ -146,19 +147,19 @@
      "es": [
       [
        "Señales · cobertura",
-       "419 de 419",
+       "428 de 428",
        "100 %",
-       "99–100 %"
+       "99,1–100 %"
       ],
       [
        "Señales · precisión",
-       "419 de 419",
+       "428 de 428",
        "100 %",
-       "99–100 %"
+       "99,1–100 %"
       ],
       [
        "Extracción · datos correctos",
-       "999 de 1001",
+       "1007 de 1009",
        "99,8 %",
        "99,2–100 %"
       ],
@@ -172,19 +173,19 @@
      "en": [
       [
        "Signals · coverage",
-       "419 of 419",
+       "428 of 428",
        "100%",
-       "99–100%"
+       "99.1–100%"
       ],
       [
        "Signals · precision",
-       "419 of 419",
+       "428 of 428",
        "100%",
-       "99–100%"
+       "99.1–100%"
       ],
       [
        "Extraction · data right",
-       "999 of 1001",
+       "1007 of 1009",
        "99.8%",
        "99.2–100%"
       ],
@@ -372,6 +373,16 @@
        "0 de 0",
        "10,8 M",
        "0"
+      ],
+      [
+       "15",
+       "1",
+       "100 %",
+       "100 %",
+       "100 %",
+       "0 de 0",
+       "10,5 M",
+       "0"
       ]
      ],
      "en": [
@@ -514,6 +525,16 @@
        "0 of 0",
        "10.8 M",
        "0"
+      ],
+      [
+       "15",
+       "1",
+       "100%",
+       "100%",
+       "100%",
+       "0 of 0",
+       "10.5 M",
+       "0"
       ]
      ]
     }
@@ -530,8 +551,8 @@
   {
    "id": "ultima",
    "titulo": {
-    "es": "La ronda más reciente · ronda 14",
-    "en": "The most recent round · round 14"
+    "es": "La ronda más reciente · ronda 15",
+    "en": "The most recent round · round 15"
    },
    "tabla": {
     "cab": {
@@ -607,8 +628,8 @@
   {
    "id": "industrias",
    "titulo": {
-    "es": "Por industria y país · ronda 14",
-    "en": "By industry and country · round 14"
+    "es": "Por industria y país · ronda 15",
+    "en": "By industry and country · round 15"
    },
    "tabla": {
     "cab": {
@@ -637,7 +658,7 @@
        "9 de 9",
        "0",
        "8 de 8",
-       "10,8 M"
+       "10,5 M"
       ]
      ],
      "en": [
@@ -647,7 +668,7 @@
        "9 of 9",
        "0",
        "8 of 8",
-       "10.8 M"
+       "10.5 M"
       ]
      ]
     }
@@ -656,15 +677,15 @@
   {
    "id": "senales",
    "titulo": {
-    "es": "Lo que falló, uno por uno · rondas 1–14",
-    "en": "What failed, one by one · rounds 1–14"
+    "es": "Lo que falló, uno por uno · rondas 1–15",
+    "en": "What failed, one by one · rounds 1–15"
    },
    "parrafos": {
     "es": [
-     "2 fallas en 49 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
+     "2 fallas en 50 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas."
     ],
     "en": [
-     "2 failures in 49 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
+     "2 failures in 50 runs, each with the defect that explains it: its origin says whether the agent or the test failed. The figures are those of the original grading: 1 of those failures came from the test —the harness or the key—, not from the agent, and with the test fixed they grade as right."
     ]
    },
    "tabla": {
@@ -861,11 +882,11 @@
    },
    "parrafos": {
     "es": [
-     "Las 14 rondas usaron 261,1 millones de tokens: 250,3 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,1 millones por entidad.",
+     "Las 15 rondas usaron 271,6 millones de tokens: 260,9 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,2 millones por entidad.",
      "El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020)."
     ],
     "en": [
-     "The 14 rounds used 261.1 million tokens: 250.3 million in the graded runs and 10.7 in the ones repeated after fixing a defect. On average, 5.1 million per entity.",
+     "The 15 rounds used 271.6 million tokens: 260.9 million in the graded runs and 10.7 in the ones repeated after fixing a defect. On average, 5.2 million per entity.",
      "The material is synthetic. Whether a version is stable or laboratory is said by this evidence, not its number: stable, with the floor of the 95% margin at 95% or more for signals and data over each entity's most recent run, and no signal in the controls (decision 0020)."
     ]
    }

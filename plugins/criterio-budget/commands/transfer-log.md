@@ -2,6 +2,7 @@
 description: Cada traslado, adición o reducción del presupuesto con el acta que lo aprueba, y los que no la tienen
 argument-hint: "[AAAA-MM del corte] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /transfer-log — Traslados y actas

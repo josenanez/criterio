@@ -2,6 +2,7 @@
 description: Cada cuenta contra su auxiliar —cartera, proveedores, inventarios, activos fijos, intercompañías— con la diferencia y la antigüedad de sus partidas
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /account-reconcile — Cuentas contra auxiliares

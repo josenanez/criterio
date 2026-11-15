@@ -2,6 +2,7 @@
 description: Todas las facturas electrónicas del periodo contra la contabilidad —no una muestra—: sin registro, registros sin factura, diferencias y duplicados
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /einvoice-check — Facturas contra contabilidad

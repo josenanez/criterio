@@ -1,0 +1,26 @@
+{
+  "n": 12,
+  "agente": "tomas",
+  "comando": "variance-report",
+  "argumento": "",
+  "inicio": "2026-11-15T18:47:04",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 8,
+  "tokens": 355585,
+  "tokens_salida": 3295,
+  "costo_usd": 0.16145849999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-variance-report-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-variance-report.md"
+    ],
+    "modificados": [
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -929,7 +929,34 @@ def argumentos(descripcion: str):
         ap.add_argument(op, type=t)
     for op in ("--period", "--year", "--today", "--what", "--caso", "--nota", "--por", "--idioma", "--id", "--entidad"):
         ap.add_argument(op)
+    # El reloj: si no toca nada, el motor deja la corrida registrada él mismo y el agente termina en
+    # una línea, sin gastar un paso más (el camino corto del despertar).
+    ap.add_argument("--registrar", action="store_true")
     return ap
+
+
+def _despertar_uno(ruta: Path, rol: str, despertar, hoy: dt.date, que: str | None, registrar: bool, aqui: Path) -> dict:
+    """Lo que toca hoy a una configuración, con sus términos; si no toca nada y se pidió, la corrida
+    queda registrada aquí mismo."""
+    import sys
+    sys.path.insert(0, str(aqui))
+    import terminos
+    cfg, _ = cargar_config(ruta)
+    d = despertar(cfg, rol, hoy)
+    # Una petición que alguien dejó en Rostrum despierta al agente aunque no toque nada más.
+    d["peticiones"] = peticiones_abiertas(cfg["_estado"], rol)
+    t = terminos.estado(ruta)
+    d["terminos_vigentes"] = bool(t.get("vigente"))
+    d["callado"] = d.get("callado", False) and not d["peticiones"] and d["terminos_vigentes"]
+    d["config"] = str(ruta)
+    if d["callado"] and registrar and que:
+        nombre = (cfg.get("entity") or {}).get("name") or ruta.parent.name
+        d["linea"] = f"Nada que hacer hoy, {hoy.isoformat()}, en {nombre}: no tocaba nada y nadie dejó peticiones."
+        salida = cfg["_estado"] / "corridas" / f"salida-{que}.md"
+        salida.parent.mkdir(parents=True, exist_ok=True)
+        salida.write_text(d["linea"] + "\n", encoding="utf-8")
+        d["registrado"] = corrida(cfg["_estado"], que, salida, None, "no tocaba nada", hoy, None, plugin(aqui)["version"])["id"]
+    return d
 
 
 # La carpeta de la configuración de cada agente, `.criterio/<area>/<entidad>/config.json`. Es la
@@ -947,6 +974,20 @@ def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas
     antes de llegar aquí."""
     import sys
     area = AREA.get(plugin(aqui).get("name"))
+    if a.action == "despertar" and not a.config:
+        # Sin --config, todas las configuraciones de este agente en la carpeta de trabajo, en una sola
+        # llamada: el reloj pregunta una vez, no una por entidad.
+        rutas = sorted((Path.cwd() / ".criterio" / (area or rol)).glob("*/config.json"))
+        if not rutas:
+            print(json.dumps({"ok": False, "motivo": f"no hay ninguna configuración en .criterio/{area or rol}/: corre el setup del agente"},
+                             ensure_ascii=False))
+            return 1
+        ds = [_despertar_uno(r, rol, despertar, _hoy(a), a.what, a.registrar, aqui) for r in rutas]
+        salida = {"callado": all(x["callado"] for x in ds), "entidades": ds}
+        if salida["callado"] and a.registrar:
+            salida["linea"] = " ".join(x.get("linea", "") for x in ds).strip()
+        print(json.dumps(salida, ensure_ascii=False, indent=2))
+        return 0
     if area and getattr(a, "config", None) and Path(a.config).resolve().parent.parent.name != area:
         print(json.dumps({"ok": False, "motivo": f"{a.config} no es una configuración de este agente: la suya va en "
                           f".criterio/{area}/<entidad>/config.json, aunque comparta el estado con otro agente"},
@@ -1029,11 +1070,8 @@ def despachar(a, ap, *, aqui: Path, rol: str, estructura_json: Path, subcarpetas
         print(md)
         return 0
     if a.action == "despertar":
-        d = despertar(cfg, rol, _hoy(a))
-        # Una petición que alguien dejó en Rostrum despierta al agente aunque no toque nada más.
-        d["peticiones"] = peticiones_abiertas(cfg["_estado"], rol)
-        d["callado"] = d.get("callado", False) and not d["peticiones"]
-        print(json.dumps(d, ensure_ascii=False, indent=2))
+        print(json.dumps(_despertar_uno(Path(a.config), rol, despertar, _hoy(a), a.what, a.registrar, aqui),
+                         ensure_ascii=False, indent=2))
         return 0
     if a.action == "responder":
         if not a.id:

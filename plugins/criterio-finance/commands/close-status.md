@@ -2,6 +2,7 @@
 description: El estado del cierre: lo declarado contra lo evidenciado, tarea por tarea del checklist, con la ruta crítica
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /close-status — El estado del cierre

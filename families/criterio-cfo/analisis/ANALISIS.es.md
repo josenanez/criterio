@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CFO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 14 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cfo/` · ronda más reciente: 15 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 14, parcial, sobre 1 de las 37 entidades del material: 9 de 9 señales sembradas encontradas (margen del 95 %: 70–100 %) y 0 de más; 8 de 8 datos extraídos bien (100 %, margen del 95 %: 67,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
+La ronda más reciente, la 15, parcial, sobre 1 de las 37 entidades del material: 9 de 9 señales sembradas encontradas (margen del 95 %: 70–100 %) y 0 de más; 8 de 8 datos extraídos bien (100 %, margen del 95 %: 67,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–14, 419 de 419 señales encontradas, 0 de más y 999 de 1001 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–15, 428 de 428 señales encontradas, 0 de más y 1007 de 1009 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 14; la más reciente, la 14, es parcial |
+| Rondas | 15; la más reciente, la 15, es parcial |
 | Material | Retail · México |
 | Entidades de control |  |
-| Corridas de una entidad | 49 |
-| Señales sembradas | 419 |
-| Datos calificados | 1001 |
+| Corridas de una entidad | 50 |
+| Señales sembradas | 428 |
+| Datos calificados | 1009 |
 
-## Resultados acumulados · rondas 1–14
+## Resultados acumulados · rondas 1–15
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 419 de 419 | 100 % | 99–100 % |
-| Señales · precisión | 419 de 419 | 100 % | 99–100 % |
-| Extracción · datos correctos | 999 de 1001 | 99,8 % | 99,2–100 % |
+| Señales · cobertura | 428 de 428 | 100 % | 99,1–100 % |
+| Señales · precisión | 428 de 428 | 100 % | 99,1–100 % |
+| Extracción · datos correctos | 1007 de 1009 | 99,8 % | 99,2–100 % |
 | Control · sin ninguna señal | 16 de 16 | 100 % | 80,6–100 % |
 
 ## Evolución por ronda
@@ -56,8 +56,9 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 12 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 14,4 M | 1 |
 | 13 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 12,1 M | 0 |
 | 14 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 10,8 M | 0 |
+| 15 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 10,5 M | 0 |
 
-## La ronda más reciente · ronda 14
+## La ronda más reciente · ronda 15
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
@@ -66,15 +67,15 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | Extracción · datos correctos | 8 de 8 | 100 % | 67,5–100 % |
 | Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 14
+## Por industria y país · ronda 15
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Retail · México | Áurea, Clara, Tomás | 9 de 9 | 0 | 8 de 8 | 10,8 M |
+| Retail · México | Áurea, Clara, Tomás | 9 de 9 | 0 | 8 de 8 | 10,5 M |
 
-## Lo que falló, uno por uno · rondas 1–14
+## Lo que falló, uno por uno · rondas 1–15
 
-2 fallas en 49 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+2 fallas en 50 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 1 de esas fallas vino de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -104,7 +105,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 14 rondas usaron 261,1 millones de tokens: 250,3 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,1 millones por entidad.
+Las 15 rondas usaron 271,6 millones de tokens: 260,9 millones en las corridas calificadas y 10,7 en las que se repitieron después de corregir un defecto. En promedio, 5,2 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

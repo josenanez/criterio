@@ -376,7 +376,7 @@ tiene que levantar, con el mismo detalle, **y qué no prueba el material**, en
 | **Ecuador** | ronda 2 | cooperativas, minería, control | 2, 4 | 28 de 28 | 25 de 25 | SRI · número de clave de acceso · IVA del 15 % (F-04) |
 | **Perú** | ronda 3 | banca, minería, control | 3–4 | 24 de 24 | 25 de 25 | SUNAT · RUC, tipo, serie y número · IGV del 18 % (F-13) |
 | **Chile** | ronda 5 | retail, minería, control | 5 | 26 de 26 | 24 de 24 | SII · RUT del emisor, tipo y folio · IVA del 19 % (F-16) |
-| **México** | ronda 6 | banca, retail, control | 6, 14 | 36 de 36 | 32 de 32 | SAT · RFC del emisor, serie y folio · IVA del 16 % (F-19) |
+| **México** | ronda 6 | banca, retail, control | 6, 14–15 | 36 de 36 | 32 de 32 | SAT · RFC del emisor, serie y folio · IVA del 16 % (F-19) |
 | **Brasil** | ronda 7 | retail, minería, control | 7 | 24 de 24 | 24 de 25 | SEFAZ · chave de acesso de 44 dígitos · ICMS del 18 % (F-21, F-22) |
 | **Argentina** | ronda 8 | retail, minería, control | 8 | 24 de 24 | 25 de 25 | ARCA · CAE · IVA del 21 % (F-24, F-25) |
 | **Panamá** | ronda 9 | banca, retail, control | 9 | 27 de 27 | 24 de 24 | DGI · CUFE · ITBMS del 7 % (F-27, F-28) |

@@ -2,6 +2,7 @@
 description: Cada pago programado contra los aprobadores que pide la política para su monto y contra la matriz de firmas
 argument-hint: "[AAAA-MM del periodo] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /payment-check — Los pagos y quién los aprueba

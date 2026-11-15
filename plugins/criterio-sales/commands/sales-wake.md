@@ -6,6 +6,10 @@ allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(
 
 # /sales-wake — Lo que toca hoy
 
+> **Primero, antes que todo lo demás —antes de buscar la configuración y de los términos—, una sola llamada:**
+> `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" despertar --what sales-wake --registrar`
+> Pregunta a todas las configuraciones de este agente en la carpeta. **Si `callado` es verdadero, el motor ya dejó la corrida registrada: muestra su `linea` y termina ahí**, sin otra llamada. Si no, sigue con lo de abajo para cada entidad de `entidades` que no esté callada; si una trae `terminos_vigentes` falso, aplica primero la regla de los términos.
+
 > **Dónde está la configuración:** `.criterio/comercial/<entidad>/config.json`, en la carpeta donde corre la sesión; con una sola entidad configurada es esa, con varias la del NIT o RFC que viene en el argumento. La escribe `/criterio-sales:sales-setup`. Si no existe, dilo en una línea y para: no la busques en otro sitio ni la inventes.
 
 > **Cómo se trabaja sin pedir permiso a cada paso:** el motor se llama por su ruta absoluta, `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/ventas.py" …`, una acción por llamada, sin `cd`, sin `&&` ni tuberías; y los documentos se leen con Read, Glob y Grep, no con `cat` ni `find`. **Y sin subagentes en paralelo:** se procesa una entidad a la vez, en esta misma conversación, salvo que `execution.workers` de la configuración diga otra cosa; nunca más por decisión propia.

@@ -27,24 +27,42 @@ def corridas() -> list[tuple[str, dict]]:
     return [(p.parent.parent.parent.name, json.loads(p.read_text(encoding="utf-8"))) for p in rutas]
 
 
+def _med(v: list) -> float | None:
+    v = [x for x in v if x is not None]
+    return round(st.median(v), 4) if v else None
+
+
 def resumen() -> dict:
     agentes = {a["id"]: a for a in json.loads(REGISTRO.read_text(encoding="utf-8"))["agentes"]}
-    por = {}
-    for _, x in corridas():
+    por, extra, rondas = {}, {}, {}
+    for ronda, x in corridas():
         a, c, t = x.get("agente"), x.get("comando"), x.get("tokens")
         if a not in agentes or not c or not t:
             continue
         por.setdefault(a, {}).setdefault(c, []).append((t, x.get("tokens_salida") or 0, x.get("turnos") or 0))
+        extra.setdefault(a, {}).setdefault(c, []).append((x.get("segundos"), x.get("costo_usd"), x.get("modelo")))
+        # La evolución: por ronda, lo de cada comando, para ver qué cambió de una versión a otra.
+        rondas.setdefault(a, {}).setdefault(ronda, {}).setdefault(c, []).append((t, x.get("turnos") or 0, x.get("segundos"), x.get("costo_usd")))
     salida = {"nota": "Generado por scripts/consumo_pruebas.py desde las corridas publicadas en tests/evidencias; no se edita a mano.",
               "agentes": {}}
     for a in sorted(por, key=lambda k: (agentes[k]["familia"], k)):
         cmds = {}
         for c, v in sorted(por[a].items()):
+            ex = extra[a][c]
             cmds[c] = {"corridas": len(v), "mediana": round(st.median(t for t, _, _ in v)),
                        "maximo": max(t for t, _, _ in v), "mediana_salida": round(st.median(s for _, s, _ in v)),
-                       "mediana_turnos": round(st.median(n for _, _, n in v))}
+                       "mediana_turnos": round(st.median(n for _, _, n in v)),
+                       "mediana_segundos": _med([s for s, _, _ in ex]), "mediana_costo_usd": _med([u for _, u, _ in ex]),
+                       "modelo": ex[-1][2]}
+        evol = []
+        for r_, cs in sorted(rondas[a].items(), key=lambda kv: int(kv[0].split("-")[1])):
+            evol.append({"ronda": r_, "comandos": {c: {"tokens": round(st.median(t for t, _, _, _ in v)),
+                                                        "turnos": round(st.median(n for _, n, _, _ in v)),
+                                                        "segundos": _med([s for _, _, s, _ in v]),
+                                                        "costo_usd": _med([u for _, _, _, u in v])}
+                                                    for c, v in sorted(cs.items())}})
         salida["agentes"][a] = {"familia": agentes[a]["familia"], "comandos": cmds,
-                                "pasada": sum(x["mediana"] for x in cmds.values())}
+                                "pasada": sum(x["mediana"] for x in cmds.values()), "evolucion": evol}
     return salida
 
 

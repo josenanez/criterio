@@ -1,0 +1,27 @@
+{
+  "n": 7,
+  "agente": "clara",
+  "comando": "einvoice-check",
+  "argumento": "",
+  "inicio": "2026-11-15T18:42:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 9,
+  "tokens": 414170,
+  "tokens_salida": 3310,
+  "costo_usd": 0.174189,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/cierre/2026-09/reporte-einvoice-check.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/2026-10-06-einvoice-check-1.md",
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas/salida-einvoice-check.md"
+    ],
+    "modificados": [
+      "estado-finanzas/DNO190402B43-distribuidora-del-noroeste/corridas.json"
+    ],
+    "borrados": []
+  }
+}

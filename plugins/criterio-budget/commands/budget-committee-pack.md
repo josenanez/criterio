@@ -2,6 +2,7 @@
 description: El material del comité de presupuesto como paquete de decisiones: cada una con su cifra, su cita y quién la toma
 argument-hint: "[AAAA-MM del corte] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /budget-committee-pack — El material del comité

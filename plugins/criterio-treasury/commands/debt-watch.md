@@ -2,6 +2,7 @@
 description: La deuda y las inversiones contra su vencimiento, y cada covenant calculado desde el balance del periodo que cierra Clara
 argument-hint: "[AAAA-MM del periodo] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /debt-watch — La deuda, sus vencimientos y sus covenants

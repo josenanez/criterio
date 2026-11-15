@@ -376,7 +376,7 @@ family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 | **Ecuador** | round 2 | cooperatives, mining, control | 2, 4 | 28 of 28 | 25 of 25 | SRI · IVA at 15 % (F-04) |
 | **Peru** | round 3 | banking, mining, control | 3–4 | 24 of 24 | 25 of 25 | SUNAT · IGV at 18 % (F-13) |
 | **Chile** | round 5 | retail, mining, control | 5 | 26 of 26 | 24 of 24 | SII · IVA at 19 % (F-16) |
-| **Mexico** | round 6 | banking, retail, control | 6, 14 | 36 of 36 | 32 of 32 | SAT · IVA at 16 % (F-19) |
+| **Mexico** | round 6 | banking, retail, control | 6, 14–15 | 36 of 36 | 32 of 32 | SAT · IVA at 16 % (F-19) |
 | **Brazil** | round 7 | retail, mining, control | 7 | 24 of 24 | 24 of 25 | SEFAZ · ICMS at 18 % (F-21, F-22) |
 | **Argentina** | round 8 | retail, mining, control | 8 | 24 of 24 | 25 of 25 | ARCA · IVA at 21 % (F-24, F-25) |
 | **Panama** | round 9 | banking, retail, control | 9 | 27 of 27 | 24 of 24 | DGI · ITBMS at 7 % (F-27, F-28) |

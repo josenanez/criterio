@@ -2,6 +2,7 @@
 description: La caja de cada cuenta contra su mínimo y su proyección, la consolidada y la exposición en otras monedas contra su límite
 argument-hint: "[AAAA-MM del periodo] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /cash-position — La posición de caja
