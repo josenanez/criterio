@@ -2,6 +2,7 @@
 description: Dice qué documentos cambiaron de verdad, qué hay que releer y qué citas dejaron de resolver
 argument-hint: "[código del proyecto]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /document-index — Qué cambió en la carpeta

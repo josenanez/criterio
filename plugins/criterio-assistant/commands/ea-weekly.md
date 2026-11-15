@@ -2,6 +2,7 @@
 description: El resumen de la semana: lo que llegó, lo que vence y lo que falta preparar. Uno solo por semana
 argument-hint: "[AAAA-MM-DD para simular otro día]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /ea-weekly — La semana

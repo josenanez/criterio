@@ -2,6 +2,7 @@
 description: Cada sistema contra la frecuencia de su revisión de accesos: la vencida y la que nunca se hizo
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /access-reviews — Las revisiones de acceso

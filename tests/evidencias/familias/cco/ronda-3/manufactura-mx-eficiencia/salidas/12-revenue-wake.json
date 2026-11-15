@@ -1,0 +1,31 @@
+{
+  "n": 12,
+  "agente": "valeria",
+  "comando": "revenue-wake",
+  "argumento": "",
+  "inicio": "2026-11-15T19:31:38",
+  "estado": "success",
+  "error": false,
+  "segundos": 56,
+  "turnos": 14,
+  "tokens": 501004,
+  "tokens_salida": 5918,
+  "costo_usd": 0.4597446,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/ingresos/2026-11-15-revenue-wake-1.html",
+      ".criterio/corridas/ingresos/2026-11-15-revenue-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-commission-check-2.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-deal-scan-2.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-revenue-wake-1.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/salida-revenue-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/ingresos/corridas.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

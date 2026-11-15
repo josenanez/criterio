@@ -1,0 +1,27 @@
+{
+  "n": 11,
+  "agente": "valeria",
+  "comando": "commission-check",
+  "argumento": "",
+  "inicio": "2026-11-15T19:31:15",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 9,
+  "tokens": 397141,
+  "tokens_salida": 2626,
+  "costo_usd": 0.1486364,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-commission-check-1.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/salida-commission-check.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/ingresos/2026-10/reporte-commission-check.md"
+    ],
+    "modificados": [
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "n": 10,
+  "agente": "constanza",
+  "comando": "compliance-status",
+  "argumento": "",
+  "inicio": "2026-11-15T19:29:02",
+  "estado": "success",
+  "error": false,
+  "segundos": 24,
+  "turnos": 7,
+  "tokens": 347198,
+  "tokens_salida": 2798,
+  "costo_usd": 0.1442803,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-11-15-compliance-status-1.html",
+      ".criterio/corridas/cumplimiento/2026-11-15-compliance-status-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/2026-10-06-compliance-status-1.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/salida-compliance-status.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/cumplimiento/2026-10/reporte-compliance-status.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/cumplimiento/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/corridas/cumplimiento/corridas.json",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -2,6 +2,7 @@
 description: Cada aceptación de riesgo contra su fecha de revisión: la que venció
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /risk-register — El registro de riesgos

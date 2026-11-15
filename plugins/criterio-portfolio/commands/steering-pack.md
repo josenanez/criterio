@@ -2,6 +2,7 @@
 description: Material de comité — un paquete de decisiones, no un informe de avance
 argument-hint: "[fecha del comité] o vacío para el próximo configurado"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /steering-pack — Material de comité

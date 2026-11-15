@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "fidel",
+  "comando": "authority-check",
+  "argumento": "",
+  "inicio": "2026-11-15T19:25:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 9,
+  "tokens": 397834,
+  "tokens_salida": 3396,
+  "costo_usd": 0.15862190000000004,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/contratos/reporte-authority-check.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/2026-10-06-authority-check-1.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/salida-authority-check.md"
+    ],
+    "modificados": [
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -2,6 +2,7 @@
 description: Contrasta los entregables contractuales de un proveedor contra el avance real y contra lo facturado
 argument-hint: "<código del proyecto> [nombre del proveedor]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /vendor-tracking — Proveedores

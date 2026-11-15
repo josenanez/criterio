@@ -2,6 +2,7 @@
 description: Cada prueba de continuidad, de recuperación y de restauración contra su calendario
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /continuity-tests — Las pruebas de continuidad

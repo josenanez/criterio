@@ -2,6 +2,7 @@
 description: De lo ganado a lo firmado y a lo facturado: lo ganado sin contrato en las fichas de Fidel y lo firmado sin factura en las de Clara
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /won-to-invoice — De lo ganado a la factura

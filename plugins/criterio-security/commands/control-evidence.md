@@ -2,6 +2,7 @@
 description: Cada control aplicable contra la evidencia de que operó: el que no tiene ninguna y el que la tiene vencida
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /control-evidence — Los controles contra su evidencia

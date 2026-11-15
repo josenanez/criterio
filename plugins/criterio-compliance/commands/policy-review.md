@@ -2,6 +2,7 @@
 description: Cada política con su próxima revisión y su responsable, y las que tienen la revisión vencida
 argument-hint: "vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /policy-review — Las políticas

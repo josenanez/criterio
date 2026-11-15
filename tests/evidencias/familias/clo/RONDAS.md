@@ -24,6 +24,7 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-13 | [control-py](ronda-13/control-py/) | control · PY | constanza, fidel | 0 de 0 · 0 de más | 132 de 132 | 3.36 M |
 | ronda-13 | [retail-py](ronda-13/retail-py/) | retail · PY | constanza, fidel | 10 de 10 · 0 de más | 132 de 132 | 3.20 M |
 | ronda-14 | [publica-py](ronda-14/publica-py/) | publica · PY | constanza, fidel | 3 de 3 · 0 de más | 156 de 156 | 7.19 M + 0.59 M repetidos |
+| ronda-15 | [retail-py-eficiencia](ronda-15/retail-py-eficiencia/) | retail · PY | constanza, fidel | 10 de 10 · 0 de más | 132 de 132 | 6.74 M |
 | ronda-2 | [banca](ronda-2/banca/) | banca · CO | constanza, fidel | 10 de 10 · 0 de más | 131 de 132 | 7.93 M |
 | ronda-2 | [control-co](ronda-2/control-co/) | control · CO | constanza, fidel | 0 de 0 · 0 de más | 128 de 132 | 5.30 M |
 | ronda-2 | [control-ec](ronda-2/control-ec/) | control · EC | constanza, fidel | 0 de 0 · 0 de más | 134 de 134 | 7.72 M |

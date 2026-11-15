@@ -1,0 +1,30 @@
+{
+  "n": 10,
+  "agente": "guillermo",
+  "comando": "vuln-scan",
+  "argumento": "",
+  "inicio": "2026-11-15T19:41:40",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 9,
+  "tokens": 363952,
+  "tokens_salida": 7126,
+  "costo_usd": 0.42113759999999995,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-11-15-vuln-scan-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-11-15-vuln-scan-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-vuln-scan-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-vuln-scan.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/vulnerabilidades/2026-10/reporte-vuln-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 6,
+  "agente": "augusto",
+  "comando": "sales-wake",
+  "argumento": "",
+  "inicio": "2026-11-15T19:26:43",
+  "estado": "success",
+  "error": false,
+  "segundos": 76,
+  "turnos": 15,
+  "tokens": 701160,
+  "tokens_salida": 7901,
+  "costo_usd": 0.5984668,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-pipeline-check-2.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-pipeline-scan-2.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-sales-wake-1.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/salida-sales-wake.md"
+    ],
+    "modificados": [
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

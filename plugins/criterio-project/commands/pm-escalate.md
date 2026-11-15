@@ -2,6 +2,7 @@
 description: Convierte lo que excede tu autoridad en una decisión formulada — pregunta cerrada, opciones con su costo, y qué pasa si nadie decide
 argument-hint: "[qué se escala] o vacío para lo que ya está marcado"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /pm-escalate — El escalamiento con la decisión formulada

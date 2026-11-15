@@ -2,6 +2,7 @@
 description: Quién firmó cada contrato y con qué facultad según la matriz de atribuciones, qué no tiene la firma de las dos partes y qué certificado estaba vencido
 argument-hint: "vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /authority-check — Firmas y facultades

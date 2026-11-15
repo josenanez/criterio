@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "augusto",
+  "comando": "pipeline-scan",
+  "argumento": "",
+  "inicio": "2026-11-15T19:24:32",
+  "estado": "success",
+  "error": false,
+  "segundos": 58,
+  "turnos": 15,
+  "tokens": 686177,
+  "tokens_salida": 5738,
+  "costo_usd": 0.5434388,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/comercial/2026-10/reporte-pipeline-scan.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-pipeline-scan-1.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/salida-pipeline-scan.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/indice.json"
+    ],
+    "modificados": [
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

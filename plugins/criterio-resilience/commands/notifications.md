@@ -2,6 +2,7 @@
 description: Cada notificación que pide la matriz, contra la que se hizo: a tiempo, tarde o sin hacer
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /notifications — Las notificaciones

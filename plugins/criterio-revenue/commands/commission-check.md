@@ -2,6 +2,7 @@
 description: Cada comisión liquidada contra la que da el plan sobre lo ganado y facturado
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /commission-check — Las comisiones contra el plan

@@ -2,6 +2,7 @@
 description: Publica la ficha de tu producto donde los demás productos la puedan leer, con lo mínimo para cruzar y nada más
 argument-hint: "[carpeta de productos publicados] o vacío para la configurada"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /product-publish — Publicar la ficha del producto

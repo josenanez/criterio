@@ -1,0 +1,27 @@
+{
+  "n": 16,
+  "agente": "amparo",
+  "comando": "resilience-scan",
+  "argumento": "",
+  "inicio": "2026-11-15T19:46:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 19,
+  "tokens": 783735,
+  "tokens_salida": 5951,
+  "costo_usd": 0.6015110000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-resilience-scan-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-resilience-scan.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/resiliencia/2026-10/reporte-resilience-scan.md"
+    ],
+    "modificados": [
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

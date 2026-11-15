@@ -2,6 +2,7 @@
 description: El estado de los compromisos de dirección, por órgano y por responsable: vencidos sin evidencia, sin fecha y movidos de más
 argument-hint: "[órgano o responsable] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /ea-commitments — Los compromisos

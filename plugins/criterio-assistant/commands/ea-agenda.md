@@ -2,6 +2,7 @@
 description: La semana del ejecutivo contra sus sesiones y sus compromisos: cruces, sesiones sin material y sesiones sin acta
 argument-hint: "[AAAA-MM-DD para simular otro día]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /ea-agenda — La agenda

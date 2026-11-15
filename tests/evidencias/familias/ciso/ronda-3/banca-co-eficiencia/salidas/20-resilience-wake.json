@@ -1,0 +1,31 @@
+{
+  "n": 20,
+  "agente": "amparo",
+  "comando": "resilience-wake",
+  "argumento": "",
+  "inicio": "2026-11-15T19:49:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 60,
+  "turnos": 17,
+  "tokens": 623080,
+  "tokens_salida": 6208,
+  "costo_usd": 0.5113358,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/resiliencia/2026-11-15-resilience-wake-1.html",
+      ".criterio/corridas/resiliencia/2026-11-15-resilience-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-resilience-scan-2.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-resilience-wake-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-resilience-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/resiliencia/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-resilience-scan.md"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "n": 8,
+  "agente": "ofelia",
+  "comando": "ea-weekly",
+  "argumento": "",
+  "inicio": "2026-11-15T19:30:27",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 8,
+  "tokens": 361155,
+  "tokens_salida": 2299,
+  "costo_usd": 0.1732853,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-direccion/presidencia/corridas/2026-10-26-ea-weekly-1.md",
+      "estado-direccion/presidencia/corridas/salida-ea-weekly.md",
+      "estado-direccion/presidencia/reporte-ea-weekly.md"
+    ],
+    "modificados": [
+      "estado-direccion/presidencia/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -2,6 +2,7 @@
 description: Cada descuento contra el nivel de la matriz que lo cubre y la aprobación que ese nivel pide
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /discount-check — Los descuentos contra su política

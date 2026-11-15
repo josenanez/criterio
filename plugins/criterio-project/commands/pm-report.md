@@ -2,6 +2,7 @@
 description: El informe de avance de la semana, completo salvo una línea — el estado lo declaras tú, y Samuel te muestra contra qué
 argument-hint: "[fecha de corte] o vacío para hoy"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /pm-report — El informe semanal

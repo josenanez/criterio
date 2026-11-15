@@ -382,7 +382,7 @@ señal que tiene que levantar, con el mismo detalle, **y qué no prueba el mater
 | **Guatemala** | ronda 10 | banca, retail, control | 10 | 20 de 20 | 396 de 396 | Sin entidad pública: la regla de la garantía no está entre las fuentes verificadas |
 | **Costa Rica** | ronda 11 | banca, retail, entidad pública, control | 11 | 23 de 23 | 569 de 569 | SICOP · garantía mínima del 5 % · garantía hasta el 10 % (F-13) |
 | **Honduras** | ronda 12 | banca, retail, entidad pública, control | 12 | 22 de 22 | 569 de 569 | HonduCompras · garantía mínima del 15 % (F-14) |
-| **Paraguay** | ronda 13 | banca, retail, entidad pública, control | 13–14 | 23 de 23 | 552 de 552 | SICP · garantía mínima del 5 % · garantía hasta el 10 % (F-15) |
+| **Paraguay** | ronda 13 | banca, retail, entidad pública, control | 13–15 | 23 de 23 | 552 de 552 | SICP · garantía mínima del 5 % · garantía hasta el 10 % (F-15) |
 <!-- /países probados -->
 
 Cada entidad trae su carpeta legal con seis contratos —cada uno con su otrosí, su póliza, el certificado de la contraparte y la evidencia de sus obligaciones— y tres periodos de cumplimiento; la entidad pública, además, la constancia de publicación de cada contrato.

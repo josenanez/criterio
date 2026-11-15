@@ -1,0 +1,35 @@
+{
+  "n": 8,
+  "agente": "valeria",
+  "comando": "deal-scan",
+  "argumento": "",
+  "inicio": "2026-11-15T19:29:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 57,
+  "turnos": 15,
+  "tokens": 710081,
+  "tokens_salida": 5599,
+  "costo_usd": 0.5019822,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/cache/40-cotizaciones/COT-1401_cotizacion.pdf.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/cache/40-cotizaciones/COT-1402_cotizacion.pdf.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/cache/40-cotizaciones/COT-1403_cotizacion.pdf.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/cache/40-cotizaciones/COT-1404_cotizacion.pdf.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/cache/40-cotizaciones/COT-1405_cotizacion.pdf.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-deal-scan-1.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/salida-deal-scan.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/ingresos/2026-10/ficha.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/ingresos/2026-10/reporte-deal-scan.md"
+    ],
+    "modificados": [
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/cache/manifest.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/ingresos/2026-10/resultados.json"
+    ],
+    "borrados": []
+  }
+}

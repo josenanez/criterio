@@ -1,0 +1,31 @@
+{
+  "n": 14,
+  "agente": "guillermo",
+  "comando": "vuln-wake",
+  "argumento": "",
+  "inicio": "2026-11-15T19:44:08",
+  "estado": "success",
+  "error": false,
+  "segundos": 53,
+  "turnos": 14,
+  "tokens": 487273,
+  "tokens_salida": 5712,
+  "costo_usd": 0.4293168,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-11-15-vuln-wake-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-11-15-vuln-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-vuln-scan-2.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-vuln-wake-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-vuln-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-vuln-scan.md"
+    ],
+    "borrados": []
+  }
+}

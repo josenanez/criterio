@@ -1,0 +1,30 @@
+{
+  "n": 19,
+  "agente": "amparo",
+  "comando": "continuity-tests",
+  "argumento": "",
+  "inicio": "2026-11-15T19:48:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 7,
+  "tokens": 347813,
+  "tokens_salida": 2641,
+  "costo_usd": 0.1443787,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/resiliencia/2026-11-15-continuity-tests-1.html",
+      ".criterio/corridas/resiliencia/2026-11-15-continuity-tests-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-continuity-tests-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-continuity-tests.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/resiliencia/2026-10/reporte-continuity-tests.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/resiliencia/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

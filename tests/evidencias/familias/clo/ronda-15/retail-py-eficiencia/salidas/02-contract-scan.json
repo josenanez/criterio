@@ -1,0 +1,31 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-11-15T19:23:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 48,
+  "turnos": 16,
+  "tokens": 812852,
+  "tokens_salida": 3934,
+  "costo_usd": 0.6527065999999999,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-11-15-contract-scan-1.html",
+      ".criterio/corridas/legal/2026-11-15-contract-scan-1.md",
+      ".criterio/corridas/legal/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/contratos/reporte-contract-scan.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas/salida-contract-scan.md",
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/indice.json"
+    ],
+    "modificados": [
+      "estado-legal/88612904-4-distribuidora-del-ybytyruzu-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

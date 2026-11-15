@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CCO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cco/` · ronda más reciente: 2 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/cco/` · ronda más reciente: 3 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 2, parcial, sobre 9 de las 15 entidades del material: 117 de 117 señales sembradas encontradas (margen del 95 %: 96,8–100 %) y 0 de más; 45 de 45 datos extraídos bien (100 %, margen del 95 %: 92,1–100 %); y 3 de 3 entidades de control sin ninguna señal.
+La ronda más reciente, la 3, parcial, sobre 1 de las 15 entidades del material: 20 de 20 señales sembradas encontradas (margen del 95 %: 83,8–100 %) y 0 de más; 5 de 5 datos extraídos bien (100 %, margen del 95 %: 56,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–2, 228 de 236 señales encontradas, 3 de más y 100 de 100 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–3, 248 de 256 señales encontradas, 3 de más y 105 de 105 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 2; la más reciente, la 2, es parcial |
-| Material | Manufactura · Perú, Retail · Chile, Retail · Ecuador, Servicios · Perú, Tecnología · Chile, Tecnología · Ecuador |
-| Entidades de control | Control · Chile, Control · Ecuador, Control · Perú |
-| Corridas de una entidad | 20 |
-| Señales sembradas | 236 |
-| Datos calificados | 100 |
+| Rondas | 3; la más reciente, la 3, es parcial |
+| Material | Manufactura · México |
+| Entidades de control |  |
+| Corridas de una entidad | 21 |
+| Señales sembradas | 256 |
+| Datos calificados | 105 |
 
-## Resultados acumulados · rondas 1–2
+## Resultados acumulados · rondas 1–3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 228 de 236 | 96,6 % | 93,4–98,3 % |
-| Señales · precisión | 228 de 231 | 98,7 % | 96,2–99,6 % |
-| Extracción · datos correctos | 100 de 100 | 100 % | 96,3–100 % |
+| Señales · cobertura | 248 de 256 | 96,9 % | 93,9–98,5 % |
+| Señales · precisión | 248 de 251 | 98,8 % | 96,5–99,6 % |
+| Extracción · datos correctos | 105 de 105 | 100 % | 96,4–100 % |
 | Control · sin ninguna señal | 6 de 8 | 75 % | 40,9–92,9 % |
 
 ## Evolución por ronda
@@ -44,34 +44,26 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 |---|---|---|---|---|---|---|---|
 | 1 | 10 | 93,3 % | 98,2 % | 100 % | 3 de 4 | 30,9 M | 3 |
 | 2 | 10 | 100 % | 99,2 % | 100 % | 3 de 4 | 30,4 M | 1 |
+| 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 7 M | 0 |
 
-## La ronda más reciente · ronda 2
+## La ronda más reciente · ronda 3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 117 de 117 | 100 % | 96,8–100 % |
-| Señales · precisión | 117 de 117 | 100 % | 96,8–100 % |
-| Extracción · datos correctos | 45 de 45 | 100 % | 92,1–100 % |
-| Control · sin ninguna señal | 3 de 3 | 100 % | 43,8–100 % |
+| Señales · cobertura | 20 de 20 | 100 % | 83,8–100 % |
+| Señales · precisión | 20 de 20 | 100 % | 83,8–100 % |
+| Extracción · datos correctos | 5 de 5 | 100 % | 56,5–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 2
+## Por industria y país · ronda 3
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Manufactura · Perú | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,2 M |
-| Retail · Chile | Augusto, Valeria | 19 de 19 | 0 | 5 de 5 | 3,2 M |
-| Retail · Ecuador | Augusto, Valeria | 18 de 18 | 0 | 5 de 5 | 3,2 M |
-| Servicios · Perú | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,1 M |
-| Tecnología · Chile | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3 M |
-| Tecnología · Ecuador | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 3,1 M |
-| Control · Chile | Augusto, Valeria | 0 de 0 | 0 | 5 de 5 | 2,6 M |
-| Control · Ecuador | Augusto, Valeria | 0 de 0 | 0 | 5 de 5 | 3,1 M |
-| Control · Perú | Augusto, Valeria | 0 de 0 | 1 | 5 de 5 | 2,9 M |
-| Control · Perú | Augusto, Valeria | 0 de 0 | 0 | 5 de 5 | 2,9 M |
+| Manufactura · México | Augusto, Valeria | 20 de 20 | 0 | 5 de 5 | 7 M |
 
-## Lo que falló, uno por uno · rondas 1–2
+## Lo que falló, uno por uno · rondas 1–3
 
-11 fallas en 20 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+11 fallas en 21 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 0 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -107,7 +99,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 2 rondas usaron 61,3 millones de tokens: 61,3 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 3,1 millones por entidad.
+Las 3 rondas usaron 68,3 millones de tokens: 68,3 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 3,3 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

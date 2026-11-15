@@ -2,6 +2,7 @@
 description: Cada incidente contra el plazo de contención de su severidad y su revisión posterior contra los días de la política
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /incident-timeline — La línea de tiempo de cada incidente

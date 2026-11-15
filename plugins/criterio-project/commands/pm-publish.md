@@ -2,6 +2,7 @@
 description: Publica la ficha del proyecto en su carpeta de gobierno, para que la PMO la lea como lee cualquier documento
 argument-hint: "[confirmar] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /pm-publish — Publicar la ficha

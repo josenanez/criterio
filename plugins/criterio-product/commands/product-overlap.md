@@ -2,6 +2,7 @@
 description: Dónde tu producto y otro se pisan — la misma métrica contada dos veces, el mismo proyecto construyendo para dos dueños, y el mismo segmento
 argument-hint: "[código de otro producto] o vacío para cruzar contra todos"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /product-overlap — La canibalización, y las dos cosas que la anteceden

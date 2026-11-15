@@ -2,6 +2,7 @@
 description: Estado de un proyecto contra su plan, separando lo que el gerente declara de lo que sustentan los documentos
 argument-hint: "<código o nombre del proyecto>"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /status-report — Estado de un proyecto

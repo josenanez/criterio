@@ -2,6 +2,7 @@
 description: Quién prometió qué y para cuándo, qué venció sin evidencia, y qué se viene reprogramando reunión tras reunión
 argument-hint: "[ruta de una minuta] o vacío para revisar todo lo abierto"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /pm-commitments — El compromiso dicho y no cumplido

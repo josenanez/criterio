@@ -380,7 +380,7 @@ every family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 | **Guatemala** | round 10 | banking, retail, control | 10 | 20 of 20 | 396 of 396 | No public entity: the guarantee rule is not among the verified sources |
 | **Costa Rica** | round 11 | banking, retail, public entity, control | 11 | 23 of 23 | 569 of 569 | SICOP · minimum guarantee of 5 % · guarantee up to 10 % (F-13) |
 | **Honduras** | round 12 | banking, retail, public entity, control | 12 | 22 of 22 | 569 of 569 | HonduCompras · minimum guarantee of 15 % (F-14) |
-| **Paraguay** | round 13 | banking, retail, public entity, control | 13–14 | 23 of 23 | 552 of 552 | SICP · minimum guarantee of 5 % · guarantee up to 10 % (F-15) |
+| **Paraguay** | round 13 | banking, retail, public entity, control | 13–15 | 23 of 23 | 552 of 552 | SICP · minimum guarantee of 5 % · guarantee up to 10 % (F-15) |
 <!-- /países probados -->
 
 Each entity carries its legal folder with six contracts —each with its amendment, its policy, the counterparty certificate and the evidence of its obligations— and three compliance periods; the public entity also carries each contract's publication record.

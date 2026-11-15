@@ -2,6 +2,7 @@
 description: El estado del cumplimiento: cada obligación de la matriz contra su evidencia, declarado contra evidenciado
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /compliance-status — El estado del cumplimiento

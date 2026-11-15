@@ -1,0 +1,30 @@
+{
+  "n": 13,
+  "agente": "guillermo",
+  "comando": "scan-coverage",
+  "argumento": "",
+  "inicio": "2026-11-15T19:43:32",
+  "estado": "success",
+  "error": false,
+  "segundos": 36,
+  "turnos": 9,
+  "tokens": 405095,
+  "tokens_salida": 4987,
+  "costo_usd": 0.18330839999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-11-15-scan-coverage-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-11-15-scan-coverage-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-scan-coverage-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-scan-coverage.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/vulnerabilidades/2026-10/reporte-scan-coverage.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

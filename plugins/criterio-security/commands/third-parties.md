@@ -2,6 +2,7 @@
 description: Cada tercero crítico contra la frecuencia de su evaluación de seguridad: la vencida y la que nunca se hizo
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /third-parties — Los terceros críticos

@@ -2,6 +2,7 @@
 description: Informe consolidado de portafolio a partir de las fichas — qué cambió, qué se contradice, qué está en silencio y qué no tiene sustento
 argument-hint: "[ppt|pdf|html] o vacío para el formato configurado"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /portfolio-report — Informe de portafolio

@@ -2,6 +2,7 @@
 description: Los casos del canal de denuncias contra el plazo de respuesta configurado, sin datos de quién denunció
 argument-hint: "vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /reports-cases — El canal de denuncias

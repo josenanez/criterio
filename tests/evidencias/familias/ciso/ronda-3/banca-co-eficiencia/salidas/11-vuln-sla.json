@@ -1,0 +1,26 @@
+{
+  "n": 11,
+  "agente": "guillermo",
+  "comando": "vuln-sla",
+  "argumento": "",
+  "inicio": "2026-11-15T19:42:41",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 7,
+  "tokens": 350779,
+  "tokens_salida": 3383,
+  "costo_usd": 0.1536006,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-vuln-sla-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-vuln-sla.md"
+    ],
+    "modificados": [
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

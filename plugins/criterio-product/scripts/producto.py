@@ -1198,6 +1198,8 @@ def main() -> int:
                     help="qué se corrió: review | report | crossed, para `ran`")
     ap.add_argument("--today", default=None)
     ap.add_argument("--entidad", default=None, help="de quién es la carpeta raíz, para `marcar-raiz`")
+    ap.add_argument("--registrar", action="store_true",
+                    help="due sin --state: si no toca nada, deja la corrida registrada (el camino corto del reloj)")
     args = ap.parse_args()
 
     if args.action == "selftest":
@@ -1228,6 +1230,15 @@ def main() -> int:
             return 0 if r["vigente"] else 3
         hoy = dt.date.fromisoformat(args.today) if getattr(args, "today", None) else None
         print(json.dumps(terminos.aceptar(args.config, args.por, args.idioma, hoy), ensure_ascii=False, indent=2))
+        return 0
+
+    if args.action == "due" and not args.state and args.config:
+        import portafolio as _pf
+        hoy_ = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
+        th = load_thresholds(args.config)
+        print(json.dumps(_pf.despertar_corto(args.config, hoy_, args.what, due,
+                                             lambda s, q, h, sal: corrida(s, q, h, th, None, "no tocaba nada", sal).get("id")),
+                         ensure_ascii=False, indent=2))
         return 0
 
     if args.action == "config":

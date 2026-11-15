@@ -2,6 +2,7 @@
 description: Cada control de la declaración de aplicabilidad con si aplica, su estado y su responsable: el aplicable sin responsable
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /soa-status — La declaración de aplicabilidad

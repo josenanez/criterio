@@ -2,6 +2,7 @@
 description: El pronóstico comprometido contra lo que lo sostiene: lo cerrado y lo ponderado con evidencia, oportunidad por oportunidad
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /forecast-check — El pronóstico contra su respaldo

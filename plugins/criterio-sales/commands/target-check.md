@@ -2,6 +2,7 @@
 description: La meta del periodo contra lo cerrado al corte, por línea y nunca por persona
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /target-check — La meta contra lo cerrado

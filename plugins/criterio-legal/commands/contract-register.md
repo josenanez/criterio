@@ -2,6 +2,7 @@
 description: El registro de contratos contra lo que dicen los documentos: contratos sin registro, registros sin documento, estados y valores que no cuadran
 argument-hint: "vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /contract-register — El registro contra los documentos

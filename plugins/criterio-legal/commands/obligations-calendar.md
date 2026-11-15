@@ -2,6 +2,7 @@
 description: Los vencimientos, los preavisos de renovación y las obligaciones de cada contrato, con lo que venció sin evidencia
 argument-hint: "vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /obligations-calendar — Vencimientos, preavisos y obligaciones

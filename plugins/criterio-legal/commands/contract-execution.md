@@ -2,6 +2,7 @@
 description: Lo pagado contra el valor pactado y sus otrosíes, los pagos después de la terminación y cada garantía contra la vigencia que exige el contrato
 argument-hint: "vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /contract-execution — Lo pagado y las garantías

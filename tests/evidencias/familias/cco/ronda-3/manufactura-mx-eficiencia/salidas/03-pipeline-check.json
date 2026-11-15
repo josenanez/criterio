@@ -1,0 +1,31 @@
+{
+  "n": 3,
+  "agente": "augusto",
+  "comando": "pipeline-check",
+  "argumento": "",
+  "inicio": "2026-11-15T19:25:30",
+  "estado": "success",
+  "error": false,
+  "segundos": 23,
+  "turnos": 9,
+  "tokens": 406897,
+  "tokens_salida": 2078,
+  "costo_usd": 0.15377690000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/comercial/2026-11-15-pipeline-check-1.html",
+      ".criterio/corridas/comercial/2026-11-15-pipeline-check-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/comercial/2026-11/reporte-pipeline-check.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/comercial/2026-11/resultados.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/2026-11-05-pipeline-check-1.md",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas/salida-pipeline-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/comercial/corridas.json",
+      "estado-comercial/MBA120315KT4-manufacturas-del-bajio/corridas.json"
+    ],
+    "borrados": []
+  }
+}

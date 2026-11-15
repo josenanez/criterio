@@ -2,6 +2,7 @@
 description: El estado de un producto a través de todos los proyectos que lo construyen, y no de uno
 argument-hint: "[nombre del producto]"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /product-view — Por producto, no por proyecto

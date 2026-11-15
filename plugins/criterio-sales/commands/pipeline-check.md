@@ -2,6 +2,7 @@
 description: Cada oportunidad contra la evidencia de su etapa: la que no la tiene, la detenida y la que corre su cierre
 argument-hint: "[AAAA-MM] o vacío"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*)
+model: sonnet
 ---
 
 # /pipeline-check — El embudo contra su evidencia

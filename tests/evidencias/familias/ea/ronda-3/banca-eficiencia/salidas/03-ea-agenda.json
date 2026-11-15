@@ -1,0 +1,29 @@
+{
+  "n": 3,
+  "agente": "ofelia",
+  "comando": "ea-agenda",
+  "argumento": "",
+  "inicio": "2026-11-15T19:26:39",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 9,
+  "tokens": 417182,
+  "tokens_salida": 3218,
+  "costo_usd": 0.183813,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/direccion/2026-11-15-ea-agenda-1.html",
+      ".criterio/corridas/direccion/2026-11-15-ea-agenda-1.md",
+      ".criterio/corridas/direccion/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-direccion/presidencia/corridas/2026-10-26-ea-agenda-1.md",
+      "estado-direccion/presidencia/corridas/salida-ea-agenda.md"
+    ],
+    "modificados": [
+      "estado-direccion/presidencia/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "n": 2,
+  "agente": "alexis",
+  "comando": "security-scan",
+  "argumento": "",
+  "inicio": "2026-11-15T19:34:58",
+  "estado": "success",
+  "error": false,
+  "segundos": 82,
+  "turnos": 42,
+  "tokens": 977110,
+  "tokens_salida": 8790,
+  "costo_usd": 0.7513176,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-15-security-scan-1.html",
+      ".criterio/corridas/seguridad/2026-11-15-security-scan-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-security-scan-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-security-scan.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/indice.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/seguridad/2026-10/reporte-security-scan.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

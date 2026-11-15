@@ -2,6 +2,7 @@
 description: Presupuesto aprobado, comprometido, ejecutado y proyección, con la desviación contra la línea base original y la vigente
 argument-hint: "<código del proyecto> o 'portafolio' para el consolidado"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /budget-tracking — Presupuesto

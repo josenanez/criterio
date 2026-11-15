@@ -1,0 +1,30 @@
+{
+  "n": 3,
+  "agente": "alexis",
+  "comando": "soa-status",
+  "argumento": "",
+  "inicio": "2026-11-15T19:36:20",
+  "estado": "success",
+  "error": false,
+  "segundos": 31,
+  "turnos": 7,
+  "tokens": 351933,
+  "tokens_salida": 4675,
+  "costo_usd": 0.17079289999999997,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-15-soa-status-1.html",
+      ".criterio/corridas/seguridad/2026-11-15-soa-status-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-soa-status-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-soa-status.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/seguridad/2026-10/reporte-soa-status.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

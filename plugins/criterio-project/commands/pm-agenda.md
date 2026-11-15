@@ -2,6 +2,7 @@
 description: La estructura de tu reunión — solo los puntos que necesitan a alguien en la sala, en orden de quién se destraba primero
 argument-hint: "[fecha de la reunión] o vacío para la próxima según la cadencia"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /pm-agenda — La estructura de la reunión

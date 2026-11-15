@@ -1,0 +1,31 @@
+{
+  "n": 8,
+  "agente": "alexis",
+  "comando": "security-wake",
+  "argumento": "",
+  "inicio": "2026-11-15T19:38:41",
+  "estado": "success",
+  "error": false,
+  "segundos": 70,
+  "turnos": 17,
+  "tokens": 517032,
+  "tokens_salida": 8244,
+  "costo_usd": 0.537709,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-15-security-wake-1.html",
+      ".criterio/corridas/seguridad/2026-11-15-security-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-security-scan-2.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/2026-10-15-security-wake-1.md",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-security-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas.json",
+      "estado-seguridad/901555123-banco-cordillera-sintetico/corridas/salida-security-scan.md"
+    ],
+    "borrados": []
+  }
+}

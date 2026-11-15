@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CISO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ciso/` · ronda más reciente: 2 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/ciso/` · ronda más reciente: 3 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 2, parcial, sobre 4 de las 10 entidades del material: 48 de 48 señales sembradas encontradas (margen del 95 %: 92,5–100 %) y 0 de más; 32 de 32 datos extraídos bien (100 %, margen del 95 %: 89,2–100 %); y 2 de 2 entidades de control sin ninguna señal.
+La ronda más reciente, la 3, parcial, sobre 1 de las 10 entidades del material: 25 de 25 señales sembradas encontradas (margen del 95 %: 86,6–100 %) y 0 de más; 8 de 8 datos extraídos bien (100 %, margen del 95 %: 67,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–2, 148 de 148 señales encontradas, 0 de más y 80 de 80 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–3, 173 de 173 señales encontradas, 0 de más y 88 de 88 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 2; la más reciente, la 2, es parcial |
-| Material | energia · Perú, seguros · Chile |
-| Entidades de control | Control · Chile, Control · Perú |
-| Corridas de una entidad | 10 |
-| Señales sembradas | 148 |
-| Datos calificados | 80 |
+| Rondas | 3; la más reciente, la 3, es parcial |
+| Material | Banca · Colombia |
+| Entidades de control |  |
+| Corridas de una entidad | 11 |
+| Señales sembradas | 173 |
+| Datos calificados | 88 |
 
-## Resultados acumulados · rondas 1–2
+## Resultados acumulados · rondas 1–3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 148 de 148 | 100 % | 97,4–100 % |
-| Señales · precisión | 148 de 148 | 100 % | 97,4–100 % |
-| Extracción · datos correctos | 80 de 80 | 100 % | 95,4–100 % |
+| Señales · cobertura | 173 de 173 | 100 % | 97,8–100 % |
+| Señales · precisión | 173 de 173 | 100 % | 97,8–100 % |
+| Extracción · datos correctos | 88 de 88 | 100 % | 95,8–100 % |
 | Control · sin ninguna señal | 4 de 4 | 100 % | 51–100 % |
 
 ## Evolución por ronda
@@ -44,26 +44,24 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 |---|---|---|---|---|---|---|---|
 | 1 | 6 | 100 % | 100 % | 100 % | 2 de 2 | 31,9 M | 4 |
 | 2 | 4 | 100 % | 100 % | 100 % | 2 de 2 | 20,1 M | 0 |
+| 3 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 11,4 M | 0 |
 
-## La ronda más reciente · ronda 2
+## La ronda más reciente · ronda 3
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 48 de 48 | 100 % | 92,5–100 % |
-| Señales · precisión | 48 de 48 | 100 % | 92,5–100 % |
-| Extracción · datos correctos | 32 de 32 | 100 % | 89,2–100 % |
-| Control · sin ninguna señal | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · cobertura | 25 de 25 | 100 % | 86,6–100 % |
+| Señales · precisión | 25 de 25 | 100 % | 86,6–100 % |
+| Extracción · datos correctos | 8 de 8 | 100 % | 67,5–100 % |
+| Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 2
+## Por industria y país · ronda 3
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| energia · Perú | Alexis, Amparo, Guillermo | 25 de 25 | 0 | 8 de 8 | 5 M |
-| seguros · Chile | Alexis, Amparo, Guillermo | 23 de 23 | 0 | 8 de 8 | 5,4 M |
-| Control · Chile | Alexis, Amparo, Guillermo | 0 de 0 | 0 | 8 de 8 | 4,5 M |
-| Control · Perú | Alexis, Amparo, Guillermo | 0 de 0 | 0 | 8 de 8 | 5,2 M |
+| Banca · Colombia | Alexis, Amparo, Guillermo | 25 de 25 | 0 | 8 de 8 | 11,4 M |
 
-## Lo que falló, uno por uno · rondas 1–2
+## Lo que falló, uno por uno · rondas 1–3
 
 Ninguna falla.
 
@@ -90,7 +88,7 @@ Ninguna falla.
 
 ## Consumo y próximo paso
 
-Las 2 rondas usaron 52,1 millones de tokens: 52,1 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 5,2 millones por entidad.
+Las 3 rondas usaron 63,5 millones de tokens: 63,5 millones en las corridas calificadas y 0 en las que se repitieron después de corregir un defecto. En promedio, 5,8 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

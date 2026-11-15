@@ -2,6 +2,7 @@
 description: La cadena requerimiento → decisión → proyecto → entregable, y las dos brechas que nadie encuentra solo — lo decidido que nadie construye, y el proyecto cuya ficha dice que está haciendo otro producto
 argument-hint: "[REQ-xxx o código de proyecto] o vacío para toda la cadena"
 allowed-tools: Read, Glob, Grep, Write, Edit, Bash(python3:*), Bash(ls:*), Bash(mkdir:*), Bash(mv -n:*)
+model: sonnet
 ---
 
 # /product-trace — La trazabilidad

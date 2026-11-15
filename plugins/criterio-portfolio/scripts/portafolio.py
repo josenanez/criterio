@@ -1333,6 +1333,40 @@ def terminos_estado(config: Path) -> dict:
     return terminos.estado(config)
 
 
+
+def estado_de(config: Path) -> Path | None:
+    """El estado al que apunta una configuración, resuelto desde la carpeta que tiene `.criterio/`."""
+    try:
+        ruta = (json.loads(Path(config).read_text(encoding="utf-8")).get("paths") or {}).get("state")
+    except (OSError, json.JSONDecodeError):
+        return None
+    if not ruta:
+        return None
+    r = Path(config).resolve()
+    base = next((x.parent for x in r.parents if x.name == ".criterio"), Path.cwd())
+    return (base / ruta).resolve()
+
+
+def despertar_corto(config: Path, today: dt.date, que: str | None, calcular_due, registrar) -> dict:
+    """El camino corto del reloj: lo que toca hoy, con los términos y sin pedir el estado. Si no toca
+    nada, deja la corrida registrada aquí mismo y dice la línea que el agente muestra (decisión 0032)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import terminos
+    state = estado_de(config)
+    if state is None:
+        return {"ok": False, "motivo": f"{config} no dice dónde está el estado: corre el setup del agente"}
+    d = calcular_due(config, state, today)
+    d["terminos_vigentes"] = bool(terminos.estado(config).get("vigente"))
+    d["state"] = str(state)
+    d["callado"] = bool(d.get("quiet")) and d["terminos_vigentes"]
+    if d["callado"] and que:
+        d["linea"] = f"Nada que hacer hoy, {today.isoformat()}: no tocaba nada y nadie dejó peticiones."
+        salida = state / "corridas" / f"salida-{que}.md"
+        salida.parent.mkdir(parents=True, exist_ok=True)
+        salida.write_text(d["linea"] + "\n", encoding="utf-8")
+        d["registrado"] = registrar(state, que, today, salida)
+    return d
+
 def config_de(state: Path) -> Path | None:
     """La configuración que apunta a este estado, entre las de los tres agentes de la sesión."""
     for c in sorted(Path.cwd().glob(".criterio/**/config.json")):
@@ -2574,6 +2608,8 @@ def main() -> int:
     ap.add_argument("--idioma", default=None, help="es | en, para `aceptar`; por defecto el del informe")
     ap.add_argument("--today", default=None)
     ap.add_argument("--entidad", default=None, help="de quién es la carpeta raíz, para `marcar-raiz`")
+    ap.add_argument("--registrar", action="store_true",
+                    help="due sin --state: si no toca nada, deja la corrida registrada (el camino corto del reloj)")
     args = ap.parse_args()
 
     if args.action == "selftest":
@@ -2631,6 +2667,12 @@ def main() -> int:
         print(json.dumps(init(args.state), ensure_ascii=False, indent=2))
         return 0
 
+    if args.action == "due" and not args.state and args.config:
+        hoy_ = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
+        print(json.dumps(despertar_corto(args.config, hoy_, args.what, due,
+                                         lambda s, q, h, sal: corrida(s, q, h, salida=sal, nota="no tocaba nada").get("id")),
+                         ensure_ascii=False, indent=2))
+        return 0
     if not args.state:
         ap.error("--state is required")
     today = dt.date.fromisoformat(args.today) if args.today else dt.date.today()
