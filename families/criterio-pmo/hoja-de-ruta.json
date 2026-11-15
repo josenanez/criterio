@@ -175,6 +175,30 @@
   },
   {
    "incremento": 8,
+   "version": "1.3.0",
+   "estado": "en curso",
+   "industrias": [],
+   "es": {
+    "titulo": "Más rápida y más liviana",
+    "entra": [
+     "El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada (decisión 0032)",
+     "Los reportes que presentan lo que el motor ya calculó corren con un modelo más pequeño",
+     "Rostrum dice cuántos tokens usa cada agente, comando por comando: los de esta organización, solo con un sí, y los de las pruebas"
+    ],
+    "prueba": "El camino corto del reloj, probado con el motor sobre la demostración; la ronda con los agentes, pendiente"
+   },
+   "en": {
+    "titulo": "Faster and lighter",
+    "entra": [
+     "The clock by the short path: if nothing is due, the engine records the run in a single call (decision 0032)",
+     "The reports that present what the engine already calculated run on a smaller model",
+     "Rostrum says how many tokens each agent uses, command by command: this organisation's, only with a yes, and the tests'"
+    ],
+    "prueba": "The short-path clock, tested with the engine on the demo; the round with the agents, pending"
+   }
+  },
+  {
+   "incremento": 9,
    "version": null,
    "estado": "siguiente",
    "industrias": [],

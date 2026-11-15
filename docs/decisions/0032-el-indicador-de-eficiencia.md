@@ -21,14 +21,15 @@ Por agente, desde las corridas publicadas en `tests/evidencias/` —nunca escrit
 
 | Medida | Qué es |
 |---|---|
-| Una pasada | La suma de las medianas de los comandos del agente que corrieron en las rondas, en tokens |
-| Costo de una pasada | La misma suma, en dólares, con el modelo con que corrió cada comando |
+| Una pasada | Los comandos del agente en su corrida más reciente —la de más comandos—, sumados, en tokens |
+| Costo de una pasada | La misma suma, en dólares, con el modelo con que corrió cada comando, y el modelo de la sesión, que es el del setup |
 | Tiempo de una pasada | La misma suma, en segundos |
-| Un día sin pendientes | Lo que cuesta su reloj cuando no toca nada |
-| La evolución | Las mismas medidas ronda por ronda, para ver qué cambió de una versión a otra |
+| Un día sin pendientes | Lo que costó su reloj en esa corrida si no le tocaba nada: el camino corto, en dos o tres pasos |
+| El cambio | Contra la pasada anterior sobre la misma entidad y con el mismo modelo de sesión, en los comandos que corrieron en las dos |
 
-La página del agente muestra la pasada de hoy contra la de la primera ronda con la misma entidad, y
-cada cifra lleva la ronda de la que sale. Rostrum la muestra en `/consumo`.
+La página de cada familia muestra, por agente, la pasada más reciente y su cambio cuando hay una
+anterior comparable, y cada cifra lleva la ronda y el modelo de la sesión de los que sale. Rostrum
+muestra lo de cada comando en `/consumo`.
 
 ### Las tres palancas
 

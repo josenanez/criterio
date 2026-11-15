@@ -350,26 +350,50 @@
   },
   {
    "incremento": 12,
-   "version": null,
-   "estado": "siguiente",
+   "version": "1.6.0",
+   "estado": "en curso",
    "industrias": [],
    "es": {
     "titulo": "Las exportaciones de Business Central",
     "entra": [
      "El libro mayor y el balance de comprobación como los exporta Microsoft Dynamics 365 Business Central, reconocidos sin preguntar: los nombres de los campos de sus tablas, desde su fuente verificada (F-43)",
      "Una entidad de prueba de México con su libro mayor y su balance en ese formato, el balance sin saldo inicial: el motor levanta cada señal, ninguna de más",
-     "Siigo, Alegra, SAP Business One y Odoo, cuando sus encabezados de exportación estén entre las fuentes verificadas"
+     "El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada (decisión 0032)",
+     "Los reportes que presentan lo que el motor ya calculó corren con un modelo más pequeño",
+     "Rostrum dice cuántos tokens usa cada agente, comando por comando: los de esta organización, solo con un sí, y los de las pruebas"
     ],
-    "prueba": "La ronda 14 con Clara, Tomás y Áurea sobre la entidad de Business Central: 9 de 9 señales y 8 de 8 datos, sin preguntar ninguna columna"
+    "prueba": "La ronda 14 con Clara, Tomás y Áurea sobre la entidad de Business Central: 9 de 9 señales y 8 de 8 datos, sin preguntar ninguna columna; y la ronda 15 sobre la misma entidad, con el reloj por el camino corto y los reportes en el modelo más pequeño: las mismas 9 de 9 señales y 8 de 8 datos, 29 % menos costo, y un día sin pendientes de unos 300 mil a 98 mil tokens por agente"
    },
    "en": {
     "titulo": "Business Central exports",
     "entra": [
      "The general ledger and the trial balance as Microsoft Dynamics 365 Business Central exports them, recognised without asking: the field names of its tables, from its verified source (F-43)",
      "A Mexican test entity with its ledger and trial balance in that format, the trial balance without an opening balance: the engine raises each signal, none extra",
+     "The clock by the short path: if nothing is due, the engine records the run in a single call (decision 0032)",
+     "The reports that present what the engine already calculated run on a smaller model",
+     "Rostrum says how many tokens each agent uses, command by command: this organisation's, only with a yes, and the tests'"
+    ],
+    "prueba": "Round 14 with Clara, Tomás and Áurea on the Business Central entity: 9 of 9 signals and 8 of 8 data points, without asking about any column; and round 15 on the same entity, with the short-path clock and the reports on the smaller model: the same 9 of 9 signals and 8 of 8 data points, 29% lower cost, and a day with nothing due from about 300 thousand to 98 thousand tokens per agent"
+   }
+  },
+  {
+   "incremento": 13,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Más exportaciones de ERP",
+    "entra": [
+     "Siigo, Alegra, SAP Business One y Odoo, cuando sus encabezados de exportación estén entre las fuentes verificadas"
+    ],
+    "prueba": "Una ronda por ERP, sobre su exportación real"
+   },
+   "en": {
+    "titulo": "More ERP exports",
+    "entra": [
      "Siigo, Alegra, SAP Business One and Odoo, once their export headers are among the verified sources"
     ],
-    "prueba": "Round 14 with Clara, Tomás and Áurea on the Business Central entity: 9 of 9 signals and 8 of 8 data points, without asking about any column"
+    "prueba": "One round per ERP, on its real export"
    }
   }
  ]
