@@ -1,0 +1,123 @@
+{
+  "familia": "ea",
+  "idioma": "es",
+  "titulo": "Criterio EA · Cómo se usa la familia completa",
+  "eyebrow": "Criterio EA · Cómo se usa",
+  "carpeta": "presidencia",
+  "nota": "Grabación real de Claude Code · acelerada · material sintético",
+  "desde": 15.5,
+  "hasta": 360.0,
+  "escrito": [
+    "/plugin marketplace add josenanez/criterio",
+    "/plugin install criterio-ea@criterio",
+    "/criterio-assistant:ea-setup",
+    "Sí a todo. Márcala.",
+    "Sí, acepto. Usuario de demostración.",
+    "No por ahora; lo corro a mano.",
+    "/criterio-assistant:ofelia Procesa las sesiones y los correos que faltan, y dime qué compromisos quedaron abiertos.",
+    "/criterio-assistant:ofelia ¿Qué pidió el supervisor en el requerimiento 45 y qué falta para responderlo?"
+  ],
+  "ocultar": [
+    "✘ Auto-update failed · Run claude doctor"
+  ],
+  "entradas": {
+    "0": {
+      "dur": 3.0,
+      "sostener": 3.0
+    },
+    "1": {
+      "dur": 6.0,
+      "sostener": 4.0
+    },
+    "2": {
+      "sostener": 9.0
+    },
+    "3": {
+      "sostener": 6.0
+    },
+    "4": {
+      "dur": 5.0,
+      "sostener": 13.0
+    },
+    "5": {
+      "sostener": 3.0
+    },
+    "6": {
+      "dur": 6.0,
+      "sostener": 12.0
+    },
+    "7": {
+      "dur": 6.0,
+      "sostener": 13.0
+    }
+  },
+  "capitulos": [
+    {
+      "desde": 15.5,
+      "n": 1,
+      "titulo": "Instalar la familia",
+      "agente": null,
+      "texto": "Dos comandos en Claude Code: el catálogo de Criterio y la familia EA. Instala a Ofelia y a Rostrum, el portal."
+    },
+    {
+      "desde": 61.5,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "ofelia",
+      "texto": "Ofelia, la oficina de la presidencia. De sus documentos saca la entidad, quién asiste y los órganos —la junta y el comité— y pregunta solo lo que falta."
+    },
+    {
+      "desde": 108.5,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "ofelia",
+      "texto": "Los términos se aceptan con el nombre de quien acepta. Aquí, un usuario de demostración."
+    },
+    {
+      "desde": 148.4,
+      "n": 3,
+      "titulo": "El primer resultado",
+      "agente": null,
+      "texto": "Lo que encontró Ofelia: 3 actas que faltan, la más antigua de hace 55 días, y una agenda exportada hace 21 días, sobre la que no calcula cruces."
+    },
+    {
+      "desde": 163.0,
+      "n": 4,
+      "titulo": "El reloj, solo con un sí",
+      "agente": null,
+      "texto": "Ofelia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano."
+    },
+    {
+      "desde": 185.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "ofelia",
+      "texto": "A Ofelia se le pide en lenguaje natural. Procesa las sesiones y los correos: 7 acuerdos sin responsable y 6 correos con el plazo vencido sin respuesta guardada."
+    },
+    {
+      "desde": 334.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "ofelia",
+      "texto": "El requerimiento 45 del supervisor lleva 26 días vencido. Ofelia no escribe el borrador: compromete a la entidad, y la respuesta es de una persona."
+    }
+  ],
+  "intro": {
+    "titulo": "Cómo se usa la familia EA,",
+    "sub": "de la instalación al primer resultado.",
+    "robots": [
+      "ofelia"
+    ],
+    "texto": "Una sesión real de Claude Code, acelerada, sobre la Presidencia de Banco Andino S.A., una organización de prueba con material sintético.",
+    "nombres": [
+      "Ofelia"
+    ]
+  },
+  "cierre": {
+    "titulo": "Instala Criterio.",
+    "comando": "/plugin marketplace add josenanez/criterio",
+    "url": "josenanez.com/es/agents",
+    "licencia": "Código abierto · Apache 2.0",
+    "aviso": "Grabación real de Claude Code, acelerada. Banco Andino S.A. es una organización de prueba: el material es sintético."
+  }
+}

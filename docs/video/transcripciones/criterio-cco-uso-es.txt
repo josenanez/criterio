@@ -1,0 +1,35 @@
+0:00  Criterio CCO · Cómo se usa
+0:00  Cómo se usa la familia CCO, de la instalación al primer resultado.
+0:00  Augusto · Valeria
+0:00  Una sesión real de Claude Code, acelerada, sobre Almacenes del Valle S.A.S., una organización de prueba con material sintético.
+0:05  1 · Instalar la familia. Dos comandos en Claude Code: el catálogo de Criterio y la familia CCO. Instala a Augusto y Valeria, y a Rostrum, el portal.
+0:07  Se escribe en Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Se escribe en Claude Code: /plugin install criterio-cco@criterio
+0:27  Se escribe en Claude Code: /criterio-cco:cco-setup
+0:27  2 · Configurarla en una conversación. Augusto, el pronóstico. Procesa la carpeta, reconoce la exportación de Salesforce y propone las etapas con la evidencia que exige cada una.
+0:35  Se escribe en Claude Code: Sí, es esa.
+0:48  Se escribe en Claude Code: Sí, Almacenes del Valle S.A.S., Colombia, noviembre de 2026.
+0:55  Se escribe en Claude Code: Sí, ahí.
+1:03  Se escribe en Claude Code: Sí, tal cual.
+1:03  2 · Configurarla en una conversación. Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez.
+1:11  2 · Configurarla en una conversación. Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración.
+1:21  Se escribe en Claude Code: Sí, acepto. Usuario de demostración. Y sí, márcala.
+1:25  2 · Configurarla en una conversación. El primer resultado de Augusto: 13 señales, entre ellas 5 oportunidades sin orden de compra y 3 detenidas hace 71 días.
+1:35  2 · Configurarla en una conversación. Valeria, de la venta a la factura. Lo que ya se respondió no se vuelve a preguntar; procesa la matriz de descuentos, de 3 niveles, y el plan de comisiones.
+1:46  Se escribe en Claude Code: Todavía no existen; sigue sin ellas.
+1:54  Se escribe en Claude Code: Sí, 30 días.
+2:00  Se escribe en Claude Code: Sí, sin publicar.
+2:09  Se escribe en Claude Code: Sí, acepto. Usuario de demostración.
+2:14  3 · El primer resultado, en una tabla. Lo que encontró cada agente: 13 señales sobre 21 oportunidades. Valeria cruza lo ganado con lo firmado y lo facturado cuando la CLO y la CFO también corren.
+2:28  4 · El reloj, solo con un sí. La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano.
+2:30  Se escribe en Claude Code: No por ahora; lo corro a mano.
+2:38  5 · El día a día, en tus palabras. A cada agente se le pide en lenguaje natural. Augusto lista las 5 oportunidades en Compromiso sin orden de compra; la mayor, OPP-1103, por 250.000.000.
+2:40  Se escribe en Claude Code: /criterio-sales:augusto ¿Qué oportunidades en Compromiso no tienen la orden de compra que exige su etapa?
+2:59  5 · El día a día, en tus palabras. Valeria procesa las 5 cotizaciones contra la matriz: 3 descuentos de 22 % aprobados por quien solo puede llegar a 20 %.
+3:02  Se escribe en Claude Code: /criterio-revenue:valeria ¿Hay alguna cotización con un descuento que no tenga la aprobación que pide la matriz?
+3:14  Se escribe en Claude Code: Sí, córrelo.
+3:32  Instala Criterio.
+3:32  /plugin marketplace add josenanez/criterio
+3:32  josenanez.com/es/agents
+3:32  Código abierto · Apache 2.0
+3:32  Grabación real de Claude Code, acelerada. Almacenes del Valle S.A.S. es una organización de prueba: el material es sintético.

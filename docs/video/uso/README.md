@@ -42,6 +42,14 @@ pero no cambia lo que Claude Code escribió.
    PORTAL=… node uso/render.mjs uso/tomas/cfo-es uso/guiones/cfo.es.json cuadro.png --cuadro 1350   # un cuadro, para revisar
    ```
 
+5. **La transcripción**, para quien no ve el video, desde lo mismo que el video —el guion, el montaje y la
+   línea de tiempo—: la portada, cada capítulo, cada entrada que se escribe en Claude Code con su minuto, y el
+   cierre. Queda en [`../transcripciones/`](../transcripciones/), con las de los videos de presentación:
+
+   ```
+   python3 uso/transcribir.py uso/tomas/cfo-es uso/guiones/cfo.es.json
+   ```
+
 Lo único que se quita de la toma son los avisos del entorno donde se grabó, no de Criterio ni de Claude Code
 al usarlo (`ocultar` en el guion). La toma, la configuración de esa sesión y el video quedan en
 `uso/tomas/`, fuera del repositorio: el video se sube a YouTube y la fuente es el guion.

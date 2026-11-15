@@ -1,0 +1,31 @@
+0:00  Criterio CISO · Cómo se usa
+0:00  Cómo se usa la familia CISO, de la instalación al primer resultado.
+0:00  Alexis · Guillermo · Amparo
+0:00  Una sesión real de Claude Code, acelerada, sobre Banco Cordillera S.A., una organización de prueba con material sintético.
+0:05  1 · Instalar la familia. Dos comandos en Claude Code: el catálogo de Criterio y la familia CISO. Instala a Alexis, Guillermo y Amparo, y a Rostrum, el portal.
+0:07  Se escribe en Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Se escribe en Claude Code: /plugin install criterio-ciso@criterio
+0:27  2 · Configurarla en una conversación. Alexis, el gobierno y los controles. Procesa la carpeta y deja fuera, sin abrirlos, los archivos que parecen credenciales, llaves o respaldos.
+0:27  Se escribe en Claude Code: /criterio-ciso:ciso-setup
+0:41  2 · Configurarla en una conversación. Reconoce la declaración de aplicabilidad, los sistemas, los terceros y el registro de riesgos, y solo pide confirmarlos.
+0:41  Se escribe en Claude Code: Sí. Banco Cordillera S.A., Colombia (CO).
+0:54  Se escribe en Claude Code: Sí, confirmo.
+0:56  2 · Configurarla en una conversación. Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración.
+1:05  Se escribe en Claude Code: Sí, acepto. Usuario de demostración. Y sí, márcala.
+1:10  2 · Configurarla en una conversación. Guillermo, las vulnerabilidades. Reconoce las exportaciones de Tenable sin preguntar y toma los plazos de la política: 15 días para una crítica.
+1:28  Se escribe en Claude Code: Sí, acepto. Usuario de demostración.
+1:29  2 · Configurarla en una conversación. Amparo, la respuesta y la recuperación: la matriz de notificación con sus plazos —24 horas a la Superintendencia Financiera en un incidente crítico— y el calendario de continuidad.
+1:44  2 · Configurarla en una conversación. Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez.
+2:03  3 · El primer resultado, en una tabla. Lo que encontró cada agente, con su cifra: 5 vulnerabilidades fuera de plazo, 2 de ellas críticas, y un incidente contenido en 30 horas cuando la política da 24.
+2:17  4 · El reloj, solo con un sí. La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano.
+2:19  Se escribe en Claude Code: Por ahora no; lo corro a mano.
+2:27  5 · El día a día, en tus palabras. A cada agente se le pide en lenguaje natural. Guillermo cruza lo abierto con el catálogo KEV: 2 siguen abiertas después de su fecha de corrección, una con uso conocido en ransomware.
+2:30  Se escribe en Claude Code: /criterio-vulnerability:guillermo ¿Qué vulnerabilidades críticas están en el catálogo KEV y cuánto llevan abiertas?
+2:49  5 · El día a día, en tus palabras. Amparo corre la línea de tiempo y las notificaciones: 2 incidentes fuera del plazo de contención, una notificación 6 horas tarde y otra sin hacer.
+2:52  Se escribe en Claude Code: /criterio-resilience:amparo ¿Qué incidente no cumplió el plazo de contención y a quién había que notificar?
+3:00  Se escribe en Claude Code: Los dos, en ese orden.
+3:18  Instala Criterio.
+3:18  /plugin marketplace add josenanez/criterio
+3:18  josenanez.com/es/agents
+3:18  Código abierto · Apache 2.0
+3:18  Grabación real de Claude Code, acelerada. Banco Cordillera S.A. es una organización de prueba: el material es sintético.

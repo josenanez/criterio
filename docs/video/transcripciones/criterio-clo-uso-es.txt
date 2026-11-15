@@ -1,0 +1,36 @@
+0:00  Criterio CLO · Cómo se usa
+0:00  Cómo se usa la familia CLO, de la instalación al primer resultado.
+0:00  Fidel · Constanza
+0:00  Una sesión real de Claude Code, acelerada, sobre Banco Andino S.A., una organización de prueba con material sintético.
+0:05  1 · Instalar la familia. Dos comandos en Claude Code: el catálogo de Criterio y la familia CLO. Instala a Fidel y Constanza, y a Rostrum, el portal.
+0:07  Se escribe en Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Se escribe en Claude Code: /plugin install criterio-clo@criterio
+0:27  2 · Configurarla en una conversación. Fidel, los contratos. Procesa la carpeta, propone lo que encontró y pregunta solo lo que ningún documento dice: la entidad, quién firma, los avisos y si contrata bajo la ley pública.
+0:27  Se escribe en Claude Code: /criterio-clo:clo-setup
+0:35  Se escribe en Claude Code: Sí, es esa.
+0:36  2 · Configurarla en una conversación. Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez.
+0:50  Se escribe en Claude Code: Sí. El nombre legal es Banco Andino S.A.
+0:51  2 · Configurarla en una conversación. La matriz de atribuciones: 3 firmantes, cada uno con su tope. Contra ella, Fidel compara quién firmó cada contrato.
+1:01  Se escribe en Claude Code: La matriz está vigente y completa. Los avisos de ejemplo me sirven.
+1:07  Se escribe en Claude Code: Sí, 30 días.
+1:13  Se escribe en Claude Code: No, es privada.
+1:19  Se escribe en Claude Code: Sí, ahí.
+1:21  2 · Configurarla en una conversación. Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración.
+1:28  Se escribe en Claude Code: Sí, acepto. Usuario de demostración. Y sí, márcala.
+1:33  2 · Configurarla en una conversación. Constanza, el cumplimiento. Lo que ya se respondió con Fidel no se vuelve a preguntar: la carpeta y la entidad quedan fijadas.
+1:41  Se escribe en Claude Code: Sí, septiembre de 2026.
+1:47  Se escribe en Claude Code: Sí, 15 días.
+1:59  Se escribe en Claude Code: Sí a las dos.
+2:07  Se escribe en Claude Code: Sí, acepto. Usuario de demostración.
+2:12  3 · El primer resultado, en una tabla. Lo que encontró cada agente, con su cifra: un preaviso vencido sin decisión y un periodo declarado cumplido con 72,73 % de avance con evidencia.
+2:24  4 · El reloj, solo con un sí. La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano.
+2:26  Se escribe en Claude Code: Por ahora no; lo corro a mano.
+2:34  5 · El día a día, en tus palabras. A cada agente se le pide en lenguaje natural. Fidel encuentra el CTR-101, de 400.000.000,00, firmado por quien solo tenía facultad hasta 150.000.000.
+2:37  Se escribe en Claude Code: /criterio-legal:fidel ¿Hay algún contrato firmado por alguien sin facultad para ese monto?
+2:55  5 · El día a día, en tus palabras. Constanza dice qué obligaciones están vencidas, quién responde por cada una y la fuente de cada dato.
+2:57  Se escribe en Claude Code: /criterio-compliance:constanza ¿Qué obligaciones están vencidas y quién responde por cada una?
+3:15  Instala Criterio.
+3:15  /plugin marketplace add josenanez/criterio
+3:15  josenanez.com/es/agents
+3:15  Código abierto · Apache 2.0
+3:15  Grabación real de Claude Code, acelerada. Banco Andino S.A. es una organización de prueba: el material es sintético.

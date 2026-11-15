@@ -1,0 +1,174 @@
+{
+  "familia": "clo",
+  "idioma": "es",
+  "titulo": "Criterio CLO · Cómo se usa la familia completa",
+  "eyebrow": "Criterio CLO · Cómo se usa",
+  "carpeta": "banco-andino",
+  "nota": "Grabación real de Claude Code · acelerada · material sintético",
+  "desde": 16.5,
+  "hasta": 505.0,
+  "escrito": [
+    "/plugin marketplace add josenanez/criterio",
+    "/plugin install criterio-clo@criterio",
+    "/criterio-clo:clo-setup",
+    "Sí, es esa.",
+    "Sí. El nombre legal es Banco Andino S.A.",
+    "La matriz está vigente y completa. Los avisos de ejemplo me sirven.",
+    "Sí, 30 días.",
+    "No, es privada.",
+    "Sí, ahí.",
+    "Sí, acepto. Usuario de demostración. Y sí, márcala.",
+    "Sí, septiembre de 2026.",
+    "Sí, 15 días.",
+    "Sí, 30 días.",
+    "Sí a las dos.",
+    "Sí, acepto. Usuario de demostración.",
+    "Por ahora no; lo corro a mano.",
+    "/criterio-legal:fidel ¿Hay algún contrato firmado por alguien sin facultad para ese monto?",
+    "/criterio-compliance:constanza ¿Qué obligaciones están vencidas y quién responde por cada una?"
+  ],
+  "ocultar": [
+    "✘ Auto-update failed · Run claude doctor"
+  ],
+  "entradas": {
+    "0": {
+      "dur": 3.0,
+      "sostener": 3.0
+    },
+    "1": {
+      "dur": 6.0,
+      "sostener": 4.0
+    },
+    "2": {
+      "sostener": 5.0
+    },
+    "3": {
+      "anclas": [
+        [
+          101.5,
+          1.0,
+          4.0
+        ],
+        [
+          113.2,
+          3.0,
+          5.0
+        ]
+      ]
+    },
+    "4": {
+      "sostener": 6.0
+    },
+    "5": {
+      "sostener": 4.5
+    },
+    "9": {
+      "dur": 5.0,
+      "sostener": 7.0
+    },
+    "14": {
+      "dur": 5.0,
+      "sostener": 12.0
+    },
+    "16": {
+      "dur": 6.0,
+      "sostener": 10.0
+    },
+    "17": {
+      "dur": 7.0,
+      "sostener": 11.0
+    }
+  },
+  "capitulos": [
+    {
+      "desde": 16.5,
+      "n": 1,
+      "titulo": "Instalar la familia",
+      "agente": null,
+      "texto": "Dos comandos en Claude Code: el catálogo de Criterio y la familia CLO. Instala a Fidel y Constanza, y a Rostrum, el portal."
+    },
+    {
+      "desde": 78.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "fidel",
+      "texto": "Fidel, los contratos. Procesa la carpeta, propone lo que encontró y pregunta solo lo que ningún documento dice: la entidad, quién firma, los avisos y si contrata bajo la ley pública."
+    },
+    {
+      "desde": 101.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "fidel",
+      "texto": "Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez."
+    },
+    {
+      "desde": 130.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "fidel",
+      "texto": "La matriz de atribuciones: 3 firmantes, cada uno con su tope. Contra ella, Fidel compara quién firmó cada contrato."
+    },
+    {
+      "desde": 209.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "fidel",
+      "texto": "Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración."
+    },
+    {
+      "desde": 295.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "constanza",
+      "texto": "Constanza, el cumplimiento. Lo que ya se respondió con Fidel no se vuelve a preguntar: la carpeta y la entidad quedan fijadas."
+    },
+    {
+      "desde": 401.0,
+      "n": 3,
+      "titulo": "El primer resultado, en una tabla",
+      "agente": null,
+      "texto": "Lo que encontró cada agente, con su cifra: un preaviso vencido sin decisión y un periodo declarado cumplido con 72,73 % de avance con evidencia."
+    },
+    {
+      "desde": 414.0,
+      "n": 4,
+      "titulo": "El reloj, solo con un sí",
+      "agente": null,
+      "texto": "La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano."
+    },
+    {
+      "desde": 438.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "fidel",
+      "texto": "A cada agente se le pide en lenguaje natural. Fidel encuentra el CTR-101, de 400.000.000,00, firmado por quien solo tenía facultad hasta 150.000.000."
+    },
+    {
+      "desde": 474.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "constanza",
+      "texto": "Constanza dice qué obligaciones están vencidas, quién responde por cada una y la fuente de cada dato."
+    }
+  ],
+  "intro": {
+    "titulo": "Cómo se usa la familia CLO,",
+    "sub": "de la instalación al primer resultado.",
+    "robots": [
+      "fidel",
+      "constanza"
+    ],
+    "texto": "Una sesión real de Claude Code, acelerada, sobre Banco Andino S.A., una organización de prueba con material sintético.",
+    "nombres": [
+      "Fidel",
+      "Constanza"
+    ]
+  },
+  "cierre": {
+    "titulo": "Instala Criterio.",
+    "comando": "/plugin marketplace add josenanez/criterio",
+    "url": "josenanez.com/es/agents",
+    "licencia": "Código abierto · Apache 2.0",
+    "aviso": "Grabación real de Claude Code, acelerada. Banco Andino S.A. es una organización de prueba: el material es sintético."
+  }
+}

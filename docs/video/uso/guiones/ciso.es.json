@@ -1,0 +1,188 @@
+{
+  "familia": "ciso",
+  "idioma": "es",
+  "titulo": "Criterio CISO · Cómo se usa la familia completa",
+  "eyebrow": "Criterio CISO · Cómo se usa",
+  "carpeta": "banco-cordillera",
+  "nota": "Grabación real de Claude Code · acelerada · material sintético",
+  "desde": 15.5,
+  "hasta": 556.0,
+  "escrito": [
+    "/plugin marketplace add josenanez/criterio",
+    "/plugin install criterio-ciso@criterio",
+    "/criterio-ciso:ciso-setup",
+    "Sí. Banco Cordillera S.A., Colombia (CO).",
+    "Sí, confirmo.",
+    "Sí, acepto. Usuario de demostración. Y sí, márcala.",
+    "Sí, confirmo.",
+    "Sí, acepto. Usuario de demostración.",
+    "Sí, confirmo.",
+    "Sí, acepto. Usuario de demostración.",
+    "Por ahora no; lo corro a mano.",
+    "/criterio-vulnerability:guillermo ¿Qué vulnerabilidades críticas están en el catálogo KEV y cuánto llevan abiertas?",
+    "/criterio-resilience:amparo ¿Qué incidente no cumplió el plazo de contención y a quién había que notificar?",
+    "Los dos, en ese orden."
+  ],
+  "ocultar": [
+    "✘ Auto-update failed · Run claude doctor"
+  ],
+  "entradas": {
+    "0": {
+      "dur": 3.0,
+      "sostener": 3.0
+    },
+    "1": {
+      "dur": 6.0,
+      "sostener": 4.0
+    },
+    "2": {
+      "sostener": 8.0
+    },
+    "3": {
+      "sostener": 8.0
+    },
+    "4": {
+      "sostener": 6.0
+    },
+    "5": {
+      "dur": 5.0,
+      "sostener": 9.0
+    },
+    "6": {
+      "sostener": 5.0
+    },
+    "7": {
+      "sostener": 9.0
+    },
+    "8": {
+      "anclas": [
+        [
+          373.2,
+          1.0,
+          4.0
+        ],
+        [
+          390.7,
+          2.0,
+          5.0
+        ]
+      ]
+    },
+    "9": {
+      "dur": 5.0,
+      "sostener": 14.0
+    },
+    "11": {
+      "dur": 6.0,
+      "sostener": 11.0
+    },
+    "12": {
+      "sostener": 5.0
+    },
+    "13": {
+      "dur": 6.0,
+      "sostener": 12.0
+    }
+  },
+  "capitulos": [
+    {
+      "desde": 15.5,
+      "n": 1,
+      "titulo": "Instalar la familia",
+      "agente": null,
+      "texto": "Dos comandos en Claude Code: el catálogo de Criterio y la familia CISO. Instala a Alexis, Guillermo y Amparo, y a Rostrum, el portal."
+    },
+    {
+      "desde": 62.1,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "alexis",
+      "texto": "Alexis, el gobierno y los controles. Procesa la carpeta y deja fuera, sin abrirlos, los archivos que parecen credenciales, llaves o respaldos."
+    },
+    {
+      "desde": 95.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "alexis",
+      "texto": "Reconoce la declaración de aplicabilidad, los sistemas, los terceros y el registro de riesgos, y solo pide confirmarlos."
+    },
+    {
+      "desde": 132.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "alexis",
+      "texto": "Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración."
+    },
+    {
+      "desde": 302.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "guillermo",
+      "texto": "Guillermo, las vulnerabilidades. Reconoce las exportaciones de Tenable sin preguntar y toma los plazos de la política: 15 días para una crítica."
+    },
+    {
+      "desde": 336.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "amparo",
+      "texto": "Amparo, la respuesta y la recuperación: la matriz de notificación con sus plazos —24 horas a la Superintendencia Financiera en un incidente crítico— y el calendario de continuidad."
+    },
+    {
+      "desde": 372.8,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "amparo",
+      "texto": "Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez."
+    },
+    {
+      "desde": 439.9,
+      "n": 3,
+      "titulo": "El primer resultado, en una tabla",
+      "agente": null,
+      "texto": "Lo que encontró cada agente, con su cifra: 5 vulnerabilidades fuera de plazo, 2 de ellas críticas, y un incidente contenido en 30 horas cuando la política da 24."
+    },
+    {
+      "desde": 452.5,
+      "n": 4,
+      "titulo": "El reloj, solo con un sí",
+      "agente": null,
+      "texto": "La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano."
+    },
+    {
+      "desde": 472.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "guillermo",
+      "texto": "A cada agente se le pide en lenguaje natural. Guillermo cruza lo abierto con el catálogo KEV: 2 siguen abiertas después de su fecha de corrección, una con uso conocido en ransomware."
+    },
+    {
+      "desde": 506.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "amparo",
+      "texto": "Amparo corre la línea de tiempo y las notificaciones: 2 incidentes fuera del plazo de contención, una notificación 6 horas tarde y otra sin hacer."
+    }
+  ],
+  "intro": {
+    "titulo": "Cómo se usa la familia CISO,",
+    "sub": "de la instalación al primer resultado.",
+    "robots": [
+      "alexis",
+      "guillermo",
+      "amparo"
+    ],
+    "texto": "Una sesión real de Claude Code, acelerada, sobre Banco Cordillera S.A., una organización de prueba con material sintético.",
+    "nombres": [
+      "Alexis",
+      "Guillermo",
+      "Amparo"
+    ]
+  },
+  "cierre": {
+    "titulo": "Instala Criterio.",
+    "comando": "/plugin marketplace add josenanez/criterio",
+    "url": "josenanez.com/es/agents",
+    "licencia": "Código abierto · Apache 2.0",
+    "aviso": "Grabación real de Claude Code, acelerada. Banco Cordillera S.A. es una organización de prueba: el material es sintético."
+  }
+}

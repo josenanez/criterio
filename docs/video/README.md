@@ -26,14 +26,14 @@ el componente y esa hoja, los monta en una página propia y graba (el video de Y
 | `youtube/criterio-<familia>-youtube-{es,en}.mp4` | Horizontal 16:9, 1920×1080, H.264, unos noventa segundos | El canal de YouTube; no se versiona (pesa decenas de megas) |
 | `youtube/criterio-youtube-{es,en}.mp4` | Igual, el de Criterio completo | El canal de YouTube; no se versiona |
 | `linkedin/criterio-hoja-es.mp4` | Vertical 4:5, 1080×1350, H.264, poco más de un minuto | La hoja para la dirección, animada, para el post de LinkedIn; no se versiona |
-| `uso/tomas/<familia>-<idioma>/criterio-<familia>-uso-<idioma>.mp4` | Horizontal 16:9, 1920×1080, H.264, unos cinco minutos | El video de uso de cada familia: una sesión real de Claude Code, acelerada; se arma con [`uso/`](uso/README.md) y no se versiona |
+| `uso/tomas/<familia>-<idioma>/criterio-<familia>-uso-<idioma>.mp4` | Horizontal 16:9, 1920×1080, H.264, entre dos y cinco minutos | El video de uso de cada familia: una sesión real de Claude Code, acelerada; se arma con [`uso/`](uso/README.md) y no se versiona |
 
 **La transcripción de cada video**, para quien no lo ve, está en [`transcripciones/`](transcripciones/):
 el texto que hay en pantalla, en el orden en que aparece y con su minuto. `TRANSCRIBIR=1` la saca de la
 misma página que graba el video, sin grabarlo, así que dice lo mismo: cada bloque de texto queda con
 lo último que mostró, de modo que una cifra que cuenta queda con su valor y un texto que se escribe
 solo, completo. Una transcripción corresponde al video que se subió: se vuelve a sacar con los mismos
-datos con que se grabó, y cada vez que el video se vuelve a grabar.
+datos con que se grabó, y cada vez que el video se vuelve a grabar. La de cada video de uso la saca [`uso/transcribir.py`](uso/transcribir.py), del guion y el montaje del video.
 
 `FAMILIAS=cfo,clo` graba solo esas (`criterio`, el de Criterio); `PIEZAS=youtube` solo el video de YouTube de cada familia (o `video`, `gif`, `criterio`, `hoja`);
 `IDIOMAS=es` solo ese idioma.

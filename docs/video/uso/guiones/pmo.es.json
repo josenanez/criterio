@@ -1,0 +1,217 @@
+{
+  "familia": "pmo",
+  "idioma": "es",
+  "titulo": "Criterio PMO · Cómo se usa la familia completa",
+  "eyebrow": "Criterio PMO · Cómo se usa",
+  "carpeta": "portafolio",
+  "nota": "Grabación real de Claude Code · acelerada · material sintético",
+  "desde": 15.5,
+  "hasta": 852.0,
+  "escrito": [
+    "/plugin marketplace add josenanez/criterio",
+    "/plugin install criterio-pmo@criterio",
+    "/criterio-pmo:pmo-setup",
+    "Sí, es esa.",
+    "Sí, soy la PMO del portafolio.",
+    "El primer jueves de cada mes.",
+    "Página.",
+    "Sí, acepto. Usuario de demostración.",
+    "Sí, márcala.",
+    "Samuel, para PRY-001. Alba, para el producto de productos/PRD-QR.",
+    "Déjalo a nombre de Andrés Lozano, el gerente.",
+    "Cada tres semanas, los viernes.",
+    "Sí, ahí.",
+    "Sí, acepto. Usuario de demostración.",
+    "Sí, márcala.",
+    "Déjalo a nombre de Marcela Ruiz, la gerente de producto.",
+    "Sí, el Comité de producto.",
+    "Sí, ahí.",
+    "Sí, acepto. Usuario de demostración.",
+    "Sí, márcala.",
+    "Por ahora no; lo corro a mano.",
+    "/criterio-portfolio:vera ¿Qué proyecto reporta verde y no se sostiene, y por qué?",
+    "/criterio-project:samuel ¿Qué compromisos de PRY-001 están vencidos y quién los tiene?"
+  ],
+  "ocultar": [
+    "✘ Auto-update failed · Run claude doctor"
+  ],
+  "entradas": {
+    "0": {
+      "dur": 3.0,
+      "sostener": 3.0
+    },
+    "1": {
+      "dur": 6.0,
+      "sostener": 4.0
+    },
+    "2": {
+      "sostener": 6.0
+    },
+    "3": {
+      "sostener": 4.5
+    },
+    "4": {
+      "sostener": 4.5
+    },
+    "5": {
+      "sostener": 4.5
+    },
+    "6": {
+      "anclas": [
+        [
+          134.4,
+          2.0,
+          4.0
+        ],
+        [
+          141.1,
+          1.5,
+          6.0
+        ]
+      ]
+    },
+    "7": {
+      "sostener": 5.0
+    },
+    "8": {
+      "anclas": [
+        [
+          283.5,
+          5.0,
+          10.0
+        ],
+        [
+          286.7,
+          1.5,
+          6.0
+        ]
+      ]
+    },
+    "9": {
+      "sostener": 6.0
+    },
+    "13": {
+      "sostener": 6.0
+    },
+    "14": {
+      "dur": 5.0,
+      "sostener": 7.0
+    },
+    "18": {
+      "sostener": 5.0
+    },
+    "19": {
+      "dur": 5.0,
+      "sostener": 14.0
+    },
+    "21": {
+      "dur": 7.0,
+      "sostener": 12.0
+    },
+    "22": {
+      "dur": 7.0,
+      "sostener": 12.0
+    }
+  },
+  "capitulos": [
+    {
+      "desde": 15.5,
+      "n": 1,
+      "titulo": "Instalar la familia",
+      "agente": null,
+      "texto": "Dos comandos en Claude Code: el catálogo de Criterio y la familia PMO. Instala a Vera, Samuel y Alba, y a Rostrum, el portal."
+    },
+    {
+      "desde": 64.6,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "vera",
+      "texto": "Vera, el portafolio. Procesa la carpeta, encuentra los 6 proyectos y pregunta solo lo que ningún documento dice: tu rol, tu comité y cómo quieres el informe."
+    },
+    {
+      "desde": 134.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "vera",
+      "texto": "Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez."
+    },
+    {
+      "desde": 141.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "vera",
+      "texto": "Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración."
+    },
+    {
+      "desde": 283.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "vera",
+      "texto": "El primer barrido de Vera, sobre 3 de los 6 proyectos: PRY-005 reporta verde y no se sostiene, y Nubetec facturó 40 M más de lo aceptado en PRY-003."
+    },
+    {
+      "desde": 285.5,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "samuel",
+      "texto": "Samuel, el gerente de proyecto. Se elige para qué proyectos se configura; del acta saca al gerente, al patrocinador y al comité, y solo pide confirmarlos."
+    },
+    {
+      "desde": 474.9,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "alba",
+      "texto": "Alba, el producto, trabaja antes de que haya proyecto: contrasta el caso de negocio contra las entrevistas a 8 comercios y las notas de visita."
+    },
+    {
+      "desde": 715.5,
+      "n": 3,
+      "titulo": "El primer resultado, en una tabla",
+      "agente": null,
+      "texto": "Lo que encontró cada agente, con su cifra: un proyecto en verde que no se sostiene, un informe prometido tres veces con 58 días vencido y una meta 28,0 % por encima de lo medido."
+    },
+    {
+      "desde": 730.5,
+      "n": 4,
+      "titulo": "El reloj, solo con un sí",
+      "agente": null,
+      "texto": "La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano."
+    },
+    {
+      "desde": 749.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "vera",
+      "texto": "A cada agente se le pide en lenguaje natural. Vera explica por qué PRY-005 no se sostiene: un despliegue vencido, un compromiso de 31 días y un hito sin su certificado."
+    },
+    {
+      "desde": 812.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "samuel",
+      "texto": "Samuel dice qué compromisos de PRY-001 están vencidos, quién los tiene y lo que no sabe."
+    }
+  ],
+  "intro": {
+    "titulo": "Cómo se usa la familia PMO,",
+    "sub": "de la instalación al primer resultado.",
+    "robots": [
+      "vera",
+      "samuel",
+      "alba"
+    ],
+    "texto": "Una sesión real de Claude Code, acelerada, sobre un portafolio de prueba con material sintético.",
+    "nombres": [
+      "Vera",
+      "Samuel",
+      "Alba"
+    ]
+  },
+  "cierre": {
+    "titulo": "Instala Criterio.",
+    "comando": "/plugin marketplace add josenanez/criterio",
+    "url": "josenanez.com/es/agents",
+    "licencia": "Código abierto · Apache 2.0",
+    "aviso": "Grabación real de Claude Code, acelerada. El portafolio es de prueba: el material es sintético."
+  }
+}

@@ -1,0 +1,38 @@
+0:00  Criterio PMO · Cómo se usa
+0:00  Cómo se usa la familia PMO, de la instalación al primer resultado.
+0:00  Vera · Samuel · Alba
+0:00  Una sesión real de Claude Code, acelerada, sobre un portafolio de prueba con material sintético.
+0:05  1 · Instalar la familia. Dos comandos en Claude Code: el catálogo de Criterio y la familia PMO. Instala a Vera, Samuel y Alba, y a Rostrum, el portal.
+0:07  Se escribe en Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Se escribe en Claude Code: /plugin install criterio-pmo@criterio
+0:27  Se escribe en Claude Code: /criterio-pmo:pmo-setup
+0:27  2 · Configurarla en una conversación. Vera, el portafolio. Procesa la carpeta, encuentra los 6 proyectos y pregunta solo lo que ningún documento dice: tu rol, tu comité y cómo quieres el informe.
+0:36  Se escribe en Claude Code: Sí, es esa.
+0:44  Se escribe en Claude Code: Sí, soy la PMO del portafolio.
+0:51  Se escribe en Claude Code: El primer jueves de cada mes.
+0:58  Se escribe en Claude Code: Página.
+1:00  2 · Configurarla en una conversación. Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez.
+1:05  2 · Configurarla en una conversación. Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración.
+1:14  Se escribe en Claude Code: Sí, acepto. Usuario de demostración.
+1:24  Se escribe en Claude Code: Sí, márcala.
+1:29  2 · Configurarla en una conversación. El primer barrido de Vera, sobre 3 de los 6 proyectos: PRY-005 reporta verde y no se sostiene, y Nubetec facturó 40 M más de lo aceptado en PRY-003.
+1:40  2 · Configurarla en una conversación. Samuel, el gerente de proyecto. Se elige para qué proyectos se configura; del acta saca al gerente, al patrocinador y al comité, y solo pide confirmarlos.
+1:50  Se escribe en Claude Code: Samuel, para PRY-001. Alba, para el producto de productos/PRD-QR.
+2:00  Se escribe en Claude Code: Déjalo a nombre de Andrés Lozano, el gerente.
+2:07  Se escribe en Claude Code: Cada tres semanas, los viernes.
+2:13  Se escribe en Claude Code: Sí, ahí.
+2:36  2 · Configurarla en una conversación. Alba, el producto, trabaja antes de que haya proyecto: contrasta el caso de negocio contra las entrevistas a 8 comercios y las notas de visita.
+2:46  Se escribe en Claude Code: Déjalo a nombre de Marcela Ruiz, la gerente de producto.
+2:53  Se escribe en Claude Code: Sí, el Comité de producto.
+3:19  3 · El primer resultado, en una tabla. Lo que encontró cada agente, con su cifra: un proyecto en verde que no se sostiene, un informe prometido tres veces con 58 días vencido y una meta 28,0 % por encima de lo medido.
+3:34  4 · El reloj, solo con un sí. La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano.
+3:36  Se escribe en Claude Code: Por ahora no; lo corro a mano.
+3:43  5 · El día a día, en tus palabras. A cada agente se le pide en lenguaje natural. Vera explica por qué PRY-005 no se sostiene: un despliegue vencido, un compromiso de 31 días y un hito sin su certificado.
+3:45  Se escribe en Claude Code: /criterio-portfolio:vera ¿Qué proyecto reporta verde y no se sostiene, y por qué?
+4:06  5 · El día a día, en tus palabras. Samuel dice qué compromisos de PRY-001 están vencidos, quién los tiene y lo que no sabe.
+4:09  Se escribe en Claude Code: /criterio-project:samuel ¿Qué compromisos de PRY-001 están vencidos y quién los tiene?
+4:28  Instala Criterio.
+4:28  /plugin marketplace add josenanez/criterio
+4:28  josenanez.com/es/agents
+4:28  Código abierto · Apache 2.0
+4:28  Grabación real de Claude Code, acelerada. El portafolio es de prueba: el material es sintético.

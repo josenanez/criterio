@@ -1,0 +1,192 @@
+{
+  "familia": "cco",
+  "idioma": "es",
+  "titulo": "Criterio CCO · Cómo se usa la familia completa",
+  "eyebrow": "Criterio CCO · Cómo se usa",
+  "carpeta": "almacenes-del-valle",
+  "nota": "Grabación real de Claude Code · acelerada · material sintético",
+  "desde": 15.5,
+  "hasta": 465.0,
+  "escrito": [
+    "/plugin marketplace add josenanez/criterio",
+    "/plugin install criterio-cco@criterio",
+    "/criterio-cco:cco-setup",
+    "Sí, es esa.",
+    "Sí, Almacenes del Valle S.A.S., Colombia, noviembre de 2026.",
+    "Sí, ahí.",
+    "Sí, tal cual.",
+    "Sí, acepto. Usuario de demostración. Y sí, márcala.",
+    "Todavía no existen; sigue sin ellas.",
+    "Sí, 30 días.",
+    "Sí, sin publicar.",
+    "Sí, acepto. Usuario de demostración.",
+    "No por ahora; lo corro a mano.",
+    "/criterio-sales:augusto ¿Qué oportunidades en Compromiso no tienen la orden de compra que exige su etapa?",
+    "/criterio-revenue:valeria ¿Hay alguna cotización con un descuento que no tenga la aprobación que pide la matriz?",
+    "Sí, córrelo."
+  ],
+  "ocultar": [
+    "✘ Auto-update failed · Run claude doctor"
+  ],
+  "entradas": {
+    "0": {
+      "dur": 3.0,
+      "sostener": 3.0
+    },
+    "1": {
+      "dur": 6.0,
+      "sostener": 4.0
+    },
+    "2": {
+      "sostener": 5.0
+    },
+    "3": {
+      "sostener": 7.0
+    },
+    "4": {
+      "sostener": 5.0
+    },
+    "5": {
+      "sostener": 5.0
+    },
+    "6": {
+      "anclas": [
+        [
+          143.2,
+          1.0,
+          4.0
+        ],
+        [
+          159.3,
+          3.0,
+          7.0
+        ]
+      ]
+    },
+    "7": {
+      "anclas": [
+        [
+          232.5,
+          5.0,
+          8.0
+        ],
+        [
+          244.2,
+          2.0,
+          8.0
+        ]
+      ]
+    },
+    "8": {
+      "sostener": 6.0
+    },
+    "11": {
+      "dur": 5.0,
+      "sostener": 14.0
+    },
+    "13": {
+      "dur": 6.0,
+      "sostener": 10.0
+    },
+    "14": {
+      "dur": 5.0,
+      "sostener": 6.0
+    },
+    "15": {
+      "dur": 6.0,
+      "sostener": 12.0
+    }
+  },
+  "capitulos": [
+    {
+      "desde": 15.5,
+      "n": 1,
+      "titulo": "Instalar la familia",
+      "agente": null,
+      "texto": "Dos comandos en Claude Code: el catálogo de Criterio y la familia CCO. Instala a Augusto y Valeria, y a Rostrum, el portal."
+    },
+    {
+      "desde": 62.1,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "augusto",
+      "texto": "Augusto, el pronóstico. Procesa la carpeta, reconoce la exportación de Salesforce y propone las etapas con la evidencia que exige cada una."
+    },
+    {
+      "desde": 142.5,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "augusto",
+      "texto": "Claude Code pide permiso para abrir los archivos del agente, que están fuera de la carpeta. Se autoriza una vez."
+    },
+    {
+      "desde": 159.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "augusto",
+      "texto": "Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración."
+    },
+    {
+      "desde": 232.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "augusto",
+      "texto": "El primer resultado de Augusto: 13 señales, entre ellas 5 oportunidades sin orden de compra y 3 detenidas hace 71 días."
+    },
+    {
+      "desde": 244.0,
+      "n": 2,
+      "titulo": "Configurarla en una conversación",
+      "agente": "valeria",
+      "texto": "Valeria, de la venta a la factura. Lo que ya se respondió no se vuelve a preguntar; procesa la matriz de descuentos, de 3 niveles, y el plan de comisiones."
+    },
+    {
+      "desde": 335.5,
+      "n": 3,
+      "titulo": "El primer resultado, en una tabla",
+      "agente": null,
+      "texto": "Lo que encontró cada agente: 13 señales sobre 21 oportunidades. Valeria cruza lo ganado con lo firmado y lo facturado cuando la CLO y la CFO también corren."
+    },
+    {
+      "desde": 348.0,
+      "n": 4,
+      "titulo": "El reloj, solo con un sí",
+      "agente": null,
+      "texto": "La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano."
+    },
+    {
+      "desde": 368.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "augusto",
+      "texto": "A cada agente se le pide en lenguaje natural. Augusto lista las 5 oportunidades en Compromiso sin orden de compra; la mayor, OPP-1103, por 250.000.000."
+    },
+    {
+      "desde": 405.0,
+      "n": 5,
+      "titulo": "El día a día, en tus palabras",
+      "agente": "valeria",
+      "texto": "Valeria procesa las 5 cotizaciones contra la matriz: 3 descuentos de 22 % aprobados por quien solo puede llegar a 20 %."
+    }
+  ],
+  "intro": {
+    "titulo": "Cómo se usa la familia CCO,",
+    "sub": "de la instalación al primer resultado.",
+    "robots": [
+      "augusto",
+      "valeria"
+    ],
+    "texto": "Una sesión real de Claude Code, acelerada, sobre Almacenes del Valle S.A.S., una organización de prueba con material sintético.",
+    "nombres": [
+      "Augusto",
+      "Valeria"
+    ]
+  },
+  "cierre": {
+    "titulo": "Instala Criterio.",
+    "comando": "/plugin marketplace add josenanez/criterio",
+    "url": "josenanez.com/es/agents",
+    "licencia": "Código abierto · Apache 2.0",
+    "aviso": "Grabación real de Claude Code, acelerada. Almacenes del Valle S.A.S. es una organización de prueba: el material es sintético."
+  }
+}

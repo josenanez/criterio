@@ -1,0 +1,42 @@
+0:00  Criterio CFO · Cómo se usa
+0:00  Cómo se usa la familia CFO, de la instalación al primer resultado.
+0:00  Clara · Tomás · Áurea
+0:00  Una sesión real de Claude Code, acelerada, sobre Banco Andino S.A., una organización de prueba con material sintético.
+0:05  1 · Instalar la familia. Dos comandos en Claude Code: el catálogo de Criterio y la familia CFO. Instala a Clara, Tomás y Áurea, y a Rostrum, el portal.
+0:07  Se escribe en Claude Code: /plugin marketplace add josenanez/criterio
+0:15  Se escribe en Claude Code: /plugin install criterio-cfo@criterio
+0:21  2 · Configurarla en una conversación. Clara, el cierre. Mira la carpeta, propone lo que encontró y pregunta solo lo que ningún documento dice: la entidad, el marco contable, el periodo y quién aprueba.
+0:27  Se escribe en Claude Code: /criterio-cfo:cfo-setup
+0:35  Se escribe en Claude Code: Sí, es esa.
+0:44  Se escribe en Claude Code: Sí. El nombre legal es Banco Andino S.A.
+0:52  Se escribe en Claude Code: Sí, confirmo.
+0:58  Se escribe en Claude Code: Sí, septiembre de 2026.
+1:04  Se escribe en Claude Code: Sí, son esas.
+1:10  Se escribe en Claude Code: Sí, esas cuatro.
+1:16  Se escribe en Claude Code: Sí, úsalo tal cual.
+1:24  Se escribe en Claude Code: Sí, Sofía León aprueba. Usa los festivos de Colombia de 2026.
+1:31  Se escribe en Claude Code: Sí, ahí.
+1:37  2 · Configurarla en una conversación. Los términos: cada agente pide su propio sí, con el nombre de quien acepta. Aquí, un usuario de demostración.
+1:39  Se escribe en Claude Code: Sí, acepto. Usuario de demostración.
+1:47  Se escribe en Claude Code: Sí, márcala.
+1:49  2 · Configurarla en una conversación. Claude Code pide permiso para abrir las instrucciones del agente. Se autoriza una vez.
+1:55  2 · Configurarla en una conversación. El primer resultado de Clara: cada tarea del cierre contra su evidencia. La C-02 figura cumplida y no tiene soporte.
+2:10  2 · Configurarla en una conversación. Tomás, el presupuesto. Lo que ya se respondió no se vuelve a preguntar: solo pide confirmarlo.
+2:21  Se escribe en Claude Code: Sí, 2026 con corte a septiembre.
+2:27  Se escribe en Claude Code: Rige la v2.
+2:35  Se escribe en Claude Code: No lo tengo a mano: déjalas por nombre de área.
+2:41  Se escribe en Claude Code: Sí, esos.
+2:48  Se escribe en Claude Code: El próximo comité es el 10 de diciembre de 2026.
+3:03  2 · Configurarla en una conversación. Áurea, la tesorería: la caja, los pagos y la deuda contra su política. Nunca mueve dinero.
+3:27  3 · El primer resultado, en una tabla. Lo que encontró cada agente, con su cifra: el cierre con menos avance del que se declara, una línea 15 % por encima de lo aprobado y una cuenta bajo su mínimo.
+3:39  4 · El reloj, solo con un sí. La familia propone una tarea diaria que revisa solo lo que toca. Aquí se dejó para correrla a mano.
+3:41  Se escribe en Claude Code: Por ahora no; lo corro a mano.
+3:53  5 · El día a día, en tus palabras. A cada agente se le pide en lenguaje natural. Áurea encuentra un pago de 30.000.000,00 con 1 de las 2 aprobaciones que pide la política.
+3:58  Se escribe en Claude Code: /criterio-treasury:aurea ¿Hay algún pago programado que no tenga las aprobaciones que pide la política?
+4:15  5 · El día a día, en tus palabras. Clara dice qué falta para cerrar septiembre: las tareas vencidas, la ruta crítica y la fuente de cada dato.
+4:18  Se escribe en Claude Code: /criterio-finance:clara ¿Qué falta para cerrar septiembre?
+4:35  Instala Criterio.
+4:35  /plugin marketplace add josenanez/criterio
+4:35  josenanez.com/es/agents
+4:35  Código abierto · Apache 2.0
+4:35  Grabación real de Claude Code, acelerada. Banco Andino S.A. es una organización de prueba: el material es sintético.
