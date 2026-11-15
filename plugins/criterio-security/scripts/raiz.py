@@ -227,7 +227,7 @@ def marcar(carpeta: Path, plugin: str, entidad: str | None, por: str | None, hoy
     if ".criterio" in partes or any(p.startswith("estado-") for p in partes):
         return {"ok": False, "motivo": "esa es una carpeta de estado de un agente, no de documentos"}
     hoy = hoy or dt.date.today()
-    familia = {"pmo": "PMO", "cfo": "CFO", "clo": "CLO"}[dest["familia"]]
+    familia = dest["familia"].upper()
     texto = f"""CRITERIO · {dest['que'].upper()}
 
 Esta es {dest['que']} que procesa{'n' if ' y ' in dest['agentes'] else ''} {dest['agentes']} (familia {familia} de Criterio).
@@ -297,6 +297,14 @@ def selftest() -> int:
             ok("y se lee de qué entidad es", leer(ent, "criterio-finance")["entidad"], "Entidad de Ejemplo (900123456)")
             ok("un marcador no se pone en el estado de un agente",
                marcar(t / "estado-finanzas" / "900123456", "criterio-finance", None, None)["ok"], False)
+            marcas = {}
+            with tempfile.TemporaryDirectory() as m_:
+                for pl in DESTINO:
+                    d = Path(m_) / pl
+                    d.mkdir()
+                    marcas[pl] = marcar(d, pl, None, None)["ok"]
+            ok("la marca se escribe para cada agente de cada familia",
+               [p for p, v in marcas.items() if not v], [])
             ok("el marcador se reconoce como tal", (es_marcador("_CRITERIO_FINANZAS.txt"), es_marcador("acta.txt")), (True, False))
             estructura = lambda: {"niveles": [  # noqa: E731
                 {"id": "proyecto", "ruta": r"[A-Z]{2,5}-\d{2,}[^/]*", "profundidad": 1,
