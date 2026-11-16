@@ -13,13 +13,13 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 
 | Familia | Agentes | Versión | Calidad | Lo siguiente |
 |---|---|---|---|---|
-| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.3.1 | Estable | Incremento 9 · Las reuniones de Claude Meetings |
-| Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.6.1 | Estable | Incremento 13 · Más exportaciones de ERP |
-| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.7.1 | Estable | Incremento 13 · La entidad pública de Guatemala |
-| Criterio EA · Dirección | Ofelia | 1.3.1 | Estable | Incremento 6 · Las juntas en Claude Meetings |
-| Criterio CCO · El área comercial | Augusto, Valeria | 1.3.1 | Estable | — |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.3.1 | Estable | Incremento 8 · Qualys y Rapid7, cuando tengan su fuente |
-| Rostrum · el portal de todas las familias | — | 1.4.1 | — | — |
+| Criterio PMO · Gobierno de proyectos | Vera, Samuel, Alba | 1.4.0 | Estable | Incremento 9 · Las reuniones de Claude Meetings |
+| Criterio CFO · El área financiera | Clara, Tomás, Áurea | 1.7.0 | Estable | Incremento 13 · Más exportaciones de ERP |
+| Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.8.0 | Estable | Incremento 13 · La entidad pública de Guatemala |
+| Criterio EA · Dirección | Ofelia | 1.4.0 | Estable | Incremento 6 · Las juntas en Claude Meetings |
+| Criterio CCO · El área comercial | Augusto, Valeria | 1.4.0 | Estable | — |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.4.0 | Estable | Incremento 8 · Qualys y Rapid7, cuando tengan su fuente |
+| Rostrum · el portal de todas las familias | — | 1.4.2 | — | — |
 
 ## Cada familia, incremento por incremento
 

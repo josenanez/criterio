@@ -4429,6 +4429,244 @@
       "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
       "anterior": "c80688d1c724d67fc3dad790fceb3303f7b1be9e8b8074595edab1b88e2af844",
       "sha256": "4165c5919c99fdf5c32a0bb0c1bde7720c0958f61167287a618290634ac02ae1"
+    },
+    {
+      "version": "2.9.0",
+      "fecha": "2026-11-16",
+      "commit": null,
+      "base": "417dfa3e",
+      "etiqueta": "v2.9.0",
+      "familias": {
+        "cco": "1.4.0",
+        "cfo": "1.7.0",
+        "ciso": "1.4.0",
+        "clo": "1.8.0",
+        "ea": "1.4.0",
+        "pmo": "1.4.0",
+        "rostrum": "1.4.2"
+      },
+      "liberadas": [
+        "cco",
+        "cfo",
+        "ciso",
+        "clo",
+        "ea",
+        "pmo",
+        "rostrum"
+      ],
+      "versiones": {
+        "criterio-cco": "1.4.0",
+        "criterio-revenue": "1.4.0",
+        "criterio-sales": "1.4.0",
+        "criterio-budget": "1.7.0",
+        "criterio-cfo": "1.7.0",
+        "criterio-finance": "1.7.0",
+        "criterio-treasury": "1.7.0",
+        "criterio-ciso": "1.4.0",
+        "criterio-resilience": "1.4.0",
+        "criterio-security": "1.4.0",
+        "criterio-vulnerability": "1.4.0",
+        "criterio-clo": "1.8.0",
+        "criterio-compliance": "1.8.0",
+        "criterio-legal": "1.8.0",
+        "criterio-assistant": "1.4.0",
+        "criterio-ea": "1.4.0",
+        "criterio-pmo": "1.4.0",
+        "criterio-portfolio": "1.4.0",
+        "criterio-product": "1.4.0",
+        "criterio-project": "1.4.0",
+        "criterio-server": "1.4.2"
+      },
+      "calidad": {
+        "cco": {
+          "etiqueta": "estable",
+          "ronda": 3,
+          "rondas": [
+            1,
+            2,
+            3
+          ],
+          "casos": {
+            "señales": 197,
+            "datos": 75
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98,
+            "Datos extraídos": 95.1
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "cfo": {
+          "etiqueta": "estable",
+          "ronda": 15,
+          "rondas": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            15
+          ],
+          "casos": {
+            "señales": 310,
+            "datos": 895
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.7,
+            "Datos extraídos": 99.3
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ciso": {
+          "etiqueta": "estable",
+          "ronda": 3,
+          "rondas": [
+            1,
+            2,
+            3
+          ],
+          "casos": {
+            "señales": 148,
+            "datos": 80
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 97.4,
+            "Datos extraídos": 95.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "clo": {
+          "etiqueta": "estable",
+          "ronda": 15,
+          "rondas": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "casos": {
+            "señales": 265,
+            "datos": 6523
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 98.5,
+            "Datos extraídos": 99.8
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "ea": {
+          "etiqueta": "estable",
+          "ronda": 3,
+          "rondas": [
+            2,
+            3
+          ],
+          "casos": {
+            "señales": 85,
+            "datos": 146
+          },
+          "version_medida": null,
+          "pisos": {
+            "Señales · cobertura": 95.6,
+            "Datos extraídos": 97.4
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        },
+        "pmo": {
+          "etiqueta": "estable",
+          "ronda": 12,
+          "rondas": [
+            11,
+            12
+          ],
+          "casos": {
+            "señales": 500,
+            "datos": 481
+          },
+          "version_medida": "1.0.0",
+          "pisos": {
+            "Vera · precisión": 99.2,
+            "Vera · cobertura": 99.2,
+            "Samuel · compromisos": 98.2,
+            "Alba · cobertura": 98.5
+          },
+          "motivo": [],
+          "umbral": 95,
+          "casos_minimos": 73
+        }
+      },
+      "terminos": {
+        "version": "1.5",
+        "fecha": "2026-11-09",
+        "sha256": {
+          "es": "e26eb70ac0593b1e01a3f28e5433b46cb0467b83a9e6107b81366aa78a0cd82f",
+          "en": "47e41bd08e9a757469fc52308d8f1e56b36ca2e89f273dc58cee7270ccc09e16"
+        }
+      },
+      "plugins": {
+        "criterio-assistant": "0df0b551ed368b7d9bdf864d04d7e6f786d26e2400f38cfe08abf6197ce99727",
+        "criterio-budget": "9c2943408b2c376ddb32109efcf174ca77e924bbb97e457d70a19935ec19b4ee",
+        "criterio-cco": "78b9d3ac008f039ba81f864c056c792032a14cd047b02989faf44627ed276912",
+        "criterio-cfo": "b705f670cd8faec87ee4d78481e781f6807a7d9a6b795869c34c27d0a3c382f9",
+        "criterio-ciso": "d5f1fc52fa42c2eda082ec14d82e9f75464eec67a73a94af2992fcf9c4ce4165",
+        "criterio-clo": "e7aa47dd5070042939df9b9c7a771a6fcfb937ec76772a583b3946bedf20e28b",
+        "criterio-compliance": "7c1eeafad88481aa7af4b8a7e7e9adfd851c4a54724ceb316d8891f2bcc01769",
+        "criterio-finance": "e34a581187ef5fd9c49333129e8046e7117f45211fee62d797d6b56089d81477",
+        "criterio-legal": "5d04a4df078701e958dfd06dddc8d3db5dd2a7e2adef0a4491d710a5f39d5972",
+        "criterio-pmo": "ee7b5ff1468c4fc3057e612856e67bb5fda44c64762ad299f61ca91a9cd37fe3",
+        "criterio-portfolio": "a7d9250659d5bee42f22b37bbf36924fdec2ebbc3e0b3cbb5b8c8bb4b823abdb",
+        "criterio-product": "7d7f6de4b53b6a28b6aaa88742af1fd0aafc6ad8b791e0ea6b0e55b0f2e57a4e",
+        "criterio-project": "03397a3624d44dedf17b3183c88111962034ba84d4a2d1627cc5613907301861",
+        "criterio-resilience": "58e3c60ce02d41d680f776aaa4796273a767e4a5e695b6b6ddfcc4f1587c7785",
+        "criterio-revenue": "687ca268f0977a1b9910b23724097659d6ba544860c2dde59d6897589b605bf5",
+        "criterio-sales": "54919cdd77e929fab30824c4dd7503eb14eb32236be34f413fca5105896f4289",
+        "criterio-security": "be306a1c2cc5c89ceb71048e0856ae71cc67941a2b56abc0559013867f59eea9",
+        "criterio-server": "5041bf4714d5294f8b8fd0a2fecdc00f14ac255120dc1b7c5d321d66cfa0a5aa",
+        "criterio-treasury": "e5d0c205d7c299e79d28b4c1400fa615d6dd68cfc62bc5172cdb8d0d2106c71c",
+        "criterio-vulnerability": "c33193e8078ed38a95426e177d63ee183a68f473d84dc11b778ab25e499806d4"
+      },
+      "destacados": [
+        "El setup de cada agente en dos llamadas, y Clara concilia mes a mes y convierte las facturas en otra moneda"
+      ],
+      "cambios": [
+        "Videos de uso: la CLO, la PMO, la CCO, la CISO y la EA, con su transcripción",
+        "Los robots publicados, siempre los de robots.py: docs/img/robots_datos.py con su verificación",
+        "Paquete 1: el setup en dos llamadas, las cotizaciones de Valeria y cualquier cadencia de Samuel",
+        "CFO: las columnas de la solicitud de información y el ejecutado sin meses faltantes",
+        "Clara: la conciliación arrastra lo pendiente del banco y las facturas en otra moneda se convierten"
+      ],
+      "aceptacion": "una aceptación mientras los términos no cambien, con comprobante en Markdown y PDF, huella SHA-256 de los términos y del comprobante, y bitácora encadenada",
+      "anterior": "4165c5919c99fdf5c32a0bb0c1bde7720c0958f61167287a618290634ac02ae1",
+      "sha256": "3941f116e6970a66c334bd36efbf35995a58b50000183cb1dc0d54b5d9f25d3f"
     }
   ]
 }
