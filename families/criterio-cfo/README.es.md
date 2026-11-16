@@ -447,6 +447,8 @@ sobre la documentación de una organización real.**
 | **Tomás** · FP&A | `criterio-budget` · 9 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 14 · [resultados](../../tests/criterio-budget/RESULTADOS.md) |
 | **Áurea** · Tesorería | `criterio-treasury` · 8 comandos, 2 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 14 · [resultados](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
+
+Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.
 <!-- /cfo:estado -->
 
 La familia quedó probada con la ronda completa con el agente, y su evidencia la hace **estable**:

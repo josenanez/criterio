@@ -14,6 +14,10 @@ Apache 2.0 · Four clicks to install · Each agent produces its first result in 
 
 **Status: all six families —PMO, CFO, CLO, CCO, CISO and EA— are built and tested on synthetic material, and each one carries its own version ([decision 0017](docs/decisions/0017-una-version-por-familia.md));** each family's version and what changed in each one are in the [version register](https://www.josenanez.com/agents/criterio-pmo/legal). Every change goes through `scripts/verificar.py`, with each gate, what it tests and what it does not on [the results page](docs/pruebas.md) (Spanish). Reliability figures on real data are published when they are measured, not before. [Security](SECURITY.md)
 
+<!-- criterio:anonimato · generado por scripts/familias.py; no se edita a mano -->
+Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.
+<!-- /criterio:anonimato -->
+
 ---
 
 | | | |

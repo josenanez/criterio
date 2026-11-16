@@ -309,6 +309,10 @@ ver a mano.
 
 ## Las pruebas de la familia
 
+<!-- criterio:anonimato · generado por scripts/familias.py; no se edita a mano -->
+Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.
+<!-- /criterio:anonimato -->
+
 **Una sola puerta corre todo lo que este repositorio verifica**, de los tres agentes a la vez:
 
 ```

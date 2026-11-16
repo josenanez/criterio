@@ -454,6 +454,8 @@ def estado_familia(fa: dict, i: str) -> str:
     l.append(f"| **Rostrum** · {ROSTRUM[i]['rol']} | `criterio-server` · "
              f"{len(list((P / 'criterio-server' / 'commands').glob('*.md')))} "
              f"{'comandos, para todas las familias' if i == 'es' else 'commands, for every family'} | — |")
+    # La frase estándar de anonimato de las pruebas, la misma en cada familia: su dueño es docs/anonimato.json.
+    l += ["", json.loads((RAIZ / "docs" / "anonimato.json").read_text(encoding="utf-8"))[i]]
     return "\n".join(l)
 
 
@@ -1372,6 +1374,21 @@ def main() -> int:
             else:
                 ruta.write_text(nuevo, encoding="utf-8")
                 print(f"  {ruta.relative_to(RAIZ)}")
+    # La frase estándar de anonimato, en el README del repositorio y en el de la PMO, que no tiene el
+    # bloque de estado de las demás familias: la misma de docs/anonimato.json.
+    CLAVE[0] = "criterio"
+    anon = json.loads((RAIZ / "docs" / "anonimato.json").read_text(encoding="utf-8"))
+    for base in (RAIZ, RAIZ / "families" / "criterio-pmo"):
+        for nombre, i in (("README.es.md", "es"), ("README.md", "en")):
+            ruta = base / nombre
+            actual = ruta.read_text(encoding="utf-8")
+            nuevo = poner(actual, "anonimato", anon[i], ruta)
+            if nuevo != actual:
+                if args.check:
+                    errores.append(f"{ruta.relative_to(RAIZ)}: no es lo que sale de docs/anonimato.json; corre scripts/familias.py")
+                else:
+                    ruta.write_text(nuevo, encoding="utf-8")
+                    print(f"  {ruta.relative_to(RAIZ)}")
     for e in errores:
         print(f"  ✗ {e}")
     if args.check and not errores:

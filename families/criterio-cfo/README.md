@@ -447,6 +447,8 @@ documentation.**
 | **Tomás** · FP&A | `criterio-budget` · 9 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-budget/RESULTADOS.md) |
 | **Áurea** · Treasury | `criterio-treasury` · 8 commands, 2 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-treasury/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
+
+Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.
 <!-- /cfo:estado -->
 
 The family was declared tested with the full round with the agent, and its evidence makes it

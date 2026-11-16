@@ -165,4 +165,6 @@ Cinco skills distintos entre los dos agentes. **Los que comparten son copias lit
 | **Norma** · Los perfiles de cargo | `criterio-roles` · 9 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-roles/RESULTADOS.md) |
 | **Cándido** · La selección | `criterio-talent` · 10 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-talent/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
+
+Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.
 <!-- /chro:estado -->

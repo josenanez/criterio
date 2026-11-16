@@ -306,6 +306,10 @@ hand.
 
 ## The family's tests
 
+<!-- criterio:anonimato · generado por scripts/familias.py; no se edita a mano -->
+Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.
+<!-- /criterio:anonimato -->
+
 **A single gate runs everything this repository verifies**, across the three agents at once:
 
 ```
