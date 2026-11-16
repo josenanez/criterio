@@ -299,6 +299,13 @@
     "iva": 0.12,
     "impuesto": "IVA",
     "emisor": "SAT"
+   },
+   "contratacion_publica": {
+    "sistema": "GUATECOMPRAS",
+    "garantia": {
+     "minimo": 0.1,
+     "fuente": "F-16"
+    }
    }
   },
   {

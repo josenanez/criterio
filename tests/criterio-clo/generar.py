@@ -432,6 +432,13 @@ ENTIDADES = [
      "contrapartes": ["Tecnología Gubernamental Sintética S.A.", "Suministros del Estado Sintética S.A.", "Edificaciones Oficiales Sintética S.A.", "Software Público Sintética S.A.",
                       "Consultoría Estatal Sintética S.A.", "Mantenimiento Público Sintética S.A.", "Vigilancia Oficial Sintética S.A."],
      "fidel": ["garantia_baja", "garantia_sobre_tope"], "constanza": []},
+    # Guatemala, con el NIT de cada contraparte, en quetzales; la garantía de cumplimiento del 10 % del
+    # contrato, sin tope (AG 122-2016, art. 55).
+    {"carpeta": "publica-gt", "industria": "publica", "pais": "GT", "id": nit_gt(3991020), "nombre": "Instituto Público del Altiplano Sintético", "moneda": "GTQ", "u": 280_000, "n0": 4800, "publica": True,
+     "personas": ("Mónica Ajcip", "Esteban Coyoy", "Lucrecia Tzul"),
+     "contrapartes": ["Tecnología Gubernamental Sintética, S. A.", "Suministros del Estado Sintética, S. A.", "Edificaciones Oficiales Sintética, S. A.", "Software Público Sintética, S. A.",
+                      "Consultoría Estatal Sintética, S. A.", "Mantenimiento Público Sintética, S. A.", "Vigilancia Oficial Sintética, S. A."],
+     "fidel": ["garantia_baja"], "constanza": []},
 ]
 
 d = dt.date.fromisoformat
@@ -599,8 +606,8 @@ def contrato(e: dict, i: int, b: dict) -> dict:
 # y la publicación en el último día del plazo, donde la ley lo fija. Los casos que se parecen a un
 # defecto y no lo son están en la frontera de la regla.
 SISTEMA = {"CO": "SECOP II", "EC": "SOCE · COMPRASPÚBLICAS", "PE": "SEACE", "CL": "Mercado Público", "MX": "Compras MX", "BR": "PNCP", "AR": "COMPR.AR",
-           "PA": "PanamaCompra", "CR": "SICOP", "HN": "HonduCompras", "PY": "SICP"}
-PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10, "CR": 0.05, "HN": 0.15, "PY": 0.05}
+           "PA": "PanamaCompra", "CR": "SICOP", "HN": "HonduCompras", "PY": "SICP", "GT": "GUATECOMPRAS"}
+PORCENTAJE = {"CO": 0.10, "EC": 0.05, "PE": 0.10, "CL": 0.05, "MX": 0.10, "BR": 0.05, "AR": 0.10, "PA": 0.10, "CR": 0.05, "HN": 0.15, "PY": 0.05, "GT": 0.10}
 
 
 def publica_limpia(e: dict, i: int) -> dict:

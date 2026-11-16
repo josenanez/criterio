@@ -377,7 +377,7 @@ every family, in [`docs/pruebas.md`](../../docs/pruebas.md).
 | **Brazil** | round 6 | banking, retail, public entity, control | 6–7 | 24 of 24 | 548 of 548 | PNCP · published within 20 business days (10 for direct awards) · guarantee up to 5 %, up to 10 % when justified (F-10) |
 | **Argentina** | round 8 | banking, retail, public entity, control | 8 | 25 of 25 | 548 of 548 | COMPR.AR · minimum guarantee of 10 % · guarantee lodged within 5 business days (F-11) |
 | **Panama** | round 9 | banking, retail, public entity, control | 9 | 24 of 24 | 569 of 569 | PanamaCompra · guarantee required from 50 000 (F-12) |
-| **Guatemala** | round 10 | banking, retail, control | 10 | 20 of 20 | 396 of 396 | No public entity: the guarantee rule is not among the verified sources |
+| **Guatemala** | round 10 | banking, retail, control | 10 | 20 of 20 | 396 of 396 | GUATECOMPRAS · minimum guarantee of 10 % (F-16) |
 | **Costa Rica** | round 11 | banking, retail, public entity, control | 11 | 23 of 23 | 569 of 569 | SICOP · minimum guarantee of 5 % · guarantee up to 10 % (F-13) |
 | **Honduras** | round 12 | banking, retail, public entity, control | 12 | 22 of 22 | 569 of 569 | HonduCompras · minimum guarantee of 15 % (F-14) |
 | **Paraguay** | round 13 | banking, retail, public entity, control | 13–15 | 23 of 23 | 552 of 552 | SICP · minimum guarantee of 5 % · guarantee up to 10 % (F-15) |
@@ -405,7 +405,7 @@ The family grows in increments. Each one is a version with its full test and its
 | 1.5.0 | Released | **The family at once, and each agent in words**<br>· The family installs with a single plugin, criterio-clo, which brings its agents and Rostrum (decision 0026)<br>· Its setup configures them all in one conversation, without asking again what was already answered<br>· Each agent is asked in words, by name, and runs the command that does it (decision 0027) | The full verification; the choice of command, in the entry test |
 | 1.6.0 | Released | **The clock, with a yes**<br>· At the end of the family setup, a single scheduled task that runs what is due today for each agent, on weekdays at 7:00 as a proposal (decision 0028)<br>· In Cowork, an app task; in Claude Code, the computer's scheduler; in both, only with an explicit yes<br>· The task only processes and writes to the state; it sends nothing<br>· Each agent's clock command, correctly named on the family page: it said share-findings | The full verification; the clock, in the version test |
 | 1.7.0 | Released | **Paraguay's public entity**<br>· The performance guarantee of its public procurement law, between 5% and 10% of the contract, from its verified source (F-15, Law 7021/2022, art. 71)<br>· A public test entity, with the guarantee seeded below the minimum and over the cap: the engine raises each signal, none extra<br>· The clock by the short path: if nothing is due, the engine records the run in a single call (decision 0032)<br>· The reports that present what the engine already calculated run on a smaller model<br>· Rostrum says how many tokens each agent uses, command by command: this organisation's, only with a yes, and the tests' | Round 14 with Fidel and Constanza on Paraguay's public entity: 3 of 3 signals and 156 of 156 data points, with its defect fixed and verified; and round 15 with both agents and all their commands on Paraguayan retail: 10 of 10 signals and 132 of 132 data points, and with nothing due each one's clock drops from about 300 thousand to 97 thousand tokens |
-| Increment 13 | Next | **Guatemala's public entity**<br>· Guatemala, once its current law and regulation are among the verified sources | A round with Fidel on Guatemala's public entity |
+| Increment 13 | Next | **Guatemala's public entity**<br>· The performance guarantee of its state procurement law, 10% of the contract and with no cap, from its verified source (F-16, Government Agreement 122-2016, art. 55)<br>· A public test entity, with the guarantee seeded below the minimum: the engine raises each signal, none extra<br>· The deadline to deliver the guarantee and to publish the contract on GUATECOMPRAS, once the day-counting rule and the law with its Decree 9-2015 amendments are among the verified sources | The engine test on Guatemala's public entity: 2 of 2 signals, none extra; the round with Fidel and Constanza, still to run |
 
 <!-- /hoja de ruta -->
 
@@ -437,8 +437,8 @@ documentation.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Fidel** · Contracts | `criterio-legal` · 9 commands, 5 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Compliance | `criterio-compliance` · 9 commands, 6 skills | The engine, tested; with the agent, every entitie in the material, up to round 14 · [results](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contracts | `criterio-legal` · 9 commands, 5 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Compliance | `criterio-compliance` · 9 commands, 6 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 <!-- /clo:estado -->
 

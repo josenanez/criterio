@@ -72,12 +72,12 @@
           "es": [
             "Contratación pública",
             "Publicación y garantías según la ley",
-            "SECOP · ChileCompra · 11 países"
+            "SECOP · ChileCompra · 12 países"
           ],
           "en": [
             "Public procurement",
             "Publication and guarantees under the law",
-            "SECOP · ChileCompra · 11 countries"
+            "SECOP · ChileCompra · 12 countries"
           ],
           "fuentes": [
             "F-03",
@@ -91,7 +91,9 @@
             "F-11",
             "F-12",
             "F-13",
-            "F-14"
+            "F-14",
+            "F-15",
+            "F-16"
           ]
         },
         {
@@ -177,11 +179,11 @@
       {
         "es": [
           "Contratación pública",
-          "En 11 países: contratos no publicados en plazo y garantías por debajo del mínimo de ley, sobre su tope o entregadas tarde"
+          "En 12 países: contratos no publicados en plazo y garantías por debajo del mínimo de ley, sobre su tope o entregadas tarde"
         ],
         "en": [
           "Public procurement",
-          "In 11 countries: contracts not published on time and guarantees below the legal minimum, over its cap or delivered late"
+          "In 12 countries: contracts not published on time and guarantees below the legal minimum, over its cap or delivered late"
         ],
         "senales": [
           "public_contract_not_published",

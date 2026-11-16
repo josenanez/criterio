@@ -379,7 +379,7 @@ señal que tiene que levantar, con el mismo detalle, **y qué no prueba el mater
 | **Brasil** | ronda 6 | banca, retail, entidad pública, control | 6–7 | 24 de 24 | 548 de 548 | PNCP · publicación en 20 días hábiles (10 en la directa) · garantía hasta el 5 %, hasta el 10 % justificada (F-10) |
 | **Argentina** | ronda 8 | banca, retail, entidad pública, control | 8 | 25 de 25 | 548 de 548 | COMPR.AR · garantía mínima del 10 % · garantía entregada en 5 días hábiles (F-11) |
 | **Panamá** | ronda 9 | banca, retail, entidad pública, control | 9 | 24 de 24 | 569 de 569 | PanamaCompra · garantía exigida desde 50 000 (F-12) |
-| **Guatemala** | ronda 10 | banca, retail, control | 10 | 20 de 20 | 396 de 396 | Sin entidad pública: la regla de la garantía no está entre las fuentes verificadas |
+| **Guatemala** | ronda 10 | banca, retail, control | 10 | 20 de 20 | 396 de 396 | GUATECOMPRAS · garantía mínima del 10 % (F-16) |
 | **Costa Rica** | ronda 11 | banca, retail, entidad pública, control | 11 | 23 de 23 | 569 de 569 | SICOP · garantía mínima del 5 % · garantía hasta el 10 % (F-13) |
 | **Honduras** | ronda 12 | banca, retail, entidad pública, control | 12 | 22 de 22 | 569 de 569 | HonduCompras · garantía mínima del 15 % (F-14) |
 | **Paraguay** | ronda 13 | banca, retail, entidad pública, control | 13–15 | 23 de 23 | 552 de 552 | SICP · garantía mínima del 5 % · garantía hasta el 10 % (F-15) |
@@ -407,7 +407,7 @@ La familia crece por incrementos. Cada uno es una versión con su prueba complet
 | 1.5.0 | Liberada | **La familia de una vez, y cada agente en palabras**<br>· La familia se instala con un solo plugin, criterio-clo, que trae a sus agentes y a Rostrum (decisión 0026)<br>· Su setup configura a todos en una sola conversación, sin volver a preguntar lo que ya se respondió<br>· A cada agente se le pide en palabras, por su nombre, y corre el comando que lo resuelve (decisión 0027) | La verificación completa; la elección del comando, en la prueba de las entradas |
 | 1.6.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
 | 1.7.0 | Liberada | **La entidad pública de Paraguay**<br>· La garantía de cumplimiento de su ley de contrataciones públicas, entre el 5 % y el 10 % del contrato, desde su fuente verificada (F-15, Ley 7021/2022, art. 71)<br>· Una entidad pública de prueba, con la garantía bajo el mínimo y sobre el tope sembradas: el motor levanta cada señal, ninguna de más<br>· El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada (decisión 0032)<br>· Los reportes que presentan lo que el motor ya calculó corren con un modelo más pequeño<br>· Rostrum dice cuántos tokens usa cada agente, comando por comando: los de esta organización, solo con un sí, y los de las pruebas | La ronda 14 con Fidel y Constanza sobre la entidad pública de Paraguay: 3 de 3 señales y 156 de 156 datos, con su defecto corregido y verificado; y la ronda 15 con los dos agentes y todos sus comandos sobre retail de Paraguay: 10 de 10 señales y 132 de 132 datos, y sin pendientes el reloj de cada uno baja de unos 300 mil a 97 mil tokens |
-| Incremento 13 | Siguiente | **La entidad pública de Guatemala**<br>· Guatemala, cuando su ley y su reglamento vigentes estén entre las fuentes verificadas | Una ronda con Fidel sobre la entidad pública de Guatemala |
+| Incremento 13 | Siguiente | **La entidad pública de Guatemala**<br>· La garantía de cumplimiento de su ley de contrataciones del Estado, el 10 % del contrato y sin tope, desde su fuente verificada (F-16, AG 122-2016, art. 55)<br>· Una entidad pública de prueba, con la garantía bajo el mínimo sembrada: el motor levanta cada señal, ninguna de más<br>· El plazo de entrega de la garantía y el de publicación del contrato en GUATECOMPRAS, cuando estén entre las fuentes verificadas la regla de cómputo de los días y la ley con sus reformas del Decreto 9-2015 | La prueba del motor sobre la entidad pública de Guatemala: 2 de 2 señales, ninguna de más; la ronda con Fidel y Constanza, por correr |
 
 <!-- /hoja de ruta -->
 
@@ -439,8 +439,8 @@ sobre la documentación de una organización real.**
 <!-- clo:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Fidel** · Contratos | `criterio-legal` · 9 comandos, 5 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 14 · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
-| **Constanza** · Cumplimiento | `criterio-compliance` · 9 comandos, 6 skills | El motor, probado; con el agente, todas las entidades del material, hasta la ronda 14 · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
+| **Fidel** · Contratos | `criterio-legal` · 9 comandos, 5 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-legal/RESULTADOS.md) |
+| **Constanza** · Cumplimiento | `criterio-compliance` · 9 comandos, 6 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-compliance/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 <!-- /clo:estado -->
 
