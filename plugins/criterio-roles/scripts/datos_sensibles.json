@@ -1,0 +1,208 @@
+{
+ "descripcion": "Lo que un perfil de cargo no puede pedir y lo que no se trata de un candidato: los datos sensibles que define la ley de datos personales de cada país, con su artículo, y los patrones de lo que la política de selección de la organización prohíbe pedir. Las leyes, verificadas el 2026-11-16 (families/criterio-chro/fuentes.json). Los patrones se aplican al texto sin tildes y en minúscula.",
+ "categorias": {
+  "origen_racial_etnico": {
+   "nombre": "El origen racial o étnico",
+   "patron": "\\b(raza|racial|etni[ac]s?|origen (racial|etnico)|color de (la )?piel)\\b"
+  },
+  "opiniones_politicas": {
+   "nombre": "La opinión o la afiliación política",
+   "patron": "(afiliacion politica|filiacion politica|afiliad[oa] a(l)? (un |algun )?partido|partido politico|militan(te|cia) politica|opinion(es)? politicas?)"
+  },
+  "religion": {
+   "nombre": "La religión o las convicciones",
+   "patron": "\\b(religion|religios[oa]s?|practicante de|credo|convicciones (religiosas|filosoficas|morales))\\b"
+  },
+  "sindical": {
+   "nombre": "La afiliación sindical",
+   "patron": "(afiliacion sindical|sindicalizad[oa]|sindicato|pertenecer a (un |ningun )?sindicato)"
+  },
+  "salud": {
+   "nombre": "La salud",
+   "patron": "(estado de salud|buena salud|libre de enfermedad|sin enfermedad|enfermedad(es)? (cronicas?|preexistentes?)|sin discapacidad|no tener discapacidad|embaraz|gestante|\\bvih\\b|seropositiv|historia clinica del candidato)"
+  },
+  "vida_sexual": {
+   "nombre": "La vida o la orientación sexual",
+   "patron": "(orientacion sexual|vida sexual|preferencia sexual|heterosexual|homosexual)"
+  },
+  "identidad_genero": {
+   "nombre": "La identidad de género",
+   "patron": "identidad de genero"
+  },
+  "biometricos": {
+   "nombre": "Los datos biométricos",
+   "patron": "(datos biometricos|huella dactilar|reconocimiento facial)"
+  },
+  "geneticos": {
+   "nombre": "Los datos genéticos",
+   "patron": "(datos geneticos|informacion genetica|prueba genetica)"
+  },
+  "socioeconomica": {
+   "nombre": "La situación socioeconómica",
+   "patron": "(estrato socioeconomico|estrato [1-6]\\b|nivel socioeconomico|condicion socioeconomica|situacion socioeconomica)"
+  },
+  "pasado_judicial": {
+   "nombre": "El pasado judicial",
+   "patron": "(pasado judicial|antecedentes penales|record policial)"
+  },
+  "condicion_migratoria": {
+   "nombre": "La condición migratoria",
+   "patron": "(condicion migratoria|estatus migratorio|situacion migratoria)"
+  }
+ },
+ "politica": {
+  "edad": {
+   "nombre": "La edad",
+   "patron": "(\\bedad\\b|menor de \\d+ anos|mayor de \\d+ anos|entre \\d+ y \\d+ anos|\\bno mayor de \\d+\\b|\\bjoven\\b)"
+  },
+  "sexo": {
+   "nombre": "El sexo",
+   "patron": "\\b(sexo|hombre|mujer|masculino|femenino|varon)\\b"
+  },
+  "estado_civil": {
+   "nombre": "El estado civil",
+   "patron": "(estado civil|\\bsolter[oa]s?\\b|\\bcasad[oa]s?\\b|union libre|\\bviud[oa]s?\\b|divorciad[oa])"
+  },
+  "fotografia": {
+   "nombre": "La fotografía",
+   "patron": "(fotografia|\\bfoto\\b)"
+  },
+  "apariencia": {
+   "nombre": "La apariencia física",
+   "patron": "(buena presencia|apariencia fisica|\\bestatura\\b|\\bpeso\\b)"
+  },
+  "nacionalidad": {
+   "nombre": "La nacionalidad",
+   "patron": "\\bnacionalidad\\b"
+  },
+  "hijos": {
+   "nombre": "Los hijos o la situación familiar",
+   "patron": "(sin hijos|numero de hijos|\\bhijos\\b|cabeza de familia)"
+  }
+ },
+ "leyes": {
+  "CO": {
+   "norma": "Ley 1581 de 2012",
+   "articulo": "art. 5",
+   "fuente": "F-10",
+   "categorias": [
+    "origen_racial_etnico",
+    "opiniones_politicas",
+    "religion",
+    "sindical",
+    "salud",
+    "vida_sexual",
+    "biometricos"
+   ]
+  },
+  "MX": {
+   "norma": "Ley Federal de Protección de Datos Personales en Posesión de los Particulares",
+   "articulo": "art. 2, fr. VI",
+   "fuente": "F-11",
+   "categorias": [
+    "origen_racial_etnico",
+    "salud",
+    "geneticos",
+    "religion",
+    "opiniones_politicas",
+    "vida_sexual"
+   ]
+  },
+  "AR": {
+   "norma": "Ley 25.326",
+   "articulo": "art. 2",
+   "fuente": "F-12",
+   "categorias": [
+    "origen_racial_etnico",
+    "opiniones_politicas",
+    "religion",
+    "sindical",
+    "salud",
+    "vida_sexual"
+   ]
+  },
+  "CL": {
+   "norma": "Ley 19.628, modificada por la Ley 21.719",
+   "articulo": "art. 2, letra g)",
+   "fuente": "F-13",
+   "categorias": [
+    "origen_racial_etnico",
+    "opiniones_politicas",
+    "sindical",
+    "socioeconomica",
+    "religion",
+    "salud",
+    "biometricos",
+    "geneticos",
+    "vida_sexual",
+    "identidad_genero"
+   ]
+  },
+  "EC": {
+   "norma": "Ley Orgánica de Protección de Datos Personales",
+   "articulo": "art. 4",
+   "fuente": "F-14",
+   "categorias": [
+    "origen_racial_etnico",
+    "identidad_genero",
+    "religion",
+    "opiniones_politicas",
+    "pasado_judicial",
+    "condicion_migratoria",
+    "vida_sexual",
+    "salud",
+    "biometricos",
+    "geneticos"
+   ]
+  },
+  "PE": {
+   "norma": "Ley 29733",
+   "articulo": "art. 2, numeral 5",
+   "fuente": "F-15",
+   "categorias": [
+    "biometricos",
+    "origen_racial_etnico",
+    "socioeconomica",
+    "opiniones_politicas",
+    "religion",
+    "sindical",
+    "salud",
+    "vida_sexual"
+   ]
+  },
+  "PA": {
+   "norma": "Ley 81 de 2019",
+   "articulo": "art. 4, numeral 11",
+   "fuente": "F-16",
+   "categorias": [
+    "origen_racial_etnico",
+    "religion",
+    "sindical",
+    "opiniones_politicas",
+    "salud",
+    "vida_sexual",
+    "geneticos"
+   ]
+  },
+  "CR": {
+   "norma": "Ley 8968",
+   "articulo": "art. 3, letra e)",
+   "fuente": "F-17",
+   "categorias": [
+    "origen_racial_etnico",
+    "opiniones_politicas",
+    "religion",
+    "socioeconomica",
+    "salud",
+    "geneticos",
+    "vida_sexual"
+   ]
+  }
+ },
+ "sin_ley_verificada": {
+  "BR": "la LGPD no se pudo procesar desde su texto oficial",
+  "PY": "no tiene una ley general de datos personales",
+  "GT": "no tiene una ley general de datos personales",
+  "HN": "no tiene una ley general de datos personales"
+ }
+}
