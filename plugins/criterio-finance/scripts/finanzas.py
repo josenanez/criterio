@@ -2752,6 +2752,14 @@ def selftest() -> int:
             f = Path(t) / f"{nombre}.csv"
             f.write_text(cab + "\n" + ";".join("1" for _ in cab.split(";")) + "\n", encoding="utf-8")
             ok(f"columnas de la solicitud: {nombre}", sorted(c for c in campos if c not in Tabla(f, campos).mapa), [])
+        # «Cuenta» como código en un sistema y como nombre en otro: decide el contenido.
+        for nombre, cab, fila in (("codigo_y_cuenta", "Código Cuenta;Cuenta;Débito;Crédito", "145601;Cartera;10;0"),
+                                  ("code_y_account", "Code;Account;Debit;Credit", "111005;Bancos;0;10"),
+                                  ("account_y_name", "Account;Account Name;Debit;Credit", "111005;Bancos;0;10")):
+            f = Path(t) / f"{nombre}.csv"
+            f.write_text(cab + "\n" + fila + "\n", encoding="utf-8")
+            tb = Tabla(f, ["cuenta", "debito", "credito"], ["nombre"])
+            ok(f"la cuenta es la columna de códigos: {nombre}", (tb.filas[0]["cuenta"], tb.filas[0]["nombre"]), tuple(fila.split(";")[:2]))
     # Las rutas de la configuración no dependen de dónde esté parada la sesión.
     import os
     import tempfile

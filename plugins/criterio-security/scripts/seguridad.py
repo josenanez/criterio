@@ -271,15 +271,15 @@ CAMPOS_KEV = {
 # La exportación de un escáner: ninguna marca entra en la 0.1.0 (ADR 0023). Las cabeceras de uso
 # común, y el mapeo del setup (`scanner.columns`) para lo que no coincida.
 ALIAS_ESCANER = {
-    "activo": ["activo", "host", "hostname", "asset", "asset_name", "devicename", "ip", "ip_address", "direccion_ip", "dns_name", "netbios_name", "equipo"],
-    "vulnerabilidad": ["cve", "cves", "cve_id", "cveid", "definition_cve", "vulnerabilidad", "vulnerability_id", "plugin_id", "definition_id", "plugin", "qid", "id_vulnerabilidad"],
+    "activo": ["activo", "host", "hostname", "asset", "asset_name", "devicename", "ip", "ip_address", "direccion_ip", "dns_name", "netbios_name", "equipo", "asset_ip_address", "asset_hostname"],
+    "vulnerabilidad": ["cve", "cves", "cve_id", "cveid", "definition_cve", "vulnerabilidad", "vulnerability_id", "plugin_id", "definition_id", "plugin", "qid", "id_vulnerabilidad", "vulnerability_cve_ids"],
     "titulo": ["titulo", "title", "name", "plugin_name", "definition_name", "vulnerability", "nombre", "vulnerability_title"],
-    "severidad": ["severidad", "severity", "vulnerabilityseveritylevel", "risk", "riesgo", "risk_factor"],
+    "severidad": ["severidad", "severity", "vulnerabilityseveritylevel", "risk", "riesgo", "risk_factor", "vulnerability_severity_level"],
     "cvss": ["cvss", "cvss_score", "cvssscore", "cvss_base_score", "cvss_v4", "cvss_v4_0_base_score", "definition_cvss4_base_score",
-             "cvss_v3_base_score", "definition_cvss3_base_score", "cvss_v3", "puntaje_cvss"],
-    "primera": ["primera_deteccion", "first_found", "first_seen", "first_observed", "firstseentimestamp", "first_detected", "first_discovered", "detectada"],
-    "fecha": ["fecha_escaneo", "scan_date", "fecha", "last_seen", "lastseentimestamp", "last_found"],
-    "estado": ["estado", "state", "status"],
+             "cvss_v3_base_score", "definition_cvss3_base_score", "cvss_v3", "puntaje_cvss", "vulnerability_cvss_score"],
+    "primera": ["primera_deteccion", "first_found", "first_seen", "first_observed", "firstseentimestamp", "first_detected", "first_discovered", "date_first_discovered", "detectada"],
+    "fecha": ["fecha_escaneo", "scan_date", "fecha", "last_seen", "lastseentimestamp", "last_found", "last_detected", "date_most_recently_discovered"],
+    "estado": ["estado", "state", "status", "vulnerability_status"],
     # El identificador del fabricante, para el hallazgo sin CVE: Plugin ID en Tenable (F-08), QID en Qualys.
     "plugin": ["plugin_id", "definition_id", "plugin", "qid"],
 }
@@ -315,7 +315,7 @@ FORMATOS_ESCANER = [
     ("Tenable Vulnerability Management", "F-08", {"asset_name", "definition_id"}, True),
     ("Microsoft Defender Vulnerability Management", "F-09", {"devicename", "cveid"}, False),
 ]
-FIJADO = {"fixed", "corregida", "corregido", "remediada"}
+FIJADO = {"fixed", "corregida", "corregido", "remediada", "remediado", "remediated"}
 
 
 def filas_json(ruta: Path) -> list[list]:
@@ -1251,6 +1251,16 @@ def selftest() -> int:
     ok("la escala del CVSS (F-05)", [severidad_cvss(x) for x in (0.0, 0.1, 3.9, 4.0, 6.9, 7.0, 8.9, 9.0, 10.0)],
        ["ninguna", "baja", "baja", "media", "media", "alta", "alta", "critica", "critica"])
     ok("la severidad dicha manda sobre el puntaje", severidad("High", "9.8"), "alta")
+    # Encabezados de exportación de uso común, en inglés, con el estado «Remediated» como corregido.
+    import tempfile
+    with tempfile.TemporaryDirectory() as t:
+        f = Path(t) / "hallazgos.csv"
+        f.write_text("Asset IP Address,Asset Hostname,Vulnerability CVE IDs,Vulnerability Title,Vulnerability CVSS Score,"
+                     "Date First Discovered,Date Most Recently Discovered,Vulnerability Status\n"
+                     "10.0.5.22,srv-01,CVE-2022-26809,RPC,9.8,2023-10-10,2023-10-25,Remediated\n", encoding="utf-8")
+        h = Hoja(f, ["activo", "vulnerabilidad"], ["titulo", "severidad", "cvss", "primera", "fecha", "estado", "plugin"], ALIAS_ESCANER, {})
+        ok("encabezados de uso común: activo, CVE, fechas y estado", (h.faltan, h.filas[0]["activo"], h.filas[0]["vulnerabilidad"],
+           h.filas[0]["primera"], h.filas[0]["fecha"], norm(h.filas[0]["estado"]) in FIJADO), ([], "10.0.5.22", "CVE-2022-26809", "2023-10-10", "2023-10-25", True))
     ok("sin severidad, la del puntaje", severidad("", "9.8"), "critica")
     ok("informativa no es una vulnerabilidad", severidad("None", None), "ninguna")
     ok("el mismo control escrito de tres formas", {control_id("A.8.13"), control_id("8.13"), control_id("A 8.13 Respaldo")}, {"8.13"})

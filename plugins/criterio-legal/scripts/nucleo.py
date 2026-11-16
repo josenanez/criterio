@@ -320,17 +320,17 @@ def filas_de(ruta: Path) -> list[list[str]]:
 # usa la solicitud de información que se le envía a la empresa. La organización puede fijar los suyos en
 # la configuración (`columns`); si no, se detectan por el nombre.
 ALIAS = {
-    "cuenta": ["cuenta", "codigo", "codigo_cuenta", "cta", "cuenta_contable", "account", "conta", "codigo_conta", "conta_contabil", "g_l_account_no", "no"],
-    "nombre": ["nombre", "nombre_cuenta", "nombre_de_la_cuenta", "descripcion_cuenta", "account_name", "nome", "nome_conta", "descricao_conta", "g_l_account_name", "name"],
+    "cuenta": ["cuenta", "codigo", "codigo_cuenta", "account_code", "acctcode", "code", "cta", "cuenta_contable", "account", "conta", "codigo_conta", "conta_contabil", "g_l_account_no", "no"],
+    "nombre": ["nombre", "nombre_cuenta", "nombre_de_la_cuenta", "acctname", "descripcion_cuenta", "account_name", "nome", "nome_conta", "descricao_conta", "g_l_account_name", "name", "cuenta_contable", "cuenta", "account", "descripcion"],
     "naturaleza": ["naturaleza", "nature", "natureza"],
-    "saldo_inicial": ["saldo_inicial", "saldo_anterior", "opening_balance"],
-    "debito": ["debito", "debitos", "debitos_del_mes", "debe", "cargos", "debit", "debit_amount"],
-    "credito": ["credito", "creditos", "creditos_del_mes", "haber", "abonos", "credit", "credit_amount"],
+    "saldo_inicial": ["saldo_inicial", "saldo_anterior", "opening_balance", "initial_balance"],
+    "debito": ["debito", "debitos", "debitos_del_mes", "debit_lc", "debe", "cargos", "debit", "debit_amount"],
+    "credito": ["credito", "creditos", "creditos_del_mes", "credit_lc", "haber", "abonos", "credit", "credit_amount"],
     "saldo_final": ["saldo_final", "nuevo_saldo", "saldo", "closing_balance", "balance_at_date", "balance", "saldo_atual"],
-    "fecha": ["fecha", "fecha_movimiento", "fecha_contable", "fecha_documento", "fecha_del_documento", "fecha_de_la_solicitud", "date", "data", "data_lancamento", "data_movimento", "posting_date"],
-    "tercero": ["tercero", "nit", "ruc", "identificacion", "id_tercero", "nit_tercero", "terceiro", "cnpj", "cpf_cnpj", "source_no"],
+    "fecha": ["fecha", "fecha_movimiento", "fecha_contable", "fecha_documento", "fecha_del_documento", "fecha_dd_mm_aaaa", "fecha_de_la_solicitud", "date", "data", "data_lancamento", "data_movimento", "posting_date"],
+    "tercero": ["tercero", "nit", "ruc", "identificacion", "id_tercero", "nit_tercero", "terceiro", "cnpj", "cpf_cnpj", "source_no", "contacto_nit", "identificacion_nit_cc", "partner_vat", "bp_code_federal_tax_id", "partner"],
     "documento": ["documento", "documento_de_soporte", "numero_documento", "num_documento", "factura", "doc", "numero", "nota_fiscal", "external_document_no", "document_no"],
-    "comprobante": ["comprobante", "asiento", "numero_asiento", "numero_de_comprobante_o_asiento", "numero_de_comprobante", "voucher", "lancamento", "numero_lancamento", "transaction_no", "document_no"],
+    "comprobante": ["comprobante", "asiento", "numero_asiento", "numero_de_comprobante_o_asiento", "numero_de_comprobante", "tipo_y_numero_de_comprobante", "journal_entry", "trans_id_ref_1", "trans_id", "voucher", "lancamento", "numero_lancamento", "transaction_no", "document_no"],
     "centro_costo": ["centro_costo", "centro_de_costo", "cc", "cost_center", "centro_de_custo", "centro_custo", "global_dimension_1_code"],
     "descripcion": ["descripcion", "descripcion_o_concepto", "detalle", "concepto", "description", "historico", "descricao"],
     "referencia": ["referencia", "ref", "numero_referencia", "reference"],
@@ -433,12 +433,21 @@ class Tabla:
             return
         cab = [norm(x) for x in filas[inicio]]
         fijas = {k: norm(v) for k, v in (columnas or {}).items()}
+        # «Cuenta» es el código en un sistema y el nombre en otro («Código Cuenta» y «Cuenta» en
+        # Alegra; «Account» es el código en el diario de Odoo y el nombre en su balance). Cuando el
+        # encabezado no decide, decide el contenido: la cuenta es la columna de códigos.
+        muestra = [f for f in filas[inicio + 1:inicio + 31] if any(str(x).strip() for x in f)]
+
+        def codigos(i: int) -> bool:
+            vs = [str(f[i]).strip() for f in muestra if i < len(f) and str(f[i]).strip()]
+            return bool(vs) and sum(bool(re.fullmatch(r"\d[\d.\-]*", v)) for v in vs) >= 0.8 * len(vs)
         for campo in list(requeridas) + list(opcionales):
             candidatos = [fijas[campo]] if campo in fijas else ALIAS.get(campo, [campo])
-            for c in candidatos:
-                if c in cab and cab.index(c) not in self.mapa.values():
-                    self.mapa[campo] = cab.index(c)
-                    break
+            libres = [cab.index(c) for c in candidatos if c in cab and cab.index(c) not in self.mapa.values()]
+            if campo not in fijas and campo in ("cuenta", "nombre") and muestra:
+                libres = [i for i in libres if codigos(i) == (campo == "cuenta")] or libres
+            if libres:
+                self.mapa[campo] = libres[0]
         self.faltan = [c for c in requeridas if c not in self.mapa]
         if meses:
             for i, c in enumerate(filas[inicio]):
