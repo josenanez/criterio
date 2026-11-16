@@ -1,10 +1,16 @@
 {
- "nota": "Los videos publicados en YouTube, en español: el identificador de cada uno, su título tal como está publicado y su transcripción en docs/video/transcripciones/. El portal los inserta con scripts/criterio-videos.mjs; no se copian a mano.",
+ "nota": "Los videos publicados en YouTube: el identificador de cada uno, su título tal como está publicado, su transcripción en docs/video/transcripciones/ y su duración. Cada video está en español; la presentación de cada familia y la de Criterio tienen además su versión en inglés (`en`). El portal los inserta con scripts/criterio-videos.mjs y scripts/youtube.py arma su catálogo; no se copian a mano.",
  "criterio": {
   "id": "6IWK2XlaPKI",
   "titulo": "Criterio · El nivel C, soportado por familias de agentes de IA",
   "transcripcion": "criterio-youtube-es.txt",
-  "duracion": 89.0
+  "duracion": 89.0,
+  "en": {
+   "id": "DUYvTphxVBs",
+   "titulo": "Criterio · The C-suite, backed by families of AI agents",
+   "transcripcion": "criterio-youtube-en.txt",
+   "duracion": 89.0
+  }
  },
  "familias": {
   "cfo": {
@@ -12,7 +18,13 @@
     "id": "EXM3bMVS09s",
     "titulo": "Criterio CFO · Agentes de IA para el área financiera",
     "transcripcion": "criterio-cfo-youtube-es.txt",
-    "duracion": 95.1
+    "duracion": 95.1,
+    "en": {
+     "id": "z7Gj1uS5TOU",
+     "titulo": "Criterio CFO · AI agents for the finance area",
+     "transcripcion": "criterio-cfo-youtube-en.txt",
+     "duracion": 95.1
+    }
    },
    "uso": {
     "id": "PVCGjoRmNVo",
@@ -26,7 +38,13 @@
     "id": "DNWD6eMfWrc",
     "titulo": "Criterio CISO · Agentes de IA para la seguridad de la información",
     "transcripcion": "criterio-ciso-youtube-es.txt",
-    "duracion": 95.1
+    "duracion": 95.1,
+    "en": {
+     "id": "zu7J11HHLm0",
+     "titulo": "Criterio CISO · AI agents for information security",
+     "transcripcion": "criterio-ciso-youtube-en.txt",
+     "duracion": 95.1
+    }
    },
    "uso": {
     "id": "63hkeQWxHLE",
@@ -40,7 +58,13 @@
     "id": "feftu7T91zQ",
     "titulo": "Criterio CLO · Agentes de IA para contratos y cumplimiento",
     "transcripcion": "criterio-clo-youtube-es.txt",
-    "duracion": 88.1
+    "duracion": 88.1,
+    "en": {
+     "id": "9kJPN4TTUtY",
+     "titulo": "Criterio CLO · AI agents for contracts and compliance",
+     "transcripcion": "criterio-clo-youtube-en.txt",
+     "duracion": 88.1
+    }
    },
    "uso": {
     "id": "rZSoJvgoAiQ",
@@ -54,7 +78,13 @@
     "id": "LggEjBDdf_s",
     "titulo": "Criterio CCO · Agentes de IA para la función comercial",
     "transcripcion": "criterio-cco-youtube-es.txt",
-    "duracion": 88.1
+    "duracion": 88.1,
+    "en": {
+     "id": "1xSnCYvDicw",
+     "titulo": "Criterio CCO · AI agents for the commercial area",
+     "transcripcion": "criterio-cco-youtube-en.txt",
+     "duracion": 88.1
+    }
    },
    "uso": {
     "id": "n4YqX8pDRwI",
@@ -68,7 +98,13 @@
     "id": "pQv48xMVVYg",
     "titulo": "Criterio EA · Un agente de IA para la oficina del ejecutivo",
     "transcripcion": "criterio-ea-youtube-es.txt",
-    "duracion": 81.1
+    "duracion": 81.1,
+    "en": {
+     "id": "MVXBxgZ74VY",
+     "titulo": "Criterio EA · An AI agent for the executive office",
+     "transcripcion": "criterio-ea-youtube-en.txt",
+     "duracion": 81.1
+    }
    },
    "uso": {
     "id": "S6Y3oNbzwzs",
@@ -82,7 +118,13 @@
     "id": "WIydrxGMB-E",
     "titulo": "Criterio PMO · Agentes de IA para el portafolio, los proyectos y los productos",
     "transcripcion": "criterio-pmo-youtube-es.txt",
-    "duracion": 95.1
+    "duracion": 95.1,
+    "en": {
+     "id": "A0W3TbIuoNk",
+     "titulo": "Criterio PMO · AI agents for the portfolio, projects and products",
+     "transcripcion": "criterio-pmo-youtube-en.txt",
+     "duracion": 95.1
+    }
    },
    "uso": {
     "id": "lwAg17hdsY4",

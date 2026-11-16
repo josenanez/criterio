@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Sube a YouTube el catálogo que genera scripts/youtube.py: el título, la descripción con sus
-capítulos y las etiquetas de cada video, en español —el idioma del video— y su traducción al inglés.
+capítulos y las etiquetas de cada video, en el idioma del video y su traducción al otro: los videos en
+español llevan su traducción al inglés, y los que están en inglés, al español.
 
     python3 docs/video/sync_youtube.py --secreto client_secret.json            muestra qué cambiaría; no sube nada
     python3 docs/video/sync_youtube.py --secreto client_secret.json --aplicar  sube los cambios
@@ -92,7 +93,6 @@ def main() -> int:
     from googleapiclient.errors import HttpError
 
     cat = json.loads(CATALOGO.read_text(encoding="utf-8"))
-    idioma, otros = cat["idioma"], cat["localizaciones"]
     videos = {i: v for i, v in cat["videos"].items() if not a.solo or i in a.solo}
     yt = build("youtube", "v3", credentials=credenciales(a.secreto))
     publicados = {}
@@ -107,7 +107,7 @@ def main() -> int:
             print(f"✗ {i} ({v['video']}): no está en el canal o la cuenta no es su dueña")
             fallas += 1
             continue
-        sn, loc = deseado(publicados[i], v, idioma, otros)
+        sn, loc = deseado(publicados[i], v, v["idioma"], v["localizaciones"])
         d = diferencias(publicados[i], sn, loc)
         if not d:
             print(f"= {i} ({v['video']}): al día")

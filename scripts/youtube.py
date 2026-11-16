@@ -46,24 +46,27 @@ PAISES = {p["codigo"]: p["nombre"] for p in json.loads((RAIZ / "plugins/criterio
 # src/criterio.jsx— y el nombre de su capítulo. `gancho`: la pantalla de entrada, que cede su capítulo
 # a la siguiente si esta llega antes de diez segundos.
 PRESENTACION = [
-    {"rotulo": r"^Datos de prueba$", "gancho": True, "es": "Un hallazgo en los datos de prueba", "en": "A finding in the test data"},
-    {"rotulo": r"^Criterio {SIGLA}$", "es": "Qué hace Criterio {SIGLA}, área por área", "en": "What Criterio {SIGLA} does, area by area"},
-    {"rotulo": r"^Dónde se probó$", "es": "Dónde se probó", "en": "Where it was tested"},
-    {"rotulo": r"(agentes?|agente) y un portal$", "es": "Los agentes y lo que preparan", "en": "The agents and what they prepare"},
-    {"rotulo": r"^Lo que hoy hace tu equipo, a mano$", "es": "Lo que hoy hace tu equipo, a mano", "en": "What your team does by hand today"},
-    {"rotulo": r"^La evidencia$", "es": "La evidencia de las pruebas", "en": "The test evidence"},
-    {"rotulo": r"^Lo que encontró$", "es": "Lo que encontró cada agente", "en": "What each agent found"},
-    {"rotulo": r"^Código abierto · Apache 2\.0$", "es": "Cómo se instala", "en": "How to install it"},
+    {"rotulo": {"es": r"^Datos de prueba$", "en": r"^Test data$"}, "gancho": True,
+     "es": "Un hallazgo en los datos de prueba", "en": "A finding in the test data"},
+    {"rotulo": {"es": r"^Criterio {SIGLA}$", "en": r"^Criterio {SIGLA}$"}, "es": "Qué hace Criterio {SIGLA}, área por área", "en": "What Criterio {SIGLA} does, area by area"},
+    {"rotulo": {"es": r"^Dónde se probó$", "en": r"^Where it was tested$"}, "es": "Dónde se probó", "en": "Where it was tested"},
+    {"rotulo": {"es": r"(agentes?|agente) y un portal$", "en": r"agents? and a portal$"}, "es": "Los agentes y lo que preparan", "en": "The agents and what they prepare"},
+    {"rotulo": {"es": r"^Lo que hoy hace tu equipo, a mano$", "en": r"^What your team does by hand today$"},
+     "es": "Lo que hoy hace tu equipo, a mano", "en": "What your team does by hand today"},
+    {"rotulo": {"es": r"^La evidencia$", "en": r"^The evidence$"}, "es": "La evidencia de las pruebas", "en": "The test evidence"},
+    {"rotulo": {"es": r"^Lo que encontró$", "en": r"^What it found$"}, "es": "Lo que encontró cada agente", "en": "What each agent found"},
+    {"rotulo": {"es": r"^Código abierto · Apache 2\.0$", "en": r"^Open source · Apache 2\.0$"}, "es": "Cómo se instala", "en": "How to install it"},
 ]
 CRITERIO = [
-    {"rotulo": r"^Criterio$", "es": "Qué es Criterio", "en": "What Criterio is"},
-    {"rotulo": r"^De la pirámide de hoy a la de ahora$", "es": "De la pirámide de hoy a la de ahora", "en": "From today's pyramid to the new one"},
-    {"rotulo": r"^familias$", "es": "Las familias y sus agentes", "en": "The families and their agents"},
-    {"rotulo": r"^Dónde se probó$", "es": "Dónde se probó", "en": "Where it was tested"},
-    {"rotulo": r"^La evidencia$", "es": "La evidencia de las pruebas", "en": "The test evidence"},
-    {"rotulo": r"^Una familia a la vez", "es": "Cómo madura cada familia", "en": "How each family matures"},
-    {"rotulo": r"^Hacia dónde vamos$", "es": "Hacia dónde vamos", "en": "Where we are heading"},
-    {"rotulo": r"^Instala Criterio\.$", "es": "Cómo se instala", "en": "How to install it"},
+    {"rotulo": {"es": r"^Criterio$", "en": r"^Criterio$"}, "es": "Qué es Criterio", "en": "What Criterio is"},
+    {"rotulo": {"es": r"^De la pirámide de hoy a la de ahora$", "en": r"^From today.s pyramid to the new one$"},
+     "es": "De la pirámide de hoy a la de ahora", "en": "From today's pyramid to the new one"},
+    {"rotulo": {"es": r"^familias$", "en": r"^families$"}, "es": "Las familias y sus agentes", "en": "The families and their agents"},
+    {"rotulo": {"es": r"^Dónde se probó$", "en": r"^Where it was tested$"}, "es": "Dónde se probó", "en": "Where it was tested"},
+    {"rotulo": {"es": r"^La evidencia$", "en": r"^The evidence$"}, "es": "La evidencia de las pruebas", "en": "The test evidence"},
+    {"rotulo": {"es": r"^Una familia a la vez", "en": r"^One family at a time"}, "es": "Cómo madura cada familia", "en": "How each family matures"},
+    {"rotulo": {"es": r"^Hacia dónde vamos$", "en": r"^Where we are going$"}, "es": "Hacia dónde vamos", "en": "Where we are heading"},
+    {"rotulo": {"es": r"^Instala Criterio\.$", "en": r"^Install Criterio\.$"}, "es": "Cómo se instala", "en": "How to install it"},
 ]
 # Los pasos del video de uso, como los escribe uso/transcribir.py: «N · Título. texto».
 PASO = re.compile(r"^(\d+) · ([^.]+)\.")
@@ -103,7 +106,8 @@ T = {
         "agentes_url": "Todas las familias, con su evidencia: {url}",
         "capitulos": "Capítulos",
         "llm": "Lo ejecuta un modelo de lenguaje (LLM), que puede equivocarse: por eso ningún dato llega sin su fuente, y la decisión es de quien la firma.",
-        "pantalla": "",
+        "pantalla": "Texto en pantalla en inglés.",
+        "gemelo": {"en": "En inglés: {url}", "es": "En español: {url}"},
         "y": " y ",
         "hashtags": "#Criterio #AgentesDeIA #ClaudeCode",
         "base_tags": ["Criterio", "José Ñáñez", "Jose Nanez", "josenanez.com", "agentes de IA", "AI agents", "Claude Code",
@@ -121,7 +125,7 @@ T = {
         "donde": "Where it was tested: {paises}.",
         "pagina": "The family, its evidence and the calculator: {url}",
         "analisis": "The analysis of the tests: {url}",
-        "uso": "How it is used, from install to first result: {url}",
+        "uso": "How it is used, from install to first result (in Spanish): {url}",
         "presentacion": "What the family does, in ninety seconds: {url}",
         "codigo": "The code: {url}",
         "uso_que": "A real Claude Code session, sped up: Criterio {SIGLA} installs with two commands, is set up in a "
@@ -136,6 +140,7 @@ T = {
         "capitulos": "Chapters",
         "llm": "It is run by a language model (LLM), which can be wrong: that is why no data point arrives without its source, and the decision belongs to whoever signs it.",
         "pantalla": "On-screen text in Spanish.",
+        "gemelo": {"es": "In Spanish: {url}", "en": "In English: {url}"},
         "y": " and ",
         "hashtags": "#Criterio #AIAgents #ClaudeCode",
         "base_tags": [],
@@ -187,14 +192,14 @@ def capitulos(marcas: list[tuple[int, dict]], duracion: float, nombre: str) -> l
     return caps
 
 
-def marcas_de(archivo: str, rotulos: list[dict], sigla: str = "") -> list[tuple[int, dict]]:
+def marcas_de(archivo: str, rotulos: list[dict], idioma: str, sigla: str = "") -> list[tuple[int, dict]]:
     ls = lineas(archivo)
     out = []
     for r in rotulos:
-        rx = re.compile(r["rotulo"].replace("{SIGLA}", sigla.upper()))
+        rx = re.compile(r["rotulo"][idioma].replace("{SIGLA}", sigla.upper()))
         t = next((t for t, x in ls if rx.search(x)), None)
         if t is None:
-            raise SystemExit(f"youtube: {archivo} no trae la pantalla «{r['rotulo']}»; ¿cambió el rótulo en src/?")
+            raise SystemExit(f"youtube: {archivo} no trae la pantalla «{r['rotulo'][idioma]}»; ¿cambió el rótulo en src/?")
         out.append((t, r))
     if [t for t, _ in out] != sorted(t for t, _ in out):
         raise SystemExit(f"youtube: {archivo}: las pantallas no están en el orden esperado")
@@ -284,15 +289,29 @@ def anonimato(l: str) -> str:
     return _j(RAIZ / "docs" / "anonimato.json")[l]
 
 
-def presentacion(sigla: str, v: dict, uso: dict | None) -> dict:
+def otro(idioma: str) -> str:
+    return "en" if idioma == "es" else "es"
+
+
+def aviso(l: str, idioma: str) -> list[str]:
+    """La descripción en otro idioma que el del video dice en qué idioma está el texto en pantalla."""
+    return [T[l]["pantalla"]] if l != idioma else []
+
+
+def gemelo(l: str, idioma: str, par: dict | None) -> list[str]:
+    """El enlace al mismo video en el otro idioma, si está publicado."""
+    return [T[l]["gemelo"][otro(idioma)].format(url=yt(par["id"]))] if par else []
+
+
+def presentacion(sigla: str, v: dict, uso: dict | None, idioma: str = "es", par: dict | None = None) -> dict:
     f = familia(sigla)
     p = f["nivel_c"]["portada"]
-    caps = capitulos([(t, {**m, "_sigla": sigla.upper()}) for t, m in marcas_de(v["transcripcion"], PRESENTACION, sigla)],
+    caps = capitulos([(t, {**m, "_sigla": sigla.upper()}) for t, m in marcas_de(v["transcripcion"], PRESENTACION, idioma, sigla)],
                      v["duracion"], v["transcripcion"])
-    out = {}
+    out = {"idioma": idioma, "localizaciones": [otro(idioma)]}
     for l in ("es", "en"):
         t = T[l]
-        partes = [t["pantalla"]] if t["pantalla"] else []
+        partes = aviso(l, idioma)
         partes += [t["que_es"].format(SIGLA=sigla.upper()), "",
                    t["areas"]] + [t["area"].format(a=x[l][0], que=x[l][1][0].lower() + x[l][1][1:],
                                                    con=minuscula(x[l][2].replace(" · ", ", "))) for x in p["filas"]]
@@ -304,6 +323,7 @@ def presentacion(sigla: str, v: dict, uso: dict | None) -> dict:
                    t["analisis"].format(url=url_familia(sigla, l) + "/analisis")]
         if uso:
             partes.append(t["uso"].format(url=yt(uso["id"])))
+        partes += gemelo(l, idioma, par)
         partes += [t["codigo"].format(url=REPO), ""] + bloque_capitulos(caps, l) + ["", t["llm"], "", t["hashtags"]]
         out[l] = {"title": titulo_familia(f, l), "description": "\n".join(partes)}
     marcas = [m for x in p["filas"] for m in x["es"][2].split(" · ") if not re.search(r"\b(Excel|CSV|Word|PDF|ERP)\b|cualquier|\d", m)]
@@ -316,14 +336,16 @@ def presentacion(sigla: str, v: dict, uso: dict | None) -> dict:
 def de_uso(sigla: str, v: dict, pres: dict) -> dict:
     f = familia(sigla)
     caps = capitulos(marcas_uso(v["transcripcion"]), v["duracion"], v["transcripcion"])
-    out = {}
+    out = {"idioma": "es", "localizaciones": ["en"]}
     for l in ("es", "en"):
         t = T[l]
-        partes = [t["pantalla"]] if t["pantalla"] else []
+        partes = aviso(l, "es")
+        # La presentación en el idioma de la descripción, si está publicada en ese idioma.
+        pres_l = pres.get("en") if l == "en" and pres.get("en") else pres
         partes += [t["uso_que"].format(SIGLA=sigla.upper()), "", t["instalar"],
                    f"/plugin marketplace add {MARKETPLACE}", f"/plugin install criterio-{sigla}@criterio", "",
                    anonimato(l), "", t["pagina"].format(url=url_familia(sigla, l)),
-                   t["presentacion"].format(url=yt(pres["id"])), t["codigo"].format(url=REPO), ""]
+                   t["presentacion"].format(url=yt(pres_l["id"])), t["codigo"].format(url=REPO), ""]
         partes += bloque_capitulos(caps, l) + ["", t["llm"], "", t["hashtags"]]
         out[l] = {"title": t["titulo_uso"].format(SIGLA=sigla.upper()), "description": "\n".join(partes)}
     base = T["es"]["base_tags"] + [f"Criterio {sigla.upper()}", f["nivel_c"]["portada"]["rol"], "instalación", "installation", "tutorial"]
@@ -332,21 +354,21 @@ def de_uso(sigla: str, v: dict, pres: dict) -> dict:
     return out
 
 
-def de_criterio(v: dict, publicadas: list[str]) -> dict:
-    caps = capitulos(marcas_de(v["transcripcion"], CRITERIO), v["duracion"], v["transcripcion"])
-    lema = {"es": lineas(v["transcripcion"])[1][1].rstrip("."),
-            "en": lineas(v["transcripcion"].replace("-es.", "-en."))[1][1].rstrip(".")}
-    out = {}
+def de_criterio(v: dict, publicadas: list[str], idioma: str = "es", par: dict | None = None) -> dict:
+    caps = capitulos(marcas_de(v["transcripcion"], CRITERIO, idioma), v["duracion"], v["transcripcion"])
+    base = v["transcripcion"].replace("-en.", "-es.")
+    lema = {"es": lineas(base)[1][1].rstrip("."), "en": lineas(base.replace("-es.", "-en."))[1][1].rstrip(".")}
+    out = {"idioma": idioma, "localizaciones": [otro(idioma)]}
     for l in ("es", "en"):
         t = T[l]
-        partes = [t["pantalla"]] if t["pantalla"] else []
+        partes = aviso(l, idioma)
         partes += [t["criterio_que"], "", t["familias"]]
         for s in publicadas:
             f = familia(s)
             partes.append(t["familia"].format(SIGLA=s.upper(), rol=f["nivel_c"]["portada"]["rol"],
                                               agentes=unir([a["nombre"] for a in f["agentes"]], l)))
         partes += ["", anonimato(l), "", t["agentes_url"].format(url=f"{PORTAL}{'/es' if l == 'es' else ''}/agents"),
-                   t["codigo"].format(url=REPO), "", t["instalar"], f"/plugin marketplace add {MARKETPLACE}", ""]
+                   *gemelo(l, idioma, par), t["codigo"].format(url=REPO), "", t["instalar"], f"/plugin marketplace add {MARKETPLACE}", ""]
         partes += bloque_capitulos(caps, l) + ["", t["llm"], "", t["hashtags"]]
         out[l] = {"title": t["titulo_criterio"].format(lema=lema[l]), "description": "\n".join(partes)}
     roles = [familia(s)["nivel_c"]["portada"]["rol"] for s in publicadas]
@@ -379,15 +401,19 @@ def generar() -> dict:
                   if (RAIZ / "families" / f"criterio-{s}").is_dir()]
     videos = {}
     c = reg["criterio"]
-    videos[c["id"]] = {"video": "criterio", **de_criterio(c, publicadas)}
+    videos[c["id"]] = {"video": "criterio", **de_criterio(c, publicadas, "es", c.get("en"))}
+    if c.get("en"):
+        videos[c["en"]["id"]] = {"video": "criterio/en", **de_criterio(c["en"], publicadas, "en", c)}
     for s, par in reg["familias"].items():
         pres, uso = par.get("presentacion"), par.get("uso")
         if pres:
-            videos[pres["id"]] = {"video": f"{s}/presentacion", **presentacion(s, pres, uso)}
+            videos[pres["id"]] = {"video": f"{s}/presentacion", **presentacion(s, pres, uso, "es", pres.get("en"))}
+            if pres.get("en"):
+                videos[pres["en"]["id"]] = {"video": f"{s}/presentacion/en", **presentacion(s, pres["en"], uso, "en", pres)}
         if uso:
             videos[uso["id"]] = {"video": f"{s}/uso", **de_uso(s, uso, pres)}
     return {"nota": "Generado por scripts/youtube.py desde el repositorio; no se edita a mano. Lo sube docs/video/sync_youtube.py.",
-            "idioma": "es", "localizaciones": ["en"], "videos": videos}
+            "videos": videos}
 
 
 def medir() -> int:
@@ -401,6 +427,7 @@ def medir() -> int:
         return VIDEO / "youtube" / n
 
     todos = [reg["criterio"]] + [v for par in reg["familias"].values() for v in par.values()]
+    todos += [v["en"] for v in todos if v.get("en")]
     for v in todos:
         p = mp4(v)
         if not p.exists():

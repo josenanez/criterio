@@ -13,7 +13,11 @@ export default defineConfig({
       '@/lib': path.join(AQUI, 'src', 'lib'),
       '@/components/agents': path.join(AQUI, 'src', 'portal'),
       '@/components/criterio': path.join(AQUI, 'src', 'portal'),
+      // Lo que el componente del portal pide de Next y el video no usa.
+      'next/head': path.join(AQUI, 'src', 'next', 'head.jsx'),
     },
   },
+  // Los cuadros de cada grabación son miles de imágenes: vigilarlos agota el límite del sistema.
+  server: { watch: { ignored: ['**/cuadros/**', '**/youtube/**', '**/uso/tomas/**'] } },
   logLevel: 'error',
 });
