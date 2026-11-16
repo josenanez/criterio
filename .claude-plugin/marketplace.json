@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "criterio",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Plugins de IA que razonan con la normativa de Suramérica y con el estado real de un portafolio. AI plugins that reason with South American law and with the real state of a project portfolio.",
   "owner": {
     "name": "José Francisco Ñáñez",
@@ -127,6 +127,24 @@
       "description": "Guillermo, las vulnerabilidades: cada hallazgo de las exportaciones del escáner contra el plazo de su severidad en la política, el catálogo KEV de CISA, las excepciones vencidas, los cierres que ningún escaneo prueba y los activos sin escanear. Nunca corre un escaneo ni publica lo abierto en Rostrum sin que la configuración lo diga.",
       "source": "./plugins/criterio-vulnerability",
       "category": "security"
+    },
+    {
+      "name": "criterio-chro",
+      "description": "La familia CHRO completa —el talento—: instala de una vez a Norma y Cándido y a Rostrum, el portal de todas las familias, y los configura en una sola conversación con /criterio-chro:chro-setup.",
+      "source": "./plugins/criterio-chro",
+      "category": "people"
+    },
+    {
+      "name": "criterio-roles",
+      "description": "Norma, los perfiles de cargo: cada perfil contra la ocupación de su estándar —la CUOC del DANE u O*NET—, los requisitos sin tarea, lo que la ley del país y la política no permiten pedir, el nivel de estudios contra el nivel de competencia y los perfiles que se solapan. Procesa los documentos de la organización; nunca aprueba un perfil ni evalúa a una persona.",
+      "source": "./plugins/criterio-roles",
+      "category": "people"
+    },
+    {
+      "name": "criterio-talent",
+      "description": "Cándido, la selección: cada afirmación de la hoja de vida contra su soporte, cada candidato contra el perfil requisito por requisito y con la cita, la autorización y la conservación de los datos y cada vacante contra su plazo. Nunca rechaza, puntúa ni ordena candidatos, y no usa la fotografía, la edad, el sexo, el origen ni la salud de nadie.",
+      "source": "./plugins/criterio-talent",
+      "category": "people"
     },
     {
       "name": "criterio-server",
