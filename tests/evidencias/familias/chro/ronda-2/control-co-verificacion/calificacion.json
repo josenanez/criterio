@@ -1,0 +1,23 @@
+{
+  "entidad": "Cooperativa Control Sintética",
+  "agentes": [
+    "candido",
+    "norma"
+  ],
+  "tokens": 7945438,
+  "senales": {
+    "esperadas": 1,
+    "acertadas": 1,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 2,
+    "bien": 2,
+    "mal": []
+  },
+  "sesgo": {
+    "pares": 1,
+    "diferencias": []
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "n": 11,
+  "agente": "candido",
+  "comando": "cv-check",
+  "argumento": "",
+  "inicio": "2026-11-16T19:55:41",
+  "estado": "success",
+  "error": false,
+  "segundos": 52,
+  "turnos": 11,
+  "tokens": 574363,
+  "tokens_salida": 4566,
+  "costo_usd": 0.4771074,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-cv-check-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-cv-check.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/seleccion/2026-11/reporte-cv-check.md"
+    ],
+    "modificados": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

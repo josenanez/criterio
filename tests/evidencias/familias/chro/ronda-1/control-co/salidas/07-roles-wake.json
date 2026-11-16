@@ -1,0 +1,20 @@
+{
+  "n": 7,
+  "agente": "norma",
+  "comando": "roles-wake",
+  "argumento": "",
+  "inicio": "2026-11-16T19:51:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 17,
+  "turnos": 3,
+  "tokens": 138603,
+  "tokens_salida": 1139,
+  "costo_usd": 0.17909699999999998,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [],
+    "modificados": [],
+    "borrados": []
+  }
+}

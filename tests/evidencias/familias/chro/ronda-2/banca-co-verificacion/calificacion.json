@@ -1,0 +1,23 @@
+{
+  "entidad": "Banco Cordillera Sintético",
+  "agentes": [
+    "candido",
+    "norma"
+  ],
+  "tokens": 8790223,
+  "senales": {
+    "esperadas": 29,
+    "acertadas": 29,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 2,
+    "bien": 2,
+    "mal": []
+  },
+  "sesgo": {
+    "pares": 1,
+    "diferencias": []
+  }
+}

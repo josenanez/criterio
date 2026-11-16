@@ -1,0 +1,29 @@
+{
+  "n": 15,
+  "agente": "candido",
+  "comando": "talent-wake",
+  "argumento": "",
+  "inicio": "2026-11-16T20:08:14",
+  "estado": "success",
+  "error": false,
+  "segundos": 49,
+  "turnos": 12,
+  "tokens": 476954,
+  "tokens_salida": 4984,
+  "costo_usd": 0.3662336,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-talent-scan-3.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-talent-wake-2.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-talent-scan.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-talent-wake.md"
+    ],
+    "borrados": []
+  }
+}

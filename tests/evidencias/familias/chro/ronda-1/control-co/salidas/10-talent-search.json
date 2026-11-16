@@ -1,0 +1,25 @@
+{
+  "n": 10,
+  "agente": "candido",
+  "comando": "talent-search",
+  "argumento": "",
+  "inicio": "2026-11-16T19:54:57",
+  "estado": "success",
+  "error": false,
+  "segundos": 45,
+  "turnos": 8,
+  "tokens": 416569,
+  "tokens_salida": 3291,
+  "costo_usd": 0.35445640000000006,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-talent-search-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-talent-search.md"
+    ],
+    "modificados": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

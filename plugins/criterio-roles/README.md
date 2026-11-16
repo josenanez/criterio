@@ -13,7 +13,7 @@ You answer for job profiles and the duties manual. She comes with every profile 
 
 [Español](README.es.md) · `criterio-roles` · Apache 2.0 · One instance per entity
 
-**Status: under construction, with the CHRO family.** The calculation engine, tested against the family's synthetic material with a key the agent never sees, control entities and the bias test with candidate pairs. **There is no round with the agent yet**, and it has not been tested on a specific organisation's documents.
+**Status: built, at its version 0.1.0, in the lab, with the CHRO family.** The calculation engine, tested against all the family's synthetic material with a key the agent never sees, control entities and the bias test with candidate pairs; with the agent, rounds 1 and 2 on the Colombian bank and its control. The rest of the material does not run with the agent yet, and it has not been tested on a specific organisation's documents.
 
 **This page stands on its own.** Norma works without the family's other agent. The family —how they find each other and Rostrum— is in the [criterio-chro family](../../families/criterio-chro/README.md).
 
@@ -92,7 +92,7 @@ And one that has to be said out loud: **your documents are processed on the AI p
 
 ## Installation and configuration
 
-**It is in the marketplace**, under construction:
+**It is in the marketplace**, in its lab version:
 
 ```
 /plugin marketplace add josenanez/criterio

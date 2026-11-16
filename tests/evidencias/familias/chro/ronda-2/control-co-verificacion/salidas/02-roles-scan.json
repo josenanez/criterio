@@ -1,0 +1,30 @@
+{
+  "n": 2,
+  "agente": "norma",
+  "comando": "roles-scan",
+  "argumento": "",
+  "inicio": "2026-11-16T20:17:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 41,
+  "turnos": 13,
+  "tokens": 603004,
+  "tokens_salida": 3605,
+  "costo_usd": 0.4055336,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-roles-scan-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-roles-scan.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/indice.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/perfiles/2026-11/reporte-roles-scan.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/900777888-cooperativa-control-sintetica/cache/manifest.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

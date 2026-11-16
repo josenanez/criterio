@@ -1,0 +1,204 @@
+{
+ "nota": "Los defectos que encontraron las rondas con los agentes de la familia CHRO, con su origen y el commit que los corrige. Un defecto se da por verificado solo cuando una corrida posterior a la corrección da lo esperado. tests/ronda_familia.py resumen los lleva a RONDAS.md y el portal los publica. Cada defecto lista en «fallas» los datos calificados como mal que explica: ronda, carpeta y ficha · campo.",
+ "defectos": [
+  {
+   "id": "CHRO-1",
+   "ronda": 1,
+   "carpeta": "banca-co",
+   "agentes": [
+    "norma"
+   ],
+   "origen": "clave",
+   "commit": "dfad78d9",
+   "estado": "verificado",
+   "es": {
+    "que": "La clave daba por «conocimiento» todo requisito atado a un elemento del estándar, también los que el estándar pone entre las destrezas, y por «otro» uno que el perfil decía de experiencia. Norma los registró bien; la clave los calificó como mal.",
+    "correccion": "El tipo de cada requisito sale de la lista del estándar en que está su elemento —destreza o conocimiento—, y el perfil agrupa sus requisitos por tipo, así que el documento lo dice y no hay que adivinarlo."
+   },
+   "en": {
+    "que": "The key took every requirement tied to a standard element as «knowledge», including those the standard lists as skills, and as «other» one the profile stated as experience. Norma recorded them correctly; the key graded them as wrong.",
+    "correccion": "Each requirement's type comes from the standard list its element is in —skill or knowledge— and the profile groups its requirements by type, so the document states it and nothing has to be guessed."
+   },
+   "fallas": [
+    [
+     1,
+     "banca-co",
+     "perfiles · profiles"
+    ]
+   ],
+   "verificacion": "banca-co-verificacion",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CHRO-2",
+   "ronda": 1,
+   "carpeta": "banca-co",
+   "agentes": [
+    "candido"
+   ],
+   "origen": "clave",
+   "commit": "dfad78d9",
+   "estado": "verificado",
+   "es": {
+    "que": "La clave dejaba fuera lo que Cándido registró como pide cv-record: la tarjeta profesional como evidencia del requisito que atiende, y la fotografía en la hoja de vida que la anuncia y en su archivo.",
+    "correccion": "La clave lleva la evidencia del soporte de la certificación y la fotografía donde llegó."
+   },
+   "en": {
+    "que": "The key left out what Cándido recorded as cv-record asks: the professional card as evidence for the requirement it meets, and the photograph in the CV that announces it and in its file.",
+    "correccion": "The key carries the certification's support as evidence and the photograph where it arrived."
+   },
+   "fallas": [
+    [
+     1,
+     "banca-co",
+     "seleccion · candidates"
+    ]
+   ],
+   "verificacion": "banca-co-verificacion",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CHRO-3",
+   "ronda": 1,
+   "carpeta": "banca-co",
+   "agentes": [
+    "norma"
+   ],
+   "origen": "material",
+   "commit": "dfad78d9",
+   "estado": "verificado",
+   "es": {
+    "que": "La política de selección no decía cada cuánto se revisa un perfil, y el perfil solo decía «cada 12 meses» como próxima revisión. Norma no supuso un plazo, como debe, y la revisión vencida del perfil del contador quedó sin levantar.",
+    "correccion": "La política de cada entidad dice cada cuánto se revisa un perfil; el setup lo toma de ahí."
+   },
+   "en": {
+    "que": "The selection policy did not say how often a profile is reviewed, and the profile only said «every 12 months» as its next review. Norma did not assume a period, as it should not, and the accountant profile's overdue review was not raised.",
+    "correccion": "Each entity's policy states how often a profile is reviewed; the setup takes it from there."
+   },
+   "fallas": [
+    [
+     1,
+     "banca-co",
+     "[\"profile_review_overdue\", \"revision:PC-01\"]"
+    ]
+   ],
+   "verificacion": "banca-co-verificacion",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CHRO-4",
+   "ronda": 1,
+   "carpeta": "control-co",
+   "agentes": [
+    "candido"
+   ],
+   "origen": "instrucciones",
+   "commit": "dfad78d9",
+   "estado": "verificado",
+   "es": {
+    "que": "Dos alarmas falsas en el control: un diploma escaneado en imagen se tomó por una fotografía, porque la instrucción decía que una imagen no se abre. El título quedó sin soporte y llegó una «fotografía».",
+    "correccion": "Una imagen cuyo nombre dice que es un documento —diploma, acta, certificado, tarjeta— es un soporte escaneado: se abre solo para confirmarlo y se cita como soporte; cualquier otra imagen es una fotografía, no se abre y se excluye. El diploma del material ahora se ve."
+   },
+   "en": {
+    "que": "Two false alarms in the control: a diploma scanned as an image was taken for a photograph, because the instruction said an image is not opened. The degree was left without support and a «photograph» arrived.",
+    "correccion": "An image whose name says it is a document —diploma, certificate, card— is a scanned support: it is opened only to confirm it and cited as support; any other image is a photograph, is not opened and is excluded. The material's diploma is now legible."
+   },
+   "fallas": [
+    [
+     1,
+     "control-co",
+     "[\"claim_without_support\", \"soporte:CAN-406:K1\"]"
+    ],
+    [
+     1,
+     "control-co",
+     "[\"protected_data_received\", \"protegido:CAN-406:fotografia\"]"
+    ]
+   ],
+   "verificacion": "control-co-verificacion",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CHRO-5",
+   "ronda": 1,
+   "carpeta": "control-co",
+   "agentes": [
+    "candido"
+   ],
+   "origen": "instrucciones",
+   "commit": "dfad78d9",
+   "estado": "verificado",
+   "es": {
+    "que": "cv-record no decía cómo se numeran las afirmaciones ni si el soporte de una certificación es también la evidencia de su requisito, y Cándido lo hizo de una forma en banca y de otra en el control.",
+    "correccion": "Las afirmaciones se numeran en el orden en que la hoja de vida las hace, y el requisito que atiende una afirmación con soporte lleva su evidencia en ese soporte; el ejemplo del skill lo muestra."
+   },
+   "en": {
+    "que": "cv-record did not say how claims are numbered nor whether a certification's support is also its requirement's evidence, and Cándido did it one way in banking and another in the control.",
+    "correccion": "Claims are numbered in the order the CV makes them, and a requirement met by a supported claim carries its evidence in that support; the skill's example shows it."
+   },
+   "fallas": [
+    [
+     1,
+     "control-co",
+     "seleccion · candidates"
+    ]
+   ],
+   "verificacion": "control-co-verificacion",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CHRO-6",
+   "ronda": 2,
+   "carpeta": "control-co-verificacion",
+   "agentes": [
+    "norma"
+   ],
+   "origen": "arnes",
+   "commit": "db55efbe",
+   "estado": "verificado",
+   "es": {
+    "que": "Norma registró el elemento del estándar de cada requisito por su nombre, como lo permite profile-record y lo resuelve el motor, y el arnés solo aceptaba el identificador.",
+    "correccion": "Al calificar, un nombre de elemento se traduce al identificador de la ocupación del perfil, con el mismo estándar de la entidad. Se volvió a calificar la corrida, sin repetir comandos."
+   },
+   "en": {
+    "que": "Norma recorded each requirement's standard element by its name, as profile-record allows and the engine resolves, and the harness only accepted the identifier.",
+    "correccion": "When grading, an element name is translated to the identifier in the profile's occupation, with the entity's own standard. The run was graded again, without repeating any command."
+   },
+   "fallas": [
+    [
+     2,
+     "control-co-verificacion",
+     "perfiles · profiles"
+    ]
+   ],
+   "verificacion": "control-co-verificacion",
+   "ronda_verificacion": 2
+  },
+  {
+   "id": "CHRO-7",
+   "ronda": 2,
+   "carpeta": "banca-co-verificacion",
+   "agentes": [
+    "candido"
+   ],
+   "origen": "instrucciones",
+   "commit": "50c030a1",
+   "estado": "por-verificar",
+   "es": {
+    "que": "De una certificación que la hoja de vida afirma sin soporte, Cándido tomó el vencimiento y la evidencia de la hoja de vida en la verificación y no en la primera ronda: cv-record decía que el vencimiento sale del soporte y no decía qué hacer cuando no llega.",
+    "correccion": "Sin soporte, el vencimiento y la evidencia de la certificación salen de la línea de la hoja de vida que la afirma; la afirmación sigue sin soporte y lo dice su señal. La clave lo sigue, y la verificación se volvió a calificar sin repetir comandos."
+   },
+   "en": {
+    "que": "For a certification the CV claims without support, Cándido took the expiry and the evidence from the CV in the verification but not in the first round: cv-record said the expiry comes from the support and did not say what to do when none arrives.",
+    "correccion": "Without support, the certification's expiry and evidence come from the CV line that claims it; the claim is still unsupported and its signal says so. The key follows it, and the verification was graded again without repeating any command."
+   },
+   "fallas": [
+    [
+     2,
+     "banca-co-verificacion",
+     "seleccion · candidates"
+    ]
+   ]
+  }
+ ]
+}

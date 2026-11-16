@@ -16,12 +16,12 @@ entity's folder and reference: each writes only its own record.
 | **Goal** | That every profile rests on a standard and on its tasks, and that every candidate is looked at against the profile with the evidence they bring, without their name, photograph or age entering the analysis |
 | **Made up of** | [Norma](../../plugins/criterio-roles/README.md) · [Cándido](../../plugins/criterio-talent/README.md) · [Rostrum](../../plugins/criterio-server/README.md) |
 | **The backing** | The occupational standards, the regulation of AI in employment, each country's data law and what it costs an organisation today, with its source, year and sample: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Status** | Under construction, towards its version 0.1.0: the engine tested on synthetic material, with its key, its control entities and the bias test with candidate pairs. **There is no round with the agents yet** |
+| **Status** | Built, at its version 0.1.0, in the lab: the engine tested on all the material, with its key, its control entities and the bias test with candidate pairs; with the agents, the Colombian bank and its control, with no false alarm in the control. **The rest of the material does not run with the agents yet** |
 | **Approach** | Documents and exports, never systems or networks: no agent connects to an ATS or looks for people beyond what the organisation provides |
 | **Commitment** | Creating, sharing and preserving knowledge is a professional duty |
 | **What it is not** | It does not replace the person selecting or decide for anyone: it approves no profiles and rejects, discards, scores or ranks no candidates |
 | **License** | [Apache 2.0](../../LICENSE) |
-| **What comes next** | The round with the two agents: [the roadmap](#roadmap) |
+| **What comes next** | The round with the two agents on the rest of the material: [the roadmap](#roadmap) |
 
 ---
 
@@ -162,8 +162,8 @@ Five distinct skills across the two agents. **The ones they share are literal co
 <!-- chro:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agent | Installs as | Its test |
 |---|---|---|
-| **Norma** · Job profiles | `criterio-roles` · 9 commands, 3 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-roles/RESULTADOS.md) |
-| **Cándido** · Selection | `criterio-talent` · 10 commands, 3 skills | The engine, tested; the round with the agent, pending · [results](../../tests/criterio-talent/RESULTADOS.md) |
+| **Norma** · Job profiles | `criterio-roles` · 9 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-roles/RESULTADOS.md) |
+| **Cándido** · Selection | `criterio-talent` · 10 commands, 3 skills | The engine, tested; a first round with the agent; the full one, pending · [results](../../tests/criterio-talent/RESULTADOS.md) |
 | **Rostrum** · the portal | `criterio-server` · 3 commands, for every family | — |
 
 Tests use synthetic material built on real company information, anonymised before processing: no name, identifier, figure or personal data that could identify a company or a person is kept or published. What is published from each test is its results, without data.

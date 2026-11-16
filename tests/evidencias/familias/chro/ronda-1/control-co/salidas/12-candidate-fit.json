@@ -1,0 +1,26 @@
+{
+  "n": 12,
+  "agente": "candido",
+  "comando": "candidate-fit",
+  "argumento": "",
+  "inicio": "2026-11-16T19:56:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 59,
+  "turnos": 8,
+  "tokens": 448145,
+  "tokens_salida": 5510,
+  "costo_usd": 0.48153779999999996,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-candidate-fit-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-candidate-fit.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/seleccion/2026-11/reporte-candidate-fit.md"
+    ],
+    "modificados": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

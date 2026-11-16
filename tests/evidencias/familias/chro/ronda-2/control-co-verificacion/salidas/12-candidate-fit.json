@@ -1,0 +1,28 @@
+{
+  "n": 12,
+  "agente": "candido",
+  "comando": "candidate-fit",
+  "argumento": "",
+  "inicio": "2026-11-16T20:24:15",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 9,
+  "tokens": 459835,
+  "tokens_salida": 2460,
+  "costo_usd": 0.1494754,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-candidate-fit-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-candidate-fit.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/seleccion/2026-11/reporte-candidate-fit.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

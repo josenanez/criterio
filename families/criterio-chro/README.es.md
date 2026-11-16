@@ -16,12 +16,12 @@ la carpeta y la referencia de la entidad: cada uno escribe solo su ficha.
 | **Objetivo** | Que cada perfil se apoye en un estándar y en sus tareas, y que cada candidato se mire contra el perfil con la evidencia que trae, sin que su nombre, su fotografía o su edad entren al análisis |
 | **Compuesta por** | [Norma](../../plugins/criterio-roles/README.es.md) · [Cándido](../../plugins/criterio-talent/README.es.md) · [Rostrum](../../plugins/criterio-server/README.es.md) |
 | **El soporte** | Los estándares de ocupaciones, la regulación de la inteligencia artificial en el empleo, la ley de datos de cada país y lo que cuesta hoy a una organización, con su fuente, su año y su muestra: [`FUENTES.es.md`](FUENTES.es.md) |
-| **Estado** | En construcción, hacia su versión 0.1.0: el motor probado sobre material sintético, con su clave, sus entidades de control y la prueba de sesgo con pares de candidatos. **Todavía no hay una ronda con los agentes** |
+| **Estado** | Construida, en su versión 0.1.0, de laboratorio: el motor probado sobre todo el material, con su clave, sus entidades de control y la prueba de sesgo con pares de candidatos; con los agentes, la banca de Colombia y su control, sin una alarma falsa en el control. **El resto del material todavía no corre con los agentes** |
 | **Enfoque** | Documentos y exportaciones, nunca sistemas ni redes: ningún agente se conecta a un ATS ni busca personas fuera de lo que la organización entrega |
 | **Compromiso** | Generar, difundir y conservar el conocimiento es una obligación profesional |
 | **Qué no es** | No reemplaza a quien selecciona ni decide por nadie: no aprueba perfiles, no rechaza, no descarta, no da puntajes y no ordena candidatos |
 | **Licencia** | [Apache 2.0](../../LICENSE) |
-| **Qué viene** | La ronda con los dos agentes: [la hoja de ruta](#hoja-de-ruta) |
+| **Qué viene** | La ronda con los dos agentes sobre el resto del material: [la hoja de ruta](#hoja-de-ruta) |
 
 ---
 
@@ -162,8 +162,8 @@ Cinco skills distintos entre los dos agentes. **Los que comparten son copias lit
 <!-- chro:estado · generado por scripts/familias.py; no se edita a mano -->
 | Agente | Se instala | Su prueba |
 |---|---|---|
-| **Norma** · Los perfiles de cargo | `criterio-roles` · 9 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-roles/RESULTADOS.md) |
-| **Cándido** · La selección | `criterio-talent` · 10 comandos, 3 skills | El motor, probado; la ronda con el agente, pendiente · [resultados](../../tests/criterio-talent/RESULTADOS.md) |
+| **Norma** · Los perfiles de cargo | `criterio-roles` · 9 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-roles/RESULTADOS.md) |
+| **Cándido** · La selección | `criterio-talent` · 10 comandos, 3 skills | El motor, probado; una primera ronda con el agente; la completa, pendiente · [resultados](../../tests/criterio-talent/RESULTADOS.md) |
 | **Rostrum** · el portal | `criterio-server` · 3 comandos, para todas las familias | — |
 
 Las pruebas usan material sintético construido sobre información real de empresas, anonimizada antes de procesarse: ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica. Lo que se publica de cada prueba son sus resultados, sin datos.

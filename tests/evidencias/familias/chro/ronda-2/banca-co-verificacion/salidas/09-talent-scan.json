@@ -1,0 +1,29 @@
+{
+  "n": 9,
+  "agente": "candido",
+  "comando": "talent-scan",
+  "argumento": "",
+  "inicio": "2026-11-16T20:30:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 69,
+  "turnos": 13,
+  "tokens": 849675,
+  "tokens_salida": 7422,
+  "costo_usd": 0.739032,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-talent-scan-1.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-talent-scan.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/seleccion/2026-11/reporte-talent-scan.md"
+    ],
+    "modificados": [
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/seleccion/2026-11/ficha.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/seleccion/2026-11/resultados.json"
+    ],
+    "borrados": []
+  }
+}

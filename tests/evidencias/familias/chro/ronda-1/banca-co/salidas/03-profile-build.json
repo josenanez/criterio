@@ -1,0 +1,28 @@
+{
+  "n": 3,
+  "agente": "norma",
+  "comando": "profile-build",
+  "argumento": "",
+  "inicio": "2026-11-16T19:36:09",
+  "estado": "success",
+  "error": false,
+  "segundos": 64,
+  "turnos": 12,
+  "tokens": 696940,
+  "tokens_salida": 6079,
+  "costo_usd": 0.6146032,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-profile-build-1.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-profile-build.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/perfiles/borradores/42111-2026-11-16.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

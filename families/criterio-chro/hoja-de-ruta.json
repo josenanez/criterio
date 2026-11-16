@@ -37,26 +37,28 @@
     }
    ],
    "es": {
-    "titulo": "Norma y Cándido, construidos, con el motor probado y la prueba de sesgo",
+    "titulo": "Norma y Cándido, construidos, con el motor probado, la prueba de sesgo y la primera ronda con los agentes",
     "entra": [
      "Los comandos, sus cinco skills y el motor, con las quince señales: los perfiles contra su ocupación, lo que no se puede pedir y el mapa de Norma; las hojas de vida contra sus soportes, cada candidato contra el perfil, los datos de los candidatos y las vacantes de Cándido",
      "La CUOC 2026 del DANE (F-03) y O*NET 31.0 (F-02), procesadas desde su descarga oficial",
      "Los datos sensibles de la ley de ocho países, cada uno con su artículo (F-10 a F-17)",
      "La prueba de sesgo: pares de candidatos iguales salvo en un dato protegido tienen que dar exactamente lo mismo",
-     "Material de banca, retail y tecnología, con dos entidades de control"
+     "Material de banca, retail y tecnología, con dos entidades de control",
+     "Las rondas 1 y 2 con los dos agentes sobre la banca de Colombia y su control, con los pares de la prueba de sesgo: los siete defectos que encontraron, corregidos"
     ],
-    "prueba": "El motor contra la clave de todo el material, y cada par de la prueba de sesgo sin una sola diferencia"
+    "prueba": "El motor contra la clave de todo el material; con los agentes, la banca de Colombia y su control, sin una alarma falsa en el control y cada par de la prueba de sesgo sin una sola diferencia"
    },
    "en": {
-    "titulo": "Norma and Cándido, built, with the engine tested and the bias test",
+    "titulo": "Norma and Cándido, built, with the engine tested, the bias test and the first round with the agents",
     "entra": [
      "The commands, their five skills and the engine, with the fifteen signals: Norma's profiles against their occupation, what cannot be asked for and the map; Cándido's CVs against their supporting documents, each candidate against the profile, candidate data and vacancies",
      "DANE's CUOC 2026 (F-03) and O*NET 31.0 (F-02), processed from their official download",
      "The sensitive data in the law of eight countries, each with its article (F-10 to F-17)",
      "The bias test: pairs of candidates identical except for one protected attribute must give exactly the same result",
-     "Banking, retail and technology material, with two control entities"
+     "Banking, retail and technology material, with two control entities",
+     "Rounds 1 and 2 with both agents on the Colombian bank and its control, with the bias-test pairs: the seven defects they found, fixed"
     ],
-    "prueba": "The engine against the key for all the material, and every pair in the bias test with not a single difference"
+    "prueba": "The engine against the key for all the material; with the agents, the Colombian bank and its control, with no false alarm in the control and every bias-test pair with not a single difference"
    }
   },
   {
@@ -66,18 +68,18 @@
    "industrias": [],
    "paises": [],
    "es": {
-    "titulo": "La ronda con Norma y Cándido",
+    "titulo": "La ronda con Norma y Cándido sobre el resto del material",
     "entra": [
-     "La ronda con los dos agentes sobre todo el material, con su clave y los pares de la prueba de sesgo, que tienen que dar lo mismo también con el agente"
+     "La ronda con los dos agentes sobre el retail de México, la tecnología de Chile y el control de Perú, con su clave y los pares de la prueba de sesgo"
     ],
-    "prueba": "La ronda 1, con su análisis"
+    "prueba": "La ronda 3, con su análisis"
    },
    "en": {
-    "titulo": "The round with Norma and Cándido",
+    "titulo": "The round with Norma and Cándido on the rest of the material",
     "entra": [
-     "The round with the two agents on all the material, with its key and the bias-test pairs, which must give the same result with the agent too"
+     "The round with both agents on Mexican retail, Chilean technology and the Peruvian control, with its key and the bias-test pairs"
     ],
-    "prueba": "Round 1, with its analysis"
+    "prueba": "Round 3, with its analysis"
    }
   },
   {

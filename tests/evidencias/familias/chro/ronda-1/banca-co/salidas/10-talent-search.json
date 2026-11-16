@@ -1,0 +1,27 @@
+{
+  "n": 10,
+  "agente": "candido",
+  "comando": "talent-search",
+  "argumento": "",
+  "inicio": "2026-11-16T19:42:29",
+  "estado": "success",
+  "error": false,
+  "segundos": 39,
+  "turnos": 11,
+  "tokens": 529376,
+  "tokens_salida": 3254,
+  "costo_usd": 0.3986708,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-talent-search-1.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-talent-search.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

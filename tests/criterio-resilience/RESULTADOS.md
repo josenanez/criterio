@@ -2,7 +2,7 @@
 
 **la agente de la respuesta y la recuperación de la familia CISO** · plugin `criterio-resilience`
 
-Corrida del 2026-11-16, sobre el commit `9998b2a3`, con cambios en el árbol todavía sin confirmar. **1 puertas · 12 comprobaciones · todas en verde.**
+Corrida del 2026-11-16, sobre el commit `50c030a1`, con cambios en el árbol todavía sin confirmar. **1 puertas · 12 comprobaciones · todas en verde.**
 
 > Este archivo lo escribe `python3 scripts/resultados.py` desde una corrida real. No se edita a mano: la corrida siguiente lo reemplaza.
 
@@ -10,7 +10,7 @@ Corrida del 2026-11-16, sobre el commit `9998b2a3`, con cambios en el árbol tod
 
 | Puerta | Qué prueba | Comprob. | Tiempo | |
 |---|---|---:|---:|---|
-| `criterio-ciso/evaluar.py` | Que Amparo levante cada señal sembrada en los incidentes y las pruebas, y ninguna en los controles | 12 | 168 ms | verde |
+| `criterio-ciso/evaluar.py` | Que Amparo levante cada señal sembrada en los incidentes y las pruebas, y ninguna en los controles | 12 | 142 ms | verde |
 
 Una puerta sin comprobaciones no es una puerta vacía: **genera el material sintético** o verifica una estructura completa, y falla entera si algo no está.
 
@@ -56,20 +56,21 @@ El detalle del corpus —qué planta cada proyecto o producto, por qué, y cuál
 | `criterio-portfolio/compartir.py` | Compartir hallazgos: el resumen cuenta comandos y señales del rastro y no lleva ningún dato de una entidad (decisión 0025) | 6 | verde |
 | `criterio-portfolio/terminos.py` | Los términos: una aceptación mientras su texto no cambie, con comprobante en Markdown y PDF y su huella SHA-256 | 15 | verde |
 | `criterio-portfolio/raiz.py` | La carpeta raíz: encontrarla por su estructura y su marca, y marcarla solo con permiso | 12 | verde |
-| `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | 1 | verde |
+| `scripts/registro.py verificar` | El registro de versiones: cada entrada con su huella y la de la anterior, sin huecos | — | **4 EN ROJO** |
 | `scripts/trafico.py` | La cuenta de instalaciones: clonadores únicos de la ventana menos los pushes a main de esa misma ventana | 4 | verde |
-| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 401 | **4 EN ROJO** |
+| `tests/coherencia.py` | Que la documentación y el código digan lo mismo | 402 | verde |
 | `tests/contratos.py` | Que cada comando y cada skill cumplan su contrato | 1 | verde |
 | `scripts/validate_plugins.py` | Que el marketplace y cada plugin estén completos | — | verde |
 | `scripts/sincronizar.py` | Que las copias compartidas no se hayan separado | — | verde |
 | `scripts/manual.py` | Que el manual diga lo que dicen los README y los contratos | 1 | verde |
 | `scripts/industrias.py` | Que las industrias del README salgan de su fuente y que «probada» sea cierto | — | verde |
 | `scripts/paises_probados.py` | Que la tabla de los países probados de la CFO y de la CLO salga de la evidencia de las rondas | — | verde |
+| `scripts/youtube.py` | Que el catálogo de YouTube salga de los videos publicados, sus transcripciones y las familias, y cumpla las reglas de YouTube | — | verde |
 | `scripts/carpetas.py` | Que la estructura de carpetas recomendada diga lo mismo en sus cinco copias | — | verde |
 | `scripts/calidad.py` | Que laboratorio o estable salga de la evidencia con el piso del 95 %, y que cada versión siga la regla de diez por entero | 20 | verde |
 | `scripts/hoja.py` | Que la hoja de ruta salga de su fuente y diga «liberada» solo de lo registrado | — | verde |
 | `scripts/analisis.py` | Que el análisis estadístico diga lo que dice la evidencia de las rondas | — | verde |
-| `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | verde |
+| `scripts/analisis_familias.py` | Que el análisis estadístico de cada familia con rondas diga lo que dice la evidencia de sus rondas | — | **0 EN ROJO** |
 | `scripts/compatibilidad.py` | Que cada script corra con el Python que trae el equipo de quien instala el plugin, desde el 3.9 | — | verde |
 | `scripts/soporte.py` | Que cada rol tenga el marco que lo define, verificado, y cada familia sus cifras de costo verificadas | — | verde |
 | `criterio-cfo/generar.py` | El material CFO: cuatro industrias y dos entidades de control, con su clave | — | verde |

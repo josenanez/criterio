@@ -1,0 +1,29 @@
+{
+  "n": 7,
+  "agente": "norma",
+  "comando": "roles-wake",
+  "argumento": "",
+  "inicio": "2026-11-16T19:38:45",
+  "estado": "success",
+  "error": false,
+  "segundos": 54,
+  "turnos": 13,
+  "tokens": 545566,
+  "tokens_salida": 5603,
+  "costo_usd": 0.4365862,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-roles-scan-2.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-roles-wake-1.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-roles-wake.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-roles-scan.md"
+    ],
+    "borrados": []
+  }
+}

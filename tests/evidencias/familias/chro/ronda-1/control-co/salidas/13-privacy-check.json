@@ -1,0 +1,20 @@
+{
+  "n": 13,
+  "agente": "candido",
+  "comando": "privacy-check",
+  "argumento": "",
+  "inicio": "2026-11-16T19:57:32",
+  "estado": "success",
+  "error": false,
+  "segundos": 20,
+  "turnos": 4,
+  "tokens": 190151,
+  "tokens_salida": 1458,
+  "costo_usd": 0.213062,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [],
+    "modificados": [],
+    "borrados": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "n": 5,
+  "agente": "norma",
+  "comando": "profile-language",
+  "argumento": "",
+  "inicio": "2026-11-16T20:19:15",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 8,
+  "tokens": 346883,
+  "tokens_salida": 3252,
+  "costo_usd": 0.1378273,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-profile-language-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-profile-language.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/perfiles/2026-11/reporte-profile-language.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

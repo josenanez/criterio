@@ -1,0 +1,26 @@
+{
+  "n": 6,
+  "agente": "norma",
+  "comando": "profile-map",
+  "argumento": "",
+  "inicio": "2026-11-16T19:50:53",
+  "estado": "success",
+  "error": false,
+  "segundos": 44,
+  "turnos": 7,
+  "tokens": 350465,
+  "tokens_salida": 3025,
+  "costo_usd": 0.31028360000000005,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/2026-11-16-profile-map-1.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas/salida-profile-map.md",
+      "estado-talento/900777888-cooperativa-control-sintetica/perfiles/2026-11/reporte-profile-map.md"
+    ],
+    "modificados": [
+      "estado-talento/900777888-cooperativa-control-sintetica/corridas.json"
+    ],
+    "borrados": []
+  }
+}

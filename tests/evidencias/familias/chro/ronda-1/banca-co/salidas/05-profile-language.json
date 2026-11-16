@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "norma",
+  "comando": "profile-language",
+  "argumento": "",
+  "inicio": "2026-11-16T19:37:48",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 8,
+  "tokens": 347089,
+  "tokens_salida": 2166,
+  "costo_usd": 0.1391241,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-profile-language-1.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-profile-language.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/perfiles/2026-11/reporte-profile-language.md"
+    ],
+    "modificados": [
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

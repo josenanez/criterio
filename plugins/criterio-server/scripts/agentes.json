@@ -100,8 +100,8 @@
         "en": "Talent"
       },
       "estado": {
-        "es": "En construcción · motor probado",
-        "en": "Under construction · engine tested"
+        "es": "Construida · en prueba",
+        "en": "Built · in testing"
       },
       "agentes": [
         "perfiles",

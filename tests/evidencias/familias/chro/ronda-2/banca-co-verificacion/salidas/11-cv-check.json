@@ -1,0 +1,28 @@
+{
+  "n": 11,
+  "agente": "candido",
+  "comando": "cv-check",
+  "argumento": "",
+  "inicio": "2026-11-16T20:32:28",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 7,
+  "tokens": 349129,
+  "tokens_salida": 2441,
+  "costo_usd": 0.1325034,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/2026-11-16-cv-check-1.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas/salida-cv-check.md",
+      "estado-talento/901555123-banco-cordillera-sintetico/seleccion/2026-11/reporte-cv-check.md"
+    ],
+    "modificados": [
+      ".criterio/rastro-errores.log",
+      "estado-talento/901555123-banco-cordillera-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
