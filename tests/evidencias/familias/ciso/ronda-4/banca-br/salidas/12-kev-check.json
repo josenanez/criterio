@@ -1,0 +1,30 @@
+{
+  "n": 12,
+  "agente": "guillermo",
+  "comando": "kev-check",
+  "argumento": "",
+  "inicio": "2026-11-16T16:28:37",
+  "estado": "success",
+  "error": false,
+  "segundos": 31,
+  "turnos": 9,
+  "tokens": 400979,
+  "tokens_salida": 3777,
+  "costo_usd": 0.16581269999999998,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-11-16-kev-check-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-11-16-kev-check-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-kev-check-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-kev-check.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/vulnerabilidades/2026-10/reporte-kev-check.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

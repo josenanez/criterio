@@ -1,0 +1,36 @@
+{
+  "n": 8,
+  "agente": "constanza",
+  "comando": "compliance-setup",
+  "argumento": "legal/39910202-instituto-publico-del-altiplano-sintetic",
+  "inicio": "2026-11-16T16:23:54",
+  "estado": "success",
+  "error": false,
+  "segundos": 82,
+  "turnos": 15,
+  "tokens": 628637,
+  "tokens_salida": 9383,
+  "costo_usd": 0.6240468,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/cumplimiento/39910202/config.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.8.0-2026-10-06.md",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.8.0-2026-10-06.pdf",
+      ".criterio/terminos/aceptacion-criterio-compliance-1.8.0-2026-10-06.sha256",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cache/cumplimiento-2026-09/20-reportes/informe-cumplimiento-2026-09.md.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/2026-10-06-compliance-setup-1.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/salida-compliance-setup.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cumplimiento/2026-09/ficha.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cumplimiento/2026-09/reporte-compliance-status.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cumplimiento/2026-09/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cache/manifest.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas.json"
+    ],
+    "borrados": []
+  }
+}

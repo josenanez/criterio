@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "alexis",
+  "comando": "security-scan",
+  "argumento": "",
+  "inicio": "2026-11-16T16:21:34",
+  "estado": "success",
+  "error": false,
+  "segundos": 59,
+  "turnos": 20,
+  "tokens": 819658,
+  "tokens_salida": 5773,
+  "costo_usd": 0.6235868,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-security-scan-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-security-scan.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/indice.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/seguridad/2026-10/reporte-security-scan.md"
+    ],
+    "modificados": [
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

@@ -1,14 +1,14 @@
 # Análisis estadístico de las pruebas · familia CLO
 
-Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 15 · [English](ANALISIS.md)
+Generado por `scripts/analisis_familias.py` desde `tests/evidencias/familias/clo/` · ronda más reciente: 16 · [English](ANALISIS.md)
 
 No se edita a mano: cada cifra sale de la evidencia y el análisis se regenera con cada ronda.
 
 ## En una mirada
 
-La ronda más reciente, la 15, parcial, sobre 1 de las 48 entidades del material: 10 de 10 señales sembradas encontradas (margen del 95 %: 72,2–100 %) y 0 de más; 132 de 132 datos extraídos bien (100 %, margen del 95 %: 97,1–100 %); y 0 de 0 entidades de control sin ninguna señal.
+La ronda más reciente, la 16, parcial, sobre 1 de las 48 entidades del material: 2 de 2 señales sembradas encontradas (margen del 95 %: 34,2–100 %) y 0 de más; 156 de 156 datos extraídos bien (100 %, margen del 95 %: 97,5–100 %); y 0 de 0 entidades de control sin ninguna señal.
 
-Sumando las rondas 1–15, 298 de 298 señales encontradas, 0 de más y 7708 de 7727 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
+Sumando las rondas 1–16, 300 de 300 señales encontradas, 0 de más y 7864 de 7883 datos bien. Las rondas repiten el mismo material: no son muestras independientes, y el margen se calcula sobre los casos de cada una.
 
 ## Qué se probó y cómo
 
@@ -18,20 +18,20 @@ Cobertura: de las señales sembradas, cuántas encontró. Precisión: de las que
 
 |   |   |
 |---|---|
-| Rondas | 15; la más reciente, la 15, es parcial |
-| Material | Retail · Paraguay |
+| Rondas | 16; la más reciente, la 16, es parcial |
+| Material | Entidad pública · Guatemala |
 | Entidades de control |  |
-| Corridas de una entidad | 56 |
-| Señales sembradas | 298 |
-| Datos calificados | 7727 |
+| Corridas de una entidad | 57 |
+| Señales sembradas | 300 |
+| Datos calificados | 7883 |
 
-## Resultados acumulados · rondas 1–15
+## Resultados acumulados · rondas 1–16
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 298 de 298 | 100 % | 98,7–100 % |
-| Señales · precisión | 298 de 298 | 100 % | 98,7–100 % |
-| Extracción · datos correctos | 7708 de 7727 | 99,8 % | 99,6–99,9 % |
+| Señales · cobertura | 300 de 300 | 100 % | 98,7–100 % |
+| Señales · precisión | 300 de 300 | 100 % | 98,7–100 % |
+| Extracción · datos correctos | 7864 de 7883 | 99,8 % | 99,6–99,9 % |
 | Control · sin ninguna señal | 17 de 17 | 100 % | 81,5–100 % |
 
 ## Evolución por ronda
@@ -57,25 +57,26 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 | 13 | 3 | 100 % | 100 % | 100 % | 1 de 1 | 10,2 M | 0 |
 | 14 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 7,2 M | 1 |
 | 15 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,7 M | 0 |
+| 16 | 1 | 100 % | 100 % | 100 % | 0 de 0 | 6,8 M | 0 |
 
-## La ronda más reciente · ronda 15
+## La ronda más reciente · ronda 16
 
 | Métrica | Casos | Resultado | Margen del 95 % |
 |---|---|---|---|
-| Señales · cobertura | 10 de 10 | 100 % | 72,2–100 % |
-| Señales · precisión | 10 de 10 | 100 % | 72,2–100 % |
-| Extracción · datos correctos | 132 de 132 | 100 % | 97,1–100 % |
+| Señales · cobertura | 2 de 2 | 100 % | 34,2–100 % |
+| Señales · precisión | 2 de 2 | 100 % | 34,2–100 % |
+| Extracción · datos correctos | 156 de 156 | 100 % | 97,5–100 % |
 | Control · sin ninguna señal | 0 de 0 | — | — |
 
-## Por industria y país · ronda 15
+## Por industria y país · ronda 16
 
 | Material | Agentes | Señales | De más | Extracción | Tokens |
 |---|---|---|---|---|---|
-| Retail · Paraguay | Constanza, Fidel | 10 de 10 | 0 | 132 de 132 | 6,7 M |
+| Entidad pública · Guatemala | Constanza, Fidel | 2 de 2 | 0 | 156 de 156 | 6,8 M |
 
-## Lo que falló, uno por uno · rondas 1–15
+## Lo que falló, uno por uno · rondas 1–16
 
-19 fallas en 56 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
+19 fallas en 57 corridas, cada una con el defecto que la explica: su origen dice si falló el agente o la prueba. Las cifras son las de la calificación original: 4 de esas fallas vinieron de la prueba —el arnés o la clave—, no del agente, y con la prueba corregida se califican como correctas.
 
 | Ronda | Material | Qué | Dónde | Defecto | Origen |
 |---|---|---|---|---|---|
@@ -120,7 +121,7 @@ Una ronda que no corre todas las entidades es parcial: la primera, pequeña, ant
 
 ## Consumo y próximo paso
 
-Las 15 rondas usaron 215,1 millones de tokens: 212,1 millones en las corridas calificadas y 3 en las que se repitieron después de corregir un defecto. En promedio, 3,8 millones por entidad.
+Las 16 rondas usaron 221,9 millones de tokens: 218,9 millones en las corridas calificadas y 3 en las que se repitieron después de corregir un defecto. En promedio, 3,8 millones por entidad.
 
 El material es sintético. Si una versión es estable o de laboratorio lo dice esta evidencia, no su número: estable, con el piso del margen del 95 % en 95 % o más en señales y en datos sobre la corrida más reciente de cada entidad, y ninguna señal en los controles (decisión 0020).
 

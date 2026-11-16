@@ -1,0 +1,30 @@
+{
+  "n": 3,
+  "agente": "alexis",
+  "comando": "soa-status",
+  "argumento": "",
+  "inicio": "2026-11-16T16:22:33",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 7,
+  "tokens": 348424,
+  "tokens_salida": 2960,
+  "costo_usd": 0.1466268,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-16-soa-status-1.html",
+      ".criterio/corridas/seguridad/2026-11-16-soa-status-1.md",
+      ".criterio/corridas/seguridad/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-soa-status-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-soa-status.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/seguridad/2026-10/reporte-soa-status.md"
+    ],
+    "modificados": [
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

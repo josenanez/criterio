@@ -17,6 +17,7 @@ Cada fila es una entidad del material corrida por los agentes con `tests/ronda_f
 | ronda-2 | [energia-pe](ronda-2/energia-pe/) | energia · PE | alexis, amparo, guillermo | 25 de 25 · 0 de más | 8 de 8 | 5.03 M |
 | ronda-2 | [seguros-cl](ronda-2/seguros-cl/) | seguros · CL | alexis, amparo, guillermo | 23 de 23 · 0 de más | 8 de 8 | 5.36 M |
 | ronda-3 | [banca-co-eficiencia](ronda-3/banca-co-eficiencia/) | banca · CO | alexis, amparo, guillermo | 25 de 25 · 0 de más | 8 de 8 | 11.44 M |
+| ronda-4 | [banca-br](ronda-4/banca-br/) | banca · BR | alexis, amparo, guillermo | 26 de 26 · 0 de más | 8 de 8 | 11.19 M |
 
 ## Los defectos que encontraron
 

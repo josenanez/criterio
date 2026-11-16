@@ -1,0 +1,26 @@
+{
+  "n": 11,
+  "agente": "guillermo",
+  "comando": "vuln-sla",
+  "argumento": "",
+  "inicio": "2026-11-16T16:28:07",
+  "estado": "success",
+  "error": false,
+  "segundos": 29,
+  "turnos": 7,
+  "tokens": 350175,
+  "tokens_salida": 3232,
+  "costo_usd": 0.15128090000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-vuln-sla-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-vuln-sla.md"
+    ],
+    "modificados": [
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

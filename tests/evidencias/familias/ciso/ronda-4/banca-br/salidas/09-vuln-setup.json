@@ -1,0 +1,45 @@
+{
+  "n": 9,
+  "agente": "guillermo",
+  "comando": "vuln-setup",
+  "argumento": "seguridad/12345678000195-banco-paulista-sintetico",
+  "inicio": "2026-11-16T16:25:50",
+  "estado": "success",
+  "error": false,
+  "segundos": 87,
+  "turnos": 23,
+  "tokens": 720907,
+  "tokens_salida": 9641,
+  "costo_usd": 0.699713,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-11-16-vuln-setup-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-11-16-vuln-setup-1.md",
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      ".criterio/terminos/aceptacion-criterio-vulnerability-1.4.0-2026-10-15.md",
+      ".criterio/terminos/aceptacion-criterio-vulnerability-1.4.0-2026-10-15.pdf",
+      ".criterio/terminos/aceptacion-criterio-vulnerability-1.4.0-2026-10-15.sha256",
+      ".criterio/vulnerabilidades/12345678000195/config.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/00-referencia/calendario-continuidad.csv.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/00-referencia/declaracion-aplicabilidad.csv.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/00-referencia/inventario-activos.csv.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/00-referencia/matriz-notificaciones.xlsx.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/00-referencia/politica-gestion-vulnerabilidades.pdf.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/00-referencia/politica-respuesta-incidentes.docx.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/00-referencia/sistemas.csv.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/00-referencia/terceros.csv.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-vuln-setup-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-vuln-setup.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/vulnerabilidades/2026-10/reporte-vuln-sla.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/vulnerabilidades/2026-10/resultados.json"
+    ],
+    "modificados": [
+      ".criterio/terminos/aceptaciones.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/cache/manifest.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

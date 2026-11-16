@@ -1,0 +1,30 @@
+{
+  "n": 3,
+  "agente": "fidel",
+  "comando": "contract-register",
+  "argumento": "",
+  "inicio": "2026-11-16T16:22:01",
+  "estado": "success",
+  "error": false,
+  "segundos": 25,
+  "turnos": 9,
+  "tokens": 393384,
+  "tokens_salida": 2013,
+  "costo_usd": 0.25687930000000003,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-11-16-contract-register-1.html",
+      ".criterio/corridas/legal/2026-11-16-contract-register-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/contratos/reporte-contract-register.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/2026-10-06-contract-register-1.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/salida-contract-register.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas.json"
+    ],
+    "borrados": []
+  }
+}

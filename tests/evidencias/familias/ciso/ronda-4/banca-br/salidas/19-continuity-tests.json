@@ -1,0 +1,30 @@
+{
+  "n": 19,
+  "agente": "amparo",
+  "comando": "continuity-tests",
+  "argumento": "",
+  "inicio": "2026-11-16T16:34:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 33,
+  "turnos": 8,
+  "tokens": 401549,
+  "tokens_salida": 4280,
+  "costo_usd": 0.1705374,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/resiliencia/2026-11-16-continuity-tests-1.html",
+      ".criterio/corridas/resiliencia/2026-11-16-continuity-tests-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-continuity-tests-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-continuity-tests.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/resiliencia/2026-10/reporte-continuity-tests.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/resiliencia/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

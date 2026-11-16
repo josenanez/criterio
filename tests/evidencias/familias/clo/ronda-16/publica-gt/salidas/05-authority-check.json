@@ -1,0 +1,27 @@
+{
+  "n": 5,
+  "agente": "fidel",
+  "comando": "authority-check",
+  "argumento": "",
+  "inicio": "2026-11-16T16:22:52",
+  "estado": "success",
+  "error": false,
+  "segundos": 28,
+  "turnos": 9,
+  "tokens": 444753,
+  "tokens_salida": 2438,
+  "costo_usd": 0.1502532,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/contratos/reporte-authority-check.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/2026-10-06-authority-check-1.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/salida-authority-check.md"
+    ],
+    "modificados": [
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas.json"
+    ],
+    "borrados": []
+  }
+}

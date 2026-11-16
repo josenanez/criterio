@@ -1,0 +1,30 @@
+{
+  "n": 7,
+  "agente": "alexis",
+  "comando": "risk-register",
+  "argumento": "",
+  "inicio": "2026-11-16T16:24:23",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 9,
+  "tokens": 351055,
+  "tokens_salida": 2560,
+  "costo_usd": 0.1442832,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-16-risk-register-1.html",
+      ".criterio/corridas/seguridad/2026-11-16-risk-register-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-risk-register-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-risk-register.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/seguridad/2026-10/reporte-risk-register.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

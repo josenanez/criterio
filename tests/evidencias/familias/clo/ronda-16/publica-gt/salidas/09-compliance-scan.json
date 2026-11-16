@@ -1,0 +1,33 @@
+{
+  "n": 9,
+  "agente": "constanza",
+  "comando": "compliance-scan",
+  "argumento": "",
+  "inicio": "2026-11-16T16:25:16",
+  "estado": "success",
+  "error": false,
+  "segundos": 40,
+  "turnos": 13,
+  "tokens": 531455,
+  "tokens_salida": 3379,
+  "costo_usd": 0.3829976,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/cumplimiento/2026-11-16-compliance-scan-1.html",
+      ".criterio/corridas/cumplimiento/2026-11-16-compliance-scan-1.md",
+      ".criterio/corridas/cumplimiento/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cache/30-normativa/boletin-2026-09.md.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cache/30-normativa/registro-normativo.csv.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/2026-10-06-compliance-scan-1.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/salida-compliance-scan.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cumplimiento/2026-09/reporte-compliance-scan.md"
+    ],
+    "modificados": [
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cache/manifest.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas.json"
+    ],
+    "borrados": []
+  }
+}

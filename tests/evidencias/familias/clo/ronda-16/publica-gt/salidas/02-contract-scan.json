@@ -1,0 +1,28 @@
+{
+  "n": 2,
+  "agente": "fidel",
+  "comando": "contract-scan",
+  "argumento": "",
+  "inicio": "2026-11-16T16:21:10",
+  "estado": "success",
+  "error": false,
+  "segundos": 51,
+  "turnos": 17,
+  "tokens": 955350,
+  "tokens_salida": 4442,
+  "costo_usd": 0.7182834000000001,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/contratos/reporte-contract-scan.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/2026-10-06-contract-scan-1.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/salida-contract-scan.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/indice.json"
+    ],
+    "modificados": [
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas.json"
+    ],
+    "borrados": []
+  }
+}

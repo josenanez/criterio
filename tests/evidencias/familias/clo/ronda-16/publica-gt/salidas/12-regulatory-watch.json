@@ -1,0 +1,27 @@
+{
+  "n": 12,
+  "agente": "constanza",
+  "comando": "regulatory-watch",
+  "argumento": "",
+  "inicio": "2026-11-16T16:26:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 42,
+  "turnos": 12,
+  "tokens": 558671,
+  "tokens_salida": 3718,
+  "costo_usd": 0.45479179999999997,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/2026-10-06-regulatory-watch-1.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/salida-regulatory-watch.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/cumplimiento/2026-09/reporte-regulatory-watch.md"
+    ],
+    "modificados": [
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas.json"
+    ],
+    "borrados": []
+  }
+}

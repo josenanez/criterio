@@ -1,0 +1,31 @@
+{
+  "n": 8,
+  "agente": "alexis",
+  "comando": "security-wake",
+  "argumento": "",
+  "inicio": "2026-11-16T16:24:49",
+  "estado": "success",
+  "error": false,
+  "segundos": 61,
+  "turnos": 16,
+  "tokens": 678753,
+  "tokens_salida": 6214,
+  "costo_usd": 0.5099062,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/seguridad/2026-11-16-security-wake-1.html",
+      ".criterio/corridas/seguridad/2026-11-16-security-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-security-scan-2.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-security-wake-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-security-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/seguridad/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-security-scan.md"
+    ],
+    "borrados": []
+  }
+}

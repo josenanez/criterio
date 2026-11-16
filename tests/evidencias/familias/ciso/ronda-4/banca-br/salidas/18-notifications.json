@@ -1,0 +1,30 @@
+{
+  "n": 18,
+  "agente": "amparo",
+  "comando": "notifications",
+  "argumento": "",
+  "inicio": "2026-11-16T16:34:26",
+  "estado": "success",
+  "error": false,
+  "segundos": 26,
+  "turnos": 7,
+  "tokens": 348479,
+  "tokens_salida": 2521,
+  "costo_usd": 0.1429531,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/resiliencia/2026-11-16-notifications-1.html",
+      ".criterio/corridas/resiliencia/2026-11-16-notifications-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-notifications-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-notifications.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/resiliencia/2026-10/reporte-notifications.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/resiliencia/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

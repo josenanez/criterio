@@ -1,0 +1,20 @@
+{
+  "entidad": "Banco Paulista Sintético",
+  "agentes": [
+    "alexis",
+    "amparo",
+    "guillermo"
+  ],
+  "tokens": 11185858,
+  "senales": {
+    "esperadas": 26,
+    "acertadas": 26,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 8,
+    "bien": 8,
+    "mal": []
+  }
+}

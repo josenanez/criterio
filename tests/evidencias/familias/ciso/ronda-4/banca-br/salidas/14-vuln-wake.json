@@ -1,0 +1,31 @@
+{
+  "n": 14,
+  "agente": "guillermo",
+  "comando": "vuln-wake",
+  "argumento": "",
+  "inicio": "2026-11-16T16:29:43",
+  "estado": "success",
+  "error": false,
+  "segundos": 65,
+  "turnos": 13,
+  "tokens": 437374,
+  "tokens_salida": 7856,
+  "costo_usd": 0.4749236,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-11-16-vuln-wake-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-11-16-vuln-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-vuln-scan-2.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-vuln-wake-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-vuln-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-vuln-scan.md"
+    ],
+    "borrados": []
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "n": 13,
+  "agente": "guillermo",
+  "comando": "scan-coverage",
+  "argumento": "",
+  "inicio": "2026-11-16T16:29:07",
+  "estado": "success",
+  "error": false,
+  "segundos": 36,
+  "turnos": 8,
+  "tokens": 406016,
+  "tokens_salida": 4677,
+  "costo_usd": 0.17795640000000001,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/vulnerabilidades/2026-11-16-scan-coverage-1.html",
+      ".criterio/corridas/vulnerabilidades/2026-11-16-scan-coverage-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-scan-coverage-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-scan-coverage.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/vulnerabilidades/2026-10/reporte-scan-coverage.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/vulnerabilidades/corridas.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}

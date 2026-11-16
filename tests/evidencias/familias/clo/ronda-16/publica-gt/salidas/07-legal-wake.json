@@ -1,0 +1,29 @@
+{
+  "n": 7,
+  "agente": "fidel",
+  "comando": "legal-wake",
+  "argumento": "",
+  "inicio": "2026-11-16T16:23:46",
+  "estado": "success",
+  "error": false,
+  "segundos": 8,
+  "turnos": 2,
+  "tokens": 96936,
+  "tokens_salida": 160,
+  "costo_usd": 0.1653962,
+  "modelo": "claude-opus-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/legal/2026-11-16-legal-wake-1.html",
+      ".criterio/corridas/legal/2026-11-16-legal-wake-1.md",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/2026-10-06-legal-wake-1.md",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas/salida-legal-wake.md"
+    ],
+    "modificados": [
+      ".criterio/corridas/legal/corridas.json",
+      "estado-legal/39910202-instituto-publico-del-altiplano-sintetic/corridas.json"
+    ],
+    "borrados": []
+  }
+}

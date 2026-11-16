@@ -1,0 +1,19 @@
+{
+  "entidad": "Instituto Público del Altiplano Sintético",
+  "agentes": [
+    "constanza",
+    "fidel"
+  ],
+  "tokens": 6790332,
+  "senales": {
+    "esperadas": 2,
+    "acertadas": 2,
+    "de_mas": [],
+    "faltantes": []
+  },
+  "extraccion": {
+    "campos": 156,
+    "bien": 156,
+    "mal": []
+  }
+}

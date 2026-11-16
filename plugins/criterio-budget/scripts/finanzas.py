@@ -1193,7 +1193,9 @@ def cuentas(cfg: dict, periodo: str) -> dict:
             out["alertas"].append(alerta("account_unreconciled",
                                          f"cuenta {cta}: el mayor dice {mon(mayor_v)} y el auxiliar suma {mon(aux)}",
                                          c["cita"], mayor_v - aux, clave=f"cuenta:{cta}"))
-    for cta in sorted(set(conciliar) - vistas):
+    # Una cuenta de la configuración puede ser un prefijo (1305) y sus auxiliares, de sus subcuentas
+    # (13050501): la cubre cualquier auxiliar de una cuenta que empiece por ella.
+    for cta in sorted(c for c in set(conciliar) if not any(v.startswith(c) for v in vistas)):
         out["alertas"].append(alerta("reconciliation_stale", f"cuenta {cta}: no hay auxiliar del periodo para conciliarla",
                                      {"archivo": f"{periodo}/10-contabilidad/auxiliares/"}, clave=f"cuenta:{cta}"))
     return out
@@ -2761,6 +2763,16 @@ def selftest() -> int:
             f = Path(t) / f"{nombre}.csv"
             f.write_text(cab + "\n" + ";".join("1" for _ in cab.split(";")) + "\n", encoding="utf-8")
             ok(f"columnas de la solicitud: {nombre}", sorted(c for c in campos if c not in Tabla(f, campos).mapa), [])
+        # Una cuenta de la configuración que es un prefijo queda cubierta por el auxiliar de su subcuenta.
+        dd = Path(t) / "docs"
+        (dd / "2026-10" / "10-contabilidad" / "auxiliares").mkdir(parents=True)
+        (dd / "2026-10" / "10-contabilidad" / "balance-comprobacion.csv").write_text(
+            "cuenta;nombre;saldo_inicial;debito;credito;saldo_final\n13050501;Clientes;0;100;0;100\n", encoding="utf-8")
+        (dd / "2026-10" / "10-contabilidad" / "auxiliares" / "13050501-clientes.csv").write_text(
+            "fecha;tercero;documento;valor\n2026-10-01;1;F-1;100\n", encoding="utf-8")
+        rc = cuentas({"_docs": dd, "accounts": {"reconcile": ["1305", "2205"]}}, "2026-10")
+        ok("el prefijo 1305 lo cubre el auxiliar de 13050501; el 2205, sin auxiliar, no",
+           sorted(a_["key"] for a_ in rc["alertas"] if a_["signal"] == "reconciliation_stale"), ["cuenta:2205"])
         # «Cuenta» como código en un sistema y como nombre en otro: decide el contenido.
         for nombre, cab, fila in (("codigo_y_cuenta", "Código Cuenta;Cuenta;Débito;Crédito", "145601;Cartera;10;0"),
                                   ("code_y_account", "Code;Account;Debit;Credit", "111005;Bancos;0;10"),

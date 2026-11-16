@@ -1,0 +1,29 @@
+{
+  "n": 17,
+  "agente": "amparo",
+  "comando": "incident-timeline",
+  "argumento": "",
+  "inicio": "2026-11-16T16:33:59",
+  "estado": "success",
+  "error": false,
+  "segundos": 27,
+  "turnos": 10,
+  "tokens": 410122,
+  "tokens_salida": 3352,
+  "costo_usd": 0.16574090000000002,
+  "modelo": "claude-sonnet-5-5",
+  "cambios": {
+    "nuevos": [
+      ".criterio/corridas/resiliencia/2026-11-16-incident-timeline-1.html",
+      ".criterio/corridas/resiliencia/2026-11-16-incident-timeline-1.md",
+      ".criterio/corridas/resiliencia/corridas.json",
+      ".criterio/en-curso/<sesion>.json",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/2026-10-15-incident-timeline-1.md",
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas/salida-incident-timeline.md"
+    ],
+    "modificados": [
+      "estado-seguridad/12345678000195-banco-paulista-sintetico/corridas.json"
+    ],
+    "borrados": []
+  }
+}
