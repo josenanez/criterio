@@ -10,13 +10,13 @@
 0:13  Escaneos Cobertura sobre el inventario de activos
 0:15  Incidentes y continuidad Respuesta, notificaciones y pruebas de continuidad
 0:19  Dónde se probó
-0:19  4
+0:19  5
 0:19  países
-0:19  10
+0:19  11
 0:19  entidades de prueba
-0:20  Colombia Perú Chile México
+0:20  Colombia Perú Chile México Brasil
 0:21  Banca Energía Retail Salud Seguros Tecnología
-0:21  y 4 entidades de control
+0:22  y 4 entidades de control
 0:29  Tres agentes y un portal
 0:30  Alexis
 0:30  Los controles
@@ -35,17 +35,17 @@
 0:38  ✓ Revisar cada notificación que pide la matriz contra la que se hizo
 0:39  ¿Cuánto le cuesta? Calcúlalo con tus números en la página.
 0:44  La evidencia
-0:44  97,4 %
+0:44  97,8 %
 0:45  detectado como mínimo, con 95 % de confianza
-0:45  148casos probados
-0:46  Controles 18
-0:47  Accesos, terceros y riesgos 30
-0:47  Vulnerabilidades 42
-0:48  Escaneos 10
-0:48  Incidentes 30
-0:49  Continuidad 18
+0:45  174casos probados
+0:46  Controles 21
+0:47  Accesos, terceros y riesgos 35
+0:47  Vulnerabilidades 49
+0:48  Escaneos 12
+0:48  Incidentes 36
+0:49  Continuidad 21
 0:50  4 de 4 entidades de control sin una sola alarma falsa
-0:50  4 defectos encontrados en 2 rondas: todos corregidos y verificados
+0:50  4 defectos encontrados en 4 rondas: todos corregidos y verificados
 0:58  El gobierno y los controles
 0:58  Lo que encontró
 0:58  El banco de Colombia en octubre con 8 señales abiertas: un control que figura implementado sin ninguna evidencia de que operó, dos revisiones de accesos vencidas, dos terceros críticos sin su evaluación al día, una aceptación de riesgo que nadie volvió a revisar, una evidencia vencida para su periodicidad y un control aplicable si

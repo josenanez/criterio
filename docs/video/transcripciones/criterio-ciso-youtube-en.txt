@@ -10,13 +10,13 @@
 0:13  Scanning Coverage of the asset inventory
 0:15  Incidents and continuity Response, notifications and continuity tests
 0:19  Where it was tested
-0:19  4
+0:19  5
 0:19  countries
-0:19  10
+0:19  11
 0:19  test entities
-0:20  Colombia Peru Chile Mexico
+0:20  Colombia Peru Chile Mexico Brazil
 0:21  Banking Energy Retail Healthcare Insurance Technology
-0:21  and 4 control entities
+0:22  and 4 control entities
 0:29  Three agents and a portal
 0:30  Alexis
 0:30  The controls
@@ -35,17 +35,17 @@
 0:38  ✓ Checking each notification the matrix requires against the one that was made
 0:39  What does it cost? Work it out with your numbers on the page.
 0:44  The evidence
-0:44  97.4%
+0:44  97.8%
 0:45  caught at least, with 95% confidence
-0:45  148cases tested
-0:46  Controls 18
-0:47  Access, third parties and risk 30
-0:47  Vulnerabilities 42
-0:48  Scanning 10
-0:48  Incidents 30
-0:49  Continuity 18
+0:45  174cases tested
+0:46  Controls 21
+0:47  Access, third parties and risk 35
+0:47  Vulnerabilities 49
+0:48  Scanning 12
+0:48  Incidents 36
+0:49  Continuity 21
 0:50  4 of 4 control entities without a single false alarm
-0:50  4 defects found in 2 rounds: all fixed and verified
+0:50  4 defects found in 4 rounds: all fixed and verified
 0:58  Governance and controls
 0:58  What it found
 0:58  The Colombian bank in October with 8 open signals: a control listed as implemented with no evidence that it operated, two overdue access reviews, two critical third parties without an up-to-date assessment, a risk acceptance nobody reviewed again, evidence stale for its frequency and an applicable control with no owner.
