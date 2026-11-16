@@ -1,6 +1,6 @@
 # Terms of use
 
-[Español](TERMS.es.md) · Version 1.5 · 2026-11-09
+[Español](TERMS.es.md) · Version 1.6 · 2026-11-16
 
 By installing, deploying, testing or running Criterio, you accept these terms. If you do not accept them, do not install it.
 
@@ -10,7 +10,7 @@ By installing, deploying, testing or running Criterio, you accept these terms. I
 
 Criterio gives **analysis tested against the evidence** to whoever decides: every data point with a citation to the document it comes from. It is not advice, it does not replace the judgement of whoever decides, and it creates no professional relationship of any kind between you and the maintainer or any contributor.
 
-Every version goes through an internal validation before it is published: automated tests of the code on every change, and rounds in which each family's agents run their commands on synthetic test material from several industries and countries, with control entities where any signal is a failure, with no data from any organisation. What each agent produces is compared with an answer key, and the results —with their confidence margin, the defects found and their fix— are published in each family's test evidence, at https://www.josenanez.com/agents, and in the legal notice.
+Every version goes through an internal validation before it is published: automated tests of the code on every change, and rounds in which each family's agents run their commands on synthetic test material from several industries and countries, built on real company information anonymised before processing —no name, identifier, figure or personal data that could identify a company or a person is kept or published—, with control entities where any signal is a failure. What each agent produces is compared with an answer key, and the results —with their confidence margin, the defects found and their fix— are published in each family's test evidence, at https://www.josenanez.com/agents, and in the legal notice.
 
 ## 2. The decision, and its verification, belong to whoever signs it
 

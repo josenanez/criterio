@@ -1,6 +1,6 @@
 # Términos de uso
 
-[English](TERMS.md) · Versión 1.5 · 2026-11-09
+[English](TERMS.md) · Versión 1.6 · 2026-11-16
 
 Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos. Si no los acepta, no lo instale.
 
@@ -10,7 +10,7 @@ Al instalar, desplegar, probar o ejecutar Criterio, usted acepta estos términos
 
 Criterio entrega **análisis contrastado contra la evidencia** para quien decide: cada dato con la cita del documento del que sale. No es asesoría, no sustituye el juicio de quien decide y no crea relación profesional alguna entre usted y el mantenedor o cualquier aportante.
 
-Cada versión pasa una validación interna antes de publicarse: pruebas automáticas del código en cada cambio, y rondas en las que los agentes de cada familia ejecutan sus comandos sobre material de prueba sintético de varias industrias y países, con entidades de control en las que cualquier señal es una falla, sin datos de ninguna organización. Lo que produce cada agente se compara con una clave de respuestas, y los resultados —con su margen de confianza, los defectos encontrados y su corrección— se publican en la evidencia de pruebas de cada familia, en https://www.josenanez.com/es/agents, y en la nota legal.
+Cada versión pasa una validación interna antes de publicarse: pruebas automáticas del código en cada cambio, y rondas en las que los agentes de cada familia ejecutan sus comandos sobre material de prueba sintético de varias industrias y países, construido sobre información real de empresas, anonimizada antes de procesarse —ningún nombre, identificación, cifra ni dato personal que permita reconocer a una empresa o a una persona se conserva ni se publica—, con entidades de control en las que cualquier señal es una falla. Lo que produce cada agente se compara con una clave de respuestas, y los resultados —con su margen de confianza, los defectos encontrados y su corrección— se publican en la evidencia de pruebas de cada familia, en https://www.josenanez.com/es/agents, y en la nota legal.
 
 ## 2. La decisión, y su verificación, son de quien la firma
 

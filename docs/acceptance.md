@@ -21,7 +21,7 @@ That call writes, deterministically and without the model:
 
 ```json
 "terms_accepted": {
-  "version": "1.5",
+  "version": "1.6",
   "date": "2026-10-28",
   "by": "Nombre Apellido",
   "family_version": "0.12.1",
