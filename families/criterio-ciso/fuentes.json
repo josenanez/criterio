@@ -326,6 +326,46 @@
           ]
         }
       ]
+    },
+    {
+      "id": "paises",
+      "titulo": "La normativa de cada país",
+      "fuentes": [
+        {
+          "id": "F-10",
+          "fuente": "Brasil · Resolução CD/ANPD nº 15, de 24 de abril de 2024, Regulamento de Comunicação de Incidente de Segurança, artículos 6º y 9º",
+          "version": "El texto publicado en el Diário Oficial da União el 26 de abril de 2024 (edição 81, seção 1, p. 114), el que trajo José Francisco Ñáñez",
+          "enlaces": [
+            [
+              "bibliotecadigital.mj.gov.br",
+              "https://bibliotecadigital.mj.gov.br/bitstream/1/12879/2/RES_ANPD_2024_15.html"
+            ],
+            [
+              "gov.br/anpd",
+              "https://www.gov.br/anpd/pt-br/acesso-a-informacao/institucional/atos-normativos/regulamentacoes_anpd"
+            ]
+          ],
+          "consultada": "2026-11-16",
+          "estado": "verificada",
+          "nota": "Artículo 6º: la comunicación del incidente de seguridad a la ANPD la hace el controlador «no prazo de três dias úteis», contado desde que conoce que el incidente afectó datos personales (§ 1º), salvo un plazo distinto en una legislación específica. Artículo 9º: la comunicación a los titulares, en el mismo plazo de tres días hábiles. El reglamento desarrolla el artículo 48 de la Ley 13.709/2018 (LGPD). El motor mide los días hábiles desde la detección que registra la ficha: si la entidad conoció la afectación de datos personales después, la ficha registra esa fecha",
+          "uso": "El plazo en días hábiles de la notificación a la ANPD y a los titulares en la matriz de notificaciones de una entidad de Brasil"
+        },
+        {
+          "id": "F-11",
+          "fuente": "Brasil · Resolução CMN nº 4.893, de 26 de fevereiro de 2021, política de segurança cibernética, artículos 10, 15 y 20",
+          "version": "El texto original de la resolución, el que trajo José Francisco Ñáñez; la traducción al inglés la publica el Banco Central do Brasil",
+          "enlaces": [
+            [
+              "bcb.gov.br",
+              "https://www.bcb.gov.br/content/about/legislation_norms_docs/CMN_Resolution_No_4,893_2021.pdf"
+            ]
+          ],
+          "consultada": "2026-11-16",
+          "estado": "verificada",
+          "nota": "Artículo 20, III: los procedimientos de continuidad contemplan «a comunicação tempestiva ao Banco Central do Brasil» de los incidentes relevantes y de las interrupciones de servicios relevantes que configuren una situación de crisis; la resolución no fija un plazo en horas, así que la matriz toma el de la política de la entidad. Artículo 15, § 2º: la contratación de servicios relevantes de procesamiento, almacenamiento de datos o nube se comunica al Banco Central hasta diez días después de contratarlos. Artículo 10: la política y el plan de respuesta a incidentes se revisan al menos una vez al año. Es el texto original: entre los normativos del Banco Central aparece un voto del CMN de diciembre de 2025 sobre la materia, así que antes del primer uso sobre documentación real se confirma el texto vigente",
+          "uso": "El destinatario Banco Central do Brasil y su base normativa en la matriz de notificaciones de una entidad financiera de Brasil"
+        }
+      ]
     }
   ],
   "cifras": [

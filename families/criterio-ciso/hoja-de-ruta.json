@@ -214,6 +214,39 @@
     ],
     "prueba": "Their material and their round"
    }
+  },
+  {
+   "incremento": 9,
+   "version": null,
+   "estado": "siguiente",
+   "industrias": [],
+   "es": {
+    "titulo": "Brasil",
+    "entra": [
+     "La matriz de notificaciones con plazos en días hábiles: la ANPD y los titulares en tres días úteis, desde su fuente verificada (F-10, Resolução CD/ANPD nº 15/2024, arts. 6º y 9º)",
+     "El Banco Central do Brasil como destinatario, con la comunicación tempestiva de la Resolução CMN nº 4.893/2021 (F-11, art. 20, III) en las horas que fija la política de la entidad",
+     "Una entidad financiera de prueba de Brasil, con una notificación tardía a la ANPD sembrada: el motor levanta cada señal, ninguna de más"
+    ],
+    "prueba": "La prueba del motor sobre la entidad de Brasil: 26 de 26 señales, ninguna de más; la ronda con Alexis, Guillermo y Amparo, por correr"
+   },
+   "en": {
+    "titulo": "Brazil",
+    "entra": [
+     "The notification matrix with deadlines in business days: the ANPD and data subjects within three business days, from its verified source (F-10, CD/ANPD Resolution No. 15/2024, arts. 6 and 9)",
+     "The Banco Central do Brasil as a recipient, with the timely communication of CMN Resolution No. 4,893/2021 (F-11, art. 20, III) within the hours set by the entity's policy",
+     "A Brazilian financial test entity, with a late notification to the ANPD seeded: the engine raises each signal, none extra"
+    ],
+    "prueba": "The engine test on the Brazilian entity: 26 of 26 signals, none extra; the round with Alexis, Guillermo and Amparo, still to run"
+   },
+   "paises": [
+    {
+     "codigo": "BR",
+     "nombre": {
+      "es": "Brasil",
+      "en": "Brazil"
+     }
+    }
+   ]
   }
  ]
 }

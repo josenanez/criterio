@@ -873,7 +873,10 @@ def guillermo(cfg: dict, periodo: str, hoy: dt.date) -> dict:
 # ================================================================ Amparo · la respuesta y la recuperación
 
 ALIAS_MATRIZ = {"destinatario": ["destinatario", "a_quien", "notificar_a", "recipient", "autoridad"], "cuando": ["cuando", "condicion", "aplica", "when", "si"],
-                "plazo_horas": ["plazo_horas", "horas", "plazo", "deadline_hours"], "norma": ["norma", "fuente", "regulacion", "base"]}
+                "plazo_horas": ["plazo_horas", "horas", "plazo", "deadline_hours"],
+                # Un plazo en días hábiles, como el de la autoridad de datos de Brasil (tres días úteis).
+                "plazo_dias_habiles": ["plazo_dias_habiles", "dias_habiles", "prazo_dias_uteis", "dias_uteis", "deadline_business_days"],
+                "norma": ["norma", "fuente", "regulacion", "base"]}
 ALIAS_CALENDARIO = {"prueba": ["prueba", "nombre", "test", "plan"], "tipo": ["tipo", "type"], "frecuencia_dias": ["frecuencia_dias", "cada_dias", "frecuencia", "periodicidad"],
                     "sistema": ["sistema", "system", "respaldo"], "responsable": ["responsable", "owner"]}
 CUANDO = {"todos": "todos", "todo": "todos", "siempre": "todos", "all": "todos",
@@ -978,21 +981,29 @@ def amparo(cfg: dict, periodo: str, hoy: dt.date) -> dict:
 
     # 2 · Las notificaciones de la matriz.
     notifs = []
-    t = leer_tabla(docs, "00-referencia", ("matriz_notificaciones", "notificaciones"), ["destinatario", "cuando", "plazo_horas"], ["norma"],
+    t = leer_tabla(docs, "00-referencia", ("matriz_notificaciones", "notificaciones"), ["destinatario", "cuando"], ["plazo_horas", "plazo_dias_habiles", "norma"],
                    ALIAS_MATRIZ, cols.get("notifications"), no_proc, "la matriz de notificaciones")
     reglas = []
+    feriados = set(cfg.get("holidays") or [])
     for x in t.filas if t else []:
         c = CUANDO.get(norm(x["cuando"]))
-        h = numero(x["plazo_horas"])
-        if not c or h is None:
-            no_proc.append({"archivo": rel(t.ruta, docs), "motivo": f"fila {x['_fila']}: «{x['cuando']}» no es todos, crítica, alta o más, datos personales ni clientes afectados, o el plazo no es un número de horas"})
+        h, dh = numero(x.get("plazo_horas")), numero(x.get("plazo_dias_habiles"))
+        if not c or (h is None and dh is None):
+            no_proc.append({"archivo": rel(t.ruta, docs), "motivo": f"fila {x['_fila']}: «{x['cuando']}» no es todos, crítica, alta o más, datos personales ni clientes afectados, o el plazo no es un número de horas ni de días hábiles"})
             continue
-        reglas.append({"destinatario": x["destinatario"], "cuando": c, "horas": h, "norma": x.get("norma") or "", "cita": t.cita(x, docs)})
+        reglas.append({"destinatario": x["destinatario"], "cuando": c, "horas": h, "dias_habiles": None if h is not None else int(dh),
+                       "norma": x.get("norma") or "", "cita": t.cita(x, docs)})
+
+    def plazo_de(r: dict) -> str:
+        return f"{r['horas']:g} horas" if r["horas"] is not None else f"{r['dias_habiles']} días hábiles"
     for i in sorted(incs, key=lambda x: (x["det"], x["id"])):
         for r in reglas:
             if not aplica(r["cuando"], i):
                 continue
-            tope = i["det"] + dt.timedelta(hours=r["horas"])
+            if r["horas"] is not None:
+                tope = i["det"] + dt.timedelta(hours=r["horas"])
+            else:                  # hasta el final del día hábil n después de la detección
+                tope = dt.datetime.combine(N.dia_habil(i["det"].date(), r["dias_habiles"], feriados), dt.time(23, 59))
             d = norm(r["destinatario"])
             hecha = sorted((n for n in i["notifs"] if n["cuando"] and (d in norm(n["a"]) or norm(n["a"]) in d)), key=lambda n: n["cuando"])
             n = hecha[0] if hecha else None
@@ -1002,10 +1013,10 @@ def amparo(cfg: dict, periodo: str, hoy: dt.date) -> dict:
             k = f"notificacion:{i['id']}:{d}"
             if n and n["cuando"] > tope:
                 al.append(alerta("incident_notification_late", f"{i['id']} → {r['destinatario']}: notificado el {n['cuando'].isoformat(timespec='minutes')}, "
-                                 f"{horas(tope, n['cuando']):g} horas después del plazo de {r['horas']:g} horas{' (' + r['norma'] + ')' if r['norma'] else ''}",
+                                 f"{horas(tope, n['cuando']):g} horas después del plazo de {plazo_de(r)}{' (' + r['norma'] + ')' if r['norma'] else ''}",
                                  [r["cita"], {"archivo": n["fuente"]}], clave=k))
             elif not n and tope < corte:
-                al.append(alerta("incident_notification_late", f"{i['id']} → {r['destinatario']}: la matriz pide notificar en {r['horas']:g} horas"
+                al.append(alerta("incident_notification_late", f"{i['id']} → {r['destinatario']}: la matriz pide notificar en {plazo_de(r)}"
                                  f"{' (' + r['norma'] + ')' if r['norma'] else ''} y la ficha no registra la notificación",
                                  [r["cita"], {"archivo": i["fuente"]}], clave=k))
 

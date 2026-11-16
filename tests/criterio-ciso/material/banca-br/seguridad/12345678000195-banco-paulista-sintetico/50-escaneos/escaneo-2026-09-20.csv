@@ -1,0 +1,16 @@
+Host;Plugin ID;CVE;Name;Risk;CVSS v4.0 Base Score;First Found
+bps-web-01;19506;;Información del escaneo;None;;
+bps-app-01;19506;;Información del escaneo;None;;
+bps-db-01;19506;;Información del escaneo;None;;
+bps-fw-borde-01;19506;;Información del escaneo;None;;
+bps-ad-01;19506;;Información del escaneo;None;;
+bps-correo-01;19506;;Información del escaneo;None;;
+bps-backup-01;19506;;Información del escaneo;None;;
+bps-prueba-07;19506;;Información del escaneo;None;;
+bps-app-01;40001;TLS-DEBIL;Suites de cifrado débiles;Low;3.1;2026-02-01
+bps-web-01;32001;CVE-2099-12001;Ejecución remota en el portal;Critical;9.8;2026-08-20
+bps-fw-borde-01;32002;CVE-2099-12002;Omisión de autenticación en el cortafuegos;High;8.1;2026-09-20
+bps-db-01;32003;CVE-2099-12003;Escalamiento en el motor de base de datos;Medium;5.3;2026-06-01
+bps-backup-01;32004;CVE-2099-12004;Servicio de respaldo expuesto;Medium;5.3;2026-09-20
+bps-correo-01;32005;CVE-2099-12005;Inyección en el servidor de correo;High;8.1;2026-09-20
+bps-ad-01;32006;CVE-2099-12006;Delegación insegura en el directorio;Critical;9.8;2026-09-20

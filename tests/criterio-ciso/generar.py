@@ -93,6 +93,16 @@ def documento(ruta: Path, md: str) -> str:
 
 # ================================================================ las entidades
 
+def cnpj(raiz: str) -> str:
+    """Un CNPJ de catorce dígitos con sus dos verificadores por módulo 11, para que tenga la forma de uno real."""
+    def dv(n: str) -> str:
+        pesos = list(range(2, 10)) * 2
+        r = sum(int(c) * pesos[i] for i, c in enumerate(reversed(n))) % 11
+        return "0" if r < 2 else str(11 - r)
+    d1 = dv(raiz)
+    return raiz + d1 + dv(raiz + d1)
+
+
 ENTIDADES = [
     {"carpeta": "banca-co", "industria": "banca", "pais": "CO", "id": "901555123", "nombre": "Banco Cordillera Sintético", "moneda": "COP",
      "sla": {"critica": 15, "alta": 30, "media": 60, "baja": 120}, "contencion": {"critica": 4, "alta": 24, "media": 72, "baja": 168}, "revision": 10,
@@ -136,6 +146,13 @@ ENTIDADES = [
      "sla": {"critica": 15, "alta": 30, "media": 90, "baja": 180}, "contencion": {"critica": 6, "alta": 24, "media": 72, "baja": 168}, "revision": 15,
      "escaner": "defender-json", "excel": True, "pref": "acs", "sistema": "Sistema de siniestros",
      "supervisor": "Comisión para el mercado financiero", "datos": "Autoridad de protección de datos", "siembra": False},
+    # Brasil, con su normativa real en la matriz de notificaciones: la ANPD en tres días hábiles
+    # (Resolução CD/ANPD nº 15/2024, art. 6º, F-10) y el Banco Central con la comunicación tempestiva de
+    # la Resolução CMN nº 4.893/2021 (art. 20, III, F-11), en las horas que fija la política de la entidad.
+    {"carpeta": "banca-br", "industria": "banca", "pais": "BR", "id": cnpj("123456780001"), "nombre": "Banco Paulista Sintético", "moneda": "BRL",
+     "sla": {"critica": 15, "alta": 30, "media": 60, "baja": 120}, "contencion": {"critica": 4, "alta": 24, "media": 72, "baja": 168}, "revision": 15,
+     "escaner": "ingles-csv", "excel": False, "pref": "bps", "sistema": "Core bancário",
+     "supervisor": "Banco Central do Brasil", "datos": "ANPD", "siembra": True, "brasil": True},
 ]
 
 # ================================================================ Alexis
@@ -397,6 +414,13 @@ def amparo(e: dict, docs: Path) -> tuple[dict, list]:
               [dat, "datos personales", 72, "Ley de protección de datos (sintética)"],
               ["Clientes afectados", "clientes afectados", 72, "Política de comunicación con clientes"],
               ["Comité de riesgos", "todos", 48, "Política de respuesta a incidentes"]]
+    if e.get("brasil"):
+        matriz = [["destinatario", "cuando", "plazo_horas", "plazo_dias_habiles", "norma"],
+                  [sup, "crítica", 24, "", "Resolução CMN nº 4.893/2021, art. 20, III: comunicação tempestiva; 24 horas según la política de la entidad"],
+                  [dat, "datos personales", "", 3, "Resolução CD/ANPD nº 15/2024, art. 6º"],
+                  ["Titulares afectados", "datos personales", "", 3, "Resolução CD/ANPD nº 15/2024, art. 9º"],
+                  ["Clientes afectados", "clientes afectados", 72, "", "Política de comunicación con clientes"],
+                  ["Comité de riesgos", "todos", 48, "", "Política de respuesta a incidentes"]]
     tabla(docs / "00-referencia" / "matriz-notificaciones", matriz, not e["excel"])
     documento(docs / "00-referencia" / "politica-respuesta-incidentes.docx",
               f"# Política de respuesta a incidentes de seguridad\n\n**{e['nombre']}** · versión 2\n\n"
@@ -424,6 +448,11 @@ def amparo(e: dict, docs: Path) -> tuple[dict, list]:
                      "contained_at": h("2026-09-22T07:30", cont["critica"] - 0.5), "closed_on": "2026-09-26", "personal_data": True, "customers_affected": False,
                      "notif": [(sup, 30), (dat, 40), ("Comité de riesgos", 5)], "review": "2026-09-30"})
         esperado.append(("incident_notification_late", f"notificacion:INC-{p}-103:{S.norm(sup)}"))
+        if e.get("brasil"):
+            # Detectado el martes 22: la ANPD, el domingo 27, después del tercer día hábil (viernes 25);
+            # los titulares, el jueves 24, dentro del plazo.
+            incs[-1]["notif"] = [(sup, 30), (dat, 136), ("Titulares afectados", 50), ("Comité de riesgos", 5)]
+            esperado.append(("incident_notification_late", f"notificacion:INC-{p}-103:{S.norm(dat)}"))
         incs.append({"id": f"INC-{p}-104", "title": "Indisponibilidad del portal por denegación de servicio", "severity": "media", "detected_at": "2026-10-01T11:00",
                      "contained_at": h("2026-10-01T11:00", 20), "closed_on": None, "personal_data": False, "customers_affected": True,
                      "notif": [("Comité de riesgos", 8)], "review": None})

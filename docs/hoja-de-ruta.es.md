@@ -18,7 +18,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | Criterio CLO · Contratos y cumplimiento | Fidel, Constanza | 1.8.0 | Laboratorio | Incremento 13 · La entidad pública de Guatemala |
 | Criterio EA · Dirección | Ofelia | 1.4.0 | Estable | Incremento 6 · Las juntas en Claude Meetings |
 | Criterio CCO · El área comercial | Augusto, Valeria | 1.4.0 | Estable | — |
-| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.4.0 | Estable | Incremento 8 · Qualys y Rapid7, cuando tengan su fuente |
+| Criterio CISO · La seguridad de la información | Alexis, Guillermo, Amparo | 1.4.0 | Laboratorio | Incremento 8 · Qualys y Rapid7, cuando tengan su fuente |
 | Rostrum · el portal de todas las familias | — | 1.4.2 | — | — |
 
 ## Cada familia, incremento por incremento
@@ -108,6 +108,7 @@ Todas las familias en un solo documento. Se genera con `scripts/hoja.py` desde l
 | 1.2.0 | Liberada | **El reloj, con un sí**<br>· Al final del setup de la familia, una sola tarea programada que corre lo que toca hoy a cada agente, los días hábiles a las 7:00 como propuesta (decisión 0028)<br>· En Cowork, una tarea de la app; en Claude Code, el programador del equipo; en los dos, solo con un sí explícito<br>· La tarea solo procesa y escribe en el estado; no envía nada<br>· El comando del reloj de cada agente, bien nombrado en la página de la familia: decía share-findings | La verificación completa; el reloj, en la prueba de la versión |
 | 1.3.0 | Liberada | **Más rápida y más liviana**<br>· El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada (decisión 0032)<br>· Los reportes que presentan lo que el motor ya calculó corren con un modelo más pequeño<br>· Rostrum dice cuántos tokens usa cada agente, comando por comando: los de esta organización, solo con un sí, y los de las pruebas | La ronda 3 con Alexis, Guillermo y Amparo y todos sus comandos sobre banca de Colombia: 25 de 25 señales y 8 de 8 datos, ninguna de más |
 | Incremento 8 | Siguiente | **Qualys y Rapid7, cuando tengan su fuente**<br>· El formato de exportación de Qualys y de Rapid7, cada uno desde una fuente verificada de lo que exporta | Su material y su ronda |
+| Incremento 9 | Siguiente | **Brasil**<br>· La matriz de notificaciones con plazos en días hábiles: la ANPD y los titulares en tres días úteis, desde su fuente verificada (F-10, Resolução CD/ANPD nº 15/2024, arts. 6º y 9º)<br>· El Banco Central do Brasil como destinatario, con la comunicación tempestiva de la Resolução CMN nº 4.893/2021 (F-11, art. 20, III) en las horas que fija la política de la entidad<br>· Una entidad financiera de prueba de Brasil, con una notificación tardía a la ANPD sembrada: el motor levanta cada señal, ninguna de más | La prueba del motor sobre la entidad de Brasil: 26 de 26 señales, ninguna de más; la ronda con Alexis, Guillermo y Amparo, por correr |
 
 ## Las familias que vienen
 
