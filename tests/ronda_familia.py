@@ -61,6 +61,9 @@ FAMILIAS = {
              "fichas": {"seguridad": ("alexis", "seguridad/{periodo}/ficha.json"), "vulnerabilidades": ("guillermo", "vulnerabilidades/{periodo}/ficha.json"),
                         "resiliencia": ("amparo", "resiliencia/{periodo}/ficha.json")},
              "periodos": lambda c: {"periodo": c["periodo"]}},
+    "chro": {"resultados": {"norma": "perfiles/{periodo}/resultados.json", "candido": "seleccion/{periodo}/resultados.json"},
+             "fichas": {"perfiles": ("norma", "perfiles/{periodo}/ficha.json"), "seleccion": ("candido", "seleccion/{periodo}/ficha.json")},
+             "periodos": lambda c: {"periodo": c["periodo"]}},
     "ea": {"resultados": {"ofelia": "resultados.json"},
            "fichas": {"reuniones": ("ofelia", "reuniones/{k}.json"), "correspondencia": ("ofelia", "correspondencia/{k}.json"),
                       "viajes": ("ofelia", "viajes/{k}.json")},
@@ -347,11 +350,20 @@ def calificar(a) -> int:
                        "faltantes": sorted(map(list, faltan))},
            "extraccion": {"campos": len(extraccion), "bien": sum(x["bien"] for x in extraccion),
                           "mal": [x for x in extraccion if not x["bien"]]}}
+    # La prueba de sesgo de la CHRO, también con el agente: cada par da lo mismo con la ficha que él escribió.
+    if clave.get("pares") and "candido" in corridos:
+        sys.path.insert(0, str(RAIZ / "plugins" / "criterio-roles" / "scripts"))
+        import talento
+        hallados = sorted(x for e in estados for x in e.glob(F["resultados"]["candido"].format(**per)))
+        res["sesgo"] = {"pares": len(clave["pares"]),
+                        "diferencias": talento.sesgo(_j(hallados[-1]), [tuple(p) for p in clave["pares"]]) if hallados else ["sin resultados de Cándido"]}
     _w(carpeta / "calificacion.json", res)
     print(f"{clave['entidad']} · {', '.join(res['agentes'])} · {tokens / 1e6:.2f} M tokens")
     print(f"  señales: {len(ok)} de {len(esperado)} esperadas, {len(sobran)} de más, {len(faltan)} faltantes")
     print(f"  extracción: {res['extraccion']['bien']} de {res['extraccion']['campos']} campos bien")
-    return 0 if not sobran and not faltan and not res["extraccion"]["mal"] else 1
+    if "sesgo" in res:
+        print(f"  sesgo: {res['sesgo']['pares'] - len(res['sesgo']['diferencias'])} de {res['sesgo']['pares']} pares dan lo mismo")
+    return 0 if not sobran and not faltan and not res["extraccion"]["mal"] and not (res.get("sesgo") or {}).get("diferencias") else 1
 
 
 EVIDENCIAS = RAIZ / "tests" / "evidencias" / "familias"
