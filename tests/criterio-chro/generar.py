@@ -546,18 +546,18 @@ Ninguna hoja de vida se procesa sin la autorización de tratamiento de datos del
             if c["cert_soporte"]:
                 sop = car + "tarjeta-profesional.pdf"
                 documento(docs / sop, f"# Certificación\n\n{r['text']} · vigente hasta el {c['cert_vence']}\n")
-            # El vencimiento sale del soporte (cv-record): sin soporte, la ficha no lo tiene.
+            # El vencimiento, del soporte o, si no llegó, de la hoja de vida (cv-record).
             claims.append({"id": "K3", "type": "certificacion", "text": r["text"], "cv_source": cv, "support": sop, "requirement": r["id"],
-                           **({"expires": c["cert_vence"]} if sop else {})})
+                           "expires": c["cert_vence"]})
         for rid in c["evid"]:
             evid.append({"requirement": rid, "source": cv + ", p. 1"})
         # Cada afirmación se numera en el orden en que la hoja de vida la hace (cv-record).
         for i, k in enumerate(claims, 1):
             k["id"] = f"K{i}"
-        # La certificación con su soporte es la evidencia de su requisito: el soporte lo dice.
-        cert_k = next((k for k in claims if k["type"] == "certificacion" and k["support"]), None)
+        # La certificación es la evidencia de su requisito: en su soporte o, si no llegó, en la hoja de vida.
+        cert_k = next((k for k in claims if k["type"] == "certificacion"), None)
         if cert_k:
-            evid.append({"requirement": cert_k["requirement"], "source": cert_k["support"]})
+            evid.append({"requirement": cert_k["requirement"], "source": cert_k["support"] or cv + ", p. 1"})
         # Lo que llegó y no se debe tratar, con dónde está: la fotografía, en la hoja de vida que la
         # anuncia y en su archivo.
         prot = [{"type": t, "source": cv} for t in c["protegidos"]]

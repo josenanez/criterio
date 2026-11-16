@@ -952,7 +952,8 @@
        "text": "Tarjeta profesional de contador vigente",
        "cv_source": "30-candidatos/VAC-01/CAN-111/hoja-de-vida.pdf",
        "support": null,
-       "requirement": "R4"
+       "requirement": "R4",
+       "expires": "2027-06-30"
       }
      ],
      "evidence": [
@@ -962,6 +963,10 @@
       },
       {
        "requirement": "R2",
+       "source": "30-candidatos/VAC-01/CAN-111/hoja-de-vida.pdf, p. 1"
+      },
+      {
+       "requirement": "R4",
        "source": "30-candidatos/VAC-01/CAN-111/hoja-de-vida.pdf, p. 1"
       }
      ]
