@@ -424,6 +424,8 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "hoja.py")], check=True, capture_output=True)
     subprocess.run([sys.executable, str(RAIZ / "scripts" / "sincronizar.py")], check=True,
                    capture_output=True)
+    # El catálogo de YouTube nombra las familias liberadas: sale con la versión que las libera.
+    subprocess.run([sys.executable, str(RAIZ / "scripts" / "youtube.py")], check=True, capture_output=True)
     print(f"  {v} registrada · {', '.join(f'{s} {fv}' for s, fv in sorted(por_familia.items()))} · base {base} · "
           f"{len(cambios)} cambios desde la anterior · sha256 {e['sha256'][:16]}…")
     if not etiquetar:
@@ -432,7 +434,8 @@ def liberar(v: str, por_familia: dict[str, str], destacados: list[str], etiqueta
     # El commit de la versión lleva el registro, los números de versión y las copias; la
     # etiqueta va sobre ese commit, el que contiene la entrada.
     # La hoja de ruta de todas las familias, docs/hoja-de-ruta.*, también la regenera hoja.py.
-    git("add", "registro", ".claude-plugin", "plugins", "families", "docs/hoja-de-ruta.md", "docs/hoja-de-ruta.es.md")
+    git("add", "registro", ".claude-plugin", "plugins", "families", "docs/hoja-de-ruta.md", "docs/hoja-de-ruta.es.md",
+        "docs/video/youtube_catalog.json")
     git("commit", "-q", "-m", f"Release {v}, entered in the version register")
     git("tag", "-a", f"v{v}", "-m", f"Criterio {v} · entrada SHA-256 {e['sha256']}")
     print(f"  commit {git('rev-parse', '--short', 'HEAD').strip()} y etiqueta v{v}. "
