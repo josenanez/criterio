@@ -1176,7 +1176,7 @@ def main() -> int:
         description="Criterio Product — aritmética sobre el registro de requerimiento.")
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "due", "ran", "corrida",
                                        "corrida-inicio", "plan-lectura", "sellar", "compute",
-                                       "snapshot", "diff", "publish", "overlap", "buscar-raiz", "marcar-raiz", "selftest"])
+                                       "snapshot", "diff", "publish", "overlap", "buscar-raiz", "marcar-raiz", "arranque", "dejar-listo", "selftest"])
     ap.add_argument("--docs", type=Path, default=None,
                     help="carpeta de documentación del producto, para plan-lectura y sellar")
     ap.add_argument("--state", type=Path)
@@ -1200,10 +1200,24 @@ def main() -> int:
     ap.add_argument("--entidad", default=None, help="de quién es la carpeta raíz, para `marcar-raiz`")
     ap.add_argument("--registrar", action="store_true",
                     help="due sin --state: si no toca nada, deja la corrida registrada (el camino corto del reloj)")
+    ap.add_argument("--marcar", action="store_true", help="dejar-listo: marca la carpeta raíz con el sí de la persona")
     args = ap.parse_args()
 
     if args.action == "selftest":
         return selftest()
+
+    if args.action in ("arranque", "dejar-listo"):
+        # Las dos llamadas del setup son las del portafolio, con la validación y el estado del producto.
+        import portafolio as _pf
+        if args.action == "arranque":
+            print(json.dumps(_pf.arranque(args.docs or Path.cwd(), args.idioma or "es"), ensure_ascii=False, indent=2, default=str)[:60000])
+            return 0
+        if not args.config:
+            ap.error("--config es la configuración ya escrita")
+        hoy = dt.date.fromisoformat(args.today) if args.today else None
+        r = _pf.dejar_listo(args.config, check_config, init, args.por, args.marcar, args.entidad, args.idioma, hoy)
+        print(json.dumps(r, ensure_ascii=False, indent=2, default=str))
+        return 0 if r["ok"] else 1
 
     if args.action in ("buscar-raiz", "marcar-raiz"):
         # La carpeta raíz: la busca por su marca y por lo que tiene adentro, y la marca solo con el sí

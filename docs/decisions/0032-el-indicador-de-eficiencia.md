@@ -1,7 +1,7 @@
 # 0032 · El indicador de eficiencia de cada agente, y las tres palancas que lo mueven
 
 **Fecha:** 2026-11-15 · **Estado:** propuesta: el indicador, por publicar en la página de cada agente;
-las palancas 1 y 2, aplicadas en las seis familias y medidas en la CFO, la CLO, la CCO, la CISO y la EA; la 3, aplicada en los once agentes del núcleo común desde la 2.9.0 y por medir en una ronda; en la PMO, por construir · **Modifica:** el reloj de cada
+las palancas 1 y 2, aplicadas en las seis familias y medidas en la CFO, la CLO, la CCO, la CISO y la EA; la 3, aplicada en los once agentes del núcleo común desde la 2.9.0 y en los tres de la PMO después, por medir en una ronda · **Modifica:** el reloj de cada
 agente (0028)
 
 ## Contexto
@@ -47,7 +47,7 @@ muestra lo de cada comando en `/consumo`.
    carpeta de la entidad, su inventario, los términos y la configuración de ejemplo antes de la
    primera pregunta, y `dejar-listo` prepara el estado, valida la configuración, registra la
    aceptación y marca la carpeta en una llamada después de la última. `tests/setup_corto.py` la
-   comprueba en cada verificación. En la PMO, por construir.
+   comprueba en cada verificación. En la PMO, Vera, Samuel y Alba hacen lo mismo con `arranque` y `dejar-listo` de su motor (`portafolio.py` y `producto.py`), con la misma prueba.
 
 ## La primera medición
 
@@ -84,7 +84,7 @@ cuesta unos 29 millones de tokens por industria; sus relojes se probaron con el 
 
 ## Lo que queda abierto
 
-1. La ronda que mida la palanca 3 en los setups del núcleo común, y la palanca 3 en los setups de la PMO.
+1. La ronda que mida la palanca 3 en los setups del núcleo común y de la PMO.
 2. La ronda de la PMO con las palancas 1 y 2.
 3. El indicador en el portal: la página de cada agente, desde `consumo-pruebas.json`, con el modelo
    de la sesión de cada ronda.

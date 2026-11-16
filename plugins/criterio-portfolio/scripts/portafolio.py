@@ -2324,6 +2324,86 @@ def en_su_sitio(config: Path) -> str | None:
             f"carpeta de la sesión; en {config} ningún comando la encuentra")
 
 
+def arranque(desde: Path, idioma: str = "es") -> dict:
+    """El principio del setup, en una llamada (decisión 0032, palanca 3): las carpetas candidatas; si
+    hay una sola, o una marcada, su inventario; los términos que se muestran tal cual, que no esperan
+    a la configuración; y la configuración de ejemplo. Sirve a Vera, a Samuel y a Alba: cada plugin
+    busca lo suyo —el portafolio, un proyecto, un producto— por su nombre."""
+    import tempfile
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import raiz
+    import terminos
+    r = raiz.buscar(desde, raiz.plugin_propio())
+    cand = r.get("candidatas") or []
+    marcadas = [c for c in cand if c.get("marcada")]
+    elegida = marcadas[0] if len(marcadas) == 1 else (cand[0] if len(cand) == 1 else None)
+    out = {"raiz": r, "elegida": elegida["ruta"] if elegida else None}
+    if elegida:
+        with tempfile.TemporaryDirectory() as t:     # el inventario, sin tocar ningún estado todavía
+            out["inventario"] = plan(Path(elegida["ruta"]), Path(t), dict(DEFAULT_EXECUTION))["inventory"]
+    t = terminos.terminos(idioma)
+    out["terminos"] = {"version": t["version"], "fecha": t["fecha"], "en_corto": t["en_corto"],
+                       "nota_legal": terminos.NOTA_LEGAL.get(idioma, terminos.NOTA_LEGAL["es"])}
+    ej = Path(__file__).resolve().parent / "config.example.json"
+    out["ejemplo"] = json.loads(ej.read_text(encoding="utf-8")) if ej.is_file() else {}
+    return out
+
+
+def dejar_listo(config: Path, revisar, iniciar, por: str | None, marcar: bool, entidad: str | None,
+                idioma: str | None, hoy: dt.date | None) -> dict:
+    """El final del setup, en una llamada, con la configuración ya escrita: crea el estado, valida la
+    configuración y, solo si todo está bien, registra la aceptación (con el nombre de quien dijo sí) y
+    deja la marca de la carpeta. `revisar` e `iniciar` son los del motor que llama: el del portafolio
+    y el proyecto, o el del producto."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import raiz
+    import terminos
+    if not config.is_file():
+        return {"ok": False, "problemas": [f"no existe {config}: se escribe antes de dejar todo listo"]}
+    try:
+        cfg = json.loads(config.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        return {"ok": False, "problemas": [f"la configuración no es JSON válido: {e}"]}
+    paths = cfg.get("paths") or {}
+    problemas = []
+    sitio = en_su_sitio(config)
+    if sitio:
+        problemas.append(sitio)
+    if ".criterio/" in str(paths.get("state") or "").replace("\\", "/") + "/":
+        problemas.append("el estado no va dentro de .criterio/: ahí vive la configuración, que se versiona, "
+                         "y las fichas llevan datos del cliente; va junto a la carpeta de documentos")
+    elif paths.get("state"):
+        iniciar(Path(paths["state"]).expanduser())
+    if paths.get("documents") and not Path(paths["documents"]).expanduser().is_dir():
+        problemas.append(f"la carpeta de documentos no existe: {paths['documents']}")
+    def faltas(r: dict) -> list[str]:          # el portafolio dice `problems`; el producto, `missing`
+        return list(r.get("problems") or r.get("missing") or ([r["error"]] if r.get("error") else []))
+
+    def de_terminos(x: str) -> bool:
+        return x.startswith("términos:") or "terms_accepted" in x
+    res = revisar(config)
+    # La aceptación es lo único que este paso completa: si es lo único que falta y hay un sí, se
+    # registra y se valida de nuevo. Cualquier otro problema detiene todo, y no se acepta nada.
+    otros = problemas + [x for x in faltas(res) if not (por and de_terminos(x))]
+    out = {"ok": not otros, "problemas": otros,
+           "documentos": str(Path(paths["documents"]).expanduser()) if paths.get("documents") else None,
+           "estado": str(Path(paths["state"]).expanduser()) if paths.get("state") else None}
+    if otros:
+        return out
+    if por:
+        out["terminos"] = terminos.aceptar(config, por, idioma, hoy)
+        res = revisar(config)
+        out["problemas"] = faltas(res)
+        out["ok"] = not out["problemas"]
+        if not out["ok"]:
+            return out
+    out["configuracion"] = {k: v for k, v in res.items() if k not in ("ok", "problems", "missing")}
+    if marcar:
+        out["marca"] = raiz.marcar(Path(out["documentos"]), raiz.plugin_propio(), entidad, por, hoy)
+        out["ok"] = bool(out["marca"].get("ok"))
+    return out
+
+
 def load_execution(config: Path | None) -> dict:
     ex = dict(DEFAULT_EXECUTION)
     if config and config.exists():
@@ -2591,7 +2671,7 @@ def main() -> int:
     ap.add_argument("action", choices=["init", "config", "terminos", "aceptar", "due", "ran", "corrida",
                                        "corrida-inicio", "index", "plan-lectura", "sellar", "compute", "snapshot",
                                        "diff", "requests", "answered", "impact",
-                                       "historia", "buscar-raiz", "marcar-raiz", "selftest"])
+                                       "historia", "buscar-raiz", "marcar-raiz", "arranque", "dejar-listo", "selftest"])
     ap.add_argument("--state", type=Path, help="state directory holding records/ and snapshots/")
     ap.add_argument("--config", type=Path, default=None)
     ap.add_argument("--docs", type=Path, default=None,
@@ -2621,10 +2701,22 @@ def main() -> int:
     ap.add_argument("--entidad", default=None, help="de quién es la carpeta raíz, para `marcar-raiz`")
     ap.add_argument("--registrar", action="store_true",
                     help="due sin --state: si no toca nada, deja la corrida registrada (el camino corto del reloj)")
+    ap.add_argument("--marcar", action="store_true", help="dejar-listo: marca la carpeta raíz con el sí de la persona")
     args = ap.parse_args()
 
     if args.action == "selftest":
         return selftest()
+
+    if args.action == "arranque":
+        print(json.dumps(arranque(args.docs or Path.cwd(), args.idioma or "es"), ensure_ascii=False, indent=2, default=str)[:60000])
+        return 0
+    if args.action == "dejar-listo":
+        if not args.config:
+            ap.error("--config es la configuración ya escrita")
+        hoy = dt.date.fromisoformat(args.today) if args.today else None
+        r = dejar_listo(args.config, check_config, init, args.por, args.marcar, args.entidad, args.idioma, hoy)
+        print(json.dumps(r, ensure_ascii=False, indent=2, default=str))
+        return 0 if r["ok"] else 1
 
     if args.action in ("buscar-raiz", "marcar-raiz"):
         # La carpeta raíz: la busca por su marca y por lo que tiene adentro, y la marca solo con el sí

@@ -13,11 +13,11 @@
     "muestra": "qué hay escrito, cuatro preguntas, definición contra evidencia",
     "escribe": [
      ".criterio/producto/<código>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/producto.json",
      "<estado>/requirements/<REQ>.json",
-     ".criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)",
-     "<raíz>/_CRITERIO_PRODUCTO.txt (marcar-raiz, con permiso)"
+     ".criterio/terminos/ (dejar-listo: comprobante .md, .pdf y .sha256, y aceptaciones.json)",
+     "<raíz>/_CRITERIO_PRODUCTO.txt (dejar-listo --marcar, con permiso)"
     ]
    },
    "reglas": {
@@ -28,15 +28,11 @@
      "requirement-record"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "corrida",
-     "init",
-     "marcar-raiz",
-     "sellar",
-     "terminos"
+     "dejar-listo",
+     "sellar"
     ],
     "calcula": true
    },

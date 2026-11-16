@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """El setup en dos llamadas (decisión 0032, palanca 3): `arranque` antes de la primera pregunta y
-`dejar-listo` después de la última, en cada agente del núcleo común.
+`dejar-listo` después de la última, en cada agente del núcleo común y en los tres de la PMO.
 
     python3 tests/setup_corto.py
 
@@ -70,6 +70,42 @@ def main() -> int:
                    (codigo, r.get("ok"), bool((r.get("terminos") or {}).get("aceptado")), bool((r.get("marca") or {}).get("ok")),
                     (raiz / cfg["paths"]["state"] / "corridas").is_dir()),
                    (0, True, True, True, True))
+    # La PMO: Vera (el portafolio), Samuel (un proyecto) y Alba (un producto), con su propio motor.
+    pmo = (("criterio-portfolio", "portafolio.py", "criterio-portfolio/input", None, "portafolio"),
+           ("criterio-project", "portafolio.py", "criterio-project/input/PRY-101-pasarela-qr", "PRY-101-pasarela-qr", "proyecto/PRY-101"),
+           ("criterio-product", "producto.py", "criterio-product/input/PRD-QR", "PRD-101-pagos-qr", "producto/PRD-101"))
+    for plugin_, motor_, entrada, carpeta, donde in pmo:
+        motor = RAIZ / "plugins" / plugin_ / "scripts" / motor_
+        with tempfile.TemporaryDirectory() as t:
+            raiz = Path(t)
+            base = raiz / "documentos" / ("productos" if plugin_ == "criterio-product" else "proyectos")
+            docs = base if carpeta is None else base / carpeta
+            shutil.copytree(RAIZ / "tests" / entrada, docs)
+            _, r = correr(raiz, motor, "arranque", "--docs", str(raiz))
+            ok(f"pmo · {plugin_}: arranque elige la carpeta", r.get("elegida"), str(docs.resolve()))
+            ok(f"pmo · {plugin_}: con su inventario, los términos y la configuración de ejemplo",
+               (bool((r.get("inventario") or {}).get("files")), bool((r.get("terminos") or {}).get("en_corto")), bool(r.get("ejemplo"))),
+               (True, True, True))
+            cfg = json.loads((motor.parent / "config.example.json").read_text(encoding="utf-8"))
+            cfg.pop("terms_accepted", None)
+            rutas = {"documents": str(docs), "state": str(raiz / "estado"), "reports": str(raiz / "reportes")}
+            for k in list(cfg.get("paths") or {}):
+                if k not in rutas:
+                    (raiz / k).mkdir(exist_ok=True)
+                    rutas[k] = str(raiz / k)
+            (raiz / "reportes").mkdir(exist_ok=True)
+            cfg["paths"] = {k: rutas[k] for k in (cfg.get("paths") or rutas)}
+            ruta = raiz / ".criterio" / donde / "config.json"
+            ruta.parent.mkdir(parents=True)
+            ruta.write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
+            codigo, r = correr(raiz, motor, "dejar-listo", "--config", str(ruta), "--por", "Prueba", "--marcar", "--entidad", "Prueba")
+            ok(f"pmo · {plugin_}: dejar-listo valida, acepta los términos y marca la carpeta en una llamada",
+               (codigo, r.get("ok"), bool((r.get("terminos") or {}).get("aceptado")),
+                bool((r.get("marca") or {}).get("ok")), (raiz / "estado").is_dir()),
+               (0, True, True, True, True))
+            ruta.write_text(json.dumps(dict(cfg, paths=dict(cfg["paths"], documents=str(raiz / "no-existe"))), ensure_ascii=False), encoding="utf-8")
+            codigo, r = correr(raiz, motor, "dejar-listo", "--config", str(ruta), "--por", "Prueba")
+            ok(f"pmo · {plugin_}: con un problema en la configuración no acepta nada", (codigo, r.get("ok"), "terminos" in r), (1, False, False))
     print()
     print(f"{len(fallas)} falla(s)" if fallas else "todo pasa")
     return 1 if fallas else 0

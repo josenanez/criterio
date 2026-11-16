@@ -13,10 +13,10 @@
     "muestra": "qué encontró en la carpeta, cinco preguntas, las señales de `compute` sobre tres proyectos",
     "escribe": [
      ".criterio/portafolio/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/records/<código>.json (tres)",
-     ".criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)",
-     "<raíz>/_CRITERIO_PORTAFOLIO.txt (marcar-raiz, con permiso)"
+     ".criterio/terminos/ (dejar-listo: comprobante .md, .pdf y .sha256, y aceptaciones.json)",
+     "<raíz>/_CRITERIO_PORTAFOLIO.txt (dejar-listo --marcar, con permiso)"
     ]
    },
    "reglas": {
@@ -27,17 +27,12 @@
      "project-record"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "corrida",
      "corrida-inicio",
-     "init",
-     "marcar-raiz",
-     "plan-lectura",
-     "sellar",
-     "terminos"
+     "dejar-listo",
+     "sellar"
     ],
     "calcula": true
    },

@@ -13,10 +13,10 @@
     "muestra": "qué encontró, cuatro preguntas, compromisos de la última reunión",
     "escribe": [
      ".criterio/proyecto/<código>/config.json",
-     "<estado>/ (init)",
+     "<estado>/ (dejar-listo)",
      "<estado>/records/<código>.json",
-     ".criterio/terminos/ (aceptar: comprobante .md, .pdf y .sha256, y aceptaciones.json)",
-     "<raíz>/_CRITERIO_PROYECTO.txt (marcar-raiz, con permiso)"
+     ".criterio/terminos/ (dejar-listo: comprobante .md, .pdf y .sha256, y aceptaciones.json)",
+     "<raíz>/_CRITERIO_PROYECTO.txt (dejar-listo --marcar, con permiso)"
     ]
    },
    "reglas": {
@@ -26,15 +26,10 @@
      "project-record"
     ],
     "script": [
-     "aceptar",
-     "buscar-raiz",
+     "arranque",
      "compute",
-     "config",
      "corrida",
-     "init",
-     "marcar-raiz",
-     "plan-lectura",
-     "terminos"
+     "dejar-listo"
     ],
     "calcula": true
    },

@@ -53,17 +53,19 @@ Toda cifra derivada —porcentaje, desviación, días, suma, conteo de señales�
 
 Una línea y sigue. **No expliques lo que vas a hacer: hazlo.**
 
-**La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala. Si no, búscala desde la carpeta de esta sesión:
+**La carpeta raíz, primero: búscala, no la pidas.** Casi nadie sabe cuál de sus carpetas es «la carpeta de documentos», y escribir una ruta a mano es donde más se equivoca la gente. Si el argumento trae una ruta, úsala como `--docs`. Si no, búscala desde la carpeta de esta sesión. Una sola llamada trae todo lo que el setup necesita antes de la primera pregunta:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" buscar-raiz --docs <carpeta de la sesión>
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" arranque --docs <carpeta de la sesión>
 ```
 
-Muestra las `candidatas` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«se llama como un producto y tiene `00-definicion/`, `20-metricas/`»—. Si una está marcada con `_CRITERIO_PRODUCTO.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
+Devuelve `raiz` —las carpetas candidatas—, `elegida` —la carpeta si hay una sola o una marcada—, su `inventario`, los `terminos` que se muestran tal cual y la configuración de `ejemplo`.
+
+Muestra las `candidatas` de `raiz` como una lista numerada, una por línea: el número, la carpeta y su `evidencia` en palabras —«se llama como un producto y tiene `00-definicion/`, `20-metricas/`»—. Si una está marcada con `_CRITERIO_PRODUCTO.txt`, va primero: dilo, con la entidad o el caso que dice su marca. **Pide que la persona conteste con el número**, no con una ruta. Si hay una sola candidata, propónla y pide un sí en el texto de tu respuesta, no con una lista de opciones: una lista con una sola opción no es una pregunta. Si no está en la lista, di tal cual `si_no_esta` y no adivines. Con la carpeta elegida —su `ruta` es la que va a la configuración— sigue.
 
 **1. Mira antes de preguntar**
 
-Aplica **document-intake**. Reporta en dos líneas: cuántos documentos, cuántos parecen
+Aplica **document-intake** sobre el `inventario` que trajo `arranque` (solo si la persona eligió otra carpeta, `arranque --docs <la carpeta elegida>` trae el suyo). Reporta en dos líneas: cuántos documentos, cuántos parecen
 material de descubrimiento —entrevistas, tickets, encuestas—, si hay un caso de negocio o
 una definición escrita, de cuándo es lo más reciente, y qué formatos no vas a poder leer.
 
@@ -81,15 +83,17 @@ necesita saberlo antes que nada. No es un impedimento: es el primer hallazgo.
    estado de otro agente** —la del portafolio suele llamarse `estado/`—: cada agente escribe
    en la suya. En la primera ronda Alba guardó en `estado/` y compartió con Vera el registro
    de corridas.
-4. **Los términos.** Corre `python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" terminos --config .criterio/producto/<código>/config.json` y muestra **tal cual** su `en_corto` —el texto vive en `TERMS.es.md`, que viaja con el plugin— con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta. **No la asumas, no la infieras de que siga hablando, y no la registres sin un sí.** Cada versión de la familia se acepta de nuevo, aunque el texto no haya cambiado.
+4. **Los términos.** Muestra **tal cual** el `en_corto` de `terminos`, que ya trajo `arranque` —el texto vive en `TERMS.es.md`, que viaja con el plugin— con el enlace a la nota legal. Pide un sí explícito y el nombre de quien acepta. **No la asumas, no la infieras de que siga hablando, y no la registres sin un sí.** Cada versión de la familia se acepta de nuevo, aunque el texto no haya cambiado.
 
-**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_PRODUCTO.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí:
+**Márcala, si la persona dice que sí.** Pregunta una sola vez: «¿Dejo en esa carpeta el archivo `_CRITERIO_PRODUCTO.txt` para que la reconozcas a primera vista la próxima vez? Es un archivo de texto que dice de quién es; no toca nada más». Con un sí, la marca queda al final, en la misma llamada que deja todo listo (`dejar-listo --marcar --entidad "<el nombre del producto>"`). Con un no, sigue sin marcarla y no lo vuelvas a pedir.
+
+**Deja todo listo antes de levantar la ficha.** Escribe la configuración **en `.criterio/producto/<código>/config.json`** —es donde todos los comandos la buscan— con lo que respondió, tomando el `ejemplo` de `arranque` como forma; `terms_accepted` no se escribe a mano. Con la configuración escrita y el sí a los términos, una sola llamada crea el estado, valida la configuración, registra la aceptación —el comprobante en Markdown y en PDF en `.criterio/terminos/`, su `.sha256` y la entrada en `aceptaciones.json`— y, si la persona dijo que sí, marca la carpeta:
 
 ```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" marcar-raiz --docs <la carpeta elegida> --entidad "<el nombre del producto>" --por "<nombre de quien autoriza>"
+python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" dejar-listo --config .criterio/producto/<código>/config.json --por "<nombre de quien aceptó>" --marcar --entidad "<el nombre del producto>"
 ```
 
-Con un no, sigue sin marcarla y no lo vuelvas a pedir. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
+Sin el sí a la marca, sin `--marcar` ni `--entidad`. Si trae `problemas`, no aceptó ni marcó nada: arréglalos tú y vuelve a correrla; no le muestres el error a la persona salvo que necesites algo de ella. Dile dónde quedó el comprobante. **Es lo único que un agente escribe dentro de los documentos** (ADR 0011), y ningún inventario lo cuenta como documento.
 
 **3. Levanta la ficha del producto y su registro, con lo que ya está escrito**
 
@@ -141,21 +145,7 @@ requerimiento descartado se ve igual que uno que nadie miró.
 
 ## Qué queda configurado
 
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" init   --state <estado>
-```
-
-Con la configuración escrita y el sí dado, registra la aceptación —deja en `.criterio/terminos/` el comprobante en Markdown y en PDF, su archivo `.sha256` y la entrada en `aceptaciones.json`, y la escribe en la configuración—, y dile a la persona dónde quedó:
-
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" aceptar --config .criterio/producto/<código>/config.json --por "<nombre>"
-```
-
-Y verifícala:
-
-```
-python3 "${CLAUDE_PLUGIN_ROOT}/scripts/producto.py" config --config .criterio/producto/<código>/config.json
-```
+El estado, la configuración validada y la aceptación de los términos, que dejó `dejar-listo` en el paso 2.
 
 La configuración lleva también cuánto puede costar una corrida (`execution`: lotes de diez, uno tras otro, hasta cuatrocientos documentos por corrida, sin releer lo que no cambió). **No se pregunta**: son los valores seguros para cualquier plan con ventana de cuota. Si la organización paga por uso y quiere velocidad, lo dice después en la conversación y este comando sube `workers`; nunca lo decide el agente por su cuenta.
 
