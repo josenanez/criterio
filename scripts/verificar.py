@@ -77,6 +77,8 @@ PUERTAS = [
      "El reloj por el camino corto: si no toca nada, el motor deja la corrida registrada en una sola llamada"),
     ("código", [sys.executable, str(RAIZ / "scripts/consumo_pruebas.py"), "--check"],
      "Que lo que cuesta cada comando en las pruebas salga de la evidencia publicada"),
+    ("código", [sys.executable, str(RAIZ / "docs/img/robots_datos.py"), "--check"],
+     "Que el trazo de cada robot que publican el portal y los README salga de robots.py"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-server/scripts/mapa.py"), "--selftest"],
      "El mapa: cada agente por la carpeta de su configuración, y nada que no se haya confirmado"),
     ("código", [sys.executable, str(RAIZ / "plugins/criterio-server/scripts/robots.py"), "--selftest"],

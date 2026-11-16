@@ -36,6 +36,7 @@ AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.normpath(os.path.join(AQUI, '..', '..'))
 sys.path.insert(0, os.path.join(AQUI, '..', '..', 'plugins', 'criterio-server', 'scripts'))
 import robots as trazos  # noqa: E402
+import robots_datos  # noqa: E402
 # El nombre de cada familia —la sigla y la función en palabras— es de familia.json, por medio del
 # registro que escribe scripts/familias.py. Aquí no se escribe ninguno.
 with open(os.path.join(AQUI, '..', '..', 'plugins', 'criterio-server', 'scripts', 'agentes.json'), encoding='utf-8') as _fh:
@@ -1412,13 +1413,6 @@ if __name__ == '__main__':
         guardar(servidor(t), idioma, 'servidor.png')
         for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO:
             guardar_gif(tarjeta(t, nombre), idioma, f'robot-{nombre}.gif')
-    # El trazo de cada robot, solo y con su gesto, para que el portal lo dibuje sin copiarlo.
-    # Es un SVG animado: se mueve igual en un README, en el portal y en Rostrum.
-    os.makedirs(os.path.join(AQUI, 'robots'), exist_ok=True)
-    for nombre in trazos.ORDEN + trazos.ORDEN_CFO + trazos.ORDEN_CLO + trazos.ORDEN_EA + trazos.ORDEN_CCO + trazos.ORDEN_CISO:
-        with open(os.path.join(AQUI, 'robots', f'{nombre}.svg'), 'w', encoding='utf-8') as fh:
-            fh.write(trazos.svg(nombre, ORO, ORO, animado=True) + '\n')
-    # Y como datos, para quien dibuja el robot con su propio marcado: la impresora del portal.
-    with open(os.path.join(AQUI, 'robots', 'robots.json'), 'w', encoding='utf-8') as fh:
-        json.dump(trazos.datos(), fh, ensure_ascii=False, indent=1)
-        fh.write('\n')
+    # El trazo de cada robot, como SVG animado y como datos: docs/img/robots_datos.py, que la
+    # verificación comprueba.
+    robots_datos.main()
