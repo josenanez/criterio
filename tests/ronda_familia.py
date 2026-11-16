@@ -61,7 +61,8 @@ FAMILIAS = {
              "fichas": {"seguridad": ("alexis", "seguridad/{periodo}/ficha.json"), "vulnerabilidades": ("guillermo", "vulnerabilidades/{periodo}/ficha.json"),
                         "resiliencia": ("amparo", "resiliencia/{periodo}/ficha.json")},
              "periodos": lambda c: {"periodo": c["periodo"]}},
-    "chro": {"resultados": {"norma": "perfiles/{periodo}/resultados.json", "candido": "seleccion/{periodo}/resultados.json"},
+    "chro": {"normalizar": lambda ficha, espacio, clave: _chro_elementos(ficha, espacio, clave),
+             "resultados": {"norma": "perfiles/{periodo}/resultados.json", "candido": "seleccion/{periodo}/resultados.json"},
              "fichas": {"perfiles": ("norma", "perfiles/{periodo}/ficha.json"), "seleccion": ("candido", "seleccion/{periodo}/ficha.json")},
              "periodos": lambda c: {"periodo": c["periodo"]}},
     "ea": {"resultados": {"ofelia": "resultados.json"},
@@ -75,6 +76,27 @@ FAMILIAS = {
 COMUNES = {"share-findings"}
 # Lo que el agente escribe de suyo y no extrae de un documento: no se califica contra la clave.
 PROPIOS = {"questions"}
+
+
+def _chro_elementos(ficha: dict, espacio: Path, clave: dict) -> dict:
+    """El elemento del estándar que apoya un requisito vale por su identificador o por su nombre: así lo
+    pide profile-record y así lo resuelve el motor (`_cubre`). Para compararlo con la clave, que lo
+    guarda por su identificador, el nombre se traduce al identificador de la ocupación del perfil (CHRO-6)."""
+    sys.path.insert(0, str(RAIZ / "plugins" / "criterio-roles" / "scripts"))
+    import talento as T
+    cfg = dict(clave["config"]["norma"])
+    cfg.update(_docs=espacio / cfg["paths"]["documents"], _estado=espacio, _raiz=espacio)
+    est = T.estandar(cfg, []) or {}
+    for p in ficha.get("profiles") or []:
+        cod = T.codigo_ocupacion((p.get("occupation") or {}).get("code") or "", est.get("estandar", ""))
+        o = (est.get("ocupaciones") or {}).get(cod)
+        if not o:
+            continue
+        por_nombre = {T.norm(e["nombre"]): e["id"] for e in o["destrezas"] + o["conocimientos"]}
+        for r in p.get("requirements") or []:
+            if r.get("element") and T.norm(r["element"]) in por_nombre:
+                r["element"] = por_nombre[T.norm(r["element"])]
+    return ficha
 
 
 def familia(sigla: str) -> dict:
@@ -338,7 +360,10 @@ def calificar(a) -> int:
         partes = ({k: v for k, v in ref.items()} if "{k}" in patron else {"": ref})
         for k, esperado_k in partes.items():
             hallados = sorted(x for e in estados for x in e.glob(patron.format(k=k, **per)))
-            hecho = dict(_plano(_j(hallados[-1]))) if hallados else {}
+            ficha = _j(hallados[-1]) if hallados else {}
+            if F.get("normalizar") and ficha:
+                ficha = F["normalizar"](ficha, espacio, clave)
+            hecho = dict(_plano(ficha))
             for ruta, valor in _plano(esperado_k):
                 if ruta.split(".")[0] in PROPIOS:
                     continue
