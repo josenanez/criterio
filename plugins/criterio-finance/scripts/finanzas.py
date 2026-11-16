@@ -690,6 +690,24 @@ def leer_factura(ruta: Path) -> dict:
             raiz = ET.fromstring(interno.encode("utf-8"))
         except ET.ParseError as e:
             return {"error": f"el documento dentro de {nombre} no es XML válido: {e}"}
+    d = _leer_documento(raiz)
+    if "error" not in d:
+        d.setdefault("moneda", None)
+        d.setdefault("tasa", None)
+        nombre = _local(raiz.tag)
+        if nombre in ("Invoice", "CreditNote"):
+            # UBL 2.1: la moneda del documento y, si no es la local, la tasa con que se convierte
+            # (`cac:PaymentExchangeRate/cbc:CalculationRate`, anexo técnico de la DIAN).
+            d["moneda"] = (_t(raiz, "DocumentCurrencyCode") or "").strip().upper() or None
+            tc = next((x for x in raiz if _local(x.tag) == "PaymentExchangeRate"), None)
+            d["tasa"] = numero(_t(tc, "CalculationRate")) if tc is not None else None
+        elif nombre == "Comprobante":                               # CFDI 4.0: Moneda y TipoCambio
+            d["moneda"] = (raiz.attrib.get("Moneda") or "").strip().upper() or None
+            d["tasa"] = numero(raiz.attrib.get("TipoCambio"))
+    return d
+
+
+def _leer_documento(raiz) -> dict:
     nombre = _local(raiz.tag)
     if nombre in ("Invoice", "CreditNote"):
         # Las dos son UBL 2.1. La de la DIAN trae el CUFE en `cbc:UUID` (F-01); la de la SUNAT no
@@ -912,7 +930,7 @@ def mayor(cfg: dict, periodo: str) -> Tabla | None:
     if not my_f:
         return None
     t = Tabla(my_f[0], ["cuenta", "debito", "credito"],
-              ["fecha", "tercero", "documento", "comprobante", "centro_costo", "descripcion"],
+              ["fecha", "tercero", "documento", "comprobante", "centro_costo", "descripcion", "moneda", "tasa"],
               (cfg.get("columns") or {}).get("ledger"))
     return None if t.faltan else t
 
@@ -994,10 +1012,51 @@ def _cruzar(banco: list[dict], libros: list[dict], ventana: int) -> tuple[list, 
         if cand:
             quitar(b, min(cand, key=lambda x: abs((x["fecha"] - b["fecha"]).days)), "valor y fecha")
     for b in list(lb):
-        cand = [x for x in ll if abs(x["valor"] - b["valor"]) < 0.005]
+        # Dos movimientos con su referencia y referencias distintas son dos movimientos: la comisión
+        # de septiembre registrada en octubre no es la de octubre, aunque valgan lo mismo.
+        cand = [x for x in ll if abs(x["valor"] - b["valor"]) < 0.005
+                and not (x["referencia"] and b["referencia"] and ident(x["referencia"]) != ident(b["referencia"]))]
         if len(cand) == 1 and len([y for y in lb if abs(y["valor"] - b["valor"]) < 0.005]) == 1:
             quitar(b, cand[0], "valor")
     return pares, lb, ll
+
+
+def _tablas_banco(sub: Path, cols: dict) -> tuple:
+    """El extracto y el auxiliar de libros de una cuenta en un periodo: (extracto, auxiliar, error)."""
+    ex, au = buscar(sub, "extracto", pdf=True), buscar(sub, "auxiliar")
+    if not ex or not au:
+        return None, None, "el extracto" if not ex else "el auxiliar de libros"
+    try:
+        te = Tabla(ex[0], ["fecha", "valor"], ["referencia", "descripcion", "saldo_final", "documento", "debito", "credito"], cols.get("bank_statement"))
+        if te.faltan and "valor" in te.faltan:
+            te = Tabla(ex[0], ["fecha", "debito", "credito"], ["referencia", "descripcion", "saldo_final", "documento"], cols.get("bank_statement"))
+    except ValueError as e:      # un PDF sin texto o sin pdftotext: se dice, no se adivina
+        return ex[0], None, str(e)
+    ta = Tabla(au[0], ["fecha", "valor"], ["referencia", "documento", "descripcion", "saldo_final", "debito", "credito"], cols.get("bank_book"))
+    if ta.faltan and "valor" in ta.faltan:
+        ta = Tabla(au[0], ["fecha", "debito", "credito"], ["referencia", "documento", "descripcion", "saldo_final"], cols.get("bank_book"))
+    return te, ta, None
+
+
+def _pendientes_banco(docs: Path, periodo: str, cuenta: str, ventana: int, cols: dict, hondo: int = 12) -> list[dict]:
+    """Lo que el banco movió y libros no había registrado al cierre de un periodo: pasa al siguiente.
+
+    El extracto de un mes trae solo sus movimientos; la consignación sin identificar de octubre ya no
+    aparece en el de noviembre y sigue sin registrar. Del lado de libros, el auxiliar de cada mes
+    repite lo que sigue abierto (el cheque girado hace dos meses); del lado del banco, se arrastra aquí,
+    con la cita del extracto donde apareció. Hasta doce meses hacia atrás."""
+    sub = docs / periodo / "20-bancos" / cuenta
+    if hondo <= 0 or not sub.is_dir():
+        return []
+    te, ta, err = _tablas_banco(sub, cols)
+    if err or te.faltan or ta.faltan:
+        return []
+    mb = [dict(m, _ruta=te.ruta) for m in _movimientos(te)]
+    ml = _movimientos(ta)
+    a, m = int(periodo[:4]), int(periodo[5:])
+    previo = f"{a - 1}-12" if m == 1 else f"{a}-{m - 1:02d}"
+    mb += _pendientes_banco(docs, previo, cuenta, ventana, cols, hondo - 1)
+    return _cruzar(mb, ml, ventana)[1]
 
 
 def bancos(cfg: dict, periodo: str) -> dict:
@@ -1013,22 +1072,14 @@ def bancos(cfg: dict, periodo: str) -> dict:
     vistas = set()
     for sub in sorted(p for p in carpeta.iterdir() if p.is_dir()) if carpeta.is_dir() else []:
         vistas.add(sub.name)
-        ex, au = buscar(sub, "extracto", pdf=True), buscar(sub, "auxiliar")
-        if not ex or not au:
-            falta = "el extracto" if not ex else "el auxiliar de libros"
-            out["alertas"].append(alerta("reconciliation_stale", f"{sub.name}: falta {falta} del periodo",
+        te, ta, err = _tablas_banco(sub, cols)
+        if err and te is None:
+            out["alertas"].append(alerta("reconciliation_stale", f"{sub.name}: falta {err} del periodo",
                                          {"archivo": rel(sub, docs) + "/"}, clave=f"banco:{sub.name}"))
             continue
-        try:
-            te = Tabla(ex[0], ["fecha", "valor"], ["referencia", "descripcion", "saldo_final", "documento", "debito", "credito"], cols.get("bank_statement"))
-            if te.faltan and "valor" in te.faltan:
-                te = Tabla(ex[0], ["fecha", "debito", "credito"], ["referencia", "descripcion", "saldo_final", "documento"], cols.get("bank_statement"))
-        except ValueError as e:      # un PDF sin texto o sin pdftotext: se dice, no se adivina
-            out["no_procesado"].append({"archivo": rel(ex[0], docs), "motivo": str(e)})
+        if err:
+            out["no_procesado"].append({"archivo": rel(te, docs), "motivo": err})
             continue
-        ta = Tabla(au[0], ["fecha", "valor"], ["referencia", "documento", "descripcion", "saldo_final", "debito", "credito"], cols.get("bank_book"))
-        if ta.faltan and "valor" in ta.faltan:
-            ta = Tabla(au[0], ["fecha", "debito", "credito"], ["referencia", "documento", "descripcion", "saldo_final"], cols.get("bank_book"))
         malas = [(t, t.faltan) for t in (te, ta) if t.faltan]
         if malas:
             for t, f in malas:
@@ -1046,7 +1097,11 @@ def bancos(cfg: dict, periodo: str) -> dict:
             sb = sum(m["valor"] for m in mb)
         if sl is None:
             sl = sum(m["valor"] for m in ml)
-        pares, solo_b, solo_l = _cruzar(mb, ml, ventana)
+        mb = [dict(m, _ruta=te.ruta) for m in mb]
+        a_, m_ = int(periodo[:4]), int(periodo[5:])
+        previo = f"{a_ - 1}-12" if m_ == 1 else f"{a_}-{m_ - 1:02d}"
+        arrastre = _pendientes_banco(docs, previo, sub.name, ventana, cols)
+        pares, solo_b, solo_l = _cruzar(mb + arrastre, ml, ventana)
         transito = [m for m in solo_l if m["valor"] > 0]
         cheques = [m for m in solo_l if m["valor"] < 0]
         nc = [m for m in solo_b if m["valor"] > 0]
@@ -1055,18 +1110,19 @@ def bancos(cfg: dict, periodo: str) -> dict:
         ajustado_libros = sl + sum(m["valor"] for m in nc) + sum(m["valor"] for m in nd)
         dif = ajustado_banco - ajustado_libros
         abiertas = []
-        for m, origen, t in [(m, "libros", ta) for m in solo_l] + [(m, "banco", te) for m in solo_b]:
+        for m, origen, t in [(m, "libros", ta) for m in solo_l] + [(m, "banco", None) for m in solo_b]:
             dias = (corte - m["fecha"]).days if m["fecha"] else None
             clase = ("consignación en tránsito" if m["valor"] > 0 else "cheque pendiente de cobro") if origen == "libros" else \
                     ("nota crédito sin registrar" if m["valor"] > 0 else "nota débito sin registrar")
             abiertas.append({"fecha": iso(m["fecha"]), "valor": redondo(m["valor"]), "referencia": m["referencia"],
                              "descripcion": m["descripcion"], "clase": clase, "dias": dias,
                              "tramo": None if dias is None else "0-30" if dias <= 30 else "31-60" if dias <= 60 else "61-90" if dias <= 90 else "más de 90",
-                             "cita": {"archivo": rel(t.ruta, docs), "fila": m["_fila"]}})
+                             "cita": {"archivo": rel(t.ruta if t is not None else m["_ruta"], docs), "fila": m["_fila"]}})
         c = {"cuenta": sub.name, "saldo_banco": redondo(sb), "consignaciones_transito": redondo(sum(m["valor"] for m in transito)),
              "cheques_pendientes": redondo(sum(m["valor"] for m in cheques)), "notas_credito_sin_registrar": redondo(sum(m["valor"] for m in nc)),
              "notas_debito_sin_registrar": redondo(sum(m["valor"] for m in nd)), "saldo_libros": redondo(sl),
              "diferencia_sin_explicar": redondo(dif), "cruzadas": len(pares), "abiertas": abiertas,
+             "del_periodo_anterior": len(arrastre),
              "por_como": {k: sum(1 for p in pares if p[2] == k) for k in ("referencia", "valor y fecha", "valor")}}
         out["cuentas"].append(c)
         for a in abiertas:
@@ -1211,7 +1267,11 @@ def facturas(cfg: dict, periodo: str, ficha: dict | None = None) -> dict:
                 out["sin_documento"].append({"cuenta": cta, "valor": redondo(v), "cita": my.cita(f, docs)})
             continue
         r = reg.setdefault((lado, doc), {"base": 0.0, "iva": 0.0, "terceros": set(), "asientos": set(), "citas": [],
-                                         "documento": str(f.get("documento")).strip()})
+                                         "documento": str(f.get("documento")).strip(), "monedas": set(), "tasas": set()})
+        if str(f.get("moneda") or "").strip():
+            r["monedas"].add(str(f["moneda"]).strip().upper())
+        if numero(f.get("tasa")) not in (None, 0.0, 1.0):
+            r["tasas"].add(numero(f["tasa"]))
         r[campo] += v
         if f.get("tercero"):
             r["terceros"].add(nit_sin_dv(f["tercero"]))
@@ -1234,12 +1294,22 @@ def facturas(cfg: dict, periodo: str, ficha: dict | None = None) -> dict:
         vistos.add(clave)
         out["cruzadas"] += 1
         signo = -1 if d["tipo"] == "nota de crédito" else 1
-        db, di = r["base"] - signo * (d["base"] or 0), r["iva"] - signo * (d["iva"] or 0)
-        if abs(db) > tol or abs(di) > tol_iva:
+        base_x, iva_x, tol_b, tol_i = (d["base"] or 0), (d["iva"] or 0), tol, tol_iva
+        funcional = str((cfg.get("entity") or {}).get("currency") or "").strip().upper()
+        if d.get("moneda") and funcional and d["moneda"] != funcional:
+            # En otra moneda: la tasa del XML; si no la trae, la del registro, si es una sola.
+            tasa = d.get("tasa") or (next(iter(r["tasas"])) if len(r["tasas"]) == 1 else None)
+            if not tasa:
+                out["no_procesado"].append({"archivo": d["archivo"], "motivo": f"{d['tipo']} {d['numero']} en {d['moneda']} sin tasa de cambio en {en_doc} ni una sola en el registro: no se cruzan valores"})
+                continue
+            base_x, iva_x = base_x * tasa, iva_x * tasa
+            tol_b, tol_i = max(tol, 0.01 * tasa), max(tol_iva, 0.01 * tasa)     # un centavo de la otra moneda
+        db, di = r["base"] - signo * base_x, r["iva"] - signo * iva_x
+        if abs(db) > tol_b or abs(di) > tol_i:
             partes = []
-            if abs(db) > tol:
-                partes.append(f"base {mon(signo * (d['base'] or 0))} en {en_doc} y {mon(r['base'])} en libros")
-            if abs(di) > tol_iva:
+            if abs(db) > tol_b:
+                partes.append(f"base {mon(signo * base_x)} en {en_doc} y {mon(r['base'])} en libros")
+            if abs(di) > tol_i:
                 partes.append(f"{FACTURA[d['pais']]['impuesto']} {mon(signo * (d['iva'] or 0))} en {en_doc} y {mon(r['iva'])} en libros")
             out["alertas"].append(alerta("einvoice_amount_mismatch", f"{d['tipo']} {d['numero']}: " + "; ".join(partes),
                                          [{"archivo": d["archivo"]}] + r["citas"][:3], db + di, clave=f"xml:{d['archivo']}"))
@@ -2821,6 +2891,12 @@ def selftest() -> int:
            (revisar_ficha_cierre({"invoices": {"08019002265431:000-001-01-00000121": {**hn, "source": "x.pdf"}}})[0].startswith("invoices[08019002265431:000-001-01-00000121]"),
             revisar_ficha_cierre({"invoices": {"08019002265431:000-001-01-00000120": {**hn, "source": "x.pdf"}}})), (True, []))
         ok("SAT: un CFDI de otra versión no se lee como 4.0", "error" in leer_factura_texto(factura_sat("A", "1", "2026-09-15", "ABC260101AA1", "XYZ250505BB2", 1, 0.16).replace('Version="4.0"', 'Version="3.3"'), t), True)
+        usd = factura_dian("SETP7", "c" * 96, "2026-10-08", "900123456", "901220330", 12000.0, 0.0).replace('currencyID="COP"', 'currencyID="USD"').replace(
+            "<cbc:IssueDate>2026-10-08</cbc:IssueDate>", "<cbc:IssueDate>2026-10-08</cbc:IssueDate><cbc:DocumentCurrencyCode>USD</cbc:DocumentCurrencyCode>"
+            "<cac:PaymentExchangeRate><cbc:SourceCurrencyCode>USD</cbc:SourceCurrencyCode><cbc:TargetCurrencyCode>COP</cbc:TargetCurrencyCode>"
+            "<cbc:CalculationRate>4050.00</cbc:CalculationRate></cac:PaymentExchangeRate>")
+        fu = leer_factura_texto(usd, t)
+        ok("una factura de la DIAN en dólares trae su moneda y su tasa", (fu.get("moneda"), fu.get("tasa"), fu.get("base")), ("USD", 4050.0, 12000.0))
         ok("la DIAN sigue siendo la DIAN", leer_factura_texto(factura_dian("SETP1", "c" * 96, "2026-09-10", "900123456", "800765432", 10, 1.9), t)["lector"], "dian")
         y = t / "b.xlsx"
         _xlsx(y, [["cuenta", "nombre", "debito"], ["1105", "", 10], ["1110", "Bancos", 5]])
